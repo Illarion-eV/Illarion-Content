@@ -82,25 +82,26 @@ SELECT altar_triggers(ARRAY[
 
  ]]
 
+local common = require("base.common")
 local gods = require("content.gods")
 
 --TODO use list-to-set function
-local _IS_ALTAR_ID = {
+local _IS_ALTAR_ID = common.setFromList({
     -- The list was obtained by SQL command:
     -- SELECT itm_id FROM items WHERE itm_script = 'item.altars' ORDER BY itm_id
-    [361 ] = true,
-    [1162] = true,
-    [1163] = true,
-    [1879] = true,
-    [1880] = true,
-    [2801] = true,
-    [2857] = true,
-    [2872] = true,
-    [3891] = true,
+    361 ,
+    1162,
+    1163,
+    1879,
+    1880,
+    2801,
+    2857,
+    2872,
+    3891,
 
     -- Elara's statue
-    [464] = true,
-}
+    464,
+})
 
 local _MAX_DISTANCE = 1
 

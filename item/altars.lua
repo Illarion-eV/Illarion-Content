@@ -88,38 +88,6 @@ local common = require("base.common")
 local gods = require("content.gods")
 local lookat = require("base.lookat")
 
--- TODO move to a separate file
-local SelectionDialogWrapper = function(User, title, description, buttons, onclose, closeOnMove)
-    onclose = onclose or { func = function() end, args = {} }
-    closeOnMove = closeOnMove or true
-    -- User:inform("#buttons = " .. #buttons)
-    buttons = buttons or {}
-    local callback = function(dialog)
-        if (not dialog:getSuccess()) then
-            onclose.func(table.unpack(onclose.args))
-            return
-        end
-        local index = dialog:getSelectedIndex() + 1
-        if index >= 1 and index <= #buttons then
-            if buttons[index].func ~= nil then
-                buttons[index].func(table.unpack(buttons[index].args))
-            end
-        else
-            User:inform("((Error! No valid function))")
-        end
-    end
-    local sd = SelectionDialog(title, description, callback)
-    for _, btn in ipairs(buttons) do
-        sd:addOption(btn.icon, btn.text)
-    end
-    if closeOnMove then
-        sd:setCloseOnMove()
-    end
-    User:requestSelectionDialog(sd)
-end
-
-
-
 local M = {}
 --
 ----These are the items I need to become a devotee
@@ -252,7 +220,7 @@ local function devotionDialog(User, god)
 
     local candevote, reason_de, reason_en = canDevote(User, god)
     if candevote then
-        SelectionDialogWrapper(User, common.GetNLS(User, "FIXME", "Devote"), explanation, {
+        common.selectionDialogWrapper(User, common.GetNLS(User, "FIXME", "Devote"), explanation, {
             { icon = 0, text = common.GetNLS(User, "FIXME", "FIXME Yes, I do!"),             func = doDevote, args = { User, god } },
             { icon = 0, text = common.GetNLS(User, "FIXME", "FIXME You must be crazy. No!"), func = nil, args = nil },
         })
@@ -261,32 +229,6 @@ local function devotionDialog(User, god)
         local dialog = MessageDialog(common.GetNLS(User, "FIXME", "Devote"), explanation, --[[callback=]]function(d) end)
         User:requestMessageDialog(dialog)
     end
-end
-
-
-local function doDonate(User, god, scrItem)
-    local favourBonus = 0
-    common.InformNLS(User, "FIXME", "FIXME you donate " .. scrItem.number .. " items with id " .. scrItem.id .. " and gain " .. favourBonus .. "favour")
-
-end
-
-local function donationDialog(User, god)
-    -- FIXME
-    User:inform("FIXME not implemented")
-    if true then
-        return
-    end
-    local function callback(dialog)
-        local result = dialog:getResult()
-        if result == MerchantDialog.playerSells then
-            doDonate(User, god, dialog:getSaleItem())
-        end
-    end
-
-    local dialog = MerchantDialog(common.GetNLS(User, "FIXME", "FIXME Sacrifise to " .. gods.getNameEn(god)), callback)
-    dialog:addPrimaryRequest(2551, "Pure something", 666)
-    dialog:addSecondaryRequest(2, "Whole wheat flour", 1)
-    User:requestMerchantDialog(dialog)
 end
 
 local function defile(User, god)
@@ -439,7 +381,6 @@ function M.UseItem(User, SourceItem, ltstate)
         local dialogOptions = {
             -- TODO icons
             { icon = 1060, text = "Pray",   func = gods.pray,          args = { User, god } }, -- 128 - book as in quest, 1060/1061/1089 - open book?
-            { icon = 2831, text = "Donate",   func = donationDialog,          args = { User, god } }, -- 1367 - tresure chest, 2830 - mysterious chest, 2831 - open chest
             { icon = 372, text = "Defile", func = defile,        args = { User, god } }, -- 157 - rotten bark, 26 - clay, 2038/2039 - skull, 3101/3102 - blood, 372 - poison cloud
         }
         if gods.isPriest(User, god) then
@@ -458,7 +399,7 @@ function M.UseItem(User, SourceItem, ltstate)
             )
         end
 
-        SelectionDialogWrapper(User, "Altar.", description, dialogOptions)
+        common.selectionDialogWrapper(User, "Altar.", description, dialogOptions)
 --
 --        if (god > 5) then
 --            -- anything else is only for the younger gods

@@ -48,67 +48,6 @@ local  zhambra = require("content._gods.zhambra")
 local  ronagan = require("content._gods.ronagan")
 
 
---TODO move to a separate file
----
--- Turn a list into a "set"
--- Use set[item] to check if an item is contained in set
--- Taken from: http://lua-users.org/wiki/SetOperations
--- For more operaions (union, intersection) see the above and also https://www.lua.org/pil/13.1.html
---@param t list of values to be included in the set
-local function set(t)
-    local s = {}
-    for _,v in pairs(t) do s[v] = true end
-    return s
-end
-
----
--- Take two sets and create a union (set containing all items from the sets, without repetition)
--- @param a - a set
--- @param b - a set
-local function setUnion(a, b)
-    local s = {}
-    for v, _ in pairs(a) do s[v] = true end
-    for v, _ in pairs(b) do s[v] = true end
-    return s
-end
-
---- Sample from categorical distribution, e.g. rolling an N-sided die
--- @param cumulativeProb - array of legth N - cumulative sum of probabilities
---          should be monotonic non-decreasing, first element is the probability of first category
---          every other element is sum of previous element and probability of current category
---          last element should be 1
--- @return int - the index of category that won
---
-local function randomCategorical(cumulativeProb)
-    local r = math.random()
-    local category
-    for i,v in ipairs(cumulativeProb) do
-        if r <= v then
-            category = i
-            break
-        end
-    end
-    assert(category, "Failed sampling categorical distribution, last cumulativeProbability was " .. cumulativeProb[#cumulativeProb])
-    return category
-end
-
---- Sample from multinomial distribution, i.e. repeated categorical trials
--- @param numTrials - number of categorical trials to simulate. Sum of values in returned array will be equal to this.
--- @param cumulativeProb - cumulative sum of probabilities, same as in randomCategorical function
--- @return array of integers - number of times each category won
---
-local function randomMultinomial(numTrials, cumulativeProb)
-    local result = {}
-    for i = 1, #cumulativeProb do
-        result[i] = 0
-    end
-    for _ = 1, numTrials do
-        local category = randomCategorical(cumulativeProb)
-        result[category] = result[category] + 1
-    end
-    return result
-end
-
 local M = {}
 
 -- Overview of queststatus:
@@ -161,11 +100,11 @@ M._YOUNGER_GODS_LIST = {M.GOD_NARGUN,M.GOD_ELARA,M.GOD_ADRON,M.GOD_OLDRA,M.GOD_C
             M.GOD_IRMOROM,M.GOD_SIRANI,M.GOD_ZHAMBRA,M.GOD_RONAGAN,M.GOD_MOSHRAN};
 M._ELDER_GODS_LIST = {M.GOD_USHARA, M.GOD_BRAGON, M.GOD_ELDAN, M.GOD_TANORA, M.GOD_FINDARI}
 
-M.YOUNGER_GODS = set(M._YOUNGER_GODS_LIST)
-M.ELDER_GODS = set(M._ELDER_GODS_LIST)
-M.GODS = setUnion(M.ELDER_GODS, M.YOUNGER_GODS)
+M.YOUNGER_GODS = common.setFromList(M._YOUNGER_GODS_LIST)
+M.ELDER_GODS = common.setFromList(M._ELDER_GODS_LIST)
+M.GODS = common.setUnion(M.ELDER_GODS, M.YOUNGER_GODS)
 
-M.RESPECTED_GODS = setUnion(M.ELDER_GODS, M.YOUNGER_GODS)  -- copy of M.GODS
+M.RESPECTED_GODS = common.setUnion(M.ELDER_GODS, M.YOUNGER_GODS)  -- copy of M.GODS
 M.RESPECTED_GODS[M.GOD_MOSHRAN] = nil  -- ban Moshran
 
 --- A 2D array of probabilities (from 0 to 1) for jealosusy between young gods.
@@ -428,7 +367,7 @@ function M.increaseFavour(User, godOrdinal, amount)
     local absAmount = math.abs(amount)
     local changes = {}
     -- randomly distribute the change between other gods
-    for i,v in ipairs(randomMultinomial(absAmount, M._JEALOUSY_CUMULATIVE_PROBABILITY[youngerOrdinal])) do
+    for i,v in ipairs(common.randomMultinomial(absAmount, M._JEALOUSY_CUMULATIVE_PROBABILITY[youngerOrdinal])) do
         changes[i] = jealosySign * v
     end
     assert(changes[youngerOrdinal] == 0, "Gods shouldn't be jealous to themselves")
@@ -478,7 +417,7 @@ function M.favourDecay(User, multiplier)
         --choose a god randomly
         local randYoungOrdinal = math.random(#M._youngerOrdinalToObj)
         -- translate from young god index to regular god enum and apply the correct directon of change
-        changes[M._youngerOrdinalToObj[randYoungOrdinal]] = changes[M._youngerOrdinalToObj[randYoungOrdinal]] + unbalancedSign
+        changes[M._youngerOrdinalToObj[randYoungOrdinal]] = changes[M._youngerOrdinalToObj[randYoungOrdinal]] + unbalancedSign*1
     end
     local checkSum = 0
     for _,curGodObj in pairs(M._youngerOrdinalToObj) do

@@ -15,7 +15,8 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- Cooldowns for favour/gods/priest system
--- EffectID = gods_cooldwons_common.EFFECT_ID
+-- EffectID == gods_cooldwons_common.EFFECT_ID == 600
+-- INSERT INTO longtimeeffects (lte_effectid, lte_effectname, lte_scriptname) VALUES (600, 'Gods cooldowns', 'lte.gods_cooldowns');
 
 local common = require("base.common")
 local math = require("math")
