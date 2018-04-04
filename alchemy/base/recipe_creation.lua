@@ -20,6 +20,21 @@ local alchemy = require("alchemy.base.alchemy")
 
 local M = {}
 
+local SelectPlantCategory
+local SelectPlant
+local SelectGemDust
+local BottleFromCauldron
+local SelectFillIntoCauldron
+local SelectEssenceBrewOption
+local SelectActiveSubstance
+local SelectConcentration
+local RemoveLastIngredient
+local ShowStockEssence
+local FinishRecipe
+local CheckAmount
+local AddToRecipe
+local WantToAbort
+
 -- called by item.id_463_quill
 function M.FirstMenu(User, ListOfIngredients)
     local getText = function(deText,enText) return common.GetNLS(User,deText,enText) end
