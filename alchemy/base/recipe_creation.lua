@@ -74,7 +74,7 @@ function M.FirstMenu(User, ListOfIngredients)
     dialog:addOption(0, getText("Pflanzen","Plants"))
     dialog:addOption(0, getText("Edelsteinstaub", "Gem powder"))
     dialog:addOption(0, getText("Kessel befüllen","Fill into the cauldron"))
-    dialog:addOption(0, getText("Kesslinhalt abfüllen","Bottle cauldron content"))
+    dialog:addOption(0, getText("Kesselinhalt abfüllen","Bottle cauldron content"))
     dialog:addOption(0, getText("Letzte Zutat entfernen","Remove last ingredient"))
     dialog:addOption(0, getText("Rezept betrachten","Show recipe"))
     dialog:addOption(0, getText("Rezept fertigstellen","Finish recipe"))
@@ -156,11 +156,11 @@ function SelectPlant(User, ListOfIngredients, category, currentEssenceList)
                     SelectPlant(User, ListOfIngredients, category)
                 else
                     if #currentEssenceList == 9 then
-                        User:inform("Du kannst nicht mehr als acht Pflanzen einem Essengebräu hinzutun.","You cannot add more than eight plants to an essence brew.",Character.lowPriority)
+                        User:inform("Du kannst nicht mehr als acht Pflanzen zu einem Essengebräu hinzutun.","You cannot add more than eight plants to an essence brew.",Character.lowPriority)
                         SelectEssenceBrewOption(User, ListOfIngredients, currentEssenceList)
                     else
                         table.insert(currentEssenceList,PLANTS[category][selected-1])
-                        User:inform("Wurde dem Essenzgebräu hinzugefügt: "..world:getItemName(PLANTS[category][selected-1],Player.german),"Has beend added to the essence brew: "..world:getItemName(PLANTS[category][selected-1],Player.english),Character.lowPriority)
+                        User:inform("Wurde dem Essenzgebräu hinzugefügt: "..world:getItemName(PLANTS[category][selected-1],Player.german),"Has been added to the essence brew: "..world:getItemName(PLANTS[category][selected-1],Player.english),Character.lowPriority)
                         SelectPlant(User, ListOfIngredients, category, currentEssenceList)
                     end
                 end
@@ -326,7 +326,7 @@ function SelectEssenceBrewOption(User, ListOfIngredients, currentEssenceList)
                     User:inform("Es befinden sich keine Pflanzen zum Entfernen im Essenzgebräu.","There are no plants to be removed in the essence brew.")
                 else
                     local removed = table.remove(currentEssenceList)
-                    User:inform("Wurde vom Essenzgebräu entfernt: "..world:getItemName(removed,Player.german),"Has been remove from the essence brew: "..world:getItemName(removed,Player.english),Character.lowPriority)
+                    User:inform("Wurde vom Essenzgebräu entfernt: "..world:getItemName(removed,Player.german),"Has been removed from the essence brew: "..world:getItemName(removed,Player.english),Character.lowPriority)
                 end
                 SelectEssenceBrewOption(User, ListOfIngredients, currentEssenceList)
             else
@@ -396,7 +396,7 @@ function SelectActiveSubstance(User, ListOfIngredients, currentConcentrations)
         end
     end
 
-    local dialog = SelectionDialog(getText("Rezepterstellung","Recipe creation"), getText("Wähle einen Wirkstoff aus, um dessen Konzentartion festzusetzen. Wähle 'Sud dem Rezept hinzufügen', wenn du damit fertig bist.","Select an active substance to determine its concentration. If you are done, choose 'Add stock to the recipe'"), callback)
+    local dialog = SelectionDialog(getText("Rezepterstellung","Recipe creation"), getText("Wähle einen Wirkstoff aus, um dessen Konzentration festzusetzen. Wähle 'Sud dem Rezept hinzufügen', wenn du damit fertig bist.","Select an active substance to determine its concentration. If you are done, choose 'Add stock to the recipe'"), callback)
 
     dialog:addOption(0, getText("Zurück","Back"))
     local activeSubstances = alchemy.wirkstoff
@@ -637,7 +637,7 @@ function FinishRecipe(User, ListOfIngredients)
                 world:changeItem(parchment)
             end
         else
-            User:inform("Du hast die Rezeptbenennung abgebrochen.","You abroted the naming of the recipe.",Character.lowPriority)
+            User:inform("Du hast die Rezeptbenennung abgebrochen.","You aborted the naming of the recipe.",Character.lowPriority)
             M.FirstMenu(User, ListOfIngredients)
         end
     end
