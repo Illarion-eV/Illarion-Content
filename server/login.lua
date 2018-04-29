@@ -228,12 +228,14 @@ local payTaxes
 local receiveGems
 local PayOutWage
 local payNow
+local PrisonCheck
 
 function M.onLogin( player )
 
     skillTransfer.setQuestStatusForNoSkillChars(player)
 
     welcomeNewPlayer(player)
+	prisonCheck(player)
 
     world:gfx(31, player.pos) --A GFX that announces clearly: A player logged in.
 
@@ -322,6 +324,8 @@ function M.onLogin( player )
     if not found then
         player.effects:addEffect(LongTimeEffect(33, 10))
     end
+	
+	
 end
 
 function showNewbieDialog(player)
@@ -701,5 +705,16 @@ function exchangeFactionLeader( playerName )
         end
     end
 end
+
+function prisonCheck(User)
+    if not common.isInPrison(User.pos) and User:getQuestProgress(25) > 0 then 
+          User:warp( position(-495,-484,-40) )
+		  common.HighInformNLS( User,
+            "Sie werden nicht durchgefuhrt, das Ihre Zeit im Gefangnis noch! ",
+            "You are not done serving your time in prison yet!")
+    end
+end
+
+
 
 return M
