@@ -16,7 +16,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
 local licence = require("base.licence")
-local id_165_blue_bottle = require("alchemy.item.id_165_blue_bottle")
 
 local M = {}
 
@@ -828,6 +827,68 @@ function M.CombineStockEssence( User, stock, essenceBrew)
     end
 end
 
+-- COPIED from alchemy.id_165_blue_bottle
+-- Some circular requiring messed up the code. Therefore, I put the functions here as well.
+-- Bad coding. Will be removed once I bother to do it properly.
+local function SupportEssenceBrew(User,support,essenceBrew)
+
+    -- no effects yet, support has no effect, essenceBrew is unchanged
+
+    local cauldron = common.GetFrontItem( User )
+    -- remove the support
+    M.RemoveAll(cauldron)
+    -- fill in the brew
+    M.FillFromTo(essenceBrew,cauldron)
+    world:changeItem(cauldron)
+    world:gfx(1,cauldron.pos)
+end
+
+-- COPIED from alchemy.id_165_blue_bottle
+-- Some circular requiring messed up the code. Therefore, I put the functions here as well.
+-- Bad coding. Will be removed once I bother to do it properly.
+local function SupportPotion(User,support,potion)
+    local cauldron = common.GetFrontItem( User )
+    local supportEffectId = tonumber(support:getData("potionEffectId"))
+
+    local supportQuality, potionQuality, bottle
+    if support.id >= 1008 and support.id <= 1018 then
+        supportQuality = tonumber(support:getData("potionQuality"))
+        potionQuality = potion.quality
+        bottle = potion
+    else
+        supportQuality = support.quality
+        potionQuality = tonumber(potion:getData("potionQuality"))
+        bottle = support
+    end
+    if (supportEffectId >= 400) and (supportEffectId <= 406) then -- quality raiser
+    -- list with potions in cauldron and bottle
+    local cauldronPotion = {1011,1016,1013,1009,1015,1018,1017}
+    local bottlePotion   = {327 ,59  ,165 ,329 ,166 ,167 ,330}
+
+    if (potion.id == cauldronPotion[supportEffectId-399]) or (potion.id == bottlePotion[supportEffectId-399]) then -- support and potion belong together
+
+    supportQuality = common.Limit(math.floor(supportQuality/100), 1, 9)
+    local chance = supportQuality*9  -- support quality * 9 = chance that potion's quality is increased
+    if common.Chance(chance, 100)==true then
+        potionQuality = common.Limit(potionQuality+100, 100, 999) -- new quality
+        world:gfx(53,cauldron.pos)
+    else -- no success, quality stays the same
+    world:gfx(1,cauldron.pos)
+    end
+
+    else
+        world:gfx(1,cauldron.pos)
+    end
+
+    else
+        world:gfx(1,cauldron.pos)
+    end
+    M.RemoveAll(cauldron)
+    M.FillFromTo(potion,cauldron)
+    cauldron:setData("potionQuality",potionQuality) -- here we set the new quality, in case the quality raiser was successfull
+    world:changeItem(cauldron)
+end
+
 function M.FillIntoCauldron(User,SourceItem,cauldron,ltstate)
     -- function to fill stock, essencebrew or potion into a cauldron
     -- is the char an alchemist?
@@ -870,7 +931,7 @@ function M.FillIntoCauldron(User,SourceItem,cauldron,ltstate)
 
     elseif cauldron:getData("filledWith") == "potion" then
         if cauldron.id == 1013 then -- support potion
-        id_165_blue_bottle.SupportEssenceBrew(User,cauldron,SourceItem)
+        SupportEssenceBrew(User,cauldron,SourceItem)
         else
             M.CauldronDestruction(User,cauldron,2)
         end
@@ -892,7 +953,7 @@ function M.FillIntoCauldron(User,SourceItem,cauldron,ltstate)
 
     elseif cauldron:getData("filledWith") == "potion" then
         if cauldron.id == 1013 then -- support potion
-        id_165_blue_bottle.SupportPotion(User,cauldron,SourceItem)
+        SupportPotion(User,cauldron,SourceItem)
         else
             M.CauldronDestruction(User,cauldron,2)
         end
