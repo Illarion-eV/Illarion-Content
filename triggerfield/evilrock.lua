@@ -61,9 +61,12 @@ local common = require("base.common")
 local class = require("base.class")
 local character = require("base.character")
 local areas = require("content.areas")
-local vision = require("content.vision")
+--local vision = require("content.vision") !!!
 local M = {}
 
+-- IMPORTANT
+-- I commented lines out which cause trouble due to circular requiring. Search for !!! to find those files.
+-- content.vision requires triggerfield.evilrock and vice vera.
 
 local triggerFlameFire={position(990,252,0),position(989,253,0),position(988,252,0),position(987,253,0),position(986,252,0),position(985,253,0)}
 local triggerFlameIce={position(990,253,0),position(989,252,0),position(988,253,0),position(987,252,0),position(986,253,0),position(985,252,0)}
@@ -298,7 +301,7 @@ function M.MoveToField(char)
     local AmountVision = #triggerVision
     for i = 1,AmountVision do
         if (char.pos == triggerVision[i]) and math.random(1,100)< 81 then
-            local AmountStory = #vision.VisionTextDE[VisionStory[i]]
+            --local AmountStory = #vision.VisionTextDE[VisionStory[i]]
             local TypeStory = VisionStory[i]
             attendants[char.name] = world:getPlayersInRangeOf(position(940,200,0), 90)
             for k,player in ipairs(attendants[char.name]) do
