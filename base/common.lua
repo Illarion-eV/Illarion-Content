@@ -54,7 +54,7 @@ function M.TalkNLS(User, method, textInDe, textInEN)
 end
 
 ---
--- Notify user about an error and write it to log
+-- Notify user about an error, write it to log and raise exception (stop the execution)
 -- @param User The character who receives the message
 -- @param message The error message as string. In English. Should end with "."
 function M.informError(User, message)
