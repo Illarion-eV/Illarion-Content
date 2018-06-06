@@ -388,7 +388,9 @@ function M.GetFreePositions(centerPosition, searchRadius, allowPassableItems, sh
 end
 
 -- Get one random free location
-function M.getFreePos(CenterPos, Rad)
+function M.getFreePos(CenterPos, Rad, allowPassableItems)
+    allowPassableItems = allowPassableItems or false
+    
     local pos = M.GetFreePositions(CenterPos, Rad, false, true)()
     if pos == nil then
         return CenterPos
@@ -2044,15 +2046,15 @@ function M.CreateRandomNumberList(AmntElements, minval, maxval)
    return reslist
 end
 
---[[Searches the Online List for a Player by name
+--[[Searches the Online List for a Player by name or id
     if a player was found it returns: true, Char Struct
 --     if not, nil]]
 
-function M.CheckIfOnline(playername)
+function M.CheckIfOnline(playerame, playerId)
     local playerlist = world:getPlayersOnline()
 
     for i = 1, #(playerlist) do
-        if playerlist[i].name == playername then
+        if playerlist[i].name == playername or playerlist[i].name == playerId then
         return playerlist[i]
         end
     end

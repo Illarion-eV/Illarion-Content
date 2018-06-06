@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local factionLeader = require("scheduled.factionLeader")
+local petsystem = require("petsystem.base")
 
 local M = {}
 
@@ -51,6 +52,9 @@ function M.onLogout( theChar )
     if theChar.name == "Valerio Guilianni" or theChar.name == "Rosaline Edwards" or theChar.name == "Elvaine Morgan" then
         exchangeFactionLeader( theChar.name )
     end
+    
+    --Handle pets
+    petsystem.logOutPet(theChar)
 end
 
 return M

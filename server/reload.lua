@@ -22,6 +22,7 @@ local lever = require("item.lever")
 local granorsHut = require("content.granorsHut")
 local oldSlimeFeeding = require("content.oldSlimeFeeding")
 local shipmasterParchments = require("content.shipmasterParchments")
+local petsystemBase = require("petsystem.base")
 
 local M = {}
 
@@ -31,6 +32,11 @@ function M.onReload()
     lever.init()
     granorsHut.potionReplacer()
     shipmasterParchments.checkParchments()
+    
+    local playersOnline = world:getPlayersOnline()
+    for _, player in pairs(playersOnline) do
+        petsystemBase.loadPet(player)
+    end
 
     return true
 end

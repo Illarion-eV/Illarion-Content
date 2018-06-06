@@ -26,6 +26,7 @@ local skillTransfer = require("base.skillTransfer")
 local areas = require("content.areas")
 local hairdresser = require("npc.hairdresser")
 local seafaring = require("base.seafaring")
+local petsystem = require("petsystem.base")
 -- Called after every player login
 
 local M = {}
@@ -322,6 +323,9 @@ function M.onLogin( player )
     if not found then
         player.effects:addEffect(LongTimeEffect(33, 10))
     end
+    
+    --Handle pets
+    petsystem.loadPet(player)
 end
 
 function showNewbieDialog(player)
