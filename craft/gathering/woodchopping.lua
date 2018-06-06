@@ -39,15 +39,15 @@ local function AddTree(TreeId, TrunkId, LogId, HeartwoodId, BoughId, Amount, Bou
     TreeItems[TreeId] = treeTable
 end
 
-AddTree(  11,125,2560,3786,  56,11,0.075,0); -- apple tree
-AddTree(  14,125,2560,3786,  56,11,0.075,0); -- apple tree
-AddTree( 299,541, 543,3786,  56,11,0.075,0); -- cherry tree
-AddTree( 300,541, 543,3786,  56,11,0.075,0); -- cherry tree
-AddTree( 308,309,   3,3786,  56,10,0.075,0); -- fir tree
-AddTree( 586,587, 544,3786,  56,10,0.075,0.06); -- cachdern tree
-AddTree(1804,542, 544,3786,  56,11,0.075,0.06); -- naldor tree
-AddTree(1809,584, 544,3786,  56,11,0.075,0); -- eldan oak
-AddTree(1817,585,   3,3786,  56,11,0.075,0); -- scandrel pine
+AddTree(  11,125,2560,3786,  56,10,0,0); -- apple tree
+AddTree(  14,125,2560,3786,  56,10,0,0); -- apple tree
+AddTree( 299,541, 543,3786,  56,10,0,0); -- cherry tree
+AddTree( 300,541, 543,3786,  56,10,0,0); -- cherry tree
+AddTree( 308,309,   3,3786,  56,13,0.23,0); -- fir tree
+AddTree( 586,587, 544,3786,  56,10,0,0.06); -- cachdern tree
+AddTree(1804,542, 544,3786,  56,11,0,0.06); -- naldor tree
+AddTree(1809,584, 544,3786,  56,11,0,0); -- eldan oak
+AddTree(1817,585,   3,3786,  56,13,0.23,0); -- scandrel pine
 
 local unchoppableTrees = {}
 unchoppableTrees[203] = true
