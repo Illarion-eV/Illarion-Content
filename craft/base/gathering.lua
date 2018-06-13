@@ -152,14 +152,14 @@ function GatheringCraft:FindRandomItem(User)
         end
     end
 
-    if (self.Shard > 0) then
+    --[[if (self.Shard > 0) then
         local rand = math.random();
         if(rand < self.Shard*self.FastActionFactor) then
             shard.createShardOnUser(User)
             common.InformNLS(User, self.ShardMsg[1], self.ShardMsg[2]);
             return true;
         end
-    end
+    end]] -- Search tag: #123
 
     if (#self.Monsters > 0) then
         local ra = math.random(#self.Monsters);
