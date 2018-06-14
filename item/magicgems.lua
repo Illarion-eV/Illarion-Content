@@ -28,7 +28,7 @@ function M.LookAtItem(user, item)
     local lookAt = lookat.GenerateLookAt(user, item)
 
     local data = {}
-    data.gemLevel = tonumber(item:getData(gems.levelDataKey))
+    data.gemLevel = tonumber(item:getData(gems.levelDataKey)) or 1 --If the gem has no level set, it's 1 by default.
 
     lookAt = gems.lookAtFilter(user, lookAt, data)
 

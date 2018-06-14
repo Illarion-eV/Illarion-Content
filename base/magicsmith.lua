@@ -127,7 +127,7 @@ function M.handleSocketing(user, gem)
                 local level = item:getData(key)
 
                 if level == "" then
-                    local newLevel = gem:getData(gems.levelDataKey)
+                    local newLevel = tonumber(gem:getData(gems.levelDataKey)) or 1 --If the gem has no level set, it's 1 by default.
                     item:setData(key, newLevel)
                     world:erase(gem, 1)
                     world:changeItem(item)
