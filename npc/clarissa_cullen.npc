@@ -53,19 +53,19 @@ beardID = 0
 colorHair = 205, 102, 29
 colorSkin = 232, 187, 145
 itemHead = 0
-itemChest = 2400
+itemChest = 1445
 itemCoat = 2419
 itemMainHand = 0
-itemSecondHand = 0
+itemSecondHand = 95
 itemHands = 1465
-itemTrousers = 1499
-itemShoes = 1511
+itemTrousers = 2193
+itemShoes = 1517
 
 ------------------------------------------------------------------------------AC
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Clarissa Cullen, the Priestess of Zhambra. Keywords: Hello, god.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Clarissa Cullen, eine Priesterin des Zhambra. Schlüsselwörter: Hallo, Gott.")
+"Help" -> inform("[Game Help] This NPC is Clarissa Cullen, the Priestess of Zhambra. Keywords: Hello, god, Zhambra.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Clarissa Cullen, eine Priesterin des Zhambra. Schlüsselwörter: Hallo, Gott, Zhambra.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted!"
@@ -80,7 +80,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Until we meet again, friend
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> " Ich bin Clarissa Cullen. Freut mich euch kennen zu lernen."
 
 -- Mandatory: Trade Hooks, use the trade consequence for traders
-"sell", "buy", "wares", "price", "trade", "purchase" -> "Merchants you can find at the market place."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "You can find merchants in the market place."
 "kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Händler kannst du am markt finden."
 
 -- OPTIONAL TRIGGERS
