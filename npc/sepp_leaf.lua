@@ -1,16 +1,13 @@
 --[[
 Illarion Server
-
 This program is free software: you can redistribute it and/or modify it under
 the terms of the GNU Affero General Public License as published by the Free
 Software Foundation, either version 3 of the License, or (at your option) any
 later version.
-
 This program is distributed in the hope that it will be useful, but WITHOUT ANY
 WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
 PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
-
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
@@ -21,13 +18,13 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local globalvar = require("base.globalvar")
 
-local teamNorth = {}
-local teamSouth = {}
+local teamEast = {}
+local teamWest = {}
 local itemOnion
 
 local GAME_LEVEL_Z = -3
-local posVictorySouth = position(263,675,GAME_LEVEL_Z)
-local posVictoryNorth = position(269,675,GAME_LEVEL_Z)
+local posVictoryWest = position(263,675,GAME_LEVEL_Z)
+local posVictoryEast = position(269,675,GAME_LEVEL_Z)
 local refereePos = position(267,675,GAME_LEVEL_Z)
 
 local borderW = 675
@@ -37,8 +34,12 @@ local borderC = 267
 local borderN = 275
 
 local TEAM_NO = 0
-local TEAM_SOUTH = 1
-local TEAM_NORTH = 2
+local TEAM_WEST = 1
+local TEAM_EAST = 2
+
+local CHECK_OK = 0
+local CHECK_NOT_IN_FIELD = 1
+local CHECK_HIT = 2
 
 local ITEM_ID_ONION = 201
 
@@ -147,15 +148,15 @@ local function removeAllBalls(npc)
     end
 end
 
-local function endGame(npc)
+local function endGame (npc)
     isRunningGame = false
     isBallReleased = false
     countGameTime = 0
     if itemOnion ~= nil then
         world:erase(itemOnion,1)
     end
-    teamNorth = {}
-    teamSouth =
+    teamEast = {}
+    teamWest = 
     removeAllBalls(npc)
 end
 
@@ -174,12 +175,13 @@ local function checkTeamList(teamList)
 end
 
 local function isPlayer(user)
-    for i, player in pairs(teamNorth) do
+    foundPlayer = false
+    for i, player in pairs(teamEast) do
         if player.id == user.id then
             return true
         end
     end
-    for i, player in pairs(teamSouth) do
+    for i, player in pairs(teamWest) do
         if player.id == user.id then
             return true
         end
@@ -189,7 +191,7 @@ end
 
 local function countSpectators()
     local characters = world:getPlayersInRangeOf(refereePos, 20)
-    local spectators = #characters - checkTeamList(teamNorth) - checkTeamList(teamSouth)
+    local spectators = #characters - checkTeamList(teamEast) - checkTeamList(teamWest)
     return spectators
 end
 
@@ -197,8 +199,8 @@ local function setUpTeams()
     local posX
     local posY
     local posZ
-    teamNorth = {}
-    teamSouth = {}
+    teamEast = {}
+    teamWest = {}
     local characters = world:getPlayersInRangeOf(refereePos, 20)
     for _, character in pairs(characters) do
         posX = tonumber(character.pos.x)
@@ -206,11 +208,11 @@ local function setUpTeams()
         posZ = tonumber(character.pos.z)
         if posX < borderN and posX > borderS and posY < borderE and posY > borderW and posZ == GAME_LEVEL_Z then
             if posX < borderC then
-                teamSouth[character.id]=character
-                common.TempInformNLS(character, "Du spielst für Mannschaft Süd", "You play for Team South")
+                teamWest[character.id]=character
+                common.TempInformNLS(character, "Du spielst für Mannschaft West", "You play for Team West")
             elseif posX > borderC then
-                teamNorth[character.id]=character
-                common.TempInformNLS(character, "Du spielst für Mannschaft Nord", "You play for Team North")
+                teamEast[character.id]=character
+                common.TempInformNLS(character, "Du spielst für Mannschaft Ost", "You play for Team East")
             end
         end
     end
@@ -219,16 +221,16 @@ end
 local function startGame (npc)
     setUpTeams()
     removeAllBalls(npc)
-    if checkTeamList(teamNorth) == 0 then
+    if checkTeamList(teamEast) == 0 then
         common.TalkNLS(npc,Character.say,
-                        "Wie sollen wir Zwiebelball spielen, wenn in der Mannschaft Nord keine Spieler sind.",
-                        "I have no idea how to play onionball as long as Team North has no player.")
+                        "Wie sollen wir Zwiebelball spielen, wenn in der Mannschaft Ost keine Spieler sind.",
+                        "I have no idea how to play onionball as long as Team East has no player.")
         return
     end
-    if checkTeamList(teamSouth) == 0 then
+    if checkTeamList(teamWest) == 0 then
         common.TalkNLS(npc,Character.say,
-                        "Wie sollen wir Zwiebelball spielen, wenn in der Mannschaft Süd keine Spieler sind.",
-                        "I have no idea how to play onionball as long as Team South has no player.")
+                        "Wie sollen wir Zwiebelball spielen, wenn in der Mannschaft West keine Spieler sind.",
+                        "I have no idea how to play onionball as long as Team West has no player.")
         return
     end
     isRunningGame = true
@@ -250,10 +252,10 @@ local function createBall(npc)
     isBallReleased = true
 end
 
-local function playerNotInField(teamList, team)
+local function playerCheckOnGame(teamList, team)
     local endN
     local endS
-    if team == TEAM_SOUTH then
+    if team == TEAM_WEST then
         endS = borderS
         endN = borderC
     else
@@ -261,70 +263,108 @@ local function playerNotInField(teamList, team)
         endN = borderN
     end
 
-    local notInField = false
+    local checkResult = CHECK_OK
     local posX
     local posY
     for i, player in pairs(teamList) do
         posX = tonumber(player.pos.x)
         posY = tonumber(player.pos.y)
         if posX <= endS or posX >= endN or posY <= borderW or posY >= borderE then
-            notInField = true
+            checkResult = CHECK_NOT_IN_FIELD
             world:gfx(globalvar.gfxFALL, player.pos)
         end
         if world:isItemOnField(player.pos) then
             local item = world:getItemOnField(player.pos)
             if item:getData("onionball") == "true" then
-                notInField = true
+                checkResult = CHECK_HIT
                 world:gfx(globalvar.gfxPLATSCH, player.pos)
                 world:erase(item,1)
-                common.TalkNLS(player,Character.say,"Oops!","Oops!")
             end
         end
     end
-    return notInField
+    return checkResult
+end
+
+local function spectatorInField()
+    local characters = world:getPlayersInRangeOf(refereePos, 20)
+    for _, character in pairs(characters) do
+        posX = tonumber(character.pos.x)
+        posY = tonumber(character.pos.y)
+        posZ = tonumber(character.pos.z)
+        if posX < borderN and posX > borderS and posY < borderE and posY > borderW and posZ == GAME_LEVEL_Z then
+            if not isPlayer(character) then
+                return true
+            end
+        end
+    end
+    return false
 end
 
 local function checkGameRules(npc)
-    if checkTeamList(teamNorth) == 0 then
+    local checkResult
+    if checkTeamList(teamEast) == 0 then
         common.TalkNLS(npc,Character.say,
-                        "Wie sollen wir Zwiebelball spielen, wenn in der Mannschaft Nord keine Spieler sind.",
-                        "I have no idea how to play onionball as long as Team North has no player.")
+                        "Wie sollen wir Zwiebelball spielen, wenn in der Mannschaft Ost keine Spieler sind.",
+                        "I have no idea how to play onionball as long as Team East has no player.")
         return false
     end
-    if checkTeamList(teamSouth) == 0 then
+    if checkTeamList(teamWest) == 0 then
         common.TalkNLS(npc,Character.say,
-                        "Wie sollen wir Zwiebelball spielen, wenn in der Mannschaft Süd keine Spieler sind.",
-                        "I have no idea how to play onionball as long as Team South has no player.")
+                        "Wie sollen wir Zwiebelball spielen, wenn in der Mannschaft West keine Spieler sind.",
+                        "I have no idea how to play onionball as long as Team West has no player.")
         return false
     end
-    if playerNotInField(teamNorth, TEAM_NORTH) then
+    checkResult = playerCheckOnGame(teamEast, TEAM_EAST)
+    if checkResult == CHECK_NOT_IN_FIELD then
         common.TalkNLS(npc,Character.say,
-                        "Mannschaft Süd gewinnt.",
-                        "Team South wins.")
-        lastWinner = TEAM_SOUTH
-        world:gfx(globalvar.gfxSPLASH, posVictorySouth)
+                        "Seitenaus, Mannschaft West gewinnt.",
+                        "Touch, Team West wins.")
+        lastWinner = TEAM_WEST
+        world:gfx(globalvar.gfxSPLASH, posVictoryWest)
+        return false
+    elseif checkResult == CHECK_HIT then
+        common.TalkNLS(npc,Character.say,
+                        "Treffer, Mannschaft West gewinnt.",
+                        "Hit, Team West wins.")
+        lastWinner = TEAM_WEST
+        world:gfx(globalvar.gfxSPLASH, posVictoryWest)
         return false
     end
-    if playerNotInField(teamSouth, TEAM_SOUTH) then
+    checkResult = playerCheckOnGame(teamWest, TEAM_WEST)
+    if checkResult == CHECK_NOT_IN_FIELD then
         common.TalkNLS(npc,Character.say,
-                        "Mannschaft Nord gewinnt.",
-                        "Team North wins.")
-        lastWinner = TEAM_NORTH
-        world:gfx(globalvar.gfxSPLASH, posVictoryNorth)
+                        "Seitenaus, Mannschaft Ost gewinnt.",
+                        "Touch, Team East wins.")
+        lastWinner = TEAM_EAST
+        world:gfx(globalvar.gfxSPLASH, posVictoryEast)
+        return false
+    elseif checkResult == CHECK_HIT then
+        common.TalkNLS(npc,Character.say,
+                        "Treffer, Mannschaft Ost gewinnt.",
+                        "Hit, Team East wins.")
+        lastWinner = TEAM_EAST
+        world:gfx(globalvar.gfxSPLASH, posVictoryEast)
+        return false
+    end
+    if spectatorInField() then
+        common.TalkNLS(npc,Character.say,
+                    "Abbruch! Das gibt's doch nicht! Zuschauer haben auf dem Spielfeld nichts zu suchen!",
+                    "Break! Get outta there! Spectators must stay outside of the game field!")
+        lastWinner = TEAM_NO
         return false
     end
     return true
 end
 
 local function tellLastWinner(npc)
-    if lastWinner == TEAM_NORTH then
+    if lastWinner == TEAM_EAST then
         common.TalkNLS(npc,Character.say,
-                        "Mannschaft Nord hat das letzte Spiel gewonen.",
-                        "Team North won the last match.")
-    elseif lastWinner == TEAM_SOUTH then
+                        "Mannschaft Ost hat das letzte Spiel gewonen.",
+                        "Team East won the last match.")
+    elseif lastWinner == TEAM_WEST then
         common.TalkNLS(npc,Character.say,
-                        "Mannschaft Süd hat das letzte Spiel gewonen.",
-                        "Team South won the last match.")
+                        "Mannschaft West hat das letzte Spiel gewonen.",
+                        "Team West won the last match.")
     else
         common.TalkNLS(npc,Character.say,
                         "Keine der Mannschaften hat das letzte Spiel gewonen.",
@@ -353,6 +393,24 @@ function M.moveOnion(user, sourceItem, targetItem)
             world:erase(targetItem,1)
             return true
         end
+        posX = tonumber(targetItem.pos.x)
+        posY = tonumber(targetItem.pos.y)
+        posZ = tonumber(targetItem.pos.z)
+        if posX > borderN or posX < borderS or posY > borderE or posY < borderW or posZ ~= GAME_LEVEL_Z then
+            common.TalkNLS(user,Character.say, "#me rutscht die vergammelte Zwiebel aus den Händen und trifft sich selber.",
+                                               "#me lost the rotten onion. It smashes on the head.")
+            world:erase(sourceItem,1)
+            world:erase(targetItem,1)
+            local pos = user.pos
+            itemOnion = world:createItemFromId(ITEM_ID_ONION, 1, pos, true, 333, {onionball="true",nameDe="Spielzwiebel",nameEn="Game Onion",descriptionDe="Die Zwiebel ist schon recht matschig und stinkt.",descriptionEn="The onion is quite pulpy and stinks.",lookatNoPrice=1,lookatNoWeight=1})
+            return true
+        end
+        if user.pos.x > borderN or user.pos.x < borderS or user.pos.y > borderE or user.pos.y < borderW or user.pos.z ~= GAME_LEVEL_Z then
+            common.InformNLS(user, "Ein Blick auf diese Zwiebel genügt und du entscheidest, dir lieber nicht die Finger schmutzig zu machen.",
+                                   "You look at these onion and decides better not to dirty your hands by such a stinky item")
+            return true
+        end
+
     end
 
     return false
@@ -427,14 +485,16 @@ function M.receiveText(npc, ttype, text, user)
 
     if string.match(text, "[Hh]elp") then
         user:inform("[Help] This NPC is an onionball refree. Ask him to oversee a match. Keywords: start, stop, winner, rule")
+        user:inform("[Help] How to play: Player have to stay in the repective match field. Calling 'Start' Sepp provides a game onion. A hit or leaving the game field ends the match in favour for the other team.")
         return
     end
-
+    
     if string.match(text, "[Hh]ilf") then
         user:inform("[Hilfe] Dieser NPC ist ein Zwiebelball Schiedsrichter. Bitte ihn, ein Spiel zu pfeifen. Schlüsselwörter: start, stop, gewinner, regel")
+        user:inform("[Hilfe] Spielablauf: Die Spieler stellen sich in den Spielfeldern auf. Auf 'Start' stellt Sepp eine Spielzwiebel bereit. Ein Treffer oder das Verlassen des Feldes beendet das Spiel zugunsten der anderen Mannschaft.")
         return
     end
-
+    
     for i=1,#saidText do
         if string.match(string.lower(text), saidText[i][1]) then
             local answerId = saidText[i][2]
