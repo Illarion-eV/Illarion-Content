@@ -151,6 +151,28 @@ local function removeAllBalls(npc)
     end
 end
 
+-- This function repairs parts of the game borders which can be delted under special circumstances
+local function repairGameFieldBorders()
+    common.CreateLine(borderW + 1, borderE - 1, 
+        function(thePos)
+            local found = false
+            local itemsOnField = common.GetItemsOnField(thePos)
+            if #itemsOnField > 0 then
+                for _, currentItem in pairs(itemsOnField) do
+                    if currentItem.id == 433 then
+                        found = true
+                        break
+                    end
+                end
+                
+                if not found then
+                    world:createItemFromId(433, 1, thePos, true, 333, {nameDe = "Spielfeldbegrenzung", nameEn = "Game field border"})
+                end
+            end
+        end
+    )
+end
+
 local function endGame (npc)
     isRunningGame = false
     isBallReleased = false
@@ -161,6 +183,7 @@ local function endGame (npc)
     teamEast = {}
     teamWest = 
     removeAllBalls(npc)
+    repairGameFieldBorders()
 end
 
 local function checkTeamList(teamList)
@@ -402,7 +425,6 @@ function M.moveOnion(user, sourceItem, targetItem)
         if posX > borderN or posX < borderS or posY > borderE or posY < borderW or posZ ~= GAME_LEVEL_Z then
             common.TalkNLS(user,Character.say, "#me rutscht die vergammelte Zwiebel aus den Händen und trifft sich selber.",
                                                "#me lost the rotten onion. It smashes on the head.")
-            --world:erase(sourceItem,1)
             world:erase(targetItem,1)
             local pos = user.pos
             itemOnion = world:createItemFromId(ITEM_ID_ONION, 1, pos, true, 333, {onionball="true",nameDe="Spielzwiebel",nameEn="Game Onion",descriptionDe="Die Zwiebel ist schon recht matschig und stinkt.",descriptionEn="The onion is quite pulpy and stinks.",lookatNoPrice=1,lookatNoWeight=1})
@@ -413,7 +435,6 @@ function M.moveOnion(user, sourceItem, targetItem)
                                    "You look at these onion and decides better not to dirty your hands by such a stinky item")
             return true
         end
-
     end
 
     return false
