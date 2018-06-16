@@ -402,7 +402,7 @@ function M.moveOnion(user, sourceItem, targetItem)
         if posX > borderN or posX < borderS or posY > borderE or posY < borderW or posZ ~= GAME_LEVEL_Z then
             common.TalkNLS(user,Character.say, "#me rutscht die vergammelte Zwiebel aus den Händen und trifft sich selber.",
                                                "#me lost the rotten onion. It smashes on the head.")
-            world:erase(sourceItem,1)
+            --world:erase(sourceItem,1)
             world:erase(targetItem,1)
             local pos = user.pos
             itemOnion = world:createItemFromId(ITEM_ID_ONION, 1, pos, true, 333, {onionball="true",nameDe="Spielzwiebel",nameEn="Game Onion",descriptionDe="Die Zwiebel ist schon recht matschig und stinkt.",descriptionEn="The onion is quite pulpy and stinks.",lookatNoPrice=1,lookatNoWeight=1})
