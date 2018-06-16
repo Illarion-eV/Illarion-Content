@@ -153,7 +153,7 @@ end
 
 -- This function repairs parts of the game borders which can be delted under special circumstances
 local function repairGameFieldBorders()
-    common.CreateLine(position(borderW + 1, borderC + 1, GAME_LEVEL_Z), position(borderE - 1, borderC + 1, GAME_LEVEL_Z)
+    common.CreateLine(position(borderW + 1, borderC + 1, GAME_LEVEL_Z), position(borderE - 1, borderC + 1, GAME_LEVEL_Z),
         function(thePos)
             local found = false
             local itemsOnField = common.GetItemsOnField(thePos)
