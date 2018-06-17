@@ -152,8 +152,8 @@ local function removeAllBalls(npc)
 end
 
 -- This function repairs parts of the game borders which can be delted under special circumstances
-local function repairGameFieldBorders()
-    common.CreateLine(position(borderW + 1, borderC + 1, GAME_LEVEL_Z), position(borderE - 1, borderC + 1, GAME_LEVEL_Z),
+local function repairGameFieldBorders(user)
+    common.CreateLine(position(borderC, borderE, GAME_LEVEL_Z), position(borderC, borderW+1, GAME_LEVEL_Z),
         function(thePos)
             local found = false
             local itemsOnField = common.GetItemsOnField(thePos)
@@ -164,10 +164,10 @@ local function repairGameFieldBorders()
                         break
                     end
                 end
-                
-                if not found then
-                    world:createItemFromId(433, 1, thePos, true, 333, {nameDe = "Spielfeldbegrenzung", nameEn = "Game field border"})
-                end
+            end
+            
+            if not found then
+                world:createItemFromId(433, 1, thePos, true, 333, {nameDe = "Spielfeldbegrenzung", nameEn = "Game field border"})
             end
         end
     )
