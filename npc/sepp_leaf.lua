@@ -70,28 +70,28 @@ local npcTalk = {
         {"Be greeted!","Hiho!","Hello, Ready for a match?"} },
     {   {"farewell","bye","fare well","see you","tschüß","tschüss","wiedersehen","gehab wohl","ciao","adieu","au revoir","farebba"},
         {"Auf Wiedersehen!","Bis zum nächsten Spiel!","Kommt mal wieder her!"},
-        {"Good Bye!","Until the next match!","I hope we will see us again."} },
+        {"Goodbye!","Until the next match!","Come back again!"} },
     {   {"how are you","how feel","how do you do","wie geht","wie fühlst","wie ist es ergangen","wie befind"},
-        {"Danke und euch?","Gut, gut.","Mir ging es nie besser."},
-        {"Thank you, and yourself?","Good, good.","Never better than today."} },
+        {"Danke und Euch?","Gut, gut.","Mir ging es nie besser."},
+        {"Well thank you, and yourself?","Good, good.","Never felt better."} },
     {   {"your name","who are you","who art thou","ihr name","dein name","wer bist du","wer seid ihr","wie heißt"},
-        {"Früherer Meister in Zwiebelball.","Ich bin der Zwiebelball Schiedsrichter Sep Leaf, und ihr?","Ich bin Sep Leaf."},
-        {"I'm a former master of onionball.","I'm Sep Leaf, an onionball referee, and you?","I am Sep Leaf."} },
+        {"Früherer Meister in Zwiebelball.","Ich bin der Zwiebelballschiedsrichter Sepp Leaf, und Ihr?","Ich bin Sepp Leaf."},
+        {"I'm a former master of onionball.","I'm Sepp Leaf, an onionball referee, and you?","I am Sepp Leaf."} },
     {   {"besser","better","improve"},
-        {"Besser zu sein als die, die zuletzt gespielt haben, geht immer.","Wer besser werden will muss üben, packen wir es an.","Du willst kein besserer Spieler werden?"},
-        {"You can always play better than the last team. That's not difficult.","Training is the key to become better. Let's start.","Don't you really want to become a better player?"} },
-    {   {"god","gott","gött",6},
+        {"Besser zu sein als die, die zuletzt gespielt haben, geht immer.","Wer besser werden will, muss üben, packen wir es an.","Du willst kein besserer Spieler werden?"},
+        {"You can always play better than the last team. That's not difficult.","Training is the key to becoming better. Let's start.","Don't you want to become a better player?"} },
+    {   {"god","gott","gött"},
         {"Ich bin mir sicher die Götter spielten einst Zwiebelball. Was dabei die Zwiebel war, darüber kann man streiten.","Dieses Spiel erfreut die Götter.","Dank Oldra haben wir genug Bälle."},
-        {"Be assured, once the Gods played onionball as well. But I'm not sure what they used for a ball.","Gods like you playing onionball.","Thanks to Oldra there are enough balls."} },
+        {"Be assured, once the gods played onionball as well, but I'm not sure what they used for a ball.","Gods like you playing onionball.","Thanks to Oldra there are enough balls."} },
     {   {"quest","task","mission","auftrag","aufgabe"},
-        {"Ich vergebe keine Aufgaben.","Mach dich in dein Feld damit das Spiel endlich anfangen kann.","Nein ich habe für dich nichts zu tun, außer Zwiebelball zu spielen."},
-        {"I don't have a quest for you.","Go to your game so the game could start.","No I don't have a quest for you, but you could play onionball."} },
+        {"Ich vergebe keine Aufgaben.","Mach dich in dein Feld damit das Spiel endlich anfangen kann.","Nein, ich habe für dich nichts zu tun, außer Zwiebelball zu spielen."},
+        {"I don't have a quest for you.","Get on the field so the game can start.","No I don't have a quest for you, but you could play onionball."} },
     {   {"play","game","match","spiel","satz"},
         {"Hier wird Zwiebelball gespielt. Das beste Spiel Illarions.","Ihr könnt Zwiebelball spielen, ich mache den Schiedsrichter."},
-        {"We play onionball here. The best game in Illarion","You can play onionball. I'll be your referee."} },
+        {"We play onionball here. The best game in Illarion!","You can play onionball. I'll be your referee."} },
     {   {"regel","rule"},
-        {"Die Regeln für Zwiebelball sind ganz einfach. Wer von einer Spielwiebel getroffen wir, auf eine Spielzwiebel drauflatscht oder aus dem Spielfeld verschwindet beschert der gegnerischen Mannschaft einen Punkt."},
-        {"The onionball rules are very simple. You give the opposite team a point if you got hit by an onion, tap on an onion or left the game field."} }
+        {"Die Regeln für Zwiebelball sind ganz einfach. Wer von einer Spielzwiebel getroffen wir, auf eine Spielzwiebel drauflatscht oder aus dem Spielfeld verschwindet beschert der gegnerischen Mannschaft einen Punkt."},
+        {"The onionball rules are very simple. The opposing team gets a point if you are hit by an onion, step on an onion, or leave the game field."} }
 }
 
 local cycleText = {
@@ -99,19 +99,19 @@ local cycleText = {
 {"Hier wird noch richtig mit Zwiebeln gespielt.", "We play as it should be, with onions."},
 {"#me prüft eine Zwiebel in seiner Hand.", "#me checks an onion in his hand."},
 {"#me schaut sich um.", "#me looks around."},
-{"#me rollt eine Zwiebel von einer Hand in die andere.", "#me rolls an onion from one hand into the other."},
-{"Zwiebelball, es gibt nichts besseres als ein Zwiebelballspiel.", "Onionball, there is nothing better than onionball."},
+{"#me rollt eine Zwiebel von einer Hand in die andere.", "#me rolls an onion from one hand to the other."},
+{"Zwiebelball, es gibt nichts besseres als ein Zwiebelballspiel.", "Onionball, there is nothing better than onionball!"},
 {"Man könnte Zwiebeln natürlich auch essen.","One could eat onions as well."}
 }
 
 local cycleTextGame = {
 {"Hop Hop!", "Go, Go!"},
 {"Ein guter Wurf!", "A good throw!"},
-{"#me rauf sich die Haare.", "#me tears his hair."},
+{"#me rauf sich die Haare.", "#me tears at his hair."},
 {"Oh Nein!", "Oh No!"},
 {"Das kann doch wohl nicht wahr sein!", "This can't be true!"},
-{"#me hält sich die Hände vor die Augen.", "#me hides his sight by his hands."},
-{"Meine Güte, ihr sollt die Zwiebel werfen ... nicht essen!","You have to throw the onion ... not eat!"},
+{"#me hält sich die Hände vor die Augen.", "#me covers his eyes with his hands."},
+{"Meine Güte, ihr sollt die Zwiebel werfen ... nicht essen!","You have to throw the onion ... not eat it!"},
 {"Was war das denn?","What was that?"},
 {"Ja!","Yes!"},
 {"Jetzt bewegt euch mal!","Move!"}
@@ -250,20 +250,20 @@ local function startGame (npc)
     if checkTeamList(teamEast) == 0 then
         common.TalkNLS(npc,Character.say,
                         "Wie sollen wir Zwiebelball spielen, wenn in der Mannschaft Ost keine Spieler sind.",
-                        "I have no idea how to play onionball as long as Team East has no player.")
+                        "I have no idea how to play onionball if Team East has no player.")
         return
     end
     if checkTeamList(teamWest) == 0 then
         common.TalkNLS(npc,Character.say,
                         "Wie sollen wir Zwiebelball spielen, wenn in der Mannschaft West keine Spieler sind.",
-                        "I have no idea how to play onionball as long as Team West has no player.")
+                        "I have no idea how to play onionball if Team West has no player.")
         return
     end
     isRunningGame = true
     isBallReleased = false
     countGameTime = 0
     gameStartDelay = math.random(MIN_START_DELAY,MAX_START_DELAY)
-    common.TalkNLS(npc,Character.say,"Lasst das Spiel beginnen!","Let's the match begin!")
+    common.TalkNLS(npc,Character.say,"Lasst das Spiel beginnen!","Let the match begin!")
 end
 
 local function createBall(npc)
@@ -274,7 +274,7 @@ local function createBall(npc)
     local pos = position(posX, posY, GAME_LEVEL_Z)
     itemOnion = world:createItemFromId(ITEM_ID_ONION, 1, pos, true, 333, {onionball="true",nameDe="Spielzwiebel",nameEn="Game Onion",descriptionDe="Die Zwiebel ist schon recht matschig und stinkt.",descriptionEn="The onion is quite pulpy and stinks.",lookatNoPrice=1,lookatNoWeight=1})
     world:gfx(globalvar.gfxSUN, pos)
-    npc:talk(Character.say,"#me wirft eine Zwiebel auf die Mittellinie.","#me throw an onion onto the middle line.")
+    npc:talk(Character.say,"#me wirft eine Zwiebel auf die Mittellinie.","#me throws an onion along the middle line.")
     isBallReleased = true
 end
 
@@ -331,13 +331,13 @@ local function checkGameRules(npc)
     if checkTeamList(teamEast) == 0 then
         common.TalkNLS(npc,Character.say,
                         "Wie sollen wir Zwiebelball spielen, wenn in der Mannschaft Ost keine Spieler sind.",
-                        "I have no idea how to play onionball as long as Team East has no player.")
+                        "I have no idea how to play onionball if Team East has no player.")
         return false
     end
     if checkTeamList(teamWest) == 0 then
         common.TalkNLS(npc,Character.say,
                         "Wie sollen wir Zwiebelball spielen, wenn in der Mannschaft West keine Spieler sind.",
-                        "I have no idea how to play onionball as long as Team West has no player.")
+                        "I have no idea how to play onionball if Team West has no player.")
         return false
     end
     checkResult = playerCheckOnGame(teamEast, TEAM_EAST)
@@ -375,7 +375,7 @@ local function checkGameRules(npc)
     if spectatorInField() then
         common.TalkNLS(npc,Character.say,
                     "Abbruch! Das gibt's doch nicht! Zuschauer haben auf dem Spielfeld nichts zu suchen!",
-                    "Break! Get outta there! Spectators must stay outside of the game field!")
+                    "Break! Get out of there! Spectators must stay outside the game field!")
         lastWinner = TEAM_NO
         return false
     end
@@ -400,7 +400,7 @@ end
 
 function M.useOnion(user, item)
     if item.id == ITEM_ID_ONION and item:getData("onionball") == "true" then
-        common.InformNLS(user, "Du fasst die vergammelte Zwiebel an und entscheidest dich spontan sie lieber nicht zu essen.",
+        common.InformNLS(user, "Du fasst die vergammelte Zwiebel an und entscheidest dich spontan, sie lieber nicht zu essen.",
                                "You touch the rotten onion and immediately decide not to eat it.")
         return true
     end
@@ -424,7 +424,7 @@ function M.moveOnion(user, sourceItem, targetItem)
         posZ = tonumber(targetItem.pos.z)
         if posX > borderN or posX < borderS or posY > borderE or posY < borderW or posZ ~= GAME_LEVEL_Z then
             common.TalkNLS(user,Character.say, "#me rutscht die vergammelte Zwiebel aus den Händen und trifft sich selber.",
-                                               "#me lost the rotten onion. It smashes on the head.")
+                                               "#me lost hold of the rotten onion as it smashes into me.")
             world:erase(targetItem,1)
             local pos = user.pos
             itemOnion = world:createItemFromId(ITEM_ID_ONION, 1, pos, true, 333, {onionball="true",nameDe="Spielzwiebel",nameEn="Game Onion",descriptionDe="Die Zwiebel ist schon recht matschig und stinkt.",descriptionEn="The onion is quite pulpy and stinks.",lookatNoPrice=1,lookatNoWeight=1})
@@ -432,7 +432,7 @@ function M.moveOnion(user, sourceItem, targetItem)
         end
         if user.pos.x > borderN or user.pos.x < borderS or user.pos.y > borderE or user.pos.y < borderW or user.pos.z ~= GAME_LEVEL_Z then
             common.InformNLS(user, "Ein Blick auf diese Zwiebel genügt und du entscheidest, dir lieber nicht die Finger schmutzig zu machen.",
-                                   "You look at these onion and decides better not to dirty your hands by such a stinky item")
+                                   "You look at the onion and decide it better not to dirty your hands with such a stinky item.")
             return true
         end
     end
@@ -508,13 +508,13 @@ function M.receiveText(npc, ttype, text, user)
     end
 
     if string.match(text, "[Hh]elp") then
-        user:inform("[Help] This NPC is an onionball refree. Ask him to oversee a match. Keywords: start, stop, winner, rule")
-        user:inform("[Help] How to play: Player have to stay in the repective match field. Calling 'Start' Sepp provides a game onion. A hit or leaving the game field ends the match in favour for the other team.")
+        user:inform("[Help] This NPC is an onionball referee. Ask him to oversee a match. Keywords: start, stop, winner, rule")
+        user:inform("[Help] How to play: Players have to stay in the respective match field. Call 'Start' and Sepp provides a game onion. A hit or leaving the game field ends the match in favour of the other team.")
         return
     end
     
     if string.match(text, "[Hh]ilf") then
-        user:inform("[Hilfe] Dieser NPC ist ein Zwiebelball Schiedsrichter. Bitte ihn, ein Spiel zu pfeifen. Schlüsselwörter: start, stop, gewinner, regel")
+        user:inform("[Hilfe] Dieser NPC ist ein Zwiebelballschiedsrichter. Bitte ihn, ein Spiel zu pfeifen. Schlüsselwörter: start, stop, gewinner, regel")
         user:inform("[Hilfe] Spielablauf: Die Spieler stellen sich in den Spielfeldern auf. Auf 'Start' stellt Sepp eine Spielzwiebel bereit. Ein Treffer oder das Verlassen des Feldes beendet das Spiel zugunsten der anderen Mannschaft.")
         return
     end
