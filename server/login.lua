@@ -309,9 +309,6 @@ function M.onLogin( player )
     --on ferry
     seafaring.login(player)
 
-    --gem conversion
-    gems.convertOldGems(player)
-
     --Check regeneration script
     local found = player.effects:find(2)
     if not found then
@@ -325,7 +322,7 @@ function M.onLogin( player )
     end
     
     --Handle pets
-    petsystem.loadPet(player)
+    --petsystem.loadPet(player)
 end
 
 function showNewbieDialog(player)
