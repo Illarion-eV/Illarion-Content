@@ -344,7 +344,7 @@ function M.dropTreasureItems(treasureLocation, level)
 
     mugWithLid.dropMugByChance(treasureLocation,level*2)
     
-    --shard.dropShardByChance(treasureLocation,level) --Search tag: #123
+    shard.dropShardByChance(treasureLocation,level)
 
     local minMoney, maxMoney = content.getMoneyInTreasure(level)
     money.GiveMoneyToPosition(treasureLocation, math.random(minMoney, maxMoney))
