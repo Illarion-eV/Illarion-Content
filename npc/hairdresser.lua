@@ -47,6 +47,8 @@ local DECISION_TAKETHIS = 2
 local DECISION_TRIM = 3
 
 local npcPosition = position(715,308,0)
+local chairPos = position(715,309,0)
+
 globalHairdresserDialogOpen = false --must be global
 
 local M = {}
@@ -281,7 +283,6 @@ local function helmetOff(user,npc)
 end
 
 local function userOnChair(user,npc)
-    local chairPos = position(715,309,0)
     local userPos = user.pos
     
     if chairPos ~= userPos then
@@ -1036,6 +1037,9 @@ function M.nextCycle(npc)
     if math.random(4000) == 1 then
         local textNo = math.random(#cycleText)
         common.TalkNLS(npc,Character.say,cycleText[textNo][1],cycleText[textNo][2])
+        if not world:isCharacterOnField(chairPos) then
+            globalHairdresserDialogOpen = false
+        end
     end
     if not init[npc.id] then
         initNpc(npc)
