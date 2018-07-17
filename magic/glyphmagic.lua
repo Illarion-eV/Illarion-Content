@@ -146,7 +146,7 @@ local function endRitualBreakGlyph(user, forgePos, item)
         materialBonus = 1
     end
     local skillBonus = math.max(0, - math.floor(user:getSkill(workingSkill) / 15) + 3)
-    returnedShards = math.random( math.floor(0.5 * remainingCharges / maxCharges * 7), math.floor(0.9 * remainingCharges / maxCharges * 7))
+    local returnedShards = math.random( math.floor(0.5 * remainingCharges / maxCharges * 7), math.floor(0.9 * remainingCharges / maxCharges * 7))
     returnedShards = math.min (7, returnedShards + materialBonus + skillBonus)
     local level = glyphs.getGlyphLevel(item)
     local isRing = glyphs.getGlyphRingOrAmulet(item)
@@ -233,8 +233,17 @@ local function startRitual(user, workingTime, manaConsumption, workingPlace, rit
     workingRitual[user.id]={workingCycles, deltaMana, deltaFood, workingPlace, ritualId, specialValues}
 
     performRitual(user)
-    common.TempInformNLS(user,"Das Ritual wird etwa " .. tostring(workingTime) .. " Sekunden dauern.",
-                              "The ritual will be finished in about " .. tostring(workingTime) .. " seconds.")
+    local timeText
+    if workingTime < 45 then
+        common.TempInformNLS(user,"Das Ritual wird nicht allzulange dauern.",
+                                  "The ritual will take a few moments.")
+    elseif workingTime < 100 then
+        common.TempInformNLS(user,"Das Ritual wird einige Zeit in Anspruch nehmen.",
+                                  "The ritual will take a while.")
+    else
+        common.TempInformNLS(user,"Das Ritual wird sehr lange deine ungeteilte Aufmerksamkeit beanspruchen.",
+                                  "The ritual will take a your attention for a very long time.")
+    end
     return true
 end
 
@@ -556,12 +565,10 @@ function M.forgeGlyphs(user,glyphForgeItem,ltstate)
             local userRings = glyphs.hasRing(user)
             local userAmulets = glyphs.hasAmulet(user)
             common.TurnTo(user,glyphForgeItem.pos)
-            workingPlayerPos = user.pos
-            workingForgePos = glyphForgeItem.pos
             if #userRings == 0 and #userAmulets == 0 then
                 common.InformNLS(user,"Du hast keinen Ring und kein Amulett. Nimm das Item, das du glyphen willst in die Hand oder in den Gürtel.",
                                       "You don't have a ring or amulet. The item you want to glyph has to be in your hand or in the belt.")
-                showShardState(user)
+                M.showShardState(user)
             else
                 showForgeSelection(user,userRings,userAmulets)
             end
@@ -575,7 +582,7 @@ function M.forgeGlyphs(user,glyphForgeItem,ltstate)
     else
         common.TempInformNLS(user,"Dieser Ritualplatz ist voll mit Symbolen, die dir nichts sagen. Du entschließt dich hier nichts zu verändern und zählst die Splitter in deiner Tasche.",
                                   "This ritual place is covered in unknown symbols. You decide nothing to do except to count the shards in your bag.")
-        showShardState(user)
+        M.showShardState(user)
     end
 end
 
@@ -594,8 +601,6 @@ function M.breakGlyphs(user,glyphForgeItem,ltstate)
         local userRings = glyphs.hasRing(user)
         local userAmulets = glyphs.hasAmulet(user)
         common.TurnTo(user,glyphForgeItem.pos)
-        workingPlayerPos = user.pos
-        workingForgePos = glyphForgeItem.pos
         if #userRings == 0 and #userAmulets == 0 then
             common.InformNLS(user,"Du hast keinen Ring und kein Amulett. Nimm das Item, das du zerstören willst in die Hand oder in den Gürtel.",
                                   "You don't have a ring or amulet. The item you want to destroy has to be in your hand or in the belt.")
@@ -627,7 +632,7 @@ local function isPossibleLocation(user, position)
                                   "This ground is not good to erect the ritual place.")
         return false
     end
-    
+
     -- Empty field
     if theField:countItems() > 0 then
         common.TempInformNLS(user,"Hier müsstest du erst mal was wegräumen. Das ist mit Arbeit verbunden. Deshalb schaust du dich nach einem besseren Platz um.",
@@ -666,18 +671,21 @@ function M.findGlyphForge(user)
     user:performAnimation(globalvar.charAnimationSPELL)
     local forgeItem, bool = common.GetItemInArea(user.pos, glyphs.GLYPH_SHRINE_ID, 40, true)
     if forgeItem ~= nil then
-        common.TurnTo(user, forgeItem.pos )
         world:gfx(globalvar.gfxSUN,forgeItem.pos)
+        local directionInfo = common.getDistanceHint(user, forgeItem.pos)
+        local textDirection = common.GetNLS(user,"Möglicherweise befindet sich " .. directionInfo.distance.de .. " im " .. directionInfo.direction.de .. " ein Ritualplatz.",
+                                                 "There might be " .. directionInfo.distance.en .. " in the " .. directionInfo.direction.en .. " a ritual place.")
+
         if user:getQuestProgress(562) == 0 and user:getSkill(glyphs.SKILL_GLYPHING) <= glyphs.glyphForgeFindMaxSkill then
             local nextLearn = math.random(1,2)
             user:setQuestProgress(562,nextLearn)
             user:learn(glyphs.SKILL_GLYPHING, glyphs.glyphForgeFindTime, 100)
-            common.InformNLS(user,"Nicht weit von hier ist bereits ein Ritualplatz. Seine Magie zieht dich an und doch kannst du dich für einen Moment nicht bewegen,",
-                                  "There must be a ritual place close to you. It's magic attracts you but you cannot move for a few seconds.")
+            common.InformNLS(user,textDirection .. " Seine Magie zieht dich an und doch kannst du dich für einen Moment nicht bewegen,",
+                                  textDirection .. " It's magic attracts you but you cannot move for a few seconds.")
             common.ParalyseCharacter(user, glyphs.glyphForgeFindTime)
         else
-            common.TempInformNLS(user,"Nicht weit von hier ist bereits ein Ritualplatz. Du schaust in seine Richtung. Vielleicht kannst du ihn bereits sehen?",
-                                      "There must be a ritual place close to you. You turns into it's direction. Maybe you can see it already?")
+            common.TempInformNLS(user,textDirection .. " Vielleicht kannst du ihn bereits sehen?",
+                                      textDirection .. " Maybe you can see it already?")
         end
         return true
     end

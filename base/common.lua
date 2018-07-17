@@ -2649,4 +2649,52 @@ function M.getDistanceHint(user, targetPos)
 end
 
 
+--[[Number to text
+number: integer 0-20
+languag: Player language
+cardinal: false or nil: number, true: cardinals
+@return text]]--
+function M.numberToText(number, language, cardinal)
+    local usedCardinal = cardinal or false
+    local numberTexts = {}
+    numberTexts[0] = {"kein",                  "no",             "kein",               "no"}
+    numberTexts[1] = {"ein",                   "one",            "erste",              "first"}
+    numberTexts[2] = {"zwei",                  "two",            "zweite",             "second"}
+    numberTexts[3] = {"drei",                  "three",          "dritte",             "third"}
+    numberTexts[4] = {"vier",                  "four",           "vierte",             "fourth"}
+    numberTexts[5] = {"fünf",                  "five",           "fünfte",             "fivth"}
+    numberTexts[6] = {"sechs",                 "six",            "sechste",            "sixth"}
+    numberTexts[7] = {"sieben",                "seven",          "siebente",           "seventh"}
+    numberTexts[8] = {"acht",                  "eigth",          "achte",              "eighth"}
+    numberTexts[9] = {"neun",                  "nine",           "neunte",             "ninth"}
+    numberTexts[10] = {"zehn",                 "ten",            "zehnte",             "tenth"}
+    numberTexts[11] = {"elf",                  "eleven",         "elfe",               "eleventh"}
+    numberTexts[12] = {"zwölf",                "twelf",          "zwölfte",            "twelfth"}
+    numberTexts[13] = {"dreizehn",             "thirteen",       "dreizehnte",         "thirteenth"}
+    numberTexts[14] = {"vierzehn",             "fourteen",       "vierzehnte",         "fourteenth"}
+    numberTexts[15] = {"fünfzehn",             "fiveteen",       "fünfzehnte",         "fiveteenth"}
+    numberTexts[16] = {"sechzehn",             "sixteen",        "sechzehnte",         "sixteenth"}
+    numberTexts[17] = {"siebzehn",             "seventeen",      "siebzehnte",         "seventeenth"}
+    numberTexts[18] = {"achtzehn",             "eightteen",      "achtzehnte",         "eightteenth"}
+    numberTexts[19] = {"neunzehn",             "ninteen",        "neunzehnte",         "ninteenth"}
+    numberTexts[20] = {"zwanzig",              "twenty",         "zwanzigste",         "twentieth"}
+    local inumber = tonumber(number)
+    if M.IsNilOrEmpty(inumber) then
+        inumber = 0
+    end
+    if inumber > 20 then
+        if usedCardinal == true then
+            return tostring(inumber) .. "."
+        else
+            return tostring(inumber)
+        end
+    else
+        if usedCardinal == true then
+            return (language == Player.german and numberTexts[inumber][3] or numberTexts[inumber][4])
+        else
+            return (language == Player.german and numberTexts[inumber][1] or numberTexts[inumber][2])
+        end
+    end
+end
+
 return M
