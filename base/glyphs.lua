@@ -317,17 +317,30 @@ function M.isGlyphed(item)
     return true
 end
 
+function M.lookatText(amount, lang)
+    local texts = {
+        {3,    "sehr wenige", "very little"},
+        {6,    "wenige"     , "a few"},
+        {10,   "einige"    , "some"},
+        {14,   "viele"     , "many"},
+        {99999,"sehr viele", "a lot of"}
+        }
+    for i=1, 5 do
+        if tonumber(amount)< texts[i][1] then
+            return (lang == Player.german and texts[i][2] or texts[i][3])
+        end
+    end
+    return (lang == Player.german and "unbekannte Zahl an" or "unknown amount of")
+end
+
 function M.lookatGlyph(item, lang)
     if M.isGlyphed(item) then
+        local number = tonumber(item:getData(M.GLYPH_EFFEKT_REMAIN_DATA_KEY))
         local text = "\n "
-        local numMin = item:getData(M.GLYPH_EFFEKT_SHOW_MIN_DATA_KEY)
-        local numMax = item:getData(M.GLYPH_EFFEKT_SHOW_MAX_DATA_KEY)
-        local textMin = common.numberToText(numMin)
-        local textMax = common.numberToText(numMax)
         if lang == Player.german then
-            text = text .. common.firstToUpper(common.numberToText(numMin,Player.german)) .. " bis " .. common.numberToText(numMax,Player.german) .. " verbleibende Glyphen Ladungen"
+            text = text .. common.firstToUpper(M.lookatText(number, Player.german)) .. " verbleibende Glyphen Ladungen"
         else
-            text = text .. common.firstToUpper(common.numberToText(numMin,Player.english)) .. " to " .. common.numberToText(numMax,Player.english) .. " remaining glyph charges"
+            text = text .. common.firstToUpper(M.lookatText(number, Player.english)) .. " remaining glyph charges"
         end
         return text
     else
