@@ -1292,6 +1292,8 @@ local function specialItemCreationTreasureChest(User)
                 return
             end
             spawntreasures.spawnTreasureChest(position, level, persons)
+        else
+            User:inform("This input (" .. input .. ") is not correct. Use e.g: '3 2'")
         end
     end
     User:requestInputDialog(InputDialog("Treasure Chest Creation", "Please enter level and amount of people needed\nFormat: '[1-9] [1-8]'" ,false, 255, cbInputDialog))
@@ -1368,6 +1370,7 @@ local function specialItemCreation(User)
             return
         end
         local indexItem = dialog:getSelectedIndex() + 1
+
         if validItems[indexItem][2] == 0 then
             specialItemCreationCreate(User,validItems[indexItem][1])
         else
@@ -1461,7 +1464,6 @@ function M.UseItem(User, SourceItem)
         if (not dialog:getSuccess()) then
             return
         end
-
         local index = dialog:getSelectedIndex() + 1
         if  index == 1 then
             chooseItem(User)
