@@ -33,16 +33,16 @@ function M.LookAtItem(user, item)
     return thisLookat
 end
 
-function M.MoveItemAfterMove(user, sourceItem, targetItem)
+function M.MoveItemBeforeMove(user, sourceItem, targetItem)
     if sourceItem:getData("belongsTo") == "ritual" and sourceItem.itempos == 0 then
-        world:gfx(globalvar.gfxSPLASH,sourceItem.pos)
-        common.InformNLS(user, "Was immer das war. Jetzt ist die Kerze nicht mehr zu gebrauchen.",
-                               "Whatever happened here, the candle can't be used anymore.")
-        world:erase(targetItem,targetItem.number)
+        world:gfx(globalvar.gfxFLAMESTRIKE,sourceItem.pos)
+        common.InformNLS(user, "Diese Kerze scheint mit Magie aufgeladen zu sein. Du verbrennst dir die Finger.",
+                               "This candle seems to be full of magic. You burns your finger.")
         return false
     end
     return lights.MoveItemAfterMove(user, sourceItem, targetItem)
 end
+
 
 return M
 
