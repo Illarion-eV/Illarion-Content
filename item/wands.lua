@@ -47,6 +47,7 @@ local function useWandSelection(user, item, ltstate)
     local ACTION_COUNT_SHARDS = 4
     local ACTION_GLYPH_JEWELRY = 5
     local ACTION_GLYPH_BREAK = 6
+    local ACTION_EXAMINE_FORGE = 7
 
     local forgeItem = common.GetItemInArea(user.pos, glyphs.GLYPH_SHRINE_ID, 1, true)
 
@@ -73,6 +74,8 @@ local function useWandSelection(user, item, ltstate)
             glyphmagic.forgeGlyphs(user,forgeItem,ltstate)
         elseif actionIndex[index] == ACTION_GLYPH_BREAK then
             glyphmagic.breakGlyphs(user,forgeItem,ltstate)
+        elseif actionIndex[index] == ACTION_EXAMINE_FORGE then
+            glyphmagic.examineGlyphForge(user,forgeItem)
         end
     end
     local windowText = common.GetNLS(user,"Rituale", "Rituals")
@@ -82,7 +85,7 @@ local function useWandSelection(user, item, ltstate)
         sd:addOption(505, common.GetNLS(user,"Suche einen Glyph Ritualplatz","Find a glyph ritual place"))
         table.insert(actionIndex,ACTION_FIND_GLYPH_FORGE)
         if  user:getSkill(glyphs.SKILL_GLYPHING) >= glyphs.glyphForgeErectionMinSkill then
-            sd:addOption(glyphs.GLYPH_SHRINE_ID, common.GetNLS(user,"Errichte einen Glyph Ritualplatz","Build a glyph ritual place"))
+            sd:addOption(glyphs.GLYPH_SHRINE_ID, common.GetNLS(user,"Errichte einen Glyphen Ritualplatz","Build a glyph ritual place"))
             table.insert(actionIndex,ACTION_ERECT_GLYPH_FORGE)
         end
     else
@@ -96,6 +99,8 @@ local function useWandSelection(user, item, ltstate)
         table.insert(actionIndex,ACTION_GLYPH_JEWELRY)
         sd:addOption(2140, common.GetNLS(user,"Breche eine Glyphe aus einem Schmuckstück heraus","Break a glyph out of a jewelry"))
         table.insert(actionIndex,ACTION_GLYPH_BREAK)
+        sd:addOption(100, common.GetNLS(user,"Untersuche den Glyphen Ritualplatz","Examine the glyph ritual place"))
+        table.insert(actionIndex,ACTION_EXAMINE_FORGE)
     end
 
     sd:setCloseOnMove()

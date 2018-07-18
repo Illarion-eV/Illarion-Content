@@ -53,6 +53,8 @@ local ITEM_ID_CANDLES = 43
 local ITEM_ID_CANDLEHOLDER = 399
 local ITEM_ID_BURNING_CANDLE = 400
 
+local QUEST_ID_EXAMINE_FORGE = 567
+
 local workingGfx = {globalvar.gfxRAIN,globalvar.gfxSCOTTY,globalvar.gfxSPRINKLE,globalvar.gfxSPRINKLE,globalvar.gfxSPRINKLE}
 
 local function endRitualAddGlyph(user, forgePos, item)
@@ -680,7 +682,7 @@ function M.findGlyphForge(user)
             local nextLearn = math.random(1,2)
             user:setQuestProgress(562,nextLearn)
             user:learn(glyphs.SKILL_GLYPHING, glyphs.glyphForgeFindTime, 100)
-            common.InformNLS(user,textDirection .. " Seine Magie zieht dich an und doch kannst du dich für einen Moment nicht bewegen,",
+            common.InformNLS(user,textDirection .. " Seine Magie zieht dich an und doch kannst du dich für einen Moment nicht bewegen.",
                                   textDirection .. " It's magic attracts you but you cannot move for a few seconds.")
             common.ParalyseCharacter(user, glyphs.glyphForgeFindTime)
         else
@@ -690,6 +692,32 @@ function M.findGlyphForge(user)
         return true
     end
     return false
+end
+
+function M.examineGlyphForge(user, glyphForge)
+    if glyphForge.wear < 3 then
+        common.InformNLS(user, "Die Steine bröckeln. Die Magie des Ortes scheint fast völlig verschwunden.",
+                               "The stones crumble. The magic of the place has almost disappeared.")
+    elseif M.checkForgeIsReady(glyphForge) then
+        common.InformNLS(user, "Das Ritual ist bereits vorbereitet. You kannst gleich beginnen.",
+                               "A ritual is already prepared. You can start right now.")
+    else
+        local posNumber = common.positionToNumber(glyphForge.pos)
+        if posNumber == user:getQuestProgress(QUEST_ID_EXAMINE_FORGE) then
+            common.InformNLS(user,"An diesem Glyphen Ritualplatz sich nichts geändert.",
+                                  "Nothing changed at this glyph ritual place.")
+        else
+            user:setQuestProgress(QUEST_ID_EXAMINE_FORGE, posNumber)
+            local checkLimit = user:getBaseAttribute("perception") / 30.0 + 0.2
+            if checkLimit > math.random() then
+                common.InformNLS(user,"Du glaubst zu erkennen, dass dieser Glyphen Ritualplatz von " .. glyphForge:getData("craftedBy") .. " errichtet wurde.",
+                                      "You see hints this glyph ritual place might had been errected by " .. glyphForge:getData("craftedBy") .. ".")
+            else
+                common.InformNLS(user,"Das ist ein Glyphen Ritualplatz wie du schon viele gesehen hast. Wer ihn errichtet hat, erschließt sich dir nicht.",
+                                      "This is a glyph ritual place as you have already seen many. Who built it, does not open to you.")
+            end
+        end
+    end
 end
 
 function M.placeGlyphForge(user, ltstate)

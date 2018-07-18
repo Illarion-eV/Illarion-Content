@@ -2697,4 +2697,30 @@ function M.numberToText(number, language, cardinal)
     end
 end
 
+--[[Position to number
+number: integer
+position: related position]]--
+function M.positionToNumber(pos)
+    local number = pos.x + 1000
+    number =  number + (pos.y +1000) * 10000
+    number = number + (pos.z +100) * 10000000
+    return number
+end
+
+--[[Number to postion
+number: integer
+position: related position]]--
+function M.numberToPosition(number)
+    number = tonumber(number)
+    if number == nil then
+        return position(0,0,0)
+    end
+    local posz = math.floor (number / 10000000 - 100)
+    number = number - ((posz +1000) * 100000000)
+    local posy = math.floor (number  / 10000 - 1000)
+    number = number - ((posy +1000) * 10000)
+    local posx = math.floor (number - 1000)
+    return position(posx, posy, posz)
+end
+
 return M

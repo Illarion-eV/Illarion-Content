@@ -32,14 +32,9 @@ function M.LookAtItem(user, item)
     if item.wear < 3 then
         lookAt.description = common.GetNLS(user, "Die Steine bröckeln. Die Magie des Ortes scheint fast völlig verschwunden.",
                                                  "The stones crumble. The magic of the place has almost disappeared.")
-    else
-        local mageName = item:getData("craftedBy")
-        if glyphmagic.checkForgeIsReady(item) then
-            lookAt.description = common.GetNLS(user, "Errichtet von " .. mageName .. "\nDas Ritual ist bereits vorbereitet.",
-                                                     "Erected by " .. mageName .. "\nThe ritual is already prepared.")
-        else
-            lookAt.description = common.GetNLS(user, "Errichtet von " .. mageName, "Erected by " .. mageName)
-        end
+    elseif glyphmagic.checkForgeIsReady(item) then
+        lookAt.description = common.GetNLS(user, "Das Ritual ist bereits vorbereitet.",
+                                                 "The ritual is already prepared.")
     end
 
     return lookAt
