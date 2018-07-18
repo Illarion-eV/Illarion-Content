@@ -1295,6 +1295,8 @@ local function specialItemCreationTreasureChest(User)
                 return
             end
             spawntreasures.spawnTreasureChest(position, level, persons)
+        else
+            User:inform("The input :'" .. input .. "' is not corret. Please use e.g. '3 2'.")
         end
     end
     User:requestInputDialog(InputDialog("Treasure Chest Creation", "Please enter level and amount of people needed\nFormat: '[1-9] [1-8]'" ,false, 255, cbInputDialog))
