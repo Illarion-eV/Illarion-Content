@@ -233,8 +233,17 @@ local function startRitual(user, workingTime, manaConsumption, workingPlace, rit
     workingRitual[user.id]={workingCycles, deltaMana, deltaFood, workingPlace, ritualId, specialValues}
 
     performRitual(user)
-    common.TempInformNLS(user,"Das Ritual wird etwa " .. tostring(workingTime) .. " Sekunden dauern.",
-                              "The ritual will be finished in about " .. tostring(workingTime) .. " seconds.")
+    local timeText
+    if workingTime < 45 then
+        common.TempInformNLS(user,"Das Ritual wird nicht allzulange dauern.",
+                                  "The ritual will take a few moments.")
+    elseif workingTime < 100 then
+        common.TempInformNLS(user,"Das Ritual wird einige Zeit in Anspruch nehmen.",
+                                  "The ritual will take a while.")
+    else
+        common.TempInformNLS(user,"Das Ritual wird sehr lange deine ungeteilte Aufmerksamkeit beanspruchen.",
+                                  "The ritual will take a your attention for a very long time.")
+    end
     return true
 end
 
@@ -662,18 +671,21 @@ function M.findGlyphForge(user)
     user:performAnimation(globalvar.charAnimationSPELL)
     local forgeItem, bool = common.GetItemInArea(user.pos, glyphs.GLYPH_SHRINE_ID, 40, true)
     if forgeItem ~= nil then
-        common.TurnTo(user, forgeItem.pos )
         world:gfx(globalvar.gfxSUN,forgeItem.pos)
+        local directionInfo = common.getDistanceHint(user, forgeItem.pos)
+        local textDirection = common.GetNLS(user,"Möglicherweise befindet sich " .. directionInfo.distance.de .. " im " .. directionInfo.direction.de .. " ein Ritualplatz.",
+                                                 "There might be " .. directionInfo.distance.en .. " in the " .. directionInfo.direction.en .. " a ritual place.")
+
         if user:getQuestProgress(562) == 0 and user:getSkill(glyphs.SKILL_GLYPHING) <= glyphs.glyphForgeFindMaxSkill then
             local nextLearn = math.random(1,2)
             user:setQuestProgress(562,nextLearn)
             user:learn(glyphs.SKILL_GLYPHING, glyphs.glyphForgeFindTime, 100)
-            common.InformNLS(user,"Nicht weit von hier ist bereits ein Ritualplatz. Seine Magie zieht dich an und doch kannst du dich für einen Moment nicht bewegen,",
-                                  "There must be a ritual place close to you. It's magic attracts you but you cannot move for a few seconds.")
+            common.InformNLS(user,textDirection .. " Seine Magie zieht dich an und doch kannst du dich für einen Moment nicht bewegen,",
+                                  textDirection .. " It's magic attracts you but you cannot move for a few seconds.")
             common.ParalyseCharacter(user, glyphs.glyphForgeFindTime)
         else
-            common.TempInformNLS(user,"Nicht weit von hier ist bereits ein Ritualplatz. Du schaust in seine Richtung. Vielleicht kannst du ihn bereits sehen?",
-                                      "There must be a ritual place close to you. You turns into it's direction. Maybe you can see it already?")
+            common.TempInformNLS(user,textDirection .. " Vielleicht kannst du ihn bereits sehen?",
+                                      textDirection .. " Maybe you can see it already?")
         end
         return true
     end

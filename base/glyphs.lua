@@ -268,15 +268,17 @@ end
 
 function M.setRemainingGlyphs(item,number)
     local usedNo = tonumber(number)
+    local maxShown = 0
+    local minShown = 0
     if usedNo ~= nil and usedNo > 0 then
         item:setData(M.GLYPH_EFFEKT_REMAIN_DATA_KEY,usedNo)
-        item:setData(M.GLYPH_EFFEKT_SHOW_MIN_DATA_KEY,math.max(1,usedNo-math.random(0,2)))
-        item:setData(M.GLYPH_EFFEKT_SHOW_MAX_DATA_KEY,usedNo+math.random(0,2))
+        minShown = math.max(1,usedNo - math.random(0,2))
+        maxShown = math.max(minShown + 1, usedNo + math.random(0,2))
     else
         item:setData(M.GLYPH_EFFEKT_REMAIN_DATA_KEY,0)
-        item:setData(M.GLYPH_EFFEKT_SHOW_MIN_DATA_KEY,0)
-        item:setData(M.GLYPH_EFFEKT_SHOW_MAX_DATA_KEY,0)
     end
+    item:setData(M.GLYPH_EFFEKT_SHOW_MIN_DATA_KEY,minShown)
+    item:setData(M.GLYPH_EFFEKT_SHOW_MAX_DATA_KEY,maxShown)
     world:changeItem(item)
 end
 
@@ -317,15 +319,37 @@ end
 
 function M.lookatGlyph(item, lang)
     if M.isGlyphed(item) then
-        local text = "\n " .. tostring(item:getData(M.GLYPH_EFFEKT_SHOW_MIN_DATA_KEY)) .. "-" .. tostring(item:getData(M.GLYPH_EFFEKT_SHOW_MAX_DATA_KEY))
+        local text = "\n "
+        local numMin = item:getData(M.GLYPH_EFFEKT_SHOW_MIN_DATA_KEY)
+        local numMax = item:getData(M.GLYPH_EFFEKT_SHOW_MAX_DATA_KEY)
+        local textMin = common.numberToText(numMin)
+        local textMax = common.numberToText(numMax)
         if lang == Player.german then
-            text = text .. " verbleibende Glyphen Ladungen"
+            text = text .. common.firstToUpper(common.numberToText(numMin,Player.german)) .. " bis " .. common.numberToText(numMax,Player.german) .. " verbleibende Glyphen Ladungen"
         else
-            text = text .. " remaining glyph charges"
+            text = text .. common.firstToUpper(common.numberToText(numMin,Player.english)) .. " to " .. common.numberToText(numMax,Player.english) .. " remaining glyph charges"
         end
         return text
     else
         return ""
+    end
+end
+
+function M.createGlyphedItemOnPosition(pos, jewelry, charges)
+    local jewelryId = tonumber(jewelry)
+    local item = world:createItemFromId(jewelryId,1,pos,false,333,nil)
+    M.setRemainingGlyphs(item,charges)
+end
+
+function M.dropGlyphedItemByChance(treasureLocation, treasureLevel)
+    if treasureLevel > 5 then
+        local jewelryLevel = math.random(1,21)
+        local jewelryType = math.random(1,2)
+        local jewelryCharges = math.random (1, treasureLevel - 3)
+        local probLimit = ((25.1 - tonumber(jewelryLevel)) + (treasureLevel - 5) * 5 )/100.0
+        if math.random() < probLimit then
+            M.createGlyphedItemOnPosition(treasureLocation, M.ringAndAmuletDefinition[jewelryLevel][jewelryType], jewelryCharges)
+        end
     end
 end
 

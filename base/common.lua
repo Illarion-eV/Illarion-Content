@@ -73,6 +73,24 @@ function M.firstToUpper(text)
     return (text:gsub("^%l", string.upper))
 end
 
+--[[ Replace Umlaute by possible character.
+@param text: "the text with an ä."
+@return text: "the text with an ae."]]--
+function M.replaceUmlaut(text)
+    if M.IsNilOrEmpty(text) then
+        return text
+    end
+    text = tostring(text)
+    text = text:gsub("ä","ae")
+    text = text:gsub("ö","oe")
+    text = text:gsub("ü","ue")
+    text = text:gsub("Ä","Ae")
+    text = text:gsub("Ö","Oe")
+    text = text:gsub("Ü","Ue")
+    text = text:gsub("ß","ss")
+    return text
+end
+
 --- This function uses the random value generator to produce a random chance.
 -- This function returns true in a specified amount of cases. The optional
 -- Base parameter is used to set the value of 100%. By default this value is 1.
@@ -388,9 +406,7 @@ function M.GetFreePositions(centerPosition, searchRadius, allowPassableItems, sh
 end
 
 -- Get one random free location
-function M.getFreePos(CenterPos, Rad, allowPassableItems)
-    allowPassableItems = allowPassableItems or false
-    
+function M.getFreePos(CenterPos, Rad)
     local pos = M.GetFreePositions(CenterPos, Rad, false, true)()
     if pos == nil then
         return CenterPos
@@ -496,9 +512,9 @@ function M.FitForHardWork(User, required)
         "You are too exhausted for that. You should eat something.")
         return false
     end
-
+    
     return true
-
+    
 end
 
 --- Decrease the foodpoints of a character and show a warning if the foodpoints
@@ -508,13 +524,13 @@ end
 function M.GetHungry(User, units)
 
     local food = User:increaseAttrib("foodlevel", -units)
-
+    
     if (food <= 6000) and ((food + units) > 6000) then
         M.InformNLS(User,
         "Die Arbeit macht dich langsam müde und hungrig.",
         "You are getting tired and hungry from your work.")
     end
-
+    
 end
 
 --- Damage an item
@@ -527,11 +543,11 @@ function M.ToolBreaks(user, item, workTime)
     if not user or not item or not workTime then
         return false
     end
-
-    local loss = math.floor(workTime/180) --Each durability point equals 18 seconds of crafting time. Hence, a new tool lasts 30 minutes.
-    local remainder = workTime - loss
-
-    if (math.random(1, 100) < (remainder/1.8)) then
+    
+    loss=math.floor(workTime/180) --Each durability point equals 18 seconds of crafting time. Hence, a new tool lasts 30 minutes.
+    remainder=workTime-loss
+    
+    if (math.random(1, 100) < (remainder/1.8)) then 
         loss=loss+1
     end
 
@@ -539,12 +555,12 @@ function M.ToolBreaks(user, item, workTime)
     local quality = (item.quality - durability) / 100
 
     durability = durability - loss
-
+    
     if (durability <= 0) then
-
+    
         world:erase(item, 1)
         return true
-
+      
     end
 
     item.quality = quality * 100 + durability
@@ -623,14 +639,14 @@ end
 function M.calculateItemQualityDurability (quality, durability)
     local qualityNumber
     if M.IsNilOrEmpty(quality) then
-        qualityNumber = M.ITEM_DEFAULT_QUALITY
+        qualityNumber = ITEM_DEFAULT_QUALITY
     else
         qualityNumber= tonumber(quality)
     end
     if qualityNumber < 1 or qualityNumber > M.ITEM_MAX_QUALITY then
-        qualityNumber = M.ITEM_DEFAULT_QUALITY
+        qualityNumber = ITEM_DEFAULT_QUALITY
     end
-
+    
     local durabilityNumber = tonumber(durability)
     if M.IsNilOrEmpty(durability) then
         durabilityNumber = M.ITEM_DEFAULT_DURABILITY
@@ -640,7 +656,7 @@ function M.calculateItemQualityDurability (quality, durability)
     if durabilityNumber < 1 or durabilityNumber > M.ITEM_MAX_DURABILITY then
         durabilityNumber = M.ITEM_DEFAULT_DURABILITY
     end
-
+    
     return qualityNumber * 100 + durabilityNumber
 end
 
@@ -1034,7 +1050,6 @@ function M.GetStiffness(Character)
     return StiffnessVal
 end
 
-local interruptTable = {}
 --[[
     ResetInterruption
     Resets the interruption counter state, in case the action did not success
@@ -1055,7 +1070,11 @@ end
     @return boolean - true in case the action is interruped, false if not
 ]]
 function M.IsInterrupted(Character)
-if not interruptTable[Character.id] then
+    if not interruptTable then
+        interruptTable = {}
+        interruptTable[Character.id] = 2
+        return false
+    elseif not interruptTable[Character.id] then
         interruptTable[Character.id] = 2
         return false
     end
@@ -1692,7 +1711,7 @@ end
 --[[Check if a char holds an item from a list in hand
 @return true if item with id is in any hand slot]]--
 function M.hasItemIdInHand(user, itemIds)
-    if type(itemIds) ~= "table" then
+    if type(row) == "table" then
         itemIds = {itemIds}
     end
     local leftTool = user:getItemAt(Character.left_tool)
@@ -1709,7 +1728,7 @@ end
 --[[Check if a char holds an item from a list in hand
 @return item if item with id is in any hand slot]]--
 function M.getItemInHand(user, itemIds)
-    if type(itemIds) ~= "table" then
+    if type(row) == "table" then
         itemIds = {itemIds}
     end
     local leftTool = user:getItemAt(Character.left_tool)
@@ -2046,15 +2065,15 @@ function M.CreateRandomNumberList(AmntElements, minval, maxval)
    return reslist
 end
 
---[[Searches the Online List for a Player by name or id
+--[[Searches the Online List for a Player by name
     if a player was found it returns: true, Char Struct
 --     if not, nil]]
 
-function M.CheckIfOnline(playerame, playerId)
+function M.CheckIfOnline(playername)
     local playerlist = world:getPlayersOnline()
 
     for i = 1, #(playerlist) do
-        if playerlist[i].name == playername or playerlist[i].name == playerId then
+        if playerlist[i].name == playername then
         return playerlist[i]
         end
     end
@@ -2342,7 +2361,7 @@ end
 --[[Binary functions
 Set bit n
 bitN must be a number in between 1 and 15 (limit 16 bit integer)
-setBit must be a number
+setBit must be a number 
 @return int: setValue
 ]]--
 function M.addBit(setValue, bitN)
@@ -2363,7 +2382,7 @@ end
 --[[Binary functions
 Remove bit n
 bitN must be a number in between 1 and 15 (limit 16 bit integer)
-setBit must be a number
+setBit must be a number 
 @return int: setValue
 ]]--
 function M.removeBit(setValue, bitN)
@@ -2383,7 +2402,7 @@ end
 
 --[[Binary functions
 Returns the number of set bits.
-setBit must be a number
+setBit must be a number 
 @return int: number of bits = 1
 ]]--
 function M.countBit(checkedValue)
@@ -2505,7 +2524,7 @@ end
 --[[ Drop a blood spot on the ground at a specified location.
 @param Posi The location where the blood spot is placed]]--
 function M.dropBlood(Posi, bloodWear)
-    local usedWear = bloodWear or 2
+    usedWear = bloodWear or 2
     if world:isItemOnField(Posi) then
         return --no blood on tiles with items on them!
     end
@@ -2514,7 +2533,7 @@ function M.dropBlood(Posi, bloodWear)
     if tileId == 6 or tileId == 0 or tileId == 34 then
         return -- no blood on water and invisible tiles
     end
-
+    
     local Blood = world:createItemFromId(3101, 1, Posi, true, 333, nil)
     Blood.wear = usedWear
     world:changeItem(Blood)
@@ -2560,6 +2579,122 @@ function M.countPlayersInRangeOf(centerPos, range)
         count = count + 1
     end
     return count
+end
+
+--[[Direction hints]]--
+--[[Translate a distance into text
+distance: number of tiles
+@return: textDe,textEn]]--
+function M.getTextForDistance(distance)
+    distance = tonumber(distance)
+    if distance == nil then
+        return "unscharf", "diffuse"
+    elseif distance < 20 then
+        return "sehr nah", "very close"
+    elseif distance < 60 then
+        return "nah", "close"
+    elseif distance < 200 then
+        return "fern", "far"
+    elseif distance < 500 then
+        return "sehr fern", "very far"
+    else
+        return "äußerst fern", "extremely far"
+    end
+end
+
+--[[Translate a direction into text
+direction: direction value
+@return: textDe,textEn]]--
+function M.getTextForDirection(direction)
+    if direction == Character.dir_north then
+        return "Norden", "north"
+    elseif direction == Character.dir_northeast then
+        return "Nordosten", "northeast"
+    elseif direction == Character.dir_east then
+        return "Osten", "east"
+    elseif direction == Character.dir_southeast then
+        return "Südosten", "southeast"
+    elseif direction == Character.dir_south then
+        return "Süden", "south"
+    elseif direction == Character.dir_southwest then
+        return "Südwesten", "southwest"
+    elseif direction == Character.dir_west then
+        return "Westen", "west"
+    elseif direction == Character.dir_northwest then
+        return "Nordwesten", "northwest"
+    else
+        return false, false
+    end
+end
+
+
+--[[Distance hint, a raw expectation where the target position might be
+user: start position
+targetPos: target position
+@return structure with German and English distance and direction]]--
+function M.getDistanceHint(user, targetPos)
+    if not targetPos then
+        return false
+    end
+
+    local metricDistance = user:distanceMetricToPosition(targetPos);
+    local dir = M.GetDirection(user.pos, targetPos);
+
+    local result = {}
+    result.direction = {}
+    result.direction.de, result.direction.en = M.getTextForDirection(dir)
+    result.distance = {}
+    result.distance.de, result.distance.en = M.getTextForDistance(metricDistance)
+    return result
+end
+
+
+--[[Number to text
+number: integer 0-20
+languag: Player language
+cardinal: false or nil: number, true: cardinals
+@return text]]--
+function M.numberToText(number, language, cardinal)
+    local usedCardinal = cardinal or false
+    local numberTexts = {}
+    numberTexts[0] = {"kein",                  "no",             "kein",               "no"}
+    numberTexts[1] = {"ein",                   "one",            "erste",              "first"}
+    numberTexts[2] = {"zwei",                  "two",            "zweite",             "second"}
+    numberTexts[3] = {"drei",                  "three",          "dritte",             "third"}
+    numberTexts[4] = {"vier",                  "four",           "vierte",             "fourth"}
+    numberTexts[5] = {"fünf",                  "five",           "fünfte",             "fivth"}
+    numberTexts[6] = {"sechs",                 "six",            "sechste",            "sixth"}
+    numberTexts[7] = {"sieben",                "seven",          "siebente",           "seventh"}
+    numberTexts[8] = {"acht",                  "eigth",          "achte",              "eighth"}
+    numberTexts[9] = {"neun",                  "nine",           "neunte",             "ninth"}
+    numberTexts[10] = {"zehn",                 "ten",            "zehnte",             "tenth"}
+    numberTexts[11] = {"elf",                  "eleven",         "elfe",               "eleventh"}
+    numberTexts[12] = {"zwölf",                "twelf",          "zwölfte",            "twelfth"}
+    numberTexts[13] = {"dreizehn",             "thirteen",       "dreizehnte",         "thirteenth"}
+    numberTexts[14] = {"vierzehn",             "fourteen",       "vierzehnte",         "fourteenth"}
+    numberTexts[15] = {"fünfzehn",             "fiveteen",       "fünfzehnte",         "fiveteenth"}
+    numberTexts[16] = {"sechzehn",             "sixteen",        "sechzehnte",         "sixteenth"}
+    numberTexts[17] = {"siebzehn",             "seventeen",      "siebzehnte",         "seventeenth"}
+    numberTexts[18] = {"achtzehn",             "eightteen",      "achtzehnte",         "eightteenth"}
+    numberTexts[19] = {"neunzehn",             "ninteen",        "neunzehnte",         "ninteenth"}
+    numberTexts[20] = {"zwanzig",              "twenty",         "zwanzigste",         "twentieth"}
+    local inumber = tonumber(number)
+    if M.IsNilOrEmpty(inumber) then
+        inumber = 0
+    end
+    if inumber > 20 then
+        if usedCardinal == true then
+            return tostring(inumber) .. "."
+        else
+            return tostring(inumber)
+        end
+    else
+        if usedCardinal == true then
+            return (language == Player.german and numberTexts[inumber][3] or numberTexts[inumber][4])
+        else
+            return (language == Player.german and numberTexts[inumber][1] or numberTexts[inumber][2])
+        end
+    end
 end
 
 return M
