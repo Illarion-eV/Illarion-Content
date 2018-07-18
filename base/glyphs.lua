@@ -335,4 +335,22 @@ function M.lookatGlyph(item, lang)
     end
 end
 
+function M.createGlyphedItemOnPosition(pos, jewelry, charges)
+    local jewelryId = tonumber(jewelry)
+    local item = world:createItemFromId(jewelryId,1,pos,false,333,nil)
+    M.setRemainingGlyphs(item,charges)
+end
+
+function M.dropGlyphedItemByChance(treasureLocation, treasureLevel)
+    if treasureLevel > 5 then
+        local jewelryLevel = math.random(1,21)
+        local jewelryType = math.random(1,2)
+        local jewelryCharges = math.random (1, treasureLevel - 3)
+        local probLimit = ((25.1 - tonumber(jewelryLevel)) + (treasureLevel - 5) * 5 )/100.0
+        if math.random() < probLimit then
+            M.createGlyphedItemOnPosition(treasureLocation, M.ringAndAmuletDefinition[jewelryLevel][jewelryType], jewelryCharges)
+        end
+    end
+end
+
 return M
