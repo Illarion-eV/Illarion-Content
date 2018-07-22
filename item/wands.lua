@@ -65,8 +65,8 @@ local function useWandSelection(user, item, ltstate)
         elseif actionIndex[index] == ACTION_FIND_GLYPH_FORGE then
             currentWandUse[user.id] = nil
             if not glyphmagic.findGlyphForge(user) then
-                common.InformNLS(user,"Du kannst in der weiteren Umgebung keinen Ritualplatz ausmachen.",
-                                      "You cannot detect any existing ritual place in that area.")
+                common.InformNLS(user,"Du kannst in der weiteren Umgebung keinen Glyphen-Ritualplatz ausmachen.",
+                                      "You cannot detect any existing glyph ritual place in that area.")
             end
         elseif actionIndex[index] == ACTION_COUNT_SHARDS then
             glyphmagic.showShardState(user)
@@ -82,10 +82,10 @@ local function useWandSelection(user, item, ltstate)
     local commentText = ""
     local sd = SelectionDialog(windowText, commentText, cbSetMode)
     if forgeItem == nil then
-        sd:addOption(505, common.GetNLS(user,"Suche einen Glyph Ritualplatz","Find a glyph ritual place"))
+        sd:addOption(505, common.GetNLS(user,"Suche einen Glyphen-Ritualplatz","Find a glyph ritual place"))
         table.insert(actionIndex,ACTION_FIND_GLYPH_FORGE)
         if  user:getSkill(glyphs.SKILL_GLYPHING) >= glyphs.glyphForgeErectionMinSkill then
-            sd:addOption(glyphs.GLYPH_SHRINE_ID, common.GetNLS(user,"Errichte einen Glyphen Ritualplatz","Build a glyph ritual place"))
+            sd:addOption(glyphs.GLYPH_SHRINE_ID, common.GetNLS(user,"Errichte einen Glyphen-Ritualplatz","Build a glyph ritual place"))
             table.insert(actionIndex,ACTION_ERECT_GLYPH_FORGE)
         end
     else
@@ -99,7 +99,7 @@ local function useWandSelection(user, item, ltstate)
         table.insert(actionIndex,ACTION_GLYPH_JEWELRY)
         sd:addOption(2140, common.GetNLS(user,"Breche eine Glyphe aus einem Schmuckstück heraus","Break a glyph out of a jewelry"))
         table.insert(actionIndex,ACTION_GLYPH_BREAK)
-        sd:addOption(100, common.GetNLS(user,"Untersuche den Glyphen Ritualplatz","Examine the glyph ritual place"))
+        sd:addOption(100, common.GetNLS(user,"Untersuche den Glyphen-Ritualplatz","Examine the glyph ritual place"))
         table.insert(actionIndex,ACTION_EXAMINE_FORGE)
     end
 
