@@ -418,14 +418,13 @@ function M.effectOnUserRepairQuality(user,item)
         isFired,parameter,isDestroyed = M.effectUse(user,M.EFFEKT_AMULET_RUBY)
         if isFired then
             if not isDestroyed then
-                common.InformNLS(user,"Fasziniert von deinem Amulet hilft dir jemand, so dass die Qualität deiner Arbeit besser wird.",
-                                      "Fascinated by your amulet someone helps you and you can improve the quality of your work.")
+                common.InformNLS(user,"Mit einer Person neben dir arbeitest du konzentrierter. Die Qualität deiner Arbeit wird besser.",
+                                      "Having a person next to you can concentrate much better. You can improve the quality of your work.")
             end
             for i=2,#playerInSight do
                 world:gfx(globalvar.gfxSCOTTY,playerInSight[i].pos)
-                common.TurnTo(playerInSight[i],workbenchPos)
-                common.InformNLS(playerInSight[i],"Fasziniert von einem magischen Amulet hilftst du jemanden.",
-                                                  "Fascinated by a magic amulet you help someone.")
+                common.InformNLS(playerInSight[i],"Du bist kurz abgelenkt. Es scheint als ob ein Teil deiner Konzentration auf den Handwerker neben dir übergegangen ist.",
+                                                  "You are shortly distracted. It seems a part of your concentration was adsorbed by the crafter next to you.")
             end
             improvementValue = improvementValue + parameter * QUALITY_BASE
         end
@@ -591,14 +590,13 @@ function M.effectOnQuality(user)
         isFired,parameter,isDestroyed = M.effectUse(user,M.EFFEKT_RING_RUBY, REQUIRED_CHARGES)
         if isFired then
             if not isDestroyed then
-                common.InformNLS(user,"Fasziniert von deinem Ring hilft dir jemand, so dass die Qualität deiner Arbeit besser wird.",
-                                      "Fascinated by your ring someone helps you and you can improve the quality of your work.")
+                common.InformNLS(user,"Mit einer Person neben dir arbeitest du konzentrierter. Die Qualität deiner Arbeit wird besser.",
+                                      "Having a person next to you can concentrate much better. You can improve the quality of your work.")
             end
             for i=2,#playerInSight do
                 world:gfx(globalvar.gfxSCOTTY,playerInSight[i].pos)
-                common.TurnTo(playerInSight[i],workbenchPos)
-                common.InformNLS(playerInSight[i],"Fasziniert von einem magischen Ring hilftst du jemanden.",
-                                                  "Fascinated by a magic ring you help someone.")
+                common.InformNLS(playerInSight[i],"Du bist kurz abgelenkt. Es scheint als ob ein Teil deiner Konzentration auf den Handwerker neben dir übergegangen ist.",
+                                                  "You are shortly distracted. It seems a part of your concentration was adsorbed by the crafter next to you.")
             end
             qualityImprovement = qualityImprovement + parameter * QUALITY_FAKTOR
         end
