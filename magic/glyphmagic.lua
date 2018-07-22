@@ -744,7 +744,6 @@ function M.placeGlyphForge(user, ltstate)
 end
 
 function M.prepareGlyphRitual(user, ltstate)
---Banduk
     if ltstate == Action.none then
         local forgeItem, bool = common.GetItemInArea(user.pos, glyphs.GLYPH_SHRINE_ID, 1, true)
         if forgeItem == nil then

@@ -431,7 +431,7 @@ function M.effectOnUserRepairQuality(user,item)
     end
 
     local CHARGES_ON_DIAMOND = 4
-    local PROBABILITY_ON_DIAMOND = 1 --Banduk0.5
+    local PROBABILITY_ON_DIAMOND = 0.5
     isFired,parameter,isDestroyed = M.effectUse(user,M.EFFEKT_RING_DIAMOND,CHARGES_ON_DIAMOND,PROBABILITY_ON_DIAMOND)
     if isFired then
         world:gfx(globalvar.gfxSCOTTY,user.pos)
