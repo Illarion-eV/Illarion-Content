@@ -711,7 +711,7 @@ function M.examineGlyphForge(user, glyphForge)
             local checkLimit = user:getBaseAttribute("perception") / 30.0 + 0.2
             if checkLimit > math.random() then
                 common.InformNLS(user,"Du glaubst zu erkennen, dass dieser Glyphen Ritualplatz von " .. glyphForge:getData("craftedBy") .. " errichtet wurde.",
-                                      "You see hints this glyph ritual place might had been errected by " .. glyphForge:getData("craftedBy") .. ".")
+                                      "You see hints this glyph ritual place might had been erected by " .. glyphForge:getData("craftedBy") .. ".")
             else
                 common.InformNLS(user,"Das ist ein Glyphen Ritualplatz wie du schon viele gesehen hast. Wer ihn errichtet hat, erschlieﬂt sich dir nicht.",
                                       "This is a glyph ritual place as you have already seen many. Who built it, does not open to you.")
