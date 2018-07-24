@@ -347,9 +347,9 @@ local function showShardStateDetail(user,ringOrAmulet,level)
             shardLevel = i*10+level
         end
         if shard.shardInInvertory(user,shardLevel) ~= nil then
-            displayText = common.GetNLS(user," (verfügbar)", " (available)")..tostring(shardLevel)
+            displayText = common.GetNLS(user," (verfügbar)", " (available)")
         else
-            displayText = common.GetNLS(user," (fehlt)", " (missing)")..tostring(shardLevel)
+            displayText = common.GetNLS(user," (fehlt)", " (missing)")
         end
         displayText = glyphs.getShardNameFromLevel(shardLevel) .. displayText
         sd:addOption(glyphs.getShardId(shardLevel), displayText )
