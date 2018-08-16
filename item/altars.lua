@@ -216,57 +216,60 @@ local function devotionDialog(User, god)
     else -- noob
         explanation = explanation .. common.GetNLS(User, "FIXME", "FIXME You can only devote yourself to one god at a time and bla-bla-bla")
     end
-    explanation = explanation .. common.GetNLS(User, "FIXME", "\nYou will need to donate " .. tellItems(User, gods.getItemsForDevotion(god)))
+    explanation = explanation .. common.GetNLS(User, "FIXME", "\nYou will need to donate " .. tellItems(User, gods.getItemsForDevotion(god)) .. ".")
 
     local candevote, reason_de, reason_en = canDevote(User, god)
     if candevote then
-        common.selectionDialogWrapper(User, common.GetNLS(User, "FIXME", "Devote"), explanation, {
-            { icon = 0, text = common.GetNLS(User, "FIXME", "FIXME Yes, I do!"),             func = doDevote, args = { User, god } },
-            { icon = 0, text = common.GetNLS(User, "FIXME", "FIXME You must be crazy. No!"), func = nil, args = nil },
+        common.selectionDialogWrapper(User, common.GetNLS(User, "FIXME", "Devotion"), explanation, {
+            { icon = 0, text = common.GetNLS(User, "FIXME", "Devote yourself to " .. gods.getNameEn(god)),             func = doDevote, args = { User, god } },
+            { icon = 0, text = common.GetNLS(User, "FIXME", "Remain " .. gods.getCharStatusEn(User)), func = nil, args = nil },
         })
     else
         explanation = explanation .. "\n" .. common.GetNLS(User, reason_de, reason_en)
-        local dialog = MessageDialog(common.GetNLS(User, "FIXME", "Devote"), explanation, --[[callback=]]function(d) end)
+        local dialog = MessageDialog(common.GetNLS(User, "FIXME", "Devotion"), explanation, --[[callback=]]function(d) end)
         User:requestMessageDialog(dialog)
     end
 end
 
-local function defile(User, god)
-    common.TalkNLS(User, Character.say , "#me FIXME", "#me FIXME spits on the altar and curses the name of " .. gods.getNameEn(god))
-    local favour_penalty
-    -- FIXME adjust numbers when favour is implemented
-    if gods.isPriest(User, god) then
-        -- Apostate!
-        gods.setNotPriest(User)
-        favour_penalty = 500
-    elseif gods.isDevoted(User, god) then
-        favour_penalty = 200
-    else
-        favour_penalty = 100
-    end
-    -- TODO cooldown
-    gods.increaseFavour(User, god, -favour_penalty)
-end
+-- TODO
+--local function defile(User, god)
+--    common.TalkNLS(User, Character.say , "#me FIXME", "#me FIXME spits on the altar and curses the name of " .. gods.getNameEn(god))
+--    local favour_penalty
+--    -- TODO adjust numbers when favour is implemented
+--    if gods.isPriest(User, god) then
+--        -- Apostate!
+--        gods.setNotPriest(User)
+--        favour_penalty = 500
+--    elseif gods.isDevoted(User, god) then
+--        favour_penalty = 200
+--    else
+--        favour_penalty = 100
+--    end
+--    -- TODO cooldown
+--    gods.increaseFavour(User, god, -favour_penalty)
+--end
 
-local function becomePriest(User, god)
-    -- TODO audience, rutial etc
-    gods.setPriest(User, god)
-end
+-- TODO
+--local function becomePriest(User, god)
+--    -- TODO audience, rutial etc
+--    gods.setPriest(User, god)
+--end
 
-local function performService(User, god)
-    -- TODO priest magic
-    common.TalkNLS(User, Character.say , "#me FIXME", "#me FIXME performs a service in honor of " .. gods.getNameEn(god))
-
-    -- FIXME this is just for debug
-    local function cb(dia)
-        if (dia:getSuccess()) then
-            local multiplier = tonumber(dia:getInput())
-            multiplier = multiplier or 0
-            gods.favourDecay(User, multiplier)
-        end
-    end
-    User:requestInputDialog(InputDialog("Decay", "Multiplier:", false, 10, cb))
-end
+-- TODO
+--local function performService(User, god)
+--    -- TODO priest magic
+--    common.TalkNLS(User, Character.say , "#me FIXME", "#me FIXME performs a service in honor of " .. gods.getNameEn(god))
+--
+--    -- FIXME this is just for debug
+--    local function cb(dia)
+--        if (dia:getSuccess()) then
+--            local multiplier = tonumber(dia:getInput())
+--            multiplier = multiplier or 0
+--            gods.favourDecay(User, multiplier)
+--        end
+--    end
+--    User:requestInputDialog(InputDialog("Decay", "Multiplier:", false, 10, cb))
+--end
 
 
 local function ZeniaAltar(User, SourceItem)
@@ -381,19 +384,23 @@ function M.UseItem(User, SourceItem, ltstate)
         local dialogOptions = {
             -- TODO icons
             { icon = 1060, text = "Pray",   func = gods.pray,          args = { User, god } }, -- 128 - book as in quest, 1060/1061/1089 - open book?
-            { icon = 372, text = "Defile", func = defile,        args = { User, god } }, -- 157 - rotten bark, 26 - clay, 2038/2039 - skull, 3101/3102 - blood, 372 - poison cloud
+
+            -- TODO
+            --{ icon = 372, text = "Defile", func = defile,        args = { User, god } }, -- 157 - rotten bark, 26 - clay, 2038/2039 - skull, 3101/3102 - blood, 372 - poison cloud
         }
-        if gods.isPriest(User, god) then
-            table.insert(dialogOptions,
-                { icon = 3105, text = "Perform service", func = performService, args = { User, god } } -- 3105 - bookrest, 661 - lectern
-            )
-        elseif gods.isDevoted(User, god) then
-            if true then -- FIXME check is not mage/alchenmist/whatever
-                table.insert(dialogOptions,
-                    { icon = 128, text = "Become a priest", func = becomePriest, args = { User, god } } -- 40 - cleric's staff, 128 - book as in quest
-                )
-            end
-        else
+--        TODO
+--        if gods.isPriest(User, god) then
+--            table.insert(dialogOptions,
+--                { icon = 3105, text = "Perform service", func = performService, args = { User, god } } -- 3105 - bookrest, 661 - lectern
+--            )
+--        elseif gods.isDevoted(User, god) then
+--            if true then -- FIXME check is not mage/alchenmist/whatever
+--                table.insert(dialogOptions,
+--                    { icon = 128, text = "Become a priest", func = becomePriest, args = { User, god } } -- 40 - cleric's staff, 128 - book as in quest
+--                )
+--            end
+--        else
+        if true then
             table.insert(dialogOptions,
                 { icon = 467, text = "Devote yourself", func = devotionDialog, args = { User, god } } -- 467 - light
             )

@@ -34,6 +34,70 @@ function M.Oldra:_init(ordinal, youngerOrdinal)
     self.descriptionDe = "die Göttin der Fruchtbarkeit und des Lebens"
     self.descriptionEn = "Goddess of life and fertility"
     self.devotionItems = {{id = 2551, number = 1}, {id = 2552, number = 1}} --FIXME
+    self.sacrificeItems = {  -- array of tables defining groups of items for sacrificing
+        {
+            id_list = { -- array of item IDs
+                -- ## From craft\final\baking.lua ##
+                -- category: Baked goods
+                191, -- bread roll
+                453, -- cookies
+                3568, -- baked potato
+                49, -- potato bread
+                3631, -- sausage on bread
+                3609, -- banana bread
+                454, -- blackberry muffin
+                353, -- apple pie
+                303, -- cherry cake
+                3571, -- egg salad sandwich
+                354, -- strawberry cake
+                3723, -- nut bread
+                1153, -- custard pie
+                3610, -- elderberry pie
+                -- ## From craft\final\cooking.lua ##
+                -- category: Plate recipes
+                3051, -- sausage
+                3573, -- cheese
+                3715, -- cabbage roll
+                3716, -- veggie hash
+                2459, -- trout fillet dish
+                556, -- salmon dish
+                1154, -- egg dish
+                2277, -- meat dish
+                2922, -- sausages dish
+                557, -- steak dish
+                555, -- rabbit dish
+                559, -- lamb dish
+                554, -- venison dish
+                1155, -- chicken dish
+                -- category: Bowl recipes
+                2456, -- mushroom soup
+                2923, -- onion soup
+                2278, -- cabbage stew
+                2276, -- mulligan
+                3569, -- potato soup
+                3570, -- egg salad
+                3572, -- fish soup
+                3712, -- beer soup
+                3711, -- goulash
+                1152, -- chicken soup
+
+                -- ## From craft\gathering\farming and craft\gathering\graingathering
+                249, -- bundle of grain
+                290, -- cabbage -> cabbage
+                201, -- onion
+                200, -- tomato
+                -- 154, -- hop - Not for Oldra
+                -- 728, -- hop seeds - not relevant
+                2493, -- carrots
+                778, -- sugarcane
+                -- 772, -- tabacco - Not for Oldra
+                3567, -- Potatoes
+            },
+            minimal_quality = 0, -- int in 1..9 - if present, item quality has to be greater or equal
+            minimal_durability = 0, -- int in 0..99 - if present, item durability has to be greater or equal
+            value_multiplier = 1, -- float -- the monetary value gets multiplied by this
+        },
+    }
 
 end
 

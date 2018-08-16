@@ -24,7 +24,7 @@ local common = require("base.common")
 local globalvar = require("base.globalvar")
 local math = require("math")
 
-local gods_cooldowns_common = require("content._gods.gods_cooldowns_common")
+local gods_common = require("content._gods.gods_common")
 
 local basegod = require("content._gods.basegod")
 local baseyounger = require("content._gods.baseyounger")
@@ -174,7 +174,7 @@ function M._getPriesthoodGod(User)
 end
 
 ---
--- Set the god  user is devoted to
+-- Set the god  user is a priest of
 -- @param charobj
 -- @param godObj - god object
 --
@@ -219,7 +219,7 @@ end
 ---
 -- Get string describing the character relations with gods (in two languages)
 -- @param charobj the char to check
-function M.getCharStatus(User)
+function M._getCharStatus(User)
     local statusDe
     local statusEn
     local godObj = M._getDevotionGod(User)
@@ -235,6 +235,19 @@ function M.getCharStatus(User)
     end
     return statusDe, statusEn
 end
+
+---
+-- Get string describing the character relations with gods, (in each language separately)
+-- @param charobj the char to check
+function M.getCharStatusEn(User)
+    local statusDe, statusEn = M._getCharStatus(User)
+    return statusEn
+end
+function M.getCharStatusDe(User)
+    local statusDe, statusEn = M._getCharStatus(User)
+    return statusDe
+end
+
 
 
 ---
@@ -275,26 +288,41 @@ end
 ---
 -- Make the char devoted to the god (without any checks/prerequisites)
 -- @param charobj the char to change
--- @param godOrdinal the target god. Should be one of gods.GODS
+-- @param godOrdinal the target god. Should be one of gods.GODS or gods.GOD_NONE
 function M.setDevoted(User, godOrdinal)
+    local favourPenalty = 0
+    local currentGodObj = M._getDevotionGod(User)
     if M.isDevoted(User, godOrdinal) then
-        User:inform("[ERROR] Trying to re-devote to same god. Please inform a developer.");
+        common.informError(User, "Trying to re-devote to same god.")
         return
     end
     if godOrdinal == M.GOD_NONE then
-        -- TODO undevotion
-        User:inform("[ERROR] Undevoting was not implemented and shouldn't have been used. Please inform a developer.");
+        currentGodObj:informStopBeingDevoted(User)
     else
-        --TODO favour penalty if was devoted/priest of another
+        if currentGodObj then
+            if M.isPriest(User) then
+                favourPenalty = gods_common.CHANGE_DEVOTION_PRIEST_PENALTY
+            else
+                favourPenalty = gods_common.CHANGE_DEVOTION_PENALTY
+            end
+        end
         local godObj = M._godOrdinalToObj[godOrdinal]
         godObj:informBecomeDevoted(User)
     end
     if M.isPriest(User) then
-        -- too much spam, this was explained already
-        -- common.InformNLS(User, "", "You can't remain a priest after switching gods")
         M.setNotPriest(User)
     end
     User:setQuestProgress(M._QUEST_DEVOTION, godOrdinal) -- mark the char as devoted to the god
+
+    -- If any penalty is due, do it now. We don't do it before to avoid spam of losing status due to low favour
+    M.increaseFavour(User, currentGodObj, -favourPenalty)
+end
+
+---
+-- Make the char not devoted to agod (without any checks/prerequisites)
+-- @param charobj the char to change
+function M.setNotDevoted(charObj)
+    M.setDevoted(charObj, M.GOD_NONE)
 end
 
 ---
@@ -303,7 +331,7 @@ end
 function M.setPriest(User)
     local godObj = M._getDevotionGod(User)
     if not godObj then
-        User:inform("[ERROR] Trying to set priest status with illegal god. Please inform a developer.");
+        common.informError(User, "Trying to set priest status with illegal god.");
         return
     end
 
@@ -320,7 +348,7 @@ end
 function M.setNotPriest(User)
     local godObj = M._getPriesthoodGod(User)
     if not godObj then
-        User:inform("[ERROR] Trying to clear priest status with illegal god. Please inform a developer.");
+        common.informError(User, "Trying to clear priest status with illegal god.");
         return
     end
 
@@ -329,6 +357,24 @@ function M.setNotPriest(User)
     -- We don't clear the magic type (User:setMagicType), so that the user can't easily switch to another magic profession
 end
 
+
+---
+-- Perform checks/actions after a change in char's favour
+-- E.g. remove priesthood/devotion status
+function M._afterFavourChange(charobj)
+    local godObj = M._getDevotionGod(charobj)
+    if not godObj then
+        -- not devoted - nothing to do
+        return
+    end
+    local favour = godObj:getFavour(charobj)
+    if (favour < gods_common.LOSE_PRIESTHOOD_FAVOUR_THRESHOLD) and M.isPriest(charobj) then
+        M.setNotPriest(charobj)
+    end
+    if (favour < gods_common.LOSE_DEVOTION_FAVOUR_THRESHOLD) then
+        M.setNotDevoted(charobj)
+    end
+end
 
 ---
 -- Check favour of a god
@@ -347,7 +393,7 @@ end
 function M.increaseFavour(User, godOrdinal, amount)
     local godObj = M._godOrdinalToObj[godOrdinal]
     if not godObj then
-        User:inform("[ERROR] Favour change for invalid god. Please inform a developer.");
+        common.informError(User, "Favour change for invalid god.");
         return
     end
     if amount==0 then
@@ -385,7 +431,7 @@ function M.increaseFavour(User, godOrdinal, amount)
         curGodObj:setFavour(User, curGodObj:getFavour(User) + favourChange)
     end
 
-    return
+    M._afterFavourChange(User)
 end
 
 ---
@@ -393,7 +439,7 @@ end
 -- @param charobj the char
 -- @param multiplier the change magnitude as a float. 0 means no change. 1 means everything becomes 0.
 function M.favourDecay(User, multiplier)
-    multiplier = multiplier or gods_cooldowns_common.FAVOUR_DECAY_COEFF
+    multiplier = multiplier or gods_common.FAVOUR_DECAY_COEFF
     local changes = {}
     -- start by applying the multiplier and rounding
     for _,curGodObj in pairs(M._godOrdinalToObj) do
@@ -430,6 +476,7 @@ function M.favourDecay(User, multiplier)
         curGodObj:setFavour(User, curGodObj:getFavour(User) + favourChange)
     end
 
+    M._afterFavourChange(User)
 end
 
 
@@ -440,14 +487,14 @@ end
 function M.pray(User, godOrdinal)
     local godObj = M._godOrdinalToObj[godOrdinal]
     if not godObj then
-        User:inform("[ERROR] Praying to invalid god. Please inform a developer.")
+        common.informError(User, "Praying to invalid god.")
         return
     end
 
     common.TalkNLS(User, Character.say , "#me FIXME pray " .. godObj.nameDe, "#me FIXME prays to " .. godObj.nameEn)
-    if gods_cooldowns_common.prayerCooldownCounter:hasEnded(User) then
-        M.increaseFavour(User, godOrdinal, gods_cooldowns_common.PRAYER_FAVOUR_INCREASE)
-        gods_cooldowns_common.prayerCooldownCounter:restart(User)
+    if gods_common.prayerCooldownCounter:hasEnded(User) then
+        M.increaseFavour(User, godOrdinal, gods_common.PRAYER_FAVOUR_INCREASE)
+        gods_common.prayerCooldownCounter:restart(User)
     else
         -- prayed not so long ago
         common.InformNLS(User, "FIXME", "FIXME Thou shalt not take the name of the Lord thy God in vain.")
@@ -463,7 +510,7 @@ end
 function M.sacrifice(charobj, godOrdinal, item)
     local godObj = M._godOrdinalToObj[godOrdinal]
     if not godObj then
-        User:inform("[ERROR] Sacrificing to invalid god. Please inform a developer.");
+        common.informError(charobj, "Sacrificing to invalid god.");
         return
     end
 
@@ -480,7 +527,7 @@ end
 -- Change "sacrifice cumulative value" of all gods towards 0 for specific character, that is forget old sacrifices. This function should be called periodically.
 -- @param charobj
 function M.sacrificeDecay(User, multiplier)
-    multiplier = multiplier or gods_cooldowns_common.SACRIFICE_DECAY_COEFF
+    multiplier = multiplier or gods_common.SACRIFICE_DECAY_COEFF
     for _,curGodObj in pairs(M._godOrdinalToObj) do
         -- we do floor and not round, so that it can return to 0 eventually
         local newValue = math.floor((1-multiplier) * curGodObj:getSacrificeCumulativeValue(User))
@@ -497,17 +544,17 @@ function M.validate(User)
 
     -- Check questprogress has valid values
     if devotionGodOrdinal ~= M.GOD_NONE and not M.GODS[devotionGodOrdinal] then
-        User:inform("[ERROR] Devotion to illegal god (" .. devotionGodOrdinal .. "). Please inform a developer.")
+        common.informError(User, "Devotion to illegal god (" .. devotionGodOrdinal .. ").")
         return false
     end
     if priesthoodGodOrdinal ~= M.GOD_NONE and priesthoodGodOrdinal ~= devotionGodOrdinal then
-        User:inform("[ERROR] Priesthood to wrong god (" .. priesthoodGodOrdinal .. " instead of " .. devotionGodOrdinal .. "). Please inform a developer.")
+        common.informError(User, "Priesthood to wrong god (" .. priesthoodGodOrdinal .. " instead of " .. devotionGodOrdinal .. ").")
         return false
     end
 
     -- Check piest magic type
     if priesthoodGodOrdinal ~= M.GOD_NONE and User:getMagicType() ~= 1 then
-        User:inform("[ERROR] Priesthood with wrong magic type (" .. User:getMagicType() .. "). Please inform a developer.")
+        common.informError(User, "Priesthood with wrong magic type (" .. User:getMagicType() .. ").")
         return false
     end
     -- It is allowed to have User:getMagicType() == 1 with priesthoodGod==M.GOD_NONE. This means a char is an ex-priest (e.g. a priest that lost favour and was deprived of his status
@@ -520,7 +567,7 @@ function M.validate(User)
         checkSum = checkSum + curGodObj:getFavour(User)
     end
     if (checkSum~=0) then
-        User:inform("[ERROR] Favour of younger gods has non-zero sum (" .. checkSum .. "). Please inform a developer.")
+        common.informError(User, "Favour of younger gods has non-zero sum (" .. checkSum .. ").")
         return false
     end
 
@@ -529,8 +576,8 @@ end
 
 
 -- Register callbacks for periodic decay
-gods_cooldowns_common.favourDecayCounter:addCallback(M.favourDecay)
-gods_cooldowns_common.sacrificeDecayCounter:addCallback(M.sacrificeDecay)
+gods_common.favourDecayCounter:addCallback(M.favourDecay)
+gods_common.sacrificeDecayCounter:addCallback(M.sacrificeDecay)
 
 
 -- FIXME *** Everything below this line should be reviewed ***

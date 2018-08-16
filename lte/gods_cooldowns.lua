@@ -20,32 +20,32 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local math = require("math")
-local gods_cooldowns_common = require("content._gods.gods_cooldowns_common")
+local gods_common = require("content._gods.gods_common")
 local gods = require("content.gods")
 
 local M = {}
 
 function M.addEffect(effectObj, charObj)
     debug("gods_cooldowns addEffect")
-    for _,counter in ipairs(gods_cooldowns_common.cooldownCounters) do
+    for _,counter in ipairs(gods_common.cooldownCounters) do
         counter:initialize(charObj, effectObj)
     end
-    for _,counter in ipairs(gods_cooldowns_common.decayCounters) do
+    for _,counter in ipairs(gods_common.decayCounters) do
         counter:initialize(charObj, effectObj)
     end
 end
 
 function M.callEffect(effectObj, charObj) -- Effect is called
     debug("gods_cooldowns callEffect")
-    for _,counter in ipairs(gods_cooldowns_common.cooldownCounters) do
+    for _,counter in ipairs(gods_common.cooldownCounters) do
         counter:tick(charObj, effectObj)
     end
-    for _,counter in ipairs(gods_cooldowns_common.decayCounters) do
+    for _,counter in ipairs(gods_common.decayCounters) do
         counter:tick(charObj, effectObj)
     end
 
     --
-    effectObj.nextCalled = gods_cooldowns_common.LTE_TICK_NEXT_CALLED -- Effect gets called each X/10 secs
+    effectObj.nextCalled = gods_common.LTE_TICK_NEXT_CALLED -- Effect gets called each X/10 secs
     return true -- repeat forever
 end
 
