@@ -563,8 +563,8 @@ local function charInfo(chosenPlayer)
             "\nIdle for [s]: "..tostring(chosenPlayer:idleTime()) ..
             "\n" .. factionInfo
 
-    local godInfo = gods.getCharStatus(chosenPlayer)
-    output = output .. "\n" .. godInfo
+    local godInfo = gods.getCharStatusEn(chosenPlayer)
+    output = output .. "\nReligion: " .. godInfo
 
     local specialInfo = ""
     if chosenPlayer:isAdmin() then
