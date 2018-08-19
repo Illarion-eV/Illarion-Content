@@ -38,7 +38,8 @@ function M.BaseGod:_init(ordinal)
     self.devotionItems = nil -- array of item ids, should be set in child class
     self.sacrificeItems = {  -- array of tables defining groups of items for sacrificing
         {
-            id_list = {}, -- array of item IDs
+            id_list = { -- array of item IDs
+            },
             minimal_quality = 0, -- int in 1..9 - if present, item quality has to be greater or equal
             minimal_durability = 0, -- int in 0..99 - if present, item durability has to be greater or equal
             value_multiplier = 1, -- float -- the monetary value gets multiplied by this
