@@ -79,7 +79,9 @@ end
 --
 function M.selectionDialogWrapper(User, title, description, buttons, onclose, closeOnMove)
     onclose = onclose or { func = function() end, args = {} }
-    closeOnMove = closeOnMove or true
+    if closeOnMove == nil then
+        closeOnMove = true
+    end
     -- User:inform("#buttons = " .. #buttons)
     buttons = buttons or {}
     local callback = function(dialog)
