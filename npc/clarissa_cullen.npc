@@ -64,7 +64,7 @@ itemShoes = 1511
 ------------------------------------------------------------------------------AC
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Clarissa Cullen, the Priestess of Zhambra. Keywords: Hello, god, favour.")
+"Help" -> inform("[Game Help] This NPC is Clarissa Cullen, the Priestess of Zhambra. Keywords: Hello, god, favour, sacrifice.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Clarissa Cullen, eine Priesterin des Zhambra. Schlüsselwörter: Hallo, Gott.")
 
 -- Mandatory: General speech
@@ -137,6 +137,8 @@ english, "Zhambra" -> "Zhambra is the god of friendship and loyalty. He is noble
 "favour", "favor", queststatus(416) > expr(-200) -> "FIXME You are bad"
 "favour", "favor", queststatus(416) > expr(-400) -> "FIXME You are very bad"
 "favour", "favor" -> "FIXME %CHARNAME, are you here to kill me?"
+
+"donation", "sacrifice" -> "FIXME Protecting friends is of high value for Zhambra"
 
 -- Faction stuff
 "archmage" -> "From what I hear, he is an incredibly accomplished mage. He is also a shut in who makes his home an an island that can only be reached by a magical portal. He is loyal only to his work."
