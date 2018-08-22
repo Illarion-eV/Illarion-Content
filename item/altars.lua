@@ -86,6 +86,7 @@ Malachin  : 146,678,1
 
 local common = require("base.common")
 local gods = require("content.gods")
+local gods_common = require("content._gods.gods_common")
 local lookat = require("base.lookat")
 
 local M = {}
@@ -177,12 +178,16 @@ local function canDevote(User, god)
     local reason_de = ""
     local reason_en = ""
 
-    -- FIXME check favour
+    if not gods.getFavour(User, god) >= gods_common.DEVOTION_FAVOUR_THRESHOLD then
+        result = false
+        reason_en = reason_en .. "You don't have enough favour from the god. "
+        reason_de = reason_de .. "FIXME You don't have enough favour from the god. "
+    end
 
     if not checkItems(User, gods.getItemsForDevotion(god)) then
         result = false
         reason_en = reason_en .. "You don't have the required items. "
-        reason_de = reason_de .. "You don't have the required items. "
+        reason_de = reason_de .. "FIXME You don't have the required items. "
     end
 
     return result, reason_de, reason_en
@@ -400,7 +405,7 @@ function M.UseItem(User, SourceItem, ltstate)
 --                )
 --            end
 --        else
-        if true then
+        if not gods.isDevoted(User, god) then
             table.insert(dialogOptions,
                 { icon = 467, text = "Devote yourself", func = devotionDialog, args = { User, god } } -- 467 - light
             )

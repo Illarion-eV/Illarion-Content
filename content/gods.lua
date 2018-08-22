@@ -299,6 +299,8 @@ function M.setDevoted(User, godOrdinal)
     if godOrdinal == M.GOD_NONE then
         currentGodObj:informStopBeingDevoted(User)
     else
+        -- TODO: check if has ecough favour to remain being devoted
+
         if currentGodObj then
             if M.isPriest(User) then
                 favourPenalty = gods_common.CHANGE_DEVOTION_PRIEST_PENALTY
@@ -315,7 +317,7 @@ function M.setDevoted(User, godOrdinal)
     User:setQuestProgress(M._QUEST_DEVOTION, godOrdinal) -- mark the char as devoted to the god
 
     -- If any penalty is due, do it now. We don't do it before to avoid spam of losing status due to low favour
-    M.increaseFavour(User, currentGodObj, -favourPenalty)
+    M.increaseFavour(User, currentGodObj.ordinal, -favourPenalty)
 end
 
 ---
@@ -334,6 +336,8 @@ function M.setPriest(User)
         common.informError(User, "Trying to set priest status with illegal god.");
         return
     end
+
+    -- TODO: check if has ecough favour to remain being priest
 
     godObj:informBecomePriest(User)
 
@@ -382,7 +386,7 @@ end
 -- @param godOrdinal a god ordinal (one of gods.GODS)
 -- @return signed int - the favour
 function M.getFavour(User, godOrdinal)
-    return M._godOrdinalToObj[godOrdinal].getFavour(User)
+    return M._godOrdinalToObj[godOrdinal]:getFavour(User)
 end
 
 ---
