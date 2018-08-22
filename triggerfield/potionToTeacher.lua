@@ -51,7 +51,7 @@ local function getTown(Item)
     return false
 end
 
-local function TellRecipe(User, effectId)
+function M.TellRecipe(User, effectId)
     local ingredientList = alchemy.getIngredients(effectId)
     local recipeEN = "Potion: "..alchemy.potionName[effectId][1].."\n\nComponents:\nStock:\n"
     local recipeDE = "Trank: "..alchemy.potionName[effectId][2].."\n\nKomponenten:\nSud:\n"
@@ -144,7 +144,7 @@ function M.PutItemOnField(Item,User)
             world:erase(Item,1)
             myNPC:talk(Character.say, "#me beginnt sorgsam und langsam die einzelnen Zutaten vorzubereiten und dann zu verarbeiten, darauf Acht gebend, dass keine Unbefugten es sehen können. \"So geht das richtig.\"", "#me starts to prepare the ingredients carefully and slowly and then to process them, while making sure that no unauthorized eyes have a look at it. \"So this goes properly.\"")
             User:setQuestProgress(ListEffectId[myListPos]+1000,1)
-            TellRecipe(User,ListEffectId[myListPos])
+            M.TellRecipe(User,ListEffectId[myListPos])
         end
     end
 end
