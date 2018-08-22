@@ -676,6 +676,45 @@ local function settingsForCharAttributes(User, chosenPlayer)
     User:requestSelectionDialog(sdAttribute)
 end
 
+local function settingsForCharChangeDevotion(User, chosenPlayer)
+    local dialogOptions = {
+        {text = "Not devoted", func = gods.setNotDevoted, args = { chosenPlayer } },
+    }
+    for god,_ in pairs(gods.GODS) do
+        table.insert(dialogOptions,
+            {text = gods.getNameEn(god), func = gods.setDevoted, args = { chosenPlayer, god } }
+        )
+    end
+
+    common.selectionDialogWrapper(User, "Char devotion", gods.getCharStatusEn(chosenPlayer).."\nWhich god do you want this char to be devoted?", dialogOptions)
+
+end
+
+local function settingsForCharChangeDivineFavour(User, chosenPlayer, god)
+    -- FIXME
+end
+
+
+local function settingsForCharReligion(User, chosenPlayer)
+    local dialogOptions = {
+        {text = "Change devotion", func = settingsForCharChangeDevotion, args = { User, chosenPlayer } },
+    }
+    if gods.isDevoted(chosenPlayer) then
+        table.insert(dialogOptions,
+            {text = "Make priest", func = gods.setPriest, args = { chosenPlayer } }
+        )
+    end
+
+    for god,_ in pairs(gods.GODS) do
+        table.insert(dialogOptions,
+            {text = "Favour of "..gods.getNameEn(god)..": "..gods.getFavour(chosenPlayer,god), func = settingsForCharChangeDivineFavour, args = { User, chosenPlayer, god } }
+        )
+    end
+
+    common.selectionDialogWrapper(User, "Char religion", gods.getCharStatusEn(chosenPlayer), dialogOptions)
+
+end
+
 local function godMode(User, SourceItem, ltstate)
 
     local playersTmp = world:getPlayersInRangeOf(User.pos, 25)
@@ -1345,6 +1384,8 @@ local function settingsForChar(User)
                 settingsForCharPoisonCloudProof(User, chosenPlayer)
             elseif actionToPerform == 9 then
                 settingsForCharAttributes(User, chosenPlayer)
+            elseif actionToPerform == 10 then
+                settingsForCharReligion(User, chosenPlayer)
             end
         end
         local sdAction = SelectionDialog("Character settings", chosenPlayer.name.."\n" .. charInfo(chosenPlayer), charActionDialog)
@@ -1378,6 +1419,8 @@ local function settingsForChar(User)
             sdAction:addOption(164,"Remove poison cloud proof!")
         end
         sdAction:addOption(93,"Set attributes")
+
+        sdAction:addOption(1060, "Religion")
 
         User:requestSelectionDialog(sdAction)
     end
