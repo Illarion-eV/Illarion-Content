@@ -38,8 +38,8 @@ function M.BaseGod:_init(ordinal)
     self.devotionItems = nil -- array of item ids, should be set in child class
     self.sacrificeItems = {  -- array of tables defining groups of items for sacrificing
         {
-            id_list = { -- array of item IDs
-            },
+            id_set = common.setFromList({ -- set of item IDs
+            }),
             minimal_quality = 0, -- int in 1..9 - if present, item quality has to be greater or equal
             minimal_durability = 0, -- int in 0..99 - if present, item durability has to be greater or equal
             value_multiplier = 1, -- float -- the monetary value gets multiplied by this
@@ -81,10 +81,8 @@ function M.BaseGod:_getSingleRawSacrificeValue(item)
                 (item_durability >= group.minimal_durability)
         ) then
             -- item fits the criteria, let's see if it's on the list
-            for idx_id,id in ipairs(group.id_list) do
-                if item.id == id then
-                    return group.value_multiplier * item_monetary_worth
-                end
+            if group.id_set[item.id] then
+                return group.value_multiplier * item_monetary_worth
             end
         end
     end
@@ -94,7 +92,6 @@ function M.BaseGod:_getSingleRawSacrificeValue(item)
 end
 
 function M.BaseGod:_getRawSacrificeValue(item)
-    -- FIXME use a list of desired items per god
     local singleVal = self:_getSingleRawSacrificeValue(item)
     return item.number * singleVal
 end

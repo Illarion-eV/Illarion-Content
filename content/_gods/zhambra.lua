@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local class = require('base.class')
 local baseyounger = require("content._gods.baseyounger")
+local common = require("base.common")
 
 local M = {}
 
@@ -40,7 +41,7 @@ function M.Zhambra:_init(ordinal, youngerOrdinal)
     } -- TODO balance (by Dantagon)
     self.sacrificeItems = {  -- array of tables defining groups of items for sacrificing
         {
-            id_list = { -- array of item IDs
+            id_set = common.setFromList({ -- array of item IDs
                 -- ## From craft\final\armourer.lua ##
                 -- category: Chain boots
                 1507, -- simple jackboots
@@ -188,7 +189,7 @@ function M.Zhambra:_init(ordinal, youngerOrdinal)
                 -- category: Training weapons
                 445, -- wooden sword
                 1045, -- wooden dagger
-            },
+            }),
             minimal_quality = 0, -- int in 1..9 - if present, item quality has to be greater or equal
             minimal_durability = 0, -- int in 0..99 - if present, item durability has to be greater or equal
             value_multiplier = 1, -- float -- the monetary value gets multiplied by this
