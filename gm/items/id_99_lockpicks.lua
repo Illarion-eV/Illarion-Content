@@ -589,8 +589,8 @@ local function charInfo(chosenPlayer)
 end
 
 local function String2Number(str)
-    if (string.find(str, "(%d+)") ~= nil) then
-        local _, _, num = string.find(str, "(%d+)")
+    if (string.find(str, "(-?%d+)") ~= nil) then
+        local _, _, num = string.find(str, "(-?%d+)")
         if (num ~= "") then
             num = tonumber(num)
             return num, true
@@ -691,7 +691,45 @@ local function settingsForCharChangeDevotion(User, chosenPlayer)
 end
 
 local function settingsForCharChangeDivineFavour(User, chosenPlayer, god)
-    -- FIXME
+    local changeDialog = function (dialog)
+        if (not dialog:getSuccess()) then
+            return
+        end
+        local enteredText = dialog:getInput()
+        local firstChar = string.sub(enteredText, 1, 1)
+
+        local enteredValue, okay = String2Number(string.sub(enteredText, 2))
+        if (not okay) then
+            User:inform("no number")
+            return
+        end
+
+        local delta
+        if firstChar == "-" then
+            delta = -enteredValue
+        elseif firstChar == "+" then
+            delta = enteredValue
+        elseif firstChar == "=" then
+            delta = enteredValue - gods.getFavour(chosenPlayer, god)
+        else
+            User:inform("Must start with '+' or '-' or '='.")
+            return
+        end
+
+        if (delta < -4000 or delta > 4000) then
+            User:inform("Change value has to be between -4000 and 4000.")
+            return
+        end
+
+        gods.increaseFavour(chosenPlayer, god, delta)
+        User:logAdmin("changes divine favour of character " .. chosenPlayer.name .. ". " .. gods.getNameEn(god) .. ": by " .. delta .. " to " .. gods.getFavour(chosenPlayer, god))
+    end
+    local sdChange = InputDialog(
+        "Change favour of "..gods.getNameEn(god),
+        "Current value: "..gods.getFavour(chosenPlayer, god).."\n"..
+        "Type in by how much to increase/decrease it, start with '+' or '-' or '=' :",
+        false, 255, changeDialog)
+    User:requestInputDialog(sdChange)
 end
 
 
