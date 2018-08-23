@@ -178,7 +178,7 @@ local function canDevote(User, god)
     local reason_de = ""
     local reason_en = ""
 
-    if not gods.getFavour(User, god) >= gods_common.DEVOTION_FAVOUR_THRESHOLD then
+    if gods.getFavour(User, god) < gods_common.DEVOTION_FAVOUR_THRESHOLD then
         result = false
         reason_en = reason_en .. "You don't have enough favour from the god. "
         reason_de = reason_de .. "FIXME You don't have enough favour from the god. "
