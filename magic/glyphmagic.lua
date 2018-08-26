@@ -125,8 +125,8 @@ local function endRitualPrepareRitual(user, forgePos, forgeItem)
     world:changeItem(forgeItem)
 
     user:learn(workingSkill, workingTime, 100)
-    common.InformNLS(user,"Der Ritualplatz ist vorbereitet. Jetzt können hier Rituale durchgeführt werden.",
-                          "The glyph forge is prepared. Now it is possible to perform rituals here.")
+    common.InformNLS(user,"Der Glyphen-Ritualplatz ist vorbereitet. Jetzt können hier Rituale durchgeführt werden.",
+                          "The glyph ritual place is prepared. Now it is possible to perform rituals here.")
 end
 
 local function endRitualBreakGlyph(user, forgePos, item)
@@ -237,13 +237,13 @@ local function startRitual(user, workingTime, manaConsumption, workingPlace, rit
     performRitual(user)
     local timeText
     if workingTime < 45 then
-        common.TempInformNLS(user,"Das Ritual wird nicht allzulange dauern.",
+        common.InformNLS(user,"Das Ritual wird nicht allzulange dauern.",
                                   "The ritual will take a few moments.")
     elseif workingTime < 100 then
-        common.TempInformNLS(user,"Das Ritual wird einige Zeit in Anspruch nehmen.",
+        common.InformNLS(user,"Das Ritual wird einige Zeit in Anspruch nehmen.",
                                   "The ritual will take a while.")
     else
-        common.TempInformNLS(user,"Das Ritual wird sehr lange deine ungeteilte Aufmerksamkeit beanspruchen.",
+        common.InformNLS(user,"Das Ritual wird sehr lange deine ungeteilte Aufmerksamkeit beanspruchen.",
                                   "The ritual will take a your attention for a very long time.")
     end
     return true
@@ -257,8 +257,8 @@ local function startRitualGlyphToItem(user, item)
     local specialValues = item
 
     if startRitual(user, workingTime, manaConsumption, workingPlace, ritualId, specialValues) then
-        common.TempInformNLS(user,"Du beginnst ein Ritual um eine Glyphe in das Schmuckstück einzuarbeiten.",
-                                  "You start a ritual to work a glyph into the jewelrey.")
+        common.InformNLS(user,"Du beginnst ein Ritual um eine Glyphe in das Schmuckstück einzuarbeiten.",
+                              "You start a ritual to work a glyph into the jewelrey.")
     end
 end
 
@@ -270,8 +270,8 @@ local function startRitualErectGlyphForge(user)
     local specialValues = nil
 
     if startRitual(user, workingTime, manaConsumption, workingPlace, ritualId, specialValues) then
-        common.TempInformNLS(user,"Du beginnst ein Ritual um einen Glyphen Ritualplatz zu errichten.",
-                                  "You start a ritual to erect a glyph ritual place.")
+        common.InformNLS(user,"Du beginnst ein Ritual um einen Glyphen-Ritualplatz zu errichten.",
+                              "You start a ritual to erect a glyph ritual place.")
     end
 end
 
@@ -283,8 +283,8 @@ local function startRitualPrepareGlyphRitual(user, forgeItem)
     local specialValues = forgeItem
 
     if startRitual(user, workingTime, manaConsumption, workingPlace, ritualId, specialValues) then
-        common.TempInformNLS(user,"Du bereitest ein Ritual an einem einen Glyphen Ritualplatz vor.",
-                                  "You prepare a ritual at a glyph ritual place.")
+        common.InformNLS(user,"Du bereitest ein Ritual an einem einen Glyphen-Ritualplatz vor.",
+                              "You prepare a ritual at a glyph ritual place.")
     end
 end
 
@@ -296,8 +296,8 @@ local function startRitualBreakGlyph(user, item)
     local specialValues = item
 
     if startRitual(user, workingTime, manaConsumption, workingPlace, ritualId, specialValues) then
-        common.TempInformNLS(user,"Du beginnst ein Ritual um eine Glyphe aufzubrechen.",
-                                  "You start a ritual to break a glyph.")
+        common.InformNLS(user,"Du beginnst ein Ritual um eine Glyphe aufzubrechen.",
+                              "You start a ritual to break a glyph.")
     end
 end
 
@@ -347,9 +347,9 @@ local function showShardStateDetail(user,ringOrAmulet,level)
             shardLevel = i*10+level
         end
         if shard.shardInInvertory(user,shardLevel) ~= nil then
-            displayText = common.GetNLS(user," (verfügbar)", " (available)")..tostring(shardLevel)
+            displayText = common.GetNLS(user," (verfügbar)", " (available)")
         else
-            displayText = common.GetNLS(user," (fehlt)", " (missing)")..tostring(shardLevel)
+            displayText = common.GetNLS(user," (fehlt)", " (missing)")
         end
         displayText = glyphs.getShardNameFromLevel(shardLevel) .. displayText
         sd:addOption(glyphs.getShardId(shardLevel), displayText )
@@ -555,8 +555,8 @@ function M.forgeGlyphs(user,glyphForgeItem,ltstate)
     if user:getMagicType() == 0 then --mage
         if ltstate == Action.none then
             if glyphForgeItem.wear < 3 then
-                common.TempInformNLS(user,"Dieser Glyphen Ritualplatz zeigt schon deutliche Zeichen eines Verfalls. Vergeude deine Zeit nicht hier.",
-                                          "This glyph ritual place is almost decayed. Don't waste your time at this location.")
+                common.InformNLS(user,"Dieser Glyphen-Ritualplatz zeigt schon deutliche Zeichen eines Verfalls. Vergeude deine Zeit nicht hier.",
+                                      "This glyph ritual place is almost decayed. Don't waste your time at this location.")
                 return
             end
             if not M.checkForgeIsReady(glyphForgeItem) then
@@ -582,8 +582,8 @@ function M.forgeGlyphs(user,glyphForgeItem,ltstate)
             workingRitual[user.id]=nil
         end
     else
-        common.TempInformNLS(user,"Dieser Ritualplatz ist voll mit Symbolen, die dir nichts sagen. Du entschließt dich hier nichts zu verändern und zählst die Splitter in deiner Tasche.",
-                                  "This ritual place is covered in unknown symbols. You decide nothing to do except to count the shards in your bag.")
+        common.InformNLS(user,"Dieser Ritualplatz ist voll mit Symbolen, die dir nichts sagen. Du entschließt dich hier nichts zu verändern und zählst die Splitter in deiner Tasche.",
+                              "This ritual place is covered in unknown symbols. You decide nothing to do except to count the shards in your bag.")
         M.showShardState(user)
     end
 end
@@ -591,8 +591,8 @@ end
 function M.breakGlyphs(user,glyphForgeItem,ltstate)
     if ltstate == Action.none then
         if glyphForgeItem.wear < 3 then
-            common.TempInformNLS(user,"Dieser Glyphen Ritualplatz zeigt schon deutliche Zeichen eines Verfalls. Vergeude deine Zeit nicht hier.",
-                                      "This glyph ritual place is almost decayed. Don't waste your time at this location.")
+            common.InformNLS(user,"Dieser Glyphen-Ritualplatz zeigt schon deutliche Zeichen eines Verfalls. Vergeude deine Zeit nicht hier.",
+                                  "This glyph ritual place is almost decayed. Don't waste your time at this location.")
             return
         end
         if not M.checkForgeIsReady(glyphForgeItem) then
@@ -623,22 +623,22 @@ local function isPossibleLocation(user, position)
     local freeViewAxis = {{2,-2,0},{1,-1,0},{0,0,0},{-1,1,0},{-2,2,0}}
     -- Exclude triggerfields
     if triggerfield.isTriggerfield(position) then
-        common.TempInformNLS(user,"Die Magie dieses Ortes verindert das Aufstellen des Ritualplatzes.",
-                                  "The magic of this location prevents you from erecting the ritual place.")
+        common.InformNLS(user,"Die Magie dieses Ortes verindert das Aufstellen des Glyphen-Ritualplatzes.",
+                              "The magic of this location prevents you from erecting the glyph ritual place.")
         return false
     end
 
     local theField = world:getField(position)
     if not common.isInList(common.GetGroundType(theField:tile()),permittedTiles) then
-        common.TempInformNLS(user,"Dieser Boden eignet sich nicht für das Aufstellen des Ritualplatzes.",
-                                  "This ground is not good to erect the ritual place.")
+        common.InformNLS(user,"Dieser Boden eignet sich nicht für das Aufstellen des Glyphen-Ritualplatzes.",
+                              "This ground is not good to erect the glyph ritual place.")
         return false
     end
 
     -- Empty field
     if theField:countItems() > 0 then
-        common.TempInformNLS(user,"Hier müsstest du erst mal was wegräumen. Das ist mit Arbeit verbunden. Deshalb schaust du dich nach einem besseren Platz um.",
-                                  "You have to tide up that place first. Since you had to work for you better look fo a better location.")
+        common.InformNLS(user,"Hier müsstest du erst mal was wegräumen. Das ist mit Arbeit verbunden. Deshalb schaust du dich nach einem besseren Platz um.",
+                              "You have to tide up that place first. Since you had to work for you better look fo a better location.")
         return false
     end
 
@@ -675,8 +675,8 @@ function M.findGlyphForge(user)
     if forgeItem ~= nil then
         world:gfx(globalvar.gfxSUN,forgeItem.pos)
         local directionInfo = common.getDistanceHint(user, forgeItem.pos)
-        local textDirection = common.GetNLS(user,"Möglicherweise befindet sich " .. directionInfo.distance.de .. " im " .. directionInfo.direction.de .. " ein Ritualplatz.",
-                                                 "There might be " .. directionInfo.distance.en .. " in the " .. directionInfo.direction.en .. " a ritual place.")
+        local textDirection = common.GetNLS(user,"Möglicherweise befindet sich " .. directionInfo.distance.de .. " im " .. directionInfo.direction.de .. " ein Glyphen-Ritualplatz.",
+                                                 "There might be " .. directionInfo.distance.en .. " in the " .. directionInfo.direction.en .. " a glyph ritual place.")
 
         if user:getQuestProgress(562) == 0 and user:getSkill(glyphs.SKILL_GLYPHING) <= glyphs.glyphForgeFindMaxSkill then
             local nextLearn = math.random(1,2)
@@ -686,8 +686,8 @@ function M.findGlyphForge(user)
                                   textDirection .. " It's magic attracts you but you cannot move for a few seconds.")
             common.ParalyseCharacter(user, glyphs.glyphForgeFindTime)
         else
-            common.TempInformNLS(user,textDirection .. " Vielleicht kannst du ihn bereits sehen?",
-                                      textDirection .. " Maybe you can see it already?")
+            common.InformNLS(user,textDirection .. " Vielleicht kannst du ihn bereits sehen?",
+                                  textDirection .. " Maybe you can see it already?")
         end
         return true
     end
@@ -704,16 +704,16 @@ function M.examineGlyphForge(user, glyphForge)
     else
         local posNumber = common.positionToNumber(glyphForge.pos)
         if posNumber == user:getQuestProgress(QUEST_ID_EXAMINE_FORGE) then
-            common.InformNLS(user,"An diesem Glyphen Ritualplatz sich nichts geändert.",
+            common.InformNLS(user,"An diesem Glyphen-Ritualplatz sich nichts geändert.",
                                   "Nothing changed at this glyph ritual place.")
         else
             user:setQuestProgress(QUEST_ID_EXAMINE_FORGE, posNumber)
             local checkLimit = user:getBaseAttribute("perception") / 30.0 + 0.2
             if checkLimit > math.random() then
-                common.InformNLS(user,"Du glaubst zu erkennen, dass dieser Glyphen Ritualplatz von " .. glyphForge:getData("craftedBy") .. " errichtet wurde.",
-                                      "You see hints this glyph ritual place might had been errected by " .. glyphForge:getData("craftedBy") .. ".")
+                common.InformNLS(user,"Du glaubst zu erkennen, dass dieser Glyphen-Ritualplatz von " .. glyphForge:getData("craftedBy") .. " errichtet wurde.",
+                                      "You see hints this glyph ritual place might had been erected by " .. glyphForge:getData("craftedBy") .. ".")
             else
-                common.InformNLS(user,"Das ist ein Glyphen Ritualplatz wie du schon viele gesehen hast. Wer ihn errichtet hat, erschließt sich dir nicht.",
+                common.InformNLS(user,"Das ist ein Glyphen-Ritualplatz wie du schon viele gesehen hast. Wer ihn errichtet hat, erschließt sich dir nicht.",
                                       "This is a glyph ritual place as you have already seen many. Who built it, does not open to you.")
             end
         end
@@ -744,7 +744,6 @@ function M.placeGlyphForge(user, ltstate)
 end
 
 function M.prepareGlyphRitual(user, ltstate)
---Banduk
     if ltstate == Action.none then
         local forgeItem, bool = common.GetItemInArea(user.pos, glyphs.GLYPH_SHRINE_ID, 1, true)
         if forgeItem == nil then
@@ -753,8 +752,8 @@ function M.prepareGlyphRitual(user, ltstate)
         end
         common.TurnTo(user, forgeItem.pos )
         if forgeItem.wear < 3 then
-            common.TempInformNLS(user,"Dieser Glyphen Ritualplatz zeigt schon deutliche Zeichen eines Verfalls. Vergeude deine Zeit nicht hier.",
-                                      "This glyph ritual place is almost decayed. Don't waste your time at this location.")
+            common.InformNLS(user,"Dieser Glyphen-Ritualplatz zeigt schon deutliche Zeichen eines Verfalls. Vergeude deine Zeit nicht hier.",
+                                  "This glyph ritual place is almost decayed. Don't waste your time at this location.")
             return
         end
         if M.checkForgeIsReady(forgeItem) then
@@ -799,7 +798,7 @@ function M.removeGlyphForge(user)
         if userSkill > limitSkill then
             local playerInSight = world:getPlayersInRangeOf(forgeItem.pos,1)
             if #playerInSight > 1 then
-                common.InformNLS(user,"Du hältst inne, weil noch jemand neben dem Glyphen Ritualplatz steht.",
+                common.InformNLS(user,"Du hältst inne, weil noch jemand neben dem Glyphen-Ritualplatz steht.",
                                       "You stop since somebody else stands next to the glyph ritual place.")
             else
                 if user:getQuestProgress(562) == 0 then
@@ -807,7 +806,7 @@ function M.removeGlyphForge(user)
                     user:setQuestProgress(562, forgeItem.wear)
                     world:erase(forgeItem, 1)
                 else
-                    common.InformNLS(user,"Kann es sein, dass du erst kürzlich einen Glyphen Ritualplatz beseitigt hast?",
+                    common.InformNLS(user,"Kann es sein, dass du erst kürzlich einen Glyphen-Ritualplatz beseitigt hast?",
                                           "Could it be that you destroyed a glyph ritual place alredy recently?")
                     world:gfx(globalvar.gfxFLAMESTRIKE,user.pos)
                 end
@@ -816,7 +815,7 @@ function M.removeGlyphForge(user)
                 end
             end
         else
-            common.InformNLS(user,"Die Magie des Ortes lässt die Spitzhacke zurückspringen. Vielleicht gelingt es dir den Glyphen Ritualplatz zu beseitigen, wenn du noch etwas wartest.",
+            common.InformNLS(user,"Die Magie des Ortes lässt die Spitzhacke zurückspringen. Vielleicht gelingt es dir den Glyphen-Ritualplatz zu beseitigen, wenn du noch etwas wartest.",
                                   "Your pickaxe recoils due to the magic of that location. You may have success if you wait some time.")
         end
         return true
