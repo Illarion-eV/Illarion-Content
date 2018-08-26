@@ -86,7 +86,6 @@ function M.BaseGod:_getSingleRawSacrificeValue(item)
             end
         end
     end
-
     -- not found
     return 0
 end
@@ -132,7 +131,7 @@ end
 -- @return favour bonus
 function M.BaseGod:sacrifice(User, item)
     local rawVal = self:_getRawSacrificeValue(item)
-    if not rawVal then
+    if rawVal <= 0 then
         -- item not allowed for donation
         self:informSacrificeNotAccepted(User)
         return 0

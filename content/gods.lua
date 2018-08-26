@@ -403,6 +403,7 @@ function M.increaseFavour(User, godOrdinal, amount)
     if amount==0 then
         return
     end
+    -- TODO check MAX_FAVOUR and MIN_FAVOUR
 
     if not godObj:is_a(baseyounger.BaseYounger) then
         -- For elder gods favour simply changes
@@ -519,7 +520,7 @@ function M.sacrifice(charobj, godOrdinal, item)
     end
 
 --    common.TalkNLS(User, Character.say , "#me FIXME pray " .. godObj.nameDe, "#me FIXME  to " .. godObj.nameEn)
-    debug("Sacrificeing item id " .. item.id .. " to " .. godObj.nameEn)
+    debug("Sacrificing item id " .. item.id .. " to " .. godObj.nameEn)
     local favourBonus = godObj:sacrifice(charobj, item)
     if favourBonus > 0 then
         M.increaseFavour(charobj, godOrdinal, favourBonus)
