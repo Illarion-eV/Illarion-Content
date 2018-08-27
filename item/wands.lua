@@ -66,7 +66,7 @@ local function useWandSelection(user, item, ltstate)
             currentWandUse[user.id] = nil
             if not glyphmagic.findGlyphForge(user) then
                 common.InformNLS(user,"Du kannst in der weiteren Umgebung keinen Glyphen-Ritualplatz ausmachen.",
-                                      "You cannot detect any existing glyph ritual place in that area.")
+                                      "You cannot detect an existing glyph ritual place in the area.")
             end
         elseif actionIndex[index] == ACTION_COUNT_SHARDS then
             glyphmagic.showShardState(user)
@@ -95,9 +95,9 @@ local function useWandSelection(user, item, ltstate)
             sd:addOption(400, common.GetNLS(user,"Bereite ein Glyphen Ritual vor","Prepare a glyph ritual"))
             table.insert(actionIndex,ACTION_PREPARE_GLYPH_RITUAL)
         end
-        sd:addOption(235, common.GetNLS(user,"Arbeite eine Glyphe in ein Schmuckstück ein","Glyph a jewelry"))
+        sd:addOption(235, common.GetNLS(user,"Arbeite eine Glyphe in ein Schmuckstück ein","Glyph some jewellery"))
         table.insert(actionIndex,ACTION_GLYPH_JEWELRY)
-        sd:addOption(2140, common.GetNLS(user,"Breche eine Glyphe aus einem Schmuckstück heraus","Break a glyph out of a jewelry"))
+        sd:addOption(2140, common.GetNLS(user,"Breche eine Glyphe aus einem Schmuckstück heraus","Break a glyph out of some jewellery"))
         table.insert(actionIndex,ACTION_GLYPH_BREAK)
         sd:addOption(100, common.GetNLS(user,"Untersuche den Glyphen-Ritualplatz","Examine the glyph ritual place"))
         table.insert(actionIndex,ACTION_EXAMINE_FORGE)
@@ -117,14 +117,14 @@ function M.MoveItemAfterMove(User, SourceItem, TargetItem)
         if magicWands[SourceItem.id]then
             if User:getMagicType() == 3 then
                 User:inform("Alchemisten können die Stabmagie nicht erlernen.",
-                "Alchemist are unable to use wand magic.")
+                "Alchemists are unable to use wand magic.")
             elseif not magic.hasMageAttributes(User) then
                 User:inform("Um Stabmagie zu verwenden, muss die Summe der Attribute Intelligenz, Essenz und Willensstärke wenigstens 30 ergeben. Attribute können bei den Trainer-NPCs geändert werden.",
-                "To use wand magic, your combined attributes of intelligence, essence, and willpower must total at least 30. Attributes can be changed at the trainer NPC.")
+                "To use wand magic, your combined attributes of intelligence, essence, and willpower must total at least 30. Attributes can be changed at the Trainer NPC.")
             elseif User:getMagicType() == 0 and (User:getQuestProgress(37) ~= 0 or User:getMagicFlags(0) > 0) then
             elseif bit32.extract(questProgress, 30) == 0 then
                 User:inform("Um das Handwerk der Stabmagie zu erlernen, musst du drei Bücher über magische Theorie lesen. Sieh dir die Liste der Bücher in den Bibliotheken der Städte an.",
-                "To learn the craft of wand magic you must read three books of magical theory. Look for the list of books in your town's library.")
+                "To learn the craft of wand magic you must read three books on magical theory. Look for the list of books in your town's library.")
             end
         else
             return checks.checkLevel(User, SourceItem, TargetItem)
@@ -152,7 +152,7 @@ function M.UseItem(user, sourceItem, ltstate)
             end
         end
     else
-        user:inform("Du solltest lieber den Zauberstab in die Hand nehmen, wenn du ihn benutzen willst.","To use the wand you should take it in your hands.")
+        user:inform("Du solltest lieber den Zauberstab in die Hand nehmen, wenn du ihn benutzen willst.","To use the wand you should hold it in your hand.")
     end
 end
 
