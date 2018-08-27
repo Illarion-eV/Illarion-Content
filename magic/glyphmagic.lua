@@ -77,10 +77,8 @@ local function endRitualAddGlyph(user, forgePos, item)
         common.InformNLS(user,"Du versiehst " .. common.getItemName(item, Player.german) .. " mit einer Glyphe.",
                               "You add a glyph to " .. common.getItemName(item, Player.english) .. ".")
     else
-        common.HighInformNLS(user,"Glaubst du wirklich, du könntest die Götter betrügen?",
-                                  "Do you really think, you can cheat the gods?")
-        --the player gave shards avay after checked if shards are in invertory while dialog was open, cheat, go to Cherga
-        user:increaseAttrib("hitpoints",-10000)
+        common.HighInformNLS(user,"Die notwendigen Splitter sind nicht mehr vorhanden.",
+                                  "You no longer have the required shards with you.")
     end
 end
 

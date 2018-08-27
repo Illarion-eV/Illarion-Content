@@ -92,7 +92,7 @@ local function useWandSelection(user, item, ltstate)
         sd:addOption(3493, common.GetNLS(user,"Überprüfe deine Glyphensplitter","Check your glyph shards"))
         table.insert(actionIndex,ACTION_COUNT_SHARDS)
         if  user:getSkill(glyphs.SKILL_GLYPHING) >= glyphs.glyphRitualPrepareMinSkill then
-            sd:addOption(400, common.GetNLS(user,"Bereite ein Glyphen Ritual vor","Prepare a glyph ritual"))
+            sd:addOption(400, common.GetNLS(user,"Bereite ein Glyphenritual vor","Prepare a glyph ritual"))
             table.insert(actionIndex,ACTION_PREPARE_GLYPH_RITUAL)
         end
         sd:addOption(235, common.GetNLS(user,"Arbeite eine Glyphe in ein Schmuckstück ein","Glyph some jewellery"))
