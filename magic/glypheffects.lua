@@ -719,7 +719,7 @@ function M.effectSaveMaterialOnRepair(user)
         saveProbability = SAVE_BASE_SUMAND + parameter * SAVE_BASE_FACTOR
         if math.random() < saveProbability then
             world:gfx(globalvar.gfxSCOTTY,user.pos)
-            common.InformNLS(user,"Du bist fertig und hast weniger Material gebraucht als erwartet. Das war Magie im Spiel!",
+            common.InformNLS(user,"Du bist fertig und hast weniger Material gebraucht als erwartet. Da war Magie im Spiel!",
                                   "You're done and needed less material than expected. That's magic!")
             return true
         else

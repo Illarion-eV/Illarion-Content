@@ -726,7 +726,7 @@ function M.placeGlyphForge(user, ltstate)
         end
         local position = common.GetFrontPosition(user)
         if  user:getSkill(glyphs.SKILL_GLYPHING) < glyphs.glyphForgeErectionMinSkill then
-            common.InformNLS(user,"Deine Fähigkeiten reichen nicht aus das Ritual durchzuführen.",
+            common.InformNLS(user,"Deine Fähigkeiten reichen nicht aus, um das Ritual durchzuführen.",
                                   "Your skills are not sufficient to perform the ritual.")
             return
         end
@@ -751,7 +751,7 @@ function M.prepareGlyphRitual(user, ltstate)
         end
         common.TurnTo(user, forgeItem.pos )
         if forgeItem.wear < 3 then
-            common.InformNLS(user,"Dieser Glyphen-Ritualplatz zeigt schon deutliche Zeichen eines Verfalls. Vergeude deine Zeit nicht hier.",
+            common.InformNLS(user,"Dieser Glyphen-Ritualplatz zeigt schon deutliche Zeichen des Verfalls. Vergeude deine Zeit nicht hier.",
                                   "This glyph ritual place already shows signs of decay. Do not waste your time here.")
             return
         end
@@ -761,7 +761,7 @@ function M.prepareGlyphRitual(user, ltstate)
             return
         end
         if not common.userHasItems(user,glyphs.glyphRitualPrepareNecessaryItems) then
-            common.InformNLS(user,"Um das Ritual vorzubereiten benötigst du zwei Kerzen und zwei Kerzenhalter.",
+            common.InformNLS(user,"Um das Ritual vorzubereiten, benötigst du zwei Kerzen und zwei Kerzenhalter.",
                                   "To prepare the ritual you need two candles and two small candlesticks.")
             return
         end
@@ -769,7 +769,7 @@ function M.prepareGlyphRitual(user, ltstate)
         if  user:getSkill(glyphs.SKILL_GLYPHING) >= glyphs.glyphRitualPrepareMinSkill then
             startRitualPrepareGlyphRitual(user, forgeItem)
         else
-            common.InformNLS(user,"Deine Fähigkeiten reichen nicht aus das Ritual durchzuführen.",
+            common.InformNLS(user,"Deine Fähigkeiten reichen nicht aus, um das Ritual durchzuführen.",
                                   "Your skills are not sufficient to perform the ritual.")
             return
         end
