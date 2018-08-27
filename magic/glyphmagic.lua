@@ -706,7 +706,8 @@ function M.examineGlyphForge(user, glyphForge)
                                   "Nothing has changed at this glyph ritual place.")
         else
             user:setQuestProgress(QUEST_ID_EXAMINE_FORGE, posNumber)
-            local checkLimit = user:getBaseAttribute("perception") / 30.0 + 0.2
+            local perceptionValue = user:increaseAttrib("perception", 0)
+            local checkLimit = perceptionValue / 30.0 + 0.2
             if checkLimit > math.random() then
                 common.InformNLS(user,"Du glaubst zu erkennen, dass dieser Glyphen-Ritualplatz von " .. glyphForge:getData("craftedBy") .. " errichtet wurde.",
                                       "You see hints this glyph ritual place might have been erected by " .. glyphForge:getData("craftedBy") .. ".")
