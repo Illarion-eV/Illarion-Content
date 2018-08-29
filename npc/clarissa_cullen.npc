@@ -67,6 +67,10 @@ itemShoes = 1511
 "Help" -> inform("[Game Help] This NPC is Clarissa Cullen, the Priestess of Zhambra. Keywords: Hello, god, favour, sacrifice.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Clarissa Cullen, eine Priesterin des Zhambra. Schlüsselwörter: Hallo, Gott.")
 
+-- Book of your god quest
+queststatus(401) = 14, queststatus(685) = 0, english, ".+" -> inform("[New Quest] A book about your God"), "FIXME Oh, a neophyte! Why don't you go ask for a book about Zhambra in the library?", queststatus(685) = 1
+queststatus(401) = 14, queststatus(685) = 0, ".+" -> inform("[New Quest] A book about your God"), "FIXME FIXME Oh, a neophyte! Why don't you go ask for a book about Zhambra in the library?", queststatus(685) = 1
+
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted!"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted!"

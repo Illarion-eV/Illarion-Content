@@ -318,6 +318,16 @@ function M.setDevoted(User, godOrdinal)
 
     -- If any penalty is due, do it now. We don't do it before to avoid spam of losing status due to low favour
     M.increaseFavour(User, currentGodObj.ordinal, -favourPenalty)
+
+    if (User:getQuestProgress(685) > 0) and (User:getQuestProgress(685) < 8) then
+        -- Book of your god is started but not finished -> reset the progress
+        User:setQuestProgress(685, 0)
+        User:setQuestProgress(686, 0)
+        common.InformNLS(User,
+            "FIXME",
+            "[A book about your God] FIXME This is not the book you are looking for"
+        )
+    end
 end
 
 ---

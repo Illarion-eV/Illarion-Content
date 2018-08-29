@@ -78,6 +78,10 @@ itemShoes = 1500
 "Help" -> inform("[Game Help] This NPC is Eleanor Fairbanks the Priestess of Oldra. Keywords: Hello, Oldra, Quest, Yewdale, god, favour, sacrifice.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Eleanor Fairbanks die Priesterin von Oldra. Schlüsselwörter: Hallo, Oldra, Quest, Yewdale, Gott.")
 
+-- Book of your god quest
+queststatus(401) = 9, queststatus(685) = 0, english, ".+" -> inform("[New Quest] A book about your God"), "FIXME Oh, a neophyte! Why don't you go ask for a book about Oldra in the library?", queststatus(685) = 1
+queststatus(401) = 9, queststatus(685) = 0, ".+" -> inform("[New Quest] A book about your God"), "FIXME FIXME Oh, a neophyte! Why don't you go ask for a book about Oldra in the library?", queststatus(685) = 1
+
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hiho! Isn't it a lovely day?", "Hiho! Welcome to Oldra's Columns."
 "Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hiho! Ist es nicht ein schöner Tag?", "Hiho! Willkommen an Oldras Säule."
@@ -213,7 +217,7 @@ english, "Zhambra" -> "God of friendship and loyalty. His followers are selfless
 -- Divine rank
 "favour", "favor", queststatus(411) >= expr(400) -> "FIXME %CHARNAME, I am honoured by your visit"
 "favour", "favor", queststatus(411) >= expr(200) -> "FIXME You are awesome"
-"favour", "favor", queststatus(411) >= expr(100) -> "FIXME Zhambra looks at you favourably"
+"favour", "favor", queststatus(411) >= expr(100) -> "FIXME Oldra looks at you favourably"
 "favour", "favor", queststatus(411) > expr(-100), queststatus(402) = 9 -> "FIXME You are neutral, beware not to lose your status as priest"
 "favour", "favor", queststatus(411) > expr(-100) -> "FIXME You are neutral"
 "favour", "favor", queststatus(411) > expr(-200) -> "FIXME You are bad"
