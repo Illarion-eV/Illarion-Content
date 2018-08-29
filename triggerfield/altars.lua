@@ -85,7 +85,6 @@ SELECT altar_triggers(ARRAY[
 local common = require("base.common")
 local gods = require("content.gods")
 
---TODO use list-to-set function
 local _IS_ALTAR_ID = common.setFromList({
     -- The list was obtained by SQL command:
     -- SELECT itm_id FROM items WHERE itm_script = 'item.altars' ORDER BY itm_id
