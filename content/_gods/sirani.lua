@@ -34,6 +34,15 @@ function M.Sirani:_init(ordinal, youngerOrdinal)
     self.descriptionDe = "die Göttin der Liebe und der Freude"
     self.descriptionEn = "Goddess of love and pleasure"
     self.devotionItems = {} --FIXME
+    self.sacrificeItems = {  -- array of tables defining groups of items for sacrificing
+        {  -- FIXME
+            id_set = common.setFromList({ -- set of item IDs
+            }),
+            minimal_quality = 0, -- int in 1..9 - if present, item quality has to be greater or equal
+            minimal_durability = 0, -- int in 0..99 - if present, item durability has to be greater or equal
+            value_multiplier = 1, -- float -- the monetary value gets multiplied by this
+        },
+    }
 
 end
 

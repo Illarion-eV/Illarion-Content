@@ -47,22 +47,22 @@ function M.BaseGod:_init(ordinal)
     }
 end
 
-function M.BaseGod:getFavour(User)
-    return User:getQuestProgress(402 + self.ordinal)
+function M.BaseGod:getFavour(charObj)
+    return charObj:getQuestProgress(402 + self.ordinal)
 end
 
-function M.BaseGod:setFavour(User, newValue)
-    debug(self.nameEn .. " favour changes from " .. self:getFavour(User) .. " to " .. newValue .. " for user " .. User.name .. "(" .. User.id .. ")")
-    User:setQuestProgress(402 + self.ordinal, newValue)
+function M.BaseGod:setFavour(charObj, newValue)
+    debug(self.nameEn .. " favour changes from " .. self:getFavour(charObj) .. " to " .. newValue .. " for user " .. charObj.name .. "(" .. charObj.id .. ")")
+    charObj:setQuestProgress(402 + self.ordinal, newValue)
 end
 
-function M.BaseGod:getSacrificeCumulativeValue(User)
-    return User:getQuestProgress(418 + self.ordinal)
+function M.BaseGod:getSacrificeCumulativeValue(charObj)
+    return charObj:getQuestProgress(418 + self.ordinal)
 end
 
-function M.BaseGod:setSacrificeCumulativeValue(User, newValue)
-    debug(self.nameEn .. " sacrifice cumulative value changes from " .. self:getSacrificeCumulativeValue(User) .. " to " .. newValue .. " for user " .. User.name .. "(" .. User.id .. ")")
-    User:setQuestProgress(418 + self.ordinal, newValue)
+function M.BaseGod:setSacrificeCumulativeValue(charObj, newValue)
+    debug(self.nameEn .. " sacrifice cumulative value changes from " .. self:getSacrificeCumulativeValue(charObj) .. " to " .. newValue .. " for user " .. charObj.name .. "(" .. charObj.id .. ")")
+    charObj:setQuestProgress(418 + self.ordinal, newValue)
 end
 
 function M.BaseGod:_getSingleRawSacrificeValue(item)
@@ -95,58 +95,63 @@ function M.BaseGod:_getRawSacrificeValue(item)
     return item.number * singleVal
 end
 
-function M.BaseGod:informBecomeDevoted(User)
-    common.InformNLS(User, "Ihr empfangt den Segen " .. self.nameDe .. "s und weiht euer Leben dem Glaube an die Gottheit.", "You receive the blessing of " .. self.nameEn .. " and devote your life to the faith in the divinity.")
-    world:gfx(globalvar.gfxRAIN, User.pos)
-    world:makeSound(globalvar.sfxSNARING, User.pos)
+function M.BaseGod:informBecomeDevoted(charObj)
+    common.InformNLS(charObj, "Ihr empfangt den Segen " .. self.nameDe .. "s und weiht euer Leben dem Glaube an die Gottheit.", "You receive the blessing of " .. self.nameEn .. " and devote your life to the faith in the divinity.")
+    world:gfx(globalvar.gfxRAIN, charObj.pos)
+    world:makeSound(globalvar.sfxSNARING, charObj.pos)
 end
 
-function M.BaseGod:informStopBeingDevoted(User)
-    common.InformNLS(User, "FIXME " .. self.nameDe .. " FIXME .", "FIXME " .. self.nameEn .. " hates you and denies your devotion!")
-    world:gfx(globalvar.gfxBLITZ, User.pos)
-    world:makeSound(globalvar.sfxTHUNDER, User.pos)
+function M.BaseGod:informStopBeingDevoted(charObj)
+    common.InformNLS(charObj, "FIXME " .. self.nameDe .. " FIXME .", "FIXME " .. self.nameEn .. " hates you and denies your devotion!")
+    world:gfx(globalvar.gfxBLITZ, charObj.pos)
+    world:makeSound(globalvar.sfxTHUNDER, charObj.pos)
 end
 
-function M.BaseGod:informBecomePriest(User)
-    common.InformNLS(User, "FIXME " .. self.nameDe .. "", "FIXME You are now a priest of " .. self.nameEn .. ", have fun.")
-    world:gfx(globalvar.gfxRAIN, User.pos)
-    world:makeSound(globalvar.sfxSNARING, User.pos)
+function M.BaseGod:informBecomePriest(charObj)
+    common.InformNLS(charObj, "FIXME " .. self.nameDe .. "", "FIXME You are now a priest of " .. self.nameEn .. ", have fun.")
+    world:gfx(globalvar.gfxRAIN, charObj.pos)
+    world:makeSound(globalvar.sfxSNARING, charObj.pos)
 end
 
-function M.BaseGod:informStopBeingPriest(User)
-    common.InformNLS(User, "FIXME " .. self.nameDe .. " FIXME .", "FIXME " .. self.nameEn .. " hates you and denies your priesthood!")
-    world:gfx(globalvar.gfxBLITZ, User.pos)
-    world:makeSound(globalvar.sfxTHUNDER, User.pos)
+function M.BaseGod:informStopBeingPriest(charObj)
+    common.InformNLS(charObj, "FIXME " .. self.nameDe .. " FIXME .", "FIXME " .. self.nameEn .. " hates you and denies your priesthood!")
+    world:gfx(globalvar.gfxBLITZ, charObj.pos)
+    world:makeSound(globalvar.sfxTHUNDER, charObj.pos)
 end
 
-function M.BaseGod:informSacrificeNotAccepted(User)
-    common.InformNLS(User, "FIXME " .. self.nameDe .. " FIXME .", self.nameEn .. " ignores your sacrifice.")
+function M.BaseGod:informSacrificeAccepted(charObj, sacrificePos)
+    common.InformNLS(charObj, "FIXME " .. self.nameDe .. " FIXME .", self.nameEn .. " accepts your sacrifice")
+    world:gfx(globalvar.gfxSUN, sacrificePos)
+end
+
+function M.BaseGod:informSacrificeNotAccepted(charObj)
+    common.InformNLS(charObj, "FIXME " .. self.nameDe .. " FIXME .", self.nameEn .. " ignores your sacrifice.")
 end
 
 ---
 -- Sacrifice an item to this god
--- Favour update is not performed, to simpolify implementation of god jealousy. Instead, the need favour change is returned.
--- @param User
+-- Favour update is not performed, to simplify implementation of god jealousy. Instead, the needed favour change is returned.
+-- The item is not erased
+-- @param charObj
 -- @param item  - scriptItem that is donated
 -- @return favour bonus
-function M.BaseGod:sacrifice(User, item)
+function M.BaseGod:sacrifice(charObj, item)
     local rawVal = self:_getRawSacrificeValue(item)
     if rawVal <= 0 then
         -- item not allowed for donation
-        self:informSacrificeNotAccepted(User)
+        self:informSacrificeNotAccepted(charObj)
         return 0
     end
-    local oldCumulativeValue = self:getSacrificeCumulativeValue(User) + gods_common.SACRIFICE_VALUE_OFFSET_copper
+    local oldCumulativeValue = self:getSacrificeCumulativeValue(charObj) + gods_common.SACRIFICE_VALUE_OFFSET_copper
     local newCumulativeValue = oldCumulativeValue + rawVal
     local favourBonus = math.floor(gods_common.SACRIFICE_FAVOUR_COEFFICIENT * math.log(newCumulativeValue/oldCumulativeValue))
     if favourBonus <= 0 then
-        self:informSacrificeNotAccepted(User)
+        self:informSacrificeNotAccepted(charObj)
         return 0
     end
-    common.InformNLS(User, "FIXME " .. self.nameDe .. " FIXME .", self.nameEn .. " accepts your sacrifice")
-    world:gfx(globalvar.gfxSUN --[[FIXME maybe gfxFLAMESTRIKE ]], item.pos)
+    self:informSacrificeNotAccepted(charObj, item.pos)
 
-    self:setSacrificeCumulativeValue(User, newCumulativeValue - gods_common.SACRIFICE_VALUE_OFFSET_copper)
+    self:setSacrificeCumulativeValue(charObj, newCumulativeValue - gods_common.SACRIFICE_VALUE_OFFSET_copper)
     return favourBonus
 end
 

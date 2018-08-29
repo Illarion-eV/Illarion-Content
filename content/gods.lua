@@ -147,39 +147,38 @@ end
 
 
 ---
--- Get the god  user is devoted to
--- @param charobj
--- @return god object
+-- Get the god  char is devoted to
+-- @param charObj-- @return god object
 --
-function M._getDevotionGod(User)
-    return M._godOrdinalToObj[User:getQuestProgress(M._QUEST_DEVOTION)]
+function M._getDevotionGod(charObj)
+    return M._godOrdinalToObj[charObj:getQuestProgress(M._QUEST_DEVOTION)]
 end
 
 ---
--- Set the god  user is devoted to
--- @param charobj
+-- Set the god  char is devoted to
+-- @param charObj
 -- @param godObj - god object
 --
-function M._setDevotionGod(User, godObj)
-    User:setQuestProgress(M._QUEST_DEVOTION, godObj.ordinal)
+function M._setDevotionGod(charObj, godObj)
+    charObj:setQuestProgress(M._QUEST_DEVOTION, godObj.ordinal)
 end
 
 ---
--- Get the god  user is priest of
--- @param charobj
+-- Get the god  char is priest of
+-- @param charObj
 -- @return god object
 --
-function M._getPriesthoodGod(User)
-    return M._godOrdinalToObj[User:getQuestProgress(M._QUEST_PRIESTHOOD)]
+function M._getPriesthoodGod(charObj)
+    return M._godOrdinalToObj[charObj:getQuestProgress(M._QUEST_PRIESTHOOD)]
 end
 
 ---
--- Set the god  user is a priest of
--- @param charobj
+-- Set the god  char is a priest of
+-- @param charObj
 -- @param godObj - god object
 --
-function M._setPriesthoodGod(User, godObj)
-    User:setQuestProgress(M._QUEST_PRIESTHOOD, godObj.ordinal)
+function M._setPriesthoodGod(charObj, godObj)
+    charObj:setQuestProgress(M._QUEST_PRIESTHOOD, godObj.ordinal)
 end
 
 
@@ -218,15 +217,15 @@ end
 
 ---
 -- Get string describing the character relations with gods (in two languages)
--- @param charobj the char to check
-function M._getCharStatus(User)
+-- @param charObj the char to check
+function M._getCharStatus(charObj)
     local statusDe
     local statusEn
-    local godObj = M._getDevotionGod(User)
+    local godObj = M._getDevotionGod(charObj)
     if not godObj then
         statusDe = "FIXME not devoted to any God"
         statusEn = "not devoted to any God"
-    elseif M._getPriesthoodGod(User) == godObj then
+    elseif M._getPriesthoodGod(charObj) == godObj then
         statusDe = "FIXME priest of " .. godObj.nameEn
         statusEn = "priest of " .. godObj.nameEn
     else
@@ -238,13 +237,13 @@ end
 
 ---
 -- Get string describing the character relations with gods, (in each language separately)
--- @param charobj the char to check
-function M.getCharStatusEn(User)
-    local statusDe, statusEn = M._getCharStatus(User)
+-- @param charObj the char to check
+function M.getCharStatusEn(charObj)
+    local statusDe, statusEn = M._getCharStatus(charObj)
     return statusEn
 end
-function M.getCharStatusDe(User)
-    local statusDe, statusEn = M._getCharStatus(User)
+function M.getCharStatusDe(charObj)
+    local statusDe, statusEn = M._getCharStatus(charObj)
     return statusDe
 end
 
@@ -252,13 +251,13 @@ end
 
 ---
 -- Check if char is devoted to a god
--- @param charobj the char to check
+-- @param charObj the char to check
 -- @param godOrdinal a god ordinal (e.g. gods.GOD_ELARA) or set of ordinals (e.g. gods.YOUNGER_GODS) to be checked.
 -- If godOrdinal is not given, the function assumes gods.GODS i.e checks if char is devoted to anyone
 -- If god is gods.GOD_NONE then the function returns true if char is not devoted to any god
-function M.isDevoted(User, godOrdinal)
+function M.isDevoted(charObj, godOrdinal)
     godOrdinal = godOrdinal or M.GODS
-    local val = User:getQuestProgress(M._QUEST_DEVOTION)
+    local val = charObj:getQuestProgress(M._QUEST_DEVOTION)
     if type(godOrdinal) == 'number' then
         -- a single god to check
         return (val == godOrdinal)
@@ -269,13 +268,13 @@ function M.isDevoted(User, godOrdinal)
 end
 ---
 -- Check if char is a priest of a god
--- @param charobj the char to check
+-- @param charObj the char to check
 -- @param godOrdinal a god ordinal (e.g. gods.GOD_ELARA) or set of ordinals (e.g. gods.YOUNGER_GODS) to be checked.
 -- If godOrdinal is not given, the function assumes gods.GODS i.e checks if char is a priest at all
 -- If god is gods.GOD_NONE then the function returns true if char is not a priest
-function M.isPriest(User, godOrdinal)
+function M.isPriest(charObj, godOrdinal)
     godOrdinal = godOrdinal or M.GODS
-    local val = User:getQuestProgress(M._QUEST_PRIESTHOOD)
+    local val = charObj:getQuestProgress(M._QUEST_PRIESTHOOD)
     if type(godOrdinal) == 'number' then
         -- a single god to check
         return (val == godOrdinal)
@@ -287,43 +286,43 @@ end
 
 ---
 -- Make the char devoted to the god (without any checks/prerequisites)
--- @param charobj the char to change
+-- @param charObj the char to change
 -- @param godOrdinal the target god. Should be one of gods.GODS or gods.GOD_NONE
-function M.setDevoted(User, godOrdinal)
+function M.setDevoted(charObj, godOrdinal)
     local favourPenalty = 0
-    local currentGodObj = M._getDevotionGod(User)
-    if M.isDevoted(User, godOrdinal) then
-        common.informError(User, "Trying to re-devote to same god.")
+    local currentGodObj = M._getDevotionGod(charObj)
+    if M.isDevoted(charObj, godOrdinal) then
+        common.informError(charObj, "Trying to re-devote to same god.")
         return
     end
     if godOrdinal == M.GOD_NONE then
-        currentGodObj:informStopBeingDevoted(User)
+        currentGodObj:informStopBeingDevoted(charObj)
     else
         -- TODO: check if has ecough favour to remain being devoted
 
         if currentGodObj then
-            if M.isPriest(User) then
+            if M.isPriest(charObj) then
                 favourPenalty = gods_common.CHANGE_DEVOTION_PRIEST_PENALTY
             else
                 favourPenalty = gods_common.CHANGE_DEVOTION_PENALTY
             end
         end
         local godObj = M._godOrdinalToObj[godOrdinal]
-        godObj:informBecomeDevoted(User)
+        godObj:informBecomeDevoted(charObj)
     end
-    if M.isPriest(User) then
-        M.setNotPriest(User)
+    if M.isPriest(charObj) then
+        M.setNotPriest(charObj)
     end
-    User:setQuestProgress(M._QUEST_DEVOTION, godOrdinal) -- mark the char as devoted to the god
+    charObj:setQuestProgress(M._QUEST_DEVOTION, godOrdinal) -- mark the char as devoted to the god
 
     -- If any penalty is due, do it now. We don't do it before to avoid spam of losing status due to low favour
-    M.increaseFavour(User, currentGodObj.ordinal, -favourPenalty)
+    M.increaseFavour(charObj, currentGodObj.ordinal, -favourPenalty)
 
-    if (User:getQuestProgress(685) > 0) and (User:getQuestProgress(685) < 8) then
+    if (charObj:getQuestProgress(685) > 0) and (charObj:getQuestProgress(685) < 8) then
         -- Book of your god is started but not finished -> reset the progress
-        User:setQuestProgress(685, 0)
-        User:setQuestProgress(686, 0)
-        common.InformNLS(User,
+        charObj:setQuestProgress(685, 0)
+        charObj:setQuestProgress(686, 0)
+        common.InformNLS(charObj,
             "FIXME",
             "[A book about your God] FIXME This is not the book you are looking for"
         )
@@ -332,82 +331,82 @@ end
 
 ---
 -- Make the char not devoted to agod (without any checks/prerequisites)
--- @param charobj the char to change
+-- @param charObj the char to change
 function M.setNotDevoted(charObj)
     M.setDevoted(charObj, M.GOD_NONE)
 end
 
 ---
 -- Make the char a priest to his god (without any checks/prerequisites)
--- @param charobj the char to change
-function M.setPriest(User)
-    local godObj = M._getDevotionGod(User)
+-- @param charObj the char to change
+function M.setPriest(charObj)
+    local godObj = M._getDevotionGod(charObj)
     if not godObj then
-        common.informError(User, "Trying to set priest status with illegal god.");
+        common.informError(charObj, "Trying to set priest status with illegal god.");
         return
     end
 
     -- TODO: check if has ecough favour to remain being priest
 
-    godObj:informBecomePriest(User)
+    godObj:informBecomePriest(charObj)
 
-    M._setPriesthoodGod(User, godObj)
-    User:setMagicType(1) -- mark the char as capable of priest magic
-    -- FIXME learn magic?
+    M._setPriesthoodGod(charObj, godObj)
+    charObj:setMagicType(1) -- mark the char as capable of priest magic
+    -- TODO learn magic / spells?
 end
 
 ---
 -- Make the char not a priest
--- @param charobj the char to change
-function M.setNotPriest(User)
-    local godObj = M._getPriesthoodGod(User)
+-- @param charObj the char to change
+function M.setNotPriest(charObj)
+    local godObj = M._getPriesthoodGod(charObj)
     if not godObj then
-        common.informError(User, "Trying to clear priest status with illegal god.");
+        common.informError(charObj, "Trying to clear priest status with illegal god.");
         return
     end
 
-    godObj:informStopBeingPriest(User)
-    User:setQuestProgress(M._QUEST_PRIESTHOOD, M.GOD_NONE)
-    -- We don't clear the magic type (User:setMagicType), so that the user can't easily switch to another magic profession
+    godObj:informStopBeingPriest(charObj)
+    charObj:setQuestProgress(M._QUEST_PRIESTHOOD, M.GOD_NONE)
+    -- We don't clear the magic type (charObj:setMagicType), so that the user can't easily switch to another magic profession
 end
 
 
 ---
 -- Perform checks/actions after a change in char's favour
 -- E.g. remove priesthood/devotion status
-function M._afterFavourChange(charobj)
-    local godObj = M._getDevotionGod(charobj)
+function M._afterFavourChange(charObj)
+    local godObj = M._getDevotionGod(charObj)
     if not godObj then
         -- not devoted - nothing to do
         return
     end
-    local favour = godObj:getFavour(charobj)
-    if (favour < gods_common.LOSE_PRIESTHOOD_FAVOUR_THRESHOLD) and M.isPriest(charobj) then
-        M.setNotPriest(charobj)
+    local favour = godObj:getFavour(charObj)
+    if (favour < gods_common.LOSE_PRIESTHOOD_FAVOUR_THRESHOLD) and M.isPriest(charObj) then
+        M.setNotPriest(charObj)
     end
     if (favour < gods_common.LOSE_DEVOTION_FAVOUR_THRESHOLD) then
-        M.setNotDevoted(charobj)
+        M.setNotDevoted(charObj)
     end
 end
 
 ---
 -- Check favour of a god
--- @param charobj the char to check
+-- @param charObj the char to check
 -- @param godOrdinal a god ordinal (one of gods.GODS)
 -- @return signed int - the favour
-function M.getFavour(User, godOrdinal)
-    return M._godOrdinalToObj[godOrdinal]:getFavour(User)
+function M.getFavour(charObj, godOrdinal)
+    return M._godOrdinalToObj[godOrdinal]:getFavour(charObj)
 end
 
 ---
 -- Change favour of a god for specific character
--- @param charobj the char
+-- @param charObj the char
 -- @param godOrdinal a god (one of gods.GODS)
 -- @param amount the change magnitude (an int, may be negative)
-function M.increaseFavour(User, godOrdinal, amount)
+function M.increaseFavour(charObj, godOrdinal, amount)
     local godObj = M._godOrdinalToObj[godOrdinal]
     if not godObj then
-        common.informError(User, "Favour change for invalid god.");
+        common.informError(charObj, "Favour change for invalid god.");
         return
     end
     if amount==0 then
@@ -417,7 +416,7 @@ function M.increaseFavour(User, godOrdinal, amount)
 
     if not godObj:is_a(baseyounger.BaseYounger) then
         -- For elder gods favour simply changes
-        godObj:setFavour(User, godObj:getFavour(User) + amount)
+        godObj:setFavour(charObj, godObj:getFavour(charObj) + amount)
         return
     end
 
@@ -441,24 +440,24 @@ function M.increaseFavour(User, godOrdinal, amount)
 
     -- apply the change
     for curYoungOrdinal, favourChange in pairs(changes) do
-        --User:inform(M.GOD_NAME_EN[iGod] .. " favour change: " .. favourChange)
+        --charObj:inform(M.GOD_NAME_EN[iGod] .. " favour change: " .. favourChange)
         local curGodObj = M._youngerOrdinalToObj[curYoungOrdinal]
-        curGodObj:setFavour(User, curGodObj:getFavour(User) + favourChange)
+        curGodObj:setFavour(charObj, curGodObj:getFavour(charObj) + favourChange)
     end
 
-    M._afterFavourChange(User)
+    M._afterFavourChange(charObj)
 end
 
 ---
 -- Change favour of all gods towards 0 for specific character. This function should be called periodically.
--- @param charobj the char
+-- @param charObj the char
 -- @param multiplier the change magnitude as a float. 0 means no change. 1 means everything becomes 0.
-function M.favourDecay(User, multiplier)
+function M.favourDecay(charObj, multiplier)
     multiplier = multiplier or gods_common.FAVOUR_DECAY_COEFF
     local changes = {}
     -- start by applying the multiplier and rounding
     for _,curGodObj in pairs(M._godOrdinalToObj) do
-        local oldFavour = curGodObj:getFavour(User)
+        local oldFavour = curGodObj:getFavour(charObj)
         debug(curGodObj.nameEn .. " multiplier " .. multiplier .. " oldFavour " .. oldFavour ..
                 ", desired change " .. (oldFavour * multiplier) ..
                 ", rounded change " .. math.floor(oldFavour * multiplier + 0.5)
@@ -488,101 +487,100 @@ function M.favourDecay(User, multiplier)
 
     -- apply the change
     for curGodObj,favourChange in pairs(changes) do
-        curGodObj:setFavour(User, curGodObj:getFavour(User) + favourChange)
+        curGodObj:setFavour(charObj, curGodObj:getFavour(charObj) + favourChange)
     end
 
-    M._afterFavourChange(User)
+    M._afterFavourChange(charObj)
 end
 
 
 ---
 -- Perform a prayer to the god and update his favour
--- @param charobj
+-- @param charObj
 -- @param godOrdinal
-function M.pray(User, godOrdinal)
+function M.pray(charObj, godOrdinal)
     local godObj = M._godOrdinalToObj[godOrdinal]
     if not godObj then
-        common.informError(User, "Praying to invalid god.")
+        common.informError(charObj, "Praying to invalid god.")
         return
     end
 
-    common.TalkNLS(User, Character.say , "#me FIXME pray " .. godObj.nameDe, "#me FIXME prays to " .. godObj.nameEn)
-    if gods_common.prayerCooldownCounter:hasEnded(User) then
-        M.increaseFavour(User, godOrdinal, gods_common.PRAYER_FAVOUR_INCREASE)
-        gods_common.prayerCooldownCounter:restart(User)
+    common.TalkNLS(charObj, Character.say , "#me FIXME pray " .. godObj.nameDe, "#me FIXME prays to " .. godObj.nameEn)
+    if gods_common.prayerCooldownCounter:hasEnded(charObj) then
+        M.increaseFavour(charObj, godOrdinal, gods_common.PRAYER_FAVOUR_INCREASE)
+        gods_common.prayerCooldownCounter:restart(charObj)
     else
         -- prayed not so long ago
-        common.InformNLS(User, "FIXME", "FIXME Thou shalt not take the name of the Lord thy God in vain.")
+        common.InformNLS(charObj, "FIXME", "FIXME Thou shalt not take the name of the Lord thy God in vain.")
     end
 end
 
 
 ---
 -- Sacrifice an item to the god and update his favour
--- @param charobj
+-- @param charObj
 -- @param godOrdinal
 -- @param item - scriptItem that is donated
-function M.sacrifice(charobj, godOrdinal, item)
+function M.sacrifice(charObj, godOrdinal, item)
     local godObj = M._godOrdinalToObj[godOrdinal]
     if not godObj then
-        common.informError(charobj, "Sacrificing to invalid god.");
+        common.informError(charObj, "Sacrificing to invalid god.");
         return
     end
 
---    common.TalkNLS(User, Character.say , "#me FIXME pray " .. godObj.nameDe, "#me FIXME  to " .. godObj.nameEn)
     debug("Sacrificing item id " .. item.id .. " to " .. godObj.nameEn)
-    local favourBonus = godObj:sacrifice(charobj, item)
+    local favourBonus = godObj:sacrifice(charObj, item)
     if favourBonus > 0 then
-        M.increaseFavour(charobj, godOrdinal, favourBonus)
+        M.increaseFavour(charObj, godOrdinal, favourBonus)
         world:erase(item, item.number)
     end
 end
 
 ---
 -- Change "sacrifice cumulative value" of all gods towards 0 for specific character, that is forget old sacrifices. This function should be called periodically.
--- @param charobj
-function M.sacrificeDecay(User, multiplier)
+-- @param charObj
+function M.sacrificeDecay(charObj, multiplier)
     multiplier = multiplier or gods_common.SACRIFICE_DECAY_COEFF
     for _,curGodObj in pairs(M._godOrdinalToObj) do
         -- we do floor and not round, so that it can return to 0 eventually
-        local newValue = math.floor((1-multiplier) * curGodObj:getSacrificeCumulativeValue(User))
-        curGodObj:setSacrificeCumulativeValue(User, newValue)
+        local newValue = math.floor((1-multiplier) * curGodObj:getSacrificeCumulativeValue(charObj))
+        curGodObj:setSacrificeCumulativeValue(charObj, newValue)
     end
 end
 
 ---
 -- Check that all god-related variables of a char are consistent
 -- @return boolean, true means everything is consistent
-function M.validate(User)
-    local devotionGodOrdinal = User:getQuestProgress(M._QUEST_DEVOTION)
-    local priesthoodGodOrdinal = User:getQuestProgress(M._QUEST_PRIESTHOOD)
+function M.validate(charObj)
+    local devotionGodOrdinal = charObj:getQuestProgress(M._QUEST_DEVOTION)
+    local priesthoodGodOrdinal = charObj:getQuestProgress(M._QUEST_PRIESTHOOD)
 
     -- Check questprogress has valid values
     if devotionGodOrdinal ~= M.GOD_NONE and not M.GODS[devotionGodOrdinal] then
-        common.informError(User, "Devotion to illegal god (" .. devotionGodOrdinal .. ").")
+        common.informError(charObj, "Devotion to illegal god (" .. devotionGodOrdinal .. ").")
         return false
     end
     if priesthoodGodOrdinal ~= M.GOD_NONE and priesthoodGodOrdinal ~= devotionGodOrdinal then
-        common.informError(User, "Priesthood to wrong god (" .. priesthoodGodOrdinal .. " instead of " .. devotionGodOrdinal .. ").")
+        common.informError(charObj, "Priesthood to wrong god (" .. priesthoodGodOrdinal .. " instead of " .. devotionGodOrdinal .. ").")
         return false
     end
 
     -- Check piest magic type
-    if priesthoodGodOrdinal ~= M.GOD_NONE and User:getMagicType() ~= 1 then
-        common.informError(User, "Priesthood with wrong magic type (" .. User:getMagicType() .. ").")
+    if priesthoodGodOrdinal ~= M.GOD_NONE and charObj:getMagicType() ~= 1 then
+        common.informError(charObj, "Priesthood with wrong magic type (" .. charObj:getMagicType() .. ").")
         return false
     end
-    -- It is allowed to have User:getMagicType() == 1 with priesthoodGod==M.GOD_NONE. This means a char is an ex-priest (e.g. a priest that lost favour and was deprived of his status
+    -- It is allowed to have charObj:getMagicType() == 1 with priesthoodGod==M.GOD_NONE. This means a char is an ex-priest (e.g. a priest that lost favour and was deprived of his status
 
     -- TODO check favour is inside limits
 
     -- Check favour of younger gods has zero sum
     local checkSum = 0
     for _,curGodObj in pairs(M._youngerOrdinalToObj) do
-        checkSum = checkSum + curGodObj:getFavour(User)
+        checkSum = checkSum + curGodObj:getFavour(charObj)
     end
     if (checkSum~=0) then
-        common.informError(User, "Favour of younger gods has non-zero sum (" .. checkSum .. ").")
+        common.informError(charObj, "Favour of younger gods has non-zero sum (" .. checkSum .. ").")
         return false
     end
 
