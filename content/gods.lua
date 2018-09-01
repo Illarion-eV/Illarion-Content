@@ -298,8 +298,15 @@ function M.setDevoted(charObj, godOrdinal)
     if godOrdinal == M.GOD_NONE then
         currentGodObj:informStopBeingDevoted(charObj)
     else
-        -- TODO: check if has ecough favour to remain being devoted
+        local godObj = M._godOrdinalToObj[godOrdinal]
+        local favour = godObj:getFavour(charObj)
+        if not favour >= gods_common.LOSE_DEVOTION_FAVOUR_THRESHOLD then
+            -- Usually favour >= DEVOTION_FAVOUR_THRESHOLD is checked before, but a GM might bypass that.
+            common.InformNLS(charObj, "FIXME", "Your favour is to low to be a priest")
+            return
+        end
 
+        -- Check if there is favour penalty from the current god
         if currentGodObj then
             if M.isPriest(charObj) then
                 favourPenalty = gods_common.CHANGE_DEVOTION_PRIEST_PENALTY
@@ -307,7 +314,6 @@ function M.setDevoted(charObj, godOrdinal)
                 favourPenalty = gods_common.CHANGE_DEVOTION_PENALTY
             end
         end
-        local godObj = M._godOrdinalToObj[godOrdinal]
         godObj:informBecomeDevoted(charObj)
     end
     if M.isPriest(charObj) then
@@ -337,7 +343,7 @@ function M.setNotDevoted(charObj)
 end
 
 ---
--- Make the char a priest to his god (without any checks/prerequisites)
+-- Make the char a priest to his god (without prerequisites)
 -- @param charObj the char to change
 function M.setPriest(charObj)
     local godObj = M._getDevotionGod(charObj)
@@ -346,7 +352,12 @@ function M.setPriest(charObj)
         return
     end
 
-    -- TODO: check if has ecough favour to remain being priest
+    local favour = godObj:getFavour(charObj)
+    if not favour >= gods_common.LOSE_PRIESTHOOD_FAVOUR_THRESHOLD then
+        -- Usually favour >= PRIESTHOOD_FAVOUR_THRESHOLD is checked before, but a GM might bypass that.
+        common.InformNLS(charObj, "FIXME", "Your favour is to low to be a priest")
+        return
+    end
 
     godObj:informBecomePriest(charObj)
 
@@ -412,11 +423,19 @@ function M.increaseFavour(charObj, godOrdinal, amount)
     if amount==0 then
         return
     end
-    -- TODO check MAX_FAVOUR and MIN_FAVOUR
+    -- limiting (the limits shouldn't be reached during normal gameplay, this is to keep powergamers and cheaters from overflow)
+    local targetFavour = godObj:getFavour(charObj) + amount
+    if targetFavour > gods_common.MAX_FAVOUR then
+        amount = gods_common.MAX_FAVOUR - godObj:getFavour(charObj)
+        targetFavour = gods_common.MAX_FAVOUR
+    elseif targetFavour < gods_common.MIN_FAVOUR then
+        amount = gods_common.MIN_FAVOUR - godObj:getFavour(charObj)
+        targetFavour = gods_common.MIN_FAVOUR
+    end
 
     if not godObj:is_a(baseyounger.BaseYounger) then
         -- For elder gods favour simply changes
-        godObj:setFavour(charObj, godObj:getFavour(charObj) + amount)
+        godObj:setFavour(charObj, targetFavour)
         return
     end
 
@@ -572,12 +591,19 @@ function M.validate(charObj)
     end
     -- It is allowed to have charObj:getMagicType() == 1 with priesthoodGod==M.GOD_NONE. This means a char is an ex-priest (e.g. a priest that lost favour and was deprived of his status
 
-    -- TODO check favour is inside limits
 
     -- Check favour of younger gods has zero sum
     local checkSum = 0
-    for _,curGodObj in pairs(M._youngerOrdinalToObj) do
-        checkSum = checkSum + curGodObj:getFavour(charObj)
+    for _,curGodObj in pairs(M._godOrdinalToObj) do
+        local favour = curGodObj:getFavour(charObj)
+        -- Check favour is inside limits
+        if (favour < gods_common.MIN_FAVOUR) or (favour > gods_common.MAX_FAVOUR) then
+            common.informError(charObj, "Favour of " .. curGodObj.nameEn .. " is out of limits (" .. favour .. ").")
+            return false
+        end
+        if curGodObj:is_a(baseyounger.BaseYounger) then
+            checkSum = checkSum + favour
+        end
     end
     if (checkSum~=0) then
         common.informError(charObj, "Favour of younger gods has non-zero sum (" .. checkSum .. ").")
@@ -593,7 +619,7 @@ gods_common.favourDecayCounter:addCallback(M.favourDecay)
 gods_common.sacrificeDecayCounter:addCallback(M.sacrificeDecay)
 
 
--- FIXME *** Everything below this line should be reviewed ***
+-- TODO review. This seems to be some old implementation that used speech for priest spells activation
 --[[
 local PRAYER_CONVERSION = {
     {skill = "Healing",

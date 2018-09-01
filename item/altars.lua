@@ -409,10 +409,10 @@ function M.UseItem(User, SourceItem, ltstate)
             -- TODO icons
             { icon = 1060, text = "Pray",   func = gods.pray,          args = { User, god } }, -- 128 - book as in quest, 1060/1061/1089 - open book?
 
-            -- TODO
+            -- TODO defile
             --{ icon = 372, text = "Defile", func = defile,        args = { User, god } }, -- 157 - rotten bark, 26 - clay, 2038/2039 - skull, 3101/3102 - blood, 372 - poison cloud
         }
---        TODO
+--        TODO become priest and perform service
 --        if gods.isPriest(User, god) then
 --            table.insert(dialogOptions,
 --                { icon = 3105, text = "Perform service", func = performService, args = { User, god } } -- 3105 - bookrest, 661 - lectern
