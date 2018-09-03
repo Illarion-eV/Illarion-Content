@@ -169,13 +169,13 @@ local function canDevote(User, god)
     if gods.getFavour(User, god) < gods_common.DEVOTION_FAVOUR_THRESHOLD then
         result = false
         reason_en = reason_en .. "You don't have enough favour from the god. "
-        reason_de = reason_de .. "FIXME You don't have enough favour from the god. "
+        reason_de = reason_de .. "FIXGERMAN You don't have enough favour from the god. "
     end
 
     if not checkItems(User, gods.getItemsForDevotion(god)) then
         result = false
         reason_en = reason_en .. "You don't have the required items. "
-        reason_de = reason_de .. "FIXME You don't have the required items. "
+        reason_de = reason_de .. "FIXGERMAN You don't have the required items. "
     end
 
     return result, reason_de, reason_en
@@ -185,21 +185,21 @@ local function doDevote(User, god)
     local candevote, reason_de, reason_en = canDevote(User, god)
     if not candevote then
         -- Was capable when opened dialog, but not when accepted. Cheater?
-        common.InformNLS(User, "FIXME " .. reason_de, "FIXME You do not satisfy the devotion criteria. " .. reason_en)
+        common.InformNLS(User, "FIXGERMAN " .. reason_de, "You do not satisfy the devotion criteria. " .. reason_en)
     end
     deleteItems(User, gods.getItemsForDevotion(god))
     gods.setDevoted(User, god)
 end
 
 local function devotionDialog(User, god)
-    local explanation = ""
+    local explanation = "At this altar you can devote yourself to " .. gods.getNameEn(god) .. ", the " .. gods.getDescriptionEn(god) .. ".\n"
     if gods.isDevoted(User, god) then
-        User:inform("[ERROR] Devotion confirmation for same god. Please inform a developer.")
+        common.informError(User, "Devotion confirmation for same god.")
         return
     elseif gods.isPriest(User) then
         explanation = explanation .. common.GetNLS(User,
-            "Als Priester einer anderen Gottheit müßtet ihr eurer Gottheit abschwören, um ein Priester " .. gods.getNameDe(god) .. "s zu werden FIXME status loss.",
-            "As priest of another god, you'll have to abjure your god to become a priest of " .. gods.getNameEn(god) .. ", FIXME and you will lose your status."
+            "FIXGERMAN Als Priester einer anderen Gottheit müßtet ihr eurer Gottheit abschwören, um ein Priester " .. gods.getNameDe(god) .. "s zu werden FIXGERMAN status loss.",
+            "As priest of another god, you'll have to abjure your god to devote yourself to " .. gods.getNameEn(god) .. ", and you will lose your status."
         )
     elseif gods.isDevoted(User) then
         explanation = explanation .. common.GetNLS(User,
@@ -207,26 +207,26 @@ local function devotionDialog(User, god)
             "As devotee of another god, you'll have to abjure your god to devote yourself to " .. gods.getNameEn(god) .. "."
         )
     else -- noob
-        explanation = explanation .. common.GetNLS(User, "FIXME", "FIXME You can only devote yourself to one god at a time and bla-bla-bla")
+        explanation = explanation .. common.GetNLS(User, "FIXGERMAN", "You can only devote yourself to one god at a time, and abjuration will make your god angry.")
     end
-    explanation = explanation .. common.GetNLS(User, "FIXME", "\nYou will need to donate " .. tellItems(User, gods.getItemsForDevotion(god)) .. ".")
+    explanation = explanation .. common.GetNLS(User, "FIXGERMAN", "\nYou will need to donate " .. tellItems(User, gods.getItemsForDevotion(god)) .. ".")
 
     local candevote, reason_de, reason_en = canDevote(User, god)
     if candevote then
-        common.selectionDialogWrapper(User, common.GetNLS(User, "FIXME", "Devotion"), explanation, {
-            { icon = 0, text = common.GetNLS(User, "FIXME", "Devote yourself to " .. gods.getNameEn(god)),             func = doDevote, args = { User, god } },
-            { icon = 0, text = common.GetNLS(User, "FIXME", "Remain " .. gods.getCharStatusEn(User)), func = nil, args = nil },
+        common.selectionDialogWrapper(User, common.GetNLS(User, "FIXGERMAN", "Devotion"), explanation, {
+            { icon = 0, text = common.GetNLS(User, "FIXGERMAN", "Devote yourself to " .. gods.getNameEn(god)), func = doDevote, args = { User, god } },
+            { icon = 0, text = common.GetNLS(User, "FIXGERMAN", "Remain " .. gods.getCharStatusEn(User)), func = nil, args = nil },
         })
     else
         explanation = explanation .. "\n" .. common.GetNLS(User, reason_de, reason_en)
-        local dialog = MessageDialog(common.GetNLS(User, "FIXME", "Devotion"), explanation, --[[callback=]]function(d) end)
+        local dialog = MessageDialog(common.GetNLS(User, "FIXGERMAN", "Devotion"), explanation, --[[callback=]]function(d) end)
         User:requestMessageDialog(dialog)
     end
 end
 
 -- TODO defile
 --local function defile(User, god)
---    common.TalkNLS(User, Character.say , "#me FIXME", "#me FIXME spits on the altar and curses the name of " .. gods.getNameEn(god))
+--    common.TalkNLS(User, Character.say , "#me FIXGERMAN", "#me FIXME spits on the altar and curses the name of " .. gods.getNameEn(god))
 --    local favour_penalty
 --    must adjust numbers and put them in gods_common
 --    if gods.isPriest(User, god) then
@@ -321,7 +321,7 @@ end
 -- TODO perform service
 --local function performService(User, god)
 --    priest magic
---    common.TalkNLS(User, Character.say , "#me FIXME", "#me FIXME performs a service in honor of " .. gods.getNameEn(god))
+--    common.TalkNLS(User, Character.say , "#me FIXGERMAN", "#me FIXME performs a service in honor of " .. gods.getNameEn(god))
 --end
 
 
@@ -402,7 +402,7 @@ function M.UseItem(User, SourceItem, ltstate)
             "Altar of " .. gods.getNameEn(god)
         )
         local description = common.GetNLS(User,
-            "Altar " .. gods.getNameDe(god) .. "s, " .. gods.getDescriptionDe(god) .. ". FIXME",
+            "Altar " .. gods.getNameDe(god) .. "s, " .. gods.getDescriptionDe(god) .. ". FIXGERMAN",
             "Altar of " .. gods.getNameEn(god) .. ", the " .. gods.getDescriptionEn(god) .. ".\nChoose your action:"
         )
         local dialogOptions = {

@@ -223,13 +223,13 @@ function M._getCharStatus(charObj)
     local statusEn
     local godObj = M._getDevotionGod(charObj)
     if not godObj then
-        statusDe = "FIXME not devoted to any God"
+        statusDe = "FIXGERMAN not devoted to any God"
         statusEn = "not devoted to any God"
     elseif M._getPriesthoodGod(charObj) == godObj then
-        statusDe = "FIXME priest of " .. godObj.nameEn
+        statusDe = "FIXGERMAN priest of " .. godObj.nameEn
         statusEn = "priest of " .. godObj.nameEn
     else
-        statusDe = "FIXME devoted to " .. godObj.nameEn
+        statusDe = "FIXGERMAN devoted to " .. godObj.nameEn
         statusEn = "devoted to " .. godObj.nameEn
     end
     return statusDe, statusEn
@@ -302,7 +302,7 @@ function M.setDevoted(charObj, godOrdinal)
         local favour = godObj:getFavour(charObj)
         if not favour >= gods_common.LOSE_DEVOTION_FAVOUR_THRESHOLD then
             -- Usually favour >= DEVOTION_FAVOUR_THRESHOLD is checked before, but a GM might bypass that.
-            common.InformNLS(charObj, "FIXME", "Your favour is to low to be a priest")
+            common.InformNLS(charObj, "FIXGERMAN", "Your favour is too low to be a priest.")
             return
         end
 
@@ -329,8 +329,8 @@ function M.setDevoted(charObj, godOrdinal)
         charObj:setQuestProgress(685, 0)
         charObj:setQuestProgress(686, 0)
         common.InformNLS(charObj,
-            "FIXME",
-            "[A book about your God] FIXME This is not the book you are looking for"
+            "FIXGERMAN",
+            "[A book about your God] You don't need this book anymore."
         )
     end
 end
@@ -355,7 +355,7 @@ function M.setPriest(charObj)
     local favour = godObj:getFavour(charObj)
     if not favour >= gods_common.LOSE_PRIESTHOOD_FAVOUR_THRESHOLD then
         -- Usually favour >= PRIESTHOOD_FAVOUR_THRESHOLD is checked before, but a GM might bypass that.
-        common.InformNLS(charObj, "FIXME", "Your favour is to low to be a priest")
+        common.InformNLS(charObj, "FIXGERMAN", "Your favour is too low to be a priest.")
         return
     end
 
@@ -459,7 +459,6 @@ function M.increaseFavour(charObj, godOrdinal, amount)
 
     -- apply the change
     for curYoungOrdinal, favourChange in pairs(changes) do
-        --charObj:inform(M.GOD_NAME_EN[iGod] .. " favour change: " .. favourChange)
         local curGodObj = M._youngerOrdinalToObj[curYoungOrdinal]
         curGodObj:setFavour(charObj, curGodObj:getFavour(charObj) + favourChange)
     end
@@ -524,13 +523,13 @@ function M.pray(charObj, godOrdinal)
         return
     end
 
-    common.TalkNLS(charObj, Character.say , "#me FIXME pray " .. godObj.nameDe, "#me FIXME prays to " .. godObj.nameEn)
+    common.TalkNLS(charObj, Character.say , "#me FIXGERMAN prays.", "#me prays.")
     if gods_common.prayerCooldownCounter:hasEnded(charObj) then
         M.increaseFavour(charObj, godOrdinal, gods_common.PRAYER_FAVOUR_INCREASE)
         gods_common.prayerCooldownCounter:restart(charObj)
     else
         -- prayed not so long ago
-        common.InformNLS(charObj, "FIXME", "FIXME Thou shalt not take the name of the Lord thy God in vain.")
+        common.InformNLS(charObj, "FIXGERMAN", "Your prayer wasn't whole-hearted.")
     end
 end
 

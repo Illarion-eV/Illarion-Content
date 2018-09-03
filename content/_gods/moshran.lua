@@ -50,13 +50,19 @@ function M.Moshran:_init(ordinal, youngerOrdinal)
 end
 
 function M.Moshran:informBecomeDevoted(User)
-    common.InformNLS(User, "FIXME Ihr empfangt den Segen " .. self.nameDe .. "s und weiht euer Leben dem Glaube an die Gottheit.", "FIXME " .. self.nameEn .. " is your master now.")
+    common.InformNLS(User,
+        "FIXGERMAN Ihr empfangt den Segen " .. self.nameDe .. "s und weiht euer Leben dem Glaube an die Gottheit.",
+        self.nameEn .. " receives your offer to devote your life to serving him."
+    )
     world:gfx(globalvar.gfxDEMFIRE, User.pos)
     world:makeSound(globalvar.sfxEVIL_LAUGH, User.pos)
 end
 
 function M.Moshran:informBecomePriest(User)
-    common.InformNLS(User, "FIXME " .. self.nameDe .. "", "FIXME " .. self.nameEn .. " consumes your soul and gives demonic powers to the empty shell that remains.")
+    common.InformNLS(User,
+        "FIXGERMAN " .. self.nameDe .. "",
+        "FIXME " .. self.nameEn .. " consumes your soul and gives demonic powers to the empty shell that remains."
+    )
     world:gfx(globalvar.gfxDEMFIRE, User.pos)
     world:makeSound(globalvar.sfxEVIL_LAUGH, User.pos)
 end

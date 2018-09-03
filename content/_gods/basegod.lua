@@ -96,36 +96,54 @@ function M.BaseGod:_getRawSacrificeValue(item)
 end
 
 function M.BaseGod:informBecomeDevoted(charObj)
-    common.InformNLS(charObj, "Ihr empfangt den Segen " .. self.nameDe .. "s und weiht euer Leben dem Glaube an die Gottheit.", "You receive the blessing of " .. self.nameEn .. " and devote your life to the faith in the divinity.")
+    common.InformNLS(charObj,
+        "Ihr empfangt den Segen " .. self.nameDe .. "s und weiht euer Leben dem Glaube an die Gottheit.",
+        "You receive the blessing of " .. self.nameEn .. " and devote your life to the faith in the divinity."
+    )
     world:gfx(globalvar.gfxRAIN, charObj.pos)
     world:makeSound(globalvar.sfxSNARING, charObj.pos)
 end
 
 function M.BaseGod:informStopBeingDevoted(charObj)
-    common.InformNLS(charObj, "FIXME " .. self.nameDe .. " FIXME .", "FIXME " .. self.nameEn .. " hates you and denies your devotion!")
+    common.HighInformNLS(charObj,
+        "FIXGERMAN " .. self.nameDe .. ".",
+        "You no longer feel devoted to " .. self.nameEn .. "."
+    )
     world:gfx(globalvar.gfxBLITZ, charObj.pos)
     world:makeSound(globalvar.sfxTHUNDER, charObj.pos)
 end
 
 function M.BaseGod:informBecomePriest(charObj)
-    common.InformNLS(charObj, "FIXME " .. self.nameDe .. "", "FIXME You are now a priest of " .. self.nameEn .. ", have fun.")
+    common.InformNLS(charObj,
+        "FIXGERMAN " .. self.nameDe .. "",
+        "FIXME You are now a priest of " .. self.nameEn .. ", have fun."
+    )
     world:gfx(globalvar.gfxRAIN, charObj.pos)
     world:makeSound(globalvar.sfxSNARING, charObj.pos)
 end
 
 function M.BaseGod:informStopBeingPriest(charObj)
-    common.InformNLS(charObj, "FIXME " .. self.nameDe .. " FIXME .", "FIXME " .. self.nameEn .. " hates you and denies your priesthood!")
+    common.HighInformNLS(charObj,
+        "FIXGERMAN " .. self.nameDe .. ".",
+        self.nameEn .. " denies your priesthood!"
+    )
     world:gfx(globalvar.gfxBLITZ, charObj.pos)
     world:makeSound(globalvar.sfxTHUNDER, charObj.pos)
 end
 
 function M.BaseGod:informSacrificeAccepted(charObj, sacrificePos)
-    common.InformNLS(charObj, "FIXME " .. self.nameDe .. " FIXME .", self.nameEn .. " accepts your sacrifice")
+    common.InformNLS(charObj,
+        "FIXGERMAN " .. self.nameDe .. " .",
+        self.nameEn .. " accepts your sacrifice."
+    )
     world:gfx(globalvar.gfxSUN, sacrificePos)
 end
 
 function M.BaseGod:informSacrificeNotAccepted(charObj)
-    common.InformNLS(charObj, "FIXME " .. self.nameDe .. " FIXME .", self.nameEn .. " ignores your sacrifice.")
+    common.InformNLS(charObj,
+        "FIXGERMAN " .. self.nameDe .. " .",
+        self.nameEn .. " ignores your sacrifice."
+    )
 end
 
 ---
