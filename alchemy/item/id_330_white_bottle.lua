@@ -14,14 +14,16 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- language potions
+-- UPDATE common SET com_script='alchemy.item.id_330_white_bottle' WHERE com_itemid = 330;
+
+-- White Potions
+-- language potions (no effect at VBU)
+
 local common = require("base.common")
 local alchemy = require("alchemy.base.alchemy")
 local lookat = require("base.lookat")
+
 local M = {}
-
--- UPDATE common SET com_script='alchemy.item.id_330_white_bottle' WHERE com_itemid = 330;
-
 
 --- NO EFFECT
 local function DrinkPotion(User,SourceItem)

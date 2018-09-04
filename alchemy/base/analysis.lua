@@ -24,15 +24,18 @@ local granorsHut = require("content.granorsHut")
 
 local M = {}
 
-function M.AnalysisMain(User,theGem)
-    if IsCharacterAnalysingGem(theGem) then
-        CharacterAnalysis(User,theGem)
-    else
-        CauldronPotionCheck(User,theGem)
-    end
-end
+local chargeText = {}
+chargeText[1] = {[Player.german] = " Der Stein droht zu zerbrechen. Überall sind Sprünge im Überzug und dem Stein zu sehen. Teilweise sind schon sachen rausgebrochen.", [Player.english] = " The gem might be ready to burst. There are cracks covering the whole film and gem. Some parts are already broken off."}
+chargeText[2] = {[Player.german] = " Der Überzug und der Stein sind vollkommen von Sprüngen überzogen.", [Player.english] = " The film and the gem are completely covered in cracks."}
+chargeText[3] = {[Player.german] = " Der Überzug ist komplett von Sprüngen bedeckt. Auch der Stein hat viele Risse.", [Player.english] = " The film is completely covered with cracks. The gem itself has also a lot of cracks"}
+chargeText[4] = {[Player.german] = " Der Überzug ist komplett von Sprüngen bedeckt. Auch der Stein hat ein paar Risse.", [Player.english] = " The film is completely covered with cracks. The gem itself has also some cracks."}
+chargeText[5] = {[Player.german] = " Der Überzug ist komplett von Sprüngen bedeckt. Auch der Stein selber scheint einen Riss zu haben.", [Player.english] = " The film is completely covered with cracks. The gem itself seems also to have one."}
+chargeText[6] = {[Player.german] = " Der Überzug hat sehr viele Sprünge.", [Player.english] = " The film has a lot of crack in it."}
+chargeText[7] = {[Player.german] = " Ein paar Sprünge befinden sich im Überzug." , [Player.english] = " The film has several cracks."}
+chargeText[8] = {[Player.german] = " Ein kleiner Sprung befindet sich im Überzug.", [Player.english] = " The film has a small crack."}
+chargeText[9] = {[Player.german] = "", [Player.english] = ""}
 
-function CharacterAnalysis(User,theGem)
+local function CharacterAnalysis(User,theGem)
 
     if not alchemy.CheckIfAlchemist(User) then
         return
@@ -88,30 +91,16 @@ function CharacterAnalysis(User,theGem)
         end
         User:inform("Ein Sprung bildet sich im Edelstein.","A crack appears in the gem.",Player.highPriority)
     end
+end
 
- end
-
-
-local chargeText = {}
-chargeText[1] = {[Player.german] = " Der Stein droht zu zerbrechen. Überall sind Sprünge im Überzug und dem Stein zu sehen. Teilweise sind schon sachen rausgebrochen.", [Player.english] = " The gem might be ready to burst. There are cracks covering the whole film and gem. Some parts are already broken off."}
-chargeText[2] = {[Player.german] = " Der Überzug und der Stein sind vollkommen von Sprüngen überzogen.", [Player.english] = " The film and the gem are completely covered in cracks."}
-chargeText[3] = {[Player.german] = " Der Überzug ist komplett von Sprüngen bedeckt. Auch der Stein hat viele Risse.", [Player.english] = " The film is completely covered with cracks. The gem itself has also a lot of cracks"}
-chargeText[4] = {[Player.german] = " Der Überzug ist komplett von Sprüngen bedeckt. Auch der Stein hat ein paar Risse.", [Player.english] = " The film is completely covered with cracks. The gem itself has also some cracks."}
-chargeText[5] = {[Player.german] = " Der Überzug ist komplett von Sprüngen bedeckt. Auch der Stein selber scheint einen Riss zu haben.", [Player.english] = " The film is completely covered with cracks. The gem itself seems also to have one."}
-chargeText[6] = {[Player.german] = " Der Überzug hat sehr viele Sprünge.", [Player.english] = " The film has a lot of crack in it."}
-chargeText[7] = {[Player.german] = " Ein paar Sprünge befinden sich im Überzug." , [Player.english] = " The film has several cracks."}
-chargeText[8] = {[Player.german] = " Ein kleiner Sprung befindet sich im Überzug.", [Player.english] = " The film has a small crack."}
-chargeText[9] = {[Player.german] = "", [Player.english] = ""}
-
-
-function IsCharacterAnalysingGem(gem)
+local function IsCharacterAnalysingGem(gem)
     if gem:getData("analysingCharges") ~= "" then
         return true
     end
     return false
 end
 
-function StockAnalysis(User, gem, brew, ltstate)
+local function StockAnalysis(User, gem, brew, ltstate)
     local analysisResultDE = "Substanz:\nKräutersud\n\nWirkstoffkonzentrationen:\n"
     local analysisResultEN = "Substanz:\nHerbal Stock\n\nActive substance concentrations:\n"
     for i=1,8 do -- loop to get the concentration of the eight active substances
@@ -128,7 +117,7 @@ function StockAnalysis(User, gem, brew, ltstate)
     return analysisResultDE, analysisResultEN
 end
 
-function EssenceBrewAnalysis(User, gem, brew, ltstate)
+local function EssenceBrewAnalysis(User, gem, brew, ltstate)
     local cauldron, bottle
     local reGem, reGemdust, reCauldron, reBottle
     if brew.id >= 1008 and brew.id <= 1018 then -- brew is a cauldron
@@ -162,7 +151,7 @@ function EssenceBrewAnalysis(User, gem, brew, ltstate)
     return analysisResultDE, analysisResultEN
 end
 
-function PotionAnalysis(User, theGem, brew, ltstate)
+local function PotionAnalysis(User, theGem, brew, ltstate)
     local cauldron, bottle, potionQuality, potionQualityDE, potionQualityEN
     local reGem, reGemdust, reCauldron, reBottle
     if brew.id >= 1008 and brew.id <= 1018 then -- brew is a cauldron
@@ -220,7 +209,7 @@ function PotionAnalysis(User, theGem, brew, ltstate)
     return analysisResultDE, analysisResultEN
 end
 
-function AnalysisOfBrew(User, theGem, brew, ltstate)
+local function AnalysisOfBrew(User, theGem, brew, ltstate)
 
     local isAlchemist = alchemy.CheckIfAlchemist(User)
     if not isAlchemist then
@@ -272,7 +261,7 @@ function AnalysisOfBrew(User, theGem, brew, ltstate)
     end
 end
 
-function CauldronPotionCheck(User, SourceItem, TargetItem, ltstate)
+local function CauldronPotionCheck(User, SourceItem, TargetItem, ltstate)
     local cauldron = alchemy.GetCauldronInfront(User)
     if (cauldron) and (cauldron.id ~= 1008) then
         AnalysisOfBrew(User, SourceItem, cauldron, ltstate)
@@ -293,7 +282,14 @@ function CauldronPotionCheck(User, SourceItem, TargetItem, ltstate)
             end
         end
     end
+end
 
+function M.AnalysisMain(User,theGem)
+    if IsCharacterAnalysingGem(theGem) then
+        CharacterAnalysis(User,theGem)
+    else
+        CauldronPotionCheck(User,theGem)
+    end
 end
 
 return M

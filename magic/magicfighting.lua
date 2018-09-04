@@ -38,6 +38,7 @@ local gems = require("base.gems")
 local glypheffects = require("magic.glypheffects")
 local globalvar = require("base.globalvar")
 local magic = require("base.magic")
+local chr_reg = require("lte.chr_reg")
 
 local function getNeededMana(castTime)
     return math.ceil(80 + (castTime-7)*20)

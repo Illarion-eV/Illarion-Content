@@ -43,9 +43,7 @@ local function CorrectSightingPotion(User)
             end
         end
     end
-
     return false
-
 end
 
 function M.LookAtGrave(User,Item)
@@ -66,7 +64,26 @@ function M.LookAtGrave(User,Item)
     return lookat
 end
 
+local function ApperanceOfDog(User)
 
+    local apperancePosition = position(925,941,0)
+    if world:isCharacterOnField(apperancePosition) then
+        local warpChar = world:getCharacterOnField(apperancePosition)
+        warpChar:talk(Character.say, "#me wird zurückgeworfen.","#me is thrown back.")
+        warpChar:warp(common.GetBehindPosition(warpChar, 3))
+    end
+
+    local theDog = world:createMonster(584,position(925,941,0),-200)
+    world:gfx(7,theDog.pos)
+    theDog:talk(Character.say, "#me erscheint in einem Wirbel von Laubblättern. In der Schnauze hält er ein großes Donfblatt.",
+        "#me appears in a swirl of maple leaves. It holds a big donf blade in its muzzle.")
+    monsterHooks.setNoDrop(theDog)
+    character.DeathAfterTime(theDog,70,7,nil,nil)
+    local find, Effect = theDog.effects:find(36)
+    Effect:addValue("transfomationDog",1)
+    LEARNER_ID = User.id
+    User:setQuestProgress(862,1)
+end
 
 function M.UseGrave(User, SourceItem)
 
@@ -81,7 +98,6 @@ function M.UseGrave(User, SourceItem)
             M.TellSightingPotionRecipe(User)
         end
     end
-
 end
 
 function M.UseSealedScroll(User, SourceItem)
@@ -96,7 +112,6 @@ function M.UseSealedScroll(User, SourceItem)
     world:changeItem(SourceItem)
     User:setQuestProgress(560,1)
     potionToTeacher.TellRecipe(User, 560)
-
 end
 
 function M.TellSightingPotionRecipe(User)
@@ -113,7 +128,6 @@ function M.TellSightingPotionRecipe(User)
         dialog = MessageDialog("A voice in the leaves", textEn, callback)
     end
     User:requestMessageDialog(dialog)
-
 end
 
 function M.GenerateStockConcentration()
@@ -162,28 +176,6 @@ function M.GenerateStockDescription(User)
         end
     end
     return de, en
-end
-
-function ApperanceOfDog(User)
-
-    local apperancePosition = position(925,941,0)
-    if world:isCharacterOnField(apperancePosition) then
-        local warpChar = world:getCharacterOnField(apperancePosition)
-        User:talk(Character.say, "#me wird zurückgeworfen.","#me is thrown back.")
-        User:warp(common.GetBehindPosition(User, 3))
-    end
-
-    local theDog = world:createMonster(584,position(925,941,0),-200)
-    world:gfx(7,theDog.pos)
-    theDog:talk(Character.say, "#me erscheint in einem Wirbel von Laubblättern. In der Schnauze hält er ein großes Donfblatt.",
-    "#me appears in a swirl of maple leaves. It holds a big donf blade in its muzzle.")
-    monsterHooks.setNoDrop(theDog)
-    character.DeathAfterTime(theDog,70,7,nil,nil)
-    local find, Effect = theDog.effects:find(36)
-    Effect:addValue("transfomationDog",1)
-    LEARNER_ID = User.id
-    User:setQuestProgress(862,1)
-
 end
 
 function M.dropDonfblade(dog)

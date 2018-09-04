@@ -446,7 +446,9 @@ function M.GetFreePositions(centerPosition, searchRadius, allowPassableItems, sh
 end
 
 -- Get one random free location
-function M.getFreePos(CenterPos, Rad)
+function M.getFreePos(CenterPos, Rad, allowPassableItems)
+    allowPassableItems = allowPassableItems or false
+    
     local pos = M.GetFreePositions(CenterPos, Rad, false, true)()
     if pos == nil then
         return CenterPos
@@ -1128,6 +1130,7 @@ function M.GetStiffness(Character)
     return StiffnessVal
 end
 
+local interruptTable = {}
 --[[
     ResetInterruption
     Resets the interruption counter state, in case the action did not success
@@ -1148,11 +1151,7 @@ end
     @return boolean - true in case the action is interruped, false if not
 ]]
 function M.IsInterrupted(Character)
-    if not interruptTable then
-        interruptTable = {}
-        interruptTable[Character.id] = 2
-        return false
-    elseif not interruptTable[Character.id] then
+if not interruptTable[Character.id] then
         interruptTable[Character.id] = 2
         return false
     end
@@ -1813,7 +1812,7 @@ end
 --[[Check if a char holds an item from a list in hand
 @return true if item with id is in any hand slot]]--
 function M.hasItemIdInHand(user, itemIds)
-    if type(row) == "table" then
+    if type(itemIds) ~= "table" then
         itemIds = {itemIds}
     end
     local leftTool = user:getItemAt(Character.left_tool)
@@ -1830,7 +1829,7 @@ end
 --[[Check if a char holds an item from a list in hand
 @return item if item with id is in any hand slot]]--
 function M.getItemInHand(user, itemIds)
-    if type(row) == "table" then
+    if type(itemIds) ~= "table" then
         itemIds = {itemIds}
     end
     local leftTool = user:getItemAt(Character.left_tool)
@@ -2167,15 +2166,15 @@ function M.CreateRandomNumberList(AmntElements, minval, maxval)
    return reslist
 end
 
---[[Searches the Online List for a Player by name
+--[[Searches the Online List for a Player by name or id
     if a player was found it returns: true, Char Struct
 --     if not, nil]]
 
-function M.CheckIfOnline(playername)
+function M.CheckIfOnline(playerame, playerId)
     local playerlist = world:getPlayersOnline()
 
     for i = 1, #(playerlist) do
-        if playerlist[i].name == playername then
+        if playerlist[i].name == playername or playerlist[i].name == playerId then
         return playerlist[i]
         end
     end

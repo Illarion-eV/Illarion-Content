@@ -21,6 +21,7 @@ local spinning = require("craft.intermediate.spinning")
 local weaving = require("craft.intermediate.weaving")
 local woolcutting = require("craft.gathering.woolcutting")
 local metal = require("item.general.metal")
+local petsystem = require("petsystem.base")
 
 local M = {}
 
@@ -73,7 +74,7 @@ end
 function M.UseItem(User, SourceItem, ltstate)
 
     local target;
-
+ 
     -- check for sheep
     target = getSheep(User);
     if (target ~= nil) then

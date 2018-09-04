@@ -18,21 +18,25 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- note that !rd is a !fr without npc and spawn reloading
 -- note further that reload_tables will be called after this if and only if the !rd was successful and the !rd was issued by a !fr
 
-local alchemy = require("alchemy.base.alchemy")
 local lever = require("item.lever")
 local granorsHut = require("content.granorsHut")
 local oldSlimeFeeding = require("content.oldSlimeFeeding")
 local shipmasterParchments = require("content.shipmasterParchments")
+local petsystemBase = require("petsystem.base")
 
 local M = {}
 
 function M.onReload()
 
     oldSlimeFeeding.resetLever()
-    alchemy.InitAlchemy()
     lever.init()
     granorsHut.potionReplacer()
     shipmasterParchments.checkParchments()
+    
+    local playersOnline = world:getPlayersOnline()
+    for _, player in pairs(playersOnline) do
+        petsystemBase.loadPet(player)
+    end
 
     return true
 end

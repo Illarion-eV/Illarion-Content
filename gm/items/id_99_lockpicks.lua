@@ -28,6 +28,7 @@ local shard = require("item.shard")
 local glyphmagic = require("magic.glyphmagic")
 local gods = require("content.gods")
 local gems = require("base.gems")
+local sepp = require("npc.sepp_leaf")
 
 local M = {}
 

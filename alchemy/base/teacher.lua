@@ -25,9 +25,9 @@ local M = {}
 
 ------------------------------------------- LISTS ------------------------------------------------------
 -- TASK ONE: three normal herbs
-HerbsTaskOneId = {}
-HerbsTaskOneNameEN = {}
-HerbsTaskOneNameDE = {}
+local HerbsTaskOneId = {}
+local HerbsTaskOneNameEN = {}
+local HerbsTaskOneNameDE = {}
 
 HerbsTaskOneId["Knowing Tree"] =   {133  ,  81, 140}
 HerbsTaskOneNameEN["Knowing Tree"] = {"sunherbs","berries","donf blades"}
@@ -43,9 +43,9 @@ HerbsTaskOneNameDE["Recognizing Spring"] = {"Jungfernkraut","Erdbeeren","Gelbkra
 -- TASK ONE END --
 
 -- TASK TWO: two gem powders
-GemPowderTaskTwoId = {}
-GemPowderTaskTwoNameEN = {}
-GemPowderTaskTwoNameDE = {}
+local GemPowderTaskTwoId = {}
+local GemPowderTaskTwoNameEN = {}
+local GemPowderTaskTwoNameDE = {}
 
 GemPowderTaskTwoId["Knowing Tree"] =   {446,447}
 GemPowderTaskTwoNameEN["Knowing Tree"] = {"sapphire powder","ruby powder"}
@@ -61,8 +61,8 @@ GemPowderTaskTwoNameDE["Recognizing Spring"] = {"Amethyststaub","Diamantstaub"}
 -- TASK TWO END --
 
 -- deleting the herbs --
-HerbsDeleteTextDE = {}
-HerbsDeleteTextEN = {}
+local HerbsDeleteTextDE = {}
+local HerbsDeleteTextEN = {}
 
 HerbsDeleteTextDE["Knowing Tree"] = {"Eine Windböe erfasst die Kräuter und trägt sie in die Krone des Baumes."}
 HerbsDeleteTextDE["Thinking Stone"] = {"Wie von selbst fallen die Kräuter aus deiner Hand und verschwinden in einem Strudel von Sand."}
@@ -74,8 +74,8 @@ HerbsDeleteTextEN["Recognizing Spring"] = {"A wave raises from the spring and fl
 -- deleting END --
 
 -- deleting the gem powder --
-GemPowderDeleteTextDE = {}
-GemPowderDeleteTextEN = {}
+local GemPowderDeleteTextDE = {}
+local GemPowderDeleteTextEN = {}
 
 GemPowderDeleteTextDE["Knowing Tree"] = {"Eine Windböe erfasst die Beutel mit Edelsteinstaub und trägt sie in die Krone des Baumes."}
 GemPowderDeleteTextDE["Thinking Stone"] = {"Wie von selbst fallen die Beutel mit Edelsteinstaub aus deiner Hand und verschwinden in einem Strudel von Sand."}
@@ -88,7 +88,7 @@ GemPowderDeleteTextEN["Recognizing Spring"] = {"A wave raises from the spring an
 
 -- question and answer lists --
 -- questionAnswerList[language('"german"' or '"english"')]['"question"' or '"answer"'][difficulty(1 to 3)][questionID(1 to 10)]
-questionAnswerList            = {}
+local questionAnswerList = {}
 questionAnswerList["german"]  = {}
 questionAnswerList["english"] = {}
 
@@ -235,7 +235,7 @@ questionAnswerList["english"]["answer"][3][5] = {"Explosion","Nothing","They com
 
 -------------------------------------------------- LISTS END ------------------------------------------------------------
 
-function GetTeacherQuestInfos(User,SourceItem)
+local function GetTeacherQuestInfos(User,SourceItem)
     -- depending on the position of the sourceitem (= the teacher), we get particular infos
 
     local questId; local questPrg; local teacherEN1; local teacherEN2; local teacherDE1; local teacherDE2
@@ -268,14 +268,14 @@ function GetTeacherQuestInfos(User,SourceItem)
 
 end
 
-function NoMagicCheck(User)
+local function NoMagicCheck(User)
     if User:getMagicType() == 0 and (User:getQuestProgress(37) ~= 0 or User:getMagicFlags(0) > 0) then
         return false
     end
 return true
 end
 
-function TurnIntoAlchemist(User,SourceItem)
+local function TurnIntoAlchemist(User,SourceItem)
     -- tell char the secret of alchemy and turn him into an alchemist
     local textDE = "Die ferne Stimme erklingt erneut: \"So sei es. Ich lehre dich das Geheimnis der Alchemie. Mögest du das Wissen weise nutzen.\" Für einen Moment schweigt die Stimme, dann dringt sie erneut an dein Ohr, du verstehst nicht, was sie sagt, und doch verstehst du es. Sie klingt fern und doch klingt sie nah. Sie scheint von außen zu kommen und doch scheint sie in dir zu sein. Du hörst Worte, die gesprochen werden und doch hörst du sie nicht. Du versteht alles, was dir gesagt wird und doch verstehst du nichts. Die Welt um dich herum wird zu einem. Es gibt kein Außen und kein Innen mehr, nur noch ein Ganzes, das auch du bist. Doch die Welt zerfällt in Vieles, in unendliche Teile, nichts haftet aneinander, alles ist verstreut, alles ist getrennt, es gibt nur Getrenntheit. Die Welt ist ein Ganzes und unendlich Vieles. Nichts hängt zusammen, alles hängt zusammen. Alles ergibt Sinn, nichts ergibt Sinn. Du hast das Geheimnis erkannt, du hast es nicht erkannt. - Du spürst wie sich deine Sinne und dein Geist verändert haben. Du merkst, wie sich das neue Wissen in deinen Gedanken ausbreitet und doch kannst du es nicht fassen. Du weißt es, doch es ist weder zu begreifen, noch in Worte zu fassen, eine unaussprechliche Wahrheit. Die Welt aber scheint dir nun anders."
     local textEN = "The voice in the distance sounds again: \"So be it! I shall teach you the secret of alchemy. May you use it wisely.\" For a moment, the voice is silent, but then it sounds again. You don't understand the words and yet somehow you do. They sound close, yet distant. They seem to come from outside, yet within you. You perceive words being spoken, yet you don't hear them. You understand everything, yet you understand nothing. The world around you becomes one. There is no outside and inside anymore, just one whole which you are part of. The world collapses in an infinite, endless number of parts. Nothing is combined. Everything is scattered. There is only separation. The world is one and many. Nothing is connected, yet everything is connected.Everything makes sense now, yet nothing makes sense. You recognise the secret, but you haven't recognised it. You feel how your sense and mind have been altered. You feel how new knowledge has been placed into your mind, but you cannot grasp it. You know it, but it cannot be understood, not put into words - an unspeakable truth. The world appears to you in a different way now."
@@ -300,7 +300,37 @@ function TurnIntoAlchemist(User,SourceItem)
 
 end
 
-function IsCharSure(User,SourceItem)
+local function GetQuestionAndAnswers(User,SourceItem)
+    local questInfos = GetTeacherQuestInfos(User,SourceItem)
+    local userLanguage
+    if User:getPlayerLanguage() == 0 then
+        userLanguage = "german"
+    else
+        userLanguage = "english"
+    end
+    local difficulty = questInfos.questPrg - 3
+    local lastQuestion
+    if difficulty == 3 then
+        lastQuestion = true
+    end
+    local rnd = math.random(1,#questionAnswerList[userLanguage]["question"][difficulty])
+    local myQuestion = questionAnswerList[userLanguage]["question"][difficulty][rnd][1]
+    local sourceAnswerList = questionAnswerList[userLanguage]["answer"][difficulty][rnd]
+    local myAnswer = sourceAnswerList[1]
+    local newAnswerList = {}
+    for i=1,#sourceAnswerList do
+        newAnswerList[i]=sourceAnswerList[i] -- copy the list, so that we do not destroy the original one
+    end
+    for i=#newAnswerList,2,-1 do
+        local j = math.random(1, i)
+        newAnswerList[i], newAnswerList[j] = newAnswerList[j], newAnswerList[i] -- put it back together into a random order (using Fisher-Yates shuffle)
+    end
+    return myQuestion, myAnswer, newAnswerList, lastQuestion
+end
+
+local SendMessage
+
+local function IsCharSure(User,SourceItem)
     -- check if the char really wants to become an alchemist
     local questInfos = GetTeacherQuestInfos(User, SourceItem)
     local answerYes; local answerNo; local askChar; local title; local abortTextDE; local abortTextEN
@@ -336,55 +366,7 @@ function IsCharSure(User,SourceItem)
     User:requestSelectionDialog(dialog)
 end
 
-function SendMessage(User, SourceItem, textEN, textDE, questionTrigger)
-    -- function to send a message dialog
-    -- parameters questionTrigger - if it is true, the user will be asked a question after closing the message dialog
-
-    local questInfos = GetTeacherQuestInfos(User, SourceItem)
-    local callback = function(dialog)
-        if questionTrigger then
-            AskQuestion(User,SourceItem)
-        end
-    end
-    local dialog
-    if User:getPlayerLanguage() == 0 then
-        dialog = MessageDialog(questInfos.teacherDE1, textDE, callback)
-    else
-        dialog = MessageDialog(questInfos.teacherEN1, textEN, callback)
-    end
-    User:requestMessageDialog(dialog)
-
-end
-
-function GetQuestionAndAnswers(User,SourceItem)
-    local questInfos = GetTeacherQuestInfos(User,SourceItem)
-    local userLanguage
-    if User:getPlayerLanguage() == 0 then
-        userLanguage = "german"
-    else
-        userLanguage = "english"
-    end
-    local difficulty = questInfos.questPrg - 3
-    local lastQuestion
-    if difficulty == 3 then
-        lastQuestion = true
-    end
-    local rnd = math.random(1,#questionAnswerList[userLanguage]["question"][difficulty])
-    local myQuestion = questionAnswerList[userLanguage]["question"][difficulty][rnd][1]
-    local sourceAnswerList = questionAnswerList[userLanguage]["answer"][difficulty][rnd]
-    local myAnswer = sourceAnswerList[1]
-    local newAnswerList = {}
-    for i=1,#sourceAnswerList do
-        newAnswerList[i]=sourceAnswerList[i] -- copy the list, so that we do not destroy the original one
-    end
-    for i=#newAnswerList,2,-1 do
-        local j = math.random(1, i)
-        newAnswerList[i], newAnswerList[j] = newAnswerList[j], newAnswerList[i] -- put it back together into a random order (using Fisher-Yates shuffle)
-    end
-    return myQuestion, myAnswer, newAnswerList, lastQuestion
-end
-
-function AskQuestion(User,SourceItem)
+local function AskQuestion(User,SourceItem)
     -- quest infos
     local questInfos = GetTeacherQuestInfos(User,SourceItem)
     local questId = questInfos.questId
@@ -406,21 +388,21 @@ function AskQuestion(User,SourceItem)
                     IsCharSure(User,SourceItem) -- ask if the char really wants to become an alchemist
                 else
                     SendMessage(User, SourceItem,
-                    "\"That was the right answer! Let's try the next one.\"",
-                    "\"Das war die richtige Antwort! Auf zur nächsten.\"",
-                    true)
+                        "\"That was the right answer! Let's try the next one.\"",
+                        "\"Das war die richtige Antwort! Auf zur nächsten.\"",
+                        true)
                 end
             else
                 SendMessage(User, SourceItem,
-                            "\"That was the wrong answer. Let's try an other one.\"",
-                            "\"Das war die falsche Antwort. Versuchen wir es mit einer anderen.\"",
-                            true)
+                    "\"That was the wrong answer. Let's try an other one.\"",
+                    "\"Das war die falsche Antwort. Versuchen wir es mit einer anderen.\"",
+                    true)
             end
         else
             SendMessage(User, SourceItem,
-                        "\"Come back to finish the questions whenever you want.\"",
-                        "\"Komm wieder, wann immer du dich den Fragen stellen willst.\"",
-                        false)
+                "\"Come back to finish the questions whenever you want.\"",
+                "\"Komm wieder, wann immer du dich den Fragen stellen willst.\"",
+                false)
         end
     end
     local dialog = SelectionDialog(title, theQuestion, callback)
@@ -428,11 +410,28 @@ function AskQuestion(User,SourceItem)
         dialog:addOption(0, answersList[i])
     end
     User:requestSelectionDialog(dialog)
-
 end
 
+local function SendMessage(User, SourceItem, textEN, textDE, questionTrigger)
+    -- function to send a message dialog
+    -- parameters questionTrigger - if it is true, the user will be asked a question after closing the message dialog
 
-function FirstTask(User, SourceItem)
+    local questInfos = GetTeacherQuestInfos(User, SourceItem)
+    local callback = function(dialog)
+        if questionTrigger then
+            AskQuestion(User,SourceItem)
+        end
+    end
+    local dialog
+    if User:getPlayerLanguage() == 0 then
+        dialog = MessageDialog(questInfos.teacherDE1, textDE, callback)
+    else
+        dialog = MessageDialog(questInfos.teacherEN1, textEN, callback)
+    end
+    User:requestMessageDialog(dialog)
+end
+
+local function FirstTask(User, SourceItem)
     -- first task: the char is supposed to bring five herbs of three different kinds
     -- what kind of herbs depend on the teacher (they are herbs from the region he is in)
 
@@ -445,7 +444,7 @@ function FirstTask(User, SourceItem)
 
 end
 
-function SecondTask(User, SourceItem)
+local function SecondTask(User, SourceItem)
     -- second task: bring to rare herbs from the region
     local questInfos = GetTeacherQuestInfos(User, SourceItem)
 
@@ -471,7 +470,7 @@ function SecondTask(User, SourceItem)
 
 end
 
-function ThirdTask(User, SourceItem)
+local function ThirdTask(User, SourceItem)
     -- third task: three question
     local questInfos = GetTeacherQuestInfos(User, SourceItem)
     local qstPrg = questInfos.questPrg
@@ -555,7 +554,7 @@ function M.UseItem(User, SourceItem, ltstate)
 
 end
 
-function getLookAt(player,item)
+local function getLookAt(player,item)
     local lookAt = ItemLookAt()
     local infos = GetTeacherQuestInfos(player,item)
     local teacherName, teacherDescription
@@ -590,5 +589,5 @@ function M.LookAtItem(player, item)
         return lookat.GenerateLookAt(player, item, 0)
     end
 end
-return M
 
+return M

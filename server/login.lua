@@ -26,6 +26,7 @@ local skillTransfer = require("base.skillTransfer")
 local areas = require("content.areas")
 local hairdresser = require("npc.hairdresser")
 local seafaring = require("base.seafaring")
+local petsystem = require("petsystem.base")
 local gods_common = require("content._gods.gods_common")
 -- Called after every player login
 
@@ -309,9 +310,6 @@ function M.onLogin( player )
     --on ferry
     seafaring.login(player)
 
-    --gem conversion
-    gems.convertOldGems(player)
-
     --Check regeneration script
     local found = player.effects:find(2)
     if not found then
@@ -329,6 +327,9 @@ function M.onLogin( player )
     if not found then
         player.effects:addEffect(LongTimeEffect(gods_common.EFFECT_ID, 10))
     end
+    
+    --Handle pets
+    --petsystem.loadPet(player)
 end
 
 function showNewbieDialog(player)

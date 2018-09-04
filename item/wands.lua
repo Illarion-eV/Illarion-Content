@@ -113,7 +113,7 @@ function M.MoveItemAfterMove(User, SourceItem, TargetItem)
             if User:getMagicType() == 3 then
                 User:inform("Alchemisten können die Stabmagie nicht erlernen.",
                 "Alchemist are unable to use wand magic.")
-            elseif magic.hasMageAttributes(User) then
+            elseif not magic.hasMageAttributes(User) then
                 User:inform("Um Stabmagie zu verwenden, muss die Summe der Attribute Intelligenz, Essenz und Willensstärke wenigstens 30 ergeben. Attribute können bei den Trainer-NPCs geändert werden.",
                 "To use wand magic, your combined attributes of intelligence, essence, and willpower must total at least 30. Attributes can be changed at the trainer NPC.")
             elseif User:getMagicType() == 0 and (User:getQuestProgress(37) ~= 0 or User:getMagicFlags(0) > 0) then
@@ -130,7 +130,7 @@ function M.MoveItemAfterMove(User, SourceItem, TargetItem)
 end
 
 function M.UseItem(user, sourceItem, ltstate)
-    if ltstate == Action.none then
+    --[[if ltstate == Action.none then
         if magicWands[sourceItem.id] then
             if user:getMagicType() == 0 and user:getQuestProgress(37) ~= 0 then
                 useWandSelection(user, sourceItem, ltstate)
@@ -144,7 +144,7 @@ function M.UseItem(user, sourceItem, ltstate)
         elseif currentWandUse[user.id] == WAND_USE_GLYPH_RITUAL_PREPARE then
             glyphmagic.prepareGlyphRitual(user, ltstate)
         end
-    end
+    end]] --Search tag: #123
 end
 
 return M

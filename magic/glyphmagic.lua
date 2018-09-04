@@ -146,7 +146,7 @@ local function endRitualBreakGlyph(user, forgePos, item)
         materialBonus = 1
     end
     local skillBonus = math.max(0, - math.floor(user:getSkill(workingSkill) / 15) + 3)
-    returnedShards = math.random( math.floor(0.5 * remainingCharges / maxCharges * 7), math.floor(0.9 * remainingCharges / maxCharges * 7))
+    local returnedShards = math.random( math.floor(0.5 * remainingCharges / maxCharges * 7), math.floor(0.9 * remainingCharges / maxCharges * 7))
     returnedShards = math.min (7, returnedShards + materialBonus + skillBonus)
     local level = glyphs.getGlyphLevel(item)
     local isRing = glyphs.getGlyphRingOrAmulet(item)
@@ -556,12 +556,10 @@ function M.forgeGlyphs(user,glyphForgeItem,ltstate)
             local userRings = glyphs.hasRing(user)
             local userAmulets = glyphs.hasAmulet(user)
             common.TurnTo(user,glyphForgeItem.pos)
-            workingPlayerPos = user.pos
-            workingForgePos = glyphForgeItem.pos
             if #userRings == 0 and #userAmulets == 0 then
                 common.InformNLS(user,"Du hast keinen Ring und kein Amulett. Nimm das Item, das du glyphen willst in die Hand oder in den Gürtel.",
                                       "You don't have a ring or amulet. The item you want to glyph has to be in your hand or in the belt.")
-                showShardState(user)
+                M.showShardState(user)
             else
                 showForgeSelection(user,userRings,userAmulets)
             end
@@ -575,7 +573,7 @@ function M.forgeGlyphs(user,glyphForgeItem,ltstate)
     else
         common.TempInformNLS(user,"Dieser Ritualplatz ist voll mit Symbolen, die dir nichts sagen. Du entschließt dich hier nichts zu verändern und zählst die Splitter in deiner Tasche.",
                                   "This ritual place is covered in unknown symbols. You decide nothing to do except to count the shards in your bag.")
-        showShardState(user)
+        M.showShardState(user)
     end
 end
 
@@ -594,8 +592,6 @@ function M.breakGlyphs(user,glyphForgeItem,ltstate)
         local userRings = glyphs.hasRing(user)
         local userAmulets = glyphs.hasAmulet(user)
         common.TurnTo(user,glyphForgeItem.pos)
-        workingPlayerPos = user.pos
-        workingForgePos = glyphForgeItem.pos
         if #userRings == 0 and #userAmulets == 0 then
             common.InformNLS(user,"Du hast keinen Ring und kein Amulett. Nimm das Item, das du zerstören willst in die Hand oder in den Gürtel.",
                                   "You don't have a ring or amulet. The item you want to destroy has to be in your hand or in the belt.")
@@ -627,7 +623,7 @@ local function isPossibleLocation(user, position)
                                   "This ground is not good to erect the ritual place.")
         return false
     end
-    
+
     -- Empty field
     if theField:countItems() > 0 then
         common.TempInformNLS(user,"Hier müsstest du erst mal was wegräumen. Das ist mit Arbeit verbunden. Deshalb schaust du dich nach einem besseren Platz um.",

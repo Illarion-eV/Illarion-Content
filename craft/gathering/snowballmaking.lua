@@ -57,7 +57,7 @@ function M.StartGathering(User, SourceItem, ltstate)
 
 
     if ( ltstate == Action.none ) then -- currently not working -> let's go
-        snowballmaking.SavedWorkTime[User.id] = snowballmaking:GenWorkTime(User,toolItem)
+        snowballmaking.SavedWorkTime[User.id] = snowballmaking:GenWorkTime(User, nil)
         User:startAction( snowballmaking.SavedWorkTime[User.id], 0, 0, 0, 0)
         User:talk(Character.say, "#me formt Schneebälle.", "#me forms snowballs.")
         return
@@ -71,7 +71,7 @@ function M.StartGathering(User, SourceItem, ltstate)
     local created = common.CreateItem(User, 456, 1, 333, nil) -- create the new produced items
     if created then -- character can still carry something
         if amount > 0 then  -- there are still items we can work on
-            snowballmaking.SavedWorkTime[User.id] = snowballmaking:GenWorkTime(User,toolItem)
+            snowballmaking.SavedWorkTime[User.id] = snowballmaking:GenWorkTime(User, nil)
             User:changeSource(SourceItem)
             User:startAction( snowballmaking.SavedWorkTime[User.id], 0, 0, 0, 0)
         end

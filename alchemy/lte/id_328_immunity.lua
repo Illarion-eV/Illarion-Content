@@ -12,26 +12,18 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- LTE für das Druidensystem
--- by Falk
--- immunity. Has actually nothing to do with healing potion 328 orange bottle
+-- INSERT INTO longtimeeffects VALUES (328, 'alchemy_immunity', 'alchemy.lte.id_328_immunity');
 
 local M = {}
 
--- INSERT INTO longtimeeffects VALUES (328, 'alchemy_immunity', 'alchemy.lte.id_328_immunity');
-
-function getAction(Character,Effect,Runde)
---Hier die eigentlichen Aktionen eintragen  
+function M.addEffect(Effect, Character)
+--Character:inform("debug func addEffect")
 end
 
-function M.addEffect(Effect, Character)               -- Nur beim ersten Aufruf
---Character:inform("debug func addEffect") 
-end
+function M.callEffect(Effect,Character)
 
-function M.callEffect(Effect,Character)                  -- Effect wird ausgeführt
-    
     local foundImmunity, immunity, retVal = nil,nil,false;
     for i=1,8 do
         foundImmunity, immunity = Effect:findValue("immunity_"..i);
@@ -48,13 +40,12 @@ function M.callEffect(Effect,Character)                  -- Effect wird ausgefüh
     return retVal;
 end
 
-function M.removeEffect(Effect,Character)         
---Character:inform("debug func removeEffect")  
+function M.removeEffect(Effect,Character)
+--Character:inform("debug func removeEffect")
 end
 
-function M.loadEffect(Effect,Character)                  -- wenn der Charakter erneut einloggt
---Character:inform("debug func loadEffect")   
+function M.loadEffect(Effect,Character)
+--Character:inform("debug func loadEffect")
 end
 
 return M
-

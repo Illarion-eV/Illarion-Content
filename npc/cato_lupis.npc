@@ -54,13 +54,13 @@ beardID = 0
 colorHair = 3, 5, 20
 colorSkin = 150, 79, 0
 itemHead = 0
-itemChest = 1446
-itemCoat = 2380
+itemChest = 364
+itemCoat = 2419
 itemMainHand = 0
 itemSecondHand = 0
 itemHands = 0
-itemTrousers = 1498
-itemShoes = 1518
+itemTrousers = 1479
+itemShoes = 1505
 
 ------------------------------------------------------------------------------AC
 

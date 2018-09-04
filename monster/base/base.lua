@@ -153,7 +153,7 @@ local function performDrop(monster)
             dropLootCategory(monster, category)
         end
         
-        shard.dropShardByMonster(monster)
+        --shard.dropShardByMonster(monster) --Search tag: #123
     end
 end
 

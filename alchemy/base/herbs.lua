@@ -23,7 +23,6 @@ local licence = require("base.licence")
 
 local M = {}
 
-
 function M.UseItem(User, SourceItem, ltstate)
 
     -- infront of a cauldron?
@@ -72,18 +71,7 @@ function M.UseItem(User, SourceItem, ltstate)
     end
 end
 
-function M.BeginnBrewing(User,plantId,cauldron)
-
-    local isPlant, ignoreIt = alchemy.getPlantSubstance(plantId, User)
-    if isPlant then
-        BrewingPlant(User,plantId,cauldron)
-    elseif plantId == 157 then
-        BrewingFilter(User,cauldron)
-    end
-
-end
-
-function PlantInEssenceBrew(User,plantId,cauldron)
+local function PlantInEssenceBrew(User,plantId,cauldron)
     local success
     for i=1,8 do
         if cauldron:getData("essenceHerb"..i) == "" then
@@ -100,7 +88,7 @@ function PlantInEssenceBrew(User,plantId,cauldron)
     end
 end
 
-function PlantInStock(User,plantId,cauldron)
+local function PlantInStock(User,plantId,cauldron)
     local substance = alchemy.wirkstoff
         for i=1,8 do
             if cauldron:getData(substance[i].."Concentration") == "" then
@@ -146,7 +134,7 @@ function PlantInStock(User,plantId,cauldron)
     end
 end
 
-function BrewingPlant(User,plantId,cauldron)
+local function BrewingPlant(User,plantId,cauldron)
     world:makeSound(10,cauldron.pos)
     if cauldron:getData("filledWith") == "potion" then -- potion in cauldron, failure
         alchemy.CauldronDestruction(User,cauldron,1)
@@ -166,7 +154,7 @@ function BrewingPlant(User,plantId,cauldron)
     end
 end
 
-function FilterStock(User,cauldron)
+local function FilterStock(User,cauldron)
     local success = false
     local mySubstance = alchemy.wirkstoff
     for i=1,8 do
@@ -187,7 +175,7 @@ function FilterStock(User,cauldron)
     end
 end
 
-function BrewingFilter(User,cauldron)
+local function BrewingFilter(User,cauldron)
     world:makeSound(10,cauldron.pos)
     if cauldron:getData("filledWith") == "potion" then -- potion in cauldron, failure
         alchemy.CauldronDestruction(User,cauldron,1)
@@ -208,5 +196,13 @@ function BrewingFilter(User,cauldron)
     end
 end
 
-return M
+function M.BeginnBrewing(User,plantId,cauldron)
+    local isPlant, ignoreIt = alchemy.getPlantSubstance(plantId, User)
+    if isPlant then
+        BrewingPlant(User,plantId,cauldron)
+    elseif plantId == 157 then
+        BrewingFilter(User,cauldron)
+    end
+end
 
+return M

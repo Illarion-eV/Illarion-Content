@@ -21,7 +21,7 @@ local common = require("base.common")
 local factions = require("base.factions")
 local M = {}
 
-crossPosition={};
+local crossPosition = {}
 
 --Where are the cross NPCS?
 
@@ -30,8 +30,16 @@ crossPosition[1]= position(102,562,0);       -- Cadomyr
 crossPosition[2]= position(918,775,0);       -- Runewick
 crossPosition[3]= position(345,266,0);       -- Galmair
 
-TimeFactor = 1; -- Time between two effect calls in seconds. All effects scale with this number. Attention: If you change this number, also change it in server.standardfighting
-EffectID = 2;
+local TimeFactor = 1; -- Time between two effect calls in seconds. All effects scale with this number. Attention: If you change this number, also change it in server.standardfighting
+local EffectID = 2;
+
+local getLimit
+local leadToCross
+local showRespawnDialog
+local leaveSavely
+local no_regeneration
+local ChangeAttrib
+local getWounds
 
 function M.addEffect( Effect, Character)
 
@@ -293,7 +301,7 @@ if Char:idleTime() < 300 then -- Absolutely no regeneration effect if the player
     end
 
     ChangeAttrib( Char, "foodlevel", Foodvalue );
-    
+
     --------------ÄNDERUNGEN PRÜFEN UND DURCHFÜHREN FERTIG--------------------
 
 end -- All above is only conducted for players that aren't afk for more than five minutes
@@ -357,25 +365,25 @@ function leadToCross( Char , Effect )
         Effect:addValue("cycleCounter",1); --Start counting
     end
 
-    respawnTime=10; --10 seconds until we get priests to resurrect (60 seconds is default)
-    
-    if cycleCounter>=(respawnTime/TimeFactor) then 
-    
+    local respawnTime=10; --10 seconds until we get priests to resurrect (60 seconds is default)
+
+    if cycleCounter>=(respawnTime/TimeFactor) then
+
         world:gfx(31,Char.pos); --GFX, alternatively 16
         world:makeSound(13,Char.pos); --Healing sound
-        
+
         local factionValues=factions.getFaction(Char); --reading the faction values
         local relation = factions.getPlayerRelation(Char, factionValues.tid)
-        
+
         if (relation == factions.RELATION_AGGRESSIVE) or (relation == factions.RELATION_HOSTILE) then --Character is banned from his home town
             Char:warp(crossPosition[0]); --warp to default cross
         else
             Char:warp(crossPosition[factionValues.tid]); --warp to home cross
         end
-        
+
         Effect:removeValue("cycleCounter"); --stop counting
         showRespawnDialog(Char)
-        
+
     elseif cycleCounter<(respawnTime/TimeFactor) then
         Effect:addValue("cycleCounter",cycleCounter+1); --Counting
     end

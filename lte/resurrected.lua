@@ -12,12 +12,12 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
 local M = {}
 
-attribs={"strength","dexterity","constitution","agility","intelligence","perception","willpower","essence"};
+local attribs = {"strength","dexterity","constitution","agility","intelligence","perception","willpower","essence"}
 
 function M.addEffect( rebirthEffect, Reborn )
     if Reborn:isAdmin() then
@@ -113,7 +113,7 @@ function M.callEffect( rebirthEffect, Reborn )
     if Reborn:idleTime() > 300 then --absolutely no regeneration effect if the player is afk for more than five minutes
         return true;
     end;
-    
+
     local changeBy = 0;
     local foundChange = false;
     local maxChange = 0;
@@ -152,7 +152,7 @@ function M.removeEffect( rebirthEffect, Reborn )
     Reborn:inform("Admins do not suffer from resurrection.");
       return;
     end
-    
+
     common.InformNLS( Reborn,
         "[Wiederbelebung] Du hast dich vollständig erholt.",
         "[Respawn] You have fully recovered." );
@@ -210,4 +210,3 @@ function M.doubleEffect( rebirthEffect, Reborn )
 end
 
 return M
-

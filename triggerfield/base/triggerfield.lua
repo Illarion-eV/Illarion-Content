@@ -18,24 +18,7 @@ local common = require("base.common")
 
 local M = {}
 
--- Messages in an array of things that can happen. Each thing is an array: {function, odds}.
-function M.getEvent(messages)
-    -- Sum up all odds values in the messages array to figure out the maximum value of the random range
-    local maxv = common.fold(events, function(val, el) return val + el[2]; end, 0);
-    local ran = math.random(maxv);
-
-    -- Choose which of the messages from the array to output.
-    for _,v in ipairs(messages) do
-        ran = ran - v[2];
-        if ran <= 0 then
-            return v[1];
-        end
-    end
-    -- Should never happen though, as the max value of ran is the sum of all odds
-    return {function() end, 0}
-end
-
--- This list contains all triggerfields. 
+-- This list contains all triggerfields.
 -- It should be regularly updated using database dumps of the triggerfield table.
 local triggerfields = {
     [position(93, 587, 0)] = true --[[triggerfield.ambient]],

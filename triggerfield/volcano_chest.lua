@@ -55,7 +55,7 @@ local M = {}
 M.positionChest = position(703, 616, -6)
 
 
-function switchLeverToZero(leverItem)
+local function switchLeverToZero(leverItem)
     leverItem.id = LEVER_WRONG_ID
     world:changeItem(leverItem)
 end
@@ -98,9 +98,9 @@ function M.openChest(user, sourceItem, level)
             return
         end
     end
-    
+
     for i=1, #posLever do
-        itemAtPosition = world:getItemOnField(posLever[i])
+        local itemAtPosition = world:getItemOnField(posLever[i])
         if itemAtPosition.id ~= LEVER_OK_ID then -- at lest one lever in wrong position
             common.InformNLS(user,
                 "Irgendeine Mechanik verhindert, dass du die Schatzkiste öffnen kannst. Kann es sein, dass diese Hebel damit zu tun haben?",

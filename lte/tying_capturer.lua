@@ -23,6 +23,10 @@ local M = {}
     @value logout - set when captive is disappeared
 ]]
 
+local function InformW( User, textInDe, textInEn )
+    User:inform(common.GetNLS( User, textInDe, textInEn ),Player.mediumPriority);
+end
+
 function M.addEffect( Tying, Capturer )
 
     -- nothing
@@ -36,7 +40,7 @@ function M.callEffect( Tying, Capturer )
     Tying.nextCalled = 5;
 
     if foundCaptive then
-        Captive = IsCharidInRangeOf(Captive,Capturer.pos,5);
+        Captive = M.IsCharidInRangeOf(Captive,Capturer.pos,5);
         if Captive then
             if Captive:getRace() == 13 then
                 InformW(Capturer,
@@ -55,7 +59,7 @@ function M.callEffect( Tying, Capturer )
                         "The captive isn't tied up any more.")
                     return false;
                 end
-                if HasEnoughCapturers(Captive,Capturer.id) then
+                if M.HasEnoughCapturers(Captive,Capturer.id) then
                     InformW(Capturer,
                         "Der Gefangene ist nun ausreichend gefesselt.",
                         "The captive is now adequately tied up.")
@@ -70,13 +74,13 @@ function M.callEffect( Tying, Capturer )
 
             -- ## BEGIN ## rope handling
             if not foundLogout then
-                local Rope = GetRope(Capturer);
+                local Rope = M.GetRope(Capturer);
                 if not Rope then
                     Capturer:inform("[Error] No rope found. Please inform a developer.",Player.mediumPriority);
                     return false;
                 end
                 if Tying.numberCalled == 0 then -- first call (set in I_2760_seil.lua), calculate duration
-                    local AttribOffset = GetBestAttribOffset(Capturer,Captive,{"strength","dexterity"});
+                    local AttribOffset = M.GetBestAttribOffset(Capturer,Captive,{"strength","dexterity"});
                     local Quality = math.min(1200,120+math.random(55,65)*AttribOffset);
                     Rope.quality = (Quality*2)+100; -- *2 -> nextCalled = 5. Duration min=2minutes max=20minutes
                 elseif Rope.quality == 100 then -- break rope
@@ -99,7 +103,7 @@ function M.callEffect( Tying, Capturer )
                         local addVal = math.random(30,60); -- next escape cycle
                         if foundEscape then
                             if escape == 0 then -- cycle is over, check for escape
-                                local AttribOffset = GetBestAttribOffset(Captive,Capturer,{"strength","dexterity","agility"});
+                                local AttribOffset = M.GetBestAttribOffset(Captive,Capturer,{"strength","dexterity","agility"});
                                 -- can the captive escape?
                                 local perc = Capturer:increaseAttrib("perception",0);
                                 local tellEscape = false;
@@ -147,7 +151,7 @@ end
 
 function M.removeEffect( Tying, Capturer )
 
-    local rope = GetRope(Capturer);
+    local rope = M.GetRope(Capturer);
     if rope then
         local eraseIt = true;
         local qual = rope.quality;
@@ -218,10 +222,6 @@ function M.GetBestAttribOffset( Char1, Char2, AttribList )
         addVal = addVal + currentOffset;
     end
     return math.max(bestOffset,addVal);
-end
-
-function InformW( User, textInDe, textInEn )
-    User:inform(common.GetNLS( User, textInDe, textInEn ),Player.mediumPriority);
 end
 
 function M.GetRope( Character )
