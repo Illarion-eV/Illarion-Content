@@ -15,10 +15,6 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --Priest magic: Becoming a devotee, change devotion, become a priest by using an altar
---Overview of queststatus:
---401 contains the ID of the god the character is devoted to
---402 contains the ID of the god the character is a priest of. MUST be equal to 401 or 0.
---403-418 contains favour (as signed int) of the corresponding god.
 
 local common = require("base.common")
 local globalvar = require("base.globalvar")
@@ -300,7 +296,7 @@ function M.setDevoted(charObj, godOrdinal)
     else
         local godObj = M._godOrdinalToObj[godOrdinal]
         local favour = godObj:getFavour(charObj)
-        if not favour >= gods_common.LOSE_DEVOTION_FAVOUR_THRESHOLD then
+        if favour < gods_common.LOSE_DEVOTION_FAVOUR_THRESHOLD then
             -- Usually favour >= DEVOTION_FAVOUR_THRESHOLD is checked before, but a GM might bypass that.
             common.InformNLS(charObj, "FIXGERMAN", "Your favour is too low to be a priest.")
             return
@@ -353,7 +349,7 @@ function M.setPriest(charObj)
     end
 
     local favour = godObj:getFavour(charObj)
-    if not favour >= gods_common.LOSE_PRIESTHOOD_FAVOUR_THRESHOLD then
+    if favour < gods_common.LOSE_PRIESTHOOD_FAVOUR_THRESHOLD then
         -- Usually favour >= PRIESTHOOD_FAVOUR_THRESHOLD is checked before, but a GM might bypass that.
         common.InformNLS(charObj, "FIXGERMAN", "Your favour is too low to be a priest.")
         return

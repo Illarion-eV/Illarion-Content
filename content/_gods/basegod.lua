@@ -14,6 +14,11 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
+--Overview of queststatus:
+--401 contains the ID of the god the character is devoted to
+--402 contains the ID of the god the character is a priest of. MUST be equal to 401 or 0.
+--403-418 contains favour (as signed int) of the corresponding god.
+--419-434 contains sacrifice cumulative value of the corresponding god.
 
 local common = require('base.common')
 local globalvar = require("base.globalvar")
@@ -167,7 +172,7 @@ function M.BaseGod:sacrifice(charObj, item)
         self:informSacrificeNotAccepted(charObj)
         return 0
     end
-    self:informSacrificeNotAccepted(charObj, item.pos)
+    self:informSacrificeAccepted(charObj, item.pos)
 
     self:setSacrificeCumulativeValue(charObj, newCumulativeValue - gods_common.SACRIFICE_VALUE_OFFSET_copper)
     return favourBonus
