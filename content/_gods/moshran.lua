@@ -52,7 +52,7 @@ end
 function M.Moshran:informBecomeDevoted(User)
     common.InformNLS(User,
         "FIXGERMAN Ihr empfangt den Segen " .. self.nameDe .. "s und weiht euer Leben dem Glaube an die Gottheit.",
-        self.nameEn .. " receives your offer to devote your life to serving him."
+        self.nameEn .. " accepts your offer to devote your life to serving him."
     )
     world:gfx(globalvar.gfxDEMFIRE, User.pos)
     world:makeSound(globalvar.sfxEVIL_LAUGH, User.pos)

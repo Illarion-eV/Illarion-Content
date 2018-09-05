@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local class = require('base.class')
 local baseelder = require("content._gods.baseelder")
+local common = require('base.common')
 
 local M = {}
 
