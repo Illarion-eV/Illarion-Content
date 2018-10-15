@@ -130,7 +130,7 @@ function M.MoveItemAfterMove(User, SourceItem, TargetItem)
 end
 
 function M.UseItem(user, sourceItem, ltstate)
-    --[[if ltstate == Action.none then
+    if ltstate == Action.none then
         if magicWands[sourceItem.id] then
             if user:getMagicType() == 0 and user:getQuestProgress(37) ~= 0 then
                 useWandSelection(user, sourceItem, ltstate)
@@ -139,12 +139,12 @@ function M.UseItem(user, sourceItem, ltstate)
             end
         end
     else
-        if currentWandUse[user.id] == WAND_USE_GLYPH_FORGE_ERECT then
+        --[[if currentWandUse[user.id] == WAND_USE_GLYPH_FORGE_ERECT then
             glyphmagic.placeGlyphForge(user, ltstate)
         elseif currentWandUse[user.id] == WAND_USE_GLYPH_RITUAL_PREPARE then
             glyphmagic.prepareGlyphRitual(user, ltstate)
-        end
-    end]] --Search tag: #123
+        end]] --Search tag: #123
+    end
 end
 
 return M
