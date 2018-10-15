@@ -612,6 +612,7 @@ end
 -- Register callbacks for periodic decay
 gods_common.favourDecayCounter:addCallback(M.favourDecay)
 gods_common.sacrificeDecayCounter:addCallback(M.sacrificeDecay)
+gods_common.nargunRandomization:addCallback(nargun.RandomizeSacrificeableItems)
 
 
 -- TODO review. This seems to be some old implementation that used speech for priest spells activation

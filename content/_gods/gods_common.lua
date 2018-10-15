@@ -131,7 +131,6 @@ end
 --- Class to represent all decay counters in gods system.
 -- Note that each instance is not bound to a char, and represents counters of one kind across all players
 -- The counter value is stored as LTE data and thus each function requires either char or effect (LTE) object
-local class = require('base.class')
 local DecayCounter = class(
     function(self, ...)
         self:_init(...)
@@ -179,12 +178,58 @@ function DecayCounter:addCallback(callbackFunc)
     debug("Now there are " .. #self._callbacks .. " callbacks for " .. self._varName)
 end
 
+--- Class to represent all global (char-independent) periodic events and cooldowns.
+-- These are counted in Illarion calendar time
+local GlobalEvent = class(
+    function(self, ...)
+        self:_init(...)
+    end
+)
+--- Function to be called upon creation
+-- @param period - time period in RL secs to call the callback
+-- @param alignment - the offset in RL secs inside the period. E.g. if period=1day and offset=0, then the callback is called at midnight. By default is same as for current time.
+function GlobalEvent:_init(period, alignment)
+    assert(period > 0, "Period should be positive")
+    self._period = period
+    if alignment then
+        local curTime = common.GetCurrentTimestamp()
+        -- FIXME GetCurrentTimestamp resolution should be tested
+        self._nextTime = curTime - math.fmod(curTime, period) + period
+    else
+        self._nextTime = common.GetCurrentTimestamp() + period
+    end
+    self._callbacks = {}
+end
+function GlobalEvent:_getTimeLeft()
+    return (self._nextTime - common.GetCurrentTimestamp())
+end
+function GlobalEvent:tick()
+    local timeLeft = self:_getTimeLeft()
+    if timeLeft <= 0 then
+        for _,callback_func in ipairs(self._callbacks) do
+            callback_func()
+        end
+        self._nextTime = self._nextTime + self._period
+    end
+end
+--- Register a function to be called when counter reaches 0.
+-- @param callbackFunc - function with no arguments to be called
+function GlobalEvent:addCallback(callbackFunc)
+    table.insert(self._callbacks, callbackFunc)
+    debug("Now there are " .. #self._callbacks .. " callbacks that happen every " .. self._period .. " seconds")
+end
+
+
+
 -- Counters for cooldown and decay, stored in LTE data
 M.prayerCooldownCounter = CooldownCounter("prayerCooldownCounter", M._PRAYER_COOLDOWN_COUNTER_RESET)
 M.cooldownCounters = {M.prayerCooldownCounter}
 M.favourDecayCounter = DecayCounter("favourDecayCounter", M._FAVOUR_DECAY_COUNTER_RESET)
 M.sacrificeDecayCounter = DecayCounter("sacrificeDecayCounter", M._SACRIFICE_DECAY_COUNTER_RESET)
 M.decayCounters = {M.favourDecayCounter, M.sacrificeDecayCounter}
+-- Global periodic events
+M.nargunRandomization = GlobalEvent(60*60/3, 0)  -- every midnight
+M.globalEvents = {M.nargunRandomization}
 
 
 function M.getEffectObj(charObj)

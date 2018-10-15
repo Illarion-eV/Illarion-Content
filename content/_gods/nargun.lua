@@ -18,8 +18,11 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local class = require('base.class')
 local baseyounger = require("content._gods.baseyounger")
 local common = require('base.common')
+local math = require("math")
+local bit32 = require("bit32")
 
 local M = {}
+
 
 M.Nargun = class(
     baseyounger.BaseYounger,
@@ -35,17 +38,55 @@ function M.Nargun:_init(ordinal, youngerOrdinal)
     self.descriptionDe = "der Gott des Chaos"
     self.descriptionEn = "God of chaos"
     self.devotionItems = {} --FIXME
-    self.sacrificeItems = {  -- array of tables defining groups of items for sacrificing
-        {  -- FIXME
-            id_set = common.setFromList({ -- set of item IDs
-            }),
-            minimal_quality = 0, -- int in 1..9 - if present, item quality has to be greater or equal
-            minimal_durability = 0, -- int in 0..99 - if present, item durability has to be greater or equal
-            value_multiplier = 1, -- float -- the monetary value gets multiplied by this
-        },
-    }
-
+--    self.sacrificeItems = {  -- array of tables defining groups of items for sacrificing
+--        {  -- FIXME
+--            id_set = common.setFromList({ -- set of item IDs
+--            }),
+--            minimal_quality = 0, -- int in 1..9 - if present, item quality has to be greater or equal
+--            minimal_durability = 0, -- int in 0..99 - if present, item durability has to be greater or equal
+--            value_multiplier = 1, -- float -- the monetary value gets multiplied by this
+--        },
+--    }
+    self.sacrificeBannedItemIds = common.setFromList({
+        3076,  -- copper coin
+        3077,  -- silver coin
+        61,    -- gold coin
+    })
+    -- Probability of an item id to be sacrificeable today is numerator/denominator.
+    -- Denominator should be prime (or at least not power of 2)
+    self.sacrificeProbNumerator = 2
+    self.sacrificeProbDenomenator = 19
+    self.sacrificeIdShift = math.ceil(math.log(self.sacrificeProbDenomenator, 2))  -- to avoid to direct impact of id on result of fmod
+    M.RandomizeSacrificeableItems()  -- sets M._randPerDay
 end
 
+function M.Nargun:_isIdSacrificeable(id)
+    local randomizedId = bit32.bxor(M._randPerDay, bit32.lshift(id, self.sacrificeIdShift))
+    local idSacrificeableToday = (math.fmod(randomizedId, self.sacrificeProbDenomenator) < self.sacrificeProbNumerator)
+    return (idSacrificeableToday and not self.sacrificeBannedItemIds[id])
+end
+
+function M.Nargun:_getSingleRawSacrificeValue(item)
+    local itemStats = world:getItemStats(item)
+    local item_monetary_worth = itemStats.Worth
+
+    if item_monetary_worth <= 0 then
+        return 0
+    end
+
+    if self:_isIdSacrificeable(item.id) then
+        return item_monetary_worth
+    else
+        return 0
+    end
+end
+
+-- Random value that is rolled every IG day, and used to determine which items are sacrificeable
+-- these should have been instance method and variable, but in lua it is hard to pass a bound method as callback
+M._randPerDay = 0
+function M.RandomizeSacrificeableItems()
+    debug("Nargun is rolling the dice")
+    M._randPerDay = math.random(0, 4294967296 - 1)  -- random int in range 0 to 2^32-1
+end
 
 return M
