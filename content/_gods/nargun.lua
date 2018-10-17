@@ -38,15 +38,6 @@ function M.Nargun:_init(ordinal, youngerOrdinal)
     self.descriptionDe = "der Gott des Chaos"
     self.descriptionEn = "God of chaos"
     self.devotionItems = {} --FIXME
---    self.sacrificeItems = {  -- array of tables defining groups of items for sacrificing
---        {  -- FIXME
---            id_set = common.setFromList({ -- set of item IDs
---            }),
---            minimal_quality = 0, -- int in 1..9 - if present, item quality has to be greater or equal
---            minimal_durability = 0, -- int in 0..99 - if present, item durability has to be greater or equal
---            value_multiplier = 1, -- float -- the monetary value gets multiplied by this
---        },
---    }
     self.sacrificeBannedItemIds = common.setFromList({
         3076,  -- copper coin
         3077,  -- silver coin

@@ -36,8 +36,93 @@ function M.Elara:_init(ordinal, youngerOrdinal)
     self.descriptionEn = "Goddess of wisdom and knowledge"
     self.devotionItems = {} --FIXME
     self.sacrificeItems = {  -- array of tables defining groups of items for sacrificing
-        {  -- FIXME
+        {
             id_set = common.setFromList({ -- set of item IDs
+                -- light sources
+                391, -- torch
+                43, -- candle
+                399, -- candle stick
+                393, -- lantern
+                469, -- lamp oil
+                92, -- oil lamp
+                -- writing tools
+                463, -- quill
+                2745, -- parchment
+                1118, -- bottle of ink
+                -- ## From craft\final\carving.lua ##
+                -- category: Arrows and bolts
+                -- category: Blunt weapons
+                -- category: Handles
+                -- category: Other
+                -- category: Spears
+                -- category: Staffs
+--                1090, -- walking stick
+--                39, -- skull staff
+                40, -- cleric's staff
+                1528, -- novice's staff
+                57, -- simple mage's staff
+                1529, -- adepts's staff
+                76, -- mage's staff
+                209, -- elven mage's staff
+                207, -- battle staff
+                208, -- ornate mage's staff
+                1530, -- master's staff
+                -- category: Throwing weapons
+                -- category: Tools
+                -- category: Wands
+                323, -- wand
+                2782, -- wand of earth
+                2783, -- wand of fire
+                2784, -- wand of water
+                2785, -- wand of air
+                3608, -- wand of spirit
+                -- ## From craft\final\tailoring.lua ##
+                -- category: Boots
+                -- category: Cloth gloves
+                -- category: Doublets
+                -- category: Dresses
+                -- category: Greaves
+                -- category: Hats
+--                356, -- hat
+--                830, -- grey hat with feather
+--                1415, -- white hat with feather
+--                831, -- green hat with feather
+--                832, -- red hat with feather
+--                829, -- yellow hat with feather
+--                828, -- blue hat with feather
+                358, -- red wizard hat
+                357, -- blue wizard hat
+                3868, -- yellow wizard hat
+                370, -- colourful wizard hat
+                3708, -- witch hat
+                371, -- fine wizard hat
+                -- category: Helmets
+                -- category: Leather gloves
+                -- category: Other
+                -- category: Robes
+--                196, -- grey coat
+--                2418, -- grey priest robe
+--                2421, -- white priest robe
+--                55, -- green robe
+--                194, -- black robe
+--                2378, -- black cult robe
+--                2384, -- black coat
+--                2420, -- black priest robe
+                547, -- novice robe
+--                2419, -- red priest robe
+                2377, -- red mage robe
+--                195, -- yellow robe
+--                368, -- yellow priest robe
+--                2416, -- brown priest robe
+--                193, -- blue robe
+--                2380, -- blue coat
+                548, -- mage robe
+                558, -- archmage robe
+                -- category: Shirts
+                -- category: Skirts
+                -- category: Torso armour
+                -- category: Trousers
+                -- category: Tunics
             }),
             minimal_quality = 0, -- int in 1..9 - if present, item quality has to be greater or equal
             minimal_durability = 0, -- int in 0..99 - if present, item durability has to be greater or equal

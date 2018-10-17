@@ -193,7 +193,6 @@ function GlobalEvent:_init(period, alignment)
     self._period = period
     if alignment then
         local curTime = common.GetCurrentTimestamp()
-        -- FIXME GetCurrentTimestamp resolution should be tested
         self._nextTime = curTime - math.fmod(curTime, period) + period
     else
         self._nextTime = common.GetCurrentTimestamp() + period

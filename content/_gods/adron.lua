@@ -36,8 +36,54 @@ function M.Adron:_init(ordinal, youngerOrdinal)
     self.descriptionEn = "God of festivities and wine"
     self.devotionItems = {} --FIXME
     self.sacrificeItems = {  -- array of tables defining groups of items for sacrificing
-        {  -- FIXME
+        {
             id_set = common.setFromList({ -- set of item IDs
+                -- ## From craft\final\brewing.lua ##
+                -- category: Soft Liquors
+                2499, -- bottle of cider
+                2500, -- bottle of wine
+                2497, -- bottle of mead
+                2501, -- bottle of beer
+--                -- category: Juices
+--                785, -- bottle of banana juice
+--                791, -- bottle of grape juice
+--                786, -- bottle of cabbage juice
+--                788, -- bottle of carrot juice
+--                783, -- bottle of blackberry juice
+--                784, -- bottle of tangerine juice
+--                789, -- bottle of strawberry juice
+--                3611, -- bottle of orange juice
+--                -- category: Teas
+--                3720, -- bottle of fir needle tea
+--                787, -- bottle of virgins weed tea
+--                3721, -- bottle of green tea
+--                3722, -- bottle of druids tea
+                -- category: Hard Liquors
+                517, -- bottle of rum
+                1316, -- bottle of bear slayer
+                1315, -- bottle of berry booze
+                1320, -- bottle of stone face
+                1321, -- bottle of absinthe
+                1322, -- bottle of orange schnapps
+                1319, -- bottle of cherry schnapps
+                1323, -- bottle of mulled wine
+                1318, -- bottle of elven wine
+                -- ## manual
+                -- category: smoking
+                155, -- sibanac leaves
+                772, -- sibanac leaves
+                2744, -- pipe
+                -- category: some alcohol ingredients
+                154, -- hop
+                388, -- grapes
+                -- category: goblets
+                1840, -- copper goblet
+                1858, -- silver goblet
+                224, -- golden goblet
+                2055, -- glass
+                2457, -- wine glass
+                1908, -- glass mug
+                2185, -- wooden cup
             }),
             minimal_quality = 0, -- int in 1..9 - if present, item quality has to be greater or equal
             minimal_durability = 0, -- int in 0..99 - if present, item durability has to be greater or equal

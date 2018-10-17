@@ -36,8 +36,19 @@ function M.Cherga:_init(ordinal, youngerOrdinal)
     self.descriptionEn = "Goddess of spirits and the underworld"
     self.devotionItems = {} --FIXME
     self.sacrificeItems = {  -- array of tables defining groups of items for sacrificing
-        {  -- FIXME
+        {
             id_set = common.setFromList({ -- set of item IDs
+                -- light sources
+                -- all light sources have price==0 when lit, so we currently use only unlit ones and their fuel
+                391, -- torch
+                43, -- candle
+                399, -- candle stick
+                393, -- lantern
+                469, -- lamp oil
+                92, -- oil lamp
+                -- burial
+                24, -- shovel
+                733, -- stone block (symbolizing gravestone)
             }),
             minimal_quality = 0, -- int in 1..9 - if present, item quality has to be greater or equal
             minimal_durability = 0, -- int in 0..99 - if present, item durability has to be greater or equal
