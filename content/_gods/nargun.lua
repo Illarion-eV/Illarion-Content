@@ -37,7 +37,11 @@ function M.Nargun:_init(ordinal, youngerOrdinal)
     self.nameEn = "Nargún"
     self.descriptionDe = "der Gott des Chaos"
     self.descriptionEn = "God of chaos"
-    self.devotionItems = {} --FIXME
+    self.devotionItems = {
+        {id = 80, number = 1}, -- Banana
+        {id = 356, number = 1}, -- Slouch hat
+        {id = 733, number = 1}, -- Stone block
+    } -- TODO balance (by Dantagon). Wouldn't dice cup fit here?
     self.sacrificeBannedItemIds = common.setFromList({
         3076,  -- copper coin
         3077,  -- silver coin

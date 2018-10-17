@@ -34,9 +34,13 @@ function M.Malachin:_init(ordinal, youngerOrdinal)
     self.nameEn = "Malachín"
     self.descriptionDe = "der Gott der Jagd und der Schlachten"
     self.descriptionEn = "God of battle and hunting"
-    self.devotionItems = {} --FIXME
+    self.devotionItems = {
+        {id = 19, number = 1}, -- Metal shield
+        {id = 65, number = 1}, -- Short bow
+        {id = 2586, number = 1}, -- Fur
+    } -- TODO balance (by Dantagon)
     self.sacrificeItems = {  -- array of tables defining groups of items for sacrificing
-        {
+        { -- double value for Malachin dagger
             id_set = common.setFromList({ -- set of item IDs
                 91, -- Malachín dagger
             }),

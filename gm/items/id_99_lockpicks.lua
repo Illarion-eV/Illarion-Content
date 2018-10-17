@@ -734,9 +734,23 @@ local function settingsForCharChangeDivineFavour(User, chosenPlayer, god)
 end
 
 
+local function nargunItems(User, chosenPlayer)
+    local nargun = gods._godOrdinalToObj[gods.GOD_NARGUN]
+    local ids = {}
+    for id = 0, 100 do
+        if nargun:_isIdSacrificeable(id) then
+            table.insert(ids, id)
+        end
+    end
+    local mDialog = MessageDialog("Nargun meal of the day", table.concat(ids, "\n"), nil)
+    User:requestMessageDialog(mDialog)
+end
+
+
 local function settingsForCharReligion(User, chosenPlayer)
     local dialogOptions = {
         {text = "Change devotion", func = settingsForCharChangeDevotion, args = { User, chosenPlayer } },
+        {text = "Nargun meal of the day", func = nargunItems, args = { User, chosenPlayer } },
     }
     if gods.isDevoted(chosenPlayer) then
         table.insert(dialogOptions,

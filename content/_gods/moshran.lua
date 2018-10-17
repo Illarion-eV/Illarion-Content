@@ -35,12 +35,24 @@ function M.Moshran:_init(ordinal, youngerOrdinal)
     self.nameEn = "Moshran"
     self.descriptionDe = "der Gott des Blutes und der Gebeine"
     self.descriptionEn = "God of blood and bones"
-    self.devotionItems = {{id = 2551, number = 1}, {id = 2552, number = 1}} --FIXME
+    self.devotionItems = {
+        {id = 16, number = 1}, -- Orcish helmet
+        {id = 63, number = 1}, -- Entrails
+        {id = 2757, number = 1}, -- Scimitar
+    } -- TODO balance (by Dantagon)
     self.sacrificeItems = {  -- array of tables defining groups of items for sacrificing
         {  -- FIXME
             id_list = {  -- array of item IDs
                 466, -- Handcuffs?
                 2760, -- Rope?
+                63, -- Entrails
+                -- raw meat?
+                307, -- Pork
+                1151, -- Chicken meat
+                553, -- Rabbit meat
+                2934, -- Lamb meat
+                552, -- Deer meat
+                2940, -- Raw steak
             },
             minimal_quality = 0, -- int in 1..9 - if present, item quality has to be greater or equal
             minimal_durability = 0, -- int in 0..99 - if present, item durability has to be greater or equal
