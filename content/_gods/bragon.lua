@@ -34,7 +34,11 @@ function M.Bragon:_init(ordinal, elderOrdinal)
     self.nameEn = "Brágon"
     self.descriptionDe = "der Gott des Feuers"
     self.descriptionEn = "God of fire"
-    self.devotionItems = {} --FIXME
+    self.devotionItems = {
+        {id = 314, number = 1}, -- Potash
+        {id = 236, number = 1}, -- Gold ignot
+        {id = 43, number = 1}, -- Candle
+    } -- TODO balance (by Dantagon)
     self.sacrificeItems = {  -- array of tables defining groups of items for sacrificing
         {  -- FIXME
             id_set = common.setFromList({ -- set of item IDs

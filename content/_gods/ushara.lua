@@ -34,7 +34,11 @@ function M.Ushara:_init(ordinal, elderOrdinal)
     self.nameEn = "Ushara"
     self.descriptionDe = "die Göttin der Erde"
     self.descriptionEn = "Goddess of earth"
-    self.devotionItems = {{id = 2551, number = 1}, {id = 2552, number = 1}} --FIXME
+    self.devotionItems = {
+        {id = 733, number = 1}, -- Stone block
+        {id = 316, number = 1}, -- Quartz sand
+        {id = 2588, number = 1}, -- Brick
+    } -- TODO balance (by Dantagon)
     self.sacrificeItems = {  -- array of tables defining groups of items for sacrificing
         {  -- FIXME
             id_set = common.setFromList({ -- set of item IDs
