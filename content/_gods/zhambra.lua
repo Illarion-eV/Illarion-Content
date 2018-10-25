@@ -35,9 +35,9 @@ function M.Zhambra:_init(ordinal, youngerOrdinal)
     self.descriptionDe = "der Gott der Freundschaft und Treue"
     self.descriptionEn = "God of friendship and loyalty"
     self.devotionItems = {
-        {id = 2760, number = 1}, -- Rope
-        {id = 17, number = 1}, -- Wooden shield
-        {id = 78, number = 1}, -- Short sword
+        {id = 2185, number = 1}, -- wooden cup
+        {id = 17, number = 1}, -- wooden shield
+        {id = 1441, number = 1}, -- reinforced plate armour
     } -- TODO balance (by Dantagon)
     self.sacrificeItems = {  -- array of tables defining groups of items for sacrificing
         {

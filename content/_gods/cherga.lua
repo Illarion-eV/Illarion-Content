@@ -35,9 +35,9 @@ function M.Cherga:_init(ordinal, youngerOrdinal)
     self.descriptionDe = "die Göttin der Geister und der Unterwelt"
     self.descriptionEn = "Goddess of spirits and the underworld"
     self.devotionItems = {
-        {id = 24, number = 1}, -- Shovel
-        {id = 43, number = 1}, -- Candle
-        {id = 182, number = 1}, -- Black shirt
+        {id = 24, number = 1}, -- shovel
+        {id = 43, number = 1}, -- candle
+        {id = 182, number = 1}, -- black shirt
     } -- TODO balance (by Dantagon)
     self.sacrificeItems = {  -- array of tables defining groups of items for sacrificing
         {

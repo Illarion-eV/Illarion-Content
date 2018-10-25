@@ -35,9 +35,9 @@ function M.Adron:_init(ordinal, youngerOrdinal)
     self.descriptionDe = "der Gott des Weines und der Feste"
     self.descriptionEn = "God of festivities and wine"
     self.devotionItems = {
-        {id = 223, number = 1}, -- Iron Goblet
-        {id = 2500, number = 1}, -- Bottle of Wine
-        {id = 388, number = 1}, -- Grapes
+        {id = 1858, number = 1}, -- silver goblet
+        {id = 2500, number = 1}, -- bottle of wine
+        {id = 227, number = 1}, -- cooking spoon
     } -- TODO balance (by Dantagon)
     self.sacrificeItems = {  -- array of tables defining groups of items for sacrificing
         {

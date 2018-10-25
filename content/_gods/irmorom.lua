@@ -35,9 +35,9 @@ function M.Irmorom:_init(ordinal, youngerOrdinal)
     self.descriptionDe = "der Gott des Handels und des Handwerks"
     self.descriptionEn = "God of trade and craftsmanship"
     self.devotionItems = {
-        {id = 3077, number = 1}, -- Silver coin
+        {id = 2535, number = 1}, -- iron ingot
         {id = 23, number = 1}, -- Hammer
-        {id = 2140, number = 1}, -- Tongs
+        {id = 101, number = 1}, -- chain mail
     } -- TODO balance (by Dantagon)
     local ids = common.setFromList({ -- set of item IDs
         -- ## From craft\final\armourer.lua ##

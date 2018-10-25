@@ -35,9 +35,9 @@ function M.Ronagan:_init(ordinal, youngerOrdinal)
     self.descriptionDe = "der Gott der Diebe und der Schatten"
     self.descriptionEn = "God of thieves and shadows"
     self.devotionItems = {
-        {id = 2760, number = 1}, -- Rope
-        {id = 190, number = 1}, -- Ornate dagger
-        {id = 48, number = 1}, -- Leather gloves
+        {id = 2760, number = 1}, -- rope
+        {id = 27, number = 1}, -- simple dagger
+        {id = 384, number = 1}, -- thief's gloves
     } -- TODO balance (by Dantagon)
     self.sacrificeItems = {  -- array of tables defining groups of items for sacrificing
         {

@@ -36,9 +36,9 @@ function M.Moshran:_init(ordinal, youngerOrdinal)
     self.descriptionDe = "der Gott des Blutes und der Gebeine"
     self.descriptionEn = "God of blood and bones"
     self.devotionItems = {
-        {id = 16, number = 1}, -- Orcish helmet
-        {id = 63, number = 1}, -- Entrails
-        {id = 2757, number = 1}, -- Scimitar
+        {id = 16, number = 1}, -- orc helmet
+        {id = 283, number = 1}, -- obsidian
+        {id = 2776, number = 1}, -- machete
     } -- TODO balance (by Dantagon)
     self.sacrificeItems = {  -- array of tables defining groups of items for sacrificing
         {  -- FIXME

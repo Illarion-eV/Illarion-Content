@@ -35,9 +35,9 @@ function M.Oldra:_init(ordinal, youngerOrdinal)
     self.descriptionDe = "die Göttin der Fruchtbarkeit und des Lebens"
     self.descriptionEn = "Goddess of life and fertility"
     self.devotionItems = {
-        {id = 258, number = 1}, -- Flail
-        {id = 534, number = 1}, -- Onion seeds
-        {id = 259, number = 1}, -- Grain
+        {id = 258, number = 1}, -- flail
+        {id = 3609, number = 1}, -- banana bread
+        {id = 1149, number = 1}, -- brown egg
     } -- TODO balance (by Dantagon)
     self.sacrificeItems = {  -- array of tables defining groups of items for sacrificing
         {

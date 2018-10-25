@@ -35,9 +35,9 @@ function M.Elara:_init(ordinal, youngerOrdinal)
     self.descriptionDe = "die Göttin des Wissens und der Weisheit"
     self.descriptionEn = "Goddess of wisdom and knowledge"
     self.devotionItems = {
-        {id = 2745, number = 1}, -- Parchment
-        {id = 43, number = 1}, -- Candle
-        {id = 463, number = 1}, -- Quill
+        {id = 2745, number = 1}, -- parchment
+        {id = 1118, number = 1}, -- bottle of ink
+        {id = 463, number = 1}, -- quill
     } -- TODO balance (by Dantagon)
     self.sacrificeItems = {  -- array of tables defining groups of items for sacrificing
         {
