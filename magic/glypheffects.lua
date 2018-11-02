@@ -28,9 +28,9 @@ local shortflame = require("magic.spells.shortflame")
 
 
 local standardTextRingDe = "Der Ring an deinem Finger kribbelt etwas."
-local standardTextRingEn = "The ring at your finger prickles a little bit."
+local standardTextRingEn = "The ring on your finger prickles a little bit."
 local standardTextAmuletDe = "Das Amulet um deine Hals wird etwas wärmer."
-local standardTextAmuletEn = "The the amulet around your neck becomes a little bit warmer."
+local standardTextAmuletEn = "The amulet around your neck becomes a little bit warmer."
 
 local M = {}
 
@@ -38,7 +38,7 @@ local PROBABILITY_DESTROY_ON_END_COPPER = 0.4  -- probability the glyphed item i
 local PROBABILITY_DESTROY_ON_END_SILVER = 0.5
 local PROBABILITY_DESTROY_ON_END_GOLD = 0.6
 
-local WAIT_TIME_AFTER_EQUIPPING = 120 --seconds after put the jewel on befor it can be used
+local WAIT_TIME_AFTER_EQUIPPING = 120 --seconds after put the jewel on before it can be used
 
 M.EFFEKT_RING_AMETHYST = glyphs.EFFEKT_RING_AMETHYST
 M.EFFEKT_RING_RUBY = glyphs.EFFEKT_RING_RUBY
@@ -80,13 +80,13 @@ local function consumeGlyph(item, user, number)
                 itemQuality = math.max(1, itemQuality - math.random(1,3))
                 common.setItemQuality(item, itemQuality)
                 common.InformNLS(user,"Dein " .. itemName .. " verliert Qualität als die Glyphe aufgebraucht ist.",
-                                      "Your " .. itemName .. " lost quality when the glyph effect ends.")
+                                      "Your " .. itemName .. " lost quality as the glyph effect ends.")
             else
                 itemName = common.GetNLS(user,world:getItemName(item.id,Player.german),world:getItemName(item.id,Player.english))
                 world:erase(item,item.number)
                 shard.createShardOnUser(user)
                 common.InformNLS(user,"Dein " .. itemName .. " zerspringt als die Glyphe aufgebraucht ist. Dir bleibt ein Splitter.",
-                                      "Your " .. itemName .. " breaks when the glyph effect ends. Only a single shard remains.")
+                                      "Your " .. itemName .. " breaks as the glyph effect ends. Only a single shard remains.")
                 return true
             end
          end
@@ -147,13 +147,13 @@ local function effectRepel(user)
             if math.random() < efficiency then
                 if not isDestroyed then
                     common.InformNLS(user,"Dein Obsidian Amulet kratzt dich heftig, als es die Magie der fremden Glyphe absorbiert.",
-                                          "You obsidian amulet hefty scratches while absorbing the power of the foreign glyph.")
+                                          "Your obsidian amulet scratches deeply as it absorbs the power of the foreign glyph.")
                 end
                 return true
             else
                 if not isDestroyed then
                     common.InformNLS(user,"Dein Obsidian Amulet zerspringt fast als es erfolglos versucht, die Magie der fremden Glyphe zu absorbieren.",
-                                          "You obsidian amulet almost breaks, when it try to absorb the power of the foreign glyph without sucess.")
+                                          "Your obsidian amulet almost shatters, as it is unsuccessful in absorbing the power of the foreign glyph.")
                 end
                 return false
             end
@@ -326,7 +326,7 @@ function M.effectOnFight(attacker,defender)
             attacker:increaseAttrib("hitpoints", - hpCosts)
             defender:increaseAttrib("hitpoints", - hpCosts * HP_FAKTOR_ENEMY)
             common.InformNLS(attacker,"Du bleibst nicht ungeschoren, als mit Hilfe deines Ringes ein mächtiger Angriff Erfolg hat.",
-                                      "You do not get away without blessings, as with the help of your ring a powerful attack was sucessful.")
+                                      "You do not get away unscathed, as a powerful attack is successful with the help of your ring.")
         end
     end
 
@@ -418,27 +418,26 @@ function M.effectOnUserRepairQuality(user,item)
         isFired,parameter,isDestroyed = M.effectUse(user,M.EFFEKT_AMULET_RUBY)
         if isFired then
             if not isDestroyed then
-                common.InformNLS(user,"Fasziniert von deinem Amulet hilft dir jemand, so dass die Qualität deiner Arbeit besser wird.",
-                                      "Fascinated by your amulet someone helps you and you can improve the quality of your work.")
+                common.InformNLS(user,"Mit einer Person neben dir arbeitest du konzentrierter. Die Qualität deiner Arbeit wird besser.",
+                                      "With someone next to you, you are able to concentrate much better. The quality of your work improves.")
             end
             for i=2,#playerInSight do
                 world:gfx(globalvar.gfxSCOTTY,playerInSight[i].pos)
-                common.TurnTo(playerInSight[i],workbenchPos)
-                common.InformNLS(playerInSight[i],"Fasziniert von einem magischen Amulet hilftst du jemanden.",
-                                                  "Fascinated by a magic amulet you help someone.")
+                common.InformNLS(playerInSight[i],"Du bist kurz abgelenkt. Es scheint als ob ein Teil deiner Konzentration auf den Handwerker neben dir übergegangen ist.",
+                                                  "You are distracted for a moment. It seem as though your ability to concentrate was absorbed by the crafter next to you.")
             end
             improvementValue = improvementValue + parameter * QUALITY_BASE
         end
     end
 
     local CHARGES_ON_DIAMOND = 4
-    local PROBABILITY_ON_DIAMOND = 1 --Banduk0.5
+    local PROBABILITY_ON_DIAMOND = 0.5
     isFired,parameter,isDestroyed = M.effectUse(user,M.EFFEKT_RING_DIAMOND,CHARGES_ON_DIAMOND,PROBABILITY_ON_DIAMOND)
     if isFired then
         world:gfx(globalvar.gfxSCOTTY,user.pos)
         item:setData("craftedBy",user.name)
         common.InformNLS(user,"Du arbeitest das Werkstück so um, dass es von dir hergestellt sein könnte.",
-                              "You change the style of the item in a way it originally may be made by you.")
+                              "You work the item in such a way that it could have originally been made by you.")
         improvementValue = improvementValue + parameter * QUALITY_BASE
     end
 
@@ -455,7 +454,7 @@ function M.effectOnUserRepairQuality(user,item)
         end
         item:setData("qualityAtCreation", bestQuality)
         common.InformNLS(user,"Du arbeitest das Werkstück so um, dass es eine bessere Qualität haben kann als bei seiner Herstellung.",
-                              "You change the item in a way it might get a better quality compared to the original crafted.")
+                              "You work the item in such a way that it might attain a better quality than when it was originally crafted.")
         improvementValue = improvementValue + parameter * QUALITY_BASE
     end
 
@@ -481,7 +480,7 @@ function M.effectOnNpcRepair(user)
             preventionProb = PROB_SUMMAND + parameter * PROB_FACTOR
             if not isDestroyed then
                 common.InformNLS(user,"Du zeigst deinen blutigen kratzenden Ring in der Hoffnung, dass die Arbeit fachgerecht ausgeführt wird.",
-                                      "You shows your bloody scratching ring and hope you get the best possible quality.")
+                                      "You show your bloodied, scratching ring and hope for skilful workmanship.")
             end
             return preventionProb
         end
@@ -591,14 +590,13 @@ function M.effectOnQuality(user)
         isFired,parameter,isDestroyed = M.effectUse(user,M.EFFEKT_RING_RUBY, REQUIRED_CHARGES)
         if isFired then
             if not isDestroyed then
-                common.InformNLS(user,"Fasziniert von deinem Ring hilft dir jemand, so dass die Qualität deiner Arbeit besser wird.",
-                                      "Fascinated by your ring someone helps you and you can improve the quality of your work.")
+                common.InformNLS(user,"Mit einer Person neben dir arbeitest du konzentrierter. Die Qualität deiner Arbeit wird besser.",
+                                      "With someone next to you, you are able to concentrate much better. The quality of your work improves.")
             end
             for i=2,#playerInSight do
                 world:gfx(globalvar.gfxSCOTTY,playerInSight[i].pos)
-                common.TurnTo(playerInSight[i],workbenchPos)
-                common.InformNLS(playerInSight[i],"Fasziniert von einem magischen Ring hilftst du jemanden.",
-                                                  "Fascinated by a magic ring you help someone.")
+                common.InformNLS(playerInSight[i],"Du bist kurz abgelenkt. Es scheint als ob ein Teil deiner Konzentration auf den Handwerker neben dir übergegangen ist.",
+                                                  "You are distracted for a moment. It seem as though your ability to concentrate was absorbed by the crafter next to you.")
             end
             qualityImprovement = qualityImprovement + parameter * QUALITY_FAKTOR
         end
@@ -622,7 +620,7 @@ function M.effectBloodToQuality(user)
             world:gfx(globalvar.gfxBLOOD,user.pos)
             user:increaseAttrib("hitpoints", - HP_COSTS)
             common.InformNLS(user,"Unter Einsatz deines Herzblutes erreichst du eine bessere Qualität.",
-                                  "By using your heart blood you achieve a better quality.")
+                                  "Using your heart's blood you achieve a better quality.")
             qualityImprovement = parameter * QUALITY_FAKTOR
             return qualityImprovement
         end
@@ -649,7 +647,7 @@ function M.effectToolSelfRepair(user, toolItem, originalDurability)
         common.setItemDurability(toolItem, targetDurability)
         if not isDestroyed then
             common.InformNLS(user,"Dein Werkzeug scheint sich selbst repariert zu haben.",
-                                  "It seems your tool repaired itself.")
+                                  "Your tool seems to have repaired itself.")
         end
     end
 end
@@ -668,7 +666,7 @@ function M.effectPreventMonsterOnGathering(user)
         if math.random() < preventionProbability then
             world:gfx(globalvar.gfxRAIN,user.pos)
             common.InformNLS(user,"Du meinst etwas gesehen zu haben, das vor dir davonlief.",
-                                  "You think you have seen someone running away.")
+                                  "You think you saw something running away from you.")
             return true
         else
             world:gfx(globalvar.gfxFIZZLE,user.pos)
@@ -695,7 +693,7 @@ function M.effectSaveMaterialOnProduction(user)
         if math.random() < saveProbability then
             world:gfx(globalvar.gfxSCOTTY,user.pos)
             common.InformNLS(user,"Du bist fertig und hast noch Material übrig. Das ist Magie!",
-                                  "You're done, and you've got some stuff left. That's magic!")
+                                  "You're done and still have some material left. That's magic!")
             return true
         else
             world:gfx(globalvar.gfxFIZZLE,user.pos)
@@ -721,8 +719,8 @@ function M.effectSaveMaterialOnRepair(user)
         saveProbability = SAVE_BASE_SUMAND + parameter * SAVE_BASE_FACTOR
         if math.random() < saveProbability then
             world:gfx(globalvar.gfxSCOTTY,user.pos)
-            common.InformNLS(user,"Du bist fertig und hast weniger Material gebraucht als erwartet. Das war Magie im Spiel!",
-                                  "You're done with less material than you expected. Magic was involved!")
+            common.InformNLS(user,"Du bist fertig und hast weniger Material gebraucht als erwartet. Da war Magie im Spiel!",
+                                  "You're done and needed less material than expected. That's magic!")
             return true
         else
             world:gfx(globalvar.gfxFIZZLE,user.pos)

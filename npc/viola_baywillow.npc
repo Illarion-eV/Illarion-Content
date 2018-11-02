@@ -105,7 +105,7 @@ english, "Gobaith", "Gobiath" -> "This in an old island, which does not exist an
 "Gobaith", "Gobiath" -> "Das ist eine alte Insel, welche nicht mehr existiert. Viele die du in den drei Reichen finden kannst sind von dort. Wenn du mehr darüber wissen möchtest, frag sie.", "Ich war noch nie dort, daher weiß ich auch nichts über sie, außer dass es sie nicht mehr gibt und dass du andere Leute über sie fragen kannst."
 
 -- More small talk; add at least five triggers
-"faction", "realm" -> "We have three realms here: Runewick, Cadomyr and Galmair. Each realm is home to famous craftsmen. If you'd like to know more about crafting in these realms just say the word."
+"faction", "realm" -> "We have three realms here in Illarion: Runewick, Cadomyr and Galmair. Each realm is home to famous craftsmen. If you'd like to know more about crafting in these realms just say the word."
 "craft" -> "About which craft shall I tell you all I know? Candle maker, carpenter, lumberjack, cook, baker, farmer, herb gatherer, tailor, tanner, dyer, blacksmith, brick maker, mason, miner, brewer, fisher, glass blower, sand digger, finesmith or gem grinder?"
 english, "motiv", "motif", "theme" -> "The central theme of Runewick is wisdom, in Galmair it is wealth and in Cadomyr it's honour."
 english, "land", "region" -> "The islands of Runewick are somewhere in the southeast between the meadow and the forest. The halls and caves of Galmair are to the northwest between the mountains and the forest. The town of Cadomyr lies to the west between the desert and the mountains."
@@ -114,7 +114,7 @@ english, "land", "region" -> "The islands of Runewick are somewhere in the south
 "Father" -> "The father of Queen Rosaline Edwards was Sir Reginald, and the father of Don Valerio Guilianni was Don Tommaso Guilianni. Both Reginald and Tommaso ruled prior to their children, and both have passed on from this life. The father of Archmage Elvaine Morgan is presumed dead as well, but that's just the rumours I have heard."
 
 -- German
-"Fraktion", "Reich" -> "Wir haben hier drei Reiche: Runewick, Cadomyr und Galmair. Die Bewohner sind für unterschiedliche Handwerken berühmt. Wenn du mehr über Handwerke wissen möchtest, dann sag den jeweiligen Namen."
+"Fraktion", "Reich" -> "Wir haben hier in Illarion drei Reiche: Runewick, Cadomyr und Galmair. Die Bewohner sind für unterschiedliche Handwerken berühmt. Wenn du mehr über Handwerke wissen möchtest, dann sag den jeweiligen Namen."
 "Handwerk" -> "Über welches Handwerk möchtest du etwas wissen? Kerzenmacher, Schreiner, Holzfäller, Koch, Bäcker, Bauer, Kräutersucher, Schneider, Gerber, Färber, Schmied, Ziegelmacher, Steinmetz, Schürfer, Brauer, Fischer, Glasbläser, Sandgräber, Goldschmied oder Edelsteinschleifer?"
 "Motiv" -> "Das Leitmotiv in Runewick ist Weisheit, in Galmair ist es Reichtum, und in Cadomyr ist es Ehre."
 "Land", "Region" -> "Die Inseln von Runewick wirst du irgendwo im Südosten zwischen Sümpfen und Wäldern finden; die Hallen und Höhlen von Galmair inmitten von Bergen und Wäldern; und die Häuser von Cadomyr zwischen einer Wüste und Bergen."
@@ -156,8 +156,8 @@ english, "land", "region" -> "The islands of Runewick are somewhere in the south
 "Glasbläser", "Glasblas" -> "Wer Glasbläser werden will und einen Mentor sucht sollte sich nach Cadomyr wenden. Etwas weniger Konkurenz gibt es in Runewick. In Galmair kannst du reich werden, wenn du es schaffst, Glas, ohne es zu zerbrechen, über die Bergstraßen zu importieren."
 "Digger" -> "Sand diggers can always find clay and sand near Cadomyr. Then again, Runewick isn't a bad place either, but as for Galmair, the nearby land is no place for sand diggers."
 "Gräber" -> "Sandgräber können nahe Cadomyrs viele Sand und Lehmgruben finden. In Runewick, sind Sand- und Lehmgruben weiter verstreut. Nur in Galmair wirst du vergeblich suchen."
-"Finesmith" -> "Finesmiths are mainly found in Galmair, but you could also search in Cadomyr as well. Runewick, not so much, they import such wares."
-"Goldschmied" -> "Goldschmiede können vor allem in Galmair gefunden werden doch auch in Cadomyr wirst du nicht enttäuscht sein. Runewicker importieren ihren Schmuck lieber."
+"Goldsmith", "Finesmith" -> "Finesmiths are mainly found in Galmair, but you could also search in Cadomyr as well. Runewick, not so much, they import such wares."
+"Feinschmied", "Goldschmied" -> "Goldschmiede können vor allem in Galmair gefunden werden doch auch in Cadomyr wirst du nicht enttäuscht sein. Runewicker importieren ihren Schmuck lieber."
 "Gem", "grinder" -> "The most precise gem grinders in the land are found in Galmair, but I have met a fair number in Cadomyr too. Don't expect much in Runewick though, they mainly depend on trade for gems."
 "Edelstein", "schleifer" -> "Die geschicktesten Edelsteinschleifer gibt es in Galmair doch auch in Cadomyr kenne ich einige. In Runewick brauchst du nicht erwarten, einen zu finden. Sie kaufen lieber Edelsteine ein."
 "Blacksmith" -> "Galmair is by far the best place to look for a good blacksmith, but if you find yourself near Cadomyr you should be able to locate one there as well. You'll have no such luck in Runewick though, because they must trade for such wares."

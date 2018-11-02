@@ -1505,27 +1505,12 @@ end
 
 local function testBanduk(user)
     user:inform(">>> developer test area")
---    gems.convertOldGems(user)
+    
+    local pos = user.pos
+    local number = common.positionToNumber(pos)
+    local tpos = common.numberToPosition(number)
 
---world:createItemFromId(2207,1,position(357, 272, 0),false,333,{})
---[[    local thisInputDialog = function (dialog)
-
-        if (not dialog:getSuccess()) then
-            return
-        end
-
-        local input = dialog:getInput()
-
-        if not common.IsNilOrEmpty(input) then
-            user:performAnimation(tonumber(input))
-            user:inform("Animation "..input)
-        end
-
-    end
-
-    user:requestInputDialog(InputDialog("Animation", "Animation No" ,false, 255, thisInputDialog))]]--
---    local c = user:createItem(3499, 1, 333,{})
---    user:inform(">>>item: "..tostring(c))
+    user:inform(">>>:"..tostring(pos.x).."."..tostring(pos.y).."."..tostring(pos.z).."=="..tostring(number).."=="..tostring(tpos.x).."."..tostring(tpos.y).."."..tostring(tpos.z))
 end
 
 function M.UseItem(User, SourceItem, ltstate)
