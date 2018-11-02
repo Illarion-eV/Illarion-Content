@@ -52,6 +52,10 @@ function M.BaseGod:_init(ordinal)
     }
 end
 
+function M.BaseGod:getDevotionItems(charObj)
+    return self.devotionItems
+end
+
 function M.BaseGod:getFavour(charObj)
     return charObj:getQuestProgress(402 + self.ordinal)
 end

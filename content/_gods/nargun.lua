@@ -37,11 +37,37 @@ function M.Nargun:_init(ordinal, youngerOrdinal)
     self.nameEn = "Nargún"
     self.descriptionDe = "der Gott des Chaos"
     self.descriptionEn = "God of chaos"
-    self.devotionItems = {
-        {id = 80, number = 1}, -- Banana
-        {id = 356, number = 1}, -- Slouch hat
-        {id = 733, number = 1}, -- Stone block
-    } -- TODO balance (by Dantagon). Wouldn't dice cup fit here?
+    self.devotionItems = nil
+    self._devotionItemsOptionsJunk = {  -- worth == 20
+        15,  -- apple
+        64,  -- arrow
+        80,  -- banana
+        199, -- tangerine
+        302, -- cherries
+        1207,-- orange
+        1266,-- stone
+    }
+    self._devotionItemsOptionsMiddle = {  -- worth in 800 .. 1000
+        1508,  -- jackboots
+        2502,  -- bottle of milk
+        2183,  -- clay mug
+        2528,  -- small handle
+        197,   -- amethyst
+        1415,  -- white hat with feather
+        799,   -- whicker basket
+    }
+    self._devotionItemsOptionsHigh = {  -- worth in 2400 .. 2600
+        449,    -- obsidian powder
+        789,    -- bottle of stawberry juice
+        2278,   -- cabbage stew
+        2534,   -- merinium ore
+        3609,   -- banana bread
+        1058,   -- silversteel boots
+        230,    -- mace
+    }
+    self._devotionItemsHashMultiplierJunk = 11  -- should be relatively prime with corresponding devotionItemsOptions array length
+    self._devotionItemsHashMultiplierMiddle = 13  -- should be relatively prime with corresponding devotionItemsOptions array length
+    self._devotionItemsHashMultiplierHigh = 17 -- should be relatively prime with corresponding devotionItemsOptions array length
     self.sacrificeBannedItemIds = common.setFromList({
         3076,  -- copper coin
         3077,  -- silver coin
@@ -53,6 +79,16 @@ function M.Nargun:_init(ordinal, youngerOrdinal)
     self.sacrificeProbDenomenator = 19
     self.sacrificeIdShift = math.ceil(math.log(self.sacrificeProbDenomenator, 2))  -- to avoid to direct impact of id on result of fmod
     M.RandomizeSacrificeableItems()  -- sets M._randPerDay
+end
+
+
+
+function M.Nargun:getDevotionItems(charObj)
+    return {
+        {id = self._devotionItemsOptionsJunk[math.fmod(charObj.id * self._devotionItemsHashMultiplierJunk, #self._devotionItemsOptionsJunk) + 1], number = 1},
+        {id = self._devotionItemsOptionsMiddle[math.fmod(charObj.id * self._devotionItemsHashMultiplierMiddle, #self._devotionItemsOptionsMiddle) + 1], number = 1},
+        {id = self._devotionItemsOptionsHigh[math.fmod(charObj.id * self._devotionItemsHashMultiplierHigh, #self._devotionItemsOptionsHigh) + 1], number = 1},
+    }
 end
 
 function M.Nargun:_isIdSacrificeable(id)

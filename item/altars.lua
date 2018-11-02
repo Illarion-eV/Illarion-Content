@@ -172,7 +172,7 @@ local function canDevote(User, god)
         reason_de = reason_de .. "FIXGERMAN You don't have enough favour from the god. "
     end
 
-    if not checkItems(User, gods.getItemsForDevotion(god)) then
+    if not checkItems(User, gods.getItemsForDevotion(User, god)) then
         result = false
         reason_en = reason_en .. "You don't have the required items. "
         reason_de = reason_de .. "FIXGERMAN You don't have the required items. "
@@ -187,7 +187,7 @@ local function doDevote(User, god)
         -- Was capable when opened dialog, but not when accepted. Cheater?
         common.InformNLS(User, "FIXGERMAN " .. reason_de, "You do not satisfy the devotion criteria. " .. reason_en)
     end
-    deleteItems(User, gods.getItemsForDevotion(god))
+    deleteItems(User, gods.getItemsForDevotion(User, god))
     gods.setDevoted(User, god)
 end
 
@@ -209,7 +209,7 @@ local function devotionDialog(User, god)
     else -- noob
         explanation = explanation .. common.GetNLS(User, "FIXGERMAN", "You can only devote yourself to one god at a time, and abjuration will make your god angry.")
     end
-    explanation = explanation .. common.GetNLS(User, "FIXGERMAN", "\nYou will need to donate " .. tellItems(User, gods.getItemsForDevotion(god)) .. ".")
+    explanation = explanation .. common.GetNLS(User, "FIXGERMAN", "\nYou will need to donate " .. tellItems(User, gods.getItemsForDevotion(User, god)) .. ".")
 
     local candevote, reason_de, reason_en = canDevote(User, god)
     if candevote then

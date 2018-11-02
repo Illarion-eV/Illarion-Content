@@ -204,11 +204,12 @@ end
 
 ---
 -- Get the items needed to become devoted to the god
+-- @param charObj the char to be devoted
 -- @param godOrdinal
 -- @return list of item ids. It is a reference and not a copy, so don't modify it
 --
-function M.getItemsForDevotion(godOrdinal)
-    return M._godOrdinalToObj[godOrdinal].devotionItems
+function M.getItemsForDevotion(charObj, godOrdinal)
+    return M._godOrdinalToObj[godOrdinal]:getDevotionItems(charObj)
 end
 
 ---
