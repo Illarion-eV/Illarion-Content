@@ -35,10 +35,10 @@ function M.Eldan:_init(ordinal, elderOrdinal)
     self.descriptionDe = "der Gott des Geistes"
     self.descriptionEn = "God of spirit"
     self.devotionItems = {
-        {id = 256, number = 1}, -- Raw diamonds
-        {id = 2745, number = 1}, -- Parchment
-        {id = 155, number = 1}, -- Sibanac leaf
-    } -- TODO balance (by Dantagon)
+        {id = 3607, number = 1}, -- pure spirit
+        {id = 323, number = 1}, -- wand
+        {id = 548, number = 1}, -- mage robe
+    }
     self.sacrificeItems = {  -- array of tables defining groups of items for sacrificing
         {  -- FIXME
             id_set = common.setFromList({ -- set of item IDs

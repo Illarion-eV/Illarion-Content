@@ -38,7 +38,7 @@ function M.Elara:_init(ordinal, youngerOrdinal)
         {id = 2745, number = 1}, -- parchment
         {id = 1118, number = 1}, -- bottle of ink
         {id = 463, number = 1}, -- quill
-    } -- TODO balance (by Dantagon)
+    }
     self.sacrificeItems = {  -- array of tables defining groups of items for sacrificing
         {
             id_set = common.setFromList({ -- set of item IDs

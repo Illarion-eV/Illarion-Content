@@ -35,10 +35,10 @@ function M.Findari:_init(ordinal, elderOrdinal)
     self.descriptionDe = "die Göttin der Luft"
     self.descriptionEn = "Goddess of air"
     self.devotionItems = {
-        {id = 64, number = 1}, -- Arrow
-        {id = 463, number = 1}, -- Quill
-        {id = 65, number = 1}, -- Short Bow
-    } -- TODO balance (by Dantagon)
+        {id = 2551, number = 1}, -- pure air
+        {id = 2718, number = 1}, -- elven composite longbow
+        {id = 2421, number = 1}, -- white priest robe
+    }
     self.sacrificeItems = {  -- array of tables defining groups of items for sacrificing
         {  -- FIXME
             id_set = common.setFromList({ -- set of item IDs

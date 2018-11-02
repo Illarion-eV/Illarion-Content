@@ -38,7 +38,7 @@ function M.Ronagan:_init(ordinal, youngerOrdinal)
         {id = 2760, number = 1}, -- rope
         {id = 27, number = 1}, -- simple dagger
         {id = 384, number = 1}, -- thief's gloves
-    } -- TODO balance (by Dantagon)
+    }
     self.sacrificeItems = {  -- array of tables defining groups of items for sacrificing
         {
             id_set = common.setFromList({ -- set of item IDs

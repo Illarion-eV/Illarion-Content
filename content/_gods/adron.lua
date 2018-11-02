@@ -38,7 +38,7 @@ function M.Adron:_init(ordinal, youngerOrdinal)
         {id = 1858, number = 1}, -- silver goblet
         {id = 2500, number = 1}, -- bottle of wine
         {id = 227, number = 1}, -- cooking spoon
-    } -- TODO balance (by Dantagon)
+    }
     self.sacrificeItems = {  -- array of tables defining groups of items for sacrificing
         {
             id_set = common.setFromList({ -- set of item IDs

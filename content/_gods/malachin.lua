@@ -38,7 +38,7 @@ function M.Malachin:_init(ordinal, youngerOrdinal)
         {id = 363, number = 1}, -- leather scale armour
         {id = 65, number = 1}, -- short bow
         {id = 2586, number = 1}, -- fur
-    } -- TODO balance (by Dantagon)
+    }
     self.sacrificeItems = {  -- array of tables defining groups of items for sacrificing
         { -- double value for Malachin dagger
             id_set = common.setFromList({ -- set of item IDs

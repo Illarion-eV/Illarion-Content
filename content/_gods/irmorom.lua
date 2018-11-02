@@ -36,9 +36,9 @@ function M.Irmorom:_init(ordinal, youngerOrdinal)
     self.descriptionEn = "God of trade and craftsmanship"
     self.devotionItems = {
         {id = 2535, number = 1}, -- iron ingot
-        {id = 23, number = 1}, -- Hammer
+        {id = 23, number = 1}, -- hammer
         {id = 101, number = 1}, -- chain mail
-    } -- TODO balance (by Dantagon)
+    }
     local ids = common.setFromList({ -- set of item IDs
         -- ## From craft\final\armourer.lua ##
         -- category: Chain boots

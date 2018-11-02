@@ -38,7 +38,7 @@ function M.Zhambra:_init(ordinal, youngerOrdinal)
         {id = 2185, number = 1}, -- wooden cup
         {id = 17, number = 1}, -- wooden shield
         {id = 1441, number = 1}, -- reinforced plate armour
-    } -- TODO balance (by Dantagon)
+    }
     self.sacrificeItems = {  -- array of tables defining groups of items for sacrificing
         {
             id_set = common.setFromList({ -- array of item IDs

@@ -35,10 +35,10 @@ function M.Tanora:_init(ordinal, elderOrdinal)
     self.descriptionDe = "die Göttin des Wassers"
     self.descriptionEn = "Goddess of water"
     self.devotionItems = {
-        {id = 52, number = 1}, -- Bucket of water
-        {id = 253, number = 1}, -- Raw sapphire
-        {id = 72, number = 1}, -- Fishing rod
-    } -- TODO balance (by Dantagon)
+        {id = 2554, number = 1}, -- pure water
+        {id = 1053, number = 1}, -- divine voulge
+        {id = 193, number = 1}, -- blue robe
+    }
     self.sacrificeItems = {  -- array of tables defining groups of items for sacrificing
         {  -- FIXME
             id_set = common.setFromList({ -- set of item IDs

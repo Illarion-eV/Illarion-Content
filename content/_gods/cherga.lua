@@ -38,9 +38,9 @@ function M.Cherga:_init(ordinal, youngerOrdinal)
         {id = 24, number = 1}, -- shovel
         {id = 43, number = 1}, -- candle
         {id = 182, number = 1}, -- black shirt
-    } -- TODO balance (by Dantagon)
+    }
     self.sacrificeItems = {  -- array of tables defining groups of items for sacrificing
-        {
+        {  -- TODO more items
             id_set = common.setFromList({ -- set of item IDs
                 -- light sources
                 -- all light sources have price==0 when lit, so we currently use only unlit ones and their fuel

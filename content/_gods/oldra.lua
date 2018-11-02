@@ -38,7 +38,7 @@ function M.Oldra:_init(ordinal, youngerOrdinal)
         {id = 258, number = 1}, -- flail
         {id = 3609, number = 1}, -- banana bread
         {id = 1149, number = 1}, -- brown egg
-    } -- TODO balance (by Dantagon)
+    }
     self.sacrificeItems = {  -- array of tables defining groups of items for sacrificing
         {
             id_set = common.setFromList({ -- array of item IDs

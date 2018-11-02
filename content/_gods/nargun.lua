@@ -54,7 +54,7 @@ function M.Nargun:_init(ordinal, youngerOrdinal)
         2528,  -- small handle
         197,   -- amethyst
         1415,  -- white hat with feather
-        799,   -- whicker basket
+        254,   -- raw diamond
     }
     self._devotionItemsOptionsHigh = {  -- worth in 2400 .. 2600
         449,    -- obsidian powder

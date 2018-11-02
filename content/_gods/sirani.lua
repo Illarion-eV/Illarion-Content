@@ -35,10 +35,10 @@ function M.Sirani:_init(ordinal, youngerOrdinal)
     self.descriptionDe = "die Göttin der Liebe und der Freude"
     self.descriptionEn = "Goddess of love and pleasure"
     self.devotionItems = {
-        {id = 235, number = 1}, -- Gold ring
-        {id = 148, number = 1}, -- Firnis blossom
-        {id = 174, number = 1}, -- Red cloth
-    } -- TODO balance (by Dantagon)
+        {id = 148, number = 1}, -- firnis blossom
+        {id = 68, number = 1}, -- golden ruby ring
+        {id = 806, number = 1}, -- white dress
+    }
     self.sacrificeItems = {  -- array of tables defining groups of items for sacrificing
         {
             id_set = common.setFromList({ -- set of item IDs
