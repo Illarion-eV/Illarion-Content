@@ -23,7 +23,10 @@ local recipe_creation = require("alchemy.base.recipe_creation")
 local M = {}
 
 local parchmentList = {2745, 3109}
-local parchmentMaxTextLength = 100
+local parchmentMaxTextLength = 250
+local parchmentMaxLineLength = 24
+local parchmentMaxLineNumber = 10
+
 
 local function getText(User,deText,enText)
     return common.GetNLS(User,deText,enText)
@@ -132,9 +135,6 @@ end
 
 local function WriteParchment(User,SourceItem)
 
-    local title = getText(User, "Pergament beschreiben", "Write Parchment")
-    local infoText = getText(User, "Füge hier den Text ein, den du auf das Pergament schreiben willst.", "Insert the text you want to write on the parchment.")
-
     -- input dialog
     local callback = function(dialog)
         if not dialog:getSuccess() then
@@ -146,22 +146,42 @@ local function WriteParchment(User,SourceItem)
                 if not common.IsNilOrEmpty(parchment:getData("writtenText")) then
                     writtenText = parchment:getData("writtenText") .. "\n" .. writtenText
                 end
-                if CheckIfParchmentIsSigned(parchment) then
-                    User:inform("Du kannst ein unterschriebenes Pergament nicht verändern.","You cannot change an already signed parchment.",Character.highPriority)
-                elseif string.len (writtenText) > parchmentMaxTextLength then
+                if string.len (writtenText) > parchmentMaxTextLength then
+                    -- This should never happen
                     User:inform("Du findest nicht genügend freien Platz auf dem Pergament.","The parchment is too small for your text.",Character.highPriority)
                 else
                     parchment:setData("writtenText",writtenText)
                     lookat.SetSpecialDescription(parchment,"Das Pergament ist beschrieben.","The parchment has been written on.")
                     world:changeItem(parchment)
-                    User:inform("Du schreibst auf das Pergament:\n'".. string.gsub (writtenText,"\\n","\n") .."'.","You write on the parchment:\n'".. string.gsub (writtenText,"\\n","\n") .."'.")
+                    -- TODO emote?
+                    WriteParchment(User,SourceItem)  -- call the function once again, to add another line
                 end
             else
                 User:inform("Du brauchst ein Pergament, um darauf zu schreiben.","You need a parchment if you want to write.",Character.highPriority)
             end
         end
     end
-    local dialog = InputDialog(title, infoText, false, 255, callback)
+
+    local title = getText(User, "Pergament beschreiben", "Write Parchment")
+    local infoText = getText(User, "FIXGERMAN Füge hier den Text ein, den du auf das Pergament schreiben willst.", "Enter the line you want to add to the parchment.")
+    local parchment = CheckIfParchmentInHand(User,SourceItem)
+    local oldWrittenText = parchment:getData("writtenText")
+
+    if CheckIfParchmentIsSigned(parchment) then
+        User:inform("Du kannst ein unterschriebenes Pergament nicht verändern.","You cannot change an already signed parchment.",Character.highPriority)
+        return
+    end
+    local _, lineCount = string.gsub(oldWrittenText, "\n", "\n")
+    if lineCount > parchmentMaxLineNumber then
+        User:inform("FIXGERMAN Du findest nicht genügend freien Platz auf dem Pergament.","The parchment is too small to add more lines.",Character.highPriority)
+        return
+    end
+
+    if not common.IsNilOrEmpty(oldWrittenText) then
+        infoText = infoText .. getText(User, "\nFIXGERMAN\n\n", "\nCurrent text is:\n\n")
+        infoText = infoText .. oldWrittenText
+    end
+    local dialog = InputDialog(title, infoText, false, parchmentMaxLineLength, callback)
     User:requestInputDialog(dialog)
 end
 
