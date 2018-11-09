@@ -163,7 +163,7 @@ local function WriteParchment(User,SourceItem)
     end
 
     local title = getText(User, "Pergament beschreiben", "Write Parchment")
-    local infoText = getText(User, "FIXGERMAN Füge hier den Text ein, den du auf das Pergament schreiben willst.", "Enter the line you want to add to the parchment.")
+    local infoText = getText(User, "Füge hier die Zeile ein, die du dem Pergament hinzufügen möchtest.", "Enter the line you want to add to the parchment.")
     local parchment = CheckIfParchmentInHand(User,SourceItem)
     local oldWrittenText = parchment:getData("writtenText")
 
@@ -172,13 +172,14 @@ local function WriteParchment(User,SourceItem)
         return
     end
     local _, lineCount = string.gsub(oldWrittenText, "\n", "\n")
-    if lineCount > parchmentMaxLineNumber then
-        User:inform("FIXGERMAN Du findest nicht genügend freien Platz auf dem Pergament.","The parchment is too small to add more lines.",Character.highPriority)
+    lineCount = lineCount + 1  -- last line has no \n
+    if lineCount >= parchmentMaxLineNumber then
+        User:inform("Du findest nicht genügend freien Platz auf dem Pergament.","The parchment is too small to add more lines.",Character.highPriority)
         return
     end
 
     if not common.IsNilOrEmpty(oldWrittenText) then
-        infoText = infoText .. getText(User, "\nFIXGERMAN\n\n", "\nCurrent text is:\n\n")
+        infoText = infoText .. getText(User, "\nAktuell steht hier:\n\n", "\nCurrent text is:\n\n")
         infoText = infoText .. oldWrittenText
     end
     local dialog = InputDialog(title, infoText, false, parchmentMaxLineLength, callback)

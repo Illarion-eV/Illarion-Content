@@ -75,7 +75,7 @@ function M.UseItem(User, SourceItem,ltstate,checkVar)
             writtenText = writtenText .. "\n~" .. SourceItem:getData("signatureText") .. "~"
         end
         local dialog = MessageDialog(
-            "Parchment",
+            common.GetNLS(User, "Pergament", "Parchment"),
             writtenText,
             --[[callback=]]function(d) end
             )
