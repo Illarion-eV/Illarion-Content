@@ -646,7 +646,8 @@ local function isPossibleLocation(user, position)
                               "There is not enough space for a glyph ritual place.")
         return false
     end
-
+    
+    --[[
     -- Permission denied
     local deniedAreas = {"Runewick","Cadomyr","Galmair"}
     for i=1, #deniedAreas do
@@ -656,6 +657,7 @@ local function isPossibleLocation(user, position)
             return false
         end
     end
+    --]]
 
     -- not level 0
     if user.pos.z ~= 0 then
