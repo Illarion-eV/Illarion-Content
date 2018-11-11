@@ -33,7 +33,7 @@ function M.onOpenDepot(User, Depot)
     
     local depotId = tonumber(Depot:getData("depot"))
     
-    if player:isAdmin() then --Admins have access to all depots
+    if User:isAdmin() then --Admins have access to all depots
     
         return true
 
