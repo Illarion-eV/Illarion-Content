@@ -35,6 +35,14 @@ function M.LookAtItem(User, Item)
         lookAt.description = "Galmair"
     elseif depotId == 104 then
         lookAt.description = common.GetNLS(User, "Gasthof zur Hanfschlinge", "The Hemp Necktie Inn")
+    elseif depotId == 201 then
+        lookAt.description = common.GetNLS(User, "Staatsschatz von Cadomyr", "Cadomyr Treasury")
+    elseif depotId == 202 then
+        lookAt.description = common.GetNLS(User, "Staatsschatz von Runewick", "Runewick Treasury")
+    elseif depotId == 203 then
+        lookAt.description = common.GetNLS(User, "Staatsschatz von Galmair", "Galmair Treasury")
+    else
+        lookAt.description = common.GetNLS(User, "Unbekanntes Depot", "Unknown depot")
     end
     
     return lookAt
