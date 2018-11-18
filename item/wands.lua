@@ -135,26 +135,6 @@ function M.MoveItemAfterMove(User, SourceItem, TargetItem)
 end
 
 function M.UseItem(user, sourceItem, ltstate)
-
-    if common.IsItemInHands(sourceItem) then
-        if ltstate == Action.none then
-            if magicWands[sourceItem.id] then
-                if user:getMagicType() == 0 and user:getQuestProgress(37) ~= 0 then
-                    useWandSelection(user, sourceItem, ltstate)
-                else
-                    learnMagic.useMagicWand(user, sourceItem)
-                end
-            end
-        else
-            if currentWandUse[user.id] == WAND_USE_GLYPH_FORGE_ERECT then
-                glyphmagic.placeGlyphForge(user, ltstate)
-            elseif currentWandUse[user.id] == WAND_USE_GLYPH_RITUAL_PREPARE then
-                glyphmagic.prepareGlyphRitual(user, ltstate)
-            end
-        end
-    else
-        user:inform("Du solltest lieber den Zauberstab in die Hand nehmen, wenn du ihn benutzen willst.","To use the wand you should hold it in your hand.")
-
     if ltstate == Action.none then
         if magicWands[sourceItem.id] then
             if user:getMagicType() == 0 and user:getQuestProgress(37) ~= 0 then
@@ -169,7 +149,6 @@ function M.UseItem(user, sourceItem, ltstate)
         elseif currentWandUse[user.id] == WAND_USE_GLYPH_RITUAL_PREPARE then
             glyphmagic.prepareGlyphRitual(user, ltstate)
         end]] --Search tag: #123
-
     end
 end
 
