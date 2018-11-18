@@ -99,9 +99,11 @@ end
 function M.dropShardByMonster(monster)
     --hack used, see http://illarion.org/mantis/view.php?id=9619
     local monsterLevel = estimateMonsterLevel(monster)
-    local singleProb = 1 / (100 - 10 * tonumber(monsterLevel))
-    if math.random() < singleProb then
-        M.createShardOnPosition(monster.pos)
+    if monsterLevel >= 4 then
+        local singleProb = 1 / (100 - 10 * tonumber(monsterLevel))
+        if math.random() < singleProb then
+            M.createShardOnPosition(monster.pos)
+        end
     end
     
 end
