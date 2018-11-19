@@ -552,7 +552,7 @@ local function showBreakSelection(user,userRings,userAmulets)
 end
 
 function M.forgeGlyphs(user,glyphForgeItem,ltstate)
-    if user:getMagicType() == 0 then --mage
+    if user:getMagicType() == 0 and (user:getQuestProgress(37) ~= 0 or user:getMagicFlags(0) > 0)then --mage
         if ltstate == Action.none then
             if glyphForgeItem.wear < 3 then
                 common.InformNLS(user,"Dieser Glyphen-Ritualplatz zeigt schon deutliche Zeichen des Verfalls. Vergeude deine Zeit nicht hier.",
