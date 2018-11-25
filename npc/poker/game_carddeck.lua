@@ -1,6 +1,25 @@
-dofile( "game_card.lua" );
+--[[
+Illarion Server
 
-function newCardDeck( cardList )
+This program is free software: you can redistribute it and/or modify it under
+the terms of the GNU Affero General Public License as published by the Free
+Software Foundation, either version 3 of the License, or (at your option) any
+later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+details.
+
+You should have received a copy of the GNU Affero General Public License along
+with this program.  If not, see <http://www.gnu.org/licenses/>.
+]]
+
+local M = {}
+
+local newCard = game_card.newCard
+
+function M.newCardDeck( cardList )
     local self = {
         cardList = cardList,
         numCards = table.getn( cardList ),
@@ -40,7 +59,7 @@ function newCardDeck( cardList )
 end
 
 -- This is a 13 card deck for high card decisions
-function newCardDeck13()
+function M.newCardDeck13()
     local value;
     local cardList13 = {};
     for value=1,13 do
@@ -50,7 +69,7 @@ function newCardDeck13()
 end
 
 -- This is a 52 card deck usable for e. g. texas hold'em
-function newCardDeck52()
+function M.newCardDeck52()
     local color, value;
     local cardList52 = {};
     local i=0;
@@ -64,7 +83,7 @@ function newCardDeck52()
 end
 
 -- This is a 32 card deck usable for e. g. skat
-function newCardDeck32()
+function M.newCardDeck32()
     local color, value;
     local cardList32 = {};
     local i=0;
@@ -76,3 +95,5 @@ function newCardDeck32()
     end;
     return newCardDeck( cardList32 );
 end
+
+return M

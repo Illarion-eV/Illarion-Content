@@ -1,7 +1,25 @@
-require( "game_carddeck" );
-module("game_poker", package.seeall(game_carddeck))
+--[[
+Illarion Server
 
-function newPokerTable( 
+This program is free software: you can redistribute it and/or modify it under
+the terms of the GNU Affero General Public License as published by the Free
+Software Foundation, either version 3 of the License, or (at your option) any
+later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+details.
+
+You should have received a copy of the GNU Affero General Public License along
+with this program.  If not, see <http://www.gnu.org/licenses/>.
+]]
+
+local M = {}
+
+local game_carddeck = require("npc.poker.game_carddeck")
+
+function M.newPokerTable( 
                         npcDealer,           -- Dealer npc
                         hundredthId,         -- id of one hundredth money unit, e.g. id of copper coins
                         unitId,              -- id of one money unit, e.g. id of silver coins
@@ -16,7 +34,6 @@ function newPokerTable(
                         posPotUnits,         -- Position where the units will be displayed
                         posPotHundreds,      -- Position where the hundreds will be displayed
                         rake,                -- Rake in Percent
-                        fileRake             -- Path to the rake file
                       )
                       
     npcDealer:increaseSkill(1,"common language",100);
@@ -56,10 +73,9 @@ function newPokerTable(
         posPotUnits        = posPotUnits,
         posPotHundreds     = posPotHundreds,
         rake               = rake/100,
-        fileRake           = fileRake,
         initialDelay       = 100,
-        cardDeck13         = newCardDeck13(),
-        cardDeck52         = newCardDeck52(),
+        cardDeck13         = game_carddeck.newCardDeck13(),
+        cardDeck52         = game_carddeck.newCardDeck52(),
         timeoutWarning1    = 200,
         timeoutWarning2    = 600,
         timeoutFinal       = 800,
@@ -486,15 +502,6 @@ function newPokerTable(
     end;
     
     local nextRound = function() -- start a new round, move button
-        -- store self.roundRake
-        filepoint,errmsg=io.open( self.fileRake , "r+" );
-        if (filepoint~=nil) then
-            filepoint:seek("set");
-            self.roundRake = self.roundRake * 100 + filepoint:read("*n");
-            filepoint:seek("set");
-            filepoint:write(""..self.roundRake);
-            filepoint:close();
-        end 
         
         self.isInit             = false;
         init();
@@ -599,13 +606,13 @@ function newPokerTable(
             end;
         elseif (self.gameState == 1) then -- small blind
             if self.activePlayer == 0 then -- determine position of the button and then the small blind
-                self.cardDeck13.shuffle();
+                self.game_carddeck.cardDeck13.shuffle();
                 local card;
                 local value=1;
                 local cardHigh;
                 for i=1,self.tableSize do
                     if self.listPlayer[i] then
-                        card = self.cardDeck13.draw();
+                        card = self.game_carddeck.cardDeck13.draw();
                         if card.getValue() > value then
                             value = card.getValue();
                             cardHigh = card;
@@ -714,17 +721,17 @@ function newPokerTable(
                         self.bigPlayer = self.activePlayer;
                         self.npcDealer:talk(CCharacter.say, "Seat "..self.activePlayer.." places the big blind.");
                         self.npcDealer:talk(CCharacter.say, "#me deals the pocket cards.");
-                        self.cardDeck52.shuffle();
+                        self.game_carddeck.cardDeck52.shuffle();
                         local i;
                         for i=1,self.tableSize do
                             if self.listPlayer[i] then
-                                self.listPocket1[i] = self.cardDeck52.draw();
+                                self.listPocket1[i] = self.game_carddeck.cardDeck52.draw();
                                 self.listPlayer[i]:inform("#w ##### You got the "..self.listPocket1[i].getEnglish().." as first pocket card #####");
                             end;
                         end;
                         for i=1,self.tableSize do
                             if self.listPlayer[i] then
-                                self.listPocket2[i] = self.cardDeck52.draw();
+                                self.listPocket2[i] = self.game_carddeck.cardDeck52.draw();
                                 self.listPlayer[i]:inform("#w ##### You got the "..self.listPocket2[i].getEnglish().." as second pocket card #####");
                             end;
                         end;
@@ -895,22 +902,22 @@ function newPokerTable(
                         local drawall = (self.numberInHand - self.numberAllIn == 1)
                         nextPlayer();
                         if self.gameState == 4 then -- show flop
-                            self.cardDeck52.draw();
-                            self.listBoard[1] = self.cardDeck52.draw();
-                            self.listBoard[2] = self.cardDeck52.draw();
-                            self.listBoard[3] = self.cardDeck52.draw();
+                            self.game_carddeck.cardDeck52.draw();
+                            self.listBoard[1] = self.game_carddeck.cardDeck52.draw();
+                            self.listBoard[2] = self.game_carddeck.cardDeck52.draw();
+                            self.listBoard[3] = self.game_carddeck.cardDeck52.draw();
                             self.npcDealer:talk(CCharacter.say, "#me shows the flop: "..self.listBoard[1].getEnglish()..", "..self.listBoard[2].getEnglish()..", "..self.listBoard[3].getEnglish());
                             self.gameState = self.gameState + (drawall and 1 or 0);
                         end;
                         if self.gameState == 5 then -- show turn
-                            self.cardDeck52.draw();
-                            self.listBoard[4] = self.cardDeck52.draw();
+                            self.game_carddeck.cardDeck52.draw();
+                            self.listBoard[4] = self.game_carddeck.cardDeck52.draw();
                             self.npcDealer:talk(CCharacter.say, "#me shows the turn: "..self.listBoard[4].getEnglish());
                             self.gameState = self.gameState + (drawall and 1 or 0);
                         end;
                         if self.gameState == 6 then -- show river
-                            self.cardDeck52.draw();
-                            self.listBoard[5] = self.cardDeck52.draw();
+                            self.game_carddeck.cardDeck52.draw();
+                            self.listBoard[5] = self.game_carddeck.cardDeck52.draw();
                             self.npcDealer:talk(CCharacter.say, "#me shows the river: "..self.listBoard[5].getEnglish());
                             self.gameState = self.gameState + (drawall and 1 or 0);
                         end;
@@ -995,3 +1002,5 @@ function newPokerTable(
         beforeReload = beforeReload,
     };
 end
+
+return M
