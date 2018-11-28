@@ -17,12 +17,14 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local M = {}
 
+local game_card = require("npc.poker.game_card")
+
 local newCard = game_card.newCard
 
-function M.newCardDeck( cardList )
+local function newCardDeck( cardList )
     local self = {
         cardList = cardList,
-        numCards = table.getn( cardList ),
+        numCards = #cardList,
         usedIndex = 0,
     };
     

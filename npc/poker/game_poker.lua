@@ -33,15 +33,14 @@ function M.newPokerTable(
                         posPotHundredths,    -- Position where the hundredths will be displayed
                         posPotUnits,         -- Position where the units will be displayed
                         posPotHundreds,      -- Position where the hundreds will be displayed
-                        rake,                -- Rake in Percent
+                        rake                -- Rake in Percent
                       )
                       
-    npcDealer:increaseSkill(1,"common language",100);
-
+    
     local indexSet = function()
         local t = {};
         local i;
-        for i=1,table.getn( listPosSeat ) do
+        for i=1,#( listPosSeat ) do
             t[i] = i;
         end;
         return t;
@@ -50,7 +49,7 @@ function M.newPokerTable(
     local zeroSet = function()
         local t = {};
         local i;
-        for i=1,table.getn( listPosSeat ) do
+        for i=1,#( listPosSeat ) do
             t[i] = 0;
         end;
         return t;
@@ -79,7 +78,7 @@ function M.newPokerTable(
         timeoutWarning1    = 200,
         timeoutWarning2    = 600,
         timeoutFinal       = 800,
-        tableSize          = table.getn( listPosSeat ),
+        tableSize          = #( listPosSeat ),
         
         -- semi dynamic part
         isInit,
@@ -310,7 +309,7 @@ function M.newPokerTable(
         
         i = 1;
 
-        while i <= table.getn(self.listPots) and self.listPots[i].listPlayersInPot[ self.activePlayer ] do
+        while i <= #(self.listPots) and self.listPots[i].listPlayersInPot[ self.activePlayer ] do
             if eval.value > self.listPots[i].maxHandValue then
                 self.listPots[i].maxHandValue = eval.value;
                 self.listPots[i].listPotCandidates = { self.activePlayer };
@@ -540,7 +539,7 @@ function M.newPokerTable(
     local payPotsToPlayer = function()
         local i;
         local money = 0;
-        for i=1,table.getn( self.listPots ) do
+        for i=1,#( self.listPots ) do
             money = money + self.listPots[i].value;
         end;
         for i=1,self.tableSize do
@@ -855,7 +854,7 @@ function M.newPokerTable(
                                     self.npcDealer:talk(CCharacter.say, "Seat "..idx.." receives "..self.listBets[ idx ].." back.");
                                     self.listBets[ idx ] = 0;
                                 else
-	                                local pot = self.listPots[ table.getn( self.listPots ) ];
+	                                local pot = self.listPots[ #( self.listPots ) ];
                                     for z=i+1,self.tableSize do
                                         self.listBets[ self.listIndex[ z ] ] = self.listBets[ self.listIndex[ z ] ] - self.listBets[ idx ];
 		                                pot.listPlayersInPot[ self.listIndex[ z ] ] = true; 
@@ -886,7 +885,7 @@ function M.newPokerTable(
                         setFixedItemOnField( self.buttonId, 1, self.listPosBetUnits[ self.buttonPlayer ] );
             			local money = 0;
                         local i;
-			            for i=1,table.getn( self.listPots ) do
+			            for i=1,#( self.listPots ) do
 	            		    money = money + self.listPots[ i ].value;
 			            end;
                         setPotOnTable( money );
@@ -950,10 +949,10 @@ function M.newPokerTable(
                         -- pay winners
                         local i,z;
                         local money;
-                        for i=1,table.getn( self.listPots ) do
+                        for i=1,#( self.listPots ) do
                             local pot = self.listPots[i];
                             money = pot.value;
-                            local n = table.getn( pot.listPotCandidates );
+                            local n = #( pot.listPotCandidates );
                             money = math.floor( money / n * 100 ) / 100;
                             for z=1,n do
                                 payPlayer( pot.listPotCandidates[z], money );
@@ -973,7 +972,7 @@ function M.newPokerTable(
         -- pay players
         local i,z;
         local money;
-        for i=1,table.getn( self.listPots ) do
+        for i=1,#( self.listPots ) do
             local pot = self.listPots[i];
             pot.listPotCandidates = {};
             for z=1,self.tableSize do
@@ -982,7 +981,7 @@ function M.newPokerTable(
                 end;
             end;
             money = pot.value / (1 - self.rake);
-            local n = table.getn( pot.listPotCandidates );
+            local n = #( pot.listPotCandidates );
             money = math.floor( money / n * 100 ) / 100;
             for z=1,n do
                 self.listBets[ pot.listPotCandidates[z] ] = (self.listBets[ pot.listPotCandidates[z] ] or 0) + money;
