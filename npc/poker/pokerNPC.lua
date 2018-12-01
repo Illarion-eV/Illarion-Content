@@ -25,31 +25,38 @@ local M = {}
 local game_poker = require("npc.poker.game_poker")
 
 local isInitiated = false
+local pokerTable
 
 local function initPokerNPC(npcDealer)
 
     pokerTable = game_poker.newPokerTable( npcDealer, 3076, 3077, 61, 462, 1, 2,{
-        position(-25,-126,-6),
-        position(-25,-125,-6),
-        position(-25,-124,-6),
-        position(-31,-124,-6),
-        position(-31,-125,-6),
-        position(-31,-126,-6)
+        position(707, 309, -3),
+        position(705, 309, -3),
+        position(703, 311, -3),
+        position(703, 312, -3),
+        position(703, 313, -3),
+        position(703, 314, -3),
+        position(705, 316, -3),
+        position(707, 316, -3)
     }, {
-        position(-26,-126,-6),
-        position(-26,-125,-6),
-        position(-26,-124,-6),
-        position(-30,-124,-6),
-        position(-30,-125,-6),
-        position(-30,-126,-6)
+        position(707, 310, -3),
+        position(705, 310, -3),
+        position(704, 311, -3),
+        position(704, 312, -3),
+        position(704, 313, -3),
+        position(704, 314, -3),
+        position(705, 315, -3),
+        position(707, 315, -3)
     }, {
-        position(-27,-126,-6),
-        position(-27,-125,-6),
-        position(-27,-124,-6),
-        position(-29,-124,-6),
-        position(-29,-125,-6),
-        position(-29,-126,-6)
-    }, position(-28,-124,-6), position(-28,-125,-6), position(-28,-126,-6), 5)
+        position(707, 311, -3),
+        position(704, 310, -3),
+        position(705, 311, -3),
+        position(705, 312, -3),
+        position(705, 313, -3),
+        position(705, 314, -3),
+        position(704, 315, -3),
+        position(707, 314, -3)
+    }, position(706, 311, -3), position(706, 312, -3), position(706, 313, -3), 5)
 
     npcDealer:createAtPos(3, 816, 1)
     npcDealer:createAtPos(9, 183, 1)
@@ -62,15 +69,15 @@ function M.nextCycle(thisNPC)
     if not isInitiated then
         initPokerNPC(thisNPC)
     end
-    --pokerTable.nextCycle()
+    pokerTable.nextCycle()
 end
 
-function M.receiveText(texttype, message, originator)
-    --pokerTable.receiveText(texttype, message, originator)
+function M.receiveText(theNpc, texttype, message, originator)
+    pokerTable.receiveText(texttype, message, originator)
 end
 
 function M.beforeReload()
-    --pokerTable.beforeReload()
+    pokerTable.beforeReload()
 end
 
 return M
