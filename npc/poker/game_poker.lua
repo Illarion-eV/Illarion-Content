@@ -674,20 +674,20 @@ function M.newPokerTable(
                     nextPlayer();
                 end;
             end;
-	    elseif self.gameState == 7 then -- showdown
-	        if self.timeoutCounter == 0 then
-	            self.npcDealer:talk(Character.say, "What will you do with your cards seat "..self.activePlayer.."?");
-	            showAvailableCards();
+        elseif self.gameState == 7 then -- showdown
+            if self.timeoutCounter == 0 then
+                self.npcDealer:talk(Character.say, "What will you do with your cards seat "..self.activePlayer.."?");
+                showAvailableCards();
                 self.listPlayer[self.activePlayer]:inform("#w ##### You can now fold or show your cards #####");
-	        end;
+            end;
             if isTimeout() then
-	            if self.numberInHand < 2 then
-	                nextPlayer();
+                if self.numberInHand < 2 then
+                    nextPlayer();
                     payPotsToPlayer();
-		            gameReset();
-		        else
-		            nextPlayer();
-		        end;
+                    gameReset();
+                else
+                    nextPlayer();
+                end;
             end;
         else    
             -- die
@@ -842,37 +842,37 @@ function M.newPokerTable(
                             end;
                         end;
                         i = 1;
-			            local idx;
-			            local z;
+                        local idx;
+                        local z;
                         while self.listBets[ self.listIndex[ self.tableSize ] ] > 0 do
-			                idx = self.listIndex[ i ];
+                            idx = self.listIndex[ i ];
                             if self.listBets[ idx ] and self.listBets[ idx ] > 0 then
                                 if i == self.tableSize then
                                     payPlayer( idx, self.listBets[ idx ] );
                                     self.npcDealer:talk(Character.say, "Seat "..idx.." receives "..self.listBets[ idx ].." back.");
                                     self.listBets[ idx ] = 0;
                                 else
-	                                local pot = self.listPots[ #( self.listPots ) ];
+                                    local pot = self.listPots[ #( self.listPots ) ];
                                     for z=i+1,self.tableSize do
                                         self.listBets[ self.listIndex[ z ] ] = self.listBets[ self.listIndex[ z ] ] - self.listBets[ idx ];
-		                                pot.listPlayersInPot[ self.listIndex[ z ] ] = true; 
-	                                end;
-		                            local money = self.listBets[ idx ] * ( self.tableSize - i + 1 );
-		                            
-		                            -- Rake
-		                            local currentRake = money * self.rake;
-		                            self.roundRake = self.roundRake + currentRake;
-		                            
+                                        pot.listPlayersInPot[ self.listIndex[ z ] ] = true; 
+                                    end;
+                                    local money = self.listBets[ idx ] * ( self.tableSize - i + 1 );
+                                    
+                                    -- Rake
+                                    local currentRake = money * self.rake;
+                                    self.roundRake = self.roundRake + currentRake;
+                                    
                                     pot.value = pot.value + money - currentRake;
-		                            self.listBets[ idx ] = 0;
-		                            pot.listPlayersInPot[ idx ] = true;
-		                            if self.listBets[ self.listIndex[ self.tableSize ] ] > 0 then
-		                                self.npcDealer:talk(Character.say, "#me moves a pot of "..pot.value.." aside.");
+                                    self.listBets[ idx ] = 0;
+                                    pot.listPlayersInPot[ idx ] = true;
+                                    if self.listBets[ self.listIndex[ self.tableSize ] ] > 0 then
+                                        self.npcDealer:talk(Character.say, "#me moves a pot of "..pot.value.." aside.");
                                         table.insert( self.listPots, { value=0, listPlayersInPot = {}, maxHandValue = 0, listPotCandidates = {} } );
-		                            end;
-		                        end;
-		                    end;
-		                    i = i + 1;
+                                    end;
+                                end;
+                            end;
+                            i = i + 1;
                         end;                        
                         
                         -- reset bets
@@ -881,11 +881,11 @@ function M.newPokerTable(
                         -- graphical part
                         clearFields();
                         setFixedItemOnField( self.buttonId, 1, self.listPosBetUnits[ self.buttonPlayer ] );
-            			local money = 0;
+                        local money = 0;
                         local i;
-			            for i=1,#( self.listPots ) do
-	            		    money = money + self.listPots[ i ].value;
-			            end;
+                        for i=1,#( self.listPots ) do
+                            money = money + self.listPots[ i ].value;
+                        end;
                         setPotOnTable( money );
                         
                         -- END: move money into pot(s)
@@ -926,7 +926,7 @@ function M.newPokerTable(
                     end;
                 end;
             elseif self.gameState == 7 then
-	            if string.find( message, "[Ff]old" ) then
+                if string.find( message, "[Ff]old" ) then
                     self.listHasFolded[self.activePlayer] = true;
                     self.listBets[self.activePlayer] = self.listBets[self.activePlayer] or 0;
                     self.numberInHand = self.numberInHand - 1;
@@ -961,7 +961,7 @@ function M.newPokerTable(
                         nextRound();
                     end;
                 end;
-	        end;
+            end;
         end;
     end
     
