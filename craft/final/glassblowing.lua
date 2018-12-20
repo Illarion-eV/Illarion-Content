@@ -38,10 +38,6 @@ catId = glassblowing:addCategory("Bottles", "Flaschen")
 product = glassblowing:addProduct(catId, 2498, 1)
 product:addIngredient(41, 1) -- glass ingot
 
--- empty ink bottle
-product = glassblowing:addProduct(catId, 1117, 1)
-product:addIngredient(41, 1) -- glass ingot
-
 -- empty juice bottle
 product = glassblowing:addProduct(catId, 790, 1)
 product:addIngredient(41, 1) -- glass ingot
@@ -58,15 +54,15 @@ product:addIngredient(41, 2) -- glass ingot
 product = glassblowing:addProduct(catId, 1317, 1)
 product:addIngredient(41, 2) -- glass ingot
 
+-- empty ink bottle
+product = glassblowing:addProduct(catId, 1117, 1)
+product:addIngredient(41, 2) -- glass ingot
+
 -- empty potion
 product = glassblowing:addProduct(catId, 164, 1)
 product:addIngredient(41, 3) -- glass ingot
 
 catId = glassblowing:addCategory("Glasses", "Gläser")
-
--- glass mug
-product = glassblowing:addProduct(catId, 1908, 1)
-product:addIngredient(41, 3) -- glass ingot
 
 -- glass
 product = glassblowing:addProduct(catId, 2055, 1)
@@ -77,6 +73,11 @@ product:addIngredient(446, 1) -- sapphire powder
 product = glassblowing:addProduct(catId, 2457, 1)
 product:addIngredient(41, 4) -- glass ingot
 product:addIngredient(449, 1) -- obsidian powder
+
+-- glass mug
+product = glassblowing:addProduct(catId, 1908, 1)
+product:addIngredient(41, 4) -- glass ingot
+product:addIngredient(448, 1) -- emerald powder
 
 catId = glassblowing:addCategory("Other", "Sonstiges")
 

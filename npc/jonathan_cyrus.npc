@@ -63,11 +63,11 @@ itemShoes = 770
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-sellItems = 311, 2140, 314, 2498, 1117, 790, 518, 390, 1317, 164, 41, 1908, 2055, 2457, 3642, 2588, 58, 2183, 2184, 310, 1223, 315
+sellItems = 311, 2140, 314, 2498, 790, 518, 390, 1317, 1117, 164, 41, 2055, 2457, 1908, 3642, 2588, 58, 2183, 2184, 310, 1223, 315
 -- glass blow pipe, tongs, pot ash
--- large empty bottle, empty ink bottle, empty juice bottle, empty rum bottle, oil bottle, empty liquor bottle, empty potion, glass ingot, glass mug, glass, wine glass, empty salve jar, bricks, mortar, clay mug, clay cup, mug with lid, empty alchemy bomb, vase
-buyPrimaryItems = 314, 2498, 1117, 790, 518, 390, 1317, 164, 41, 1908, 2055, 2457, 3642, 2588, 58, 2183, 2184, 310, 1223, 315
--- pot ash, large empty bottle, empty ink bottle, empty juice bottle, empty rum bottle, oil bottle, empty liquor bottle, empty potion, glass ingot, glass mug, glass, wine glass, empty salve jar, bricks, mortar, clay mug, clay cup, mug with lid, empty alchemy bomb, vase
+-- large empty bottle, empty juice bottle, empty rum bottle, oil bottle, empty liquor bottle, empty ink bottle, empty potion, glass ingot, glass mug, glass, wine glass, glass mug, empty salve jar, bricks, mortar, clay mug, clay cup, mug with lid, empty alchemy bomb, vase
+buyPrimaryItems = 314, 2498, 790, 518, 390, 1317, 1117, 164, 41, 2055, 2457, 1908, 3642, 2588, 58, 2183, 2184, 310, 1223, 315
+-- pot ash, large empty bottle, empty juice bottle, empty rum bottle, oil bottle, empty liquor bottle, empty ink bottle, empty potion, glass ingot, glass, wine glass, glass mug, empty salve jar, bricks, mortar, clay mug, clay cup, mug with lid, empty alchemy bomb, vase
 tradeNotEnoughMoneyMsg "Ich verlange hierfür mehr, als ihr überhaupt habt.", "I demand more for this than you even have."
 tradeFinishedMsg "Schaut doch bald wieder vorbei.", "See you next time."
 tradeFinishedWithoutTradingMsg "Und so trennen sich unsere Wege.", "And thus we part company."

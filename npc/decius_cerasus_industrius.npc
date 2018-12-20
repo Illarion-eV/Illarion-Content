@@ -146,7 +146,7 @@ queststatus(160) = 2, item(164, all) < 5, town = Runewick, "quest", "mission" ->
 queststatus(160) = 2, item(164, all) < 5, town = Runewick, "task", "adventure", "order" -> "Do you know what happens when some alchemists do not pour their potions into bottles? They explode in the cauldron!"
 queststatus(160) = 2, item(164, all) < 5, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Weißt du was passiert, wenn manche Alchemisten ihre Gebräue nicht in Flaschen abfüllen? Sie explodieren im Kessel!"
 
--- 3: Quest 3 taken, get 5 glass mugs , reward: 1 Silver , 3 rankpoints
+-- 3: Quest 3 taken, get 5 glass mugs , reward: 10 Silver , 3 rankpoints
 -- Quest 3: Gather 5 glass mugs (1908)
 queststatus(160) = 0, english, chance(4.35), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 3, queststatus(260) = 36, "During the last celebration to honour Adron some glasses were broken. Can you bring me five glass mugs?"
 queststatus(160) = 0, german, chance(4.35), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 3, queststatus(260) = 36, "Bei der letzten Feier zur Ehren Adrons sind ein paar Gläser zu Bruch gegangen. Könntest du mir 5 Glaskrüge bringen?"
@@ -154,8 +154,8 @@ queststatus(160) = 0, chance(4.35), town = Runewick, "task", "adventure", "order
 queststatus(160) = 0, chance(4.35), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 3, queststatus(260) = 36, "Bei der letzten Feier zur Ehren Adrons sind ein paar Gläser zu Bruch gegangen. Könntest du mir 5 Glaskrüge bringen?"
 
 -- Quest 3 solved, reward: 1 Silver, 3 rankpoints, delay: 5h
-queststatus(160) = 3, item(1908, all) > 4, english, town = Runewick, ".*" -> inform("[Quest solved] You are awarded a silver coin."), money + 100, deleteItem(1908, 5), queststatus(160) = 0, queststatus(260) = 0, queststatus(161) = 60, rankpoints + 3, "Thank you, they will be able to celebrate the next mass with these."
-queststatus(160) = 3, item(1908, all) > 4, town = Runewick, ".*" -> inform("[Quest gelöst] Du erhältst ein Silberstück."), money + 100, deleteItem(1908, 5), queststatus(160) = 0, queststatus(260) = 0, queststatus(161) = 60, rankpoints + 3, "Danke, damit können sie auch die nächste Messe feiern."
+queststatus(160) = 3, item(1908, all) > 4, english, town = Runewick, ".*" -> inform("[Quest solved] You are awarded ten silver coins."), money + 1000, deleteItem(1908, 5), queststatus(160) = 0, queststatus(260) = 0, queststatus(161) = 60, rankpoints + 3, "Thank you, they will be able to celebrate the next mass with these."
+queststatus(160) = 3, item(1908, all) > 4, town = Runewick, ".*" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke."), money + 1000, deleteItem(1908, 5), queststatus(160) = 0, queststatus(260) = 0, queststatus(161) = 60, rankpoints + 3, "Danke, damit können sie auch die nächste Messe feiern."
 
 -- Quest 3 taken but not solved, repeat the instructions
 queststatus(160) = 3, item(1908, all) < 5, english, town = Runewick, "quest", "mission" -> "I still need those five glass mugs. If they do not arrive quickly neither Adron nor our all-wise Archmage will be pleased."

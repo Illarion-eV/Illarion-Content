@@ -218,7 +218,6 @@ treasureContents[2] = {
 {816,1}, --grey tunic
 {823,1}, --grey trousers
 {841,1}, --grey white skirt
-{1117,1}, --empty ink bottle
 {1840,1}, --copper goblet
 {2498,1}, --large empty bottle
 {2537,1}, --iron plate
@@ -270,7 +269,6 @@ treasureContents[2] = {
 {463,1}, --quill
 {518,1}, --empty rum bottle
 {1057,1}, --robust jackboots
-{1118,1}, --bottle of ink
 {1416,1}, --simple horned helmet
 {1429,1}, --reinforced steel cap
 {1501,1}, --robust leather shoes
@@ -439,7 +437,6 @@ treasureContents[3] = {
 {1450,1}, --red cloth gloves
 {90,1}, --flute
 {310,1}, --mug with lid
-{1908,1}, --glass mug
 {448,1}, --emerald powder
 {451,1}, --topaz powder
 {3536,1}, --copper obsidian amulet
@@ -608,6 +605,8 @@ treasureContents[5] = {
 }
 treasureContents[6] = {
 
+{1118,1}, --bottle of ink
+{1117,1}, --empty ink bottle
 {322,10}, --wind arrows
 {2377,1}, --red mage robe
 {20,1}, --knight shield
@@ -790,6 +789,7 @@ treasureContents[9] = {
 }
 treasureContents[10] = {
 
+{1908,1}, --glass mug
 {123,1}, --merinium-plated longsword
 {206,1}, --fire longsword
 {296,1}, --merinium-plated battle axe
