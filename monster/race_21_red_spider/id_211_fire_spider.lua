@@ -14,7 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 211, Firespider, Level: 4, Armourtype: heavy, Weapontype: distance
 
 local explosion = require("base.explosion")
 local redSpiders = require("monster.race_21_red_spider.base")

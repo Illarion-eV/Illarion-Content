@@ -14,7 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 891, Fireimp, Level: 2, Armourtype: light, Weapontype: puncture
 
 local redImps = require("monster.race_89_red_imp.base")
 return redImps.generateCallbacks()

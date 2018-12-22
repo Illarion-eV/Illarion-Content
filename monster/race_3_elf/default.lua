@@ -14,10 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 31, Elf,           Level: 5, Armourtype: light, Weapontype: distance
---ID 32, Elven Warrior, Level: 6, Armourtype: light, Weapontype: slashing
---ID 35, Elven Hunter,  Level: 5, Armourtype: light, Weapontype: distance
---ID 36, Friendly Elf,  Level: 0, Not hostile
 
 local elves = require("monster.race_3_elf.base")
 return elves.generateCallbacks()

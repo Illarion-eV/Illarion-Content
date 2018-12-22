@@ -14,8 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 511, Grizzly Bear, Level: 5, Armourtype: heavy, Weapontype: concussion
---ID 512, Young Grizzly Bear, Level: 4, Armourtype: heavy, Weapontype: wrestling
 
 local bears = require("monster.race_51_bear.base")
 local hostileWildlife = require("monster.base.behaviour.hostileWildlife")

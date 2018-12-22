@@ -14,7 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 577, Crazy Rat Alchemist, Level: 2, Armourtype: cloth, Weapontype: slashing
 
 local base = require("monster.base.base")
 local ratmen = require("monster.race_57_ratman.base")

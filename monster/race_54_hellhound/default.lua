@@ -14,9 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 541, Crippled Deamonbeast, Level: 6, Armourtype: heavy,  Weapontype: slashing
---ID 542, Deamonbeast,          Level: 7, Armourtype: midium, Weapontype: puncture
---ID 543, Giant Deamonbeast,    Level: 7, Armourtype: medium, Weapontype: concussion
 
 local hellhounds = require("monster.race_54_hellhound.base")
 return hellhounds.generateCallbacks()

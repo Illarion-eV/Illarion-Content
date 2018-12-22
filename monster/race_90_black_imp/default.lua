@@ -14,8 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 901, Shadow Wimp,   Level: 4, Armourtype: heavy, Weapontype: distance
---ID 902, Shadow Imp,    Level: 5, Armourtype: light, Weapontype: concussion
 
 local blackImps = require("monster.race_90_black_imp.base")
 return blackImps.generateCallbacks()

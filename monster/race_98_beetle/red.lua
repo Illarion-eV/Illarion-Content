@@ -14,7 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 983, Gravereaper
 
 local base = require("monster.base.base")
 local beetles = require("monster.race_98_beetle.base")

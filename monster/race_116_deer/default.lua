@@ -14,11 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 1161, Red Deer
---ID 1162, White Tail Deer
---ID 1163, Mule Deer
---ID 1164, Eld's Deer
---ID 1165, Fallow Deer
 
 local deers = require("monster.race_116_deer.base")
 return deers.generateCallbacks()

@@ -14,8 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 141, Ghost Eye,        Level: 4, Armourtype: light, Weapontype: concussion
---ID 142, Unholy Ghost Eye, Level: 5, Armourtype: light, Weapontype: puncture
 
 local transparentBeholders = require("monster.race_14_transparent_beholder.base")
 return transparentBeholders.generateCallbacks()

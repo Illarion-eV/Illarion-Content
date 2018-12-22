@@ -14,7 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 578, Ratpriest, Level: 3, Armourtype: light, Weapontype: concussion
 
 local base = require("monster.base.base")
 local mageBehaviour = require("monster.base.behaviour.mage")

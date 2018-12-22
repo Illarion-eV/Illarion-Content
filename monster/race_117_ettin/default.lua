@@ -14,11 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 1171, Ettin,             Level: 4, Armourtype: medium, Weapontype: puncture
---ID 1172, Deformed Ettin,    Level: 4, Armourtype: light, Weapontype: range
---ID 1173, Sorcerer Ettin,    Level: 5, Armourtype: medium, Weapontype: concussion
---ID 1174, Canibal Ettin,     Level: 5, Armourtype: heavy, Weapontype: slashing
---ID 1175, Evil Crazed Ettin, Level: 6, Armourtype: heavy, Weapontype: concussion
 
 local ettins = require("monster.race_117_ettin.base")
 return ettins.generateCallbacks()

@@ -14,11 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 611, Stinky Slime,      Level: 3, Armourtype: cloth, Weapontype: wrestling
---ID 612, Slimey Slime,      Level: 3, Armourtype: cloth, Weapontype: wrestling
---ID 613, Smouldy Slime,     Level: 4, Armourtype: cloth, Weapontype: wrestling
---ID 614, Cauterizing Slime, Level: 5, Armourtype: cloth, Weapontype: wrestling
---ID 615, Friendly Slime,    Level: 0, Not hostile
 
 local slimes = require("monster.race_61_slime.base")
 return slimes.generateCallbacks()

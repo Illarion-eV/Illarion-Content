@@ -14,9 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 881, Bloodhunter,   Level: 2, Armourtype: cloth, Weapontype: concussion
---ID 882, Monstrosity,   Level: 3, Armourtype: light, Weapontype: puncture
---ID 883, Bloodsniffler, Level: 4, Armourtype: light, Weapontype: slashing
 
 local redHellhounds = require("monster.race_88_red_hellhound.base")
 return redHellhounds.generateCallbacks()

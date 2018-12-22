@@ -14,10 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 581, Dog
---ID 582, Vicious Dog
---ID 583, Watchdog
---ID 584, Docile Stray Dog
 
 local dogs = require("monster.race_58_dog.base")
 local hostileWildlife = require("monster.base.behaviour.hostileWildlife")

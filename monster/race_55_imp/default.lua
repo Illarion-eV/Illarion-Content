@@ -14,8 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 551, Imp,              Level: 3, Armourtype: light, Weapontype: slashing
---ID 552, Jack of all Imps, Level: 4, Armourtype: light, Weapontype: concussion
 
 local imps = require("monster.race_55_imp.base")
 return imps.generateCallbacks()

@@ -14,7 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 34, Elven Mage, Level: 5, Armourtype: cloth, Weapontype: concussion
 
 local elves = require("monster.race_3_elf.base")
 local mageBehaviour = require("monster.base.behaviour.mage")

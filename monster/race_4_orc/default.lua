@@ -14,11 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 41, Orc,          Level: 5, Armourtype: medium, Weapontype: concussion
---ID 42, Orc Warrior,  Level: 6, Armourtype: heavy,  Weapontype: slashing
---ID 43, Orc Thief,    Level: 4, Armourtype: light,  Weapontype: puncture
---ID 44, Orc Hunter,   Level: 5, Armourtype: light,  Weapontype: distance
---ID 46, Friendly Orc, Level: 0, Not hostile
 
 local orcs = require("monster.race_4_orc.base")
 return orcs.generateCallbacks()

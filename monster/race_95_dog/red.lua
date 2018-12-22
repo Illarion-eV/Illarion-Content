@@ -14,7 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 951, Attack Dog
 
 local base = require("monster.base.base")
 local dogs = require("monster.race_95_dog.base")

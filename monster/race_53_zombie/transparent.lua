@@ -14,8 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 537, Poltergeist, Level: 5, Armourtype: light, Weapontype: slashing
---ID 538, Horrible Poltergeist, Level: 6, Armourtype: light, Weapontype: concussion
 
 local base = require("monster.base.base")
 local zombies = require("monster.race_53_zombie.base")

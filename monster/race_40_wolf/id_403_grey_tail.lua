@@ -14,7 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 403, Grey Tail, Level: 3, Armourtype: light, Weapontype: wrestling
 
 local base = require("monster.base.base")
 local wolves = require("monster.race_40_wolf.base")

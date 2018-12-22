@@ -14,7 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 1133 & 1134 Forest Rabbit & Forest Hare
 
 local base = require("monster.base.base")
 local rabbit = require("monster.race_113_rabbit.base")

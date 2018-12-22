@@ -14,7 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 553, Cursed Imp, Level: 4, Armourtype: cloth, Weapontype: distance
 
 local imps = require("monster.race_55_imp.base")
 local mageBehaviour = require("monster.base.behaviour.mage")

@@ -14,9 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 51, Lizard,                Level: 5, Armourtype: medium, Weapontype: concussion
---ID 52, Lizard Temple Warrior, Level: 6, Armourtype: heavy,  Weapontype: slashing
---ID 55, Lizard Thief,          Level: 4, Armourtype: light,  Weapontype: puncture
 
 local lizards = require("monster.race_5_lizard.base")
 return lizards.generateCallbacks()

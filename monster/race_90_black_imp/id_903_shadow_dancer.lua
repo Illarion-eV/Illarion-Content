@@ -14,7 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 903, Shadow Dancer, Level: 6, Armourtype: medium, Weapontype: slashing
 
 local monstermagic = require("monster.base.monstermagic")
 local blackImps = require("monster.race_90_black_imp.base")

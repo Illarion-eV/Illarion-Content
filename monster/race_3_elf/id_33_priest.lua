@@ -14,7 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 33, Elven Priest, Level: 5, Armourtype: cloth, Weapontype: concussion
 
 local monstermagic = require("monster.base.monstermagic")
 local elves = require("monster.race_3_elf.base")

@@ -14,7 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 66, Drow Matriarch, Level: 7, Armourtype: Light, Weapontype: concussion
 
 local drows = require("monster.race_6_drow.base")
 local base = require("monster.base.base")

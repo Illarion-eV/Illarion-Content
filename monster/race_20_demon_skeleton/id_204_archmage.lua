@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 204, Unholy Archmage, Level: 7, Armourtype: heavy, Weapontype: slashing
+
 local monsterId = 204
 
 local demonSkeletons = require("monster.race_20_demon_skeleton.base")

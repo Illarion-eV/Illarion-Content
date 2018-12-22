@@ -14,7 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 173, Mummiefied Highpriest, Level: 4, Armourtype: light, Weapontype: concussion
 
 local mageBehaviour = require("monster.base.behaviour.mage")
 local monstermagic = require("monster.base.monstermagic")

@@ -14,7 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 202, Mystic Demon Skeleton, Level: 6, Armourtype: light, Weapontype: concussion (wrestling)
 
 local demonSkeletons = require("monster.race_20_demon_skeleton.base")
 local mageBehaviour = require("monster.base.behaviour.mage")

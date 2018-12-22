@@ -14,7 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 109, Forgotten Mummy, Level: 6, Armourtype: medium, Weapontype: distance
 
 local base = require("monster.base.base")
 local mummies = require("monster.race_10_mummy.base")

@@ -14,7 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 1135 & 1136 Desert Rabbit & Desert Hare
 
 local base = require("monster.base.base")
 local rabbit = require("monster.race_113_rabbit.base")

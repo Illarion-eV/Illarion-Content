@@ -14,11 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 111, Skeleton,          Level: 3, Armourtype: medium, Weapontype: concussion
---ID 112, Scruffy Skeleton,  Level: 3, Armourtype: medium, Weapontype: slashing
---ID 113, Armored Skeleton,  Level: 4, Armourtype: heavy,  Weapontype: puncture
---ID 114, Crippled Skeleton, Level: 2, Armourtype: light,  Weapontype: slashing
---ID 117, Weakened Lich
 
 -- About the Weakened Lich.
 -- Appears from a pile of bones dropped by a normal lich. That lich hasnt droped anything except this bones.

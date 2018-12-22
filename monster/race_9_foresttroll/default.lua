@@ -14,10 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 91, Forest Troll,          Level: 4, Armourtype: light, Weapontype: concussion
---ID 92, Forest Troll Warrior,  Level: 5, Armourtype: light, Weapontype: concussion
---ID 94, Forest Troll Hunter,   Level: 5, Armourtype: light, Weapontype: distance
---ID 95, Forest Troll Forester, Level: 6, Armourtype: light, Weapontype: distance
 
 local trolls = require("monster.race_9_foresttroll.base")
 return trolls.generateCallbacks()

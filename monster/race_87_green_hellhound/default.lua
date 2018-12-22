@@ -14,9 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 871, Crippled Swampbeast, Level: 3, Armourtype: light,  Weapontype: puncture
---ID 872, Swampbeast,          Level: 4, Armourtype: medium, Weapontype: slashing
---ID 873, Giant Swampbeast,    Level: 5, Armourtype: heavy,  Weapontype: concussion
 
 local greenHellhounds = require("monster.race_87_green_hellhound.base")
 return greenHellhounds.generateCallbacks()

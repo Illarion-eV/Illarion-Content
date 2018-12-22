@@ -14,7 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 1151, Fairy,            Level: 1
 
 local fairies = require("monster.race_115_fairy.base")
 return fairies.generateCallbacks()

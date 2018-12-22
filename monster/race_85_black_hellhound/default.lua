@@ -14,9 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 851, Shadowrunner,       Level: 5, Armourtype: light,  Weapontype: distance
---ID 852, Shadowfright,       Level: 6, Armourtype: midium, Weapontype: slashing
---ID 853, Giant Shadowrunner, Level: 7, Armourtype: heavy,  Weapontype: concussion
 
 local blackHellhounds = require("monster.race_85_black_hellhound.base")
 return blackHellhounds.generateCallbacks()

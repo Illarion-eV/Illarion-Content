@@ -14,7 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 752, Mystic Graveguard,  Level: 3, Armourtype: light,  Weapontype: slashing
 
 local blueskeleton = require("monster.race_75_blue_skeleton.base")
 local mageBehaviour = require("monster.base.behaviour.mage")

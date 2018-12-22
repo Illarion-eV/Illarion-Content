@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 195, Spider Queen, Level: 7, Armourtype: heavy, Weapontype: slashing
+
 local monsterId = 195
 
 local common = require("base.common")

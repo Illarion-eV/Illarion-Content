@@ -14,9 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 221, Gynkese Widow,         Level: 6, Armourtype: light, Weapontype: puncture
---ID 222, Juvenile Gynk Spider,  Level: 4, Armourtype: heavy, Weapontype: concussion
---ID 223, Giant Enforcer Spider, Level: 8, Armourtype: heavy, Weapontype: concussion
 
 local greenSpiders = require("monster.race_22_green_spider.base")
 return greenSpiders.generateCallbacks()
