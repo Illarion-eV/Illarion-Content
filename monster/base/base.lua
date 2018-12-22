@@ -21,6 +21,7 @@ local treasure = require("item.base.treasure")
 local arena = require("base.arena")
 local mugWithLid = require("item.id_310_mug_with_lid")
 local shard = require("item.shard")
+local levels = require("monster.base.levels")
 
 local M = {}
 
@@ -152,8 +153,16 @@ local function performDrop(monster)
         for _, category in pairs(loot) do
             dropLootCategory(monster, category)
         end
-        
-        shard.dropShardByMonster(monster)
+     
+        --Dropping of shards
+        local monsterLevel = levels.getLevel(monster:getMonsterType())
+    
+        if monsterLevel >= 4 then
+            local singleProb = 1 / (100 - 10 * tonumber(monsterLevel))
+            if math.random() < singleProb then
+                shard.createShardOnPosition(monster.pos)
+            end
+        end
     end
 end
 

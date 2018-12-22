@@ -22,37 +22,6 @@ local M = {}
 
 -- UPDATE items SET itm_script='item.shard',itm_weight=20, itm_agingspeed=5, itm_brightness=1, itm_worth=10000, itm_maxstack=1000, itm_name_german='Splitter', itm_name_english='Shard',itm_rareness=2 WHERE itm_id IN (3493, 3494, 3495,3496,3497);
 
-local function estimateMonsterLevel(monster)
-    --hack used, see http://illarion.org/mantis/view.php?id=9619
-    local attributeNames = {
-    "agility",
-    "constitution",
-    "dexterity",
-    "essence",
-    "intelligence",
-    "perception",
-    "strength",
-    "willpower"
-}
-    local attributeLimits = {1,3,5,9,13,19,25,33,41,999}
-    local maxAttrib = 0
-    local thisAttrib
-    for i=1, #attributeNames do
-        thisAttrib = tonumber(monster:getBaseAttribute(attributeNames[i]))
-        if thisAttrib ~= nil then
-            if thisAttrib > maxAttrib then
-                maxAttrib = thisAttrib
-            end
-        end
-    end
-    for i=1,#attributeLimits do
-        if maxAttrib <= attributeLimits[i] then
-            return i
-        end
-    end
-    return 1
-end
-
 function M.UseItem(user, item)
         user:inform(
             "Es scheint sich um ein Stück eines zerbrochenen magischen Artefakts zu handeln. Vielleicht kann man es wieder zusammensetzen?",
@@ -61,7 +30,7 @@ end
 
 function M.LookAtItem(user, item)
     local lookAt = lookat.GenerateLookAt(user, item)
-
+    lookAt.description = common.GetNLS(user, "Glyphenscherbe", "Glyph shard")
     lookAt.name = glyphs.getShardName(item)
     lookAt.rareness = 2
 
@@ -94,18 +63,6 @@ function M.dropShardByChance(treasureLocation,treasureLevel)
             end
         end
     end
-end
-
-function M.dropShardByMonster(monster)
-    --hack used, see http://illarion.org/mantis/view.php?id=9619
-    local monsterLevel = estimateMonsterLevel(monster)
-    if monsterLevel >= 4 then
-        local singleProb = 1 / (100 - 10 * tonumber(monsterLevel))
-        if math.random() < singleProb then
-            M.createShardOnPosition(monster.pos)
-        end
-    end
-    
 end
 
 function M.shardInInvertory(user,shardLevel)
