@@ -155,7 +155,7 @@ local function performDrop(monster)
         end
      
         --Dropping of shards
-        local monsterLevel = levels.getLevel(monster:getMonsterType())
+        local monsterLevel = levels.getLevel(monster)
     
         if monsterLevel >= 4 then
             local singleProb = 1 / (100 - 10 * tonumber(monsterLevel))
