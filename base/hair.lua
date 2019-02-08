@@ -78,7 +78,6 @@ M.hairStyles = {}
             M.hairStyles[globalvar.raceORC][Character.male][3] = {nameDe="groﬂes Gewusel", nameEn="mery messy hair"}
             M.hairStyles[globalvar.raceORC][Character.male][4] = {nameDe="Gewusel", nameEn="messy hair"}
             M.hairStyles[globalvar.raceORC][Character.male][5] = {nameDe="langer Pferdeschwanz", nameEn="long ponytail"}
-    M.hairStyles[globalvar.raceORC] = {}
         M.hairStyles[globalvar.raceORC][Character.female] = {}
             M.hairStyles[globalvar.raceORC][Character.female][0] = {nameDe="Glatze", nameEn="bald head"}
             M.hairStyles[globalvar.raceORC][Character.female][1] = {nameDe="kurze Haare", nameEn="short hair"}
