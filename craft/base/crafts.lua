@@ -477,7 +477,7 @@ function Product:getCraftingTime(skill,gemBonus)
         learnProgress = (skill - self.difficulty) / (self.learnLimit - self.difficulty) * 100
     end
     local theItem = world:getItemStatsFromId(self.item)
-    local minimum = math.max ((self.quantity * (30+(theItem.Worth-200)*(1500-30)/(133300-200))),30) --30: Minimum time; 200: Minimum price; 1500: maximum time; 133300: maximum price
+    local minimum = math.max (((30+((self.quantity * theItem.Worth)-200)*(1500-30)/(133300-200))),30) --30: Minimum time; 200: Minimum price; 1500: maximum time; 133300: maximum price
     local craftingTime = common.Scale(minimum * 2, minimum, learnProgress)
     if theItem.MaxStack ~= 1 then
         craftingTime = craftingTime - craftingTime*0.005*gemBonus; -- 36% (lvl3) lead to 18% time saving
