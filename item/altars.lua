@@ -20,17 +20,17 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- REFERENCE_IN_LUA - DATA - MEANING
 --Elder Gods
 -- gods.GOD_USHARA   -  1 - Ushara - Goddess of earth
--- gods.GOD_BRAGON   -  2 - BrÃ¡gon - God of fire
+-- gods.GOD_BRAGON   -  2 - Brágon - God of fire
 -- gods.GOD_ELDAN    -  3 - Eldan - God of spirit
 -- gods.GOD_TANORA   -  4 - Tanora/Zelphia - Goddess of water
 -- gods.GOD_FINDARI  -  5 - Findari - Goddess of air
 --Younger Gods
--- gods.GOD_NARGUN   -  6 - NargÃ¹n - God of chaos
+-- gods.GOD_NARGUN   -  6 - Nargùn - God of chaos
 -- gods.GOD_ELARA    -  7 - Elara - Goddess of wisdom and knowledge
 -- gods.GOD_ADRON    -  8 - Adron - God of festivities and wine
 -- gods.GOD_OLDRA    -  9 - Oldra - Goddess of life and fertility
 -- gods.GOD_CHERGA   - 10 - Cherga - Goddess of spirits and the underworld
--- gods.GOD_MALACHIN - 11 - MalachÃ­n - God of battle and hunting
+-- gods.GOD_MALACHIN - 11 - Malachín - God of battle and hunting
 -- gods.GOD_IRMOROM  - 12 - Irmorom - God of trade and craftsmanship
 -- gods.GOD_SIRANI   - 13 - Sirani - Goddess of love and pleasure
 -- gods.GOD_ZHAMBRA  - 14 - Zhambra - God of friendship and loyalty
@@ -82,16 +82,16 @@ local M = {}
 ----These are the items I need to become a devotee
 --local devoteItems = {};
 --devoteItems[1] = { 733, 316, 2588 }; --Ushara: Stone block, Quartz sand, Brick
---devoteItems[2] = { 314, 236, 43 }; --BrÃ¡gon: potash, Gold ignot, Candle
+--devoteItems[2] = { 314, 236, 43 }; --Brágon: potash, Gold ignot, Candle
 --devoteItems[3] = { 256, 2745, 155 }; --Eldan: Raw diamonds, Parchment, Sibanac leaf
 --devoteItems[4] = { 52, 253, 72 }; --Tanora: Bucket of water, Raw sapphire, Fishing rod
 --devoteItems[5] = { 64, 463, 65 }; --Findari: Arrow, Quill, Short Bow
---devoteItems[6] = { 80, 356, 733 }; --NargÃ¹n: Banana, Slouch hat, Stone block
+--devoteItems[6] = { 80, 356, 733 }; --Nargùn: Banana, Slouch hat, Stone block
 --devoteItems[7] = { 2745, 43, 463 }; --Elara: Parchment, Candle, Quill
 --devoteItems[8] = { 223, 2500, 388 }; --Adron: Iron Goblet, Bottle of Wine, Grapes
 --devoteItems[9] = { 258, 534, 259 }; --Oldra: Flail, Onion seeds, Grain
 --devoteItems[10] = { 24, 43, 182 }; --Cherga: Shovel, Candle, Black shirt
---devoteItems[11] = { 19, 65, 2586 }; --MalachÃ­n: Metal shield, Short bow, Fur
+--devoteItems[11] = { 19, 65, 2586 }; --Malachín: Metal shield, Short bow, Fur
 --devoteItems[12] = { 3077, 23, 2140 }; --Irmorom: Silver coin, Hammer, Tongs
 --devoteItems[13] = { 235, 148, 174 }; --Sirani: Gold ring, Firnis blossom, Red cloth
 --devoteItems[14] = { 2760, 17, 78 }; --Zhambra: Rope, Wooden shield, Short sword
@@ -101,16 +101,16 @@ local M = {}
 ----These are the items I need to become a priest. Not relevant for now since there is no priest magic.
 --local priestItems = {};
 --priestItems[1] = { 2416, 40, 26, 726, 735 }; --Ushara: Brown priest robe, Cleric's staff, Clay, Coarse sand, Raw stone
---priestItems[2] = { 2419, 40, 391, 46, 234 }; --BrÃ¡gon: Red priest robe, Cleric's staff, Torch, Ruby, Gold nugget
+--priestItems[2] = { 2419, 40, 391, 46, 234 }; --Brágon: Red priest robe, Cleric's staff, Torch, Ruby, Gold nugget
 --priestItems[3] = { 2418, 40, 41, 285, 463 }; --Eldan: Grey priest robe, Cleric's staff, Glass ingot, Diamond, Quill
 --priestItems[4] = { 193, 40, 2496, 284, 279 }; --Tanora: Blue robe, Cleric's staff, Bottle of Water, Sapphire, Sapphire ring
 --priestItems[5] = { 2421, 40, 2780, 322, 166 }; --Findari: White priest robe, Cleric's staff, Longbow, Wind arrow, Big empty bottle
---priestItems[6] = { 2418, 445, 355, 225, 290 }; --NargÃ¹n: Grey priest robe, Wooden sword, Salmon, Crown, Cabbage
+--priestItems[6] = { 2418, 445, 355, 225, 290 }; --Nargùn: Grey priest robe, Wooden sword, Salmon, Crown, Cabbage
 --priestItems[7] = { 368, 76, 397, 3110, 222 }; --Elara: Yellow priest robe, Mage's staff, Oil lamp, Pell, Amulet
 --priestItems[8] = { 2419, 224, 335, 2744, 155 }; --Adron: Red priest robe, Golden goblet, Lute, Pipe, Sibanac leaf
 --priestItems[9] = { 2416, 271, 126, 56, 249 }; --Oldra: Brown priest robe, Scythe, Sickle, Bough, Bundle of grain
 --priestItems[10] = { 2420, 271, 138, 314, 726 }; --Cherga: Black priest robe, Scythe, Night angels blossom, potash, Coarse sand
---priestItems[11] = { 2421, 20, 391, 2291, 78 }; --MalachÃ­n: White priest robe, Large metal shield, Torch, Salkamaerian Paladin's helmet, Shortsword
+--priestItems[11] = { 2421, 20, 391, 2291, 78 }; --Malachín: White priest robe, Large metal shield, Torch, Salkamaerian Paladin's helmet, Shortsword
 --priestItems[12] = { 2418, 226, 74, 2763, 2752 }; --Irmorom: Grey priest robe, War Hammer, Hatchet, Pickaxe, Carving tools
 --priestItems[13] = { 2421, 40, 280, 354, 222 }; --Sirani: White priest robe, Cleric's staff, Diamond ring, Strawberry cake, Amulet
 --priestItems[14] = { 368, 20, 2701, 40, 333 }; --Zhambra: Yellow priest robe, Large metal shield, Longsword, Cleric's staff, Horn
@@ -198,12 +198,12 @@ local function devotionDialog(User, god)
         return
     elseif gods.isPriest(User) then
         explanation = explanation .. common.GetNLS(User,
-            "FIXGERMAN Als Priester einer anderen Gottheit mÃ¼ÃŸtet ihr eurer Gottheit abschwÃ¶ren, um ein Priester " .. gods.getNameDe(god) .. "s zu werden FIXGERMAN status loss.",
+            "FIXGERMAN Als Priester einer anderen Gottheit müßtet ihr eurer Gottheit abschwören, um ein Priester " .. gods.getNameDe(god) .. "s zu werden FIXGERMAN status loss.",
             "As priest of another god, you'll have to abjure your god to devote yourself to " .. gods.getNameEn(god) .. ", and you will lose your status."
         )
     elseif gods.isDevoted(User) then
         explanation = explanation .. common.GetNLS(User,
-            "Als AnhÃ¤nger einer anderen Gottheit werdet ihr eurem Gott abschwÃ¶ren mÃ¼ssen, um euch " .. gods.getNameDe(god) .. " zu weihen.",
+            "Als Anhänger einer anderen Gottheit werdet ihr eurem Gott abschwören müssen, um euch " .. gods.getNameDe(god) .. " zu weihen.",
             "As devotee of another god, you'll have to abjure your god to devote yourself to " .. gods.getNameEn(god) .. "."
         )
     else -- noob
@@ -255,19 +255,19 @@ end
 --                      elseif User:getMagicType()== 3 and User:getMagicFlags(3)~= 0 then --a druid! Can't become priest
 --                        common.InformNLS(User,"Ein Druide kann leider kein Priester werden.","As a druid, you cannot become a priest anymore.");
 --                      else --a noob, may become priest
---                        common.InformNLS(User,"Um ein Priester "..godName[god].."s zu werden, wirst du folgendes opfern mÃ¼ssen:","To become a priest of "..godName[god]..", you'll have to donate:");
+--                        common.InformNLS(User,"Um ein Priester "..godName[god].."s zu werden, wirst du folgendes opfern müssen:","To become a priest of "..godName[god]..", you'll have to donate:");
 --                        User:inform(tellStuff(priestItems[god],User:getPlayerLanguage())); --stuff4priest
 --                      end
 --                ]]
 --            elseif devotion ~= god then
 --                -- devoted to another god
 --                if (priesthood == 0) then
---                    common.InformNLS(User, "Als AnhÃ¤nger einer anderen Gottheit wirst du deinem Gott abschwÃ¶ren mÃ¼ssen, um dich " .. gods.getNameDe(god) .. " zu weihen.", "As devotee of another god, you'll have to abjure your god to devote yourself to " .. gods.getNameEn(god) .. ".");
---                    common.InformNLS(User, "Um dich " .. gods.getNameDe(god) .. " zu weihen, wirst du folgendes opfern mÃ¼ssen:", "To devote yourself to " .. gods.getNameEn(god) .. ", you'll have to donate:");
+--                    common.InformNLS(User, "Als Anhänger einer anderen Gottheit wirst du deinem Gott abschwören müssen, um dich " .. gods.getNameDe(god) .. " zu weihen.", "As devotee of another god, you'll have to abjure your god to devote yourself to " .. gods.getNameEn(god) .. ".");
+--                    common.InformNLS(User, "Um dich " .. gods.getNameDe(god) .. " zu weihen, wirst du folgendes opfern müssen:", "To devote yourself to " .. gods.getNameEn(god) .. ", you'll have to donate:");
 --                    User:inform(tellStuff(devoteItems[god], User:getPlayerLanguage())); --stuff4devotee
 --                else
---                    common.InformNLS(User, "Als Priester einer anderen Gottheit must du deiner Gottheit abschwÃ¶ren, um ein Priester " .. gods.getNameDe(god) .. "s zu werden.", "As priest of another god, you'll have to abjure your god to become a priest of " .. gods.getNameEn(god) .. ".");
---                    common.InformNLS(User, "Um ein Priester " .. gods.getNameDe(god) .. "s zu werden, wirst du folgendes opfern mÃ¼ssen:", "To devote yourself to " .. gods.getNameEn(god) .. ", you'll have to donate:");
+--                    common.InformNLS(User, "Als Priester einer anderen Gottheit must du deiner Gottheit abschwören, um ein Priester " .. gods.getNameDe(god) .. "s zu werden.", "As priest of another god, you'll have to abjure your god to become a priest of " .. gods.getNameEn(god) .. ".");
+--                    common.InformNLS(User, "Um ein Priester " .. gods.getNameDe(god) .. "s zu werden, wirst du folgendes opfern müssen:", "To devote yourself to " .. gods.getNameEn(god) .. ", you'll have to donate:");
 --                    User:inform(tellStuff(devoteItems[god], User:getPlayerLanguage())); --stuff4devotee
 --                    User:inform(tellStuff(priestItems[god], User:getPlayerLanguage())); --stuff4priest
 --                end
@@ -276,11 +276,11 @@ end
 --            elseif (devotion == god) then
 --                -- devoted to this god
 --                common.InformNLS(User,
---                    "Du betest zu " .. gods.GOD_DE[god] .. " und bekrÃ¤ftigst deinen Glauben.",
+--                    "Du betest zu " .. gods.GOD_DE[god] .. " und bekräftigst deinen Glauben.",
 --                    "You pray to " .. gods.GOD_EN[god] .. " and confirm your faith.");
 --                if (priesthood == 0) then
 --                    common.InformNLS(User,
---                        "[INFO] An dieser Stelle kÃ¶nntest du Priester werden, aber Priestermagie ist noch nicht verfÃ¼gbar.",
+--                        "[INFO] An dieser Stelle könntest du Priester werden, aber Priestermagie ist noch nicht verfügbar.",
 --                        "[INFO] At this point you could become a priest, but priest magic is not available yet.");
 --                    --Below, even more stuff that only makes sense with priest magic. Code makes devotees become priests.
 --                    --[[
@@ -303,11 +303,11 @@ end
 --                          User:teachMagic(1,2);
 --                          User:teachMagic(1,3);
 --                        else --does not have the stuff
---                          common.InformNLS(User,"Um ein Priester "..godName[god].."s zu werden, wirst du folgendes opfern mÃ¼ssen:","To become a priest of "..godName[god]..", you'll have to donate:");
+--                          common.InformNLS(User,"Um ein Priester "..godName[god].."s zu werden, wirst du folgendes opfern müssen:","To become a priest of "..godName[god]..", you'll have to donate:");
 --                        end --item check
 --                        User:inform(tellStuff(priestItems[god],User:getPlayerLanguage())); --stuff4priest
 --                      else --not enough devotees around
---                        common.InformNLS(User,"Um die Priesterweihe zu empfangen musst du wenigstens drei AnhÃ¤nger "..godName[god].."s zu einer Messe versammeln.","To receive the ordination to the priesthood of "..godName[god]..", you'll have to gather at least three devotees for a mass.");
+--                        common.InformNLS(User,"Um die Priesterweihe zu empfangen musst du wenigstens drei Anhänger "..godName[god].."s zu einer Messe versammeln.","To receive the ordination to the priesthood of "..godName[god]..", you'll have to gather at least three devotees for a mass.");
 --                      end --audience check
 --                    end --noob
 --                    --]]
@@ -329,28 +329,28 @@ local function ZeniaAltar(User, SourceItem)
 
     if User:getQuestProgress(502) == 1 then
         User:setQuestProgress(502, 2) --Prayer done
-        User:inform("[Quest status] Du hast gebetet und hoffentlich Zenia damit erfreut. Kehre zu ihr zurÃ¼ck", "[Quest status] You feel as if you have prayed sufficient to please Zenia. Please return to her.")
+        User:inform("[Quest status] Du hast gebetet und hoffentlich Zenia damit erfreut. Kehre zu ihr zurück", "[Quest status] You feel as if you have prayed sufficient to please Zenia. Please return to her.")
     elseif User:getQuestProgress(502) == 8 and User:countItemAt("all", 2760) >= 2 and User:countItemAt("all", 3) >= 5 and User:countItemAt("all", 26) >= 5 and User:countItemAt("all", 73) >= 10 then -- Take raft items
         User:eraseItem(2760, 2)
         User:eraseItem(3, 5)
         User:eraseItem(26, 5)
         User:eraseItem(73, 10)
         User:setQuestProgress(502, 9) --  You made a raft.
-        User:inform("[Quest status] Nach dem Gebet siehst du, wie die Materialien sich von selbst zu einem kleinen Floss zusammenfÃ¼gen. Du kletterst darauf und wirst zu einer kleinen Insel transportiert.", "[Quest status] After praying, you see the items magicallyÂ form a small raft.  You climb on board and are transported to a small island.")
+        User:inform("[Quest status] Nach dem Gebet siehst du, wie die Materialien sich von selbst zu einem kleinen Floss zusammenfügen. Du kletterst darauf und wirst zu einer kleinen Insel transportiert.", "[Quest status] After praying, you see the items magically form a small raft.  You climb on board and are transported to a small island.")
         User:warp(position(753, 351, -9))
         world:gfx(11, User.pos)
         world:makeSound(9, User.pos)
     elseif User:getQuestProgress(502) == 8 then -- You dropped something you needed.
-        User:inform("Du musst alle Einzelteile fÃ¼r FloÃŸ und Gebet haben.", "You need all items for raft and prayer.")
+        User:inform("Du musst alle Einzelteile für Floß und Gebet haben.", "You need all items for raft and prayer.")
     elseif User:getQuestProgress(502) == 10 and User:countItemAt("all",355) >= 10 then -- Revisit Zenia
         User:eraseItem(355, 10)
         User:setQuestProgress(502, 9) --  Ready to leave again.
-        User:inform("[Quest status] Nach dem Gebet siehst du einen hellen Lichtblitz und das kleine Floss erscheint im Wasser. Nachdem du darauf geklettert bist, wirst du zurÃ¼ck auf die kleine Insel gebracht.", "[Quest status]  After praying,Â you see a bright light flash and your small raft magicallyÂ appears in the water. Climbing onto it, you are transported back to the small island.")
+        User:inform("[Quest status] Nach dem Gebet siehst du einen hellen Lichtblitz und das kleine Floss erscheint im Wasser. Nachdem du darauf geklettert bist, wirst du zurück auf die kleine Insel gebracht.", "[Quest status]  After praying, you see a bright light flash and your small raft magically appears in the water. Climbing onto it, you are transported back to the small island.")
         User:warp(position(753, 351, -9))
         world:gfx(11, User.pos)
         world:makeSound(9, User.pos)
     elseif  User:getQuestProgress(502) == 10 then -- You dropped something you needed.
-        User:inform("Du hast nicht die richtigen Dinge fÃ¼r das Gebet.", "You lack the proper items for prayer.")
+        User:inform("Du hast nicht die richtigen Dinge für das Gebet.", "You lack the proper items for prayer.")
     end
 end
 
@@ -366,7 +366,7 @@ function M.LookAtItem(User, Item)
         local msg_de = "Altar " .. gods.getNameDe(god) .. "s, " .. gods.getDescriptionDe(god) .. "."
         if gods.isDevoted(User, god) then
             msg_en = msg_en .. "Beholding the altar of " .. gods.getNameEn(god) .. " makes you feel proud of your devotion."
-            msg_de = msg_de .. "Der Anblick von " .. gods.getNameDe(god) .. "s Altar erfÃ¼llt dich in deiner Ergebenheit mit Stolz."
+            msg_de = msg_de .. "Der Anblick von " .. gods.getNameDe(god) .. "s Altar erfüllt dich in deiner Ergebenheit mit Stolz."
         end
         lookat.SetSpecialName(Item,
             msg_de,
@@ -395,7 +395,7 @@ function M.UseItem(User, SourceItem, ltstate)
 
     --Depending on who's altar that is and who uses it, execute different actions
     if not gods.GODS[god] then --undedicated altar
-        common.InformNLS(User, "Du berÃ¼hrst den Altar, die Abwesenheit gÃ¶ttlichen Wirkens ist offensichtlich.", "You touch the altar, the absence of divine blessing is obvious.");
+        common.InformNLS(User, "Du berührst den Altar, die Abwesenheit göttlichen Wirkens ist offensichtlich.", "You touch the altar, the absence of divine blessing is obvious.");
     else --dedicated altar
         local title = common.GetNLS(User,
             "Altar " .. gods.getNameDe(god) .. "s",
