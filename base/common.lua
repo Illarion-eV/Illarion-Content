@@ -53,6 +53,64 @@ function M.TalkNLS(User, method, textInDe, textInEN)
     User:talk(method, textInDe, textInEN)
 end
 
+---
+-- Notify user about an error, write it to log and raise exception (stop the execution)
+-- @param User The character who receives the message
+-- @param message The error message as string. In English. Should end with "."
+function M.informError(User, message)
+    User:inform("[ERROR] " .. message .. " Please inform a developer.")
+    error(message)
+end
+
+---
+-- Show selection dialog with defined properties
+-- @param User - the character to receive the dialog
+-- @param title - string - the dialog title
+-- @param description - string - the text below the title
+-- @param buttons - a list of tables that define dialog options, with following fields:
+--          icon - itemId of the icon to be displayed
+--          text - text to be displayed
+--          func - function to be called if this button is pressed, if nil than nothing is done
+--          args - arguments to be passed to func
+-- @param onclose - a table that defines what happens if dialog is closed, if nil than nothing is done
+--          func - function to be called
+--          args - arguments to be passed to func
+-- @param closeOnMove - whether dialog closes when char moves, default is `true`
+--
+function M.selectionDialogWrapper(User, title, description, buttons, onclose, closeOnMove)
+    onclose = onclose or { func = function() end, args = {} }
+    if closeOnMove == nil then
+        closeOnMove = true
+    end
+    -- User:inform("#buttons = " .. #buttons)
+    buttons = buttons or {}
+    local callback = function(dialog)
+        if (not dialog:getSuccess()) then
+            onclose.func(table.unpack(onclose.args))
+            return
+        end
+        local index = dialog:getSelectedIndex() + 1
+        if index >= 1 and index <= #buttons then
+            if buttons[index].func ~= nil then
+                buttons[index].func(table.unpack(buttons[index].args))
+            end
+        else
+            User:inform("[ERROR] No valid function. Please inform a developer.")
+        end
+    end
+    local sd = SelectionDialog(title, description, callback)
+    for _, btn in ipairs(buttons) do
+        local icon = btn.icon or 0
+        local text = btn.text or ""
+        sd:addOption(icon, text)
+    end
+    if closeOnMove then
+        sd:setCloseOnMove()
+    end
+    User:requestSelectionDialog(sd)
+end
+
+
 --- Get a text based on the gender of the character.
 -- @param User The character used to choose the text
 -- @param textMale The text returned in case the character is male
@@ -825,6 +883,44 @@ function M.NormalRnd2(minVal, maxVal, count)
     return math.ceil(base / count) + minVal
 end
 
+--- Sample from categorical distribution, e.g. rolling an N-sided die
+-- @param cumulativeProb - array of legth N - cumulative sum of probabilities
+--          should be monotonic non-decreasing, first element is the probability of first category
+--          every other element is sum of previous element and probability of current category
+--          last element should be 1
+-- @return int - the index of category that won
+--
+function M.randomCategorical(cumulativeProb)
+    local r = math.random()
+    local category
+    for i,v in ipairs(cumulativeProb) do
+        if r <= v then
+            category = i
+            break
+        end
+    end
+    assert(category, "Failed sampling categorical distribution, last cumulativeProbability was " .. cumulativeProb[#cumulativeProb])
+    return category
+end
+
+--- Sample from multinomial distribution, i.e. repeated categorical trials
+-- @param numTrials - number of categorical trials to simulate. Sum of values in returned array will be equal to this.
+-- @param cumulativeProb - cumulative sum of probabilities, same as in randomCategorical function
+-- @return array of integers - number of times each category won
+--
+function M.randomMultinomial(numTrials, cumulativeProb)
+    local result = {}
+    for i = 1, #cumulativeProb do
+        result[i] = 0
+    end
+    for _ = 1, numTrials do
+        local category = M.randomCategorical(cumulativeProb)
+        result[category] = result[category] + 1
+    end
+    return result
+end
+
+
 local function _isNumber(value)
     return type(value) == "number"
 end
@@ -1576,6 +1672,30 @@ function M.map(ar, f)
     end
     return ar
 end
+
+---
+-- Turn a list into a "set"
+-- Use set[item] to check if an item is contained in set
+-- Taken from: http://lua-users.org/wiki/SetOperations
+-- For more operaions (union, intersection) see the above and also https://www.lua.org/pil/13.1.html
+--@param t list of values to be included in the set
+function M.setFromList(t)
+    local s = {}
+    for _,v in pairs(t) do s[v] = true end
+    return s
+end
+
+---
+-- Take two sets and create a union (set containing all items from the sets, without repetition)
+-- @param a - a set
+-- @param b - a set
+function M.setUnion(a, b)
+    local s = {}
+    for v, _ in pairs(a) do s[v] = true end
+    for v, _ in pairs(b) do s[v] = true end
+    return s
+end
+
 
 --[[
     This is some strange method written by Vilarion. Its extremly inefficient,

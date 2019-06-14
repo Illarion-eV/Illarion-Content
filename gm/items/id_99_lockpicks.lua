@@ -564,15 +564,8 @@ local function charInfo(chosenPlayer)
             "\nIdle for [s]: "..tostring(chosenPlayer:idleTime()) ..
             "\n" .. factionInfo
 
-    local godInfo = ""
-    if chosenPlayer:getQuestProgress(402) > 0 then
-        godInfo = "Priest of "..gods.GOD_EN[chosenPlayer:getQuestProgress(402)]
-    elseif chosenPlayer:getQuestProgress(401) > 0 then
-        godInfo = "Devoted to "..gods.GOD_EN[chosenPlayer:getQuestProgress(401)]
-    else
-        godInfo = "not devoted to any God"
-    end
-    output = output .. "\n" .. godInfo
+    local godInfo = gods.getCharStatusEn(chosenPlayer)
+    output = output .. "\nReligion: " .. godInfo
 
     local specialInfo = ""
     if chosenPlayer:isAdmin() then
@@ -597,8 +590,8 @@ local function charInfo(chosenPlayer)
 end
 
 local function String2Number(str)
-    if (string.find(str, "(%d+)") ~= nil) then
-        local _, _, num = string.find(str, "(%d+)")
+    if (string.find(str, "(-?%d+)") ~= nil) then
+        local _, _, num = string.find(str, "(-?%d+)")
         if (num ~= "") then
             num = tonumber(num)
             return num, true
@@ -682,6 +675,83 @@ local function settingsForCharAttributes(User, chosenPlayer)
         sdAttribute:addOption(0,attribute.." value: "..chosenPlayer:getBaseAttribute(attribute))
     end
     User:requestSelectionDialog(sdAttribute)
+end
+
+local function settingsForCharChangeDevotion(User, chosenPlayer)
+    local dialogOptions = {
+        {text = "Not devoted", func = gods.setNotDevoted, args = { chosenPlayer } },
+    }
+    for god,_ in pairs(gods.GODS) do
+        table.insert(dialogOptions,
+            {text = gods.getNameEn(god), func = gods.setDevoted, args = { chosenPlayer, god } }
+        )
+    end
+
+    common.selectionDialogWrapper(User, "Char devotion", gods.getCharStatusEn(chosenPlayer).."\nWhich god do you want this char to be devoted?", dialogOptions)
+
+end
+
+local function settingsForCharChangeDivineFavour(User, chosenPlayer, god)
+    local changeDialog = function (dialog)
+        if (not dialog:getSuccess()) then
+            return
+        end
+        local enteredText = dialog:getInput()
+        local firstChar = string.sub(enteredText, 1, 1)
+
+        local enteredValue, okay = String2Number(string.sub(enteredText, 2))
+        if (not okay) then
+            User:inform("no number")
+            return
+        end
+
+        local delta
+        if firstChar == "-" then
+            delta = -enteredValue
+        elseif firstChar == "+" then
+            delta = enteredValue
+        elseif firstChar == "=" then
+            delta = enteredValue - gods.getFavour(chosenPlayer, god)
+        else
+            User:inform("Must start with '+' or '-' or '='.")
+            return
+        end
+
+        if (delta < -4000 or delta > 4000) then
+            User:inform("Change value has to be between -4000 and 4000.")
+            return
+        end
+
+        gods.increaseFavour(chosenPlayer, god, delta)
+        User:logAdmin("changes divine favour of character " .. chosenPlayer.name .. ". " .. gods.getNameEn(god) .. ": by " .. delta .. " to " .. gods.getFavour(chosenPlayer, god))
+    end
+    local sdChange = InputDialog(
+        "Change favour of "..gods.getNameEn(god),
+        "Current value: "..gods.getFavour(chosenPlayer, god).."\n"..
+        "Type in by how much to increase/decrease it, start with '+' or '-' or '=' :",
+        false, 255, changeDialog)
+    User:requestInputDialog(sdChange)
+end
+
+
+local function settingsForCharReligion(User, chosenPlayer)
+    local dialogOptions = {
+        {text = "Change devotion", func = settingsForCharChangeDevotion, args = { User, chosenPlayer } },
+    }
+    if gods.isDevoted(chosenPlayer) then
+        table.insert(dialogOptions,
+            {text = "Make priest", func = gods.setPriest, args = { chosenPlayer } }
+        )
+    end
+
+    for god,_ in pairs(gods.GODS) do
+        table.insert(dialogOptions,
+            {text = "Favour of "..gods.getNameEn(god)..": "..gods.getFavour(chosenPlayer,god), func = settingsForCharChangeDivineFavour, args = { User, chosenPlayer, god } }
+        )
+    end
+
+    common.selectionDialogWrapper(User, "Char religion", gods.getCharStatusEn(chosenPlayer), dialogOptions)
+
 end
 
 local function godMode(User, SourceItem, ltstate)
@@ -1353,6 +1423,8 @@ local function settingsForChar(User)
                 settingsForCharPoisonCloudProof(User, chosenPlayer)
             elseif actionToPerform == 9 then
                 settingsForCharAttributes(User, chosenPlayer)
+            elseif actionToPerform == 10 then
+                settingsForCharReligion(User, chosenPlayer)
             end
         end
         local sdAction = SelectionDialog("Character settings", chosenPlayer.name.."\n" .. charInfo(chosenPlayer), charActionDialog)
@@ -1386,6 +1458,8 @@ local function settingsForChar(User)
             sdAction:addOption(164,"Remove poison cloud proof!")
         end
         sdAction:addOption(93,"Set attributes")
+
+        sdAction:addOption(1060, "Religion")
 
         User:requestSelectionDialog(sdAction)
     end

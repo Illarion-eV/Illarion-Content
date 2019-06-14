@@ -15,7 +15,9 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- Quest: A spark to a flame (113)/(114)
+-- For triggerfield sql see triggerfield/altars.lua
 local common = require("base.common")
+local tgf_altars = require("triggerfield.altars")
 
 local M = {}
 
@@ -61,5 +63,12 @@ function M.MoveToField(User)
         end
     end
 end
+
+
+function M.PutItemOnField(Item, User)
+    -- for sacrifice use regular triggerfield script
+    return tgf_altars.PutItemOnField(Item, User)
+end
+
 
 return M

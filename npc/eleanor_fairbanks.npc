@@ -75,8 +75,12 @@ itemShoes = 1500
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Eleanor Fairbanks the Priestess of Oldra. Keywords: Hello, Oldra, Quest, Yewdale, god.")
+"Help" -> inform("[Game Help] This NPC is Eleanor Fairbanks the Priestess of Oldra. Keywords: Hello, Oldra, Quest, Yewdale, god, favour, sacrifice.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Eleanor Fairbanks die Priesterin von Oldra. Schlüsselwörter: Hallo, Oldra, Quest, Yewdale, Gott.")
+
+-- Book of your god quest
+queststatus(401) = 9, queststatus(685) = 0, english, ".+" -> inform("[New Quest] A book about your God"), "FIXME Oh, a neophyte! Why don't you go ask for a book about Oldra in the library?", queststatus(685) = 1
+queststatus(401) = 9, queststatus(685) = 0, ".+" -> inform("[New Quest] A book about your God"), "FIXME FIXME Oh, a neophyte! Why don't you go ask for a book about Oldra in the library?", queststatus(685) = 1
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hiho! Isn't it a lovely day?", "Hiho! Welcome to Oldra's Columns."
@@ -209,6 +213,18 @@ english, "Ushara" -> "Elder Goddess of the earth and life. She is wise and mothe
 "Ushara" -> "Ushara ist die Alte Göttin der Erde und des Lebens. Sie ist klug und mütterlich. Ihre Anhänger sind selten und meist alte Elfen und weise Druiden. Alle anderen folgen nun Oldra an ihrer Stelle."
 english, "Zhambra" -> "God of friendship and loyalty. His followers are selfless in battle and are true to their word. He is as much of a god of war as he is of diplomacy and law. Zhambra's altar can be found close to the palace in Cadomyr."
 "Zhambra" -> "Zhambra ist der Gott der Freundschaft und des Vertrauens. Seine Anhänger sind selbstlos im Kampf und sind ihrem Wort treu. Er ist Gott des Krieges, wie auch der Diplomatie und des Gesetzes. Der Altar Zhambras befindet sich in der Nähe des Palastes in Cadomyr."
+
+-- Divine rank
+"favour", "favor", queststatus(411) >= expr(400) -> "FIXME %CHARNAME, I am honoured by your visit"
+"favour", "favor", queststatus(411) >= expr(200) -> "FIXME You are awesome"
+"favour", "favor", queststatus(411) >= expr(100) -> "FIXME Oldra looks at you favourably"
+"favour", "favor", queststatus(411) > expr(-100), queststatus(402) = 9 -> "FIXME You are neutral, beware not to lose your status as priest"
+"favour", "favor", queststatus(411) > expr(-100) -> "FIXME You are neutral"
+"favour", "favor", queststatus(411) > expr(-200) -> "FIXME You are bad"
+"favour", "favor", queststatus(411) > expr(-400) -> "FIXME You are very bad"
+"favour", "favor" -> "FIXME %CHARNAME, are you here to kill me?"
+
+"donation", "sacrifice" -> "FIXME Oldra likes cooks and farmers"
 
 -- Optional: Faction stuff
 "archmage" -> "He runs the mages academy in Runewick. A bit of a recluse, that one."

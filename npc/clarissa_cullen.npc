@@ -64,8 +64,12 @@ itemShoes = 1517
 ------------------------------------------------------------------------------AC
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Clarissa Cullen, the Priestess of Zhambra. Keywords: Hello, god, Zhambra.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Clarissa Cullen, eine Priesterin des Zhambra. Schlüsselwörter: Hallo, Gott, Zhambra.")
+"Help" -> inform("[Game Help] This NPC is Clarissa Cullen, the Priestess of Zhambra. Keywords: Hello, god, Zhambra, favour, sacrifice.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Clarissa Cullen, eine Priesterin des Zhambra. Schlüsselwörter: Hallo, Gott, Zhambra, FIXME.")
+
+-- Book of your god quest
+queststatus(401) = 14, queststatus(685) = 0, english, ".+" -> inform("[New Quest] A book about your God"), "FIXME Oh, a neophyte! Why don't you go ask for a book about Zhambra in the library?", queststatus(685) = 1
+queststatus(401) = 14, queststatus(685) = 0, ".+" -> inform("[New Quest] A book about your God"), "FIXME FIXME Oh, a neophyte! Why don't you go ask for a book about Zhambra in the library?", queststatus(685) = 1
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted!"
@@ -127,6 +131,18 @@ english, "Ushara" -> "Ushara is the elder goddess of earth. She is a wise, mothe
 "Ushara" -> "Ushara ist die ältere Göttin der Erde. Sie ist eine weise, mütterliche Gestalt, die kein Interesse an dem Geldwert hat. Die wenigen, die ihr folgen, sind ältere Druiden. Alle anderen haben sich Oldra zugewandt."
 english, "Zhambra" -> "Zhambra is the god of friendship and loyalty. He is noble and honourable, as are those who follow him. Pray to him for the safety of loved ones in battle.", "In the afterlife, Zhambra counts his followers friends. Should they be numerous and the follower has been loyal to them in life they are lead to paradise. Should they have failed, Zhambra sends them back to be reborn.", "A follower for Zhambra's word is their bond. They are sworn to uphold what is fair and just. To intentionally deceive another is the most reprehensible thing that can be done to a person, especially a friend."
 "Zhambra" -> "Zhambra ist der Gott der Freundschaft und Loyalität. Er ist edel und ehrenhaft, wie diejenigen, die ihm folgen. Bete zu ihm für die Sicherheit der Geliebten in der Schlacht.", "Im Jenseits zählt Zhambra die Freunde seiner Anhänger. Sollten sie zahlreich sein und der Anhänger ist ihnen im Leben treu gewesen, werden sie zum Paradies geführt. Sollten sie versagt haben, schickt Zhambra sie zurück, um wiedergeboren zu werden.", "Das Wort eines Anhängers Zhambras ist bindend. Sie  schwören, das zu halten, was fair und gerecht ist. Und einen anderen absichtlich zu täuschen, ist das Verwerflichste, was einer Person, besonders einem Freund, antun kann."
+
+-- Divine rank
+"favour", "favor", queststatus(416) >= expr(400) -> "FIXME %CHARNAME, I am honoured by your visit"
+"favour", "favor", queststatus(416) >= expr(200) -> "FIXME You are awesome"
+"favour", "favor", queststatus(416) >= expr(100) -> "FIXME Zhambra looks at you favourably"
+"favour", "favor", queststatus(416) > expr(-100), queststatus(402) = 14 -> "FIXME You are neutral, beware not to lose your status as priest"
+"favour", "favor", queststatus(416) > expr(-100) -> "FIXME You are neutral"
+"favour", "favor", queststatus(416) > expr(-200) -> "FIXME You are bad"
+"favour", "favor", queststatus(416) > expr(-400) -> "FIXME You are very bad"
+"favour", "favor" -> "FIXME %CHARNAME, are you here to kill me?"
+
+"donation", "sacrifice" -> "FIXME Protecting friends is of high value for Zhambra"
 
 -- Faction stuff
 "archmage" -> "From what I hear, he is an incredibly accomplished mage. He is also a shut in who makes his home an an island that can only be reached by a magical portal. He is loyal only to his work."
