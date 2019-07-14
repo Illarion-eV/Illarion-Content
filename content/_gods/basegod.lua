@@ -115,7 +115,7 @@ end
 
 function M.BaseGod:informStopBeingDevoted(charObj)
     common.HighInformNLS(charObj,
-        "FIXGERMAN " .. self.nameDe .. ".",
+        "Du bist kein Anhänger von " .. self.nameDe .. " mehr.",
         "You no longer feel devoted to " .. self.nameEn .. "."
     )
     world:gfx(globalvar.gfxBLITZ, charObj.pos)
@@ -124,7 +124,7 @@ end
 
 function M.BaseGod:informBecomePriest(charObj)
     common.InformNLS(charObj,
-        "FIXGERMAN " .. self.nameDe .. "",
+        "Du bist nun Priester von " .. self.nameDe .. ".",
         "FIXME You are now a priest of " .. self.nameEn .. ", have fun."
     )
     world:gfx(globalvar.gfxRAIN, charObj.pos)
@@ -133,7 +133,7 @@ end
 
 function M.BaseGod:informStopBeingPriest(charObj)
     common.HighInformNLS(charObj,
-        "FIXGERMAN " .. self.nameDe .. ".",
+        self.nameDe .. " weißt deine Priesterschaft zurück.",
         self.nameEn .. " denies your priesthood!"
     )
     world:gfx(globalvar.gfxBLITZ, charObj.pos)
@@ -142,7 +142,7 @@ end
 
 function M.BaseGod:informSacrificeAccepted(charObj, sacrificePos)
     common.InformNLS(charObj,
-        "FIXGERMAN " .. self.nameDe .. " .",
+        self.nameDe .. " nimmt dein Opfer an.",
         self.nameEn .. " accepts your sacrifice."
     )
     world:gfx(globalvar.gfxSUN, sacrificePos)
@@ -150,7 +150,7 @@ end
 
 function M.BaseGod:informSacrificeNotAccepted(charObj)
     common.InformNLS(charObj,
-        "FIXGERMAN " .. self.nameDe .. " .",
+        self.nameDe .. " ignoriert deine Opfergabe.",
         self.nameEn .. " ignores your sacrifice."
     )
 end

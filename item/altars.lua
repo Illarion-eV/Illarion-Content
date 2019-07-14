@@ -169,13 +169,13 @@ local function canDevote(User, god)
     if gods.getFavour(User, god) < gods_common.DEVOTION_FAVOUR_THRESHOLD then
         result = false
         reason_en = reason_en .. "You don't have enough favour from the god. "
-        reason_de = reason_de .. "FIXGERMAN You don't have enough favour from the god. "
+        reason_de = reason_de .. "Du steht nicht hoch genug in der Gunst der Gottheit. "
     end
 
     if not checkItems(User, gods.getItemsForDevotion(User, god)) then
         result = false
         reason_en = reason_en .. "You don't have the required items. "
-        reason_de = reason_de .. "FIXGERMAN You don't have the required items. "
+        reason_de = reason_de .. "Du hast nicht die geforderten Gegenstände. "
     end
 
     return result, reason_de, reason_en
@@ -185,7 +185,7 @@ local function doDevote(User, god)
     local candevote, reason_de, reason_en = canDevote(User, god)
     if not candevote then
         -- Was capable when opened dialog, but not when accepted. Cheater?
-        common.InformNLS(User, "FIXGERMAN " .. reason_de, "You do not satisfy the devotion criteria. " .. reason_en)
+        common.InformNLS(User, "Du erfüllst nicht die Bedingungen, die an einen Anhänger gestellt werden. " .. reason_de, "You do not satisfy the devotion criteria. " .. reason_en)
     end
     deleteItems(User, gods.getItemsForDevotion(User, god))
     gods.setDevoted(User, god)
@@ -198,28 +198,28 @@ local function devotionDialog(User, god)
         return
     elseif gods.isPriest(User) then
         explanation = explanation .. common.GetNLS(User,
-            "FIXGERMAN Als Priester einer anderen Gottheit müßtet ihr eurer Gottheit abschwören, um ein Priester " .. gods.getNameDe(god) .. "s zu werden FIXGERMAN status loss.",
+            "Als Priester einer anderen Gottheit müsstest du deiner Gottheit abschwören, um ein Priester " .. gods.getNameDe(god) .. "s zu werden. Du würdest ebenso deinen Status als Anhänger verlieren.",
             "As priest of another god, you'll have to abjure your god to devote yourself to " .. gods.getNameEn(god) .. ", and you will lose your status."
         )
     elseif gods.isDevoted(User) then
         explanation = explanation .. common.GetNLS(User,
-            "Als Anhänger einer anderen Gottheit werdet ihr eurem Gott abschwören müssen, um euch " .. gods.getNameDe(god) .. " zu weihen.",
+            "Als Anhänger einer anderen Gottheit wirst du deinem Gott abschwören müssen, um dich " .. gods.getNameDe(god) .. " zu weihen.",
             "As devotee of another god, you'll have to abjure your god to devote yourself to " .. gods.getNameEn(god) .. "."
         )
     else -- noob
-        explanation = explanation .. common.GetNLS(User, "FIXGERMAN", "You can only devote yourself to one god at a time, and abjuration will make your god angry.")
+        explanation = explanation .. common.GetNLS(User, "Du kannst nur Anhänger eines Gottes sein. Abschwören verärgert deine Gottheit.", "You can only devote yourself to one god at a time, and abjuration will make your god angry.")
     end
-    explanation = explanation .. common.GetNLS(User, "FIXGERMAN", "\nYou will need to donate " .. tellItems(User, gods.getItemsForDevotion(User, god)) .. ".")
+    explanation = explanation .. common.GetNLS(User, "\nSpende diese Gegenstände: " .. tellItems(User, gods.getItemsForDevotion(User, god)) .. "." , "\nYou will need to donate " .. tellItems(User, gods.getItemsForDevotion(User, god)) .. ".")
 
     local candevote, reason_de, reason_en = canDevote(User, god)
     if candevote then
-        common.selectionDialogWrapper(User, common.GetNLS(User, "FIXGERMAN", "Devotion"), explanation, {
-            { icon = 0, text = common.GetNLS(User, "FIXGERMAN", "Devote yourself to " .. gods.getNameEn(god)), func = doDevote, args = { User, god } },
-            { icon = 0, text = common.GetNLS(User, "FIXGERMAN", "Remain " .. gods.getCharStatusEn(User)), func = nil, args = nil },
+        common.selectionDialogWrapper(User, common.GetNLS(User, "Anhängerschaft", "Devotion"), explanation, {
+            { icon = 0, text = common.GetNLS(User, "Erkläre dich zum Anhänger von " .. gods.getNameDe(god)), "Devote yourself to " .. gods.getNameEn(god)), func = doDevote, args = { User, god } },
+            { icon = 0, text = common.GetNLS(User, "Bleibe " .. gods.getCharStatusDe(User)), "Remain " .. gods.getCharStatusEn(User)), func = nil, args = nil },
         })
     else
         explanation = explanation .. "\n" .. common.GetNLS(User, reason_de, reason_en)
-        local dialog = MessageDialog(common.GetNLS(User, "FIXGERMAN", "Devotion"), explanation, --[[callback=]]function(d) end)
+        local dialog = MessageDialog(common.GetNLS(User, "Anhängerschaft", "Devotion"), explanation, --[[callback=]]function(d) end)
         User:requestMessageDialog(dialog)
     end
 end
@@ -401,7 +401,7 @@ function M.UseItem(User, SourceItem, ltstate)
             "Altar of " .. gods.getNameEn(god)
         )
         local description = common.GetNLS(User,
-            "Altar " .. gods.getNameDe(god) .. "s, " .. gods.getDescriptionDe(god) .. ". FIXGERMAN",
+            "Altar " .. gods.getNameDe(god) .. "s, " .. gods.getDescriptionDe(god) .. "..\Wähle eine Aktion:",
             "Altar of " .. gods.getNameEn(god) .. ", the " .. gods.getDescriptionEn(god) .. ".\nChoose your action:"
         )
         local dialogOptions = {

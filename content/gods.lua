@@ -220,13 +220,13 @@ function M._getCharStatus(charObj)
     local statusEn
     local godObj = M._getDevotionGod(charObj)
     if not godObj then
-        statusDe = "FIXGERMAN not devoted to any God"
+        statusDe = "kein Anhänger einer Gottheit"
         statusEn = "not devoted to any God"
     elseif M._getPriesthoodGod(charObj) == godObj then
-        statusDe = "FIXGERMAN priest of " .. godObj.nameEn
+        statusDe = "Priester von " .. godObj.nameDe
         statusEn = "priest of " .. godObj.nameEn
     else
-        statusDe = "FIXGERMAN devoted to " .. godObj.nameEn
+        statusDe = "Anhänger von " .. godObj.nameDe
         statusEn = "devoted to " .. godObj.nameEn
     end
     return statusDe, statusEn
@@ -299,7 +299,7 @@ function M.setDevoted(charObj, godOrdinal)
         local favour = godObj:getFavour(charObj)
         if favour < gods_common.LOSE_DEVOTION_FAVOUR_THRESHOLD then
             -- Usually favour >= DEVOTION_FAVOUR_THRESHOLD is checked before, but a GM might bypass that.
-            common.InformNLS(charObj, "FIXGERMAN", "Your favour is too low to be a priest.")
+            common.InformNLS(charObj, "Du stehst nicht in ausreichender Gunst, um ein Priester zu sein.", "Your favour is too low to be a priest.")
             return
         end
 
@@ -326,7 +326,7 @@ function M.setDevoted(charObj, godOrdinal)
         charObj:setQuestProgress(685, 0)
         charObj:setQuestProgress(686, 0)
         common.InformNLS(charObj,
-            "FIXGERMAN",
+            "[Ein Buch über deinen Gott] Du brauchst dieses Buch nicht mehr.",
             "[A book about your God] You don't need this book anymore."
         )
     end
@@ -352,7 +352,7 @@ function M.setPriest(charObj)
     local favour = godObj:getFavour(charObj)
     if favour < gods_common.LOSE_PRIESTHOOD_FAVOUR_THRESHOLD then
         -- Usually favour >= PRIESTHOOD_FAVOUR_THRESHOLD is checked before, but a GM might bypass that.
-        common.InformNLS(charObj, "FIXGERMAN", "Your favour is too low to be a priest.")
+        common.InformNLS(charObj, "Du stehst nicht in ausreichender Gunst, um ein Priester zu sein.", "Your favour is too low to be a priest.")
         return
     end
 
@@ -520,13 +520,13 @@ function M.pray(charObj, godOrdinal)
         return
     end
 
-    common.TalkNLS(charObj, Character.say , "#me FIXGERMAN prays.", "#me prays.")
+    common.TalkNLS(charObj, Character.say , "#me betet.", "#me prays.")
     if gods_common.prayerCooldownCounter:hasEnded(charObj) then
         M.increaseFavour(charObj, godOrdinal, gods_common.PRAYER_FAVOUR_INCREASE)
         gods_common.prayerCooldownCounter:restart(charObj)
     else
         -- prayed not so long ago
-        common.InformNLS(charObj, "FIXGERMAN", "Your prayer wasn't whole-hearted.")
+        common.InformNLS(charObj, "Deinem Gebet fehlte es an Hingabe.", "Your prayer wasn't whole-hearted.")
     end
 end
 
