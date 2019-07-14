@@ -401,7 +401,7 @@ function M.UseItem(User, SourceItem, ltstate)
             "Altar of " .. gods.getNameEn(god)
         )
         local description = common.GetNLS(User,
-            "Altar " .. gods.getNameDe(god) .. "s, " .. gods.getDescriptionDe(god) .. "..\Wähle eine Aktion:",
+            "Altar " .. gods.getNameDe(god) .. "s, " .. gods.getDescriptionDe(god) .. ".\Wähle eine Aktion:",
             "Altar of " .. gods.getNameEn(god) .. ", the " .. gods.getDescriptionEn(god) .. ".\nChoose your action:"
         )
         local dialogOptions = {
