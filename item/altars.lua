@@ -215,7 +215,7 @@ local function devotionDialog(User, god)
     if candevote then
         common.selectionDialogWrapper(User, common.GetNLS(User, "Anhängerschaft", "Devotion"), explanation, {
             { icon = 0, text = common.GetNLS(User, "Erkläre dich zum Anhänger von " .. gods.getNameDe(god), "Devote yourself to " .. gods.getNameEn(god)), func = doDevote, args = { User, god } },
-            { icon = 0, text = common.GetNLS(User, "Bleibe " .. gods.getCharStatusDe(User)), "Remain " .. gods.getCharStatusEn(User)), func = nil, args = nil },
+            { icon = 0, text = common.GetNLS(User, "Bleibe " .. gods.getCharStatusDe(User), "Remain " .. gods.getCharStatusEn(User)), func = nil, args = nil },
         })
     else
         explanation = explanation .. "\n" .. common.GetNLS(User, reason_de, reason_en)
