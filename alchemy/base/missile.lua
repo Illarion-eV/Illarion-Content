@@ -388,36 +388,4 @@ function M.effect_18(User,Item)
 end
 
 
---[[
-function effect_58731981(User,Item) --globale Wetterveränderung
-    return true; -- Script nicht fertig, funktion sofort abbrechen
-
-    m_Weather = world.weather;
-    m_Weather.cloud_density=newClouds;
-    m_Weather.fog_density=newFog;
-    m_Weather.wind_dir=newWindDir;
-    m_Weather.gust_strength=newGust
-    m_Weather.percipitation_strength=newRain;
-    m_Weather.percipitation_type=newPerTyp;
-    m_Weather.thunderstorm=newThunder;
-    m_Weather.temperature=newTemp;
-    logWeather(m_Weather);
-    world:setWeather(m_Weather);
-end
-
-function effect_59595521(User,Item) --Matschbarriere auf 9er-Feld
-    actionfield = fieldOfNine(Item)
-    for i = 1,9 do
-        --Bodentiles ändern
-        local field = world:getField(actionfield[i])
-        local tileID= field.tile
-        if tileID == 11 then --Wiese     !!!! id prüfen
-            world:changeTile(4,actionfield[i])  --Kontrolle: screen update?
-            world:sendMapUpdate(actionfield[i],5)
-            -- Dieser Effekt sollte nun umgebaut werden zu einem LTE 327 (Zeit vergeht, Effekt aufheben.)
-        end
-    end
-end
-]]
-
 return M
