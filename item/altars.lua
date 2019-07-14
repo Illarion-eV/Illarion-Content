@@ -365,8 +365,7 @@ function M.LookAtItem(User, Item)
         local msg_en = "Altar of " .. gods.getNameEn(god) .. ", the " .. gods.getDescriptionEn(god) .. "."
         local msg_de = "Altar " .. gods.getNameDe(god) .. "s, " .. gods.getDescriptionDe(god) .. "."
         if gods.isDevoted(User, god) then
-            msg_en = msg_en .. "Beholding the altar of " .. gods.getNameEn(god) .. " makes you feel proud of your devotion."
-            msg_de = msg_de .. "Der Anblick von " .. gods.getNameDe(god) .. "s Altar erfüllt dich in deiner Ergebenheit mit Stolz."
+            lookat.SetSpecialDescription(Item, "Der Anblick von " .. gods.getNameDe(god) .. "s Altar erfüllt dich in deiner Ergebenheit mit Stolz.", "Beholding the altar of " .. gods.getNameEn(god) .. " makes you feel proud of your devotion.")
         end
         lookat.SetSpecialName(Item,
             msg_de,
