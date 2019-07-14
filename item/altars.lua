@@ -224,6 +224,17 @@ local function devotionDialog(User, god)
     end
 end
 
+
+local function sacrificeExplanation(User, god)
+    local explanation = common.GetNLS(User,
+        "FIXGERMAN",
+        "To sacrifice items to your god, place them on the ground near the altar. If your offer pleases the god it will be accepted, otherwise you'll be able to take it back and try something more fitting."
+    )
+    local dialog = MessageDialog(common.GetNLS(User, "FIXGERMAN", "Sacrifice"), explanation, --[[callback=]]function(d) end)
+    User:requestMessageDialog(dialog)
+end
+
+
 -- TODO defile
 --local function defile(User, god)
 --    common.TalkNLS(User, Character.say , "#me FIXGERMAN", "#me FIXME spits on the altar and curses the name of " .. gods.getNameEn(god))
@@ -408,6 +419,7 @@ function M.UseItem(User, SourceItem, ltstate)
         local dialogOptions = {
             -- TODO icons
             { icon = 1060, text = "Pray",   func = gods.pray,          args = { User, god } }, -- 128 - book as in quest, 1060/1061/1089 - open book?
+            { icon = 321, text = "How to sacrifice?",   func = sacrificeExplanation, args = { User, god } }, -- 321 - depot, 2830 - treasure chest, 1360 1361 3265 1362 1367 8 649 650 - chest
 
             -- TODO defile
             --{ icon = 372, text = "Defile", func = defile,        args = { User, god } }, -- 157 - rotten bark, 26 - clay, 2038/2039 - skull, 3101/3102 - blood, 372 - poison cloud
