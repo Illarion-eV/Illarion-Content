@@ -14,9 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 1041, Wandering Garbage, Level: 2, Armourtype: light, Weapontype: concussion
---ID 1042, Wandering Sewage,  Level: 3, Armourtype: light, Weapontype: puncture
---ID 1043, Corpsebile,        Level: 4, Armourtype: light, Weapontype: slashing
 
 local blackSlime = require("monster.race_104_black_slime.base")
 return blackSlime.generateCallbacks()

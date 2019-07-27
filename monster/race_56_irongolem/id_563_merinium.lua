@@ -14,7 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 563, Merinium Golem, Level: 9, Armourtype: medium, Weapontype: slashing
 
 local base = require("monster.base.base")
 local irongolems = require("monster.race_56_irongolem.base")

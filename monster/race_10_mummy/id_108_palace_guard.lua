@@ -14,7 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 108, Palace Guard, Level: 5, Armourtype: light, Weapontype: slashing
 
 local base = require("monster.base.base")
 local mummies = require("monster.race_10_mummy.base")

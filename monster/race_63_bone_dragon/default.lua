@@ -14,7 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 631, Bone Dragon, Level: 8, Armourtype: medium, Weapontype: concussion
 
 local boneDragons = require("monster.race_63_bone_dragon.base")
 return boneDragons.generateCallbacks()

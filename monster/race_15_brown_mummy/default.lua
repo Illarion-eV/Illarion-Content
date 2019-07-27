@@ -14,8 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 151, Rotten Mummy, Level: 2, Armourtype: light, Weapontype: wrestling
---ID 152, Smelly Mummy, Level: 3, Armourtype: heavy, Weapontype: puncture
 
 local brownMummies = require("monster.race_15_brown_mummy.base")
 return brownMummies.generateCallbacks()

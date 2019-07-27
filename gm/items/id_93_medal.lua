@@ -473,7 +473,7 @@ function M.UseItem(User, SourceItem)
 end
 
 function M.LookAtItem(User, Item)
-    lookat.SetSpecialDescription(Item, "Verwende die Medallie zum aufrufen der Funktionen.", "Use the medal to pick a function.")
+    lookat.SetSpecialDescription(Item, "Verwende die Medallie zum Aufrufen der Funktionen.", "Use the medal to pick a function.")
     lookat.SetSpecialName(Item, "Medaille", "Medal")
     return lookat.GenerateLookAt(User, Item, lookat.METAL)
 end

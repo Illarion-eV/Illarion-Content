@@ -14,10 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 591, Peaceful Beetle
---ID 592, Hunter Beetle
---ID 593, Scarab
---ID 594, Coffin Crawler
 
 local beetles = require("monster.race_59_beetle.base")
 return beetles.generateCallbacks()

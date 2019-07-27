@@ -14,9 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 201, Demon Skeleton, Level: 6, Armourtype: medium, Weapontype: slashing
---ID 203, Unholy Akolyth, Level: 7, Armourtype: heavy,  Weapontype: concussion
---ID 206, Demon Servant, Level 5, Armourtype: light, Weapontype: piercing
 
 local demonSkeletons = require("monster.race_20_demon_skeleton.base")
 return demonSkeletons.generateCallbacks()

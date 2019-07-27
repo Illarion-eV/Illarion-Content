@@ -14,7 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 232, Shadowmuncher: 7, Armourtype: medium, Weapontype: slashing
 
 local monstermagic = require("monster.base.monstermagic")
 local blueSpiders = require("monster.race_23_blue_spider.base")

@@ -14,8 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 573, Sewerrat,       Level: 2, Armourtype: cloth, Weapontype: slashing
---ID 574, Giant Sewerrat, Level: 3, Armourtype: cloth, Weapontype: concussion
 
 local base = require("monster.base.base")
 local ratmen = require("monster.race_57_ratman.base")

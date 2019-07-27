@@ -14,7 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 304, Lavagolem, Level: 5, Armourtype: heavy, Weapontype: slashing
 
 local base = require("monster.base.base")
 local golems = require("monster.race_30_golem.base")

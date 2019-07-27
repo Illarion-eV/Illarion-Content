@@ -14,12 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 1111, Rat,            Level: 1
---ID 1112, Small Rat,      Level: 1
---ID 1113, Aggressive Rat, Level: 2
---ID 1114, Muskrat,        Level: 2
---ID 1115, Plague Rat,     Level: 3
---ID 1116, Sewer Rat,      Level: 3
 
 local rats = require("monster.race_111_rat.base")
 return rats.generateCallbacks()

@@ -15,8 +15,6 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
---ID 1154, Elemental fairy, Level: 1
-
 local base = require("monster.base.base")
 local fairies = require("monster.race_115_fairy.base")
 

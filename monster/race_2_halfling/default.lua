@@ -14,12 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 21, Halfling,         Level: 3, Armourtype: cloth, Weapontype: slashing
---ID 22, Halfling Warrior, Level: 4, Armourtype: light, Weapontype: slashing
---ID 23, Halfling Thief,   Level: 4, Armourtype: light, Weapontype: puncture
---ID 24, Halfling Peasant, Level: 3, Armourtype: cloth, Weapontype: slashing
---ID 25, Halfling Hunter,  Level: 4, Armourtype: light, Weapontype: distance
---ID 26, Friendly Halfling,  Level: 0, Not hostile
 
 local halflings = require("monster.race_2_halfling.base")
 return halflings.generateCallbacks()

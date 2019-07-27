@@ -14,7 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 616, Old Splime, Level: 0, Quest Monster - Slime feeding quest in Runewick
 
 local base = require("monster.base.base")
 local slimes = require("monster.race_61_slime.base")

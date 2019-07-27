@@ -23,7 +23,7 @@ local recipe_creation = require("alchemy.base.recipe_creation")
 local M = {}
 
 local parchmentList = {2745, 3109}
-local parchmentMaxTextLength = 100
+local parchmentMaxTextLength = 240
 
 local function getText(User,deText,enText)
     return common.GetNLS(User,deText,enText)
@@ -157,11 +157,11 @@ local function WriteParchment(User,SourceItem)
                     User:inform("Du schreibst auf das Pergament:\n'".. string.gsub (writtenText,"\\n","\n") .."'.","You write on the parchment:\n'".. string.gsub (writtenText,"\\n","\n") .."'.")
                 end
             else
-                User:inform("Du brauchst ein Pergament, um darauf zu schreiben.","You need a parchment if you want to write.",Character.highPriority)
+                User:inform("Du brauchst ein Pergament in deiner Hand, um darauf zu schreiben.","You need a parchment in your hand if you want to write.",Character.highPriority)
             end
         end
     end
-    local dialog = InputDialog(title, infoText, false, 255, callback)
+    local dialog = InputDialog(title, infoText, false, parchmentMaxTextLength, callback)
     User:requestInputDialog(dialog)
 end
 
@@ -175,7 +175,7 @@ local function SignParchment(User,SourceItem)
         world:changeItem(parchment)
         User:inform("Du unterschreibst das Pergament.","You sign the parchment.")
     else
-        User:inform("Du brauchst ein beschriebes Pergament, um zu unterschreiben.","You need a written parchment to sign.",Character.highPriority)
+        User:inform("Du brauchst ein beschriebes in deiner Hand Pergament, um zu unterschreiben.","You need a written parchment in your hand to sign.",Character.highPriority)
     end
 end
 
@@ -299,14 +299,14 @@ function M.UseItem(User, SourceItem, ltstate)
                 end
             elseif selected == 5 then
                 if not CheckIfParchmentInHand(User,SourceItem) then
-                    User:inform("Du brauchst ein einzelnes leeres oder halb beschriebenes Pergament auf dem du schreiben kannst.","You need a single empty or half filled parchment to write on.",Character.highPriority)
+                    User:inform("Du brauchst ein einzelnes leeres oder halb beschriebenes Pergament in deiner Hand auf dem du schreiben kannst.","You need a single empty or half filled parchment in your hand to write on.",Character.highPriority)
                     return
                 else
                     WriteParchment(User,SourceItem)
                 end
             elseif selected == 6 then
                 if not CheckIfParchmentCanSigned(User,SourceItem) then
-                    User:inform("Du brauchst ein beschriebenes Pergament auf dem du unterschreiben kannst.","You need a written parchment to sign.",Character.highPriority)
+                    User:inform("Du brauchst ein beschriebenes Pergament in deiner Hand auf dem du unterschreiben kannst.","You need a written parchment in your hand to sign.",Character.highPriority)
                     return
                 else
                     SignParchment(User,SourceItem)

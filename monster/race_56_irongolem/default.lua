@@ -14,8 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 561, Iron Golem, Level: 6, Armourtype: medium, Weapontype: concussion
---ID 562, Steelgolem, Level: 7, Armourtype: medium, Weapontype: slashing
 
 local irongolems = require("monster.race_56_irongolem.base")
 return irongolems.generateCallbacks()

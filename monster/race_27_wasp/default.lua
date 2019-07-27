@@ -14,10 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 271, Wasp
---ID 272, Hornet
---ID 273, Wasp Queen
---ID 274, Wasp Drone
 
 local wasps = require("monster.race_27_wasp.base")
 return wasps.generateCallbacks()

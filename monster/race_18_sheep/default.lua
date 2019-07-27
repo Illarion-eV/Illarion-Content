@@ -14,8 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 181, Sheep, not hostile
---ID 182, Lamb,  not hostile
 
 local sheeps = require("monster.race_18_sheep.base")
 return sheeps.generateCallbacks()

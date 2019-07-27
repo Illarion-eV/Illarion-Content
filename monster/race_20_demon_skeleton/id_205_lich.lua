@@ -14,7 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 205, Lich, Level: 8, Armourtype: heavy, Weapontype: puncture
 
 local common = require("base.common")
 local demonSkeletons = require("monster.race_20_demon_skeleton.base")

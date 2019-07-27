@@ -14,7 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 632, Black Bone Dragon, Level: 9, Armourtype: heavy, Weapontype: slashing
 
 local base = require("monster.base.base")
 local boneDragons = require("monster.race_63_bone_dragon.base")

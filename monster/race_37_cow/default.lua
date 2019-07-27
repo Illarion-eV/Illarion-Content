@@ -14,9 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 371, Cow
---ID 372, Bull
---ID 373, Young Bull
 
 local cows = require("monster.race_37_cow.base")
 return cows.generateCallbacks()

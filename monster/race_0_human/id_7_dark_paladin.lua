@@ -14,14 +14,11 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 7, Dark Paladin, Level: 7, Armourtype: Heavy, Weapontype: Slashing
 
 local humans = require("monster.race_0_human.base")
 local base = require("monster.base.base")
 local M = humans.generateCallbacks()
 local orgOnSpawn = M.onSpawn
-
-
 
 function M.onSpawn(monster)
     if orgOnSpawn ~= nil then
@@ -30,6 +27,5 @@ function M.onSpawn(monster)
 
     base.setColor{monster = monster, target = base.HAIR_COLOR, red = 0, green = 0, blue = 0}
 end
-
 
 return M

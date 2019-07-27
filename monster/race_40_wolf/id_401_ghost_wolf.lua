@@ -14,7 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 401, Ghostwolf, Level: 4, Armourtype: heavy, Weapontype: distance
 
 local base = require("monster.base.base")
 local wolves = require("monster.race_40_wolf.base")

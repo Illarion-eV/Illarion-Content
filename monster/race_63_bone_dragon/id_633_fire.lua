@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 633, Undead Firedragon, Level: 7, Armourtype: heavy, Weapontype: slashing
+
 local monsterId = 633
 
 local base = require("monster.base.base")

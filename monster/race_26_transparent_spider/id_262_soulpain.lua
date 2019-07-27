@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 262, Soulpain, Level: 8, Armourtype: medium, Weapontype: wrestling
+
 local monsterId = 262
 
 local monstermagic = require("monster.base.monstermagic")

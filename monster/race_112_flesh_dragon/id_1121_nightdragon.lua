@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- ID 1121, Night Dragon, Level 6, Armourtype: heavy, Weapontype: concussion
+
 local monsterId = 1121
 
 local base = require("monster.base.base")

@@ -14,8 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 782, Golden Legionnaire, Level: 5, Armourtype: medium, Weapontype: concussion
---ID 784, Golden Archer, Level: 5, Armourtype: heavy, Weapontype: distance
 
 local goldenSkeletons = require("monster.race_78_golden_skeleton.base")
 return goldenSkeletons.generateCallbacks()

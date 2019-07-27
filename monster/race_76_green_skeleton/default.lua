@@ -14,9 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 761, Armored Swamphorror,  Level: 4, Armourtype: heavy,  Weapontype: distance
---ID 762, Crippled Swamphorror, Level: 2, Armourtype: light,  Weapontype: slashing
---ID 763, Scruffy Swamphorror,  Level: 3, Armourtype: light,  Weapontype: distance
 
 local greenSkeletons = require("monster.race_76_green_skeleton.base")
 return greenSkeletons.generateCallbacks()

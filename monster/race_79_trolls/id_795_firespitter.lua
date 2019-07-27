@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 795, Firespitter, Level: 6, Armourtype: medium, Weapontype: distance
+
 local monsterId = 795
 
 local base = require("monster.base.base")

@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 132, Eye of Darkness, Level: 8, Armourtype: medium, Weapontype: slashing
+
 local monsterId = 132
 
 local blackBeholders = require("monster.race_13_black_beholder.base")

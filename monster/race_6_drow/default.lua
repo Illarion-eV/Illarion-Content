@@ -14,9 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 61, Drow,         Level: 6, Armourtype: light,  Weapontype: slashing
---ID 62, Drow Warrior, Level: 6, Armourtype: medium, Weapontype: slashing
---ID 65, Drow-leader,  Level: 6, Armourtype: heavy,  Weapontype: slashing
 
 local drows = require("monster.race_6_drow.base")
 return drows.generateCallbacks()

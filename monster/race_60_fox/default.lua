@@ -14,10 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- ID 601, Foxwhelp
--- ID 602, Redfox
--- ID 603, Fox Mother
--- ID 604, Fireridge
 
 local base = require("monster.base.base")
 local foxes = require("monster.race_60_fox.base")

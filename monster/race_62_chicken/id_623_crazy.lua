@@ -14,7 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 623, Crazy Chicken
 
 local base = require("monster.base.base")
 local chicken = require("monster.race_62_chicken.base")

@@ -14,10 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 521, Snapper,     Level: 4, Armourtype: heavy, Weapontype: wrestling
---ID 522, Terrorbeast, Level: 5, Armourtype: light, Weapontype: slashing
---ID 523, Scalebeast,  Level: 5, Armourtype: medium, Weapontype: concussion
---ID 525, Rippertooth, Level: 6, Armourtype: heavy, Weapontype: puncture
 
 local raptors = require("monster.race_52_raptor.base")
 return raptors.generateCallbacks()

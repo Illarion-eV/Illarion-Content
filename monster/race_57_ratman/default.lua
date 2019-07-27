@@ -14,8 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 571, Nuzzler, Level: 3, Armourtype: light, Weapontype: puncture
---ID 572, Baiter, Level: 4, Armourtype: light, Weapontype: slashing
 
 local ratmen = require("monster.race_57_ratman.base")
 return ratmen.generateCallbacks()

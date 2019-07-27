@@ -38,61 +38,61 @@ catId = planing:addCategory("Bows", "Bögen")
 -- short bow
 product = planing:addProduct(catId, 65, 1)
 product:addIngredient(546, 3) -- naldor wood boards
-product:addIngredient(50, 2) -- thread
+product:addIngredient(63, 2) -- entrails
 product:addIngredient(2535, 1) -- iron ingot
 
 -- rider's bow
 product = planing:addProduct(catId, 1531, 1)
 product:addIngredient(546, 3) -- naldor wood boards
-product:addIngredient(50, 2) -- thread
+product:addIngredient(63, 2) -- entrails
 product:addIngredient(2550, 1) -- copper ingot
 
 -- serinjah-rider's bow
 product = planing:addProduct(catId, 2646, 1)
 product:addIngredient(546, 3) -- naldor wood boards
-product:addIngredient(50, 2) -- thread
+product:addIngredient(63, 2) -- entrails
 product:addIngredient(236, 1) -- gold ingot
 
 -- hunting bow
 product = planing:addProduct(catId, 2714, 1)
 product:addIngredient(546, 3) -- naldor wood boards
-product:addIngredient(50, 2) -- thread
+product:addIngredient(63, 2) -- entrails
 product:addIngredient(3786, 1) -- heartwood
 
 -- long bow
 product = planing:addProduct(catId, 2708, 1)
 product:addIngredient(546, 3) -- naldor wood boards
-product:addIngredient(50, 2) -- thread
+product:addIngredient(63, 2) -- entrails
 product:addIngredient(3786, 1) -- heartwood
 
 -- crossbow
 product = planing:addProduct(catId, 70, 1)
 product:addIngredient(546, 3) -- naldor wood boards
-product:addIngredient(50, 2) -- thread
+product:addIngredient(63, 2) -- entrails
 product:addIngredient(3786, 2) -- heartwood
 
 -- elven shortbow
 product = planing:addProduct(catId, 2685, 1)
 product:addIngredient(546, 4) -- naldor wood boards
-product:addIngredient(50, 2) -- thread
+product:addIngredient(63, 2) -- entrails
 product:addIngredient(3786, 3) -- heartwood
 
 -- ebony wood bow
 product = planing:addProduct(catId, 2780, 1)
 product:addIngredient(546, 4) -- naldor wood boards
-product:addIngredient(50, 2) -- thread
+product:addIngredient(63, 2) -- entrails
 product:addIngredient(3786, 4) -- heartwood
 
 -- elven composite longbow
 product = planing:addProduct(catId, 2718, 1)
 product:addIngredient(546, 5) -- naldor wood boards
-product:addIngredient(50, 2) -- thread
+product:addIngredient(63, 2) -- entrails
 product:addIngredient(3786, 5) -- heartwood
 
 -- fire hunter's bow
 product = planing:addProduct(catId, 2727, 1)
 product:addIngredient(546, 5) -- naldor wood boards
-product:addIngredient(50, 2) -- thread
+product:addIngredient(63, 2) -- entrails
 product:addIngredient(3786, 3) -- heartwood
 product:addIngredient(2553, 1) -- pure fire
 
@@ -111,16 +111,19 @@ product:addIngredient(3786, 1) -- heartwood
 -- drum
 product = planing:addProduct(catId, 533, 1)
 product:addIngredient(546, 3) -- naldor wood boards
+product:addIngredient(2547, 1) -- leather
 product:addIngredient(3786, 1) -- heartwood
 
 -- lute
 product = planing:addProduct(catId, 335, 1)
 product:addIngredient(546, 3) -- naldor wood boards
+product:addIngredient(63, 2) -- entrails
 product:addIngredient(3786, 2) -- heartwood
 
 -- harp
 product = planing:addProduct(catId, 332, 1)
 product:addIngredient(546, 4) -- naldor wood boards
+product:addIngredient(63, 2) -- entrails
 product:addIngredient(3786, 4) -- heartwood
 
 catId = planing:addCategory("Shields", "Schilde")
@@ -246,7 +249,7 @@ catId = planing:addCategory("repair only", "nur reparieren")
 -- drow bow
 product = planing:addProduct(catId, 2739, 1)
 product:addIngredient(546, 5) -- naldor wood boards
-product:addIngredient(50, 2) -- thread
+product:addIngredient(63, 2) -- entrails
 product:addIngredient(3786, 3) -- heartwood
 product:addIngredient(3607, 1) -- pure spirit
 

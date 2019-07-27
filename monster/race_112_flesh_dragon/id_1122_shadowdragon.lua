@@ -14,7 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- ID 1122, Shadow Dragon, Level 7, Armourtype: light, Weapontype: slashing
 
 local base = require("monster.base.base")
 local monstermagic = require("monster.base.monstermagic")

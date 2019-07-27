@@ -14,7 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 131, Shadow Eye, Level: 7, Armourtype: medium, Weapontype: concussion
 
 local blackBeholders = require("monster.race_13_black_beholder.base")
 return blackBeholders.generateCallbacks()

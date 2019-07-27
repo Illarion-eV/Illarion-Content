@@ -14,7 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 634, Nightmare Dragon, Level: 8, Armourtype: medium, Weapontype: puncture
 
 local base = require("monster.base.base")
 local boneDragons = require("monster.race_63_bone_dragon.base")

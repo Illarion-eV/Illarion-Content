@@ -14,7 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 564, Gold Golem, Level: 8, Armourtype: medium, Weapontype: concussion
 
 local base = require("monster.base.base")
 local irongolems = require("monster.race_56_irongolem.base")

@@ -14,8 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 301, Stone Golem,          Level: 4, Armourtype: light, Weapontype: concussion
---ID 302, Son of the Mountains, Level: 9, Armourtype: medium, Weapontype: concussion
 
 local golems = require("monster.race_30_golem.base")
 return golems.generateCallbacks()

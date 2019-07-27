@@ -616,6 +616,8 @@ function payNow(User)
 --Runewick = 101
 --Galmair = 102
 --Hemp Necktie Inn = 103 (not a faction!)
+--ATTENTION: Depot IDs are magically shifted by 1 compared to the data in item.id_321_depot
+
     local infText = ""
 
      -- no member of any town

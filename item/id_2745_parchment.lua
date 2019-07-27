@@ -70,13 +70,16 @@ function M.UseItem(User, SourceItem,ltstate,checkVar)
     end
 
     if not common.IsNilOrEmpty(SourceItem:getData("writtenText")) then
-        User:inform("Du liest:","You read:")
         local writtenText = SourceItem:getData("writtenText")
-        writtenText = string.gsub (writtenText,"\\n","\n")
         if not common.IsNilOrEmpty(SourceItem:getData("signatureText")) then
             writtenText = writtenText .. "\n~" .. SourceItem:getData("signatureText") .. "~"
         end
-        User:inform(writtenText)
+        local dialog = MessageDialog(
+            common.GetNLS(User, "Pergament", "Parchment"),
+            writtenText,
+            --[[callback=]]function(d) end
+            )
+        User:requestMessageDialog(dialog)
     end
 end
 

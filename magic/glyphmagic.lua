@@ -95,7 +95,9 @@ local function endRitualErectForge(user, forgePos, unused)
     local workingSkill = glyphs.SKILL_GLYPHING
     local workingTime = glyphs.glyphForgeErectionTime
     world:gfx(globalvar.gfxSUN,forgePos)
-    world:createItemFromId(glyphs.GLYPH_SHRINE_ID,1,forgePos,false,333,{craftedBy=user.name})
+    local forgeCreated = world:createItemFromId(glyphs.GLYPH_SHRINE_ID,1,forgePos,false,333,{craftedBy=user.name})
+    forgeCreated.wear = 60
+    world:changeItem(forgeCreated)
     user:learn(workingSkill, workingTime, 100)
 end
 
@@ -550,7 +552,7 @@ local function showBreakSelection(user,userRings,userAmulets)
 end
 
 function M.forgeGlyphs(user,glyphForgeItem,ltstate)
-    if user:getMagicType() == 0 then --mage
+    if user:getMagicType() == 0 and (user:getQuestProgress(37) ~= 0 or user:getMagicFlags(0) > 0)then --mage
         if ltstate == Action.none then
             if glyphForgeItem.wear < 3 then
                 common.InformNLS(user,"Dieser Glyphen-Ritualplatz zeigt schon deutliche Zeichen des Verfalls. Vergeude deine Zeit nicht hier.",
@@ -646,7 +648,8 @@ local function isPossibleLocation(user, position)
                               "There is not enough space for a glyph ritual place.")
         return false
     end
-
+    
+    --[[
     -- Permission denied
     local deniedAreas = {"Runewick","Cadomyr","Galmair"}
     for i=1, #deniedAreas do
@@ -656,6 +659,7 @@ local function isPossibleLocation(user, position)
             return false
         end
     end
+    --]]
 
     -- not level 0
     if user.pos.z ~= 0 then
@@ -669,7 +673,7 @@ end
 
 function M.findGlyphForge(user)
     user:performAnimation(globalvar.charAnimationSPELL)
-    local forgeItem, bool = common.GetItemInArea(user.pos, glyphs.GLYPH_SHRINE_ID, 40, true)
+    local forgeItem, bool = common.GetItemInArea(user.pos, glyphs.GLYPH_SHRINE_ID, 60, true)
     if forgeItem ~= nil then
         world:gfx(globalvar.gfxSUN,forgeItem.pos)
         local directionInfo = common.getDistanceHint(user, forgeItem.pos)
@@ -700,6 +704,8 @@ function M.examineGlyphForge(user, glyphForge)
         common.InformNLS(user, "Das Ritual ist bereits vorbereitet. You kannst gleich beginnen.",
                                "A ritual is already prepared. You can start right now.")
     else
+        -- Don't use character names in informs.
+        --[[
         local posNumber = common.positionToNumber(glyphForge.pos)
         if posNumber == user:getQuestProgress(QUEST_ID_EXAMINE_FORGE) then
             common.InformNLS(user,"An diesem Glyphen-Ritualplatz hat sich nichts geändert.",
@@ -716,6 +722,7 @@ function M.examineGlyphForge(user, glyphForge)
                                       "This is a glyph ritual place like many you have already seen many but you cannot tell who built it.")
             end
         end
+        ]]
     end
 end
 
@@ -788,7 +795,7 @@ function M.removeGlyphForge(user)
     local forgeItem = common.GetFrontItem(user,user:getFaceTo())
     if forgeItem ~= nil and forgeItem.id == glyphs.GLYPH_SHRINE_ID then
         local userSkill = user:getSkill(Character.mining)
-        local limitSkill --wear 3=0, 43=100 max wear=50
+        local limitSkill --wear 3=0, 43=100 max wear=60
         if forgeItem.wear < 3 then
             limitSkill = 0
         else
@@ -800,18 +807,9 @@ function M.removeGlyphForge(user)
                 common.InformNLS(user,"Du hältst inne, weil noch jemand neben dem Glyphen-Ritualplatz steht.",
                                       "You stop since somebody else stands next to the glyph ritual place.")
             else
-                if user:getQuestProgress(562) == 0 then
-                    world:gfx(globalvar.gfxFALL,forgeItem.pos)
-                    user:setQuestProgress(562, forgeItem.wear)
-                    world:erase(forgeItem, 1)
-                else
-                    common.InformNLS(user,"Kann es sein, dass du erst kürzlich einen Glyphen-Ritualplatz beseitigt hast?",
-                                          "Could it be that you recently destroyed a glyph ritual place?")
-                    world:gfx(globalvar.gfxFLAMESTRIKE,user.pos)
-                end
-                if user:increaseAttrib("hitpoints", 0) >2000 then
-                    user:increaseAttrib("hitpoints", -300)
-                end
+                world:gfx(globalvar.gfxFALL,forgeItem.pos)
+                user:setQuestProgress(562, forgeItem.wear)
+                world:erase(forgeItem, 1)
             end
         else
             common.InformNLS(user,"Die Magie des Ortes lässt die Spitzhacke zurückspringen. Vielleicht gelingt es dir den Glyphen-Ritualplatz zu beseitigen, wenn du noch etwas wartest.",

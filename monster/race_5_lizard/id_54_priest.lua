@@ -14,7 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 54, Lizard Priest, Level: 5, Armourtype: cloth, Weapontype: concussion
 
 local lizards = require("monster.race_5_lizard.base")
 local mageBehaviour = require("monster.base.behaviour.mage")

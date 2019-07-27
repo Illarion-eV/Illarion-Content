@@ -14,8 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 513, Silverback, Level: 6, Armourtype: medium, Weapontype: concussion
---ID 514, Young Silverback, Level: 5, Armourtype: medium, Weapontype: wrestling
 
 local base = require("monster.base.base")
 local bears = require("monster.race_51_bear.base")

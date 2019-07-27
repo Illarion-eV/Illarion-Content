@@ -14,10 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 101, Mummy,            Level: 2, Armourtype: -, Weapontype: slashing
---ID 102, Enbalmed Slave,   Level: 3, Armourtype: -, Weapontype: concussion
---ID 103, Enbalmed Servant, Level: 2, Armourtype: -, Weapontype: concussion
---ID 104, Poisonous Mummy,  Level: 2, Armourtype: -, Weapontype: puncture
 
 local mummies = require("monster.race_10_mummy.base")
 return mummies.generateCallbacks()

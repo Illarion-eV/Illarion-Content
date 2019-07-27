@@ -138,7 +138,7 @@ function M.UseItem(user, sourceItem, ltstate)
     if common.IsItemInHands(sourceItem) then
         if ltstate == Action.none then
             if magicWands[sourceItem.id] then
-                if user:getMagicType() == 0 and user:getQuestProgress(37) ~= 0 then
+                if user:getMagicType() == 0 and (user:getQuestProgress(37) ~= 0 or user:getMagicFlags(0) > 0) then
                     useWandSelection(user, sourceItem, ltstate)
                 else
                     learnMagic.useMagicWand(user, sourceItem)
@@ -152,7 +152,7 @@ function M.UseItem(user, sourceItem, ltstate)
             end
         end
     else
-        user:inform("Du solltest lieber den Zauberstab in die Hand nehmen, wenn du ihn benutzen willst.","To use the wand you should hold it in your hand.")
+        user:inform("Du solltest lieber den Zauberstab in die Hand nehmen, wenn du ihn benutzen willst.","To use the wand you should hold it in your hands.")
     end
 end
 

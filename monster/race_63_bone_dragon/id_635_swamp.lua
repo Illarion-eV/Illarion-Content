@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 635, Undead Swampdragon, Level: 7, Armourtype: medium, Weapontype: distance
+
 local monsterId = 635
 
 local base = require("monster.base.base")

@@ -14,7 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 124, Deadly Eye, Level: 7, Armourtype: medium, Weapontype: slashing
 
 local beholders = require("monster.race_12_beholder.base")
 local mageBehaviour = require("monster.base.behaviour.mage")

@@ -14,7 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 107, Mummy of Madness, Level: 2, Armourtype: -, Weapontype: slashing
 
 local madness = require("monster.base.madness")
 local mummies = require("monster.race_10_mummy.base")

@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 1142, Akaltut, Level: 6, Armourtype: heavy, Weapontype: puncture
+
 local monsterId = 1142
 
 local akaltut = require("monster.race_114_akaltut.base")

@@ -36,8 +36,8 @@ end
 function M.MoveItemAfterMove(user, sourceItem, targetItem)
     if sourceItem:getData("belongsTo") == "ritual" and sourceItem.itempos == 0 then
         world:gfx(globalvar.gfxSPLASH,sourceItem.pos)
-        common.InformNLS(user, "Der Kerzenhalter zerbröseld unter deinen Fingern.",
-                               "The small candlestick crumbles in between your fingers.")
+        common.InformNLS(user, "Der Kerzenhalter zerbröselt in deinen Fingern.",
+                               "The small candlestick crumbles in your fingers.")
         world:erase(targetItem,targetItem.number)
         return false
     end
