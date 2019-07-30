@@ -69,7 +69,7 @@ function M.townManagmentUseItem(User, SourceItem)
 
     local toolUse = {}
     if collectionchest.isCollectionChestExists(toolTown) then
-        toolUse = common.GetNLS(User, {"Verbannung", "Lizenz", "Schlüssel","Materialsammlug"}, {"Ban a character", "Licence", "Key","Material collection"})
+        toolUse = common.GetNLS(User, {"Verbannung", "Lizenz", "Schlüssel","Materialsammlung"}, {"Ban a character", "Licence", "Key", "Material collection"})
     else
         toolUse = common.GetNLS(User, {"Verbannung", "Lizenz", "Schlüssel"}, {"Ban a character", "Licence", "Key"})
     end
