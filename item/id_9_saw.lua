@@ -19,13 +19,14 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local sawing = require("craft.intermediate.sawing")
 local metal = require("item.general.metal")
+local petBuying = require("petsystem.petBuying")
 
 local M = {}
 
 M.LookAtItem = metal.LookAtItem
 
 function M.UseItem(User, SourceItem, ltstate)
-
+petBuying.buyPet(User)
     sawing.sawing:showDialog(User, SourceItem)
 
 end

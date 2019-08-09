@@ -266,6 +266,11 @@ function M.onAttack(Attacker, Defender)
         -- Let's don't attack now.
         return
     end
+	
+	-- Store the enemey as the current target of this player
+	if character.IsPlayer(Attacker) then
+		fightingutil.setSelectedEnemyId(Attacker.id, Defender.id)
+	end
 
     -- Prepare the lists that store the required values for the calculation
     local Attacker = { ["Char"]=Attacker }
