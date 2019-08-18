@@ -95,55 +95,32 @@ end
 
 function TMLookAt(User, Item)
     local lookAt = ItemLookAt()
-    if (User:getPlayerLanguage()==0) then
-        lookAt.name = "Stadtverwaltung"
-        lookAt.description = "Instrument zur Verwaltung der Stadt. Nur für offizielle Vertreter."
-    else
-        lookAt.name = "Town Managment"
-        lookAt.description = "Instrument for town management. Only for officials."
-    end
+    lookAt.name = common.GetNLS(User, "Stadtverwaltung", "Town Managment")
+    lookAt.description = common.GetNLS(User, "Instrument zur Verwaltung der Stadt und Ankündigungen.", "Instrument for town management and announcements.")
     return lookAt
 end
 
 function SalaveshLookAt(User, Item)
     local lookAt = ItemLookAt()
     lookAt.rareness = ItemLookAt.rareItem
-
-    if (User:getPlayerLanguage()==0) then
-        lookAt.name = "Tagebuch des Abtes Elzechiel"
-        lookAt.description = "Dieses Buch ist von einer schaurigen Schönheit. Du bist versucht, es dennoch zu lesen..."
-    else
-        lookAt.name = "Journal of Abbot Elzechiel"
-        lookAt.description = "This item has an evil presence. You are tempted to read it, though..."
-    end
+    lookAt.name = common.GetNLS(User, "Tagebuch des Abtes Elzechiel", "Journal of Abbot Elzechiel")
+    lookAt.description = common.GetNLS(User, "Dieses Buch ist von einer schaurigen Schönheit. Du bist versucht, es dennoch zu lesen...", "This item has an evil presence. You are tempted to read it, though...")
     return lookAt
 end
 
 function AkaltutLookAt(User, Item)
     local lookAt = ItemLookAt()
     lookAt.rareness = ItemLookAt.rareItem
-
-    if (User:getPlayerLanguage()==0) then
-        lookAt.name = "Infirmos magische Schriftrolle"
-        lookAt.description = "Geschrieben in einer alten Sprache..."
-    else
-        lookAt.name = "Infirmo's magical scroll"
-        lookAt.description = "Written in an old language..."
-    end
+    lookAt.name = common.GetNLS(User, "Infirmos magische Schriftrolle", "Infirmo's magical scroll")
+    lookAt.description = common.GetNLS(User, "Geschrieben in einer alten Sprache...", "Written in an old language...")
     return lookAt
 end
 
 function ronaganLookAt(User, Item)
     local lookAt = ItemLookAt()
     lookAt.rareness = ItemLookAt.rareItem
-
-    if (User:getPlayerLanguage()==0) then
-        lookAt.name = "Pergament"
-        lookAt.description = "Das Pergament trägt einen Stempel im Eck, der einen Fuchs darstellt."
-    else
-        lookAt.name = "Parchment"
-        lookAt.description = "The parchment has a stamp of the fox on the corner."
-    end
+    lookAt.name = common.GetNLS(User, "Pergament", "Parchment")
+    lookAt.description = common.GetNLS(User, "Das Pergament trägt einen Stempel im Eck, der einen Fuchs darstellt.", "The parchment has a stamp of the fox on the corner.")
     return lookAt
 end
 
