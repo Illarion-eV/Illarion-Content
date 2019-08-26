@@ -982,12 +982,12 @@ function M.CreateItem(character, id, amount, quality, data, wear)
     if data ~= nil and not _isTable(data) then
         error("The parameter 'data' is not a table as it was expected.")
     end
-	
-	if wear ~= nil and not _isNumber(wear) then
-		error("The parameter 'wear' must be a number.")
-	elseif wear ~= nil and (wear < 1 or wear > 254) then
-		error("The parameter 'wear' must be a number between 1 and 254.")
-	end
+    
+    if wear ~= nil and not _isNumber(wear) then
+        error("The parameter 'wear' must be a number.")
+    elseif wear ~= nil and (wear < 1 or wear > 254) then
+        error("The parameter 'wear' must be a number between 1 and 254.")
+    end
 
     local notCreated = character:createItem(id, amount, quality, data)
     if notCreated == 0 then
@@ -999,7 +999,7 @@ function M.CreateItem(character, id, amount, quality, data, wear)
         -- work around an issue to prevent creation of stacks of unstackable items
         local minimum = math.min(notCreated, maxStack)
         local createdItem = world:createItemFromId(id, minimum, character.pos, true, quality, data)
-		createdItem.wear = wear
+        createdItem.wear = wear
         notCreated = notCreated - minimum
     end
 
