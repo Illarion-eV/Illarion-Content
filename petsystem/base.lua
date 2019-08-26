@@ -28,11 +28,14 @@ M.attack = 6
 M.move = 7
 
 function M.setIsPetOwner(character)
-	return character:getQuestProgress(375) > 0
+	character:setQuestProgress(375, 1)
 end
 
 function M.isPetOwner(character)
-	character:setQuestProgress(375, 1)
+	if character:setQuestProgress(375) > 0 then
+		return true
+	end
+	return false
 end
 
 function M.removeIsPetOwner(character)
@@ -168,7 +171,7 @@ function M.savePetHitpoints(owner, hitpoints)
     owner:setQuestProgress(365, hitpoints)
 end
 
-local function getPetHitpoints(owner)
+function M.getPetHitpoints(owner)
     return owner:getQuestProgress(365)
 end
 
@@ -231,11 +234,11 @@ function M.removePetByOwner(owner)
 end
 
 function M.loadPet(owner)
-    
-    local petHP = getPetHitpoints(owner)
+    local petHP = M.getPetHitpoints(owner)
     if petHP > 0 then
-
-        local pet = world:createMonster(getPetRace(owner), getPetPosition(owner), 0)
+		local createPosition = getPetPosition(owner)
+		world:gfx(31,createPosition)
+		local pet = world:createMonster(getPetRace(owner), createPosition, 0)
         pet:setSkinColour(getPetColour(owner))
         setIsPetOf(pet, owner)
         pet:setAttrib("hitpoints", petHP)
@@ -248,7 +251,12 @@ end
 function M.logOutPet(owner)
     local pet = getPetByOwner(owner)
     if pet then
-        local petHP = pet:increaseAttrib("hitpoints", 0)
+		world:gfx(31,pet.pos)
+		
+		M.removeIsPetOf(pet)
+        M.removePetByOwner(owner)
+		
+		local petHP = pet:increaseAttrib("hitpoints", 0)
         if petHP > 0 then
             pet:increaseAttrib("hitpoints", -10000)
         end
@@ -263,6 +271,7 @@ function M.addNewPetToCharacter(character, petValues)
     M.savePetPosition(character, common.getFreePos(character.pos, 1))
     M.savePetHitpoints(character, 10000)
     M.saveCommand(character, M.follow)
+	M.setIsPetOwner(character)
     
     M.loadPet(character)
 end

@@ -140,6 +140,7 @@ function M.onDeath(pet)
 			owner:inform("Dein tierischer Begleiter hat seine Lebenskraft verloren. Doch eine warme, sanfte Stimme, die aus dir selbst zu kommen scheint, erinnert dich, Oldras Gnade für deinen Gefährten zu suchen.", "Your animal companion's life energy runs out, but a soft and warm voice, seemingly coming from somwhere within yourself, reminds you to search for Oldra's grace for your companion.", Player.highPriority)
 		else
 			owner:inform("Dein tierischer Begeleiter hat diese Welt für immer verlassen.", "Your animal companion left this world forever.", Player.highPriority)
+			base.removeIsPetOwner(owner)
 		end
 	end
 end

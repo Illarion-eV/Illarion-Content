@@ -84,6 +84,7 @@ SELECT altar_triggers(ARRAY[
 
 local common = require("base.common")
 local gods = require("content.gods")
+local revivePet = require("petsystem.revivePet")
 
 local _IS_ALTAR_ID = common.setFromList({
     -- The list was obtained by SQL command:
@@ -106,27 +107,44 @@ local _MAX_DISTANCE = 1
 
 local M = {}
 
-function M.PutItemOnField(Item, User)
-    -- Find the relevant altar, it sould be close to the item
-    local z = Item.pos.z
-    for x = (Item.pos.x - _MAX_DISTANCE), (Item.pos.x + _MAX_DISTANCE) do
-        for y = (Item.pos.y - _MAX_DISTANCE), (Item.pos.y + _MAX_DISTANCE) do
+local function getAltarAroundPosition(checkPosition)
+    
+	local z = checkPosition.z
+    for x = (checkPosition.x - _MAX_DISTANCE), (checkPosition.x + _MAX_DISTANCE) do
+        for y = (checkPosition.y - _MAX_DISTANCE), (checkPosition.y + _MAX_DISTANCE) do
             local field = world:getField(position(x,y,z))
             for alt_item_idx = 0,(field:countItems()-1) do
                 local alt_item = field:getStackItem(alt_item_idx)
                 if _IS_ALTAR_ID[alt_item.id] then
                     local god = tonumber(alt_item:getData("god"))
                     god = god or gods.GOD_NONE
-                    if gods.GODS[god] then
-                        gods.sacrifice(User, god, Item)
-                        return
-                    end
+                    return god
                 end
             end
         end
     end
+	
+	return false
+end
+
+function M.PutItemOnField(Item, User)
+
+	local god = getAltarAroundPosition(Item.pos)
+	if gods.GODS[god] then
+		gods.sacrifice(User, god, Item)
+		return
+	end
+
     -- Valid altar not found!
     User:inform("[ERROR] Sacrificing near invalid altar. Please inform a developer.")
 end
 
+function M.MoveToField(user)
+	user:inform("here")
+	local god = getAltarAroundPosition(Item.pos)
+	if god == gods.GOD_OLDRA then
+		revivePet.bringBackPet(user)
+	end
+end
+	
 return M

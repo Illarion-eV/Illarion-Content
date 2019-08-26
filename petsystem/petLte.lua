@@ -97,8 +97,8 @@ function M.callEffect(petEffect, pet)
     formerPositionOfOwners[owner.id] = position(owner.pos.x, owner.pos.y, owner.pos.z)
     
     base.savePetPosition(owner, position(pet.pos.x, pet.pos.y, pet.pos.z))
-    base.savePetHitpoints(owner, pet:increaseAttrib("hitpoints", 0))
-            
+    local hp = pet:increaseAttrib("hitpoints", 0)
+	base.savePetHitpoints(owner, hp)     
     
     petEffect.nextCalled = 1
     return true
