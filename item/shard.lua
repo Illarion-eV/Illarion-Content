@@ -20,7 +20,7 @@ local lookat = require("base.lookat")
 
 local M = {}
 
--- UPDATE items SET itm_script='item.shard',itm_weight=20, itm_agingspeed=5, itm_brightness=1, itm_worth=10000, itm_maxstack=1000, itm_name_german='Splitter', itm_name_english='Shard',itm_rareness=2 WHERE itm_id IN (3493, 3494, 3495,3496,3497);
+-- UPDATE items SET itm_script='item.shard',itm_weight=20, itm_agingspeed=254, itm_brightness=1, itm_worth=10000, itm_maxstack=1000, itm_name_german='Splitter', itm_name_english='Shard',itm_rareness=2 WHERE itm_id IN (3493, 3494, 3495,3496,3497);
 
 function M.UseItem(user, item)
         user:inform(
@@ -51,7 +51,7 @@ end
 function M.createShardOnPosition(pos)
     local shardLevel = glyphs.getRandomShardLevel()
     local shardId = tonumber(glyphs.getShardId(shardLevel))
-    world:createItemFromId(shardId,1,pos,false,999,{[glyphs.SHARD_LEVEL_DATA_KEY] = shardLevel})
+    world:createItemFromId(shardId,1,pos,false,999,{[glyphs.SHARD_LEVEL_DATA_KEY] = shardLevel}, 5)
 end
 
 function M.dropShardByChance(treasureLocation,treasureLevel)

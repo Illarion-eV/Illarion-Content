@@ -131,7 +131,8 @@ local function dropLootItem(monster, lootItemData)
         data = {mugId = mugWithLid.getRandomMugId()}
     end
 
-    world:createItemFromId(lootItemData.itemId, amount, monster.pos, true, quality * 100 + durability, data)
+    local createdItem = world:createItemFromId(lootItemData.itemId, amount, monster.pos, true, quality * 100 + durability, data)
+    createdItem.wear = 4
 end
 
 local function dropLootCategory(monster, lootData)

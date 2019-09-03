@@ -38,11 +38,11 @@ function M.MoveToField(char)
     
     elseif char:isInRangeToPosition((position (636 , 271, 0)), 4) and char:getQuestProgress(501) == 1 then -- Player found Lake of Life Dungeon entrance.
         char:setQuestProgress(501, 2)
-        common.InformNLS(char, "Du hast den Eingang zum See des Lebens gefunden. Kehre zu Salva zurück, du hast ihre Aufgabe erfüllt.", "You have found the entrance to the Lake of Life. Return to Ssalva, you have finished her task.")
+        common.InformNLS(char, "Du hast den Eingang zum See des Lebens gefunden. Kehre zu Ssalva zurück, du hast ihre Aufgabe erfüllt.", "You have found the entrance to the Lake of Life. Return to Ssalva, you have finished her task.")
         
     elseif char:isInRangeToPosition((position (722 , 244, -9)), 2) and char:getQuestProgress(501) == 4 then -- Player found Lake of Life Dungeon second Island.
         char:setQuestProgress(501, 5)
-        common.InformNLS(char, "Du hast die zweite Insel gefunden. Kehre zu Salva zurück, du hast ihre Aufgabe erfüllt.", "You have found the second island. Return to Ssalva, you have finished her task.")
+        common.InformNLS(char, "Du hast die zweite Insel gefunden. Kehre zu Ssalva zurück, du hast ihre Aufgabe erfüllt.", "You have found the second island. Return to Ssalva, you have finished her task.")
     end
 
 end
@@ -56,7 +56,7 @@ function M.PutItemOnField(Item,char)
         world:gfx(46, Item.pos) -- nice GFX
         world:erase(Item, 1) -- delete the item
         char:setQuestProgress(501, 15)
-        common.InformNLS(char, "Du hast deine Gabe dargebracht. Kehre zu Salva zurück, du hast ihre Aufgabe erfüllt.", "You have placed your offering. Return to Ssalva, you have finished her task.")
+        common.InformNLS(char, "Du hast deine Gabe dargebracht. Kehre zu Ssalva zurück, du hast ihre Aufgabe erfüllt.", "You have placed your offering. Return to Ssalva, you have finished her task.")
         end
     end
 

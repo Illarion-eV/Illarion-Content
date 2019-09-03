@@ -43,7 +43,8 @@ function M.townManagmentUseItem(User, SourceItem)
     local requiredRank = {8, 8, 8}
     local allowed = User:getQuestProgress(199) == toolTown and User:getQuestProgress(200) >= requiredRank[toolTown] and User:getQuestProgress(202) >= 600 or User:isAdmin() == true
     if not allowed then
-        common.InformNLS(User, "Du hast keine Befugnis hierzu.", "You are not supposed to use this.")
+        -- common.InformNLS(User, "Du hast keine Befugnis hierzu.", "You are not supposed to use this.")
+        TownAnnouncementShow(User,toolTown)
         return
     end
 
@@ -53,25 +54,27 @@ function M.townManagmentUseItem(User, SourceItem)
         end
         local selected = dialog:getSelectedIndex() + 1
         if selected == 1 then
-            TownGuard(User,toolTown)
+            TownAnnouncement(User,toolTown)
         elseif selected == 2 then
-            TownLicence(User,toolTown)
+            TownGuard(User,toolTown)
         elseif selected == 3 then
-            TownKey(User,toolTown)
+            TownLicence(User,toolTown)
         elseif selected == 4 then
+            TownKey(User,toolTown)
+        elseif selected == 5 then
             TownMaterial(User,toolTown)
         end
     end
 
     local dialogTitle = common.GetNLS(User, "Stadtmanagement", "Town Management")
-    local dialogText = common.GetNLS(User, "Instrument zur Verwaltung der Stadt. Nur für offizielle Vertreter.", "Instrument for town management. Only for officials.")
+    local dialogText = common.GetNLS(User, "Instrument zur Verwaltung der Stadt und Ankündigungen.", "Instrument for town management and announcements.")
     local dialog = SelectionDialog(dialogTitle, dialogText, callback)
 
     local toolUse = {}
     if collectionchest.isCollectionChestExists(toolTown) then
-        toolUse = common.GetNLS(User, {"Verbannung", "Lizenz", "Schlüssel","Materialsammlug"}, {"Ban a character", "Licence", "Key","Material collection"})
+        toolUse = common.GetNLS(User, {"Ankündigung", "Verbannung", "Lizenz", "Schlüssel", "Materialsammlung"}, {"Announcement", "Ban a character", "Licence", "Key", "Material collection"})
     else
-        toolUse = common.GetNLS(User, {"Verbannung", "Lizenz", "Schlüssel"}, {"Ban a character", "Licence", "Key"})
+        toolUse = common.GetNLS(User, {"Ankündigung", "Verbannung", "Lizenz", "Schlüssel"}, {"Announcement", "Ban a character", "Licence", "Key"})
     end
     
     for i = 1, #toolUse do
@@ -80,6 +83,95 @@ function M.townManagmentUseItem(User, SourceItem)
 
     dialog:setCloseOnMove()
     User:requestSelectionDialog(dialog)
+end
+
+function TownAnnouncement(User,toolTown)
+
+    -- selection dialog
+    local callback = function(dialog)
+        if not dialog:getSuccess() then
+            return
+        end
+        local selected = dialog:getSelectedIndex() + 1
+        if selected == 1 then
+            TownAnnouncementShow(User,toolTown)
+        elseif selected == 2 then
+            TownAnnouncementInput(User,toolTown)
+        end
+    end
+    
+    local dialogTitle = common.GetNLS(User, "Ankündigung", "Announcement")
+    local dialogText = common.GetNLS(User, "Wähle eine Option.", "Chose an option.")
+    local dialog = SelectionDialog(dialogTitle, dialogText, callback)
+
+    local options = {}
+    options = common.GetNLS(User, {"Ankündigung lesen", "Ankündigung schreiben"}, {"Read announcement", "Write new announcement"})
+    
+    for i = 1, #options do
+        dialog:addOption(0, options[i])
+    end
+
+    dialog:setCloseOnMove()
+    User:requestSelectionDialog(dialog)
+    
+end
+
+function TownAnnouncementShow(User,toolTown)
+
+    -- message dialog
+    local callback = function() end --empty callback
+    local title = common.GetNLS(User, "Derzeitige Ankündigung", "Current announcement")
+    
+    --read
+    options = {"announcementCadomyr", "announcementRunewick", "announcementGalmair"}
+    
+    if options[toolTown] then 
+        found, value = ScriptVars:find(options[toolTown])
+        if found then
+            text = value
+        else
+            text = common.GetNLS(User, "Keine Ankündigungen.", "No current announcement.")
+        end
+    else
+        text = common.GetNLS(User,"Fehler. Bitte informiere einen Entwickler.","Error. Please inform a developer.")
+    end
+    
+    local dialog = MessageDialog(title, text, callback)
+    User:requestMessageDialog(dialog)
+
+end
+
+function TownAnnouncementInput(User,toolTown)
+
+    -- input dialog
+    local title = common.GetNLS(User, "Ankündigung schreiben", "Write new announcement")
+    local text = common.GetNLS(User, "Schreibe deine neue Ankündigung. Abbruch führt dazu, dass die derzeitige Ankündigung beibehalten wird.", "Write your new annoucement. Cancel to keep current announcement.")
+
+    local callback = function(dialog)
+        if not dialog:getSuccess() then
+            return
+        else
+            local writtenText = dialog:getInput()
+            if string.len (writtenText) > 255 then
+                User:inform("Deine Ankündigung ist zu lang.","The announcement is too long.",Character.highPriority)
+            else
+                --write
+                options = {"announcementCadomyr", "announcementRunewick", "announcementGalmair"}
+                townNames = {"Cadomyr", "Runewick", "Galmair"}
+    
+                if options[toolTown] then 
+                    ScriptVars:set(options[toolTown], writtenText)
+                    ScriptVars:save()
+                    world:broadcast("In "..townNames[toolTown].." wurde eine neue Ankündigung veröffentlicht.", "A new announcement has been published in "..townNames[toolTown]..".")
+                else 
+                    common.InformNLS(User,"Ungültige Stadt. Bitte informiere einen Entwickler.","Invalid town. Please report to a developer.")
+                end
+            end
+        end
+    end
+    local dialog = InputDialog(title, text, false, 255, callback)
+    User:requestInputDialog(dialog)
+
 end
 
 function TownGuard(User,toolTown)

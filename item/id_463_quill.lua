@@ -153,6 +153,7 @@ local function WriteParchment(User,SourceItem)
                 else
                     parchment:setData("writtenText",writtenText)
                     lookat.SetSpecialDescription(parchment,"Das Pergament ist beschrieben.","The parchment has been written on.")
+                    parchment.wear = 254 -- Written parchments should have maximum rot time to allow message exchange
                     world:changeItem(parchment)
                     User:inform("Du schreibst auf das Pergament:\n'".. string.gsub (writtenText,"\\n","\n") .."'.","You write on the parchment:\n'".. string.gsub (writtenText,"\\n","\n") .."'.")
                 end
@@ -172,6 +173,7 @@ local function SignParchment(User,SourceItem)
     if parchment then
         parchment:setData("signatureText",User.name)
         lookat.SetSpecialDescription(parchment,"Das Pergament ist unterschrieben.","The parchment is signed.")
+        parchment.wear = 254 -- Written parchments should have maximum rot time to allow message exchange
         world:changeItem(parchment)
         User:inform("Du unterschreibst das Pergament.","You sign the parchment.")
     else
