@@ -29,7 +29,7 @@ local lookAt = require("base.lookat")
 local money = require("base.money")
 local itemLookAt = require("server.itemlookat")
 local characterLua = require("base.character")
-
+local gods = require("content.gods")
 
 
 local M = {}
@@ -313,7 +313,9 @@ function M.getCharDescription( SourceCharacter, TargetCharacter, mode)
     -- Generate the limits
     -- the related information is shown if limitToSeexxx is >= 0
     local factorPerception = SourceCharacter:increaseAttrib( "perception", 0 )
+    local factorEssense = SourceCharacter:increaseAttrib( "essence", 0 )
     local factorDistance = SourceCharacter:distanceMetric( TargetCharacter )
+
     local bonusSex = (SourceCharacter:increaseAttrib( "sex", 0 ) == 0 and 10 or 20 )
     if ( mode == MODE_MIRROR) then
         factorDistance = 1
@@ -329,6 +331,7 @@ function M.getCharDescription( SourceCharacter, TargetCharacter, mode)
     local limitToSeePurse = 1 * factorPerception - 3 * factorDistance
     local limitToSeeBelt = 1 * factorPerception - 3 * factorDistance
     local limitToSeeHairdresser = 2 * factorPerception - 6 * factorDistance + bonusSex
+    local limitToSeeReligion = 1 * factorEssense - 2 * factorDistance
 
     local lang = SourceCharacter:getPlayerLanguage()
     -- inform about stats
@@ -422,16 +425,21 @@ function M.getCharDescription( SourceCharacter, TargetCharacter, mode)
         output = output .. addtext .. ". "
     --nothing, you see that!
     end
-    
+
     -- hairdresser recently
     addtext = getCharHairdresserState( TargetCharacter, lang, limitToSeeHairdresser)
     if ( common.IsNilOrEmpty(addtext) == false ) then
         output = output .. addtext
     end
-    
+
+    if ( limitToSeeReligion >= 0 ) then
+        output = output .. "\n" .. gods.getReligionLookAt(TargetCharacter, SourceCharacter)
+    end
+
     if ( common.IsNilOrEmpty(output) ) then
         output = ( lang == 0 and "Du kannst schwerlich erkennen wie die Person aussieht." or "You can barely make out the figure." )
     end
+
     return output
 end
 

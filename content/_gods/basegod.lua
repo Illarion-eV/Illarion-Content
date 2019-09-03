@@ -50,6 +50,21 @@ function M.BaseGod:_init(ordinal)
             value_multiplier = 1, -- float -- the monetary value gets multiplied by this
         },
     }
+
+    self._favourLevelGranularity = 50  -- name changed every X points
+    self._favourLevelMax = 5
+    self._favourLevelNames = {}
+    self._favourLevelNames[-5] = "wrathful"
+    self._favourLevelNames[-4] = "very angry"
+    self._favourLevelNames[-3] = "angry"
+    self._favourLevelNames[-2] = "irritated"
+    self._favourLevelNames[-1] = "displeased"
+    self._favourLevelNames[0] = "indifferent"
+    self._favourLevelNames[1] = "pleased"
+    self._favourLevelNames[2] = "happy"
+    self._favourLevelNames[3] = "charmed"
+    self._favourLevelNames[4] = "delighted"
+    self._favourLevelNames[5] = "exalted"
 end
 
 function M.BaseGod:getDevotionItems(charObj)
@@ -102,6 +117,15 @@ end
 function M.BaseGod:_getRawSacrificeValue(item)
     local singleVal = self:_getSingleRawSacrificeValue(item)
     return item.number * singleVal
+end
+
+function M.BaseGod:getFavourLevel(charObj)
+    local favour = self:getFavour(charObj)
+    -- we now divide and truncate towards zero
+    local sign = favour >= 0 and 1 or -1
+    local favourLevel = sign * math.min(self._favourLevelMax, math.floor(math.abs(favour) / self._favourLevelGranularity))
+    local favourLevelName = self._favourLevelNames[favourLevel]
+    return favourLevel, favourLevelName
 end
 
 function M.BaseGod:informBecomeDevoted(charObj)

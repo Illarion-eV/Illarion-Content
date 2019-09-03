@@ -27,7 +27,7 @@ local M = {}
 -- Favour increase and cooldown settings
 M.MAX_FAVOUR = 2000
 M.MIN_FAVOUR = -2000
-M.LOSE_DEVOTION_FAVOUR_THRESHOLD = -50  -- minimal favour that is enough to remain devoted
+M.LOSE_DEVOTION_FAVOUR_THRESHOLD = -60  -- minimal favour that is enough to remain devoted
 M.DEVOTION_FAVOUR_THRESHOLD = 100  -- minimal favour that is enough to become devoted
 M.LOSE_PRIESTHOOD_FAVOUR_THRESHOLD = 90  -- minimal favour that is enough to remain being a priest
 M.PRIESTHOOD_FAVOUR_THRESHOLD = 200  -- minimal favour that is enough to become a priest
