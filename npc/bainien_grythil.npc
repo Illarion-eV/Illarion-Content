@@ -68,8 +68,8 @@ itemShoes = 1056
 ------------------------------------------------------------------------------AC
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Bainien Grythil, the Priestess of Cherga. Keywords: Hello, god.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Bainien Grythil, eine Priesterin der Cherga. Schlüsselwörter: Hallo, Gott.")
+"Help" -> inform("[Game Help] This NPC is Bainien Grythil, the Priestess of Cherga. Keywords: Hello, god, favour, sacrifice.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Bainien Grythil, eine Priesterin der Cherga. Schlüsselwörter: Hallo, Gott, Gunst, Opfergabe.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted, child."

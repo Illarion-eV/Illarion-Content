@@ -67,8 +67,8 @@ itemShoes = 53
 -- When you are done, please hit the "Rebuild Script" button.
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Bathelor the high priest of Brágon. Keywords: Hello, Brágon, Quest, Priest, Temple.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Bathelor der Hohepriester Brágons. Schlüsselwörter: Hallo, Brágon, Quest, Priester, Tempel.")
+"Help" -> inform("[Game Help] This NPC is Bathelor the high priest of Brágon. Keywords: Hello, Brágon, Quest, Priest, Temple, Favour, Sacrifice.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Bathelor der Hohepriester Brágons. Schlüsselwörter: Hallo, Brágon, Quest, Priester, Tempel, Gunst, Opfergabe.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Your pilgrimage has come to an end. You have found the temple of the Five.", "Be greeted in the name of Brágon.", "Hail Brágon! What is it, my child?"

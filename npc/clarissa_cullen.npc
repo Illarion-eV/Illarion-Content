@@ -65,7 +65,7 @@ itemShoes = 1517
 
 -- Mandatory: Help
 "Help" -> inform("[Game Help] This NPC is Clarissa Cullen, the Priestess of Zhambra. Keywords: Hello, god, Zhambra, favour, sacrifice.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Clarissa Cullen, eine Priesterin des Zhambra. Schlüsselwörter: Hallo, Gott, Zhambra, FIXME.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Clarissa Cullen, eine Priesterin des Zhambra. Schlüsselwörter: Hallo, Gott, Zhambra, Gunst, Opfergabe.")
 
 -- Book of your god quest
 queststatus(401) = 14, queststatus(685) = 0, english, ".+" -> inform("[New Quest] A book about your God"), "FIXME Oh, a neophyte! Why don't you go ask for a book about Zhambra in the library?", queststatus(685) = 1

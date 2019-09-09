@@ -76,7 +76,7 @@ itemShoes = 1500
 
 -- Mandatory: Help
 "Help" -> inform("[Game Help] This NPC is Eleanor Fairbanks the Priestess of Oldra. Keywords: Hello, Oldra, Quest, Yewdale, god, favour, sacrifice.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Eleanor Fairbanks die Priesterin von Oldra. Schlüsselwörter: Hallo, Oldra, Quest, Yewdale, Gott.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Eleanor Fairbanks die Priesterin von Oldra. Schlüsselwörter: Hallo, Oldra, Quest, Yewdale, Gott, Gunst, Opfergabe.")
 
 -- Book of your god quest
 queststatus(401) = 9, queststatus(685) = 0, english, ".+" -> inform("[New Quest] A book about your God"), "FIXME Oh, a neophyte! Why don't you go ask for a book about Oldra in the library?", queststatus(685) = 1

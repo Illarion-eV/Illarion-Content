@@ -65,8 +65,8 @@ itemShoes = 1505
 ------------------------------------------------------------------------------AC
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Cato Lupis, a Priest of Malachin. Keywords: Hello, god.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Cato Lupis, ein Priester des Malachin. Schlüsselwörter: Hallo, Gott.")
+"Help" -> inform("[Game Help] This NPC is Cato Lupis, a Priest of Malachin. Keywords: Hello, god, favour, sacrifice.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Cato Lupis, ein Priester des Malachin. Schlüsselwörter: Hallo, Gott, Gunst, Opfergabe.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings!"

@@ -73,8 +73,8 @@ itemShoes = 697
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Ada Golweneth the Elara Priest. Keywords: Hello, gods, Elara.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Ada Golweneth die Elarapriesterin. Schlüsselwörter: Hallo, Götter, Elara.")
+"Help" -> inform("[Game Help] This NPC is Ada Golweneth the Elara Priest. Keywords: Hello, gods, Elara, favour, sacrifice.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Ada Golweneth die Elarapriesterin. Schlüsselwörter: Hallo, Götter, Elara, Gunst, Opfergabe.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hello!", "Greetings. Is there something I can do for you?"

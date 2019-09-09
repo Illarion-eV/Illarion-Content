@@ -73,8 +73,8 @@ itemShoes = 697
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Dion Rhoditis the Adron Priest. Keywords: Hello, gods, Adron.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Dion Rhoditis der Adronpriester. Schlüsselwörter: Hallo, Götter, Adron.")
+"Help" -> inform("[Game Help] This NPC is Dion Rhoditis the Adron Priest. Keywords: Hello, gods, Adron, favour, sacrifice.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Dion Rhoditis der Adronpriester. Schlüsselwörter: Hallo, Götter, Adron, Gunst, Opfergabe.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hello!", "What brought you here?", "Nice to meet you."

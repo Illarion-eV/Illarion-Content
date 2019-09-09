@@ -64,8 +64,8 @@ itemShoes = 1501
 ------------------------------------------------------------------------------AC
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Senka, the Priestess of Ronagan. Keywords: Hello, god.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Senka, eine Priesterin des Ronagan. Schlüsselwörter: Hallo, Gott.")
+"Help" -> inform("[Game Help] This NPC is Senka, the Priestess of Ronagan. Keywords: Hello, god, favour, sacrifice.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Senka, eine Priesterin des Ronagan. Schlüsselwörter: Hallo, Gott, Gunst, Opfergabe.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Welcome", "Greetings"

@@ -64,8 +64,8 @@ itemShoes = 1518
 ------------------------------------------------------------------------------AC
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Andrei Kazakov, the Priest of Moshran. Keywords: Hello, god.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Andrei Kazakov, ein Priester des Moshran. Schlüsselwörter: Hallo, Gott.")
+"Help" -> inform("[Game Help] This NPC is Andrei Kazakov, the Priest of Moshran. Keywords: Hello, god, favour, sacrifice.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Andrei Kazakov, ein Priester des Moshran. Schlüsselwörter: Hallo, Gott, Gunst, Opfergabe.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Your cheerfulness irritates me. Perhaps I should end it."

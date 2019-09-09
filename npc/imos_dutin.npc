@@ -64,8 +64,8 @@ itemShoes = 697
 ------------------------------------------------------------------------------AC
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Imos Dutin, the Priest of Nargun. Keywords: Hello, god.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Imos Dutin, ein Priester des Nargun. Schlüsselwörter: Hallo, Gott.")
+"Help" -> inform("[Game Help] This NPC is Imos Dutin, the Priest of Nargun. Keywords: Hello, god, favour, sacrifice.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Imos Dutin, ein Priester des Nargun. Schlüsselwörter: Hallo, Gott, Gunst, Opfergabe.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Lord Nargun's blessing on you and welcome."

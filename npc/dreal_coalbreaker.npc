@@ -64,8 +64,8 @@ itemShoes = 1517
 ------------------------------------------------------------------------------AC
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Dreal Coalbreaker, the Priest of Irmorom. Keywords: Hello, god.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Dreal Coalbreaker, ein Priester des Irmorom. Schlüsselwörter: Hallo, Gott.")
+"Help" -> inform("[Game Help] This NPC is Dreal Coalbreaker, the Priest of Irmorom. Keywords: Hello, god, favour, sacrifice.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Dreal Coalbreaker, ein Priester des Irmorom. Schlüsselwörter: Hallo, Gott, Gunst, Opfergabe.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetin's."
