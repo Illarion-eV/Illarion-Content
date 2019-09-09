@@ -182,6 +182,10 @@ english, "robe" -> "You should ask a tailor. Best be off to Runewick or Cadomyr 
 "goblet" -> "I'm sure a finesmith in Cadomyr or Galmair can help forge you a goblet."
 "kelch" -> "Ich bin mir sicher ein Goldschmied in Cadomyr oder in Galmair kann euch bezüglich des Kelches helfen."
 
+-- Divine rank
+english, "favou?r" -> "I don't have time to tell whether gods favour you or not, I have my own duties to attend."
+"gunst" -> "FIXGERMAN I don't have time to tell whether gods favour you or not, I have my own duties to attend."
+
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession", "work" -> "Priest of Brágon of course.", "Priest, perhaps you are inflicted traveller?", "Brágon's devotee is my profession."
 "beruf", "arbeit", "was mach" -> "Priest von Brágon natürlich.", "Priester, seht ihr das nicht?", "Brágon ist meine Leidenschaft."
