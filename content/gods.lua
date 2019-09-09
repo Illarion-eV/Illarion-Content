@@ -286,13 +286,11 @@ function M.getReligionLookAt(targetCharObj, priestCharObj)
         statusDe = "Sie ist "
     end
     if targetGodObj ~= priestGodObj then
-        -- priest knows that this char is not a devotee, but nothing else
+        -- priest knows that this char is not a devotee
         statusDe = statusDe .. "FIXGERMAN"
         statusEn = statusEn .. "not devoted to " .. priestGodObj.nameEn .. "."
     else
-        -- for devotees of same god priests know much more
-
-        -- check whether target is a priest or a devotee
+        -- for devotees of same god priests also see if target is a priest too.
         if M.isPriest(targetCharObj) then
             statusDe = statusDe .. "ein Priester von " .. targetGodObj.nameDe .. ". "
             statusEn = statusEn .. "a priest of " .. targetGodObj.nameEn .. ". "
@@ -300,20 +298,20 @@ function M.getReligionLookAt(targetCharObj, priestCharObj)
             statusDe = statusDe .. "ein Anhänger von " .. targetGodObj.nameDe .. ". "
             statusEn = statusEn .. "devoted to " .. targetGodObj.nameEn .. ". "
         end
-        -- favour level description
-        local favourLevel, favourLevelName = targetGodObj:getFavourLevel(targetCharObj)
-        statusDe = statusDe .. " FIXGERMAN"
-        statusEn = statusEn .. targetGodObj.nameEn .. " is " .. favourLevelName .. " with "
-        if ( targetCharacterSex == 0 ) then
-            statusEn = statusEn .. "him."
-        else
-            statusEn = statusEn .. "her."
-        end
-        -- favour level bar, we draw it in ASCII, perhaps some day it may be added as gui element
-        local favourBar = drawBar(favourLevel, -5, 5)
-        statusDe = statusDe .. " " .. favourBar .. "\n"
-        statusEn = statusEn .. " " .. favourBar .. "\n"
     end
+    -- favour level description
+    local favourLevel, favourLevelNameEn, favourLevelNameDe = targetGodObj:getFavourLevel(targetCharObj)
+    statusDe = statusDe .. targetGodObj.nameDe .. " FIXGERMAN " .. favourLevelNameDe
+    statusEn = statusEn .. targetGodObj.nameEn .. " is " .. favourLevelNameEn .. " with "
+    if ( targetCharacterSex == 0 ) then
+        statusEn = statusEn .. "him."
+    else
+        statusEn = statusEn .. "her."
+    end
+    -- favour level bar, we draw it in ASCII, perhaps some day it may be added as gui element
+    local favourBar = drawBar(favourLevel, -5, 5)
+    statusDe = statusDe .. " " .. favourBar .. "\n"
+    statusEn = statusEn .. " " .. favourBar .. "\n"
 
     return common.GetNLS(priestCharObj, statusDe, statusEn)
 end

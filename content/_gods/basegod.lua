@@ -53,18 +53,30 @@ function M.BaseGod:_init(ordinal)
 
     self._favourLevelGranularity = 50  -- name changed every X points
     self._favourLevelMax = 5
-    self._favourLevelNames = {}
-    self._favourLevelNames[-5] = "wrathful"
-    self._favourLevelNames[-4] = "very angry"
-    self._favourLevelNames[-3] = "angry"
-    self._favourLevelNames[-2] = "irritated"
-    self._favourLevelNames[-1] = "displeased"
-    self._favourLevelNames[0] = "indifferent"
-    self._favourLevelNames[1] = "pleased"
-    self._favourLevelNames[2] = "happy"
-    self._favourLevelNames[3] = "charmed"
-    self._favourLevelNames[4] = "delighted"
-    self._favourLevelNames[5] = "exalted"
+    self._favourLevelNamesEn = {}
+    self._favourLevelNamesEn[-5] = "wrathful"     -- -inf .. -250
+    self._favourLevelNamesEn[-4] = "very angry"   -- -249 .. -200
+    self._favourLevelNamesEn[-3] = "angry"        -- -199 .. -150
+    self._favourLevelNamesEn[-2] = "irritated"    -- -149 .. -100
+    self._favourLevelNamesEn[-1] = "displeased"   -- -99 .. -50
+    self._favourLevelNamesEn[0] = "indifferent"   -- -49 .. 49
+    self._favourLevelNamesEn[1] = "pleased"       -- 50 .. 99
+    self._favourLevelNamesEn[2] = "happy"         -- 100 .. 149
+    self._favourLevelNamesEn[3] = "charmed"       -- 150 .. 199
+    self._favourLevelNamesEn[4] = "delighted"     -- 200 .. 249
+    self._favourLevelNamesEn[5] = "exalted"       -- 250 .. +inf
+    self._favourLevelNamesDe = {}
+    self._favourLevelNamesDe[-5] = "FIXGERMAN wrathful"     -- -inf .. -250
+    self._favourLevelNamesDe[-4] = "FIXGERMAN very angry"   -- -249 .. -200
+    self._favourLevelNamesDe[-3] = "FIXGERMAN angry"        -- -199 .. -150
+    self._favourLevelNamesDe[-2] = "FIXGERMAN irritated"    -- -149 .. -100
+    self._favourLevelNamesDe[-1] = "FIXGERMAN displeased"   -- -99 .. -50
+    self._favourLevelNamesDe[0] = "FIXGERMAN indifferent"   -- -49 .. 49
+    self._favourLevelNamesDe[1] = "FIXGERMAN pleased"       -- 50 .. 99
+    self._favourLevelNamesDe[2] = "FIXGERMAN happy"         -- 100 .. 149
+    self._favourLevelNamesDe[3] = "FIXGERMAN charmed"       -- 150 .. 199
+    self._favourLevelNamesDe[4] = "FIXGERMAN delighted"     -- 200 .. 249
+    self._favourLevelNamesDe[5] = "FIXGERMAN exalted"       -- 250 .. +inf
 end
 
 function M.BaseGod:getDevotionItems(charObj)
@@ -124,8 +136,9 @@ function M.BaseGod:getFavourLevel(charObj)
     -- we now divide and truncate towards zero
     local sign = favour >= 0 and 1 or -1
     local favourLevel = sign * math.min(self._favourLevelMax, math.floor(math.abs(favour) / self._favourLevelGranularity))
-    local favourLevelName = self._favourLevelNames[favourLevel]
-    return favourLevel, favourLevelName
+    local favourLevelNameEn = self._favourLevelNamesEn[favourLevel]
+    local favourLevelNameDe = self._favourLevelNamesDe[favourLevel]
+    return favourLevel, favourLevelNameEn, favourLevelNameDe
 end
 
 function M.BaseGod:informBecomeDevoted(charObj)
