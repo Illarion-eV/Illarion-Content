@@ -75,7 +75,7 @@ function M.Adron:_init(ordinal, youngerOrdinal)
                 -- ## manual
                 -- category: smoking
                 155, -- sibanac leaves
-                772, -- sibanac leaves
+                772, -- tobacco
                 2744, -- pipe
                 -- category: some alcohol ingredients
                 154, -- hop

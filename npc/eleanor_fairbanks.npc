@@ -243,8 +243,8 @@ english, "favour", "favor" -> "Oldra is wrathful about you. Can't you feel it?"
 "gunst", queststatus(411) > expr(-250) -> "FIXGERMAN Oldra is very angry on you."
 "gunst" -> "FIXGERMAN Oldra is wrathful about you. Can't you feel it?"
 
-
-"donation", "sacrifice" -> "FIXME Oldra likes cooks and farmers"
+english, "sacrifice" -> "Nothing can symbolize life better then a good meal does.", "Farmers are used to sacrifice part of their crops to show gratitude to Oldra."
+"opfer", "opfergabe" -> "FIXGERMAN"
 
 -- Optional: Faction stuff
 "archmage" -> "He runs the mages academy in Runewick. A bit of a recluse, that one."

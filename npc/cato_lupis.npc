@@ -159,6 +159,9 @@ english, "favour", "favor" -> "Malachin is wrathful about you."
 "gunst", queststatus(413) > expr(-250) -> "FIXGERMAN is very angry on you."
 "gunst" -> "FIXGERMAN is wrathful about you."
 
+english, "sacrifice" -> "The god of battle always needs weapons.", "Help the hunters get ready for the trip.", "Did you know that there is a type of dagger named after Malachin?"
+"opfer", "opfergabe" -> "FIXGERMAN"
+
 -- Faction stuff
 "archmage" -> "I really do not have much to say about him. He strikes me to be a loner who busy with his studies."
 english, "Elvaine", "Morgan" -> "I really do not have much to say about him. He strikes me to be a loner who busy with his studies."

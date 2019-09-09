@@ -158,6 +158,9 @@ english, "favour", "favor" -> "Ronagan is wrathful about you. You'd better watch
 "gunst", queststatus(417) > expr(-250) -> "FIXGERMAN Ronagan is very angry on you."
 "gunst" -> "FIXGERMAN Ronagan is wrathful about you. You'd better watch your back."
 
+english, "sacrifice" -> "Thieves like daggers, they are easy to conceal, and black clothes help to conceal the thief himself."
+"opfer", "opfergabe" -> "FIXGERMAN"
+
 -- Faction stuff
 "archmage" -> "I pay little mind to the rulers of other towns. I owe my allegiance only to the Don."
 english, "Elvaine", "Morgan" -> "I pay little mind to the rulers of other towns. I owe my allegiance only to the Don."

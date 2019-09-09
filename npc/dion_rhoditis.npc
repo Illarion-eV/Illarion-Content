@@ -176,6 +176,9 @@ english, "favour", "favor" -> "Adron is wrathful about you. Very unwise of you."
 "gunst", queststatus(410) > expr(-250) -> "FIXGERMAN is very angry on you."
 "gunst" -> "FIXGERMAN is wrathful about you."
 
+english, "sacrifice" -> "Hey, do you seriously ask what to sacrifice to the god of wine?"
+"opfer", "opfergabe" -> "FIXGERMAN"
+
 -- Optional: Faction stuff
 "archmage" -> "I've spoken to him once or twice, but he isn't much of a drinker."
 "Erzmagier" -> "Ich hab ein paar mal mit ihm gesprochen. Nur trinken tut er nicht."

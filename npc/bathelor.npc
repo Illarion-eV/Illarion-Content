@@ -353,6 +353,9 @@ english, "favou?r" -> inform("[Keywords] favour of Ushara, favour of Brágon, fav
 "gunst" -> inform("[Keywords] FIXGERMAN gunst der Ushara, gunst des Brágon, gunst des Eldan, gunst der Tanora, gunst der Findari"), "FIXGERMAN You want to know whether gods favour you? Which of the elder gods do you mean?"
 
 
+english, "sacrifice" -> "The elder gods are hard to appease, they would only accept pure elements and magic wands."
+"opfer", "opfergabe" -> "FIXGERMAN"
+
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "There are five gods: Brágon, Eldan, Findari, Tanora and Ushara. If you didn't know before, drop dead now."
 "Gott", "Götter" -> "Es gibt fünf Götter: Brágon, Eldan, Findari, Tanora und Ushara. Wenn ihr das nicht wußtet, fallt bitte tot um."

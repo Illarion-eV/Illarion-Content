@@ -158,6 +158,9 @@ english, "favour", "favor" -> "Irmorom is wrathful about you. May thy tools brea
 "gunst", queststatus(414) > expr(-250) -> "FIXGERMAN is very angry on you."
 "gunst" -> "FIXGERMAN is wrathful about you."
 
+english, "sacrifice" -> "Irmorom only accepts freshly made crafts of highest quality."
+"opfer", "opfergabe" -> "FIXGERMAN"
+
 -- Faction stuff
 "archmage" -> "He's a smart one, I'll tell ya that. But the old Archmage Morgan doesn't leave his abode very often."
 english, "Elvaine", "Morgan" -> "He's a smart one, I'll tell ya that. But the old Archmage Morgan doesn't leave his abode very often."

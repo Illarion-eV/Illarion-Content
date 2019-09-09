@@ -161,8 +161,8 @@ english, "favour", "favor" -> "Zhambra is wrathful about you. Can't you tell?"
 "gunst", queststatus(416) > expr(-250) -> "FIXGERMAN is very angry on you."
 "gunst" -> "FIXGERMAN is wrathful about you."
 
-
-"donation", "sacrifice" -> "FIXME Protecting friends is of high value for Zhambra"
+english, "sacrifice" -> "What can protect your friends better then a suit of armour? Only your own valour!"
+"opfer", "opfergabe" -> "FIXGERMAN"
 
 -- Faction stuff
 "archmage" -> "From what I hear, he is an incredibly accomplished mage. He is also a shut in who makes his home an an island that can only be reached by a magical portal. He is loyal only to his work."

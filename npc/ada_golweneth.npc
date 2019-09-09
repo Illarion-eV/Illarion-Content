@@ -176,6 +176,9 @@ english, "favour", "favor" -> "Elara is wrathful about you. Very unwise of you."
 "gunst", queststatus(409) > expr(-250) -> "FIXGERMAN is very angry on you."
 "gunst" -> "FIXGERMAN is wrathful about you."
 
+english, "sacrifice" -> "Knowledge is best kept written.", "Wizards are known for their wisdom."
+"opfer", "opfergabe" -> "FIXGERMAN"
+
 -- Optional: Faction stuff
 "archmage" -> "Archmage Elvaine Morgan is the founder of the magic academy and Runewick. He originally sailed here from Lor Angor decades ago. Without him, none of this would exist."
 "Erzmagier" -> "Erzmagier Elvaine Morgan ist der Gründer der magischen Akademie und Runewicks. Ursprünglich kam er aus Lor Angor Jahrzehnte zuvor. Ohne ihn gäbe es all das hier nicht."

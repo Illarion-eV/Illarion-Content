@@ -162,6 +162,9 @@ english, "favour", "favor" -> "Sirani is wrathful about you. Can't you feel it i
 "gunst", queststatus(415) > expr(-250) -> "FIXGERMAN is very angry on you."
 "gunst" -> "FIXGERMAN is wrathful about you."
 
+english, "sacrifice" -> "Try jewelry and beautiful clothes."
+"opfer", "opfergabe" -> "FIXGERMAN"
+
 -- Faction stuff
 "archmage" -> "He strikes me to be quite the bore. Always absorbed in his studies on his little private island. But I suppose if that is how he gets his kicks, the more power to him."
 english, "Elvaine", "Morgan" -> "He strikes me to be quite the bore. Always absorbed in his studies on his little private island. But I suppose if that is how he gets his kicks, the more power to him."

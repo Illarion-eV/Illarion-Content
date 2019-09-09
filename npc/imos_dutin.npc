@@ -158,6 +158,9 @@ english, "favour", "favor" -> "Nargún is wrathful about you. Are you not afraid 
 "gunst", queststatus(408) > expr(-250) -> "FIXGERMAN is very angry on you."
 "gunst" -> "FIXGERMAN is wrathful about you."
 
+english, "sacrifice" -> "Nargún changes his preferences ever so often.", "Have you tried bananas today?", "There are divinations to predict what Nargún desires today. Have you tried telling by druids tea leaves?"
+"opfer", "opfergabe" -> "FIXGERMAN"
+
 -- Faction stuff
 "archmage" -> "Bah, stuffy mage. But still lord Nargun his fun."
 english, "Elvaine", "Morgan" -> "Bah, stuffy mage. But still lord Nargun his fun."

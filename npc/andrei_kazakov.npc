@@ -166,6 +166,9 @@ english, "favour", "favor" -> "Moshran is wrathful about you. Beware."
 "gunst", queststatus(418) > expr(-250) -> "FIXGERMAN is very angry on you."
 "gunst" -> "FIXGERMAN is wrathful about you."
 
+english, "sacrifice" -> "Human sacrifices are the best. Then there are also elven sacrifices, lizard sacrifices, dwarven sacrifices, halfling sacrifices, and even orcish sacrifices.", "You can always kill an animal and sacrifice its corpse if you can't find a sentient creature."
+"opfer", "opfergabe" -> "FIXGERMAN"
+
 -- Faction stuff
 "archmage" -> "He is too busy in his isolated island to care what happens in his town. It makes wreaking havoc there so simple."
 english, "Elvaine", "Morgan" -> "He is too busy in his isolated island to care what happens in his town. It makes wreaking havoc there so simple."

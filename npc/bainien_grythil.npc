@@ -162,6 +162,9 @@ english, "favour", "favor" -> "Cherga is wrathful about you. Don't forget that y
 "gunst", queststatus(412) > expr(-250) -> "FIXGERMAN is very angry on you."
 "gunst" -> "FIXGERMAN is wrathful about you."
 
+english, "sacrifice" -> "Light can help to guide the souls of the dead to the realms of the gods.", "Graveyards always need more shovels and gravestones."
+"opfer", "opfergabe" -> "FIXGERMAN"
+
 -- Faction stuff
 "archmage" -> "I do not concern myself with the matters of the living."
 english, "Elvaine", "Morgan" -> "I do not concern myself with the matters of the living."
