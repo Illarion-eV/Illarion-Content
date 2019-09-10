@@ -78,9 +78,9 @@ itemShoes = 1500
 "Help" -> inform("[Game Help] This NPC is Eleanor Fairbanks the Priestess of Oldra. Keywords: Hello, Oldra, Quest, Yewdale, god, favour, sacrifice.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Eleanor Fairbanks die Priesterin von Oldra. Schlüsselwörter: Hallo, Oldra, Quest, Yewdale, Gott, Gunst, Opfergabe.")
 
--- Book of your god quest
-queststatus(401) = 9, queststatus(685) = 0, english, ".+" -> inform("[New Quest] A book about your God"), "FIXME Oh, a neophyte! Why don't you go ask for a book about Oldra in the library?", queststatus(685) = 1
-queststatus(401) = 9, queststatus(685) = 0, ".+" -> inform("[New Quest] A book about your God"), "FIXME FIXME Oh, a neophyte! Why don't you go ask for a book about Oldra in the library?", queststatus(685) = 1
+-- TODO: Book of your god quest
+-- queststatus(401) = 9, queststatus(685) = 0, english, ".+" -> inform("[New Quest] A book about your God"), "FIXME Oh, a neophyte! Why don't you go ask for a book about Oldra in the library?", queststatus(685) = 1
+-- queststatus(401) = 9, queststatus(685) = 0, ".+" -> inform("[New Quest] A book about your God"), "FIXME FIXME Oh, a neophyte! Why don't you go ask for a book about Oldra in the library?", queststatus(685) = 1
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hiho! Isn't it a lovely day?", "Hiho! Welcome to Oldra's Columns."
