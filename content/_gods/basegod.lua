@@ -88,7 +88,7 @@ function M.BaseGod:getFavour(charObj)
 end
 
 function M.BaseGod:setFavour(charObj, newValue)
-    debug(self.nameEn .. " favour changes from " .. self:getFavour(charObj) .. " to " .. newValue .. " for user " .. charObj.name .. "(" .. charObj.id .. ")")
+--    debug(self.nameEn .. " favour changes from " .. self:getFavour(charObj) .. " to " .. newValue .. " for user " .. charObj.name .. "(" .. charObj.id .. ")")
     charObj:setQuestProgress(402 + self.ordinal, newValue)
 end
 
@@ -97,7 +97,7 @@ function M.BaseGod:getSacrificeCumulativeValue(charObj)
 end
 
 function M.BaseGod:setSacrificeCumulativeValue(charObj, newValue)
-    debug(self.nameEn .. " sacrifice cumulative value changes from " .. self:getSacrificeCumulativeValue(charObj) .. " to " .. newValue .. " for user " .. charObj.name .. "(" .. charObj.id .. ")")
+--    debug(self.nameEn .. " sacrifice cumulative value changes from " .. self:getSacrificeCumulativeValue(charObj) .. " to " .. newValue .. " for user " .. charObj.name .. "(" .. charObj.id .. ")")
     charObj:setQuestProgress(418 + self.ordinal, newValue)
 end
 

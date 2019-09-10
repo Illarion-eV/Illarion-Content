@@ -175,7 +175,7 @@ end
 -- @param callbackFunc - function with 1 argument (charObj) to be called
 function DecayCounter:addCallback(callbackFunc)
     table.insert(self._callbacks, callbackFunc)
-    debug("Now there are " .. #self._callbacks .. " callbacks for " .. self._varName)
+--    debug("Now there are " .. #self._callbacks .. " callbacks for " .. self._varName)
 end
 
 --- Class to represent all global (char-independent) periodic events and cooldowns.
@@ -215,7 +215,7 @@ end
 -- @param callbackFunc - function with no arguments to be called
 function GlobalEvent:addCallback(callbackFunc)
     table.insert(self._callbacks, callbackFunc)
-    debug("Now there are " .. #self._callbacks .. " callbacks that happen every " .. self._period .. " seconds")
+--    debug("Now there are " .. #self._callbacks .. " callbacks that happen every " .. self._period .. " seconds")
 end
 
 

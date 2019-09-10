@@ -544,10 +544,10 @@ function M.favourDecay(charObj, multiplier)
     -- start by applying the multiplier and rounding
     for _,curGodObj in pairs(M._godOrdinalToObj) do
         local oldFavour = curGodObj:getFavour(charObj)
-        debug(curGodObj.nameEn .. " multiplier " .. multiplier .. " oldFavour " .. oldFavour ..
-                ", desired change " .. (oldFavour * multiplier) ..
-                ", rounded change " .. math.floor(oldFavour * multiplier + 0.5)
-        )
+--        debug(curGodObj.nameEn .. " multiplier " .. multiplier .. " oldFavour " .. oldFavour ..
+--                ", desired change " .. (oldFavour * multiplier) ..
+--                ", rounded change " .. math.floor(oldFavour * multiplier + 0.5)
+--        )
         changes[curGodObj] = -1 * math.floor(oldFavour * multiplier + 0.5)
     end
     -- for younger gods we should preserve zero sum
@@ -558,7 +558,7 @@ function M.favourDecay(charObj, multiplier)
     end
     local unbalancedSign = (unbalancedAmount < 0 and -1) or 1
     local absUnbalancedAmount = math.abs(unbalancedAmount)
-    debug("unbalancedAmount " .. unbalancedAmount .. ", unbalancedSign " .. unbalancedSign .. ", absUnbalancedAmount " .. absUnbalancedAmount)
+--    debug("unbalancedAmount " .. unbalancedAmount .. ", unbalancedSign " .. unbalancedSign .. ", absUnbalancedAmount " .. absUnbalancedAmount)
     for _=1, absUnbalancedAmount do
         --choose a god randomly
         local randYoungOrdinal = math.random(#M._youngerOrdinalToObj)
@@ -614,7 +614,7 @@ function M.sacrifice(charObj, godOrdinal, item)
         return
     end
 
-    debug("Sacrificing item id " .. item.id .. " to " .. godObj.nameEn)
+--    debug("Sacrificing item id " .. item.id .. " to " .. godObj.nameEn)
     local favourBonus = godObj:sacrifice(charObj, item)
     if favourBonus > 0 then
         M.increaseFavour(charObj, godOrdinal, favourBonus)

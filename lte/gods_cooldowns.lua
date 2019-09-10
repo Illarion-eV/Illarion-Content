@@ -26,7 +26,7 @@ local gods = require("content.gods")
 local M = {}
 
 function M.addEffect(effectObj, charObj)
-    debug("gods_cooldowns addEffect")
+--    debug("gods_cooldowns addEffect")
     for _,counter in ipairs(gods_common.cooldownCounters) do
         counter:initialize(charObj, effectObj)
     end
@@ -36,7 +36,7 @@ function M.addEffect(effectObj, charObj)
 end
 
 function M.callEffect(effectObj, charObj) -- Effect is called
-    debug("gods_cooldowns callEffect")
+--    debug("gods_cooldowns callEffect")
     for _,counter in ipairs(gods_common.cooldownCounters) do
         counter:tick(charObj, effectObj)
     end
@@ -52,11 +52,11 @@ end
 
 function M.removeEffect(effectObj, charObj)
     --This effect doesn't get removed.
-    debug("gods_cooldowns removeEffect !!!")
+--    debug("gods_cooldowns removeEffect !!!")
 end
 
 function M.loadEffect(effectObj, charObj)
-    debug("gods_cooldowns loadEffect")
+--    debug("gods_cooldowns loadEffect")
 end
 
 return M

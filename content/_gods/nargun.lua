@@ -116,7 +116,7 @@ end
 -- these should have been instance method and variable, but in lua it is hard to pass a bound method as callback
 M._randPerDay = 0
 function M.RandomizeSacrificeableItems()
-    debug("Nargun is rolling the dice")
+--    debug("Nargun is rolling the dice")
     M._randPerDay = math.random(0, 4294967296 - 1)  -- random int in range 0 to 2^32-1
 end
 
