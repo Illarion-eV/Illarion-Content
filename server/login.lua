@@ -467,7 +467,7 @@ function welcomeNewPlayer(player)
                 elseif areas.PointInArea(playerPos,"GalmairRegion") then
                     textUse = textUse .. getText("nahe Galmairs.","close to Galmair.")
                 else
-                    textUse = textUse .. getText("irgendwo in der Wildnis.","anywhere in the wilderness.")
+                    textUse = textUse .. getText("irgendwo in der Wildnis.","somewhere in the wilderness.")
                 end
                 local timeMinutes = player:getQuestProgress(852)
                 local timeHours = math.floor(tonumber(timeMinutes)/60)
