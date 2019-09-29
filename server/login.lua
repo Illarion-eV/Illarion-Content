@@ -400,7 +400,7 @@ local function jumpToNewPlayer(user, player)
         return
     end
     
-    local plyList = world:getPlayersInRangeOf(playerPos, 20)
+    local plyList = world:getPlayersInRangeOf(playerPos, 10)
     local playerCount = 0
     for i, player in pairs(plyList) do
         if not player:isNewPlayer() then
@@ -409,8 +409,8 @@ local function jumpToNewPlayer(user, player)
     end
     
     if playerCount > 1 then
-        common.InformNLS(user,"Bei dem neuen Spielen sind bereits mindestens 2 Helfer.",
-                              "There are already 2 helper next to the new player.")
+        common.InformNLS(user,"Bei dem neuen Spieler sind bereits mindestens zwei Helfer.",
+                              "There are already two helper next to the new player.")
     else
         user:warp(player.pos)
         world:gfx(46, player.pos)
