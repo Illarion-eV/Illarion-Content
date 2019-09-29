@@ -410,7 +410,7 @@ local function jumpToNewPlayer(user, player)
     
     if playerCount > 1 then
         common.InformNLS(user,"Bei dem neuen Spieler sind bereits mindestens zwei Helfer.",
-                              "There are already two helper next to the new player.")
+                              "There are already two helpers next to the new player.")
     else
         user:warp(player.pos)
         world:gfx(46, player.pos)
