@@ -58,8 +58,8 @@ itemShoes = 53
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-sellItems = 24, 2710, 2751, 737, 2763, 26, 726, 316, 2535, 2550, 104, 236, 2571, 21, 22, 2536, 1062, 234, 2534, 251, 255, 252, 253, 256, 257, 254, 1266, 733, 735
--- shovel, mould, crucible-pincers, chisel, pick-axe
+sellItems = 24, 312, 2710, 2751, 737, 2763, 26, 726, 316, 2535, 2550, 104, 236, 2571, 21, 22, 2536, 1062, 234, 2534, 251, 255, 252, 253, 256, 257, 254, 1266, 733, 735
+-- shovel, wooden shovel, mould, crucible-pincers, chisel, pick-axe
 -- clay, coarse sand, quartz sand
 -- iron ingot, copper ingot, silver ingot, gold ingot, merinium ingot, coal, iron ore, copper ore, silver ore, gold nuggets, merinium ore, raw amethyst, raw ruby, raw obsidian, raw sapphire, raw emerald, raw topaz, raw diamond, stone, stone block, raw stone
 buyPrimaryItems = 26, 726, 316 
