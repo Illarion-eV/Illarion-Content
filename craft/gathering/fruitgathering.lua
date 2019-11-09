@@ -91,7 +91,7 @@ function M.StartGathering(User, SourceItem, ltstate)
     end
 
     local fruitgathering = gathering.GatheringCraft:new{FastActionFactor = 0.5}; -- harvest
-    fruitgathering:SetShard(gathering.prob_rarely,"In einem Ast steckt ein Splitter eines magischen Artefaktes.", "In a branch sticks a shard of a magical artifact."); -- Any shard
+    fruitgathering:SetShard(gathering.prob_rarely,"In einem Ast steckt ein Splitter eines magischen Artefaktes.", "A shard of a magical artifact sticks in a branch."); -- Any shard
     fruitgathering:AddRandomItem(65,1,333,{},gathering.prob_extremely_rarely,"Bei genauer Betrachtung entpuppt sich ein Ast am Boden als Bogen. Ob den ein elfischer Späher hier deponiert hat?","On closer inspection, a branch on the ground turns out to be a bow. Did an elven scout forget it here?"); --short bow
     fruitgathering:AddRandomItem(2295,1,333,{},gathering.prob_occasionally,"Über einem Ast hängt ein Paar alter Handschuhe. Der Besitzer vermisst sie offenbar nicht.","Over a branch hangs a pair of old gloves. Judging by their condition no one would miss them."); --cloth gloves
     fruitgathering:AddRandomItem(463,1,333,{},gathering.prob_frequently,"Eine Feder hat sich zwischen den Zweigen verfangen. Ob man mit ihr auch schreiben kann?","A feather lies entangled among the branches. Perhaps one could write with it?"); --quill

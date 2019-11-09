@@ -234,7 +234,7 @@ function M.StartGathering(User, SourceItem, ltstate)
     local theCraft = gathering.GatheringCraft:new{LeadSkill = Character.herblore, LearnLimit = 100}; -- id_126_sickle
     theCraft:AddRandomPureElement(gathering.prob_extremely_rarely); -- Any pure element
     theCraft:AddRandomMagicGem(1, gathering.prob_extremely_rarely); -- Any latent magical gem
-    theCraft:SetShard(gathering.prob_rarely,"An einem Blatt klebt ein Splitter eines magischen Artefaktes.", "A shard of a magical artifact is stuck to an leave."); -- Any shard
+    theCraft:SetShard(gathering.prob_rarely,"An einem Blatt klebt ein Splitter eines magischen Artefaktes.", "A shard of a magical artifact is stuck to a leaf."); -- Any shard
     theCraft:AddRandomItem(2183,1,333,{},gathering.prob_extremely_rarely,"Ein alter Krug liegt verlassen und einsam im Gebüsch.","An old mug lies abandoned and lonesome in the bushes."); --Mug
     theCraft:AddRandomItem(799,1,333,{},gathering.prob_occasionally,"Ein Weidenkorb liegt am Boden. Er scheint noch brauchbar zu sein.","A wicker basket lies on the ground. It still seems to be usable."); --Basket
     theCraft:AddRandomItem(2570,1,333,{},gathering.prob_frequently,"Ein Griff einer alten Sichel liegt achtlos weggeworfen zwischen Ästen und Blättern herum.","A handle of an old sickle lies between the leaves and branches, but the blade is no where in sight."); --Sickle hilt
