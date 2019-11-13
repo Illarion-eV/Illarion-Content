@@ -84,7 +84,7 @@ itemShoes = 45
 "Grüße", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüße, schön Euch mal wieder hier zu sehen.", "Zum Gruße, ich bin die Notarin dieser Stadt."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted.", "Greetings.", "Greetings, nice to see you again", "Be greeted, I am the notary of this town."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegrüßt.", "Grüße.", "Grüße, schön Euch mal wieder hier zu sehen.", "Zum Gruße, ich bin die Notarin dieser Stadt."
-"Farewell", "Bye", "Fare well", "See you" -> "Fare well!", "Bye!", "#me smiles at you and waves."
+"Farewell", "Bye", "Fare well", "See you" -> "Farewell!", "Bye!", "#me smiles at you and waves."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Auf bald!", "Bis bald!", "#me lächelt dich an und winkt zum Abschied."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Fare well!", "#me smiles at you and waves."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Auf bald!", "#me lächelt dich an und winkt zum Abschied."
@@ -105,13 +105,13 @@ town = Cadomyr, "Cadomyr beitreten", "Bürger werden", "Bürgerschaft beantragen" 
 
 -- Becoming citizen in Cadomyr
 english, town = Galmair, "join Cadomyr", "become citizen", "gain citizenship" -> town = Cadomyr, "Let me prepare the documents... Welcome to Cadomyr! You are now a subject of Her Majesty."
-town = Galmair, "Cadomyr beitreten", "Bürger werden", "Bürgerschaft beantragen" -> town = Cadomyr, "Lasst mich die Urkunde vorbereiten... Willkommen in Runewick! Ihr seid jetzt ein Untertan Ihrer Majestät."
+town = Galmair, "Cadomyr beitreten", "Bürger werden", "Bürgerschaft beantragen" -> town = Cadomyr, "Lasst mich die Urkunde vorbereiten... Willkommen in Cadomyr! Ihr seid jetzt ein Untertan Ihrer Majestät."
 english, town = Runewick, "join Cadomyr", "become citizen", "gain citizenship" -> town = Cadomyr, "Let me prepare the documents... Welcome to Cadomyr! You are now a subject of Her Majesty."
-town = Runewick, "Cadomyr beitreten", "Bürger werden", "Bürgerschaft beantragen" -> town = Cadomyr, "Lasst mich die Urkunde vorbereiten... Willkommen in Runewick! Ihr seid jetzt ein Untertan Ihrer Majestät."
+town = Runewick, "Cadomyr beitreten", "Bürger werden", "Bürgerschaft beantragen" -> town = Cadomyr, "Lasst mich die Urkunde vorbereiten... Willkommen in Cadomyr! Ihr seid jetzt ein Untertan Ihrer Majestät."
 english, town = None, "join Cadomyr", "become citizen", "gain citizenship" -> town = Cadomyr, "Let me prepare the documents... Welcome to Cadomyr! You are now a subject of Her Majesty."
-town = None, "Cadomyr beitreten", "Bürger werden", "Bürgerschaft beantragen" -> town = Cadomyr, "Lasst mich die Urkunde vorbereiten... Willkommen in Runewick! Ihr seid jetzt ein Untertan Ihrer Majestät."
+town = None, "Cadomyr beitreten", "Bürger werden", "Bürgerschaft beantragen" -> town = Cadomyr, "Lasst mich die Urkunde vorbereiten... Willkommen in Cadomyr! Ihr seid jetzt ein Untertan Ihrer Majestät."
 
--- terminating citiienship, leaving in Cadomyr (209)
+-- terminating citizenship, leaving Cadomyr (209)
 english, town = Cadomyr, "give up citizenship", "terminate", "leave", "leaving" -> queststatus(209) = 1, "You want to give up citizenship in Cadomyr. Are you sure?"
 town = Cadomyr, "beende Bürgerschaft", "verlasse", "annulier" -> queststatus(209) = 1, "Ihr wollt den Status als Bürger Cadomyrs augfeben? Seid Ihr sicher?"
 
@@ -207,9 +207,9 @@ rank > 0, town = Cadomyr, sex = female, "rang" -> "Ihr seid noch ganz neu hier. 
 "licence","license", town = Cadomyr -> "There is no need for you to buy a licence, since you are a citizen."
 "lizenz", town = Cadomyr, sex = male -> "Ihr benötigt keine Lizenz, da ihr Bürger dieser Stadt seid."
 "lizenz", town = Cadomyr, sex = female -> "Ihr benötigt keine Lizenz, da ihr Bürgerin dieser Stadt seid."
-"licence","license", town = Cadomyr, town = Runewick, rank < 100 -> "You look as though you are quite new here, thus, you can currently use our tools for free."
+"licence","license", town = Galmair, town = Runewick, rank < 100 -> "You look as though you are quite new here, thus, you can currently use our tools for free."
 "lizenz", town = Galmair, town = Runewick, rank < 100 -> "Ihr wirkt als würdet ihr neu hier sein. Daher könnt ihr unsere Werkzeuge zurzeit frei benutzen."
-"licence","license" -> inform("[Licence] You can choose between 'Alpha', 'Beta' and 'Gamma' licences. Alpha costs one gold coin and allow you to use the tools for one real time hour. Beta costs two gold coins for three real time hours. Gamma costs three gold coins for eight real time hours. Say the name of the type of licence you want in order to buy it. You can buy several at the same time. They will be added to each other."), "I sell three kinds of licences. 'Alpha', 'Beta' and 'Gamma'. Alpha allows you to use our static tools for thee hours and costs only one gold coin. Beta allows you to use our static tools for nine hours and costs only two gold coins. Gamma allows you to use our static tools for one day and costs only three gold coins. Which one do you want?"
+"licence","license" -> inform("[Licence] You can choose between 'Alpha', 'Beta' and 'Gamma' licences. Alpha costs one gold coin and allows you to use the tools for one real time hour. Beta costs two gold coins for three real time hours. Gamma costs three gold coins for eight real time hours. Say the name of the type of licence you want in order to buy it. You can buy several at the same time. They will be added to each other."), "I sell three kinds of licences. 'Alpha', 'Beta' and 'Gamma'. Alpha allows you to use our static tools for thee hours and costs only one gold coin. Beta allows you to use our static tools for nine hours and costs only two gold coins. Gamma allows you to use our static tools for one day and costs only three gold coins. Which one do you want?"
 "lizenz" -> inform("Lizenz] Du kannst zwischen 'Alpha', 'Beta' und 'Gamma' wählen. Alpha kostet eine Goldmünze und erlaubt dir die Nutzung der Werkzeuge für eine Echtzeit-Stunde. Beta kostet zwei Goldmünzen für drei Echtzeit-Stunden. Gamma kostet drei Goldmünzen für acht Echtzeit-Stunden. Sage den Namen des Typen, um zu bestellen. Du kannst mehrere gleichzeitig kaufen. Diese werden dann summiert."), "Ich verkaufe drei Arten von Lizenzen. 'Alpha', 'Beta' und 'Gamma'. Mit Alpha ist es möglich, unsere Werkzeuge für drei Stunden zu einem Preis von nur einer Goldmünze zu nutzen. Mit Beta ist es möglich, unsere Werkzeuge für neun Stunden zu einem Preis von nur zwei Goldmünzen zu nutzen. Und mit Gamma ist es möglich, unsere Werkzeuge für einen Tag zu einem Preis von nur drei Goldmünzen zu nutzen. Welche möchtet ihr?"
 "alpha", "beta", "gamma", town = Cadomyr, english -> "There is no need for you to buy a licence, since you are a citizen."
 "alpha", "beta", "gamma", town = Cadomyr, sex = male -> "Ihr benötigt keine Lizenz, da ihr Bürger dieser Stadt seid."
@@ -234,9 +234,9 @@ rank > 0, town = Cadomyr, sex = female, "rang" -> "Ihr seid noch ganz neu hier. 
 "gamma" -> money - 30000, queststatus(811) + 96, inform("[Lizenz erworben] Du hast die Lizenz 'Gamma' für drei Goldmünzen erworben. Du kannst die Werkzeuge dieser Stadt für die nächsten acht Echtzeit-Stunden frei benutzen."), "Wunderbar, euch ist es nun gestattet, unsere Werkzeuge für einen Tag zu verwenden."
 
 -- 1st quest: bring Item 146 + desert sky capsule, for citizens of Cadomyr
-queststatus(150) = 0, english, town = Cadomyr, "quest", "mission" -> inform("[New quest] Present from Cadomyr"), queststatus(150) = 1, "I'd like to send my grandparents in Salkamar a present from Cadomyr. The both like gardening, so I'd like to send them five desert sky capsules. I'm still busy working though, so could I ask you to go and find some for me, please?"
+queststatus(150) = 0, english, town = Cadomyr, "quest", "mission" -> inform("[New quest] Present from Cadomyr"), queststatus(150) = 1, "I'd like to send my grandparents in Salkamar a present from Cadomyr. They both like gardening, so I'd like to send them five desert sky capsules. I'm still busy working though, so could I ask you to go and find some for me, please?"
 queststatus(150) = 0, town = Cadomyr, "quest", "mission" -> inform("[Neues Quest] Geschenk aus Cadomyr"), queststatus(150) = 1, "Ich möchte meinen Großeltern in Salkamar ein Geschenk aus Cadomyr schicken. Sie mögen beiden Gartenarbeit, daher dachte ich daran ihnen fünf Wüstenhimmelskapseln zu schicken. Ich bin mit der Arbeit sehr beschäftigt, könnte ich Euch bitten einige Wüstenhimmelskapseln für mich zu finden?"
-queststatus(150) = 0, town = Cadomyr, "task", "adventure", "order" -> inform("[New quest] Present from Cadomyr"), queststatus(150) = 1, "I'd like to send my grandparents in Salkamar a present from Cadomyr. The both like gardening, so I'd like to send them five desert sky capsules. I'm still busy working though, so could I ask you to go and find some for me, please?"
+queststatus(150) = 0, town = Cadomyr, "task", "adventure", "order" -> inform("[New quest] Present from Cadomyr"), queststatus(150) = 1, "I'd like to send my grandparents in Salkamar a present from Cadomyr. They both like gardening, so I'd like to send them five desert sky capsules. I'm still busy working though, so could I ask you to go and find some for me, please?"
 queststatus(150) = 0, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Geschenk aus Cadomyr"), queststatus(150) = 1, "Ich möchte meinen Großeltern in Salkamar ein Geschenk aus Cadomyr schicken. Sie mögen beiden Gartenarbeit, daher dachte ich daran ihnen fünf Wüstenhimmelskapseln zu schicken. Ich bin mit der Arbeit sehr beschäftigt, könnte ich Euch bitten einige Wüstenhimmelskapseln für mich zu finden?"
 
 -- 1st quest solved, Reward: dagger (27)
@@ -278,7 +278,7 @@ english, "job" -> "You can get registered as citizen here."
 "Erzmagier" -> "Ich habe gehört, der Erzmagier tut nichts außer Bücher zu lesen und die arkanen Künste zu studiere. Wenn das stimmt, dann muss er fast tot vor Hunger sein."
 english, "Elvaine", "Morgan" -> "I've heard the name before."
 "Elvaine", "Morgan" -> "Ich habe diesen Namen schon mal gehört."
-english, "Runewick" -> "I don't like it there. It's a cold and boring place.", "There are many book there, but not very interesting ones."
+english, "Runewick" -> "I don't like it there. It's a cold and boring place.", "There are many books there, but not very interesting ones."
 "Runewick" -> "Mir gefällt es dort nicht. Das ist ein kalter, langweiliger Ort.", "Es gibt dort viele Bücher... aber die sind nicht sonderlich interessant."
 english, "Valerio", "Guilianni", "Don" -> "Valerio Guilianni is the ruler of Galmair. He does not live in Cadomyr of course."
 "Valerio", "Guilianni", "Don" -> "Valerio Guilianni ist der Herrscher von Galmair. Und natürlich lebt er nicht in Cadomyr."
@@ -296,7 +296,7 @@ english, "albar" -> "Albar? My grandparents spoke badly about the place. I've ne
 "albar" -> "Albar? Meine Großeltern haben schlecht über diesen Ort gesprochen. Ich war niemals dort."
 english, "gynk", "gync" -> "Many merchants come from Gynk, at least that's my impression."
 "gync", "gynk" -> "Viele Händler kommen aus Gynk, zumindest ist das so mein Eindruck."
-english, "salkama" -> "My grandparents live in Salkamar. It's a nice place. I loved to vist them when I was a child."
+english, "salkama" -> "My grandparents live in Salkamar. It's a nice place. I loved to visit them when I was a child."
 "salkama" -> "Meine Großeltern leben in Salkamar. Es ist ein schöner Ort. Ich habe sie als Kind immer gerne besucht."
 
 -- Optional: Gobaith

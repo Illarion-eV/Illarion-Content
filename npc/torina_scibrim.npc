@@ -101,11 +101,11 @@ english, "become citizen", "gain citizenship" -> town = Runewick, "Let me prepar
 "Bürger werden", "Bürgerschaft beantragen" -> town = Runewick, "Lasst mich die Urkunde vorbereiten... Willkommen in Runewick! Ihr seid jetzt ein Mitbürger."
 
 -- leaving Runewick (207)
-english, town = Runewick, "give up citizenship", "terminating citizen ship", "leave", "leaving" -> queststatus(207) = 1, "So, you realy want to leave Runewick and live elsewhere? Are you sure?"
+english, town = Runewick, "give up citizenship", "terminate", "leave", "leaving" -> queststatus(207) = 1, "So, you realy want to leave Runewick and live elsewhere? Are you sure?"
 town = Runewick, "beende Bürgerstatus", "verlassen", "verlasse", "annuliere" -> queststatus(207) = 1, "So, ihr möchtet Runwick wirklich verlassen und woanders leben? Seid Ihr sicher?"
 
 -- answer "yes"
-queststatus(207) = 1, english, "yes" -> queststatus(207) = 0, town = None, "You are no longer a citizen of Runewick. Fare well."
+queststatus(207) = 1, english, "yes" -> queststatus(207) = 0, town = None, "You are no longer a citizen of Runewick. Farewell."
 queststatus(207) = 1, "ja" -> queststatus(207) = 0, town = None, "Nun seid Ihr nicht länger Bürger Runewicks. Auf bald."
 
 -- answer "no"
@@ -117,6 +117,12 @@ queststatus(207) = 1, ".*" -> queststatus(207) = 0, "Ah, gut. Ihr bleibt hier, e
 "which town", "faction", "realm" -> "You belong to %TOWN!"
 
 -- RANK informations
+
+-- Leader
+rank > 10, town = Cadomyr, sex = male, "rank" -> "#me bows deeply."
+rank > 10, town = Cadomyr, sex = female, "rank" -> "#me bows deeply."
+rank > 10, town = Cadomyr, sex = male, "rang" -> "#me verbeut sich erfürchtig."
+rank > 10, town = Cadomyr, sex = female, "rang" -> "#me verbeut sich erfürchtig."
 
 -- Rank 10
 rank > 9, english, town = Runewick, sex = male, "rank" -> "Ah! Rector %CHARNAME, be welcome, Sir. Is is truly a honour to see you!"
@@ -137,26 +143,26 @@ rank > 7, town = Runewick, sex = male, "rang" -> "Oh! Professor %CHARNAME! Was k
 rank > 7, town = Runewick, sex = female, "rang" -> "Oh! Professorin %CHARNAME! Was kann ich für Euch tun?"
 
 -- Rank 7
-rank > 6, english, town = Runewick, sex = male, "rank" -> "Good to see you, docent %CHARNAME! How are you?"
-rank > 6, english, town = Runewick, sex = female, "rank" -> " Good to see you, docent %CHARNAME! How are you?"
+rank > 6, english, town = Runewick, sex = male, "rank" -> "Good to see you, Docent %CHARNAME! How are you?"
+rank > 6, english, town = Runewick, sex = female, "rank" -> " Good to see you, Docent %CHARNAME! How are you?"
 rank > 6, town = Runewick, sex = male, "rang" -> "Schön Euch zu sehen, Dozent %CHARNAME! Wie geht es Euch?"
 rank > 6, town = Runewick, sex = female, "rang" -> " Schön euch zu sehen, Dozentin %CHARNAME! Wie geht es Euch?"
 
 -- Rank 6
-rank > 5, english, town = Runewick, sex = male, "rank" -> "Greetings to you, doctor %CHARNAME!"
-rank > 5, english, town = Runewick, sex = female, "rank" -> "Greetings to you, doctor %CHARNAME!"
+rank > 5, english, town = Runewick, sex = male, "rank" -> "Greetings to you, Doctor %CHARNAME!"
+rank > 5, english, town = Runewick, sex = female, "rank" -> "Greetings to you, Doctor %CHARNAME!"
 rank > 5, town = Runewick, sex = male, "rang" -> "Seid gegrüß, Doktor %CHARNAME!"
 rank > 5, town = Runewick, sex = female, "rang" -> "Seid gegrüßt, Doktorin %CHARNAME!"
 
 -- Rank 5
-rank > 4, english, town = Runewick, sex = male, "rank" -> "Greetings to you, master!"
-rank > 4, english, town = Runewick, sex = female, "rank" -> "Greetings to you, master!"
+rank > 4, english, town = Runewick, sex = male, "rank" -> "Greetings to you, Master!"
+rank > 4, english, town = Runewick, sex = female, "rank" -> "Greetings to you, Master!"
 rank > 4, town = Runewick, sex = male, "rang" -> "Seid gegrüßt, Magister !"
 rank > 4, town = Runewick, sex = female, "rang" -> "Seid gegrüßt, Magister!"
 
 -- Rank 4
 rank > 3, english, town = Runewick, sex = male, "rank" -> "Scholar, how are you today?"
-rank > 3, english, town = Runewick, sex = female, "rank" -> " Scholar, how are you today?"
+rank > 3, english, town = Runewick, sex = female, "rank" -> "Scholar, how are you today?"
 rank > 3, town = Runewick, sex = male, "rang" -> "Gelehrter, wie geht es Euch?"
 rank > 3, town = Runewick, sex = female, "rang" -> "Gelehrte, wie geht es Euch?"
 
@@ -188,7 +194,7 @@ rank > 0, town = Runewick, sex = female, "rang" -> "Du bist noch ganz neu hier. 
 "lizenz", town = Runewick, sex = female -> "Ihr benötigt keine Lizenz, da ihr Bürgerin dieser Stadt seid."
 "licence","license", town = Cadomyr, town = Galmair, rank < 100 -> "You look as though you are quite new here, thus, you can currently use our tools for free."
 "lizenz", town = Cadomyr, town = Galmair, rank < 100 -> "Ihr wirkt als würdet ihr neu hier sein. Daher könnt ihr unsere Werkzeuge zurzeit frei benutzen."
-"licence","license" -> inform("[Licence] You can choose between 'Alpha', 'Beta' and 'Gamma' licences. Alpha costs one gold coin and allow you to use the tools for one real time hour. Beta costs two gold coins for three real time hours. Gamma costs three gold coins for eight real time hours. Say the name of the type of licence you want in order to buy it. You can buy several at the same time. They will be added to each other."), "I sell three kinds of licences. 'Alpha', 'Beta' and 'Gamma'. Alpha allows you to use our static tools for thee hours and costs only one gold coin. Beta allows you to use our static tools for nine hours and costs only two gold coins. Gamma allows you to use our static tools for one day and costs only three gold coins. Which one do you want?"
+"licence","license" -> inform("[Licence] You can choose between 'Alpha', 'Beta' and 'Gamma' licences. Alpha costs one gold coin and allows you to use the tools for one real time hour. Beta costs two gold coins for three real time hours. Gamma costs three gold coins for eight real time hours. Say the name of the type of licence you want in order to buy it. You can buy several at the same time. They will be added to each other."), "I sell three kinds of licences. 'Alpha', 'Beta' and 'Gamma'. Alpha allows you to use our static tools for thee hours and costs only one gold coin. Beta allows you to use our static tools for nine hours and costs only two gold coins. Gamma allows you to use our static tools for one day and costs only three gold coins. Which one do you want?"
 "lizenz" -> inform("Lizenz] Du kannst zwischen 'Alpha', 'Beta' und 'Gamma' wählen. Alpha kostet eine Goldmünze und erlaubt dir die Nutzung der Werkzeuge für eine Echtzeit-Stunde. Beta kostet zwei Goldmünzen für drei Echtzeit-Stunden. Gamma kostet drei Goldmünzen für acht Echtzeit-Stunden. Sage den Namen des Typen, um zu bestellen. Du kannst mehrere gleichzeitig kaufen. Diese werden dann summiert."), "Ich verkaufe drei Arten von Lizenzen. 'Alpha', 'Beta' und 'Gamma'. Mit Alpha ist es möglich, unsere Werkzeuge für drei Stunden zu einem Preis von nur einer Goldmünze zu nutzen. Mit Beta ist es möglich, unsere Werkzeuge für neun Stunden zu einem Preis von nur zwei Goldmünzen zu nutzen. Und mit Gamma ist es möglich, unsere Werkzeuge für einen Tag zu einem Preis von nur drei Goldmünzen zu nutzen. Welche möchtet ihr?"
 "alpha", "beta", "gamma", town = Runewick, english -> "There is no need for you to buy a licence, since you are a citizen."
 "alpha", "beta", "gamma", town = Runewick, sex = male -> "Ihr benötigt keine Lizenz, da ihr Bürger dieser Stadt seid."
@@ -221,7 +227,7 @@ english, "quest", "mission" -> "At the moment I have everything, but thanks for 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am the notary of Runewick and do all the stuff a notary does.", "I take care of the new arrivals in Runewick, I am the notary here."
 "beruf" -> "Ich bin die Notarin Runewick und tu all das was ein Notar so tut.", "Ich kümmere mich um die Neuankömmlinge in Runewick, ich bin hier die Notarin."
-english, "job" -> "I am the notary of Runewick and do all the stuff a notary does.", "I take care of the new arrivals in Cadomyr, I am the notary here."
+english, "job" -> "I am the notary of Runewick and do all the stuff a notary does.", "I take care of the new arrivals in Runewick, I am the notary here."
 "job" -> "Ich bin die Notarin Runewick und tu all das was ein Notar so tut.", "Ich kümmere mich um die Neuankömmlinge in Runewick, ich bin hier die Notarin."
 english, "Gobaith", "Gobiath" -> "Never heard of that. Is it something to eat?"
 "Gobaith", "Gobiath" -> "Nie davon gehört. Ist es etwas zu Essen?"
@@ -229,13 +235,13 @@ english, "Gobaith", "Gobiath" -> "Never heard of that. Is it something to eat?"
 "mein Name" -> "Ich freue mich Euch kennenzulernen."
 
 -- Faction stuff. Please remove if you send the template to outsiders!
-"archmage" -> "He's the best mage in Runewick.", "I heard he likes drinking tea."
+"archmage" -> "He's the best mage in Runewick.", "I heard he likes to drink tea."
 "Erzmagier" -> "Er ist der beste Magier in Runewick.", "Ich hörte, dass er gerne Tee trinkt."
-english, "Elvaine", "Morgan" -> "He's the best mage in Runewick.", "I heard he likes drinking tea."
+english, "Elvaine", "Morgan" -> "He's the best mage in Runewick.", "I heard he likes to drink tea."
 "Elvaine", "Morgan" -> "Er ist der beste Magier in Runewick.", "Ich hörte, dass er gerne Tee trinkt."
 english, "Runewick" -> "We people of Runewick think wisdom is more important than honour.", "That's where the Achmage lives, of couse!"
 "Runewick" -> "Wir Leute von Runewick halten Wissen für wertvoller als Ehre.", "Selbstverständlich ist dies der Ort wo der Erzmagier lebt."
-english, "Valerio", "Guilianni", "Don" -> "Go to Galmair, if you want to see him!", "He's the greedy don of Galmair."
+english, "Valerio", "Guilianni", "Don" -> "Go to Galmair, if you want to see him!", "He's the greedy Don of Galmair."
 "Valerio", "Guilianni", "Don" -> "Geht nach Galmair, wenn Ihr den sehen wollt!", "Das ist der gierige Don von Galmair."
 english, "Galmair" -> "In Galmair only wealth and money is important.", "There is also a notary in Galmair, just like in every city."
 "Galmair" -> "In Galmair zählt nur Reichtum und Geld.", "Es gibt auch in Galmair einen Notar, so wie in jeder Stadt."
@@ -249,13 +255,13 @@ english, "Cadomyr" -> "Cadomyr is quite a hot place. Especially if you like knig
 -- Main land factions
 english, "albar" -> "Albar is a nice country. But order is important there."
 "albar" -> "Albar ist ein schönes Land. Aber dort herrscht Ordnung."
-english, "gynk", "gync" -> "Gync isn't the best place to grow up. It's a dirty place, just like Galmair.", "I've never been to Gync, I don't think I'd like it there."
+english, "gynk", "gync" -> "Gync isn't the best place to grow up. It's a dirty place, just like Galmair.", "I've never been to Gynk, I don't think I'd like it there."
 "gync", "gynk" -> "Gynk ist nicht der beste Ort wo man aufzuwachsen kann. Es ist ein dreckiger Ort, genau wie Galmair.", "Ich war noch nie in Gynk, I denke dort würde es mir nicht gefallen."
 english, "salkama" -> "Salkamar is a nice place. It's sunny there.", "I've never been to Salkmar, I think this place lies near the sea."
 "salkama" -> "Salkamar ist ein schöner Ort. Dort ist es recht sonnig.", "Ich war noch nie in Salkamar, ich glaube dieser Ort liegt am Meer."
 
 -- Gods - use the triggers of the god the NPC worships or fights
-"god" -> "The months were named after the 16 Gods, we should name one month after the archmage!", "I pray to Zhambra. To which god do you pray?"
+"god" -> "The months were named after the 16 Gods, we should name one month after the Archmage!", "I pray to Zhambra. To which god do you pray?"
 "Gott", "Götter" -> "Nach den 16 Göttern wurden die Monate des Jahres benannt. Wir sollten einem Monat nach dem Erzmagier benennen!", "Ich bete zu Zhambar. Zu welchem Gott betet Ihr?"
 english, "Adron" -> "I don't worship this god."
 "Adron" -> "Ich verehre diesen Gott nicht."
@@ -287,7 +293,7 @@ english, "Tanora", "Zelphia" -> "I don't worship this god."
 "Tanora", "Zelphia" -> "Ich verehre diesen Gott nicht."
 english, "Ushara" -> "I don't worship this god."
 "Ushara" -> "Ich verehre diesen Gott nicht."
-english, "Zhambra" -> "Pray to Zhambar, so he'll protect your friends during battle."
+english, "Zhambra" -> "Pray to Zhambra, so he'll protect your friends during battle."
 "Zhambra" -> "Betet zu Zhambra damit er eure Freunde im Kampf schützt."
 
 -- Catching typical NPC phrases

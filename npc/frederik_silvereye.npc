@@ -99,7 +99,7 @@ english, "become citizen", "gain citizenship" -> town = Galmair, "You are now a 
 "Bürger werden", "Bürgerschaft beantragen" -> town = Galmair, "Ihr seid jetzt Bürger von Galmair!"
 
 -- terminating citizenship, leaving Galmair (208)
-english, town = Galmair, "give up citizenship", "terminating citizen ship", "leave", "leaving" -> queststatus(208) = 1, "Oh, you no longer want to be a citizen of Galmair?"
+english, town = Galmair, "give up citizenship", "terminate", "leave", "leaving" -> queststatus(208) = 1, "Oh, you no longer want to be a citizen of Galmair?"
 town = Galmair, "beende Bürgerstatus", "verlassen", "verlasse", "annuliere" -> queststatus(208) = 1, "Oh, Ihr wollt kein Büger in Galmair mehr sein?"
 
 -- answer yes
@@ -115,6 +115,12 @@ queststatus(208) = 1, ".*" -> queststatus(208) = 0, "Mhm, ... Der Don wird sich 
 "which town", "which faction" -> "You belong to %TOWN!"
 
 -- RANK informations
+
+-- Leader
+rank > 10, town = Galmair, sex = male, "rank" -> "#me bows deeply."
+rank > 10, town = Galmair, sex = female, "rank" -> "#me bows deeply."
+rank > 10, town = Galmair, sex = male, "rang" -> "#me verbeut sich erfürchtig."
+rank > 10, town = Galmair, sex = female, "rang" -> "#me verbeut sich erfürchtig."
 
 -- Rank 10
 rank > 9, english, town = Galmair, sex = male, "rank" -> "Tycoon %CHARNAME, be welcome. It is truly an honour to see you!"
@@ -186,7 +192,7 @@ rank > 0, town = Galmair, sex = female, "rang" -> "Du bist noch ganz neu hier. D
 "lizenz", town = Galmair, sex = female -> "Ihr benötigt keine Lizenz, da ihr Bürgerin dieser Stadt seid."
 "licence","license", town = Cadomyr, town = Runewick, rank < 100 -> "You look as though you are quite new here, thus, you can currently use our tools for free."
 "lizenz", town = Cadomyr, town = Runewick, rank < 100 -> "Ihr wirkt als würdet ihr neu hier sein. Daher könnt ihr unsere Werkzeuge zurzeit frei benutzen."
-"licence","license" -> inform("[Licence] You can choose between 'Alpha', 'Beta' and 'Gamma' licences. Alpha costs one gold coin and allow you to use the tools for one real time hour. Beta costs two gold coins for three real time hours. Gamma costs three gold coins for eight real time hours. Say the name of the type of licence you want in order to buy it. You can buy several at the same time. They will be added to each other."), "I sell three kinds of licences. 'Alpha', 'Beta' and 'Gamma'. Alpha allows you to use our static tools for thee hours and costs only one gold coin. Beta allows you to use our static tools for nine hours and costs only two gold coins. Gamma allows you to use our static tools for one day and costs only three gold coins. Which one do you want?"
+"licence","license" -> inform("[Licence] You can choose between 'Alpha', 'Beta' and 'Gamma' licences. Alpha costs one gold coin and allows you to use the tools for one real time hour. Beta costs two gold coins for three real time hours. Gamma costs three gold coins for eight real time hours. Say the name of the type of licence you want in order to buy it. You can buy several at the same time. They will be added to each other."), "I sell three kinds of licences. 'Alpha', 'Beta' and 'Gamma'. Alpha allows you to use our static tools for thee hours and costs only one gold coin. Beta allows you to use our static tools for nine hours and costs only two gold coins. Gamma allows you to use our static tools for one day and costs only three gold coins. Which one do you want?"
 "lizenz" -> inform("Lizenz] Du kannst zwischen 'Alpha', 'Beta' und 'Gamma' wählen. Alpha kostet eine Goldmünze und erlaubt dir die Nutzung der Werkzeuge für eine Echtzeit-Stunde. Beta kostet zwei Goldmünzen für drei Echtzeit-Stunden. Gamma kostet drei Goldmünzen für acht Echtzeit-Stunden. Sage den Namen des Typen, um zu bestellen. Du kannst mehrere gleichzeitig kaufen. Diese werden dann summiert."), "Ich verkaufe drei Arten von Lizenzen. 'Alpha', 'Beta' und 'Gamma'. Mit Alpha ist es möglich, unsere Werkzeuge für drei Stunden zu einem Preis von nur einer Goldmünze zu nutzen. Mit Beta ist es möglich, unsere Werkzeuge für neun Stunden zu einem Preis von nur zwei Goldmünzen zu nutzen. Und mit Gamma ist es möglich, unsere Werkzeuge für einen Tag zu einem Preis von nur drei Goldmünzen zu nutzen. Welche möchtet ihr?"
 "alpha", "beta", "gamma", town = Galmair, english -> "There is no need for you to buy a licence, since you are a citizen."
 "alpha", "beta", "gamma", town = Galmair, sex = male -> "Ihr benötigt keine Lizenz, da ihr Bürger dieser Stadt seid."
@@ -245,7 +251,7 @@ english, "deal" -> "We deal with everything in Galmair. But once, I made a speci
 "Ereignis", "Geschehnis" -> "Sämtliche Ereignisse betreffend unserer Stadt kannst du in unserer Bibliothek nachlesen. Leider wurde das eigentliche Geschichtsbuch verloren. Aber der Don war so nett und hat uns seine persönlichen Notizen zur Verfügung gestellt."
 "law" -> "Actually, we have only one rule. You just have to know, coins and thus the Don rules, because he has most. You will find more recommendations though in the Scoria Mine on some columns around the Hog Dens and Cameo Pit."
 "Gesetz" -> "Wir haben eigentlich keine Gesetze. Du musst nur wissen, dass hier Münzen und deshalb der Don herrscht, weil er die meisten hat. Aber du kannst mehr Empfehlungen unten in der Schlackengrube um und zwischen Gemmenschacht und Schweinebaue finden."
-"ruler" -> "We have had only two rulers so far. Our Don Valerio Guilianni and his father Tommaso Guilianni. You can find more information about the latter in the notes of the Don, our new history book."
+"ruler" -> "We have only had two rulers so far. Our Don Valerio Guilianni and his father Tommaso Guilianni. You can find more information about the latter in the notes of the Don, our new history book."
 "Herrscher" -> "Wir hatten lediglich zwei Herrscher bisher. Unseren Don Valerio Guilianni und seinen Vater Tommaso Guilianni. Informationen über letzteren findest du in den Aufzeichnungen des Don, unserem neuem Geschichtsbuch."
 "market" -> "Everything has to be explained to you. Just run through the town to the Well of Dreams and you will see it. You cannot miss it. *points to the town gate*"
 "Markt" -> "Alles muss man dir erklären. Lauf einfach durch die Stadt zur Quelle der Träume und du wirst ihn sehen. Du kannst ihn nicht verfehlen. *zeigt auf das Stadttor*"
