@@ -255,7 +255,7 @@ english, "Cadomyr" -> "Cadomyr is quite a hot place. Especially if you like knig
 -- Main land factions
 english, "albar" -> "Albar is a nice country. But order is important there."
 "albar" -> "Albar ist ein schönes Land. Aber dort herrscht Ordnung."
-english, "gynk", "gync" -> "Gync isn't the best place to grow up. It's a dirty place, just like Galmair.", "I've never been to Gynk, I don't think I'd like it there."
+english, "gynk", "gync" -> "Gynk isn't the best place to grow up. It's a dirty place, just like Galmair.", "I've never been to Gynk, I don't think I'd like it there."
 "gync", "gynk" -> "Gynk ist nicht der beste Ort wo man aufzuwachsen kann. Es ist ein dreckiger Ort, genau wie Galmair.", "Ich war noch nie in Gynk, I denke dort würde es mir nicht gefallen."
 english, "salkama" -> "Salkamar is a nice place. It's sunny there.", "I've never been to Salkmar, I think this place lies near the sea."
 "salkama" -> "Salkamar ist ein schöner Ort. Dort ist es recht sonnig.", "Ich war noch nie in Salkamar, ich glaube dieser Ort liegt am Meer."
