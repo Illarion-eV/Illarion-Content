@@ -302,6 +302,7 @@ local forest = common.GroundType.forest
 local seedList = {
 [15] = {seedlingId = 139, allowedTiles = {[grass] = true}, shadowTiles = {{x = 0, y = -2}, {x = 1, y = -1}, {x = 1, y = -2}, {x = 1, y = -3}, {x = 2, y = -1}, {x = 2, y = -2}, {x = 2, y = -3}, {x = 2, y = -4}, {x = 3, y = -1}, {x = 3, y = -2}, {x = 3, y = -3}, {x = 3, y = -4}, {x = 3, y = -5}, {x = 4, y = -3}, {x = 4, y = -4}, {x = 4, y = -5}, {x = 5, y = -4}, {x = 5, y = 5}}},
 [302] = {seedlingId = 132, allowedTiles = {[grass] = true}, shadowTiles = {{x = 0, y = -2}, {x = 1, y = -1}, {x = 1, y = -2}, {x = 1, y = -3}, {x = 2, y = -1}, {x = 2, y = -2}, {x = 2, y = -3}, {x = 2, y = -4}, {x = 3, y = -1}, {x = 3, y = -2}, {x = 3, y = -3}, {x = 3, y = -4}, {x = 3, y = -5}, {x = 4, y = -3}, {x = 4, y = -4}, {x = 4, y = -5}, {x = 5, y = -4}, {x = 5, y = -5}}},
+[1207] = {seedlingId = 1187, allowedTiles = {[grass] = true}, shadowTiles = {{x = 0, y = -2}, {x = 1, y = -1}, {x = 1, y = -2}, {x = 1, y = -3}, {x = 2, y = -1}, {x = 2, y = -2}, {x = 2, y = -3}, {x = 2, y = -4}, {x = 3, y = -1}, {x = 3, y = -2}, {x = 3, y = -3}, {x = 3, y = -4}, {x = 3, y = -5}, {x = 4, y = -3}, {x = 4, y = -4}, {x = 4, y = -5}, {x = 5, y = -4}, {x = 5, y = -5}}},
 [149] = {seedlingId = 150, allowedTiles = {[forest] = true}, shadowTiles = {{x = 0, y = -1}, {x = 1, y = 0}, {x = 1, y = -1}, {x = 1, y = -2}, {x = 2, y = -1}, {x = 2, y = -2}, {x = 2, y = -3}, {x = 3, y = -4}}}
 }
 
