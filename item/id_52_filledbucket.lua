@@ -361,7 +361,7 @@ local function isTreePlantableHere(seed)
                 -- No blocking item is allowed (= item on an unpassable field, includes e.g. flowers on water)
                 if math.abs(i) < 2 and math.abs(j) < 2 and (math.abs(i) > 0 or math.abs(j) > 0) then
                     if not (world:getField(currentPosition)):isPassable() then
-                        return false, "Die Wurzeln des Baumes könnten sich hier nicht richtig ausbreiten. Eines der Dinge um diesen Fleck herum, nimmt zu viel Raum ein.", "The roots of a tree couldn't spread properly in this spot. Something of the things around this spot take too much room."
+                        return false, "Die Wurzeln des Baumes könnten sich hier nicht richtig ausbreiten. Eines der Dinge um diesen Fleck herum, nimmt zu viel Raum ein.", "The roots of a tree couldn't spread properly in this spot. Some of the things around this spot take too much room."
                     else
                         unblockableItemsFound = unblockableItemsFound + 1
                         if unblockableItemsFound > unblockableItemsAllowed then
