@@ -41,8 +41,8 @@ local petsFarAwayMessageWasSent = {}
 local function walkWithOwner(pet, owner, allowedDistance)
     
     -- Assume the player was warped by some means if the z position suddnely changed or the distance is unusually high for walking
-    if (owner.pos.z ~= pet.pos.z or pet:distanceMetricToPosition(formerPositionOfOwners[owner.id]) > 3) then
-    
+    if (owner.pos.z ~= pet.pos.z or pet:distanceMetricToPosition(owner.pos) > 4) then
+        
         -- Warp the pet as well, if it was within a distance of <= 2 before the player was warped
         if pet:distanceMetricToPosition(formerPositionOfOwners[owner.id]) <= 2 then 
             pet:warp(common.getFreePos(owner.pos, 1, true))

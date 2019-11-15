@@ -26,7 +26,7 @@ local M = {}
 M.LookAtItem = metal.LookAtItem
 
 function M.UseItem(User, SourceItem, ltstate)
-petBuying.buyPet(User)
+
     sawing.sawing:showDialog(User, SourceItem)
 
 end

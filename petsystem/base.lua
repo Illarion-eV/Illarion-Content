@@ -32,7 +32,7 @@ function M.setIsPetOwner(character)
 end
 
 function M.isPetOwner(character)
-	if character:setQuestProgress(375) > 0 then
+	if character:getQuestProgress(375) > 0 then
 		return true
 	end
 	return false
@@ -187,7 +187,7 @@ function M.isPetProtectedFromDeath(user)
 	end
 end
 
-function M.removeIsPetProtectedFromDeath(user)
+function M.removeIsPetProtectedFromDeath(owner)
 	owner:setQuestProgress(376, 0)
 end
 
@@ -239,6 +239,7 @@ function M.loadPet(owner)
 		local createPosition = getPetPosition(owner)
 		world:gfx(31,createPosition)
 		local pet = world:createMonster(getPetRace(owner), createPosition, 0)
+        
         pet:setSkinColour(getPetColour(owner))
         setIsPetOf(pet, owner)
         pet:setAttrib("hitpoints", petHP)

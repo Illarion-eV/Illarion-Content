@@ -34,24 +34,35 @@ local commandKeyWords = {
 local downEmotes = {}
 local alreadyDownEmotes = {}
 M.tooFarAwayCry = {}
+local commandsForPets = {}
 
 local function registerNewPet(settings)
     downEmotes[settings.monsterId] = settings.downEmotes
     alreadyDownEmotes[settings.monsterId] = settings.alreadyDownEmotes
     M.tooFarAwayCry[settings.monsterId] = settings.tooFarAwayCry
+    commandsForPets[settings.monsterId] = settings.validCommands
 end
 
-M.dogMale = 581
-M.dogFemale = 1234
+M.firnisMillChicken = 1055
+M.gynkeseGuardDogMale = 1056
 
 registerNewPet{
-    monsterId = M.dogMale,
+    monsterId = M.gynkeseGuardDogMale,
     downEmotes = {english = "#me sits on the ground and stretches out his fore-paws.", german =  "#me setzt sich auf den Boden und streck die Vorderpfoten aus."},
     alreadyDownEmotes = {english = "#me looks confused.", german = "#me schaut verwirrt."},
-    tooFarAwayCry = {english = "Arrooooooo!", german =  "Arrooooooo!"}
+    tooFarAwayCry = {english = "Arrooooooo!", german =  "Arrooooooo!"},
+    validCommands = {[base.follow] = true, [base.heel] = true, [base.down] = true, [base.nearBy] = true, [base.stray] = true, [base.attack] = true}
 }
 
-local function extractCommand(text)
+registerNewPet{
+    monsterId = M.firnisMillChicken,
+    downEmotes = {english = "#me setzt sich auf den Boden.", "#me setzt sich auf den Boden."},
+    alreadyDownEmotes = {"#me waves with its wings, sitting already on the ground.", "#me wedelt, bereits sitzend, mit den Flügeln."},
+    tooFarAwayCry = {english = "Squaaaaawk!", german = "Squaaaaawk!"},
+    validCommands = {[base.follow] = true, [base.heel] = true, [base.down] = true, [base.nearBy] = true, [base.stray] = true}
+}
+
+local function extractCommand(text, monster)
     
     for i = 1, #commandKeyWords do
         for j = 1, #commandKeyWords[i] do
@@ -68,7 +79,7 @@ local function extractCommand(text)
                         break
                     end
                 end
-                if foundCommand then
+                if foundCommand and commandsForPets[monster:getMonsterType()][i] then
                     return i
                 end
             end
@@ -92,7 +103,7 @@ function M.receiveText(monster, textType, text, speaker)
         local petName = base.getPetName(speaker)
 
         if petName and string.find(text, string.lower(petName)) then
-            local newCommand = extractCommand(text, speaker)
+            local newCommand = extractCommand(text, monster)
             if newCommand then
                 
                 if newCommand == base.stray then
@@ -227,19 +238,3 @@ function M.enemyNear(pet, enemy)
 end
 
 return M
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
