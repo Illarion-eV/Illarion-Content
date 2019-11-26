@@ -162,7 +162,7 @@ english, "quest" -> "When you can get new informations about Gobaith, I will be 
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "#me rülpst herzhaft.", "#me belches loudly.."
+cycletext "#me rülpst herzhaft.", "#me belches loudly."
 cycletext "#me gähnt mit müdem Blick.", "#me yawns."
 cycletext "#me seufzt langezogen.", "#me lets out a long sigh."
 cycletext "#me schaut aus dem Fenster", "#me looks out of the window."
@@ -171,4 +171,4 @@ cycletext "#me pfeift eine Melodie.", "#me whistles a melody."
 cycletext "Ich repariere zwar nicht alles, aber vieles", "In fact I repair not everything, but most of the things you have."
 cycletext "Das beste Bier gab es im Fluffy Sheep.", "The best beer you could find in the Fluffy Sheep."
 cycletext "#me schaut sehnsüchtig zu einen Krug Bier, schüttelt aber dann den Kopf", "#me looks to a mug of beer longingly, but shakes his head"
-cycletext "Borgate, noch ein Glas 'Trolls Baner Karottensaft'.", "Borgate, another glass full of 'Trolls Bane Carrot Juice'."
+cycletext "Borgate, noch ein Glas 'Troll's Baner Karottensaft'.", "Borgate, another glass full of 'Troll's Bane Carrot Juice'."
