@@ -315,24 +315,24 @@ local playersWithValidPosition = {}
 local function isTreePlantableHere(seed)
 
     if seed.pos.z ~= 0 then
-        return false
+        return false, "In diesem Gebiet ist der Boden nicht geeignet, um Bäume zu pflanzen.", "In this area, the ground is not suitable for planting trees."
     end
 
     -- Exclude triggerfields
     if triggerfield.isTriggerfield(seed.pos) then
-        return false
+        return false, "Hier ist der Boden nicht geeignet, um Bäume zu pflanzen.", "The ground is not suitable for planting trees here."
     end
 
     local theField = world:getField(seed.pos)
 
     -- No stack
     if theField:countItems() > 1 then
-        return false
+        return false, "Hier ist der Boden nicht geeignet, um Bäume zu pflanzen.", "The ground is not suitable for planting trees here."
     end
 
     -- Proper tile?
     if not seedList[seed.id].allowedTiles[common.GetGroundType(theField:tile())] then
-        return false
+        return false, "Hier ist der Boden nicht geeignet, um Bäume zu pflanzen.", "The ground is not suitable for planting trees here."
     end
 
     -- Some areas don't allow planting
