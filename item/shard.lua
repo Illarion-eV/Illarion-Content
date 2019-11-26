@@ -51,7 +51,9 @@ end
 function M.createShardOnPosition(pos)
     local shardLevel = glyphs.getRandomShardLevel()
     local shardId = tonumber(glyphs.getShardId(shardLevel))
-    world:createItemFromId(shardId,1,pos,false,999,{[glyphs.SHARD_LEVEL_DATA_KEY] = shardLevel}, 5)
+    local createdShard = world:createItemFromId(shardId,1,pos,false,999,{[glyphs.SHARD_LEVEL_DATA_KEY] = shardLevel}, 5)
+    createdShard.wear = 10
+    world:changeItem(createdShard)
 end
 
 function M.dropShardByChance(treasureLocation,treasureLevel)

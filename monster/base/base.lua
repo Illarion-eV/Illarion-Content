@@ -133,6 +133,7 @@ local function dropLootItem(monster, lootItemData)
 
     local createdItem = world:createItemFromId(lootItemData.itemId, amount, monster.pos, true, quality * 100 + durability, data)
     createdItem.wear = 4
+    world:changeItem(createdItem)
 end
 
 local function dropLootCategory(monster, lootData)
