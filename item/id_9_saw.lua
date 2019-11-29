@@ -19,6 +19,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local sawing = require("craft.intermediate.sawing")
 local metal = require("item.general.metal")
+local petBuying = require("petsystem.petBuying")
 
 local M = {}
 

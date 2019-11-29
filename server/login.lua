@@ -329,7 +329,7 @@ function M.onLogin( player )
     end
     
     --Handle pets
-    --petsystem.loadPet(player)
+    petsystem.loadPet(player)
 end
 
 function showNewbieDialog(player)

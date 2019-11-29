@@ -27,6 +27,21 @@ M.stray = 5
 M.attack = 6
 M.move = 7
 
+function M.setIsPetOwner(character)
+	character:setQuestProgress(375, 1)
+end
+
+function M.isPetOwner(character)
+	if character:getQuestProgress(375) > 0 then
+		return true
+	end
+	return false
+end
+
+function M.removeIsPetOwner(character)
+	character:setQuestProgress(375, 0)
+end
+
 function M.getOwner(pet)
     
     for _, player in pairs(world:getPlayersOnline()) do
@@ -40,16 +55,16 @@ function M.getOwner(pet)
 end
 
 
-local function savePetName(owner, name)
+function M.savePetName(owner, name)
     
-    for queststatus = 364, 366 do
+    for queststatus = 371, 374 do
         local progress = 0
         for i = 1, 4 do
-            local numerical = string.byte(string.sub(name, i+4*(queststatus-364), i+4*(queststatus-364)))
+            local numerical = string.byte(string.sub(name, i+4*(queststatus-371), i+4*(queststatus-371)))
             if numerical then
                 progress = bit32.replace(progress, numerical, i*8-8, 8)
             else
-                return
+                break
             end
         end
         owner:setQuestProgress(queststatus, progress)
@@ -60,7 +75,7 @@ end
 function M.getPetName(owner)
     
     local name = ""
-    for queststatus = 364, 366 do
+    for queststatus = 371, 374 do
         for i = 1, 4 do
             local extracted = bit32.extract(owner:getQuestProgress(queststatus), i*8-8, 8)
             if extracted ~= 0 then
@@ -73,11 +88,11 @@ function M.getPetName(owner)
 end
 
 function M.saveCommand(owner, command)
-    owner:setQuestProgress(373, command)
+    owner:setQuestProgress(366, command)
 end
 
 function M.getCommand(owner)
-    return owner:getQuestProgress(373)
+    return owner:getQuestProgress(366)
 end
 
 
@@ -108,11 +123,11 @@ local function getPetColour(owner)
 end
 
 local function savePetSex(owner, sex) -- Not used! Different sexes are handled as difference races.
-    owner:setQuestProgress(371, sex)
+    owner:setQuestProgress(364, sex)
 end
 
 local function getPetSex(owner) -- Not used! Different sexes are handled as difference races.
-    return owner:getQuestProgress(371)
+    return owner:getQuestProgress(364)
 end
 
 function M.savePetPosition(owner, thePosition)
@@ -153,11 +168,27 @@ local function getPetPosition(owner)
 end
 
 function M.savePetHitpoints(owner, hitpoints)
-    owner:setQuestProgress(372, hitpoints)
+    owner:setQuestProgress(365, hitpoints)
 end
 
-local function getPetHitpoints(owner)
-    return owner:getQuestProgress(372)
+function M.getPetHitpoints(owner)
+    return owner:getQuestProgress(365)
+end
+
+function M.setPetIsProtectedFromDeath(owner)
+	owner:setQuestProgress(376, 1)
+end
+
+function M.isPetProtectedFromDeath(user)
+	if user:getQuestProgress(376) > 0 then
+		return true
+	else
+		return false
+	end
+end
+
+function M.removeIsPetProtectedFromDeath(owner)
+	owner:setQuestProgress(376, 0)
 end
 
 local ownerIDsByPetIDs = {}
@@ -203,11 +234,12 @@ function M.removePetByOwner(owner)
 end
 
 function M.loadPet(owner)
-    
-    local petHP = getPetHitpoints(owner)
+    local petHP = M.getPetHitpoints(owner)
     if petHP > 0 then
-
-        local pet = world:createMonster(getPetRace(owner), getPetPosition(owner), 0)
+		local createPosition = getPetPosition(owner)
+		world:gfx(31,createPosition)
+		local pet = world:createMonster(getPetRace(owner), createPosition, 0)
+        
         pet:setSkinColour(getPetColour(owner))
         setIsPetOf(pet, owner)
         pet:setAttrib("hitpoints", petHP)
@@ -220,7 +252,12 @@ end
 function M.logOutPet(owner)
     local pet = getPetByOwner(owner)
     if pet then
-        local petHP = pet:increaseAttrib("hitpoints", 0)
+		world:gfx(31,pet.pos)
+		
+		M.removeIsPetOf(pet)
+        M.removePetByOwner(owner)
+		
+		local petHP = pet:increaseAttrib("hitpoints", 0)
         if petHP > 0 then
             pet:increaseAttrib("hitpoints", -10000)
         end
@@ -229,29 +266,15 @@ end
 
 function M.addNewPetToCharacter(character, petValues)
 
-    savePetName(character, petValues.name)
+    M.savePetName(character, petValues.name)
     savePetRace(character, petValues.race)
     savePetColour(character, petValues.colour)
     M.savePetPosition(character, common.getFreePos(character.pos, 1))
     M.savePetHitpoints(character, 10000)
     M.saveCommand(character, M.follow)
+	M.setIsPetOwner(character)
     
     M.loadPet(character)
-end
-
-function M.testFunction(character)
-
-    character:setQuestProgress(364, 0)
-    character:setQuestProgress(365, 0)
-    character:setQuestProgress(366, 0)
-    
-    local petValues = {}
-    petValues.name = "wauw"
-    petValues.colour = colour(34, 111, 222, 255)
-    petValues.race = 581
-    M.addNewPetToCharacter(character, petValues)
-    
-
 end
 
 return M

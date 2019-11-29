@@ -54,7 +54,7 @@ function M.onLogout( theChar )
     end
     
     --Handle pets
-    petsystem.logOutPet(theChar)
+	petsystem.logOutPet(theChar)
 end
 
 return M

@@ -17,6 +17,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local base = require("petsystem.base")
 local common = require("base.common")
+local fightingutil = require("base.fightingutil")
+local gems = require("base.gems")
 
 local M = {}
 
@@ -32,33 +34,40 @@ local commandKeyWords = {
 local downEmotes = {}
 local alreadyDownEmotes = {}
 M.tooFarAwayCry = {}
+local commandsForPets = {}
 
 local function registerNewPet(settings)
     downEmotes[settings.monsterId] = settings.downEmotes
     alreadyDownEmotes[settings.monsterId] = settings.alreadyDownEmotes
     M.tooFarAwayCry[settings.monsterId] = settings.tooFarAwayCry
+    commandsForPets[settings.monsterId] = settings.validCommands
 end
 
-local gynkeseGuardDog = 1056
-local firnisMillChicken = 1055
+M.gynkeseGuardDog = 1056
+M.firnisMillChicken = 1055
+
 
 
 registerNewPet{
-    monsterId = gynkeseGuardDog,
+    monsterId = M.gynkeseGuardDogMale,
     downEmotes = {english = "#me sits on the ground and stretches out his fore-paws.", german =  "#me setzt sich auf den Boden und streck die Vorderpfoten aus."},
     alreadyDownEmotes = {english = "#me looks confused.", german = "#me schaut verwirrt."},
-    tooFarAwayCry = {english = "Arrooooooo!", german =  "Arrooooooo!"}
+    tooFarAwayCry = {english = "Arrooooooo!", german =  "Arrooooooo!"},
+    validCommands = {[base.follow] = true, [base.heel] = true, [base.down] = true, [base.nearBy] = true, [base.stray] = true, [base.attack] = true}
 }
+
+
+
 
 registerNewPet{
-    monsterId = firnisMillChicken,
-    downEmotes = {english = "#me sits on the ground and keeps its wings cloth to is body.", german = "#me setzt sich auf den Boden und legt die Flügel an."},
-    alreadyDownEmotes = {english = "#me tilts its head aside and looks confused.", german = "#me legt den Kopf schief und schaut verwirrt."},
-    tooFarAwayCry = {english = "Squaaaaawk!", german =  "Squaaaaawk!"}
+    monsterId = M.firnisMillChicken,
+    downEmotes = {english = "#me setzt sich auf den Boden.", "#me setzt sich auf den Boden."},
+    alreadyDownEmotes = {"#me waves with its wings, sitting already on the ground.", "#me wedelt, bereits sitzend, mit den Flügeln."},
+    tooFarAwayCry = {english = "Squaaaaawk!", german = "Squaaaaawk!"},
+    validCommands = {[base.follow] = true, [base.heel] = true, [base.down] = true, [base.nearBy] = true, [base.stray] = true}
 }
 
-
-local function extractCommand(text)
+local function extractCommand(text, monster)
     
     for i = 1, #commandKeyWords do
         for j = 1, #commandKeyWords[i] do
@@ -75,7 +84,7 @@ local function extractCommand(text)
                         break
                     end
                 end
-                if foundCommand then
+                if foundCommand and commandsForPets[monster:getMonsterType()][i] then
                     return i
                 end
             end
@@ -89,6 +98,8 @@ local function petMove(pet, owner)
     pet:move(owner:getFaceTo(), true)
 end
 
+local targetEnemy = {}
+
 function M.receiveText(monster, textType, text, speaker)
 
     if base.isPetOf(monster, speaker) then
@@ -97,7 +108,7 @@ function M.receiveText(monster, textType, text, speaker)
         local petName = base.getPetName(speaker)
 
         if petName and string.find(text, string.lower(petName)) then
-            local newCommand = extractCommand(text, speaker)
+            local newCommand = extractCommand(text, monster)
             if newCommand then
                 
                 if newCommand == base.stray then
@@ -113,9 +124,16 @@ function M.receiveText(monster, textType, text, speaker)
                     else
                         monster:talk(Character.say, downEmotes[monsterType].german, downEmotes[monsterType].english)
                     end
-                end
-                
-                base.saveCommand(speaker, newCommand)
+                elseif newCommand == base.attack then
+					local selectedEnemyId = fightingutil.getSelectedEnemyId(speaker.id)
+					if selectedEnemyId then
+						targetEnemy[monster.id] = selectedEnemyId
+					else	
+						return
+					end
+				end
+				
+				base.saveCommand(speaker, newCommand)
             elseif string.find(text, "move") or string.find(text, "beweg") then
                 petMove(monster, speaker)
             end
@@ -125,13 +143,103 @@ function M.receiveText(monster, textType, text, speaker)
 end
 
 function M.onDeath(pet)
+
+	targetEnemy[pet.id] = nil
     
     local owner = base.getOwner(pet)
     if owner then
         base.savePetHitpoints(owner, 0)
         base.removeIsPetOf(pet)
         base.removePetByOwner(owner)
-    end
+	
+		if base.isPetProtectedFromDeath(owner) then
+			owner:inform("Dein tierischer Begleiter hat seine Lebenskraft verloren. Doch eine warme, sanfte Stimme, die aus dir selbst zu kommen scheint, erinnert dich, Oldras Gnade für deinen Gefährten zu suchen.", "Your animal companion's life energy runs out, but a soft and warm voice, seemingly coming from somwhere within yourself, reminds you to search for Oldra's grace for your companion.", Player.highPriority)
+		else
+			owner:inform("Dein tierischer Begeleiter hat diese Welt für immer verlassen.", "Your animal companion left this world forever.", Player.highPriority)
+			base.removeIsPetOwner(owner)
+		end
+	end
+end
+
+function M.useMonster(pet, user)
+	
+	if base.isPetOf(pet, user) then
+	
+		local callback = function(dialog)
+			local success = dialog:getSuccess()
+			if success then
+				local selected = dialog:getSelectedIndex()+1
+				if selected == 1 then
+					
+					if base.isPetProtectedFromDeath(user) then
+						user:inform("Das Halsband deines tierischen Freundes beinhaltet schon drei latent magische Edelsteine", "The collar of you animal friend already contains three latent magical gems.", Player.highPriority)
+					else
+						local gemCounter = 0
+						local gemItems = {}
+						for i = Character.belt_pos_1, Character.belt_pos_6 do
+							local beltItem = user:getItemAt(i)
+							if gems.itemIsMagicGem(beltItem) and tonumber(beltItem:getData(gems.levelDataKey)) == 1 then
+								gemCounter = gemCounter + beltItem.number
+								table.insert(gemItems, beltItem)
+							end
+						end
+						gemCounter = math.min(gemCounter, 3)
+						
+						if gemCounter < 3 then
+							user:inform("Drei latent magische Edelsteine benötigst du, um deinen Begleiter vor dem Tod zu bewahren.", "Three latent magical gems does it take to save your companion from death.", Player.highPriority)
+						else
+							for _, theGem in pairs(gemItems) do
+								
+								local deleteAmount = math.min(gemCounter, theGem.number)
+								world:erase(theGem, deleteAmount)
+								gemCounter = gemCounter - deleteAmount
+								
+								if gemCounter <= 0 then
+									break
+								end
+							end
+							base.setPetIsProtectedFromDeath(user)
+							user:inform("Dein Begleiter ist nun geschützt!","Your companion is now protected!")
+						end
+					end
+				end
+			end
+		
+		end
+	
+		local dialog = SelectionDialog(base.getPetName(user), common.GetNLS(user, "bla", "bla"), callback)
+	
+		dialog:addOption(0, common.GetNLS(user, "Halsband mit drei magischen Edelsteinen versehen", "Put three magical gems into the collar"))
+		
+		user:requestSelectionDialog(dialog)
+	end
+
+end
+
+function M.setTarget(pet, candidateList)
+	
+	local owner = base.getOwner(pet)
+	local newTarget = false
+	if owner then
+		for index, candidate in pairs(candidateList) do
+			if candidate.id == targetEnemy[pet.id] then
+				return index
+			elseif candidate.id == fightingutil.getSelectedEnemyId(owner.id) then
+				newTarget = index
+			end
+		end
+	end
+	
+	if newTarget then
+		return newTarget
+	end
+	
+	return 0
+end
+
+-- Needs to have that return false according to the lua docu, since I may return 0 in setTarget.
+function M.enemyNear(pet, enemy)
+	return false
 end
 
 return M
