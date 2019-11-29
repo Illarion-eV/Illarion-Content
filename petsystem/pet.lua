@@ -39,15 +39,24 @@ local function registerNewPet(settings)
     M.tooFarAwayCry[settings.monsterId] = settings.tooFarAwayCry
 end
 
-local dogMale = 581
-local dogFemale = 1234
+local gynkeseGuardDog = 1056
+local firnisMillChicken = 1055
+
 
 registerNewPet{
-    monsterId = dogMale,
+    monsterId = gynkeseGuardDog,
     downEmotes = {english = "#me sits on the ground and stretches out his fore-paws.", german =  "#me setzt sich auf den Boden und streck die Vorderpfoten aus."},
     alreadyDownEmotes = {english = "#me looks confused.", german = "#me schaut verwirrt."},
     tooFarAwayCry = {english = "Arrooooooo!", german =  "Arrooooooo!"}
 }
+
+registerNewPet{
+    monsterId = firnisMillChicken,
+    downEmotes = {english = "#me sits on the ground and keeps its wings cloth to is body.", german = "#me setzt sich auf den Boden und legt die Flügel an."},
+    alreadyDownEmotes = {english = "#me tilts its head aside and looks confused.", german = "#me legt den Kopf schief und schaut verwirrt."},
+    tooFarAwayCry = {english = "Squaaaaawk!", german =  "Squaaaaawk!"}
+}
+
 
 local function extractCommand(text)
     
