@@ -51,8 +51,8 @@ end
 function M.createShardOnPosition(pos)
     local shardLevel = glyphs.getRandomShardLevel()
     local shardId = tonumber(glyphs.getShardId(shardLevel))
-    local createdShard = world:createItemFromId(shardId,1,pos,false,999,{[glyphs.SHARD_LEVEL_DATA_KEY] = shardLevel}, 5)
-    createdShard.wear = 10
+    local createdShard = world:createItemFromId(shardId,1,pos,false,999,{[glyphs.SHARD_LEVEL_DATA_KEY] = shardLevel})
+    createdShard.wear = 5
     world:changeItem(createdShard)
 end
 
