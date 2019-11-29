@@ -432,7 +432,7 @@ function writeBulletinBoard(User, Item)
        
             --input title
             local title = common.GetNLS(User, "Titel", "Title")
-            local text = common.GetNLS(User, "Schreibe den Titel deines neuen Anschlages. Ein Anschlag kostet zwanzig Silberstücke.", "Write the title of your bulletin. The cost is twenty silver coins.")
+            local text = common.GetNLS(User, "Schreibe den Titel deines neuen Anschlages. Ein Anschlag kostet zwanzig Silberstücke. Er wird für eine Woche nach Zählweise der Zwerge angeschlagen bleiben.", "Write the title of your bulletin. The cost is twenty silver coins. It will remain posted for one week as counted by the dwarves.")
             local callback = function(dialogTitle)
                 local successTitle = dialogTitle:getSuccess()
                 local newTitleContent = dialogTitle:getInput()
@@ -444,7 +444,7 @@ function writeBulletinBoard(User, Item)
                     --input text
                     if successTitle then
                         local title = common.GetNLS(User, "Text", "Text")
-                        local text = common.GetNLS(User, "Schreibe den Text deines neuen Anschlages. Ein Anschlag kostet zwanzig Silberstücke.", "Write the text of your bulletin. The cost is twenty silver coins.")
+                        local text = common.GetNLS(User, "Schreibe den Text deines neuen Anschlages.", "Write the text of your bulletin.")
                         local callback = function(dialogText)
                             local successText = dialogText:getSuccess()
                             local newTextContent = dialogText:getInput()
