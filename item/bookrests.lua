@@ -34,7 +34,10 @@ local M = {}
 
 local BULLETIN_MAX_SLOTS = 10
 --local EXPRIATION_TIME = 604800 -- seven RL days
-local EXPRIATION_TIME = 5*60 --
+local BULLETIN_EXPRIATION_TIME = 5*60 --
+local BULLETIN_COST = 20000
+local BULLETIN_COST_STR_DE = "Ein Anschlag kostet zwanzig Silberstücke."
+local BULLETIN_COST_STR_EN = "The cost is twenty silver coins."
 
 local FerryLookAt
 local TMLookAt
@@ -293,7 +296,7 @@ end
 
 -- Bulletin board
 local getBulletinMessages
-local writeBulletinMessages
+local setBulletinMessages
 local showBulletinMessage
 
 function showBulletinBoard(User, Item)
@@ -350,123 +353,79 @@ end
 
 function writeBulletinBoard(User, Item)
 
-    local bulletinMessagesTitle = {}
-    local bulletinMessagesText = {}
-    local bulletinMessagesAuthor = {}
-    local bulletinMessagesExpiration = {}
-    
-    --read all messages and remove expired messages
-    for i = 1, BULLETIN_MAX_SLOTS do
-        local titleFound, titleContent = ScriptVars:find("messageTitle"..tostring(i))
-        local textFound, textContent = ScriptVars:find("messageText"..tostring(i))
-        local authorFound, authorContent = ScriptVars:find("messageAuthor"..tostring(i))
-        local expirationFound, expirationContent = ScriptVars:find("messageExpiration"..tostring(i))
-        if titleFound and textFound and authorFound and expirationFound and tonumber(expirationContent) > world:getTime("unix") then
-            table.insert(bulletinMessagesTitle, titleContent)
-            table.insert(bulletinMessagesText, textContent)
-            table.insert(bulletinMessagesAuthor, authorContent)
-            table.insert(bulletinMessagesExpiration, expirationContent)
-        end
-    end
+    local bulletinMessages = getBulletinMessages(User)
 
-    --write all messages
-    if #bulletinMessagesTitle > 0 then 
-
-        for i = 1, math.min((BULLETIN_MAX_SLOTS), #bulletinMessagesTitle) do
-            ScriptVars:set("messageTitle"..tostring(i), bulletinMessagesTitle[i])
-            ScriptVars:set("messageText"..tostring(i), bulletinMessagesText[i])
-            ScriptVars:set("messageAuthor"..tostring(i), bulletinMessagesAuthor[i])
-            ScriptVars:set("messageExpiration"..tostring(i), bulletinMessagesExpiration[i])
-        end
-  
-        ScriptVars:save()
-    end
-    
-    if #bulletinMessagesTitle < BULLETIN_MAX_SLOTS then
-      
-        if money.CharHasMoney(User, 2000) then--check money
-       
-            --input title
-            local title = common.GetNLS(User, "Titel", "Title")
-            local text = common.GetNLS(User, "Schreibe den Titel deines neuen Anschlages. Ein Anschlag kostet zwanzig Silberstücke.", "Write the title of your bulletin. The cost is twenty silver coins.")
-            local callback = function(dialogTitle)
-                local successTitle = dialogTitle:getSuccess()
-                local newTitleContent = dialogTitle:getInput()
-                if string.len (newTitleContent) > 40 then
-                    User:inform("Dein Titel ist zu lang.","The title is too long.",Character.highPriority)
-                    successTitle = false
-                    newTitleContent = nil
-                else
-                    --input text
-                    if successTitle then
-                        local title = common.GetNLS(User, "Text", "Text")
-                        local text = common.GetNLS(User, "Schreibe den Text deines neuen Anschlages. Ein Anschlag kostet zwanzig Silberstücke.", "Write the text of your bulletin. The cost is twenty silver coins.")
-                        local callback = function(dialogText)
-                            local successText = dialogText:getSuccess()
-                            local newTextContent = dialogText:getInput()
-                            if string.len (newTextContent) > 255 then
-                                User:inform("Dein Text ist zu lang.","The text is too long.",Character.highPriority)
-                                successText = false
-                                newTextContent = nil
-                            else
-                                if newTitleContent and newTextContent and successTitle and successText and money.CharHasMoney(User, 2000) then
-
-                                    table.insert(bulletinMessagesTitle, newTitleContent)
-                                    table.insert(bulletinMessagesText, newTextContent)
-                                    table.insert(bulletinMessagesAuthor, User.name)
-                                    table.insert(bulletinMessagesExpiration, world:getTime("unix")+EXPRIATION_TIME)
-                                    money.TakeMoneyFromChar(User, 2000) --pay
-                                    world:broadcast("Am Gasthof zur Hanfschlinge hängt ein neuer Anschlag.", "A new bulletin has been published at the Hemp Necktie Inn.")
-
-                                    --write all messages
-                                    if #bulletinMessagesTitle > 0 then 
-
-                                        for i = 1, math.min((BULLETIN_MAX_SLOTS), #bulletinMessagesTitle) do
-                                            ScriptVars:set("messageTitle"..tostring(i), bulletinMessagesTitle[i])
-                                            ScriptVars:set("messageText"..tostring(i), bulletinMessagesText[i])
-                                            ScriptVars:set("messageAuthor"..tostring(i), bulletinMessagesAuthor[i])
-                                            ScriptVars:set("messageExpiration"..tostring(i), bulletinMessagesExpiration[i])
-                                        end
-                                    
-                                        ScriptVars:save()
-                                    end
-                                    
-                                elseif not money.CharHasMoney(User, 2000) then --not enough money
-                                    User:inform("Du hast nicht genug Geld. Ein Anschlag kostet zwanzig Silberstücke.", "You don't have enough money. Posting a bulletin costs twenty silver coins.")
-                                else
-                                    User:inform("Irgendwas ist faul.","Something went wrong.") --debug
-                                end
-                            end
-                            
-                            if not successText then
-                                User:inform("Kein Text eingegeben.","You did not enter a text.",Character.highPriority)
-                            end
-                        end
-
-                        local dialogText = InputDialog(title, text, false, 255, callback)
-                        User:requestInputDialog(dialogText)
-         
-                    else
-                        User:inform("Kein Titel eingegeben.","You did not enter a title.",Character.highPriority)
-                    end
-                end
-            end
-            
-            local dialogTitle = InputDialog(title, text, false, 40, callback)
-            User:requestInputDialog(dialogTitle) 
-             
-        else --not enough money
-            User:inform("Du hast nicht genug Geld. Ein Anschlag kostet zwanzig Silberstücke.", "You don't have enough money. Posting a bulletin costs twenty silver coins.")
-        end
-            
-    else
+    if #bulletinMessages >= BULLETIN_MAX_SLOTS then
         local timeDifference = math.min(unpack(bulletinMessagesExpiration))-world:getTime("unix")
         local timeDifferenceDays = math.floor(timeDifference/(60*60*24))
         local timeDifferenceHours = math.floor((timeDifference-timeDifferenceDays*60*60*24)/(60*60))
         local timeDifferenceMinutes = math.floor((timeDifference-timeDifferenceDays*60*60*24-timeDifferenceHours*60*60)/60)
         User:inform("Die Anschlagtafel ist voll. Warte, bis ein Anschlagplatz frei wird. Dies wird noch "..timeDifferenceDays.." Tage, "..timeDifferenceHours.." Stunden und "..timeDifferenceMinutes.." Minuten dauern", "The bulletin board is full. Please wait for a free slot. It will take "..timeDifferenceDays.." days, "..timeDifferenceHours.." hours and "..timeDifferenceMinutes.." minutes.")
+        return
     end
- 
+
+    if not money.CharHasMoney(User, BULLETIN_COST) then--check money
+        User:inform("Du hast nicht genug Geld. Ein Anschlag kostet zwanzig Silberstücke.", "You don't have enough money. Posting a bulletin costs twenty silver coins.")
+        return
+    end
+
+    --input title
+    local title = common.GetNLS(User, "Titel", "Title")
+    local text = common.GetNLS(User, "Schreibe den Titel deines neuen Anschlages. ".. BULLETIN_COST_STR_DE, "Write the title of your bulletin. ".. BULLETIN_COST_STR_EN)
+    local callback = function(dialogTitle)
+        local successTitle = dialogTitle:getSuccess()
+        local newTitleContent = dialogTitle:getInput()
+        if string.len (newTitleContent) > 40 then
+            User:inform("Dein Titel ist zu lang.","The title is too long.",Character.highPriority)
+            successTitle = false
+            newTitleContent = nil
+        else
+            --input text
+            if successTitle then
+                local title = common.GetNLS(User, "Text", "Text")
+                local text = common.GetNLS(User, "Schreibe den Text deines neuen Anschlages. " .. BULLETIN_COST_STR_DE, "Write the text of your bulletin. " .. BULLETIN_COST_STR_EN)
+                local callback = function(dialogText)
+                    local successText = dialogText:getSuccess()
+                    local newTextContent = dialogText:getInput()
+                    if string.len (newTextContent) > 255 then
+                        User:inform("Dein Text ist zu lang.","The text is too long.",Character.highPriority)
+                        successText = false
+                        newTextContent = nil
+                    else
+                        if newTitleContent and newTextContent and successTitle and successText and money.CharHasMoney(User, 2000) then
+
+                            table.insert(bulletinMessages,
+                                { Title = newTitleContent, Text = newTextContent, Author = User.name, Expiration = world:getTime("unix")+BULLETIN_EXPRIATION_TIME }
+                            )
+                            money.TakeMoneyFromChar(User, 2000) --pay
+                            world:broadcast("Am Gasthof zur Hanfschlinge hängt ein neuer Anschlag.", "A new bulletin has been published at the Hemp Necktie Inn.")
+
+                            setBulletinMessages(User, bulletinMessages)
+
+                        elseif not money.CharHasMoney(User, 2000) then --not enough money
+                            User:inform("Du hast nicht genug Geld. Ein Anschlag kostet zwanzig Silberstücke.", "You don't have enough money. Posting a bulletin costs twenty silver coins.")
+                        else
+                            User:inform("Irgendwas ist faul.","Something went wrong.") --debug
+                        end
+                    end
+
+                    if not successText then
+                        User:inform("Kein Text eingegeben.","You did not enter a text.",Character.highPriority)
+                    end
+                end
+
+                local dialogText = InputDialog(title, text, false, 255, callback)
+                User:requestInputDialog(dialogText)
+
+            else
+                User:inform("Kein Titel eingegeben.","You did not enter a title.",Character.highPriority)
+            end
+        end
+    end
+
+    local dialogTitle = InputDialog(title, text, false, 40, callback)
+    User:requestInputDialog(dialogTitle)
+
 end
 
 function getBulletinMessages(User)
@@ -488,13 +447,13 @@ function getBulletinMessages(User)
 
     --write all messages
     if #bulletinMessages > 0 then
-        writeBulletinMessages(User, bulletinMessages)
+        setBulletinMessages(User, bulletinMessages)
     end
 
     return bulletinMessages
 end
 
-function writeBulletinMessages(User, bulletinMessages)
+function setBulletinMessages(User, bulletinMessages)
     if #bulletinMessages > BULLETIN_MAX_SLOTS then
         User:inform("FIXGERMAN Messages number overflows, please inform a developer,", "Messages number overflows, please inform a developer.",Character.highPriority)
         return
