@@ -48,6 +48,7 @@ local bulletinLookAt
 local usingHomeTeleporter
 local NecktieHomeTravel
 local WonderlandTeleporter
+local showBulletinBoard
 
 local salaveshBookrest = position(741, 406, -3)
 local akaltutBookrest = position(430, 815, -9)
@@ -295,6 +296,10 @@ end
 
 
 -- Bulletin board
+local readBulletinBoard
+local writeBulletinBoard
+local writeBulletinBoardStep2
+local writeBulletinBoardStep3
 local getBulletinMessages
 local setBulletinMessages
 local showBulletinMessage
@@ -352,11 +357,14 @@ function readBulletinBoard(User, Item)
 end
 
 function writeBulletinBoard(User, Item)
-
+    -- check if posting is possible
     local bulletinMessages = getBulletinMessages(User)
-
     if #bulletinMessages >= BULLETIN_MAX_SLOTS then
-        local timeDifference = math.min(unpack(bulletinMessagesExpiration))-world:getTime("unix")
+        local closestExpirationTime = bulletinMessages[1].Expiration
+        for _,message in ipairs(bulletinMessages) do
+            closestExpirationTime = math.min(closestExpirationTime, message.Expiration)
+        end
+        local timeDifference = closestExpirationTime-world:getTime("unix")
         local timeDifferenceDays = math.floor(timeDifference/(60*60*24))
         local timeDifferenceHours = math.floor((timeDifference-timeDifferenceDays*60*60*24)/(60*60))
         local timeDifferenceMinutes = math.floor((timeDifference-timeDifferenceDays*60*60*24-timeDifferenceHours*60*60)/60)
@@ -365,7 +373,7 @@ function writeBulletinBoard(User, Item)
     end
 
     if not money.CharHasMoney(User, BULLETIN_COST) then--check money
-        User:inform("Du hast nicht genug Geld. Ein Anschlag kostet zwanzig Silberstücke.", "You don't have enough money. Posting a bulletin costs twenty silver coins.")
+        User:inform("Du hast nicht genug Geld. ".. BULLETIN_COST_STR_DE, "You don't have enough money. ".. BULLETIN_COST_STR_EN)
         return
     end
 
@@ -374,59 +382,78 @@ function writeBulletinBoard(User, Item)
     local text = common.GetNLS(User, "Schreibe den Titel deines neuen Anschlages. ".. BULLETIN_COST_STR_DE, "Write the title of your bulletin. ".. BULLETIN_COST_STR_EN)
     local callback = function(dialogTitle)
         local successTitle = dialogTitle:getSuccess()
+        if not successTitle then
+            User:inform("Kein Titel eingegeben.","You did not enter a title.",Character.highPriority)
+            return
+        end
         local newTitleContent = dialogTitle:getInput()
         if string.len (newTitleContent) > 40 then
             User:inform("Dein Titel ist zu lang.","The title is too long.",Character.highPriority)
-            successTitle = false
-            newTitleContent = nil
-        else
-            --input text
-            if successTitle then
-                local title = common.GetNLS(User, "Text", "Text")
-                local text = common.GetNLS(User, "Schreibe den Text deines neuen Anschlages. " .. BULLETIN_COST_STR_DE, "Write the text of your bulletin. " .. BULLETIN_COST_STR_EN)
-                local callback = function(dialogText)
-                    local successText = dialogText:getSuccess()
-                    local newTextContent = dialogText:getInput()
-                    if string.len (newTextContent) > 255 then
-                        User:inform("Dein Text ist zu lang.","The text is too long.",Character.highPriority)
-                        successText = false
-                        newTextContent = nil
-                    else
-                        if newTitleContent and newTextContent and successTitle and successText and money.CharHasMoney(User, 2000) then
-
-                            table.insert(bulletinMessages,
-                                { Title = newTitleContent, Text = newTextContent, Author = User.name, Expiration = world:getTime("unix")+BULLETIN_EXPRIATION_TIME }
-                            )
-                            money.TakeMoneyFromChar(User, 2000) --pay
-                            world:broadcast("Am Gasthof zur Hanfschlinge hängt ein neuer Anschlag.", "A new bulletin has been published at the Hemp Necktie Inn.")
-
-                            setBulletinMessages(User, bulletinMessages)
-
-                        elseif not money.CharHasMoney(User, 2000) then --not enough money
-                            User:inform("Du hast nicht genug Geld. Ein Anschlag kostet zwanzig Silberstücke.", "You don't have enough money. Posting a bulletin costs twenty silver coins.")
-                        else
-                            User:inform("Irgendwas ist faul.","Something went wrong.") --debug
-                        end
-                    end
-
-                    if not successText then
-                        User:inform("Kein Text eingegeben.","You did not enter a text.",Character.highPriority)
-                    end
-                end
-
-                local dialogText = InputDialog(title, text, false, 255, callback)
-                User:requestInputDialog(dialogText)
-
-            else
-                User:inform("Kein Titel eingegeben.","You did not enter a title.",Character.highPriority)
-            end
+            return
         end
+
+        writeBulletinBoardStep2(User, Item, newTitleContent)
     end
 
     local dialogTitle = InputDialog(title, text, false, 40, callback)
     User:requestInputDialog(dialogTitle)
 
 end
+
+function writeBulletinBoardStep2(User, Item, newTitleContent)
+    -- input text
+    local title = common.GetNLS(User, "Text", "Text")
+    local text = common.GetNLS(User, "Schreibe den Text deines neuen Anschlages. " .. BULLETIN_COST_STR_DE, "Write the text of your bulletin. " .. BULLETIN_COST_STR_EN)
+    local callback = function(dialogText)
+        local successText = dialogText:getSuccess()
+        if not successText then
+            User:inform("Kein Text eingegeben.","You did not enter a text.",Character.highPriority)
+            return
+        end
+        local newTextContent = dialogText:getInput()
+        if string.len (newTextContent) > 255 then
+            User:inform("Dein Text ist zu lang.","The text is too long.",Character.highPriority)
+            return
+        end
+
+        writeBulletinBoardStep3(User, Item, newTitleContent, newTextContent)
+    end
+
+    local dialogText = InputDialog(title, text, false, 255, callback)
+    User:requestInputDialog(dialogText)
+end
+
+function writeBulletinBoardStep3(User, Item, newTitleContent, newTextContent)
+    -- add the message to the board
+    -- we do the checks all over again, because the state might have changed in the time that user replied to all the dialogs
+    local bulletinMessages = getBulletinMessages(User)
+    if #bulletinMessages >= BULLETIN_MAX_SLOTS then
+        local closestExpirationTime = bulletinMessages[1].Expiration
+        for _,message in ipairs(bulletinMessages) do
+            closestExpirationTime = math.min(closestExpirationTime, message.Expiration)
+        end
+        local timeDifference = closestExpirationTime-world:getTime("unix")
+        local timeDifferenceDays = math.floor(timeDifference/(60*60*24))
+        local timeDifferenceHours = math.floor((timeDifference-timeDifferenceDays*60*60*24)/(60*60))
+        local timeDifferenceMinutes = math.floor((timeDifference-timeDifferenceDays*60*60*24-timeDifferenceHours*60*60)/60)
+        User:inform("Die Anschlagtafel ist voll. Warte, bis ein Anschlagplatz frei wird. Dies wird noch "..timeDifferenceDays.." Tage, "..timeDifferenceHours.." Stunden und "..timeDifferenceMinutes.." Minuten dauern", "The bulletin board is full. Please wait for a free slot. It will take "..timeDifferenceDays.." days, "..timeDifferenceHours.." hours and "..timeDifferenceMinutes.." minutes.")
+        return
+    end
+
+    if not money.CharHasMoney(User, BULLETIN_COST) then--check money
+        User:inform("Du hast nicht genug Geld. ".. BULLETIN_COST_STR_DE, "You don't have enough money. ".. BULLETIN_COST_STR_DE)
+        return
+    end
+
+    table.insert(bulletinMessages,
+        { Title = newTitleContent, Text = newTextContent, Author = User.name, Expiration = world:getTime("unix")+BULLETIN_EXPRIATION_TIME }
+    )
+    money.TakeMoneyFromChar(User, BULLETIN_COST) --pay
+    world:broadcast("Am Gasthof zur Hanfschlinge hängt ein neuer Anschlag.", "A new bulletin has been published at the Hemp Necktie Inn.")
+
+    setBulletinMessages(User, bulletinMessages)
+end
+
 
 function getBulletinMessages(User)
     local bulletinMessages = {}
