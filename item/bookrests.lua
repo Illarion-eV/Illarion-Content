@@ -33,6 +33,8 @@ local money = require("base.money")
 local M = {}
 
 local BULLETIN_MAX_SLOTS = 10
+--local EXPRIATION_TIME = 604800 -- seven RL days
+local EXPRIATION_TIME = 5*60 --
 
 local FerryLookAt
 local TMLookAt
@@ -288,6 +290,12 @@ function WonderlandTeleporter(User, SourceItem)
     User:requestSelectionDialog(dialog)
 end
 
+
+-- Bulletin board
+local getBulletinMessages
+local writeBulletinMessages
+local showBulletinMessage
+
 function showBulletinBoard(User, Item)
 
     -- selection dialog
@@ -321,72 +329,20 @@ end
 
 function readBulletinBoard(User, Item)
 
-    local bulletinMessagesTitle = {}
-    local bulletinMessagesText = {}
-    local bulletinMessagesAuthor = {}
-    local bulletinMessagesExpiration = {}
-    
-    --read all messages and remove expired messages
+    local bulletinMessages = getBulletinMessages(User)
 
-    for i = 1, BULLETIN_MAX_SLOTS do
-
-        local titleFound, titleContent = ScriptVars:find("messageTitle"..tostring(i))
-        local textFound, textContent = ScriptVars:find("messageText"..tostring(i))
-        local authorFound, authorContent = ScriptVars:find("messageAuthor"..tostring(i))
-        local expirationFound, expirationContent = ScriptVars:find("messageExpiration"..tostring(i))
-        if titleFound and textFound and authorFound and expirationFound and tonumber(expirationContent) > world:getTime("unix") then
-            table.insert(bulletinMessagesTitle, titleContent)
-            table.insert(bulletinMessagesText, textContent)
-            table.insert(bulletinMessagesAuthor, authorContent)
-            table.insert(bulletinMessagesExpiration, expirationContent)
-        end
-    end
-    
-    if not (#bulletinMessagesTitle == #bulletinMessagesText) or not (#bulletinMessagesTitle == #bulletinMessagesAuthor) or not (#bulletinMessagesTitle == #bulletinMessagesExpiration) then
-        User:inform("Die Nachrichten sind fehlerhaft, bitte informiere einen Entwickler.","Messages are corrupted, please inform a developer.",Character.highPriority)
-        return
-    end
-    
     --write all messages
-    if #bulletinMessagesTitle > 0 then
-
-        for i = 1, math.min((BULLETIN_MAX_SLOTS), #bulletinMessagesTitle) do
-            ScriptVars:set("messageTitle"..tostring(i), bulletinMessagesTitle[i])
-            ScriptVars:set("messageText"..tostring(i), bulletinMessagesText[i])
-            ScriptVars:set("messageAuthor"..tostring(i), bulletinMessagesAuthor[i])
-            ScriptVars:set("messageExpiration"..tostring(i), bulletinMessagesExpiration[i])
+    if #bulletinMessages > 0 then
+        --show all messages in dialog
+        local dialogOptions = {}
+        for i = 1, #bulletinMessages do
+            table.insert(dialogOptions,
+                { icon = 2745, text = bulletinMessages[i].Title, func = showBulletinMessage, args = { User, bulletinMessages[i] } }
+            )
         end
-  
-        ScriptVars:save()
-          
-        --show all messages in dialog 
-        local callback = function(dialog)
-            if not dialog:getSuccess() then
-                return
-            end
-            local selected = dialog:getSelectedIndex()+1
-            if selected then
-
-                --show message
-                local callback = function() end --empty callback
-                local title = bulletinMessagesTitle[selected]       
-                local text = bulletinMessagesText[selected].."\n~"..bulletinMessagesAuthor[selected]
-                local dialog = MessageDialog(title, text, callback)
-                User:requestMessageDialog(dialog)     
-                
-            end
-        end
-        
         local dialogTitle = common.GetNLS(User, "Anschlagtafel", "Bulletin board")
         local dialogText = common.GetNLS(User, "Wähle eine Nachricht.", "Chose a message.")
-        local dialog = SelectionDialog(dialogTitle, dialogText, callback)
-
-        for i = 1, math.min((BULLETIN_MAX_SLOTS), #bulletinMessagesTitle) do
-            dialog:addOption(2745, bulletinMessagesTitle[i])
-        end
-
-        dialog:setCloseOnMove()
-        User:requestSelectionDialog(dialog)
+        common.selectionDialogWrapper(User, dialogTitle, dialogText, dialogOptions)
     else
         User:inform("Es sind keine Nachrichten angeschlagen.","There are no messages.")
     end
@@ -458,7 +414,7 @@ function writeBulletinBoard(User, Item)
                                     table.insert(bulletinMessagesTitle, newTitleContent)
                                     table.insert(bulletinMessagesText, newTextContent)
                                     table.insert(bulletinMessagesAuthor, User.name)
-                                    table.insert(bulletinMessagesExpiration, world:getTime("unix")+604800) --seven days
+                                    table.insert(bulletinMessagesExpiration, world:getTime("unix")+EXPRIATION_TIME)
                                     money.TakeMoneyFromChar(User, 2000) --pay
                                     world:broadcast("Am Gasthof zur Hanfschlinge hängt ein neuer Anschlag.", "A new bulletin has been published at the Hemp Necktie Inn.")
 
@@ -512,5 +468,61 @@ function writeBulletinBoard(User, Item)
     end
  
 end
+
+function getBulletinMessages(User)
+    local bulletinMessages = {}
+
+    --read all messages and remove expired messages
+    for i = 1, BULLETIN_MAX_SLOTS do
+
+        local titleFound, titleContent = ScriptVars:find("messageTitle"..tostring(i))
+        local textFound, textContent = ScriptVars:find("messageText"..tostring(i))
+        local authorFound, authorContent = ScriptVars:find("messageAuthor"..tostring(i))
+        local expirationFound, expirationContent = ScriptVars:find("messageExpiration"..tostring(i))
+        if titleFound and textFound and authorFound and expirationFound and tonumber(expirationContent) > world:getTime("unix") then
+            table.insert(bulletinMessages,
+                { Title = titleContent, Text = textContent, Author = authorContent, Expiration = expirationContent }
+            )
+        end
+    end
+
+    --write all messages
+    if #bulletinMessages > 0 then
+        writeBulletinMessages(User, bulletinMessages)
+    end
+
+    return bulletinMessages
+end
+
+function writeBulletinMessages(User, bulletinMessages)
+    if #bulletinMessages > BULLETIN_MAX_SLOTS then
+        User:inform("FIXGERMAN Messages number overflows, please inform a developer,", "Messages number overflows, please inform a developer.",Character.highPriority)
+        return
+    end
+
+    -- write valid messages
+    for i = 1, #bulletinMessages do
+        ScriptVars:set("messageTitle"..tostring(i), bulletinMessages[i].Title)
+        ScriptVars:set("messageText"..tostring(i), bulletinMessages[i].Text)
+        ScriptVars:set("messageAuthor"..tostring(i), bulletinMessages[i].Author)
+        ScriptVars:set("messageExpiration"..tostring(i), bulletinMessages[i].Expiration)
+    end
+
+    -- invalidate the rest
+    for i = (#bulletinMessages+1), BULLETIN_MAX_SLOTS do
+        ScriptVars:set("messageExpiration"..tostring(i), 0)
+    end
+
+    ScriptVars:save()
+end
+
+function showBulletinMessage(User, bulletinMessage)
+    local callback = function() end --empty callback
+    local title = bulletinMessage.Title
+    local text = bulletinMessage.Text.."\n~"..bulletinMessage.Author
+    local dialog = MessageDialog(title, text, callback)
+    User:requestMessageDialog(dialog)
+end
+
 
 return M
