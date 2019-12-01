@@ -379,7 +379,7 @@ function writeBulletinBoard(User, Item)
 
     --input title
     local title = common.GetNLS(User, "Titel", "Title")
-    local text = common.GetNLS(User, "Schreibe den Titel deines neuen Anschlages. ".. BULLETIN_COST_STR_DE, "Write the title of your bulletin. ".. BULLETIN_COST_STR_EN)
+    local text = common.GetNLS(User, "Schreibe den Titel deines neuen Anschlages. ".. BULLETIN_COST_STR_DE .." Er wird für eine Woche nach Zählweise der Zwerge angeschlagen bleiben.", "Write the title of your bulletin. ".. BULLETIN_COST_STR_EN .." It will remain posted for one week as counted by the dwarves.")
     local callback = function(dialogTitle)
         local successTitle = dialogTitle:getSuccess()
         if not successTitle then
@@ -403,7 +403,7 @@ end
 function writeBulletinBoardStep2(User, Item, newTitleContent)
     -- input text
     local title = common.GetNLS(User, "Text", "Text")
-    local text = common.GetNLS(User, "Schreibe den Text deines neuen Anschlages. " .. BULLETIN_COST_STR_DE, "Write the text of your bulletin. " .. BULLETIN_COST_STR_EN)
+    local text = common.GetNLS(User, "Schreibe den Text deines neuen Anschlages.", "Write the text of your bulletin.")
     local callback = function(dialogText)
         local successText = dialogText:getSuccess()
         if not successText then
@@ -441,7 +441,7 @@ function writeBulletinBoardStep3(User, Item, newTitleContent, newTextContent)
     end
 
     if not money.CharHasMoney(User, BULLETIN_COST) then--check money
-        User:inform("Du hast nicht genug Geld. ".. BULLETIN_COST_STR_DE, "You don't have enough money. ".. BULLETIN_COST_STR_DE)
+        User:inform("Du hast nicht genug Geld. ".. BULLETIN_COST_STR_DE, "You don't have enough money. ".. BULLETIN_COST_STR_EN)
         return
     end
 
