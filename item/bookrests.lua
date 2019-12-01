@@ -33,8 +33,8 @@ local money = require("base.money")
 local M = {}
 
 local BULLETIN_MAX_SLOTS = 10
---local EXPRIATION_TIME = 604800 -- seven RL days
-local BULLETIN_EXPRIATION_TIME = 5*60 --
+local EXPRIATION_TIME = 604800 -- seven RL days
+--local BULLETIN_EXPRIATION_TIME = 5*60 --
 local BULLETIN_COST = 20000
 local BULLETIN_COST_STR_DE = "Ein Anschlag kostet zwanzig Silberstücke."
 local BULLETIN_COST_STR_EN = "The cost is twenty silver coins."
@@ -300,46 +300,30 @@ local readBulletinBoard
 local writeBulletinBoard
 local writeBulletinBoardStep2
 local writeBulletinBoardStep3
+local removeFromBulletinBoard
+local confirmRemoveBulletinMessage
+local removeBulletinMessage
 local getBulletinMessages
 local setBulletinMessages
 local showBulletinMessage
 
 function showBulletinBoard(User, Item)
+    -- select what to do
+    local dialogOptions = {
+        { icon = 0, text = common.GetNLS(User, "Nachrichten lesen", "Read messages"), func = readBulletinBoard, args = { User, Item } },
+        { icon = 0, text = common.GetNLS(User, "Nachricht schreiben", "Write new message"), func = writeBulletinBoard, args = { User, Item } },
+        { icon = 0, text = common.GetNLS(User, "FIXGERMAN Remove a message", "Remove a message"), func = removeFromBulletinBoard, args = { User, Item } }
+    }
 
-    -- selection dialog
-    local callback = function(dialog)
-        if not dialog:getSuccess() then
-            return
-        end
-        local selected = dialog:getSelectedIndex() + 1
-        if selected == 1 then
-            readBulletinBoard(User, Item)
-        elseif selected == 2 then
-            writeBulletinBoard(User, Item)
-        end
-    end
-    
     local dialogTitle = common.GetNLS(User, "Anschlagtafel", "Bulletin board")
     local dialogText = common.GetNLS(User, "Wähle eine Option.", "Chose an option.")
-    local dialog = SelectionDialog(dialogTitle, dialogText, callback)
-
-    local options = {}
-    options = common.GetNLS(User, {"Nachrichten lesen", "Nachricht schreiben"}, {"Read messages", "Write new message"})
-    
-    for i = 1, #options do
-        dialog:addOption(0, options[i])
-    end
-
-    dialog:setCloseOnMove()
-    User:requestSelectionDialog(dialog)
-    
+    common.selectionDialogWrapper(User, dialogTitle, dialogText, dialogOptions)
 end
 
 function readBulletinBoard(User, Item)
 
     local bulletinMessages = getBulletinMessages(User)
 
-    --write all messages
     if #bulletinMessages > 0 then
         --show all messages in dialog
         local dialogOptions = {}
@@ -446,7 +430,7 @@ function writeBulletinBoardStep3(User, Item, newTitleContent, newTextContent)
     end
 
     table.insert(bulletinMessages,
-        { Title = newTitleContent, Text = newTextContent, Author = User.name, Expiration = world:getTime("unix")+BULLETIN_EXPRIATION_TIME }
+        { Title = newTitleContent, Text = newTextContent, Author = User.name, AuthorId = User.id, Expiration = world:getTime("unix")+BULLETIN_EXPRIATION_TIME }
     )
     money.TakeMoneyFromChar(User, BULLETIN_COST) --pay
     world:broadcast("Am Gasthof zur Hanfschlinge hängt ein neuer Anschlag.", "A new bulletin has been published at the Hemp Necktie Inn.")
@@ -454,6 +438,59 @@ function writeBulletinBoardStep3(User, Item, newTitleContent, newTextContent)
     setBulletinMessages(User, bulletinMessages)
 end
 
+function removeFromBulletinBoard(User, Item)
+
+    local bulletinMessages = getBulletinMessages(User)
+
+    --show user's messages in dialog
+    local dialogOptions = {}
+    for _,message in ipairs(bulletinMessages) do
+        if message.AuthorId == User.id or User:isAdmin() then
+            table.insert(dialogOptions,
+                { icon = 2745, text = message.Title, func = confirmRemoveBulletinMessage, args = { User, message } }
+            )
+        end
+    end
+
+    if #dialogOptions > 0 then
+        local dialogTitle = common.GetNLS(User, "Anschlagtafel", "Bulletin board")
+        local dialogText = common.GetNLS(User, "Wähle eine Nachricht.", "Chose a message.")
+        common.selectionDialogWrapper(User, dialogTitle, dialogText, dialogOptions)
+    else
+        User:inform("FIXGERMAN There are no messages that you can remove.","There are no messages that you can remove.")
+    end
+end
+
+function confirmRemoveBulletinMessage(User, bulletinMessage)
+    local title = bulletinMessage.Title
+    local text = bulletinMessage.Text.."\n~"..bulletinMessage.Author
+
+    local dialogOptions = {
+        { icon = 0, text = common.GetNLS(User, "FIXGERMAN Remove the message", "Remove the message"), func = removeBulletinMessage, args = { User, bulletinMessage} },
+        { icon = 0, text = common.GetNLS(User, "FIXGERMAN Leave it alone", "Leave it alone"), func = nil, args = nil },
+    }
+    common.selectionDialogWrapper(User, title, text, dialogOptions)
+end
+
+function removeBulletinMessage(User, messageToRemove)
+    -- we cannot assume that the messages are the same as when the user chose the message to remove, so we look for it again
+    local bulletinMessages = getBulletinMessages(User)
+    local found = false
+    for i,message in ipairs(bulletinMessages) do
+        if message.Expiration == messageToRemove.Expiration and message.AuthorId == messageToRemove.AuthorId and message.Author == messageToRemove.Author and message.Title == messageToRemove.Title and message.Text == messageToRemove.Text then
+            table.remove(bulletinMessages, i)
+            found = true
+            break
+        end
+    end
+
+    if found then
+        setBulletinMessages(User, bulletinMessages)
+    else
+        User:inform("FIXGERMAN Chosen message not found in the list.", "Chosen message not found in the list.", Character.highPriority)
+    end
+
+end
 
 function getBulletinMessages(User)
     local bulletinMessages = {}
@@ -464,10 +501,13 @@ function getBulletinMessages(User)
         local titleFound, titleContent = ScriptVars:find("messageTitle"..tostring(i))
         local textFound, textContent = ScriptVars:find("messageText"..tostring(i))
         local authorFound, authorContent = ScriptVars:find("messageAuthor"..tostring(i))
+        local authorIdFound, authorIdContent = ScriptVars:find("messageAuthorId"..tostring(i))
+        authorIdContent = tonumber(authorIdContent)
         local expirationFound, expirationContent = ScriptVars:find("messageExpiration"..tostring(i))
-        if titleFound and textFound and authorFound and expirationFound and tonumber(expirationContent) > world:getTime("unix") then
+        expirationContent = tonumber(expirationContent)
+        if titleFound and textFound and authorFound and authorIdFound and expirationFound and expirationContent > world:getTime("unix") then
             table.insert(bulletinMessages,
-                { Title = titleContent, Text = textContent, Author = authorContent, Expiration = expirationContent }
+                { Title = titleContent, Text = textContent, Author = authorContent, AuthorId = authorIdContent, Expiration = expirationContent }
             )
         end
     end
@@ -491,6 +531,7 @@ function setBulletinMessages(User, bulletinMessages)
         ScriptVars:set("messageTitle"..tostring(i), bulletinMessages[i].Title)
         ScriptVars:set("messageText"..tostring(i), bulletinMessages[i].Text)
         ScriptVars:set("messageAuthor"..tostring(i), bulletinMessages[i].Author)
+        ScriptVars:set("messageAuthorId"..tostring(i), bulletinMessages[i].AuthorId)
         ScriptVars:set("messageExpiration"..tostring(i), bulletinMessages[i].Expiration)
     end
 
