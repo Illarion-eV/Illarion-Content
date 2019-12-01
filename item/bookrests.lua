@@ -33,7 +33,7 @@ local money = require("base.money")
 local M = {}
 
 local BULLETIN_MAX_SLOTS = 10
-local EXPRIATION_TIME = 604800 -- seven RL days
+local BULLETIN_EXPRIATION_TIME = 604800 -- seven RL days
 --local BULLETIN_EXPRIATION_TIME = 5*60 --
 local BULLETIN_COST = 20000
 local BULLETIN_COST_STR_DE = "Ein Anschlag kostet zwanzig Silberstücke."
