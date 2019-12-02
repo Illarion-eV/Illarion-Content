@@ -352,7 +352,7 @@ function writeBulletinBoard(User, Item)
         local timeDifferenceDays = math.floor(timeDifference/(60*60*24))
         local timeDifferenceHours = math.floor((timeDifference-timeDifferenceDays*60*60*24)/(60*60))
         local timeDifferenceMinutes = math.floor((timeDifference-timeDifferenceDays*60*60*24-timeDifferenceHours*60*60)/60)
-        User:inform("Die Anschlagtafel ist voll. Warte, bis ein Anschlagplatz frei wird. Dies wird noch "..timeDifferenceDays.." Tage, "..timeDifferenceHours.." Stunden und "..timeDifferenceMinutes.." Minuten dauern", "The bulletin board is full. Please wait for a free slot. It will take "..timeDifferenceDays.." days, "..timeDifferenceHours.." hours and "..timeDifferenceMinutes.." minutes.")
+        User:inform("Die Anschlagtafel ist voll. Warte, bis ein Anschlagplatz frei wird. Dies wird noch "..timeDifferenceDays.." Tage, "..timeDifferenceHours.." Stunden und "..timeDifferenceMinutes.." Minuten nach Zählweise der Zwerge dauern", "The bulletin board is full. Please wait for a free slot. It will take "..timeDifferenceDays.." days, "..timeDifferenceHours.." hours and "..timeDifferenceMinutes.." minutes as counted by the dwarves.")
         return
     end
 
