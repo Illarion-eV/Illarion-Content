@@ -486,6 +486,7 @@ function removeBulletinMessage(User, messageToRemove)
 
     if found then
         setBulletinMessages(User, bulletinMessages)
+        User:inform("Nachricht entfernt.","Message removed.")
     else
         User:inform("Die gewählte Nachricht konnte nicht gefunden werden.", "Chosen message not found in the list.", Character.highPriority)
     end
