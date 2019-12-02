@@ -312,7 +312,7 @@ function showBulletinBoard(User, Item)
     local dialogOptions = {
         { icon = 0, text = common.GetNLS(User, "Nachrichten lesen", "Read messages"), func = readBulletinBoard, args = { User, Item } },
         { icon = 0, text = common.GetNLS(User, "Nachricht schreiben", "Write new message"), func = writeBulletinBoard, args = { User, Item } },
-        { icon = 0, text = common.GetNLS(User, "FIXGERMAN Remove a message", "Remove a message"), func = removeFromBulletinBoard, args = { User, Item } }
+        { icon = 0, text = common.GetNLS(User, "Nachricht entfernen", "Remove a message"), func = removeFromBulletinBoard, args = { User, Item } }
     }
 
     local dialogTitle = common.GetNLS(User, "Anschlagtafel", "Bulletin board")
@@ -457,7 +457,7 @@ function removeFromBulletinBoard(User, Item)
         local dialogText = common.GetNLS(User, "Wähle eine Nachricht.", "Chose a message.")
         common.selectionDialogWrapper(User, dialogTitle, dialogText, dialogOptions)
     else
-        User:inform("FIXGERMAN There are no messages that you can remove.","There are no messages that you can remove.")
+        User:inform("Es gibt keine Nachricht, die du entfernen könntest.","There are no messages that you can remove.")
     end
 end
 
@@ -466,8 +466,8 @@ function confirmRemoveBulletinMessage(User, bulletinMessage)
     local text = bulletinMessage.Text.."\n~"..bulletinMessage.Author
 
     local dialogOptions = {
-        { icon = 0, text = common.GetNLS(User, "FIXGERMAN Remove the message", "Remove the message"), func = removeBulletinMessage, args = { User, bulletinMessage} },
-        { icon = 0, text = common.GetNLS(User, "FIXGERMAN Leave it alone", "Leave it alone"), func = nil, args = nil },
+        { icon = 0, text = common.GetNLS(User, "Entferne die Nachricht", "Remove the message"), func = removeBulletinMessage, args = { User, bulletinMessage} },
+        { icon = 0, text = common.GetNLS(User, "Die Nachricht bestehen lassen", "Leave it alone"), func = nil, args = nil },
     }
     common.selectionDialogWrapper(User, title, text, dialogOptions)
 end
@@ -487,7 +487,7 @@ function removeBulletinMessage(User, messageToRemove)
     if found then
         setBulletinMessages(User, bulletinMessages)
     else
-        User:inform("FIXGERMAN Chosen message not found in the list.", "Chosen message not found in the list.", Character.highPriority)
+        User:inform("Die gewählte Nachricht konnte nicht gefunden werden.", "Chosen message not found in the list.", Character.highPriority)
     end
 
 end
@@ -522,7 +522,7 @@ end
 
 function setBulletinMessages(User, bulletinMessages)
     if #bulletinMessages > BULLETIN_MAX_SLOTS then
-        User:inform("FIXGERMAN Messages number overflows, please inform a developer,", "Messages number overflows, please inform a developer.",Character.highPriority)
+        User:inform("Die Anzahl der Nachrichten ist zu hoch, bitte informiere einen Entwickler.", "Messages number overflows, please inform a developer.",Character.highPriority)
         return
     end
 
