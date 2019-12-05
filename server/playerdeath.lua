@@ -102,12 +102,6 @@ function M.playerDeath(deadPlayer)
         return
     end
 
-    local spectators = world:getPlayersInRangeOf(deadPlayer.pos, 15)
-    if #spectators < 2 then
-        -- If nobody is around to recover loot, then do not drop at all.
-        return
-    end
-
     local bag = deadPlayer:getBackPack()
     if not bag then
         -- Leave characters without bag alone.
@@ -118,7 +112,7 @@ function M.playerDeath(deadPlayer)
     for i = 0, 99 do
         local worked, theItem = bag:viewItemNr(i)
         local theItemStats = world:getItemStats(theItem)
-        if theItem and worked and not gems.itemHasGems(theItem) and common.IsNilOrEmpty(theItem:getData("descriptionEn")) and common.IsNilOrEmpty(theItem:getData("descriptionDe")) and common.IsNilOrEmpty(theItem:getData("rareness")) and theItemStats.Rareness == 1 then
+        if theItem and worked and common.IsNilOrEmpty(theItem:getData("descriptionEn")) and common.IsNilOrEmpty(theItem:getData("descriptionDe")) and common.IsNilOrEmpty(theItem:getData("rareness")) and (theItem.number * theItemStats.Worth) > 200 then
             table.insert(candidates, i)
         end
     end
