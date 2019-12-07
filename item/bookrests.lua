@@ -56,6 +56,7 @@ local evilrockBookrest = position(975, 173, 0)
 local wonderlandBookrest = position(864, 550, 0)
 local ronaganBookrest = position(904, 585, -6)
 local bulletinBoard = position(696, 315, 0)
+local tradingPost = position (690, 290, 0)
 
 function M.LookAtItem(User,Item)
 
@@ -78,6 +79,11 @@ function M.LookAtItem(User,Item)
     -- Bulletin board
     if (Item.pos == bulletinBoard) then
         lookAt = bulletinLookAt(User, Item)
+    end
+ 
+    -- Eliza's trading post
+    if (Item.pos == tradingPost) then
+        lookAt = tradingPostLookAt(User, Item)
     end
     
     -- Bookrest for townManagement
@@ -145,6 +151,13 @@ function bulletinLookAt(User, Item)
     return lookAt
 end
 
+function tradingPostLookAt(User, Item)
+    local lookAt = ItemLookAt()
+    lookAt.name = common.GetNLS(User, "Elizas Handelsposten", "Eliza's trading post")
+    lookAt.description = common.GetNLS(User, "Die Anlaufstelle für den Handel mit Fern und Nah.", "The place to be for trading thereabout and whereabout.")
+    return lookAt
+end
+
 function M.UseItem(User, SourceItem)
 
     -- Bookrest for the Salavesh dungeon
@@ -179,6 +192,11 @@ function M.UseItem(User, SourceItem)
     -- Bulletin board
     if (SourceItem.pos == bulletinBoard) then
         showBulletinBoard(User, Item)
+    end
+    
+    -- Eliza's trading post
+    if (SourceItem.pos == tradingPost) then
+        showTradingPost(User, Item)
     end
     
     -- Bookrest for the Evilrock
@@ -293,7 +311,6 @@ function WonderlandTeleporter(User, SourceItem)
     end
     User:requestSelectionDialog(dialog)
 end
-
 
 -- Bulletin board
 local readBulletinBoard
@@ -552,5 +569,9 @@ function showBulletinMessage(User, bulletinMessage)
     User:requestMessageDialog(dialog)
 end
 
+-- Eliza's trading post
+function showTradingPost(User, Item)
+
+end
 
 return M
