@@ -66,17 +66,17 @@ function M.BaseGod:_init(ordinal)
     self._favourLevelNamesEn[4] = "delighted"     -- 200 .. 249
     self._favourLevelNamesEn[5] = "exalted"       -- 250 .. +inf
     self._favourLevelNamesDe = {}
-    self._favourLevelNamesDe[-5] = "FIXGERMAN wrathful"     -- -inf .. -250
-    self._favourLevelNamesDe[-4] = "FIXGERMAN very angry"   -- -249 .. -200
-    self._favourLevelNamesDe[-3] = "FIXGERMAN angry"        -- -199 .. -150
-    self._favourLevelNamesDe[-2] = "FIXGERMAN irritated"    -- -149 .. -100
-    self._favourLevelNamesDe[-1] = "FIXGERMAN displeased"   -- -99 .. -50
-    self._favourLevelNamesDe[0] = "FIXGERMAN indifferent"   -- -49 .. 49
-    self._favourLevelNamesDe[1] = "FIXGERMAN pleased"       -- 50 .. 99
-    self._favourLevelNamesDe[2] = "FIXGERMAN happy"         -- 100 .. 149
-    self._favourLevelNamesDe[3] = "FIXGERMAN charmed"       -- 150 .. 199
-    self._favourLevelNamesDe[4] = "FIXGERMAN delighted"     -- 200 .. 249
-    self._favourLevelNamesDe[5] = "FIXGERMAN exalted"       -- 250 .. +inf
+    self._favourLevelNamesDe[-5] = "rasend vor Zorn"            -- -inf .. -250
+    self._favourLevelNamesDe[-4] = "sehr zornig"                -- -249 .. -200
+    self._favourLevelNamesDe[-3] = "wütend"                     -- -199 .. -150
+    self._favourLevelNamesDe[-2] = "enttäuscht"                 -- -149 .. -100
+    self._favourLevelNamesDe[-1] = "unzufrieden"                -- -99 .. -50
+    self._favourLevelNamesDe[0] = "unentschlossen"              -- -49 .. 49
+    self._favourLevelNamesDe[1] = "zufrieden"                   -- 50 .. 99
+    self._favourLevelNamesDe[2] = "glücklich"                   -- 100 .. 149
+    self._favourLevelNamesDe[3] = "begeistert"                  -- 150 .. 199
+    self._favourLevelNamesDe[4] = "außerordentlich zufrieden"   -- 200 .. 249
+    self._favourLevelNamesDe[5] = "überschwänglich vor Freude"  -- 250 .. +inf
 end
 
 function M.BaseGod:getDevotionItems(charObj)

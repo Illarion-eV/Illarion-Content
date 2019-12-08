@@ -227,10 +227,10 @@ end
 
 local function sacrificeExplanation(User, god)
     local explanation = common.GetNLS(User,
-        "FIXGERMAN",
+        "Um Items an deinen Gott zu opfern, platziere sie auf dem Boden, nahe des Altars. Falls deine Gabe dem Gott gefällt, wird sie angenommen. Andernfalls kannst du sie zurücknehmen und etwas andere, passenderes, ausprobieren.",
         "To sacrifice items to your god, place them on the ground near the altar. If your offer pleases the god it will be accepted, otherwise you'll be able to take it back and try something more fitting."
     )
-    local dialog = MessageDialog(common.GetNLS(User, "FIXGERMAN", "Sacrifice"), explanation, --[[callback=]]function(d) end)
+    local dialog = MessageDialog(common.GetNLS(User, "Opfergabe", "Sacrifice"), explanation, --[[callback=]]function(d) end)
     User:requestMessageDialog(dialog)
 end
 
