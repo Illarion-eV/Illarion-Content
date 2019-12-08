@@ -77,6 +77,36 @@ function M.BaseGod:_init(ordinal)
     self._favourLevelNamesDe[3] = "begeistert"                  -- 150 .. 199
     self._favourLevelNamesDe[4] = "außerordentlich zufrieden"   -- 200 .. 249
     self._favourLevelNamesDe[5] = "überschwänglich vor Freude"  -- 250 .. +inf
+    -- Phrases for lookAt
+    local favourPhraseEn = {"%s is %s with him.", "%s is %s with her."}
+    self.favourLevelPhraseEn = {}
+    self.favourLevelPhraseEn[-5] = favourPhraseEn
+    self.favourLevelPhraseEn[-4] = favourPhraseEn
+    self.favourLevelPhraseEn[-3] = favourPhraseEn
+    self.favourLevelPhraseEn[-2] = favourPhraseEn
+    self.favourLevelPhraseEn[-1] = favourPhraseEn
+    self.favourLevelPhraseEn[0] =  favourPhraseEn
+    self.favourLevelPhraseEn[1] =  favourPhraseEn
+    self.favourLevelPhraseEn[2] =  favourPhraseEn
+    self.favourLevelPhraseEn[3] =  favourPhraseEn
+    self.favourLevelPhraseEn[4] =  favourPhraseEn
+    self.favourLevelPhraseEn[5] =  favourPhraseEn
+    local favourPhraseDeUber = {"%s ist %s über ihn.", "%s ist %s über sie." }
+    local favourPhraseDeMit = {"%s ist %s mit ihm.", "%s ist %s mit ihr."}
+    local favourPhraseDeVon = {"%s ist %s von ihm.", "%s ist %s von ihr."}
+    self.favourLevelPhraseDe = {}
+    self.favourLevelPhraseDe[-5] = favourPhraseDeUber
+    self.favourLevelPhraseDe[-4] = favourPhraseDeMit
+    self.favourLevelPhraseDe[-3] = favourPhraseDeUber
+    self.favourLevelPhraseDe[-2] = favourPhraseDeVon
+    self.favourLevelPhraseDe[-1] = favourPhraseDeMit
+    self.favourLevelPhraseDe[0] =  favourPhraseDeUber
+    self.favourLevelPhraseDe[1] =  favourPhraseDeMit
+    self.favourLevelPhraseDe[2] =  favourPhraseDeUber
+    self.favourLevelPhraseDe[3] =  favourPhraseDeVon
+    self.favourLevelPhraseDe[4] =  favourPhraseDeMit
+    self.favourLevelPhraseDe[5] =  favourPhraseDeUber
+
 end
 
 function M.BaseGod:getDevotionItems(charObj)

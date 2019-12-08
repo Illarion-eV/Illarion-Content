@@ -301,15 +301,8 @@ function M.getReligionLookAt(targetCharObj, priestCharObj)
     end
     -- favour level description
     local favourLevel, favourLevelNameEn, favourLevelNameDe = targetGodObj:getFavourLevel(targetCharObj)
-    statusDe = statusDe .. targetGodObj.nameDe .. " ist " .. favourLevelNameDe .. " mit "  -- FIXGERMAN sometimes it's "über"
-    statusEn = statusEn .. targetGodObj.nameEn .. " is " .. favourLevelNameEn .. " with "
-    if ( targetCharacterSex == 0 ) then
-        statusDe = statusDe .. "ihm."
-        statusEn = statusEn .. "him."
-    else
-        statusDe = statusDe .. "ihr."
-        statusEn = statusEn .. "her."
-    end
+    statusDe = statusDe .. string.format(targetGodObj.favourLevelPhraseDe[favourLevel][targetCharacterSex+1], targetGodObj.nameDe, favourLevelNameDe)
+    statusEn = statusEn .. string.format(targetGodObj.favourLevelPhraseEn[favourLevel][targetCharacterSex+1], targetGodObj.nameEn, favourLevelNameEn)
     -- favour level bar, we draw it in ASCII, perhaps some day it may be added as gui element
     local favourBar = drawBar(favourLevel, -5, 5)
     statusDe = statusDe .. " " .. favourBar .. "\n"
