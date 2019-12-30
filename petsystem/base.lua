@@ -27,6 +27,10 @@ M.stray = 5
 M.attack = 6
 M.move = 7
 
+M.commandsExplanationDe = "Folgende Befehle gibt es. Beachtet dabei, dass nicht jedes Tier auf alles hört! Verwendet den Namen des Tieres und das Befehlswort.\nFolgen: Das Tier folgt in nahem Abstand. Befehl: 'folg'\nBei Fuß: Das Tier folgt auf der Ferse. Befehl: 'bei fuss'\nSitz: Das Tier setzt sich und bleibt an Ort und Stelle. Befehl: 'sitz', 'Platz'\nIn der Nähe: Ähnlich wie folgen, doch das Tier hat einen groeßeren Bereich, den es begehen darf. Befehl: 'bleib nah', 'bleib in der Nähe'\nStreunern: Das Tier bewegt sich vollständig frei herum und folgt nicht. Befehl: 'streuner', 'lauf frei herum', 'geh frei herum'\nAngreifen: Das Tier greift an, was Ihr angreift. Befehl: 'angriff', 'fass', 'greif an'\nBewegen: Das Tier bewegt sich in die Richtung, in die sein Besitzer zeigt. Befehl: 'bewege'\n\nWICHTIG: Um dein Tier vor dem Tod zu schützen, solltest du drei latente magische Steine in sein Halsband stecken."
+
+M.commandsExplanationEn = "The following are all the existing commands. Note that not every animal will listen to each command! Use the animal's name and the command.\nFollowing: The animal will follow at a short distance. Command: 'follow'\nHeel: The animal will heel closely. Command: 'heel'\nSit: The animal will sit down and remain wherever it sat. Command: 'down', 'sit'\nNearby: Similar to following but the animal has a greater area it can explore while following. Command: 'stay', 'near'\nStraying: The animal will move about completely at will, not following. Command: 'stray'\nAttacking: The animal pounces on whatever you're attacking. Command: 'attack'\nMove: The animal moves one step to the direction to which the owner points. Command: 'move'\n\nIMPORTANT: To save your animal from death, put three latent magical gems into its collar."
+
 function M.setIsPetOwner(character)
 	character:setQuestProgress(375, 1)
 end

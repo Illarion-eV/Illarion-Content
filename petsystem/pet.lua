@@ -43,10 +43,8 @@ local function registerNewPet(settings)
     commandsForPets[settings.monsterId] = settings.validCommands
 end
 
-M.gynkeseGuardDog = 1056
+M.gynkeseGuardDogMale = 1056
 M.firnisMillChicken = 1055
-
-
 
 registerNewPet{
     monsterId = M.gynkeseGuardDogMale,
@@ -55,8 +53,6 @@ registerNewPet{
     tooFarAwayCry = {english = "Arrooooooo!", german =  "Arrooooooo!"},
     validCommands = {[base.follow] = true, [base.heel] = true, [base.down] = true, [base.nearBy] = true, [base.stray] = true, [base.attack] = true}
 }
-
-
 
 
 registerNewPet{
