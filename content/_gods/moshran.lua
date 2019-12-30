@@ -63,7 +63,7 @@ end
 
 function M.Moshran:informBecomeDevoted(User)
     common.InformNLS(User,
-        "FIXGERMAN Ihr empfangt den Segen " .. self.nameDe .. "s und weiht euer Leben dem Glaube an die Gottheit.",
+        self.nameDe .. " akzeptiert das Angebot, dein Leben in seine Dienste zu stellen.",
         self.nameEn .. " accepts your offer to devote your life to serving him."
     )
     world:gfx(globalvar.gfxDEMFIRE, User.pos)

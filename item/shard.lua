@@ -25,7 +25,7 @@ local M = {}
 function M.UseItem(user, item)
         user:inform(
             "Es scheint sich um ein Stück eines zerbrochenen magischen Artefakts zu handeln. Vielleicht kann man es wieder zusammensetzen?",
-            "The shard looks like a pice of a broken magical artifact. Maybe you can put it together again?")
+            "The shard looks like a piece of a broken magical artifact. Maybe you can put it together again?")
 end
 
 function M.LookAtItem(user, item)

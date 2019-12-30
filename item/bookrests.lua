@@ -33,6 +33,11 @@ local money = require("base.money")
 local M = {}
 
 local BULLETIN_MAX_SLOTS = 10
+local BULLETIN_EXPRIATION_TIME = 604800 -- seven RL days
+--local BULLETIN_EXPRIATION_TIME = 5*60 --
+local BULLETIN_COST = 20000
+local BULLETIN_COST_STR_DE = "Ein Anschlag kostet zwanzig Silberstücke."
+local BULLETIN_COST_STR_EN = "The cost is twenty silver coins."
 
 local FerryLookAt
 local TMLookAt
@@ -43,6 +48,7 @@ local bulletinLookAt
 local usingHomeTeleporter
 local NecktieHomeTravel
 local WonderlandTeleporter
+local showBulletinBoard
 
 local salaveshBookrest = position(741, 406, -3)
 local akaltutBookrest = position(430, 815, -9)
@@ -50,6 +56,7 @@ local evilrockBookrest = position(975, 173, 0)
 local wonderlandBookrest = position(864, 550, 0)
 local ronaganBookrest = position(904, 585, -6)
 local bulletinBoard = position(696, 315, 0)
+local tradingPost = position (690, 290, 0)
 
 function M.LookAtItem(User,Item)
 
@@ -72,6 +79,11 @@ function M.LookAtItem(User,Item)
     -- Bulletin board
     if (Item.pos == bulletinBoard) then
         lookAt = bulletinLookAt(User, Item)
+    end
+ 
+    -- Eliza's trading post
+    if (Item.pos == tradingPost) then
+        lookAt = tradingPostLookAt(User, Item)
     end
     
     -- Bookrest for townManagement
@@ -139,6 +151,13 @@ function bulletinLookAt(User, Item)
     return lookAt
 end
 
+function tradingPostLookAt(User, Item)
+    local lookAt = ItemLookAt()
+    lookAt.name = common.GetNLS(User, "Elizas Handelsposten", "Eliza's trading post")
+    lookAt.description = common.GetNLS(User, "Die Anlaufstelle für den Handel mit Fern und Nah.", "The place to be for trading thereabout and whereabout.")
+    return lookAt
+end
+
 function M.UseItem(User, SourceItem)
 
     -- Bookrest for the Salavesh dungeon
@@ -173,6 +192,11 @@ function M.UseItem(User, SourceItem)
     -- Bulletin board
     if (SourceItem.pos == bulletinBoard) then
         showBulletinBoard(User, Item)
+    end
+    
+    -- Eliza's trading post
+    if (SourceItem.pos == tradingPost) then
+        showTradingPost(User, Item)
     end
     
     -- Bookrest for the Evilrock
@@ -288,229 +312,266 @@ function WonderlandTeleporter(User, SourceItem)
     User:requestSelectionDialog(dialog)
 end
 
-function showBulletinBoard(User, Item)
+-- Bulletin board
+local readBulletinBoard
+local writeBulletinBoard
+local writeBulletinBoardStep2
+local writeBulletinBoardStep3
+local removeFromBulletinBoard
+local confirmRemoveBulletinMessage
+local removeBulletinMessage
+local getBulletinMessages
+local setBulletinMessages
+local showBulletinMessage
 
-    -- selection dialog
-    local callback = function(dialog)
-        if not dialog:getSuccess() then
-            return
-        end
-        local selected = dialog:getSelectedIndex() + 1
-        if selected == 1 then
-            readBulletinBoard(User, Item)
-        elseif selected == 2 then
-            writeBulletinBoard(User, Item)
-        end
-    end
-    
+function showBulletinBoard(User, Item)
+    -- select what to do
+    local dialogOptions = {
+        { icon = 0, text = common.GetNLS(User, "Nachrichten lesen", "Read messages"), func = readBulletinBoard, args = { User, Item } },
+        { icon = 0, text = common.GetNLS(User, "Nachricht schreiben", "Write new message"), func = writeBulletinBoard, args = { User, Item } },
+        { icon = 0, text = common.GetNLS(User, "Nachricht entfernen", "Remove a message"), func = removeFromBulletinBoard, args = { User, Item } }
+    }
+
     local dialogTitle = common.GetNLS(User, "Anschlagtafel", "Bulletin board")
     local dialogText = common.GetNLS(User, "Wähle eine Option.", "Chose an option.")
-    local dialog = SelectionDialog(dialogTitle, dialogText, callback)
-
-    local options = {}
-    options = common.GetNLS(User, {"Nachrichten lesen", "Nachricht schreiben"}, {"Read messages", "Write new message"})
-    
-    for i = 1, #options do
-        dialog:addOption(0, options[i])
-    end
-
-    dialog:setCloseOnMove()
-    User:requestSelectionDialog(dialog)
-    
+    common.selectionDialogWrapper(User, dialogTitle, dialogText, dialogOptions)
 end
 
 function readBulletinBoard(User, Item)
 
-    local bulletinMessagesTitle = {}
-    local bulletinMessagesText = {}
-    local bulletinMessagesAuthor = {}
-    local bulletinMessagesExpiration = {}
-    
-    --read all messages and remove expired messages
+    local bulletinMessages = getBulletinMessages(User)
 
-    for i = 1, BULLETIN_MAX_SLOTS do
-
-        local titleFound, titleContent = ScriptVars:find("messageTitle"..tostring(i))
-        local textFound, textContent = ScriptVars:find("messageText"..tostring(i))
-        local authorFound, authorContent = ScriptVars:find("messageAuthor"..tostring(i))
-        local expirationFound, expirationContent = ScriptVars:find("messageExpiration"..tostring(i))
-        if titleFound and textFound and authorFound and expirationFound and tonumber(expirationContent) > world:getTime("unix") then
-            table.insert(bulletinMessagesTitle, titleContent)
-            table.insert(bulletinMessagesText, textContent)
-            table.insert(bulletinMessagesAuthor, authorContent)
-            table.insert(bulletinMessagesExpiration, expirationContent)
+    if #bulletinMessages > 0 then
+        --show all messages in dialog
+        local dialogOptions = {}
+        for i = 1, #bulletinMessages do
+            table.insert(dialogOptions,
+                { icon = 2745, text = bulletinMessages[i].Title, func = showBulletinMessage, args = { User, bulletinMessages[i] } }
+            )
         end
-    end
-    
-    if not (#bulletinMessagesTitle == #bulletinMessagesText) or not (#bulletinMessagesTitle == #bulletinMessagesAuthor) or not (#bulletinMessagesTitle == #bulletinMessagesExpiration) then
-        User:inform("Die Nachrichten sind fehlerhaft, bitte informiere einen Entwickler.","Messages are corrupted, please inform a developer.",Character.highPriority)
-        return
-    end
-    
-    --write all messages
-    if #bulletinMessagesTitle > 0 then
-
-        for i = 1, math.min((BULLETIN_MAX_SLOTS), #bulletinMessagesTitle) do
-            ScriptVars:set("messageTitle"..tostring(i), bulletinMessagesTitle[i])
-            ScriptVars:set("messageText"..tostring(i), bulletinMessagesText[i])
-            ScriptVars:set("messageAuthor"..tostring(i), bulletinMessagesAuthor[i])
-            ScriptVars:set("messageExpiration"..tostring(i), bulletinMessagesExpiration[i])
-        end
-  
-        ScriptVars:save()
-          
-        --show all messages in dialog 
-        local callback = function(dialog)
-            if not dialog:getSuccess() then
-                return
-            end
-            local selected = dialog:getSelectedIndex()+1
-            if selected then
-
-                --show message
-                local callback = function() end --empty callback
-                local title = bulletinMessagesTitle[selected]       
-                local text = bulletinMessagesText[selected].."\n~"..bulletinMessagesAuthor[selected]
-                local dialog = MessageDialog(title, text, callback)
-                User:requestMessageDialog(dialog)     
-                
-            end
-        end
-        
         local dialogTitle = common.GetNLS(User, "Anschlagtafel", "Bulletin board")
         local dialogText = common.GetNLS(User, "Wähle eine Nachricht.", "Chose a message.")
-        local dialog = SelectionDialog(dialogTitle, dialogText, callback)
-
-        for i = 1, math.min((BULLETIN_MAX_SLOTS), #bulletinMessagesTitle) do
-            dialog:addOption(2745, bulletinMessagesTitle[i])
-        end
-
-        dialog:setCloseOnMove()
-        User:requestSelectionDialog(dialog)
+        common.selectionDialogWrapper(User, dialogTitle, dialogText, dialogOptions)
     else
         User:inform("Es sind keine Nachrichten angeschlagen.","There are no messages.")
     end
 end
 
 function writeBulletinBoard(User, Item)
-
-    local bulletinMessagesTitle = {}
-    local bulletinMessagesText = {}
-    local bulletinMessagesAuthor = {}
-    local bulletinMessagesExpiration = {}
-    
-    --read all messages and remove expired messages
-    for i = 1, BULLETIN_MAX_SLOTS do
-        local titleFound, titleContent = ScriptVars:find("messageTitle"..tostring(i))
-        local textFound, textContent = ScriptVars:find("messageText"..tostring(i))
-        local authorFound, authorContent = ScriptVars:find("messageAuthor"..tostring(i))
-        local expirationFound, expirationContent = ScriptVars:find("messageExpiration"..tostring(i))
-        if titleFound and textFound and authorFound and expirationFound and tonumber(expirationContent) > world:getTime("unix") then
-            table.insert(bulletinMessagesTitle, titleContent)
-            table.insert(bulletinMessagesText, textContent)
-            table.insert(bulletinMessagesAuthor, authorContent)
-            table.insert(bulletinMessagesExpiration, expirationContent)
+    -- check if posting is possible
+    local bulletinMessages = getBulletinMessages(User)
+    if #bulletinMessages >= BULLETIN_MAX_SLOTS then
+        local closestExpirationTime = bulletinMessages[1].Expiration
+        for _,message in ipairs(bulletinMessages) do
+            closestExpirationTime = math.min(closestExpirationTime, message.Expiration)
         end
+        local timeDifference = closestExpirationTime-world:getTime("unix")
+        local timeDifferenceDays = math.floor(timeDifference/(60*60*24))
+        local timeDifferenceHours = math.floor((timeDifference-timeDifferenceDays*60*60*24)/(60*60))
+        local timeDifferenceMinutes = math.floor((timeDifference-timeDifferenceDays*60*60*24-timeDifferenceHours*60*60)/60)
+        User:inform("Die Anschlagtafel ist voll. Warte, bis ein Anschlagplatz frei wird. Dies wird noch "..timeDifferenceDays.." Tage, "..timeDifferenceHours.." Stunden und "..timeDifferenceMinutes.." Minuten nach Zählweise der Zwerge dauern", "The bulletin board is full. Please wait for a free slot. It will take "..timeDifferenceDays.." days, "..timeDifferenceHours.." hours and "..timeDifferenceMinutes.." minutes as counted by the dwarves.")
+        return
     end
 
-    --write all messages
-    if #bulletinMessagesTitle > 0 then 
-
-        for i = 1, math.min((BULLETIN_MAX_SLOTS), #bulletinMessagesTitle) do
-            ScriptVars:set("messageTitle"..tostring(i), bulletinMessagesTitle[i])
-            ScriptVars:set("messageText"..tostring(i), bulletinMessagesText[i])
-            ScriptVars:set("messageAuthor"..tostring(i), bulletinMessagesAuthor[i])
-            ScriptVars:set("messageExpiration"..tostring(i), bulletinMessagesExpiration[i])
-        end
-  
-        ScriptVars:save()
+    if not money.CharHasMoney(User, BULLETIN_COST) then--check money
+        User:inform("Du hast nicht genug Geld. ".. BULLETIN_COST_STR_DE, "You don't have enough money. ".. BULLETIN_COST_STR_EN)
+        return
     end
-    
-    if #bulletinMessagesTitle < BULLETIN_MAX_SLOTS then
-      
-        if money.CharHasMoney(User, 2000) then--check money
-       
-            --input title
-            local title = common.GetNLS(User, "Titel", "Title")
-            local text = common.GetNLS(User, "Schreibe den Titel deines neuen Anschlages. Ein Anschlag kostet zwanzig Silberstücke. Er wird für eine Woche nach Zählweise der Zwerge angeschlagen bleiben.", "Write the title of your bulletin. The cost is twenty silver coins. It will remain posted for one week as counted by the dwarves.")
-            local callback = function(dialogTitle)
-                local successTitle = dialogTitle:getSuccess()
-                local newTitleContent = dialogTitle:getInput()
-                if string.len (newTitleContent) > 40 then
-                    User:inform("Dein Titel ist zu lang.","The title is too long.",Character.highPriority)
-                    successTitle = false
-                    newTitleContent = nil
-                else
-                    --input text
-                    if successTitle then
-                        local title = common.GetNLS(User, "Text", "Text")
-                        local text = common.GetNLS(User, "Schreibe den Text deines neuen Anschlages.", "Write the text of your bulletin.")
-                        local callback = function(dialogText)
-                            local successText = dialogText:getSuccess()
-                            local newTextContent = dialogText:getInput()
-                            if string.len (newTextContent) > 255 then
-                                User:inform("Dein Text ist zu lang.","The text is too long.",Character.highPriority)
-                                successText = false
-                                newTextContent = nil
-                            else
-                                if newTitleContent and newTextContent and successTitle and successText and money.CharHasMoney(User, 2000) then
 
-                                    table.insert(bulletinMessagesTitle, newTitleContent)
-                                    table.insert(bulletinMessagesText, newTextContent)
-                                    table.insert(bulletinMessagesAuthor, User.name)
-                                    table.insert(bulletinMessagesExpiration, world:getTime("unix")+604800) --seven days
-                                    money.TakeMoneyFromChar(User, 2000) --pay
-                                    world:broadcast("Am Gasthof zur Hanfschlinge hängt ein neuer Anschlag.", "A new bulletin has been published at the Hemp Necktie Inn.")
-
-                                    --write all messages
-                                    if #bulletinMessagesTitle > 0 then 
-
-                                        for i = 1, math.min((BULLETIN_MAX_SLOTS), #bulletinMessagesTitle) do
-                                            ScriptVars:set("messageTitle"..tostring(i), bulletinMessagesTitle[i])
-                                            ScriptVars:set("messageText"..tostring(i), bulletinMessagesText[i])
-                                            ScriptVars:set("messageAuthor"..tostring(i), bulletinMessagesAuthor[i])
-                                            ScriptVars:set("messageExpiration"..tostring(i), bulletinMessagesExpiration[i])
-                                        end
-                                    
-                                        ScriptVars:save()
-                                    end
-                                    
-                                elseif not money.CharHasMoney(User, 2000) then --not enough money
-                                    User:inform("Du hast nicht genug Geld. Ein Anschlag kostet zwanzig Silberstücke.", "You don't have enough money. Posting a bulletin costs twenty silver coins.")
-                                else
-                                    User:inform("Irgendwas ist faul.","Something went wrong.") --debug
-                                end
-                            end
-                            
-                            if not successText then
-                                User:inform("Kein Text eingegeben.","You did not enter a text.",Character.highPriority)
-                            end
-                        end
-
-                        local dialogText = InputDialog(title, text, false, 255, callback)
-                        User:requestInputDialog(dialogText)
-         
-                    else
-                        User:inform("Kein Titel eingegeben.","You did not enter a title.",Character.highPriority)
-                    end
-                end
-            end
-            
-            local dialogTitle = InputDialog(title, text, false, 40, callback)
-            User:requestInputDialog(dialogTitle) 
-             
-        else --not enough money
-            User:inform("Du hast nicht genug Geld. Ein Anschlag kostet zwanzig Silberstücke.", "You don't have enough money. Posting a bulletin costs twenty silver coins.")
+    --input title
+    local title = common.GetNLS(User, "Titel", "Title")
+    local text = common.GetNLS(User, "Schreibe den Titel deines neuen Anschlages. ".. BULLETIN_COST_STR_DE .." Er wird für eine Woche nach Zählweise der Zwerge angeschlagen bleiben.", "Write the title of your bulletin. ".. BULLETIN_COST_STR_EN .." It will remain posted for one week as counted by the dwarves.")
+    local callback = function(dialogTitle)
+        local successTitle = dialogTitle:getSuccess()
+        if not successTitle then
+            User:inform("Kein Titel eingegeben.","You did not enter a title.",Character.highPriority)
+            return
         end
-            
-    else
-        local timeDifference = math.min(unpack(bulletinMessagesExpiration))-world:getTime("unix")
+        local newTitleContent = dialogTitle:getInput()
+        if string.len (newTitleContent) > 40 then
+            User:inform("Dein Titel ist zu lang.","The title is too long.",Character.highPriority)
+            return
+        end
+
+        writeBulletinBoardStep2(User, Item, newTitleContent)
+    end
+
+    local dialogTitle = InputDialog(title, text, false, 40, callback)
+    User:requestInputDialog(dialogTitle)
+
+end
+
+function writeBulletinBoardStep2(User, Item, newTitleContent)
+    -- input text
+    local title = common.GetNLS(User, "Text", "Text")
+    local text = common.GetNLS(User, "Schreibe den Text deines neuen Anschlages.", "Write the text of your bulletin.")
+    local callback = function(dialogText)
+        local successText = dialogText:getSuccess()
+        if not successText then
+            User:inform("Kein Text eingegeben.","You did not enter a text.",Character.highPriority)
+            return
+        end
+        local newTextContent = dialogText:getInput()
+        if string.len (newTextContent) > 255 then
+            User:inform("Dein Text ist zu lang.","The text is too long.",Character.highPriority)
+            return
+        end
+
+        writeBulletinBoardStep3(User, Item, newTitleContent, newTextContent)
+    end
+
+    local dialogText = InputDialog(title, text, false, 255, callback)
+    User:requestInputDialog(dialogText)
+end
+
+function writeBulletinBoardStep3(User, Item, newTitleContent, newTextContent)
+    -- add the message to the board
+    -- we do the checks all over again, because the state might have changed in the time that user replied to all the dialogs
+    local bulletinMessages = getBulletinMessages(User)
+    if #bulletinMessages >= BULLETIN_MAX_SLOTS then
+        local closestExpirationTime = bulletinMessages[1].Expiration
+        for _,message in ipairs(bulletinMessages) do
+            closestExpirationTime = math.min(closestExpirationTime, message.Expiration)
+        end
+        local timeDifference = closestExpirationTime-world:getTime("unix")
         local timeDifferenceDays = math.floor(timeDifference/(60*60*24))
         local timeDifferenceHours = math.floor((timeDifference-timeDifferenceDays*60*60*24)/(60*60))
         local timeDifferenceMinutes = math.floor((timeDifference-timeDifferenceDays*60*60*24-timeDifferenceHours*60*60)/60)
         User:inform("Die Anschlagtafel ist voll. Warte, bis ein Anschlagplatz frei wird. Dies wird noch "..timeDifferenceDays.." Tage, "..timeDifferenceHours.." Stunden und "..timeDifferenceMinutes.." Minuten dauern", "The bulletin board is full. Please wait for a free slot. It will take "..timeDifferenceDays.." days, "..timeDifferenceHours.." hours and "..timeDifferenceMinutes.." minutes.")
+        return
     end
- 
+
+    if not money.CharHasMoney(User, BULLETIN_COST) then--check money
+        User:inform("Du hast nicht genug Geld. ".. BULLETIN_COST_STR_DE, "You don't have enough money. ".. BULLETIN_COST_STR_EN)
+        return
+    end
+
+    table.insert(bulletinMessages,
+        { Title = newTitleContent, Text = newTextContent, Author = User.name, AuthorId = User.id, Expiration = world:getTime("unix")+BULLETIN_EXPRIATION_TIME }
+    )
+    money.TakeMoneyFromChar(User, BULLETIN_COST) --pay
+    world:broadcast("Am Gasthof zur Hanfschlinge hängt ein neuer Anschlag.", "A new bulletin has been published at the Hemp Necktie Inn.")
+
+    setBulletinMessages(User, bulletinMessages)
+end
+
+function removeFromBulletinBoard(User, Item)
+
+    local bulletinMessages = getBulletinMessages(User)
+
+    --show user's messages in dialog
+    local dialogOptions = {}
+    for _,message in ipairs(bulletinMessages) do
+        if message.AuthorId == User.id or User:isAdmin() then
+            table.insert(dialogOptions,
+                { icon = 2745, text = message.Title, func = confirmRemoveBulletinMessage, args = { User, message } }
+            )
+        end
+    end
+
+    if #dialogOptions > 0 then
+        local dialogTitle = common.GetNLS(User, "Anschlagtafel", "Bulletin board")
+        local dialogText = common.GetNLS(User, "Wähle eine Nachricht.", "Chose a message.")
+        common.selectionDialogWrapper(User, dialogTitle, dialogText, dialogOptions)
+    else
+        User:inform("Es gibt keine Nachricht, die du entfernen könntest.","There are no messages that you can remove.")
+    end
+end
+
+function confirmRemoveBulletinMessage(User, bulletinMessage)
+    local title = bulletinMessage.Title
+    local text = bulletinMessage.Text.."\n~"..bulletinMessage.Author
+
+    local dialogOptions = {
+        { icon = 0, text = common.GetNLS(User, "Entferne die Nachricht", "Remove the message"), func = removeBulletinMessage, args = { User, bulletinMessage} },
+        { icon = 0, text = common.GetNLS(User, "Die Nachricht bestehen lassen", "Leave it alone"), func = nil, args = nil },
+    }
+    common.selectionDialogWrapper(User, title, text, dialogOptions)
+end
+
+function removeBulletinMessage(User, messageToRemove)
+    -- we cannot assume that the messages are the same as when the user chose the message to remove, so we look for it again
+    local bulletinMessages = getBulletinMessages(User)
+    local found = false
+    for i,message in ipairs(bulletinMessages) do
+        if message.Expiration == messageToRemove.Expiration and message.AuthorId == messageToRemove.AuthorId and message.Author == messageToRemove.Author and message.Title == messageToRemove.Title and message.Text == messageToRemove.Text then
+            table.remove(bulletinMessages, i)
+            found = true
+            break
+        end
+    end
+
+    if found then
+        setBulletinMessages(User, bulletinMessages)
+        User:inform("Nachricht entfernt.","Message removed.")
+    else
+        User:inform("Die gewählte Nachricht konnte nicht gefunden werden.", "Chosen message not found in the list.", Character.highPriority)
+    end
+
+end
+
+function getBulletinMessages(User)
+    local bulletinMessages = {}
+
+    --read all messages and remove expired messages
+    for i = 1, BULLETIN_MAX_SLOTS do
+
+        local titleFound, titleContent = ScriptVars:find("messageTitle"..tostring(i))
+        local textFound, textContent = ScriptVars:find("messageText"..tostring(i))
+        local authorFound, authorContent = ScriptVars:find("messageAuthor"..tostring(i))
+        local authorIdFound, authorIdContent = ScriptVars:find("messageAuthorId"..tostring(i))
+        authorIdContent = tonumber(authorIdContent)
+        local expirationFound, expirationContent = ScriptVars:find("messageExpiration"..tostring(i))
+        expirationContent = tonumber(expirationContent)
+        if titleFound and textFound and authorFound and authorIdFound and expirationFound and expirationContent > world:getTime("unix") then
+            table.insert(bulletinMessages,
+                { Title = titleContent, Text = textContent, Author = authorContent, AuthorId = authorIdContent, Expiration = expirationContent }
+            )
+        end
+    end
+
+    --write all messages
+    if #bulletinMessages > 0 then
+        setBulletinMessages(User, bulletinMessages)
+    end
+
+    return bulletinMessages
+end
+
+function setBulletinMessages(User, bulletinMessages)
+    if #bulletinMessages > BULLETIN_MAX_SLOTS then
+        User:inform("Die Anzahl der Nachrichten ist zu hoch, bitte informiere einen Entwickler.", "Messages number overflows, please inform a developer.",Character.highPriority)
+        return
+    end
+
+    -- write valid messages
+    for i = 1, #bulletinMessages do
+        ScriptVars:set("messageTitle"..tostring(i), bulletinMessages[i].Title)
+        ScriptVars:set("messageText"..tostring(i), bulletinMessages[i].Text)
+        ScriptVars:set("messageAuthor"..tostring(i), bulletinMessages[i].Author)
+        ScriptVars:set("messageAuthorId"..tostring(i), bulletinMessages[i].AuthorId)
+        ScriptVars:set("messageExpiration"..tostring(i), bulletinMessages[i].Expiration)
+    end
+
+    -- invalidate the rest
+    for i = (#bulletinMessages+1), BULLETIN_MAX_SLOTS do
+        ScriptVars:set("messageExpiration"..tostring(i), 0)
+    end
+
+    ScriptVars:save()
+end
+
+function showBulletinMessage(User, bulletinMessage)
+    local callback = function() end --empty callback
+    local title = bulletinMessage.Title
+    local text = bulletinMessage.Text.."\n~"..bulletinMessage.Author
+    local dialog = MessageDialog(title, text, callback)
+    User:requestMessageDialog(dialog)
+end
+
+-- Eliza's trading post
+function showTradingPost(User, Item)
+
 end
 
 return M

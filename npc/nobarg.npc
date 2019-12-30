@@ -184,7 +184,7 @@ english, "robe" -> "You should ask a tailor. Best be off to Runewick or Cadomyr 
 
 -- Divine rank
 english, "favou?r" -> "I don't have time to tell whether gods favour you or not, I have my own duties to attend."
-"gunst" -> "FIXGERMAN I don't have time to tell whether gods favour you or not, I have my own duties to attend."
+"gunst" -> "Ich habe keine Zeit dir mitzuteilen, ob dir die Götter gewogen sind oder nicht. Ich habe meine eigenen Verpflichtungen, denen ich nachkommen muss."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession", "work" -> "Priest of Brágon of course.", "Priest, perhaps you are inflicted traveller?", "Brágon's devotee is my profession."

@@ -279,35 +279,30 @@ function M.getReligionLookAt(targetCharObj, priestCharObj)
     local statusDe
     local statusEn
     if ( targetCharacterSex == 0 ) then
-        statusEn = "He is "
-        statusDe = "Er ist "
+        statusEn = "He"
+        statusDe = "Er"
     else
-        statusEn = "She is "
-        statusDe = "Sie ist "
+        statusEn = "She"
+        statusDe = "Sie"
     end
     if targetGodObj ~= priestGodObj then
         -- priest knows that this char is not a devotee
-        statusDe = statusDe .. "FIXGERMAN"
-        statusEn = statusEn .. "not devoted to " .. priestGodObj.nameEn .. "."
+        statusDe = statusDe .. " folgt " .. priestGodObj.nameDe .. " nicht."
+        statusEn = statusEn .. " is not devoted to " .. priestGodObj.nameEn .. "."
     else
         -- for devotees of same god priests also see if target is a priest too.
         if M.isPriest(targetCharObj) then
-            statusDe = statusDe .. "ein Priester von " .. targetGodObj.nameDe .. ". "
-            statusEn = statusEn .. "a priest of " .. targetGodObj.nameEn .. ". "
+            statusDe = statusDe .. " ist ein Priester von " .. targetGodObj.nameDe .. ". "
+            statusEn = statusEn .. " is a priest of " .. targetGodObj.nameEn .. ". "
         else
-            statusDe = statusDe .. "ein Anhänger von " .. targetGodObj.nameDe .. ". "
-            statusEn = statusEn .. "devoted to " .. targetGodObj.nameEn .. ". "
+            statusDe = statusDe .. " folgt " .. targetGodObj.nameDe .. ". "
+            statusEn = statusEn .. " is devoted to " .. targetGodObj.nameEn .. ". "
         end
     end
     -- favour level description
     local favourLevel, favourLevelNameEn, favourLevelNameDe = targetGodObj:getFavourLevel(targetCharObj)
-    statusDe = statusDe .. targetGodObj.nameDe .. " FIXGERMAN " .. favourLevelNameDe
-    statusEn = statusEn .. targetGodObj.nameEn .. " is " .. favourLevelNameEn .. " with "
-    if ( targetCharacterSex == 0 ) then
-        statusEn = statusEn .. "him."
-    else
-        statusEn = statusEn .. "her."
-    end
+    statusDe = statusDe .. string.format(targetGodObj.favourLevelPhraseDe[favourLevel][targetCharacterSex+1], targetGodObj.nameDe, favourLevelNameDe)
+    statusEn = statusEn .. string.format(targetGodObj.favourLevelPhraseEn[favourLevel][targetCharacterSex+1], targetGodObj.nameEn, favourLevelNameEn)
     -- favour level bar, we draw it in ASCII, perhaps some day it may be added as gui element
     local favourBar = drawBar(favourLevel, -5, 5)
     statusDe = statusDe .. " " .. favourBar .. "\n"

@@ -164,6 +164,7 @@ function tradeNPC:buyItemFromPlayer(npcChar, player, boughtItem)
 
             common.InformNLS(player, "Du hast "..boughtItem.number.." "..itemName.." zu einem Preis von "..priceStringGerman.." verkauft.", "You sold "..boughtItem.number.." "..itemName.." at a price of "..priceStringEnglish..".")
             world:makeSound(24, player.pos)
+            log("[Sold] "..player.name.." sold "..boughtItem.number.." "..itemName.." at a price of "..priceStringEnglish.." to "..npcChar.name..".") --Log
         end
 
         return
@@ -191,6 +192,8 @@ function tradeNPC:sellItemToPlayer(npcChar, player, itemIndex, amount)
         local itemName = common.GetNLS(player, world:getItemName(item._itemId, 0), world:getItemName(item._itemId, 1))
         common.InformNLS(player, "Du hast "..amount.." "..itemName.." zu einem Preis von"..priceStringGerman.." gekauft.", "You bought "..amount.." "..itemName.." at a price of"..priceStringEnglish..".")
         world:makeSound(24, player.pos)
+        log("[Bought] "..player.name.." bought "..amount.." "..itemName.." at a price of"..priceStringEnglish.." from "..npcChar.name..".") --Log
+
     elseif (self._notEnoughMoneyMsg:hasMessages()) then
         local msgGerman, msgEnglish = self._notEnoughMoneyMsg:getRandomMessage()
         npcChar:talk(Character.say, msgGerman, msgEnglish)
