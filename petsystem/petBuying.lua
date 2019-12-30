@@ -56,10 +56,10 @@ function M.buyPet(user, selectionTracker)
     end
 
     if not selectionTracker then
-		selectionTracker = {stage = STAGE_1}
-	end
-	
-	if selectionTracker.stage == STAGE_1 then -- Select an species
+        selectionTracker = {stage = STAGE_1}
+    end
+    
+    if selectionTracker.stage == STAGE_1 then -- Select an species
         
         local callback = function(dialog)
             local success = dialog:getSuccess()
@@ -84,11 +84,11 @@ function M.buyPet(user, selectionTracker)
                 local selected = dialog:getSelectedIndex()+1
                 if selected == 1 then
                     selectionTracker.stage = STAGE_3
-					M.buyPet(user, selectionTracker)
+                    M.buyPet(user, selectionTracker)
                 elseif selected == 2 then
                     selectionTracker.stage = STAGE_1
-					selectionTracker.selectedPet = nil
-					M.buyPet(user, selectionTracker)
+                    selectionTracker.selectedPet = nil
+                    M.buyPet(user, selectionTracker)
                 end
             end
         end
@@ -107,8 +107,8 @@ function M.buyPet(user, selectionTracker)
         local callback = function(dialog)
             if dialog:getSuccess() then
                 selectionTracker.petName = dialog:getInput()
-				selectionTracker.stage = STAGE_4
-				M.buyPet(user, selectionTracker)
+                selectionTracker.stage = STAGE_4
+                M.buyPet(user, selectionTracker)
             end
         end
         
@@ -119,30 +119,30 @@ function M.buyPet(user, selectionTracker)
     elseif selectionTracker.stage == STAGE_4 then --Let the player review his options; add pet if player is happy
     
         local callback = function(dialog)
-			if dialog:getSuccess() then
-				local selected = dialog:getSelectedIndex()+1
-				if selected == 1 then
-					if money.CharHasMoney(user, buyAblePets[selectionTracker.selectedPet].priceInGold*10000) then
+            if dialog:getSuccess() then
+                local selected = dialog:getSelectedIndex()+1
+                if selected == 1 then
+                    if money.CharHasMoney(user, buyAblePets[selectionTracker.selectedPet].priceInGold*10000) then
                         base.addNewPetToCharacter(user, {name = selectionTracker.petName, race = buyAblePets[selectionTracker.selectedPet].petId, colour = buyAblePets[selectionTracker.selectedPet].colour})
                         user:inform("Du hast ein Tier erhalten! Dazu erhälst du ein Pergament mit Hinweisen.", "You have an animal now! You also got a parchment with some information.")
                         common.CreateItem(user, 2745, 1, 999, {nameDe = "Hinweise", nameEn = "Information", petInformation = "true"}, 254)
                     else
                         user:inform("Dir fehlt das nötige Geld!", "You don't have enough money!")
                     end
-				elseif selected == 2 then
-					M.buyPet(user, nil)
-				end
-			end
-		end
-		
-		local dialog = SelectionDialog(common.GetNLS(user, "Ein tierischer Begleiter", "An animal companion"), common.GetNLS(user, "Folgendes ist deine Auswahl:\nArt: " .. buyAblePets[selectionTracker.selectedPet].nameDe .. "\nPreis: " .. buyAblePets[selectionTracker.selectedPet].priceInGold .."\nAusgewählter Name: " .. selectionTracker.petName, "This is your selection:\nType: " .. buyAblePets[selectionTracker.selectedPet].nameEn .. "\nPrice: " .. buyAblePets[selectionTracker.selectedPet].priceInGold .."\nChoosen name: " .. selectionTracker.petName), callback)
+                elseif selected == 2 then
+                    M.buyPet(user, nil)
+                end
+            end
+        end
         
-		dialog:addOption(0, common.GetNLS(user, "Ja, diesen tierischen Begleiter möchte ich.", "Yes, I want this animal companion.  "))
+        local dialog = SelectionDialog(common.GetNLS(user, "Ein tierischer Begleiter", "An animal companion"), common.GetNLS(user, "Folgendes ist deine Auswahl:\nArt: " .. buyAblePets[selectionTracker.selectedPet].nameDe .. "\nPreis: " .. buyAblePets[selectionTracker.selectedPet].priceInGold .."\nAusgewählter Name: " .. selectionTracker.petName, "This is your selection:\nType: " .. buyAblePets[selectionTracker.selectedPet].nameEn .. "\nPrice: " .. buyAblePets[selectionTracker.selectedPet].priceInGold .."\nChoosen name: " .. selectionTracker.petName), callback)
+        
+        dialog:addOption(0, common.GetNLS(user, "Ja, diesen tierischen Begleiter möchte ich.", "Yes, I want this animal companion.  "))
         dialog:addOption(0, common.GetNLS(user, "Nein, ich möchte doch was anderes.", "No, I want something else."))
-		
-		user:requestSelectionDialog(dialog)
-	
-	end
+        
+        user:requestSelectionDialog(dialog)
+    
+    end
 
 end
 

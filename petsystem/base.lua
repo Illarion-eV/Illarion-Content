@@ -32,18 +32,18 @@ M.commandsExplanationDe = "Folgende Befehle gibt es. Beachtet dabei, dass nicht 
 M.commandsExplanationEn = "The following are all the existing commands. Note that not every animal will listen to each command! Use the animal's name and the command.\nFollowing: The animal will follow at a short distance. Command: 'follow'\nHeel: The animal will heel closely. Command: 'heel'\nSit: The animal will sit down and remain wherever it sat. Command: 'down', 'sit'\nNearby: Similar to following but the animal has a greater area it can explore while following. Command: 'stay', 'near'\nStraying: The animal will move about completely at will, not following. Command: 'stray'\nAttacking: The animal pounces on whatever you're attacking. Command: 'attack'\nMove: The animal moves one step to the direction to which the owner points. Command: 'move'\n\nIMPORTANT: To save your animal from death, put three latent magical gems into its collar."
 
 function M.setIsPetOwner(character)
-	character:setQuestProgress(375, 1)
+    character:setQuestProgress(375, 1)
 end
 
 function M.isPetOwner(character)
-	if character:getQuestProgress(375) > 0 then
-		return true
-	end
-	return false
+    if character:getQuestProgress(375) > 0 then
+        return true
+    end
+    return false
 end
 
 function M.removeIsPetOwner(character)
-	character:setQuestProgress(375, 0)
+    character:setQuestProgress(375, 0)
 end
 
 function M.getOwner(pet)
@@ -180,19 +180,19 @@ function M.getPetHitpoints(owner)
 end
 
 function M.setPetIsProtectedFromDeath(owner)
-	owner:setQuestProgress(376, 1)
+    owner:setQuestProgress(376, 1)
 end
 
 function M.isPetProtectedFromDeath(user)
-	if user:getQuestProgress(376) > 0 then
-		return true
-	else
-		return false
-	end
+    if user:getQuestProgress(376) > 0 then
+        return true
+    else
+        return false
+    end
 end
 
 function M.removeIsPetProtectedFromDeath(owner)
-	owner:setQuestProgress(376, 0)
+    owner:setQuestProgress(376, 0)
 end
 
 local ownerIDsByPetIDs = {}
@@ -240,9 +240,9 @@ end
 function M.loadPet(owner)
     local petHP = M.getPetHitpoints(owner)
     if petHP > 0 then
-		local createPosition = getPetPosition(owner)
-		world:gfx(31,createPosition)
-		local pet = world:createMonster(getPetRace(owner), createPosition, 0)
+        local createPosition = getPetPosition(owner)
+        world:gfx(31,createPosition)
+        local pet = world:createMonster(getPetRace(owner), createPosition, 0)
         
         pet:setSkinColour(getPetColour(owner))
         setIsPetOf(pet, owner)
@@ -256,12 +256,12 @@ end
 function M.logOutPet(owner)
     local pet = getPetByOwner(owner)
     if pet then
-		world:gfx(31,pet.pos)
-		
-		M.removeIsPetOf(pet)
+        world:gfx(31,pet.pos)
+        
+        M.removeIsPetOf(pet)
         M.removePetByOwner(owner)
-		
-		local petHP = pet:increaseAttrib("hitpoints", 0)
+        
+        local petHP = pet:increaseAttrib("hitpoints", 0)
         if petHP > 0 then
             pet:increaseAttrib("hitpoints", -10000)
         end
@@ -276,7 +276,7 @@ function M.addNewPetToCharacter(character, petValues)
     M.savePetPosition(character, common.getFreePos(character.pos, 1))
     M.savePetHitpoints(character, 10000)
     M.saveCommand(character, M.follow)
-	M.setIsPetOwner(character)
+    M.setIsPetOwner(character)
     
     M.loadPet(character)
 end

@@ -21,16 +21,16 @@ local common = require("base.common")
 local M = {}
 
 function M.bringBackPet(character, altar)
-	if base.isPetOwner(character) and base.getPetHitpoints(character) == 0 and base.isPetProtectedFromDeath(character) then
-		base.savePetHitpoints(character, 10000)
+    if base.isPetOwner(character) and base.getPetHitpoints(character) == 0 and base.isPetProtectedFromDeath(character) then
+        base.savePetHitpoints(character, 10000)
         local spawnPosition = common.getFreePos(character.pos, 1)
-		base.savePetPosition(character, spawnPosition)
+        base.savePetPosition(character, spawnPosition)
         world:gfx(31, spawnPosition)            
         world:gfx(53, altar.pos)
         base.loadPet(character)
         base.removeIsPetProtectedFromDeath(character)
         return true
-	end
+    end
 end  
 
 

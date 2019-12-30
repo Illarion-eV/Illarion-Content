@@ -127,19 +127,19 @@ local selectedEnemies = {}
 
 -- Stores the current attacked enemy's id as the selected target of the character
 function M.setSelectedEnemyId(theCharId, selectedEnemyId)
-	selectedEnemies[theCharId] = {enemyId = selectedEnemyId, timestamp = world:getTime("unix")}
+    selectedEnemies[theCharId] = {enemyId = selectedEnemyId, timestamp = world:getTime("unix")}
 end
 
 -- Returns the id of the currently selected enemy
 -- Currently selected means that onAttack has been called at least within the last two seconds for that target
 function M.getSelectedEnemyId(theCharId)
-	if selectedEnemies[theCharId] then
-		if world:getTime("unix")-2 <= selectedEnemies[theCharId].timestamp then
-			return selectedEnemies[theCharId].enemyId
-		end
-	end
-	
-	return false
+    if selectedEnemies[theCharId] then
+        if world:getTime("unix")-2 <= selectedEnemies[theCharId].timestamp then
+            return selectedEnemies[theCharId].enemyId
+        end
+    end
+    
+    return false
 end
 
 return M
