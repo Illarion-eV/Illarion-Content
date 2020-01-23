@@ -561,6 +561,7 @@ local function charInfo(chosenPlayer)
     output = "HP: "..chosenPlayer:increaseAttrib("hitpoints", 0).." MP: "..chosenPlayer:increaseAttrib("mana", 0).." FL: "..chosenPlayer:increaseAttrib("foodlevel", 0).."\nMC: "..chosenPlayer:getMentalCapacity()..
             "\nSTR: "..chosenPlayer:increaseAttrib("strength", 0).." CON: "..chosenPlayer:increaseAttrib("constitution", 0).." DEX: "..chosenPlayer:increaseAttrib("dexterity", 0).." AGI: "..chosenPlayer:increaseAttrib("agility", 0)..
             "\nINT: "..chosenPlayer:increaseAttrib("intelligence", 0).." WIL: "..chosenPlayer:increaseAttrib("willpower", 0).." PERC: "..chosenPlayer:increaseAttrib("perception", 0).." ESS: "..chosenPlayer:increaseAttrib("essence", 0)..
+            "\nAge: " ..tostring(chosenPlayer:increaseAttrib("age"), 0) ..
             "\nIdle for [s]: "..tostring(chosenPlayer:idleTime()) ..
             "\n" .. factionInfo
 
