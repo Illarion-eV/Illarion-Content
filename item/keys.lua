@@ -76,6 +76,7 @@ function M.UseItem(User, SourceItem)
     if frontItem.id == 2830 then
         if not frontItem:getData("treasureLockId") == SourceItem:getData("treasureLockId") then
             common.InformNLS(User, "Der Schlüssel passt hier nicht.","The key doesn't fit here.")
+            return
         else
             local treasureLockStatus = frontItem:getData("treasureLockStatus")
             if treasureLockStatus == "" or treasureLockStatus == "unlocked" then
