@@ -100,6 +100,12 @@ function M.UseItem(user,sourceItem)
         return
     end
     
+    local treasureLockStatus = sourceItem:getData("treasureLockStatus")
+    if treasureLockStatus == "locked" then
+        common.InformNLS(user, "The chest is locked.", "Die Kiste ist verschlossen.")
+        return
+    end
+    
     if (playerNeeded == nil) then
         playerNeeded = 1
     end

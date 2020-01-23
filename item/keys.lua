@@ -71,6 +71,23 @@ function M.UseItem(User, SourceItem)
         money.TakeMoneyFromChar(User, math.random(math.floor(wealth / 100), math.floor(wealth / 20)))
         return
    end
+   
+    local frontItem = common.GetFrontItem(User)
+    if frontItem.id == 2830 then
+        if not frontItem:getData("treasureLockId") == SourceItem:getData("treasureLockId") then
+            common.InformNLS(User, "Der Schlüssel passt hier nicht.","The key doesn't fit here.")
+        else
+            local treasureLockStatus = frontItem:getData("treasureLockStatus")
+            if treasureLockStatus == "" or treasureLockStatus == "unlocked" then
+                frontItem:setData("treasureLockStatus", "locked")
+                common.InformNLS(User,"Du schließt die Kiste ab.","You lock the chest.")
+            elseif treasureLockStatus == "locked" then
+                frontItem:setData("treasureLockStatus", "unlocked")
+                common.InformNLS(User,"Du schließt die Kiste auf.","You unlock the chest.")
+            end
+            world:changeItem(frontItem)
+        end
+    end
 
     local doorItem = getDoor(User)
     if not doorItem then
