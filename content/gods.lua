@@ -386,7 +386,9 @@ function M.setDevoted(charObj, godOrdinal)
     charObj:setQuestProgress(M._QUEST_DEVOTION, godOrdinal) -- mark the char as devoted to the god
 
     -- If any penalty is due, do it now. We don't do it before to avoid spam of losing status due to low favour
-    M.increaseFavour(charObj, currentGodObj.ordinal, -favourPenalty)
+    if currentGodObj then
+        M.increaseFavour(charObj, currentGodObj.ordinal, -favourPenalty)
+    end
 
     if (charObj:getQuestProgress(685) > 0) and (charObj:getQuestProgress(685) < 8) then
         -- Book of your god is started but not finished -> reset the progress
