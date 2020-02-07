@@ -290,7 +290,7 @@ function M.getReligionLookAt(targetCharObj, priestCharObj)
         statusDe = statusDe .. " folgt " .. priestGodObj.nameDe .. " nicht."
         statusEn = statusEn .. " is not devoted to " .. priestGodObj.nameEn .. "."
     else
-        -- for devotees of same god priests also see if target is a priest too.
+        -- for devotees of same god priests also see if target is devoted or a priest too.
         if M.isPriest(targetCharObj) then
             statusDe = statusDe .. " ist ein Priester von " .. targetGodObj.nameDe .. ". "
             statusEn = statusEn .. " is a priest of " .. targetGodObj.nameEn .. ". "
@@ -299,10 +299,11 @@ function M.getReligionLookAt(targetCharObj, priestCharObj)
             statusEn = statusEn .. " is devoted to " .. targetGodObj.nameEn .. ". "
         end
     end
+    -- for any devotion of target the priest sees the favour with priest's god
     -- favour level description
-    local favourLevel, favourLevelNameEn, favourLevelNameDe = targetGodObj:getFavourLevel(targetCharObj)
-    statusDe = statusDe .. string.format(targetGodObj.favourLevelPhraseDe[favourLevel][targetCharacterSex+1], targetGodObj.nameDe, favourLevelNameDe)
-    statusEn = statusEn .. string.format(targetGodObj.favourLevelPhraseEn[favourLevel][targetCharacterSex+1], targetGodObj.nameEn, favourLevelNameEn)
+    local favourLevel, favourLevelNameEn, favourLevelNameDe = priestGodObj:getFavourLevel(targetCharObj)
+    statusDe = statusDe .. string.format(priestGodObj.favourLevelPhraseDe[favourLevel][targetCharacterSex+1], priestGodObj.nameDe, favourLevelNameDe)
+    statusEn = statusEn .. string.format(priestGodObj.favourLevelPhraseEn[favourLevel][targetCharacterSex+1], priestGodObj.nameEn, favourLevelNameEn)
     -- favour level bar, we draw it in ASCII, perhaps some day it may be added as gui element
     local favourBar = drawBar(favourLevel, -5, 5)
     statusDe = statusDe .. " " .. favourBar .. "\n"
@@ -385,7 +386,9 @@ function M.setDevoted(charObj, godOrdinal)
     charObj:setQuestProgress(M._QUEST_DEVOTION, godOrdinal) -- mark the char as devoted to the god
 
     -- If any penalty is due, do it now. We don't do it before to avoid spam of losing status due to low favour
-    M.increaseFavour(charObj, currentGodObj.ordinal, -favourPenalty)
+    if currentGodObj then
+        M.increaseFavour(charObj, currentGodObj.ordinal, -favourPenalty)
+    end
 
     if (charObj:getQuestProgress(685) > 0) and (charObj:getQuestProgress(685) < 8) then
         -- Book of your god is started but not finished -> reset the progress
