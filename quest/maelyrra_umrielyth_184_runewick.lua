@@ -544,7 +544,10 @@ monsterQuests.addQuest{
 }
 monsterQuests.addQuest{
     questId = 184,
-    location = {position = HUNTING_POS, radius = 300},
+    locations = {
+        {position = HUNTING_POS, radius = 300},
+        {position = position(850, 512, -12), radius = 75}
+    },
     queststatus = {from = 109, to = 113},
     questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Menschen", english = "humans"},
@@ -553,7 +556,10 @@ monsterQuests.addQuest{
 }
 monsterQuests.addQuest{
     questId = 184,
-    location = {position = HUNTING_POS, radius = 300},
+    locations = {
+        {position = HUNTING_POS, radius = 300},
+        {position = position(850, 512, -12), radius = 75}
+    },
     queststatus = {from = 114, to = 122},
     questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Menschen", english = "humans"},
@@ -562,7 +568,10 @@ monsterQuests.addQuest{
 }
 monsterQuests.addQuest{
     questId = 184,
-    location = {position = HUNTING_POS, radius = 300},
+    locations = {
+        {position = HUNTING_POS, radius = 300},
+        {position = position(850, 512, -12), radius = 75}
+    },
     queststatus = {from = 123, to = 135},
     questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Menschen", english = "humans"},
