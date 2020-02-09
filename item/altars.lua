@@ -405,9 +405,9 @@ function M.UseItem(User, SourceItem, ltstate)
     god = god or gods.GOD_NONE
     
     --Petsystem hook
-    User:inform("0")
+
     if god == gods.GOD_OLDRA then
-        User:inform("1")
+
         if revivePet.bringBackPet(User, SourceItem) then
             return
         end
