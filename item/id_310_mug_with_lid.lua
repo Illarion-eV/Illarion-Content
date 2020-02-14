@@ -170,8 +170,8 @@ addMug(14,
 )
 
 addMug(15,
-"Backender Halbling IV",
-"Baking Halfling IV",
+"Backender Halbling V",
+"Baking Halfling V",
 "Ein Halbling sitzt mit einem breiten Grinsen vor einem Tisch, auf dem ein großer, dampfender Kuchen steht.",
 "A hafling sits with a broad grin on his lips in front of a table with a big, steaming cake on it."
 )

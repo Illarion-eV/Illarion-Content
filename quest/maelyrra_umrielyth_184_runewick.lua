@@ -544,7 +544,13 @@ monsterQuests.addQuest{
 }
 monsterQuests.addQuest{
     questId = 184,
-    location = {position = HUNTING_POS, radius = 300},
+    locations = {
+        {position = HUNTING_POS, radius = 300},
+        {position = position(850, 512, -12), radius = 75},
+        {position = position(905, 584, -3), radius = 40},
+        {position = position(905, 584, -6), radius = 40},
+        {position = position(896, 588, -9), radius = 40}
+    },
     queststatus = {from = 109, to = 113},
     questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Menschen", english = "humans"},
@@ -553,7 +559,13 @@ monsterQuests.addQuest{
 }
 monsterQuests.addQuest{
     questId = 184,
-    location = {position = HUNTING_POS, radius = 300},
+    locations = {
+        {position = HUNTING_POS, radius = 300},
+        {position = position(850, 512, -12), radius = 75},
+        {position = position(905, 584, -3), radius = 40},
+        {position = position(905, 584, -6), radius = 40},
+        {position = position(896, 588, -9), radius = 40}
+        },
     queststatus = {from = 114, to = 122},
     questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Menschen", english = "humans"},
@@ -562,7 +574,13 @@ monsterQuests.addQuest{
 }
 monsterQuests.addQuest{
     questId = 184,
-    location = {position = HUNTING_POS, radius = 300},
+    locations = {
+        {position = HUNTING_POS, radius = 300},
+        {position = position(850, 512, -12), radius = 75},
+        {position = position(905, 584, -3), radius = 40},
+        {position = position(905, 584, -6), radius = 40},
+        {position = position(896, 588, -9), radius = 40}
+    },
     queststatus = {from = 123, to = 135},
     questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Menschen", english = "humans"},
@@ -571,7 +589,12 @@ monsterQuests.addQuest{
 }
 monsterQuests.addQuest{
     questId = 184,
-    location = {position = HUNTING_POS, radius = 300},
+    locations = {
+        {position = HUNTING_POS, radius = 300},
+        {position = position(905, 584, -3), radius = 40},
+        {position = position(905, 584, -6), radius = 40},
+        {position = position(896, 588, -9), radius = 40}
+    },
     queststatus = {from = 136, to = 140},
     questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Diebe", english = "thieves"},
@@ -580,7 +603,12 @@ monsterQuests.addQuest{
 }
 monsterQuests.addQuest{
     questId = 184,
-    location = {position = HUNTING_POS, radius = 300},
+    locations = {
+        {position = HUNTING_POS, radius = 300},
+        {position = position(905, 584, -3), radius = 40},
+        {position = position(905, 584, -6), radius = 40},
+        {position = position(896, 588, -9), radius = 40}
+    },
     queststatus = {from = 141, to = 149},
     questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Diebe", english = "thieves"},
@@ -589,7 +617,12 @@ monsterQuests.addQuest{
 }
 monsterQuests.addQuest{
     questId = 184,
-    location = {position = HUNTING_POS, radius = 300},
+    locations = {
+        {position = HUNTING_POS, radius = 300},
+        {position = position(905, 584, -3), radius = 40},
+        {position = position(905, 584, -6), radius = 40},
+        {position = position(896, 588, -9), radius = 40}
+    },
     queststatus = {from = 150, to = 162},
     questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Diebe", english = "thieves"},
