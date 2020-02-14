@@ -71,7 +71,7 @@ itemShoes = 45
 -- After uploading, your NPC needs to be submitted to the database and a developer has to perform a full reload (!fr) of the server
 
 -- TRADING
--- The trader should buy all items he sells. Primary items are bought at 10% of the worth, secondary items yield only 5%
+-- The trader should buy all items he sells. Primary items are bought at  base.trade.PRIMARY_PRICE of the worth, secondary items yield only base.trade.PRIMARY_PRICE * 2/3
 
 -- MANDATORY TRIGGERS
 

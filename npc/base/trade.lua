@@ -29,6 +29,7 @@ local baseNPC = require("npc.base.basic")
 
 local isFittingItem
 local tradeNPCItem
+local PRIMARY_PRICE = 0.15
 
 local tradeNPC = class(function(self, rootNPC)
     if rootNPC == nil or not rootNPC:is_a(baseNPC) then
@@ -238,9 +239,9 @@ tradeNPCItem = class(function(self, id, itemType, nameDe, nameEn, price, stack, 
         if (itemType == "sell") then
             self["_price"] = world:getItemStatsFromId(id).Worth
         elseif (itemType == "buyPrimary") then
-            self["_price"] = world:getItemStatsFromId(id).Worth * 0.1
+            self["_price"] = world:getItemStatsFromId(id).Worth * PRIMARY_PRICE
         elseif (itemType == "buySecondary") then
-            self["_price"] = world:getItemStatsFromId(id).Worth * 0.05
+            self["_price"] = world:getItemStatsFromId(id).Worth * PRIMARY_PRICE * 2/3
         end
     else
         self["_price"] = price
