@@ -96,15 +96,15 @@ end
 
 local targetEnemy = {}
 
-function M.receiveText(monster, textType, text, speaker)
+function M.receiveText(pet, textType, text, speaker)
 
-    if base.isPetOf(monster, speaker) then
+    if base.isPetOf(pet, speaker) then
         
         local text = string.lower(text)
         local petName = base.getPetName(speaker)
 
         if petName and string.find(text, string.lower(petName)) then
-            local newCommand = extractCommand(text, monster)
+            local newCommand = extractCommand(text, pet)
             if newCommand then
                 
                 if newCommand == base.stray then
@@ -114,16 +114,16 @@ function M.receiveText(monster, textType, text, speaker)
                     end
                 elseif newCommand == base.down then
                     local oldCommand = base.getCommand(speaker)
-                    local monsterType = monster:getMonsterType()
+                    local monsterType = pet:getMonsterType()
                     if oldCommand == newCommand then
-                        monster:talk(Character.say, alreadyDownEmotes[monsterType].german, alreadyDownEmotes[monsterType].english)
+                        pet:talk(Character.say, alreadyDownEmotes[monsterType].german, alreadyDownEmotes[monsterType].english)
                     else
-                        monster:talk(Character.say, downEmotes[monsterType].german, downEmotes[monsterType].english)
+                        pet:talk(Character.say, downEmotes[monsterType].german, downEmotes[monsterType].english)
                     end
                 elseif newCommand == base.attack then
                     local selectedEnemyId = fightingutil.getSelectedEnemyId(speaker.id)
                     if selectedEnemyId then
-                        targetEnemy[monster.id] = selectedEnemyId
+                        targetEnemy[pet.id] = selectedEnemyId
                     else    
                         return
                     end
@@ -131,7 +131,7 @@ function M.receiveText(monster, textType, text, speaker)
                 
                 base.saveCommand(speaker, newCommand)
             elseif string.find(text, "move") or string.find(text, "beweg") then
-                petMove(monster, speaker)
+                petMove(pet, speaker)
             end
         end
     end
