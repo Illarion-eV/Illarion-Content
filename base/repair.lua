@@ -17,17 +17,13 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local money = require("base.money")
 local glypheffects = require("magic.glypheffects")
-local townTreasure = require("base.townTreasure")
 
 local itemPos = {{en="Head", de="Kopf"},{en="Neck", de="Hals"},{en="Breast", de="Brust"},{en="Both Hands", de="Beide Hände"},{en="Left Hand", de="Linke Hand"}, {en="Right Hand", de="Rechte Hand"},
     {en="Left Finger", de="Linker Finger"},{en="Right Finger", de="Rechter Finger"} ,{en="Legs", de="Beine"}, {en="Feet", de="Füße"}, {en="Coat", de="Umhang"},{en="Belt 1", de="Gürtel 1"},
     {en="Belt 2", de="Gürtel 2"},{en="Belt 3", de="Gürtel 3"},{en="Belt 4", de="Gürtel 4"},{en="Belt 5", de="Gürtel 5"},{en="Belt 6", de="Gürtel 6"}}
 itemPos[0] = {en="Backpack", de="Rucksack"}
 
-local REPAIR_QUALITY_REDUCTION_FACTOR = 0.3 -- worst probability a totally damaged item lost quality
-local REPAIR_QUALITY_REDUCTION_DIVISOR_TAXPAYER = 1000 -- Probalility = number of tax payer / parameter
-local REPAIR_QUALITY_REDUCTION_REDUCTION_MAXPLAYER = 15 -- max number of player taken into considration
-local REPAIR_QUALITY_REDUCTION_REDUCTION_LOWPLAYER = 5 -- percentage reduction for each player below playermax
+local REPAIR_QUALITY_REDUCTION_FACTOR = 0.3 --probability a totally damaged item lost quality
 
 local M = {}
 
@@ -85,15 +81,7 @@ local function repair(npcChar, speaker, theItem, theItemPos, language)
                 item:setData("qualityAtCreation",quality) -- save original quality
             end
             local targetQuality = quality
-            local taxpayer = townTreasure.GetTaxpayerNumber("Cadomyr") + townTreasure.GetTaxpayerNumber("Runewick") + townTreasure.GetTaxpayerNumber("Galmair")
-            local currentplayer = world:getPlayersOnline()
-            local quality_reduction_probability = taxpayer / REPAIR_QUALITY_REDUCTION_DIVISOR_TAXPAYER
-            if #currentplayer < REPAIR_QUALITY_REDUCTION_REDUCTION_MAXPLAYER then
-                quality_reduction_probability = quality_reduction_probability * (1 - ((REPAIR_QUALITY_REDUCTION_REDUCTION_MAXPLAYER - #currentplayer) * REPAIR_QUALITY_REDUCTION_REDUCTION_LOWPLAYER / 100))
-            end
-            quality_reduction_probability = math.min(quality_reduction_probability, REPAIR_QUALITY_REDUCTION_FACTOR)
-
-            if (math.random() < damage * quality_reduction_probability) and (quality > 1) then
+            if (math.random() < damage * REPAIR_QUALITY_REDUCTION_FACTOR) and (quality > 1) then
                 local glyphEffect = glypheffects.effectOnNpcRepair(speaker)
                 if math.random() < glyphEffect then
                     common.InformNLS(speaker,"Der Gegenstand wird für"..priceMessage.." in Stand gesetzt.",
