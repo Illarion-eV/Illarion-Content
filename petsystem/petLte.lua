@@ -100,7 +100,7 @@ function M.callEffect(petEffect, pet)
     local hp = pet:increaseAttrib("hitpoints", 0)
     base.savePetHitpoints(owner, hp)     
     
-    petEffect.nextCalled = 1
+    petEffect.nextCalled = 2
     return true
 end
 
