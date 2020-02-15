@@ -24,6 +24,7 @@ local baseNPC = require("npc.base.basic")
 local common = require("base.common")
 local factions = require("base.factions")
 local messages = require("base.messages")
+local petBase = require("petsystem.base")
 
 local _processMonsters
 local _processPlayers
@@ -108,7 +109,7 @@ function _processMonsters(self, npcChar, radius)
     local warpedMonster = false
     for _, monster in pairs(monsterList) do
         if _isPointInGuardArea(self, npcChar, monster.pos) then
-            if not common.IsMonsterDocile(monster:getMonsterType()) then
+            if not common.IsMonsterDocile(monster:getMonsterType()) and not petBase.getOwner(monster) then
                 warpedMonster = true
                 _warpHostile(self, npcChar, monster)
             end
