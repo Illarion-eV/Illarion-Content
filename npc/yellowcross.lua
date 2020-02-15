@@ -17,7 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Basiscript für die Kreuze
 
 local common = require("base.common")
-local petBase = require("petsyetem.base")
+local petBase = require("petsystem.base")
 
 local M = {}
 
