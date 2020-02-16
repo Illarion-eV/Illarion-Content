@@ -21,6 +21,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local base = require("petsystem.base")
 local petScript = require("petsystem.pet")
+local fightingutil = require("base.fightingutil")
 
 local M = {}
 
@@ -84,7 +85,7 @@ function M.callEffect(petEffect, pet)
     end
     
     local command = base.getCommand(owner)
-    if command == base.follow then
+    if command == base.follow or (command == base.attack and fightingutil.getSelectedEnemyId(pet.id) == false) then
         walkWithOwner(pet, owner, 3)
     elseif command == base.heel then
         walkWithOwner(pet, owner, 0)

@@ -107,25 +107,28 @@ function M.receiveText(pet, textType, text, speaker)
             local newCommand = extractCommand(text, pet)
             if newCommand then
                 
-                if newCommand == base.stray then
-                    if pet:getOnRoute() then
-                        pet:setOnRoute(false)
-                        pet.waypoints:clear()
-                    end
-                elseif newCommand == base.down then
-                    local oldCommand = base.getCommand(speaker)
-                    local monsterType = pet:getMonsterType()
-                    if oldCommand == newCommand then
-                        pet:talk(Character.say, alreadyDownEmotes[monsterType].german, alreadyDownEmotes[monsterType].english)
-                    else
-                        pet:talk(Character.say, downEmotes[monsterType].german, downEmotes[monsterType].english)
-                    end
-                elseif newCommand == base.attack then
+                if newCommand == base.attack then
                     local selectedEnemyId = fightingutil.getSelectedEnemyId(speaker.id)
                     if selectedEnemyId then
                         targetEnemy[pet.id] = selectedEnemyId
                     else    
                         return
+                    end
+                else
+                    targetEnemy[pet.id] = nil --Every command but "attack" ends the attack mode
+                    if newCommand == base.stray then
+                        if pet:getOnRoute() then
+                            pet:setOnRoute(false)
+                            pet.waypoints:clear()
+                        end
+                    elseif newCommand == base.down then
+                        local oldCommand = base.getCommand(speaker)
+                        local monsterType = pet:getMonsterType()
+                        if oldCommand == newCommand then
+                            pet:talk(Character.say, alreadyDownEmotes[monsterType].german, alreadyDownEmotes[monsterType].english)
+                        else
+                            pet:talk(Character.say, downEmotes[monsterType].german, downEmotes[monsterType].english)
+                        end
                     end
                 end
                 
@@ -216,7 +219,7 @@ function M.setTarget(pet, candidateList)
     
     local owner = base.getOwner(pet)
     local newTarget = false
-    if owner then
+    if owner and base.getCommand(owner) == base.attack then
         for index, candidate in pairs(candidateList) do
             if candidate.id == targetEnemy[pet.id] then
                 return index
