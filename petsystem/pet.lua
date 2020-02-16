@@ -57,7 +57,7 @@ registerNewPet{
 
 registerNewPet{
     monsterId = M.firnisMillChicken,
-    downEmotes = {english = "#me setzt sich auf den Boden.", "#me setzt sich auf den Boden."},
+    downEmotes = {english = "#me setzt sich auf den Boden.", german = "#me setzt sich auf den Boden."},
     alreadyDownEmotes = {"#me waves with its wings, sitting already on the ground.", "#me wedelt, bereits sitzend, mit den Flügeln."},
     tooFarAwayCry = {english = "Squaaaaawk!", german = "Squaaaaawk!"},
     validCommands = {[base.follow] = true, [base.heel] = true, [base.down] = true, [base.nearBy] = true, [base.stray] = true}
@@ -206,7 +206,7 @@ function M.useMonster(pet, user)
         
         end
     
-        local dialog = SelectionDialog(base.getPetName(user), common.GetNLS(user, "bla", "bla"), callback)
+        local dialog = SelectionDialog(base.getPetName(user), common.GetNLS(user, "Du benötigst drei magische latente Steine in deinem Gürtel.", "You need to have three latent magic gems in your belt."), callback)
     
         dialog:addOption(0, common.GetNLS(user, "Halsband mit drei magischen Edelsteinen versehen", "Put three magical gems into the collar"))
         
