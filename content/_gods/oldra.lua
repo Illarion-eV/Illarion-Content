@@ -128,6 +128,24 @@ function M.Oldra:_init(ordinal, youngerOrdinal)
                 149, --fir tree sprout
                 759, --nuts
 
+                --Rare herbs from gaia.lua
+                138, -- night angels blossom
+                146, -- desert sky capsule
+                152, -- life root
+                754, -- oneleaved fourberry
+                755, -- fire root
+                756, -- pious berry
+                757, -- tybalt star
+                758, -- heart blood
+                760, -- ice leaf
+                761, -- rain weed
+                762, -- gold crack herb
+                764, -- dark moos
+                765, -- day tream
+                766, -- con blossom
+                768, -- wolverine fern
+                769, -- desert berry
+
                 --Other foodstuffs
                 2502, --Bottle of milk
                 800, --bottle with sheep milk
