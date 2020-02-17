@@ -543,7 +543,7 @@ local function showBreakSelection(user,userRings,userAmulets)
             end
             sd:addOption(userAmulets[i].id, common.GetNLS(user,common.getItemName(userAmulets[i], Player.german),common.getItemName(userAmulets[i], Player.english)) .. displayText )
             selectionTopicNo = selectionTopicNo + 1
-            selectionTopics[selectionTopicNo] = {canBreak, glyphs.AMULET, userAmulets[i]}
+            selectionTopics[selectionTopicNo] = {canBreak, userAmulets[i]}
         end
     end
     sd:setCloseOnMove()
