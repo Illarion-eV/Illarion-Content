@@ -45,6 +45,8 @@ function M.Sirani:_init(ordinal, youngerOrdinal)
                 -- ## manual
                 -- category: flowers
                 148, -- firnis blossom
+                144, --virgins weed
+                767, --water blossom
                 -- ## From craft\final\finesmithing.lua ##
                 -- category: Amulets
                 222, -- iron amulet
