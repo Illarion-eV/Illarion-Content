@@ -42,6 +42,7 @@ function M.Cherga:_init(ordinal, youngerOrdinal)
     self.sacrificeItems = {  -- array of tables defining groups of items for sacrificing
         {
             id_set = common.setFromList({ -- set of item IDs
+                763, --marsh flower
                 -- light sources
                 -- all light sources have price==0 when lit, so we currently use only unlit ones and their fuel
                 391, -- torch
