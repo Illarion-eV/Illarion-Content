@@ -436,7 +436,7 @@ local function showForgeSelection(user,userRings,userAmulets)
         for i=1,#userRings do
             countShards = countShardOnUser(user,glyphs.getGlyphLevel(userRings[i]),glyphs.RING)
             if user:getSkill(glyphs.SKILL_GLYPHING) < glyphs.getGlyphSkillLevel(userRings[i]) then
-                displayText = common.GetNLS(user," (Skill ist zu niedrig. Level " .. glyphs.getGlyphSkillLevel(userRings[i]) .. " benötigt.)" ," (Insufficient skill. Level " .. glyphs.getGlyphSkillLevel(userRings[i]) .. " required.)")
+                displayText = common.GetNLS(user," (Skill nicht ausreichend)"," (Skill not sufficient)")
                 canForged = SKILL_MISSING
             elseif glyphs.isGlyphed(userRings[i]) then
                 displayText = common.GetNLS(user," (Glyphe bereits eingearbeitet)"," (Glyph forged already)")
@@ -461,7 +461,7 @@ local function showForgeSelection(user,userRings,userAmulets)
         for i=1,#userAmulets do
             countShards = countShardOnUser(user,glyphs.getGlyphLevel(userAmulets[i]),glyphs.AMULET)
             if user:getSkill(glyphs.SKILL_GLYPHING) < glyphs.getGlyphSkillLevel(userAmulets[i]) then
-                displayText = common.GetNLS(user," (Skill ist zu niedrig. Level " .. glyphs.getGlyphSkillLevel(userAmulets[i]) .. " benötigt.)" ," (Insufficient skill. Level " .. glyphs.getGlyphSkillLevel(userAmulets[i]) .. " required.)")
+                displayText = common.GetNLS(user," (Skill nicht ausreichend)"," (Skill not sufficient)")
                 canForged = SKILL_MISSING
             elseif glyphs.isGlyphed(userAmulets[i]) then
                 displayText = common.GetNLS(user," (Glyphe eingearbeitet)"," (Glyph forged)")
