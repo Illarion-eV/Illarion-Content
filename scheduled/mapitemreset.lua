@@ -51,28 +51,6 @@ function M.resetMapitem()
     end
   end
 
-  -- reset the fires at Ronagan Dungeon
-    local function unlightFire(pos)
-        local item = world:getItemOnField(pos)
-        if (item.id == 12) then
-            world:erase(item, 1) --lit fire
-            world:createItemFromId(298, 1, pos, true, 333, nil) --unlit fire
-        elseif (item.id ~= 12) then
-        end
-    end
-    unlightFire(position(898, 600, -9))
-    unlightFire(position(898, 597, -9))
-    unlightFire(position(894, 600, -9))
-    unlightFire(position(894, 597, -9))
-    unlightFire(position(898, 594, -9))
-    unlightFire(position(894, 594, -9))
-    unlightFire(position(894, 591, -9))
-    unlightFire(position(898, 588, -9))
-    unlightFire(position(894, 588, -9))
-    unlightFire(position(898, 585, -9))
-    unlightFire(position(894, 585, -9))
-    unlightFire(position(898, 591, -9))
-
   -- reset akultut burning room
   if (world:getItemOnField(position(480, 834, -9)).id ~= 2039) then
     for xx = 474, 482 do
