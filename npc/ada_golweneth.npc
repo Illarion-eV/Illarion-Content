@@ -23,7 +23,7 @@
 --                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
-name = "Ada Gowenteth"
+name = "Ada Golwenteth"
 race = elf
 sex = female
 position = 963, 784, 1
