@@ -37,7 +37,7 @@ function M.MoveItemBeforeMove(user, sourceItem, targetItem)
     if sourceItem:getData("belongsTo") == "ritual" and sourceItem.itempos == 0 then
         world:gfx(globalvar.gfxFLAMESTRIKE,sourceItem.pos)
         common.InformNLS(user, "Diese Kerze scheint mit Magie aufgeladen zu sein. Du verbrennst dir die Finger.",
-                               "This candle seems to be full of magic. You burns your finger.")
+                               "This candle seems to be full of magic. You burn your finger.")
         return false
     end
     return lights.MoveItemAfterMove(user, sourceItem, targetItem)
