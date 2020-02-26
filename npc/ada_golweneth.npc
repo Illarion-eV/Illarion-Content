@@ -16,17 +16,17 @@
 -- NPC Name: Ada Golweneth                                          Runewick --
 -- NPC Job:  Elara Priest                                                     --
 --                                                                            --
--- NPC Race: elf                        NPC Position:  916, 827, 0            --
+-- NPC Race: elf                        NPC Position:  963, 784, 1            --
 -- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Author:   Dantagon                                                         --
 --                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
-name = "Ada Gowenteth"
+name = "Ada Golweneth"
 race = elf
 sex = female
-position = 916, 827, 0
+position = 963, 784, 1
 direction = west
 affiliation = "Runewick"
 job = "Elara Priest"

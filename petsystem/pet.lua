@@ -57,7 +57,7 @@ registerNewPet{
 
 registerNewPet{
     monsterId = M.firnisMillChicken,
-    downEmotes = {english = "#me setzt sich auf den Boden.", "#me setzt sich auf den Boden."},
+    downEmotes = {english = "#me setzt sich auf den Boden.", german = "#me setzt sich auf den Boden."},
     alreadyDownEmotes = {"#me waves with its wings, sitting already on the ground.", "#me wedelt, bereits sitzend, mit den Flügeln."},
     tooFarAwayCry = {english = "Squaaaaawk!", german = "Squaaaaawk!"},
     validCommands = {[base.follow] = true, [base.heel] = true, [base.down] = true, [base.nearBy] = true, [base.stray] = true}
@@ -107,25 +107,28 @@ function M.receiveText(pet, textType, text, speaker)
             local newCommand = extractCommand(text, pet)
             if newCommand then
                 
-                if newCommand == base.stray then
-                    if pet:getOnRoute() then
-                        pet:setOnRoute(false)
-                        pet.waypoints:clear()
-                    end
-                elseif newCommand == base.down then
-                    local oldCommand = base.getCommand(speaker)
-                    local monsterType = pet:getMonsterType()
-                    if oldCommand == newCommand then
-                        pet:talk(Character.say, alreadyDownEmotes[monsterType].german, alreadyDownEmotes[monsterType].english)
-                    else
-                        pet:talk(Character.say, downEmotes[monsterType].german, downEmotes[monsterType].english)
-                    end
-                elseif newCommand == base.attack then
+                if newCommand == base.attack then
                     local selectedEnemyId = fightingutil.getSelectedEnemyId(speaker.id)
                     if selectedEnemyId then
                         targetEnemy[pet.id] = selectedEnemyId
                     else    
                         return
+                    end
+                else
+                    targetEnemy[pet.id] = nil --Every command but "attack" ends the attack mode
+                    if newCommand == base.stray then
+                        if pet:getOnRoute() then
+                            pet:setOnRoute(false)
+                            pet.waypoints:clear()
+                        end
+                    elseif newCommand == base.down then
+                        local oldCommand = base.getCommand(speaker)
+                        local monsterType = pet:getMonsterType()
+                        if oldCommand == newCommand then
+                            pet:talk(Character.say, alreadyDownEmotes[monsterType].german, alreadyDownEmotes[monsterType].english)
+                        else
+                            pet:talk(Character.say, downEmotes[monsterType].german, downEmotes[monsterType].english)
+                        end
                     end
                 end
                 
@@ -203,7 +206,7 @@ function M.useMonster(pet, user)
         
         end
     
-        local dialog = SelectionDialog(base.getPetName(user), common.GetNLS(user, "bla", "bla"), callback)
+        local dialog = SelectionDialog(base.getPetName(user), common.GetNLS(user, "Du benötigst drei magische latente Steine in deinem Gürtel.", "You need to have three latent magic gems in your belt."), callback)
     
         dialog:addOption(0, common.GetNLS(user, "Halsband mit drei magischen Edelsteinen versehen", "Put three magical gems into the collar"))
         
@@ -216,7 +219,7 @@ function M.setTarget(pet, candidateList)
     
     local owner = base.getOwner(pet)
     local newTarget = false
-    if owner then
+    if owner and base.getCommand(owner) == base.attack then
         for index, candidate in pairs(candidateList) do
             if candidate.id == targetEnemy[pet.id] then
                 return index
