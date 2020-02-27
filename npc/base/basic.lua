@@ -25,6 +25,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local class = require("base.class")
 
+local mutedNPCs = {}
+
 local langCodeToSkill
 local displayLanguageConfusion
 local isAdminOnField
@@ -229,6 +231,25 @@ end
 --  @param text the text that was spoken
 --  @return true in case the text was handled properly by one of the receive text handlers
 function baseNPC:receiveText(npcChar, texttype, speaker, text)
+    if speaker:isAdmin() then
+        if string.find(text, "unmute") then
+            mutedNPCs[npcChar.id] = nil
+            speaker:inform("You unmute this NPC.")
+            return
+        elseif string.find(text, "mute") then
+            mutedNPCs[npcChar.id] = true
+            speaker:inform("You mute this NPC.")
+            return
+        end
+    end
+    
+    if mutedNPCs[npcChar.id] == true then
+        local npcName = npcChar.name
+        speaker:inform(npcName .. " scheint heute nicht sehr gesprächig." , npcName .. " doesn't seem to be in a chatty mood today.")
+        return
+    end
+    
+    
     if (self._receiveTextFunctions == nil) then
         return false
     end
@@ -349,6 +370,25 @@ end
 --  @param char the character who is looking at the NPC
 --  @param mode the mode used to look at the NPC (no effect)
 function baseNPC:use(npcChar, char)
+
+    if char:isAdmin() then
+        local lastSpoken = char.lastSpokenText
+        if string.find(string.lower(lastSpoken), "teleport") then
+            local coords = {}
+            for coord in lastSpoken:gmatch("%-?%d+") do 
+                table.insert(coords, tonumber(coord)) 
+            end
+            if coords[1] and coords[2] and coords[3] then
+                npcChar:forceWarp(position(coords[1], coords[2], coords[3]))
+            end
+        end
+    end
+    
+    if mutedNPCs[npcChar.id] == true then
+        local npcName = npcChar.name
+        char:inform(npcName .. " scheint heute nicht sehr gesprächig." , npcName .. " doesn't seem to be in a chatty mood today.")
+        return
+    end
 
     if isAdminOnField(npcChar.pos) then
         return
