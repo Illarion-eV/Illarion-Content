@@ -27,6 +27,7 @@ end
 function M.callEffect(Effect, User)
 
     if playerLastSeen and world:getTime("unix") - playerLastSeen > 300 then
+        playerLastSeen = nil
         return false
     end
     
