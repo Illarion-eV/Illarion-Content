@@ -231,22 +231,27 @@ end
 --  @param text the text that was spoken
 --  @return true in case the text was handled properly by one of the receive text handlers
 function baseNPC:receiveText(npcChar, texttype, speaker, text)
+    if not npcChar:isInRange(speaker, 2) then
+        return false
+    end
+    
     if speaker:isAdmin() then
+        local npcName = npcChar.name
         if string.find(text, "unmute") then
             mutedNPCs[npcChar.id] = nil
-            speaker:inform("You unmute this NPC.")
-            return
+            speaker:inform("You unmute " .. npcName)
+            return false
         elseif string.find(text, "mute") then
             mutedNPCs[npcChar.id] = true
-            speaker:inform("You mute this NPC.")
-            return
+            speaker:inform("You mute " .. npcName)
+            return false
         end
     end
     
     if mutedNPCs[npcChar.id] == true then
         local npcName = npcChar.name
         speaker:inform(npcName .. " scheint heute nicht sehr gesprächig." , npcName .. " doesn't seem to be in a chatty mood today.")
-        return
+        return false
     end
     
     
