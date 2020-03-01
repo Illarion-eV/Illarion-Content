@@ -49,6 +49,18 @@ local function DeleteFlame(User, FlameItem)
     end
 end
 
+local golems = {}
+golems[301]=true --Stone Golem/Fighter/Plate/Blunt
+golems[302]=true --Son of the Mountains/Fighter/Plate/Blunt
+golems[303]=true --Clay Golem/Fighter/Plate/Blunt
+golems[304]=true --Lava Golem/Fighter/Plate/Blunt
+golems[305]=true --Silver Golem/Fighter/Plate/Blunt
+golems[306]=true --Diamond Golem/Fighter/Plate/Blunt
+golems[561]=true --Iron Golem/Fighter/Plate/Blunt
+golems[562]=true --Steel Golem/Fighter/Plate/Blunt
+golems[563]=true --Merinium Golem/Fighter/Plate/Blunt
+golems[564]=true --Gold Golem/Fighter/Plate/Blunt
+
 function M.CharacterOnField(User)
 
     -- dont harm dead chars anymore
@@ -60,14 +72,9 @@ function M.CharacterOnField(User)
     if User:getType() == Character.npc then
         return
     end
-
-    -- immune
-    if not character.IsPlayer(User) and checkFlameImmunity(User:getMonsterType()) then
-        return
-    end
-
-    -- Flamme auf dem Feld suchen
-    -- !!Eventuell gibt es Probleme, wenn sich mehrere Flammen auf einem Feld befinden!!
+    
+    -- Search for the falme on the field
+    -- !!There might be some issues with multiple flames on the same field!!
     local Items = common.GetItemsOnField(User.pos)
     local FieldItem
 
@@ -77,6 +84,16 @@ function M.CharacterOnField(User)
             break
         end
     end
+
+    -- immune
+    if not character.IsPlayer(User) then
+        if checkFlameImmunity(User:getMonsterType()) then
+            return
+        elseif golems[User:getMonsterType()] and FieldItem:getData("meteroitFlame") == "true" then --Golems are immune to special flames
+            return
+        end
+    end
+
 
     if (FieldItem.quality > 100) and User.pos.z ~= 100 and User.pos.z ~= 101 and User.pos.z ~= 40 then --no harmful flames on noobia or the working camp
 

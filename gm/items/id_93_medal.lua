@@ -135,6 +135,28 @@ local changeAvatar
 
 local function UseItemWithField(User, TargetPos,SourceItem)
 
+    -- This is an addition for a quest. It is triggered by last spoken text to allow quick combination with monster spawner
+    if string.find(User.lastSpokenText, "meteorit") then
+    
+        local rocks = {1246, 915, 1245, 1254, 232, 233, 914, 1265, 1273, 1257, 1276, 1278, 1250, 1251}
+        local rockCreated = world:createItemFromId(rocks[Random.uniform(1, #rocks)], 1, TargetPos, true, 1, {nameDe = "Meteorite", nameEn = "Meteorit"})
+        for i = -1, 1 do
+            for j = -1, 1 do
+                if not (i == 0 and j == 0) then
+                    User:inform("2")
+                    local currentPos = position(TargetPos.x+i, TargetPos.y+j, TargetPos.z)
+                    if Random.uniform() <= 0.4 then --Chance of 4/8 per tile to spawn a flame around the meteorit
+                        User:inform("3")
+                        local flameCreated = world:createItemFromId(359, 1, currentPos, true, 999, {meteroitFlame = "true"})
+                        flameCreated.wear = 6
+                        world:changeItem(flameCreated)
+                    end
+                end
+            end
+        end
+        
+     end
+
     -- First check for mode change
     local modes = {"Monster", "Mob Selector", "GFX", "GFX Selector", "SFX", "SFX Selector", "Avatar changes"}
     local cbSetMode = function (dialog)
