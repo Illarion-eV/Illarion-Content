@@ -15,7 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
---  INSERT INTO npc (npc_type,npc_posx,npc_posy,npc_posz,npc_faceto,npc_is_healer,npc_name, npc_script,npc_sex,npc_hair,npc_beard,npc_hairred,npc_hairgreen,npc_hairblue,npc_skinred,npc_skingreen,npc_skinblue,npc_hairalpha,npc_skinalpha) VALUES(2,267,675,-3,4,FALSE,'Sepp Leaf','npc.sepp_leaf',0,1,0,204,144,2,150,79,0,255,255);
+--  INSERT INTO npc (npc_type,npc_posx,npc_posy,npc_posz,npc_faceto,npc_is_healer,npc_name, npc_script,npc_sex,npc_hair,npc_beard,npc_hairred,npc_hairgreen,npc_hairblue,npc_skinred,npc_skingreen,npc_skinblue,npc_hairalpha,npc_skinalpha) VALUES(2,690,330,0,4,FALSE,'Sepp Leaf','npc.sepp_leaf',0,1,0,204,144,2,150,79,0,255,255);
 
 
 local common = require("base.common")
@@ -25,16 +25,16 @@ local teamEast = {}
 local teamWest = {}
 local itemOnion
 
-local GAME_LEVEL_Z = -3
-local posVictoryWest = position(263,675,GAME_LEVEL_Z)
-local posVictoryEast = position(269,675,GAME_LEVEL_Z)
-local refereePos = position(267,675,GAME_LEVEL_Z)
+local GAME_LEVEL_Z = 0
+local posVictoryWest = position(686,330,GAME_LEVEL_Z)
+local posVictoryEast = position(693,330,GAME_LEVEL_Z)
+local refereePos = position(690,330,GAME_LEVEL_Z)
 
-local borderW = 675
-local borderE = 688
-local borderS = 259
-local borderC = 267
-local borderN = 275
+local borderW = 331
+local borderE = 342
+local borderS = 683
+local borderC = 690
+local borderN = 697
 
 local TEAM_NO = 0
 local TEAM_WEST = 1
@@ -267,9 +267,9 @@ local function startGame (npc)
 end
 
 local function createBall(npc)
-    local borderW = 678
-    local borderE = 685
-    local posX = 267
+    local borderW = 333
+    local borderE = 340
+    local posX = 690
     local posY = math.random(borderW, borderE)
     local pos = position(posX, posY, GAME_LEVEL_Z)
     itemOnion = world:createItemFromId(ITEM_ID_ONION, 1, pos, true, 333, {onionball="true",nameDe="Spielzwiebel",nameEn="Game Onion",descriptionDe="Die Zwiebel ist schon recht matschig und stinkt.",descriptionEn="The onion is quite pulpy and stinks.",lookatNoPrice=1,lookatNoWeight=1})
