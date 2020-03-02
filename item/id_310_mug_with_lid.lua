@@ -63,6 +63,7 @@ function M.LookAtItem(User, Item)
     if mugId and mugs[mugId] then
         lookat.SetSpecialName(Item,"Verzierter Humpen","Decorated Mug")
         lookat.SetSpecialDescription(Item,"Der Humpen zeigt folgendes Bild: ".. mugs[mugId]["pictureDe"] .." Unter dem Bild befindet sich eine Gravur: ".. mugs[mugId]["titleDe"], "The mug shows the following picture: ".. mugs[mugId]["pictureEn"] .." There is an engraving beneath the picture: ".. mugs[mugId]["titleEn"])
+        lookat.SetItemRareness(Item, ItemLookAt.uncommonItem)
     end
 
     return lookat.GenerateLookAt(User, Item, lookat.NONE)
@@ -176,6 +177,7 @@ addMug(15,
 "A hafling sits with a broad grin on his lips in front of a table with a big, steaming cake on it."
 )
 
+-- Series: Orcs Mating
 addMug(16,
 "Balzende Orks I",
 "Orcs Mating I",
@@ -211,6 +213,7 @@ addMug(20,
 "An orc stares lustfully at an orcess and gives her a wink."
 )
 
+--Series: Lizards Swimming
 addMug(21,
 "Schwimmende Echsenmenschen I",
 "Lizards Swimming I",
@@ -246,6 +249,7 @@ addMug(25,
 "A lizard opens his mouth while swimming to swallow the brightly coloured fish just in front of him."
 )
 
+-- Series: Humans Fighting
 addMug(26,
 "Kämpfende Menschen I",
 "Humans Fighting I",
@@ -279,5 +283,41 @@ addMug(30,
 "Humans Fighting V",
 "Ein Mann und eine Frau streiten vor einer kleinen Gruppe von Kindern und die Frau droht dem Mann mit dem Finger.",
 "A man and woman argue before a small group of children and the woman points a finger at the man."
+)
+
+-- Series: Elder Gods
+addMug(31,
+"Alte Götter I",
+"Elder Gods I",
+"Die Göttin Ushara, eine schwarzhäutige, dunkelhaarige ältere Frau in einem Kleid in der Farbe der Erde.",
+"The Goddess Ushara, a dark skinned, dark haired elderly woman in a dress the colour of the earth's soil."
+)
+
+addMug(32,
+"Alte Götter II",
+"Elder Gods II",
+"Der Gott Bragon, ein dunkelhaariger Ritter mit einem feurig roten Bart und einer brennenden goldenen Rüstung.",
+"The God Bragon, a dark haired knight with a fiery red beard and his golden armour ablaze."
+)
+
+addMug(33,
+"Alte Götter III",
+"Elder Gods III",
+"Der Gott Eldan, ein untersetzter alter Mann, stützt sich mit einer Hand auf einen Stab und hält ein Buch in der anderen.",
+"The God Eldan, a slim older man, looking almost frail as he clutches a staff in one hand and a book in another."
+)
+
+addMug(34,
+"Alte Götter IV",
+"Elder Gods IV",
+"Die Göttin Findari, eine zeitlose Frau mit langem blonden Haar, die ein Kleid aus fließend hellblauer Seide trägt.",
+"The Goddess Finadri, a timeless woman with long blonde hair and wearing a flowing light blue dress."
+)
+
+addMug(35,
+"Alte Götter V",
+"Elder Gods V",
+"Die Göttin Tanora, eine alterslose Meerjungfrau, deren Schwanz und Schuppen in der Sonne schimmern.",
+"The Goddess Tanora, an ageless mermaid with her tail and scales sparkling in the sun."
 )
 return M
