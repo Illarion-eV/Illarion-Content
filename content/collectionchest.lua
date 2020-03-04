@@ -57,7 +57,7 @@ local COLTASK_TASKS = {
 
 local LISTED_CONSTRUCTION_ITEMS = {
 --{groupNameDe, groupNameEn, listOfItems}
-{"Holz","Wood",{2560,2716,543,545,3,2543,544,546,56,2786,3786}},
+{"Holz","Wood",{2560,2716,543,545,3,2543,544,546,56,3786}},
 {"Sand und Stein","Sand and Stone",{726,316,735,733,2588}},
 {"Stoffe","Drapery",{170,168,3787,176,178,179,177.2579,174,175}},
 {"Edelsteine","Gems",{}},
