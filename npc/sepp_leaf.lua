@@ -31,7 +31,7 @@ local posVictoryEast = position(693,330,GAME_LEVEL_Z)
 local refereePos = position(690,330,GAME_LEVEL_Z)
 
 local borderW = 331
-local borderE = 342
+local borderE = 343
 local borderS = 683
 local borderC = 690
 local borderN = 697
