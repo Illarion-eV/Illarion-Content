@@ -78,10 +78,11 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell."
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
 "kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
-english, "quest", "mission" -> "I do not issue any quests. But I can sell you books to go to other places."
-"quest", "mission" -> "Ich verteile keine Aufgaben. Aber ihr könnt von mir Bücher kaufen, die euch an andere Orte bringen."
-"task", "adventure", "order" -> "I do not issue any quests. But I can sell you books to go to other places."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich verteile keine Aufgaben. Aber ihr könnt von mir Bücher kaufen, die euch an andere Orte bringen."
+-- Mandatory: Catching quest triggers. Modify if the NPC does quests
+english, "quest", "mission" -> "I don't have any tasks for you."
+"quest", "mission" -> "Ich vergebe keine Aufgaben."
+"task", "adventure", "order" -> "I don't have any tasks for you."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich vergebe keine Aufgaben."
 
 -- Faction stuff
 "archmage" -> "If he wasn't here... I just wouldn't know what would happen with Runewick."
