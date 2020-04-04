@@ -2319,7 +2319,7 @@ function M.GetQualityBonus(item, range)
     local bonus
     if item ~= nil and item.quality ~= 0 and item.quality < 1000 then
         quality = math.floor(item.quality/100)
-        bonus=(1-range) + range * ((quality-1) / 4)) --1 +/- range for quality 1-9. Neutral quality (bonus = 1) at 5
+        bonus=(1-range) + range * ((quality-1) / 4) --1 +/- range for quality 1-9. Neutral quality (bonus = 1) at 5
     else
         bonus=1 --default
     end
