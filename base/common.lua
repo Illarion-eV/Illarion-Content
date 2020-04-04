@@ -2290,7 +2290,7 @@ end
 
 --- Calculates an universal attribute bonus
 -- Recommendation: Use together with GetLeadAttrib to calculate the bonus of a lead attribute on a skill related action
--- @param attribute  The value of the attribute
+-- @param attributeValue  The value of the attribute
 -- @param range   The range of the bonus (1 +/- range)
 -- @return  The value of the bonus
 --                 NOTE: 1 will be returned if something goes wrong
@@ -2298,8 +2298,28 @@ end
 function M.GetAttributeBonus(attributeValue, range)
 
     local bonus
-    if attributeValue ~= nil and attribute ~= 0 then
+    if attributeValue ~= nil and attributeValue ~= 0 then
         bonus=math.min(1+2*range, (1-range) + range * ((attributeValue-1) / 9.5)) --1 +/- range for attributes 1-20. Bonus capped at attribute 30. Neutral attribute (bonus = 1) at 10.5
+    else
+        bonus=1 --default
+    end
+
+    return bonus
+
+end
+
+--- Calculates an universal quality bonus
+-- @param item	The item for which the bonus shall be calculated
+-- @param range   The range of the bonus (1 +/- range)
+-- @return  The value of the bonus
+--                 NOTE: 1 will be returned if something goes wrong
+
+function M.GetQualityBonus(item, range)
+
+    local bonus
+    if item ~= nil and item.quality ~= 0 and item.quality < 1000 then
+		quality = math.floor(item.quality/100)
+        bonus=(1-range) + range * ((quality-1) / 4)) --1 +/- range for quality 1-9. Neutral quality (bonus = 1) at 5
     else
         bonus=1 --default
     end
