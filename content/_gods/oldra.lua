@@ -97,6 +97,72 @@ function M.Oldra:_init(ordinal, youngerOrdinal)
                 778, -- sugarcane
                 -- 772, -- tabacco - Not for Oldra
                 3567, -- Potatoes
+
+                -- ## From craft\gathering\herbgathering
+                144, --virgins weed
+                137, --flamegoblet blossom
+                135, --yellow weed
+                148, --firnis blossom
+                763, --mash flower
+                767, --water blossom
+                140, --donf blade
+                156, --steppe fern
+                153, --foot leaf
+                752, --mandrake
+                142, --sand berry
+                143, --red elder
+                136, --anger berry
+                134, --fourleafed oneberry
+                155, --sibanac
+                151, --strawberry
+                141, --black thistle
+                145, --heath flower
+                133, --sun herb
+                753, --blue bird's berry
+                159, --toadstool
+                160, --red head
+                161, --herder's mushroom
+                162, --birth mushroom
+                158, --bulbsponge mushroom
+                163, --champignon
+                149, --fir tree sprout
+                759, --nuts
+
+                --Rare herbs from gaia.lua
+                138, -- night angels blossom
+                146, -- desert sky capsule
+                152, -- life root
+                754, -- oneleaved fourberry
+                755, -- fire root
+                756, -- pious berry
+                757, -- tybalt star
+                758, -- heart blood
+                760, -- ice leaf
+                761, -- rain weed
+                762, -- gold crack herb
+                764, -- dark moos
+                765, -- day tream
+                766, -- con blossom
+                768, -- wolverine fern
+                769, -- desert berry
+
+                --Other foodstuffs
+                2502, --Bottle of milk
+                800, --bottle with sheep milk
+
+                --Juices and teas (Alcohols go to Adron)
+                783, -- bottle of blackberry juice
+                784, -- bottle of tangerine juice
+                785, -- bottle of banana juice
+                786, -- bottle of cabbage juice
+                787, -- bottle of virgings weed tea
+                788, -- bottle of carrot juice
+                789, -- bottle of strawberry juice
+                791, -- bottle of grape juice
+                3611, -- bottle of orange juice
+                3720, -- bottle of fir needle tea
+                3721, -- bottle of green tea
+                3722, -- bottle of druids tea
             }),
             minimal_quality = 0, -- int in 1..9 - if present, item quality has to be greater or equal
             minimal_durability = 0, -- int in 0..99 - if present, item durability has to be greater or equal

@@ -187,6 +187,7 @@ local function doDevote(User, god)
     if not candevote then
         -- Was capable when opened dialog, but not when accepted. Cheater?
         common.InformNLS(User, "Du erfüllst nicht die Bedingungen, die an einen Anhänger gestellt werden. " .. reason_de, "You do not satisfy the devotion criteria. " .. reason_en)
+        return
     end
     deleteItems(User, gods.getItemsForDevotion(User, god))
     gods.setDevoted(User, god)

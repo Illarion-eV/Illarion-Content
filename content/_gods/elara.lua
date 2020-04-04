@@ -42,6 +42,7 @@ function M.Elara:_init(ordinal, youngerOrdinal)
     self.sacrificeItems = {  -- array of tables defining groups of items for sacrificing
         {
             id_set = common.setFromList({ -- set of item IDs
+                144, --virgin's weed
                 -- light sources
                 391, -- torch
                 43, -- candle

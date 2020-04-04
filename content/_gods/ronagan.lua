@@ -42,6 +42,7 @@ function M.Ronagan:_init(ordinal, youngerOrdinal)
     self.sacrificeItems = {  -- array of tables defining groups of items for sacrificing
         {
             id_set = common.setFromList({ -- set of item IDs
+                766, --con blossom
                 -- ## From craft\final\blacksmithing.lua ##
                 -- category: Daggers
                 27, -- simple dagger

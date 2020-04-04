@@ -50,6 +50,7 @@ function M.Malachin:_init(ordinal, youngerOrdinal)
         },
         {
             id_set = common.setFromList({ -- set of item IDs
+                768, --Wolverine Fern
                 -- ## From craft\final\blacksmithing.lua ##
                 -- category: Daggers
                 27, -- simple dagger
@@ -122,6 +123,9 @@ function M.Malachin:_init(ordinal, youngerOrdinal)
                 3035, -- drow sword
                 -- ## From craft\final\carving.lua ##
                 -- category: Arrows and bolts
+                64, -- arrow
+                237, -- crossbow bolt
+                322, -- wind arrows
                 -- category: Blunt weapons
                 2664, -- club
                 230, -- mace

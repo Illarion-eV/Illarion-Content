@@ -40,8 +40,9 @@ function M.Cherga:_init(ordinal, youngerOrdinal)
         {id = 182, number = 1}, -- black shirt
     }
     self.sacrificeItems = {  -- array of tables defining groups of items for sacrificing
-        {  -- TODO more items
+        {
             id_set = common.setFromList({ -- set of item IDs
+                763, --marsh flower
                 -- light sources
                 -- all light sources have price==0 when lit, so we currently use only unlit ones and their fuel
                 391, -- torch
@@ -53,6 +54,41 @@ function M.Cherga:_init(ordinal, youngerOrdinal)
                 -- burial
                 24, -- shovel
                 733, -- stone block (symbolizing gravestone)
+                314, --Potash, symbolizing cremated remains
+                -- Reaper imagery?
+                271, -- scythe ?
+                2723, -- executioner's axe ?
+                39, -- skull staff
+                138, --Night Angels Blossom
+                -- ## From craft\final\tailoring.lua ##
+                -- category: Cloth gloves
+                1447, -- grey cloth gloves
+                1449, -- black cloth gloves
+                -- category: Dresses
+                802, -- grey dress
+                805, -- black dress
+                838, -- black white dress
+                850, -- grey heraldic dress
+                -- category: Robes
+                196, -- grey coat
+                2418, -- grey priest robe
+                194, -- black robe
+                2378, -- black cult robe
+                2384, -- black coat
+                2420, -- black priest robe
+                -- category: Shirts
+                182, -- black shirt
+                -- category: Skirts
+                841, -- grey white skirt
+                844, -- black white skirt
+                -- category: Trousers
+                823, -- grey trousers
+                34, -- short black trousers
+                826, -- black trousers
+                -- category: Tunics
+                816, -- grey tunic
+                819, -- black tunic
+
             }),
             minimal_quality = 0, -- int in 1..9 - if present, item quality has to be greater or equal
             minimal_durability = 0, -- int in 0..99 - if present, item durability has to be greater or equal

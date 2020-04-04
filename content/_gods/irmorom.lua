@@ -40,6 +40,7 @@ function M.Irmorom:_init(ordinal, youngerOrdinal)
         {id = 101, number = 1}, -- chain mail
     }
     local ids = common.setFromList({ -- set of item IDs
+        762, --gold crack herb
         -- ## From craft\final\armourer.lua ##
         -- category: Chain boots
         1507, -- simple jackboots
