@@ -2295,11 +2295,11 @@ end
 -- @return  The value of the bonus
 --                 NOTE: 1 will be returned if something goes wrong
 
-function M.GetAttributeBonus(attribute, range)
+function M.GetAttributeBonus(attributeValue, range)
 
     local bonus
-    if attribute ~= nil and attribute ~= 0 then
-        bonus=math.min(1+2*range, (1-range) + range * (attribute / 10)) --1 +/- range for attributes 0-20. Bonus capped at attribute 30
+    if attributeValue ~= nil and attribute ~= 0 then
+        bonus=math.min(1+2*range, (1-range) + range * ((attributeValue-1) / 9.5)) --1 +/- range for attributes 1-20. Bonus capped at attribute 30. Neutral attribute (bonus = 1) at 10.5
     else
         bonus=1 --default
     end
