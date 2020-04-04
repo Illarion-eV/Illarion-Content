@@ -2307,9 +2307,9 @@ function M.GetAttributeBonus(attributeValue, range)
     return bonus
 
 end
-
+    
 --- Calculates an universal quality bonus
--- @param item	The item for which the bonus shall be calculated
+-- @param item    The item for which the bonus shall be calculated
 -- @param range   The range of the bonus (1 +/- range)
 -- @return  The value of the bonus
 --                 NOTE: 1 will be returned if something goes wrong
@@ -2318,7 +2318,7 @@ function M.GetQualityBonus(item, range)
 
     local bonus
     if item ~= nil and item.quality ~= 0 and item.quality < 1000 then
-		quality = math.floor(item.quality/100)
+        quality = math.floor(item.quality/100)
         bonus=(1-range) + range * ((quality-1) / 4)) --1 +/- range for quality 1-9. Neutral quality (bonus = 1) at 5
     else
         bonus=1 --default
