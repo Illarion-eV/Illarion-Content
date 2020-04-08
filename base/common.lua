@@ -2257,12 +2257,30 @@ leadAttribTable[Character.punctureWeapons]="strength"
 
 --Perception: Druids
 leadAttribTable[Character.alchemy]="perception"
+leadAttribTable[Character.potionLore]="perception"
+leadAttribTable[Character.animalTaming]="perception"
+leadAttribTable[Character.summoning]="perception"
+leadAttribTable[Character.natureLore]="perception"
+leadAttribTable[Character.cauldronLore]="perception"
 
 --Intelligence: Magic
 leadAttribTable[Character.wandMagic]="intelligence"
+leadAttribTable[Character.enchantingOfJewels]="intelligence"
+leadAttribTable[Character.enchantingOfAmulets]="intelligence"
+leadAttribTable[Character.fireMagic]="intelligence"
+leadAttribTable[Character.spiritMagic]="intelligence"
+leadAttribTable[Character.windMagic]="intelligence"
+leadAttribTable[Character.earthMagic]="intelligence"
+leadAttribTable[Character.waterMagic]="intelligence"
 
 --Willpower: Priests
---No skills yet
+leadAttribTable[Character.blessing]="willpower"
+leadAttribTable[Character.praying]="willpower"
+leadAttribTable[Character.vowing]="willpower"
+leadAttribTable[Character.confessing]="willpower"
+leadAttribTable[Character.ceremony]="willpower"
+leadAttribTable[Character.consecrateWeapons]="willpower"
+leadAttribTable[Character.consecrateArmours]="willpower"
 
 function M.GetLeadAttributeName(Skill)
     return leadAttribTable[Skill]
