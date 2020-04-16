@@ -51,8 +51,8 @@ function M.learn(user, skill, actionPoints, learnLimit)
 
             local skillFactor = (100 - skillValue)/100
             local MCfactor = normalMC / math.max(MCvalue, 1) --10 % of time spent online is considered "normal" -> MCfactor is 1
-            local attributeBonus = common.GetAttributeBonusHigh(leadAttrib); --0.5 to 1.5, depending on attribute, limited to 2
-            local intelligenceBonus = common.GetAttributeBonusLow(user:increaseAttrib("intelligence", 0)); --0.9 to 1.1, depending on attribute, limited to 1.2
+            local attributeBonus = common.GetAttributeBonusHigh(leadAttrib); --+/-0.5 depending on attribute, limited to 1
+            local intelligenceBonus = common.GetAttributeBonusLow(user:increaseAttrib("intelligence", 0)); --+/-0.1, depending on attribute, limited to 0.2
             local actionpointFactor = actionPoints / normalAP --An action with 50 AP is "normal"
             
             local minorIncrease = scalingFactor * skillFactor * MCfactor * actionpointFactor * (1 + attributeBonus + intelligenceBonus)
@@ -64,7 +64,7 @@ function M.learn(user, skill, actionPoints, learnLimit)
             end
 
             --For debugging, use the following line.
-            user:inform("Skill="..user:getSkillName(skill)..", actionPoints="..actionPoints..", skillFactor="..skillFactor..", MCfactor="..MCfactor..", attributeBonus="..attributeBonus..", intelligenceBonus="..intelligenceBonus..", actionpointFactor="..actionpointFactor..", minorIncrease="..minorIncrease..".");
+            --user:inform("Skill="..user:getSkillName(skill)..", actionPoints="..actionPoints..", skillFactor="..skillFactor..", MCfactor="..MCfactor..", attributeBonus="..attributeBonus..", intelligenceBonus="..intelligenceBonus..", actionpointFactor="..actionpointFactor..", minorIncrease="..minorIncrease..".");
 
             while minorIncrease > 0 do --for the rare case that an action results in two level ups, we have this loop
 
