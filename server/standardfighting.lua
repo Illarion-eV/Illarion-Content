@@ -1481,7 +1481,7 @@ function CalculateMovepoints(Attacker)
         end
     end
 
-    return math.max(7, weaponFightpoints / common.GetAttributeBonus(Attacker.agility,0.2)) --Dividing the time by a factor is equal to multiplying the damage per second with the factor.
+    return math.max(7, weaponFightpoints / (1+common.GetAttributeBonus(Attacker.agility,0.2))) --Dividing the time by a factor is equal to multiplying the damage per second with the factor.
 end
 
 --- Reduce the attacker movepoints by the fitting value.
