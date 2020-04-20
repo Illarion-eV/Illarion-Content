@@ -251,7 +251,7 @@ local function startGame (npc)
     if checkTeamList(teamEast) == 0 then
         common.TalkNLS(npc,Character.say,
                         "Wie sollen wir Zwiebelball spielen, wenn in der Mannschaft Ost keine Spieler sind?",
-                        "How should we play onionball if Team West has no players?")
+                        "How should we play onionball if Team East has no players?")
         return
     end
     if checkTeamList(teamWest) == 0 then
@@ -332,7 +332,7 @@ local function checkGameRules(npc)
     if checkTeamList(teamEast) == 0 then
         common.TalkNLS(npc,Character.say,
                         "Wie sollen wir Zwiebelball spielen, wenn in der Mannschaft Ost keine Spieler sind?",
-                        "How should we play onionball if Team West has no players?")
+                        "How should we play onionball if Team East has no players?")
         return false
     end
     if checkTeamList(teamWest) == 0 then
