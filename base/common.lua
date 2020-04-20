@@ -2358,6 +2358,10 @@ function M.GetQualityBonus(item, range)
 
 end
 
+function M.GetQualityBonusStandard(item)
+    return M.GetQualityBonus(item, 0.1)
+end
+
 --- Searches in an area for an item id.
 -- @param CenterPos  Position struct of the center position of the area.
 -- @param ItemId  The ID of the sought item.

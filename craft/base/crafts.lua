@@ -602,11 +602,16 @@ end
 
 function Craft:generateQuality(user, productId, toolItem)
 
+    local product = self.products[productId]
+
     if self.npcCraft then
         return 999
     end
+    
+    local gemBonus = tonumber(self:getCurrentGemBonus(user))
+    local userDexterity = user:increaseAttrib("dexterity", 0)
 
-    local product = self.products[productId]
+    --Old    
     local scalar
 
     if product.learnLimit == product.difficulty then
@@ -615,19 +620,35 @@ function Craft:generateQuality(user, productId, toolItem)
         scalar = (self:getSkill(user) - product.difficulty) / (math.min(100, product.learnLimit) - product.difficulty) * 100
     end
 
-    local quality = common.Scale(4, 8, scalar)
     local toolQuality = common.getItemQuality(toolItem)
-    local gemBonus = tonumber(self:getCurrentGemBonus(user))
+    local oldquality = common.Scale(4, 8, scalar)
     local glyphBonus = glypheffects.effectOnQuality(user) + glypheffects.effectBloodToQuality(user)
-
-    quality = quality + math.random(math.min(0,((toolQuality-5)/2)),math.max(0,((toolQuality-5)/2 ))+ gemBonus/12) + glyphBonus; -- +2 for a perfect tool, -2 for a crappy tool, +1 per each 12% gem Bonus to max
-
-    quality = math.floor(quality)
+    oldquality = oldquality + math.random(math.min(0,((toolQuality-5)/2)),math.max(0,((toolQuality-5)/2 ))+ gemBonus/12) + glyphBonus; -- +2 for a perfect tool, -2 for a crappy tool, +1 per each 12% gem Bonus to max
+    oldquality = math.floor(oldquality)
+    oldquality = common.Limit(oldquality, 1, common.ITEM_MAX_QUALITY)
+    oldquality = oldquality + math.random(-1,1); -- Final scatter!
+    oldquality = common.Limit(oldquality, 1, common.ITEM_MAX_QUALITY)
+    user:inform("Old quality: "..oldquality..".")
+    -- Old
+   
+    -- New
+    local quality = 5
+    quality = quality*(1+common.GetAttributeBonusHigh(userDexterity)+common.GetQualityBonusStandard(toolItem))+gemBonus/100 --Apply boni of dexterity, tool quality and gems
+    
+    local randomValue = math.random()
+    
+    if randomValue < 1/3 then 
+        quality = common.Round(quality)
+    elseif randomValue < 2/3+(0.5*(quality-common.Round(quality))) then
+        quality = common.Round(quality)+1
+    else
+        quality = common.Round(quality)-1
+    end
+    
     quality = common.Limit(quality, 1, common.ITEM_MAX_QUALITY)
-
-    quality = quality + math.random(-1,1); -- Final scatter!
-    quality = common.Limit(quality, 1, common.ITEM_MAX_QUALITY)
-
+    user:inform("New quality: "..quality..".")
+    -- New
+    
     local durability = common.ITEM_MAX_DURABILITY
     return common.calculateItemQualityDurability(quality, durability)
 
