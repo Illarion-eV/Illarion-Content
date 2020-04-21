@@ -634,7 +634,7 @@ function Craft:generateQuality(user, productId, toolItem)
     -- New
     local quality = 5
     quality = quality*(1+common.GetAttributeBonusHigh(userDexterity)+common.GetQualityBonusStandard(toolItem))+gemBonus/100 --Apply boni of dexterity, tool quality and gems
-    
+    quality = common.Limit(quality, 1, 8.4999999) --Limit to a reasonable maximum to avoid overflow ("everything quality 9"). The value here needs unnatural attributes.
     local randomValue = math.random()
     
     if randomValue < 1/3 then 
