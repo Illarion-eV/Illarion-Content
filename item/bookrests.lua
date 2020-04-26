@@ -412,7 +412,7 @@ function writeBulletinBoardStep2(User, Item, newTitleContent)
             return
         end
         local newTextContent = dialogText:getInput()
-        if string.len (newTextContent) > 1000 then
+        if string.len (newTextContent) > 986 then
             User:inform("Dein Text ist zu lang.","The text is too long.",Character.highPriority)
             return
         end
@@ -420,7 +420,7 @@ function writeBulletinBoardStep2(User, Item, newTitleContent)
         writeBulletinBoardStep3(User, Item, newTitleContent, newTextContent)
     end
 
-    local dialogText = InputDialog(title, text, false, 1000, callback)
+    local dialogText = InputDialog(title, text, false, 986, callback)
     User:requestInputDialog(dialogText)
 end
 

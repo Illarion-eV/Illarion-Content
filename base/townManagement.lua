@@ -152,7 +152,7 @@ function TownAnnouncementInput(User,toolTown)
             return
         else
             local writtenText = dialog:getInput()
-            if string.len (writtenText) > 1000 then
+            if string.len (writtenText) > 986 then
                 User:inform("Deine Ankündigung ist zu lang.","The announcement is too long.",Character.highPriority)
             else
                 --write
@@ -169,7 +169,7 @@ function TownAnnouncementInput(User,toolTown)
             end
         end
     end
-    local dialog = InputDialog(title, text, false, 1000, callback)
+    local dialog = InputDialog(title, text, false, 986, callback)
     User:requestInputDialog(dialog)
 
 end
