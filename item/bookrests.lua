@@ -412,7 +412,7 @@ function writeBulletinBoardStep2(User, Item, newTitleContent)
             return
         end
         local newTextContent = dialogText:getInput()
-        if string.len (newTextContent) > 255 then
+        if string.len (newTextContent) > 1000 then
             User:inform("Dein Text ist zu lang.","The text is too long.",Character.highPriority)
             return
         end
@@ -420,7 +420,7 @@ function writeBulletinBoardStep2(User, Item, newTitleContent)
         writeBulletinBoardStep3(User, Item, newTitleContent, newTextContent)
     end
 
-    local dialogText = InputDialog(title, text, false, 255, callback)
+    local dialogText = InputDialog(title, text, false, 1000, callback)
     User:requestInputDialog(dialogText)
 end
 
@@ -479,8 +479,8 @@ function removeFromBulletinBoard(User, Item)
 end
 
 function confirmRemoveBulletinMessage(User, bulletinMessage)
-    local title = bulletinMessage.Title
-    local text = bulletinMessage.Text.."\n~"..bulletinMessage.Author
+    local title = common.GetNLS(User, "Anschlagtafel", "Bulletin board")
+    local text = common.GetNLS(User, "Bestätige das Entfernen der Nachricht.", "Confirm removing the message.")
 
     local dialogOptions = {
         { icon = 0, text = common.GetNLS(User, "Entferne die Nachricht", "Remove the message"), func = removeBulletinMessage, args = { User, bulletinMessage} },
