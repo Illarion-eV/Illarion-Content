@@ -125,7 +125,7 @@ function M.buyPet(user, selectionTracker)
                     if money.CharHasMoney(user, buyAblePets[selectionTracker.selectedPet].priceInGold*10000) then
                         base.addNewPetToCharacter(user, {name = selectionTracker.petName, race = buyAblePets[selectionTracker.selectedPet].petId, colour = buyAblePets[selectionTracker.selectedPet].colour})
                         user:inform("Du hast ein Tier erhalten! Dazu erhälst du ein Pergament mit Hinweisen.", "You have an animal now! You also got a parchment with some information.")
-                        common.CreateItem(user, 2745, 1, 999, {nameDe = "Hinweise", nameEn = "Information", petInformation = "true"}, 254)
+                        common.CreateItem(user, 2745, 1, 999, {nameDe = "Hinweise", nameEn = "Information", petInformation = "true"})
                     else
                         user:inform("Dir fehlt das nötige Geld!", "You don't have enough money!")
                     end
