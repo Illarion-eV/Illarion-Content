@@ -979,13 +979,13 @@ function M.CreateItem(character, id, amount, quality, data, wear)
         error("The parameter 'quality' must be a number between 101 and 999.")
     end
 
-    if data ~= nil and not _isTable(data) then
+    if not _isTable(data) then
         error("The parameter 'data' is not a table as it was expected.")
     end
     
-    if wear ~= nil and not _isNumber(wear) then
+    if not _isNumber(wear) then
         error("The parameter 'wear' must be a number.")
-    elseif wear ~= nil and (wear < 1 or wear > 254) then
+    elseif wear < 1 or wear > 254 then
         error("The parameter 'wear' must be a number between 1 and 254.")
     end
 
