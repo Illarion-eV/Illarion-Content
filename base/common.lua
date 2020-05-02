@@ -979,7 +979,7 @@ function M.CreateItem(character, id, amount, quality, data)
         error("The parameter 'quality' must be a number between 101 and 999.")
     end
 
-    if not _isTable(data) then
+    if data ~= nil and not _isTable(data) then
         error("The parameter 'data' is not a table as it was expected.")
     end
 
