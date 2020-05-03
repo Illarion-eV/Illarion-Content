@@ -215,19 +215,11 @@ end
 -- Generate working time for gathering actions
 function GatheringCraft:GenWorkTime(User, toolItem)
 
-  local minTime = 12; --Minimum time for skill 100 and normal tool
-  local maxTime = 60; --Maximum time for skill 0 and normal tool
+  local minTime = 15; --Minimum time for skill 100
+  local maxTime = 45; --Maximum time for skill 0
 
   local skill  = common.Limit(User:getSkill(self.LeadSkill), 0, 100);
   local workTime = common.Scale(maxTime, minTime, skill); --scaling with the skill
-
-  -- apply the quality bonus
-  if ( toolItem ~= nil ) then
-    local qual = common.Limit(math.floor(toolItem.quality/100), 1, 9); -- quality integer in [1,9]
-    local gemBonus = tonumber(gems.getGemBonus(toolItem));
-    workTime = workTime - workTime*0.20*((qual-5)/4); --+/-20% depending on tool quality
-    workTime = workTime - workTime*0.005*gemBonus; -- 36% (lvl3) lead to 18% time saving
-  end
 
   workTime = math.ceil(workTime*self.FastActionFactor); --for fast actions.
 
