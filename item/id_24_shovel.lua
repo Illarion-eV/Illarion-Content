@@ -22,7 +22,6 @@ local transformation_dog = require("alchemy.teaching.transformation_dog")
 local claydigging = require("craft.gathering.claydigging")
 local sanddigging = require("craft.gathering.sanddigging")
 local metal = require("item.general.metal")
-local skillTransfer = require("base.skillTransfer")
 
 local M = {}
 
@@ -101,9 +100,6 @@ end
 
 function M.UseItem(User, SourceItem, ltstate)
 
-    if skillTransfer.skillTransferInformMining(User) then
-        return
-    end
     local toolItem = User:getItemAt(5)
     if ( toolItem.id ~=24 ) then
         toolItem = User:getItemAt(6)

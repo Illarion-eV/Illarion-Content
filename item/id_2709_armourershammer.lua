@@ -17,16 +17,12 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local armourer = require("craft.final.armourer")
 local metal = require("item.general.metal")
-local skillTransfer = require("base.skillTransfer")
 
 local M = {}
 
 M.LookAtItem = metal.LookAtItem
 
 function M.UseItem(User, SourceItem, ltstate)
-    if skillTransfer.skillTransferInformSmithing(User) then
-        return
-    end    
     armourer.armourer:showDialog(User, SourceItem)
 end
 

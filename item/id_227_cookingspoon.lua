@@ -18,16 +18,12 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local cooking = require("craft.final.cooking")
 local wood = require("item.general.wood")
-local skillTransfer = require("base.skillTransfer")
 
 local M = {}
 
 M.LookAtItem = wood.LookAtItem
 
 function M.UseItem(User, SourceItem, ltstate)
-    if skillTransfer.skillTransferInformCookingHerbloreFarming(User) then
-        return
-    end
     cooking.cooking:showDialog(User, SourceItem)
 end
 

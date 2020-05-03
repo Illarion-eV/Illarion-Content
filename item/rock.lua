@@ -18,7 +18,6 @@ local common = require("base.common")
 local lookat = require("base.lookat")
 local teacher = require("alchemy.base.teacher")
 local mining = require("craft.gathering.mining")
-local skillTransfer = require("base.skillTransfer")
 
 local M = {}
 
@@ -46,9 +45,7 @@ function M.UseItem(User, SourceItem, ltstate)
         "You have to stand next to a rock to mine.");
         return
     end
-    if skillTransfer.skillTransferInformMining(User) then
-        return
-    end
+
     mining.StartGathering(User, SourceItem, ltstate);
 
 end

@@ -21,7 +21,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local grainharvesting = require("craft.gathering.grainharvesting")
 local metal = require("item.general.metal")
-local skillTransfer = require("base.skillTransfer")
 
 local M = {}
 
@@ -55,9 +54,6 @@ local function getGrain(User)
 end
 
 function M.UseItem(User, SourceItem, ltstate)
-    if skillTransfer.skillTransferInformCookingHerbloreFarming(User) then
-        return
-    end
     local grain = getGrain(User);
     if grain ~= nil then
         grainharvesting.StartGathering(User, grain, ltstate);

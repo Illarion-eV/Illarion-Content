@@ -17,7 +17,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- sowing seeds
 local common = require("base.common")
 local sowing = require("craft.gathering.sowing")
-local skillTransfer = require("base.skillTransfer")
 
 local M = {}
 
@@ -73,9 +72,6 @@ local M = {}
 
 
 function M.UseItem(User, SourceItem, ltstate)
-    if skillTransfer.skillTransferInformCookingHerbloreFarming(User) then
-        return
-    end
     sowing.StartGathering(User, SourceItem, ltstate);
 end
 

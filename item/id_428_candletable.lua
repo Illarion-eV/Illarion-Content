@@ -18,14 +18,10 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE items SET itm_script='item.id_428_candletable' WHERE itm_id IN (428);
 
 local candledipping = require("craft.intermediate.candledipping")
-local skillTransfer = require("base.skillTransfer")
 
 local M = {}
 
 function M.UseItem(User, SourceItem, ltstate)
-    if skillTransfer.skillTransferInformCookingHerbloreFarming(User) then
-        return
-    end
     candledipping.candledipping:showDialog(User, SourceItem)
 end
 

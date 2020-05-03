@@ -21,7 +21,6 @@ local common = require("base.common")
 local lookat = require("base.lookat")
 local climbing = require("content.climbing")
 local claydigging = require("craft.gathering.claydigging")
-local skillTransfer = require("base.skillTransfer")
 
 local M = {}
 
@@ -36,16 +35,13 @@ function M.UseItem(User, SourceItem, ltstate)
         common.HighInformNLS(User,
             "Du brauchst ein Seil um hier hinab zu klettern.",
             "You need a rope to climb down here.")
-        if climbing.hasRope(User) then
-            climbing.climbDown(User)
-        end
+            if climbing.hasRope(User) then
+                climbing.climbDown(User)
+            end
         return
         end
     end
 
-   if skillTransfer.skillTransferInformMining(User) then
-        return
-    end
     claydigging.StartGathering(User, SourceItem, ltstate)
 end
 
@@ -55,8 +51,8 @@ function M.LookAtItem(User, Item)
 
     if Item.pos == holePosition then
         lookAt.name = common.GetNLS(User,
-            "Ein tiefes Loch",
-            "A deep hole")
+            "Ein tiefes Loch.",
+            "A deep hole.")
         lookAt.description = common.GetNLS(User,
         "Dieses Loch scheint bodenlos.",
         "This hole looks bottomless.")

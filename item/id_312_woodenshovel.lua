@@ -18,23 +18,12 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local sieving = require("craft.intermediate.sieving")
 local wood = require("item.general.wood")
 local common = require("base.common")
-local skillTransfer = require("base.skillTransfer")
 
 local M = {}
 
 M.LookAtItem = wood.LookAtItem
 
 function M.UseItem(User, SourceItem, ltstate)
-    if common.GetItemInArea(User.pos, 727, 1, false) == true and common.GetItemInArea(User.pos, 313, 1, false) == false and common.GetItemInArea(User.pos, 250, 1, false) == false then
-        if skillTransfer.skillTransferInformMining(User) then
-            return
-        end
-    end
-    if common.GetItemInArea(User.pos, 727, 1, false) == false and common.GetItemInArea(User.pos, 313, 1, false) == false and common.GetItemInArea(User.pos, 250, 1, false) == true then
-        if skillTransfer.skillTransferInformCookingHerbloreFarming(User) then
-            return
-        end
-    end
     sieving.sieving:showDialog(User, SourceItem)
 end
 

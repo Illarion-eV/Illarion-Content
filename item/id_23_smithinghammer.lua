@@ -18,16 +18,12 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local blacksmithing = require("craft.final.blacksmithing")
 local metal = require("item.general.metal")
-local skillTransfer = require("base.skillTransfer")
 
 local M = {}
 
 M.LookAtItem = metal.LookAtItem
 
 function M.UseItem(User, SourceItem, ltstate)
-    if skillTransfer.skillTransferInformSmithing(User) then
-        return
-    end
     blacksmithing.blacksmithing:showDialog(User, SourceItem)
 end
 

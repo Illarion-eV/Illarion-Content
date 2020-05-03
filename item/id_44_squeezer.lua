@@ -17,14 +17,10 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE items SET itm_script='item.id_44_squeezer' WHERE itm_id IN (44);
 
 local pressing = require("craft.intermediate.pressing")
-local skillTransfer = require("base.skillTransfer")
 
 local M = {}
 
 function M.UseItem(User, SourceItem, ltstate)
-    if skillTransfer.skillTransferInformCookingHerbloreFarming(User) then
-        return
-    end
     pressing.pressing:showDialog(User, SourceItem)
 end
 
