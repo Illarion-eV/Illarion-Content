@@ -30,14 +30,14 @@ learnLimit: Maximum skill level the user can reach with the triggering action.
 ]]
 
 --Learning speed - Change here if you're unhappy with the learning speed. Skillgain scales in a linear way.
-local scalingFactor = 500 --Here, you can mod the learning speed. Higher value=faster
+local scalingFactor = 500 --Here, you can mod the learning speed. Higher value=faster. It is the minor skill increase for an action with skill = 0 and all other parameters nominal as per definitions below. 10000 minor skill points make a major skill point.
 
 --Constants - Do not change unless you know exactly what you're doing!
 local amplification = 100 --An 'abritrary' value that governs the 'resolution' of the MC function.
-local damping = 0.0001
-local lowerBorder = 2.5 * amplification / damping --below 2.5 % of time spent online, no additional bonus is granted
-local normalMC = 4 * lowerBorder --A 'normal' player invests 4x the time (=10 %) into skill related actions
-local normalAP = 50 --How many movepoints does a 'normal' action take? Default=50
+local damping = 0.0001 --This value determines how fast the MC system reacts on changed player behaviour.
+local lowerBorder = 2.5 * amplification / damping --below 2.5 % of time spent online, no additional bonus is granted.
+local normalMC = 4 * lowerBorder --A 'normal' player invests 4x the time (=10 %) into skill related actions.
+local normalAP = 50 --How many movepoints does a 'normal' action take? Default=50.
 --Constants - end
     
 function M.learn(user, skill, actionPoints, learnLimit)
