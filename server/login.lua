@@ -22,7 +22,6 @@ local money = require("base.money")
 local townTreasure = require("base.townTreasure")
 local gems = require("base.gems")
 local factionLeader = require("scheduled.factionLeader")
-local skillTransfer = require("base.skillTransfer")
 local areas = require("content.areas")
 local hairdresser = require("npc.hairdresser")
 local seafaring = require("base.seafaring")
@@ -233,8 +232,6 @@ local payNow
 
 function M.onLogin( player )
 
-    skillTransfer.setQuestStatusForNoSkillChars(player)
-
     welcomeNewPlayer(player)
 
     world:gfx(31, player.pos) --A GFX that announces clearly: A player logged in.
@@ -333,7 +330,6 @@ function M.onLogin( player )
 end
 
 function showNewbieDialog(player)
-    skillTransfer.setNewbieQuestStatus(player)
 
     local getText = function(deText,enText) return common.GetNLS(player, deText, enText) end
 

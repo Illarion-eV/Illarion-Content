@@ -21,46 +21,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local M = {}
 
-function M.setNewbieQuestStatus(user)
-    user:setQuestProgress(40, 1)
-    user:setQuestProgress(41, 1)
-    user:setQuestProgress(42, 1)
-    user:setQuestProgress(43, 1)
-end
-
-function M.setQuestStatusForNoSkillChars(user)
-    if user:getQuestProgress(43) ~= 0 then
-        return
-    end
-    
-    local cookingBakingTable = user:getSkillValue(Character.cookingAndBaking)
-    local herbloreTable = user:getSkillValue(Character.herblore)
-    local farmingTable = user:getSkillValue(Character.farming)
-    cookingBakingTable = cookingBakingTable or {major = 0, minor = 0}
-    herbloreTable = herbloreTable or {major = 0, minor = 0}
-    farmingTable = farmingTable or {major = 0, minor = 0}
-    
-    if cookingBakingTable.major < 1 and herbloreTable.major < 1 and farmingTable.major < 1 then
-        user:setQuestProgress(40, 1)
-    end
-    
-    local miningTable = user:getSkillValue(Character.mining)
-    miningTable = miningTable or {major = 0, minor = 0}
-
-    if miningTable.major < 1 then
-        user:setQuestProgress(41, 1)
-    end
-    
-    local blacksmithingTable = user:getSkillValue(Character.blacksmithing)
-    blacksmithingTable = blacksmithingTable or {major = 0, minor = 0}
-
-    if blacksmithingTable.major < 1 then
-        user:setQuestProgress(42, 1)
-    end
-    
-    user:setQuestProgress(43, 1)
-end
-
 local function transferSkillCookingHerbloreFarming(user)
     local cookingBakingTable = user:getSkillValue(Character.cookingAndBaking)
     local herbloreTable = user:getSkillValue(Character.herblore)
