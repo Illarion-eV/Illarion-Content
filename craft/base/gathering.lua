@@ -168,16 +168,15 @@ function GatheringCraft:FindRandomItem(User)
             if TargetPos == nil then
                 return false
             end
-                world:createMonster(self.Monsters[ra].MonsterID, TargetPos, 20);
-                if ( self.Monsters[ra].GFX ~= nil ) then
-                    world:gfx(self.Monsters[ra].GFX, TargetPos);
-                end
-                if(self.Monsters[ra].Sound ~= nil) then
-                    world:makeSound(self.Monsters[ra].Sound, TargetPos);
-                end
-                common.InformNLS(User, self.Monsters[ra].MessageDE, self.Monsters[ra].MessageEN);
-                return true;
+            world:createMonster(self.Monsters[ra].MonsterID, TargetPos, 20);
+            if ( self.Monsters[ra].GFX ~= nil ) then
+                world:gfx(self.Monsters[ra].GFX, TargetPos);
             end
+            if(self.Monsters[ra].Sound ~= nil) then
+                world:makeSound(self.Monsters[ra].Sound, TargetPos);
+            end
+            common.InformNLS(User, self.Monsters[ra].MessageDE, self.Monsters[ra].MessageEN);
+            return true;
         end
     end
 
