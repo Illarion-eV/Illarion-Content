@@ -18,7 +18,6 @@ local common = require("base.common")
 local treasure = require("item.base.treasure")
 local gems = require("base.gems")
 local shard = require("item.shard")
-local glypheffects = require("magic.glypheffects")
 
 local M = {}
 
@@ -169,9 +168,6 @@ function GatheringCraft:FindRandomItem(User)
             if TargetPos == nil then
                 return false
             end
-            if glypheffects.effectPreventMonsterOnGathering(User) then
-                return false
-            else
                 world:createMonster(self.Monsters[ra].MonsterID, TargetPos, 20);
                 if ( self.Monsters[ra].GFX ~= nil ) then
                     world:gfx(self.Monsters[ra].GFX, TargetPos);
@@ -228,9 +224,10 @@ end
 
 M.GatheringCraft = GatheringCraft
 
-M.prob_frequently = 0.005; --0.5% (1/200)
-M.prob_occasionally = 0.0025; --0.25% (1/400)
-M.prob_rarely = 0.001; --0.1% (1/1000)
-M.prob_extremely_rarely = 0.00025; --0.025% (1/4000)
+M.prob_frequently = 0.0005; --0.05% (1/2000)
+M.prob_occasionally = 0.00025; --0.025% (1/4000)
+M.prob_rarely = 0.0001; --0.01% (1/10000)
+M.prob_extremely_rarely = 0.000025; --0.0025% (1/40000)
+M.prob_element = 0.00025; --0.025% (1/4000) *Placeholder for now*
 
 return M
