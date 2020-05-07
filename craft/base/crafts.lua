@@ -608,21 +608,20 @@ function Craft:generateQuality(user, productId, toolItem)
     local gemBonus = tonumber(self:getCurrentGemBonus(user))
     local userDexterity = user:increaseAttrib("dexterity", 0)
 
-    local quality = 5
-    quality = quality*(1+common.GetAttributeBonusHigh(userDexterity)+common.GetQualityBonusStandard(toolItem))+gemBonus/100 --Apply boni of dexterity, tool quality and gems.
-    quality = common.Limit(quality, 1, 8.4999999) --Limit to a reasonable maximum to avoid overflow ("everything quality 9"). The value here needs unnatural attributes.
-    local randomValue = math.random()
-    
-    if randomValue < 1/3 then --1/3 of all items are of the rounded value of the average quality.
-        quality = common.Round(quality)
-    elseif randomValue < 2/3+(0.5*(quality-common.Round(quality))) then --This math distributes the remaining 2/3 of all items at +/-1 around the rounded value of the average quality in a way that the average is maintained.
-        quality = common.Round(quality)+1
-    else
-        quality = common.Round(quality)-1
+    local meanQuality = 5
+    meanQuality = meanQuality*(1+common.GetAttributeBonusHigh(userDexterity)+common.GetQualityBonusStandard(toolItem))+gemBonus/100 --Apply boni of dexterity, tool quality and gems.
+    meanQuality = common.Limit(meanQuality, 1, 8.5) --Limit to a reasonable maximum to avoid overflow ("everything quality 9"). The value here needs unnatural attributes.
+    local quality = 1 --Minimum quality value.
+    local rolls = 8 --There are eight chances to increase the quality by one. This results in a quality distribution 1-9.
+    local probability = (meanQuality-1)/rolls --This will result in a binominal distribution of quality with meanQuality as average value.
+        
+    for i=1,rolls do
+        if math.random()<probability then
+            quality=quality+1
+        end
     end
     
     quality = common.Limit(quality, 1, common.ITEM_MAX_QUALITY)
-    
     local durability = common.ITEM_MAX_DURABILITY
     return common.calculateItemQualityDurability(quality, durability)
 
