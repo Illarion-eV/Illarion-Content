@@ -45,10 +45,12 @@ local SalaveshLookAt
 local AkaltutLookAt
 local ronaganLookAt
 local bulletinLookAt
+local tradingPostLookAt
 local usingHomeTeleporter
 local NecktieHomeTravel
 local WonderlandTeleporter
 local showBulletinBoard
+local showTradingPost
 
 local salaveshBookrest = position(741, 406, -3)
 local akaltutBookrest = position(430, 815, -9)
