@@ -26,6 +26,9 @@ local M = {}
  -- Cadomyr, Runewick, Galmair
 M.townManagmentItemPos = {position(116, 527, 0), position(951, 786, 1), position(344, 223, 0)}
 
+local TownAnnouncement
+local TownAnnouncementShow
+local TownAnnouncementInput
 local TownGuard
 local TownLicence
 local TownKey
@@ -123,7 +126,7 @@ function TownAnnouncementShow(User,toolTown)
     local title = common.GetNLS(User, "Derzeitige Ankündigung", "Current announcement")
     
     --read
-    options = {"announcementCadomyr", "announcementRunewick", "announcementGalmair"}
+    local options = {"announcementCadomyr", "announcementRunewick", "announcementGalmair"}
     
     if options[toolTown] then 
         found, value = ScriptVars:find(options[toolTown])
@@ -156,8 +159,8 @@ function TownAnnouncementInput(User,toolTown)
                 User:inform("Deine Ankündigung ist zu lang.","The announcement is too long.",Character.highPriority)
             else
                 --write
-                options = {"announcementCadomyr", "announcementRunewick", "announcementGalmair"}
-                townNames = {"Cadomyr", "Runewick", "Galmair"}
+                local options = {"announcementCadomyr", "announcementRunewick", "announcementGalmair"}
+                local townNames = {"Cadomyr", "Runewick", "Galmair"}
     
                 if options[toolTown] then 
                     ScriptVars:set(options[toolTown], writtenText)
