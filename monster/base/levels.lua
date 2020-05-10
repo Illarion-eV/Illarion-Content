@@ -316,7 +316,7 @@ level[1175]=6 --Evil Crazed Ettin/Fighter/Plate/Blunt
 
 function M.getLevel(monster)
 
-    monsterId = monster:getMonsterType()
+    local monsterId = monster:getMonsterType()
     if level[monsterId] then
         return level[monsterId]
     else
