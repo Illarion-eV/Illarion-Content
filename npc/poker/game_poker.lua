@@ -81,7 +81,7 @@ function M.newPokerTable(
         tableSize          = #( listPosSeat ),
         
         -- semi dynamic part
-        isInit,
+        isInit             = false,
         
         -- dynamic part
         gameState          = 0,     -- 0: inactive, 1: small blind, 2: big blind, 3: preflop, 4: flop, 5: turn, 6: river
@@ -270,6 +270,7 @@ function M.newPokerTable(
         end;
         
         -- test for one pair
+        local kicker2
         local kicker3;
         start = 1;
         i = 2;
@@ -324,7 +325,7 @@ function M.newPokerTable(
     local clearField = function( p )
         local delete = true;
         while delete and world:isItemOnField( p ) do
-            item = world:getItemOnField( p );
+            local item = world:getItemOnField( p );
             if ( item.wear < 255 ) or ( ( item.wear == 255 ) and ( ( item.id == self.hundredId ) or ( item.id == self.unitId ) or ( item.id == self.hundredthId ) or ( item.id == self.buttonId ) ) ) then
                 world:erase( item, item.number );
             else
@@ -569,7 +570,7 @@ function M.newPokerTable(
             init();
             local oldNumberPlayer = self.numberPlayer;
             for i=1,self.tableSize do
-                posi=self.listPosSeat[i];
+                local posi=self.listPosSeat[i];
                 if world:isCharacterOnField(posi) then
                     local charOnField = world:getCharacterOnField(posi);
                     if not self.listPlayer[i] or (self.listPlayer[i].id ~= charOnField.id) then
@@ -655,6 +656,7 @@ function M.newPokerTable(
                 self.npcDealer:talk(Character.say, "Seat "..self.activePlayer..", it is your turn.");
                
                 showAvailableCards();
+                local str
                 
                 if self.maxBet == 0 then
                     str = "check and bet";
@@ -764,6 +766,7 @@ function M.newPokerTable(
                         cont = true;
                     elseif string.find( message, "[Bb]et" ) then
                         local amount;
+                        local _
                         _, _, amount = string.find( message, "[Bb]et%s(%d+)")
                         amount = tonumber( amount );
                         if amount then
@@ -802,6 +805,7 @@ function M.newPokerTable(
                         end;
                     elseif string.find( message, "[Rr]aise" ) then
                         local amount;
+                        local _
                         _, _, amount = string.find( message, "[Rr]aise%s(%d+)");
                         amount = tonumber( amount );
                         if amount then
