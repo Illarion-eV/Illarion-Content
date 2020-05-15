@@ -602,8 +602,8 @@ function M.ToolBreaks(user, item, workTime)
         return false
     end
     
-    loss=math.floor(workTime/180) --Each durability point equals 18 seconds of crafting time. Hence, a new tool lasts 30 minutes.
-    remainder=workTime-loss
+    local loss=math.floor(workTime/180) --Each durability point equals 18 seconds of crafting time. Hence, a new tool lasts 30 minutes.
+    local remainder=workTime-loss
     
     if (math.random(1, 100) < (remainder/1.8)) then 
         loss=loss+1
@@ -2340,6 +2340,7 @@ end
 function M.GetQualityBonus(item, range)
 
     local bonus
+    local quality
     if item ~= nil and item.quality ~= 0 and item.quality < 1000 and range < 1 and range > 0 then
         quality = math.floor(item.quality/100)
         bonus=range * ((quality-1) / 4) - range -- +/- range for quality 1-9. Neutral quality (bonus = 0) at 5
@@ -2698,7 +2699,7 @@ end
 --[[ Drop a blood spot on the ground at a specified location.
 @param Posi The location where the blood spot is placed]]--
 function M.dropBlood(Posi, bloodWear)
-    usedWear = bloodWear or 2
+    local usedWear = bloodWear or 2
     if world:isItemOnField(Posi) then
         return --no blood on tiles with items on them!
     end
