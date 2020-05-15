@@ -243,7 +243,7 @@ function M.newPokerTable(
         
         -- test for two pairs
         start = 1;
-        kicker1 = nil;
+        local kicker1 = nil;
         local pairval1;
         local pairval2;
         i = 2;
