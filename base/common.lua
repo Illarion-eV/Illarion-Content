@@ -697,12 +697,12 @@ end
 function M.calculateItemQualityDurability (quality, durability)
     local qualityNumber
     if M.IsNilOrEmpty(quality) then
-        qualityNumber = ITEM_DEFAULT_QUALITY
+        qualityNumber = M.ITEM_DEFAULT_QUALITY
     else
         qualityNumber= tonumber(quality)
     end
     if qualityNumber < 1 or qualityNumber > M.ITEM_MAX_QUALITY then
-        qualityNumber = ITEM_DEFAULT_QUALITY
+        qualityNumber = M.ITEM_DEFAULT_QUALITY
     end
     
     local durabilityNumber = tonumber(durability)
@@ -1145,6 +1145,8 @@ function M.GetStiffness(Character)
 
     return StiffnessVal
 end
+
+local interruptTable
 
 --[[
     ResetInterruption
@@ -1831,7 +1833,7 @@ end
 --[[Check if a char holds an item from a list in hand
 @return true if item with id is in any hand slot]]--
 function M.hasItemIdInHand(user, itemIds)
-    if type(row) == "table" then
+    if type(itemIds) ~= "table" then
         itemIds = {itemIds}
     end
     local leftTool = user:getItemAt(Character.left_tool)
@@ -1848,7 +1850,7 @@ end
 --[[Check if a char holds an item from a list in hand
 @return item if item with id is in any hand slot]]--
 function M.getItemInHand(user, itemIds)
-    if type(row) == "table" then
+    if type(itemIds) ~= "table" then
         itemIds = {itemIds}
     end
     local leftTool = user:getItemAt(Character.left_tool)
