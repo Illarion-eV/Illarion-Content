@@ -92,8 +92,8 @@ function talkNPC:receiveText(npcChar, texttype, player, text)
 end
 
 function talkNPC:nextCycle(npcChar, counter)
-    seenNPCs = world:getNPCSInRangeOf(npcChar.pos,15)
-    seenPlayers =  world:getPlayersInRangeOf(npcChar.pos,15)
+    local seenNPCs = world:getNPCSInRangeOf(npcChar.pos,15)
+    local seenPlayers =  world:getPlayersInRangeOf(npcChar.pos,15)
     if (counter >= self._nextCycleText) then
         self._nextCycleText = math.random(3000, 6000) * math.max(1, (#seenNPCs)/2 + #seenPlayers -1) --5 to 10 minutes times NPCs+players around
         local german, english = self._cycleText:getRandomMessage()
