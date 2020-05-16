@@ -324,7 +324,8 @@ function M.MoveToField(char)
 
             end
             char:setQuestProgress(664,1)
-            StartVision(char,AmountStory,TypeStory)
+--            StartVision(char,AmountStory,TypeStory) AmountStory is nil
+            StartVision(char,nil,TypeStory)
         end
     end
     if char.pos == position(977,173,-6) and world:getItemOnField(position(977,173,-6)).id == 10 then
