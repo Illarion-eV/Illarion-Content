@@ -36,7 +36,7 @@ end
 function M.StartGathering(User, SourceAnimal, ltstate)
 
     local milking = gathering.GatheringCraft:new{LeadSkill = Character.husbandry, LearnLimit = 100}; -- id_2498_empty_bottle
-    milking:AddRandomPureElement(gathering.prob_extremely_rarely); -- Any pure element
+    milking:AddRandomPureElement(gathering.prob_element); -- Any pure element
     milking:AddRandomMagicGem(1, gathering.prob_extremely_rarely); -- Any latent magical gem
     milking:SetShard(gathering.prob_rarely,"Ein Splitter eines magischen Artefaktes hat sich im Fell des Tieres verfangen.", "A shard of a magical artifact was tangled in the fur of the animal."); -- Any shard
     milking:AddRandomItem(153,1,333,{},gathering.prob_occasionally,"Ein groﬂes Blatt hat sich im Fell des Tieres verfangen. Du betreibst zun‰chst ein wenig Fellpflege, bevor du weiter melkst.","A large leaf was tangled in the fur of the animal. You do a little grooming before you continue milking."); --Foot leaf

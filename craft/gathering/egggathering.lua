@@ -39,7 +39,7 @@ function M.StartGathering(User, SourceItem, ltstate)
     local EGG = 1150
 
     local egggathering = gathering.GatheringCraft:new{LeadSkill = Character.husbandry, LearnLimit = 100}; -- egg collecting
-    egggathering:AddRandomPureElement(gathering.prob_extremely_rarely); -- Any pure element
+    egggathering:AddRandomPureElement(gathering.prob_element); -- Any pure element
     egggathering:AddRandomMagicGem(1, gathering.prob_extremely_rarely); -- Any latent magical gem
     egggathering:SetShard(gathering.prob_rarely,"An einem Ei klebt ein Splitter eines magischen Artefaktes.", "A shard of a magical artifact is stuck to an egg."); -- Any shard
     egggathering:AddRandomItem(249,1,333,{},gathering.prob_occasionally,"Für dieses Nest wurde ein ganzes Bündel Getreide als Nistmaterial verwendet.","A bundle of grain was used as nesting material for this nest."); --bundle of grain

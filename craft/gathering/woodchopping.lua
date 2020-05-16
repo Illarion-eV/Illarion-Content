@@ -153,7 +153,7 @@ end
 function M.StartGathering(User, SourceItem, ltstate)
 
     local theCraft = gathering.GatheringCraft:new{LeadSkill = Character.woodcutting, LearnLimit = 100}; -- id_74_axe
-    theCraft:AddRandomPureElement(gathering.prob_extremely_rarely); -- Any pure element
+    theCraft:AddRandomPureElement(gathering.prob_element); -- Any pure element
     theCraft:AddRandomMagicGem(1, gathering.prob_extremely_rarely); -- Any latent magical gem
     theCraft:SetShard(gathering.prob_rarely,"Deine Axt stößt auf einen Splitter eines magischen Artefaktes.", "You hatchet hits a shard of a magical artifact."); -- Any shard
     theCraft:AddRandomItem(2441,1,333,{},gathering.prob_extremely_rarely,"Im Erdboden machst du einen alten, rostigen Helm aus. Ein Überbleibsel einer längst vergessenen Schlacht?","As you work you unearth an old rusty helmet. A remnant of a long-forgotten battle?"); --Storm cap

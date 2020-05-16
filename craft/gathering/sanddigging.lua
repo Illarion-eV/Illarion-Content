@@ -28,7 +28,7 @@ local M = {}
 function M.StartGathering(User, SourceItem, ltstate)
 
     local sanddigging = gathering.GatheringCraft:new{LeadSkill = Character.digging, LearnLimit = 100}; -- id_24_shovel
-    sanddigging:AddRandomPureElement(gathering.prob_extremely_rarely); -- Any pure element
+    sanddigging:AddRandomPureElement(gathering.prob_element); -- Any pure element
     sanddigging:AddRandomMagicGem(1, gathering.prob_extremely_rarely); -- Any latent magical gem
     sanddigging:SetShard(gathering.prob_rarely,"Im Sand erkennst du einen Splitter eines magischen Artefaktes.", "You spot a shard of a magical artifact in the sand."); -- Any shard
     sanddigging:AddRandomItem(3077,1,333,{},gathering.prob_extremely_rarely,"Eine funkelnde Münze liegt auf deinem Schaufelblatt. Hat sich die harte Arbeit doch gelohnt!","A tink of your shovel blade causes you to pause. Then to your surprise it turns out you struck a silver coin!"); --Silver coin

@@ -51,7 +51,7 @@ end
 function M.StartGathering(User, SourceItem, ltstate)
 
     local grainharvesting = gathering.GatheringCraft:new{LeadSkill = Character.farming, LearnLimit = 100}; -- id_271_scythe;
-    grainharvesting:AddRandomPureElement(gathering.prob_extremely_rarely); -- Any pure element
+    grainharvesting:AddRandomPureElement(gathering.prob_element); -- Any pure element
     grainharvesting:AddRandomMagicGem(1, gathering.prob_extremely_rarely); -- Any latent magical gem
     grainharvesting:SetShard(gathering.prob_rarely,"In einer Ähre hängt ein Splitter eines magischen Artefaktes.", "A shard of a magical artifact hangs in a spike."); -- Any shard
     grainharvesting:AddRandomItem(1840,1,333,{},gathering.prob_extremely_rarely,"Im Ackerboden ist ein angelaufender Kupferkelch zu finden.","In the arable soil you find a tarnished copper goblet."); --copper goblet

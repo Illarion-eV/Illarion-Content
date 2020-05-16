@@ -232,7 +232,7 @@ end
 function M.StartGathering(User, SourceItem, ltstate)
 
     local theCraft = gathering.GatheringCraft:new{LeadSkill = Character.herblore, LearnLimit = 100}; -- id_126_sickle
-    theCraft:AddRandomPureElement(gathering.prob_extremely_rarely); -- Any pure element
+    theCraft:AddRandomPureElement(gathering.prob_element); -- Any pure element
     theCraft:AddRandomMagicGem(1, gathering.prob_extremely_rarely); -- Any latent magical gem
     theCraft:SetShard(gathering.prob_rarely,"An einem Blatt klebt ein Splitter eines magischen Artefaktes.", "A shard of a magical artifact is stuck to a leaf."); -- Any shard
     theCraft:AddRandomItem(2183,1,333,{},gathering.prob_extremely_rarely,"Ein alter Krug liegt verlassen und einsam im Gebüsch.","An old mug lies abandoned and lonesome in the bushes."); --Mug

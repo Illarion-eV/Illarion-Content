@@ -23,7 +23,7 @@ local M = {}
 function M.StartGathering(User, SourceItem, ltstate)
 
     local honeygathering = gathering.GatheringCraft:new{LeadSkill = Character.husbandry, LearnLimit = 100}; -- id_1005_beehive
-    honeygathering:AddRandomPureElement(gathering.prob_extremely_rarely); -- Any pure element
+    honeygathering:AddRandomPureElement(gathering.prob_element); -- Any pure element
     honeygathering:AddRandomMagicGem(1, gathering.prob_extremely_rarely); -- Any latent magical gem
     honeygathering:SetShard(gathering.prob_rarely,"Im Honig findest du einen Splitter eines magischen Artefaktes.", "You find a shard of a magical artifact in the honey comb."); -- Any shard
     honeygathering:AddRandomItem(2744,1,333,{},gathering.prob_extremely_rarely,"Ein Imkerkollege scheint hier seine Pfeife vergessen zu haben. Du nimmst sie an dich.","A beekeeper colleague must have forgotten his pipe for smoking out the bees. You take it with you."); --Pipe

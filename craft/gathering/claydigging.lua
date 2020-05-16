@@ -28,7 +28,7 @@ local M = {}
 function M.StartGathering(User, SourceItem, ltstate)
 
     local claydigging = gathering.GatheringCraft:new{LeadSkill = Character.digging, LearnLimit = 100}; -- id_24_shovel
-    claydigging:AddRandomPureElement(gathering.prob_extremely_rarely); -- Any pure element
+    claydigging:AddRandomPureElement(gathering.prob_element); -- Any pure element
     claydigging:AddRandomMagicGem(1, gathering.prob_extremely_rarely); -- Any latent magical gem
     claydigging:SetShard(gathering.prob_rarely,"Im Matsch erkennst du einen Splitter eines magischen Artefaktes.", "You spot a shard of a magical artifact in the mud."); -- Any shard
     claydigging:AddRandomItem(2658,1,333,{},gathering.prob_extremely_rarely,"Du findest eine Knochenhand im Matsch. Sie umklammert ein altes Schwert.","You find a boney hand in the mud clutching an old sword."); --broadsword

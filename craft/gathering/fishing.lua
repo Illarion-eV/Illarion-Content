@@ -28,7 +28,7 @@ local M = {}
 function M.StartGathering(User, SourceItem, ltstate)
 
     local fishing = gathering.GatheringCraft:new{LeadSkill = Character.fishing, LearnLimit = 100}; -- id_72_fishingrod
-    fishing:AddRandomPureElement(gathering.prob_extremely_rarely); -- Any pure element
+    fishing:AddRandomPureElement(gathering.prob_element); -- Any pure element
     fishing:AddRandomMagicGem(1, gathering.prob_extremely_rarely); -- Any latent magical gem
     fishing:SetShard(gathering.prob_rarely,"In den Eingeweiden des Fischens findest du einen Splitter eines magischen Artefaktes.", "You find a shard of a magical artifact in the entrails of the fish."); -- Any shard
     fishing:AddRandomItem(51,1,333,{},gathering.prob_extremely_rarely,"Ein Eimer verfängt sich in deiner Angelschnur. Den hat hier wohl jemand verloren.","As you tighten your line you feel a heavy resistance. With a careful approach you are able to pull a bucket ashore."); --Bucket

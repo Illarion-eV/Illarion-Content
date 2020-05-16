@@ -28,7 +28,7 @@ local M = {}
 function M.StartGathering(User, SourceAnimal, ltstate)
 
     local woolcutting = gathering.GatheringCraft:new{LeadSkill = Character.tanningAndWeaving, LearnLimit = 100}; -- id_6_scissors
-    woolcutting:AddRandomPureElement(gathering.prob_extremely_rarely); -- Any pure element
+    woolcutting:AddRandomPureElement(gathering.prob_element); -- Any pure element
     woolcutting:AddRandomMagicGem(1, gathering.prob_extremely_rarely); -- Any latent magical gem
     woolcutting:SetShard(gathering.prob_rarely,"Ein Splitter eines magischen Artefaktes hat sich in der Wolle des Schafes verfangen.", "A shard of a magical artifact was tangled in the wool of the sheep."); -- Any shard
     woolcutting:AddRandomItem(222,1,333,{},gathering.prob_extremely_rarely,"Dieses Schaf trägt ein merkwürdiges Amulett um den Hals. Wer kommt auf solch eine Idee?","This sheep is bearing a strange amulet around its neck. Who had such an idea?"); --Amulet

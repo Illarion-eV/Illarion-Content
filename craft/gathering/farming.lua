@@ -79,7 +79,7 @@ end
 function M.StartGathering(User, SourceItem, ltstate)
 
     local theCraft = gathering.GatheringCraft:new{LeadSkill = Character.farming, LearnLimit = 100}; -- seeds, id_126_sickle
-    theCraft:AddRandomPureElement(gathering.prob_extremely_rarely); -- Any pure element
+    theCraft:AddRandomPureElement(gathering.prob_element); -- Any pure element
     theCraft:AddRandomMagicGem(1, gathering.prob_extremely_rarely); -- Any latent magical gem
     theCraft:SetShard(gathering.prob_rarely,"Zwischen den Ackerfurchen findest du einen Splitter eines magischen Artefaktes.", "Between the furrows you find a shard of a magical artifact."); -- Any shard
     theCraft:AddRandomItem(1840,1,333,{},gathering.prob_extremely_rarely,"Im Ackerboden ist ein angelaufender Kupferkelch zu finden.","In the arable soil you find a tarnished copper goblet."); --copper goblet

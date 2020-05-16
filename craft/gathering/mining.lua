@@ -375,7 +375,7 @@ end
 function M.StartGathering(User, SourceItem, ltstate)
 
     local mining = gathering.GatheringCraft:new{LeadSkill = Character.mining, LearnLimit = 100}; -- id_2763_pickaxe
-    mining:AddRandomPureElement(gathering.prob_extremely_rarely); -- Any pure element
+    mining:AddRandomPureElement(gathering.prob_element); -- Any pure element
     mining:AddRandomMagicGem(1, gathering.prob_extremely_rarely); -- Any latent magical gem
     mining:SetShard(gathering.prob_rarely,"Ein kleiner Stein entpuppt sich als Splitter eines magischen Artefaktes.", "A little rock seems to be a shard of a magical artifact."); -- Any shard
     mining:AddRandomItem(310,1,333,{},gathering.prob_extremely_rarely,"Zwerge scheinen alten Krügen keine Beachtung beizumessen, insbesondere, wenn sie leer sind. Auch hier liegt einfach einer herum.","Dwarves seem to pay no attention to old pitchers, especially if they are empty. As you work one catches your eye."); --mug with lid
