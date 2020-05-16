@@ -556,7 +556,7 @@ local function hairColoringSelector(user,npc,firstCall,colorStart,colorEnd,color
                 if firstCall then
                     user:setQuestProgress(231,0)
                 end
-                payErza(user)
+                M.payErza(user)
                 globalHairdresserDialogOpen = false
                 return
             end
