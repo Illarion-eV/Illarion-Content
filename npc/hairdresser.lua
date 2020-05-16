@@ -49,7 +49,7 @@ local DECISION_TRIM = 3
 local npcPosition = position(715,308,0)
 local chairPos = position(715,309,0)
 
-globalHairdresserDialogOpen = false --must be global
+local globalHairdresserDialogOpen = false
 
 local M = {}
 
