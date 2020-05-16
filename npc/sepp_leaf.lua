@@ -184,7 +184,7 @@ local function endGame (npc)
     teamEast = {}
     teamWest = 
     removeAllBalls(npc)
-    repairGameFieldBorders()
+    --repairGameFieldBorders()
 end
 
 local function checkTeamList(teamList)
@@ -202,7 +202,6 @@ local function checkTeamList(teamList)
 end
 
 local function isPlayer(user)
-    foundPlayer = false
     for i, player in pairs(teamEast) do
         if player.id == user.id then
             return true
@@ -315,9 +314,9 @@ end
 local function spectatorInField()
     local characters = world:getPlayersInRangeOf(refereePos, 20)
     for _, character in pairs(characters) do
-        posX = tonumber(character.pos.x)
-        posY = tonumber(character.pos.y)
-        posZ = tonumber(character.pos.z)
+        local posX = tonumber(character.pos.x)
+        local posY = tonumber(character.pos.y)
+        local posZ = tonumber(character.pos.z)
         if posX < borderN and posX > borderS and posY < borderE and posY > borderW and posZ == GAME_LEVEL_Z then
             if not isPlayer(character) then
                 return true
