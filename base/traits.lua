@@ -116,7 +116,7 @@ table.insert(allTraits, M.INCREASED_WAND_RANGE)
 -- MAGIC TRAITS END --
 
 -- ALCHEMY TRAITS --
-M.UNSTABLE_POTIONS_MADE_STABLE = {questId = 729, nameDe = "Stabilisierte Instabilität", nameEn = "Stabilised instability", descriptionDe = "Die Chance, dass die ebenso mächtigen wie instabilen Tränke explodieren, ist deutlich reduziert. \n[Voraussetzung: Sei ein Alchemist.]", descriptionEn = "The chance that those powerful, but instable potions explode is considerably reduced.\n[Voraussetzung: Be an alchemist.]", icon = Item.lightBlueSparklingPotion, category = ALCHEMY, prerequisiteFunction = function(character) return getMagicType() == 3 end}
+M.UNSTABLE_POTIONS_MADE_STABLE = {questId = 729, nameDe = "Stabilisierte Instabilität", nameEn = "Stabilised instability", descriptionDe = "Die Chance, dass die ebenso mächtigen wie instabilen Tränke explodieren, ist deutlich reduziert. \n[Voraussetzung: Sei ein Alchemist.]", descriptionEn = "The chance that those powerful, but instable potions explode is considerably reduced.\n[Voraussetzung: Be an alchemist.]", icon = Item.lightBlueSparklingPotion, category = ALCHEMY, prerequisiteFunction = function(character) return character:getMagicType() == 3 end}
 table.insert(allTraits, M.UNSTABLE_POTIONS_MADE_STABLE)
 -- ALCHEMY TRAIT END
 
