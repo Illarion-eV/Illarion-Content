@@ -16,8 +16,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- Generic Routine Collection
 local common = require("base.common")
-local gems = require("base.gems")
-
 
 local M = {}
 
