@@ -76,7 +76,6 @@ function M.playerDeath(deadPlayer)
         if item.id > 0 and item.id ~= BLOCKED_ITEM and item.quality > 100 and commonItem.MaxStack == 1 then
             local durability = item.quality % 100
             if durability <= DURABILITY_LOSS then
-                gems.returnGemsToUser(deadPlayer, item)
                 deadPlayer:increaseAtPos(i, -1)
 
                 if i == 5 and world:getItemStats(deadPlayer:getItemAt(6)).id == BLOCKED_ITEM then

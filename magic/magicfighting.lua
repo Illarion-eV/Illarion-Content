@@ -195,7 +195,6 @@ local function magicItemsDegrade(character, magicItemsList)
                 common.InformNLS(character,
                     "Deine Ausrüstungsgegenstand '"..nameText.."' zerbricht. Du vergießt eine bitter Träne und sagst lebe wohl, als sie in das nächste Leben übergeht.",
                     "Your piece of equipment '"..nameText.."' shatters. You shed a single tear and bid it farewell as it moves on to its next life.")
-                gems.returnGemsToUser(character, bonusItem)
                 world:erase(bonusItem, 1)
                 return
             end

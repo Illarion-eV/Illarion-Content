@@ -49,7 +49,6 @@ function M.ToolBreaks(user, item, workTime)
     durability = durability - loss
 
     if (durability <= 0) then
-        gems.returnGemsToUser(user, item)
         world:erase(item, 1)
         return true
 
