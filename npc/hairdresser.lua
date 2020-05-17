@@ -49,7 +49,7 @@ local DECISION_TRIM = 3
 local npcPosition = position(715,308,0)
 local chairPos = position(715,309,0)
 
-globalHairdresserDialogOpen = false --must be global
+local globalHairdresserDialogOpen = false
 
 local M = {}
 
@@ -556,7 +556,7 @@ local function hairColoringSelector(user,npc,firstCall,colorStart,colorEnd,color
                 if firstCall then
                     user:setQuestProgress(231,0)
                 end
-                payErza(user)
+                M.payErza(user)
                 globalHairdresserDialogOpen = false
                 return
             end

@@ -127,9 +127,10 @@ function TownAnnouncementShow(User,toolTown)
     
     --read
     local options = {"announcementCadomyr", "announcementRunewick", "announcementGalmair"}
+    local text
     
     if options[toolTown] then 
-        found, value = ScriptVars:find(options[toolTown])
+        local found, value = ScriptVars:find(options[toolTown])
         if found then
             text = value
         else
