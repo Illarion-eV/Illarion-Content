@@ -20,7 +20,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- rewritten for VBU by vilarion
 
 local common = require("base.common")
-local craft = require("base.craft")
+local shared = require("craft.base.shared")
 local lookat = require("base.lookat")
 local licence = require("base.licence")
 local gems = require("base.gems")
@@ -722,7 +722,7 @@ function Craft:craftItem(user, productId)
 
         if not self.npcCraft then
             local originalDurability = common.getItemDurability(toolItem)
-            if craft.ToolBreaks(user, toolItem, product:getCraftingTime(skill,0)) then
+            if shared.ToolBreaks(user, toolItem, product:getCraftingTime(skill,0)) then
                 common.HighInformNLS(user,"Dein altes Werkzeug zerbricht.", "Your old tool breaks.")
             else
                 glypheffects.effectToolSelfRepair(user, toolItem, originalDurability)
@@ -816,7 +816,7 @@ function Craft:repairItem(user, productIdList)
 
         if not self.npcCraft then
             local originalDurability = common.getItemDurability(toolItem)
-            if craft.ToolBreaks(user, toolItem, repairTime) then
+            if shared.ToolBreaks(user, toolItem, repairTime) then
                 common.HighInformNLS(user,"Dein altes Werkzeug zerbricht.", "Your old tool breaks.")
             else
                 glypheffects.effectToolSelfRepair(user, toolItem, originalDurability)

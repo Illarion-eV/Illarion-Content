@@ -591,49 +591,6 @@ function M.GetHungry(User, units)
     
 end
 
---- Damage an item
--- @param user The character who has the item
--- @param item The item that gets damaged
--- @param workTime The time the item is used
--- @return true if the item breaks, false if not
-function M.ToolBreaks(user, item, workTime)
-
-    if not user or not item or not workTime then
-        return false
-    end
-    
-    local loss=math.floor(workTime/180) --Each durability point equals 18 seconds of crafting time. Hence, a new tool lasts 30 minutes.
-    local remainder=workTime-loss
-    
-    if (math.random(1, 100) < (remainder/1.8)) then 
-        loss=loss+1
-    end
-
-    local durability = math.fmod(item.quality, 100)
-    local quality = (item.quality - durability) / 100
-
-    durability = durability - loss
-    
-    if (durability <= 0) then
-    
-        world:erase(item, 1)
-        return true
-      
-    end
-
-    item.quality = quality * 100 + durability
-    world:changeItem(item)
-
-    if (durability <= 10) and (loss > 0) then
-      M.InformNLS(user,
-      "Das Werkzeug wird nicht mehr lange halten. Du solltest dich nach einem neuen umschauen oder es reparieren lassen.",
-      "The tool looks like it could break soon. You should try to get a new one or get it repaired.")
-    end
-
-    return false
-
-end
-
 --[[function set for item quality and durability
 item.quality contains quality and durability
 637 means: quality=6, durability=37
