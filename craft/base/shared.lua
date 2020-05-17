@@ -39,7 +39,7 @@ function M.ToolBreaks(user, item, workTime)
     local loss = math.floor(workTime/timePerPoint)
     local remainder = workTime - loss
 
-    if (math.random(1, 100) < (remainder/(timePerPoint/100)) then
+    if (math.random(1, 100) < (remainder/(timePerPoint/100))) then
         loss=loss+1
     end
 
