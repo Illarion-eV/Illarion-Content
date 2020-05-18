@@ -26,8 +26,8 @@ local function showDeathDialog(deadPlayer)
 
     local dialogTitle = common.GetNLS(deadPlayer, "Tod", "Death")
     local dialogText = common.GetNLS(deadPlayer,
-        "Du bist gestorben. Deine Ausrüstung nimmt schweren Schaden. Die Welt um dich herum verblasst und du bereitest dich darauf vor, den Göttern in Chergas Reich der Toten gegenüberzutreten. Du wirst demnächst wiederbelebt - so die Götter es wollen.",
-        "You have died. Your equipment got damaged seriously. The world around you fades and you prepare yourself to face the Gods in the afterlife of Cherga's Realm. You will respawn in a moment - so the gods will.")
+        "Du bist gestorben. Deine Ausrüstung nimmt schweren Schaden und du hast eventuell einige Gegenstände aus deiner Tasche verloren. Die Welt um dich herum verblasst und du bereitest dich darauf vor, den Göttern in Chergas Reich der Toten gegenüberzutreten. Du wirst demnächst wiederbelebt - so die Götter es wollen.",
+        "You have died. Your equipment got damaged seriously and you might have lost some items from your bag. The world around you fades and you prepare yourself to face the Gods in the afterlife of Cherga's Realm. You will respawn in a moment - so the gods will.")
     local callback = function() end --empty callback
     local dialog = MessageDialog(dialogTitle, dialogText, callback)
 
