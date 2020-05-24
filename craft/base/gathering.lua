@@ -228,7 +228,7 @@ M.prob_occasionally = 0.00025; --0.025% (1/4000)
 M.prob_rarely = 0.0001; --0.01% (1/10000)
 M.prob_extremely_rarely = 0.000025; --0.0025% (1/40000)
 M.prob_element = 0.00025; --0.025% (1/4000) *Placeholder for now*
-M.prob_map = = 0.001; --0.01% (1/1000) *Placeholder for now*
+M.prob_map = 0.001; --0.01% (1/1000) *Placeholder for now*
 M.prob_shard = 0.001; --0.01% (1/1000) *Placeholder for now*
 
 return M
