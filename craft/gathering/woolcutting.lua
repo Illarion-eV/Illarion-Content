@@ -48,7 +48,9 @@ function M.StartGathering(User, SourceAnimal, ltstate)
 --      return
 --  end
 
-    if shared.ToolCheck(User, 6) == false then --scissors (6)
+    local toolItem=shared.ToolCheck(User, 6) --scissors (6)
+
+    if not toolItem then
         return
     end
 

@@ -52,7 +52,9 @@ function M.StartGathering(User, SourceItem, ltstate)
         return
     end
 
-    if shared.ToolCheck(User, 24) == false then --shovel (24)
+    local toolItem=shared.ToolCheck(User, 24) --shovel (24)
+
+    if not toolItem then
         return
     end
 

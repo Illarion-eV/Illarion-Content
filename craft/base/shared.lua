@@ -97,9 +97,9 @@ function M.ToolCheck(User, id)
         local leftToolItem = User:getItemAt(Character.left_tool)
         local rightToolItem = User:getItemAt(Character.right_tool)
         if leftToolItem.id == id and common.isBroken(leftToolItem) == false then
-            return true
+            return leftToolItem
         elseif rightToolItem.id == id and common.isBroken(rightToolItem) == false then
-            return true
+            return rightToolItem
         else
             common.HighInformNLS(User,"Dein"..germanGenderExtension.." "..world:getItemName(id, Player.german).." ist kaputt.","Your "..world:getItemName(id, Player.english).." is broken.")
             return false

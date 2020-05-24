@@ -53,7 +53,9 @@ function M.StartGathering(User, SourceItem, ltstate)
         return
     end
 
-    if shared.ToolCheck(User, 72) == false then --fishing rod (72)
+    local toolItem=shared.ToolCheck(User, 72) --fishing rod (72)
+
+    if not toolItem then
         return
     end
 

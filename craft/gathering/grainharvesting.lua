@@ -71,7 +71,9 @@ function M.StartGathering(User, SourceItem, ltstate)
         return
     end
 
-    if shared.ToolCheck(User, 271) == false then --scythe (271)
+    local toolItem=shared.ToolCheck(User, 271) --scythe (271)
+
+    if not toolItem then
         return
     end
 
