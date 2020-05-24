@@ -91,11 +91,11 @@ function M.StartGathering(User, SourceItem, ltstate)
     end
 
     local fruitgathering = gathering.GatheringCraft:new{FastActionFactor = 0.5}; -- harvest
-    fruitgathering:SetShard(gathering.prob_rarely,"In einem Ast steckt ein Splitter eines magischen Artefaktes.", "A shard of a magical artifact sticks in a branch."); -- Any shard
+    fruitgathering:SetShard(gathering.prob_shard,"In einem Ast steckt ein Splitter eines magischen Artefaktes.", "A shard of a magical artifact sticks in a branch."); -- Any shard
     fruitgathering:AddRandomItem(65,1,333,{},gathering.prob_extremely_rarely,"Bei genauer Betrachtung entpuppt sich ein Ast am Boden als Bogen. Ob den ein elfischer Späher hier deponiert hat?","On closer inspection, a branch on the ground turns out to be a bow. Did an elven scout forget it here?"); --short bow
     fruitgathering:AddRandomItem(2295,1,333,{},gathering.prob_occasionally,"Über einem Ast hängt ein Paar alter Handschuhe. Der Besitzer vermisst sie offenbar nicht.","Over a branch hangs a pair of old gloves. Judging by their condition no one would miss them."); --cloth gloves
     fruitgathering:AddRandomItem(463,1,333,{},gathering.prob_frequently,"Eine Feder hat sich zwischen den Zweigen verfangen. Ob man mit ihr auch schreiben kann?","A feather lies entangled among the branches. Perhaps one could write with it?"); --quill
-    fruitgathering:SetTreasureMap(gathering.prob_rarely,"Aus dem Augenwinkel siehst du ein altes Stück Pergament, das sich in einem Busch verfangen hat. Als du es dir genauer anschaust, erkennst du, dass es sich um eine Art Karte handelt.","Through the corner of your eye you spot an old parchment snared in a nearby bush. Once it is in your hand you notice it is some kind of map.");
+    fruitgathering:SetTreasureMap(gathering.prob_map,"Aus dem Augenwinkel siehst du ein altes Stück Pergament, das sich in einem Busch verfangen hat. Als du es dir genauer anschaust, erkennst du, dass es sich um eine Art Karte handelt.","Through the corner of your eye you spot an old parchment snared in a nearby bush. Once it is in your hand you notice it is some kind of map.");
     fruitgathering:AddMonster(271,gathering.prob_rarely,"Eine Wespe schnellt heran, um dir die süßen Früchte streitig zu machen.","An agitated wasp darts toward you to contest its claim to the fruit.",4,7);
     fruitgathering:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
 

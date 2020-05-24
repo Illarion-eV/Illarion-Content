@@ -81,11 +81,11 @@ function M.StartGathering(User, SourceItem, ltstate)
     local theCraft = gathering.GatheringCraft:new{LeadSkill = Character.farming, LearnLimit = 100}; -- seeds, id_126_sickle
     theCraft:AddRandomPureElement(gathering.prob_element); -- Any pure element
     theCraft:AddRandomMagicGem(1, gathering.prob_extremely_rarely); -- Any latent magical gem
-    theCraft:SetShard(gathering.prob_rarely,"Zwischen den Ackerfurchen findest du einen Splitter eines magischen Artefaktes.", "Between the furrows you find a shard of a magical artifact."); -- Any shard
+    theCraft:SetShard(gathering.prob_shard,"Zwischen den Ackerfurchen findest du einen Splitter eines magischen Artefaktes.", "Between the furrows you find a shard of a magical artifact."); -- Any shard
     theCraft:AddRandomItem(1840,1,333,{},gathering.prob_extremely_rarely,"Im Ackerboden ist ein angelaufender Kupferkelch zu finden.","In the arable soil you find a tarnished copper goblet."); --copper goblet
     theCraft:AddRandomItem(2935,1,333,{},gathering.prob_occasionally,"Da hat wohl jemand eine Schüssel verloren, mit der er Saatgut augestreut hat. Nun gehört sie dir.","You dig up an old bowl. Now it belongs to you."); --soup bowl
     theCraft:AddRandomItem(51,1,333,{},gathering.prob_frequently,"Da hat wohl jemand einen Eimer verloren. Nun gehört er dir.","You dig up an old bucket. Now it belongs to you."); --bucket
-    theCraft:SetTreasureMap(gathering.prob_rarely,"In einer Ackerfurche findest du ein altes Pergament mit einem Kreuz darauf. Ob sie dich zu einem vergrabenen Schatz weisen wird?","In a furrow you find an old parchment with a cross on it. Will it show you the way to a buried treasure?");
+    theCraft:SetTreasureMap(gathering.prob_map,"In einer Ackerfurche findest du ein altes Pergament mit einem Kreuz darauf. Ob sie dich zu einem vergrabenen Schatz weisen wird?","In a furrow you find an old parchment with a cross on it. Will it show you the way to a buried treasure?");
     theCraft:AddMonster(114,gathering.prob_rarely,"Du stößt bei der Erdarbeit auf alte Knochen. Leider hat sie kein Hund hier vergraben und die Störung der Totenruhe bleibt nicht ungesühnt.","While ploughing, you find some old bones. Unfortunately, no dog has buried them here, and the disturbance of the dead unleashes Cherga's wrath.",4,7);
     theCraft:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
 

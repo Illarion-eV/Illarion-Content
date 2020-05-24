@@ -30,11 +30,11 @@ function M.StartGathering(User, SourceAnimal, ltstate)
     local woolcutting = gathering.GatheringCraft:new{LeadSkill = Character.tanningAndWeaving, LearnLimit = 100}; -- id_6_scissors
     woolcutting:AddRandomPureElement(gathering.prob_element); -- Any pure element
     woolcutting:AddRandomMagicGem(1, gathering.prob_extremely_rarely); -- Any latent magical gem
-    woolcutting:SetShard(gathering.prob_rarely,"Ein Splitter eines magischen Artefaktes hat sich in der Wolle des Schafes verfangen.", "A shard of a magical artifact was tangled in the wool of the sheep."); -- Any shard
+    woolcutting:SetShard(gathering.prob_shard,"Ein Splitter eines magischen Artefaktes hat sich in der Wolle des Schafes verfangen.", "A shard of a magical artifact was tangled in the wool of the sheep."); -- Any shard
     woolcutting:AddRandomItem(222,1,333,{},gathering.prob_extremely_rarely,"Dieses Schaf trägt ein merkwürdiges Amulett um den Hals. Wer kommt auf solch eine Idee?","This sheep is bearing a strange amulet around its neck. Who had such an idea?"); --Amulet
     woolcutting:AddRandomItem(153,1,333,{},gathering.prob_occasionally,"Ein großes Blatt hat sich im Fell des Schafes verfangen. Du betreibst zunächst ein wenig Fellpflege, bevor du weiter scherst.","A large leaf was tangled in the fur of the sheep. You do a little grooming before you continue shearing."); --Foot leaf
     woolcutting:AddRandomItem(156,1,333,{},gathering.prob_frequently,"Etwas Gras hat sich im Fell des Schafs verfangen. Du entfernst das klebrige Grünzeug.","Some grass was ensnared in the fur of the sheep. Before you can continue shearing you have to remove the sticky green weed."); --Steppe fern
-    woolcutting:SetTreasureMap(gathering.prob_rarely,"Mit einem lauten 'Mäh' kratzt und schnüffelt das Schaf am Boden. Dort findest du eine seltsame Karte.","With a loud 'Baa' the sheep scratches and sniffs on the ground. Then, as if by magic a strange map appears on the ground.");
+    woolcutting:SetTreasureMap(gathering.prob_map,"Mit einem lauten 'Mäh' kratzt und schnüffelt das Schaf am Boden. Dort findest du eine seltsame Karte.","With a loud 'Baa' the sheep scratches and sniffs on the ground. Then, as if by magic a strange map appears on the ground.");
     woolcutting:AddMonster(271,gathering.prob_rarely,"Während du die Wolle einsammelst, umschwirrt dich eine ungewöhnlich agressive Wespe.","While you gather some wool a annoyingly aggressive wasp comes after you!",4,7);
     woolcutting:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
 

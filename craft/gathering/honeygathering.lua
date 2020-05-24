@@ -25,11 +25,11 @@ function M.StartGathering(User, SourceItem, ltstate)
     local honeygathering = gathering.GatheringCraft:new{LeadSkill = Character.husbandry, LearnLimit = 100}; -- id_1005_beehive
     honeygathering:AddRandomPureElement(gathering.prob_element); -- Any pure element
     honeygathering:AddRandomMagicGem(1, gathering.prob_extremely_rarely); -- Any latent magical gem
-    honeygathering:SetShard(gathering.prob_rarely,"Im Honig findest du einen Splitter eines magischen Artefaktes.", "You find a shard of a magical artifact in the honey comb."); -- Any shard
+    honeygathering:SetShard(gathering.prob_shard,"Im Honig findest du einen Splitter eines magischen Artefaktes.", "You find a shard of a magical artifact in the honey comb."); -- Any shard
     honeygathering:AddRandomItem(2744,1,333,{},gathering.prob_extremely_rarely,"Ein Imkerkollege scheint hier seine Pfeife vergessen zu haben. Du nimmst sie an dich.","A beekeeper colleague must have forgotten his pipe for smoking out the bees. You take it with you."); --Pipe
     honeygathering:AddRandomItem(151,1,333,{},gathering.prob_occasionally,"Die Bienen haben offensichtlich Vorräte angelegt. Sogar eine ganze Erdbeere haben sie in ihren Stock geschleppt.","As you carefully pull honey from the hive you notice a sticky strawberry in your grasp!"); --Strawberry
     honeygathering:AddRandomItem(431,1,333,{},gathering.prob_frequently,"An deinen Händen bleibt klebriger Wachs hängen.","Your hands get stuck in sticky wax.", 0); --Wax
-    honeygathering:SetTreasureMap(gathering.prob_rarely,"Oh! Jemand hat eine Schatzkarte in diesem Bienenstock versteckt. Was für eine Überraschung!","Oh! Someone has hidden a treasure map in this hive. What a surprise!");
+    honeygathering:SetTreasureMap(gathering.prob_map,"Oh! Jemand hat eine Schatzkarte in diesem Bienenstock versteckt. Was für eine Überraschung!","Oh! Someone has hidden a treasure map in this hive. What a surprise!");
     honeygathering:AddMonster(271,gathering.prob_rarely,"Eine über deine Handlungen etwas erboste Wespe scheint sich dazu entschlossen zu haben, deinen Handlungen ein Ende zu setzten.","A wasp, unamused by your deeds, decides to attack!",4,7);
     honeygathering:AddInterruptMessage("Du wirst von etwas in dem Bienenstock gestochen. Was das wohl wahr?", "You feel a sting as you try to work.");
     honeygathering:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
