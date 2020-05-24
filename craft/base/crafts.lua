@@ -257,8 +257,8 @@ function Craft:allowUserCrafting(user, source)
         if not self:isHandToolEquipped(user) then
             self:swapToInactiveItem(user)
             common.HighInformNLS(user,
-            "Du musst das Werkzeug in die Hand nehmen um damit zu arbeiten.",
-            "To work with that tool you have to hold it in your hand.")
+            "Du musst ein intaktes Werkzeug in die Hand nehmen um damit zu arbeiten.",
+            "You must have an intact tool in your hand to work with.")
             return false
         end
     end
@@ -271,10 +271,13 @@ function Craft:userHasLicense(user)
 end
 
 function Craft:isHandToolEquipped(user)
-    local leftTool = user:getItemAt(Character.left_tool).id
-    local rightTool = user:getItemAt(Character.right_tool).id
 
-    if leftTool == self.handTool or rightTool == self.handTool then
+    local leftTool = user:getItemAt(Character.left_tool)
+    local rightTool = user:getItemAt(Character.right_tool)
+
+    if leftTool.id == self.handTool and common.isBroken(leftTool) == false then
+        return true
+    elseif rightTool.id == self.handTool and common.isBroken(rightTool) == false then
         return true
     end
 
@@ -284,10 +287,10 @@ end
 function Craft:getHandToolEquipped(user)
     local leftTool = user:getItemAt(Character.left_tool)
     local rightTool = user:getItemAt(Character.right_tool)
-
-    if leftTool.id == self.handTool then
+    
+    if leftTool.id == self.handTool and common.isBroken(leftTool) == false then
         return leftTool
-    elseif rightTool.id == self.handTool then
+    elseif rightTool.id == self.handTool and common.isBroken(rightTool) == false then
         return rightTool
     end
 

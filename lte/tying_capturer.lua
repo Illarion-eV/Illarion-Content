@@ -226,9 +226,9 @@ end
 
 function M.GetRope( Character )
 
-    local Rope = Character:getItemAt(5);
+    local Rope = Character:getItemAt(Character.left_tool);
     if not ( Rope.id == 2760 and Rope:getData("tyingStatus") == "tied" ) then
-        Rope = Character:getItemAt(6);
+        Rope = Character:getItemAt(Character.right_tool);
         if not ( Rope.id == 2760 and Rope:getData("tyingStatus") == "tied" ) then
             return nil;
         end

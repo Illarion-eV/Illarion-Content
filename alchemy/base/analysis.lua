@@ -266,14 +266,14 @@ local function CauldronPotionCheck(User, SourceItem, TargetItem, ltstate)
     if (cauldron) and (cauldron.id ~= 1008) then
         AnalysisOfBrew(User, SourceItem, cauldron, ltstate)
     else
-        local brew = User:getItemAt(5)
+        local brew = User:getItemAt(Character.left_tool)
         -- repair potion in case it's broken
         alchemy.repairPotion(brew)
         -- repair end
         if (brew:getData("filledWith") == "stock") or (brew:getData("filledWith") == "essenceBrew") or (brew:getData("filledWith") == "potion") or brew:getData("filledWith")=="meraldilised slime" then
             AnalysisOfBrew(User, SourceItem, brew, ltstate)
         else
-            local brew = User:getItemAt(6)
+            local brew = User:getItemAt(Character.right_tool)
             -- repair potion in case it's broken
             alchemy.repairPotion(brew)
             -- repair end

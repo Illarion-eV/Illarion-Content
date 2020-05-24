@@ -660,8 +660,8 @@ function M.IsParchmentOK(User,parchment,ListOfIngredients)
 end
 
 function M.GetParchmentQuill(User)
-    local itemA = User:getItemAt(5)
-    local itemB = User:getItemAt(6)
+    local itemA = User:getItemAt(Character.left_tool)
+    local itemB = User:getItemAt(Character.right_tool)
 
     local theItem
     if itemA.id == 2745 and itemB.id == 463 then

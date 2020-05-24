@@ -357,6 +357,11 @@ end
 
 function M.UseItem(User, SourceItem, ltstate)
 
+    if common.isBroken(SourceItem) then
+        common.HighInformNLS(User,"Deine Seil ist kaputt.","Your rope is broken.")
+        return
+    end
+
     if SourceItem:getData("tyingStatus") == "tied" then
         -- it's a tying rope!
         local targetChar = common.GetFrontCharacter(User);

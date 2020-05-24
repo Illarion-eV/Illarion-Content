@@ -256,22 +256,8 @@ function M.StartGathering(User, SourceItem, ltstate)
         return
     end
 
-    -- additional tool item is needed
-    if (User:countItemAt("all",126)==0) then
-        common.HighInformNLS( User,
-        "Du brauchst eine Sichel um zu ernten.",
-        "You need a sickle for harvesting." );
+    if shared.ToolCheck(User, 126) == false then --sickle (126)
         return
-    end
-    local toolItem = User:getItemAt(5);
-    if ( toolItem.id ~=126 ) then
-        toolItem = User:getItemAt(6);
-        if ( toolItem.id ~= 126 ) then
-            common.HighInformNLS( User,
-            "Du musst die Sichel in der Hand haben!",
-            "You have to hold the sickle in your hand!" );
-            return
-        end
     end
 
     if not common.FitForWork( User ) then -- check minimal food points

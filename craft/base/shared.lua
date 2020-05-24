@@ -46,22 +46,69 @@ function M.ToolBreaks(user, item, workTime)
 
     durability = durability - loss
 
-    if (durability <= 0) then
-        world:erase(item, 1)
-        return true
-
+    if durability < 0 then
+        durability = 0
     end
 
     item.quality = quality * 100 + durability
     world:changeItem(item)
 
+    if (durability == 0) then
+        return true
+    end
 
-    if (durability <= 10) and (loss > 0) then
+    --[[if (durability <= 10) and (loss > 0) then
       common.InformNLS(user,
       "Das Werkzeug wird nicht mehr lange halten. Du solltest dich nach einem neuen umschauen oder es reparieren lassen.",
       "The tool looks like it could break soon. You should try to get a new one or get it repaired.")
-    end
+    end]]
 
+    return false
+
+end
+
+--Checks if the user has a specific tool in a hand slot
+function M.HasTool(User, id)
+
+    local toolItem = User:getItemAt(Character.left_tool)
+    
+    if ( toolItem.id ~=id ) then
+        toolItem = User:getItemAt(Character.right_tool)
+        if ( toolItem.id ~= id ) then
+            return false
+        end
+    end
+    
+    return true
+    
+end
+
+function M.ToolCheck(User, id)
+
+    local germanGenderExtension
+
+    if id == 74 then
+        germanGenderExtension=""
+    else --most tools are femasle in German
+        germanGenderExtension="e"    
+    end
+    
+    if M.HasTool(User, id) then
+        local leftToolItem = User:getItemAt(Character.left_tool)
+        local rightToolItem = User:getItemAt(Character.right_tool)
+        if leftToolItem.id == id and common.isBroken(leftToolItem) == false then
+            return true
+        elseif rightToolItem.id == id and common.isBroken(rightToolItem) == false then
+            return true
+        else
+            common.HighInformNLS(User,"Dein"..germanGenderExtension.." "..world:getItemName(id, Player.german).." ist kaputt.","Your "..world:getItemName(id, Player.english).." is broken.")
+            return false
+        end
+    else
+        common.HighInformNLS(User,"Du musst ein"..germanGenderExtension.." "..world:getItemName(id, Player.german).." in der Hand halten.","You need to hold the "..world:getItemName(id, Player.english).." in your hand.")
+        return false
+    end
+    
     return false
 
 end

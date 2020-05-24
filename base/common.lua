@@ -609,6 +609,18 @@ function M.getItemDurability(item)
     return durability
 end
 
+-- Check if an item is broken (durability 0)
+-- @param item the item to be checked
+-- @return true or false
+function M.isBroken(item)
+    local durability = math.fmod(item.quality, 100)
+    if durability == 0 then 
+        return true
+    else
+        return false
+    end
+end
+
 -- Set durability of an item
 -- @param item the item to be changed
 -- @param newDurability (1-99)

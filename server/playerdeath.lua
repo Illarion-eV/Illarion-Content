@@ -64,7 +64,7 @@ function M.playerDeath(deadPlayer)
     world:makeSound(25, deadPlayer.pos)
     showDeathDialog(deadPlayer)
 
-    -- Death consequence #1: Quality loss of equipped items.
+    -- Death consequence #1: Durability loss of equipped items.
     local DURABILITY_LOSS = 10
     if deadPlayer:isNewPlayer() then
         DURABILITY_LOSS = 5
@@ -73,25 +73,15 @@ function M.playerDeath(deadPlayer)
     for i = Character.head, Character.coat do
         local item = deadPlayer:getItemAt(i)
         local commonItem = world:getItemStats(item)
-        if item.id > 0 and item.id ~= BLOCKED_ITEM and item.quality > 100 and commonItem.MaxStack == 1 then
-            local durability = item.quality % 100
+        local durability = item.quality % 100
+        if item.id > 0 and item.id ~= BLOCKED_ITEM and item.quality > 100 and commonItem.MaxStack == 1 and durability > 0 then
             if durability <= DURABILITY_LOSS then
-                deadPlayer:increaseAtPos(i, -1)
-
-                if i == 5 and world:getItemStats(deadPlayer:getItemAt(6)).id == BLOCKED_ITEM then
-                    deadPlayer:increaseAtPos(6, -1)
-                end
-
-                if i == 6 and world:getItemStats(deadPlayer:getItemAt(5)).id == BLOCKED_ITEM then
-                    deadPlayer:increaseAtPos(5, -1)
-                end
-
+                DURABILITY_LOSS = durability
                 local nameText = world:getItemName(item.id, deadPlayer:getPlayerLanguage())
                 common.HighInformNLS(deadPlayer, "[Tod] Dein Gegenstand '"..nameText.."' wurde zerstört.", "[Death] Your item '"..nameText.."' was destroyed.")
-            else
-                item.quality = item.quality - DURABILITY_LOSS
-                world:changeItem(item)
             end
+            item.quality = item.quality - DURABILITY_LOSS
+            world:changeItem(item)
         end
     end
 

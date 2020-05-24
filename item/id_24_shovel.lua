@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE items SET itm_script='item.id_24_shovel' WHERE itm_id=24;
 
 local common = require("base.common")
+local shared = require("craft.base.shared")
 local treasure = require("item.base.treasure")
 local transformation_dog = require("alchemy.teaching.transformation_dog")
 local claydigging = require("craft.gathering.claydigging")
@@ -100,17 +101,16 @@ end
 
 function M.UseItem(User, SourceItem, ltstate)
 
-    local toolItem = User:getItemAt(5)
-    if ( toolItem.id ~=24 ) then
-        toolItem = User:getItemAt(6)
-        if ( toolItem.id ~= 24 ) then
-            common.HighInformNLS( User,
-            "Du musst die Schaufel in der Hand haben!",
-            "You have to hold the shovel in your hand!" )
-            return
-        end
+    if common.isBroken(SourceItem) then
+        common.HighInformNLS(User,"Deine Schaufel ist kaputt.","Your shovel is broken.")
+        return
     end
-
+    
+    if shared.HasTool(User, 24) == false then
+        common.HighInformNLS(User,"Du musst eine Schaufel in der Hand halten.","You need to hold the shovel in your hand.")
+        return
+    end
+    
     if not common.FitForWork( User ) then -- check minimal food points
         return
     end

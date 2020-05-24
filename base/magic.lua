@@ -189,19 +189,19 @@ function M.wandDegrade(user, wand, chance)
         durability = durability - 1
         if (durability == 0) then
             common.InformNLS(user,
-                "Deine Waffe '"..nameText.."' zerbricht. Du vergießt eine bitter Träne und sagst lebe wohl, als sie in das nächste Leben übergeht.",
-                "Your weapon '"..nameText.."' shatters. You shed a single tear and bid it farewell as it moves on to its next life.")
-            world:erase(wand, 1)
+                "Deine Waffe '"..nameText.."' zerbricht.",
+                "Your weapon '"..nameText.."' shatters.")
+
             return
         end
 
         common.setItemDurability(wand, durability)
 
-        if (durability < 10) then
+        --[[if (durability < 10) then
             common.InformNLS(user,
                 "Deine Waffe '"..nameText.."' hat schon bessere Zeiten gesehen. Vielleicht solltest du sie reparieren lassen.",
                 "Your weapon '"..nameText.."' has seen better days. You may want to get it repaired.")
-        end
+        end]]
     end
 
 end

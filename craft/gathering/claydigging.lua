@@ -52,22 +52,8 @@ function M.StartGathering(User, SourceItem, ltstate)
         return
     end
 
-    -- additional tool item is needed
-    if (User:countItemAt("all",24)==0) then
-        common.HighInformNLS( User,
-        "Du brauchst eine Schaufel um zu graben.",
-        "You need a shovel for digging." );
+    if shared.ToolCheck(User, 24) == false then --shovel (24)
         return
-    end
-    local toolItem = User:getItemAt(5);
-    if ( toolItem.id ~=24 ) then
-        toolItem = User:getItemAt(6);
-        if ( toolItem.id ~= 24 ) then
-            common.HighInformNLS( User,
-            "Du musst die Schaufel in der Hand haben!",
-            "You have to hold the shovel in your hand!" );
-            return
-        end
     end
 
     if not common.FitForWork( User ) then -- check minimal food points

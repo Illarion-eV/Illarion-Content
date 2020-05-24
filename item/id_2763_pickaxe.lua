@@ -40,6 +40,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE items SET com_agingspeed =  10, com_objectafterrot = 1250 WHERE itm_id = 1251;
 
 local common = require("base.common")
+local shared = require("craft.base.shared")
 local treasure = require("item.base.treasure")
 local mining = require("craft.gathering.mining")
 local metal = require("item.general.metal")
@@ -73,15 +74,14 @@ end
 
 function M.UseItem(User, SourceItem, ltstate)
 
-    local toolItem = User:getItemAt(5);
-    if ( toolItem.id ~=2763 ) then
-        toolItem = User:getItemAt(6);
-        if ( toolItem.id ~= 2763 ) then
-            common.HighInformNLS( User,
-            "Du musst die Spitzhacke in der Hand haben!",
-            "You have to hold the pick-axe in your hand!" );
-            return
-        end
+    if common.isBroken(SourceItem) then
+        common.HighInformNLS(User,"Deine Spitzhacke ist kaputt.","Your pick-axe is broken.")
+        return
+    end
+    
+    if shared.HasTool(User, 2763) == false then
+        common.HighInformNLS(User,"Du musst die Spitzhacke in der Hand halten.","You need to hold the pick-axe in your hand.")
+        return
     end
 
     if glyphmagic.removeGlyphForge(User) then

@@ -474,6 +474,10 @@ function ArmourAbsorption(Attacker, Defender, Globals)
         armourValue = armourValue/messupmalus
     end
 
+    if character.IsPlayer(Defender.Char) and common.isBroken(Globals.HittedItem) then
+        armourValue = 0
+    end
+    
     if(Globals.criticalHit==6) then
         --Armour pierce
         armourValue = nil
@@ -520,7 +524,6 @@ function ArmourDegrade(Defender, Globals)
         return
     end
 
-
     local degradeChance = 12000
     if Defender.Char:isNewPlayer() then
         degradeChance = degradeChance * 2
@@ -530,23 +533,22 @@ function ArmourDegrade(Defender, Globals)
         local quality = (Globals.HittedItem.quality - durability) / 100
         local nameText = world:getItemName(Globals.HittedItem.id, Defender.Char:getPlayerLanguage())
 
-        durability = durability - 1
-        if (durability == 0) then
-            common.InformNLS(Defender.Char,
-                "Dein Rüstungsteil '"..nameText.."' zerbricht. Glücklicherweise tritt kein Splitter in deinen Körper ein.",
-                "Your armour piece '"..nameText.."' shatters. Fortunately, no fragments end up in your body.")
-          world:erase(Globals.HittedItem, 1)
-          return true
+        if durability > 0 then
+            durability = durability - 1
+            if (durability == 0) then
+                common.InformNLS(Defender.Char,
+                    "Dein Rüstungsteil '"..nameText.."' zerbricht. Glücklicherweise tritt kein Splitter in deinen Körper ein.",
+                    "Your armour piece '"..nameText.."' shatters. Fortunately, no fragments end up in your body.")
+            end
+            Globals.HittedItem.quality = quality * 100 + durability
+            world:changeItem(Globals.HittedItem)
         end
 
-        Globals.HittedItem.quality = quality * 100 + durability
-        world:changeItem(Globals.HittedItem)
-
-        if (durability < 10) then
+        --[[if (durability < 10) then
             common.InformNLS(Defender.Char,
                 "Dein Rüstungsteil '"..nameText.."' hat schon bessere Zeiten gesehen. Vielleicht solltest du es reparieren lassen.",
                 "Your armour piece '"..nameText.."' has seen better days. You may want to get it repaired.")
-        end
+        end ]]
     end
 end
 
@@ -567,23 +569,22 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
         local quality = (Attacker.WeaponItem.quality - durability) / 100
         local nameText = world:getItemName(Attacker.WeaponItem.id, Attacker.Char:getPlayerLanguage())
 
-        durability = durability - 1
-        if (durability == 0) then
-            common.InformNLS(Attacker.Char,
-                "Deine Waffe '"..nameText.."' zerbricht. Du vergießt eine bitter Träne und sagst lebe wohl, als sie in das nächste Leben übergeht.",
-                "Your weapon '"..nameText.."' shatters. You shed a single tear and bid it farewell as it moves on to its next life.")
-            world:erase(Attacker.WeaponItem, 1)
-            return true
+        if durability > 0 then 
+            durability = durability - 1
+            if (durability == 0) then
+                common.InformNLS(Attacker.Char,
+                    "Deine Waffe '"..nameText.."' zerbricht. Du vergießt eine bitter Träne und sagst lebe wohl, als sie in das nächste Leben übergeht.",
+                    "Your weapon '"..nameText.."' shatters. You shed a single tear and bid it farewell as it moves on to its next life.")
+            end
+            Attacker.WeaponItem.quality = quality * 100 + durability
+            world:changeItem(Attacker.WeaponItem)
         end
 
-        Attacker.WeaponItem.quality = quality * 100 + durability
-        world:changeItem(Attacker.WeaponItem)
-
-        if (durability < 10) then
+        --[[if (durability < 10) then
             common.InformNLS(Attacker.Char,
                 "Deine Waffe '"..nameText.."' hat schon bessere Zeiten gesehen. Vielleicht solltest du sie reparieren lassen.",
                 "Your weapon '"..nameText.."' has seen better days. You may want to get it repaired.")
-        end
+        end]]
     end
 
     if (common.Chance(1, 60)) and (ParryWeapon.id ~= 0) and character.IsPlayer(Defender.Char) and commonParryWeapon.MaxStack == 1 then
@@ -591,24 +592,22 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
         local quality = (ParryWeapon.quality - durability) / 100
         local nameText = world:getItemName(ParryWeapon.id, Defender.Char:getPlayerLanguage())
 
-        durability = durability - 1
-
-        if (durability == 0) then
-            common.InformNLS(Defender.Char,
-                "Dein Gegenstand '"..nameText.."' zerbricht, dies erschwert es dir, dich zu verteidigen.",
-                "Your item '"..nameText.."' shatters, making it more difficult for you to defend yourself.")
-            world:erase(ParryWeapon, 1)
-            return true
+        if durability > 0 then 
+            durability = durability - 1
+            if (durability == 0) then
+                common.InformNLS(Defender.Char,
+                    "Dein Gegenstand '"..nameText.."' zerbricht, dies erschwert es dir, dich zu verteidigen.",
+                    "Your item '"..nameText.."' shatters, making it more difficult for you to defend yourself.")
+            end
+            ParryWeapon.quality = quality * 100 + durability
+            world:changeItem(ParryWeapon)
         end
-
-        ParryWeapon.quality = quality * 100 + durability
-        world:changeItem(ParryWeapon)
-
-        if (durability < 10) then
+        
+        --[[if (durability < 10) then
             common.InformNLS(Defender.Char,
                 "Dein Gegenstand '"..nameText.."' hat schon bessere Zeiten gesehen. Vielleicht solltest du ihn reparieren.",
                 "Your item '"..nameText.."' has seen better days. You may want to repair it.")
-        end
+        end]]
     end
 end
 
@@ -637,6 +636,10 @@ function CalculateDamage(Attacker, Globals)
 
     if character.IsPlayer(Attacker.Char) and world:getItemStatsFromId(Attacker.WeaponItem.id).Level>Attacker.skill then
         BaseDamage = BaseDamage/messupmalus
+    end
+
+    if character.IsPlayer(Attacker.Char) and common.isBroken(Attacker.WeaponItem) then
+        BaseDamage = 0
     end
 
     StrengthBonus = (Attacker.strength - 6) * 3
@@ -844,6 +847,10 @@ function HitChance(Attacker, Defender, Globals)
 
     if character.IsPlayer(Defender.Char) and world:getItemStatsFromId(parryItem.id).Level>Defender.parry then
         parryChance = parryChance/messupmalus
+    end
+
+    if character.IsPlayer(Defender.Char) and common.isBroken(parryItem) then
+        parryChance = 0
     end
 
      -- Min and max parry are 5% and 95% respectively
