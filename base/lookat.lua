@@ -99,14 +99,15 @@ function M.GenerateLookAt(user, item, material)
     local isGerman = user:getPlayerLanguage() == Player.german
     
     local defaultName, usedName
+    local brokenString
     if isGerman then
         defaultName = itemCommon.German
         usedName = item:getData("nameDe")
-        local brokenString = " (Kaputt)"
+        brokenString = " (Kaputt)"
     else
         defaultName = itemCommon.English
         usedName = item:getData("nameEn")
-        local brokenString = " (Broken)"
+        brokenString = " (Broken)"
     end
     if common.IsNilOrEmpty(usedName) then
         usedName = defaultName
