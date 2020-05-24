@@ -103,7 +103,7 @@ function M.StartGathering(User, SourceItem, ltstate)
     end
 
     if ( ltstate == Action.none ) then -- currently not working -> let's go
-        sowing.SavedWorkTime[User.id] = sowing:GenWorkTime(User,nil);
+        sowing.SavedWorkTime[User.id] = sowing:GenWorkTime(User);
         User:startAction( sowing.SavedWorkTime[User.id], 0, 0, 0, 0);
     -- this is no batch action => no emote message, only inform player
         if sowing.SavedWorkTime[User.id] > 15 then
@@ -115,7 +115,7 @@ function M.StartGathering(User, SourceItem, ltstate)
     local nextField = getFreeFieldPosition(User);
     if (nextField~=nil) then  -- there are still free fields
         common.TurnTo( User, nextField); -- turn
-        sowing.SavedWorkTime[User.id] = sowing:GenWorkTime(User,nil);
+        sowing.SavedWorkTime[User.id] = sowing:GenWorkTime(User);
         User:startAction( sowing.SavedWorkTime[User.id], 0, 0, 0, 0);
     end
 

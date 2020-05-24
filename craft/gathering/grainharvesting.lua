@@ -82,7 +82,7 @@ function M.StartGathering(User, SourceItem, ltstate)
     common.TurnTo( User, SourceItem.pos ); -- turn if necessary
 
     if ( ltstate == Action.none ) then -- currently not working -> let's go
-        grainharvesting.SavedWorkTime[User.id] = grainharvesting:GenWorkTime(User, toolItem);
+        grainharvesting.SavedWorkTime[User.id] = grainharvesting:GenWorkTime(User);
         User:startAction( grainharvesting.SavedWorkTime[User.id], 0, 0, 0, 0);
         -- this is no batch action => no emote message, only inform player
         if grainharvesting.SavedWorkTime[User.id] > 15 then
@@ -114,12 +114,12 @@ function M.StartGathering(User, SourceItem, ltstate)
     if created then -- character can still carry something
         local a,b = GetNearbyGrain(User);
         if (a~=nil) then  -- there are still items we can work on
-            grainharvesting.SavedWorkTime[User.id] = grainharvesting:GenWorkTime(User, toolItem);
+            grainharvesting.SavedWorkTime[User.id] = grainharvesting:GenWorkTime(User);
             User:startAction( grainharvesting.SavedWorkTime[User.id], 0, 0, 0, 0);
         end
     end
 
-    if shared.ToolBreaks( User, toolItem, grainharvesting:GenWorkTime(User, toolItem) ) then -- damage and possibly break the tool
+    if shared.ToolBreaks( User, toolItem, grainharvesting:GenWorkTime(User) ) then -- damage and possibly break the tool
         common.HighInformNLS(User,
         "Deine alte Sense zerbricht.",
         "Your old scythe breaks.");

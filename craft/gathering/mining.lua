@@ -412,7 +412,7 @@ function M.StartGathering(User, SourceItem, ltstate)
     User:performAnimation(14)
 
     if ( ltstate == Action.none ) then -- currently not working -> let's go
-        mining.SavedWorkTime[User.id] = mining:GenWorkTime(User, toolItem);
+        mining.SavedWorkTime[User.id] = mining:GenWorkTime(User);
         User:startAction( mining.SavedWorkTime[User.id], 0, 0, 18, 15);
         return
     end
@@ -433,7 +433,7 @@ function M.StartGathering(User, SourceItem, ltstate)
         if not rockBroken then -- rock is okay
             SourceItem = getRock(User, areaId);
             if (SourceItem ~= nil) then  -- there are still items we can work on
-                mining.SavedWorkTime[User.id] = mining:GenWorkTime(User, toolItem);
+                mining.SavedWorkTime[User.id] = mining:GenWorkTime(User);
                 User:changeSource(SourceItem);
                 User:startAction( mining.SavedWorkTime[User.id], 0, 0, 18, 15);
             else -- no items left (as the rock is still okay, this should never happen... handle it anyway)
@@ -449,7 +449,7 @@ function M.StartGathering(User, SourceItem, ltstate)
         end
     end
 
-    if shared.ToolBreaks( User, toolItem, mining:GenWorkTime(User, toolItem) ) then -- damage and possibly break the tool
+    if shared.ToolBreaks( User, toolItem, mining:GenWorkTime(User) ) then -- damage and possibly break the tool
         common.HighInformNLS(User,
         "Deine alte Spitzhacke zerbricht.",
         "Your old pick-axe breaks.");

@@ -132,7 +132,7 @@ function M.StartGathering(User, SourceItem, ltstate)
 
     -- currently not working -> let's go
     if ( ltstate == Action.none ) then
-        theCraft.SavedWorkTime[User.id] = theCraft:GenWorkTime(User, toolItem);
+        theCraft.SavedWorkTime[User.id] = theCraft:GenWorkTime(User);
         User:startAction( theCraft.SavedWorkTime[User.id], 0, 0, 0, 0);
         User:talk(Character.say, "#me beginnt mit der Sichel zu ernten.", "#me starts to harvest with the sickle.")
         return;
@@ -166,7 +166,7 @@ function M.StartGathering(User, SourceItem, ltstate)
                 common.TurnTo( User, nextItem.pos ); -- turn, so we find this item in next call as first item
                 SourceItem = nextItem;
             end
-            theCraft.SavedWorkTime[User.id] = theCraft:GenWorkTime(User, toolItem);
+            theCraft.SavedWorkTime[User.id] = theCraft:GenWorkTime(User);
             User:changeSource(SourceItem);
             User:startAction( theCraft.SavedWorkTime[User.id], 0, 0, 0, 0);
         else
@@ -176,7 +176,7 @@ function M.StartGathering(User, SourceItem, ltstate)
         end
     end
 
-    if shared.ToolBreaks( User, toolItem, theCraft:GenWorkTime(User, toolItem) ) then -- damage and possibly break the tool
+    if shared.ToolBreaks( User, toolItem, theCraft:GenWorkTime(User) ) then -- damage and possibly break the tool
         common.HighInformNLS(User,
         "Deine alte Sichel zerbricht.",
         "Your old sickle breaks.");

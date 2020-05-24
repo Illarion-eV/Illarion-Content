@@ -107,7 +107,7 @@ function M.StartGathering(User, SourceItem, ltstate)
     end
 
     if ( ltstate == Action.none ) then -- currently not working -> let's go
-        honeygathering.SavedWorkTime[User.id] = honeygathering:GenWorkTime(User,nil);
+        honeygathering.SavedWorkTime[User.id] = honeygathering:GenWorkTime(User);
         User:startAction( honeygathering.SavedWorkTime[User.id], 0, 0, 0, 0);
         User:talk(Character.say, "#me beginnt Honigwaben zu sammeln.", "#me starts to collect honeycombs.")
         return
@@ -154,7 +154,7 @@ function M.StartGathering(User, SourceItem, ltstate)
     local created = common.CreateItem(User, 2529, 1, 333, nil) -- create the new produced items
     if created then -- character can still carry something
         if amount > 0 then  -- there are still items we can work on
-            honeygathering.SavedWorkTime[User.id] = honeygathering:GenWorkTime(User,nil);
+            honeygathering.SavedWorkTime[User.id] = honeygathering:GenWorkTime(User);
             User:changeSource(SourceItem)
             User:startAction( honeygathering.SavedWorkTime[User.id], 0, 0, 0, 0);
         else -- no items left

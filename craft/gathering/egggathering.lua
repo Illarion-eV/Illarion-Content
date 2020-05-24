@@ -100,7 +100,7 @@ function M.StartGathering(User, SourceItem, ltstate)
     -- since we're here, there is something we can harvest
 
     if ( ltstate == Action.none ) then -- currently not working -> let's go
-        egggathering.SavedWorkTime[User.id] = egggathering:GenWorkTime(User,nil);
+        egggathering.SavedWorkTime[User.id] = egggathering:GenWorkTime(User);
         User:startAction( egggathering.SavedWorkTime[User.id], 0, 0, 0, 0);
         User:talk(Character.say, "#me beginnt Eier zu sammeln.", "#me starts to gather eggs.")
         return
@@ -117,7 +117,7 @@ function M.StartGathering(User, SourceItem, ltstate)
     local created = common.CreateItem(User, EGG, 1, 333, nil) -- create the new produced items
     if created then -- character can still carry something
         if (amount>0) then  -- there are still fruits we can gather
-            egggathering.SavedWorkTime[User.id] = egggathering:GenWorkTime(User,nil);
+            egggathering.SavedWorkTime[User.id] = egggathering:GenWorkTime(User);
             User:startAction( egggathering.SavedWorkTime[User.id], 0, 0, 0, 0);
         end
     end

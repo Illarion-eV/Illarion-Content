@@ -89,7 +89,7 @@ function M.StartGathering(User, SourceAnimal, ltstate)
             "This animal was milked recently and doesn't give milk right now." );
             return;
         end
-        milking.SavedWorkTime[User.id] = milking:GenWorkTime(User, nil);
+        milking.SavedWorkTime[User.id] = milking:GenWorkTime(User);
         SourceAnimal.movepoints = -1 * milking.SavedWorkTime[User.id]; -- make sure the animal doesn't move away
         User:startAction(milking.SavedWorkTime[User.id], 21, 5, 10, 25);
         User:talk(Character.say, "#me beginnt ein Tier zu melken.", "#me starts to milk an animal.")
@@ -113,7 +113,7 @@ function M.StartGathering(User, SourceAnimal, ltstate)
             if User:countItemAt("all",2498) == 0 then -- no empty bottles left
                 return
             end
-            milking.SavedWorkTime[User.id] = milking:GenWorkTime(User, nil);
+            milking.SavedWorkTime[User.id] = milking:GenWorkTime(User);
             SourceAnimal.movepoints = -1 * milking.SavedWorkTime[User.id]; -- make sure the animal doesn't move away
             User:startAction(milking.SavedWorkTime[User.id], 21, 5, 10, 25);
         else

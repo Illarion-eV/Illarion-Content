@@ -128,7 +128,7 @@ function GatheringCraft:FindRandomItem(User)
   if (self.SavedWorkTime[User.id] == nil) then
     -- Just generate the work time again. Does not matter really if this is not
     -- exactly the original value.
-    self.SavedWorkTime[User.id] = self:GenWorkTime(User,nil);
+    self.SavedWorkTime[User.id] = self:GenWorkTime(User);
   end
 
     common.GetHungry(User, self.SavedWorkTime[User.id]*4);
@@ -208,7 +208,7 @@ function GatheringCraft:FindRandomItem(User)
 end
 
 -- Generate working time for gathering actions
-function GatheringCraft:GenWorkTime(User, toolItem)
+function GatheringCraft:GenWorkTime(User)
 
   local minTime = 15; --Minimum time for skill 100
   local maxTime = 45; --Maximum time for skill 0

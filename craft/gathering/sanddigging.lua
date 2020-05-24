@@ -76,7 +76,7 @@ function M.StartGathering(User, SourceItem, ltstate)
 
     -- currently not working -> let's go
     if ( ltstate == Action.none ) then
-        sanddigging.SavedWorkTime[User.id] = sanddigging:GenWorkTime(User,toolItem);
+        sanddigging.SavedWorkTime[User.id] = sanddigging:GenWorkTime(User);
         User:startAction( sanddigging.SavedWorkTime[User.id], 0, 0, 0, 0);
         User:talk(Character.say, "#me beginnt nach Sand zu graben.", "#me starts to dig for sand.")
         return
@@ -100,7 +100,7 @@ function M.StartGathering(User, SourceItem, ltstate)
     local created = common.CreateItem(User, 726, 1, 333, nil) -- create the new produced items
     if created then -- character can still carry something
         if amount > 0 then
-            sanddigging.SavedWorkTime[User.id] = sanddigging:GenWorkTime(User,toolItem)
+            sanddigging.SavedWorkTime[User.id] = sanddigging:GenWorkTime(User)
             User:changeSource(SourceItem);
             User:startAction( sanddigging.SavedWorkTime[User.id], 0, 0, 0, 0)
         end
@@ -115,7 +115,7 @@ function M.StartGathering(User, SourceItem, ltstate)
         return
     end
 
-    if shared.ToolBreaks( User, toolItem, sanddigging:GenWorkTime(User,toolItem) ) then -- damage and possibly break the tool
+    if shared.ToolBreaks( User, toolItem, sanddigging:GenWorkTime(User) ) then -- damage and possibly break the tool
         common.HighInformNLS(User,
         "Deine alte Schaufel zerbricht.",
         "Your old shovel breaks.");

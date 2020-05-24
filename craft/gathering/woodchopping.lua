@@ -225,7 +225,7 @@ function M.StartGathering(User, SourceItem, ltstate)
     User:performAnimation(5)
 
     if ( ltstate == Action.none ) then -- currently not working -> let's go
-        theCraft.SavedWorkTime[User.id] = theCraft:GenWorkTime(User,toolItem);
+        theCraft.SavedWorkTime[User.id] = theCraft:GenWorkTime(User);
         User:startAction( theCraft.SavedWorkTime[User.id], 0, 0, 6, 0);
         if ( changeItem ) then
             world:changeItem(SourceItem);
@@ -255,13 +255,13 @@ function M.StartGathering(User, SourceItem, ltstate)
     local created = common.CreateItem(User, producedItemId, 1, 333, nil) -- create the new produced items
     if created then -- character can still carry something
         if (amount > 0) then  -- there are still items we can work on
-            theCraft.SavedWorkTime[User.id] = theCraft:GenWorkTime(User,toolItem);
+            theCraft.SavedWorkTime[User.id] = theCraft:GenWorkTime(User);
             User:changeSource(SourceItem);
             User:startAction( theCraft.SavedWorkTime[User.id], 0, 0, 6, 0);
         end
     end
 
-    if shared.ToolBreaks( User, toolItem, theCraft:GenWorkTime(User,toolItem) ) then -- damage and possibly break the tool
+    if shared.ToolBreaks( User, toolItem, theCraft:GenWorkTime(User) ) then -- damage and possibly break the tool
         common.HighInformNLS(User,
         "Dein altes Beil zerbricht.",
         "Your old hatchet breaks.");

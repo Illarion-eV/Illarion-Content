@@ -75,7 +75,7 @@ function M.StartGathering(User, SourceItem, ltstate)
     end
 
     if ( ltstate == Action.none ) then -- currently not working -> let's go
-        fishing.SavedWorkTime[User.id] = fishing:GenWorkTime(User,toolItem)
+        fishing.SavedWorkTime[User.id] = fishing:GenWorkTime(User)
         User:startAction( fishing.SavedWorkTime[User.id], 0, 0, 0, 0)
         User:talk(Character.say, "#me beginnt zu fischen.", "#me starts to fish.")
         return
@@ -112,7 +112,7 @@ function M.StartGathering(User, SourceItem, ltstate)
     local created = common.CreateItem(User, fishID, fished, 333, nil) -- create the new produced items
     if created then -- character can still carry something
         if amount > 0 then  -- there are still items we can work on
-            fishing.SavedWorkTime[User.id] = fishing:GenWorkTime(User,toolItem)
+            fishing.SavedWorkTime[User.id] = fishing:GenWorkTime(User)
             User:changeSource(SourceItem)
             User:startAction( fishing.SavedWorkTime[User.id], 0, 0, 0, 0)
         end
@@ -127,7 +127,7 @@ function M.StartGathering(User, SourceItem, ltstate)
         return
     end
 
-    if shared.ToolBreaks( User, toolItem, fishing:GenWorkTime(User,toolItem) ) then -- damage and possibly break the tool
+    if shared.ToolBreaks( User, toolItem, fishing:GenWorkTime(User) ) then -- damage and possibly break the tool
         common.HighInformNLS(User,
         "Deine alte Angel zerbricht.",
         "Your old fishing rod breaks.")
