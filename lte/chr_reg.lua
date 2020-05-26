@@ -50,6 +50,8 @@ end;
 
 function M.callEffect( Effect, Char ) -- Effect called
 
+Char:inform("Test")
+
 if Char:idleTime() < 300 then -- Absolutely no regeneration effect if the player is afk for more than five minutes
 
     -----------------------READ VALUES------------------------------------
