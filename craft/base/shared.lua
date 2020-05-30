@@ -24,7 +24,7 @@ local M = {}
 -- @param item The item that gets damaged
 -- @param workTime The time the item is used
 -- @return true if the item breaks, false if not
-function M.ToolBreaks(user, item, workTime)
+function M.toolBreaks(user, item, workTime)
 
     if not user or not item or not workTime then
         return false
@@ -68,7 +68,7 @@ function M.ToolBreaks(user, item, workTime)
 end
 
 --Checks if the user has a specific tool in a hand slot
-function M.HasTool(User, id)
+function M.hasTool(User, id)
 
     local toolItem = User:getItemAt(Character.left_tool)
     
@@ -83,7 +83,7 @@ function M.HasTool(User, id)
     
 end
 
-function M.ToolCheck(User, id)
+function M.toolCheck(User, id)
 
     local germanGenderExtension
 
@@ -93,7 +93,7 @@ function M.ToolCheck(User, id)
         germanGenderExtension="e"    
     end
     
-    if M.HasTool(User, id) then
+    if M.hasTool(User, id) then
         local leftToolItem = User:getItemAt(Character.left_tool)
         local rightToolItem = User:getItemAt(Character.right_tool)
         if leftToolItem.id == id and common.isBroken(leftToolItem) == false then

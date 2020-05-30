@@ -71,7 +71,7 @@ function M.StartGathering(User, SourceItem, ltstate)
         return
     end
 
-    local toolItem=shared.ToolCheck(User, 271) --scythe (271)
+    local toolItem=shared.toolCheck(User, 271) --scythe (271)
 
     if not toolItem then
         return
@@ -121,7 +121,7 @@ function M.StartGathering(User, SourceItem, ltstate)
         end
     end
 
-    if shared.ToolBreaks( User, toolItem, grainharvesting:GenWorkTime(User) ) then -- damage and possibly break the tool
+    if shared.toolBreaks( User, toolItem, grainharvesting:GenWorkTime(User) ) then -- damage and possibly break the tool
         common.HighInformNLS(User,
         "Deine alte Sense zerbricht.",
         "Your old scythe breaks.");
