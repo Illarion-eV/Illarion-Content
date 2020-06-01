@@ -340,7 +340,9 @@ local function breakRock(Rock)
         return true;
     else
         if ((RockQual-HitDMG)==(math.floor(RockQual/100))*100) then HitDMG=HitDMG-1 end
-        world:changeQuality(Rock,-HitDMG)
+        --world:changeQuality(Rock,-HitDMG)
+        Rock.quality=RockQual-HitDMG
+        world:changeItem(Rock)
     end
     return false;
 end
