@@ -238,12 +238,12 @@ function M.MoveToField(char)
     local AmountFlameFire = #triggerFlameFire
     for i = 1,AmountFlameFire do
         if char.pos == triggerFlameFire[i] then
-            if char:getQuestProgress(683) == 0 and find == false then
+            if char:getQuestProgress(689) == 0 and find == false then
                 -- character.CreateAfterTime (char,100,120,359,nil,1,1,988,998,225,235,0,0,600,600,1,1,nil,4,1,3,nil,nil,1)
                 local adventurers = world:getPlayersInRangeOf(char.pos, 15)
                             advantureslist[char.name] = adventurers
                 for i,player in ipairs(advantureslist[char.name]) do
-                    player:setQuestProgress(683,1)
+                    player:setQuestProgress(689,1)
                 end
             end
         end
@@ -252,12 +252,12 @@ function M.MoveToField(char)
     local AmountFlameIce = #triggerFlameIce
     for i = 1,AmountFlameIce do
         if char.pos == triggerFlameIce[i] then
-            if char:getQuestProgress(683) == 0 and find == false then
+            if char:getQuestProgress(689) == 0 and find == false then
                 -- character.CreateAfterTime (char,100,120,360,nil,1,1,988,998,225,235,0,0,600,600,1,1,nil,5,1,3,nil,nil,1)
                 local adventurers = world:getPlayersInRangeOf(char.pos, 15)
                             advantureslist[char.name] = adventurers
                 for i,player in ipairs(advantureslist[char.name]) do
-                    player:setQuestProgress(683,1)
+                    player:setQuestProgress(689,1)
                 end
             end
         end
@@ -266,12 +266,12 @@ function M.MoveToField(char)
     local AmountFlamePoison = #triggerFlamePoison
     for i = 1,AmountFlamePoison do
         if char.pos == triggerFlamePoison[i] then
-            if char:getQuestProgress(683) == 0 and find == false then
+            if char:getQuestProgress(689) == 0 and find == false then
                 -- character.CreateAfterTime (char,100,120,372,nil,1,1,986,998,211,223,0,0,600,600,1,1,nil,13,1,3,nil,nil,1)
                 local adventurers = world:getPlayersInRangeOf(char.pos, 15)
                             advantureslist[char.name] = adventurers
                 for i,player in ipairs(advantureslist[char.name]) do
-                    player:setQuestProgress(683,1)
+                    player:setQuestProgress(689,1)
                 end
             end
         end
