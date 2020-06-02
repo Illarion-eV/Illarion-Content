@@ -52,7 +52,7 @@ function M.StartGathering(User, SourceItem, ltstate)
         return
     end
 
-    local toolItem=shared.toolCheck(User, 24) --shovel (24)
+    local toolItem=shared.getTool(User, 24) --shovel (24)
 
     if not toolItem then
         return

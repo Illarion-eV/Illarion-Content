@@ -48,7 +48,7 @@ function M.StartGathering(User, SourceAnimal, ltstate)
 --      return
 --  end
 
-    local toolItem=shared.toolCheck(User, 6) --scissors (6)
+    local toolItem=shared.getTool(User, 6) --scissors (6)
 
     if not toolItem then
         return

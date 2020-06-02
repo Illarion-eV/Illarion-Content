@@ -83,7 +83,7 @@ function M.hasTool(User, id)
     
 end
 
-function M.toolCheck(User, id)
+function M.getTool(User, id)
 
     local germanGenderExtension
 
