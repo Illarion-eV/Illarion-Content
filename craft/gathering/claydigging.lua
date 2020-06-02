@@ -52,7 +52,7 @@ function M.StartGathering(User, SourceItem, ltstate)
         return
     end
 
-    local toolItem=shared.ToolCheck(User, 24) --shovel (24)
+    local toolItem=shared.getTool(User, 24) --shovel (24)
 
     if not toolItem then
         return
@@ -116,7 +116,7 @@ function M.StartGathering(User, SourceItem, ltstate)
         return
     end
 
-    if shared.ToolBreaks( User, toolItem, claydigging:GenWorkTime(User) ) then -- damage and possibly break the tool
+    if shared.toolBreaks( User, toolItem, claydigging:GenWorkTime(User) ) then -- damage and possibly break the tool
         common.HighInformNLS(User,
         "Deine alte Schaufel zerbricht.",
         "Your old shovel breaks.");

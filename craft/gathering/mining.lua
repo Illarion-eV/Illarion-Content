@@ -340,7 +340,9 @@ local function breakRock(Rock)
         return true;
     else
         if ((RockQual-HitDMG)==(math.floor(RockQual/100))*100) then HitDMG=HitDMG-1 end
-        world:changeQuality(Rock,-HitDMG)
+        --world:changeQuality(Rock,-HitDMG)
+        Rock.quality=RockQual-HitDMG
+        world:changeItem(Rock)
     end
     return false;
 end
@@ -398,7 +400,7 @@ function M.StartGathering(User, SourceItem, ltstate)
         return
     end
 
-    local toolItem=shared.ToolCheck(User, 2763) --shovel (pick-axe)
+    local toolItem=shared.getTool(User, 2763) --shovel (pick-axe)
 
     if not toolItem then
         return
@@ -451,7 +453,7 @@ function M.StartGathering(User, SourceItem, ltstate)
         end
     end
 
-    if shared.ToolBreaks( User, toolItem, mining:GenWorkTime(User) ) then -- damage and possibly break the tool
+    if shared.toolBreaks( User, toolItem, mining:GenWorkTime(User) ) then -- damage and possibly break the tool
         common.HighInformNLS(User,
         "Deine alte Spitzhacke zerbricht.",
         "Your old pick-axe breaks.");

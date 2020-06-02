@@ -79,7 +79,7 @@ function M.UseItem(User, SourceItem, ltstate)
         return
     end
     
-    if shared.HasTool(User, 2763) == false then
+    if shared.hasTool(User, 2763) == false then
         common.HighInformNLS(User,"Du musst die Spitzhacke in der Hand halten.","You need to hold the pick-axe in your hand.")
         return
     end

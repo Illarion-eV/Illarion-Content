@@ -48,7 +48,7 @@ function M.StartGathering(User, SourceAnimal, ltstate)
 --      return
 --  end
 
-    local toolItem=shared.ToolCheck(User, 6) --scissors (6)
+    local toolItem=shared.getTool(User, 6) --scissors (6)
 
     if not toolItem then
         return
@@ -122,7 +122,7 @@ function M.StartGathering(User, SourceAnimal, ltstate)
         end
     end
 
-    if shared.ToolBreaks( User, toolItem, woolcutting:GenWorkTime(User) ) then -- damage and possibly break the tool
+    if shared.toolBreaks( User, toolItem, woolcutting:GenWorkTime(User) ) then -- damage and possibly break the tool
         common.HighInformNLS(User,
         "Deine alte Schere zerbricht.",
         "Your old scissors break.");

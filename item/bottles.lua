@@ -128,7 +128,9 @@ function M.UseItem(User, SourceItem, ltstate)
                     -- create leftovers
                     if( SourceItem.quality > 199 ) then
                         -- reduce one portion
-                        world:changeQuality( SourceItem, -100 );
+                        SourceItem.quality = SourceItem.quality-100
+                        world:changeItem(SourceItem)
+                        --world:changeQuality( SourceItem, -100 );
                     else
                         if( math.random( 50 ) <= 1 ) then
                             common.InformNLS( User,

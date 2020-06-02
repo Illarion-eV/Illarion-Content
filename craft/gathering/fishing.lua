@@ -53,7 +53,7 @@ function M.StartGathering(User, SourceItem, ltstate)
         return
     end
 
-    local toolItem=shared.ToolCheck(User, 72) --fishing rod (72)
+    local toolItem=shared.getTool(User, 72) --fishing rod (72)
 
     if not toolItem then
         return
@@ -129,7 +129,7 @@ function M.StartGathering(User, SourceItem, ltstate)
         return
     end
 
-    if shared.ToolBreaks( User, toolItem, fishing:GenWorkTime(User) ) then -- damage and possibly break the tool
+    if shared.toolBreaks( User, toolItem, fishing:GenWorkTime(User) ) then -- damage and possibly break the tool
         common.HighInformNLS(User,
         "Deine alte Angel zerbricht.",
         "Your old fishing rod breaks.")
