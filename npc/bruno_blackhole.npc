@@ -217,7 +217,7 @@ english, "Mine" -> "There are several mines close to Galmair. Just ask a fellow 
 "Mine" -> "Es gibt mehrere Minen hier bei Galmair. Frag' einfach einen anderen Bergarbeiter oder einen Schmied."
 "ore" -> "A smith can make several things out of ore... Tools, swords, armour and more. Just ask one and maybe he'll even give ya work."
 "erz" -> "Ein Schmied kann viele Dinge aus Erz machen. Werkzeuge, Schwerter, Schilder und noch mehr. Frag' doch einfach einen Schmied und vielleicht gibt er dir ja sogar Arbeit."
-"Stone" -> "From raw stone ya can do stoneblocks which are needed to build houses. All ya need is a chisel and a place to work."
+"Stone" -> "From raw stone ya can make stoneblocks which are needed to build houses. All ya need is a chisel and a place to work."
 "Stein" -> "Von rohen Steinen kann man Steinquader machen, welche man braucht um Häuser zu bauen. Alles was du brauchst ist ein Meißel und ein Platz zum Arbeiten."
 
 -- Faction stuff. Please remove if you send the template to outsiders!
@@ -277,7 +277,7 @@ cycletext "#me poliert gedankenverloren ein Goldnugget.", "#me seems to be lost 
 cycletext "#me tritt nach einem Stein der klimpernd wegspringt.", "#me kicks at a small stone which bounces away with a strumming noise."
 cycletext "#me nuschelt vor sich hin: 'Ich hätte mehr Bier mitnehmen sollen.'", "#me mumbles: 'I should have brought more beer.'"
 cycletext "Irmorom is der Gott des Handwerks und Handels und zudem der Weltenschmied. Er hat die Zwerge nach seinem Ebenbild geschaffen damit sie der Welt und den anderen Rassen eine Stütze sind.", "Irmorom is the god of trade and craftmanship and also the worldsmith. He created us dwarves in his own likeness so that we can be a support for the world and the other races."
-cycletext "Wenn ich einmal sterbe, werde ich all die großen Zwerge in dem großen Berg wiedersehen und werde Irmorom zeigen können was ich gelernt habe.", "When I die I'll see all those great dwarves again in the big mountain and can show Irmorom what I learnt."
+cycletext "Wenn ich einmal sterbe, werde ich all die großen Zwerge in dem großen Berg wiedersehen und werde Irmorom zeigen können was ich gelernt habe.", "When I die, I'll see all those great dwarves again in the big mountain and can show Irmorom what I learnt."
 cycletext "Hey-ho!", "Hey-ho!"
 cycletext "Glück auf!", "Good luck!"
 cycletext "Arbeit macht durstig!", "Work makes me thirsty!"
