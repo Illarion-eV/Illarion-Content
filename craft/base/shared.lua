@@ -85,12 +85,25 @@ end
 
 function M.getTool(User, id)
 
-    local germanGenderExtension
+    local germanExtension="e" --most tools are female in German
+    local germanExtensionBroken="e"
+    
+    -- 74:hatchet;121:peel;2781:dyeing rod;122:finesmithing hammer;311:glass blow pipe;23:hammer;2709:armourer's hammer;227:cooking spoon;737:chisel;2752:carving tools;2715:plane
+    local maleToolList = {121,2781,122,23,2709,227,737,2715}
+    local neuterToolList = {74,311,2752}    
+    
+    for i in pairs(maleToolList) do
+        if id == maleToolList[i] then
+            germanExtensionBroken=""
+            germanExtension="en"
+        end
+    end
 
-    if id == 74 then
-        germanGenderExtension=""
-    else --most tools are femasle in German
-        germanGenderExtension="e"    
+    for i in pairs(neuterToolList) do
+        if id == neuterToolList[i] then
+            germanExtensionBroken=""
+            germanExtension=""
+        end
     end
     
     if M.hasTool(User, id) then
@@ -101,11 +114,11 @@ function M.getTool(User, id)
         elseif rightToolItem.id == id and common.isBroken(rightToolItem) == false then
             return rightToolItem
         else
-            common.HighInformNLS(User,"Dein"..germanGenderExtension.." "..world:getItemName(id, Player.german).." ist kaputt.","Your "..world:getItemName(id, Player.english).." is broken.")
+            common.HighInformNLS(User,"Dein"..germanExtensionBroken.." "..world:getItemName(id, Player.german).." ist kaputt.","Your "..world:getItemName(id, Player.english).." is broken.")
             return false
         end
     else
-        common.HighInformNLS(User,"Du musst ein"..germanGenderExtension.." "..world:getItemName(id, Player.german).." in der Hand halten.","You need to hold the "..world:getItemName(id, Player.english).." in your hand.")
+        common.HighInformNLS(User,"Du musst ein"..germanExtension.." "..world:getItemName(id, Player.german).." in der Hand halten.","You need to hold the "..world:getItemName(id, Player.english).." in your hand.")
         return false
     end
     

@@ -115,7 +115,7 @@ function M.GenerateLookAt(user, item, material)
 
     lookAt.name = TitleCase(usedName)
     
-    if common.isBroken(item) then
+    if common.isBroken(item) and item.wear ~= 255 then --static items are not shown as broken
         lookAt.name = lookAt.name..brokenString
     end   
     
