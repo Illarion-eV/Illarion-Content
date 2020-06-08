@@ -117,15 +117,10 @@ function M.StartGathering(User, SourceItem, ltstate)
         local a,b = GetNearbyGrain(User);
         if (a~=nil) then  -- there are still items we can work on
             grainharvesting.SavedWorkTime[User.id] = grainharvesting:GenWorkTime(User);
-            User:startAction( grainharvesting.SavedWorkTime[User.id], 0, 0, 0, 0);
+            if not shared.toolBreaks( User, toolItem, grainharvesting:GenWorkTime(User) ) then -- damage and possibly break the tool
+                User:startAction( grainharvesting.SavedWorkTime[User.id], 0, 0, 0, 0);
+            end
         end
-    end
-
-    if shared.toolBreaks( User, toolItem, grainharvesting:GenWorkTime(User) ) then -- damage and possibly break the tool
-        common.HighInformNLS(User,
-        "Deine alte Sense zerbricht.",
-        "Your old scythe breaks.");
-        return
     end
 end
 

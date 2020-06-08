@@ -116,7 +116,9 @@ function M.StartGathering(User, SourceItem, ltstate)
         if amount > 0 then  -- there are still items we can work on
             fishing.SavedWorkTime[User.id] = fishing:GenWorkTime(User)
             User:changeSource(SourceItem)
-            User:startAction( fishing.SavedWorkTime[User.id], 0, 0, 0, 0)
+            if not shared.toolBreaks( User, toolItem, fishing:GenWorkTime(User) ) then -- damage and possibly break the tool
+                User:startAction( fishing.SavedWorkTime[User.id], 0, 0, 0, 0)
+            end
         end
     end
     if amount == 0 then
@@ -129,12 +131,6 @@ function M.StartGathering(User, SourceItem, ltstate)
         return
     end
 
-    if shared.toolBreaks( User, toolItem, fishing:GenWorkTime(User) ) then -- damage and possibly break the tool
-        common.HighInformNLS(User,
-        "Deine alte Angel zerbricht.",
-        "Your old fishing rod breaks.")
-        return
-    end
 end
 
 return M

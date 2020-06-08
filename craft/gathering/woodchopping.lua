@@ -259,15 +259,12 @@ function M.StartGathering(User, SourceItem, ltstate)
         if (amount > 0) then  -- there are still items we can work on
             theCraft.SavedWorkTime[User.id] = theCraft:GenWorkTime(User);
             User:changeSource(SourceItem);
-            User:startAction( theCraft.SavedWorkTime[User.id], 0, 0, 6, 0);
+            if not shared.toolBreaks( User, toolItem, theCraft:GenWorkTime(User) ) then -- damage and possibly break the tool
+                User:startAction( theCraft.SavedWorkTime[User.id], 0, 0, 6, 0);
+            end
         end
     end
 
-    if shared.toolBreaks( User, toolItem, theCraft:GenWorkTime(User) ) then -- damage and possibly break the tool
-        common.HighInformNLS(User,
-        "Dein altes Beil zerbricht.",
-        "Your old hatchet breaks.");
-    end
     if ( amount <= 0 ) then
         world:erase(SourceItem, SourceItem.number);
         if isPlayerPlanted then

@@ -104,7 +104,9 @@ function M.StartGathering(User, SourceItem, ltstate)
         if amount > 0 then
             sanddigging.SavedWorkTime[User.id] = sanddigging:GenWorkTime(User)
             User:changeSource(SourceItem);
-            User:startAction( sanddigging.SavedWorkTime[User.id], 0, 0, 0, 0)
+            if not shared.toolBreaks( User, toolItem, sanddigging:GenWorkTime(User) ) then -- damage and possibly break the tool
+                User:startAction( sanddigging.SavedWorkTime[User.id], 0, 0, 0, 0)
+            end
         end
     end
 
@@ -113,16 +115,10 @@ function M.StartGathering(User, SourceItem, ltstate)
         SourceItem.id = 3632
         SourceItem.wear = 4
         world:changeItem(SourceItem)
-        User:inform( "An dieser Stelle gibt es nicht mehrs zu holen.", "There isn't anything left in this pit.", Character.highPriority);
+        User:inform( "An dieser Stelle gibt es nichts mehr zu holen.", "There isn't anything left in this pit.", Character.highPriority);
         return
     end
 
-    if shared.toolBreaks( User, toolItem, sanddigging:GenWorkTime(User) ) then -- damage and possibly break the tool
-        common.HighInformNLS(User,
-        "Deine alte Schaufel zerbricht.",
-        "Your old shovel breaks.");
-        return
-    end
 end
 
 return M

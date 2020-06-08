@@ -725,9 +725,7 @@ function Craft:craftItem(user, productId)
 
         if not self.npcCraft then
             local originalDurability = common.getItemDurability(toolItem)
-            if shared.toolBreaks(user, toolItem, product:getCraftingTime(skill,0)) then
-                common.HighInformNLS(user,"Dein altes Werkzeug zerbricht.", "Your old tool breaks.")
-            else
+            if not shared.toolBreaks(user, toolItem, product:getCraftingTime(skill,0)) then
                 glypheffects.effectToolSelfRepair(user, toolItem, originalDurability)
             end
             common.GetHungry(user, neededFood)
@@ -819,9 +817,7 @@ function Craft:repairItem(user, productIdList)
 
         if not self.npcCraft then
             local originalDurability = common.getItemDurability(toolItem)
-            if shared.toolBreaks(user, toolItem, repairTime) then
-                common.HighInformNLS(user,"Dein altes Werkzeug zerbricht.", "Your old tool breaks.")
-            else
+            if not shared.toolBreaks(user, toolItem, repairTime) then
                 glypheffects.effectToolSelfRepair(user, toolItem, originalDurability)
             end
             common.GetHungry(user, neededFood)

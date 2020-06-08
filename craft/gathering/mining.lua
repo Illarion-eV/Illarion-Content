@@ -439,7 +439,9 @@ function M.StartGathering(User, SourceItem, ltstate)
             if (SourceItem ~= nil) then  -- there are still items we can work on
                 mining.SavedWorkTime[User.id] = mining:GenWorkTime(User);
                 User:changeSource(SourceItem);
-                User:startAction( mining.SavedWorkTime[User.id], 0, 0, 18, 15);
+                if not shared.toolBreaks( User, toolItem, mining:GenWorkTime(User) ) then -- damage and possibly break the tool
+                    User:startAction( mining.SavedWorkTime[User.id], 0, 0, 18, 15);
+                end
             else -- no items left (as the rock is still okay, this should never happen... handle it anyway)
                 common.HighInformNLS(User,
                 "Hier gibt es keine Steine mehr, an denen du arbeiten kannst.",
@@ -451,13 +453,6 @@ function M.StartGathering(User, SourceItem, ltstate)
             "Hier gibt es keine Steine mehr, an denen du arbeiten kannst.",
             "There are no stones for mining anymore.");
         end
-    end
-
-    if shared.toolBreaks( User, toolItem, mining:GenWorkTime(User) ) then -- damage and possibly break the tool
-        common.HighInformNLS(User,
-        "Deine alte Spitzhacke zerbricht.",
-        "Your old pick-axe breaks.");
-        return
     end
 end
 

@@ -104,7 +104,9 @@ function M.StartGathering(User, SourceItem, ltstate)
         if amount > 0 then -- still items to dig
             claydigging.SavedWorkTime[User.id] = claydigging:GenWorkTime(User)
             User:changeSource(SourceItem)
-            User:startAction(claydigging.SavedWorkTime[User.id], 0, 0, 0, 0)
+            if not shared.toolBreaks( User, toolItem, claydigging:GenWorkTime(User) ) then -- damage and possibly break the tool
+                User:startAction(claydigging.SavedWorkTime[User.id], 0, 0, 0, 0)
+            end
         end
     end
     if amount == 0 then
@@ -112,16 +114,10 @@ function M.StartGathering(User, SourceItem, ltstate)
         SourceItem.id = 3633
         SourceItem.wear = 4
         world:changeItem(SourceItem)
-        User:inform( "An dieser Stelle gibt es nicht mehr zu holen.", "There isn't anything left in this pit.", Character.highPriority);
+        User:inform( "An dieser Stelle gibt es nichts mehr zu holen.", "There isn't anything left in this pit.", Character.highPriority);
         return
     end
 
-    if shared.toolBreaks( User, toolItem, claydigging:GenWorkTime(User) ) then -- damage and possibly break the tool
-        common.HighInformNLS(User,
-        "Deine alte Schaufel zerbricht.",
-        "Your old shovel breaks.");
-        return
-    end
 end
 
 return M

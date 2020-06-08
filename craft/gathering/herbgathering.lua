@@ -394,19 +394,14 @@ function M.StartGathering(User, SourceItem, ltstate)
             end
             theCraft.SavedWorkTime[User.id] = theCraft:GenWorkTime(User);
             User:changeSource(SourceItem);
-            User:startAction( theCraft.SavedWorkTime[User.id], 0, 0, 0, 0);
+            if not shared.toolBreaks( User, toolItem, theCraft:GenWorkTime(User) ) then -- damage and possibly break the tool
+                User:startAction( theCraft.SavedWorkTime[User.id], 0, 0, 0, 0);
+            end
         else
             common.HighInformNLS( User,
             "Diese Pflanze ist schon komplett abgeerntet. Gib ihr Zeit um nachzuwachsen.",
             "This plant is already completely harvested. Give it time to grow again." );
         end
-    end
-
-    if shared.toolBreaks( User, toolItem, theCraft:GenWorkTime(User) ) then -- damage and possibly break the tool
-        common.HighInformNLS(User,
-        "Deine alte Sichel zerbricht.",
-        "Your old sickle breaks.");
-        return
     end
 end
 

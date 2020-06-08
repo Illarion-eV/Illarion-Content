@@ -111,22 +111,16 @@ function M.StartGathering(User, SourceAnimal, ltstate)
     if created then --charcter can still carry something
         if gatherAmount < 20 then -- more wool is available
             woolcutting.SavedWorkTime[User.id] = woolcutting:GenWorkTime(User);
-
-            User:startAction( woolcutting.SavedWorkTime[User.id], 0, 0, 2, 20);
-            -- make sure the sheep doesn't move away
-            SourceAnimal.movepoints = math.min(SourceAnimal.movepoints, -1*woolcutting.SavedWorkTime[User.id]);
+            if not shared.toolBreaks( User, toolItem, woolcutting:GenWorkTime(User) ) then -- damage and possibly break the tool
+                User:startAction( woolcutting.SavedWorkTime[User.id], 0, 0, 2, 20);
+                -- make sure the sheep doesn't move away
+                SourceAnimal.movepoints = math.min(SourceAnimal.movepoints, -1*woolcutting.SavedWorkTime[User.id]);
+            end
         else
             common.HighInformNLS( User,
             "Dieses Schaf ist nun geschoren und gibt keine Wolle mehr.",
             "This sheep is now sheared properly and doesn't give any more wool." );
         end
-    end
-
-    if shared.toolBreaks( User, toolItem, woolcutting:GenWorkTime(User) ) then -- damage and possibly break the tool
-        common.HighInformNLS(User,
-        "Deine alte Schere zerbricht.",
-        "Your old scissors break.");
-        return
     end
 end
 

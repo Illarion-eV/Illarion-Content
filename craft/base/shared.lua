@@ -54,6 +54,10 @@ function M.toolBreaks(user, item, workTime)
     world:changeItem(item)
 
     if (durability == 0) then
+        local germanExtension
+        local germanExtensionBroken
+        germanExtension,germanExtensionBroken = M.getGermanExtension(item.id)
+        common.HighInformNLS(user,"Dein"..germanExtensionBroken.." "..world:getItemName(item.id, Player.german).." zerbricht.","Your "..world:getItemName(item.id, Player.english).." breaks.")
         return true
     end
 
@@ -85,6 +89,33 @@ end
 
 function M.getTool(User, id)
 
+    local germanExtension
+    local germanExtensionBroken
+    
+    germanExtension,germanExtensionBroken = M.getGermanExtension(id)
+    
+    if M.hasTool(User, id) then
+        local leftToolItem = User:getItemAt(Character.left_tool)
+        local rightToolItem = User:getItemAt(Character.right_tool)
+        if leftToolItem.id == id and common.isBroken(leftToolItem) == false then
+            return leftToolItem
+        elseif rightToolItem.id == id and common.isBroken(rightToolItem) == false then
+            return rightToolItem
+        else
+            common.HighInformNLS(User,"Dein"..germanExtensionBroken.." "..world:getItemName(id, Player.german).." ist kaputt.","Your "..world:getItemName(id, Player.english).." is broken.")
+            return false
+        end
+    else
+        common.HighInformNLS(User,"Du musst ein"..germanExtension.." "..world:getItemName(id, Player.german).." in der Hand halten.","You need to hold the "..world:getItemName(id, Player.english).." in your hand.")
+        return false
+    end
+    
+    return false
+
+end
+
+function M.getGermanExtension(id)
+
     local germanExtension="e" --most tools are female in German
     local germanExtensionBroken="e"
     
@@ -106,24 +137,8 @@ function M.getTool(User, id)
         end
     end
     
-    if M.hasTool(User, id) then
-        local leftToolItem = User:getItemAt(Character.left_tool)
-        local rightToolItem = User:getItemAt(Character.right_tool)
-        if leftToolItem.id == id and common.isBroken(leftToolItem) == false then
-            return leftToolItem
-        elseif rightToolItem.id == id and common.isBroken(rightToolItem) == false then
-            return rightToolItem
-        else
-            common.HighInformNLS(User,"Dein"..germanExtensionBroken.." "..world:getItemName(id, Player.german).." ist kaputt.","Your "..world:getItemName(id, Player.english).." is broken.")
-            return false
-        end
-    else
-        common.HighInformNLS(User,"Du musst ein"..germanExtension.." "..world:getItemName(id, Player.german).." in der Hand halten.","You need to hold the "..world:getItemName(id, Player.english).." in your hand.")
-        return false
-    end
+    return germanExtension,germanExtensionBroken
     
-    return false
-
 end
 
 return M
