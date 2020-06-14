@@ -17,8 +17,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- snowpatch (928)
 
-
 local common = require("base.common")
+local shared = require("craft.base.shared")
 local gathering = require("craft.base.gathering")
 
 local M = {}
@@ -26,7 +26,6 @@ local M = {}
 function M.StartGathering(User, SourceItem, ltstate)
 
     local snowballmaking = gathering.GatheringCraft:new{};
-    snowballmaking:AddInterruptMessage("Du wischst dir den Schweiﬂ von der Stirn.", "You wipe sweat off your forehead.");
 
     common.ResetInterruption( User, ltstate )
     if ( ltstate == Action.abort ) then -- work interrupted

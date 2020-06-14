@@ -27,22 +27,22 @@ local M = {}
 
 function M.StartGathering(User, SourceItem, ltstate)
 
+    local toolItem=shared.getTool(User, 72) --fishing rod (72)
+
+    if not toolItem then
+        return
+    end
+
+    local gatheringBonus=shared.getGatheringBonus(User, toolItem)
+
     local fishing = gathering.GatheringCraft:new{LeadSkill = Character.fishing, LearnLimit = 100}; -- id_72_fishingrod
-    fishing:AddRandomPureElement(gathering.prob_element); -- Any pure element
-    fishing:AddRandomMagicGem(1, gathering.prob_extremely_rarely); -- Any latent magical gem
-    fishing:SetShard(gathering.prob_shard,"In den Eingeweiden des Fischens findest du einen Splitter eines magischen Artefaktes.", "You find a shard of a magical artifact in the entrails of the fish."); -- Any shard
-    fishing:AddRandomItem(51,1,333,{},gathering.prob_extremely_rarely,"Ein Eimer verfängt sich in deiner Angelschnur. Den hat hier wohl jemand verloren.","As you tighten your line you feel a heavy resistance. With a careful approach you are able to pull a bucket ashore."); --Bucket
+    fishing:AddRandomPureElement(User,gathering.prob_element*gatheringBonus); -- Any pure element
+    fishing:SetTreasureMap(User,gathering.prob_map*gatheringBonus,"Statt eines Fisches hast du eine Karte am Haken hängen.","Nargùn's favour has finally found you for there is a treasure map on your hook instead of a fish!");
+    fishing:AddMonster(User,101,gathering.prob_monster/gatheringBonus,"Ein heftiger Ruck reißt dir fast die Angel aus der Hand. Noch während du dich wunderst teilt sich das Wasser vor dir und eine glitschige Wasserleiche steigt aus den Wellen empor.","A heavy force pulls on your fishing line momentarily before it releases. Then without warning the water before you erupts as putrified mummy vaults toward you.",4,7);
+    fishing:AddRandomItem(51,1,333,{},gathering.prob_rarely,"Ein Eimer verfängt sich in deiner Angelschnur. Den hat hier wohl jemand verloren.","As you tighten your line you feel a heavy resistance. With a careful approach you are able to pull a bucket ashore."); --Bucket
     fishing:AddRandomItem(92,1,333,{},gathering.prob_occasionally,"Du ziehst eine glitzernde Öllampe aus dem Wasser. Wo die wohl herkommt...?","You pull a sparkling oil lamp out of the water. Where did that come from?"); --Oil lamp
     fishing:AddRandomItem(53,1,333,{},gathering.prob_frequently,"Ein alter, durchlöcherter Lederstiefel hängt am Haken.","As you angle back and forth for fish you feel a snag. Instead of a fish, however, a pair of old perforated boots tied together hangs from your hook!"); --Leather boots
-    fishing:SetTreasureMap(gathering.prob_map,"Statt eines Fisches hast du eine Karte am Haken hängen.","Nargún's favour has finally found you for there is a treasure map on your hook instead of a fish!");
-    fishing:AddMonster(101,gathering.prob_rarely,"Ein heftiger Ruck reißt dir fast die Angel aus der Hand. Noch während du dich wunderst teilt sich das Wasser vor dir und eine glitschige Wasserleiche steigt aus den Wellen empor.","A heavy force pulls on your fishing line momentarily before it releases. Then without warning the water before you erupts as putrified mummy vaults toward you.",4,7);
-    fishing:AddInterruptMessage("Ein schwarzer Fleck huscht durch das Wasser. Etwas erschrocken weichst du zurück.", "You notice a large black dot in the water, you decide not to disturb it.");
-    fishing:AddInterruptMessage("Der Boden unter dir rutscht leicht weg, sodass du gerade noch das Gleichgewicht halten kannst.", "Some stones slip away from the bank, disturbing all the fish.");
-    fishing:AddInterruptMessage("Dein Blick verliert sich für kurze Zeit in deinem Spiegelbild und du bist abgelenkt.", "You take a while to admire that good-looking person staring at you from your reflection.");
-    fishing:AddInterruptMessage("Der Köder hängt nicht mehr am Haken. Leicht verärgert befestigst du einen neuen.", "A clever fish stole the bait from you, you affix fresh bait to the hook.");
-    -- TODO translate
-    -- fishing:AddInterruptMessage("Du weidest deinen bisherigen Fang aus.");
-
+    
     common.ResetInterruption( User, ltstate )
     if ( ltstate == Action.abort ) then -- work interrupted
         User:talk(Character.say, "#me unterbricht "..common.GetGenderText(User, "seine", "ihre").." Arbeit.", "#me interrupts "..common.GetGenderText(User, "his", "her").." work.")
@@ -50,12 +50,6 @@ function M.StartGathering(User, SourceItem, ltstate)
     end
 
     if not common.CheckItem( User, SourceItem ) then -- security check
-        return
-    end
-
-    local toolItem=shared.getTool(User, 72) --fishing rod (72)
-
-    if not toolItem then
         return
     end
 

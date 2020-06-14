@@ -50,17 +50,22 @@ end
 
 function M.StartGathering(User, SourceItem, ltstate)
 
+    local toolItem=shared.getTool(User, 271) --scythe (271)
+
+    if not toolItem then
+        return
+    end
+
+    local gatheringBonus=shared.getGatheringBonus(User, toolItem)
+
     local grainharvesting = gathering.GatheringCraft:new{LeadSkill = Character.farming, LearnLimit = 100}; -- id_271_scythe;
-    grainharvesting:AddRandomPureElement(gathering.prob_element); -- Any pure element
-    grainharvesting:AddRandomMagicGem(1, gathering.prob_extremely_rarely); -- Any latent magical gem
-    grainharvesting:SetShard(gathering.prob_shard,"In einer Ähre hängt ein Splitter eines magischen Artefaktes.", "A shard of a magical artifact hangs in a spike."); -- Any shard
-    grainharvesting:AddRandomItem(1840,1,333,{},gathering.prob_extremely_rarely,"Im Ackerboden ist ein angelaufender Kupferkelch zu finden.","In the arable soil you find a tarnished copper goblet."); --copper goblet
+    grainharvesting:AddRandomPureElement(User,gathering.prob_element*gatheringBonus); -- Any pure element
+    grainharvesting:SetTreasureMap(User,gathering.prob_map*gatheringBonus,"In einer Ackerfurche findest du ein altes Pergament mit einem Kreuz darauf. Ob sie dich zu einem vergrabenen Schatz weisen wird?","In a furrow you find an old parchment with a cross on it. Will it show you the way to a buried treasure?");
+    grainharvesting:AddMonster(User,114,gathering.prob_monster/gatheringBonus,"Du stößt bei der Erdarbeit auf alte Knochen. Leider hat sie kein Hund hier vergraben und die Störung der Totenruhe bleibt nicht ungesühnt.","While ploughing, you find some old bones. Unfortunately, no dog has buried them here, and the disturbance of the dead unleashes Cherga's wrath.",4,7);
+    grainharvesting:AddRandomItem(1840,1,333,{},gathering.prob_rarely,"Im Ackerboden ist ein angelaufender Kupferkelch zu finden.","In the arable soil you find a tarnished copper goblet."); --copper goblet
     grainharvesting:AddRandomItem(2935,1,333,{},gathering.prob_occasionally,"Da hat wohl jemand eine Schüssel verloren, mit der er Saatgut augestreut hat. Nun gehört sie dir.","You dig up an old bowl. Now it belongs to you."); --soup bowl
     grainharvesting:AddRandomItem(2760,1,333,{},gathering.prob_frequently,"Zwischen den Feldfrüchten findest du ein altes Seil. Nützlich, oder?","Among the crops you find an old rope. Can never have enough rope!"); --rope
-    grainharvesting:SetTreasureMap(gathering.prob_map,"In einer Ackerfurche findest du ein altes Pergament mit einem Kreuz darauf. Ob sie dich zu einem vergrabenen Schatz weisen wird?","In a furrow you find an old parchment with a cross on it. Will it show you the way to a buried treasure?");
-    grainharvesting:AddMonster(114,gathering.prob_rarely,"Du stößt bei der Erdarbeit auf alte Knochen. Leider hat sie kein Hund hier vergraben und die Störung der Totenruhe bleibt nicht ungesühnt.","While ploughing, you find some old bones. Unfortunately, no dog has buried them here, and the disturbance of the dead unleashes Cherga's wrath.",4,7);
-    grainharvesting:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
-
+    
     common.ResetInterruption( User, ltstate );
     if ( ltstate == Action.abort ) then -- work interrupted
         User:talk(Character.say, "#me unterbricht "..common.GetGenderText(User, "seine", "ihre").." Arbeit.", "#me interrupts "..common.GetGenderText(User, "his", "her").." work.")
@@ -68,12 +73,6 @@ function M.StartGathering(User, SourceItem, ltstate)
     end
 
     if not common.CheckItem( User, SourceItem ) then -- security check
-        return
-    end
-
-    local toolItem=shared.getTool(User, 271) --scythe (271)
-
-    if not toolItem then
         return
     end
 

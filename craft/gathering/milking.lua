@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local common = require("base.common")
+local shared = require("craft.base.shared")
 local gathering = require("craft.base.gathering")
 
 local M = {}
@@ -35,15 +36,16 @@ end
 
 function M.StartGathering(User, SourceAnimal, ltstate)
 
+    local gatheringBonus=shared.getGatheringBonus(User, nil)
+
     local milking = gathering.GatheringCraft:new{LeadSkill = Character.husbandry, LearnLimit = 100}; -- id_2498_empty_bottle
-    milking:AddRandomPureElement(gathering.prob_element); -- Any pure element
-    milking:AddRandomMagicGem(1, gathering.prob_extremely_rarely); -- Any latent magical gem
-    milking:SetShard(gathering.prob_shard,"Ein Splitter eines magischen Artefaktes hat sich im Fell des Tieres verfangen.", "A shard of a magical artifact was tangled in the fur of the animal."); -- Any shard
+    milking:AddRandomPureElement(User,gathering.prob_element*gatheringBonus); -- Any pure element
+    milking:SetTreasureMap(User,gathering.prob_map*gatheringBonus,"Das Tier kratzt und schnüffelt aufgeregt am Boden. Dort findest du eine seltsame Karte.","The animal scratches and sniffs on the ground excitdly. You find a strange map there.");
+    milking:AddMonster(User,271,gathering.prob_monster/gatheringBonus,"Während du das Tier melkst, umschwirrt dich eine ungewöhnlich agressive Wespe.","While you milk the animal an annoyingly aggressive wasp comes after you!",4,7);
+    milking:AddRandomItem(3558,1,333,{},gathering.prob_rarely,"Was ist das? Dieses Schaf trägt eine kostbare Kette um den Hals.","Lo! This sheep has a precious necklace around its neck."); --Copper amulet    
     milking:AddRandomItem(153,1,333,{},gathering.prob_occasionally,"Ein großes Blatt hat sich im Fell des Tieres verfangen. Du betreibst zunächst ein wenig Fellpflege, bevor du weiter melkst.","A large leaf was tangled in the fur of the animal. You do a little grooming before you continue milking."); --Foot leaf
     milking:AddRandomItem(156,1,333,{},gathering.prob_frequently,"Etwas Gras hat sich im Fell des Tieres verfangen. Du entfernst das klebrige Grünzeug.","Some grass was ensnared in the fur of the animal. Before you can continue milking you have to remove the sticky green weed."); --Steppe fern
-    milking:SetTreasureMap(gathering.prob_map,"Das Tier kratzt und schnüffelt aufgeregt am Boden. Dort findest du eine seltsame Karte.","The animal scratches and sniffs on the ground excitdly. You find a strange map there.");
-    milking:AddMonster(271,gathering.prob_rarely,"Während du das Tiel melkst, umschwirrt dich eine ungewöhnlich agressive Wespe.","While you milk the animal an annoyingly aggressive wasp comes after you!",4,7);
-
+   
     common.ResetInterruption( User, ltstate );
     if ( ltstate == Action.abort ) then -- work interrupted
         User:talk(Character.say, "#me unterbricht "..common.GetGenderText(User, "seine", "ihre").." Arbeit.", "#me interrupts "..common.GetGenderText(User, "his", "her").." work.")

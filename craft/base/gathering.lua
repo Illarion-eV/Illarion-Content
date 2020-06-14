@@ -16,8 +16,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
 local treasure = require("item.base.treasure")
-local gems = require("base.gems")
-local shard = require("item.shard")
 
 local M = {}
 
@@ -33,16 +31,13 @@ local RandomItem = {
 
 local GatheringCraft = {
     RandomItems = { },
-    InterruptMsg = { },
     Monsters = { },
     LeadSkill = 0,
     SavedWorkTime = { },
     Treasure = 0,
     TreasureMsg = { },
-    Shard = 0,
-    ShardMsg = { },
-  FastActionFactor = 1,
-  LearnLimit = 20
+    FastActionFactor = 1,
+    LearnLimit = 20
 };
 
 local Monster = {
@@ -79,46 +74,34 @@ function Monster:new(m)
     return m;
 end
 
-
-function GatheringCraft:SetTreasureMap(Probability, MessageDE, MessageEN)
-    self.Treasure = Probability;
-    self.TreasureMsg[1] = MessageDE;
-    self.TreasureMsg[2] = MessageEN;
+function GatheringCraft:SetTreasureMap(User,Probability, MessageDE, MessageEN)
+    local skill  = common.Limit(User:getSkill(self.LeadSkill), 0, 100);
+    if skill >= 60 then
+        self.Treasure = Probability;
+        self.TreasureMsg[1] = MessageDE;
+        self.TreasureMsg[2] = MessageEN;
+    end
 end
 
-function GatheringCraft:SetShard(Probability, MessageDE, MessageEN)
-    self.Shard = Probability;
-    self.ShardMsg[1] = MessageDE;
-    self.ShardMsg[2] = MessageEN;
-end
-
-function GatheringCraft:AddInterruptMessage(MessageDE, MessageEN)
-    table.insert(self.InterruptMsg, { MessageDE, MessageEN });
-end
-
-function GatheringCraft:AddMonster(MonsterID, Probability, MessageDE, MessageEN, Sound, GFX)
-    table.insert(self.Monsters, Monster:new{["MonsterID"] = MonsterID, ["Probability"] = Probability, ["MessageDE"] = MessageDE, ["MessageEN"] = MessageEN, ["Sound"] = Sound, ["GFX"] = GFX});
+function GatheringCraft:AddMonster(User,MonsterID, Probability, MessageDE, MessageEN, Sound, GFX)
+    if not User:isNewPlayer() then
+        table.insert(self.Monsters, Monster:new{["MonsterID"] = MonsterID, ["Probability"] = Probability, ["MessageDE"] = MessageDE, ["MessageEN"] = MessageEN, ["Sound"] = Sound, ["GFX"] = GFX});
+    end
 end
 
 function GatheringCraft:AddRandomItem(ItemID, Quantity, Quality, Data, Probability, MessageDE, MessageEN)
     table.insert(self.RandomItems, RandomItem:new{["ID"] = ItemID, ["Quantity"] = Quantity, ["Quality"] = Quality, ["Data"] = Data, ["Probability"] = Probability, ["MessageDE"] = MessageDE, ["MessageEN"] = MessageEN});
 end
 
-function GatheringCraft:AddRandomMagicGem(Level, Probability)
-    table.insert(self.RandomItems, RandomItem:new{["ID"] = gems.getMagicGemId(gems.EMERALD), ["Quantity"] = 1, ["Quality"] = 333, ["Data"] = gems.getMagicGemData(Level), ["Probability"] = tonumber(Probability) / 6, ["MessageDE"] = "Die Arbeit ist anstrengend aber nicht kompliziert. Du siehst dich um und entdeckst ein grünliches Leuchten. Du schaust genauer hin und findest einen magischen Smaragd.", ["MessageEN"] = "The work is exhausting but not difficult. You look around and discover a greenish glow. You look closer and find a magical emerald."});
-    table.insert(self.RandomItems, RandomItem:new{["ID"] = gems.getMagicGemId(gems.OBSIDIAN), ["Quantity"] = 1, ["Quality"] = 333, ["Data"] = gems.getMagicGemData(Level), ["Probability"] = tonumber(Probability) / 6, ["MessageDE"] = "Seit wann leuchtet Schmutz? Du wischst etwas Staub bei Seite und hältst einen magischen Obsidian in der Hand.", ["MessageEN"] = "Since when does dirt glow? You wipe dust aside and hold a magical obsidian in your hand."});
-    table.insert(self.RandomItems, RandomItem:new{["ID"] = gems.getMagicGemId(gems.RUBY), ["Quantity"] = 1, ["Quality"] = 333, ["Data"] = gems.getMagicGemData(Level), ["Probability"] = tonumber(Probability) / 6, ["MessageDE"] = "Erschrocken springst du zurück, als ein Funke auf deinen Fuß fällt. Als du genauer hinschaust siehst du, dass es sich um einen magischen Rubin handelt.", ["MessageEN"] = "Frightened, you spring back as a spark falls on your foot. As you look closer you can see that it is a magic ruby."});
-    table.insert(self.RandomItems, RandomItem:new{["ID"] = gems.getMagicGemId(gems.TOPAZ), ["Quantity"] = 1, ["Quality"] = 333, ["Data"] = gems.getMagicGemData(Level), ["Probability"] = tonumber(Probability) / 6, ["MessageDE"] = "Ist es ein Sonnenstrahl, der dir ins Auge sticht? Nein dort liegt etwas Gelbes. Du findest einen magischen Topas.", ["MessageEN"] = "Is it a sunbeam that hits your eye? No there is something yellow. You find a magical topaz."});
-    table.insert(self.RandomItems, RandomItem:new{["ID"] = gems.getMagicGemId(gems.AMETHYST), ["Quantity"] = 1, ["Quality"] = 333, ["Data"] = gems.getMagicGemData(Level), ["Probability"] = tonumber(Probability) / 6, ["MessageDE"] = "Du setzt dein Werkzeug kurz ab. Als du es wieder aufnimmst, findest du darunter einen magischen Amethysten.", ["MessageEN"] = "For a short moment you put your tool down. When you pick it back up, you find a magical amethyst."});
-    table.insert(self.RandomItems, RandomItem:new{["ID"] = gems.getMagicGemId(gems.SAPPHIRE), ["Quantity"] = 1, ["Quality"] = 333, ["Data"] = gems.getMagicGemData(Level), ["Probability"] = tonumber(Probability) / 6, ["MessageDE"] = "Schweiß tropft dir von der Stirn. Dort wo er aufschlägt verwandelt er sich. Oder lag der magische Saphir schon vorher dort?", ["MessageEN"] = "Sweat drips from your forehead. Where it reaches the ground it changes. Or was the magical sapphire already there?"});
-end
-
-function GatheringCraft:AddRandomPureElement(Probability)
-    table.insert(self.RandomItems, RandomItem:new{["ID"] = 2551, ["Quantity"] = 1, ["Quality"] = 333, ["Data"] = {}, ["Probability"] = tonumber(Probability) / 5, ["MessageDE"] = "Für deine harte und ehrliche Arbeit belohnt dich Findari, die Göttin der Luft, mit einem Kleinod aus Reiner Luft.", ["MessageEN"] = "For your hard and honest labour Findari, the Godess of Air, rewards you with a treasure of Pure Air."}); -- Pure Air
-    table.insert(self.RandomItems, RandomItem:new{["ID"] = 2553, ["Quantity"] = 1, ["Quality"] = 333, ["Data"] = {}, ["Probability"] = tonumber(Probability) / 5, ["MessageDE"] = "Für deine harte und ehrliche Arbeit belohnt dich Bragon, der Gott des Feuers, mit einem Kleinod aus Reinem Feuer.", ["MessageEN"] = "For your hard and honest labour Bragon, the god of fire, rewards you with a treasure of Pure Fire."}); -- Pure Fire
-    table.insert(self.RandomItems, RandomItem:new{["ID"] = 2554, ["Quantity"] = 1, ["Quality"] = 333, ["Data"] = {}, ["Probability"] = tonumber(Probability) / 5, ["MessageDE"] = "Für deine harte und ehrliche Arbeit belohnt dich Tanora, die Göttin des Wassers, mit einem Kleinod aus Reinem Wasser.", ["MessageEN"] = "For your hard and honest labour Tanora, the Godess of Water, rewards you with a treasure of Pure Water."}); -- Pure Water
-    table.insert(self.RandomItems, RandomItem:new{["ID"] = 2552, ["Quantity"] = 1, ["Quality"] = 333, ["Data"] = {}, ["Probability"] = tonumber(Probability) / 5, ["MessageDE"] = "Für deine harte und ehrliche Arbeit belohnt dich Ushara, die Göttin der Erde, mit einem Kleinod aus Reiner Erde.", ["MessageEN"] = "For your hard and honest labour Ushara, the Godess of Earth, rewards you with a treasure of Pure Earth."}); -- Pure Earth
-    table.insert(self.RandomItems, RandomItem:new{["ID"] = 3607, ["Quantity"] = 1, ["Quality"] = 333, ["Data"] = {}, ["Probability"] = tonumber(Probability) / 5, ["MessageDE"] = "Für deine harte und ehrliche Arbeit belohnt dich Eldan, der Gott des Geistes, mit einem Kleinod aus Reinem Geist.", ["MessageEN"] = "For your hard and honest labour Eldan, the God of Spirit, rewards you with a treasure of Pure Spirit."}); -- Pure Spirit
+function GatheringCraft:AddRandomPureElement(User,Probability)
+    local skill  = common.Limit(User:getSkill(self.LeadSkill), 0, 100);
+    if skill >= 80 then
+        table.insert(self.RandomItems, RandomItem:new{["ID"] = 2551, ["Quantity"] = 1, ["Quality"] = 333, ["Data"] = {}, ["Probability"] = tonumber(Probability), ["MessageDE"] = "Für deine harte und ehrliche Arbeit belohnt dich Findari, die Göttin der Luft, mit einem Kleinod aus Reiner Luft.", ["MessageEN"] = "For your hard and honest labour Findari, the Godess of Air, rewards you with a treasure of Pure Air."}); -- Pure Air
+        table.insert(self.RandomItems, RandomItem:new{["ID"] = 2553, ["Quantity"] = 1, ["Quality"] = 333, ["Data"] = {}, ["Probability"] = tonumber(Probability), ["MessageDE"] = "Für deine harte und ehrliche Arbeit belohnt dich Bragon, der Gott des Feuers, mit einem Kleinod aus Reinem Feuer.", ["MessageEN"] = "For your hard and honest labour Bragon, the god of fire, rewards you with a treasure of Pure Fire."}); -- Pure Fire
+        table.insert(self.RandomItems, RandomItem:new{["ID"] = 2554, ["Quantity"] = 1, ["Quality"] = 333, ["Data"] = {}, ["Probability"] = tonumber(Probability), ["MessageDE"] = "Für deine harte und ehrliche Arbeit belohnt dich Tanora, die Göttin des Wassers, mit einem Kleinod aus Reinem Wasser.", ["MessageEN"] = "For your hard and honest labour Tanora, the Godess of Water, rewards you with a treasure of Pure Water."}); -- Pure Water
+        table.insert(self.RandomItems, RandomItem:new{["ID"] = 2552, ["Quantity"] = 1, ["Quality"] = 333, ["Data"] = {}, ["Probability"] = tonumber(Probability), ["MessageDE"] = "Für deine harte und ehrliche Arbeit belohnt dich Ushara, die Göttin der Erde, mit einem Kleinod aus Reiner Erde.", ["MessageEN"] = "For your hard and honest labour Ushara, the Godess of Earth, rewards you with a treasure of Pure Earth."}); -- Pure Earth
+        table.insert(self.RandomItems, RandomItem:new{["ID"] = 3607, ["Quantity"] = 1, ["Quality"] = 333, ["Data"] = {}, ["Probability"] = tonumber(Probability), ["MessageDE"] = "Für deine harte und ehrliche Arbeit belohnt dich Eldan, der Gott des Geistes, mit einem Kleinod aus Reinem Geist.", ["MessageEN"] = "For your hard and honest labour Eldan, the God of Spirit, rewards you with a treasure of Pure Spirit."}); -- Pure Spirit
+    end
 end
 
 function GatheringCraft:FindRandomItem(User)
@@ -147,15 +130,6 @@ function GatheringCraft:FindRandomItem(User)
         local rand = math.random();
         if(rand < self.Treasure*self.FastActionFactor) and treasure.createMap(User) then
             common.InformNLS(User, self.TreasureMsg[1], self.TreasureMsg[2]);
-            return true;
-        end
-    end
-
-    if (self.Shard > 0) then
-        local rand = math.random();
-        if(rand < self.Shard*self.FastActionFactor) then
-            shard.createShardOnUser(User)
-            common.InformNLS(User, self.ShardMsg[1], self.ShardMsg[2]);
             return true;
         end
     end
@@ -225,10 +199,9 @@ M.GatheringCraft = GatheringCraft
 
 M.prob_frequently = 0.0005; --0.05% (1/2000)
 M.prob_occasionally = 0.00025; --0.025% (1/4000)
-M.prob_rarely = 0.0001; --0.01% (1/10000)
-M.prob_extremely_rarely = 0.000025; --0.0025% (1/40000)
-M.prob_element = 0.0005; --0.05% (1/2000) *Placeholder for now*
-M.prob_map = 0.001; --0.1% (1/1000) *Placeholder for now*
-M.prob_shard = 0.001; --0.1% (1/1000) *Placeholder for now*
+M.prob_rarely = 0.000025; --0.0025% (1/40000)
+M.prob_monster = 0.0001; --0.01% (1/10000)
+M.prob_element = 0.0001; --0.01% (1/10000) - Chance for one specific element, there are five elements in total
+M.prob_map = 0.0005; --0.05% (1/2000)
 
 return M

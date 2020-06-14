@@ -376,33 +376,28 @@ end
 
 function M.StartGathering(User, SourceItem, ltstate)
 
+    local toolItem=shared.getTool(User, 2763) --pick-axe (2763)
+
+    if not toolItem then
+        return
+    end
+
+    local gatheringBonus=shared.getGatheringBonus(User, toolItem)
+
     local mining = gathering.GatheringCraft:new{LeadSkill = Character.mining, LearnLimit = 100}; -- id_2763_pickaxe
-    mining:AddRandomPureElement(gathering.prob_element); -- Any pure element
-    mining:AddRandomMagicGem(1, gathering.prob_extremely_rarely); -- Any latent magical gem
-    mining:SetShard(gathering.prob_shard,"Ein kleiner Stein entpuppt sich als Splitter eines magischen Artefaktes.", "A little rock seems to be a shard of a magical artifact."); -- Any shard
-    mining:AddRandomItem(310,1,333,{},gathering.prob_extremely_rarely,"Zwerge scheinen alten Krügen keine Beachtung beizumessen, insbesondere, wenn sie leer sind. Auch hier liegt einfach einer herum.","Dwarves seem to pay no attention to old pitchers, especially if they are empty. As you work one catches your eye."); --mug with lid
+    mining:AddRandomPureElement(User,gathering.prob_element*gatheringBonus); -- Any pure element
+    mining:SetTreasureMap(User,gathering.prob_map*gatheringBonus,"In einer engen Felsspalte findest du ein altes Pergament, das wie eine Karte aussieht. Kein Versteck ist so sicher, dass es nicht gefunden wird.","In a narrow crevice you find an old parchment that looks like a map. No hiding place is too safe that it cannot be found.");
+    mining:AddMonster(User,1052,gathering.prob_monster/gatheringBonus,"Als du den Fels malträtierst, läuft etwas Schleim aus einer Felsspalte...","As you slam your pick-axe on the rock, some slime flows out of the fissure...",4,7);
+    mining:AddRandomItem(310,1,333,{},gathering.prob_rarely,"Zwerge scheinen alten Krügen keine Beachtung beizumessen, insbesondere, wenn sie leer sind. Auch hier liegt einfach einer herum.","Dwarves seem to pay no attention to old pitchers, especially if they are empty. As you work one catches your eye."); --mug with lid
     mining:AddRandomItem(2183,1,333,{},gathering.prob_occasionally,"Diese Mine wurde offensichtlich kürzlich von Zwergen aufgesucht. Wie sonst erklärt sich der Krug, den du zwischen dem Geröll findest?","This mine was occupied recently. How else would you explain the mug at your feet?"); --clay mug
     mining:AddRandomItem(391,1,333,{},gathering.prob_frequently,"In einer Felsspalte liegt eine alte Fackel. Hier ist wohl jemanden ein Licht aufgegangen.","In a crevice you spot an old torch."); --torch
-    mining:SetTreasureMap(gathering.prob_map,"In einer engen Felsspalte findest du ein altes Pergament, das wie eine Karte aussieht. Kein Versteck ist so sicher, dass es nicht gefunden wird.","In a narrow crevice you find an old parchment that looks like a map. No hiding place is too safe that it cannot be found.");
-    mining:AddMonster(1052,gathering.prob_rarely,"Als du den Fels malträtierst, läuft etwas Schleim aus einer Felsspalte...","As you slam your pick-axe on the rock, some slime flows out of the fissure...",4,7);
-    mining:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
-    mining:AddInterruptMessage("Dir fliegt ein Steinsplitter entgegen. Du kannst gerade noch ausweichen.", "Your hard work has shaken free a stalactite that crashes from overhead. Somehow you manage to avoid any injury as the rubble clears.");
-    mining:AddInterruptMessage("Du bekommst etwas Schmutz ins Auge und reibst dir kurz die Augen.", "You feel a flake of dirt in your eye.");
-    mining:AddInterruptMessage("Du überprüfst kurz die Struktur der Ader, an der du gerade gräbst.", "You notice a vein ripe with ore and pause to reposition yourself.");
-    mining:AddInterruptMessage("Du verlierst kurz das Gleichgewicht durch einen losen Gesteinsbrocken am Boden.", "Some rubble at your feet impedes your progress.");
-
+    
     common.ResetInterruption( User, ltstate );
     if ( ltstate == Action.abort ) then -- work interrupted
         return
     end
 
     if not common.CheckItem( User, SourceItem ) then -- security check
-        return
-    end
-
-    local toolItem=shared.getTool(User, 2763) --shovel (pick-axe)
-
-    if not toolItem then
         return
     end
 

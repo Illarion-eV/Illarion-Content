@@ -152,29 +152,28 @@ end
 
 function M.StartGathering(User, SourceItem, ltstate)
 
+    local toolItem=shared.getTool(User, 74) --hatchet (74)
+
+    if not toolItem then
+        return
+    end
+    
+    local gatheringBonus=shared.getGatheringBonus(User, toolItem)
+
     local theCraft = gathering.GatheringCraft:new{LeadSkill = Character.woodcutting, LearnLimit = 100}; -- id_74_axe
-    theCraft:AddRandomPureElement(gathering.prob_element); -- Any pure element
-    theCraft:AddRandomMagicGem(1, gathering.prob_extremely_rarely); -- Any latent magical gem
-    theCraft:SetShard(gathering.prob_shard,"Deine Axt stößt auf einen Splitter eines magischen Artefaktes.", "You hatchet hits a shard of a magical artifact."); -- Any shard
-    theCraft:AddRandomItem(2441,1,333,{},gathering.prob_extremely_rarely,"Im Erdboden machst du einen alten, rostigen Helm aus. Ein Überbleibsel einer längst vergessenen Schlacht?","As you work you unearth an old rusty helmet. A remnant of a long-forgotten battle?"); --Storm cap
+    theCraft:AddRandomPureElement(User,gathering.prob_element*gatheringBonus); -- Any pure element
+    theCraft:SetTreasureMap(User,gathering.prob_map*gatheringBonus,"Fein säuberlich aufgerollt findest du eine Schatzkarte in einem ausgehöhlten Ast.","You find a treasure map neatly rolled up in a hollowed-out branch.");
+    theCraft:AddMonster(User,91,gathering.prob_monster/gatheringBonus,"Dein Frevel gegen die Natur ruft die Wächter der Bäume herbei. Wie aus dem Nichts stampft ein wütender Troll auf dich zu.","From the nearby brush you hear a guttural snarl just before an angry troll emerges into the clearing. There is no doubt his eyes are trained on you.",4,7);
+    theCraft:AddRandomItem(2441,1,333,{},gathering.prob_rarely,"Im Erdboden machst du einen alten, rostigen Helm aus. Ein Überbleibsel einer längst vergessenen Schlacht?","As you work you unearth an old rusty helmet. A remnant of a long-forgotten battle?"); --Storm cap
     theCraft:AddRandomItem(235,1,333,{},gathering.prob_occasionally,"In einer Spechthöhle findest du einen goldenen Ring. Wird er dich ins Dunkle treiben?","From a woodpecker's hole a golden gleam catches your eye, and you discover it is a golden ring."); --gold ring
     theCraft:AddRandomItem(2664,1,333,{},gathering.prob_frequently,"Du findest einen Ast, den man auch sehr gut als Keule verwenden könnte.","You find a branch that resembles a sturdy club."); --Club
-    theCraft:SetTreasureMap(gathering.prob_map,"Fein säuberlich aufgerollt findest du eine Schatzkarte in einem ausgehöhlten Ast.","You find a treasure map neatly rolled up in a hollowed-out branch.");
-    theCraft:AddMonster(91,gathering.prob_rarely,"Dein Frevel gegen die Natur ruft die Wächter der Bäume herbei. Wie aus dem Nichts stampft ein wütender Troll auf dich zu.","From the nearby brush you hear a guttural snarl just before an angry troll emerges into the clearing. There is no doubt his eyes are trained on you.",4,7);
-    theCraft:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
-
+   
     common.ResetInterruption( User, ltstate );
     if ( ltstate == Action.abort ) then -- work interrupted
         return
     end
 
     if not common.CheckItem( User, SourceItem ) then -- security check
-        return
-    end
-
-    local toolItem=shared.getTool(User, 74) --hatchet (74)
-
-    if not toolItem then
         return
     end
 

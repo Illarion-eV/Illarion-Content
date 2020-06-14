@@ -27,21 +27,22 @@ local M = {}
 
 function M.StartGathering(User, SourceItem, ltstate)
 
+    local toolItem=shared.getTool(User, 24) --shovel (24)
+
+    if not toolItem then
+        return
+    end
+    
+    local gatheringBonus=shared.getGatheringBonus(User, toolItem)
+    
     local claydigging = gathering.GatheringCraft:new{LeadSkill = Character.digging, LearnLimit = 100}; -- id_24_shovel
-    claydigging:AddRandomPureElement(gathering.prob_element); -- Any pure element
-    claydigging:AddRandomMagicGem(1, gathering.prob_extremely_rarely); -- Any latent magical gem
-    claydigging:SetShard(gathering.prob_shard,"Im Matsch erkennst du einen Splitter eines magischen Artefaktes.", "You spot a shard of a magical artifact in the mud."); -- Any shard
-    claydigging:AddRandomItem(2658,1,333,{},gathering.prob_extremely_rarely,"Du findest eine Knochenhand im Matsch. Sie umklammert ein altes Schwert.","You find a boney hand in the mud clutching an old sword."); --broadsword
+    claydigging:AddRandomPureElement(User,gatheringBonus*gathering.prob_element*gatheringBonus); -- Any pure element
+    claydigging:SetTreasureMap(User,gathering.prob_map*gatheringBonus,"Von einer Lederhülle umgeben, findest du eine alte Karte. Die hat definitiv niemand absichtlich hier hinterlassen.","Covered in a leather hide you find an old map.");
+    claydigging:AddMonster(User,104,gathering.prob_monster/gatheringBonus,"Im Morast stößt du auf eine bedauernswerte Moorleiche. Jedoch scheinst du derjenige zu sein, den man fortan betrauern wird.","In the mud your shovel digs unintentionally into a feculent bog body. The stench is atrocious, but what's worse is the undead creature rises to attack.",4,7);
+    claydigging:AddRandomItem(2658,1,333,{},gathering.prob_rarely,"Du findest eine Knochenhand im Matsch. Sie umklammert ein altes Schwert.","You find a boney hand in the mud clutching an old sword."); --broadsword
     claydigging:AddRandomItem(51,1,333,{},gathering.prob_occasionally,"Du ziehst einen alten Eimer aus dem Schlick.","You draw an old bucket from the silt."); --bucket
     claydigging:AddRandomItem(2184,1,333,{},gathering.prob_frequently,"Ein Tonkrug offenbahrt sich im Matsch. Die Überreste einer alten Zivilisation oder einfach nur vom letzten Saufgelage?","A clay mug reveals itself in the mud. Perhaps the remains of an ancient civilization or just a littering traveller, who knows?"); --clay cup
-    claydigging:SetTreasureMap(gathering.prob_map,"Von einer Lederhülle umgeben, findest du eine alte Karte. Die hat definitiv niemand absichtlich hier hinterlassen.","Covered in a leather hide you find an old map.");
-    claydigging:AddMonster(104,gathering.prob_rarely,"Im Morast stößt du auf eine bedauernswerte Moorleiche. Jedoch scheinst du derjenige zu sein, den man fortan betrauern wird.","In the mud your shovel digs unintentionally into a feculent bog body. The stench is atrocious, but what's worse is the undead creature rises to attack.",4,7);
-    claydigging:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
-    claydigging:AddInterruptMessage("Du stößt beim Graben auf einen großen Stein. Der plötzliche Schlag auf die Schaufel lässt sie dir beinahe aus der Hand rutschen", "While digging you hit a big stone, the sudden impact nearly causes you to lose your grip on the handle.");
-    claydigging:AddInterruptMessage("Ein aufdringliches Insekt schwirrt um deinen Kopf herum. Du schlägst mit der Hand danach und versuchst sie zu vertreiben.", "An annoying bug buzzes around your head. You swat at it in order to drive it away.");
-    claydigging:AddInterruptMessage("Du bekommst einen Schlammspritzer ins Gesicht und musst ihn kurz mit den Ärmel abwischen.", "Mud splatters your face, perhaps Nargún does not favour you today?");
-    claydigging:AddInterruptMessage("Das Loch, in dem du gräbst, füllt sich mit Wasser und du mußt es kurz abschöpfen.", "The pit you are digging fills with water causing you to pause in order to scoop it out.");
-
+    
     common.ResetInterruption( User, ltstate );
     if ( ltstate == Action.abort ) then -- work interrupted
         User:talk(Character.say, "#me unterbricht "..common.GetGenderText(User, "seine", "ihre").." Arbeit.", "#me interrupts "..common.GetGenderText(User, "his", "her").." work.")
@@ -49,12 +50,6 @@ function M.StartGathering(User, SourceItem, ltstate)
     end
 
     if not common.CheckItem( User, SourceItem ) then -- security check
-        return
-    end
-
-    local toolItem=shared.getTool(User, 24) --shovel (24)
-
-    if not toolItem then
         return
     end
 

@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- Generic Routine Collection
 local common = require("base.common")
+local gems = require("base.gems")
 
 local M = {}
 
@@ -138,6 +139,21 @@ function M.getGermanExtension(id)
     end
     
     return germanExtension,germanExtensionBroken
+    
+end
+
+function M.getGatheringBonus(user, toolItem)
+
+    local gemScaling = 500 --Percentage divided by 100 (100 % = 1) and by 5 to match crafting quality calculation
+    local gatheringBonus = 1 --Default
+    
+    if toolItem then
+        gatheringBonus=gatheringBonus+common.GetAttributeBonusHigh(user:increaseAttrib("constitution", 0))+common.GetQualityBonusStandard(toolItem)+gems.getGemBonus(toolItem)/gemScaling
+    else
+        gatheringBonus=gatheringBonus+common.GetAttributeBonusHigh(user:increaseAttrib("constitution", 0))
+    end
+
+    return gatheringBonus
     
 end
 

@@ -231,21 +231,22 @@ end
 
 function M.StartGathering(User, SourceItem, ltstate)
 
+    local toolItem=shared.getTool(User, 126) --sickle (126)
+
+    if not toolItem then
+        return
+    end
+    
+    local gatheringBonus=shared.getGatheringBonus(User, toolItem)
+
     local theCraft = gathering.GatheringCraft:new{LeadSkill = Character.herblore, LearnLimit = 100}; -- id_126_sickle
-    theCraft:AddRandomPureElement(gathering.prob_element); -- Any pure element
-    theCraft:AddRandomMagicGem(1, gathering.prob_extremely_rarely); -- Any latent magical gem
-    theCraft:SetShard(gathering.prob_shard,"An einem Blatt klebt ein Splitter eines magischen Artefaktes.", "A shard of a magical artifact is stuck to a leaf."); -- Any shard
-    theCraft:AddRandomItem(2183,1,333,{},gathering.prob_extremely_rarely,"Ein alter Krug liegt verlassen und einsam im Gebüsch.","An old mug lies abandoned and lonesome in the bushes."); --Mug
+    theCraft:AddRandomPureElement(User,gathering.prob_element*gatheringBonus); -- Any pure element
+    theCraft:SetTreasureMap(User,gathering.prob_map*gatheringBonus,"Unter einer Lage Blätter stößt du auf eine Schatzkarte. Hoffentlich ist der Besitzer nicht in der Nähe.","Under a layer of leaves you find a treasure map. Hopefully, the owner is not nearby!");
+    theCraft:AddMonster(User,271,gathering.prob_monster/gatheringBonus,"Eine Wespe steigt aus dem Gestrüpp auf, offensichtlich unerfreut über die Störung.","A pesky wasp rises from the bushes apparently displeased with your disturbance.",4,7);
+    theCraft:AddRandomItem(2183,1,333,{},gathering.prob_rarely,"Ein alter Krug liegt verlassen und einsam im Gebüsch.","An old mug lies abandoned and lonesome in the bushes."); --Mug
     theCraft:AddRandomItem(799,1,333,{},gathering.prob_occasionally,"Ein Weidenkorb liegt am Boden. Er scheint noch brauchbar zu sein.","A wicker basket lies on the ground. It still seems to be usable."); --Basket
     theCraft:AddRandomItem(2570,1,333,{},gathering.prob_frequently,"Ein Griff einer alten Sichel liegt achtlos weggeworfen zwischen Ästen und Blättern herum.","A handle of an old sickle lies between the leaves and branches, but the blade is no where in sight."); --Sickle hilt
-    theCraft:AddRandomItem(3787,1,333,{},gathering.prob_frequently,"Du findest innerhalb der Pflanze verwobene Seide. Vorsichtig gelingt es dir sie zu entfernen.","You find silk interwoven amongst the plant, you carefully remove it."); -- silk
-    theCraft:SetTreasureMap(gathering.prob_map,"Unter einer Lage Blätter stößt du auf eine Schatzkarte. Hoffentlich ist der Besitzer nicht in der Nähe.","Under a layer of leaves you find a treasure map. Hopefully, the owner is not nearby!");
-    theCraft:AddMonster(271,gathering.prob_rarely,"Eine Wespe steigt aus dem Gestrüpp auf, offensichtlich unerfreut über die Störung.","A pesky wasp rises from the bushes apparently displeased with your disturbance.",4,7);
-    theCraft:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
-    theCraft:AddInterruptMessage("Ein kleines pelziges Tier springt aus dem Gebüsch und rennt davon. Für einen Moment bist du fürchterlich erschrocken.", "A small, furry critter jumps out of a bush and darts off. That really surprised you.");
-    theCraft:AddInterruptMessage("Du greifst mit der Hand in eine Blattlauskolonie. Verärgert wischt du dir die Hand an der Hose ab.", "The plant is crowded with lice. Annoyed, you wipe your hand clean on your trousers.");
-    theCraft:AddInterruptMessage("Ein aufdringliches Insekt schwirrt um deinen Kopf herum. Du schlägst mit der Hand danach und versuchst sie zu vertreiben.", "An annoying bug buzzes around your head. You strike at it in order to drive it away.");
-
+    
     common.ResetInterruption( User, ltstate );
     if ( ltstate == Action.abort ) then -- work interrupted
         User:talk(Character.say, "#me unterbricht "..common.GetGenderText(User, "seine", "ihre").." Arbeit.", "#me interrupts "..common.GetGenderText(User, "his", "her").." work.")
@@ -253,12 +254,6 @@ function M.StartGathering(User, SourceItem, ltstate)
     end
 
     if not common.CheckItem( User, SourceItem ) then -- security check
-        return
-    end
-
-    local toolItem=shared.getTool(User, 126) --sickle (126)
-
-    if not toolItem then
         return
     end
 
