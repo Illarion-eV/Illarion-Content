@@ -94,7 +94,7 @@ function GatheringCraft:AddRandomItem(ItemID, Quantity, Quality, Data, Probabili
 end
 
 function GatheringCraft:AddRandomPureElement(User,Probability)
-    local skill  = common.Limit(User:getSkill(self.LeadSkill), 0, 100);
+    local skill = common.Limit(User:getSkill(self.LeadSkill), 0, 100);
     if skill >= 80 then
         table.insert(self.RandomItems, RandomItem:new{["ID"] = 2551, ["Quantity"] = 1, ["Quality"] = 333, ["Data"] = {}, ["Probability"] = tonumber(Probability), ["MessageDE"] = "Für deine harte und ehrliche Arbeit belohnt dich Findari, die Göttin der Luft, mit einem Kleinod aus Reiner Luft.", ["MessageEN"] = "For your hard and honest labour Findari, the Godess of Air, rewards you with a treasure of Pure Air."}); -- Pure Air
         table.insert(self.RandomItems, RandomItem:new{["ID"] = 2553, ["Quantity"] = 1, ["Quality"] = 333, ["Data"] = {}, ["Probability"] = tonumber(Probability), ["MessageDE"] = "Für deine harte und ehrliche Arbeit belohnt dich Bragon, der Gott des Feuers, mit einem Kleinod aus Reinem Feuer.", ["MessageEN"] = "For your hard and honest labour Bragon, the god of fire, rewards you with a treasure of Pure Fire."}); -- Pure Fire
