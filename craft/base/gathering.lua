@@ -75,12 +75,9 @@ function Monster:new(m)
 end
 
 function GatheringCraft:SetTreasureMap(User,Probability, MessageDE, MessageEN)
-    local skill  = common.Limit(User:getSkill(self.LeadSkill), 0, 100);
-    if skill >= 60 then
-        self.Treasure = Probability;
-        self.TreasureMsg[1] = MessageDE;
-        self.TreasureMsg[2] = MessageEN;
-    end
+    self.Treasure = Probability;
+    self.TreasureMsg[1] = MessageDE;
+    self.TreasureMsg[2] = MessageEN;
 end
 
 function GatheringCraft:AddMonster(User,MonsterID, Probability, MessageDE, MessageEN, Sound, GFX)
@@ -126,9 +123,10 @@ function GatheringCraft:FindRandomItem(User)
        return false
     end
 
+    local skill  = common.Limit(User:getSkill(self.LeadSkill), 0, 100);
     if (self.Treasure > 0) then
         local rand = math.random();
-        if(rand < self.Treasure*self.FastActionFactor) and treasure.createMap(User) then
+        if(rand < self.Treasure*self.FastActionFactor) and treasure.createMapFromSkill(User, skill) then
             common.InformNLS(User, self.TreasureMsg[1], self.TreasureMsg[2]);
             return true;
         end

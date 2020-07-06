@@ -335,6 +335,13 @@ function M.createMap(player, mapLevel)
     return true
 end
 
+function M.createMapFromSkill(player, skill)
+    local level
+    level = 0 + math.floor(math.sqrt(math.random(0, skill)))
+    level = common.Limit(level, 1, 9)
+    return M.createMap(player, level)
+end
+
 function M.dropTreasureItems(treasureLocation, level)
     local itemSpawnResults = {}
     table.insert(itemSpawnResults, dropTreasureItem(treasureLocation, level))
