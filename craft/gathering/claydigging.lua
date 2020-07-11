@@ -36,7 +36,7 @@ function M.StartGathering(User, SourceItem, ltstate)
     local gatheringBonus=shared.getGatheringBonus(User, toolItem)
     
     local claydigging = gathering.GatheringCraft:new{LeadSkill = Character.digging, LearnLimit = 100}; -- id_24_shovel
-    claydigging:AddRandomPureElement(User,gatheringBonus*gathering.prob_element*gatheringBonus); -- Any pure element
+    claydigging:AddRandomPureElement(User,gathering.prob_element*gatheringBonus); -- Any pure element
     claydigging:SetTreasureMap(User,gathering.prob_map*gatheringBonus,"Von einer Lederhülle umgeben, findest du eine alte Karte. Die hat definitiv niemand absichtlich hier hinterlassen.","Covered in a leather hide you find an old map.");
     claydigging:AddMonster(User,104,gathering.prob_monster/gatheringBonus,"Im Morast stößt du auf eine bedauernswerte Moorleiche. Jedoch scheinst du derjenige zu sein, den man fortan betrauern wird.","In the mud your shovel digs unintentionally into a feculent bog body. The stench is atrocious, but what's worse is the undead creature rises to attack.",4,7);
     claydigging:AddRandomItem(2658,1,333,{},gathering.prob_rarely,"Du findest eine Knochenhand im Matsch. Sie umklammert ein altes Schwert.","You find a boney hand in the mud clutching an old sword."); --broadsword
