@@ -29,7 +29,7 @@ music.addTalkText("#me blows hard in the panpipes, making a loud, annoying, scre
 music.addTalkText("#me blows in the panpipes randomly, letting out a few loud uncoordinated sounds.", "#me bläst wirr auf der Panflöte, laute aber unmelodische Töne sind die Folge.", skill);
 music.addTalkText("#me blows gently in the panpipes, singing a few, short tunes.","#me spielt einige leise Töne sachte auf der Panflöte. ", skill);
 music.addTalkText("#me plays a nice, coordinated melody on the panpipes.","#me spielt eine klare Melodie auf der Panflöte. ", skill);
-music.addTalkText("#me plays his panpipes, blowing gently and gracefully, singing an impressively beautiful melody.","#me spielt behändig eine beeindruckende Melodie voller Anmut auf der Panflöte. ", skill);
+music.addTalkText("#me plays the panpipes, blowing gently and gracefully, singing an impressively beautiful melody.","#me spielt behändig eine beeindruckende Melodie voller Anmut auf der Panflöte. ", skill);
 
 function M.UseItem(User, SourceItem)
     music.PlayInstrument(User,SourceItem, skill);
