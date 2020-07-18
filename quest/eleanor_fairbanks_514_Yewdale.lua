@@ -43,7 +43,7 @@ Description[ENGLISH][3] = "Eleanor needs cabbages to finish making her stew. The
 Description[GERMAN][4] = "Geh zu Eleanor. Sie hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][4] = "Go back to Eleanor, she certainly has another task for you."
 
-Description[GERMAN][5] = "Eleanor hat kein Feuerholz mehr. Bring ihr zwanzig Naldor-Holzscheite damit sie den Eintopf fertig kochen kann. Verwende das Beil das sie dir gab und geh zu einem Naldorbaum um Holz zu hacken."
+Description[GERMAN][5] = "Eleanor hat kein Feuerholz mehr. Bring ihr zwanzig Scheite Naldorholz damit sie den Eintopf fertig kochen kann. Verwende das Beil das sie dir gab und geh zu einem Naldorbaum um Holz zu hacken."
 Description[ENGLISH][5] = "Eleanor is out of firewood. Bring her twenty naldor logs so that she can cook the stew. Use the hatchet she gave you and go find a naldor tree to chop down."
 Description[GERMAN][6] = "Geh zu Eleanor. Sie hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][6] = "Go back to Eleanor, she certainly has another task for you."

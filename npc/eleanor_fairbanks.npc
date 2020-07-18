@@ -132,7 +132,7 @@ queststatus(514) = 4, "Auftrag", "Aufgabe", "Abenteuer", "Befehl"-> inform ("[Ne
 
 -- Objects not found
 queststatus(514) = 5, item(544, all) < 20, english, ".+" -> "How is it coming with the firewood? Have you gotten me twenty logs of naldor wood yet? The coals are threatening to go out."
-queststatus(514) = 5, item(544, all) < 20, ".+" -> "Hast du das Brennholz? Hast du die zwanzig Scheite Naldorholz Holzscheite besorgt? Die Kohle wird langsam kalt."
+queststatus(514) = 5, item(544, all) < 20, ".+" -> "Hast du das Brennholz? Hast du die zwanzig Scheite Naldorholz besorgt? Die Kohle wird langsam kalt."
 
 -- Objects found -- 20 Naldor wood, reward 20 silver and a magical obsidian
 queststatus(514) = 5, item(544, all) > 19, english, ".+" -> inform ("[Quest Solved] You are rewarded 20 silver coins and a magical obsidian."), deleteItem(544, 20), money + 2000, item(3524, 1, 333, "gemLevel" = "1"), queststatus(514) = 6, "There we go. Nice and hot. Oh! I did find this magic gem while trying to keep the coals hot. I have no idea how that got in there. Why don't you take it and have a few coins for your work! While that is cooking, could you help me with something else?"
