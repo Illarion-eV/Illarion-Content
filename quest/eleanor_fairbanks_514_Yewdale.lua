@@ -38,17 +38,17 @@ Description[ENGLISH][1] = "Pick up a new wooden spoon for Eleanor Fairbanks. You
 Description[GERMAN][2] = "Geh zu Eleanor. Sie hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][2] = "Go back to Eleanor, she certainly has another task for you."
 
-Description[GERMAN][3] = "Eleanor braucht Kohl, um ihren Eintopf fertig zu kochen. Das Rezept benötigt noch 25 Kohlköpfe. Du kannst Kohl auf dem Marktplatz in Runewick kaufen oder deinen eigenen anbauen."
-Description[ENGLISH][3] = "Eleanor needs cabbages to finish making her stew. The recipe calls for 25 more. You can find cabbages in the Runewick market or you can grow your own."
+Description[GERMAN][3] = "Eleanor braucht Kohl, um ihren Eintopf fertig zu kochen. Das Rezept benötigt noch fünfundzwanzig Kohlköpfe. Du kannst Kohl auf dem Marktplatz in Runewick kaufen oder deinen eigenen anbauen."
+Description[ENGLISH][3] = "Eleanor needs cabbages to finish making her stew. The recipe calls for twenty five more. You can find cabbages in the Runewick market or you can grow your own."
 Description[GERMAN][4] = "Geh zu Eleanor. Sie hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][4] = "Go back to Eleanor, she certainly has another task for you."
 
-Description[GERMAN][5] = "Eleanor hat kein Feuerholz mehr. Bring ihr 20 Holzscheite damit sie den Eintopf fertig kochen kann.Verwende das Beil das sie dir gab und geh zu einem Baum um Holz zu hacken."
-Description[ENGLISH][5] = "Eleanor is out of firewood. Bring her 20 logs so that she can cook the stew. Use the hatchet she gave you and go find a tree to chop down."
+Description[GERMAN][5] = "Eleanor hat kein Feuerholz mehr. Bring ihr zwanzig Naldor-Holzscheite damit sie den Eintopf fertig kochen kann. Verwende das Beil das sie dir gab und geh zu einem Naldorbaum um Holz zu hacken."
+Description[ENGLISH][5] = "Eleanor is out of firewood. Bring her twenty naldor logs so that she can cook the stew. Use the hatchet she gave you and go find a naldor tree to chop down."
 Description[GERMAN][6] = "Geh zu Eleanor. Sie hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][6] = "Go back to Eleanor, she certainly has another task for you."
 
-Description[GERMAN][7] =  "Es scheint, ein paar von Eleanors Schüsseln sind verschwunden. Sie konnte 10 Stück gebrauchen. Geh auf den Marktplatz in Runewick und hole einige für sie."
+Description[GERMAN][7] =  "Es scheint, ein paar von Eleanors Schüsseln sind verschwunden. Sie könnte zehn Stück gebrauchen. Geh auf den Marktplatz in Runewick und hole einige für sie."
 Description[ENGLISH][7] = "It seems a few of Eleanora's bowls have gone missing. She could use ten more. Go to the market place in Runewick and retrieve some for her."
 
 Description[GERMAN][8] = "Du hast alle Aufgaben für Eleanor Fairbanks erledigt."
