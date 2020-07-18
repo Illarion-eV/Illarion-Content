@@ -195,11 +195,11 @@ end
 
 M.GatheringCraft = GatheringCraft
 
-M.prob_frequently = 0.0005; --0.05% (1/2000)
-M.prob_occasionally = 0.00025; --0.025% (1/4000)
-M.prob_rarely = 0.000025; --0.0025% (1/40000)
-M.prob_monster = 0.0001; --0.01% (1/10000)
-M.prob_element = 0.0001; --0.01% (1/10000) - Chance for one specific element, there are five elements in total
-M.prob_map = 0.0005; --0.05% (1/2000)
+M.prob_frequently = 1/2000;
+M.prob_occasionally = 1/4000;
+M.prob_rarely = 1/40000;
+M.prob_monster = 1/10000;
+M.prob_element = 1/6000; --Chance for one specific element, there are five elements in total. So in total, it is 1/1200
+M.prob_map = 1/2000;
 
 return M
