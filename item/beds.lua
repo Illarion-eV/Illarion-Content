@@ -23,7 +23,7 @@ local common = require("base.common")
 local M = {}
 
 function M.UseItem(user, sourceItem, ltstate)
-    traits.traitsManagement(user)
+    --traits.traitsManagement(user)
 end
 
 return M
