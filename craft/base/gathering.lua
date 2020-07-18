@@ -199,7 +199,7 @@ M.prob_frequently = 1/2000;
 M.prob_occasionally = 1/4000;
 M.prob_rarely = 1/40000;
 M.prob_monster = 1/10000;
-M.prob_element = 1/6000; --Chance for one specific element, there are five elements in total. So in total, it is 1/1200
+M.prob_element = 1/6000; --Chance for one specific element, there are five elements in total. So in total, it is 1/1200.
 M.prob_map = 1/2000;
 
 return M
