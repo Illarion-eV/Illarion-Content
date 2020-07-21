@@ -67,6 +67,11 @@ unchoppableTrees[1193] = true
 unchoppableTrees[1194] = true
 unchoppableTrees[1195] = true
 unchoppableTrees[1198] = true
+unchoppableTrees[1532] = true
+unchoppableTrees[1533] = true
+unchoppableTrees[1534] = true
+unchoppableTrees[1535] = true
+unchoppableTrees[1536] = true
 unchoppableTrees[1807] = true
 unchoppableTrees[1808] = true
 
