@@ -52,7 +52,7 @@ function M.UseItem(User, SourceItem)
 end
 
 function M.LookAtItem(User, Item)
-    lookat.SetSpecialDescription(Item, "Verwende die Kelle zum aufrufen der Funktionen (create items).", "Use the trowel to pick a function (create items).")
+    lookat.SetSpecialDescription(Item, "Verwende die Kelle zum Aufrufen der Funktionen (create items).", "Use the trowel to pick a function (create items).")
     lookat.SetSpecialName(Item, "Kelle", "Trowel")
     return lookat.GenerateLookAt(User, Item, lookat.METAL)
 end

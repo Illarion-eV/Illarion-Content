@@ -1145,7 +1145,7 @@ end
 
 
 function M.LookAtItem(User, Item)
-    lookat.SetSpecialDescription(Item, "Verwende die Kelle zum aufrufen der Funktionen (items, weather, factions, spawnpoints).", "Use the trowel to pick a function (items, weather, factions, spawnpoints).")
+    lookat.SetSpecialDescription(Item, "Verwende die Kelle zum Aufrufen der Funktionen (items, weather, factions, spawnpoints).", "Use the trowel to pick a function (items, weather, factions, spawnpoints).")
     lookat.SetSpecialName(Item, "Kelle", "Trowel")
     return lookat.GenerateLookAt(User, Item, lookat.METAL)
 end
