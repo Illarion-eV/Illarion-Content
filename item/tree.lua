@@ -41,6 +41,11 @@ function M.UseItem(User, SourceItem, ltstate)
         return;
     end
 
+    if User:getRace() == 3 and User:increaseAttrib("sex", 0) == Character.male and world:getTime("month") == 5 and SourceItem.id == 962 then --Male elves using a Mevrannon tree during month Siros
+        User:inform("Du steckst dir einen Mevrannonzweig an das Revers.","You put a Mevrannon twig on your lapel.")
+        return
+    end
+
     if woodchopping.isUnchoppableTree(SourceItem,User) then
         return
     end
