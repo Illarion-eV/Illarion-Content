@@ -154,7 +154,7 @@ queststatus(685) = 5, queststatus(401) = 16, money > 49999, "Gott", "Buch" -> in
 queststatus(77) = 0, english, "quest", "mission" -> inform("[New quest] Galmair Sewers I"), item(391, 1, 399), queststatus(77) = 1, "Blasted slime! The Don wants me to keep the streets clean, but dirty slimes seem to emerge from the sewers over and over again. Climb down and slay at least ten of those annoyances! Here, have this torch."
 queststatus(77) = 0, "quest", "mission" -> inform("[Neues Quest] Die Kanalisation von Galmair I"), item(391, 1, 399), queststatus(77) = 1, "Verdammter Schleim! Der Don wünscht sich saubere Straßen, aber dieser Schleim steigt ein ums andere Mal aus der Kanalisation auf. Nehmt diese Fackel, steigt hinab und erschlagt wenigstens zehn dieser Plagegeister."
 queststatus(77) = 0, "task", "adventure" -> inform("[New quest] Galmair Sewers I"), item(391, 1, 399), queststatus(77) = 1, "Blasted slime! The Don wants me to keep the streets clean, but dirty slimes seem to emerge from the sewers over and over again. Climb down and slay at least ten of those annoyances! Here, have this torch."
-queststatus(77) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Die Kanalisation von Galmair I"), item(391, 1, 399), queststatus(77) = 1, "Verdammter Schleim! Der Don wünscht sich saubere Straßen, aber dieser Schleim steigen ein ums andere Mal aus der Kanalisation auf. Nehmt diese Fackel, steigt hinab und erschlagt wenigstens zehn dieser Plagegeister."
+queststatus(77) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Die Kanalisation von Galmair I"), item(391, 1, 399), queststatus(77) = 1, "Verdammter Schleim! Der Don wünscht sich saubere Straßen, aber dieser Schleim steigt ein ums andere Mal aus der Kanalisation auf. Nehmt diese Fackel, steigt hinab und erschlagt wenigstens zehn dieser Plagegeister."
 
 -- Quest 1 solved, reward: 1000cp, +5 rankpoints
 queststatus(77) = 11, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded ten silver coins."), money + 1000, queststatus(77) = 12, rankpoints + 5, "#me hands over a small purse, 'Good job. Now I owe you one, but those slimes were only the beginning of the tasks I have for you."
@@ -246,7 +246,7 @@ english, "hobbit" -> "Blasted halfers! They pickpocket all day long. Nothing wro
 "Mumie" -> "Verdammte Mumien! Sie stöhnen den ganzen Tag. Das alleine wäre nicht schlimm, doch sollten sie wissen, über was sie besser nicht stöhnen sollten."
 "Zwerg" -> "So, ihr denkt also, wir Zwerge knien vor einem König, saufen Bier und buddeln den ganzen Tag nach Kieselsteinen? Falsch gedacht!"
 "Schutz", " geld", "gebühr" -> "Sicherheit kann man erkaufen. Je mehr Geld, desto mehr Schutz. Kein Geld... Schlechte Idee."
-"Gefallen", "Gefälligkeit" -> "Jeder Galmair schuldet dem Don einen Gefallen, manche mehr als einen. Denn der Don hilft jedem, er ist unser Pate."
+"Gefallen", "Gefälligkeit" -> "Jeder in Galmair schuldet dem Don einen Gefallen, manche mehr als einen. Denn der Don hilft jedem, er ist unser Pate."
 
 -- Rules of the Don
 "rules" -> "1. The Don protects you if you pay the fee. - 2. Pay the toll and the interest and no harm will be done. - 3. Trade freely, stay and depart as you wish. - 4. Come to the Don if you need help. He is your godfather. - 5. A deal with the Don is a deal with your fate. - 6. If you did harm, compensate generously twice the damage."
