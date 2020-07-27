@@ -45,7 +45,6 @@ function M.StartGathering(User, SourceItem, ltstate)
 
     -- check the amount
     local MaxAmount = 10
-    local changeItem = false
     local amountStr = SourceItem:getData("amount")
     local amount = 0
     if ( amountStr ~= "" ) then

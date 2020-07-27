@@ -61,7 +61,6 @@ function M.StartGathering(User, SourceItem, ltstate)
 
     -- check the amount
     local MaxAmount = 20
-    local changeItem = false;
     local amountStr = SourceItem:getData("amount");
     local amount = 0;
     if ( amountStr ~= "" ) then
@@ -82,9 +81,6 @@ function M.StartGathering(User, SourceItem, ltstate)
     -- since we're here, we're working
 
     if sanddigging:FindRandomItem(User) then
-        if ( changeItem ) then
-            world:changeItem(SourceItem);
-        end
         return
     end
 
