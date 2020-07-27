@@ -97,7 +97,7 @@ queststatus(702) = 1, town = Galmair, "quest", "mission" -> "Nik Nilo fragte mic
 queststatus(702) = 1, town = Galmair, "task", "adventure", "order" -> "Nik Nilo asked me for a ruby some time ago. Can you tell him he should talk to me?"
 queststatus(702) = 1, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nik Nilo fragte mich nach einem Rubin. Sagt ihm bitte, er möge mit mir reden."
 
--- 1st quest solved, reward sabre,boots, rankpoints +2
+-- 1st quest solved, reward sabre, boots, rankpoints +2
 queststatus(702) = 2, english, town = Galmair, ".+" -> inform("[Quest solved] You solved the Quest and are rewarded by Charwis with some coins, an old sabre and a pair of new boots."), money + 600, item(25, 1, 333), item(53, 1, 333), queststatus(702) = 3, rankpoints + 2, "So you talked to Mister Nik Nilo? Well, thank you for your help."
 queststatus(702) = 2, town = Galmair, ".+" -> inform("[Quest gelöst] Du hast das Quest gelöst und erhältst zum Dank etwas Geld, einen Säbel und ein Paar neue Stiefel von Charwis."), money + 600, item(25, 1, 333), item(53, 1, 333), queststatus(702) = 3, rankpoints + 2, "Ihr habt also mit Mister Nik Nilo gesprochen? Nun, danke für Eure Hilfe."
 
@@ -139,7 +139,7 @@ queststatus(702) = 9, town = Galmair, "quest", "mission" -> inform("[Neues Quest
 queststatus(702) = 9, town = Galmair, "task", "adventure", "order" -> inform("[New quest] Message Delivery IV"), item(234, 1, 440, "nameDe" = "Echt großer Goldnugget", "nameEn" = "Really big gold nugget", "descriptionEn" = "This gold nugget is the size of an apple.", "rareness" = "2", "descriptionDe" = "Dieser Goldnugget ist so groß wie ein Apfel."), queststatus(702) = 10, "Look, I found this gold nugget. It's as big as an apple but Pheritaleth, the magical smith from Cadomyr, does not believe me! Show her the gold nugget, please."
 queststatus(702) = 9, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Nachrichten Überbringen IV"), item(234, 1, 440, "nameDe" = "Echt großer Goldnugget", "nameEn" = "Really big gold nugget", "descriptionEn" = "This gold nugget is the size of an apple.", "rareness" = "2", "descriptionDe" = "Dieser Goldnugget ist so groß wie ein Apfel."), queststatus(702) = 10, "Schaut, ich habe einen Goldnugget gefangen, der ist so groß wie ein Apfel. Aber Pheritaleth, magische Schmied aus Cadomyr, sagt ich lüge! Bitte zeigt ihr diesen Goldnugget!"
 
--- 4th quest,  not solved repeat the instructions = Talk to Pheritaleth
+-- 4th quest, not solved repeat the instructions = Talk to Pheritaleth
 queststatus(702) = 10, english, town = Galmair, "quest", "mission" -> "Please, show the gold nugget to Pheritaleth in Cadomyr."
 queststatus(702) = 10, town = Galmair, "quest", "mission" -> "Bitte zeigt Pheritaleth aus Cadomyr diesen Goldnugget."
 queststatus(702) = 10, town = Galmair, "task", "adventure", "order" -> "Please, show the gold nugget to Pheritaleth in Cadomyr."
