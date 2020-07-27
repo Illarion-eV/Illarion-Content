@@ -113,9 +113,9 @@ queststatus(701) = 10, item(73, all, "nameDe" = "Echt großer Fisch") > 0, "Zassa
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am a magical Blacksmith. How one becomes a magical blacksmith is none of your business.", "I am a magical Blacksmith, the rest is a professional secret."
-"beruf" -> "Ich bin 'nen magischer Schmied. Wie man datt wird jeht dich 'ne feuchten Dreck an!", "Ich bin 'nen magischer Schmied. Der Rest is 'nen Berufsjeheimnis!"
+"beruf" -> "Ich bin 'nen magischer Schmied. Wie man datt wird jeht dich 'nen feuchten Dreck an!", "Ich bin 'nen magischer Schmied. Der Rest is 'nen Berufsjeheimnis!"
 english, "job" -> "I am a magical blacksmith. How one becomes a magical blacksmith is none of your business.", "I am a magical Blacksmith, the rest is a professional secret."
-"job" -> "Ich bin 'nen magischer Schmied. Wie man datt wird jeht dich 'ne feuchten Dreck an!", "Ich bin 'nen magischer Schmied. Der Rest is 'nen Berufsjeheimnis!"
+"job" -> "Ich bin 'nen magischer Schmied. Wie man datt wird jeht dich 'nen feuchten Dreck an!", "Ich bin 'nen magischer Schmied. Der Rest is 'nen Berufsjeheimnis!"
 "tell something" -> "There are things ya dont wish to know. Got it?"
 "erzähl was", "erzähl etwas" -> "Es jibt Dinge die willste gar nich' wissen. Klar?"
 
@@ -175,11 +175,11 @@ english, "Valerio", "Guilianni", "Don" -> "The Don likes money. We all do, right
 english, "Galmair" -> "I like Galmair! Money, Beer and magical gemstones."
 "Galmair" -> "Ich mag Galmair, hier gibt's Geld, Bier und magische Edelsteine."
 "Queen" -> "I can't understand why they call her Queen. Dwarven queens are way different."
-"Königin" -> "Ich verstewh nicht warum die se  nen Königin nennen. Ne' zwergische Königin is jang anders drauf."
+"Königin" -> "Ich versteh nicht warum die se ne Königin nennen. Ne' zwergische Königin is jang anders drauf."
 english, "rosaline", "edwards" -> "I can't understand why they call her Queen. Dwarven queens are way different."
-"rosaline", "edwards" -> "Ich verstewh nicht warum die se' nen Königin nennen. Ne' zwergische Königin is janz anders drauf."
+"rosaline", "edwards" -> "Ich versteh nicht warum die se' ne Königin nennen. Ne' zwergische Königin is janz anders drauf."
 english, "Cadomyr" -> "If I hear ya say Cadomyar, then I think of sun burnt skin... yuck!"
-"Cadomyr" -> "WEnn ich dich Cadomiy sagen hör, dann denk ich an von'ner Sonne verbrannte Haut... Igitt!"
+"Cadomyr" -> "Wenn ich dich Cadomiy sagen hör, dann denk ich an von'ner Sonne verbrannte Haut... Igitt!"
 
 -- Optional: Main land factions
 english, "albar" -> "Humans live there... sounds boring."
