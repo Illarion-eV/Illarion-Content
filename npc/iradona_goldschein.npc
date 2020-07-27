@@ -69,8 +69,8 @@ itemShoes = 369
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Iradona Goldschein the informant. Keywords: Question, information, Galmair, building, game, mission, town.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Iradona Goldschein die Auskunftgeberin. Schlüsselwörter: Auskunft, Information, Galmair, Gebäude, Spiel, Auftrag, Stadt.")
+"Help" -> inform("[Game Help] This NPC is Iradona Goldschein the informant. Keywords: Question, information, Galmair, building, game room, mission, town.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Iradona Goldschein die Auskunftgeberin. Schlüsselwörter: Auskunft, Information, Galmair, Gebäude, Spielraum, Auftrag, Stadt.")
 
 -- Mandatory: General speech
 queststatus(606) = 1, english, ".*" -> inform("[Quest 'Find Iradona'] You can talk with Iradona now. Ask for 'help' if you do not know what to ask! You can also go back to Hummi to collect your reward and come back later."), "How can I help you? Do you want any information? Or would you like to do a task?", queststatus(606)=2
@@ -167,10 +167,10 @@ english, "Lotta", "Medborgar" -> "She's a hunter that has explored several locat
 "Taverne Geflügelten Sau" -> "Dieser Ort in der Schlackengrube hat zwei Eingänge. Den Haupteingang über den Aufzug der Schlackengrube und den zweiten über eine Leiter knapp vor dem Aufzug. Folge den Wegweisern. Wie dem auch sei, du wirst gutes Bier und gute Unterhaltung dort finden."
 english, "Tavern" -> "This place is in the Scoria Mine has and two entrances. The main entrance is via the Scoria Mine elevator and the second one is down a ladder, on the right before the elevator. Follow the signposts. You will find good beer and entertainment there."
 "Tavern" -> "Dieser Ort in der Schlackengrube hat zwei Eingänge. Den Haupteingang über die Schlackengrube Aufzug und den zweiten über eine Leiter knapp vor dem Aufzug. Folge den Wegweisern. Wie dem auch sei, du wirst gutes Bier und Unterhaltung dort finden."
-"Flicker Swale" -> inform("[Keyword]Game room, Temple of Nargun"), "Flicker Swale can be found in the Scoria Mine, just follow the signposts. There you can also find the Game room and the Temple of Nargun."
-"Schimmersenke" -> inform("[Schlüsselwort]Spielraum, Tempel des Nargun"), "Die Schimmersenke kann in der Schlackengrube gefunden werde. Folge einfach den Wegweisern. Dort findest du auch den Spielraum und den Tempel des Nargun."
+"Flicker Swale" -> inform("[Keyword] Game room, Temple of Nargun"), "Flicker Swale can be found in the Scoria Mine, just follow the signposts. There you can also find the Game room and the Temple of Nargun."
+"Schimmersenke" -> inform("[Schlüsselwort] Spielraum, Tempel des Nargun"), "Die Schimmersenke kann in der Schlackengrube gefunden werde. Folge einfach den Wegweisern. Dort findest du auch den Spielraum und den Tempel des Nargun."
 "Gameroom" -> "The Game room in the Flicker Swale offers you a great opportunity to get the money of others... or to lose your own! *smirks*"
-"Spielraum" -> "Der Spielraum in der Schlimmersenke ermöglicht dir anderen das Geld abzuknüpfen...oder dein eigenes zu verlieren. *kichert*"
+"Spielraum" -> "Der Spielraum in der Schlimmersenke ermöglicht dir anderen das Geld abzuknüpfen... oder dein eigenes zu verlieren. *kichert*"
 "Hog Dens" -> "The Hog Dens can be found in the Scoria Mine, just follow the signposts. This place is mainly used by our green friends, the orcs."
 "Schweinebaue" -> "Die Schweinebaue können in der Schlackengrube gefunden werde. Folge einfach den Wegweisern. Dieser Ort wird hauptsächlich von unseren grünen Freunden verwendet - den Orks."
 "Cameo Pit" -> "The Cameo Pit can be found in the Scoria Mine, just follow the signposts. It contains the flats for those who do not have enough money to live at Villa Goldvein."
