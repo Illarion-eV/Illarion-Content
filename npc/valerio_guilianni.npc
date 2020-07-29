@@ -142,7 +142,7 @@ english, "Rosie" -> "She doesn't like the name, what can I say? Prefers Rosaline
 english, "Miggs" -> "Every successful businessman need two things: A supportive wife and a muscle to do his biding. If only I had Rosie, I'd have both in one person.", "Miggs is like a second left hand for me, but enough jokes. See him if you need a task."
 "Miggs" -> "Jeder erfolgreiche Geschäftsmann braucht zwei Dinge: Eine unterstützende Frau und einen Mann fürs Grobe. Ach, mit Rosie hätte ich beides in einem.", "Miggs ist wie eine zweite linke Hand, aber genug gescherzt. Geh zu ihm wenn du eine Aufgabe suchst."
 "protect", "fee" -> "You wanna be in the know? So do about a thousand other people. Don't talk about things that don't concern you.", "You talking about protection fees? You need some protection? You might if you keep talking about things that don't concern you.", "A business has to have protection from a lot of things. Also, has to pay a lot of fees. That's about all you need to know."
-"Schutz", "Protekt", "Gebühr" -> " Was wollt Ihr wissen? - Sprecht nicht über Dinge die Euch nichts angehen.", "Sprecht Ihr über die Protektionsgebühren? Braucht ihr etwa Schutz? Vermutlich schon... sprecht Ihr immerhin über Dinge die Euch nicht im gerningsten zu interessieren haben.", "Ein Laden muss vor vielen Dingen geschützt werden. - Und muss viele Gebühren zahlen. Das ist alles was Ihr wissen müsst."
+"Schutz", "Protekt", "Gebühr" -> " Was wollt ihr wissen? - Sprecht nicht über Dinge die Euch nichts angehen.", "Sprecht ihr über die Protektionsgebühren? Braucht ihr etwa Schutz? Vermutlich schon... sprecht ihr immerhin über Dinge die Euch nicht im gerningsten zu interessieren haben.", "Ein Laden muss vor vielen Dingen geschützt werden. - Und muss viele Gebühren zahlen. Das ist alles was ihr wissen müsst."
 
 -- Easter egg
 english, "Corleone" -> "Ach, a dazzler from Gynk, no honour. And throaty all the time, only the gods know why."
@@ -150,7 +150,7 @@ english, "Corleone" -> "Ach, a dazzler from Gynk, no honour. And throaty all the
 
 -- Faction stuff
 "realm" -> "Ya know I hear people talking about these 'realms', but all I see is the land of my future wife and a drugged out magician leading halfers.", "Ya, ya Runewick, Cadomyr, and Galmair that's all you newcomers want to talk about. Focus on what's important, getting rich, plain and simple."
-"Reich" -> "Wisst Ihr, ich höre die Leute immer wieder über die 'Reiche' sprechen. Aber für mich sind sie nichts weiter als die Länder meiner zukünftigen Frau und des übergeschnappten Magiers, der Frauenkleider trägt.", "Aye, Runewick, Cadomyr und Galmair, das ist alles worüber Neuankömmlinge wie ihr sprechen wollt. Konzentriert Euch lieber auf die wichtigen Dinge! Reichtum und Macht! Ganz einfach."
+"Reich" -> "Wisst ihr, ich höre die Leute immer wieder über die 'Reiche' sprechen. Aber für mich sind sie nichts weiter als die Länder meiner zukünftigen Frau und des übergeschnappten Magiers, der Frauenkleider trägt.", "Aye, Runewick, Cadomyr und Galmair, das ist alles worüber Neuankömmlinge wie ihr sprechen wollt. Konzentriert Euch lieber auf die wichtigen Dinge! Reichtum und Macht! Ganz einfach."
 english, "archmage" -> "Tell me, what should I think of a man who wears women's clothing and enjoys men swooning over his greatness?", "He is said not to leave his library very often. If you ask me, that's a good thing."
 "Erzmagier" -> "Sagt mir ernsthaft, was soll ich von einem Mann halten der Frauengewänder trägt und sich von Männern anhimmeln lässt?", "Er soll seine Bibliothek ja nicht oft verlassen, und wenn ihr mich fragt ist das auch gut so."
 english, "Elvaine", "Morgan" -> "Tell me, what should I think of a man who wears women's clothing and enjoys men swooning over his greatness?", "He is said not to leave his library very often. And if you ask me, that's a good thing."
@@ -177,7 +177,7 @@ english, "salkama" -> "Even though they like to act all noble, many of them visi
 -- Gods - use the triggers of the god the NPC worships or fights
 -- Gods; gods are relevant, so the faction leader has to have an opinion on ALL gods
 english, "god" -> "You got faith, %CHARNAME? Don't let the priests and zealots fool ya, if you're looking for practical words about the gods just ask me about one."
-"gott", "götter" -> "Glaubt Ihr, %CHARNAME? Habt Ihr vertrauen? - Lasst Euch von den Priestern und Mönchen nicht an der Nase herumführen, wenn ihr nach ein paar aufrichtige Worte über die Götter sucht, seid Ihr bei mit genau an den Richtigen geraten."
+"gott", "götter" -> "Glaubt ihr, %CHARNAME? Habt ihr Vertrauen? - Lasst Euch von den Priestern und Mönchen nicht an der Nase herumführen, wenn ihr nach aufrichtigen Worten über die Götter sucht, seid ihr bei mit genau an den Richtigen geraten."
 english, "Adron" -> "Ahh, what would a tavern be without him? How could tempers run high over a game of cards if not due to Adron's gifts?"
 "Adron" -> "Ahh, was wäre eine Taverne ohne ihn? Wie könnten sich sonst die Gemüter so beim Kartenspiel erhitzen wenn nicht durch Adrons Gaben?"
 english, "Bragon", "Brágon" -> "I wonder if he takes offence to my dragon hide boots, but didn't he leave this world already? If you can't stand the heat, stay outta the hearth, I always say."

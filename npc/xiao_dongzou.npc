@@ -94,7 +94,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba", "Farewell", "Bye", "Fare well"
 
 -- Quest related
 "rule" -> "Quite simple. There are two games. The dice game and the coin game. For the coin game, you select a side. If it is shown, you win two silver for each silver stake. Otherwise I get the money. In the dice game, you also select a side. You can win five and a half silver for each silver you put on the table."
-"regel" -> "Ganz einfach. Es gibt zwei Spiele. Das Würfelspiel und das Münzspiel. Für das Münzspiel, du wählst eine Seite der Münze. Zeigt sich diese, gewinnst du zwei Stück Silber für jedes eingesetzte Silberstück. Ansonsten bekomme ich das Geld. Beim Würfeln bekommst du fünf und ein halbes Silber für jedes Silber Einsatz."
+"regel" -> "Ganz einfach. Es gibt zwei Spiele. Das Würfelspiel und das Münzspiel. Für das Münzspiel wählst du eine Seite der Münze. Zeigt sich diese, gewinnst du zwei Stück Silber für jedes eingesetzte Silberstück. Ansonsten bekomme ich das Geld. Beim Würfeln bekommst du fünf und ein halbes Silberstück für jedes Silberstück Einsatz."
 -- abort at queststatus 0
 queststatus(679) = 0, english, "stop", "end" -> inform("[Game] No game started yet."), "What a Nargun! Why should we stop now? We don't play at the moment.", "As you demand, let's stop before we start. That's so Nargun like.", "Come on, let's roll the dice. Just a single game for a single silver."
 queststatus(679) = 0, "stop", "end" -> inform("[Spiel] Noch kein Spiel begonnen."), queststatus(679) = 1, "Ich versteh nicht, warum wir aufhören sollen. Wir haben doch noch gar nicht angefangen?", "Wie du willst. Hören wir auf bevor wir angefangen haben. So was gefällt Nargun.", "Oh nein, warum nicht ein klitzekleines Spiel um ein einsames Silberstück?"

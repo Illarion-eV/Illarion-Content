@@ -77,7 +77,7 @@ itemShoes = 369
 
 -- Mandatory: Help
 "Help" -> inform("[Game Help] This NPC is Gretel Goldhair. Keywords: Quest, profession, Galmair, garbage, gods, Don.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Gretel Goldhair. Süsselwörter: Auftrag, Beruf, Galmair, Müll, Götter, Don.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Gretel Goldhair. Schlüsselwörter: Auftrag, Beruf, Galmair, Müll, Götter, Don.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings!", "#me nods.", "Speak louder, I can't hear you!"
