@@ -136,7 +136,7 @@ queststatus(189) = 7, town = Galmair, "task", "adventure" -> inform("[New quest]
 queststatus(189) = 7, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission" -> inform("[Neues Quest] Rette das Bierlager II"), queststatus(189) = 8, "Arr!! Der Don wird über den Verlust von soviel Bier nicht glücklich sein. Los töte noch mehr von den Ratten und bringe mir zehn ihrer Felle als Beweis!"
 
 -- Quest 2 solved, reward: 2000cp, +5 rankpoints
-queststatus(189) = 8,  item(2586, all) > 9, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), money + 2000, deleteItem(2586, 10), queststatus(189)= 9, rankpoints + 5, "Arr! The Don be happy your helping. Come back later for more work."
+queststatus(189) = 8,  item(2586, all) > 9, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), money + 2000, deleteItem(2586, 10), queststatus(189)= 9, rankpoints + 5, "Arr! The Don be happy you're helping. Come back later for more work."
 queststatus(189) = 8,  item(2586, all) > 9, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), money + 2000, deleteItem(2586, 10), queststatus(189)= 9, rankpoints + 5, "Arr! Über deine Hilfe wird der Don sehr glücklich sein. Komm später wieder für mehr Arbeit."
 
 -- Quest 2 taken but not solved, repeat the instructions
@@ -148,10 +148,10 @@ queststatus(189) = 8, item(2586, all) < 10, town = Galmair, "Auftrag", "Aufgabe"
 -- Give out quest 3
 queststatus(189) = 9, town = Galmair, english, "quest", "mission" -> inform("[New quest] Save Da Beer III"), queststatus(189) = 10, "Dere be ugly different kinds a rats down dere. All drink the beer. Go kill ten rats."
 queststatus(189) = 9, town = Galmair, "task", "adventure" -> inform("[New quest] Save Da Beer III"), queststatus(189) = 10, "Dere be ugly different kinds a rats down dere. All drink the beer. Go kill ten rats."
-queststatus(189) = 9, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission" -> inform("[Neues Quest] Rette das Bierlager III"), queststatus(189) = 10, "Es gibt verschiedene hässliche Arten von Ratten da unten. Un alle safen unser Bier. Geh und töte zehn Ratten."
+queststatus(189) = 9, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission" -> inform("[Neues Quest] Rette das Bierlager III"), queststatus(189) = 10, "Es gibt verschiedene hässliche Arten von Ratten da unten. Und alle saufen unser Bier. Geh und töte zehn Ratten."
 
 -- Quest 3 solved, reward: 20 silver, +5 rankpoints
-queststatus(189) = 20, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), money + 2000, queststatus(189) = 21, rankpoints + 5, "Arr! The number of rats already decreased. The Don be happy your helping. Come back later for more work."
+queststatus(189) = 20, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), money + 2000, queststatus(189) = 21, rankpoints + 5, "Arr! The number of rats already decreased. The Don be happy you're helping. Come back later for more work."
 queststatus(189) = 20, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), money + 2000, queststatus(189) = 21, rankpoints + 5, "Arr! Die Ratten sind schon weniger geworden. Über deine Hilfe wird da Don sehr glücklich sein. Komm später wieder für mehr Arbeit."
 
 -- Quest 3 taken but not solved, repeat the instructions
@@ -166,13 +166,13 @@ queststatus(189) = 21, town = Galmair, "task", "adventure" -> inform("[New quest
 queststatus(189) = 21, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission" -> inform("[Neues Quest] Rette das Bierlager IV - Finde und prüfe 5 Köder in der Zisterne. Benutze den Köder, um ihn zu prüfen."), queststatus(253) = 0, queststatus(189) = 22, "Ich habe vor kurzem einige vergiftete Möhren ausgelegt. Schau bei mindestens 5 der Köder nach, ob die Ratten da eher rangehen als an's Bier. Aber zieh irgendwelche Handschuhe an, wenn du sie anfasst!"
 
 -- Quest 4 taken but not started
-queststatus(189) = 22, queststatus(253) = 0, english, town = Galmair, ".+" -> inform("Find and 'use' 5 poisoned rat baits in the cistern. You must touch (use) the carrots."), "Wear gloves an check the baits. This is my chance to solve the rat issue without getting my fingers dirty."
+queststatus(189) = 22, queststatus(253) = 0, english, town = Galmair, ".+" -> inform("Find and 'use' 5 poisoned rat baits in the cistern. You must touch (use) the carrots."), "Wear gloves and check the baits. This is my chance to solve the rat issue without getting my fingers dirty."
 queststatus(189) = 22, queststatus(253) = 0, town = Galmair, ".+" -> inform("Finde und prüfe 5 Köder in der Zisterne. Benutze den Köder, um ihn zu prüfen."), "Zieh Handschuhe an und prüf die Köder. Das ist meine Chance den Ratten beizukommen, ohne mir die Hände schmutzig zu machen."
 
 -- Quest 4 taken but not finished
 queststatus(189) = 22, town = Galmair, english, "quest", "mission" -> "Arr! You say the rats don't touch the baits? Go an check some more."
 queststatus(189) = 22, town = Galmair, "task", "adventure", "poison", "carrot" -> "Arr! You say the rats don't touch the baits? Go an check some more."
-queststatus(189) = 22, town = Galmair, "Auftrag", "Aufgabe", "quest", "mission", "Abenteuer", "Gift", "Möhre" -> "Arr! Du sagst, die Ratten verschähen die Köder? Los schau dir noch einige mehr an."
+queststatus(189) = 22, town = Galmair, "Auftrag", "Aufgabe", "quest", "mission", "Abenteuer", "Gift", "Möhre" -> "Arr! Du sagst, die Ratten verschmähen die Köder? Los schau dir noch einige mehr an."
 
 -- Quest 4 solved, 20 silver, +5 rankpoints
 -- Quest 5 kill ten rats
@@ -182,7 +182,7 @@ queststatus(189) = 23, town = Galmair, "task", "adventure", "poison", "carrot" -
 queststatus(189) = 23, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission", "Gift", "Möhre" -> inform("[Gelöstes und neues Quest] Rette das Bierlager V"), queststatus(189) = 24, "Die blöden Ratten! Wir müssen jetzt was tun. Mir fällt jetzt auch nix Besseres ein, als weitere zehn Ratten zu töten, um unser Bier zu retten.", money + 2000, rankpoints + 5
 
 -- Quest 5 solved, 20 silver, +5 rankpoints
-queststatus(189) = 34, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), money + 2000, queststatus(189) = 35, rankpoints + 5, "Arr! We didn't save the world but our beer. The Don will be happy with your helping. Come back later for more work."
+queststatus(189) = 34, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), money + 2000, queststatus(189) = 35, rankpoints + 5, "Arr! We didn't save the world but our beer. The Don will be happy with you're helping. Come back later for more work."
 queststatus(189) = 34, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), money + 2000, queststatus(189) = 35, rankpoints + 5, "Arr! Wir ham zwar nich die Welt aber unser Bier gerettet. Über deine Hilfe wird der Don sehr glücklich sein. Komm später wieder für mehr Arbeit."
 
 -- Quest 5 taken but not solved
@@ -274,6 +274,6 @@ cycletext "#me nimmt einen großzügigen Schluck aus der Bierflasche.", "#me drink
 cycletext "#me rülpst laut.", "#me belches loudly."
 cycletext "#me nimmt einen großen Schluck Bier und wischt sich den Mund mit dem Ärmel ab.", "#me wipes the sleeve of his coat over his mouth after taking a large drink of beer."
 cycletext "#me verschüttet etwas Bier und flucht laut in irgendeinem alten Zwergendialekt.", "#me spills his beer and begins swearing loudly in some old dwarven dialect."
-cycletext "Arr! Ich brauche mehr Bier!", "Arr!! Me needs more beer!"
+cycletext "Arr! Ich brauche mehr Bier!", "Arr! Me needs more beer!"
 cycletext "Ich habe es mit vergifteten Karotten im Schacht versucht, aber sie haben keine Wirkung auf diese Ratten.", "I have tried poisoned carrots in the well, but they had no effect on those rats!"
 cycletext "Eines Tages werden wir den Tunnel fertig gegraben haben, sodaß wir den hier nicht mehr brauchen.", "One day, we'll get da tunnel dug out again so we don't have ta be usin' dis here well. Pain in da backside it is fer haulin' barrels!"
