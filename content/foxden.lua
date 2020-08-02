@@ -169,7 +169,7 @@ function M.tryFeeding(Item, char)
     if isFeeding() == true then
         world:createItemFromItem(Item, refuseFeedingField, true)
         world:erase(Item, Item.number)
-        common.InformNLS(char, "Gerade wurde gefüttert. Wart noch etwas.", "The cubs were already fed recently. Please wait a few minutes before trying again.")
+        common.InformNLS(char, "Gerade wurde gefüttert. Warte noch etwas.", "The cubs were already fed recently. Please wait a few minutes before trying again.")
         return
     end
     
