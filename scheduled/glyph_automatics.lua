@@ -45,19 +45,19 @@ local dropPositions = {
     position(547,370,0), --Sparkling mine
     position(596,495,0), --isle in sheakhead bay
     position(723,578,0), --2nd of 3 sisters
-    position(895,584,0), --Wounderland
+    position(895,584,0), --Wonderland
     position(909,699,0), --Test field Runewick
     position(916,935,0), --South end Runewick
     position(730,767,0), --Isle near Runewick harbour
     position(858,453,0), --Spider spot Elstree
     position(794,362,0), --Witch house
-    position(731,347,0), --Swamp between Hempty and Syrta bridge
+    position(731,347,0), --Swamp between Hemp Necktie Inn and Syrta bridge
     position(766,444,0), --Nargun shrine
     position(584,425,0), --Raptor forest
     position(587,261,0), --Singing well
-    position(594,127,0), --Swamp west of temple of 5
+    position(603,127,0), --Swamp west of temple of 5
     position(631,131,0), --Narguns plain
-    position(692,253,0), --northern forest opposit of hempty
+    position(692,253,0), --northern forest opposit of Hemp Necktie Inn
     position(814,110,0), --Rabans Cove
     position(706,30,0), --Wall west end
     position(896,118,0), --Wall east end
@@ -87,15 +87,7 @@ end
 
 function M.dropShard()
     for i = 1, #dropPositions do
-        if math.random() < DROP_PROBABILITY then
-            doDrop(dropPositions[i], 15)
-        end
-        if math.random() < SHOWER_PROBABILITY then
-            local showerAmount = math.random(4,9)
-            for j=1, showerAmount do
-                doDrop(dropPositions[i], 7)
-            end
-        end
+        doDrop(dropPositions[i], 5)
     end
 end
 
