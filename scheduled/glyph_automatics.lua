@@ -34,9 +34,6 @@ local shard = require("item.shard")
 
 local M = {}
 
-local DROP_PROBABILITY = 0.0078
-local SHOWER_PROBABILITY = 0.00013
-
 local dropPositions = {
     position(287,549,0), --Oasis in the desert
     position(421,756,0), --next to Alkatut's entrance
