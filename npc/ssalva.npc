@@ -81,12 +81,14 @@ english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetinzss of zze Mozzer to you. Bl
 "Wasser" -> "Wassser ist unser aller Leben, das Geschenk der Mutter."
 "prayer", "worship" -> "Zze zzealotss have many prayerss in zze name of zze Mozzzer. Many of zzem are not proper prayerss."
 "Gebet", "Andacht" -> "Die Fanatiker haben viele Anbeter im Namen der Mutter. Viele von ihnen ssind keine guten Glaubenden."
-english, "Tanora", "Zelphia", "Mother", "Mozzer" -> "Zze Mozzer iss everyzzing. Zze extremisstss do foul zzingss in her name."
+english, "Tanora", "Zelphia", "Mozzer" -> "Zze Mozzer iss everyzzing. Zze extremisstss do foul zzingss in her name."
+"Mother" -> "Zze Mozzer iss everyzzing. Zze extremisstss do foul zzingss in her name."
 "Tanora", "Zelphia", "Mozzer", "Mutter" -> "Mutter ist Alless. Die Extremisten tun schreckliche Dinge in ihrem Namen."
-"Lake of Life" -> "Ssalva does ssee zzat zziss iss a large underground lake, which zze Mozzer hass given sspecial life for it glowss brightly. Ssalva greatly wisshess to one day sswim in zziss lake."
-"See des Lebens" -> "Ssalva hat gesehen, dass es ein grossser unterirdischer See ist, welchem Mutter besonderes Leben mit strahlendem Leuchten gegeben hat. Ssalvas grössster Wunsch ist eines Tages in diesem See zu schwimmen."
-english, "Zzarn'K'Ska of Zelphia", "rogue", "extremist" -> "Zziss group of zealotss are vilifying zze Mozzer's name."
-"Zzarn'K'Ska von Zelphia", "Einzelgänger", "Extremist" -> "Diesse Gruppe von Fanatikern verunglimpfen den Namen der Mutter."
+"Lake", "life" -> "Ssalva does ssee zzat zziss iss a large underground lake, which zze Mozzer hass given sspecial life for it glowss brightly. Ssalva greatly wisshess to one day sswim in zziss lake."
+"See des", "Leben" -> "Ssalva hat gesehen, dass es ein grossser unterirdischer See ist, welchem Mutter besonderes Leben mit strahlendem Leuchten gegeben hat. Ssalvas grössster Wunsch ist eines Tages in diesem See zu schwimmen."
+english, "Zzarn", "Ska" -> "Zziss group of zealotss are vilifying zze Mozzer's name."
+"rogue", "extremist" -> "Zziss group of zealotss are vilifying zze Mozzer's name."
+"Zzarn", "Ska", "Schurke", "Extremist" -> "Diesse Gruppe von Fanatikern verunglimpfen den Namen der Mutter."
 
 -- Faction
 "archmage" -> "Ssalva only hass alliance to zze Mozzer. Zze otherss are of no importance."
@@ -120,7 +122,7 @@ queststatus(501) = 1, ".+" -> "Ksss. *wedelt aufgeregt mit ihrem Schwanz* Sie mu
 queststatus(501) = 2, english, ".+" -> inform("[Quest solved] You are awarded twenty-five silver coins."), money + 2500, queststatus(501) = 3, "Zzzz. Good you found zzem. We musst take further meassuress against zze Zzarn'K'Ska. Take zzis reward as a token of gratitude."
 queststatus(501) = 2, ".+" -> inform("[Quest gelöst] Du erhältst fünfundzwanzig Silberstücke."), money + 2500, queststatus(501) = 3, "Zzzz. Gut, du hast ssie gefunden. Wir müssen weitere Maßnahmen gegen sie ergreifen. Zzarn´K´Ska. Nimm diesse Belohnung als Zeichen des Dankes."
 
---Recieve second quest
+--Receive second quest
 --find route to second island
 queststatus(501) = 3, english, "quest", "mission" -> inform("[New quest] Zzarn'K'Ska of Zelphia II"), queststatus(501) = 4, "Sss. There iss two large islandss? Find zze way to zze ssecond one. We must prevail."
 queststatus(501) = 3, "quest", "mission" -> inform("[Neue Quest] Zzarn'K'Ska von Zelphia II"), queststatus(501) = 4, "Sss. Da sind zwei große Inseln? Finde einen Weg zur zweiten Insel. Wir müssen sie beherrschen."
@@ -134,7 +136,7 @@ queststatus(501) = 4, ".+" -> "Ksss. Der Zugang zur zweiten Insel ist notwendig,
 queststatus(501) = 5, english, ".+" -> inform("[Quest solved] You are awarded fifty silver coins."), money + 5000, queststatus(501) = 6, "Yesss, Yesss very good. Let uss plan more."
 queststatus(501) = 5, ".+" -> inform("[Quest gelöst] Du erhältst fünfzig Silberstücke."), money + 5000, queststatus(501) = 6, "Ja, ja, sehr gut. Lass uns weiterplanen."
 
---Recieve third quest
+--Receive third quest
 --kill 5 peaceful undead
 queststatus(501) = 6, english, "quest", "mission" -> inform("[New quest] Zzarn'K'Ska of Zelphia III"), queststatus(501) = 7, "Ksss.  Zzey do have undead walking around below.  Zzey not be hostile, but Ssalva would have you releasse five of zzeir ssoulss by killing zzem to go onto zze Muzzer."
 queststatus(501) = 6, "quest", "mission" -> inform("[Neue Quest] Zzarn'K'Ska von Zelphia III"), queststatus(501) = 7, "Ksss.  Da ssind Untote die dort unten herumsstreizzen. Die ssind nicht gefährlizz. Aber Ssalva wünszzt, dass du fünf von ihnen tötesst. Ihre Sselen ssollen ssur Mutter gehen."
@@ -148,7 +150,7 @@ queststatus(501) = 12, ".+" -> inform("[Quest gelöst] Du erhältst fünfundsiebzig
 queststatus(501) > 7, queststatus(501) < 11, english, ".+" -> "You musst releasse five ssoulss of the peaceful undead back to zze Muzzer."
 queststatus(501) > 7, queststatus(501) < 11, ".+" -> "Du ssollsst fünf Sselen befreien, damit ssie ssurück ssur Mutter gehen können."
 
---Recieve fourth quest
+--Receive fourth quest
 --waterblossom to offering plate
 queststatus(501) = 13, english, "quest", "mission"-> inform("[New quest] Zzarn'K'Ska of Zelphia IV"), queststatus(501) = 14, "Pleasse find a water blosssom and give it to zze Goddess Tanora at the altar, which stands in the Lake of Life.  Requesst a blesssing before we continue, assking for her undersstanding in what musst be done. *place the item on the offering plate inside the dungeon*"
 queststatus(501) = 13, "quest", "mission"-> inform("[Neue Quest] Zzarn'K'Ska von Zelphia IV"), queststatus(501) = 14, "Bitte finde eine Wassserblüte und gib diese der Göttin Tanora beim Altar, welcher im See des Lebens steht. Erbitte ihren Ssegen und ihr Verständnis für das, was wir tun müssen, bevor wir fortfahren. *lege den Gegenstand auf die Opferplatte im Verlies*"
@@ -162,7 +164,7 @@ queststatus(501) = 14, ".+" -> "Ksss. Bevor wir weitermachen musst du Mutter ehr
 queststatus(501) = 15, english, ".+" -> inform("[Quest solved] You are awarded five custard pies."), item(1153, 5), queststatus(501) = 16, "Zze Mozzer will look over uss becausse of your gift. We may now continue in confidence."
 queststatus(501) = 15, ".+" -> inform("[Quest gelöst] Du erhältst fünf Eiercremetorten."), item(1153, 5), queststatus(501) = 16, "Mutter wird wegen deiner Gabe über uns wachen. Wir können nun mit Zuversicht fortfahren."
 
---Recieve fifth quest
+--Receive fifth quest
 --Take items to Zenia in Lake of Life, 1-custard pie, 2 fish soup, 20 eggs, and five of each fish type
 queststatus(501) = 16, english, "quest", "mission"-> inform("[New quest] Zzarn'K'Ska of Zelphia V"), queststatus(501) = 17, "Pleasse go ssee a dear friend of mine. Zenia will give you ssome information I require in exchange for ssome itemss sshe hass been craving. Pleasse bring Zenia one cusstard pie, two fissh soupss, 20 eggss, and five of each type of fish (salmon, trout, horse mackerel, and rose fish). You can find Zenia ssomewhere hiding on an island in the Lake of Life."
 queststatus(501) = 16, "quest", "mission"-> inform("[Neue Quest] Zzarn'K'Ska von Zelphia V"), queststatus(501) = 17, "Bitte ssuch einen guten Freund von mir auf. Zzenia wird dir einige Informationen geben, die ich benötige, im Tausch gegen einige Dinge, die ssie verlangt. Bitte bringe Zzenia eine Eiercremetorte, zzwei Fischssuppen, 20 Eier und fünf Fische jeder Art (Lachs, Forelle, Stachelmakrele, and Rotbarsch). Du kannsst Zzenia irgendwo auf einer Inssel im Ssee des Lebenss finden, wo ssie ssich versteckt."
