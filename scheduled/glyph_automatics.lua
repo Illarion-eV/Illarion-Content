@@ -74,7 +74,8 @@ local dropPositions = {
     position(751,643,0), --former dragon cave entrance
     position(822,729,0), --Feigling letztes Gefecht
     position(730,474,0), --Plains West of Elstree
-    position(118,808,0) --Kantabi delta
+    position(118,808,0), --Kantabi delta
+    position(436,640,1) --Shadowland
 }
 local function doDrop(centerPos, radius)
     local pos = common.getFreePos(centerPos, radius)
