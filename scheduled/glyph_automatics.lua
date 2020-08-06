@@ -35,46 +35,46 @@ local shard = require("item.shard")
 local M = {}
 
 local dropPositions = {
-    position(287,549,0), --Oasis in the desert
-    position(421,756,0), --next to Alkatut's entrance
-    position(644,681,0), --Sentry forest, Usharas altar
-    position(505,464,0), --Dead swamp
-    position(547,370,0), --Sparkling mine
-    position(596,495,0), --isle in sheakhead bay
-    position(723,578,0), --2nd of 3 sisters
-    position(895,584,0), --Wonderland
-    position(909,699,0), --Test field Runewick
-    position(916,935,0), --South end Runewick
-    position(730,767,0), --Isle near Runewick harbour
-    position(858,453,0), --Spider spot Elstree
-    position(794,362,0), --Witch house
-    position(731,347,0), --Swamp between Hemp Necktie Inn and Syrta bridge
-    position(766,444,0), --Nargun shrine
-    position(584,425,0), --Raptor forest
-    position(587,261,0), --Singing well
-    position(603,127,0), --Swamp west of temple of 5
-    position(631,131,0), --Narguns plain
-    position(692,253,0), --northern forest opposit of Hemp Necktie Inn
-    position(814,110,0), --Rabans Cove
-    position(706,30,0), --Wall west end
-    position(896,118,0), --Wall east end
-    position(759,238,0), --Nord end Syrtia bridge
-    position(896,349,0), --Pauldron entrance
-    position(934,403,0), --Pauldron center
-    position(953,327,0), --Pauldron North
-    position(732,181,0), --Ritual tree SW Rabans Cove
-    position(614,216,0), --SE channel
-    position(524,241,0), --former bandit area now cows of Galmair
-    position(210,531,0), --West shore Kantabi (Troll hole)
-    position(42,610,0), --Pirate bay entrance
-    position(174,713,0), --Kantabi delta begin
-    position(261,855,0), --S of Letma
-    position(536,774,0), --Sentry forest West
-    position(526,589,0), --Firewall
-    position(751,643,0), --former dragon cave entrance
-    position(822,729,0), --Feigling letztes Gefecht
-    position(730,474,0), --Plains West of Elstree
-    position(118,808,0), --Kantabi delta
+    position(263,425,0), --Kantabi River source
+    position(382,668,0), --Kantabi Desert - Oasis of Stars
+    position(651,681,0), --Sentry Forest - Oldra's Corner
+    position(482,571,0), --Glowing Forest
+    position(510,431,0), --Elven ruins
+    position(596,495,0), --Snakehead Bay - Shrine of Zelphia
+    position(723,578,0), --Three Fingertips - Middle
+    position(890,568,0), --Wonderland
+    position(914,710,0), --Shadow Gate
+    position(923,936,0), --Twin Eyes Islands
+    position(730,767,0), --Adron's Covert
+    position(865,463,0), --Eastland
+    position(788,368,0), --Dead Marsh
+    position(387,567,0), --Kantabi Desert - Cursed Place
+    position(784,462,0), --Elstree Lake
+    position(619,415,0), --Mount Snakehead
+    position(600,283,0), --Bounding Stream - Southern islet
+    position(479,119,0), --Syrita Bay
+    position(643,109,0), --Plains of Silence - North
+    position(828,32,0), --Insurmountable Limes
+    position(783,117,0), --Raban's Grove
+    position(706,30,0), --Insurmountable Limes - West Gate
+    position(909,123,0), --Insurmountable Limes - East Gate
+    position(779,293,0), --Bounding Stream - Northern marshland
+    position(878,370,0), --Pauldron Isle - Entrance
+    position(914,443,0), --Pauldron Isle - Skewer Drift
+    position(953,327,0), --Pauldron Isle - Tanora's Ruins
+    position(732,181,0), --Northern Woods
+    position(636,219,0), --Plains of Silence - South
+    position(510,266,0), --Nargun's Plain
+    position(169,475,0), --Creek settlement
+    position(54,570,0), --Pirate Cove
+    position(174,713,0), --Kantabi Delta
+    position(292,828,0), --Letma
+    position(613,766,1), --Sentry Forest - Ushara's Spire
+    position(508,745,0), --Harrowed Mount
+    position(794,703,1), --Bear Cave 
+    position(804,663,2), --Dragon Lair
+    position(706,474,0), --Elstree Plain
+    position(131,808,0), --Lost Harbour
     position(436,640,1) --Shadowland
 }
 local function doDrop(centerPos, radius)
