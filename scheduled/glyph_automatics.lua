@@ -14,19 +14,11 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
--- This script drops shards at 40 dedicated locations
--- Current setting is one per spot each 16h
--- One shard last about 15 min, cycle time of the script is 5 - 10 min
--- So once each 1/ 128 call or 0.0078 probability
--- Once a da in one spot is a shard shower of 4-9 shards
--- Probability: Every 7680 call or 0.00013
--- Banduk
 
--- INSERT INTO scheduledscripts (sc_scriptname,sc_mincycletime,sc_maxcycletime,sc_functionname) VALUES ('scheduled.glyph_automatics',300,600,'dropShard')
---[[Some more SQL helper for test
-UPDATE scheduledscripts SET sc_mincycletime=300,sc_maxcycletime=600;
-SELECT * FROM scheduledscripts
-]]--
+--[[This script drops shards at dedicated locations
+Time per tick [s]: 6557 (Seven times per rot cycle 254, seven shards per location present)
+Shards per tick: 41 (One shard per location, can be increased to 49)
+Shards per hour: 22 (Sufficient shards per location for one glyph, maximum stock: 287 shards)]]
 
 local common = require("base.common")
 local globalvar = require("base.globalvar")
