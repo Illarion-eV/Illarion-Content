@@ -120,7 +120,7 @@ function cauldronContents(User, cauldronItem)
     cauldronItem:setData("tripping_time", serverTime)
     world:changeItem(cauldronItem)
 
-    User:inform("Du findest eine Gifttaler.","You discover a poison coin.")
+    User:inform("Du findest einen Gifttaler.","You discover a poison coin.")
     common.CreateItem(User, 3078, 1, 333, nil)
 end
 
