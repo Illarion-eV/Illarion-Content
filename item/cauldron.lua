@@ -103,6 +103,10 @@ function M.UseItem(User, SourceItem)
             "You already have a bottle, you should show it to Pasinn before collecting more.")
         return
     end
+    
+    --Default
+    User:inform("Alchemisten können in diesem Kessel Tränke brauen, indem sie den Gegenstand benutzen, der in den Kessel getan werden soll.","Alchemists can brew potions in this cauldron by using the item that shall be added to the potion.")
+    
 end
 
 function cauldronContents(User, cauldronItem)
