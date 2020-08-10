@@ -27,7 +27,7 @@ function M.StartGathering(User, SourceItem, ltstate)
 
     local toolID = 24 --shovel (24)
     local maxAmount = 20
-    local GFX = 21
+    local GFX = 22
     local GFXtime = 5
     local SFX = 0
     local SFXtime = 0
