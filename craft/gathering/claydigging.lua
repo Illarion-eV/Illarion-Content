@@ -28,9 +28,7 @@ function M.StartGathering(User, SourceItem, ltstate)
     local toolID = 24 --shovel (24)
     local maxAmount = 20
     local GFX = 22
-    local GFXtime = 5
     local SFX = 0
-    local SFXtime = 0
     local resourceID = 26 --clay
     local depletedSourceID = 3633
     local restockWear = 4 --15 minutes
@@ -53,7 +51,7 @@ function M.StartGathering(User, SourceItem, ltstate)
     --Case 2: Initialise action
     if (ltstate == Action.none) then
         claydigging.SavedWorkTime[User.id] = claydigging:GenWorkTime(User)
-        User:startAction(claydigging.SavedWorkTime[User.id], GFX, GFXtime, SFX, SFXtime)
+        User:startAction(claydigging.SavedWorkTime[User.id], GFX, claydigging.SavedWorkTime[User.id], SFX, claydigging.SavedWorkTime[User.id])
         return
     end
 
@@ -70,7 +68,7 @@ function M.StartGathering(User, SourceItem, ltstate)
         User:changeSource(SourceItem)
         if newAmount > 0 and not shared.toolBreaks(User, toolItem, claydigging:GenWorkTime(User)) then
             claydigging.SavedWorkTime[User.id] = claydigging:GenWorkTime(User)
-            User:startAction(claydigging.SavedWorkTime[User.id], GFX, GFXtime, SFX, SFXtime)
+            User:startAction(claydigging.SavedWorkTime[User.id], GFX, claydigging.SavedWorkTime[User.id], SFX, claydigging.SavedWorkTime[User.id])
         end
     end
 
