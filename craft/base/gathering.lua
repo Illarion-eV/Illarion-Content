@@ -237,7 +237,7 @@ end
 -- Collector for recurring functions
 function M.InitGathering(User, SourceItem, toolID, maxAmount)
 
-    common.TurnTo(User, SourceItem.pos); -- turn if necessary
+    common.TurnTo(User, SourceItem.pos)
     local success = false
     local toolItem=shared.getTool(User, toolID)
     local amount=M.GetAmount(maxAmount, SourceItem) 
