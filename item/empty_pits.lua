@@ -18,3 +18,5 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 function M.UseItem(User, SourceItem, ltstate)
     User:inform( "An dieser Stelle gibt es nicht mehr zu holen.", "There isn't anything left in this pit.", Character.highPriority)
 end
+
+return M
