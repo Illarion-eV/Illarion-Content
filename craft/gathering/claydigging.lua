@@ -35,6 +35,10 @@ function M.StartGathering(User, SourceItem, ltstate)
     
     local success, toolItem, amount, gatheringBonus = gathering.InitGathering(User, SourceItem, toolID, maxAmount)
     
+    if not success then
+        return 
+    end
+    
     local claydigging = gathering.GatheringCraft:new{LeadSkill = Character.digging, LearnLimit = 100}
     claydigging:AddRandomPureElement(User,gathering.prob_element*gatheringBonus) -- Any pure element
     claydigging:SetTreasureMap(User,gathering.prob_map*gatheringBonus,"Von einer Lederhülle umgeben, findest du eine alte Karte. Die hat definitiv niemand absichtlich hier hinterlassen.","Covered in a leather hide you find an old map.")

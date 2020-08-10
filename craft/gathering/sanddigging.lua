@@ -34,7 +34,11 @@ function M.StartGathering(User, SourceItem, ltstate)
     local restockWear = 4 --15 minutes
     
     local success, toolItem, amount, gatheringBonus = gathering.InitGathering(User, SourceItem, toolID, maxAmount)
-
+    
+    if not success then
+        return 
+    end
+    
     local sanddigging = gathering.GatheringCraft:new{LeadSkill = Character.digging, LearnLimit = 100}; -- id_24_shovel
     sanddigging:AddRandomPureElement(User,gathering.prob_element*gatheringBonus); -- Any pure element
     sanddigging:SetTreasureMap(User,gathering.prob_map*gatheringBonus,"Der Sand gibt eine gut erhaltene Karte frei. Die Hitze konnte dem Pergament nichts anhaben.","Deep in the sand sheltered from the desert heat you discover a treasure map!");
