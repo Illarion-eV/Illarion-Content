@@ -135,14 +135,6 @@ function M.UseItem(User, SourceItem, ltstate)
         return
     end
 
-    local EMPTY_SAND_PIT = 3632
-    pitItem = getPit(User, EMPTY_SAND_PIT)
-    if (pitItem ~= nil) then
-       common.TurnTo(User, pitItem.pos)
-       User:inform( "An dieser Stelle gibt es nicht mehr zu holen.", "There isn't anything left in this pit.", Character.highPriority);
-       return
-    end
-
     -- check for clay pit
     local CLAY_PIT = 1206
     pitItem = getPit(User, CLAY_PIT)
@@ -151,6 +143,15 @@ function M.UseItem(User, SourceItem, ltstate)
         return
     end
 
+    -- check for empty pits
+    local EMPTY_SAND_PIT = 3632
+    pitItem = getPit(User, EMPTY_SAND_PIT)
+    if (pitItem ~= nil) then
+       common.TurnTo(User, pitItem.pos)
+       User:inform( "An dieser Stelle gibt es nicht mehr zu holen.", "There isn't anything left in this pit.", Character.highPriority);
+       return
+    end
+    
     local EMPTY_CLAY_PIT = 3633
     pitItem = getPit(User, EMPTY_CLAY_PIT)
     if (pitItem ~= nil) then
