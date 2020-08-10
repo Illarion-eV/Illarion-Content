@@ -15,6 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
+local shared = require("craft.base.shared")
 local treasure = require("item.base.treasure")
 
 local M = {}
@@ -191,6 +192,63 @@ function GatheringCraft:GenWorkTime(User)
   workTime = math.ceil(workTime*self.FastActionFactor); --for fast actions.
 
   return workTime;
+end
+
+-- Check the amount
+function M.GetAmount(maxAmount, SourceItem)
+
+    local amountStr = SourceItem:getData("amount");
+    local amount = 0;
+    if ( amountStr ~= "" ) then
+        amount = tonumber(amountStr);
+    elseif ( SourceItem.wear == 255 ) then
+        amount = maxAmount
+    else
+        amount = 0
+    end
+    
+    return amount
+    
+ end
+
+-- Find a resource from a source
+function M.FindResource(User, SourceItem, amount, resourceID)
+
+    amount = amount - 1
+    SourceItem:setData("amount", "" .. amount)
+    world:changeItem(SourceItem)
+        
+    local created = common.CreateItem(User, resourceID, 1, 333, nil)
+    
+    return created, amount
+    
+end
+
+-- Swap the source with the depleted source.
+function M.SwapSource(SourceItem, depletedSourceID, restockWear)
+
+    SourceItem:setData("amount","")
+    SourceItem.id = depletedSourceID
+    SourceItem.wear = restockWear
+    world:changeItem(SourceItem)
+        
+end
+
+-- Collector for recurring functions
+function M.InitGathering(User, SourceItem, toolID, maxAmount)
+
+    common.TurnTo(User, SourceItem.pos); -- turn if necessary
+    local success = false
+    local toolItem=shared.getTool(User, toolID)
+    local amount=M.GetAmount(maxAmount, SourceItem) 
+    local gatheringBonus=shared.getGatheringBonus(User, toolItem)
+
+    if toolItem and common.CheckItem(User, SourceItem) and common.FitForWork(User) then -- security checks
+        success = true
+    end
+
+    return success, toolItem, amount, gatheringBonus
+
 end
 
 M.GatheringCraft = GatheringCraft

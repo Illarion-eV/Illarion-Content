@@ -17,8 +17,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- SAND_PIT = 1208
 
--- additional tool: shovel ( 24 )
-
 local common = require("base.common")
 local shared = require("craft.base.shared")
 local gathering = require("craft.base.gathering")
@@ -27,13 +25,17 @@ local M = {}
 
 function M.StartGathering(User, SourceItem, ltstate)
 
-    local toolItem=shared.getTool(User, 24) --shovel (24)
-
-    if not toolItem then
-        return
-    end
+    local toolID = 24 --shovel (24)
+    local maxAmount = 20
+    local GFX = 21
+    local GFXtime = 5
+    local SFX = 0
+    local SFXtime = 0
+    local resourceID = 726 --coarse sand
+    local depletedSourceID = 3632
+    local restockWear = 4 --15 minutes
     
-    local gatheringBonus=shared.getGatheringBonus(User, toolItem)
+    local success, toolItem, amount, gatheringBonus = gathering.InitGathering(User, SourceItem, toolID, maxAmount)
 
     local sanddigging = gathering.GatheringCraft:new{LeadSkill = Character.digging, LearnLimit = 100}; -- id_24_shovel
     sanddigging:AddRandomPureElement(User,gathering.prob_element*gatheringBonus); -- Any pure element
@@ -43,70 +45,37 @@ function M.StartGathering(User, SourceItem, ltstate)
     sanddigging:AddRandomItem(21,1,333,{},gathering.prob_occasionally,"Du findest einige noch heiße Kohlen im Sand. Ein Glück, dass du nicht auf diese Überreste einer nächtlichen Grillfeier getreten bist.","As your shovel digs through the sand you unearth an unused lump of coal and discover an abandoned campfire."); --Coal
     sanddigging:AddRandomItem(1266,1,333,{},gathering.prob_frequently,"Deine Schaufel stößt auf einen runden Kieselstein.","Your shoulder locks as your shovel drives into a hard stone."); --Rock
    
-    common.ResetInterruption( User, ltstate );
-    if ( ltstate == Action.abort ) then -- work interrupted
-        User:talk(Character.say, "#me unterbricht "..common.GetGenderText(User, "seine", "ihre").." Arbeit.", "#me interrupts "..common.GetGenderText(User, "his", "her").." work.")
+   --Case 1: Interrupted
+    if (ltstate == Action.abort) then -- work interrupted
         return
     end
 
-    if not common.CheckItem( User, SourceItem ) then -- security check
+    --Case 2: Initialise action
+    if (ltstate == Action.none) then
+        sanddigging.SavedWorkTime[User.id] = sanddigging:GenWorkTime(User)
+        User:startAction(sanddigging.SavedWorkTime[User.id], GFX, GFXtime, SFX, SFXtime)
         return
     end
 
-    if not common.FitForWork( User ) then -- check minimal food points
-        return
-    end
-
-    common.TurnTo( User, SourceItem.pos ); -- turn if necessary
-
-    -- check the amount
-    local MaxAmount = 20
-    local amountStr = SourceItem:getData("amount");
-    local amount = 0;
-    if ( amountStr ~= "" ) then
-        amount = tonumber(amountStr);
-    elseif ( SourceItem.wear == 255 ) then
-        amount = MaxAmount;
-    end
-
-
-    -- currently not working -> let's go
-    if ( ltstate == Action.none ) then
-        sanddigging.SavedWorkTime[User.id] = sanddigging:GenWorkTime(User);
-        User:startAction( sanddigging.SavedWorkTime[User.id], 0, 0, 0, 0);
-        User:talk(Character.say, "#me beginnt nach Sand zu graben.", "#me starts to dig for sand.")
-        return
-    end
-
-    -- since we're here, we're working
+    --Case 3: Action executed
+    User:learn(sanddigging.LeadSkill, sanddigging.SavedWorkTime[User.id], sanddigging.LearnLimit)
 
     if sanddigging:FindRandomItem(User) then
         return
     end
 
-    User:learn( sanddigging.LeadSkill, sanddigging.SavedWorkTime[User.id], sanddigging.LearnLimit);
-    amount = amount - 1;
-    -- update the amount
-    SourceItem:setData("amount", "" .. amount);
-    world:changeItem(SourceItem)
+    local created, newAmount = gathering.FindResource(User, SourceItem, amount, resourceID)
 
-    local created = common.CreateItem(User, 726, 1, 333, nil) -- create the new produced items
-    if created then -- character can still carry something
-        if amount > 0 then
+    if created then 
+        User:changeSource(SourceItem)
+        if newAmount > 0 and not shared.toolBreaks(User, toolItem, sanddigging:GenWorkTime(User)) then
             sanddigging.SavedWorkTime[User.id] = sanddigging:GenWorkTime(User)
-            User:changeSource(SourceItem);
-            if not shared.toolBreaks( User, toolItem, sanddigging:GenWorkTime(User) ) then -- damage and possibly break the tool
-                User:startAction( sanddigging.SavedWorkTime[User.id], 0, 0, 0, 0)
-            end
+            User:startAction(sanddigging.SavedWorkTime[User.id], GFX, GFXtime, SFX, SFXtime)
         end
     end
 
-    if amount == 0 then
-        SourceItem:setData("amount","")
-        SourceItem.id = 3632
-        SourceItem.wear = 4
-        world:changeItem(SourceItem)
-        User:inform( "An dieser Stelle gibt es nichts mehr zu holen.", "There isn't anything left in this pit.", Character.highPriority);
+    if newAmount == 0 then
+        gathering.SwapSource(SourceItem, depletedSourceID, restockWear)
         return
     end
 
