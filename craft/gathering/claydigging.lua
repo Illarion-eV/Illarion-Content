@@ -76,6 +76,7 @@ function M.StartGathering(User, SourceItem, ltstate)
 
     if newAmount == 0 then
         gathering.SwapSource(SourceItem, depletedSourceID, restockWear)
+        User:inform( "An dieser Stelle gibt es nichts mehr zu holen.", "There isn't anything left in this pit.", Character.highPriority)
         return
     end
 
