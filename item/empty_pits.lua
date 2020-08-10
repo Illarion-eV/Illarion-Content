@@ -15,6 +15,10 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
+local common = require("base.common")
+
+local M = {}
+
 function M.UseItem(User, SourceItem, ltstate)
     User:inform( "An dieser Stelle gibt es nicht mehr zu holen.", "There isn't anything left in this pit.", Character.highPriority)
 end
