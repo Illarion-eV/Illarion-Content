@@ -92,8 +92,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba", "See you" -> "'#me nods a bit.
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich bin kein Händler mehr... ich repariere jetzt Dinge."
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I'm not a merchant anymore... but I can repair some things."
 "kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler mehr... ich repariere jetzt Dinge."
-"tell something" -> "...good old friend Borgate.", "Yes. In former times I had my shop in the castle of the Grey Orders. But... like everything that's gone now!"
-"erzähl was", "erzähl etwas" -> "Nach der Flucht von Gobaith ertrank ich meinen Kummer in Alkohol, aber ich kann ja nicht immer meinem alten Freund Borgate auf der Tasche liegen.", "Ja. Damals hat ich men Laden in der Burg des grauen Orden. Aber das ist jetzt vorbei..."
+"tell something" -> "...good old friend Borgate.", "Yes. In former times I had my shop in the Grey Refuge. But... like everything that's gone now!"
+"erzähl was", "erzähl etwas" -> "Nach der Flucht von Gobaith ertrank ich meinen Kummer in Alkohol, aber ich kann ja nicht immer meinem alten Freund Borgate auf der Tasche liegen.", "Ja. Damals hatte ich meinen Laden in der Grauen Zuflucht. Aber das ist jetzt vorbei..."
 
 -- repair triggers
 "repair", "fix", "polish", "mend", "patch", "darn" -> "Let's have a look at this.", repair
