@@ -172,7 +172,7 @@ english, "salkama" -> "This is Cadomyr's Land. Salkamar is far away and I have n
 english, "Malachin", "Malachín" -> "Malachín! The god of knights and hunters! He's a strong fella, each honest man should praise him! Do you praise him?"
 "Malachin", "Malachín" -> "Malachín! Der Gott der Ritter und Jäger! Ein starker Gefährte, jeder ehrenhafte Mann sollte ihm Treu ergeben sein! Sprecht! Wem haltet ihr die Treue?"
 english, "Zhambra" -> "On the battlefield I count on a sharp blade and my closest friend to watch my back! That's what Zhambra stands for! Friendship."
-"Zhambra" -> "Auf dem Schlachtfeld verlasse ich mich auf eine scharfe Klinge und meine engsten Freunde die mir den Rücken decken! Dies ist wofür Zhambra steht. Freundschaft - die bis über den Tot hinaus geht."
+"Zhambra" -> "Auf dem Schlachtfeld verlasse ich mich auf eine scharfe Klinge und meine engsten Freunde die mir den Rücken decken! Dies ist wofür Zhambra steht. Freundschaft - die über den Tod hinaus geht."
 
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "I'm a guard. Not a merchant. For sure you are able to trade inside the town."
