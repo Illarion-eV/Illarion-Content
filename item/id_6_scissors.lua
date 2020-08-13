@@ -37,8 +37,16 @@ local function getButterfly(User)
     for i, butterfly in pairs(BUTTERFLIES) do
         if (frontItem ~= nil and frontItem.id == butterfly) then
             foundItem = frontItem
-        else
+            break
+        end
+    end
+
+    if not foundItem then
+        for i, butterfly in pairs(BUTTERFLIES) do
             foundItem = common.GetItemInArea(User.pos, butterfly)
+            if foundItem then
+                break
+            end
         end
     end
     
