@@ -21,7 +21,7 @@ local M = {}
 
 function M.UseItem(User, SourceItem, ltstate)
     common.TurnTo(User, SourceItem.pos)
-    User:inform( "Du findest hier keine Seidenspinnerraupen.", "You can't find any silkworms here.", Character.highPriority)
+    User:inform("Du findest hier keine Seidenspinnerraupen.", "You can't find any silkworms here.", Character.highPriority)
 end
 
 return M

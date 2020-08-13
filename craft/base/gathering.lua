@@ -235,7 +235,7 @@ function M.SwapSource(SourceItem, depletedSourceID, restockWear)
 end
 
 -- Collector for recurring functions
-function M.InitGathering(User, SourceItem, toolID, maxAmount)
+function M.InitGathering(User, SourceItem, toolID, maxAmount, skill)
 
     common.TurnTo(User, SourceItem.pos)
     local success = false
@@ -243,11 +243,23 @@ function M.InitGathering(User, SourceItem, toolID, maxAmount)
     local amount=M.GetAmount(maxAmount, SourceItem) 
     local gatheringBonus=shared.getGatheringBonus(User, toolItem)
 
-    if toolItem and common.CheckItem(User, SourceItem) and common.FitForWork(User) then -- security checks
+    if toolItem and common.CheckItem(User, SourceItem) and common.FitForWork(User) and M.SkillCheck(User, SourceItem, skill) then -- security checks
         success = true
     end
 
     return success, toolItem, amount, gatheringBonus
+
+end
+
+-- Skill check
+function M.SkillCheck(User, SourceItem, skill)
+
+    if User:getSkill(skill) < world:getItemStatsFromId(SourceItem.id).Level then
+        User:inform("Deine Fertigkeit "..User:getSkillName(skill).." ist zu niedrig, um hier etwas zu sammeln.", "Your skill "..User:getSkillName(skill).." is not high enough to gather this resource.", Character.highPriority)
+        return false
+    else
+        return true
+    end
 
 end
 

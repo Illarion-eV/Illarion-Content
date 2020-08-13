@@ -25,6 +25,7 @@ local M = {}
 
 function M.StartGathering(User, SourceItem, ltstate)
 
+    local claydigging = gathering.GatheringCraft:new{LeadSkill = Character.digging, LearnLimit = 100}
     local toolID = 24 --shovel (24)
     local maxAmount = 20
     local GFX = 22
@@ -39,7 +40,6 @@ function M.StartGathering(User, SourceItem, ltstate)
         return 
     end
     
-    local claydigging = gathering.GatheringCraft:new{LeadSkill = Character.digging, LearnLimit = 100}
     claydigging:AddRandomPureElement(User,gathering.prob_element*gatheringBonus) -- Any pure element
     claydigging:SetTreasureMap(User,gathering.prob_map*gatheringBonus,"Von einer Lederhülle umgeben, findest du eine alte Karte. Die hat definitiv niemand absichtlich hier hinterlassen.","Covered in a leather hide you find an old map.")
     claydigging:AddMonster(User,104,gathering.prob_monster/gatheringBonus,"Im Morast stößt du auf eine bedauernswerte Moorleiche. Jedoch scheinst du derjenige zu sein, den man fortan betrauern wird.","In the mud your shovel digs unintentionally into a feculent bog body. The stench is atrocious, but what's worse is the undead creature rises to attack.",4,7)

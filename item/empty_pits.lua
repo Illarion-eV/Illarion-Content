@@ -21,7 +21,7 @@ local M = {}
 
 function M.UseItem(User, SourceItem, ltstate)
     common.TurnTo(User, SourceItem.pos)
-    User:inform( "An dieser Stelle gibt es nicht mehr zu holen.", "There isn't anything left in this pit.", Character.highPriority)
+    User:inform("An dieser Stelle gibt es nicht mehr zu holen.", "There isn't anything left in this pit.", Character.highPriority)
 end
 
 return M

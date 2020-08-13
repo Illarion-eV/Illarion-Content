@@ -25,6 +25,7 @@ local M = {}
 
 function M.StartGathering(User, SourceItem, ltstate)
 
+    local sanddigging = gathering.GatheringCraft:new{LeadSkill = Character.digging, LearnLimit = 100}
     local toolID = 24 --shovel (24)
     local maxAmount = 20
     local GFX = 22
@@ -39,7 +40,6 @@ function M.StartGathering(User, SourceItem, ltstate)
         return 
     end
     
-    local sanddigging = gathering.GatheringCraft:new{LeadSkill = Character.digging, LearnLimit = 100}; -- id_24_shovel
     sanddigging:AddRandomPureElement(User,gathering.prob_element*gatheringBonus); -- Any pure element
     sanddigging:SetTreasureMap(User,gathering.prob_map*gatheringBonus,"Der Sand gibt eine gut erhaltene Karte frei. Die Hitze konnte dem Pergament nichts anhaben.","Deep in the sand sheltered from the desert heat you discover a treasure map!");
     sanddigging:AddMonster(User,982,gathering.prob_monster/gatheringBonus,"Tief im Sand stößt du auf etwas schwarzes, krabbelndes. Eine vorschnellende Klaue ist nur der Vorbote dessen, was du gerade erweckt hast.","To your dismay you unearth a beetle's hiding place. He furiously lashes his claws trying to defend his home.",4,7);
