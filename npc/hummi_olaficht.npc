@@ -71,7 +71,7 @@ itemShoes = 53
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Hummi Olaficht. He can give you some information about what you can find here. Keywords: towns, gods, craft, motive, landscape, leader, law, explorer, empire, gems of power, quest. You will find more of these keywords during the game. Sometimes they are mentioned, sometimes the author was to lazy. ;)")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Hummi Olaficht. Er kann dir einige Informationen geben über Dinge die du hier finden kanns. Schlüsselwörter: Stadt, Götter, Handwerk, Motive, Landschaft, Anführer, Gesetz, Erkunder, Reiche, Steine der Macht, Quest. Du wirst dieser Schlüsselwörter im Spiel finden. Manchmal sind sie hervorgehoben, manchmal war der Autor zu faul. ;)")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Hummi Olaficht. Er kann dir einige Informationen geben über Dinge die du hier finden kannst. Schlüsselwörter: Stadt, Götter, Handwerk, Motive, Landschaft, Anführer, Gesetz, Erkunder, Reiche, Steine der Macht, Quest. Du wirst diese Schlüsselwörter im Spiel finden. Manchmal sind sie hervorgehoben, manchmal war der Autor zu faul. ;)")
 
 -- General speech
 queststatus(604) = 2, english, ".*" -> inform("[Quest 'Find Elesil' end] You receive 30 silver coins. Have you already asked for and visited the two other NPCs that Hummi mentions?"), money + 3000, queststatus(604) = 3, "So, that was easy, right? Here's your reward. A lot of other tasks await you, just ask around this place."
@@ -146,7 +146,7 @@ english, "job" -> "I don't have any specific profession.", " I only pass informa
 "my name" -> "Sounds pretty nice, but nothing like mine."
 "mein Name" -> "Klingt hübsch, aber nicht so hübsch wie mein Name."
 english, "Gobaith", "Gobiath" -> "That is an old island, which does not exist anymore. Many who you can find here, are from the island. If you want to know more about it, feel free to ask them.", "I haven't been there, therefore I cannot tell you anything about it except that it doesn't exist anymore and that you can ask other people about it."
-"Gobaith", "Gobiath" -> "Das ist eine alte Insel, welche nicht mehr existiert. Viele die du hier finden kann sind von dort. Wenn du mehr darüber wissen möchtest, frag sie.", "Ich war noch nie dort, daher weiß ich auch nichts über sie, außer dass es sie nicht mehr gibt und dass du andere Leute über sie fragen kannst."
+"Gobaith", "Gobiath" -> "Das ist eine alte Insel, welche nicht mehr existiert. Viele die du hier finden kannst sind von dort. Wenn du mehr darüber wissen möchtest, frag sie.", "Ich war noch nie dort, daher weiß ich auch nichts über sie, außer dass es sie nicht mehr gibt und dass du andere Leute über sie fragen kannst."
 
 -- More small talk; add at least five triggers
 "town" -> inform("Ask the NPC for 'Runewick', 'Galmair' or 'Cadomyr' if you want to know more."), "We have three towns here: Runewick, Cadomyr and Galmair. You will have to choose one, otherwise you will have quite a low chance of survival. If you'd like to know more about towns, races, or crafting in this area just say the word."
