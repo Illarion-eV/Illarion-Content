@@ -51,10 +51,10 @@ function M.StartGathering(User, SourceItem, ltstate)
     end
     
     silkcutting:AddRandomPureElement(User,gathering.prob_element*gatheringBonus) -- Any pure element
-    silkcutting:SetTreasureMap(User,gathering.prob_map*gatheringBonus,"Eine Raupe nagt gen√º√ülich an einer Karte mit einem gro√üem X.","A caterpillar chews on a map with a big X.")
-    silkcutting:AddMonster(User,1113,gathering.prob_monster/gatheringBonus,"Eine aggressive Ratte hat es sich in diesem Busch gem√ºtlich gemacht.","An aggressive rat has made itself comfortable in this bush.",4,7)
+    silkcutting:SetTreasureMap(User,gathering.prob_map*gatheringBonus,"Eine Raupe nagt gen¸ﬂlich an einer Karte mit einem groﬂem X.","A caterpillar chews on a map with a big X.")
+    silkcutting:AddMonster(User,1113,gathering.prob_monster/gatheringBonus,"Eine aggressive Ratte hat es sich in diesem Busch gem¸tlich gemacht.","An aggressive rat has made itself comfortable in this bush.",4,7)
     silkcutting:AddRandomItem(549,1,333,{},gathering.prob_rarely,"Ein vergifteter Pfeil steckt in diesem Busch. Sei vorsichtig damit.","A poisoned arrow sticks in this bush. Handle with care.")
-    silkcutting:AddRandomItem(3555,1,333,{},gathering.prob_occasionally,"Diebesgut? Ein abgelehnter Verlobungsantrag? Wen k√ºmmert's, der Ring im Geb√ºsch ist jetzt deiner.","Stolen goods? A rejected proposal? Who cares, the ring in the bush is now yours.")
+    silkcutting:AddRandomItem(3555,1,333,{},gathering.prob_occasionally,"Diebesgut? Ein abgelehnter Verlobungsantrag? Wen k¸mmert's, der Ring im Geb√ºsch ist jetzt deiner.","Stolen goods? A rejected proposal? Who cares, the ring in the bush is now yours.")
     silkcutting:AddRandomItem(3631,1,333,{},gathering.prob_frequently,"Ein altes Wurstbrot wurde wohl achtlos in diesen Busch geworfen. Wohl bekommt's.","An old sausage bread has been cast into this bush carelessly. Enjoy.")
     
     --Case 1: Interrupted
