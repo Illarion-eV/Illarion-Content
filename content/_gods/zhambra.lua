@@ -43,6 +43,7 @@ function M.Zhambra:_init(ordinal, youngerOrdinal)
         {
             id_set = common.setFromList({ -- array of item IDs
                 769, --desert berry
+                2185, -- wooden cup
                 -- ## From craft\final\armourer.lua ##
                 -- category: Chain boots
                 1507, -- simple jackboots

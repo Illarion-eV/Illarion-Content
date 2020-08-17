@@ -99,6 +99,7 @@ function M.Ronagan:_init(ordinal, youngerOrdinal)
 --                1458, -- reinforced serinjah leather gloves
 --                1459, -- ranger's gloves
                 -- category: Other
+                2760, -- rope
                 -- category: Robes
                 -- category: Shirts
 --                457, -- green shirt

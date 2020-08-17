@@ -42,6 +42,7 @@ function M.Adron:_init(ordinal, youngerOrdinal)
     self.sacrificeItems = {  -- array of tables defining groups of items for sacrificing
         {
             id_set = common.setFromList({ -- set of item IDs
+                227, --cooking spoon
                 -- ## From craft\final\brewing.lua ##
                 -- category: Soft Liquors
                 2499, -- bottle of cider
