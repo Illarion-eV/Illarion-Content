@@ -102,7 +102,7 @@ end
 
 local function StockAnalysis(User, gem, brew, ltstate)
     local analysisResultDE = "Substanz:\nKräutersud\n\nWirkstoffkonzentrationen:\n"
-    local analysisResultEN = "Substanz:\nHerbal Stock\n\nActive substance concentrations:\n"
+    local analysisResultEN = "Substance:\nHerbal Stock\n\nActive substance concentrations:\n"
     for i=1,8 do -- loop to get the concentration of the eight active substances
         local wirkstoff = alchemy.wirkstoff
         local myCon = tonumber(brew:getData(""..wirkstoff[i].."Concentration"))
