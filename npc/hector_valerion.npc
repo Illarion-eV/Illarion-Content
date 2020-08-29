@@ -97,7 +97,7 @@ itemShoes = 369
 -- 6: Buch kaufbar
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Hector Valerion the royal ambassador. Keywords: Ambassador, quest, despatch, seal, orders.")
+"Help" -> inform("[Game Help] This NPC is Hector Valerion the royal ambassador. Keywords: Ambassador, quest, dispatch, seal, orders.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Hector Valerion der königliche Botschafter. Schlüsselwörter: Botschafter, Quest, Depesche, Siegel, Befehle.")
 
 -- General speech
@@ -193,7 +193,6 @@ queststatus(108) = 4, english, ".+" -> inform("[Quest solved] You are awarded fi
 queststatus(108) = 4, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke und einen großen Metallschild."), money + 500, item(20, 1, 599, "descriptionEn" = "The shield shows the coat of arms of the house of Edwards, a one-horned lion.", "descriptionDe" = "Das Schild trägt das Wappern der Edwards, den einhörnigen Löwen."), queststatus(108) = 5, rankpoints + 10, "Sehr gut, nun hat Robertus die Skizze der Königin. Als Bote der Königin verdient ihr diesen Schild mit ihrem Wappen."
 queststatus(108) = 4, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke und einen großen Metallschild."), money + 500, item(20, 1, 599, "descriptionEn" = "The shield shows the coat of arms of the house of Edwards, a one-horned lion.", "descriptionDe" = "Das Schild trägt das Wappern der Edwards, den einhörnigen Löwen."), queststatus(108) = 5, "Sehr gut, nun hat Robertus die Skizze der Königin. Als Bote der Königin verdient ihr diesen Schild mit ihrem Wappen."
 
-
 -- 3rd quest: Bring a message to Arenius Batavius.
 
 -- Give out quest 3
@@ -274,8 +273,8 @@ english, "Gobaith", "Gobiath" -> "You aren't from Gobaith, are you? If so, my co
 "seal" -> "Never ever even think about breaking the Queen's seal. You'll regret it..."
 "ambassador", "embassador" -> "Did you ever wonder why an ambassador sits in an embassy and not an ambassy? Or why he isn't called embassador?", "Indeed, I am the royal ambassador. That means that you receive orders from the Queen by my hand.", "I used to travel a lot on diplomatic missions, but now I prefer to read a good book."
 "lazy" -> "Lazy, hah. If you had travelled as much as me, you'd understand that I deserve an extended rest now."
-"Order" -> "The orders of the Queen all cross my desk, except for those she yells right in the faces of her lackeys. That makes me somehow... special, no?"
-"despatch", "dispatch" -> "Whenever there is an issue with Galmair or Runewick, the Queen issues despatches. She rarely leaves her palace to deal with our neighbours."
+"Order" -> "The orders of the Queen all cross my desk, except for those she yells right in the faces of her lackeys. That makes me somehow... important, no?"
+"despatch", "dispatch" -> "Whenever there is an issue with Galmair or Runewick, the Queen issues dispatches. She rarely leaves her palace to deal with our neighbours."
 english, "Hastings", "Baron" -> "Let me see... yes, I have orders for the Baron, it reads, 'Drop dead!'"
 english, "diplomat" -> "The fine art of diplomacy isn't a strength of Cadomyr, but for such things, there is me!"
 "siegel" -> "Brecht niemals ein königliches Siegel. Ihr würdet es bereuen..."
