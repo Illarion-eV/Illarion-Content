@@ -103,11 +103,11 @@ function M.GenerateLookAt(user, item, material)
     if isGerman then
         defaultName = itemCommon.German
         usedName = item:getData("nameDe")
-        brokenString = " (Kaputt)"
+        brokenString = " (kaputt)"
     else
         defaultName = itemCommon.English
         usedName = item:getData("nameEn")
-        brokenString = " (Broken)"
+        brokenString = " (broken)"
     end
     if common.IsNilOrEmpty(usedName) then
         usedName = defaultName
