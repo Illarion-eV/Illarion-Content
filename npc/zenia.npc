@@ -142,17 +142,17 @@ queststatus(502) = 4, item(3, all) >9, english, ".+" -> deleteItem(3, 5), quests
 queststatus(502) = 4, item(3, all) >9, ".+" -> deleteItem(3, 5), queststatus(502) = 5, item(3572, 2, 333), "Ja, du kommsst da hin. Nimm diesse Ssuppe, um deinen Körper mit den Geschenken der Mutter zzu ernähren. Gut, gut. Behalte fünf Stämme. "
 
 --Recieve third quest
---collect 10 mud
-queststatus(502) = 5, english, "quest", "mission" -> inform("[New quest] Praise Zelphia III"), item(24, 1, 333), queststatus(502) = 6, "Now I am in need of mud for my bed nesst. Take zeiss shovel. Gazzer ten shovels full of mud from zee mud pit and return when you have zzem."
+--collect 10 clay
+queststatus(502) = 5, english, "quest", "mission" -> inform("[New quest] Praise Zelphia III"), item(24, 1, 333), queststatus(502) = 6, "Now I am in need of clay for my bed nesst. Take zeiss shovel. Gazzer ten shovels full of clay from zee clay pit and return when you have zzem."
 queststatus(502) = 5, "quest", "mission" -> inform("[Neue Quest] Preise Zelphia III"), item(24, 1, 333), queststatus(502) = 6, "Du wirsst ssie für deine Rückreisse brauchen. Nun braucht Zzenia aber Lehm für ihr Schlafnesst. Nimm die Schaufel und gehe zzu einer Lehmgrube. Dort ssammelsst du zhen Schaufeln voll Lehm und bringsst ssie zzu Zzenia zzurück."
-queststatus(502) = 5, "task", "adventure", "order" -> inform("[New quest] Praise Zelphia III"), item(24, 1, 333), queststatus(502) = 6, "Now I am in need of mud for my bed nesst. Take zeiss shovel. Gazzer ten shovels full of mud from zee mud pit and return when you have zzem."
+queststatus(502) = 5, "task", "adventure", "order" -> inform("[New quest] Praise Zelphia III"), item(24, 1, 333), queststatus(502) = 6, "Now I am in need of clay for my bed nesst. Take zeiss shovel. Gazzer ten shovels full of clay from zee clay pit and return when you have zzem."
 queststatus(502) = 5, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Preise Zelphia III"), item(24, 1, 333), queststatus(502) = 6, "Du wirsst ssie für deine Rückreisse brauchen. Nun braucht Zzenia aber Lehm für ihr Schlafnesst. Nimm die Schaufel und gehe zzu einer Lehmgrube. Dort ssammelsst du zhen Schaufeln voll Lehm und bringsst ssie zzu Zzenia zzurück."
 -- if not done
-queststatus(502) = 6, item(26, all) < 10, english, ".+" -> "Ksss. If you do not wish to leave you can stay here. I can always use another fisherman. Ozzerwize, gazzer ten shovels full of mud."
+queststatus(502) = 6, item(26, all) < 10, english, ".+" -> "Ksss. If you do not wish to leave you can stay here. I can always use another fisherman. Ozzerwize, gazzer ten shovels full of clay."
 queststatus(502) = 6, item(26, all) < 10, ".+" -> "Zss. Wenn du nicht gehen willsst, kannsst du auch hier bleiben. Zzenia kann auch einen anderen Fischer fragen. Anssonssten hole zhen Schaufeln voll Lehm."
 --if done
-queststatus(502) = 6, item(26, all) > 9, english, ".+" -> deleteItem(26, 5), queststatus(502) = 7, item(3572, 2, 333), "Yess you are getting zzere. Take zziss ssoup to nourish your body wizz zze giftss of zze Mozzer. Good, zziss mud iz perfect for my bed nesst. You may keep half zze mud."
-queststatus(502) = 6, item(26, all) > 9, ".+" -> deleteItem(26, 5), queststatus(502) = 7, item(3572, 2, 333), "Ja, du kommsst da hin. Nimm diesse Ssuppe, um deinen Körper mit den Geschenken der Mutter zzu ernähren. Gut, diesser Lehm isst perfekt für Zzeniass Schlafnesst. Du kannsst die Hälfte dess Lehmss behalten. "
+queststatus(502) = 6, item(26, all) > 9, english, ".+" -> deleteItem(26, 5), queststatus(502) = 7, item(3572, 2, 333), "Yess you are getting zzere. Take zziss ssoup to nourish your body wizz zze giftss of zze Mozzer. Good, zziss clay iz perfect for my bed nesst. You may keep half zze clay."
+queststatus(502) = 6, item(26, all) > 9, ".+" -> deleteItem(26, 5), queststatus(502) = 7, item(3572, 2, 333), "Ja, du kommsst da hin. Nimm diesse Ssuppe, um deinen Körper mit den Geschenken der Mutter zzu ernähren. Gut, diesser Lehm isst perfekt für Zzeniass Schlafnesst. Du kannsst die Hälfte dess Lehmss behalten."
 
 --Recieve fourth quest
 --finally the raft
