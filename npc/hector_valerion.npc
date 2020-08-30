@@ -236,15 +236,15 @@ queststatus(108) = 10, ".+" -> inform("[Quest gelöst] Du erhältst 40 Silberstück
 -- 5th quest: Bring a message to Archmage Elvaine Morgan.
 
 -- Give out quest 5
-queststatus(108) = 11, english, "quest", "mission" -> inform("[New quest] Delayed Mail V: You received a message for Archmage Elvaine Morgan."), queststatus(108) = 12, "Are you ready for a secret diplomatic mission? Deliver this royal despatch to Archmage Morgan of Runewick. Do not even think about breaking its seal!"
+queststatus(108) = 11, english, "quest", "mission" -> inform("[New quest] Delayed Mail V: You received a message for Archmage Elvaine Morgan."), queststatus(108) = 12, "Are you ready for a secret diplomatic mission? Deliver this royal dispatch to Archmage Morgan of Runewick. Do not even think about breaking its seal!"
 queststatus(108) = 11, "quest", "mission" -> inform("[Neues Quest] Späte Post V: Du hast eine Nachricht für Erzmagier Elvaine Morgan erhalten."), queststatus(108) = 12, "Seid ihr bereit für eine geheime diplomatische Mission? Bringt diese königliche Depesche zu Erzmagier Morgan von Runewick. Und denkt nichtmal dran, das Siegel zu brechen!"
-queststatus(108) = 11, "Task", "Adventure", "Message" -> inform("[New quest] Delayed Mail V: You received a message for Archmage Elvaine Morgan."), queststatus(108) = 12, "Are you ready for a secret diplomatic mission? Deliver this royal despatch to Archmage Morgan of Runewick. Do not even think about breaking its seal!"
+queststatus(108) = 11, "Task", "Adventure", "Message" -> inform("[New quest] Delayed Mail V: You received a message for Archmage Elvaine Morgan."), queststatus(108) = 12, "Are you ready for a secret diplomatic mission? Deliver this royal dispatch to Archmage Morgan of Runewick. Do not even think about breaking its seal!"
 queststatus(108) = 11, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> inform("[Neues Quest] Späte Post V: Du hast eine Nachricht für Erzmagier Elvaine Morgan erhalten."), queststatus(108) = 12, "Seid ihr bereit für eine geheime diplomatische Mission? Bringt diese königliche Depesche zu Erzmagier Morgan von Runewick. Und denkt nichtmal dran, das Siegel zu brechen!"
 
 -- Quest 5 taken but not solved, repeat the instructions
-queststatus(108) = 12, english, "quest", "mission" -> "Aren't you on a secret mission to deliver a diplomatic despatch to the Archmage of Runewick? Or did I send someone else?"
+queststatus(108) = 12, english, "quest", "mission" -> "Aren't you on a secret mission to deliver a diplomatic dispatch to the Archmage of Runewick? Or did I send someone else?"
 queststatus(108) = 12, "quest", "mission" -> "Seid ihr nicht auf einer geheimen Mission und habt eine diplomatische Depesche zum Erzmagier nach Runewick zu bringen? Oder schickte ich jemand anderes...?"
-queststatus(108) = 12, "Task", "Adventure", "Message" -> "Aren't you on a secret mission to deliver a diplomatic despatch to the Archmage of Runewick? Or did I send someone else?"
+queststatus(108) = 12, "Task", "Adventure", "Message" -> "Aren't you on a secret mission to deliver a diplomatic dispatch to the Archmage of Runewick? Or did I send someone else?"
 queststatus(108) = 12, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> "Seid ihr nicht auf einer geheimen Mission und habt eine diplomatische Depesche zum Erzmagier nach Runewick zu bringen? Oder schickte ich jemand anderes...?"
 
 -- Quest 5 solved, reward: magical topaz (3525), topaz ring (282), +20 rankpoints
@@ -260,9 +260,9 @@ queststatus(108) = 14, "Task", "Adventure", "Message" -> "At this moment, you ca
 queststatus(108) = 14, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> "Mir ist nicht mehr zu helfen. Wir beide sollten tun, was wir am besten können. Bei mir ist das Bücher lesen."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "I am the royal ambassador, that means I issue the orders of the Queen and diplomatic despatches."
+"profession" -> "I am the royal ambassador, that means I issue the orders of the Queen and diplomatic dispatches."
 "beruf" -> "Ich bin der königliche Botschafter. Das bedeutet, dass ich die Befehle und die diplomatischen Depeschen der Königin kund tue."
-english, "job" -> "I am the royal ambassador, that means I issue the orders of the Queen and diplomatic despatches."
+english, "job" -> "I am the royal ambassador, that means I issue the orders of the Queen and diplomatic dispatches."
 "job" -> "Ich bin der königliche Botschafter. Das bedeutet, dass ich die Befehle und die diplomatischen Depeschen der Königin kund tue."
 english, "Gobaith", "Gobiath" -> "You aren't from Gobaith, are you? If so, my condolescences."
 "Gobaith", "Gobiath" -> "Ihr seid nicht von Gobaith, richtig? Falls doch, mein Beileid."
@@ -274,7 +274,7 @@ english, "Gobaith", "Gobiath" -> "You aren't from Gobaith, are you? If so, my co
 "ambassador", "embassador" -> "Did you ever wonder why an ambassador sits in an embassy and not an ambassy? Or why he isn't called embassador?", "Indeed, I am the royal ambassador. That means that you receive orders from the Queen by my hand.", "I used to travel a lot on diplomatic missions, but now I prefer to read a good book."
 "lazy" -> "Lazy, hah. If you had travelled as much as me, you'd understand that I deserve an extended rest now."
 "Order" -> "The orders of the Queen all cross my desk, except for those she yells right in the faces of her lackeys. That makes me somehow... important, no?"
-"despatch", "dispatch" -> "Whenever there is an issue with Galmair or Runewick, the Queen issues dispatches. She rarely leaves her palace to deal with our neighbours."
+"dispatch" -> "Whenever there is an issue with Galmair or Runewick, the Queen issues dispatches. She rarely leaves her palace to deal with our neighbours."
 english, "Hastings", "Baron" -> "Let me see... yes, I have orders for the Baron, it reads, 'Drop dead!'"
 english, "diplomat" -> "The fine art of diplomacy isn't a strength of Cadomyr, but for such things, there is me!"
 "siegel" -> "Brecht niemals ein königliches Siegel. Ihr würdet es bereuen..."
@@ -379,7 +379,7 @@ english, "Hector", "Valerion" -> "I am proud of being a Valerion. Are you proud 
 cycletext "Ups, die Post ist da!", "Ups, I have mail."
 cycletext "#me gähnt gelangweilt.", "#me yawns lazily."
 cycletext "#me blättert in einem Buch.", "#me browses a book."
-cycletext "Ich hoffe nur, ich muss nicht schon wieder irgendwelche Depeschen überbringen.", "I just hope I don't have to deliver any despatches."
+cycletext "Ich hoffe nur, ich muss nicht schon wieder irgendwelche Depeschen überbringen.", "I just hope I don't have to deliver any dispatches."
 cycletext "Wann soll ich hier eigentlich mal ungestört zum Lesen kommen?", "When do I get to read undisturbed?"
 cycletext "Ob das Volk heute oder morgen seine Befehle bekommt, was macht das für einen Unterschied? Cadomyr wird es ewig geben!", "Does it make a difference whether the people get their orders today or tomorrow? Cadomyr will last forever!"
 cycletext "Gut, gut, gut...", "Good, good, good..."
