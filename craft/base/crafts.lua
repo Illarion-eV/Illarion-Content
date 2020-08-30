@@ -181,7 +181,7 @@ function Craft:showDialog(user, source)
             local neededFood = 0
             local foodOK = false
             local product = self.products[productId]
-            foodOK, neededFood = self:checkRequiredFood(user, product:getCraftingTime(self:getSkill(user),0))
+            foodOK, neededFood = self:checkRequiredFood(user, product:getCraftingTime(self:getSkill(user)))
             local canWork = self:allowCrafting(user, source) and self:checkMaterial(user, productId) and foodOK
             if canWork then
                 self:swapToActiveItem(user)
@@ -400,7 +400,7 @@ function Craft:loadDialog(dialog, user)
 
         if productRequirement <= skill and self:isRepairCategory(product.category) == false then
 
-            local craftingTime = self:getCraftingTime(product, skill, gemBonus) * glyphEffect
+            local craftingTime = self:getCraftingTime(product, skill) * glyphEffect
             dialog:addCraftable(i, categoryListId[product.category], product.item, self:getLookAt(user, product).name, craftingTime, product.quantity)
 
             for j = 1, #product.ingredients do
@@ -425,7 +425,7 @@ function Craft:loadDialog(dialog, user)
             for i = 1, #self.products do
                 local product = self.products[i]
                 local productRequirement = product.difficulty
-                local craftingTime = self:getCraftingTime(product, repairSkill, 0)
+                local craftingTime = self:getCraftingTime(product, repairSkill)
                 if product.item == itemAtCharacter.id and productRequirement <= repairSkill and ((craftingTime * (99 - durability)/99) > 9 or durability < 91 ) then
                     if showRepairGroup == false then
                         dialog:addGroup(user:getPlayerLanguage() == Player.german and "Reparieren" or "Repair")
@@ -461,15 +461,15 @@ function Craft:refreshDialog(dialog, user)
     self:loadDialog(dialog, user)
 end
 
-function Craft:getCraftingTime(product, skill, gemBonus)
+function Craft:getCraftingTime(product, skill)
     if not self.npcCraft then
-        return product:getCraftingTime(skill, gemBonus)
+        return product:getCraftingTime(skill)
     else
         return 10 --default time
     end
 end
 
-function Product:getCraftingTime(skill,gemBonus)
+function Product:getCraftingTime(skill)
 
     --This function returns the crafting time, scaled by the price of the item.
     local learnProgress
@@ -713,7 +713,7 @@ function Craft:craftItem(user, productId)
     local neededFood = 0
     if not self.npcCraft then
         local foodOK = false
-        foodOK, neededFood = self:checkRequiredFood(user, product:getCraftingTime(skill,0))
+        foodOK, neededFood = self:checkRequiredFood(user, product:getCraftingTime(skill))
         if not foodOK then
             self:swapToInactiveItem(user)
             return false
@@ -725,14 +725,14 @@ function Craft:craftItem(user, productId)
 
         if not self.npcCraft then
             local originalDurability = common.getItemDurability(toolItem)
-            if not shared.toolBreaks(user, toolItem, product:getCraftingTime(skill,0)) then
+            if not shared.toolBreaks(user, toolItem, product:getCraftingTime(skill)) then
                 glypheffects.effectToolSelfRepair(user, toolItem, originalDurability)
             end
             common.GetHungry(user, neededFood)
         end
 
         if type(self.leadSkill) == "number" then
-            user:learn(self.leadSkill, product:getCraftingTime(skill,0), product.learnLimit)
+            user:learn(self.leadSkill, product:getCraftingTime(skill), product.learnLimit)
             local newSkill = self:getSkill(user)
             skillGain = (newSkill > skill)
         end
@@ -776,7 +776,7 @@ function Craft:repairItem(user, productIdList)
     local itemToRepair = user:getItemAt( productIdList - OFFSET_PRODUCTS_REPAIR )
     local skill = self:getSkill(user)
     local repairSkill = self:getRepairSkill(user)
-    local repairTime = product:getCraftingTime(skill,0) * (99 - common.getItemDurability(itemToRepair))/99
+    local repairTime = product:getCraftingTime(skill) * (99 - common.getItemDurability(itemToRepair))/99
 
     local skillGain = false
 
