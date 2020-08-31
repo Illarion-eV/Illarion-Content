@@ -51,6 +51,7 @@ function M.Malachin:_init(ordinal, youngerOrdinal)
         {
             id_set = common.setFromList({ -- set of item IDs
                 768, --Wolverine Fern
+                2586, --fur
                 -- ## From craft\final\blacksmithing.lua ##
                 -- category: Daggers
                 27, -- simple dagger
@@ -206,7 +207,7 @@ function M.Malachin:_init(ordinal, youngerOrdinal)
                 -- category: Skirts
                 -- category: Torso armour
 --                1433, -- padded armour
---                363, -- leather scale armour
+                363, -- leather scale armour
 --                1434, -- simple rogue armour
 --                2407, -- light rogue armour
 --                365, -- half leather armour

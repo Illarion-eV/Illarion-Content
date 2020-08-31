@@ -41,6 +41,7 @@ function M.Irmorom:_init(ordinal, youngerOrdinal)
     }
     local ids = common.setFromList({ -- set of item IDs
         762, --gold crack herb
+        2535, -- iron ingot
         -- ## From craft\final\armourer.lua ##
         -- category: Chain boots
         1507, -- simple jackboots
