@@ -689,7 +689,7 @@ function M.UseItem(User, SourceItem)
     User:talk(Character.say, "#me zieht die bunte Verpackung des Knallbonbons auseinander.","#me pulls apart the colourful wrapping of the cracker.")
     world:erase(SourceItem, 1)
     local itemId = itemList[math.random(1,#itemList)]
-    local itemQuality = math.random(444,999)
+    local itemQuality = 100*math.random(4,9) + math.random(44,99)
     User:inform("Du findest etwas als die bunte Verpackung aufreiﬂt: "..world:getItemName(itemId,Player.german), "You find something as you pull apart the colourful wrapping:"..world:getItemName(itemId,Player.english),Player.mediumPriority)
     common.CreateItem(User, itemId, 1, itemQuality, nil)
     world:gfx(gfxList[math.random(1,#gfxList)],User.pos)
