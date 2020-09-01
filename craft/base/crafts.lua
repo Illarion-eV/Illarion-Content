@@ -239,7 +239,10 @@ function Craft:allowUserCrafting(user, source)
 
         if not self:isHandToolEquipped(user) then
             local germanTool = world:getItemName(self.handTool, Player.german)
+            germanTool = germanTool:gsub("^%l", string.upper) --Upper case
             local englishTool = world:getItemName(self.handTool, Player.english)
+            englishTool = englishTool:gsub("^%l", string.upper) --Upper case
+            
             common.HighInformNLS(user,
             "Dir fehlt ein Werkzeug in deiner Hand um hier zu arbeiten: " .. germanTool,
             "To work here you have to hold a tool in your hand: " .. englishTool)
