@@ -177,9 +177,9 @@ queststatus(108) = 1, item(463, all) > 4, ".+" -> inform("[Quest gelöst] Du erhä
 
 -- Give out quest 2
 queststatus(108) = 2, english, "quest", "mission" -> inform("[New quest] Delayed Mail II: You received a message for Robertus."), queststatus(108) = 3, "The Queen has important orders for her royal builder, Robertus is his name. It is about his latest project. Rush to Robertus at once!"
-queststatus(108) = 2, "quest", "mission" -> inform("[Neues Quest] Späte Post II: Du hast eine Nachricht für Robertus erhalten."), queststatus(108) = 3, "Die Königin hat wichtige Befehle für Robertus, der königlichen Baumeister. Es geht um sein derzeitiges Bauprojekt. Lauft sofort zu Robertus!"
+queststatus(108) = 2, "quest", "mission" -> inform("[Neues Quest] Späte Post II: Du hast eine Nachricht für Robertus erhalten."), queststatus(108) = 3, "Die Königin hat wichtige Befehle für Robertus, den königlichen Baumeister. Es geht um sein derzeitiges Bauprojekt. Lauft sofort zu Robertus!"
 queststatus(108) = 2, "Task", "Adventure", "Message" -> inform("[New quest] Delayed Mail II: You received a message for Robertus."), queststatus(108) = 3, "The Queen has important orders for her royal builder, Robertus is his name. It is about his latest project. Rush to Robertus at once!"
-queststatus(108) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> inform("[Neues Quest] Späte Post II: Du hast eine Nachricht für Robertus erhalten."), queststatus(108) = 3, "Die Königin hat wichtige Befehle für Robertus, der königlichen Baumeister. Es geht um sein derzeitiges Bauprojekt. Lauft sofort zu Robertus!"
+queststatus(108) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> inform("[Neues Quest] Späte Post II: Du hast eine Nachricht für Robertus erhalten."), queststatus(108) = 3, "Die Königin hat wichtige Befehle für Robertus, den königlichen Baumeister. Es geht um sein derzeitiges Bauprojekt. Lauft sofort zu Robertus!"
 
 -- Quest 2 taken but not solved, repeat the instructions
 queststatus(108) = 3, english, "quest", "mission" -> "Maybe you did not understand? Important orders means, 'Deliver them now!'. Run to Robertus at once!"
