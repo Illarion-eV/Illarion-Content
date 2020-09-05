@@ -16,16 +16,76 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE items SET itm_script='item.id_227_cookingspoon' WHERE itm_id IN (227);
 
+local common = require("base.common")
 local cooking = require("craft.final.cooking")
+local brewing = require("craft.final.brewing")
 local wood = require("item.general.wood")
 
 local M = {}
 
 M.LookAtItem = wood.LookAtItem
 
-function M.UseItem(User, SourceItem, ltstate)
-    cooking.cooking:showDialog(User, SourceItem)
+local function getBarrel(User)
+
+    local BARRELS = {339, 1410, 1411}
+    local foundItem
+    local frontItem = common.GetFrontItem(User)
+    
+    for i, barrel in pairs(BARRELS) do
+        if (frontItem ~= nil and frontItem.id == barrel) then
+            foundItem = frontItem
+            break
+        end
+    end
+
+    if not foundItem then
+        for i, barrel in pairs(BARRELS) do
+            foundItem = common.GetItemInArea(User.pos, barrel)
+            if foundItem then
+                break
+            end
+        end
+    end
+    
+    return foundItem
+    
 end
+
+local function getKettle(User)
+
+    local KETTLE = 3581;
+    local item = common.GetFrontItem(User);
+    if (item ~= nil and item.id == KETTLE) then
+        return item;
+    end
+    item = common.GetItemInArea(User.pos, KETTLE);
+    return item;
+end
+
+function M.UseItem(User, SourceItem, ltstate)
+
+    local target
+    
+    -- check for barrel
+    target = getBarrel(User);
+    if (target ~= nil) then
+        brewing.brewing:showDialog(User, SourceItem)
+        return;
+    end
+
+    -- check for kettle
+    target = getKettle(User);
+    if (target ~= nil) then
+        cooking.cooking:showDialog(User, SourceItem)
+        return
+    end
+
+    -- there is nothing to work with
+    common.HighInformNLS( User,
+    "Du musst vor einem Weinfass oder einem Kessel stehen.",
+    "You need to stand in front of a barrel or kettle." );
+    
+ end
 
 return M
 
