@@ -17,7 +17,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local lookat = require("base.lookat")
 local checks = require("item.general.checks")
-local money = require("base.money")
 local ronaganDungeon = require("content.ronaganDungeon")
 
 local M = {}
@@ -38,6 +37,7 @@ end
 function M.MoveItemBeforeMove(User, SourceItem, TargetItem)
 
     if TargetItem:getType() == 4 then --inventory, not belt
+        checks.HaveABreak(User)
         return checks.checkLevel(User, SourceItem, TargetItem)
     end
 

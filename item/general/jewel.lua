@@ -38,6 +38,7 @@ function M.MoveItemBeforeMove(User, SourceItem, TargetItem)
 
     if TargetItem:getType() == 4 then --inventory, not belt
         glypheffects.equipWithGlyphedItem(User, TargetItem)
+        checks.HaveABreak(User)
         return checks.checkLevel(User, SourceItem, TargetItem)
     end
 
