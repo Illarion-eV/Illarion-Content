@@ -244,8 +244,8 @@ function Craft:allowUserCrafting(user, source)
             englishTool = englishTool:gsub("^%l", string.upper) --Upper case
             
             common.HighInformNLS(user,
-            "Dir fehlt ein Werkzeug in deiner Hand um hier zu arbeiten: " .. germanTool,
-            "To work here you have to hold a tool in your hand: " .. englishTool)
+            "Dir fehlt ein intaktes Werkzeug in deiner Hand um hier zu arbeiten: " .. germanTool,
+            "To work here you have to hold an intact tool in your hand: " .. englishTool)
             return false
         end
     else
