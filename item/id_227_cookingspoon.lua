@@ -82,7 +82,7 @@ function M.UseItem(User, SourceItem, ltstate)
 
     -- there is nothing to work with
     common.HighInformNLS( User,
-    "Du stehst nicht neben dem benÃ¶tigten Werkzeug: Weinfass oder Kessel",
+    "Du stehst nicht neben dem benötigten Werkzeug: Weinfass oder Kessel",
     "There is no wine barrel or kettle close by to work with." );
     
  end
