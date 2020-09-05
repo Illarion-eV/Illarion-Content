@@ -53,13 +53,13 @@ end
 
 local function getKettle(User)
 
-    local KETTLE = 3581;
-    local item = common.GetFrontItem(User);
+    local KETTLE = 3581
+    local item = common.GetFrontItem(User)
     if (item ~= nil and item.id == KETTLE) then
-        return item;
+        return item
     end
-    item = common.GetItemInArea(User.pos, KETTLE);
-    return item;
+    item = common.GetItemInArea(User.pos, KETTLE)
+    return item
 end
 
 function M.UseItem(User, SourceItem, ltstate)
@@ -67,14 +67,14 @@ function M.UseItem(User, SourceItem, ltstate)
     local target
     
     -- check for barrel
-    target = getBarrel(User);
+    target = getBarrel(User)
     if (target ~= nil) then
         brewing.brewing:showDialog(User, SourceItem)
-        return;
+        return
     end
 
     -- check for kettle
-    target = getKettle(User);
+    target = getKettle(User)
     if (target ~= nil) then
         cooking.cooking:showDialog(User, SourceItem)
         return
@@ -83,7 +83,7 @@ function M.UseItem(User, SourceItem, ltstate)
     -- there is nothing to work with
     common.HighInformNLS( User,
     "Du stehst nicht neben dem benötigten Werkzeug: Weinfass oder Kessel",
-    "There is no wine barrel or kettle close by to work with." );
+    "There is no wine barrel or kettle close by to work with." )
     
  end
 
