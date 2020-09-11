@@ -95,6 +95,9 @@ AddArea("GalmairRegion", {
 AddArea("CadomyrRegion", {
     {{position(112,512,0), position(60,573,0), position(74,612,0), position(62,626,0), position(6,630,0), position(6,706,0), position(87,818,0), position(185,724,0), position(193,690,0), position(216,654,0), position(215,638,0), position(173,582,0), position(163,582,0), position(163,512,0), position(112,512,0)}, {0} }
 })
+AddArea("trollshaven", {
+    {{position(640,280,0), position(740,280,0), position(740,350,0), position(640,350,0)}, {0}}
+})
 
 
 --- Test if a point is in an area

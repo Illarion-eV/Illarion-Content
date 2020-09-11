@@ -232,7 +232,9 @@ local payNow
 
 function M.onLogin( player )
 
-    welcomeNewPlayer(player)
+    if player:isNewPlayer() and areas.PointInArea(player.pos,"trollshaven") then
+        welcomeNewPlayer(player)
+    end
 
     world:gfx(31, player.pos) --A GFX that announces clearly: A player logged in.
 
@@ -376,113 +378,11 @@ function showNewbieDialog(player)
     player:requestMessageDialog(dialogNewbie) --showing the welcome text
 end
 
-local function jumpToNewPlayer(user, player)
-    if not isValidChar(player) then
-        common.InformNLS(user,"Der Character ist nicht mehr online.","This character is not online anymore.")
-        return
-    end
-    local playerPos = player.pos
-    if areas.PointInArea(playerPos,"Runewick") and not factions.isPlayerPermittedInTown(user,factions.runewick) then
-        common.InformNLS(user,"Dein Charakter darf Runewick nicht betreten. Du kannst hier nicht helfen.",
-                              "Your character is not permitted to enter Runewick. You cannot help.")
-        return
-    elseif areas.PointInArea(playerPos,"Cadomyr") and not factions.isPlayerPermittedInTown(user,factions.cadomyr) then
-        common.InformNLS(user,"Dein Charakter darf Cadomyr nicht betreten. Du kannst hier nicht helfen.",
-                              "Your character is not permitted to enter Cadomyr. You cannot help.")
-        return
-    elseif areas.PointInArea(playerPos,"Galmair") and not factions.isPlayerPermittedInTown(user,factions.galmair) then
-        common.InformNLS(user,"Dein Charakter darf Galmair nicht betreten. Du kannst hier nicht helfen.",
-                              "Your character is not permitted to enter Galmair. You cannot help.")
-        return
-    end
-    
-    local plyList = world:getPlayersInRangeOf(playerPos, 10)
-    local playerCount = 0
-    for i, player in pairs(plyList) do
-        if not player:isNewPlayer() then
-            playerCount = playerCount + 1
-        end
-    end
-    
-    if playerCount > 1 then
-        common.InformNLS(user,"Bei dem neuen Spieler sind bereits mindestens zwei Helfer.",
-                              "There are already two helpers next to the new player.")
-    else
-        user:warp(player.pos)
-        world:gfx(46, player.pos)
-        user:setQuestProgress(850, user:getQuestProgress(850)+1)
-    end
-
-end
-
 function welcomeNewPlayer(player)
-    if not player:isNewPlayer() then
-        player:setQuestProgress(851, 0) -- reset session check for newbie welcome dialog
-        return
-    end
-
     local onlinePlayers = world:getPlayersOnline()
-    for i=1,#onlinePlayers do
-        local user = onlinePlayers[i]
-
-        if not user:isNewPlayer() and not common.isInPrison(user.pos) then -- no new player and not in the prison mine
-
-            if user:getQuestProgress(851) == 0 then
-
-                local getText = function(deText,enText) return common.GetNLS(user, deText, enText) end
-
-                local callback = function(dialog)
-                    local success = dialog:getSuccess()
-                    if success then
-                        local selected = dialog:getSelectedIndex()+1
-                        if selected == 1 then
-                            jumpToNewPlayer(user, player)
-                        elseif selected == 2 then
-                            -- nothing
-                        elseif selected == 3 then
-                            user:setQuestProgress(851,1)
-                        end
-                    end
-                end
-
-                local textUse = getText("Ein neuer Spieler hat Illarion betreten! Möchtest du deine Hilfe anbieten?\nEr befindet sich derzeit ",
-                                        "A new player has entered Illarion! Do you want to offer your help?\nHe is at the moment ")
-                local playerPos = player.pos
-                if common.isOnNoobia(playerPos) then
-                    textUse = textUse .. getText("auf Noobia.","on Noobia.")
-                elseif areas.PointInArea(playerPos,"Runewick") then
-                    textUse = textUse .. getText("in Runewick.","in Runewick.")
-                elseif areas.PointInArea(playerPos,"RunewickRegion") then
-                    textUse = textUse .. getText("nahe Runewicks.","close to Runewick.")
-                elseif areas.PointInArea(playerPos,"Cadomyr") then
-                    textUse = textUse .. getText("in Cadomyr.","in Cadomyr.")
-                elseif areas.PointInArea(playerPos,"CadomyrRegion") then
-                    textUse = textUse .. getText("nahe Cadomyrs.","close to Cadomyr.")
-                elseif areas.PointInArea(playerPos,"Galmair") then
-                    textUse = textUse .. getText("in Galmair.","in Galmair.")
-                elseif areas.PointInArea(playerPos,"GalmairRegion") then
-                    textUse = textUse .. getText("nahe Galmairs.","close to Galmair.")
-                else
-                    textUse = textUse .. getText("irgendwo in der Wildnis.","somewhere in the wilderness.")
-                end
-                local timeMinutes = player:getQuestProgress(852)
-                local timeHours = math.floor(tonumber(timeMinutes)/60)
-                if timeHours == 0 then
-                    textUse = textUse .. getText("\nDer Spieler ist noch keine Stunde online.","\nThe player has been online for less than an hour.")
-                elseif timeHours == 1 then
-                    textUse = textUse .. getText("\nDer Spieler war bereits über eine Stunde online.",
-                                                 "\nThe player has already been online for an hour.")
-                else
-                    textUse = textUse .. getText("\nDer Spieler war bereits " .. tostring(timeHours) .. " Stunden online.",
-                                                 "\nThe player was already online for " .. tostring(timeHours) .. " hours.")
-                end
-                
-                local dialog = SelectionDialog(getText("Ein neuer Spieler!","A new player!"), textUse, callback)
-                dialog:addOption(0, getText("Teleportier mich zu ihm. Ich will helfen!","Warp me to him, let me help!"))
-                dialog:addOption(0, getText("Nicht jetzt.", "Not now."))
-                dialog:addOption(0, getText("Nicht für diese Sitzung.","Not for this session."))
-                user:requestSelectionDialog(dialog)
-            end
+    for i, user in ipairs(onlinePlayers) do
+        if user.id ~= player.id then
+            user:inform("Ein neuer Spieler hat Illarion betreten! Der Charakter ist in Trollshaven.","A new player has entered Illarion! The character is in Troll's Haven.")
         end
     end
 end
