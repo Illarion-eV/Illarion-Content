@@ -94,9 +94,9 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell", "Goodbye.", "Hav
 
 -- tasks-- leraning recipes
 english, "quest", "mission" -> "If you want to learn the proper creation of a certain potion, have a look at my list here."
-"quest", "mission" -> "Wenn Ihr ein die richtige Herstellung eines Trankes lernen wollt, schaut hier auf die Liste auf meinem Tisch."
+"quest", "mission" -> "Wenn Ihr die richtige Herstellung eines Trankes lernen wollt, schaut hier auf die Liste auf meinem Tisch."
 "task", "adventure", "order", "recipe", "learn", "teach", "lesson" -> "If you want to learn the proper creation of a certain potion, have a look at my list here."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rezept", "lernen", "lehren", "Unterricht" -> "Wenn Ihr ein die richtige Herstellung eines Trankes lernen wollt, schaut hier auf die Liste auf meinem Tisch."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rezept", "lernen", "lehren", "Unterricht" -> "Wenn Ihr die richtige Herstellung eines Trankes lernen wollt, schaut hier auf die Liste auf meinem Tisch."
 
 -- small talk
 "profession" -> "I am an alchemist and if you are an alchemist as well, I am able to teach you something."

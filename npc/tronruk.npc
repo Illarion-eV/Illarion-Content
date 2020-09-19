@@ -180,8 +180,8 @@ english, "salkama" -> "One ob da big empires.", "Who cares about dat place?", "H
 -- Gods - use the triggers of the god the NPC worships or fights
 -- Pick 1-2 gods he likes, 1 he dislikes
 -- Use ONE other response for the other gods i.e. "I don't worship that good much"
-"god" -> "Bragon, Malachin, Zambra and Cherga. But all beh ruled by da Faddah!", "Oldra for da spring, Bragon for da summer, Malachin for da autumn, and Cherga for da winter."
-"Gott", "Götter" -> "Bragon, Malachin, Zambra und Cherga. Aba üba alla steht der Vater!", "Oldra für Frühling, Bragon für Sommer, Malachin für Herbst, and Cherga für Winter."
+"god" -> "Bragon, Malachin, Zhambra and Cherga. But all beh ruled by da Faddah!", "Oldra for da spring, Bragon for da summer, Malachin for da autumn, and Cherga for da winter."
+"Gott", "Götter" -> "Bragon, Malachin, Zhambra und Cherga. Aba üba alla steht der Vater!", "Oldra für Frühling, Bragon für Sommer, Malachin für Herbst, and Cherga für Winter."
 english, "Adron" -> "Dat god beh weak compared to da Faddah.", "#me scratches his bum and shakes his head."
 "Adron" -> "Das Gott sein schwach im Vergleich mit der Vater.", "#me kratzt sich am Hintern und schüttelt den Kopf."
 english, "Bragon", "Brágon" -> "Meh pray to dat god in summer.", "Bragon beh god against fear and weakness!"

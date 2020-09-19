@@ -81,9 +81,9 @@ queststatus(702) = 10, item(234, all, "nameDe" = "Echt großer Goldnugget") > 0, 
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "I foretell that you did not come to me to chat about inane things. We should strictly get to business, mine is transmuting gems."
-"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Ich nehme an, ihr seid nicht zu mir gekommen um über Unwichtiges Gewäsch zu reden. Lasst uns zur Sache kommen, mein Geschäft ist das Vereinen von Edelsteinen."
-english, "Hiho", "Hallo", "Hey", "Greeb" -> "I foretell that you did not come to me to chat about inane things. We should strictly get to business, mine transmuting is gems."
-"Hiho", "Hallo", "Hey", "Greeb" -> "Ich nehme an, ihr seid nicht zu mir gekommen um über Unwichtiges Gewäsch zu reden. Lasst uns zur Sache kommen, mein Geschäft ist das Vereinen von Edelsteinen."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Ich nehme an, ihr seid nicht zu mir gekommen um über unwichtiges Gewäsch zu reden. Lasst uns zur Sache kommen, mein Geschäft ist das Vereinen von Edelsteinen."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "I foretell that you did not come to me to chat about inane things. We should strictly get to business, mine is transmuting gems."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Ich nehme an, ihr seid nicht zu mir gekommen um über unwichtiges Gewäsch zu reden. Lasst uns zur Sache kommen, mein Geschäft ist das Vereinen von Edelsteinen."
 "Farewell", "Bye", "Fare well", "See you" -> "Happy mining.", "Farewell."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Viel Spaß in der Mine.", "Gehabt euch wohl."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Happy mining.", "Farewell."
