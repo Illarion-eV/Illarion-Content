@@ -196,7 +196,7 @@ function M.FillIn(User, SourceItem, cauldron, noRepeat) -- do not remove noRepea
     if cauldron:getData("filledWith") == "water" then
         common.InformNLS( User,
                 "Der Kessel läuft über. Offensichtlich war schon Wasser in ihm.",
-                "The water runs over. Obviously, ther was already water in it.")
+                "The water runs over. Obviously, there was already water in it.")
         world:makeSound(9,cauldron.pos)
         world:gfx(11,cauldron.pos)
         noRepeat = true -- let cauldron only run over once
