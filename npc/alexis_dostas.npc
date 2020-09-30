@@ -149,7 +149,7 @@ english, "job" -> "I feed the mounts, I care for them, I lend them to anyone who
 "horse", "destrier" -> "There are two differences between horses and mules: Longer legs and even more hunger for oats!"
 "Maultier", "Muli", "Esel", "Lasttier" -> "Maultiere sind recht genügsame Tiere. Sie brauchen nur hin und wieder etwas Hafer."
 "Futter", "Fütter", "Hafer" -> "Maultiere lieben Hafer! Kein Wunder, sind sie doch mit Pferden verwandt."
-"Stall" -> "Manchmal darf ich mich um stolze Schlachrösser edler Ritter kümmern, an anderen Tagen um Bette und die anderen Maultiere. Ich behandle alle gleich gut, denn alle tragen ihren Teil zu Cadomyrs Ehre bei."
+"Stall" -> "Manchmal darf ich mich um stolze Schlachtrösser edler Ritter kümmern, an anderen Tagen um Bette und die anderen Maultiere. Ich behandle alle gleich gut, denn alle tragen ihren Teil zu Cadomyrs Ehre bei."
 "pferd", "ross" -> "Es gibt genau zwei Unterschiede zwischen Pferden und Maultieren: Längere Beine und noch mehr Hunger auf Hafer!"
 
 -- Optional: Faction stuff
