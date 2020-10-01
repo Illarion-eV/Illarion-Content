@@ -76,8 +76,8 @@ itemShoes = 697
 "überspring", "abbrech" -> inform("[Tutorial] Du hast entschieden, das Tutorial zu überspringen. Bitte wähle ein Reich als Heimat deines Charakters aus, indem du durch das entsprechende Portal auf einer der drei Inseln im Süden trittst."), warp(36, 94, 100)
 
 -- Learn how to fight
-queststatus(311) < 2, english, ".*" -> item(2664, 1, 366), queststatus(311) = 2, "Hurr! Fresh meat! I be Groknar, mightiest hunter of my clan. I will teach you how to smash puny creatures. Equip this club and crush three of those pigs over there. You can attack puny creatures by clicking them once with the right mouse button."
-queststatus(311) < 2, ".*" -> item(2664, 1, 366), queststatus(311) = 2, "Hurr! Frischfleisch! Ich bin Groknar, der mächtigste Jäger meines Clans. Ich bring dir bei, erbärmliche Kreaturen zu erschlagen. Nimm diesen Knüppel in die Hand und erschlage drei dieser Schweine dort drüben. Du kannst erbärmliche Kreaturen angreifen, indem du sie mit der rechten Maustaste einmal anklickst."
+queststatus(311) < 2, english, ".*" -> item(2664, 1, 366), queststatus(311) = 2, "Hurr! Fresh meat! I be Groknar, mightiest hunter of my clan. I will teach you how to smash puny creatures. Equip this club and crush three of those pigs over there. You can begin attacking puny creatures by clicking on them once with the right mouse button."
+queststatus(311) < 2, ".*" -> item(2664, 1, 366), queststatus(311) = 2, "Hurr! Frischfleisch! Ich bin Groknar, der mächtigste Jäger meines Clans. Ich bring dir bei, erbärmliche Kreaturen zu erschlagen. Nimm diesen Knüppel in die Hand und erschlage drei dieser Schweine dort drüben. Du kannst mit dem Angriff auf erbärmliche Kreaturen beginnen, indem du sie einmal mit der rechten Maustaste anklickst."
 
 -- Player seems to have problems with fighting. Weichei!
 queststatus(311) < 5, english, ".*" -> "Hurr, you afraid of those puny pigs? Off! Kill at least three of them. Click right!"
