@@ -26,6 +26,7 @@ local M = {}
 function M.MoveItemBeforeMove(User, SourceItem, TargetItem)
 
     if TargetItem:getType() == 4 then --inventory, not belt
+        checks.HaveABreak(User)
         return checks.checkLevel(User, SourceItem, TargetItem)
     end
 
