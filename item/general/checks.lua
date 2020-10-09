@@ -112,7 +112,7 @@ function M.HaveABreak(User)
 
     local kitKat = 50 --Duration of the interruption. Set to 5 seconds for now. Cumultative!
     if User.attackmode and User:getQuestProgress(321) == 0 then
-        User:inform("[Tutorial] Das Anlegen von AusrÃ¼stung im Kampf fÃ¼hrt zu einer kurzen Unterbrechung.","[Tutorial] Putting on equipment in combat leads to a short interruption.")
+        User:inform("[Tutorial] Das Anlegen von Ausrüstung im Kampf führt zu einer kurzen Unterbrechung.","[Tutorial] Putting on equipment in combat leads to a short interruption.")
         User:setQuestProgress(321, 1) --Only once
     end
 
