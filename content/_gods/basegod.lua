@@ -173,7 +173,7 @@ end
 
 function M.BaseGod:informBecomeDevoted(charObj)
     common.InformNLS(charObj,
-        "Ihr empfangt den Segen " .. self.nameDe .. "s und weiht euer Leben dem Glaube an die Gottheit.",
+        "Ihr empfangt den Segen " .. self.nameDe .. "s und weiht euer Leben dem Glauben an die Gottheit.",
         "You receive the blessing of " .. self.nameEn .. " and devote your life to the faith in the divinity."
     )
     world:gfx(globalvar.gfxRAIN, charObj.pos)
