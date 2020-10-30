@@ -16,7 +16,7 @@
 -- NPC Name: Viola Baywillow                                             None --
 -- NPC Job:  Tutor                                                            --
 --                                                                            --
--- NPC Race: halfling                   NPC Position:  37, 101, 100           --
+-- NPC Race: halfling                   NPC Position:  693, 292, 0            --
 -- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Authors:  envi                                                             --
@@ -28,7 +28,7 @@
 name = "Viola Baywillow"
 race = halfling
 sex = female
-position = 37, 101, 100
+position = 693, 292, 0
 direction = west
 affiliation = "None"
 job = "Tutor"

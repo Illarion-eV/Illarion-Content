@@ -13,20 +13,20 @@
 -- You should have received a copy of the GNU Affero General Public License
 -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ------------------------------------------------------------------------------AC
--- NPC Name: Nimbur Goldhand                                             None --
+-- NPC Name: Nimbur Goldbrew                                             None --
 -- NPC Job:  Blacksmith                                                       --
 --                                                                            --
--- NPC Race: dwarf                      NPC Position:  42, 83, 100            --
+-- NPC Race: dwarf                      NPC Position:  706, 297, 0            --
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
-name = "Nimbur Goldhand"
+name = "Nimbur Goldbrew"
 race = dwarf
 sex = male
-position = 42, 83, 100
+position = 706, 297, 0
 direction = west
 affiliation = "None"
 job = "Blacksmith"
@@ -38,8 +38,8 @@ autointroduce = on
 
 author = "Estralis Seborian"
 
-lookatDE = "Das ist dein Tutor Nimbur Goldhand der Schmied."
-lookatUS = "This is your tutorial guide Nimbur Goldhand the blacksmith."
+lookatDE = "Das ist dein Tutor Nimbur Goldbrew der Schmied."
+lookatUS = "This is your tutorial guide Nimbur Goldbrew the blacksmith."
 useMsgDE = "Finger weg!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "Bitte wechsle die Sprache deines Charakters zur Gemeinsprache mit dem Befehl '!l common'."
@@ -64,8 +64,8 @@ itemShoes = 53
 -- 3: All lessons done
 
 -- Help
-"Help" -> inform("[Tutorial] This NPC is the tutor Nimbur Goldhand. Keywords: Hello, Help, Skip tutorial.")
-"Hilfe" -> inform("[Tutorial] Dieser NPC ist der Tutor Nimbur Goldhand. Schlüsselwörter: Hallo, Hilfe, Tutorial überspringen.")
+"Help" -> inform("[Tutorial] This NPC is the tutor Nimbur Goldbrew. Keywords: Hello, Help, Skip tutorial.")
+"Hilfe" -> inform("[Tutorial] Dieser NPC ist der Tutor Nimbur Goldbrew. Schlüsselwörter: Hallo, Hilfe, Tutorial überspringen.")
 
 -- Skipping
 "skip", "cancel", "abort" -> inform("[Tutorial] You have decided to skip the tutorial. Please choose a realm to be the home for your character by stepping through the corresponding portal on one of the three islands to the south."), warp(36, 94, 100)

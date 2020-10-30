@@ -16,7 +16,7 @@
 -- NPC Name: Henry Cunnigan                                              None --
 -- NPC Job:  Tutor                                                            --
 --                                                                            --
--- NPC Race: human                      NPC Position:  37, 21, 100            --
+-- NPC Race: human                      NPC Position:  703, 290, 0            --
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Authors:  Rincewind                                                        --
@@ -27,7 +27,7 @@
 name = "Henry Cunnigan"
 race = human
 sex = male
-position = 37, 21, 100
+position = 703, 290, 0
 direction = west
 affiliation = "None"
 job = "Tutor"
