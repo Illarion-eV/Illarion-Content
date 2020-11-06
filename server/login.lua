@@ -232,6 +232,10 @@ local payNow
 
 function M.onLogin( player )
 
+    if player.pos.z == 100 then --Old Noobia
+        player:warp(position(702, 283, 0))
+    end
+    
     if player:isNewPlayer() and areas.PointInArea(player.pos,"trollshaven") then
         welcomeNewPlayer(player)
     end
@@ -277,16 +281,10 @@ function M.onLogin( player )
         end
     end
 
-    --Noobia handling
-    if (common.isOnNoobia(player.pos)) then --On Noobia
-        local found = player.effects:find(13) --Noob effect
-        if not found then --new player!
-            player.effects:addEffect(LongTimeEffect(13, 1))
-        end
-        if  player:isInRangeToPosition(position(31, 22, 100), 7) then --only show the dialog if the char is close to the noob spawn
-            showNewbieDialog(player)
-        end
-    end --Noobia end
+    --Newbie handling
+    if player:isInRangeToPosition(position(702, 283, 0), 7) and player:isNewPlayer() then --only show the dialog if the char is close to the noob spawn
+        showNewbieDialog(player)
+    end --Newbie
 
     --Messages of the day
     if #messageG ~= #messageE then

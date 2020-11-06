@@ -24,13 +24,6 @@ local M = {}
 
 function M.UseItem(User, SourceItem)
 
-    if common.isOnNoobia(User.pos) then --On Noobia: Doors must not be closed.
-
-        common.InformNLS(User,"Die Tür klemmt und kann nicht geschlossen werden.","The door is jammed and won't close.");
-        return; --bailing out
-        
-    end --Noobia end
-
     if doors.CloseDoor(SourceItem) then
 
         common.InformNLS(User,"Du schließt die Tür.","You close the door.");

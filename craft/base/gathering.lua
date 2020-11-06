@@ -114,11 +114,6 @@ function GatheringCraft:FindRandomItem(User)
 
     common.GetHungry(User, self.SavedWorkTime[User.id]*4);
 
-    -- check for Noobia
-    if (common.isOnNoobia(User.pos)) then
-        return false;
-    end
-
     -- check for Prison Mine
     if (common.isInPrison(User.pos)) then
        return false

@@ -44,14 +44,6 @@ function M.playerDeath(deadPlayer)
         return --bailing out!
     end
 
-    -- Noobies do not die on Noobia.
-    if common.isOnNoobia(deadPlayer.pos) then
-        deadPlayer:increaseAttrib("hitpoints", 10000) -- Respawn
-        world:gfx(53, deadPlayer.pos)
-        common.HighInformNLS(deadPlayer, "[Wiederbelebung] Während des Tutorials bist du 'unsterblich'. Im Hauptspiel ist die Wiederbelebung mit merklichen Konsequenzen für deinen Charakter verbunden.", "[Respawn] During the tutorial, you are 'immortal'. In the main game, serious consequences for your character are triggered upon respawn.")
-        return --bailing out!
-    end
-
     -- Death in the prison mine; no kill taxi!
     if common.isInPrison(deadPlayer.pos) then
         deadPlayer:increaseAttrib("hitpoints", 10000) -- Respawn
@@ -87,7 +79,7 @@ function M.playerDeath(deadPlayer)
 
     -- Death consequence #2: Drop few items from bag.
     if deadPlayer:isNewPlayer() then
-        -- No negative consequence for Noobies.
+        -- No item drop for new players
         return
     end
 

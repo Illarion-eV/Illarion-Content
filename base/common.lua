@@ -2369,16 +2369,6 @@ function M.GetItemInArea(CenterPos, ItemId, Radius, OnlyWriteable)
   return nil, nil
 end
 
--- Checks if a given position is located on the tutorial island Noobia.
--- @param posStruct Pos  The position to check.
--- @return bool  True if position is located on Noobia, false otherwise.
-function M.isOnNoobia(Pos)
-  if (Pos.z == 100) then
-    return true
-  end
-  return false
-end
-
 -- Checks if a given position is located in the prison mine.
 -- @param posStruct Pos  The position to check.
 -- @return bool  True if position is located in Prison mine, false otherwise.

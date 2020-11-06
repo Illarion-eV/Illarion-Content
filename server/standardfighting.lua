@@ -62,7 +62,6 @@ local petBase = require("petsystem.base")
 
 local M = {}
 
-local NewbieIsland
 local GetAttackType
 local LoadAttribsSkills
 local CheckAttackOK
@@ -279,9 +278,10 @@ function M.onAttack(Attacker, Defender)
     local Defender = { ["Char"]=Defender }
     local Globals = {}
 
-    -- Newbie Island Check
-    if not NewbieIsland(Attacker.Char, Defender.Char) then
-        return false
+    -- Newbie Check
+    if character.IsPlayer(Attacker.Char) and Attacker.Char:getQuestProgress(322) == 0 and Attacker.Char:isNewPlayer() then
+        common.InformNLS(Attacker.Char,"[Tutorial] Du darfst andere Spieler nur mit angemessenem und nachprüfbarem Rollenspielgrund angreifen. Klicke nochmals rechts auf deinen Gegner um den Kampf abzubrechen.","[Tutorial] You are only allowed to attack other players with clearly traceable and reasonable roleplaying reason. Right click again on your enemy to cancel the attack.")
+        Attacker.Char:setQuestProgress(322,1)
     end
 
     -- Load the weapons of the attacker
@@ -1581,42 +1581,6 @@ function LoadAttribsSkills(CharStruct, Offensive)
         CharStruct["agility"] = NotNil(CharStruct.Char:increaseAttrib("agility", 0))
     end
     CharStruct["Race"] = CharStruct.Char:getRace()
-end
-
---- Check if the character is on newbie island and reject the attack in that.
--- This is required to allow newbie island to work correctly.
--- @param Attacker The character who is attacking
--- @param Defender The character who is attacked
--- @return true in case the attack can go on, else it has to be stopped
-function NewbieIsland(Attacker, Defender)
-    -- not in the newbie island and the Attack is okay.
-    if not common.isOnNoobia(Attacker.pos) then
-        return true
-    end
-
-    -- in case the character it not a other player character, the Attack is okay anyway.
-    if not character.IsPlayer(Defender) then
-        return true
-    end
-
-    -- the Attacker did not start the newbie island quest. Attack is fine.
-    if (Attacker:getQuestProgress(2) == 0) then
-        return true
-    end
-
-    -- The Attacker is a GM. Attacking is fine
-    if Attacker:isAdmin() then
-        return true
-    end
-
-    -- So now the character is on newbie island and not allowed to Attack.
-    -- Protection to ensure the player is not spammed to death with messages.
-    if not common.spamProtect(Attacker, 5) then
-        common.InformNLS(Attacker,
-            "[Tutorial] Du darfst während des Tutorials noch keine anderen Spieler angreifen. Klicke nochmals rechts auf deinen Gegner um den Kampf abzubrechen.",
-            "[Tutorial] You are not allowed to attack other players during the tutorial. Right click again on your enemy to cancel the attack.")
-    end
-    return false
 end
 
 --- Play the sound of a successful parry.
