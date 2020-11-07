@@ -33,8 +33,12 @@ function M.MoveToField(Character)
 
     -- we define our destination
 
-    local find = Character.effects:find(13)
-    local oldPlayer
+    local find = false
+    if Character:getQuestProgress(323) == 0 then
+        find = true
+        Character:setQuestProgress(323,1)
+    end
+    local oldPlayer = false
     if not find then
         oldPlayer = true
     end
@@ -107,22 +111,6 @@ function M.MoveToField(Character)
     local FactionCheck = factions.getFaction(Character);
 
     if (not (FactionCheck.tid ~= 0)) and not oldPlayer then -- Old players and chars who are already members of a faction are unaffected and just warped
-
-        -- Abuse protection: We delete some items, if the char has more than one of them (farmed)
-        local DeleteList = {23,391,392,2763} --hammer, torch, lit torch, pick-axe (relict)
-        for i=1,#DeleteList do
-            local itemAmount = Character:countItem(DeleteList[i])
-            Character:eraseItem( DeleteList[i], (itemAmount -1))
-        end
-
-        -- We remove the newbie lte
-        find = Character.effects:find(13)
-        if find then
-            local removedEffect = Character.effects:removeEffect(13)
-            if not removedEffect then -- security check
-                Character:inform("[Error] Please contact a developer. Error: Triggerfields to factions.", Player.highPriority)
-            end
-        end
 
         -- We restore the character
         Character:setAttrib("hitpoints",10000)
