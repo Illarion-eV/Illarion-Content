@@ -387,28 +387,28 @@ end
 
 -- Transform red skeletons into weaker white skeletons (except for lichs)
 function M.weakenRedSkeletons(user, item)
-	local itemQuality = math.max(1, math.floor(item.quality/100))
+    local itemQuality = math.max(1, math.floor(item.quality/100))
     local hitArea = fieldOfRadius(item, itemQuality)
-	
-	for _, hitPosition in pairs(hitArea) do
-	
+    
+    for _, hitPosition in pairs(hitArea) do
+    
         if world:isCharacterOnField(hitPosition) then
             local character = world:getCharacterOnField(hitPosition)
-			
-			if character:getType() == Character.player then
-				user:inform("Du fühlst ein kaltes Kribbeln.", "You feel a chill tingling.", Character.lowPriority)
-				
-			elseif character:getType () == Character.monster then
+            
+            if character:getType() == Character.player then
+                user:inform("Du fühlst ein kaltes Kribbeln.", "You feel a chill tingling.", Character.lowPriority)
+                
+            elseif character:getType () == Character.monster then
                 
                 local TRANSFORMATION_MAPPING = {[201] = 111,
                                                 [202] = 115,
                                                 [203] = 115,
                                                 [204] = 115,
                                                 [206] = 111}
-				
+                
                 local monsterId = character:getMonsterType()
-				if TRANSFORMATION_MAPPING[monsterId] then
-					
+                if TRANSFORMATION_MAPPING[monsterId] then
+                    
                     local oldHP = character:increaseAttrib("hitpoints", 0)
                     hooks.setNoDrop(character)
                     hooks.setForcedDeath(character)
@@ -418,14 +418,14 @@ function M.weakenRedSkeletons(user, item)
                     world:gfx(3, hitPosition)
                     world:gfx(4, hitPosition)
                     
-				end
-				
-			end
-			
-		end
-	end
-	
-	
+                end
+                
+            end
+            
+        end
+    end
+    
+    
 end
 
 return M
