@@ -1,16 +1,13 @@
 --[[
 Illarion Server
-
 This program is free software: you can redistribute it and/or modify it under
 the terms of the GNU Affero General Public License as published by the Free
 Software Foundation, either version 3 of the License, or (at your option) any
 later version.
-
 This program is distributed in the hope that it will be useful, but WITHOUT ANY
 WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
 PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
-
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
@@ -18,6 +15,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local character = require("base.character")
 local scheduledFunction = require("scheduled.scheduledFunction")
+local hooks = require("monster.base.hooks")
 
 local M = {}
 
@@ -387,5 +385,47 @@ function M.effect_18(User,Item)
     fruitBomb(User, Item, fieldOfRadius( Item, 6 ))
 end
 
+-- Transform red skeletons into weaker white skeletons (except for lichs)
+function M.weakenRedSkeletons(user, item)
+	local itemQuality = math.max(1, math.floor(item.quality/100))
+    local hitArea = fieldOfRadius(item, itemQuality)
+	
+	for _, hitPosition in pairs(hitArea) do
+	
+        if world:isCharacterOnField(hitPosition) then
+            local character = world:getCharacterOnField(hitPosition)
+			
+			if character:getType() == Character.player then
+				user:inform("Du fühlst ein kaltes Kribbeln.", "You feel a chill tingling.", Character.lowPriority)
+				
+			elseif character:getType () == Character.monster then
+                
+                local TRANSFORMATION_MAPPING = {[201] = 111,
+                                                [202] = 115,
+                                                [203] = 115,
+                                                [204] = 115,
+                                                [206] = 111}
+				
+                local monsterId = character:getMonsterType()
+				if TRANSFORMATION_MAPPING[monsterId] then
+					
+                    local oldHP = character:increaseAttrib("hitpoints", 0)
+                    hooks.setNoDrop(character)
+                    hooks.setForcedDeath(character)
+                    character:increaseAttrib("hitpoints", -10000)
+                    local transformedSkeleton = world:createMonster(TRANSFORMATION_MAPPING[monsterId], hitPosition, 0)
+                    transformedSkeleton:setAttrib("hitpoints", oldHP)
+                    world:gfx(3, hitPosition)
+                    world:gfx(4, hitPosition)
+                    
+				end
+				
+			end
+			
+		end
+	end
+	
+	
+end
 
 return M

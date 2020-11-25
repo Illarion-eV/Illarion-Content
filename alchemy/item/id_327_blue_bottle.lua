@@ -36,48 +36,48 @@ local potionEffectId = (tonumber(Item:getData("potionEffectId")))
     if (potionEffectId >= 300) and (potionEffectId <= 399) then    -- bombs
 
         if (potionEffectId == 301) then
-            missile.effect_1( User, Item );
+            missile.effect_1( User, Item )
         elseif (potionEffectId == 302) then
-            missile.effect_2( User, Item );
+            missile.effect_2( User, Item )
         elseif (potionEffectId == 303) then
-            missile.effect_3( User, Item );
+            missile.effect_3( User, Item )
         elseif (potionEffectId == 304) then
-            missile.effect_4( User, Item );
+            missile.effect_4( User, Item )
         elseif (potionEffectId == 305) then
-            missile.effect_5( User, Item );
+            missile.effect_5( User, Item )
         elseif (potionEffectId == 306) then
-            missile.effect_6( User, Item );
+            missile.effect_6( User, Item )
         elseif (potionEffectId == 307) then
-            missile.effect_7( User, Item );
+            missile.effect_7( User, Item )
         elseif (potionEffectId == 308) then
-            missile.effect_8( User, Item );
+            missile.effect_8( User, Item )
         elseif (potionEffectId == 309) then
-            missile.effect_9( User, Item );
+            missile.effect_9( User, Item )
         elseif (potionEffectId == 310) then
-            missile.effect_10( User, Item );
+            missile.effect_10( User, Item )
         elseif (potionEffectId == 311) then
-            missile.effect_11( User, Item );
+            missile.effect_11( User, Item )
         elseif (potionEffectId == 312) then
-            missile.effect_12( User, Item );
+            missile.effect_12( User, Item )
         elseif (potionEffectId == 313) then
-            missile.effect_13( User, Item );
+            missile.effect_13( User, Item )
         elseif (potionEffectId == 314) then
-            missile.effect_14( User, Item );
+            missile.effect_14( User, Item )
         elseif (potionEffectId == 315) then
-            missile.effect_15( User, Item );
+            missile.effect_15( User, Item )
         elseif (potionEffectId == 316) then
-            missile.effect_16( User, Item );
+            missile.effect_16( User, Item )
         elseif (potionEffectId == 317) then
-            missile.effect_17( User, Item );
+            missile.effect_17( User, Item )
         elseif (potionEffectId == 318) then
-            missile.effect_18( User, Item );
-        else
-            -- unbekannter Trank
+            missile.effect_18( User, Item )
+        elseif (potionEffectId == 319) then
+            missile.weakenRedSkeletons(User, Item)
         end
         -- Deko-Effekte
-        world:gfx(36,Item.pos);
-        world:makeSound(5,Item.pos);
-        world:erase(Item,1);
+        world:gfx(36,Item.pos)
+        world:makeSound(5,Item.pos)
+        world:erase(Item,1)
     end
 end
 
