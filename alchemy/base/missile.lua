@@ -395,7 +395,7 @@ function M.weakenRedSkeletons(user, item)
     hitArea = common.Shuffle(hitArea)
     local quality = common.getItemQuality(item)
     
-    counter = 0
+    local counter = 0
     for _, hitPosition in pairs(hitArea) do
     
         if world:isCharacterOnField(hitPosition) then
