@@ -19,6 +19,7 @@ local common = require("base.common")
 local character = require("base.character")
 local scheduledFunction = require("scheduled.scheduledFunction")
 local hooks = require("monster.base.hooks")
+local base = require ("alchemy.base.alchemy")
 
 local M = {}
 
@@ -390,9 +391,11 @@ end
 
 -- Transform red skeletons into weaker white skeletons (except for lichs)
 function M.weakenRedSkeletons(user, item)
-    local itemQuality = math.max(1, math.floor(item.quality/100))
-    local hitArea = fieldOfRadius(item, itemQuality)
+    local hitArea = fieldOfRadius(item, 5)
+    hitArea = common.Shuffle(hitArea)
+    local quality = common.getItemQuality(item)
     
+    counter = 0
     for _, hitPosition in pairs(hitArea) do
     
         if world:isCharacterOnField(hitPosition) then
@@ -403,23 +406,50 @@ function M.weakenRedSkeletons(user, item)
                 
             elseif character:getType () == Character.monster then
                 
-                local TRANSFORMATION_MAPPING = {[201] = 111,
+                local TRANSFORMATION_MAPPING = {[201] = 112,
                                                 [202] = 115,
-                                                [203] = 115,
+                                                [203] = 113,
                                                 [204] = 115,
-                                                [206] = 111}
+                                                [206] = 111
+                                                }
                 
-                local monsterId = character:getMonsterType()
-                if TRANSFORMATION_MAPPING[monsterId] then
-                    
+                local originalMonsterId = character:getMonsterType()
+                if TRANSFORMATION_MAPPING[originalMonsterId] then
+                
+                    local theField = world:getField(hitPosition)
+                    local originalItemAmountOnField = theField:countItems()
                     local oldHP = character:increaseAttrib("hitpoints", 0)
-                    hooks.setNoDrop(character)
-                    hooks.setForcedDeath(character)
                     character:increaseAttrib("hitpoints", -10000)
-                    local transformedSkeleton = world:createMonster(TRANSFORMATION_MAPPING[monsterId], hitPosition, 0)
+                    local newItemAmountOnField = theField:countItems()
+                    local numberOfItemsToDelete = newItemAmountOnField - originalItemAmountOnField
+                    
+                    local deletedItems = {}
+                    for i = 1, numberOfItemsToDelete do
+                        local deleteItem = world:getItemOnField(hitPosition)
+                        table.insert(deletedItems, 1, deleteItem)
+                        world:erase(deleteItem, deleteItem.number)
+                    end
+                    
+                    local transformedSkeleton = world:createMonster(TRANSFORMATION_MAPPING[originalMonsterId], hitPosition, 0)
                     transformedSkeleton:setAttrib("hitpoints", oldHP)
+                    hooks.setNoDrop(transformedSkeleton)
+                    hooks.registerOnDeath(transformedSkeleton, function(monster) 
+                                                        for _, deletedItem in pairs(deletedItems) do 
+                                                            world:createItemFromItem(deletedItem, monster.pos, true)
+                                                            if Random.uniform() <= 0.25 then
+                                                                world:createItemFromId(Item.alchemicalSludge, 1, monster.pos, true, 333, nil)
+                                                            end
+                                                        end
+                                                    end
+                                        )
+                    
                     world:gfx(3, hitPosition)
                     world:gfx(4, hitPosition)
+                    
+                    counter = counter + 1
+                    if counter == quality then
+                        break
+                    end
                     
                 end
                 
