@@ -22,7 +22,7 @@ local M = {} -- a list that is returned to server as table
 function M.UseItem(user, sourceItem, ltstate)
   world:makeSound( 9, user.pos )
   common.InformNLS(user,
-  "Du fÃ¼hlst dich gleich viel sauberer.", -- use the same text as use bucket of self
+  "Du fühlst dich gleich viel sauberer.", -- use the same text as use bucket of self
   "You feel much cleaner.")
 end
 
