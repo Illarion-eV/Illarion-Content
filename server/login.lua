@@ -232,15 +232,23 @@ local payNow
 
 function M.onLogin( player )
 
+    --Temporary: Warp players from old Noobia to new newbie spawn
     if player.pos.z == 100 then --Old Noobia
         player:warp(position(702, 283, 0))
     end
     
+    --Inform other players about a new player
     if player:isNewPlayer() and areas.PointInArea(player.pos,"trollshaven") then
         welcomeNewPlayer(player)
     end
 
-    world:gfx(31, player.pos) --A GFX that announces clearly: A player logged in.
+    --Initiate inline tutorial
+    if player:isNewPlayer() and player.effects:find(13) == false then
+        player.effects:addEffect(LongTimeEffect(13, 1))
+    end
+
+    --A GFX that announces clearly: A player logged in.
+    world:gfx(31, player.pos) 
 
     --General welcome message
     local players = world:getPlayersOnline() --Reading all players online so we can count them
@@ -284,7 +292,7 @@ function M.onLogin( player )
     --Newbie handling
     if player:isInRangeToPosition(position(702, 283, 0), 7) and player:isNewPlayer() then --only show the dialog if the char is close to the noob spawn
         showNewbieDialog(player)
-    end --Newbie
+    end
 
     --Messages of the day
     if #messageG ~= #messageE then
