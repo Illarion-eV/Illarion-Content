@@ -88,8 +88,8 @@ itemShoes = 369
 -- 3: Quest solved, reward: 3000cp
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Viola Baywillow. She will gladly help you learn more about Illarion. Keywords: Hello, Skip tutorial, Illarion, Realms, Cadomyr, Galmair, Runewick, Gods, Crafts, Motives, Landscapes, Leaders, Politics, Laws, Founding, Gems, Quest."), "Hiho, Viola Baywillow, here to help! I know lots about the three realms of Illarion and beyond if you want to ask me anything?"
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC heißt Viola Baywillow. Sie wird dir gerne dabei helfen mehr über Illarion zu erfahren. Schlüsselwörter: Hallo, Tutorial überspringen, Illarion, Reiche, Cadomyr, Galmair, Runewick, Götter, Handwerk, Motivation, Landschaft, Anführer, Politik, Gesetze, Gründung, Edelsteine, Aufgabe."), "Hiho, ich bin Viola Baywillow und hier um dir zu helfen! Ich weiß eine ganze Menge über die drei Reiche Illarions und einige andere Dinge. Was möchtest du wissen?"
+"Help" -> inform("[Game Help] This NPC is Viola Baywillow. She will gladly help you learn more about Illarion. Keywords: Hello, Illarion, Realms, Cadomyr, Galmair, Runewick, Gods, Crafts, Motives, Landscapes, Leaders, Politics, Laws, Founding, Gems."), "Hiho, Viola Baywillow, here to help! I know lots about the three realms of Illarion and beyond if you want to ask me anything?"
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC heißt Viola Baywillow. Sie wird dir gerne dabei helfen mehr über Illarion zu erfahren. Schlüsselwörter: Hallo, Illarion, Reiche, Cadomyr, Galmair, Runewick, Götter, Handwerk, Motivation, Landschaft, Anführer, Politik, Gesetze, Gründung, Edelsteine."), "Hiho, ich bin Viola Baywillow und hier um dir zu helfen! Ich weiß eine ganze Menge über die drei Reiche Illarions und einige andere Dinge. Was möchtest du wissen?"
 
 --Proposed for deletion #2
 -- Skipping
