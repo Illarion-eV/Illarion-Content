@@ -1,6 +1,7 @@
 .*
 !.luacheckrc
 !.gitignore
+!.github
 !.quests
 illarionserver/development
 illarionserver/documentation
