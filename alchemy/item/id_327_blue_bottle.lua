@@ -23,6 +23,7 @@ local lookat = require("base.lookat")
 local common = require("base.common")
 local alchemy = require("alchemy.base.alchemy")
 local missile = require("alchemy.base.missile")
+local scheduledFunction = require("scheduled.scheduledFunction")
 
 
 local M = {}
@@ -71,7 +72,7 @@ local potionEffectId = (tonumber(Item:getData("potionEffectId")))
             missile.effect_17( User, Item )
         elseif (potionEffectId == 318) then
             missile.effect_18( User, Item )
-        elseif (potionEffectId == 319) then
+        elseif (potionEffectId == 320) then
             missile.weakenRedSkeletons(User, Item)
         end
         -- Deko-Effekte
@@ -104,6 +105,34 @@ function M.MoveItemAfterMove(User, SourceItem, TargetItem)
     end
 
     if (missileStatus == "deactivated") or (missileStatus == "") then
+        if potionEffectId == 319 then
+            local itemPos = position(TargetItem.pos.x, TargetItem.pos.y, TargetItem.pos.z)
+            local theField = world:getField(itemPos)
+            if TargetItem:getType() == 3 and common.GetGroundType(theField:tile()) == common.GroundType.snow then
+                local timeStamp = world:getTime("unix")
+                TargetItem:setData("identifierTimeStamp", timeStamp)
+                world:changeItem(TargetItem)
+                local potionQuality = TargetItem.quality
+                scheduledFunction.registerFunction(360, function()
+                                                            local theField = world:getField(itemPos)
+                                                            if theField:countItems() > 0 then
+                                                                local deleted = common.DeleteItemFromStack(itemPos, {itemId = 327, quality = potionQuality, potionEffectId = 319, identifierTimeStamp = timeStamp})
+                                                                if deleted then
+                                                                    world:createItemFromId(327, 1, itemPos, true, potionQuality, {potionEffectId = 320, filledWith = "potion"})
+                                                                    world:gfx(4, itemPos)
+                                                                end
+                                                            end
+                
+                                                          end)
+            else
+                if TargetItem:getData("identifierTimeStamp") ~= "" then
+                    TargetItem:setData("identifierTimeStamp", "")
+                    world:changeItem(TargetItem)
+                end
+            end
+        
+        end
+        
         return true; -- missile is deactivated
     end
 
