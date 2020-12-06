@@ -1,13 +1,13 @@
 How to install the syntax check before the local commits:
 
-1.	Copy the file "pre-commit" to ".git/hooks" in your git repository folder ("scripts", should be two folder level above of this)
-2. 	For UNIX systems: make sure the 4. line in ".git/hooks/pre-commit" is uncommented, so it should be:
-		UNIX_FLAG=0
-	For Windows systems: make sure the 4. line in ".git/hooks/pre-commit" is commented (should be by default), so it should be:
-		# UNIX_FLAG=0
-3.	For UNIX systems: make sure the "pre-commit" in ".git/hooks" is executable. Type in console (being in the respective directory):
-		chmod +x pre-commit
-4.	Done!
+1.  Copy the file "pre-commit" to ".git/hooks" in your git repository folder ("scripts", should be two folder level above of this)
+2.  For UNIX systems: make sure the 4. line in ".git/hooks/pre-commit" is uncommented, so it should be:
+        UNIX_FLAG=0
+    For Windows systems: make sure the 4. line in ".git/hooks/pre-commit" is commented (should be by default), so it should be:
+        # UNIX_FLAG=0
+3.  For UNIX systems: make sure the "pre-commit" in ".git/hooks" is executable. Type in console (being in the respective directory):
+        chmod +x pre-commit
+4.  Done!
 
 
 For Windows:
