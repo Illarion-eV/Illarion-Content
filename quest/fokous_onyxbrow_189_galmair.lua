@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (189, 'quest.fokous_onyxbrow_189_galmair');
 
@@ -131,7 +131,7 @@ QuestTarget[1] = {position(348, 273, 0), position(357,272,0)}
 QuestTarget[2] = {position(348, 273, 0), position(357,272,0)}
 QuestTarget[3] = {position(348, 273, 0), position(357,272,0)}
 QuestTarget[4] = {position(348, 273, 0), position(357,272,0)}
-QuestTarget[5] = {position(348, 273, 0), position(357,272,0)} 
+QuestTarget[5] = {position(348, 273, 0), position(357,272,0)}
 QuestTarget[6] = {position(348, 273, 0), position(357,272,0)}
 QuestTarget[7] = {position(348, 273, 0)}
 QuestTarget[8] = {position(348, 273, 0)}

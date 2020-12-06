@@ -82,12 +82,12 @@ function M.LookAtItem(User,Item)
     if (Item.pos == bulletinBoard) then
         lookAt = bulletinLookAt(User, Item)
     end
- 
+
     -- Eliza's trading post
     if (Item.pos == tradingPost) then
         lookAt = tradingPostLookAt(User, Item)
     end
-    
+
     -- Bookrest for townManagement
     local AmountTM = #townManagement.townManagmentItemPos
     for i = 1,AmountTM do
@@ -195,12 +195,12 @@ function M.UseItem(User, SourceItem)
     if (SourceItem.pos == bulletinBoard) then
         showBulletinBoard(User, Item)
     end
-    
+
     -- Eliza's trading post
     if (SourceItem.pos == tradingPost) then
         showTradingPost(User, Item)
     end
-    
+
     -- Bookrest for the Evilrock
     if (SourceItem.pos == evilrockBookrest) then
         local controlpannel = world:getPlayersInRangeOf(position(969,173,0), 8)

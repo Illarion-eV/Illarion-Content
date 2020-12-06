@@ -236,7 +236,7 @@ function M.onLogin( player )
     if player.pos.z == 100 then --Old Noobia
         player:warp(position(702, 283, 0))
     end
-    
+
     --Inform other players about a new player
     if player:isNewPlayer() and areas.PointInArea(player.pos,"trollshaven") then
         welcomeNewPlayer(player)
@@ -248,7 +248,7 @@ function M.onLogin( player )
     end
 
     --A GFX that announces clearly: A player logged in.
-    world:gfx(31, player.pos) 
+    world:gfx(31, player.pos)
 
     --General welcome message
     local players = world:getPlayersOnline() --Reading all players online so we can count them
@@ -332,7 +332,7 @@ function M.onLogin( player )
     if not found then
         player.effects:addEffect(LongTimeEffect(gods_common.EFFECT_ID, 10))
     end
-    
+
     --Handle pets
     petsystem.loadPet(player)
 end
@@ -493,10 +493,10 @@ function PayOutWage(Recipient, town)
                       gemsByTown["Galmair"]={gems.SAPPHIRE, gems.OBSIDIAN}
                 local firstGemId = gems.getMagicGemId(gemsByTown[town][1])
                 local secondGemId = gems.getMagicGemId(gemsByTown[town][2])
-                
+
                 log(string.format("[gems] %s got %d (%d,%d) magic gems from %s. Character's rank: %d",
                     character.LogText(Recipient), RankedWage, firstGem, secondGem, town, RecipientRk))
-                
+
                 if firstGem > 0 then
                     endname = endname .. createMagicGem(firstGemId, firstGem, Recipient)
                 end
@@ -556,7 +556,7 @@ function payNow(User)
             "You are too poor to pay taxes to "..town..".")
         return infText
     end
-    
+
     -- try to get the payable tax from the depots first
     for i = 1, #(depNr) do
         if tax<=valDepot[i] then -- if you fild all you need in the first/ next depot, take it.

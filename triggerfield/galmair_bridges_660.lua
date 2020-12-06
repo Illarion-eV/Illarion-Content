@@ -112,7 +112,7 @@ function M.triggerAmbush(char, monsterPositions)
         else
             level = math.random(1,16) --selection of all monsters for good fighter
         end
-        
+
         local enemy
         for i=1, #monsterPositions do
             enemy = monster[level][math.random(1,#monster[level])]
@@ -135,14 +135,14 @@ function M.fightAmbush(char)
             luckybunch = true --if non-galmairians are together with galmairians
         end
     end
-    
+
     if luckybunch then
         local monsters = world:getMonstersInRangeOf(char.pos, 35); --get all monster in player range
         for i,mon in ipairs(monsters) do
             character.DeathAfterTime(mon,math.random(5,10),0,33,true) --kill all monsters
         end
     end
-    
+
     for i,player in ipairs(hero) do
         if factions.getMembership(player) == 3 then --check if galmairians are there
             player:inform("Bevor du auch noch reagieren kannst, schießen Pfeile an dir vorbei und töten deine Widersacher. Du blickst in die Richtung von wo die Pfeile kamen und siehst die Wachen von Galmair dir mit ihren Armbrüsten zuwinken. Gut, dass du dem Don deine Steuern zahlst und er dich beschützt!","Even before you are able to react, arrows shoot around you and take down your enemies. You look to the direction the arrows originated from and see guards of Galmair waving to you with their crossbows. Good, you have paid your taxes to the Don and he protects you!")    --praise the don message for the player

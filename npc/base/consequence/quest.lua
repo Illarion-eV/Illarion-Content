@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 local consequence = require("npc.base.consequence.consequence")
@@ -46,14 +46,14 @@ end
 function _quest_helper_add(self, npcChar, player)
     local value = tools.get_value(self.npc, self.value, self.valuetype)
     local currState = player:getQuestProgress(self.questid)
-    
+
     player:setQuestProgress(self.questid, currState + value)
 end
 
 function _quest_helper_sub(self, npcChar, player)
     local value = tools.get_value(self.npc, self.value, self.valuetype)
     local currState = player:getQuestProgress(self.questid)
-    
+
     player:setQuestProgress(self.questid, currState - value)
 end
 

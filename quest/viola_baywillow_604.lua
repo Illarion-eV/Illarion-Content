@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (604, 'quest.viola_baywillow_604');
 
@@ -42,7 +42,7 @@ Description[ENGLISH][3] = "Have you already visited the other two Realm Informan
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
 local Start = {693, 292, 0}
- 
+
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}

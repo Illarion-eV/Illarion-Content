@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --- Base Script: Class
 --
@@ -87,7 +87,7 @@ local function class(base, init)
         setmetatable(obj,c)
         if init then
             init(obj,...)
-        else 
+        else
             -- make sure that any stuff from the base class is initialized!
             if base and base.init then
                 base.init(obj, ...)
@@ -95,10 +95,10 @@ local function class(base, init)
         end
         return obj
     end
-    
+
     c.init = init
     c.is_a = __default_is_a
-    
+
     setmetatable(c, mt)
     return c
 end

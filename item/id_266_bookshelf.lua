@@ -269,7 +269,7 @@ function M.UseItem(user, item)
     if #bookIds > 0 then
         user:requestSelectionDialog(dialog)
     end
-    
+
     -- Akaltut Quest
     if item.pos == position(472, 839, -9) and user:getQuestProgress(526) == 15 then
         user:setQuestProgress(526, 16)

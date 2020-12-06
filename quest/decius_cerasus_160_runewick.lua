@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (160, 'quest.decius_cerasus_160_runewick');
 
@@ -111,31 +111,31 @@ local Start = {896, 849, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {position(896, 849, 0)} 
-QuestTarget[2] = {position(896, 849, 0)} 
-QuestTarget[3] = {position(896, 849, 0)} 
-QuestTarget[4] = {position(896, 849, 0)} 
-QuestTarget[5] = {position(896, 849, 0)} 
-QuestTarget[6] = {position(896, 849, 0)} 
-QuestTarget[7] = {position(896, 849, 0)} 
-QuestTarget[8] = {position(896, 849, 0)} 
-QuestTarget[9] = {position(896, 849, 0)} 
-QuestTarget[10] = {position(896, 849, 0)} 
-QuestTarget[11] = {position(896, 849, 0)} 
-QuestTarget[12] = {position(896, 849, 0)} 
-QuestTarget[13] = {position(896, 849, 0)} 
-QuestTarget[14] = {position(896, 849, 0)} 
-QuestTarget[15] = {position(896, 849, 0)} 
-QuestTarget[16] = {position(896, 849, 0)} 
-QuestTarget[17] = {position(896, 849, 0)} 
-QuestTarget[18] = {position(896, 849, 0)} 
-QuestTarget[19] = {position(896, 849, 0)} 
-QuestTarget[20] = {position(896, 849, 0)} 
-QuestTarget[21] = {position(896, 849, 0)} 
-QuestTarget[22] = {position(896, 849, 0)} 
-QuestTarget[23] = {position(896, 849, 0)} 
-QuestTarget[24] = {position(896, 849, 0)} 
-QuestTarget[25] = {position(896, 849, 0)} 
+QuestTarget[1] = {position(896, 849, 0)}
+QuestTarget[2] = {position(896, 849, 0)}
+QuestTarget[3] = {position(896, 849, 0)}
+QuestTarget[4] = {position(896, 849, 0)}
+QuestTarget[5] = {position(896, 849, 0)}
+QuestTarget[6] = {position(896, 849, 0)}
+QuestTarget[7] = {position(896, 849, 0)}
+QuestTarget[8] = {position(896, 849, 0)}
+QuestTarget[9] = {position(896, 849, 0)}
+QuestTarget[10] = {position(896, 849, 0)}
+QuestTarget[11] = {position(896, 849, 0)}
+QuestTarget[12] = {position(896, 849, 0)}
+QuestTarget[13] = {position(896, 849, 0)}
+QuestTarget[14] = {position(896, 849, 0)}
+QuestTarget[15] = {position(896, 849, 0)}
+QuestTarget[16] = {position(896, 849, 0)}
+QuestTarget[17] = {position(896, 849, 0)}
+QuestTarget[18] = {position(896, 849, 0)}
+QuestTarget[19] = {position(896, 849, 0)}
+QuestTarget[20] = {position(896, 849, 0)}
+QuestTarget[21] = {position(896, 849, 0)}
+QuestTarget[22] = {position(896, 849, 0)}
+QuestTarget[23] = {position(896, 849, 0)}
+QuestTarget[24] = {position(896, 849, 0)}
+QuestTarget[25] = {position(896, 849, 0)}
 --QuestTarget[1] = {position(x, y, 100), position(x, y, 100)}
 
 -- Insert the quest status which is reached at the end of the quest

@@ -82,7 +82,7 @@ function M.resetMapitem()
                     world:erase(bridgePart, bridgePart.number)
                 end
         end
-       
+
   -- reset akultut exploded skull
   if (world:getItemOnField(position(482, 838, -9)).id ~= 2038) then
     local skull = world:createItemFromId(2038, 1, position(482, 838, -9), true, 333, nil)

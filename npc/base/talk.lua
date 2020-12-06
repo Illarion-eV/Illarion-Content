@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --- Base NPC script for talking NPCs
 --
@@ -33,20 +33,20 @@ local talkNPC = class(function(self, rootNPC)
         return
     end
     self["_parent"] = rootNPC
-    
+
     self["_entry"] = nil
     self["_cycleText"] = nil
-    
+
     self["_state"] = 0
     self["_saidNumber"] = nil
-    
+
     self["_nextCycleText"] = -1
 end)
 
 local talkNPCEntry = class(function(self)
     self["_trigger"] = {}
     self["_conditions"] = {}
-    
+
     self["_responses"] = {}
     self["_responseProcessors"] = {}
     self["_responsesCount"] = 0
@@ -59,7 +59,7 @@ function talkNPC:addCycleText(germanText, englishText)
         self._cycleText = messages.Messages()
         self._parent:addCycle(self)
     end
-    
+
     self._cycleText:addMessage(germanText, englishText)
 end
 
@@ -67,19 +67,19 @@ function talkNPC:addTalkingEntry(newEntry)
     if (newEntry == nil or not newEntry:is_a(talkNPCEntry)) then
         return
     end
-    
+
     if (self._entry == nil) then
         self._parent:addRecvText(self)
         self._entry = {}
     end
-    
+
     newEntry:setParent(self)
     table.insert(self._entry, newEntry)
 end
 
 function talkNPC:receiveText(npcChar, texttype, player, text)
     local result = false
-    
+
     for _, entry in pairs(self._entry) do
         if entry:checkEntry(npcChar, texttype, player, text) then
             entry:execute(npcChar, player)
@@ -87,7 +87,7 @@ function talkNPC:receiveText(npcChar, texttype, player, text)
             return true
         end
     end
-    
+
     return result
 end
 
@@ -103,7 +103,7 @@ function talkNPC:nextCycle(npcChar, counter)
     else
         self._nextCycleText = self._nextCycleText - counter
     end
-    
+
     return self._nextCycleText
 end
 
@@ -123,7 +123,7 @@ function talkNPCEntry:setParent(npc)
     for _, value in pairs(self._consequences) do
         value:setNPC(npc)
     end
-    
+
     self._parent = npc
 end
 
@@ -131,7 +131,7 @@ function talkNPCEntry:addCondition(c)
     if c == nil or not c:is_a(condition) then
         return
     end
-    
+
     table.insert(self._conditions, c)
     if (self._parent ~= nil) then
         c:setNPC(self._parent)
@@ -143,9 +143,9 @@ function talkNPCEntry:addResponse(text)
         return
     end
     table.insert(self._responses, text)
-    
+
     self._responsesCount = self._responsesCount + 1
-    
+
     for _, processor in pairs(processorList) do
         if processor:check(text) then
             if (self._responseProcessors[self._responsesCount] == nil) then
@@ -160,7 +160,7 @@ function talkNPCEntry:addConsequence(c)
     if c == nil or not c:is_a(consequence) then
         return
     end
-    
+
     table.insert(self._consequences, c)
     if (self._parent ~= nil) then
         c:setNPC(self._parent)
@@ -179,7 +179,7 @@ function talkNPCEntry:checkEntry(npcChar, texttype, player, text)
                     break
                 end
             end
-            
+
             if conditionsResult then
                 return true
             end
@@ -190,20 +190,20 @@ end
 function talkNPCEntry:execute(npcChar, player)
     if (self._responsesCount > 0) then
         local selectedResponse = math.random(1, self._responsesCount)
-        
+
         local responseText = self._responses[selectedResponse]
         local responseProcessors = self._responseProcessors[selectedResponse]
-        
+
         if (responseProcessors ~= nil) then
             for _, processor in pairs(responseProcessors) do
                 responseText = processor:process(player, self._parent, npcChar, responseText)
             end
         end
-        
+
         local textType, text = tools.get_text_and_talktype(responseText)
-        npcChar:talk(textType, text)        
+        npcChar:talk(textType, text)
     end
-    
+
     for _, consequence in pairs(self._consequences) do
         if consequence then
             consequence:perform(npcChar, player)

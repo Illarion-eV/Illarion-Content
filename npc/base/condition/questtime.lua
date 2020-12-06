@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 local repeatable_quests = require("npc.base.repeatable_quests")
@@ -29,7 +29,7 @@ function(self, comp, quest, month, day, hour)
     self["day"], self["daytype"] = tools.set_value(day)
     self["hour"], self["hourtype"] = tools.set_value(hour)
     self["quest"] = quest
-    
+
     if (comp == ">") then
         self["check"] = _questtime_helper_greater
     elseif (comp == "<") then
@@ -44,7 +44,7 @@ function _questtime_helper_greater(self, npcChar, texttype, player)
     local day = tools.get_value(self.npc, self.day, self.daytype)
     local hour = tools.get_value(self.npc, self.hour, self.hourtype)
     local quest = self.quest
-    
+
     return repeatable_quests.checkIfTimesExpired(player, quest, month, day, hour)
 end
 
@@ -53,8 +53,8 @@ function _questtime_helper_lesser(self, npcChar, texttype, player)
     local day = tools.get_value(self.npc, self.day, self.daytype)
     local hour = tools.get_value(self.npc, self.hour, self.hourtype)
     local quest = self.quest
-    
-    return not repeatable_quests.checkIfTimesExpired(player, quest, month, day, hour) 
+
+    return not repeatable_quests.checkIfTimesExpired(player, quest, month, day, hour)
 end
 
 return questtime

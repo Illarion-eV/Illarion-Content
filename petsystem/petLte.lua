@@ -31,7 +31,7 @@ local petsFarAwayMessageWasSent = {}
 
 function M.addEffect( theEffect, pet)
     local owner = base.getOwner(pet)
-    
+
     if not formerPositionOfOwners[owner.id] then
         formerPositionOfOwners[owner.id] = position(owner.pos.x, owner.pos.y, owner.pos.z)
     end
@@ -40,16 +40,16 @@ end
 local petsFarAwayMessageWasSent = {}
 
 local function walkWithOwner(pet, owner, allowedDistance)
-    
+
     -- Assume the player was warped by some means if the z position suddnely changed or the distance is unusually high for walking
     if (owner.pos.z ~= pet.pos.z or pet:distanceMetricToPosition(owner.pos) > 4) then
-        
+
         -- Warp the pet as well, if it was within a distance of <= 2 before the player was warped
-        if pet:distanceMetricToPosition(formerPositionOfOwners[owner.id]) <= 2 then 
+        if pet:distanceMetricToPosition(formerPositionOfOwners[owner.id]) <= 2 then
             pet:warp(common.getFreePos(owner.pos, 1, true))
         end
     end
-    
+
     if pet:distanceMetric(owner) > maxDistance then
         if not petsFarAwayMessageWasSent[pet.id] then
             pet.waypoints:clear()
@@ -66,24 +66,24 @@ local function walkWithOwner(pet, owner, allowedDistance)
             pet:setOnRoute(true)
         end
     end
-    
+
 end
 
-local function petDown(pet)  
+local function petDown(pet)
     pet.movepoints = 0
 end
 
 function M.callEffect(petEffect, pet)
-    
+
     local owner = base.getOwner(pet)
     if not owner then
         return false
     end
-    
+
     if pet:distanceMetric(owner) < maxDistance and petsFarAwayMessageWasSent[pet.id] then
         petsFarAwayMessageWasSent[pet.id] = nil
     end
-    
+
     local command = base.getCommand(owner)
     if command == base.follow or (command == base.attack and fightingutil.getSelectedEnemyId(pet.id) == false) then
         walkWithOwner(pet, owner, 3)
@@ -94,13 +94,13 @@ function M.callEffect(petEffect, pet)
     elseif command == base.down then
         petDown(pet, owner)
     end
-    
+
     formerPositionOfOwners[owner.id] = position(owner.pos.x, owner.pos.y, owner.pos.z)
-    
+
     base.savePetPosition(owner, position(pet.pos.x, pet.pos.y, pet.pos.z))
     local hp = pet:increaseAttrib("hitpoints", 0)
-    base.savePetHitpoints(owner, hp)     
-    
+    base.savePetHitpoints(owner, hp)
+
     petEffect.nextCalled = 3
     return true
 end

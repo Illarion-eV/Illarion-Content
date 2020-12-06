@@ -64,7 +64,7 @@ registerNewPet{
 }
 
 local function extractCommand(text, monster)
-    
+
     for i = 1, #commandKeyWords do
         for j = 1, #commandKeyWords[i] do
             local checkCommand = commandKeyWords[i][j]
@@ -86,7 +86,7 @@ local function extractCommand(text, monster)
             end
         end
     end
-    
+
     return false
 end
 
@@ -99,19 +99,19 @@ local targetEnemy = {}
 function M.receiveText(pet, textType, text, speaker)
 
     if base.isPetOf(pet, speaker) then
-        
+
         local text = string.lower(text)
         local petName = base.getPetName(speaker)
 
         if petName and string.find(text, string.lower(petName)) then
             local newCommand = extractCommand(text, pet)
             if newCommand then
-                
+
                 if newCommand == base.attack then
                     local selectedEnemyId = fightingutil.getSelectedEnemyId(speaker.id)
                     if selectedEnemyId then
                         targetEnemy[pet.id] = selectedEnemyId
-                    else    
+                    else
                         return
                     end
                 else
@@ -131,26 +131,26 @@ function M.receiveText(pet, textType, text, speaker)
                         end
                     end
                 end
-                
+
                 base.saveCommand(speaker, newCommand)
             elseif string.find(text, "move") or string.find(text, "beweg") then
                 petMove(pet, speaker)
             end
         end
     end
-    
+
 end
 
 function M.onDeath(pet)
 
     targetEnemy[pet.id] = nil
-    
+
     local owner = base.getOwner(pet)
     if owner then
         base.savePetHitpoints(owner, 0)
         base.removeIsPetOf(pet)
         base.removePetByOwner(owner)
-    
+
         if base.isPetProtectedFromDeath(owner) then
             owner:inform("Dein tierischer Begleiter hat seine Lebenskraft verloren. Doch eine warme, sanfte Stimme, die aus dir selbst zu kommen scheint, erinnert dich, Oldras Gnade für deinen Gefährten zu suchen.", "Your animal companion's life energy runs out, but a soft and warm voice, seemingly coming from somwhere within yourself, reminds you to search for Oldra's grace for your companion.", Player.highPriority)
         else
@@ -161,15 +161,15 @@ function M.onDeath(pet)
 end
 
 function M.useMonster(pet, user)
-    
+
     if base.isPetOf(pet, user) then
-    
+
         local callback = function(dialog)
             local success = dialog:getSuccess()
             if success then
                 local selected = dialog:getSelectedIndex()+1
                 if selected == 1 then
-                    
+
                     if base.isPetProtectedFromDeath(user) then
                         user:inform("Das Halsband deines tierischen Freundes beinhaltet schon drei latent magische Edelsteine", "The collar of you animal friend already contains three latent magical gems.", Player.highPriority)
                     else
@@ -183,16 +183,16 @@ function M.useMonster(pet, user)
                             end
                         end
                         gemCounter = math.min(gemCounter, 3)
-                        
+
                         if gemCounter < 3 then
                             user:inform("Drei latent magische Edelsteine benötigst du, um deinen Begleiter vor dem Tod zu bewahren.", "Three latent magical gems does it take to save your companion from death.", Player.highPriority)
                         else
                             for _, theGem in pairs(gemItems) do
-                                
+
                                 local deleteAmount = math.min(gemCounter, theGem.number)
                                 world:erase(theGem, deleteAmount)
                                 gemCounter = gemCounter - deleteAmount
-                                
+
                                 if gemCounter <= 0 then
                                     break
                                 end
@@ -203,20 +203,20 @@ function M.useMonster(pet, user)
                     end
                 end
             end
-        
+
         end
-    
+
         local dialog = SelectionDialog(base.getPetName(user), common.GetNLS(user, "Du benötigst drei magische latente Steine in deinem Gürtel.", "You need to have three latent magic gems in your belt."), callback)
-    
+
         dialog:addOption(0, common.GetNLS(user, "Halsband mit drei magischen Edelsteinen versehen", "Put three magical gems into the collar"))
-        
+
         user:requestSelectionDialog(dialog)
     end
 
 end
 
 function M.setTarget(pet, candidateList)
-    
+
     local owner = base.getOwner(pet)
     local newTarget = false
     if owner and base.getCommand(owner) == base.attack then
@@ -228,11 +228,11 @@ function M.setTarget(pet, candidateList)
             end
         end
     end
-    
+
     if newTarget then
         return newTarget
     end
-    
+
     return 0
 end
 

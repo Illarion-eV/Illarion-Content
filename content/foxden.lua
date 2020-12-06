@@ -84,7 +84,7 @@ end
 
 local function returnFox()
     local foxes =  world:getMonstersInRangeOf(denEntrance,16)
-    
+
     if #foxes ~= 0 then
         for _,fox in ipairs(foxes) do
             fox:talk(Character.say, "#me schaut sich erschrocken um und rennt zurück.",
@@ -153,7 +153,7 @@ local function createPupFox()
     fox.waypoints:addWaypoint(posBones3)
     fox.waypoints:addWaypoint(pupSpot4)
     fox:setOnRoute(true)
-    
+
     feededFoxes = feededFoxes + 4
 end
 
@@ -172,7 +172,7 @@ function M.tryFeeding(Item, char)
         common.InformNLS(char, "Gerade wurde gefüttert. Warte noch etwas.", "The cubs were already fed recently. Please wait a few minutes before trying again.")
         return
     end
-    
+
     if not common.isInList(Item.id,foxDietItems) then
         -- reject wrong items
         world:createItemFromItem(Item, refuseFeedingField, true)
@@ -223,7 +223,7 @@ function M.foxAbortRoute(fox)
             fox.movepoints = fox.movepoints - 260
             fox.waypoints:addWaypoint(denEntrance)
             fox:setOnRoute(true)
-        
+
         else
             common.TurnTo(fox,emptyPlate)
             fox:talk(Character.say, "#me schlingt das Futter eifrig hinunter.",

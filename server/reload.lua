@@ -32,7 +32,7 @@ function M.onReload()
     lever.init()
     granorsHut.potionReplacer()
     shipmasterParchments.checkParchments()
-    
+
     local playersOnline = world:getPlayersOnline()
     for _, player in pairs(playersOnline) do
         petsystemBase.loadPet(player)

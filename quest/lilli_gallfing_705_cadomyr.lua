@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (705, 'quest.lilli_gallfing_705_cadomyr');
 
@@ -73,11 +73,11 @@ local Start = {135, 576, 0}
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
 QuestTarget[1] = {position(135, 576, 0), position(63, 654, 0)} -- Sheep
-QuestTarget[2] = {position(135, 576, 0)} 
+QuestTarget[2] = {position(135, 576, 0)}
 QuestTarget[3] = {position(135, 576, 0), position(134, 572, 0), position(141, 575, 0)} -- Spinning wheel and loom
-QuestTarget[4] = {position(135, 576, 0)} 
+QuestTarget[4] = {position(135, 576, 0)}
 QuestTarget[5] = {position(135, 576, 0), position(137, 572, 0)} -- Tailoring table
-QuestTarget[6] = {position(135, 576, 0)} 
+QuestTarget[6] = {position(135, 576, 0)}
 QuestTarget[7] = {position(135, 576, 0)}
 QuestTarget[8] = {position(135, 576, 0)}
 QuestTarget[9] = {position(135, 576, 0)}

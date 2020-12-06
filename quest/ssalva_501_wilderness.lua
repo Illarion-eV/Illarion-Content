@@ -150,8 +150,8 @@ monsterQuests.addQuest{
     monsterName = {german = "friedlichen Untoten", english = "peaceful undead"},
     npcName = "Ssalva",
     monsterIds = {116,106} -- worker mummies and friendly skeletons
-}    
-    
+}
+
 monsterQuests.addQuest{
     questId = 501,
     locations = {

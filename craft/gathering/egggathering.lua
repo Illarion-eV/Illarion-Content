@@ -40,7 +40,7 @@ function M.StartGathering(User, SourceItem, ltstate)
     local EGG = 1150
 
     local gatheringBonus=shared.getGatheringBonus(User, nil)
-    
+
     local egggathering = gathering.GatheringCraft:new{LeadSkill = Character.husbandry, LearnLimit = 100}; -- egg collecting
     egggathering:AddRandomPureElement(User,gathering.prob_element*gatheringBonus); -- Any pure element
     egggathering:SetTreasureMap(User,gathering.prob_map*gatheringBonus,"Unter dem Nest findest du eine Karte. Kein gutes Versteck!","Under the nest, you find a map. Not a good hiding place.");
@@ -48,7 +48,7 @@ function M.StartGathering(User, SourceItem, ltstate)
     egggathering:AddRandomItem(249,1,333,{},gathering.prob_occasionally,"Für dieses Nest wurde ein ganzes Bündel Getreide als Nistmaterial verwendet.","A bundle of grain was used as nesting material for this nest."); --bundle of grain
     egggathering:AddRandomItem(463,1,333,{},gathering.prob_frequently,"Du findest eine besonders große Feder, mit der man sicher auch gut schreiben kann.","You find a big feather that looks suitable for writing."); --Quill
     egggathering:AddRandomItem(259,1,333,{},gathering.prob_rarely,"Du stibitzt etwas Hühnerfutter aus dem Nest.","You snitch some chicken food from the nest."); --grain
-    
+
     common.ResetInterruption( User, ltstate );
     if ( ltstate == Action.abort ) then -- work interrupted
         User:talk(Character.say, "#me unterbricht "..common.GetGenderText(User, "seine", "ihre").." Arbeit.", "#me interrupts "..common.GetGenderText(User, "his", "her").." work.")

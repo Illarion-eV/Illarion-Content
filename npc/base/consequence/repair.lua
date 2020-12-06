@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 local consequence = require("npc.base.consequence.consequence")
@@ -27,7 +27,7 @@ function(self)
 end)
 
 function _repair_helper(self, npcChar, player)
-    base_repair.repairDialog(npcChar, player) 
+    base_repair.repairDialog(npcChar, player)
 end
 
 return repair

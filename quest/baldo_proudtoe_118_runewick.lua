@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (118, 'quest.baldo_proudtoe_118_runewick');
 
@@ -50,9 +50,9 @@ local Start = {941, 790, 0}
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
 QuestTarget[1] = {position(868, 861, 0), position(792, 819, 0), position(792, 777, 0)} -- Apple tree
-QuestTarget[2] = {position(868, 861, 0)} 
+QuestTarget[2] = {position(868, 861, 0)}
 QuestTarget[3] = {position(868, 861, 0), position(872, 864, 0)} -- Bush
-QuestTarget[4] = {position(868, 861, 0)} 
+QuestTarget[4] = {position(868, 861, 0)}
 
 
 -- Insert the quest status which is reached at the end of the quest

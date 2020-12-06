@@ -25,13 +25,13 @@ function M.bringBackPet(character, altar)
         base.savePetHitpoints(character, 10000)
         local spawnPosition = common.getFreePos(character.pos, 1)
         base.savePetPosition(character, spawnPosition)
-        world:gfx(31, spawnPosition)            
+        world:gfx(31, spawnPosition)
         world:gfx(53, altar.pos)
         base.loadPet(character)
         base.removeIsPetProtectedFromDeath(character)
         return true
     end
-end  
+end
 
 
 return M

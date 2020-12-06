@@ -101,13 +101,13 @@ end
 
 local function gmSetSpawnRange(user,item)
     local thisInputDialog = function (dialog)
-    
+
         if (not dialog:getSuccess()) then
             return
         end
-        
+
         local input = dialog:getInput()
-        
+
         if not common.IsNilOrEmpty(input) then
             local value = (tonumber(input))
             if value == nil then
@@ -120,7 +120,7 @@ local function gmSetSpawnRange(user,item)
             M.gmSpawnMob(user,item)
         end
     end
-    
+
     user:requestInputDialog(InputDialog("Spawn Mob Selection",
                                         "Enter the range for the spawn area\nCurrent range: "..tostring(gmGetSpawnRange(item)).." tiles",
                                         false, 255, thisInputDialog))
@@ -139,13 +139,13 @@ end
 
 local function gmSetSpawnSize(user,item)
     local thisInputDialog = function (dialog)
-    
+
         if (not dialog:getSuccess()) then
             return
         end
-        
+
         local input = dialog:getInput()
-        
+
         if not common.IsNilOrEmpty(input) then
             local value = (tonumber(input))
             if value == nil then
@@ -158,7 +158,7 @@ local function gmSetSpawnSize(user,item)
             M.gmSpawnMob(user,item)
         end
     end
-    
+
     user:requestInputDialog(InputDialog("Spawn Mob Selection",
                                         "Enter the size for the mob\nCurrent size: "..tostring(gmGetSpawnSize(item)).." monsters",
                                         false, 255, thisInputDialog))

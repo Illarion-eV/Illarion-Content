@@ -305,7 +305,7 @@ treasureContents[2] = {
 {3553,1}, --copper ring
 {3554,1}, --silver amulet
 {3555,1}, --silver ring
-{3558,1} --copper amulet  
+{3558,1} --copper amulet
 }
 treasureContents[3] = {
 
@@ -462,7 +462,7 @@ treasureContents[3] = {
 {88,1}, --longaxe
 {1038,1}, --snake spear
 {293,1} --javelin
-    
+
 }
 treasureContents[4] = {
 
@@ -601,7 +601,7 @@ treasureContents[5] = {
 {2302,1}, --gynkese mercenary's helmet
 {3546,1}, --copper emerald amulet
 {3547,1} --copper emerald ring
-    
+
 }
 treasureContents[6] = {
 
@@ -656,7 +656,7 @@ treasureContents[6] = {
 {698,1}, --serinjah leather boots
 {699,1}, --salkamaerian steel shoes
 {770,1} --knight boots
-    
+
 }
 treasureContents[7] = {
 

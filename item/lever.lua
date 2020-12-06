@@ -316,7 +316,7 @@ function M.init()
 end
 
 function M.UseItem(User, SourceItem, ltstate)
-    
+
     if SourceItem:getData("oldSlimeFeeding") == "true" then
         oldSlimeFeeding.useLever(User, SourceItem)
     end

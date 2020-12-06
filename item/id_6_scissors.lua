@@ -33,7 +33,7 @@ local function getButterfly(User)
     local BUTTERFLIES = {3634, 3635, 3636, 3637}
     local foundItem
     local frontItem = common.GetFrontItem(User)
-    
+
     for i, butterfly in pairs(BUTTERFLIES) do
         if (frontItem ~= nil and frontItem.id == butterfly) then
             foundItem = frontItem
@@ -49,9 +49,9 @@ local function getButterfly(User)
             end
         end
     end
-    
+
     return foundItem
-    
+
 end
 
 local function getLoom(User)
@@ -101,14 +101,14 @@ end
 function M.UseItem(User, SourceItem, ltstate)
 
     local target;
- 
+
     --check for butterflies
     target = getButterfly(User)
     if (target ~= nil) then
         silkcutting.StartGathering(User, target, ltstate)
         return
     end
- 
+
     -- check for sheep
     target = getSheep(User);
     if (target ~= nil) then

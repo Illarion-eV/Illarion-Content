@@ -267,7 +267,7 @@ function M.onAttack(Attacker, Defender)
         -- Let's don't attack now.
         return
     end
-    
+
     -- Store the enemey as the current target of this player or a player's pet
     if character.IsPlayer(Attacker) or petBase.getOwner(Attacker) then
         fightingutil.setSelectedEnemyId(Attacker.id, Defender.id)
@@ -477,7 +477,7 @@ function ArmourAbsorption(Attacker, Defender, Globals)
     if character.IsPlayer(Defender.Char) and common.isBroken(Globals.HittedItem) then
         armourValue = 0
     end
-    
+
     if(Globals.criticalHit==6) then
         --Armour pierce
         armourValue = nil
@@ -569,7 +569,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
         local quality = (Attacker.WeaponItem.quality - durability) / 100
         local nameText = world:getItemName(Attacker.WeaponItem.id, Attacker.Char:getPlayerLanguage())
 
-        if durability > 0 then 
+        if durability > 0 then
             durability = durability - 1
             if (durability == 0) then
                 common.InformNLS(Attacker.Char,
@@ -592,7 +592,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
         local quality = (ParryWeapon.quality - durability) / 100
         local nameText = world:getItemName(ParryWeapon.id, Defender.Char:getPlayerLanguage())
 
-        if durability > 0 then 
+        if durability > 0 then
             durability = durability - 1
             if (durability == 0) then
                 common.InformNLS(Defender.Char,
@@ -602,7 +602,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
             ParryWeapon.quality = quality * 100 + durability
             world:changeItem(ParryWeapon)
         end
-        
+
         --[[if (durability < 10) then
             common.InformNLS(Defender.Char,
                 "Dein Gegenstand '"..nameText.."' hat schon bessere Zeiten gesehen. Vielleicht solltest du ihn reparieren.",

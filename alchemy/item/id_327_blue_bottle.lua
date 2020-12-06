@@ -122,7 +122,7 @@ function M.MoveItemAfterMove(User, SourceItem, TargetItem)
                                                                     world:gfx(4, itemPos)
                                                                 end
                                                             end
-                
+
                                                           end)
             else
                 if TargetItem:getData("identifierTimeStamp") ~= "" then
@@ -130,9 +130,9 @@ function M.MoveItemAfterMove(User, SourceItem, TargetItem)
                     world:changeItem(TargetItem)
                 end
             end
-        
+
         end
-        
+
         return true; -- missile is deactivated
     end
 

@@ -83,9 +83,9 @@ function M.StartGathering(User, SourceItem, ltstate)
     if not toolItem then
         return
     end
-    
+
     local gatheringBonus=shared.getGatheringBonus(User, toolItem)
-    
+
     local theCraft = gathering.GatheringCraft:new{LeadSkill = Character.farming, LearnLimit = 100}; -- seeds, id_126_sickle
     theCraft:AddRandomPureElement(User,gathering.prob_element*gatheringBonus); -- Any pure element
     theCraft:SetTreasureMap(User,gathering.prob_map*gatheringBonus,"In einer Ackerfurche findest du ein altes Pergament mit einem Kreuz darauf. Ob sie dich zu einem vergrabenen Schatz weisen wird?","In a furrow you find an old parchment with a cross on it. Will it show you the way to a buried treasure?");
@@ -93,7 +93,7 @@ function M.StartGathering(User, SourceItem, ltstate)
     theCraft:AddRandomItem(1840,1,333,{},gathering.prob_rarely,"Im Ackerboden ist ein angelaufender Kupferkelch zu finden.","In the arable soil you find a tarnished copper goblet."); --copper goblet
     theCraft:AddRandomItem(2935,1,333,{},gathering.prob_occasionally,"Da hat wohl jemand eine Schüssel verloren, mit der er Saatgut augestreut hat.","Someone lost an old bowl for sowing here."); --soup bowl
     theCraft:AddRandomItem(51,1,333,{},gathering.prob_frequently,"Da hat wohl jemand einen Eimer verloren. Nun gehört er dir.","You dig up an old bucket. Now it belongs to you."); --bucket
-    
+
     common.ResetInterruption( User, ltstate );
     if ( ltstate == Action.abort ) then -- work interrupted
         User:talk(Character.say, "#me unterbricht "..common.GetGenderText(User, "seine", "ihre").." Arbeit.", "#me interrupts "..common.GetGenderText(User, "his", "her").." work.")

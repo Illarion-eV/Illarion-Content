@@ -108,7 +108,7 @@ function M.UseItem(User, SourceItem, ltstate)
             table.insert(TargetItems,combo[1])
         end
         local foundVessels, vesselItem = common.GetTargetItemAnywhere(User,TargetItems)
-        
+
         if foundVessels == 0 then
             common.InformNLS( User, "Dir fällt auf, dass du gar kein Gefäß hast, welches du füllen könntest.",
                                     "You notice that you do not have a vessel which you could fill.")

@@ -23,7 +23,7 @@ function M.MoveToField(char)
     if char:getType() ~= Character.player then
         return
     end
-    
+
     if char.pos == position (368 , 255, 0)and char:getQuestProgress(155) == 1 or char.pos == position (367 , 255, 0) and char:getQuestProgress(155) == 1 then -- doing quest to read the rules of Galmair
         char:setQuestProgress(155, 2)
         common.InformNLS(char,"[Queststatus] Auf den Statuen hier steht irgendetwas. Egal ob du den Text liest oder nicht, allein der Fakt, dass du sie gefunden hast, wird den Ork zufrieden stellen. Geh zurück zu Boumaug.", "[Quest status] The statues around you have writing on them. Whether or not you read the text, finding the statues will satisfy the orc. Return to Boumaug.")

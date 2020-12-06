@@ -27,7 +27,7 @@ local function newCardDeck( cardList )
         numCards = #cardList,
         usedIndex = 0,
     };
-    
+
     local shuffle = function()
         local i,j;
         local newCardList = {};
@@ -44,7 +44,7 @@ local function newCardDeck( cardList )
         self.cardList = newCardList;
         self.usedIndex = 0;
     end;
-    
+
     local draw = function()
         if self.usedIndex < self.numCards then
             self.usedIndex = self.usedIndex + 1;
@@ -53,7 +53,7 @@ local function newCardDeck( cardList )
             return nil;
         end;
     end;
-    
+
     return {
         shuffle = shuffle,
         draw = draw,

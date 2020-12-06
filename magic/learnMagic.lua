@@ -27,27 +27,27 @@ local M = {}
 function M.readMagicBooks(user, bookId)
 
     -- Alchemists cannot become mages.
-    if user:getMagicType() == 3 then 
+    if user:getMagicType() == 3 then
         return
     end
-    
+
     -- Attribute requirements
     if user:increaseAttrib("willpower", 0) + user:increaseAttrib("essence", 0) + user:increaseAttrib("intelligence", 0) < 30 then
         return
     end
-    
+
     -- Already is a mage
     if user:getMagicType() == 0 and (user:getQuestProgress(37) ~= 0 or user:getMagicFlags(0) > 0) then
         return
     end
-    
+
     local questProgress = user:getQuestProgress(38)
-    
+
     -- Already did all the reading
     if bit32.extract(questProgress, 30) == 1 then
         return
     end
-    
+
     -- Register new book if it is a magical one and hasn't been read before
     local foundNewBook = false
     for i = 1, #magicBooks do
@@ -59,9 +59,9 @@ function M.readMagicBooks(user, bookId)
             end
         end
     end
-    
+
     if foundNewBook then
-        
+
         -- Count how many magic books have been read
         local readBooks = 0
         for i = 0, #magicBooks-1 do
@@ -69,12 +69,12 @@ function M.readMagicBooks(user, bookId)
                 readBooks = readBooks + 1
             end
         end
-        
+
         if readBooks < 3 then
             user:inform("Das Lesen dieses Buches hat dein Verständnis der Magie vertieft. Wenn du weitere Bücher über Magie findest, kannst du ja vielleicht selbst bald ein Magier werden.", "This book forwards your understanding of magic. If you want more books about magic, you might be able to become a magician yourself as well.", Character.highPriority)
-        
-        elseif bit32.extract(questProgress, 30) == 0 then    
-            
+
+        elseif bit32.extract(questProgress, 30) == 0 then
+
             local callback = function(dialog)end;
             local dialog
             if user:getPlayerLanguage() == Player.german then
@@ -86,26 +86,26 @@ function M.readMagicBooks(user, bookId)
             questProgress = bit32.replace(questProgress, 1, 30)
         end
     end
-    
+
     user:setQuestProgress(38, questProgress)
 end
 
 function M.useMagicWand(user, sourceItem)
 
     -- Alchemists cannot become mages.
-    if user:getMagicType() == 3 then 
+    if user:getMagicType() == 3 then
         user:inform("Alchemisten können die Stabmagie nicht erlernen.",
         "Alchemist are unable to use wand magic.")
         return
     end
-   
+
     -- Attribute requirements
     if user:increaseAttrib("willpower", 0) + user:increaseAttrib("essence", 0) + user:increaseAttrib("intelligence", 0) < 30 then
         user:inform("Um Stabmagie zu benutzen muss die Summe der Attribute Intelligenz, Essenz und Willensstärke 30 ergeben. Attribute können bei den Trainer NPC's geändert werden.",
         "To use wand magic, your combined attributes of intelligence, essence, and willpower must total at least 30. Attributes can be changed at the trainer NPC.")
         return
     end
-    
+
     -- Already is a mage
     if user:getMagicType() == 0 and (user:getQuestProgress(37) ~= 0 or user:getMagicFlags(0) > 0) then
         return
@@ -119,7 +119,7 @@ function M.useMagicWand(user, sourceItem)
         "To learn the craft of wand magic you must read three books of magical theory. Look for the list of books in your town's library.")
         return
     end
-    
+
     local callback = function(dialog)
         local success = dialog:getSuccess()
         if success then
@@ -132,7 +132,7 @@ function M.useMagicWand(user, sourceItem)
                     world:gfx(31,user.pos)
                     user:setQuestProgress(37, 1)
                 end
-                
+
                 local messageDialog
                 if user:getPlayerLanguage() == Player.german then
                     messageDialog = MessageDialog("Ein neuer Magier", "Du gibst dich der im Stab verborgenen arkanen Kraft hin und lässt sie durch deinen Körper fließen. Ja! Du kannst diese Macht beherrschen. Von nun an bist du in der Lage Magier zu werden. Der Stab wird dir gehorchen.", messageCallback)
@@ -140,7 +140,7 @@ function M.useMagicWand(user, sourceItem)
                     messageDialog = MessageDialog("A new mage", "You induldge in the hidden arcane powers which you found in the wand. You let it run through your body. Yes! You are now able to control this force. From this day on, you are able to use magic. The wand will obey your commands.", messageCallback)
                 end
                 user:requestMessageDialog(messageDialog)
-                
+
             else
                 user:inform("Du hast dich dagegen entschieden Magier zu werden. Die Möglichkeit bleibt dir aber offen.", "You decided against becoming a mage. The option, however, will remain available to you.", Character.highPriority)
             end
@@ -152,7 +152,7 @@ function M.useMagicWand(user, sourceItem)
     dialog:addOption(0, common.GetNLS(user, "Werde Magier", "Become a mage"))
     dialog:addOption(0, common.GetNLS(user, "Nein. Vielleicht später.", "No. Maybe later."))
     user:requestSelectionDialog(dialog)
-    
+
 end
 
 return M

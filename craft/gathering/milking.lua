@@ -42,10 +42,10 @@ function M.StartGathering(User, SourceAnimal, ltstate)
     milking:AddRandomPureElement(User,gathering.prob_element*gatheringBonus); -- Any pure element
     milking:SetTreasureMap(User,gathering.prob_map*gatheringBonus,"Das Tier kratzt und schnüffelt aufgeregt am Boden. Dort findest du eine seltsame Karte.","The animal scratches and sniffs on the ground excitdly. You find a strange map there.");
     milking:AddMonster(User,271,gathering.prob_monster/gatheringBonus,"Während du das Tier melkst, umschwirrt dich eine ungewöhnlich agressive Wespe.","While you milk the animal an annoyingly aggressive wasp comes after you!",4,7);
-    milking:AddRandomItem(3558,1,333,{},gathering.prob_rarely,"Was ist das? Dieses Schaf trägt eine kostbare Kette um den Hals.","Lo! This sheep has a precious necklace around its neck."); --Copper amulet    
+    milking:AddRandomItem(3558,1,333,{},gathering.prob_rarely,"Was ist das? Dieses Schaf trägt eine kostbare Kette um den Hals.","Lo! This sheep has a precious necklace around its neck."); --Copper amulet
     milking:AddRandomItem(153,1,333,{},gathering.prob_occasionally,"Ein großes Blatt hat sich im Fell des Tieres verfangen. Du betreibst zunächst ein wenig Fellpflege, bevor du weiter melkst.","A large leaf was tangled in the fur of the animal. You do a little grooming before you continue milking."); --Foot leaf
     milking:AddRandomItem(156,1,333,{},gathering.prob_frequently,"Etwas Gras hat sich im Fell des Tieres verfangen. Du entfernst das klebrige Grünzeug.","Some grass was ensnared in the fur of the animal. Before you can continue milking you have to remove the sticky green weed."); --Steppe fern
-   
+
     common.ResetInterruption( User, ltstate );
     if ( ltstate == Action.abort ) then -- work interrupted
         User:talk(Character.say, "#me unterbricht "..common.GetGenderText(User, "seine", "ihre").." Arbeit.", "#me interrupts "..common.GetGenderText(User, "his", "her").." work.")

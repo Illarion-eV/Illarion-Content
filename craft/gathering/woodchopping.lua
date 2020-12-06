@@ -162,7 +162,7 @@ function M.StartGathering(User, SourceItem, ltstate)
     if not toolItem then
         return
     end
-    
+
     local gatheringBonus=shared.getGatheringBonus(User, toolItem)
 
     local theCraft = gathering.GatheringCraft:new{LeadSkill = Character.woodcutting, LearnLimit = 100}; -- id_74_axe
@@ -172,7 +172,7 @@ function M.StartGathering(User, SourceItem, ltstate)
     theCraft:AddRandomItem(2441,1,333,{},gathering.prob_rarely,"Im Erdboden machst du einen alten, rostigen Helm aus. Ein Überbleibsel einer längst vergessenen Schlacht?","As you work you unearth an old rusty helmet. A remnant of a long-forgotten battle?"); --Storm cap
     theCraft:AddRandomItem(235,1,333,{},gathering.prob_occasionally,"In einer Spechthöhle findest du einen goldenen Ring. Wird er dich ins Dunkle treiben?","From a woodpecker's hole a golden gleam catches your eye, and you discover it is a golden ring."); --gold ring
     theCraft:AddRandomItem(2664,1,333,{},gathering.prob_frequently,"Du findest einen Ast, den man auch sehr gut als Keule verwenden könnte.","You find a branch that resembles a sturdy club."); --Club
-   
+
     common.ResetInterruption( User, ltstate );
     if ( ltstate == Action.abort ) then -- work interrupted
         return

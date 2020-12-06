@@ -61,7 +61,7 @@ local function initPokerNPC(npcDealer)
     npcDealer:createAtPos(3, 816, 1)
     npcDealer:createAtPos(9, 183, 1)
     npcDealer:createAtPos(10, 53, 1)
-   
+
     isInitiated = true
 end
 

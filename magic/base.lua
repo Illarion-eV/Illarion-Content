@@ -19,7 +19,7 @@ local M = {}
 --Returns the total magic bonus and a list containing the items which add to the magic bonus
 function M.getMagicBonus(character)
     local bodyPositions = {Character.head, Character.neck, Character.breast, Character.hands, Character.finger_left_hand, Character.finger_right_hand, Character.legs, Character.feet, Character.coat}
-    
+
     local itemsWithMagicBonus = {}
     local magicBonus = 0
     local quality = 0
@@ -32,15 +32,15 @@ function M.getMagicBonus(character)
                 magicBonus = magicBonus + itemBonus
                 quality = quality + math.floor(checkItem.quality/100)
                 table.insert(itemsWithMagicBonus, checkItem)
-            end    
+            end
         end
     end
-    
+
     local qualityBonus = 1
     if #itemsWithMagicBonus >= 1 then
         qualityBonus = qualityBonus+(quality/#itemsWithMagicBonus - 5)*2.5/100 -- quality 5 has no influence; above 5, each point grants 2.5%. under 5, each point takes 2.5%
     end
-    
+
     return magicBonus*qualityBonus, itemsWithMagicBonus
 
 end

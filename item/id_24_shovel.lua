@@ -105,12 +105,12 @@ function M.UseItem(User, SourceItem, ltstate)
         common.HighInformNLS(User,"Deine Schaufel ist kaputt.","Your shovel is broken.")
         return
     end
-    
+
     if shared.hasTool(User, 24) == false then
         common.HighInformNLS(User,"Du musst eine Schaufel in der Hand halten.","You need to hold the shovel in your hand.")
         return
     end
-    
+
     if not common.FitForWork( User ) then -- check minimal food points
         return
     end
@@ -151,7 +151,7 @@ function M.UseItem(User, SourceItem, ltstate)
        User:inform( "An dieser Stelle gibt es nicht mehr zu holen.", "There isn't anything left in this pit.", Character.highPriority);
        return
     end
-    
+
     local EMPTY_CLAY_PIT = 3633
     pitItem = getPit(User, EMPTY_CLAY_PIT)
     if (pitItem ~= nil) then

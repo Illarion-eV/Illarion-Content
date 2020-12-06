@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (713, 'quest.daniel_brock_713_runewick');
 
@@ -35,7 +35,7 @@ Description[GERMAN] = {}
 Description[ENGLISH] = {}
 
 Description[GERMAN][1] = "Sammel zehn Scheite Apfelholz in Eibenthal und bring diese zu Daniel Brock in der Werkstatt von Runewick. Dazu nimmst du das Beil in die Hand und benutzt es, während du vor einem Apfelbaum stehst."
-Description[ENGLISH][1] = "Collect ten logs of apple wood in Yewdale and take them to Daniel Brock at the workshop in Runewick. Use the hatchet in your hand, whilst standing in front of an apple tree." 
+Description[ENGLISH][1] = "Collect ten logs of apple wood in Yewdale and take them to Daniel Brock at the workshop in Runewick. Use the hatchet in your hand, whilst standing in front of an apple tree."
 Description[GERMAN][2] = "Geh zu Daniel Brock in der Werkstatt von Runewick. Er hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][2] = "Go to Daniel Brock at the workshop in Runewick, he is sure to have another task for you."
 Description[GERMAN][3] = "Säge zehn Apfelholzbretter für Daniel Brock am Sägebock in Runewick. Um die Bretter herzustellen, musst du die Säge in die Hand nehmen und den Sägebock benutzen, wenn du vor ihm stehst."
@@ -77,16 +77,16 @@ QuestTarget[2] = {position(959, 825, 0)}
 QuestTarget[3] = {position(959, 825, 0), position(959, 823, 0)} -- Sawing trestle
 QuestTarget[4] = {position(959, 825, 0)}
 QuestTarget[5] = {position(959, 825, 0), position(957, 823, 0)} -- Work bench
-QuestTarget[6] = {position(959, 825, 0)} 
-QuestTarget[7] = {position(959, 825, 0)} 
-QuestTarget[8] = {position(959, 825, 0)} 
-QuestTarget[9] = {position(959, 825, 0)} 
-QuestTarget[10] = {position(959, 825, 0)} 
-QuestTarget[11] = {position(959, 825, 0)} 
-QuestTarget[12] = {position(959, 825, 0)} 
-QuestTarget[13] = {position(959, 825, 0)} 
-QuestTarget[14] = {position(959, 825, 0)} 
-QuestTarget[15] = {position(959, 825, 0)} 
+QuestTarget[6] = {position(959, 825, 0)}
+QuestTarget[7] = {position(959, 825, 0)}
+QuestTarget[8] = {position(959, 825, 0)}
+QuestTarget[9] = {position(959, 825, 0)}
+QuestTarget[10] = {position(959, 825, 0)}
+QuestTarget[11] = {position(959, 825, 0)}
+QuestTarget[12] = {position(959, 825, 0)}
+QuestTarget[13] = {position(959, 825, 0)}
+QuestTarget[14] = {position(959, 825, 0)}
+QuestTarget[15] = {position(959, 825, 0)}
 
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 16

@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 local factions = require("base.factions")
@@ -58,5 +58,5 @@ function _rankpoints_helper_sub(self, npcChar, player)
     rankpoints = rankpoints - value
     factions.setRankpoints(player,rankpoints)
 end
-    
+
 return rankpoints

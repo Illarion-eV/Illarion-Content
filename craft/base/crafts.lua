@@ -242,7 +242,7 @@ function Craft:allowUserCrafting(user, source)
             germanTool = germanTool:gsub("^%l", string.upper) --Upper case
             local englishTool = world:getItemName(self.handTool, Player.english)
             englishTool = englishTool:gsub("^%l", string.upper) --Upper case
-            
+
             common.HighInformNLS(user,
             "Dir fehlt ein intaktes Werkzeug in deiner Hand um hier zu arbeiten: " .. germanTool,
             "To work here you have to hold an intact tool in your hand: " .. englishTool)
@@ -290,7 +290,7 @@ end
 function Craft:getHandToolEquipped(user)
     local leftTool = user:getItemAt(Character.left_tool)
     local rightTool = user:getItemAt(Character.right_tool)
-    
+
     if leftTool.id == self.handTool and common.isBroken(leftTool) == false then
         return leftTool
     elseif rightTool.id == self.handTool and common.isBroken(rightTool) == false then
@@ -610,7 +610,7 @@ function Craft:generateQuality(user, productId, toolItem)
     if self.npcCraft then
         return 999
     end
-    
+
     local gemBonus = tonumber(self:getCurrentGemBonus(user))
     local userDexterity = user:increaseAttrib("dexterity", 0)
 
@@ -620,13 +620,13 @@ function Craft:generateQuality(user, productId, toolItem)
     local quality = 1 --Minimum quality value.
     local rolls = 8 --There are eight chances to increase the quality by one. This results in a quality distribution 1-9.
     local probability = (meanQuality-1)/rolls --This will result in a binominal distribution of quality with meanQuality as average value.
-        
+
     for i=1,rolls do
         if math.random()<probability then
             quality=quality+1
         end
     end
-    
+
     quality = common.Limit(quality, 1, common.ITEM_MAX_QUALITY)
     local durability = common.ITEM_MAX_DURABILITY
     return common.calculateItemQualityDurability(quality, durability)

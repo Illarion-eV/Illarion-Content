@@ -44,7 +44,7 @@ local function manageFlames()
         else
             listOfFlames[i][2] = listOfFlames[i][2] - 1
         end
-        
+
     end
     if #listOfFlames > 0 then
         scheduledFunction.registerFunction(CYCLE_TIME, function() manageFlames() end)

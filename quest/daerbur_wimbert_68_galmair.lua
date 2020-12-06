@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (68, 'quest.daerbur_wimbert_68_galmair');
 
@@ -56,14 +56,14 @@ local Start = {392, 160, -3}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {position(392, 160, -3), position(369, 279, 0), position(395, 160, -3)} 
-QuestTarget[2] = {position(392, 160, -3)} 
-QuestTarget[3] = {position(392, 160, -3), position(369, 279, 0), position(395, 160, -3)} 
-QuestTarget[4] = {position(392, 160, -3)} 
-QuestTarget[5] = {position(392, 160, -3), position(395, 160, -3)} 
-QuestTarget[6] = {position(392, 160, -3)} 
-QuestTarget[7] = {position(392, 160, -3), position(373, 268, 0), position(415, 148, 0)} 
-QuestTarget[8] = {position(392, 160, -3)} 
+QuestTarget[1] = {position(392, 160, -3), position(369, 279, 0), position(395, 160, -3)}
+QuestTarget[2] = {position(392, 160, -3)}
+QuestTarget[3] = {position(392, 160, -3), position(369, 279, 0), position(395, 160, -3)}
+QuestTarget[4] = {position(392, 160, -3)}
+QuestTarget[5] = {position(392, 160, -3), position(395, 160, -3)}
+QuestTarget[6] = {position(392, 160, -3)}
+QuestTarget[7] = {position(392, 160, -3), position(373, 268, 0), position(415, 148, 0)}
+QuestTarget[8] = {position(392, 160, -3)}
 
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 8

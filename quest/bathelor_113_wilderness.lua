@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (113, 'quest.bathelor_113_wilderness');
 
@@ -49,10 +49,10 @@ local Start = {519, 128, 0}
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
 QuestTarget[1] = {position(549, 138, 0), position(551, 133, 0), position(556, 135, 0), position(556, 141, 0), position(551, 143, 0), position(519, 128, 0)} -- Shrines
-QuestTarget[2] = {position(519, 128, 0)} 
-QuestTarget[3] = {position(519, 128, 0)} 
+QuestTarget[2] = {position(519, 128, 0)}
+QuestTarget[3] = {position(519, 128, 0)}
 QuestTarget[4] = {position(519, 128, 0)}
-QuestTarget[5] = {position(519, 128, 0)} 
+QuestTarget[5] = {position(519, 128, 0)}
 
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 5

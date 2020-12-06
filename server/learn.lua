@@ -39,7 +39,7 @@ local lowerBorder = 2.5 * amplification / damping --below 2.5 % of time spent on
 local normalMC = 4 * lowerBorder --A 'normal' player invests 4x the time (=10 %) into skill related actions.
 local normalAP = 50 --How many actionPoints does a 'normal' action take? Default=50.
 --Constants - end
-    
+
 function M.learn(user, skill, actionPoints, learnLimit)
 
     local leadAttrib = common.GetLeadAttrib(user, skill) --reading the lead attribute.
@@ -54,7 +54,7 @@ function M.learn(user, skill, actionPoints, learnLimit)
             local attributeBonus = common.GetAttributeBonusHigh(leadAttrib); --+/-0.5 depending on attribute, limited to 1.
             local intelligenceBonus = common.GetAttributeBonusLow(user:increaseAttrib("intelligence", 0)); --+/-0.1, depending on attribute, limited to 0.2.
             local actionpointFactor = actionPoints / normalAP --An action with 50 AP is "normal".
-            
+
             local minorIncrease = scalingFactor * skillFactor * MCfactor * actionpointFactor * (1 + attributeBonus + intelligenceBonus)
 
             if common.Chance(minorIncrease-math.floor(minorIncrease)) then
@@ -74,10 +74,10 @@ function M.learn(user, skill, actionPoints, learnLimit)
                     user:increaseMinorSkill(skill, realIncrease)
 
                 else --Level up!
-                
+
                     user:increaseMinorSkill(skill, realIncrease) --Increase the skill.
                     local skillstring = user:getSkillName(skill)
-                    
+
                     if user:getType() == 0 and user:getQuestProgress(154) ~= 1 then --Only players get an inform once.
 
                         local callbackSkill = function() end --empty callback.
@@ -88,7 +88,7 @@ function M.learn(user, skill, actionPoints, learnLimit)
                         local dialogSkill = MessageDialog(dialogTitle, dialogText, callbackSkill)
                         user:requestMessageDialog(dialogSkill)
                         user:setQuestProgress(154, 1) --Remember that we already informed the player.
-            
+
                     elseif user:getType() == 0 then
 
                         common.TempInformNLS(user, skillstring.." +1", skillstring.." +1")
@@ -111,15 +111,15 @@ end
 function M.reduceMC(user)
 
     if user:idleTime() < 300 and user:getQuestProgress(47) < 12 then --Has the user done any action within the last five minutes?
-    
+
         user:increaseMentalCapacity(-1 * math.floor(user:getMentalCapacity() * damping + 0.5)) --reduce MC-points by 0.01 %, rounded correctly.
         local currentMC = user:getMentalCapacity()
-        
+
         if currentMC < ((0.5/damping)-1) then --Mental Capacity cannot drop below 4999 -> Bugged player or cheater.
             user:inform("Invalid mental capacity value found: "..currentMC..". Please inform a developer.")
             user:increaseMentalCapacity(normalMC-currentMC) --Reset to default value.
         end
-    
+
     end
     --For debugging, use the following line.
     --user:inform("MC="..user:getMentalCapacity()..", idleTime="..user:idleTime()..", MCfactor="..normalMC / math.max(lowerBorder, user:getMentalCapacity())..", Counter="..user:getQuestProgress(47)..".")

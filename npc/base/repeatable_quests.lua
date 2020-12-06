@@ -12,41 +12,41 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
 local base_time = require("base.time")
 
 local M = {}
 
-function M.checkIfTimesExpired(User, quest, monthToRepeat, dayToRepeat, hourToRepeat) 
+function M.checkIfTimesExpired(User, quest, monthToRepeat, dayToRepeat, hourToRepeat)
     local questState, questLastChanged = User:getQuestProgress(quest)
     local month, day, hour
     local y, mo, d, h, mi, sec = base_time.getRLDateFromUnixTimestamp(questLastChanged)
-    
+
     debug("LastChanged: "..questLastChanged)
-    
+
     if base_time.daysPerMonth[mo] == 28 then
         month = monthToRepeat * 2419200
     elseif base_time.daysPerMonth[mo] == 31 then
         month = monthToRepeat * 2678400
-    else 
+    else
         month = monthToRepeat * 2592000
-    end    
-    
+    end
+
     day = dayToRepeat * 86400
     hour = hourToRepeat * 3600
-    
+
     local newTimestamp = questLastChanged + month + day + hour
     local currentTimestamp = world:getTime("unix")
-    
+
     debug("Newtime: "..newTimestamp)
     debug("Current: "..currentTimestamp)
-    
+
     if newTimestamp >= currentTimestamp then
-        return true 
-    else 
-        return false 
+        return true
+    else
+        return false
     end
 end
 

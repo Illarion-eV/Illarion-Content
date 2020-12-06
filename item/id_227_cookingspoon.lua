@@ -30,7 +30,7 @@ local function getBarrel(User)
     local BARRELS = {339, 1410, 1411}
     local foundItem
     local frontItem = common.GetFrontItem(User)
-    
+
     for i, barrel in pairs(BARRELS) do
         if (frontItem ~= nil and frontItem.id == barrel) then
             foundItem = frontItem
@@ -46,9 +46,9 @@ local function getBarrel(User)
             end
         end
     end
-    
+
     return foundItem
-    
+
 end
 
 local function getKettle(User)
@@ -65,7 +65,7 @@ end
 function M.UseItem(User, SourceItem, ltstate)
 
     local target
-    
+
     -- check for barrel
     target = getBarrel(User)
     if (target ~= nil) then
@@ -84,7 +84,7 @@ function M.UseItem(User, SourceItem, ltstate)
     common.HighInformNLS( User,
     "Du stehst nicht neben dem benötigten Werkzeug: Weinfass oder Kessel",
     "There is no wine barrel or kettle close by to work with." )
-    
+
  end
 
 return M
