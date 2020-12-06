@@ -278,7 +278,7 @@ function M.onAttack(Attacker, Defender)
     local Defender = { ["Char"]=Defender }
     local Globals = {}
 
-    -- Newbie Check
+    -- [Tutorial] Newbie Check
     if character.IsPlayer(Attacker.Char) and Attacker.Char:getQuestProgress(322) == 0 and Attacker.Char:isNewPlayer() then
         common.InformNLS(Attacker.Char,"[Tutorial] Du darfst andere Spieler nur mit angemessenem und nachprüfbarem Rollenspielgrund angreifen. Klicke nochmals rechts auf deinen Gegner um den Kampf abzubrechen.","[Tutorial] You are only allowed to attack other players with clearly traceable and reasonable roleplaying reason. Right click again on your enemy to cancel the attack.")
         Attacker.Char:setQuestProgress(322,1)

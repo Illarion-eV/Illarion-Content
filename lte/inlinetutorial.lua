@@ -14,38 +14,29 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- Long Time Effect Script: Newbie Island
+-- Long Time Effect Script: Inline Tutorial
 -- Effect ID: 13
--- Values: newbiePosX, newbiePosY, newbiePosZ, itemid_1, itemnumber_1, itemdata_1, itemquality_1 (1-18)
 
 local M = {}
 
-function M.addEffect(newbieEffect, Character)
+function M.addEffect(inlineTutorial, Character)
 end
 
-function M.callEffect(newbieEffect,Character)
+function M.callEffect(inlineTutorial,Character)
 
-    if (Character.pos.z ~= 100) and (Character.pos.z ~= 101) then
+    if not Character:isNewPlayer() then
         return false --removing the effect
     end
 
-    local foundRoundCount, roundCount = newbieEffect:findValue("roundCount")
-
-    if foundRoundCount then
-
-        roundCount = roundCount + 1 --Counting
-
-    else
-        roundCount = 1
-    end
-
-    newbieEffect:addValue("roundCount",roundCount)
-    newbieEffect.nextCalled=600 --One minute
+    inlineTutorial.nextCalled=10 --One second
     return true --bailing out in any case
 
 end
 
-function M.removeEffect(newbieEffect, Character)
+function M.removeEffect(inlineTutorial, Character)
+
+    Character:inform("[Tutorial]","[Tutorial]")
+
 end
 
 return M
