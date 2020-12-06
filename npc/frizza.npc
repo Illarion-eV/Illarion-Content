@@ -163,12 +163,12 @@ english, "Villa" -> inform("[Keywords] Villa Edward, Villa Rosaline, Villa Regin
 "Flat quarter" -> "The Flat quarter isss the eassstern part our town. It isss the home for thossse at the bottom of our sssocial hierarchy."
 "Wohnungsquartier" -> "Das Wohnungsquartier issst der össstliche Teil unssserer Ssstadt. Esss ssstellt das Heim der ssschlechter gessstelteren unter unsss dar."
 "Sir Reginald Tomb" -> "Sir Reginald's Tomb issss right in front of the entrance to the town wall and honours one of our former kingsss. It can become quite bloody down there."
-"Sir Reginald Gruft" -> "Die Sir Regniald Gruft issst rechtsss vor dem Eingang zur Ssstadtmauer zu Ehren einesss unssserer früheren Könige. Esss kann sssehr blutig da unten werden."
+"Sir Reginald Gruft" -> "Sir Reginalds Gruft issst rechtsss vor dem Eingang zur Ssstadtmauer zu Ehren einesss unssserer früheren Könige. Esss kann sssehr blutig da unten werden."
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
 -- Find Frizza (605)
 queststatus(605) = 1, english, ".*" -> inform("[Quest 'Find Frizza'] You can talk with Frizza to find out all about Cadomyr. Just ask for 'help' if you do not know what to say! You can also return to Viola in Troll's Haven to collect your reward and come back to Cadomyr later."), queststatus(605) = 2, "I can help you find your way around town and tell you lots of information about Cadomyr."
-queststatus(605) = 1, ".*" -> inform("[Quest 'Finde Frizza'] Du kannst mit Frizza sprechen, um alles über Cadomyr zu erfahren. Bitte einfach um ,Hilfe', wenn du nicht weißt, was du sagen sollst! Du kannst auch zu Viola in Trollshaven zurückkehren, um deine Belohnung abzuholen und später nach Cadomyr zurückkehren."), queststatus(605) = 2, "Ich kann dir Helfen, dich in der Stadt zurechtzufinden und kann dir viel über Cadomyr erzählen."
+queststatus(605) = 1, ".*" -> inform("[Quest 'Finde Frizza'] Du kannst mit Frizza sprechen, um alles über Cadomyr zu erfahren. Bitte einfach um ,Hilfe', wenn du nicht weißt, was du sagen sollst! Du kannst auch zu Viola in Trollshaven zurückkehren, um deine Belohnung abzuholen und später nach Cadomyr zurückkehren."), queststatus(605) = 2, "Ich kann dir helfen, dich in der Stadt zurechtzufinden und kann dir viel über Cadomyr erzählen."
 
 -- quest information_cadomyr_1.quest belongs to this NPC: Quest-ID.: 641
 queststatus(640) < 1, english, "quest", "mission" -> inform("[New Quest 'Find Ruzusss' started] Try to find Ruzusss and get your reward."), queststatus(640) = 1, "I do not have a tasssk for you yet. Probably in two or three monthsss. If you like you can try to find Ruzusss, but if you desssire a real tasssk you would be better asssking other people in Cadomyr *points to the gate*. Otherwissse, you are very welcome to come back here in two or three monthsss when I will have definitely sssome tasks for you."
