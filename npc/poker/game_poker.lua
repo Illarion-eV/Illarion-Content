@@ -39,18 +39,8 @@ function M.newPokerTable(
 
     local indexSet = function()
         local t = {};
-        local i;
         for i=1,#( listPosSeat ) do
             t[i] = i;
-        end;
-        return t;
-    end;
-
-    local zeroSet = function()
-        local t = {};
-        local i;
-        for i=1,#( listPosSeat ) do
-            t[i] = 0;
         end;
         return t;
     end;
@@ -127,7 +117,6 @@ function M.newPokerTable(
         local start;
 
         -- load all seven cards
-        local i;
         local cardsByColor = {};
         local cardsByValue = {};
         for i=1,5 do
@@ -146,7 +135,7 @@ function M.newPokerTable(
 
         -- test for straight flush
         start = 1;
-        i = 2;
+        local i = 2;
         while start <= 3 do -- if start >= 4, then we have less than 5 cards to form a straight flush, so we can abort
             if i-start == 5 or (i-start == 4 and cardsByValue[1].getValue()==13 and cardsByColor[start].getValue()==4) then
                 return { value=8000000+cardsByColor[start].getValue(), desc="Straight Flush" };
@@ -290,8 +279,8 @@ function M.newPokerTable(
         end;
 
         start = 0;
-        for i=1,5 do
-            start = start*14 + cardsByValue[i].getValue();
+        for z=1,5 do
+            start = start*14 + cardsByValue[z].getValue();
         end;
         return { value=start, desc="High Card" };
     end;
@@ -335,7 +324,6 @@ function M.newPokerTable(
     end;
 
     local clearFields = function()
-        local i;
         for i=1,self.tableSize do
             clearField( self.listPosBetHundreds[ i ] );
             clearField( self.listPosBetUnits[ i ] );
@@ -412,26 +400,20 @@ function M.newPokerTable(
     end;
 
     local debugReset = function() -- reset and print a message
-        reset();
-        self.npcDealer:talk(Character.yell, "### program incomplete - game aborted and reset ###");
-    end;
-
-    local errorReset = function( msg ) -- reset and print a message
-        reset();
-        self.npcDealer:talk(Character.yell, "### CRITICAL ERROR: '"..msg.."' - game aborted and reset ###");
+        reset()
+        self.npcDealer:talk(Character.say, "### program incomplete - game aborted and reset ###");
     end;
 
     local gameReset = function() -- reset and print a message
         local n    = self.numberPlayer;
         local list = self.listPlayer;
         self.npcDealer:talk(Character.say, "Not enough players, round ended. We will wait for more to join.");
-        reset();
+        reset()
         self.numberPlayer = n;
         self.listPlayer   = list;
     end;
 
     local nextPlayer = function() -- set activePlayer to id of next active player
-        local i;
         local nextId;
         for i=1,self.tableSize-1 do
             nextId = 1 + ((self.activePlayer+i-1)%self.tableSize);
@@ -538,7 +520,6 @@ function M.newPokerTable(
     end;
 
     local payPotsToPlayer = function()
-        local i;
         local money = 0;
         for i=1,#( self.listPots ) do
             money = money + self.listPots[i].value;
@@ -565,7 +546,6 @@ function M.newPokerTable(
     end;
 
     local nextCycle = function()
-        local i;
         if self.gameState == 0 then -- game inactive, not enough players (at least two players necessary)
             init();
             local oldNumberPlayer = self.numberPlayer;
@@ -721,7 +701,6 @@ function M.newPokerTable(
                         self.npcDealer:talk(Character.say, "Seat "..self.activePlayer.." places the big blind.");
                         self.npcDealer:talk(Character.say, "#me deals the pocket cards.");
                         self.cardDeck52.shuffle();
-                        local i;
                         for i=1,self.tableSize do
                             if self.listPlayer[i] then
                                 self.listPocket1[i] = self.cardDeck52.draw();
@@ -833,7 +812,6 @@ function M.newPokerTable(
                     if self.listBets[self.activePlayer] and ( self.maxBet == (self.listBets[self.activePlayer] ) )
                        and not ( self.gameState == 3 and self.activePlayer == self.bigPlayer and self.maxBet == self.bigBlind ) then -- next round
                         -- BEGIN: move money into pot(s)
-                        local i;
                         for i=1,self.tableSize do
                             if self.listBets[i] == nil then
                                 self.listBets[i] = -1;
@@ -845,11 +823,9 @@ function M.newPokerTable(
                                 self.listBets[i] = nil;
                             end;
                         end;
-                        i = 1;
-                        local idx;
-                        local z;
+                        local i = 1;
                         while self.listBets[ self.listIndex[ self.tableSize ] ] > 0 do
-                            idx = self.listIndex[ i ];
+                            local idx = self.listIndex[ i ];
                             if self.listBets[ idx ] and self.listBets[ idx ] > 0 then
                                 if i == self.tableSize then
                                     payPlayer( idx, self.listBets[ idx ] );
@@ -886,9 +862,8 @@ function M.newPokerTable(
                         clearFields();
                         setFixedItemOnField( self.buttonId, 1, self.listPosBetUnits[ self.buttonPlayer ] );
                         local money = 0;
-                        local i;
-                        for i=1,#( self.listPots ) do
-                            money = money + self.listPots[ i ].value;
+                        for z=1,#( self.listPots ) do
+                            money = money + self.listPots[ z ].value;
                         end;
                         setPotOnTable( money );
 
@@ -949,11 +924,9 @@ function M.newPokerTable(
                     if self.listHasShown[ self.activePlayer ] then
 
                         -- pay winners
-                        local i,z;
-                        local money;
                         for i=1,#( self.listPots ) do
                             local pot = self.listPots[i];
-                            money = pot.value;
+                            local money = pot.value;
                             local n = #( pot.listPotCandidates );
                             money = math.floor( money / n * 100 ) / 100;
                             for z=1,n do
@@ -972,8 +945,6 @@ function M.newPokerTable(
     local beforeReload = function()
         self.npcDealer:talk(Character.say, "Sorry, but we have to take a short break from poker. You will get your money back.");
         -- pay players
-        local i,z;
-        local money;
         for i=1,#( self.listPots ) do
             local pot = self.listPots[i];
             pot.listPotCandidates = {};
@@ -982,7 +953,7 @@ function M.newPokerTable(
                     table.insert( pot.listPotCandidates, z );
                 end;
             end;
-            money = pot.value / (1 - self.rake);
+            local money = pot.value / (1 - self.rake);
             local n = #( pot.listPotCandidates );
             money = math.floor( money / n * 100 ) / 100;
             for z=1,n do
