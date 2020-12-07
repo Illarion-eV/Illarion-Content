@@ -56,7 +56,6 @@ local bookRedBooklet = 2602
 local bookRedHeavy = 111
 local bookRedHigh = 108
 local bookRedLight = 113
-local bookTreasureMap = 505
 local bookWhiteRune = 2622
 local bookYellow = 2615
 local bookYellowVeryHeavy = 131
