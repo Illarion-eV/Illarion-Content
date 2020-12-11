@@ -115,10 +115,12 @@ function M.buyPet(user, selectionTracker)
             if dialog:getSuccess() then
                 local selected = dialog:getSelectedIndex()+1
                 if selected == 1 then
-                    if money.CharHasMoney(user, buyAblePets[selectionTracker.selectedPet].priceInGold*10000) then
+                    local moneyToPay = buyAblePets[selectionTracker.selectedPet].priceInGold*10000
+                    if money.CharHasMoney(user, moneyToPay) then
                         base.addNewPetToCharacter(user, {name = selectionTracker.petName, race = buyAblePets[selectionTracker.selectedPet].monsterId, colour = buyAblePets[selectionTracker.selectedPet].colour})
                         user:inform("Du hast ein Tier erhalten! Dazu erhälst du ein Pergament mit Hinweisen.", "You have an animal now! You also got a parchment with some information.")
                         common.CreateItem(user, 2745, 1, 999, {nameDe = "Hinweise", nameEn = "Information", petInformation = "true"})
+                        money.TakeMoneyFromChar(user, moneyToPay)
                     else
                         user:inform("Dir fehlt das nötige Geld!", "You don't have enough money!")
                     end

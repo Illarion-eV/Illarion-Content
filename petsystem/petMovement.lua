@@ -80,7 +80,7 @@ function M.handleMovement(pet, tooFarAwayCry)
     end
     
     local command = base.getCommand(owner)
-    if command == base.follow or (command == base.attack and fightingutil.getSelectedEnemyId(pet.id) == false) then
+    if command == base.follow then
         walkWithOwner(pet, owner, 3, tooFarAwayCry)
     elseif command == base.heel then
         walkWithOwner(pet, owner, 0, tooFarAwayCry)

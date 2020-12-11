@@ -270,7 +270,7 @@ function M.onAttack(Attacker, Defender)
 
     -- Store the enemey as the current target of this player or a player's pet
     if character.IsPlayer(Attacker) or petBase.getOwner(Attacker) then
-        fightingutil.setSelectedEnemyId(Attacker.id, Defender.id)
+       fightingutil.setSelectedEnemyId(Attacker.id, Defender.id)
     end
 
     -- Prepare the lists that store the required values for the calculation

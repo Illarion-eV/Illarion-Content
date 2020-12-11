@@ -80,8 +80,6 @@ local function receiveText(pet, textType, text, speaker, downEmotes)
                     local selectedEnemyId = fightingutil.getSelectedEnemyId(speaker.id)
                     if selectedEnemyId then
                         targetEnemy[pet.id] = selectedEnemyId
-                    else    
-                        return
                     end
                 else
                     targetEnemy[pet.id] = nil --Every command but "attack" ends the attack mode
@@ -182,21 +180,35 @@ local function useMonster(pet, user)
 end
 
 local function setTarget(pet, candidateList)
-    
+
     local owner = base.getOwner(pet)
-    local newTarget = false
+    
+    local currentTargetOfPet -- The pet currently attacks this target
+    local orderedTarget -- The pet was explicitly given the order to attack this target
+    local currentTargetOfOwner -- The owner is currently attack thins target
+    -- Target hierarchy: orderedTarget > currentTargetOfPet > currentTargetOfOwner
+    
     if owner and base.getCommand(owner) == base.attack then
         for index, candidate in pairs(candidateList) do
+            
             if candidate.id == targetEnemy[pet.id] then
-                return index
+                orderedTarget = index
+                return orderedTarget
+            
+            elseif candidate.id == fightingutil.getSelectedEnemyId(pet.id) then
+                currentTargetOfPet = index
+                
             elseif candidate.id == fightingutil.getSelectedEnemyId(owner.id) then
-                newTarget = index
+                currentTargetOfOwner = index
+                
             end
         end
     end
     
-    if newTarget then
-        return newTarget
+    if currentTargetOfPet then
+        return currentTargetOfPet
+    elseif currentTargetOfOwner then
+        return currentTargetOfOwner
     end
     
     return 0
