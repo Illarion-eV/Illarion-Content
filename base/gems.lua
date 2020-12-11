@@ -109,10 +109,7 @@ function M.itemIsMagicGem(item)
     if item ~= nil then
         for _, gemId in pairs(M.gemItemId) do
             if (item.id == gemId) then
-                local level = tonumber(item:getData(M.levelDataKey))
-                if level and level > 0 then
-                    return true
-                end
+                return true
             end
         end
     end
