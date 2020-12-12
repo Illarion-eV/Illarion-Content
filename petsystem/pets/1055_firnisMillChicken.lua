@@ -23,7 +23,7 @@ local M = {}
 M.petProperties = {
 
     monsterId = 1055,
-    nameDe = "Firnismillhühnchen", 
+    nameDe = "Firnismillhühnchen",
     nameEn = "Firnismill Chicken",
     descriptionDe = "Ein Huhn mit großer Zuneigung zu seinem Besitzer. Es legt von Zeit zu Zeit auch ein Ei.",
     descriptionEn = "A chicken with a great affection for its owner. From time to time, it lays an egg.",
@@ -43,6 +43,6 @@ function M.dropEgg(pet)
     end
 end
 
-M = petsBase.generatePetEntryPoints(M) 
+M = petsBase.generatePetEntryPoints(M)
 
 return M

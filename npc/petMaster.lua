@@ -24,7 +24,6 @@ local gynkeseGuardDog = require("petsystem.pets.1056_gynkeseGuardDog")
 local runewickianMilkCow = require("petsystem.pets.1057_runewickianMilkCow")
 local meadowWoolSheep = require("petsystem.pets.1058_meadowWoolSheep")
 
-
 local M = {}
 
 local propertiesOfPets = {
@@ -34,22 +33,18 @@ local propertiesOfPets = {
     [1058] = meadowWoolSheep.petProperties
 }
 
-local M = {}
-
-
 function M.nextCycle(petMaster)
-    
     local allPets = petBase.getAllPets()
     for _, pet in pairs(allPets) do
         if isValidChar(pet) then
-            
+
             local petId = pet:getMonsterType()
             petMovement.handleMovement(pet, propertiesOfPets[petId].tooFarAwayCry)
-            
+
             if petId == 1055 then
                 firnisMillChicken.dropEgg(pet)
             end
-            
+
         end
     end
 

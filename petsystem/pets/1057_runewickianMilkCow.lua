@@ -35,6 +35,6 @@ M.petProperties = {
 
 }
 
-M = petsBase.generatePetEntryPoints(M) 
+M = petsBase.generatePetEntryPoints(M)
 
 return M
