@@ -20,14 +20,18 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local petBase = require("petsystem.base")
 local petMovement = require("petsystem.petMovement")
 local firnisMillChicken = require("petsystem.pets.1055_firnisMillChicken")
+local gynkeseGuardDog = require("petsystem.pets.1056_gynkeseGuardDog")
+local runewickianMilkCow = require("petsystem.pets.1057_runewickianMilkCow")
+local meadowWoolSheep = require("petsystem.pets.1058_meadowWoolSheep")
+
 
 local M = {}
 
 local propertiesOfPets = {
     [1055] = firnisMillChicken.petProperties,
-    [1056] = require("petsystem.pets.1056_gynkeseGuardDog").petProperties,
-    [1057] = require("petsystem.pets.1057_runewickianMilkCow").petProperties,
-    [1058] = require("petsystem.pets.1058_meadowWoolSheep").petProperties
+    [1056] = gynkeseGuardDog.petProperties,
+    [1057] = runewickianMilkCow.petProperties,
+    [1058] = meadowWoolSheep.petProperties
 }
 
 local M = {}

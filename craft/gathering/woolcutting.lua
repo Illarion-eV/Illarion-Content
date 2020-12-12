@@ -22,6 +22,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local shared = require("craft.base.shared")
 local gathering = require("craft.base.gathering")
+local petBase = require("petsystem.base")
 
 local M = {}
 
@@ -66,13 +67,21 @@ function M.StartGathering(User, SourceAnimal, ltstate)
         "You have to stand in front of a sheep for shearing it." );
         return;
     end
-
-    -- check if sheep still gives wool
-    local foundEffect, shearingEffect = SourceAnimal.effects:find(402);
+    
+    -- check if animal still gives milk
+    local lteBearer = SourceAnimal --Normally, the lte is attached to the sheep itself
+    if SourceAnimal:getMonsterType() == 1057 then --In case of pets, attach lte to the owner
+        local owner = petBase.getOwner(SourceAnimal)
+        if owner then --Make sure the owner is accessable
+            lteBearer = owner
+        end
+    end
+    
+    local foundEffect, shearingEffect = lteBearer.effects:find(402);
     if (not foundEffect) then
         shearingEffect = LongTimeEffect(402, 7200); -- call every 12 minutes
         shearingEffect:addValue("gatherAmount", 0);
-        SourceAnimal.effects:addEffect(shearingEffect);
+        lteBearer.effects:addEffect(shearingEffect);
     end
     local foundAmount, gatherAmount = shearingEffect:findValue("gatherAmount");
 

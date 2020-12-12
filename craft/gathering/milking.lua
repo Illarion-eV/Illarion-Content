@@ -18,12 +18,13 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local shared = require("craft.base.shared")
 local gathering = require("craft.base.gathering")
+local petBase = require("petsystem.base")
 
 local M = {}
 
 local function isMilkable(targetCharacter)
 
-    local milkableAnimals = {181, 371}; -- sheep, cow
+    local milkableAnimals = {181, 371, 1057}; -- sheep, cow
 
     for i=1, #milkableAnimals do
         if targetCharacter:getMonsterType() == milkableAnimals[i] then
@@ -74,11 +75,19 @@ function M.StartGathering(User, SourceAnimal, ltstate)
     end
 
     -- check if animal still gives milk
-    local foundEffect, milkingEffect = SourceAnimal.effects:find(401);
+    local lteBearer = SourceAnimal --Normally, the lte is attached to the cow itself
+    if SourceAnimal:getMonsterType() == 1057 then --In case of pets, attach lte to the owner
+        local owner = petBase.getOwner(SourceAnimal)
+        if owner then --Make sure the owner is accessable
+            lteBearer = owner
+        end
+    end
+    
+    local foundEffect, milkingEffect = lteBearer.effects:find(401);
     if (not foundEffect) then
         milkingEffect = LongTimeEffect(401, 7200); -- call every 12 minutes
         milkingEffect:addValue("gatherAmount", 0);
-        SourceAnimal.effects:addEffect(milkingEffect);
+        lteBearer.effects:addEffect(milkingEffect);
     end
     local foundAmount, gatherAmount = milkingEffect:findValue("gatherAmount");
 

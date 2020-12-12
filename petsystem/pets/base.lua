@@ -128,41 +128,36 @@ local function useMonster(pet, user)
     
     if base.isPetOf(pet, user) then
     
+        local petIsProtected, amountOfGemsInCollar = base.isPetProtectedFromDeath(user)
+        amountOfGemsInCollar = amountOfGemsInCollar or 0
+    
         local callback = function(dialog)
             local success = dialog:getSuccess()
             if success then
                 local selected = dialog:getSelectedIndex()+1
                 if selected == 1 then
                     
-                    if base.isPetProtectedFromDeath(user) then
-                        user:inform("Das Halsband deines tierischen Freundes beinhaltet schon drei latent magische Edelsteine", "The collar of you animal friend already contains three latent magical gems.", Player.highPriority)
+                    if petIsProtected and amountOfGemsInCollar == 3 then
+                        user:inform("Das Halsband deines tierischen Freundes beinhaltet schon drei latent magische Edelsteine. Mehr kannst du nicht hinzufügen.", "The collar of you animal friend already contains three latent magical gems. You cannot add more.", Player.lowPriority)
                     else
-                        local gemCounter = 0
-                        local gemItems = {}
-                        for i = Character.belt_pos_1, Character.belt_pos_6 do
-                            local beltItem = user:getItemAt(i)
-                            if gems.itemIsMagicGem(beltItem) and tonumber(beltItem:getData(gems.levelDataKey)) == 1 then
-                                gemCounter = gemCounter + beltItem.number
-                                table.insert(gemItems, beltItem)
+                        
+                        local levelOneGem
+                        local leftHandItem = user:getItemAt(Character.left_tool)
+                        if gems.itemIsMagicGem(leftHandItem) and gems.getGemLevel(leftHandItem) then
+                            levelOneGem = leftHandItem
+                        else
+                            local rightHandItem = user:getItemAt(Character.right_tool)
+                            if gems.itemIsMagicGem(rightHandItem) and gems.getGemLevel(rightHandItem) then
+                                levelOneGem = rightHandItem
                             end
                         end
-                        gemCounter = math.min(gemCounter, 3)
                         
-                        if gemCounter < 3 then
-                            user:inform("Drei latent magische Edelsteine benötigst du, um deinen Begleiter vor dem Tod zu bewahren.", "Three latent magical gems does it take to save your companion from death.", Player.highPriority)
+                        if not levelOneGem then
+                            user:inform("Du musst einen latent magischen Stein in der Hand haben, um ihn in das Halsband zu setzen.", "You need to hold a latent magic gem in your hand to put it into the collar.", Player.lowPriority)
                         else
-                            for _, theGem in pairs(gemItems) do
-                                
-                                local deleteAmount = math.min(gemCounter, theGem.number)
-                                world:erase(theGem, deleteAmount)
-                                gemCounter = gemCounter - deleteAmount
-                                
-                                if gemCounter <= 0 then
-                                    break
-                                end
-                            end
-                            base.setPetIsProtectedFromDeath(user)
-                            user:inform("Dein Begleiter ist nun geschützt!","Your companion is now protected!")
+                            user:inform("Du fügst dem Halsband ein Edelstein hinzu.", "You add a gem to the collar.", Player.lowPriority)
+                            base.setPetIsProtectedFromDeath(user, amountOfGemsInCollar+1)
+                            world:erase(levelOneGem, 1)
                         end
                     end
                 end
@@ -170,9 +165,9 @@ local function useMonster(pet, user)
         
         end
     
-        local dialog = SelectionDialog(base.getPetName(user), common.GetNLS(user, "Du benötigst drei magische latente Steine in deinem Gürtel.", "You need to have three latent magic gems in your belt."), callback)
+        local dialog = SelectionDialog(base.getPetName(user), common.GetNLS(user, "Du kannst bis zu drei latent magische Steine am dem Halsband befestigen. Bisherherige Anzahl: " .. tostring(amountOfGemsInCollar), "You can put up to three latent magical gems into the collar. Current amount: " .. tostring(amountOfGemsInCollar)), callback)
     
-        dialog:addOption(0, common.GetNLS(user, "Halsband mit drei magischen Edelsteinen versehen", "Put three magical gems into the collar"))
+        dialog:addOption(0, common.GetNLS(user, "Halsband mit einem magischen Edelsteinen versehen", "Put a magical gem into the collar"))
         
         user:requestSelectionDialog(dialog)
     end

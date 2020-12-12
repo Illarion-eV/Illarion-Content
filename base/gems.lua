@@ -117,6 +117,14 @@ function M.itemIsMagicGem(item)
     return false
 end
 
+function M.getGemLevel(gem)
+    local level = tonumber(gem:getData(M.levelDataKey))
+    if not level then
+        level = 1
+    end
+    return level
+end
+
 function M.getMagicGemId(gem, level)
     local level = level or 1
     return M.gemItemId[gem]

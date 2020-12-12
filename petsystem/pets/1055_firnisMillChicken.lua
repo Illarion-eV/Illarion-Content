@@ -15,8 +15,10 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
-local M = require("petsystem.pets.base")
-local base = require("petsystem.base")
+local petsBase = require("petsystem.pets.base")
+local petSystemBase = require("petsystem.base")
+
+local M = {}
 
 M.petProperties = {
 
@@ -27,7 +29,7 @@ M.petProperties = {
     descriptionEn = "A chicken with a great affection for its owner. From time to time, it lays an egg.",
     downEmotes = {english = "#me setzt sich auf den Boden.", german = "#me setzt sich auf den Boden."},
     tooFarAwayCry = "Squaaaaawk!",
-    validCommands = {[base.follow] = true, [base.heel] = true, [base.down] = true, [base.nearBy] = true, [base.stray] = true},
+    validCommands = {[petSystemBase.follow] = true, [petSystemBase.heel] = true, [petSystemBase.down] = true, [petSystemBase.nearBy] = true, [petSystemBase.stray] = true},
     colour = colour(255, 255, 255),
     priceInGold = 5
 
@@ -39,6 +41,8 @@ function M.dropEgg(pet)
         pet:talk(Character.say, "#me legt ein Ei.", "#me lays an egg.")
         world:createItemFromId(Item.whiteEgg, 1, pet.pos, true, 333, nil)
     end
-end 
+end
+
+M = petsBase.generatePetEntryPoints(M) 
 
 return M

@@ -15,10 +15,10 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
-local M = require("petsystem.pets.base")
-local base = require("petsystem.base")
+local petsBase = require("petsystem.pets.base")
+local petSystemBase = require("petsystem.base")
 
-local dog = require("petsystem.pets.1056_gynkeseGuardDog").petProperties
+local M = {}
 
 M.petProperties = {
 
@@ -26,13 +26,15 @@ M.petProperties = {
     nameDe = "Weidenwollschaf",
     nameEn = "Meadow Wool Sheep",
     descriptionDe = "A cheerful sheep, praised for its fluffy wool.",
-    descriptionEn = "Ein fr√∂hliches Schaf. Beliebt f√ºr seine fluffige Wolle.",
+    descriptionEn = "Ein frˆhliches Schaf. Beliebt f¸r seine fluffige Wolle.",
     downEmotes = {english = "#me setzt sich auf den Boden.", german = "#me setzt sich auf den Boden."},
     tooFarAwayCry = "M‰‰‰‰‰‰‰‰‰h!",
-    validCommands = {[base.follow] = true, [base.heel] = true, [base.down] = true, [base.nearBy] = true, [base.stray] = true},
+    validCommands = {[petSystemBase.follow] = true, [petSystemBase.heel] = true, [petSystemBase.down] = true, [petSystemBase.nearBy] = true, [petSystemBase.stray] = true},
     colour = colour(255, 255, 255),
     priceInGold = 15
 
 }
+
+M = petsBase.generatePetEntryPoints(M) 
 
 return M

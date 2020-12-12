@@ -179,13 +179,15 @@ function M.getPetHitpoints(owner)
     return owner:getQuestProgress(365)
 end
 
-function M.setPetIsProtectedFromDeath(owner)
-    owner:setQuestProgress(376, 1)
+function M.setPetIsProtectedFromDeath(owner, value)
+    value = value or 1
+    owner:setQuestProgress(376, value)
 end
 
 function M.isPetProtectedFromDeath(user)
-    if user:getQuestProgress(376) > 0 then
-        return true
+    local questStatus = user:getQuestProgress(376)
+    if questStatus > 0 then
+        return true, questStatus
     else
         return false
     end

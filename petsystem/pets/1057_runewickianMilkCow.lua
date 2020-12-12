@@ -15,8 +15,10 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
-local M = require("petsystem.pets.base")
-local base = require("petsystem.base")
+local petsBase = require("petsystem.pets.base")
+local petSystemBase = require("petsystem.base")
+
+local M = {}
 
 M.petProperties = {
 
@@ -27,11 +29,12 @@ M.petProperties = {
     descriptionEn = "A kindhearted cow. Halflings swear on its fine milk for their pies and cakes.",
     downEmotes = {english = "#me setzt sich auf den Boden.", german = "#me setzt sich auf den Boden."},
     tooFarAwayCry = "Muuuuuuuuuuh!",
-    validCommands = {[base.follow] = true, [base.heel] = true, [base.down] = true, [base.nearBy] = true, [base.stray] = true},
+    validCommands = {[petSystemBase.follow] = true, [petSystemBase.heel] = true, [petSystemBase.down] = true, [petSystemBase.nearBy] = true, [petSystemBase.stray] = true},
     colour = colour(255, 255, 255),
     priceInGold = 15
 
 }
 
+M = petsBase.generatePetEntryPoints(M) 
 
 return M
