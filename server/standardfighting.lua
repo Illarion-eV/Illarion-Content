@@ -51,7 +51,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local character = require("base.character")
-local learn = require("server.learn")
 local fighting = require("content.fighting")
 local chr_reg = require("lte.chr_reg")
 local gems = require("base.gems")
