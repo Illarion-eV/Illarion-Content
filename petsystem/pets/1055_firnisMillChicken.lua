@@ -25,7 +25,7 @@ M.petProperties = {
     monsterId = 1055,
     nameDe = "Firnismillhühnchen", 
     nameEn = "Firnismill Chicken",
-    descriptionDe = "Ein Huhn mit groÃŸer Zuneigung zu seinem Besitzer. Es legt von Zeit zu Zeit auch ein Ei.",
+    descriptionDe = "Ein Huhn mit großer Zuneigung zu seinem Besitzer. Es legt von Zeit zu Zeit auch ein Ei.",
     descriptionEn = "A chicken with a great affection for its owner. From time to time, it lays an egg.",
     downEmotes = {english = "#me setzt sich auf den Boden.", german = "#me setzt sich auf den Boden."},
     tooFarAwayCry = "Squaaaaawk!",
