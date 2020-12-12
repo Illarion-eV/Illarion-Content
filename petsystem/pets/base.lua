@@ -31,6 +31,12 @@ local commandKeyWords = {
     [base.attack] = {"attack", "angriff", "fass", {"greif", "an"}}
 }
 
+local validCommandsForPets = {}
+
+function M.registerPetCommands(petId, validCommands)
+    validCommandsForPets[petId] = validCommands
+end
+
 local function extractCommand(text, monster)
     
     for i = 1, #commandKeyWords do
@@ -48,7 +54,7 @@ local function extractCommand(text, monster)
                         break
                     end
                 end
-                if foundCommand and commandsForPets[monster:getMonsterType()][i] then
+                if foundCommand and validCommandsForPets[monster:getMonsterType()][i] then
                     return i
                 end
             end
@@ -59,7 +65,7 @@ local function extractCommand(text, monster)
 end
 
 
-function petMove(pet, owner)
+local function petMove(pet, owner)
     pet:move(owner:getFaceTo(), true)
 end
 
