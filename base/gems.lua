@@ -126,12 +126,11 @@ function M.getGemLevel(gem)
 end
 
 function M.getMagicGemId(gem, level)
-    local level = level or 1
     return M.gemItemId[gem]
 end
 
 function M.getMagicGemData(level)
-    local level = level or 1
+    level = level or 1
     return {gemLevel = level}
 end
 
