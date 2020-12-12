@@ -126,14 +126,6 @@ local function getPetColour(owner)
     return colour(r, g, b, alpha)
 end
 
-local function savePetSex(owner, sex) -- Not used! Different sexes are handled as difference races.
-    owner:setQuestProgress(364, sex)
-end
-
-local function getPetSex(owner) -- Not used! Different sexes are handled as difference races.
-    return owner:getQuestProgress(364)
-end
-
 function M.savePetPosition(owner, thePosition)
     local x = thePosition.x
     local y = thePosition.y
@@ -147,9 +139,9 @@ function M.savePetPosition(owner, thePosition)
         end
     end
     
-    local x = setMinusSign(x)
-    local y = setMinusSign(y)
-    local z = setMinusSign(z)
+    x = setMinusSign(x)
+    y = setMinusSign(y)
+    z = setMinusSign(z)
     
     owner:setQuestProgress(361, x)
     owner:setQuestProgress(362, y)
@@ -238,8 +230,6 @@ end
 function M.removePetByOwner(owner)
     petsByOwnerId[owner.id] = nil
 end
-
-local allPets = {}
 
 function M.getAllPets()
     local allPets = {}

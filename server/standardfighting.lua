@@ -274,8 +274,8 @@ function M.onAttack(Attacker, Defender)
     end
 
     -- Prepare the lists that store the required values for the calculation
-    local Attacker = { ["Char"]=Attacker }
-    local Defender = { ["Char"]=Defender }
+    Attacker = { ["Char"]=Attacker }
+    Defender = { ["Char"]=Defender }
     local Globals = {}
 
     -- [Tutorial] Newbie Check
@@ -325,7 +325,6 @@ function M.onAttack(Attacker, Defender)
 
     -- Check if a magic attack is invoked
     if Attacker.AttackKind == 5 then
-        local distance = Attacker.Char:distanceMetric(Defender.Char)
         if fightingutil.isMagicUser(Attacker.Char) then -- Only mages can invoke a magic attack
             -- Magic attacks are calculated in a different manner, outsourced for tidiness
             local magicAttack = require("magic.magicfighting")
@@ -1187,9 +1186,9 @@ function GetArmourType(Defender, Globals)
     Globals["HittedArea"] = fighting.GetHitArea(Defender.Race)
     Globals["HittedItem"] = Defender.Char:getItemAt(Globals.HittedArea)
 
-    local armour, armourfound
+    local armour, _
     if (Globals.HittedItem ~= nil and Globals.HittedItem.id > 0) then
-        armourfound, armour = world:getArmorStruct(Globals.HittedItem.id)
+        _, armour = world:getArmorStruct(Globals.HittedItem.id)
     else
         -- No armour worn
         Defender["DefenseSkill"] = 0
@@ -1530,7 +1529,7 @@ function LearnSuccess(Attacker, Defender, AP, Globals)
 
     -- Defender learns armour skill
     if Defender.DefenseSkillName then
-        local armourfound, armour = world:getArmorStruct(Globals.HittedItem.id)
+        local armourfound, _ = world:getArmorStruct(Globals.HittedItem.id)
         if armourfound then
             Defender.Char:learn(Defender.DefenseSkillName,(AP)/3,Attacker.skill + 20)
         end

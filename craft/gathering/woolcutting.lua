@@ -83,7 +83,7 @@ function M.StartGathering(User, SourceAnimal, ltstate)
         shearingEffect:addValue("gatherAmount", 0);
         lteBearer.effects:addEffect(shearingEffect);
     end
-    local foundAmount, gatherAmount = shearingEffect:findValue("gatherAmount");
+    local _, gatherAmount = shearingEffect:findValue("gatherAmount");
 
     if ( ltstate == Action.none ) then -- currently not working -> let's go
 

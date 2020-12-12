@@ -89,7 +89,7 @@ function M.StartGathering(User, SourceAnimal, ltstate)
         milkingEffect:addValue("gatherAmount", 0);
         lteBearer.effects:addEffect(milkingEffect);
     end
-    local foundAmount, gatherAmount = milkingEffect:findValue("gatherAmount");
+    local _, gatherAmount = milkingEffect:findValue("gatherAmount");
 
     -- currently not working, let's go
     if ( ltstate == Action.none ) then
