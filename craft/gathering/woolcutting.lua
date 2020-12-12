@@ -67,7 +67,7 @@ function M.StartGathering(User, SourceAnimal, ltstate)
         "You have to stand in front of a sheep for shearing it." );
         return;
     end
-    
+
     -- check if animal still gives milk
     local lteBearer = SourceAnimal --Normally, the lte is attached to the sheep itself
     if SourceAnimal:getMonsterType() == 1057 then --In case of pets, attach lte to the owner
@@ -76,7 +76,7 @@ function M.StartGathering(User, SourceAnimal, ltstate)
             lteBearer = owner
         end
     end
-    
+
     local foundEffect, shearingEffect = lteBearer.effects:find(402);
     if (not foundEffect) then
         shearingEffect = LongTimeEffect(402, 7200); -- call every 12 minutes

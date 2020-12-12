@@ -82,7 +82,7 @@ function M.StartGathering(User, SourceAnimal, ltstate)
             lteBearer = owner
         end
     end
-    
+
     local foundEffect, milkingEffect = lteBearer.effects:find(401);
     if (not foundEffect) then
         milkingEffect = LongTimeEffect(401, 7200); -- call every 12 minutes

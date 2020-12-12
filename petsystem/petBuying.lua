@@ -28,12 +28,12 @@ local meadowWoolSheep = require("petsystem.pets.1058_meadowWoolSheep").petProper
 
 
 local buyAblePets = {
-    
+
     firnisMillChicken,
     gynkeseGuardDog,
     runewickianMilkCow,
     meadowWoolSheep
-    
+
 }
 
 local STAGE_1 = 1
@@ -51,26 +51,26 @@ function M.buyPet(user, selectionTracker)
     if not selectionTracker then
         selectionTracker = {stage = STAGE_1}
     end
-    
+
     if selectionTracker.stage == STAGE_1 then -- Select an species
-        
+
         local callback = function(dialog)
             local success = dialog:getSuccess()
             if success then
                 M.buyPet(user, {stage = STAGE_2, selectedPet = dialog:getSelectedIndex()+1})
             end
         end
-        
+
         local dialog = SelectionDialog(common.GetNLS(user, "Ein tierischer Begleiter", "An animal companion"), common.GetNLS(user, "Du siehst eine Liste mit verschiedenen Tieren. Blättere zu der angegeben Seite, um mehr über eines zu erfahren.", "You see a list with various animals. Turn to the specified page to learn more about them."), callback)
-        
+
         for i, petTable in ipairs(buyAblePets) do
             dialog:addOption(0, common.GetNLS(user, petTable.nameDe, petTable.nameEn))
         end
-        
+
         user:requestSelectionDialog(dialog)
-    
+
     elseif selectionTracker.stage == STAGE_2 then -- Display information about selected species
-    
+
         local callback = function(dialog)
             local success = dialog:getSuccess()
             if success then
@@ -85,18 +85,18 @@ function M.buyPet(user, selectionTracker)
                 end
             end
         end
-        
+
         local petTable = buyAblePets[selectionTracker.selectedPet]
-        
+
         local dialog = SelectionDialog(common.GetNLS(user, petTable.nameDe, petTable.nameEn), common.GetNLS(user, petTable.descriptionDe .. "\nPreis: " .. tostring(petTable.priceInGold) .. " Goldmünzen", petTable.descriptionEn .. "\nPrice: " .. tostring(petTable.priceInGold) .. " gold coins"), callback)
-        
+
         dialog:addOption(0, common.GetNLS(user, "Das möchte ich haben.", "I want this one."))
         dialog:addOption(0, common.GetNLS(user, "Zurück zur Übersicht blättern", "Turn back to the overview."))
-    
+
         user:requestSelectionDialog(dialog)
-    
+
     elseif selectionTracker.stage == STAGE_3 then --Ask the player to input a name
-    
+
         local callback = function(dialog)
             if dialog:getSuccess() then
                 selectionTracker.petName = dialog:getInput()
@@ -104,13 +104,13 @@ function M.buyPet(user, selectionTracker)
                 M.buyPet(user, selectionTracker)
             end
         end
-        
+
         local dialog = InputDialog(common.GetNLS(user, "Gebe deinem tierischen Begleiter einen Namen", "Name your animal companion"), common.GetNLS(user, "Schreibe in das Buch den Namen, den du deinem neuen Freund geben möchtest.", "Write in the book the name you want to give to your new friend."), false, 12, callback)
-    
+
         user:requestInputDialog(dialog)
-    
+
     elseif selectionTracker.stage == STAGE_4 then --Let the player review his options; add pet if player is happy
-    
+
         local callback = function(dialog)
             if dialog:getSuccess() then
                 local selected = dialog:getSelectedIndex()+1
@@ -129,14 +129,14 @@ function M.buyPet(user, selectionTracker)
                 end
             end
         end
-        
+
         local dialog = SelectionDialog(common.GetNLS(user, "Ein tierischer Begleiter", "An animal companion"), common.GetNLS(user, "Folgendes ist deine Auswahl:\nArt: " .. buyAblePets[selectionTracker.selectedPet].nameDe .. "\nPreis: " .. buyAblePets[selectionTracker.selectedPet].priceInGold .."\nAusgewählter Name: " .. selectionTracker.petName, "This is your selection:\nType: " .. buyAblePets[selectionTracker.selectedPet].nameEn .. "\nPrice: " .. buyAblePets[selectionTracker.selectedPet].priceInGold .."\nChoosen name: " .. selectionTracker.petName), callback)
-        
+
         dialog:addOption(0, common.GetNLS(user, "Ja, diesen tierischen Begleiter möchte ich.", "Yes, I want this animal companion.  "))
         dialog:addOption(0, common.GetNLS(user, "Nein, ich möchte doch was anderes.", "No, I want something else."))
-        
+
         user:requestSelectionDialog(dialog)
-    
+
     end
 
 end
