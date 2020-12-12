@@ -23,7 +23,6 @@ local glyphs = require("base.glyphs")
 local globalvar = require("base.globalvar")
 local character = require("base.character")
 local shard = require("item.shard")
-local paralysis = require("lte.paralysis")
 local shortflame = require("magic.spells.shortflame")
 
 
@@ -56,7 +55,7 @@ M.EFFEKT_AMULET_TOPAZ = glyphs.EFFEKT_AMULET_TOPAZ
 M.EFFEKT_AMULET_DIAMOND = glyphs.EFFEKT_AMULET_DIAMOND
 
 local function consumeGlyph(item, user, number)
-    local itemName = ""
+    local itemName
     local glyphNo = glyphs.getRemainingGlyphs(item)
     glyphNo = glyphNo - number
     if glyphNo < 1 then
@@ -111,7 +110,7 @@ end
 
 local function EffectIsSupported(user,effectId)
 
-    local itemIds = {}
+    local itemIds
     if effectId <= 7 then
         itemIds = {glyphs.ringAndAmuletDefinition[effectId][1],glyphs.ringAndAmuletDefinition[effectId+7][1],glyphs.ringAndAmuletDefinition[effectId+14][1]}
         for finger = 7,8 do --finger left hand, finger right hand
@@ -243,7 +242,7 @@ function M.effectOnFight(attacker,defender)
             duration = math.floor( math.max( 1, math.min(MAX_PARALYSIS_S,parameter * PARALYSIS_BASE_S)/0.3))
             foundEffect, paralysisEffect = attacker.effects:find(500)
             if foundEffect then
-                local foundTime, cycleLeft = paralysisEffect:findValue("cycleLeft")
+                local _, cycleLeft = paralysisEffect:findValue("cycleLeft")
                 paralysisEffect:addValue("cycleLeft", math.floor(math.min(MAX_PARALYSIS_S, cycleLeft * 0.3 + duration)))
             else
                 paralysisEffect = LongTimeEffect(500,3)
@@ -284,15 +283,13 @@ function M.effectOnFight(attacker,defender)
         end
     end
 
-    local FLAME_DEFENDER_S = 2
     local flameDuration
-    isFired,parameter = M.effectUse(attacker,M.EFFEKT_RING_RUBY)
+    isFired = M.effectUse(attacker,M.EFFEKT_RING_RUBY)
     if isFired then
         if effectRepel(defender) then
             world:gfx(globalvar.gfxFIZZLE,defender.pos)
         else
-            flameDuration = parameter * FLAME_DEFENDER_S
-            shortflame.cast(defender.pos,flameDuration)
+            shortflame.cast(defender.pos)
             if not isDestroyed then
                 common.InformNLS(attacker,standardTextRingDe,standardTextRingEn)
             end
@@ -364,12 +361,9 @@ end
 
 function M.effectOnCraftingTime(user)
     local CRAFTING_TIME_IMPROVEMENT = 0.05
-    local isFired
-    local parameter
-    local isDestroyed
     local craftingTime = 1
 
-    isFired,parameter,isDestroyed = M.effectUse(user,M.EFFEKT_RING_AMETHYST)
+    local isFired, parameter = M.effectUse(user,M.EFFEKT_RING_AMETHYST)
     if isFired then
         craftingTime = 1 - parameter * CRAFTING_TIME_IMPROVEMENT
         world:gfx(globalvar.gfxSPELL,user.pos)
@@ -432,7 +426,7 @@ function M.effectOnUserRepairQuality(user,item)
 
     local CHARGES_ON_DIAMOND = 4
     local PROBABILITY_ON_DIAMOND = 0.5
-    isFired,parameter,isDestroyed = M.effectUse(user,M.EFFEKT_RING_DIAMOND,CHARGES_ON_DIAMOND,PROBABILITY_ON_DIAMOND)
+    isFired, parameter = M.effectUse(user,M.EFFEKT_RING_DIAMOND,CHARGES_ON_DIAMOND,PROBABILITY_ON_DIAMOND)
     if isFired then
         world:gfx(globalvar.gfxSCOTTY,user.pos)
         item:setData("craftedBy",user.name)
@@ -441,7 +435,7 @@ function M.effectOnUserRepairQuality(user,item)
         improvementValue = improvementValue + parameter * QUALITY_BASE
     end
 
-    isFired,parameter,isDestroyed = M.effectUse(user,M.EFFEKT_AMULET_DIAMOND,CHARGES_ON_DIAMOND,PROBABILITY_ON_DIAMOND)
+    isFired, parameter = M.effectUse(user,M.EFFEKT_AMULET_DIAMOND,CHARGES_ON_DIAMOND,PROBABILITY_ON_DIAMOND)
     if isFired then
         world:gfx(globalvar.gfxSCOTTY,user.pos)
         local bestQuality = item:getData("qualityAtCreation")
