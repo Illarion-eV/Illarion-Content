@@ -25,7 +25,7 @@ M.petProperties = {
     monsterId = 1057,
     nameDe = "Runewicker Milchkuh",
     nameEn = "Runewickian Milk Cow",
-    descriptionDe = "Eine gutherzige Kuh. Halblinge schwÃ¶ren auf ihre feine Milch führs Kuchenbacken.",
+    descriptionDe = "Eine gutherzige Kuh. Halblinge schwören auf ihre feine Milch führs Kuchenbacken.",
     descriptionEn = "A kindhearted cow. Halflings swear on its fine milk for their pies and cakes.",
     downEmotes = {english = "#me setzt sich auf den Boden.", german = "#me setzt sich auf den Boden."},
     tooFarAwayCry = "Muuuuuuuuuuh!",
