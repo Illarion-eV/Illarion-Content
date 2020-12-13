@@ -91,9 +91,9 @@ function M.handleMovement(pet, tooFarAwayCry)
 
     formerPositionOfOwners[owner.id] = position(owner.pos.x, owner.pos.y, owner.pos.z)
 
-    base.savePetPosition(owner, position(pet.pos.x, pet.pos.y, pet.pos.z))
-    local hp = pet:increaseAttrib("hitpoints", 0)
-    base.savePetHitpoints(owner, hp)
+    --base.savePetPosition(owner, position(pet.pos.x, pet.pos.y, pet.pos.z))
+    --local hp = pet:increaseAttrib("hitpoints", 0)
+    --base.savePetHitpoints(owner, hp)
 
 end
 
