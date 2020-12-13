@@ -108,7 +108,7 @@ function _processMonsters(self, npcChar, radius)
     local warpedMonster = false
     for _, monster in pairs(monsterList) do
         if _isPointInGuardArea(self, npcChar, monster.pos) then
-            if not common.IsMonsterDocile(monster:getMonsterType()) and not petBase.getOwner(monster) then
+            if not common.IsMonsterDocile(monster:getMonsterType()) and not petBase.getOwnerByPet(monster) then
                 warpedMonster = true
                 _warpHostile(self, npcChar, monster)
             end
