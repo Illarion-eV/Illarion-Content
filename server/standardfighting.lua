@@ -119,7 +119,7 @@ end
 
 local function isPossibleTarget(monster, candidate)
     --Monsters are excluded; exception: pets that attack a monster are a valid target for that monster
-    if not character.IsPlayer(candidate) and not (petBase.getOwner(candidate) and fightingutil.getSelectedEnemyId(candidate.id) == monster.id)  then
+    if not character.IsPlayer(candidate) and not (petBase.getOwnerByPet(candidate) and fightingutil.getSelectedEnemyId(candidate.id) == monster.id)  then
         return false
     end
 
@@ -268,7 +268,7 @@ function M.onAttack(Attacker, Defender)
     end
 
     -- Store the enemey as the current target of this player or a player's pet
-    if character.IsPlayer(Attacker) or petBase.getOwner(Attacker) then
+    if character.IsPlayer(Attacker) or petBase.getOwnerByPet(Attacker) then
        fightingutil.setSelectedEnemyId(Attacker.id, Defender.id)
     end
 

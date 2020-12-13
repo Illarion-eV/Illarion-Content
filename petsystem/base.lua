@@ -46,19 +46,6 @@ function M.removeIsPetOwner(character)
     character:setQuestProgress(375, 0)
 end
 
-function M.getOwner(pet)
-
-    for _, player in pairs(world:getPlayersOnline()) do
-
-        if M.isPetOf(pet, player) then
-            return player
-        end
-
-    end
-    return false
-end
-
-
 function M.savePetName(owner, name)
 
     for queststatus = 371, 374 do
@@ -215,10 +202,9 @@ end
 local petsByOwnerId = {}
 
 local function getPetByOwner(owner)
-    for ownerId, pet in pairs(petsByOwnerId) do
-        if ownerId == owner.id then
-            return pet
-        end
+    local pet = petsByOwnerId[owner.id]
+    if pet and isValidChar(pet) then
+        return pet
     end
     return false
 end
@@ -231,12 +217,40 @@ function M.removePetByOwner(owner)
     petsByOwnerId[owner.id] = nil
 end
 
-function M.getAllPets()
-    local allPets = {}
-    for ownerId, pet in pairs(petsByOwnerId) do
-        table.insert(allPets, pet)
-    end
+local ownersByPetId = {}
 
+function M.getOwnerByPet(pet)
+    local owner = ownersByPetId[pet.id]
+    if owner and isValidChar(owner) then
+        return owner
+    end
+    return false
+end
+
+local function setOwnerByPet(owner, pet)
+    ownersByPetId[pet.id] = owner
+end
+
+function M.removeOwnerByPet(pet)
+    ownersByPetId[pet.id] = nil
+end
+
+local allPets = {}
+
+local function registerPet(pet)
+    table.insert(allPets, pet)
+end
+
+function M.removePet(pet)
+    for i = 1, #allPets do
+        if allPets.id == pet.id then
+            table.remove(allPets, i)
+            break
+        end
+    end
+end
+
+function M.getAllPets()
     return allPets
 end
 
@@ -251,6 +265,8 @@ function M.loadPet(owner)
         setIsPetOf(pet, owner)
         pet:setAttrib("hitpoints", petHP)
         setPetByOwner(pet, owner)
+        setOwnerByPet(owner, pet)
+        registerPet(pet)
 
     end
 end
@@ -262,6 +278,8 @@ function M.logOutPet(owner)
 
         M.removeIsPetOf(pet)
         M.removePetByOwner(owner)
+        M.removeOwnerByPet(pet)
+        M.removePet(pet)
 
         local petHP = pet:increaseAttrib("hitpoints", 0)
         if petHP > 0 then
