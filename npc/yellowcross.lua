@@ -93,7 +93,7 @@ function M.nextCycle(thisNPC)
     -- Suche nach Monstern
     local monsters = world:getMonstersInRangeOf(thisNPC.pos,EffectArea+2) -- Suche Nach Monstern zum Wegschleudern
     for posi,monst in pairs(monsters) do
-        local owner = petBase.getOwner(monst)
+        local owner = petBase.getOwnerByPet(monst)
         if monst:getMonsterType()==2000 or owner then
             table.remove(monsters,posi);
         end
