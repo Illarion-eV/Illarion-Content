@@ -25,22 +25,22 @@ local M = {}
 
 local MAX_DISTANCE = 12
 
-local formerPositionOfOwners = {}
+local formerDistanceOwnersToPets = {}
 local petsFarAwayMessageWasSent = {}
 
-local function walkWithOwner(pet, owner, allowedDistance, tooFarAwayCry)
+local function walkWithOwner(pet, owner, allowedDistance, tooFarAwayCry, distanceOwnerToPet)
 
-    -- Assume the player was warped by some means if the z position suddnely changed or the distance is unusually high for walking
-    if (owner.pos.z ~= pet.pos.z or pet:distanceMetricToPosition(owner.pos) > 4) then
-
+    local wasWarped = false
+    -- Assume the player was warped by some means if the z position suddnely changed or the distance is too high for walking
+    if (owner.pos.z ~= pet.pos.z or distanceOwnerToPet > 4) then
         -- Warp the pet as well, if it was within a distance of <= 2 before the player was warped
-        if pet:distanceMetricToPosition(formerPositionOfOwners[owner.id]) <= 2 then
+        if formerDistanceOwnersToPets[owner.id] <= 2 then
             pet:warp(common.getFreePos(owner.pos, 1, true))
+            wasWarped = true
         end
     end
 
-    local distancePetToOwner = pet:distanceMetric(owner)
-    if distancePetToOwner > MAX_DISTANCE then
+    if distanceOwnerToPet > MAX_DISTANCE and not wasWarped then
         if not petsFarAwayMessageWasSent[pet.id] then
             pet.waypoints:clear()
             pet:setOnRoute(false)
@@ -48,7 +48,7 @@ local function walkWithOwner(pet, owner, allowedDistance, tooFarAwayCry)
             owner:inform("Deine tierische Begleitung ist zu weit von dir entfernt. Sie kann dir nicht mehr folgen.","Your animal companion is too far away from you. It cannot follow you.",Character.highPriority)
             petsFarAwayMessageWasSent[pet.id] = true
         end
-    elseif distancePetToOwner > allowedDistance then
+    elseif distanceOwnerToPet > allowedDistance then
         if (not pet:getOnRoute()) or (pet:getOnRoute() and (pet.waypoints:getWaypoints())[1] ~= owner.pos) then
             pet.waypoints:clear()
             pet.waypoints:addWaypoint(owner.pos)
@@ -62,6 +62,7 @@ local function petDown(pet)
     pet.movepoints = 0
 end
 
+local timeSinceLastPositionSave = {}
 function M.handleMovement(pet, tooFarAwayCry)
 
     local owner = base.getOwnerByPet(pet)
@@ -70,30 +71,34 @@ function M.handleMovement(pet, tooFarAwayCry)
         return
     end
 
-    if not formerPositionOfOwners[owner.id] then
-        formerPositionOfOwners[owner.id] = position(owner.pos.x, owner.pos.y, owner.pos.z)
+    local distanceOwnerToPet = owner:distanceMetric(pet)
+    if not formerDistanceOwnersToPets[owner.id] then
+        formerDistanceOwnersToPets[owner.id] = distanceOwnerToPet
     end
 
-    if pet:distanceMetric(owner) < MAX_DISTANCE and petsFarAwayMessageWasSent[pet.id] then
+    if distanceOwnerToPet < MAX_DISTANCE and petsFarAwayMessageWasSent[pet.id] then
         petsFarAwayMessageWasSent[pet.id] = nil
     end
 
     local command = base.getCommand(owner)
     if command == base.follow then
-        walkWithOwner(pet, owner, 3, tooFarAwayCry)
+        walkWithOwner(pet, owner, 3, tooFarAwayCry, distanceOwnerToPet)
     elseif command == base.heel then
-        walkWithOwner(pet, owner, 0, tooFarAwayCry)
+        walkWithOwner(pet, owner, 0, tooFarAwayCry, distanceOwnerToPet)
     elseif command == base.nearBy then
-        walkWithOwner(pet, owner, 7, tooFarAwayCry)
+        walkWithOwner(pet, owner, 7, tooFarAwayCry, distanceOwnerToPet)
     elseif command == base.down then
         petDown(pet, owner)
     end
 
-    formerPositionOfOwners[owner.id] = position(owner.pos.x, owner.pos.y, owner.pos.z)
+    formerDistanceOwnersToPets[owner.id] = distanceOwnerToPet
 
-    --base.savePetPosition(owner, position(pet.pos.x, pet.pos.y, pet.pos.z))
-    --local hp = pet:increaseAttrib("hitpoints", 0)
-    --base.savePetHitpoints(owner, hp)
+    local currentTime = world:getTime("unix")
+    if not timeSinceLastPositionSave[pet.id] then
+        timeSinceLastPositionSave[pet.id] = currentTime
+    elseif currentTime - timeSinceLastPositionSave[pet.id] >= 10 then
+        base.savePetPosition(owner, pet.pos)
+    end
 
 end
 

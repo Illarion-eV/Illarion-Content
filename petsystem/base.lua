@@ -280,6 +280,8 @@ function M.logOutPet(owner)
         M.removePetByOwner(owner)
         M.removeOwnerByPet(pet)
         M.removePet(pet)
+        M.savePetHitpoints(pet)
+        M.savePetPosition(pet)
 
         local petHP = pet:increaseAttrib("hitpoints", 0)
         if petHP > 0 then
