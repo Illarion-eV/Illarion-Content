@@ -491,12 +491,15 @@ end
 
 function M.loadEffect(introductionEffect, User)
 
-    -- Login Dialog
-    local callbackLogin = function() end --empty callback
-    local dialogText = common.GetNLS(User,"Willkommen zurück!\n\nHast du schon alle interessanten Orte deiner Heimatstadt besucht? Folge einfach den roten Symbolen auf deiner Karte. Die Orte könnten unter der Oberfläche oder im Obergeschoss liegen. Wenn du anderen Spielercharaktere begegnest, stell dich ihnen vor. Als ein neuer Bürger von Illarion ist es das Beste, Freunde zu gewinnen, die dir in Zeiten der Not helfen. Wenn du Probleme mit dem Spiel hast, denke daran mit F1 eine Liste von Befehlen aufzurufen oder dich dem Chat auf der Website www.illarion.org anzuschließen.","Welcome back!\n\nDid you already visit all interesting sites of your home city? Just follow the red symbols on your map. The sites might be below the surface or upstairs. If you encounter any other player characters, introduce yourself. As a new citizen of Illarion, the best you can do is to make friends who help you in times of need. If you have issues with the game, remember to hit F1 for a list of commands or join the chat on the website www.illarion.org.")
-    local dialogTitle = common.GetNLS(User,"Einführung","Introduction")
-    local dialogLogin = MessageDialog(dialogTitle, dialogText, callbackLogin)
-    User:requestMessageDialog(dialogLogin)
+    -- Login Dialog. Show only once.
+    if User:getQuestProgress(324) == 0 then
+        local callbackLogin = function() end --empty callback
+        local dialogText = common.GetNLS(User,"Willkommen zurück!\n\nHast du schon alle interessanten Orte deiner Heimatstadt besucht? Folge einfach den roten Symbolen auf deiner Karte. Die Orte könnten unter der Oberfläche oder im Obergeschoss liegen. Wenn du anderen Spielercharaktere begegnest, stell dich ihnen vor. Als ein neuer Bürger von Illarion ist es das Beste, Freunde zu gewinnen, die dir in Zeiten der Not helfen. Wenn du Probleme mit dem Spiel hast, denke daran mit F1 eine Liste von Befehlen aufzurufen oder dich dem Chat auf der Website www.illarion.org anzuschließen.","Welcome back!\n\nDid you already visit all interesting sites of your home city? Just follow the red symbols on your map. The sites might be below the surface or upstairs. If you encounter any other player characters, introduce yourself. As a new citizen of Illarion, the best you can do is to make friends who help you in times of need. If you have issues with the game, remember to hit F1 for a list of commands or join the chat on the website www.illarion.org.")
+        local dialogTitle = common.GetNLS(User,"Einführung","Introduction")
+        local dialogLogin = MessageDialog(dialogTitle, dialogText, callbackLogin)
+        User:requestMessageDialog(dialogLogin)
+        User:setQuestProgress(324,1)
+    end
     
 end
 

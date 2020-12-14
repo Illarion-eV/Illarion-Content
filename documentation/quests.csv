@@ -240,6 +240,7 @@ ID,Title,NPCs,Status,Responsible Author,Description
 321,Tutorial - Have a break,,,Estralis,Changing equipment reduces fightpoints
 322,Tutorial - First player attack,,,Estralis,Only attack with valid RP reason
 323,Tutorial - Faction selection,,,Estralis,Player has chosen a faction
+324,Introduction - Login dialog,,,Estralis,Only show login dialog once
 342,Cadomyr Starter Quest,,,Grokk,New player quest chain for the Cadomyr faction
 343,Galmair Starter Quest,,,Grokk,New player quest chain for the Galmair faction
 350,teacher,,,merung,Initiation - alchemy
