@@ -411,7 +411,7 @@ function M.callEffect(introductionEffect, User)
         return false
     end
 
-    local waypoint, waypointRadius, waypointNameG, waypointNameE = M.initWaypoint(User)
+    local waypoint, waypointRadius, _, _ = M.initWaypoint(User)
     local informTextG, informTextE, dialogTextG, dialogTextE = M.initText(User)
 
     -- QUEST FINISHED DIALOG
