@@ -29,11 +29,11 @@ function M.callEffect(inlineTutorial,Character)
     end
 
     --Low on health
-    
+
     --Low on food
-    
+
     --Agressive monster nearby
-    
+
     inlineTutorial.nextCalled=10 --One second
     return true --bailing out in any case
 
