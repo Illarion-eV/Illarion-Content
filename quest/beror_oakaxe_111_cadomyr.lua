@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (111, 'quest.beror_oakaxe_111_cadomyr');
 
@@ -77,23 +77,23 @@ local Start = {135, 620, 0}
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
 QuestTarget[1] = {position(135, 620, 0), position(125, 566, 0)} -- statue
-QuestTarget[2] = {position(135, 620, 0)} 
-QuestTarget[3] = {position(135, 620, 0)} 
+QuestTarget[2] = {position(135, 620, 0)}
+QuestTarget[3] = {position(135, 620, 0)}
 QuestTarget[4] = {position(135, 620, 0), position(107, 556, 0), position(122, 544, 0), position(118, 623, 0)} -- notary's office, the palace and the gate
-QuestTarget[5] = {position(135, 620, 0)} 
-QuestTarget[6] = {position(135, 620, 0)} 
+QuestTarget[5] = {position(135, 620, 0)}
+QuestTarget[6] = {position(135, 620, 0)}
 QuestTarget[7] = {position(135, 620, 0), position(123, 614, 0), position(143, 586, 0)} -- Händler, Schmelzofen
-QuestTarget[8] = {position(135, 620, 0)} 
+QuestTarget[8] = {position(135, 620, 0)}
 QuestTarget[9] = {position(135, 620, 0), position(136, 696, 0), position(261, 678, 0), position(236, 439, 0), position(471, 795, 0)} --Cornerstone of Candour, the Circle of Blood, the northern bridge and the eastern border
-QuestTarget[10] = {position(135, 620, 0)} 
-QuestTarget[11] = {position(135, 620, 0)} 
+QuestTarget[10] = {position(135, 620, 0)}
+QuestTarget[11] = {position(135, 620, 0)}
 QuestTarget[12] = {position(135, 620, 0), position(698, 314, 0), position(347, 229, 0), position(1002, 813, 0)} -- Hanfschlinge, Galmair, Runewick
-QuestTarget[13] = {position(135, 620, 0)} 
-QuestTarget[14] = {position(135, 620, 0)} 
+QuestTarget[13] = {position(135, 620, 0)}
+QuestTarget[14] = {position(135, 620, 0)}
 QuestTarget[15] = {position(135, 620, 0), position(945, 829, 0), position(957, 823, 0), position(367, 277, 0), position(382, 269, 0)} --Händler, Werkbank
-QuestTarget[16] = {position(135, 620, 0)} 
+QuestTarget[16] = {position(135, 620, 0)}
 QuestTarget[17] = {position(135, 620, 0), position(125, 603, 0), position(143, 586, 0), position(138, 589, 0)} --Händler, Schmelzofen, Amboss
-QuestTarget[18] = {position(135, 620, 0)} 
+QuestTarget[18] = {position(135, 620, 0)}
 
 
 -- Insert the quest status which is reached at the end of the quest

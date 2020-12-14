@@ -182,12 +182,12 @@ function M.MoveToField(User)
             world:gfx(5, position(551,122,0)) --a green flash
             world:gfx(5, position(552,118,0)) --a green flash
             world:gfx(5, position(558,125,0)) --a green flash
-            world:gfx(5, position(551,128,0)) --a green flash            
+            world:gfx(5, position(551,128,0)) --a green flash
             world:makeSound(13, position(551,133,0)) --a green flash
             world:makeSound(13, position(551,122,0)) --a green flash
             world:makeSound(13, position(552,118,0)) --a green flash
             world:makeSound(13, position(558,125,0)) --a green flash
-            world:makeSound(13, position(551,128,0)) --a green flash            
+            world:makeSound(13, position(551,128,0)) --a green flash
 
         elseif theWaypoint>= 25 and theWaypoint <= 28 then -- trigger water
 

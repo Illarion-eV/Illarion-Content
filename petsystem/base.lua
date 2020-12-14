@@ -46,21 +46,8 @@ function M.removeIsPetOwner(character)
     character:setQuestProgress(375, 0)
 end
 
-function M.getOwner(pet)
-    
-    for _, player in pairs(world:getPlayersOnline()) do
-    
-        if M.isPetOf(pet, player) then
-            return player
-        end
-    
-    end
-    return false
-end
-
-
 function M.savePetName(owner, name)
-    
+
     for queststatus = 371, 374 do
         local progress = 0
         for i = 1, 4 do
@@ -73,11 +60,11 @@ function M.savePetName(owner, name)
         end
         owner:setQuestProgress(queststatus, progress)
     end
-    
+
 end
 
 function M.getPetName(owner)
-    
+
     local name = ""
     for queststatus = 371, 374 do
         for i = 1, 4 do
@@ -88,7 +75,7 @@ function M.getPetName(owner)
         end
     end
     return name
-    
+
 end
 
 function M.saveCommand(owner, command)
@@ -122,23 +109,15 @@ local function getPetColour(owner)
     local g = owner:getQuestProgress(368)
     local b = owner:getQuestProgress(369)
     local alpha = owner:getQuestProgress(370)
-    
+
     return colour(r, g, b, alpha)
-end
-
-local function savePetSex(owner, sex) -- Not used! Different sexes are handled as difference races.
-    owner:setQuestProgress(364, sex)
-end
-
-local function getPetSex(owner) -- Not used! Different sexes are handled as difference races.
-    return owner:getQuestProgress(364)
 end
 
 function M.savePetPosition(owner, thePosition)
     local x = thePosition.x
     local y = thePosition.y
     local z = thePosition.z
-    
+
     local setMinusSign = function(coordinate)
         if coordinate < 0 then
             return coordinate*-10+1
@@ -146,11 +125,11 @@ function M.savePetPosition(owner, thePosition)
             return coordinate*10
         end
     end
-    
-    local x = setMinusSign(x)
-    local y = setMinusSign(y)
-    local z = setMinusSign(z)
-    
+
+    x = setMinusSign(x)
+    y = setMinusSign(y)
+    z = setMinusSign(z)
+
     owner:setQuestProgress(361, x)
     owner:setQuestProgress(362, y)
     owner:setQuestProgress(363, z)
@@ -166,7 +145,7 @@ local function getPetPosition(owner)
             return coordinate/10
         end
     end
-    
+
     return position(checkMinusSign(owner:getQuestProgress(361)), checkMinusSign(owner:getQuestProgress(362)), checkMinusSign(owner:getQuestProgress(363)))
 
 end
@@ -179,13 +158,15 @@ function M.getPetHitpoints(owner)
     return owner:getQuestProgress(365)
 end
 
-function M.setPetIsProtectedFromDeath(owner)
-    owner:setQuestProgress(376, 1)
+function M.setPetIsProtectedFromDeath(owner, value)
+    value = value or 1
+    owner:setQuestProgress(376, value)
 end
 
 function M.isPetProtectedFromDeath(user)
-    if user:getQuestProgress(376) > 0 then
-        return true
+    local questStatus = user:getQuestProgress(376)
+    if questStatus > 0 then
+        return true, questStatus
     else
         return false
     end
@@ -201,7 +182,7 @@ local function setIsPetOf(pet, owner)
     if not ownerIDsByPetIDs[pet.id] then
         ownerIDsByPetIDs[pet.id] = {}
     end
-    
+
     ownerIDsByPetIDs[pet.id].ownerId = owner.id
 
 end
@@ -214,17 +195,16 @@ function M.isPetOf(monster, character)
     if ownerIDsByPetIDs[monster.id] then
         return ownerIDsByPetIDs[monster.id].ownerId == character.id
     end
-    
+
     return false
 end
 
 local petsByOwnerId = {}
 
 local function getPetByOwner(owner)
-    for ownerId, pet in pairs(petsByOwnerId) do
-        if ownerId == owner.id then
-            return pet
-        end
+    local pet = petsByOwnerId[owner.id]
+    if pet and isValidChar(pet) then
+        return pet
     end
     return false
 end
@@ -237,19 +217,57 @@ function M.removePetByOwner(owner)
     petsByOwnerId[owner.id] = nil
 end
 
+local ownersByPetId = {}
+
+function M.getOwnerByPet(pet)
+    local owner = ownersByPetId[pet.id]
+    if owner and isValidChar(owner) then
+        return owner
+    end
+    return false
+end
+
+local function setOwnerByPet(owner, pet)
+    ownersByPetId[pet.id] = owner
+end
+
+function M.removeOwnerByPet(pet)
+    ownersByPetId[pet.id] = nil
+end
+
+local allPets = {}
+
+local function registerPet(pet)
+    table.insert(allPets, pet)
+end
+
+function M.removePet(pet)
+    for i = 1, #allPets do
+        if allPets.id == pet.id then
+            table.remove(allPets, i)
+            break
+        end
+    end
+end
+
+function M.getAllPets()
+    return allPets
+end
+
 function M.loadPet(owner)
     local petHP = M.getPetHitpoints(owner)
     if petHP > 0 then
         local createPosition = getPetPosition(owner)
         world:gfx(31,createPosition)
         local pet = world:createMonster(getPetRace(owner), createPosition, 0)
-        
+
         pet:setSkinColour(getPetColour(owner))
         setIsPetOf(pet, owner)
         pet:setAttrib("hitpoints", petHP)
         setPetByOwner(pet, owner)
-        pet.effects:addEffect(LongTimeEffect(3, 1))
-        
+        setOwnerByPet(owner, pet)
+        registerPet(pet)
+
     end
 end
 
@@ -257,10 +275,14 @@ function M.logOutPet(owner)
     local pet = getPetByOwner(owner)
     if pet then
         world:gfx(31,pet.pos)
-        
+
         M.removeIsPetOf(pet)
         M.removePetByOwner(owner)
-        
+        M.removeOwnerByPet(pet)
+        M.removePet(pet)
+        M.savePetHitpoints(pet)
+        M.savePetPosition(pet)
+
         local petHP = pet:increaseAttrib("hitpoints", 0)
         if petHP > 0 then
             pet:increaseAttrib("hitpoints", -10000)
@@ -277,7 +299,7 @@ function M.addNewPetToCharacter(character, petValues)
     M.savePetHitpoints(character, 10000)
     M.saveCommand(character, M.follow)
     M.setIsPetOwner(character)
-    
+
     M.loadPet(character)
 end
 

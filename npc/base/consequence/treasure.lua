@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 local base_treasure = require("item.base.treasure")
@@ -24,7 +24,7 @@ local _treasure_helper
 local treasure = class(consequence,
 function(self, level)
     consequence:init(self)
-    
+
     self["value"], self["valuetype"] = tools.set_value(level)
     self["perform"] = _treasure_helper
 end)

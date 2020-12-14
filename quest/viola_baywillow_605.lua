@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (605, 'quest.hummi_olaficht_605');
 
@@ -34,7 +34,7 @@ Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Finde Frizza im Norden des Markplatzes von Cadomyr, und rede mit ihr "
 Description[ENGLISH][1] = "Find Frizza to the north of market place in Cadomyr and talk to her."
-Description[GERMAN][2] = "Rede mit Frizza, wenn du mehr über Cadomyr erfahren möchtest. Bitte einfach um ‚Hilfe‘, wenn du nicht weißt, was du sagen sollst. \nDu kannst auch zu Viola Baywillow in Trollshaven zurückkehren, um deine Belohnung abzuholen."
+Description[GERMAN][2] = "Rede mit Frizza, wenn du mehr über Cadomyr erfahren möchtest. Bitte einfach um 'Hilfe', wenn du nicht weißt, was du sagen sollst. \nDu kannst auch zu Viola Baywillow in Trollshaven zurückkehren, um deine Belohnung abzuholen."
 Description[ENGLISH][2] = "Talk to Frizza any time you would like to learn more about Cadomyr. Just ask for 'help' if you do not know what to say.\nYou can also return to Viola Baywillow in Troll's Haven to collect your reward."
 Description[GERMAN][3] = "Hast du schon Iradona Elesil, die Informanten der anderen beiden Reiche besucht? Falls nicht, solltest du Viola Baywillow in Trollshaven fragen, wo sie zu finden sind, damit du sie aufsuchen kannst, um mehr über Galmair und Runewick zu erfahren."
 Description[ENGLISH][3] = "Have you already visited the other two Realm Informants, Iradona and Elesil? If not, you should find out where they are from Viola Baywillow in Troll's Haven so that you can visit them to learn all about Galmair and Runewick."

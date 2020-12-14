@@ -1,0 +1,96 @@
+name: Code Review
+
+on: [push, pull_request]
+
+jobs:
+  iso-8859-1:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: check encoding
+        run: python3 .github/workflows/check-encoding.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          JOB_ID: ${{ github.job }}
+
+  formatting:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: check formatting
+        run: python3 .github/workflows/check-formatting.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          JOB_ID: ${{ github.job }}
+
+  syntax-lua:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get -y -qq install lua5.2
+
+      - uses: actions/checkout@v2
+
+      - name: check Lua syntax
+        run: python3 .github/workflows/check-lua-syntax.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          JOB_ID: ${{ github.job }}
+
+      - name: check Lua globals
+        run: python3 .github/workflows/check-globals.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          JOB_ID: ${{ github.job }}
+
+  syntax-npc:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get -y -qq install default-jre-headless wget
+          wget http://illarion.org/media/localserver/compiler.jar -O /tmp/compiler.jar -q
+
+      - uses: actions/checkout@v2
+
+      - name: check Npc syntax
+        run: python3 .github/workflows/check-npc-syntax.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          JOB_ID: ${{ github.job }}
+
+  # Check git history since known good state for binaries
+  binary:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:                                                                                                            
+          fetch-depth: 0
+
+      - name: check for binary files in history
+        run: |
+          git log 62d99c4802.. --all --numstat | grep '^-' | cut -f3 | sed -r 's|(.*)\{(.*) => (.*)\}(.*)|\1\2\4\n\1\3\4|g' | sort -u > /tmp/files
+          test -s /tmp/files && echo "These binary files must not exist in git history:" && cat /tmp/files
+          sh -c '! test -s /tmp/files'
+
+  header:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: check for correct licence headers
+        run: python3 .github/workflows/check-header.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          JOB_ID: ${{ github.job }}

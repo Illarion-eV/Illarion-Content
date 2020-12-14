@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (709, 'quest.seleseth_709_galmair');
 
@@ -34,7 +34,7 @@ local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Sammel zehn Eisenerz und bring diese zu Seleseth in der Werkstatt von Galmair. Sammel mit der Spitzhacke in der Malachitmine. Diese liegt südlich der Stadt. Dazu nimmst du die Spitzhacke in die Hand und benutzt sie, während du vor einem erzhaltigen Stein stehst."
-Description[ENGLISH][1] = "Collect ten lumps of iron ore and take them to Seleseth at the workshop in Galmair. Collect the ore by using the pick-axe in your hand, whilst standing in front of an iron ore rich stone. The Malachite mine you find south of the town." 
+Description[ENGLISH][1] = "Collect ten lumps of iron ore and take them to Seleseth at the workshop in Galmair. Collect the ore by using the pick-axe in your hand, whilst standing in front of an iron ore rich stone. The Malachite mine you find south of the town."
 Description[GERMAN][2] = "Geh zu Seleseth in der Werkstatt von Galmair. Er hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][2] = "Go to Seleseth at the workshop in Galmair, he is sure to have another task for you."
 Description[GERMAN][3] = "Schmelze zehn Eisenbarren für Seleseth am Rennofen in Galmair. Um die Eisenbarren herzustellen, musst du die Tiegelzange in die Hand nehmen und den Rennofen benutzen, wenn du vor ihm stehst. Du benötigst auch noch Kohle für die Arbeit."
@@ -78,16 +78,16 @@ QuestTarget[2] = {position(387, 278, 0)}
 QuestTarget[3] = {position(387, 278, 0), position(387, 276, 0)} -- bloomery
 QuestTarget[4] = {position(387, 278, 0)}
 QuestTarget[5] = {position(387, 278, 0), position(383, 272, 0), position(383, 275, 0)} -- anvil
-QuestTarget[6] = {position(387, 278, 0)} 
-QuestTarget[7] = {position(387, 278, 0)} 
-QuestTarget[8] = {position(387, 278, 0)} 
-QuestTarget[9] = {position(387, 278, 0)} 
-QuestTarget[10] = {position(387, 278, 0)} 
-QuestTarget[11] = {position(387, 278, 0)} 
-QuestTarget[12] = {position(387, 278, 0)} 
-QuestTarget[13] = {position(387, 278, 0)} 
-QuestTarget[14] = {position(387, 278, 0)} 
-QuestTarget[15] = {position(387, 278, 0)} 
+QuestTarget[6] = {position(387, 278, 0)}
+QuestTarget[7] = {position(387, 278, 0)}
+QuestTarget[8] = {position(387, 278, 0)}
+QuestTarget[9] = {position(387, 278, 0)}
+QuestTarget[10] = {position(387, 278, 0)}
+QuestTarget[11] = {position(387, 278, 0)}
+QuestTarget[12] = {position(387, 278, 0)}
+QuestTarget[13] = {position(387, 278, 0)}
+QuestTarget[14] = {position(387, 278, 0)}
+QuestTarget[15] = {position(387, 278, 0)}
 
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 16

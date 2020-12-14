@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (307, 'quest.uriel_urch_307_runewick');
 
@@ -57,11 +57,11 @@ local Start = {940, 766, 0}
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
 QuestTarget[1] = {position(940, 766, 0), position(919, 823, 0), position (920, 822, 0)}
-QuestTarget[2] = {position(940, 766, 0)} 
-QuestTarget[3] = {position(940, 766, 0), position(919, 823, 0), position (920, 822, 0)} 
-QuestTarget[4] = {position(940, 766, 0)} 
-QuestTarget[5] = {position(940, 766, 0), position(919, 823, 0), position (920, 822, 0)} 
-QuestTarget[6] = {position(940, 766, 0)} 
+QuestTarget[2] = {position(940, 766, 0)}
+QuestTarget[3] = {position(940, 766, 0), position(919, 823, 0), position (920, 822, 0)}
+QuestTarget[4] = {position(940, 766, 0)}
+QuestTarget[5] = {position(940, 766, 0), position(919, 823, 0), position (920, 822, 0)}
+QuestTarget[6] = {position(940, 766, 0)}
 QuestTarget[7] = {position(940, 766, 0)}
 
 -- Insert the quest status which is reached at the end of the quest

@@ -263,17 +263,17 @@ local function buffsAdding(User, sourceItem)
     if not buffs then
         return
     end
-    
+
     local messageDe = "Durch das Essen erfährst du folgende Veränderungen: "
     local messageEn = "Because of the meal you experience following changes: "
-    
+
     local foundEffect,dietEffect = User.effects:find(12)
     if foundEffect then
         User.effects:removeEffect(12)
         messageDe = "Die vorherige Nahrungswirkung wird ersetzt. " .. messageDe
         messageEn = "The former diet effect is replaced. " .. messageEn
     end
-    
+
     local dietEffect=LongTimeEffect(12, foodList[sourceItem.id].duration)
     local addComma = false
     for attribute, value in pairs(buffs) do
@@ -284,13 +284,13 @@ local function buffsAdding(User, sourceItem)
         messageDe = messageDe .. attributesGerman[attribute] .. " +" .. value
         messageEn = messageEn .. attribute .. " +" .. value
         addComma = true
-        
+
         local oldValue = User:increaseAttrib(attribute, 0)
         local newValue = User:increaseAttrib(attribute, value)
         dietEffect:addValue(attribute, newValue - oldValue)
-    
+
     end
-    
+
     User.effects:addEffect(dietEffect)
     User:inform(messageDe, messageEn)
 end
@@ -308,7 +308,7 @@ end
 local function foodLevelInform(User, newFoodLevel, oldFoodLevel)
     local messageDe
     local messageEn
-    
+
     if newFoodLevel == 60000 or newFoodLevel > 55000 and oldFoodLevel <= 55000 then
         messageDe = "Nur mit Mühe kriegst du noch etwas runter."
         messageEn = "You hardly manage to eat anything else."
@@ -328,8 +328,8 @@ local function foodLevelInform(User, newFoodLevel, oldFoodLevel)
         messageDe = "Dein Magen schmerzt noch immer vor Hunger."
         messageEn = "Your stomach still hurts because of your hunger."
     end
-    
-    if messageDe and messageEn then 
+
+    if messageDe and messageEn then
         User:inform(messageDe,messageEn, Character.mediumPriority)
     end
 end
@@ -383,7 +383,7 @@ local function thievesPoisonQuest(User, sourceItem)
         end
         return true
     end
-    
+
     return false
 end
 
@@ -420,9 +420,9 @@ function M.UseItem(User, sourceItem, ltstate)
         return
 
     end
-    
+
     fortuneCookie(sourceItem, User)
-    
+
     local oldFoodLevel = User:increaseAttrib("foodlevel", 0)
     local newFoodLevel = User:increaseAttrib("foodlevel", foodList[sourceItem.id].foodPoints)
 

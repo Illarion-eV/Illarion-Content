@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 --[[This script drops shards at dedicated locations
@@ -63,7 +63,7 @@ local dropPositions = {
     position(292,828,0), --Letma
     position(613,766,1), --Sentry Forest - Ushara's Spire
     position(508,745,0), --Harrowed Mount
-    position(794,703,1), --Bear Cave 
+    position(794,703,1), --Bear Cave
     position(804,663,2), --Dragon Lair
     position(706,474,0), --Elstree Plain
     position(131,808,0), --Lost Harbour

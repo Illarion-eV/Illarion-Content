@@ -189,7 +189,7 @@ local function magicItemsDegrade(character, magicItemsList)
             local durability = math.fmod(bonusItem.quality, 100)
             local quality = (bonusItem.quality - durability) / 100
             local nameText = world:getItemName(bonusItem.id, character:getPlayerLanguage())
-            
+
             if durability > 0 then
                 durability = durability - 1
                 if (durability == 0) then
@@ -200,7 +200,7 @@ local function magicItemsDegrade(character, magicItemsList)
                 bonusItem.quality = quality * 100 + durability
                 world:changeItem(bonusItem)
             end
-            
+
             --[[if (durability < 10) then
                 common.InformNLS(character,
                     "eine Ausrüstungsgegenstand '"..nameText.."' hat schon bessere Zeiten gesehen. Vielleicht solltest du sie reparieren lassen.",

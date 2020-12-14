@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 local factions = require("base.factions")
@@ -30,7 +30,7 @@ local rank = class(condition,
 function(self, comp, value)
     condition:init(self)
     self["value"], self["valuetype"] = tools.set_value(value)
-    
+
     if (comp == "=") then
         self["check"] = _rank_helper_equal
     elseif (comp == "<>" or comp == "!=" or comp == "~=") then

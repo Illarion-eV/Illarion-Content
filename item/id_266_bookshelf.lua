@@ -56,7 +56,6 @@ local bookRedBooklet = 2602
 local bookRedHeavy = 111
 local bookRedHigh = 108
 local bookRedLight = 113
-local bookTreasureMap = 505
 local bookWhiteRune = 2622
 local bookYellow = 2615
 local bookYellowVeryHeavy = 131
@@ -223,7 +222,7 @@ M.bookList["galmair_merchants"] = {english = "Wanted! Merchants",german =  "Gesu
 M.bookList["galmair_priester"] = {english = "Wanted! Priests",german =  "Gesucht! Priester", bookId = 515, bookGraphic = pell}
 M.bookList["galmair_translator"] = {english = "Wanted! Interpreter",german =  "Gesucht! Dolmetscher", bookId = 516, bookGraphic = pell}
 M.bookList["galmair_quartermaster"] = {english = "Wanted! Quatermaster",german =  "Gesucht! Quartiermeister", bookId = 517, bookGraphic = pell}
-
+M.bookList["the_steps_of_alchemy"] = {english = "The Steps of Alchemy", german = "Die Schritte der Alchemie", bookId = 102, bookGraphic = bookBlackLong}
 
 local function questcheckFairyTale(bookNoInQuest, bookBitmap, bookName, book, user)
     if book == bookName and bit32.band (user:getQuestProgress(678),tonumber(bookBitmap)) == 0 then
@@ -269,7 +268,7 @@ function M.UseItem(user, item)
     if #bookIds > 0 then
         user:requestSelectionDialog(dialog)
     end
-    
+
     -- Akaltut Quest
     if item.pos == position(472, 839, -9) and user:getQuestProgress(526) == 15 then
         user:setQuestProgress(526, 16)

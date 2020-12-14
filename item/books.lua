@@ -35,12 +35,12 @@ function M.UseItem(User, SourceItem)
         return
     end
     -- alchemy end
-    
+
     if SourceItem:getData("granorsHut") ~= "" then
         granorsHut.readingBook(User)
         return
     end
-    
+
     if SourceItem:getData("petBuyingBook") ~= "" then
         petBuying.buyPet(User)
     end

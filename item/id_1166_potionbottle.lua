@@ -23,7 +23,7 @@ local M = {}
 
 function M.UseItem(User, SourceItem)
 
-    if SourceItem.pos == position(609, 181, -3) and (User:getQuestProgress(533) == 0) and (User:getQuestProgress(534) == 0) and (User:getQuestProgress(535) == 0) and (User:getQuestProgress(536) == 0) 
+    if SourceItem.pos == position(609, 181, -3) and (User:getQuestProgress(533) == 0) and (User:getQuestProgress(534) == 0) and (User:getQuestProgress(535) == 0) and (User:getQuestProgress(536) == 0)
         and (User:getQuestProgress(537) == 0) and (User:getQuestProgress(538) == 0) then --then player has started combining potions
         User:inform(
             "Du nimmst die Flasche auf und blickst dich nach einem anderen Trank zum kombinieren um.",

@@ -20,7 +20,7 @@ local factions = require("base.factions")
 local M = {}
 
 function M.onOpenDepot(User, Depot)
-   
+
     --101: Cadomyr
     --102: Runewick
     --103: Galmair
@@ -28,48 +28,48 @@ function M.onOpenDepot(User, Depot)
     --201: Cadomyr Treasury
     --202: Runewick Treasury
     --203: Galmair Treasury
-  
+
     common.TurnTo(User, Depot.pos) -- turn if necessary
-    
+
     local depotId = tonumber(Depot:getData("depot"))
-    
+
     if User:isAdmin() then --Admins have access to all depots
-    
+
         return true
 
-    end 
-            
-    --public depots    
-        
-    if depotId == 101 or depotId == 102 or depotId == 103 or depotId == 104 then 
-    
+    end
+
+    --public depots
+
+    if depotId == 101 or depotId == 102 or depotId == 103 or depotId == 104 then
+
         return true
-    
+
     end
 
     --treasury depots
     local rank = factions.getRankAsNumber(User)
     local town = factions.getMembershipByName(User)
-    
+
     if depotId == 201 and rank > 7 and town == "Cadomyr" then
-    
+
         return true
-    
+
     elseif depotId == 202 and rank > 7 and town == "Runewick" then
-    
+
         return true
-        
+
     elseif depotId == 203 and rank > 7 and town == "Galmair" then
-    
+
         return true
-    
+
     end
-    
-    --Default     
+
+    --Default
     common.InformNLS(User,"Für dieses Depot hast du keinen Schlüssel.","You don't have the keys to this depot.")
-    
+
     return false -- this function must return true or false. Default is false to prevent "rogue" depots
-    
+
 end
 
 return M

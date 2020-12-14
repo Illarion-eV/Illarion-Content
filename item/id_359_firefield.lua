@@ -72,7 +72,7 @@ function M.CharacterOnField(User)
     if User:getType() == Character.npc then
         return
     end
-    
+
     -- Search for the falme on the field
     -- !!There might be some issues with multiple flames on the same field!!
     local Items = common.GetItemsOnField(User.pos)

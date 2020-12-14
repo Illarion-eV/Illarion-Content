@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- I_533 playing the drum
 
@@ -34,7 +34,7 @@ music.addTalkText("#me beats in a wild, frenzied pulse, a deep broad sound emitt
 
 function M.UseItem(User, SourceItem)
     music.PlayInstrument(User,SourceItem, skill);
-end 
+end
 
 M.LookAtItem = wood.LookAtItem
 

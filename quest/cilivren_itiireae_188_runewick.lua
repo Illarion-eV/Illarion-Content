@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (188, 'quest.cilivren_itiireae_188_runewick');
 
@@ -155,15 +155,15 @@ QuestTarget[24] = {position(843, 844, 0), position(849,841,0)}
 QuestTarget[25] = {position(843, 844, 0), position(849,841,0)}
 QuestTarget[26] = {position(843, 844, 0), position(849,841,0)}
 QuestTarget[27] = {position(843, 844, 0), position(849,841,0)}
-QuestTarget[28] = {position(843, 844, 0), position(849,841,0)} 
+QuestTarget[28] = {position(843, 844, 0), position(849,841,0)}
 QuestTarget[29] = {position(843, 844, 0), position(849,841,0)}
 QuestTarget[30] = {position(843, 844, 0), position(849,841,0)}
 QuestTarget[31] = {position(843, 844, 0), position(849,841,0)}
 QuestTarget[32] = {position(843, 844, 0), position(849,841,0)}
 QuestTarget[33] = {position(843, 844, 0), position(849,841,0)}
-QuestTarget[34] = {position(843, 844, 0), position(849,841,0)} 
+QuestTarget[34] = {position(843, 844, 0), position(849,841,0)}
 QuestTarget[35] = {position(843, 844, 0)}
-QuestTarget[36] = {position(843, 844, 0), position(849,841,0)} 
+QuestTarget[36] = {position(843, 844, 0), position(849,841,0)}
 QuestTarget[37] = {position(843, 844, 0)}
 QuestTarget[38] = {position(843, 844, 0)}
 

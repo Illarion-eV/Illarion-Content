@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 local condition = require("npc.base.condition.condition")
@@ -22,7 +22,7 @@ local _rune_helper
 local rune = class(condition,
 function(self, value)
     condition:init(self)
-    
+
     self["value"] = 2 ^ (value - 1)
     self["check"] = _rune_helper
 end)

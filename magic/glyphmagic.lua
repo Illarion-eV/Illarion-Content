@@ -648,7 +648,7 @@ local function isPossibleLocation(user, position)
                               "There is not enough space for a glyph ritual place.")
         return false
     end
-    
+
     --[[
     -- Permission denied
     local deniedAreas = {"Runewick","Cadomyr","Galmair"}

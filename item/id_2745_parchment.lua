@@ -489,7 +489,7 @@ function M.LookAtItem(User, Item)
     if Item:getData("bookList") == "true" then
         return bookListLookAt(User, Item)
     end
-    
+
     if Item:getData("petInformation") ~= "" then
         lookat.SetSpecialDescription(Item, petSystemBase.commandsExplanationDe, petSystemBase.commandsExplanationEn)
     end

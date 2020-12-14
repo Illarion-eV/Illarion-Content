@@ -391,7 +391,7 @@ function M.StartGathering(User, SourceItem, ltstate)
     mining:AddRandomItem(310,1,333,{},gathering.prob_rarely,"Zwerge scheinen alten Krügen keine Beachtung beizumessen, insbesondere, wenn sie leer sind. Auch hier liegt einfach einer herum.","Dwarves seem to pay no attention to old pitchers, especially if they are empty. As you work one catches your eye."); --mug with lid
     mining:AddRandomItem(2183,1,333,{},gathering.prob_occasionally,"Diese Mine wurde offensichtlich kürzlich von Zwergen aufgesucht. Wie sonst erklärt sich der Krug, den du zwischen dem Geröll findest?","This mine was occupied recently. How else would you explain the mug at your feet?"); --clay mug
     mining:AddRandomItem(391,1,333,{},gathering.prob_frequently,"In einer Felsspalte liegt eine alte Fackel. Hier ist wohl jemanden ein Licht aufgegangen.","In a crevice you spot an old torch."); --torch
-    
+
     common.ResetInterruption( User, ltstate );
     if ( ltstate == Action.abort ) then -- work interrupted
         return

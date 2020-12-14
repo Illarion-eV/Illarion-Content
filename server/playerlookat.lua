@@ -45,14 +45,14 @@ function M.lookAtPlayer( SourceCharacter, TargetCharacter, mode)
     if ( mode ~= MODE_MIRROR) then
         common.TurnTo( SourceCharacter, TargetCharacter.pos )
     end
-    
+
     output = output .. M.getCharDescription( SourceCharacter, TargetCharacter, mode)
 
     SourceCharacter:sendCharDescription( TargetCharacter.id , output )
 
     if (mode == MODE_STARE) then
         common.InformNLS(TargetCharacter, "Du fühlst dich beobachtet.", "You feel watched.")
-    end    
+    end
 end
 
 local function ignoreDescription(itemId)
@@ -116,7 +116,7 @@ local function getCharRace( TargetCharacter, lang)
     if (raceID > 7) then
         raceID = 7
     end
-    
+
     if (TargetCharacterSex == 0 ) then
         text = ( lang == 0 and raceName[1][raceID] or raceName[0][raceID] )
     else
@@ -131,23 +131,23 @@ end
 
 local function getCharacterLoad(user)
     local totalLoad = 0
-    
+
     local backPack
     if user:getItemAt(Character.backpack) then
         backPack = user:getBackPack()
     end
-    
+
     if backPack then
         totalLoad = totalLoad + backPack:weight()
     end
-    
+
     for i = 1, 17 do
         local currentItem = user:getItemAt(i)
         if currentItem then
             totalLoad = totalLoad +  world:getItemStats(currentItem).Weight
         end
     end
-    
+
     return totalLoad
 end
 
@@ -155,7 +155,7 @@ local function getCharLoad( TargetCharacter, lang, currentLookingAt)
     local weightRelation = 0
     local text = ""
     local TargetCharacterSex = TargetCharacter:increaseAttrib( "sex", 0 )
-    
+
     if (currentLookingAt >= 0) then
         local backpack = TargetCharacter:getItemAt(Character.backpack)
         if ( backpack ~= nil ) and ( backpack.id > 0 ) then
@@ -337,11 +337,11 @@ function M.getCharDescription( SourceCharacter, TargetCharacter, mode)
     -- inform about stats
     local qual,dura=getClothesFactor(TargetCharacter)
     local output = ""
-    
+
     if ( mode == MODE_MIRROR) then
         output = output .. ( lang == 0 and "Im Spiegel siehst du eine Person, die dir ähnlich sieht.\n" or "In the mirror you see a person that looks like you.\n" )
     end
-    
+
     if ( limitToSeeAlways >= 0 ) then
         -- General overview.
         if ( TargetCharacter:increaseAttrib( "sex", 0 ) == 0 ) then
@@ -410,7 +410,7 @@ function M.getCharDescription( SourceCharacter, TargetCharacter, mode)
 
     -- weight of load
     output = output .. getCharLoad( TargetCharacter, lang, limitToSeeBag)
-    
+
     -- what hold the char in hand?
     local addtext = ""
     addtext = addtext .. getCharWears ( TargetCharacter, lang, 5, limitToSeeHand, common.IsNilOrEmpty(addtext),true); -- left hand

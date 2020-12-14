@@ -52,7 +52,7 @@ function M.onLogout( theChar )
     if theChar.name == "Valerio Guilianni" or theChar.name == "Rosaline Edwards" or theChar.name == "Elvaine Morgan" then
         exchangeFactionLeader( theChar.name )
     end
-    
+
     --Handle pets
     petsystem.logOutPet(theChar)
 end

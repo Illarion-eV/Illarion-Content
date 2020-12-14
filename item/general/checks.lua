@@ -117,7 +117,7 @@ function M.HaveABreak(User)
     end
 
     User.fightpoints=User.fightpoints - kitKat
-    
+
 end
 
 return M

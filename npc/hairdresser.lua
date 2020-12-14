@@ -153,7 +153,7 @@ local function hasDebt(user,npc)
     local questState = user:getQuestProgress(231)
     local priceWork = tonumber(questState)
     local germanMoney, englishMoney = money.MoneyToString(priceWork)
-    
+
     if user:getQuestProgress(234) > common.GetCurrentTimestamp() then
         common.TalkNLS(npc,Character.say, "Verschwinde!", "Leave now!")
         common.InformNLS(user,"Nachdem du versucht hast Erza zu betrügen, wird sie ein Jahr lang nicht für dich da sein.",
@@ -212,7 +212,7 @@ function M.payErza(user)
                                                   "Thank you. Can I do anything else for you?")
             end
             user:setQuestProgress(233,0)
-            
+
             common.InformNLS(user,"Du hast"..germanMoney.." bezahlt.", "You paid"..englishMoney..".")
             return
         end
@@ -284,7 +284,7 @@ end
 
 local function userOnChair(user,npc)
     local userPos = user.pos
-    
+
     if chairPos ~= userPos then
         common.TalkNLS(npc,Character.say, "Vielleicht setzt Ihr euch erst mal auf den Hocker hier.",
                                           "I can work on your hair if you sit down here on this stool.")
@@ -411,7 +411,7 @@ local function shaveSelector(user,npc,firstCall,beardStyleStart,beardStyleEnd)
         dialogAddText = common.GetNLS(user, "Gefällt dir die neue Rasur oder möchtest du eine andere?",
                                             "Do you like your new beard style, or would you like to try another one?")
     end
-    
+
     dialogAddText = dialogAddText .. common.GetNLS(user,
                                                 "\nNachschneiden:" .. germanMoneyTrim ..
                                                 "\nNeue Rasur:" .. germanMoneyCut ..
@@ -449,7 +449,7 @@ local function shave(user, npc)
 
     local gender = user:increaseAttrib("sex", 0) + 1
     local race = user:getRace()
-    
+
     if not permittedRace(user,npc,NOT_FOR_LIZARD) then
         return
     end
@@ -477,7 +477,7 @@ local function shave(user, npc)
                                           "You're a woman. Women don't have beards. Maybe a dwarfess does, but I won't cut those.")
         return
     end
-    
+
     shaveSelector(user,npc,true,user:getBeard(),user:getQuestProgress(228))
 end
 
@@ -560,7 +560,7 @@ local function hairColoringSelector(user,npc,firstCall,colorStart,colorEnd,color
                 globalHairdresserDialogOpen = false
                 return
             end
-            
+
         end
     end
 
@@ -572,7 +572,7 @@ local function hairColoringSelector(user,npc,firstCall,colorStart,colorEnd,color
         dialogAddText = common.GetNLS(user, "Gefällt dir die neue Farbe oder möchtest du eine andere?",
                                             "Do you like your new hair colour, or would you like to try another one?")
     end
-    
+
     dialogAddText = dialogAddText .. common.GetNLS(user,
                                                 "\nFärben für " .. textActionDe .. " Wirkung kostet" .. germanMoney .."."..
                                                 "\nDu kannst verschiedene Farben ausprobieren.",
@@ -768,7 +768,7 @@ local function haircutSelector(user,npc,firstCall,hairStyleStart,hairStyleEnd)
         dialogAddText = common.GetNLS(user, "Gefällt dir die neue Frisur oder möchtest du eine andere?.",
                                             "Do you like your new hair style, or would you like to try another one?")
     end
-    
+
     dialogAddText = dialogAddText .. common.GetNLS(user,
                                                 "\nNachschneiden:" .. germanMoneyTrim ..
                                                 "\nNeue Frisur:" .. germanMoneyCut ..
@@ -916,7 +916,7 @@ function M.hairOnLogin(user)
     saveNaturalStyle(user)
 
     local dayRemain
-    
+
     local hairStyleTimeOut = user:getQuestProgress(227)
     if hairStyleTimeOut > 0 then
         if hairStyleTimeOut <= currentTime then
@@ -931,7 +931,7 @@ function M.hairOnLogin(user)
                                   "[Hairdresser] In at least "..tostring(dayRemain)..(dayRemain == 1 and " day" or " days").." your hair style becomes natural again.")
         end
     end
-    
+
     local beardStyleTimeOut = user:getQuestProgress(228)
     if beardStyleTimeOut > 0 then
         if beardStyleTimeOut <= currentTime then
@@ -946,7 +946,7 @@ function M.hairOnLogin(user)
                                   "[Hairdresser] In at least "..tostring(dayRemain)..(dayRemain == 1 and " day" or " days").." your beard style becomes natural again.")
         end
     end
-    
+
     local hairColorTimeOut = user:getQuestProgress(226)
     local hairColor
     local r, g, b

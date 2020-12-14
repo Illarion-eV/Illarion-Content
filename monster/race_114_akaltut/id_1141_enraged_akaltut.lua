@@ -46,7 +46,7 @@ local function spawnEnragedAkaltut(pos)
         debug("Failed to remove the spider eggs for split Akaltut")
     end
     id_1142_akaltut.eggExists = false
-    
+
     local spawnPosition = common.GetFreePositions(pos, 1, true, true)() or pos
     local spiderQueen = world:createMonster(195, spawnPosition, -5)
     if spiderQueen ~= nil and isValidChar(spiderQueen) then

@@ -18,7 +18,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 --
 -- These NPCs guard a area and warp any monster coming too close and pushing
 -- away players they do not like.
-local character = require("base.character")
 local class = require("base.class")
 local baseNPC = require("npc.base.basic")
 local common = require("base.common")
@@ -109,7 +108,7 @@ function _processMonsters(self, npcChar, radius)
     local warpedMonster = false
     for _, monster in pairs(monsterList) do
         if _isPointInGuardArea(self, npcChar, monster.pos) then
-            if not common.IsMonsterDocile(monster:getMonsterType()) and not petBase.getOwner(monster) then
+            if not common.IsMonsterDocile(monster:getMonsterType()) and not petBase.getOwnerByPet(monster) then
                 warpedMonster = true
                 _warpHostile(self, npcChar, monster)
             end
@@ -175,7 +174,6 @@ function _processPlayers(self, npcChar, radius)
             debug("NPC "..npcChar.name.." has a warped player text that yields different text types for German and English.\nGerman: "..textDe.."\nEnglish:"..textEn)
         end
         npcChar:talk(textTypeDe, textDe, textEn)
-        warpedPlayers = false
     end
 end
 

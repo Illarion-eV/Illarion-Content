@@ -21,7 +21,7 @@ local lookat = require("base.lookat")
 local M = {}
 
 function M.UseItem(user, sourceItem, ltstate)
-    
+
     if sourceItem:getData("granorsHut") ~= "" then
         granorsHut.searchInHedge(user)
     end
@@ -33,7 +33,7 @@ function M.LookAtItem(user, item)
     if item:getData("granorsHut") ~= "" then
         granorsHut.lookingAtHedge(user, item)
     end
-    
+
     return lookat.GenerateLookAt(user, item, lookat.NONE)
 end
 

@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local M = {}
 -- In work! By Avalyon
@@ -29,7 +29,7 @@ eff:addValue( "curse", 1)
                 User:increaseAttrib ("agility", 3);
                 User:increaseAttrib ("intelligence", 3);
                 User:inform ("You feel a slight pain as the ring tightens arround your finger. A dark energy is released inside the body, making you feel as powerful as you have ever been.");
-                
+
       else
                 User:increaseAttrib ("agility", -3);
                 User:increaseAttrib ("intelligence", -3);

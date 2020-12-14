@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (187, 'quest.jeremiah_horanfeld_187_cadomyr');
 
@@ -131,7 +131,7 @@ QuestTarget[1] = {position(104, 600, 0), position(105,600,0)}
 QuestTarget[2] = {position(104, 600, 0), position(105,600,0)}
 QuestTarget[3] = {position(104, 600, 0), position(105,600,0)}
 QuestTarget[4] = {position(104, 600, 0), position(105,600,0)}
-QuestTarget[5] = {position(104, 600, 0), position(105,600,0)} 
+QuestTarget[5] = {position(104, 600, 0), position(105,600,0)}
 QuestTarget[6] = {position(104, 600, 0), position(105,600,0)}
 QuestTarget[7] = {position(104, 600, 0)}
 QuestTarget[8] = {position(104, 600, 0)}
@@ -140,13 +140,13 @@ QuestTarget[10] = {position(104, 600, 0), position(105,600,0)}
 QuestTarget[11] = {position(104, 600, 0), position(105,600,0)}
 QuestTarget[12] = {position(104, 600, 0), position(105,600,0)}
 QuestTarget[13] = {position(104, 600, 0), position(105,600,0)}
-QuestTarget[14] = {position(104, 600, 0), position(105,600,0)} 
+QuestTarget[14] = {position(104, 600, 0), position(105,600,0)}
 QuestTarget[15] = {position(104, 600, 0), position(105,600,0)}
 QuestTarget[16] = {position(104, 600, 0), position(105,600,0)}
 QuestTarget[17] = {position(104, 600, 0), position(105,600,0)}
 QuestTarget[18] = {position(104, 600, 0), position(105,600,0)}
 QuestTarget[19] = {position(104, 600, 0), position(105,600,0)}
-QuestTarget[20] = {position(104, 600, 0), position(105,600,0)} 
+QuestTarget[20] = {position(104, 600, 0), position(105,600,0)}
 QuestTarget[21] = {position(104, 600, 0)}
 QuestTarget[22] = {position(104, 600, 0)}
 QuestTarget[23] = {position(104, 600, 0)}
@@ -154,15 +154,15 @@ QuestTarget[24] = {position(104, 600, 0), position(105,600,0)}
 QuestTarget[25] = {position(104, 600, 0), position(105,600,0)}
 QuestTarget[26] = {position(104, 600, 0), position(105,600,0)}
 QuestTarget[27] = {position(104, 600, 0), position(105,600,0)}
-QuestTarget[28] = {position(104, 600, 0), position(105,600,0)} 
+QuestTarget[28] = {position(104, 600, 0), position(105,600,0)}
 QuestTarget[29] = {position(104, 600, 0), position(105,600,0)}
 QuestTarget[30] = {position(104, 600, 0), position(105,600,0)}
 QuestTarget[31] = {position(104, 600, 0), position(105,600,0)}
 QuestTarget[32] = {position(104, 600, 0), position(105,600,0)}
 QuestTarget[33] = {position(104, 600, 0), position(105,600,0)}
-QuestTarget[34] = {position(104, 600, 0), position(105,600,0)} 
+QuestTarget[34] = {position(104, 600, 0), position(105,600,0)}
 QuestTarget[35] = {position(104, 600, 0)}
-QuestTarget[36] = {position(104, 600, 0), position(105,600,0)} 
+QuestTarget[36] = {position(104, 600, 0), position(105,600,0)}
 QuestTarget[37] = {position(104, 600, 0)}
 QuestTarget[38] = {position(104, 600, 0)}
 

@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 local M = {}
@@ -22,7 +22,7 @@ M.createMonster = class(function(cremonst, posi, ID, mvpoints)
     cremonst.monsterID=ID;
     cremonst.movepoints=mvpoints;
 end);
-    
+
 function M.createMonster:execute()
     world:createMonster(self.monsterID, self.pos, self.movepoints);
 end

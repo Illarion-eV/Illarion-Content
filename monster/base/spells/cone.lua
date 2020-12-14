@@ -287,8 +287,8 @@ return function(params)
                        if field == nil then
                            return false
                        end
-                       
-                       if not containsPosition(coneFields, pos) then 
+
+                       if not containsPosition(coneFields, pos) then
                            coneFields[pos] = true
                        end
 

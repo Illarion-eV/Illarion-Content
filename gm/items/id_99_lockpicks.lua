@@ -1506,7 +1506,7 @@ end
 
 local function testBanduk(user)
     user:inform(">>> developer test area")
-    
+
     local pos = user.pos
     local number = common.positionToNumber(pos)
     local tpos = common.numberToPosition(number)

@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE items SET itm_script = 'item.id_1059_dice' WHERE itm_id = 1059 ;
 
@@ -23,7 +23,7 @@ local M = {}
 
 local function informAboutResult(User, typeOfDice, numberOfDice)
     local thrownNumbers = math.random(1,typeOfDice);
-    
+
     local diceTypeEn, diceTypeDe
     if typeOfDice == 6 then
         diceTypeEn = "sixsided"
@@ -39,18 +39,18 @@ local function informAboutResult(User, typeOfDice, numberOfDice)
         else
             diceTypeDe = "zwanzigseitiger"
         end
-    end    
-    
+    end
+
     for i=1, numberOfDice-1 do
         thrownNumbers = thrownNumbers..", "..math.random(1,typeOfDice);
     end
-    
+
     local playerInRange = world:getPlayersInRangeOf(User.pos, 3);
     User:talk(Character.say,"#me würfelt.","#me throws dice.")
-    for _,player in pairs(playerInRange) do 
-        player:inform(numberOfDice.." "..diceTypeDe.." Würfel wurden gewürfelt und sie zeigen: "..thrownNumbers ,numberOfDice.." "..diceTypeEn.." dice are thrown and they show: "..thrownNumbers);        
+    for _,player in pairs(playerInRange) do
+        player:inform(numberOfDice.." "..diceTypeDe.." Würfel wurden gewürfelt und sie zeigen: "..thrownNumbers ,numberOfDice.." "..diceTypeEn.." dice are thrown and they show: "..thrownNumbers);
     end
-        
+
 end
 
 local function chooseNumberOfDice(User, typeOfDice)
@@ -66,7 +66,7 @@ local function chooseNumberOfDice(User, typeOfDice)
             if tonumber(inputNumber) <= 0 then
                 User:inform("Du musst mindestens einen Würfel werfen.","You have to throw at least one dice.")
                 chooseNumberOfDice(User, typeOfDice)
-            elseif tonumber(inputNumber) > 0 and tonumber(inputNumber) < 7 then 
+            elseif tonumber(inputNumber) > 0 and tonumber(inputNumber) < 7 then
                 informAboutResult(User, typeOfDice, inputNumber)
             else
                 User:inform("Du kannst nur bis zu 6 Würfel werfen.", "You can only throw up to 6 dice.")
@@ -83,7 +83,7 @@ end
 local function chooseTypeOfDice(User)
     local title = common.GetNLS(User,"Würfel", "Dice");
     local text = common.GetNLS(User,"Bitte wähle aus, welche Art Würfel du werfen möchtest." , "Please choose what type of dice you wish to throw.");
-    
+
     local sdDice = function(dialog)
         if (not dialog:getSuccess()) then
             return;
@@ -99,7 +99,7 @@ local function chooseTypeOfDice(User)
 
     dialog:addOption(0, common.GetNLS(User, "W6 - Sechsseitiger Würfel", "D6 - Sixsided dice"))
     dialog:addOption(0, common.GetNLS(User, "W20 - Zwanzigseiiger Würfel", "D20 - Twentysided dice"))
-    
+
     User:requestSelectionDialog(dialog)
 end
 

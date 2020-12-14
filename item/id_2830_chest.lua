@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE items SET itm_script='item.id_2830_chest' WHERE itm_id=2830
 
@@ -43,7 +43,7 @@ local function getPlayerTriesAlready(user, sourceItem)
     local playerInRange=world:getPlayersInRangeOf(posi ,1 )
     local currentPlayerId
     local foundPlayer
-    
+
     for i=1, MAX_CHARS do
         currentPlayerId = tonumber(sourceItem:getData("unlockerId"..tostring(i)))
         if common.IsNilOrEmpty(currentPlayerId) or (currentPlayerId == 0) then
@@ -99,17 +99,17 @@ function M.UseItem(user,sourceItem)
         volcano_chest.openChest(user, sourceItem, level)
         return
     end
-    
+
     local treasureLockStatus = sourceItem:getData("treasureLockStatus")
     if treasureLockStatus == "locked" then
         common.InformNLS(user, "The chest is locked.", "Die Kiste ist verschlossen.")
         return
     end
-    
+
     if (playerNeeded == nil) then
         playerNeeded = 1
     end
-    
+
     local playerTried = getPlayerTriesAlready(user, sourceItem) + 1
     if playerTried > 99 then
         return

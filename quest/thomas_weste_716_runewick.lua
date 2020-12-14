@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (716, 'quest.thomas_weste_716_runewick');
 
@@ -34,7 +34,7 @@ local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Pflücke sechsig Äpfel und bring diese zu Thomas Weste bei der Küche von Runewick. Gehe dazu weit nach Westen über zwei gorße Brücken. Benutze den Apfelbaum um zu ernten."
-Description[ENGLISH][1] = "Pick sixty apples and take them to Thomas Weste at the kitchen in Runewick. You'll find apple trees far west behind the second large bridge. Use the apple tree to get the apples." 
+Description[ENGLISH][1] = "Pick sixty apples and take them to Thomas Weste at the kitchen in Runewick. You'll find apple trees far west behind the second large bridge. Use the apple tree to get the apples."
 Description[GERMAN][2] = "Geh zu Thomas Weste bei der Küche von Runewick. Er hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][2] = "Go to Thomas Weste at the kitchen in Runewick, he is sure to have another task for you."
 Description[GERMAN][3] = "Schöpfe zehn Eimer Wasser und bring diese zu Thomas Weste bei der Küche von Runewick. Dazu nimmst du die Eimer in die Hand und benutzt sie, während du vor einem Brunnen stehst. Der nächste Brunnen steht vor der Küche."
@@ -78,16 +78,16 @@ QuestTarget[2] = {position(954, 842, 0)}
 QuestTarget[3] = {position(954, 842, 0), position(948, 823, 0)} -- well
 QuestTarget[4] = {position(954, 842, 0)}
 QuestTarget[5] = {position(954, 842, 0), position(959, 835, 0), position(960, 835, 0)} -- wine barrel
-QuestTarget[6] = {position(954, 842, 0)} 
-QuestTarget[7] = {position(954, 842, 0)} 
-QuestTarget[8] = {position(954, 842, 0)} 
-QuestTarget[9] = {position(954, 842, 0)} 
-QuestTarget[10] = {position(954, 842, 0)} 
-QuestTarget[11] = {position(954, 842, 0)} 
-QuestTarget[12] = {position(954, 842, 0)} 
-QuestTarget[13] = {position(954, 842, 0)} 
-QuestTarget[14] = {position(954, 842, 0)} 
-QuestTarget[15] = {position(954, 842, 0)} 
+QuestTarget[6] = {position(954, 842, 0)}
+QuestTarget[7] = {position(954, 842, 0)}
+QuestTarget[8] = {position(954, 842, 0)}
+QuestTarget[9] = {position(954, 842, 0)}
+QuestTarget[10] = {position(954, 842, 0)}
+QuestTarget[11] = {position(954, 842, 0)}
+QuestTarget[12] = {position(954, 842, 0)}
+QuestTarget[13] = {position(954, 842, 0)}
+QuestTarget[14] = {position(954, 842, 0)}
+QuestTarget[15] = {position(954, 842, 0)}
 
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 16

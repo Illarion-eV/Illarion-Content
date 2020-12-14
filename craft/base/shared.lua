@@ -76,25 +76,25 @@ end
 function M.hasTool(User, id)
 
     local toolItem = User:getItemAt(Character.left_tool)
-    
+
     if ( toolItem.id ~=id ) then
         toolItem = User:getItemAt(Character.right_tool)
         if ( toolItem.id ~= id ) then
             return false
         end
     end
-    
+
     return true
-    
+
 end
 
 function M.getTool(User, id)
 
     local germanExtension
     local germanExtensionBroken
-    
+
     germanExtension,germanExtensionBroken = M.getGermanExtension(id)
-    
+
     if M.hasTool(User, id) then
         local leftToolItem = User:getItemAt(Character.left_tool)
         local rightToolItem = User:getItemAt(Character.right_tool)
@@ -110,7 +110,7 @@ function M.getTool(User, id)
         common.HighInformNLS(User,"Du musst ein"..germanExtension.." "..world:getItemName(id, Player.german).." in der Hand halten.","You need to hold the "..world:getItemName(id, Player.english).." in your hand.")
         return false
     end
-    
+
     return false
 
 end
@@ -119,11 +119,11 @@ function M.getGermanExtension(id)
 
     local germanExtension="e" --most tools are female in German
     local germanExtensionBroken="e"
-    
+
     -- 74:hatchet;121:peel;2781:dyeing rod;122:finesmithing hammer;311:glass blow pipe;23:hammer;2709:armourer's hammer;227:cooking spoon;737:chisel;2752:carving tools;2715:plane
     local maleToolList = {121,2781,122,23,2709,227,737,2715}
-    local neuterToolList = {74,311,2752}    
-    
+    local neuterToolList = {74,311,2752}
+
     for i in pairs(maleToolList) do
         if id == maleToolList[i] then
             germanExtensionBroken=""
@@ -137,16 +137,16 @@ function M.getGermanExtension(id)
             germanExtension=""
         end
     end
-    
+
     return germanExtension,germanExtensionBroken
-    
+
 end
 
 function M.getGatheringBonus(user, toolItem)
 
     local gemScaling = 500 --Percentage divided by 100 (100 % = 1) and by 5 to match crafting quality calculation
     local gatheringBonus = 1 --Default
-    
+
     if toolItem then
         gatheringBonus=gatheringBonus+common.GetAttributeBonusHigh(user:increaseAttrib("constitution", 0))+common.GetQualityBonusStandard(toolItem)+gems.getGemBonus(toolItem)/gemScaling
     else
@@ -154,7 +154,7 @@ function M.getGatheringBonus(user, toolItem)
     end
 
     return gatheringBonus
-    
+
 end
 
 return M

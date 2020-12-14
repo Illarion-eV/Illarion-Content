@@ -35,7 +35,7 @@ function M.UseItem(User, SourceItem, ltstate)
             "Dir fehlt ein Werkzeug in deiner Hand um hier zu arbeiten: Hobel oder Schnitzmesser.",
             "To work here you have to hold a tool in your hand: Plane or carving tools.")
     end
-    
+
 end
 
 return M

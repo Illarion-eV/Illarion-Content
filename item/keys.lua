@@ -71,7 +71,7 @@ function M.UseItem(User, SourceItem)
         money.TakeMoneyFromChar(User, math.random(math.floor(wealth / 100), math.floor(wealth / 20)))
         return
    end
-   
+
     local frontItem = common.GetFrontItem(User)
     if frontItem.id == 2830 then
         if not frontItem:getData("treasureLockId") == SourceItem:getData("treasureLockId") then

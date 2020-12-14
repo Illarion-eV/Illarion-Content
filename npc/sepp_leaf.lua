@@ -166,7 +166,7 @@ end
 --                    end
 --               end
 --            end
-            
+
 --            if not found then
 --                world:createItemFromId(433, 1, thePos, true, 333, {nameDe = "Spielfeldbegrenzung", nameEn = "Game field border"})
 --            end
@@ -182,7 +182,7 @@ local function endGame (npc)
         world:erase(itemOnion,1)
     end
     teamEast = {}
-    teamWest = 
+    teamWest =
     removeAllBalls(npc)
     --repairGameFieldBorders()
 end
@@ -512,13 +512,13 @@ function M.receiveText(npc, ttype, text, user)
         user:inform("[Help] How to play: Players have to stay in their respective match field. Call 'Start' and Sepp will provide a game onion. A hit or leaving the game field ends the match in favour of the other team.")
         return
     end
-    
+
     if string.match(text, "[Hh]ilf") then
         user:inform("[Hilfe] Dieser NPC heißt Sepp Leaf. Er ist ein Zwiebelballschiedsrichter. Bitte ihn, ein Spiel zu pfeifen. Schlüsselwörter: start, stop, gewinner, regel")
         user:inform("[Hilfe] Spielablauf: Die Spieler stellen sich in den Spielfeldern auf. Auf 'Start' stellt Sepp eine Spielzwiebel bereit. Ein Treffer oder das Verlassen des Feldes beendet das Spiel zugunsten der anderen Mannschaft.")
         return
     end
-    
+
     for i=1,#saidText do
         if string.match(string.lower(text), saidText[i][1]) then
             local answerId = saidText[i][2]

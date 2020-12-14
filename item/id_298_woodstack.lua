@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- I_298 Holzstapel entfachen (Lagerfeuer)
 
@@ -23,7 +23,7 @@ local M = {}
 -- UPDATE items SET itm_script='item.id_298_woodstack' WHERE itm_id IN (298);
 
 function M.UseItem(User, SourceItem)
-    
+
     if (SourceItem:getType()==3) then
         SourceItem.wear = 4;
         SourceItem.id = 12;

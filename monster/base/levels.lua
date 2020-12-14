@@ -322,7 +322,7 @@ function M.getLevel(monster)
     else
         return 0
     end
-    
+
 end
 
 return M

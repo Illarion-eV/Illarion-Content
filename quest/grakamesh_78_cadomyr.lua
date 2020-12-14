@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (78, 'quest.grakamesh_78_cadomyr');
 
@@ -83,27 +83,27 @@ local Start = {140, 644, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {position(139, 644, 0)} 
-QuestTarget[2] = {position(139, 644, 0)} 
-QuestTarget[3] = {position(139, 644, 0)} 
+QuestTarget[1] = {position(139, 644, 0)}
+QuestTarget[2] = {position(139, 644, 0)}
+QuestTarget[3] = {position(139, 644, 0)}
 QuestTarget[4] = {position(139, 644, 0)}
-QuestTarget[5] = {position(139, 644, 0)} 
+QuestTarget[5] = {position(139, 644, 0)}
 QuestTarget[6] = {position(139, 644, 0)}
-QuestTarget[7] = {position(139, 644, 0)} 
-QuestTarget[8] = {position(139, 644, 0)} 
-QuestTarget[9] = {position(139, 644, 0)} 
+QuestTarget[7] = {position(139, 644, 0)}
+QuestTarget[8] = {position(139, 644, 0)}
+QuestTarget[9] = {position(139, 644, 0)}
 QuestTarget[10] = {position(139, 644, 0)}
-QuestTarget[11] = {position(140, 644, 0)} 
+QuestTarget[11] = {position(140, 644, 0)}
 QuestTarget[12] = {position(140, 644, 0)}
-QuestTarget[13] = {position(139, 644, 0)} 
-QuestTarget[14] = {position(139, 644, 0)} 
-QuestTarget[15] = {position(139, 644, 0)} 
+QuestTarget[13] = {position(139, 644, 0)}
+QuestTarget[14] = {position(139, 644, 0)}
+QuestTarget[15] = {position(139, 644, 0)}
 QuestTarget[16] = {position(139, 644, 0)}
-QuestTarget[17] = {position(139, 644, 0)} 
+QuestTarget[17] = {position(139, 644, 0)}
 QuestTarget[18] = {position(140, 644, 0)}
-QuestTarget[19] = {position(140, 644, 0)} 
-QuestTarget[20] = {position(139, 644, 0), position(157, 668, -4)} 
-QuestTarget[21] = {position(140, 644, 0)} 
+QuestTarget[19] = {position(140, 644, 0)}
+QuestTarget[20] = {position(139, 644, 0), position(157, 668, -4)}
+QuestTarget[21] = {position(140, 644, 0)}
 QuestTarget[22] = {position(140, 644, 0)}
 
 -- Insert the quest status which is reached at the end of the quest

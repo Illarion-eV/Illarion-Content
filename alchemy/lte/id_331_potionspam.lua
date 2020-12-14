@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- LTE für das Druidensystem
 -- by Blay09
@@ -34,7 +34,7 @@ function M.loadEffect(Effect,Character)               -- wenn der Charakter erne
 
 end
 
-function M.removeEffect(Effect,Character)         
+function M.removeEffect(Effect,Character)
 
 end
 

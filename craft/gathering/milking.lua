@@ -18,12 +18,13 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local shared = require("craft.base.shared")
 local gathering = require("craft.base.gathering")
+local petBase = require("petsystem.base")
 
 local M = {}
 
 local function isMilkable(targetCharacter)
 
-    local milkableAnimals = {181, 371}; -- sheep, cow
+    local milkableAnimals = {181, 371, 1057}; -- sheep, cow
 
     for i=1, #milkableAnimals do
         if targetCharacter:getMonsterType() == milkableAnimals[i] then
@@ -42,10 +43,10 @@ function M.StartGathering(User, SourceAnimal, ltstate)
     milking:AddRandomPureElement(User,gathering.prob_element*gatheringBonus); -- Any pure element
     milking:SetTreasureMap(User,gathering.prob_map*gatheringBonus,"Das Tier kratzt und schnüffelt aufgeregt am Boden. Dort findest du eine seltsame Karte.","The animal scratches and sniffs on the ground excitdly. You find a strange map there.");
     milking:AddMonster(User,271,gathering.prob_monster/gatheringBonus,"Während du das Tier melkst, umschwirrt dich eine ungewöhnlich agressive Wespe.","While you milk the animal an annoyingly aggressive wasp comes after you!",4,7);
-    milking:AddRandomItem(3558,1,333,{},gathering.prob_rarely,"Was ist das? Dieses Schaf trägt eine kostbare Kette um den Hals.","Lo! This sheep has a precious necklace around its neck."); --Copper amulet    
+    milking:AddRandomItem(3558,1,333,{},gathering.prob_rarely,"Was ist das? Dieses Schaf trägt eine kostbare Kette um den Hals.","Lo! This sheep has a precious necklace around its neck."); --Copper amulet
     milking:AddRandomItem(153,1,333,{},gathering.prob_occasionally,"Ein großes Blatt hat sich im Fell des Tieres verfangen. Du betreibst zunächst ein wenig Fellpflege, bevor du weiter melkst.","A large leaf was tangled in the fur of the animal. You do a little grooming before you continue milking."); --Foot leaf
     milking:AddRandomItem(156,1,333,{},gathering.prob_frequently,"Etwas Gras hat sich im Fell des Tieres verfangen. Du entfernst das klebrige Grünzeug.","Some grass was ensnared in the fur of the animal. Before you can continue milking you have to remove the sticky green weed."); --Steppe fern
-   
+
     common.ResetInterruption( User, ltstate );
     if ( ltstate == Action.abort ) then -- work interrupted
         User:talk(Character.say, "#me unterbricht "..common.GetGenderText(User, "seine", "ihre").." Arbeit.", "#me interrupts "..common.GetGenderText(User, "his", "her").." work.")
@@ -74,13 +75,21 @@ function M.StartGathering(User, SourceAnimal, ltstate)
     end
 
     -- check if animal still gives milk
-    local foundEffect, milkingEffect = SourceAnimal.effects:find(401);
+    local lteBearer = SourceAnimal --Normally, the lte is attached to the cow itself
+    if SourceAnimal:getMonsterType() == 1057 then --In case of pets, attach lte to the owner
+        local owner = petBase.getOwner(SourceAnimal)
+        if owner then --Make sure the owner is accessable
+            lteBearer = owner
+        end
+    end
+
+    local foundEffect, milkingEffect = lteBearer.effects:find(401);
     if (not foundEffect) then
         milkingEffect = LongTimeEffect(401, 7200); -- call every 12 minutes
         milkingEffect:addValue("gatherAmount", 0);
-        SourceAnimal.effects:addEffect(milkingEffect);
+        lteBearer.effects:addEffect(milkingEffect);
     end
-    local foundAmount, gatherAmount = milkingEffect:findValue("gatherAmount");
+    local _, gatherAmount = milkingEffect:findValue("gatherAmount");
 
     -- currently not working, let's go
     if ( ltstate == Action.none ) then

@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (604, 'quest.viola_baywillow_604');
 
@@ -32,17 +32,17 @@ Title[ENGLISH] = "Find Elesil Daelwon in Runewick"
 local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "Finde Elesil Daelwon direkt hinter der BrÃ¼cke, die nach Runewick fÃ¼hrt, und rede mit ihr."
+Description[GERMAN][1] = "Finde Elesil Daelwon direkt hinter der Brücke, die nach Runewick führt, und rede mit ihr."
 Description[ENGLISH][1] = "Find Elesil Daelwon immediately as you cross the bridge into Runewick and talk to her."
-Description[GERMAN][2] = "Rede mit Elesil Daelwon, wenn du mehr Ã¼ber Runewick erfahren mÃ¶chtest. Bitte einfach um â€šHilfeâ€˜, wenn du nicht weiÃŸt, was du sagen sollst. \nDu kannst auch zu Viola Baywillow in Trollshaven zurÃ¼ckkehren, um deine Belohnung abzuholen."
+Description[GERMAN][2] = "Rede mit Elesil Daelwon, wenn du mehr über Runewick erfahren möchtest. Bitte einfach um 'Hilfe', wenn du nicht weißt, was du sagen sollst. \nDu kannst auch zu Viola Baywillow in Trollshaven zurückkehren, um deine Belohnung abzuholen."
 Description[ENGLISH][2] = "Talk to Elesil any time you would like to learn more about Runewick. Just ask for 'help' if you do not know what to say.\nYou can also return to Viola Baywillow in Troll's Haven to collect your reward."
-Description[GERMAN][3] = "Hast du schon Frizza und Iradona, die Informanten der anderen beiden Reiche besucht? Falls nicht, solltest du Viola Baywillow in Trollshaven fragen, wo sie zu finden sind, damit du sie aufsuchen kannst, um mehr Ã¼ber Cadomyr und Galmair zu erfahren."
+Description[GERMAN][3] = "Hast du schon Frizza und Iradona, die Informanten der anderen beiden Reiche besucht? Falls nicht, solltest du Viola Baywillow in Trollshaven fragen, wo sie zu finden sind, damit du sie aufsuchen kannst, um mehr über Cadomyr und Galmair zu erfahren."
 Description[ENGLISH][3] = "Have you already visited the other two Realm Informants, Frizza and Iradona? If not, you should find out where they are from Viola Baywillow in Troll's Haven so that you can visit them to learn all about Cadomyr and Galmair."
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
 local Start = {693, 292, 0}
- 
+
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}

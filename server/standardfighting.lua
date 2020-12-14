@@ -51,7 +51,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local character = require("base.character")
-local learn = require("server.learn")
 local fighting = require("content.fighting")
 local chr_reg = require("lte.chr_reg")
 local gems = require("base.gems")
@@ -120,7 +119,7 @@ end
 
 local function isPossibleTarget(monster, candidate)
     --Monsters are excluded; exception: pets that attack a monster are a valid target for that monster
-    if not character.IsPlayer(candidate) and not (petBase.getOwner(candidate) and fightingutil.getSelectedEnemyId(candidate.id) == monster.id)  then
+    if not character.IsPlayer(candidate) and not (petBase.getOwnerByPet(candidate) and fightingutil.getSelectedEnemyId(candidate.id) == monster.id)  then
         return false
     end
 
@@ -267,15 +266,15 @@ function M.onAttack(Attacker, Defender)
         -- Let's don't attack now.
         return
     end
-    
+
     -- Store the enemey as the current target of this player or a player's pet
-    if character.IsPlayer(Attacker) or petBase.getOwner(Attacker) then
-        fightingutil.setSelectedEnemyId(Attacker.id, Defender.id)
+    if character.IsPlayer(Attacker) or petBase.getOwnerByPet(Attacker) then
+       fightingutil.setSelectedEnemyId(Attacker.id, Defender.id)
     end
 
     -- Prepare the lists that store the required values for the calculation
-    local Attacker = { ["Char"]=Attacker }
-    local Defender = { ["Char"]=Defender }
+    Attacker = { ["Char"]=Attacker }
+    Defender = { ["Char"]=Defender }
     local Globals = {}
 
     -- [Tutorial] Newbie Check
@@ -325,7 +324,6 @@ function M.onAttack(Attacker, Defender)
 
     -- Check if a magic attack is invoked
     if Attacker.AttackKind == 5 then
-        local distance = Attacker.Char:distanceMetric(Defender.Char)
         if fightingutil.isMagicUser(Attacker.Char) then -- Only mages can invoke a magic attack
             -- Magic attacks are calculated in a different manner, outsourced for tidiness
             local magicAttack = require("magic.magicfighting")
@@ -477,7 +475,7 @@ function ArmourAbsorption(Attacker, Defender, Globals)
     if character.IsPlayer(Defender.Char) and common.isBroken(Globals.HittedItem) then
         armourValue = 0
     end
-    
+
     if(Globals.criticalHit==6) then
         --Armour pierce
         armourValue = nil
@@ -569,7 +567,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
         local quality = (Attacker.WeaponItem.quality - durability) / 100
         local nameText = world:getItemName(Attacker.WeaponItem.id, Attacker.Char:getPlayerLanguage())
 
-        if durability > 0 then 
+        if durability > 0 then
             durability = durability - 1
             if (durability == 0) then
                 common.InformNLS(Attacker.Char,
@@ -592,7 +590,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
         local quality = (ParryWeapon.quality - durability) / 100
         local nameText = world:getItemName(ParryWeapon.id, Defender.Char:getPlayerLanguage())
 
-        if durability > 0 then 
+        if durability > 0 then
             durability = durability - 1
             if (durability == 0) then
                 common.InformNLS(Defender.Char,
@@ -602,7 +600,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
             ParryWeapon.quality = quality * 100 + durability
             world:changeItem(ParryWeapon)
         end
-        
+
         --[[if (durability < 10) then
             common.InformNLS(Defender.Char,
                 "Dein Gegenstand '"..nameText.."' hat schon bessere Zeiten gesehen. Vielleicht solltest du ihn reparieren.",
@@ -1187,9 +1185,9 @@ function GetArmourType(Defender, Globals)
     Globals["HittedArea"] = fighting.GetHitArea(Defender.Race)
     Globals["HittedItem"] = Defender.Char:getItemAt(Globals.HittedArea)
 
-    local armour, armourfound
+    local armour, _
     if (Globals.HittedItem ~= nil and Globals.HittedItem.id > 0) then
-        armourfound, armour = world:getArmorStruct(Globals.HittedItem.id)
+        _, armour = world:getArmorStruct(Globals.HittedItem.id)
     else
         -- No armour worn
         Defender["DefenseSkill"] = 0
@@ -1530,7 +1528,7 @@ function LearnSuccess(Attacker, Defender, AP, Globals)
 
     -- Defender learns armour skill
     if Defender.DefenseSkillName then
-        local armourfound, armour = world:getArmorStruct(Globals.HittedItem.id)
+        local armourfound, _ = world:getArmorStruct(Globals.HittedItem.id)
         if armourfound then
             Defender.Char:learn(Defender.DefenseSkillName,(AP)/3,Attacker.skill + 20)
         end

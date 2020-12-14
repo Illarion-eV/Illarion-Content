@@ -176,6 +176,9 @@ M.potionName[317] = {"Big Slime Barrier","Groﬂe Schleimbarriere"}
 setPotion(317, 446, 76576456, 140, 140, 140, 140, 152, 152, 146, 146)
 M.potionName[318] = {"Lennier's Dream","Lenniers Traum"}
 setPotion(318, 446, 57932798, 765,146,146,146,148,15,151,764)
+M.potionName[319] = {"Protogebr‰u: Brightrim's demon skeleton weakener","Proto brewing: Brightrims D‰monenskelettschw‰cher"}
+setPotion(318, 446, 57932798, 760, 146, 146, 146, 134, 134, 760, 752)
+M.potionName[320] = {"Brightrim's demon skeleton weakener","Brightrims D‰monenskelettschw‰cher"}
 -- bombs end
 
 -- quality raiser

@@ -59,7 +59,7 @@ end
 
 local function elementNoDrop(User, itemID, gfxID)
     -- player get informed s/he missed chance after a while
-    scheduledFunction.registerFunction(math.random(5, 10), function() 
+    scheduledFunction.registerFunction(math.random(5, 10), function()
         -- check if character has already logged out
         if not isValidChar(User) then
             return

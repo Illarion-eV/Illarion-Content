@@ -29,7 +29,7 @@ function M.UseItem(User, SourceItem)
     if isRanklistLocation(SourceItem.pos) then
         ranklist.getRanklist(User, "explorerRanklist", true)
     end
-    
+
     if (User:getQuestProgress(539) == 5) and SourceItem.pos == position(613, 188, -3) then --OK, the player does the quest 3
         User:inform(
         "Das Rezept ist für Kaefitys absolute Lebensauslöschungsbombe, aber die meisten können den Kauderwelsch nicht entziffern. Die wenigen, die es lesen können, werden feststellen, dass an entscheidenden Stellen wichtige Zutaten fehlen. Berichte Pasinn was du gefunden hast.",

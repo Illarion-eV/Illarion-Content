@@ -201,9 +201,9 @@ function M.GetAmount(maxAmount, SourceItem)
     else
         amount = 0
     end
-    
+
     return amount
-    
+
  end
 
 -- Find a resource from a source
@@ -212,11 +212,11 @@ function M.FindResource(User, SourceItem, amount, resourceID)
     amount = amount - 1
     SourceItem:setData("amount", "" .. amount)
     world:changeItem(SourceItem)
-        
+
     local created = common.CreateItem(User, resourceID, 1, 333, nil)
-    
+
     return created, amount
-    
+
 end
 
 -- Swap the source with the depleted source.
@@ -226,7 +226,7 @@ function M.SwapSource(SourceItem, depletedSourceID, restockWear)
     SourceItem.id = depletedSourceID
     SourceItem.wear = restockWear
     world:changeItem(SourceItem)
-        
+
 end
 
 -- Collector for recurring functions
@@ -235,7 +235,7 @@ function M.InitGathering(User, SourceItem, toolID, maxAmount, skill)
     common.TurnTo(User, SourceItem.pos)
     local success = false
     local toolItem=shared.getTool(User, toolID)
-    local amount=M.GetAmount(maxAmount, SourceItem) 
+    local amount=M.GetAmount(maxAmount, SourceItem)
     local gatheringBonus=shared.getGatheringBonus(User, toolItem)
 
     if toolItem and common.CheckItem(User, SourceItem) and common.FitForWork(User) and M.SkillCheck(User, SourceItem, skill) then -- security checks

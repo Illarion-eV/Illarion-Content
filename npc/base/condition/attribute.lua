@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 local condition = require("npc.base.condition.condition")
@@ -49,37 +49,37 @@ end)
 
 function _attrib_helper_equal(self, npcChar, texttype, player)
     local value = tools.get_value(self.npc, self.value, self.valuetype)
-    
+
     return (player:increaseAttrib(self.attrib, 0) == value)
 end
 
 function _attrib_helper_notequal(self, npcChar, texttype, player)
     local value = tools.get_value(self.npc, self.value, self.valuetype)
-    
+
     return (player:increaseAttrib(self.attrib, 0) ~= value)
 end
 
 function _attrib_helper_lesserequal(self, npcChar, texttype, player)
     local value = tools.get_value(self.npc, self.value, self.valuetype)
-    
+
     return (player:increaseAttrib(self.attrib, 0) <= value)
 end
 
 function _attrib_helper_greaterequal(self, npcChar, texttype, player)
     local value = tools.get_value(self.npc, self.value, self.valuetype)
-    
+
     return (player:increaseAttrib(self.attrib, 0) >= value)
 end
 
 function _attrib_helper_lesser(self, npcChar, texttype, player)
     local value = tools.get_value(self.npc, self.value, self.valuetype)
-    
+
     return (player:increaseAttrib(self.attrib, 0) < value)
 end
 
 function _attrib_helper_greater(self, npcChar, texttype, player)
     local value = tools.get_value(self.npc, self.value, self.valuetype)
-    
+
     return (player:increaseAttrib(self.attrib, 0) > value)
 end
 

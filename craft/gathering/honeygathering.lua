@@ -32,7 +32,7 @@ function M.StartGathering(User, SourceItem, ltstate)
     honeygathering:AddRandomItem(2744,1,333,{},gathering.prob_rarely,"Ein Imkerkollege scheint hier seine Pfeife vergessen zu haben. Du nimmst sie an dich.","A beekeeper colleague must have forgotten his pipe for smoking out the bees. You take it with you."); --Pipe
     honeygathering:AddRandomItem(151,1,333,{},gathering.prob_occasionally,"Die Bienen haben offensichtlich Vorräte angelegt. Sogar eine ganze Erdbeere haben sie in ihren Stock geschleppt.","As you carefully pull honey from the hive you notice a sticky strawberry in your grasp!"); --Strawberry
     honeygathering:AddRandomItem(431,1,333,{},gathering.prob_frequently,"An deinen Händen bleibt klebriger Wachs hängen.","Your hands get stuck in sticky wax.", 0); --Wax
-    
+
     common.ResetInterruption( User, ltstate );
     if ( ltstate == Action.abort ) then -- work interrupted
         User:talk(Character.say, "#me unterbricht "..common.GetGenderText(User, "seine", "ihre").." Arbeit.", "#me interrupts "..common.GetGenderText(User, "his", "her").." work.")

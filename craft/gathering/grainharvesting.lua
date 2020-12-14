@@ -65,7 +65,7 @@ function M.StartGathering(User, SourceItem, ltstate)
     grainharvesting:AddRandomItem(1840,1,333,{},gathering.prob_rarely,"Im Ackerboden ist ein angelaufender Kupferkelch zu finden.","In the arable soil you find a tarnished copper goblet."); --copper goblet
     grainharvesting:AddRandomItem(2935,1,333,{},gathering.prob_occasionally,"Da hat wohl jemand eine Schüssel verloren, mit der er Saatgut augestreut hat. Nun gehört sie dir.","You dig up an old bowl. Now it belongs to you."); --soup bowl
     grainharvesting:AddRandomItem(2760,1,333,{},gathering.prob_frequently,"Zwischen den Feldfrüchten findest du ein altes Seil. Nützlich, oder?","Among the crops you find an old rope. Can never have enough rope!"); --rope
-    
+
     common.ResetInterruption( User, ltstate );
     if ( ltstate == Action.abort ) then -- work interrupted
         User:talk(Character.say, "#me unterbricht "..common.GetGenderText(User, "seine", "ihre").." Arbeit.", "#me interrupts "..common.GetGenderText(User, "his", "her").." work.")

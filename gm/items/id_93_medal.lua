@@ -137,7 +137,7 @@ local function UseItemWithField(User, TargetPos,SourceItem)
 
     -- This is an addition for a quest. It is triggered by last spoken text to allow quick combination with monster spawner
     if string.find(User.lastSpokenText, "meteorit") then
-    
+
         local rocks = {1246, 915, 1245, 1254, 232, 233, 914, 1265, 1273, 1257, 1276, 1278, 1250, 1251}
         local rockCreated = world:createItemFromId(rocks[Random.uniform(1, #rocks)], 1, TargetPos, true, 1, {nameDe = "Meteorite", nameEn = "Meteorit"})
         for i = -1, 1 do
@@ -154,7 +154,7 @@ local function UseItemWithField(User, TargetPos,SourceItem)
                 end
             end
         end
-        
+
      end
 
     -- First check for mode change

@@ -227,7 +227,7 @@ local function WriteLabel(User,SourceItem)
                 lookat.SetSpecialDescription(bottle,labelText,labelText)
                 world:changeItem(bottle)
                 User:inform("Du beschriftest die Flasche mit '"..labelText.."'.","You label the bottle as '"..labelText.."'.")
-                
+
             else
                 User:inform("Du brauchst eine Flasche, um diese zu beschriften.","You need a bottle if you want to label one.")
             end

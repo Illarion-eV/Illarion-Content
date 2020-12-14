@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 local consequence = require("npc.base.consequence.consequence")
@@ -23,12 +23,12 @@ local _craft_helper
 local gemcraft = class(consequence,
 function(self)
     consequence:init(self)
-    
+
     self["perform"] = _craft_helper
 end);
 
 function _craft_helper(self, npcChar, player)
-    gems.magicSmith(npcChar, player) 
+    gems.magicSmith(npcChar, player)
 end
 
 return gemcraft

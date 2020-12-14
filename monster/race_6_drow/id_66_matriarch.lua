@@ -21,7 +21,7 @@ local base = require("monster.base.base")
 local M = drows.generateCallbacks()
 
 local orgOnSpawn = M.onSpawn
-    
+
 function M.onSpawn(monster)
     if orgOnSpawn ~= nil then
         orgOnSpawn(monster)
@@ -29,8 +29,8 @@ function M.onSpawn(monster)
     base.setColor{monster = monster, target = base.SKIN_COLOR, red = 150, green = 150, blue = 150}
     base.setColor{monster = monster, target = base.HAIR_COLOR, red = 255, green = 255, blue = 255}
     monster:setAttrib("sex",1)
-    monster:setHair(7) 
-    
+    monster:setHair(7)
+
 end
 
 return M

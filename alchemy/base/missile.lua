@@ -394,47 +394,47 @@ function M.weakenRedSkeletons(user, item)
     local hitArea = fieldOfRadius(item, 5)
     hitArea = common.Shuffle(hitArea)
     local quality = common.getItemQuality(item)
-    
+
     local counter = 0
     for _, hitPosition in pairs(hitArea) do
-    
+
         if world:isCharacterOnField(hitPosition) then
             local character = world:getCharacterOnField(hitPosition)
-            
+
             if character:getType() == Character.player then
                 user:inform("Du fühlst ein kaltes Kribbeln.", "You feel a chill tingling.", Character.lowPriority)
-                
+
             elseif character:getType () == Character.monster then
-                
+
                 local TRANSFORMATION_MAPPING = {[201] = 112,
                                                 [202] = 115,
                                                 [203] = 113,
                                                 [204] = 115,
                                                 [206] = 111
                                                 }
-                
+
                 local originalMonsterId = character:getMonsterType()
                 if TRANSFORMATION_MAPPING[originalMonsterId] then
-                
+
                     local theField = world:getField(hitPosition)
                     local originalItemAmountOnField = theField:countItems()
                     local oldHP = character:increaseAttrib("hitpoints", 0)
                     character:increaseAttrib("hitpoints", -10000)
                     local newItemAmountOnField = theField:countItems()
                     local numberOfItemsToDelete = newItemAmountOnField - originalItemAmountOnField
-                    
+
                     local deletedItems = {}
                     for i = 1, numberOfItemsToDelete do
                         local deleteItem = world:getItemOnField(hitPosition)
                         table.insert(deletedItems, 1, deleteItem)
                         world:erase(deleteItem, deleteItem.number)
                     end
-                    
+
                     local transformedSkeleton = world:createMonster(TRANSFORMATION_MAPPING[originalMonsterId], hitPosition, 0)
                     transformedSkeleton:setAttrib("hitpoints", oldHP)
                     hooks.setNoDrop(transformedSkeleton)
-                    hooks.registerOnDeath(transformedSkeleton, function(monster) 
-                                                        for _, deletedItem in pairs(deletedItems) do 
+                    hooks.registerOnDeath(transformedSkeleton, function(monster)
+                                                        for _, deletedItem in pairs(deletedItems) do
                                                             world:createItemFromItem(deletedItem, monster.pos, true)
                                                             if Random.uniform() <= 0.25 then
                                                                 world:createItemFromId(Item.alchemicalSludge, 1, monster.pos, true, 333, nil)
@@ -442,23 +442,23 @@ function M.weakenRedSkeletons(user, item)
                                                         end
                                                     end
                                         )
-                    
+
                     world:gfx(3, hitPosition)
                     world:gfx(4, hitPosition)
-                    
+
                     counter = counter + 1
                     if counter == quality then
                         break
                     end
-                    
+
                 end
-                
+
             end
-            
+
         end
     end
-    
-    
+
+
 end
 
 return M

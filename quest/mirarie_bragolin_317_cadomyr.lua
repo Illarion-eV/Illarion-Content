@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (317, 'quest.mirarie_bragolin_317_cadomyr');
 
@@ -69,18 +69,18 @@ local Start = {128, 621, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {position(128, 621, 0), position(113, 574, 0), position(117, 607, 0)} 
-QuestTarget[2] = {position(128, 621, 0)} 
-QuestTarget[3] = {position(128, 621, 0), position(113, 611, 0)} 
-QuestTarget[4] = {position(128, 621, 0)} 
-QuestTarget[5] = {position(128, 621, 0)} 
+QuestTarget[1] = {position(128, 621, 0), position(113, 574, 0), position(117, 607, 0)}
+QuestTarget[2] = {position(128, 621, 0)}
+QuestTarget[3] = {position(128, 621, 0), position(113, 611, 0)}
+QuestTarget[4] = {position(128, 621, 0)}
+QuestTarget[5] = {position(128, 621, 0)}
 QuestTarget[6] = {position(128, 621, 0), position(133, 638, 0)}
-QuestTarget[7] = {position(128, 621, 0)} 
-QuestTarget[8] = {position(128, 621, 0)} 
-QuestTarget[9] = {position(128, 621, 0), position(952, 828, 0)} 
-QuestTarget[10] = {position(128, 621, 0)} 
+QuestTarget[7] = {position(128, 621, 0)}
+QuestTarget[8] = {position(128, 621, 0)}
+QuestTarget[9] = {position(128, 621, 0), position(952, 828, 0)}
+QuestTarget[10] = {position(128, 621, 0)}
 QuestTarget[11] = {position(128, 621, 0)}
-QuestTarget[12] = {position(128, 621, 0), position(337, 215, 0)} 
+QuestTarget[12] = {position(128, 621, 0), position(337, 215, 0)}
 QuestTarget[13] = {position(128, 621, 0)}
 QuestTarget[14] = {position(128, 621, 0)}
 

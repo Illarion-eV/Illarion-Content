@@ -27,9 +27,8 @@ local function newCardDeck( cardList )
         numCards = #cardList,
         usedIndex = 0,
     };
-    
+
     local shuffle = function()
-        local i,j;
         local newCardList = {};
         local indexList = {};
         math.randomseed(world:getTime("unix"));
@@ -37,14 +36,14 @@ local function newCardDeck( cardList )
             indexList[i] = i;
         end;
         for i=1,self.numCards do
-            j = math.random(self.numCards-i+1);
+            local j = math.random(self.numCards-i+1);
             newCardList[i] = self.cardList[indexList[j]];
             indexList[j] = indexList[self.numCards-i+1];
         end;
         self.cardList = newCardList;
         self.usedIndex = 0;
     end;
-    
+
     local draw = function()
         if self.usedIndex < self.numCards then
             self.usedIndex = self.usedIndex + 1;
@@ -53,7 +52,7 @@ local function newCardDeck( cardList )
             return nil;
         end;
     end;
-    
+
     return {
         shuffle = shuffle,
         draw = draw,
@@ -62,7 +61,6 @@ end
 
 -- This is a 13 card deck for high card decisions
 function M.newCardDeck13()
-    local value;
     local cardList13 = {};
     for value=1,13 do
         cardList13[value] = newCard( 4, value );
@@ -72,7 +70,6 @@ end
 
 -- This is a 52 card deck usable for e. g. texas hold'em
 function M.newCardDeck52()
-    local color, value;
     local cardList52 = {};
     local i=0;
     for color=1,4 do
@@ -86,7 +83,6 @@ end
 
 -- This is a 32 card deck usable for e. g. skat
 function M.newCardDeck32()
-    local color, value;
     local cardList32 = {};
     local i=0;
     for color=1,4 do

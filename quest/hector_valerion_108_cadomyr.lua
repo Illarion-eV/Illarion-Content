@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (108, 'quest.hector_valerion_108_cadomyr');
 
@@ -55,7 +55,7 @@ Description[ENGLISH][10] = "Return to Hector Valerion in Cadomyr."
 Description[GERMAN][11] = "Geh zu Hector Valerion, der sich in der Bibliothek von Cadomyr aufhält. Er hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][11] = "Go back to Hector Valerion in the library of Cadomyr, he will certainly have another task for you."
 Description[GERMAN][12] = "Gehe zu Erzmagier Elvaine Morgan und sprich ihn wegen der Depesche an. Er befindet sich in seinem Haus in Runewick."
-Description[ENGLISH][12] = "Go to Archmage Elvaine Morgan and talk to him about the dispatch. He is standing in his house in Runewick." 
+Description[ENGLISH][12] = "Go to Archmage Elvaine Morgan and talk to him about the dispatch. He is standing in his house in Runewick."
 Description[GERMAN][13] = "Kehre zu Hector Valerion in Cadomyr zurück."
 Description[ENGLISH][13] = "Return to Hector Valerion in Cadomyr."
 Description[GERMAN][14] = "Du hast alle Aufgaben von Hector Valerion erfüllt."
@@ -69,19 +69,19 @@ local Start = {139, 553, 0}
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
 QuestTarget[1] = {position(139, 553, 0), position(897, 794, 1)} --Händler Runewick
-QuestTarget[2] = {position(139, 553, 0)} 
+QuestTarget[2] = {position(139, 553, 0)}
 QuestTarget[3] = {position(139, 553, 0), position(123, 614,0)} -- Robertus
-QuestTarget[4] = {position(139, 553, 0)} 
-QuestTarget[5] = {position(139, 553, 0)} 
+QuestTarget[4] = {position(139, 553, 0)}
+QuestTarget[5] = {position(139, 553, 0)}
 QuestTarget[6] = {position(139, 553, 0), position(85, 587,0)} -- Arenius Batavius
 QuestTarget[7] = {position(139, 553, 0)}
-QuestTarget[8] = {position(139, 553, 0)} 
+QuestTarget[8] = {position(139, 553, 0)}
 QuestTarget[9] = {position(139, 553, 0), position(392, 160, -3)} -- Daerbur Wimbert
-QuestTarget[10] = {position(139, 553, 0)} 
-QuestTarget[11] = {position(139, 553, 0)} 
+QuestTarget[10] = {position(139, 553, 0)}
+QuestTarget[11] = {position(139, 553, 0)}
 QuestTarget[12] = {position(139, 553, 0), position(951, 788, 1), position(1002, 813, 0)} -- Elvaine Morgan
-QuestTarget[13] = {position(139, 553, 0)} 
-QuestTarget[14] = {position(139, 553, 0)} 
+QuestTarget[13] = {position(139, 553, 0)}
+QuestTarget[14] = {position(139, 553, 0)}
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 14
 
