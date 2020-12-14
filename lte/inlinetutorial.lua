@@ -28,6 +28,12 @@ function M.callEffect(inlineTutorial,Character)
         return false --removing the effect
     end
 
+    --Low on health
+    
+    --Low on food
+    
+    --Agressive monster nearby
+    
     inlineTutorial.nextCalled=10 --One second
     return true --bailing out in any case
 
@@ -35,7 +41,7 @@ end
 
 function M.removeEffect(inlineTutorial, Character)
 
-    Character:inform("[Tutorial]","[Tutorial]")
+    Character:inform("[Tutorial] Deine Einführungszeit ist vorbei. Es werden keine weiteren Tutorialnachrichten angezeigt.","[Tutorial] The tutorial time has expired. No further tutorial messages will be shown.")
 
 end
 
