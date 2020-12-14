@@ -47,9 +47,9 @@ function M.initWaypoint(User)
     local waypointNameG = {}
     local waypointNameE = {}
     local waypointRadius = {}
-    
+
     if factions.isCadomyrCitizen(User) then
-    
+
         waypoint = {
         position(133, 626, 0),
         position(118, 606, 0),
@@ -64,9 +64,9 @@ function M.initWaypoint(User)
         position(142, 564, 0),
         position(146, 677, 1),
         position(176, 761, 0)}
-        
+
         waypointRadius = {3, 7, 5, 3, 3, 3, 3, 3, 3, 3, 5, 5, 5}
-        
+
         waypointNameG = {
         "Depot",
         "Markt",
@@ -81,7 +81,7 @@ function M.initWaypoint(User)
         "Tempel des Zhambra",
         "Tempel des Malachín",
         "Tempel der Sirani"}
-        
+
         waypointNameE = {
         "Depot",
         "Market",
@@ -96,9 +96,9 @@ function M.initWaypoint(User)
         "Temple of Zhambra",
         "Temple of Malachín",
         "Temple of Sirani"}
-            
+
     elseif factions.isRunewickCitizen(User) then
-    
+
         waypoint = {
         position(898, 817, 0),
         position(946, 834, 0),
@@ -113,9 +113,9 @@ function M.initWaypoint(User)
         position(968, 784, 1),
         position(919, 827, 0),
         position(802, 797, 0)}
-        
+
         waypointRadius = {3, 5, 3, 3, 3, 3, 3, 3, 3, 3, 5, 5, 5}
-      
+
         waypointNameG = {
         "Depot",
         "Markt",
@@ -130,7 +130,7 @@ function M.initWaypoint(User)
         "Tempel der Elara",
         "Tempel des Adron",
         "Tempel der Oldra"}
-        
+
         waypointNameE = {
         "Depot",
         "Market",
@@ -145,9 +145,9 @@ function M.initWaypoint(User)
         "Temple of Elara",
         "Temple of Adron",
         "Temple of Oldra"}
-          
+
     elseif factions.isGalmairCitizen(User) then
-    
+
         waypoint = {
         position(395, 240, 0),
         position(364, 271, 0),
@@ -162,9 +162,9 @@ function M.initWaypoint(User)
         position(312, 232, 1),
         position(299, 265, -5),
         position(385, 262, -6)}
-        
+
         waypointRadius = {3, 7, 5, 3, 3, 3, 3, 3, 3, 3, 5, 5, 5}
-       
+
         waypointNameG = {
         "Depot",
         "Markt",
@@ -179,7 +179,7 @@ function M.initWaypoint(User)
         "Tempel des Irmorom",
         "Tempel des Nargùn",
         "Tempel des Ronagan"}
-        
+
         waypointNameE = {
         "Depot",
         "Market",
@@ -196,7 +196,7 @@ function M.initWaypoint(User)
         "Temple of Ronagan"}
 
     end
-    
+
     return waypoint, waypointRadius, waypointNameG, waypointNameE
 end
 
@@ -206,9 +206,9 @@ function M.initText(User)
     local informTextE = {}
     local dialogTextG = {}
     local dialogTextE = {}
-    
+
     if factions.isCadomyrCitizen(User) then
-                   
+
         informTextG = {
         "Eine goldene verzierte Kiste thront in Cadomyr, schimmernd mit Energie und scheinbar voll mit unerschöpflichen Reichtümern.",
         "Feine Kleidung, funkelnde Glaswaren und filigrane Töpferei schmücken die Marktstände von Cadomyr. Kaufleute, die in der Wüstenhitze schuften, preisen ihre Waren als ihrer geliebten Königin würdig an.",
@@ -223,7 +223,7 @@ function M.initText(User)
         "Reihen glorreicher Reiter bilden eine Ehrenwache, die zu einem Altar führt. Er wird flankiert von zwei gepanzerten Statuen, die edle, junge Soldaten darstellen, die die Tapferkeit und Kameradschaft des Zhambra verkörpern.",
         "Gelegentlich trägt der Wind das ferne Heulen eines Wolfs herbei und pfeift über den den bescheiden geschmückten Tempel. Bewacht von gepanzerten Statuen steht er für die würdige Ehre Malachíns.",
         "Der einst wunderschöne Oasentempel liegt in Trümmern, wobei nur der Altar intakt geblieben ist. Doch der Trost Siranis kann noch von einem offenen Herzen empfangen werden."}
-        
+
         informTextE = {
         "A highly embellished golden chest sits prominently in Cadomyr, shimmering with energy and seemingly harbouring remarkable depths.",
         "Fine clothing, sparkling glassware, and intricate pottery adorn the market stalls of Cadomyr as merchants toiling in the desert heat proclaim their wares to be worthy of their beloved Queen.",
@@ -238,7 +238,7 @@ function M.initText(User)
         "Lines of glorious mounted riders form a guard of honour leading to an altar, flanked by two armoured figures that depict a noble young soldier who epitomises the bravery and camaraderie of Zhambra.",
         "On occasion, the distant howl of a wolf might be carried on winds whistling through the modestly adorned mountain-top temple guarded by armoured statues that encapsulate the dignified honour of Malachín.",
         "The once beautiful oasis temple lies in ruins with only the altar remaining intact, yet the comfort of Sirani may still be felt by those with an open heart."}
-        
+
         dialogTextG = {
         "Es befinden sich mehrere Depots in Cadomyr. Jedes gibt dir Zugriff auf deine eingelagerten Gegenstände. Greife auf das Depot zu, indem du darauf doppelklickst und Gegenstände in und aus den Slots ziehst. Jedes Reich und der neutrale Gasthof zur Hanfschlinge hat sein eigenes Depotsystem.",
         "Der Markt beherbergt eine Fülle von Händlern, die von Rohstoffen bis hin zu feinsten Kunsthandwerk alles kaufen und verkaufen. Gegenstände der primären Handwerk können zu einem Zehntel ihres Wertes verkauft werden. Dies wird durch die Goldmünze im Handelsmenü angezeigt. Gegenstände der sekundären Handwerke können zu einem Zwanzigstel ihres Wertes verkauft werden, was durch die Silbermünze im Handelsmenü angezeigt wird.",
@@ -253,7 +253,7 @@ function M.initText(User)
         "Die Jungen Götter beherrschen das tägliche Leben in Illarion. Zhambra ist einer der drei Schutzgötter von Cadomyr. Als Gott der Freundschaft und des Vertrauens werden seine gerechten Absichten unter den Gläubigen Cadomyrs hoch geschätzt.",
         "Die elf Jungen Götter haben mehr Anhänger als die fünf Alten Götter. Malachín ist einer der drei Schutzgötter von Cadomyr. Als der Gott Jagd und der Schlachten werden seine Tapferkeit und sein starkes Gerechtigkeitsgefühl von den Gläubigen Cadomyrs verehrt.",
         "Jedes Reich hat drei Schutzgötter. Sirani ist eine der drei Schutzgötter von Cadomyr. Unter den Gläubigen von Cadomyr werden nur wenige die Schönheit der Göttin der Liebe und der Freude in ihrer Königin nicht erkennen."}
-        
+
         dialogTextE = {
         "You will find several depots around Cadomyr, each giving you access to your stored possessions. Access the depot by double clicking it and drag items in and out of the slots. Each realm and the neutral Hemp Necktie Inn have their own storage system.",
         "The market contains a wealth of traders buying and selling anything from raw materials to the finest crafted products. Items can be sold at a tenth of their value in the primary crafting realm, indicated by the gold coin in the trading menu. They can only be sold at a twentieth of their value in the secondary crafting realm, indicated by the silver coin in the trading menu.",
@@ -268,9 +268,9 @@ function M.initText(User)
         "The Younger Gods dominate daily life in Illarion. Zhambra is one of the three patron deities of Cadomyr. As the god of friendship and loyalty his righteous intentions are held in high esteem amongst the faithful of Cadomyr.",
         "The eleven Younger Gods have more followers than the five Elder Gods. Malachín is one of the three patron deities of Cadomyr. As the god of battle and hunting, his valour and strong sense of justice are revered by the honourable of Cadomyr.",
         "Each realm has three patron deities. Sirani is one of the three patron deities of Cadomyr. Amongst the faithful of Cadomyr, few will not recognise the beauty of the goddess of love and pleasure in their Queen."}
-        
+
     elseif factions.isRunewickCitizen(User) then
-               
+
         informTextG = {
         "Eine goldene verzierte Kiste thront in Runewick, schimmernd mit Energie und scheinbar voll mit unerschöpflichen Reichtümern.",
         "Das köstliche Aroma von Backwaren erfüllt den Markt, während Schreiner fein geschnitzte Waren verkaufen. Kaufleute rollen Fässer in Richtung der Taverne und erklären ihr Gebräu zum Leibtrunk des Erzmagiers.",
@@ -285,7 +285,7 @@ function M.initText(User)
         "Eingebettet in eine ruhige Ecke der riesigen Bibliothek, umgeben von Büchern und Manuskripten, dient ein einfacher Tisch als bescheidener Altar, der die Zurückhaltung und Weisheit Elaras repräsentiert.",
         "Vor verworrenen Reben, die reichhaltige Trauben tragen und von schweren Fässern des feinsten Gebräue flankiert sind, dominiert ein protziger Altar die heimelige Taverne. Dies ist ein Ort vieler Feierlichkeiten welche Adron würdig sind.",
         "Geschnitzte Holzsäulen, die von verworrenen Reben umgeben sind, schützen einen bescheidenen Altar. Er ist umgeben von üppigen Blumen, die das Leben verkörpern, das Oldra bringt."}
-        
+
         informTextE = {
         "A highly embellished golden chest sits prominently in Runewick, shimmering with energy and seemingly harbouring remarkable depths.",
         "A delicious aroma of baked goods fills the market as carpenters sell finely carved wares and merchants haul barrels towards the tavern declaring their brews to be a favourite of the Archmage.",
@@ -300,7 +300,7 @@ function M.initText(User)
         "Nestled in a quiet corner of the immense library and surrounded by books and manuscripts, a simple table serves as a modest altar that encapsulates the restraint and wisdom of Elara.",
         "Backed by tangled vines bearing bountiful bunches of grapes and flanked by heavy barrels of the finest ale, a prominent altar dominates the homely tavern, a place of many joyous festivities worthy of Adron.",
         "Carved wooden columns embraced by tangled vines shelter a modestly adorned altar, surrounded by bountiful flowers that epitomise the life that Oldra brings."}
-        
+
         dialogTextG = {
         "Es befinden sich mehrere Depots in Runewick. Jedes gibt dir Zugriff auf deine eingelagerten Gegenstände. Greife auf das Depot zu, indem du darauf doppelklickst und Gegenstände in und aus den Slots ziehst. Jedes Reich und der neutrale Gasthof zur Hanfschlinge hat sein eigenes Depotsystem.",
         "Der Markt beherbergt eine Fülle von Händlern, die von Rohstoffen bis hin zu feinsten Kunsthandwerk alles kaufen und verkaufen. Gegenstände der primären Handwerk können zu einem Zehntel ihres Wertes verkauft werden. Dies wird durch die Goldmünze im Handelsmenü angezeigt. Gegenstände der sekundären Handwerke können zu einem Zwanzigstel ihres Wertes verkauft werden, was durch die Silbermünze im Handelsmenü angezeigt wird.",
@@ -315,7 +315,7 @@ function M.initText(User)
         "Die Jungen Götter beherrschen das tägliche Leben in Illarion. Elara ist einer der drei Schutzgöttinnen Runewicks. Als Göttin des Wissens und der Weisheit werden ihre aufrichtigen Absichten unter den Gelehrten von Runewick hoch geschätzt.",
         "Die elf Jungen Götter haben mehr Anhänger als die fünf Alten Götter. Adron ist einer der drei Schutzgötter Runewicks. Als Gott des Weines und der Feste wird seine Ausstrahlung von den jovialen Feiernden Runewicks besonders geschätzt.",
         "Jedes Reich hat drei Schutzgötter. Oldra ist einer der drei Schutzgötter Runewicks. Als Göttin der Fruchtbarkeit und des Lebens ist ihre Fürsorge und Demut unter den Bauern von Runewick beliebt."}
-        
+
         dialogTextE = {
         "You will find several depots around Runewick, each giving you access to your stored possessions. Access the depot by double clicking it and drag items in and out of the slots. Each realm and the neutral Hemp Necktie Inn have their own storage system.",
         "The market contains a wealth of traders buying and selling anything from raw materials to the finest crafted products. Items can be sold at a tenth of their value in the primary crafting realm, indicated by the gold coin in the trading menu. They can only be sold at a twentieth of their value in the secondary crafting realm, indicated by the silver coin in the trading menu.",
@@ -330,9 +330,9 @@ function M.initText(User)
         "The Younger Gods dominate daily life in Illarion. Elara is one of the three patron deities of Runewick. As the goddess of wisdom and knowledge her righteous intentions are held in high esteem amongst the learned of Runewick.",
         "The eleven Younger Gods have more followers than the five Elder Gods. Adron is one of the three patron deities of Runewick. As the god of festivities and wine his charisma and is celebrated amongst the jovial revellers of Runewick.",
         "Each realm has three patron deities. Oldra is one of the three patron deities of Runewick. As the goddess of life and fertility her nurturing and humility is favoured amongst the farmers of Runewick."}
-        
+
     elseif factions.isGalmairCitizen(User) then
-           
+
         informTextG = {
         "Eine goldene verzierte Kiste thront in Galmair, schimmernd mit Energie und scheinbar voll mit unerschöpflichen Reichtümern.",
         "Glänzende Klingen, polierte Rüstungen und funkelnde Schmuckstücke füllen die Marktstände der rauen Kaufleuten. Sie feilschen über Preise und ihr erklären ihre Schmiedewaren dem Don würdig zu sein, wenn nicht sogar Irmorom selbst.",
@@ -347,7 +347,7 @@ function M.initText(User)
         "Am  Berghang führt ein extravaganter Pfad zu einem Altar und zwei prächtigen Ambossen. Sie werden von zwei gepanzerten Statues flankiert, die  reiche Zwergenschmiede darstellen und die Werte Irmoroms repräsentieren.",
         "Das bizarre Krähen eines Raben ist zuweilen in dem eigentümlichen Tempel, der tief in den Berg gegraben wurde. Die chaotische Beleuchtung und die nicht übereinstimmenden Möbel stehen hier für die Unberechenbarkeit von Nargùn.",
         "Tief in einem mit schmutzigem Wasser überfluteten Tunnel steht ein dezenter Altar im Schatten. Die dunkle Säule für die Sammlung von Münzen erinnert an den Schutz, den Ronagan bietet."}
-        
+
         informTextE = {
         "A highly embellished golden chest sits prominently in Galmair, shimmering with energy and seemingly harbouring remarkable depths.",
         "Gleaming blades, polished armour and sparkling jewellery fills the market stalls with raucous merchants haggling over prices and declaring their smithing to be worthy of the Don, if not Irmorom himself.",
@@ -362,7 +362,7 @@ function M.initText(User)
         "Carved into the mountainside an extravagant approach leads to an altar and two magnificent anvils, flanked by two armoured figures that depict a rich dwarven smith that encapsulate the values of Irmorom.",
         "Bizarrely, the cawing of a raven might be heard on occasion echoing through the peculiar temple dug deep into the mountain, the chaotic lighting and mismatched furniture encapsulating the unpredictability of Nargùn.",
         "Deep in a tunnel flooded with filthy water an understated altar serves hidden in the shadows, the dark column for the collection of coins reminding of the protection Ronagan brings."}
-        
+
         dialogTextG = {
         "Es befinden sich mehrere Depots in Galmair. Jedes gibt dir Zugriff auf deine eingelagerten Gegenstände. Greife auf das Depot zu, indem du darauf doppelklickst und Gegenstände in und aus den Slots ziehst. Jedes Reich und der neutrale Gasthof zur Hanfschlinge hat sein eigenes Depotsystem.",
         "Der Markt beherbergt eine Fülle von Händlern, die von Rohstoffen bis hin zu feinsten Kunsthandwerk alles kaufen und verkaufen. Gegenstände der primären Handwerk können zu einem Zehntel ihres Wertes verkauft werden. Dies wird durch die Goldmünze im Handelsmenü angezeigt. Gegenstände der sekundären Handwerke können zu einem Zwanzigstel ihres Wertes verkauft werden, was durch die Silbermünze im Handelsmenü angezeigt wird.",
@@ -377,7 +377,7 @@ function M.initText(User)
         "Die Jungen Götter beherrschen das tägliche Leben in Illarion. Irmorom ist einer der drei Schutzgötter Galmairs. Als der Gott des Handels und der Handwerkskunst werden seine aufrichtigen Absichten von der fleißigen Handwerkern in Galmair hoch geschätzt.",
         "Die elf Jungen Götter haben mehr Anhänger als die fünf Alten Götter. Nargùn ist einer der drei Schutzgötter Galmairs. Als Gott des Chaos ist sein schneller Witz und seine Gunst geschätzt unter denen, die ihr Glück in Galmair suchen.",
         "Jedes Reich hat drei Schutzgötter. Ronagan ist einer der drei Schutzgötter Galmairs. Als der Gott der Diebe und Schatten wird seine entschlossene Kühnheit in der Unterschicht Galmairs hoch geschätzt."}
-        
+
         dialogTextE = {
         "You will find several depots around Galmair, each giving you access to your stored possessions. Access the depot by double clicking it and drag items in and out of the slots. Each realm and the neutral Hemp Necktie Inn have their own storage system.",
         "The market contains a wealth of traders buying and selling anything from raw materials to the finest crafted products. Items can be sold at a tenth of their value in the primary crafting realm, indicated by the gold coin in the trading menu. They can only be sold at a twentieth of their value in the secondary crafting realm, indicated by the silver coin in the trading menu.",
@@ -394,7 +394,7 @@ function M.initText(User)
         "Each realm has three patron deities. Ronagan is one of the three patron deities of Galmair. As the god of thieves and shadows his determined audacity is held in high esteem amongst the underclass of Galmair."}
 
     end
-    
+
     return informTextG, informTextE, dialogTextG, dialogTextE
 end
 
@@ -403,7 +403,7 @@ function M.addEffect(introductionEffect, User)
 end
 
 function M.callEffect(introductionEffect, User)
-  
+
     if factions.isOutlaw(User) then --abort the quest
         User:setQuestProgress(44,0)
         User:setQuestProgress(45,0)
@@ -411,18 +411,9 @@ function M.callEffect(introductionEffect, User)
         return false
     end
 
-    local waypoint = {}
-    local waypointRadius = {}
-    local waypointNameG = {}
-    local waypointNameE = {}
-    local informTextG = {}
-    local informTextE = {}
-    local dialogTextG = {}
-    local dialogTextE = {}
-    
     local waypoint, waypointRadius, waypointNameG, waypointNameE = M.initWaypoint(User)
     local informTextG, informTextE, dialogTextG, dialogTextE = M.initText(User)
-    
+
     -- QUEST FINISHED DIALOG
     local function finishDialog()
         if M.questFinished(User, waypoint) then
@@ -433,37 +424,37 @@ function M.callEffect(introductionEffect, User)
             User:requestMessageDialog(dialogFinish)
         end
     end
- 
-    -- CHECK LOCATIONS    
+
+    -- CHECK LOCATIONS
     local queststatus = User:getQuestProgress(44) --here, we save which places were visited
-    
+
     for i = 1, #waypoint do
-     
+
         if not common.isBitSet(queststatus, i) and User:isInRangeToPosition(waypoint[i], waypointRadius[i]) then
 
-            User:setQuestProgress(44,common.addBit(queststatus,i)) --remember we visited the place   
+            User:setQuestProgress(44,common.addBit(queststatus,i)) --remember we visited the place
             User:setQuestProgress(46,0) --hack to reload the quest log
             User:setQuestProgress(46,1) --hack to reload the quest log
-            
+
             local callbackFound = function(dialogFound)
                 common.InformNLS(User,informTextG[i],informTextE[i])
                 finishDialog()
             end --callback
-           
+
             local dialogText = common.GetNLS(User,dialogTextG[i],dialogTextE[i])
             local dialogTitle = common.GetNLS(User,"Einführung","Introduction")
             local dialogFound = MessageDialog(dialogTitle, dialogText, callbackFound)
-            User:requestMessageDialog(dialogFound)            
-           
+            User:requestMessageDialog(dialogFound)
+
         end
-       
+
     end
- 
+
     -- LOOK FOR OTHER PLAYERS
     local otherPlayers = world:getPlayersInRangeOf(User.pos, 5)
     if #otherPlayers > 1 and User:getQuestProgress(45) == 0 then
 
-        User:setQuestProgress(45,1) --remember we found someone    
+        User:setQuestProgress(45,1) --remember we found someone
         local callbackGreeting = function(dialogGreeting)
             finishDialog()
         end --callback
@@ -472,16 +463,16 @@ function M.callEffect(introductionEffect, User)
         local dialogTitle = common.GetNLS(User,"Einführung","Introduction")
         local dialogGreeting = MessageDialog(dialogTitle, dialogText, callbackGreeting)
         User:requestMessageDialog(dialogGreeting)
-        
+
     end
- 
+
     -- FINISH QUEST OR NEXT CALL
     if M.questFinished(User, waypoint) then
         User:setQuestProgress(46,2) --end the quest
         return false --remove the effect
     end
-    
-    introductionEffect.nextCalled = 10 
+
+    introductionEffect.nextCalled = 10
     return true
 end
 
@@ -500,7 +491,7 @@ function M.loadEffect(introductionEffect, User)
         User:requestMessageDialog(dialogLogin)
         User:setQuestProgress(324,1)
     end
-    
+
 end
 
 function M.questFinished(User, waypoint)
