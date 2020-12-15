@@ -122,6 +122,7 @@ local function onDeath(pet)
         base.removePetByOwner(owner)
         base.removePet(pet)
         base.removeOwnerByPet(pet)
+        base.removeOwnerFromCommandList(owner)
 
         if base.isPetProtectedFromDeath(owner) then
             owner:inform("Dein tierischer Begleiter hat seine Lebenskraft verloren. Doch eine warme, sanfte Stimme, die aus dir selbst zu kommen scheint, erinnert dich, Oldras Gnade für deinen Gefährten zu suchen.", "Your animal companion's life energy runs out, but a soft and warm voice, seemingly coming from somwhere within yourself, reminds you to search for Oldra's grace for your companion.", Player.highPriority)

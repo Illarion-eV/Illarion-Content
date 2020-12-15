@@ -78,12 +78,18 @@ function M.getPetName(owner)
 
 end
 
+local givenCommands = {}
 function M.saveCommand(owner, command)
-    owner:setQuestProgress(366, command)
+    givenCommands[owner.id] = command
+
 end
 
 function M.getCommand(owner)
-    return owner:getQuestProgress(366)
+    return givenCommands[owner.id]
+end
+
+local function removeOwnerFromCommandList(owner)
+    givenCommands[owner.id] = nil
 end
 
 
@@ -267,6 +273,7 @@ function M.loadPet(owner)
         setPetByOwner(pet, owner)
         setOwnerByPet(owner, pet)
         registerPet(pet)
+        M.saveCommand(owner, M.down)
 
     end
 end
@@ -282,6 +289,7 @@ function M.logOutPet(owner)
         M.removePet(pet)
         M.savePetHitpoints(pet)
         M.savePetPosition(pet)
+        removeOwnerFromCommandList(owner)
 
         local petHP = pet:increaseAttrib("hitpoints", 0)
         if petHP > 0 then
@@ -301,6 +309,7 @@ function M.addNewPetToCharacter(character, petValues)
     M.setIsPetOwner(character)
 
     M.loadPet(character)
+    M.saveCommand(character, M.follow)
 end
 
 return M
