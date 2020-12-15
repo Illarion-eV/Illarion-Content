@@ -17,24 +17,24 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 --  INSERT INTO npc (npc_type,npc_posx,npc_posy,npc_posz,npc_faceto,npc_is_healer,npc_name, npc_script,npc_sex,npc_hair,npc_beard,npc_hairred,npc_hairgreen,npc_hairblue,npc_skinred,npc_skingreen,npc_skinblue,npc_hairalpha,npc_skinalpha) VALUES(0,10,10,0,4,FALSE,'Pet Master','npc.petMaster',0,7,0,238,118,0,245,180,137,255,255);
 
-local petMovement = require("petsystem.petMovement")
-local base = require("petsystem.base")
-local firnisMillChicken = require("petsystem.pets.1055_firnisMillChicken")
-local gynkeseGuardDog = require("petsystem.pets.1056_gynkeseGuardDog")
-local runewickianMilkCow = require("petsystem.pets.1057_runewickianMilkCow")
-local meadowWoolSheep = require("petsystem.pets.1058_meadowWoolSheep")
+--local petMovement = require("petsystem.petMovement")
+--local base = require("petsystem.base")
+--local firnisMillChicken = require("petsystem.pets.1055_firnisMillChicken")
+--local gynkeseGuardDog = require("petsystem.pets.1056_gynkeseGuardDog")
+--local runewickianMilkCow = require("petsystem.pets.1057_runewickianMilkCow")
+--local meadowWoolSheep = require("petsystem.pets.1058_meadowWoolSheep")
 
 local M = {}
-
+--[[]
 local propertiesOfPets = {
     [1055] = firnisMillChicken.petProperties,
     [1056] = gynkeseGuardDog.petProperties,
     [1057] = runewickianMilkCow.petProperties,
     [1058] = meadowWoolSheep.petProperties
 }
-
+]]
 function M.nextCycle(petMaster)
-    local allPets = base.getAllPets()
+   --[[ local allPets = base.getAllPets()
 
     for i = 1, #allPets do
         local pet = allPets[i]
@@ -50,7 +50,7 @@ function M.nextCycle(petMaster)
         end
 
     end
-
+]]
 end
 
 return M
