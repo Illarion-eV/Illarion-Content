@@ -1,0 +1,7 @@
+{
+    "recommendations": [
+        "keyring.lua",
+        "rog2.luacheck",
+        "eamodio.gitlens"
+    ]
+}
