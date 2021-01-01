@@ -295,7 +295,7 @@ function M.addQuest(params)
 			end
 		elseif _isString(params.customQuestInform) then
 			customQuestInformGerman = params.customQuestInform
-			customQUestInformEnglish = params.customQuestInform
+			customQuestInformEnglish = params.customQuestInform
 		else
 			
 		end
