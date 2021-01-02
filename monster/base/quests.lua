@@ -29,13 +29,18 @@ local M = {}
 --statusId[id]=NUMBER; --the queststatus as used by the NPC
 --germanRace[id]="stinkige Gullimumien"; --free description of the foes in german
 --englishRace[id]="smelly sewer mummies"; --free description of the foes in english
---table.insert(questList[MONSTERID],id); --Insert the quest into the quest list of the monster race that has to be slain. You can add multiple monsters this way.
---minimumQueststatus[id]=NUMBER1; --quest is only active with this queststatus and above. Each monster slain adds +1. Use a value > 0!
---maximumQueststatus[id]=NUMBER2; --quest is finished if this queststatus is reached, no kill are counted anymore. Difference between NUMBER1 and NUMBER2 is the number of monsters that have to be slain
---questLocation[id]=position(X,Y,Z); --a position around which the monsters have to be slain, e.g. centre of a dungeon or forest
+--table.insert(questList[MONSTERID],id); 
+--Insert the quest into the quest list of the monster race that has to be slain. You can add multiple monsters this way.
+--minimumQueststatus[id]=NUMBER1; 
+--quest is only active with this queststatus and above. Each monster slain adds +1. Use a value > 0!
+--maximumQueststatus[id]=NUMBER2; --quest is finished if this queststatus is reached, no kill are counted anymore. 
+--Difference between NUMBER1 and NUMBER2 is the number of monsters that have to be slain
+--questLocation[id]=position(X,Y,Z); 
+--a position around which the monsters have to be slain, e.g. centre of a dungeon or forest
 --radius[id]=RADIUS; --in this radius around the questlocation, kills are counted valid
 
--- Brightrim addition: To add a custom quest inform, instead of the default inform, add "customQuestInform = {german = "", english = ""} to your monsterQuests.addQuest{} table.
+-- Brightrim addition: To add a custom quest inform, instead of the default inform: 
+-- add "customQuestInform = {german = "", english = ""} to your monsterQuests.addQuest{} table.
 
 --Comment: If you want an NPC to give out multiple quests, you can do it like this:
 
@@ -291,10 +296,11 @@ function M.addQuest(params)
             else
                 error("Failed to read the english part of the quest Inform.")
             end
-        elseif _isString(params.customQuestInform) then
-            customQuestInformGerman = params.customQuestInform
-            customQuestInformEnglish = params.customQuestInform
         else
+            if _isString(params.customQuestInform) then
+                customQuestInformGerman = params.customQuestInform
+                customQuestInformEnglish = params.customQuestInform
+            end
         end
         local totalCount = maximalStatus - minimalStatus
         reportQuest = function(player, monster)
@@ -302,10 +308,12 @@ function M.addQuest(params)
             if currentStatus >= maximalStatus then --quest finished
                 local germanFormat, englishFormat
                 if maximalStatus == minimalStatus + 1 then -- only a single monster to beat
-                    germanFormat = "[Queststatus] %s: Du hast %s besiegt. Kehre zu %s zurück, um deine Belohnung zu erhalten."
+                    germanFormat = "[Queststatus] %s: Du hast %s besiegt."..
+                    " Kehre zu %s zurück, um deine Belohnung zu erhalten."
                     englishFormat = "[Quest status] %s: You have slain %s. Return to %s to claim your reward."
                 else
-                    germanFormat = "[Queststatus] %s: Du hast genug %s besiegt. Kehre zu %s zurück, um deine Belohnung zu erhalten."
+                    germanFormat = "[Queststatus] %s: Du hast genug %s besiegt."..
+                    " Kehre zu %s zurück, um deine Belohnung zu erhalten."
                     englishFormat = "[Quest status] %s: You have slain enough %s. Return to %s to claim your reward."
                 end
                     if _isTable(params.customQuestInform) then
