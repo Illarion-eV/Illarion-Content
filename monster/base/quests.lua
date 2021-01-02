@@ -277,7 +277,6 @@ function M.addQuest(params)
         else
             error("Failed to read the required NPC name.")
         end
-        
         local customQuestInformGerman, customQuestInformEnglish
         if _isTable(params.customQuestInform) then
             local germanCQI = params.customQuestInform.german or params.customQuestInform[Player.german]
@@ -287,7 +286,6 @@ function M.addQuest(params)
             else
                 error("Failed to read the german part of the quest Inform.")
             end
-            
             if _isString(englishCQI) then
                 customQuestInformEnglish = englishCQI
             else
@@ -297,7 +295,6 @@ function M.addQuest(params)
             customQuestInformGerman = params.customQuestInform
             customQuestInformEnglish = params.customQuestInform
         else
-            
         end
         local totalCount = maximalStatus - minimalStatus
         reportQuest = function(player, monster)
@@ -323,14 +320,11 @@ function M.addQuest(params)
                 local englishFormat = "[Quest status] %s: You have slain %d of %d %s."
 
                 local doneCount = currentStatus - minimalStatus
-                
                 common.InformNLS(player,
                     germanFormat:format(titleGerman, doneCount, totalCount, monsterNameGerman),
                     englishFormat:format(titleEnglish, doneCount, totalCount, monsterNameEnglish));
             end
         end
-        
-    
     end
 
     local quest = {}
