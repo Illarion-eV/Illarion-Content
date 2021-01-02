@@ -33,7 +33,8 @@ local M = {}
     Insert the quest into the quest list of the monster race that has to be slain. You can add multiple monsters this way.]]
 --[[minimumQueststatus[id]=NUMBER1;
     quest is only active with this queststatus and above. Each monster slain adds +1. Use a value > 0!
-    maximumQueststatus[id]=NUMBER2; --quest is finished if this queststatus is reached, no kill are counted anymore.
+    maximumQueststatus[id]=NUMBER2; 
+    quest is finished if this queststatus is reached, no kill are counted anymore.
     Difference between NUMBER1 and NUMBER2 is the number of monsters that have to be slain]]
 --[[questLocation[id]=position(X,Y,Z);
     a position around which the monsters have to be slain, e.g. centre of a dungeon or forest]]
@@ -311,12 +312,12 @@ function M.addQuest(params)
             if currentStatus >= maximalStatus then --quest finished
                 local germanFormat, englishFormat
                 if maximalStatus == minimalStatus + 1 then -- only a single monster to beat
-                    germanFormat = "[Queststatus] %s: Du hast %s besiegt.\z
-                                    Kehre zu %s zurück, um deine Belohnung zu erhalten."
+                    germanFormat = "[Queststatus] %s: Du hast %s besiegt. \z
+                                   Kehre zu %s zurück, um deine Belohnung zu erhalten."
                     englishFormat = "[Quest status] %s: You have slain %s. Return to %s to claim your reward."
                 else
-                    germanFormat = "[Queststatus] %s: Du hast genug %s besiegt.\z
-                                    Kehre zu %s zurück, um deine Belohnung zu erhalten."
+                    germanFormat = "[Queststatus] %s: Du hast genug %s besiegt. \z
+                                   Kehre zu %s zurück, um deine Belohnung zu erhalten."
                     englishFormat = "[Quest status] %s: You have slain enough %s. Return to %s to claim your reward."
                 end
                     if _isTable(params.customQuestInform) then
