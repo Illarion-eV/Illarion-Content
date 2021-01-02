@@ -277,28 +277,28 @@ function M.addQuest(params)
         else
             error("Failed to read the required NPC name.")
         end
-		
-		local customQuestInformGerman, customQuestInformEnglish
-		if _isTable(params.customQuestInform) then
-			local germanCQI = params.customQuestInform.german or params.customQuestInform[Player.german]
-			local englishCQI = params.customQuestInform.english or params.customQuestInform[Player.english]
-			if _isString(germanCQI) then
-				customQuestInformGerman = germanCQI
-			else
-				error("Failed to read the german part of the quest Inform.")
-			end
-			
-			if _isString(englishCQI) then
-				customQuestInformEnglish = englishCQI
-			else
-				error("Failed to read the english part of the quest Inform.")
-			end
-		elseif _isString(params.customQuestInform) then
-			customQuestInformGerman = params.customQuestInform
-			customQuestInformEnglish = params.customQuestInform
-		else
-			
-		end
+        
+        local customQuestInformGerman, customQuestInformEnglish
+        if _isTable(params.customQuestInform) then
+            local germanCQI = params.customQuestInform.german or params.customQuestInform[Player.german]
+            local englishCQI = params.customQuestInform.english or params.customQuestInform[Player.english]
+            if _isString(germanCQI) then
+                customQuestInformGerman = germanCQI
+            else
+                error("Failed to read the german part of the quest Inform.")
+            end
+            
+            if _isString(englishCQI) then
+                customQuestInformEnglish = englishCQI
+            else
+                error("Failed to read the english part of the quest Inform.")
+            end
+        elseif _isString(params.customQuestInform) then
+            customQuestInformGerman = params.customQuestInform
+            customQuestInformEnglish = params.customQuestInform
+        else
+            
+        end
         local totalCount = maximalStatus - minimalStatus
         reportQuest = function(player, monster)
             local currentStatus = player:getQuestProgress(questId);
@@ -311,27 +311,27 @@ function M.addQuest(params)
                     germanFormat = "[Queststatus] %s: Du hast genug %s besiegt. Kehre zu %s zurück, um deine Belohnung zu erhalten."
                     englishFormat = "[Quest status] %s: You have slain enough %s. Return to %s to claim your reward."
                 end
-					if _isTable(params.customQuestInform) then
-					common.InformNLS(player,customQuestInformGerman,customQuestInformEnglish);
-					else
-					common.InformNLS(player,
-						germanFormat:format(titleGerman, monsterNameGerman, npcName),
-						englishFormat:format(titleEnglish, monsterNameEnglish, npcName));
-					end
+                    if _isTable(params.customQuestInform) then
+                    common.InformNLS(player,customQuestInformGerman,customQuestInformEnglish);
+                    else
+                    common.InformNLS(player,
+                        germanFormat:format(titleGerman, monsterNameGerman, npcName),
+                        englishFormat:format(titleEnglish, monsterNameEnglish, npcName));
+                    end
             else --quest not finished
                 local germanFormat = "[Queststatus] %s: Du hast %d von %d %s besiegt."
                 local englishFormat = "[Quest status] %s: You have slain %d of %d %s."
 
                 local doneCount = currentStatus - minimalStatus
-				
+                
                 common.InformNLS(player,
                     germanFormat:format(titleGerman, doneCount, totalCount, monsterNameGerman),
                     englishFormat:format(titleEnglish, doneCount, totalCount, monsterNameEnglish));
             end
         end
-		
-	
-	end
+        
+    
+    end
 
     local quest = {}
     function quest.check(player, monster)
