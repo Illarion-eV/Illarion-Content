@@ -30,10 +30,11 @@ local M = {}
 --germanRace[id]="stinkige Gullimumien"; --free description of the foes in german
 --englishRace[id]="smelly sewer mummies"; --free description of the foes in english
 --[[table.insert(questList[MONSTERID],id);
-    Insert the quest into the quest list of the monster race that has to be slain. You can add multiple monsters this way.]]
+    Insert the quest into the quest list of the monster race that has to be slain.
+    You can add multiple monsters this way.]]
 --[[minimumQueststatus[id]=NUMBER1;
     quest is only active with this queststatus and above. Each monster slain adds +1. Use a value > 0!
-    maximumQueststatus[id]=NUMBER2; 
+    maximumQueststatus[id]=NUMBER2;
     quest is finished if this queststatus is reached, no kill are counted anymore.
     Difference between NUMBER1 and NUMBER2 is the number of monsters that have to be slain]]
 --[[questLocation[id]=position(X,Y,Z);
