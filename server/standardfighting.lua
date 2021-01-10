@@ -278,7 +278,7 @@ function M.onAttack(Attacker, Defender)
     local Globals = {}
 
     -- [Tutorial] Newbie Check
-    if character.IsPlayer(Attacker.Char) and Attacker.Char:getQuestProgress(322) == 0 and Attacker.Char:isNewPlayer() then
+    if character.IsPlayer(Attacker.Char) and Attacker.Char:getQuestProgress(322) == 0 and Attacker.Char:getQuestProgress(325) == 1 then
         common.InformNLS(Attacker.Char,"[Tutorial] Du darfst andere Spieler nur mit angemessenem und nachprüfbarem Rollenspielgrund angreifen. Klicke nochmals rechts auf deinen Gegner um den Kampf abzubrechen.","[Tutorial] You are only allowed to attack other players with clearly traceable and reasonable roleplaying reason. Right click again on your enemy to cancel the attack.")
         Attacker.Char:setQuestProgress(322,1)
     end
@@ -738,14 +738,15 @@ function CauseDamage(Attacker, Defender, Globals)
 
         return true
     else
-        character.ChangeHP(Defender.Char,-Globals.Damage) -- Finally dealing the damage.
-
         if (Attacker.AttackKind == 4) then -- Ranged attack
             if not character.IsPlayer(Defender.Char) and character.IsPlayer(Attacker.Char) then
                 Defender.Char.movepoints = Defender.Char.movepoints - 5
             end
             DropAmmo(Attacker, Defender.Char, false)
         end
+
+        character.ChangeHP(Defender.Char,-Globals.Damage) -- Finally dealing the damage.
+
     end
 end
 
@@ -1150,7 +1151,7 @@ function DropAmmo(Attacker, Defender, GroundOnly)
             if monsterArrowDrop[monsterId][AmmoItem.id] then
                 monsterArrowDrop[monsterId][AmmoItem.id] = monsterArrowDrop[monsterId][AmmoItem.id] + 1
             else
-                monsterArrowDrop[monsterId][AmmoItem.id] = 2 -- Last arrow is not counted; reason unknown.
+                monsterArrowDrop[monsterId][AmmoItem.id] = 1
                 local function dropAmmo(monster)
                     for ammoId, ammoAmount in pairs(monsterArrowDrop[monster.id]) do
                         world:createItemFromId(ammoId, ammoAmount, monster.pos, true, 333, nil)
