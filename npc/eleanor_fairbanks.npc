@@ -76,7 +76,7 @@ itemShoes = 1500
 
 -- Mandatory: Help
 "Help" -> inform("[Game Help] This NPC is Eleanor Fairbanks the Priestess of Oldra. Keywords: Hello, Oldra, Quest, Yewdale, god, favour, sacrifice.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Eleanor Fairbanks die Priesterin von Oldra. Schlüsselwörter: Hallo, Oldra, Quest, Yewdale, Gott, Gunst, Opfergabe.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Eleanor Fairbanks die Priesterin von Oldra. SchlÃ¼sselwÃ¶rter: Hallo, Oldra, Quest, Yewdale, Gott, Gunst, Opfergabe.")
 
 -- TODO: Book of your god quest
 -- queststatus(401) = 9, queststatus(685) = 0, english, ".+" -> inform("[New Quest] A book about your God"), "FIXME Oh, a neophyte! Why don't you go ask for a book about Oldra in the library?", queststatus(685) = 1
@@ -84,51 +84,51 @@ itemShoes = 1500
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hiho! Isn't it a lovely day?", "Hiho! Welcome to Oldra's Columns."
-"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hiho! Ist es nicht ein schöner Tag?", "Hiho! Willkommen an Oldras Säule."
+"GrÃ¼ÃŸ", "GruÃŸ", "GrÃ¼ss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hiho! Ist es nicht ein schÃ¶ner Tag?", "Hiho! Willkommen an Oldras SÃ¤ule."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hiho! Isn't it a lovely day?", "Hiho! Welcome to Oldra's Columns."
-"Hiho", "Hallo", "Hey", "Greeb" -> "Hiho! Ist es nicht ein schöner Tag?", "Hiho! Willkommen an Oldras Säule."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Hiho! Ist es nicht ein schÃ¶ner Tag?", "Hiho! Willkommen an Oldras SÃ¤ule."
 "Farewell", "Bye", "Fare well", "See you" -> "Farewell! May Oldra's blessings be upon you!"
-"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Auf Wiedersehen! Möge Oldras Segen auf euch sein!"
+"TschÃ¼ÃŸ", "TschÃ¼ss", "Wiedersehen", "Gehab wohl" -> "Auf Wiedersehen! MÃ¶ge Oldras Segen auf euch sein!"
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell! May Oldra's blessings be upon you!"
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "Auf Wiedersehen! Möge Oldras Segen auf euch sein!"
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Auf Wiedersehen! MÃ¶ge Oldras Segen auf euch sein!"
 "How are you", "How feel", "How do you do" -> "I am absolutely wonderful! Thank you for asking!"
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es wunderbar! Danke der Nachfrage!"
+"Wie geht", "Wie fÃ¼hlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es wunderbar! Danke der Nachfrage!"
 "your name", "who are you", "who art thou" -> "I am Eleanor Fairbanks. Priestess of Oldra."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Eleanor Fairbanks. Priesterin von Oldra."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heiÃŸt", "wie heisst" -> "Ich bin Eleanor Fairbanks. Priesterin von Oldra."
 
 -- Quest 1: New wooden spoon, for old spoon
 queststatus(514) = 0, english, "quest", "mission" -> inform ("[New Quest] A Good Deed for Oldra"), money + 2000, queststatus(514) = 1, "Oh! I do have something you could help me with. It seems my wooden spoon has seen better days. Could you go visit the market place in Runewick and get me a new one? Here, take these coins."
-queststatus(514) = 0, "quest", "mission" -> inform ("[Neue Quest] Ein Gute Tat für Oldra"), money + 2000, queststatus(514) = 1, "Oh! Ich habe etwas wobei du mir helfen kannst. Mein Holzlöffel hat schon bessere Tage gesehen. Kannst du den Marktplatz in Runewick besuchen und mir einen neuen bringen? Hier, nimm diese Münzen."
+queststatus(514) = 0, "quest", "mission" -> inform ("[Neue Quest] Ein Gute Tat fÃ¼r Oldra"), money + 2000, queststatus(514) = 1, "Oh! Ich habe etwas wobei du mir helfen kannst. Mein HolzlÃ¶ffel hat schon bessere Tage gesehen. Kannst du den Marktplatz in Runewick besuchen und mir einen neuen bringen? Hier, nimm diese MÃ¼nzen."
 queststatus(514) = 0, "task", "adventure", "order" -> inform ("[New Quest] A Good Deed for Oldra"), money + 2000, queststatus(514) = 1, "Oh! I do have something you could help me with. It seems my wooden spoon has seen better days. Could you go visit the market place in Runewick and get me a new one? Here, take these coins."
-queststatus(514) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl"-> inform ("[Neue Quest] Ein Gute Tat für Oldra"), money + 2000, queststatus(514) = 1, "Oh! Ich habe etwas wobei du mir helfen kannst. Mein Holzlöffel hat schon bessere Tage gesehen. Kannst du den Marktplatz in Runewick besuchen und mir einen neuen bringen? Hier, nimm diese Münzen."
+queststatus(514) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl"-> inform ("[Neue Quest] Ein Gute Tat fÃ¼r Oldra"), money + 2000, queststatus(514) = 1, "Oh! Ich habe etwas wobei du mir helfen kannst. Mein KochlÃ¶ffel hat schon bessere Tage gesehen. Kannst du den Marktplatz in Runewick besuchen und mir einen neuen bringen? Hier, nimm diese MÃ¼nzen."
 
 --Not done
 queststatus(514) = 1, item(227, all) < 1, english, ".+" -> "Have you gotten me that spoon yet?"
-queststatus(514) = 1, item(227, all) < 1, ".+" -> "Hast du mir den Löffel mitgebracht?"
+queststatus(514) = 1, item(227, all) < 1, ".+" -> "Hast du mir den KochlÃ¶ffel mitgebracht?"
 
 --done
 queststatus(514) = 1, item(227, all) > 0, english, ".+"-> inform ("[Quest Solved] You are awarded a wooden spoon."), deleteItem(227,1), item(227, 1, 566), queststatus(514) = 2, "Thank you! Now I can get this stew started! Here, why don't you take my old one. It may yet still have some use left in it."
-queststatus(514) = 1, item(227, all) > 0, ".+" -> inform ("[Quest gelöst] Du erhältst das hölzerner Löffel."), deleteItem(227,1), item(227, 1, 566), queststatus(514) = 2, "Danke! Jetzt kann ich den Eintopf machen! Hier, nimm meinen alten Löffel. Er könnte noch von Nutzen sein."
+queststatus(514) = 1, item(227, all) > 0, ".+" -> inform ("[Quest gelÃ¶st] Du erhÃ¤ltst einen KochlÃ¶ffel."), deleteItem(227,1), item(227, 1, 566), queststatus(514) = 2, "Danke! Jetzt kann ich den Eintopf machen! Hier, nimm meinen alten KochlÃ¶ffel. Er kÃ¶nnte noch von Nutzen sein."
 
 -- Quest 2: Needs 25 Cabbages, reward 30 silver
 queststatus(514) = 2, english, "quest", "mission" -> inform ("[New Quest] A Good Deed for Oldra II"), queststatus(514) = 3, "It seems I may have misread my recipe and did not buy enough cabbages the other day. Would you be so kind as to pick up the remaining twenty five for me?"
-queststatus(514) = 2, "quest", "mission" -> inform ("[Neue Quest] Ein Gute Tat für Oldra II"), queststatus(514) = 3, "Anscheinend habe ich mein Rezept falsch gelesen und nicht genug Kohl gekauft als ich auf dem Markt war. Könnt ihr mir noch fünfundzwanzig Kohlköpfe bringen?"
+queststatus(514) = 2, "quest", "mission" -> inform ("[Neue Quest] Ein Gute Tat fÃ¼r Oldra II"), queststatus(514) = 3, "Anscheinend habe ich mein Rezept falsch gelesen und nicht genug Kohl gekauft als ich auf dem Markt war. KÃ¶nnt ihr mir noch fÃ¼nfundzwanzig KohlkÃ¶pfe bringen?"
 queststatus(514) = 2, "task", "adventure", "order" -> inform ("[New Quest] A Good Deed for Oldra II"), queststatus(514) = 3, "It seems I may have misread my recipe and did not buy enough cabbages the other day. Would you be so kind as to pick up the remaining twenty five for me?"
-queststatus(514) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl"-> inform ("[Neue Quest] Ein Gute Tat für Oldra II"), queststatus(514) = 3, "Anscheinend habe ich mein Rezept falsch gelesen und nicht genug Kohl gekauft als ich auf dem Markt war. Könnt ihr mir noch fünfundzwanzig Kohlköpfe bringen?"
+queststatus(514) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl"-> inform ("[Neue Quest] Ein Gute Tat fÃ¼r Oldra II"), queststatus(514) = 3, "Anscheinend habe ich mein Rezept falsch gelesen und nicht genug Kohl gekauft als ich auf dem Markt war. KÃ¶nnt ihr mir noch fÃ¼nfundzwanzig KohlkÃ¶pfe bringen?"
 
 -- Objects not found
 queststatus(514) = 3, item(290, all) < 25, english, ".+" -> "The stew is almost ready, I am just waiting for those 25 cabbages."
-queststatus(514) = 3, item(290, all) < 25, ".+" -> "Der Eintopf ist fast fertig , ich warte nur auf die 25 Kohlköpfe."
+queststatus(514) = 3, item(290, all) < 25, ".+" -> "Der Eintopf ist fast fertig , ich warte nur auf die 25 KohlkÃ¶pfe."
 
 -- Objects found
 queststatus(514) = 3, item(290, all) > 24, english, ".+" -> inform ("[Quest Solved] You are rewarded 30 silver coins."), deleteItem(290, 25), money + 3000, queststatus(514) = 4, "Wonderful! Please take these coins for your trouble. Now, if only I could get the fire hot enough to cook over."
-queststatus(514) = 3, item(290, all) > 24, ".+" -> inform ("[Quest gelöst] Du erhältst 30 Silberstücke."), deleteItem(290, 25), money + 3000, queststatus(514) = 4, "Wunderbar! Bitte nehmt diese Münzen für deine Mühe. Wenn ich nur genug Holz für das Feuer hätte um weiter zu kochen."
+queststatus(514) = 3, item(290, all) > 24, ".+" -> inform ("[Quest gelÃ¶st] Du erhÃ¤ltst 30 SilberstÃ¼cke."), deleteItem(290, 25), money + 3000, queststatus(514) = 4, "Wunderbar! Bitte nehmt diese MÃ¼nzen fÃ¼r deine MÃ¼he. Wenn ich nur genug Holz fÃ¼r das Feuer hÃ¤tte um weiter zu kochen."
 
 -- Quest 3: 20 Naldor wood, reward 20 silver and latent obsidien
 queststatus(514) = 4, english, "quest", "mission" -> inform ("[New Quest] A Good Deed for Oldra III"), queststatus(514) = 5, item(74, 1, 566), "I forgot to stock up on firewood yesterday, so I am having trouble getting the fire hot enough to cook over. Could you take that hatchet over there and split a few logs for me? Twenty naldor wood logs should suffice."
-queststatus(514) = 4, "quest", "mission" -> inform ("[Neue Quest] Ein Gute Tat für Oldra III"), queststatus(514) = 5, item(74, 1, 566),"Ich habe gestern vergessen Brennholz zu besorgen. So kann ich das Feuer nicht heiß genug halten um zu kochen. Könnt ihr das  Beil dort nehmen und Brennholz für mich holen? Zwanzig Scheite Naldorholz sollten genügen."
+queststatus(514) = 4, "quest", "mission" -> inform ("[Neue Quest] Ein Gute Tat fÃ¼r Oldra III"), queststatus(514) = 5, item(74, 1, 566),"Ich habe gestern vergessen Brennholz zu besorgen. So kann ich das Feuer nicht heiÃŸ genug halten um zu kochen. KÃ¶nnt ihr das  Beil dort nehmen und Brennholz fÃ¼r mich holen? Zwanzig Scheite Naldorholz sollten genÃ¼gen."
 queststatus(514) = 4, "task", "adventure", "order" -> inform ("[New Quest] A Good Deed for Oldra III"), queststatus(514) = 5, item(74, 1, 566), "I forgot to stock up on firewood yesterday, so I am having trouble getting the fire hot enough to cook over. Could you take that hatchet over there and split a few logs for me? Twenty naldor wood logs should suffice."
-queststatus(514) = 4, "Auftrag", "Aufgabe", "Abenteuer", "Befehl"-> inform ("[Neue Quest] Ein Gute Tat für Oldra III"), queststatus(514) = 5, item(74, 1, 566), "Ich habe gestern vergessen Brennholz zu besorgen. So kann ich das Feuer nicht heiß genug halten um zu kochen. Könnt ihr das  Beil dort nehmen und Brennholz für mich holen? Zwanzig Scheite Naldorholz sollten genügen."
+queststatus(514) = 4, "Auftrag", "Aufgabe", "Abenteuer", "Befehl"-> inform ("[Neue Quest] Ein Gute Tat fÃ¼r Oldra III"), queststatus(514) = 5, item(74, 1, 566), "Ich habe gestern vergessen Brennholz zu besorgen. So kann ich das Feuer nicht heiÃŸ genug halten um zu kochen. KÃ¶nnt ihr das  Beil dort nehmen und Brennholz fÃ¼r mich holen? Zwanzig Scheite Naldorholz sollten genÃ¼gen."
 
 -- Objects not found
 queststatus(514) = 5, item(544, all) < 20, english, ".+" -> "How is it coming with the firewood? Have you gotten me twenty logs of naldor wood yet? The coals are threatening to go out."
@@ -136,31 +136,31 @@ queststatus(514) = 5, item(544, all) < 20, ".+" -> "Hast du das Brennholz? Hast 
 
 -- Objects found -- 20 Naldor wood, reward 20 silver and a magical obsidian
 queststatus(514) = 5, item(544, all) > 19, english, ".+" -> inform ("[Quest Solved] You are rewarded 20 silver coins and a magical obsidian."), deleteItem(544, 20), money + 2000, item(3524, 1, 333, "gemLevel" = "1"), queststatus(514) = 6, "There we go. Nice and hot. Oh! I did find this magic gem while trying to keep the coals hot. I have no idea how that got in there. Why don't you take it and have a few coins for your work! While that is cooking, could you help me with something else?"
-queststatus(514) = 5, item(544, all) > 19, ".+" -> inform ("[Quest gelöst] Du erhältst 20 Silberstücke und ein magischen Obsidian."), deleteItem(544, 20), money + 2000, item(3524, 1, 333, "gemLevel" = "1"), queststatus(514) = 6, "Geht doch. Schön und heiß. Oh! Ich fand diesen magischen Edelstein beim Versuch die Kohlen heiß zu halten. Warum nimmst du ihn nicht, und noch ein paar Münzen für deine Arbeit. Ach und während das hier kocht, kannst du mir mit etwas Anderem helfen?"
+queststatus(514) = 5, item(544, all) > 19, ".+" -> inform ("[Quest gelÃ¶st] Du erhÃ¤ltst 20 SilberstÃ¼cke und ein magischen Obsidian."), deleteItem(544, 20), money + 2000, item(3524, 1, 333, "gemLevel" = "1"), queststatus(514) = 6, "Geht doch. SchÃ¶n und heiÃŸ. Oh! Ich fand diesen magischen Edelstein beim Versuch die Kohlen heiÃŸ zu halten. Warum nimmst du ihn nicht, und noch ein paar MÃ¼nzen fÃ¼r deine Arbeit. Ach und wÃ¤hrend das hier kocht, kannst du mir mit etwas Anderem helfen?"
 
 -- Quest 4: 10 bowls, reward stew
 queststatus(514) = 6, english, "quest", "mission" -> inform ("[New Quest] A Good Deed for Oldra IV"), queststatus(514) = 7, money + 2000, "I don't know what happened, but I seem to be short on bowls. It would be much appreciated if you could get ten more for me. Here are a few coins."
-queststatus(514) = 6, "quest", "mission" -> inform ("[Neue Quest] Ein Gute Tat für Oldra IV"), queststatus(514) = 7, money + 2000, "Ich weiß nicht, was passiert ist, aber ich scheine zu wenig Schüsseln zu haben. Könntest du mir zehn Stück holen? Hier, nimm diese Münzen."
+queststatus(514) = 6, "quest", "mission" -> inform ("[Neue Quest] Ein Gute Tat fÃ¼r Oldra IV"), queststatus(514) = 7, money + 2000, "Ich weiÃŸ nicht, was passiert ist, aber ich scheine zu wenig SchÃ¼sseln zu haben. KÃ¶nntest du mir zehn StÃ¼ck holen? Hier, nimm diese MÃ¼nzen."
 queststatus(514) = 6, "task", "adventure", "order" -> inform ("[New Quest] A Good Deed for Oldra IV"), queststatus(514) = 7, money + 2000, "I don't know what happened, but I seem to be short on soup bowls. It would be much appreciated if you could get ten more for me. Here are a few coins."
-queststatus(514) = 6, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform ("[Neue Quest] Ein Gute Tat für Oldra IV"), queststatus(514) = 7, money + 2000, "Ich weiß nicht, was passiert ist, aber ich scheine zu wenig Schüsseln zu haben. Könntest du mir zehn Stück holen? Hier, nimm diese Münzen."
+queststatus(514) = 6, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform ("[Neue Quest] Ein Gute Tat fÃ¼r Oldra IV"), queststatus(514) = 7, money + 2000, "Ich weiÃŸ nicht, was passiert ist, aber ich scheine zu wenig SchÃ¼sseln zu haben. KÃ¶nntest du mir zehn StÃ¼ck holen? Hier, nimm diese MÃ¼nzen."
 
 -- Items not found
 queststatus(514) = 7, item(2935, all) < 10, english, ".+" -> "Have you had any luck obtaining ten bowls for me?"
-queststatus(514) = 7, item(2935, all) < 10, ".+" -> "Hast du Glück gehabt und zehn Schüsseln für mich gefunden?"
+queststatus(514) = 7, item(2935, all) < 10, ".+" -> "Hast du GlÃ¼ck gehabt und zehn SchÃ¼sseln fÃ¼r mich gefunden?"
 
 -- items found
 queststatus(514) = 7, item(2935, all) > 9, english, ".+" -> inform ("[Quest Solved] You have been rewarded with a mulligan stew."), deleteItem(2935, 10), item(2276, 1, 999), queststatus(514) = 8, "Oh, thank you! I can finish passing out the last of the stew. You must be hungry after all that work. Here, have a bowl of stew and may Oldra bless you for your help."
-queststatus(514) = 7, item(2935, all) > 9,  ".+" -> inform ("[Quest gelöst] Du erhältst einen Eintopf."), deleteItem(2935, 10), item(2276, 1, 999), queststatus(514) = 8, "Oh! Danke! Jetzt kann ich den Eintopf fertig kochen. Du musst hungrig sein, nach all dieser Arbeit. Hier, eine Schüssel mit Eintopf und möge Oldra dich segnen für deine Hilfe."
+queststatus(514) = 7, item(2935, all) > 9,  ".+" -> inform ("[Quest gelÃ¶st] Du erhÃ¤ltst einen Eintopf."), deleteItem(2935, 10), item(2276, 1, 999), queststatus(514) = 8, "Oh! Danke! Jetzt kann ich den Eintopf fertig kochen. Du musst hungrig sein, nach all dieser Arbeit. Hier, eine SchÃ¼ssel mit Eintopf und mÃ¶ge Oldra dich segnen fÃ¼r deine Hilfe."
 
 -- No more quests, just thanks
 queststatus(514) = 8, english, "quest", "mission" -> "I don't have any other task for you. Thank you for all your help. I wouldn't have finished that stew without you."
-queststatus(514) = 8, "quest", "mission" -> "Ich habe keine anderen Aufgaben für dich. Danke für die ganze Hilfe. Ich hätte diesen Eintopf ohne dich nicht fertiggebracht."
+queststatus(514) = 8, "quest", "mission" -> "Ich habe keine anderen Aufgaben fÃ¼r dich. Danke fÃ¼r die ganze Hilfe. Ich hÃ¤tte diesen Eintopf ohne dich nicht fertiggebracht."
 queststatus(514) = 8, "task", "adventure", "order" -> "I don't have any other task for you. Thank you for all your help. I wouldn't have finished that stew without you."
-queststatus(514) = 8, "Auftrag", "Aufgabe", "Abenteuer", "Befehl"-> "Ich habe keine anderen Aufgaben für dich. Danke für die ganze Hilfe. Ich hätte diesen Eintopf ohne dich nicht fertiggebracht."
+queststatus(514) = 8, "Auftrag", "Aufgabe", "Abenteuer", "Befehl"-> "Ich habe keine anderen Aufgaben fÃ¼r dich. Danke fÃ¼r die ganze Hilfe. Ich hÃ¤tte diesen Eintopf ohne dich nicht fertiggebracht."
 
 -- Mandatory: Trade Hooks, use the trade consequence for traders
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a merchant. Look for them in the marketplace in Runewick."
-"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Kaufmann. Such auf dem Markt in Runewick."
+"kauf", "waren", "preis", "Handel", "verÃ¤uÃŸer", "verÃ¤usser", "erwerb" -> "Ich bin kein Kaufmann. Such auf dem Markt in Runewick."
 
 -- OPTIONAL TRIGGERS
 
@@ -168,51 +168,51 @@ queststatus(514) = 8, "Auftrag", "Aufgabe", "Abenteuer", "Befehl"-> "Ich habe ke
 "profession" -> "I am a priestess of Oldra."
 "beruf" -> "Ich bin eine Priesterin der Oldra."
 english, "job" -> "I am a priestess of Oldra, but I would hardly call it a job."
-"job" -> "Ich bin eine Priesterin der Oldra, aber ich würde es nicht Arbeit nennen."
+"job" -> "Ich bin eine Priesterin der Oldra, aber ich wÃ¼rde es nicht Arbeit nennen."
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his environment
 english, "Yewdale" -> "We are a small halfling farm town just west of Runewick. Those mages would starve without us."
-"Yewdale" -> "Wir sind ein kleines Halblingsdorf westlich von Runewick. Diese Magier würden ohne uns verhungern."
+"Yewdale" -> "Wir sind ein kleines Halblingsdorf westlich von Runewick. Diese Magier wÃ¼rden ohne uns verhungern."
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 "god" -> "I honour the younger gods, but I do Oldra's work."
-"Gott", "Götter" -> "Ich ehre die Jüngeren Götter, aber ich mache Oldras Arbeit."
+"Gott", "GÃ¶tter" -> "Ich ehre die JÃ¼ngeren GÃ¶tter, aber ich mache Oldras Arbeit."
 english, "religion" -> "I honour the younger gods, but I do Oldra's work."
-"religion" -> "Ich ehre die Jüngeren Götter, aber ich mache Oldras Arbeit."
+"religion" -> "Ich ehre die JÃ¼ngeren GÃ¶tter, aber ich mache Oldras Arbeit."
 "faith" -> "I honour the younger gods, but I do Oldra's work."
-"Glaube" -> "Ich ehre die Jüngeren Götter, aber ich mache Oldras Arbeit."
+"Glaube" -> "Ich ehre die JÃ¼ngeren GÃ¶tter, aber ich mache Oldras Arbeit."
 english, "Adron" -> "He is the god of wine and festivities! Great feasts have been had in Adron's name. Well, perhaps not quite as bountiful as those for Oldra! You can find Adron altar in the tavern in Runewick."
-"Adron" -> "Er ist der Gott des Weines und der Feste. Große Feste wurden in Adrons Namen gefeiert. Nun, vielleicht nicht ganz so reichlich wie für Oldra! Du kannst einen Adron-Altar in der Taverne in Runewick finden."
-english, "Bragon", "Brágon" -> "One of the elder gods. Brágon is the god of fire and of warriors. He is a noble and just god. Those who used to follow him now follow Malachín."
-"Bragon", "Brágon" -> "Brágon ist einer der Alten Götter. Er ist der Gott des Feuers und der Krieger, ein edler und gerechter Gott. Diejenigen, die ihm folgten, folgen nun zumeist Malachín."
+"Adron" -> "Er ist der Gott des Weines und der Feste. GroÃŸe Feste wurden in Adrons Namen gefeiert. Nun, vielleicht nicht ganz so reichlich wie fÃ¼r Oldra! Du kannst einen Adron-Altar in der Taverne in Runewick finden."
+english, "Bragon", "BrÃ¡gon" -> "One of the elder gods. BrÃ¡gon is the god of fire and of warriors. He is a noble and just god. Those who used to follow him now follow MalachÃ­n."
+"Bragon", "BrÃ¡gon" -> "BrÃ¡gon ist einer der Alten GÃ¶tter. Er ist der Gott des Feuers und der Krieger, ein edler und gerechter Gott. Diejenigen, die ihm folgten, folgen nun zumeist MalachÃ­n."
 english, "Cherga" -> "Cherga is the goddess of spirits and the underworld. She guides the spirits of the dead to their respective places in the afterlife, or sends them back to finish their work. Her altar is on Pauldron Isle."
-"Cherga" -> "Cherga ist die Göttin der Geister und der Unterwelt. Sie führt die Geister der Toten zu ihren angestammten Plätzen im Jenseits oder schickt sie zurück, um ihre Taten zu vollenden. Ihr Altar ist auf der Schulterplatteninsel."
+"Cherga" -> "Cherga ist die GÃ¶ttin der Geister und der Unterwelt. Sie fÃ¼hrt die Geister der Toten zu ihren angestammten PlÃ¤tzen im Jenseits oder schickt sie zurÃ¼ck, um ihre Taten zu vollenden. Ihr Altar ist auf der Schulterplatteninsel."
 english, "Elara" -> "Elara is the goddess of wisdom. Her followers spend too much time with their nose in a book and not enough time enjoying the life around them, if you ask me. Elara's altar can be found in Runewick."
-"Elara" -> "Elara ist die Göttin der Weisheit. Ihre Anhänger verbringen zu viel Zeit mit ihrer Nase in einem Buch und nicht genug Zeit, das Leben um sie herum zu genießen, wenn Sie mich fragen. Elaras Altar findet man in Runewick."
+"Elara" -> "Elara ist die GÃ¶ttin der Weisheit. Ihre AnhÃ¤nger verbringen zu viel Zeit mit ihrer Nase in einem Buch und nicht genug Zeit, das Leben um sie herum zu genieÃŸen, wenn Sie mich fragen. Elaras Altar findet man in Runewick."
 english, "Eldan" -> "He is the elder god of the spirit. Eldan likes his peace and quiet. Him and his few followers would rather be studying in solitude than be around a city. Those followers who haven't converted to following Elara at least."
-"Eldan" -> "Eldan ist der Alte Gott des Geistes. Eldan mag seine Ruhe und Frieden. Er und seine wenigen Anhänger würden lieber in Einsamkeit studieren als in einer Stadt zu sein. Also, jene Anhänger, die nicht zu Elara konvertiert haben."
+"Eldan" -> "Eldan ist der Alte Gott des Geistes. Eldan mag seine Ruhe und Frieden. Er und seine wenigen AnhÃ¤nger wÃ¼rden lieber in Einsamkeit studieren als in einer Stadt zu sein. Also, jene AnhÃ¤nger, die nicht zu Elara konvertiert haben."
 english, "Findari" -> "She is the Elder Goddess of air. Findari is a chaotic spirit at heart. Her winds bring cool breezes and fierce storms. Without wind boats wouldn't sail and without rain, crops wouldn't grow. Her followers now follow Adron."
-"Findari" -> "Sie ist die Alte Göttin der Luft. Findari ist im Herzen ein chaotischer Geist. Ihre Winde bringen kühle Brisen und heftige Stürme. Ohne Wind würden Boote nicht segeln und ohne Regen würden die Pflanzen nicht wachsen. Ihre Anhänger folgen nun Adron."
+"Findari" -> "Sie ist die Alte GÃ¶ttin der Luft. Findari ist im Herzen ein chaotischer Geist. Ihre Winde bringen kÃ¼hle Brisen und heftige StÃ¼rme. Ohne Wind wÃ¼rden Boote nicht segeln und ohne Regen wÃ¼rden die Pflanzen nicht wachsen. Ihre AnhÃ¤nger folgen nun Adron."
 english, "Irmorom" -> "God of business and fine craftsmanship. Irmorom is followed by those who care more for coin than for others. You can find his altar in the mountainous region of Galmair."
-"Irmorom" -> "Irmorom ist der Gott des Handels und des Handwerks. Irmorom folgen jene, die sich mehr für Münzen interessieren als für Andere. Du kannst seinen Altar in der Bergregion Galmairs finden."
-english, "Malachin", "Malachín" -> "Malachín is the god of the hunt and of battle. His followers are obsessed with war and order. Malachín's altar is found above the mine in Cadomyr."
-"Malachin", "Malachín" -> "Malachín ist der Gott der Jagd und der Schlachten. Seine Anhänger sind von Krieg und Ordnung besessen. Malachíns Altar ist über der Mine in Cadomyr zu finden."
+"Irmorom" -> "Irmorom ist der Gott des Handels und des Handwerks. Irmorom folgen jene, die sich mehr fÃ¼r MÃ¼nzen interessieren als fÃ¼r Andere. Du kannst seinen Altar in der Bergregion Galmairs finden."
+english, "Malachin", "MalachÃ­n" -> "MalachÃ­n is the god of the hunt and of battle. His followers are obsessed with war and order. MalachÃ­n's altar is found above the mine in Cadomyr."
+"Malachin", "MalachÃ­n" -> "MalachÃ­n ist der Gott der Jagd und der Schlachten. Seine AnhÃ¤nger sind von Krieg und Ordnung besessen. MalachÃ­ns Altar ist Ã¼ber der Mine in Cadomyr zu finden."
 english, "Moshran" -> "#me shrinks back in fear as the name is spoke. 'Do not speak that name here. He might hear you.'"
-"Moshran" -> "#me zuckt ängstlich zurück, als der Name gesprochen wird. 'Sprich hier nicht diesen Namen. Er könnte dich hören.'"
-english, "Nargun", "Nargún", "Nargùn" -> "I wouldn't speak his name too loudly. He is the god of chaos. He might hear you and decide to pay you a visit. He is a god of fortune. Or is it misfortune? His altar is in the Galmair underground."
-"Nargun", "Nargún", "Nargùn" -> "Ich würde seinen Namen nicht zu laut sprechen. Er ist der Gott des Chaos. Er könnte dich hören und beschließen, dich zu besuchen. Er ist ein Glücksgott. Oder ist es Unglück? Sein Altar ist im Untergrund Galmairs."
+"Moshran" -> "#me zuckt Ã¤ngstlich zurÃ¼ck, als der Name gesprochen wird. 'Sprich hier nicht diesen Namen. Er kÃ¶nnte dich hÃ¶ren.'"
+english, "Nargun", "NargÃºn", "NargÃ¹n" -> "I wouldn't speak his name too loudly. He is the god of chaos. He might hear you and decide to pay you a visit. He is a god of fortune. Or is it misfortune? His altar is in the Galmair underground."
+"Nargun", "NargÃºn", "NargÃ¹n" -> "Ich wÃ¼rde seinen Namen nicht zu laut sprechen. Er ist der Gott des Chaos. Er kÃ¶nnte dich hÃ¶ren und beschlieÃŸen, dich zu besuchen. Er ist ein GlÃ¼cksgott. Oder ist es UnglÃ¼ck? Sein Altar ist im Untergrund Galmairs."
 english, "Oldra" -> "She is the goddess of life and fertility. Without her blessing, nothing would grow.", "Oldra is prayed to by farmers, peasants, and cooks to bless their crops and tables. Midwives and healers seek her to help mend others. She guides birthing and raising of children. And she is known as the All-mother to halflings.", "Oldra teaches us that if you give a man bread he will eat for a day, but if you teach him how to sow seeds and bake bread, he will feed a village."
-"Oldra" -> "Sie ist die Göttin des Lebens und der Fruchtbarkeit. Ohne ihren Segen würde nichts wachsen.", "Landwirte, Bauern und Köche beten zu Oldra damit sie ihre Ernte und Tische segnet. Die Hebamme und Heiler suchen ihre Hilfe um andere zu heilen. Sie leitet Geburten und die Erziehung von Kindern. Sie ist bekannt als die große Mutter der Halblinge.", "Oldra lehrt uns, wenn du einem Mann ein Brot gibst, hat er einen Tag zu essen. Aber wenn du einem Mann Samen gibst und ihn lehrst Brot zu backen, wird er ein ganzes Dorf ernähren."
+"Oldra" -> "Sie ist die GÃ¶ttin des Lebens und der Fruchtbarkeit. Ohne ihren Segen wÃ¼rde nichts wachsen.", "Landwirte, Bauern und KÃ¶che beten zu Oldra damit sie ihre Ernte und Tische segnet. Die Hebamme und Heiler suchen ihre Hilfe um andere zu heilen. Sie leitet Geburten und die Erziehung von Kindern. Sie ist bekannt als die groÃŸe Mutter der Halblinge.", "Oldra lehrt uns, wenn du einem Mann ein Brot gibst, hat er einen Tag zu essen. Aber wenn du einem Mann Samen gibst und ihn lehrst Brot zu backen, wird er ein ganzes Dorf ernÃ¤hren."
 english, "Ronagan" -> "Ronagan is the god of thieves and shadows. His followers seem friendly, but really they are attempting to con you out of your coins. He does take pity on orphans and the poor. His altar is hidden deep in Galmair's underground."
-"Ronagan" -> "Ronagan ist der Gott der Diebe und der Schatten. Seine Anhänger scheinen freundlich zu sein, aber in Wirklichkeit versuchen sie, an deine Münzen zu kommen. Er hat Mitleid mit Waisen und den Armen. Sein Altar ist tief im Untergrund Galmairs verborgen."
+"Ronagan" -> "Ronagan ist der Gott der Diebe und der Schatten. Seine AnhÃ¤nger scheinen freundlich zu sein, aber in Wirklichkeit versuchen sie, an deine MÃ¼nzen zu kommen. Er hat Mitleid mit Waisen und den Armen. Sein Altar ist tief im Untergrund Galmairs verborgen."
 english, "Sirani" -> "Sirani is the goddess of love and beauty. She blesses marriages and enjoys fine festivals. Her followers may seem pretty, but are compassionate and skilled in healing. Her altar in an oasis near Cadomyr."
-"Sirani" -> "Sirani ist die Göttin der Liebe und der Freude. Sie segnet Ehen und genießt feine Feste. Ihre Anhänger mögen schön sein, sind aber mitfühlend und geschickt in der Heilung. Ihr Altar ist in einer Oase bei Cadomyr."
+"Sirani" -> "Sirani ist die GÃ¶ttin der Liebe und der Freude. Sie segnet Ehen und genieÃŸt feine Feste. Ihre AnhÃ¤nger mÃ¶gen schÃ¶n sein, sind aber mitfÃ¼hlend und geschickt in der Heilung. Ihr Altar ist in einer Oase bei Cadomyr."
 english, "Tanora", "Zelphia" -> "She is the Elder Goddess of water. Mother to the lizardfolk who still faithfully follow her. Tanora is the one Elder God who still walks among us. She is prayed to by sailors for safe voyages."
-"Tanora", "Zelphia" -> "Tanora ist die Alte Göttin des Wassers. Sie ist die Mutter der Echsenmenschen, die ihr immer noch treu folgen. Tanora ist die Alte Göttin, der immer noch unter uns wandelt. Sie wird von Seeleuten für sichere Reisen angebetet."
+"Tanora", "Zelphia" -> "Tanora ist die Alte GÃ¶ttin des Wassers. Sie ist die Mutter der Echsenmenschen, die ihr immer noch treu folgen. Tanora ist die Alte GÃ¶ttin, der immer noch unter uns wandelt. Sie wird von Seeleuten fÃ¼r sichere Reisen angebetet."
 english, "Ushara" -> "Elder Goddess of the earth and life. She is wise and motherly. Her followers are rare, but tend to be old elves and wise druids. All others now follow Oldra in her place."
-"Ushara" -> "Ushara ist die Alte Göttin der Erde und des Lebens. Sie ist klug und mütterlich. Ihre Anhänger sind selten und meist alte Elfen und weise Druiden. Alle anderen folgen nun Oldra an ihrer Stelle."
+"Ushara" -> "Ushara ist die Alte GÃ¶ttin der Erde und des Lebens. Sie ist klug und mÃ¼tterlich. Ihre AnhÃ¤nger sind selten und meist alte Elfen und weise Druiden. Alle anderen folgen nun Oldra an ihrer Stelle."
 english, "Zhambra" -> "God of friendship and loyalty. His followers are selfless in battle and are true to their word. He is as much of a god of war as he is of diplomacy and law. Zhambra's altar can be found close to the palace in Cadomyr."
-"Zhambra" -> "Zhambra ist der Gott der Freundschaft und des Vertrauens. Seine Anhänger sind selbstlos im Kampf und sind ihrem Wort treu. Er ist Gott des Krieges, wie auch der Diplomatie und des Gesetzes. Der Altar Zhambras befindet sich in der Nähe des Palastes in Cadomyr."
+"Zhambra" -> "Zhambra ist der Gott der Freundschaft und des Vertrauens. Seine AnhÃ¤nger sind selbstlos im Kampf und sind ihrem Wort treu. Er ist Gott des Krieges, wie auch der Diplomatie und des Gesetzes. Der Altar Zhambras befindet sich in der NÃ¤he des Palastes in Cadomyr."
 
 -- Divine rank
 english, "favour", "favor", queststatus(411) >= expr(250) -> "Oldra is exalted with you!"
@@ -229,53 +229,53 @@ english, "favour", "favor", queststatus(411) > expr(-200) -> "Oldra is angry on 
 english, "favour", "favor", queststatus(411) > expr(-250) -> "Oldra is very angry on you."
 english, "favour", "favor" -> "Oldra is wrathful about you. Can't you feel it?"
 
-"gunst", queststatus(411) >= expr(250) -> "Oldra ist überschwänglich vor Freude!"
-"gunst", queststatus(411) >= expr(200) -> "Oldra ist außerordentlich zufrieden mit dir und deiner vorbildlichen Lebensweise."
+"gunst", queststatus(411) >= expr(250) -> "Oldra ist Ã¼berschwÃ¤nglich vor Freude!"
+"gunst", queststatus(411) >= expr(200) -> "Oldra ist auÃŸerordentlich zufrieden mit dir und deiner vorbildlichen Lebensweise."
 "gunst", queststatus(411) >= expr(150) -> "Oldra ist begeistert von deinen guten Taten."
-"gunst", queststatus(411) >= expr(100) -> "Oldra ist glücklich, mach weiter so."
+"gunst", queststatus(411) >= expr(100) -> "Oldra ist glÃ¼cklich, mach weiter so."
 "gunst", queststatus(411) >= expr(50), queststatus(402) = 9 -> "Oldra ist noch zufrieden mit dir, aber sei vorsichtig, nicht deinen Priester Status zu verlieren."
 "gunst", queststatus(411) >= expr(50) -> "Oldra ist zufrieden mit dir."
 "gunst", queststatus(411) > expr(-50) -> "Oldra ist unentschlossen was dich angeht."
-"gunst", queststatus(411) > expr(-100), queststatus(401) = 9 -> "Oldra ist unzufrieden mit dir, wenn du so weiter machst, wirst du bald nicht mehr in der Lage sein, dich Anhänger Oldras zu nennen."
+"gunst", queststatus(411) > expr(-100), queststatus(401) = 9 -> "Oldra ist unzufrieden mit dir, wenn du so weiter machst, wirst du bald nicht mehr in der Lage sein, dich AnhÃ¤nger Oldras zu nennen."
 "gunst", queststatus(411) > expr(-100) -> "Oldra ist unzufrieden mit dir."
-"gunst", queststatus(411) > expr(-150) -> "Oldra ist enttäuscht von dir."
-"gunst", queststatus(411) > expr(-200) -> "Oldra ist wütend auf dich."
+"gunst", queststatus(411) > expr(-150) -> "Oldra ist enttÃ¤uscht von dir."
+"gunst", queststatus(411) > expr(-200) -> "Oldra ist wÃ¼tend auf dich."
 "gunst", queststatus(411) > expr(-250) -> "Oldra ist sehr zornig auf dich."
-"gunst" -> "Oldra ist rasend vor Zorn auf dich. Kannst du es nicht fühlen?"
+"gunst" -> "Oldra ist rasend vor Zorn auf dich. Kannst du es nicht fÃ¼hlen?"
 
 english, "sacrifice" -> "Nothing can symbolize life better then a good meal does.", "Farmers are used to sacrifice part of their crops to show gratitude to Oldra."
-"opfer", "opfergabe" -> "Nichts kann das Leben besser symbolisieren als eine gute Mahlzeit.", "Bauern sind daran gewöhnt einen Teil ihrer Ernte an Oldra zu opfern, um ihre Dankbarkeit zu beweisen."
+"opfer", "opfergabe" -> "Nichts kann das Leben besser symbolisieren als eine gute Mahlzeit.", "Bauern sind daran gewÃ¶hnt einen Teil ihrer Ernte an Oldra zu opfern, um ihre Dankbarkeit zu beweisen."
 
 -- Optional: Faction stuff
 "archmage" -> "He runs the mages academy in Runewick. A bit of a recluse, that one."
-"Erzmagier" -> "Er führt die Magierakademie in Runewick. Er ist ein bisschen ein Einsiedler."
+"Erzmagier" -> "Er fÃ¼hrt die Magierakademie in Runewick. Er ist ein bisschen ein Einsiedler."
 english, "Elvaine", "Morgan" -> "He runs the mages academy in Runewick. A bit of a recluse, that one."
-"Elvaine", "Morgan" -> "Er führt die Magierakademie in Runewick. Er ist ein bisschen ein Einsiedler."
+"Elvaine", "Morgan" -> "Er fÃ¼hrt die Magierakademie in Runewick. Er ist ein bisschen ein Einsiedler."
 english, "Runewick" -> "Runewick and the mages academy is just east of here. Don't be surprised if you hear explosions in the middle of the night."
-"Runewick" -> "Runewick und die Magierakademie liegt genau östlich von hier. Sei nicht überrascht, wenn du mitten in der Nacht Explosionen hörst."
+"Runewick" -> "Runewick und die Magierakademie liegt genau Ã¶stlich von hier. Sei nicht Ã¼berrascht, wenn du mitten in der Nacht Explosionen hÃ¶rst."
 english, "Valerio", "Guilianni", "Don" -> "Greedy dwarf, that one."
 "Valerio", "Guilianni", "Don" -> "Dieser gierige Zwerg!"
 english, "Galmair" -> "It is a bit cold for me. Although many of its citizens are crafters, and there are a good number of farmers and fine cooks."
-"Galmair" -> "Es ist ein bisschen zu kalt für mich. Obwohl viele Bürger Handwerker sind, gibt es einige Landwirte und und gute Köche."
+"Galmair" -> "Es ist ein bisschen zu kalt fÃ¼r mich. Obwohl viele BÃ¼rger Handwerker sind, gibt es einige Landwirte und und gute KÃ¶che."
 "Queen" -> "It is said that she is blessed by the gods. Many years ago, when she was young, a plague struck Cadomyr. She was one of the few to survive."
-"Königin" -> "Es wird gesagt, dass sie von den Göttern gesegnet ist. Vor vielen Jahren, als sie jung war, befiel Cadomyr eine Seuche. Sie war eine der Wenigen, welche überlebten."
+"KÃ¶nigin" -> "Es wird gesagt, dass sie von den GÃ¶ttern gesegnet ist. Vor vielen Jahren, als sie jung war, befiel Cadomyr eine Seuche. Sie war eine der Wenigen, welche Ã¼berlebten."
 english, "rosaline", "edwards" -> "It is said that she is blessed by the gods. Many years ago, when she was young, a plague struck Cadomyr. She was one of the few to survive."
-"rosaline", "edwards" -> "Es wird gesagt, dass sie von den Göttern gesegnet ist. Vor vielen Jahren, als sie jung war, befiel Cadomyr eine Seuche. Sie war eine der Wenigen, welche überlebten."
+"rosaline", "edwards" -> "Es wird gesagt, dass sie von den GÃ¶ttern gesegnet ist. Vor vielen Jahren, als sie jung war, befiel Cadomyr eine Seuche. Sie war eine der Wenigen, welche Ã¼berlebten."
 english, "Cadomyr" -> "I find it to be a tad unpleasant. It is hot and nothing grows in the sandy soil."
-"Cadomyr" -> "Ich find es ungemütlich dort. Viel zu heiß und in dem Sand wächst nichts."
+"Cadomyr" -> "Ich find es ungemÃ¼tlich dort. Viel zu heiÃŸ und in dem Sand wÃ¤chst nichts."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "Ohne Oldras Segen würde es kein Leben geben. Die Welt wäre öde  wie die Kantabi Wüste.", "There would be no life without Oldra's blessing,  the world would be as barren as the Kantabi Desert"
-cycletext "Geld mag das Brot kaufen was deinen Magen füllt. Aber das Brot mit Anderen zu teilen wird deine Seele nähren.", "Money may buy the bread to feed your stomach, but sharing it with others will feed your soul."
-cycletext "Oldra möge dich in der Ewigkeit begrüßen, wo du in ihrem Garten mit alten und neuen Freunden schmausen wirst.", "May Oldra greet you in eternity, where you may feast in her garden with friends new and old!"
-cycletext "Mögen deine Felder fruchtbar sein, dein Essen reichlich und deine Kinder stark werden.", "May your fields be fertile, your meals be bountiful, and your children grow strong"
-cycletext "Vor allem sollte das Leben einfach und demütig sein. Eine reiche Ernte gefolgt von einem hausgemachten Essen mit Freunden und der Familie ist ein Segen.", "Above all, life should be simple and humble. A bountiful harvest followed by a home cooked meal with friends and family is a blessing"
-cycletext "#me zählt Samen in einer kleinen Tasche.", "#me counts out seeds into a small pouch."
-cycletext "#me summt eine fröhliche Melodie, als sie einen dampfenden Kessel mit Suppe rührt.", "#me hums a merry tune as she stirs a steaming caldron of soup."
-cycletext "#me zieht Gemüse aus einem Leinensack und schneidet es mit einem scharfen Messer.", "#me pulls vegetables out of a canvas sack and chops them with a sharp knife."
-cycletext "#me mischt Mehl und Wasser zusammen in einer Schüssel. Dann zieht sie den Teig aus und formt ihn zu einem Laib, damit er später gebacken werden kann.", "#me mixes flour and water together in a bowl. She then pulls the dough out and form it into a loaf to be baked later."
+cycletext "Ohne Oldras Segen wÃ¼rde es kein Leben geben. Die Welt wÃ¤re Ã¶de  wie die Kantabi WÃ¼ste.", "There would be no life without Oldra's blessing,  the world would be as barren as the Kantabi Desert"
+cycletext "Geld mag das Brot kaufen was deinen Magen fÃ¼llt. Aber das Brot mit Anderen zu teilen wird deine Seele nÃ¤hren.", "Money may buy the bread to feed your stomach, but sharing it with others will feed your soul."
+cycletext "Oldra mÃ¶ge dich in der Ewigkeit begrÃ¼ÃŸen, wo du in ihrem Garten mit alten und neuen Freunden schmausen wirst.", "May Oldra greet you in eternity, where you may feast in her garden with friends new and old!"
+cycletext "MÃ¶gen deine Felder fruchtbar sein, dein Essen reichlich und deine Kinder stark werden.", "May your fields be fertile, your meals be bountiful, and your children grow strong"
+cycletext "Vor allem sollte das Leben einfach und demÃ¼tig sein. Eine reiche Ernte gefolgt von einem hausgemachten Essen mit Freunden und der Familie ist ein Segen.", "Above all, life should be simple and humble. A bountiful harvest followed by a home cooked meal with friends and family is a blessing"
+cycletext "#me zÃ¤hlt Samen in einer kleinen Tasche.", "#me counts out seeds into a small pouch."
+cycletext "#me summt eine frÃ¶hliche Melodie, als sie einen dampfenden Kessel mit Suppe rÃ¼hrt.", "#me hums a merry tune as she stirs a steaming caldron of soup."
+cycletext "#me zieht GemÃ¼se aus einem Leinensack und schneidet es mit einem scharfen Messer.", "#me pulls vegetables out of a canvas sack and chops them with a sharp knife."
+cycletext "#me mischt Mehl und Wasser zusammen in einer SchÃ¼ssel. Dann zieht sie den Teig aus und formt ihn zu einem Laib, damit er spÃ¤ter gebacken werden kann.", "#me mixes flour and water together in a bowl. She then pulls the dough out and form it into a loaf to be baked later."
 cycletext "#me legt Brote in einem Weidenkorb.", "#me places loaves of bread in a wicker basket."
