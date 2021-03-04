@@ -26,6 +26,7 @@ local lookat = require("base.lookat")
 local messages = require("base.messages")
 local money = require("base.money")
 local baseNPC = require("npc.base.basic")
+local gems = require("base.gems")
 
 local isFittingItem
 local tradeNPCItem
@@ -129,7 +130,11 @@ function isFittingItem(tradeItem, boughtItem)
     if (tradeItem._data ~= nil and tradeItem._data ~= boughtItem.data) then
         return false
     end
-
+    --Check if gemmed or glyphed 
+    local glyphEff = tonumber(boughtItem:getData("glyphEffNo"))
+    if((nil~= glyphEff and glyphEff > 0) or gems.getGemBonus(boughtItem) ~= 0) then
+        return false
+    end 
     return true
 end
 
