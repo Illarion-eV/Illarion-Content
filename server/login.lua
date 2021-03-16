@@ -242,11 +242,6 @@ function M.onLogin( player )
         welcomeNewPlayer(player)
     end
 
-    --Initiate inline tutorial
-    if player:isNewPlayer() and player.effects:find(13) == false then
-        player.effects:addEffect(LongTimeEffect(13, 1))
-    end
-
     --A GFX that announces clearly: A player logged in.
     world:gfx(31, player.pos)
 
@@ -290,8 +285,13 @@ function M.onLogin( player )
     end
 
     --Newbie handling
-    if player:isInRangeToPosition(position(702, 283, 0), 7) and player:isNewPlayer() then --only show the dialog if the char is close to the noob spawn
+    if player:isInRangeToPosition(position(702, 283, 0), 7) and player:getQuestProgress(325) ~= 2 then --only show the dialog if the char is close to the noob spawn
         showNewbieDialog(player)
+    end
+
+    --Initiate inline tutorial
+    if player.effects:find(13) == false and player:getQuestProgress(325) ~= 2 then
+        player.effects:addEffect(LongTimeEffect(13, 1))
     end
 
     --Messages of the day
@@ -346,9 +346,7 @@ function showNewbieDialog(player)
             local dialogPostSkip
             local callbackPostSkip = function (dialogPostSkip) end --empty callback
 
-            if dialogSkip:getSuccess() and dialogSkip:getSelectedIndex()==1 then --skipping
-                player:warp(position(36, 97, 100))
-                world:gfx(46, player.pos)
+            if dialogSkip:getSuccess() and dialogSkip:getSelectedIndex() == 1 then --skipping
                 if player:getPlayerLanguage() == 0 then --skip message
                     dialogPostSkip = MessageDialog("Einführung", "Du hast entschieden, das Tutorial zu überspringen. Wähle ein Reich aus, welchem dein Charakter zukünftig angehören wird. Gehe hierzu durch eines der Portale auf den kleinen Inseln. Du kannst diese Entscheidung später im Spiel jederzeit revidieren. Viola Baywillow kann dir einiges über die drei Reiche erzählen, frage sie einfach nach 'Hilfe'.", callbackPostSkip)
                 else

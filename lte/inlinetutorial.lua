@@ -24,7 +24,7 @@ end
 
 function M.callEffect(inlineTutorial,Character)
 
-    if not Character:isNewPlayer() then
+    if not Character:getQuestProgress(325) == 2 then
         return false --removing the effect
     end
 
@@ -41,7 +41,7 @@ end
 
 function M.removeEffect(inlineTutorial, Character)
 
-    Character:inform("[Tutorial] Deine Einführungszeit ist vorbei. Es werden keine weiteren Tutorialnachrichten angezeigt.","[Tutorial] The tutorial time has expired. No further tutorial messages will be shown.")
+    Character:inform("[Tutorial] Es werden keine weiteren Tutorialnachrichten angezeigt.","[Tutorial] No further tutorial messages will be shown.")
 
 end
 
