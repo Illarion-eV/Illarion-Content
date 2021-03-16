@@ -235,7 +235,8 @@ local function CheckAimingTime(AttackerList,Defender,inRange)
                 AIMING_TIME_LIST[Attacker.id]["position"] then
             FillAimingTimeList(Attacker,Defender,AttackerList.WeaponItem.id)
             return false
-        elseif (world:getTime("unix") - AIMING_TIME_LIST[Attacker.id]["started"])*10 > GetNecessaryAimingTime(AttackerList) + 20 then
+        elseif (world:getTime("unix") - AIMING_TIME_LIST[Attacker.id]["started"])*10
+                > GetNecessaryAimingTime(AttackerList) + 20 then
             -- that is needed to prevent that someone aims, stops aiming,
             -- waits a long time and as soon as he targets the same character again, shoots immediately.
             -- this has to be done since there is no way to clear the list when someone stops targeting the target
@@ -243,7 +244,8 @@ local function CheckAimingTime(AttackerList,Defender,inRange)
             AIMING_TIME_LIST[Attacker.id]["started"] = world:getTime("unix")
             return false
         elseif AIMING_TIME_LIST[Attacker.id]["counter"] <= GetNecessaryAimingTime(AttackerList)
-                and (world:getTime("unix") - AIMING_TIME_LIST[Attacker.id]["started"])*10 < GetNecessaryAimingTime(AttackerList) then
+                and (world:getTime("unix") - AIMING_TIME_LIST[Attacker.id]["started"])*10
+                    < GetNecessaryAimingTime(AttackerList) then
             AIMING_TIME_LIST[Attacker.id]["counter"] = AIMING_TIME_LIST[Attacker.id]["counter"] + 1
         else
             return true
@@ -575,7 +577,8 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
     if Attacker.Char:isNewPlayer() then
         degradeChance = degradeChance * 2
     end
-    if (common.Chance(1, degradeChance)) and (Attacker.WeaponItem.id ~= 0) and character.IsPlayer(Attacker.Char) and commonAttackerWeapon.MaxStack == 1 then
+    if (common.Chance(1, degradeChance)) and (Attacker.WeaponItem.id ~= 0) and character.IsPlayer(Attacker.Char)
+            and commonAttackerWeapon.MaxStack == 1 then
         local durability = math.fmod(Attacker.WeaponItem.quality, 100)
         local quality = (Attacker.WeaponItem.quality - durability) / 100
         local nameText = world:getItemName(Attacker.WeaponItem.id, Attacker.Char:getPlayerLanguage())
