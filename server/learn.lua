@@ -61,8 +61,7 @@ function M.learn(user, skill, actionPoints, learnLimit)
             local actionpointFactor = actionPoints / normalAP
             --An action with 50 AP is "normal".
 
-            local minorIncrease = scalingFactor * skillFactor * MCfactor * actionpointFactor
-                * (1 + attributeBonus + intelligenceBonus)
+            local minorIncrease = scalingFactor * skillFactor * MCfactor * actionpointFactor * (1 + attributeBonus + intelligenceBonus)
 
             if common.Chance(minorIncrease-math.floor(minorIncrease)) then
                 minorIncrease=math.floor(minorIncrease)+1
