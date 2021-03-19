@@ -29,8 +29,6 @@ local baseNPC = require("npc.base.basic")
 local gems = require("base.gems")
 
 local isFittingItem
-local isGlyphedItem
-local isGemmedItem
 local tradeNPCItem
 
 local tradeNPC = class(function(self, rootNPC)
@@ -137,24 +135,16 @@ function isFittingItem(tradeItem, boughtItem)
     return true
 end
 
-function isGlyphedItem(player, boughtItem)
+function tradeNPC:buyItemFromPlayer(npcChar, player, boughtItem)
+
     local glyphEff = tonumber(boughtItem:getData("glyphEffNo"))
     if nil~= glyphEff and glyphEff > 0 then
         player:inform("NPCs kaufen keine Gegenstände mit Glyphen.","NPCs do not buy glyphed items.", Character.highPriority)
-        return true
+        return
     end
-end
 
-function isGemmedItem(player, boughtItem)
     if gems.getGemBonus(boughtItem) ~= 0 then
         player:inform("NPCs kaufen keine Gegestände mit gesockelten Edelsteinen.","NPCs don't buy gemmed items.", Character.highPriority)
-        return true
-    end
-end
-
-function tradeNPC:buyItemFromPlayer(npcChar, player, boughtItem)
-
-    if isGlyphedItem(player, boughtItem) or isGemmedItem(player, boughtItem) then
         return
     end
 
