@@ -130,11 +130,11 @@ function isFittingItem(tradeItem, boughtItem)
     if (tradeItem._data ~= nil and tradeItem._data ~= boughtItem.data) then
         return false
     end
-    --Check if gemmed or glyphed 
+    --Check if gemmed or glyphed
     local glyphEff = tonumber(boughtItem:getData("glyphEffNo"))
     if((nil~= glyphEff and glyphEff > 0) or gems.getGemBonus(boughtItem) ~= 0) then
         return false
-    end 
+    end
     return true
 end
 
