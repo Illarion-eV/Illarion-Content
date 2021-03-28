@@ -677,8 +677,6 @@ function M.calculateItemQualityDurability (quality, durability)
     local durabilityNumber = tonumber(durability)
     if M.IsNilOrEmpty(durability) then
         durabilityNumber = M.ITEM_DEFAULT_DURABILITY
-    else
-        durabilityNumber= tonumber(durability)
     end
     if durabilityNumber < 1 or durabilityNumber > M.ITEM_MAX_DURABILITY then
         durabilityNumber = M.ITEM_DEFAULT_DURABILITY
@@ -1099,7 +1097,6 @@ function M.GetStiffness(Character)
     local Armor
 
     local Equipmentposition = {1, 3, 4, 9, 10, 11}
-    local counter
 
     for counter = 1, #Equipmentposition do
                 Item = Character:getItemAt(Equipmentposition[counter])
@@ -1248,7 +1245,6 @@ function M.CreateCircle(CenterPos, Radius, Event)
     end
     if not circleCache[Radius] then
         local irad = math.ceil(Radius)
-        local dim = 2*(irad+1)
         local map = {}
         circleCache[Radius] = {}
 
@@ -1329,7 +1325,6 @@ function M.CreateTangentLine(CenterPos, TargetPos, ArmLength, Event)
         return
     end
 
-    local posi
     local first_go_on = true
     local second_go_on = true
     for i=1, ArmLength do
@@ -1478,10 +1473,10 @@ function M.ChangeAttribute( Character, attrib, value, bottomBorder, topBorder )
     local newValue = oldValue + value
     if (newValue < bottomBorder) then
         value = bottomBorder - newValue
-        newValue = bottomBorder
+        -- newValue = bottomBorder ??
     elseif (newValue > topBorder) then
         value = newValue - topBorder
-        newValue = topBorder
+        -- newValue = topBorder ??
     end
     Character:increaseAttrib(attrib, value)
     return (value + 255)
@@ -1891,11 +1886,11 @@ function M.GetTargetItemAnywhere(user, itemList)
     local backpack = user:getBackPack()
     if backpack then
         for i = 0, 99 do
-            local isItem, tmpItem, tmpContainer = backpack:viewItemNr(i)
+            local isItem, tmpItemb, _ = backpack:viewItemNr(i)
             if isItem then
-                if M.isInList(tmpItem.id, itemList) then
+                if M.isInList(tmpItemb.id, itemList) then
                     countItems = countItems + 1
-                    foundItem = tmpItem
+                    foundItem = tmpItemb
                 end
             end
         end
@@ -1921,7 +1916,7 @@ end
 --- Returns the real date as a String
 -- @return date in format: YYYY-MM-DD
 function M.GetRealDateString()
-    local year, month, day, hour, minute, second = M.GetRealDate()
+    local year, month, day, _, _, _ = M.GetRealDate()
     local timeString =
         function(int)
             if int < 10 then
@@ -1935,7 +1930,7 @@ end
 --- Returns the real time as a String
 -- @return time in format: hh:mm:ss
 function M.GetRealTimeString()
-    local year, month, day, hour, minute, second = M.GetRealDate()
+    local _, _, _, hour, minute, second = M.GetRealDate()
     local timeString =
         function(int)
             if int < 10 then
@@ -2114,7 +2109,6 @@ end
     @return The shuffled list
 ]]
 function M.Shuffle(List)
-    local j = 0
     local minIndex = 1
     local maxIndex = #List
     if (List[0] ~= nil) then -- check if zero index is used
@@ -2122,7 +2116,7 @@ function M.Shuffle(List)
         maxIndex = maxIndex - 1
     end
     for i = maxIndex, minIndex+1, -1 do -- shuffle all elements
-        j = math.random(minIndex, i)
+        local j = math.random(minIndex, i)
         List[i], List[j] = List[j], List[i]
     end
     return List
@@ -2586,9 +2580,6 @@ function M.pushBack(user,extDistance,extCenterPos)
         if math.random() < 0.5 then
             diffY = - diffY
         end
-    else
-        diffX = centerPos.x - user.pos.x
-        diffY = centerPos.y - user.pos.y
     end
     local alpha = math.atan2(diffX,diffY)
     local distX = math.floor(math.sin(alpha)*distance)
