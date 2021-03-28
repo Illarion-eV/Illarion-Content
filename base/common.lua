@@ -944,8 +944,8 @@ function M.CreateItem(character, id, amount, quality, data)
 
     if not _isNumber(quality) then
         error("The parameter 'quality' is not a number as it was expected.")
-    elseif quality < 101 or quality > 999 then
-        error("The parameter 'quality' must be a number between 101 and 999.")
+    elseif quality < 100 or quality > 999 then
+        error("The parameter 'quality' must be a number between 100 and 999.")
     end
 
     if data ~= nil and not _isTable(data) then
@@ -2858,5 +2858,13 @@ function M.numberToPosition(number)
     local posx = math.floor (number - 1000)
     return position(posx, posy, posz)
 end
-
+-- Erases one item and readds it to the inventory
+-- Promotes message if set
+function M.readdItem(user, item, msg)
+    if msg~=nil and msg ~="" then
+        M.HighInformNLS(user, msg["DE"], msg["EN"])
+    end
+    world:erase(item, 1)
+    M.CreateItem(user, item.id, 1, item.quality, item.data)
+end
 return M

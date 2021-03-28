@@ -92,6 +92,11 @@ end
 
 --This function checks whether the user has the necessary level for the item or not
 function M.checkLevel(user, item, targetItem)
+    if common.isBroken(item) then
+        local itemName = common.getItemName(item, user:getPlayerLanguage())
+        common.HighInformNLS(user, "Der Gegenstand " .. itemName .." ist kaputt und kann daher nicht benutzt werden", "The item " ..  itemName .." is broken and can not be used." )
+        return false
+    end
     local isArmour, armour = world:getArmorStruct(item.id) --Is it an armour? Loads the struct.
     local skillOK, skillString = checkSkill(user,  item)
     local parryOK, parryString = checkParry(user,  item)

@@ -433,7 +433,14 @@ function ArmourAbsorption(Attacker, Defender, Globals)
     --Essentially what this does is choose how much the values are divided. So stroke is half as effective as punc is half as effective as thrust for one type etc.
     local ArmourDefenseScalingFactor = 4 / 3
     local GeneralScalingFactor = 2.8
-
+    -- Unequip armour
+    if common.isBroken(Globals.HittedItem) and character.IsPlayer(Defender.Char) then
+        local itemName = common.getItemName(Globals.HittedItem, user:getPlayerLanguage())
+        local notification = {}
+        notification["DE"] = "Der Gegendstand " .. itemName .. "ist kaputt, du solltest ihn reparieren."
+        notification["EN"] = "The item " .. itemName .. " is broken, you should repair it."
+        common.readdItem(Defender.Char, Globals.HittedItem, notification)
+    end
     if character.IsPlayer(Defender.Char) then
         if armourfound then
             skillmod = 1-Defender.DefenseSkill/250
@@ -593,7 +600,6 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
             Attacker.WeaponItem.quality = quality * 100 + durability
             world:changeItem(Attacker.WeaponItem)
         end
-
         --[[if (durability < 10) then
             common.InformNLS(Attacker.Char,
                 "Deine Waffe '"..nameText.."' hat schon bessere Zeiten gesehen. Vielleicht solltest du sie reparieren lassen.",
