@@ -14,44 +14,48 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---Generic 'Kill X monsters' quests by Estralis Seborian
+--Generic 'Kill X monsters' quests originally by Estralis Seborian
 
 local common = require("base.common")
 
 local M = {}
 
---TEMPLATE TO ADD A QUEST TO function iniQuests()
+--[[Example of an entry in a quest script:
 
---local id=NUMBER; --ID of the quest
---germanTitle[id]="GERMAN TITLE"; --Title of the quest in german
---englishTitle[id]="ENGLISH TITLE"; --Title of the quest in english
---NPCName[id]="Miggs"; --This is the name of the NPC who gives out the quest
---statusId[id]=NUMBER; --the queststatus as used by the NPC
---germanRace[id]="stinkige Gullimumien"; --free description of the foes in german
---englishRace[id]="smelly sewer mummies"; --free description of the foes in english
---[[table.insert(questList[MONSTERID],id);
-    Insert the quest into the quest list of the monster race that has to be slain.
-    You can add multiple monsters this way.]]
---[[minimumQueststatus[id]=NUMBER1;
-    quest is only active with this queststatus and above. Each monster slain adds +1. Use a value > 0!
-    maximumQueststatus[id]=NUMBER2;
-    quest is finished if this queststatus is reached, no kill are counted anymore.
-    Difference between NUMBER1 and NUMBER2 is the number of monsters that have to be slain]]
---[[questLocation[id]=position(X,Y,Z);
-    a position around which the monsters have to be slain, e.g. centre of a dungeon or forest]]
---radius[id]=RADIUS; --in this radius around the questlocation, kills are counted valid
+    monsterQuests.addQuest{
+    questId = 4,
+    location = {position = position(775, 475, 0), radius = 75},
+    queststatus = {from = 1, to = 7},
+    questTitle = {german = "Der Wilderer I", english = "The Poacher I"},
+    monsterName = {german = "Kaninchen", english = "Rabbits"},
+    npcName = "Eugene Burton",
+    customQuestInform = {german = "Text", english = "Text"},
+    raceIds = {113} -- all rabbits
+    or
+    monsterGroupIds = {6} -- all drows
+    or
+    monsterIds = {35} -- elven ranger
+}
+    questId: ID of the quest
+    location: A position around which the monsters have to be slain, e.g. centre of a dungeon or forest
+    radius: Within this radius around the questlocation, kills are counted valid
+    queststatus: Quest is only active between "from" and "to". Each monster slain adds +1. Use a value > 0! Quest is finished if "to" queststatus is reached, no kills are counted anymore. Difference between "from" and "to" is the number of monsters that have to be slain
+    questTitle: Title of the quest in German and English
+    monsterName: Free description of the foes in German and English
+    npcName: This is the name of the NPC who gives out the quest
+    customQuestInform: To add a custom quest inform, instead of the default inform, at the end of the quest
+    raceIds: All monsters of a certain race
+    monsterGroupIds: For a group of monsters (6 means: 61 thru 70)
+    monsterIds: For specific monsters
 
---[[Brightrim addition: To add a custom quest inform, instead of the default inform:
-    add "customQuestInform = {german = "", english = ""} to your monsterQuests.addQuest{} table.]]
-
---Comment: If you want an NPC to give out multiple quests, you can do it like this:
-
---[[Quest 1: To accept quest 1, set queststatus to 1 with the NPC.
-    Use queststatus 1->11 to count 10 monsters. If the quest is finished, set queststatus to 12 with the NPC.]]
---[[Quest 2: To accept quest 2, set queststatus to 13 with the NPC.
-    Use queststatus 13->18 to count 5 monsters. If the quest is finished, set queststatus to 19 with the NPC.]]
---[[Quest 3: To accept quest 3, set queststatus to 20 with the NPC.
-    Use queststatus 20->21 to count 1 monster. If the quest is finished, set queststatus to 22 with the NPC.]]
+    Comment: If you want an NPC to give out multiple quests, you can do it like this:
+    Quest 1: To accept quest 1, set queststatus to 1 with the NPC.
+    Use queststatus 1->11 to count 10 monsters. If the quest is finished, set queststatus to 12 with the NPC.
+    Quest 2: To accept quest 2, set queststatus to 13 with the NPC.
+    Use queststatus 13->18 to count 5 monsters. If the quest is finished, set queststatus to 19 with the NPC.
+    Quest 3: To accept quest 3, set queststatus to 20 with the NPC.
+    Use queststatus 20->21 to count 1 monster. If the quest is finished, set queststatus to 22 with the NPC.
+]]
 
 local quests = {}
 local questsByMonsterId = {}
