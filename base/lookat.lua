@@ -27,7 +27,6 @@ local TitleCase
 local AddWeaponOrArmourType
 local AddTypeAndUsable
 local GetGemLevel
-local GetItemDescription
 
 -- init german descriptions
 local GenericQualDe = {"perfekt", "exzellent", "sehr gut", "gut", "normal", "m‰ﬂig", "schlecht", "sehr schlecht",
@@ -163,7 +162,7 @@ function M.GenerateLookAt(user, item, material)
 
         if item:getData("lookatNoPrice") ~= "1" then
             if not money.IsCurrency(item.id) then
-                lookAt.worth = 20*item.number * itemCommon.Worth
+                lookAt.worth = item.number * itemCommon.Worth
             end
         end
 
@@ -252,7 +251,7 @@ function M.GenerateItemLookAtFromId(user, itemId, stackSize, data)
 
     local itemCommon = world:getItemStatsFromId(itemId)
     lookAt.weight = stackSize * itemCommon.Weight
-    lookAt.worth = 20*stackSize * itemCommon.Worth
+    lookAt.worth = stackSize * itemCommon.Worth
 
     local level = itemCommon.Level
     lookAt.level = level
@@ -305,7 +304,7 @@ function AddTypeAndUsable(lookAt, user, nameAndSkillTable, itemType, itemLevel)
 end
 
 function GetGemLevel(item, dataEntry)
-    local dataEntry = item:getData(dataEntry)
+    dataEntry = item:getData(dataEntry)
     if dataEntry == nil then
         return 0
     end
@@ -322,9 +321,6 @@ function GetGemLevel(item, dataEntry)
     end
 end
 
-function GetItemDescription(User, Item, material, Weapon, Priest)
-    return M.GenerateLookAt(User, Item, material)
-end
 
 --- Apply a special name to a item. The name is stored in the data values.
 --  This function does NOT call world:changeItem()! You have to do this yourself.
