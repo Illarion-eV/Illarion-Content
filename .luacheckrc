@@ -8,5 +8,5 @@ stds.illarion = {
 
 std = "lua52+illarion"
 
-max_line_length = 120
+max_line_length = false
 unused_args = false
