@@ -27,7 +27,6 @@ local hairdresser = require("npc.hairdresser")
 local seafaring = require("base.seafaring")
 local petsystem = require("petsystem.base")
 local gods_common = require("content._gods.gods_common")
-local notice = require("item.notice")
 -- Called after every player login
 
 local M = {}
@@ -36,10 +35,8 @@ local M = {}
 -- German
 local messageG = {
 "[Tipp] Leichte Rüstungen aus Leder schützen sehr gut gegen stumpfe Waffen aber schlecht gegen Hiebwaffen.",
-"[Tipp] Mittlere Rüstungen wie Kettenhemden schützen sehr \z
-gut gegen Hiebwaffen aber schlecht gegen Stich- und Distanzwaffen.",
-"[Tipp] Schwere Rüstungen wie Plattenpanzer schützen sehr gut gegen Stich- und Distanzwaffen aber schlecht \z
-gegen stumpfe Waffen.",
+"[Tipp] Mittlere Rüstungen wie Kettenhemden schützen sehr gut gegen Hiebwaffen aber schlecht gegen Stich- und Distanzwaffen.",
+"[Tipp] Schwere Rüstungen wie Plattenpanzer schützen sehr gut gegen Stich- und Distanzwaffen aber schlecht gegen stumpfe Waffen.",
 "[Tipp] Wir spielen miteinander, nicht gegeneinander. Viel Spaß beim Spielen!",
 "[Tipp] Bitte besuche uns auch im Discord-Chat: https://discord.gg/yj3htPN",
 "[Tipp] Im Forum sind viele interessante Diskussion und Informationen zu finden. Meld dich gleich an!",
@@ -66,10 +63,8 @@ gegen stumpfe Waffen.",
 "[Tipp] Manchen Monstern sollte man lieber nicht alleine begegnen.",
 "[Tipp] Gegenstände von geringer Haltbarkeit drohen zu zerbrechen. Ein Fachmann kann sie ausbessern.",
 "[Tipp] Fernwaffen werden nicht umsonst so genannt: Stark auf Distanz, nutzlos im Nahkampf.",
-"[Tipp] Hiebwaffen sind gut gegen leichte Lederrüstungen, aber schlecht gegen mittlere Rüstungen aus Schuppen \z
-und Ketten.",
-"[Tipp] Stichwaffen sind gut gegen mittlere Rüstungen aus Schuppen und Ketten, aber schlecht gegen schwere \z
-Plattenrüstungen.",
+"[Tipp] Hiebwaffen sind gut gegen leichte Lederrüstungen, aber schlecht gegen mittlere Rüstungen aus Schuppen und Ketten.",
+"[Tipp] Stichwaffen sind gut gegen mittlere Rüstungen aus Schuppen und Ketten, aber schlecht gegen schwere Plattenrüstungen.",
 "[Tipp] Stumpfe Waffen sind gut gegen schwere Plattenrüstungen, aber schlecht gegen leichte Lederrüstungen.",
 "[Tipp] Ein Silberstück entspricht einhundert Kupferstücken. Einhundert Silberstücke entsprechen einem Goldstück.",
 "[Tipp] Die besten Bergarbeiter leben in Galmair.",
@@ -96,67 +91,46 @@ Plattenrüstungen.",
 "[Tipp] Die besten Töpfer leben in Cadomyr.",
 "[Tipp] Die besten Glasbläser leben in Cadomyr.",
 "[Tipp] Die besten Gräber leben in Cadomyr.",
-"[Tipp] Jedes Reich ist auf bestimmte Handwerke spezialisiert. Wenn es das, was du benötigst, nicht auf dem \z
-örtlichen Markt gibt, wirst du wohl reisen müssen.",
-"[Tipp] Wenn du Probleme bei der Kommunikation mit einem NPC hast, sage 'Hilfe' um eine Liste der \z
-Schlüsselwörter aufzurufen.",
-"[Tipp] Obstbäume haben schon so manchen hungrigen Abenteurer gerettet. Allerdings ist ein schmackhafteres \z
-Mahl stets vorzuziehen.",
-"[Tipp] Es gibt viele Möglichkeiten, seinen Charakter zu bewegen: Die linke Maustaste, die Pfeiltasten, den \z
-Ziffernblock und WASD.",
+"[Tipp] Jedes Reich ist auf bestimmte Handwerke spezialisiert. Wenn es das, was du benötigst, nicht auf dem örtlichen Markt gibt, wirst du wohl reisen müssen.",
+"[Tipp] Wenn du Probleme bei der Kommunikation mit einem NPC hast, sage 'Hilfe' um eine Liste der Schlüsselwörter aufzurufen.",
+"[Tipp] Obstbäume haben schon so manchen hungrigen Abenteurer gerettet. Allerdings ist ein schmackhafteres Mahl stets vorzuziehen.",
+"[Tipp] Es gibt viele Möglichkeiten, seinen Charakter zu bewegen: Die linke Maustaste, die Pfeiltasten, den Ziffernblock und WASD.",
 "[Tipp] Einen NPC nach einer 'Mission' zu fragen ist ein guter Weg um ein paar einfache Münzen zu verdienen.",
-"[Tipp] Scheue dich nicht, andere Spieler um Hilfe zu bitten. Behandle sie mit Respekt und verwende den \z
-out-of-character-Modus (#o), wenn nötig.",
-"[Tipp] Um deinen Charakter anderen Charakteren vorzustellen, schreibe #i in die Chatbox und drücke Return. \z
-Diese erfahren so den Namen deines Charakters.",
-"[Tipp] Der Illarion-Chat ist auf der Homepage verlinkt. Du erhältst dort technische Unterstützung oder kannst \z
-einfach andere Spieler kennenlernen.",
+"[Tipp] Scheue dich nicht, andere Spieler um Hilfe zu bitten. Behandle sie mit Respekt und verwende den out-of-character-Modus (#o), wenn nötig.",
+"[Tipp] Um deinen Charakter anderen Charakteren vorzustellen, schreibe #i in die Chatbox und drücke Return. Diese erfahren so den Namen deines Charakters.",
+"[Tipp] Der Illarion-Chat ist auf der Homepage verlinkt. Du erhältst dort technische Unterstützung oder kannst einfach andere Spieler kennenlernen.",
 "[Tipp] Der Vollbildmodus kann im Optionsmenü des Clients aktiviert werden.",
-"[Tipp] Wenn ein neuer Spieler deinem Reich beitritt erhältst du eine kurze Mitteilung. Heiße ihn \z
-doch gleich willkommen!",
-"[Tipp] Um der Staatskasse deines Reiches etwas zu spenden, lege es einfach auf das Spendenfeld in der Nähe deines \z
-Anführers.",
-"[Tipp] Wenn du auf Reisen gehst, nimm stets Proviant mit. Deine Lebenspunkte regenerieren sich nicht, wenn dein \z
-Charakter hungrig ist.",
+"[Tipp] Wenn ein neuer Spieler deinem Reich beitritt erhältst du eine kurze Mitteilung. Heiße ihn doch gleich willkommen!",
+"[Tipp] Um der Staatskasse deines Reiches etwas zu spenden, lege es einfach auf das Spendenfeld in der Nähe deines Anführers.",
+"[Tipp] Wenn du auf Reisen gehst, nimm stets Proviant mit. Deine Lebenspunkte regenerieren sich nicht, wenn dein Charakter hungrig ist.",
 "[Tipp] Die meisten NPCs reagieren auf 'Hilfe' mit der Ausgabe einer Liste ihrer wichtigsten Schlüsselwörter.",
 "[Tipp] Die Fertigkeiten deines Charakters kannst du aufrufen, indem du 'C' drückst.",
 "[Tipp] Ein Stapel von Gegenständen läßt sich durch Halten der Shift-Taste beim Bewegen auflösen.",
-"[Tipp] Hast du dir schon Gedanken zum Hintergrund und zur Vergangenheit deines Charakters gemnacht? Die Homepage \z
-www.illarion.org enthält eine Menge nützliche Informationen über Rassen, Götter und die Geschichte Illarions.",
-"[Tipp] Sollte dein Charakter Hunger bekommen, so pflücke ein paar Früchte indem du einen Obstbaum benutzt. \z
-Früchte werden gegessen, indem man sie benutzt.",
-"[Tipp] Brauchst du Hilfe? Schreibe '!gm Deine Frage' und drücke Return. Sobald ein Gamemaster verfügbar ist wird \z
-er dir helfen.",
-"[Tipp] Um laut zu rufen, schreibe #s vor deine Nachricht. Um zu flüstern, verwende #w. Für den \z
-'Out-of-character'-Modus verwendest du #o.",
+"[Tipp] Hast du dir schon Gedanken zum Hintergrund und zur Vergangenheit deines Charakters gemnacht? Die Homepage www.illarion.org enthält eine Menge nützliche Informationen über Rassen, Götter und die Geschichte Illarions.",
+"[Tipp] Sollte dein Charakter Hunger bekommen, so pflücke ein paar Früchte indem du einen Obstbaum benutzt. Früchte werden gegessen, indem man sie benutzt.",
+"[Tipp] Brauchst du Hilfe? Schreibe '!gm Deine Frage' und drücke Return. Sobald ein Gamemaster verfügbar ist wird er dir helfen.",
+"[Tipp] Um laut zu rufen, schreibe #s vor deine Nachricht. Um zu flüstern, verwende #w. Für den 'Out-of-character'-Modus verwendest du #o.",
 "[Tipp] Klicke mit der linken Maustaste auf ein entferntes Feld um automatisch dorthin zu gehen.",
-"[Tipp] Alle NPCs reagieren auf eine Reihe von Schlüsselwörtern. Eine List der wichtigsten \z
-Schlüsselwörter erhältst du als Antwort auf 'Hilfe'.",
+"[Tipp] Alle NPCs reagieren auf eine Reihe von Schlüsselwörtern. Eine List der wichtigsten Schlüsselwörter erhältst du als Antwort auf 'Hilfe'.",
 "[Tipp] Indem du NPCs nach 'Aufgaben' und 'Quests' fragst, kannst du großen Reichtum erlangen.",
-"[Tipp] Der rote Balken repräsentiert die Gesundheit deines Charakters. Der gelbe Balken zeigt wie \z
-satt dein Charakter ist und der blaue Balken symbolisiert das Mana der Magier.",
+"[Tipp] Der rote Balken repräsentiert die Gesundheit deines Charakters. Der gelbe Balken zeigt wie satt dein Charakter ist und der blaue Balken symbolisiert das Mana der Magier.",
 "[Tipp] Eine Liste deiner Aufgaben erhältst du, indem du 'Q' drückst.",
 "[Tipp] Um Beute schnell aufzunehmen, drücke 'P' und du sammelst alle umliegenden Gegenstände ein.",
 "[Tipp] Eine Übersicht aller Kommandos kannst du dir mit F1 anzeigen lassen.",
 "[Tipp] Wie schnell deine Fertigkeiten steigen, hängt vor allem davon ab, wie viel Zeit du im Spiel verbringst.",
-"[Tipp] Es ist nicht nötig, den ganzen Tag hart zu arbeiten, um deine Fertigkeiten zu steigern. Mach auch mal \z
-eine Pause um dich zu unterhalten oder die Welt zu erkunden.",
+"[Tipp] Es ist nicht nötig, den ganzen Tag hart zu arbeiten, um deine Fertigkeiten zu steigern. Mach auch mal eine Pause um dich zu unterhalten oder die Welt zu erkunden.",
 "[Tipp] Die Steuerungstaste schaltet zwischen Gehen und Laufen um.",
 "[Tipp] Je mehr Aktionen du ohne Pause durchführst, desto weniger lernst du von jeder Aktion.",
-"[Tipp] Hast du ein Problem mit dem Spiel? Auf der Homepage www.illarion.org sind häufig gestellte Fragen \z
-(FAQ) beantwortet.",
+"[Tipp] Hast du ein Problem mit dem Spiel? Auf der Homepage www.illarion.org sind häufig gestellte Fragen (FAQ) beantwortet.",
 "[Tipp] Ein Doppelklick auf einen NPC öffnet eine Liste üblicher Dialogoptionen.",
 "[Tipp] Konzentrier dich auf einige, wenige Fertigkeiten. Eierlegende Wollmilchsäue sind schwer zu züchten."
 }
 
 -- English
 local messageE = {
-"[Hint] Light armours, such as those made of leather, offer good protection against blunt weapons but perform \z
-poorly against slashing weapons.",
-"[Hint] Medium armours, such as chain mail, offer good protection against slashing weapons but are more \z
-vulnerable to stabbing weapons.",
-"[Hint] Heavy armours, such as those made from sturdy metal plates, offer good protection against stabbing \z
-weapons but are vulnerable to blunt weapons.",
+"[Hint] Light armours, such as those made of leather, offer good protection against blunt weapons but perform poorly against slashing weapons.",
+"[Hint] Medium armours, such as chain mail, offer good protection against slashing weapons but are more vulnerable to stabbing weapons.",
+"[Hint] Heavy armours, such as those made from sturdy metal plates, offer good protection against stabbing weapons but are vulnerable to blunt weapons.",
 "[Hint] We play with, not against each other. Have fun playing!",
 "[Hint] Please join our Discord chat: https://discord.gg/yj3htPN",
 "[Hint] The forum contains many interesting discussions and a lot of useful information. Register today!",
@@ -211,44 +185,29 @@ weapons but are vulnerable to blunt weapons.",
 "[Hint] The best potters are living in Cadomyr.",
 "[Hint] The best glass blowers are living in Cadomyr.",
 "[Hint] The best diggers are living in Cadomyr.",
-"[Hint] Each realm specialises in certain crafts. If you can't find what you are looking for in your home market, \z
-you may need to travel abroad.",
-"[Hint] If you ever get stuck while communicating with an NPC, the 'help' command will provide you with a list of \z
-useful topics.",
-"[Hint] Fruit trees have saved the lives of countless starving travellers. You will soon find yourself needing a \z
-more filling meal, though.",
-"[Hint] There are many ways to move your character around in Illarion. The left mouse button, arrow keys, number \z
-pad, and WASD will all work.",
+"[Hint] Each realm specialises in certain crafts. If you can't find what you are looking for in your home market, you may need to travel abroad.",
+"[Hint] If you ever get stuck while communicating with an NPC, the 'help' command will provide you with a list of useful topics.",
+"[Hint] Fruit trees have saved the lives of countless starving travellers. You will soon find yourself needing a more filling meal, though.",
+"[Hint] There are many ways to move your character around in Illarion. The left mouse button, arrow keys, number pad, and WASD will all work.",
 "[Hint] Asking an NPC whether they have a 'quest' for you to carry out can be a good way to earn a quick coin or two.",
-"[Hint] Don't be afraid to ask the other players around you for help if you encounter difficulties. But make \z
-sure to remain respectful and to use OOC chat (#o), where appropriate.",
-"[Hint] If you want to introduce your character to other players, type #i in the chatbox and hit return. The other \z
-players will then be able to see your character's name.",
-"[Hint] The Illarion chat is linked on the website www.illarion.org. It is useful for technical assistance and \z
-for simply getting to know your fellow players.",
+"[Hint] Don't be afraid to ask the other players around you for help if you encounter difficulties. But make sure to remain respectful and to use OOC chat (#o), where appropriate.",
+"[Hint] If you want to introduce your character to other players, type #i in the chatbox and hit return. The other players will then be able to see your character's name.",
+"[Hint] The Illarion chat is linked on the website www.illarion.org. It is useful for technical assistance and for simply getting to know your fellow players.",
 "[Hint] Fullscreen mode can be activated in the options menu when the client is started.",
 "[Hint] You will receive a notification when a new player chooses to join your realm. Give them a friendly welcome!",
-"[Hint] In order to donate something to your realm's treasury, just place the item on the donation square close to \z
-your leader.",
-"[Hint] If you go on a journey, always have some rations with you. Your character's hitpoints won't regenerate if your\z
- character is hungry.",
+"[Hint] In order to donate something to your realm's treasury, just place the item on the donation square close to your leader.",
+"[Hint] If you go on a journey, always have some rations with you. Your character's hitpoints won't regenerate if your character is hungry.",
 "[Hint] Most NPCs react on 'help' with a list of their most important keywords.",
 "[Hint] You can review the skills of your character by hitting 'C'.",
 "[Hint] To split a stack of items, hold shift while moving it.",
-"[Hint] Did you already think about the background and past of your character? The website www.illarion.org contains \z
-a lot of information on the races, the gods, and the lore of Illarion.",
-"[Hint] If your character ever gets hungry, just harvest some fruits by using a fruit tree. You can then eat the \z
-    fruits by using them.",
-"[Hint] Do you need help? Type '!gm <your question>' and hit enter. As soon as a Gamemaster is available, they will \z
-assist you.",
+"[Hint] Did you already think about the background and past of your character? The website www.illarion.org contains a lot of information on the races, the gods, and the lore of Illarion.",
+"[Hint] If your character ever gets hungry, just harvest some fruits by using a fruit tree. You can then eat the fruits by using them.",
+"[Hint] Do you need help? Type '!gm <your question>' and hit enter. As soon as a Gamemaster is available, they will assist you.",
 "[Hint] To shout, type #s in front of your message. To whisper, use #w. And use #o for the out of character mode.",
-"[Hint] Click with the left mouse button while pointing at a distant field to make your character walk there \z
-automatically.",
-"[Hint] All NPCs react on a number of keywords. You can get a list of the most important keywords for a \z
-particular NPC with the command 'help'.",
+"[Hint] Click with the left mouse button while pointing at a distant field to make your character walk there automatically.",
+"[Hint] All NPCs react on a number of keywords. You can get a list of the most important keywords for a particular NPC with the command 'help'.",
 "[Hint] By asking NPCs for 'missions' and 'quests' you can become extremely wealthy.",
-"[Hint] The red bar represents the health of your character. The yellow bar is an indicator of how hungry your \z
-character is, and the blue bar shows the mana level of mage characters.",
+"[Hint] The red bar represents the health of your character. The yellow bar is an indicator of how hungry your character is, and the blue bar shows the mana level of mage characters.",
 "[Hint] You can review the quests of your character by hitting 'Q'.",
 "[Hint] To collect loot quickly, press 'P' to collect all items within reach.",
 "[Hint] To see an overview of all commands, hit F1.",
@@ -313,21 +272,14 @@ function M.onLogin( player )
     end
 
     if #players > 1 then
-        common.InformNLS(player,"[Login] Willkommen auf Illarion! Es ist "..hourStringG.." am "..datum..
-        ". "..monthString..". Es sind "..#players..
-        " Spieler online.","[Login] Welcome to Illarion! It is "..hourStringE..
-        " on the "..datum..""..extensionString.." of "..monthString..". There are "..#players..
-        " players online.") --sending a message
+        common.InformNLS(player,"[Login] Willkommen auf Illarion! Es ist "..hourStringG.." am "..datum..". "..monthString..". Es sind "..#players.." Spieler online.","[Login] Welcome to Illarion! It is "..hourStringE.." on the "..datum..""..extensionString.." of "..monthString..". There are "..#players.." players online.") --sending a message
     else --player is alone
-        common.InformNLS(player,"[Login] Willkommen auf Illarion! Es ist "..hourStringG.." am "..datum..
-        ". "..monthString..". Ein Spieler ist online.","[Login] Welcome to Illarion! It is "..hourStringE..
-        " on the "..datum..""..extensionString.." of "..monthString..". One player is online.") --sending a message
+        common.InformNLS(player,"[Login] Willkommen auf Illarion! Es ist "..hourStringG.." am "..datum..". "..monthString..". Ein Spieler ist online.","[Login] Welcome to Illarion! It is "..hourStringE.." on the "..datum..""..extensionString.." of "..monthString..". One player is online.") --sending a message
     end
 
     --Taxes
     if not player:isAdmin() then --Admins don't pay taxes or get gems.
-        if not (player.name == "Valerio Guilianni" or player.name == "Rosaline Edwards" or player.name ==  "Elvaine \z
-        Morgan") then --Leader don't pay taxes or get gems
+        if not (player.name == "Valerio Guilianni" or player.name == "Rosaline Edwards" or player.name ==  "Elvaine Morgan") then --Leader don't pay taxes or get gems
 
             local taxText = payTaxes(player)
             local gemText = receiveGems(player)
@@ -338,15 +290,13 @@ function M.onLogin( player )
     end
 
     --Newbie handling
-    --only show the dialog if the char is close to the noob spawn
-    if player:isInRangeToPosition(position(702, 283, 0), 7) and player:isNewPlayer() then
+    if player:isInRangeToPosition(position(702, 283, 0), 7) and player:isNewPlayer() then --only show the dialog if the char is close to the noob spawn
         showNewbieDialog(player)
     end
 
     --Messages of the day
     if #messageG ~= #messageE then
-        common.HighInformNLS(player, "[Fehler] Anzahl der Tagestipps nicht korrekt.", "[Error] Amount of \z
-        messages of the day incorrect.") --sending a message
+        common.HighInformNLS(player, "[Fehler] Anzahl der Tagestipps nicht korrekt.", "[Error] Amount of messages of the day incorrect.") --sending a message
     end
     local dailyMessageID = math.random(1, #messageG) --chosing a message at random
     common.InformNLS(player, messageG[dailyMessageID], messageE[dailyMessageID]) --sending a message
@@ -385,10 +335,6 @@ function M.onLogin( player )
 
     --Handle pets
     petsystem.loadPet(player)
-    -- Inform user about key retrieval
-    notice.informUserOfKeyRetrieval(player)
-    --Key retrieval
-    notice.keyRetrieval(player)
 end
 
 function showNewbieDialog(player)
@@ -404,35 +350,16 @@ function showNewbieDialog(player)
                 player:warp(position(36, 97, 100))
                 world:gfx(46, player.pos)
                 if player:getPlayerLanguage() == 0 then --skip message
-                    dialogPostSkip = MessageDialog("Einführung",
-                    "Du hast entschieden, das Tutorial zu überspringen. Wähle ein Reich aus, welchem dein \z
-                    Charakter zukünftig angehören wird. Gehe hierzu durch eines der Portale auf den kleinen \z
-                    Inseln. Du kannst diese Entscheidung später im Spiel jederzeit revidieren. Viola Baywillow \z
-                    kann dir einiges über die drei Reiche erzählen, frage sie einfach nach \z
-                    'Hilfe'.", callbackPostSkip)
+                    dialogPostSkip = MessageDialog("Einführung", "Du hast entschieden, das Tutorial zu überspringen. Wähle ein Reich aus, welchem dein Charakter zukünftig angehören wird. Gehe hierzu durch eines der Portale auf den kleinen Inseln. Du kannst diese Entscheidung später im Spiel jederzeit revidieren. Viola Baywillow kann dir einiges über die drei Reiche erzählen, frage sie einfach nach 'Hilfe'.", callbackPostSkip)
                 else
-                    dialogPostSkip = MessageDialog("Tutorial", "You have decided to skip the tutorial. Please \z
-                    choose which realm you desire to be the home for your character by stepping through the \z
-                    corresponding portal on the three islands. You can reconsider this decision at any time \z
-                    once you have joined the game. Viola Baywillow will provide you with more information on \z
-                    the three available realms, just ask her for 'help'.", callbackPostSkip)
+                    dialogPostSkip = MessageDialog("Tutorial", "You have decided to skip the tutorial. Please choose which realm you desire to be the home for your character by stepping through the corresponding portal on the three islands. You can reconsider this decision at any time once you have joined the game. Viola Baywillow will provide you with more information on the three available realms, just ask her for 'help'.", callbackPostSkip)
                 end
 
             else --continue the tutorial
                 if player:getPlayerLanguage() == 0 then
-                    dialogPostSkip = MessageDialog("Einführung", "Gehe zum Menschen am Ende des Piers um mit dem \z
-                    Tutorial zu beginnen. Klicke mit der linken Maustaste auf ein Feld neben dem Menschen. \z
-                    Alternativ kannst du deinen Charakter auch mit WASD, dem Ziffernblock oder den Pfeiltasten \z
-                    bewegen. Durch Drücken der Steuerungstaste läuft dein Charakter.\n\nEine Übersicht aller \z
-                    Kommandos kannst du dir mit F1 anzeigen lassen. Auf der Homepage www.illarion.org findest \z
-                    du zudem eine Auflistung häufig gestellter Fragen (FAQ).", callbackPostSkip)
+                    dialogPostSkip = MessageDialog("Einführung", "Gehe zum Menschen am Ende des Piers um mit dem Tutorial zu beginnen. Klicke mit der linken Maustaste auf ein Feld neben dem Menschen. Alternativ kannst du deinen Charakter auch mit WASD, dem Ziffernblock oder den Pfeiltasten bewegen. Durch Drücken der Steuerungstaste läuft dein Charakter.\n\nEine Übersicht aller Kommandos kannst du dir mit F1 anzeigen lassen. Auf der Homepage www.illarion.org findest du zudem eine Auflistung häufig gestellter Fragen (FAQ).", callbackPostSkip)
                 else
-                    dialogPostSkip = MessageDialog("Tutorial", "To start the tutorial, please walk to the human at \z
-                    the end of the pier. To move, click with the left mouse button on a spot close to the human. \z
-                    Alternatively, you can walk using the num pad, the arrow keys or WASD. \z
-                    Pressing the control key makes your character run.\n\nTo see an overview of all commands, \z
-                    hit F1. On the website www.illarion.org, you can find frequently asked question (FAQ) answered.",
-                    callbackPostSkip)
+                    dialogPostSkip = MessageDialog("Tutorial", "To start the tutorial, please walk to the human at the end of the pier. To move, click with the left mouse button on a spot close to the human. Alternatively, you can walk using the num pad, the arrow keys or WASD. Pressing the control key makes your character run.\n\nTo see an overview of all commands, hit F1. On the website www.illarion.org, you can find frequently asked question (FAQ) answered.", callbackPostSkip)
                 end
             end
 
@@ -440,12 +367,7 @@ function showNewbieDialog(player)
 
         end --end of callback of skip dialog
 
-        local dialogSkip = SelectionDialog(getText("Willkommen zu Illarion!","Welcome to Illarion!"),
-         getText("Die Einführung ist für neue Spieler gedacht. Du kannst sie ohne Nachteil überspringen.\z
-                \n\nSage 'Überspringe die Einführung' zu einem NPC, wenn \z
-                du die Einführung später abbrechen möchtest.",
-                "The tutorial is recommended for new players. You may skip the tutorial without any disadvantage.\z
-                \n\nSay 'skip tutorial' to any NPC if you want to abort the tutorial later on."), callbackSkip)
+        local dialogSkip = SelectionDialog(getText("Willkommen zu Illarion!","Welcome to Illarion!"), getText("Die Einführung ist für neue Spieler gedacht. Du kannst sie ohne Nachteil überspringen. \n\nSage 'Überspringe die Einführung' zu einem NPC, wenn du die Einführung später abbrechen möchtest.", "The tutorial is recommended for new players. You may skip the tutorial without any disadvantage. \n\nSay 'skip tutorial' to any NPC if you want to abort the tutorial later on."), callbackSkip)
         dialogSkip:addOption(0, getText("Einführung beginnen.","Start the tutorial."))
         dialogSkip:addOption(0, getText("Einführung überspringen.", "Skip the tutorial."))
         player:requestSelectionDialog(dialogSkip)
@@ -454,19 +376,9 @@ function showNewbieDialog(player)
 
     local dialogNewbie
     if player:getPlayerLanguage() == 0 then
-        dialogNewbie = MessageDialog("Willkommen zu Illarion!", "Eine lange Reise nähert sich ihrem Ende. Du gehst \z
-        von Bord des Schiffes und hast endlich wieder festen Boden unter den Füßen. In diesem Land wirst du vor \z
-        eine Entscheidung gestellt, die wohl die wichtigste deines Lebens sein wird.\nDas edle Cadomyr, das weise \z
-        Runewick oder das reiche Galmair - welchen Weg wirst du einschlagen?\n\nWillkommen zu Illarion, dem \z
-        kostenlosen dem Open-Source MMORPG mit echtem Rollenspiel. Dieses Tutorial wird dich auf deinen ersten \z
-        Schritten begleiten und dir die Bedienung des Spiels beibringen.", callbackNewbie)
+        dialogNewbie = MessageDialog("Willkommen zu Illarion!", "Eine lange Reise nähert sich ihrem Ende. Du gehst von Bord des Schiffes und hast endlich wieder festen Boden unter den Füßen. In diesem Land wirst du vor eine Entscheidung gestellt, die wohl die wichtigste deines Lebens sein wird.\nDas edle Cadomyr, das weise Runewick oder das reiche Galmair - welchen Weg wirst du einschlagen?\n\nWillkommen zu Illarion, dem kostenlosen dem Open-Source MMORPG mit echtem Rollenspiel. Dieses Tutorial wird dich auf deinen ersten Schritten begleiten und dir die Bedienung des Spiels beibringen.", callbackNewbie)
     else
-        dialogNewbie = MessageDialog("Welcome to Illarion!", "A long, tiresome journey finally comes to an end. \z
-        You disembark the ship and feel solid ground beneath your feet. In these lands, you will soon be faced \z
-        with a choice, perhaps the most important of your entire life. Noble Cadomyr, wise Runewick, or wealthy \z
-        Galmair - whose side shall you join?\n\nWelcome to Illarion, the free open source MMORPG where true \z
-        roleplaying is enforced. This tutorial will guide you through your first steps and teach you the controls \z
-        of the game.", callbackNewbie)
+        dialogNewbie = MessageDialog("Welcome to Illarion!", "A long, tiresome journey finally comes to an end. You disembark the ship and feel solid ground beneath your feet. In these lands, you will soon be faced with a choice, perhaps the most important of your entire life. Noble Cadomyr, wise Runewick, or wealthy Galmair - whose side shall you join?\n\nWelcome to Illarion, the free open source MMORPG where true roleplaying is enforced. This tutorial will guide you through your first steps and teach you the controls of the game.", callbackNewbie)
     end
 
     player:requestMessageDialog(dialogNewbie) --showing the welcome text
@@ -476,8 +388,7 @@ function welcomeNewPlayer(player)
     local onlinePlayers = world:getPlayersOnline()
     for i, user in ipairs(onlinePlayers) do
         if user.id ~= player.id then
-            user:inform("Ein neuer Spieler hat Illarion betreten! Der Charakter ist in Trollshaven.","A new player \z
-            has entered Illarion! The character is in Troll's Haven.")
+            user:inform("Ein neuer Spieler hat Illarion betreten! Der Charakter ist in Trollshaven.","A new player has entered Illarion! The character is in Troll's Haven.")
         end
     end
 end
@@ -559,14 +470,13 @@ function PayOutWage(Recipient, town)
 
     if tonumber(totalPayers)>0 then
         if tonumber(totalTaxes)>0 then
-            local baseWageUnit=totalTaxes/(totalPayers*10000)  -- 10000: "base unit" change accordingly if necessary.
+            local baseWageUnit=totalTaxes/(totalPayers*10000)        -- 10000: "base unit" change accordingly if necessary.
             local RecipientRk=factions.getRankAsNumber(Recipient)
 
             --If the recipient is level 1 they don't get anything.
             if RecipientRk <2 then
                 infText = common.GetNLS(Recipient,
-                    "Du solltest dich bemühen, dein Ansehen in "..town.." zu steigern, damit du einen Lohn für \z
-                    deine Abgaben erhältst.",
+                    "Du solltest dich bemühen, dein Ansehen in "..town.." zu steigern, damit du einen Lohn für deine Abgaben erhältst.",
                     "You should earn favour in "..town.." in order to receive rewards for your tribute.")
 
                 log(string.format("[gems] %s got 0 magic gems from %s. Character's rank: %d",
@@ -595,8 +505,7 @@ function PayOutWage(Recipient, town)
                 end
 
                 infText = common.GetNLS(Recipient,
-                    "Deine loyalen Dienste für "..town..
-                    " werden mit den folgenden magischen Edelsteinen belohnt:"..endname,
+                    "Deine loyalen Dienste für "..town.." werden mit den folgenden magischen Edelsteinen belohnt:"..endname,
                     "Your loyal service to "..town.." is awarded with the following magical gems:"..endname)
             end
             return infText
@@ -667,10 +576,8 @@ function payNow(User)
     local gstring, estring=money.MoneyToString(totTax) --converting money to a string
 
     infText = common.GetNLS(User,
-        "Du hast deine monatliche Abgabe an "..town.." gezahlt. Diesen Monat waren es "..gstring..". \z
-        Die Abgabenhöhe betrug "..(taxHeight*100).."%",
-        "You have paid your monthly tribute to "..town..". This month, it was "..estring..", resulting \z
-        from a tribute rate of "..(taxHeight*100).."%")
+        "Du hast deine monatliche Abgabe an "..town.." gezahlt. Diesen Monat waren es "..gstring..". Die Abgabenhöhe betrug "..(taxHeight*100).."%",
+        "You have paid your monthly tribute to "..town..". This month, it was "..estring..", resulting from a tribute rate of "..(taxHeight*100).."%")
 
     local userRank = factions.getRankAsNumber(User)
     townTreasure.ChangeTownTreasure(town,totTax)
