@@ -434,7 +434,7 @@ function ArmourAbsorption(Attacker, Defender, Globals)
     local ArmourDefenseScalingFactor = 4 / 3
     local GeneralScalingFactor = 2.8
     -- Unequip armour
-    if common.isBroken(Globals.HittedItem) and character.IsPlayer(Defender.Char) then
+    if common.isBroken(Globals.HittedItem) and character.IsPlayer(Defender.Char) and armour.Type ~= 0 then
         local itemName = common.getItemName(Globals.HittedItem, Defender.Char:getPlayerLanguage())
         local notification = {}
         notification["DE"] = "Der Gegendstand " .. itemName .. "ist kaputt, du solltest ihn reparieren."
