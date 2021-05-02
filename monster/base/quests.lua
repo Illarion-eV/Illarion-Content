@@ -20,40 +20,6 @@ local common = require("base.common")
 
 local M = {}
 
-<<<<<<< HEAD
---TEMPLATE TO ADD A QUEST TO function iniQuests()
-
---local id=NUMBER; --ID of the quest
---germanTitle[id]="GERMAN TITLE"; --Title of the quest in german
---englishTitle[id]="ENGLISH TITLE"; --Title of the quest in english
---NPCName[id]="Miggs"; --This is the name of the NPC who gives out the quest
---statusId[id]=NUMBER; --the queststatus as used by the NPC
---germanRace[id]="stinkige Gullimumien"; --free description of the foes in german
---englishRace[id]="smelly sewer mummies"; --free description of the foes in english
---[[table.insert(questList[MONSTERID],id);
-    Insert the quest into the quest list of the monster race that has to be slain.
-    You can add multiple monsters this way.]]
---[[minimumQueststatus[id]=NUMBER1;
-    quest is only active with this queststatus and above. Each monster slain adds +1. Use a value > 0!
-    maximumQueststatus[id]=NUMBER2;
-    quest is finished if this queststatus is reached, no kill are counted anymore.
-    Difference between NUMBER1 and NUMBER2 is the number of monsters that have to be slain]]
---[[questLocation[id]=position(X,Y,Z);
-    a position around which the monsters have to be slain, e.g. centre of a dungeon or forest]]
---radius[id]=RADIUS; --in this radius around the questlocation, kills are counted valid
-
---[[Brightrim addition: To add a custom quest inform, instead of the default inform:
-    add "customQuestInform = {german = "", english = ""} to your monsterQuests.addQuest{} table.]]
-
---Comment: If you want an NPC to give out multiple quests, you can do it like this:
-
---[[Quest 1: To accept quest 1, set queststatus to 1 with the NPC.
-    Use queststatus 1->11 to count 10 monsters. If the quest is finished, set queststatus to 12 with the NPC.]]
---[[Quest 2: To accept quest 2, set queststatus to 13 with the NPC.
-    Use queststatus 13->18 to count 5 monsters. If the quest is finished, set queststatus to 19 with the NPC.]]
---[[Quest 3: To accept quest 3, set queststatus to 20 with the NPC.
-    Use queststatus 20->21 to count 1 monster. If the quest is finished, set queststatus to 22 with the NPC.]]
-=======
 --[[Example of an entry in a quest script:
 
     monsterQuests.addQuest{
@@ -90,7 +56,6 @@ local M = {}
     Quest 3: To accept quest 3, set queststatus to 20 with the NPC.
     Use queststatus 20->21 to count 1 monster. If the quest is finished, set queststatus to 22 with the NPC.
 ]]
->>>>>>> 30c2ef2baf920606f900dd38dc26caa07e7adc8e
 
 local quests = {}
 local questsByMonsterId = {}
