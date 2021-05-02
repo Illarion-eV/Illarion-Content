@@ -119,7 +119,8 @@ end
 
 local function isPossibleTarget(monster, candidate)
     --Monsters are excluded; exception: pets that attack a monster are a valid target for that monster
-    if not character.IsPlayer(candidate) and not (petBase.getOwnerByPet(candidate) and fightingutil.getSelectedEnemyId(candidate.id) == monster.id)  then
+    if not character.IsPlayer(candidate) and not (petBase.getOwnerByPet(candidate)
+        and fightingutil.getSelectedEnemyId(candidate.id) == monster.id)  then
         return false
     end
 
@@ -191,7 +192,10 @@ local AIMING_TIME_LIST = {}
 local function FillAimingTimeList(Attacker,Defender,weaponId)
     AIMING_TIME_LIST[Attacker.id] = {}
     AIMING_TIME_LIST[Attacker.id]["counter"] = 1 -- increased on every call; normally every 1/10 seconds
-    AIMING_TIME_LIST[Attacker.id]["started"] = world:getTime("unix") -- we use that as a security measure. In case onAttack is not called every 1/10 (e.g. lack of ap), the action is excecuted then ext full sec(e.g. if 1.7 seconds are necessary but onAttack hasnt been called properly, the action is xeceuted after 2 sec)
+    AIMING_TIME_LIST[Attacker.id]["started"] = world:getTime("unix")
+    --[[ we use that as a security measure. In case onAttack is not called every 1/10 (e.g. lack of ap),
+    the action is excecuted then ext full sec(e.g. if 1.7 seconds are necessary but onAttack hasnt been called properly,
+    the action is xeceuted after 2 sec)]]
     AIMING_TIME_LIST[Attacker.id]["weapon"] = weaponId
     AIMING_TIME_LIST[Attacker.id]["target"] = Defender.id
     AIMING_TIME_LIST[Attacker.id]["position"] = Attacker.pos.x.." "..Attacker.pos.y.." "..Attacker.pos.z
@@ -202,8 +206,10 @@ end
 -- @param Weapon The weapon used
 -- @return The time needed for an attack in 1/10 seconds
 local function GetNecessaryAimingTime(Attacker)
-    -- we use a default value for every character and weapon; the differences in attributes and weapons come in play when the movepoints are lowered/regenerated
-    return math.max(11, math.floor(CalculateMovepoints(Attacker)+0.5)) --11 is minimum for the animation to be played properly.
+    --[[we use a default value for every character and weapon;
+    the differences in attributes and weapons come in play when the movepoints are lowered/regenerated]]
+    return math.max(11, math.floor(CalculateMovepoints(Attacker)+0.5))
+    --11 is minimum for the animation to be played properly.
 end
 
 --- Check if enough aiming time has passed for the archer in order to shoot
@@ -223,16 +229,23 @@ local function CheckAimingTime(AttackerList,Defender,inRange)
         return false
     else
         -- Check if weapon and target are the same and if the attacker hasn't moved
-        if AttackerList.WeaponItem.id ~= AIMING_TIME_LIST[Attacker.id]["weapon"] or Defender.id ~= AIMING_TIME_LIST[Attacker.id]["target"] or Attacker.pos.x.." "..Attacker.pos.y.." "..Attacker.pos.z ~= AIMING_TIME_LIST[Attacker.id]["position"] then
+        if AttackerList.WeaponItem.id ~= AIMING_TIME_LIST[Attacker.id]["weapon"]
+                or Defender.id ~= AIMING_TIME_LIST[Attacker.id]["target"]
+                or Attacker.pos.x.." "..Attacker.pos.y.." "..Attacker.pos.z ~=
+                AIMING_TIME_LIST[Attacker.id]["position"] then
             FillAimingTimeList(Attacker,Defender,AttackerList.WeaponItem.id)
             return false
-        elseif (world:getTime("unix") - AIMING_TIME_LIST[Attacker.id]["started"])*10 > GetNecessaryAimingTime(AttackerList) + 20 then
-            -- that is needed to prevent that someone aims, stops aiming, waits a long time and as soon as he targets the same character again, shoots immediately.
+        elseif (world:getTime("unix") - AIMING_TIME_LIST[Attacker.id]["started"])*10
+                > GetNecessaryAimingTime(AttackerList) + 20 then
+            -- that is needed to prevent that someone aims, stops aiming,
+            -- waits a long time and as soon as he targets the same character again, shoots immediately.
             -- this has to be done since there is no way to clear the list when someone stops targeting the target
             AIMING_TIME_LIST[Attacker.id]["counter"] = 1
             AIMING_TIME_LIST[Attacker.id]["started"] = world:getTime("unix")
             return false
-        elseif AIMING_TIME_LIST[Attacker.id]["counter"] <= GetNecessaryAimingTime(AttackerList) and (world:getTime("unix") - AIMING_TIME_LIST[Attacker.id]["started"])*10 < GetNecessaryAimingTime(AttackerList) then
+        elseif AIMING_TIME_LIST[Attacker.id]["counter"] <= GetNecessaryAimingTime(AttackerList)
+                and (world:getTime("unix") - AIMING_TIME_LIST[Attacker.id]["started"])*10
+                    < GetNecessaryAimingTime(AttackerList) then
             AIMING_TIME_LIST[Attacker.id]["counter"] = AIMING_TIME_LIST[Attacker.id]["counter"] + 1
         else
             return true
@@ -278,8 +291,10 @@ function M.onAttack(Attacker, Defender)
     local Globals = {}
 
     -- [Tutorial] Newbie Check
-    if character.IsPlayer(Attacker.Char) and Attacker.Char:getQuestProgress(322) == 0 and Attacker.Char:isNewPlayer() then
-        common.InformNLS(Attacker.Char,"[Tutorial] Du darfst andere Spieler nur mit angemessenem und nachprüfbarem Rollenspielgrund angreifen. Klicke nochmals rechts auf deinen Gegner um den Kampf abzubrechen.","[Tutorial] You are only allowed to attack other players with clearly traceable and reasonable roleplaying reason. Right click again on your enemy to cancel the attack.")
+    if character.IsPlayer(Attacker.Char) and Attacker.Char:getQuestProgress(322) == 0 and Attacker.Char:getQuestProgress(325) == 1 then
+        common.InformNLS(Attacker.Char,
+        "[Tutorial] Du darfst andere Spieler nur mit angemessenem und nachprüfbarem Rollenspielgrund angreifen. Klicke nochmals rechts auf deinen Gegner um den Kampf abzubrechen.",
+        "[Tutorial] You are only allowed to attack other players with clearly traceable and reasonable roleplaying reason. Right click again on your enemy to cancel the attack.")
         Attacker.Char:setQuestProgress(322,1)
     end
 
@@ -562,7 +577,8 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
     if Attacker.Char:isNewPlayer() then
         degradeChance = degradeChance * 2
     end
-    if (common.Chance(1, degradeChance)) and (Attacker.WeaponItem.id ~= 0) and character.IsPlayer(Attacker.Char) and commonAttackerWeapon.MaxStack == 1 then
+    if (common.Chance(1, degradeChance)) and (Attacker.WeaponItem.id ~= 0) and character.IsPlayer(Attacker.Char)
+            and commonAttackerWeapon.MaxStack == 1 then
         local durability = math.fmod(Attacker.WeaponItem.quality, 100)
         local quality = (Attacker.WeaponItem.quality - durability) / 100
         local nameText = world:getItemName(Attacker.WeaponItem.id, Attacker.Char:getPlayerLanguage())
@@ -683,7 +699,9 @@ function CauseDamage(Attacker, Defender, Globals)
         Defender = Attacker
     end
 
-    if character.IsPlayer(Defender.Char) and not Defender.Char:isAdmin() and character.WouldDie(Defender.Char, Globals.Damage + 1) and not character.AtBrinkOfDeath(Defender.Char) then
+    if character.IsPlayer(Defender.Char) and not Defender.Char:isAdmin()
+            and character.WouldDie(Defender.Char, Globals.Damage + 1)
+            and not character.AtBrinkOfDeath(Defender.Char) then
         -- Character would die. Nearly killing him and moving him back in case it's possible
         character.ToBrinkOfDeath(Defender.Char)
 
@@ -733,19 +751,23 @@ function CauseDamage(Attacker, Defender, Globals)
         if not Defender.Char:isAdmin() then --Admins don't want to get paralysed!
             common.ParalyseCharacter(Defender.Char, 2, false, true)
             local TimeFactor=1 -- See lte.chr_reg
-            chr_reg.stallRegeneration(Defender.Char, 60/TimeFactor) -- Stall regeneration for one minute. Attention! If you change TimeFactor in lte.chr_reg to another value but 1, you have to divide this "60" by that factor
+            chr_reg.stallRegeneration(Defender.Char, 60/TimeFactor)
+            -- Stall regeneration for one minute.
+            -- If you change TimeFactor in lte.chr_reg to another value but 1,
+            -- you have to divide this "60" by that factor.
         end
 
         return true
     else
-        character.ChangeHP(Defender.Char,-Globals.Damage) -- Finally dealing the damage.
-
         if (Attacker.AttackKind == 4) then -- Ranged attack
             if not character.IsPlayer(Defender.Char) and character.IsPlayer(Attacker.Char) then
                 Defender.Char.movepoints = Defender.Char.movepoints - 5
             end
             DropAmmo(Attacker, Defender.Char, false)
         end
+
+        character.ChangeHP(Defender.Char,-Globals.Damage) -- Finally dealing the damage.
+
     end
 end
 
@@ -1150,7 +1172,7 @@ function DropAmmo(Attacker, Defender, GroundOnly)
             if monsterArrowDrop[monsterId][AmmoItem.id] then
                 monsterArrowDrop[monsterId][AmmoItem.id] = monsterArrowDrop[monsterId][AmmoItem.id] + 1
             else
-                monsterArrowDrop[monsterId][AmmoItem.id] = 2 -- Last arrow is not counted; reason unknown.
+                monsterArrowDrop[monsterId][AmmoItem.id] = 1
                 local function dropAmmo(monster)
                     for ammoId, ammoAmount in pairs(monsterArrowDrop[monster.id]) do
                         world:createItemFromId(ammoId, ammoAmount, monster.pos, true, 333, nil)
@@ -1452,7 +1474,8 @@ function HandleAmmunition(Attacker)
             Attacker.Char:inform("Du hast keine Munition mehr.", "You are out of ammunition.");
         end
 
-    elseif (Attacker.Weapon.AmmunitionType == 255) then -- throwing axes, spears and throwing stars, thus they ARE the ammunition!
+    elseif (Attacker.Weapon.AmmunitionType == 255) then
+        -- throwing axes, spears and throwing stars, thus they ARE the ammunition!
 
         Attacker.Char:increaseAtPos(Attacker.WeaponItem.itempos, -1)
 
@@ -1483,7 +1506,8 @@ function CalculateMovepoints(Attacker)
         end
     end
 
-    return math.max(7, weaponFightpoints / (1+common.GetAttributeBonus(Attacker.agility,0.2))) --Dividing the time by a factor is equal to multiplying the damage per second with the factor.
+    return math.max(7, weaponFightpoints / (1+common.GetAttributeBonus(Attacker.agility,0.2)))
+    --Dividing the time by a factor is equal to multiplying the damage per second with the factor.
 end
 
 --- Reduce the attacker movepoints by the fitting value.
@@ -1508,7 +1532,10 @@ function HandleMovepoints(Attacker, Globals)
     character.ChangeFightingpoints(Attacker.Char,-math.floor(reduceFightpoints-rangedAdjustment))
 
     if not character.IsPlayer(Attacker.Char) then
-    --This is merely a hack. Without this, monsters just "fly" over tiles while attacking because they do not invest movepoints. Strangely, if we do the same for players, they get stalled. A profound solution is needed, most probably, this is a server issue. The line below does the job for now, but it's not a clean solution. ~Estralis
+    --[[This is merely a hack. Without this, monsters just "fly" over tiles while attacking because they do not \z
+    invest movepoints. Strangely, if we do the same for players, they get stalled. A profound solution is needed, \z
+    most probably, this is a server issue. The line below does the job for now, but it's not a clean solution. \z
+    ~Estralis]]
         character.ChangeMovepoints(Attacker.Char,-math.floor(reduceFightpoints-rangedAdjustment))
     end
 
