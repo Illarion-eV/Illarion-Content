@@ -27,6 +27,7 @@ local hairdresser = require("npc.hairdresser")
 local seafaring = require("base.seafaring")
 local petsystem = require("petsystem.base")
 local gods_common = require("content._gods.gods_common")
+local notice = require("item.notice")
 -- Called after every player login
 
 local M = {}
@@ -332,9 +333,12 @@ function M.onLogin( player )
     if not found then
         player.effects:addEffect(LongTimeEffect(gods_common.EFFECT_ID, 10))
     end
-
     --Handle pets
     petsystem.loadPet(player)
+    -- Inform user about key retrieval
+    notice.informUserOfKeyRetrieval(player)
+    --Key retrieval
+    notice.keyRetrieval(player)
 end
 
 function showNewbieDialog(player)
