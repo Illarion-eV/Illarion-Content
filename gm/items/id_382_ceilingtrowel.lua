@@ -28,7 +28,6 @@ local glyphs = require("base.glyphs")
 local seafaring = require("base.seafaring")
 local staticteleporter = require("base.static_teleporter")
 
-
 local M = {}
 
 local chooseItem
@@ -39,6 +38,7 @@ local spawnPoint
 local spawnGM
 local updateMonsters
 local changeItemSelection
+local portalsSelection
 
 local SPAWNDATAS = {}
 local gmSpawnpointSettings = {}
@@ -1242,6 +1242,55 @@ function updateMonsters(array,number,basePosition)
     end
 end
 
+local function createPortal(User, portalType)
+    local x
+    local y
+    local z
+    local amount 
+    local callback = function(dialog)
+        if not dialog:getSuccess() then
+            return
+        end
+        local input = dialog:getInput()
+        if (string.find(input,"(%d+) (%d+) (%d+)")~=nil) then
+            _, _, x, y, z = string.find(input,"(%d+) (%d+) (%d+)")
+        end
+        local callback2 = function(dialog2)
+            if not dialog:getSuccess() then
+                return
+            end
+            local input2 = dialog2:getInput()
+            if (string.find(input2,"(%d+)")~=nil) then
+                _, _, amount = string.find(input2,"(%d+)")
+                common.CreateItem(User,tonumber(portalType),tonumber(amount),999,{["destinationCoordsX"]=x,["destinationCoordsY"]=y,["destinationCoordsZ"]=z})
+            end
+        end
+        User:requestInputDialog(InputDialog("Portal creation", "How many portals with these coordinates do you want to create?",false,255,callback2))
+    end
+User:requestInputDialog(InputDialog("Portal creation", "Set the coordinates the portals should lead to.\nEG:131 609 0",false,255,callback))
+end
+
+local function portalsSelection(User)
+    local callback = function(dialog)
+        if not dialog:getSuccess() then
+            return
+        end
+        local index = dialog:getSelectedIndex() + 1
+        if index == 1 then
+            createPortal(User, "10")
+        elseif index == 2 then
+            createPortal(User, "798")
+        elseif index == 3 then
+            createPortal(User, "1061")
+        end
+    end
+    local dialog = SelectionDialog("Portal creation", "What type of portal do you want to create?", callback)
+    dialog:addOption(0, "Blue Portal")
+    dialog:addOption(0, "Red Portal")
+    dialog:addOption(0, "Portal Book")
+    User:requestSelectionDialog(dialog)
+end
+
 local function specialItemCreationSpecialEggs(User)
 
     local cbInputDialog = function (dialog)
@@ -1459,7 +1508,7 @@ end
 
 function M.UseItem(User, SourceItem)
     -- First check for mode change
-    local modes = {"Items", "Weather", "Factions", "Spawnpoint", "Special Item Creation", "Script Variables","Teleporter","Harbours"}
+    local modes = {"Items", "Weather", "Factions", "Spawnpoint", "Special Item Creation", "Script Variables","Teleporter","Harbours", "Portals"}
     local cbSetMode = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -1482,6 +1531,8 @@ function M.UseItem(User, SourceItem)
             staticteleporter.gmManageTeleporter(User)
         elseif index == 8 then
             seafaring.gmManagePorts(User)
+        elseif index == 9 then
+            portalsSelection(User)
         end
     end
     local sd = SelectionDialog("Set mode of this ceiling trowel", "To which mode you want to change?", cbSetMode)
