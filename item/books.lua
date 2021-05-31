@@ -22,6 +22,7 @@ local common = require("base.common")
 local id_266_bookshelf = require("item.id_266_bookshelf")
 local granorsHut = require("content.granorsHut")
 local petBuying = require("petsystem.petBuying")
+local magicBook = require("magic.magicBook")
 
 local M = {}
 
@@ -35,7 +36,12 @@ function M.UseItem(User, SourceItem)
         return
     end
     -- alchemy end
-
+    -- magic book for casting
+    if SourceItem:getData("magicBook") == "true" then
+        magicBook.spellSelection(User, SourceItem)
+        return
+    end
+    -- magic book end
     if SourceItem:getData("granorsHut") ~= "" then
         granorsHut.readingBook(User)
         return
@@ -55,6 +61,10 @@ function M.UseItem(User, SourceItem)
 end
 
 function M.LookAtItem(User,Item)
+    if Item:getData("magicBook") ~= "" then
+        lookat.SetSpecialName(Item,"","Spellbook")
+        lookat.SetSpecialDescription(Item,"","A spellbook used by mages to cast rune magic.")
+    end
     local book = Item:getData("book")
     if book ~= "" then
         if book ~= nil then
