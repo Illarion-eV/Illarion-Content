@@ -15,7 +15,6 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
-local spellCasting = require("magic.spellCasting")
 local createSpell = require("magic.createSpell")
 
 local M = {}
@@ -58,7 +57,7 @@ local emptySpellSlots = 0
         for i = 1,createSpell.MAX_SPELL_SLOTS do
             if SourceItem:getData("spellName"..i) ~= "" and SourceItem:getData("spellName"..i) ~= "Unfinished" then
                 if index == i-emptySpellSlots then
-                    -- insert a function here for casting spells based on value found here: SourceItem:getData("spell"..i)
+                    debug("Spell "..i.." is cast.")-- insert a function here for casting spells based on value found here: SourceItem:getData("spell"..i)
                 end
                 return
             else

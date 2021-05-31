@@ -274,7 +274,7 @@ function M.mainDialog(User)
         local index = dialog:getSelectedIndex() +1
         if index == 1 then
             if checkForDialogOptions2(User) then
-                if User:countItemAt("body",2619,{["magicBook"]="true"}) ~= 0 and User:countItemAt("body",463) ~= 0 then 
+                if User:countItemAt("body",2619,{["magicBook"]="true"}) ~= 0 and User:countItemAt("body",463) ~= 0 then
                     slotSelection(User)
                 else
                     User:inform("","You must hold a magic book and quill in your hands.")

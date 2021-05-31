@@ -18,7 +18,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE items SET itm_script='item.books' WHERE itm_id = 2622;
 
 local lookat = require("base.lookat")
-local common = require("base.common")
 local id_266_bookshelf = require("item.id_266_bookshelf")
 local granorsHut = require("content.granorsHut")
 local petBuying = require("petsystem.petBuying")

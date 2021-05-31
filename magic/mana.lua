@@ -18,11 +18,11 @@ local runes = require("magic.runes")
 local M = {}
 
 local function manaCostByRuneSize(size) -- Just basic temporary values until a proper mana script is made that accounts for skill levels and what not.
-    if size == Small then
+    if size == "Small" then
         return "1000"
-    elseif size == Medium then
+    elseif size == "Medium" then
         return "2000"
-    elseif size == Large then
+    elseif size == "Large" then
         return "3000"
     end
 end

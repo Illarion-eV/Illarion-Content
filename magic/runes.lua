@@ -79,7 +79,7 @@ end
 function M.checkSpellForRune(User, RuneNumber, spell)
     local retVal=false;
     local runeOffset=math.fmod(RuneNumber-1,32);
-    learnedRunes = M.QuestprogressToLearnedRunes(spell)
+    local learnedRunes = M.QuestprogressToLearnedRunes(spell)
     if bit32.btest(bit32.lshift(1, runeOffset), learnedRunes) then
         retVal=true;
     end

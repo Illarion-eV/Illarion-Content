@@ -14,8 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-local common = require("base.common")
-local lookat = require("base.lookat")
 local createSpell = require("magic.createSpell")
 local M = {}
 
@@ -32,8 +30,8 @@ function M.UseItem(User, SourceItem)
         if foundEffect then
             myEffect.nextCalled = 5 * 600;
         else
-            local myEffect = LongTimeEffect(100, 5 * 600) --5min
-            User.effects:addEffect(myEffect)
+            local myEffect2 = LongTimeEffect(100, 5 * 600) --5min
+            User.effects:addEffect(myEffect2)
         end
     else
     -- If it is just a regular desk and not used for the above quest purposes, then use it for magic purposes
