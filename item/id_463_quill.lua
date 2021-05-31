@@ -214,9 +214,7 @@ local function WriteLabel(User,SourceItem)
 
     -- input dialog
     local callback = function(dialog)
-        if not dialog:getSuccess() then
-            -- player canceled the dialog; nothing
-        else
+        if dialog:getSuccess() then
             local bottle = CheckIfBottleInHand(User, SourceItem) -- check for the bottle again
             if bottle then
                 --if bottle.number > 1 then

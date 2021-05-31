@@ -17,8 +17,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (171, 'quest.ssiguss_171_wilderness');
 
 local common = require("base.common")
-local factions = require("base.factions")
-local monsterQuests = require("monster.base.quests")
 local M = {}
 
 local GERMAN = Player.german
@@ -78,6 +76,10 @@ function M.QuestDescription(user, status)
     local english = Description[ENGLISH][status] or ""
 
     return common.GetNLS(user, german, english)
+end
+
+function M.QuestStart()
+    return Start
 end
 
 function M.QuestTargets(user, status)

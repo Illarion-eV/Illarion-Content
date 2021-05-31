@@ -18,8 +18,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Current setting is once in 6-18 hours
 -- Estralis
 
-local common = require("base.common")
-
 local M = {}
 
 local LOW_LOW = 0

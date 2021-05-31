@@ -33,11 +33,7 @@ showMessage = false: returns the ranklist table
 local function showList(User, ranklist)
     local list = ""
 
-    local mdList = function(dialog)
-        if not dialog:getSuccess() then
-            return
-        end
-    end
+    local mdList
     if User:getPlayerLanguage() == 0 then
         for i=1, #ranklist do
             list = list.."Platz "..i.." : "..ranklist[i].name.." mit "..ranklist[i].points.." Punkten.\n"
@@ -126,7 +122,6 @@ top five, also saves the new top five.
 function M.setRanklist(User, listName, points)
     local maxEntries = 5
     local ranklist = M.getRanklist(User, listName, false)
-    local joinedRanklist = {}
 
     --User:inform("ranklist nr: "..#ranklist)
     if User:isAdmin() then
@@ -148,16 +143,12 @@ function M.setRanklist(User, listName, points)
                 end
 
                 table.sort(ranklist, compare)
-                joinedRanklist = convertToOneTable(ranklist)
-
-                local stringList = table.concat(joinedRanklist, ";")
-                --debug("String before deletion" ..stringList)
 
                 while #ranklist > maxEntries do
                     table.remove(ranklist)
                 end
 
-                joinedRanklist = convertToOneTable(ranklist)
+                local joinedRanklist = convertToOneTable(ranklist)
 
                 local stringList = table.concat(joinedRanklist, ";")
                 --debug("String after join:" ..stringList)

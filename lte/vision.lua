@@ -17,13 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Vision, id 83
 -- controll the vision stories in .content.vision
 
-local common = require("base.common")
-local vision = require("content.vision")
-local areas = require("content.areas")
 local M = {}
-
-local TypeStory={}
-local AmountStory={}
 
 function M.addEffect(Effect,User)
 

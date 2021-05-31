@@ -15,7 +15,6 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local lookat = require("base.lookat")
-local common = require("base.common")
 local alchemy = require("alchemy.base.alchemy")
 local M = {}
 
@@ -412,7 +411,7 @@ local function AskQuestion(User,SourceItem)
     User:requestSelectionDialog(dialog)
 end
 
-local function SendMessage(User, SourceItem, textEN, textDE, questionTrigger)
+function SendMessage(User, SourceItem, textEN, textDE, questionTrigger)
     -- function to send a message dialog
     -- parameters questionTrigger - if it is true, the user will be asked a question after closing the message dialog
 

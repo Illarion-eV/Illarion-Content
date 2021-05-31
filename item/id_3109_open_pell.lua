@@ -340,7 +340,6 @@ local function RecipeInform( User, SourceItem)
     local town = getTownOfPell(SourceItem)
     local myListEffectId = M.ListEffectId[town]
     local myListTaskText = M.ListTaskText[town]
-    local myListTaskItem = M.ListTaskItem[town]
 
     local language
     if User:getPlayerLanguage() == Player.english then
@@ -373,7 +372,7 @@ local function RecipeInform( User, SourceItem)
     else
         dialog = SelectionDialog("Trankrezepte", "An welchem Rezept bist du interessiert?", callback)
     end
-    local alreadyLearned = {}
+
     for i=1,#myListEffectId do
         if User:getQuestProgress(myListEffectId[i]+1000) == 0 then
             dialog:addOption(164, alchemy.potionName[myListEffectId[i]][language])

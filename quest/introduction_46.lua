@@ -16,7 +16,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local common = require("base.common")
-local factions = require("base.factions")
 local introduction = require("lte.introduction")
 
 local M = {}
@@ -45,7 +44,7 @@ end
 
 function M.QuestDescription(user, status)
 
-    local waypoint, waypointRadius, waypointNameG, waypointNameE = introduction.initWaypoint(user)
+    local waypoint, _, waypointNameG, waypointNameE = introduction.initWaypoint(user)
     local queststatus = user:getQuestProgress(44) --here, we save which places were visited
     local germanText = ""
     local englishText = ""
@@ -80,7 +79,7 @@ end
 
 function M.QuestTargets(user, status)
 
-    local waypoint, waypointRadius, waypointNameG, waypointNameE = introduction.initWaypoint(user)
+    local waypoint = introduction.initWaypoint(user)
     local queststatus = user:getQuestProgress(44) --here, we save which places were visited
     local QuestTarget = {}
     QuestTarget[1] = {}

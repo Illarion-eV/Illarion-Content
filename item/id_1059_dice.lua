@@ -104,7 +104,6 @@ local function chooseTypeOfDice(User)
 end
 
 function M.UseItem(User, SourceItem, ltstate)
-    local itemData
     local isRonaganTrap = (SourceItem:getData("ronaganTrap") == "true")
     if (isRonaganTrap == true) then
         User:inform("Ein Dieb hat dich in eine Falle gelockt. Er springt aus einem der Schatten und stielt dir ein paar Münzen.", "A thief has lured you into a trap, jumping out from a shadow, he steals some coins from you.")

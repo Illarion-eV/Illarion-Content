@@ -33,8 +33,6 @@ function(self, comp, value)
         self["check"] = _money_helper_greater
     elseif (comp == "<") then
         self["check"] = _money_helper_lesser
-    else
-        -- unkonwn comparator
     end
 end)
 

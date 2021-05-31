@@ -388,16 +388,16 @@ function GetItem(User, listOfTheIngredients)
     local deleteItem, deleteId, missingDe, missingEn
     if type(listOfTheIngredients[USER_POSITION_LIST[User.id]])=="string" then
         if string.find(listOfTheIngredients[USER_POSITION_LIST[User.id]],"bottle") then
-                local bottleList = User:getItemList(164)
-                if #bottleList > 0 then
-                    deleteItem = bottleList[1] -- here, we take the first bottle we get
-                    for i=1,#bottleList do
-                        if not string.find(bottleList[i]:getData("descriptionEn"),"Bottle label:") then -- now, we check if there is an empty bottle; we prefer those
-                            deleteItem = bottleList[i] -- in case there is a empty, unlabeled bottle
-                            break
-                        end
+            local bottleList = User:getItemList(164)
+            if #bottleList > 0 then
+                deleteItem = bottleList[1] -- here, we take the first bottle we get
+                for i=1,#bottleList do
+                    if not string.find(bottleList[i]:getData("descriptionEn"),"Bottle label:") then -- now, we check if there is an empty bottle; we prefer those
+                        deleteItem = bottleList[i] -- in case there is a empty, unlabeled bottle
+                        break
                     end
                 end
+            end
             if not (deleteItem) then
                 missingDe = "Dir fehlt: leere Flasche"
                 missingEn = "You don't have: empty bottle"

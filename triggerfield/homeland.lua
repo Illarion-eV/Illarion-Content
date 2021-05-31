@@ -29,8 +29,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (161,748,0,'triggerfield.homeland');
 -- INSERT INTO triggerfields VALUES (162,748,0,'triggerfield.homeland');
 
-local common = require("base.common")
-
 local M = {}
 
 function M.MoveToField(char)

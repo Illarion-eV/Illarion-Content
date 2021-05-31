@@ -340,7 +340,7 @@ function showNewbieDialog(player)
     local callbackNewbie = function(dialogNewbie) --start callback of Newbie Dialog
         local callbackSkip = function(dialogSkip) --start of callback of skipping dialog
             local dialogMessage
-            local callbackPostSkip = function (dialogPostSkip) end --empty callback
+            local callbackPostSkip = function (dialog) end --empty callback
 
             if dialogSkip:getSuccess() and dialogSkip:getSelectedIndex()==1 then --skipping
                 player:warp(position(36, 97, 100))
@@ -461,12 +461,11 @@ function PayOutWage(Recipient, town)
     local totalTaxes = townTreasure.GetPaymentAmount(town)
     local totalPayers = townTreasure.GetTaxpayerNumber(town)
 
-    local infText
-
     if tonumber(totalPayers)>0 then
         if tonumber(totalTaxes)>0 then
             local baseWageUnit=totalTaxes/(totalPayers*10000)        -- 10000: "base unit" change accordingly if necessary.
             local RecipientRk=factions.getRankAsNumber(Recipient)
+            local infText
 
             --If the recipient is level 1 they don't get anything.
             if RecipientRk <2 then
@@ -515,9 +514,7 @@ function payNow(User)
 --Hemp Necktie Inn = 103 (not a faction!)
 --ATTENTION: Depot IDs are magically shifted by 1 compared to the data in item.id_321_depot
 
-    local infText
-
-     -- no member of any town
+    -- no member of any town
     local town = factions.getMembershipByName(User)
     if town == "None" then
         return
@@ -546,7 +543,7 @@ function payNow(User)
     local totTax=tax -- total tax to pay
 
     if totTax < 1 then
-        infText = common.GetNLS(User,
+        local infText = common.GetNLS(User,
             "Du bist zu arm um Steuern an "..town.." zu bezahlen.",
             "You are too poor to pay taxes to "..town..".")
         return infText
@@ -570,7 +567,7 @@ function payNow(User)
 
     local gstring, estring=money.MoneyToString(totTax) --converting money to a string
 
-    infText = common.GetNLS(User,
+    local infText = common.GetNLS(User,
         "Du hast deine monatliche Abgabe an "..town.." gezahlt. Diesen Monat waren es "..gstring..". Die Abgabenhöhe betrug "..(taxHeight*100).."%",
         "You have paid your monthly tribute to "..town..". This month, it was "..estring..", resulting from a tribute rate of "..(taxHeight*100).."%")
 

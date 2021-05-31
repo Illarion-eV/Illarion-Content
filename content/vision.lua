@@ -244,12 +244,10 @@ function M.UseDarkColumns(User, SourceItem, ltstate)
     local AmountDarkColumnEvilrock = #M.darkColumnEvilrock
       for i = 1,AmountDarkColumnEvilrock do
         if (SourceItem.pos == M.darkColumnEvilrock[i]) and User:countItemAt("all", gemsRequired[i], {["gemLevel"]="1"}) >= 1 then
-            local foundSource
             -- check for dark column
             local TargetItem = M.darkColumnEvilrock[i];
             if (TargetItem ~= nil) then
                 common.TurnTo( User, M.darkColumnEvilrock[i] ); -- turn if necessary
-                foundSource=true
             end
 
             if ( ltstate == Action.none ) then
@@ -344,7 +342,6 @@ puzzleOptionsEN[22]="in seeking his old treasure."
 puzzleOptionsEN[23]="The pain his arm will bring,"
 puzzleOptionsEN[24]="will be without a measure."
 
-local puzzleItem = {0}
 local OptionToSelect = {}
 
 local puzzleDarkColumnOrder = {1,5,3,6,2,4,1,2,3,6,5,4,1,2,6,3,5,4,1,5,6,3,2,4}
@@ -361,7 +358,6 @@ local function checkRightChoice(User,QuestStatusBlackColumn,selected)
 end
 
 local function Puzzle(User,SourceItem)
-    local options
     local Amountoptions = #puzzleOptionsDE
     local QuestStatusBlackColumn = User:getQuestProgress(667)
     local TrueOption = math.random(1,3)
@@ -439,12 +435,10 @@ function M.UseDarkColumnsPuzzle(User, SourceItem, ltstate)
     local AmountDarkColumnEvilrock = #M.darkColumnEvilrock
     for i = 1,AmountDarkColumnEvilrock do
         if (SourceItem.pos == M.darkColumnEvilrock[i]) and User:getQuestProgress(667) >= 1 and world:getItemOnField(SourceItem.pos).id == 467 then
-            local foundSource
             -- check for dark column
             local TargetItem = M.darkColumnEvilrock[i];
             if (TargetItem ~= nil) then
                 common.TurnTo( User, M.darkColumnEvilrock[i] ); -- turn if necessary
-                foundSource=true
             end
 
             if ( ltstate == Action.none ) then

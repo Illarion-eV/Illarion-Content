@@ -15,7 +15,6 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
-local deleteitem = require("handler.deleteitem")
 
 -- INSERT INTO scheduledscripts VALUES('scheduled.mapitemreset', 30, 30, 'resetMapitem')
 
@@ -55,7 +54,7 @@ function M.resetMapitem()
   if (world:getItemOnField(position(480, 834, -9)).id ~= 2039) then
     for xx = 474, 482 do
         for yy = 834, 844 do
-            local pos = position(xx, yy, -9)
+            pos = position(xx, yy, -9)
             local flame = world:getItemOnField(pos)
             if flame.id == 359 then
                 world:erase(flame, flame.number)
@@ -115,7 +114,7 @@ function M.resetMapitem()
         end
         lever2.id = 434
         world:changeItem(lever2)
-        local plyList = world:getPlayersInRangeOf(lever2.pos, 10)
+        plyList = world:getPlayersInRangeOf(lever2.pos, 10)
         for _, char in pairs(plyList) do
             common.InformNLS(char, "Du hörst ein klicken von dem Hebel.", "You hear a click from the lever.")
         end
@@ -123,7 +122,7 @@ function M.resetMapitem()
         -- delete bridge
         for xx = 722, 723 do
             for yy = 240, 258 do
-                local pos = position(xx, yy, -9)
+                pos = position(xx, yy, -9)
                 local bridge = world:getItemOnField(pos)
                 if bridge.id == 614 or bridge.id == 615 or bridge.id == 617 then
                     -- port out characters on the bridge

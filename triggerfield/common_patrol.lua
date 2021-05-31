@@ -37,14 +37,14 @@ function M.MoveToField(user)
         galmair_guard_patrol_3.triggerEvent(user)
     end
     -- Galmair Hall of the Don
-    local waypoints = {
+    waypoints = {
     position(348, 229, 0)}
     if common.isInList(user.pos,waypoints) then
         aquestionofhonour_3.triggerEvent(user)
         runewick_patrol_3.triggerEvent(user)
     end
     -- Cadomyr Throne hall
-    local waypoints = {
+    waypoints = {
     position(121, 533, 0),
     position(122, 533, 0)}
     if common.isInList(user.pos,waypoints) then
@@ -52,7 +52,7 @@ function M.MoveToField(user)
         galmair_guard_patrol_3.triggerEvent(user)
     end
     -- Runewick House of the Archmage
-    local waypoints = {
+    waypoints = {
     position(995, 815, 0),
     position(996, 815, 0)}
     if common.isInList(user.pos,waypoints) then

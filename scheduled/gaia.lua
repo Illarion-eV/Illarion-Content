@@ -103,7 +103,6 @@ local function PutPlantOnField(rare)
     end
     if theTile then
         local groundType = common.GetGroundType( theTile:tile() )
-        local gt = common.GroundType
 
         if theTile:countItems() > 0 then -- check if no item is on that field
             return

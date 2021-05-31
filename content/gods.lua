@@ -17,14 +17,11 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 --Priest magic: Becoming a devotee, change devotion, become a priest by using an altar
 
 local common = require("base.common")
-local globalvar = require("base.globalvar")
 local math = require("math")
 
 local gods_common = require("content._gods.gods_common")
 
-local basegod = require("content._gods.basegod")
 local baseyounger = require("content._gods.baseyounger")
-local baseelder = require("content._gods.baseelder")
 
 local   ushara = require("content._gods.ushara")
 local   bragon = require("content._gods.bragon")
@@ -236,11 +233,11 @@ end
 -- Get string describing the character relations with gods, (in each language separately)
 -- @param charObj the char to check
 function M.getCharStatusEn(charObj)
-    local statusDe, statusEn = M._getCharStatus(charObj)
+    local _, statusEn = M._getCharStatus(charObj)
     return statusEn
 end
 function M.getCharStatusDe(charObj)
-    local statusDe, statusEn = M._getCharStatus(charObj)
+    local statusDe = M._getCharStatus(charObj)
     return statusDe
 end
 

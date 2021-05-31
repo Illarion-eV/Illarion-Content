@@ -19,7 +19,6 @@ local common = require("base.common")
 local character = require("base.character")
 local scheduledFunction = require("scheduled.scheduledFunction")
 local hooks = require("monster.base.hooks")
-local base = require ("alchemy.base.alchemy")
 
 local M = {}
 
@@ -193,8 +192,8 @@ local function fruitBombInsectsSpawning(CENTERS, CENTER)
                         world:gfx(7, thePos)
                         if counter == 2 then
                             local players = world:getPlayersInRangeOf(thePos,9)
-                            for i=1,#players do
-                                players[i]:inform("Ein Summen ist zu vernehmen. Wespen werden von dem Duft angelockt!", "A buzzing can be heard and gets closer. Wasps are allured by the sweet scent.")
+                            for z=1,#players do
+                                players[z]:inform("Ein Summen ist zu vernehmen. Wespen werden von dem Duft angelockt!", "A buzzing can be heard and gets closer. Wasps are allured by the sweet scent.")
                             end
                         end
                         if math.random(1,2)==1 or counter == 2 then
@@ -250,7 +249,7 @@ local function fruitBomb(User, Item, targetArea)
         world:gfx(52, targetArea[math.random(#targetArea)])
     end
 
-    local posAsString = "".. Item.pos.x .." ".. Item.pos.y .." "..Item.pos.z
+    posAsString = "".. Item.pos.x .." ".. Item.pos.y .." "..Item.pos.z
     local found = false
     for i=1,#CENTERS do
         if CENTERS[i] == posAsString then
@@ -399,12 +398,12 @@ function M.weakenRedSkeletons(user, item)
     for _, hitPosition in pairs(hitArea) do
 
         if world:isCharacterOnField(hitPosition) then
-            local character = world:getCharacterOnField(hitPosition)
+            local char = world:getCharacterOnField(hitPosition)
 
-            if character:getType() == Character.player then
+            if char:getType() == Character.player then
                 user:inform("Du fühlst ein kaltes Kribbeln.", "You feel a chill tingling.", Character.lowPriority)
 
-            elseif character:getType () == Character.monster then
+            elseif char:getType () == Character.monster then
 
                 local TRANSFORMATION_MAPPING = {[201] = 112,
                                                 [202] = 115,
@@ -413,13 +412,13 @@ function M.weakenRedSkeletons(user, item)
                                                 [206] = 111
                                                 }
 
-                local originalMonsterId = character:getMonsterType()
+                local originalMonsterId = char:getMonsterType()
                 if TRANSFORMATION_MAPPING[originalMonsterId] then
 
                     local theField = world:getField(hitPosition)
                     local originalItemAmountOnField = theField:countItems()
-                    local oldHP = character:increaseAttrib("hitpoints", 0)
-                    character:increaseAttrib("hitpoints", -10000)
+                    local oldHP = char:increaseAttrib("hitpoints", 0)
+                    char:increaseAttrib("hitpoints", -10000)
                     local newItemAmountOnField = theField:countItems()
                     local numberOfItemsToDelete = newItemAmountOnField - originalItemAmountOnField
 

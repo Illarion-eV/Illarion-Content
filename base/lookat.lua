@@ -27,7 +27,6 @@ local TitleCase
 local AddWeaponOrArmourType
 local AddTypeAndUsable
 local GetGemLevel
-local GetItemDescription
 
 -- init german descriptions
 local GenericQualDe = {"perfekt", "exzellent", "sehr gut", "gut", "normal", "m‰ﬂig", "schlecht", "sehr schlecht",
@@ -305,7 +304,7 @@ function AddTypeAndUsable(lookAt, user, nameAndSkillTable, itemType, itemLevel)
 end
 
 function GetGemLevel(item, dataEntry)
-    local dataEntry = item:getData(dataEntry)
+    dataEntry = item:getData(dataEntry)
     if dataEntry == nil then
         return 0
     end
@@ -320,10 +319,6 @@ function GetGemLevel(item, dataEntry)
     else
         return value
     end
-end
-
-function GetItemDescription(User, Item, material, Weapon, Priest)
-    return M.GenerateLookAt(User, Item, material)
 end
 
 --- Apply a special name to a item. The name is stored in the data values.

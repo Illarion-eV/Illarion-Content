@@ -237,7 +237,6 @@ function M.UseItem(User, SourceItem)
     common.CreateItem(User, 830, 1, 801, nil)
     checkIfGotAllItems(User)
     end
-    local itemData
     local isronaganChest = (SourceItem:getData("ronaganChest") == "true")
     if (isronaganChest) then
         ronaganContents(User, SourceItem)
