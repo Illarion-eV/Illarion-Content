@@ -165,8 +165,8 @@ queststatus(187) > 9, queststatus(187) < 20, town = Cadomyr, "Auftrag", "Aufgabe
 
 -- 4th quest check 5 poisoned carrots
 -- Giving out quest 4
-queststatus(187) = 21, english, town = Cadomyr, "quest", "mission" -> inform("[New quest] Vermin Monitor IV - Find and 'use' 5 poisoned rat baits in the cistern."), queststatus(253) = 0, queststatus(187) = 22, "Recently I placed some poisoned carrots. Please verify if the rats touched them, but wear gloves if you touch the baits."
-queststatus(187) = 21, town = Cadomyr, "task", "adventure" -> inform("[New quest] Vermin Monitor IV - Find and verify 5 poisoned rat baits in the cistern. Use the bail to verify."), queststatus(253) = 0, queststatus(187) = 22, "Recently I placed some poisoned carrots. Please verify if the rats touched them, but wear gloves if you touch the baits."
+queststatus(187) = 21, english, town = Cadomyr, "quest", "mission" -> inform("[New quest] Vermin Monitor IV - Find and 'use' 5 poisoned rat baits in the cistern. Use the bait to verify."), queststatus(253) = 0, queststatus(187) = 22, "Recently I placed some poisoned carrots. Please verify if the rats touched them, but wear gloves if you touch the baits."
+queststatus(187) = 21, town = Cadomyr, "task", "adventure" -> inform("[New quest] Vermin Monitor IV - Find and verify 5 poisoned rat baits in the cistern. Use the bait to verify."), queststatus(253) = 0, queststatus(187) = 22, "Recently I placed some poisoned carrots. Please verify if the rats touched them, but wear gloves if you touch the baits."
 queststatus(187) = 21, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission" -> inform("[Neues Quest] Rattenfänger IV - Finde und prüfe 5 Köder in der Zisterne. Benutze den Köder, um ihn zu prüfen."), queststatus(253) = 0, queststatus(187) = 22, "Ich habe vor kurzem einige vergiftete Möhren ausgelegt. Prüfe bitte mindestens 5 der Köder, ob sie angenommen werden. Aber zieh irgendwelche Handschuhe an, wenn du sie anfasst!"
 
 -- Quest 4 taken but not started
