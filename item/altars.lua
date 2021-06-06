@@ -409,10 +409,10 @@ function M.UseItem(User, SourceItem, ltstate)
         common.InformNLS(User, "Du berührst den Altar, die Abwesenheit göttlichen Wirkens ist offensichtlich.", "You touch the altar, the absence of divine blessing is obvious.");
     else --dedicated altar
 
-        local title = common.GetNLS(User,
+        --[[local title = common.GetNLS(User,
             "Altar " .. gods.getNameDe(god) .. "s",
             "Altar of " .. gods.getNameEn(god)
-        )
+        )]]
         local description = common.GetNLS(User,
             "Altar " .. gods.getNameDe(god) .. "s, " .. gods.getDescriptionDe(god) .. ".\nWähle eine Aktion:",
             "Altar of " .. gods.getNameEn(god) .. ", the " .. gods.getDescriptionEn(god) .. ".\nChoose your action:"
