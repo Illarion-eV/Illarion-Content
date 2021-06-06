@@ -98,17 +98,17 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell! May Oldra's bless
 
 -- Quest 1: New wooden spoon, for old spoon
 queststatus(514) = 0, english, "quest", "mission" -> inform ("[New Quest] A Good Deed for Oldra"), money + 2000, queststatus(514) = 1, "Oh! I do have something you could help me with. It seems my wooden spoon has seen better days. Could you go visit the market place in Runewick and get me a new one? Here, take these coins."
-queststatus(514) = 0, "quest", "mission" -> inform ("[Neue Quest] Ein Gute Tat für Oldra"), money + 2000, queststatus(514) = 1, "Oh! Ich habe etwas wobei du mir helfen kannst. Mein Holzlöffel hat schon bessere Tage gesehen. Kannst du den Marktplatz in Runewick besuchen und mir einen neuen bringen? Hier, nimm diese Münzen."
+queststatus(514) = 0, "quest", "mission" -> inform ("[Neue Quest] Ein Gute Tat für Oldra"), money + 2000, queststatus(514) = 1, "Oh! Ich habe etwas wobei du mir helfen kannst. Mein Kochlöffel hat schon bessere Tage gesehen. Kannst du den Marktplatz in Runewick besuchen und mir einen neuen bringen? Hier, nimm diese Münzen."
 queststatus(514) = 0, "task", "adventure", "order" -> inform ("[New Quest] A Good Deed for Oldra"), money + 2000, queststatus(514) = 1, "Oh! I do have something you could help me with. It seems my wooden spoon has seen better days. Could you go visit the market place in Runewick and get me a new one? Here, take these coins."
-queststatus(514) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl"-> inform ("[Neue Quest] Ein Gute Tat für Oldra"), money + 2000, queststatus(514) = 1, "Oh! Ich habe etwas wobei du mir helfen kannst. Mein Holzlöffel hat schon bessere Tage gesehen. Kannst du den Marktplatz in Runewick besuchen und mir einen neuen bringen? Hier, nimm diese Münzen."
+queststatus(514) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl"-> inform ("[Neue Quest] Ein Gute Tat für Oldra"), money + 2000, queststatus(514) = 1, "Oh! Ich habe etwas wobei du mir helfen kannst. Mein Kochlöffel hat schon bessere Tage gesehen. Kannst du den Marktplatz in Runewick besuchen und mir einen neuen bringen? Hier, nimm diese Münzen."
 
 --Not done
 queststatus(514) = 1, item(227, all) < 1, english, ".+" -> "Have you gotten me that spoon yet?"
-queststatus(514) = 1, item(227, all) < 1, ".+" -> "Hast du mir den Löffel mitgebracht?"
+queststatus(514) = 1, item(227, all) < 1, ".+" -> "Hast du mir den Kochlöffel mitgebracht?"
 
 --done
 queststatus(514) = 1, item(227, all) > 0, english, ".+"-> inform ("[Quest Solved] You are awarded a wooden spoon."), deleteItem(227,1), item(227, 1, 566), queststatus(514) = 2, "Thank you! Now I can get this stew started! Here, why don't you take my old one. It may yet still have some use left in it."
-queststatus(514) = 1, item(227, all) > 0, ".+" -> inform ("[Quest gelöst] Du erhältst das hölzerner Löffel."), deleteItem(227,1), item(227, 1, 566), queststatus(514) = 2, "Danke! Jetzt kann ich den Eintopf machen! Hier, nimm meinen alten Löffel. Er könnte noch von Nutzen sein."
+queststatus(514) = 1, item(227, all) > 0, ".+" -> inform ("[Quest gelöst] Du erhältst einen Kochlöffel."), deleteItem(227,1), item(227, 1, 566), queststatus(514) = 2, "Danke! Jetzt kann ich den Eintopf machen! Hier, nimm meinen alten Kochlöffel. Er könnte noch von Nutzen sein."
 
 -- Quest 2: Needs 25 Cabbages, reward 30 silver
 queststatus(514) = 2, english, "quest", "mission" -> inform ("[New Quest] A Good Deed for Oldra II"), queststatus(514) = 3, "It seems I may have misread my recipe and did not buy enough cabbages the other day. Would you be so kind as to pick up the remaining twenty five for me?"

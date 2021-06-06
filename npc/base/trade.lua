@@ -26,6 +26,7 @@ local lookat = require("base.lookat")
 local messages = require("base.messages")
 local money = require("base.money")
 local baseNPC = require("npc.base.basic")
+local gems = require("base.gems")
 
 local isFittingItem
 local tradeNPCItem
@@ -122,6 +123,7 @@ function tradeNPC:showDialog(npcChar, player)
 end
 
 function isFittingItem(tradeItem, boughtItem)
+
     if (tradeItem._itemId ~= boughtItem.id) then
         return false
     end
@@ -134,6 +136,18 @@ function isFittingItem(tradeItem, boughtItem)
 end
 
 function tradeNPC:buyItemFromPlayer(npcChar, player, boughtItem)
+
+    local glyphEff = tonumber(boughtItem:getData("glyphEffNo"))
+    if nil~= glyphEff and glyphEff > 0 then
+        player:inform("NPCs kaufen keine Gegenstände mit Glyphen.","NPCs do not buy glyphed items.", Character.highPriority)
+        return
+    end
+
+    if gems.getGemBonus(boughtItem) ~= 0 then
+        player:inform("NPCs kaufen keine Gegestände mit gesockelten Edelsteinen.","NPCs don't buy gemmed items.", Character.highPriority)
+        return
+    end
+
     -- Buying at special price
     local item
 

@@ -25,7 +25,6 @@ local factionLeader = require("scheduled.factionLeader")
 local areas = require("content.areas")
 local hairdresser = require("npc.hairdresser")
 local seafaring = require("base.seafaring")
-local petsystem = require("petsystem.base")
 local gods_common = require("content._gods.gods_common")
 -- Called after every player login
 
@@ -332,9 +331,6 @@ function M.onLogin( player )
     if not found then
         player.effects:addEffect(LongTimeEffect(gods_common.EFFECT_ID, 10))
     end
-
-    --Handle pets
-    petsystem.loadPet(player)
 end
 
 function showNewbieDialog(player)
@@ -343,25 +339,25 @@ function showNewbieDialog(player)
 
     local callbackNewbie = function(dialogNewbie) --start callback of Newbie Dialog
         local callbackSkip = function(dialogSkip) --start of callback of skipping dialog
-            local dialogPostSkip
+            local dialogMessage
             local callbackPostSkip = function (dialogPostSkip) end --empty callback
 
             if dialogSkip:getSuccess() and dialogSkip:getSelectedIndex() == 1 then --skipping
                 if player:getPlayerLanguage() == 0 then --skip message
-                    dialogPostSkip = MessageDialog("Einführung", "Du hast entschieden, das Tutorial zu überspringen. Wähle ein Reich aus, welchem dein Charakter zukünftig angehören wird. Gehe hierzu durch eines der Portale auf den kleinen Inseln. Du kannst diese Entscheidung später im Spiel jederzeit revidieren. Viola Baywillow kann dir einiges über die drei Reiche erzählen, frage sie einfach nach 'Hilfe'.", callbackPostSkip)
+                    dialogMessage = MessageDialog("Einführung", "Du hast entschieden, das Tutorial zu überspringen. Wähle ein Reich aus, welchem dein Charakter zukünftig angehören wird. Gehe hierzu durch eines der Portale auf den kleinen Inseln. Du kannst diese Entscheidung später im Spiel jederzeit revidieren. Viola Baywillow kann dir einiges über die drei Reiche erzählen, frage sie einfach nach 'Hilfe'.", callbackPostSkip)
                 else
-                    dialogPostSkip = MessageDialog("Tutorial", "You have decided to skip the tutorial. Please choose which realm you desire to be the home for your character by stepping through the corresponding portal on the three islands. You can reconsider this decision at any time once you have joined the game. Viola Baywillow will provide you with more information on the three available realms, just ask her for 'help'.", callbackPostSkip)
+                    dialogMessage = MessageDialog("Tutorial", "You have decided to skip the tutorial. Please choose which realm you desire to be the home for your character by stepping through the corresponding portal on the three islands. You can reconsider this decision at any time once you have joined the game. Viola Baywillow will provide you with more information on the three available realms, just ask her for 'help'.", callbackPostSkip)
                 end
 
             else --continue the tutorial
                 if player:getPlayerLanguage() == 0 then
-                    dialogPostSkip = MessageDialog("Einführung", "Gehe zum Menschen am Ende des Piers um mit dem Tutorial zu beginnen. Klicke mit der linken Maustaste auf ein Feld neben dem Menschen. Alternativ kannst du deinen Charakter auch mit WASD, dem Ziffernblock oder den Pfeiltasten bewegen. Durch Drücken der Steuerungstaste läuft dein Charakter.\n\nEine Übersicht aller Kommandos kannst du dir mit F1 anzeigen lassen. Auf der Homepage www.illarion.org findest du zudem eine Auflistung häufig gestellter Fragen (FAQ).", callbackPostSkip)
+                    dialogMessage = MessageDialog("Einführung", "Gehe zum Menschen am Ende des Piers um mit dem Tutorial zu beginnen. Klicke mit der linken Maustaste auf ein Feld neben dem Menschen. Alternativ kannst du deinen Charakter auch mit WASD, dem Ziffernblock oder den Pfeiltasten bewegen. Durch Drücken der Steuerungstaste läuft dein Charakter.\n\nEine Übersicht aller Kommandos kannst du dir mit F1 anzeigen lassen. Auf der Homepage www.illarion.org findest du zudem eine Auflistung häufig gestellter Fragen (FAQ).", callbackPostSkip)
                 else
-                    dialogPostSkip = MessageDialog("Tutorial", "To start the tutorial, please walk to the human at the end of the pier. To move, click with the left mouse button on a spot close to the human. Alternatively, you can walk using the num pad, the arrow keys or WASD. Pressing the control key makes your character run.\n\nTo see an overview of all commands, hit F1. On the website www.illarion.org, you can find frequently asked question (FAQ) answered.", callbackPostSkip)
+                    dialogMessage = MessageDialog("Tutorial", "To start the tutorial, please walk to the human at the end of the pier. To move, click with the left mouse button on a spot close to the human. Alternatively, you can walk using the num pad, the arrow keys or WASD. Pressing the control key makes your character run.\n\nTo see an overview of all commands, hit F1. On the website www.illarion.org, you can find frequently asked question (FAQ) answered.", callbackPostSkip)
                 end
             end
 
-            player:requestMessageDialog(dialogPostSkip) --showing the text after skipping dialog
+            player:requestMessageDialog(dialogMessage) --showing the text after skipping dialog
 
         end --end of callback of skip dialog
 
@@ -449,8 +445,7 @@ end
 local function createMagicGem(gemId, gemAmount, Recipient)
     local gemData = gems.getMagicGemData(1)
     common.CreateItem(Recipient, gemId, gemAmount, 333, gemData)
-    local basename={}
-    basename=world:getItemName(gemId, Recipient:getPlayerLanguage())
+    local basename = world:getItemName(gemId, Recipient:getPlayerLanguage())
     if Recipient:getPlayerLanguage() == 0 then
         basename = "Latent magischer " .. basename
     else
@@ -464,7 +459,7 @@ function PayOutWage(Recipient, town)
     local totalTaxes = townTreasure.GetPaymentAmount(town)
     local totalPayers = townTreasure.GetTaxpayerNumber(town)
 
-    local infText = ""
+    local infText
 
     if tonumber(totalPayers)>0 then
         if tonumber(totalTaxes)>0 then
@@ -518,7 +513,7 @@ function payNow(User)
 --Hemp Necktie Inn = 103 (not a faction!)
 --ATTENTION: Depot IDs are magically shifted by 1 compared to the data in item.id_321_depot
 
-    local infText = ""
+    local infText
 
      -- no member of any town
     local town = factions.getMembershipByName(User)

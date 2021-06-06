@@ -32,11 +32,12 @@ local holePosition = {
 function M.UseItem(User, SourceItem, ltstate)
     for  i = 1, #holePosition do
         if (SourceItem.pos == holePosition[i]) then
-        common.HighInformNLS(User,
-            "Du brauchst ein Seil um hier hinab zu klettern.",
-            "You need a rope to climb down here.")
             if climbing.hasRope(User) then
                 climbing.climbDown(User)
+            else
+                common.HighInformNLS(User,
+                "Du brauchst ein Seil um hier hinab zu klettern.",
+                "You need a rope to climb down here.")
             end
         return
         end
@@ -46,10 +47,15 @@ function M.UseItem(User, SourceItem, ltstate)
 end
 
 function M.LookAtItem(User, Item)
-
     local lookAt = lookat.GenerateLookAt(User, Item)
-
-    if Item.pos == holePosition then
+    local foundClimbableClaypit = false
+    for index=1,#(holePosition),1 do
+        if(holePosition[index] == Item.pos) then
+            foundClimbableClaypit = true
+            break
+        end
+    end
+    if foundClimbableClaypit then
         lookAt.name = common.GetNLS(User,
             "Ein tiefes Loch.",
             "A deep hole.")

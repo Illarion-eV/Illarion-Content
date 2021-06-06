@@ -26,7 +26,6 @@ local recipe_creation = require("alchemy.base.recipe_creation")
 local lookat = require("base.lookat")
 local licence = require("base.licence")
 local shipmasterParchments = require("content.shipmasterParchments")
-local petSystemBase = require("petsystem.base")
 
 local M = {}
 
@@ -121,8 +120,6 @@ function TeachLenniersDream(User)
     local callback = function(dialog)
         potionToTeacher.TellRecipe(User, 318)
     end
-
-    local stockDe, stockEn = GenerateStockDescription(User)
 
     local textDE = "Als du deinen Blick auf die wirren Zeilen richtest, beginnen sie sich zu ordnen. Das unleserliche Chaos weicht langsam einer Ordnung."
     local textEN = "As you look at the confusing lines, they start to arrange themselves. The unreadable chaos is replaced by order."
@@ -391,7 +388,6 @@ function GetItem(User, listOfTheIngredients)
     local deleteItem, deleteId, missingDe, missingEn
     if type(listOfTheIngredients[USER_POSITION_LIST[User.id]])=="string" then
         if string.find(listOfTheIngredients[USER_POSITION_LIST[User.id]],"bottle") then
-            local bottleList = User:getItemList(164)
                 local bottleList = User:getItemList(164)
                 if #bottleList > 0 then
                     deleteItem = bottleList[1] -- here, we take the first bottle we get
@@ -423,7 +419,7 @@ function GetItem(User, listOfTheIngredients)
             elseif liquid == "essence brew" then
                 local neededId = table.remove(neededList,1)
                 local bottleList = User:getItemList(neededId)
-                local currentList = {}
+                local currentList
                 for i=1,#bottleList do
                     currentList = {}
                     if bottleList[i]:getData("filledWith")=="essenceBrew" then
@@ -488,10 +484,6 @@ function M.LookAtItem(User, Item)
 
     if Item:getData("bookList") == "true" then
         return bookListLookAt(User, Item)
-    end
-
-    if Item:getData("petInformation") ~= "" then
-        lookat.SetSpecialDescription(Item, petSystemBase.commandsExplanationDe, petSystemBase.commandsExplanationEn)
     end
 
     return lookat.GenerateLookAt(User, Item)
