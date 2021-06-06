@@ -26,7 +26,6 @@ local recipe_creation = require("alchemy.base.recipe_creation")
 local lookat = require("base.lookat")
 local licence = require("base.licence")
 local shipmasterParchments = require("content.shipmasterParchments")
-local petSystemBase = require("petsystem.base")
 
 local M = {}
 
@@ -488,10 +487,6 @@ function M.LookAtItem(User, Item)
 
     if Item:getData("bookList") == "true" then
         return bookListLookAt(User, Item)
-    end
-
-    if Item:getData("petInformation") ~= "" then
-        lookat.SetSpecialDescription(Item, petSystemBase.commandsExplanationDe, petSystemBase.commandsExplanationEn)
     end
 
     return lookat.GenerateLookAt(User, Item)

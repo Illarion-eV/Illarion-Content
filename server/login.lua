@@ -25,7 +25,6 @@ local factionLeader = require("scheduled.factionLeader")
 local areas = require("content.areas")
 local hairdresser = require("npc.hairdresser")
 local seafaring = require("base.seafaring")
-local petsystem = require("petsystem.base")
 local gods_common = require("content._gods.gods_common")
 -- Called after every player login
 
@@ -332,9 +331,6 @@ function M.onLogin( player )
     if not found then
         player.effects:addEffect(LongTimeEffect(gods_common.EFFECT_ID, 10))
     end
-
-    --Handle pets
-    petsystem.loadPet(player)
 end
 
 function showNewbieDialog(player)

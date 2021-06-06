@@ -76,7 +76,6 @@ local common = require("base.common")
 local gods = require("content.gods")
 local gods_common = require("content._gods.gods_common")
 local lookat = require("base.lookat")
-local revivePet = require("petsystem.revivePet")
 
 local M = {}
 --
@@ -404,15 +403,6 @@ function M.UseItem(User, SourceItem, ltstate)
 
     local god = tonumber(SourceItem:getData("god"))
     god = god or gods.GOD_NONE
-
-    --Petsystem hook
-
-    if god == gods.GOD_OLDRA then
-
-        if revivePet.bringBackPet(User, SourceItem) then
-            return
-        end
-    end
 
     --Depending on who's altar that is and who uses it, execute different actions
     if not gods.GODS[god] then --undedicated altar
