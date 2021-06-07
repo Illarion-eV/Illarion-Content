@@ -307,6 +307,7 @@ function M.onLogin( player )
 
     --A hack to display bars correctly
     player:increaseAttrib("foodlevel", -1)
+    player:increaseAttrib("foodlevel", 1)
 
     --hair messages
     hairdresser.hairOnLogin(player)
