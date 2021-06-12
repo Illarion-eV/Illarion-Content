@@ -1275,7 +1275,7 @@ function M.getSkill(identifier, tileIdentifier)
                 return Character[item.skill]
             end
         end
-    elseif tile then
+    elseif tileIdentifier then
         for _, tile in pairs(M.tiles) do
             if tile.tileId == identifier then
                 return Character[tile.skill]
