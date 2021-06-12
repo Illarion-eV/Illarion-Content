@@ -1212,7 +1212,7 @@ local targetItem
         if item.category == "Sign Posts" then
             if item.itemId == targetItem.id then
                 return targetItem
-            end  
+            end
         end
     end
 return false
@@ -1268,8 +1268,8 @@ function M.getLevelReq(identifier, isTile)
         end
     end
 end
-function M.getSkill(identifier, tile)
-    if not tile then
+function M.getSkill(identifier, tileIdentifier)
+    if not tileIdentifier then
         for _, item in pairs(M.items) do
             if item.itemId == identifier then
                 return Character[item.skill]
