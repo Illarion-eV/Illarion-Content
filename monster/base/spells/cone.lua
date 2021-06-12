@@ -16,7 +16,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local base = require("monster.base.spells.base")
 local common = require("base.common")
-local standardfighting = require("server.standardfighting")
 
 local function _isNumber(value)
     return type(value) == "number"
@@ -280,8 +279,8 @@ return function(params)
             --all end points. We fill the table with the positions as keys to ensure that every position is only once
             --in there.
             local coneFields = {}
-            for _, pos in pairs(lineLocations) do
-               common.CreateLine(monster.pos, pos,
+            for _, posi in pairs(lineLocations) do
+               common.CreateLine(monster.pos, posi,
                    function(pos)
                        local field = world:getField(pos)
                        if field == nil then

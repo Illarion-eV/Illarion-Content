@@ -56,15 +56,13 @@ local function SupportPotion(User,support,potion)
     local cauldron = common.GetFrontItem( User )
     local supportEffectId = tonumber(support:getData("potionEffectId"))
 
-    local supportQuality, potionQuality, bottle
+    local supportQuality, potionQuality
     if support.id >= 1008 and support.id <= 1018 then
         supportQuality = tonumber(support:getData("potionQuality"))
         potionQuality = potion.quality
-        bottle = potion
     else
         supportQuality = support.quality
         potionQuality = tonumber(potion:getData("potionQuality"))
-        bottle = support
     end
     if (supportEffectId >= 400) and (supportEffectId <= 406) then -- quality raiser
     -- list with potions in cauldron and bottle

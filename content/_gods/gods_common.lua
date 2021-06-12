@@ -18,7 +18,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Also contains tuning constants concerning favour increase, decay and cooldowns
 
 local common = require('base.common')
-local globalvar = require("base.globalvar")
 local math = require("math")
 
 

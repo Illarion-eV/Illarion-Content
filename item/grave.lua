@@ -87,8 +87,7 @@ function M.UseItem(User, SourceItem)
 
     if SourceItem.pos == position (447,785,-9) then -- kindness tombstone in Akaltut's Chambers
         local queststatus = User:getQuestProgress(531) -- here, we save which events were triggered
-        local queststatuslist = {}
-        queststatuslist = common.Split_number(queststatus, 6) -- reading the digits of the queststatus as table
+        local queststatuslist = common.Split_number(queststatus, 6) -- reading the digits of the queststatus as table
         if queststatuslist[1] == 0 then -- gem, only triggered once by each char
             common.InformNLS(User, "Du entdeckst einen glitzernden Edelstein bei der Leiche.", "You discover a shiny gem with the corpse.")
             common.CreateItem(User, 3525, 1, 333, {["gemLevel"] = 1})
@@ -98,13 +97,11 @@ function M.UseItem(User, SourceItem)
         return
     end
 
-    local foundSource
-    -- check for grave
+        -- check for grave
     for t=1,4 do
         local TargetItem = common.GetItemInArea(User.pos, graveItemNumbers[t])
         if (TargetItem ~= nil) then
             common.TurnTo( User, TargetItem.pos) -- turn if necessary
-            foundSource=true
         end
     end
 
@@ -160,7 +157,6 @@ function M.UseItem(User, SourceItem)
         end
     end
 
-    local itemData
     local isletmaCoffin = (SourceItem:getData("letmaCoffin") == "true")
     if (isletmaCoffin) then
         letmaCoffin(User, SourceItem)

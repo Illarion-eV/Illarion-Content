@@ -174,8 +174,6 @@ function M.chanceForElementDrop(User, params)
         else
             error("failItemID was set to something, but not to a number.")
         end
-    else
-       -- nothing
     end
     if params.failGfxID ~= nil then
         if _isNumber(params.failGfxID) then

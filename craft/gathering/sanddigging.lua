@@ -17,7 +17,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- SAND_PIT = 1208
 
-local common = require("base.common")
 local shared = require("craft.base.shared")
 local gathering = require("craft.base.gathering")
 

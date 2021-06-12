@@ -73,7 +73,7 @@ function M.townManagmentUseItem(User, SourceItem)
     local dialogText = common.GetNLS(User, "Instrument zur Verwaltung der Stadt und Ankündigungen.", "Instrument for town management and announcements.")
     local dialog = SelectionDialog(dialogTitle, dialogText, callback)
 
-    local toolUse = {}
+    local toolUse
     if collectionchest.isCollectionChestExists(toolTown) then
         toolUse = common.GetNLS(User, {"Ankündigung", "Verbannung", "Lizenz", "Schlüssel", "Materialsammlung"}, {"Announcement", "Ban a character", "Licence", "Key", "Material collection"})
     else
@@ -107,8 +107,7 @@ function TownAnnouncement(User,toolTown)
     local dialogText = common.GetNLS(User, "Wähle eine Option.", "Chose an option.")
     local dialog = SelectionDialog(dialogTitle, dialogText, callback)
 
-    local options = {}
-    options = common.GetNLS(User, {"Ankündigung lesen", "Ankündigung schreiben"}, {"Read announcement", "Write new announcement"})
+    local options = common.GetNLS(User, {"Ankündigung lesen", "Ankündigung schreiben"}, {"Read announcement", "Write new announcement"})
 
     for i = 1, #options do
         dialog:addOption(0, options[i])
@@ -189,11 +188,10 @@ function TownGuard(User,toolTown)
         local myString = dialog:getInput()
         local myCharId
         local myCharName
-        local days
         local allFound = false
-        local a, b
+        local a, b, _
         if string.find(myString,"(%d+)") then
-            a,b,myCharId,days = string.find(myString,"(%d+)")
+            _, _, myCharId = string.find(myString,"(%d+)")
             myCharId = tonumber(myCharId)
             allFound = true
         elseif string.find(myString,".*") then
@@ -260,11 +258,11 @@ function TownLicence(User,toolTown)
             return
         end
         local SecondLicence = factionIds[dialog:getSelectedIndex() + 1]
-        local cbSetLicence = function (dialog)
-            if not dialog:getSuccess() then
+        local cbSetLicence = function (subdialog)
+            if not subdialog:getSuccess() then
                 return
             end
-            local newLicence = licenceValues[dialog:getSelectedIndex() + 1]
+            local newLicence = licenceValues[subdialog:getSelectedIndex() + 1]
             licence.SetLicence(FirstLicence, SecondLicence, newLicence)
             licenceStrings[licence.PERMISSION_NONE] = "restricted"
             licenceStrings[licence.PERMISSION_ACTIVE] = "granted"

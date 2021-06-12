@@ -26,7 +26,6 @@ local granorsHut = require("content.granorsHut")
 
 local M = {}
 
-local bottomBorder = 2;
 local topBorder = {7000       ,7000  ,50000      ,10000        ,7000         ,7000    ,50000        ,10000}
 local attribList ={"hitpoints","mana","foodlevel","poisonvalue","hitpointsOT","manaOT","foodlevelOT","poisonvalueOT"}
 
@@ -69,7 +68,7 @@ local function DrinkPotion(User,SourceItem)
     elseif potionEffectId >= 11111111 and potionEffectId <= 99999999 then -- it's an attribute changer
 
         -- there is already an effect; sadly,therefore, the current potion will have no effect
-        local foundEffect, myEffect = User.effects:find(166)
+        local foundEffect = User.effects:find(166)
         if foundEffect then
             common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert. Scheinbar verhindert der bereits wirkende Heiltrank weitere Effekte.",
             "You don't have the feeling that something happens. It seems that the already affecting healing potion prevents other effects.")
@@ -132,7 +131,7 @@ local function DrinkPotion(User,SourceItem)
 
         -- there is already a fire spitting potion effect going on
         -- char pukes out a flame on the map, no further effect added
-        local foundEffect, myEffect = User.effects:find(60)
+        local foundEffect = User.effects:find(60)
         if foundEffect then
             common.InformNLS(User, "Sofort steigt Hitze und Erbrochenes in dir auf.",
             "Immediately, your body heats up and and some stomach contents comes up.")
@@ -158,9 +157,6 @@ local function DrinkPotion(User,SourceItem)
         local myEffect=LongTimeEffect(60,firstCall)
         myEffect:addValue("quality",math.floor(SourceItem.quality/100))
         User.effects:addEffect(myEffect)
-
-    else
-        --whatever
     end
 
     if SourceItem:getData("granorsHut") ~= "" then

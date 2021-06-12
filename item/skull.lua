@@ -255,7 +255,7 @@ function M.UseItem(User, SourceItem)
         if foundEffect then
             myEffect.nextCalled = 5 * 600;
         else
-            local myEffect = LongTimeEffect(100, 5 * 600) --5min
+            myEffect = LongTimeEffect(100, 5 * 600) --5min
             User.effects:addEffect(myEffect)
         end
 
@@ -267,7 +267,7 @@ function M.UseItem(User, SourceItem)
         if foundEffect then
             myEffect.nextCalled = 8 * 600;
         else
-            local myEffect = LongTimeEffect(101, 8 * 600) --8min
+            myEffect = LongTimeEffect(101, 8 * 600) --8min
             User.effects:addEffect(myEffect)
         end
     end

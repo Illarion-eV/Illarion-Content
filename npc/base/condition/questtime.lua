@@ -34,8 +34,6 @@ function(self, comp, quest, month, day, hour)
         self["check"] = _questtime_helper_greater
     elseif (comp == "<") then
         self["check"] = _questtime_helper_lesser
-    else
-        -- unkonwn comparator
     end
 end)
 

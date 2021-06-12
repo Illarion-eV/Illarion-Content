@@ -42,8 +42,6 @@ function(self, name, comp, value)
         self["check"] = _skill_helper_greater
     elseif (comp == "<") then
         self["check"] = _skill_helper_lesser
-    else
-        -- unkonwn comparator
     end
 end)
 

@@ -17,8 +17,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (502, 'quest.zenia_502_wilderness');
 
 local common = require("base.common")
-local factions = require("base.factions")
-local monsterQuests = require("monster.base.quests")
 local M = {}
 
 local GERMAN = Player.german

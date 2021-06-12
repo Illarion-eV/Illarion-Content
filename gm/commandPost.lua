@@ -183,7 +183,7 @@ function initiateSpawns(User, SourceItem, targetPosition)
     createSpawnMarker(User, targetPosition)
     local length = #spawnInformations +1
     local empty = {}
-    local numberOfPortals = commandPosts[tostring(targetPosition)][1]["numberOfPortals"]
+
     if checkSpawnInformation(targetPosition) == false then
         table.insert(spawnInformations, length, commandPosts[tostring(targetPosition)])
         table.insert(commandMonsters, length, empty)
@@ -305,26 +305,26 @@ end
 function checkCommandPost(User, SourceItem, targetPosition)
     local flag = true
     for i=1, #commandPosts[tostring(targetPosition)][1]-2 do
-        local identifyer = commandPosts[tostring(targetPosition)][1][i]
+        local identifier = commandPosts[tostring(targetPosition)][1][i]
 
-        if commandPosts[tostring(targetPosition)][1][identifyer] ~= nil then
-        --    User:inform(tostring(commandPosts[tostring(targetPosition)][1][identifyer]))
-        elseif identifyer == "gfx" then
-            User:inform("Opdtional " .. identifyer .." is not set!")
-        elseif identifyer == "sfx" then
-            User:inform("Optional " .. identifyer .." is not set!")
-        else
-            User:inform(identifyer .. " is not set!")
-            flag=false
+        if commandPosts[tostring(targetPosition)][1][identifier] == nil then
+            if identifier == "gfx" then
+                User:inform("Opdtional " .. identifier .." is not set!")
+            elseif identifier == "sfx" then
+                User:inform("Optional " .. identifier .." is not set!")
+            else
+                User:inform(identifier .. " is not set!")
+                flag=false
+            end
         end
 
     end
 
     for i=2, #commandPosts[tostring(targetPosition)] do
         for j=1, #commandPosts[tostring(targetPosition)][i] do
-            local identifyer = commandPosts[tostring(targetPosition)][i][j]
-            if commandPosts[tostring(targetPosition)][i][identifyer] == nil then
-            User:inform(identifyer .. " of Spawn Point " .. tostring(i-1) .. " is missing!")
+            local identifier = commandPosts[tostring(targetPosition)][i][j]
+            if commandPosts[tostring(targetPosition)][i][identifier] == nil then
+            User:inform(identifier .. " of Spawn Point " .. tostring(i-1) .. " is missing!")
             flag = false
             end
 
@@ -360,7 +360,7 @@ function entryToNumbers(entry)
 
         if (string.find(entry,"(%d+)",fin) ~= nil) then
 
-            local a, b, value = string.find(entry,"(%d+)",fin)
+            local _, b, value = string.find(entry,"(%d+)",fin)
             fin = b + 1
             counter = counter +1
             monsterIds[counter]    = tonumber(value)
@@ -379,11 +379,11 @@ function setCommandPostEffects(User, SourceItem, targetPosition)
         end
         local input = dialog:getInput()
         if (string.find(input,"(%d+) (%d+)") ~= nil) then
-            local a, b, gfxId, sfxId = string.find(input,"(%d+) (%d+)")
+            local _, _, gfxId, sfxId = string.find(input,"(%d+) (%d+)")
             commandPosts[tostring(targetPosition)][1]["gfx"] = tonumber(gfxId)
             commandPosts[tostring(targetPosition)][1]["sfx"] = tonumber(sfxId)
         elseif (string.find(input,"(%d+)") ~= nil) then
-            local a, b, gfxId = string.find(input,"(%d+)")
+            local _, _, gfxId = string.find(input,"(%d+)")
             commandPosts[tostring(targetPosition)][1]["gfx"] = tonumber(gfxId)
         end
     end
@@ -426,7 +426,7 @@ function setCustomCommandPostMarker(User, SourceItem, targetPosition)
         end
         local input = dialog:getInput()
         if (string.find(input,"(%d+)") ~= nil) then
-            local a, b, numberOfPortals = string.find(input,"(%d+)")
+            local _, _, numberOfPortals = string.find(input,"(%d+)")
             commandPosts[tostring(targetPosition)][1]["marker"] = tonumber(numberOfPortals)
         end
     end
@@ -441,7 +441,7 @@ function setCommandPostCooldown(User, SourceItem, targetPosition)
         end
         local input = dialog:getInput()
         if (string.find(input,"(%d+)") ~= nil) then
-            local a, b, cooldown = string.find(input,"(%d+)")
+            local _, _, cooldown = string.find(input,"(%d+)")
             commandPosts[tostring(targetPosition)][1]["cooldown"] = tonumber(cooldown)
         end
     end
@@ -456,7 +456,7 @@ function setCommandPostIntervals(User, SourceItem, targetPosition)
         end
         local input = dialog:getInput()
         if (string.find(input,"(%d+)") ~= nil) then
-            local a, b, intervals = string.find(input,"(%d+)")
+            local _, _, intervals = string.find(input,"(%d+)")
             commandPosts[tostring(targetPosition)][1]["intervals"] = tonumber(intervals)
         end
     end
@@ -513,7 +513,7 @@ function setSpawnCoordinates(User, SourceItem, targetPosition, index)
         end
         local input = dialog:getInput()
         if (string.find(input,"(%d+) (%d+) (%d+)") ~= nil) then
-            local a, b, xCoords, yCoords, zCoords = string.find(input,"(%d+) (%d+) (%d+)")
+            local _, _, xCoords, yCoords, zCoords = string.find(input,"(%d+) (%d+) (%d+)")
             local target = position(tonumber(xCoords),tonumber(yCoords),tonumber(zCoords))
             local targetField = world:getField(target)
 
@@ -543,7 +543,7 @@ function setNumberOfPortals(User, SourceItem, targetPosition)
         end
         local input = dialog:getInput()
         if (string.find(input,"(%d+)") ~= nil) then
-            local a, b, numberOfPortals = string.find(input,"(%d+)")
+            local _, _, numberOfPortals = string.find(input,"(%d+)")
             commandPosts[tostring(targetPosition)][1]["numberOfPortals"] = tonumber(numberOfPortals)
             for i=1, tonumber(numberOfPortals) do
                 commandPosts[tostring(targetPosition)][i+1] = {"Coordinates", "Monsters", "NumberOfMonsters"}
@@ -609,7 +609,7 @@ function setNumberOfMonsters(User, SourceItem, targetPosition, index)
         end
         local input = dialog:getInput()
         if (string.find(input,"(%d+)") ~= nil) then
-            local a, b, monster = string.find(input,"(%d+)")
+            local _, _, monster = string.find(input,"(%d+)")
             commandPosts[tostring(targetPosition)][index]["NumberOfMonsters"] = tonumber(monster)
 
         end

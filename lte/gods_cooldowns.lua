@@ -18,10 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- EffectID == gods_cooldwons_common.EFFECT_ID == 600
 -- INSERT INTO longtimeeffects (lte_effectid, lte_effectname, lte_scriptname) VALUES (600, 'Gods cooldowns', 'lte.gods_cooldowns');
 
-local common = require("base.common")
-local math = require("math")
 local gods_common = require("content._gods.gods_common")
-local gods = require("content.gods")
 
 local M = {}
 

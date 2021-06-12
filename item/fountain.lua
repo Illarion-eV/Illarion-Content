@@ -18,7 +18,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE items SET itm_script='item.fountain' WHERE itm_id IN (631,2079);
 
 local common = require("base.common")
-local lookat = require("base.lookat")
 
 local M = {}
 

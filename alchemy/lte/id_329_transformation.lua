@@ -29,42 +29,42 @@ function M.callEffect(Effect,User)
     local findCounter,counterBlack = Effect:findValue("counterBlack")
     if findCounter then
 
-       if counterBlack >= 1 then
+        if counterBlack >= 1 then
 
-          -- info that the effect will be removed soon
-           if counterBlack == 2 then
+            -- info that the effect will be removed soon
+            if counterBlack == 2 then
                 common.InformNLS( User,
                 "Du spürst, wie ein Schauer über deinen Körper läuft. Deine Verwandlung wird nicht mehr lange andauern.",
                 "Shortly, you feel a chill on your skin. Your transformation won't last a long time anymore."
                        )
-           end
-          counterBlack = counterBlack - 1 -- reduce of the effect counter
-          Effect:addValue("counterBlack", counterBlack)
-          local findCounter, counterBlack = Effect:findValue("counterBlack")
+            end
+            counterBlack = counterBlack - 1 -- reduce of the effect counter
+            Effect:addValue("counterBlack", counterBlack)
+            local _, counterBlack2 = Effect:findValue("counterBlack")
 
-           if counterBlack == 0 then
+            if counterBlack2 == 0 then
                 -- the effect counter is down to zero; we change the char back
-                return false
-           end
-       end
-   end
+               return false
+            end
+        end
+    end
 
-   Effect.nextCalled = 600
-   return true
+    Effect.nextCalled = 600
+    return true
 end
 
 local function TransformBack(Effect,User)
-    local findOldSkincolor1, oldSkincolor1 = Effect:findValue("oldSkincolor1")
-    local findOldSkincolor2, oldSkincolor2 = Effect:findValue("oldSkincolor2")
-    local findOldSkincolor3, oldSkincolor3 = Effect:findValue("oldSkincolor3")
-    local findOldHaircolor1, oldHaircolor1 = Effect:findValue("oldHaircolor1")
-    local findOldHaircolor2, oldHaircolor2 = Effect:findValue("oldHaircolor2")
-    local findOldHaircolor3, oldHaircolor3 = Effect:findValue("oldHaircolor3")
-    local findOldBeard, oldBeard = Effect:findValue("oldBeard")
-    local findOldHair, oldHair = Effect:findValue("oldHair")
-    local findOldSex, oldSex = Effect:findValue("oldSex")
-    local findOldRace, oldRace = Effect:findValue("oldRace")
-    local findOldHeight, oldHeight = Effect:findValue("oldHeight")
+    local _, oldSkincolor1 = Effect:findValue("oldSkincolor1")
+    local _, oldSkincolor2 = Effect:findValue("oldSkincolor2")
+    local _, oldSkincolor3 = Effect:findValue("oldSkincolor3")
+    local _, oldHaircolor1 = Effect:findValue("oldHaircolor1")
+    local _, oldHaircolor2 = Effect:findValue("oldHaircolor2")
+    local _, oldHaircolor3 = Effect:findValue("oldHaircolor3")
+    local _, oldBeard = Effect:findValue("oldBeard")
+    local _, oldHair = Effect:findValue("oldHair")
+    local _, oldSex = Effect:findValue("oldSex")
+    local _, oldRace = Effect:findValue("oldRace")
+    local _, oldHeight = Effect:findValue("oldHeight")
 
     User:setRace(oldRace)
     User:setAttrib("body_height",oldHeight)
@@ -87,11 +87,11 @@ function M.loadEffect(Effect,User)
         if counterBlack > 0 then -- check if the actual effect is still active
 
             local findNewSkincolor1, newSkincolor1 = Effect:findValue("newSkincolor1")
-            local findNewSkincolor2, newSkincolor2 = Effect:findValue("newSkincolor2")
-            local findNewSkincolor3, newSkincolor3 = Effect:findValue("newSkincolor3")
+            local _, newSkincolor2 = Effect:findValue("newSkincolor2")
+            local _, newSkincolor3 = Effect:findValue("newSkincolor3")
             local findNewHaircolor1, newHaircolor1 = Effect:findValue("newHaircolor1")
-            local findNewHaircolor2, newHaircolor2 = Effect:findValue("newHaircolor2")
-            local findNewHaircolor3, newHaircolor3 = Effect:findValue("newHaircolor3")
+            local _, newHaircolor2 = Effect:findValue("newHaircolor2")
+            local _, newHaircolor3 = Effect:findValue("newHaircolor3")
             local findNewBeard, newBeard = Effect:findValue("newBeard")
             local findNewHair, newHair = Effect:findValue("newHair")
             local findNewSex, newSex = Effect:findValue("newSex")
@@ -112,8 +112,8 @@ function M.loadEffect(Effect,User)
                 User:setAttrib("sex",newSex)
             end
 
-            local findNewRace, newRace = Effect:findValue("newRace")
-            local findNewHeight, newHeight = Effect:findValue("newHeight")
+            local _, newRace = Effect:findValue("newRace")
+            local _, newHeight = Effect:findValue("newHeight")
 
             User:setRace(newRace)
             User:setAttrib("body_height",newHeight)

@@ -33,30 +33,27 @@ function(self, mode, value)
             self["perform"] = _rankpoints_helper_add
     elseif (mode == "-") then
             self["perform"] = _rankpoints_helper_sub
-    else
-        -- unkonwn comparator
     end
 end)
 
 function _rankpoints_helper_set(self, npcChar, player)
     local value = tools.get_value(self.npc, self.value, self.valuetype)
-    local rankpoints = factions.getRankpoints(player)
-    rankpoints = value
-    factions.setRankpoints(player,rankpoints)
+    local newRankpoints = value
+    factions.setRankpoints(player,newRankpoints)
 end
 
 function _rankpoints_helper_add(self, npcChar, player)
     local value = tools.get_value(self.npc, self.value, self.valuetype)
-    local rankpoints = factions.getRankpoints(player)
-    rankpoints = rankpoints + value
-    factions.setRankpoints(player,rankpoints)
+    local newRankpoints = factions.getRankpoints(player)
+    newRankpoints = newRankpoints + value
+    factions.setRankpoints(player,newRankpoints)
 end
 
 function _rankpoints_helper_sub(self, npcChar, player)
     local value = tools.get_value(self.npc, self.value, self.valuetype)
-    local rankpoints = factions.getRankpoints(player)
-    rankpoints = rankpoints - value
-    factions.setRankpoints(player,rankpoints)
+    local newRankpoints = factions.getRankpoints(player)
+    newRankpoints = newRankpoints - value
+    factions.setRankpoints(player,newRankpoints)
 end
 
 return rankpoints

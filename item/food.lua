@@ -231,7 +231,7 @@ end
 
 local minCraftedBuffDuration = 1800 -- 1/10 seconds
 local maxCraftedBuffDuration = 12000 -- 1/10 seconds
-local difference = maxCraftedBuffDuration - minCraftedBuffDuration
+difference = maxCraftedBuffDuration - minCraftedBuffDuration
 -- calculate buff duration for crafted food
 for _, foodItem in pairs(foodList) do
     if foodItem.difficulty ~= nil and foodItem.duration == nil then
@@ -267,7 +267,7 @@ local function buffsAdding(User, sourceItem)
     local messageDe = "Durch das Essen erfährst du folgende Veränderungen: "
     local messageEn = "Because of the meal you experience following changes: "
 
-    local foundEffect,dietEffect = User.effects:find(12)
+    local foundEffect = User.effects:find(12)
     if foundEffect then
         User.effects:removeEffect(12)
         messageDe = "Die vorherige Nahrungswirkung wird ersetzt. " .. messageDe
@@ -344,7 +344,7 @@ local function mapItem(User, sourceItem)
 end
 
 local function alchemyCheck(User, sourceItem, ltstate)
-    local isPlant, ignoreIt = alchemy.getPlantSubstance(sourceItem.id, User)
+    local isPlant = alchemy.getPlantSubstance(sourceItem.id, User)
     local cauldron = alchemy.GetCauldronInfront(User, sourceItem)
     if (cauldron ~= nil) and isPlant then
         herbs.UseItem(User, sourceItem, ltstate)

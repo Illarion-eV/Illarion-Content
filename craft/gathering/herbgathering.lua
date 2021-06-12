@@ -217,7 +217,7 @@ local function getHerbItem(User, OnlyValidProducts)
         for y=-Radius,Radius do
             local targetPos = position(User.pos.x + x, User.pos.y + y, User.pos.z);
             if (world:isItemOnField(targetPos)) then
-                local targetItem = world:getItemOnField(targetPos);
+                targetItem = world:getItemOnField(targetPos);
                 if (isHerbItem(targetItem)) then
                     if ((not OnlyValidProducts) or (GetValidProduct(targetItem) ~= nil)) then
                         return targetItem;

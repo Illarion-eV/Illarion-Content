@@ -17,7 +17,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- Butterflies (3634, 3635, 3636, 3637)
 
-local common = require("base.common")
 local shared = require("craft.base.shared")
 local gathering = require("craft.base.gathering")
 

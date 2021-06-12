@@ -18,7 +18,6 @@ local class = require("base.class")
 local consequence = require("npc.base.consequence.consequence")
 local base_arena = require("base.arena")
 local ranklist = require("base.ranklist")
-local arena_timer = require("lte.arena_timer")
 
 local _arena_helper_request
 local _arena_helper_points
@@ -34,8 +33,6 @@ function(self, mode)
         self["perform"] = _arena_helper_points
     elseif (mode == "list") then
         self["perform"] = _arena_helper_list
-    else
-        -- unkonwn comparator
     end
 end)
 
@@ -48,8 +45,8 @@ function _arena_helper_points(self, npcChar, player)
 end
 
 function _arena_helper_list(self, npcChar, player)
-    local arena = base_arena.getArena(player, npcChar)
-    local town = base_arena.arenaInformation[arena].town
+    local _arena = base_arena.getArena(player, npcChar)
+    local town = base_arena.arenaInformation[_arena].town
     local arenaListName = "ArenaList"..town
     ranklist.getRanklist(player, arenaListName, true)
 end

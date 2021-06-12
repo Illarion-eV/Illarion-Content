@@ -16,7 +16,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
 local globalvar = require("base.globalvar")
-local doors = require("base.doors")
 local character = require("base.character")
 local money = require("base.money")
 local mob = require("base.mob")
@@ -47,8 +46,6 @@ local CHANCE_ATTACK = 5
 local chanceToFlee = 25
 local attackDuration = 300 -- s until pitates must be killed
 local attackLastWarning = 70 -- s before timeout Warning Backstab is sent
-local rankPointLoss = 20
-
 
 M.personalTarget = {}
 M.attackEndTime = 0
@@ -97,7 +94,7 @@ local function getSettingsForHarbor(harborId)
     if common.isBitSet(blockedHarbors, harborId) then
         blockedOut = true
     end
-    local foundValue, blockedHarbors = ScriptVars:find("seafaringBlockIncoming")
+    foundValue, blockedHarbors = ScriptVars:find("seafaringBlockIncoming")
     if not foundValue then
         blockedHarbors = 0
     end
@@ -193,10 +190,7 @@ end
 
 local function isPirateOnShip()
     local monsters = world:getMonstersInRangeOf(shipCenterPos, 30)
-    for i,mon in ipairs(monsters) do
-        return true
-    end
-    return false
+    return next(monsters) ~= nil
 end
 
 local function portalForLeftOverRemove()
@@ -281,7 +275,6 @@ end
 local function piratesRule()
     informAllOnShip("Malachín war wohl mit den Piraten. Sie sind in der Lage das Schiff zu überrennen und setzen alle Anwesenden ihrem Glück mit Cherga aus. Wird Cherga Gnade haben?",
                     "Malachín was obviously with the pirates. They overrun the ship and all passenger have to face Cherga. Will Cherga have mercy on you?")
-    local players = world:getPlayersInRangeOf(shipCenterPos, 30); --get all player on ship
     for i, targetStruct in pairs (M.personalTarget) do
         local user = targetStruct[1]
         if isPersonOnShip(user) then
@@ -347,7 +340,7 @@ local function piratesFight(user)
     for _, member in pairs (M.personalTarget) do
         table.insert(partyMember, member[1])
     end
-    local countParty, bestFighter, totalParty = mob.getPartyFightCapability(partyMember)
+    local countParty, bestFighter = mob.getPartyFightCapability(partyMember)
     local monsterMob
     if bestFighter < fighterCapabilityLow then
         monsterMob = pirateMobsLow[math.random(1,#pirateMobsLow)]
@@ -483,9 +476,7 @@ local function takePartInTravel(user, harborId)
                 else -- overboard
                     fellOverBoard(user)
                 end
-            else
             end
-        else
         end
     end
 
@@ -609,7 +600,7 @@ local function gmManageCostFerry(user)
     local dialogTitle
     local dialogAddText
     local priceFerry = getFerryPrice()
-    local germanMoney, englishMoney = money.MoneyToString(priceFerry)
+    local _, englishMoney = money.MoneyToString(priceFerry)
     local thisInputDialog = function (dialog)
 
         if (not dialog:getSuccess()) then
@@ -623,7 +614,7 @@ local function gmManageCostFerry(user)
             if newPrice ~= nil then
                 if newPrice > 0 and newPrice <= 1000000 then --100 gold
                     setFerryPrice(newPrice)
-                    germanMoney, englishMoney = money.MoneyToString(newPrice)
+                    _, englishMoney = money.MoneyToString(newPrice)
                     user:inform("The new ferry price is"..englishMoney.." .")
                     user:logAdmin("[Ferry] Ferry price changed to"..englishMoney.." .")
                     return
@@ -644,7 +635,7 @@ local function gmManageCostPirate(user)
     local dialogTitle
     local dialogAddText
     local pricePirates = getPiratePrice()
-    local germanMoney, englishMoney = money.MoneyToString(pricePirates)
+    local _, englishMoney = money.MoneyToString(pricePirates)
     local thisInputDialog = function (dialog)
 
         if (not dialog:getSuccess()) then
@@ -658,7 +649,7 @@ local function gmManageCostPirate(user)
             if newPrice ~= nil then
                 if newPrice > 0 and newPrice <= 10000000 then --1000 gold
                     setPiratePrice(newPrice)
-                    germanMoney, englishMoney = money.MoneyToString(newPrice)
+                    _, englishMoney = money.MoneyToString(newPrice)
                     user:inform("The ransom to the pirates is"..englishMoney.." .")
                     user:logAdmin("[Ferry] Ransom to pirates changed to"..englishMoney.." .")
                     return
@@ -715,7 +706,6 @@ local function gmManageBlockPort(user,harborId)
     local blockedIn
 
     local callback = function(dialog)
-        local success = dialog:getSuccess()
         if (not dialog:getSuccess()) then
             return
         end
@@ -756,7 +746,6 @@ function M.gmManagePorts(user)
     local SELECT_PROPERTY_PIRATE = 10003
 
     local callback = function(dialog)
-        local success = dialog:getSuccess()
         if (not dialog:getSuccess()) then
             return
         end

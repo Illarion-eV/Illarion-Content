@@ -312,7 +312,7 @@ function M.callEffect( Effect, Char ) -- Effect is called
     --Addition end
 
     --Addition by Estralis: Quest 210/211/212 Late Delivery (Anthony Devries) Countdown
-    local theQuestStatus=Char:getQuestProgress(211)
+    theQuestStatus = Char:getQuestProgress(211)
 
     if theQuestStatus == 1 then --Time over!
 
@@ -339,7 +339,7 @@ function M.callEffect( Effect, Char ) -- Effect is called
     --Addition end
 
     --Addition by Estralis: Quest 213/214/215 A Wistful Journey (Pesnar Rolemnes) Countdown
-    local theQuestStatus=Char:getQuestProgress(214)
+    theQuestStatus = Char:getQuestProgress(214)
 
     if theQuestStatus == 1 then --Time over!
 

@@ -129,7 +129,6 @@ local gfx
 local gfxSelector
 local sfx
 local sfxSelector
-local animation
 local changeAvatar
 
 
@@ -139,7 +138,7 @@ local function UseItemWithField(User, TargetPos,SourceItem)
     if string.find(User.lastSpokenText, "meteorit") then
 
         local rocks = {1246, 915, 1245, 1254, 232, 233, 914, 1265, 1273, 1257, 1276, 1278, 1250, 1251}
-        local rockCreated = world:createItemFromId(rocks[Random.uniform(1, #rocks)], 1, TargetPos, true, 1, {nameDe = "Meteorite", nameEn = "Meteorit"})
+        world:createItemFromId(rocks[Random.uniform(1, #rocks)], 1, TargetPos, true, 1, {nameDe = "Meteorite", nameEn = "Meteorit"})
         for i = -1, 1 do
             for j = -1, 1 do
                 if not (i == 0 and j == 0) then
@@ -277,11 +276,11 @@ function gfxSelector(User,TargetPos)
         if validIndex[indexTop][2] == 0 then
             world:gfx(gfxMenu[validIndex[indexTop][1]][1],TargetPos)
         else
-            local cbSubMenu = function (dialog)
-                if (not dialog:getSuccess()) then
+            local cbSubMenu = function (subdialog)
+                if (not subdialog:getSuccess()) then
                     return
                 end
-                local indexSub = dialog:getSelectedIndex() + 1
+                local indexSub = subdialog:getSelectedIndex() + 1
                 world:gfx(gfxMenu[validIndexSub[indexSub][1]][1],TargetPos)
             end
             local sdSubMenu = SelectionDialog("GFX Effects", "Graphic effect is played in front of char.", cbSubMenu)
@@ -343,11 +342,11 @@ function sfxSelector(User,TargetPos)
         if validIndex[indexTop][2] == 0 then
             world:makeSound(sfxMenu[validIndex[indexTop][1]][1],TargetPos)
         else
-            local cbSubMenu = function (dialog)
-                if (not dialog:getSuccess()) then
+            local cbSubMenu = function (subdialog)
+                if (not subdialog:getSuccess()) then
                     return
                 end
-                local indexSub = dialog:getSelectedIndex() + 1
+                local indexSub = subdialog:getSelectedIndex() + 1
                 world:makeSound(sfxMenu[validIndexSub[indexSub][1]][1],TargetPos)
             end
             local sdSubMenu = SelectionDialog("sfx Effects", "Select a sound effect to play.", cbSubMenu)
@@ -395,24 +394,6 @@ function sfx(User, TargetPos)
         end
     end
     User:requestInputDialog(InputDialog("Play a sound effect.", "Usage: Type in sound effects id." ,false, 255, cbInputDialog))
-end
-
-function animation(User)
-
-    local cbInputDialog = function (dialog)
-        if (not dialog:getSuccess()) then
-            return
-        end
-        local inputNumber = dialog:getInput()
-        if (string.find(inputNumber,"(%d+)") ~= nil) then
-            local _, _, number = string.find(inputNumber,"(%d+)")
-            number = tonumber(number)
-            User:performAnimation(number)
-        else
-            User:inform("No number")
-        end
-    end
-    User:requestInputDialog(InputDialog("Play a animation effect.", "Usage: Type in animation effects id." ,false, 255, cbInputDialog))
 end
 
 local function changeAvatarForPlayer(User, chosenPlayer)

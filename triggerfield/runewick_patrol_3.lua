@@ -40,8 +40,7 @@ messageE[3] = "[Quest status] The Don's 'palace' - Everything looks expensive bu
 function M.triggerEvent(User)
     if (User:getQuestProgress(223) == 12) then --OK, the player does the quest
         local queststatus = User:getQuestProgress(224) --here, we save which fields were visited
-        local queststatuslist = {}
-        queststatuslist = common.Split_number(queststatus, 3) --reading the digits of the queststatus as table
+        local queststatuslist = common.Split_number(queststatus, 3) --reading the digits of the queststatus as table
 
         for i = 1, 3 do
             if User:isInRangeToPosition(waypoint[i], 2) and queststatuslist[i] == 0 then

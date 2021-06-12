@@ -37,7 +37,7 @@ end
 local function isBurnableField( fldPos )
     local fld = world:getField(fldPos)
     local cnt = fld:countItems()
-    local i
+
     for i=0,cnt-1 do
         if isBurnable( (fld:getStackItem(i)).id, 1, burnLength ) then
             return true
@@ -49,7 +49,7 @@ end
 local function isFireOnField(fldPos)
     local field=world:getField(fldPos)
     local itnNumber=field:countItems()
-    local i
+
     for i=0, itnNumber-1 do
        local theID=(field:getStackItem(i)).id
         if theID==12 or theID==359 then

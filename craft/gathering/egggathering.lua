@@ -36,7 +36,6 @@ end
 
 function M.StartGathering(User, SourceItem, ltstate)
     local EMPTY_NEST = 1172
-    local FILLED_NEST = 1171
     local EGG = 1150
 
     local gatheringBonus=shared.getGatheringBonus(User, nil)
@@ -77,7 +76,7 @@ function M.StartGathering(User, SourceItem, ltstate)
     end
     -- check the amount
     local amountStr = SourceItem:getData("amount");
-    local amount = 0;
+    local amount
     if ( amountStr ~= "" ) then
         amount = tonumber(amountStr);
     else

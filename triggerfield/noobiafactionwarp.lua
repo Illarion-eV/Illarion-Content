@@ -43,7 +43,7 @@ function M.MoveToField(Character)
         oldPlayer = true
     end
 
-    local destination, factionID, dialogNewbieText, dialogNewbieTaskText, dialogNewbieTaskTitle
+    local destination, factionID, dialogNewbieText, dialogNewbieTaskText
     if Character.pos == position(56,96,100) and oldPlayer then --Cadomyr for old player
 
         destination = position(127,647,0)
