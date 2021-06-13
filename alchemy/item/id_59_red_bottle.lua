@@ -26,11 +26,8 @@ local granorsHut = require("content.granorsHut")
 
 local M = {}
 
-local taste = {}
 M.attribList   ={"strength","intelligence","dexterity"       ,"perception"  ,"constitution","essence","agility"      ,"willpower"}
 M.attribListDe ={"Stärke"  ,"Intelligenz" ,"Geschicklichkeit","Wahrnehmung" ,"Ausdauer"    ,"Essenz" ,"Schnelligkeit","Willenskraft"}
-taste[0]     ={"fruchtig","herb"        ,"bitter"          ,"faulig"      ,"sauer"       ,"salzig" ,"scharf"       ,"süß"}
-taste[1]     ={"fruity"  ,"tartly"      ,"bitter"          ,"putrefactive","acidly"      ,"salt"   ,"hot"          ,"sweet"}
 
 M.intensityListDe = {"stark"   ,"merkbar"  ,"leicht"  ,"kaum merklich"   ,"","kaum merklich"   ,"leicht"  ,"merkbar"  ,"stark"}
 M.intensityListEn = {"strongly","noticably","slightly","barely noticably","","barely noticable","slightly","noticably","strongly"}
@@ -91,7 +88,7 @@ local function DrinkPotion(User,SourceItem)
             User.effects:removeEffect(59)
         end
         local myEffectDuration = math.floor(SourceItem.quality/100)*600*4 -- quality 1 = 4 minutes duration, quality 9 = 36 minutes duration
-        local myEffect = LongTimeEffect(59,myEffectDuration) -- new effect
+        myEffect = LongTimeEffect(59,myEffectDuration) -- new effect
 
         local dataZList = alchemy.SplitData(User,potionEffectId)
         alchemy.generateTasteMessage(User,dataZList) -- potion taste
@@ -122,7 +119,7 @@ local function DrinkPotion(User,SourceItem)
         end
         logmsg = logmsg.." it will last for "..myEffectDuration/600 .. " minutes."
         log(logmsg)
-        local foundEffect = User.effects:find(59) -- security check, there shouldn't be an effect at this point anymore
+        foundEffect = User.effects:find(59) -- security check, there shouldn't be an effect at this point anymore
         if not foundEffect then
             User.effects:addEffect(myEffect)
         end
@@ -138,12 +135,10 @@ local function DrinkPotion(User,SourceItem)
 
         myEffect:addValue("sightpotion",potionEffectId-5900000000)
 
-        local foundEffect = User.effects:find(59) -- security check, there shouldn't be an effect at this point anymore
+        foundEffect = User.effects:find(59) -- security check, there shouldn't be an effect at this point anymore
         if not foundEffect then
             User.effects:addEffect(myEffect)
         end
-    else
-        -- something else
     end
 
     if SourceItem:getData("granorsHut") ~= "" then

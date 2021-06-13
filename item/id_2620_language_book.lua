@@ -22,18 +22,6 @@ local id_266_bookshelf = require("item.id_266_bookshelf")
 
 local M = {}
 
-local function Learning(User,Value,Skillname)
-    local MC=User:getMentalCapacity();
-    if (MC>100) then
-        return false
-    else
-        User:setMentalCapacity(2100);
-        local Skill=User:getSkill(Skillname);
-        User:increaseSkill(Skillname,Value-Skill);
-        return true
-    end
-end
-
 local function GetSkillName(code)
     if (code==0) then return Character.ancientLanguage;
     elseif (code==1) then return Character.commonLanguage;
@@ -93,13 +81,13 @@ function M.UseItem(User, SourceItem, ltstate)
 
     if (modecode == 2) then
         if (User:getSkill(Character.ancientLanguage) < 60) then return end
-        if ( ltstate == nil or ltstate == Action.success ) then
-            --User:warp(position(-243,-340,-3));
-        elseif ( ltstate == Action.none ) then
-            User:startAction( 100,53, 4, 0, 0);
-            User:talk(Character.say, "#me beginnt in einem Buch zu lesen.", "#me starts reading in a book.")
-        elseif ( ltstate == Action.abort ) then
-            User:talk(Character.say, "#me hört auf in dem Buch zu lesen.", "#me stops reading in the book.")
+        if ltstate ~= nil and ltstate ~= Action.success then
+            if ( ltstate == Action.none ) then
+                User:startAction( 100,53, 4, 0, 0);
+                User:talk(Character.say, "#me beginnt in einem Buch zu lesen.", "#me starts reading in a book.")
+            elseif ( ltstate == Action.abort ) then
+                User:talk(Character.say, "#me hört auf in dem Buch zu lesen.", "#me stops reading in the book.")
+            end
         end
         return
     end

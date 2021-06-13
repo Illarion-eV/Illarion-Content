@@ -15,7 +15,6 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
-local base = require("monster.base.base")
 local monstermagic = require("monster.base.monstermagic")
 local fleshDragons = require("monster.race_112_flesh_dragon.base")
 

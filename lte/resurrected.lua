@@ -28,9 +28,9 @@ function M.addEffect( rebirthEffect, Reborn )
         "[Wiederbelebung] Du fühlst dich noch sehr schwach.",
         "[Respawn] You feel very weak." );
     local maxChange = 0;
-    local changeBy = 0;
+
     for _,attrib in pairs(attribs) do
-        changeBy=Reborn:increaseAttrib( attrib, 0 ) - 1;
+        local changeBy = Reborn:increaseAttrib( attrib, 0 ) - 1;
         rebirthEffect:addValue( attrib, changeBy );
         maxChange = math.max( maxChange, changeBy );
         Reborn:increaseAttrib( attrib, -changeBy );
@@ -66,11 +66,9 @@ function M.loadEffect( rebirthEffect, Reborn )
         "[Wiederbelebung] Du fühlst dich noch immer schwach.",
         "[Respawn] You feel still weak." );
 
-    local changeBy = 0;
-    local foundChange = false;
     local maxChange = 0;
     for _,attrib in pairs(attribs) do
-        foundChange, changeBy = rebirthEffect:findValue( attrib );
+        local foundChange, changeBy = rebirthEffect:findValue( attrib );
         if foundChange then
             changeBy = math.min( changeBy, Reborn:increaseAttrib( attrib, 0 ) - 1 );
         else
@@ -114,12 +112,10 @@ function M.callEffect( rebirthEffect, Reborn )
         return true;
     end;
 
-    local changeBy = 0;
-    local foundChange = false;
     local maxChange = 0;
     local callAgain = false;
     for _,attrib in pairs(attribs) do
-        foundChange, changeBy = rebirthEffect:findValue( attrib );
+        local foundChange, changeBy = rebirthEffect:findValue( attrib );
         if foundChange then
             if changeBy > 0 then
                 Reborn:increaseAttrib( attrib, 1 );
@@ -157,10 +153,8 @@ function M.removeEffect( rebirthEffect, Reborn )
         "[Wiederbelebung] Du hast dich vollständig erholt.",
         "[Respawn] You have fully recovered." );
 
-    local changeBy = 0;
-    local foundChange = false;
     for _,attrib in pairs(attribs) do
-        foundChange, changeBy = rebirthEffect:findValue( attrib );
+        local foundChange, changeBy = rebirthEffect:findValue( attrib );
         if foundChange and changeBy > 0 then
             Reborn:increaseAttrib( attrib, changeBy );
         end;
@@ -182,10 +176,9 @@ function M.doubleEffect( rebirthEffect, Reborn )
         "[Wiederbelebung] Du fühlst dich noch sehr schwach.",
         "[Respawn] You feel very weak." );
     local maxChange = 0;
-    local changeBy = 0;
-    local foundChange = false;
+
     for _,attrib in pairs(attribs) do
-        foundChange, changeBy = rebirthEffect:findValue( attrib );
+        local foundChange, changeBy = rebirthEffect:findValue( attrib );
         if not foundChange then
             changeBy = 0;
         end

@@ -24,7 +24,6 @@ local magic = require("base.magic")
 local shard = require("item.shard")
 local globalvar = require("base.globalvar")
 local triggerfield = require("triggerfield.base.triggerfield")
-local areas = require("content.areas")
 
 local M = {}
 
@@ -52,8 +51,6 @@ local RITUAL_BREAK_GLYPH = 4
 local ITEM_ID_CANDLES = 43
 local ITEM_ID_CANDLEHOLDER = 399
 local ITEM_ID_BURNING_CANDLE = 400
-
-local QUEST_ID_EXAMINE_FORGE = 567
 
 local workingGfx = {globalvar.gfxRAIN,globalvar.gfxSCOTTY,globalvar.gfxSPRINKLE,globalvar.gfxSPRINKLE,globalvar.gfxSPRINKLE}
 
@@ -235,7 +232,7 @@ local function startRitual(user, workingTime, manaConsumption, workingPlace, rit
     workingRitual[user.id]={workingCycles, deltaMana, deltaFood, workingPlace, ritualId, specialValues}
 
     performRitual(user)
-    local timeText
+
     if workingTime < 45 then
         common.InformNLS(user,"Das Ritual wird nicht allzu lange dauern.",
                                   "The ritual will take a few moments.")
@@ -325,7 +322,7 @@ local function showShardStateDetail(user,ringOrAmulet,level)
         if (not dialog:getSuccess()) then
             return
         end
-        local index = dialog:getSelectedIndex() + 1
+
         return
         -- return in every case
     end
@@ -360,7 +357,6 @@ end
 
 function M.showShardState(user)
     local countShards
-    local shardLevel
     local displayText
     local cbSetMode = function (dialog)
         if (not dialog:getSuccess()) then
@@ -673,7 +669,7 @@ end
 
 function M.findGlyphForge(user)
     user:performAnimation(globalvar.charAnimationSPELL)
-    local forgeItem, bool = common.GetItemInArea(user.pos, glyphs.GLYPH_SHRINE_ID, 60, true)
+    local forgeItem = common.GetItemInArea(user.pos, glyphs.GLYPH_SHRINE_ID, 60, true)
     if forgeItem ~= nil then
         world:gfx(globalvar.gfxSUN,forgeItem.pos)
         local directionInfo = common.getDistanceHint(user, forgeItem.pos)
@@ -703,26 +699,6 @@ function M.examineGlyphForge(user, glyphForge)
     elseif M.checkForgeIsReady(glyphForge) then
         common.InformNLS(user, "Das Ritual ist bereits vorbereitet. You kannst gleich beginnen.",
                                "A ritual is already prepared. You can start right now.")
-    else
-        -- Don't use character names in informs.
-        --[[
-        local posNumber = common.positionToNumber(glyphForge.pos)
-        if posNumber == user:getQuestProgress(QUEST_ID_EXAMINE_FORGE) then
-            common.InformNLS(user,"An diesem Glyphen-Ritualplatz hat sich nichts geändert.",
-                                  "Nothing has changed at this glyph ritual place.")
-        else
-            user:setQuestProgress(QUEST_ID_EXAMINE_FORGE, posNumber)
-            local perceptionValue = user:increaseAttrib("perception", 0)
-            local checkLimit = perceptionValue / 30.0 + 0.2
-            if checkLimit > math.random() then
-                common.InformNLS(user,"Du glaubst zu erkennen, dass dieser Glyphen-Ritualplatz von " .. glyphForge:getData("craftedBy") .. " errichtet wurde.",
-                                      "You see hints this glyph ritual place might have been erected by " .. glyphForge:getData("craftedBy") .. ".")
-            else
-                common.InformNLS(user,"Das ist ein Glyphen-Ritualplatz wie du schon viele gesehen hast. Wer ihn errichtet hat, erschließt sich dir nicht.",
-                                      "This is a glyph ritual place like many you have already seen many but you cannot tell who built it.")
-            end
-        end
-        ]]
     end
 end
 
@@ -751,7 +727,7 @@ end
 
 function M.prepareGlyphRitual(user, ltstate)
     if ltstate == Action.none then
-        local forgeItem, bool = common.GetItemInArea(user.pos, glyphs.GLYPH_SHRINE_ID, 1, true)
+        local forgeItem = common.GetItemInArea(user.pos, glyphs.GLYPH_SHRINE_ID, 1, true)
         if forgeItem == nil then
             M.findGlyphForge(user)
             return
@@ -772,7 +748,7 @@ function M.prepareGlyphRitual(user, ltstate)
                                   "To prepare the ritual you need two candles and two small candlesticks.")
             return
         end
-        local position = common.GetFrontPosition(user)
+
         if  user:getSkill(glyphs.SKILL_GLYPHING) >= glyphs.glyphRitualPrepareMinSkill then
             startRitualPrepareGlyphRitual(user, forgeItem)
         else
@@ -791,7 +767,6 @@ end
 
 function M.removeGlyphForge(user)
     -- returns false if no glyph forge
-    local position = common.GetFrontPosition(user)
     local forgeItem = common.GetFrontItem(user,user:getFaceTo())
     if forgeItem ~= nil and forgeItem.id == glyphs.GLYPH_SHRINE_ID then
         local userSkill = user:getSkill(Character.mining)

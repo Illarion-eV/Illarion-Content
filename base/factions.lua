@@ -129,7 +129,6 @@ end
 
 local citizenRank = 1;
 M.highestRank = 7;
-local specialRanks = {8,9,10};
 local leaderRank = 11;
 
 
@@ -321,7 +320,6 @@ function M.getFaction(originator)
     local factionMembership = originator:getQuestProgress(199);
     local towncnt = originator:getQuestProgress(201);
     local rankpoints = M.getRankpoints(originator);
-    local specialRank = getSpecialRank(originator);
 
     return { towncnt = towncnt, tid = factionMembership, rankTown = rankTown, rankpoints = rankpoints};
 end
@@ -524,7 +522,7 @@ function M.makeCharMemberOfTown(originator,thisNPC,fv,theRank,theTown)
     if theRank==leaderRank then --make char to leader of this town
         fv.tid = theTown; --make him member of this town
         fv.rankTown = leaderRank; --give him the leader rank
-        fv = M.setFaction(originator,fv);
+        M.setFaction(originator,fv);
         return;
     elseif theRank == 0 or theTown == 0 then --becoming an outlaw
         leaveFaction(originator, fv, thisNPC)
@@ -534,7 +532,6 @@ function M.makeCharMemberOfTown(originator,thisNPC,fv,theRank,theTown)
         end
 
         local amountToPay = 1000*(2^fv.towncnt) -- amount in coppercoins
-        local GAmount, SAmount,CAmount = money.MoneyToCoins(amountToPay);
         local germanMoney, englishMoney = money.MoneyToString(amountToPay);
 
         if not money.CharHasMoney(originator,amountToPay) then --not enough money!
@@ -742,7 +739,7 @@ function M.setFactionRelation(townFaction, playerFaction, newRelation)
 
     -- get mode for all factions
     local found, relationships = ScriptVars:find("Mode_"..townFaction);
-    local oldRelation = 0;
+    local oldRelation
     if not found then
         ScriptVars:set("Mode_".. townFaction, 2222); -- hostile to everyone
         relationships = 2222;

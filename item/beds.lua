@@ -17,8 +17,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- UPDATE items SET itm_script='item.beds' WHERE itm_id IN (740, 741, 742, 743, 744, 745, 746, 747, 967, 968, 969, 988, 989, 1911, 1912);
 
-local common = require("base.common")
-
 local M = {}
 
 function M.UseItem(user, sourceItem, ltstate)

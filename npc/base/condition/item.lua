@@ -56,8 +56,6 @@ function(self, itemId, itemLoc, comp, value, data)
             self["check"] = _item_helper_greater
         elseif (comp == "<") then
             self["check"] = _item_helper_lesser
-        else
-            -- unkonwn comparator
         end
     else
         self["data"] = data
@@ -73,8 +71,6 @@ function(self, itemId, itemLoc, comp, value, data)
             self["check"] = _item_helper_greater_data
         elseif (comp == "<") then
             self["check"] = _item_helper_lesser_data
-        else
-            -- unkonwn comparator
         end
     end
 end)

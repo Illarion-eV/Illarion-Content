@@ -32,7 +32,6 @@ local staticteleporter = require("base.static_teleporter")
 local M = {}
 
 local chooseItem
-local changeItem
 local weather
 local factionHandling
 local spawnPoint
@@ -40,10 +39,8 @@ local spawnGM
 local updateMonsters
 local changeItemSelection
 
-local SPAWNDATAS = {}
 local gmSpawnpointSettings = {}
 local gmMonsters = {}
-local SPAWNDATA = {}
 local removePositions = {}
 
 local SPAWN_PLAYER_OUT_OF_SIGHT = 20
@@ -146,7 +143,7 @@ local function changeItemNumber(User, TargetItem)
         end
         local input = dialog:getInput()
         if (string.find(input,"(%d+)")~=nil) then
-            local a,b,newnumber = string.find(input,"(%d+)")
+            local _, _, newnumber = string.find(input,"(%d+)")
             TargetItem.number=math.min(1000, tonumber(newnumber))
             world:changeItem(TargetItem)
             User:inform("Amount of "..world:getItemName(TargetItem.id, Player.english).." set to "..TargetItem.number)
@@ -171,7 +168,7 @@ local function changeItemQuality(User, TargetItem)
         end
         local input = dialog:getInput()
         if (string.find(input,"(%d)(%d)(%d)")~=nil) then
-            local a,b,newqual=string.find(input,"(%d+)")
+            local _, _, newqual=string.find(input,"(%d+)")
             TargetItem.quality=tonumber(newqual)
             world:changeItem(TargetItem)
             User:inform("Quality of "..world:getItemName(TargetItem.id, Player.english).." set to "..TargetItem.quality)
@@ -196,7 +193,7 @@ local function changeItemWear(User, TargetItem)
         end
         local input = dialog:getInput()
         if (string.find(input,"(%d+)")~=nil) then
-            local a,b,newwear = string.find(input,"(%d+)")
+            local _, _, newwear = string.find(input,"(%d+)")
             TargetItem.wear=tonumber(newwear)
             world:changeItem(TargetItem)
             User:inform("Wear of "..world:getItemName(TargetItem.id, Player.english).." set to "..TargetItem.wear)
@@ -221,7 +218,7 @@ local function changeItemData(User, TargetItem)
         end
         local input = dialog:getInput()
         if (string.find(input,"(%w+) (.+)")~=nil) then
-            local a,b,dataString,newdata = string.find(input,"(%w+) (.+)")
+            local _, _, dataString,newdata = string.find(input,"(%w+) (.+)")
             TargetItem:setData(dataString,newdata)
             world:changeItem(TargetItem)
             User:inform("Data of "..world:getItemName(TargetItem.id, Player.english).." set to key: " ..dataString.." value: "..TargetItem:getData(dataString))
@@ -237,8 +234,7 @@ end
 local function changeItemName(User, TargetItem)
     local newNameDe
     local newNameEn
-    local a
-    local b
+    local _
 
     if (TargetItem == nil or TargetItem.id == 0) then
         return
@@ -250,17 +246,17 @@ local function changeItemName(User, TargetItem)
         end
         local inputEn = dialog:getInput()
         if (string.find(inputEn,"(.+)")~=nil) then
-            a,b,newNameEn = string.find(inputEn,"(.+)")
+            _, _, newNameEn = string.find(inputEn,"(.+)")
         else
             newNameEn = ""
         end
-        local cbInputDialogDe = function (dialog)
-            if (not dialog:getSuccess()) then
+        local cbInputDialogDe = function (subdialog)
+            if (not subdialog:getSuccess()) then
                 return
             end
-            local inputDe = dialog:getInput()
+            local inputDe = subdialog:getInput()
             if (string.find(inputDe,"(.+)")~=nil) then
-                a,b,newNameDe = string.find(inputDe,"(.+)")
+                _, _, newNameDe = string.find(inputDe,"(.+)")
             else
                 newNameDe = newNameEn
             end
@@ -286,8 +282,7 @@ end
 local function changeItemDescription(User, TargetItem)
     local newDescriptionDe
     local newDescriptionEn
-    local a
-    local b
+    local _
 
     if (TargetItem == nil or TargetItem.id == 0) then
         return
@@ -299,17 +294,17 @@ local function changeItemDescription(User, TargetItem)
         end
         local inputEn = dialog:getInput()
         if (string.find(inputEn,"(.+)")~=nil) then
-            a,b,newDescriptionEn = string.find(inputEn,"(.+)")
+            _, _, newDescriptionEn = string.find(inputEn,"(.+)")
         else
             newDescriptionEn = ""
         end
-        local cbInputDialogDe = function (dialog)
-            if (not dialog:getSuccess()) then
+        local cbInputDialogDe = function (subdialog)
+            if (not subdialog:getSuccess()) then
                 return
             end
-            local inputDe = dialog:getInput()
+            local inputDe = subdialog:getInput()
             if (string.find(inputDe,"(.+)")~=nil) then
-                a,b,newDescriptionDe = string.find(inputDe,"(.+)")
+                _, _, newDescriptionDe = string.find(inputDe,"(.+)")
             else
                 newDescriptionDe = newDescriptionEn
             end
@@ -347,7 +342,7 @@ local function changeItemGlyph(User, TargetItem)
             if glyphs.getGlyphRingOrAmulet(TargetItem) == 0 then
                 User:inform("Item "..world:getItemName(TargetItem.id, Player.english).." cannot be glyphed. Only rings or amulets can contain glyph charges.")
             else
-                local a,b,newcharges = string.find(input,"(%d+)")
+                local _, _, newcharges = string.find(input,"(%d+)")
                 glyphs.setRemainingGlyphs(TargetItem,newcharges)
                 User:inform("Item "..world:getItemName(TargetItem.id, Player.english).." got "..tostring(newcharges).." glyph charges.")
             end
@@ -416,7 +411,7 @@ function weather(User, SourceItem)
             User:inform("Set temperature: \"temp <value>\" - range: -50 - +50")
         end
         if (string.find(input,"clouds (%d+)")~=nil) then
-            local a, b, value = string.find(input"clouds (%d+)")
+            local _, _, value = string.find(input"clouds (%d+)")
             value=tonumber(value)
             if (value<101 and value>-1) then
                 currWeather.cloud_density = value
@@ -427,7 +422,7 @@ function weather(User, SourceItem)
             end
         end
         if (string.find(input,"fog (%d+)")~=nil) then
-            local a, b, value = string.find(input,"fog (%d+)")
+            local _, _, value = string.find(input,"fog (%d+)")
             value=tonumber(value)
             if (value<101 and value>-1) then
                 currWeather.fog_density = value
@@ -438,7 +433,7 @@ function weather(User, SourceItem)
             end
         end
         if (string.find(input,"wind dir ([-,0-9]+)")~=nil) then
-            local a, b, value = string.find(input,"wind dir ([-,0-9]+)")
+            local _, _, value = string.find(input,"wind dir ([-,0-9]+)")
             value=tonumber(value)
             if (value<101 and value>-101) then
                 currWeather.wind_dir = value
@@ -449,7 +444,7 @@ function weather(User, SourceItem)
             end
         end
         if (string.find(input,"gust str (%d+)")~=nil) then
-            local a, b, value = string.find(input,"gust str (%d+)")
+            local _, _, value = string.find(input,"gust str (%d+)")
             value=tonumber(value)
             if (value<101 and value>-1) then
                 currWeather.gust_strength = value
@@ -460,7 +455,7 @@ function weather(User, SourceItem)
             end
         end
         if (string.find(input,"per (%d+)")~=nil) then
-            local a, b, value = string.find(input,"per (%d+)")
+            local _, _, value = string.find(input,"per (%d+)")
             value=tonumber(value)
             if (value<101 and value>-1) then
                 currWeather.percipitation_strength = value
@@ -471,7 +466,7 @@ function weather(User, SourceItem)
             end
         end
         if (string.find(input,"thunder (%d+)")~=nil) then
-            local a, b, value = string.find(input,"thunder (%d+)")
+            local _, _, value = string.find(input,"thunder (%d+)")
             value=tonumber(value)
             if (value<101 and value>-1) then
                 currWeather.thunderstorm = value
@@ -482,7 +477,7 @@ function weather(User, SourceItem)
             end
         end
         if (string.find(input,"temp ([-,0-9]+)")~=nil) then
-            local a, b, value = string.find(input,"temp ([-,0-9]+)")
+            local _, _, value = string.find(input,"temp ([-,0-9]+)")
             value=tonumber(value)
             if (value<51 and value>-51) then
                 currWeather.temperature = value
@@ -536,8 +531,8 @@ local function guardInfo(chosenPlayer)
         myInfoText = myInfoText.."\nCadomyr: "..guardModes[chosenPlayer:getQuestProgress(191)+1].." ("..days.." days left)"
     end
 
-    local days, setTime = chosenPlayer:getQuestProgress(194)
-    local daysInSec = (days/3)*24*60*60
+    days, setTime = chosenPlayer:getQuestProgress(194)
+    daysInSec = (days/3)*24*60*60
     if days ~= 0 then
         if  (world:getTime("unix") - setTime >= daysInSec) then
             days = nil
@@ -553,8 +548,8 @@ local function guardInfo(chosenPlayer)
         myInfoText = myInfoText.."\nRunewick: "..guardModes[chosenPlayer:getQuestProgress(193)+1].." ("..days.." days left)"
     end
 
-    local days, setTime = chosenPlayer:getQuestProgress(196)
-    local daysInSec = (days/3)*24*60*60
+    days, setTime = chosenPlayer:getQuestProgress(196)
+    daysInSec = (days/3)*24*60*60
     if days ~= 0 then
         if  (world:getTime("unix") - setTime >= daysInSec) then
             days = nil
@@ -576,13 +571,11 @@ end
 local function changeRankpoints(User, modifier, value, faction, radius)
     --check if the points shall be added or removed
     local text
-    local playerText
+
     if modifier == "add" then
         text = "added"
-        playerText = {"steigt.","advance"}
     elseif modifier == "sub" then
         text = "removed"
-        playerText = {"sinkt.","decline"}
         value = -value
     else
         return
@@ -602,8 +595,6 @@ local function changeRankpoints(User, modifier, value, faction, radius)
                 factions.setRankpoints(player_list[i], tonumber(Factionvalues.rankpoints)+value)
                 User:inform("You just "..text.." "..value.." rankpoints to "..player_list[i].name.." of the faction "..factions.getTownNameByID(Factionvalues.tid).." in a radius of ".. radius..".")
                 User:logAdmin(text .. " " ..value.. " rankpoints to character " .. player_list[i].name .. " of the faction " .. factions.getTownNameByID(Factionvalues.tid))
-            else
-                --                return  --bad return, since it would break up as soon someone does not fulfil requirements even if there are more players to be checked.
             end
         end
     end
@@ -616,18 +607,18 @@ local function changeRankpointsInRadius(User)
         end
         local inputString = dialog:getInput()
         if (string.find(inputString,"(%a+) (%d+) (%d+) (%d+)") ~= nil) then
-            local a, b, modifier,value,faction,radius = string.find(inputString,"(%a+) (%d+) (%d+) (%d+)")
+            local _, _, modifier,value,faction,radius = string.find(inputString,"(%a+) (%d+) (%d+) (%d+)")
             value=tonumber(value)
             faction=tonumber(faction)
             radius=tonumber(radius)
             changeRankpoints(User,modifier,value,faction,radius)
         elseif (string.find(inputString,"(%a+) (%d+) (%d+)") ~= nil) then
-            local a, b, modifier,value,faction,radius = string.find(inputString,"(%a+) (%d+) (%d+)")
+            local _, _, modifier,value,faction,radius = string.find(inputString,"(%a+) (%d+) (%d+)")
             faction=tonumber(faction)
             value=tonumber(value)
             changeRankpoints(User,modifier,value,faction,radius)
         elseif (string.find(inputString,"(%a+) (%d+)") ~= nil) then
-            local a, b, modifier,value,faction,radius = string.find(inputString,"(%a+) (%d+)")
+            local _, _, modifier,value,faction,radius = string.find(inputString,"(%a+) (%d+)")
             value=tonumber(value)
             changeRankpoints(User,modifier,value,faction,radius)
         else
@@ -645,8 +636,8 @@ function factionHandling(User, SourceItem)
         if (not dialog:getSuccess()) then
             return
         end
-        local ind = dialog:getSelectedIndex()
-        if (ind == 0) then -- get/set for specific player
+        local index = dialog:getSelectedIndex()
+        if (index == 0) then -- get/set for specific player
             local playersTmp = world:getPlayersInRangeOf(User.pos, 25)
             local players = {User}
             for _,player in pairs(playersTmp) do
@@ -654,17 +645,17 @@ function factionHandling(User, SourceItem)
                     table.insert(players, player)
                 end
             end
-            local cbChoosePlayer = function (dialog)
-                if (not dialog:getSuccess()) then
+            local cbChoosePlayer = function (subdialog)
+                if (not subdialog:getSuccess()) then
                     return
                 end
-                local chosenPlayer = players[dialog:getSelectedIndex()+1]
+                local chosenPlayer = players[subdialog:getSelectedIndex()+1]
                 local faction = factions.getFaction(chosenPlayer)
-                local cbSetFactionValue = function (dialog)
-                    if (not dialog:getSuccess()) then
+                local cbSetFactionValue = function (subsubdialog)
+                    if (not subsubdialog:getSuccess()) then
                         return
                     end
-                    local ind = dialog:getSelectedIndex()
+                    local ind = subsubdialog:getSelectedIndex()
                     -- change town
                     if (ind < 4) then
                         faction.tid = ind
@@ -673,11 +664,11 @@ function factionHandling(User, SourceItem)
                         User:logAdmin("changes faction of character " .. chosenPlayer.name .. " to " .. factions.getMembershipByName(chosenPlayer))
                     --change towncount
                     elseif (ind == 4) then
-                        local cbSetCount = function (dialog)
-                            if (not dialog:getSuccess()) then
+                        local cbSetCount = function (subsubsubdialog)
+                            if (not subsubsubdialog:getSuccess()) then
                                 return
                             end
-                            local countValue, okay = String2Number(dialog:getInput())
+                            local countValue, okay = String2Number(subsubsubdialog:getInput())
                             if (not okay) then
                                 User:inform("no number")
                                 return
@@ -690,11 +681,11 @@ function factionHandling(User, SourceItem)
                         User:requestInputDialog(InputDialog("Set town count", "", false, 255, cbSetCount))
                     --change the rankpoints
                     elseif (ind == 5) then
-                        local cbSetRank = function (dialog)
-                            if (not dialog:getSuccess()) then
+                        local cbSetRank = function (subsubsubdialog)
+                            if (not subsubsubdialog:getSuccess()) then
                                 return
                             end
-                            local rankpoints, okay = String2Number(dialog:getInput())
+                            local rankpoints, okay = String2Number(subsubsubdialog:getInput())
                             if (not okay) then
                                 User:inform("no number")
                                 return
@@ -710,17 +701,17 @@ function factionHandling(User, SourceItem)
                         User:requestInputDialog(InputDialog("Set rankpoints", "Every 100 points there is a new rank.\nE.g. 300-399 points is rank 4.\nThere are 7 normal and 3 special ranks plus the leader.", false, 255, cbSetRank))
                     --change special rank
                     elseif (ind == 6) then
-                        local cbSetSpecialRank = function (dialog)
-                            if (not dialog:getSuccess()) then
+                        local cbSetSpecialRank = function (subsubsubdialog)
+                            if (not subsubsubdialog:getSuccess()) then
                                 return
                             end
                             local _, oldRank = factions.getRank(chosenPlayer, true)
                             local success
-                            local index = dialog:getSelectedIndex()
-                            if index == 0 then -- demoting
+                            local subindex = subsubsubdialog:getSelectedIndex()
+                            if subindex == 0 then -- demoting
                                 success = factions.setSpecialRank(chosenPlayer, 0)
                             else -- promoting
-                                success = factions.setSpecialRank(chosenPlayer, factions.highestRank+tonumber(index))
+                                success = factions.setSpecialRank(chosenPlayer, factions.highestRank+tonumber(subindex))
                             end
 
                             if success == false and factions.getRankpoints(chosenPlayer) < (factions.highestRank-1)*100 then
@@ -776,17 +767,17 @@ function factionHandling(User, SourceItem)
             User:requestSelectionDialog(sd)
 
         -- rankpoints in radius
-        elseif (ind == 1) then
+        elseif (index == 1) then
             changeRankpointsInRadius(User)
 
         -- guard modes
-        elseif (ind == 2) then
+        elseif (index == 2) then
             local factionIds = {0,1,2,3}
-            local cbFirstFaction = function (dialog)
-                if (not dialog:getSuccess()) then
+            local cbFirstFaction = function (subdialog)
+                if (not subdialog:getSuccess()) then
                     return
                 end
-                local firstFaction = factionIds[dialog:getSelectedIndex()+1]
+                local firstFaction = factionIds[subdialog:getSelectedIndex()+1]
                 local modeStrings = {}
                 modeStrings[factions.RELATION_SELF] = "self"
                 modeStrings[factions.RELATION_NEUTRAL] = "neutral"
@@ -795,16 +786,16 @@ function factionHandling(User, SourceItem)
                 modeStrings[factions.RELATION_FRIENDLY] = "friendly"
                 modeStrings[factions.RELATION_ACCEPTED] = "accepted player"
                 local modeValues = {factions.RELATION_FRIENDLY, factions.RELATION_NEUTRAL, factions.RELATION_HOSTILE, factions.RELATION_AGGRESSIVE}
-                local cbSecondFaction = function (dialog)
-                    if (not dialog:getSuccess()) then
+                local cbSecondFaction = function (subsubdialog)
+                    if (not subsubdialog:getSuccess()) then
                         return
                     end
-                    local secondFaction = factionIds[dialog:getSelectedIndex()+1]
-                    local cbSetMode = function (dialog)
-                        if (not dialog:getSuccess()) then
+                    local secondFaction = factionIds[subsubdialog:getSelectedIndex()+1]
+                    local cbSetMode = function (subsubsubdialog)
+                        if (not subsubsubdialog:getSuccess()) then
                             return
                         end
-                        local mode = modeValues[dialog:getSelectedIndex()+1]
+                        local mode = modeValues[subsubsubdialog:getSelectedIndex()+1]
                         factions.setFactionRelation(firstFaction, secondFaction, mode)
                         User:logAdmin("changes guard mode of " .. factions.getTownNameByID(firstFaction) .. " with respect to " .. factions.getTownNameByID(secondFaction) .. " to " .. modeStrings[mode])
                     end
@@ -827,27 +818,27 @@ function factionHandling(User, SourceItem)
             User:requestSelectionDialog(sd)
 
         -- licence
-        elseif (ind == 3) then
+        elseif (index == 3) then
             local factionIds = {0,1,2,3}
-            local cbFirstLicence = function (dialog)
-                if (not dialog:getSuccess()) then
+            local cbFirstLicence = function (subdialog)
+                if (not subdialog:getSuccess()) then
                     return
                 end
-                local FirstLicence = factionIds[dialog:getSelectedIndex()+1]
+                local FirstLicence = factionIds[subdialog:getSelectedIndex()+1]
                 local licenceStrings = {}
                 licenceStrings[licence.PERMISSION_NONE] = "Permission for static tools is restricted"
                 licenceStrings[licence.PERMISSION_ACTIVE] = "Permission for static tools is granted"
                 local licenceValues = {licence.PERMISSION_NONE, licence.PERMISSION_ACTIVE}
-                local cbSecondLicence = function (dialog)
-                    if (not dialog:getSuccess()) then
+                local cbSecondLicence = function (subsubdialog)
+                    if (not subsubdialog:getSuccess()) then
                         return
                     end
-                    local SecondLicence = factionIds[dialog:getSelectedIndex()+1]
-                    local cbSetLicence = function (dialog)
-                        if (not dialog:getSuccess()) then
+                    local SecondLicence = factionIds[subsubdialog:getSelectedIndex()+1]
+                    local cbSetLicence = function (subsubsubdialog)
+                        if (not subsubsubdialog:getSuccess()) then
                             return
                         end
-                        local newLicence = licenceValues[dialog:getSelectedIndex()+1]
+                        local newLicence = licenceValues[subsubsubdialog:getSelectedIndex()+1]
                         licence.SetLicence(FirstLicence, SecondLicence, newLicence)
                         User:logAdmin("changes licence of " .. factions.getTownNameByID(FirstLicence) .. " with respect to " .. factions.getTownNameByID(SecondLicence) .. " to " .. licenceStrings[newLicence])
                     end
@@ -998,16 +989,15 @@ function spawnMonster(User, SourceItem)
 end
 
 function spawnIntervalsPerSpawn(User, SourceItem)
-    --Write down how many Mobs shall spawn per Minute
+    -- Write down how many Mobs shall spawn per Minute
     -- If input contains number, sets input to Data "intervals"
-    local intervals
     local cbInputDialog = function (dialog)
     if (not dialog:getSuccess()) then
         return
     end
     local input = dialog:getInput()
         if (string.find(input,"(%d+)") ~= nil) then
-            local a, b, intervals = string.find(input,"(%d+)")
+            local _, _, intervals = string.find(input,"(%d+)")
             SourceItem:setData("intervals", intervals)
             world:changeItem(SourceItem)
         end
@@ -1023,7 +1013,6 @@ function spawnAmount(User, SourceItem)
         end
         local input = dialog:getInput()
         if (string.find(input,"(%d+)") ~= nil) then
-            local a, b, amount = string.find(input,"(%d+)")
             SourceItem:setData("amount", input)
             world:changeItem(SourceItem)
         end
@@ -1039,7 +1028,6 @@ function spawnTime(User, SourceItem)
         end
         local input = dialog:getInput()
         if (string.find(input,"(%d+)") ~= nil) then
-            local a, b, endurance = string.find(input,"(%d+)")
             SourceItem:setData("endurance", input)
             world:changeItem(SourceItem)
         end
@@ -1055,14 +1043,13 @@ function spawnEffects(User, SourceItem)
         end
         local input = dialog:getInput()
         if (string.find(input,"(%d+) (%d+)") ~= nil) then
-            local a, b, gfxId, sfxId = string.find(input,"(%d+) (%d+)")
+            local _, _, gfxId, sfxId = string.find(input,"(%d+) (%d+)")
             gfxId = tonumber(gfxId)
             sfxId = tonumber(sfxId)
             SourceItem:setData("sfxId", sfxId)
             SourceItem:setData("gfxId", gfxId)
             world:changeItem(SourceItem)
         elseif (string.find(input,"(%d+)") ~= nil) then
-            local a, b, gfxId = string.find(input,"(%d+)")
             SourceItem:setData("gfxId", input)
             world:changeItem(SourceItem)
         end
@@ -1110,7 +1097,7 @@ function spawnStart(User, SourceItem)
 
         if (string.find(monsters,"(%d+)",fin) ~= nil) then
 
-            local a, b, monsterId = string.find(monsters,"(%d+)",fin)
+            local _, b, monsterId = string.find(monsters,"(%d+)",fin)
             fin = b + 1
             counter = counter +1
             monsterIds[counter]    = tonumber(monsterId)
@@ -1250,7 +1237,7 @@ local function specialItemCreationSpecialEggs(User)
         end
         local input = dialog:getInput()
         if (string.find(input,"(%d+)") ~= nil) then
-            local a, b, amount = string.find(input,"(%d+)")
+            local _, _, amount = string.find(input,"(%d+)")
             specialeggs.createSpecialEgg(User, tonumber(amount))
         end
     end
@@ -1265,7 +1252,7 @@ local function specialItemCreationMysticalCracker(User)
         end
         local input = dialog:getInput()
         if (string.find(input,"(%d+)") ~= nil) then
-            local a, b, amount = string.find(input,"(%d+)")
+            local _, _, amount = string.find(input,"(%d+)")
             mysticalcracker.createMysticalCracker(User, tonumber(amount))
         end
     end
@@ -1280,7 +1267,7 @@ local function specialItemCreationTreasureChest(User)
         end
         local input = dialog:getInput()
         if (string.find(input,"(%d) (%d)") ~= nil) then
-            local a, b, level, persons = string.find(input,"(%d) (%d)")
+            local _, _, level, persons = string.find(input,"(%d) (%d)")
             if level == nil or tonumber(level) < 0 or tonumber(level) > 9 then
                 User:inform("The level of the treasure chest must be a value from 0(no treasure via 1(farmer) to 9(nabranoo).")
                 return
@@ -1303,7 +1290,6 @@ local function specialItemCreationTreasureChest(User)
 end
 
 local function specialItemCreationGlyphShard(User)
-    local position
     local cbInputDialog = function (dialog)
         if not dialog:getSuccess() then
             return
@@ -1311,10 +1297,10 @@ local function specialItemCreationGlyphShard(User)
         local input = dialog:getInput()
         if (string.find(input,"(%d+)") ~= nil) then
             if (string.find(input,"[1-7][1-7]") ~= nil) then
-                local a, b, level = string.find(input,"(%d+)")
+                local _, _, level = string.find(input,"(%d+)")
                 shard.createShardWithLevelOnUser(User, level)
             else
-                local a, b, amount = string.find(input,"(%d+)")
+                local _, _, amount = string.find(input,"(%d+)")
                 for i=1, tonumber(amount) do
                     shard.createShardOnUser(User)
                 end
@@ -1350,7 +1336,7 @@ local function specialItemCreationCreate(User,indexItem)
             end
             local input = dialog:getInput()
             if (string.find(input,"(%d+)") ~= nil) then
-                local a, b, amount = string.find(input,"(%d+)")
+                local _, _, amount = string.find(input,"(%d+)")
                 if SpecialItem[indexItem][4] == MagicGem then
                     common.CreateItem(User, SpecialItem[indexItem][3], tonumber(amount), 333,{gemLevel=1})
                 else
@@ -1375,11 +1361,11 @@ local function specialItemCreation(User)
             specialItemCreationCreate(User,validItems[indexItem][1])
         else
         --
-            local cbChooseSubItem = function (dialog)
-                if (not dialog:getSuccess()) then
+            local cbChooseSubItem = function (subdialog)
+                if (not subdialog:getSuccess()) then
                     return
                 end
-                local indexItemSub = dialog:getSelectedIndex() + 1
+                local indexItemSub = subdialog:getSelectedIndex() + 1
                 specialItemCreationCreate(User,validItemsSub[indexItemSub][1])
             end
             local sdItemListSub = SelectionDialog("Special Items.", "Choose an item:", cbChooseSubItem)
@@ -1419,7 +1405,7 @@ local function readScriptVars(user)
         end
         local input = dialog:getInput()
         if string.find(input,"([%w]+) ([%w]+)") ~= nil then
-            local a, b, varName, varValue = string.find(input,"([%w]+) ([%w]+)")
+            local _, _, varName, varValue = string.find(input,"([%w]+) ([%w]+)")
             local foundVar, currentVar = ScriptVars:find(varName)
             if not foundVar then
                 user:inform("The script variable '"..varName.."' does not exists.")
@@ -1429,7 +1415,7 @@ local function readScriptVars(user)
                 user:logAdmin("Script variable: '"..varName.."' changed from "..tostring(currentVar).." to "..tostring(varValue))
             end
         elseif string.find(input,"([%w]+)") ~= nil then
-            local a, b, varName = string.find(input,"([%w]+)")
+            local _, _, varName = string.find(input,"([%w]+)")
             local foundVar, currentVar = ScriptVars:find(varName)
             if not foundVar then
                 user:inform("The script variable '"..varName.."' does not exists.")

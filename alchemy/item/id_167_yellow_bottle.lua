@@ -19,7 +19,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Yellow Potions
 -- Medicine (since illness will be a postVBU project, this will also be postVBU)
 
-local common = require("base.common")
 local alchemy = require("alchemy.base.alchemy")
 
 local M = {}

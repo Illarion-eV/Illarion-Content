@@ -212,9 +212,8 @@ function baseNPC:nextCycle2(npcChar)
     self._cycleCounter = 0
     self._nextCycleCalls = 2147483648
 
-    local nextRequestedCall = 0
     for _, value in pairs(self._cycleFunctions) do
-        nextRequestedCall = value:nextCycle(npcChar, oldCycle)
+        local nextRequestedCall = value:nextCycle(npcChar, oldCycle)
         if (nextRequestedCall ~= nil and nextRequestedCall >= 0) then
             self._nextCycleCalls = math.min(self._nextCycleCalls, nextRequestedCall)
         end

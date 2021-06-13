@@ -25,7 +25,6 @@ local common = require("base.common")
 local seafaring = require("base.seafaring")
 local staticteleporter = require("base.static_teleporter")
 local townManagement = require("base.townManagement")
-local factions = require("base.factions")
 local vision = require("content.vision")
 local lookat = require("base.lookat")
 local money = require("base.money")
@@ -39,15 +38,12 @@ local BULLETIN_COST = 2000
 local BULLETIN_COST_STR_DE = "Ein Anschlag kostet zwanzig Silberstücke."
 local BULLETIN_COST_STR_EN = "The cost is twenty silver coins."
 
-local FerryLookAt
 local TMLookAt
 local SalaveshLookAt
 local AkaltutLookAt
 local ronaganLookAt
 local bulletinLookAt
 local tradingPostLookAt
-local usingHomeTeleporter
-local NecktieHomeTravel
 local WonderlandTeleporter
 local showBulletinBoard
 local showTradingPost
@@ -169,7 +165,7 @@ function M.UseItem(User, SourceItem)
 
     -- Bookrest for Akaltut dungeon
     if (SourceItem.pos == akaltutBookrest) then
-        local foundEffect, myEffect = User.effects:find(120) -- monsterhunter_timer lte
+        local foundEffect = User.effects:find(120) -- monsterhunter_timer lte
         if User:getQuestProgress(529) == 3 and not foundEffect then
             User:inform("Der Höllenhund ist im Südosten von hier.", "The hellhound is  southeast from here.")
             local myEffect = LongTimeEffect(120, 50) -- 5sec
@@ -247,37 +243,6 @@ function M.UseItem(User, SourceItem)
     if staticteleporter.useTeleporter(User, SourceItem) then
         return
     end
-end
-
-function usingHomeTeleporter(User,factionNames,teleporterPos)
-    local userFaction = factions.getMembershipByName(User)
-    for i=1,#factionNames do
-        if factionNames[i] == userFaction and User:distanceMetricToPosition(teleporterPos[i]) < 5 then
-            return true
-        end
-    end
-    return false
-end
-
-function NecktieHomeTravel(User,factionNames,teleporterPos,selected)
-    local userFaction = factions.getMembershipByName(User)
-    if (factionNames[selected]==userFaction and User:distanceMetricToPosition(teleporterPos[4]) < 5) or (selected == 4 and usingHomeTeleporter(User,factionNames,teleporterPos)) then
-        return true
-    end
-    return false
-end
-
-local function akalutCadomyrBlockade(user)
-    local foundValue, value = ScriptVars:find("akalutCadomyrBlockade")
-    if not foundValue or tonumber(value) == 0 then
-        return false
-    end
-
-    world:gfx(2, user.pos)
-    user:increaseAttrib("hitpoints",-1000)
-    user:inform("Ein Blitz kommt aus dem Teleporter geschossen.", "You are hit by a lightning coming from the teleporter.", Character.highPriority)
-
-    return true
 end
 
 function WonderlandTeleporter(User, SourceItem)

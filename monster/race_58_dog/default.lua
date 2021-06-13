@@ -16,7 +16,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local dogs = require("monster.race_58_dog.base")
-local hostileWildlife = require("monster.base.behaviour.hostileWildlife")
 
 local M = dogs.generateCallbacks()
 --return hostileWildlife.addCallbacks(M)

@@ -18,8 +18,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- UPDATE items SET itm_script='item.id_92_oillamp' WHERE itm_id=92;
 
-local common = require("base.common")
-
 local M = {}
 
 function M.UseItem(User, SourceItem)

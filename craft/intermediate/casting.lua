@@ -38,22 +38,22 @@ product:addIngredient(22) -- iron ore
 product:addIngredient(21) -- coal
 
 -- Copper Ingot
-local product = casting:addProduct(catId, 2550, 1)
+product = casting:addProduct(catId, 2550, 1)
 product:addIngredient(2536) -- copper ore
 product:addIngredient(21) -- coal
 
 -- Silver Ingot
-local product = casting:addProduct(catId, 104, 1)
+product = casting:addProduct(catId, 104, 1)
 product:addIngredient(1062) -- silver ore
 product:addIngredient(21) -- coal
 
 -- Gold Ingot
-local product = casting:addProduct(catId, 236, 1)
+product = casting:addProduct(catId, 236, 1)
 product:addIngredient(234) -- gold nugget
 product:addIngredient(21) -- coal
 
 -- Merinium Ingot
-local product = casting:addProduct(catId, 2571, 1)
+product = casting:addProduct(catId, 2571, 1)
 product:addIngredient(2534) -- merinium ore
 product:addIngredient(21) -- coal
 

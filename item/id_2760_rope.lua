@@ -137,7 +137,7 @@ local function UseRopeWithCharacter( User, SourceItem, Target, ltstate )
     local foundEffectTarget = Target.effects:find(24);
     -- Check ltstate, 5 sec for first, 2 sec for another capturer or freezed target
     if (ltstate == Action.none) then
-        local Time = 50;
+        local Time
         -- set tying time
         if foundEffectTarget or common.IsCharacterParalysed(Target) then
             -- reduced time for another captor or freezed target

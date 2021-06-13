@@ -33,16 +33,15 @@ M.PERMISSION_ACTIVE = 1    -- Permission for static tools is granted
 
 local function licenceCheck(char)
     if factions.getMembership(char) == 0 or factions.getRankpoints(char) >=100 then --check if player is outlaw or at least rank 2, anyone else will be ignored
-    if ((factions.getMembership(char) == licencerequired) or (char:getQuestProgress(licenceQuestID) > 0) or (M.GetLicenceByFaction(licencerequired, factions.getFaction(char).tid) == M.PERMISSION_ACTIVE)) then --check if player is member of the right faction or has licence or his/her faction has permission
-    else
-        --            if math.random(1,100)< 51 then --chance that the player can break the law
-        --                common.InformNLS(char,"Hast du gar kein schlechtes Gewissen, hier ohne Lizenz zu arbeiten? Gehe ins Zensurbüro, um dort eine zu erwerben und damit die Geräte verwenden zu können oder werde Bürger dieser Stadt.","Do you not feel bad about working without a licence here? Go to the census office and purchase one in order to be able to use their static tools or become a citizen."); --player gets info he breaks law
-        --            else
-        common.InformNLS(char,"Du besitzt keine Lizenz für die Verwendung der Geräte dieser Stadt. Gehe ins Zensurbüro, um dort eine zu erwerben und damit die Geräte verwenden zu können oder werde Bürger dieser Stadt.","You do not have a licence for the use of static tools in this town. Go to the census office and purchase one in order to be able to use their static tools or become a citizen.") --player gets info to buy licence
+        if not ((factions.getMembership(char) == licencerequired) or (char:getQuestProgress(licenceQuestID) > 0) or (M.GetLicenceByFaction(licencerequired, factions.getFaction(char).tid) == M.PERMISSION_ACTIVE)) then --check if player is member of the right faction or has licence or his/her faction has permission
+            --            if math.random(1,100)< 51 then --chance that the player can break the law
+            --                common.InformNLS(char,"Hast du gar kein schlechtes Gewissen, hier ohne Lizenz zu arbeiten? Gehe ins Zensurbüro, um dort eine zu erwerben und damit die Geräte verwenden zu können oder werde Bürger dieser Stadt.","Do you not feel bad about working without a licence here? Go to the census office and purchase one in order to be able to use their static tools or become a citizen."); --player gets info he breaks law
+            --            else
+            common.InformNLS(char,"Du besitzt keine Lizenz für die Verwendung der Geräte dieser Stadt. Gehe ins Zensurbüro, um dort eine zu erwerben und damit die Geräte verwenden zu können oder werde Bürger dieser Stadt.","You do not have a licence for the use of static tools in this town. Go to the census office and purchase one in order to be able to use their static tools or become a citizen.") --player gets info to buy licence
 
-        return true --craft-script stops later; set to true as soon as NPCs are ready
-        --            end
-    end
+            return true --craft-script stops later; set to true as soon as NPCs are ready
+            --            end
+        end
     end
 end
 
@@ -51,8 +50,8 @@ end
 local function InitLicence(thisFaction)
     ScriptVars:set("Licence_".. thisFaction, 0)
     M.SetLicence(thisFaction, thisFaction, M.PERMISSIOM_ACTIVE)
-    local factions = {0,1,2,3}
-    for _,f in pairs(factions) do
+    local factionNumbers = {0,1,2,3}
+    for _,f in pairs(factionNumbers) do
         if (thisFaction ~= f) then
             M.SetLicence(thisFaction, f, M.PERMISSIOM_ACTIVE)
         end
@@ -115,7 +114,7 @@ end
 function M.SetLicence(thisFaction, otherFaction, newLicence)
     -- get licence for all factions
     local found, licenceAll = ScriptVars:find("Licence_".. thisFaction)
-    local oldLicence = 0
+    local oldLicence
     if not found then
         InitLicence(thisFaction)
         M.SetLicence(thisFaction, otherFaction, newLicence)

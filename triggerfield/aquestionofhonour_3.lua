@@ -35,8 +35,7 @@ messageE[3] = "[Quest status] Unbearable babbling comes out of the mouth of the 
 function M.triggerEvent(User)
     if (User:getQuestProgress(111) == 12) then --OK, the player does the quest
         local queststatus = User:getQuestProgress(117) --here, we save which fields were visited
-        local queststatuslist = {}
-        queststatuslist = common.Split_number(queststatus, 3) --reading the digits of the queststatus as table
+        local queststatuslist = common.Split_number(queststatus, 3) --reading the digits of the queststatus as table
 
         for i = 1, 3 do
             if User:isInRangeToPosition(waypoint[i], 2) and queststatuslist[i] == 0 then

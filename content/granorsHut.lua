@@ -131,19 +131,15 @@ function M.potionReplacer()
     local redPotionPos = position(14, 683, 1)
     local pinkPotionPos = position(15, 683, 1)
 
-    local repeatReplacer
-
     local pinkPotionThere, emptyTable = cleanTable(pinkPotionPos, 166)
-    if pinkPotionThere then
-        repeatReplacer = false
-    elseif emptyTable then
-        repeatReplacer = false
+    if not pinkPotionThere and emptyTable then
         world:createItemFromId(166, 1, pinkPotionPos, true, 111, {filledWith = "potion", potionEffectId = "35555555", granorsHut = "true"})
-    else
-        repeatReplacer = true
     end
 
-    local redPotionThere, emptyTable = cleanTable(redPotionPos, 166)
+    local redPotionThere
+    redPotionThere, emptyTable = cleanTable(redPotionPos, 166)
+    local repeatReplacer
+
     if redPotionThere then
         repeatReplacer = false
     elseif emptyTable then

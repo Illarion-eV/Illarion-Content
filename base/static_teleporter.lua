@@ -15,7 +15,6 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
-local globalvar = require("base.globalvar")
 local money = require("base.money")
 
 local M = {}
@@ -40,7 +39,7 @@ local function getSettingsForTeleporter(teleporterId)
     if common.isBitSet(blockedTeleporters, teleporterId) then
         blockedOut = true
     end
-    local foundValue, blockedTeleporters = ScriptVars:find("teleporterBlockIncoming")
+    foundValue, blockedTeleporters = ScriptVars:find("teleporterBlockIncoming")
     if not foundValue then
         blockedTeleporters = 0
     end
@@ -162,7 +161,7 @@ local function startTeleport(user, sourceItem)
 
     dialogOption = {}
     for i, teleporter in pairs(teleporterList) do
-        local blockedOut, blockedIn = getSettingsForTeleporter(i)
+        local _, blockedIn = getSettingsForTeleporter(i)
         if not blockedIn and sourceItem.pos ~= teleporter.posItem then
             dialog:addOption(teleporter.pict, common.GetNLS(user,teleporter.nameDe,teleporter.nameEn))
             table.insert(dialogOption,{i,true})
@@ -178,7 +177,7 @@ end
 function M.teleporterLookAt(user, sourceItem, lookAt)
     for i, teleporter in pairs(teleporterList) do
         if sourceItem.pos == teleporter.posItem then
-            local blockedOut, blockedIn = getSettingsForTeleporter(i)
+            local blockedOut = getSettingsForTeleporter(i)
             lookAt.name = common.GetNLS(user,"Teleporter","Teleporter")
             if blockedOut then
                 lookAt.description = common.GetNLS(user,"Die magische Aura des Teleporters scheint verschwunden.",
@@ -196,7 +195,7 @@ local function gmManageCostTeleporterNormal(user)
     local dialogTitle
     local dialogAddText
     local priceTeleporter = getTeleporterPriceNormal()
-    local germanMoney, englishMoney = money.MoneyToString(priceTeleporter)
+    local _, englishMoney = money.MoneyToString(priceTeleporter)
     local thisInputDialog = function (dialog)
 
         if (not dialog:getSuccess()) then
@@ -210,7 +209,7 @@ local function gmManageCostTeleporterNormal(user)
             if newPrice ~= nil then
                 if newPrice > 0 and newPrice <= 1000000 then --100 gold
                     setTeleporterPriceNormal(newPrice)
-                    germanMoney, englishMoney = money.MoneyToString(newPrice)
+                    _, englishMoney = money.MoneyToString(newPrice)
                     user:inform("The new standard teleporter price is"..englishMoney.." .")
                     user:logAdmin("[Teleporter] Standard teleporter price changed to"..englishMoney.." .")
                     return
@@ -231,7 +230,7 @@ local function gmManageCostTeleporterNewbe(user)
     local dialogTitle
     local dialogAddText
     local priceTeleporter = getTeleporterPriceNewbe()
-    local germanMoney, englishMoney = money.MoneyToString(priceTeleporter)
+    local _, englishMoney = money.MoneyToString(priceTeleporter)
     local thisInputDialog = function (dialog)
 
         if (not dialog:getSuccess()) then
@@ -245,7 +244,7 @@ local function gmManageCostTeleporterNewbe(user)
             if newPrice ~= nil then
                 if newPrice > 0 and newPrice <= 1000000 then --100 gold
                     setTeleporterPriceNewbe(newPrice)
-                    germanMoney, englishMoney = money.MoneyToString(newPrice)
+                    _, englishMoney = money.MoneyToString(newPrice)
                     user:inform("The new teleporter price for new player is"..englishMoney.." .")
                     user:logAdmin("[Teleporter] Teleporter price for new player changed to"..englishMoney.." .")
                     return
@@ -269,7 +268,6 @@ local function gmManageBlockTeleporter(user,teleporterId)
     local blockedIn
 
     local callback = function(dialog)
-        local success = dialog:getSuccess()
         if (not dialog:getSuccess()) then
             return
         end
@@ -309,7 +307,6 @@ function M.gmManageTeleporter(user)
     local SELECT_COST_NEWBE = 10002
 
     local callback = function(dialog)
-        local success = dialog:getSuccess()
         if (not dialog:getSuccess()) then
             return
         end
@@ -346,7 +343,7 @@ end
 function M.isBlocked(targetPos)
     for i, teleporter in pairs(teleporterList) do
         if targetPos == teleporter.posWarp then
-            local blockedOut, blockedIn = getSettingsForTeleporter(i)
+            local _, blockedIn = getSettingsForTeleporter(i)
             if  blockedIn then
                 return true
             end
@@ -359,7 +356,7 @@ end
 function M.useTeleporter(user, sourceItem)
     for i, teleporter in pairs(teleporterList) do
         if sourceItem.pos == teleporter.posItem then
-            local blockedOut, blockedIn = getSettingsForTeleporter(i)
+            local blockedOut = getSettingsForTeleporter(i)
             if not blockedOut then
                 startTeleport(user, sourceItem)
             end

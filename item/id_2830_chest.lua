@@ -17,7 +17,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE items SET itm_script='item.id_2830_chest' WHERE itm_id=2830
 
 local common = require("base.common")
-local treasureContent = require("content.treasure")
 local treasureBase = require("item.base.treasure")
 local lookat = require("base.lookat")
 local globalvar = require("base.globalvar")
@@ -28,8 +27,6 @@ local volcano_chest = require("triggerfield.volcano_chest")
 local MAX_CHARS = 8
 
 local M = {}
-
-local playerTriedAlready = {}
 
 local function resetLock(sourceItem)
     for i=1, MAX_CHARS do

@@ -137,7 +137,7 @@ function M.callEffect( Tying, Capturer )
         end
 
         -- no captive near
-        local foundLogout = Tying:findValue("logout");
+        foundLogout = Tying:findValue("logout");
         if not foundLogout then -- first call after captive disappeared, inform player
             InformW(Capturer,
                 "Der Gefangene ist nicht mehr bei dir! Warte oder suche ihn oder benutze das Seil, um ihn freizulassen.",
@@ -212,8 +212,8 @@ function M.GetBestAttribOffset( Char1, Char2, AttribList )
 
     local bestOffset = 0;
     local currentOffset;
-    local cnt;
     local addVal = 0;
+
     for cnt in pairs(AttribList) do
         currentOffset = Char1:increaseAttrib(AttribList[cnt],0) - Char2:increaseAttrib(AttribList[cnt],0);
         if currentOffset > bestOffset then

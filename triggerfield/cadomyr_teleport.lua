@@ -20,8 +20,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 --Teleporters in the Ushara Garden
 
-local common = require("base.common")
-
 local M = {}
 
 function M.MoveToField( User )
