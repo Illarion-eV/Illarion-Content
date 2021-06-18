@@ -18,7 +18,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- deadPlayer - The player (character) whose hitpoints have just been set to zero
 
 local common = require("base.common")
-local gems = require("base.gems")
 
 local M = {}
 

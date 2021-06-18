@@ -24,9 +24,9 @@ end
 
 function M.callEffect(Effect,Character)
 
-    local foundImmunity, immunity, retVal = nil,nil,false;
+    local retVal = false
     for i=1,8 do
-        foundImmunity, immunity = Effect:findValue("immunity_"..i);
+        local foundImmunity, immunity = Effect:findValue("immunity_"..i);
         if foundImmunity then
             if immunity == 0 then
                 Effect:removeValue("immunity_"..i);

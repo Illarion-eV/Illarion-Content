@@ -193,7 +193,7 @@ end
 function M.GetAmount(maxAmount, SourceItem)
 
     local amountStr = SourceItem:getData("amount");
-    local amount = 0;
+    local amount
     if ( amountStr ~= "" ) then
         amount = tonumber(amountStr);
     elseif ( SourceItem.wear == 255 ) then

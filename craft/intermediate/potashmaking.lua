@@ -38,21 +38,21 @@ local catId = potashmaking:addCategory("Potash from Cherry Wood", "Kirschholzasc
 local product = potashmaking:addProduct(catId, 314, 1)
 product:addIngredient(543) -- cherry wood
 
-local catId = potashmaking:addCategory("Potash from Naldor Wood", "Naldorholzasche")
+catId = potashmaking:addCategory("Potash from Naldor Wood", "Naldorholzasche")
 
 -- Potash
-local product = potashmaking:addProduct(catId, 314, 1)
+product = potashmaking:addProduct(catId, 314, 1)
 product:addIngredient(544) -- naldor wood
 
-local catId = potashmaking:addCategory("Potash from Conifer Wood", "Nadelholzasche")
+catId = potashmaking:addCategory("Potash from Conifer Wood", "Nadelholzasche")
 
 -- Potash
-local product = potashmaking:addProduct(catId, 314, 1)
+product = potashmaking:addProduct(catId, 314, 1)
 product:addIngredient(3) -- confier wood
 
-local catId = potashmaking:addCategory("Potash from Apple Wood", "Apfelholzasche")
+catId = potashmaking:addCategory("Potash from Apple Wood", "Apfelholzasche")
 -- Potash
-local product = potashmaking:addProduct(catId, 314, 1)
+product = potashmaking:addProduct(catId, 314, 1)
 product:addIngredient(2560) -- apple wood
 
 M.potashmaking = potashmaking

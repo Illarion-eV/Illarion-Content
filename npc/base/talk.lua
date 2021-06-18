@@ -19,7 +19,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- This script offers all functions needed to get NPCs to talk.
 --
 -- Author: Martin Karing
-local common = require("base.common")
 local messages = require("base.messages")
 local class = require("base.class")
 local baseNPC = require("npc.base.basic")
@@ -78,17 +77,14 @@ function talkNPC:addTalkingEntry(newEntry)
 end
 
 function talkNPC:receiveText(npcChar, texttype, player, text)
-    local result = false
-
     for _, entry in pairs(self._entry) do
         if entry:checkEntry(npcChar, texttype, player, text) then
             entry:execute(npcChar, player)
-            result = true
             return true
         end
     end
 
-    return result
+    return false
 end
 
 function talkNPC:nextCycle(npcChar, counter)
@@ -98,7 +94,7 @@ function talkNPC:nextCycle(npcChar, counter)
         self._nextCycleText = math.random(3000, 6000) * math.max(1, (#seenNPCs)/2 + #seenPlayers -1) --5 to 10 minutes times NPCs+players around
         local german, english = self._cycleText:getRandomMessage()
         local textTypeDe, textDe = tools.get_text_and_talktype(german)
-        local textTypeEn, textEn = tools.get_text_and_talktype(english)
+        local _, textEn = tools.get_text_and_talktype(english)
         npcChar:talk(textTypeDe, textDe, textEn)
     else
         self._nextCycleText = self._nextCycleText - counter
@@ -168,13 +164,13 @@ function talkNPCEntry:addConsequence(c)
 end
 
 function talkNPCEntry:checkEntry(npcChar, texttype, player, text)
-    for _1, pattern in pairs(self._trigger) do
-        local a, _2, number = string.find(text, pattern)
+    for _, pattern in pairs(self._trigger) do
+        local a, _, number = string.find(text, pattern)
         self._saidNumber = number
         if a ~= nil then
             local conditionsResult = true
-            for _3, condition in pairs(self._conditions) do
-                if not condition:check(npcChar, texttype, player) then
+            for _, cond in pairs(self._conditions) do
+                if not cond:check(npcChar, texttype, player) then
                     conditionsResult = false
                     break
                 end
@@ -204,9 +200,9 @@ function talkNPCEntry:execute(npcChar, player)
         npcChar:talk(textType, text)
     end
 
-    for _, consequence in pairs(self._consequences) do
-        if consequence then
-            consequence:perform(npcChar, player)
+    for _, conseq in pairs(self._consequences) do
+        if conseq then
+            conseq:perform(npcChar, player)
         end
     end
 end

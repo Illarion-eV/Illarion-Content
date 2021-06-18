@@ -23,9 +23,6 @@ local M = {}
 
 local function SpawnSkeletonCycle(CenterPos,Radius,Anzahl)
     local irad = math.ceil(Radius);
-    local dim = 2*(irad+1);
-    local x;
-    local y;
     local map = {} ;
     local divid = math.ceil((2 * math.pi * irad) / Anzahl);
 

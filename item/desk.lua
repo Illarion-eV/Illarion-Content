@@ -14,9 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-local common = require("base.common")
-local lookat = require("base.lookat")
-
 local M = {}
 
 -- UPDATE items SET itm_script='item.desk' WHERE itm_id IN (550, 551, 1219, 1220, 1221, 1222);
@@ -33,7 +30,7 @@ function M.UseItem(User, SourceItem)
         if foundEffect then
             myEffect.nextCalled = 5 * 600;
         else
-            local myEffect = LongTimeEffect(100, 5 * 600) --5min
+            myEffect = LongTimeEffect(100, 5 * 600) --5min
             User.effects:addEffect(myEffect)
         end
     end

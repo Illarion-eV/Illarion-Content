@@ -24,8 +24,6 @@ local M = {}
 
 -- INSERT INTO longtimeeffects VALUES (330, 'alchemy_language', 'alchemy.lte.id_330_language');
 
-local ListLanguages={Character.commonLanguage,Character.humanLanguage,Character.dwarfLanguage,Character.elfLanguage,Character.lizardLanguage,Character.orcLanguage,Character.halflingLanguage,Character.ancientLanguage}
-
 function M.addEffect(Effect, User)
 --Nur beim ersten Aufruf
 --User:inform("debug func addEffect")

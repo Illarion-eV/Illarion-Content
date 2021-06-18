@@ -17,8 +17,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Basiscript für die Kreuze
 
 local common = require("base.common")
-local petBase = require("petsystem.base")
-
 local M = {}
 
 local function LangSkillName(Race)
@@ -92,12 +90,6 @@ function M.nextCycle(thisNPC)
 
     -- Suche nach Monstern
     local monsters = world:getMonstersInRangeOf(thisNPC.pos,EffectArea+2) -- Suche Nach Monstern zum Wegschleudern
-    for posi,monst in pairs(monsters) do
-        local owner = petBase.getOwnerByPet(monst)
-        if monst:getMonsterType()==2000 or owner then
-            table.remove(monsters,posi);
-        end
-    end
 
     if (#monsters>0) then -- Monster gefunden
         CreateCircle(46,thisNPC.pos,EffectArea+2); -- Lustiger Leuchtkreis

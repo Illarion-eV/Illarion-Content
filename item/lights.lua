@@ -66,8 +66,6 @@ ReqTexts.english = { [392] = "torches", [43] = "candles", [469] = "lamp oil" }
 
 local checkReq
 local putOn
-local putOff
-local giveBack
 local getLightData
 local setLightData
 
@@ -156,49 +154,6 @@ function checkReq(User, Item, this)
     return (wear>=0), wear
 end
 
--- CURRENTLY DEACTIVATED
--- give something back
-function giveBack(User, Item, this)
-
-    -- This all is an ugly hack
-    local finalItem
-    local magicNum = 15734
-    if User:createItem(this.back,1,333,{lightData=magicNum}) == 0 then
-        for i=1,17 do
-            local myItem = User:getItemAt( i )
-            if ( myItem.id == this.back and tonumber(myItem:getData("lightData"))==magicNum ) then
-                finalItem = myItem
-                break
-            end
-        end
-        if not finalItem then
-            -- Item is in backpack. Erase it and create an unlit item with proper data value
-            local theBackpack=User:getBackPack()
-            if theBackpack~=nil then
-                local i = 0
-                repeat
-                    i = i + 1
-                    local worked,myItem = theBackpack:viewItemNr(i)
-                    if worked then
-                        if ( myItem.id == this.back and tonumber(myItem:getData("lightData"))==magicNum ) then
-                            theBackpack:takeItemNr(i,1)
-                            User:createItem(LightsOn[this.back].off,1,333,Item.wear+1000)
-                            break
-                        end
-                    end
-                until not worked
-            end
-        end
-    else
-        finalItem = world:createItemFromId(this.back,1,User.pos,true,333,1)
-    end
-    if finalItem then
-        finalItem:setData("lightData", 1)
-        finalItem.wear = Item.wear
-        world:changeItem(finalItem)
-    end
-end
-
 function putOn(Item, newWear, noBack)
 
     if noBack then
@@ -208,28 +163,6 @@ function putOn(Item, newWear, noBack)
     end
     Item.id = LightsOff[Item.id].on
     Item.wear = newWear
-    world:changeItem(Item)
-end
-
-function putOff(Item, this)
-    local oldWear = Item.wear
-    if getLightData(Item) >= 500 then
-        -- item has already been used and old wear value is saved in data
-        Item.wear = getLightData(Item) - 500
-
-    elseif this.portable then
-        Item.wear = PORTABLE_WEAR
-    else
-        Item.wear = 255
-    end
-    if this.back then
-        -- old wear value is already saved, as we've given a torch to the user
-        setLightData(Item, 0)
-    else
-        -- save old wear value in data
-        setLightData(Item, oldWear + 1000)
-    end
-    Item.id = this.off
     world:changeItem(Item)
 end
 

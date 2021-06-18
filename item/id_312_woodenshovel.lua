@@ -17,7 +17,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local sieving = require("craft.intermediate.sieving")
 local wood = require("item.general.wood")
-local common = require("base.common")
 
 local M = {}
 

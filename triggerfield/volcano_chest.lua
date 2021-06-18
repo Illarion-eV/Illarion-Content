@@ -23,7 +23,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 local common = require("base.common")
-local lookat = require("base.lookat")
 local treasureBase = require("item.base.treasure")
 local globalvar = require("base.globalvar")
 
@@ -45,7 +44,6 @@ local moveBackRelations = {
 {1,2},
 {2,3}}
 
-local TRESURE_CHEST_ID = 2830
 local LEVER_OK_ID = 434
 local LEVER_WRONG_ID = 435
 local DEATH_DRAGON_ID = 1123

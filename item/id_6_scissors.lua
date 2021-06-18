@@ -22,7 +22,6 @@ local weaving = require("craft.intermediate.weaving")
 local woolcutting = require("craft.gathering.woolcutting")
 local silkcutting = require("craft.gathering.silkcutting")
 local metal = require("item.general.metal")
-local petsystem = require("petsystem.base")
 
 local M = {}
 

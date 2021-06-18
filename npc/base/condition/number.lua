@@ -41,8 +41,6 @@ function(self, comp, value)
         self["check"] = _number_helper_greater
     elseif (comp == "<") then
         self["check"] = _number_helper_lesser
-    else
-        -- unkonwn comparator
     end
 end)
 

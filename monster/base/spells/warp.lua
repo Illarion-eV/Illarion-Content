@@ -144,7 +144,6 @@ return function(params)
 
                 -- checking the fields around the archer for a possible new location
                 for freePosition in common.GetFreePositions(foundArcher.pos, 1, true, true) do
-                    local playersAroundNewLocation = _getAdjazentPlayers(monster.pos)
                     local badPosition = false
                     for _, player in pairs(nearPlayers) do
                         if not _isArcher(player) then

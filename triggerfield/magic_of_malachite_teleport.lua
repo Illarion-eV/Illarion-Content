@@ -16,8 +16,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- Teleporters in the Magic of Malachite in Galmair
 
-local common = require("base.common")
-
 local M = {}
 
 function M.MoveToField(User)

@@ -14,15 +14,14 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-local common = require("base.common")
 local base_time = require("base.time")
 
 local M = {}
 
 function M.checkIfTimesExpired(User, quest, monthToRepeat, dayToRepeat, hourToRepeat)
-    local questState, questLastChanged = User:getQuestProgress(quest)
+    local _, questLastChanged = User:getQuestProgress(quest)
     local month, day, hour
-    local y, mo, d, h, mi, sec = base_time.getRLDateFromUnixTimestamp(questLastChanged)
+    local _, mo = base_time.getRLDateFromUnixTimestamp(questLastChanged)
 
     debug("LastChanged: "..questLastChanged)
 

@@ -181,9 +181,9 @@ function M.receiveText(npc, ttype, text, user)
             local selectedReduce = reduceOptions[dialog:getSelectedIndex() + 1]
             local reduceAttribute = attributes[attributesKey[selectedReduce]]
 
-            local increaseCallback = function (dialog)
-                if dialog:getSuccess() then
-                    local selectedIncrease = increaseOptions[dialog:getSelectedIndex() + 1]
+            local increaseCallback = function (subdialog)
+                if subdialog:getSuccess() then
+                    local selectedIncrease = increaseOptions[subdialog:getSelectedIndex() + 1]
                     local increaseAttribute = attributes[attributesKey[selectedIncrease]]
 
                     if questProgress ~= user:getQuestProgress(questId) then
@@ -224,7 +224,7 @@ function M.receiveText(npc, ttype, text, user)
                                             "This training only cost you the ridiculous sum of " .. costInGold .. " gold!"
                                 end
 
-                                local successMessage = MessageDialog(caption, message, function(dialog) end)
+                                local successMessage = MessageDialog(caption, message, function(somedialog) end)
                                 user:requestMessageDialog(successMessage)
                             else
                                 -- safety net: should never happen
@@ -250,7 +250,7 @@ function M.receiveText(npc, ttype, text, user)
             local requestIncreaseAttribute = SelectionDialog("Trainer", increaseText, increaseCallback)
             requestIncreaseAttribute:setCloseOnMove()
 
-            for key, text in ipairs(attributesText) do
+            for key, attrText in ipairs(attributesText) do
                 local attribute = attributes[attributesKey[key]]
                 local base = user:getBaseAttribute(attribute)
 
@@ -263,7 +263,7 @@ function M.receiveText(npc, ttype, text, user)
                     end
 
                     table.insert(increaseOptions, key)
-                    requestIncreaseAttribute:addOption(0, text .. valueText)
+                    requestIncreaseAttribute:addOption(0, attrText .. valueText)
                 end
             end
 
@@ -274,7 +274,7 @@ function M.receiveText(npc, ttype, text, user)
     local requestReduceAttribute = SelectionDialog("Trainer", reduceText, reduceCallback)
     requestReduceAttribute:setCloseOnMove()
 
-    for key, text in ipairs(attributesText) do
+    for key, attrText in ipairs(attributesText) do
         local attribute = attributes[attributesKey[key]]
         local base = user:getBaseAttribute(attribute)
 
@@ -287,7 +287,7 @@ function M.receiveText(npc, ttype, text, user)
             end
 
             table.insert(reduceOptions, key)
-            requestReduceAttribute:addOption(0, text .. valueText)
+            requestReduceAttribute:addOption(0, attrText .. valueText)
         end
     end
 

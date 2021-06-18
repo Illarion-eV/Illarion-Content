@@ -42,7 +42,7 @@ function M.UseItem(User, SourceItem, ltstate)
     if SourceItem.wear == 255 then
         return
     end
-    local isPlant, ignoreIt = alchemy.getPlantSubstance(SourceItem.id, User)
+    local isPlant = alchemy.getPlantSubstance(SourceItem.id, User)
     local isGemDust = alchemy.CheckIfGemDust(SourceItem.id, User)
     if isPlant  or SourceItem.id == 157 then
         herbs.UseItem(User, SourceItem, ltstate)

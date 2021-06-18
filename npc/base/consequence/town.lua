@@ -30,8 +30,6 @@ function(self, mode, value)
         self["perform"] = _town_helper_set
     elseif (mode == "?") then
         self["perform"] = _town_helper_status
-    else
-        -- unkonwn comparator
     end
 end)
 

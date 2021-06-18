@@ -55,20 +55,6 @@ local COLTASK_TASKS = {
 {7, 8, 9}  -- Galmair
 }
 
-local LISTED_CONSTRUCTION_ITEMS = {
---{groupNameDe, groupNameEn, listOfItems}
-{"Holz","Wood",{2560,2716,543,545,3,2543,544,546,56,3786}},
-{"Sand und Stein","Sand and Stone",{726,316,735,733,2588}},
-{"Stoffe","Drapery",{170,168,3787,176,178,179,177.2579,174,175}},
-{"Edelsteine","Gems",{}},
-{"Werkzeuge","Tools",{}},
-{"Essen","Food",{}},
-{"Getränke","Drinks",{}},
-{"Geschirr","Tableware",{}},
-{"Reine Elemente","Pure elements",{}},
-{"sonstiges","miscellaneous",{}}
-}
-
 local currentSelectedColtask = 0
 
 local function getBaseQuestId(coltask)
@@ -207,7 +193,7 @@ local function isPermitForPlayerDonation(coltask,user)
 end
 
 local function collectionStateText(user,coltask)
-    local text = ""
+    local text
     if isActiveCollection(coltask) then
         text = common.GetNLS(user, "aktiv", "active")
     else
@@ -228,7 +214,7 @@ local function collectionOverview(user,coltask)
 end
 
 local function slotOverview(user,coltask,slot)
-    local text = ""
+    local text
     local lang = user:getPlayerLanguage()
     local itemId = getItemIdInSlot(coltask,slot)
     if itemId == 0 then
@@ -245,7 +231,7 @@ local function slotOverview(user,coltask,slot)
 end
 
 local function slotOverviewDonator(user,coltask,slot)
-    local text = ""
+    local text
     local lang = user:getPlayerLanguage()
     local itemId = getItemIdInSlot(coltask,slot)
     if itemId == 0 then
@@ -463,7 +449,6 @@ local function donateSingleCollection(user,coltask,itemChest)
                 return
             end
 
-            local selected = dialog:getSelectedIndex() + 1
             currentSelectedColtask = 0
             itemChest.id = CHEST_ID_CLOSED
             world:changeItem(itemChest)

@@ -39,8 +39,9 @@ local function pseudogauss(minV, maxV)    -- returns a pseudogauss distributed r
     return retVal;
 end
 
+local cycCnt = nil
+
 local function largeScaleTempModifier()       -- larger scale temp modifier
-    local cycCnt
     local retLsTemp
     if cycCnt==nil then
         cycCnt=math.random(80,720);    -- time from 1-10 days
@@ -54,8 +55,9 @@ local function largeScaleTempModifier()       -- larger scale temp modifier
     return retLsTemp;
 end
 
+local cycCldCnt = nil
+
 local function largeScaleCloudModifier()      -- larger scale cloud modifier (periods of cloudy skies)
-    local cycCldCnt
     local retLsCld
     if cycCldCnt==nil then
         cycCldCnt=math.random(40,210);    -- time from 0,5-3 days
@@ -109,7 +111,7 @@ end
 
 local function setClouds(actClouds,thisMonth)     -- much in winter, less in summer
                                             -- clear sky, cold night (winter)
-    local newCloud=0;
+    local newCloud
     local typicalClearDayProb=math.floor(40-9*math.cos(thisMonth*math.pi/8)); -- 78% in summer, 60 in winter (69)
     local clearTest=math.random(1,50);
     if clearTest>=typicalClearDayProb then  -- no clear day
@@ -213,7 +215,7 @@ function M.changeWeather()
 
     local month=world:getTime("month");
 
-    local newClouds=math.max(0,setClouds(actWeather.cloud_density,month)+largeScaleTempModifier());
+    local newClouds=math.max(0,setClouds(actWeather.cloud_density,month)+largeScaleCloudModifier());
     newClouds=math.min(100,newClouds);        -- much in winter, less in summer
     local newFog=setFog(actWeather.fog_density,newClouds,month);      -- much fog in fall
     local seasTp=getSeasonTemp(month);

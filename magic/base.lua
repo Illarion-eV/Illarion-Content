@@ -26,7 +26,7 @@ function M.getMagicBonus(character)
     for _, bodyPosition in pairs(bodyPositions) do
         local checkItem = character:getItemAt(bodyPosition)
         if checkItem ~= nil and checkItem.id > 0 then
-            local isArmor, armorStruct =  world:getArmorStruct(checkItem.id)
+            local _, armorStruct =  world:getArmorStruct(checkItem.id)
             local itemBonus = armorStruct.MagicDisturbance
             if itemBonus > 0 then
                 magicBonus = magicBonus + itemBonus

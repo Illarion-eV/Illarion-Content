@@ -42,8 +42,6 @@ function(self, name, comp, value)
         self["check"] = _attrib_helper_greater
     elseif (comp == "<") then
         self["check"] = _attrib_helper_lesser
-    else
-        -- unkonwn comparator
     end
 end)
 

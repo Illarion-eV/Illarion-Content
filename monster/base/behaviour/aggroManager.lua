@@ -135,14 +135,11 @@ function M.buildAggroManager(params)
 
             lastAggroUpdate = currentUnixTime
 
-            local indexAndAggro = {}
             local highestAbsoluteAggro = 0
             local highestAggroIndex = 0
             for index, targetCandidate in pairs(candidateList) do
                 local candidateAddAggro = addAggroForTarget(monster, targetCandidate)
                 local candidateAggro = manager.addAggro(monster, targetCandidate, candidateAddAggro)
-
-                indexAndAggro[index] = candidateAggro
 
                 local absAggro = math.abs(candidateAggro)
                 if absAggro > highestAbsoluteAggro then

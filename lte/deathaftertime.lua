@@ -19,7 +19,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- see base.character.DeathAfterTime(Character,deathAfter,deathGfx,deathSound)
 
 local transformation_dog = require("alchemy.teaching.transformation_dog")
-local showGFX = require("scheduled.showGFX")
 local M = {}
 
 function M.addEffect(Effect, Character)

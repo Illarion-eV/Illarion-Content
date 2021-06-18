@@ -267,10 +267,10 @@ local function startGame (npc)
 end
 
 local function createBall(npc)
-    local borderW = 333
-    local borderE = 340
+    local ballBorderW = 333
+    local ballBorderE = 340
     local posX = 690
-    local posY = math.random(borderW, borderE)
+    local posY = math.random(ballBorderW, ballBorderE)
     local pos = position(posX, posY, GAME_LEVEL_Z)
     itemOnion = world:createItemFromId(ITEM_ID_ONION, 1, pos, true, 333, {onionball="true",nameDe="Spielzwiebel",nameEn="Game Onion",descriptionDe="Die Zwiebel ist schon recht matschig und stinkt.",descriptionEn="The onion is quite pulpy and stinks.",lookatNoPrice=1,lookatNoWeight=1})
     world:gfx(globalvar.gfxSUN, pos)
@@ -453,7 +453,7 @@ function M.nextCycle(npc)
             else
                 local spectators = tonumber(countSpectators())
                 if spectators > 0 then
-                    local talkative = TALK_FREQUENCY_GAME_WITH_SPECTATORS * spectators
+                    talkative = TALK_FREQUENCY_GAME_WITH_SPECTATORS * spectators
                 end
                 if math.random(talkative) == 1 then
                     local textNo = math.random(#cycleTextGame)

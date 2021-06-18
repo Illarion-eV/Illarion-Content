@@ -190,7 +190,6 @@ local function getCapability(user)
     local attIntelligence = user:getBaseAttribute("intelligence")
     local attPerception = user:getBaseAttribute("perception")
     local attStrength = user:getBaseAttribute("strength")
-    local attWillpower = user:getBaseAttribute("willpower")
 
     local capaFight = (100 + (attStrength-6)*3 + (attPerception-6) + (attDexterity-6) + (skillFight-20)*1.5 ) / 2.9
     local capaMage =  (100 + (attIntelligence-6)*3.5 + (attEssence-6)*1.1 + (skillMage-20)*1.5 ) / 2.82
@@ -209,7 +208,6 @@ function M.gmSpawnMob(user,item)
     local SELECT_SETSIZE = -2
 
     local callback = function(dialog)
-        local success = dialog:getSuccess()
         if (not dialog:getSuccess()) then
             return
         end
