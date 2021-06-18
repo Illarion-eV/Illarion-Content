@@ -70,7 +70,7 @@ local getLightData
 local setLightData
 
 function M.UseItem(User, SourceItem, ltstate)
-    if SourceItem.id == 391 and SourceItem:getType()~=4 then
+    if SourceItem.id == Item.torch and SourceItem:getType()~=4 then
         common.InformNLS(User,
             "Nimm die Lichtquelle in die Hand.",
             "Take the light source into your hand.")
