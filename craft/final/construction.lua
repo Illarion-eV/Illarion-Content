@@ -22,7 +22,7 @@ local M = {}
 local product
 local catId
 
-local function addIngredients(User, product, item, tile)
+local function addIngredients(User, item, tile)
     if item then
         for i = 1,4 do
             if item["ingredient"..i] then
@@ -47,11 +47,11 @@ local function addProducts(craft, category, User, item, tile)
             if item.typeOf == "Estate" then
                 if propertyList.checkIfEstate(User) then
                     product = M[tostring(category)..craft]:addProduct(catId, item.itemId, 1, {}, true)
-                    addIngredients(User, product, item, nil)
+                    addIngredients(User, item, nil)
                 end
             else
                 product = M[tostring(category)..craft]:addProduct(catId, item.itemId, 1, {}, true)
-                addIngredients(User, product, item, nil)
+                addIngredients(User, item, nil)
             end
         end
     elseif tile then
