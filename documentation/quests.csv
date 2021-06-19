@@ -241,16 +241,13 @@ ID,Title,NPCs,Status,Responsible Author,Description
 322,Tutorial - First player attack,,,Estralis,Only attack with valid RP reason
 323,Tutorial - Faction selection,,,Estralis,Player has chosen a faction
 324,Introduction - Login dialog,,,Estralis,Only show login dialog once
-<<<<<<< HEAD
-325,Tutorial I,Henry Cunnigan,,Slightly,Tutorial - Introduction / lighting a torch
-326,Tutorial II,Nimbur Goldbrew,,Slightly,Tutorial - Fighting / gathering / crafting
-=======
 325,Tutorial - Show tutorial messages,,,Estralis,Flag for no decision (0), Accepted (1), Declined (2)
 326,Tutorial - Hitpoints,,,Estralis,Just show message once
 327,Tutorial - Foodlevel,,,Estralis,Just show message once
 328,Tutorial - Monsters,,,Estralis,Just show message once
 329,Tutorial - First encounter,,,Estralis,Just show message once
->>>>>>> c44101249f76bade846fb2b73fdde06ecad5a2e4
+330,Tutorial I,Henry Cunnigan,,Slightly,Tutorial - Introduction / lighting a torch
+331,Tutorial II,Nimbur Goldbrew,,Slightly,Tutorial - Fighting / gathering / crafting
 342,Cadomyr Starter Quest,,,Grokk,New player quest chain for the Cadomyr faction
 343,Galmair Starter Quest,,,Grokk,New player quest chain for the Galmair faction
 350,teacher,,,merung,Initiation - alchemy
