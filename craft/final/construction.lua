@@ -21,59 +21,65 @@ local propertyList = require("base.propertyList")
 local M = {}
 local product
 local catId
+
+local function addIngredients(User, product, item, tile)
+    if item then
+        for i = 1,4 do
+            if item["ingredient"..i] then
+                product:addIngredient(item["ingredient"..i], item["ingredient"..i.."Amount"])
+                if item["ingredient"..i] == 52 then -- Water bucket
+                    product:addRemnant(51, 1) -- bucket
+                end
+            end
+        end
+    elseif tile then
+        for i = 1,4 do
+            if tile["ingredient"..i] then
+                product:addIngredient(tile["ingredient"..i], tile["ingredient"..i.."Amount"])
+            end
+        end
+    end
+end
+
+local function addProducts(craft, category, User, item, tile)
+    if item then
+        if item.category == category.categoryEn and item.skill == craft then
+            if item.typeOf == "Estate" then
+                if propertyList.checkIfEstate(User) then
+                    product = M[tostring(category)..craft]:addProduct(catId, item.itemId, 1, {}, true)
+                    addIngredients(User, product, item, nil)
+                end
+            else
+                product = M[tostring(category)..craft]:addProduct(catId, item.itemId, 1, {}, true)
+                addIngredients(User, product, item, nil)
+            end
+        end
+    elseif tile then
+        if tile.category == category.categoryEn and tile.skill == craft then
+            if tile.typeOf == "Estate" then
+                if propertyList.checkIfEstate(User) then
+                    product = M[tostring(category)..craft]:addProduct(catId, tile.tileId, 1, {}, true, true)
+                    addIngredients(User, product, nil, tile)
+                end
+            else
+                product = M[tostring(category)..craft]:addProduct(catId, tile.tileId, 1, {}, true, true)
+                addIngredients(User, product, nil, tile)
+            end
+        end
+    end
+end
+
 local function addItems(cat, craft, isTile, User)
     for _, category in ipairs(itemList.categories) do
         if category.categoryEn == cat and not isTile then
             catId = M[tostring(category)..craft]:addCategory(category.categoryEn, category.categoryDe)
             for _, item in ipairs(itemList.items) do
-                if item.category == category.categoryEn and item.skill == craft then
-                    if item.typeOf == "Estate" then
-                        if propertyList.checkIfEstate(User) then
-                            product = M[tostring(category)..craft]:addProduct(catId, item.itemId, 1, {}, true)
-                            for i = 1,4 do
-                                if item["ingredient"..i] then
-                                    product:addIngredient(item["ingredient"..i], item["ingredient"..i.."Amount"])
-                                    if item["ingredient"..i] == 52 then -- Water bucket
-                                        product:addRemnant(51, 1) -- bucket
-                                    end
-                                end
-                            end
-                        end
-                    else
-                        product = M[tostring(category)..craft]:addProduct(catId, item.itemId, 1, {}, true)
-                        for i = 1,4 do
-                            if item["ingredient"..i] then
-                                product:addIngredient(item["ingredient"..i], item["ingredient"..i.."Amount"])
-                                if item["ingredient"..i] == 52 then -- Water bucket
-                                        product:addRemnant(51, 1) -- bucket
-                                end
-                            end
-                        end
-                    end
-                end
+                addProducts(craft, category, User, item, nil)
             end
         elseif category.categoryEn == cat then
             catId = M[tostring(category)..craft]:addCategory(category.categoryEn, category.categoryDe)
             for _, tile in ipairs(itemList.tiles) do
-                if tile.category == category.categoryEn and tile.skill == craft then
-                    if tile.typeOf == "Estate" then
-                        if propertyList.checkIfEstate(User) then
-                            product = M[tostring(category)..craft]:addProduct(catId, tile.tileId, 1, {}, true, true)
-                            for i = 1,4 do
-                                if tile["ingredient"..i] then
-                                    product:addIngredient(tile["ingredient"..i], tile["ingredient"..i.."Amount"])
-                                end
-                            end
-                        end
-                    else
-                        product = M[tostring(category)..craft]:addProduct(catId, tile.tileId, 1, {}, true, true)
-                        for i = 1,4 do
-                            if tile["ingredient"..i] then
-                                product:addIngredient(tile["ingredient"..i], tile["ingredient"..i.."Amount"])
-                            end
-                        end
-                    end
-                end
+                addProducts(craft, category, User, nil, tile)
             end
         end
     end
