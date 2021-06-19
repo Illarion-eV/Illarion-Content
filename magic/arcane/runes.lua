@@ -17,35 +17,35 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local M = {}
 
 M.Runes = { -- [(1)Rune Number], [(2)Rune Name], [(3)Mana cost],[(4)Cast Time]
-{"1","CUN","Small","Short"},
-{"2","JUS","Small","Short"},
-{"3","PEN","Small","Short"},
-{"4","RA","Small","Short"},
-{"5","SOLH","Small","Short"},
-{"6","Anth","Small","Short"},
-{"7","Bhona","Small","Short"},
-{"8","Dun","Large","Long"},
-{"9","Fhan","Large","Long"},
-{"10","Fhen","Small","Short"},
-{"11","Hept","Medium","Medium"},
-{"12","Ira","Medium","Medium"},
-{"13","Kah","Small","Short"},
-{"14","Kel","Large","Long"},
-{"15","Lev","Small","Short"},
-{"16","Lhor","Small","Short"},
-{"17","Luk","Medium","Medium"},
-{"18","Mes","Small","Short"},
-{"19","Orl","Large","Long"},
-{"20","Pherc","Medium","Medium"},
-{"21","Qwan","Large","Long"},
-{"22","Sav","Medium","Medium"},
-{"23","Sih","Large","Long"},
-{"24","Sul","Medium","Medium"},
-{"25","Tah","Medium","Medium"},
-{"26","Taur","Medium","Medium"},
-{"27","Ura","Medium","Medium"},
-{"28","Yeg","Medium","Medium"},
-{"29","Pera","Small","Short"}
+{1,"CUN","Small","Short"},
+{2,"JUS","Small","Short"},
+{3,"PEN","Small","Short"},
+{4,"RA","Small","Short"},
+{5,"SOLH","Small","Short"},
+{6,"Anth","Small","Short"},
+{7,"Bhona","Small","Short"},
+{8,"Dun","Large","Long"},
+{9,"Fhan","Large","Long"},
+{10,"Fhen","Small","Short"},
+{11,"Hept","Medium","Medium"},
+{12,"Ira","Medium","Medium"},
+{13,"Kah","Small","Short"},
+{14,"Kel","Large","Long"},
+{15,"Lev","Small","Short"},
+{16,"Lhor","Small","Short"},
+{17,"Luk","Medium","Medium"},
+{18,"Mes","Small","Short"},
+{19,"Orl","Large","Long"},
+{20,"Pherc","Medium","Medium"},
+{21,"Qwan","Large","Long"},
+{22,"Sav","Medium","Medium"},
+{23,"Sih","Large","Long"},
+{24,"Sul","Medium","Medium"},
+{25,"Tah","Medium","Medium"},
+{26,"Taur","Medium","Medium"},
+{27,"Ura","Medium","Medium"},
+{28,"Yeg","Medium","Medium"},
+{29,"Pera","Small","Short"}
 }
 
 function M.learnedRunesToQuestprogress(RuneNumber)
@@ -84,6 +84,16 @@ function M.checkSpellForRune(User, RuneNumber, spell)
         retVal=true;
     end
     return retVal;
+end
+
+function M.checkSpellForRuneByName(User, RuneName, spell)
+local runeNumber
+    for i = 1, #M.Runes do
+         if M.Runes[i][2] == RuneName then
+            runeNumber = M.Runes[i][1]
+            return M.checkSpellForRune(User, runeNumber, spell)
+         end
+    end
 end
 function M.learnRune(User, TargetItem, RuneNumber, questorspell, spellnumber)
     local runeOffset=math.fmod(RuneNumber-1,32);

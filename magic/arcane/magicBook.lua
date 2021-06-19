@@ -15,7 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
-local createSpell = require("magic.createSpell")
+local createSpell = require("magic.arcane.createSpell")
 
 local M = {}
 local function checkIfCompleteSpells(User, SourceItem)

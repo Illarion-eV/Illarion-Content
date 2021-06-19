@@ -14,30 +14,26 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-local runes = require("magic.runes")
+local runes = require("magic.arcane.runes")
 local M = {}
 
 local function manaCostByRuneSize(size) -- Just basic temporary values until a proper mana script is made that accounts for skill levels and what not.
     if size == "Small" then
-        return "1000"
+        return 1000
     elseif size == "Medium" then
-        return "2000"
+        return 2000
     elseif size == "Large" then
-        return "3000"
+        return 3000
     end
 end
 function M.arcaneSpellCost(User,TargetItem, spellnumber) -- Should return a total mana cost for a spell by checking every rune present in the spell and returning the additive mana value
-local manaCost = "0"
+local manaCost = 0
     for i = 1,#runes.Runes do
         if runes.checkIfLearnedRune(User, TargetItem, i, "isSpell", "spell"..spellnumber) then
             manaCost = manaCost+manaCostByRuneSize(runes.Runes[i][3])
-            if i == #runes.Runes then
-                return manaCost
-            end
-        elseif i == #runes.Runes then
-            return manaCost
         end
     end
+return manaCost
 end
 
 
