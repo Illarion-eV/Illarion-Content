@@ -59,7 +59,7 @@ itemHands = 48
 itemTrousers = 34
 itemShoes = 53
 
--- Queststatus Overview (326) - Tutorial II
+-- Queststatus Overview (331) - Tutorial II
 -- 0: No quest taken
 -- 1: Introduction to NPC (handled by trigger field)
 -- 2: Speak to NPC to receive instructions
@@ -70,7 +70,7 @@ itemShoes = 53
 "Help" -> inform("[Game Help] This NPC is the brewer Nimbur Goldbrew. He will gladly help you take your first steps in Illarion. Keywords: Hello, Brew, Ingredients, Rat, Adron, Dwarf."), "Nimbur Goldbrew, brewer for the Hemp Necktie Inn, how can I help?"
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC heißt Nimbur Goldbrew und ist ein Braumeister. Er hilft dir sicherlich gerne bei deinen ersten Schritten in Illarion. Schlüsselwörter: Hallo, Brauen, Zutaten, Ratten, Adron, Zwerg."), "Mein Name ist Nimbur Goldbrew, Braumeister der Taverne zur Hanfschlinge, wie kann ich dir helfen?"
 
--- Quest triggers: Tutorial II (326)
+-- Quest triggers: Tutorial II (331)
 -- Introduction to NPC is handled via trigger field
 
 -- Speak to NPC to receive instructions to pick apples, with a warning about rats and a club for protection

@@ -61,7 +61,7 @@ itemHands = 48
 itemTrousers = 366
 itemShoes = 53
 
--- Queststatus Overview (325) - Tutorial I
+-- Queststatus Overview (330) - Tutorial I
 -- 0: No quest taken
 -- 1: Walk to NPC (handled by trigger field)
 -- 2: Speak to NPC
@@ -72,7 +72,7 @@ itemShoes = 53
 "Help" -> inform("[Game Help] This NPC is the Harbour Master Henry Cunnigan. He will gladly help you take your first steps in Illarion. Follow his advice to learn how to equip and use items. Keywords: Hello, Illarion, Troll's Haven, Harbour."), "Henry Cunnigan, Harbour Master of Troll's Haven, how can I help?"
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC heißt Henry Cunnigan und ist Hafenmeister. Er wird dir sicherlich gerne dabei helfen in Illarion Fuß zu fassen. Folge seinen Anweisungen und lerne wie man Items ausrüstet und benutzt. Schlüsselwörter: Hallo, Illarion, Trollshaven, Hafen."), "Henry Cunnigan, Hafenmeister von Trollshaven, wie kann ich helfen?"
 
--- Quest triggers: Tutorial I (325)
+-- Quest triggers: Tutorial I (330)
 -- Moving to NPC is handled via trigger field
 
 -- Speak to NPC to receive torch and instructions to equip it

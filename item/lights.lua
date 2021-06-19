@@ -93,7 +93,7 @@ function M.UseItem(User, SourceItem, ltstate)
     if this then
         local ok, wear = checkReq(User,SourceItem,this)
         if ok then
-            --Noobia Quest 325: Lighting a torch with NPC Henry Cunnigan
+            --Noobia Quest 330: Lighting a torch with NPC Henry Cunnigan
             if User:getQuestProgress(309) == 3 and SourceItem.id == 391 and User:isInRangeToPosition((position (703,290,0)),20) then -- Only invoked if the user has the quest, has a torch and is in range of the NPC
                 User:setQuestProgress(309,4) -- Quest advanced when torch lit
                 common.InformNLS(User, "[Quest 'Tutorial I' beendet] Du kannst nun die Tutorialquests fortführen, indem du zu Nimbur Goldbrew gehst, um etwas über Sammeln, Handwerken und Kämpfen zu lernen.", "[Quest 'Tutorial I' end] You can continue the tutorial quests with Nimbur Goldbrew to learn about gathering, crafting  and fighting.")
@@ -193,7 +193,7 @@ function M.MoveItemAfterMove(User,SourceItem,TargetItem)
         end
     end
 
-    --Noobia Quest 325: Equipping a torch with NPC Henry Cunnigan
+    --Noobia Quest 330: Equipping a torch with NPC Henry Cunnigan
     if User:getQuestProgress(309)==2 and TargetItem.id==391 and User:isInRangeToPosition((position (703,290,0)),20) and TargetItem:getType() == 4 then -- Only invoked if the user has the quest, has a torch and is in range of the NPC
         User:setQuestProgress(309,3) --Quest advancement when torch equipped
         local NPCList=world:getNPCSInRangeOf(position(703,290,0),1) --Let's be tolerant, the NPC might move a tile.
