@@ -241,6 +241,11 @@ ID,Title,NPCs,Status,Responsible Author,Description
 322,Tutorial - First player attack,,,Estralis,Only attack with valid RP reason
 323,Tutorial - Faction selection,,,Estralis,Player has chosen a faction
 324,Introduction - Login dialog,,,Estralis,Only show login dialog once
+325,Tutorial - Show tutorial messages,,,Estralis,Flag for no decision (0), Accepted (1), Declined (2)
+326,Tutorial - Hitpoints,,,Estralis,Just show message once
+327,Tutorial - Foodlevel,,,Estralis,Just show message once
+328,Tutorial - Monsters,,,Estralis,Just show message once
+329,Tutorial - First encounter,,,Estralis,Just show message once
 342,Cadomyr Starter Quest,,,Grokk,New player quest chain for the Cadomyr faction
 343,Galmair Starter Quest,,,Grokk,New player quest chain for the Galmair faction
 350,teacher,,,merung,Initiation - alchemy
@@ -254,7 +259,7 @@ ID,Title,NPCs,Status,Responsible Author,Description
 367-370,Pet system: color,,,merung,save the color of the pet
 371-374,Pet system: name,,,merung,binary saved pet name
 375,Pet system: owner,,,merung,Flag for being a pet owner
-376,Pet syetem: death protection,,,merung,Flag if the pet is proctected from death
+376,Pet system: death protection,,,merung,Flag if the pet is proctected from death
 401,,,,Estralis/pharse,Priest system: Devotion
 402,,,,Estralis/pharse,Priest system: Priesthood
 403-418,,,,snus-mumrik,Priest system: Gods favour
