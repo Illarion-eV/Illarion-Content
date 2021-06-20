@@ -20,7 +20,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
---                                                     easyNPC Parser v1.23.1 --
+--           Slightly                                  easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 name = "Nimbur Goldbrew"
@@ -29,7 +29,7 @@ sex = male
 position = 706, 297, 0
 direction = west
 affiliation = "None"
-job = "Blacksmith"
+job = "Brewer"
 
 language = common
 language = dwarf
@@ -37,9 +37,10 @@ defaultLanguage = common
 autointroduce = on
 
 author = "Estralis Seborian"
+author = "Slightly"
 
-lookatDE = "Das ist dein Tutor Nimbur Goldbrew der Schmied."
-lookatUS = "This is your tutorial guide Nimbur Goldbrew the blacksmith."
+lookatDE = "Dies ist Dein Leitfaden für Nimbur Goldbrew, den Brauer."
+lookatUS = "This is your tutorial guide Nimbur Goldbrew, the brewer."
 useMsgDE = "Finger weg!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "Bitte wechsle die Sprache deines Charakters zur Gemeinsprache mit dem Befehl '!l common'."
@@ -58,46 +59,124 @@ itemHands = 48
 itemTrousers = 34
 itemShoes = 53
 
--- Queststatus 313
--- 1: Player arrives
--- 2: Player got the task to craft 15 pins
--- 3: All lessons done
+-- Queststatus Overview (331) - Tutorial II
+-- 0: No quest taken
+-- 1: Introduction to NPC (handled by trigger field)
+-- 2: Speak to NPC to receive instructions
+-- 3: Return to NPC with six apples
+-- 4: Return to NPC with a bottle of cider
 
 -- Help
-"Help" -> inform("[Tutorial] This NPC is the tutor Nimbur Goldbrew. Keywords: Hello, Help, Skip tutorial.")
-"Hilfe" -> inform("[Tutorial] Dieser NPC ist der Tutor Nimbur Goldbrew. Schlüsselwörter: Hallo, Hilfe, Tutorial überspringen.")
+"Help" -> inform("[Game Help] This NPC is the brewer Nimbur Goldbrew. He will gladly help you take your first steps in Illarion. Keywords: Hello, Brew, Ingredients, Rat, Adron, Dwarf."), "Nimbur Goldbrew, brewer for the Hemp Necktie Inn, how can I help?"
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC heißt Nimbur Goldbrew und ist ein Braumeister. Er hilft dir sicherlich gerne bei deinen ersten Schritten in Illarion. Schlüsselwörter: Hallo, Brauen, Zutaten, Ratten, Adron, Zwerg."), "Mein Name ist Nimbur Goldbrew, Braumeister der Taverne zur Hanfschlinge, wie kann ich dir helfen?"
 
--- Skipping
-"skip", "cancel", "abort" -> inform("[Tutorial] You have decided to skip the tutorial. Please choose a realm to be the home for your character by stepping through the corresponding portal on one of the three islands to the south."), warp(36, 94, 100)
-"überspring", "abbrech" -> inform("[Tutorial] Du hast entschieden, das Tutorial zu überspringen. Bitte wähle ein Reich als Heimat deines Charakters aus, indem du durch das entsprechende Portal auf einer der drei Inseln  im Süden trittst."), warp(36, 94, 100)
+-- Quest triggers: Tutorial II (331)
+-- Introduction to NPC is handled via trigger field
 
--- Learn how to craft - player gets a hammer and 10 iron ingots
-queststatus(313) < 2, english, ".*" -> item(23, 1, 333), item(2535, 10, 333), queststatus(313) = 2, "Arr... right. Listen up! I tell ye everything about blacksmithing ye need to know. Here, take this hammer and these ingots. Step inside and don't dare come out without three pins in yer bag! Blacksmithing requires you to stand in front of an anvil and use a hammer, which must be held in your hands. Then, choose the pins from the menu to start working on it."
-queststatus(313) < 2, ".*" -> item(23, 1, 333), item(2535, 10, 333), queststatus(313) = 2, "Arr, richtig. Hör zu! Ich werd' dir alles, was ich weiß, übers Schmieden beibringen. Hier, nimm diesen Hammer und diesen Barren und geh rein und komm nicht eher raus, bis du drei Nägel in deiner Tasche hast! Um zu schmieden, stell dich vor einen Amboss und benutze den in der Hand gehaltenen Hammer. Wähle dann ein Produkt aus dem Menü, um es zu fertigen."
+-- Speak to NPC to receive instructions to pick apples, with a warning about rats and a club for protection
+queststatus(313) = 1, english, ".*" -> inform("[Quest 'Tutorial II'] Raw materials can be gathered from designated sources on the map, obtained through trade, or collected from drops after killing a monster. Before you venture into the orchard make sure you have a weapon equipped in the weapon slot of your inventory, indicated by a sword icon."), item(2664, 1, 333), queststatus(313) = 2, "Arr! Welcome to the Hemp Necktie Inn's very own brewery. Nimbur Goldbrew be my name. If you're looking to find your way in these lands a good brew can soon make ye some pals. Pick six ripe apples from the orchard and I'll teach ye how to turn them into cider. Careful mind, some beast has been stealing them. Ye best take this club for protection!"
+queststatus(313) = 1, ".*" -> inform("[Quest 'Tutorial II'] Rohstoffe können an bestimmten Stellen auf der Karte gesammelt, durch Handel erwrben oder als Beute nach dem Töten eines Monsters gesammelt werden. Bevor du dich in den Obstgarten wagst, vergewisser dich, dass du eine Waffe im Waffenslot, das Feld mit dem Schwert, deines Inventars ausgerüstet hast."), item(2664, 1, 333), queststatus(313) = 2, "Arr! Willkommen zur hauseigenen Brauerei der Taverne zur Hanfschlinge. Mein Name ist Nimbur Goldbrew. Wenn du deinen Weg durch diese Länder suchst, kann ein gutes Bier dir durchaus ein paar Freunde beschaff'n. Pflücke sechs reife Äpfel in Obstgarten und ich bringe dir bei, wie man daraus Cider braut. Aber sei vorsichtig, da sind immer wieder Biester, die sie versuchen zu klauen. Am besten nimmst' diese Keule hier zu deinem Schutz mit!"
 
--- Player brought 15 pins
-queststatus(313) = 2, item(2738, all) > 2, english, ".*" -> inform("[Tutorial] You are awarded an iron goblet."), deleteItem(2738, 3), item(223, 1, 599), queststatus(313) = 3, "Aye! Ye did it! I'll give ye this cup as example of my work, and to show ye what ye might be able to achieve one day. Don't hesitate to show it off to everyone on the mainland... ye might land me some more customers. Harr! Viola Baywillow, down the road, will help ye to choose a proper home and send ye on yer way."
-queststatus(313) = 2, item(2738, all) > 2, ".*" -> inform("[Tutorial] Du erhältst einen Eisenkelch."), deleteItem(2738, 3), item(223, 1, 599), queststatus(313) = 3, "Aye! Du hast es geschafft! Nimm diesen Kelch als Beispiel für meine Arbeit und als Zeichen, was du vielleicht mal erreichen kannst. Zögere nicht, ihn auch auf dem Festland rumzuzeigen, vielleicht verschaffste mir ja ein paar Kunden. Harr! Viola Baywillow, die die Straße runter wohnt, wird dir helfen, 'ne vernünftige Heimat auszusuchen und dich auf deinen Weg schicken."
+-- Player returns with six apples
+queststatus(313) = 2, item(15, all) > 5, english, ".*" -> inform("[Quest 'Tutorial II'] Stand in front of the wine barrel set between the two tables. You will need to equip the cooking spoon in one of the hand slots of your inventory. Double click on the spoon or barrel to bring up the crafting menu for brewing."), item(227, 1, 333), item(2498, 1, 333), item(52, 1, 333), queststatus(313) = 3, "Arr good, these are fine apples for making cider. Ye better start by mixing the apples with water in the big wine barrel. Take this bucket of water, cooking spoon, and an empty bottle and see if ye can make some cider. Mind ye don't make a mess of my brewery though!"
+queststatus(313) = 2, item(15, all) > 5, ".*" -> inform("[Quest 'Tutorial II'] Stell dich vor das Weinfass zwischen den beiden Tischen. Du musst den Kochlöffel in einem der Handslots deines Inventars ausrüsten. Doppelklick den Kochlöffel oder das Fass, um das Handwerksmenü zum Brauen zu öffnen."), item(227, 1, 333), item(2498, 1, 333), item(52, 1, 333), queststatus(313) = 3, "Arr gut, das sind ideale Äpfel um Cider zu brauen. Du start'st am besten damit die Äpfel mit Wasser im großen Weinfass zu vermischen. Nimm diesen Wassereimer, den Kochlöffel und die leere Flasche und schau mal, ob du ein wenig Cider brau'n kannst. Aber sieh zu, dass du meine Brauerei nicht versaust."
 
--- Player has lost his hammer
-queststatus(313) = 2, item(23, all) = 0, english, ".*" -> item(23, 1, 333), "Bah! Without a hammer, ye are not able to forge. Losing your hammer is the first step towards ending up on the rocks. Luckily for ye, I have another one."
-queststatus(313) = 2, item(23, all) = 0, ".*" -> item(23, 1, 333), "Bah! Ohne 'nen Hammer kannste nicht schmieden. Deinen Hammer zu verlieren, ist der erste Schritt im Staub zu landen. Zum Glück hab' ich noch einen für dich."
+-- Player returns without apples
+queststatus(313) = 2, item(15, all) < 6, english, ".*" -> inform("[Quest 'Tutorial II'] To collect some apples stand in front of an apple tree and double click with your mouse or press the space bar."), item(391, 1, 333), "Arr! Ye need at least six apples to brew a bottle of cider. Ye can gather plenty from the trees in the orchard."
+queststatus(313) = 2, item(15, all) < 6, ".*" -> inform("[Quest 'Tutorial II'] Um Äpfel zu sammeln, musst du dich vor einen Apfelbaum stellen und ihn mit Doppelklick des Mauszeigers oder dem Drücken der Leertaste benutzen."), item(391, 1, 333), "Arr! Du brauchst mindest'ns sechs Äpfel um eine Flasche Cider zu brau'n. Im Obstgarten solltest du einige auf den Bäumen finden."
 
--- Player has no iron left, we give him new ingots only once
-queststatus(313) = 2, queststatus(319) = 0, item(2535, all) = 0, english, ".*" -> item(2535, 3, 333), queststatus(319) = 1, "I see ye used up all the iron ingots I gave ye, not a good yield, aye? I give ye three more bars but ye have to promise me that ye will forge those three pins right now. Get on with it!"
-queststatus(313) = 2, queststatus(319) = 0, item(2535, all) = 0, ".*" -> item(2535, 3, 333), queststatus(319) = 1, "Ich sehe, du hast die ganzen Barren aufgebraucht, die ich dir gegeben habe - keine gute Ausbeute, aye? Hier haste noch drei Barren, aber du musst mir versprechen, dass du jetzt drei Nägel schmiedest. Geh und fang an!"
+-- Player returns with a bottle of cider
+queststatus(313) = 3, item(2499, all) > 0, english, ".*" -> inform("[Quest 'Tutorial II'] You recieve two wooden cups. To pour the cider into a cup double click on the bottle of cider. To drink the cider double click on the cup of cider."), item(2185, 2, 333), queststatus(313) = 4, "Harr! Adron would be proud of ye. Take a couple of these wooden cups and perhaps ye will find someone to have a tipple of that cider with. Couple of drinks is always a good way to loosen the tongue."
+queststatus(313) = 3, item(2499, all) > 0, ".*" -> inform("[Quest 'Tutorial II'] Du erhälst zwei Holzbecher. Um Cider in die Becher zu füllen, musst du die Flasche doppelklicken, während du den Becher in der Hand hälst. Um den Cider zu trinken, musst du den gefüllten Becher doppelklicken."), item(2185, 2, 333), queststatus(313) = 4, "Harr! Adron wäre stolz auch dich. Nimm diese Becher, vielleicht findest du ja jemanden, mit dem du den Cider teilen kannst. Ein paar Drinks sind immer ein guter Weg die Zunge zu lockern."
 
--- Player has problems smithing
-queststatus(313) = 2, item(21, all) < 3, english, ".*" -> "Any problems with forging? Just slam the hammer on the hot metal until it gets the desired shape. Simple. Harr! I need three pins, I'm sure even ye can manage that! Use the hammer while standing in front of the anvil."
-queststatus(313) = 2, item(21, all) < 3, ".*" -> "Probleme mit dem Schmieden? Einfach mit dem Hammer auf das heiße Metall kloppen, bis es die gewünschte Form annimmt. Ganz einfach. Harr! Ich brauche drei Nägel und ich bin mir sicher, dass auch du das schaffen kannst! Benutze den Hammer, wenn du vor dem Amboss stehst."
+-- Player lost apples
+queststatus(313) = 3, item(15, all) < 6, english, ".*" -> inform("[Quest 'Tutorial II'] Gather some more apples from the orchard, or find someone to trade with."), "Arr! Did ye get peckish? Ye will need at least six apples to make a bottle of cider."
+queststatus(313) = 3, item(15, all) < 6, ".*" -> inform("[Quest 'Tutorial II'] Sammel mehr Äpfel im Obstgarten, oder finde jemanden, der sie dir verkauft."), "Arr! Hast du genascht? Du brauchst mindestens sechs Äpfel, um eine Flasche Cider zu brauen."
 
--- Player did all lessons
-queststatus(313) = 3, english, ".*" -> "Harr! Now I've only gone and trained another competitor for my business... yet again. True dwarven craft knows no competition though! I can proudly say ye learned all that ye need to get started now. Viola Baywillow will help ye to choose a proper home and send ye on yer way."
-queststatus(313) = 3, ".*" -> "Harr! Jetzt hab' ich schon wieder einen Konkurrenten für mein Geschäft trainiert. Aber wahre Zwergenkunst hat keine Konkurrenz! Ich kann mit Stolz sagen, dass du alles gelernt hast für den Anfang. Viola Baywillow wird dir helfen 'ne vernünftige Heimat auszusuchen und dich auf deinen Weg schicken."
+-- Player lost spoon
+queststatus(313) = 3, item(227, all) = 0, english, ".*" -> inform("[Quest 'Tutorial II'] You can buy a replacement from the merchant Hook Gowan in the market to south west, or find someone to trade with."), "Arr! Ye lost your spoon? Hook Gowan in the market can probably sell ye another cooking spoon."
+queststatus(313) = 3, item(227, all) = 0, ".*" -> inform("[Quest 'Tutorial II'] Du kannst Ersatz vom Händler Hook Gowan auf dem Markt im Südwesten kaufen, oder du findest jemand anders zum Handeln."), "Arr! Du hast deinen Kochlöffel verloren? Hook Gowan auf dem Markt kann dir sicher einen neuen verkaufen."
+
+-- Player lost bottle
+queststatus(313) = 3, item(2498, all) = 0, english, ".*" -> inform("[Quest 'Tutorial II'] You can buy a replacement from the merchant Hook Gowan in the market to south west, or find someone to trade with."), "Arr! Ye lost your bottle? Hook Gowan in the market can probably sell ye another large empty bottle."
+queststatus(313) = 3, item(2498, all) = 0, ".*" -> inform("[Quest 'Tutorial II'] Du kannst Ersatz vom Händler Hook Gowan auf dem Markt im Südwesten kaufen, oder du findest jemand anders zum Handeln."), "Arr! Du hast deine Flasche verloren? Hook Gowan auf dem Markt kann dir sicher eine neue verkaufen."
+
+-- Player lost bucket of water
+queststatus(313) = 3, item(52, all) = 0, english, ".*" -> inform("[Quest 'Tutorial II'] You can buy a replacement from the merchant Hook Gowan in the market to south west, or find someone to trade with."), "Arr! Did ye get thirsty? Hook Gowan in the market can probably sell ye another bucket of water."
+queststatus(313) = 3, item(52, all) = 0, ".*" -> inform("[Quest 'Tutorial II'] Du kannst Ersatz vom Händler Hook Gowan auf dem Markt im Südwesten kaufen, oder du findest jemand anders zum Handeln."), "Arr! Hattest du Durst? Hook Gowan auf dem Markt kann dir sicher einen neuen Eimer mit Wasser verkaufen."
+
+-- Player returns without a bottle of cider
+queststatus(313) = 3, item(2499, all) = 0, english, ".*" -> inform("[Quest 'Tutorial II'] Stand in front of the wine barrel and equip the cooking spoon in one of the hand slots of your inventory. Double click on the spoon or barrel to start brewing."), "Arr! What happened to the cider? Use the cooking spoon I gave ye to stir all the ingredients in the big wine barrel."
+queststatus(313) = 3, item(2499, all) = 0, ".*" -> inform("[Quest 'Tutorial II'] Stell dich vor das Weinfass und rüste den Kochlöffel in einem deiner Handslots in deinem Inventar aus. Doppelklick den Kochlöffel oder das Weinfass, um mit dem Brauen zu beginnen."), "Arr! Was ist mit dem Cider passiert? Benutz den Kochlöffel, den ich dir gegeben habe, um die Zutaten im Weinfass gut durchzurühren."
+
+-- Quests already completed
+queststatus(313) = 4, english, "quest", "mission" -> "Harr! Ye can try more of my fine brews in the Hemp Necktie Inn if you speak to Borgate. If you haven't already met Viola Baywillow, she can offer lots of advice about Illarion."
+queststatus(313) = 4, "quest", "mission" -> "Harr! Sprich mit Borgate in der Taverne zur Hanfschlinge, wenn du weitere meiner Getränke probieren möchtest. Falls du Viola Baywillow noch nicht getroffen hast, solltest du das unbedingt nachholen. Sie kann dir eine ganze Menge Ratschläge über Illarion geben."
+queststatus(313) = 4, "task", "adventure", "order" -> "Harr! Ye can try more of my fine brews in the Hemp Necktie Inn if you speak to Borgate. If you haven't already met Viola Baywillow, she can offer lots of advice about Illarion."
+queststatus(313) = 4, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Harr! Sprich mit Borgate in der Taverne zur Hanfschlinge, wenn du weitere meiner Getränke probieren möchtest. Falls du Viola Baywillow noch nicht getroffen hast, solltest du das unbedingt nachholen. Sie kann dir eine ganze Menge Ratschläge über Illarion geben."
+
+-- No quests for non-newbies
+queststatus(313) = 0, english, "quest", "mission" -> "Arr! I help new arrivals but you're welcome to taste my brews in the Hemp Necktie Inn."
+queststatus(313) = 0, "quest", "mission" -> "Arr! Ich helfe den Neuankömmlingen, aber du bist herzlich willkommen meine Getränke in der Taverne zur Hanfschlinge zu geniesen."
+queststatus(313) = 0, "task", "adventure", "order" -> "Arr! I help new arrivals but you're welcome to taste my brews in the Hemp Necktie Inn."
+queststatus(313) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Arr! Ich helfe den Neuankömmlingen, aber du bist herzlich willkommen meine Getränke in der Taverne zur Hanfschlinge zu geniesen."
+
+-- General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Arr greetings!", "Hello and welcome to the Troll's Haven brewery!", "Arr! Good to see you here in Troll's Haven."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach" -> "Arr, grüß dich!", "Hallo und willkommen bei der Troll's Haven Brauerei!", "Arr! Freut mich dich hier in Troll's Haven zu sehen."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Arr greetings!", "Hello and welcome to the Troll's Haven brewery!", "Arr! Good to see you here in Troll's Haven."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Arr, grüß dich!", "Hallo und willkommen bei der Troll's Haven Brauerei!", "Arr! Freut mich dich hier in Troll's Haven zu sehen."
+"Farewell", "Bye", "Fare well", "See you" -> "Farewell!", "Safe travels!", "Goodbye and good luck!"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl", "Bis bald" -> "Bis bald!", "Gute Reise!", "Leb wohl und viel Glück!"
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell!", "Safe travels!", "Goodbye and good luck!"
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Bis bald!", "Gute Reise!", "Leb wohl und viel Glück!"
+"How are you", "How do you feel", "How do you do" -> "I'm fine, and you?", "Arr! All the better for a good brew.", "Can't complain!"
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie befinden" -> "Es geht mir gut. Und selbst?", "Arr! Umso besser, nach einem guten Drink.", "Ich kann mich nicht beschweren."
+"your name", "who are you", "who art thou" -> "Nimbur Goldbrew be me name, brewer for the Hemp Necktie Inn.", "Arr! I'm Nimbur Goldbrew, brewer of the finest ales and mead in Troll's Haven.", "Nimbur Goldbrew, I take care of the brewing for the Hemp Necktie Inn here in Troll's Haven."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Mein Name ist Nimbur Goldbrew, Braumeister der Taverne zur Hanfschlinge.", "Arr! Ich bin Nimbur Goldbrew, Brauer des feinsten Biers und Mets in Troll's Haven.", "Nimbur Goldbrew, ich kümmere mich um die Getränke für die Taverne zur Hanfschlinge hier in Troll's Haven."
+"my name", "I am called", "I'm called" -> "Pleased to meet you, I will try to remember it!"
+"mein Name", "ich heiße"-> "Freut mich, dich kennen zu lernen. Ich werde versuchen es mir zu merken."
+
+-- Small talk
+"profession" -> "I brew the finest ales and mead for the Hemp Necktie Inn here in Troll's Haven.", "I'm in charge of the brewery here at Troll's Haven. If you like I can show you a little brewing.", "I take care of the brewing for the Hemp Necktie Inn. Most of my recipes are secret but I could help you learn a little."
+"beruf", "arbeit" -> "Ich braue das feinste Bier und den edelsten Met für die Taverne zur Hanfschlinge hier in Troll's Haven.", "Ich habe die Leitung über die Brauerei hier in Troll's Haven. Wenn du magst, zeige ich dir gerne ein bisschen was zum Thema Brauen.", "Ich kümmere mich um die Getränke für die Taverne zur Hanfschlinge. Die meisten meiner Rezepte sind geheim, aber ich kann dir helfen ein bisschen zu lernen."
+english, "job" -> "I brew the finest ales and mead for the Hemp Necktie Inn here in Troll's Haven.", "I'm in charge of the brewery here at Troll's Haven. If you like I can show you a little brewing.", "I take care of the brewing for the Hemp Necktie Inn. Most of my recipes are secret but I could help you learn a little."
+"job" -> "Ich braue das feinste Bier und den edelsten Met für die Taverne zur Hanfschlinge hier in Troll's Haven.", "Ich habe die Leitung über die Brauerei hier in Troll's Haven. Wenn du magst, zeige ich dir gerne ein bisschen was zum Thema Brauen.", "Ich kümmere mich um die Getränke für die Taverne zur Hanfschlinge. Die meisten meiner Rezepte sind geheim, aber ich kann dir helfen ein bisschen zu lernen."
+"brew", "drink" -> "Runewick and Galmair both claim to have fine breweries, but only my brews get served by Borgate at the Hemp Necktie Inn!"
+"Gebräu", "Getränk" -> "Runewick und Galmair beanspruchen beide den Ruf die besten Braumeister zu haben für sich. Aber nur meine Getränke werden von Borgate in der Taverne zur Hanfschlinge serviert!"
+"ingredients" -> "There are plenty of trees and bushes with fruit throughout Illarion, but some ingredients like hops need to be grown. Ye can find farmers tending fields and harvesting crops in Runewick and Galmair."
+"Zutat" -> "Es gibt zahlreiche Bäume und Büsche, an denen Früchte wachsen, in Illarion. Andere Zutaten wie Hopfen müssen allerdings angebaut werden. Du fin'st Farmer, die sich auf den Feldern um ihre Ernten kümmern, in Runewick und Galmair."
+"monster", "rat" -> "Arr only a dead rat is a good rat! Those thieving beasts are always stealing my apples and they have a nasty bite. There are many worse monsters to be found in the shadows mind."
+"Monster", "Ratte" -> "Arr, nur eine tote Ratte ist eine gute Ratte! Diese diebischen Biester stehlen meine Äpfel und können sehr schmerzhaft zubeißen. Aber es gibt natürlich wesentlich schlimmere Monster, denen man in den dunklen Ecken Illarions begegnen kann."
+english, "Adron" -> "Harr! Adron is the god of festivities and wine so us brewers are sure to pray to him. Irmorom is the father of dwarven kind but I also leave my offerings at the temple dedicated to Adron you can find on the island behind the inn."
+"Adron" -> "Harr! Adron ist der Gott der Festivitäten und des Weins. Deshalb verehren wir Braumeister ihn. Irmorom ist zwar der Vater des Zwergengeschlechts, aber ich bringe auch Adron Gaben in seinen Tempel im Hinterhof der Taverne."
+"dwarf", "dwarve" -> "Harr! Us dwarves make the best beer for sure, proper strong ale fit for Irmorom himself. Borgate, the barkeep for the Hemp Necktie Inn is also a dwarf, so you won't catch him selling any of that watery stuff."
+"Zwerg" -> "Harr! Wir Zwerge brauen natürlich das beste Bier, Hopfensaft der selbst Irmoroms würdig ist. Borgate, der Barkeeper der Taverne zur Hanfschlinge, ist ebenfalls ein Zwerg, du wirst ihn also niemals wässriges Zeug verkaufen sehen."
+
+-- Trade triggers
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader, I'm the Harbour Master!", "I'm sorry, but I don't trade anything."
+"kauf", "waren", "koste", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler, ich bin Braumeister!", "Es tut mir leid, aber ich handel nicht."
+
+-- Catch all
+"tell", "something" -> "If you need any assistance just ask for 'help'. Viola Baywillow can tell you lots more about Illarion and the realms though."
+"erzähl was", "erzähl etwas" -> "Falls du meine Unterstützung brauchst, frag einfach nach 'Hilfe'. Allerdings kann dir Viola Baywillow viel mehr über Illarion und die verschiedenen Reiche erzählen."
+english, "Nimbur", "Goldbrew" -> "Harr that's me! Just ask for 'help' if you are new around here."
+"Nimbur", "Goldbrew" -> "Harr, das bin ich! Frag einfach nach 'Hilfe', falls du neu hier bist."
+english, ".*" -> "Sorry, I don't quite understand. Just ask me for 'help' and I'll see what I can do for you."
+".*" -> "Das habe ich jetzt nicht richtig verstanden. Frag mich einfach nach 'Hilfe' und ich schau, was ich für dich tun kann."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "Hier drüben! Ich bin Nimbur, der beste Schmied von allen! Wenn du willst, kann ich dir ein paar Tricks beibringen.", "Over here! I am Nimbur, the finest blacksmith of them all. I can teach ye some tricks if ye please."
+cycletext "Verdammte Ratten! Dauernd knabbern sie meine Äpfel an.", "Blasted rats! They keep gnawing at my apples."
+cycletext "Arr, ein gammliger Apfel kann das ganze Getränk ruinieren!", "Arr, one rotten apple and it can spoil the whole brew!"
+cycletext "#me schreibt ein Rezept auf ein zerfetztes Stück Pergament.", "#me scribbles a recipe on a tattered piece of parchment." 
+cycletext "#me trinkt einen Schluck aus seinem Krug und grinst fröhlich, ehe er schnell einen größeren Schluck hinterhernimmt.", "#me sips from a mug, grinning gleefully before quickly taking a bigger gulp."
+cycletext "Die Taverne zur Hanfschlinge verkauft die besten Getränke weit und breit... meine!", "The Hemp Necktie Inn sells the best brews around... mine!"
+cycletext "#me grummelt, 'Borgate muss mehr Bier verkaufen!'", "#me grumbles, 'Borgate needs to sell more beer!'"
+cycletext "#me grummelt, als er etwas Bier auf sein Hemd verschüttet.", "#me grumbles as he sloshes some ale down his shirt."
+cycletext "Harr! Es gibt nichts besseres als ein gutes Zwergenbier.", "Harr! Nothing better than good dwarven beer."
+cycletext "Ruh dich eine Weile in der Taverne zur Hanfschlinge aus und genies ein oder zwei Drinks.", "Rest a while at the Hemp Necktie Inn and enjoy a drink or two."
+cycletext "#me hickst.", "#me hiccups."

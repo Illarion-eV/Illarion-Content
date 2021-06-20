@@ -24,29 +24,32 @@ local ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
 local Title = {}
-Title[GERMAN] = "Einführung - Gehen und Reden"
-Title[ENGLISH] = "Tutorial - Walking and talking"
+Title[GERMAN] = "Tutorial I - Bewegen, Sprechen und Items benutzen"
+Title[ENGLISH] = "Tutorial I - Moving, Talking and Using Items"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
 local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "Um mit dem Menschen zu sprechen, aktiviere die Sprachkonsole mit 'Return', schreibe z.B. 'Hallo' und drücke wieder 'Return'. Alle NPCs reagieren auf bestimmte Schlüsselwörter wenn du in ihrer Nähe stehst. Wenn es Probleme bei der Kommunikation mit einem NPC gibt, schreibe einfach 'Hilfe' und der NPC antwortet mit einer Liste möglicher Schlüsselwörter.\n\nUm zu rufen, schreibe #s vor deinen Text, #w lässt deinen Charakter flüstern, #o wird für Out-Of-Character-Nachrichten verwendet und #me leitete ein Emote ein."
-Description[ENGLISH][1] = "In order to speak to the human, activate the chat box with the 'return' key, type e.g. 'Hello' and then hit 'return' again. All non-player characters (NPCs) react on certain keywords if you are standing directly beside them. If you ever get stuck trying while trying to communicate with an NPC, typing 'help' will provide you with a list of recommended commands.\n\nTo shout, write #s in front of your text, #w makes your character whisper, #o is used for out of character messages and #me invokes an emote."
-Description[GERMAN][2] = "Du hast die Einführung über das Gehen und Reden abgeschlossen."
-Description[ENGLISH][2] = "You finished the tutorial on walking and talking."
+Description[GERMAN][1] = "Sprich mit Henry Cunnigan. \n\nUm mit dem Mann zu sprechen, aktiviere die Chatbox, indem du darauf klickst oder 'Enter' drückst. Schreibe 'Hallo' um ihn zu grüßen und dann klick erneut 'Enter'. Alternativ kannst du NPCs auch doppel-klicken, um Basisgesprächsoptionen zu aktivieren. Alle NPCs reagieren auf bestimmte Stichworte, wenn du im Radius von zwei Feldern um sie herumstehst. \n\nFalls du nicht weißt wie du mit einem NPC kommunizieren sollst, frag nach 'Hilfe', um eine Liste mit empfohlenen Kommandos zu erhalten."
+Description[ENGLISH][1] = "Speak with Henry Cunnigan. \n\nTo speak to the man, activate the chat box if necessary by clicking on it or by using the 'Return' key, type 'Hello' to greet him, and hit 'Return'. Alternatively you can double click on any NPC to activate basic talk options. All NPCs react to certain keywords if you are standing within two tiles. \n\nIf you get stuck trying to communicate with an NPC, asking for 'help' will provide you with a list of recommended commands."
+Description[GERMAN][2] = "Um die Fackel zu finden, die Henry Cunnigan dir gegeben hat, deaktivier die Chatbox und drück 'I', um dein Inventar zu öffnen oder klick das Taschen-Icon in der rechten unteren Ecke des Bildschirms. Um deine Tasche zu öffnen, drück 'B' oder doppelklick die Ledertasche in deinem Inventar. \n\nZiehe nun mit der linken Maustaste die Fackel in den leeren Schild-Slot in deinem Inventar. Möglicherweise musst du zunächst ein in diesem Slot ausgerüstestes Item in deine Tasche verschieben. Um eine einzelne Fackel aus einem Stapel zu bewegen, musst du Shift gedrückt halten während du ziehst und dann die Anzahl '1' in dem Popup Fenster mit 'OK' bestätigen."
+Description[ENGLISH][2] = "To find the torch Henry Cunnigan gave you, make sure your chat box is deactivated and press 'I' to open your inventory or click on the bag icon in the bottom right corner of the window. To open your bag, press 'B' or double click on the leather bag in your inventory. \n\nClick the torch and drag it to the empty shield slot in your inventory using your mouse to equip it. You may need to remove any existing item from that slot to your bag first. To separate a single torch from a stack in your inventory, hold down shift as you click and drag, accepting the default value of '1' in the pop up by clicking 'OK'."
+Description[GERMAN][3] = "Doppelklick die Fackel um sie zu entzünden. \n\nDie Fackel wird eine zeitlang brennen und sobald sie ausgebrannt ist, verschwindet sie aus deinem Inventar."
+Description[ENGLISH][3] = "To light the torch double click on it. \n\nThe torch will burn for a while and once it has burnt out it will disappear from your inventory."
+Description[GERMAN][4] = "Du kannst nun die Tutorialquests fortführen, indem du zu Nimbur Goldbrew gehst, um etwas über Sammeln, Handwerken und Kämpfen zu lernen."
+Description[ENGLISH][4] = "You can continue the tutorial quests with Nimbur Goldbrew to learn about gathering, crafting and fighting."
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
 local Start = {703, 290, 0}
 
-
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
---QuestTarget[1] = {position(x, y, 100), position(x, y, 100)}
+--QuestTarget[1] = {position(x, y, z), position(x, y, z)}
 
 -- Insert the quest status which is reached at the end of the quest
-local FINAL_QUEST_STATUS = 2
+local FINAL_QUEST_STATUS = 4
 
 
 function M.QuestTitle(user)
