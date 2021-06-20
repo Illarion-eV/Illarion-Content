@@ -346,7 +346,7 @@ function showNewbieDialog(player)
 
             if dialogSkip:getSuccess() and dialogSkip:getSelectedIndex() == 1 then --skipping
                 if player:getPlayerLanguage() == 0 then --skip message
-                    dialogMessage = MessageDialog("Einführung", "Du hast dich entschieden, das Tutorial zu überspringen. Wenn du bereit bist, kannst du ein Boot vom Haupthafen zum Reich deiner Wahl nehmen. Die Straßen von den Häfen können manchmal gefährlich sein, aber da du neu in diesem Land bist, kannst du sicher in die Stadt deiner Wahl gelangen. Viola Baywillow kann dir bei Bedarf weitere Informationen über die drei Reiche von Illarion geben. Bist du einem Reich beigetreten, kannst du die Entscheidung jederzeit überdenken und die Zugehörigkeit zu einem späteren Zeitpunkt auch ändern oder sogar ein Gesetzloser werden.", callbackPostSkip)
+                    dialogMessage = MessageDialog("Tutorial", "Du hast dich entschieden, das Tutorial zu überspringen. Wenn du bereit bist, kannst du ein Boot vom Haupthafen zum Reich deiner Wahl nehmen. Die Straßen von den Häfen können manchmal gefährlich sein, aber da du neu in diesem Land bist, kannst du sicher in die Stadt deiner Wahl gelangen. Viola Baywillow kann dir bei Bedarf weitere Informationen über die drei Reiche von Illarion geben. Bist du einem Reich beigetreten, kannst du die Entscheidung jederzeit überdenken und die Zugehörigkeit zu einem späteren Zeitpunkt auch ändern oder sogar ein Gesetzloser werden.", callbackPostSkip)
                 else
                     dialogMessage = MessageDialog("Tutorial", "You have decided to skip the tutorial. When you are ready you can catch a boat from the main harbour to the realm of your choice. The roads from the harbours can sometimes be perilous, but as you are new to these lands you will be granted safe passage to the town of your choosing. Viola Baywillow can provide you with more information about the three realms of Illarion should you need it. If you join a realm you can always reconsider and change allegiance at a later date, or even become an outlaw.", callbackPostSkip)
                 end
@@ -354,7 +354,7 @@ function showNewbieDialog(player)
 
             elseif dialogSkip:getSuccess() and dialogSkip:getSelectedIndex() == 0 then --continue the tutorial
                 if player:getPlayerLanguage() == 0 then
-                    dialogMessage = MessageDialog("Einführung", "Nun hast du das Schiff verlassen und kannst deine ersten Schritte auf dem Pier gehen. Zum Laufen, klickst du mit der linken Maustaste auf ein Feld auf dem Pier. Alternativ kannst du auch den Ziffernblock verwenden, die Pfeil-Tasten oder auch die Tasten W, A, S, und D. Zum schnelleren Rennen drückst du die 'Strg'-Taste oder klickst mit der Maus auf das Stiefel-Feld in der unteren rechten Ecke der Bildchirmanzeige.\n\nFür eine Übersicht aller Befehle drück 'F1'. Antworten auf die meist gestellten Fragen (FAQ) kannst du auf unserer Internetseite www.illarion.org finden. Weitere Hilfe erhälst du in unserem Discord Chat auf https://discoird.gg/yj3htPN oder in unserem Forum.", callbackPostSkip)
+                    dialogMessage = MessageDialog("Tutorial", "Nun hast du das Schiff verlassen und kannst deine ersten Schritte auf dem Pier gehen. Zum Laufen, klickst du mit der linken Maustaste auf ein Feld auf dem Pier. Alternativ kannst du auch den Ziffernblock verwenden, die Pfeil-Tasten oder auch die Tasten W, A, S, und D. Zum schnelleren Rennen drückst du die 'Strg'-Taste oder klickst mit der Maus auf das Stiefel-Feld in der unteren rechten Ecke der Bildchirmanzeige.\n\nFür eine Übersicht aller Befehle drück 'F1'. Antworten auf die meist gestellten Fragen (FAQ) kannst du auf unserer Internetseite www.illarion.org finden. Weitere Hilfe erhälst du in unserem Discord Chat auf https://discoird.gg/yj3htPN oder in unserem Forum.", callbackPostSkip)
                 else
                     dialogMessage = MessageDialog("Tutorial", "As you disembark the ship, you can take your first steps onto the pier. To move, click a tile on the pier with the left mouse button. Alternatively you can walk using the Num pad, arrow keys, or WASD. Pressing the 'CTRL' key or clicking on the boots icon in the bottom right corner of the window makes your character run.\n\nTo see an overview of all commands, press 'F1'. Answers to many frequently asked questions (FAQs) can be found on our website at www.illarion.org and you are encouraged to seek help on our Discord chat at https://discord.gg/yj3htPN or on the forum.", callbackPostSkip)
                 end
@@ -370,8 +370,8 @@ function showNewbieDialog(player)
         end --end of callback of skip dialog
 
         local dialogSkip = SelectionDialog(getText("Willkommen bei Illarion!","Welcome to Illarion!"), getText("Neuen Spielern empfehlen wir zu Beginn das Tutorial. Es hilft die grundlegende Steuerung des Spiels kennenzulernen und bietet auch einige Hintergrundinformationen für die ersten Entscheidungen, die den Weg Deines Charakters bestimmen werden.", "We recommend new players complete the tutorial to help guide their first steps, teaching the basic controls of the game and providing some background lore to help make those first decisions that determine your character's path."), callbackSkip)
-        dialogSkip:addOption(0, getText("Zeige Einführungshinweise.","Show tutorial messages."))
-        dialogSkip:addOption(0, getText("Keine Einführungshinweise.", "No tutorial messages."))
+        dialogSkip:addOption(0, getText("Zeige Tutorialshinweise.","Show tutorial messages."))
+        dialogSkip:addOption(0, getText("Keine Tutorialshinweise.", "No tutorial messages."))
         player:requestSelectionDialog(dialogSkip)
 
     end --end callback of Newbie dialog
