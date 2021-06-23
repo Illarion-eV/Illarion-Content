@@ -14,14 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- INSERT INTO triggerfields VALUES (36,20,100,'triggerfield.noobia_henry');
--- INSERT INTO triggerfields VALUES (36,21,100,'triggerfield.noobia_henry');
--- INSERT INTO triggerfields VALUES (36,22,100,'triggerfield.noobia_henry');
--- INSERT INTO triggerfields VALUES (37,20,100,'triggerfield.noobia_henry');
--- INSERT INTO triggerfields VALUES (37,22,100,'triggerfield.noobia_henry');
--- INSERT INTO triggerfields VALUES (38,20,100,'triggerfield.noobia_henry');
--- INSERT INTO triggerfields VALUES (38,21,100,'triggerfield.noobia_henry');
--- INSERT INTO triggerfields VALUES (38,22,100,'triggerfield.noobia_henry');
 
 local common = require("base.common")
 
@@ -29,20 +21,15 @@ local M = {}
 
 function M.MoveToField(Character)
 
-    -- for Noobia: the char has to walk to a field (this triggerfield); he gets a message and we change a queststatus so that we remember he was at the field
-    local find = Character.effects:find(13) --Noob effect
-    if find then --Is this even a noob?
-        local value = Character:getQuestProgress(309)
-        if (value == 0) then --Didn't visit the triggerfield yet
-            Character:setQuestProgress(309, 1) --remember that he knows how to walk
-
-            local callbackNewbie = function() end --empty callback
-            local dialogText = common.GetNLS(Character,
-                "Um mit dem Menschen zu sprechen, benutze ihn per Doppelklick oder aktiviere die Sprachkonsole mit 'Return', schreibe z.B. 'Hallo' und drücke wieder 'Return'. Alle NPCs reagieren auf bestimmte Schlüsselwörter wenn du in ihrer Nähe stehst. Wenn es Probleme bei der Kommunikation mit einem NPC gibt, schreibe einfach 'Hilfe' und der NPC antwortet mit einer Liste möglicher Schlüsselwörter.\n\n Um zu rufen, schreibe #s vor deinen Text, #w lässt deinen Charakter flüstern, #o wird für Out-Of-Character-Nachrichten verwendet und #me leitete ein Emote ein.",
-                "In order to speak to the human, use him with a double click or activate the chat box with the 'return' key, type e.g. 'Hello' and then hit 'return' again. All non-player characters (NPCs) react on certain keywords if you are standing directly beside them. If you ever get stuck trying while trying to communicate with an NPC, typing 'help' will provide you with a list of recommended commands.\n\n To shout, write #s in front of your text, #w makes your character whisper, #o is used for out of character messages and #me invokes an emote.")
-            local dialogNewbie = MessageDialog("Tutorial", dialogText, callbackNewbie)
-            Character:requestMessageDialog(dialogNewbie)
-        end
+    if Character:getQuestProgress(325) == 1 and Character:getQuestProgress(332) == 0 then --Accepted tutorial messages, didn't visit the triggerfield yet
+        Character:setQuestProgress(332, 1) --remember that the triggerfield was visited
+        Character:inform("Am Ende des Piers steht ein Mann mit wachsamen Augen und schreibt unermüdlich in sein ledergebundenes Buch. Zu seinen freundlichen Grüßen und Ratschlägen für Neuankömmlinge erteilt er ungeduldigen Kaufleuten oder ungestümen Seeleuten auch strenge Verweise.","A sharp-eyed man at the end of the pier diligently writes in a leather-bound journal. Between offering friendly greetings and advice to newcomers, he issues stern repremands to impatient merchants or unruly sailors.")
+        local callbackNewbie = function() end --empty callback
+        local dialogText = common.GetNLS(Character,
+            "In Illarion wirst du vielen Nicht-Spieler-Charakteren (NPCs) begegnen, die Funktionen wie Quests, Dienste und Handel unterstützen. Wenn du mit dem Mauszeiger über einen Charakter fährst, siehst du dessen Namen und Gesundheitszustand. Die Namen von NPCs und Spieler-Charakteren sind gelb, während Monsternamen rot sind.\n\nUm mit dem Mann zu sprechen, aktivierst du ggf. die Chat-Box, indem du darauf klickst oder die 'Enter'-Taste verwendest. Gib 'Hallo' ein, um ihn zu begrüßen und drück 'Enter'. Alternativ kannst du auf einen beliebigen NPC doppelklicken, um grundlegende Gesprächsoptionen zu aktivieren. Alle NPCs reagieren auf bestimmte Schlüsselwörter, wenn du innerhalb von zwei Feldern bei ihnen stehst. Wenn du bei der Kommunikation mir einem NPC nicht weiterkommst, kannst du um 'Hilfe' fragen und erhältst eine Liste von empfohlenen Befehlseingaben.\n\nBefolge den Rat von Henry Cunnigan um zu lernen wie du dich ausrüsten und wie du Gegenstände benutzen kannst. Wenn du unsicher sein solltest, was du für eine Quest als nächstes tun musst, kannst du das Questprotokoll benutzen, indem du 'Q' drückst oder auf das Schriftrollen-Symbol in der unteren rechten Ecke des Fensters klickst.",
+            "Throughout Illarion you will encounter many non-player characters (NPCs) which support functions such as quests, services, and trade. If you hover your mouse pointer over a character you will see their name and health status. NPC and player character names are yellow, while monster names are red.\n\nTo speak to the man, activate the chat box if necessary by clicking on it or by using the 'Return' key, type 'Hello' to greet him, and hit 'Return'. Alternatively you can double click on any NPC to activate basic talk options. All NPCs react to certain keywords if you are standing within two tiles. If you get stuck trying to communicate with an NPC, asking for 'help' will provide you with a list of recommended commands.\n\nFollow Henry Cunnigan's advice to learn how to equip and use items. If you are ever unsure what you need to do next for a quest, you can find the quest log by pressing 'Q' or clicking on the scroll icon in the bottom right corner of the window.")
+        local dialogNewbie = MessageDialog("Tutorial", dialogText, callbackNewbie)
+        Character:requestMessageDialog(dialogNewbie)
     end
 end
 
