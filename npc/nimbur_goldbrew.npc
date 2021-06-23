@@ -16,7 +16,7 @@
 -- NPC Name: Nimbur Goldbrew                                             None --
 -- NPC Job:  Blacksmith                                                       --
 --                                                                            --
--- NPC Race: dwarf                      NPC Position:  706, 297, 0            --
+-- NPC Race: dwarf                      NPC Position:  710, 297, 0            --
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
@@ -26,7 +26,7 @@
 name = "Nimbur Goldbrew"
 race = dwarf
 sex = male
-position = 706, 297, 0
+position = 710, 297, 0
 direction = west
 affiliation = "None"
 job = "Brewer"
