@@ -21,8 +21,8 @@ local M = {}
 
 function M.MoveToField(Character)
 
-    if Character:getQuestProgress(325) == 1 and Character:getQuestProgress(332) == 0 then --Accepted tutorial messages, didn't visit the triggerfield yet
-        Character:setQuestProgress(332, 1) --remember that the triggerfield was visited
+    if Character:getQuestProgress(325) == 1 and Character:getQuestProgress(330) == 0 then --Accepted tutorial messages, didn't visit the triggerfield yet
+        Character:setQuestProgress(330, 1) --remember that the triggerfield was visited
         Character:inform("Am Ende des Piers steht ein Mann mit wachsamen Augen und schreibt unermüdlich in sein ledergebundenes Buch. Zu seinen freundlichen Grüßen und Ratschlägen für Neuankömmlinge erteilt er ungeduldigen Kaufleuten oder ungestümen Seeleuten auch strenge Verweise.","A sharp-eyed man at the end of the pier diligently writes in a leather-bound journal. Between offering friendly greetings and advice to newcomers, he issues stern repremands to impatient merchants or unruly sailors.")
         local callbackNewbie = function() end --empty callback
         local dialogText = common.GetNLS(Character,
