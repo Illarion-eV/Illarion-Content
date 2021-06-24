@@ -3,6 +3,7 @@ This template will aid you in writing your pull request.
 
 You will need:
 
+* To change the base branch from master to develop above this window.
 * To enter a descriptive title.
 * A description of your work.
 * The URL for the branch you are trying to merge, e.g. https://github.com/Brightrim/Illarion-Content/tree/feature/simplified_housing
