@@ -1495,7 +1495,7 @@ local function resetTutorial(user)
     for i=1,#questlist do
         user:setQuestProgress(questlist[i],0)
     end
-    user:inform("Tutorial reset.")
+    user:inform("Tutorial reset. Please relog to restart tutorial.")
 end
 
 function M.UseItem(User, SourceItem, ltstate)
