@@ -58,7 +58,7 @@ local function ChestContents(User, chestItem)
     local trippingTime = chestItem:getData("tripping_time")
 
     if (trippingTime ~= "" and ((tonumber(trippingTime) + 1800) > serverTime)) then
-        User:inform("Du findest nichts in diesem Truhe.",
+        User:inform("Du findest nichts in dieser Truhe.",
                     "You find nothing inside this chest.")
         return
     end
@@ -90,7 +90,7 @@ local function ronaganContents(User, ronaganItem)
     local trippingTime = ronaganItem:getData("tripping_time")
 
     if (trippingTime ~= "" and ((tonumber(trippingTime) + 1800) > serverTime)) then
-        User:inform("Du findest nichts in diesem Truhe.",
+        User:inform("Du findest nichts in dieser Truhe.",
                     "You find nothing inside this chest.")
         return
     end
@@ -122,7 +122,7 @@ local function letmaContents(User, letmaItem)
     local trippingTime = letmaItem:getData("tripping_time")
 
     if (trippingTime ~= "" and ((tonumber(trippingTime) + 1800) > serverTime)) then
-        User:inform("Du findest nichts in diesem Truhe.",
+        User:inform("Du findest nichts in dieser Truhe.",
                     "You find nothing inside this chest.")
         return
     end
@@ -152,7 +152,7 @@ local function ronaganTreasureContents(User, ronaganTreasureItem)
     local trippingTime = ronaganTreasureItem:getData("tripping_time")
 
     if (trippingTime ~= "" and ((tonumber(trippingTime) + 3600) > serverTime)) then
-        User:inform("Du findest nichts in diesem Truhe.",
+        User:inform("Du findest nichts in dieser Truhe.",
                     "You find nothing inside this chest.")
         return
     end
