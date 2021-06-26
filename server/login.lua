@@ -233,6 +233,7 @@ function M.onLogin( player )
 
     --Temporary: Warp players from old Noobia to new newbie spawn
     if player.pos.z == 100 then --Old Noobia
+        player:turn(4) --south
         player:warp(position(702, 283, 0))
     end
 
