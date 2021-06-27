@@ -286,7 +286,6 @@ function M.onLogin( player )
 
     --Newbie handling
     if player:isInRangeToPosition(position(702, 283, 0), 7) and player:getQuestProgress(325) == 0 and player:getQuestProgress(314) ~= 1 then --only show the dialog if the char is close to the noob spawn, has not answered the tutorial message question and did not arrive at the last station of the old tutorial
-        player:inform("Die Ankunft eines Schiffes bringt eine Menge Bewegung mit sich, sowie die Passagiere von Bord gehen und auch die Ladung an Land gebracht werden muss. Rufe ertönen von Süden her, dort wo am Pier andere Schiffe festgemacht haben um ihre Waren aufzunehmen.","The new arrival of a ship brings a frenzy of activity as passengers disembark and cargo is hauled ashore. Shouts rise from the south where other vessels are boarded and goods loaded from bustling piers.")
         showNewbieDialog(player)
     else
         --Messages of the day
@@ -343,7 +342,9 @@ function showNewbieDialog(player)
     local callbackNewbie = function(dialogNewbie) --start callback of Newbie Dialog
         local callbackSkip = function(dialogSkip) --start of callback of skipping dialog
             local dialogMessage
-            local callbackPostSkip = function (dialog) end --empty callback
+            local callbackPostSkip = function (dialogPostSkip)
+                player:inform("Die Ankunft eines Schiffes bringt eine Menge Bewegung mit sich, sowie die Passagiere von Bord gehen und auch die Ladung an Land gebracht werden muss. Rufe ertönen von Süden her, dort wo am Pier andere Schiffe festgemacht haben um ihre Waren aufzunehmen.","The new arrival of a ship brings a frenzy of activity as passengers disembark and cargo is hauled ashore. Shouts rise from the south where other vessels are boarded and goods loaded from bustling piers.")
+            end --empty callback
 
             if dialogSkip:getSuccess() and dialogSkip:getSelectedIndex() == 1 then --skipping
                 if player:getPlayerLanguage() == 0 then --skip message
