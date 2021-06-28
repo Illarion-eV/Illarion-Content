@@ -18,6 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Effect ID: 13
 
 local common = require("base.common")
+local areas = require("content.areas")
 
 local M = {}
 
@@ -44,7 +45,7 @@ function M.callEffect(inlineTutorial,Character)
         end
 
         --Agressive monster nearby
-        if Character:getQuestProgress(328) == 0 then
+        if Character:getQuestProgress(328) == 0 and not areas.PointInArea(Character.pos,"trollshaven") then --Orchard rat covered by other message
             local monsters = world:getMonstersInRangeOf(Character.pos, 5)
             if (#monsters > 0) then
                 for i, monster in pairs(monsters) do
@@ -58,7 +59,7 @@ function M.callEffect(inlineTutorial,Character)
         end
 
         --First encounter
-        if Character:getQuestProgress(329) == 0 and not Character:isInRangeToPosition(position(702, 283, 0), 7) then --Not near the noob spawn to avoid spamming the player
+        if Character:getQuestProgress(329) == 0 and not areas.PointInArea(Character.pos,"trollshaven") then --Not near the noob spawn to avoid spamming the player
             local dudes = world:getPlayersInRangeOf(Character.pos, 5)
             if (#dudes > 1) then
                 Character:inform("[Tutorial] Du bemerkst eine Gestalt in der Ferne, die ihren Geschäften nachgeht. Da du erst vor kurzem angekommen bist überrascht es nicht, dass du du die Person auch beim Näherkommen nicht erkennen wirst.","[Tutorial] You notice a figure in the distance going about their business. Having only recently arrive it can come as no surprise you do not recognise them as the two of you draw closer.")
