@@ -49,7 +49,7 @@ function M.callEffect(inlineTutorial,Character)
             local monsters = world:getMonstersInRangeOf(Character.pos, 5)
             if (#monsters > 0) then
                 for i, monster in pairs(monsters) do
-                    if monster.attackmode then
+                    if not common.IsMonsterDocile(monster:getMonsterType()) then
                         Character:inform("[Tutorial] Ein Monster! Du kannst es mit einem Rechtsklick angreifen. Um in den Nahkampf zu gehen, bewege dich zu dem Monster.","[Tutorial] A monster! You can attack it with a right click. For engaging in melee, move close to it.")
                         Character:setQuestProgress(328,1)
                         break
