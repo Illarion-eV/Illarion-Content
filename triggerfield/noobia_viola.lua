@@ -14,28 +14,22 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- INSERT INTO triggerfields VALUES (36,95,100,'triggerfield.noobia_viola');
 
 local common = require("base.common")
 
 local M = {}
 
 function M.MoveToField(Character)
-
-    -- for Noobia: the char has to walk to a field (this triggerfield); he gets a message and we change a queststatus so that we remember he was at the field
-    local find = Character.effects:find(13) --Noob effect
-    if find then --Is this even a noob?
-        local value = Character:getQuestProgress(314);
-        if (value == 0) then --Didn't visit the triggerfield yet
-            Character:setQuestProgress(314, 1) --player passed the triggerfield
-
-            local callbackNewbie = function() end --empty callback
-            local dialogText = common.GetNLS(Character,
-                "Dies ist nun die letzte Station des Tutorials. Wähle ein Reich aus, welchem dein Charakter zukünftig angehören wird - Cadomyr, Galmair oder Runewick? Gehe hierzu durch eines der Portale auf den kleinen Inseln.\n\nDu kannst diese Entscheidung später im Spiel jederzeit revidieren. Viola Baywillow kann dir einiges über die drei Reiche erzählen, frage sie einfach nach 'Hilfe'.\n\nUnd nebenbei - hast du den Markierungsstein gesehen?",
-                "This is the final station of the tutorial. Please choose which realm you desire to be the home for your character by stepping through the corresponding portal on the three islands - Cadomyr, Galmair or Runewick?\n\nYou can reconsider this decision at any time once you have joined the game. Viola Baywillow will provide you with more information on the three available realms, just ask her for 'help'.\n\nBy the way - did you notice the marker stone?")
-            local dialogNewbie = MessageDialog("Tutorial", dialogText, callbackNewbie)
-            Character:requestMessageDialog(dialogNewbie)
-        end
+    if Character:getQuestProgress(325) == 1 and Character:getQuestProgress(338) == 0 then --Accepted tutorial messages, didn't visit the triggerfield yet
+        Character:setQuestProgress(338, 1) --remember that the triggerfield was visited
+        local callbackNewbie = function(informNewbie)
+            Character:inform("Eine aufgeweckte und fleißige Halblingsdame fängt eifrig jeden, der verloren aussieht, mit fröhlicher Begrüßung ab. Aus einem verwitterten Koffer voller Pergamente verteilt sie Fahrkarten und führt Neuankömmlinge zu wartenden Fähren.","A bright and industrious halfling eagerly intercepts any who look lost with cheerful greetings. With a weathered trunk overflowing with parchments, she hands out tickets and ushers newcomers towards waiting ferries.")
+        end --end callback
+        local dialogText = common.GetNLS(Character,
+            "Sprich mit Viola Baywillow, um mehr über die drei Reiche von Illarion zu erfahren. Sie kann Informationen über die Anführer, Schutzgötter, Motive, Handwerke und Landschaften der Reiche Auskunft geben, um dir bei der Entscheidung zu helfen, welches Reich am besten zu deinem Charakter passt. Denke jedoch daran, dass Illarion eine dynamische Welt ist und Aspekte wie Gesetze und Politik sich durch den Einfluss von Spielercharakteren schnell ändern können. Mach dir keine Sorgen, wenn du feststellst, dass dein neues Zuhause nicht deinen Wünschen entspricht. Du kannst deine Zugehörigkeit zu einem späteren Zeitpunkt wieder ändern oder sogar ein Gesetzloser werden, indem du mit einem Notar darüber sprichst.\n\nWenn du dich für Cadomyr, Galmair oder Runewick entschieden hast, folge der Straße nach Westen zum Hafen und nimm eine Fähre in das Reich deiner Wahl. Diese erste Fahrt ist kostenlos und du erhälst sichere Fahrt ins Stadtzentrum, wo dir das Tutorial weiterhin hilft, dich in deinem neuen Zuhause zurechtzufinden. Wenn du dich noch nicht bereit fühlst, eine Wahl zu treffen, kannst du auch Troll's Haven und alles, was es zu bieten hat, erkunden.",
+            "Talk to Viola Baywillow to learn more of the three realms of Illarion. She can provide information on the leaders, patron gods, motives, crafts, and landscapes of the realms to help you decide which might best suit your character. Remember though, Illarion is a dynamic world and aspects such as laws and politics can rapidly change through the influence of player characters. Don't worry if you find your new home isn't to your liking, you can always change allegiance at a later date, or even become an outlaw by speaking to the Notary.\n\nOnce you have decided to join Cadomyr, Galmair, or Runewick, follow the road west to the harbour and catch a ferry to the realm of your choice. This first journey is free and you will be granted safe passage to the centre of town where the tutorial will continue to help you find your way around your new home. If you do not feel ready to make this choice just yet you are free to explore Troll's Haven and all it has to offer.")
+        local dialogNewbie = MessageDialog("Tutorial", dialogText, callbackNewbie)
+        Character:requestMessageDialog(dialogNewbie)
     end
 end
 
