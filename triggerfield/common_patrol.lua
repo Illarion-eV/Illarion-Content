@@ -30,6 +30,7 @@ local M = {}
 function M.MoveToField(user)
     -- Hemp Necktie Inn (front door)
     local waypoints = {
+    position(697, 313, 0),
     position(697, 314, 0)}
     if common.isInList(user.pos,waypoints) then
         aquestionofhonour_3.triggerEvent(user)
