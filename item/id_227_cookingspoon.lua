@@ -84,7 +84,7 @@ function M.UseItem(User, SourceItem, ltstate)
         else
 
             brewing.brewing:showDialog(User, SourceItem)
-        
+
         end
         return
     end
