@@ -94,6 +94,8 @@ local function preventCutting(User, theAxe, theTree)
         User:increaseAttrib("hitpoints",-1000)
         User:talk(Character.say, "#me wird, bevor die Axt den berühren kann, von einem dicken Batzen Schleim getroffen, der aus der Baumkrone heraustropfte.", "#me is, before the hatchet touches the tree, hit by a big blob of slime which dropped down from the treetrop.")
         User:inform("Der Schleim verursacht ein überaus schmerzhaftes Brennen auf deiner Haut.", "The slime causes very painful burning to your skin.", Character.highPriority)
+    elseif effectType == "protected" then
+        User:inform("Dieser Baum kann nicht gefällt werden.","This tree cannot be cut down.")
     else
         User:inform("Als du zum Fällen ausholst, rutscht dir das Beil fast aus der Hand. Du kannst es gerade noch so festhalten.", "As you strike out, you nearly drop the hatchet. You barely keep hold of it.", Character.highPriority)
         debug("Tree at " .. theTree.x .. ", " .. theTree.y .. ", " .. theTree.z .. " is missing a proper data value for the data key treeProtectionType")
