@@ -27,7 +27,7 @@ function M.MoveToField(Character)
         end --end callback
         local dialogText = common.GetNLS(Character,
             "Magie ist eine mysteriöse Begabung. Da die alten Wege des Arkanen für viele verloren sind, suchen jene mit Talent nach einem neuen Verständnis zu der alten Kunst des Glyphenschmiedens. Das rituelle Schmieden von Glyphen in Schmuck nutzt die magische Kraft, die jeder beschwören kann. Wenn du Glück hast, findest du möglicherweise einige der magischen Scherben, die sich zu diesen kostbaren Glyphen verbinden lassen.",
-            "Magic is a mysterious calling. With the old ways of the arcane lost to many, those of talent seek a new understanding of the ancient art of glyph forging. Ritualistic forging of glyphs into jewellery harnesses magical power that can be invoked by anyone. If you are fortunate you may find some of the magical shards which combine to form these precious glyphs.  ")
+            "Magic is a mysterious calling. With the old ways of the arcane lost to many, those of talent seek a new understanding of the ancient art of glyph forging. Ritualistic forging of glyphs into jewellery harnesses magical power that can be invoked by anyone. If you are fortunate you may find some of the magical shards which combine to form these precious glyphs.")
         local dialogNewbie = MessageDialog("Tutorial", dialogText, callbackNewbie)
         Character:requestMessageDialog(dialogNewbie)
     end
