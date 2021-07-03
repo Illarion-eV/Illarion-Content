@@ -71,7 +71,7 @@ function M.UseItem(User, SourceItem, ltstate)
     if (target ~= nil) then
         --Tutorial
         if User:getQuestProgress(325) == 1 and User:getQuestProgress(340) == 0 then --Accepted tutorial messages, didn't get the message before
-            User:setQuestProgress(339, 1) --remember that the message was received
+            User:setQuestProgress(340, 1) --remember that the message was received
             local callbackNewbie = function(informNewbie)
                 User:inform("Während du die Zutaten in dem riesigen Fass umrührst, erfüllt ein Hauch gärender Äpfel deine Nase.","As you stir ingredients in the immense barrel a waft of fermenting apples fills your nostrils.")
                 brewing.brewing:showDialog(User, SourceItem)
