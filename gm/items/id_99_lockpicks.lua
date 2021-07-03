@@ -1491,7 +1491,7 @@ end
 local function resetTutorial(user)
     user:turn(4) --south
     user:warp(position(702, 283, 0))
-    local questlist={309,310,311,312,313,314,315,319,320,321,322,323,324,325,326,327,328,329,330,331,332,333,334,335,336,337,338,339,340,341}
+    local questlist={309,310,311,312,313,314,315,319,320,321,322,323,324,325,326,327,328,329,330,331,332,333,334,335,336,337,338,339,340,341,344}
     for i=1,#questlist do
         user:setQuestProgress(questlist[i],0)
     end

@@ -242,24 +242,25 @@ ID,Title,NPCs,Status,Responsible Author,Description
 323,Tutorial - Faction selection,,,Estralis,Player has chosen a faction
 324,Introduction - Login dialog,,,Estralis,Only show login dialog once
 325,Tutorial - Show tutorial messages,,,Estralis,Flag for no decision (0), Accepted (1), Declined (2)
-326,Tutorial - Hitpoints,,,Estralis,Just show message once
-327,Tutorial - Foodlevel,,,Estralis,Just show message once
-328,Tutorial - Monsters,,,Estralis,Just show message once
-329,Tutorial - First encounter,,,Estralis,Just show message once
+326,Tutorial - Hitpoints,,,Estralis,Show message just once
+327,Tutorial - Foodlevel,,,Estralis,Show message just once
+328,Tutorial - Monsters,,,Estralis,Show message just once
+329,Tutorial - First encounter,,,Estralis,Show message just once
 330,Tutorial I,Henry Cunnigan,,Slightly,Tutorial - Introduction / lighting a torch
 331,Tutorial II,Nimbur Goldbrew,,Slightly,Tutorial - Fighting / gathering / crafting
-332,Tutorial - Campfire,,,Estralis,Just show message once
-333,Tutorial - Pathway,,,Estralis,Just show message once
-334,Tutorial - Orchard,,,Estralis,Just show message once
-335,Tutorial - Orchard rat,,,Estralis,Just show message once
-336,Tutorial - Brewery,,,Estralis,Just show message once
-337,Tutorial - Entrance,,,Estralis,Just show message once
-338,Tutorial - Viola,,,Estralis,Just show message once
-339,Tutorial - Harbour,,,Estralis,Just show message once
-340,Tutorial - Brewing,,,Estralis,Just show message once
-341,Tutorial - Market,,,Estralis,Just show message once
+332,Tutorial - Campfire,,,Estralis,Show message just once
+333,Tutorial - Pathway,,,Estralis,Show message just once
+334,Tutorial - Orchard,,,Estralis,Show message just once
+335,Tutorial - Orchard rat,,,Estralis,Show message just once
+336,Tutorial - Brewery,,,Estralis,Show message just once
+337,Tutorial - Entrance,,,Estralis,Show message just once
+338,Tutorial - Viola,,,Estralis,Show message just once
+339,Tutorial - Harbour,,,Estralis,Show message just once
+340,Tutorial - Brewing,,,Estralis,Show message just once
+341,Tutorial - Market,,,Estralis,Show message just once
 342,Cadomyr Starter Quest,,,Grokk,New player quest chain for the Cadomyr faction
 343,Galmair Starter Quest,,,Grokk,New player quest chain for the Galmair faction
+344,Tutorial - Temple,,,Estralis,Show message just once
 350,teacher,,,merung,Initiation - alchemy
 351,teacher,,,merung,Initiation - alchemy
 352,teacher,,,merung,Initiation - alchemy
