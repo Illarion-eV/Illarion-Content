@@ -87,7 +87,7 @@ function M.learn(user, skill, actionPoints, learnLimit)
                     user:increaseMinorSkill(skill, realIncrease) --Increase the skill.
                     local skillstring = user:getSkillName(skill)
 
-                    if user:getType() == 0 and user:getQuestProgress(154) ~= 1 then --Only players get an inform once.
+                    if user:getType() == 0 and user:getQuestProgress(154) ~= 1 and user:getQuestProgress(325) == 1 then --Only players get an inform once.
 
                         local callbackSkill = function() end --empty callback.
                         local dialogTitle = common.GetNLS(user,"Levelaufstieg", "Level up")
