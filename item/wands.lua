@@ -22,6 +22,7 @@ local checks = require("item.general.checks")
 local learnMagic = require("magic.learnMagic")
 local glyphs = require("base.glyphs")
 local glyphmagic = require("magic.glyphmagic")
+local arcane = require("magic.arcane.castSpell")
 
 local currentWandUse = {}
 local WAND_USE_GLYPH_FORGE_ERECT = 1
@@ -121,7 +122,6 @@ function M.MoveItemAfterMove(User, SourceItem, TargetItem)
             elseif not magic.hasMageAttributes(User) then
                 User:inform("Um Stabmagie zu verwenden, muss die Summe der Attribute Intelligenz, Essenz und Willensstärke wenigstens 30 ergeben. Attribute können bei den Trainer-NPCs geändert werden.",
                 "To use wand magic, your combined attributes of intelligence, essence, and willpower must total at least 30. Attributes can be changed at the Trainer NPC.")
-            elseif User:getMagicType() == 0 and (User:getQuestProgress(37) ~= 0 or User:getMagicFlags(0) > 0) then
             elseif bit32.extract(questProgress, 30) == 0 then
                 User:inform("Um das Handwerk der Stabmagie zu erlernen, musst du drei Bücher über magische Theorie lesen. Sieh dir die Liste der Bücher in den Bibliotheken der Städte an.",
                 "To learn the craft of wand magic you must read three books on magical theory. Look for the list of books in your town's library.")
@@ -135,21 +135,27 @@ function M.MoveItemAfterMove(User, SourceItem, TargetItem)
 end
 
 function M.UseItem(user, sourceItem, ltstate)
+local glyphMode = user:getQuestProgress(7002)
+local spellMode = user:getQuestProgress(7001)
     if common.IsItemInHands(sourceItem) then
-        if ltstate == Action.none then
-            if magicWands[sourceItem.id] then
-                if user:getMagicType() == 0 and (user:getQuestProgress(37) ~= 0 or user:getMagicFlags(0) > 0) then
-                    useWandSelection(user, sourceItem, ltstate)
-                else
-                    learnMagic.useMagicWand(user, sourceItem)
+        if glyphMode == 1 then
+            if ltstate == Action.none then
+                if magicWands[sourceItem.id] then
+                    if user:getMagicType() == 0 and (user:getQuestProgress(37) ~= 0 or user:getMagicFlags(0) > 0) then
+                        useWandSelection(user, sourceItem, ltstate)
+                    else
+                        learnMagic.useMagicWand(user, sourceItem)
+                    end
+                end
+            else
+                if currentWandUse[user.id] == WAND_USE_GLYPH_FORGE_ERECT then
+                    glyphmagic.placeGlyphForge(user, ltstate)
+                elseif currentWandUse[user.id] == WAND_USE_GLYPH_RITUAL_PREPARE then
+                    glyphmagic.prepareGlyphRitual(user, ltstate)
                 end
             end
-        else
-            if currentWandUse[user.id] == WAND_USE_GLYPH_FORGE_ERECT then
-                glyphmagic.placeGlyphForge(user, ltstate)
-            elseif currentWandUse[user.id] == WAND_USE_GLYPH_RITUAL_PREPARE then
-                glyphmagic.prepareGlyphRitual(user, ltstate)
-            end
+        elseif spellMode ~= 0 then
+            arcane.castSpell(user, spellMode, ltstate)
         end
     else
         user:inform("Du solltest lieber den Zauberstab in die Hand nehmen, wenn du ihn benutzen willst.","To use the wand you should hold it in your hands.")

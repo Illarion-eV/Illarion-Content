@@ -95,7 +95,7 @@ function M.CharacterOnField(User)
     end
 
 
-    if (FieldItem.quality > 100) and User.pos.z ~= 100 and User.pos.z ~= 101 and User.pos.z ~= 40 then --no harmful flames on noobia or the working camp
+    if (FieldItem.quality > 100) and User.pos.z ~= 100 and User.pos.z ~= 101 and User.pos.z ~= 40 and FieldItem:getData("illusion") == "false" then --no harmful flames on noobia or the working camp
 
         local resist = monstermagic.getSpellResistence(User) * 10
         if resist < FieldItem.quality then

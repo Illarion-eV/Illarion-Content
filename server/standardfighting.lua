@@ -279,7 +279,6 @@ function M.onAttack(Attacker, Defender)
         -- Let's don't attack now.
         return
     end
-
     -- Store the enemey as the current target of this player or a player's pet
     if character.IsPlayer(Attacker) or petBase.getOwnerByPet(Attacker) then
        fightingutil.setSelectedEnemyId(Attacker.id, Defender.id)
@@ -326,7 +325,19 @@ function M.onAttack(Attacker, Defender)
             end
         end
     end
-
+    -- Check for magic spell invoked, separate from wand magic because of custom range
+    if Attacker.AttackKind == 5 then
+        if fightingutil.isMagicUser(Attacker.Char) then
+            local magicAttack = require("magic.magicfighting")
+            local spell = Attacker.Char:getQuestProgress(7001)
+            if not CheckAttackOK(Attacker) then
+                return false
+            end
+            if spell ~= 0 then -- A spell model is loaded, wand magic is deactivated
+                magicAttack.onMagicAttack(Attacker, Defender)
+            end
+        end
+    end
     -- Check the range between the both fighting characters
     if not isInRange then
         return false
@@ -337,7 +348,7 @@ function M.onAttack(Attacker, Defender)
         return false
     end
 
-    -- Check if a magic attack is invoked
+    -- Check if wand magic attack is invoked
     if Attacker.AttackKind == 5 then
         if fightingutil.isMagicUser(Attacker.Char) then -- Only mages can invoke a magic attack
             -- Magic attacks are calculated in a different manner, outsourced for tidiness

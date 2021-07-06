@@ -16,28 +16,28 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local runes = require("magic.arcane.runes")
 local M = {}
-M.MAGIC_LOAD_LIST = {}
 
-function M.castingSpeedByRuneSize(size) -- Just basic temporary values
-    if size == "Short" then
-        return 5
-    elseif size == "Medium" then
-        return 10
-    elseif size == "Long" then
-        return 15
-    end
-end
-function M.arcaneSpellCastSpeed(user, spell) -- Should return total cast time required to cast a spell
-local castSpeed = 0
-    for i = 1,#runes.Runes do
-        if runes.checkIfLearnedRune(user, nil, i, nil, nil, spell) then
-            castSpeed = castSpeed+M.castingSpeedByRuneSize(runes.Runes[i][4])
+function M.getIncantationText(user, spell)
+local theText = ""
+    for i = 1, #runes.Runes do
+        local rune = runes.Runes[i][2]
+        if runes.checkSpellForRuneByName(rune, spell) then
+            if theText == "" then
+                theText = rune
+            else
+                theText = theText.." "..rune
+            end
+            if i == #runes.Runes then
+                theText = theText.."."
+            end
         end
     end
-    if runes.checkSpellForRuneByName("Pera", spell) then
-        castSpeed = castSpeed/1.3
-    end
-return castSpeed
+return theText
+end
+
+function M.speakIncantation(user, spell)
+local text = M.getIncantationText(user, spell)
+    user:talk(Character.say, text)
 end
 
 return M

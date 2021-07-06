@@ -22,134 +22,74 @@ local damageList = {
 {rune = "JUS", damage = 500, element = "Air"},
 {rune = "RA", damage = 1000, element = "Fire"},
 {rune = "SOLH", damage = 500, element = "Earth"},
+{rune = "Pherc", damage = 500, element = "Water"},
 {rune = "Pherc", damage = 500, element = "Air"},
 {rune = "Pherc", damage = 500, element = "Earth"},
 {rune = "Qwan", damage = 2000, element = "Fire"},
 {rune = "Luk", damage = 1000, element = "Fire"},
 {rune = "Taur", damage = 500, element = "Fire"},
 {rune = "Ura", damage = 500, element = "Fire"},
-{rune = "Yeg", damage = 500, element = "Fire"}
+{rune = "Yeg", damage = 500, element = "Fire"},
+{rune = "Sul", damage = 2000, element = "Fire"}
 
 }
 local damageOverTimeList = {
-{rune = "Pherc", damage = 500, element = "Fire"},
+{rune = "Pherc", damage = 2500, element = "Fire"},
 {rune = "CUN", damage = 500, element = "Water"},
-{rune = "Pherc", damage = 500, element = "Water"},
 {rune = "Qwan", damage = 1500, element = "Water"},
 {rune = "Taur", damage = 250, element = "Water"},
 {rune = "Ura", damage = 250, element = "Water"},
 {rune = "Yeg", damage = 250, element = "Water"}
 }
-local raceList = {
-{race = "human", typeOf = "sentient"},
-{race = "dwarf", typeOf = "sentient"},
-{race = "halfling", typeOf = "sentient"},
-{race = "elf", typeOf = "sentient"},
-{race = "orc", typeOf = "sentient"},
-{race = "lizardman", typeOf = "sentient"},
-{race = "gnome", typeOf = "sentient"},
-{race = "troll", typeOf = "sentient"},
-{race = "mumie", typeOf = "undead"},
-{race = "skeleton", typeOf = "undead"},
-{race = "beholder", typeOf = "sentient"},
-{race = "blackbeholder", typeOf = "sentient"},
-{race = "transparentbeholder", typeOf = "sentient"},
-{race = "brownmummy", typeOf = "undead"},
-{race = "bluemummy", typeOf = "undead"},
-{race = "sheep", typeOf = "animal"},
-{race = "spider", typeOf = "animal"},
-{race = "demonskeleton", typeOf = "undead"},
-{race = "redspider", typeOf = "animal"},
-{race = "greenspider", typeOf = "animal"},
-{race = "bluespider", typeOf = "animal"},
-{race = "pig", typeOf = "animal"},
-{race = "boar", typeOf = "animal"},
-{race = "transparentspider", typeOf = "animal"},
-{race = "wasp", typeOf = "animal"},
-{race = "redwasp", typeOf = "animal"},
-{race = "stonegolem", typeOf = "sentient"},
-{race = "brownstonegolem", typeOf = "sentient"},
-{race = "redstonegolem", typeOf = "sentient"},
-{race = "silverstonegolem", typeOf = "sentient"},
-{race = "transparentstonegolem", typeOf = "sentient"},
-{race = "cow", typeOf = "animal"},
-{race = "bull", typeOf = "animal"},
-{race = "wolf", typeOf = "animal"},
-{race = "transparentwolf", typeOf = "animal"},
-{race = "blackwolf", typeOf = "animal"},
-{race = "greywolf", typeOf = "animal"},
-{race = "redwolf", typeOf = "animal"},
-{race = "redraptor", typeOf = "animal"},
-{race = "silverbear", typeOf = "animal"},
-{race = "blackbear", typeOf = "animal"},
-{race = "bear", typeOf = "animal"},
-{race = "raptor", typeOf = "animal"},
-{race = "zombie", typeOf = "undead"},
-{race = "hellhound", typeOf = "animal"},
-{race = "imp", typeOf = "sentient"},
-{race = "irongolem", typeOf = "sentient"},
-{race = "ratman", typeOf = "sentient"},
-{race = "dog", typeOf = "animal"},
-{race = "beetle", typeOf = "animal"},
-{race = "fox", typeOf = "animal"},
-{race = "slime", typeOf = "animal"},
-{race = "chicken", typeOf = "animal"},
-{race = "bonedragon", typeOf = "undead"},
-{race = "blackbonedragon", typeOf = "undead"},
-{race = "redbonedragon", typeOf = "undead"},
-{race = "transparentbonedragon", typeOf = "undead"},
-{race = "greenbonedragon", typeOf = "undead"},
-{race = "bluebonedragon", typeOf = "undead"},
-{race = "goldbonedragon", typeOf = "undead"},
-{race = "redmummy", typeOf = "undead"},
-{race = "greymummy", typeOf = "undead"},
-{race = "blackmummy", typeOf = "undead"},
-{race = "goldmummy", typeOf = "undead"},
-{race = "transparentskeleton", typeOf = "undead"},
-{race = "blueskeleton", typeOf = "undead"},
-{race = "greenskeleton", typeOf = "undead"},
-{race = "goldgolem", typeOf = "sentient"},
-{race = "goldskeleton", typeOf = "undead"},
-{race = "bluetroll", typeOf = "sentient"},
-{race = "blacktroll", typeOf = "sentient"},
-{race = "redtroll", typeOf = "sentient"},
-{race = "blackzombie", typeOf = "undead"},
-{race = "transparentzombie", typeOf = "undead"},
-{race = "redzombie", typeOf = "undead"},
-{race = "blackhellhound", typeOf = "animal"},
-{race = "transparenthellhound", typeOf = "animal"},
-{race = "greenhellhound", typeOf = "animal"},
-{race = "redhellhound", typeOf = "animal"},
-{race = "redimp", typeOf = "sentient"},
-{race = "blackimp", typeOf = "sentient"},
-{race = "blueirongolem", typeOf = "sentient"},
-{race = "redratman", typeOf = "sentient"},
-{race = "greenratman", typeOf = "sentient"},
-{race = "blueratman", typeOf = "sentient"},
-{race = "reddog", typeOf = "animal"},
-{race = "greydog", typeOf = "animal"},
-{race = "blackdog", typeOf = "animal"},
-{race = "greenbeetle", typeOf = "animal"},
-{race = "copperbeetle", typeOf = "animal"},
-{race = "redbeetle", typeOf = "animal"},
-{race = "goldbeetle", typeOf = "animal"},
-{race = "greyfox", typeOf = "animal"},
-{race = "redslime", typeOf = "animal"},
-{race = "blackslime", typeOf = "animal"},
-{race = "transparentslime", typeOf = "animal"},
-{race = "brownchicken", typeOf = "animal"},
-{race = "redchicken", typeOf = "animal"},
-{race = "blackchicken", typeOf = "animal"}
+M.raceList = {
+    {race = 0, name = "human", typeOf = "sentient"},
+    {race = 1, name = "dwarf", typeOf = "sentient"},
+    {race = 2, name = "halfling", typeOf = "sentient"},
+    {race = 3, name = "elf", typeOf = "sentient"},
+    {race = 4, name = "orc", typeOf = "sentient"},
+    {race = 5, name = "lizardman", typeOf = "sentient"},
+    {race = 9, name = "forestTroll", typeOf = "sentient"},
+    {race = 10, name = "mummy", typeOf = "undead"},
+    {race = 11, name = "skeleton", typeOf = "undead"},
+    {race = 12, name = "floatingEye", typeOf = "sentient"},
+    {race = 18, name = "sheep", typeOf = "animal"},
+    {race = 19, name = "spider", typeOf = "animal"},
+    {race = 24, name = "pig", typeOf = "animal"},
+    {race = 27, name = "wasp", typeOf = "animal"},
+    {race = 30, name = "golem", typeOf = "sentient"},
+    {race = 37, name = "cow", typeOf = "animal"},
+    {race = 39, name = "wolf", typeOf = "animal"},
+    {race = 51, name = "bear", typeOf = "animal"},
+    {race = 52, name = "raptor", typeOf = "animal"},
+    {race = 53, name = "zombie", typeOf = "undead"},
+    {race = 54, name = "hellhound", typeOf = "animal"},
+    {race = 55, name = "imp", typeOf = "sentient"},
+    {race = 56, name = "ironGolem", typeOf = "sentient"},
+    {race = 57, name = "ratman", typeOf = "sentient"},
+    {race = 58, name = "dog", typeOf = "animal"},
+    {race = 59, name = "beetle", typeOf = "animal"},
+    {race = 60, name = "fox", typeOf = "animal"},
+    {race = 61, name = "slime", typeOf = "animal"},
+    {race = 62, name = "chicken", typeOf = "animal"},
+    {race = 63, name = "boneDragon", typeOf = "undead"},
+    {race = 111, name = "rat", typeOf = "animal"},
+    {race = 112, name = "fleshDragon", typeOf = "animal"},
+    {race = 113, name = "rabbit", typeOf = "animal"},
+    {race = 114, name = "akaltut", typeOf = "sentient"},
+    {race = 115, name = "fairy", typeOf = "sentient"},
+    {race = 116, name = "deer", typeOf = "animal"},
+    {race = 117, name = "ettin", typeOf = "sentient"}
 }
-local function CheckIfTargetPriest(Target)
-    if Target.getMagicType() == 1 then
+local function CheckIftargetPriest(target)
+    if target.getMagicType() == 1 then
         return true
     end
 return false
 end
-local function CheckIfTargetType(Target, targetType)
-targetRace = Target:getRace()
-    for _, race in pairs(raceList) do
+
+local function CheckIftargetType(target, targetType)
+local targetRace = target:getRace()
+    for _, race in pairs(M.raceList) do
         if race.race == targetRace then
             if race.typeOf == targetType then
                 return true
@@ -158,7 +98,8 @@ targetRace = Target:getRace()
     end
 return false
 end
-local function checkForDamageRunes(User, Target, spell, element, DoT)
+local function checkForDamageRunes(user, target, spell, element, DoT)
+local RA = runes.checkSpellForRuneByName("RA", spell)
 local damage = 0
 local list
     if DoT then
@@ -166,22 +107,22 @@ local list
     else
         list = damageList
     end
-    for _, rune in pairs(damageList) do
-        if rune.element == element and runes.checkSpellForRuneByName(User, rune.rune, spell) then
-            if rune.rune == "Luk" then
-                if CheckIfTargetPriest(Target) then
+    for _, rune in pairs(list) do
+        if rune.element == element and runes.checkSpellForRuneByName(rune.rune, spell) then
+            if rune.rune == "Luk" and RA then
+                if CheckIftargetPriest(target) then
                     damage = damage + rune.damage
                 end
             elseif rune.rune == "Taur" then
-                if CheckIfTargetType(Target, "sentient") then
+                if CheckIftargetType(target, "sentient") then
                     damage = damage + rune.damage
                 end
             elseif rune.rune == "Ura" then
-                if CheckIfTargetType(Target, "animal") then
+                if CheckIftargetType(target, "animal") then
                     damage = damage + rune.damage
                 end
             elseif rune.rune == "Yeg" then
-                if CheckIfTargetType(Target, "undead") then
+                if CheckIftargetType(target, "undead") then
                     damage = damage + rune.damage
                 end
             else
@@ -191,26 +132,31 @@ local list
     end
 return damage
 end
-           
 
-local function CheckForIllusion(User, spell)
-    if runes.checkSpellForRuneByName(User, "Lhor", spell) then
-        return true
-    end
-return false
-end
-function M.getMagicDamage(User, spell, element, Target, DoT)
+function M.getMagicDamage(user, spell, element, target, DoT, playerOrMonster)
 local damage
 local magicResist
 local magicPen
 local finalDamage
-    if CheckForIllusion(User, spell) then
+local illusion = runes.checkSpellForRuneByName("Lhor", spell)
+local teaching = runes.checkSpellForRuneByName("Bhona", spell)
+    if illusion or teaching then
         finalDamage = 0
-    else
-        damage = checkForDamageRunes(User, Target, spell, element, DoT)
-        magicResist = MR.getMagicResistance(Target)
-        magicPen = MP.getMagicPenetration(User, element, spell)
+    elseif playerOrMonster == Character.player then
+        damage = checkForDamageRunes(user, target, spell, element, DoT)
+        magicResist = MR.getMagicResistance(target, spell)
+        magicPen = MP.getMagicPenetration(user, element, spell)
         finalDamage = damage*(1+magicPen-magicResist)
+    elseif playerOrMonster == Character.monster then
+        damage = checkForDamageRunes(user, target, spell, element, DoT)
+        magicPen = MP.getMagicPenetration(user, element, spell)
+        finalDamage = damage*(1+(magicPen/2))
+    end
+    if runes.checkSpellForRuneByName("Sul",spell) then
+        finalDamage = finalDamage*1.1 --10% damage increase
+    end
+    if finalDamage > 4444 then
+        finalDamage = 4444 -- Should take at least three shots to kill someone
     end
 return finalDamage
 end

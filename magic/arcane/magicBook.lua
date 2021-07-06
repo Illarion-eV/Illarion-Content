@@ -28,20 +28,9 @@ local function checkIfCompleteSpells(User, SourceItem)
     end
 end
 function M.spellSelection(User, SourceItem)
-local intelligence = User:increaseAttrib("intelligence", 0)
-local essence = User:increaseAttrib("essence", 0)
-local willpower = User:increaseAttrib("willpower", 0)
-local attributeSum = (intelligence + essence + willpower)
-    if SourceItem.itempos ~= 5 and SourceItem.itempos ~= 6 then
-        User:inform("","You must hold the book in your hand.")
-        return
-    end
-    if attributeSum < 30 or User:getMagicType() ~= 0 or User:getQuestProgress(37) == 0 then
-        User:inform("","All you can see are nonsenical scribbles. Wait, did that line just move? This may be beyond your ability to understand.")
-        return
-    end
+local spellQuestStatus
     if SourceItem:getData("owner") == "" then
-        User:inform("","The book is empty. Perhaps you could fill it in at a desk?")
+        User:inform("","The spell list is empty. Perhaps you could fill it in at a desk?")
         return
     end
     if SourceItem:getData("owner") ~= User.name then
@@ -55,11 +44,15 @@ local emptySpellSlots = 0
         end
         local index = dialog:getSelectedIndex() +1
         for i = 1,createSpell.MAX_SPELL_SLOTS do
-            if SourceItem:getData("spellName"..i) ~= "" and SourceItem:getData("spellName"..i) ~= "Unfinished" then
+            local spellName = SourceItem:getData("spellName"..i)
+            if spellName ~= "" and spellName ~= "Unfinished" then
                 if index == i-emptySpellSlots then
-                    debug("Spell "..i.." is cast.")-- insert a function here for casting spells based on value found here: SourceItem:getData("spell"..i)
+                    spellQuestStatus = SourceItem:getData("spell"..i)
+                    User:setQuestProgress(7002,0)
+                    User:setQuestProgress(7001,tonumber(spellQuestStatus))
+                    User:inform("","Wand primed for the spell: "..spellName..".")
+                    return
                 end
-                return
             else
                 emptySpellSlots = emptySpellSlots+1
             end
@@ -76,5 +69,39 @@ local emptySpellSlots = 0
     else
         User:inform("","The spellbook has no complete spells in it for you to cast.")
     end
+end
+function M.mainSelectionDialog(User, SourceItem)
+local intelligence = User:increaseAttrib("intelligence", 0)
+local essence = User:increaseAttrib("essence", 0)
+local willpower = User:increaseAttrib("willpower", 0)
+local attributeSum = (intelligence + essence + willpower)
+    if SourceItem.itempos ~= 5 and SourceItem.itempos ~= 6 then
+        User:inform("","You must hold the book in your hand.")
+        return
+    end
+    if attributeSum < 30 or User:getMagicType() ~= 0 or User:getQuestProgress(37) == 0 then
+        User:inform("","All you can see are nonsenical scribbles. Wait, did that line just move? This may be beyond your ability to understand.")
+        return
+    end
+    local callback = function(dialog)
+        if not dialog:getSuccess() then
+            return
+        end
+        local index = dialog:getSelectedIndex() +1
+        if index == 1 then
+            M.spellSelection(User, SourceItem)
+        elseif index == 2 then
+            User:setQuestProgress(7002,0)
+            User:setQuestProgress(7001,0)
+            User:inform("","Wand primed for wand magic.")
+        elseif index == 3 then
+            User:setQuestProgress(7002,1)
+        end
+    end
+local dialog = SelectionDialog(common.GetNLS(User,"","Wand priming"), common.GetNLS(User,"","Select what type of magic you want your wand primed to."), callback)
+dialog:addOption(0,"Spells")
+dialog:addOption(0,"Wand Magic")
+dialog:addOption(0,"Glyph Forging")
+User:requestSelectionDialog(dialog)
 end
 return M

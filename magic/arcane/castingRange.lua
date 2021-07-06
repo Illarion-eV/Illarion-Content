@@ -24,19 +24,32 @@ local wandList = {
 {id = 2785, element = "Air"},
 {id = 3608, element = "Spirit"}
 }
+local function getWand(User)
+local left = User:getItemAt(5)
+local right = User:getItemAt(6)
+    for _, wand in pairs(wandList) do
+        if left.id == wand.id then
+            return left
+        elseif right.id == wand.id then
+            return right
+        end
+    end
+return false
+end
+
 function M.getWandBonus(User, element)
 local wandItem
     if getWand(User) then
         wandItem = getWand(User)
     else
         return 0
-    end 
+    end
     for _, wand in pairs(wandList) do
         if wand.id == wandItem.id then
             if wand.element == element then
-                return 3
-            elseif wand.element == "Neutral" then
                 return 2
+            elseif wand.element == "Neutral" then
+                return 0
             else
                 return 1
             end
@@ -45,14 +58,70 @@ local wandItem
 end
 
 function M.getCastingRange(User, spell, element)
-local baseRange = 5
+local baseRange = 4
 local wandbonus = M.getWandBonus(User, element)
 local range = baseRange+wandbonus
-    if runes.checkSpellForRuneByName(User, "Kel", spell) then
-        range = range + 3
+    if runes.checkSpellForRuneByName("Kel", spell) then
+        range = range + 2
     end
 
 return range
+end
+
+function M.isTargetInRange(User, spell, element, target, newTarget, wandAim)
+local range = M.getCastingRange(User, spell, element)
+local pos1 = User.pos
+local pos2 = target
+    if target.pos then
+        pos2 = target.pos
+    end
+    if runes.checkSpellForRuneByName("Fhen", spell) then
+        if wandAim then
+            pos1 = target.pos
+        else
+            pos1 = target
+        end
+        if newTarget then
+            pos2 = newTarget.pos
+        end
+    end
+
+local xdif = pos1.x - pos2.x
+local ydif = pos1.y - pos2.y
+
+    if xdif > range or xdif < -range or ydif > range or ydif < -range or pos1.z ~= pos2.z then
+        return false
+    end
+return true
+
+end
+
+function M.checkForObstacles(User, spell, element, target, newTarget, wandAim)
+local targetpos = target
+local startingpos = User.pos
+    if target.pos then
+        targetpos = target.pos
+    end
+    if runes.checkSpellForRuneByName("Fhen", spell) then
+        if wandAim then
+            startingpos = target.pos
+        else
+            startingpos = target
+        end
+        if newTarget then
+            startingpos = newTarget.pos
+        end
+    end
+    if runes.checkSpellForRuneByName("Fhan", spell) and not runes.checkSpellForRuneByName("PEN", spell) and not runes.checkSpellForRuneByName("JUS", spell) then
+        return false
+    else
+        local blockList = world:LoS(startingpos, targetpos)
+        local next = next
+        if (next(blockList)~=nil) then
+            return true , M.getCastingRange(User, spell, element)
+        end
+    end
+return false
 end
 
 return M

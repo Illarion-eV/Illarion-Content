@@ -62,11 +62,13 @@ function M.QuestprogressToLearnedRunes(questprogress)
         return tonumber(questprogress)
     end
 end
-function M.checkIfLearnedRune(User, TargetItem, RuneNumber, questorspell, spellnumber)
+function M.checkIfLearnedRune(User, TargetItem, RuneNumber, questorspell, spellnumber, spell)
 local learnedRunes
     local retVal=false;
     local runeOffset=math.fmod(RuneNumber-1,32);
-    if questorspell == "isQuest" then
+    if spell then
+        learnedRunes = M.QuestprogressToLearnedRunes(spell)
+    elseif questorspell == "isQuest" then
         learnedRunes = M.QuestprogressToLearnedRunes(User:getQuestProgress(7000))
     elseif questorspell == "isSpell" then
         learnedRunes = M.QuestprogressToLearnedRunes(TargetItem:getData(spellnumber))
@@ -76,7 +78,7 @@ local learnedRunes
     end
     return retVal;
 end
-function M.checkSpellForRune(User, RuneNumber, spell)
+function M.checkSpellForRune(RuneNumber, spell)
     local retVal=false;
     local runeOffset=math.fmod(RuneNumber-1,32);
     local learnedRunes = M.QuestprogressToLearnedRunes(spell)
@@ -86,12 +88,12 @@ function M.checkSpellForRune(User, RuneNumber, spell)
     return retVal;
 end
 
-function M.checkSpellForRuneByName(User, RuneName, spell)
+function M.checkSpellForRuneByName(RuneName, spell)
 local runeNumber
     for i = 1, #M.Runes do
          if M.Runes[i][2] == RuneName then
             runeNumber = M.Runes[i][1]
-            return M.checkSpellForRune(User, runeNumber, spell)
+            return M.checkSpellForRune(runeNumber, spell)
          end
     end
 end
@@ -105,6 +107,24 @@ function M.learnRune(User, TargetItem, RuneNumber, questorspell, spellnumber)
         TargetItem:setData(spellnumber, M.learnedRunesToQuestprogress(bit32.bor(2^runeOffset,learnedRunes)))
         TargetItem:setData("owner",User.name)
         world:changeItem(TargetItem)
+    end
+end
+
+function M.fetchElement(spell)
+    if M.checkSpellForRuneByName("RA", spell) then
+        return "Fire"
+    end
+    if M.checkSpellForRuneByName("SOLH", spell) then
+        return "Earth"
+    end
+    if M.checkSpellForRuneByName("CUN", spell) then
+        return "Water"
+    end
+    if M.checkSpellForRuneByName("JUS", spell) then
+        return "Air"
+    end
+    if M.checkSpellForRuneByName("PEN", spell) then
+        return "Spirit"
     end
 end
 

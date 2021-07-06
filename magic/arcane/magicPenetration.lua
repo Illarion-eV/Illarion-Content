@@ -26,30 +26,32 @@ local wandList = {
 {id = 3608, element = "Spirit"}
 }
 local magicSkillList = {
-{name = "fireMagic", element = "Fire"}
-{name = "earthMagic", element = "Earth"}
-{name = "waterMagic", element = "Water"}
-{name = "windMagic", element = "Air"}
+{name = "fireMagic", element = "Fire"},
+{name = "earthMagic", element = "Earth"},
+{name = "waterMagic", element = "Water"},
+{name = "windMagic", element = "Air"},
 {name = "spiritMagic", element = "Spirit"}
 }
 
-local function getWand(User)
-local left = User.left_tool
-local right = User.right_tool
+local function getWand(user)
+local left = user:getItemAt(5)
+local right = user:getItemAt(6)
     for _, wand in pairs(wandList) do
-        if left.id == wand.id or right.id == wand.id then
-            return wand
+        if left.id == wand.id then
+            return left
+        elseif right.id == wand.id then
+            return right
         end
     end
 return false
 end
-local function checkElementBonus(User, element) --Return a number between 0 and 1
+local function checkElementBonus(user, element) --Return a number between 0 and 1
 local wandItem
-    if getWand(User) then
-        wandItem = getWand(User)
+    if getWand(user) then
+        wandItem = getWand(user)
     else
         return 0
-    end 
+    end
     for _, wand in pairs(wandList) do
         if wand.id == wandItem.id then
             if wand.element == element then
@@ -62,32 +64,33 @@ local wandItem
         end
     end
 end
-local function getGemsInWand(User) --Return a number between 0 and 1
+local function getGemsInWand(user) --Return a number between 0 and 1
 local wand
-    if getWand(User) then
-        wand = getWand(User)
+    if getWand(user) then
+        wand = getWand(user)
     else
         return 0
     end
 return gems.getGemBonus(wand)/120
 end
-local function getSkillLevel(User, element)--Return a number between 0 and 1
+local function getSkillLevel(user, element)--Return a number between 0 and 1
     for _, skill in pairs(magicSkillList) do
         if element == skill.element then
-            local skillId = User:getSkill(skill)
-            return User:getSkillValue(skillId)/100
+            local skillNumber = Character[skill.name]
+            local skillValue = user:getSkill(skillNumber)
+            return skillValue/100
         end
     end
 end
-local function checkSpellForMagicPenetrationRunes(User, element, spell) --Return a number between 0 and 1
+local function checkSpellForMagicPenetrationRunes(user, element, spell) --Return a number between 0 and 1
     return 0
 end
 
-function M.getMagicPenetration(User, element, spell)
-local elementBonus = checkElementBonus(User, element)
-local gemBonus = checkGemsInWand(User)
-local skillBonus = getSkillLevel(User, element)
-local runeBonus = checkSpellForMagicPenetrationRunes(User, element, spell)
+function M.getMagicPenetration(user, element, spell)
+local elementBonus = checkElementBonus(user, element)
+local gemBonus = getGemsInWand(user)
+local skillBonus = getSkillLevel(user, element)
+local runeBonus = checkSpellForMagicPenetrationRunes(user, element, spell)
 local magicPenetration = (((elementBonus+gemBonus)/2)+runeBonus+skillBonus)/3
 
 return magicPenetration

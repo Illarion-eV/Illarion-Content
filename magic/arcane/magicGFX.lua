@@ -14,14 +14,46 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
+local runes = require("magic.arcane.runes")
+local targeting = require("magic.arcane.targeting")
+
 local M = {}
 
-function M.getTargetGFX()
-    --return the id of the gfx to be on the target
+function M.getTargetGFX(targets, spell)
+local position
+    for _, target in pairs(targets) do
+        position = targeting.getPositionByTarget(target)
+        M.castTargetGFX(position, spell)
+    end
+end
+
+function M.castTargetGFX(target, spell)
+local gfxNumber = 0
+    if runes.checkSpellForRuneByName("RA", spell) then
+        gfxNumber = 9
+        if runes.checkSpellForRuneByName("Qwan", spell) then
+            gfxNumber = 36
+        end
+    end
+    if runes.checkSpellForRuneByName("CUN", spell) then
+        gfxNumber = 4
+        if runes.checkSpellForRuneByName("Qwan", spell) then
+            gfxNumber = 3
+        end
+    end
+    if runes.checkSpellForRuneByName("Bhona", spell) then
+        gfxNumber = 41
+    end
+local position = target
+    if target.pos then
+        position = target.pos
+    end
+
+    world:gfx(gfxNumber, position)
 end
 
 function M.getUserGFX()
-    --return the id of the gfx to be on the user
+    return 21
 end
 
 return M

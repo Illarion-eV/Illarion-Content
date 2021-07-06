@@ -21,7 +21,7 @@ local lookat = require("base.lookat")
 local id_266_bookshelf = require("item.id_266_bookshelf")
 local granorsHut = require("content.granorsHut")
 local petBuying = require("petsystem.petBuying")
-local magicBook = require("magic.magicBook")
+local magicBook = require("magic.arcane.magicBook")
 
 local M = {}
 
@@ -61,8 +61,8 @@ end
 
 function M.LookAtItem(User,Item)
     if Item:getData("magicBook") ~= "" then
-        lookat.SetSpecialName(Item,"","Spellbook")
-        lookat.SetSpecialDescription(Item,"","A spellbook used by mages to cast rune magic.")
+        lookat.SetSpecialName(Item,"","Grimoire")
+        lookat.SetSpecialDescription(Item,"","A grimoire used by mages.")
     end
     local book = Item:getData("book")
     if book ~= "" then

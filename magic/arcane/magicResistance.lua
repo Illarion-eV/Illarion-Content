@@ -15,6 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local M = {}
+local runes = require("magic.arcane.runes")
 local gems = require("base.gems")
 
 local equipmentList = {
@@ -32,53 +33,67 @@ local jewelleryList = {
 }
 
 
-local function getMagicStatValue(Target) -- Return a number between 0 and 1
+local function getMagicStatValue(target) -- Return a number between 0 and 1
 local max_stats = 51 -- 20 in each stats + food buff + potions
-    return (math.floor(2*(Target.willpower) + 0.5*(Target.intelligence) + 0.5*(Target.essence)))/max_stats
+local intelligence = target:increaseAttrib("intelligence", 0)
+local essence = target:increaseAttrib("essence", 0)
+local willpower = target:increaseAttrib("willpower", 0)
+    return (math.floor(2*(willpower) + 0.5*(intelligence) + 0.5*(essence)))/max_stats
 end
 
-local function getEquipmentValue(Target) -- Return a number between 0 and 1.
+local function getEquipmentValue(target) -- Return a number between 0 and 1.
 local equipmentValue = 0
 local jewelleryValue = 0
-    for _, equipment in pairs(equipmentList) do
-        local targetItem = Target:getItemAt(equipment.position)
-        local addedValue = targetItem.level/100
-        equipmentValue = equipmentValue + addedValue
+    for _, equipment in ipairs(equipmentList) do
+        local targetItem = target:getItemAt(equipment.position)
+        local level = world:getItemStatsFromId(targetItem.id).Level
+        if level then
+            local addedValue = level/100
+            equipmentValue = equipmentValue + addedValue
+        end
     end
     for _, jewellery in pairs(jewelleryList) do
-        local targetItem = Target:getItemAt(jewellery.position)
-        local addedValue = targetItem.level/100
-        jewelleryValue = jewelleryValue + addedValue
+        local targetItem = target:getItemAt(jewellery.position)
+        local level = world:getItemStatsFromId(targetItem.id).Level
+        if level then
+            local addedValue = level/100
+            jewelleryValue = jewelleryValue + addedValue
+        end
     end
 local finalEquipmentValue = math.floor(((equipmentValue/5)/4)+((jewelleryValue/4)/(4/3)))
-return equipmentValue
+return finalEquipmentValue
 end
 
-local function getGemValue(Target) --Return a value between 0 and 1
+local function getGemValue(target) --Return a value between 0 and 1
 local gemValue = 0
     for _, equipment in pairs(equipmentList) do
-        local targetItem = Target:getItemAt(equipment.position)
+        local targetItem = target:getItemAt(equipment.position)
         local addedValue = math.floor(gems.getGemBonus(targetItem)/120)
         gemValue = gemValue + addedValue
     end
 gemValue = gemValue/5
-    local targetItem = Target:getItemAt(11)
+    local targetItem = target:getItemAt(11)
     local addedValue = math.floor(gems.getGemBonus(targetItem)/120)
     gemValue = (gemValue + addedValue)/2
 return gemValue
 end
 
-local function getSkillValue(Target) --Return a value between 0 and 1, EG level 9 magic resistance is 0.09
-    skill = Target.magicResistance
-    return Target.getSkillValue(skill)/100
+local function getSkillValue(target) --Return a value between 0 and 1, EG level 9 magic resistance is 0.09
+    local skill = Character["magicResistance"]
+    local skillValue = target:getSkill(skill)
+    return skillValue/100
 end
 
-function M.getMagicResistance(Target) --Returns a value between 0 and 1(max magic resistance percentage of 100%, which is nigh impossible to get (requires a max level set of gems for 9 items), and is lowered by magic penetration thereafter)
-local stats = getMagicStatValue(Target)
-local equipment = getEquipmentValue(Target)
-local gems = getGemValue(Target)
-local skill = getSkillValue(Target)
-    return math.floor((((equipment+gems)/2)+stats+skill)/3)
+function M.getMagicResistance(target, spell) --Returns a value between 0 and 1(max magic resistance percentage of 100%, which is nigh impossible to get (requires a max level set of gems for 9 items), and is lowered by magic penetration thereafter)
+local stats = getMagicStatValue(target)
+local equipment = getEquipmentValue(target)
+local magicGems = getGemValue(target)
+local skill = getSkillValue(target)
+local magicResistance = math.floor((((equipment+magicGems)/2)+stats+skill)/3)
+    if runes.checkSpellForRuneByName("Sav", spell) and not runes.checkSpellForRuneByName("JUS", spell) and not runes.checkSpellForRuneByName("PEN", spell) then
+        magicResistance = magicResistance/1.3
+    end
+return magicResistance
 end
 
 return M

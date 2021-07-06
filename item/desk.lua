@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-local createSpell = require("magic.createSpell")
+local createSpell = require("magic.arcane.createSpell")
 local M = {}
 
 -- UPDATE items SET itm_script='item.desk' WHERE itm_id IN (550, 551, 1219, 1220, 1221, 1222);

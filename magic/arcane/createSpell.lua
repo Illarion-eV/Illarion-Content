@@ -19,12 +19,7 @@ local runes = require("magic.arcane.runes")
 local magic = require("base.magic")
 
 local M = {}
-M.MAX_SPELL_SLOTS = 5
---[[The above max slot number has not been tested with higher amounts; Can one single item hold infinite datavalues?
-That would be the only limit, as each spell stores a datavalue for name and spell ID, and the magic book also has
-two values by default to determine that it is a magic book and to determine the owner.
-Makes for a total of 12 stored datavalues with the limit set to 5.
-]]
+M.MAX_SPELL_SLOTS = 20
 
 local function getMagicBook(User)
     local leftItem = User:getItemAt(5)
@@ -135,8 +130,8 @@ local unknownRunes = "0"
                         User:inform("","Not enough mana.")
                         M.spellCreationSelectionMenu(User, TargetItem, slot)
                     end
+                    return
                 end
-                return
             else
                 unknownRunes = unknownRunes+1
             end

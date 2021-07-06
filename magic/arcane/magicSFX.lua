@@ -16,18 +16,20 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local M = {}
 
-function getMagicSFXUser()
-    --return ID of SFX to play on User 
+function M.getMagicSFXUser()
+    return 0
+    --return ID of SFX to play on User
 end
 
-function getMagicSFXTarget()
+function M.getMagicSFXTarget()
     --return ID of SFX to play on target
 end
 
-function getTargetSFXDuration()
+function M.getTargetSFXDuration()
 end
 
-function getUserSFXDuration()
+function M.getUserSFXDuration()
+    return 0
 end
 
 
