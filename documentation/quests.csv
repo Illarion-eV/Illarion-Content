@@ -265,10 +265,11 @@ ID,Title,NPCs,Status,Responsible Author,Description
 346,Tutorial - Glyph,,,Estralis,Show message just once
 347,Tutorial - Wilderness,,,Estralis,Show message just once
 348,Tutorial - Teleporter,,,Estralis,Show message just once
+349,Tutorial - Rat,,,Estralis,Spawn rat just once
 350,teacher,,,merung,Initiation - alchemy
 351,teacher,,,merung,Initiation - alchemy
 352,teacher,,,merung,Initiation - alchemy
-360,Pet syetem: race,,,merung,race of the pet
+360,Pet system: race,,,merung,race of the pet
 361-363,Pet system: position,,,merung,stores the position of the pet
 364,Pet sytem: sex,,,merung,sex of the pet
 365,Pet system: hp,,,merung,saves the hitpoints of the pet
