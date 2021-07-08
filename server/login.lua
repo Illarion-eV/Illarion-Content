@@ -353,6 +353,7 @@ function showNewbieDialog(player)
                     dialogMessage = MessageDialog("Tutorial", "You have decided to skip the tutorial. When you are ready you can catch a boat from the main harbour to the realm of your choice. The roads from the harbours can sometimes be perilous, but as you are new to these lands you will be granted safe passage to the town of your choosing. Viola Baywillow can provide you with more information about the three realms of Illarion should you need it. If you join a realm you can always reconsider and change allegiance at a later date, or even become an outlaw.", callbackPostSkip)
                 end
                 player:setQuestProgress(325,2) --Set flag: Declined tutorial messages
+                player:requestMessageDialog(dialogMessage) --showing the text after skipping dialog
 
             elseif dialogSkip:getSuccess() and dialogSkip:getSelectedIndex() == 0 then --continue the tutorial
                 if player:getPlayerLanguage() == 0 then
@@ -361,13 +362,12 @@ function showNewbieDialog(player)
                     dialogMessage = MessageDialog("Tutorial", "As you disembark the ship, you can take your first steps onto the pier. To move, click a tile on the pier with the left mouse button. Alternatively you can walk using the Num pad, arrow keys, or WASD. Pressing the 'CTRL' key or clicking on the boots icon in the bottom right corner of the window makes your character run.\n\nTo see an overview of all commands, press 'F1'. Answers to many frequently asked questions (FAQs) can be found on our website at www.illarion.org and you are encouraged to seek help on our Discord chat at https://discord.gg/yj3htPN or on the forum.", callbackPostSkip)
                 end
                 player:setQuestProgress(325,1) --Set flag: Accepted tutorial messages
+                player:requestMessageDialog(dialogMessage) --showing the text after skipping dialog
 
             elseif not dialogSkip:getSuccess() then
                 player:requestSelectionDialog(dialogSkip) --Show dialog again if player closed it
                 common.HighInformNLS(player, "Bitte triff eine Entscheidung.", "Please take a decision.")
             end
-
-            player:requestMessageDialog(dialogMessage) --showing the text after skipping dialog
 
         end --end of callback of skip dialog
 
