@@ -18,6 +18,11 @@ local runes = require("magic.arcane.runes")
 local M = {}
 
 function M.getIncantationText(user, spell)
+local Lhor = runes.checkSpellForRuneByName("Lhor", spell)
+local JUS = runes.checkSpellForRuneByName("JUS", spell)
+    if Lhor and JUS then
+        return
+    end
 local theText = ""
     for i = 1, #runes.Runes do
         local rune = runes.Runes[i][2]
@@ -37,6 +42,9 @@ end
 
 function M.speakIncantation(user, spell)
 local text = M.getIncantationText(user, spell)
+    if not text then
+        return
+    end
     user:talk(Character.say, text)
 end
 

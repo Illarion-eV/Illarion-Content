@@ -26,11 +26,16 @@ local illuminate = require("magic.arcane.illuminate")
 local DoT = require("magic.arcane.magicDoT")
 local runes = require("magic.arcane.runes")
 local range = require("magic.arcane.castingRange")
+local harvestFruit = require("magic.arcane.harvestFruit")
+local movement = require("magic.arcane.movement")
+local lifesteal = require("magic.arcane.lifesteal")
+local snare = require("magic.arcane.snare")
+
 
 local M = {}
 
 
-local function getTarget(user, myEffect, lx, ly, tx, ty, tz)
+function M.getTarget(user, myEffect, lx, ly, tx, ty, tz)
 local x
 local y
     if lx == tx and ly == ty then
@@ -50,22 +55,27 @@ local y
     else
         x = lx
     end
-myEffect:addValue("lastX", x)
-myEffect:addValue("lastY", y)
+    myEffect:addValue("lastX", x)
+    myEffect:addValue("lastY", y)
 return position(x, y, tz)
 end
-function M.spellEffects(user, targets, spell, element)
-    dealDamage.applyMagicDamage(user, targets, spell, element)
+function M.spellEffects(user, targets, spell, element, Orl)
+    dealDamage.applyMagicDamage(user, targets, spell, element, Orl)
     DoT.dealMagicDoT(user, targets, spell, element)
     illuminate.CheckIfIlluminate(user, targets, spell)
-    magicGFX.getTargetGFX(targets, spell)
+    magicGFX.getTargetGFX(targets, spell, true)
+    magicGFX.getAdditionalUserGFX(user, spell)
     stun.checkForStun(spell, targets)
     staticObjects.spawnStaticObjects(user, targets, spell)
     MSReduction.checkForReduceManaOrStamina(targets, spell)
     MSReduction.checkForIncreaseStamina(targets, spell)
+    harvestFruit.checkIfHarvestFruit(user, targets, spell)
+    movement.applyMovementSpells(user, spell, Orl)
+    lifesteal.instantLifeOrManaSteal(user, targets, spell, Orl)
+    snare.applySnare(targets, spell, Orl)
 end
 
-function M.applyDelay(user, target, spell)
+function M.applyDelay(user, target, spell, Orl)
     local targetx = target.x
     local targety = target.y
     local targetz = target.z
@@ -81,6 +91,9 @@ function M.applyDelay(user, target, spell)
     myEffect:addValue("targetY", targety)
     myEffect:addValue("targetZ", targetz)
     myEffect:addValue("spell", spell)
+    if Orl then
+        myEffect:addValue("Orl", Orl)
+    end
 end
 
 function M.addEffect(myEffect, user)
@@ -92,12 +105,16 @@ local foundLY, ly = myEffect:findValue("lastY")
 local foundTX, tx = myEffect:findValue("targetX")
 local foundTY, ty = myEffect:findValue("targetY")
 local foundTZ, tz = myEffect:findValue("targetZ")
+local foundOrl, Orl = myEffect:findValue("Orl")
 local nextPosition
 local castSpell = false
 local positions = {}
+    if not foundOrl then
+        Orl = false
+    end
     if foundLX and foundLY and foundTX and foundTY and foundTZ then
-        nextPosition = getTarget(user, myEffect, lx, ly, tx, ty, tz)
-        if nextPosition == false then
+        nextPosition = M.getTarget(user, myEffect, lx, ly, tx, ty, tz)
+        if not nextPosition then
             nextPosition = position(tx, ty, tz)
             castSpell = true
         end
@@ -115,7 +132,7 @@ local CUN = runes.checkSpellForRuneByName("CUN", spell)
 local RA = runes.checkSpellForRuneByName("RA", spell)
     if castSpell then
         targets = targeting.getTargets(user, spell, nextPosition)
-        M.spellEffects(user, targets, spell, element)
+        M.spellEffects(user, targets, spell, element, Orl)
         if Lev and (RA or CUN) then
             local LevTarget = targeting.getWeakestNearTarget(user, position, rangeNum)
                 if LevTarget then

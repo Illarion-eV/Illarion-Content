@@ -58,6 +58,12 @@ local foundTarget, getTarget = ScriptVars:find("onMagicAttackTargetFor"..user.na
 return retPos
 end
 
+function M.refreshTargets(user, spell)
+    local myPosition = M.getPosition(user, spell)
+    local targets = M.getTargets(user, spell, myPosition)
+    return targets
+end
+
 function M.getTargets(user, spell, targeted)
 local name = user.name
 local element = runes.fetchElement(spell)

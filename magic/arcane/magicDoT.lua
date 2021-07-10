@@ -60,7 +60,7 @@ function M.dealMagicDoT(user, targets, spell, element)
                     end
                 end
             end
-            if manaReduction > 0 then
+            if manaReduction > 0 and CUN then
                 local foundEffect3 = myTarget.effects:find(9)
                 local MoT = LongTimeEffect(9,10)
                 MoT:addValue("remainingManaReduction", manaReduction)
@@ -70,7 +70,7 @@ function M.dealMagicDoT(user, targets, spell, element)
                     myTarget.effects:addEffect(MoT)
                 end
             end
-            if foodReduction > 0 then
+            if foodReduction > 0 and CUN then
                 local foundEffect4 = myTarget.effects:find(10)
                 local SoT = LongTimeEffect(10,10)
                 SoT:addValue("remainingStaminaReduction", foodReduction)

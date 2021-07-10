@@ -20,14 +20,14 @@ local castingSpeed = require("magic.arcane.castingSpeed")
 
 local M = {}
 
-local function getBaseStunDuration()
+function M.getBaseStunDuration()
 local duration = castingSpeed.castingSpeedByRuneSize("Short") + castingSpeed.castingSpeedByRuneSize("Medium")*3 -- May need tweaking to prevent permastun
 
 return duration
 end
 
 local function getTargetsResistance(target)
-local maxReduction = getBaseStunDuration()
+local maxReduction = M.getBaseStunDuration()
 local retVal = 0
     if retVal > maxReduction then
         retVal = maxReduction
@@ -36,7 +36,7 @@ return retVal
 end
 
 function M.applyStun(target)
-local baseStunDuration = getBaseStunDuration()
+local baseStunDuration = M.getBaseStunDuration()
 local reduceStun = getTargetsResistance(target)
 local stunDuration = baseStunDuration - reduceStun
 

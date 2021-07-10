@@ -24,6 +24,7 @@ local teaching = require("magic.arcane.teaching")
 local magicSFX = require("magic.arcane.magicSFX")
 local delayedAttack = require("magic.arcane.delayedAttack")
 local incantation = require("magic.arcane.incantation")
+local diminishingReturns = require("magic.arcane.diminishingReturns")
 
 local M = {}
 
@@ -35,10 +36,15 @@ local Lev = runes.checkSpellForRuneByName("Lev", spell)
 local CUN = runes.checkSpellForRuneByName("CUN", spell)
 local RA = runes.checkSpellForRuneByName("RA", spell)
 local Sul = runes.checkSpellForRuneByName("Sul", spell)
+local JUS = runes.checkSpellForRuneByName("JUS", spell)
+local Mes = runes.checkSpellForRuneByName("Mes", spell)
+local Orl = runes.checkSpellForRuneByName("Orl", spell)
 local targets = targeting.getTargets(user, spell, position)
 local castDuration = castTime.arcaneSpellCastSpeed(user, spell)
 local castSFX = magicSFX.getMagicSFXUser()
-local castGFX = magicGFX.getUserGFX()
+local castSFXDuration = 0
+local castGFXDuration = 10
+local castGFX = magicGFX.getUserGFX(spell)
     if actionState == Action.none then
         if not range.isTargetInRange(user, spell, element, position) then
             user:inform("","The target is too far away.")
@@ -52,13 +58,16 @@ local castGFX = magicGFX.getUserGFX()
             user:inform("","You do not have enough mana.")
             return
         end
-        user:startAction(castDuration, castGFX, 10, castSFX, castDuration)
+        user:startAction(castDuration, castGFX, castGFXDuration, castSFX, castSFXDuration)
     elseif actionState == Action.abort then
         return
     elseif actionState == Action.success then
         if not runes.checkSpellForRuneByName("Bhona", spell) then
             mana.removedUsedMana(user, spell)
-            if Sul and (RA or CUN) then
+            if JUS and Orl then
+                diminishingReturns.applyOrl(user, position, spell)
+            end
+            if (Sul and (RA or CUN)) or (JUS and Mes) then
                 delayedAttack.applyDelay(user, position, spell)
             else
                 delayedAttack.spellEffects(user, targets, spell, element)

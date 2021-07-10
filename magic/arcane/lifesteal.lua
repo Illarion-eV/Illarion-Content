@@ -16,8 +16,55 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local character = require("base.character")
-
+local runes = require("magic.arcane.runes")
+local magicDamage = require("magic.arcane.magicDamage")
 local M = {}
+
+function M.instantLifeOrManaSteal(user, targets, spell, Orl)
+local JUS = runes.checkSpellForRuneByName("JUS", spell)
+local Ira = runes.checkSpellForRuneByName("Ira", spell)
+local Sih = runes.checkSpellForRuneByName("Sih", spell)
+local Yeg = runes.checkSpellForRuneByName("Yeg", spell)
+local Ura = runes.checkSpellForRuneByName("Ura", spell)
+local Taur = runes.checkSpellForRuneByName("Taur", spell)
+local rune
+    if Yeg then
+        rune = "Yeg"
+    elseif Taur then
+        rune = "Taur"
+    elseif Ura then
+        rune = "Ura"
+    end
+local amountStolen = 500
+
+    for _, target in pairs(targets) do
+        if JUS and target.category == "character" then
+            if rune then
+                if magicDamage.checkIfRaceBonus(target.target, rune) then
+                    amountStolen = amountStolen + (amountStolen/2)
+                end
+            end
+            if Orl then
+                amountStolen = amountStolen/2
+            end
+            if Sih then
+                character.ChangeHP(user, amountStolen)
+                character.ChangeHP(target.target, -amountStolen)
+                user:inform("","You siphon some health from your target.")
+            end
+            if Ira then
+                if target.target:increaseAttrib("mana", 0) > amountStolen then
+                    target.target:increaseAttrib("mana", -amountStolen)
+                else
+                    target.target:increaseAttrib("mana", 0)
+                end
+                user:increaseAttrib("mana", amountStolen)
+                user:inform("","You siphon some mana from your target.")
+            end
+        end
+    end
+end
+
 
 function M.addEffect(myEffect, target)
     target:inform("","You siphon health from your target, recovering your own over time.") -- replace with different inform depending on spell type

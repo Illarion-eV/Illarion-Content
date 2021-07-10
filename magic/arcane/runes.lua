@@ -88,6 +88,30 @@ function M.checkSpellForRune(RuneNumber, spell)
     return retVal;
 end
 
+function M.checkSpellForMoreThanJUSMes(spell)
+    for i = 1, #M.Runes do
+        local runeName = M.Runes[i][2]
+        if runeName ~= "JUS" and runeName ~= "Mes" and runeName ~= "Orl" then
+            if M.checkSpellForRuneByName(runeName, spell) then
+                return true
+            end
+        end
+    end
+return false
+end
+
+function M.checkSpellForMoreThanJUSSav(spell)
+    for i = 1, #M.Runes do
+        local runeName = M.Runes[i][2]
+        if runeName ~= "JUS" and runeName ~= "Sav" and runeName ~= "Orl" then
+            if M.checkSpellForRuneByName(runeName, spell) then
+                return true
+            end
+        end
+    end
+return false
+end
+
 function M.checkSpellForRuneByName(RuneName, spell)
 local runeNumber
     for i = 1, #M.Runes do

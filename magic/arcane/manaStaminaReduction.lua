@@ -64,22 +64,19 @@ local stamina = false
 end
 
 function M.checkForReduceManaOrStamina(targets, spell)
+local RA = runes.checkSpellForRuneByName("RA", spell)
+local Kah = runes.checkSpellForRuneByName("Kah", spell)
+local Ira = runes.checkSpellForRuneByName("Ira", spell)
 local mana = false
 local stamina = false
-local RoT
-    if runes.checkSpellForRuneByName("RA", spell) then
-        RoT = false
-    end
-    if runes.checkSpellForRuneByName("CUN", spell) then
-        RoT = true
-    end
-    if runes.checkSpellForRuneByName("Kah", spell) then
+
+    if Kah then
         stamina = true
     end
-    if runes.checkSpellForRuneByName("Ira", spell) then
+    if Ira then
         mana = true
     end
-    if not RoT then
+    if RA then
         for _, target in pairs(targets) do
             if target.category == "character" then
                 applyReduceManaOrStamina(target.target, mana, stamina)

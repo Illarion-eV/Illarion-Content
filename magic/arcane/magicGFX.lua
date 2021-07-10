@@ -19,15 +19,15 @@ local targeting = require("magic.arcane.targeting")
 
 local M = {}
 
-function M.getTargetGFX(targets, spell)
+function M.getTargetGFX(targets, spell, fancyLights)
 local position
     for _, target in pairs(targets) do
         position = targeting.getPositionByTarget(target)
-        M.castTargetGFX(position, spell)
+        M.castTargetGFX(position, spell, fancyLights)
     end
 end
 
-function M.castTargetGFX(target, spell)
+function M.castTargetGFX(target, spell, fancyLights)
 local gfxNumber = 0
     if runes.checkSpellForRuneByName("RA", spell) then
         gfxNumber = 9
@@ -41,6 +41,26 @@ local gfxNumber = 0
             gfxNumber = 3
         end
     end
+    if runes.checkSpellForRuneByName("SOLH", spell) then
+        gfxNumber = 8
+        if runes.checkSpellForRuneByName("Qwan", spell) then
+            gfxNumber = 5
+        end
+    end
+    if runes.checkSpellForRuneByName("JUS", spell) then
+        gfxNumber = 7
+        if runes.checkSpellForRuneByName("Mes", spell) then
+            if not fancyLights or not M.checkSpellForMoreThanJUSMes(spell) then
+                gfxNumber = 46
+            end
+        end
+        if not runes.checkSpellForMoreThanJUSSav(spell) then
+            return
+        end
+    end
+    if runes.checkSpellForRuneByName("PEN", spell) then
+        gfxNumber = 31
+    end
     if runes.checkSpellForRuneByName("Bhona", spell) then
         gfxNumber = 41
     end
@@ -52,8 +72,22 @@ local position = target
     world:gfx(gfxNumber, position)
 end
 
-function M.getUserGFX()
-    return 21
+function M.getUserGFX(spell)
+local Lhor = runes.checkSpellForRuneByName("Lhor", spell)
+local JUS = runes.checkSpellForRuneByName("JUS", spell)
+    if Lhor and JUS then
+        return 0
+    else
+        return 21
+    end
+end
+
+function M.getAdditionalUserGFX(user, spell)
+local JUS = runes.checkSpellForRuneByName("JUS", spell)
+local Sav = runes.checkSpellForRuneByName("Sav", spell)
+    if JUS and Sav then
+        world:gfx(7, user.pos)
+    end
 end
 
 return M

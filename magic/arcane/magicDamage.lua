@@ -19,9 +19,7 @@ local MP = require("magic.arcane.magicPenetration")
 local runes = require("magic.arcane.runes")
 local M = {}
 local damageList = {
-{rune = "JUS", damage = 500, element = "Air"},
 {rune = "RA", damage = 1000, element = "Fire"},
-{rune = "SOLH", damage = 500, element = "Earth"},
 {rune = "Pherc", damage = 500, element = "Water"},
 {rune = "Pherc", damage = 500, element = "Air"},
 {rune = "Pherc", damage = 500, element = "Earth"},
@@ -42,44 +40,46 @@ local damageOverTimeList = {
 {rune = "Yeg", damage = 250, element = "Water"}
 }
 M.raceList = {
-    {race = 0, name = "human", typeOf = "sentient"},
-    {race = 1, name = "dwarf", typeOf = "sentient"},
-    {race = 2, name = "halfling", typeOf = "sentient"},
-    {race = 3, name = "elf", typeOf = "sentient"},
-    {race = 4, name = "orc", typeOf = "sentient"},
-    {race = 5, name = "lizardman", typeOf = "sentient"},
-    {race = 9, name = "forestTroll", typeOf = "sentient"},
-    {race = 10, name = "mummy", typeOf = "undead"},
-    {race = 11, name = "skeleton", typeOf = "undead"},
-    {race = 12, name = "floatingEye", typeOf = "sentient"},
-    {race = 18, name = "sheep", typeOf = "animal"},
-    {race = 19, name = "spider", typeOf = "animal"},
-    {race = 24, name = "pig", typeOf = "animal"},
-    {race = 27, name = "wasp", typeOf = "animal"},
-    {race = 30, name = "golem", typeOf = "sentient"},
-    {race = 37, name = "cow", typeOf = "animal"},
-    {race = 39, name = "wolf", typeOf = "animal"},
-    {race = 51, name = "bear", typeOf = "animal"},
-    {race = 52, name = "raptor", typeOf = "animal"},
-    {race = 53, name = "zombie", typeOf = "undead"},
-    {race = 54, name = "hellhound", typeOf = "animal"},
-    {race = 55, name = "imp", typeOf = "sentient"},
-    {race = 56, name = "ironGolem", typeOf = "sentient"},
-    {race = 57, name = "ratman", typeOf = "sentient"},
-    {race = 58, name = "dog", typeOf = "animal"},
-    {race = 59, name = "beetle", typeOf = "animal"},
-    {race = 60, name = "fox", typeOf = "animal"},
-    {race = 61, name = "slime", typeOf = "animal"},
-    {race = 62, name = "chicken", typeOf = "animal"},
-    {race = 63, name = "boneDragon", typeOf = "undead"},
-    {race = 111, name = "rat", typeOf = "animal"},
-    {race = 112, name = "fleshDragon", typeOf = "animal"},
-    {race = 113, name = "rabbit", typeOf = "animal"},
-    {race = 114, name = "akaltut", typeOf = "sentient"},
-    {race = 115, name = "fairy", typeOf = "sentient"},
-    {race = 116, name = "deer", typeOf = "animal"},
-    {race = 117, name = "ettin", typeOf = "sentient"}
+    {race = Character.human, typeOf = "sentient"},
+    {race = Character.dwarf, typeOf = "sentient"},
+    {race = Character.halfling, typeOf = "sentient"},
+    {race = Character.elf, typeOf = "sentient"},
+    {race = Character.orc, typeOf = "sentient"},
+    {race = Character.lizardman, typeOf = "sentient"},
+    {race = Character.forestTroll, typeOf = "sentient"},
+    {race = Character.mummy, typeOf = "undead"},
+    {race = Character.skeleton, typeOf = "undead"},
+    {race = Character.floatingEye, typeOf = "sentient"},
+    {race = Character.sheep, typeOf = "animal"},
+    {race = Character.spider, typeOf = "animal"},
+    {race = Character.pig, typeOf = "animal"},
+    {race = Character.wasp, typeOf = "animal"},
+    {race = Character.golem, typeOf = "sentient"},
+    {race = Character.cow, typeOf = "animal"},
+    {race = Character.wolf, typeOf = "animal"},
+    {race = Character.bear, typeOf = "animal"},
+    {race = Character.raptor, typeOf = "animal"},
+    {race = Character.zombie, typeOf = "undead"},
+    {race = Character.hellhound, typeOf = "animal"},
+    {race = Character.imp, typeOf = "sentient"},
+    {race = Character.ironGolem, typeOf = "sentient"},
+    {race = Character.ratman, typeOf = "sentient"},
+    {race = Character.dog, typeOf = "animal"},
+    {race = Character.beetle, typeOf = "animal"},
+    {race = Character.fox, typeOf = "animal"},
+    {race = Character.slime, typeOf = "animal"},
+    {race = Character.chicken, typeOf = "animal"},
+    {race = Character.boneDragon, typeOf = "undead"},
+    {race = Character.rat, typeOf = "animal"},
+    {race = Character.fleshDragon, typeOf = "animal"},
+    {race = Character.rabbit, typeOf = "animal"},
+    {race = Character.akaltut, typeOf = "sentient"},
+    {race = Character.fairy, typeOf = "sentient"},
+    {race = Character.deer, typeOf = "animal"},
+    {race = Character.ettin, typeOf = "sentient"}
 }
+
+
 local function CheckIftargetPriest(target)
     if target.getMagicType() == 1 then
         return true
@@ -98,6 +98,20 @@ local targetRace = target:getRace()
     end
 return false
 end
+
+function M.checkIfRaceBonus(target, rune)
+local targetType
+    if rune == "Taur" then
+        targetType = "sentient"
+    elseif rune == "Ura" then
+        targetType = "animal"
+    elseif rune == "Yeg" then
+        targetType = "undead"
+    end
+return CheckIftargetType(target, targetType)
+end
+
+
 local function checkForDamageRunes(user, target, spell, element, DoT)
 local RA = runes.checkSpellForRuneByName("RA", spell)
 local damage = 0
@@ -133,7 +147,7 @@ local list
 return damage
 end
 
-function M.getMagicDamage(user, spell, element, target, DoT, playerOrMonster)
+function M.getMagicDamage(user, spell, element, target, DoT, playerOrMonster, Orl)
 local damage
 local magicResist
 local magicPen
@@ -154,6 +168,28 @@ local teaching = runes.checkSpellForRuneByName("Bhona", spell)
     end
     if runes.checkSpellForRuneByName("Sul",spell) then
         finalDamage = finalDamage*1.1 --10% damage increase
+    end
+local Taur = runes.checkSpellForRuneByName("Taur", spell)
+local Ura = runes.checkSpellForRuneByName("Ura", spell)
+local Yeg = runes.checkSpellForRuneByName("Yeg", spell)
+local JUS = runes.checkSpellForRuneByName("JUS", spell)
+local rune
+    if Taur then
+        rune = "Taur"
+    elseif Ura then
+        rune = "Ura"
+    elseif Yeg then
+        rune = "Yeg"
+    end
+local raceBonus
+    if rune then
+        raceBonus = M.checkIfRaceBonus(target, rune)
+    end
+    if raceBonus and JUS then
+        finalDamage = finalDamage*2
+    end
+    if Orl and JUS then
+        finalDamage = finalDamage/2
     end
     if finalDamage > 4444 then
         finalDamage = 4444 -- Should take at least three shots to kill someone
