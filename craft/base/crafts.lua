@@ -25,10 +25,11 @@ local lookat = require("base.lookat")
 local licence = require("base.licence")
 local gems = require("base.gems")
 local glypheffects = require("magic.glypheffects")
-
+local itemList = require("craft.base.itemList")
 local OFFSET_PRODUCTS_REPAIR = 235
 local repairItemList = {}
-
+local housingTool = Item.rasp
+local propertyList = require("base.propertyList")
 --[[productId for craftable items: id in products table.
 productId for repairable items position in inventory plus offset. Inventory has 17 positions, max productId = 255
 ]]--
@@ -128,8 +129,13 @@ function Product:addRemnant(item, quantity, data)
     table.insert(self["remnants"], {["item"]=item, ["quantity"]=quantity, ["data"]=data})
 end
 
-function Craft:addProduct(categoryId, itemId, quantity, data)
-    local difficulty = math.min(world:getItemStatsFromId(itemId).Level, 100)
+function Craft:addProduct(categoryId, itemId, quantity, data, housing, tile)
+    local difficulty
+    if housing then
+        difficulty = math.min(itemList.getLevelReq(itemId, tile),100)
+    else
+        difficulty = math.min(world:getItemStatsFromId(itemId).Level, 100)
+    end
     local learnLimit = math.min(difficulty + 20, 100)
     quantity = quantity or 1
     data = data or {}
@@ -144,6 +150,8 @@ function Craft:addProduct(categoryId, itemId, quantity, data)
             ["data"] = data,
             ["ingredients"] = {},
             ["remnants"] = {},
+            ["tile"] = tile,
+            ["housing"] = housing
         })
 
         if self.categories[categoryId].minSkill then
@@ -182,7 +190,7 @@ function Craft:showDialog(user, source)
             local product = self.products[productId]
             local foodOK = self:checkRequiredFood(user, product:getCraftingTime(self:getSkill(user)))
             local canWork = self:allowCrafting(user, source) and self:checkMaterial(user, productId) and foodOK
-            if canWork then
+            if canWork and not self:getHandToolEquipped(user).id == housingTool then
                 self:swapToActiveItem(user)
             end
             return canWork
@@ -205,9 +213,9 @@ function Craft:showDialog(user, source)
                 self:refreshDialog(dialog, user)
             end
             return skillGain
-        elseif result == CraftingDialog.playerCraftingAborted then
+        elseif result == CraftingDialog.playerCraftingAborted and not self:getHandToolEquipped(user).id == housingTool then
             self:swapToInactiveItem(user)
-        else
+        elseif not self:getHandToolEquipped(user).id == housingTool then
             self:swapToInactiveItem(user)
         end
     end
@@ -216,13 +224,13 @@ function Craft:showDialog(user, source)
     user:requestCraftingDialog(dialog)
 end
 
---------------------------------------------------------------------------------
-
 function Craft:allowCrafting(user, source)
     if not self.npcCraft then
         return self:allowUserCrafting(user, source)
-    else
+    elseif not self.houseCraft then
         return self:allowNpcCrafting(user, source)
+    else
+        return true
     end
 end
 
@@ -337,6 +345,11 @@ function Craft:getLookAt(user, object)
     local data = object.data
     local lookAt = lookat.GenerateItemLookAtFromId(user, item, quantity, data)
 
+    if object.tile == true then
+        lookAt = ItemLookAt()
+        lookAt.name = itemList.getTileName(user, item)
+    end
+
     if self.lookAtFilter then
         lookAt = self.lookAtFilter(user, lookAt, data)
     end
@@ -391,7 +404,12 @@ function Craft:loadDialog(dialog, user)
         if productRequirement <= skill and self:isRepairCategory(product.category) == false then
 
             local craftingTime = self:getCraftingTime(product, skill) * glyphEffect
-            dialog:addCraftable(i, categoryListId[product.category], product.item, self:getLookAt(user, product).name, craftingTime, product.quantity)
+            if product.tile == true then
+                dialog:addCraftable(i, categoryListId[product.category], itemList.getTileGraphic(product.item), itemList.getTileName(user, product.item), craftingTime, product.quantity)
+            else
+                dialog:addCraftable(i, categoryListId[product.category], product.item, self:getLookAt(user, product).name, craftingTime, product.quantity)
+            end
+
 
             for j = 1, #product.ingredients do
                 local ingredient = product.ingredients[j]
@@ -619,7 +637,9 @@ function Craft:generateQuality(user, productId, toolItem)
 end
 
 function Craft:locationFine(user)
-
+    if self:getHandToolEquipped(user).id == housingTool then --Bypass for construction/sandboxing
+        return true
+    end
     self:turnToTool(user)
 
     local staticTool = common.GetFrontItemID(user)
@@ -687,8 +707,13 @@ function Craft:craftItem(user, productId)
     local product = self.products[productId]
     local skill = self:getSkill(user)
     local skillGain = false
-
     local toolItem = self:getHandToolEquipped(user)
+    local housing
+    if self:getHandToolEquipped(user).id == housingTool then
+        housing = true
+    else
+        housing = false
+    end
 
     if product.difficulty > skill then
         common.HighInformNLS(user,
@@ -708,7 +733,7 @@ function Craft:craftItem(user, productId)
     end
 
     if self:checkMaterial(user, productId) then
-        self:createItem(user, productId, toolItem)
+        self:createItem(user, productId, toolItem, housing)
 
         if not self.npcCraft then
             local originalDurability = common.getItemDurability(toolItem)
@@ -718,27 +743,30 @@ function Craft:craftItem(user, productId)
             common.GetHungry(user, neededFood)
         end
 
-        if type(self.leadSkill) == "number" then
+        if type(self.leadSkill) == "number" and not housing then --learning for housing disabled, at least until proper balance is reviewed for material costs and level requirements for items
             user:learn(self.leadSkill, product:getCraftingTime(skill), product.learnLimit)
             local newSkill = self:getSkill(user)
             skillGain = (newSkill > skill)
         end
     end
 
-    self:swapToInactiveItem(user)
+    if not self:getHandToolEquipped(user).id == housingTool then
+        self:swapToInactiveItem(user)
+    end
 
     return skillGain
 end
-
-function Craft:createItem(user, productId, toolItem)
-    local product = self.products[productId]
-
+function Craft:eraseIngredients(user, product)
     for i = 1, #product.ingredients do
         if not glypheffects.effectSaveMaterialOnProduction(user) then
             local ingredient = product.ingredients[i]
             user:eraseItem(ingredient.item, ingredient.quantity, ingredient.data)
         end
     end
+end
+
+function Craft:createItem(user, productId, toolItem, housing)
+    local product = self.products[productId]
 
     local quality = self:generateQuality(user, productId, toolItem)
 
@@ -748,9 +776,55 @@ function Craft:createItem(user, productId, toolItem)
     else
         product.data.craftedBy = nil
     end
-
-    common.CreateItem(user, product.item, product.quantity, quality, product.data)
-
+    if not housing then
+        Craft:eraseIngredients(user, product)
+        common.CreateItem(user, product.item, product.quantity, quality, product.data)
+    elseif housing then
+        local target = common.GetFrontPosition(user)
+        if product.tile == true then
+            if propertyList.checkIfRoofOrRoofTile(user, product.item, true, product.item, "create") then
+                if propertyList.roofAndRoofTiles(user, product.item, true, "create") then
+                    Craft:eraseIngredients(user, product)
+                else
+                    user:inform("","You do not have permission to build there.")
+                end
+            else
+                Craft:eraseIngredients(user, product)
+                world:changeTile(product.item, target)
+            end
+        else
+            if propertyList.checkIfStairsOrTrapDoor(user, product.item) then
+                if propertyList.createWarpsAndExitObject(user, product.item, "create") then
+                    Craft:eraseIngredients(user, product)
+                    world:createItemFromId(product.item, product.quantity, target, true, quality, nil)
+                    local targetItem = common.GetFrontItem(user)
+                    targetItem.wear = 255
+                    world:changeItem(targetItem)
+                else
+                    user:inform("","You do not have permission to build there.")
+                end
+            elseif propertyList.checkIfRoofOrRoofTile(user, product.item, false) then
+                if propertyList.roofAndRoofTiles(user, product.item, false, "create") then
+                    Craft:eraseIngredients(user, product)
+                else
+                    user:inform("","You do not have permission to build there.")
+                end
+            elseif propertyList.checkIfPlantOrTree(user, product.item) then
+                if propertyList.checkIfGardeningCriteriaMet(user, product.item) then
+                    Craft:eraseIngredients(user, product)
+                    world:createItemFromId(product.item, product.quantity, target, true, quality, nil)
+                else
+                    user:inform("","You can't plant this here.")
+                end
+            else
+                Craft:eraseIngredients(user, product)
+                world:createItemFromId(product.item, product.quantity, target, true, quality, nil)
+                local targetItem = common.GetFrontItem(user)
+                targetItem.wear = 255
+                world:changeItem(targetItem)
+            end
+        end
+    end
     for i=1, #product.remnants do
         local remnant = product.remnants[i]
        common.CreateItem(user, remnant.item, remnant.quantity, 333, remnant.data)

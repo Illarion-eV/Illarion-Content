@@ -27,7 +27,7 @@ local shard = require("item.shard")
 local glyphs = require("base.glyphs")
 local seafaring = require("base.seafaring")
 local staticteleporter = require("base.static_teleporter")
-
+local notice = require("item.notice")
 
 local M = {}
 
@@ -1442,10 +1442,66 @@ function M.saveRemovePosition(thePos)
         end
     end
 end
+function M.decideWhatToDoWithProperty(User, property)
+    local callback = function(dialog)
+        if dialog:getSuccess() then
+            local index = dialog:getSelectedIndex() +1
+            if index == 1 then
+                notice.setOwner(User, nil, property)
+            elseif index == 2 then
+                notice.removeOwner(User, nil, property)
+            elseif index == 3 then
+                notice.setBuilderOrGuest(User, nil, "guest", property)
+            elseif index == 4 then
+                notice.removeBuilderOrGuest(User, nil, "guest", property)
+            elseif index == 5 then
+                notice.setBuilderOrGuest(User, nil, "builder", property)
+            elseif index == 6 then
+                notice.removeBuilderOrGuest(User, nil, "builder", property)
+            elseif index == 7 then
+                notice.setRent(User, nil, property)
+            elseif index == 8 then
+                notice.extendRent(User, nil, property)
+            else
+                notice.setReqRank(User, nil, property)
+            end
+        end
+    end
+    local dialog = SelectionDialog("Property Management", "Select what you want to do with the selected property", callback)
+    dialog:addOption(0,"Set Tenant")
+    dialog:addOption(0,"Remove Tenant")
+    dialog:addOption(0,"Set Guest")
+    dialog:addOption(0,"Remove Guest")
+    dialog:addOption(0,"Set Builder")
+    dialog:addOption(0,"Remove Builder")
+    dialog:addOption(0,"Set Rent Cost")
+    dialog:addOption(0,"Extend Rent Duration")
+    dialog:addOption(0,"Set Required Rank")
+    User:requestSelectionDialog(dialog)
+end
+function M.selectProperty(User)
+local selectedProperty
+    local callback = function(dialog)
+        if dialog:getSuccess() then
+            local index = dialog:getSelectedIndex() +1
+            for i = 1, #notice.propertyTable do
+                if index == i then
+                    selectedProperty = notice.propertyTable[i][1]
+                    M.decideWhatToDoWithProperty(User, selectedProperty)
+                end
+            end
+        end
+    end
+    local dialog = SelectionDialog("Properties", "Select a property to make changes to.", callback)
+    for i = 1, #notice.propertyTable do
+        dialog:addOption(0, notice.propertyTable[i][1])
+    end
+    User:requestSelectionDialog(dialog)
+end
 
 function M.UseItem(User, SourceItem)
     -- First check for mode change
-    local modes = {"Items", "Weather", "Factions", "Spawnpoint", "Special Item Creation", "Script Variables","Teleporter","Harbours"}
+    local modes = {"Items", "Weather", "Factions", "Spawnpoint", "Special Item Creation", "Script Variables","Teleporter","Harbours","Property Management"}
     local cbSetMode = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -1468,6 +1524,8 @@ function M.UseItem(User, SourceItem)
             staticteleporter.gmManageTeleporter(User)
         elseif index == 8 then
             seafaring.gmManagePorts(User)
+        elseif index == 9 then
+            M.selectProperty(User)
         end
     end
     local sd = SelectionDialog("Set mode of this ceiling trowel", "To which mode you want to change?", cbSetMode)

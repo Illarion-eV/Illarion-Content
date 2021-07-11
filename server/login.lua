@@ -26,6 +26,7 @@ local areas = require("content.areas")
 local hairdresser = require("npc.hairdresser")
 local seafaring = require("base.seafaring")
 local gods_common = require("content._gods.gods_common")
+local notice = require("item.notice")
 -- Called after every player login
 
 local M = {}
@@ -333,6 +334,10 @@ function M.onLogin( player )
     if not found then
         player.effects:addEffect(LongTimeEffect(gods_common.EFFECT_ID, 10))
     end
+
+    notice.informUserOfKeyRetrieval(player)
+
+    notice.keyRetrieval(player)
 end
 
 function showNewbieDialog(player)
