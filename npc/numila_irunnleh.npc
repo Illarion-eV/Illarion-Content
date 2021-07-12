@@ -68,10 +68,6 @@ itemShoes = 369
 
 -- MANDATORY TRIGGERS
 
--- Test
-queststatus(675) = 7, ".+" -> inform("[Test] xxx ersters Item"), "Na wenn du so fragst.", queststatus(675) = 8, item(2745, 1, 666, "nameDe" = "Test DE", "nameEn" = "Test EN", "rareness" = "2", "descriptionEn" = "abcdefghijklmnopqrstuvwxyz.1234567890:äöüß", "descriptionDe" = "abcdefghijklmnopqrstuvwxyz.1234567890:")
-queststatus(675) = 8, ".+" -> inform("[Test] xxx any Item"), "Und hier der save starter.", queststatus(675) = 7, item(1, 1, 666)
--- Test
 -- Mandatory: Help
 "Help" -> inform("[Game Help] This NPC is Numila Irunnleh the scholar. Keywords: Quest, Question, information, Runewick, Places.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Numila Irunnleh die Wissenschaftlerin. Schlüsselwörter: Quest, Auskunft, Information, Runewick, Orte.")
