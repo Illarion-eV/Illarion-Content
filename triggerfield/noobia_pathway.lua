@@ -20,8 +20,8 @@ local common = require("base.common")
 local M = {}
 
 function M.MoveToField(Character)
-    if Character:getQuestProgress(325) == 1 and Character:getQuestProgress(333) == 0 then --Accepted tutorial messages, didn't visit the triggerfield yet
-        Character:setQuestProgress(333, 1) --remember that the triggerfield was visited
+    if Character:getQuestProgress(325) == 1 and Character:getQuestProgress(355) == 0 then --Accepted tutorial messages, didn't visit the triggerfield yet
+        Character:setQuestProgress(355, 1) --remember that the triggerfield was visited
         local callbackNewbie = function(informNewbie)
             Character:inform("Abgenutztes und mit Gras überwachsenes Kopfsteinpflaster führt vom geschäftigen Pier zwischen einem ruhigen Obstgarten und einem knisternden Lagerfeuern entlang. Dahinter erreicht der Weg zu einem geöffenten Anbau eines hoch aufragenden Gebäudes.","Worn cobbles with edges overgrown by grass lead from the bustling pier, cut between a tranquil orchard and crackling campfire. Beyond the pathway leads to an open front annex of a towering building.")
         end --end callback
