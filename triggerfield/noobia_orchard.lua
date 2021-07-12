@@ -20,8 +20,8 @@ local common = require("base.common")
 local M = {}
 
 function M.MoveToField(Character)
-    if Character:getQuestProgress(325) == 1 and Character:getQuestProgress(334) == 0 then --Accepted tutorial messages, didn't visit the triggerfield yet
-        Character:setQuestProgress(334, 1) --remember that the triggerfield was visited
+    if Character:getQuestProgress(325) == 1 and Character:getQuestProgress(353) == 0 then --Accepted tutorial messages, didn't visit the triggerfield yet
+        Character:setQuestProgress(353, 1) --remember that the triggerfield was visited
         local callbackNewbie = function(informNewbie)
             Character:inform("Ein kleiner Baumhain auf der Landzunge bietet schattige Ruhe vor dem geschäftigen Hafen. Das Rascheln zwischen den Blättern lässt jedoch darauf schließen, dass die reichlich vorhandenen Früchte dieses Obstgartens auch andere Besucher angezogen haben könnten.","A small grove of trees planted on the headland provides shady tranquility from the bustling harbour. Rustling amongt the leaves, however, suggests the abundant fruit of this orchard might also have attracted other visitors.")
         end --end callback

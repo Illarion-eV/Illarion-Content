@@ -59,12 +59,12 @@ function M.callEffect(inlineTutorial,Character)
         end
 
         --Orchard rat
-        if Character:getQuestProgress(335) == 0 and areas.PointInArea(Character.pos,"trollshaven") then
+        if Character:getQuestProgress(354) == 0 and areas.PointInArea(Character.pos,"trollshaven") then
             local monsters = world:getMonstersInRangeOf(Character.pos, 5)
             if (#monsters > 0) then
                 for i, monster in pairs(monsters) do
                     if monster:getMonsterType() == 1111 then
-                        Character:setQuestProgress(335, 1) --remember that the message was received
+                        Character:setQuestProgress(354, 1) --remember that the message was received
                         local callbackOrchard = function(informOrchard)
                             Character:inform("Eine kleine braune Ratte verl‰sst einen angenagten Apfel und springt vom Baum, beiﬂt und kratzt dich.","A small brown rat abandons a partially gnawed apple and jumps from the tree, biting and clawing at you.")
                         end --end callback

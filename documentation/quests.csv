@@ -250,8 +250,8 @@ ID,Title,NPCs,Status,Responsible Author,Description
 331,Tutorial II,Nimbur Goldbrew,,Slightly,Tutorial - Fighting / gathering / crafting
 332,Tutorial - Campfire,,,Estralis,Show message just once
 333,Tutorial - Pathway,,,Estralis,Show message just once
-334,Tutorial - Orchard,,,Estralis,Show message just once
-335,Tutorial - Orchard rat,,,Estralis,Show message just once
+334,quest.madeline_clarbelis_334_runewick,,,,
+335,quest.kaitza_335_wilderness,,,,
 336,Tutorial - Brewery,,,Estralis,Show message just once
 337,Tutorial - Entrance,,,Estralis,Show message just once
 338,Tutorial - Viola,,,Estralis,Show message just once
@@ -269,9 +269,11 @@ ID,Title,NPCs,Status,Responsible Author,Description
 350,teacher,,,merung,Initiation - alchemy
 351,teacher,,,merung,Initiation - alchemy
 352,teacher,,,merung,Initiation - alchemy
+353,Tutorial - Orchard,,,Estralis,Show message just once
+354,Tutorial - Orchard rat,,,Estralis,Show message just once
 360,Pet system: race,,,merung,race of the pet
 361-363,Pet system: position,,,merung,stores the position of the pet
-364,Pet sytem: sex,,,merung,sex of the pet
+364,Pet system: sex,,,merung,sex of the pet
 365,Pet system: hp,,,merung,saves the hitpoints of the pet
 366,Pet system: command,,,merung,current command for the pet to follow
 367-370,Pet system: color,,,merung,save the color of the pet
@@ -359,14 +361,17 @@ ID,Title,NPCs,Status,Responsible Author,Description
 621,Information quests (Runewick),,,envi,Elesil quests
 622,Information quests (Runewick),,,envi,Numilia quests
 623,Information quests (Runewick),,,envi,Archmage has quest reward for Numilia
+624,quest.numila_irunnleh_624_runewick,,,,
 630,Information quests (Galmair),,,envi,Iradona sends player to Lotta
 631,Information quests (Galmair),,,envi,Iradona quests
 632,Information quests (Galmair),,,envi,Lotta quests
 633,Information quests (Galmair),,,envi,Don has quest reward for Lotta
+634,quest.lotta_medborgar_634_galmair,,,,
 640,Information quests (Cadomyr),,,envi,Frizza sends player to Ruzusss
 641,Information quests (Cadomyr),,,envi,Frizza quests
 642,Information quests (Cadomyr),,,envi,Ruzusss quests
 643,Information quests (Cadomyr),,,envi,Queen has quest reward for Ruzusss
+644,quest.ruzusss_644_cadomyr,,,,
 650,Information quests (The Hemp Necktie Inn),,,envi,"Either Numilia, Ruzusss, or Lotta send player to Wulfgorda "
 652,Information quests (The Hemp Necktie Inn),,,envi,Wulfgorda quests
 660,Galmair bridges,,,envi, Recovery/protection time ...no attack by bandits
