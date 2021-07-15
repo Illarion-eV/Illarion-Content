@@ -30,7 +30,9 @@ local harvestFruit = require("magic.arcane.harvestFruit")
 local movement = require("magic.arcane.movement")
 local lifesteal = require("magic.arcane.lifesteal")
 local snare = require("magic.arcane.snare")
-
+local plantRoot = require("magic.arcane.plantRoot")
+local stallMana = require("magic.arcane.stallMana")
+local traps = require("magic.arcane.traps")
 
 local M = {}
 
@@ -59,20 +61,26 @@ local y
     myEffect:addValue("lastY", y)
 return position(x, y, tz)
 end
-function M.spellEffects(user, targets, spell, element, Orl)
-    dealDamage.applyMagicDamage(user, targets, spell, element, Orl)
-    DoT.dealMagicDoT(user, targets, spell, element)
-    illuminate.CheckIfIlluminate(user, targets, spell)
+function M.spellEffects(user, targets, spell, element, Orl, earthTrap)
+    if not earthTrap then
+        DoT.dealMagicDoT(user, targets, spell, element)
+        magicGFX.getAdditionalUserGFX(user, spell)
+        staticObjects.spawnStaticObjects(user, targets, spell)
+        MSReduction.checkForReduceManaOrStamina(user, targets, spell)
+        harvestFruit.checkIfHarvestFruit(user, targets, spell)
+        movement.applyMovementSpells(user, spell, Orl)
+        lifesteal.instantLifeOrManaSteal(user, targets, spell, Orl)
+        traps.createEarthTraps(user, targets, spell)
+        plantRoot.createEntanglingPlant(user, targets, spell)
+    end
+    dealDamage.applyMagicDamage(user, targets, spell, element, Orl, earthTrap)
+    illuminate.CheckIfIlluminate(user, targets, spell, earthTrap)
+    snare.applySnare(user, targets, spell, Orl, earthTrap)
     magicGFX.getTargetGFX(targets, spell, true)
-    magicGFX.getAdditionalUserGFX(user, spell)
-    stun.checkForStun(spell, targets)
-    staticObjects.spawnStaticObjects(user, targets, spell)
-    MSReduction.checkForReduceManaOrStamina(targets, spell)
-    MSReduction.checkForIncreaseStamina(targets, spell)
-    harvestFruit.checkIfHarvestFruit(user, targets, spell)
-    movement.applyMovementSpells(user, spell, Orl)
-    lifesteal.instantLifeOrManaSteal(user, targets, spell, Orl)
-    snare.applySnare(targets, spell, Orl)
+    stun.checkForStun(user, spell, targets, earthTrap)
+    MSReduction.checkForIncreaseStamina(user, targets, spell, earthTrap)
+    plantRoot.applyPlantRoot(user, targets, spell, earthTrap)
+    stallMana.applyManaStalling(user, targets, spell, earthTrap)
 end
 
 function M.applyDelay(user, target, spell, Orl)
@@ -130,16 +138,22 @@ local rangeNum = range.getCastingRange(user, spell, element)
 local Lev = runes.checkSpellForRuneByName("Lev", spell)
 local CUN = runes.checkSpellForRuneByName("CUN", spell)
 local RA = runes.checkSpellForRuneByName("RA", spell)
+local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
     if castSpell then
         targets = targeting.getTargets(user, spell, nextPosition)
         M.spellEffects(user, targets, spell, element, Orl)
-        if Lev and (RA or CUN) then
-            local LevTarget = targeting.getWeakestNearTarget(user, position, rangeNum)
-                if LevTarget then
-                    targets = targeting.getTargets(user, LevTarget, spell)
-                    M.spellEffects(user, targets, spell, element)
-                end
+        if Lev then
+            local LevTarget
+            if RA or CUN then
+                LevTarget = targeting.getWeakestNearTarget(user, position, rangeNum)
+            elseif SOLH then
+                LevTarget = targeting.getSlowestNearTarget(user, position, rangeNum)
             end
+            if LevTarget then
+                targets = targeting.getTargets(user, LevTarget, spell)
+                M.spellEffects(user, targets, spell, element)
+            end
+        end
         return false
     end
     if foundSpell then

@@ -58,12 +58,17 @@ local Sih = runes.checkSpellForRuneByName("Sih", spell)
     end
 end
 
-function M.applyMagicDamage(user, targets, spell, element, Orl)
+function M.applyMagicDamage(user, targets, spell, element, Orl, earthTrap)
     for _, target in pairs(targets) do
         if target.category == "character" then
             local myTarget = target.target
             local targetType = myTarget:getType()
-            local damage = magicDamage.getMagicDamage(user, spell, element, myTarget, false, targetType, Orl)
+            local damage
+            if earthTrap then
+                damage = earthTrap:getData("damage")
+            else
+                damage = magicDamage.getMagicDamage(user, spell, element, myTarget, false, targetType, Orl)
+            end
             M.dealMagicDamage(user, myTarget, spell, damage)
         end
     end

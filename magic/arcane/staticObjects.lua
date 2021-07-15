@@ -17,16 +17,17 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local runes = require("magic.arcane.runes")
 local targeting = require("magic.arcane.targeting")
+local effectScaling = require("magic.arcane.effectScaling")
 
 local M = {}
 
-function M.durationInfluence(user, spell)
+function M.durationInfluence(user, target, spell)
 local retVal = 0
-    --return a number for influencing duration based on users skills, equipment, etc.
+local scaling = effectScaling.getEffectScaling(user, target, spell)
     if runes.checkSpellForRuneByName("Sul",spell) then
         retVal = retVal + 120 -- 2 minutes
     end
-return retVal
+return retVal*scaling
 end
 
 local function checkIfNeedAnth(targetType)
@@ -72,10 +73,10 @@ local objectID
 return objectID
 end
 
-function M.getWearBasedOnDuration(user, spell)
+function M.getWearBasedOnDuration(user, target, spell)
 local wearInSeconds = 180
 local baseDuration = wearInSeconds*2 --A flame at base duration will last between 3-6 minutes
-local durationInf = M.durationInfluence(user, spell)
+local durationInf = M.durationInfluence(user, target, spell)
 local maxDuration = wearInSeconds*10 --A flame will at most last between 27-30 minutes
 local duration = baseDuration+durationInf
     if duration > maxDuration then
@@ -98,7 +99,7 @@ end
 function M.spawnStaticObject(user, target, targetType, spell, position)
 local spawnObject = checkIfObjectShouldBeSpawned(spell, targetType)
 local objectID = getObjectID(spell)
-local wear = M.getWearBasedOnDuration(user, spell)
+local wear = M.getWearBasedOnDuration(user, target, spell)
 local illusion = "false"
     if runes.checkSpellForRuneByName("Lhor", spell) then
         illusion = "true"

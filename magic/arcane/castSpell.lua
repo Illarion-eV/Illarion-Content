@@ -39,6 +39,7 @@ local Sul = runes.checkSpellForRuneByName("Sul", spell)
 local JUS = runes.checkSpellForRuneByName("JUS", spell)
 local Mes = runes.checkSpellForRuneByName("Mes", spell)
 local Orl = runes.checkSpellForRuneByName("Orl", spell)
+local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
 local targets = targeting.getTargets(user, spell, position)
 local castDuration = castTime.arcaneSpellCastSpeed(user, spell)
 local castSFX = magicSFX.getMagicSFXUser()
@@ -72,8 +73,14 @@ local castGFX = magicGFX.getUserGFX(spell)
             else
                 delayedAttack.spellEffects(user, targets, spell, element)
                 incantation.speakIncantation(user, spell)
-                if Lev and (RA or CUN) then
-                local LevTarget = targeting.getWeakestNearTarget(user, position, rangeNum)
+                if Lev then
+                local LevTarget
+                    if RA or CUN then
+                        LevTarget = targeting.getWeakestNearTarget(user, position, rangeNum)
+                    end
+                    if SOLH then
+                        LevTarget = targeting.getSlowestNearTarget(user, position, rangeNum)
+                    end
                     if LevTarget then
                         targets = targeting.getTargets(user, spell, LevTarget.pos)
                         delayedAttack.spellEffects(user, targets, spell, element)

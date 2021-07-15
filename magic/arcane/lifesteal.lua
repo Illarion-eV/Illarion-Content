@@ -18,6 +18,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local character = require("base.character")
 local runes = require("magic.arcane.runes")
 local magicDamage = require("magic.arcane.magicDamage")
+local effectScaling = require("magic.arcane.effectScaling")
+
 local M = {}
 
 function M.instantLifeOrManaSteal(user, targets, spell, Orl)
@@ -38,6 +40,8 @@ local rune
 local amountStolen = 500
 
     for _, target in pairs(targets) do
+        local scaling = effectScaling.getEffectScaling(user, target, spell)
+        amountStolen = amountStolen*scaling
         if JUS and target.category == "character" then
             if rune then
                 if magicDamage.checkIfRaceBonus(target.target, rune) then

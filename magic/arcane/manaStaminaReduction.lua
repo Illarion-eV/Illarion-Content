@@ -16,20 +16,35 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local runes = require("magic.arcane.runes")
+local effectScaling = require("magic.arcane.effectScaling")
 
 local M = {}
 
-function M.getManaToReduce()
-    return 2000
+function M.getManaToReduce(user, target, spell, earthTrap)
+local scaling
+    if not earthTrap then
+        scaling = effectScaling.getEffectScaling(user, target, spell)
+    else
+        scaling = earthTrap:getData("scaling")
+    end
+local baseManaToReduce = 2000
+return baseManaToReduce*scaling
 end
 
-function M.getStaminaToReduce()
-    return 10000
+function M.getStaminaToReduce(user, target, spell, earthTrap)
+local scaling
+    if not earthTrap then
+        scaling = effectScaling.getEffectScaling(user, target, spell)
+    else
+        scaling = earthTrap:getData("scaling")
+    end
+local baseStaminaToReduce = 10000
+return baseStaminaToReduce*scaling
 end
 
-local function applyReduceManaOrStamina(target, mana, stamina, increase)
-local manaToReduce = M.getManaToReduce()
-local staminaToReduce = M.getStaminaToReduce()
+local function applyReduceManaOrStamina(user, target, mana, stamina, increase, spell, earthTrap)
+local manaToReduce = M.getManaToReduce(user, target, spell, earthTrap)
+local staminaToReduce = M.getStaminaToReduce(user, target, spell, earthTrap)
     if mana then
         if target:increaseAttrib("mana", 0) > manaToReduce then
             target:increaseAttrib("mana", -manaToReduce)
@@ -49,7 +64,7 @@ local staminaToReduce = M.getStaminaToReduce()
     end
 end
 
-function M.checkForIncreaseStamina(targets, spell)
+function M.checkForIncreaseStamina(user, targets, spell, earthTrap)
 local stamina = false
     if runes.checkSpellForRuneByName("SOLH", spell) and runes.checkSpellForRuneByName("Kah", spell) then
         stamina = true
@@ -57,13 +72,13 @@ local stamina = false
 
     for _, target in pairs(targets) do
         if target.category == "character" then
-            applyReduceManaOrStamina(target.target, false, stamina, true)
+            applyReduceManaOrStamina(user, target.target, false, stamina, true, spell, earthTrap)
         end
     end
 
 end
 
-function M.checkForReduceManaOrStamina(targets, spell)
+function M.checkForReduceManaOrStamina(user, targets, spell)
 local RA = runes.checkSpellForRuneByName("RA", spell)
 local Kah = runes.checkSpellForRuneByName("Kah", spell)
 local Ira = runes.checkSpellForRuneByName("Ira", spell)

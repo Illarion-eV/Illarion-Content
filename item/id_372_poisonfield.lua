@@ -19,6 +19,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local monstermagic = require("monster.base.spells.base")
 local character = require("base.character")
+local lookat = require("base.lookat")
+local traps = require("magic.arcane.traps")
 
 local M = {}
 
@@ -50,7 +52,18 @@ local function DeleteFlame(User, FlameItem)
 end
 
 function M.CharacterOnField(User)
-
+    local Items = common.GetItemsOnField(User.pos)
+    local FieldItem
+    for _, item in pairs(Items) do
+        if(item.id == 372) then
+            FieldItem = item
+            break
+        end
+    end
+    if FieldItem:getData("spell") then --It is an earth spell trap from arcane magic and not a poison cloud
+        traps.triggerEarthTrap(FieldItem, User)
+        return
+    end
     -- dont harm dead chars anymore
     if (User:increaseAttrib("hitpoints", 0) == 0) then
         return
@@ -68,14 +81,6 @@ function M.CharacterOnField(User)
 
     -- Giftwolke auf dem Feld suchen
     -- !!Eventuell gibt es Probleme, wenn sich mehrere Wolken auf einem Feld befinden!!
-    local Items = common.GetItemsOnField(User.pos)
-    local FieldItem
-    for _, item in pairs(Items) do
-        if(item.id == 372) then
-            FieldItem = item
-            break
-        end
-    end
 
     if (FieldItem.quality > 100) and User.pos.z ~= 100 and User.pos.z ~= 101 and User.pos.z ~= 40 then --no harmful flames on noobia or the working camp
 
@@ -96,6 +101,14 @@ function M.CharacterOnField(User)
                     "The poisoncloud was just an illusion and disappears.")
     end
 end
+
+function M.lookAt(sourceItem)
+    if sourceItem:getData("spell") then
+        lookat.SetSpecialName(sourceItem,"","Earth Cloud")
+        lookat.SetSpecialDescription(sourceItem,"","A misty green cloud with an earthy scent to it.")
+    end
+end
+
 
 return M
 

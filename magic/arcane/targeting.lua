@@ -184,6 +184,27 @@ local lowestHealth
 return returnTarget
 end
 
-
+function M.getSlowestNearTarget(user, target, rangeNum)
+    local position = target
+        if target.pos then
+            position = target.pos
+        end
+    local targets = world:getCharactersInRangeOf(position, rangeNum)
+    local returnTarget = false
+    local lowestSpeed
+        for i = 1, #targets do
+            local newTarget = targets[i]
+            if position ~= newTarget.pos and user.pos ~= newTarget.pos and newTarget:getType() ~= Character.npc then
+                if returnTarget == false then
+                    returnTarget = newTarget
+                    lowestSpeed = newTarget.speed
+                elseif newTarget.speed < lowestSpeed then
+                    returnTarget = newTarget
+                    lowestSpeed = newTarget.speed
+                end
+            end
+        end
+    return returnTarget
+    end
 
 return M

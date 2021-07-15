@@ -18,6 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local runes = require("magic.arcane.runes")
 local targeting = require("magic.arcane.targeting")
 local magicDamage = require("magic.arcane.magicDamage")
+local effectScaling = require("magic.arcane.effectScaling")
 
 local M = {}
 
@@ -91,8 +92,9 @@ local field = world:getField(positionToCheck)
 return false, positionToCheck
 end
 
-local function getRangeOfMovement(spell, target, character, Orl)
+local function getRangeOfMovement(user, spell, target, character, Orl)
 local range = 4
+local scaling = effectScaling.getEffectScaling(user, target, spell)
 local Qwan = runes.checkSpellForRuneByName("Qwan", spell)
 local Kel = runes.checkSpellForRuneByName("Kel", spell)
 local Taur = runes.checkSpellForRuneByName("Taur", spell)
@@ -132,7 +134,7 @@ local raceBonus
     if Orl and JUS then
         range = range/2
     end
-return range
+return range*scaling
 end
 
 local function checkIfWindSpell(spell)
@@ -220,7 +222,7 @@ local myTarget
     end
 local direction = getDirection(user, myTarget)
 local directionReverse = getDirection(user, myTarget, Sav)
-local range = getRangeOfMovement(spell, target.target, characters, Orl)
+local range = getRangeOfMovement(user, spell, target.target, characters, Orl)
 local Z = myTarget.z
 local landingX
 local landingY

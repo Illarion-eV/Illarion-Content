@@ -187,22 +187,16 @@ if Char:idleTime() < 300 then -- Absolutely no regeneration effect if the player
 
     -----------------------MANA BEGIN----------------------------------
     if ( ( ( Char:getMagicType( ) == 0 ) and ( Char:getMagicFlags( 0 ) > 0 ) ) or ( ( Char:getMagicType( ) == 0 ) and ( Char:getQuestProgress(37) ~= 0) ) ) and Char:getType()==Character.player then -- Character is a mage. Please rework this condition once we have a working magic system ~Estralis
-
-        if ( Manapoints < maxManapoints ) then -- Mana not at maximum -> Regeneration
-
-            if ( Foodvalue >= maxFoodvalue/12 ) then -- Quick mana regeneration with food consumption
-
-                Manapoints = math.min( maxManapoints, Manapoints + ( ( 2*TimeFactor + 14*TimeFactor * ( Essence / 20 ) ) ) ); -- Full regeneration from 0-10000 in around 19 minutes at ESS 10. That is 1/5 of HP regeneration
-                Foodvalue = Foodvalue - math.min(8*TimeFactor,(10000-Manapoints) * ( 0.4*TimeFactor / Essence ) ); -- A filled foodbar lasts 125 minutes of regeneration
-
-            else -- Slow mana regeneration without food consumption
-
-                Manapoints = math.min( maxManapoints, Manapoints + ( 2 * TimeFactor ) );  -- Full regeneration from 0-10000 in around 83 minutes
-
+        if Char:getQuestProgress(7500) == 0 then
+            if ( Manapoints < maxManapoints ) then -- Mana not at maximum -> Regeneration
+                if ( Foodvalue >= maxFoodvalue/12 ) then -- Quick mana regeneration with food consumption
+                    Manapoints = math.min( maxManapoints, Manapoints + ( ( 2*TimeFactor + 14*TimeFactor * ( Essence / 20 ) ) ) ); -- Full regeneration from 0-10000 in around 19 minutes at ESS 10. That is 1/5 of HP regeneration
+                    Foodvalue = Foodvalue - math.min(8*TimeFactor,(10000-Manapoints) * ( 0.4*TimeFactor / Essence ) ); -- A filled foodbar lasts 125 minutes of regeneration
+                else -- Slow mana regeneration without food consumption
+                    Manapoints = math.min( maxManapoints, Manapoints + ( 2 * TimeFactor ) );  -- Full regeneration from 0-10000 in around 83 minutes
+                end
             end
-
         end
-
    else
 
       Manapoints = 0;
