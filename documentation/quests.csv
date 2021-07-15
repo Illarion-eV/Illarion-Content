@@ -225,12 +225,12 @@ ID,Title,NPCs,Status,Responsible Author,Description
 306,The first drink is for free,,,Rincewind,Free beer by Hagar
 307,Tale's and Swords,,,Alexander Knight,A old salk. Soldier tells you about his experiances in war while drinking a lot of your beer. Finally he gifts you his sword.
 308,Dailyforge,,,Rincewind,Alice
-309,Old Tutorial,,,Rincewind,Noobia: Henry Cunnigan's station (Talk to NPCs)
-310,Old Tutorial,,,Rincewind,Noobia: Aldania's station (GUI)
-311,Old Tutorial,,,Rincewind,Noobia: Groknar's station (fighting)
-312,Old Tutorial,,,Rincewind,Noobia: Nargon Hammerfist's station (gathering)
-313,Old Tutorial,,,Rincewind,Noobia: Nimbur Goldhand's station (crafting)
-314,Old Tutorial,,,Rincewind,Noobia: Viola's station (chosing a faction)
+309,[Obsolete] Old Tutorial,,,Rincewind,Noobia: Henry Cunnigan's station (Talk to NPCs)
+310,[Obsolete] Old Tutorial,,,Rincewind,Noobia: Aldania's station (GUI)
+311,[Obsolete] Old Tutorial,,,Rincewind,Noobia: Groknar's station (fighting)
+312,[Obsolete] Old Tutorial,,,Rincewind,Noobia: Nargon Hammerfist's station (gathering)
+313,[Obsolete] Old Tutorial,,,Rincewind,Noobia: Nimbur Goldhand's station (crafting)
+314,Old Tutorial,,,Rincewind,Noobia: Viola's station (chosing a faction) - still in use to check who completed the old tutorial. Do not delete.
 315,Tutorial,,,Rincewind,???
 316,Trollop,,,Rincewind,Rose
 317,Writing history,,,"Estralis, Miriam","Runewick message quest, Mirarie Bragolin asks for help"
@@ -438,8 +438,8 @@ ID,Title,NPCs,Status,Responsible Author,Description
 813,Licence Galmair,,,envi,longtime_cooldown
 820,Noobhelper in Runewick,,,Lillian,Deleted - Florain Dreyndel tells the player where to find easy quests
 850,new player help counter,,,Merung/Vilarion,counts how often the char warped to new players to assist them
-851,OBSOLETE new player help preferences,,,Merung/Vilarion,"0 == available to help new players, 1 == not available for this session"
-852,OBSOLETE already played,,,Banduk,"to get how long new player played already. starts with 0, new player only"
+851,[Obsolete] new player help preferences,,,Merung/Vilarion,"0 == available to help new players, 1 == not available for this session"
+852,[Obsolete] already played,,,Banduk,"to get how long new player played already. starts with 0, new player only"
 860,LearnLenniersDream,,,,
 861,CorrectSightingPotion,,,,
 862,ApperanceOfDog,,,,

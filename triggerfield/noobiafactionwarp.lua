@@ -16,10 +16,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- Noobia triggerfields: teleport char to Cadomyr, Runewick or Galmair
 
--- INSERT INTO triggerfields VALUES (56,96,100,'triggerfield.noobiafactionwarp');
--- INSERT INTO triggerfields VALUES (20,99,100,'triggerfield.noobiafactionwarp');
--- INSERT INTO triggerfields VALUES (40,111,100,'triggerfield.noobiafactionwarp');
-
 local common = require("base.common")
 local factions = require("base.factions")
 
@@ -98,15 +94,6 @@ function M.MoveToField(Character)
     Character:warp(destination);
     world:makeSound(13,destination);
     world:gfx(41,Character.pos);
-
-    --"Finish" all Noobia quests
-    Character:setQuestProgress(309,2); --Henry
-    Character:setQuestProgress(310,4); --Aldania
-    Character:setQuestProgress(311,6); --Groknar
-    Character:setQuestProgress(312,3); --Nargon
-    Character:setQuestProgress(313,3); --Nimbur
-    Character:setQuestProgress(314,1); --Viola
-    Character:setQuestProgress(320,1); --Explorer
 
     local FactionCheck = factions.getFaction(Character);
 

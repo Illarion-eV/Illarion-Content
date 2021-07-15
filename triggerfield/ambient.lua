@@ -44,11 +44,6 @@ INSERT INTO triggerfields VALUES (x,y,z,'triggerfield.ambient');
 
 local AmbientList = ambient_base()
 
--- Tutorial by Rincewind and Estralis
-AmbientList.add( position(28,101,100 ),{5,6,7},"[Tutorial] Dies ist der Weg nach Runewick, dem Reich der Weisheit und Magie.","[Tutorial] This is the way to Runewick, realm of wisdom and magic.",nil,nil,100); --Tutorial
-AmbientList.add( position(36,108,100 ),{3,4,5},"[Tutorial] Dies ist der Weg nach Galmair, dem Reich des aufstrebenden Wohlstands.","[Tutorial] This is the way to Galmair, realm of prosperity and wealth.",nil,nil,100); --Tutorial
-AmbientList.add( position(45,97,100 ),{1,2,3},"[Tutorial] Dies ist der Weg nach Cadomyr, dem Reich von Ruhm und Ehre.","[Tutorial] This is the way to Cadomyr, realm of honour and glory.",nil,nil,100); --Tutorial
-
 --SW map by Estralis et al.
 AmbientList.add( position(93,587,0),nil,"In der Ferne hörst du das Bellen eines Hundes.","In the distance, you can hear a barking dog.",nil,nil,1); --General Cadomyr
 AmbientList.add( position(105,569,0),nil,"Ein scharfer Wind bläst durch die Straßen Cadomyrs.","A strong wind blows in the streets of Cadomyr.",nil,nil,1); --General Cadomyr
