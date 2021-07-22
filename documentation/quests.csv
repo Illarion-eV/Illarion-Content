@@ -249,7 +249,6 @@ ID,Title,NPCs,Status,Responsible Author,Description
 330,Tutorial I,Henry Cunnigan,,Slightly,Tutorial - Introduction / lighting a torch
 331,Tutorial II,Nimbur Goldbrew,,Slightly,Tutorial - Fighting / gathering / crafting
 332,Tutorial - Campfire,,,Estralis,Show message just once
-333,Tutorial - Pathway,,,Estralis,Show message just once
 333,Aurora's staff,,,,
 334,quest.madeline_clarbelis_334_runewick,,,,
 335,quest.kaitza_335_wilderness,,,,
@@ -349,11 +348,11 @@ ID,Title,NPCs,Status,Responsible Author,Description
 601,orc storyteller,,,envi,orc tells old stories
 602,orc storyteller quest,,,envi,orc asks for beer
 603,orc researcher/bragon priest,,,envi,"a npc ask for a question, another npc has the answer"
-604,Viola Baywillow quest Elesil,,,envi,Viola Baywillow introduces player to Elesil
-605,Viola Baywillow quest Frizza,,,envi,Viola Baywillow introduces player to Frizza
-606,Viola Baywillow quest Iradona,,,envi,Viola Baywillow introduces player to Iradona
-607,hummy quest tronuk,,,envi,hummy introduces player to tronuk
-608,orc storyteller quest cooldown,,,evie,orc asks for beer cooldown
+604,[Obsolete] Viola Baywillow quest Elesil,,,envi,Viola Baywillow introduces player to Elesil
+605,[Obsolete] Viola Baywillow quest Frizza,,,envi,Viola Baywillow introduces player to Frizza
+606,[Obsolete] Viola Baywillow quest Iradona,,,envi,Viola Baywillow introduces player to Iradona
+607,[Obsolete] hummy quest tronuk,,,envi,hummy introduces player to tronuk
+608,[Obsolete] orc storyteller quest cooldown,,,evie,orc asks for beer cooldown
 610,Cadomyr rulers,,,envi,Keeps track which rulers of Cadomyr the player read
 611,,,,envi,
 613,Galmair treasure map,,,envi,longtime_cooldown
