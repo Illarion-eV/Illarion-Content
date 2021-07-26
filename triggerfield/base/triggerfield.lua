@@ -19,7 +19,7 @@ local M = {}
 -- This list contains all triggerfields.
 -- It should be regularly updated using database dumps of the triggerfield table.
 local triggerfields = {
-    [position(93, 587, 0)] = true --[[triggerfield.ambient]],
+[position(93, 587, 0)] = true --[[triggerfield.ambient]],
 [position(105, 569, 0)] = true --[[triggerfield.ambient]],
 [position(121, 551, 0)] = true --[[triggerfield.ambient]],
 [position(130, 587, 0)] = true --[[triggerfield.ambient]],
@@ -805,7 +805,7 @@ local triggerfields = {
 [position(133, 597, 0)] = true --[[triggerfield.potionToTeacher]]
 }
 
--- Checkes if a given position is a triggerfield
+-- Checks if a given position is a triggerfield
 function M.isTriggerfield(checkPosition)
     return triggerfields[checkPosition] or false
 end

@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local common = require("base.common")
+local tutorial = require("content.tutorial")
 
 local M = {}
 
@@ -112,7 +113,7 @@ function M.HaveABreak(User)
 
     local kitKat = 50 --Duration of the interruption. Set to 5 seconds for now. Cumultative!
     if User.attackmode and User:getQuestProgress(321) == 0 and User:getQuestProgress(325) == 1 then
-        User:inform("[Tutorial] Das Anlegen von Ausrüstung im Kampf führt zu einer kurzen Unterbrechung.","[Tutorial] Putting on equipment in combat leads to a short interruption.")
+        User:inform(tutorial.getTutorialInformDE("hitpoints"),tutorial.getTutorialInformEN("hitpoints"))
         User:setQuestProgress(321, 1) --Only once
     end
 

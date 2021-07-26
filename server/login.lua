@@ -26,6 +26,8 @@ local areas = require("content.areas")
 local hairdresser = require("npc.hairdresser")
 local seafaring = require("base.seafaring")
 local gods_common = require("content._gods.gods_common")
+local tutorial = require("content.tutorial")
+
 -- Called after every player login
 
 local M = {}
@@ -343,23 +345,23 @@ function showNewbieDialog(player)
         local callbackSkip = function(dialogSkip) --start of callback of skipping dialog
             local dialogMessage
             local callbackPostSkip = function (dialogPostSkip)
-                player:inform("Die Ankunft eines Schiffes bringt eine Menge Bewegung mit sich, sowie die Passagiere von Bord gehen und auch die Ladung an Land gebracht werden muss. Rufe ertönen von Süden her, dort wo am Pier andere Schiffe festgemacht haben um ihre Waren aufzunehmen.","The new arrival of a ship brings a frenzy of activity as passengers disembark and cargo is hauled ashore. Shouts rise from the south where other vessels are boarded and goods loaded from bustling piers.")
+                player:inform(tutorial.getTutorialInformDE("postSkip"),tutorial.getTutorialInformEN("postSkip"))
             end --empty callback
 
             if dialogSkip:getSuccess() and dialogSkip:getSelectedIndex() == 1 then --skipping
                 if player:getPlayerLanguage() == 0 then --skip message
-                    dialogMessage = MessageDialog("Tutorial", "Du hast dich entschieden, das Tutorial zu überspringen. Wenn du bereit bist, kannst du ein Boot vom Haupthafen zum Reich deiner Wahl nehmen. Die Straßen von den Häfen können manchmal gefährlich sein, aber da du neu in diesem Land bist, kannst du sicher in die Stadt deiner Wahl gelangen. Viola Baywillow kann dir bei Bedarf weitere Informationen über die drei Reiche von Illarion geben. Bist du einem Reich beigetreten, kannst du die Entscheidung jederzeit überdenken und die Zugehörigkeit zu einem späteren Zeitpunkt auch ändern oder sogar ein Gesetzloser werden.", callbackPostSkip)
+                    dialogMessage = MessageDialog("Tutorial", tutorial.getTutorialTextDE("skipYes"), callbackPostSkip)
                 else
-                    dialogMessage = MessageDialog("Tutorial", "You have decided to skip the tutorial. When you are ready you can catch a boat from the main harbour to the realm of your choice. The roads from the harbours can sometimes be perilous, but as you are new to these lands you will be granted safe passage to the town of your choosing. Viola Baywillow can provide you with more information about the three realms of Illarion should you need it. If you join a realm you can always reconsider and change allegiance at a later date, or even become an outlaw.", callbackPostSkip)
+                    dialogMessage = MessageDialog("Tutorial", tutorial.getTutorialTextEN("skipYes"), callbackPostSkip)
                 end
                 player:setQuestProgress(325,2) --Set flag: Declined tutorial messages
                 player:requestMessageDialog(dialogMessage) --showing the text after skipping dialog
 
             elseif dialogSkip:getSuccess() and dialogSkip:getSelectedIndex() == 0 then --continue the tutorial
                 if player:getPlayerLanguage() == 0 then
-                    dialogMessage = MessageDialog("Tutorial", "Nun hast du das Schiff verlassen und kannst deine ersten Schritte auf dem Pier gehen. Zum Laufen, klickst du mit der linken Maustaste auf ein Feld auf dem Pier. Alternativ kannst du auch den Ziffernblock verwenden, die Pfeil-Tasten oder auch die Tasten W, A, S, und D. Zum schnelleren Rennen drückst du die 'Strg'-Taste oder klickst mit der Maus auf das Stiefel-Feld in der unteren rechten Ecke der Bildchirmanzeige.\n\nFür eine Übersicht aller Befehle drück 'F1'. Antworten auf die meist gestellten Fragen (FAQ) kannst du auf unserer Internetseite www.illarion.org finden. Weitere Hilfe erhälst du in unserem Discord Chat auf https://discoird.gg/yj3htPN oder in unserem Forum.", callbackPostSkip)
+                    dialogMessage = MessageDialog("Tutorial", tutorial.getTutorialTextDE("skipNo"), callbackPostSkip)
                 else
-                    dialogMessage = MessageDialog("Tutorial", "As you disembark the ship, you can take your first steps onto the pier. To move, click a tile on the pier with the left mouse button. Alternatively you can walk using the Num pad, arrow keys, or WASD. Pressing the 'CTRL' key or clicking on the boots icon in the bottom right corner of the window makes your character run.\n\nTo see an overview of all commands, press 'F1'. Answers to many frequently asked questions (FAQs) can be found on our website at www.illarion.org and you are encouraged to seek help on our Discord chat at https://discord.gg/yj3htPN or on the forum.", callbackPostSkip)
+                    dialogMessage = MessageDialog("Tutorial", tutorial.getTutorialTextEN("skipNo"), callbackPostSkip)
                 end
                 player:setQuestProgress(325,1) --Set flag: Accepted tutorial messages
                 player:requestMessageDialog(dialogMessage) --showing the text after skipping dialog
@@ -371,18 +373,18 @@ function showNewbieDialog(player)
 
         end --end of callback of skip dialog
 
-        local dialogSkip = SelectionDialog(getText("Willkommen bei Illarion!","Welcome to Illarion!"), getText("Neuen Spielern empfehlen wir zu Beginn das Tutorial. Es hilft die grundlegende Steuerung des Spiels kennenzulernen und bietet auch einige Hintergrundinformationen für die ersten Entscheidungen, die den Weg Deines Charakters bestimmen werden.", "We recommend new players complete the tutorial to help guide their first steps, teaching the basic controls of the game and providing some background lore to help make those first decisions that determine your character's path."), callbackSkip)
-        dialogSkip:addOption(0, getText("Zeige Tutorialshinweise.","Show tutorial messages."))
-        dialogSkip:addOption(0, getText("Keine Tutorialshinweise.", "No tutorial messages."))
+        local dialogSkip = SelectionDialog(getText("Willkommen bei Illarion!","Welcome to Illarion!"), getText(tutorial.getTutorialTextDE("skip"), tutorial.getTutorialTextEN("skip")), callbackSkip)
+        dialogSkip:addOption(0, getText("Zeige Tutorialhinweise.","Show tutorial messages."))
+        dialogSkip:addOption(0, getText("Keine Tutorialhinweise.", "No tutorial messages."))
         player:requestSelectionDialog(dialogSkip)
 
     end --end callback of Newbie dialog
 
     local dialogNewbie
     if player:getPlayerLanguage() == 0 then
-        dialogNewbie = MessageDialog("Willkommen zu Illarion!", "Eine anstrengende Reise neigt sich dem Ende und neue, aufregende Abenteuer warten im Land Illarion. Alle Charaktere, denen du hier im Laufe der Zeit begegnest, sind lebende und atmende Geschöpfe dieser mysteriösen Welt.Ob du als edler Ritter ruhmreiche Abenteuer bestehst, das Leben eines fleißigen Handwerkers führst, ein Vermögen als Kaufmann verdienst, als charismatischer Priester Gefallen findest, mit Zauberei zu verblüffen weist oder dein Schicksal als hinterhältiger Dieb besiegeln wirst, es werden deine Taten sein, welche die Zukunft von Illarion prägen werden.\n\nBald schon wirst du eine Wahl zu treffen haben, welche vermutlich die wichtigste in deinem Leben sein wird. Wirst du zu Ruhm und Ehre Cadomyr anschließen, zu Wohlstand und Reichtum nach Galmair gehen oder wirst du der Weisheit und Magie von Runewick folgen?", callbackNewbie)
+        dialogNewbie = MessageDialog("Willkommen bei Illarion!", tutorial.getTutorialTextDE("welcome"), callbackNewbie)
     else
-        dialogNewbie = MessageDialog("Welcome to Illarion!", "As an arduous voyage draws to a close, a new and exciting adventure in the land of Illarion beckons. All of the characters that you will encounter during your time here are living, breathing inhabitants of this mysterious world. Whether you experience glorious adventures as a noble knight, live the life of a hardworking craftsman, earn your fortune as an acquisitive merchant, gain favour as a charismatic priest, mystify with your sorcery, or seal your fate as a devious thief, it is your deeds that shape Illarion's future. \n\nSoon you will be faced with a choice, perhaps the most important of your entire life. Will you be drawn to the honour and glory of Cadomyr, the prosperity and wealth of Galmair, or the wisdom and magic of Runewick?", callbackNewbie)
+        dialogNewbie = MessageDialog("Welcome to Illarion!", tutorial.getTutorialTextEN("welcome"), callbackNewbie)
     end
 
     player:requestMessageDialog(dialogNewbie) --showing the welcome text
