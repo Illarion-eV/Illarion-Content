@@ -41,7 +41,7 @@ author = "Rincewind"
 author = "Estralis Seborian"
 author = "Slightly"
 
-lookatDE = "Dies ist Dein Leitfaden für Henry Cunnigan, den Hafenmeister."
+lookatDE = "Dies ist dein Tutor Henry Cunnigan, der Hafenmeister."
 lookatUS = "This is your tutorial guide Henry Cunnigan, the Harbour Master."
 useMsgDE = "Diesen NPC kannst du nicht benutzen. Sage stattdessen 'Hallo'."
 useMsgUS = "You cannot use this NPC. Say 'Hello' instead."
