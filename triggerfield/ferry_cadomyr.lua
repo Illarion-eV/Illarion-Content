@@ -1,0 +1,36 @@
+--[[
+Illarion Server
+
+This program is free software: you can redistribute it and/or modify it under
+the terms of the GNU Affero General Public License as published by the Free
+Software Foundation, either version 3 of the License, or (at your option) any
+later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+details.
+
+You should have received a copy of the GNU Affero General Public License along
+with this program.  If not, see <http://www.gnu.org/licenses/>.
+]]
+
+local tutorial = require("content.tutorial")
+
+local M = {}
+
+function M.MoveToField(Character)
+    if Character:getQuestProgress(323) == 0 and Character:getQuestProgress(199) == 0 and Character:getQuestProgress(314) == 0 then --New player who has not chosen a faction before (323) and is not member of a faction (199) nor has completed the old tutorial (314)
+        tutorial.NewbieWarp(Character,"Cadomyr")
+    else
+        --Warping the character
+        world:gfx(41,Character.pos)
+        world:makeSound(13,Character.pos)
+        Character:warp(position(101,789,0))
+        world:makeSound(13,Character.pos)
+        world:gfx(41,Character.pos)
+        Character.movepoints = Character.movepoints-20
+    end
+end
+
+return M

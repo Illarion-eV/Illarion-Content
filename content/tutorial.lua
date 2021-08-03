@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local common = require("base.common")
+local factions = require("base.factions")
 
 local M = {}
 
@@ -177,6 +178,24 @@ tutorialTextEN["skip"] = "We recommend new players complete the tutorial to help
 tutorialTextDE["welcome"] = "Eine anstrengende Reise neigt sich dem Ende und neue, aufregende Abenteuer warten im Land Illarion. Alle Charaktere, denen du hier im Laufe der Zeit begegnest, sind lebende und atmende Geschöpfe dieser mysteriösen Welt.Ob du als edler Ritter ruhmreiche Abenteuer bestehst, das Leben eines fleißigen Handwerkers führst, ein Vermögen als Kaufmann verdienst, als charismatischer Priester Gefallen findest, mit Zauberei zu verblüffen weist oder dein Schicksal als hinterhältiger Dieb besiegeln wirst, es werden deine Taten sein, welche die Zukunft von Illarion prägen werden.\n\nBald schon wirst du eine Wahl zu treffen haben, welche vermutlich die wichtigste in deinem Leben sein wird. Wirst du zu Ruhm und Ehre Cadomyr anschließen, zu Wohlstand und Reichtum nach Galmair gehen oder wirst du der Weisheit und Magie von Runewick folgen?"
 tutorialTextEN["welcome"] = "As an arduous voyage draws to a close, a new and exciting adventure in the land of Illarion beckons. All of the characters that you will encounter during your time here are living, breathing inhabitants of this mysterious world. Whether you experience glorious adventures as a noble knight, live the life of a hardworking craftsman, earn your fortune as an acquisitive merchant, gain favour as a charismatic priest, mystify with your sorcery, or seal your fate as a devious thief, it is your deeds that shape Illarion's future. \n\nSoon you will be faced with a choice, perhaps the most important of your entire life. Will you be drawn to the honour and glory of Cadomyr, the prosperity and wealth of Galmair, or the wisdom and magic of Runewick?"
 
+tutorialTextDE["NewbieTextCadomyr"] = "Herzlichen Glückwunsch, du hast das Tutorial erfolgreich abgeschlossen. Du hast dich dazu entschlossen, Cadomyr beizutreten, dem Reich von Ruhm und Ehre. Beachte bitte, dass von nun an jeder, dem du begegnest, erwarten wird, dass du in deiner Rolle bleibst - sei also ein nobler Ritter, ein unterwürfiger Diener oder ein edler Diplomat."
+tutorialTextEN["NewbieTextCadomyr"] = "Congratulations, you have completed the tutorial. You have chosen to join Cadomyr, the realm of honour and glory. Please note that from this point on everyone that you encounter will expect you to stay 'in character', by remaining true to your chosen role - be it a proud knight, a humble servant or a noble diplomat."
+
+tutorialTextDE["NewbieTaskTextCadomyr"] = "Als Neuling hat man es nicht leicht. Man kennt die Gegend und die Leute nicht; und die Leute kennen dich nicht. Dein erstes Ziel sollte es sein, andere Spielercharaktere zu finden. Spielercharaktere lassen sich leicht von NPCs unterscheiden. NPCs bewegen sich nicht und reagieren sofort auf das Schlüsselwort 'Hilfe' mit einer Liste von Befehlen. Einige NPCs vergeben quests, diese haben ein '!' über ihrem Kopf. Erkunde auch die Stadt Cadomyr. Interessante Orte sind mit einem roten Symbol auf deiner Karte gekennzeichnet. Dein Questlog (Q) enthält weitere Informationen."
+tutorialTextEN["NewbieTaskTextCadomyr"] = "Being new in town isn't easy. You don't know the area or the people, and neither do they know you. Your first objective will be to find other player characters to interact with. You'll easily tell apart player characters from NPCs as the latter do not move and respond immediatly on the keyword 'help' with a list of commands. Some NPCs issue quests, those have a '!' above their head. Also, explore the city of Cadomyr. Interesting places are marked on your map with a red symbol. For further information, see your quest log (Q)."
+
+tutorialTextDE["NewbieTextRunewick"] = "Herzlichen Glückwunsch, du hast das Tutorial erfolgreich abgeschlossen. Du hast dich dazu entschlossen, Runewick beizutreten, dem Reich der Weisheit und der Magie. Beachte bitte, dass von nun an jeder, dem du begegnest, erwarten wird, dass du in deiner Rolle bleibst - sei also ein geheimnisvoller Magier, ein weiser Gelehrter oder ein friedliebender Waldläufer."
+tutorialTextEN["NewbieTextRunewick"] = "Congratulations, you have completed the tutorial. You have chosen to join Runewick, the realm of wisdom and magic. Please note that from this point on everyone that you encounter will expect you to stay 'in character', by remaining true to your chosen role - be it a mysterious mage, a wise scholar or a peaceful ranger."
+
+tutorialTextDE["NewbieTaskTextRunewick"] = "Als Neuling hat man es nicht leicht. Man kennt die Gegend und die Leute nicht; und die Leute kennen dich nicht. Dein erstes Ziel sollte es sein, andere Spielercharaktere zu finden. Spielercharaktere lassen sich leicht von NPCs unterscheiden. NPCs bewegen sich nicht und reagieren sofort auf das Schlüsselwort 'Hilfe' mit einer Liste von Befehlen. Einige NPCs vergeben quests, diese haben ein '!' über ihrem Kopf. Erkunde auch die Stadt Runewick. Interessante Orte sind mit einem roten Symbol auf deiner Karte gekennzeichnet. Dein Questlog (Q) enthält weitere Informationen."
+tutorialTextEN["NewbieTaskTextRunewick"] = "Being new in town isn't easy. You don't know the area or the people, and neither do they know you. Your first objective will be to find other player characters to interact with. You'll easily tell apart player characters from NPCs as the latter do not move and respond immediatly on the keyword 'help' with a list of commands. Some NPCs issue quests, those have a '!' above their head. Also, explore the city of Runewick. Interesting places are marked on your map with a red symbol. For further information, see your quest log (Q)."
+
+tutorialTextDE["NewbieTextGalmair"] = "Herzlichen Glückwunsch, du hast das Tutorial erfolgreich abgeschlossen. Du hast dich dazu entschlossen, Galmair beizutreten, dem Reich des aufstrebenden Wohlstands. Beachte bitte, dass von nun an jeder, dem du begegnest, erwarten wird, dass du in deiner Rolle bleibst - sei also ein fleißiger Handwerker, ein durchtriebener Gauner oder ein reicher Händler."
+tutorialTextEN["NewbieTextGalmair"] = "Congratulations, you have completed the tutorial. You have chosen to join Galmair, the realm of prosperity and wealth. Please note that from this point on everyone that you encounter will expect you to stay 'in character', by remaining true to your chosen role - be it a sturdy craftsman, a shady thug or a wealthy merchant."
+
+tutorialTextDE["NewbieTaskTextGalmair"] = "Als Neuling hat man es nicht leicht. Man kennt die Gegend und die Leute nicht; und die Leute kennen dich nicht. Dein erstes Ziel sollte es sein, andere Spielercharaktere zu finden. Spielercharaktere lassen sich leicht von NPCs unterscheiden. NPCs bewegen sich nicht und reagieren sofort auf das Schlüsselwort 'Hilfe' mit einer Liste von Befehlen. Einige NPCs vergeben quests, diese haben ein '!' über ihrem Kopf. Erkunde auch die Stadt Galmair. Interessante Orte sind mit einem roten Symbol auf deiner Karte gekennzeichnet. Dein Questlog (Q) enthält weitere Informationen."
+tutorialTextEN["NewbieTaskTextGalmair"] = "Being new in town isn't easy. You don't know the area or the people, and neither do they know you. Your first objective will be to find other player characters to interact with. You'll easily tell apart player characters from NPCs as the latter do not move and respond immediatly on the keyword 'help' with a list of commands. Some NPCs issue quests, those have a '!' above their head. Also, explore the city of Galmair. Interesting places are marked on your map with a red symbol. For further information, see your quest log (Q)."
+
 --NPC texts outside .npc files
 
 tutorialTalkDE["lights"] = "Du solltest jetzt sicher deinen Weg fortsetzen können, also trennen sich unsere Wege hier. Folge dem Pfad nach Süden und stelle dich dem Zwerg Nimbur Goldbrew vor. Er braut die feinsten Getränke für die Taverne zur Hanfschlinge und wird dir sicherlich mehr über das Leben in Illarion erzählen können."
@@ -225,6 +244,70 @@ function M.tutorialDialog(Character,questID,location)
         local dialogNewbie = MessageDialog("Tutorial", dialogText, callbackNewbie)
         Character:requestMessageDialog(dialogNewbie)
     end
+end
+
+--Faction selection
+function M.NewbieWarp(Character,destinationString)
+
+    if destinationString ~= "Cadomyr" and destinationString ~= "Runewick" and destinationString ~= "Galmair" then
+        Character:inform("[Fehler] Ungültige Fraktion.","[Error] Invalid faction.")
+        return
+    end
+
+    local destination = {}
+    destination["Cadomyr"] = position(126,596,0)
+    destination["Runewick"] = position(931,818,0)
+    destination["Galmair"] = position(367,258,0)
+
+    local factionID = {}
+    factionID["Cadomyr"] = 1
+    factionID["Runewick"] = 2
+    factionID["Galmair"] = 3
+
+    -- Build the dialogs
+    local callbackNewbie = function(dialogNewbie)
+        local callbackNewbieTask = function(dialogNewbieTask) end
+        local dialogNewbieTaskTitle = common.GetNLS(Character, "Einführung", "Introduction")
+        local dialogNewbieTaskText = common.GetNLS(Character, M.getTutorialTextDE("NewbieTaskText"..destinationString), M.getTutorialTextEN("NewbieTaskText"..destinationString))
+        local dialogNewbieTask = MessageDialog(dialogNewbieTaskTitle, dialogNewbieTaskText, callbackNewbieTask)
+        Character:requestMessageDialog(dialogNewbieTask)
+    end
+    local dialogNewbieText = common.GetNLS(Character, M.getTutorialTextDE("NewbieText"..destinationString), M.getTutorialTextEN("NewbieText"..destinationString))
+    local dialogNewbie = MessageDialog("Tutorial", dialogNewbieText, callbackNewbie)
+
+    -- We send a message box
+    Character:requestMessageDialog(dialogNewbie); --sending the dialog box to tell that the tutorial is finished
+                                                      --the callback of this box contains the dialog box telling to visit special places
+
+    --Warping the character
+    world:gfx(41,Character.pos)
+    world:makeSound(13,Character.pos)
+    Character:warp(destination[destinationString])
+    world:makeSound(13,Character.pos)
+    world:gfx(41,Character.pos)
+    Character.movepoints = Character.movepoints-20
+
+    -- We start the introduction LTE
+    local found = Character.effects:find(37)
+    if not found then
+        Character.effects:addEffect(LongTimeEffect(37, 10))
+        Character:setQuestProgress(46,1) --start the quest
+    end
+
+    -- We tell other players about our new players
+    local playerlist = world:getPlayersOnline();
+
+    for i = 1, #(playerlist) do
+        local FactionStuff = factions.getFaction(playerlist[i])
+        if FactionStuff.tid == factionID[destinationString] then --Other faction members are alerted
+            common.InformNLS(playerlist[i],"[New player] Ein neuer Spieler ist gerade deinem Reich beigetreten.","[New player] A new player has just joined your realm.");
+        end
+    end
+
+    -- We make the new player a faction member
+    Character:setQuestProgress(199,factionID[destinationString]);
+    factions.setRankpoints(Character,0);
+    Character:setQuestProgress(323,1) --Remember player has chosen a faction.
 end
 
 return M
