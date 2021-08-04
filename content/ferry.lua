@@ -15,17 +15,26 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
-local tutorial = require("content.tutorial")
-local ferry = require("content.ferry")
-
 local M = {}
 
-function M.MoveToField(Character)
-    if Character:getQuestProgress(323) == 0 and Character:getQuestProgress(199) == 0 and Character:getQuestProgress(314) == 0 then --New player who has not chosen a faction before (323) and is not member of a faction (199) nor has completed the old tutorial (314)
-        tutorial.NewbieWarp(Character,"Cadomyr")
-    else
-        ferry.SailTo(Character,"Cadomyr")
-    end
+local destinationPos = {}
+local destinationDE = {}
+local destinationEN = {}
+
+destinationPos["Cadomyr"] = position(101,789,0)
+destinationDE["Cadomyr"] = "Hafen von Cadomyr"
+destinationEN["Cadomyr"] = "Cadomyr Harbour"
+
+function M.SailTo(Character,destinationString)
+
+    world:gfx(41,Character.pos)
+    world:makeSound(13,Character.pos)
+    Character:warp(destinationPos[destinationString])
+    world:makeSound(13,Character.pos)
+    world:gfx(41,Character.pos)
+    Character.movepoints = Character.movepoints-20
+    Character:inform(destinationDE,destinationEN,Character.lowPriority)
+
 end
 
 return M
