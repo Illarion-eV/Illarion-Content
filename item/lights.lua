@@ -99,7 +99,7 @@ function M.UseItem(User, SourceItem, ltstate)
                 User:setQuestProgress(330,4) -- Quest advanced when torch lit
                 common.InformNLS(User, tutorial.getTutorialInformDE("lights"), tutorial.getTutorialInformEN("lights"))
                 local Henry = common.getNpc(position(703,290,0),1,"Henry Cunnigan")
-                common.TalkNLS(Henry, Character.say, tutorial.getTutorialTalkDE("lights"), tutorial.getTutorialTalk("lights"))
+                common.TalkNLS(Henry, Character.say, tutorial.getTutorialTalkDE("lights"), tutorial.getTutorialTalkEN("lights"))
             end
             --Noobia end
 
@@ -200,7 +200,7 @@ function M.MoveItemAfterMove(User,SourceItem,TargetItem)
         local NPCList=world:getNPCSInRangeOf(position(703,290,0),1) --Let's be tolerant, the NPC might move a tile.
         common.InformNLS(User, tutorial.getTutorialInformDE("lightsStart"), tutorial.getTutorialInformEN("lightsStart"))
         for i, Henry in pairs(NPCList) do
-            common.TalkNLS(Henry, Character.say, tutorial.getTutorialTalkDE("lightsStart"), tutorial.getTutorialTalk("lightsStart"))
+            common.TalkNLS(Henry, Character.say, tutorial.getTutorialTalkDE("lightsStart"), tutorial.getTutorialTalkEN("lightsStart"))
         end
     end
     --Noobia end
