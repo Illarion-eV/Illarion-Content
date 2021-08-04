@@ -41,7 +41,7 @@ function M.SailTo(Character,destinationString)
     world:makeSound(13,Character.pos)
     world:gfx(41,Character.pos)
     Character.movepoints = Character.movepoints-20
-    Character:inform(destinationDE,destinationEN,Character.lowPriority)
+    Character:inform(destinationDE[destinationString],destinationEN[destinationString],Character.lowPriority)
 
 end
 
