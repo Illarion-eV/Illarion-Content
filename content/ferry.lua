@@ -15,6 +15,8 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
+local common = require("base.common")
+
 local M = {}
 
 local destinationPos = {}
@@ -41,7 +43,7 @@ function M.SailTo(Character,destinationString)
     world:makeSound(13,Character.pos)
     world:gfx(41,Character.pos)
     Character.movepoints = Character.movepoints-20
-    Character:inform(destinationDE[destinationString],destinationEN[destinationString],Character.lowPriority)
+    common.TempInformNLS(Character,destinationDE[destinationString],destinationEN[destinationString])
 
 end
 
