@@ -196,6 +196,9 @@ tutorialTextEN["NewbieTextGalmair"] = "Congratulations, you have completed the t
 tutorialTextDE["NewbieTaskTextGalmair"] = "Als Neuling hat man es nicht leicht. Man kennt die Gegend und die Leute nicht; und die Leute kennen dich nicht. Dein erstes Ziel sollte es sein, andere Spielercharaktere zu finden. Spielercharaktere lassen sich leicht von NPCs unterscheiden. NPCs bewegen sich nicht und reagieren sofort auf das Schlüsselwort 'Hilfe' mit einer Liste von Befehlen. Einige NPCs vergeben quests, diese haben ein '!' über ihrem Kopf. Erkunde auch die Stadt Galmair. Interessante Orte sind mit einem roten Symbol auf deiner Karte gekennzeichnet. Dein Questlog (Q) enthält weitere Informationen."
 tutorialTextEN["NewbieTaskTextGalmair"] = "Being new in town isn't easy. You don't know the area or the people, and neither do they know you. Your first objective will be to find other player characters to interact with. You'll easily tell apart player characters from NPCs as the latter do not move and respond immediatly on the keyword 'help' with a list of commands. Some NPCs issue quests, those have a '!' above their head. Also, explore the city of Galmair. Interesting places are marked on your map with a red symbol. For further information, see your quest log (Q)."
 
+tutorialTextDE["explorer"] = "Auf das gesamte Spiel verteilt, kannst du Markierungssteine finden. Wenn du diese Steine doppelt anklickst und somit sammelst, bekommst du Punkte. Wenn du eine bestimmte Anzahl von Punkten gesammelt hast, bekommst du eine Belohnung.\n\n Versuche es einmal und klicke doppelt auf den Markierungsstein."
+tutorialTextEN["explorer"] = "Throughout the game you can find marker stones. If you double click a stone, and therefore collect it, you will get points for it. When you collect a specific number of stones you will get a reward.\n\n Try it now and double click the marker stone."
+
 --NPC texts outside .npc files
 
 tutorialTalkDE["lights"] = "Du solltest jetzt sicher deinen Weg fortsetzen können, also trennen sich unsere Wege hier. Folge dem Pfad nach Süden und stelle dich dem Zwerg Nimbur Goldbrew vor. Er braut die feinsten Getränke für die Taverne zur Hanfschlinge und wird dir sicherlich mehr über das Leben in Illarion erzählen können."
@@ -236,7 +239,9 @@ function M.tutorialDialog(Character,questID,location)
         local callbackNewbie = function(informNewbie)
             local informDE = M.getTutorialInformDE(location)
             local informEN = M.getTutorialInformEN(location)
-            Character:inform(informDE,informEN)
+            if informDE and informEN then
+                Character:inform(informDE,informEN)
+            end
         end --end callback
         local textDE = M.getTutorialTextDE(location)
         local textEN = M.getTutorialTextEN(location)
