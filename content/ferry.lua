@@ -25,6 +25,14 @@ destinationPos["Cadomyr"] = position(101,789,0)
 destinationDE["Cadomyr"] = "Hafen von Cadomyr"
 destinationEN["Cadomyr"] = "Cadomyr Harbour"
 
+destinationPos["Runewick"] = position(726,808,0)
+destinationDE["Runewick"] = "Hafen von Runewick"
+destinationEN["Runewick"] = "Runewick Harbour"
+
+destinationPos["Galmair"] = position(450,95,0)
+destinationDE["Galmair"] = "Hafen von Galmair"
+destinationEN["Galmair"] = "Galmair Harbour"
+
 function M.SailTo(Character,destinationString)
 
     world:gfx(41,Character.pos)
