@@ -22,7 +22,7 @@ local M = {}
 
 function M.MoveToField(Character)
     if Character:getQuestProgress(323) == 0 and Character:getQuestProgress(199) == 0 and Character:getQuestProgress(314) == 0 then --New player who has not chosen a faction before (323) and is not member of a faction (199) nor has completed the old tutorial (314)
-        tutorial.NewbieWarp(Character,"Galmair")
+        tutorial.NewbieSelection(Character,"Galmair")
     else
         ferry.SailTo(Character,"Galmair")
     end
