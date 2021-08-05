@@ -103,7 +103,7 @@ function M.LookAtItem(User,Item)
     end
 
     -- Tutorial
-    if (Item.pos == tutorialBookrest) then
+    if (Item.pos == tutorialBookrest) and User:getQuestProgress(323) == 0 and User:getQuestProgress(199) == 0 and User:getQuestProgress(314) == 0 then
         lookAt = tutorialBookrestLookAt(User, Item)
     end
 
