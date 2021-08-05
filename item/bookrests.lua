@@ -253,6 +253,7 @@ function M.UseItem(User, SourceItem)
     -- Tutorial
     if (SourceItem.pos == tutorialBookrest) and User:getQuestProgress(323) == 0 and User:getQuestProgress(199) == 0 and User:getQuestProgress(314) == 0 then --New player who has not chosen a faction before (323) and is not member of a faction (199) nor has completed the old tutorial (314)
         tutorial.NewbieSelectionBookrest(User)
+        return
     end
 
     -- ferries
