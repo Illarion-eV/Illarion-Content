@@ -28,6 +28,7 @@ local townManagement = require("base.townManagement")
 local vision = require("content.vision")
 local lookat = require("base.lookat")
 local money = require("base.money")
+local tutorial = require("content.tutorial")
 
 local M = {}
 
@@ -55,6 +56,7 @@ local wonderlandBookrest = position(864, 550, 0)
 local ronaganBookrest = position(904, 585, -6)
 local bulletinBoard = position(696, 315, 0)
 local tradingPost = position (690, 290, 0)
+local tutorialBookrest = position (683, 284, 0)
 
 function M.LookAtItem(User,Item)
 
@@ -232,6 +234,11 @@ function M.UseItem(User, SourceItem)
         if (SourceItem.pos == townManagement.townManagmentItemPos[i]) then
             townManagement.townManagmentUseItem(User, SourceItem)
         end
+    end
+
+    -- Tutorial
+    if (SourceItem.pos == tutorialBookrest) and User:getQuestProgress(323) == 0 and User:getQuestProgress(199) == 0 and User:getQuestProgress(314) == 0 then --New player who has not chosen a faction before (323) and is not member of a faction (199) nor has completed the old tutorial (314)
+        tutorial.NewbieSelectionBookrest(User)
     end
 
     -- ferries

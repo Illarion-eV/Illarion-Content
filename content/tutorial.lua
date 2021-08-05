@@ -251,6 +251,32 @@ function M.tutorialDialog(Character,questID,location)
     end
 end
 
+--Faction selection dialog at bookrest
+function M.NewbieSelectionBookrest(Character)
+
+    local callback = function(dialog)
+        if dialog:getSuccess() then
+            if dialog:getSelectedIndex() == 0 then
+                M.NewbieWarp(Character,"Cadomyr")
+            elseif dialog:getSelectedIndex() == 1 then
+                M.NewbieWarp(Character,"Runewick")
+            elseif dialog:getSelectedIndex() == 2 then
+                M.NewbieWarp(Character,"Galmair")
+            end
+        end
+    end
+
+    local dialogText = common.GetNLS(Character,"Welchem Reich möchtest du beitreten? Du kannst deine Entscheidung jederzeit beim Notar der Stadt revidieren. Du kannst auch jederzeit zu diesem Ort zurückkehren. Das Tutorial wird mit einer Einführungsqueste weitergehen, bei der du deine neue Heimat näher kennenlernen wirst.","Which realm would you like to join? You can change your decision anytime at the town's notary office. You can also return to this place anytime. The tutorial will continue with a quest to explore the realm.")
+    local dialog = SelectionDialog("Tutorial", dialogText, callback)
+    dialog:setCloseOnMove()
+    dialog:addOption(0,common.GetNLS(Character,"Cadomyr","Cadomyr"))
+    dialog:addOption(0,common.GetNLS(Character,"Runewick","Runewick"))
+    dialog:addOption(0,common.GetNLS(Character,"Galmair","Galmair"))
+    dialog:addOption(0,common.GetNLS(Character,"Später entscheiden.","None for now."))
+    Character:requestSelectionDialog(dialog)
+
+end
+
 --Faction selection dialog
 function M.NewbieSelection(Character,destinationString)
 
