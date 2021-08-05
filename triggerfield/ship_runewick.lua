@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local tutorial = require("content.tutorial")
-local ship = require("content.ferry")
+local ship = require("content.ship")
 
 local M = {}
 
