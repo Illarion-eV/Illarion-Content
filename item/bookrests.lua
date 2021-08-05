@@ -45,9 +45,11 @@ local AkaltutLookAt
 local ronaganLookAt
 local bulletinLookAt
 local tradingPostLookAt
+local tutorialBookrestLookAt
 local WonderlandTeleporter
 local showBulletinBoard
 local showTradingPost
+
 
 local salaveshBookrest = position(741, 406, -3)
 local akaltutBookrest = position(430, 815, -9)
@@ -98,6 +100,11 @@ function M.LookAtItem(User,Item)
     local isFerry, ferryLookAt = seafaring.ferryLookAt(User, Item, ItemLookAt())
     if isFerry then
         lookAt = ferryLookAt
+    end
+
+    -- Tutorial
+    if (Item.pos == tutorialBookrest) then
+        lookAt = tutorialBookrestLookAt(User, Item)
     end
 
     -- static teleporter
@@ -155,6 +162,13 @@ function tradingPostLookAt(User, Item)
     local lookAt = ItemLookAt()
     lookAt.name = common.GetNLS(User, "Elizas Handelsposten", "Eliza's trading post")
     lookAt.description = common.GetNLS(User, "Die Anlaufstelle für den Handel mit Fern und Nah.", "The place to be for trading thereabout and whereabout.")
+    return lookAt
+end
+
+function tutorialBookrestLookAt(User, Item)
+    local lookAt = ItemLookAt()
+    lookAt.name = common.GetNLS(User, "Fähre", "Ferry")
+    lookAt.description = common.GetNLS(User, "Hier kannst du deine neue Heimat aussuchen.", "Choose your new home here.")
     return lookAt
 end
 
