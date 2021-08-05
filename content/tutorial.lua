@@ -272,7 +272,6 @@ function M.NewbieSelectionBookrest(Character)
     dialog:addOption(2701,common.GetNLS(Character,"Cadomyr","Cadomyr"))
     dialog:addOption(105,common.GetNLS(Character,"Runewick","Runewick"))
     dialog:addOption(61,common.GetNLS(Character,"Galmair","Galmair"))
-    dialog:addOption(0,common.GetNLS(Character,"Später entscheiden.","None for now."))
     Character:requestSelectionDialog(dialog)
 
 end
