@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local tutorial = require("content.tutorial")
-local ferry = require("content.ferry")
+local ship = require("content.ship")
 
 local M = {}
 
@@ -24,7 +24,7 @@ function M.MoveToField(Character)
     if Character:getQuestProgress(323) == 0 and Character:getQuestProgress(199) == 0 and Character:getQuestProgress(314) == 0 then --New player who has not chosen a faction before (323) and is not member of a faction (199) nor has completed the old tutorial (314)
         tutorial.NewbieSelection(Character,"Cadomyr")
     else
-        ferry.SailTo(Character,"Cadomyr")
+        ship.SailTo(Character,"Cadomyr")
     end
 end
 
