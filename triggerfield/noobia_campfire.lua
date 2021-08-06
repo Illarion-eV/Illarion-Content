@@ -14,8 +14,13 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- This is the test LUA NPC. This located at 15, 15, 33 and does nothing by
--- default. The script is fetched from /home/nitram/testnpc/npc_test.lua
--- This NPC is required to work correctly with the realtime NPC Update System
 
-return dofile("../../../../../../home/nitram/testnpc/npc_test.lua");
+local tutorial = require("content.tutorial")
+
+local M = {}
+
+function M.MoveToField(Character)
+    tutorial.tutorialDialog(Character,332,"campfire")
+end
+
+return M

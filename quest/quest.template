@@ -8,24 +8,24 @@ local GERMAN = Player.german
 local ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
-local Title = {}
-Title[GERMAN] = "Deutscher Questtitel"
-Title[ENGLISH] = "English Quest Title"
+local title = {}
+title[GERMAN] = "Deutscher Questtitel"
+title[ENGLISH] = "English Quest Title"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
-local Description = {}
-Description[GERMAN] = {}
-Description[ENGLISH] = {}
-Description[GERMAN][1] = "Tolle lange Beschreibung die angezeigt wird wenn man Queststatus 1 erreicht, auch was man wo machen muss ..."
-Description[ENGLISH][1] = "Cool long description which is displayed when you reach quest status 1, also mention what to do where now ..."
+local description = {}
+description[GERMAN] = {}
+description[ENGLISH] = {}
+description[GERMAN][1] = "Tolle lange Beschreibung die angezeigt wird wenn man Queststatus 1 erreicht, auch was man wo machen muss ..."
+description[ENGLISH][1] = "Cool long description which is displayed when you reach quest status 1, also mention what to do where now ..."
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = position(1, 2, 3) OR Start = {1, 2, 3}
+local start = position(1, 2, 3) OR Start = {1, 2, 3}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
-local QuestTarget = {}
-QuestTarget[1] = {position(1, 2, 3), position(4, 5, 6)} OR QuestTarget[1] = {{1, 2, 3}, {4, 5, 6}}
+local questTarget = {}
+questTarget[1] = {position(1, 2, 3), position(4, 5, 6)} OR QuestTarget[1] = {{1, 2, 3}, {4, 5, 6}}
 
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 0
@@ -63,12 +63,12 @@ monsterQuests.addQuest{
 }
 
 function M.QuestTitle(user)
-    return common.GetNLS(user, Title[GERMAN], Title[ENGLISH])
+    return common.GetNLS(user, title[GERMAN], title[ENGLISH])
 end
 
 function M.QuestDescription(user, status)
-    local german = Description[GERMAN][status] or ""
-    local english = Description[ENGLISH][status] or ""
+    local german = description[GERMAN][status] or ""
+    local english = description[ENGLISH][status] or ""
 
     return common.GetNLS(user, german, english)
 end
@@ -93,11 +93,11 @@ end
 --]]
 
 function M.QuestStart()
-    return Start
+    return start
 end
 
 function M.QuestTargets(user, status)
-    return QuestTarget[status]
+    return questTarget[status]
 end
 
 function M.QuestFinalStatus()

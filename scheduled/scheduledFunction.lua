@@ -17,7 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO scheduledscripts VALUES('scheduled.scheduledFunction', 1, 1, 'onExecute');
 
 -- This is an scheduled script that works to support any other scripts that require to call another function with
--- some delay. It is possible to register functions in that script that will be executed afer a set delay.
+-- some delay. It is possible to register functions in that script that will be executed after a set delay.
 local M = {}
 
 -- The list of functions and their counters that are scheduled to be executed

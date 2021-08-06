@@ -15,12 +15,10 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
-local tutorial = require("content.tutorial")
-
 local M = {}
 
-function M.MoveToField(Character)
-    tutorial.tutorialDialog(Character,330,"henry")
+function M.talk(player, talkType, text)
+    return text
 end
 
 return M

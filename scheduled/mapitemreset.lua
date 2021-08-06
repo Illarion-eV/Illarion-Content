@@ -110,13 +110,13 @@ function M.resetMapitem()
         world:changeItem(lever1)
         local plyList = world:getPlayersInRangeOf(lever1.pos, 10)
         for _, char in pairs(plyList) do
-            common.InformNLS(char, "Du hörst ein klicken von dem Hebel.", "You hear a click from the lever.")
+            common.InformNLS(char, "Du hörst ein Klicken des Hebels.", "You hear a click from the lever.")
         end
         lever2.id = 434
         world:changeItem(lever2)
         plyList = world:getPlayersInRangeOf(lever2.pos, 10)
         for _, char in pairs(plyList) do
-            common.InformNLS(char, "Du hörst ein klicken von dem Hebel.", "You hear a click from the lever.")
+            common.InformNLS(char, "Du hörst ein Klicken des Hebels.", "You hear a click from the lever.")
         end
 
         -- delete bridge

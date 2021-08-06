@@ -22,6 +22,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local lookat = require("base.lookat")
+local tutorial = require("content.tutorial")
 
 local M = {}
 
@@ -70,8 +71,13 @@ local getLightData
 local setLightData
 
 function M.UseItem(User, SourceItem, ltstate)
-
-    if SourceItem:getType()==1 or SourceItem:getType()==2 then
+    if SourceItem.id == Item.torch and SourceItem:getType() ~= scriptItem.inventory then
+        common.InformNLS(User,
+            "Nimm die Lichtquelle in die Hand.",
+            "Take the light source into your hand.")
+        return
+    end
+    if SourceItem:getType() == scriptItem.container then
         common.InformNLS(User,
             "Nimm die Lichtquelle in die Hand oder lege sie am Gürtel ab.",
             "Take the light source into your hand or put it on your belt.")
@@ -88,11 +94,12 @@ function M.UseItem(User, SourceItem, ltstate)
     if this then
         local ok, wear = checkReq(User,SourceItem,this)
         if ok then
-            --Noobia addition by Estralis: Lighting a torch is a task of NPC Aldania
-            if User:getQuestProgress(310) == 3 and SourceItem.id == 391 and User:isInRangeToPosition((position (52,24,100)),20) then --only invoked if the user has the quest, uses a torch and is in range of the NPC
-                User:setQuestProgress(310,4) --Connection to easyNPC
-                local Aldania = common.getNpc(position(52,24,100),1,"Aldania Elthewan")
-                common.TalkNLS(Aldania, Character.say, "Die Finsternis verheißt meist nichts Gutes. Du solltest immer eine Lichtquelle dabei haben, wenn du in die Dunkelheit hinaus reist oder alte Gemäuer untersuchst. Hier trennen sich nun unsere Wege, lauf einfach weiter die Straße hinunter zu diesem Wilden, Groknar. Er wird dich in die Kriegskunst einführen.", "The darkness can be a real obstacle in Illarion. You should remember to carry a light source when travelling by night, and when exploring caves and dungeons. Well, this is where we part company. Run along to that savage, Groknar, down the road. He will train you in the art of combat.")
+            --Noobia Quest 330: Lighting a torch with NPC Henry Cunnigan
+            if User:getQuestProgress(330) == 3 and SourceItem.id == 391 and User:isInRangeToPosition((position (703,290,0)),20) then -- Only invoked if the user has the quest, has a torch and is in range of the NPC
+                User:setQuestProgress(330,4) -- Quest advanced when torch lit
+                common.InformNLS(User, tutorial.getTutorialInformDE("lights"), tutorial.getTutorialInformEN("lights"))
+                local Henry = common.getNpc(position(703,290,0),1,"Henry Cunnigan")
+                common.TalkNLS(Henry, Character.say, tutorial.getTutorialTalkDE("lights"), tutorial.getTutorialTalkEN("lights"))
             end
             --Noobia end
 
@@ -187,17 +194,18 @@ function M.MoveItemAfterMove(User,SourceItem,TargetItem)
         end
     end
 
-    --Noobia addition by Estralis: Equipping a torch is a task of NPC Aldania
-    if User:getQuestProgress(310)==2 and TargetItem.id==391 and User:isInRangeToPosition((position (51,30,100)),20) and TargetItem:getType() == 4 then --only invoked if the user has the quest, moves a torch to a hand slot and is in range of the NPC
-        User:setQuestProgress(310,3) --Connection to easyNPC
-        local NPCList=world:getNPCSInRangeOf(position(52,24,100),1) --Let's be tolerant, the NPC might move a tile.
-        for i, Aldania in pairs(NPCList) do
-            common.TalkNLS(Aldania, Character.say, "Sehr gut, nun weißt du, wie man mit Ausrüstung umgeht. Helme, Schuhe und ähnliches werden genauso angelegt. In meiner nächsten Lektion wirst du lernen, wie man Gegenstände benutzt. Entzünde die Fackel mit einem Doppelklick.", "Very good, you know how to properly handle your equipment now. Helmets, shoes and the like are equipped in the same way. My next lesson will allow you to use your items. Ignite the torch with a double click.")
+    --Noobia Quest 330: Equipping a torch with NPC Henry Cunnigan
+    if User:getQuestProgress(330)==2 and TargetItem.id==391 and User:isInRangeToPosition((position (703,290,0)),20) and TargetItem:getType() == 4 then -- Only invoked if the user has the quest, has a torch and is in range of the NPC
+        User:setQuestProgress(330,3) --Quest advancement when torch equipped
+        local NPCList=world:getNPCSInRangeOf(position(703,290,0),1) --Let's be tolerant, the NPC might move a tile.
+        common.InformNLS(User, tutorial.getTutorialInformDE("lightsStart"), tutorial.getTutorialInformEN("lightsStart"))
+        for i, Henry in pairs(NPCList) do
+            common.TalkNLS(Henry, Character.say, tutorial.getTutorialTalkDE("lightsStart"), tutorial.getTutorialTalkEN("lightsStart"))
         end
     end
     --Noobia end
 
-    return true --leave savely
+    return true --leave safely
 end
 
 function M.LookAtItem(User, Item)

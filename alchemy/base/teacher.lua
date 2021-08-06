@@ -106,12 +106,12 @@ end
 -- questions and answers; note: one question and three answers, !!! the first answer ins the list of answers is the correct answer !!!
 -- difficulty 1:
 questionAnswerList["german"]["question"][1][1]  = {"Welche Pflanze enthält keinen der acht Wirkstoffe?"}
-questionAnswerList["english"]["question"][1][1] = {"Which plant does not contain any active substance?"}
+questionAnswerList["english"]["question"][1][1] = {"Which plant does not contain any of the eight active substances?"}
 questionAnswerList["german"]["answer"][1][1]  = {"Kohl","Firnisblüte","Erdbeere"}
 questionAnswerList["english"]["answer"][1][1] = {"Cabbage","Firnis blossom","Strawberry"}
 
 questionAnswerList["german"]["question"][1][2]  = {"Was ist kein Wirkstoff?"}
-questionAnswerList["english"]["question"][1][2] = {"What is no active substance?"}
+questionAnswerList["english"]["question"][1][2] = {"What is not an active substance?"}
 questionAnswerList["german"]["answer"][1][2]  = {"Platanat","Adrazin","Orcanol"}
 questionAnswerList["english"]["answer"][1][2] = {"Platanat","Adrazin","Orcanol"}
 
@@ -121,7 +121,7 @@ questionAnswerList["german"]["answer"][1][3]  = {"Faulbaumrinde","Fliegenpilz","
 questionAnswerList["english"]["answer"][1][3] = {"Rotten Tree Bark","Toad Stool","Mash Flower"} --- !!!!
 
 questionAnswerList["german"]["question"][1][4]  = {"Wieviele Wirkstoffe gibt es?"}
-questionAnswerList["english"]["question"][1][4] = {"How many active substances do we know?"}
+questionAnswerList["english"]["question"][1][4] = {"How many active substances are there?"}
 questionAnswerList["german"]["answer"][1][4]  = {"Acht","Sechs","Neun"}
 questionAnswerList["english"]["answer"][1][4] = {"Eight","Six","Nine"}
 
@@ -131,7 +131,7 @@ questionAnswerList["german"]["answer"][1][5]  = {"Edelsteine","Spiegel","Elfenoh
 questionAnswerList["english"]["answer"][1][5] = {"Gems","Mirror","Elf Ears"}
 
 questionAnswerList["german"]["question"][1][6]  = {"Welche Pflanze enthält Wirkstoffe?"}
-questionAnswerList["english"]["question"][1][6] = {"Which plant contains activ substances?"}
+questionAnswerList["english"]["question"][1][6] = {"Which plant contains active substances?"}
 questionAnswerList["german"]["answer"][1][6]  = {"Mandarine","Apfel","Tomate"}
 questionAnswerList["english"]["answer"][1][6] = {"Tangerine","Apple","Tomato"}
 
@@ -153,46 +153,46 @@ questionAnswerList["english"]["answer"][1][9] = {"Desert Berry","Virgins Weed","
 questionAnswerList["german"]["question"][1][10]  = {"Welche Pflanze ist im Wald zu finden?"}
 questionAnswerList["english"]["question"][1][10] = {"Which plant can be found in the woods?"}
 questionAnswerList["german"]["answer"][1][10]  = {"Firnisblüte","Flammenkelchblüte","Steppenfarn"}
-questionAnswerList["english"]["answer"][1][10] = {"Firnis Blossom","Flamegoblet Blossom","Steppe Farn"}
+questionAnswerList["english"]["answer"][1][10] = {"Firnis Blossom","Flamegoblet Blossom","Steppe Fern"}
 
 -- difficulty 2:
 questionAnswerList["german"]["question"][2][1]  = {"Wie bezeichnen wir die höchste positive Konzentration eines Wirkstoffes?"}
-questionAnswerList["english"]["question"][2][1] = {"How to we call the highest positive concentration of an active substance?"}
+questionAnswerList["english"]["question"][2][1] = {"What do we call the highest positive concentration of an active substance?"}
 questionAnswerList["german"]["answer"][2][1]  = {"Hoch Toxisch","Gesättigte Anreicherung","merklich"}
 questionAnswerList["english"]["answer"][2][1] = {"Highly Toxic","Saturated Solution","Distinctive"}
 
 questionAnswerList["german"]["question"][2][2]  = {"Wie bezeichnen wir die höchste negative Konzentration eines Wirkstoffes?"}
-questionAnswerList["english"]["question"][2][2] = {"How to we call the highest negative concentration of an active substance?"}
+questionAnswerList["english"]["question"][2][2] = {"What do we call the highest negative concentration of an active substance?"}
 questionAnswerList["german"]["answer"][2][2]  = {"Gesättigte Anreicherung","Hoch Toxisch","merklich"}
 questionAnswerList["english"]["answer"][2][2] = {"Saturated Solution","Highly Toxic","Distintive"}
 
 questionAnswerList["german"]["question"][2][3]  = {"Welcher Wirkstoff kann die Intelligenz beeinflussen?"}
-questionAnswerList["english"]["question"][2][3] = {"Which active substance can haven an influence on intelligence"}
+questionAnswerList["english"]["question"][2][3] = {"Which active substance can have an influence on intelligence?"}
 questionAnswerList["german"]["answer"][2][3]  = {"Illidrium","Orcanol","Adrazin"}
 questionAnswerList["english"]["answer"][2][3] = {"Illidrium","Orcanol","Adrazin"}
 
 questionAnswerList["german"]["question"][2][4]  = {"Wieviele Kräuter kann ein gewöhnliches Essenzgebräu maximal enthalten?"}
-questionAnswerList["english"]["question"][2][4] = {"How many herbs can an ordinary essence brew contain at maximum?"}
+questionAnswerList["english"]["question"][2][4] = {"What is the maximum herbs an ordinary essence brew can contain?"}
 questionAnswerList["german"]["answer"][2][4]  = {"Acht","Vier","Zehn"}
 questionAnswerList["english"]["answer"][2][4] = {"Eight","Four","Ten"}
 
 questionAnswerList["german"]["question"][2][5]  = {"Mit welchem Edelsteinstaub stellen wir Wurfbomben her?"}
-questionAnswerList["english"]["question"][2][5] = {"Which gem dust do we use to create throwing bombs?"}
+questionAnswerList["english"]["question"][2][5] = {"Which gem dust is used to create throwing bombs?"}
 questionAnswerList["german"]["answer"][2][5]  = {"Smaragdstaub","Rubinstaub","Obsidianstaub"}
 questionAnswerList["english"]["answer"][2][5] = {"Emerald Gemdust","Ruby Gemdust","Obisdian Gemdust"}
 
 questionAnswerList["german"]["question"][2][6]  = {"Welcher Wirkstoff kann keinen Einfluss auf Gift haben?"}
-questionAnswerList["english"]["question"][2][6] = {"Which active substance cannot influence poison?"}
+questionAnswerList["english"]["question"][2][6] = {"Which active substance doesn't influence poison?"}
 questionAnswerList["german"]["answer"][2][6]  = {"Dracolin","Hyperborelium","Fenolin"}
 questionAnswerList["english"]["answer"][2][6] = {"Dracolin","Hyperborelium","Fenolin"}
 
 questionAnswerList["german"]["question"][2][7]  = {"Auf was kann Adrazin unteranderem Einfluss haben?"}
-questionAnswerList["english"]["question"][2][7] = {"Among others, Adrazin can have influence on what?"}
+questionAnswerList["english"]["question"][2][7] = {"What can Adrazin influence, among other things?"}
 questionAnswerList["german"]["answer"][2][7]  = {"Stärke","Wahrnehmung","Willenskraft"}
 questionAnswerList["english"]["answer"][2][7] = {"Strength","Pereception","Willpower"}
 
 questionAnswerList["german"]["question"][2][8]  = {"Mit welchem Edelsteinstaub stellen wir Verwandlungstränke her?"}
-questionAnswerList["english"]["question"][2][8] = {"Which gemdust do we use to create shape shifter potions?"}
+questionAnswerList["english"]["question"][2][8] = {"Which gemdust is used to create shape shifter potions?"}
 questionAnswerList["german"]["answer"][2][8]  = {"Obisdianstaub","Rubinstaub","Diamantstaub"}
 questionAnswerList["english"]["answer"][2][8] = {"Obisdian Dust","Ruby Dust","Diamant Dust"}
 
@@ -202,7 +202,7 @@ questionAnswerList["german"]["answer"][2][9]  = {"Dracolin","Echolon","Hyperbore
 questionAnswerList["english"]["answer"][2][9] = {"Dracolin","Echolon","Hyperborelium"}
 
 questionAnswerList["german"]["question"][2][10]  = {"Von welcher Pflanze heißt es, dass sie in jeder Medizin, die erfolgreich sein soll, entahlten sein muss?"}
-questionAnswerList["english"]["question"][2][10] = {"What plant is to be said to be a necessary ingredient for every successful medicine?"}
+questionAnswerList["english"]["question"][2][10] = {"What plant is said to be a necessary ingredient for every successful medicine?"}
 questionAnswerList["german"]["answer"][2][10]  = {"Firnisblüte","Heideblüte","Brombeere"}
 questionAnswerList["english"]["answer"][2][10] = {"Firnis Blossom","Heath Flower","Black Berry"}
 
@@ -213,7 +213,7 @@ questionAnswerList["german"]["answer"][3][1]  = {"Explosion","Nichts","Sude verb
 questionAnswerList["english"]["answer"][3][1] = {"Explosion","Nothing","Combination of the stocks"}
 
 questionAnswerList["german"]["question"][3][2]  = {"Was passiert, wenn wir einen neutralen Sud zu filtern versuchen?"}
-questionAnswerList["english"]["question"][3][2] = {"Whaten happens if we try to filter a neutral stock?"}
+questionAnswerList["english"]["question"][3][2] = {"What happens if we try to filter a neutral stock?"}
 questionAnswerList["german"]["answer"][3][2]  = {"Explosion","Nichts","Zufälliges Heben eines Wirkstoffes"}
 questionAnswerList["english"]["answer"][3][2] = {"Explosion","Nothing","Random raising of an active substance"}
 
@@ -277,7 +277,7 @@ end
 local function TurnIntoAlchemist(User,SourceItem)
     -- tell char the secret of alchemy and turn him into an alchemist
     local textDE = "Die ferne Stimme erklingt erneut: \"So sei es. Ich lehre dich das Geheimnis der Alchemie. Mögest du das Wissen weise nutzen.\" Für einen Moment schweigt die Stimme, dann dringt sie erneut an dein Ohr, du verstehst nicht, was sie sagt, und doch verstehst du es. Sie klingt fern und doch klingt sie nah. Sie scheint von außen zu kommen und doch scheint sie in dir zu sein. Du hörst Worte, die gesprochen werden und doch hörst du sie nicht. Du versteht alles, was dir gesagt wird und doch verstehst du nichts. Die Welt um dich herum wird zu einem. Es gibt kein Außen und kein Innen mehr, nur noch ein Ganzes, das auch du bist. Doch die Welt zerfällt in Vieles, in unendliche Teile, nichts haftet aneinander, alles ist verstreut, alles ist getrennt, es gibt nur Getrenntheit. Die Welt ist ein Ganzes und unendlich Vieles. Nichts hängt zusammen, alles hängt zusammen. Alles ergibt Sinn, nichts ergibt Sinn. Du hast das Geheimnis erkannt, du hast es nicht erkannt. - Du spürst wie sich deine Sinne und dein Geist verändert haben. Du merkst, wie sich das neue Wissen in deinen Gedanken ausbreitet und doch kannst du es nicht fassen. Du weißt es, doch es ist weder zu begreifen, noch in Worte zu fassen, eine unaussprechliche Wahrheit. Die Welt aber scheint dir nun anders."
-    local textEN = "The voice in the distance sounds again: \"So be it! I shall teach you the secret of alchemy. May you use it wisely.\" For a moment, the voice is silent, but then it sounds again. You don't understand the words and yet somehow you do. They sound close, yet distant. They seem to come from outside, yet within you. You perceive words being spoken, yet you don't hear them. You understand everything, yet you understand nothing. The world around you becomes one. There is no outside and inside anymore, just one whole which you are part of. The world collapses in an infinite, endless number of parts. Nothing is combined. Everything is scattered. There is only separation. The world is one and many. Nothing is connected, yet everything is connected.Everything makes sense now, yet nothing makes sense. You recognise the secret, but you haven't recognised it. You feel how your sense and mind have been altered. You feel how new knowledge has been placed into your mind, but you cannot grasp it. You know it, but it cannot be understood, not put into words - an unspeakable truth. The world appears to you in a different way now."
+    local textEN = "The voice in the distance sounds again: \"So be it! I shall teach you the secret of alchemy. May you use it wisely.\" For a moment, the voice is silent, but then it sounds again. You don't understand the words and yet somehow you do. They sound close, yet distant. They seem to come from outside, yet within you. You perceive words being spoken, yet you don't hear them. You understand everything, yet you understand nothing. The world around you becomes one. There is no outside and inside anymore, just one whole which you are part of. The world collapses in an infinite, endless number of parts. Nothing is combined. Everything is scattered. There is only separation. The world is one and many. Nothing is connected, yet everything is connected. Everything makes sense now, yet nothing makes sense. You recognise the secret, but you haven't recognised it. You feel how your sense and mind have been altered. You feel how new knowledge has been placed into your mind, but you cannot grasp it. You know it, but it cannot be understood, not put into words - an unspeakable truth. The world appears to you in a different way now."
     local questInfos = GetTeacherQuestInfos(User, SourceItem)
     local callback = function(dialog)
         User:setMagicType(3)
@@ -485,7 +485,7 @@ local function ThirdTask(User, SourceItem)
         else -- he was; inform him about the questions and ask him the first one after he closed the message dialog
             User:setQuestProgress(questInfos.questId,4)
             SendMessage(User, SourceItem,
-                        GemPowderDeleteTextEN[questInfos.teacherEN2][1].." For a moment you believe to hear something like: \"Delicious, mh, so delicious...\" Then you hear the familiar voice: \"Yes, you solved this task. Now, he wants me to ask you some question. When you have answered three, I will tell you the secret of alchemy.\"",
+                        GemPowderDeleteTextEN[questInfos.teacherEN2][1].." For a moment you believe to hear something like: \"Delicious, mh, so delicious...\" Then you hear the familiar voice: \"Yes, you solved this task. Now, he wants me to ask you some questions. When you have answered three, I will tell you the secret of alchemy.\"",
                         GemPowderDeleteTextDE[questInfos.teacherEN2][1].." Einen Moment lang glaubst du ein Murmeln zu hören: \"Lecker, mh, so lecker...\" Dann erklingt die Stimme wieder auf bekannte Weise: \"Ja, du hast diese Aufgabe bestanden. Als nächstes verlangt er, dass ich dir Fragen stelle. Sobald du mir drei beantworten konntest, werde ich dir das Geheimnis verraten.\"",
                         true
                         );
@@ -563,7 +563,7 @@ local function getLookAt(player,item)
     descriptionDE["Die Erkennende Quelle"] = "Die sprudelnde Quelle wird von einer seltsamen Atmosphäre umgeben und gelegentlich mag man ein gedämpftes Flüstern vernehmen."
     local descriptionEN = {}
     descriptionEN["The Knowing Tree"] = "The old Eldan oak is surrounded by a strange atmosphere and sometimes one may hear something as if someone smacks their lips."
-    descriptionEN["The Thinking Stone"] = "The by the desert sand sharpend stone is surrounded by a strange atmosphere and sometimes one may hear muttering."
+    descriptionEN["The Thinking Stone"] = "The desert sand sharpend stone is surrounded by a strange atmosphere and sometimes one may hear muttering."
     descriptionEN["The Recognizing Spring"] = "The sputtering spring is surrounded by a strange atmosphere and sometimes one may hear a damped whispering."
 
 

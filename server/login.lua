@@ -27,6 +27,8 @@ local hairdresser = require("npc.hairdresser")
 local seafaring = require("base.seafaring")
 local gods_common = require("content._gods.gods_common")
 local notice = require("item.notice")
+local tutorial = require("content.tutorial")
+
 -- Called after every player login
 
 local M = {}
@@ -234,17 +236,13 @@ function M.onLogin( player )
 
     --Temporary: Warp players from old Noobia to new newbie spawn
     if player.pos.z == 100 then --Old Noobia
+        player:turn(4) --south
         player:warp(position(702, 283, 0))
     end
 
     --Inform other players about a new player
     if player:isNewPlayer() and areas.PointInArea(player.pos,"trollshaven") then
         welcomeNewPlayer(player)
-    end
-
-    --Initiate inline tutorial
-    if player:isNewPlayer() and player.effects:find(13) == false then
-        player.effects:addEffect(LongTimeEffect(13, 1))
     end
 
     --A GFX that announces clearly: A player logged in.
@@ -290,16 +288,21 @@ function M.onLogin( player )
     end
 
     --Newbie handling
-    if player:isInRangeToPosition(position(702, 283, 0), 7) and player:isNewPlayer() then --only show the dialog if the char is close to the noob spawn
+    if player:isInRangeToPosition(position(702, 283, 0), 7) and player:getQuestProgress(325) == 0 and player:getQuestProgress(314) ~= 1 then --only show the dialog if the char is close to the noob spawn, has not answered the tutorial message question and did not arrive at the last station of the old tutorial
         showNewbieDialog(player)
+    else
+        --Messages of the day
+        if #messageG ~= #messageE then
+            common.HighInformNLS(player, "[Fehler] Anzahl der Tagestipps nicht korrekt.", "[Error] Amount of messages of the day incorrect.") --sending a message
+        end
+        local dailyMessageID = math.random(1, #messageG) --chosing a message at random
+        common.InformNLS(player, messageG[dailyMessageID], messageE[dailyMessageID]) --sending a message
     end
 
-    --Messages of the day
-    if #messageG ~= #messageE then
-        common.HighInformNLS(player, "[Fehler] Anzahl der Tagestipps nicht korrekt.", "[Error] Amount of messages of the day incorrect.") --sending a message
+    --Initiate inline tutorial
+    if player.effects:find(13) == false and player:getQuestProgress(325) ~= 2 then
+        player.effects:addEffect(LongTimeEffect(13, 1))
     end
-    local dailyMessageID = math.random(1, #messageG) --chosing a message at random
-    common.InformNLS(player, messageG[dailyMessageID], messageE[dailyMessageID]) --sending a message
 
     --Exchange leader NPCs if necessary
     if player.name == "Valerio Guilianni" or player.name == "Rosaline Edwards" or player.name ==  "Elvaine Morgan" then
@@ -308,6 +311,7 @@ function M.onLogin( player )
 
     --A hack to display bars correctly
     player:increaseAttrib("foodlevel", -1)
+    player:increaseAttrib("foodlevel", 1)
 
     --hair messages
     hairdresser.hairOnLogin(player)
@@ -345,41 +349,47 @@ function showNewbieDialog(player)
     local callbackNewbie = function(dialogNewbie) --start callback of Newbie Dialog
         local callbackSkip = function(dialogSkip) --start of callback of skipping dialog
             local dialogMessage
-            local callbackPostSkip = function (dialog) end --empty callback
+            local callbackPostSkip = function (dialogPostSkip)
+                player:inform(tutorial.getTutorialInformDE("postSkip"),tutorial.getTutorialInformEN("postSkip"))
+            end --empty callback
 
-            if dialogSkip:getSuccess() and dialogSkip:getSelectedIndex()==1 then --skipping
-                player:warp(position(36, 97, 100))
-                world:gfx(46, player.pos)
+            if dialogSkip:getSuccess() and dialogSkip:getSelectedIndex() == 1 then --skipping
                 if player:getPlayerLanguage() == 0 then --skip message
-                    dialogMessage = MessageDialog("Einführung", "Du hast entschieden, das Tutorial zu überspringen. Wähle ein Reich aus, welchem dein Charakter zukünftig angehören wird. Gehe hierzu durch eines der Portale auf den kleinen Inseln. Du kannst diese Entscheidung später im Spiel jederzeit revidieren. Viola Baywillow kann dir einiges über die drei Reiche erzählen, frage sie einfach nach 'Hilfe'.", callbackPostSkip)
+                    dialogMessage = MessageDialog("Tutorial", tutorial.getTutorialTextDE("skipYes"), callbackPostSkip)
                 else
-                    dialogMessage = MessageDialog("Tutorial", "You have decided to skip the tutorial. Please choose which realm you desire to be the home for your character by stepping through the corresponding portal on the three islands. You can reconsider this decision at any time once you have joined the game. Viola Baywillow will provide you with more information on the three available realms, just ask her for 'help'.", callbackPostSkip)
+                    dialogMessage = MessageDialog("Tutorial", tutorial.getTutorialTextEN("skipYes"), callbackPostSkip)
                 end
+                player:setQuestProgress(325,2) --Set flag: Declined tutorial messages
+                player:requestMessageDialog(dialogMessage) --showing the text after skipping dialog
 
-            else --continue the tutorial
+            elseif dialogSkip:getSuccess() and dialogSkip:getSelectedIndex() == 0 then --continue the tutorial
                 if player:getPlayerLanguage() == 0 then
-                    dialogMessage = MessageDialog("Einführung", "Gehe zum Menschen am Ende des Piers um mit dem Tutorial zu beginnen. Klicke mit der linken Maustaste auf ein Feld neben dem Menschen. Alternativ kannst du deinen Charakter auch mit WASD, dem Ziffernblock oder den Pfeiltasten bewegen. Durch Drücken der Steuerungstaste läuft dein Charakter.\n\nEine Übersicht aller Kommandos kannst du dir mit F1 anzeigen lassen. Auf der Homepage www.illarion.org findest du zudem eine Auflistung häufig gestellter Fragen (FAQ).", callbackPostSkip)
+                    dialogMessage = MessageDialog("Tutorial", tutorial.getTutorialTextDE("skipNo"), callbackPostSkip)
                 else
-                    dialogMessage = MessageDialog("Tutorial", "To start the tutorial, please walk to the human at the end of the pier. To move, click with the left mouse button on a spot close to the human. Alternatively, you can walk using the num pad, the arrow keys or WASD. Pressing the control key makes your character run.\n\nTo see an overview of all commands, hit F1. On the website www.illarion.org, you can find frequently asked question (FAQ) answered.", callbackPostSkip)
+                    dialogMessage = MessageDialog("Tutorial", tutorial.getTutorialTextEN("skipNo"), callbackPostSkip)
                 end
-            end
+                player:setQuestProgress(325,1) --Set flag: Accepted tutorial messages
+                player:requestMessageDialog(dialogMessage) --showing the text after skipping dialog
 
-            player:requestMessageDialog(dialogMessage) --showing the text after skipping dialog
+            elseif not dialogSkip:getSuccess() then
+                player:requestSelectionDialog(dialogSkip) --Show dialog again if player closed it
+                common.HighInformNLS(player, "Bitte triff eine Entscheidung.", "Please take a decision.")
+            end
 
         end --end of callback of skip dialog
 
-        local dialogSkip = SelectionDialog(getText("Willkommen zu Illarion!","Welcome to Illarion!"), getText("Die Einführung ist für neue Spieler gedacht. Du kannst sie ohne Nachteil überspringen. \n\nSage 'Überspringe die Einführung' zu einem NPC, wenn du die Einführung später abbrechen möchtest.", "The tutorial is recommended for new players. You may skip the tutorial without any disadvantage. \n\nSay 'skip tutorial' to any NPC if you want to abort the tutorial later on."), callbackSkip)
-        dialogSkip:addOption(0, getText("Einführung beginnen.","Start the tutorial."))
-        dialogSkip:addOption(0, getText("Einführung überspringen.", "Skip the tutorial."))
+        local dialogSkip = SelectionDialog(getText("Willkommen bei Illarion!","Welcome to Illarion!"), getText(tutorial.getTutorialTextDE("skip"), tutorial.getTutorialTextEN("skip")), callbackSkip)
+        dialogSkip:addOption(0, getText("Zeige Tutorialhinweise.","Show tutorial messages."))
+        dialogSkip:addOption(0, getText("Keine Tutorialhinweise.", "No tutorial messages."))
         player:requestSelectionDialog(dialogSkip)
 
     end --end callback of Newbie dialog
 
     local dialogNewbie
     if player:getPlayerLanguage() == 0 then
-        dialogNewbie = MessageDialog("Willkommen zu Illarion!", "Eine lange Reise nähert sich ihrem Ende. Du gehst von Bord des Schiffes und hast endlich wieder festen Boden unter den Füßen. In diesem Land wirst du vor eine Entscheidung gestellt, die wohl die wichtigste deines Lebens sein wird.\nDas edle Cadomyr, das weise Runewick oder das reiche Galmair - welchen Weg wirst du einschlagen?\n\nWillkommen zu Illarion, dem kostenlosen dem Open-Source MMORPG mit echtem Rollenspiel. Dieses Tutorial wird dich auf deinen ersten Schritten begleiten und dir die Bedienung des Spiels beibringen.", callbackNewbie)
+        dialogNewbie = MessageDialog("Willkommen bei Illarion!", tutorial.getTutorialTextDE("welcome"), callbackNewbie)
     else
-        dialogNewbie = MessageDialog("Welcome to Illarion!", "A long, tiresome journey finally comes to an end. You disembark the ship and feel solid ground beneath your feet. In these lands, you will soon be faced with a choice, perhaps the most important of your entire life. Noble Cadomyr, wise Runewick, or wealthy Galmair - whose side shall you join?\n\nWelcome to Illarion, the free open source MMORPG where true roleplaying is enforced. This tutorial will guide you through your first steps and teach you the controls of the game.", callbackNewbie)
+        dialogNewbie = MessageDialog("Welcome to Illarion!", tutorial.getTutorialTextEN("welcome"), callbackNewbie)
     end
 
     player:requestMessageDialog(dialogNewbie) --showing the welcome text

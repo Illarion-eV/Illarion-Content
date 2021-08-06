@@ -131,7 +131,7 @@ function M.UseItem(User, SourceItem, ltstate)
 
     -- there is nothing to work with
     common.HighInformNLS( User,
-    "Du brauchst entweder ein Schaf, um es zu scheren, oder musst vor einem Spinnrad oder Webstuhl stehen. Ein Schmetterlingsschwarm in der Nähe könnte auf die seltenen Seidenspinnderaupen hindeuten.",
+    "Du brauchst entweder ein Schaf, um es zu scheren, oder musst vor einem Spinnrad oder Webstuhl stehen. Ein Schmetterlingsschwarm in der Nähe könnte auf die seltenen Seidenraupen hindeuten.",
     "You need either a sheep for shearing it, or need to stand in front of a spinning wheel or loom. A swarm of butterflies nearby could indicate the presence of rare silkworms." );
 end
 

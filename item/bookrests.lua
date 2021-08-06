@@ -28,6 +28,7 @@ local townManagement = require("base.townManagement")
 local vision = require("content.vision")
 local lookat = require("base.lookat")
 local money = require("base.money")
+local tutorial = require("content.tutorial")
 
 local M = {}
 
@@ -44,9 +45,11 @@ local AkaltutLookAt
 local ronaganLookAt
 local bulletinLookAt
 local tradingPostLookAt
+local tutorialBookrestLookAt
 local WonderlandTeleporter
 local showBulletinBoard
 local showTradingPost
+
 
 local salaveshBookrest = position(741, 406, -3)
 local akaltutBookrest = position(430, 815, -9)
@@ -55,6 +58,7 @@ local wonderlandBookrest = position(864, 550, 0)
 local ronaganBookrest = position(904, 585, -6)
 local bulletinBoard = position(696, 315, 0)
 local tradingPost = position (690, 290, 0)
+local tutorialBookrest = position (683, 284, 0)
 
 function M.LookAtItem(User,Item)
 
@@ -96,6 +100,11 @@ function M.LookAtItem(User,Item)
     local isFerry, ferryLookAt = seafaring.ferryLookAt(User, Item, ItemLookAt())
     if isFerry then
         lookAt = ferryLookAt
+    end
+
+    -- Tutorial
+    if (Item.pos == tutorialBookrest) and User:getQuestProgress(323) == 0 and User:getQuestProgress(199) == 0 and User:getQuestProgress(314) == 0 then
+        lookAt = tutorialBookrestLookAt(User, Item)
     end
 
     -- static teleporter
@@ -153,6 +162,13 @@ function tradingPostLookAt(User, Item)
     local lookAt = ItemLookAt()
     lookAt.name = common.GetNLS(User, "Elizas Handelsposten", "Eliza's trading post")
     lookAt.description = common.GetNLS(User, "Die Anlaufstelle für den Handel mit Fern und Nah.", "The place to be for trading thereabout and whereabout.")
+    return lookAt
+end
+
+function tutorialBookrestLookAt(User, Item)
+    local lookAt = ItemLookAt()
+    lookAt.name = common.GetNLS(User, "Fähre", "Ferry")
+    lookAt.description = common.GetNLS(User, "Hier kannst du deine neue Heimat aussuchen.", "Choose your new home here.")
     return lookAt
 end
 
@@ -232,6 +248,12 @@ function M.UseItem(User, SourceItem)
         if (SourceItem.pos == townManagement.townManagmentItemPos[i]) then
             townManagement.townManagmentUseItem(User, SourceItem)
         end
+    end
+
+    -- Tutorial
+    if (SourceItem.pos == tutorialBookrest) and User:getQuestProgress(323) == 0 and User:getQuestProgress(199) == 0 and User:getQuestProgress(314) == 0 then --New player who has not chosen a faction before (323) and is not member of a faction (199) nor has completed the old tutorial (314)
+        tutorial.NewbieSelectionBookrest(User)
+        return
     end
 
     -- ferries

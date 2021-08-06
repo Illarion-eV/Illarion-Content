@@ -21,7 +21,7 @@
 --                                                                            --
 -- Authors:  Rincewind                                                        --
 --           Estralis Seborian                                                --
---                                                     easyNPC Parser v1.23.1 --
+--           Slightly                                  easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
 name = "Henry Cunnigan"
@@ -30,7 +30,7 @@ sex = male
 position = 703, 290, 0
 direction = west
 affiliation = "None"
-job = "Tutor"
+job = "Harbour Master"
 
 language = common
 language = human
@@ -39,9 +39,10 @@ autointroduce = on
 
 author = "Rincewind"
 author = "Estralis Seborian"
+author = "Slightly"
 
-lookatDE = "Das ist dein Tutor Henry Cunnigan."
-lookatUS = "This is your tutorial guide Henry Cunnigan."
+lookatDE = "Dies ist dein Tutor Henry Cunnigan, der Hafenmeister."
+lookatUS = "This is your tutorial guide Henry Cunnigan, the Harbour Master."
 useMsgDE = "Diesen NPC kannst du nicht benutzen. Sage stattdessen 'Hallo'."
 useMsgUS = "You cannot use this NPC. Say 'Hello' instead."
 wrongLangDE = "Bitte wechsle die Sprache deines Charakters zur Gemeinsprache mit dem Befehl '!l common'."
@@ -60,31 +61,112 @@ itemHands = 48
 itemTrousers = 366
 itemShoes = 53
 
--- Queststatus 309
--- Queststatus was set to 1 if the player knows how to walk
--- 2: The player has spoken something and did all lessons
+-- Queststatus Overview (330) - Tutorial I
+-- 0: No quest taken
+-- 1: Walk to NPC (handled by trigger field)
+-- 2: Speak to NPC
+-- 3: Equip torch (handled by lights.lua)
+-- 4: Light torch (handled by lights.lua)
 
 -- Help
-"Help" -> inform("[Tutorial] This NPC is the tutor Henry Cunnigan. Keywords: Hello, Help, Skip tutorial.")
-"Hilfe" -> inform("[Tutorial] Dieser NPC ist der Tutor Henry Cunnigan. Schlüsselwörter: Hallo, Hilfe, Tutorial überspringen.")
+"Help" -> inform("[Game Help] This NPC is the Harbour Master Henry Cunnigan. He will gladly help you take your first steps in Illarion. Follow his advice to learn how to equip and use items. Keywords: Hello, Illarion, Troll's Haven, Harbour."), "Henry Cunnigan, Harbour Master of Troll's Haven, how can I help?"
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC heißt Henry Cunnigan und ist Hafenmeister. Er wird dir sicherlich gerne dabei helfen in Illarion Fuß zu fassen. Folge seinen Anweisungen und lerne wie man Items ausrüstet und benutzt. Schlüsselwörter: Hallo, Illarion, Trollshaven, Hafen."), "Henry Cunnigan, Hafenmeister von Trollshaven, wie kann ich helfen?"
 
--- Skipping
-"skip", "cancel", "abort" -> inform("[Tutorial] You have decided to skip the tutorial. Please choose a realm to be the home for your character by stepping through the corresponding portal on one of the three islands to the south."), warp(36, 94, 100)
-"überspring", "abbrech" -> inform("[Tutorial] Du hast entschieden, das Tutorial zu überspringen. Bitte wähle ein Reich als Heimat deines Charakters aus, indem du durch das entsprechende Portal auf einer der drei Inseln im Süden trittst."), warp(36, 94, 100)
+-- Quest triggers: Tutorial I (330)
+-- Moving to NPC is handled via trigger field
 
--- Learn how to speak
-queststatus(309) < 2, english, ".*" -> queststatus(309) = 2, "Welcome to the tutorial, %CHARNAME. Henry Cunnigan, harbourmaster, at your service. Now you know how to talk to NPCs and other characters. Enjoy the rest of the tutorial. Now, follow the road to the next lesson on items."
-queststatus(309) < 2, ".*" -> queststatus(309) = 2, "Willkommen zu diesem Tutorial, %CHARNAME. Henry Cunnigan, Hafenmeister, stets zu Diensten. Du weißt nun, wie man mit NPCs und anderen Charakteren spricht. Viel Spaß beim Rest des Tutorials. Nun folge der Straße zur nächsten Lektion über Gegenstände."
+-- Speak to NPC to receive torch and instructions to equip it
+queststatus(330) = 1, english, ".*" -> inform("[Quest 'Tutorial I'] To find the torch Henry Cunnigan gave you, make sure your chat box is deactivated and press 'I' to open your inventory or click on the bag icon in the bottom right corner of the window. To open your bag, press 'B' or double click on the leather bag in your inventory. Click the torch and drag it to the empty shield slot in your inventory using your mouse to equip it. You may need to remove any existing item from that slot to your bag first. To separate a single torch from a stack in your inventory, hold down shift as you click and drag, accepting the default value of '1' in the pop up by clicking 'OK'."), item(391, 1, 333), queststatus(330) = 2, "Welcome to Illarion, %CHARNAME! Henry Cunnigan, Harbour Master, at your service. Here in Troll's Haven, I will guide you through your first steps and introduce you to others who can help you determine your path forward. Take this torch as you certainly don't want to find yourself lost in a strange land come twilight."
+queststatus(330) = 1, ".*" -> inform("[Quest 'Tutorial I'] Um die Fackel zu finden, die Henry Cunnigan dir gegeben hat, deaktiviere die Chatbox und drücke 'I', um dein Inventar zu öffnen oder klicke das Taschen-Icon in der rechten unteren Ecke des Bildschirms. Um deine Tasche zu öffnen, drücke 'B' oder doppelklicke die Ledertasche in deinem Inventar. Ziehe nun mit der linken Maustaste die Fackel in den leeren Schild-Slot in deinem Inventar. Möglicherweise musst du zunächst ein in diesem Slot ausgerüstetes Item in deine Tasche verschieben. Um eine einzelne Fackel aus einem Stapel zu bewegen, musst du Shift gedrückt halten während du ziehst und dann die Anzahl '1' in dem Popup Fenster mit 'OK' bestätigen."), item(391, 1, 333), queststatus(330) = 2, "Willkommen in Illarion, %CHARNAME! Henry Cunnigan, Hafenmeister, stets zu Diensten. Hier in Trollshaven werde ich dich durch deine ersten Schritte begleiten und dich anderen vorstellen, die dir helfen können deinen Weg zu wählen. Nimm diese Fackel, du möchtest dich sicherlich nicht im Zwielicht in einem fremden Land verlaufen."
 
--- Player did all the lessons
-english, ".*" -> "You have learned everything that I can teach you. Enjoy the rest of the tutorial, %CHARNAME. Now, follow the road to the next lesson on items."
-".*" -> "Du hast alles gelernt, was ich dir beibringen kann. Viel Spaß beim Rest des Tutorials, %CHARNAME. Nun folge der Straße zur nächsten Lektion über Gegenstände."
+-- Player has lost their torch
+queststatus(330) = 2, item(391, all) = 0, english, ".*" -> inform("[Quest 'Tutorial I'] You can buy a replacement from the merchant Hook Gowan in the market to south west, or find someone to trade with."), "Alas, it looks like you have lost your torch. Hook Gowan in the market can probably sell you another torch. Be careful! Without light you could easily find yourself lost."
+queststatus(330) = 2, item(391, all) = 0, ".*" -> inform("[Quest 'Tutorial I'] Du kannst Ersatz vom Händler Hook Gowan auf dem Markt im Südwesten kaufen, oder du findest jemand anderen zum Handeln."), "Es sieht leider so aus, als hättest du deine Fackel verloren. Hook Gowan auf dem Markt kann dir vermutlich eine andere Fackel verkaufen. Sei vorsichtig! Ohne Licht könntest du dich leicht verirren. Ich habe noch eine Fackel, die du mitnehmen kannst, aber pass auf, dass du sie nicht verlierst."
+
+-- Player has failed to equip torch
+queststatus(330) = 2, english, ".*" -> inform("[Quest 'Tutorial I'] Using your mouse, left click and drag the torch to the empty shield slot in your inventory to equip it."), "You will need to hold the torch aloft before you can light it, otherwise you risk burning yourself!"
+queststatus(330) = 2, ".*" -> inform("[Quest 'Tutorial I'] Linksklicke und ziehe die Fackel mit deiner Maus in den leeren Schild-Slot in deinem Inventar um sie auszurüsten."), "Du musst die Fackel fest in deiner Hand halten, bevor du sie entzünden kannst, sonst riskierst du dich zu verbrennen!"
+
+-- Equipping torch is handled in lights.lua
+
+-- Player unable to use torch as they have lost it
+queststatus(330) = 3, item(391, all) = 0, english, ".*" -> inform("[Quest 'Tutorial I'] You can buy a replacement from the merchant Hook Gowan in the market to south west, or find someone to trade with."), "Alas, it looks like you have lost your torch. Hook Gowan in the market can probably sell you another torch. Be careful! Without light you could easily find yourself lost."
+queststatus(330) = 3, item(391, all) = 0, ".*" -> inform("[Quest 'Tutorial I'] Du kannst Ersatz vom Händler Hook Gowan auf dem Markt im Südwesten kaufen, oder du findest jemand anderen zum Handeln."), "Es sieht leider so aus, als hättest du deine Fackel verloren. Hook Gowan auf dem Markt kann dir vermutlich eine andere Fackel verkaufen. Sei vorsichtig! Ohne Licht könntest du dich leicht verirren. Ich habe noch eine Fackel, die du mitnehmen kannst, aber pass auf, dass du sie nicht verlierst."
+
+-- Player unable to use torch
+queststatus(330) = 3, english, ".*" -> inform("[Quest 'Tutorial I'] Check the torch is in either the shield or sword slot of your inventory and double click on it using your mouse."), "Hold the torch steady and check you can ignite it. No sense in carrying something if you can't use it."
+queststatus(330) = 3, ".*" -> inform("[Quest 'Tutorial I'] Stelle sicher, dass die Fackel entweder in deinem Schild oder Schwert Slot deines Inventars ist und doppelklicke sie mit der Maus."), "Halte die Fackel fest und teste, ob du sie entzünden kannst. Es macht wenig Sinn, etwas mit sich rumzutragen, das man nicht gebrauchen kann."
+
+-- Lighting torch is handled in lights.lua
+
+-- Quests already completed
+queststatus(330) = 4, english, "quest", "mission" -> "I don't have any further quests for you but I hope you enjoy your time in Illarion. If you haven't already sought the advice of Nimbur Goldbrew, I recommend speaking to him."
+queststatus(330) = 4, "quest", "mission" -> "Ich habe keine weiteren Aufgaben mehr für dich, aber ich hoffe, dass du deine Zeit in Illarion genießt. Falls du noch nicht die Hilfe von Nimbur Goldbrew in Anspruch genommen hast, empfehle ich dir mit ihm zu sprechen."
+queststatus(330) = 4, "task", "adventure", "order" -> "I don't have any further quests for you but I hope you enjoy your time in Illarion. If you haven't already sought the advice of Nimbur Goldbrew, I recommend speaking to him."
+queststatus(330) = 4, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe keine weiteren Aufgaben mehr für dich, aber ich hoffe, dass du deine Zeit in Illarion genießt. Falls du noch nicht die Hilfe von Nimbur Goldbrew in Anspruch genommen hast, empfehle ich dir mit ihm zu sprechen."
+
+-- No quests for non-newbies
+queststatus(330) = 0, english, "quest", "mission" -> "I'm here to help new arrivals but I'm sure you will find plenty of opportunities throughout these lands."
+queststatus(330) = 0, "quest", "mission" -> "Ich bin hier um Neuankömmlingen zu helfen, aber ich bin mir sicher, dass du viele andere Gelegenheiten in diesen Landen findest."
+queststatus(330) = 0, "task", "adventure", "order" -> "I'm here to help new arrivals but I'm sure you will find plenty of opportunities throughout these lands."
+queststatus(330) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich bin hier um Neuankömmlingen zu helfen, aber ich bin mir sicher, dass du viele andere Gelegenheiten in diesen Landen findest."
+
+-- General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings traveller!", "Hello and welcome!", "Welcome to Troll's Haven!"
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach" -> "Sei gegrüßt, Reisender!", "Hallo und willkommen!", "Willkommen in Trollshaven!"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetings traveller!", "Hello and welcome!", "Welcome to Troll's Haven!"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Sei gegrüßt, Reisender!", "Hallo und willkommen!", "Willkommen in Trollshaven!"
+"Farewell", "Bye", "Fare well", "See you" -> "Farewell!", "Safe travels!", "Goodbye and good luck!"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl", "Bis bald" -> "Bis bald!", "Gute Reise!", "Leb wohl und viel Glück!"
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell!", "Safe travels!", "Goodbye and good luck!"
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Bis bald!", "Gute Reise!", "Leb wohl und viel Glück!"
+"How are you", "How do you feel", "How do you do" -> "I'm fine, and you?", "I feel great, thanks for asking.", "Can't complain!"
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Es geht mir gut. Und selbst?", "Ich fühle mich großartig, danke der Nachfrage.", "Ich kann mich nicht beklagen."
+"your name", "who are you", "who art thou" -> "Henry Cunnigan, Harbour Master of Troll's Haven.", "I'm Henry Cunnigan and I welcome new arrivals to Troll's Haven.", "Henry Cunnigan, I take care of arrivals and departures from this port."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Henry Cunnigan, Hafenmeister von Trollshaven.", "Ich bin Henry Cunnigan und ich heiße Neuankömmlinge in Trollshaven willkommen.", "Henry Cunnigan, ich nehme mich Neuankömmlingen und der Fracht von diesem Steg an."
+"my name", "I am called", "I'm called" -> "Pleased to meet you, I will try to remember it!"
+"mein Name", "ich heiße"-> "Freut mich, dich kennen zu lernen. Ich werde versuchen, es mir zu merken."
+
+-- Small talk
+"profession", "work" -> "I'm the Harbour Master here at Troll's Haven, I welcome new arrivals and see to any boats as they arrive and depart from the harbour.", "As the Harbour Master I see cargo is unloaded and loaded from the right boats, as well as helping any new arrivals."
+"beruf", "arbeit" -> "Ich bin der Hafenmeister hier in Trollshaven, ich heiße Neuankömmlinge willkommen und kümmere mich um die Boote die hier ankommen und ablegen.", "Als Hafenmeister passe ich auf, dass die Waren von und auf die richtigen Schiffe geladen werden und außerdem helfe ich Neuankömmlingen bei ihrer Ankunft."
+english, "job" -> "I'm the Harbour Master here at Troll's Haven, I welcome new arrivals and see to any boats as they arrive and depart from the harbour.", "As the Harbour Master I see cargo is unloaded and loaded from the right boats, as well as helping any new arrivals."
+"job" -> "Ich bin der Hafenmeister hier in Trollshaven, ich heiße Neuankömmlinge willkommen und kümmere mich um die Boote die hier ankommen und ablegen.", "Als Hafenmeister passe ich auf, dass die Waren von und auf die richtigen Schiffe geladen werden und außerdem helfe ich Neuankömmlingen bei ihrer Ankunft."
+english, "Illarion" -> "Most travellers reach Illarion by sea as the peninsula is separated from the mainland by the Nameless Mountains. Illarion is home to the realms of Cadomyr, Galmair and Runewick. Viola Baywillow will be able to tell you much more about them."
+"Illarion" -> "Die meisten Reisenden erreichen Illarion über das Meer, da die Halbinsel durch die Namenlosen Berge vom Festland getrennt ist. Illarion beherbergt die Reiche Cadomyr, Galmair und Runewick. Viola Baywillow kann dir mehr über sie erzählen."
+english, "Troll's Haven", "Trolls Haven", "Trollshaven" -> "This place is Troll's Haven, home to the Hemp Necktie Inn. People come from all over Illarion and beyond to trade in the market, join other adventurers, or participate in some of the entertainment on offer. Those looking to make a life here in Illarion, however, tend to head for one of the three realms, Cadomyr, Galmair and Runwick."
+"Troll's Haven", "Trolls Haven", "Trollshaven" -> "Dies ist Trollshaven, Heimat der Taverne zur Hanfschlinge. Leute kommen aus ganz Illarion und von darüber hinaus um am Markt zu handeln, an Abenteuern teilzunehmen oder anderweitige Unterhaltung zu finden. Jene, die sich ein Leben in Illarion aufbauen wollen, zieht es jedoch meistens in eines der drei Reiche, Cadomyr, Galmair und Runewick."
+"harbour", "harbor", "dock" -> "Ferries depart from Troll's Haven all the time for the harbours at Cadomyr, Galmair and Runewick. They can also take you to some more remote locations on the peninsula, so take an opportunity to explore."
+"hafen", "anlege", "steg" -> "Ständig legen Fähren von Trollshaven ab und steuern die Häfen von Cadomyr, Galmair und Runewick an. Sie können dich auch an etwas abgelegenere Orte auf der Halbinsel bringen. Nutz die Gelegenheit zum Erkunden!"
+english, "port", "pier" -> "Ferries depart from Troll's Haven all the time for the harbours at Cadomyr, Galmair and Runewick. They can also take you to some more remote locations on the peninsula, so take an opportunity to explore."
+"port", "pier" -> "Ständig legen Fähren von Trollshaven ab und steuern die Häfen von Cadomyr, Galmair und Runewick an. Sie können dich auch an etwas abgelegenere Orte auf der Halbinsel bringen. Nutz die Gelegenheit zum Erkunden!"
+"ferry", "boat", "ship" -> "Boats sail all around the peninsula and you can catch one to any of the three realms of Cadomyr, Galmair and Runewick from the harbour here at Troll's Haven. Take the path west to the main pier if you want to set sail."
+"fähre", "boot", "schiff" -> "Schiffe segeln um die gesamte Halbinsel herum. Von Trollshaven aus kannst du eins zu jedem der drei Reiche nehmen. Folge dem Pfad gen Westen zum Pier, wenn du Segel setzen möchtest."
+
+-- Trade triggers
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader, I'm the Harbour Master!", "I'm sorry, but I don't trade anything."
+"kauf", "waren", "koste", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler, ich bin der Hafenmeister!", "Es tut mir leid, aber ich handel nicht."
+
+-- Catch all
+"tell", "something" -> "If you need any assistance just ask for 'help'. Viola Baywillow can tell you lots more about Illarion and the realms though."
+"erzähl", "etwas" -> "Falls du meine Unterstützung brauchst, frag einfach nach 'Hilfe'. Allerdings kann Viola Baywillow dir viel mehr über Illarion und die Reiche erzählen."
+english, "Henry", "Cunnigan" -> "That's me! Just ask for 'help' if you are new around here."
+"Henry", "Cunnigan" -> "Das bin ich! Sag einfach Bescheid, falls du neu hier bist und 'Hilfe' brauchst."
+english, ".*" -> "Sorry, I don't quite understand. Just ask me for 'help' and I'll see what I can do for you."
+".*" -> "Das habe ich jetzt nicht richtig verstanden. Frag mich einfach nach 'Hilfe' und ich schau, was ich für dich tun kann."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "Komm näher und sag doch 'Hallo' zu mir.", "Come a little closer and say 'hello'."
-cycletext "Aktiviere die Chatbox mit 'Return' zum Sprechen.", "Activate the chat box with 'return' to make your character talk."
-cycletext "Hast du vergessen, wie man sich bewegt? Benutz die linke Maustaste, die Pfeiltasten, den Ziffernblock oder WASD.", "Forgot how to move? Use the left mouse button, the arrow keys, the num pad or WASD."
+cycletext "Platz da! Diese Fracht muss schnell abgeladen werden!", "Make way! That cargo needs to be unloaded quickly!"
+cycletext "Willkommen in Illarion! Wenn du neu in diesen Landen bist, lass mich dir helfen.", "Welcome to Illarion! If you are new to these lands, let me help you."
+cycletext "Wenn du nicht genau weißt wohin du gehen sollst, komm zu mir.", "If you're not sure where to go, come and speak to me."
+cycletext "#me winkt dem Kapitän eines einlaufenden Schiffs zu und überprüft etwas in seinem Logbuch.", "#me hails the captain of an arriving vessel and checks it off in his journal."
+cycletext "Willkommen in Trollshaven, Heimat der Taverne zur Hanfschlinge!", "Welcome to Troll's Haven, home of the Hemp Necktie Inn!"
+cycletext "Bist du gerade erst angekommen? Komm zu mir, falls du Hilfe brauchst.", "Have you just arrived? Come and talk to me if you need some help."
+cycletext "#me beobachtet aufmerksam die am Pier vorbeiziehenden Schiffe.", "#me watches attentively as a ship draws alongside the pier."
+cycletext "#me bedeutet jenen, die von den Schiffen an Land kommen, näher zu kommen.", "#me beckons to those disembarking from a boat, calling them over."
+cycletext "Falls du hungrig oder durstig bist, kann ich dir die Taverne zur Hanfschlinge empfehlen.", "Head into the Hemp Necktie Inn for a drink or bite to eat if you are weary."
+cycletext "Es ist sehr angenehm, nach einer langen Reise an einem Lagerfeuer zu entspannen.", "After a long journey it is nice to sit and rest a while beside a campfire."

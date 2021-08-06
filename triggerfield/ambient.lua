@@ -44,11 +44,6 @@ INSERT INTO triggerfields VALUES (x,y,z,'triggerfield.ambient');
 
 local AmbientList = ambient_base()
 
--- Tutorial by Rincewind and Estralis
-AmbientList.add( position(28,101,100 ),{5,6,7},"[Tutorial] Dies ist der Weg nach Runewick, dem Reich der Weisheit und Magie.","[Tutorial] This is the way to Runewick, realm of wisdom and magic.",nil,nil,100); --Tutorial
-AmbientList.add( position(36,108,100 ),{3,4,5},"[Tutorial] Dies ist der Weg nach Galmair, dem Reich des aufstrebenden Wohlstands.","[Tutorial] This is the way to Galmair, realm of prosperity and wealth.",nil,nil,100); --Tutorial
-AmbientList.add( position(45,97,100 ),{1,2,3},"[Tutorial] Dies ist der Weg nach Cadomyr, dem Reich von Ruhm und Ehre.","[Tutorial] This is the way to Cadomyr, realm of honour and glory.",nil,nil,100); --Tutorial
-
 --SW map by Estralis et al.
 AmbientList.add( position(93,587,0),nil,"In der Ferne hörst du das Bellen eines Hundes.","In the distance, you can hear a barking dog.",nil,nil,1); --General Cadomyr
 AmbientList.add( position(105,569,0),nil,"Ein scharfer Wind bläst durch die Straßen Cadomyrs.","A strong wind blows in the streets of Cadomyr.",nil,nil,1); --General Cadomyr
@@ -275,7 +270,7 @@ AmbientList.add( position(649,403,0),nil,"Ein andauerndes Tropfgeräusch hallt le
 AmbientList.add( position(671,402,-3),{0,1,7},"Die Luft wird umso stickiger, je weiter du in die Tiefen der Höhle vordringst. Du hörst nichts als den Hall deiner eigenen Schritte und deine Atemgeräusche.","The cold air becomes still the further you go, the only sound you hear is your own footsteps and breathing.",nil,nil,100); --Specific location
 AmbientList.add( position(690,363,-3),nil,"Die Tunnel sind hier so gerade, dass du sehr daran zweifelst, dass Ushara sie erschaffen hat. Diese Höhlen müssen das Werk von Menschen sein.","The tunnels here are so straight, you seriously doubt that Ushara made them. Men made these caves, that's for certain.",nil,nil,100); --Specific location
 AmbientList.add( position(696,313,0),{1,2,3},"Sofort als du durch die Tür trittst, nimmst du die verschiedensten Düfte wahr. Einige Tavernengäste unterhalten sich, andere schlürfen an gigantischen Bierkrügen.","As you pass through the door you immediately notice different fragrances. Some guests are having a conversation, some take sips from large tankards.",nil,nil,100); --Specific location
-AmbientList.add( position(698,313,0),{1,2,3},"Im Raum ist es etwas wärmer als draußen, du frierst aber trotzdem etwas. An der Theke steht ein fluchender Zwerg, der die Theke gewissentlich auf Hochglanz poliert.","The room is a little bit warmer than outside, but you still feel cold. At the bar stands a cursing dwarf who polishes the table.",nil,{13,14,15,16},100); --Specific location
+AmbientList.add( position(699,313,0),{1,2,3},"Im Raum ist es etwas wärmer als draußen, du frierst aber trotzdem etwas. An der Theke steht ein fluchender Zwerg, der die Theke gewissentlich auf Hochglanz poliert.","The room is a little bit warmer than outside, but you still feel cold. At the bar stands a cursing dwarf who polishes the table.",nil,{13,14,15,16},100); --Specific location
 AmbientList.add( position(698,409,-3),{1,2,3},"Du hörst schlurfende Schritte in der Ferne… was könnte das sein?","You hear shuffling feet and strange moaning in the distance... who could that be?",nil,nil,100); --Specific location
 AmbientList.add( position(698,448,-3),{5,6,7},"Die Luft ist in dieser Höhle ungewöhnlich feucht.","The air feels wet as you step through the cave opening.",nil,nil,100); --Specific location
 AmbientList.add( position(709,451,-3),nil,"Deine Haut kribbelt an diesem Ort. Ein Schauer läuft dir den Rücken runter und du hörst, wie Wasser im monotonen Takt von der Decke tröpfelt.","You feel your skin prickle in this place. A little shiver makes its way down your spine and you hear the steady trickle of water.",nil,nil,100); --Specific location

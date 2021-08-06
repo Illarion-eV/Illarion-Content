@@ -28,7 +28,6 @@ local gods = require("content.gods")
 
 
 local M = {}
-local MODE_STARE = 1
 local MODE_MIRROR = 2
 
 
@@ -44,7 +43,7 @@ function M.lookAtPlayer( SourceCharacter, TargetCharacter, mode)
 
     SourceCharacter:sendCharDescription( TargetCharacter.id , output )
 
-    if (mode == MODE_STARE) then
+    if (mode == Player.stare) then
         common.InformNLS(TargetCharacter, "Du fühlst dich beobachtet.", "You feel watched.")
     end
 end

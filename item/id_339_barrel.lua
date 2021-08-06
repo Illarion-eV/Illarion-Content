@@ -17,12 +17,28 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- UPDATE items SET itm_script='item.id_339_barrel' WHERE itm_id IN (339,1410,1411);
 
+local common = require("base.common")
 local brewing = require("craft.final.brewing")
+local tutorial = require("content.tutorial")
 
 local M = {}
 
 function M.UseItem(User, SourceItem, ltstate)
-    brewing.brewing:showDialog(User, SourceItem)
+
+    --Tutorial
+    if User:getQuestProgress(325) == 1 and User:getQuestProgress(340) == 0 then --Accepted tutorial messages, didn't get the message before
+        User:setQuestProgress(340, 1) --remember that the message was received
+        local callbackNewbie = function(informNewbie)
+            User:inform(tutorial.getTutorialInformDE("barrel"),tutorial.getTutorialInformEN("barrel"))
+            brewing.brewing:showDialog(User, SourceItem)
+        end --end callback
+        local dialogText = common.GetNLS(User,tutorial.getTutorialTextDE("barrel"),tutorial.getTutorialTextEN("barrel"))
+        local dialogNewbie = MessageDialog("Tutorial", dialogText, callbackNewbie)
+        User:requestMessageDialog(dialogNewbie)
+    else
+        brewing.brewing:showDialog(User, SourceItem)
+    end
+
 end
 
 return M

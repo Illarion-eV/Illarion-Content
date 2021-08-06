@@ -1488,14 +1488,14 @@ local function testArea(User)
 
 end
 
-local function testBanduk(user)
-    user:inform(">>> developer test area")
-
-    local pos = user.pos
-    local number = common.positionToNumber(pos)
-    local tpos = common.numberToPosition(number)
-
-    user:inform(">>>:"..tostring(pos.x).."."..tostring(pos.y).."."..tostring(pos.z).."=="..tostring(number).."=="..tostring(tpos.x).."."..tostring(tpos.y).."."..tostring(tpos.z))
+local function resetTutorial(user)
+    user:turn(4) --south
+    user:warp(position(702, 283, 0))
+    local questlist={154,199,309,310,311,312,313,314,315,319,320,321,322,323,324,325,326,327,328,329,330,331,332,336,337,338,339,340,341,344,345,346,347,348,349,353,354,355}
+    for i=1,#questlist do
+        user:setQuestProgress(questlist[i],0)
+    end
+    user:inform("Tutorial reset. Please relog to restart tutorial.")
 end
 
 function M.UseItem(User, SourceItem, ltstate)
@@ -1505,8 +1505,7 @@ function M.UseItem(User, SourceItem, ltstate)
     User:increaseAttrib("foodlevel", 100000)
 
     -- First check for mode change
-    local modes = {"Eraser", "Teleport", "Instant kill/ revive", "Char Settings", "Global events", "Events on single char", "Events on groups", "Faction info of chars in radius", "Quest events","Define Teleporter Targets","Define events on single char","Define events on groups","Test area","Test"}
---    local modes = {"Eraser", "Teleport", "Instant kill/ revive", "Char Settings", "Global events", "Events on single char", "Events on groups", "Faction info of chars in radius", "Quest events","Define Teleporter Targets","Define events on single char","Define events on groups","Test area"}
+    local modes = {"Eraser", "Teleport", "Instant kill/ revive", "Char Settings", "Global events", "Events on single char", "Events on groups", "Faction info of chars in radius", "Quest events","Define Teleporter Targets","Define events on single char","Define events on groups","Test area","Reset tutorial"}
     local cbSetMode = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -1539,7 +1538,7 @@ function M.UseItem(User, SourceItem, ltstate)
         elseif index == 13 then
             testArea(User)
         elseif index == 14 then
-            testBanduk(User)
+            resetTutorial(User)
         end
     end
     local sd = SelectionDialog("Pick a function of the lockpicks.", "Which do you want to use?", cbSetMode)
