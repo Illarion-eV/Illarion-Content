@@ -20,7 +20,7 @@ local tutorial = require("content.tutorial")
 local M = {}
 
 function M.MoveToField(Character)
-    tutorial.tutorialDialog(Character,331,"nimbur")
+    tutorial.tutorialDialog(Character,357,"nimbur")
 end
 
 return M
