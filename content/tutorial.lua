@@ -276,30 +276,6 @@ function M.NewbieSelectionBookrest(Character)
 
 end
 
---Faction selection dialog
-function M.NewbieSelection(Character,destinationString)
-
-    local callback = function(dialog)
-        if dialog:getSuccess() then
-            if dialog:getSelectedIndex() == 0 then
-                M.NewbieWarp(Character,destinationString)
-            elseif dialog:getSelectedIndex() == 1 then
-                Character:inform("Du gehst von Bord.","You disembark.")
-            end
-        else
-            Character:inform("Du gehst von Bord.","You disembark.")
-        end
-    end
-
-    local dialogText = common.GetNLS(Character,"Möchtest du dem Reich "..destinationString.."beitreten? Du kannst deine Entscheidung jederzeit beim Notar der Stadt revidieren. Du kannst auch jederzeit zu diesem Ort zurückkehren. Das Tutorial wird mit einer Einführungsqueste weitergehen, bei der du deine neue Heimat näher kennenlernen wirst.","Would you like to join the realm of "..destinationString.."? You can change your decision anytime at the town's notary office. You can also return to this place anytime. The tutorial will continue with a quest to explore the realm.")
-    local dialog = SelectionDialog("Tutorial", dialogText, callback)
-    dialog:setCloseOnMove()
-    dialog:addOption(0,common.GetNLS(Character,"Ja, trete dem Reich bei.","Yes, join the realm."))
-    dialog:addOption(0,common.GetNLS(Character,"Nein, bleibe erstmal hier.","No, stay here for now."))
-    Character:requestSelectionDialog(dialog)
-
-end
-
 --Faction selection
 function M.NewbieWarp(Character,destinationString)
 
