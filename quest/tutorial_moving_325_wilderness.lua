@@ -26,16 +26,16 @@ local ENGLISH = Player.english
 -- Insert the quest title here, in both languages
 
 local Title = {}
-Title[GERMAN] = "Tutorial - Markierungssteine"
-Title[ENGLISH] = "Tutorial - Marker stones"
+Title[GERMAN] = "Tutorial - Bewegung"
+Title[ENGLISH] = "Tutorial - Moving"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
 local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = tutorial.getTutorialTextDE("explorer")
-Description[ENGLISH][1] = tutorial.getTutorialTextEN("explorer")
+Description[GERMAN][1] = tutorial.getTutorialTextDE("skipNo")
+Description[ENGLISH][1] = tutorial.getTutorialTextEN("skipNo")
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
 local Start = nil
