@@ -18,7 +18,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local M = {}
 
 function M.talk(player, talkType, text)
-    return text
+    hello = text .. " Hello!!!"
+    return hello
 end
 
 return M
