@@ -20,11 +20,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local lookat = require("base.lookat")
 local goldenGoblet = require("item.id_224_goldengoblet")
-local createitem = require("handler.createitem")
 
 local M = {}
-
-local TimeList = {}
 
 function M.LookAtItem(User, Item)
     if Item.number == 1 then

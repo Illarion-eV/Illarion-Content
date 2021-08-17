@@ -117,8 +117,7 @@ function M.UseItem(User, SourceItem)
 
     if (User:getQuestProgress(510) == 13) then --OK, the player does the quest
         local queststatus = User:getQuestProgress(512) --here, we save which gems have been found
-        local queststatuslist = {}
-        queststatuslist = common.Split_number(queststatus, 7) --reading the digits of the queststatus as table
+        local queststatuslist = common.Split_number(queststatus, 7) --reading the digits of the queststatus as table
 
         for i = 1, 7 do
             if (SourceItem.pos == dragongem[i])  and queststatuslist[i] == 0 then

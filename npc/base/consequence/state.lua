@@ -32,8 +32,6 @@ function(self, mode, value)
         self["perform"] = _state_helper_add
     elseif (mode == "-") then
         self["perform"] = _state_helper_sub
-    else
-        -- unkonwn comparator
     end
 end)
 

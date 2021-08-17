@@ -28,7 +28,6 @@ author: Lillian
 
 ]]
 local money = require("base.money")
-local ranklist = require("base.ranklist")
 local common = require("base.common")
 
 local M = {}
@@ -60,25 +59,6 @@ M.arenaInformation = {{playerPos=nil, monsterPos=position(255,668,0), newPlayerP
                     {playerPos=nil, monsterPos=position(995,784,-3), newPlayerPos=nil, npcName="Manuel Salan", town="Runewick", quest=802},
                     {playerPos=nil, monsterPos=position(338,193,-7), newPlayerPos=nil, npcName="Angelo Rothman", town="Galmair", quest=803}}
 
---Sorts a table deceanding by the value of every second entry
-local function sortTable(inputTable)
-    local numberTable = {}
-    local sortedTable = {}
-    for i=2, #(inputTable), 2 do
-        table.insert(numberTable, inputTable[i])
-    end
-    table.sort(numberTable)
-    for i= 1, #(numberTable) do
-        for j=2, #(inputTable), 2 do
-            if inputTable[j] == numberTable[i] then
-                table.insert(sortedTable, 1, inputTable[j])
-                table.insert(sortedTable, 1, inputTable[j-1])
-            end
-        end
-    end
-    return sortedTable
-end
-
 local function checkLte(User,NPC)
 
     local foundEffect = User.effects:find(18)
@@ -106,15 +86,6 @@ end
 local function getRandomMonster(level)
     local randomNumber = math.random(1, #M.monsterIDsByLevel[level].monsters)
     return M.monsterIDsByLevel[level].monsters[randomNumber]
-end
-
-local function isUserInList(User, ranklist)
-    for i=1, #(ranklist), 2 do
-        if ranklist[i] == User.name then
-            return true, i
-        end
-    end
-    return false, 0
 end
 
 function M.requestMonster(User, NPC)

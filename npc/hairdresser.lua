@@ -121,7 +121,6 @@ local gold = 100 * silver
 local priceTrim = 10 * silver
 local pricePolish = 10 * silver
 local priceCut = 2 * gold
-local priceShave = 2 * gold
 local priceDyeShort = 1 * gold
 local priceDyeLong = 4 * gold
 
@@ -352,7 +351,6 @@ local function shaveSelector(user,npc,firstCall,beardStyleStart,beardStyleEnd)
 
     globalHairdresserDialogOpen = true
     local callback = function(dialog)
-        local success = dialog:getSuccess()
         if (not dialog:getSuccess()) then
             user:setBeard(beardStyleStart)
             user:setQuestProgress(228,beardStyleEnd)
@@ -709,7 +707,6 @@ local function haircutSelector(user,npc,firstCall,hairStyleStart,hairStyleEnd)
 
     globalHairdresserDialogOpen = true
     local callback = function(dialog)
-        local success = dialog:getSuccess()
         if (not dialog:getSuccess()) then
             user:setHair(hairStyleStart)
             user:setQuestProgress(227,hairStyleEnd)
@@ -841,7 +838,6 @@ local function combPolish(user,npc)
 
     globalHairdresserDialogOpen = true
     local callback = function(dialog)
-        local success = dialog:getSuccess()
         if (not dialog:getSuccess()) then
             return
         end

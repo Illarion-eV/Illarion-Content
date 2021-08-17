@@ -71,9 +71,10 @@ function M.Lever:setMinStrength(str)              -- strengh needed to switch th
 end
 
 function M.Lever:switchLever(Char)                    -- switch the lever; return new state
-    local thisState, thisType, thisMovingTo = self:findType(self.pos)
+    local thisState, _, thisMovingTo = self:findType(self.pos)
     local newMovingTo = 0
-local chrStr
+    local chrStr
+
     if Char==nil then
         chrStr=self.minStrength+1
     else

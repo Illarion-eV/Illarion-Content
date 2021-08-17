@@ -30,8 +30,8 @@ function M.UseItem(User, SourceItem)
         if foundEffect then
             myEffect.nextCalled = 5 * 600;
         else
-            local myEffect2 = LongTimeEffect(100, 5 * 600) --5min
-            User.effects:addEffect(myEffect2)
+            myEffect = LongTimeEffect(100, 5 * 600) --5min
+            User.effects:addEffect(myEffect)
         end
     else
     -- If it is just a regular desk and not used for the above quest purposes, then use it for magic purposes

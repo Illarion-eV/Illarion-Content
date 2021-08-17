@@ -55,9 +55,7 @@ function M.toolBreaks(user, item, workTime)
     world:changeItem(item)
 
     if (durability == 0) then
-        local germanExtension
-        local germanExtensionBroken
-        germanExtension,germanExtensionBroken = M.getGermanExtension(item.id)
+        local _, germanExtensionBroken = M.getGermanExtension(item.id)
         common.HighInformNLS(user,"Dein"..germanExtensionBroken.." "..world:getItemName(item.id, Player.german).." zerbricht.","Your "..world:getItemName(item.id, Player.english).." breaks.")
         return true
     end
@@ -110,9 +108,6 @@ function M.getTool(User, id)
         common.HighInformNLS(User,"Du musst ein"..germanExtension.." "..world:getItemName(id, Player.german).." in der Hand halten.","You need to hold the "..world:getItemName(id, Player.english).." in your hand.")
         return false
     end
-
-    return false
-
 end
 
 function M.getGermanExtension(id)

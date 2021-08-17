@@ -17,7 +17,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (521, 'quest.scavangerhunt_521_wilderness');
 
 local common = require("base.common")
-local factions = require("base.factions")
 local M = {}
 
 local GERMAN = Player.german

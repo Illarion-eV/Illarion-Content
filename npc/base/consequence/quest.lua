@@ -33,8 +33,6 @@ function(self, questid, mode, value)
         self["perform"] = _quest_helper_add
     elseif (mode == "-") then
         self["perform"] = _quest_helper_sub
-    else
-        -- unkonwn comparator
     end
 end)
 

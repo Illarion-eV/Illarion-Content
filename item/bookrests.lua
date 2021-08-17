@@ -25,10 +25,10 @@ local common = require("base.common")
 local seafaring = require("base.seafaring")
 local staticteleporter = require("base.static_teleporter")
 local townManagement = require("base.townManagement")
-local factions = require("base.factions")
 local vision = require("content.vision")
 local lookat = require("base.lookat")
 local money = require("base.money")
+local tutorial = require("content.tutorial")
 
 local M = {}
 
@@ -39,18 +39,17 @@ local BULLETIN_COST = 2000
 local BULLETIN_COST_STR_DE = "Ein Anschlag kostet zwanzig Silberstücke."
 local BULLETIN_COST_STR_EN = "The cost is twenty silver coins."
 
-local FerryLookAt
 local TMLookAt
 local SalaveshLookAt
 local AkaltutLookAt
 local ronaganLookAt
 local bulletinLookAt
 local tradingPostLookAt
-local usingHomeTeleporter
-local NecktieHomeTravel
+local tutorialBookrestLookAt
 local WonderlandTeleporter
 local showBulletinBoard
 local showTradingPost
+
 
 local salaveshBookrest = position(741, 406, -3)
 local akaltutBookrest = position(430, 815, -9)
@@ -59,6 +58,7 @@ local wonderlandBookrest = position(864, 550, 0)
 local ronaganBookrest = position(904, 585, -6)
 local bulletinBoard = position(696, 315, 0)
 local tradingPost = position (690, 290, 0)
+local tutorialBookrest = position (683, 284, 0)
 
 function M.LookAtItem(User,Item)
 
@@ -100,6 +100,11 @@ function M.LookAtItem(User,Item)
     local isFerry, ferryLookAt = seafaring.ferryLookAt(User, Item, ItemLookAt())
     if isFerry then
         lookAt = ferryLookAt
+    end
+
+    -- Tutorial
+    if (Item.pos == tutorialBookrest) and User:getQuestProgress(323) == 0 and User:getQuestProgress(199) == 0 and User:getQuestProgress(314) == 0 then
+        lookAt = tutorialBookrestLookAt(User, Item)
     end
 
     -- static teleporter
@@ -160,6 +165,13 @@ function tradingPostLookAt(User, Item)
     return lookAt
 end
 
+function tutorialBookrestLookAt(User, Item)
+    local lookAt = ItemLookAt()
+    lookAt.name = common.GetNLS(User, "Fähre", "Ferry")
+    lookAt.description = common.GetNLS(User, "Hier kannst du deine neue Heimat aussuchen.", "Choose your new home here.")
+    return lookAt
+end
+
 function M.UseItem(User, SourceItem)
 
     -- Bookrest for the Salavesh dungeon
@@ -169,7 +181,7 @@ function M.UseItem(User, SourceItem)
 
     -- Bookrest for Akaltut dungeon
     if (SourceItem.pos == akaltutBookrest) then
-        local foundEffect, myEffect = User.effects:find(120) -- monsterhunter_timer lte
+        local foundEffect = User.effects:find(120) -- monsterhunter_timer lte
         if User:getQuestProgress(529) == 3 and not foundEffect then
             User:inform("Der Höllenhund ist im Südosten von hier.", "The hellhound is  southeast from here.")
             local myEffect = LongTimeEffect(120, 50) -- 5sec
@@ -238,6 +250,12 @@ function M.UseItem(User, SourceItem)
         end
     end
 
+    -- Tutorial
+    if (SourceItem.pos == tutorialBookrest) and User:getQuestProgress(323) == 0 and User:getQuestProgress(199) == 0 and User:getQuestProgress(314) == 0 then --New player who has not chosen a faction before (323) and is not member of a faction (199) nor has completed the old tutorial (314)
+        tutorial.NewbieSelectionBookrest(User)
+        return
+    end
+
     -- ferries
     if seafaring.useFerry(User, SourceItem) then
         return
@@ -247,37 +265,6 @@ function M.UseItem(User, SourceItem)
     if staticteleporter.useTeleporter(User, SourceItem) then
         return
     end
-end
-
-function usingHomeTeleporter(User,factionNames,teleporterPos)
-    local userFaction = factions.getMembershipByName(User)
-    for i=1,#factionNames do
-        if factionNames[i] == userFaction and User:distanceMetricToPosition(teleporterPos[i]) < 5 then
-            return true
-        end
-    end
-    return false
-end
-
-function NecktieHomeTravel(User,factionNames,teleporterPos,selected)
-    local userFaction = factions.getMembershipByName(User)
-    if (factionNames[selected]==userFaction and User:distanceMetricToPosition(teleporterPos[4]) < 5) or (selected == 4 and usingHomeTeleporter(User,factionNames,teleporterPos)) then
-        return true
-    end
-    return false
-end
-
-local function akalutCadomyrBlockade(user)
-    local foundValue, value = ScriptVars:find("akalutCadomyrBlockade")
-    if not foundValue or tonumber(value) == 0 then
-        return false
-    end
-
-    world:gfx(2, user.pos)
-    user:increaseAttrib("hitpoints",-1000)
-    user:inform("Ein Blitz kommt aus dem Teleporter geschossen.", "You are hit by a lightning coming from the teleporter.", Character.highPriority)
-
-    return true
 end
 
 function WonderlandTeleporter(User, SourceItem)

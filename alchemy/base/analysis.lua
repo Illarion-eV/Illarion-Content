@@ -17,7 +17,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- analysis
 
 local alchemy = require("alchemy.base.alchemy")
-local licence = require("base.licence")
 local common = require("base.common")
 local redBottle = require("alchemy.item.id_59_red_bottle")
 local granorsHut = require("content.granorsHut")
@@ -118,12 +117,11 @@ local function StockAnalysis(User, gem, brew, ltstate)
 end
 
 local function EssenceBrewAnalysis(User, gem, brew, ltstate)
-    local cauldron, bottle
-    local reGem, reGemdust, reCauldron, reBottle
+    local reGem, reGemdust
     if brew.id >= 1008 and brew.id <= 1018 then -- brew is a cauldron
-        reGem, reGemdust, reCauldron, reBottle = alchemy.GemDustBottleCauldron(nil, nil, brew.id, nil)
+        reGem, reGemdust = alchemy.GemDustBottleCauldron(nil, nil, brew.id, nil)
     else -- brew is a bottle
-        reGem, reGemdust, reCauldron, reBottle = alchemy.GemDustBottleCauldron(nil, nil, nil, brew.id)
+        reGem, reGemdust = alchemy.GemDustBottleCauldron(nil, nil, nil, brew.id)
     end
     local analysisResultDE
     local analysisResultEN
@@ -152,13 +150,13 @@ local function EssenceBrewAnalysis(User, gem, brew, ltstate)
 end
 
 local function PotionAnalysis(User, theGem, brew, ltstate)
-    local cauldron, bottle, potionQuality, potionQualityDE, potionQualityEN
-    local reGem, reGemdust, reCauldron, reBottle
+    local potionQuality, potionQualityDE, potionQualityEN
+    local reGem, reGemdust
     if brew.id >= 1008 and brew.id <= 1018 then -- brew is a cauldron
-        reGem, reGemdust, reCauldron, reBottle = alchemy.GemDustBottleCauldron(nil, nil, brew.id, nil)
+        reGem, reGemdust = alchemy.GemDustBottleCauldron(nil, nil, brew.id, nil)
         potionQuality = tonumber(brew:getData("potionQuality"))
     else -- brew is a bottle
-        reGem, reGemdust, reCauldron, reBottle = alchemy.GemDustBottleCauldron(nil, nil, nil, brew.id)
+        reGem, reGemdust = alchemy.GemDustBottleCauldron(nil, nil, nil, brew.id)
         potionQuality = brew.quality
     end
     local analysisResultDE
@@ -167,8 +165,6 @@ local function PotionAnalysis(User, theGem, brew, ltstate)
         analysisResultDE = "Die Analyse führt zu keinen schlüssigen Ergebnissen."
         analysisResultEN = "The analysis does not provide any decent results."
     else
-        local qListDE = alchemy.qListDe
-        local qListEN = alchemy.qListEn
         potionQualityEN = alchemy.qListEn[math.floor(potionQuality/100)]
         potionQualityDE = alchemy.qListDe[math.floor(potionQuality/100)]
         analysisResultDE = "Substanz:\nTrank auf "..world:getItemName(reGemdust,Player.german).."basis\n\nTrankgüte:\n"..potionQualityDE.." Qualität\n\nWirkung:\n"
@@ -273,7 +269,7 @@ local function CauldronPotionCheck(User, SourceItem, TargetItem, ltstate)
         if (brew:getData("filledWith") == "stock") or (brew:getData("filledWith") == "essenceBrew") or (brew:getData("filledWith") == "potion") or brew:getData("filledWith")=="meraldilised slime" then
             AnalysisOfBrew(User, SourceItem, brew, ltstate)
         else
-            local brew = User:getItemAt(Character.right_tool)
+            brew = User:getItemAt(Character.right_tool)
             -- repair potion in case it's broken
             alchemy.repairPotion(brew)
             -- repair end

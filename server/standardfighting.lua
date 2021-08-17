@@ -57,7 +57,6 @@ local gems = require("base.gems")
 local monsterHooks = require("monster.base.hooks")
 local fightingutil = require("base.fightingutil")
 local glypheffects = require("magic.glypheffects")
-local petBase = require("petsystem.base")
 
 local M = {}
 
@@ -118,9 +117,8 @@ local function getArcherRange(archer)
 end
 
 local function isPossibleTarget(monster, candidate)
-    --Monsters are excluded; exception: pets that attack a monster are a valid target for that monster
-    if not character.IsPlayer(candidate) and not (petBase.getOwnerByPet(candidate)
-        and fightingutil.getSelectedEnemyId(candidate.id) == monster.id)  then
+    --Monsters are excluded
+    if not character.IsPlayer(candidate) then
         return false
     end
 
@@ -279,8 +277,9 @@ function M.onAttack(Attacker, Defender)
         -- Let's don't attack now.
         return
     end
-    -- Store the enemey as the current target of this player or a player's pet
-    if character.IsPlayer(Attacker) or petBase.getOwnerByPet(Attacker) then
+
+    -- Store the enemey as the current target of this player
+    if character.IsPlayer(Attacker) then
        fightingutil.setSelectedEnemyId(Attacker.id, Defender.id)
     end
 
@@ -290,7 +289,7 @@ function M.onAttack(Attacker, Defender)
     local Globals = {}
 
     -- [Tutorial] Newbie Check
-    if character.IsPlayer(Attacker.Char) and Attacker.Char:getQuestProgress(322) == 0 and Attacker.Char:getQuestProgress(325) == 1 then
+    if character.IsPlayer(Attacker.Char) and character.IsPlayer(Defender.Char) and Attacker.Char:getQuestProgress(322) == 0 and Attacker.Char:getQuestProgress(325) == 1 then
         common.InformNLS(Attacker.Char,
         "[Tutorial] Du darfst andere Spieler nur mit angemessenem und nachprüfbarem Rollenspielgrund angreifen. Klicke nochmals rechts auf deinen Gegner um den Kampf abzubrechen.",
         "[Tutorial] You are only allowed to attack other players with clearly traceable and reasonable roleplaying reason. Right click again on your enemy to cancel the attack.")

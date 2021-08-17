@@ -191,7 +191,7 @@ function M.UseItem(User, SourceItem)
         world:gfx(41, User.pos)
 
     elseif SourceItem.pos == position(482, 837, -9) then
-        User:inform("Du hast schlecht gewählt und ein Schlag trifft deine Hand. Du fühlst dich schächlich und wird auf magischem Weg aus dem Dungeon katapultiert.",
+        User:inform("Du hast schlecht gewählt und ein Schlag trifft deine Hand. Du fühlst dich schrecklich und wird auf magischem Weg aus dem Dungeon katapultiert.",
                     "You have chosen poorly and feel a jolt hit your hand, making you feel poorly and sending you magically outside the dungeon.")
         User:increaseAttrib("hitpoints", -(User:increaseAttrib("hitpoints", 0) / 3)) -- lose 1/3 HP
         world:gfx(41, User.pos)
@@ -219,13 +219,13 @@ function M.UseItem(User, SourceItem)
         -- nothing happens
 
     elseif SourceItem.pos == position(480, 834, -9) then
-        User:inform("Du hast schlecht gewählt und der Schädel erhebt sich in die Luft und beginnt sich schnell zu drehen. Er schiesst Funken und Flammen ind den Raum und jeder erleidet Verbrennungen.",
+        User:inform("Du hast schlecht gewählt und der Schädel erhebt sich in die Luft und beginnt sich schnell zu drehen. Er schiesst Funken und Flammen in den Raum und jeder erleidet Verbrennungen.",
                     "You have chosen poorly and the skull floats off the table and starts spinning very fast, shooting out sparks and flames. Everyone in the room is burned.")
         world:erase(world:getItemOnField(position(480, 834, -9)), 1) --remove skull, scheduled/mapitemreset will clean up
         for xx = 474, 482 do --set room on fire
             for yy = 834, 844 do
                 local positionFlame = position(xx, yy, -9)
-                world:createItemFromId(359, 1, positionFlame, true, 500, nil)
+                world:createItemFromId(359, 1, positionFlame, true, 501, nil)
             end
         end
 
@@ -255,7 +255,7 @@ function M.UseItem(User, SourceItem)
         if foundEffect then
             myEffect.nextCalled = 5 * 600;
         else
-            local myEffect = LongTimeEffect(100, 5 * 600) --5min
+            myEffect = LongTimeEffect(100, 5 * 600) --5min
             User.effects:addEffect(myEffect)
         end
 
@@ -267,7 +267,7 @@ function M.UseItem(User, SourceItem)
         if foundEffect then
             myEffect.nextCalled = 8 * 600;
         else
-            local myEffect = LongTimeEffect(101, 8 * 600) --8min
+            myEffect = LongTimeEffect(101, 8 * 600) --8min
             User.effects:addEffect(myEffect)
         end
     end

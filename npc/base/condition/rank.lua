@@ -43,8 +43,6 @@ function(self, comp, value)
         self["check"] = _rank_helper_greater
     elseif (comp == "<") then
         self["check"] = _rank_helper_lesser
-    else
-        -- unkonwn comparator
     end
 end)
 

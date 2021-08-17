@@ -236,8 +236,7 @@ function M.UseItem(User, SourceItem, ltstate)
 
         elseif User:getQuestProgress(503) == 1 then -- taking the weapon
             local queststatus = User:getQuestProgress(506) -- here, we save which events were triggered
-            local queststatuslist = {}
-            queststatuslist = common.Split_number(queststatus, 6) -- reading the digits of the queststatus as table
+            local queststatuslist = common.Split_number(queststatus, 6) -- reading the digits of the queststatus as table
             if queststatuslist[1] == 0 then -- sword, only triggered once by each char
             User:inform("Du nimmst das Schwert an dich und schlieﬂt sich dem Zzarn'K'Ska an.", "You take the sword and join the Zzarn'K'Ska.")
             common.CreateItem(User, 2655, 1, 866, {descriptionEn = "Holy Sword of the Zzarn'K'Ska of Zelphia", descriptionDe = "Das heilige Schwert der ZzarnK'Ska von Zelphia", rareness = "4"})

@@ -60,8 +60,6 @@ if Char:idleTime() < 300 then -- Absolutely no regeneration effect if the player
 
     local Const        = Char:increaseAttrib("constitution",0) -- Konstitution einlesen ( 0 - 20 )
     local Essence      = Char:increaseAttrib("essence",0)      -- Essenze einlesen      ( 0 - 20 )
-    local Willpower    = Char:increaseAttrib("willpower",0)    -- Willenskraft einlesen ( 0 - 20 )
-    local Intelligence = Char:increaseAttrib("intelligence",0) -- Itelligenz einlesen ( 0 - 20 )
     local Race         = Char:getRace()                       -- Rasse einlesen
     -----------------------VALUES DONE------------------------------------
 
@@ -80,7 +78,7 @@ if Char:idleTime() < 300 then -- Absolutely no regeneration effect if the player
 
     else
 
-        local foundValue, cycleCounter = Effect:findValue( "cycleCounter" ); -- Is the cycleCounter still there? Can happen when somebody is revived by another method than the cross or runs to the cross himself
+        local foundValue = Effect:findValue( "cycleCounter" ); -- Is the cycleCounter still there? Can happen when somebody is revived by another method than the cross or runs to the cross himself
 
         if foundValue then
             Effect:removeValue("cycleCounter"); -- Getting rid of the old counter
@@ -307,9 +305,7 @@ end
 function M.removeEffect( Effect, Character )
 
     local newEffect = LongTimeEffect(2,10*TimeFactor);
-    local found = false;
-    local value = 0;
-    found, value = Effect:findValue( "no_reg" );
+    local found, value = Effect:findValue( "no_reg" );
 
     if found then
         newEffect:addValue( "no_reg", value );

@@ -37,7 +37,7 @@ local product = masonry:addProduct(catId, 733, 1)
 product:addIngredient(735) -- raw stone
 
 -- Stone
-local product = masonry:addProduct(catId, 1266, 10)
+product = masonry:addProduct(catId, 1266, 10)
 product:addIngredient(733) -- stone block
 
 M.masonry = masonry

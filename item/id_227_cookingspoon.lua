@@ -20,6 +20,7 @@ local common = require("base.common")
 local cooking = require("craft.final.cooking")
 local brewing = require("craft.final.brewing")
 local wood = require("item.general.wood")
+local tutorial = require("content.tutorial")
 
 local M = {}
 
@@ -69,7 +70,21 @@ function M.UseItem(User, SourceItem, ltstate)
     -- check for barrel
     target = getBarrel(User)
     if (target ~= nil) then
-        brewing.brewing:showDialog(User, SourceItem)
+        --Tutorial
+        if User:getQuestProgress(325) == 1 and User:getQuestProgress(340) == 0 then --Accepted tutorial messages, didn't get the message before
+            User:setQuestProgress(340, 1) --remember that the message was received
+            local callbackNewbie = function(informNewbie)
+                User:inform(tutorial.getTutorialInformDE("barrel"),tutorial.getTutorialInformEN("barrel"))
+                brewing.brewing:showDialog(User, SourceItem)
+            end --end callback
+            local dialogText = common.GetNLS(User,tutorial.getTutorialTextDE("barrel"),tutorial.getTutorialTextEN("barrel"))
+            local dialogNewbie = MessageDialog("Tutorial", dialogText, callbackNewbie)
+            User:requestMessageDialog(dialogNewbie)
+        else
+
+            brewing.brewing:showDialog(User, SourceItem)
+
+        end
         return
     end
 
@@ -88,4 +103,3 @@ function M.UseItem(User, SourceItem, ltstate)
  end
 
 return M
-

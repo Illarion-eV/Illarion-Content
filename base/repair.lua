@@ -62,9 +62,6 @@ local function repair(npcChar, speaker, theItem, theItemPos, language)
     end
 
     local theItemStats=world:getItemStats(item)
-    local itemName = world:getItemName(item.id,language)
-
-    local durability=common.getItemDurability(item) --calculate the durability
     local price=getRepairPrice(item, speaker)
     local priceMessage = getRepairPriceText(item, speaker)
 

@@ -20,8 +20,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local factions = require("base.factions")
-local deathaftertime = require("lte.deathaftertime")
-local longterm_cooldown = require("lte.longterm_cooldown")
 local character = require("base.character")
 
 local M = {}
@@ -44,9 +42,6 @@ monster[14]={851,852,853,861,862,863,871,872,873,881,882,883}; --hellhound
 monster[15]={62,63,64,65,66}; -- drow 61,65
 monster[16]={201,202,203,204}; --demon skeleton 205
 
-local shutup
-local luckybunch
-
 function M.setAmbush(ambushName, ambushState)
     if ambushState ~= true then
         ambushState = false
@@ -56,7 +51,7 @@ function M.setAmbush(ambushName, ambushState)
 end
 
 function M.isAmbush(ambushName)
-    local foundValue, value = ScriptVars:find(ambushName)
+    local _, value = ScriptVars:find(ambushName)
     if value == "true" then
         return true
     else
@@ -74,7 +69,7 @@ end
 function M.getTimeSinceLastAmbush(ambushName)
     local currentTime = common.GetCurrentTimestamp()
     local scriptVar = ambushName.."Last"
-    local foundValue, value = ScriptVars:find(scriptVar)
+    local _, value = ScriptVars:find(scriptVar)
     local lastTime = tonumber(value)
     if common.IsNilOrEmpty(lastTime) then
         lastTime = 0

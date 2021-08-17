@@ -17,7 +17,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- Butterflies (3634, 3635, 3636, 3637)
 
-local common = require("base.common")
 local shared = require("craft.base.shared")
 local gathering = require("craft.base.gathering")
 
@@ -88,7 +87,7 @@ function M.StartGathering(User, SourceItem, ltstate)
 
     if newAmount <= 0 then
         gathering.SwapSource(SourceItem, depletedSourceID, restockWear)
-        User:inform( "Du findest hier keine Seidenspinnerraupen mehr.", "You can't find any silkworms here anymore.", Character.highPriority)
+        User:inform( "Du findest hier keine Seidenraupen mehr.", "You can't find any silkworms here anymore.", Character.highPriority)
         return
     end
 

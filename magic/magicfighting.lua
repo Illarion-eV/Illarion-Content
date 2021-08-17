@@ -133,18 +133,18 @@ local function sfxGfxOutput(attackerStruct, defenderStruct, element)
     world:makeSound(13, attackerStruct.Char.pos)
 end
 
-local function magicItemsDegrade(user, magicItemsList)
+local function magicItemsDegrade(char, magicItemsList)
 
     for _, bonusItem in pairs(magicItemsList) do
         if (common.Chance(1, 180)) then
             local durability = math.fmod(bonusItem.quality, 100)
             local quality = (bonusItem.quality - durability) / 100
-            local nameText = world:getItemName(bonusItem.id, user:getPlayerLanguage())
+            local nameText = world:getItemName(bonusItem.id, char:getPlayerLanguage())
 
             if durability > 0 then
                 durability = durability - 1
                 if (durability == 0) then
-                    common.InformNLS(user,
+                    common.InformNLS(char,
                         "Deine Ausrüstungsgegenstand '"..nameText.."' zerbricht.",
                         "Your piece of equipment '"..nameText.."' shatters.")
                 end
@@ -280,8 +280,6 @@ function M.onMagicAttack(attackerStruct, defenderStruct)
     attackerStruct.Char:increaseAttrib("mana", -neededMana)
 
     attackerStruct.Char:performAnimation(globalvar.charAnimationSPELL)
-
-
 
     if checkMissedAttack(attackerStruct) then
         attackerStruct.Char:inform("Der Angriff gelingt nicht. Du hast kurz die Konzentration verloren.", "The attack fails. You briefly lost your concentration.", Player.lowPriority)

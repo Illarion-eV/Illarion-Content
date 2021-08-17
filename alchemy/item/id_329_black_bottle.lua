@@ -103,10 +103,10 @@ local function DrinkPotion(User,SourceItem)
         local oldHeight = User:increaseAttrib("body_height",0)
         -- check if there is already a an effect
         local  find, myEffect = User.effects:find(329)
-        local findOldRace, findOldHeight, findOldHair, findOldBeard, findOldSex
+
         if find then
-            local  findNewRace, LteNewRace = myEffect:findValue("newRace")
-            local findCounter,counterBlack = myEffect:findValue("counterBlack")
+            local findNewRace, LteNewRace = myEffect:findValue("newRace")
+            local _, counterBlack = myEffect:findValue("counterBlack")
             if findNewRace then
                 if LteNewRace == newRace then
                     User:inform("LteNewRace == newRace")
@@ -115,8 +115,8 @@ local function DrinkPotion(User,SourceItem)
                         return
                     end
                 else -- not the same transformation; we need to get the old apperance values from the LTE
-                   local findIsMonster, isMonster = myEffect:findValue("isMonster")
-                    if isMonster ~= 1 then
+                   local _, foundMonster = myEffect:findValue("isMonster")
+                    if foundMonster ~= 1 then
                         local findOldSkincolor1, oldSkincolor1 = myEffect:findValue("oldSkincolor1")
                         local findOldSkincolor2, oldSkincolor2 = myEffect:findValue("oldSkincolor2")
                         local findOldSkincolor3, oldSkincolor3 = myEffect:findValue("oldSkincolor3")
@@ -136,12 +136,12 @@ local function DrinkPotion(User,SourceItem)
                             oldHairColour.blue = oldHaircolor3
                         end
 
-                        findOldHair, oldHair = myEffect:findValue("oldHair")
-                        findOldBeard, oldBeard = myEffect:findValue("oldBeard")
-                        findOldSex, oldSex = myEffect:findValue("oldSex")
+                        _, oldHair = myEffect:findValue("oldHair")
+                        _, oldBeard = myEffect:findValue("oldBeard")
+                        _, oldSex = myEffect:findValue("oldSex")
                     end
-                    findOldRace, oldRace = myEffect:findValue("oldRace")
-                    findOldHeight, oldHeight = myEffect:findValue("oldHeight")
+                    _, oldRace = myEffect:findValue("oldRace")
+                    _, oldHeight = myEffect:findValue("oldHeight")
                     -- and remove the old effect
                     local effectRemoved = User.effects:removeEffect(329)
                     if not effectRemoved then
@@ -153,32 +153,32 @@ local function DrinkPotion(User,SourceItem)
         end
         local newBeard, newHair
         if (newRace <= 1) and (newSex == 0) then -- only male humans or dwarves get a beard
-          newBeard = ListBeard[newRace][math.random(1,#ListBeard)]
-       else
-          newBeard = 0
-       end
-       if (newSex) == 0 then
-          newHair = ListHairMale[newRace][math.random(1,#ListHairMale[newRace])]
-       else
-          newHair = ListHairFemale[newRace][math.random(1,#ListHairFemale[newRace])]
-       end
-       local HairColorRandomPosition = ((math.random(1,(#ListHairColor[newRace]/3)))*3)
-       local newHaircolor1 = ListHairColor[newRace][HairColorRandomPosition-2]
-       local newHaircolor2 = ListHairColor[newRace][HairColorRandomPosition-1]
-       local newHaircolor3 = ListHairColor[newRace][HairColorRandomPosition]
+            newBeard = ListBeard[newRace][math.random(1,#ListBeard)]
+        else
+             newBeard = 0
+        end
+        if (newSex) == 0 then
+            newHair = ListHairMale[newRace][math.random(1,#ListHairMale[newRace])]
+        else
+            newHair = ListHairFemale[newRace][math.random(1,#ListHairFemale[newRace])]
+        end
+        local HairColorRandomPosition = ((math.random(1,(#ListHairColor[newRace]/3)))*3)
+        local newHaircolor1 = ListHairColor[newRace][HairColorRandomPosition-2]
+        local newHaircolor2 = ListHairColor[newRace][HairColorRandomPosition-1]
+        local newHaircolor3 = ListHairColor[newRace][HairColorRandomPosition]
 
-       local SkinColorRandomPosition = ((math.random(1,(#ListSkinColor[newRace]/3)))*3)
-       local newSkincolor1 = ListSkinColor[newRace][SkinColorRandomPosition-2]
-       local newSkincolor2 = ListSkinColor[newRace][SkinColorRandomPosition-1]
-       local newSkincolor3 = ListSkinColor[newRace][SkinColorRandomPosition]
+        local SkinColorRandomPosition = ((math.random(1,(#ListSkinColor[newRace]/3)))*3)
+        local newSkincolor1 = ListSkinColor[newRace][SkinColorRandomPosition-2]
+        local newSkincolor2 = ListSkinColor[newRace][SkinColorRandomPosition-1]
+        local newSkincolor3 = ListSkinColor[newRace][SkinColorRandomPosition]
 
-       local newHeight = math.random(80,120)
+        local newHeight = math.random(80,120)
 
         -- LTE and transformation
-       local find, myEffect = User.effects:find(329)
-       if not find then
+        find = User.effects:find(329)
+        if not find then
 
-         local myEffect = LongTimeEffect(329,1)
+        myEffect = LongTimeEffect(329,1)
 
             -- saving of the old values
               if isMonster ~= 1 then -- we transform him into an other memeber of on of the six races, so we need to save those old values
@@ -244,11 +244,10 @@ function dogTransformation(User,SourceItem)
     local duration = math.floor(SourceItem.quality/100)*10 -- effect is called every minute. quality 1 = 10 minutes; quality 9 = 90
 
     -- check if there is already a an effect
-    local  find, myEffect = User.effects:find(329)
-    local findOldRace, findOldHeight, findOldHair, findOldBeard, findOldSex
+    local find, myEffect = User.effects:find(329)
     if find then
         local  findNewRace, LteNewRace = myEffect:findValue("newRace")
-        local findCounter,counterBlack = myEffect:findValue("counterBlack")
+        local _, counterBlack = myEffect:findValue("counterBlack")
         if findNewRace then
             if LteNewRace == findNewRace then
                 if duration > counterBlack then -- same transformation, but the new potion will last longer
@@ -275,12 +274,12 @@ function dogTransformation(User,SourceItem)
                     oldHairColour.blue = oldHaircolor3
                 end
 
-                findOldHair, oldHair = myEffect:findValue("oldHair")
-                findOldBeard, oldBeard = myEffect:findValue("oldBeard")
-                findOldSex, oldSex = myEffect:findValue("oldSex")
+                _, oldHair = myEffect:findValue("oldHair")
+                _, oldBeard = myEffect:findValue("oldBeard")
+                _, oldSex = myEffect:findValue("oldSex")
 
-                findOldRace, oldRace = myEffect:findValue("oldRace")
-                findOldHeight, oldHeight = myEffect:findValue("oldHeight")
+                _, oldRace = myEffect:findValue("oldRace")
+                _, oldHeight = myEffect:findValue("oldHeight")
                 -- and remove the old effect
                 local effectRemoved = User.effects:removeEffect(329)
                 if not effectRemoved then
@@ -298,9 +297,9 @@ function dogTransformation(User,SourceItem)
     local newSkincolor3 = 0
 
     -- LTE and transformation
-    local find = User.effects:find(329)
+    find = User.effects:find(329)
     if not find then
-        local myEffect = LongTimeEffect(329,1)
+        myEffect = LongTimeEffect(329,1)
         myEffect:addValue("oldSex",oldSex)
         myEffect:addValue("oldHair",oldHair)
         myEffect:addValue("oldBeard",oldBeard)

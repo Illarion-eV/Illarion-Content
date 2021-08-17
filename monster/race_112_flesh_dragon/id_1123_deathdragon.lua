@@ -17,7 +17,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local monsterId = 1123
 
-local base = require("monster.base.base")
 local monstermagic = require("monster.base.monstermagic")
 local fleshDragons = require("monster.race_112_flesh_dragon.base")
 local poisonfield = require("item.id_372_poisonfield")

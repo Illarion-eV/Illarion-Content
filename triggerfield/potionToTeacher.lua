@@ -18,7 +18,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (398,259,0,'triggerfield.potionToTeacher');
 -- INSERT INTO triggerfields VALUES (133,597,0,'triggerfield.potionToTeacher');
 
-local common = require("base.common")
 local id_3109_open_pell = require("item.id_3109_open_pell")
 local alchemy = require("alchemy.base.alchemy")
 
