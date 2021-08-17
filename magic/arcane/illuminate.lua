@@ -44,7 +44,7 @@ local PEN = runes.checkSpellForRuneByName("PEN", spell)
 
     for _, target in pairs(targets) do
         local myPosition = targeting.getPositionByTarget(target)
-        illuminate(user, myPosition, spell)
+        illuminate(user, myPosition, spell, earthTrap)
     end
 end
 

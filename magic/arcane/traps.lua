@@ -15,12 +15,18 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
-local delayedAttack = require("magic.arcane.delayedAttack")
 local runes = require("magic.arcane.runes")
 local plantRoot = require("magic.arcane.plantRoot")
 local staticObjects = require("magic.arcane.staticObjects")
 local magicDamage = require("magic.arcane.magicDamage")
 local effectScaling = require("magic.arcane.effectScaling")
+local magicGFX = require("magic.arcane.magicGFX")
+local dealDamage = require("magic.arcane.dealMagicDamage")
+local stun = require("magic.arcane.stun")
+local MSReduction = require("magic.arcane.manaStaminaReduction")
+local illuminate = require("magic.arcane.illuminate")
+local snare = require("magic.arcane.snare")
+local stallMana = require("magic.arcane.stallMana")
 
 local M = {}
 
@@ -28,7 +34,7 @@ function M.createEarthTraps(user, targets, spell)
 local Orl = runes.checkSpellForRuneByName("Orl", spell)
 local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
 local Luk = runes.checkSpellForRuneByName("Luk", spell)
-local Lhor = runes.checkSpellForRuneByName("Luk", spell)
+local Lhor = runes.checkSpellForRuneByName("Lhor", spell)
 local wear = staticObjects.getWearBasedOnDuration(user, spell)
 local element = runes.fetchElement(spell)
     if SOLH and Orl then
@@ -65,7 +71,14 @@ local spell = sourceItem:getData("spell")
 local element = runes.fetchElement(spell)
 local illusion = sourceItem:getData("illusion")
 local wear = sourceItem.wear
-    delayedAttack.spellEffects(false, targets, spell, element, false, sourceItem)
+    dealDamage.applyMagicDamage(false, targets, spell, element, false, true)
+    illuminate.CheckIfIlluminate(false, targets, spell, true)
+    snare.applySnare(false, targets, spell, false, true)
+    magicGFX.getTargetGFX(targets, spell, true)
+    stun.checkForStun(false, spell, targets, true)
+    MSReduction.checkForIncreaseStamina(false, targets, spell, true)
+    plantRoot.applyPlantRoot(false, targets, spell, true)
+    stallMana.applyManaStalling(false, targets, spell, true)
     world:erase(sourceItem, 1)
     if sourceItem.id == 3466 then
         local newPlant = world:createItemFromId(3466, 1, myPosition, true, 999, {["illusion"] = illusion})
