@@ -37,7 +37,6 @@ local spawnPoint
 local spawnGM
 local updateMonsters
 local changeItemSelection
-local portalsSelection
 
 local gmSpawnpointSettings = {}
 local gmMonsters = {}
@@ -1232,6 +1231,7 @@ end
 local function createPotion(User, potionID, potionEffect)
 local potionAmount
 local potionQuality
+local _
     local callback = function(dialog)
         if not dialog:getSuccess() then
             return
@@ -1267,6 +1267,7 @@ User:requestInputDialog(InputDialog("Potion creation", "What quality should the 
 end
 local function customPotionInput(User, potionType, potionID)
 local potionEffect
+local _
     local callback = function(dialog)
         if not dialog:getSuccess() then
             return
@@ -1317,40 +1318,6 @@ local function potionTypeSelection(User, potionType)
             createPotion(User,"166","11111111")
         elseif index == 14 then
             createPotion(User,"166","10")
-        end
-    end
-    local callback2 = function(dialog2)
-        if not dialog2:getSuccess() then
-            return
-        end
-        local index = dialog2:getSelectedIndex() +1
-        if index == 1 then
-            customPotionInput(User, potionType, "59")
-        elseif index == 2 then
-            createPotion(User,"59","59555959")
-        elseif index == 3 then
-            createPotion(User,"59","95999595")
-        elseif index == 4 then
-            createPotion(User,"59","99999999")
-        elseif index == 5 then
-            createPotion(User,"59","11111111")
-        end
-    end
-    local callback2 = function(dialog2)
-        if not dialog2:getSuccess() then
-            return
-        end
-        local index = dialog2:getSelectedIndex() +1
-        if index == 1 then
-            customPotionInput(User, potionType, "59")
-        elseif index == 2 then
-            createPotion(User,"59","59555959")
-        elseif index == 3 then
-            createPotion(User,"59","95999595")
-        elseif index == 4 then
-            createPotion(User,"59","99999999")
-        elseif index == 5 then
-            createPotion(User,"59","11111111")
         end
     end
     local callback2 = function(dialog2)
@@ -1594,7 +1561,8 @@ local function createPortal(User, portalType)
     local x
     local y
     local z
-    local amount 
+    local amount
+    local _
     local callback = function(dialog)
         if not dialog:getSuccess() then
             return
