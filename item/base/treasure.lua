@@ -188,21 +188,19 @@ local function removeMonsterFromList(monsterId)
 end
 
 local function spawnMonster(spawnPosition, level)
-    while true do
-        local monsterId = getRandomMonsterId(level)
-        if monsterId == -1 then
-            return false
-        end
+    local monsterId = getRandomMonsterId(level)
+    if monsterId == -1 then
+        return false
+    end
 
-        local monster = world:createMonster(monsterId, spawnPosition, 10)
-        if monster == nil or not isValidChar(monster) then
-            removeMonsterFromList(monsterId)
-            debug(string.format("Treasure: Failed to spawn monster with ID %d. The monster is removed from the lists",
-                                monsterId))
-            return false
-        else
-            return monster
-        end
+    local monster = world:createMonster(monsterId, spawnPosition, 10)
+    if monster == nil or not isValidChar(monster) then
+        removeMonsterFromList(monsterId)
+        debug(string.format("Treasure: Failed to spawn monster with ID %d. The monster is removed from the lists",
+                            monsterId))
+        return false
+    else
+        return monster
     end
 end
 
@@ -260,16 +258,6 @@ local function getRandomItem(level)
 
     local selectedIndex = math.random(1, count)
     return content.treasureContents[level][selectedIndex]
-end
-
-local function removeItemFromList(itemId)
-    for level = 1, #content.treasureContents do
-        for i = #content.treasureContents[level], 1, -1  do
-            if content.treasureContents[level][i].itemId == itemId then
-                table.remove(content.treasureContents[level], i)
-            end
-        end
-    end
 end
 
 local function dropTreasureItem(treasureLocation, level)

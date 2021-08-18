@@ -19,7 +19,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local lookat = require("base.lookat")
-local evilrock = require("triggerfield.evilrock")
 
 local M = {}
 
@@ -151,8 +150,6 @@ function M.UseItem(User, SourceItem, ltstate)
             common.InformNLS( User, "Du bist dir nicht ganz sicher, welches Gefäß du füllen willst. Vielleicht nimmst du es in die Hand?",
                                     "You are not sure what vessel you want to fill. Perhaps you could hold one in your hand?")
         end
-    else
-        --User:inform("unkown bottle item ");
     end
 end
 

@@ -43,8 +43,6 @@ function(self, questid, comp, value)
         self["check"] = _quest_helper_greater
     elseif (comp == "<") then
         self["check"] = _quest_helper_lesser
-    else
-        -- unkonwn comparator
     end
 end)
 

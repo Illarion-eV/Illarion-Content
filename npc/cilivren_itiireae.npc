@@ -169,8 +169,8 @@ queststatus(188) = 22, queststatus(253) = 0, english, town = Runewick, ".+" -> i
 queststatus(188) = 22, queststatus(253) = 0, town = Runewick, ".+" -> inform("Finde und prüfe 5 Köder in der Zisterne. Benutze den Köder, um ihn zu prüfen."), "Zieh Handschuhe an und prüf die Köder. Das ist unsere Chance den Ratten ein für alle Male beizukommen."
 
 -- Quest 4 taken but not finished
-queststatus(188) = 22, town = Runewick, english, "quest", "mission" -> "Oh no! You say the rats don't touch the baits? Please check some more."
-queststatus(188) = 22, town = Runewick, "task", "adventure", "poison", "carrot" -> "Oh je! You say the rats don't touch the baits? Please check some more."
+queststatus(188) = 22, town = Runewick, english, "quest", "mission" -> "Oh no! You say the rats didn't touch the baits? Please check some more."
+queststatus(188) = 22, town = Runewick, "task", "adventure", "poison", "carrot" -> "Oh je! You say the rats didn't touch the baits? Please check some more."
 queststatus(188) = 22, town = Runewick, "Auftrag", "Aufgabe", "quest", "mission", "Abenteuer", "Gift", "Möhre" -> "Oh je! Du sagst, die Ratten verschähen die Köder? Bitte schau dir noch einige mehr an."
 
 -- Quest 4 solved, 20 silver, +5 rankpoints

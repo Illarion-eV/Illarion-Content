@@ -178,8 +178,8 @@ function M.GetBestAttribOffset( Char1, Char2, AttribList )
 
     local bestOffset = 0
     local currentOffset
-    local cnt
     local addVal = 0
+
     for cnt in pairs(AttribList) do
         currentOffset = Char1:increaseAttrib(AttribList[cnt],0) - Char2:increaseAttrib(AttribList[cnt],0)
         if currentOffset > bestOffset then
@@ -240,7 +240,7 @@ end
 
 function M.MoveCharacter( Character, Effect, XOff, YOff, range )
 
-    local blocked, blockVal = Effect:findValue("blocked")
+    local blocked = Effect:findValue("blocked")
     local saveAP = Character.movepoints -- need normal AP, even for forced moving
     Character.movepoints = 21
     if (math.sqrt(XOff*XOff + YOff*YOff) > range) then
@@ -283,7 +283,7 @@ function M.IsEffectInLogoutTime( Effect, Character )
     local foundDays, days = Effect:findValue("logdays")
     local foundHours, hours = Effect:findValue("loghours")
     local foundMinutes, minutes = Effect:findValue("logminutes")
-    local foundSeconds, seconds = Effect:findValue("logseconds")
+    local _, seconds = Effect:findValue("logseconds")
     if foundYears and foundMonths and foundDays and foundHours and foundMinutes then
         local curYear = world:getTime("year")
         local curMonth = world:getTime("month")

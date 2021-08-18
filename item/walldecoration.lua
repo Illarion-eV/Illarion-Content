@@ -17,16 +17,12 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- UPDATE items SET itm_script='item.walldecoration' WHERE itm_id IN (1066,1067,1074,1075,1082,1083);
 
-local common = require("base.common")
 local money = require("base.money")
 
 local M = {}
 
 
 function M.UseItem(User, SourceItem)
-
-
-    local itemData
     local isRonaganTrap = (SourceItem:getData("ronaganTrap") == "true")
     if (isRonaganTrap == true) then
         User:inform("Ein Dieb hat dich in eine Falle gelockt. Er springt aus einem der Schatten und stielt dir ein paar Münzen.", "A thief has lured you into a trap, jumping out from a shadow, he steals some coins from you.")

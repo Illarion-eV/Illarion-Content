@@ -29,8 +29,6 @@ function(self, mode)
         self["perform"] = _talkstate_helper_begin
     elseif (mode == "end") then
         self["perform"] = _talkstate_helper_end
-    else
-        -- invalid mode
     end
 end)
 

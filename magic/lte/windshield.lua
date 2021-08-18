@@ -16,7 +16,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local M = {}
-local reducedMovePoints = 10
 
 function M.initEffect(user, duration, tickTime)
     local isProtected, effect = user.effects:find(802)

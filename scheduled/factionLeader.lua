@@ -23,7 +23,7 @@ local M = {}
 M.informationTable = {
     {npcName="Rosaline Edwards", usualPosition=position(122, 521, 0), newPosition=position(237, 104, 0)},
     {npcName="Valerio Guilianni", usualPosition=position(337, 215, 0), newPosition=position(238, 104, 0)},
-    {npcName="Elvaine Morgan", usualPosition=position(898, 775, 2), newPosition=position(239, 104, 0)}}
+    {npcName="Elvaine Morgan", usualPosition=position(1002, 813, 0), newPosition=position(239, 104, 0)}}
 
 function M.checkFactionLeader()
     for i=1, #(M.informationTable) do

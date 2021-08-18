@@ -373,7 +373,7 @@ product = blacksmithing:addProduct(catId, 466, 1)
 product:addIngredient(2535, 2) -- iron ingot
 product:addIngredient(2537, 2) -- iron plate
 
-local catId = blacksmithing:addCategory("Throwing weapons", "Wurfwaffen")
+catId = blacksmithing:addCategory("Throwing weapons", "Wurfwaffen")
 
 -- throwing axe
 product = blacksmithing:addProduct(catId, 2645, 1)

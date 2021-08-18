@@ -33,8 +33,6 @@ function(self, name, mode, value)
         self["perform"] = _skill_helper_add
     elseif (mode == "-") then
         self["perform"] = _skill_helper_sub
-    else
-        -- unkonwn comparator
     end
 end)
 

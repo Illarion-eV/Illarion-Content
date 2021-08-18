@@ -98,7 +98,6 @@ function M.StartGathering(User, SourceItem, ltstate)
             return;
         else
             SourceItem:setData("amount", "" .. amount);
-            changeItem = true;
         end
     end
 
@@ -124,8 +123,6 @@ function M.StartGathering(User, SourceItem, ltstate)
         local t = SourceItem:getData("next_regrow_" .. i);
         -- look for a free slot
         if ( t == "") then
-            -- set the next regrow time according to season and grow factor
-            local season = math.ceil(world:getTime("month")/4);
             SourceItem:setData("next_regrow_" .. i, "" .. world:getTime("unix") + 300)
             regrowOk = true;
             changeItem = true;

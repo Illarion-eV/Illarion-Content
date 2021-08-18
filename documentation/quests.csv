@@ -225,12 +225,12 @@ ID,Title,NPCs,Status,Responsible Author,Description
 306,The first drink is for free,,,Rincewind,Free beer by Hagar
 307,Tale's and Swords,,,Alexander Knight,A old salk. Soldier tells you about his experiances in war while drinking a lot of your beer. Finally he gifts you his sword.
 308,Dailyforge,,,Rincewind,Alice
-309,Tutorial,,,Rincewind,Noobia: Henry Cunnigan's station (Talk to NPCs)
-310,Tutorial,,,Rincewind,Noobia: Aldania's station (GUI)
-311,Tutorial,,,Rincewind,Noobia: Groknar's station (fighting)
-312,Tutorial,,,Rincewind,Noobia: Nargon Hammerfist's station (gathering)
-313,Tutorial,,,Rincewind,Noobia: Nimbur Goldhand's station (crafting)
-314,Tutorial,,,Rincewind,Noobia: Viola's station (chosing a faction)
+309,[Obsolete] Old Tutorial,,,Rincewind,Noobia: Henry Cunnigan's station (Talk to NPCs)
+310,[Obsolete] Old Tutorial,,,Rincewind,Noobia: Aldania's station (GUI)
+311,[Obsolete] Old Tutorial,,,Rincewind,Noobia: Groknar's station (fighting)
+312,[Obsolete] Old Tutorial,,,Rincewind,Noobia: Nargon Hammerfist's station (gathering)
+313,[Obsolete] Old Tutorial,,,Rincewind,Noobia: Nimbur Goldhand's station (crafting)
+314,Old Tutorial,,,Rincewind,Noobia: Viola's station (chosing a faction) - still in use to check who completed the old tutorial. Do not delete.
 315,Tutorial,,,Rincewind,???
 316,Trollop,,,Rincewind,Rose
 317,Writing history,,,"Estralis, Miriam","Runewick message quest, Mirarie Bragolin asks for help"
@@ -241,20 +241,48 @@ ID,Title,NPCs,Status,Responsible Author,Description
 322,Tutorial - First player attack,,,Estralis,Only attack with valid RP reason
 323,Tutorial - Faction selection,,,Estralis,Player has chosen a faction
 324,Introduction - Login dialog,,,Estralis,Only show login dialog once
+325,Tutorial - Show tutorial messages,,,Estralis,Flag for no decision (0), Accepted (1), Declined (2)
+326,Tutorial - Hitpoints,,,Estralis,Show message just once
+327,Tutorial - Foodlevel,,,Estralis,Show message just once
+328,Tutorial - Monsters,,,Estralis,Show message just once
+329,Tutorial - First encounter,,,Estralis,Show message just once
+330,Tutorial I,Henry Cunnigan,,Slightly,Tutorial - Introduction / lighting a torch
+331,Tutorial II,Nimbur Goldbrew,,Slightly,Tutorial - Fighting / gathering / crafting
+332,Tutorial - Campfire,,,Estralis,Show message just once
+333,Aurora's staff,,,,
+334,quest.madeline_clarbelis_334_runewick,,,,
+335,quest.kaitza_335_wilderness,,,,
+336,Tutorial - Brewery,,,Estralis,Show message just once
+337,Tutorial - Entrance,,,Estralis,Show message just once
+338,Tutorial - Viola,,,Estralis,Show message just once
+339,Tutorial - Harbour,,,Estralis,Show message just once
+340,Tutorial - Brewing,,,Estralis,Show message just once
+341,Tutorial - Market,,,Estralis,Show message just once
 342,Cadomyr Starter Quest,,,Grokk,New player quest chain for the Cadomyr faction
 343,Galmair Starter Quest,,,Grokk,New player quest chain for the Galmair faction
+344,Tutorial - Temple,,,Estralis,Show message just once
+345,Tutorial - Depot,,,Estralis,Show message just once
+346,Tutorial - Glyph,,,Estralis,Show message just once
+347,Tutorial - Wilderness,,,Estralis,Show message just once
+348,Tutorial - Teleporter,,,Estralis,Show message just once
+349,Tutorial - Rat,,,Estralis,Spawn rat just once
 350,teacher,,,merung,Initiation - alchemy
 351,teacher,,,merung,Initiation - alchemy
 352,teacher,,,merung,Initiation - alchemy
-360,Pet syetem: race,,,merung,race of the pet
+353,Tutorial - Orchard,,,Estralis,Show message just once
+354,Tutorial - Orchard rat,,,Estralis,Show message just once
+355,Tutorial - Pathway,,,Estralis,Show message just once
+356,Tutorial - Henry,,,Estralis,Show message just once
+357,Tutorial - Nimbur,,,Estralis,Show message just once
+360,Pet system: race,,,merung,race of the pet
 361-363,Pet system: position,,,merung,stores the position of the pet
-364,Pet sytem: sex,,,merung,sex of the pet
+364,Pet system: sex,,,merung,sex of the pet
 365,Pet system: hp,,,merung,saves the hitpoints of the pet
 366,Pet system: command,,,merung,current command for the pet to follow
 367-370,Pet system: color,,,merung,save the color of the pet
 371-374,Pet system: name,,,merung,binary saved pet name
 375,Pet system: owner,,,merung,Flag for being a pet owner
-376,Pet syetem: death protection,,,merung,Flag if the pet is proctected from death
+376,Pet system: death protection,,,merung,Flag if the pet is proctected from death
 401,,,,Estralis/pharse,Priest system: Devotion
 402,,,,Estralis/pharse,Priest system: Priesthood
 403-418,,,,snus-mumrik,Priest system: Gods favour
@@ -322,11 +350,11 @@ ID,Title,NPCs,Status,Responsible Author,Description
 601,orc storyteller,,,envi,orc tells old stories
 602,orc storyteller quest,,,envi,orc asks for beer
 603,orc researcher/bragon priest,,,envi,"a npc ask for a question, another npc has the answer"
-604,Viola Baywillow quest Elesil,,,envi,Viola Baywillow introduces player to Elesil
-605,Viola Baywillow quest Frizza,,,envi,Viola Baywillow introduces player to Frizza
-606,Viola Baywillow quest Iradona,,,envi,Viola Baywillow introduces player to Iradona
-607,hummy quest tronuk,,,envi,hummy introduces player to tronuk
-608,orc storyteller quest cooldown,,,evie,orc asks for beer cooldown
+604,[Obsolete] Viola Baywillow quest Elesil,,,envi,Viola Baywillow introduces player to Elesil
+605,[Obsolete] Viola Baywillow quest Frizza,,,envi,Viola Baywillow introduces player to Frizza
+606,[Obsolete] Viola Baywillow quest Iradona,,,envi,Viola Baywillow introduces player to Iradona
+607,[Obsolete] hummy quest tronuk,,,envi,hummy introduces player to tronuk
+608,[Obsolete] orc storyteller quest cooldown,,,evie,orc asks for beer cooldown
 610,Cadomyr rulers,,,envi,Keeps track which rulers of Cadomyr the player read
 611,,,,envi,
 613,Galmair treasure map,,,envi,longtime_cooldown
@@ -336,14 +364,17 @@ ID,Title,NPCs,Status,Responsible Author,Description
 621,Information quests (Runewick),,,envi,Elesil quests
 622,Information quests (Runewick),,,envi,Numilia quests
 623,Information quests (Runewick),,,envi,Archmage has quest reward for Numilia
+624,quest.numila_irunnleh_624_runewick,,,,
 630,Information quests (Galmair),,,envi,Iradona sends player to Lotta
 631,Information quests (Galmair),,,envi,Iradona quests
 632,Information quests (Galmair),,,envi,Lotta quests
 633,Information quests (Galmair),,,envi,Don has quest reward for Lotta
+634,quest.lotta_medborgar_634_galmair,,,,
 640,Information quests (Cadomyr),,,envi,Frizza sends player to Ruzusss
 641,Information quests (Cadomyr),,,envi,Frizza quests
 642,Information quests (Cadomyr),,,envi,Ruzusss quests
 643,Information quests (Cadomyr),,,envi,Queen has quest reward for Ruzusss
+644,quest.ruzusss_644_cadomyr,,,,
 650,Information quests (The Hemp Necktie Inn),,,envi,"Either Numilia, Ruzusss, or Lotta send player to Wulfgorda "
 652,Information quests (The Hemp Necktie Inn),,,envi,Wulfgorda quests
 660,Galmair bridges,,,envi, Recovery/protection time ...no attack by bandits
@@ -408,8 +439,11 @@ ID,Title,NPCs,Status,Responsible Author,Description
 813,Licence Galmair,,,envi,longtime_cooldown
 820,Noobhelper in Runewick,,,Lillian,Deleted - Florain Dreyndel tells the player where to find easy quests
 850,new player help counter,,,Merung/Vilarion,counts how often the char warped to new players to assist them
-851,OBSOLETE new player help preferences,,,Merung/Vilarion,"0 == available to help new players, 1 == not available for this session"
-852,OBSOLETE already played,,,Banduk,"to get how long new player played already. starts with 0, new player only"
+851,[Obsolete] new player help preferences,,,Merung/Vilarion,"0 == available to help new players, 1 == not available for this session"
+852,[Obsolete] already played,,,Banduk,"to get how long new player played already. starts with 0, new player only"
+860,LearnLenniersDream,,,,
+861,CorrectSightingPotion,,,,
+862,ApperanceOfDog,,,,
 999,An ursurper to the Throne (Cadomyr),,,Mr.Cromwell/Faladron,"Baron Hastings & his henchman Victor Tolenor try to harm Cadomyr and its ""unrightful"" Queen"
 1000-1999,Recipes learning (alchemy),,,merung,used to remember if a char has learned a certain recipe
 2000,factionpoints,,,envi,used to distribute faction points

@@ -87,7 +87,7 @@ local function GemDustInStock(User,cauldron,gemDustId)
     else
         potionEffectId = 0 -- every other potion kind has NO effect
     end
-    local reGem, reGemdust, reCauldron, reBottle = alchemy.GemDustBottleCauldron(nil, gemDustId, nil, nil)
+    local _, _, reCauldron = alchemy.GemDustBottleCauldron(nil, gemDustId, nil, nil)
     cauldron.id = reCauldron
     alchemy.SetQuality(User, cauldron)
     cauldron:setData("potionEffectId",""..potionEffectId)
@@ -101,7 +101,7 @@ local function GemDustInWater(User,cauldron,gemDustId)
     -- water + gemdust = essence brew
 
     cauldron:setData("filledWith","essenceBrew")
-    local reGem, reGemdust, reCauldron, reBottle = alchemy.GemDustBottleCauldron(nil, gemDustId, nil, nil)
+    local _, _, reCauldron = alchemy.GemDustBottleCauldron(nil, gemDustId, nil, nil)
     cauldron.id = reCauldron
     world:changeItem(cauldron)
     world:makeSound(13,cauldron.pos)

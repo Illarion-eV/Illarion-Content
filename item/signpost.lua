@@ -16,7 +16,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- Wegweiserskript
 -- Nitram
-local common = require("base.common")
 local lookat = require("base.lookat")
 local oldSlimeFeeding = require("content.oldSlimeFeeding")
 

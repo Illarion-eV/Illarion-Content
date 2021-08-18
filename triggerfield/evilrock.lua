@@ -59,7 +59,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local lookat = require("base.lookat")
 local common = require("base.common")
 local class = require("base.class")
-local character = require("base.character")
 local areas = require("content.areas")
 --local vision = require("content.vision") !!!
 local M = {}
@@ -75,7 +74,6 @@ local triggerEntranceTrap={position(990,201,0),position(990,202,0),position(990,
 
 local triggerVision={position(952,206,0),position(952,207,0),position(963,177,0),position(962,177,0),position(920,200,0),position(921,200,0),position(912,250,0),position(912,251,0),position(963,203,1),position(964,203,1),position(966,209,1),position(966,210,1),position(964,172,-6),position(964,173,-6),position(964,174,-6)}
 local VisionStory={1,1,2,2,3,3,4,4,5,5,5,5,6,6,6}
-local EvilRockAreaNames={"evilrock1","evilrock2","evilrock3","evilrock4","evilrock5","evilrock6"}
 
 local attendants={}
 local attendants2={}
@@ -234,15 +232,14 @@ function M.MoveToField(char)
         return
     end
 
-    local find
     local AmountFlameFire = #triggerFlameFire
     for i = 1,AmountFlameFire do
         if char.pos == triggerFlameFire[i] then
-            if char:getQuestProgress(689) == 0 and find == false then
+            if char:getQuestProgress(689) == 0 then
                 -- character.CreateAfterTime (char,100,120,359,nil,1,1,988,998,225,235,0,0,600,600,1,1,nil,4,1,3,nil,nil,1)
                 local adventurers = world:getPlayersInRangeOf(char.pos, 15)
                             advantureslist[char.name] = adventurers
-                for i,player in ipairs(advantureslist[char.name]) do
+                for _, player in ipairs(advantureslist[char.name]) do
                     player:setQuestProgress(689,1)
                 end
             end
@@ -252,11 +249,11 @@ function M.MoveToField(char)
     local AmountFlameIce = #triggerFlameIce
     for i = 1,AmountFlameIce do
         if char.pos == triggerFlameIce[i] then
-            if char:getQuestProgress(689) == 0 and find == false then
+            if char:getQuestProgress(689) == 0 then
                 -- character.CreateAfterTime (char,100,120,360,nil,1,1,988,998,225,235,0,0,600,600,1,1,nil,5,1,3,nil,nil,1)
                 local adventurers = world:getPlayersInRangeOf(char.pos, 15)
                             advantureslist[char.name] = adventurers
-                for i,player in ipairs(advantureslist[char.name]) do
+                for _, player in ipairs(advantureslist[char.name]) do
                     player:setQuestProgress(689,1)
                 end
             end
@@ -266,11 +263,11 @@ function M.MoveToField(char)
     local AmountFlamePoison = #triggerFlamePoison
     for i = 1,AmountFlamePoison do
         if char.pos == triggerFlamePoison[i] then
-            if char:getQuestProgress(689) == 0 and find == false then
+            if char:getQuestProgress(689) == 0 then
                 -- character.CreateAfterTime (char,100,120,372,nil,1,1,986,998,211,223,0,0,600,600,1,1,nil,13,1,3,nil,nil,1)
                 local adventurers = world:getPlayersInRangeOf(char.pos, 15)
                             advantureslist[char.name] = adventurers
-                for i,player in ipairs(advantureslist[char.name]) do
+                for _, player in ipairs(advantureslist[char.name]) do
                     player:setQuestProgress(689,1)
                 end
             end
@@ -286,8 +283,7 @@ function M.MoveToField(char)
                 world:makeSound(5,char.pos)
             end
             local CheckBucket = world:getItemOnField(position(997,199,2))
-            if CheckBucket.id == 51 then
-            else
+            if CheckBucket.id ~= 51 then
                 world:erase(CheckBucket,CheckBucket.number)
                 world:createItemFromId(51, 1, position(997,199,2), true, 333, nil)
                 local CreateBucket = world:getItemOnField(position(997,199,2))
@@ -376,28 +372,19 @@ function M.MoveToField(char)
     end
     if char.pos == position(952,173,-6) then
         local weightOfPlayer = char:increaseAttrib("weight",0)
---debug("weightOfPlayer: "..weightOfPlayer)
-        local heightOfPlayer = char:increaseAttrib("body_height",0)
---debug("heightOfPlayer: "..heightOfPlayer)
-        local strengthOfPlayer = char:increaseAttrib("strength",0)
---debug("strengthOfPlayer: "..strengthOfPlayer)
-        local ageOfPlayer = char:increaseAttrib("age",0)
---debug("ageOfPlayer: "..ageOfPlayer)
-
 
         local ItemsInBackPack = char:getBackPack()
         local weightofItemsInBackPack = ItemsInBackPack:weight()
 
         local ItemsOnBodyBelt = 0
         local itemsOnChar = {};
-        local itemPosOnChar = {};
+
         for i=17,0,-1 do
             local item = char:getItemAt(i);
             if (item.id > 0) then
                 table.insert(itemsOnChar, item);
             end
         end
-        local language = char:getPlayerLanguage();
 
         for i,item in ipairs(itemsOnChar) do
             local statsofItemsOnChar = world:getItemStatsFromId(item.id)
@@ -456,7 +443,7 @@ function M.MoveFromField(char)
     end
     local AmountStoneChamberStones = #stoneChamberStonePosition
     for i = 1,AmountStoneChamberStones do
-        local checkStoneChamber = world:getItemOnField(stoneChamberStonePosition[i])
+        checkStoneChamber = world:getItemOnField(stoneChamberStonePosition[i])
         if checkStoneChamber.id == stoneChamberStoneKind[i] then
             world:erase(checkStoneChamber,checkStoneChamber.number)
             world:makeSound(13,stoneChamberStonePosition[i])

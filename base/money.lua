@@ -315,21 +315,20 @@ function M.TakeMoneyFromChar(char, money)
     if not M.CharHasMoney(char, money) then
         return
     end
-    local PayGold = 0
-    local PaySilver = 0
-    local PayCopper = 0
-    local MissGold, MissSilver, MissCopper = M.MoneyToCoins(money)
-    local charGold, charSilver, charCopper =  M.CharCoins(char)
 
-    local Amount = money
+    local MissGold, MissSilver, MissCopper = M.MoneyToCoins(money)
+    local _, charSilver, charCopper =  M.CharCoins(char)
+
     local GoldInCopper = math.floor(charCopper / 10000)
     GoldInCopper = math.min(MissGold, GoldInCopper)
-    PayCopper = GoldInCopper * 10000;
+    local PayCopper = GoldInCopper * 10000;
     MissGold = MissGold - GoldInCopper
     charCopper = charCopper - PayCopper
 
     GoldInCopper = math.floor(charCopper / 100)
     local GoldInSilver = 100 - GoldInCopper
+    local PaySilver = 0
+
     if ((MissGold > 0) and (GoldInCopper > 0) and
             (charSilver >= GoldInSilver)) then
         PayCopper = PayCopper + 100 * GoldInCopper
@@ -358,6 +357,8 @@ function M.TakeMoneyFromChar(char, money)
     MissGold = MissGold - GoldInSilver
     charSilver = charSilver - GoldInSilver * 100
 
+    local PayGold
+
     if (charSilver >= MissSilver) then
         PayGold = MissGold
         PaySilver = PaySilver + MissSilver
@@ -383,26 +384,20 @@ function M.TakeMoneyFromDepot(char, money, depotId)
         return
     end
 
-    local PayGold = 0
+    local PayGold
     local PaySilver = 0
-    local PayCopper = 0
+    local PayCopper
     local MissGold, MissSilver, MissCopper = M.MoneyToCoins(money)
-    local charGold, charSilver, charCopper = M.DepotCoins(char,depotId)
+    local _, charSilver, charCopper = M.DepotCoins(char,depotId)
 
-    local Amount = money
-
-    local GoldInCopper = 0
-    local SilverInCopper = 0
-    local GoldInSilver = 0
-
-    GoldInCopper = math.floor(charCopper / 10000)
+    local GoldInCopper = math.floor(charCopper / 10000)
     GoldInCopper = math.min(MissGold, GoldInCopper)
     PayCopper = GoldInCopper * 10000
     MissGold = MissGold - GoldInCopper
     charCopper = charCopper - PayCopper
 
     GoldInCopper = math.floor(charCopper / 100)
-    GoldInSilver = 100 - GoldInCopper
+    local GoldInSilver = 100 - GoldInCopper
     if ((MissGold > 0) and (GoldInCopper > 0) and
         (charSilver >= GoldInSilver)) then
         PayCopper = PayCopper + 100 * GoldInCopper
@@ -412,7 +407,7 @@ function M.TakeMoneyFromDepot(char, money, depotId)
         charSilver = charSilver - GoldInSilver
     end
 
-    SilverInCopper = math.floor(charCopper / 100)
+    local SilverInCopper = math.floor(charCopper / 100)
     SilverInCopper = math.min(MissSilver, SilverInCopper)
     PayCopper = PayCopper + SilverInCopper * 100
     MissSilver = MissSilver - SilverInCopper

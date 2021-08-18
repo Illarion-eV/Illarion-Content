@@ -113,7 +113,7 @@ function M.StartGathering(User, SourceItem, ltstate)
     world:erase(SourceItem, SourceItem.number); -- erase the item we're working on
     local created = common.CreateItem(User, 249, amount, 333, nil) -- create the new produced items
     if created then -- character can still carry something
-        local a,b = GetNearbyGrain(User);
+        local a = GetNearbyGrain(User);
         if (a~=nil) then  -- there are still items we can work on
             grainharvesting.SavedWorkTime[User.id] = grainharvesting:GenWorkTime(User);
             if not shared.toolBreaks( User, toolItem, grainharvesting:GenWorkTime(User) ) then -- damage and possibly break the tool

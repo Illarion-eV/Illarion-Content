@@ -20,8 +20,6 @@ local common = require("base.common")
 -- IMPORTANT: Add new books to the END of the list. The list must not contain more than 30 elements.
 local magicBooks = {337, 351, 379, 382, 398, 401, 404, 411, 402, 413}
 
-local amountNeeded = 3
-
 local M = {}
 
 function M.readMagicBooks(user, bookId)

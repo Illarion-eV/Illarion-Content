@@ -41,7 +41,6 @@ local posBones3 = position(816, 397, -3)
 local refuseFeedingField = position(816, 388, -3)
 local denEntrance = position(812, 402, -3)
 
-local feedingInProgress = false
 local feedTime = 0
 local feededFoxes = 0
 

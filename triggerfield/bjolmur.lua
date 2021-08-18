@@ -57,8 +57,6 @@ end
 
 local function PayGemsToMeetHer(char)
     local names
-    local namesgems
-    local AmountGems = #gemDE
 
     local requiredGems
     if char:getQuestProgress(682) == 0 then
@@ -77,7 +75,6 @@ local function PayGemsToMeetHer(char)
     local callback = function(dialog)
         local success = dialog:getSuccess()
         if success then
-            local selected = dialog:getSelectedIndex()
             if PlayerHasTheRightGems(char,requiredGems) == true then
                 char:inform("Du hörst etwas flüstern: 'Du bist würdig und sollst eintreten.'", "You hear a whisper: 'You prove yourself worthy and shall enter.'")
                 WrapPlayerUp(char,requiredGems)
@@ -105,7 +102,7 @@ end
 local function PlayerIsNaked(char)
     local ItemsOnBody = 0
     local itemsOnChar = {};
-    local itemPosOnChar = {};
+
     for i=17,0,-1 do
         local item = char:getItemAt(i);
         if (item.id > 0) then

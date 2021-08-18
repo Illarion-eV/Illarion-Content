@@ -63,8 +63,8 @@ function M.FirstMenu(User, ListOfIngredients)
                 FinishRecipe(User, ListOfIngredients)
             end
         else
-            local menuFunction = function(User, ListOfIngredients)
-                M.FirstMenu(User,ListOfIngredients)
+            local menuFunction = function(user, listOfIngredients)
+                M.FirstMenu(user, listOfIngredients)
             end
             WantToAbort(User, menuFunction, {ListOfIngredients})
         end
@@ -104,8 +104,8 @@ function SelectPlantCategory(User, ListOfIngredients, currentEssenceList)
                 SelectPlant(User, ListOfIngredients, PLANT_CATS["EN"][selected-1], currentEssenceList)
             end
         else
-            local menuFunction = function(User, ListOfIngredients, currentEssenceList)
-                SelectPlantCategory(User,ListOfIngredients, currentEssenceList)
+            local menuFunction = function(user, listOfIngredients, essenceList)
+                SelectPlantCategory(user, listOfIngredients, essenceList)
             end
             WantToAbort(User, menuFunction, {ListOfIngredients, currentEssenceList})
         end
@@ -166,8 +166,8 @@ function SelectPlant(User, ListOfIngredients, category, currentEssenceList)
                 end
             end
         else
-            local menuFunction = function(User, ListOfIngredients, category, currentEssenceList)
-                SelectPlant(User,ListOfIngredients, category, currentEssenceList)
+            local menuFunction = function(user, listOfIngredients, someCategory, essenceList)
+                SelectPlant(user, listOfIngredients, someCategory, essenceList)
             end
             WantToAbort(User, menuFunction, {ListOfIngredients, category, currentEssenceList})
         end
@@ -208,8 +208,8 @@ function SelectGemDust(User, ListOfIngredients)
                 SelectGemDust(User, ListOfIngredients)
             end
         else
-            local menuFunction = function(User, ListOfIngredients)
-                SelectGemDust(User,ListOfIngredients)
+            local menuFunction = function(user, listOfIngredients)
+                SelectGemDust(user, listOfIngredients)
             end
             WantToAbort(User, menuFunction, {ListOfIngredients})
         end
@@ -268,7 +268,6 @@ ESSENCE_BREWS[330]["en"] = "Essence brew based on diamond powder"
 function SelectFillIntoCauldron(User, ListOfIngredients)
     local getText = function(deText,enText) return common.GetNLS(User,deText,enText) end
 
-    local addList = {}
     local callback = function(dialog)
         local success = dialog:getSuccess()
         if success then
@@ -291,8 +290,8 @@ function SelectFillIntoCauldron(User, ListOfIngredients)
                 SelectEssenceBrewOption(User, ListOfIngredients, {ESSENCE_BREWS_IDS[selected-3]})
             end
         else
-            local menuFunction = function(User, ListOfIngredients)
-                SelectFillIntoCauldron(User,ListOfIngredients)
+            local menuFunction = function(user, listOfIngredients)
+                SelectFillIntoCauldron(user, listOfIngredients)
             end
             WantToAbort(User, menuFunction, {ListOfIngredients})
         end
@@ -335,8 +334,8 @@ function SelectEssenceBrewOption(User, ListOfIngredients, currentEssenceList)
                 M.FirstMenu(User, ListOfIngredients)
             end
         else
-            local menuFunction = function(User, ListOfIngredients, currentEssenceList)
-                SelectEssenceBrewOption(User, ListOfIngredients, currentEssenceList)
+            local menuFunction = function(user, listOfIngredients, essenceList)
+                SelectEssenceBrewOption(user, listOfIngredients, essenceList)
             end
             WantToAbort(User, menuFunction, {ListOfIngredients, currentEssenceList})
         end
@@ -389,8 +388,8 @@ function SelectActiveSubstance(User, ListOfIngredients, currentConcentrations)
                 M.FirstMenu(User, ListOfIngredients)
             end
         else
-            local menuFunction = function(User, ListOfIngredients, currentConcentrations)
-                SelectActiveSubstance(User, ListOfIngredients, currentConcentrations)
+            local menuFunction = function(user, listOfIngredients, concentrations)
+                SelectActiveSubstance(user, listOfIngredients, concentrations)
             end
             WantToAbort(User, menuFunction, {ListOfIngredients, currentConcentrations})
         end
@@ -429,8 +428,8 @@ function SelectConcentration(User,ListOfIngredients,currentConcentrations, activ
                 SelectActiveSubstance(User, ListOfIngredients, currentConcentrations)
             end
         else
-            local menuFunction = function(User, ListOfIngredients,currentConcentrations, activeSubstancePos)
-                SelectConcentration(User,ListOfIngredients,currentConcentrations, activeSubstancePos)
+            local menuFunction = function(user, listOfIngredients, concentrations, substancePos)
+                SelectConcentration(user, listOfIngredients, concentrations, substancePos)
             end
             WantToAbort(User, menuFunction, {ListOfIngredients,currentConcentrations, activeSubstancePos})
         end
@@ -557,7 +556,6 @@ function ShowStockEssence(User, theLiquid, ListOfIngredients, notMenu)
         titleEn = "Stock"
         de = "Sud:"
         en = "Stock:"
-        local activeSubstances = alchemy.wirkstoff
         local concentrationsDe = alchemy.wirkung_de
         local concentrationsEn = alchemy.wirkung_en
         for i=1,#liquidList do
@@ -596,9 +594,9 @@ end
 function FinishRecipe(User, ListOfIngredients)
     local getText = function(deText,enText) return common.GetNLS(User,deText,enText) end
 
-    local parchment = M.GetParchmentQuill(User)
-    parchment = M.IsParchmentOK(User,parchment,ListOfIngredients)
-    if not parchment then
+    local someParchment = M.GetParchmentQuill(User)
+    someParchment = M.IsParchmentOK(User,someParchment,ListOfIngredients)
+    if not someParchment then
         M.FirstMenu(User, ListOfIngredients)
         return
     end
@@ -670,7 +668,6 @@ function M.GetParchmentQuill(User)
         theItem = itemB
     end
     if theItem then
-        local data = {}
         if User:countItemAt("body",2745,{}) > 0 then
             return theItem
         end

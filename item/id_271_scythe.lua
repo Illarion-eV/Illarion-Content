@@ -34,7 +34,7 @@ local function getGrain(User)
         return TargetItem;
     end
 
-    local foundYoungGrain = false; -- check if we only find not fully grown grain
+    local foundYoungGrain -- check if we only find not fully grown grain
     TargetItem, foundYoungGrain = grainharvesting.GetNearbyGrain(User);
     if ( TargetItem == nil ) then
         -- since we're here, there is no fully grown grain

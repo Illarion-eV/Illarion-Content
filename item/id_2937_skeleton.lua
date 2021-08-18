@@ -43,8 +43,7 @@ function M.UseItem(User, SourceItem, ltstate)
         common.InformNLS(User, "[Quest status] Bei der Untersuchung der Leiche findest du einen Knochen. Madoquar sollte damit zufrieden sein.", "[Quest status] While examining the skeleton, you find a bone. Madoquar should be satisfied with it.") --sending the message
     elseif SourceItem.pos == position (900, 453, -6) then -- drow body in spider dungeon
         local queststatus = User:getQuestProgress(522) -- here, we save which events were triggered
-        local queststatuslist = {}
-        queststatuslist = common.Split_number(queststatus, 6) -- reading the digits of the queststatus as table
+        local queststatuslist = common.Split_number(queststatus, 6) -- reading the digits of the queststatus as table
         if queststatuslist[1] == 0 then -- sword, only triggered once by each char
             common.InformNLS(User, "Du findest ein Schwert bei der Leiche des Drow.", "You discover a sword by the corpse of the drow.")
             common.CreateItem(User, 3035, 1, 801, nil)

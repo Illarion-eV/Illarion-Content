@@ -28,8 +28,8 @@ local M = {}
 
 local function checkCarrotRealm(questId, dataValue, questOriginator, user, sourceItem)
     local numberOfCarrot
-    local replacedCarrots = 0
-    local countCarrots = 0
+    local replacedCarrots
+    local countCarrots
     local questTaken = false
 
     if user:getQuestProgress(questId) == 22 then

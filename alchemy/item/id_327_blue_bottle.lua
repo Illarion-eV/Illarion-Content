@@ -114,8 +114,8 @@ function M.MoveItemAfterMove(User, SourceItem, TargetItem)
                 world:changeItem(TargetItem)
                 local potionQuality = TargetItem.quality
                 scheduledFunction.registerFunction(360, function()
-                                                            local theField = world:getField(itemPos)
-                                                            if theField:countItems() > 0 then
+                                                            local field = world:getField(itemPos)
+                                                            if field:countItems() > 0 then
                                                                 local deleted = common.DeleteItemFromStack(itemPos, {itemId = 327, quality = potionQuality, potionEffectId = 319, identifierTimeStamp = timeStamp})
                                                                 if deleted then
                                                                     world:createItemFromId(327, 1, itemPos, true, potionQuality, {potionEffectId = 320, filledWith = "potion"})
@@ -123,7 +123,7 @@ function M.MoveItemAfterMove(User, SourceItem, TargetItem)
                                                                 end
                                                             end
 
-                                                          end)
+                                                        end)
             else
                 if TargetItem:getData("identifierTimeStamp") ~= "" then
                     TargetItem:setData("identifierTimeStamp", "")
@@ -154,7 +154,6 @@ function M.MoveItemAfterMove(User, SourceItem, TargetItem)
 end;
 
 function M.MoveItemBeforeMove( User, SourceItem, TargetItem )
-    local missileStatus = (SourceItem:getData("missileStatus"));
     local potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
     if potionEffectId == nil then
         potionEffectId = 0

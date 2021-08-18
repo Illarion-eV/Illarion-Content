@@ -209,40 +209,6 @@ SetResource( 6, 1276,  2536, 60); -- copper ore
 SetResource( 6, 1276,  256, 9); -- emerald
 SetResource( 6, 1276,  253, 3); -- sapphire
 
------------ Noobia Mine (increased coal yield) -----------
-AddArea( 7, position(59,49,100), 15 );
-AddStone( 7, 232 );
-SetResource( 7, 232, 2536, 40); -- copper
-SetResource( 7, 232, 234,  5); -- gold nuggets
-SetResource( 7, 232, 254,  3); -- diamonds
-SetResource( 7, 232, 251,  1); -- amethysts
-AddStone( 7, 914 );
-SetResource( 7, 914,  22, 60); -- iron ore
-SetResource( 7, 914,  255, 3); -- rubys
-SetResource( 7, 914,  257, 1); -- topas
-AddStone( 7, 1273 );
-SetResource( 7, 1273,  22, 60); -- iron ore
-SetResource( 7, 1273,  253, 3); -- sapphire
-SetResource( 7, 1273,  252, 1); -- obsidian
-AddStone( 7, 1245 );
-SetResource( 7, 1245,  21, 80); -- coal
-SetResource( 7, 1245,  252, 3); -- obsidian
-SetResource( 7, 1245,  255, 1); -- rubys
-AddStone( 7, 1246 );
-SetResource( 7, 1246, 21,  40); -- coal
-SetResource( 7, 1246, 251,  3); -- amethysts
-SetResource( 7, 1246,  256,  1); -- emerald
-AddStone( 7, 1276 );
-SetResource( 7, 1276,  2536, 40); -- copper ore
-SetResource( 7, 1276,  256, 3); -- emerald
-SetResource( 7, 1276,  253, 1); -- sapphire
-AddStone( 7, 1250 );
-SetResource( 7, 1250, 234,  10); -- gold nuggets
-SetResource( 7, 1250, 2534,  1); -- merinium ore
-SetResource( 7, 1250,  254,  3); -- diamonds
-SetResource( 7, 1250,  257,  1); -- topas
-------- Noobia Mine - FERTIG ------
-
 ----------- Prison Mine -----------
 AddArea( 8, position(-480,-480,-40), 30 );
 AddStone( 8, 232 );
@@ -278,29 +244,6 @@ SetResource( 8, 1250,  254,  3); -- diamonds
 SetResource( 8, 1250,  257,  1); -- topas
 ------- Prison Mine - FERTIG ------
 
------------ Digging Projects (temporarly) -----------
------------ Galmair Tunnel Project -----------
-AddArea( 91, position(427,206,0), 10 );
-AddStone( 91, 914 );
-AddStone( 91, 232 );
-AddStone( 91, 1245 );
-AddArea( 92, position(427,187,0), 10 );
-AddStone( 92, 914 );
-AddStone( 92, 232 );
-AddStone( 92, 1245 );
-AddArea( 93, position(410,187,0), 10 );
-AddStone( 93, 914 );
-AddStone( 93, 232 );
-AddStone( 93, 1245 );
-AddArea( 94, position(393,187,0), 10 );
-AddStone( 94, 914 );
-AddStone( 94, 232 );
-AddStone( 94, 1245 );
-AddArea( 95, position(393,169,0), 10 );
-AddStone( 95, 914 );
-AddStone( 95, 232 );
-AddStone( 95, 1245 );
-
 local function GetResource(AreaID, StoneID)
     local ResourceList = Area[AreaID]["Stones"][StoneID];
     local cumulatedProbability = 0;
@@ -332,7 +275,6 @@ local function GetAreaId(TargetPos)
 end
 
 local function breakRock(Rock)
-    local RockPos=Rock.pos;
     local RockQual=Rock.quality;
     local HitDMG=math.random(6,8);
     if (RockQual<HitDMG) then
@@ -364,7 +306,7 @@ local function getRock(User, AreaId)
         for y=-Radius,Radius do
             local targetPos = position(User.pos.x + x, User.pos.y + y, User.pos.z);
             if (world:isItemOnField(targetPos)) then
-                local targetItem = world:getItemOnField(targetPos);
+                targetItem = world:getItemOnField(targetPos);
                 if (isMinableRock(AreaId, targetItem)) then
                     return targetItem;
                 end

@@ -38,8 +38,7 @@ messageE[4] = "[Quest status] As you cross the Kantabi River you hear an uproar 
 function M.MoveToField(User)
     if (User:getQuestProgress(111) == 9) then --OK, the player does the quest
         local queststatus = User:getQuestProgress(116) --here, we save which fields were visited
-        local queststatuslist = {}
-        queststatuslist = common.Split_number(queststatus, 4) --reading the digits of the queststatus as table
+        local queststatuslist = common.Split_number(queststatus, 4) --reading the digits of the queststatus as table
 
         for i = 1, 4 do
             if User:isInRangeToPosition(waypoint[i], 2) and queststatuslist[i] == 0 then

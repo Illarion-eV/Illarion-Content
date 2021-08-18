@@ -45,8 +45,7 @@ messageE[5] = "[Quest status] You approach the altar of Findari and swirling gus
 function M.MoveToField(User)
     if (User:getQuestProgress(113) == 1) then --OK, the player does the quest
         local queststatus = User:getQuestProgress(114) --here, we save which fields were visited
-        local queststatuslist = {}
-        queststatuslist = common.Split_number(queststatus, 5) --reading the digits of the queststatus as table
+        local queststatuslist = common.Split_number(queststatus, 5) --reading the digits of the queststatus as table
 
         for i = 1, 5 do
             if User:isInRangeToPosition(altar[i], 1) and queststatuslist[i] == 0 then

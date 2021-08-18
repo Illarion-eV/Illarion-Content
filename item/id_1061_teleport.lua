@@ -59,8 +59,6 @@ function M.UseItem(User, SourceItem, ltstate)
         end
 
         world:erase(SourceItem, 1)
-    else
-       -- no portal book
     end
 end
 

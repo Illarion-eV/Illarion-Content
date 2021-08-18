@@ -30,13 +30,8 @@ local ranklist = require("base.ranklist")
 local M = {}
 
 function M.addEffect(arenaEffect, User)
-
-    local found
-    local arenaId
-    local level
-
-    found, level = arenaEffect:findValue("level");
-    found, arenaId = arenaEffect:findValue("arenaID");
+    local _, level = arenaEffect:findValue("level");
+    local found, arenaId = arenaEffect:findValue("arenaID");
 
     if not found then
         return false;
@@ -58,12 +53,8 @@ function M.callEffect(arenaEffect, User)
 
     arenaEffect.nextCalled = 30;
 
-    local found
-    local arenaId
-    local level
-
-    found, arenaId = arenaEffect:findValue("arenaID");
-    found, level = arenaEffect:findValue("level");
+    local _, arenaId = arenaEffect:findValue("arenaID");
+    local found, level = arenaEffect:findValue("level");
 
     if not found then
         return false;      -- no monster

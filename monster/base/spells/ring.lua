@@ -16,7 +16,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local base = require("monster.base.spells.base")
 local common = require("base.common")
-local standardfighting = require("server.standardfighting")
 
 local function _isNumber(value)
     return type(value) == "number"

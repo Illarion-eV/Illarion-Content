@@ -54,8 +54,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (393,38,0,'triggerfield.ferry');
 -- INSERT INTO triggerfields VALUES (393,39,0,'triggerfield.ferry');
 
-local common = require("base.common")
-
 local M = {}
 
 local ferrySourcePos = {
