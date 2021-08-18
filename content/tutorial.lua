@@ -31,7 +31,7 @@ local tutorialTalkEN = {}
 
 --Texts for informs
 
-tutorialInformDE["brewery"] = "Umgeben von aufeinander gestapelten Fässern stehen Tische, auf denen wild verstreut Zutaten für weitere Getränke herumliegen. Der verlockende Geruch der Fermentierung wabert in den Gasthof, während goldener Met, durch fein gewebte Stoffe gefiltert, in Flaschen abgefüllt wird."
+tutorialInformDE["brewery"] = "Umgeben von aufeinander gestapelten Fässern stehen Tische, auf denen wild verstreut Zutaten für weitere Getränke herumliegen. Der verlockende Geruch der Fermentierung wabert in den Gasthof und durch fein gewebten Stoff gefilterter goldener Met wird in Flaschen abgefüllt."
 tutorialInformEN["brewery"] = "Surrounded by stacked barrels, ingredients chaotically scattered over tables await the next brew. The tantilising aroma of fermentation drifts into the inn, as golden mead strains through finely woven cloth to fill the next bottle."
 
 tutorialInformDE["campfire"] ="Alte Baumstämme, die um ein einladend knisterndes Feuer platziert wurden, bieten eine gute Gelegenheit sich auszuruhen. Funken aus der heißen Glut fallen auf den Boden, der von den vielen Reisenden, die sich hier gemeinsam ausruhen und Geschichten austauschen, platt getrampelt ist."
@@ -40,7 +40,7 @@ tutorialInformEN["campfire"] = "Old logs drawn around the inviting warmth of a c
 tutorialInformDE["depot"] = "Eine reich verzierte goldene Truhe, die vor Energie schimmert, steht im Gasthof zur Hanfschlinge. Sie ist offenbar sehr geräumig im Inneren."
 tutorialInformEN["depot"] = "A highly embellished golden chest sits prominently in the Hemp Necktie Inn, shimmering with energy and seemingly harbouring remarkable depths."
 
-tutorialInformDE["entrance"] = "Von den abgenutzten Bodendielen steigt der starke Geruch von vergossenem Bier auf, etwas abgemildert durch die wabernden Gerüche von Braten und exotischen Gewürzen. Der geschäftige Wirt bedient Reisende und Händler, die an ziemlich abgenutzten Tischen eine Pause einlegen, schroff."
+tutorialInformDE["entrance"] = "Von den abgenutzten Bodendielen steigt ein starker Geruch von vergossenem Bier auf, etwas abgemildert durch die wabernden Gerüche von Braten und exotischen Gewürzen. Der geschäftige Wirt bedient Reisende und Händler, die an ziemlich abgenutzten Tischen eine Pause einlegen, schroff."
 tutorialInformEN["entrance"] = "A strong whiff of sloshed ale rises from scuffed boards, tempered by drifting aromas of roasting meat and exotic spices. The bustling barkeep gruffly serves travellers and merchants taking respite at abundant rustic tables."
 
 tutorialInformDE["glyph"] = "Auf der anderen Seite der funkelnden Brücke liegt eine mystische Insel, die in schimmernden Nebel gehüllt ist. Energie, durchdrungen mit farbigem Licht, wirbelt um einen Ritualplatz, der in den glitzernden Fels gehauen ist."
@@ -58,7 +58,7 @@ tutorialInformEN["market"] = "Heavily laden carts are hauled back and forth from
 tutorialInformDE["nimbur"] = "Ein korpulenter Zwerg hält einen Becher in der Hand und probiert vergnügt sein neuestes Gebräu. Er scheint damit einverstanden zu sein, einen Schluck zu teilen. Hände, die nach seinem Geheimrezept trachten, können sich allerdings auf einen ordentlichen Hieb mit dem Kochlöffel gefasst machen."
 tutorialInformEN["nimbur"] = "A rotund dwarf with mug in hand gleefully samples his latest brew. Pleased enough to share a tipple, any hands straying to his secret recipes can expect a sharp rap across the knuckles from his well used spoon."
 
-tutorialInformDE["orchard"] = "Ein kleiner Hain auf der Landzunge bietet einen schattigen, ruhigen Erholungsort abseits des geschäftigen Hafen. Das Rascheln zwischen den Blättern lässt jedoch darauf schließen, dass die üppige Menge an Früchten des Obstgartens auch andere Besucher angezogen haben könnten."
+tutorialInformDE["orchard"] = "Ein kleiner Hain auf der Landzunge bietet einen schattigen, ruhigen Erholungsort abseits des geschäftigen Hafens. Das Rascheln zwischen den Blättern lässt jedoch darauf schließen, dass die üppige Menge an Früchten des Obstgartens auch andere Besucher angezogen haben könnten."
 tutorialInformEN["orchard"] = "A small grove of trees planted on the headland provides shady tranquility from the bustling harbour. Rustling amongt the leaves, however, suggests the abundant fruit of this orchard might also have attracted other visitors."
 
 tutorialInformDE["orchard rat"] = "Eine kleine braune Ratte verliert das Interesse an einem angenagten Apfel und stürzt sich vom Baum auf dich, um dich zu beißen und zu kratzen."
