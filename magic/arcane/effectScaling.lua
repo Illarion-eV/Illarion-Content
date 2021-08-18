@@ -21,12 +21,19 @@ local runes = require("magic.arcane.runes")
 
 local M = {}
 
-function M.getEffectScaling(user, target, spell)
+function M.getEffectScaling(user, target, spell, earthTrap)
 local element = runes.fetchElement(spell)
-local magicResistance = MR.getMagicResistance(target, spell)
-local magicPenetration = MP.getMagicPenetration(user, element, spell)
+local magicResistance = 0
+    if not target.x and (target:getType() == Character.player or target:getType() == Character.monster) then
+        magicResistance = MR.getMagicResistance(target, spell)
+    end
+local magicPenetration
+    if not earthTrap then
+        magicPenetration = MP.getMagicPenetration(user, element, spell)
+    else
+        magicPenetration = earthTrap:getData("magicPenetration")
+    end
 local retVal = 1 + magicPenetration - magicResistance
-debug("effect scaling value: "..tostring(retVal))
 return retVal
 end
 

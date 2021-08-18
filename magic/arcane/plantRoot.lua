@@ -17,7 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local runes = require("magic.arcane.runes")
 local magicDamage = require("magic.arcane.magicDamage")
-local snare = require("magic.arcane.snare")
+
 local staticObjects = require("magic.arcane.staticObjects")
 local effectScaling = require("magic.arcane.effectScaling")
 local M = {}
@@ -25,12 +25,7 @@ local M = {}
 local howManySecondsUntilFullSpeed = 10
 
 function M.getSpeed(user, target, spell, earthTrap)
-    local scaling
-    if not earthTrap then
-        scaling = effectScaling.getEffectScaling(user, target, spell)
-    else
-        scaling = earthTrap:getData("scaling")
-    end
+    local scaling = effectScaling.getEffectScaling(user, target, spell, earthTrap)
     local retVal = 10
     local Taur = runes.checkSpellForRuneByName("Taur", spell)
     local Ura = runes.checkSpellForRuneByName("Ura", spell)
@@ -82,11 +77,11 @@ end
 function M.getPosition(target)
 local positionToCheck
     if target.category == "character" then
-        positionToCheck = target.pos
+        positionToCheck = target.target.pos
     elseif target.category == "item" then
         positionToCheck = target.position
     elseif target.category == "position" then
-        positionToCheck = target
+        positionToCheck = target.target
     end
 return positionToCheck
 end
@@ -98,12 +93,12 @@ local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
 local Luk = runes.checkSpellForRuneByName("Luk", spell)
 local Lhor = runes.checkSpellForRuneByName("Lhor", spell)
 local plantID = 3644
-local wear = staticObjects.getWearBasedOnDuration(user, spell)
     if Orl then --To prevent overlap of plant and trap, trap as the stronger one takes priority. Trap will instead get plant graphic if this rune is used.
         return
     end
     for _, target in pairs(targets) do
-        local scaling = effectScaling.getEffectScaling(user, target, spell)
+        local wear = staticObjects.getWearBasedOnDuration(user, target.target, spell)
+        local scaling = effectScaling.getEffectScaling(user, target.target, spell)
         if SOLH and Luk then
             local field = M.getField(target)
             if not field then
@@ -153,7 +148,7 @@ function M.applyPlantRoot(user, targets, spell, earthTrap)
 local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
     for _, target in pairs(targets) do
         if target.category == "character" and SOLH then
-            local getSpeed = M.getSpeed(target.target, spell)
+            local getSpeed = M.getSpeed(user, target.target, spell, earthTrap)
             if not getSpeed then
                 return
             end
@@ -178,16 +173,37 @@ local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
 end
 
 function M.addEffect(myEffect, target)
-    snare.addEffect(myEffect, target)
-end
+    local foundSpeed, speed = myEffect:findValue("speed")
+        if foundSpeed then
+            target.speed = target.speed - (speed/100) --Divided by 100 because speed is a percentage value due to it being stored as integers.
+        end
+    end
 
-function M.callEffect(myEffect, target)
-    snare.callEffect(myEffect, target)
-end
+    function M.callEffect(myEffect, target)
+        local foundRemainingSpeed, remainingSpeed = myEffect:findValue("remainingSpeed")
+        local foundTicks, ticks = myEffect:findValue("ticks")
+        if foundRemainingSpeed and foundTicks then
+            if remainingSpeed > 0 then
+                local speedIncrease = (remainingSpeed/100)/ticks
+                target.speed = target.speed + speedIncrease
+                myEffect:addValue("ticks", ticks-1)
+                myEffect:addValue("speed", target.speed)
+                myEffect:addValue("remainingSpeed", remainingSpeed-(remainingSpeed/ticks))
+                myEffect.nextCalled = 10
+                return true
+            end
+        end
+        return false
+    end
 
-function M.loadEffect(myEffect, target)
-    snare.loadEffect(myEffect, target)
-end
-
+    function M.loadEffect(myEffect, target)
+        local foundRemainingSpeed, remainingSpeed = myEffect:findValue("remainingSpeed")
+        if foundRemainingSpeed then
+            if remainingSpeed > 0 then
+                target.speed = target.speed - ((remainingSpeed)/100)
+                myEffect.nextCalled = 10
+            end
+        end
+    end
 
 return M

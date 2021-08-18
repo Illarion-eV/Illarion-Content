@@ -36,7 +36,7 @@ function M.UseItem(User, SourceItem)
     -- alchemy end
     -- magic book for casting
     if SourceItem:getData("magicBook") == "true" then
-        magicBook.spellSelection(User, SourceItem)
+        magicBook.mainSelectionDialog(User, SourceItem)
         return
     end
     -- magic book end

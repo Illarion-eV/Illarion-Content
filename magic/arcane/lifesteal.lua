@@ -40,7 +40,7 @@ local rune
 local amountStolen = 500
 
     for _, target in pairs(targets) do
-        local scaling = effectScaling.getEffectScaling(user, target, spell)
+        local scaling = effectScaling.getEffectScaling(user, target.target, spell)
         amountStolen = amountStolen*scaling
         if JUS and target.category == "character" then
             if rune then

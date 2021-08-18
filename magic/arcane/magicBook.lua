@@ -75,10 +75,6 @@ local intelligence = User:increaseAttrib("intelligence", 0)
 local essence = User:increaseAttrib("essence", 0)
 local willpower = User:increaseAttrib("willpower", 0)
 local attributeSum = (intelligence + essence + willpower)
-    if SourceItem.itempos ~= 5 and SourceItem.itempos ~= 6 then
-        User:inform("","You must hold the book in your hand.")
-        return
-    end
     if attributeSum < 30 or User:getMagicType() ~= 0 or User:getQuestProgress(37) == 0 then
         User:inform("","All you can see are nonsenical scribbles. Wait, did that line just move? This may be beyond your ability to understand.")
         return
@@ -91,17 +87,13 @@ local attributeSum = (intelligence + essence + willpower)
         if index == 1 then
             M.spellSelection(User, SourceItem)
         elseif index == 2 then
-            User:setQuestProgress(7002,0)
-            User:setQuestProgress(7001,0)
-            User:inform("","Wand primed for wand magic.")
-        elseif index == 3 then
-            User:setQuestProgress(7002,1)
+            User:setQuestProgress(7001, 0)
+            User:inform("","Wand primed for wand magic & glyph forging.")
         end
     end
 local dialog = SelectionDialog(common.GetNLS(User,"","Wand priming"), common.GetNLS(User,"","Select what type of magic you want your wand primed to."), callback)
 dialog:addOption(0,"Spells")
-dialog:addOption(0,"Wand Magic")
-dialog:addOption(0,"Glyph Forging")
+dialog:addOption(0,"Wand Magic & Glyph Forging")
 User:requestSelectionDialog(dialog)
 end
 return M

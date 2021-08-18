@@ -21,12 +21,12 @@ local targeting = require("magic.arcane.targeting")
 
 local M = {}
 
-local function illuminate(user, myPosition, spell, earthTrap)
+local function illuminate(user, myPosition, spell, earthTrap, target)
 local wear
     if earthTrap then
         wear = earthTrap:getData("illuminateWear")
     else
-        wear = staticObjects.getWearBasedOnDuration(user, spell)
+        wear = staticObjects.getWearBasedOnDuration(user, target, spell)
     end
 local item = world:createItemFromId(3518, 1, myPosition, true, 999, {})
     item.wear = wear
@@ -44,7 +44,7 @@ local PEN = runes.checkSpellForRuneByName("PEN", spell)
 
     for _, target in pairs(targets) do
         local myPosition = targeting.getPositionByTarget(target)
-        illuminate(user, myPosition, spell, earthTrap)
+        illuminate(user, myPosition, spell, earthTrap, target.target)
     end
 end
 

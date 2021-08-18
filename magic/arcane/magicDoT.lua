@@ -34,10 +34,10 @@ function M.dealMagicDoT(user, targets, spell, element)
             local Ira = runes.checkSpellForRuneByName("Ira", spell)
             local Kah = runes.checkSpellForRuneByName("Kah", spell)
             if Ira then
-                manaReduction = manaStaminaReduction.getManaToReduce()
+                manaReduction = manaStaminaReduction.getManaToReduce(user, target.target, spell)
             end
             if Kah then
-                foodReduction = manaStaminaReduction.getStaminaToReduce()
+                foodReduction = manaStaminaReduction.getStaminaToReduce(user, target.target, spell)
             end
             if damage > 0 then
                 local foundEffect = myTarget.effects:find(1)

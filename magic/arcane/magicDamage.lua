@@ -147,13 +147,19 @@ local list
 return damage
 end
 
-function M.getMagicDamage(user, spell, element, target, DoT, playerOrMonster, Orl)
+function M.getMagicDamage(user, spell, element, target, DoT, targetType, Orl)
 local damage
 local magicResist
 local magicPen
 local finalDamage
 local illusion = runes.checkSpellForRuneByName("Lhor", spell)
 local teaching = runes.checkSpellForRuneByName("Bhona", spell)
+local playerOrMonster = targetType
+    if targetType == "character" then
+        playerOrMonster = target:getType()
+    elseif targetType == "item" or playerOrMonster == "position" then
+        return 0
+    end
     if illusion or teaching then
         finalDamage = 0
     elseif playerOrMonster == Character.player then

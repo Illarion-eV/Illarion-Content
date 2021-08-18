@@ -76,7 +76,8 @@ local Dun = runes.checkSpellForRuneByName("Dun", spell)
 local PEN = runes.checkSpellForRuneByName("PEN", spell)
 local Hept = runes.checkSpellForRuneByName("Hept", spell)
 local Lev = runes.checkSpellForRuneByName("Lev", spell)
-    if Fhen and (RA or CUN) then
+local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
+    if Fhen and (RA or CUN or SOLH) then
         if M.FhenGetTarget(user, targetPosition, rangeNum) then
             targetPosition = M.FhenGetTarget(user, targetPosition, rangeNum).pos
         end

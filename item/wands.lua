@@ -137,10 +137,9 @@ function M.MoveItemAfterMove(User, SourceItem, TargetItem)
 end
 
 function M.UseItem(user, sourceItem, ltstate)
-local glyphMode = user:getQuestProgress(7002)
 local spellMode = user:getQuestProgress(7001)
     if common.IsItemInHands(sourceItem) then
-        if glyphMode == 1 then
+        if spellMode == 0 then
             if ltstate == Action.none then
                 if magicWands[sourceItem.id] then
                     if user:getMagicType() == 0 and (user:getQuestProgress(37) ~= 0 or user:getMagicFlags(0) > 0) then

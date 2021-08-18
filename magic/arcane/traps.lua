@@ -27,6 +27,7 @@ local MSReduction = require("magic.arcane.manaStaminaReduction")
 local illuminate = require("magic.arcane.illuminate")
 local snare = require("magic.arcane.snare")
 local stallMana = require("magic.arcane.stallMana")
+local MP = require("magic.arcane.magicPenetration")
 
 local M = {}
 
@@ -35,34 +36,43 @@ local Orl = runes.checkSpellForRuneByName("Orl", spell)
 local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
 local Luk = runes.checkSpellForRuneByName("Luk", spell)
 local Lhor = runes.checkSpellForRuneByName("Lhor", spell)
-local wear = staticObjects.getWearBasedOnDuration(user, spell)
+local Anth = runes.checkSpellForRuneByName("Anth", spell)
 local element = runes.fetchElement(spell)
-    if SOLH and Orl then
-        local graphicID = 372
-        for _, target in pairs(targets) do
-            local scaling = effectScaling.getEffectScaling(user, target.target, spell)
-            local damage = magicDamage.getMagicDamage(user, spell, element, target.target, false, target.category, false)
-            local field = plantRoot.getField(target)
-            if not field then
+    if not SOLH or not (Orl or (Anth and not Luk)) then
+        return
+    end
+    local graphicID = 372
+    for _, target in pairs(targets) do
+        if not Orl and Anth then
+            if not target.category == "item" then
                 return
             end
-            if Luk then
-                if plantRoot.checkForSuitableSoil(field) then
-                    graphicID = 3644
-                end
-            end
-            if target.category == "item" then
-                if not field:isPassable() then
-                    return
-                end
-            end
-            local myPosition = plantRoot.getPosition(target)
-            local trap = world:createItemFromId(graphicID, 1, myPosition, true, 999, {["illusion"] = tostring(Lhor), ["spell"] = spell, ["illuminateWear"] = wear, ["damage"] = damage, ["scaling"] = scaling})
-            trap.wear = wear
-            world:changeItem(trap)
         end
+        local wear = staticObjects.getWearBasedOnDuration(user, target.target, spell)
+        local scaling = effectScaling.getEffectScaling(user, target.target, spell)
+        local damage = magicDamage.getMagicDamage(user, spell, element, target.target, false, target.category, false)
+        local field = plantRoot.getField(target)
+        local magicPenetration = MP.getMagicPenetration(user, element, spell)
+        if not field then
+            return
+        end
+        if Luk then
+            if plantRoot.checkForSuitableSoil(field) then
+                graphicID = 3644
+            end
+        end
+        if target.category == "item" then
+            if not field:isPassable() then
+                return
+            end
+        end
+        local myPosition = plantRoot.getPosition(target)
+        local trap = world:createItemFromId(graphicID, 1, myPosition, true, 999, {["illusion"] = tostring(Lhor), ["spell"] = spell, ["illuminateWear"] = wear, ["damage"] = damage, ["scaling"] = scaling, ["magicPenetration"] = magicPenetration})
+        trap.wear = wear
+        world:changeItem(trap)
     end
 end
+
 
 function M.triggerEarthTrap(sourceItem, trapTarget)
 local myPosition = trapTarget.pos
@@ -71,14 +81,14 @@ local spell = sourceItem:getData("spell")
 local element = runes.fetchElement(spell)
 local illusion = sourceItem:getData("illusion")
 local wear = sourceItem.wear
-    dealDamage.applyMagicDamage(false, targets, spell, element, false, true)
-    illuminate.CheckIfIlluminate(false, targets, spell, true)
-    snare.applySnare(false, targets, spell, false, true)
+    dealDamage.applyMagicDamage(false, targets, spell, element, false, sourceItem)
+    illuminate.CheckIfIlluminate(false, targets, spell, sourceItem)
+    snare.applySnare(false, targets, spell, false, sourceItem)
     magicGFX.getTargetGFX(targets, spell, true)
-    stun.checkForStun(false, spell, targets, true)
-    MSReduction.checkForIncreaseStamina(false, targets, spell, true)
-    plantRoot.applyPlantRoot(false, targets, spell, true)
-    stallMana.applyManaStalling(false, targets, spell, true)
+    stun.checkForStun(spell, targets)
+    MSReduction.checkForIncreaseStamina(false, targets, spell, sourceItem)
+    plantRoot.applyPlantRoot(false, targets, spell, sourceItem)
+    stallMana.applyManaStalling(false, targets, spell, sourceItem)
     world:erase(sourceItem, 1)
     if sourceItem.id == 3466 then
         local newPlant = world:createItemFromId(3466, 1, myPosition, true, 999, {["illusion"] = illusion})
