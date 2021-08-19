@@ -70,6 +70,7 @@ function M.applyMagicDamage(user, targets, spell, element, Orl, earthTrap)
                 damage = magicDamage.getMagicDamage(user, spell, element, myTarget, false, targetType, Orl)
             end
             M.dealMagicDamage(user, myTarget, spell, damage)
+            myTarget:learn(Character.magicResistance, damage/100, 100) -- Will need balancing for how fast magic resistance is learned.
         end
     end
 end

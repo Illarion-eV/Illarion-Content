@@ -25,6 +25,7 @@ local magicSFX = require("magic.arcane.magicSFX")
 local delayedAttack = require("magic.arcane.delayedAttack")
 local incantation = require("magic.arcane.incantation")
 local diminishingReturns = require("magic.arcane.diminishingReturns")
+local skilling = require("magic.arcane.skilling")
 
 local M = {}
 
@@ -65,6 +66,7 @@ local castGFX = magicGFX.getUserGFX(spell)
     elseif actionState == Action.success then
         if not runes.checkSpellForRuneByName("Bhona", spell) then
             mana.removedUsedMana(user, spell)
+            skilling.increaseExperience(user, spell)
             if JUS and Orl then
                 diminishingReturns.applyOrl(user, position, spell)
             end
