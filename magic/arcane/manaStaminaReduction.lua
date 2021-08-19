@@ -94,7 +94,7 @@ local stamina = false
     if RA then
         for _, target in pairs(targets) do
             if target.category == "character" then
-                applyReduceManaOrStamina(target.target, mana, stamina)
+                applyReduceManaOrStamina(user, target.target, mana, stamina, false, spell)
             end
         end
     end
