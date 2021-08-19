@@ -116,7 +116,13 @@ local skillNames = {
     Character.wandMagic,
     Character.woodcutting,
     Character.wrestling,
-    Character.enchantingOfJewels
+    Character.enchantingOfJewels,
+    Character.magicResistance,
+    Character.fireMagic,
+    Character.earthMagic,
+    Character.windMagic,
+    Character.spiritMagic,
+    Character.waterMagic
 }
 local attributeNames={
     "agility",
