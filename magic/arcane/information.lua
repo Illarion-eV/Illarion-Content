@@ -66,7 +66,7 @@ local function checkIfTypeOf(char, typeOf)
 return false
 end
 
-local function getPositionOfTarget(user, target, spell)
+--[[local function getPositionOfTarget(user, target, spell)
 local Mes = runes.checkSpellForRuneByName("Mes", spell)
 local returnText = false
     if Mes then
@@ -75,7 +75,7 @@ local returnText = false
         returnText = "\nPosition - "..distance.."to the "..direction.." of you."
     end
 return returnText
-end
+end]]
 
 local function getItemProperties(target)
 local itemID = target.target.id
@@ -138,20 +138,20 @@ local Fhen = runes.checkSpellForRuneByName("Fhen", spell)
 return returnText
 end
 
-local function fakeDialogue()
+--local function fakeDialogue()
 --set up a fake dialogue that looks like the real one, but the results are chosen by caster in a selectiondialogue
-end
+--end
 
-local function gatherTextsIntoDialogue(user, targets, spell)
+--[[local function gatherTextsIntoDialogue(user, targets, spell)
 --run M.getText for each target in targets, putting them into one big text variable
 --check if Lhor for fakeDialogue instead of real one
 --Invoke a messagedialogue that shows the info gathered
-end
+end]]
 
-local function sendInfoToOtherPlayer(user, targets, spell)
+--[[local function sendInfoToOtherPlayer(user, targets, spell)
 --Check if Fhan
 --Give selection dialogue of nearby players that will get send the messageDialogue of info if selected
-end
+end]]
 
 function M.invokeSpiritSpells(user, targets, spell)
 telepathy(user, targets, spell)
