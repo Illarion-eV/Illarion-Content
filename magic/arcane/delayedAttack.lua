@@ -33,6 +33,7 @@ local snare = require("magic.arcane.snare")
 local plantRoot = require("magic.arcane.plantRoot")
 local stallMana = require("magic.arcane.stallMana")
 local traps = require("magic.arcane.traps")
+local information = require("magic.arcane.information")
 
 local M = {}
 
@@ -79,6 +80,7 @@ function M.spellEffects(user, targets, spell, element, Orl)
     MSReduction.checkForIncreaseStamina(user, targets, spell)
     plantRoot.applyPlantRoot(user, targets, spell)
     stallMana.applyManaStalling(user, targets, spell)
+    information.invokeSpiritSpells(user, targets, spell)
 end
 
 function M.applyDelay(user, target, spell, Orl)

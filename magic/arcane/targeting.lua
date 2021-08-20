@@ -32,7 +32,20 @@ function M.increaseArea(targetPosition)
     table.insert(positionTable, {position = position(targetPosition.x+1,targetPosition.y+1,targetPosition.z)})
     table.insert(positionTable, {position = position(targetPosition.x-1,targetPosition.y-1,targetPosition.z)})
     return positionTable
-    end
+end
+
+local function getPENLukDunPositionTable(targetPosition)
+    local positionTable = {}
+    table.insert(positionTable, {position = position(targetPosition.x+2,targetPosition.y,targetPosition.z)})
+    table.insert(positionTable, {position = position(targetPosition.x,targetPosition.y+2,targetPosition.z)})
+    table.insert(positionTable, {position = position(targetPosition.x-2,targetPosition.y,targetPosition.z)})
+    table.insert(positionTable, {position = position(targetPosition.x,targetPosition.y-2,targetPosition.z)})
+    table.insert(positionTable, {position = position(targetPosition.x+2,targetPosition.y-2,targetPosition.z)})
+    table.insert(positionTable, {position = position(targetPosition.x-2,targetPosition.y+2,targetPosition.z)})
+    table.insert(positionTable, {position = position(targetPosition.x+2,targetPosition.y+2,targetPosition.z)})
+    table.insert(positionTable, {position = position(targetPosition.x-2,targetPosition.y-2,targetPosition.z)})
+    return positionTable
+end
 
 function M.getPosition(user, spell)
 local element = runes.fetchElement(spell)
@@ -74,6 +87,7 @@ local RA = runes.checkSpellForRuneByName("RA", spell)
 local CUN = runes.checkSpellForRuneByName("CUN", spell)
 local Dun = runes.checkSpellForRuneByName("Dun", spell)
 local PEN = runes.checkSpellForRuneByName("PEN", spell)
+local Luk = runes.checkSpellForRuneByName("Luk", spell)
 local Hept = runes.checkSpellForRuneByName("Hept", spell)
 local Lev = runes.checkSpellForRuneByName("Lev", spell)
 local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
@@ -108,7 +122,11 @@ local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
         end
     end
 local positions
-    if Dun then
+    if Dun and not (PEN and Luk) then
+        positions = M.increaseArea(targetPosition)
+    elseif Dun and PEN and Luk then
+        positions = getPENLukDunPositionTable(targetPosition)
+    elseif PEN and Luk then
         positions = M.increaseArea(targetPosition)
     else
         positions = {}

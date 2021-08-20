@@ -15,33 +15,40 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local runes = require("magic.arcane.runes")
-local dun = require("magic.arcane.dun")
 local magicDamage = require("magic.arcane.magicDamage")
 
 local M = {}
 
-function M.getInputFrom(user)
---input dialog here to request telepathic message
+function M.getInputFromAndSendTo(user, target)
+    local callback = function(dialog)
+        if not dialog:getSuccess() then
+            user:inform("You decided against responding to the telepathic connection.")
+        else
+            local input = dialog:getInput()
+            target:inform("","You hear the voice of your telepathic partner in your mind: "..input)
+        end
+    end
+
+    local dialog = InputDialog("What do you want to tell your telepathic partner?","", false, 255, callback)
+    user:requestInputDialog(dialog)
 end
 
-function M.telepathy(user, targets, spell)
-local messageToTarget = false
-local messageFromTarget = false
+local function telepathy(user, targets, spell)
     for _, target in pairs(targets) do
+        if target.category ~= "character" then
+            return
+        end
+        if target.target:getType() ~= Character.player then
+            return
+        end
         if runes.checkSpellForRuneByName("Kel", spell) or runes.checkSpellForRuneByName("Tah", spell) then
-            target.character:inform("","You feel a telepathic connection establish between you and someone else.")
+            target.target:inform("","You feel a telepathic connection establish between you and someone else.")
         end
         if runes.checkSpellForRuneByName("Kel", spell) then
-            messageToTarget = M.getInputFrom(user)
+            M.getInputFromAndSendTo(user, target.target)
         end
         if runes.checkSpellForRuneByName("Tah", spell) then
-            messageFromTarget = M.getInputFrom(target.character)
-        end
-        if messageToTarget then
-            target.character:inform("","You hear the voice of your telepathic partner in your mind: "..messageToTarget)
-        end
-        if messageFromTarget then
-            user:inform("","You hear the voice of your telepathic partner in your mind: "..messageFromTarget)
+            M.getInputFromAndSendTo(target.target, user)
         end
     end
 end
@@ -59,176 +66,97 @@ local function checkIfTypeOf(char, typeOf)
 return false
 end
 
-local function getLukDunPositionTable(targetPosition)
-    local positionTable = {}
-    table.insert(positionTable, {position = position(targetPosition.x+2,targetPosition.y,targetPosition.z)})
-    table.insert(positionTable, {position = position(targetPosition.x,targetPosition.y+2,targetPosition.z)})
-    table.insert(positionTable, {position = position(targetPosition.x-2,targetPosition.y,targetPosition.z)})
-    table.insert(positionTable, {position = position(targetPosition.x,targetPosition.y-2,targetPosition.z)})
-    table.insert(positionTable, {position = position(targetPosition.x+2,targetPosition.y-2,targetPosition.z)})
-    table.insert(positionTable, {position = position(targetPosition.x-2,targetPosition.y+2,targetPosition.z)})
-    table.insert(positionTable, {position = position(targetPosition.x+2,targetPosition.y+2,targetPosition.z)})
-    table.insert(positionTable, {position = position(targetPosition.x-2,targetPosition.y-2,targetPosition.z)})
-    return positionTable
+local function getPositionOfTarget(user, target, spell)
+local Mes = runes.checkSpellForRuneByName("Mes", spell)
+local returnText = false
+    if Mes then
+        local direction = "" -- Function that returns direction target is in relative to user
+        local distance = "" -- Distance between user and target converted into text similar to treasure map distance
+        returnText = "\nPosition - "..distance.."to the "..direction.." of you."
+    end
+return returnText
 end
 
-function M.getInformationText(user, targeted, spell)
-local target = targeted
-local targets
-local items = {}
-local characters = {}
-    if targeted.pos then
-        target = targeted.pos
-    end
-    if runes.checkSpellForRuneByName("Dun", spell) then
-        targets = dun.increaseArea(target)
-    else
-        targets = {}
-        table.insert(targets, {position = target})
-    end
-    if runes.checkSpellForRuneByName("Anth", spell) then
-        if targets then
-            for _, tar in pairs(targets) do
-                local field = world:getField(tar.position)
-                local itemCount = field:countItems()
-                if itemCount ~= 0 then
-                    table.insert(items, {item = field:getStackItem(itemCount) })
-                end
-            end
-        else
-            local field = world:getField(target)
-            local itemCount = field:countItems()
-            if itemCount ~= 0 then
-                table.insert(items, {item = field:getStackItem(itemCount)})
-            end
-        end
-    end
-    if targets then
-        for _, tar in pairs(targets) do
-            if world:isCharacterOnField(tar.position) then
-                local char = world:getCharacterOnField(tar.position)
-                if runes.checkSpellForRuneByName("Fhen", spell) and char:getType() == Character.player then
-                    table.insert(characters, {character = char })
-                end
-                if runes.checkSpellForRuneByName("Taur", spell) and char:getType() == Character.monster and checkIfTypeOf(char, "sentient") then
-                    table.insert(characters, {character = char})
-                end
-                if runes.checkSpellForRuneByName("Ura", spell) and char:getType() == Character.monster and checkIfTypeOf(char, "animal") then
-                    table.insert(characters, {character = char})
-                end
-                if runes.checkSpellForRuneByName("Yeg", spell) and char:getType() == Character.monster and checkIfTypeOf(char, "undead") then
-                    table.insert(characters, {character = char})
-                end
-            end
-        end
-    end
-
-    if runes.checkSpellForRuneByName("Luk", spell) then
-    local positions
-        if runes.checkSpellForRuneByName("Dun", spell) then
-            positions = getLukDunPositionTable(target)
-        else
-            positions = dun.increaseArea(target)
-        end
-    characters = {}
-        for _, pos in pairs(positions) do
-            if world:isCharacterOnField(pos.position) then
-                local char = world:getCharacterOnField(pos.position)
-                if runes.checkSpellForRuneByName("Fhen", spell) and char:getType() == Character.player then
-                    table.insert(characters, {character = char })
-                end
-                if runes.checkSpellForRuneByName("Taur", spell) and char:getType() == Character.monster and checkIfTypeOf(char, "sentient") then
-                    table.insert(characters, {character = char})
-                end
-                if runes.checkSpellForRuneByName("Ura", spell) and char:getType() == Character.monster and checkIfTypeOf(char, "animal") then
-                    table.insert(characters, {character = char})
-                end
-                if runes.checkSpellForRuneByName("Yeg", spell) and char:getType() == Character.monster and checkIfTypeOf(char, "undead") then
-                    table.insert(characters, {character = char})
-                end
-            end
-        end
-    end
-
-local startText = "You sense:\n"
-local manaText = ""
-local foodText = ""
-local hpText = ""
-local movementText = ""
-local positionText = ""
-local type = characters
-local typeName = "character"
-    if runes.checkSpellForRuneByName("Ira", spell) then
-        for i = 1, #type do
-            local manaAmount = type[i][typeName]:setAttrib("mana", 0)
-            manaText = manaText.."Target "..i.." has "..manaAmount.." mana.\n"
-        end
-    end
-    if runes.checkSpellForRuneByName("Kah", spell) then
-        for i = 1, #type do
-            local foodAmount = type[i][typeName]:setAttrib("foodlevel", 0)
-            foodText = foodText.."Target "..i.." has "..foodAmount.." stamina.\n"
-        end
-    end
-    if runes.checkSpellForRuneByName("Sih", spell) then
-        for i = 1, #type do
-            local hp = type[i][typeName]:setAttrib("hitpoints", 0)
-            hpText = hpText.."Target "..i.." has "..hp.." health.\n"
-        end
-    end
-    if runes.checkSpellForRuneByName("Sul", spell) then
-        for i = 1, #type do
-            local ms = type[i][typeName].movepoints
-            if ms == 21 then
-                movementText = movementText.."Target "..i.." is idle.\n"
-            elseif ms > 0 then
-                movementText = movementText.."Target "..i.." is active.\n"
-            else
-                movementText = movementText.."Target "..i.." is unable to move.\n"
-            end
-        end
-    end
-    if runes.checkSpellForRuneByName("Mes", spell) then
-        for i = 1, #type do
-            local direction = "" -- replace with function that returns the direction the target is in
-            local distance = "" -- replace with a function that returns whether the distance is close, nearby, etc, basically refer to treasure map distance
-            positionText = positionText.."Target "..i.." is "..distance.." to the "..direction.."of you."
-        end
-    end
-
-    if runes.checkSpellForRuneByName("Lhor", spell) then
-        if manaText ~= "" then
-            manaText = manaText -- replace with function with selectiondialog for what it should show
-        end
-        if foodText ~= "" then
-            foodText = foodText -- replace with function with selectiondialog for what it should show
-        end
-        if hpText ~= "" then
-            hpText = hpText -- replace with function with selectiondialog for what it should show
-        end
-        if movementText ~= "" then
-            movementText = movementText -- replace with function with selectiondialog for what it should show
-        end
-        if positionText ~= "" then
-            positionText = positionText -- replace with function with selectiondialog for what it should show
-        end
-    end
-
-local messageText = startText..manaText..foodText..hpText..movementText..positionText
-M.telepathy(user, characters, spell)
-M.getInformationDialog(user, characters, spell, messageText)
+local function getItemProperties(target)
+local itemID = target.target.id
+local itemStats = world:getItemStatsFromId(itemID)
+local itemName = itemStats.English
+local itemWeight = itemStats.Weight
+local itemQuality = target.target.quality
+local itemWear = target.target.wear
+local returnText = itemName..":\nWeight - "..itemWeight..".\nQuality - "..itemQuality..".\nDurability - "..itemWear.."."
+return returnText
 end
 
-function M.getInformationDialog(user, targets, spell, messageText)
--- MessageDialog function that shows user the information
-    if runes.checkSpellForRuneByName("Fhan", spell) then
-        for _, target in pairs(targets) do
-            local char = target.character
-            debug(char)
-            --invoke messagedialog here with char instead of user
+local function getPlayerProperties(target, spell)
+-- if Ira, get mana info
+-- if Kah, get stamina info
+--If Orl, give a textValue of how learned a character is based on total skill value minus language skills
+--If Pherc, give a textValue of how much magic resistance someone has based on the value returned by the magic resistance  script
+--If Qwan, return vague text values for what stats a player has for each attribute
+--If Sih, get health status
+--If Sul, check for the Character.speed value and give a textValue based off of that
+--get info about player targets for base spell that isnt any  of the above info (THings like race and gender?)
+end
+
+local function getMonsterProperties(target, spell)
+local Yeg = runes.checkSpellForRuneByName("Yeg", spell)
+local Ura = runes.checkSpellForRuneByName("Ura", spell)
+local Taur = runes.checkSpellForRuneByName("Taur", spell)
+local returnText = false
+    if (Yeg and checkIfTypeOf(target.target, "undead")) or (Taur and checkIfTypeOf(target.target, "sentient")) or (Ura and checkIfTypeOf(target.target, "animal")) then
+        returnText = "infoAboutMonsterHere"
+        --If Pherc, give a textValue of how much magic resistance someone has based on the value returned by the magic resistance  script
+        --If Sih, get health status
+        --If Qwan Do monsters have attributes? If so apply attribute checking script that returns text values for each attribute if Qwan
+        --If Sul, check for the Character.speed value and give a textValue based off of that
+        --Basic monster info that isnt a part of the above
+    end
+return returnText
+end
+
+local function getTileProperties(user, target, spell)
+--get info about empty tiles
+end
+
+function M.getText(user, target, spell)
+local returnText
+local Anth = runes.checkSpellForRuneByName("Anth", spell)
+local Fhen = runes.checkSpellForRuneByName("Fhen", spell)
+    if Anth and target.category == "item" then
+        returnText = getItemProperties(target)
+    elseif target.category == "character" then
+        if Fhen and target.target:getType() == Character.player then
+            getPlayerProperties(target, spell)
+        elseif target.target:getType() == Character.monster then
+            getMonsterProperties(target, spell)
         end
     end
---Invoke messagedialog here
+    if not returnText then
+        returnText = getTileProperties(user, target, spell)
+    end
+return returnText
+end
+
+local function fakeDialogue()
+--set up a fake dialogue that looks like the real one, but the results are chosen by caster in a selectiondialogue
+end
+
+local function gatherTextsIntoDialogue(user, targets, spell)
+--run M.getText for each target in targets, putting them into one big text variable
+--check if Lhor for fakeDialogue instead of real one
+--Invoke a messagedialogue that shows the info gathered
+end
+
+local function sendInfoToOtherPlayer(user, targets, spell)
+--Check if Fhan
+--Give selection dialogue of nearby players that will get send the messageDialogue of info if selected
+end
+
+function M.invokeSpiritSpells(user, targets, spell)
+telepathy(user, targets, spell)
+--gatherTextsIntoDialogue(user, targets, spell)
+--sendInfoToOtherPlayer(user, targets, spell)
 end
 
 return M
