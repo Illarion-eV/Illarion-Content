@@ -75,12 +75,12 @@ function M.spellEffects(user, targets, spell, element, Orl)
     dealDamage.applyMagicDamage(user, targets, spell, element, Orl)
     illuminate.CheckIfIlluminate(user, targets, spell)
     snare.applySnare(user, targets, spell, Orl)
-    magicGFX.getTargetGFX(targets, spell, true)
     stun.checkForStun(spell, targets)
     MSReduction.checkForIncreaseStamina(user, targets, spell)
     plantRoot.applyPlantRoot(user, targets, spell)
     stallMana.applyManaStalling(user, targets, spell)
     information.invokeSpiritSpells(user, targets, spell)
+    magicGFX.getTargetGFX(targets, spell, true)
 end
 
 function M.applyDelay(user, target, spell, Orl)
