@@ -35,7 +35,7 @@ function M.spawnRat()
     local Characters = world:getPlayersInRangeOf(position(720,290,0),5)
     if (#Characters > 0) then
         for _, Char in pairs(Characters) do
-            if Char:getQuestProgress(325) == 1 and Char:getQuestProgress(349) == 0 then -- There is a newbie who has not triggered a rat before
+            if Char:getQuestProgress(325) == 1 and Char:getQuestProgress(349) == 0 and Char:getQuestProgress(353) == 2 then -- There is a newbie who has not triggered a rat before and already read the dialog
                 world:createMonster(1111,common.getFreePos(position(720,290,0),5),-20)
                 Char:setQuestProgress(349, 1) --remember that a rat was triggered
                 return
