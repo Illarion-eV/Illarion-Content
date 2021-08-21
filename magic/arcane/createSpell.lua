@@ -277,21 +277,21 @@ function M.mainDialog(User)
             else
                 User:inform("","You must first learn how to use a primary rune before you can create a spell.")
             end
-        elseif index == 2 and User:isAdmin() then
+        elseif index == 2 then --and User:isAdmin() then
             learnRunesAdmin(User)
-        elseif index == 3 and User:isAdmin() then
+        elseif index == 3 then --and User:isAdmin() then
             unLearnAllRunesAdmin(User)
-        elseif index == 4 and User:isAdmin() then
+        elseif index == 4 then --and User:isAdmin() then
             dispenseMagicBookAdmin(User)
         end
     end
     local dialog = SelectionDialog(common.GetNLS(User,"","Spell Creation"), common.GetNLS(User,"","Pick an option."), callback)
     dialog:addOption(0, "Create a spell")
-    if User:isAdmin() then
+    --if User:isAdmin() then
         dialog:addOption(0, "Learn runes(admin only)")
         dialog:addOption(0, "Unlearn all runes (admin only)")
         dialog:addOption(0, "Dispense Spellbook (admin only)")
-    end
+    --end
     User:requestSelectionDialog(dialog)
 end
 return M
