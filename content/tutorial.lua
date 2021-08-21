@@ -261,6 +261,7 @@ function M.tutorialDialog(Character,questID,location)
             if informDE and informEN then
                 Character:inform(informDE,informEN)
             end
+            Character:setQuestProgress(questID, 2) --remember that the dialog was read
         end --end callback
         local textDE = M.getTutorialTextDE(location)
         local textEN = M.getTutorialTextEN(location)
