@@ -465,8 +465,45 @@ local Fhen = runes.checkSpellForRuneByName("Fhen", spell)
 return returnText
 end
 
-local function fakeDialogue()
---set up a fake dialogue that looks like the real one, but the results are chosen by caster in a selectiondialogue
+local function sendFakeInfoToTarget(user, targets, spell)
+end
+
+local function fakeTileInfo(user, targets, spell)
+--dialogue two: select each possible info for target type one by one
+sendFakeInfoToTarget(user, targets, spell)
+end
+
+local function fakeItemInfo(user, targets, spell)
+end
+
+local function fakePlayerInfo(user, targets, spell)
+end
+
+local function fakeMonsterInfo(user, targets, spell)
+end
+
+local function fakeDialogue(user, targets, spell)
+    local callback = function(dialog)
+        if not dialog:getSuccess() then
+            return
+        end
+        local index = dialog:getSelectedIndex() +1
+        if index == 1 then
+            fakeTileInfo(user, targets, spell)
+        elseif index == 2 then
+            fakeItemInfo(user, targets, spell)
+        elseif index == 3 then
+            fakePlayerInfo(user, targets, spell)
+        elseif index == 4 then
+            fakeMonsterInfo(user, targets, spell)
+        end
+    end
+local dialog = SelectionDialog(common.GetNLS(user,"","Fake information selection"), common.GetNLS(user,"","Select what type of information you want to fake."), callback)
+dialog:addOption(0,"Tile")
+dialog:addOption(0,"Item")
+dialog:addOption(0,"Player")
+dialog:addOption(0,"Monster")
+user:requestSelectionDialog(dialog)
 end
 
 local function gatherTextsIntoDialogue(user, targets, spell)
@@ -487,7 +524,15 @@ local text = gatherTextsIntoDialogue(user, targets, spell)
 user:requestMessageDialog(dialog)
 end
 
-local function selectNearbyPlayer(user)
+local function sendText(user, textSent, target)
+    local callback = function(dialog)
+    end
+    local dialog = MessageDialog("Magically obtained information", textSent, callback)
+    target:inform("You feel a flow of information stream into your mind through magical forces.")
+    target:requestMessageDialog(dialog)
+end
+
+local function selectNearbyPlayer(user, textSent)
 local range = 7
 local nearbyPlayers = world:getCharactersInRangeOf(user.pos, range)
 local callback = function(dialog)
@@ -497,7 +542,8 @@ local callback = function(dialog)
     local index = dialog:getSelectedIndex() +1
     for i = 1, #nearbyPlayers do
         if index == i then
-            return nearbyPlayers[i]
+            sendText(user, textSent, nearbyPlayers[i])
+            return
         end
     end
 end
@@ -510,32 +556,26 @@ end
 
 local function sendInfoToOtherPlayer(user, targets, spell)
 local Fhan = runes.checkSpellForRuneByName("Fhan", spell)
-local Lhor = runes.checkSpellForRuneByName("Lhor", spell)
     if not Fhan then
         return
     end
 local textSent = gatherTextsIntoDialogue(user, targets, spell)
-    if Lhor then
-        textSent = fakeDialogue()
-    end
-local target = selectNearbyPlayer(user)
-debug("target: "..tostring(target))
-
-    local callback = function(dialog)
-        target:inform("You feel a flow of information stream into your mind through magical forces.")
-    end
-    local dialog = MessageDialog("Magically obtained information", textSent, callback)
-target:requestMessageDialog(dialog)
+selectNearbyPlayer(user, textSent)
 end
 
 function M.invokeSpiritSpells(user, targets, spell)
+local Lhor = runes.checkSpellForRuneByName("Lhor", spell)
 local PEN = runes.checkSpellForRuneByName("PEN", spell)
     if not PEN then
         return
     end
 telepathy(user, targets, spell)
 getInformation(user, targets, spell)
-sendInfoToOtherPlayer(user, targets, spell)
+    if Lhor then
+        fakeDialogue(user, targets, spell)
+    else
+        sendInfoToOtherPlayer(user, targets, spell)
+    end
 end
 
 return M
