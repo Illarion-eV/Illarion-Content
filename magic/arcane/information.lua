@@ -21,8 +21,7 @@ local common = require("base.common")
 
 local M = {}
 
-local function turnMRintoText(target, spell)
-local MR = magicResistance.getMagicResistance(target, spell)
+local function turnMRintoText(MR)
 local returnText
     if MR < 0.33 then
         returnText = "The target has low magic resistance.\n"
@@ -34,8 +33,7 @@ local returnText
 return returnText
 end
 
-local function turnHealthIntoText(target)
-local health = target:increaseAttrib("hitpoints", 0)
+local function turnHealthIntoText(health)
 local returnText
     if health == 10000 then
         returnText = "Target is perfectly healthy.\n"
@@ -53,8 +51,7 @@ local returnText
 return returnText
 end
 
-local function turnManaIntoText(target)
-local mana = target:increaseAttrib("mana", 0)
+local function turnManaIntoText(mana)
 local returnText
     if mana == 10000 then
         returnText = "Target is brimming with mana.\n"
@@ -72,8 +69,7 @@ local returnText
 return returnText
 end
 
-local function turnStaminaIntoText(target)
-local stamina = target:increaseAttrib("foodlevel", 0)
+local function turnStaminaIntoText(stamina)
 local returnText
     if stamina == 10000 then
         returnText = "Target is brimming with energy.\n"
@@ -96,8 +92,7 @@ local function getTotalSkillValue(target)
 return 0
 end
 
-local function skillValueIntoText(target)
-local skillValue = getTotalSkillValue(target)
+local function skillValueIntoText(skillValue)
 local returnText
     if skillValue >= 3000 then
         returnText = "Target is highly experienced in many professions.\n"
@@ -209,8 +204,7 @@ local returnText = ""
 return returnText
 end
 
-local function speedIntoText(target)
-local speed = target.speed
+local function speedIntoText(speed)
 local returnText
     if speed == 1 then
         returnText = "Target is not under the effect of any hastening or slowing spells.\n"
@@ -306,34 +300,26 @@ local Sih = runes.checkSpellForRuneByName("Sih", spell)
 local Sul = runes.checkSpellForRuneByName("Sul", spell)
 local returnText = "Race: "..getRaceText(target).." "..getGenderText(target).."\n"
     if Ira then
-        debug("Ira: "..tostring(turnManaIntoText(target)))
-        returnText = returnText..turnManaIntoText(target)
+        returnText = returnText..turnManaIntoText(target:increaseAttrib("mana", 0))
     end
     if Kah then
-        debug("Kah: "..tostring(turnStaminaIntoText(target)))
-        returnText = returnText..turnStaminaIntoText(target)
+        returnText = returnText..turnStaminaIntoText(target:increaseAttrib("foodlevel", 0))
     end
     if Orl then
-        debug("Orl: "..tostring(skillValueIntoText(target)))
-        returnText = returnText..skillValueIntoText(target)
+        returnText = returnText..skillValueIntoText(getTotalSkillValue(target))
     end
     if Pherc then
-        debug("Pherc: "..tostring(turnMRintoText(target, spell)))
-        returnText = returnText..turnMRintoText(target, spell)
+        returnText = returnText..turnMRintoText(magicResistance.getMagicResistance(target, spell))
     end
     if Qwan then
-        debug("Qwan: "..tostring(statsIntoText(target)))
         returnText = returnText..statsIntoText(target)
     end
     if Sih then
-        debug("Sih: "..tostring(turnHealthIntoText(target)))
-        returnText = returnText..turnHealthIntoText(target)
+        returnText = returnText..turnHealthIntoText(target:increaseAttrib("hitpoints", 0))
     end
     if Sul then
-        debug("Sul: "..tostring(speedIntoText(target)))
-        returnText = returnText..speedIntoText(target)
+        returnText = returnText..speedIntoText(target.speed)
     end
-    debug("Final text: "..tostring(returnText))
 return returnText
 end
 
@@ -352,16 +338,16 @@ local returnText = false
     if (Yeg and undead) or (Taur and sentient) or (Ura and animal) then
         returnText = "Target race: "..getRaceText(target).."\n"
         if Pherc then
-            returnText = returnText..turnMRintoText(target, spell)
+            returnText = returnText..turnMRintoText(magicResistance.getMagicResistance(target, spell))
         end
         if Sih then
-            returnText = returnText..turnHealthIntoText(target)
+            returnText = returnText..turnHealthIntoText(target:increaseAttrib("hitpoints", 0))
         end
         if Qwan then
             returnText = returnText..statsIntoText(target)
         end
         if Sul then
-            returnText = returnText..speedIntoText(target)
+            returnText = returnText..speedIntoText(target.speed)
         end
     end
 return returnText
@@ -465,37 +451,162 @@ local Fhen = runes.checkSpellForRuneByName("Fhen", spell)
 return returnText
 end
 
-local function sendFakeInfoToTarget(user, targets, spell)
+local function sendText(textSent, target)
+    local callback = function(dialog)
+    end
+    local dialog = MessageDialog("Magically obtained information", textSent, callback)
+    target:inform("You feel a flow of information stream into your mind through magical forces.")
+    target:requestMessageDialog(dialog)
 end
 
-local function fakeTileInfo(user, targets, spell)
---dialogue two: select each possible info for target type one by one
-sendFakeInfoToTarget(user, targets, spell)
+local function selectNearbyPlayer(user, textSent)
+local range = 7
+local nearbyPlayers = world:getCharactersInRangeOf(user.pos, range)
+local callback = function(dialog)
+    if not dialog:getSuccess() then
+        return
+    end
+    local index = dialog:getSelectedIndex() +1
+    for i = 1, #nearbyPlayers do
+        if index == i then
+            sendText(textSent, nearbyPlayers[i])
+            return
+        end
+    end
+end
+local dialog = SelectionDialog(common.GetNLS(user,"","Target Selection"), common.GetNLS(user,"","Select who you want to send the information to."), callback)
+    for i = 1, #nearbyPlayers do
+        dialog:addOption(0,nearbyPlayers[i].name)
+    end
+user:requestSelectionDialog(dialog)
 end
 
-local function fakeItemInfo(user, targets, spell)
+local directionsList = {
+{direction = "east"},
+{direction = "west"},
+{direction = "north"},
+{direction = "south"},
+{direction = "southeast"},
+{direction = "northeast"},
+{direction = "southwest"},
+{direction = "northwest"}
+}
+
+local function moreTargetsOrSend(user, text, targetnumber, spell)
+local Fhan = runes.checkSpellForRuneByName("Fhan", spell)
+    local callback = function(dialog)
+        if (not dialog:getSuccess()) then
+            return
+        end
+        local index = dialog:getSelectedIndex()+1
+        if index == 1 then
+            if Fhan then
+                selectNearbyPlayer(user, text)
+            else
+                sendText(text, user)
+            end
+        else
+            targetnumber = targetnumber+1
+            M.fakeDialogue(user, text, targetnumber, spell)
+        end
+    end
+    local dialog = SelectionDialog(common.GetNLS(user,"","Fake information selection"), common.GetNLS(user,"","Select what to do next"), callback)
+    if Fhan then
+        dialog:addOption(0, "Send faked information")
+    else
+        dialog:addOption(0, "View faked information")
+    end
+    dialog:addOption(0, "Add another fake target")
+user:requestSelectionDialog(dialog)
 end
 
-local function fakePlayerInfo(user, targets, spell)
+local function fakeTargetDirection(user, text, targetnumber, spell)
+local direction
+local distance
+local _
+
+    local inputCallback = function (inputDialog)
+        if (not inputDialog:getSuccess()) then
+            return
+        end
+        local input = inputDialog:getInput()
+        if (string.find(input,"(%d+)")~=nil) then
+            _, _, distance = string.find(input,"(%d+)")
+            local textSent = text.."Target's position is "..distance.." tiles to the "..direction.." of you."
+            moreTargetsOrSend(user, textSent, targetnumber, spell)
+        else
+            user:inform("Input must be a number.")
+        end
+    end
+
+    local callback = function(dialog)
+        if not dialog:getSuccess() then
+            return
+        end
+        local index = dialog:getSelectedIndex() +1
+        for i = 1, #directionsList do
+            if index == i then
+                direction = directionsList[i].direction
+                user:requestInputDialog(InputDialog("Distance in number of tiles", "How many tiles away is the fake target meant to be?" ,false, 255, inputCallback))
+            end
+        end
+    end
+
+    local dialog = SelectionDialog(common.GetNLS(user,"","Fake information selection"), common.GetNLS(user,"","Select what information you want to fake."), callback)
+
+    for i = 1, #directionsList do
+        dialog:addOption(0, directionsList[i].direction)
+    end
+user:requestSelectionDialog(dialog)
 end
 
-local function fakeMonsterInfo(user, targets, spell)
+local function fakeTileInfo(user, text, targetnumber, spell)
+    local callback = function(dialog)
+        if not dialog:getSuccess() then
+            return
+        end
+        local index = dialog:getSelectedIndex() +1
+        for i = 1, #tileDescriptions do
+            if index == i then
+                text = text..tileDescriptions[i].english.."\n"
+                fakeTargetDirection(user, text, targetnumber, spell)
+            end
+        end
+    end
+local dialog = SelectionDialog(common.GetNLS(user,"","Fake information selection"), common.GetNLS(user,"","Select what type of tile you want to fake."), callback)
+    for i = 1, #tileDescriptions do
+        dialog:addOption(0, tileDescriptions[i].english)
+    end
+user:requestSelectionDialog(dialog)
 end
 
-local function fakeDialogue(user, targets, spell)
+local function fakeItemInfo(user)
+--select each possible info for target type one by one
+end
+
+local function fakePlayerInfo(user)
+--select each possible info for target type one by one
+end
+
+local function fakeMonsterInfo(user)
+--select each possible info for target type one by one
+end
+
+function M.fakeDialogue(user, text, targetNumber, spell)
     local callback = function(dialog)
         if not dialog:getSuccess() then
             return
         end
         local index = dialog:getSelectedIndex() +1
         if index == 1 then
-            fakeTileInfo(user, targets, spell)
+            text = text.."\nTarget "..targetNumber..":\nTile information:\n"
+            fakeTileInfo(user, text, targetNumber, spell)
         elseif index == 2 then
-            fakeItemInfo(user, targets, spell)
+            fakeItemInfo(user)
         elseif index == 3 then
-            fakePlayerInfo(user, targets, spell)
+            fakePlayerInfo(user)
         elseif index == 4 then
-            fakeMonsterInfo(user, targets, spell)
+            fakeMonsterInfo(user)
         end
     end
 local dialog = SelectionDialog(common.GetNLS(user,"","Fake information selection"), common.GetNLS(user,"","Select what type of information you want to fake."), callback)
@@ -524,36 +635,6 @@ local text = gatherTextsIntoDialogue(user, targets, spell)
 user:requestMessageDialog(dialog)
 end
 
-local function sendText(user, textSent, target)
-    local callback = function(dialog)
-    end
-    local dialog = MessageDialog("Magically obtained information", textSent, callback)
-    target:inform("You feel a flow of information stream into your mind through magical forces.")
-    target:requestMessageDialog(dialog)
-end
-
-local function selectNearbyPlayer(user, textSent)
-local range = 7
-local nearbyPlayers = world:getCharactersInRangeOf(user.pos, range)
-local callback = function(dialog)
-    if not dialog:getSuccess() then
-        return
-    end
-    local index = dialog:getSelectedIndex() +1
-    for i = 1, #nearbyPlayers do
-        if index == i then
-            sendText(user, textSent, nearbyPlayers[i])
-            return
-        end
-    end
-end
-local dialog = SelectionDialog(common.GetNLS(user,"","Target Selection"), common.GetNLS(user,"","Select who you want to send the information to."), callback)
-    for i = 1, #nearbyPlayers do
-        dialog:addOption(0,nearbyPlayers[i].name)
-    end
-user:requestSelectionDialog(dialog)
-end
-
 local function sendInfoToOtherPlayer(user, targets, spell)
 local Fhan = runes.checkSpellForRuneByName("Fhan", spell)
     if not Fhan then
@@ -572,7 +653,7 @@ local PEN = runes.checkSpellForRuneByName("PEN", spell)
 telepathy(user, targets, spell)
 getInformation(user, targets, spell)
     if Lhor then
-        fakeDialogue(user, targets, spell)
+        M.fakeDialogue(user,"", 1, spell)
     else
         sendInfoToOtherPlayer(user, targets, spell)
     end
