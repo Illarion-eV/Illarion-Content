@@ -263,7 +263,7 @@ local loopCounter = 0
         repeat
             local positionCleared, thePosition = checkForCollisionAndFreeSpace(lastX, lastY, landingX, landingY, Z)
             if loopCounter >= 100 then
-                debug("Error: Loop never ends.")
+                debug("Error: Loop never ends. Targeting for movement magic spell failed.")
                 break
             end
             if not positionCleared then
@@ -280,7 +280,7 @@ local loopCounter = 0
         repeat
             local positionCleared, thePosition = checkForCollisionAndFreeSpace(lastXReverse, lastYReverse, landingXReverse, landingYReverse, Z)
             if loopCounter >= 100 then
-                debug("Error: Loop never ends.")
+                debug("Error: Loop never ends. Targeting for movement magic spell failed.")
                 break
             end
             if not positionCleared then
