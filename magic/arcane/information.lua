@@ -18,6 +18,7 @@ local runes = require("magic.arcane.runes")
 local magicDamage = require("magic.arcane.magicDamage")
 local magicResistance = require("magic.arcane.magicResistance")
 local common = require("base.common")
+local lookAt = require("base.lookat")
 
 local M = {}
 
@@ -216,14 +217,28 @@ local returnText
 return returnText
 end
 
-local function getItemProperties(target)
-local itemID = target.target.id
-local itemStats = world:getItemStatsFromId(itemID)
-local itemName = itemStats.English
-local itemWeight = itemStats.Weight
-local itemQuality = target.target.quality
-local itemWear = target.target.wear
-local returnText = itemName..":\nWeight - "..itemWeight..".\nQuality - "..itemQuality..".\nDurability - "..itemWear.."."
+local function getItemProperties(user, target)
+local lookAtInfo = lookAt.GenerateLookAt(user, target.target)
+local itemName = lookAtInfo.name
+local itemWeight = lookAtInfo.weight
+local itemQuality = lookAtInfo.qualityText
+local itemDurability = lookAtInfo.durabilityText
+local returnText = itemName
+    if itemWeight > 0 then
+        if itemWeight == 2 then
+            returnText = returnText..":\nWeight - "..(itemWeight/2).." blackberry.\n"
+        else
+            returnText = returnText..":\nWeight - "..(itemWeight/2).." blackberries.\n"
+        end
+    end
+    debug("itemQuality: "..tostring(itemQuality))
+    if itemQuality ~= "" then
+        returnText = returnText.."Quality - "..itemQuality.."."
+    end
+    debug("itemDurability: "..tostring(itemDurability))
+    if itemDurability ~= "" then
+        returnText = returnText..".\nDurability - "..itemDurability"."
+    end
 return returnText
 end
 
@@ -436,7 +451,7 @@ local returnText
 local Anth = runes.checkSpellForRuneByName("Anth", spell)
 local Fhen = runes.checkSpellForRuneByName("Fhen", spell)
     if Anth and target.category == "item" then
-        returnText = getItemProperties(target)
+        returnText = getItemProperties(user, target)
     elseif target.category == "character" then
         if Fhen and target.target:getType() == Character.player then
             returnText = getPlayerProperties(target.target, spell)
