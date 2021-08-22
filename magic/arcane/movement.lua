@@ -258,12 +258,18 @@ local lastY = myTarget.y
 local lastXReverse = user.pos.x
 local lastYReverse = user.pos.y
 local proceedReverse = false
+local loopCounter = 0
     if Fhan or Fhen then
         repeat
             local positionCleared, thePosition = checkForCollisionAndFreeSpace(lastX, lastY, landingX, landingY, Z)
+            if loopCounter >= 100 then
+                debug("Error: Loop never ends.")
+                break
+            end
             if not positionCleared then
                 lastX = thePosition.x
                 lastY = thePosition.y
+                loopCounter = loopCounter + 1
             else
                 targetPosition = thePosition
                 proceed = true
@@ -273,9 +279,14 @@ local proceedReverse = false
     if Sav then
         repeat
             local positionCleared, thePosition = checkForCollisionAndFreeSpace(lastXReverse, lastYReverse, landingXReverse, landingYReverse, Z)
+            if loopCounter >= 100 then
+                debug("Error: Loop never ends.")
+                break
+            end
             if not positionCleared then
                 lastXReverse = thePosition.x
                 lastYReverse = thePosition.y
+                loopCounter = loopCounter + 1
             else
                 targetPositionReverse = thePosition
                 proceedReverse = true
