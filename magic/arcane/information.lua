@@ -529,6 +529,10 @@ target:requestMessageDialog(dialog)
 end
 
 function M.invokeSpiritSpells(user, targets, spell)
+local PEN = runes.checkSpellForRuneByName("PEN", spell)
+    if not PEN then
+        return
+    end
 telepathy(user, targets, spell)
 getInformation(user, targets, spell)
 sendInfoToOtherPlayer(user, targets, spell)
