@@ -28,7 +28,6 @@ local glyphs = require("base.glyphs")
 local seafaring = require("base.seafaring")
 local staticteleporter = require("base.static_teleporter")
 
-
 local M = {}
 
 local chooseItem
@@ -1229,6 +1228,385 @@ function updateMonsters(array,number,basePosition)
     end
 end
 
+local function createPotion(User, potionID, potionEffect)
+local potionAmount
+local potionQuality
+local _
+    local callback = function(dialog)
+        if not dialog:getSuccess() then
+            return
+        end
+        local input = dialog:getInput()
+        if (string.find(input,"(%d+)")~=nil) then
+            _, _, potionQuality = string.find(input,"(%d+)")
+        end
+        local callback2 = function(dialog2)
+            if not dialog:getSuccess() then
+                return
+            end
+            local input2 = dialog2:getInput()
+            if (string.find(input2,"(%d+)")~=nil) then
+                _, _, potionAmount = string.find(input2,"(%d+)")
+            end
+            local callback3 = function(dialog3)
+                if not dialog:getSuccess() then
+                    return
+                end
+                local potionName = dialog3:getInput()
+                common.CreateItem(User,tonumber(potionID),tonumber(potionAmount),tonumber(potionQuality),{["potionEffectId"]=tonumber(potionEffect),["descriptionEn"]=potionName,["descriptionDe"]=potionName})
+            end
+            User:requestInputDialog(InputDialog("Potion Creation", "What do you want to label your potions?",false,255,callback3))
+        end
+        if tonumber(potionQuality) > tonumber("999") then
+            User:inform("Number can't be higher than 999.")
+        else
+            User:requestInputDialog(InputDialog("Potion creation", "How many potions do you wish to create?",false,255,callback2))
+        end
+    end
+User:requestInputDialog(InputDialog("Potion creation", "What quality should the potions have (Max 999).",false,255,callback))
+end
+local function customPotionInput(User, potionType, potionID)
+local potionEffect
+local _
+    local callback = function(dialog)
+        if not dialog:getSuccess() then
+            return
+        end
+        local input = dialog:getInput()
+        if (string.find(input,"(%d+)")~=nil) then
+            _, _, potionEffect = string.find(input,"(%d+)")
+            createPotion(User, tostring(potionID), tostring(potionEffect))
+        end
+    end
+    if potionType == "Amethyst" then
+        User:requestInputDialog(InputDialog("Potion creation", "Add the custom value.\nExample: '95559555' would be a Health Potion.\nValues: 9 = +4, 5 = 0, 1 = -4.\n[1]Heal[2]Mana[3]Food[4]Antidote\n[5]HoT[6]MoT [7]FoT  [8]AoT       ",false,255,callback))
+    elseif potionType == "Ruby" then
+        User:requestInputDialog(InputDialog("Potion creation", "Add the custom value.\nExample: '95559555' would be a Health Potion.\nValues: 9 = +4, 5 = 0, 1 = -4.\n[1]Str[2]Int[3]Dex[4]Per\n[5]Con[6]Ess[7]Agi[8]Wil",false,255,callback))
+    end
+end
+local function potionTypeSelection(User, potionType)
+    local callback1 = function(dialog)
+        if not dialog:getSuccess() then
+            return
+        end
+        local index = dialog:getSelectedIndex() +1
+        if index == 1 then
+            customPotionInput(User, potionType, "166")
+        elseif index == 2 then
+            createPotion(User,"166","95559555")
+        elseif index == 3 then
+            createPotion(User,"166","15551555")
+        elseif index == 4 then
+            createPotion(User,"166","59555955")
+        elseif index == 5 then
+            createPotion(User,"166","51555155")
+        elseif index == 6 then
+            createPotion(User,"166","55955595")
+        elseif index == 7 then
+            createPotion(User,"166","55155515")
+        elseif index == 8 then
+            createPotion(User,"166","55595559")
+        elseif index == 9 then
+            createPotion(User,"166","55515551")
+        elseif index == 10 then
+            createPotion(User,"166","95599559")
+        elseif index == 11 then
+            createPotion(User,"166","15511551")
+        elseif index == 12 then
+            createPotion(User,"166","99999999")
+        elseif index == 13 then
+            createPotion(User,"166","11111111")
+        elseif index == 14 then
+            createPotion(User,"166","10")
+        end
+    end
+    local callback2 = function(dialog2)
+        if not dialog2:getSuccess() then
+            return
+        end
+        local index = dialog2:getSelectedIndex() +1
+        if index == 1 then
+            customPotionInput(User, potionType, "59")
+        elseif index == 2 then
+            createPotion(User,"59","59555959")
+        elseif index == 3 then
+            createPotion(User,"59","95999595")
+        elseif index == 4 then
+            createPotion(User,"59","99999999")
+        elseif index == 5 then
+            createPotion(User,"59","11111111")
+        end
+    end
+    local callback3 = function(dialog3)
+        if not dialog3:getSuccess() then
+            return
+        end
+        local index = dialog3:getSelectedIndex() +1
+        if index == 1 then
+            createPotion(User,"329","560")
+        elseif index == 2 then
+            createPotion(User,"329","531")
+        elseif index == 3 then
+            createPotion(User,"329","530")
+        elseif index == 4 then
+            createPotion(User,"329","551")
+        elseif index == 5 then
+            createPotion(User,"329","550")
+        elseif index == 6 then
+            createPotion(User,"329","501")
+        elseif index == 7 then
+            createPotion(User,"329","500")
+        elseif index == 8 then
+            createPotion(User,"329","521")
+        elseif index == 9 then
+            createPotion(User,"329","520")
+        elseif index == 10 then
+            createPotion(User,"329","541")
+        elseif index == 11 then
+            createPotion(User,"329","540")
+        elseif index == 12 then
+            createPotion(User,"329","511")
+        elseif index == 13 then
+            createPotion(User,"329","510")
+        end
+    end
+    local callback4 = function(dialog4)
+        if not dialog4:getSuccess() then
+            return
+        end
+        local index = dialog4:getSelectedIndex() +1
+        if index == 1 then
+            createPotion(User,"327","301")
+        elseif index == 2 then
+            createPotion(User,"327","302")
+        elseif index == 3 then
+            createPotion(User,"327","304")
+        elseif index == 4 then
+            createPotion(User,"327","306")
+        elseif index == 5 then
+            createPotion(User,"327","307")
+        elseif index == 6 then
+            createPotion(User,"327","309")
+        elseif index == 7 then
+            createPotion(User,"327","316")
+        elseif index == 8 then
+            createPotion(User,"327","317")
+        elseif index == 9 then
+            createPotion(User,"327","311")
+        elseif index == 10 then
+            createPotion(User,"327","312")
+        elseif index == 11 then
+            createPotion(User,"327","314")
+        elseif index == 12 then
+            createPotion(User,"327","320")
+        end
+    end
+    local callback5 = function(dialog5)
+        if not dialog5:getSuccess() then
+            return
+        end
+        local index = dialog5:getSelectedIndex() +1
+        if index == 1 then
+            createPotion(User,"330","600")
+        elseif index == 2 then
+            createPotion(User,"330","607")
+        elseif index == 3 then
+            createPotion(User,"330","603")
+        elseif index == 4 then
+            createPotion(User,"330","604")
+        elseif index == 5 then
+            createPotion(User,"330","601")
+        elseif index == 6 then
+            createPotion(User,"330","606")
+        elseif index == 7 then
+            createPotion(User,"330","605")
+        elseif index == 8 then
+            createPotion(User,"330","602")
+        end
+    end
+    local callback6 = function(dialog6)
+        if not dialog6:getSuccess() then
+            return
+        end
+        local index = dialog6:getSelectedIndex() +1
+        if index == 1 then
+            createPotion(User,"165","400")
+        elseif index == 2 then
+            createPotion(User,"165","401")
+        elseif index == 3 then
+            createPotion(User,"165","402")
+        elseif index == 4 then
+            createPotion(User,"165","403")
+        elseif index == 5 then
+            createPotion(User,"165","404")
+        elseif index == 6 then
+            createPotion(User,"165","405")
+        elseif index == 7 then
+            createPotion(User,"165","406")
+        end
+    end
+    local dialog = SelectionDialog("Amethyst Potions", "Select which type of Amethyst Potion you want to create.", callback1)
+    local dialog2 = SelectionDialog("Ruby Potions", "Select which type of Ruby Potion you want to create.", callback2)
+    local dialog3 = SelectionDialog("Shapeshifters", "Select which type of shapeshifter you want to create.", callback3)
+    local dialog4 = SelectionDialog("Bombs", "Select which type of bomb you want to create.", callback4)
+    local dialog5 = SelectionDialog("Language Potions", "Select which type of language potion you want to create.", callback5)
+    local dialog6 = SelectionDialog("Quality Raisers", "Select which type of potion you want to create a quality raiser for.", callback6)
+    dialog:addOption(0, "Custom Potion")
+    dialog:addOption(0, "Health Potion")
+    dialog:addOption(0, "Un-Health Potion")
+    dialog:addOption(0, "Mana Potion")
+    dialog:addOption(0, "Anti-Mana Potion")
+    dialog:addOption(0, "Nutritional Potion")
+    dialog:addOption(0, "Anti-Nutrition Potion")
+    dialog:addOption(0, "Antidote")
+    dialog:addOption(0, "Poison")
+    dialog:addOption(0, "Potent Antidote")
+    dialog:addOption(0, "Potent Poison")
+    dialog:addOption(0, "Elixir of Life")
+    dialog:addOption(0, "Elixir of Death")
+    dialog:addOption(0, "Dragon's Breath")
+    dialog2:addOption(0, "Custom Potion")
+    dialog2:addOption(0, "Mage Potion")
+    dialog2:addOption(0, "Warrior Potion")
+    dialog2:addOption(0, "Potion of Power")
+    dialog2:addOption(0, "Potion of Weakness")
+    dialog3:addOption(0, "Houndsblood")
+    dialog3:addOption(0, "Female Elf")
+    dialog3:addOption(0, "Male Elf")
+    dialog3:addOption(0, "Female Lizardman")
+    dialog3:addOption(0, "Male Lizardman")
+    dialog3:addOption(0, "Female Human")
+    dialog3:addOption(0, "Male Human")
+    dialog3:addOption(0, "Female Halfling")
+    dialog3:addOption(0, "Male Halfling")
+    dialog3:addOption(0, "Female Orc")
+    dialog3:addOption(0, "Male Orc")
+    dialog3:addOption(0, "Female Dwarf")
+    dialog3:addOption(0, "Male Dwarf")
+    dialog4:addOption(0, "Small Explosive")
+    dialog4:addOption(0, "Medium Explosive")
+    dialog4:addOption(0, "Big Explosive")
+    dialog4:addOption(0, "Small Mana Annihilator")
+    dialog4:addOption(0, "Medium Mana Annihilator")
+    dialog4:addOption(0, "Big Mana Annihilator")
+    dialog4:addOption(0, "Small Slime Barrier")
+    dialog4:addOption(0, "Big Slime Barrier")
+    dialog4:addOption(0, "Small Nutrition Annihilator")
+    dialog4:addOption(0, "Medium Nutrition Annihilator")
+    dialog4:addOption(0, "Big Nutrition Annihilator")
+    dialog4:addOption(0, "Brightrim's Demon Skeleton Weakener")
+    dialog5:addOption(0, "Common Language")
+    dialog5:addOption(0, "Ancient Language")
+    dialog5:addOption(0, "Elven Language")
+    dialog5:addOption(0, "Lizardman Language")
+    dialog5:addOption(0, "Human Language")
+    dialog5:addOption(0, "Halfling Language")
+    dialog5:addOption(0, "Orcen Language")
+    dialog5:addOption(0, "Dwarven Language")
+    dialog6:addOption(0, "Quality Raisers")
+    dialog6:addOption(0, "Ruby Potions")
+    dialog6:addOption(0, "Bombs")
+    dialog6:addOption(0, "Shapeshifters")
+    dialog6:addOption(0, "Amethyst Potions")
+    dialog6:addOption(0, "Topaz Potions")
+    dialog6:addOption(0, "Language Potions")
+    if potionType == "Amethyst" then
+        User:requestSelectionDialog(dialog)
+    elseif potionType == "Ruby" then
+        User:requestSelectionDialog(dialog2)
+    elseif potionType == "Obsidian" then
+        User:requestSelectionDialog(dialog3)
+    elseif potionType == "Sapphire" then
+        User:requestSelectionDialog(dialog4)
+    elseif potionType == "Diamond" then
+        User:requestSelectionDialog(dialog5)
+    elseif potionType == "Emerald" then
+        User:requestSelectionDialog(dialog6)
+    end
+end
+
+local function potionSelection(User)
+    local callback = function(dialog)
+        if not dialog:getSuccess() then
+            return
+        end
+        local index = dialog:getSelectedIndex() + 1
+        if index == 1 then
+            potionTypeSelection(User, "Amethyst")
+        elseif index == 2 then
+            potionTypeSelection(User, "Ruby" )
+        elseif index == 3 then
+            potionTypeSelection(User, "Obsidian" )
+        elseif index == 4 then
+            potionTypeSelection(User, "Sapphire" )
+        elseif index == 5 then
+            potionTypeSelection(User, "Diamond" )
+        elseif index == 6 then
+            potionTypeSelection(User, "Emerald" )
+        elseif index == 7 then
+            potionTypeSelection(User, "Topaz" )
+        end
+    end
+    local dialog = SelectionDialog("Potion Creation", "What type of potion do you want to create?", callback)
+    dialog:addOption(0, "Amethyst")
+    dialog:addOption(0, "Ruby")
+    dialog:addOption(0, "Shapeshifter")
+    dialog:addOption(0, "Bombs")
+    dialog:addOption(0, "Language")
+    dialog:addOption(0, "Quality Increaser")
+    User:requestSelectionDialog(dialog)
+end
+
+local function createPortal(User, portalType)
+    local x
+    local y
+    local z
+    local amount
+    local _
+    local callback = function(dialog)
+        if not dialog:getSuccess() then
+            return
+        end
+        local input = dialog:getInput()
+        if (string.find(input,"(%d+) (%d+) (%d+)")~=nil) then
+            _, _, x, y, z = string.find(input,"(%d+) (%d+) (%d+)")
+        end
+        local callback2 = function(dialog2)
+            if not dialog:getSuccess() then
+                return
+            end
+            local input2 = dialog2:getInput()
+            if (string.find(input2,"(%d+)")~=nil) then
+                _, _, amount = string.find(input2,"(%d+)")
+                common.CreateItem(User,tonumber(portalType),tonumber(amount),999,{["destinationCoordsX"]=x,["destinationCoordsY"]=y,["destinationCoordsZ"]=z})
+            end
+        end
+        User:requestInputDialog(InputDialog("Portal creation", "How many portals with these coordinates do you want to create?",false,255,callback2))
+    end
+User:requestInputDialog(InputDialog("Portal creation", "Set the coordinates the portals should lead to.\nEG:131 609 0",false,255,callback))
+end
+
+local function portalsSelection(User)
+    local callback = function(dialog)
+        if not dialog:getSuccess() then
+            return
+        end
+        local index = dialog:getSelectedIndex() + 1
+        if index == 1 then
+            createPortal(User, "10")
+        elseif index == 2 then
+            createPortal(User, "798")
+        elseif index == 3 then
+            createPortal(User, "1061")
+        end
+    end
+    local dialog = SelectionDialog("Portal creation", "What type of portal do you want to create?", callback)
+    dialog:addOption(0, "Blue Portal")
+    dialog:addOption(0, "Red Portal")
+    dialog:addOption(0, "Portal Book")
+    User:requestSelectionDialog(dialog)
+end
+
 local function specialItemCreationSpecialEggs(User)
 
     local cbInputDialog = function (dialog)
@@ -1445,7 +1823,7 @@ end
 
 function M.UseItem(User, SourceItem)
     -- First check for mode change
-    local modes = {"Items", "Weather", "Factions", "Spawnpoint", "Special Item Creation", "Script Variables","Teleporter","Harbours"}
+    local modes = {"Items", "Weather", "Factions", "Spawnpoint", "Special Item Creation", "Script Variables","Teleporter","Harbours", "Portals", "Potions"}
     local cbSetMode = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -1468,6 +1846,10 @@ function M.UseItem(User, SourceItem)
             staticteleporter.gmManageTeleporter(User)
         elseif index == 8 then
             seafaring.gmManagePorts(User)
+        elseif index == 9 then
+            portalsSelection(User)
+        elseif index == 10 then
+            potionSelection(User)
         end
     end
     local sd = SelectionDialog("Set mode of this ceiling trowel", "To which mode you want to change?", cbSetMode)
