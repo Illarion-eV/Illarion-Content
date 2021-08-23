@@ -23,6 +23,7 @@ local lookat = require("base.lookat")
 local common = require("base.common")
 local alchemy = require("alchemy.base.alchemy")
 local missile = require("alchemy.base.missile")
+local scheduledFunction = require("scheduled.scheduledFunction")
 
 
 local M = {}
@@ -36,48 +37,48 @@ local potionEffectId = (tonumber(Item:getData("potionEffectId")))
     if (potionEffectId >= 300) and (potionEffectId <= 399) then    -- bombs
 
         if (potionEffectId == 301) then
-            missile.effect_1( User, Item );
+            missile.effect_1( User, Item )
         elseif (potionEffectId == 302) then
-            missile.effect_2( User, Item );
+            missile.effect_2( User, Item )
         elseif (potionEffectId == 303) then
-            missile.effect_3( User, Item );
+            missile.effect_3( User, Item )
         elseif (potionEffectId == 304) then
-            missile.effect_4( User, Item );
+            missile.effect_4( User, Item )
         elseif (potionEffectId == 305) then
-            missile.effect_5( User, Item );
+            missile.effect_5( User, Item )
         elseif (potionEffectId == 306) then
-            missile.effect_6( User, Item );
+            missile.effect_6( User, Item )
         elseif (potionEffectId == 307) then
-            missile.effect_7( User, Item );
+            missile.effect_7( User, Item )
         elseif (potionEffectId == 308) then
-            missile.effect_8( User, Item );
+            missile.effect_8( User, Item )
         elseif (potionEffectId == 309) then
-            missile.effect_9( User, Item );
+            missile.effect_9( User, Item )
         elseif (potionEffectId == 310) then
-            missile.effect_10( User, Item );
+            missile.effect_10( User, Item )
         elseif (potionEffectId == 311) then
-            missile.effect_11( User, Item );
+            missile.effect_11( User, Item )
         elseif (potionEffectId == 312) then
-            missile.effect_12( User, Item );
+            missile.effect_12( User, Item )
         elseif (potionEffectId == 313) then
-            missile.effect_13( User, Item );
+            missile.effect_13( User, Item )
         elseif (potionEffectId == 314) then
-            missile.effect_14( User, Item );
+            missile.effect_14( User, Item )
         elseif (potionEffectId == 315) then
-            missile.effect_15( User, Item );
+            missile.effect_15( User, Item )
         elseif (potionEffectId == 316) then
-            missile.effect_16( User, Item );
+            missile.effect_16( User, Item )
         elseif (potionEffectId == 317) then
-            missile.effect_17( User, Item );
+            missile.effect_17( User, Item )
         elseif (potionEffectId == 318) then
-            missile.effect_18( User, Item );
-        else
-            -- unbekannter Trank
+            missile.effect_18( User, Item )
+        elseif (potionEffectId == 320) then
+            missile.weakenRedSkeletons(User, Item)
         end
         -- Deko-Effekte
-        world:gfx(36,Item.pos);
-        world:makeSound(5,Item.pos);
-        world:erase(Item,1);
+        world:gfx(36,Item.pos)
+        world:makeSound(5,Item.pos)
+        world:erase(Item,1)
     end
 end
 
@@ -104,6 +105,34 @@ function M.MoveItemAfterMove(User, SourceItem, TargetItem)
     end
 
     if (missileStatus == "deactivated") or (missileStatus == "") then
+        if potionEffectId == 319 then
+            local itemPos = position(TargetItem.pos.x, TargetItem.pos.y, TargetItem.pos.z)
+            local theField = world:getField(itemPos)
+            if TargetItem:getType() == 3 and common.GetGroundType(theField:tile()) == common.GroundType.snow then
+                local timeStamp = world:getTime("unix")
+                TargetItem:setData("identifierTimeStamp", timeStamp)
+                world:changeItem(TargetItem)
+                local potionQuality = TargetItem.quality
+                scheduledFunction.registerFunction(360, function()
+                                                            local field = world:getField(itemPos)
+                                                            if field:countItems() > 0 then
+                                                                local deleted = common.DeleteItemFromStack(itemPos, {itemId = 327, quality = potionQuality, potionEffectId = 319, identifierTimeStamp = timeStamp})
+                                                                if deleted then
+                                                                    world:createItemFromId(327, 1, itemPos, true, potionQuality, {potionEffectId = 320, filledWith = "potion"})
+                                                                    world:gfx(4, itemPos)
+                                                                end
+                                                            end
+
+                                                        end)
+            else
+                if TargetItem:getData("identifierTimeStamp") ~= "" then
+                    TargetItem:setData("identifierTimeStamp", "")
+                    world:changeItem(TargetItem)
+                end
+            end
+
+        end
+
         return true; -- missile is deactivated
     end
 
@@ -125,7 +154,6 @@ function M.MoveItemAfterMove(User, SourceItem, TargetItem)
 end;
 
 function M.MoveItemBeforeMove( User, SourceItem, TargetItem )
-    local missileStatus = (SourceItem:getData("missileStatus"));
     local potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
     if potionEffectId == nil then
         potionEffectId = 0

@@ -84,7 +84,7 @@ function M.PutItemOnField(Item,User)
     end
 end
 
-function M.MoveToField(User) 
+function M.MoveToField(User)
     -- check for spam and put a new spam marker in case it is no spam
     if common.spamProtect(User, 5) then
         return

@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 local consequence = require("npc.base.consequence.consequence")
@@ -32,8 +32,6 @@ function(self, mode, value)
         self["perform"] = _state_helper_add
     elseif (mode == "-") then
         self["perform"] = _state_helper_sub
-    else
-        -- unkonwn comparator
     end
 end)
 

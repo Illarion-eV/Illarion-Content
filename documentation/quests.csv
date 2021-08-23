@@ -1,420 +1,458 @@
-ID,"Title","NPCs","Status","Responsible Author","Description"
-1,"Legends of Irundar",,,"vilarion",
-2,"Newbie Island (OLD)",,,"pharse","Old and obsolete. DO NOT USE!"
-3,"The Craven Orc",207,,"Estralis","An orc is afraid of monsters. Smash 'em! "
-4,"The Poacher",206,,"Estralis","Hunt animals in the Elstree forest for stuff and money "
-5,"The Thief",,,"vilarion","Loot the thief's treasure"
-6,"Vanima Magic Trap",,,"vilarion","Travellars to Vanima with Status 1 are trapped"
-7,"Boats",,,"vilarion/Nitram","Stores whether a char is on a boat and where to"
-8,"Transporter NPCs",,,"vilarion/Nitram","Stores if the Character has a transporter npc or not"
-9,"The ""special"" cake",,,"pharse","Bring the halfling all ingredients"
-10,"The Druid",,,"Ardian","Bring the druid his herbs and a bottle"
-11,"A treasure under the stone",,,"martin/Nitram","A npc tells you about a special stone where the user finds something"
-12,"Fraction Status - Albar",,,"?","The status to the fraction of Albar"
-13,"Fraction Status - Salkamar",,,"?","The status to the fraction of Salkamar"
-14,"Fraction Status - Thiefs",,,"?","The status to the fraction of the Thiefs"
-15,"Fraction Status - Explorer",,,"?","The status to the fraction of the Explorer"
-16,"Fraction Status - Gynk",,,"?","The status to the fraction of Albar"
-17,"game_poker.lua",,,"vilarion","Number of chips on the table in case of a !fr"
-18,"Priest System",,,"pharse/Estralis","Save values"
-19,"Character storage hack",,,"Nitram","Save the character sometimes"
-20,"MultiRes",,,"pharse","timestamp of last resurrection"
-21,"The Thimblerig",,,"Estralis/Ardian","A Thimblerig npc"
-22,"The Missing Locket",,,"Hadrian_Abla","Npc lost her locket, sends you to Gb to fetch it for a reward"
-23,"Druid System",,,"blay","limits language potions (in druidhouse) to 5"
-24,"Magic Lock",,,"Nitram","Freezes the skills and runes of a character, so he can't gain any more skills or runes"
-25,"Forced Labour",,,"Estralis/Ardian","A player needs to deliver some ore, coal and goal to get released from a work camp."
-26,"Forced Labour/Imprisoning ID",,,"Estralis/Ardian","Holds the value from which town a char got arrested."
-27,"Kill the spider in the cellar",168,,"Ardian","A farmer has some trouble with bugs(spiders) in the cellar which eat his stocks, the char gets a key for the cellar to kill the bugs"
-28,"A farmer needs help",,,"Ardian","A farmer needs someone who takes care of one of his cows for some days. Status of quest"
-29,"A farmer needs help",,,"Ardian","A farmer needs someone who takes care of one of his cows for some days. Values for quest"
-30,"Faction system New Illarion",,,"pharse","Holds the time stamp for joining the faction (persistent rank is calculated from this)"
-31,"Target haircolor",,,"Miriam/Lillian/Merung/Banduk","Holds the adapted target haircolor of a character"
-32,"Natural hairstyle",,,"Miriam/Lillian/Merung/Banduk","Holds the natural hairstyle of a character"
-33,"Natural beardstyle",,,"Miriam/Lillian/Merung/Banduk","Holds the natural beardstyle of a character"
-34,"Natural haircolor",,,"Miriam/Lillian/Merung/Banduk","Holds the natural haircolor of a character"
-35,"Number of base attribute changes",,,"vilarion","Used to calculate the price of a permanent attribute change"
-36,"Indicates if player will be attacked by monsters",,,"vilarion","0: monsters will attack; not 0: monsters will NOT attack, time until effect end."
-37,"New mage Flag by queststatus",,,"Merung","Learning wand magic"
-38,"Boook read for mage learning",,,"Merung","Bitmap"
-40,"Skill transfer",,,"Merung","Used to check if the player already chose an option"
-41,"Skill transfer",,,"Merung","Used to check if the player already chose an option"
-42,"Skill transfer",,,"Merung","Used to check if the player already chose an option"
-43,"Skill transfer",,,"Merung","Used to check if the player already chose an option"
-44,"Introduction",,,"Estralis","Introduction after tutorial - Places"
-45,"Introduction",,,"Estralis","Introduction after tutorial - Greeting"
-46,"Introduction",,,"Estralis","Introduction after tutorial - Overall status"
-47,"Advanced Idle Detection",,,"Estralis","Advanced Idle Detection - Counter"
-48,"Advanced Idle Detection",,,"Estralis","Advanced Idle Detection - X"
-49,"Advanced Idle Detection",,,"Estralis","Advanced Idle Detection - Y"
-50,"Advanced Idle Detection",,,"Estralis","Advanced Idle Detection - Z"
-60,"Treasure map counter",,,"Merung","Used to count how many successful treasure huntings the char has taken part in"
-61,"Orders for npcs",,,"Ardian","stores the thrustworthyness of a character (i value is to less you won't get new orders for an amount of time) value between 1-100"
-62,"Mineth, the Coat of Arms tailoress",,,"Ardian","a woman npc needs help to make something for a group, stores the quest status"
-63,"Nanginis the Nargun Priest",,,"Ardian","a nargun priest creates by random items for you if you give him some coins(kind of a gambler)"
-64,"Generic gathering quests",,,"Estralis","A set of four quests for each NPC to gather stuff for money"
-65,"Generic gathering quests",,,"Estralis","A set of four quests for each NPC to gather stuff for money"
-66,"Generic gathering quests",,,"Estralis","A set of four quests for each NPC to gather stuff for money"
-67,"Generic gathering quests",,,"Estralis","A set of four quests for each NPC to gather stuff for money"
-68,"Generic gathering quests",,,"Estralis","A set of four quests for each NPC to gather stuff for money"
-69,"Generic gathering quests",,,"Estralis","A set of four quests for each NPC to gather stuff for money"
-70,"Generic gathering quests",,,"Estralis","A set of four quests for each NPC to gather stuff for money"
-71,"Generic gathering quests",,,"Estralis","A set of four quests for each NPC to gather stuff for money"
-72,"The Smuggler",,,"Estralis","A highly mobile, outcast NPC needs various things one can obtain in the towns"
-73,"The Lazy Tailoress",192,,"Estralis","Lilith Needlehand needs things to craft robes for the archmage."
-74,"The Gossipers",,,"Estralis","Bring 'em booze and they'll tell you secrets."
-75,"The Gossipers",,,"Estralis","Bring 'em booze and they'll tell you secrets."
-76,"The Gossipers",,,"Estralis","Bring 'em booze and they'll tell you secrets."
-77,"Galmair Seewers",200,,"Estralis","Miggs sends you down to pwn monsters in the sewers (noob quest Galmair)"
-78,"Sir Reginald's Tomb",226,,"Estralis","Noob quest Cadomyr"
-79,"A Cave in the Woods",225,,"Estralis","Noob quest Runewick"
-80,"Gathering Quests - Stuff for Skill",,,"Zot","For every skill one gathering quest"
-81,"Gathering Quests - Stuff for Skill",,,"Zot","For every skill one gathering quest"
-82,"Gathering Quests - Stuff for Skill",,,"Zot","For every skill one gathering quest"
-83,"Gathering Quests - Stuff for Skill",,,"Zot","For every skill one gathering quest"
-84,"Gathering Quests - Stuff for Skill",,,"Zot","For every skill one gathering quest"
-85,"Gathering Quests - Stuff for Skill",,,"Zot","For every skill one gathering quest"
-86,"Gathering Quests - Stuff for Skill",,,"Zot","For every skill one gathering quest"
-87,"Gathering Quests - Stuff for Skill",,,"Zot","For every skill one gathering quest"
-88,"Gathering Quests - Stuff for Skill",,,"Zot","For every skill one gathering quest"
-89,"Gathering Quests - Stuff for Skill",,,"Zot","For every skill one gathering quest"
-90,"Gathering Quests - Stuff for Skill",,,"Zot","For every skill one gathering quest"
-91,"Gathering Quests - Stuff for Skill",,,"Zot","For every skill one gathering quest"
-92,"Gathering Quests - Stuff for Skill",,,"Zot","For every skill one gathering quest"
-93,"Gathering Quests - Stuff for Skill",,,"Zot","For every skill one gathering quest"
-94,"Gathering Quests - Stuff for Skill",,,"Zot","For every skill one gathering quest"
-95,"Gathering Quests - Stuff for Skill",,,"Zot","For every skill one gathering quest"
-96,"Gathering Quests - Stuff for Skill",,,"Zot","For every skill one gathering quest"
-97,"Gathering Quests - Stuff for Skill",,,"Zot","For every skill one gathering quest"
-98,"Gathering Quests - Stuff for Skill",,,"Zot","For every skill one gathering quest"
-99,"Gathering Quests - Stuff for Skill",,,"Zot","For every skill one gathering quest"
-100,"Gathering Quests - Stuff for Skill",,,"Zot","For every skill one gathering quest"
-101,"The Lost Guard",,,"?","A guard is missing, find him"
-102,"The Lost Guard",,,"?","A guard is missing, find him"
-103,"The Lost Guard",,,"?","A guard is missing, find him"
-104,"The Errant Crusade",,,"Estralis","Stop the foul(?) deeds of an evil cult; NPC Arenius Batavius"
-105,"A light at the end of the tunnel",,,"Estralis","Make sure the candles are burning in the tomb of Runewick; NPC Gregor Remethar"
-106,"Milo's Ox",,,"Estralis","Milo's ox won't move one further step without carrots!"
-107,"The Reminder",,,"Estralis","Galmair message quest"
-108,"Delayed Mail",,,"Estralis","Cadomyr message quest"
-109,"Eating on the Job",,,"Estralis","Runewick guards wants some supplies"
-110,"Cadomyr laws",,,"Estralis","Keeps track which laws of Cadomyr the player read"
-111,"A question of honour",,,"Estralis","Cadomyr patrol quest"
-112,"The Ghost Oak",,,"Estralis/Regallo","An imposer wants to destroy any evidence for a foul deed that happened 400 years ago"
-113,"A spark to a flame",,,"Estralis","Do some deeds to honour Brágon"
-114,"A spark to a flame",,,"Estralis","Keeps track of visited triggerfields"
-115,"A question of honour",,,"Estralis","Patrol 1"
-116,"A question of honour",,,"Estralis","Patrol 2"
-117,"A question of honour",,,"Estralis","Patrol 3"
-118,"Runewick Gardens",,,"Estralis","Get 10 apples omg!"
-119,"Do a good turn daily for Cadomyr",,,"Estralis","Cadomyr daily mission - Quest"
-120,"Do a good turn daily for Cadomyr",,,"Estralis","Cadomyr daily mission - Recovery time"
-121,"The Errant Crusade",,,"Estralis","Triggered events for Salavesh dungeon"
-122,"Enforce skill system switch",,,"Estralis","Temporary solution to catch new players"
-123,"Taxpaying system",,,"Martin","records the timestamp (1000*yr+mon) of the last date taxes were paid"
-124,"Taxpaying system",,,"Martin","records the timestamp (1000*yr+mon) of the last date wages were paid to that player."
-125,"The Royal Stables",337,,"Estralis","Get hay and carrots for Cadomyr's mounts"
-126,"A Noble Celebration",319,,"Estralis","Get tableware for a celebration"
-127,"Caravan of Honour",,,"Estralis","Daily quest by Phillip Molitor - quest selector"
-128,"Caravan of Honour",,,"Estralis","Daily quest by Phillip Molitor - quest countdown"
-129,"Caravan of Honour",,,"Estralis","Daily quest by Phillip Molitor - quest cooldown"
-130,"Explorer's Guild",,,"Martin","Find places (stones) spread all over the world, the more you find the better it is; receive rewards for them"
-131,"Explorer's Guild",,,"Martin","Find places (stones) spread all over the world, the more you find the better it is; receive rewards for them"
-132,"Explorer's Guild",,,"Martin","Find places (stones) spread all over the world, the more you find the better it is; receive rewards for them"
-133,"Explorer's Guild",,,"Martin","Find places (stones) spread all over the world, the more you find the better it is; receive rewards for them"
-134,"Explorer's Guild",,,"Martin","Find places (stones) spread all over the world, the more you find the better it is; receive rewards for them"
-135,"Explorer's Guild",,,"Martin","Find places (stones) spread all over the world, the more you find the better it is; receive rewards for them"
-136,"Explorer's Guild",,,"Martin","Find places (stones) spread all over the world, the more you find the better it is; receive rewards for them"
-137,"Explorer's Guild",,,"Martin","Find places (stones) spread all over the world, the more you find the better it is; receive rewards for them"
-138,"Explorer's Guild",,,"Martin","Find places (stones) spread all over the world, the more you find the better it is; receive rewards for them"
-139,"Explorer's Guild",,,"Martin","Find places (stones) spread all over the world, the more you find the better it is; receive rewards for them"
-140,"Explorer's Guild",,,"Martin","Find places (stones) spread all over the world, the more you find the better it is; receive rewards for them"
-141,"Explorer's Guild",,,"Martin","Find places (stones) spread all over the world, the more you find the better it is; receive rewards for them"
-142,"Explorer's Guild",,,"Martin","Find places (stones) spread all over the world, the more you find the better it is; receive rewards for them"
-143,"Explorer's Guild",,,"Martin","Find places (stones) spread all over the world, the more you find the better it is; receive rewards for them"
-144,"Explorer's Guild",,,"Martin","Find places (stones) spread all over the world, the more you find the better it is; receive rewards for them"
-145,"Explorer's Guild",,,"Martin","Find places (stones) spread all over the world, the more you find the better it is; receive rewards for them"
-146,"Explorer's Guild",,,"Martin","Find places (stones) spread all over the world, the more you find the better it is; receive rewards for them"
-147,"Explorer's Guild",,,"Martin","Find places (stones) spread all over the world, the more you find the better it is; receive rewards for them"
-148,"Explorer's Guild",,,"Martin","Find places (stones) spread all over the world, the more you find the better it is; receive rewards for them"
-149,"Explorer's Guild",,,"Martin","Find places (stones) spread all over the world, the more you find the better it is; receive rewards for them"
-150,"Present from Cadomyr",,,"Miriam","Reret Odohier ask you to find 15 desert sky capsuls"
-151,"Cadomyr Treasury",,,"Estralis","Donate something to the Cadomyr treasury, NPC Ioannes Faber"
-152,"Stock up Galmair's Storage",,,"Salathe","Galmair daily mission - Quest"
-153,"Stock up Galmair's Storage",,,"Salathe","Galmair daily mission - Recovery time"
-154,"Skill system",,,"Estralis","Logs the first skill up"
-155,"patrol quest for Galmair-artimer",,,"Evie","quest log for a Galmair patrol quest"
-156,"patrol quest for Galmair-artimer",,,"Evie","triggerfield for a Galmair patrol quest"
-157,"patrol quest for Galmair-artimer",,,"Evie","triggerfield for a Galmair patrol quest"
-158,"patrol quest for Galmair-artimer",,,"Evie","triggerfield for a Galmair patrol quest"
-159,"Do a good turn daily for Cadomyr",,,"Evie","Cadomyr daily mission - cool down"
-160,"For Runewick",,,"Silverwing/Rakaya","Runewick daily missions"
-161,"For Runewick",,,"Silverwing/Rakaya","Runewick daily missions"
-162,"Glorious Bounty",,,"Estralis","Daily quest by Palis Nestros - quest selector"
-163,"Glorious Bounty",,,"Estralis","Daily quest by Palis Nestros - quest countdown"
-164,"Glorious Bounty",,,"Estralis","Daily quest by Palis Nestros - quest cooldown"
-165,"Cooldown Runewick Daily",,,"Merung","Cooldown for Runewick quest"
-166,"Homeland - Cadomyr",,,"Estralis","Show a message if the player leaves the homeland for the first time"
-167,"Homeland - Galmair",,,"Estralis","Show a message if the player leaves the homeland for the first time"
-168,"Homeland - Runewick",,,"Estralis","Show a message if the player leaves the homeland for the first time"
-169,"Homeland - Runewick2",,,"Evie","Show a message if the player leaves the homeland for the first time"
-170,"Pillar",,,"merung","donate a coin and get a shield"
-171,"Ssiguss's Orphans-Artimer",,,"Evie","Quest for the wilderness for Orphaned eggs."
-172,"Homeland - Cadomyr2",,,"Evie","Show a message if the player leaves the homeland for the first time"
-173,"patrol quest for Galmair-artimer",,,"Evie","triggerfield for a Galmair patrol quest"
-181,"Informant Spy",,,"Caldarion","Daily quest by Bula Glasha - quest selector"
-182,"Informant Spy",,,"Caldarion","Daily quest by Bula Glasha - quest countdown"
-183,"Informant Spy",,,"Caldarion","Daily quest by Bula Glasha - quest cooldown"
-184,"The Researcher",,,"Caldarion","Daily quest by Maelyrra Umrielyth - quest selector"
-185,"The Researcher",,,"Caldarion","Daily quest by Maelyrra Umrielyth - quest countdown"
-186,"The Researcher",,,"Caldarion","Daily quest by Maelyrra Umrielyth - quest cooldown"
-187,"Vermin Monitor",,,"Caldarion","Noob quest by Jeremiah Horanfeld - Cadomyr"
-188,"Safe the field",,,"Caldarion","Noob quest by Cilivren Itiireae - Runewick"
-189,"Save da beer",,,"Caldarion","Noob quest by Fokous Onyxbrow - Galmair"
-191,"Banning",,,"merung","banning individuals"
-192,"Banning",,,"merung","banning individuals"
-193,"Banning",,,"merung","banning individuals"
-194,"Banning",,,"merung","banning individuals"
-195,"Banning",,,"merung","banning individuals"
-196,"Banning",,,"merung","banning individuals"
-197,"Banning",,,"merung","banning individuals"
-198,"Banning",,,"merung","banning individuals"
-199,"Faction system New Illarion",,,"Lillian","holds the info about the current factionmembership (0-none, 1-cadomyr, 2-runewick, 3-galmair)"
-200,"Faction system New Illarion",,,"Lillian","holds the special rank"
-201,"Faction system New Illarion",,,"Ardian","201 holds the counter how often the faction was switched and 202 the faction rankpoints(all values encoded, see base_factions.lua )"
-202,"Faction system New Illarion",,,"Ardian","201 holds the counter how often the faction was switched and 202 the faction rankpoints(all values encoded, see base_factions.lua )"
-203,"Endurance Cave Quest ",,,"Ardian/Faladron","Endurance Cave: Number Chain the player has to go to reach the end boss"
-204,"Endurance Cave Quest ",,,"Ardian/Faladron","Endurance Cave: Status how much correct moves of the number chain the player has done"
-205,"Runewick garbage bin Quest",,,"Miriam","Throw something in the recycle mechanism"
-206,"Galmair garbage bin Quest",,,"Miriam","Throw something in the garbage bin"
-207,"notary NPC (Runewick)",,,"Miriam","control variable before leaving town"
-208,"notary NPC (Galmair)",,,"Miriam","control variable before leaving town"
-209,"notary NPC (Cadomyr)",,,"Miriam","control variable before leaving town"
-210,"Late Delivery",,,"Estralis","Daily quest by Anthony Devries - quest selector"
-211,"Late Delivery",,,"Estralis","Daily quest by Anthony Devries - quest countdown"
-212,"Late Delivery",,,"Estralis","Daily quest by Anthony Devries - quest cooldown"
-213,"A Wistful Journey",,,"Estralis","Daily quest by Pesnar Rolemnes - quest selector"
-214,"A Wistful Journey",,,"Estralis","Daily quest by Pesnar Rolemnes - quest countdown"
-215,"A Wistful Journey",,,"Estralis","Daily quest by Pesnar Rolemnes - quest cooldown"
-220,"Bookseller Helper Quest Galmair",,,"Caldarion","Daily quest"
-221,"Bookseller Helper Quest Runewick",,,"Caldarion","Daily quest"
-222,"Bookseller Helper Quest Cadomyr",,,"Caldarion","Daily quest"
-223,"Knowledge about Runewick",,,"Banduk","Runewick patrol quest"
-224,"Knowledge about Runewick",,,"Banduk","Runewick patrol quest - Patrol target"
-226,"Hairdresser",,,"Banduk","Time new hair colour disappear"
-227,"Hairdresser",,,"Banduk","Time new hair style disappear"
-228,"Hairdresser",,,"Banduk","Time new beard style disappear"
-229,"Hairdresser",,,"Banduk","Cooldown new or trimed cut visible"
-230,"Hairdresser",,,"Banduk","Cooldown polished comb for lizzards"
-231,"Hairdresser",,,"Banduk","money to pay"
-232,"Hairdresser",,,"Banduk","Cooldown for delayed payment"
-233,"Hairdresser",,,"Banduk","Warnings for delayed paymen"
-234,"Hairdresser",,,"Banduk","time next haircut possible"
-236,"Temporary No attack with cooldown",,,"Evie", "Gm item"
-252,"Stock up Galmairs Storage",,,"Evie","Galmair daily mission - Cooldown"
-253,"Replace poisoned carrots",,,"Banduk","Subquest for rat den"
-260,"For Runewick cool down",,,"Evie","Runewick daily missions- cool down"
-298,"Fireproof on stationary flames",,,"Banduk","0:damage by flames; > 0:Proof, no damage by flames over time until effect end"
-299,"Iceproof on stationary flames",,,"Banduk","0:damage by ice flames; not 0:Proof, no damage by ice flames over time until effect end"
-300,"Poisonproof on stationary poison clouds",,,"Banduk","0:damage by poison clouds; not 0:Proof, no damage by poison clouds over time until effect end"
-301,"gathering trophey",,,"Rincewind","Thud's : gather different items and earn nice items"
-302,"the bowstring",,,"Rincewind","Mo'rurt und Jack Stout"
-303,"family afairs",,,"Rincewind","Rose"
-304,"The pegleg",,,"Rincewind","Julio canalie"
-305,"Spy the Pirates",,,"Rincewind","Spy the pirates"
-306,"The first drink is for free",,,"Rincewind","Free beer by Hagar"
-307,"Tale's and Swords",,,"Alexander Knight","A old salk. Soldier tells you about his experiances in war while drinking a lot of your beer. Finally he gifts you his sword."
-308,"Dailyforge",,,"Rincewind","Alice"
-309,"Tutorial",,,"Rincewind","Noobia: Henry Cunnigan's station (Talk to NPCs)"
-310,"Tutorial",,,"Rincewind","Noobia: Aldania's station (GUI)"
-311,"Tutorial",,,"Rincewind","Noobia: Groknar's station (fighting)"
-312,"Tutorial",,,"Rincewind","Noobia: Nargon Hammerfist's station (gathering)"
-313,"Tutorial",,,"Rincewind","Noobia: Nimbur Goldhand's station (crafting)"
-314,"Tutorial",,,"Rincewind","Noobia: Viola's station (chosing a faction)"
-315,"Tutorial",,,"Rincewind","???"
-316,"Trollop",,,"Rincewind","Rose"
-317,"Writing history",,,"Estralis, Miriam","Runewick message quest, Mirarie Bragolin asks for help"
-318,"The Idler's Request/Der Auftrag des Studenhockers",,,"Miriam","Jonathan Idler want so see an elf, dwarf and a orcess"
-319,"Tutorial",,,"Estralis","Noobia: Nimbur Goldhand's station (crafting), anti exploit counter"
-320,"Tutorial - Explorer Stone",,,"martin/ Lillian","Find places (stones) spread all over the world, the more you find the better it is";" receive rewards for them"
-342,"Cadomyr Starter Quest",,,"Grokk","New player quest chain for the Cadomyr faction"
-343,"Galmair Starter Quest",,,"Grokk","New player quest chain for the Galmair faction"
-350,"teacher",,,"merung","Initiation - alchemy"
-351,"teacher",,,"merung","Initiation - alchemy"
-352,"teacher",,,"merung","Initiation - alchemy"
-360,"Pet syetem: race",,,"merung","race of the pet"
-361-363,"Pet system: position",,,"merung","stores the position of the pet"
-364,"Pet sytem: sex",,,"merung","sex of the pet"
-365,"Pet system: hp",,,"merung","saves the hitpoints of the pet"
-366,"Pet system: command",,,"merung","current command for the pet to follow"
-367-370,"Pet system: color",,,"merung","save the color of the pet"
-371-374,"Pet system: name",,,"merung","binary saved pet name"
-375,"Pet system: owner",,,"merung","Flag for being a pet owner"
-376,"Pet syetem: death protection",,,"merung","Flag if the pet is proctected from death"
-401,,,,"Estralis/pharse","Priest system: Devotion"
-402,,,,"Estralis/pharse","Priest system: Priesthood"
-403-418,,,,"snus-mumrik","Priest system: Gods favour"
-419-434,,,,"snus-mumrik","Priest system: sacrificed cumulative values"
-450,,,,"merung","slime feeding quest runewick"
-451,,,,"merung","holy grapes eollection"
-500,,,,"Caldarion","Elstree ranger"
-501,"Zzarn'K'Ska of Zelphia",,,"Evie","Main quest for Dungeon Lake of Life"
-502,"Praise Zelphia",,,"Evie","Side quest for Lake of Life Dungeon"
-503,"Lake of Life Events",,,"Evie","One time quest item"
-504,"Alchemical needs",,,"Merung","Quest for rare herbs"
-505,"Hedge search",,,"Merung","Find a sickle in a hedge"
-506,"Lake of Life Events",,,"Evie","One time quest item."
-507,"Lake of Life Events",,,"Evie","One time quest item timer."
-508,"Lake of Life Fountains",,,"Evie","Fountain quest."
-509,"Lake of Life Fountains",,,"Evie","Fountain timer."
-510,"Spelunker",,,"Evie","Dragon Cave quest"
-511,"Dragon cave event",,,"Evie","quest counter for the triggerfields in step four of Spelunker"
-512,"Dragon cave event",,,"Evie","quest counter for triggers in step five of Spelunker"
-513,"Conquering Letma",,,"Evie","quest for Mt. Letma NPC"
-514,"A good deed for Oldra",,,"Dantagon","quest for Oldra's Corner"
-515,"Dragarog Cult Npc",,,"Dantagon","quest Dragorog Cult dungeon"
-520,"Gorgophone's Nest",,,"Caldarion","A few hunting quests down Gorgophone's nest"
-521,"Spider Scavenger Hunt",,,"Caldarion","A collection quests down Gorgophone's nest"
-522,"Gorgophone's Nest Events",,,"Caldarion","Oneshot events in Gorgophone's nest"
-525,"Akaltut's Chambers I",,,"Evie","Npc quests in Akaltut's Chambers"
-526,"Akaltut's Chambers II",,,"Evie","Npc quests in Akaltut's Chambers"
-527,"Akaltut's Chambers III",,,"Evie","Npc quests in Akaltut's Chambers"
-528,"Akaltut's Chambers IV",,,"Evie","Npc quests in Akaltut's Chambers"
-529,"Akaltut's Chambers V",,,"Evie","Npc quests in Akaltut's Chambers"
-530,"Akaltut's Chambers VI",,,"Evie","Npc quests in Akaltut's Chambers"
-531,"Akaltut's Chambers Events",,,"Evie","Oneshot events in Akaltut's Chambers"
-532,"Akaltut's Chambers Boss Fight",,,"Evie","Npc quests in the boss area of Akaltut's Chambers"
-533,"Viridian Needles Lair Events",,,"Evie","potion quests"
-534,"Viridian Needles Lair Events",,,"Evie","potion quests"
-535,"Viridian Needles Lair Events",,,"Evie","potion quests"
-536,"Viridian Needles Lair Events",,,"Evie","potion quests"
-537,"Viridian Needles Lair Events",,,"Evie","potion quests"
-538,"Viridian Needles Lair Events",,,"Evie","potion quests"
-539,"Viridian Needles Lair Npc Quest,,,"Evie","Npc quest in Viridian Needles Lair"
-540,"Viridian Needles Lair Events",,,"Evie","potion quests-success recorder"
-541,"Viridian Needles Lair Events cooldown",,,"Evie","lte counter for boosts."
-542,"Viridian Needles Lair Quest counter",,,"Evie","counter for quest two"
-543,"The Path of the Fox",,,"Evie","quest for Ronagan based dungeon."
-544,"The Path of the Fox quest counters",,,"Evie","quest for Ronagan based dungeon."
-545,"The Path of the Fox quest counters",,,"Evie","quest for Ronagan based dungeon."
-546,"The Path of the Fox quest counters",,,"Evie","quest for Ronagan based dungeon."
-547,"The Path of the Fox quest counters",,,"Evie","quest for Ronagan based dungeon."
-548,"The Path of the Fox quest counters",,,"Evie","quest for Ronagan based dungeon."
-549,"The Path of the Fox quest counters",,,"Evie","quest for Ronagan based dungeon."
-550,"The Path of the Fox quest counters",,,"Evie","quest for Ronagan based dungeon."
-551,"The Path of the Fox quest counters",,,"Evie","quest for Ronagan based dungeon."
-557,"The way of the ham",,,"martin/Nitram","A npc sends you to get a delievery of ham"
-558,"flora??? But alos Fredegar Bumbleroot",,,,
-560,"Dog Transformation",,,"Merung","Used for dog transformation quest"
-561,"Fox den feeding lte cooldown",,,"Evie","Cool down timer for fox den feeding"
-562,"Destroy glyph forge cooldown",,,"Banduk","Prevent removing all glyph forges in a row"
-563,"Find next forge cooldown",,,"Banduk","Learning possible every 5 - 10 min only"
-564,"Use glyphs - neck delay",,,"Banduk","Time neck was equipped with jewelry"
-565,"Use glyphs - left hand delay",,,"Banduk","Time left hand was equipped with jewelry"
-566,"Use glyphs - right hand delay",,,"Banduk","Time right hand was equipped with jewelry"
-567,"Last examined glyph forge",,,"Banduk","Cannot examine the same forge again and again"
-589,"The Tactics Teacher",,,"Ardian","A npc (Arkos Seldaran) teaches you tactics if you bring him what he wants"
-600,"orc researcher/bragon priest",,,"envi","a npc ask for a question, another npc has the answer"
-601,"orc storyteller",,,"envi","orc tells old stories"
-602,"orc storyteller quest",,,"envi","orc asks for beer"
-603,"orc researcher/bragon priest",,,"envi","a npc ask for a question, another npc has the answer"
-604,"hummy quest elesil",,,"envi","hummy introduces player to elesil"
-605,"hummy quest frizza",,,"envi","hummy introduces player to frizza"
-606,"hummy quest iradona",,,"envi","hummy introduces player to iradona"
-607,"hummy quest tronuk",,,"envi","hummy introduces player to tronuk"
-608,"orc storyteller quest cooldown",,,"evie","orc asks for beer cooldown"
-610,"Cadomyr rulers",,,"envi","Keeps track which rulers of Cadomyr the player read"
-611,,,,"envi",
-613,"Galmair treasure map",,,"envi","longtime_cooldown"
-614,"Galmair counterfeiter",,,"envi","longtime_cooldown"
-612,"Wonderland",,,"envi","Player is caught in Wonderland"
-620,"Information quests (Runewick)",,,"envi","Elesil sends player to Numilia"
-621,"Information quests (Runewick)",,,"envi","Elesil quests"
-622,"Information quests (Runewick)",,,"envi","Numilia quests"
-623,"Information quests (Runewick)",,,"envi","Archmage has quest reward for Numilia"
-630,"Information quests (Galmair)",,,"envi","Iradona sends player to Lotta"
-631,"Information quests (Galmair)",,,"envi","Iradona quests"
-632,"Information quests (Galmair)",,,"envi","Lotta quests"
-633,"Information quests (Galmair)",,,"envi","Don has quest reward for Lotta"
-640,"Information quests (Cadomyr)",,,"envi","Frizza sends player to Ruzusss"
-641,"Information quests (Cadomyr)",,,"envi","Frizza quests"
-642,"Information quests (Cadomyr)",,,"envi","Ruzusss quests"
-643,"Information quests (Cadomyr)",,,"envi","Queen has quest reward for Ruzusss"
-650,"Information quests (The Hemp Necktie Inn)",,,"envi","Either Numilia, Ruzusss, or Lotta send player to Wulfgorda "
-652,"Information quests (The Hemp Necktie Inn)",,,"envi","Wulfgorda quests"
-660,"Galmair bridges",,,"envi"," Recovery/protection time ...no attack by bandits"
-661,"Elstree Forest",,,"envi","no chance that fairies drop anything"
-662,"Seafearing",,,"envi","obsolete - lte for seafearing script"
-663,"Seafearing",,,"envi","obsolete - status for seafearing script"
-664,"Vision",,,"envi","lte for vision script"
-665,"Vision",,,"envi","status for vision script"
-666,"Mirror of Death (death counter)",,,"merung","counts how often the char died; can be reduced by sacraficing to Cherga"
-667,"Vision",,,"envi","status for bookrests script"
-668,"Vision",,,"envi","status for skull script"
-669,"Vision",,,"envi","status for grave script"
-670,"Crafter development quests",,,"banduk/envi","Truciolo Pialla asks to gather items for carpentry"
-671,"Bear",,,"banduk","Feed the bear"
-672,"Lotte Silberstreif",,,"banduk","Another game-npc"
-673,"Bear",,,"banduk","longtime_cooldown for bear-quest 671"
-674,"Alberto Dicker",,,"banduk","Quest main line"
-675,"Alberto Dicker",,,"banduk","Quest side line - get final award"
-676,"Alberto Dicker",,,"banduk","data Contains found pictures for subquest"
-677,"Fairy Tales",,,"banduk","Quest main line"
-678,"Fairy Tales",,,"banduk","Data - contains found books"
-679,"Gambler Xiao Gongzou",,,"banduk","Contains two games for players"
-680,"Vision",,,"envi","status for stonechamber script"
-681,"Vision",,,"envi","status for stonechamber script"
-682,"Bjolmur",,,"envi","status for bjolmur script"
-683,"Fairy Tales",,,"banduk","Number of found books"
-684,"Fairy Tales",,,"banduk","Last book found"
-685,"God Book",,,"banduk","Quest main line - get a book about your God"
-686,"God Book",,,"banduk","No of library asked yet - get a book about your God"
-687,"Fairy Tales",,,"banduk","cooldown"
-688,"Pan in water",,,"banduk","Find a a pan in water while fishing"
-689,"Evil rock duplicate",,,"formerly envi","duplicate for double used status 683"
-700,"Geld_in_Hecke",,,"Miriam","Player finds info about money in the hedge on a barrel"
-701,"Ask for me (Runewick message giver quest)",,,"Miriam","Zarissa asks player to talk to different NPCs"
-702,"Galmair message giver quest",,,"Lillian","Charwis Irongate asks player to talk to different NPCs"
-703,"Cadomyr message giver quest",,,"Zot","Deleted - Jakob Lindorn asks player to talk to different NPCs"
-704,"Cadomyr Crafting Quest",,,"Zot","Deleted -Berri Firegold asks players to gather materials for smithing/finesmithing and crafting items"
-705,"Cadomyr Crafting Quest",,,"Zot","Lilli Gallfing asks players to gather materials for tailoring and crafting items"
-706,"Cadomyr Crafting Quest",,,"Zot","deleted -Gerald Deloid asks players to gather materials for candle making"
-707,"Cadomyr Crafting Quest",,,"Zot","Zlatxhol asks players to gather materials for glassblowing and making bricks"
-708,"Galmair Crafting Quest",,,"Zot","Thorgrem Silverbeard asks players to gather materials for smithing/finesmithing and crafting items"
-709,"Galmair Crafting Quest",,,"Zot","Seleseth asks players to gather materials for brick making/gem grinding/masoning"
-710,"Galmair Crafting Quest",,,"Zot","Tony Spirotelli asks players to gather materials for carpenting"
-711,"Galmair Crafting Quest",,,"Zot","Deleted - Hannah Shepard asks players to gather materials for farming/baking/cooking"
-712,"Galmair message giver quest",,,"Zot","Deleted - Joey Licavoli asks player to talk to different NPC's or something like that"
-713,"Runewick Crafting Quest",,,"Zot","tbd asks players to gather materials for carpenting"
-714,"Runewick Crafting Quest",,,"Zot","tbd aks players to gather materials for cooking/farming"
-715,"Runewick Crafting Quest",,,"Zot","deleted Judith Tanner asks players to gather materials for tailoring"
-716,"Runewick Crafting Quest",,,"Zot","tbds asks players to gather materials for candle making and glass blowing"
-717,"Runewick Crafting Quest",,,"Rakaya","tbds asks players to gather materials for glass blowing"
-718,"Runewick Crafting Quest",,,"Rakaya","tbds asks players to gather materials for fishing"
-720,"Trait points available",,,"Merung","Stores how many traits the character has left to select"
-721-799,"Character traits",,,"Merung","Flags if a char has the respective trait"
-801,"Arena",,,"Lillian","Arena"
-802,"Arena",,,"Lillian","Arena"
-803,"Arena",,,"Lillian","Arena"
-804,"Arena Rewards",,,"Lillian","Arena Rewards"
-805,"Arena Rewards",,,"Lillian","Arena Rewards"
-806,"Arena Rewards",,,"Lillian","Arena Rewards"
-811,"Licence Cadomyr",,,"envi","longtime_cooldown"
-812,"Licence Runewick",,,"envi","longtime_cooldown"
-813,"Licence Galmair",,,"envi","longtime_cooldown"
-820,"Noobhelper in Runewick",,,"Lillian","Deleted - Florain Dreyndel tells the player where to find easy quests"
-850,"new player help counter",,,"Merung/Vilarion","counts how often the char warped to new players to assist them"
-851,"OBSOLETE new player help preferences",,,"Merung/Vilarion","0 == available to help new players, 1 == not available for this session"
-852,"OBSOLETE already played",,,"Banduk","to get how long new player played already. starts with 0, new player only"
-999,"An ursurper to the Throne (Cadomyr)",,,"Mr.Cromwell/Faladron","Baron Hastings & his henchman Victor Tolenor try to harm Cadomyr and its ""unrightful"" Queen"
-1000-1999,"Recipes learning (alchemy)",,,"merung","used to remember if a char has learned a certain recipe"
-2000,"factionpoints",,,"envi","used to distribute faction points"
-3[1-9]00,"CollectionTaskID",,,"Banduk","User is active in the related collection task"
-3[1-9][01-12],"Already given for Slot",,,"Banduk","Character already gave to collection"
-10000-10009,"reserved",,,,
-999,"An ursurper to the Throne (Cadomyr)",,,"Mr.Cromwell/Faladron","Baron Hastings & his henchman Victor Tolenor try to harm Cadomyr and its ""unrightful"" Queen"
-10000,"Gravestone",,,,
-10001,"Hagar Coin",,,,"Hagar Wernson is the npc to give out the quest"
+ID,Title,NPCs,Status,Responsible Author,Description
+1,Legends of Irundar,,,vilarion,
+2,Newbie Island (OLD),,,pharse,Old and obsolete. DO NOT USE!
+3,The Craven Orc,207,,Estralis,An orc is afraid of monsters. Smash 'em! 
+4,The Poacher,206,,Estralis,Hunt animals in the Elstree forest for stuff and money 
+5,The Thief,,,vilarion,Loot the thief's treasure
+6,Vanima Magic Trap,,,vilarion,Travellars to Vanima with Status 1 are trapped
+7,Boats,,,vilarion/Nitram,Stores whether a char is on a boat and where to
+8,Transporter NPCs,,,vilarion/Nitram,Stores if the Character has a transporter npc or not
+9,"The ""special"" cake",,,pharse,Bring the halfling all ingredients
+10,The Druid,,,Ardian,Bring the druid his herbs and a bottle
+11,A treasure under the stone,,,martin/Nitram,A npc tells you about a special stone where the user finds something
+12,Fraction Status - Albar,,,?,The status to the fraction of Albar
+13,Fraction Status - Salkamar,,,?,The status to the fraction of Salkamar
+14,Fraction Status - Thiefs,,,?,The status to the fraction of the Thiefs
+15,Fraction Status - Explorer,,,?,The status to the fraction of the Explorer
+16,Fraction Status - Gynk,,,?,The status to the fraction of Albar
+17,game_poker.lua,,,vilarion,Number of chips on the table in case of a !fr
+18,Priest System,,,pharse/Estralis,Save values
+19,Character storage hack,,,Nitram,Save the character sometimes
+20,MultiRes,,,pharse,timestamp of last resurrection
+21,The Thimblerig,,,Estralis/Ardian,A Thimblerig npc
+22,The Missing Locket,,,Hadrian_Abla,"Npc lost her locket, sends you to Gb to fetch it for a reward"
+23,Druid System,,,blay,limits language potions (in druidhouse) to 5
+24,Magic Lock,,,Nitram,"Freezes the skills and runes of a character, so he can't gain any more skills or runes"
+25,Forced Labour,,,Estralis/Ardian,"A player needs to deliver some ore, coal and goal to get released from a work camp."
+26,Forced Labour/Imprisoning ID,,,Estralis/Ardian,Holds the value from which town a char got arrested.
+27,Kill the spider in the cellar,168,,Ardian,"A farmer has some trouble with bugs(spiders) in the cellar which eat his stocks, the char gets a key for the cellar to kill the bugs"
+28,A farmer needs help,,,Ardian,A farmer needs someone who takes care of one of his cows for some days. Status of quest
+29,A farmer needs help,,,Ardian,A farmer needs someone who takes care of one of his cows for some days. Values for quest
+30,Faction system New Illarion,,,pharse,Holds the time stamp for joining the faction (persistent rank is calculated from this)
+31,Target haircolor,,,Miriam/Lillian/Merung/Banduk,Holds the adapted target haircolor of a character
+32,Natural hairstyle,,,Miriam/Lillian/Merung/Banduk,Holds the natural hairstyle of a character
+33,Natural beardstyle,,,Miriam/Lillian/Merung/Banduk,Holds the natural beardstyle of a character
+34,Natural haircolor,,,Miriam/Lillian/Merung/Banduk,Holds the natural haircolor of a character
+35,Number of base attribute changes,,,vilarion,Used to calculate the price of a permanent attribute change
+36,Indicates if player will be attacked by monsters,,,vilarion,"0: monsters will attack; not 0: monsters will NOT attack, time until effect end."
+37,New mage Flag by queststatus,,,Merung,Learning wand magic
+38,Boook read for mage learning,,,Merung,Bitmap
+40,Skill transfer,,,Merung,Used to check if the player already chose an option
+41,Skill transfer,,,Merung,Used to check if the player already chose an option
+42,Skill transfer,,,Merung,Used to check if the player already chose an option
+43,Skill transfer,,,Merung,Used to check if the player already chose an option
+44,Introduction,,,Estralis,Introduction after tutorial - Places
+45,Introduction,,,Estralis,Introduction after tutorial - Greeting
+46,Introduction,,,Estralis,Introduction after tutorial - Overall status
+47,Advanced Idle Detection,,,Estralis,Advanced Idle Detection - Counter
+48,Advanced Idle Detection,,,Estralis,Advanced Idle Detection - X
+49,Advanced Idle Detection,,,Estralis,Advanced Idle Detection - Y
+50,Advanced Idle Detection,,,Estralis,Advanced Idle Detection - Z
+60,Treasure map counter,,,Merung,Used to count how many successful treasure huntings the char has taken part in
+61,Orders for npcs,,,Ardian,stores the thrustworthyness of a character (i value is to less you won't get new orders for an amount of time) value between 1-100
+62,"Mineth, the Coat of Arms tailoress",,,Ardian,"a woman npc needs help to make something for a group, stores the quest status"
+63,Nanginis the Nargun Priest,,,Ardian,a nargun priest creates by random items for you if you give him some coins(kind of a gambler)
+64,Generic gathering quests,,,Estralis,A set of four quests for each NPC to gather stuff for money
+65,Generic gathering quests,,,Estralis,A set of four quests for each NPC to gather stuff for money
+66,Generic gathering quests,,,Estralis,A set of four quests for each NPC to gather stuff for money
+67,Generic gathering quests,,,Estralis,A set of four quests for each NPC to gather stuff for money
+68,Generic gathering quests,,,Estralis,A set of four quests for each NPC to gather stuff for money
+69,Generic gathering quests,,,Estralis,A set of four quests for each NPC to gather stuff for money
+70,Generic gathering quests,,,Estralis,A set of four quests for each NPC to gather stuff for money
+71,Generic gathering quests,,,Estralis,A set of four quests for each NPC to gather stuff for money
+72,The Smuggler,,,Estralis,"A highly mobile, outcast NPC needs various things one can obtain in the towns"
+73,The Lazy Tailoress,192,,Estralis,Lilith Needlehand needs things to craft robes for the archmage.
+74,The Gossipers,,,Estralis,Bring 'em booze and they'll tell you secrets.
+75,The Gossipers,,,Estralis,Bring 'em booze and they'll tell you secrets.
+76,The Gossipers,,,Estralis,Bring 'em booze and they'll tell you secrets.
+77,Galmair Seewers,200,,Estralis,Miggs sends you down to pwn monsters in the sewers (noob quest Galmair)
+78,Sir Reginald's Tomb,226,,Estralis,Noob quest Cadomyr
+79,A Cave in the Woods,225,,Estralis,Noob quest Runewick
+80,Gathering Quests - Stuff for Skill,,,Zot,For every skill one gathering quest
+81,Gathering Quests - Stuff for Skill,,,Zot,For every skill one gathering quest
+82,Gathering Quests - Stuff for Skill,,,Zot,For every skill one gathering quest
+83,Gathering Quests - Stuff for Skill,,,Zot,For every skill one gathering quest
+84,Gathering Quests - Stuff for Skill,,,Zot,For every skill one gathering quest
+85,Gathering Quests - Stuff for Skill,,,Zot,For every skill one gathering quest
+86,Gathering Quests - Stuff for Skill,,,Zot,For every skill one gathering quest
+87,Gathering Quests - Stuff for Skill,,,Zot,For every skill one gathering quest
+88,Gathering Quests - Stuff for Skill,,,Zot,For every skill one gathering quest
+89,Gathering Quests - Stuff for Skill,,,Zot,For every skill one gathering quest
+90,Gathering Quests - Stuff for Skill,,,Zot,For every skill one gathering quest
+91,Gathering Quests - Stuff for Skill,,,Zot,For every skill one gathering quest
+92,Gathering Quests - Stuff for Skill,,,Zot,For every skill one gathering quest
+93,Gathering Quests - Stuff for Skill,,,Zot,For every skill one gathering quest
+94,Gathering Quests - Stuff for Skill,,,Zot,For every skill one gathering quest
+95,Gathering Quests - Stuff for Skill,,,Zot,For every skill one gathering quest
+96,Gathering Quests - Stuff for Skill,,,Zot,For every skill one gathering quest
+97,Gathering Quests - Stuff for Skill,,,Zot,For every skill one gathering quest
+98,Gathering Quests - Stuff for Skill,,,Zot,For every skill one gathering quest
+99,Gathering Quests - Stuff for Skill,,,Zot,For every skill one gathering quest
+100,Gathering Quests - Stuff for Skill,,,Zot,For every skill one gathering quest
+101,The Lost Guard,,,?,"A guard is missing, find him"
+102,The Lost Guard,,,?,"A guard is missing, find him"
+103,The Lost Guard,,,?,"A guard is missing, find him"
+104,The Errant Crusade,,,Estralis,Stop the foul(?) deeds of an evil cult; NPC Arenius Batavius
+105,A light at the end of the tunnel,,,Estralis,Make sure the candles are burning in the tomb of Runewick; NPC Gregor Remethar
+106,Milo's Ox,,,Estralis,Milo's ox won't move one further step without carrots!
+107,The Reminder,,,Estralis,Galmair message quest
+108,Delayed Mail,,,Estralis,Cadomyr message quest
+109,Eating on the Job,,,Estralis,Runewick guards wants some supplies
+110,Cadomyr laws,,,Estralis,Keeps track which laws of Cadomyr the player read
+111,A question of honour,,,Estralis,Cadomyr patrol quest
+112,The Ghost Oak,,,Estralis/Regallo,An imposer wants to destroy any evidence for a foul deed that happened 400 years ago
+113,A spark to a flame,,,Estralis,Do some deeds to honour Brágon
+114,A spark to a flame,,,Estralis,Keeps track of visited triggerfields
+115,A question of honour,,,Estralis,Patrol 1
+116,A question of honour,,,Estralis,Patrol 2
+117,A question of honour,,,Estralis,Patrol 3
+118,Runewick Gardens,,,Estralis,Get 10 apples omg!
+119,Do a good turn daily for Cadomyr,,,Estralis,Cadomyr daily mission - Quest
+120,Do a good turn daily for Cadomyr,,,Estralis,Cadomyr daily mission - Recovery time
+121,The Errant Crusade,,,Estralis,Triggered events for Salavesh dungeon
+122,Enforce skill system switch,,,Estralis,Temporary solution to catch new players
+123,Taxpaying system,,,Martin,records the timestamp (1000*yr+mon) of the last date taxes were paid
+124,Taxpaying system,,,Martin,records the timestamp (1000*yr+mon) of the last date wages were paid to that player.
+125,The Royal Stables,337,,Estralis,Get hay and carrots for Cadomyr's mounts
+126,A Noble Celebration,319,,Estralis,Get tableware for a celebration
+127,Caravan of Honour,,,Estralis,Daily quest by Phillip Molitor - quest selector
+128,Caravan of Honour,,,Estralis,Daily quest by Phillip Molitor - quest countdown
+129,Caravan of Honour,,,Estralis,Daily quest by Phillip Molitor - quest cooldown
+130,Explorer's Guild,,,Martin,"Find places (stones) spread all over the world, the more you find the better it is; receive rewards for them"
+131,Explorer's Guild,,,Martin,"Find places (stones) spread all over the world, the more you find the better it is; receive rewards for them"
+132,Explorer's Guild,,,Martin,"Find places (stones) spread all over the world, the more you find the better it is; receive rewards for them"
+133,Explorer's Guild,,,Martin,"Find places (stones) spread all over the world, the more you find the better it is; receive rewards for them"
+134,Explorer's Guild,,,Martin,"Find places (stones) spread all over the world, the more you find the better it is; receive rewards for them"
+135,Explorer's Guild,,,Martin,"Find places (stones) spread all over the world, the more you find the better it is; receive rewards for them"
+136,Explorer's Guild,,,Martin,"Find places (stones) spread all over the world, the more you find the better it is; receive rewards for them"
+137,Explorer's Guild,,,Martin,"Find places (stones) spread all over the world, the more you find the better it is; receive rewards for them"
+138,Explorer's Guild,,,Martin,"Find places (stones) spread all over the world, the more you find the better it is; receive rewards for them"
+139,Explorer's Guild,,,Martin,"Find places (stones) spread all over the world, the more you find the better it is; receive rewards for them"
+140,Explorer's Guild,,,Martin,"Find places (stones) spread all over the world, the more you find the better it is; receive rewards for them"
+141,Explorer's Guild,,,Martin,"Find places (stones) spread all over the world, the more you find the better it is; receive rewards for them"
+142,Explorer's Guild,,,Martin,"Find places (stones) spread all over the world, the more you find the better it is; receive rewards for them"
+143,Explorer's Guild,,,Martin,"Find places (stones) spread all over the world, the more you find the better it is; receive rewards for them"
+144,Explorer's Guild,,,Martin,"Find places (stones) spread all over the world, the more you find the better it is; receive rewards for them"
+145,Explorer's Guild,,,Martin,"Find places (stones) spread all over the world, the more you find the better it is; receive rewards for them"
+146,Explorer's Guild,,,Martin,"Find places (stones) spread all over the world, the more you find the better it is; receive rewards for them"
+147,Explorer's Guild,,,Martin,"Find places (stones) spread all over the world, the more you find the better it is; receive rewards for them"
+148,Explorer's Guild,,,Martin,"Find places (stones) spread all over the world, the more you find the better it is; receive rewards for them"
+149,Explorer's Guild,,,Martin,"Find places (stones) spread all over the world, the more you find the better it is; receive rewards for them"
+150,Present from Cadomyr,,,Miriam,Reret Odohier ask you to find 15 desert sky capsuls
+151,Cadomyr Treasury,,,Estralis,"Donate something to the Cadomyr treasury, NPC Ioannes Faber"
+152,Stock up Galmair's Storage,,,Salathe,Galmair daily mission - Quest
+153,Stock up Galmair's Storage,,,Salathe,Galmair daily mission - Recovery time
+154,Skill system,,,Estralis,Logs the first skill up
+155,patrol quest for Galmair-artimer,,,Evie,quest log for a Galmair patrol quest
+156,patrol quest for Galmair-artimer,,,Evie,triggerfield for a Galmair patrol quest
+157,patrol quest for Galmair-artimer,,,Evie,triggerfield for a Galmair patrol quest
+158,patrol quest for Galmair-artimer,,,Evie,triggerfield for a Galmair patrol quest
+159,Do a good turn daily for Cadomyr,,,Evie,Cadomyr daily mission - cool down
+160,For Runewick,,,Silverwing/Rakaya,Runewick daily missions
+161,For Runewick,,,Silverwing/Rakaya,Runewick daily missions
+162,Glorious Bounty,,,Estralis,Daily quest by Palis Nestros - quest selector
+163,Glorious Bounty,,,Estralis,Daily quest by Palis Nestros - quest countdown
+164,Glorious Bounty,,,Estralis,Daily quest by Palis Nestros - quest cooldown
+165,Cooldown Runewick Daily,,,Merung,Cooldown for Runewick quest
+166,Homeland - Cadomyr,,,Estralis,Show a message if the player leaves the homeland for the first time
+167,Homeland - Galmair,,,Estralis,Show a message if the player leaves the homeland for the first time
+168,Homeland - Runewick,,,Estralis,Show a message if the player leaves the homeland for the first time
+169,Homeland - Runewick2,,,Evie,Show a message if the player leaves the homeland for the first time
+170,Pillar,,,merung,donate a coin and get a shield
+171,Ssiguss's Orphans-Artimer,,,Evie,Quest for the wilderness for Orphaned eggs.
+172,Homeland - Cadomyr2,,,Evie,Show a message if the player leaves the homeland for the first time
+173,patrol quest for Galmair-artimer,,,Evie,triggerfield for a Galmair patrol quest
+181,Informant Spy,,,Caldarion,Daily quest by Bula Glasha - quest selector
+182,Informant Spy,,,Caldarion,Daily quest by Bula Glasha - quest countdown
+183,Informant Spy,,,Caldarion,Daily quest by Bula Glasha - quest cooldown
+184,The Researcher,,,Caldarion,Daily quest by Maelyrra Umrielyth - quest selector
+185,The Researcher,,,Caldarion,Daily quest by Maelyrra Umrielyth - quest countdown
+186,The Researcher,,,Caldarion,Daily quest by Maelyrra Umrielyth - quest cooldown
+187,Vermin Monitor,,,Caldarion,Noob quest by Jeremiah Horanfeld - Cadomyr
+188,Safe the field,,,Caldarion,Noob quest by Cilivren Itiireae - Runewick
+189,Save da beer,,,Caldarion,Noob quest by Fokous Onyxbrow - Galmair
+191,Banning,,,merung,banning individuals
+192,Banning,,,merung,banning individuals
+193,Banning,,,merung,banning individuals
+194,Banning,,,merung,banning individuals
+195,Banning,,,merung,banning individuals
+196,Banning,,,merung,banning individuals
+197,Banning,,,merung,banning individuals
+198,Banning,,,merung,banning individuals
+199,Faction system New Illarion,,,Lillian,"holds the info about the current factionmembership (0-none, 1-cadomyr, 2-runewick, 3-galmair)"
+200,Faction system New Illarion,,,Lillian,holds the special rank
+201,Faction system New Illarion,,,Ardian,"201 holds the counter how often the faction was switched and 202 the faction rankpoints(all values encoded, see base_factions.lua )"
+202,Faction system New Illarion,,,Ardian,"201 holds the counter how often the faction was switched and 202 the faction rankpoints(all values encoded, see base_factions.lua )"
+203,Endurance Cave Quest ,,,Ardian/Faladron,Endurance Cave: Number Chain the player has to go to reach the end boss
+204,Endurance Cave Quest ,,,Ardian/Faladron,Endurance Cave: Status how much correct moves of the number chain the player has done
+205,Runewick garbage bin Quest,,,Miriam,Throw something in the recycle mechanism
+206,Galmair garbage bin Quest,,,Miriam,Throw something in the garbage bin
+207,notary NPC (Runewick),,,Miriam,control variable before leaving town
+208,notary NPC (Galmair),,,Miriam,control variable before leaving town
+209,notary NPC (Cadomyr),,,Miriam,control variable before leaving town
+210,Late Delivery,,,Estralis,Daily quest by Anthony Devries - quest selector
+211,Late Delivery,,,Estralis,Daily quest by Anthony Devries - quest countdown
+212,Late Delivery,,,Estralis,Daily quest by Anthony Devries - quest cooldown
+213,A Wistful Journey,,,Estralis,Daily quest by Pesnar Rolemnes - quest selector
+214,A Wistful Journey,,,Estralis,Daily quest by Pesnar Rolemnes - quest countdown
+215,A Wistful Journey,,,Estralis,Daily quest by Pesnar Rolemnes - quest cooldown
+220,Bookseller Helper Quest Galmair,,,Caldarion,Daily quest
+221,Bookseller Helper Quest Runewick,,,Caldarion,Daily quest
+222,Bookseller Helper Quest Cadomyr,,,Caldarion,Daily quest
+223,Knowledge about Runewick,,,Banduk,Runewick patrol quest
+224,Knowledge about Runewick,,,Banduk,Runewick patrol quest - Patrol target
+226,Hairdresser,,,Banduk,Time new hair colour disappear
+227,Hairdresser,,,Banduk,Time new hair style disappear
+228,Hairdresser,,,Banduk,Time new beard style disappear
+229,Hairdresser,,,Banduk,Cooldown new or trimed cut visible
+230,Hairdresser,,,Banduk,Cooldown polished comb for lizzards
+231,Hairdresser,,,Banduk,money to pay
+232,Hairdresser,,,Banduk,Cooldown for delayed payment
+233,Hairdresser,,,Banduk,Warnings for delayed paymen
+234,Hairdresser,,,Banduk,time next haircut possible
+236,Temporary No attack with cooldown,,,Evie," ""Gm item"""
+252,Stock up Galmairs Storage,,,Evie,Galmair daily mission - Cooldown
+253,Replace poisoned carrots,,,Banduk,Subquest for rat den
+260,For Runewick cool down,,,Evie,Runewick daily missions- cool down
+298,Fireproof on stationary flames,,,Banduk,"0:damage by flames; > 0:Proof, no damage by flames over time until effect end"
+299,Iceproof on stationary flames,,,Banduk,"0:damage by ice flames; not 0:Proof, no damage by ice flames over time until effect end"
+300,Poisonproof on stationary poison clouds,,,Banduk,"0:damage by poison clouds; not 0:Proof, no damage by poison clouds over time until effect end"
+301,gathering trophey,,,Rincewind,Thud's : gather different items and earn nice items
+302,the bowstring,,,Rincewind,Mo'rurt und Jack Stout
+303,family afairs,,,Rincewind,Rose
+304,The pegleg,,,Rincewind,Julio canalie
+305,Spy the Pirates,,,Rincewind,Spy the pirates
+306,The first drink is for free,,,Rincewind,Free beer by Hagar
+307,Tale's and Swords,,,Alexander Knight,A old salk. Soldier tells you about his experiances in war while drinking a lot of your beer. Finally he gifts you his sword.
+308,Dailyforge,,,Rincewind,Alice
+309,[Obsolete] Old Tutorial,,,Rincewind,Noobia: Henry Cunnigan's station (Talk to NPCs)
+310,[Obsolete] Old Tutorial,,,Rincewind,Noobia: Aldania's station (GUI)
+311,[Obsolete] Old Tutorial,,,Rincewind,Noobia: Groknar's station (fighting)
+312,[Obsolete] Old Tutorial,,,Rincewind,Noobia: Nargon Hammerfist's station (gathering)
+313,[Obsolete] Old Tutorial,,,Rincewind,Noobia: Nimbur Goldhand's station (crafting)
+314,Old Tutorial,,,Rincewind,Noobia: Viola's station (chosing a faction) - still in use to check who completed the old tutorial. Do not delete.
+315,Tutorial,,,Rincewind,???
+316,Trollop,,,Rincewind,Rose
+317,Writing history,,,"Estralis, Miriam","Runewick message quest, Mirarie Bragolin asks for help"
+318,The Idler's Request/Der Auftrag des Studenhockers,,,Miriam,"Jonathan Idler want so see an elf, dwarf and a orcess"
+319,Tutorial,,,Estralis,"Noobia: Nimbur Goldhand's station (crafting), anti exploit counter"
+320,Tutorial - Explorer Stone,,,martin/ Lillian,"Find places (stones) spread all over the world, the more you find the better it is;"" receive rewards for them"""
+321,Tutorial - Have a break,,,Estralis,Changing equipment reduces fightpoints
+322,Tutorial - First player attack,,,Estralis,Only attack with valid RP reason
+323,Tutorial - Faction selection,,,Estralis,Player has chosen a faction
+324,Introduction - Login dialog,,,Estralis,Only show login dialog once
+325,Tutorial - Show tutorial messages,,,Estralis,Flag for no decision (0), Accepted (1), Declined (2)
+326,Tutorial - Hitpoints,,,Estralis,Show message just once
+327,Tutorial - Foodlevel,,,Estralis,Show message just once
+328,Tutorial - Monsters,,,Estralis,Show message just once
+329,Tutorial - First encounter,,,Estralis,Show message just once
+330,Tutorial I,Henry Cunnigan,,Slightly,Tutorial - Introduction / lighting a torch
+331,Tutorial II,Nimbur Goldbrew,,Slightly,Tutorial - Fighting / gathering / crafting
+332,Tutorial - Campfire,,,Estralis,Show message just once
+333,Aurora's staff,,,,
+334,quest.madeline_clarbelis_334_runewick,,,,
+335,quest.kaitza_335_wilderness,,,,
+336,Tutorial - Brewery,,,Estralis,Show message just once
+337,Tutorial - Entrance,,,Estralis,Show message just once
+338,Tutorial - Viola,,,Estralis,Show message just once
+339,Tutorial - Harbour,,,Estralis,Show message just once
+340,Tutorial - Brewing,,,Estralis,Show message just once
+341,Tutorial - Market,,,Estralis,Show message just once
+342,Cadomyr Starter Quest,,,Grokk,New player quest chain for the Cadomyr faction
+343,Galmair Starter Quest,,,Grokk,New player quest chain for the Galmair faction
+344,Tutorial - Temple,,,Estralis,Show message just once
+345,Tutorial - Depot,,,Estralis,Show message just once
+346,Tutorial - Glyph,,,Estralis,Show message just once
+347,Tutorial - Wilderness,,,Estralis,Show message just once
+348,Tutorial - Teleporter,,,Estralis,Show message just once
+349,Tutorial - Rat,,,Estralis,Spawn rat just once
+350,teacher,,,merung,Initiation - alchemy
+351,teacher,,,merung,Initiation - alchemy
+352,teacher,,,merung,Initiation - alchemy
+353,Tutorial - Orchard,,,Estralis,Show message just once
+354,Tutorial - Orchard rat,,,Estralis,Show message just once
+355,Tutorial - Pathway,,,Estralis,Show message just once
+356,Tutorial - Henry,,,Estralis,Show message just once
+357,Tutorial - Nimbur,,,Estralis,Show message just once
+360,Pet system: race,,,merung,race of the pet
+361-363,Pet system: position,,,merung,stores the position of the pet
+364,Pet system: sex,,,merung,sex of the pet
+365,Pet system: hp,,,merung,saves the hitpoints of the pet
+366,Pet system: command,,,merung,current command for the pet to follow
+367-370,Pet system: color,,,merung,save the color of the pet
+371-374,Pet system: name,,,merung,binary saved pet name
+375,Pet system: owner,,,merung,Flag for being a pet owner
+376,Pet system: death protection,,,merung,Flag if the pet is proctected from death
+401,,,,Estralis/pharse,Priest system: Devotion
+402,,,,Estralis/pharse,Priest system: Priesthood
+403-418,,,,snus-mumrik,Priest system: Gods favour
+419-434,,,,snus-mumrik,Priest system: sacrificed cumulative values
+450,,,,merung,slime feeding quest runewick
+451,,,,merung,holy grapes eollection
+500,,,,Caldarion,Elstree ranger
+501,Zzarn'K'Ska of Zelphia,,,Evie,Main quest for Dungeon Lake of Life
+502,Praise Zelphia,,,Evie,Side quest for Lake of Life Dungeon
+503,Lake of Life Events,,,Evie,One time quest item
+504,Alchemical needs,,,Merung,Quest for rare herbs
+505,Hedge search,,,Merung,Find a sickle in a hedge
+506,Lake of Life Events,,,Evie,One time quest item.
+507,Lake of Life Events,,,Evie,One time quest item timer.
+508,Lake of Life Fountains,,,Evie,Fountain quest.
+509,Lake of Life Fountains,,,Evie,Fountain timer.
+510,Spelunker,,,Evie,Dragon Cave quest
+511,Dragon cave event,,,Evie,quest counter for the triggerfields in step four of Spelunker
+512,Dragon cave event,,,Evie,quest counter for triggers in step five of Spelunker
+513,Conquering Letma,,,Evie,quest for Mt. Letma NPC
+514,A good deed for Oldra,,,Dantagon,quest for Oldra's Corner
+515,Dragarog Cult Npc,,,Dantagon,quest Dragorog Cult dungeon
+520,Gorgophone's Nest,,,Caldarion,A few hunting quests down Gorgophone's nest
+521,Spider Scavenger Hunt,,,Caldarion,A collection quests down Gorgophone's nest
+522,Gorgophone's Nest Events,,,Caldarion,Oneshot events in Gorgophone's nest
+525,Akaltut's Chambers I,,,Evie,Npc quests in Akaltut's Chambers
+526,Akaltut's Chambers II,,,Evie,Npc quests in Akaltut's Chambers
+527,Akaltut's Chambers III,,,Evie,Npc quests in Akaltut's Chambers
+528,Akaltut's Chambers IV,,,Evie,Npc quests in Akaltut's Chambers
+529,Akaltut's Chambers V,,,Evie,Npc quests in Akaltut's Chambers
+530,Akaltut's Chambers VI,,,Evie,Npc quests in Akaltut's Chambers
+531,Akaltut's Chambers Events,,,Evie,Oneshot events in Akaltut's Chambers
+532,Akaltut's Chambers Boss Fight,,,Evie,Npc quests in the boss area of Akaltut's Chambers
+533,Viridian Needles Lair Events,,,Evie,potion quests
+534,Viridian Needles Lair Events,,,Evie,potion quests
+535,Viridian Needles Lair Events,,,Evie,potion quests
+536,Viridian Needles Lair Events,,,Evie,potion quests
+537,Viridian Needles Lair Events,,,Evie,potion quests
+538,Viridian Needles Lair Events,,,Evie,potion quests
+539,"Viridian Needles Lair Npc Quest,,,Evie""",Npc quest in Viridian Needles Lair,,,
+540,Viridian Needles Lair Events,,,Evie,potion quests-success recorder
+541,Viridian Needles Lair Events cooldown,,,Evie,lte counter for boosts.
+542,Viridian Needles Lair Quest counter,,,Evie,counter for quest two
+543,The Path of the Fox,,,Evie,quest for Ronagan based dungeon.
+544,The Path of the Fox quest counters,,,Evie,quest for Ronagan based dungeon.
+545,The Path of the Fox quest counters,,,Evie,quest for Ronagan based dungeon.
+546,The Path of the Fox quest counters,,,Evie,quest for Ronagan based dungeon.
+547,The Path of the Fox quest counters,,,Evie,quest for Ronagan based dungeon.
+548,The Path of the Fox quest counters,,,Evie,quest for Ronagan based dungeon.
+549,The Path of the Fox quest counters,,,Evie,quest for Ronagan based dungeon.
+550,The Path of the Fox quest counters,,,Evie,quest for Ronagan based dungeon.
+551,The Path of the Fox quest counters,,,Evie,quest for Ronagan based dungeon.
+557,The way of the ham,,,martin/Nitram,A npc sends you to get a delievery of ham
+558,flora??? But alos Fredegar Bumbleroot,,,,
+560,Dog Transformation,,,Merung,Used for dog transformation quest
+561,Fox den feeding lte cooldown,,,Evie,Cool down timer for fox den feeding
+562,Destroy glyph forge cooldown,,,Banduk,Prevent removing all glyph forges in a row
+563,Find next forge cooldown,,,Banduk,Learning possible every 5 - 10 min only
+564,Use glyphs - neck delay,,,Banduk,Time neck was equipped with jewelry
+565,Use glyphs - left hand delay,,,Banduk,Time left hand was equipped with jewelry
+566,Use glyphs - right hand delay,,,Banduk,Time right hand was equipped with jewelry
+567,Last examined glyph forge,,,Banduk,Cannot examine the same forge again and again
+589,The Tactics Teacher,,,Ardian,A npc (Arkos Seldaran) teaches you tactics if you bring him what he wants
+600,orc researcher/bragon priest,,,envi,"a npc ask for a question, another npc has the answer"
+601,orc storyteller,,,envi,orc tells old stories
+602,orc storyteller quest,,,envi,orc asks for beer
+603,orc researcher/bragon priest,,,envi,"a npc ask for a question, another npc has the answer"
+604,[Obsolete] Viola Baywillow quest Elesil,,,envi,Viola Baywillow introduces player to Elesil
+605,[Obsolete] Viola Baywillow quest Frizza,,,envi,Viola Baywillow introduces player to Frizza
+606,[Obsolete] Viola Baywillow quest Iradona,,,envi,Viola Baywillow introduces player to Iradona
+607,[Obsolete] hummy quest tronuk,,,envi,hummy introduces player to tronuk
+608,[Obsolete] orc storyteller quest cooldown,,,evie,orc asks for beer cooldown
+610,Cadomyr rulers,,,envi,Keeps track which rulers of Cadomyr the player read
+611,,,,envi,
+613,Galmair treasure map,,,envi,longtime_cooldown
+614,Galmair counterfeiter,,,envi,longtime_cooldown
+612,Wonderland,,,envi,Player is caught in Wonderland
+620,Information quests (Runewick),,,envi,Elesil sends player to Numilia
+621,Information quests (Runewick),,,envi,Elesil quests
+622,Information quests (Runewick),,,envi,Numilia quests
+623,Information quests (Runewick),,,envi,Archmage has quest reward for Numilia
+624,quest.numila_irunnleh_624_runewick,,,,
+630,Information quests (Galmair),,,envi,Iradona sends player to Lotta
+631,Information quests (Galmair),,,envi,Iradona quests
+632,Information quests (Galmair),,,envi,Lotta quests
+633,Information quests (Galmair),,,envi,Don has quest reward for Lotta
+634,quest.lotta_medborgar_634_galmair,,,,
+640,Information quests (Cadomyr),,,envi,Frizza sends player to Ruzusss
+641,Information quests (Cadomyr),,,envi,Frizza quests
+642,Information quests (Cadomyr),,,envi,Ruzusss quests
+643,Information quests (Cadomyr),,,envi,Queen has quest reward for Ruzusss
+644,quest.ruzusss_644_cadomyr,,,,
+650,Information quests (The Hemp Necktie Inn),,,envi,"Either Numilia, Ruzusss, or Lotta send player to Wulfgorda "
+652,Information quests (The Hemp Necktie Inn),,,envi,Wulfgorda quests
+660,Galmair bridges,,,envi, Recovery/protection time ...no attack by bandits
+661,Elstree Forest,,,envi,no chance that fairies drop anything
+662,Seafearing,,,envi,obsolete - lte for seafearing script
+663,Seafearing,,,envi,obsolete - status for seafearing script
+664,Vision,,,envi,lte for vision script
+665,Vision,,,envi,status for vision script
+666,Mirror of Death (death counter),,,merung,counts how often the char died; can be reduced by sacraficing to Cherga
+667,Vision,,,envi,status for bookrests script
+668,Vision,,,envi,status for skull script
+669,Vision,,,envi,status for grave script
+670,Crafter development quests,,,banduk/envi,Truciolo Pialla asks to gather items for carpentry
+671,Bear,,,banduk,Feed the bear
+672,Lotte Silberstreif,,,banduk,Another game-npc
+673,Bear,,,banduk,longtime_cooldown for bear-quest 671
+674,Alberto Dicker,,,banduk,Quest main line
+675,Alberto Dicker,,,banduk,Quest side line - get final award
+676,Alberto Dicker,,,banduk,data Contains found pictures for subquest
+677,Fairy Tales,,,banduk,Quest main line
+678,Fairy Tales,,,banduk,Data - contains found books
+679,Gambler Xiao Gongzou,,,banduk,Contains two games for players
+680,Vision,,,envi,status for stonechamber script
+681,Vision,,,envi,status for stonechamber script
+682,Bjolmur,,,envi,status for bjolmur script
+683,Fairy Tales,,,banduk,Number of found books
+684,Fairy Tales,,,banduk,Last book found
+685,God Book,,,banduk,Quest main line - get a book about your God
+686,God Book,,,banduk,No of library asked yet - get a book about your God
+687,Fairy Tales,,,banduk,cooldown
+688,Pan in water,,,banduk,Find a a pan in water while fishing
+689,Evil rock duplicate,,,formerly envi,duplicate for double used status 683
+700,Geld_in_Hecke,,,Miriam,Player finds info about money in the hedge on a barrel
+701,Ask for me (Runewick message giver quest),,,Miriam,Zarissa asks player to talk to different NPCs
+702,Galmair message giver quest,,,Lillian,Charwis Irongate asks player to talk to different NPCs
+703,Cadomyr message giver quest,,,Zot,Deleted - Jakob Lindorn asks player to talk to different NPCs
+704,Cadomyr Crafting Quest,,,Zot,Deleted -Berri Firegold asks players to gather materials for smithing/finesmithing and crafting items
+705,Cadomyr Crafting Quest,,,Zot,Lilli Gallfing asks players to gather materials for tailoring and crafting items
+706,Cadomyr Crafting Quest,,,Zot,deleted -Gerald Deloid asks players to gather materials for candle making
+707,Cadomyr Crafting Quest,,,Zot,Zlatxhol asks players to gather materials for glassblowing and making bricks
+708,Galmair Crafting Quest,,,Zot,Thorgrem Silverbeard asks players to gather materials for smithing/finesmithing and crafting items
+709,Galmair Crafting Quest,,,Zot,Seleseth asks players to gather materials for brick making/gem grinding/masoning
+710,Galmair Crafting Quest,,,Zot,Tony Spirotelli asks players to gather materials for carpenting
+711,Galmair Crafting Quest,,,Zot,Deleted - Hannah Shepard asks players to gather materials for farming/baking/cooking
+712,Galmair message giver quest,,,Zot,Deleted - Joey Licavoli asks player to talk to different NPC's or something like that
+713,Runewick Crafting Quest,,,Zot,tbd asks players to gather materials for carpenting
+714,Runewick Crafting Quest,,,Zot,tbd aks players to gather materials for cooking/farming
+715,Runewick Crafting Quest,,,Zot,deleted Judith Tanner asks players to gather materials for tailoring
+716,Runewick Crafting Quest,,,Zot,tbds asks players to gather materials for candle making and glass blowing
+717,Runewick Crafting Quest,,,Rakaya,tbds asks players to gather materials for glass blowing
+718,Runewick Crafting Quest,,,Rakaya,tbds asks players to gather materials for fishing
+720,Trait points available,,,Merung,Stores how many traits the character has left to select
+721-799,Character traits,,,Merung,Flags if a char has the respective trait
+801,Arena,,,Lillian,Arena
+802,Arena,,,Lillian,Arena
+803,Arena,,,Lillian,Arena
+804,Arena Rewards,,,Lillian,Arena Rewards
+805,Arena Rewards,,,Lillian,Arena Rewards
+806,Arena Rewards,,,Lillian,Arena Rewards
+811,Licence Cadomyr,,,envi,longtime_cooldown
+812,Licence Runewick,,,envi,longtime_cooldown
+813,Licence Galmair,,,envi,longtime_cooldown
+820,Noobhelper in Runewick,,,Lillian,Deleted - Florain Dreyndel tells the player where to find easy quests
+850,new player help counter,,,Merung/Vilarion,counts how often the char warped to new players to assist them
+851,[Obsolete] new player help preferences,,,Merung/Vilarion,"0 == available to help new players, 1 == not available for this session"
+852,[Obsolete] already played,,,Banduk,"to get how long new player played already. starts with 0, new player only"
+860,LearnLenniersDream,,,,
+861,CorrectSightingPotion,,,,
+862,ApperanceOfDog,,,,
+999,An ursurper to the Throne (Cadomyr),,,Mr.Cromwell/Faladron,"Baron Hastings & his henchman Victor Tolenor try to harm Cadomyr and its ""unrightful"" Queen"
+1000-1999,Recipes learning (alchemy),,,merung,used to remember if a char has learned a certain recipe
+2000,factionpoints,,,envi,used to distribute faction points
+3[1-9]00,CollectionTaskID,,,Banduk,User is active in the related collection task
+3[1-9][01-12],Already given for Slot,,,Banduk,Character already gave to collection
+10000-10009,reserved,,,,
+999,An ursurper to the Throne (Cadomyr),,,Mr.Cromwell/Faladron,"Baron Hastings & his henchman Victor Tolenor try to harm Cadomyr and its ""unrightful"" Queen"
+10000,Gravestone,,,,
+10001,Hagar Coin,,,,Hagar Wernson is the npc to give out the quest
 10002,,,,,
-11111,"test-quest",,,"envi","testing quest editor"
-11112,"Wonderland",,,"envi","testing quest editor"
+11111,test-quest,,,envi,testing quest editor
+11112,Wonderland,,,envi,testing quest editor

@@ -12,12 +12,11 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (685, 'god_book_685_all');
 
 local common = require("base.common")
-local factions = require("base.factions")
 local M = {}
 
 local GERMAN = Player.german
@@ -60,8 +59,8 @@ QuestTarget[1] = {position(374, 216, 0), position(139, 553, 0), position(959, 78
 QuestTarget[2] = {position(374, 216, 0)} -- Miggs
 QuestTarget[3] = {position(139, 553, 0)} -- Hector Valerion
 QuestTarget[4] = {position(959, 788, 0)} -- Fludnar Yednos
-QuestTarget[5] = {position(374, 216, 0)} -- Miggs 
-QuestTarget[6] = {position(139, 553, 0)} -- Hector Valerion 
+QuestTarget[5] = {position(374, 216, 0)} -- Miggs
+QuestTarget[6] = {position(139, 553, 0)} -- Hector Valerion
 QuestTarget[7] = {position(959, 788, 0)} -- Fludnar Yednos
 
 -- Insert the quest status which is reached at the end of the quest

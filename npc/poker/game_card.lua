@@ -34,38 +34,38 @@ function M.newCard( color, value )
         color = color,
         value = value,
     };
-    
+
     local getColor = function()
         return self.color;
     end;
-    
+
     local getValue = function()
         return self.value;
     end;
-    
+
     local getEnglish = function()
         return ENGLISH_VALUE[getValue()] .. ENGLISH_COLOR[getColor()];
     end;
-    
+
     local getEnglishShort = function()
         return ENGLISH_VALUE_SHORT[getValue()] .. ENGLISH_COLOR_SHORT[getColor()];
     end;
-    
+
     local getGerman = function()
         return GERMAN_VALUE[getValue()] .. GERMAN_COLOR[getColor()];
     end;
-    
+
     local getGermanShort = function()
         return GERMAN_VALUE_SHORT[getValue()] .. GERMAN_COLOR_SHORT[getColor()];
     end;
-    
+
     return {
         getColor = getColor,
         getValue = getValue,
         getEnglish = getEnglish,
         getEnglishShort = getEnglishShort,
         getGerman = getGerman,
-        getGermanShort = getGermanShort,        
+        getGermanShort = getGermanShort,
     }
 end
 

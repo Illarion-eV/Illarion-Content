@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
 local treasureBase = require("item.base.treasure")
@@ -90,7 +90,7 @@ function M.UseItem(User, SourceItem)
         if id_266_bookshelf.bookList[book] ~= nil then
             User:sendBook(id_266_bookshelf.bookList[book].bookId)
         end
-    
+
     elseif book == nil then
         local textDe, textEn = getText(User, SourceItem)
         User:inform(textDe, textEn)

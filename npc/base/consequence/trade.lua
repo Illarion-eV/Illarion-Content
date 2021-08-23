@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 local consequence = require("npc.base.consequence.consequence")
@@ -22,7 +22,7 @@ local _trade_helper
 local trade = class(consequence,
 function(self, tradeNPC)
     consequence:init(self)
-    
+
     self["tradeNPC"] = tradeNPC
     self["perform"] = _trade_helper
 end)
@@ -32,7 +32,7 @@ function _trade_helper(self, npcChar, player)
         player:inform("This NPC has a bug, no trading items were set. Please inform a developer so he can beat the person responsible.")
         return
     end
-    self.tradeNPC:showDialog(npcChar, player) 
+    self.tradeNPC:showDialog(npcChar, player)
 end
 
 return trade

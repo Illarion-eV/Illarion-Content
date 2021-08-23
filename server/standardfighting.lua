@@ -51,18 +51,15 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local character = require("base.character")
-local learn = require("server.learn")
 local fighting = require("content.fighting")
 local chr_reg = require("lte.chr_reg")
 local gems = require("base.gems")
 local monsterHooks = require("monster.base.hooks")
 local fightingutil = require("base.fightingutil")
 local glypheffects = require("magic.glypheffects")
-local petBase = require("petsystem.base")
 
 local M = {}
 
-local NewbieIsland
 local GetAttackType
 local LoadAttribsSkills
 local CheckAttackOK
@@ -120,8 +117,8 @@ local function getArcherRange(archer)
 end
 
 local function isPossibleTarget(monster, candidate)
-    --Monsters are excluded; exception: pets that attack a monster are a valid target for that monster
-    if not character.IsPlayer(candidate) and not (petBase.getOwner(candidate) and fightingutil.getSelectedEnemyId(candidate.id) == monster.id)  then
+    --Monsters are excluded
+    if not character.IsPlayer(candidate) then
         return false
     end
 
@@ -193,7 +190,10 @@ local AIMING_TIME_LIST = {}
 local function FillAimingTimeList(Attacker,Defender,weaponId)
     AIMING_TIME_LIST[Attacker.id] = {}
     AIMING_TIME_LIST[Attacker.id]["counter"] = 1 -- increased on every call; normally every 1/10 seconds
-    AIMING_TIME_LIST[Attacker.id]["started"] = world:getTime("unix") -- we use that as a security measure. In case onAttack is not called every 1/10 (e.g. lack of ap), the action is excecuted then ext full sec(e.g. if 1.7 seconds are necessary but onAttack hasnt been called properly, the action is xeceuted after 2 sec)
+    AIMING_TIME_LIST[Attacker.id]["started"] = world:getTime("unix")
+    --[[ we use that as a security measure. In case onAttack is not called every 1/10 (e.g. lack of ap),
+    the action is excecuted then ext full sec(e.g. if 1.7 seconds are necessary but onAttack hasnt been called properly,
+    the action is xeceuted after 2 sec)]]
     AIMING_TIME_LIST[Attacker.id]["weapon"] = weaponId
     AIMING_TIME_LIST[Attacker.id]["target"] = Defender.id
     AIMING_TIME_LIST[Attacker.id]["position"] = Attacker.pos.x.." "..Attacker.pos.y.." "..Attacker.pos.z
@@ -204,8 +204,10 @@ end
 -- @param Weapon The weapon used
 -- @return The time needed for an attack in 1/10 seconds
 local function GetNecessaryAimingTime(Attacker)
-    -- we use a default value for every character and weapon; the differences in attributes and weapons come in play when the movepoints are lowered/regenerated
-    return math.max(11, math.floor(CalculateMovepoints(Attacker)+0.5)) --11 is minimum for the animation to be played properly.
+    --[[we use a default value for every character and weapon;
+    the differences in attributes and weapons come in play when the movepoints are lowered/regenerated]]
+    return math.max(11, math.floor(CalculateMovepoints(Attacker)+0.5))
+    --11 is minimum for the animation to be played properly.
 end
 
 --- Check if enough aiming time has passed for the archer in order to shoot
@@ -225,16 +227,23 @@ local function CheckAimingTime(AttackerList,Defender,inRange)
         return false
     else
         -- Check if weapon and target are the same and if the attacker hasn't moved
-        if AttackerList.WeaponItem.id ~= AIMING_TIME_LIST[Attacker.id]["weapon"] or Defender.id ~= AIMING_TIME_LIST[Attacker.id]["target"] or Attacker.pos.x.." "..Attacker.pos.y.." "..Attacker.pos.z ~= AIMING_TIME_LIST[Attacker.id]["position"] then
+        if AttackerList.WeaponItem.id ~= AIMING_TIME_LIST[Attacker.id]["weapon"]
+                or Defender.id ~= AIMING_TIME_LIST[Attacker.id]["target"]
+                or Attacker.pos.x.." "..Attacker.pos.y.." "..Attacker.pos.z ~=
+                AIMING_TIME_LIST[Attacker.id]["position"] then
             FillAimingTimeList(Attacker,Defender,AttackerList.WeaponItem.id)
             return false
-        elseif (world:getTime("unix") - AIMING_TIME_LIST[Attacker.id]["started"])*10 > GetNecessaryAimingTime(AttackerList) + 20 then
-            -- that is needed to prevent that someone aims, stops aiming, waits a long time and as soon as he targets the same character again, shoots immediately.
+        elseif (world:getTime("unix") - AIMING_TIME_LIST[Attacker.id]["started"])*10
+                > GetNecessaryAimingTime(AttackerList) + 20 then
+            -- that is needed to prevent that someone aims, stops aiming,
+            -- waits a long time and as soon as he targets the same character again, shoots immediately.
             -- this has to be done since there is no way to clear the list when someone stops targeting the target
             AIMING_TIME_LIST[Attacker.id]["counter"] = 1
             AIMING_TIME_LIST[Attacker.id]["started"] = world:getTime("unix")
             return false
-        elseif AIMING_TIME_LIST[Attacker.id]["counter"] <= GetNecessaryAimingTime(AttackerList) and (world:getTime("unix") - AIMING_TIME_LIST[Attacker.id]["started"])*10 < GetNecessaryAimingTime(AttackerList) then
+        elseif AIMING_TIME_LIST[Attacker.id]["counter"] <= GetNecessaryAimingTime(AttackerList)
+                and (world:getTime("unix") - AIMING_TIME_LIST[Attacker.id]["started"])*10
+                    < GetNecessaryAimingTime(AttackerList) then
             AIMING_TIME_LIST[Attacker.id]["counter"] = AIMING_TIME_LIST[Attacker.id]["counter"] + 1
         else
             return true
@@ -268,20 +277,23 @@ function M.onAttack(Attacker, Defender)
         -- Let's don't attack now.
         return
     end
-    
-    -- Store the enemey as the current target of this player or a player's pet
-    if character.IsPlayer(Attacker) or petBase.getOwner(Attacker) then
-        fightingutil.setSelectedEnemyId(Attacker.id, Defender.id)
+
+    -- Store the enemey as the current target of this player
+    if character.IsPlayer(Attacker) then
+       fightingutil.setSelectedEnemyId(Attacker.id, Defender.id)
     end
 
     -- Prepare the lists that store the required values for the calculation
-    local Attacker = { ["Char"]=Attacker }
-    local Defender = { ["Char"]=Defender }
+    Attacker = { ["Char"]=Attacker }
+    Defender = { ["Char"]=Defender }
     local Globals = {}
 
-    -- Newbie Island Check
-    if not NewbieIsland(Attacker.Char, Defender.Char) then
-        return false
+    -- [Tutorial] Newbie Check
+    if character.IsPlayer(Attacker.Char) and character.IsPlayer(Defender.Char) and Attacker.Char:getQuestProgress(322) == 0 and Attacker.Char:getQuestProgress(325) == 1 then
+        common.InformNLS(Attacker.Char,
+        "[Tutorial] Du darfst andere Spieler nur mit angemessenem und nachprüfbarem Rollenspielgrund angreifen. Klicke nochmals rechts auf deinen Gegner um den Kampf abzubrechen.",
+        "[Tutorial] You are only allowed to attack other players with clearly traceable and reasonable roleplaying reason. Right click again on your enemy to cancel the attack.")
+        Attacker.Char:setQuestProgress(322,1)
     end
 
     -- Load the weapons of the attacker
@@ -325,7 +337,6 @@ function M.onAttack(Attacker, Defender)
 
     -- Check if a magic attack is invoked
     if Attacker.AttackKind == 5 then
-        local distance = Attacker.Char:distanceMetric(Defender.Char)
         if fightingutil.isMagicUser(Attacker.Char) then -- Only mages can invoke a magic attack
             -- Magic attacks are calculated in a different manner, outsourced for tidiness
             local magicAttack = require("magic.magicfighting")
@@ -477,7 +488,7 @@ function ArmourAbsorption(Attacker, Defender, Globals)
     if character.IsPlayer(Defender.Char) and common.isBroken(Globals.HittedItem) then
         armourValue = 0
     end
-    
+
     if(Globals.criticalHit==6) then
         --Armour pierce
         armourValue = nil
@@ -564,12 +575,13 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
     if Attacker.Char:isNewPlayer() then
         degradeChance = degradeChance * 2
     end
-    if (common.Chance(1, degradeChance)) and (Attacker.WeaponItem.id ~= 0) and character.IsPlayer(Attacker.Char) and commonAttackerWeapon.MaxStack == 1 then
+    if (common.Chance(1, degradeChance)) and (Attacker.WeaponItem.id ~= 0) and character.IsPlayer(Attacker.Char)
+            and commonAttackerWeapon.MaxStack == 1 then
         local durability = math.fmod(Attacker.WeaponItem.quality, 100)
         local quality = (Attacker.WeaponItem.quality - durability) / 100
         local nameText = world:getItemName(Attacker.WeaponItem.id, Attacker.Char:getPlayerLanguage())
 
-        if durability > 0 then 
+        if durability > 0 then
             durability = durability - 1
             if (durability == 0) then
                 common.InformNLS(Attacker.Char,
@@ -592,7 +604,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
         local quality = (ParryWeapon.quality - durability) / 100
         local nameText = world:getItemName(ParryWeapon.id, Defender.Char:getPlayerLanguage())
 
-        if durability > 0 then 
+        if durability > 0 then
             durability = durability - 1
             if (durability == 0) then
                 common.InformNLS(Defender.Char,
@@ -602,7 +614,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
             ParryWeapon.quality = quality * 100 + durability
             world:changeItem(ParryWeapon)
         end
-        
+
         --[[if (durability < 10) then
             common.InformNLS(Defender.Char,
                 "Dein Gegenstand '"..nameText.."' hat schon bessere Zeiten gesehen. Vielleicht solltest du ihn reparieren.",
@@ -685,7 +697,9 @@ function CauseDamage(Attacker, Defender, Globals)
         Defender = Attacker
     end
 
-    if character.IsPlayer(Defender.Char) and not Defender.Char:isAdmin() and character.WouldDie(Defender.Char, Globals.Damage + 1) and not character.AtBrinkOfDeath(Defender.Char) then
+    if character.IsPlayer(Defender.Char) and not Defender.Char:isAdmin()
+            and character.WouldDie(Defender.Char, Globals.Damage + 1)
+            and not character.AtBrinkOfDeath(Defender.Char) then
         -- Character would die. Nearly killing him and moving him back in case it's possible
         character.ToBrinkOfDeath(Defender.Char)
 
@@ -735,19 +749,23 @@ function CauseDamage(Attacker, Defender, Globals)
         if not Defender.Char:isAdmin() then --Admins don't want to get paralysed!
             common.ParalyseCharacter(Defender.Char, 2, false, true)
             local TimeFactor=1 -- See lte.chr_reg
-            chr_reg.stallRegeneration(Defender.Char, 60/TimeFactor) -- Stall regeneration for one minute. Attention! If you change TimeFactor in lte.chr_reg to another value but 1, you have to divide this "60" by that factor
+            chr_reg.stallRegeneration(Defender.Char, 60/TimeFactor)
+            -- Stall regeneration for one minute.
+            -- If you change TimeFactor in lte.chr_reg to another value but 1,
+            -- you have to divide this "60" by that factor.
         end
 
         return true
     else
-        character.ChangeHP(Defender.Char,-Globals.Damage) -- Finally dealing the damage.
-
         if (Attacker.AttackKind == 4) then -- Ranged attack
             if not character.IsPlayer(Defender.Char) and character.IsPlayer(Attacker.Char) then
                 Defender.Char.movepoints = Defender.Char.movepoints - 5
             end
             DropAmmo(Attacker, Defender.Char, false)
         end
+
+        character.ChangeHP(Defender.Char,-Globals.Damage) -- Finally dealing the damage.
+
     end
 end
 
@@ -1152,7 +1170,7 @@ function DropAmmo(Attacker, Defender, GroundOnly)
             if monsterArrowDrop[monsterId][AmmoItem.id] then
                 monsterArrowDrop[monsterId][AmmoItem.id] = monsterArrowDrop[monsterId][AmmoItem.id] + 1
             else
-                monsterArrowDrop[monsterId][AmmoItem.id] = 2 -- Last arrow is not counted; reason unknown.
+                monsterArrowDrop[monsterId][AmmoItem.id] = 1
                 local function dropAmmo(monster)
                     for ammoId, ammoAmount in pairs(monsterArrowDrop[monster.id]) do
                         world:createItemFromId(ammoId, ammoAmount, monster.pos, true, 333, nil)
@@ -1187,9 +1205,9 @@ function GetArmourType(Defender, Globals)
     Globals["HittedArea"] = fighting.GetHitArea(Defender.Race)
     Globals["HittedItem"] = Defender.Char:getItemAt(Globals.HittedArea)
 
-    local armour, armourfound
+    local armour, _
     if (Globals.HittedItem ~= nil and Globals.HittedItem.id > 0) then
-        armourfound, armour = world:getArmorStruct(Globals.HittedItem.id)
+        _, armour = world:getArmorStruct(Globals.HittedItem.id)
     else
         -- No armour worn
         Defender["DefenseSkill"] = 0
@@ -1454,7 +1472,8 @@ function HandleAmmunition(Attacker)
             Attacker.Char:inform("Du hast keine Munition mehr.", "You are out of ammunition.");
         end
 
-    elseif (Attacker.Weapon.AmmunitionType == 255) then -- throwing axes, spears and throwing stars, thus they ARE the ammunition!
+    elseif (Attacker.Weapon.AmmunitionType == 255) then
+        -- throwing axes, spears and throwing stars, thus they ARE the ammunition!
 
         Attacker.Char:increaseAtPos(Attacker.WeaponItem.itempos, -1)
 
@@ -1485,7 +1504,8 @@ function CalculateMovepoints(Attacker)
         end
     end
 
-    return math.max(7, weaponFightpoints / (1+common.GetAttributeBonus(Attacker.agility,0.2))) --Dividing the time by a factor is equal to multiplying the damage per second with the factor.
+    return math.max(7, weaponFightpoints / (1+common.GetAttributeBonus(Attacker.agility,0.2)))
+    --Dividing the time by a factor is equal to multiplying the damage per second with the factor.
 end
 
 --- Reduce the attacker movepoints by the fitting value.
@@ -1510,7 +1530,10 @@ function HandleMovepoints(Attacker, Globals)
     character.ChangeFightingpoints(Attacker.Char,-math.floor(reduceFightpoints-rangedAdjustment))
 
     if not character.IsPlayer(Attacker.Char) then
-    --This is merely a hack. Without this, monsters just "fly" over tiles while attacking because they do not invest movepoints. Strangely, if we do the same for players, they get stalled. A profound solution is needed, most probably, this is a server issue. The line below does the job for now, but it's not a clean solution. ~Estralis
+    --[[This is merely a hack. Without this, monsters just "fly" over tiles while attacking because they do not \z
+    invest movepoints. Strangely, if we do the same for players, they get stalled. A profound solution is needed, \z
+    most probably, this is a server issue. The line below does the job for now, but it's not a clean solution. \z
+    ~Estralis]]
         character.ChangeMovepoints(Attacker.Char,-math.floor(reduceFightpoints-rangedAdjustment))
     end
 
@@ -1530,7 +1553,7 @@ function LearnSuccess(Attacker, Defender, AP, Globals)
 
     -- Defender learns armour skill
     if Defender.DefenseSkillName then
-        local armourfound, armour = world:getArmorStruct(Globals.HittedItem.id)
+        local armourfound, _ = world:getArmorStruct(Globals.HittedItem.id)
         if armourfound then
             Defender.Char:learn(Defender.DefenseSkillName,(AP)/3,Attacker.skill + 20)
         end
@@ -1581,42 +1604,6 @@ function LoadAttribsSkills(CharStruct, Offensive)
         CharStruct["agility"] = NotNil(CharStruct.Char:increaseAttrib("agility", 0))
     end
     CharStruct["Race"] = CharStruct.Char:getRace()
-end
-
---- Check if the character is on newbie island and reject the attack in that.
--- This is required to allow newbie island to work correctly.
--- @param Attacker The character who is attacking
--- @param Defender The character who is attacked
--- @return true in case the attack can go on, else it has to be stopped
-function NewbieIsland(Attacker, Defender)
-    -- not in the newbie island and the Attack is okay.
-    if not common.isOnNoobia(Attacker.pos) then
-        return true
-    end
-
-    -- in case the character it not a other player character, the Attack is okay anyway.
-    if not character.IsPlayer(Defender) then
-        return true
-    end
-
-    -- the Attacker did not start the newbie island quest. Attack is fine.
-    if (Attacker:getQuestProgress(2) == 0) then
-        return true
-    end
-
-    -- The Attacker is a GM. Attacking is fine
-    if Attacker:isAdmin() then
-        return true
-    end
-
-    -- So now the character is on newbie island and not allowed to Attack.
-    -- Protection to ensure the player is not spammed to death with messages.
-    if not common.spamProtect(Attacker, 5) then
-        common.InformNLS(Attacker,
-            "[Tutorial] Du darfst während des Tutorials noch keine anderen Spieler angreifen. Klicke nochmals rechts auf deinen Gegner um den Kampf abzubrechen.",
-            "[Tutorial] You are not allowed to attack other players during the tutorial. Right click again on your enemy to cancel the attack.")
-    end
-    return false
 end
 
 --- Play the sound of a successful parry.

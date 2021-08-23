@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (112, 'quest.madoquar_112_wildness');
 
@@ -61,15 +61,15 @@ local Start = {452, 111, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {position(501, 107, 0)} 
+QuestTarget[1] = {position(501, 107, 0)}
 QuestTarget[2] = {position(452, 111, 0)}
-QuestTarget[3] = {position(452, 111, 0)} 
+QuestTarget[3] = {position(452, 111, 0)}
 QuestTarget[4] = {position(373, 275, 0), position(369, 279, 0), position(383, 272, 0), position(387, 276, 0), position(452, 111, 0)}
-QuestTarget[5] = {position(452, 111, 0)} 
+QuestTarget[5] = {position(452, 111, 0)}
 QuestTarget[6] = {position(502, 156, 0)}
-QuestTarget[7] = {position(452, 111, 0)} 
+QuestTarget[7] = {position(452, 111, 0)}
 QuestTarget[8] = {position(452, 111, 0)}
-QuestTarget[9] = {position(501, 107, 0)} 
+QuestTarget[9] = {position(501, 107, 0)}
 QuestTarget[10] = {position(452, 111, 0)}
 QuestTarget[11] = {position(452, 111, 0)}
 

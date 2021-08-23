@@ -18,7 +18,6 @@ local lookat = require("base.lookat")
 local common = require("base.common")
 local character = require("base.character")
 local alchemy = require("alchemy.base.alchemy")
-local base = require("monster.base.base")
 local monsterHooks = require("monster.base.hooks")
 local potionToTeacher = require("triggerfield.potionToTeacher")
 local treasure = require("item.base.treasure")
@@ -59,9 +58,9 @@ function M.LookAtGrave(User,Item)
         end
     end
 
-    local lookat = lookat.GenerateLookAt(User, Item, lookat.NONE)
-    lookat.description = graveInscription
-    return lookat
+    local look = lookat.GenerateLookAt(User, Item, lookat.NONE)
+    look.description = graveInscription
+    return look
 end
 
 local function ApperanceOfDog(User)
@@ -79,7 +78,7 @@ local function ApperanceOfDog(User)
         "#me appears in a swirl of maple leaves. It holds a big donf blade in its muzzle.")
     monsterHooks.setNoDrop(theDog)
     character.DeathAfterTime(theDog,70,7,nil,nil)
-    local find, Effect = theDog.effects:find(36)
+    local _, Effect = theDog.effects:find(36)
     Effect:addValue("transfomationDog",1)
     LEARNER_ID = User.id
     User:setQuestProgress(862,1)
@@ -183,7 +182,8 @@ function M.dropDonfblade(dog)
     dog:talk(Character.say, "#me legt ein groﬂes Donfblatt vor dem Grab ab. Kurz bellt er, bevor er wieder davon geht.",
     "#me drops a big donf blade infront of the grave. He woofs shortly before he walks back.")
 
-    local positionX, positionY
+    local positionX = nil
+    local positionY
     while not positionX do
         local checkPosition = position(math.random(822,873),math.random(765,799),0)
         if (not world:isItemOnField(checkPosition)) and (not world:isCharacterOnField(checkPosition)) then

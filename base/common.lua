@@ -570,9 +570,9 @@ function M.FitForHardWork(User, required)
         "You are too exhausted for that. You should eat something.")
         return false
     end
-    
+
     return true
-    
+
 end
 
 --- Decrease the foodpoints of a character and show a warning if the foodpoints
@@ -582,13 +582,13 @@ end
 function M.GetHungry(User, units)
 
     local food = User:increaseAttrib("foodlevel", -units)
-    
+
     if (food <= 6000) and ((food + units) > 6000) then
         M.InformNLS(User,
         "Die Arbeit macht dich langsam müde und hungrig.",
         "You are getting tired and hungry from your work.")
     end
-    
+
 end
 
 --[[function set for item quality and durability
@@ -614,7 +614,7 @@ end
 -- @return true or false
 function M.isBroken(item)
     local durability = math.fmod(item.quality, 100)
-    if durability == 0 then 
+    if durability == 0 then
         return true
     else
         return false
@@ -673,8 +673,8 @@ function M.calculateItemQualityDurability (quality, durability)
     if qualityNumber < 1 or qualityNumber > M.ITEM_MAX_QUALITY then
         qualityNumber = M.ITEM_DEFAULT_QUALITY
     end
-    
-    local durabilityNumber = tonumber(durability)
+
+    local durabilityNumber
     if M.IsNilOrEmpty(durability) then
         durabilityNumber = M.ITEM_DEFAULT_DURABILITY
     else
@@ -683,7 +683,7 @@ function M.calculateItemQualityDurability (quality, durability)
     if durabilityNumber < 1 or durabilityNumber > M.ITEM_MAX_DURABILITY then
         durabilityNumber = M.ITEM_DEFAULT_DURABILITY
     end
-    
+
     return qualityNumber * 100 + durabilityNumber
 end
 
@@ -993,7 +993,7 @@ function M.DeleteItemFromStack(stackPosition, itemProperties)
     local foundItem = false
     while counter <= theField:countItems() do
         local checkItem = theField:getStackItem(theField:countItems()- counter )
-        if (itemProperties.itemId == checkItem.id) and (not itemProperties.deleteAmount or checkItem.number <= itemProperties.deleteAmount) and (not itemProperties.quality or checkItem.number == itemProperties.deleteAmount) then
+        if (itemProperties.itemId == checkItem.id) and (not itemProperties.deleteAmount or checkItem.number <= itemProperties.deleteAmount) and (not itemProperties.quality or checkItem.quality == itemProperties.quality) then
             if itemProperties.data then
                 for i=1,#itemProperties.data do
                     if not checkItem:getData(itemProperties["data"][1]["dataKey"]) == itemProperties["data"][1]["dataValue"] then
@@ -1099,7 +1099,6 @@ function M.GetStiffness(Character)
     local Armor
 
     local Equipmentposition = {1, 3, 4, 9, 10, 11}
-    local counter
 
     for counter = 1, #Equipmentposition do
                 Item = Character:getItemAt(Equipmentposition[counter])
@@ -1248,7 +1247,6 @@ function M.CreateCircle(CenterPos, Radius, Event)
     end
     if not circleCache[Radius] then
         local irad = math.ceil(Radius)
-        local dim = 2*(irad+1)
         local map = {}
         circleCache[Radius] = {}
 
@@ -1329,7 +1327,6 @@ function M.CreateTangentLine(CenterPos, TargetPos, ArmLength, Event)
         return
     end
 
-    local posi
     local first_go_on = true
     local second_go_on = true
     for i=1, ArmLength do
@@ -1478,10 +1475,8 @@ function M.ChangeAttribute( Character, attrib, value, bottomBorder, topBorder )
     local newValue = oldValue + value
     if (newValue < bottomBorder) then
         value = bottomBorder - newValue
-        newValue = bottomBorder
     elseif (newValue > topBorder) then
         value = newValue - topBorder
-        newValue = topBorder
     end
     Character:increaseAttrib(attrib, value)
     return (value + 255)
@@ -1891,7 +1886,8 @@ function M.GetTargetItemAnywhere(user, itemList)
     local backpack = user:getBackPack()
     if backpack then
         for i = 0, 99 do
-            local isItem, tmpItem, tmpContainer = backpack:viewItemNr(i)
+            local isItem
+            isItem, tmpItem = backpack:viewItemNr(i)
             if isItem then
                 if M.isInList(tmpItem.id, itemList) then
                     countItems = countItems + 1
@@ -1921,7 +1917,7 @@ end
 --- Returns the real date as a String
 -- @return date in format: YYYY-MM-DD
 function M.GetRealDateString()
-    local year, month, day, hour, minute, second = M.GetRealDate()
+    local year, month, day = M.GetRealDate()
     local timeString =
         function(int)
             if int < 10 then
@@ -1935,7 +1931,7 @@ end
 --- Returns the real time as a String
 -- @return time in format: hh:mm:ss
 function M.GetRealTimeString()
-    local year, month, day, hour, minute, second = M.GetRealDate()
+    local _, _, _, hour, minute, second = M.GetRealDate()
     local timeString =
         function(int)
             if int < 10 then
@@ -2114,7 +2110,6 @@ end
     @return The shuffled list
 ]]
 function M.Shuffle(List)
-    local j = 0
     local minIndex = 1
     local maxIndex = #List
     if (List[0] ~= nil) then -- check if zero index is used
@@ -2122,7 +2117,7 @@ function M.Shuffle(List)
         maxIndex = maxIndex - 1
     end
     for i = maxIndex, minIndex+1, -1 do -- shuffle all elements
-        j = math.random(minIndex, i)
+        local j = math.random(minIndex, i)
         List[i], List[j] = List[j], List[i]
     end
     return List
@@ -2289,7 +2284,7 @@ function M.GetAttributeBonus(attributeValue, range)
     return bonus
 
 end
-    
+
 function M.GetAttributeBonusLow(attributeValue)
     return M.GetAttributeBonus(attributeValue, 0.1)
 end
@@ -2367,16 +2362,6 @@ function M.GetItemInArea(CenterPos, ItemId, Radius, OnlyWriteable)
     end
   end
   return nil, nil
-end
-
--- Checks if a given position is located on the tutorial island Noobia.
--- @param posStruct Pos  The position to check.
--- @return bool  True if position is located on Noobia, false otherwise.
-function M.isOnNoobia(Pos)
-  if (Pos.z == 100) then
-    return true
-  end
-  return false
 end
 
 -- Checks if a given position is located in the prison mine.
@@ -2507,7 +2492,7 @@ end
 --[[Binary functions
 Set bit n
 bitN must be a number in between 1 and 15 (limit 16 bit integer)
-setBit must be a number 
+setBit must be a number
 @return int: setValue
 ]]--
 function M.addBit(setValue, bitN)
@@ -2528,7 +2513,7 @@ end
 --[[Binary functions
 Remove bit n
 bitN must be a number in between 1 and 15 (limit 16 bit integer)
-setBit must be a number 
+setBit must be a number
 @return int: setValue
 ]]--
 function M.removeBit(setValue, bitN)
@@ -2548,7 +2533,7 @@ end
 
 --[[Binary functions
 Returns the number of set bits.
-setBit must be a number 
+setBit must be a number
 @return int: number of bits = 1
 ]]--
 function M.countBit(checkedValue)
@@ -2585,8 +2570,9 @@ function M.pushBack(user,extDistance,extCenterPos)
     local distance = extDistance or 1
     local centerPos = extCenterPos or M.GetFrontPosition(user)
 
-    local diffX = centerPos.x - user.pos.x
-    local diffY = centerPos.y - user.pos.y
+    local diffX
+    local diffY
+
     if (centerPos.x == user.pos.x and centerPos.y == user.pos.y) then -- any direction
         diffX = math.random(1,5)
         diffY = math.random(1,5)
@@ -2679,7 +2665,7 @@ function M.dropBlood(Posi, bloodWear)
     if tileId == 6 or tileId == 0 or tileId == 34 then
         return -- no blood on water and invisible tiles
     end
-    
+
     local Blood = world:createItemFromId(3101, 1, Posi, true, 333, nil)
     Blood.wear = usedWear
     world:changeItem(Blood)

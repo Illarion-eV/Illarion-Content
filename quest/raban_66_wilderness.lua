@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (66, 'quest.raban_66_wilderness');
 
@@ -57,13 +57,13 @@ local Start = {819, 104, 0}
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
 QuestTarget[1] = {position(819, 104, 0), position(822, 103, 0)} -- Tanne
-QuestTarget[2] = {position(819, 104, 0)} 
+QuestTarget[2] = {position(819, 104, 0)}
 QuestTarget[3] = {position(819, 104, 0), position(813, 100, 0)} -- Hecke
-QuestTarget[4] = {position(819, 104, 0)} 
+QuestTarget[4] = {position(819, 104, 0)}
 QuestTarget[5] = {position(819, 104, 0), position(812, 102, 0)} -- Pilzkreis
-QuestTarget[6] = {position(819, 104, 0)} 
+QuestTarget[6] = {position(819, 104, 0)}
 QuestTarget[7] = {position(819, 104, 0), position(352, 678, 0)} -- stone
-QuestTarget[8] = {position(819, 104, 0)} 
+QuestTarget[8] = {position(819, 104, 0)}
 
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 8

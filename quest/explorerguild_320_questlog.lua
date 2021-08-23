@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (230, 'quest.explorerguild_320_questlog');
 
@@ -41,7 +41,7 @@ function M.QuestTitle(user)
 end
 
 function M.QuestDescription(user, status)
-    
+
     local german = "Du hast bereits ".. explorersguild.CountStones(user) .." Markierungssteine der Abenteurergilde gefunden. Weiter so!"
     local english = "You have already found ".. explorersguild.CountStones(user) .." marker stones of the Explorers' Guild. Keep it up!"
 

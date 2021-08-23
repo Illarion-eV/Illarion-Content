@@ -212,9 +212,8 @@ function baseNPC:nextCycle2(npcChar)
     self._cycleCounter = 0
     self._nextCycleCalls = 2147483648
 
-    local nextRequestedCall = 0
     for _, value in pairs(self._cycleFunctions) do
-        nextRequestedCall = value:nextCycle(npcChar, oldCycle)
+        local nextRequestedCall = value:nextCycle(npcChar, oldCycle)
         if (nextRequestedCall ~= nil and nextRequestedCall >= 0) then
             self._nextCycleCalls = math.min(self._nextCycleCalls, nextRequestedCall)
         end
@@ -234,7 +233,7 @@ function baseNPC:receiveText(npcChar, texttype, speaker, text)
     if not npcChar:isInRange(speaker, 2) then
         return false
     end
-    
+
     if speaker:isAdmin() then
         local npcName = npcChar.name
         if string.find(text, "unmute") then
@@ -247,14 +246,14 @@ function baseNPC:receiveText(npcChar, texttype, speaker, text)
             return false
         end
     end
-    
+
     if mutedNPCs[npcChar.id] == true then
         local npcName = npcChar.name
         speaker:inform(npcName .. " scheint heute nicht sehr gesprächig." , npcName .. " doesn't seem to be in a chatty mood today.")
         return false
     end
-    
-    
+
+
     if (self._receiveTextFunctions == nil) then
         return false
     end
@@ -380,15 +379,15 @@ function baseNPC:use(npcChar, char)
         local lastSpoken = char.lastSpokenText
         if string.find(string.lower(lastSpoken), "teleport") then
             local coords = {}
-            for coord in lastSpoken:gmatch("%-?%d+") do 
-                table.insert(coords, tonumber(coord)) 
+            for coord in lastSpoken:gmatch("%-?%d+") do
+                table.insert(coords, tonumber(coord))
             end
             if coords[1] and coords[2] and coords[3] then
                 npcChar:forceWarp(position(coords[1], coords[2], coords[3]))
             end
         end
     end
-    
+
     if mutedNPCs[npcChar.id] == true then
         local npcName = npcChar.name
         char:inform(npcName .. " scheint heute nicht sehr gesprächig." , npcName .. " doesn't seem to be in a chatty mood today.")

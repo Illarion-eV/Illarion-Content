@@ -113,7 +113,7 @@ function M.FillIntoBottle(User, SourceItem, cauldron)
 
     -- stock, essence brew or potion; fill it up
    if (cauldron:getData("filledWith") == "stock") or (cauldron:getData("filledWith") == "essenceBrew") or (cauldron:getData("filledWith") == "potion") then
-        local reGem, reGemdust, reCauldron, reBottle = alchemy.GemDustBottleCauldron(nil, nil, cauldron.id, nil, User)
+        local _, _, _, reBottle = alchemy.GemDustBottleCauldron(nil, nil, cauldron.id, nil, User)
         if SourceItem.number > 1 then -- stack!
             if cauldron:getData("filledWith") == "stock" then
                 local data = {}

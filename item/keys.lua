@@ -43,7 +43,7 @@ local function getDoor(User)
         for y = -Radius, Radius do
             local targetPos = position(User.pos.x + x, User.pos.y + y, User.pos.z)
             if (world:isItemOnField(targetPos)) then
-                local targetItem = world:getItemOnField(targetPos)
+                targetItem = world:getItemOnField(targetPos)
                 if targetItem ~= nil and (doors.CheckClosedDoor(targetItem.id) or doors.CheckOpenDoor(targetItem.id)) then
                     return targetItem
                 end
@@ -61,7 +61,6 @@ function M.UseItem(User, SourceItem)
         return
     end
 
-    local itemData
     local isRonaganTrap = (SourceItem:getData("ronaganTrap") == "true")
     if (isRonaganTrap == true) then
         User:inform("Ein Dieb hat dich in eine Falle gelockt. Er springt aus einem der Schatten und stielt dir ein paar Münzen.", "A thief has lured you into a trap, jumping out from a shadow, he steals some coins from you.")
@@ -71,7 +70,7 @@ function M.UseItem(User, SourceItem)
         money.TakeMoneyFromChar(User, math.random(math.floor(wealth / 100), math.floor(wealth / 20)))
         return
    end
-   
+
     local frontItem = common.GetFrontItem(User)
     if frontItem.id == 2830 then
         if not frontItem:getData("treasureLockId") == SourceItem:getData("treasureLockId") then
@@ -184,13 +183,13 @@ function SelectTargetChar(User, SourceItem, behaviour)
             local myCharName
             local days
             local allFound = false
-            local a, b
+            local a, _
             if string.find(myString,"(%d+) (%d+)") then
-                a,b,myCharId,days = string.find(myString,"(%d+) (%d+)")
+                _,_,myCharId,days = string.find(myString,"(%d+) (%d+)")
                 myCharId = tonumber(myCharId) days = tonumber(days)
                 allFound = true
             elseif string.find(myString,"(%d+)") then
-                a,b,days = string.find(myString,"(%d+)")
+                a,_,days = string.find(myString,"(%d+)")
                 days = tonumber(days)
                 if a-2 > 1 then
                     myCharName=string.sub (myString, 1,a-2)
@@ -263,13 +262,13 @@ function LabourCamp(User, SourceItem)
             local myPrisonerName
             local workLoad
             local allFound = false
-            local a local b
+            local a, _
             if string.find(myString,"(%d+) (%d+)") then
-                a,b,myPrisonerId,workLoad = string.find(myString,"(%d+) (%d+)")
+                _,_,myPrisonerId,workLoad = string.find(myString,"(%d+) (%d+)")
                 myPrisonerId = tonumber(myPrisonerId) workLoad = tonumber(workLoad)
                 allFound = true
             elseif string.find(myString,"(%d+)") then
-                a,b,workLoad = string.find(myString,"(%d+)")
+                a,_,workLoad = string.find(myString,"(%d+)")
                 workLoad = tonumber(workLoad)
                 if a-2 > 1 then
                     myPrisonerName=string.sub (myString, 1,a-2)

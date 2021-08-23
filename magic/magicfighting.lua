@@ -34,7 +34,6 @@ local STAFF_ELEMENTS = {[2785] = ELEMENTS.AIR, [2783] = ELEMENTS.FIRE,
 local common = require("base.common")
 local character = require("base.character")
 local fightingutil = require("base.fightingutil")
-local gems = require("base.gems")
 local glypheffects = require("magic.glypheffects")
 local globalvar = require("base.globalvar")
 local magic = require("base.magic")
@@ -50,10 +49,6 @@ local function calculateCastTime(attackerStruct)
     local globalSpeedMod = 100
 
     return math.ceil(math.max(7, weaponPoints * (100 - (attackerStruct.willpower-6)*2.5 - skill/5)/globalSpeedMod))
-end
-
-local function checkCriticalAttack(attackerStruct)
-    return common.Chance(0.5 + attackerStruct.willpower/20, 100)
 end
 
 local function checkBlockedAttack(attackerStruct, defenderStruct)
@@ -72,7 +67,7 @@ local function checkMissedAttack(attackerStruct)
     -- Low willpower will lower the hitchance with staffs, while high willpower will enhance item
     -- Damage in health will lower the concentration and therefore the attack is likely to miss
     local chance = accuracy*healthInPercent + (attackerStruct.willpower-5)*2
-    local chance = 100 - common.Limit(chance, 5, 95)
+    chance = 100 - common.Limit(chance, 5, 95)
 
     return common.Chance(chance, 100)
 end
@@ -138,74 +133,24 @@ local function sfxGfxOutput(attackerStruct, defenderStruct, element)
     world:makeSound(13, attackerStruct.Char.pos)
 end
 
-local function applyCriticalEffect(attackerStruct, defenderStruct, element)
-    if (element == ELEMENTS.FIRE) then
-        local burning = require("magic.lte.burning")
-        burning.initEffect(defenderStruct.Char, 10, 10)
-    elseif (element == ELEMENTS.AIR) then
-        local windshield = require("magic.lte.windshield")
-        windshield.initEffect(attackerStruct.Char, 10, 10)
-    elseif (element == ELEMENTS.WATER) then
-        local frozen = require("magic.lte.frozen")
-        frozen.initEffect(defenderStruct.Char, 10, 10)
-    elseif (element == ELEMENTS.EARTH) then
-        local meteor = require("magic.instant.meteor")
-        meteor.cast(attackerStruct.Char, defenderStruct.Char)
-    elseif (element == ELEMENTS.SPIRIT) then
-        -- Nothing yet
-    else -- apprentice staffs
-        -- Nothing yet
-    end
-end
-
-local function averageArmourLevel(caster)
-
-    local averageArmourLevel = 0
-
-    local bodyPositions = {{part = Character.head, hitChance = 14}, {part = Character.breast, hitChance = 40}, {part = Character.hands, hitChance = 13}, {part = Character.legs, hitChance = 20}, {part = Character.feet, hitChance = 13}}
-    for i = 1, #bodyPositions do
-        local checkItem = caster:getItemAt(bodyPositions[i]["part"])
-        local armourFound, armour = world:getArmorStruct(checkItem.id)
-        if armourFound then
-            if armour.Type == 4 or armour.Type == 3 or armour.Type == 2 then
-                averageArmourLevel = averageArmourLevel + world:getItemStatsFromId(checkItem.id).Level*bodyPositions[i]["hitChance"]
-            end
-        end
-    end
-
-    return averageArmourLevel/100
-
-end
-
-local function magicItemsDegrade(character, magicItemsList)
-
-    local degradeChance = 20
-    if character:isNewPlayer() then
-        degradeChance = degradeChance * 2
-    end
+local function magicItemsDegrade(char, magicItemsList)
 
     for _, bonusItem in pairs(magicItemsList) do
         if (common.Chance(1, 180)) then
             local durability = math.fmod(bonusItem.quality, 100)
             local quality = (bonusItem.quality - durability) / 100
-            local nameText = world:getItemName(bonusItem.id, character:getPlayerLanguage())
-            
+            local nameText = world:getItemName(bonusItem.id, char:getPlayerLanguage())
+
             if durability > 0 then
                 durability = durability - 1
                 if (durability == 0) then
-                    common.InformNLS(character,
+                    common.InformNLS(char,
                         "Deine Ausrüstungsgegenstand '"..nameText.."' zerbricht.",
                         "Your piece of equipment '"..nameText.."' shatters.")
                 end
                 bonusItem.quality = quality * 100 + durability
                 world:changeItem(bonusItem)
             end
-            
-            --[[if (durability < 10) then
-                common.InformNLS(character,
-                    "eine Ausrüstungsgegenstand '"..nameText.."' hat schon bessere Zeiten gesehen. Vielleicht solltest du sie reparieren lassen.",
-                    "Your piece of equipment '"..nameText.."' has seen better days. You may want to get it repaired.")
-            end]]
         end
     end
 
@@ -237,7 +182,7 @@ local function applyDamage(attackerStruct, defenderStruct)
         (2*(defenderStruct.willpower - 6)
         + 0.5*(defenderStruct.intelligence - 6)
         + 0.5*(defenderStruct.essence - 6))))
-    local resistance = common.Limit(Random.uniform(resistance, resistance*2) / 160.0, 0, 1)
+    resistance = common.Limit(Random.uniform(resistance, resistance*2) / 160.0, 0, 1)
     damage = damage* (1 - resistance)
 
    -- take consitution of enemy in account
@@ -324,9 +269,6 @@ function M.onMagicAttack(attackerStruct, defenderStruct)
     attackerStruct.Char:increaseAttrib("mana", -neededMana)
 
     attackerStruct.Char:performAnimation(globalvar.charAnimationSPELL)
-
-    local hisher =  common.GetGenderText(attackerStruct.Char,"his","her")
-    local seinihr = common.GetGenderText(attackerStruct.Char,"sein","ihr")
 
     if checkMissedAttack(attackerStruct) then
         attackerStruct.Char:inform("Der Angriff gelingt nicht. Du hast kurz die Konzentration verloren.", "The attack fails. You briefly lost your concentration.", Player.lowPriority)

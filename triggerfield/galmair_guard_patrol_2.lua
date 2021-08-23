@@ -39,8 +39,7 @@ messageE[4] = "[Quest status] You hear chanting from up ahead, with rasping voic
 function M.MoveToField(User)
     if (User:getQuestProgress(155) == 9) then --OK, the player does the quest
         local queststatus = User:getQuestProgress(157) --here, we save which fields were visited
-        local queststatuslist = {}
-        queststatuslist = common.Split_number(queststatus, 4) --reading the digits of the queststatus as table
+        local queststatuslist = common.Split_number(queststatus, 4) --reading the digits of the queststatus as table
 
         for i = 1, 4 do
             if User:isInRangeToPosition(waypoint[i], 2) and queststatuslist[i] == 0 then

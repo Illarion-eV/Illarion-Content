@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (539, 'quest.pasinn_539_wilderness');
 
@@ -67,18 +67,18 @@ local Start = {}
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
 QuestTarget[1] = {position(523, 205, 0), position(522, 205, 0)} -- Viridian Needles Lair
-QuestTarget[2] = {position(523, 205, 0)} 
+QuestTarget[2] = {position(523, 205, 0)}
 QuestTarget[3] = {position(523, 205, 0), position(522, 205, 0)} -- Viridian Needles Lair
-QuestTarget[4] = {position(840, 470, 0)} 
+QuestTarget[4] = {position(840, 470, 0)}
 QuestTarget[5] = {position(523, 205, 0), position(522, 205, 0)} -- Viridian Needles Lair
-QuestTarget[6] = {position(840, 470, 0)} 
+QuestTarget[6] = {position(840, 470, 0)}
 QuestTarget[7] = {position(523, 205, 0)}
 QuestTarget[8] = {position(523, 205, 0), position(522, 205, 0)} -- Viridian Needles Lair
-QuestTarget[9] = {position(523, 205, 0)} 
-QuestTarget[10] = {position(523, 205, 0)} 
+QuestTarget[9] = {position(523, 205, 0)}
+QuestTarget[10] = {position(523, 205, 0)}
 QuestTarget[11] = {position(523, 205, 0), position(522, 205, 0)} -- Viridian Needles Lair
-QuestTarget[12] = {position(523, 205, 0)} 
-QuestTarget[13] = {position(523, 205, 0)} 
+QuestTarget[12] = {position(523, 205, 0)}
+QuestTarget[13] = {position(523, 205, 0)}
 
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 13

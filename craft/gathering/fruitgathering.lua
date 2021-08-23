@@ -16,7 +16,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local common = require("base.common")
-local shared = require("craft.base.shared")
 local gathering = require("craft.base.gathering")
 
 local M = {}
@@ -95,7 +94,7 @@ function M.StartGathering(User, SourceItem, ltstate)
     fruitgathering:AddRandomItem(65,1,333,{},gathering.prob_rarely,"Bei genauer Betrachtung entpuppt sich ein Ast am Boden als Bogen. Ob den ein elfischer Späher hier deponiert hat?","On closer inspection, a branch on the ground turns out to be a bow. Did an elven scout forget it here?"); --short bow
     fruitgathering:AddRandomItem(2295,1,333,{},gathering.prob_occasionally,"Über einem Ast hängt ein Paar alter Handschuhe. Der Besitzer vermisst sie offenbar nicht.","Over a branch hangs a pair of old gloves. Judging by their condition no one would miss them."); --cloth gloves
     fruitgathering:AddRandomItem(463,1,333,{},gathering.prob_frequently,"Eine Feder hat sich zwischen den Zweigen verfangen. Ob man mit ihr auch schreiben kann?","A feather lies entangled among the branches. Perhaps one could write with it?"); --quill
-    
+
     common.ResetInterruption( User, ltstate )
     if ( ltstate == Action.abort ) then -- work interrupted
         User:talk(Character.say, "#me unterbricht "..common.GetGenderText(User, "seine", "ihre").." Arbeit.", "#me interrupts "..common.GetGenderText(User, "his", "her").." work.")

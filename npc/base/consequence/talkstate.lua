@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 local baseNPC = require("npc.base.basic")
@@ -24,13 +24,11 @@ local _talkstate_helper_end
 local talkstate = class(consequence,
 function(self, mode)
     consequence:init(self)
-    
+
     if (mode == "begin") then
         self["perform"] = _talkstate_helper_begin
     elseif (mode == "end") then
         self["perform"] = _talkstate_helper_end
-    else
-        -- invalid mode
     end
 end)
 

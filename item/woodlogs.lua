@@ -54,7 +54,7 @@ function M.UseItem(User, SourceItem)
     -- turn to field if necessary
     common.TurnTo( User, checkPos );
   end
-  
+
   --Weather is not shown by the client. So, players can only guess that it rains. Deactivated. ~Estralis
   --[[
   -- check wether user is under roof

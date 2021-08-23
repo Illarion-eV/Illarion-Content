@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local common = require("base.common")
+local tutorial = require("content.tutorial")
 
 local M = {}
 
@@ -74,7 +75,7 @@ local function checkSkill(user, item)
 end
 
 local function checkParry(user, item)
-    local isWeapon, weapon = world:getWeaponStruct(item.id) --Is it a weapon? Loads the struct.
+    local isWeapon = world:getWeaponStruct(item.id) --Is it a weapon? Loads the struct.
     local itemLevel = world:getItemStatsFromId(item.id).Level
 
     if isWeapon then
@@ -92,19 +93,32 @@ end
 
 --This function checks whether the user has the necessary level for the item or not
 function M.checkLevel(user, item, targetItem)
-    local isArmour, armour = world:getArmorStruct(item.id) --Is it an armour? Loads the struct.
+    local isArmour = world:getArmorStruct(item.id) --Is it an armour? Loads the struct.
     local skillOK, skillString = checkSkill(user,  item)
     local parryOK, parryString = checkParry(user,  item)
-    if isArmour and (targetItem.itempos == Character.left_tool or targetItem.itempos == Character.right_tool) then
-        -- nothing
-    elseif  not skillOK and not parryOK then
-        common.HighInformNLS(user, "Deine Fertigkeiten '"..skillString.."' und '"..parryString.."' reichen nicht aus, um das volle Potential dieses Gegenstandes zu nutzen.", "Your skills '"..skillString.."' and '"..parryString.."' are not high enough to exploit the full potential of this item.")
-    elseif not parryOK then
-        common.HighInformNLS(user, "Deine Fertigkeit '"..parryString.."' reicht nicht aus, um das volle defensive Potential dieses Gegenstandes zu nutzen.", "Your skill '"..parryString.."' is not high enough to exploit the full defence potential of this item.")
-    elseif not skillOK then
-        common.HighInformNLS(user, "Deine Fertigkeit '"..skillString.."' reicht nicht aus, um das volle offensive Potential dieses Gegenstandes zu nutzen.", "Your skill '"..skillString.."' is not high enough to exploit the full attack potential of this item.")
+    if not (isArmour and (targetItem.itempos == Character.left_tool or targetItem.itempos == Character.right_tool)) then
+        if  not skillOK and not parryOK then
+            common.HighInformNLS(user, "Deine Fertigkeiten '"..skillString.."' und '"..parryString.."' reichen nicht aus, um das volle Potential dieses Gegenstandes zu nutzen.", "Your skills '"..skillString.."' and '"..parryString.."' are not high enough to exploit the full potential of this item.")
+        elseif not parryOK then
+            common.HighInformNLS(user, "Deine Fertigkeit '"..parryString.."' reicht nicht aus, um das volle defensive Potential dieses Gegenstandes zu nutzen.", "Your skill '"..parryString.."' is not high enough to exploit the full defence potential of this item.")
+        elseif not skillOK then
+            common.HighInformNLS(user, "Deine Fertigkeit '"..skillString.."' reicht nicht aus, um das volle offensive Potential dieses Gegenstandes zu nutzen.", "Your skill '"..skillString.."' is not high enough to exploit the full attack potential of this item.")
+        end
     end
     return true
+end
+
+--With this function, some fightpoints are taken from the player. Used for equipment changes.
+function M.HaveABreak(User)
+
+    local kitKat = 50 --Duration of the interruption. Set to 5 seconds for now. Cumultative!
+    if User.attackmode and User:getQuestProgress(321) == 0 and User:getQuestProgress(325) == 1 then
+        User:inform(tutorial.getTutorialInformDE("hitpoints"),tutorial.getTutorialInformEN("hitpoints"))
+        User:setQuestProgress(321, 1) --Only once
+    end
+
+    User.fightpoints=User.fightpoints - kitKat
+
 end
 
 return M

@@ -214,9 +214,7 @@ local function WriteLabel(User,SourceItem)
 
     -- input dialog
     local callback = function(dialog)
-        if not dialog:getSuccess() then
-            -- player canceled the dialog; nothing
-        else
+        if dialog:getSuccess() then
             local bottle = CheckIfBottleInHand(User, SourceItem) -- check for the bottle again
             if bottle then
                 --if bottle.number > 1 then
@@ -227,7 +225,7 @@ local function WriteLabel(User,SourceItem)
                 lookat.SetSpecialDescription(bottle,labelText,labelText)
                 world:changeItem(bottle)
                 User:inform("Du beschriftest die Flasche mit '"..labelText.."'.","You label the bottle as '"..labelText.."'.")
-                
+
             else
                 User:inform("Du brauchst eine Flasche, um diese zu beschriften.","You need a bottle if you want to label one.")
             end

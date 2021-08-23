@@ -20,7 +20,6 @@ local lookat = require("base.lookat")
 local explorersguild = require("quest.explorersguild")
 local common = require("base.common")
 local ranklist = require("base.ranklist")
-local explorerguild_320_questlog = require("quest.explorerguild_320_questlog")
 
 local M = {}
 

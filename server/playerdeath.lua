@@ -18,7 +18,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- deadPlayer - The player (character) whose hitpoints have just been set to zero
 
 local common = require("base.common")
-local gems = require("base.gems")
 
 local M = {}
 
@@ -41,14 +40,6 @@ function M.playerDeath(deadPlayer)
     if deadPlayer:isAdmin() then
         deadPlayer:increaseAttrib("hitpoints", 10000) -- Respawn
         common.HighInformNLS(deadPlayer, "[Wiederbelebung] Admins sterben nicht.", "[Respawn] Admins don't die.")
-        return --bailing out!
-    end
-
-    -- Noobies do not die on Noobia.
-    if common.isOnNoobia(deadPlayer.pos) then
-        deadPlayer:increaseAttrib("hitpoints", 10000) -- Respawn
-        world:gfx(53, deadPlayer.pos)
-        common.HighInformNLS(deadPlayer, "[Wiederbelebung] Während des Tutorials bist du 'unsterblich'. Im Hauptspiel ist die Wiederbelebung mit merklichen Konsequenzen für deinen Charakter verbunden.", "[Respawn] During the tutorial, you are 'immortal'. In the main game, serious consequences for your character are triggered upon respawn.")
         return --bailing out!
     end
 
@@ -87,7 +78,7 @@ function M.playerDeath(deadPlayer)
 
     -- Death consequence #2: Drop few items from bag.
     if deadPlayer:isNewPlayer() then
-        -- No negative consequence for Noobies.
+        -- No item drop for new players
         return
     end
 

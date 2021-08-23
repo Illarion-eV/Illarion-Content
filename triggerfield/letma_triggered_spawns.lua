@@ -30,8 +30,8 @@ local M = {}
 
 local triggerpoint={} --a list with positions of the event triggers
 triggerpoint[1] = position(247, 782, 1) -- beetles or wasps
-triggerpoint[2] = position(228, 770, 1) 
-triggerpoint[3] = position(269, 784, 1) 
+triggerpoint[2] = position(228, 770, 1)
+triggerpoint[3] = position(269, 784, 1)
 triggerpoint[4] = position(248, 811, 1)
 triggerpoint[5] = position(248, 809, 1)
 triggerpoint[6] = position(239, 818, 1)
@@ -61,11 +61,11 @@ function M.MoveToField(User)
         -- skip if already tripped in the last 10 minutes
         if (world:isItemOnField(User.pos) == true) then
             local fallenlog = world:getItemOnField(User.pos)
-            
+
             if fallenlog.id ~= 2169 then
                 return
             end
-            
+
             local serverTime = world:getTime("unix")
             local trippingTime = fallenlog:getData("tripping_time")
 
@@ -90,7 +90,7 @@ function M.MoveToField(User)
                 world:createMonster(monID, monPos, -20) -- random spawn 2 monsters from list
                 world:gfx(41, monPos) -- swirly
             end
-            
+
         end --all events handled
 
     end --triggerfield

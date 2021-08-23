@@ -134,7 +134,7 @@ function M.getShardNameFromLevel(shardLevel)
     local textResult
     textParts = common.Split_number(shardLevel,2)
     if textParts[1] > 0 and textParts[1] < 8 and textParts[1] > 0 and textParts[1] < 8 then
-        textResult = shardNames[1][textParts[1] ] .. shardNames[2][textParts[2] ] 
+        textResult = shardNames[1][textParts[1] ] .. shardNames[2][textParts[2] ]
     else
         -- should not happen
         textResult = "Schadnix"
@@ -148,7 +148,7 @@ function M.hasRing(user)
     local listResult = {}
     local listResultId = 0
     local listId
-    
+
     for i=1, #M.ringAndAmuletDefinition do
         listOfRings[i]=M.ringAndAmuletDefinition[i][1]
     end
@@ -169,7 +169,7 @@ function M.hasAmulet(user)
     local listResult = {}
     local listResultId = 0
     local listId
-    
+
     for i=1, #M.ringAndAmuletDefinition do
         listOfAmulets[i]=M.ringAndAmuletDefinition[i][2]
     end

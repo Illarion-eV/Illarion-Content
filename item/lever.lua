@@ -15,26 +15,14 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local lookat = require("base.lookat")
-local common = require("base.common")
 local lever = require("base.lever")
 local deleteitem = require("handler.deleteitem")
-local lockdoor = require("handler.lockdoor")
-local unlockdoor = require("handler.unlockdoor")
-local opendoor = require("handler.opendoor")
-local closedoor = require("handler.closedoor")
 local createitem = require("handler.createitem")
 local createbridge = require("handler.createbridge")
 local deletebridge = require("handler.deletebridge")
-local settile = require("handler.settile")
-local createeffect = require("handler.createeffect")
 local createsound = require("handler.createsound")
 local sendmessage = require("handler.sendmessage")
-local movelever = require("handler.movelever")
-local warpplayer = require("handler.warpplayer")
 local warpgroup = require("handler.warpgroup")
-local createmonster = require("handler.createmonster")
-local eraseplayeritem = require("handler.eraseplayeritem")
-local createplayeritem = require("handler.createplayeritem")
 local evilrock = require("triggerfield.evilrock")
 local oldSlimeFeeding = require("content.oldSlimeFeeding")
 local volcano_chest = require("triggerfield.volcano_chest")
@@ -316,7 +304,7 @@ function M.init()
 end
 
 function M.UseItem(User, SourceItem, ltstate)
-    
+
     if SourceItem:getData("oldSlimeFeeding") == "true" then
         oldSlimeFeeding.useLever(User, SourceItem)
     end

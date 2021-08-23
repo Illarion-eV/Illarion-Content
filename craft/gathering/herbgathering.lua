@@ -217,7 +217,7 @@ local function getHerbItem(User, OnlyValidProducts)
         for y=-Radius,Radius do
             local targetPos = position(User.pos.x + x, User.pos.y + y, User.pos.z);
             if (world:isItemOnField(targetPos)) then
-                local targetItem = world:getItemOnField(targetPos);
+                targetItem = world:getItemOnField(targetPos);
                 if (isHerbItem(targetItem)) then
                     if ((not OnlyValidProducts) or (GetValidProduct(targetItem) ~= nil)) then
                         return targetItem;
@@ -236,7 +236,7 @@ function M.StartGathering(User, SourceItem, ltstate)
     if not toolItem then
         return
     end
-    
+
     local gatheringBonus=shared.getGatheringBonus(User, toolItem)
 
     local theCraft = gathering.GatheringCraft:new{LeadSkill = Character.herblore, LearnLimit = 100}; -- id_126_sickle
@@ -246,7 +246,7 @@ function M.StartGathering(User, SourceItem, ltstate)
     theCraft:AddRandomItem(2183,1,333,{},gathering.prob_rarely,"Ein alter Krug liegt verlassen und einsam im Gebüsch.","An old mug lies abandoned and lonesome in the bushes."); --Mug
     theCraft:AddRandomItem(799,1,333,{},gathering.prob_occasionally,"Ein Weidenkorb liegt am Boden. Er scheint noch brauchbar zu sein.","A wicker basket lies on the ground. It still seems to be usable."); --Basket
     theCraft:AddRandomItem(2570,1,333,{},gathering.prob_frequently,"Ein Griff einer alten Sichel liegt achtlos weggeworfen zwischen Ästen und Blättern herum.","A handle of an old sickle lies between the leaves and branches, but the blade is no where in sight."); --Sickle hilt
-    
+
     common.ResetInterruption( User, ltstate );
     if ( ltstate == Action.abort ) then -- work interrupted
         User:talk(Character.say, "#me unterbricht "..common.GetGenderText(User, "seine", "ihre").." Arbeit.", "#me interrupts "..common.GetGenderText(User, "his", "her").." work.")

@@ -18,7 +18,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- snowpatch (928)
 
 local common = require("base.common")
-local shared = require("craft.base.shared")
 local gathering = require("craft.base.gathering")
 
 local M = {}

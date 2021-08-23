@@ -18,14 +18,12 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- UPDATE items SET itm_script='item.id_92_oillamp' WHERE itm_id=92;
 
-local common = require("base.common")
-
 local M = {}
 
 function M.UseItem(User, SourceItem)
 
     local randomValue = math.random(1,99)
-    
+
     if randomValue < 6 then
         User:inform("Du bist nicht sicher, aber es scheint als würde die Lampe etwas leuchten","You are not sure, but it seems the lamp starts to glow a little.")
     elseif randomValue < 16 then
@@ -33,7 +31,7 @@ function M.UseItem(User, SourceItem)
     else
         User:inform("Du reibst an der Lampe, doch nichts passiert.","You rub the lamp but nothing happens.")
     end
-    
+
 end
 
 return M

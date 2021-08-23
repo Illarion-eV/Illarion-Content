@@ -25,7 +25,7 @@ M.LookAtItem = jewel.LookAtItem
 
 function M.UseItem(User, SourceItem)
     local output = playerlookat.getCharDescription( User, User, 2);
-    -- 2 means mode mirror 
+    -- 2 means mode mirror
     User:inform(output);
 end
 

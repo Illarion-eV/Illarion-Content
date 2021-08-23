@@ -27,7 +27,7 @@ function M.enemyOnSight(monster, enemy)
     if not monster.effects:find(19) then
         monster.effects:addEffect(LongTimeEffect(19,5))
     end
-    
+
     return false
 end
 
@@ -39,7 +39,7 @@ function M.enemyNear(monster, enemy)
     if not monster.effects:find(19) then
         monster.effects:addEffect(LongTimeEffect(19,5))
     end
-    
+
     return false
 end
 
@@ -48,7 +48,7 @@ function M.onSpawn(monster)
     if orgOnSpawn ~= nil then
         orgOnSpawn(monster)
     end
-    
+
     base.setColor{monster = monster, target = base.SKIN_COLOR, red = 100, green = 255, blue = 255, alpha = 190}
 end
 

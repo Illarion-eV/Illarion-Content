@@ -40,7 +40,6 @@ function M.UseItem(User, SourceItem)
         end
     end
 
-    local itemData
     local isronaganKeg = (SourceItem:getData("ronaganKeg") == "true")
     if (isronaganKeg) then
         ronagankegContents(User, SourceItem)

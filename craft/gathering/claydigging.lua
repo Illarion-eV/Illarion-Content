@@ -17,7 +17,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- CLAY_PIT (1206)
 
-local common = require("base.common")
 local shared = require("craft.base.shared")
 local gathering = require("craft.base.gathering")
 
@@ -33,20 +32,20 @@ function M.StartGathering(User, SourceItem, ltstate)
     local resourceID = 26 --clay
     local depletedSourceID = 3633
     local restockWear = 4 --15 minutes
-    
+
     local success, toolItem, amount, gatheringBonus = gathering.InitGathering(User, SourceItem, toolID, maxAmount, claydigging.LeadSkill)
-    
+
     if not success then
-        return 
+        return
     end
-    
+
     claydigging:AddRandomPureElement(User,gathering.prob_element*gatheringBonus) -- Any pure element
     claydigging:SetTreasureMap(User,gathering.prob_map*gatheringBonus,"Von einer Lederhülle umgeben, findest du eine alte Karte. Die hat definitiv niemand absichtlich hier hinterlassen.","Covered in a leather hide you find an old map.")
     claydigging:AddMonster(User,104,gathering.prob_monster/gatheringBonus,"Im Morast stößt du auf eine bedauernswerte Moorleiche. Jedoch scheinst du derjenige zu sein, den man fortan betrauern wird.","In the mud your shovel digs unintentionally into a feculent bog body. The stench is atrocious, but what's worse is the undead creature rises to attack.",4,7)
     claydigging:AddRandomItem(2658,1,333,{},gathering.prob_rarely,"Du findest eine Knochenhand im Matsch. Sie umklammert ein altes Breitschwert.","You find a boney hand in the mud clutching an old broadsword.")
     claydigging:AddRandomItem(51,1,333,{},gathering.prob_occasionally,"Du ziehst einen alten Eimer aus dem Schlick.","You draw an old bucket from the silt.") --bucket
     claydigging:AddRandomItem(2184,1,333,{},gathering.prob_frequently,"Ein Tonkrug offenbahrt sich im Matsch. Die Überreste einer alten Zivilisation oder einfach nur vom letzten Saufgelage?","A clay mug reveals itself in the mud. Perhaps the remains of an ancient civilization or just a littering traveller, who knows?")
-    
+
     --Case 1: Interrupted
     if (ltstate == Action.abort) then -- work interrupted
         return
@@ -68,7 +67,7 @@ function M.StartGathering(User, SourceItem, ltstate)
 
     local created, newAmount = gathering.FindResource(User, SourceItem, amount, resourceID)
 
-    if created then 
+    if created then
         User:changeSource(SourceItem)
         if newAmount > 0 and not shared.toolBreaks(User, toolItem, claydigging:GenWorkTime(User)) then
             claydigging.SavedWorkTime[User.id] = claydigging:GenWorkTime(User)

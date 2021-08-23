@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue")
@@ -106,7 +106,7 @@ function M.receiveText(npc, ttype, text, user)
     saidText[53] = {"gott",6}
     saidText[54] = {"gött",6}
 
-    
+
     local answeredText = {}
     answeredText[1] = {"Grüß dich!","Hallo mein Freund!","Hallo, lange nicht gesehen!","Be greeted!","Hello my friend!","Hello, I haven't seen you for awhile!"}
     answeredText[2] = {"Tschüss und viel Glück!","Man sieht sich!","Machs gut und pass auf dich auf!","Bye and good luck!","Goodbye and good luck!","Have fun!"}
@@ -114,7 +114,7 @@ function M.receiveText(npc, ttype, text, user)
     answeredText[4] = {"Nenn mich der Bessere.","Trainer, einfach Trainer.","Ich bin "..npc.name..".","Call me the stronger guy.","Trainer, simply trainer.","I am "..npc.name.."."}
     answeredText[5] = {"Man kann immer besser werden. Man muss nur wollen.","Es gibt immer was zu tun, packen wir es an.","Wer will schon bleiben wie er ist?","You can always improve yourself, if you want.","There is always something to do. Let's start.","Do you really want to stay as you are?"}
     answeredText[6] = {"Wenn ich dich unter meine Fitiche nehme schauen die Götter lieber weg.","Was die Götter uns gaben können wir verbessern.","Dein Trainer ist dein siebzehnter Gott.","Be assured as I work with you the Gods close their eyes.","Gods give, gods take, but in the end we decide if we want to use the gifts at their best.","Your trainer is your seventeenth God."}
-    
+
     if not npc:isInRange(user, 2) then
         return
     end
@@ -123,12 +123,12 @@ function M.receiveText(npc, ttype, text, user)
         user:inform("[Help] This NPC is a trainer. Ask him for training to change your basic attributes permanently, for a small fee of course.")
         return
     end
-    
+
     if string.match(text, "[Hh]ilf") then
         user:inform("[Hilfe] Dieser NPC ist ein Trainer. Bitte ihn dich zu trainieren um deine grundlegenden Attribute dauerhaft zu ändern, gegen eine geringe Gebühr natürlich.")
         return
     end
-    
+
     for i=1,#saidText do
         if string.match(string.lower(text), saidText[i][1]) then
             local answerId = saidText[i][2]
@@ -141,7 +141,7 @@ function M.receiveText(npc, ttype, text, user)
             end
         end
     end
-    
+
     if not string.match(text, "[Tt]rain") then
         return
     end
@@ -157,11 +157,11 @@ function M.receiveText(npc, ttype, text, user)
     local attributesText, attributesKey, reduceText, increaseText
     local reduceOptions = {}
     local increaseOptions = {}
-    
+
     local questProgress = user:getQuestProgress(questId)
     local costInGold = 2 ^ math.min(questProgress, 7)
     local cost = costInGold * 10000
-    
+
     if user:getPlayerLanguage() == Player.german then
         attributesText = {"Ausdauer", "Beweglichkeit", "Essenz", "Geschicklichkeit", "Intelligenz", "Stärke", "Wahrnehmung", "Willenskraft"}
         attributesKey = {2, 1, 4, 3, 5, 7, 6, 8}
@@ -180,36 +180,36 @@ function M.receiveText(npc, ttype, text, user)
         if dialog:getSuccess() then
             local selectedReduce = reduceOptions[dialog:getSelectedIndex() + 1]
             local reduceAttribute = attributes[attributesKey[selectedReduce]]
-            
-            local increaseCallback = function (dialog)
-                if dialog:getSuccess() then
-                    local selectedIncrease = increaseOptions[dialog:getSelectedIndex() + 1]
+
+            local increaseCallback = function (subdialog)
+                if subdialog:getSuccess() then
+                    local selectedIncrease = increaseOptions[subdialog:getSelectedIndex() + 1]
                     local increaseAttribute = attributes[attributesKey[selectedIncrease]]
-                                        
+
                     if questProgress ~= user:getQuestProgress(questId) then
                         user:inform("Der Trainer verflucht dich als dein Betrug auffliegt! Du hast ein mulmiges Gefühl.",
                                 "The trainer curses you as your fraud is detected! You have a queasy feeling.", Character.highPriority)
                         return
                     end
-                    
+
                     if not money.CharHasMoney(user, cost) then
                         user:inform("Du hast nicht genug Geld!",
                                 "You do not have enough money!", Character.highPriority)
                         return
                     end
-                    
+
                     if user:increaseBaseAttribute(reduceAttribute, -1) then
                         if user:increaseBaseAttribute(increaseAttribute, 1) then
                             if user:saveBaseAttributes() then
                                 money.TakeMoneyFromChar(user, cost)
                                 user:setQuestProgress(questId, questProgress + 1)
-                                
+
                                 local reduced = user:getBaseAttribute(reduceAttribute)
                                 local increased = user:getBaseAttribute(increaseAttribute)
                                 local caption, message
                                 local changesText = attributesText[selectedReduce] .. ": " .. (reduced+1) .. " -> " .. reduced .. "\n" ..
                                         attributesText[selectedIncrease] .. ": " .. (increased-1) .. " -> " .. increased
-                                
+
                                 if user:getPlayerLanguage() == Player.german then
                                     caption = "Erfolg!"
                                     message = "Nachdem du dir den Schweiß abgewischt hast fühlst du dich wie neu geboren. " ..
@@ -223,8 +223,8 @@ function M.receiveText(npc, ttype, text, user)
                                             changesText .. "\n\n" ..
                                             "This training only cost you the ridiculous sum of " .. costInGold .. " gold!"
                                 end
-                                
-                                local successMessage = MessageDialog(caption, message, function(dialog) end)
+
+                                local successMessage = MessageDialog(caption, message, function(somedialog) end)
                                 user:requestMessageDialog(successMessage)
                             else
                                 -- safety net: should never happen
@@ -246,51 +246,51 @@ function M.receiveText(npc, ttype, text, user)
                     end
                 end
             end
-            
+
             local requestIncreaseAttribute = SelectionDialog("Trainer", increaseText, increaseCallback)
             requestIncreaseAttribute:setCloseOnMove()
-            
-            for key, text in ipairs(attributesText) do
+
+            for key, attrText in ipairs(attributesText) do
                 local attribute = attributes[attributesKey[key]]
                 local base = user:getBaseAttribute(attribute)
-                
+
                 if key ~= selectedReduce and ( user:isBaseAttributeValid(attribute, base + 1) or base < 8 )then
                     local value = user:increaseAttrib(attribute, 0)
                     local valueText = ": " .. base
-                    
+
                     if value ~= base then
                         valueText = valueText .. " (" .. value .. ")"
                     end
-                    
+
                     table.insert(increaseOptions, key)
-                    requestIncreaseAttribute:addOption(0, text .. valueText)
+                    requestIncreaseAttribute:addOption(0, attrText .. valueText)
                 end
             end
-            
+
             user:requestSelectionDialog(requestIncreaseAttribute)
         end
     end
-    
+
     local requestReduceAttribute = SelectionDialog("Trainer", reduceText, reduceCallback)
     requestReduceAttribute:setCloseOnMove()
-    
-    for key, text in ipairs(attributesText) do
+
+    for key, attrText in ipairs(attributesText) do
         local attribute = attributes[attributesKey[key]]
         local base = user:getBaseAttribute(attribute)
-        
+
         if user:isBaseAttributeValid(attribute, base - 1) or base > 12 then
             local value = user:increaseAttrib(attribute, 0)
             local valueText = ": " .. base
-            
+
             if value ~= base then
                 valueText = valueText .. " (" .. value .. ")"
             end
-            
+
             table.insert(reduceOptions, key)
-            requestReduceAttribute:addOption(0, text .. valueText)
+            requestReduceAttribute:addOption(0, attrText .. valueText)
         end
     end
-    
+
     user:requestSelectionDialog(requestReduceAttribute)
 end
 

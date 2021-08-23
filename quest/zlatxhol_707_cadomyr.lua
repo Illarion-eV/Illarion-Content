@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (707, 'quest.zlatxhol_707_cadomyr');
 
@@ -71,18 +71,18 @@ local Start = {134, 593, 0}
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
 QuestTarget[1] = {position(134, 593, 0), position(106, 644, 0)} -- Clay Pit
-QuestTarget[2] = {position(134, 593, 0)} 
+QuestTarget[2] = {position(134, 593, 0)}
 QuestTarget[3] = {position(134, 593, 0), position(143, 584, 0)} -- Kiln
-QuestTarget[6] = {position(134, 593, 0)} 
-QuestTarget[7] = {position(134, 593, 0)} 
-QuestTarget[8] = {position(134, 593, 0)} 
-QuestTarget[9] = {position(134, 593, 0)} 
-QuestTarget[10] = {position(134, 593, 0)} 
-QuestTarget[11] = {position(134, 593, 0)} 
-QuestTarget[12] = {position(134, 593, 0)} 
-QuestTarget[13] = {position(134, 593, 0)} 
-QuestTarget[14] = {position(134, 593, 0)} 
-QuestTarget[15] = {position(134, 593, 0)} 
+QuestTarget[6] = {position(134, 593, 0)}
+QuestTarget[7] = {position(134, 593, 0)}
+QuestTarget[8] = {position(134, 593, 0)}
+QuestTarget[9] = {position(134, 593, 0)}
+QuestTarget[10] = {position(134, 593, 0)}
+QuestTarget[11] = {position(134, 593, 0)}
+QuestTarget[12] = {position(134, 593, 0)}
+QuestTarget[13] = {position(134, 593, 0)}
+QuestTarget[14] = {position(134, 593, 0)}
+QuestTarget[15] = {position(134, 593, 0)}
 
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 16

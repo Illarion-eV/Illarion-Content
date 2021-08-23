@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (714, 'quest.francine_leonard_714_runewick');
 
@@ -35,7 +35,7 @@ Description[GERMAN] = {}
 Description[ENGLISH] = {}
 
 Description[GERMAN][1] = "Schöpfe zehn Eimer Wasser und bring diese zu Francine Leonard in der Küche von Runewick. Dazu nimmst du die Eimer in die Hand und benutzt sie, während du vor einem Brunnen stehst. Der nächste Brunnen steht vor der Küche."
-Description[ENGLISH][1] = "Fill ten buckets with water and take them to Francine Leonard at the kitchen in Runewick. Fill the buckets by using the buckets in your hand, whilst standing in front of a well. The next well is in front of the kitchen." 
+Description[ENGLISH][1] = "Fill ten buckets with water and take them to Francine Leonard at the kitchen in Runewick. Fill the buckets by using the buckets in your hand, whilst standing in front of a well. The next well is in front of the kitchen."
 Description[GERMAN][2] = "Geh zu Francine Leonard in der Küche von Runewick. Sie hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][2] = "Go to Francine Leonard at the kitchen in Runewick, she is sure to have another task for you."
 Description[GERMAN][3] = "Mahle zehn Säcke Mehl für Francine Leonard an der Mühle vor Runewicks Küche. Um das Getreide zu mahlen, musst du die Holzkelle in die Hand nehmen und die Mühle benutzen, wenn du vor ihr stehst."
@@ -79,16 +79,16 @@ QuestTarget[2] = {position(959, 842, 0)}
 QuestTarget[3] = {position(959, 842, 0), position(951, 842, 0)} -- mill
 QuestTarget[4] = {position(959, 842, 0)}
 QuestTarget[5] = {position(959, 842, 0), position(961, 835, 0), position(963, 837, 0)} -- baking oven
-QuestTarget[6] = {position(959, 842, 0)} 
-QuestTarget[7] = {position(959, 842, 0)} 
-QuestTarget[8] = {position(959, 842, 0)} 
-QuestTarget[9] = {position(959, 842, 0)} 
-QuestTarget[10] = {position(959, 842, 0)} 
-QuestTarget[11] = {position(959, 842, 0)} 
-QuestTarget[12] = {position(959, 842, 0)} 
-QuestTarget[13] = {position(959, 842, 0)} 
-QuestTarget[14] = {position(959, 842, 0)} 
-QuestTarget[15] = {position(959, 842, 0)} 
+QuestTarget[6] = {position(959, 842, 0)}
+QuestTarget[7] = {position(959, 842, 0)}
+QuestTarget[8] = {position(959, 842, 0)}
+QuestTarget[9] = {position(959, 842, 0)}
+QuestTarget[10] = {position(959, 842, 0)}
+QuestTarget[11] = {position(959, 842, 0)}
+QuestTarget[12] = {position(959, 842, 0)}
+QuestTarget[13] = {position(959, 842, 0)}
+QuestTarget[14] = {position(959, 842, 0)}
+QuestTarget[15] = {position(959, 842, 0)}
 
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 16

@@ -19,7 +19,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local planing = require("craft.final.planing")
 local carving = require("craft.final.carving")
-local crafts = require("craft.base.crafts")
 local common = require("base.common")
 
 local M = {}
@@ -35,7 +34,7 @@ function M.UseItem(User, SourceItem, ltstate)
             "Dir fehlt ein Werkzeug in deiner Hand um hier zu arbeiten: Hobel oder Schnitzmesser.",
             "To work here you have to hold a tool in your hand: Plane or carving tools.")
     end
-    
+
 end
 
 return M

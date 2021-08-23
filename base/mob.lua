@@ -101,13 +101,13 @@ end
 
 local function gmSetSpawnRange(user,item)
     local thisInputDialog = function (dialog)
-    
+
         if (not dialog:getSuccess()) then
             return
         end
-        
+
         local input = dialog:getInput()
-        
+
         if not common.IsNilOrEmpty(input) then
             local value = (tonumber(input))
             if value == nil then
@@ -120,7 +120,7 @@ local function gmSetSpawnRange(user,item)
             M.gmSpawnMob(user,item)
         end
     end
-    
+
     user:requestInputDialog(InputDialog("Spawn Mob Selection",
                                         "Enter the range for the spawn area\nCurrent range: "..tostring(gmGetSpawnRange(item)).." tiles",
                                         false, 255, thisInputDialog))
@@ -139,13 +139,13 @@ end
 
 local function gmSetSpawnSize(user,item)
     local thisInputDialog = function (dialog)
-    
+
         if (not dialog:getSuccess()) then
             return
         end
-        
+
         local input = dialog:getInput()
-        
+
         if not common.IsNilOrEmpty(input) then
             local value = (tonumber(input))
             if value == nil then
@@ -158,7 +158,7 @@ local function gmSetSpawnSize(user,item)
             M.gmSpawnMob(user,item)
         end
     end
-    
+
     user:requestInputDialog(InputDialog("Spawn Mob Selection",
                                         "Enter the size for the mob\nCurrent size: "..tostring(gmGetSpawnSize(item)).." monsters",
                                         false, 255, thisInputDialog))
@@ -190,7 +190,6 @@ local function getCapability(user)
     local attIntelligence = user:getBaseAttribute("intelligence")
     local attPerception = user:getBaseAttribute("perception")
     local attStrength = user:getBaseAttribute("strength")
-    local attWillpower = user:getBaseAttribute("willpower")
 
     local capaFight = (100 + (attStrength-6)*3 + (attPerception-6) + (attDexterity-6) + (skillFight-20)*1.5 ) / 2.9
     local capaMage =  (100 + (attIntelligence-6)*3.5 + (attEssence-6)*1.1 + (skillMage-20)*1.5 ) / 2.82
@@ -209,7 +208,6 @@ function M.gmSpawnMob(user,item)
     local SELECT_SETSIZE = -2
 
     local callback = function(dialog)
-        local success = dialog:getSuccess()
         if (not dialog:getSuccess()) then
             return
         end

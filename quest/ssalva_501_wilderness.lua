@@ -17,7 +17,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (501, 'quest.ssalva_501_wilderness');
 
 local common = require("base.common")
-local factions = require("base.factions")
 local monsterQuests = require("monster.base.quests")
 local M = {}
 
@@ -150,8 +149,8 @@ monsterQuests.addQuest{
     monsterName = {german = "friedlichen Untoten", english = "peaceful undead"},
     npcName = "Ssalva",
     monsterIds = {116,106} -- worker mummies and friendly skeletons
-}    
-    
+}
+
 monsterQuests.addQuest{
     questId = 501,
     locations = {

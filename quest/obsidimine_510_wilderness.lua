@@ -12,12 +12,11 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (510, 'quest.obsidimine_510_wilderness');
 
 local common = require("base.common")
-local factions = require("base.factions")
 local monsterQuests = require("monster.base.quests")
 local M = {}
 
@@ -105,23 +104,23 @@ local Start = {809, 676, 0}
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
 QuestTarget[1] = {position(809, 676, 0)} -- npc
-QuestTarget[2] = {position(809, 676, 0)} 
+QuestTarget[2] = {position(809, 676, 0)}
 QuestTarget[3] = {position(809, 676, 0), position(783, 663, 0)} -- volcano base
 QuestTarget[4] = {position(809, 676, 0), position(783, 663, 0)} -- volcano base
-QuestTarget[5] = {position(809, 676, 0)}  
-QuestTarget[6] = {position(809, 676, 0)}  
+QuestTarget[5] = {position(809, 676, 0)}
+QuestTarget[6] = {position(809, 676, 0)}
 QuestTarget[7] = {position(809, 676, 0), position(826, 643, 2)} -- Upper level of volcano
-QuestTarget[8] = {position(809, 676, 0)} 
-QuestTarget[9] = {position(809, 676, 0)} 
+QuestTarget[8] = {position(809, 676, 0)}
+QuestTarget[9] = {position(809, 676, 0)}
 QuestTarget[10] = {position(809, 676, 0), position(826, 643, 2), position(821, 661, 1), position(659, 701, -3), position(822, 662, -3), position(668, 658, -6)} --checkpoints for looking at all levels
-QuestTarget[11] = {position(809, 676, 0)}  
+QuestTarget[11] = {position(809, 676, 0)}
 QuestTarget[12] = {position(809, 676, 0)}
-QuestTarget[13] = {position(809, 676, 0)} 
-QuestTarget[14] = {position(809, 676, 0)} 
+QuestTarget[13] = {position(809, 676, 0)}
+QuestTarget[14] = {position(809, 676, 0)}
 QuestTarget[15] = {position(809, 676, 0)}
-QuestTarget[16] = {position(809, 676, 0)} 
-QuestTarget[17] = {position(809, 676, 0)} 
-QuestTarget[18] = {position(809, 676, 0)} 
+QuestTarget[16] = {position(809, 676, 0)}
+QuestTarget[17] = {position(809, 676, 0)}
+QuestTarget[18] = {position(809, 676, 0)}
 QuestTarget[19] = {position(809, 676, 0)}
 QuestTarget[20] = {position(809, 676, 0)}
 QuestTarget[21] = {position(809, 676, 0)}

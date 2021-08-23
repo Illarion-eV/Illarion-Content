@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (708, 'quest.thorgrem_silverbeard_708_galmair');
 
@@ -34,7 +34,7 @@ local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Sammel zehn Klumpen Kohle und zehn Brocken Eisenerz und bring diese zu Thorgrem Silverbeard bei der Werkstatt von Galmair. Wenn du aus der Werkstatt die südliche Tür hinaus nimmst, der Straße nach Süden folgst, bis du zu einer Brücke gelangst und anschließend weiter nach Südosten gehst, erreichst du die Malachitmine. Zur Dunkellochmine gelangst du, wenn du die Stadt im Osten verlässt, der Straße nach Osten folgst, die goldene Brücke überquerst und anschließend die goldene Brücke im Norden nochmals überquerst. Nach der Brücke nimmst du den Weg nach Nordwesten und überquerst die Holzbrücke und dann hast du dein Ziel erreicht."
-Description[ENGLISH][1] = "Collect ten lumps of coal and ten pieces of iron ore and take them to Thorgrem Silverbeard at the workshop in Galmair. You can find the Malachite Mine if you leave the workshop through the south door and follow the street south until you reach a bridge; over the bridge you follow the street south east and then you are there. To find the Dark Hole Mine you have to leave the city to the east, then you follow the street, crossing a golden bridge and bearing north until you reach another bridge; again you go over a bridge and follow the street to the northwest where you just need to go over the wooden bridge to get to the mine." 
+Description[ENGLISH][1] = "Collect ten lumps of coal and ten pieces of iron ore and take them to Thorgrem Silverbeard at the workshop in Galmair. You can find the Malachite Mine if you leave the workshop through the south door and follow the street south until you reach a bridge; over the bridge you follow the street south east and then you are there. To find the Dark Hole Mine you have to leave the city to the east, then you follow the street, crossing a golden bridge and bearing north until you reach another bridge; again you go over a bridge and follow the street to the northwest where you just need to go over the wooden bridge to get to the mine."
 Description[GERMAN][2] = "Geh zu Thorgrem Silverbeard in der Werkstatt von Galmair. Er hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][2] = "Go to Thorgrem Silverbeard at the workshop in Galmair, he is sure to have another task for you."
 Description[GERMAN][3] = "Gieße zehn Eisenbarren für Thorgrem Silverbeard am Rennofen in Galmair. Um die Barren herzustellen, musst du die Tiegelzange in die Hand nehmen und den Rennofen benutzen, wenn du vor ihm stehst."
@@ -72,18 +72,18 @@ local Start = {387, 273, 0}
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
 QuestTarget[1] = {position(387, 273, 0), position(397, 145, 0), position(426, 355, 0)} -- Mines
-QuestTarget[2] = {position(387, 273, 0)} 
+QuestTarget[2] = {position(387, 273, 0)}
 QuestTarget[3] = {position(387, 273, 0), position(387, 272, 0)} -- bloomery
-QuestTarget[4] = {position(387, 273, 0)} 
+QuestTarget[4] = {position(387, 273, 0)}
 QuestTarget[5] = {position(387, 273, 0), position(383, 272, 0)} -- anvil
-QuestTarget[7] = {position(387, 273, 0)} 
-QuestTarget[8] = {position(387, 273, 0)} 
-QuestTarget[9] = {position(387, 273, 0)} 
-QuestTarget[10] = {position(387, 273, 0)} 
-QuestTarget[11] = {position(387, 273, 0)} 
-QuestTarget[12] = {position(387, 273, 0)} 
-QuestTarget[13] = {position(387, 273, 0)} 
-QuestTarget[14] = {position(387, 273, 0)} 
+QuestTarget[7] = {position(387, 273, 0)}
+QuestTarget[8] = {position(387, 273, 0)}
+QuestTarget[9] = {position(387, 273, 0)}
+QuestTarget[10] = {position(387, 273, 0)}
+QuestTarget[11] = {position(387, 273, 0)}
+QuestTarget[12] = {position(387, 273, 0)}
+QuestTarget[13] = {position(387, 273, 0)}
+QuestTarget[14] = {position(387, 273, 0)}
 QuestTarget[15] = {position(387, 273, 0)}
 
 -- Insert the quest status which is reached at the end of the quest

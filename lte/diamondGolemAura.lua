@@ -30,7 +30,7 @@ function M.callEffect(Effect, User)
         playerLastSeen = nil
         return false
     end
-    
+
     local playersInRange = world:getPlayersInRangeOf(User.pos, 5)
     for _, player in pairs(playersInRange) do
         if player.pos.z == User.pos.z then
@@ -38,7 +38,7 @@ function M.callEffect(Effect, User)
             playerLastSeen = world:getTime("unix")
         end
     end
-    
+
     return true
 end
 

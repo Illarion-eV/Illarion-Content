@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (152, 'quest.gurzad_gutri_152_galmair');
 
@@ -97,26 +97,26 @@ local Start = {369, 236, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {position(369, 236, 0)} 
-QuestTarget[2] = {position(369, 236, 0)} 
-QuestTarget[3] = {position(369, 236, 0)} 
-QuestTarget[4] = {position(369, 236, 0)} 
-QuestTarget[5] = {position(369, 236, 0)} 
-QuestTarget[6] = {position(369, 236, 0)} 
-QuestTarget[7] = {position(369, 236, 0)} 
-QuestTarget[8] = {position(369, 236, 0)} 
-QuestTarget[9] = {position(369, 236, 0)} 
-QuestTarget[10] = {position(369, 236, 0)} 
-QuestTarget[11] = {position(369, 236, 0)} 
-QuestTarget[12] = {position(369, 236, 0)} 
-QuestTarget[13] = {position(369, 236, 0)} 
-QuestTarget[14] = {position(369, 236, 0)} 
-QuestTarget[15] = {position(369, 236, 0)} 
-QuestTarget[16] = {position(369, 236, 0)} 
-QuestTarget[17] = {position(369, 236, 0)} 
-QuestTarget[18] = {position(369, 236, 0)} 
-QuestTarget[19] = {position(369, 236, 0)} 
-QuestTarget[20] = {position(369, 236, 0)} 
+QuestTarget[1] = {position(369, 236, 0)}
+QuestTarget[2] = {position(369, 236, 0)}
+QuestTarget[3] = {position(369, 236, 0)}
+QuestTarget[4] = {position(369, 236, 0)}
+QuestTarget[5] = {position(369, 236, 0)}
+QuestTarget[6] = {position(369, 236, 0)}
+QuestTarget[7] = {position(369, 236, 0)}
+QuestTarget[8] = {position(369, 236, 0)}
+QuestTarget[9] = {position(369, 236, 0)}
+QuestTarget[10] = {position(369, 236, 0)}
+QuestTarget[11] = {position(369, 236, 0)}
+QuestTarget[12] = {position(369, 236, 0)}
+QuestTarget[13] = {position(369, 236, 0)}
+QuestTarget[14] = {position(369, 236, 0)}
+QuestTarget[15] = {position(369, 236, 0)}
+QuestTarget[16] = {position(369, 236, 0)}
+QuestTarget[17] = {position(369, 236, 0)}
+QuestTarget[18] = {position(369, 236, 0)}
+QuestTarget[19] = {position(369, 236, 0)}
+QuestTarget[20] = {position(369, 236, 0)}
 
 --QuestTarget[1] = {position(x, y, 100), position(x, y, 100)}
 

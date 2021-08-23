@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 local consequence = require("npc.base.consequence.consequence")
@@ -22,7 +22,7 @@ local _warp_helper
 local warp = class(consequence,
 function(self, x, y, z)
     consequence:init(self)
-    
+
     self["x"] = tonumber(x)
     self["y"] = tonumber(y)
     self["z"] = tonumber(z)

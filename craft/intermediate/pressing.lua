@@ -36,10 +36,10 @@ local product = pressing:addProduct(catId, 469, 1)
 product:addIngredient(141 , 2) -- black thistle
 product:addIngredient(390) -- oil bottle
 
-local catId = pressing:addCategory("Wax", "Wachs")
+catId = pressing:addCategory("Wax", "Wachs")
 
 -- Wax
-local product = pressing:addProduct(catId, 431, 1)
+product = pressing:addProduct(catId, 431, 1)
 product:addIngredient(2529) -- honeycomb
 
 M.pressing = pressing

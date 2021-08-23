@@ -14,8 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-local common = require("base.common")
-
 local M = {}
 
 M.daysPerMonth = {31,28,31,30,31,30,31,31,30,31,30,31}
@@ -35,7 +33,6 @@ function M.getRLDateFromUnixTimestamp(timestamp)
     local year=math.floor(1970+ timestamp /31556926)
     local ds=((1970+timestamp/31556926)-year)*31556926
     local month=math.floor(ds/2629743)+1
-    local d=math.floor(ds/86400)+1
     local day=math.floor(((ds/2629743+1)-month)*M.daysPerMonth[month])+2
     local DST=0;
 

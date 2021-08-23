@@ -28,10 +28,10 @@ local M = {}
 
 local function checkCarrotRealm(questId, dataValue, questOriginator, user, sourceItem)
     local numberOfCarrot
-    local replacedCarrots = 0
-    local countCarrots = 0
+    local replacedCarrots
+    local countCarrots
     local questTaken = false
-    
+
     if user:getQuestProgress(questId) == 22 then
         numberOfCarrot = sourceItem:getData(dataValue)
         if not common.IsNilOrEmpty(numberOfCarrot) then
@@ -60,7 +60,7 @@ end
 
 function M.checkCarrot(user,sourceItem)
     local questTaken = false
-    
+
     local inHand = user:getItemAt(4)
     local hitPoints = tonumber(user:increaseAttrib("hitpoints", 0))
     if inHand.id == 0 and  hitPoints > 750 then --bare hands
@@ -72,7 +72,7 @@ function M.checkCarrot(user,sourceItem)
             return true
         end
     end
-    
+
     if checkCarrotRealm(187, dataCadomyr, "Jeremiah", user, sourceItem) then
         questTaken = true
     elseif checkCarrotRealm(188, dataRunewick, "Cilivren", user, sourceItem) then
@@ -80,7 +80,7 @@ function M.checkCarrot(user,sourceItem)
     elseif checkCarrotRealm(189, dataGalmair, "Fokous", user, sourceItem) then
          questTaken = true
     end
-    
+
    return questTaken
 end
 --]]

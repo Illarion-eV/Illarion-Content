@@ -17,7 +17,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- SAND_PIT = 1208
 
-local common = require("base.common")
 local shared = require("craft.base.shared")
 local gathering = require("craft.base.gathering")
 
@@ -33,20 +32,20 @@ function M.StartGathering(User, SourceItem, ltstate)
     local resourceID = 726 --coarse sand
     local depletedSourceID = 3632
     local restockWear = 4 --15 minutes
-    
+
     local success, toolItem, amount, gatheringBonus = gathering.InitGathering(User, SourceItem, toolID, maxAmount, sanddigging.LeadSkill)
-    
+
     if not success then
-        return 
+        return
     end
-    
+
     sanddigging:AddRandomPureElement(User,gathering.prob_element*gatheringBonus); -- Any pure element
     sanddigging:SetTreasureMap(User,gathering.prob_map*gatheringBonus,"Der Sand gibt eine gut erhaltene Karte frei. Die Hitze konnte dem Pergament nichts anhaben.","Deep in the sand sheltered from the desert heat you discover a treasure map!");
     sanddigging:AddMonster(User,982,gathering.prob_monster/gatheringBonus,"Tief im Sand stößt du auf etwas schwarzes, krabbelndes. Eine vorschnellende Klaue ist nur der Vorbote dessen, was du gerade erweckt hast.","To your dismay you unearth a beetle's hiding place. He furiously lashes his claws trying to defend his home.",4,7);
     sanddigging:AddRandomItem(3077,1,333,{},gathering.prob_rarely,"Eine funkelnde Münze liegt auf deinem Schaufelblatt. Hat sich die harte Arbeit doch gelohnt!","A tink of your shovel blade causes you to pause. Then to your surprise it turns out you struck a silver coin!"); --Silver coin
     sanddigging:AddRandomItem(21,1,333,{},gathering.prob_occasionally,"Du findest einige noch heiße Kohlen im Sand. Ein Glück, dass du nicht auf diese Überreste einer nächtlichen Grillfeier getreten bist.","As your shovel digs through the sand you unearth an unused lump of coal and discover an abandoned campfire."); --Coal
     sanddigging:AddRandomItem(1266,1,333,{},gathering.prob_frequently,"Deine Schaufel stößt auf einen runden Kieselstein.","Your shoulder locks as your shovel drives into a hard stone."); --Rock
-   
+
    --Case 1: Interrupted
     if (ltstate == Action.abort) then -- work interrupted
         return
@@ -68,7 +67,7 @@ function M.StartGathering(User, SourceItem, ltstate)
 
     local created, newAmount = gathering.FindResource(User, SourceItem, amount, resourceID)
 
-    if created then 
+    if created then
         User:changeSource(SourceItem)
         if newAmount > 0 and not shared.toolBreaks(User, toolItem, sanddigging:GenWorkTime(User)) then
             sanddigging.SavedWorkTime[User.id] = sanddigging:GenWorkTime(User)

@@ -18,6 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local character = require("base.character")
 local scheduledFunction = require("scheduled.scheduledFunction")
+local hooks = require("monster.base.hooks")
 
 local M = {}
 
@@ -191,8 +192,8 @@ local function fruitBombInsectsSpawning(CENTERS, CENTER)
                         world:gfx(7, thePos)
                         if counter == 2 then
                             local players = world:getPlayersInRangeOf(thePos,9)
-                            for i=1,#players do
-                                players[i]:inform("Ein Summen ist zu vernehmen. Wespen werden von dem Duft angelockt!", "A buzzing can be heard and gets closer. Wasps are allured by the sweet scent.")
+                            for z=1,#players do
+                                players[z]:inform("Ein Summen ist zu vernehmen. Wespen werden von dem Duft angelockt!", "A buzzing can be heard and gets closer. Wasps are allured by the sweet scent.")
                             end
                         end
                         if math.random(1,2)==1 or counter == 2 then
@@ -248,7 +249,7 @@ local function fruitBomb(User, Item, targetArea)
         world:gfx(52, targetArea[math.random(#targetArea)])
     end
 
-    local posAsString = "".. Item.pos.x .." ".. Item.pos.y .." "..Item.pos.z
+    posAsString = "".. Item.pos.x .." ".. Item.pos.y .." "..Item.pos.z
     local found = false
     for i=1,#CENTERS do
         if CENTERS[i] == posAsString then
@@ -387,5 +388,76 @@ function M.effect_18(User,Item)
     fruitBomb(User, Item, fieldOfRadius( Item, 6 ))
 end
 
+-- Transform red skeletons into weaker white skeletons (except for lichs)
+function M.weakenRedSkeletons(user, item)
+    local hitArea = fieldOfRadius(item, 5)
+    hitArea = common.Shuffle(hitArea)
+    local quality = common.getItemQuality(item)
+
+    local counter = 0
+    for _, hitPosition in pairs(hitArea) do
+
+        if world:isCharacterOnField(hitPosition) then
+            local char = world:getCharacterOnField(hitPosition)
+
+            if char:getType() == Character.player then
+                user:inform("Du fühlst ein kaltes Kribbeln.", "You feel a chill tingling.", Character.lowPriority)
+
+            elseif char:getType () == Character.monster then
+
+                local TRANSFORMATION_MAPPING = {[201] = 112,
+                                                [202] = 115,
+                                                [203] = 113,
+                                                [204] = 115,
+                                                [206] = 111
+                                                }
+
+                local originalMonsterId = char:getMonsterType()
+                if TRANSFORMATION_MAPPING[originalMonsterId] then
+
+                    local theField = world:getField(hitPosition)
+                    local originalItemAmountOnField = theField:countItems()
+                    local oldHP = char:increaseAttrib("hitpoints", 0)
+                    char:increaseAttrib("hitpoints", -10000)
+                    local newItemAmountOnField = theField:countItems()
+                    local numberOfItemsToDelete = newItemAmountOnField - originalItemAmountOnField
+
+                    local deletedItems = {}
+                    for i = 1, numberOfItemsToDelete do
+                        local deleteItem = world:getItemOnField(hitPosition)
+                        table.insert(deletedItems, 1, deleteItem)
+                        world:erase(deleteItem, deleteItem.number)
+                    end
+
+                    local transformedSkeleton = world:createMonster(TRANSFORMATION_MAPPING[originalMonsterId], hitPosition, 0)
+                    transformedSkeleton:setAttrib("hitpoints", oldHP)
+                    hooks.setNoDrop(transformedSkeleton)
+                    hooks.registerOnDeath(transformedSkeleton, function(monster)
+                                                        for _, deletedItem in pairs(deletedItems) do
+                                                            world:createItemFromItem(deletedItem, monster.pos, true)
+                                                            if Random.uniform() <= 0.25 then
+                                                                world:createItemFromId(Item.alchemicalSludge, 1, monster.pos, true, 333, nil)
+                                                            end
+                                                        end
+                                                    end
+                                        )
+
+                    world:gfx(3, hitPosition)
+                    world:gfx(4, hitPosition)
+
+                    counter = counter + 1
+                    if counter == quality then
+                        break
+                    end
+
+                end
+
+            end
+
+        end
+    end
+
+
+end
 
 return M

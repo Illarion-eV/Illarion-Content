@@ -15,9 +15,6 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
-
-local common = require("base.common")
-
 local M = {}
 
 local level = {}
@@ -322,7 +319,7 @@ function M.getLevel(monster)
     else
         return 0
     end
-    
+
 end
 
 return M

@@ -23,8 +23,6 @@ local goldenGoblet = require("item.id_224_goldengoblet")
 
 local M = {}
 
-local TimeList = {}
-
 function M.LookAtItem(User, Item)
     if Item.number == 1 then
         lookat.SetSpecialDescription(Item, "Eine einzelne Münze", "A single coin")

@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE items SET itm_script='item.id_348_wallcorner' WHERE itm_id = 348;
 
@@ -21,7 +21,7 @@ local M = {}
 function M.UseItem(User, Item)
     --The stuff below belongs to the quest of NPC Sylvester. This is old Gobaith stuff. But this quest should be converted to NewIllarion - so I don't delete it ~Estralis
     --[[
-    if (Item.pos == position(-106,-147,0)) then 
+    if (Item.pos == position(-106,-147,0)) then
         local lang=User:getPlayerLanguage();
         if ( (User:getQuestProgress(5) == 1) or (User:isAdmin()) ) then
                 if lang==0 then
@@ -54,13 +54,13 @@ function M.UseItem(User, Item)
                 User:setQuestProgress(5,3);
             end;
         else
-            
+
                 if lang==0 then
                     User:inform("Das Loch ist anscheinend leer.");
                 else
                     User:inform("The hole seems to be empty.");
                 end;
-            
+
         end
     end]]
 end

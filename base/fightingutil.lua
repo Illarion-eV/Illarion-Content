@@ -24,9 +24,9 @@ However shared functions must be accessible and not be copied.
 
 This script is only a first step (as it contains fighting logic which it shouldnt)
 Better state (imo) would be:
-- standardfighting as entrypoint 
+- standardfighting as entrypoint
 - melee.lua, ranged.lua, staff.lua (spells should be handeled separatly)
-- standardfighting owning all shared scripts 
+- standardfighting owning all shared scripts
 -- with no internal fighting-logic (like special cases for difference fightforms)
 -- with smallest functions possible:
 --- e.g.: checkRange checking also blocking is a confusing behavior
@@ -43,11 +43,11 @@ local M = {}
 ---- @return distance between attacker and defender]]
 function M.checkRangeAndView(attackerStruct, defender)
     local distance = attackerStruct.Char:distanceMetric(defender)
-    
+
     if distance > 1 then
         local blockList = world:LoS(attackerStruct.Char.pos, defender.pos)
         local next = next
-        
+
         -- see if there is a "next" (first) object in blockList!
         if (next(blockList)~=nil) then
                 return false, distance
@@ -57,11 +57,11 @@ function M.checkRangeAndView(attackerStruct, defender)
     if distance <= 2 and attackerStruct.AttackKind == 4 then
         return false, distance
     end
-    
+
     if attackerStruct.IsWeapon then
         return distance <= attackerStruct.Weapon.Range, distance
     end
-    
+
     return distance <= 1, distance
 end
 
@@ -110,7 +110,7 @@ function M.loadWeapons(charStruct)
     charStruct["SecWeaponItem"] = lItem
     charStruct["SecIsWeapon"] = lAttFound
     charStruct["SecWeapon"] = lAttWeapon
-    
+
     return charStruct
 end
 
@@ -138,7 +138,7 @@ function M.getSelectedEnemyId(theCharId)
             return selectedEnemies[theCharId].enemyId
         end
     end
-    
+
     return false
 end
 

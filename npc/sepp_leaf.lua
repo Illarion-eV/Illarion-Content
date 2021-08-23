@@ -166,7 +166,7 @@ end
 --                    end
 --               end
 --            end
-            
+
 --            if not found then
 --                world:createItemFromId(433, 1, thePos, true, 333, {nameDe = "Spielfeldbegrenzung", nameEn = "Game field border"})
 --            end
@@ -182,7 +182,7 @@ local function endGame (npc)
         world:erase(itemOnion,1)
     end
     teamEast = {}
-    teamWest = 
+    teamWest =
     removeAllBalls(npc)
     --repairGameFieldBorders()
 end
@@ -267,10 +267,10 @@ local function startGame (npc)
 end
 
 local function createBall(npc)
-    local borderW = 333
-    local borderE = 340
+    local ballBorderW = 333
+    local ballBorderE = 340
     local posX = 690
-    local posY = math.random(borderW, borderE)
+    local posY = math.random(ballBorderW, ballBorderE)
     local pos = position(posX, posY, GAME_LEVEL_Z)
     itemOnion = world:createItemFromId(ITEM_ID_ONION, 1, pos, true, 333, {onionball="true",nameDe="Spielzwiebel",nameEn="Game Onion",descriptionDe="Die Zwiebel ist schon recht matschig und stinkt.",descriptionEn="The onion is quite pulpy and stinks.",lookatNoPrice=1,lookatNoWeight=1})
     world:gfx(globalvar.gfxSUN, pos)
@@ -453,7 +453,7 @@ function M.nextCycle(npc)
             else
                 local spectators = tonumber(countSpectators())
                 if spectators > 0 then
-                    local talkative = TALK_FREQUENCY_GAME_WITH_SPECTATORS * spectators
+                    talkative = TALK_FREQUENCY_GAME_WITH_SPECTATORS * spectators
                 end
                 if math.random(talkative) == 1 then
                     local textNo = math.random(#cycleTextGame)
@@ -512,13 +512,13 @@ function M.receiveText(npc, ttype, text, user)
         user:inform("[Help] How to play: Players have to stay in their respective match field. Call 'Start' and Sepp will provide a game onion. A hit or leaving the game field ends the match in favour of the other team.")
         return
     end
-    
+
     if string.match(text, "[Hh]ilf") then
         user:inform("[Hilfe] Dieser NPC heißt Sepp Leaf. Er ist ein Zwiebelballschiedsrichter. Bitte ihn, ein Spiel zu pfeifen. Schlüsselwörter: start, stop, gewinner, regel")
         user:inform("[Hilfe] Spielablauf: Die Spieler stellen sich in den Spielfeldern auf. Auf 'Start' stellt Sepp eine Spielzwiebel bereit. Ein Treffer oder das Verlassen des Feldes beendet das Spiel zugunsten der anderen Mannschaft.")
         return
     end
-    
+
     for i=1,#saidText do
         if string.match(string.lower(text), saidText[i][1]) then
             local answerId = saidText[i][2]

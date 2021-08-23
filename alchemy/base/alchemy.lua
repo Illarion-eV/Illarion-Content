@@ -176,6 +176,9 @@ M.potionName[317] = {"Big Slime Barrier","Große Schleimbarriere"}
 setPotion(317, 446, 76576456, 140, 140, 140, 140, 152, 152, 146, 146)
 M.potionName[318] = {"Lennier's Dream","Lenniers Traum"}
 setPotion(318, 446, 57932798, 765,146,146,146,148,15,151,764)
+M.potionName[319] = {"Protogebräu: Brightrim's demon skeleton weakener","Proto brewing: Brightrims Dämonenskelettschwächer"}
+setPotion(318, 446, 57932798, 760, 146, 146, 146, 134, 134, 760, 752)
+M.potionName[320] = {"Brightrim's demon skeleton weakener","Brightrims Dämonenskelettschwächer"}
 -- bombs end
 
 -- quality raiser
@@ -319,51 +322,31 @@ M.wirkung_en[9] = "highly toxic"
 --Wirkungen auf Attribute
 --Reihe 1
 local attr_r1 = {}
-local untererGrenzwert = {}
 local obererGrenzwert = {}
 
 attr_r1[1] = "hitpoints"
-untererGrenzwert[1] = 0
 obererGrenzwert[1] = 10000
 
 attr_r1[2] = "body_height"
-untererGrenzwert[2] = 35
 obererGrenzwert[2] = 84
 
 attr_r1[3] = "foodlevel"
-untererGrenzwert[3] = 0
 obererGrenzwert[3] = 50000
 
 attr_r1[4] = "luck"
-untererGrenzwert[4] = 0
 obererGrenzwert[4] = 100
 
 attr_r1[5] = "attitude"
-untererGrenzwert[5] = 0
 obererGrenzwert[5] = 100
 
 attr_r1[6] = "poisonvalue"
-untererGrenzwert[6] = 0
 obererGrenzwert[6] = 10000
 
 attr_r1[7] = "mental capacity"
-untererGrenzwert[7] = 0
 obererGrenzwert[7] = 2400
 
 attr_r1[8] = "mana"
-untererGrenzwert[8] = 0
 obererGrenzwert[8] = 10000
-
---Reihe 2
-local attr_r2 = {}
-attr_r2[1] = "strength"
-attr_r2[2] = "perception"
-attr_r2[3] = "dexterity"
-attr_r2[4] = "intelligence"
-attr_r2[5] = "essence"
-attr_r2[6] = "willpower"
-attr_r2[7] = "constitution"
-attr_r2[8] = "agility"
 
 local taste = {}
 taste[0] = {"fruchtig","herb"     ,"bitter"    ,"faulig"      ,"sauer"       ,"salzig" ,"scharf"   ,"süß"}
@@ -373,10 +356,7 @@ taste[1] = {"fruity"  ,"tartly"   ,"bitter"    ,"putrefactive","sour"        ,"s
 function M.CheckAttrRow(User,dataZList)
 
     local retVal = true
-    if dataZList[9] == 0 then
-        -- Attributsreihe 1 soll angewandt werden
-    else
-        -- Attributsreihe 2 soll angewandt werden
+    if dataZList[9] ~= 0 then
         retVal = false
     end
     return retVal
@@ -545,11 +525,11 @@ function M.CheckIfPotionBottle(SourceItem, User)
     return retVal
 end
 
-function M.GetCauldronInfront(User,Item)
+function M.GetCauldronInfront(User, Item)
     local retVal
-    Item = common.GetFrontItem(User)
-    if (Item ~= nil) and (Item.id >= 1008) and (Item.id <= 1018) then
-        retVal = Item
+    local item = common.GetFrontItem(User)
+    if (item ~= nil) and (item.id >= 1008) and (item.id <= 1018) then
+        retVal = item
     end
     return retVal
 end
@@ -641,11 +621,11 @@ function M.FillFromTo(fromItem,toItem)
     else
         toItem.quality = quality
     end
-    local reGem, reDust, reCauldron, reBottle
+    local _, reCauldron, reBottle
     if fromItem.id >= 1008 and fromItem.id <= 1018 then
-        reGem, reDust, reCauldron, reBottle = M.GemDustBottleCauldron(nil, nil, fromItem.id, nil)
+        _, _, reCauldron, reBottle = M.GemDustBottleCauldron(nil, nil, fromItem.id, nil)
     else
-        reGem, reDust, reCauldron, reBottle = M.GemDustBottleCauldron(nil, nil, nil, fromItem.id)
+        _, _, reCauldron, reBottle = M.GemDustBottleCauldron(nil, nil, nil, fromItem.id)
     end
     if toItem.id >= 1008 and toItem.id <= 1018 then
         toItem.id = reCauldron
@@ -673,8 +653,6 @@ function M.CauldronDestruction(User,cauldron,effectId)
         effectId = 1
     end
 
-    local textDE
-    local textEN
     if effectId == 1 then
         world:gfx(1,cauldron.pos)
         world:makeSound(5,cauldron.pos)
@@ -755,11 +733,11 @@ function M.CombineStockEssence( User, stock, essenceBrew)
     if cauldron then
 
         -- we get the gem dust used as an ingredient; and the new cauldron id we need later
-        local reGem, ingredientGemdust, newCauldron, reBottle
+        local _, ingredientGemdust, newCauldron
         if cauldron:getData("filledWith") == "essenceBrew" then
-            reGem, ingredientGemdust, newCauldron, reBottle = M.GemDustBottleCauldron(nil, nil, essenceBrew.id, nil)
+            _, ingredientGemdust, newCauldron = M.GemDustBottleCauldron(nil, nil, essenceBrew.id, nil)
         else
-            reGem, ingredientGemdust, newCauldron, reBottle = M.GemDustBottleCauldron(nil, nil, nil, essenceBrew.id)
+            _, ingredientGemdust, newCauldron = M.GemDustBottleCauldron(nil, nil, nil, essenceBrew.id)
         end
         -- create our ingredients list
         local myIngredients = {}
@@ -850,15 +828,13 @@ local function SupportPotion(User,support,potion)
     local cauldron = common.GetFrontItem( User )
     local supportEffectId = tonumber(support:getData("potionEffectId"))
 
-    local supportQuality, potionQuality, bottle
+    local supportQuality, potionQuality
     if support.id >= 1008 and support.id <= 1018 then
         supportQuality = tonumber(support:getData("potionQuality"))
         potionQuality = potion.quality
-        bottle = potion
     else
         supportQuality = support.quality
         potionQuality = tonumber(potion:getData("potionQuality"))
-        bottle = support
     end
     if (supportEffectId >= 400) and (supportEffectId <= 406) then -- quality raiser
     -- list with potions in cauldron and bottle

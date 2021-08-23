@@ -36,7 +36,7 @@ function M.UseItem(User, SourceItem)
         transformation_dog.UseSealedScroll(User, SourceItem)
         return
     end
-    
+
     local book = SourceItem:getData("book")
     if book ~= "" then
         if id_266_bookshelf.bookList[book] ~= nil then

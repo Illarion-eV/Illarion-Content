@@ -44,10 +44,10 @@ INSERT INTO triggerfields VALUES (x,y,z,'triggerfield.dragorog_cult_ambient');
 
 local DragorogList = ambient_base()
 
-DragorogList.add( position(384,465,2),nil,"Es liegt ein beissender Gestank nach Schwefel, verrottendem Abfall und Verwesung in der Luft.","There is an acrid stench of a mixture of sulphur, rotting waste and decay in the air.",nil,nil,50); 
-DragorogList.add( position(410,477,2),nil,"Der ganze Boden ist mit abgenagten Knochen bedeckt und nicht alle davon sehen aus, als ob sie von Tieren stammen würden.","The entire floor is covered with gnawed off bones and not all of them look, as though they belonged to animals.",nil,nil,50); 
-DragorogList.add( position(438,448,2),nil,"Das Gebäude ist erstaunlich gemütlich eingerichtet und wirkt gut gepflegt.","The building seems surprisingly comfortablly furnished and looks well-kept.",nil,nil,50); 
-DragorogList.add( position(410,443,2),nil,"Von der anderen Seite der Brücke her, hörst du ein leises Kratzen, als würde jemand mit einer besonders drahtigen Bürste über Stein fahren.","From across the bridge you hear a faint scratching noise, as though somebody is scrubbing over a stone with a particularly wiry brush.",nil,nil,50); 
+DragorogList.add( position(384,465,2),nil,"Es liegt ein beissender Gestank nach Schwefel, verrottendem Abfall und Verwesung in der Luft.","There is an acrid stench of a mixture of sulphur, rotting waste and decay in the air.",nil,nil,50);
+DragorogList.add( position(410,477,2),nil,"Der ganze Boden ist mit abgenagten Knochen bedeckt und nicht alle davon sehen aus, als ob sie von Tieren stammen würden.","The entire floor is covered with gnawed off bones and not all of them look, as though they belonged to animals.",nil,nil,50);
+DragorogList.add( position(438,448,2),nil,"Das Gebäude ist erstaunlich gemütlich eingerichtet und wirkt gut gepflegt.","The building seems surprisingly comfortablly furnished and looks well-kept.",nil,nil,50);
+DragorogList.add( position(410,443,2),nil,"Von der anderen Seite der Brücke her, hörst du ein leises Kratzen, als würde jemand mit einer besonders drahtigen Bürste über Stein fahren.","From across the bridge you hear a faint scratching noise, as though somebody is scrubbing over a stone with a particularly wiry brush.",nil,nil,50);
 
 function M.MoveToField(Char)
     local this = DragorogList.get(Char)

@@ -22,7 +22,6 @@ local weaving = require("craft.intermediate.weaving")
 local woolcutting = require("craft.gathering.woolcutting")
 local silkcutting = require("craft.gathering.silkcutting")
 local metal = require("item.general.metal")
-local petsystem = require("petsystem.base")
 
 local M = {}
 
@@ -33,7 +32,7 @@ local function getButterfly(User)
     local BUTTERFLIES = {3634, 3635, 3636, 3637}
     local foundItem
     local frontItem = common.GetFrontItem(User)
-    
+
     for i, butterfly in pairs(BUTTERFLIES) do
         if (frontItem ~= nil and frontItem.id == butterfly) then
             foundItem = frontItem
@@ -49,9 +48,9 @@ local function getButterfly(User)
             end
         end
     end
-    
+
     return foundItem
-    
+
 end
 
 local function getLoom(User)
@@ -101,14 +100,14 @@ end
 function M.UseItem(User, SourceItem, ltstate)
 
     local target;
- 
+
     --check for butterflies
     target = getButterfly(User)
     if (target ~= nil) then
         silkcutting.StartGathering(User, target, ltstate)
         return
     end
- 
+
     -- check for sheep
     target = getSheep(User);
     if (target ~= nil) then
@@ -132,7 +131,7 @@ function M.UseItem(User, SourceItem, ltstate)
 
     -- there is nothing to work with
     common.HighInformNLS( User,
-    "Du brauchst entweder ein Schaf, um es zu scheren, oder musst vor einem Spinnrad oder Webstuhl stehen. Ein Schmetterlingsschwarm in der Nähe könnte auf die seltenen Seidenspinnderaupen hindeuten.",
+    "Du brauchst entweder ein Schaf, um es zu scheren, oder musst vor einem Spinnrad oder Webstuhl stehen. Ein Schmetterlingsschwarm in der Nähe könnte auf die seltenen Seidenraupen hindeuten.",
     "You need either a sheep for shearing it, or need to stand in front of a spinning wheel or loom. A swarm of butterflies nearby could indicate the presence of rare silkworms." );
 end
 

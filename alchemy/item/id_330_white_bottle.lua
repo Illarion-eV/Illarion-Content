@@ -41,7 +41,7 @@ local function DrinkPotion(User,SourceItem)
         ]]
         local find = User.effects:find(330)
 
-        local findLID,languageId,skillName,findOS,oldSkill,findNS,newSkill,effectRemoved
+        local effectRemoved
         if find then --  there is already an effect, we remove it, only one language at a time
             --[[
             findLID,languageId = myEffect:findValue("languageId")

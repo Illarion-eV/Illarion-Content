@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- Default look-at script
 
@@ -27,7 +27,6 @@ local TitleCase
 local AddWeaponOrArmourType
 local AddTypeAndUsable
 local GetGemLevel
-local GetItemDescription
 
 -- init german descriptions
 local GenericQualDe = {"perfekt", "exzellent", "sehr gut", "gut", "normal", "m‰ﬂig", "schlecht", "sehr schlecht",
@@ -81,23 +80,23 @@ function M.GenerateLookAt(user, item, material)
         debug("Sanity check failed, no valid character supplied.")
         return
     end
-    
+
     if item == nil then
         debug("Sanity check failed, no valid item supplied.")
         return
     end
-    
+
     material = material or M.NONE
 
     if material < M.NONE or material > M.JEWELLERY then
         debug("Sanity check failed, no valid material supplied.")
     end
-    
+
     local itemCommon = world:getItemStatsFromId(item.id)
     local lookAt = ItemLookAt()
-    
+
     local isGerman = user:getPlayerLanguage() == Player.german
-    
+
     local defaultName, usedName
     local brokenString
     if isGerman then
@@ -114,11 +113,11 @@ function M.GenerateLookAt(user, item, material)
     end
 
     lookAt.name = TitleCase(usedName)
-    
+
     if common.isBroken(item) and item.wear ~= 255 and itemCommon.MaxStack == 1 then --static or stackable items are not shown as broken
         lookAt.name = lookAt.name..brokenString
-    end   
-    
+    end
+
     local rarenessData = item:getData("rareness")
     if rarenessData == "" then
         lookAt.rareness = itemCommon.Rareness;
@@ -128,7 +127,7 @@ function M.GenerateLookAt(user, item, material)
             lookAt.rareness = value
         end
     end
-    
+
     local defaultDescription, usedDescription
     local addDescription
     if isGerman then
@@ -140,7 +139,7 @@ function M.GenerateLookAt(user, item, material)
         usedDescription = item:getData("descriptionEn")
         addDescription = glyphs.lookatGlyph(item,Player.english)
     end
-    
+
     if common.IsNilOrEmpty(usedDescription) then
         lookAt.description = defaultDescription .. addDescription
     else
@@ -149,28 +148,28 @@ function M.GenerateLookAt(user, item, material)
 
     local level = itemCommon.Level
     lookAt.level = level
-    
+
     if itemCommon.AgeingSpeed < 255 and itemCommon.Weight < 30000 then
         local craftedByData = item:getData("craftedBy")
-        
+
         if not common.IsNilOrEmpty(craftedByData) then
             lookAt.craftedBy = craftedByData
         end
-        
+
         if item:getData("lookatNoWeight") ~= "1" then
             lookAt.weight = item.number * itemCommon.Weight
         end
-            
+
         if item:getData("lookatNoPrice") ~= "1" then
             if not money.IsCurrency(item.id) then
                 lookAt.worth = 20*item.number * itemCommon.Worth
             end
         end
-        
+
         if material > M.NONE and item:getData("lookatNoQuality") ~= "1" then
             local itemDura = math.fmod(item.quality, 100)
             local itemQual = (item.quality - itemDura) / 100
-            
+
             local duraIndex
             for i, duraLimit in pairs(GenericDuraLm) do
                 if itemDura >= duraLimit then
@@ -180,13 +179,13 @@ function M.GenerateLookAt(user, item, material)
             end
 
             local qualIndex = 10 - itemQual
-            
+
             if qualIndex < 1 then
                 qualIndex = 1
             elseif qualIndex > 10 then
                 qualIndex = 10
             end
-            
+
             if (isGerman) then
                 lookAt.qualityText = GenericQualDe[qualIndex]
                 lookAt.durabilityText = GenericDuraDe[material][duraIndex]
@@ -194,7 +193,7 @@ function M.GenerateLookAt(user, item, material)
                 lookAt.qualityText = GenericQualEn[qualIndex]
                 lookAt.durabilityText = GenericDuraEn[material][duraIndex]
             end
-            
+
             lookAt.durabilityValue = itemDura + 1
         end
 
@@ -209,7 +208,7 @@ function M.GenerateLookAt(user, item, material)
         lookAt.topazLevel = GetGemLevel(item, "magicalTopaz")
         lookAt.bonus = gems.getGemBonus(item)
     end
-    
+
     return lookAt
 end
 
@@ -217,7 +216,7 @@ function M.GenerateItemLookAtFromId(user, itemId, stackSize, data)
     local lookAt = ItemLookAt()
     local isGerman = user:getPlayerLanguage() == Player.german
     data = data or {}
-    
+
     local usedName
     if isGerman then
         usedName = data["nameDe"]
@@ -228,7 +227,7 @@ function M.GenerateItemLookAtFromId(user, itemId, stackSize, data)
         usedName = world:getItemName(itemId, user:getPlayerLanguage())
     end
     lookAt.name = TitleCase(usedName)
-    
+
     local rarenessData = data["rareness"]
     if rarenessData == nil then
         lookAt.rareness = ItemLookAt.commonItem
@@ -238,14 +237,14 @@ function M.GenerateItemLookAtFromId(user, itemId, stackSize, data)
             lookAt.rareness = value
         end
     end
-    
+
     local usedDescription
     if isGerman then
         usedDescription = data["descriptionDe"]
     else
         usedDescription = data["descriptionEn"]
     end
-    
+
     if not common.IsNilOrEmpty(usedDescription) then
         lookAt.description = usedDescription
     end
@@ -256,7 +255,7 @@ function M.GenerateItemLookAtFromId(user, itemId, stackSize, data)
 
     local level = itemCommon.Level
     lookAt.level = level
-    
+
     lookAt = AddWeaponOrArmourType(lookAt, user, itemId, level)
 
     return lookAt
@@ -266,7 +265,7 @@ function TitleCase(name)
     local function tchelper(first, rest)
         return first:upper()..rest:lower()
     end
-    
+
     return name:gsub("([%a‰ˆ¸ƒ÷‹])([%w‰ˆ¸ƒ÷‹ﬂ_']*)", tchelper)
 end
 
@@ -281,18 +280,18 @@ function AddWeaponOrArmourType(lookAt, user, itemId, itemLevel)
             lookAt = AddTypeAndUsable(lookAt, user, ArmourType, armour.Type, itemLevel)
         end
     end
-    
+
     return lookAt
 end
 
 function AddTypeAndUsable(lookAt, user, nameAndSkillTable, itemType, itemLevel)
     local nameAndSkill = nameAndSkillTable[itemType]
     local skill = 100
-    
+
     if nameAndSkill.skill then
         skill = user:getSkill(nameAndSkill.skill)
     end
-    
+
     if user:getPlayerLanguage() == Player.german then
         lookAt.type = nameAndSkill.de
     else
@@ -300,30 +299,26 @@ function AddTypeAndUsable(lookAt, user, nameAndSkillTable, itemType, itemLevel)
     end
 
     lookAt.usable = skill >= itemLevel
-    
+
     return lookAt
 end
 
 function GetGemLevel(item, dataEntry)
-    local dataEntry = item:getData(dataEntry)
+    dataEntry = item:getData(dataEntry)
     if dataEntry == nil then
         return 0
     end
-    
+
     local value = tonumber(dataEntry)
     if value == nil then
         return 0
     end
-    
+
     if value < 0 or value > 10 then
         return 0
     else
         return value
     end
-end
-
-function GetItemDescription(User, Item, material, Weapon, Priest)
-    return M.GenerateLookAt(User, Item, material)
 end
 
 --- Apply a special name to a item. The name is stored in the data values.
@@ -332,17 +327,17 @@ end
 -- @param item the item that is supposed to receive the new values
 -- @param german the german name this item is supposed to display
 -- @param english the english name this item is supposed to display
-function M.SetSpecialName(item, german, english)    
+function M.SetSpecialName(item, german, english)
     if item == nil then
         debug("Sanity check failed, no valid item supplied.")
         return
     end
-    
+
     if german == nil or english == nil then
         debug("Sanity check failed, no valid item names supplied.")
         return
     end
-    
+
     item:setData("nameDe", german)
     item:setData("nameEn", english)
 end
@@ -356,7 +351,7 @@ function M.UnsetSpecialName(item)
         debug("Sanity check failed, no valid item supplied.")
         return
     end
-    
+
     item:setData("nameDe", "")
     item:setData("nameEn", "")
 end
@@ -367,17 +362,17 @@ end
 -- @param item the item that is supposed to receive the new values
 -- @param german the german description this item is supposed to display
 -- @param english the english description this item is supposed to display
-function M.SetSpecialDescription(item, german, english)    
+function M.SetSpecialDescription(item, german, english)
     if item == nil then
         debug("Sanity check failed, no valid item supplied.")
         return
     end
-    
+
     if german == nil or english == nil then
         debug("Sanity check failed, no valid item descriptions supplied.")
         return
     end
-    
+
     item:setData("descriptionDe", german)
     item:setData("descriptionEn", english)
 end
@@ -391,7 +386,7 @@ function M.UnsetSpecialDescription(item)
         debug("Sanity check failed, no valid item supplied.")
         return
     end
-    
+
     item:setData("descriptionDe", "")
     item:setData("descriptionEn", "")
 end
@@ -401,17 +396,17 @@ end
 --
 -- @param item the item that is supposed to receive the new values
 -- @param rare the rareness value, valid values are: ItemLookAt.commonItem, ItemLookAt.uncommonItem, ItemLookAt.rareItem, ItemLookAt.epicItem
-function M.SetItemRareness(item, rare)    
+function M.SetItemRareness(item, rare)
     if item == nil then
         debug("Sanity check failed, no valid item supplied.")
         return
     end
-    
+
     if rare ~= ItemLookAt.commonItem and rare ~= ItemLookAt.uncommonItem and rare ~= ItemLookAt.rareItem and rare ~= ItemLookAt.epicItem then
         debug("Sanity check failed, no valid item rareness supplied")
         return
     end
-    
+
     item:setData("rareness", rare)
 end
 
@@ -424,7 +419,7 @@ function M.UnsetItemRareness(item)
         debug("Sanity check failed, no valid item supplied.")
         return
     end
-    
+
     item:setData("rareness", "")
 end
 
@@ -433,17 +428,17 @@ end
 --
 -- @param item the item that is supposed to receive the new values
 -- @param name the name of the person who created this item
-function M.SetItemCraftedBy(item, name)    
+function M.SetItemCraftedBy(item, name)
     if item == nil then
         debug("Sanity check failed, no valid item supplied.")
         return
     end
-    
+
     if name == nil then
         debug("Sanity check failed, no valid crafter name supplied.")
         return
     end
-    
+
     item:setData("craftedBy", name)
 end
 
@@ -456,7 +451,7 @@ function M.UnsetItemCraftedBy(item)
         debug("Sanity check failed, no valid item supplied.")
         return
     end
-    
+
     item:setData("craftedBy", "")
 end
 

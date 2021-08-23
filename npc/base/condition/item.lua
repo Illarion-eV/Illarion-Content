@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 local condition = require("npc.base.condition.condition")
@@ -42,7 +42,7 @@ function(self, itemId, itemLoc, comp, value, data)
         self["location"] = "all"
     end
     self["value"], self["valuetype"] = tools.set_value(value)
-    
+
     if (data == nil) then
         if (comp == "=") then
             self["check"] = _item_helper_equal
@@ -56,8 +56,6 @@ function(self, itemId, itemLoc, comp, value, data)
             self["check"] = _item_helper_greater
         elseif (comp == "<") then
             self["check"] = _item_helper_lesser
-        else
-            -- unkonwn comparator
         end
     else
         self["data"] = data
@@ -73,8 +71,6 @@ function(self, itemId, itemLoc, comp, value, data)
             self["check"] = _item_helper_greater_data
         elseif (comp == "<") then
             self["check"] = _item_helper_lesser_data
-        else
-            -- unkonwn comparator
         end
     end
 end)

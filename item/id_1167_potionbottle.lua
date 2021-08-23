@@ -14,8 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-local common = require("base.common")
-local lookat = require("base.lookat")
 
 local M = {}
 
@@ -23,7 +21,7 @@ local M = {}
 
 function M.UseItem(User, SourceItem)
 
-    if SourceItem.pos == position(608, 178, -3) and (User:getQuestProgress(533) == 0) and (User:getQuestProgress(534) == 0) and (User:getQuestProgress(535) == 0) and (User:getQuestProgress(536) == 0) 
+    if SourceItem.pos == position(608, 178, -3) and (User:getQuestProgress(533) == 0) and (User:getQuestProgress(534) == 0) and (User:getQuestProgress(535) == 0) and (User:getQuestProgress(536) == 0)
         and (User:getQuestProgress(537) == 0) and (User:getQuestProgress(538) == 0) then --then player has started combining potions
         User:inform(
             "Du nimmst die Flasche auf und blickst dich nach einem anderen Trank zum kombinieren um.",

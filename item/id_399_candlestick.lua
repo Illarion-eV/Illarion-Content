@@ -19,7 +19,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local lights = require("item.lights")
 local globalvar = require("base.globalvar")
-local glypheffects = require("magic.glypheffects")
 
 local M = {}
 

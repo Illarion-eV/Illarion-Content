@@ -236,9 +236,9 @@ return function(params)
             monster.movepoints = monster.movepoints - usedMovepoints
 
             if remainingAttacks > 0 then
-                local targets = world:getPlayersInRangeOf(monster.pos, attackRange)
+                local playerTargets = world:getPlayersInRangeOf(monster.pos, attackRange)
                 local possibleTargets = {}
-                for _, target in pairs(targets) do
+                for _, target in pairs(playerTargets) do
                     if isValidTarget(monster, target) then
                         table.insert(possibleTargets, target)
                     end

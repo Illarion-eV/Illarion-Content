@@ -42,7 +42,7 @@ function M.StartGathering(User, SourceItem, ltstate)
     fishing:AddRandomItem(51,1,333,{},gathering.prob_rarely,"Ein Eimer verfängt sich in deiner Angelschnur. Den hat hier wohl jemand verloren.","As you tighten your line you feel a heavy resistance. With a careful approach you are able to pull a bucket ashore."); --Bucket
     fishing:AddRandomItem(92,1,333,{},gathering.prob_occasionally,"Du ziehst eine glitzernde Öllampe aus dem Wasser. Wo die wohl herkommt...?","You pull a sparkling oil lamp out of the water. Where did that come from?"); --Oil lamp
     fishing:AddRandomItem(53,1,333,{},gathering.prob_frequently,"Ein alter, durchlöcherter Lederstiefel hängt am Haken.","As you angle back and forth for fish you feel a snag. Instead of a fish, however, a pair of old perforated boots tied together hangs from your hook!"); --Leather boots
-    
+
     common.ResetInterruption( User, ltstate )
     if ( ltstate == Action.abort ) then -- work interrupted
         User:talk(Character.say, "#me unterbricht "..common.GetGenderText(User, "seine", "ihre").." Arbeit.", "#me interrupts "..common.GetGenderText(User, "his", "her").." work.")
@@ -84,7 +84,7 @@ function M.StartGathering(User, SourceItem, ltstate)
 
     User:learn( fishing.LeadSkill, fishing.SavedWorkTime[User.id], fishing.LearnLimit)
     local fished = 1 -- set the amount of items that are produced
-    local fishID = 0
+    local fishID
     local chance = math.random(1,100)
     if chance <= 30 then
         fishID = 355 -- salmon

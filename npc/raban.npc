@@ -141,9 +141,9 @@ queststatus(66) = 3, "task", "adventure", "order" -> "You can find the twenty bl
 queststatus(66) = 3, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ihr könnt die zwanzig Brombeeren, die ich erbat, an der Hecke dort drüben finden."
 
 -- 3rd quest: Gather 5 rare raw materials for 1000cp.
-queststatus(66) = 4, english, "quest", "mission" -> inform("[New quest] Raban's Grove III"), queststatus(66) = 5, "It is honourable that you help me and the Godess. For now, I desire five champignons to spread life on the soil."
+queststatus(66) = 4, english, "quest", "mission" -> inform("[New quest] Raban's Grove III"), queststatus(66) = 5, "It is honourable that you help me and the Goddess. For now, I desire five champignons to spread life on the soil."
 queststatus(66) = 4, "quest", "mission" -> inform("[Neues Quest] Rabans Hain III"), queststatus(66) = 5, "Es ehrt euch, dass ihr mir und der Göttin erneut helfen wollt. Nun benötige ich fünf Champignons, um Leben auf dem Erdboden zu sähen."
-queststatus(66) = 4, "task", "adventure", "order" -> inform("[New quest] Raban's Grove III"), queststatus(66) = 5, "It is honourable that you help me and the Godess. For now, I desire five champignons to spread life on the soil."
+queststatus(66) = 4, "task", "adventure", "order" -> inform("[New quest] Raban's Grove III"), queststatus(66) = 5, "It is honourable that you help me and the Goddess. For now, I desire five champignons to spread life on the soil."
 queststatus(66) = 4, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Rabans Hain III"), queststatus(66) = 5, "Es ehrt euch, dass ihr mir und der Göttin erneut helfen wollt. Nun benötige ich fünf Champignons, um Leben auf dem Erdboden zu sähen."
 
 -- Quest 3 solved

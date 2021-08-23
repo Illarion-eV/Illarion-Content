@@ -17,8 +17,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Basiscript für die Kreuze
 
 local common = require("base.common")
-local petBase = require("petsystem.base")
-
 local M = {}
 
 local function LangSkillName(Race)
@@ -33,10 +31,7 @@ end
 
 local function CreateCircle(GFXid,CenterPos,Radius)
     local irad = math.ceil(Radius);
-    local dim = 2*(irad+1);
-    local x;
-    local y;
-    local map = {} ;
+     local map = {} ;
     for x = -irad-1, irad do
         map[x] = {};
         for y = -irad-1, irad do
@@ -95,12 +90,6 @@ function M.nextCycle(thisNPC)
 
     -- Suche nach Monstern
     local monsters = world:getMonstersInRangeOf(thisNPC.pos,EffectArea+2) -- Suche Nach Monstern zum Wegschleudern
-    for posi,monst in pairs(monsters) do
-        local owner = petBase.getOwner(monst)
-        if monst:getMonsterType()==2000 or owner then
-            table.remove(monsters,posi);
-        end
-    end
 
     if (#monsters>0) then -- Monster gefunden
         CreateCircle(46,thisNPC.pos,EffectArea+2); -- Lustiger Leuchtkreis
@@ -160,11 +149,9 @@ function M.doubleEffect( rebirthEffect, Reborn )
         "[Wiederbelebung] Du fühlst dich noch sehr schwach.",
         "[Respawn] You feel very weak." );
     local maxChange = 0;
-    local changeBy = 0;
-    local foundChange = false;
     local attribs = {"strength","dexterity","constitution","agility","intelligence","perception","willpower","essence"}
     for _,attrib in pairs(attribs) do
-        foundChange, changeBy = rebirthEffect:findValue( attrib );
+        local foundChange, changeBy = rebirthEffect:findValue( attrib );
         if not foundChange then
             changeBy = 0;
         end

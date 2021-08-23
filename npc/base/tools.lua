@@ -12,16 +12,16 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local M = {}
 
 function M.get_text_and_talktype(text)
     if (string.find(text, "[#/]w") == 1) then
         return Character.whisper, string.gsub(text, "[#/]w%s*", "", 1)
-    elseif (string.find(text, "[#/]s") == 1) then 
+    elseif (string.find(text, "[#/]s") == 1) then
         return Character.yell, string.gsub(text, "[#/]s%s*", "", 1)
-    elseif (string.find(text, "[#/]o") == 1) then 
+    elseif (string.find(text, "[#/]o") == 1) then
         return Character.whisper, text
     else
         return Character.say, text

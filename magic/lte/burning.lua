@@ -39,21 +39,21 @@ end
 
 function M.callEffect(burningEffect, victim)
     local _, ticks = burningEffect:findValue("ticks")
-    
+
     if (ticks > 0) then
         burningEffect:addValue("ticks",ticks-1)
-        
+
         if (math.random(1,6) == 1) then
             world:gfx(9,victim.pos)
         else
             world:gfx(9,victim.pos)
         end
-        
+
         local health = victim:increaseAttrib("hitpoints",0)
         local healthDamage = -(health/healthModifier)*math.random(minDamage, maxDamage)
-        
+
         victim:increaseAttrib("hitpoints", healthDamage)
-        
+
         victim:inform("Das Brennen schmerzt dir und schädigt dich um "..healthDamage, "The burning hurts and damages you by "..healthDamage)
         return true
     else
@@ -62,7 +62,7 @@ function M.callEffect(burningEffect, victim)
     end
 end
 
-function M.loadEffect(burningEffect, victim) 
+function M.loadEffect(burningEffect, victim)
     -- loaded after char was logged out!
     return true
 end

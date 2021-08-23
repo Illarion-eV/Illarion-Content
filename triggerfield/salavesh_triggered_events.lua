@@ -54,15 +54,13 @@ function M.MoveToField(User)
     if math.random(1,5) == 1 then --only player characters trigger the triggerfield at a chance of 20%
 
         local queststatus = User:getQuestProgress(121) --here, we save which events were triggered
-        local queststatuslist = {}
-        queststatuslist = common.Split_number(queststatus, 6) --reading the digits of the queststatus as table
+        local queststatuslist = common.Split_number(queststatus, 6) --reading the digits of the queststatus as table
 
         if User.pos == waypoint[1] and queststatuslist[1] == 0 then --the firetrap, only triggered once by each char
 
             queststatuslist[1]=1 --triggered it!
             common.InformNLS(User,messageG[1],messageE[1]) --sending a message
             User:setQuestProgress(121,queststatuslist[1]*100000+queststatuslist[2]*10000+queststatuslist[3]*1000+queststatuslist[4]*100+ queststatuslist[5]*10+ queststatuslist[6]*1) --saving the new queststatus
-            queststatus=User:getQuestProgress(121) --and reading it again
 
             --The actual event
             world:gfx(9,User.pos) --Fireball!

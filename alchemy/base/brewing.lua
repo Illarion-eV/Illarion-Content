@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- ALCHEMY
 -- reworked version
@@ -41,8 +41,8 @@ function M.UseItem(User, SourceItem, ltstate)
     -- no map items
     if SourceItem.wear == 255 then
         return
-    end    
-    local isPlant, ignoreIt = alchemy.getPlantSubstance(SourceItem.id, User)
+    end
+    local isPlant = alchemy.getPlantSubstance(SourceItem.id, User)
     local isGemDust = alchemy.CheckIfGemDust(SourceItem.id, User)
     if isPlant  or SourceItem.id == 157 then
         herbs.UseItem(User, SourceItem, ltstate)

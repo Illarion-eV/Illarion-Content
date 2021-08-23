@@ -24,7 +24,7 @@ local LastWarp = {}
 function M.CharacterOnField(User)
 
     local AktTime = {world:getTime("day"),world:getTime("hour"),world:getTime("minute")};
-    local Ensnarl = true;
+    local Ensnarl
 
     local PosVal=User.pos.x+User.pos.y+User.pos.z
     if (LastWarp[PosVal] ~= nil) then

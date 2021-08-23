@@ -20,6 +20,7 @@ local common = require("base.common")
 local cooking = require("craft.final.cooking")
 local brewing = require("craft.final.brewing")
 local wood = require("item.general.wood")
+local tutorial = require("content.tutorial")
 
 local M = {}
 
@@ -30,7 +31,7 @@ local function getBarrel(User)
     local BARRELS = {339, 1410, 1411}
     local foundItem
     local frontItem = common.GetFrontItem(User)
-    
+
     for i, barrel in pairs(BARRELS) do
         if (frontItem ~= nil and frontItem.id == barrel) then
             foundItem = frontItem
@@ -46,9 +47,9 @@ local function getBarrel(User)
             end
         end
     end
-    
+
     return foundItem
-    
+
 end
 
 local function getKettle(User)
@@ -65,11 +66,25 @@ end
 function M.UseItem(User, SourceItem, ltstate)
 
     local target
-    
+
     -- check for barrel
     target = getBarrel(User)
     if (target ~= nil) then
-        brewing.brewing:showDialog(User, SourceItem)
+        --Tutorial
+        if User:getQuestProgress(325) == 1 and User:getQuestProgress(340) == 0 then --Accepted tutorial messages, didn't get the message before
+            User:setQuestProgress(340, 1) --remember that the message was received
+            local callbackNewbie = function(informNewbie)
+                User:inform(tutorial.getTutorialInformDE("barrel"),tutorial.getTutorialInformEN("barrel"))
+                brewing.brewing:showDialog(User, SourceItem)
+            end --end callback
+            local dialogText = common.GetNLS(User,tutorial.getTutorialTextDE("barrel"),tutorial.getTutorialTextEN("barrel"))
+            local dialogNewbie = MessageDialog("Tutorial", dialogText, callbackNewbie)
+            User:requestMessageDialog(dialogNewbie)
+        else
+
+            brewing.brewing:showDialog(User, SourceItem)
+
+        end
         return
     end
 
@@ -84,8 +99,7 @@ function M.UseItem(User, SourceItem, ltstate)
     common.HighInformNLS( User,
     "Du stehst nicht neben dem benötigten Werkzeug: Weinfass oder Kessel",
     "There is no wine barrel or kettle close by to work with." )
-    
+
  end
 
 return M
-

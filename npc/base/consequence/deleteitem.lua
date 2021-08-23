@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 local consequence = require("npc.base.consequence.consequence")
@@ -24,15 +24,15 @@ local _deleteitem_data_helper
 local deleteitem = class(consequence,
 function(self, id, count, data)
     consequence:init(self)
-    
+
     self["id"] = tonumber(id)
-    
+
     if (count == "all") then
         count = 0
     end
-    
+
     self["count"], self["counttype"] = tools.set_value(count)
-    
+
     if (data == nil) then
         self["perform"] = _deleteitem_helper
     else
@@ -43,22 +43,22 @@ end)
 
 function _deleteitem_helper(self, npcChar, player)
     local count = tools.get_value(self.npc, self.count, self.counttype)
-    
+
     if (count == 0) then
         count = player:countItemAt("all", self.id)
     end
-    
-    player:eraseItem(self.id, count) 
+
+    player:eraseItem(self.id, count)
 end
 
 function _deleteitem_data_helper(self, npcChar, player)
     local count = tools.get_value(self.npc, self.count, self.counttype)
-    
+
     if (count == 0) then
         count = player:countItemAt("all", self.id, self.data)
     end
-    
-    player:eraseItem(self.id, count, self.data) 
+
+    player:eraseItem(self.id, count, self.data)
 end
 
 return deleteitem

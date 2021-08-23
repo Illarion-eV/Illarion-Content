@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 local condition = require("npc.base.condition.condition")
@@ -41,9 +41,7 @@ function(self, comp, value)
         self["check"] = _state_helper_greater
     elseif (comp == "<") then
         self["check"] = _state_helper_lesser
-    else
-        -- unkonwn comparator
-    end 
+    end
 end)
 
 function _state_helper_equal(self, npcChar, texttype, player)

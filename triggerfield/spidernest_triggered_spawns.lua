@@ -160,11 +160,11 @@ function M.MoveToField(User)
         -- skip if already tripped in the last 5 minutes
         if (world:isItemOnField(User.pos) == true) then
             local skele = world:getItemOnField(User.pos)
-            
+
             if skele.id ~= 2937 then
                 return
             end
-            
+
             local serverTime = world:getTime("unix")
             local trippingTime = skele:getData("tripping_time")
 

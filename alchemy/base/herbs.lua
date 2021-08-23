@@ -197,7 +197,7 @@ local function BrewingFilter(User,cauldron)
 end
 
 function M.BeginnBrewing(User,plantId,cauldron)
-    local isPlant, ignoreIt = alchemy.getPlantSubstance(plantId, User)
+    local isPlant = alchemy.getPlantSubstance(plantId, User)
     if isPlant then
         BrewingPlant(User,plantId,cauldron)
     elseif plantId == 157 then

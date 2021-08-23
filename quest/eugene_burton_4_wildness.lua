@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (4, 'quest.eugene_burton_4_wildness');
 
@@ -107,38 +107,38 @@ local Start = {693, 493, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {position(789, 483, 0), position(766, 459, 0)} 
+QuestTarget[1] = {position(789, 483, 0), position(766, 459, 0)}
 QuestTarget[2] = {position(789, 483, 0), position(766, 459, 0)} --Wald
-QuestTarget[3] = {position(789, 483, 0), position(766, 459, 0)} 
+QuestTarget[3] = {position(789, 483, 0), position(766, 459, 0)}
 QuestTarget[4] = {position(789, 483, 0), position(766, 459, 0)}
-QuestTarget[5] = {position(789, 483, 0), position(766, 459, 0)} 
+QuestTarget[5] = {position(789, 483, 0), position(766, 459, 0)}
 QuestTarget[6] = {position(789, 483, 0), position(766, 459, 0)}
 QuestTarget[7] = {position(693, 493, 0)} --Eugene
 QuestTarget[8] = {position(693, 493, 0)} --Eugene
-QuestTarget[9] = {position(766, 459, 0)} 
+QuestTarget[9] = {position(766, 459, 0)}
 QuestTarget[10] = {position(766, 459, 0)}
-QuestTarget[11] = {position(766, 459, 0)} 
+QuestTarget[11] = {position(766, 459, 0)}
 QuestTarget[12] = {position(766, 459, 0)}
-QuestTarget[13] = {position(766, 459, 0)} 
-QuestTarget[14] = {position(766, 459, 0)} 
-QuestTarget[15] = {position(766, 459, 0)} 
+QuestTarget[13] = {position(766, 459, 0)}
+QuestTarget[14] = {position(766, 459, 0)}
+QuestTarget[15] = {position(766, 459, 0)}
 QuestTarget[16] = {position(766, 459, 0)}
-QuestTarget[17] = {position(766, 459, 0)} 
+QuestTarget[17] = {position(766, 459, 0)}
 QuestTarget[18] = {position(766, 459, 0)}
-QuestTarget[19] = {position(766, 459, 0)} 
-QuestTarget[20] = {position(766, 459, 0)} 
+QuestTarget[19] = {position(766, 459, 0)}
+QuestTarget[20] = {position(766, 459, 0)}
 QuestTarget[21] = {position(693, 493, 0)} --Eugene
 QuestTarget[22] = {position(693, 493, 0)} --Eugene
 QuestTarget[23] = {position(776, 526, 0)}
-QuestTarget[24] = {position(776, 526, 0)} 
+QuestTarget[24] = {position(776, 526, 0)}
 QuestTarget[25] = {position(776, 526, 0)}
-QuestTarget[26] = {position(776, 526, 0)} 
-QuestTarget[27] = {position(776, 526, 0)} 
-QuestTarget[28] = {position(776, 526, 0)} 
-QuestTarget[29] = {position(693, 493, 0)} --Eugene 
-QuestTarget[30] = {position(693, 493, 0)} --Eugene 
+QuestTarget[26] = {position(776, 526, 0)}
+QuestTarget[27] = {position(776, 526, 0)}
+QuestTarget[28] = {position(776, 526, 0)}
+QuestTarget[29] = {position(693, 493, 0)} --Eugene
+QuestTarget[30] = {position(693, 493, 0)} --Eugene
 QuestTarget[31] = {position(803, 441, 0)}
-QuestTarget[32] = {position(693, 493, 0)} --Eugene 
+QuestTarget[32] = {position(693, 493, 0)} --Eugene
 QuestTarget[33] = {position(693, 493, 0)} --Eugene
 
 -- Insert the quest status which is reached at the end of the quest

@@ -15,57 +15,14 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
-local scheduledFunction = require("scheduled.scheduledFunction")
-
-local listOfFlames = {}
--- {item, remaining cycles}
-
-local CYCLE_TIME = 1
-
-local FIRE_FLAME_ID = 359
-local ICE_FLAME_ID = 360
-local POISON_ID = 372
-local permittedId = {FIRE_FLAME_ID,
-                     ICE_FLAME_ID,
-                     POISON_ID}
-
-local function removeFlame(listId)
-    local item = listOfFlames[listId][1]
-    if item ~= nil then
-        world:erase(item,item.number)
-    end
-    table.remove(listOfFlames, listId)
-end
-
-local function manageFlames()
-    for i=#listOfFlames, 1, -1 do
-        if listOfFlames[i][2] < 1 then
-            removeFlame( i )
-        else
-            listOfFlames[i][2] = listOfFlames[i][2] - 1
-        end
-        
-    end
-    if #listOfFlames > 0 then
-        scheduledFunction.registerFunction(CYCLE_TIME, function() manageFlames() end)
-    end
-end
-
 local M = {}
 
-function M.cast(position, extDuration, extFlameId)
-    local duration = extDuration or 6
-    local flameId = extFlameId or FIRE_FLAME_ID
+function M.cast(position)
+    local flameId = 359
 
-    local cycles = math.floor(duration / CYCLE_TIME)
     local item = world:createItemFromId(flameId, 1, position, true, 333, nil)
     item.wear = 1
     world:changeItem(item)
-    table.insert(listOfFlames,{item,cycles})
-
-    if #listOfFlames == 1 then
-        scheduledFunction.registerFunction(CYCLE_TIME, function() manageFlames() end)
-    end
 
 end
 

@@ -72,7 +72,7 @@ function M.CharacterOnField(User)
     if User:getType() == Character.npc then
         return
     end
-    
+
     -- Search for the falme on the field
     -- !!There might be some issues with multiple flames on the same field!!
     local Items = common.GetItemsOnField(User.pos)
@@ -95,7 +95,7 @@ function M.CharacterOnField(User)
     end
 
 
-    if (FieldItem.quality > 100) and User.pos.z ~= 100 and User.pos.z ~= 101 and User.pos.z ~= 40 then --no harmful flames on noobia or the working camp
+    if (FieldItem.quality > 100) and User.pos.z ~= 40 then --no harmful flames in the working camp
 
         local resist = monstermagic.getSpellResistence(User) * 10
         if resist < FieldItem.quality then
