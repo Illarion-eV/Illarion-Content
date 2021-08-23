@@ -221,8 +221,6 @@ local function getItemProperties(user, target)
 local lookAtInfo = lookAt.GenerateLookAt(user, target.target)
 local itemName = lookAtInfo.name
 local itemWeight = lookAtInfo.weight
-local itemQuality = lookAtInfo.qualityText
-local itemDurability = lookAtInfo.durabilityText
 local returnText = itemName
     if itemWeight > 0 then
         if itemWeight == 2 then
@@ -230,14 +228,6 @@ local returnText = itemName
         else
             returnText = returnText..":\nWeight - "..(itemWeight/2).." blackberries.\n"
         end
-    end
-    debug("itemQuality: "..tostring(itemQuality))
-    if itemQuality ~= "" then
-        returnText = returnText.."Quality - "..itemQuality.."."
-    end
-    debug("itemDurability: "..tostring(itemDurability))
-    if itemDurability ~= "" then
-        returnText = returnText..".\nDurability - "..itemDurability"."
     end
 return returnText
 end
@@ -595,8 +585,33 @@ local dialog = SelectionDialog(common.GetNLS(user,"","Fake information selection
 user:requestSelectionDialog(dialog)
 end
 
-local function fakeItemInfo(user)
---select each possible info for target type one by one
+local function fakeItemInfo(user, text, targetnumber, spell)
+local item
+local weight
+local textSent
+local _
+    local inputCallback = function (inputDialog)
+        if (not inputDialog:getSuccess()) then
+            return
+        end
+        local input = inputDialog:getInput()
+        if (string.find(input,"(%d+)")~=nil) then
+            _, _, weight = string.find(input,"(%d+)")
+            textSent = textSent..":\nWeight - "..weight.." blackberries.\n"
+            fakeTargetDirection(user, textSent, targetnumber, spell)
+        else
+            user:inform("Input must be a number.")
+        end
+    end
+    local inputCallback2 = function (inputDialog2)
+        if (not inputDialog2:getSuccess()) then
+            return
+        end
+            item = inputDialog2:getInput()
+            textSent = text..item
+            user:requestInputDialog(InputDialog("Weight input", "How much do you want the weight of the item to equate to in number of blackberries?" ,false, 255, inputCallback))
+    end
+    user:requestInputDialog(InputDialog("Name input", "What is the name of the item you want to fake?" ,false, 255, inputCallback2))
 end
 
 local function fakePlayerInfo(user)
@@ -617,7 +632,8 @@ function M.fakeDialogue(user, text, targetNumber, spell)
             text = text.."\nTarget "..targetNumber..":\nTile information:\n"
             fakeTileInfo(user, text, targetNumber, spell)
         elseif index == 2 then
-            fakeItemInfo(user)
+            text = text.."\nTarget "..targetNumber..":\n"
+            fakeItemInfo(user, text, targetNumber, spell)
         elseif index == 3 then
             fakePlayerInfo(user)
         elseif index == 4 then
