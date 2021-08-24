@@ -942,7 +942,7 @@ function M.CreateItem(character, id, amount, quality, data)
 
     if not _isNumber(quality) then
         error("The parameter 'quality' is not a number as it was expected.")
-    elseif quality < 101 or quality > 999 then
+    elseif quality < 100 or quality > 999 then
         error("The parameter 'quality' must be a number between 100 and 999.")
     end
 
