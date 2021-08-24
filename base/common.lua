@@ -2848,15 +2848,11 @@ function M.numberToPosition(number)
     local posx = math.floor (number - 1000)
     return position(posx, posy, posz)
 end
+
 -- Erases one item and readds it to the inventory
--- Promotes message if set and the item won't disappear
-function M.readdItem(user, item, msg)
-    if msg~=nil and msg ~="" and item.quality ~= 100 then
-        M.HighInformNLS(user, msg["DE"], msg["EN"])
-    end
+function M.readdItem(user, item)
     world:erase(item, 1)
-    if item.quality ~= 100 then
-        M.CreateItem(user, item.id, 1, item.quality, item.data)
-    end
+    M.CreateItem(user, item.id, 1, item.quality, item.data)
 end
+
 return M
