@@ -41,7 +41,7 @@ local JUS = runes.checkSpellForRuneByName("JUS", spell)
 local Mes = runes.checkSpellForRuneByName("Mes", spell)
 local Orl = runes.checkSpellForRuneByName("Orl", spell)
 local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
-local targets = targeting.getTargets(user, spell, position)
+local targets
 local castDuration = castTime.arcaneSpellCastSpeed(user, spell)
 local castSFX = magicSFX.getMagicSFXUser()
 local castSFXDuration = 0
@@ -64,6 +64,11 @@ local castGFX = magicGFX.getUserGFX(spell)
     elseif actionState == Action.abort then
         return
     elseif actionState == Action.success then
+        targets = targeting.getTargets(user, spell, position)
+        if not range.isTargetInRange(user, spell, element, position) then
+            user:inform("","The target is too far away.")
+            return
+        end
         if not runes.checkSpellForRuneByName("Bhona", spell) then
             mana.removedUsedMana(user, spell)
             skilling.increaseExperience(user, spell)
