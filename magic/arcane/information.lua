@@ -316,14 +316,14 @@ local returnText = "Race: "..getRaceText(target).." "..getGenderText(target).."\
     if Pherc then
         returnText = returnText..turnMRintoText(magicResistance.getMagicResistance(target, spell))
     end
-    if Qwan then
-        returnText = returnText..statsIntoText(target)
-    end
     if Sih then
         returnText = returnText..turnHealthIntoText(target:increaseAttrib("hitpoints", 0))
     end
     if Sul then
         returnText = returnText..speedIntoText(target.speed)
+    end
+    if Qwan then
+        returnText = returnText..statsIntoText(target)
     end
 return returnText
 end
@@ -348,11 +348,11 @@ local returnText = false
         if Sih then
             returnText = returnText..turnHealthIntoText(target:increaseAttrib("hitpoints", 0))
         end
-        if Qwan then
-            returnText = returnText..statsIntoText(target)
-        end
         if Sul then
             returnText = returnText..speedIntoText(target.speed)
+        end
+        if Qwan then
+            returnText = returnText..statsIntoText(target)
         end
     end
 return returnText
@@ -614,12 +614,241 @@ local _
     user:requestInputDialog(InputDialog("Name input", "What is the name of the item you want to fake?" ,false, 255, inputCallback2))
 end
 
-local function fakePlayerInfo(user)
---select each possible info for target type one by one
+local attribValues = {
+    {value = 10000},
+    {value = 8001},
+    {value = 5001},
+    {value = 2001},
+    {value = 1},
+    {value = 0}
+}
+
+local speedValues = {
+    {value = 1.1},
+    {value = 1},
+    {value = 0.9}
+}
+
+local magicResistanceValues = {
+    {value = 1},
+    {value = 0.65},
+    {value = 0.32}
+}
+
+local skillValues = {
+{value = 3000},
+{value = 2000},
+{value = 500},
+{value = 250},
+{value = 100},
+{value = 0}
+}
+
+local function fakeStats(user, text, targetNumber, spell)
+    fakeTargetDirection(user, text, targetNumber, spell)
 end
 
-local function fakeMonsterInfo(user)
---select each possible info for target type one by one
+local function fakeSpeed(user, text, targetNumber, spell)
+local speed
+    local callback = function(dialog)
+        if not dialog:getSuccess() then
+            return
+        end
+        local index = dialog:getSelectedIndex() +1
+        for i = 1, #speedValues do
+            if index == i then
+                speed = speedValues[i].value
+                text = text..speedIntoText(speed)
+                fakeStats(user, text, targetNumber, spell)
+            end
+        end
+    end
+    local dialog = SelectionDialog(common.GetNLS(user,"","Fake information selection"), common.GetNLS(user,"","Select whether the fake target should be portrayed as being under speed influencing magic."), callback)
+
+    for i = 1, #speedValues do
+        dialog:addOption(0, speedIntoText(speedValues[i].value))
+    end
+user:requestSelectionDialog(dialog)
+end
+
+local function fakeHealth(user, text, targetNumber, spell)
+local health
+    local callback = function(dialog)
+        if not dialog:getSuccess() then
+            return
+        end
+        local index = dialog:getSelectedIndex() +1
+        for i = 1, #attribValues do
+            if index == i then
+                health = attribValues[i].value
+                text = text..turnHealthIntoText(health)
+                fakeSpeed(user, text, targetNumber, spell)
+            end
+        end
+    end
+    local dialog = SelectionDialog(common.GetNLS(user,"","Fake information selection"), common.GetNLS(user,"","Select how much health the fake target should be portrayed as having."), callback)
+
+    for i = 1, #attribValues do
+        dialog:addOption(0, turnHealthIntoText(attribValues[i].value))
+    end
+user:requestSelectionDialog(dialog)
+end
+
+local function fakeMagicResistance(user, text, targetNumber, spell)
+    local MR
+    local callback = function(dialog)
+        if not dialog:getSuccess() then
+            return
+        end
+        local index = dialog:getSelectedIndex() +1
+        for i = 1, #magicResistanceValues do
+            if index == i then
+                MR = magicResistanceValues[i].value
+                text = text..turnMRintoText(MR)
+                fakeHealth(user, text, targetNumber, spell)
+            end
+        end
+    end
+    local dialog = SelectionDialog(common.GetNLS(user,"","Fake information selection"), common.GetNLS(user,"","Select how much magic resistance the fake target should be portrayed as having."), callback)
+
+    for i = 1, #magicResistanceValues do
+        dialog:addOption(0, turnMRintoText(magicResistanceValues[i].value))
+    end
+user:requestSelectionDialog(dialog)
+end
+
+local function fakePlayerSkill(user, text, targetNumber, spell)
+local skill
+    local callback = function(dialog)
+        if not dialog:getSuccess() then
+            return
+        end
+        local index = dialog:getSelectedIndex() +1
+        for i = 1, #skillValues do
+            if index == i then
+                skill = skillValues[i].value
+                text = text..skillValueIntoText(skill)
+                fakeMagicResistance(user, text, targetNumber, spell)
+            end
+        end
+    end
+    local dialog = SelectionDialog(common.GetNLS(user,"","Fake information selection"), common.GetNLS(user,"","Select how much skilled the fake target should be portrayed as being."), callback)
+
+    for i = 1, #skillValues do
+        dialog:addOption(0, skillValueIntoText(skillValues[i].value))
+    end
+user:requestSelectionDialog(dialog)
+end
+
+local function fakePlayerFood(user, text, targetNumber, spell)
+local stamina
+    local callback = function(dialog)
+        if not dialog:getSuccess() then
+            return
+        end
+        local index = dialog:getSelectedIndex() +1
+        for i = 1, #attribValues do
+            if index == i then
+                stamina = attribValues[i].value
+                text = text..turnStaminaIntoText(stamina)
+                fakePlayerSkill(user, text, targetNumber, spell)
+            end
+        end
+    end
+    local dialog = SelectionDialog(common.GetNLS(user,"","Fake information selection"), common.GetNLS(user,"","Select how much stamina the fake target should be portrayed as having."), callback)
+
+    for i = 1, #attribValues do
+        dialog:addOption(0, turnStaminaIntoText(attribValues[i].value))
+    end
+user:requestSelectionDialog(dialog)
+end
+
+local function fakePlayerMana(user, text, targetNumber, spell)
+local mana
+    local callback = function(dialog)
+        if not dialog:getSuccess() then
+            return
+        end
+        local index = dialog:getSelectedIndex() +1
+        for i = 1, #attribValues do
+            if index == i then
+                mana = attribValues[i].value
+                text = text..turnManaIntoText(mana)
+                fakePlayerFood(user, text, targetNumber, spell)
+            end
+        end
+    end
+    local dialog = SelectionDialog(common.GetNLS(user,"","Fake information selection"), common.GetNLS(user,"","Select how much mana the fake target should be portrayed as having."), callback)
+
+    for i = 1, #attribValues do
+        dialog:addOption(0, turnManaIntoText(attribValues[i].value))
+    end
+user:requestSelectionDialog(dialog)
+end
+
+local function fakePlayerInfo(user, text, targetNumber, spell)
+local race
+local gender
+    local callback2 = function(dialog2)
+        if not dialog2:getSuccess() then
+            return
+        end
+        local index = dialog2:getSelectedIndex() +1
+        if index == 1 then
+            gender = "male"
+            text = text..gender.."\n"
+            fakePlayerMana(user, text, targetNumber, spell)
+        else
+            gender = "female"
+            text = text..gender.."\n"
+            fakePlayerMana(user, text, targetNumber, spell)
+        end
+    end
+    local dialog2 = SelectionDialog(common.GetNLS(user,"","Fake information selection"), common.GetNLS(user,"","Select what gender the fake target should be portrayed as."), callback2)
+    dialog2:addOption(0, "male")
+    dialog2:addOption(0, "female")
+    local callback = function(dialog)
+        if not dialog:getSuccess() then
+            return
+        end
+        local index = dialog:getSelectedIndex() +1
+        for i = 1, 6 do
+            if index == i then
+                race = raceList[i].name
+                text = text.."Target race: "..race
+                user:requestSelectionDialog(dialog2)
+            end
+        end
+    end
+    local dialog = SelectionDialog(common.GetNLS(user,"","Fake information selection"), common.GetNLS(user,"","Select what race the fake target should be portrayed as."), callback)
+
+    for i = 1, 6 do
+        dialog:addOption(0, raceList[i].name)
+    end
+user:requestSelectionDialog(dialog)
+end
+
+local function fakeMonsterInfo(user, text, targetNumber, spell)
+local race
+    local callback = function(dialog)
+        if not dialog:getSuccess() then
+            return
+        end
+        local index = dialog:getSelectedIndex() +1
+        for i = 1, #raceList do
+            if index == i then
+                race = raceList[i].name
+                text = text.."Target race: "..race
+                fakeMagicResistance(user, text, targetNumber, spell)
+            end
+        end
+    end
+    local dialog = SelectionDialog(common.GetNLS(user,"","Fake information selection"), common.GetNLS(user,"","Select what race the fake target should be portrayed as."), callback)
+
+    for i = 1, #raceList do
+        dialog:addOption(0, raceList[i].name)
+    end
+user:requestSelectionDialog(dialog)
 end
 
 function M.fakeDialogue(user, text, targetNumber, spell)
@@ -635,9 +864,9 @@ function M.fakeDialogue(user, text, targetNumber, spell)
             text = text.."\nTarget "..targetNumber..":\n"
             fakeItemInfo(user, text, targetNumber, spell)
         elseif index == 3 then
-            fakePlayerInfo(user)
+            fakePlayerInfo(user, text, targetNumber, spell)
         elseif index == 4 then
-            fakeMonsterInfo(user)
+            fakeMonsterInfo(user, text, targetNumber, spell)
         end
     end
 local dialog = SelectionDialog(common.GetNLS(user,"","Fake information selection"), common.GetNLS(user,"","Select what type of information you want to fake."), callback)
