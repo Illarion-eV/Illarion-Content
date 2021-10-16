@@ -28,7 +28,7 @@ local glypheffects = require("magic.glypheffects")
 local itemList = require("craft.base.itemList")
 local OFFSET_PRODUCTS_REPAIR = 235
 local repairItemList = {}
-local housingTool = Item.rasp
+local housingTool = Item.constructiontrowel
 local propertyList = require("base.propertyList")
 --[[productId for craftable items: id in products table.
 productId for repairable items position in inventory plus offset. Inventory has 17 positions, max productId = 255
