@@ -22,10 +22,12 @@ local lever = require("item.lever")
 local granorsHut = require("content.granorsHut")
 local oldSlimeFeeding = require("content.oldSlimeFeeding")
 local shipmasterParchments = require("content.shipmasterParchments")
+local building = require("base.propertyList")
 
 local M = {}
 
 function M.onReload()
+    building.setPersistenceForProperties()
     oldSlimeFeeding.resetLever()
     lever.init()
     granorsHut.potionReplacer()

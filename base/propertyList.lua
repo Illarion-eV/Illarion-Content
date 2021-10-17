@@ -125,6 +125,17 @@ local targetTileId = targetField:tile()
     end
 return false
 end
+function M.setPersistenceForProperties()
+    for _, property in pairs(M.properties) do
+        for x = property.lower.x, property.upper.x do
+            for y = property.lower.y, property.upper.y do
+                for z = property.lower.z, property.upper.z do
+                    world:makePersistentAt(position(x, y, z))
+                end
+            end
+        end
+    end
+end
 function M.checkIfEstate(User)
 local propertyName = M.fetchPropertyName(User)
     for _, property in ipairs(M.properties) do
