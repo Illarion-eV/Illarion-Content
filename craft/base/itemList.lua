@@ -208,7 +208,7 @@ table.insert(M.items, {itemId = 32, typeOf = "Estate", category = "Walls", skill
 table.insert(M.items, {itemId = 33, typeOf = "Estate", category = "Walls", skill = "mining", level = 40, ingredient1 = 733, ingredient1Amount = 40, ingredient2 = 26, ingredient2Amount = 10, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
 table.insert(M.items, {itemId = 238, typeOf = "Estate", category = "Walls", skill = "mining", level = 40, ingredient1 = 733, ingredient1Amount = 40, ingredient2 = 26, ingredient2Amount = 10, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
 table.insert(M.items, {itemId = 239, typeOf = "Estate", category = "Walls", skill = "mining", level = 40, ingredient1 = 733, ingredient1Amount = 40, ingredient2 = 26, ingredient2Amount = 10, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
-table.insert(M.items, {itemId = 240, typeOf = "Estate", category = "Walls", skill = "mining", level = 40, ingredient1 = 733, ingredient1Amount = 40, ingredient2 = 26, ingredient2Amount = 10, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
+table.insert(M.items, {itemId = 240, typeOf = "Estate", category = "Walls", nameDe = "South-west Stone Brick Corner-wall", nameEn = "South-west Stone Brick Corner-wall", skill = "mining", level = 40, ingredient1 = 733, ingredient1Amount = 40, ingredient2 = 26, ingredient2Amount = 10, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
 table.insert(M.items, {itemId = 241, typeOf = "Estate", category = "Walls", skill = "mining", level = 40, ingredient1 = 733, ingredient1Amount = 40, ingredient2 = 26, ingredient2Amount = 10, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
 table.insert(M.items, {itemId = 242, typeOf = "Estate", category = "Walls", skill = "mining", level = 40, ingredient1 = 733, ingredient1Amount = 40, ingredient2 = 26, ingredient2Amount = 10, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
 table.insert(M.items, {itemId = 243, typeOf = "Estate", category = "Walls", skill = "mining", level = 40, ingredient1 = 733, ingredient1Amount = 40, ingredient2 = 26, ingredient2Amount = 10, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
@@ -1252,6 +1252,16 @@ function M.getTileName(User, tileIdentifier)
             return common.GetNLS(User, tile.nameDe, tile.nameEn)
         end
     end
+end
+function M.getItemName(user, itemIdentifier)
+    for _, item in pairs(M.items) do
+        if item.itemId == itemIdentifier then
+            if item.nameDe then
+                return common.GetNLS(user, item.nameDe, item.nameEn)
+            end
+        end
+    end
+return false
 end
 function M.getLevelReq(identifier, isTile)
     if isTile then

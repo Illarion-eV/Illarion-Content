@@ -343,7 +343,10 @@ function Craft:getLookAt(user, object)
     local item = object.item
     local quantity = object.quantity
     local data = object.data
-    local lookAt = lookat.GenerateItemLookAtFromId(user, item, quantity, data)
+    local lookAt = itemList.getItemName(user, item)
+    if not lookAt then
+        lookAt = lookat.GenerateItemLookAtFromId(user, item, quantity, data)
+    end
 
     if object.tile == true then
         lookAt = ItemLookAt()
@@ -407,7 +410,11 @@ function Craft:loadDialog(dialog, user)
             if product.tile == true then
                 dialog:addCraftable(i, categoryListId[product.category], itemList.getTileGraphic(product.item), itemList.getTileName(user, product.item), craftingTime, product.quantity)
             else
-                dialog:addCraftable(i, categoryListId[product.category], product.item, self:getLookAt(user, product).name, craftingTime, product.quantity)
+                local lookAtName = itemList.getItemName(user, product.item)
+                    if not lookAtName then
+                        lookAtName = self:getLookAt(user, product).name
+                    end
+                dialog:addCraftable(i, categoryListId[product.category], product.item, lookAtName, craftingTime, product.quantity)
             end
 
 
