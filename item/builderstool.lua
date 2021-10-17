@@ -15,7 +15,6 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
-local lookat = require("base.lookat")
 local construction = require("craft.final.construction")
 local itemList = require("craft.base.itemList")
 local propertyList = require("base.propertyList")
@@ -510,11 +509,6 @@ local propertyName = propertyList.fetchPropertyName(User)
     end
     dialog:setCloseOnMove()
     User:requestSelectionDialog(dialog)
-end
-function M.LookAtItem(User, Item)
-    lookat.SetSpecialDescription(Item, "", "Use the Builder's Tool on property land to pick a function.")
-    lookat.SetSpecialName(Item, "", "Builder's Tool")
-    return lookat.GenerateLookAt(User, Item, lookat.METAL)
 end
 function M.UseItem(User, SourceItem)
 local propertyName = propertyList.fetchPropertyName(User)
