@@ -677,6 +677,8 @@ function M.calculateItemQualityDurability (quality, durability)
     local durabilityNumber
     if M.IsNilOrEmpty(durability) then
         durabilityNumber = M.ITEM_DEFAULT_DURABILITY
+    else
+        durabilityNumber= tonumber(durability)
     end
     if durabilityNumber < 1 or durabilityNumber > M.ITEM_MAX_DURABILITY then
         durabilityNumber = M.ITEM_DEFAULT_DURABILITY
