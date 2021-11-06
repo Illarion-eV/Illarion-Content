@@ -86,7 +86,6 @@ function M.loadWeapons(charStruct)
             item = lItem
         end
         local itemName = common.getItemName(item, charStruct.Char:getPlayerLanguage())
-        common.HighInformNLS(charStruct.Char, "Der Gegenstand " .. itemName .. "ist kaputt, du solltest ihn reparieren.", "The item " .. itemName .. " is broken, you should repair it.")
         common.readdItem(charStruct.Char, item)
     end
 
