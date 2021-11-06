@@ -85,7 +85,6 @@ function M.loadWeapons(charStruct)
         else
             item = lItem
         end
-        local itemName = common.getItemName(item, charStruct.Char:getPlayerLanguage())
         common.readdItem(charStruct.Char, item)
     end
 
