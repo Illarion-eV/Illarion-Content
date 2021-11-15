@@ -34,10 +34,6 @@ Title[ENGLISH] = "Tutorial - Welcome"
 local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = tutorial.getTutorialTextDE("skipNo")
-Description[ENGLISH][1] = tutorial.getTutorialTextEN("skipNo")
-Description[GERMAN][2] = tutorial.getTutorialTextDE("skipYes")
-Description[ENGLISH][2] = tutorial.getTutorialTextEN("skipYes")
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
 local Start = nil
@@ -46,7 +42,7 @@ local Start = nil
 local QuestTarget = {}
 
 -- Insert the quest status which is reached at the end of the quest
-local FINAL_QUEST_STATUS = 2
+local FINAL_QUEST_STATUS = 1
 
 
 function M.QuestTitle(user)
@@ -54,6 +50,15 @@ function M.QuestTitle(user)
 end
 
 function M.QuestDescription(user, status)
+
+    if user:getQuestProgress(325) == 1 then
+        Description[GERMAN][1] = tutorial.getTutorialTextDE("skipNo")
+        Description[ENGLISH][1] = tutorial.getTutorialTextEN("skipNo")
+    else
+        Description[GERMAN][1] = tutorial.getTutorialTextDE("skipYes")
+        Description[ENGLISH][1] = tutorial.getTutorialTextEN("skipYes")
+    end
+
     local german = Description[GERMAN][status] or ""
     local english = Description[ENGLISH][status] or ""
 
