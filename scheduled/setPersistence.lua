@@ -14,24 +14,20 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- called after every !rd command and !fr command
--- note that !rd is a !fr without npc and spawn reloading
--- note further that reload_tables will be called after this if and only if the !rd was successful and the !rd was issued by a !fr
 
-local lever = require("item.lever")
-local granorsHut = require("content.granorsHut")
-local oldSlimeFeeding = require("content.oldSlimeFeeding")
-local shipmasterParchments = require("content.shipmasterParchments")
+local building = require("base.propertyList")
+local counter = 0
 
 local M = {}
 
-function M.onReload()
-    oldSlimeFeeding.resetLever()
-    lever.init()
-    granorsHut.potionReplacer()
-    shipmasterParchments.checkParchments()
-
-    return true
+function M.setPersistence()
+    if counter == 5 then
+        building.setPersistenceForProperties()
+        return
+    else
+        counter = counter + 1
+        return
+    end
 end
 
 return M
