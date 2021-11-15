@@ -16,16 +16,14 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local building = require("base.propertyList")
-local counter = 0
+local persistenceSet = false
 
 local M = {}
 
 function M.setPersistence()
-    if counter == 5 then
+    if persistenceSet == false then
         building.setPersistenceForProperties()
-        return
-    else
-        counter = counter + 1
+        persistenceSet = true
         return
     end
 end
