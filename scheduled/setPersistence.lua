@@ -23,6 +23,7 @@ local M = {}
 function M.setPersistence()
     if persistenceSet == false then
         building.setPersistenceForProperties()
+        log("Persistence script has run.")
         persistenceSet = true
         return
     end
