@@ -95,8 +95,8 @@ function M.UseItem(User, SourceItem, ltstate)
         local ok, wear = checkReq(User,SourceItem,this)
         if ok then
             --Noobia Quest 330: Lighting a torch with NPC Henry Cunnigan
-            if User:getQuestProgress(330) == 3 and SourceItem.id == 391 and User:isInRangeToPosition((position (703,290,0)),20) then -- Only invoked if the user has the quest, has a torch and is in range of the NPC
-                User:setQuestProgress(330,4) -- Quest advanced when torch lit
+            if User:getQuestProgress(330) == 2 and SourceItem.id == 391 and User:isInRangeToPosition((position (703,290,0)),20) then -- Only invoked if the user has the quest, has a torch and is in range of the NPC
+                User:setQuestProgress(330,3) -- Quest advanced when torch lit
                 common.InformNLS(User, tutorial.getTutorialInformDE("lights"), tutorial.getTutorialInformEN("lights"))
                 local Henry = common.getNpc(position(703,290,0),1,"Henry Cunnigan")
                 common.TalkNLS(Henry, Character.say, tutorial.getTutorialTalkDE("lights"), tutorial.getTutorialTalkEN("lights"))
@@ -195,8 +195,8 @@ function M.MoveItemAfterMove(User,SourceItem,TargetItem)
     end
 
     --Noobia Quest 330: Equipping a torch with NPC Henry Cunnigan
-    if User:getQuestProgress(330)==2 and TargetItem.id==391 and User:isInRangeToPosition((position (703,290,0)),20) and TargetItem:getType() == 4 then -- Only invoked if the user has the quest, has a torch and is in range of the NPC
-        User:setQuestProgress(330,3) --Quest advancement when torch equipped
+    if User:getQuestProgress(330)==1 and TargetItem.id==391 and User:isInRangeToPosition((position (703,290,0)),20) and TargetItem:getType() == 4 then -- Only invoked if the user has the quest, has a torch and is in range of the NPC
+        User:setQuestProgress(330,2) --Quest advancement when torch equipped
         local NPCList=world:getNPCSInRangeOf(position(703,290,0),1) --Let's be tolerant, the NPC might move a tile.
         common.InformNLS(User, tutorial.getTutorialInformDE("lightsStart"), tutorial.getTutorialInformEN("lightsStart"))
         for i, Henry in pairs(NPCList) do
