@@ -195,10 +195,12 @@ local propertyName = M.fetchPropertyName(User, pos)
                 return true
             end
         end
-    local foundBuilder, currentBuilder = ScriptVars:find("builderof"..propertyName)
-        if foundBuilder then
-            if currentBuilder == User.name and not notice.checkForPropertyDeed(User) and not M.checkIfEntrance(User) then
-                return true
+    for i = 1, notice.max_builder_number do
+        local foundBuilder, currentBuilder = ScriptVars:find("builder"..i..propertyName)
+            if foundBuilder then
+                if currentBuilder == User.name and not notice.checkForPropertyDeed(User) and not M.checkIfEntrance(User) then
+                    return true
+                end
             end
         end
     end
