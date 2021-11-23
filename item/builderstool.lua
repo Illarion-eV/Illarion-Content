@@ -43,7 +43,7 @@ local propertyNameDe
             end
         end
     else
-        User:inform("","You can only create locks for doors or gates that are on your property")
+        User:inform("","You can only create locks for doors or gates that are on your property.")
     end
 end
 local function createKey(User)
@@ -83,7 +83,7 @@ local function writeOnSignPost(User)
                 TargetItem:setData("descriptionEn",input)
                 world:changeItem(TargetItem)
             else
-                User:inform("","You need a sign post in front of you if you want to write on it")
+                User:inform("","You need a sign post in front of you if you want to write on it.")
             end
         else
             User:inform("","The sign has to be on your property for you to write on it.")
@@ -93,7 +93,7 @@ local function writeOnSignPost(User)
     if itemList.checkIfSignPost(User) then
         User:requestInputDialog(dialog)
     else
-        User:inform("","You need a sign post in front of you if you want to write on it")
+        User:inform("","You need a sign post in front of you if you want to write on it.")
     end
 end
 local function destroyingPermitted(User, targetItem)
@@ -416,7 +416,7 @@ local propertyName = propertyList.fetchPropertyName(User)
                         createKey(User)
                     end
                 else
-                    User:inform("","You do not have permission to do this") -- This only happens if the user tries to cheat by turning while in dialog at property borders.
+                    User:inform("","You do not have permission to do this.") -- This only happens if the user tries to cheat by turning while in dialog at property borders.
                 end
             end
         end
@@ -456,7 +456,7 @@ local property = propertyList.fetchPropertyName(User)
                     notice.removeBuilderOrGuest(User, nil, "builder", property)
                 end
             else
-                User:inform("","You do not have permission to do this") -- This only happens if the user tries to cheat by turning while in dialog at property borders.
+                User:inform("","You do not have permission to do this.") -- This only happens if the user tries to cheat by turning while in dialog at property borders.
             end
         end
     end
@@ -495,7 +495,7 @@ local propertyName = propertyList.fetchPropertyName(User)
                         M.propertyManagement(User)
                     end
                 else
-                    User:inform("","You do not have permission to do this") -- This only happens if the user tries to cheat by turning while in dialog at property borders.
+                    User:inform("","You do not have permission to do this.") -- This only happens if the user tries to cheat by turning while in dialog at property borders.
                 end
             end
         end
