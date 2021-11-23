@@ -224,7 +224,7 @@ local targetItem
         end
     end
     for i = 1, #itemList.alternateDoors do
-        if targetItem.id == M.alternateDoors[i] then
+        if targetItem.id == itemList.alternateDoors[i] then
             return true
         end
     end
