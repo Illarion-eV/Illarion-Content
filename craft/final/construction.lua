@@ -59,11 +59,11 @@ local function addProducts(craft, category, User, item, tile)
             if tile.typeOf == "Estate" then
                 if propertyList.checkIfEstate(User) then
                     product = M[tostring(category)..craft]:addProduct(catId, tile.tileId, 1, {}, true, true)
-                    addIngredients(User, product, nil, tile)
+                    addIngredients(User, nil, tile)
                 end
             else
                 product = M[tostring(category)..craft]:addProduct(catId, tile.tileId, 1, {}, true, true)
-                addIngredients(User, product, nil, tile)
+                addIngredients(User, nil, tile)
             end
         end
     end
