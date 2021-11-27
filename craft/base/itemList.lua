@@ -1283,7 +1283,7 @@ function M.getCraftTimeInSeconds(identifier, isTile)
     local baseTime = 10
     local timePerLevel = 3
     local amountOfSeconds = baseTime+timePerLevel*level
-    
+
     return amountOfSeconds
 end
 function M.getSkill(identifier, tileIdentifier)
