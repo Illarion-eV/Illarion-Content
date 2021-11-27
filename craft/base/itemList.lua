@@ -1278,6 +1278,14 @@ function M.getLevelReq(identifier, isTile)
         end
     end
 end
+function M.getCraftTimeInSeconds(identifier, isTile)
+    local level = M.getLevelReq(identifier, isTile)
+    local baseTime = 10
+    local timePerLevel = 3
+    local amountOfSeconds = baseTime+timePerLevel*level
+    
+    return amountOfSeconds
+end
 function M.getSkill(identifier, tileIdentifier)
     if not tileIdentifier then
         for _, item in pairs(M.items) do

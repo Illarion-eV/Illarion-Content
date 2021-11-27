@@ -477,6 +477,11 @@ function Craft:refreshDialog(dialog, user)
 end
 
 function Craft:getCraftingTime(product, skill)
+local housing = product.housing
+    if housing then --This check must be before the npcCraft check, as housing uses npcCraft for items that do not belong to a specific skill aka the "misc" category
+        local amountOfSeconds = itemList.getCraftTimeInSeconds(product.item, product.tile)*10
+        return amountOfSeconds
+    end
     if not self.npcCraft then
         return product:getCraftingTime(skill)
     else

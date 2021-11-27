@@ -101,7 +101,8 @@ local skill = 0
                             npcCraft = checkIfNoSkill,
                             sfx = sfxNumber,
                             sfxDuration = sfxDur,
-                            houseCraft = checkIfNoSkill
+                            houseCraft = checkIfNoSkill,
+                            housing = true
                             }
             addItems(cat, craft, isTile, User)
         end
