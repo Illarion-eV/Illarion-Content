@@ -109,6 +109,7 @@ local skill = 0
     end
 end
 function M.makeAllCategories(User)
+product = nil --resets top variable for product. This fixes the bug where estate items would not show if you access a house builder menu first.
 local sfx
     for _, item in ipairs(itemList.items) do
         for _, category in ipairs(itemList.categories) do
