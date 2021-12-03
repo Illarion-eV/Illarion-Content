@@ -83,22 +83,22 @@ local function checkValue(input)
     end
 end
 
-function chooseItem(User)
+function chooseItem(user)
 
-    local dialogTitle = common.GetNLS(User, "Item wählen", "Choose Item")
-    local dialogInfoText = common.GetNLS(User, "Wähle den Gegenstand aus, den du bearbeiten möchtest:",  "Please choose an item you wish to edit:")
+    local dialogTitle = common.GetNLS(user, "Item wählen", "Choose Item")
+    local dialogInfoText = common.GetNLS(user, "Wähle den Gegenstand aus, den du bearbeiten möchtest:",  "Please choose an item you wish to edit:")
 
 
     local itemsOnChar = {}
     local itemPosOnChar = {}
-    local frontItem = common.GetFrontItem(User)
+    local frontItem = common.GetFrontItem(user)
     if (frontItem ~= nil and frontItem.id > 0) then
         table.insert(itemsOnChar, frontItem)
         table.insert(itemPosOnChar, {en="Item in front", de="Item vor dir" })
     end
     --get all the items the char has on him, without the stuff in the backpack
     for i = 1, #(itemOrder) do
-        local item = User:getItemAt(itemOrder[i])
+        local item = user:getItemAt(itemOrder[i])
         if item.id > 0 then
             table.insert(itemsOnChar, item)
             table.insert(itemPosOnChar, itemPos[itemOrder[i]])
@@ -114,23 +114,23 @@ function chooseItem(User)
         local chosenItem = itemsOnChar[index]
 
         if chosenItem ~= nil then
-            changeItemSelection(User, chosenItem)
+            changeItemSelection(user, chosenItem)
         else
-            User:inform("[ERROR] Something went wrong, please inform a developer.");
+            user:inform("[ERROR] Something went wrong, please inform a developer.");
         end
     end
     local sdItems = SelectionDialog(dialogTitle, dialogInfoText, cbChooseItem)
     sdItems:setCloseOnMove()
     local itemName, itemPosText
     for i,item in ipairs(itemsOnChar) do
-        itemName = world:getItemName(item.id, User:getPlayerLanguage())
-        itemPosText = common.GetNLS(User, itemPosOnChar[i].de, itemPosOnChar[i].en)
+        itemName = world:getItemName(item.id, user:getPlayerLanguage())
+        itemPosText = common.GetNLS(user, itemPosOnChar[i].de, itemPosOnChar[i].en)
         sdItems:addOption(item.id,itemName .. " (" .. itemPosText .. ")\n")
     end
-    User:requestSelectionDialog(sdItems)
+    user:requestSelectionDialog(sdItems)
 end
 
-local function changeItemNumber(User, TargetItem)
+local function changeItemNumber(user, TargetItem)
 
     if (TargetItem == nil or TargetItem.id == 0) then
         return
@@ -145,17 +145,17 @@ local function changeItemNumber(User, TargetItem)
             local _, _, newnumber = string.find(input,"(%d+)")
             TargetItem.number=math.min(1000, tonumber(newnumber))
             world:changeItem(TargetItem)
-            User:inform("Amount of "..world:getItemName(TargetItem.id, Player.english).." set to "..TargetItem.number)
-            User:logAdmin("changed number of "..world:getItemName(TargetItem.id, Player.english).."("..TargetItem.id..") to "..TargetItem.number)
+            user:inform("Amount of "..world:getItemName(TargetItem.id, Player.english).." set to "..TargetItem.number)
+            user:logAdmin("changed number of "..world:getItemName(TargetItem.id, Player.english).."("..TargetItem.id..") to "..TargetItem.number)
         else
-            User:inform("Sorry, I didn't understand you.")
+            user:inform("Sorry, I didn't understand you.")
         end
-        changeItemSelection(User, TargetItem)
+        changeItemSelection(user, TargetItem)
     end
-    User:requestInputDialog(InputDialog("Set the mumber of items", "How many "..world:getItemName(TargetItem.id, Player.english).." do you want?" ,false, 255, cbInputDialog))
+    user:requestInputDialog(InputDialog("Set the mumber of items", "How many "..world:getItemName(TargetItem.id, Player.english).." do you want?" ,false, 255, cbInputDialog))
 end
 
-local function changeItemQuality(User, TargetItem)
+local function changeItemQuality(user, TargetItem)
 
     if (TargetItem == nil or TargetItem.id == 0) then
         return
@@ -170,17 +170,17 @@ local function changeItemQuality(User, TargetItem)
             local _, _, newqual=string.find(input,"(%d+)")
             TargetItem.quality=tonumber(newqual)
             world:changeItem(TargetItem)
-            User:inform("Quality of "..world:getItemName(TargetItem.id, Player.english).." set to "..TargetItem.quality)
-            User:logAdmin("changed quality of "..world:getItemName(TargetItem.id, Player.english).."("..TargetItem.id..") to "..TargetItem.quality)
+            user:inform("Quality of "..world:getItemName(TargetItem.id, Player.english).." set to "..TargetItem.quality)
+            user:logAdmin("changed quality of "..world:getItemName(TargetItem.id, Player.english).."("..TargetItem.id..") to "..TargetItem.quality)
         else
-            User:inform("Sorry, I didn't understand you.")
+            user:inform("Sorry, I didn't understand you.")
         end
-        changeItemSelection(User, TargetItem)
+        changeItemSelection(user, TargetItem)
     end
-    User:requestInputDialog(InputDialog("Set the quality of items", "Enter target quality for: "..world:getItemName(TargetItem.id, Player.english).." \n 101-999; [1-9][01-99] Quality / Durability\nCurrent value: "..tostring(TargetItem.quality) ,false, 255, cbInputDialog))
+    user:requestInputDialog(InputDialog("Set the quality of items", "Enter target quality for: "..world:getItemName(TargetItem.id, Player.english).." \n 101-999; [1-9][01-99] Quality / Durability\nCurrent value: "..tostring(TargetItem.quality) ,false, 255, cbInputDialog))
 end
 
-local function changeItemWear(User, TargetItem)
+local function changeItemWear(user, TargetItem)
 
     if (TargetItem == nil or TargetItem.id == 0) then
         return
@@ -195,17 +195,17 @@ local function changeItemWear(User, TargetItem)
             local _, _, newwear = string.find(input,"(%d+)")
             TargetItem.wear=tonumber(newwear)
             world:changeItem(TargetItem)
-            User:inform("Wear of "..world:getItemName(TargetItem.id, Player.english).." set to "..TargetItem.wear)
-            User:logAdmin("changed wear of "..world:getItemName(TargetItem.id, Player.english).."("..TargetItem.id..") to "..TargetItem.wear)
+            user:inform("Wear of "..world:getItemName(TargetItem.id, Player.english).." set to "..TargetItem.wear)
+            user:logAdmin("changed wear of "..world:getItemName(TargetItem.id, Player.english).."("..TargetItem.id..") to "..TargetItem.wear)
         else
-            User:inform("Sorry, I didn't understand you.")
+            user:inform("Sorry, I didn't understand you.")
         end
-        changeItemSelection(User, TargetItem)
+        changeItemSelection(user, TargetItem)
     end
-    User:requestInputDialog(InputDialog("Set the wear of items", "How long "..world:getItemName(TargetItem.id, Player.english).." should need to rot?\n about x * 3 min\nCurrent value: "..tostring(TargetItem.wear) ,false, 255, cbInputDialog))
+    user:requestInputDialog(InputDialog("Set the wear of items", "How long "..world:getItemName(TargetItem.id, Player.english).." should need to rot?\n about x * 3 min\nCurrent value: "..tostring(TargetItem.wear) ,false, 255, cbInputDialog))
 end
 
-local function changeItemData(User, TargetItem)
+local function changeItemData(user, TargetItem)
 
     if (TargetItem == nil or TargetItem.id == 0) then
         return
@@ -220,17 +220,17 @@ local function changeItemData(User, TargetItem)
             local _, _, dataString,newdata = string.find(input,"(%w+) (.+)")
             TargetItem:setData(dataString,newdata)
             world:changeItem(TargetItem)
-            User:inform("Data of "..world:getItemName(TargetItem.id, Player.english).." set to key: " ..dataString.." value: "..TargetItem:getData(dataString))
-            User:logAdmin("changed data of "..world:getItemName(TargetItem.id, Player.english).."("..TargetItem.id..") to key: " ..dataString.." value: "..TargetItem:getData(dataString))
+            user:inform("Data of "..world:getItemName(TargetItem.id, Player.english).." set to key: " ..dataString.." value: "..TargetItem:getData(dataString))
+            user:logAdmin("changed data of "..world:getItemName(TargetItem.id, Player.english).."("..TargetItem.id..") to key: " ..dataString.." value: "..TargetItem:getData(dataString))
         else
-            User:inform("Sorry, I didn't understand you.")
+            user:inform("Sorry, I didn't understand you.")
         end
-        changeItemSelection(User, TargetItem)
+        changeItemSelection(user, TargetItem)
     end
-    User:requestInputDialog(InputDialog("Set data of items", "Data for "..world:getItemName(TargetItem.id, Player.english)..".\n Use 'data value'" ,false, 255, cbInputDialog))
+    user:requestInputDialog(InputDialog("Set data of items", "Data for "..world:getItemName(TargetItem.id, Player.english)..".\n Use 'data value'" ,false, 255, cbInputDialog))
 end
 
-local function changeItemName(User, TargetItem)
+local function changeItemName(user, TargetItem)
     local newNameDe
     local newNameEn
     local _
@@ -266,19 +266,19 @@ local function changeItemName(User, TargetItem)
                 TargetItem:setData("nameDe",newNameDe)
                 TargetItem:setData("nameEn",newNameEn)
                 world:changeItem(TargetItem)
-                User:inform("Name of "..world:getItemName(TargetItem.id, Player.english).." set to: " ..newNameEn.." / "..newNameDe)
-                User:logAdmin("changed name of "..world:getItemName(TargetItem.id, Player.english).." to: " ..newNameEn.." / "..newNameDe)
+                user:inform("Name of "..world:getItemName(TargetItem.id, Player.english).." set to: " ..newNameEn.." / "..newNameDe)
+                user:logAdmin("changed name of "..world:getItemName(TargetItem.id, Player.english).." to: " ..newNameEn.." / "..newNameDe)
             else
-                User:inform("Sorry, I didn't understand you.")
+                user:inform("Sorry, I didn't understand you.")
             end
-            changeItemSelection(User, TargetItem)
+            changeItemSelection(user, TargetItem)
         end
-        User:requestInputDialog(InputDialog("Set name of items", "German name for "..world:getItemName(TargetItem.id, Player.english).."." ,false, 255, cbInputDialogDe))
+        user:requestInputDialog(InputDialog("Set name of items", "German name for "..world:getItemName(TargetItem.id, Player.english).."." ,false, 255, cbInputDialogDe))
     end
-    User:requestInputDialog(InputDialog("Set name of items", "English name for "..world:getItemName(TargetItem.id, Player.english).."." ,false, 255, cbInputDialogEn))
+    user:requestInputDialog(InputDialog("Set name of items", "English name for "..world:getItemName(TargetItem.id, Player.english).."." ,false, 255, cbInputDialogEn))
 end
 
-local function changeItemDescription(User, TargetItem)
+local function changeItemDescription(user, TargetItem)
     local newDescriptionDe
     local newDescriptionEn
     local _
@@ -314,19 +314,19 @@ local function changeItemDescription(User, TargetItem)
                 TargetItem:setData("descriptionDe",newDescriptionDe)
                 TargetItem:setData("descriptionEn",newDescriptionEn)
                 world:changeItem(TargetItem)
-                User:inform("Description of "..world:getItemName(TargetItem.id, Player.english).." set to: " ..newDescriptionEn.." / "..newDescriptionDe)
-                User:logAdmin("changed description of "..world:getItemName(TargetItem.id, Player.english).." to: " ..newDescriptionEn.." / "..newDescriptionDe)
+                user:inform("Description of "..world:getItemName(TargetItem.id, Player.english).." set to: " ..newDescriptionEn.." / "..newDescriptionDe)
+                user:logAdmin("changed description of "..world:getItemName(TargetItem.id, Player.english).." to: " ..newDescriptionEn.." / "..newDescriptionDe)
             else
-                User:inform("Sorry, I didn't understand you.")
+                user:inform("Sorry, I didn't understand you.")
             end
-            changeItemSelection(User, TargetItem)
+            changeItemSelection(user, TargetItem)
         end
-        User:requestInputDialog(InputDialog("Set description of items", "German description for "..world:getItemName(TargetItem.id, Player.english).."." ,false, 255, cbInputDialogDe))
+        user:requestInputDialog(InputDialog("Set description of items", "German description for "..world:getItemName(TargetItem.id, Player.english).."." ,false, 255, cbInputDialogDe))
     end
-    User:requestInputDialog(InputDialog("Set description of items", "English description for "..world:getItemName(TargetItem.id, Player.english).."." ,false, 255, cbInputDialogEn))
+    user:requestInputDialog(InputDialog("Set description of items", "English description for "..world:getItemName(TargetItem.id, Player.english).."." ,false, 255, cbInputDialogEn))
 end
 
-local function changeItemGlyph(User, TargetItem)
+local function changeItemGlyph(user, TargetItem)
 
     if (TargetItem == nil or TargetItem.id == 0) then
         return
@@ -339,21 +339,21 @@ local function changeItemGlyph(User, TargetItem)
         local input = dialog:getInput()
         if (string.find(input,"(%d+)")~=nil) then
             if glyphs.getGlyphRingOrAmulet(TargetItem) == 0 then
-                User:inform("Item "..world:getItemName(TargetItem.id, Player.english).." cannot be glyphed. Only rings or amulets can contain glyph charges.")
+                user:inform("Item "..world:getItemName(TargetItem.id, Player.english).." cannot be glyphed. Only rings or amulets can contain glyph charges.")
             else
                 local _, _, newcharges = string.find(input,"(%d+)")
                 glyphs.setRemainingGlyphs(TargetItem,newcharges)
-                User:inform("Item "..world:getItemName(TargetItem.id, Player.english).." got "..tostring(newcharges).." glyph charges.")
+                user:inform("Item "..world:getItemName(TargetItem.id, Player.english).." got "..tostring(newcharges).." glyph charges.")
             end
         else
-            User:inform("Sorry, I didn't understand you.")
+            user:inform("Sorry, I didn't understand you.")
         end
-        changeItemSelection(User, TargetItem)
+        changeItemSelection(user, TargetItem)
     end
-    User:requestInputDialog(InputDialog("Set the glyph charges of items", "How many charges "..world:getItemName(TargetItem.id, Player.english).." should get?" ,false, 255, cbInputDialog))
+    user:requestInputDialog(InputDialog("Set the glyph charges of items", "How many charges "..world:getItemName(TargetItem.id, Player.english).." should get?" ,false, 255, cbInputDialog))
 end
 
-function changeItemSelection(User, TargetItem)
+function changeItemSelection(user, TargetItem)
     local changeItemFunctions = {}
     changeItemFunctions[1] = {"Set Number"}
     changeItemFunctions[2] = {"Set Quality and Durability"}
@@ -369,29 +369,29 @@ function changeItemSelection(User, TargetItem)
         end
         local index = dialog:getSelectedIndex() + 1
         if index == 1 then
-            changeItemNumber(User, TargetItem)
+            changeItemNumber(user, TargetItem)
         elseif index == 2 then
-            changeItemQuality(User, TargetItem)
+            changeItemQuality(user, TargetItem)
         elseif index == 3 then
-            changeItemName(User, TargetItem)
+            changeItemName(user, TargetItem)
         elseif index == 4 then
-            changeItemDescription(User, TargetItem)
+            changeItemDescription(user, TargetItem)
         elseif index == 5 then
-            changeItemWear(User, TargetItem)
+            changeItemWear(user, TargetItem)
         elseif index == 6 then
-            changeItemData(User, TargetItem)
+            changeItemData(user, TargetItem)
         elseif index == 7 then
-            changeItemGlyph(User, TargetItem)
+            changeItemGlyph(user, TargetItem)
         end
     end
     local sd = SelectionDialog(world:getItemName(TargetItem.id, Player.english), "Choose the porperty you want to change.", cbChangeItem)
     for i=1, #(changeItemFunctions) do
         sd:addOption(0,changeItemFunctions[i][1])
     end
-    User:requestSelectionDialog(sd)
+    user:requestSelectionDialog(sd)
 end
 
-function weather(User, SourceItem)
+function weather(user, SourceItem)
 
     local currWeather = world.weather
 
@@ -401,23 +401,23 @@ function weather(User, SourceItem)
         end
         local input = dialog:getInput()
         if (string.find(input,"help")~=nil) then
-            User:inform("Set cloud density: \"clouds <value>\" - range: 0 - 100")
-            User:inform("Set fog density: \"fog <value>\" - range: 0 - 100")
-            User:inform("Set wind direction: \"wind dir <value>\" - range: -100 - +100")
-            User:inform("Set gust strength: \"gust str <value>\" - range: 0 - 100")
-            User:inform("Set percipitation strength: \"per <value>\" - range: 0 - 100")
-            User:inform("Set thunderstorm strength: \"thunder <value>\" - range: 0 - 100")
-            User:inform("Set temperature: \"temp <value>\" - range: -50 - +50")
+            user:inform("Set cloud density: \"clouds <value>\" - range: 0 - 100")
+            user:inform("Set fog density: \"fog <value>\" - range: 0 - 100")
+            user:inform("Set wind direction: \"wind dir <value>\" - range: -100 - +100")
+            user:inform("Set gust strength: \"gust str <value>\" - range: 0 - 100")
+            user:inform("Set percipitation strength: \"per <value>\" - range: 0 - 100")
+            user:inform("Set thunderstorm strength: \"thunder <value>\" - range: 0 - 100")
+            user:inform("Set temperature: \"temp <value>\" - range: -50 - +50")
         end
         if (string.find(input,"clouds (%d+)")~=nil) then
             local _, _, value = string.find(input"clouds (%d+)")
             value=tonumber(value)
             if (value<101 and value>-1) then
                 currWeather.cloud_density = value
-                User:inform("cloud density changed to: "..value)
-                User:logAdmin("changed cloud densitiy to: "..value)
+                user:inform("cloud density changed to: "..value)
+                user:logAdmin("changed cloud densitiy to: "..value)
             else
-                User:inform("Failed changing cloud desity: out of range (0-100)")
+                user:inform("Failed changing cloud desity: out of range (0-100)")
             end
         end
         if (string.find(input,"fog (%d+)")~=nil) then
@@ -425,10 +425,10 @@ function weather(User, SourceItem)
             value=tonumber(value)
             if (value<101 and value>-1) then
                 currWeather.fog_density = value
-                User:inform("fog density changed to: "..value)
-                User:logAdmin("changed fog densitiy to: "..value)
+                user:inform("fog density changed to: "..value)
+                user:logAdmin("changed fog densitiy to: "..value)
             else
-                User:inform("Failed changing fog desity: out of range (0-100)")
+                user:inform("Failed changing fog desity: out of range (0-100)")
             end
         end
         if (string.find(input,"wind dir ([-,0-9]+)")~=nil) then
@@ -436,10 +436,10 @@ function weather(User, SourceItem)
             value=tonumber(value)
             if (value<101 and value>-101) then
                 currWeather.wind_dir = value
-                User:inform("wind direction changed to: "..value)
-                User:logAdmin("changed wind direction to: "..value)
+                user:inform("wind direction changed to: "..value)
+                user:logAdmin("changed wind direction to: "..value)
             else
-                User:inform("Failed changing wind direction: out of range (-100 - +100)")
+                user:inform("Failed changing wind direction: out of range (-100 - +100)")
             end
         end
         if (string.find(input,"gust str (%d+)")~=nil) then
@@ -447,10 +447,10 @@ function weather(User, SourceItem)
             value=tonumber(value)
             if (value<101 and value>-1) then
                 currWeather.gust_strength = value
-                User:inform("gust strength changed to: "..value)
-                User:logAdmin("changed gust strength to: "..value)
+                user:inform("gust strength changed to: "..value)
+                user:logAdmin("changed gust strength to: "..value)
             else
-                User:inform("Failed changing gust strength: out of range (0-100)")
+                user:inform("Failed changing gust strength: out of range (0-100)")
             end
         end
         if (string.find(input,"per (%d+)")~=nil) then
@@ -458,10 +458,10 @@ function weather(User, SourceItem)
             value=tonumber(value)
             if (value<101 and value>-1) then
                 currWeather.percipitation_strength = value
-                User:inform("percipitation strength changed to: "..value)
-                User:logAdmin("changed percipitation strength to: "..value)
+                user:inform("percipitation strength changed to: "..value)
+                user:logAdmin("changed percipitation strength to: "..value)
             else
-                User:inform("Failed changing percipitation strength: out of range (0-100)")
+                user:inform("Failed changing percipitation strength: out of range (0-100)")
             end
         end
         if (string.find(input,"thunder (%d+)")~=nil) then
@@ -469,10 +469,10 @@ function weather(User, SourceItem)
             value=tonumber(value)
             if (value<101 and value>-1) then
                 currWeather.thunderstorm = value
-                User:inform("thunderstorm changed to: "..value)
-                User:logAdmin("changed thunderstorm to: "..value)
+                user:inform("thunderstorm changed to: "..value)
+                user:logAdmin("changed thunderstorm to: "..value)
             else
-                User:inform("Failed changing thunderstorm: out of range (0-100)")
+                user:inform("Failed changing thunderstorm: out of range (0-100)")
             end
         end
         if (string.find(input,"temp ([-,0-9]+)")~=nil) then
@@ -480,14 +480,14 @@ function weather(User, SourceItem)
             value=tonumber(value)
             if (value<51 and value>-51) then
                 currWeather.temperature = value
-                User:inform("temperature changed to: "..value)
-                User:logAdmin("changed temperature to: "..value)
+                user:inform("temperature changed to: "..value)
+                user:logAdmin("changed temperature to: "..value)
             else
-                User:inform("Failed changing temperature: out of range (-50 - +50)")
+                user:inform("Failed changing temperature: out of range (-50 - +50)")
             end
         end
     end
-    User:requestInputDialog(InputDialog("Set an option for the weather", "Possible actions: help, clouds <value>, fog <value>, wind <value>, gust <value>, per <value>, thunder <value>, temp <value> " ,false, 255, cbInputDialog))
+    user:requestInputDialog(InputDialog("Set an option for the weather", "Possible actions: help, clouds <value>, fog <value>, wind <value>, gust <value>, per <value>, thunder <value>, temp <value> " ,false, 255, cbInputDialog))
 
     if (currWeather.temperature>-1) then
         currWeather.percipitation_type=1
@@ -567,7 +567,7 @@ local function guardInfo(chosenPlayer)
     return myInfoText
 end
 
-local function changeRankpoints(User, modifier, value, faction, radius)
+local function changeRankpoints(user, modifier, value, faction, radius)
     --check if the points shall be added or removed
     local text
 
@@ -582,24 +582,24 @@ local function changeRankpoints(User, modifier, value, faction, radius)
     if radius == nil then
         radius = 5
     end
-    local player_list = world:getPlayersInRangeOf(User.pos, radius)
+    local player_list = world:getPlayersInRangeOf(user.pos, radius)
     if player_list[1]~=nil then
         for i=1, #(player_list) do
             local Factionvalues = factions.getFaction(player_list[i])
             if faction == nil or faction == 99 then
                 factions.setRankpoints(player_list[i], tonumber(Factionvalues.rankpoints)+value)
-                User:inform("You just "..text.." "..value.." rankpoints to everyone in a radius of ".. radius.." ("..player_list[i].name..").")
-                User:logAdmin(text .. " " .. value .. " rankpoints to character " .. player_list[i].name)
+                user:inform("You just "..text.." "..value.." rankpoints to everyone in a radius of ".. radius.." ("..player_list[i].name..").")
+                user:logAdmin(text .. " " .. value .. " rankpoints to character " .. player_list[i].name)
             elseif tonumber(faction) == tonumber(Factionvalues.tid) then
                 factions.setRankpoints(player_list[i], tonumber(Factionvalues.rankpoints)+value)
-                User:inform("You just "..text.." "..value.." rankpoints to "..player_list[i].name.." of the faction "..factions.getTownNameByID(Factionvalues.tid).." in a radius of ".. radius..".")
-                User:logAdmin(text .. " " ..value.. " rankpoints to character " .. player_list[i].name .. " of the faction " .. factions.getTownNameByID(Factionvalues.tid))
+                user:inform("You just "..text.." "..value.." rankpoints to "..player_list[i].name.." of the faction "..factions.getTownNameByID(Factionvalues.tid).." in a radius of ".. radius..".")
+                user:logAdmin(text .. " " ..value.. " rankpoints to character " .. player_list[i].name .. " of the faction " .. factions.getTownNameByID(Factionvalues.tid))
             end
         end
     end
 end
 
-local function changeRankpointsInRadius(User)
+local function changeRankpointsInRadius(user)
     local cbRadius = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -610,26 +610,26 @@ local function changeRankpointsInRadius(User)
             value=tonumber(value)
             faction=tonumber(faction)
             radius=tonumber(radius)
-            changeRankpoints(User,modifier,value,faction,radius)
+            changeRankpoints(user,modifier,value,faction,radius)
         elseif (string.find(inputString,"(%a+) (%d+) (%d+)") ~= nil) then
             local _, _, modifier,value,faction,radius = string.find(inputString,"(%a+) (%d+) (%d+)")
             faction=tonumber(faction)
             value=tonumber(value)
-            changeRankpoints(User,modifier,value,faction,radius)
+            changeRankpoints(user,modifier,value,faction,radius)
         elseif (string.find(inputString,"(%a+) (%d+)") ~= nil) then
             local _, _, modifier,value,faction,radius = string.find(inputString,"(%a+) (%d+)")
             value=tonumber(value)
-            changeRankpoints(User,modifier,value,faction,radius)
+            changeRankpoints(user,modifier,value,faction,radius)
         else
-            User:inform("Sorry, I didn't understand you.")
-            changeRankpointsInRadius(User) -- re-call dialog
+            user:inform("Sorry, I didn't understand you.")
+            changeRankpointsInRadius(user) -- re-call dialog
         end
     end
     local idChange = InputDialog("Add/Subtract rankpoints in radius", "Usage: <modifier> <value> <faction> <radius>\nPossible values:\nmodifier: <add|sub> \nfaction: <1|2|3|99|nil> (= cadomyr|runewick|galmair|all|all)\nradius: <1|2|...|nil> (nil means default: 5)", false, 255, cbRadius)
-    User:requestInputDialog(idChange)
+    user:requestInputDialog(idChange)
 end
 
-function factionHandling(User, SourceItem)
+function factionHandling(user, SourceItem)
 
     local cbFaction = function (dialog)
         if (not dialog:getSuccess()) then
@@ -637,10 +637,10 @@ function factionHandling(User, SourceItem)
         end
         local index = dialog:getSelectedIndex()
         if (index == 0) then -- get/set for specific player
-            local playersTmp = world:getPlayersInRangeOf(User.pos, 25)
-            local players = {User}
+            local playersTmp = world:getPlayersInRangeOf(user.pos, 25)
+            local players = {user}
             for _,player in pairs(playersTmp) do
-                if (player.id ~= User.id) then
+                if (player.id ~= user.id) then
                     table.insert(players, player)
                 end
             end
@@ -660,7 +660,7 @@ function factionHandling(User, SourceItem)
                         faction.tid = ind
                         faction.rankpoints = 0
                         factions.setFaction(chosenPlayer, faction)
-                        User:logAdmin("changes faction of character " .. chosenPlayer.name .. " to " .. factions.getMembershipByName(chosenPlayer))
+                        user:logAdmin("changes faction of character " .. chosenPlayer.name .. " to " .. factions.getMembershipByName(chosenPlayer))
                     --change towncount
                     elseif (ind == 4) then
                         local cbSetCount = function (subsubsubdialog)
@@ -669,15 +669,15 @@ function factionHandling(User, SourceItem)
                             end
                             local countValue, okay = String2Number(subsubsubdialog:getInput())
                             if (not okay) then
-                                User:inform("no number")
+                                user:inform("no number")
                                 return
                             end
                             local oldValue = faction.towncnt
                             faction.towncnt = countValue
                             factions.setFaction(chosenPlayer, faction)
-                            User:logAdmin("changes town count of character " .. chosenPlayer.name .. " from " .. oldValue .. " to " .. countValue)
+                            user:logAdmin("changes town count of character " .. chosenPlayer.name .. " from " .. oldValue .. " to " .. countValue)
                         end
-                        User:requestInputDialog(InputDialog("Set town count", "", false, 255, cbSetCount))
+                        user:requestInputDialog(InputDialog("Set town count", "", false, 255, cbSetCount))
                     --change the rankpoints
                     elseif (ind == 5) then
                         local cbSetRank = function (subsubsubdialog)
@@ -686,18 +686,18 @@ function factionHandling(User, SourceItem)
                             end
                             local rankpoints, okay = String2Number(subsubsubdialog:getInput())
                             if (not okay) then
-                                User:inform("no number")
+                                user:inform("no number")
                                 return
                             end
                             if factions.getMembership(chosenPlayer) > 0 and factions.getMembership(chosenPlayer) < 4 then
                                 local oldValue = faction.rankpoints
                                 factions.setRankpoints(chosenPlayer, rankpoints)
-                                User:logAdmin("changes rankpoints of character " .. chosenPlayer.name .. " from " .. oldValue .. " to " .. rankpoints)
+                                user:logAdmin("changes rankpoints of character " .. chosenPlayer.name .. " from " .. oldValue .. " to " .. rankpoints)
                             else
-                                User:inform("Player does not belong to any faction. Rankpoints not changed.")
+                                user:inform("Player does not belong to any faction. Rankpoints not changed.")
                             end
                         end
-                        User:requestInputDialog(InputDialog("Set rankpoints", "Every 100 points there is a new rank.\nE.g. 300-399 points is rank 4.\nThere are 7 normal and 3 special ranks plus the leader.", false, 255, cbSetRank))
+                        user:requestInputDialog(InputDialog("Set rankpoints", "Every 100 points there is a new rank.\nE.g. 300-399 points is rank 4.\nThere are 7 normal and 3 special ranks plus the leader.", false, 255, cbSetRank))
                     --change special rank
                     elseif (ind == 6) then
                         local cbSetSpecialRank = function (subsubsubdialog)
@@ -714,13 +714,13 @@ function factionHandling(User, SourceItem)
                             end
 
                             if success == false and factions.getRankpoints(chosenPlayer) < (factions.highestRank-1)*100 then
-                                User:inform("Rangchange failed. Player has not enough rankpoints. Current rankpoints: "..factions.getRankpoints(chosenPlayer))
+                                user:inform("Rangchange failed. Player has not enough rankpoints. Current rankpoints: "..factions.getRankpoints(chosenPlayer))
                             elseif success == true then
-                                User:inform("Rankchange for "..chosenPlayer.name.." successful.")
+                                user:inform("Rankchange for "..chosenPlayer.name.." successful.")
                                 local _, newRank = factions.getRank(chosenPlayer, true)
-                                User:logAdmin("changes special rank of character " .. chosenPlayer.name .. " from " .. oldRank .. " to " .. newRank)
+                                user:logAdmin("changes special rank of character " .. chosenPlayer.name .. " from " .. oldRank .. " to " .. newRank)
                             else
-                                User:inform("Rangchange failed for unknown reasons. Please inform a developer.")
+                                user:inform("Rangchange failed for unknown reasons. Please inform a developer.")
                             end
                     end
 
@@ -730,7 +730,7 @@ function factionHandling(User, SourceItem)
                     sd:addOption(0, "Promote to "..factions.getRankName(chosenPlayer, 8))
                     sd:addOption(0, "Promote to "..factions.getRankName(chosenPlayer, 9))
                     sd:addOption(0, "Promote to "..factions.getRankName(chosenPlayer, 10))
-                    User:requestSelectionDialog(sd)
+                    user:requestSelectionDialog(sd)
                 end
              end
 
@@ -753,7 +753,7 @@ function factionHandling(User, SourceItem)
             sd:addOption(0, "Change town count")
             sd:addOption(0, "Change rankpoints")
             sd:addOption(0, "Change special rank")
-            User:requestSelectionDialog(sd)
+            user:requestSelectionDialog(sd)
             end
 
             --general playerchoosing part
@@ -763,11 +763,11 @@ function factionHandling(User, SourceItem)
                 local race = math.min(player:getRace()+1, #raceNames)
                 sd:addOption(0,player.name .. " (" .. raceNames[race] .. ") " .. player.id)
             end
-            User:requestSelectionDialog(sd)
+            user:requestSelectionDialog(sd)
 
         -- rankpoints in radius
         elseif (index == 1) then
-            changeRankpointsInRadius(User)
+            changeRankpointsInRadius(user)
 
         -- guard modes
         elseif (index == 2) then
@@ -796,25 +796,25 @@ function factionHandling(User, SourceItem)
                         end
                         local mode = modeValues[subsubsubdialog:getSelectedIndex()+1]
                         factions.setFactionRelation(firstFaction, secondFaction, mode)
-                        User:logAdmin("changes guard mode of " .. factions.getTownNameByID(firstFaction) .. " with respect to " .. factions.getTownNameByID(secondFaction) .. " to " .. modeStrings[mode])
+                        user:logAdmin("changes guard mode of " .. factions.getTownNameByID(firstFaction) .. " with respect to " .. factions.getTownNameByID(secondFaction) .. " to " .. modeStrings[mode])
                     end
                     local sd = SelectionDialog("Set guard modes", "Set guard modes of " .. factions.getTownNameByID(firstFaction) .. " with respect to " .. factions.getTownNameByID(secondFaction) .. " to ...", cbSetMode)
                     for _,m in ipairs(modeValues) do
                         sd:addOption(0,modeStrings[m])
                     end
-                    User:requestSelectionDialog(sd)
+                    user:requestSelectionDialog(sd)
                 end
                 local sd = SelectionDialog("Guard modes", "Set guard modes of " .. factions.getTownNameByID(firstFaction) .. " with respect to ...", cbSecondFaction)
                 for _,f in ipairs(factionIds) do
                     sd:addOption(0,factions.getTownNameByID(f) .. ": " .. modeStrings[factions.getFactionRelation(firstFaction, f)])
                 end
-                User:requestSelectionDialog(sd)
+                user:requestSelectionDialog(sd)
             end
             local sd = SelectionDialog("Get/Set guard modes", "For which faction do you want to get/set values?", cbFirstFaction)
             for _,f in ipairs(factionIds) do
                 sd:addOption(0,factions.getTownNameByID(f))
             end
-            User:requestSelectionDialog(sd)
+            user:requestSelectionDialog(sd)
 
         -- licence
         elseif (index == 3) then
@@ -839,25 +839,25 @@ function factionHandling(User, SourceItem)
                         end
                         local newLicence = licenceValues[subsubsubdialog:getSelectedIndex()+1]
                         licence.SetLicence(FirstLicence, SecondLicence, newLicence)
-                        User:logAdmin("changes licence of " .. factions.getTownNameByID(FirstLicence) .. " with respect to " .. factions.getTownNameByID(SecondLicence) .. " to " .. licenceStrings[newLicence])
+                        user:logAdmin("changes licence of " .. factions.getTownNameByID(FirstLicence) .. " with respect to " .. factions.getTownNameByID(SecondLicence) .. " to " .. licenceStrings[newLicence])
                     end
                     local sd = SelectionDialog("Set licence", "Set licence of " .. factions.getTownNameByID(FirstLicence) .. " with respect to " .. factions.getTownNameByID(SecondLicence) .. " to ...", cbSetLicence)
                     for _,m in ipairs(licenceValues) do
                         sd:addOption(0,licenceStrings[m])
                     end
-                    User:requestSelectionDialog(sd)
+                    user:requestSelectionDialog(sd)
                 end
                 local sd = SelectionDialog("Licence", "Set licence of " .. factions.getTownNameByID(FirstLicence) .. " with respect to ...", cbSecondLicence)
                 for _,f in ipairs(factionIds) do
                     sd:addOption(0,factions.getTownNameByID(f) .. ": " .. licenceStrings[licence.GetLicenceByFaction(FirstLicence, f)])
                 end
-                User:requestSelectionDialog(sd)
+                user:requestSelectionDialog(sd)
             end
             local sd = SelectionDialog("Get/Set licence", "For which faction do you want to get/set values?", cbFirstLicence)
             for _,f in ipairs(factionIds) do
                 sd:addOption(0,factions.getTownNameByID(f))
             end
-            User:requestSelectionDialog(sd)
+            user:requestSelectionDialog(sd)
         end
     end
     local sd = SelectionDialog("What do you want to do about factions?", "", cbFaction)
@@ -865,7 +865,7 @@ function factionHandling(User, SourceItem)
     sd:addOption(0,"Add/Subtract rankpoints in radius")
     sd:addOption(0,"Get/Set guard modes")
     sd:addOption(0,"Get/Set licence")
-    User:requestSelectionDialog(sd)
+    user:requestSelectionDialog(sd)
 end
 
 local spawnMonster
@@ -878,7 +878,7 @@ local spawnRemove
 local spawnPause
 local spawnReset
 
-function spawnPoint(User, SourceItem)
+function spawnPoint(user, SourceItem)
 
     local cbSetMode = function (dialog)
         if (not dialog:getSuccess()) then
@@ -887,23 +887,23 @@ function spawnPoint(User, SourceItem)
 
         local index = dialog:getSelectedIndex() + 1
         if index == 1 then
-            spawnStart(User, SourceItem)
+            spawnStart(user, SourceItem)
         elseif index == 2 then
-            spawnMonster(User, SourceItem)
+            spawnMonster(user, SourceItem)
         elseif index == 3 then
-            spawnIntervalsPerSpawn(User, SourceItem)
+            spawnIntervalsPerSpawn(user, SourceItem)
         elseif index == 4 then
-            spawnAmount(User, SourceItem)
+            spawnAmount(user, SourceItem)
         elseif index == 5 then
-            spawnTime(User, SourceItem)
+            spawnTime(user, SourceItem)
         elseif index == 6 then
-            spawnEffects(User, SourceItem)
+            spawnEffects(user, SourceItem)
         elseif index == 7 then
-            spawnRemove(User, SourceItem)
+            spawnRemove(user, SourceItem)
         elseif index == 8 then
-            spawnPause(User, SourceItem)
+            spawnPause(user, SourceItem)
         elseif index == 9 then
-            spawnReset(User, SourceItem)
+            spawnReset(user, SourceItem)
         end
     end
     local dialogText = "To which mode do you want to change it?"
@@ -925,18 +925,18 @@ function spawnPoint(User, SourceItem)
     sd:addOption(0,"Delete Spawnpoint")
     sd:addOption(0,"Pause Spawnpoint")
     sd:addOption(0,"Reset Spawntool")
-    User:requestSelectionDialog(sd)
+    user:requestSelectionDialog(sd)
 end
 
-function spawnRemove(User, SourceItem)
+function spawnRemove(user, SourceItem)
 
     local cbSetMode = function (dialog)
         if (not dialog:getSuccess()) then
             return
         end
         local index = dialog:getSelectedIndex() + 1
-        User:inform("You removed the spawnpoint at " ..tostring(gmMonsters[index][1]))
-        User:logAdmin("removed the spawnpoint at " ..tostring(gmMonsters[index][1]))
+        user:inform("You removed the spawnpoint at " ..tostring(gmMonsters[index][1]))
+        user:logAdmin("removed the spawnpoint at " ..tostring(gmMonsters[index][1]))
         table.remove(gmSpawnpointSettings, index)
         table.remove(gmMonsters, index)
     end
@@ -944,10 +944,10 @@ function spawnRemove(User, SourceItem)
     for _,m in ipairs(gmSpawnpointSettings) do
         sd:addOption(0,tostring(m[2]))
     end
-    User:requestSelectionDialog(sd)
+    user:requestSelectionDialog(sd)
 end
 
-function spawnPause(User, SourceItem)
+function spawnPause(user, SourceItem)
 
     local cbSetMode = function (dialog)
         if (not dialog:getSuccess()) then
@@ -955,12 +955,12 @@ function spawnPause(User, SourceItem)
         end
         local index = dialog:getSelectedIndex() + 1
         if gmSpawnpointSettings[index][9] == 0 then
-            User:inform("You paused the spawnpoint at " ..tostring(gmMonsters[index][1]))
-            User:logAdmin("paused the spawnpoint at " ..tostring(gmMonsters[index][1]))
+            user:inform("You paused the spawnpoint at " ..tostring(gmMonsters[index][1]))
+            user:logAdmin("paused the spawnpoint at " ..tostring(gmMonsters[index][1]))
             gmSpawnpointSettings[index][9] = 1
         else
-            User:inform("You reactivated the spawnpoint at " ..tostring(gmMonsters[index][1]))
-            User:logAdmin("reactivated the spawnpoint at " ..tostring(gmMonsters[index][1]))
+            user:inform("You reactivated the spawnpoint at " ..tostring(gmMonsters[index][1]))
+            user:logAdmin("reactivated the spawnpoint at " ..tostring(gmMonsters[index][1]))
             gmSpawnpointSettings[index][9] = 0
         end
     end
@@ -968,10 +968,10 @@ function spawnPause(User, SourceItem)
     for _,m in ipairs(gmSpawnpointSettings) do
         sd:addOption(0,tostring(m[2]))
     end
-    User:requestSelectionDialog(sd)
+    user:requestSelectionDialog(sd)
 end
 
-function spawnMonster(User, SourceItem)
+function spawnMonster(user, SourceItem)
     local cbInputDialog = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -981,13 +981,13 @@ function spawnMonster(User, SourceItem)
             SourceItem:setData("monsters", inputString)
             world:changeItem(SourceItem)
         else
-            User:inform("Enter MonsterID")
+            user:inform("Enter MonsterID")
         end
     end
-    User:requestInputDialog(InputDialog("Enter Monster IDs.", "Usage: Enter the IDs of the monsters." ,false, 255, cbInputDialog))
+    user:requestInputDialog(InputDialog("Enter Monster IDs.", "Usage: Enter the IDs of the monsters." ,false, 255, cbInputDialog))
 end
 
-function spawnIntervalsPerSpawn(User, SourceItem)
+function spawnIntervalsPerSpawn(user, SourceItem)
     -- Write down how many Mobs shall spawn per Minute
     -- If input contains number, sets input to Data "intervals"
     local cbInputDialog = function (dialog)
@@ -1001,10 +1001,10 @@ function spawnIntervalsPerSpawn(User, SourceItem)
             world:changeItem(SourceItem)
         end
     end
-    User:requestInputDialog(InputDialog("Set spawn cycles.", "Usage: Time in between 2 monster spawns.\nSet number of (roughly) 7 second intervals." ,false, 255, cbInputDialog))
+    user:requestInputDialog(InputDialog("Set spawn cycles.", "Usage: Time in between 2 monster spawns.\nSet number of (roughly) 7 second intervals." ,false, 255, cbInputDialog))
 end
 
-function spawnAmount(User, SourceItem)
+function spawnAmount(user, SourceItem)
     -- If input contains number, sets input to Data "amount"
     local cbInputDialog = function (dialog)
         if (not dialog:getSuccess()) then
@@ -1016,10 +1016,10 @@ function spawnAmount(User, SourceItem)
             world:changeItem(SourceItem)
         end
     end
-    User:requestInputDialog(InputDialog("Set limit for monsters", "Set max. number of monsters present at the same time" ,false, 255, cbInputDialog))
+    user:requestInputDialog(InputDialog("Set limit for monsters", "Set max. number of monsters present at the same time" ,false, 255, cbInputDialog))
 end
 
-function spawnTime(User, SourceItem)
+function spawnTime(user, SourceItem)
     -- If input contains number, sets input to Data "endurance"
     local cbInputDialog = function (dialog)
         if (not dialog:getSuccess()) then
@@ -1031,10 +1031,10 @@ function spawnTime(User, SourceItem)
             world:changeItem(SourceItem)
         end
     end
-    User:requestInputDialog(InputDialog("Set how long the spawn shall take place.", "Usage: Set the amount of total intervals (ca. 7s)." ,false, 255, cbInputDialog))
+    user:requestInputDialog(InputDialog("Set how long the spawn shall take place.", "Usage: Set the amount of total intervals (ca. 7s)." ,false, 255, cbInputDialog))
 end
 
-function spawnEffects(User, SourceItem)
+function spawnEffects(user, SourceItem)
     -- If input contains number, sets input to Data "endurance"
     local cbInputDialog = function (dialog)
         if (not dialog:getSuccess()) then
@@ -1053,7 +1053,7 @@ function spawnEffects(User, SourceItem)
             world:changeItem(SourceItem)
         end
     end
-    User:requestInputDialog(InputDialog("Set the graphic and sound appearing at spawn", "Usage: Enter a gfxId [sfxId]" ,false, 255, cbInputDialog))
+    user:requestInputDialog(InputDialog("Set the graphic and sound appearing at spawn", "Usage: Enter a gfxId [sfxId]" ,false, 255, cbInputDialog))
 end
 
 local function checkData(SourceItem,data)
@@ -1068,9 +1068,9 @@ local function checkData(SourceItem,data)
     end
 end
 
-function spawnStart(User, SourceItem)
+function spawnStart(user, SourceItem)
 
-    local spawnPos = common.GetFrontPosition(User)
+    local spawnPos = common.GetFrontPosition(user)
 
     checkData(SourceItem,"intervals")
     checkData(SourceItem,"endurance")
@@ -1101,7 +1101,7 @@ function spawnStart(User, SourceItem)
             counter = counter +1
             monsterIds[counter]    = tonumber(monsterId)
         else
-            User:inform("Enter MonsterID")
+            user:inform("Enter MonsterID")
 --            fin = string.len(inputNumber)
             return
         end
@@ -1110,15 +1110,15 @@ function spawnStart(User, SourceItem)
     if checkData(SourceItem,"monsters") == true then
         table.insert(gmSpawnpointSettings, length, {monsterIds, spawnPos, amount, intervals, endurance, gfxId, sfxId,0 ,0})
         table.insert(gmMonsters, length, {spawnPos})
-        User:inform("You added a spawnpoint at " .. tostring(gmSpawnpointSettings[length][2]))
-        User:logAdmin("added a spawnpoint at " .. tostring(gmSpawnpointSettings[length][2]))
+        user:inform("You added a spawnpoint at " .. tostring(gmSpawnpointSettings[length][2]))
+        user:logAdmin("added a spawnpoint at " .. tostring(gmSpawnpointSettings[length][2]))
         scheduledFunction.registerFunction(2, function() spawnGM() end)
     else
-        User:inform("Enter MonsterID")
+        user:inform("Enter MonsterID")
     end
 end
 
-function spawnReset(User, SourceItem)
+function spawnReset(user, SourceItem)
 
     SourceItem:setData("monsters", "0")
     SourceItem:setData("intervals", "0")
@@ -1130,15 +1130,15 @@ function spawnReset(User, SourceItem)
 end
 
 
-function M.LookAtItem(User, Item)
+function M.LookAtItem(user, Item)
     lookat.SetSpecialDescription(Item, "Verwende die Kelle zum Aufrufen der Funktionen (items, weather, factions, spawnpoints).", "Use the trowel to pick a function (items, weather, factions, spawnpoints).")
     lookat.SetSpecialName(Item, "Kelle", "Trowel")
-    return lookat.GenerateLookAt(User, Item, lookat.METAL)
+    return lookat.GenerateLookAt(user, Item, lookat.METAL)
 end
 
-function M.UseItemWithField(User, SourceItem, TargetPos)
+function M.UseItemWithField(user, SourceItem, TargetPos)
     local Field=world:getField(TargetPos)
-    User:inform("This field has the ID: "..Field:tile())
+    user:inform("This field has the ID: "..Field:tile())
 end
 
 function spawnGM()
@@ -1228,7 +1228,27 @@ function updateMonsters(array,number,basePosition)
     end
 end
 
-local function createPotion(User, potionID, potionEffect)
+local function createCustomInformPotion(user, potionID)
+local input
+local input2
+    local callback2 = function(dialog2)
+        if not dialog2:getSuccess() then
+            return
+        end
+        input2 = dialog2:getInput()
+        common.CreateItem(user,tonumber(potionID),1,999,{["customPotion"]=input,["customPotionDE"]=input2})
+    end
+    local callback = function(dialog)
+        if not dialog:getSuccess() then
+            return
+        end
+        input = dialog:getInput()
+        user:requestInputDialog(InputDialog("Custom Inform Potion", "Now insert the German inform.",false, 255, callback2))
+    end
+user:requestInputDialog(InputDialog("Custom Inform Potion", "Write in the English inform you want the consumption of the potion to bring, EG:'As you drink the potion, you feel...' ",false,255,callback))
+end
+
+local function createPotion(user, potionID, potionEffect)
 local potionAmount
 local potionQuality
 local _
@@ -1253,19 +1273,19 @@ local _
                     return
                 end
                 local potionName = dialog3:getInput()
-                common.CreateItem(User,tonumber(potionID),tonumber(potionAmount),tonumber(potionQuality),{["potionEffectId"]=tonumber(potionEffect),["descriptionEn"]=potionName,["descriptionDe"]=potionName})
+                common.CreateItem(user,tonumber(potionID),tonumber(potionAmount),tonumber(potionQuality),{["potionEffectId"]=tonumber(potionEffect),["descriptionEn"]=potionName,["descriptionDe"]=potionName})
             end
-            User:requestInputDialog(InputDialog("Potion Creation", "What do you want to label your potions?",false,255,callback3))
+            user:requestInputDialog(InputDialog("Potion Creation", "What do you want to label your potions?",false,255,callback3))
         end
         if tonumber(potionQuality) > tonumber("999") then
-            User:inform("Number can't be higher than 999.")
+            user:inform("Number can't be higher than 999.")
         else
-            User:requestInputDialog(InputDialog("Potion creation", "How many potions do you wish to create?",false,255,callback2))
+            user:requestInputDialog(InputDialog("Potion creation", "How many potions do you wish to create?",false,255,callback2))
         end
     end
-User:requestInputDialog(InputDialog("Potion creation", "What quality should the potions have (Max 999).",false,255,callback))
+user:requestInputDialog(InputDialog("Potion creation", "What quality should the potions have (Max 999).",false,255,callback))
 end
-local function customPotionInput(User, potionType, potionID)
+local function customPotionInput(user, potionType, potionID)
 local potionEffect
 local _
     local callback = function(dialog)
@@ -1275,49 +1295,51 @@ local _
         local input = dialog:getInput()
         if (string.find(input,"(%d+)")~=nil) then
             _, _, potionEffect = string.find(input,"(%d+)")
-            createPotion(User, tostring(potionID), tostring(potionEffect))
+            createPotion(user, tostring(potionID), tostring(potionEffect))
         end
     end
     if potionType == "Amethyst" then
-        User:requestInputDialog(InputDialog("Potion creation", "Add the custom value.\nExample: '95559555' would be a Health Potion.\nValues: 9 = +4, 5 = 0, 1 = -4.\n[1]Heal[2]Mana[3]Food[4]Antidote\n[5]HoT[6]MoT [7]FoT  [8]AoT       ",false,255,callback))
+        user:requestInputDialog(InputDialog("Potion creation", "Add the custom value.\nExample: '95559555' would be a Health Potion.\nValues: 9 = +4, 5 = 0, 1 = -4.\n[1]Heal[2]Mana[3]Food[4]Antidote\n[5]HoT[6]MoT [7]FoT  [8]AoT       ",false,255,callback))
     elseif potionType == "Ruby" then
-        User:requestInputDialog(InputDialog("Potion creation", "Add the custom value.\nExample: '95559555' would be a Health Potion.\nValues: 9 = +4, 5 = 0, 1 = -4.\n[1]Str[2]Int[3]Dex[4]Per\n[5]Con[6]Ess[7]Agi[8]Wil",false,255,callback))
+        user:requestInputDialog(InputDialog("Potion creation", "Add the custom value.\nExample: '95559555' would be a Health Potion.\nValues: 9 = +4, 5 = 0, 1 = -4.\n[1]Str[2]Int[3]Dex[4]Per\n[5]Con[6]Ess[7]Agi[8]Wil",false,255,callback))
     end
 end
-local function potionTypeSelection(User, potionType)
+local function potionTypeSelection(user, potionType)
     local callback1 = function(dialog)
         if not dialog:getSuccess() then
             return
         end
         local index = dialog:getSelectedIndex() +1
         if index == 1 then
-            customPotionInput(User, potionType, "166")
+            customPotionInput(user, potionType, "166")
         elseif index == 2 then
-            createPotion(User,"166","95559555")
+            createPotion(user,"166","95559555")
         elseif index == 3 then
-            createPotion(User,"166","15551555")
+            createPotion(user,"166","15551555")
         elseif index == 4 then
-            createPotion(User,"166","59555955")
+            createPotion(user,"166","59555955")
         elseif index == 5 then
-            createPotion(User,"166","51555155")
+            createPotion(user,"166","51555155")
         elseif index == 6 then
-            createPotion(User,"166","55955595")
+            createPotion(user,"166","55955595")
         elseif index == 7 then
-            createPotion(User,"166","55155515")
+            createPotion(user,"166","55155515")
         elseif index == 8 then
-            createPotion(User,"166","55595559")
+            createPotion(user,"166","55595559")
         elseif index == 9 then
-            createPotion(User,"166","55515551")
+            createPotion(user,"166","55515551")
         elseif index == 10 then
-            createPotion(User,"166","95599559")
+            createPotion(user,"166","95599559")
         elseif index == 11 then
-            createPotion(User,"166","15511551")
+            createPotion(user,"166","15511551")
         elseif index == 12 then
-            createPotion(User,"166","99999999")
+            createPotion(user,"166","99999999")
         elseif index == 13 then
-            createPotion(User,"166","11111111")
+            createPotion(user,"166","11111111")
         elseif index == 14 then
-            createPotion(User,"166","10")
+            createPotion(user,"166","10")
+        elseif index == 15 then
+            createCustomInformPotion(user, "166")
         end
     end
     local callback2 = function(dialog2)
@@ -1326,15 +1348,17 @@ local function potionTypeSelection(User, potionType)
         end
         local index = dialog2:getSelectedIndex() +1
         if index == 1 then
-            customPotionInput(User, potionType, "59")
+            customPotionInput(user, potionType, "59")
         elseif index == 2 then
-            createPotion(User,"59","59555959")
+            createPotion(user,"59","59555959")
         elseif index == 3 then
-            createPotion(User,"59","95999595")
+            createPotion(user,"59","95999595")
         elseif index == 4 then
-            createPotion(User,"59","99999999")
+            createPotion(user,"59","99999999")
         elseif index == 5 then
-            createPotion(User,"59","11111111")
+            createPotion(user,"59","11111111")
+        elseif index == 6 then
+            createCustomInformPotion(user, "59")
         end
     end
     local callback3 = function(dialog3)
@@ -1343,31 +1367,33 @@ local function potionTypeSelection(User, potionType)
         end
         local index = dialog3:getSelectedIndex() +1
         if index == 1 then
-            createPotion(User,"329","560")
+            createPotion(user,"329","560")
         elseif index == 2 then
-            createPotion(User,"329","531")
+            createPotion(user,"329","531")
         elseif index == 3 then
-            createPotion(User,"329","530")
+            createPotion(user,"329","530")
         elseif index == 4 then
-            createPotion(User,"329","551")
+            createPotion(user,"329","551")
         elseif index == 5 then
-            createPotion(User,"329","550")
+            createPotion(user,"329","550")
         elseif index == 6 then
-            createPotion(User,"329","501")
+            createPotion(user,"329","501")
         elseif index == 7 then
-            createPotion(User,"329","500")
+            createPotion(user,"329","500")
         elseif index == 8 then
-            createPotion(User,"329","521")
+            createPotion(user,"329","521")
         elseif index == 9 then
-            createPotion(User,"329","520")
+            createPotion(user,"329","520")
         elseif index == 10 then
-            createPotion(User,"329","541")
+            createPotion(user,"329","541")
         elseif index == 11 then
-            createPotion(User,"329","540")
+            createPotion(user,"329","540")
         elseif index == 12 then
-            createPotion(User,"329","511")
+            createPotion(user,"329","511")
         elseif index == 13 then
-            createPotion(User,"329","510")
+            createPotion(user,"329","510")
+        elseif index == 14 then
+            createCustomInformPotion(user, "329")
         end
     end
     local callback4 = function(dialog4)
@@ -1376,29 +1402,31 @@ local function potionTypeSelection(User, potionType)
         end
         local index = dialog4:getSelectedIndex() +1
         if index == 1 then
-            createPotion(User,"327","301")
+            createPotion(user,"327","301")
         elseif index == 2 then
-            createPotion(User,"327","302")
+            createPotion(user,"327","302")
         elseif index == 3 then
-            createPotion(User,"327","304")
+            createPotion(user,"327","304")
         elseif index == 4 then
-            createPotion(User,"327","306")
+            createPotion(user,"327","306")
         elseif index == 5 then
-            createPotion(User,"327","307")
+            createPotion(user,"327","307")
         elseif index == 6 then
-            createPotion(User,"327","309")
+            createPotion(user,"327","309")
         elseif index == 7 then
-            createPotion(User,"327","316")
+            createPotion(user,"327","316")
         elseif index == 8 then
-            createPotion(User,"327","317")
+            createPotion(user,"327","317")
         elseif index == 9 then
-            createPotion(User,"327","311")
+            createPotion(user,"327","311")
         elseif index == 10 then
-            createPotion(User,"327","312")
+            createPotion(user,"327","312")
         elseif index == 11 then
-            createPotion(User,"327","314")
+            createPotion(user,"327","314")
         elseif index == 12 then
-            createPotion(User,"327","320")
+            createPotion(user,"327","320")
+        elseif index == 13 then
+            createCustomInformPotion(user, "327")
         end
     end
     local callback5 = function(dialog5)
@@ -1407,21 +1435,23 @@ local function potionTypeSelection(User, potionType)
         end
         local index = dialog5:getSelectedIndex() +1
         if index == 1 then
-            createPotion(User,"330","600")
+            createPotion(user,"330","600")
         elseif index == 2 then
-            createPotion(User,"330","607")
+            createPotion(user,"330","607")
         elseif index == 3 then
-            createPotion(User,"330","603")
+            createPotion(user,"330","603")
         elseif index == 4 then
-            createPotion(User,"330","604")
+            createPotion(user,"330","604")
         elseif index == 5 then
-            createPotion(User,"330","601")
+            createPotion(user,"330","601")
         elseif index == 6 then
-            createPotion(User,"330","606")
+            createPotion(user,"330","606")
         elseif index == 7 then
-            createPotion(User,"330","605")
+            createPotion(user,"330","605")
         elseif index == 8 then
-            createPotion(User,"330","602")
+            createPotion(user,"330","602")
+        elseif index == 9 then
+            createCustomInformPotion(user, "330")
         end
     end
     local callback6 = function(dialog6)
@@ -1430,19 +1460,60 @@ local function potionTypeSelection(User, potionType)
         end
         local index = dialog6:getSelectedIndex() +1
         if index == 1 then
-            createPotion(User,"165","400")
+            createPotion(user,"165","400")
         elseif index == 2 then
-            createPotion(User,"165","401")
+            createPotion(user,"165","401")
         elseif index == 3 then
-            createPotion(User,"165","402")
+            createPotion(user,"165","402")
         elseif index == 4 then
-            createPotion(User,"165","403")
+            createPotion(user,"165","403")
         elseif index == 5 then
-            createPotion(User,"165","404")
+            createPotion(user,"165","404")
         elseif index == 6 then
-            createPotion(User,"165","405")
+            createPotion(user,"165","405")
         elseif index == 7 then
-            createPotion(User,"165","406")
+            createPotion(user,"165","406")
+        elseif index == 8 then
+            createCustomInformPotion(user, "165")
+        end
+    end
+    local callback7 = function(dialog7)
+        if not dialog7:getSuccess() then
+            return
+        end
+        local index = dialog7:getSelectedIndex() +1
+        if index == 1 then
+            createCustomInformPotion(user,"165")
+        elseif index == 2 then
+            createCustomInformPotion(user,"166")
+        elseif index == 3 then
+            createCustomInformPotion(user,"327")
+        elseif index == 4 then
+            createCustomInformPotion(user,"330")
+        elseif index == 5 then
+            createCustomInformPotion(user,"59")
+        elseif index == 6 then
+            createCustomInformPotion(user,"329")
+        elseif index == 7 then
+            createCustomInformPotion(user,"167")
+        elseif index == 8 then
+            createCustomInformPotion(user,"328")
+        elseif index == 9 then
+            createCustomInformPotion(user,"331")
+        elseif index == 10 then
+            createCustomInformPotion(user,"1063")
+        elseif index == 11 then
+            createCustomInformPotion(user,"1164")
+        elseif index == 12 then
+            createCustomInformPotion(user,"1165")
+        elseif index == 13 then
+            createCustomInformPotion(user,"1166")
+        elseif index == 14 then
+            createCustomInformPotion(user,"1167")
+        elseif index == 15 then
+            createCustomInformPotion(user,"1168")
+        elseif index == 16 then
+            createCustomInformPotion(user,"1169")
         end
     end
     local dialog = SelectionDialog("Amethyst Potions", "Select which type of Amethyst Potion you want to create.", callback1)
@@ -1451,6 +1522,7 @@ local function potionTypeSelection(User, potionType)
     local dialog4 = SelectionDialog("Bombs", "Select which type of bomb you want to create.", callback4)
     local dialog5 = SelectionDialog("Language Potions", "Select which type of language potion you want to create.", callback5)
     local dialog6 = SelectionDialog("Quality Raisers", "Select which type of potion you want to create a quality raiser for.", callback6)
+    local dialog7 = SelectionDialog("Custom Informs", "Select which type of potion you want to create a custom inform for.", callback7)
     dialog:addOption(0, "Custom Potion")
     dialog:addOption(0, "Health Potion")
     dialog:addOption(0, "Un-Health Potion")
@@ -1510,41 +1582,60 @@ local function potionTypeSelection(User, potionType)
     dialog6:addOption(0, "Amethyst Potions")
     dialog6:addOption(0, "Topaz Potions")
     dialog6:addOption(0, "Language Potions")
+    dialog7:addOption(0, "Blue Potion")
+    dialog7:addOption(0, "Violet Potion")
+    dialog7:addOption(0, "Dark Blue Potion")
+    dialog7:addOption(0, "White Potion")
+    dialog7:addOption(0, "Red Potion")
+    dialog7:addOption(0, "Black Potion")
+    dialog7:addOption(0, "Yellow Potion")
+    dialog7:addOption(0, "Orange Potion")
+    dialog7:addOption(0, "Green Potion")
+    dialog7:addOption(0, "Light Green Potion")
+    dialog7:addOption(0, "Light Blue Sparkling Potion")
+    dialog7:addOption(0, "Dark Blue Sparkling Potion")
+    dialog7:addOption(0, "Green Sparkling Potion")
+    dialog7:addOption(0, "Violet Sparkling Potion")
+    dialog7:addOption(0, "Yellow Sparkling Potion")
+    dialog7:addOption(0, "Red Sparkling Potion")
     if potionType == "Amethyst" then
-        User:requestSelectionDialog(dialog)
+        user:requestSelectionDialog(dialog)
     elseif potionType == "Ruby" then
-        User:requestSelectionDialog(dialog2)
+        user:requestSelectionDialog(dialog2)
     elseif potionType == "Obsidian" then
-        User:requestSelectionDialog(dialog3)
+        user:requestSelectionDialog(dialog3)
     elseif potionType == "Sapphire" then
-        User:requestSelectionDialog(dialog4)
+        user:requestSelectionDialog(dialog4)
     elseif potionType == "Diamond" then
-        User:requestSelectionDialog(dialog5)
+        user:requestSelectionDialog(dialog5)
     elseif potionType == "Emerald" then
-        User:requestSelectionDialog(dialog6)
+        user:requestSelectionDialog(dialog6)
+    elseif potionType == "None" then
+        debug("None is correct")
+        user:requestSelectionDialog(dialog7)
     end
 end
 
-local function potionSelection(User)
+local function potionSelection(user)
     local callback = function(dialog)
         if not dialog:getSuccess() then
             return
         end
         local index = dialog:getSelectedIndex() + 1
         if index == 1 then
-            potionTypeSelection(User, "Amethyst")
+            potionTypeSelection(user, "Amethyst")
         elseif index == 2 then
-            potionTypeSelection(User, "Ruby" )
+            potionTypeSelection(user, "Ruby" )
         elseif index == 3 then
-            potionTypeSelection(User, "Obsidian" )
+            potionTypeSelection(user, "Obsidian" )
         elseif index == 4 then
-            potionTypeSelection(User, "Sapphire" )
+            potionTypeSelection(user, "Sapphire" )
         elseif index == 5 then
-            potionTypeSelection(User, "Diamond" )
+            potionTypeSelection(user, "Diamond" )
         elseif index == 6 then
-            potionTypeSelection(User, "Emerald" )
+            potionTypeSelection(user, "Emerald" )
         elseif index == 7 then
-            potionTypeSelection(User, "Topaz" )
+            potionTypeSelection(user, "None" )
         end
     end
     local dialog = SelectionDialog("Potion Creation", "What type of potion do you want to create?", callback)
@@ -1554,10 +1645,11 @@ local function potionSelection(User)
     dialog:addOption(0, "Bombs")
     dialog:addOption(0, "Language")
     dialog:addOption(0, "Quality Increaser")
-    User:requestSelectionDialog(dialog)
+    dialog:addOption(0, "Custom Inform Potions")
+    user:requestSelectionDialog(dialog)
 end
 
-local function createPortal(User, portalType)
+local function createPortal(user, portalType)
     local x
     local y
     local z
@@ -1578,36 +1670,36 @@ local function createPortal(User, portalType)
             local input2 = dialog2:getInput()
             if (string.find(input2,"(%d+)")~=nil) then
                 _, _, amount = string.find(input2,"(%d+)")
-                common.CreateItem(User,tonumber(portalType),tonumber(amount),999,{["destinationCoordsX"]=x,["destinationCoordsY"]=y,["destinationCoordsZ"]=z})
+                common.CreateItem(user,tonumber(portalType),tonumber(amount),999,{["destinationCoordsX"]=x,["destinationCoordsY"]=y,["destinationCoordsZ"]=z})
             end
         end
-        User:requestInputDialog(InputDialog("Portal creation", "How many portals with these coordinates do you want to create?",false,255,callback2))
+        user:requestInputDialog(InputDialog("Portal creation", "How many portals with these coordinates do you want to create?",false,255,callback2))
     end
-User:requestInputDialog(InputDialog("Portal creation", "Set the coordinates the portals should lead to.\nEG:131 609 0",false,255,callback))
+user:requestInputDialog(InputDialog("Portal creation", "Set the coordinates the portals should lead to.\nEG:131 609 0",false,255,callback))
 end
 
-local function portalsSelection(User)
+local function portalsSelection(user)
     local callback = function(dialog)
         if not dialog:getSuccess() then
             return
         end
         local index = dialog:getSelectedIndex() + 1
         if index == 1 then
-            createPortal(User, "10")
+            createPortal(user, "10")
         elseif index == 2 then
-            createPortal(User, "798")
+            createPortal(user, "798")
         elseif index == 3 then
-            createPortal(User, "1061")
+            createPortal(user, "1061")
         end
     end
     local dialog = SelectionDialog("Portal creation", "What type of portal do you want to create?", callback)
     dialog:addOption(0, "Blue Portal")
     dialog:addOption(0, "Red Portal")
     dialog:addOption(0, "Portal Book")
-    User:requestSelectionDialog(dialog)
+    user:requestSelectionDialog(dialog)
 end
 
-local function specialItemCreationSpecialEggs(User)
+local function specialItemCreationSpecialEggs(user)
 
     local cbInputDialog = function (dialog)
         if not dialog:getSuccess() then
@@ -1616,13 +1708,13 @@ local function specialItemCreationSpecialEggs(User)
         local input = dialog:getInput()
         if (string.find(input,"(%d+)") ~= nil) then
             local _, _, amount = string.find(input,"(%d+)")
-            specialeggs.createSpecialEgg(User, tonumber(amount))
+            specialeggs.createSpecialEgg(user, tonumber(amount))
         end
     end
-    User:requestInputDialog(InputDialog("Egg creation", "How many special eggs to you want to create? (Notice: Eggs will have a normal wear of 3. Increase manually if needed." ,false, 255, cbInputDialog))
+    user:requestInputDialog(InputDialog("Egg creation", "How many special eggs to you want to create? (Notice: Eggs will have a normal wear of 3. Increase manually if needed." ,false, 255, cbInputDialog))
 end
 
-local function specialItemCreationMysticalCracker(User)
+local function specialItemCreationMysticalCracker(user)
 
     local cbInputDialog = function (dialog)
         if not dialog:getSuccess() then
@@ -1631,13 +1723,13 @@ local function specialItemCreationMysticalCracker(User)
         local input = dialog:getInput()
         if (string.find(input,"(%d+)") ~= nil) then
             local _, _, amount = string.find(input,"(%d+)")
-            mysticalcracker.createMysticalCracker(User, tonumber(amount))
+            mysticalcracker.createMysticalCracker(user, tonumber(amount))
         end
     end
-    User:requestInputDialog(InputDialog("Cracker Creation", "How many mystical crackers to you want to create? (Notice: Crackers will have a normal wear of 10. Increase manually if needed." ,false, 255, cbInputDialog))
+    user:requestInputDialog(InputDialog("Cracker Creation", "How many mystical crackers to you want to create? (Notice: Crackers will have a normal wear of 10. Increase manually if needed." ,false, 255, cbInputDialog))
 end
 
-local function specialItemCreationTreasureChest(User)
+local function specialItemCreationTreasureChest(user)
     local position
     local cbInputDialog = function (dialog)
         if not dialog:getSuccess() then
@@ -1647,27 +1739,27 @@ local function specialItemCreationTreasureChest(User)
         if (string.find(input,"(%d) (%d)") ~= nil) then
             local _, _, level, persons = string.find(input,"(%d) (%d)")
             if level == nil or tonumber(level) < 0 or tonumber(level) > 9 then
-                User:inform("The level of the treasure chest must be a value from 0(no treasure via 1(farmer) to 9(nabranoo).")
+                user:inform("The level of the treasure chest must be a value from 0(no treasure via 1(farmer) to 9(nabranoo).")
                 return
             end
             if persons == nil or tonumber(persons) < 1 or tonumber(persons) > 8 then
-                User:inform("The number of persons needed to open the treasure chest must be a value from 1 to 8.")
+                user:inform("The number of persons needed to open the treasure chest must be a value from 1 to 8.")
                 return
             end
-            position = common.GetFrontPosition(User)
+            position = common.GetFrontPosition(user)
             if world:isItemOnField(position) == true then
-                User:inform("The place for the chest is not free.")
+                user:inform("The place for the chest is not free.")
                 return
             end
             spawntreasures.spawnTreasureChest(position, level, persons)
         else
-            User:inform("The input :'" .. input .. "' is not corret. Please use e.g. '3 2'.")
+            user:inform("The input :'" .. input .. "' is not corret. Please use e.g. '3 2'.")
         end
     end
-    User:requestInputDialog(InputDialog("Treasure Chest Creation", "Please enter level and amount of people needed\nFormat: '[1-9] [1-8]'" ,false, 255, cbInputDialog))
+    user:requestInputDialog(InputDialog("Treasure Chest Creation", "Please enter level and amount of people needed\nFormat: '[1-9] [1-8]'" ,false, 255, cbInputDialog))
 end
 
-local function specialItemCreationGlyphShard(User)
+local function specialItemCreationGlyphShard(user)
     local cbInputDialog = function (dialog)
         if not dialog:getSuccess() then
             return
@@ -1676,34 +1768,34 @@ local function specialItemCreationGlyphShard(User)
         if (string.find(input,"(%d+)") ~= nil) then
             if (string.find(input,"[1-7][1-7]") ~= nil) then
                 local _, _, level = string.find(input,"(%d+)")
-                shard.createShardWithLevelOnUser(User, level)
+                shard.createShardWithLevelOnuser(user, level)
             else
                 local _, _, amount = string.find(input,"(%d+)")
                 for i=1, tonumber(amount) do
-                    shard.createShardOnUser(User)
+                    shard.createShardOnuser(user)
                 end
             end
         else
-            shard.createShardOnUser(User)
+            shard.createShardOnuser(user)
         end
     end
-    User:requestInputDialog(InputDialog("Glyph Shard Creation",
+    user:requestInputDialog(InputDialog("Glyph Shard Creation",
                                         "Please enter which shard you want to create" ..
                                         "\n- Nothing: A single random shard." ..
                                         "\n- [1-7][1-7]: A singe defined shard." ..
                                         "\n- Other numbers: Number of random shards.",false, 255, cbInputDialog))
 end
 
-local function specialItemCreationCreate(User,indexItem)
+local function specialItemCreationCreate(user,indexItem)
     if SpecialItem[indexItem][2] then
         if indexItem == 1 then
-            specialItemCreationMysticalCracker(User)
+            specialItemCreationMysticalCracker(user)
         elseif indexItem == 2 then
-            specialItemCreationSpecialEggs(User)
+            specialItemCreationSpecialEggs(user)
         elseif indexItem == 3 then
-            specialItemCreationTreasureChest(User)
+            specialItemCreationTreasureChest(user)
         elseif indexItem == 18 then
-            specialItemCreationGlyphShard(User)
+            specialItemCreationGlyphShard(user)
         else
             return
         end
@@ -1716,17 +1808,17 @@ local function specialItemCreationCreate(User,indexItem)
             if (string.find(input,"(%d+)") ~= nil) then
                 local _, _, amount = string.find(input,"(%d+)")
                 if SpecialItem[indexItem][4] == MagicGem then
-                    common.CreateItem(User, SpecialItem[indexItem][3], tonumber(amount), 333,{gemLevel=1})
+                    common.CreateItem(user, SpecialItem[indexItem][3], tonumber(amount), 333,{gemLevel=1})
                 else
-                    common.CreateItem(User, SpecialItem[indexItem][3], tonumber(amount), 333,nil)
+                    common.CreateItem(user, SpecialItem[indexItem][3], tonumber(amount), 333,nil)
                 end
             end
         end
-        User:requestInputDialog(InputDialog("Item Creation", "How many "..SpecialItem[indexItem][1].." do you want to create?" ,false, 255, cbInputDialog))
+        user:requestInputDialog(InputDialog("Item Creation", "How many "..SpecialItem[indexItem][1].." do you want to create?" ,false, 255, cbInputDialog))
     end
 end
 
-local function specialItemCreation(User)
+local function specialItemCreation(user)
     local validItems = {}
     local validItemsSub = {}
 
@@ -1736,7 +1828,7 @@ local function specialItemCreation(User)
         end
         local indexItem = dialog:getSelectedIndex() + 1
         if validItems[indexItem][2] == 0 then
-            specialItemCreationCreate(User,validItems[indexItem][1])
+            specialItemCreationCreate(user,validItems[indexItem][1])
         else
         --
             local cbChooseSubItem = function (subdialog)
@@ -1744,7 +1836,7 @@ local function specialItemCreation(User)
                     return
                 end
                 local indexItemSub = subdialog:getSelectedIndex() + 1
-                specialItemCreationCreate(User,validItemsSub[indexItemSub][1])
+                specialItemCreationCreate(user,validItemsSub[indexItemSub][1])
             end
             local sdItemListSub = SelectionDialog("Special Items.", "Choose an item:", cbChooseSubItem)
             local optionSubId = 1
@@ -1755,7 +1847,7 @@ local function specialItemCreation(User)
                     optionSubId = optionSubId+1
                 end
             end
-            User:requestSelectionDialog(sdItemListSub)
+            user:requestSelectionDialog(sdItemListSub)
         --
         end
     end
@@ -1773,7 +1865,7 @@ local function specialItemCreation(User)
         validItems[optionId] = {0,i}
         optionId = optionId+1
     end
-    User:requestSelectionDialog(sdItemList)
+    user:requestSelectionDialog(sdItemList)
 end
 
 local function readScriptVars(user)
@@ -1821,7 +1913,7 @@ function M.saveRemovePosition(thePos)
     end
 end
 
-function M.UseItem(User, SourceItem)
+function M.UseItem(user, SourceItem)
     -- First check for mode change
     local modes = {"Items", "Weather", "Factions", "Spawnpoint", "Special Item Creation", "Script Variables","Teleporter","Harbours", "Portals", "Potions"}
     local cbSetMode = function (dialog)
@@ -1831,32 +1923,32 @@ function M.UseItem(User, SourceItem)
 
         local index = dialog:getSelectedIndex() + 1
         if  index == 1 then
-            chooseItem(User)
+            chooseItem(user)
         elseif index == 2 then
-            weather(User, SourceItem)
+            weather(user, SourceItem)
         elseif index == 3 then
-            factionHandling(User, SourceItem)
+            factionHandling(user, SourceItem)
         elseif index == 4 then
-            spawnPoint(User, SourceItem)
+            spawnPoint(user, SourceItem)
         elseif index == 5 then
-            specialItemCreation(User)
+            specialItemCreation(user)
         elseif index == 6 then
-            readScriptVars(User)
+            readScriptVars(user)
         elseif index == 7 then
-            staticteleporter.gmManageTeleporter(User)
+            staticteleporter.gmManageTeleporter(user)
         elseif index == 8 then
-            seafaring.gmManagePorts(User)
+            seafaring.gmManagePorts(user)
         elseif index == 9 then
-            portalsSelection(User)
+            portalsSelection(user)
         elseif index == 10 then
-            potionSelection(User)
+            potionSelection(user)
         end
     end
     local sd = SelectionDialog("Set mode of this ceiling trowel", "To which mode you want to change?", cbSetMode)
     for _, m in ipairs(modes) do
         sd:addOption(0, m)
     end
-    User:requestSelectionDialog(sd)
+    user:requestSelectionDialog(sd)
 end
 
 return M
