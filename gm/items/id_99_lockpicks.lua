@@ -76,7 +76,7 @@ Location[36]={"Spider Dungeon","Dungeons",854,414,0}
 Location[37]={"Viridian Needles lair","Dungeons",522,205,0}
 Location[38]={"Northern Islands","Wilderness",365,50,0}
 
-local maxUserLocation = 6
+local maxuserLocation = 6
 local maxActionOnChar = 6
 local maxActionOnGroup = 6
 
@@ -135,7 +135,7 @@ classNames[1] = "Priest"
 classNames[2] = "Bard"
 classNames[3] = "Alchemist"
 
-local function akalutCadomyrBlockade(User, SourceItem, ltstate)
+local function akalutCadomyrBlockade(user, SourceItem, ltstate)
 
     local foundValue, value = ScriptVars:find("akalutCadomyrBlockade")
     local newValue
@@ -162,7 +162,7 @@ local function akalutCadomyrBlockade(User, SourceItem, ltstate)
         end
         local index = dialog:getSelectedIndex() + 1
         if index == 1 then
-            User:inform(informMessage)
+            user:inform(informMessage)
             ScriptVars:set("akalutCadomyrBlockade",newValue)
             ScriptVars:save()
         else
@@ -173,11 +173,11 @@ local function akalutCadomyrBlockade(User, SourceItem, ltstate)
     for _, m in ipairs(yesOrNo) do
         sd:addOption(0, m)
     end
-    User:requestSelectionDialog(sd)
+    user:requestSelectionDialog(sd)
 
 end
 
-local function questEvents(User, SourceItem, ltstate)
+local function questEvents(user, SourceItem, ltstate)
 
     local specialQuestEvents = {"Akalut: Cadomyr blockade"}
     local cbQuestEvents = function (dialog)
@@ -186,14 +186,14 @@ local function questEvents(User, SourceItem, ltstate)
         end
         local index = dialog:getSelectedIndex() + 1
         if index == 1 then
-            akalutCadomyrBlockade(User, SourceItem, ltstate)
+            akalutCadomyrBlockade(user, SourceItem, ltstate)
         end
     end
     local sd = SelectionDialog("Select special quest event.", "Select special quest event", cbQuestEvents)
     for _, m in ipairs(specialQuestEvents) do
         sd:addOption(0, m)
     end
-    User:requestSelectionDialog(sd)
+    user:requestSelectionDialog(sd)
 
 end
 
@@ -286,14 +286,14 @@ local function ambientActionFlameRemover(user,targetChar)
     user:requestInputDialog(InputDialog("Remove flames around you", "Usage enter: flameId radius  -- Flame id can be 359 (fire) or 360 (ice). Radius is capped at 10." ,false, 255, cbInputDialog))
 end
 
-local function ambientActionFireBreath(User,targetChar)
+local function ambientActionFireBreath(user,targetChar)
     local gmSpell = require("monster.base.spells.firecone"){probability = 1,  damage = {from = 1250, to = 1500}, range = 6, angularAperture = 30, itemProbability = 0.1, quality = {from = 0, to = 1}, movepoints = 0}
-    gmSpell.cast(User,targetChar)
+    gmSpell.cast(user,targetChar)
 end
 
-local function ambientActionIceBreath(User,targetChar)
+local function ambientActionIceBreath(user,targetChar)
     local gmSpell = require("monster.base.spells.icecone"){probability = 1,  damage = {from = 1250, to = 1500}, range = 6, angularAperture = 30, itemProbability = 0.1, quality = {from = 0, to = 1}, movepoints = 0}
-    gmSpell.cast(User,targetChar)
+    gmSpell.cast(user,targetChar)
 end
 
 local function ambientActionFireRing(targetChar)
@@ -354,12 +354,12 @@ local function ambientActionShardShower(targetChar)
     end
 end
 
-local function eraser(User)
+local function eraser(user)
 
     --get all the items the char has on him, with the stuff in the backpack
     local itemsOnChar = {}
     for i = 17, 0, -1 do
-        local item = User:getItemAt(i)
+        local item = user:getItemAt(i)
         if (item.id > 0) then
             table.insert(itemsOnChar, item)
         end
@@ -373,21 +373,21 @@ local function eraser(User)
         local chosenItem
         local index = dialog:getSelectedIndex()
         if (index == 0) then
-            chosenItem = common.GetFrontItem(User)
+            chosenItem = common.GetFrontItem(user)
             if chosenItem ~= nil then
                 world:erase(chosenItem, chosenItem.number)
-                User:logAdmin("erases " .. chosenItem.number .. " items from map: " .. world:getItemName(chosenItem.id, Player.english) .. "(" .. chosenItem.id .. ") at " .. tostring(common.GetFrontPosition(User)))
+                user:logAdmin("erases " .. chosenItem.number .. " items from map: " .. world:getItemName(chosenItem.id, Player.english) .. "(" .. chosenItem.id .. ") at " .. tostring(common.GetFrontPosition(user)))
             end
         elseif (index == 1) then
-            while common.GetFrontItem(User) ~= nil do
-                chosenItem = common.GetFrontItem(User)
+            while common.GetFrontItem(user) ~= nil do
+                chosenItem = common.GetFrontItem(user)
                 world:erase(chosenItem, chosenItem.number)
-                User:logAdmin("erases " .. chosenItem.number .. " items from map: " .. world:getItemName(chosenItem.id, Player.english) .. "(" .. chosenItem.id .. ") at " .. tostring(common.GetFrontPosition(User)))
+                user:logAdmin("erases " .. chosenItem.number .. " items from map: " .. world:getItemName(chosenItem.id, Player.english) .. "(" .. chosenItem.id .. ") at " .. tostring(common.GetFrontPosition(user)))
             end
         else
             chosenItem = itemsOnChar[index-1]
             world:erase(chosenItem, chosenItem.number)
-            User:logAdmin("erases " ..chosenItem.number.. " items from inventory: " .. world:getItemName(chosenItem.id, Player.english) .. "(" .. chosenItem.id .. ")")
+            user:logAdmin("erases " ..chosenItem.number.. " items from inventory: " .. world:getItemName(chosenItem.id, Player.english) .. "(" .. chosenItem.id .. ")")
         end
     end
     local sdItems = SelectionDialog("Erase items.", "Choose the item you wish to erase:", cbChooseItem)
@@ -397,10 +397,10 @@ local function eraser(User)
         local itemName = world:getItemName(item.id, Player.english)
         sdItems:addOption(item.id, itemName .. " (" .. itemPos[item.itempos] .. ") Count: ".. item.number)
     end
-    User:requestSelectionDialog(sdItems)
+    user:requestSelectionDialog(sdItems)
 end
 
-local function setUserTeleporter(user,Item)
+local function setuserTeleporter(user,Item)
     local cbChooseLocation = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -424,7 +424,7 @@ local function setUserTeleporter(user,Item)
         user:requestInputDialog(InputDialog("Custom target", "Define a customized teleporter target.\n Use: x,y,level,Target name" ,false, 255, cbInputDialog))
     end
     local sdTeleport = SelectionDialog("Teleporter.", "Define a destination:", cbChooseLocation)
-    for i = 1, maxUserLocation do
+    for i = 1, maxuserLocation do
         local locationParameter = Item:getData("gmLocation" .. tostring(i))
         if common.IsNilOrEmpty(locationParameter) then
             sdTeleport:addOption(0, tostring(i)..": empty")
@@ -435,7 +435,7 @@ local function setUserTeleporter(user,Item)
     user:requestSelectionDialog(sdTeleport)
 end
 
-local function teleporter(User,item)
+local function teleporter(user,item)
     local validTarget = {}
     local validCharPos = {}
 
@@ -452,29 +452,29 @@ local function teleporter(User,item)
                 end
                 local warpToPlayer = validCharPos[subdialog:getSelectedIndex() + 1]
                 if isValidChar(warpToPlayer) then
-                    User:warp(position(warpToPlayer.pos.x, warpToPlayer.pos.y, warpToPlayer.pos.z))
+                    user:warp(position(warpToPlayer.pos.x, warpToPlayer.pos.y, warpToPlayer.pos.z))
                 else
-                    User:inform("This character is not online anymore.")
+                    user:inform("This character is not online anymore.")
                 end
             end
             local sdTeleportPlayer = SelectionDialog("Teleporter.", "Choose a destination:", cbChoosePlayerLocation)
             for i, checkChar in pairs (onlineChars) do
-                if checkChar.id ~= User.id then
+                if checkChar.id ~= user.id then
                     sdTeleportPlayer:addOption(0, checkChar.name .. " (" .. checkChar.pos.x..", "..checkChar.pos.y..", "..checkChar.pos.z .. ")")
                     table.insert(validCharPos, checkChar)
                 end
             end
-            User:requestSelectionDialog(sdTeleportPlayer)
+            user:requestSelectionDialog(sdTeleportPlayer)
         else
             if validTarget[index][4] == 0 then
-                User:warp(position(validTarget[index][1], validTarget[index][2], validTarget[index][3]))
+                user:warp(position(validTarget[index][1], validTarget[index][2], validTarget[index][3]))
             else
             local cbChooseSubLocation = function (subdialog)
                 if (not subdialog:getSuccess()) then
                     return
                 end
                 local indexSubTarget = subdialog:getSelectedIndex() + 1
-                User:warp(position(validTarget[indexSubTarget][1], validTarget[indexSubTarget][2], validTarget[indexSubTarget][3]))
+                user:warp(position(validTarget[indexSubTarget][1], validTarget[indexSubTarget][2], validTarget[indexSubTarget][3]))
             end
             local sdSubTeleport = SelectionDialog("Teleporter.", "Choose a destination:", cbChooseSubLocation)
             local optionSubId = 1
@@ -485,7 +485,7 @@ local function teleporter(User,item)
                     optionSubId = optionSubId+1
                 end
             end
-            User:requestSelectionDialog(sdSubTeleport)
+            user:requestSelectionDialog(sdSubTeleport)
             end
         end
     end
@@ -503,7 +503,7 @@ local function teleporter(User,item)
         validTarget[optionId] = {0,0,0,i}
         optionId = optionId+1
     end
-    for i = 1, maxUserLocation do
+    for i = 1, maxuserLocation do
         local locationParameter = item:getData("gmLocation" .. tostring(i))
         if not common.IsNilOrEmpty(locationParameter) then
             if (string.find(locationParameter,"(%d+),(%d+),([%-]?%d+),(%S+)") ~= nil) then
@@ -514,12 +514,12 @@ local function teleporter(User,item)
             end
         end
     end
-    User:requestSelectionDialog(sdTeleport)
+    user:requestSelectionDialog(sdTeleport)
 end
 
-local function factionInfoOfCharsInRadius(User)
+local function factionInfoOfCharsInRadius(user)
 
-    local players = world:getPlayersInRangeOf(User.pos, 40)
+    local players = world:getPlayersInRangeOf(user.pos, 40)
     local infos = ""
     local germanRank, englishRank
 
@@ -532,7 +532,7 @@ local function factionInfoOfCharsInRadius(User)
         infos = infos..player.name.." - "..englishRank.."/"..germanRank.." - "..factions.getRankpoints(player).."\n"
     end
     local mDialog = MessageDialog("Factioninformation", infos, nil)
-    User:requestMessageDialog(mDialog)
+    user:requestMessageDialog(mDialog)
 end
 
 local function charInfo(chosenPlayer)
@@ -589,7 +589,7 @@ local function String2Number(str)
     return 0, false
 end
 
-local function settingsForCharSkills(User, chosenPlayer)
+local function settingsForCharSkills(user, chosenPlayer)
     local skillDialog = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -601,28 +601,28 @@ local function settingsForCharSkills(User, chosenPlayer)
             end
             local skillValue, okay = String2Number(subdialog:getInput())
             if (not okay) then
-                User:inform("no number")
+                user:inform("no number")
                 return
             end
             if (skillValue < 0 or skillValue > 100) then
-                User:inform("Value has to be between 0 and 100.")
+                user:inform("Value has to be between 0 and 100.")
                 return
             end
             local delta = skillValue - chosenPlayer:getSkill(chosenSkill)
             chosenPlayer:increaseSkill(chosenSkill, delta)
-            User:logAdmin("changes skill of character " .. chosenPlayer.name .. ". " .. chosenPlayer:getSkillName(chosenSkill) .. ": " .. chosenPlayer:getSkill(chosenSkill) - delta .. " to " .. chosenPlayer:getSkill(chosenSkill))
+            user:logAdmin("changes skill of character " .. chosenPlayer.name .. ". " .. chosenPlayer:getSkillName(chosenSkill) .. ": " .. chosenPlayer:getSkill(chosenSkill) - delta .. " to " .. chosenPlayer:getSkill(chosenSkill))
         end
-        local sdChange = InputDialog("Change skill for "..chosenPlayer.name, "Type in the new value for "..User:getSkillName(chosenSkill).."\nCurrent value: " .. chosenPlayer:getSkill(chosenSkill), false, 255, changeDialog)
-        User:requestInputDialog(sdChange)
+        local sdChange = InputDialog("Change skill for "..chosenPlayer.name, "Type in the new value for "..user:getSkillName(chosenSkill).."\nCurrent value: " .. chosenPlayer:getSkill(chosenSkill), false, 255, changeDialog)
+        user:requestInputDialog(sdChange)
     end
     local sdSkill = SelectionDialog("Select skill", "What skill do you wish to change for "..chosenPlayer.name.."?", skillDialog)
     for _, skill in ipairs(skillNames) do
-        sdSkill:addOption(0,User:getSkillName(skill).." value: "..chosenPlayer:getSkill(skill))
+        sdSkill:addOption(0,user:getSkillName(skill).." value: "..chosenPlayer:getSkill(skill))
     end
-    User:requestSelectionDialog(sdSkill)
+    user:requestSelectionDialog(sdSkill)
 end
 
-local function settingsForCharAttributes(User, chosenPlayer)
+local function settingsForCharAttributes(user, chosenPlayer)
     local textShown
     local attibuteDialog = function (dialog)
         if (not dialog:getSuccess()) then
@@ -635,19 +635,19 @@ local function settingsForCharAttributes(User, chosenPlayer)
             end
             local attributeValue, okay = String2Number(subdialog:getInput())
             if (not okay) then
-                User:inform("no number")
+                user:inform("no number")
                 return
             end
             if not chosenPlayer:isBaseAttributeValid(chosenAttribute,attributeValue) then
-                User:inform("Value out of permitted range.")
+                user:inform("Value out of permitted range.")
 --                return
             end
-            User:logAdmin("changes attribute of character " .. chosenPlayer.name .. ". " .. chosenAttribute .. " from " .. chosenPlayer:getBaseAttribute(chosenAttribute).. " to " .. tostring(attributeValue)..".")
-            User:inform("change " .. chosenAttribute .. " from " .. chosenPlayer:getBaseAttribute(chosenAttribute).. " to " .. tostring(attributeValue)..".")
+            user:logAdmin("changes attribute of character " .. chosenPlayer.name .. ". " .. chosenAttribute .. " from " .. chosenPlayer:getBaseAttribute(chosenAttribute).. " to " .. tostring(attributeValue)..".")
+            user:inform("change " .. chosenAttribute .. " from " .. chosenPlayer:getBaseAttribute(chosenAttribute).. " to " .. tostring(attributeValue)..".")
             chosenPlayer:setBaseAttribute(chosenAttribute,attributeValue)
         end
         local sdChange = InputDialog("Change attribute for "..chosenPlayer.name, "Type in the new value for "..chosenAttribute.."\nCurrent value: " .. chosenPlayer:getBaseAttribute(chosenAttribute), false, 255, changeDialog)
-        User:requestInputDialog(sdChange)
+        user:requestInputDialog(sdChange)
     end
     local attributeSum = chosenPlayer:getBaseAttributeSum()
     local attributePermit = chosenPlayer:getMaxAttributePoints()
@@ -663,10 +663,10 @@ local function settingsForCharAttributes(User, chosenPlayer)
     for _, attribute in ipairs(attributeNames) do
         sdAttribute:addOption(0,attribute.." value: "..chosenPlayer:getBaseAttribute(attribute))
     end
-    User:requestSelectionDialog(sdAttribute)
+    user:requestSelectionDialog(sdAttribute)
 end
 
-local function settingsForCharChangeDevotion(User, chosenPlayer)
+local function settingsForCharChangeDevotion(user, chosenPlayer)
     local dialogOptions = {
         {text = "Not devoted", func = gods.setNotDevoted, args = { chosenPlayer } },
     }
@@ -676,11 +676,11 @@ local function settingsForCharChangeDevotion(User, chosenPlayer)
         )
     end
 
-    common.selectionDialogWrapper(User, "Char devotion", gods.getCharStatusEn(chosenPlayer).."\nWhich god do you want this char to be devoted?", dialogOptions)
+    common.selectionDialogWrapper(user, "Char devotion", gods.getCharStatusEn(chosenPlayer).."\nWhich god do you want this char to be devoted?", dialogOptions)
 
 end
 
-local function settingsForCharChangeDivineFavour(User, chosenPlayer, god)
+local function settingsForCharChangeDivineFavour(user, chosenPlayer, god)
     local changeDialog = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -690,7 +690,7 @@ local function settingsForCharChangeDivineFavour(User, chosenPlayer, god)
 
         local enteredValue, okay = String2Number(string.sub(enteredText, 2))
         if (not okay) then
-            User:inform("no number")
+            user:inform("no number")
             return
         end
 
@@ -702,30 +702,30 @@ local function settingsForCharChangeDivineFavour(User, chosenPlayer, god)
         elseif firstChar == "=" then
             delta = enteredValue - gods.getFavour(chosenPlayer, god)
         else
-            User:inform("Must start with '+' or '-' or '='.")
+            user:inform("Must start with '+' or '-' or '='.")
             return
         end
 
         if (delta < -4000 or delta > 4000) then
-            User:inform("Change value has to be between -4000 and 4000.")
+            user:inform("Change value has to be between -4000 and 4000.")
             return
         end
 
         gods.increaseFavour(chosenPlayer, god, delta)
-        User:logAdmin("changes divine favour of character " .. chosenPlayer.name .. ". " .. gods.getNameEn(god) .. ": by " .. delta .. " to " .. gods.getFavour(chosenPlayer, god))
+        user:logAdmin("changes divine favour of character " .. chosenPlayer.name .. ". " .. gods.getNameEn(god) .. ": by " .. delta .. " to " .. gods.getFavour(chosenPlayer, god))
     end
     local sdChange = InputDialog(
         "Change favour of "..gods.getNameEn(god),
         "Current value: "..gods.getFavour(chosenPlayer, god).."\n"..
         "Type in by how much to increase/decrease it, start with '+' or '-' or '=' :",
         false, 255, changeDialog)
-    User:requestInputDialog(sdChange)
+    user:requestInputDialog(sdChange)
 end
 
 
-local function settingsForCharReligion(User, chosenPlayer)
+local function settingsForCharReligion(user, chosenPlayer)
     local dialogOptions = {
-        {text = "Change devotion", func = settingsForCharChangeDevotion, args = { User, chosenPlayer } },
+        {text = "Change devotion", func = settingsForCharChangeDevotion, args = { user, chosenPlayer } },
     }
     if gods.isDevoted(chosenPlayer) then
         table.insert(dialogOptions,
@@ -735,20 +735,20 @@ local function settingsForCharReligion(User, chosenPlayer)
 
     for god,_ in pairs(gods.GODS) do
         table.insert(dialogOptions,
-            {text = "Favour of "..gods.getNameEn(god)..": "..gods.getFavour(chosenPlayer,god), func = settingsForCharChangeDivineFavour, args = { User, chosenPlayer, god } }
+            {text = "Favour of "..gods.getNameEn(god)..": "..gods.getFavour(chosenPlayer,god), func = settingsForCharChangeDivineFavour, args = { user, chosenPlayer, god } }
         )
     end
 
-    common.selectionDialogWrapper(User, "Char religion", gods.getCharStatusEn(chosenPlayer), dialogOptions)
+    common.selectionDialogWrapper(user, "Char religion", gods.getCharStatusEn(chosenPlayer), dialogOptions)
 
 end
 
-local function godMode(User, SourceItem, ltstate)
+local function godMode(user, SourceItem, ltstate)
 
-    local playersTmp = world:getPlayersInRangeOf(User.pos, 25)
-    local players = {User}
+    local playersTmp = world:getPlayersInRangeOf(user.pos, 25)
+    local players = {user}
     for _, player in pairs(playersTmp) do
-        if (player.id ~= User.id) then
+        if (player.id ~= user.id) then
             table.insert(players, player)
         end
     end
@@ -759,13 +759,13 @@ local function godMode(User, SourceItem, ltstate)
         end
         local index = dialog:getSelectedIndex()
         if index == 0 then
-            local monsters = world:getMonstersInRangeOf(User.pos, 3)
+            local monsters = world:getMonstersInRangeOf(user.pos, 3)
             for _, monster in ipairs(monsters) do
                 monsterHooks.setForcedDeath(monster)
                 monster:increaseAttrib("hitpoints", -10000)
                 monsterHooks.cleanHooks(monster)
             end
-            User:logAdmin("instant kills " .. #monsters .. " monsters at " .. tostring(User.pos))
+            user:logAdmin("instant kills " .. #monsters .. " monsters at " .. tostring(user.pos))
         else
             local chosenPlayer = players[index]
             local killDialog = function (subdialog)
@@ -775,16 +775,16 @@ local function godMode(User, SourceItem, ltstate)
                 local subindex = subdialog:getSelectedIndex()
                 if subindex == 0 then --let's kill it
                     chosenPlayer:increaseAttrib("hitpoints", -10000)
-                    User:logAdmin("instant kills character " .. chosenPlayer.name)
+                    user:logAdmin("instant kills character " .. chosenPlayer.name)
                 elseif subindex == 1 then --let's revive it
                     chosenPlayer:increaseAttrib("hitpoints", 10000)
-                    User:logAdmin("instant revives character " .. chosenPlayer.name)
+                    user:logAdmin("instant revives character " .. chosenPlayer.name)
                 end
             end
             local sdKill = SelectionDialog("Play god", "What do you wish to do to "..chosenPlayer.name.."?", killDialog)
             sdKill:addOption(0, "Instant kill")
             sdKill:addOption(0, "Instant revive")
-            User:requestSelectionDialog(sdKill)
+            user:requestSelectionDialog(sdKill)
         end
     end
     --Dialog to choose the player
@@ -795,7 +795,7 @@ local function godMode(User, SourceItem, ltstate)
             local race = math.min(player:getRace() + 1, #raceNames)
             sdPlayer:addOption(0, player.name .. " (" .. raceNames[race] .. ") " .. player.id)
         end
-    User:requestSelectionDialog(sdPlayer)
+    user:requestSelectionDialog(sdPlayer)
 end
 
 local function numberIsPercent(inputValue)
@@ -837,7 +837,7 @@ local function actionOnCharSingleChar(targetChar, gfxValue, changeHP, changeMP, 
     end
 end
 
-local function setUserActionOnGroup(user,Item)
+local function setuserActionOnGroup(user,Item)
     local cbChooseAction = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -872,7 +872,7 @@ local function setUserActionOnGroup(user,Item)
     user:requestSelectionDialog(sdAction)
 end
 
-local function setUserActionOnChar(user,Item)
+local function setuserActionOnChar(user,Item)
     local cbChooseAction = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -964,25 +964,25 @@ local function actionOnGroupInput(user,targetChar)
     user:requestInputDialog(InputDialog("Custom event on char", "Perform a sequence on " .. targetChar.name .."\n Use: range,gfx,sfx,HP%,MP%,FL%,text\nrange is capped at 20\nHP% MP% FL% percentage:\n   -99 .. 100 related to current state \n   'max' fill full" ,false, 255, cbInputDialog))
 end
 
-local function actionOnCharDivineFeed(User, targetChar)
+local function actionOnCharDivineFeed(user, targetChar)
 -- Full Mana and food, + 10% health, fairy shower
     targetChar:increaseAttrib("mana", 10000)
     targetChar:increaseAttrib("foodlevel", 100000)
     targetChar:increaseAttrib("hitpoints", 1000)
     world:gfx(globalvar.gfxSCOTTY,targetChar.pos)
     common.InformNLS(targetChar, "Du fühlst dich frisch und satt.", "You feel fresh and well-feed.")
-    User:logAdmin("Performed DivineFeed on " ..  targetChar.name)
+    user:logAdmin("Performed DivineFeed on " ..  targetChar.name)
 end
 
-local function actionOnCharDivineNotice(User, targetChar)
+local function actionOnCharDivineNotice(user, targetChar)
 -- lightspot, wind
     world:gfx(globalvar.gfxSUN,targetChar.pos)
     world:makeSound(globalvar.sfxWIND2,targetChar.pos)
     common.InformNLS(targetChar, "Ein sanfter Wind umspielt deinen Kopf. Du fühlst dich gut.", "A soft wind touches your head. You feel good.")
-    User:logAdmin("Performed DivineNotice on " ..  targetChar.name)
+    user:logAdmin("Performed DivineNotice on " ..  targetChar.name)
 end
 
-local function actionOnCharDivineFury(User, targetChar)
+local function actionOnCharDivineFury(user, targetChar)
 -- Take 25% Mana and food, - 10% health, lightning, thunder
     targetChar:increaseAttrib("mana", -2500)
     targetChar:increaseAttrib("foodlevel", -25000)
@@ -990,10 +990,10 @@ local function actionOnCharDivineFury(User, targetChar)
     world:gfx(globalvar.gfxBLITZ,targetChar.pos)
     world:makeSound(globalvar.sfxTHUNDER,targetChar.pos)
     common.InformNLS(targetChar, "Bilder zorniger Götter laufen vor deinen Augen ab.", "Visions of angry Gods fill your head.")
-    User:logAdmin("Performed DivineFury on " ..  targetChar.name)
+    user:logAdmin("Performed DivineFury on " ..  targetChar.name)
 end
 
-local function settingsForCharQueststatus(User, chosenPlayer)
+local function settingsForCharQueststatus(user, chosenPlayer)
     local changeDialog = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -1004,29 +1004,29 @@ local function settingsForCharQueststatus(User, chosenPlayer)
             quest = tonumber(quest)
             status = tonumber(status)
             chosenPlayer:setQuestProgress(quest, status)
-            User:inform("Quest " .. quest .. " has been set to " .. status .. "!")
-            User:logAdmin("changes queststatus of character " .. chosenPlayer.name .. ". Quest ID " .. quest .. " set to value " .. status)
+            user:inform("Quest " .. quest .. " has been set to " .. status .. "!")
+            user:logAdmin("changes queststatus of character " .. chosenPlayer.name .. ". Quest ID " .. quest .. " set to value " .. status)
         elseif (string.find(inputString, "(%d+)") ~= nil) then
             local _, _, quest = string.find(inputString, "(%d+)")
             quest = tonumber(quest)
-            User:inform("Quest " .. quest .. " has the status " .. chosenPlayer:getQuestProgress(quest) .. ".")
+            user:inform("Quest " .. quest .. " has the status " .. chosenPlayer:getQuestProgress(quest) .. ".")
         else
-            User:inform("Sorry, I didn't understand you.")
-            settingsForCharQueststatus(User, chosenPlayer) -- re-call dialog
+            user:inform("Sorry, I didn't understand you.")
+            settingsForCharQueststatus(user, chosenPlayer) -- re-call dialog
         end
     end
     local idChange = InputDialog("Get/ Set Queststatus for "..chosenPlayer.name, "Usage: To get the value type in the questnumber.\n To set the value type in questnumber and the new status.", false, 255, changeDialog)
-    User:requestInputDialog(idChange)
+    user:requestInputDialog(idChange)
 end
 
-local function settingsForCharMagicClass(User, chosenPlayer)
+local function settingsForCharMagicClass(user, chosenPlayer)
     local magicClassDialog = function (dialog)
         if (not dialog:getSuccess()) then
             return
         end
         local targetClass = dialog:getSelectedIndex()
         if targetClass ~= chosenPlayer:getMagicType() then
-            User:logAdmin("Change magic class of character " .. chosenPlayer.name .. " from " .. classNames[chosenPlayer:getMagicType()].. " to " .. classNames[targetClass])
+            user:logAdmin("Change magic class of character " .. chosenPlayer.name .. " from " .. classNames[chosenPlayer:getMagicType()].. " to " .. classNames[targetClass])
             chosenPlayer:setMagicType(targetClass)
             if targetClass == 0 then -- Mage
                 chosenPlayer:setQuestProgress(37, 1)
@@ -1044,10 +1044,10 @@ local function settingsForCharMagicClass(User, chosenPlayer)
             sdClass:addOption(0," Change to: "..classNames[i])
         end
     end
-    User:requestSelectionDialog(sdClass)
+    user:requestSelectionDialog(sdClass)
 end
 
-local function settingsForCharMC(User, targetChar)
+local function settingsForCharMC(user, targetChar)
 
     local setMCInputDialog = function (dialog)
 
@@ -1058,93 +1058,93 @@ local function settingsForCharMC(User, targetChar)
         local input = dialog:getInput()
 
         if input == "" or not input then
-            User:inform("MC of char " .. targetChar.name .. ": " .. targetChar:getMentalCapacity())
+            user:inform("MC of char " .. targetChar.name .. ": " .. targetChar:getMentalCapacity())
             return
         end
 
         input = math.ceil(tonumber(input))
 
         if input < 1 or input > 100000000 then
-            User:inform("Invalid input. Value not in range 1-100000000")
+            user:inform("Invalid input. Value not in range 1-100000000")
             return
         end
 
         targetChar:increaseMentalCapacity(input - targetChar:getMentalCapacity())
-        User:inform("New MC: "..User:getMentalCapacity())
-        User:logAdmin("Set MC for " ..  targetChar.name .. " to " .. tostring(input))
+        user:inform("New MC: "..user:getMentalCapacity())
+        user:logAdmin("Set MC for " ..  targetChar.name .. " to " .. tostring(input))
 
     end
 
-    User:requestInputDialog(InputDialog("Get / Set MC", "Set desired MC value (1-100000000).\nEmpty for get the current value." ,false, 255, setMCInputDialog))
+    user:requestInputDialog(InputDialog("Get / Set MC", "Set desired MC value (1-100000000).\nEmpty for get the current value." ,false, 255, setMCInputDialog))
 
 end
 
-local function settingsForCharAttacableLimited(User, chosenPlayer)
+local function settingsForCharAttacableLimited(user, chosenPlayer)
     if chosenPlayer:getQuestProgress(236) == 0 then
         chosenPlayer:setQuestProgress(236,3)
-        User:logAdmin("Make character " .. chosenPlayer.name .. " unable to be attacked for 15 min.")
+        user:logAdmin("Make character " .. chosenPlayer.name .. " unable to be attacked for 15 min.")
         common.InformNLS(chosenPlayer, "[GM Info] Dein Char wird für ca. 15 Minuten nicht von NPC angegriffen.", "[GM Info] Your character is unable to be attacked by NPC for about 15 min.")
     else
         chosenPlayer:setQuestProgress(236,0)
-        User:logAdmin("Remove character " .. chosenPlayer.name .. " limited attack proof.")
+        user:logAdmin("Remove character " .. chosenPlayer.name .. " limited attack proof.")
         common.InformNLS(chosenPlayer, "[GM Info] Dein Char wird wieder von NPC angegriffen.", "[GM Info] Your character can be attacked by NPC again.")
     end
 end
 
-local function settingsForCharAttacableForever(User, chosenPlayer)
+local function settingsForCharAttacableForever(user, chosenPlayer)
     if chosenPlayer:getQuestProgress(36) == 0 then
         chosenPlayer:setQuestProgress(36,1)
-        User:logAdmin("Make character " .. chosenPlayer.name .. " unable to be attacked for ever.")
+        user:logAdmin("Make character " .. chosenPlayer.name .. " unable to be attacked for ever.")
         common.InformNLS(chosenPlayer, "[GM Info] Dein Char wird nie wieder von NPC angegriffen.", "[GM Info] Your character is unable to be attacked by NPC for ever.")
     else
         chosenPlayer:setQuestProgress(36,0)
-        User:logAdmin("Remove character " .. chosenPlayer.name .. " indefinite attack proof.")
+        user:logAdmin("Remove character " .. chosenPlayer.name .. " indefinite attack proof.")
         common.InformNLS(chosenPlayer, "[GM Info] Dein Char wird wieder von NPC angegriffen.", "[GM Info] Your character can be attacked by NPC again.")
     end
 end
 
-local function settingsForCharFireProof(User, chosenPlayer)
+local function settingsForCharFireProof(user, chosenPlayer)
     if chosenPlayer:getQuestProgress(298) == 0 then
         chosenPlayer:setQuestProgress(298,3)
-        User:logAdmin("Make character " .. chosenPlayer.name .. " fireproof for 15 min.")
+        user:logAdmin("Make character " .. chosenPlayer.name .. " fireproof for 15 min.")
         common.InformNLS(chosenPlayer, "[GM Info] Dein Char wird für ca. 15 Minuten gegen magische Flammen resistent sein.", "[GM Info] Your character is proof against magic flames for about 15 min.")
     else
         chosenPlayer:setQuestProgress(298,0)
-        User:logAdmin("Remove fireproof for character " .. chosenPlayer.name .. " .")
+        user:logAdmin("Remove fireproof for character " .. chosenPlayer.name .. " .")
         common.InformNLS(chosenPlayer, "[GM Info] Die Resistenz gegen magische Flammen ist beendet.", "[GM Info] Your character's proof against magic flames is over.")
     end
 end
 
-local function settingsForCharIceFlameProof(User, chosenPlayer)
+local function settingsForCharIceFlameProof(user, chosenPlayer)
     if chosenPlayer:getQuestProgress(299) == 0 then
         chosenPlayer:setQuestProgress(299,3)
-        User:logAdmin("Make character " .. chosenPlayer.name .. " ice flame proof for 15 min.")
+        user:logAdmin("Make character " .. chosenPlayer.name .. " ice flame proof for 15 min.")
         common.InformNLS(chosenPlayer, "[GM Info] Dein Char wird für ca. 15 Minuten gegen Eisflammen resistent sein.", "[GM Info] Your character is proof against ice flames for about 15 min.")
     else
         chosenPlayer:setQuestProgress(299,0)
-        User:logAdmin("Remove ice flame proof for character " .. chosenPlayer.name .. " .")
+        user:logAdmin("Remove ice flame proof for character " .. chosenPlayer.name .. " .")
         common.InformNLS(chosenPlayer, "[GM Info] Die Resistenz gegen Eisflammen ist beendet.", "[GM Info] Your character's proof against ice flames is over.")
     end
 end
 
-local function settingsForCharPoisonCloudProof(User, chosenPlayer)
+local function settingsForCharPoisonCloudProof(user, chosenPlayer)
     if chosenPlayer:getQuestProgress(300) == 0 then
         chosenPlayer:setQuestProgress(300,3)
-        User:logAdmin("Make character " .. chosenPlayer.name .. " proof against poison clouds for 15 min.")
+        user:logAdmin("Make character " .. chosenPlayer.name .. " proof against poison clouds for 15 min.")
         common.InformNLS(chosenPlayer, "[GM Info] Dein Char wird für ca. 15 Minuten gegen Giftwolken resistent sein.", "[GM Info] Your character is proof against poison clouds for about 15 min.")
     else
         chosenPlayer:setQuestProgress(300,0)
-        User:logAdmin("Remove proof against poison clouds for character " .. chosenPlayer.name .. " .")
+        user:logAdmin("Remove proof against poison clouds for character " .. chosenPlayer.name .. " .")
         common.InformNLS(chosenPlayer, "[GM Info] Die Resistenz gegen Giftwolken ist beendet.", "[GM Info] Your character's proof against poison clouds is over.")
     end
 end
 
-local function ambientAction(User)
+local function ambientAction(user)
 
-    local playersTmp = world:getPlayersInRangeOf(User.pos, 25)
-    local players = {User}
+    local playersTmp = world:getPlayersInRangeOf(user.pos, 25)
+    local players = {user}
     for _, player in pairs(playersTmp) do
-        if (player.id ~= User.id) then
+        if (player.id ~= user.id) then
             table.insert(players, player)
         end
     end
@@ -1160,13 +1160,13 @@ local function ambientAction(User)
             end
             local actionToPerform = subdialog:getSelectedIndex()
             if actionToPerform == 0 then
-                ambientActionFlameThrower(User, chosenPlayer)
+                ambientActionFlameThrower(user, chosenPlayer)
             elseif actionToPerform == 1 then
-                ambientActionFlameRemover(User, chosenPlayer)
+                ambientActionFlameRemover(user, chosenPlayer)
             elseif actionToPerform == 2 then
-                ambientActionFireBreath(User, chosenPlayer)
+                ambientActionFireBreath(user, chosenPlayer)
             elseif actionToPerform == 3 then
-                ambientActionIceBreath(User, chosenPlayer)
+                ambientActionIceBreath(user, chosenPlayer)
             elseif actionToPerform == 4 then
                 ambientActionFireRing(chosenPlayer)
             elseif actionToPerform == 5 then
@@ -1190,7 +1190,7 @@ local function ambientAction(User)
         sdAction:addOption(0,"Explosion")
         sdAction:addOption(0,"Glyph shard shower")
 
-        User:requestSelectionDialog(sdAction)
+        user:requestSelectionDialog(sdAction)
     end
     --Dialog to choose the player
     local sdPlayer = SelectionDialog("Ambient action.", "First choose a character:", cbChoosePlayer)
@@ -1205,15 +1205,15 @@ local function ambientAction(User)
                 sdPlayer:addOption(0, player.name .. " (" .. raceNames[race] .. ") " .. player.id)
             end
         end
-    User:requestSelectionDialog(sdPlayer)
+    user:requestSelectionDialog(sdPlayer)
 end
 
-local function actionOnChar(User, item)
+local function actionOnChar(user, item)
 
-    local playersTmp = world:getPlayersInRangeOf(User.pos, 25)
-    local players = {User}
+    local playersTmp = world:getPlayersInRangeOf(user.pos, 25)
+    local players = {user}
     for _, player in pairs(playersTmp) do
-        if (player.id ~= User.id) then
+        if (player.id ~= user.id) then
             table.insert(players, player)
         end
     end
@@ -1230,13 +1230,13 @@ local function actionOnChar(User, item)
             end
             local actionToPerform = subdialog:getSelectedIndex()
             if actionToPerform == 0 then
-                actionOnCharInput(User,chosenPlayer)
+                actionOnCharInput(user,chosenPlayer)
             elseif actionToPerform == 1 then
-                actionOnCharDivineNotice(User, chosenPlayer)
+                actionOnCharDivineNotice(user, chosenPlayer)
             elseif actionToPerform == 2 then
-                actionOnCharDivineFeed(User, chosenPlayer)
+                actionOnCharDivineFeed(user, chosenPlayer)
             elseif actionToPerform == 3 then
-                actionOnCharDivineFury(User, chosenPlayer)
+                actionOnCharDivineFury(user, chosenPlayer)
             else
                 local inputText = item:getData("gmSequenceOnChar" .. tostring(validAction[actionToPerform]))
                 if (string.find(inputText,"([%S ]+),(%S+),(%S+),(%S+),(%S+),(%S+)") ~= nil) then
@@ -1245,9 +1245,9 @@ local function actionOnChar(User, item)
                     if gfxsfxVerification(sfxValue) ~= 0 then
                         world:makeSound(gfxsfxVerification(sfxValue),chosenPlayer.pos)
                     end
-                    User:logAdmin("Performed a customized sequence on " ..  chosenPlayer.name)
+                    user:logAdmin("Performed a customized sequence on " ..  chosenPlayer.name)
                 else
-                    User:inform("Wrong configured sequence. '"..inputText.."'")
+                    user:inform("Wrong configured sequence. '"..inputText.."'")
                 end
             end
         end
@@ -1269,7 +1269,7 @@ local function actionOnChar(User, item)
             end
         end
 
-        User:requestSelectionDialog(sdAction)
+        user:requestSelectionDialog(sdAction)
     end
     --Dialog to choose the player
     local sdPlayer = SelectionDialog("Event on single char.", "First choose a character:", cbChoosePlayer)
@@ -1284,15 +1284,15 @@ local function actionOnChar(User, item)
                 sdPlayer:addOption(0, player.name .. " (" .. raceNames[race] .. ") " .. player.id)
             end
         end
-    User:requestSelectionDialog(sdPlayer)
+    user:requestSelectionDialog(sdPlayer)
 end
 
-local function actionOnGroup(User,item)
+local function actionOnGroup(user,item)
 
-    local playersTmp = world:getPlayersInRangeOf(User.pos, 25)
-    local players = {User}
+    local playersTmp = world:getPlayersInRangeOf(user.pos, 25)
+    local players = {user}
     for _, player in pairs(playersTmp) do
-        if (player.id ~= User.id) then
+        if (player.id ~= user.id) then
             table.insert(players, player)
         end
     end
@@ -1309,7 +1309,7 @@ local function actionOnGroup(User,item)
             end
             local actionToPerform = subdialog:getSelectedIndex()
             if actionToPerform == 0 then
-                actionOnGroupInput(User,chosenPlayer)
+                actionOnGroupInput(user,chosenPlayer)
             else
                 local inputText = item:getData("gmSequenceOnGroup" .. tostring(validAction[actionToPerform]))
                 if (string.find(inputText,"([%S ]+),(%S+),(%S+),(%S+),(%S+),(%S+)") ~= nil) then
@@ -1322,16 +1322,16 @@ local function actionOnGroup(User,item)
                     end
                     local playersInRange = world:getPlayersInRangeOf(chosenPlayer.pos, range)
                     for _, player in pairs(playersInRange) do
-                        if (player.id ~= User.id) then
+                        if (player.id ~= user.id) then
                             actionOnCharSingleChar(player, gfxValue, changeHP, changeMP, changeFL, textToPlayer)
                         end
                     end
                     if gfxsfxVerification(sfxValue) ~= 0 then
                         world:makeSound(gfxsfxVerification(sfxValue),chosenPlayer.pos)
                     end
-                    User:logAdmin("Performed a customized sequence on " ..  chosenPlayer.name)
+                    user:logAdmin("Performed a customized sequence on " ..  chosenPlayer.name)
                 else
-                    User:inform("Wrong configured sequence. '"..inputText.."'")
+                    user:inform("Wrong configured sequence. '"..inputText.."'")
                 end
             end
         end
@@ -1350,7 +1350,7 @@ local function actionOnGroup(User,item)
                 end
             end
         end
-        User:requestSelectionDialog(sdAction)
+        user:requestSelectionDialog(sdAction)
     end
     --Dialog to choose the player
     local sdPlayer = SelectionDialog("Event on group.", "First choose center of event:", cbChoosePlayer)
@@ -1365,15 +1365,15 @@ local function actionOnGroup(User,item)
                 sdPlayer:addOption(0, player.name .. " (" .. raceNames[race] .. ") " .. player.id)
             end
         end
-    User:requestSelectionDialog(sdPlayer)
+    user:requestSelectionDialog(sdPlayer)
 end
 
-local function settingsForChar(User)
+local function settingsForChar(user)
 
-    local playersTmp = world:getPlayersInRangeOf(User.pos, 25)
-    local players = {User}
+    local playersTmp = world:getPlayersInRangeOf(user.pos, 25)
+    local players = {user}
     for _, player in pairs(playersTmp) do
-        if (player.id ~= User.id) then
+        if (player.id ~= user.id) then
             table.insert(players, player)
         end
     end
@@ -1389,27 +1389,27 @@ local function settingsForChar(User)
             end
             local actionToPerform = subdialog:getSelectedIndex()
             if actionToPerform == 0 then
-                settingsForCharQueststatus(User, chosenPlayer)
+                settingsForCharQueststatus(user, chosenPlayer)
             elseif actionToPerform == 1 then
-                settingsForCharAttacableLimited(User, chosenPlayer)
+                settingsForCharAttacableLimited(user, chosenPlayer)
             elseif actionToPerform == 2 then
-                settingsForCharAttacableForever(User, chosenPlayer)
+                settingsForCharAttacableForever(user, chosenPlayer)
             elseif actionToPerform == 3 then
-                settingsForCharSkills(User, chosenPlayer)
+                settingsForCharSkills(user, chosenPlayer)
             elseif actionToPerform == 4 then
-                settingsForCharMagicClass(User, chosenPlayer)
+                settingsForCharMagicClass(user, chosenPlayer)
             elseif actionToPerform == 5 then
-                settingsForCharMC(User, chosenPlayer)
+                settingsForCharMC(user, chosenPlayer)
             elseif actionToPerform == 6 then
-                settingsForCharFireProof(User, chosenPlayer)
+                settingsForCharFireProof(user, chosenPlayer)
             elseif actionToPerform == 7 then
-                settingsForCharIceFlameProof(User, chosenPlayer)
+                settingsForCharIceFlameProof(user, chosenPlayer)
             elseif actionToPerform == 8 then
-                settingsForCharPoisonCloudProof(User, chosenPlayer)
+                settingsForCharPoisonCloudProof(user, chosenPlayer)
             elseif actionToPerform == 9 then
-                settingsForCharAttributes(User, chosenPlayer)
+                settingsForCharAttributes(user, chosenPlayer)
             elseif actionToPerform == 10 then
-                settingsForCharReligion(User, chosenPlayer)
+                settingsForCharReligion(user, chosenPlayer)
             end
         end
         local sdAction = SelectionDialog("Character settings", chosenPlayer.name.."\n" .. charInfo(chosenPlayer), charActionDialog)
@@ -1446,7 +1446,7 @@ local function settingsForChar(User)
 
         sdAction:addOption(1060, "Religion")
 
-        User:requestSelectionDialog(sdAction)
+        user:requestSelectionDialog(sdAction)
     end
     --Dialog to choose the player
     local sdPlayer = SelectionDialog("Character settings", "First choose a character:", cbChoosePlayer)
@@ -1461,10 +1461,10 @@ local function settingsForChar(User)
                 sdPlayer:addOption(0, player.name .. " (" .. raceNames[race] .. ") " .. player.id)
             end
         end
-    User:requestSelectionDialog(sdPlayer)
+    user:requestSelectionDialog(sdPlayer)
 end
 
-local function testArea(User)
+local function testArea(user)
     local thisInputDialog = function (dialog)
 
         if (not dialog:getSuccess()) then
@@ -1474,17 +1474,17 @@ local function testArea(User)
         local input = dialog:getInput()
 
         if not common.IsNilOrEmpty(input) then
-            local point = User.pos
+            local point = user.pos
             if areas.PointInArea(point, input) then
-                User:inform("This is part of area "..input)
+                user:inform("This is part of area "..input)
             else
-                User:inform("This is not part of area "..input)
+                user:inform("This is not part of area "..input)
            end
         end
 
     end
 
-    User:requestInputDialog(InputDialog("Is char in area?", "Enter the area name according to areas.lua" ,false, 255, thisInputDialog))
+    user:requestInputDialog(InputDialog("Is char in area?", "Enter the area name according to areas.lua" ,false, 255, thisInputDialog))
 
 end
 
@@ -1498,60 +1498,95 @@ local function resetTutorial(user)
     user:inform("Tutorial reset. Please relog to restart tutorial.")
 end
 
-function M.UseItem(User, SourceItem, ltstate)
+local function changePersistence(user)
+    local frontOfUser = common.GetFrontPosition(user)
+    local isPersistent = world:isPersistentAt(frontOfUser)
+    local text
+        if isPersistent then
+            text = "The tile in front of you (position "..tostring(frontOfUser)..") is already persistent, do you want to remove the persistence?"
+        else
+            text = "The tile in front of you (position "..tostring(frontOfUser)..") is not persistent, do you want to make it persistent?"
+        end
+    local callback = function (dialog)
+        if (not dialog:getSuccess()) then
+            return
+        end
+        local index = dialog:getSelectedIndex() + 1
+        if index == 1 then
+            if isPersistent then
+                world:removePersistenceAt(frontOfUser)
+                user:inform("The tile is no longer persistent.")
+            else
+                world:makePersistentAt(frontOfUser)
+                user:inform("The tile is now persistent.")
+            end
+        end
+    end
+    local dialog = SelectionDialog("Persistence", text, callback)
+        if isPersistent then
+            dialog:addOption(0, "Remove tile persistence")
+        else
+            dialog:addOption(0, "Make tile persistent")
+        end
+    user:requestSelectionDialog(dialog)
+end
+
+function M.UseItem(user, SourceItem, ltstate)
     --if injured, heal!
-    User:increaseAttrib("hitpoints", 10000)
-    User:increaseAttrib("mana", 10000)
-    User:increaseAttrib("foodlevel", 100000)
+    user:increaseAttrib("hitpoints", 10000)
+    user:increaseAttrib("mana", 10000)
+    user:increaseAttrib("foodlevel", 100000)
 
     -- First check for mode change
-    local modes = {"Eraser", "Teleport", "Instant kill/ revive", "Char Settings", "Global events", "Events on single char", "Events on groups", "Faction info of chars in radius", "Quest events","Define Teleporter Targets","Define events on single char","Define events on groups","Test area","Reset tutorial"}
+    local modes = {"Eraser", "Teleport", "Instant kill/ revive", "Char Settings", "Global events", "Events on single char", "Events on groups", "Faction info of chars in radius", "Quest events","Define Teleporter Targets","Define events on single char","Define events on groups","Test area","Reset tutorial","Persistence"}
     local cbSetMode = function (dialog)
         if (not dialog:getSuccess()) then
             return
         end
         local index = dialog:getSelectedIndex() + 1
         if index == 1 then
-            eraser(User)
+            eraser(user)
         elseif index == 2 then
-            teleporter(User, SourceItem)
+            teleporter(user, SourceItem)
         elseif index == 3 then
-            godMode(User, SourceItem, ltstate)
+            godMode(user, SourceItem, ltstate)
         elseif index == 4 then
-            settingsForChar(User)
+            settingsForChar(user)
         elseif index == 5 then
-            ambientAction(User)
+            ambientAction(user)
         elseif index == 6 then
-            actionOnChar(User, SourceItem)
+            actionOnChar(user, SourceItem)
         elseif index == 7 then
-            actionOnGroup(User, SourceItem)
+            actionOnGroup(user, SourceItem)
         elseif index == 8 then
-            factionInfoOfCharsInRadius(User, SourceItem, ltstate)
+            factionInfoOfCharsInRadius(user, SourceItem, ltstate)
         elseif index == 9 then
-            questEvents(User, SourceItem, ltstate)
+            questEvents(user, SourceItem, ltstate)
         elseif index == 10 then
-            setUserTeleporter(User, SourceItem)
+            setuserTeleporter(user, SourceItem)
         elseif index == 11 then
-            setUserActionOnChar(User, SourceItem)
+            setuserActionOnChar(user, SourceItem)
         elseif index == 12 then
-            setUserActionOnGroup(User, SourceItem)
+            setuserActionOnGroup(user, SourceItem)
         elseif index == 13 then
-            testArea(User)
+            testArea(user)
         elseif index == 14 then
-            resetTutorial(User)
+            resetTutorial(user)
+        elseif index == 15 then
+            changePersistence(user)
         end
     end
     local sd = SelectionDialog("Pick a function of the lockpicks.", "Which do you want to use?", cbSetMode)
     for _, m in ipairs(modes) do
         sd:addOption(0, m)
     end
-    User:requestSelectionDialog(sd)
+    user:requestSelectionDialog(sd)
 end
 
-function M.LookAtItem(User, Item)
+function M.LookAtItem(user, Item)
     lookat.SetSpecialDescription(Item, "Verwende die Dietriche zum Aufrufen der Funktionen.", "Use the lockpicks to pick a function.")
     lookat.SetSpecialName(Item, "Dietriche", "Lockpicks")
-    return lookat.GenerateLookAt(User, Item, lookat.METAL)
+    return lookat.GenerateLookAt(user, Item, lookat.METAL)
 end
 
 return M
