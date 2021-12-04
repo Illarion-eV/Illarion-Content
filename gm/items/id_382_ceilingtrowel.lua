@@ -27,6 +27,10 @@ local shard = require("item.shard")
 local glyphs = require("base.glyphs")
 local seafaring = require("base.seafaring")
 local staticteleporter = require("base.static_teleporter")
+local drinks = require("item.drinks")
+local food = require("item.food")
+local customPotion = require("alchemy.base.customPotion")
+
 
 local M = {}
 
@@ -505,6 +509,85 @@ local function changeItemGlyph(user, TargetItem)
     user:requestInputDialog(InputDialog("Set the glyph charges of items", "How many charges "..world:getItemName(TargetItem.id, Player.english).." should get?" ,false, 255, cbInputDialog))
 end
 
+local function checkIfFoodDrinkPotion(item)
+local drinkIDs = drinks.drinkList
+local foodIDs = food.foodList
+local potionIDs = customPotion.potionList
+    if potionIDs[item.id] then
+        return "potion"
+    elseif foodIDs[item.id] or drinkIDs[item.id] then
+        return true
+    else
+        return false
+    end
+end
+
+local function setEnglishInform(user, item, isPotion)
+    local input
+    local callback = function (dialog)
+        if not dialog:getSuccess() then
+            return
+        end
+        input = dialog:getInput()
+        if not isPotion then
+            item:setData("customInformEN", input)
+        else
+            item:setData("customPotion", input)
+        end
+        world:changeItem(item)
+        user:inform("Custom English Inform set to: "..input)
+    end
+    user:requestInputDialog(InputDialog("English Custom Inform", "Type in what the English inform should be upon consumption." ,false, 255, callback))
+end
+local function setGermanInform(user, item, isPotion)
+    local input
+    local callback = function (dialog)
+        if not dialog:getSuccess() then
+            return
+        end
+        input = dialog:getInput()
+        if not isPotion then
+            item:setData("customInformDE", input)
+        else
+            item:setData("customPotionDE", input)
+        end
+        world:changeItem(item)
+        user:inform("Custom German Inform set to: "..input)
+    end
+    user:requestInputDialog(InputDialog("German Custom Inform", "Type in what the German inform should be upon consumption." ,false, 255, callback))
+end
+
+local function setCustomInform(user, item, isPotion)
+    local callback = function (dialog)
+        if not dialog:getSuccess() then
+            return
+        end
+        local index = dialog:getSelectedIndex() +1
+        if index == 1 then
+            setEnglishInform(user, item, isPotion)
+        elseif index == 2 then
+            setGermanInform(user, item, isPotion)
+        end
+    end
+    local oldGermanInform = item:getData("customInformDE")
+    local oldEnglishInform = item:getData("customInformEN")
+        if isPotion then
+            oldGermanInform = item:getData("customPotionDE")
+            oldEnglishInform = item:getData("customPotion")
+        end
+    if not oldGermanInform or oldGermanInform == "" then
+        oldGermanInform = "None"
+    end
+    if not oldEnglishInform or oldEnglishInform == "" then
+        oldEnglishInform = "None"
+    end
+
+    local dialog = SelectionDialog("Custom Informs", "Select which language to set a custom inform for.\nCurrent custom informs:\nEnglish:"..oldEnglishInform.."\nGerman: "..oldGermanInform, callback)
+    dialog:addOption(0,"Set English Inform")
+    dialog:addOption(0,"Set German Inform")
+    user:requestSelectionDialog(dialog)
+end
+
 function changeItemSelection(user, TargetItem)
     local changeItemFunctions = {}
     changeItemFunctions[1] = {"Set Number"}
@@ -514,6 +597,14 @@ function changeItemSelection(user, TargetItem)
     changeItemFunctions[5] = {"Set Wear"}
     changeItemFunctions[6] = {"Set Data"}
     changeItemFunctions[7] = {"Set Glyph charges"}
+    local foodDrinkOrPotion = checkIfFoodDrinkPotion(TargetItem)
+    if foodDrinkOrPotion then
+        changeItemFunctions[8] = {"Set Custom Inform"}
+    end
+    local isPotion
+    if foodDrinkOrPotion == "potion" then
+        isPotion = true
+    end
 
     local cbChangeItem = function (dialog)
         if (not dialog:getSuccess()) then
@@ -534,6 +625,8 @@ function changeItemSelection(user, TargetItem)
             changeItemData(user, TargetItem)
         elseif index == 7 then
             changeItemGlyph(user, TargetItem)
+        elseif index == 8 then
+            setCustomInform(user, TargetItem, isPotion)
         end
     end
     local sd = SelectionDialog(world:getItemName(TargetItem.id, Player.english), "Choose the porperty you want to change.", cbChangeItem)

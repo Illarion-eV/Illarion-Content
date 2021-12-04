@@ -23,65 +23,66 @@ local lookat = require("base.lookat")
 local M = {}
 
 -- item ID,  food value,  leftover item, alcohol strength
-local drinkList = {}
-drinkList[2502] = {  800, 2498,   0} -- bottle with sheep milk
-drinkList[1841] = {  100, 1840,   0} -- goblet with water
-drinkList[1842] = {  800, 1840,  15} -- goblet with wine
-drinkList[1843] = { 1000, 1840,  10} -- goblet with mead
-drinkList[1844] = {  800, 1840,  20} -- goblet with cider
-drinkList[1853] = { 1000, 1858,  10} -- goblet with mead
-drinkList[1854] = {  100,  224,   0} -- goblet with water
-drinkList[1855] = {  100, 1858,   0} -- goblet with water
-drinkList[1856] = { 1000,  224,  10} -- goblet with mead
-drinkList[1857] = {  800,  224,  15} -- goblet with wine
-drinkList[1859] = {  800, 1858,  20} -- goblet with cider
-drinkList[1860] = {  800, 1858,  15} -- goblet with wine
-drinkList[1861] = {  800,  224,  20} -- goblet with cider
-drinkList[1906] = {  200, 1908,  10} -- beer mug
-drinkList[1907] = {  200, 1910,  10} -- beer mug
-drinkList[1909] = {  200, 1907,  10} -- beer mug
-drinkList[1910] = {  200, 1906,  10} -- beer mug
-drinkList[2056] = {  500, 2055,  10} -- goblet with mead
-drinkList[2057] = {  400, 2055,  15} -- goblet with wine
-drinkList[2058] = {   50, 2055,   0} -- goblet with water
-drinkList[2059] = {  400, 2055,  20} -- goblet with cider
-drinkList[2186] = {  100, 2185,   0} -- mug with water
-drinkList[2187] = {  800, 2185,  15} -- mug with wine
-drinkList[2188] = { 1000, 2185,  10} -- mug with mead
-drinkList[2189] = {  800, 2185,  20} -- mug with cider
-drinkList[517] = {  400, 518,  35} -- bottle of rum
-drinkList[1315] = {  400, 1317,  35} -- bottle of berry booze
-drinkList[1316] = {  400, 1317,  35} -- bottle of bear slayer
-drinkList[1318] = {  400, 1317,  35} -- bottle of elven wine
-drinkList[1319] = {  400, 1317,  35} -- bottle of cherry schnapps
-drinkList[783] = {500, 790, 0} -- bottle of blackberry juice
-drinkList[784] = {500, 790, 0} -- bottle of tangerine juice
-drinkList[785] = {500, 790, 0} -- bottle of banana juice
-drinkList[786] = {500, 790, 0} -- bottle of cabbage juice
-drinkList[787] = {500, 790, 0} -- bottle of virgings weed tea
-drinkList[788] = {500, 790, 0} -- bottle of carrot juice
-drinkList[789] = {500, 790, 0} -- bottle of strawberry juice
-drinkList[791] = {500, 790, 0} -- bottle of grape juice
-drinkList[3611] =  {500, 790, 0}  -- bottle of orange juice
-drinkList[1320] = {  400, 1317,  35} -- bottle of stone face
-drinkList[1321] = {  400, 1317,  35} -- bottle of absinthe
-drinkList[1322] = {  400, 1317,  35} -- bottle of orange schnapps
-drinkList[1323] = {  400, 1317,  35} -- bottle of mulled wine
-drinkList[3720] = {500, 790, 0} -- bottle of fir needle tea
-drinkList[3721] = {500, 790, 0} -- bottle of green tea
-drinkList[3722] = {500, 790, 0} -- bottle of druids tea
+M.drinkList = {}
+M.drinkList[2502] = {  800, 2498,   0} -- bottle with sheep milk
+M.drinkList[1841] = {  100, 1840,   0} -- goblet with water
+M.drinkList[1842] = {  800, 1840,  15} -- goblet with wine
+M.drinkList[1843] = { 1000, 1840,  10} -- goblet with mead
+M.drinkList[1844] = {  800, 1840,  20} -- goblet with cider
+M.drinkList[1853] = { 1000, 1858,  10} -- goblet with mead
+M.drinkList[1854] = {  100,  224,   0} -- goblet with water
+M.drinkList[1855] = {  100, 1858,   0} -- goblet with water
+M.drinkList[1856] = { 1000,  224,  10} -- goblet with mead
+M.drinkList[1857] = {  800,  224,  15} -- goblet with wine
+M.drinkList[1859] = {  800, 1858,  20} -- goblet with cider
+M.drinkList[1860] = {  800, 1858,  15} -- goblet with wine
+M.drinkList[1861] = {  800,  224,  20} -- goblet with cider
+M.drinkList[1906] = {  200, 1908,  10} -- beer mug
+M.drinkList[1907] = {  200, 1910,  10} -- beer mug
+M.drinkList[1909] = {  200, 1907,  10} -- beer mug
+M.drinkList[1910] = {  200, 1906,  10} -- beer mug
+M.drinkList[2056] = {  500, 2055,  10} -- goblet with mead
+M.drinkList[2057] = {  400, 2055,  15} -- goblet with wine
+M.drinkList[2058] = {   50, 2055,   0} -- goblet with water
+M.drinkList[2059] = {  400, 2055,  20} -- goblet with cider
+M.drinkList[2186] = {  100, 2185,   0} -- mug with water
+M.drinkList[2187] = {  800, 2185,  15} -- mug with wine
+M.drinkList[2188] = { 1000, 2185,  10} -- mug with mead
+M.drinkList[2189] = {  800, 2185,  20} -- mug with cider
+M.drinkList[517] = {  400, 518,  35} -- bottle of rum
+M.drinkList[1315] = {  400, 1317,  35} -- bottle of berry booze
+M.drinkList[1316] = {  400, 1317,  35} -- bottle of bear slayer
+M.drinkList[1318] = {  400, 1317,  35} -- bottle of elven wine
+M.drinkList[1319] = {  400, 1317,  35} -- bottle of cherry schnapps
+M.drinkList[783] = {500, 790, 0} -- bottle of blackberry juice
+M.drinkList[784] = {500, 790, 0} -- bottle of tangerine juice
+M.drinkList[785] = {500, 790, 0} -- bottle of banana juice
+M.drinkList[786] = {500, 790, 0} -- bottle of cabbage juice
+M.drinkList[787] = {500, 790, 0} -- bottle of virgings weed tea
+M.drinkList[788] = {500, 790, 0} -- bottle of carrot juice
+M.drinkList[789] = {500, 790, 0} -- bottle of strawberry juice
+M.drinkList[791] = {500, 790, 0} -- bottle of grape juice
+M.drinkList[3611] =  {500, 790, 0}  -- bottle of orange juice
+M.drinkList[1320] = {  400, 1317,  35} -- bottle of stone face
+M.drinkList[1321] = {  400, 1317,  35} -- bottle of absinthe
+M.drinkList[1322] = {  400, 1317,  35} -- bottle of orange schnapps
+M.drinkList[1323] = {  400, 1317,  35} -- bottle of mulled wine
+M.drinkList[3720] = {500, 790, 0} -- bottle of fir needle tea
+M.drinkList[3721] = {500, 790, 0} -- bottle of green tea
+M.drinkList[3722] = {500, 790, 0} -- bottle of druids tea
 
-function M.UseItem(User, SourceItem)
+function M.UseItem(user, SourceItem)
 
-    if User.attackmode then
-        common.InformNLS( User, "Du würdest alles verschütten.", "You'd spill everything.")
+
+    if user.attackmode then
+        common.InformNLS( user, "Du würdest alles verschütten.", "You'd spill everything.")
         return
     end
 
 
     -- item should not be static
     if SourceItem.wear == 255 then
-        common.HighInformNLS(User,
+        common.HighInformNLS(user,
             "Das kannst du nicht trinken.",
             "You can't drink that.")
         return
@@ -89,51 +90,57 @@ function M.UseItem(User, SourceItem)
 
     -- Prevent the drinking of quest item  -  Path of the Fox by Brigette Russ
     if SourceItem:getData("descriptionDe") == "Geheimnisvoller Violett Flasche" or SourceItem:getData("descriptionEn") == "Mysterious Violet Bottle" then
-         common.HighInformNLS(User,
+         common.HighInformNLS(user,
             "Das kannst du nicht trinken.",
             "You can't drink that.")
         return
     end
 
-    local food = drinkList[SourceItem.id]
+    local food = M.drinkList[SourceItem.id]
     if (food == nil) then
-        User:inform("Unknown drinking Item: ID"..SourceItem.id.." Please Report this to a developer.")
+        user:inform("Unknown drinking Item: ID"..SourceItem.id.." Please Report this to a developer.")
         return
     end
 
-    local foodLevel = User:increaseAttrib("foodlevel", 0) + food[1]
-    world:makeSound(12, User.pos) -- drink sound
+    local customInformEN = SourceItem:getData("customInformEN")
+    local customInformDE = SourceItem:getData("customInformDE")
+    if customInformEN ~= "" and customInformDE ~= "" then
+        common.InformNLS( user, customInformDE, customInformEN)
+    end
+
+    local foodLevel = user:increaseAttrib("foodlevel", 0) + food[1]
+    world:makeSound(12, user.pos) -- drink sound
 
     if math.random(50) <= 1 then
-        common.InformNLS( User, "Das alte Geschirr ist nicht mehr brauchbar.", "The old dishes are no longer usable.")
+        common.InformNLS( user, "Das alte Geschirr ist nicht mehr brauchbar.", "The old dishes are no longer usable.")
     else
         local dataCopy = {descriptionDe=SourceItem:getData("descriptionDe"), descriptionEn=SourceItem:getData("descriptionEn")}
-        common.CreateItem(User, food[2], 1, 333, dataCopy) -- create the remnant item
+        common.CreateItem(user, food[2], 1, 333, dataCopy) -- create the remnant item
     end
     world:erase(SourceItem, 1)
 
     if foodLevel > 40000 then
-        common.InformNLS( User, "Du hast genug getrunken.", "You have had enough to drink.")
+        common.InformNLS( user, "Du hast genug getrunken.", "You have had enough to drink.")
     elseif foodLevel > 40000 then
-        common.InformNLS( User, "Du schaffst es nicht noch mehr zu trinken.", "You cannot drink anything else.")
+        common.InformNLS( user, "Du schaffst es nicht noch mehr zu trinken.", "You cannot drink anything else.")
         foodLevel = foodLevel - food[1]
     end
 
-    if User:increaseAttrib("foodlevel", 0) ~= foodLevel then
-        User:increaseAttrib("foodlevel",-(User:increaseAttrib("foodlevel",0) - foodLevel))
+    if user:increaseAttrib("foodlevel", 0) ~= foodLevel then
+        user:increaseAttrib("foodlevel",-(user:increaseAttrib("foodlevel",0) - foodLevel))
     end
 end
 
 
-function M.LookAtItem(User, Item)
+function M.LookAtItem(user, Item)
 
-    local food = drinkList[Item.id]
+    local food = M.drinkList[Item.id]
 
     if food == nil then
-        User:inform("unknown drink item ID"..Item.id)
+        user:inform("unknown drink item ID"..Item.id)
     end
 
-    return lookat.GenerateLookAt(User, Item, lookat.NONE)
+    return lookat.GenerateLookAt(user, Item, lookat.NONE)
 end
 
 return M

@@ -20,6 +20,8 @@ local alchemy = require("alchemy.base.alchemy")
 
 local M = {}
 
+M.potionList = {59,165,166,167,327,328,329,330,331,1063,1164,1165,1166,1167,1168,1169}
+
 function M.drinkInform(user, SourceItem)
 local textEN = SourceItem:getData("customPotion")
 local textDE = SourceItem:getData("customPotionDE")
