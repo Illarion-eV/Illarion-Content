@@ -386,54 +386,76 @@ local function changeItemData(user, TargetItem)
     user:requestInputDialog(InputDialog("Set data of items", "Data for "..world:getItemName(TargetItem.id, Player.english)..".\n Use 'data value'" ,false, 255, cbInputDialog))
 end
 
+local function changeItemNameEnglish(user, TargetItem)
+local newName
+local _
+    local dialog = function (dialog)
+        if not dialog:getSuccess() then
+            return
+        end
+        local input = dialog:getInput()
+        if (string.find(input,"(.+)")~=nil) then
+            _, _, newName = string.find(input,"(.+)")
+        else
+            newName = ""
+        end
+        if not common.IsNilOrEmpty(newName) then
+            TargetItem:setData("nameEn",newName)
+            world:changeItem(TargetItem)
+            user:inform("English name of "..world:getItemName(TargetItem.id, Player.english).." set to: " ..newName)
+            user:logAdmin("changed English name of "..world:getItemName(TargetItem.id, Player.english).." to: " ..newName)
+        else
+            user:inform("The entry can not be left blank.")
+        end
+    end
+    user:requestInputDialog(InputDialog("Set item name", "English name for "..world:getItemName(TargetItem.id, Player.english).."." ,false, 255, dialog))
+end
+local function changeItemNameGerman(user, TargetItem)
+local newName
+local _
+    local dialog = function (dialog)
+        if not dialog:getSuccess() then
+            return
+        end
+        local input = dialog:getInput()
+        if (string.find(input,"(.+)")~=nil) then
+            _, _, newName = string.find(input,"(.+)")
+        else
+            newName = ""
+        end
+        if not common.IsNilOrEmpty(newName) then
+            TargetItem:setData("nameDe",newName)
+            world:changeItem(TargetItem)
+            user:inform("German name of "..world:getItemName(TargetItem.id, Player.english).." set to: " ..newName)
+            user:logAdmin("changed German name of "..world:getItemName(TargetItem.id, Player.english).." to: " ..newName)
+        else
+            user:inform("The entry can not be left blank.")
+        end
+    end
+    user:requestInputDialog(InputDialog("Set item name", "German name for "..world:getItemName(TargetItem.id, Player.english).."." ,false, 255, dialog))
+end
 local function changeItemName(user, TargetItem)
-    local newNameDe
-    local newNameEn
-    local _
-
     if (TargetItem == nil or TargetItem.id == 0) then
         return
     end
-
-    local cbInputDialogEn = function (dialog)
-        if (not dialog:getSuccess()) then
+    local callback = function (dialog)
+        if not dialog:getSuccess() then
             return
         end
-        local inputEn = dialog:getInput()
-        if (string.find(inputEn,"(.+)")~=nil) then
-            _, _, newNameEn = string.find(inputEn,"(.+)")
-        else
-            newNameEn = ""
+        local index = dialog:getSelectedIndex() + 1
+        if index == 1 then
+            changeItemNameEnglish(user, TargetItem)
+        elseif index == 2 then
+            changeItemNameGerman(user, TargetItem)
         end
-        local cbInputDialogDe = function (subdialog)
-            if (not subdialog:getSuccess()) then
-                return
-            end
-            local inputDe = subdialog:getInput()
-            if (string.find(inputDe,"(.+)")~=nil) then
-                _, _, newNameDe = string.find(inputDe,"(.+)")
-            else
-                newNameDe = newNameEn
-            end
-            if common.IsNilOrEmpty(newNameEn) then
-                newNameEn = newNameDe
-            end
-            if common.IsNilOrEmpty(newNameEn) == false then
-                TargetItem:setData("nameDe",newNameDe)
-                TargetItem:setData("nameEn",newNameEn)
-                world:changeItem(TargetItem)
-                user:inform("Name of "..world:getItemName(TargetItem.id, Player.english).." set to: " ..newNameEn.." / "..newNameDe)
-                user:logAdmin("changed name of "..world:getItemName(TargetItem.id, Player.english).." to: " ..newNameEn.." / "..newNameDe)
-            else
-                user:inform("Sorry, I didn't understand you.")
-            end
-            changeItemSelection(user, TargetItem)
-        end
-        user:requestInputDialog(InputDialog("Set name of items", "German name for "..world:getItemName(TargetItem.id, Player.english).."." ,false, 255, cbInputDialogDe))
     end
-    user:requestInputDialog(InputDialog("Set name of items", "English name for "..world:getItemName(TargetItem.id, Player.english).."." ,false, 255, cbInputDialogEn))
-end
 
+    local dialog = SelectionDialog("Item Name", "Select which language you want to edit the item name for.", callback)
+
+    dialog:addOption(0,"English")
+    dialog:addOption(0,"German")
+    user:requestSelectionDialog(dialog)
+end
 local function changeItemDescription(user, TargetItem)
     local newDescriptionDe
     local newDescriptionEn
