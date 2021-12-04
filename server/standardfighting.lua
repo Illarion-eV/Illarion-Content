@@ -1570,7 +1570,7 @@ function LearnSuccess(Attacker, Defender, AP, Globals)
     -- Defender learns armour skill
     if Defender.DefenseSkillName then
         local armourfound, _ = world:getArmorStruct(Globals.HittedItem.id)
-        if armourfound then
+        if armourfound and not common.isBroken(Globals.HittedItem) then
             Defender.Char:learn(Defender.DefenseSkillName,(AP)/3,Attacker.skill + 20)
         end
     end
