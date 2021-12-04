@@ -1577,25 +1577,9 @@ function LearnSuccess(Attacker, Defender, AP, Globals)
 
     local parryWeapon, parryItem = GetParryWeaponAndItem(Defender)
 
-    -- Defender learns only with a valid parry weapon
-    if parryWeapon then
-        --Choose which weapon has the largest defence
-        if Defender.IsWeapon then
-            parryWeapon = Defender.Weapon
-        end
-
-        if Defender.SecIsWeapon then
-            if not parryWeapon then
-                parryWeapon = Defender.SecWeapon
-            elseif (parryWeapon.Defence < Defender.SecWeapon.Defence) or common.isBroken(parryWeapon) then
-                parryWeapon = Defender.SecWeapon
-            end
-        end
-
-        -- Defender learns parry skill
-        if parryWeapon and not common.isBroken(parryWeapon) then
-            Defender.Char:learn(Character.parry, AP/3, Attacker.skill + 20)
-        end
+    -- Defender learns only with a valid non-broken parry weapon
+    if parryWeapon ~= nil then
+        Defender.Char:learn(Character.parry, AP/3, Attacker.skill + 20)
     end
 end
 
