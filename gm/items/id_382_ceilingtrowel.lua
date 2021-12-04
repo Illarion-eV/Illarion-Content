@@ -75,6 +75,158 @@ local itemPos = {{en="Head", de="Kopf"},{en="Neck", de="Hals"},{en="Breast", de=
 itemPos[0] = {en="Backpack", de="Rucksack" }
 local itemOrder = {5,6,12,13,14,15,16,17,1,11,3,4,9,10,2,7,8}
 
+function M.changeRankOnLogin(user)
+    for i = 1,100 do
+        local foundRank, rank = ScriptVars:find("SRCnumber"..i)
+        local foundName, name = ScriptVars:find("SRCplayerName"..i)
+        local foundAdmin, admin = ScriptVars:find("SRCadminName"..i)
+        local foundRankName, rankName = ScriptVars:find("SRCrankName"..i)
+        if foundRank then
+            if foundAdmin and foundName and foundRankName then
+                if name == user.name then
+                    local rankNumber = tonumber(rank)
+                    local points
+                    if rankNumber == 1 then
+                        points = 0
+                    elseif rankNumber == 2 then
+                        points = 100
+                    elseif rankNumber == 3 then
+                        points = 200
+                    elseif rankNumber == 4 then
+                        points = 300
+                    elseif rankNumber == 5 then
+                        points = 400
+                    elseif rankNumber == 6 then
+                        points = 500
+                    elseif rankNumber == 7 then
+                        points = 600
+                    elseif rankNumber == 8 then
+                        points = 700
+                    elseif rankNumber == 9 then
+                        points = 800
+                    elseif rankNumber == 10 then
+                        points = 900
+                    end
+                    factions.setRankpoints(user, points)
+                    factions.setSpecialRank(user, tonumber(rank))
+                    ScriptVars:remove("SRCnumber"..i)
+                    ScriptVars:remove("SRCplayerName"..i)
+                    ScriptVars:remove("SRCadminName"..i)
+                    ScriptVars:remove("SRCrankName"..i)
+                    ScriptVars:save()
+                    log("The player "..name.." has upon login been set to the rank "..rankName.."(whichever corresponds to the players town) by a scheduled script started by "..admin)
+                    return
+                end
+            end
+        end
+    end
+end
+
+local function scheduledChangeOfRank(targetName, rankNumber, rankName, adminName)
+    for i = 1,100 do
+        if not ScriptVars:find("SRCnumber"..i) then
+            ScriptVars:set("SRCnumber"..i,rankNumber)
+            ScriptVars:set("SRCplayerName"..i,targetName)
+            ScriptVars:set("SRCadminName"..i,adminName)
+            ScriptVars:set("SRCrankName"..i,rankName)
+            ScriptVars:save()
+            return
+        elseif i == 100 then
+            debug("Scheduled ranks somehow hit the limit of 100, which shouldn't even happen unless something is wrong.")
+        end
+    end
+end
+
+local function scheduledRankSelection(user, input)
+    local rankNames = {"Tramp/Novice/Serf","Assistant/Apprentice/Bondsman","Pedlar/Student/Servant","Grocer/Scholar/Yeoman","Merchant/Master/Page",
+                    "Financier/Doctor/Squire","Patrician/Docent/Knight","Mogul/Professor/Baron", "Magnate/Dean/Count", "Tycoon/Rector/Duke"}
+    local callback = function (dialog)
+        if not dialog:getSuccess() then
+            return
+        end
+        local index = dialog:getSelectedIndex() + 1
+        scheduledChangeOfRank(input, index, rankNames[index], user.name)
+        user:inform("The change of "..input.."'s rank to "..rankNames[index].." in their appropriate town has been scheduled.")
+    end
+
+    local dialog = SelectionDialog("Schedule Rank Change", "Select the rank you want to change the player to.", callback)
+
+    for i = 1, #rankNames do
+        dialog:addOption(0, rankNames[i])
+    end
+
+    user:requestSelectionDialog(dialog)
+end
+
+local function scheduleRankChangeForPlayer(user)
+local input
+    local callback = function (dialog)
+        if not dialog:getSuccess() then
+            return
+        end
+        input = dialog:getInput()
+        scheduledRankSelection(user, input)
+    end
+    user:requestInputDialog(InputDialog("Schedule Rank Change", "Type in the name of the player you wish to schedule a rank change for." ,false, 255, callback))
+end
+
+local function accessListOfScheduledRankChanges(user)
+    local callback = function(dialog)
+        if not dialog:getSuccess() then
+            return
+        end
+        local index = dialog:getSelectedIndex() +1
+        local numberOfSkippedSlots = 0
+        for i = 1,100 do
+            local foundScheduled = ScriptVars:find("SRCnumber"..i)
+            if not foundScheduled then
+                numberOfSkippedSlots = numberOfSkippedSlots+1
+            elseif index == i - numberOfSkippedSlots then
+                ScriptVars:remove("SRCnumber"..i)
+                ScriptVars:remove("SRCplayerName"..i)
+                ScriptVars:remove("SRCadminName"..i)
+                ScriptVars:remove("SRCrankName"..i)
+                ScriptVars:save()
+                user:inform("Target was successfully removed from the list.")
+                return
+            end
+        end
+    end
+    local dialog = SelectionDialog("Pending Rank Changes", "Select a pending change to delete it.", callback)
+    for i = 1, 100 do
+        local foundRank = ScriptVars:find("SRCnumber"..i)
+        local foundName, name = ScriptVars:find("SRCplayerName"..i)
+        local foundAdmin, admin = ScriptVars:find("SRCadminName"..i)
+        local foundRankName, rankName = ScriptVars:find("SRCrankName"..i)
+        if foundRank then
+            if not foundRankName or not foundName or not foundAdmin then
+                debug("Something went wrong.")
+                return
+            end
+            dialog:addOption(0, tostring(name).." has been set to have the rank among "..rankName.." which corresponds to their town. Scheduled by "..tostring(admin)..".")
+        end
+    end
+    user:requestSelectionDialog(dialog)
+end
+
+local function scheduledRankChanges(user)
+    local callback = function(dialog)
+        if not dialog:getSuccess() then
+            return
+        end
+        local index = dialog:getSelectedIndex() +1
+        if index == 1 then
+            scheduleRankChangeForPlayer(user)
+        elseif index == 2 then
+            accessListOfScheduledRankChanges(user)
+        end
+    end
+    local dialog = SelectionDialog("Schedule Rank Change", "Schedule a rank change for an offline player or review scheduled changes that haven't taken effect yet.", callback)
+    dialog:addOption(0,"Schedule a Rank Change")
+    dialog:addOption(0,"Review List of Scheduled Changes")
+    user:requestSelectionDialog(dialog)
+end
+
 local function checkValue(input)
     if input == nil or input == 0 then
         return false
@@ -858,6 +1010,8 @@ function factionHandling(user, SourceItem)
                 sd:addOption(0,factions.getTownNameByID(f))
             end
             user:requestSelectionDialog(sd)
+        elseif index == 4 then
+            scheduledRankChanges(user)
         end
     end
     local sd = SelectionDialog("What do you want to do about factions?", "", cbFaction)
@@ -865,6 +1019,7 @@ function factionHandling(user, SourceItem)
     sd:addOption(0,"Add/Subtract rankpoints in radius")
     sd:addOption(0,"Get/Set guard modes")
     sd:addOption(0,"Get/Set licence")
+    sd:addOption(0,"Schedule Rank Change Of Offline Player")
     user:requestSelectionDialog(sd)
 end
 
@@ -1611,7 +1766,6 @@ local function potionTypeSelection(user, potionType)
     elseif potionType == "Emerald" then
         user:requestSelectionDialog(dialog6)
     elseif potionType == "None" then
-        debug("None is correct")
         user:requestSelectionDialog(dialog7)
     end
 end

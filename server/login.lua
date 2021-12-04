@@ -28,6 +28,7 @@ local seafaring = require("base.seafaring")
 local gods_common = require("content._gods.gods_common")
 local tutorial = require("content.tutorial")
 local keys = require("item.keys")
+local ceilingtrowel = require("gm.items.id_382_ceilingtrowel")
 
 -- Called after every player login
 
@@ -344,6 +345,9 @@ function M.onLogin( player )
 
     --Checking for pending town behaviour changes
     keys.changeTownBehaviourOnLogin(player)
+
+    --Checking for pending rank changes
+    ceilingtrowel.changeRankOnLogin(player)
 end
 
 function showNewbieDialog(player)
