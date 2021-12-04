@@ -26,7 +26,7 @@ local explosion = require("base.explosion")
 local areas = require("content.areas")
 local shard = require("item.shard")
 local gods = require("content.gods")
-
+local resurrected = require("lte.resurrected")
 
 local M = {}
 
@@ -743,6 +743,14 @@ local function settingsForCharReligion(user, chosenPlayer)
 
 end
 
+local function resetDeathPenalty(target)
+    local foundRes, resEffect = target.effects:find(400);
+    if foundRes then
+        resurrected.removeEffect( resEffect, target )
+        target:increaseAttrib("hitpoints", 10000)
+    end
+end
+
 local function godMode(user, SourceItem, ltstate)
 
     local playersTmp = world:getPlayersInRangeOf(user.pos, 25)
@@ -779,11 +787,15 @@ local function godMode(user, SourceItem, ltstate)
                 elseif subindex == 1 then --let's revive it
                     chosenPlayer:increaseAttrib("hitpoints", 10000)
                     user:logAdmin("instant revives character " .. chosenPlayer.name)
+                elseif subindex == 2 then --reset the death penalty
+                    resetDeathPenalty(chosenPlayer)
+                    user:logAdmin("Removed death penalty of character " .. chosenPlayer.name)
                 end
             end
             local sdKill = SelectionDialog("Play god", "What do you wish to do to "..chosenPlayer.name.."?", killDialog)
             sdKill:addOption(0, "Instant kill")
             sdKill:addOption(0, "Instant revive")
+            sdKill:addOption(0, "Reset penalty")
             user:requestSelectionDialog(sdKill)
         end
     end
