@@ -456,52 +456,78 @@ local function changeItemName(user, TargetItem)
     dialog:addOption(0,"German")
     user:requestSelectionDialog(dialog)
 end
-local function changeItemDescription(user, TargetItem)
-    local newDescriptionDe
-    local newDescriptionEn
-    local _
 
+local function changeItemDescriptionEnglish(user, TargetItem)
+local newDescription
+local _
+    local callback = function(dialog)
+        if not dialog:getSuccess() then
+            return
+        end
+        local input = dialog:getInput()
+        if (string.find(input,"(.+)")~=nil) then
+            _, _, newDescription = string.find(input,"(.+)")
+        else
+            newDescription = ""
+        end
+        if common.IsNilOrEmpty(newDescription) == false then
+            TargetItem:setData("descriptionEn",newDescription)
+            world:changeItem(TargetItem)
+            user:inform("English description of "..world:getItemName(TargetItem.id, Player.english).." set to: " ..newDescription)
+            user:logAdmin("changed English description of "..world:getItemName(TargetItem.id, Player.english).." to: " ..newDescription)
+        else
+            user:inform("The entry can not be left blank.")
+        end
+    end
+    user:requestInputDialog(InputDialog("Set item description", "English description for "..world:getItemName(TargetItem.id, Player.english).."." ,false, 255, callback))
+end
+
+local function changeItemDescriptionGerman(user, TargetItem)
+    local newDescription
+    local _
+        local callback = function(dialog)
+            if not dialog:getSuccess() then
+                return
+            end
+            local input = dialog:getInput()
+            if (string.find(input,"(.+)")~=nil) then
+                _, _, newDescription = string.find(input,"(.+)")
+            else
+                newDescription = ""
+            end
+            if common.IsNilOrEmpty(newDescription) == false then
+                TargetItem:setData("descriptionEn",newDescription)
+                world:changeItem(TargetItem)
+                user:inform("German description of "..world:getItemName(TargetItem.id, Player.english).." set to: " ..newDescription)
+                user:logAdmin("changed German description of "..world:getItemName(TargetItem.id, Player.english).." to: " ..newDescription)
+            else
+                user:inform("The entry can not be left blank.")
+            end
+        end
+        user:requestInputDialog(InputDialog("Set item description", "German description for "..world:getItemName(TargetItem.id, Player.english).."." ,false, 255, callback))
+    end
+
+local function changeItemDescription(user, TargetItem)
     if (TargetItem == nil or TargetItem.id == 0) then
         return
     end
-
-    local cbInputDialogEn = function (dialog)
-        if (not dialog:getSuccess()) then
+    local callback = function (dialog)
+        if not dialog:getSuccess() then
             return
         end
-        local inputEn = dialog:getInput()
-        if (string.find(inputEn,"(.+)")~=nil) then
-            _, _, newDescriptionEn = string.find(inputEn,"(.+)")
-        else
-            newDescriptionEn = ""
+        local index = dialog:getSelectedIndex() + 1
+        if index == 1 then
+            changeItemDescriptionEnglish(user, TargetItem)
+        elseif index == 2 then
+            changeItemDescriptionGerman(user, TargetItem)
         end
-        local cbInputDialogDe = function (subdialog)
-            if (not subdialog:getSuccess()) then
-                return
-            end
-            local inputDe = subdialog:getInput()
-            if (string.find(inputDe,"(.+)")~=nil) then
-                _, _, newDescriptionDe = string.find(inputDe,"(.+)")
-            else
-                newDescriptionDe = newDescriptionEn
-            end
-            if common.IsNilOrEmpty(newDescriptionEn) then
-                newDescriptionEn = newDescriptionDe
-            end
-            if common.IsNilOrEmpty(newDescriptionEn) == false then
-                TargetItem:setData("descriptionDe",newDescriptionDe)
-                TargetItem:setData("descriptionEn",newDescriptionEn)
-                world:changeItem(TargetItem)
-                user:inform("Description of "..world:getItemName(TargetItem.id, Player.english).." set to: " ..newDescriptionEn.." / "..newDescriptionDe)
-                user:logAdmin("changed description of "..world:getItemName(TargetItem.id, Player.english).." to: " ..newDescriptionEn.." / "..newDescriptionDe)
-            else
-                user:inform("Sorry, I didn't understand you.")
-            end
-            changeItemSelection(user, TargetItem)
-        end
-        user:requestInputDialog(InputDialog("Set description of items", "German description for "..world:getItemName(TargetItem.id, Player.english).."." ,false, 255, cbInputDialogDe))
     end
-    user:requestInputDialog(InputDialog("Set description of items", "English description for "..world:getItemName(TargetItem.id, Player.english).."." ,false, 255, cbInputDialogEn))
+
+    local dialog = SelectionDialog("Item Description", "Select which language you want to edit the item description for.", callback)
+
+    dialog:addOption(0,"English")
+    dialog:addOption(0,"German")
+    user:requestSelectionDialog(dialog)
 end
 
 local function changeItemGlyph(user, TargetItem)
