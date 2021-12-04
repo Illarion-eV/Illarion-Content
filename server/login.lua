@@ -27,6 +27,7 @@ local hairdresser = require("npc.hairdresser")
 local seafaring = require("base.seafaring")
 local gods_common = require("content._gods.gods_common")
 local tutorial = require("content.tutorial")
+local keys = require("item.keys")
 
 -- Called after every player login
 
@@ -340,6 +341,9 @@ function M.onLogin( player )
     if not found then
         player.effects:addEffect(LongTimeEffect(gods_common.EFFECT_ID, 10))
     end
+
+    --Checking for pending town behaviour changes
+    keys.changeTownBehaviourOnLogin(player)
 end
 
 function showNewbieDialog(player)
