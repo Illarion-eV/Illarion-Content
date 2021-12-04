@@ -774,7 +774,7 @@ end
 -- @param Defender The character who is attacked
 local function GetParryWeaponAndItem(Defender)
     local parryWeapon
-    local parryItem -- For degradation
+    local parryItem = nil -- For degradation
 
     --Choose which weapon has the largest defence
     if Defender.IsWeapon then
@@ -792,7 +792,7 @@ local function GetParryWeaponAndItem(Defender)
         end
     end
 
-    if common.isBroken(parryItem) then
+    if parryItem == nil or common.isBroken(parryItem) then
         return nil, nil
     else
         return parryWeapon, parryItem
