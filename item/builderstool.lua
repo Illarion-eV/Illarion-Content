@@ -39,11 +39,11 @@ local propertyNameDe
                 TargetItem:setData("descriptionEn",propertyName)
                 TargetItem:setData("descriptionDe",propertyNameDe)
                 world:changeItem(TargetItem)
-                User:inform("","Lock created")
+                User:inform("Schloss eingebaut.","Lock created.")
             end
         end
     else
-        User:inform("","You can only create locks for doors or gates that are on your property.")
+        User:inform("Du kannst nur auf deinem Grundstück Schlösser in Türen und Tore einsetzen.","You can only create locks for doors or gates that are on your property.")
     end
 end
 local function createKey(User)
@@ -58,15 +58,15 @@ local propertyName = propertyList.fetchPropertyName(User)
                     money.TakeMoneyFromChar(User, 500)
                     common.CreateItem(User,keyId,1,999,{["lockId"]=doorId,["descriptionDe"]=keyNameDE,["descriptionEn"]=propertyName})
                     User:inform(common.GetNLS(User,
-                    "Nachdem du einen Schlüsselmacher bezahlt hast dir eine Kopie deines Schlüssels anzufertigen, dauert es nicht lange bis du den fertigen Ersatzschlüssel in der Hand hälst. ",
+                    "Nachdem du einen Schlosser bezahlt hast dir eine Kopie deines Schlüssels anzufertigen, dauert es nicht lange bis du den fertigen Ersatzschlüssel in der Hand hälst.",
                     "Having paid a keysmith the fee to have a copy made of your property key, it does not take long before you hold it in your hand."))
                 else
-                    User:inform(common.GetNLS(User,"Das kannst du dir nicht leisten. Die Arbeit eines Schlüsselmachers ist nicht gratis. ","You can't afford that. No keysmith will work for nothing."))
+                    User:inform(common.GetNLS(User,"Das kannst du dir nicht leisten. Die Arbeit eines Schlossers ist nicht gratis. ","You can't afford that. No keysmith will work for nothing."))
                 end
             end
         end
     else
-        User:inform("","You do not have permission to create keys for this property.")
+        User:inform("Du bist nicht berechtigt für dieses Grundstück Schlüssel anzufertigen.","You do not have permission to create keys for this property.")
     end
 end
 local function writeOnSignPost(User)
@@ -83,17 +83,17 @@ local function writeOnSignPost(User)
                 TargetItem:setData("descriptionEn",input)
                 world:changeItem(TargetItem)
             else
-                User:inform("","You need a sign post in front of you if you want to write on it.")
+                User:inform("Du musst vor einem Hinweisschild stehen um darauf zu schreiben.","You need a sign post in front of you if you want to write on it.")
             end
         else
-            User:inform("","The sign has to be on your property for you to write on it.")
+            User:inform("Das Hinweisschild muss sich auf deinem Grundstück befinden wenn du darauf schreiben möchtest.","The sign has to be on your property for you to write on it.")
         end
     end
-    local dialog = InputDialog(common.GetNLS(User,"","Sign Post"),common.GetNLS(User,"","Write in what you want the sign post to say."), false, 255, callback)
+    local dialog = InputDialog(common.GetNLS(User,"Hinweisschild","Sign Post"),common.GetNLS(User,"Was soll auf dem Schild stehen?","Write in what you want the sign post to say."), false, 255, callback)
     if itemList.checkIfSignPost(User) then
         User:requestInputDialog(dialog)
     else
-        User:inform("","You need a sign post in front of you if you want to write on it.")
+        User:inform("Du musst vor einem Hinweisschild stehen um darauf zu schreiben.","You need a sign post in front of you if you want to write on it.")
     end
 end
 local function destroyingPermitted(User, targetItem)
@@ -113,12 +113,15 @@ end
 local function deleteRoofItemOrTile(User, tile)
 local tileOrObject
 local tileOrObjectDe
+local germanArticle
     if tile == true then
         tileOrObject = "tile"
-        tileOrObjectDe = ""
+        tileOrObjectDe = "Dachfeld"
+        germanArticle = "das"
     else
         tileOrObject = "object"
-        tileOrObjectDe = ""
+        tileOrObjectDe = "Gegenstand"
+        germanArticle = "den"
     end
     local callback = function(dialog)
         local success = dialog:getSuccess()
@@ -126,16 +129,16 @@ local tileOrObjectDe
             local selected = dialog:getSelectedIndex()+1
             if selected == 1 then
                 if not propertyList.roofAndRoofTiles(User, nil, tile, "erase") then
-                    User:inform(""..tileOrObjectDe.."","Targeted item must be a roof "..tileOrObject.." on a property you are permitted to build on, one tile in front of you and above you.")
+                    User:inform("Das Ziel muss ein "..tileOrObjectDe.." sein und sich auf einem Grundstück befinden, auf dem du bauen darfst. Es muss sich zudem direkt vor und über dir befinden.","Targeted item must be a roof "..tileOrObject.." on a property you are permitted to build on, one tile in front of you and above you.")
                 end
             else
-                User:inform(""..tileOrObjectDe..".","You decide against destroying the roof "..tileOrObject..".")
+                User:inform("Du lässt "..germanArticle.." "..tileOrObjectDe.." intakt.","You decide against destroying the roof "..tileOrObject..".")
             end
         end
     end
-    local dialog = SelectionDialog(common.GetNLS(User,"","Confirmation Check"), common.GetNLS(User,"","Are you sure you want to destroy the roof "..tileOrObject.."?"), callback)
-    dialog:addOption(0,common.GetNLS(User,"","Yes, destroy it."))
-    dialog:addOption(0,common.GetNLS(User,"","No, I changed my mind."))
+    local dialog = SelectionDialog(common.GetNLS(User,"Bestätigung","Confirmation Check"), common.GetNLS(User,"Bist du dir sicher, dass du "..germanArticle.." "..tileOrObjectDe.." abreißen möchtest?","Are you sure you want to destroy the roof "..tileOrObject.."?"), callback)
+    dialog:addOption(0,common.GetNLS(User,"Ja, das kann weg.","Yes, destroy it."))
+    dialog:addOption(0,common.GetNLS(User,"Nein, das ist Kunst.","No, I changed my mind."))
     dialog:setCloseOnMove()
     User:requestSelectionDialog(dialog)
 end
@@ -147,24 +150,24 @@ local itemName = world:getItemName(targetItem.id, User:getPlayerLanguage())
         if success then
             local selected = dialog:getSelectedIndex()+1
             if selected == 1 then
-                User:inform(common.GetNLS(User,""..itemName,"You destroy the "..itemName))
+                User:inform(common.GetNLS(User,"Du reißt ab: "..itemName,"You destroy the "..itemName))
                 if propertyList.checkIfStairsOrTrapDoor(User, targetItem.id) then
                     if propertyList.createWarpsAndExitObject(User, targetItem.id, "erase") then
                         world:erase(targetItem,1)
                     else
-                        User:inform("","You aren't allowed to destroy that.")
+                        User:inform("Du bist nicht berechtigt dies abzureißen.","You aren't allowed to destroy that.")
                     end
                 else
                     world:erase(targetItem,1)
                 end
             else
-                User:inform(common.GetNLS(User,"","You decide against destroying the "..itemName))
+                User:inform(common.GetNLS(User,"Nicht abgerissen: "..itemName,"You decide against destroying the "..itemName))
             end
         end
     end
-    local dialog = SelectionDialog(common.GetNLS(User,"","Confirmation Check"), common.GetNLS(User,"","Are you sure you want to destroy the "..itemName.."?"), callback)
-    dialog:addOption(0,common.GetNLS(User,"","Yes, destroy it."))
-    dialog:addOption(0,common.GetNLS(User,"","No, I changed my mind."))
+    local dialog = SelectionDialog(common.GetNLS(User,"Bestätigung","Confirmation Check"), common.GetNLS(User,"Bist du sicher, dass du dies abreißen möchtest: "..itemName,"Are you sure you want to destroy the "..itemName.."?"), callback)
+    dialog:addOption(0,common.GetNLS(User,"Ja, das kann weg.","Yes, destroy it."))
+    dialog:addOption(0,common.GetNLS(User,"Nein, das ist Kunst.","No, I changed my mind."))
     dialog:setCloseOnMove()
     User:requestSelectionDialog(dialog)
 end
@@ -176,11 +179,11 @@ local targetItem
         targetItem = common.GetFrontItem(User)
     end
     if not targetItem then
-        User:inform("","There is no item to destroy.")
+        User:inform("Hier ist nichts, was du abreißen könntest.","There is no item to destroy.")
     elseif destroyingPermitted(User, targetItem) then
         checkIfUserIsSure(User, targetItem)
     else
-        User:inform("","You're not allowed to destroy this item.")
+        User:inform("Du bist nicht berechtigt dies abzureißen.","You're not allowed to destroy this item.")
     end
 end
 local function staticPermitted(User, targetItem)
@@ -199,19 +202,19 @@ local targetItem
         targetItem = common.GetFrontItem(User)
     end
     if not targetItem then
-        User:inform("","There is no item to be made/unmade static.")
+        User:inform("Hier ist nichts, was dauerhaft haltbar gemacht werden könnte.","There is no item to be made/unmade static.")
     elseif staticPermitted(User, targetItem) then
         if targetItem.wear ~= 255 then
             targetItem.wear = 255
             world:changeItem(targetItem)
-            User:inform("","The item has been made static. It can no longer be moved, and will no longer rot.")
+            User:inform("Der Gegenstand ist nun dauerhaft haltbar. Er kann nicht mehr bewegt werden und wir nicht von selbst verschwinden.","The item has been made static. It can no longer be moved, and will no longer rot.")
         elseif targetItem.wear == 255 then
             targetItem.wear = 254
             world:changeItem(targetItem)
-            User:inform("","The item is no longer static. It can now be moved, and will once more rot.")
+            User:inform("Der Gegenstand ist nun nicht mehr dauerhaft haltbar. Er kann nun bewegt werden und wird letzlich verschwinden.","The item is no longer static. It can now be moved, and will once more rot.")
         end
     else
-        User:inform("","This item can not be made/unmade static.")
+        User:inform("Die Haltbarkeit dieses Gegenstandes kann nicht geändert werden.","This item can not be made/unmade static.")
     end
 end
 
@@ -324,7 +327,7 @@ local categoryNumber = 0
             end
         end
     end
-    local dialog = SelectionDialog(common.GetNLS(User,"","Categories"), common.GetNLS(User,"","Choose a category"), callback)
+    local dialog = SelectionDialog(common.GetNLS(User,"Kategorien","Categories"), common.GetNLS(User,"Wähle eine Kategorie.","Choose a category."), callback)
     for _, category in ipairs(itemList.categories) do
         if construction[tostring(category)..skill] and checkIfCategoryShown(User, category.categoryEn, skill) then
             if category.Estate then
@@ -355,7 +358,7 @@ local categoryNumber = 0
             end
         end
     end
-    local dialog = SelectionDialog(common.GetNLS(User,"","Skill Selection"), common.GetNLS(User,"","Choose which skill you want to use to create items with."), callback)
+    local dialog = SelectionDialog(common.GetNLS(User,"Handwerksauswahl","Skill Selection"), common.GetNLS(User,"Mit welchem Handwerk möchtest du Gegenstände herstellen?","Choose which skill you want to use to create items with."), callback)
     for _, skill in ipairs(itemList.skills) do
         if checkIfSkillIsShown(User, skill.name) then
             dialog:addOption(0,common.GetNLS(User,skill.displayDe,skill.displayEn))
@@ -378,10 +381,10 @@ local function destroySelection(User)
             end
         end
     end
-    local dialog = SelectionDialog(common.GetNLS(User,"","Destroy"), common.GetNLS(User,"","Choose type of destruction."), callback)
-    dialog:addOption(0,common.GetNLS(User,"","Items"))
-    dialog:addOption(0,common.GetNLS(User,"","Roof Objects"))
-    dialog:addOption(0,common.GetNLS(User,"","Roof Tiles"))
+    local dialog = SelectionDialog(common.GetNLS(User,"Abreißen","Destroy"), common.GetNLS(User,"Was möchtest du abreißen?","Choose type of destruction."), callback)
+    dialog:addOption(0,common.GetNLS(User,"Gegenstände","Items"))
+    dialog:addOption(0,common.GetNLS(User,"Dachausrüstung","Roof Objects"))
+    dialog:addOption(0,common.GetNLS(User,"Dachschindeln","Roof Tiles"))
     dialog:setCloseOnMove()
     User:requestSelectionDialog(dialog)
 end
@@ -391,9 +394,9 @@ local targetField = world:getField(targetPosition)
 local targetTileId = targetField:tile()
     if targetTileId == 6 then
         world:createItemFromId(42, 1, targetPosition, true, 999, nil)
-        User:inform("","You can now walk on the water tile.")
+        User:inform("Du kannst nun übers Wasser gehen.","You can now walk on the water tile.")
     else
-        User:inform("","The tile in front of you needs to be a water tile.")
+        User:inform("Vor dir muss sich Wasser befinden.","The tile in front of you needs to be a water tile.")
     end
 end
 local function miscDialog(User)
@@ -416,18 +419,18 @@ local propertyName = propertyList.fetchPropertyName(User)
                         createKey(User)
                     end
                 else
-                    User:inform("","You do not have permission to do this.") -- This only happens if the user tries to cheat by turning while in dialog at property borders.
+                    User:inform("Du bist hierzu nicht berechtigt.","You do not have permission to do this.") -- This only happens if the user tries to cheat by turning while in dialog at property borders.
                 end
             end
         end
     end
-    local dialog = SelectionDialog(common.GetNLS(User,"","Misc Menu"), common.GetNLS(User,"","Choose what to do"), callback)
-    dialog:addOption(0,common.GetNLS(User,"","(Un)Make item static"))
-    dialog:addOption(0,common.GetNLS(User,"","Write on Sign Post"))
-    dialog:addOption(0,common.GetNLS(User,"","Make water walkable"))
+    local dialog = SelectionDialog(common.GetNLS(User,"Sonstiges","Misc Menu"), common.GetNLS(User,"Was würdest du gerne tun?","Choose what to do."), callback)
+    dialog:addOption(0,common.GetNLS(User,"Gegenstände haltbar machen","(Un)Make item static"))
+    dialog:addOption(0,common.GetNLS(User,"Ein Hinweisschild beschriften","Write on Sign Post"))
+    dialog:addOption(0,common.GetNLS(User,"Übers Wasser gehen","Make water walkable"))
     if propertyList.checkIfEstate(User) then
-        dialog:addOption(0,common.GetNLS(User,"","Create a lock"))
-        dialog:addOption(0,common.GetNLS(User,"","Create a key"))
+        dialog:addOption(0,common.GetNLS(User,"Schloss setzen","Create a lock"))
+        dialog:addOption(0,common.GetNLS(User,"Schlüssel herstellen","Create a key"))
     end
     dialog:setCloseOnMove()
     User:requestSelectionDialog(dialog)
@@ -456,15 +459,15 @@ local property = propertyList.fetchPropertyName(User)
                     notice.removeBuilderOrGuest(User, nil, "builder", property)
                 end
             else
-                User:inform("","You do not have permission to do this.") -- This only happens if the user tries to cheat by turning while in dialog at property borders.
+                User:inform("Du bist hierzu nicht berechtigt.","You do not have permission to do this.") -- This only happens if the user tries to cheat by turning while in dialog at property borders.
             end
         end
     end
-    local dialog = SelectionDialog(common.GetNLS(User,"","Property Management"), common.GetNLS(User,"","Choose what to do below."), callback)
-    dialog:addOption(0, common.GetNLS(User,"","Add Guest"))
-    dialog:addOption(0, common.GetNLS(User,"","Remove Guest"))
-    dialog:addOption(0, common.GetNLS(User,"","Give Builder's Permission"))
-    dialog:addOption(0, common.GetNLS(User,"","Remove Builder's Permission"))
+    local dialog = SelectionDialog(common.GetNLS(User,"Grundstücksverwaltung","Property Management"), common.GetNLS(User,"Was würdest du gerne tun?","Choose what to do below."), callback)
+    dialog:addOption(0, common.GetNLS(User,"Füge einen Gast hinzu","Add Guest"))
+    dialog:addOption(0, common.GetNLS(User,"Entferne einen Gast","Remove Guest"))
+    dialog:addOption(0, common.GetNLS(User,"Erteile Baugenehmigung","Give Builder's Permission"))
+    dialog:addOption(0, common.GetNLS(User,"Entziehe Baugenehmigung","Remove Builder's Permission"))
     dialog:setCloseOnMove()
     User:requestSelectionDialog(dialog)
 end
@@ -473,7 +476,7 @@ local outlawRentDuration = ""
 local Outlaw
     if propertyList.checkIfOutlaw(User) then
         Outlaw = true
-        outlawRentDuration = common.GetNLS(User,"","You will remain the owner of this property for the next ")..M.getRentDuration(User).." months. A GM will have to renew your duration within that time or the property will be forfeit.\n"
+        outlawRentDuration = common.GetNLS(User,"Du bist nun der Eigentümer für die nächsten "..M.getRentDuration(User).." Monate. Ein Gamemaster muss während dieser Zeit die Frist verlängern oder das Grundstück wird wieder frei verfügbar.\n","You will remain the owner of this property for the next "..M.getRentDuration(User).." months. A GM will have to renew your duration within that time or the property will be forfeit.\n")
     end
 local propertyName = propertyList.fetchPropertyName(User)
     local callback = function(dialog)
@@ -495,17 +498,17 @@ local propertyName = propertyList.fetchPropertyName(User)
                         M.propertyManagement(User)
                     end
                 else
-                    User:inform("","You do not have permission to do this.") -- This only happens if the user tries to cheat by turning while in dialog at property borders.
+                    User:inform("Du bist hierzu nicht berechtigt.","You do not have permission to do this.") -- This only happens if the user tries to cheat by turning while in dialog at property borders.
                 end
             end
         end
     end
-    local dialog = SelectionDialog(common.GetNLS(User,"","Menu"), common.GetNLS(User,"",outlawRentDuration.."Choose what to do below."), callback)
-    dialog:addOption(0,common.GetNLS(User,"","Build"))
-    dialog:addOption(0,common.GetNLS(User,"","Destroy"))
-    dialog:addOption(0,common.GetNLS(User,"","Misc"))
+    local dialog = SelectionDialog(common.GetNLS(User,"Menü","Menu"), common.GetNLS(User,"Was möchtest du gerne tun?",outlawRentDuration.."Choose what to do below."), callback)
+    dialog:addOption(0,common.GetNLS(User,"Bauen","Build"))
+    dialog:addOption(0,common.GetNLS(User,"Abreißen","Destroy"))
+    dialog:addOption(0,common.GetNLS(User,"Sonstiges","Misc"))
     if Outlaw then
-        dialog:addOption(0,common.GetNLS(User,"","Property Management"))
+        dialog:addOption(0,common.GetNLS(User,"Grundstücksverwaltung","Property Management"))
     end
     dialog:setCloseOnMove()
     User:requestSelectionDialog(dialog)
@@ -513,11 +516,11 @@ end
 function M.UseItem(User, SourceItem)
 local propertyName = propertyList.fetchPropertyName(User)
     if not propertyName then
-        User:inform("","You can't build outside of property land.")
+        User:inform("Du kannst nicht außerhalb eines Grundstückes bauen.","You can't build outside of property land.")
     elseif propertyList.fetchBuildersPermission(User) then
         mainDialog(User, SourceItem)
     else
-        User:inform("","You do not have permission to do this.")
+        User:inform("Du bist hierzu nicht berechtigt.","You do not have permission to do this.")
     end
 end
 return M
