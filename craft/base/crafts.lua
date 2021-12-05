@@ -275,6 +275,9 @@ function Craft:allowUserCrafting(user, source)
 end
 
 function Craft:userHasLicense(user)
+    if self:getHandToolEquipped(user).id == housingTool then --bypass for housing
+        return true
+    end
     return not licence.licence(user)
 end
 
@@ -477,6 +480,23 @@ function Craft:refreshDialog(dialog, user)
 end
 
 function Craft:getCraftingTime(product, skill)
+local housing = product.housing
+    if housing then --This check must be before the npcCraft check, as housing uses npcCraft for items that do not belong to a specific skill aka the "misc" category
+        local amountOfSeconds = itemList.getCraftTimeInSeconds(product.item, product.tile)*10
+        if not self.npcCraft then
+            local learnProgress
+            if (self.learnLimit == self.difficulty) then
+                learnProgress = 50
+            else
+                learnProgress = (skill - self.difficulty) / (self.learnLimit - self.difficulty) * 100
+            end
+            amountOfSeconds = common.Scale(amountOfSeconds, amountOfSeconds/2, learnProgress)
+        end
+        if amountOfSeconds > 99 then
+            amountOfSeconds = 10 * math.floor(amountOfSeconds/10 + 0.5) -- Round correctly to whole seconds
+        end
+        return amountOfSeconds
+    end
     if not self.npcCraft then
         return product:getCraftingTime(skill)
     else

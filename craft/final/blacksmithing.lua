@@ -453,7 +453,7 @@ product:addIngredient(2535, 1) -- iron ingot
 product:addIngredient(2528, 1) -- small handle
 
 -- Construction Trowel
-product = blacksmithing:addProduct(catId, 1248, 1)
+product = blacksmithing:addProduct(catId, 3918, 1)
 product:addIngredient(2535, 1) -- iron ingot
 product:addIngredient(2528, 1) -- small handle
 
