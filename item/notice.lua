@@ -21,72 +21,72 @@ local factions = require("base.factions")
 local M = {}
 
 M.propertyTable = {
--- 1property name,2DE name, 3position, 4default rent, 5keyID, 6doorID, 7town, 8required rank, 9required rank name, 10DE rank name, 11 estate(boolean)
+-- 1property name, 2DE name, 3position, 4default rent, 5keyID, 6doorID, 7town, 8required rank, 9required rank name, 10DE rank name, 11 estate(boolean)
 -- Some of the information is not used and was there for a fully automated version of housing. It is kept in case of future need.
 --Cadomyr
-{"Villa Annabeth", "Villa Annabeth",position(93,617,0),40000,3054,340, "Cadomyr","7","Knight","Ritter"},
-{"Villa Edward", "Villa Edward",position(89,606,0),40000,3054,341, "Cadomyr","7","Knight","Ritter",""},
-{"Villa Reginald", "Villa Reginald",position(94,561,0),30000,3054,342, "Cadomyr","6","Squire","Knappe"},
-{"Flat Faith and Obedience", "Wohnung Glaube und Gehorsam",position(137,605,0),5000,2558,361, "Cadomyr","4","Yeoman","Freisasse"},
-{"Flat Honour and Lineage", "Wohnung Ehre und Abstammung",position(138,603,1),5000,2558,362, "Cadomyr","4","Yeoman","Freisasse"},
-{"Flat Truth and Justice", "Wohnung Ehrlichkeit und Gerechtigkeit",position(136,609,0),10000,2558,363, "Cadomyr","5","Page","Page"},
-{"Flat Courage", "Wohnung Mut",position(137,609,1),15000,2558,364, "Cadomyr","5","Page","Page"},
-{"Flat Patriarchy", "Wohnung Patriarchat",position(135,614,0),15000,2558,365, "Cadomyr","5","Page","Page"},
-{"Flat Property", "Wohnung Besitz",position(136,616,1),20000,2558,366, "Cadomyr","6","Squire","Knappe"},
+{"Villa Annabeth", "Villa Annabeth",position(93,617,0),40000,3054,340, "Cadomyr","7",factions.CadomyrRankListMale[7]["eRank"],factions.CadomyrRankListMale[7]["gRank"]},
+{"Villa Edward", "Villa Edward",position(89,606,0),40000,3054,341, "Cadomyr","7",factions.CadomyrRankListMale[7]["eRank"],factions.CadomyrRankListMale[7]["gRank"]},
+{"Villa Reginald", "Villa Reginald",position(94,561,0),30000,3054,342, "Cadomyr","6",factions.CadomyrRankListMale[6]["eRank"],factions.CadomyrRankListMale[6]["gRank"]},
+{"Flat Faith and Obedience", "Wohnung Glaube und Gehorsam",position(137,605,0),5000,2558,361, "Cadomyr","4",factions.CadomyrRankListMale[4]["eRank"],factions.CadomyrRankListMale[4]["gRank"]},
+{"Flat Honour and Lineage", "Wohnung Ehre und Abstammung",position(138,603,1),5000,2558,362, "Cadomyr","4",factions.CadomyrRankListMale[4]["eRank"],factions.CadomyrRankListMale[4]["gRank"]},
+{"Flat Truth and Justice", "Wohnung Ehrlichkeit und Gerechtigkeit",position(136,609,0),10000,2558,363, "Cadomyr","5",factions.CadomyrRankListMale[5]["eRank"],factions.CadomyrRankListMale[5]["gRank"]},
+{"Flat Courage", "Wohnung Mut",position(137,609,1),15000,2558,364, "Cadomyr","5",factions.CadomyrRankListMale[5]["eRank"],factions.CadomyrRankListMale[5]["gRank"]},
+{"Flat Patriarchy", "Wohnung Patriarchat",position(135,614,0),15000,2558,365, "Cadomyr","5",factions.CadomyrRankListMale[5]["eRank"],factions.CadomyrRankListMale[5]["gRank"]},
+{"Flat Property", "Wohnung Besitz",position(136,616,1),20000,2558,366, "Cadomyr","6",factions.CadomyrRankListMale[6]["eRank"],factions.CadomyrRankListMale[6]["gRank"]},
 --Runewick
-{"First Fire Apartment", "Erstes Feuerapartment",position(945,756,0),30000,2558,240, "Runewick","3","Student","Student"},
-{"Second Fire Apartment", "Zweites Feuerapartment",position(950,756,0),30000,2558,241, "Runewick","3","Student","Student"},
-{"Third Fire Apartment", "Drittes Feuerapartment",position(958,758,0),60000,2558,242, "Runewick","6","Doctor","Doktor"},
-{"Fourth Fire Apartment", "Viertes Feuerapartment",position(957,756,1),80000,2558,243, "Runewick","7","Docent","Dozent"},
-{"First Air Apartment", "Erstes Luftapartment",position(958,839,1),70000,2558,210, "Runewick","6","Doctor","Doktor"},
-{"Second Air Apartment", "Zweites Luftapartment",position(956,835,1),50000,2558,211, "Runewick","5","Master","Magister"},
-{"First Earth Apartment", "Erstes Erdapartment",position(901,762,1),30000,2558,230, "Runewick","4","Scholar","Gelehrter"},
-{"Second Earth Apartment", "Zweites Erdapartment",position(902,763,1),30000,2558,231, "Runewick","4","Scholar","Gelehrter"},
-{"Third Earth Apartment", "Drittes Erdapartment",position(899,759,-3),30000,2558,233, "Runewick","4","Scholar","Gelehrter"},
-{"Fourth Earth Apartment", "Viertes Erdapartment",position(899,769,-3),20000,2558,234, "Runewick","3","Student","Student"},
-{"Fifth Earth Apartment", "Fünftes Erdapartment",position(902,755,-3),20000,2558,235, "Runewick","3","Student","Student"},
-{"Sixth Earth Apartment", "Sechstes Erdapartment",position(900,755,-3),20000,2558,236, "Runewick","3","Student","Student"},
-{"Cottage", "Landhaus",position(791,795,0),30000,2558,251, "Runewick","5","Master","Magister"},
-{"Quadruped Red Bird","Vierbeiniger Roter Vogel",position(745,803,0),100000,2558,250, "Runewick","7","Docent","Dozent"},
+{"First Fire Apartment", "Erstes Feuerapartment",position(945,756,0),30000,2558,240, "Runewick","3",factions.RunewickRankListMale[3]["eRank"],factions.RunewickRankListMale[3]["gRank"]},
+{"Second Fire Apartment", "Zweites Feuerapartment",position(950,756,0),30000,2558,241, "Runewick","3",factions.RunewickRankListMale[3]["eRank"],factions.RunewickRankListMale[3]["gRank"]},
+{"Third Fire Apartment", "Drittes Feuerapartment",position(958,758,0),60000,2558,242, "Runewick","6",factions.RunewickRankListMale[6]["eRank"],factions.RunewickRankListMale[6]["gRank"]},
+{"Fourth Fire Apartment", "Viertes Feuerapartment",position(957,756,1),80000,2558,243, "Runewick","7",factions.RunewickRankListMale[7]["eRank"],factions.RunewickRankListMale[7]["gRank"]},
+{"First Air Apartment", "Erstes Luftapartment",position(958,839,1),70000,2558,210, "Runewick","6",factions.RunewickRankListMale[6]["eRank"],factions.RunewickRankListMale[6]["gRank"]},
+{"Second Air Apartment", "Zweites Luftapartment",position(956,835,1),50000,2558,211, "Runewick","5",factions.RunewickRankListMale[5]["eRank"],factions.RunewickRankListMale[5]["gRank"]},
+{"First Earth Apartment", "Erstes Erdapartment",position(901,762,1),30000,2558,230, "Runewick","4",factions.RunewickRankListMale[4]["eRank"],factions.RunewickRankListMale[4]["gRank"]},
+{"Second Earth Apartment", "Zweites Erdapartment",position(902,763,1),30000,2558,231, "Runewick","4",factions.RunewickRankListMale[4]["eRank"],factions.RunewickRankListMale[4]["gRank"]},
+{"Third Earth Apartment", "Drittes Erdapartment",position(899,759,-3),30000,2558,233, "Runewick","4",factions.RunewickRankListMale[4]["eRank"],factions.RunewickRankListMale[4]["gRank"]},
+{"Fourth Earth Apartment", "Viertes Erdapartment",position(899,769,-3),20000,2558,234, "Runewick","3",factions.RunewickRankListMale[3]["eRank"],factions.RunewickRankListMale[3]["gRank"]},
+{"Fifth Earth Apartment", "Fünftes Erdapartment",position(902,755,-3),20000,2558,235, "Runewick","3",factions.RunewickRankListMale[3]["eRank"],factions.RunewickRankListMale[3]["gRank"]},
+{"Sixth Earth Apartment", "Sechstes Erdapartment",position(900,755,-3),20000,2558,236, "Runewick","3",factions.RunewickRankListMale[3]["eRank"],factions.RunewickRankListMale[3]["gRank"]},
+{"Cottage", "Landhaus",position(791,795,0),30000,2558,251, "Runewick","5",factions.RunewickRankListMale[5]["eRank"],factions.RunewickRankListMale[5]["gRank"]},
+{"Quadruped Red Bird","Vierbeiniger Roter Vogel",position(745,803,0),100000,2558,250, "Runewick","7",factions.RunewickRankListMale[7]["eRank"],factions.RunewickRankListMale[7]["gRank"]},
 --Galmair
-{"House of Malachite","Malachithaus",position(372,323,0), 100000, 3056, 110, "Galmair", "7", "Patrician","Patrizier"},
-{"Villa Goldvein","Villa Goldader", position(300, 281, 0), 80000, 3055, 111, "Galmair", "7", "Patrician","Patrizier"},
-{"Flat Irmorom","Wohnung Irmorom",position(373,216,-6), 30000,2558,120, "Galmair","4","Grocer","Krämer"},
-{"Flat Elara","Wohnung Elara",position(384,219,-6), 30000,2558,121, "Galmair","4","Grocer","Krämer"},
-{"Flat Adron","Wohnung Adron",position(383,230,-6), 20000,2558,122, "Galmair","3","Pedlar","Hausierer"},
-{"Flat Malachin","Wohnung Malachín",position(382,240,-6),20000,2558,123, "Galmair","3","Pedlar","Hausierer"},
-{"Flat Oldra","Wohnung Oldra",position(376,238,-6),30000,2558,124, "Galmair","4","Grocer","Krämer"},
-{"Flat Nargun","Wohnung Nargùn",position(383,240,-5),20000,2558,125, "Galmair","3","Pedlar","Hausierer"},
-{"Flat Ronagan","Wohnung Ronagan",position(384,228,-5),20000,2558,126, "Galmair","3","Pedlar","Hausierer"},
-{"Flat Sirani","Wohnung Sirani",position(385,220,-5),30000,2558,127, "Galmair","4","Grocer","Krämer"},
-{"Flat Zhambra","Wohnung Zhambra",position(373,215,-5),30000,2558,128, "Galmair","4","Grocer","Krämer"},
-{"Lucky Copper","Glückskupfer",position(416,289,1),40000,2558,113, "Galmair","5","Merchant","Kaufmann"},
-{"Silver Profit","Silberner Verdienst",position(419,294,1),50000,2558,114, "Galmair","5","Merchant","Kaufmann"},
-{"Golden Deal","Goldener Abschluss",position(419,291,1),60000,2558,115, "Galmair","6","Financier","Finanzier"},
-{"Flat Sapphire","Wohnung Saphir",position(400,222,1),50000,2558,131, "Galmair","6","Financier","Finanzier"},
-{"Flat Diamond","Wohnung Diamant",position(406,222,1),60000,2558,132, "Galmair","6","Financier","Finanzier"},
-{"Flat Obsidian","Wohnung Obsidian",position(428,216,1),60000,2558,133, "Galmair","6","Financier","Finanzier"},
+{"House of Malachite","Malachithaus",position(372,323,0), 100000, 3056, 110, "Galmair", "7",factions.GalmairRankListMale[7]["eRank"],factions.GalmairRankListMale[7]["gRank"]},
+{"Villa Goldvein","Villa Goldader", position(300, 281, 0), 80000, 3055, 111, "Galmair", "7",factions.GalmairRankListMale[7]["eRank"],factions.GalmairRankListMale[7]["gRank"]},
+{"Flat Irmorom","Wohnung Irmorom",position(373,216,-6), 30000,2558,120, "Galmair","4",factions.GalmairRankListMale[4]["eRank"],factions.GalmairRankListMale[4]["gRank"]},
+{"Flat Elara","Wohnung Elara",position(384,219,-6), 30000,2558,121, "Galmair","4",factions.GalmairRankListMale[4]["eRank"],factions.GalmairRankListMale[4]["gRank"]},
+{"Flat Adron","Wohnung Adron",position(383,230,-6), 20000,2558,122, "Galmair","3",factions.GalmairRankListMale[3]["eRank"],factions.GalmairRankListMale[3]["gRank"]},
+{"Flat Malachin","Wohnung Malachín",position(382,240,-6),20000,2558,123, "Galmair","3",factions.GalmairRankListMale[3]["eRank"],factions.GalmairRankListMale[3]["gRank"]},
+{"Flat Oldra","Wohnung Oldra",position(376,238,-6),30000,2558,124, "Galmair","4",factions.GalmairRankListMale[4]["eRank"],factions.GalmairRankListMale[4]["gRank"]},
+{"Flat Nargun","Wohnung Nargùn",position(383,240,-5),20000,2558,125, "Galmair","3",factions.GalmairRankListMale[3]["eRank"],factions.GalmairRankListMale[3]["gRank"]},
+{"Flat Ronagan","Wohnung Ronagan",position(384,228,-5),20000,2558,126, "Galmair","3",factions.GalmairRankListMale[3]["eRank"],factions.GalmairRankListMale[3]["gRank"]},
+{"Flat Sirani","Wohnung Sirani",position(385,220,-5),30000,2558,127, "Galmair","4",factions.GalmairRankListMale[4]["eRank"],factions.GalmairRankListMale[4]["gRank"]},
+{"Flat Zhambra","Wohnung Zhambra",position(373,215,-5),30000,2558,128, "Galmair","4",factions.GalmairRankListMale[4]["eRank"],factions.GalmairRankListMale[4]["gRank"]},
+{"Lucky Copper","Glückskupfer",position(416,289,1),40000,2558,113, "Galmair","5",factions.GalmairRankListMale[5]["eRank"],factions.GalmairRankListMale[5]["gRank"]},
+{"Silver Profit","Silberner Verdienst",position(419,294,1),50000,2558,114, "Galmair","5",factions.GalmairRankListMale[5]["eRank"],factions.GalmairRankListMale[5]["gRank"]},
+{"Golden Deal","Goldener Abschluss",position(419,291,1),60000,2558,115, "Galmair","6",factions.GalmairRankListMale[6]["eRank"],factions.GalmairRankListMale[6]["gRank"]},
+{"Flat Sapphire","Wohnung Saphir",position(400,222,1),50000,2558,131, "Galmair","6",factions.GalmairRankListMale[6]["eRank"],factions.GalmairRankListMale[6]["gRank"]},
+{"Flat Diamond","Wohnung Diamant",position(406,222,1),60000,2558,132, "Galmair","6",factions.GalmairRankListMale[6]["eRank"],factions.GalmairRankListMale[6]["gRank"]},
+{"Flat Obsidian","Wohnung Obsidian",position(428,216,1),60000,2558,133, "Galmair","6",factions.GalmairRankListMale[6]["eRank"],factions.GalmairRankListMale[6]["gRank"]},
 --Estates, Galmair
-{"Galmair Harbour Estate","Hafengrundstück in Galmair",position(447,124,0),200000, 2558, 134, "Galmair", "7", "Patrician", "Patrizier", true},
-{"Galmair Roadside Estate","Grundstück Am Wegesrand in Galmair",position(462,175,0),200000, 2558, 135, "Galmair", "7", "Patrician", "Patrizier", true},
-{"Galmair Mountainside Estate","Grundstück Bergblick in Galmair",position(565,168,0),200000, 2558, 136, "Galmair", "7", "Patrician", "Patrizier", true},
+{"Galmair Harbour Estate","Hafengrundstück in Galmair",position(447,124,0),200000, 2558, 134, "Galmair", "7", factions.GalmairRankListMale[7]["eRank"],factions.GalmairRankListMale[7]["gRank"], true},
+{"Galmair Roadside Estate","Grundstück Am Wegesrand in Galmair",position(462,175,0),200000, 2558, 135, "Galmair", "7", factions.GalmairRankListMale[7]["eRank"],factions.GalmairRankListMale[7]["gRank"], true},
+{"Galmair Mountainside Estate","Grundstück Bergblick in Galmair",position(565,168,0),200000, 2558, 136, "Galmair", "7", factions.GalmairRankListMale[7]["eRank"],factions.GalmairRankListMale[7]["gRank"], true},
 --Cadomyr
-{"Cadomyr Harbour Estate", "Hafengrundstück in Cadomyr",position(106,769,0),200000, 2558,368, "Cadomyr","7","Knight","Ritter"},
-{"Cadomyr Riverside Estate", "Grundstück am Flussufer in Cadomyr",position(173,674,0),200000, 2558,369, "Cadomyr","7","Knight","Ritter"},
-{"Cadomyr Seaside Estate", "Grundstück Meerblick in Cadomyr",position(49,661,0),200000, 2558,370, "Cadomyr","7","Knight","Ritter"},
+{"Cadomyr Harbour Estate", "Hafengrundstück in Cadomyr",position(106,769,0),200000, 2558,368, "Cadomyr","7",factions.CadomyrRankListMale[7]["eRank"],factions.CadomyrRankListMale[7]["gRank"], true},
+{"Cadomyr Riverside Estate", "Grundstück am Flussufer in Cadomyr",position(173,674,0),200000, 2558,369, "Cadomyr","7",factions.CadomyrRankListMale[7]["eRank"],factions.CadomyrRankListMale[7]["gRank"], true},
+{"Cadomyr Seaside Estate", "Grundstück Meerblick in Cadomyr",position(49,661,0),200000, 2558,370, "Cadomyr","7",factions.CadomyrRankListMale[7]["eRank"],factions.CadomyrRankListMale[7]["gRank"], true},
 --Runewick
-{"Runewick Harbour Estate", "Hafengrundstück in Runewick",position(758,778,0),200000, 2558,252, "Runewick","7","Docent","Dozent"},
-{"Runewick Forest Estate", "Waldgrundstück in Runewick",position(869,889,0),200000, 2558,253, "Runewick","7","Docent","Dozent"},
-{"Runewick Roadside Estate", "Grundstück Am Wegesrand in Runewick",position(834,728,0),200000, 2558,254, "Runewick","7","Docent","Dozent"},
+{"Runewick Harbour Estate", "Hafengrundstück in Runewick",position(758,778,0),200000, 2558,252, "Runewick","7",factions.RunewickRankListMale[7]["eRank"],factions.RunewickRankListMale[7]["gRank"], true},
+{"Runewick Forest Estate", "Waldgrundstück in Runewick",position(869,889,0),200000, 2558,253, "Runewick","7",factions.RunewickRankListMale[7]["eRank"],factions.RunewickRankListMale[7]["gRank"], true},
+{"Runewick Roadside Estate", "Grundstück Am Wegesrand in Runewick",position(834,728,0),200000, 2558,254, "Runewick","7",factions.RunewickRankListMale[7]["eRank"],factions.RunewickRankListMale[7]["gRank"], true},
 --Outlaw
-{"Outlaw Base One", "Erstes Lager der Vogelfreien",position(967,243,0),200000,2558,504,"Outlaw","0","None","None"}
+{"Outlaw Base One", "Erstes Lager der Vogelfreien",position(967,243,0),200000,2558,504,"Outlaw","0","None","None", true}
 }
 M.max_guest_number = 20
 M.max_builder_number = 20
 -- List of the different depot IDs
 M.depotList={100,101,102,103}
-function M.checkForPropertyDeed(User)
-local targetTile = common.GetFrontPosition(User)
+function M.checkForPropertyDeed(user)
+local targetTile = common.GetFrontPosition(user)
     for i = 1, #M.propertyTable do
         if targetTile == M.propertyTable[i][3] then
             return true
@@ -111,12 +111,12 @@ function M.getTownName(Item, property)
     end
 end
 -- Checks if the user is a leader of the specified town
-function M.checkIfLeaderOfTown(User, Town)
+function M.checkIfLeaderOfTown(user, Town)
     if Town == "Outlaw" then
         return false
     end
-local home = factions.getMembershipByName(User)
-    if (User:getQuestProgress(200) >= 8) and (home == Town) then
+local home = factions.getMembershipByName(user)
+    if (user:getQuestProgress(200) >= 8) and (home == Town) then
         return true
     else
         return false
@@ -155,18 +155,18 @@ function M.getDefaultRent(Item, property)
     end
 end
 -- The lookAt for the property deed
-function M.propertyDeedLookAt(User, Item)
+function M.propertyDeedLookAt(user, Item)
   local lookAt = ItemLookAt()
-    lookAt.name = common.GetNLS(User, "Grundstücksurkunde", "Property Deed")
-    lookAt.description = common.GetNLS(User, "Grundstücksurkunde von "..M.getPropertyNameDE(Item)..".", "The Property Deed of "..M.getPropertyName(Item)..".")
+    lookAt.name = common.GetNLS(user, "Grundstücksurkunde", "Property Deed")
+    lookAt.description = common.GetNLS(user, "Grundstücksurkunde von "..M.getPropertyNameDE(Item)..".", "The Property Deed of "..M.getPropertyName(Item)..".")
     return lookAt
 end
 -- shortens common.GetNLS into getText
-function M.getText(User,deText,enText)
-    return common.GetNLS(User,deText,enText)
+function M.getText(user,deText,enText)
+    return common.GetNLS(user,deText,enText)
 end
 -- puts owners and guests of property back to NIL, making the property unowned
-function M.removeOwner(User, Item, property)
+function M.removeOwner(user, Item, property)
 local propertyName
     if property == nil then
         propertyName = M.getPropertyName(Item)
@@ -182,10 +182,10 @@ ScriptVars:remove("ownerof"..propertyName)
     end
 ScriptVars:remove("rentDuration"..propertyName)
 ScriptVars:save()
-User:inform(M.getText(User,"Vorheriger Mieter entfernt.","Previous renter removed."))
+user:inform(M.getText(user,"Vorheriger Mieter entfernt.","Previous renter removed."))
 end
 -- sets an owner
-function M.setOwner(User, Item, propertyName)
+function M.setOwner(user, Item, propertyName)
 local property
     if propertyName == nil then
         property = M.getPropertyName(Item)
@@ -200,22 +200,22 @@ local property
             if (input == nil or input == '') then
                 User:inform(M.getText(User,"Das Namensfeld darf nicht leer sein.","The name field can not be empty."))
             elseif M.checkIfOwnsProperty(input) and not M.checkIfEstate(property) then
-                User:inform(M.getText(User,"Der Charakter mietet bereits ein Grundstück.","Character already rents a property."))
+                user:inform(M.getText(user,"Der Charakter mietet bereits ein Grundstück.","Character already rents a property."))
             else
-                M.removeOwner(User, Item, propertyName)
+                M.removeOwner(user, Item, propertyName)
                 ScriptVars:set("rentDuration"..property,1)
                 ScriptVars:set("ownerof"..property,input)
                 ScriptVars:save()
-                User:inform(M.getText(User,input.."wurde als neuer Mieter eingetragen.",input.." set as new renter."))
-                M.setSignature(User,Item, propertyName)
+                user:inform(M.getText(user,input.."wurde als neuer Mieter eingetragen.",input.." set as new renter."))
+                M.setSignature(user,Item, propertyName)
             end
     end
-    User:requestInputDialog(InputDialog(M.getText(User,"Mieter eintragen","Set Renter"),
-    M.getText(User,"Trag hier den Namen des neuen Mieters ein.",
+    user:requestInputDialog(InputDialog(M.getText(user,"Mieter eintragen","Set Renter"),
+    M.getText(user,"Trag hier den Namen des neuen Mieters ein.",
     "Write in the name of who you want to set as the new renter."),
     false, 255, callback))
 end
-function M.setBuilderOrGuest(User, Item, builderOrGuest, propertyName)
+function M.setBuilderOrGuest(user, Item, builderOrGuest, propertyName)
 local property
     if propertyName == nil then
         property = M.getPropertyName(Item)
@@ -247,20 +247,20 @@ local textEn
                 if not foundBuilderOrGuest then
                     ScriptVars:set(builderOrGuest..i..property,input)
                     ScriptVars:save()
-                    User:inform(M.getText(User,input..""..builderOrGuestDe.."."..textDe,input.." set as a "..builderOrGuest..". "..textEn))
+                    user:inform(M.getText(user,input..""..builderOrGuestDe.."."..textDe,input.." set as a "..builderOrGuest..". "..textEn))
                     return
                 elseif i == M["max_"..builderOrGuest.."_number"] then
-                    User:inform(M.getText(User,"","You may only have "..M["max_"..builderOrGuest.."_number"].." "..builderOrGuest.."s at a time. You must remove one if you want to add another." ))
+                    user:inform(M.getText(user,"","You may only have "..M["max_"..builderOrGuest.."_number"].." "..builderOrGuest.."s at a time. You must remove one if you want to add another." ))
                 end
             end
         end
     end
-    User:requestInputDialog(InputDialog(M.getText(User,"","Set "..builderOrGuest),
-    M.getText(User,"",
+    user:requestInputDialog(InputDialog(M.getText(user,"","Set "..builderOrGuest),
+    M.getText(user,"",
     "Write in the name of who you want to set as a "..builderOrGuest),
     false, 255, callback))
 end
-function M.removeBuilderOrGuest(User, Item, builderOrGuest, propertyName)
+function M.removeBuilderOrGuest(user, Item, builderOrGuest, propertyName)
 local guestOrBuildersExist = false
 local property
     if propertyName == nil then
@@ -311,9 +311,9 @@ local skippedGuestSlots = 0
         end
     end
     if guestOrBuildersExist then
-        User:requestSelectionDialog(dialog)
+        user:requestSelectionDialog(dialog)
     else
-        User:inform(""..builderOrGuestDe.."","There are no "..builderOrGuest.."s to remove.")
+        user:inform(""..builderOrGuestDe.."","There are no "..builderOrGuest.."s to remove.")
     end
 end
 
@@ -328,7 +328,7 @@ local foundOwner, currentOwner = ScriptVars:find("ownerof"..propertyName)
     end
 end
 -- Overwrites the default required english name rank for a property
-function M.setReqRank(User, Item, propertyName)
+function M.setReqRank(user, Item, propertyName)
 local property
     if propertyName == nil then
         property = M.getPropertyName(Item)
@@ -337,48 +337,20 @@ local property
     end
 local town = M.getTownName(Item, propertyName)
     if town == "Outlaw" then
-        User:inform("","Can't set required rank for non-town properties")
+        user:inform("","Can't set required rank for non-town properties")
         return
     end
     local callback1 = function (dialogGalmair)
     local success = dialogGalmair:getSuccess()
         if success then
             local selected = dialogGalmair:getSelectedIndex()+1
-            if selected == 1 then
-                ScriptVars:set("nameEN"..property,"Patrician")
-                ScriptVars:set("nameDE"..property,"Patrizier")
-                ScriptVars:save()
-                User:inform(M.getText(User,"Der benötigte Rang wurde zu Patrizier gesetzt.","Required rank has been set to Patrician."))
-            elseif selected == 2 then
-                ScriptVars:set("nameEN"..property,"Financier")
-                ScriptVars:set("nameDE"..property,"Finanzier")
-                ScriptVars:save()
-                User:inform(M.getText(User,"Der benötigte Rang wurde zu Finanzier gesetzt.","Required rank has been set to Financier."))
-            elseif selected == 3 then
-                ScriptVars:set("nameEN"..property,"Merchant")
-                ScriptVars:set("nameDE"..property,"Kaufmann")
-                ScriptVars:save()
-                User:inform(M.getText(User,"Der benötigte Rang wurde zu Kaufmann gesetzt.","Required rank has been set to Merchant."))
-            elseif selected == 4 then
-                ScriptVars:set("nameEN"..property,"Grocer")
-                ScriptVars:set("nameDE"..property,"Krämer")
-                ScriptVars:save()
-                User:inform(M.getText(User,"Der benötigte Rang wurde zu Kr?r gesetzt.","Required rank has been set to Grocer."))
-            elseif selected == 5 then
-                ScriptVars:set("nameEN"..property,"Pedlar")
-                ScriptVars:set("nameDE"..property,"Hausierer")
-                ScriptVars:save()
-                User:inform(M.getText(User,"Der benötigte Rang wurde zu Hausierer gesetzt.","Required rank has been set to Pedlar."))
-            elseif selected == 6 then
-                ScriptVars:set("nameEN"..property,"Assistant")
-                ScriptVars:set("nameDE"..property,"Gehilfe")
-                ScriptVars:save()
-                User:inform(M.getText(User,"Der benötigte Rang wurde zu Gehilfe gesetzt.","Required rank has been set to Assistant."))
-            else
-                ScriptVars:set("nameEN"..property,"Tramp")
-                ScriptVars:set("nameDE"..property,"Rumtreiber")
-                ScriptVars:save()
-                User:inform(M.getText(User,"Der benötigte Rang wurde zu Rumtreiber gesetzt.","Required rank has been set to Tramp."))
+            for i = 1,7 do
+                if selected == i then
+                    ScriptVars:set("nameEN"..property,factions.GalmairRankListMale[i]["eRank"])
+                    ScriptVars:set("nameDE"..property, factions.GalmairRankListMale[i]["gRank"])
+                    ScriptVars:save()
+                    user:inform(M.getText(user,"Der benötigte Rang wurde zu "..factions.GalmairRankListMale[i]["gRank"].." gesetzt.","Required rank has been set to "..factions.GalmairRankListMale[i]["eRank"].."."))
+                end
             end
         end
     end
@@ -386,41 +358,13 @@ local town = M.getTownName(Item, propertyName)
     local success = dialogRunewick:getSuccess()
         if success then
             local selected = dialogRunewick:getSelectedIndex()+1
-            if selected == 1 then
-                ScriptVars:set("nameEN"..property,"Docent")
-                ScriptVars:set("nameDE"..property,"Dozent")
-                ScriptVars:save()
-                User:inform(M.getText(User,"Der benötigte Rang wurde zu Dozent gesetzt.","Required rank has been set to Docent."))
-            elseif selected == 2 then
-                ScriptVars:set("nameEN"..property,"Doctor")
-                ScriptVars:set("nameDE"..property,"Doktor")
-                ScriptVars:save()
-                User:inform(M.getText(User,"Der benötigte Rang wurde zu Doktor gesetzt.","Required rank has been set to Doctor."))
-            elseif selected == 3 then
-                ScriptVars:set("nameEN"..property,"Master")
-                ScriptVars:set("nameDE"..property,"Magister")
-                ScriptVars:save()
-                User:inform(M.getText(User,"Der benötigte Rang wurde zu Magister gesetzt.","Required rank has been set to Master."))
-            elseif selected == 4 then
-                ScriptVars:set("nameEN"..property,"Scholar")
-                ScriptVars:set("nameDE"..property,"Gelehrter")
-                ScriptVars:save()
-                User:inform(M.getText(User,"Der benötigte Rang wurde zu Gelehrter gesetzt.","Required rank has been set to Scholar."))
-            elseif selected == 5 then
-                ScriptVars:set("nameEN"..property,"Student")
-                ScriptVars:set("nameDE"..property,"Student")
-                ScriptVars:save()
-                User:inform(M.getText(User,"Der benötigte Rang wurde zu Student gesetzt.","Required rank has been set to Student."))
-            elseif selected == 6 then
-                ScriptVars:set("nameEN"..property,"Apprentice")
-                ScriptVars:set("nameDE"..property,"Anw?er")
-                ScriptVars:save()
-                User:inform(M.getText(User,"Der benötigte Rang wurde zu Anw?er gesetzt.","Required rank has been set to Apprentice."))
-            else
-                ScriptVars:set("nameEN"..property,"Novice")
-                ScriptVars:set("nameDE"..property,"Novize")
-                ScriptVars:save()
-                User:inform(M.getText(User,"Der benötigte Rang wurde zu Novize gesetzt.","Required rank has been set to Novice."))
+            for i = 1,7 do
+                if selected == i then
+                    ScriptVars:set("nameEN"..property,factions.RunewickRankListMale[i]["eRank"])
+                    ScriptVars:set("nameDE"..property, factions.RunewickRankListMale[i]["gRank"])
+                    ScriptVars:save()
+                    user:inform(M.getText(user,"Der benötigte Rang wurde zu "..factions.RunewickRankListMale[i]["gRank"].." gesetzt.","Required rank has been set to "..factions.RunewickRankListMale[i]["eRank"].."."))
+                end
             end
         end
     end
@@ -428,96 +372,54 @@ local town = M.getTownName(Item, propertyName)
     local success = dialogCadomyr:getSuccess()
         if success then
             local selected = dialogCadomyr:getSelectedIndex()+1
-            if selected == 1 then
-                ScriptVars:set("nameEN"..property,"Knight")
-                ScriptVars:set("nameDE"..property,"Ritter")
-                ScriptVars:save()
-                User:inform(M.getText(User,"Der benötigte Rang wurde zu Ritter gesetzt.","Required rank has been set to Knight."))
-            elseif selected == 2 then
-                ScriptVars:set("nameEN"..property,"Squire")
-                ScriptVars:set("nameDE"..property,"Knappe")
-                ScriptVars:save()
-                User:inform(M.getText(User,"Der benötigte Rang wurde zu Knappe gesetzt.","Required rank has been set to Squire."))
-            elseif selected == 3 then
-                ScriptVars:set("nameEN"..property,"Page")
-                ScriptVars:set("nameDE"..property,"Page")
-                ScriptVars:save()
-                User:inform(M.getText(User,"Der benötigte Rang wurde zu Page gesetzt.","Required rank has been set to Page."))
-            elseif selected == 4 then
-                ScriptVars:set("nameEN"..property,"Yeoman")
-                ScriptVars:set("nameDE"..property,"Freisasse")
-                ScriptVars:save()
-                User:inform(M.getText(User,"Der benötigte Rang wurde zu Freisasse gesetzt.","Required rank has been set to Yeoman."))
-            elseif selected == 5 then
-                ScriptVars:set("nameEN"..property,"Servant")
-                ScriptVars:set("nameDE"..property,"Diener")
-                ScriptVars:save()
-                User:inform(M.getText(User,"Der benötigte Rang wurde zu Diener gesetzt.","Required rank has been set to Servant."))
-            elseif selected == 6 then
-                ScriptVars:set("nameEN"..property,"Bondsman")
-                ScriptVars:set("nameDE"..property,"Höriger")
-                ScriptVars:save()
-                User:inform(M.getText(User,"Der benötigte Rang wurde zu Höriger gesetzt.","Required rank has been set to Bondsman."))
-            else
-                ScriptVars:set("nameEN"..property,"Serf")
-                ScriptVars:set("nameDE"..property,"Leibeigener")
-                ScriptVars:save()
-                User:inform(M.getText(User,"Der benötigte Rang wurde zu Leibeigener gesetzt.","Required rank has been set to Serf."))
+            for i = 1,7 do
+                if selected == i then
+                    ScriptVars:set("nameEN"..property,factions.CadomyrRankListMale[i]["eRank"])
+                    ScriptVars:set("nameDE"..property, factions.CadomyrRankListMale[i]["gRank"])
+                    ScriptVars:save()
+                    user:inform(M.getText(user,"Der benötigte Rang wurde zu "..factions.CadomyrRankListMale[i]["gRank"].." gesetzt.","Required rank has been set to "..factions.CadomyrRankListMale[i]["eRank"].."."))
+                end
             end
         end
     end
-    local dialogGalmair = SelectionDialog(M.getText(User,
+
+    local dialogGalmair = SelectionDialog(M.getText(user,
     "Benötigten Rang einstellen",
     "Set required rank"),
-    M.getText(User,
+    M.getText(user,
     "Bestimme welcher Rang benötigt werden soll, um dieses Grundstück zu mieten.",
     "Choose which rank should be required to rent this property."),
     callback1)
-    local dialogRunewick = SelectionDialog(M.getText(User,
+    local dialogRunewick = SelectionDialog(M.getText(user,
     "Benötigten Rang einstellen",
     "Set required rank"),
-    M.getText(User,
+    M.getText(user,
     "Bestimme welcher Rang benötigt werden soll, um dieses Grundstück zu mieten.",
     "Choose which rank should be required to rent this property."),
     callback2)
-    local dialogCadomyr = SelectionDialog(M.getText(User,
+    local dialogCadomyr = SelectionDialog(M.getText(user,
     "Benötigten Rang einstellen",
     "Set required rank"),
-    M.getText(User,
+    M.getText(user,
     "Bestimme welcher Rang benötigt werden soll, um dieses Grundstück zu mieten.",
     "Choose which rank should be required to rent this property."),
     callback3)
-    dialogGalmair:addOption(0, M.getText(User,"Patrizier","Patrician"))
-    dialogGalmair:addOption(0, M.getText(User,"Finanzier","Financier"))
-    dialogGalmair:addOption(0, M.getText(User,"Kaufmann","Merchant"))
-    dialogGalmair:addOption(0, M.getText(User,"Krämer","Grocer"))
-    dialogGalmair:addOption(0, M.getText(User,"Hausierer","Pedlar"))
-    dialogGalmair:addOption(0, M.getText(User,"Gehilfe","Assistant"))
-    dialogGalmair:addOption(0, M.getText(User,"Rumtreiber","Tramp"))
-    dialogRunewick:addOption(0, M.getText(User,"Dozent","Docent"))
-    dialogRunewick:addOption(0, M.getText(User,"Doktor","Doctor"))
-    dialogRunewick:addOption(0, M.getText(User,"Magister","Master"))
-    dialogRunewick:addOption(0, M.getText(User,"Gelehrter","Scholar"))
-    dialogRunewick:addOption(0, M.getText(User,"Student","Student"))
-    dialogRunewick:addOption(0, M.getText(User,"Anw?er","Apprentice"))
-    dialogRunewick:addOption(0, M.getText(User,"Novize","Novice"))
-    dialogCadomyr:addOption(0, M.getText(User,"Ritter","Knight"))
-    dialogCadomyr:addOption(0, M.getText(User,"Knappe","Squire"))
-    dialogCadomyr:addOption(0, M.getText(User,"Page","Page"))
-    dialogCadomyr:addOption(0, M.getText(User,"Freisasse","Yeoman"))
-    dialogCadomyr:addOption(0, M.getText(User,"Diener","Servant"))
-    dialogCadomyr:addOption(0, M.getText(User,"Höriger","Bondsman"))
-    dialogCadomyr:addOption(0, M.getText(User,"Leibeigener","Serf"))
+    for i = 1,7 do
+        dialogGalmair:addOption(0, M.getText(user,factions.GalmairRankListMale[i]["gRank"],factions.GalmairRankListMale[i]["eRank"]))
+        dialogRunewick:addOption(0, M.getText(user,factions.RunewickRankListMale[i]["gRank"],factions.RunewickRankListMale[i]["eRank"]))
+        dialogCadomyr:addOption(0, M.getText(user,factions.CadomyrRankListMale[i]["gRank"],factions.CadomyrRankListMale[i]["eRank"]))
+    end
+
     if town == "Galmair" then
-        User:requestSelectionDialog(dialogGalmair)
+        user:requestSelectionDialog(dialogGalmair)
     elseif town == "Runewick" then
-        User:requestSelectionDialog(dialogCadomyr)
+        user:requestSelectionDialog(dialogCadomyr)
     elseif town == "Cadomyr" then
-        User:requestSelectionDialog(dialogCadomyr)
+        user:requestSelectionDialog(dialogCadomyr)
     end
 end
 -- Changes the rent of a property based on input
-function M.setRent(User, Item, property)
+function M.setRent(user, Item, property)
 local propertyName
     if property == nil then
         propertyName = M.getPropertyName(Item)
@@ -533,20 +435,20 @@ local rentDE = M.getRentDE(Item, propertyName)
         local input = dialog:getInput()
         if (string.find(input,"") ~= nil) then
             if tonumber(input) == nil then
-                User:inform(M.getText(User,"Hier muss eine Zahl eingetragen werden.","Input must be a number."))
+                user:inform(M.getText(user,"Hier muss eine Zahl eingetragen werden.","Input must be a number."))
             elseif tonumber(input) <= 0 then
-                User:inform(M.getText(User,"Die Zahl muss grösser als 0 sein.","You must set a number higher than 0."))
+                user:inform(M.getText(user,"Die Zahl muss grösser als 0 sein.","You must set a number higher than 0."))
             else
                 ScriptVars:set("rentfor"..propertyName,input)
                 User:inform(M.getText(User,"Mietpreis auf "..input.." gesetzt.","Rent set to "..input))
                 ScriptVars:save()
-                M.setSignature(User,Item, propertyName)
+                M.setSignature(user,Item, propertyName)
             end
         else
-            User:inform(M.getText(User,"Hier muss eine Zahl eingetragen werden.","Input must be a number."))
+            user:inform(M.getText(user,"Hier muss eine Zahl eingetragen werden.","Input must be a number."))
         end
     end
-    User:requestInputDialog(InputDialog(M.getText(User,"Miete einstellen.","Set rent."), M.getText(User,"Aktuelle Miete: "..rentDE.."\nStelle eine neue monatliche Miete in Kupferstücken ein.","Current rent: "..rentEN.."\nSet a new monthly rent in coppers."), false, 255, newRent))
+    user:requestInputDialog(InputDialog(M.getText(user,"Miete einstellen.","Set rent."), M.getText(user,"Aktuelle Miete: "..rentDE.."\nStelle eine neue monatliche Miete in Kupferstücken ein.","Current rent: "..rentEN.."\nSet a new monthly rent in coppers."), false, 255, newRent))
 end
 -- Returns the rent value divided into gold, silver and copper coins
 function M.getRent(Item, property)
@@ -669,11 +571,11 @@ function M.checkIfOwnsProperty(Input)
 return false
 end
 
-function M.checkIfPlayerIsGuest(User, property)
+function M.checkIfPlayerIsGuest(user, property)
     for i = 1, M.max_guest_number do
         local foundGuest, currentGuest = ScriptVars:find("guest"..i..property)
         if foundGuest then
-            if currentGuest == User.name then
+            if currentGuest == user.name then
                 return true
             end
         end
@@ -818,17 +720,17 @@ local Faction = factions.getFaction(player);
         return factions.townRanks[tonumber(Faction.tid)+3][Faction.rankTown].eRank;
     end
 end
-function M.setSignature(User,Item, propertyName)
+function M.setSignature(user,Item, propertyName)
 local property
     if propertyName == nil then
         property = M.getPropertyName(Item)
     else
         property = propertyName
     end
-local rankTitleEN = M.getRankTitle(User, "EN")
-local rankTitleDE = M.getRankTitle(User, "DE")
-local name = User.name
-    if User:isAdmin() then
+local rankTitleEN = M.getRankTitle(user, "EN")
+local rankTitleDE = M.getRankTitle(user, "DE")
+local name = user.name
+    if user:isAdmin() then
         ScriptVars:set("signatureEN"..property, "The Quartermaster")
         ScriptVars:set("signatureDE"..property, "der Quartiermeister")
         ScriptVars:save()
@@ -867,7 +769,7 @@ function M.getTownLeaderTitle(town, language)
         return "Noble"
     end
 end
-function M.propertyInformation(User, Item)
+function M.propertyInformation(user, Item)
 local town = M.getTownName(Item)
 local rent = M.getRent(Item)
 local rentDE = M.getRentDE(Item)
@@ -882,8 +784,8 @@ local signatureDE = M.getSignature(Item, "DE")
 local townLeaderTitle = M.getTownLeaderTitle(town, "EN")
 local townLeaderTitleDE = M.getTownLeaderTitle(town, "DE")
     if M.checkOwner(Item) == "Unowned" then -- Shows info specific for when property is unowned
-        local propertyInfo = MessageDialog(M.getText(User,"Notiz des Quartiermeisters","Quartermaster's notice"),
-        M.getText(User,
+        local propertyInfo = MessageDialog(M.getText(user,"Notiz des Quartiermeisters","Quartermaster's notice"),
+        M.getText(user,
         "Bürger von "..town..
         ",\nihr könnt nun die "..propertyDE..
         " zum Preis von "..rentDE..
@@ -898,10 +800,10 @@ local townLeaderTitleDE = M.getTownLeaderTitle(town, "DE")
         ". Should you seek to rent this property, please seek out the quartermaster or one of your "..townLeaderTitle..
         "s.\n~Signed, "..signatureEN),
         function() end)
-        User:requestMessageDialog(propertyInfo)
-    elseif M.checkOwner(Item) == User.name then -- Shows info specific for when property is owned by user
-        local propertyInfo = MessageDialog(M.getText(User,"Notiz des Quartiermeisters","Quartermaster's notice"),
-        M.getText(User,
+        user:requestMessageDialog(propertyInfo)
+    elseif M.checkOwner(Item) == user.name then -- Shows info specific for when property is owned by user
+        local propertyInfo = MessageDialog(M.getText(user,"Notiz des Quartiermeisters","Quartermaster's notice"),
+        M.getText(user,
         "An den aktuell Bewohner von"..propertyDE..
         ",\n,es wird von Euch erwartet, dass Ihr die Miete von "..rentDE..
         " bezahlt.\n Ohne zusätzliche Zahlungen, läuft das aktuelle Mietverhältnis in "..remainingDuration..
@@ -915,10 +817,10 @@ local townLeaderTitleDE = M.getTownLeaderTitle(town, "DE")
         your "..townLeaderTitle..
         "s.\n~Signed, "..signatureEN),
         function() end)
-        User:requestMessageDialog(propertyInfo)
+        user:requestMessageDialog(propertyInfo)
     else -- Shows info specific for when property is owned but not by user.
-         local propertyInfo = MessageDialog(M.getText(User,"Notiz des Quartiermeisters","Quartermaster's notice"),
-         M.getText(User,
+         local propertyInfo = MessageDialog(M.getText(user,"Notiz des Quartiermeisters","Quartermaster's notice"),
+         M.getText(user,
         "Bürger von "..town..
         ",\n dieses Grundstück ist aktuell gemietet von "..owner..
         ". Solltest du irgendwelche Bedenken haben oder ein freies Grundstück mieten wollen, wende dich bitte an \z
@@ -930,29 +832,29 @@ local townLeaderTitleDE = M.getTownLeaderTitle(town, "DE")
         seek out the quartermaster or one of your "..townLeaderTitle..
         "s.\n~Signed, "..signatureEN),
         function() end)
-        User:requestMessageDialog(propertyInfo)
+        user:requestMessageDialog(propertyInfo)
     end
 end
 -- Remove user as tenant at users own volition
-function M.abandonPropertyDialog(User, Item)
+function M.abandonPropertyDialog(user, Item)
     local callback = function(dialog)
         local success = dialog:getSuccess()
         if success then
             local selected = dialog:getSelectedIndex()+1
             if selected == 1 then
-                M.abandonProperty(User, Item)
-                User:inform(M.getText(User,"Nachdem du dem Quartiermeister den Schlüssel zurückgegeben hast, verabschiedest du dich von deinem alten Heim. Wo wirst du nun schlafen?","Having returned the key to the Quartermaster, you bid farewell to your old home. Now where will you sleep?"))
+                M.abandonProperty(user, Item)
+                user:inform(M.getText(user,"Nachdem du dem Quartiermeister den Schlüssel zurückgegeben hast, verabschiedest du dich von deinem alten Heim. Wo wirst du nun schlafen?","Having returned the key to the Quartermaster, you bid farewell to your old home. Now where will you sleep?"))
             else
-                User:inform(M.getText(User,"Du hast dich entschieden das Mietverhältnis nicht zu beenden. ","You decide against giving up on your lease for the property."))
+                user:inform(M.getText(user,"Du hast dich entschieden das Mietverhältnis nicht zu beenden. ","You decide against giving up on your lease for the property."))
             end
         end
     end
-    local dialog = SelectionDialog(M.getText(User,"Mietverhältnis beenden","Abandon property"),M.getText(User,"Bist du dir sicher, dass du das bestehende Mietverhältnis kündigen möchtest? Überschüssiges Geld wird nicht ausgezahlt.","Are you sure you want to abandon your lease on the property? Any remaining rent money will not be returned."),callback)
-    dialog:addOption(0, M.getText(User,"Ja, Mietverhältnis beenden","Yes, abandon it"))
-    dialog:addOption(0, M.getText(User,"Nein, ich habe meine Meinung ge?ert","No, I changed my mind"))
-    User:requestSelectionDialog(dialog)
+    local dialog = SelectionDialog(M.getText(user,"Mietverhältnis beenden","Abandon property"),M.getText(user,"Bist du dir sicher, dass du das bestehende Mietverhältnis kündigen möchtest? Überschüssiges Geld wird nicht ausgezahlt.","Are you sure you want to abandon your lease on the property? Any remaining rent money will not be returned."),callback)
+    dialog:addOption(0, M.getText(user,"Ja, Mietverhältnis beenden","Yes, abandon it"))
+    dialog:addOption(0, M.getText(user,"Nein, ich habe meine Meinung ge?ert","No, I changed my mind"))
+    user:requestSelectionDialog(dialog)
 end
-function M.abandonProperty(User, Item)
+function M.abandonProperty(user, Item)
     local propertyName = M.getPropertyName(Item)
     ScriptVars:remove("ownerof"..propertyName)
     for i = 1, M.max_builder_number do
@@ -962,11 +864,11 @@ function M.abandonProperty(User, Item)
         ScriptVars:remove("guest"..i..propertyName)
     end
     ScriptVars:remove("rentDuration"..propertyName)
-    M.keyRetrieval(User)
+    M.keyRetrieval(user)
     ScriptVars:save()
 end
 -- GM/PL extend rent at no cost option
-function M.extendRent(User, Item, property)
+function M.extendRent(user, Item, property)
 local propertyName
     if property == nil then
         propertyName = M.getPropertyName(Item)
@@ -984,21 +886,21 @@ local foundCurrentRentDuration, currentRentDuration = ScriptVars:find("rentDurat
         local input = dialog:getInput()
         if (string.find(input,"") ~= nil) then
             if tonumber(input) == nil then
-                User:inform(M.getText(User,"Hier muss eine Zahl eingetragen werden.","Input must be a number."))
+                user:inform(M.getText(user,"Hier muss eine Zahl eingetragen werden.","Input must be a number."))
             elseif tonumber(input) <= 0 then
-                User:inform(M.getText(User,"Die Zahl muss grösser als 0 sein.","You must set a number higher than 0."))
+                user:inform(M.getText(user,"Die Zahl muss grösser als 0 sein.","You must set a number higher than 0."))
             elseif (tonumber(input)+currentRentDuration) > 48 then
-                User:inform(M.getText(User,"Die Mietdauer darf 48 Monate nicht überschreiten.","Rent duration can not exceed 48 months."))
+                user:inform(M.getText(user,"Die Mietdauer darf 48 Monate nicht überschreiten.","Rent duration can not exceed 48 months."))
             else
                 ScriptVars:set("rentDuration"..propertyName,(currentRentDuration+input))
-                User:inform(M.getText(User,"Mietdauer verlängert um"..input.." Monate","Rent duration extended by "..input.." months"))
+                user:inform(M.getText(user,"Mietdauer verlängert um"..input.." Monate","Rent duration extended by "..input.." months"))
                 ScriptVars:save()
             end
         else
-            User:inform(M.getText(User,"Hier muss eine Zahl eingetragen werden.","Input must be a number."))
+            user:inform(M.getText(user,"Hier muss eine Zahl eingetragen werden.","Input must be a number."))
         end
     end
-    User:requestInputDialog(InputDialog(M.getText(User,"Miete verlängern","Extend rent"), M.getText(User,"Mietdauer für den aktuellen Mieter umsonst verlängern.\n Derzeit betr? die Mietdauer noch "..currentRentDuration.." Monate.","Extend rent for current renter at no charge.\n There's currently "..currentRentDuration.." months left on the lease."), false, 255, extendRent))
+    user:requestInputDialog(InputDialog(M.getText(user,"Miete verlängern","Extend rent"), M.getText(user,"Mietdauer für den aktuellen Mieter umsonst verlängern.\n Derzeit betr? die Mietdauer noch "..currentRentDuration.." Monate.","Extend rent for current renter at no charge.\n There's currently "..currentRentDuration.." months left on the lease."), false, 255, extendRent))
 end
 -- If rent duration is up, the renter gets removed
 function M.removeRentalIfDurationIsUp()
@@ -1034,14 +936,14 @@ function M.removeRentalIfDurationIsUp()
 end
 
 -- Removes you as renter if you change citizenship
-function M.removeRentalOfPropertiesOfOtherTowns(User)
+function M.removeRentalOfPropertiesOfOtherTowns(user)
     for i = 1, #M.propertyTable do
         local propertyName = M.propertyTable[i][1]
         local propertyNameDE = M.propertyTable[i][2]
         local foundOwner, currentOwner = ScriptVars:find("ownerof"..propertyName)
         local town = M.propertyTable[i][7]
         if foundOwner then
-            if currentOwner == User.name then
+            if currentOwner == user.name then
                 ScriptVars:remove("ownerof"..propertyName)
                 for number = 1, M.max_builder_number do
                     ScriptVars:remove("builder"..number..propertyName)
@@ -1050,19 +952,19 @@ function M.removeRentalOfPropertiesOfOtherTowns(User)
                     ScriptVars:remove("guest"..number..propertyName)
                 end
                 ScriptVars:remove("rentDuration"..propertyName)
-                M.keyRetrieval(User)
+                M.keyRetrieval(user)
                 ScriptVars:save()
                 if town == "Outlaw" then
-                    User:inform("","Having become a citizen of a town, you are no longer eligible to keep former properties that do not belong to the town.")
+                    user:inform("","Having become a citizen of a town, you are no longer eligible to keep former properties that do not belong to the town.")
                 else
-                    User:inform("Nachdem du nicht länger Bürger von "..town.." bist, hast du das Recht auf deinen Mietanspruch auf die "..propertyNameDE.." verloren und wirst gezwungen die Schlüssel zurückzugeben.","Because you are no longer a citizen of "..town.." you have forfeited the lease on the "..propertyName.." and been made to return your keys.")
+                    user:inform("Nachdem du nicht länger Bürger von "..town.." bist, hast du das Recht auf deinen Mietanspruch auf die "..propertyNameDE.." verloren und wirst gezwungen die Schlüssel zurückzugeben.","Because you are no longer a citizen of "..town.." you have forfeited the lease on the "..propertyName.." and been made to return your keys.")
                 end
             end
         end
     end
 end
 --Inform user about their keys being confiscated upon login
-function M.informUserOfKeyRetrieval(User)
+function M.informuserOfKeyRetrieval(user)
     for i = 1, #M.propertyTable do
         local propertyName = M.propertyTable[i][1]
         local foundOwner, currentOwner = ScriptVars:find("ownerof"..propertyName)
@@ -1070,44 +972,44 @@ function M.informUserOfKeyRetrieval(User)
         for number = 1, M.max_guest_number do
             local foundGuest, currentGuest = ScriptVars:find("guest"..number..propertyName)
             if foundGuest then
-                if currentGuest == User.name then
+                if currentGuest == user.name then
                     return
                 end
             end
         end
         if foundOwner then
-            if currentOwner ~= User.name then
-                if M.checkIfLeaderOfTown(User, town) or User:isAdmin() then
+            if currentOwner ~= user.name then
+                if M.checkIfLeaderOfTown(user, town) or user:isAdmin() then
                     return
                 else
                 local keyID = M.propertyTable[i][6]
                 local keyType = M.propertyTable[i][5]
-                local keyAmount = User:countItemAt("all",keyType,{["lockId"]=keyID})
-                local depotKeyAmount = M.charOwnedDepotKeys(User)
+                local keyAmount = user:countItemAt("all",keyType,{["lockId"]=keyID})
+                local depotKeyAmount = M.charOwnedDepotKeys(user)
                     if tonumber(keyAmount) > 0 and town ~= "Outlaw" then
-                        User:inform(M.getText(User,"Bei deinem letzten Besuch in "..town.." wurden bei einer routinem?gen Taschenkontrolle durch die Wachen Schlüssel, die du nicht besitzen solltest, gefunden und konfisziert.","Upon your latest visit to "..town.." some keys you were not supposed to have were confiscated by the guards in a random bag check at the gates."))
+                        user:inform(M.getText(user,"Bei deinem letzten Besuch in "..town.." wurden bei einer routinem?gen Taschenkontrolle durch die Wachen Schlüssel, die du nicht besitzen solltest, gefunden und konfisziert.","Upon your latest visit to "..town.." some keys you were not supposed to have were confiscated by the guards in a random bag check at the gates."))
                         return
                     elseif depotKeyAmount ~= nil then
                         if tonumber(depotKeyAmount) > 0 and town ~= "Outlaw"  then
-                            User:inform(M.getText(User,"Bei deinem letzten Besuch in "..town.." wurden bei einer routinem?gen Taschenkontrolle durch die Wachen Schlüssel, die du nicht besitzen solltest, gefunden und konfisziert.","Upon your latest visit to "..town.." some keys you were not supposed to have were confiscated by the guards in a random bag check at the gates."))
+                            user:inform(M.getText(user,"Bei deinem letzten Besuch in "..town.." wurden bei einer routinem?gen Taschenkontrolle durch die Wachen Schlüssel, die du nicht besitzen solltest, gefunden und konfisziert.","Upon your latest visit to "..town.." some keys you were not supposed to have were confiscated by the guards in a random bag check at the gates."))
                             return
                         end
                     end
                 end
             end
-        elseif M.checkIfLeaderOfTown(User, town) or User:isAdmin() then
+        elseif M.checkIfLeaderOfTown(user, town) or user:isAdmin() then
             return
         else
         local keyID = M.propertyTable[i][6]
         local keyType = M.propertyTable[i][5]
-        local keyAmount = User:countItemAt("all",keyType,{["lockId"]=keyID})
-        local depotKeyAmount = M.charOwnedDepotKeys(User)
+        local keyAmount = user:countItemAt("all",keyType,{["lockId"]=keyID})
+        local depotKeyAmount = M.charOwnedDepotKeys(user)
             if tonumber(keyAmount) > 0 and town ~= "Outlaw"  then
-                User:inform(M.getText(User,"Bei deinem letzten Besuch in "..town.." wurden bei einer routinem?gen Taschenkontrolle durch die Wachen Schlüssel, die du nicht besitzen solltest, gefunden und konfisziert.","Upon your latest visit to "..town.." some keys you were not supposed to have were confiscated by the guards in a random bag check at the gates."))
+                user:inform(M.getText(user,"Bei deinem letzten Besuch in "..town.." wurden bei einer routinem?gen Taschenkontrolle durch die Wachen Schlüssel, die du nicht besitzen solltest, gefunden und konfisziert.","Upon your latest visit to "..town.." some keys you were not supposed to have were confiscated by the guards in a random bag check at the gates."))
                 return
             elseif depotKeyAmount ~= nil and town ~= "Outlaw"  then
                 if tonumber(depotKeyAmount) > 0 then
-                    User:inform(M.getText(User,"Bei deinem letzten Besuch in "..town.." wurden bei einer routinem?gen Taschenkontrolle durch die Wachen Schlüssel, die du nicht besitzen solltest, gefunden und konfisziert.","Upon your latest visit to "..town.." some keys you were not supposed to have were confiscated by the guards in a random bag check at the gates."))
+                    user:inform(M.getText(user,"Bei deinem letzten Besuch in "..town.." wurden bei einer routinem?gen Taschenkontrolle durch die Wachen Schlüssel, die du nicht besitzen solltest, gefunden und konfisziert.","Upon your latest visit to "..town.." some keys you were not supposed to have were confiscated by the guards in a random bag check at the gates."))
                     return
                 end
             end
@@ -1115,24 +1017,24 @@ function M.informUserOfKeyRetrieval(User)
     end
 end
 -- Main lookAt function
-function M.LookAtItem(User,Item)
+function M.LookAtItem(user,Item)
 
     local lookAt
     -- Property Deeds
     for i = 1, #M.propertyTable do
         if (Item.pos == M.propertyTable[i][3]) then
-            lookAt = M.propertyDeedLookAt(User, Item)
+            lookAt = M.propertyDeedLookAt(user, Item)
         end
     end
 
     if lookAt then
         return lookAt
     else
-        return lookat.GenerateLookAt(User, Item, 0)
+        return lookat.GenerateLookAt(user, Item, 0)
     end
 end
 -- Use item
-function M.UseItem(User, SourceItem)
+function M.UseItem(user, SourceItem)
     for i = 1, #M.propertyTable do
         if (SourceItem.pos == M.propertyTable[i][3]) then
             local town = M.propertyTable[i][7]
@@ -1142,108 +1044,108 @@ function M.UseItem(User, SourceItem)
                 if success then
                     local selected = dialogUnowned:getSelectedIndex()+1
                     if selected == 1 then
-                        M.propertyInformation(User, SourceItem)
+                        M.propertyInformation(user, SourceItem)
                     elseif selected == 2 then
-                        M.setOwner(User, SourceItem)
+                        M.setOwner(user, SourceItem)
                     elseif selected == 3 then
-                        M.setRent(User, SourceItem)
+                        M.setRent(user, SourceItem)
                     else
-                        M.setReqRank(User, SourceItem)
+                        M.setReqRank(user, SourceItem)
                     end
                 end
             end
-            local callback2 = function(dialogOwnedByUser)
-                local success = dialogOwnedByUser:getSuccess()
+            local callback2 = function(dialogOwnedByuser)
+                local success = dialogOwnedByuser:getSuccess()
                 if success then
-                    local selected = dialogOwnedByUser:getSelectedIndex()+1
+                    local selected = dialogOwnedByuser:getSelectedIndex()+1
                     if selected == 1 then
-                        M.propertyInformation(User, SourceItem)
+                        M.propertyInformation(user, SourceItem)
                     elseif selected == 2 then
-                        M.abandonPropertyDialog(User, SourceItem)
+                        M.abandonPropertyDialog(user, SourceItem)
                     elseif selected == 3 then
-                        M.setBuilderOrGuest(User, SourceItem, "builder")
+                        M.setBuilderOrGuest(user, SourceItem, "builder")
                     elseif selected == 4 then
-                        M.removeBuilderOrGuest(User, SourceItem, "builder")
+                        M.removeBuilderOrGuest(user, SourceItem, "builder")
                     elseif selected == 5 then
-                        M.setGuest(User, SourceItem)
+                        M.setGuest(user, SourceItem)
                     elseif selected == 6 then
-                        M.removeGuest(User, SourceItem)
+                        M.removeGuest(user, SourceItem)
                     elseif selected == 7 then
-                        M.setOwner(User, SourceItem)
+                        M.setOwner(user, SourceItem)
                     elseif selected == 8 then
-                        M.removeOwner(User, SourceItem)
+                        M.removeOwner(user, SourceItem)
                     elseif selected == 9 then
-                        M.setRent(User, SourceItem)
+                        M.setRent(user, SourceItem)
                     elseif selected == 10 then
-                        M.extendRent(User, SourceItem)
+                        M.extendRent(user, SourceItem)
                     elseif selected == 11 then
-                        M.setReqRank(User, SourceItem)
+                        M.setReqRank(user, SourceItem)
                     end
                 end
             end
-            local callback3 = function(dialogOwnedNotByUser)
-                local success = dialogOwnedNotByUser:getSuccess()
+            local callback3 = function(dialogOwnedNotByuser)
+                local success = dialogOwnedNotByuser:getSuccess()
                 if success then
-                    local selected = dialogOwnedNotByUser:getSelectedIndex()+1
+                    local selected = dialogOwnedNotByuser:getSelectedIndex()+1
                     if selected == 1 then
-                        M.propertyInformation(User, SourceItem)
+                        M.propertyInformation(user, SourceItem)
                     elseif selected == 2 then
-                        M.setBuilderOrGuest(User, SourceItem, "guest")
+                        M.setBuilderOrGuest(user, SourceItem, "guest")
                     elseif selected == 3 then
-                        M.removeBuilderOrGuest(User, SourceItem, "guest")
+                        M.removeBuilderOrGuest(user, SourceItem, "guest")
                     elseif selected == 4 then
-                        M.setOwner(User, SourceItem)
+                        M.setOwner(user, SourceItem)
                     elseif selected == 5 then
-                        M.removeOwner(User, SourceItem)
+                        M.removeOwner(user, SourceItem)
                     elseif selected == 6 then
-                        M.setRent(User, SourceItem)
+                        M.setRent(user, SourceItem)
                     elseif selected == 7 then
-                        M.extendRent(User, SourceItem)
+                        M.extendRent(user, SourceItem)
                     else
-                        M.setReqRank(User, SourceItem)
+                        M.setReqRank(user, SourceItem)
                     end
                 end
             end
-            local dialogUnowned = SelectionDialog(M.getText(User,M.getPropertyNameDE(SourceItem),M.getPropertyName(SourceItem)) , M.getText(User,"Wähle aus, was du machen willst.","Select what you want to do.") , callback1)
-            local dialogOwnedByUser = SelectionDialog(M.getText(User,M.getPropertyNameDE(SourceItem),M.getPropertyName(SourceItem)) , M.getText(User,"Wähle aus, was du machen willst.","Select what you want to do.") , callback2)
-            local dialogOwnedNotByUser = SelectionDialog(M.getText(User,M.getPropertyNameDE(SourceItem),M.getPropertyName(SourceItem)) , M.getText(User,"Wähle aus, was du machen willst.","Select what you want to do.") , callback3)
-            dialogUnowned:addOption(0, M.getText(User,"Betrachte 'Notiz des Quartiermeisters'","Inspect 'Notice from the Quartermaster'"))
-            dialogOwnedByUser:addOption(0, M.getText(User,"Betrachte 'Notiz des Quartiermeisters'","Inspect 'Notice from the Quartermaster'"))
-            dialogOwnedByUser:addOption(0, M.getText(User,"Mietverhältnis beenden","Abandon Property"))
-            dialogOwnedByUser:addOption(0, M.getText(User,"","Give Builder Permission"))
-            dialogOwnedByUser:addOption(0, M.getText(User,"","Remove Builder Permission"))
-            dialogOwnedNotByUser:addOption(0, M.getText(User,"Betrachte 'Notiz des Quartiermeisters'","Inspect 'Notice from the Quartermaster'"))
+            local dialogUnowned = SelectionDialog(M.getText(user,M.getPropertyNameDE(SourceItem),M.getPropertyName(SourceItem)) , M.getText(user,"Wähle aus, was du machen willst.","Select what you want to do.") , callback1)
+            local dialogOwnedByuser = SelectionDialog(M.getText(user,M.getPropertyNameDE(SourceItem),M.getPropertyName(SourceItem)) , M.getText(user,"Wähle aus, was du machen willst.","Select what you want to do.") , callback2)
+            local dialogOwnedNotByuser = SelectionDialog(M.getText(user,M.getPropertyNameDE(SourceItem),M.getPropertyName(SourceItem)) , M.getText(user,"Wähle aus, was du machen willst.","Select what you want to do.") , callback3)
+            dialogUnowned:addOption(0, M.getText(user,"Betrachte 'Notiz des Quartiermeisters'","Inspect 'Notice from the Quartermaster'"))
+            dialogOwnedByuser:addOption(0, M.getText(user,"Betrachte 'Notiz des Quartiermeisters'","Inspect 'Notice from the Quartermaster'"))
+            dialogOwnedByuser:addOption(0, M.getText(user,"Mietverhältnis beenden","Abandon Property"))
+            dialogOwnedByuser:addOption(0, M.getText(user,"","Give Builder Permission"))
+            dialogOwnedByuser:addOption(0, M.getText(user,"","Remove Builder Permission"))
+            dialogOwnedNotByuser:addOption(0, M.getText(user,"Betrachte 'Notiz des Quartiermeisters'","Inspect 'Notice from the Quartermaster'"))
             if M.checkIfEstate(property) then
-                dialogOwnedByUser:addOption(0, M.getText(User,"Gast hinzufügen","Add Guest"))
-                dialogOwnedByUser:addOption(0, M.getText(User,"Gast entfernen","Remove Guest"))
+                dialogOwnedByuser:addOption(0, M.getText(user,"Gast hinzufügen","Add Guest"))
+                dialogOwnedByuser:addOption(0, M.getText(user,"Gast entfernen","Remove Guest"))
             end
-            if M.checkIfLeaderOfTown(User, town) or User:isAdmin() then
-                dialogUnowned:addOption(0, M.getText(User,"Mieter eintragen","Set Renter"))
-                dialogUnowned:addOption(0, M.getText(User,"Miete anpassen","Change Rent"))
-                dialogUnowned:addOption(0, M.getText(User,"Miete anpassen","Change Required Rank"))
+            if M.checkIfLeaderOfTown(user, town) or user:isAdmin() then
+                dialogUnowned:addOption(0, M.getText(user,"Mieter eintragen","Set Renter"))
+                dialogUnowned:addOption(0, M.getText(user,"Miete anpassen","Change Rent"))
+                dialogUnowned:addOption(0, M.getText(user,"Miete anpassen","Change Required Rank"))
                 if not M.checkIfEstate(property) then
-                    dialogOwnedByUser:addOption(0, M.getText(User,"Gast hinzufügen","Add Guest"))
-                    dialogOwnedByUser:addOption(0, M.getText(User,"Gast entfernen","Remove Guest"))
+                    dialogOwnedByuser:addOption(0, M.getText(user,"Gast hinzufügen","Add Guest"))
+                    dialogOwnedByuser:addOption(0, M.getText(user,"Gast entfernen","Remove Guest"))
                 end
-                dialogOwnedByUser:addOption(0, M.getText(User,"Mieter eintragen","Set Renter"))
-                dialogOwnedByUser:addOption(0, M.getText(User,"Mieter entfernen","Remove Renter"))
-                dialogOwnedByUser:addOption(0, M.getText(User,"Miete anpassen","Change Rent"))
-                dialogOwnedByUser:addOption(0, M.getText(User,"Miete verlängern","Extend Rent"))
-                dialogOwnedByUser:addOption(0, M.getText(User,"Miete anpassen","Change Required Rank"))
-                dialogOwnedNotByUser:addOption(0, M.getText(User,"Gast hinzufügen","Add Guest"))
-                dialogOwnedNotByUser:addOption(0, M.getText(User,"Gast entfernen","Remove Guest"))
-                dialogOwnedNotByUser:addOption(0, M.getText(User,"Mieter eintragen","Set Renter"))
-                dialogOwnedNotByUser:addOption(0, M.getText(User,"Mieter entfernen","Remove Renter"))
-                dialogOwnedNotByUser:addOption(0, M.getText(User,"Miete anpassen","Change Rent"))
-                dialogOwnedNotByUser:addOption(0, M.getText(User,"Miete verlängern","Extend Rent"))
-                dialogOwnedNotByUser:addOption(0, M.getText(User,"Miete anpassen","Change Required Rank"))
+                dialogOwnedByuser:addOption(0, M.getText(user,"Mieter eintragen","Set Renter"))
+                dialogOwnedByuser:addOption(0, M.getText(user,"Mieter entfernen","Remove Renter"))
+                dialogOwnedByuser:addOption(0, M.getText(user,"Miete anpassen","Change Rent"))
+                dialogOwnedByuser:addOption(0, M.getText(user,"Miete verlängern","Extend Rent"))
+                dialogOwnedByuser:addOption(0, M.getText(user,"Miete anpassen","Change Required Rank"))
+                dialogOwnedNotByuser:addOption(0, M.getText(user,"Gast hinzufügen","Add Guest"))
+                dialogOwnedNotByuser:addOption(0, M.getText(user,"Gast entfernen","Remove Guest"))
+                dialogOwnedNotByuser:addOption(0, M.getText(user,"Mieter eintragen","Set Renter"))
+                dialogOwnedNotByuser:addOption(0, M.getText(user,"Mieter entfernen","Remove Renter"))
+                dialogOwnedNotByuser:addOption(0, M.getText(user,"Miete anpassen","Change Rent"))
+                dialogOwnedNotByuser:addOption(0, M.getText(user,"Miete verlängern","Extend Rent"))
+                dialogOwnedNotByuser:addOption(0, M.getText(user,"Miete anpassen","Change Required Rank"))
             end
             if M.checkOwner(SourceItem) == "Unowned" then
-                User:requestSelectionDialog(dialogUnowned)
-            elseif M.checkOwner(SourceItem) == User.name then
-                User:requestSelectionDialog(dialogOwnedByUser)
+                user:requestSelectionDialog(dialogUnowned)
+            elseif M.checkOwner(SourceItem) == user.name then
+                user:requestSelectionDialog(dialogOwnedByuser)
             else
-                User:requestSelectionDialog(dialogOwnedNotByUser)
+                user:requestSelectionDialog(dialogOwnedNotByuser)
             end
         end
     end
