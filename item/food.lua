@@ -189,8 +189,6 @@ M.foodList[552] = {foodPoints = valueMedium}
 M.foodList[553] = {foodPoints = valueMedium}
 -- nuts:
 M.foodList[759]  = {foodPoints = valueMedium}
--- brown egg:
-M.foodList[1149] = {foodPoints = valueSmall}
 -- white egg:
 M.foodList[1150] = {foodPoints = valueSmall}
 -- chicken

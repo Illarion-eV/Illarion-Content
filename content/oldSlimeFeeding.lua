@@ -52,7 +52,7 @@ local slimeDietItems = {
 {itemId = 456, amount = 11}, --[[snowball]]
 {itemId = 133, amount = 25}, --[[sun herb]]
 {itemId = 450, amount = 4}, --[[ameythst powder]]
-{itemId = 1149, amount = 10}, --[[eggs]]
+{itemId = 1150, amount = 10}, --[[eggs]]
 {itemId = 160, amount = 15}, --[[red head]]
 {itemId = 259, amount = 15}, --[[grain]]
 {itemId = 140, amount = 60}, --[[donf blade]]

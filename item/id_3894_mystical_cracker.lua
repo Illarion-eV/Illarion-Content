@@ -667,7 +667,6 @@ local itemList = {
 1153 ,--Eiercremetorte custard pie
 1155 ,--Hühnchen mit Beilage chicken dish
 1210 ,--Rotbarsch rose fish
-1149 ,--Ei egg
 1150 ,--Ei egg
 1154 ,--Spiegelei mit Beilage egg dish
 2716 ,--Apfelholzbretter apple wood boards

@@ -666,7 +666,6 @@ local itemList = {
 1153 ,--Eiercremetorte custard pie
 1155 ,--Hühnchen mit Beilage chicken dish
 1210 ,--Rotbarsch rose fish
-1149 ,--Ei egg
 1150 ,--Ei egg
 1154 ,--Spiegelei mit Beilage egg dish
 2716 ,--Apfelholzbretter apple wood boards
@@ -679,13 +678,9 @@ local gfxList = {
 1,2,3,4,5,6,7,8,9,16,31,32,36,37,38,44,45,46,52,53
 }
 
-local eggIds = {
-1149,1150
-}
-
 function M.createSpecialEgg(user, amount)
 
-    common.CreateItem(user, eggIds[math.random(1,#eggIds)], amount, 333, {nameDe="Buntes Ei",nameEn="Coloured Egg",descriptionDe="Das Ei ist mir verschiedenen bunten Verzierungen versehen worden.",descriptionEn="There are various colourful decorations on the egg.",rareness=ItemLookAt.uncommonItem,specialEgg="true"})
+    common.CreateItem(user, 1150, amount, 333, {nameDe="Buntes Ei",nameEn="Coloured Egg",descriptionDe="Das Ei ist mir verschiedenen bunten Verzierungen versehen worden.",descriptionEn="There are various colourful decorations on the egg.",rareness=ItemLookAt.uncommonItem,specialEgg="true"})
 
 end
 
