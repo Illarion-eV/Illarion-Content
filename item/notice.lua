@@ -198,7 +198,7 @@ local property
         end
         local input = dialog:getInput()
             if (input == nil or input == '') then
-                User:inform(M.getText(User,"Das Namensfeld darf nicht leer sein.","The name field can not be empty."))
+                user:inform(M.getText(user,"Das Namensfeld darf nicht leer sein.","The name field can not be empty."))
             elseif M.checkIfOwnsProperty(input) and not M.checkIfEstate(property) then
                 user:inform(M.getText(user,"Der Charakter mietet bereits ein Grundstück.","Character already rents a property."))
             else
@@ -240,7 +240,7 @@ local textEn
         end
         local input = dialog:getInput()
         if (input == nil or input == '') then
-            User:inform(M.getText(User,"Das Namensfeld darf nicht leer sein.","The name field can not be empty."))
+            user:inform(M.getText(user,"Das Namensfeld darf nicht leer sein.","The name field can not be empty."))
         else
             for i = 1, M["max_"..builderOrGuest.."_number"] do
                 local foundBuilderOrGuest = ScriptVars:find(builderOrGuest..i..property)
@@ -292,7 +292,7 @@ local skippedGuestSlots = 0
                     if selected == i-skippedGuestSlots then
                         ScriptVars:remove(builderOrGuest..i..property)
                         ScriptVars:save()
-                        User:inform(M.getText(User,currentBuilderOrGuest.." wurde von der Liste entfernt.",currentBuilderOrGuest.." has been removed from the list."))
+                        user:inform(M.getText(user,currentBuilderOrGuest.." wurde von der Liste entfernt.",currentBuilderOrGuest.." has been removed from the list."))
                     end
                 else
                     skippedGuestSlots = skippedGuestSlots+1
@@ -300,8 +300,8 @@ local skippedGuestSlots = 0
             end
         end
     end
-    local dialog = SelectionDialog(M.getText(User,dialogNameDe,dialogNameEn) ,
-    M.getText(User,"Wähle einen Namen aus, der von der Liste entfernt werden soll.",
+    local dialog = SelectionDialog(M.getText(user,dialogNameDe,dialogNameEn) ,
+    M.getText(user,"Wähle einen Namen aus, der von der Liste entfernt werden soll.",
     "Select a name to remove them from the list.") , callback)
     for i = 1, M["max_"..builderOrGuest.."_number"] do
         local foundBuilderOrGuest, currentBuilderOrGuest = ScriptVars:find(builderOrGuest..i..property)
@@ -440,7 +440,7 @@ local rentDE = M.getRentDE(Item, propertyName)
                 user:inform(M.getText(user,"Die Zahl muss grösser als 0 sein.","You must set a number higher than 0."))
             else
                 ScriptVars:set("rentfor"..propertyName,input)
-                User:inform(M.getText(User,"Mietpreis auf "..input.." gesetzt.","Rent set to "..input))
+                user:inform(M.getText(user,"Mietpreis auf "..input.." gesetzt.","Rent set to "..input))
                 ScriptVars:save()
                 M.setSignature(user,Item, propertyName)
             end
