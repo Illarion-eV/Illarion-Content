@@ -52,14 +52,14 @@ local M = {}
 M.LookAtItem = metal.LookAtItem
 
 -- @return  True if found a treasure.
-local function DigForTreasure(User)
-    local TargetPos = common.GetFrontPosition(User);
+local function DigForTreasure(user)
+    local TargetPos = common.GetFrontPosition(user);
     local groundTile = world:getField(TargetPos):tile();
     local groundType = common.GetGroundType(groundTile);
 
     if groundType == common.GroundType.rocks then
-        return treasure.performDiggingForTreasure(User, TargetPos, {
-            maximalLevel = (User:getSkill(Character.mining) / 10) + 1,
+        return treasure.performDiggingForTreasure(user, TargetPos, {
+            maximalLevel = (user:getSkill(Character.mining) / 10) + 1,
             msgDiggingOut = {
                 de = "Du schwingst deine Spitzhacke gegen den steinigen Boden und stößt auf etwas das noch " ..
                         "härter ist als der Boden. Das muss er sein! Der Schatz. Noch einmal graben und der " ..
@@ -72,52 +72,44 @@ local function DigForTreasure(User)
     return false;
 end
 
-function M.UseItem(User, SourceItem, ltstate)
+function M.UseItem(user, SourceItem, ltstate)
 
     if common.isBroken(SourceItem) then
-        common.HighInformNLS(User,"Deine Spitzhacke ist kaputt.","Your pick-axe is broken.")
+        common.HighInformNLS(user,"Deine Spitzhacke ist kaputt.","Your pick-axe is broken.")
         return
     end
 
-    if shared.hasTool(User, 2763) == false then
-        common.HighInformNLS(User,"Du musst die Spitzhacke in der Hand halten.","You need to hold the pick-axe in your hand.")
+    if shared.hasTool(user, 2763) == false then
+        common.HighInformNLS(user,"Du musst die Spitzhacke in der Hand halten.","You need to hold the pick-axe in your hand.")
         return
     end
 
-    if glyphmagic.removeGlyphForge(User) then
+    if glyphmagic.removeGlyphForge(user) then
         return
     end
 
-    if not common.FitForWork( User ) then -- check minimal food points
+    if not common.FitForWork( user ) then -- check minimal food points
         return
     end
 
     -- check for alchemy scroll
-    if transformation_dog.DigForTeachingScroll(User) then
+    if transformation_dog.DigForTeachingScroll(user) then
         return
     end
 
-    if DigForTreasure(User) then
+    if DigForTreasure(user) then
         return;
     end
 
-    local areaId = mining.GetAreaId(User.pos);
-    if (areaId == nil) then
-        common.HighInformNLS(User,
-        "Die Gegend sieht nicht so aus, als könnte man hier etwas finden.",
-        "The area doesn't look like a good place to mine.");
-        return;
-    end
-
-    local rock = mining.getRock(User, areaId);
-    if (rock == nil) then
-        common.HighInformNLS(User,
+    local rock = mining.getRock(user);
+    if not rock then
+        common.HighInformNLS(user,
         "Du musst neben einem Felsen stehen um Bergbau zu betreiben.",
         "You have to stand next to a rock to mine.");
         return
     end
 
-    mining.StartGathering(User, rock, ltstate);
+    mining.StartGathering(user, rock, ltstate);
 end
 
 return M
