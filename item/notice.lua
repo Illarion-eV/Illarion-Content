@@ -34,29 +34,29 @@ M.propertyTable = {
 {"Flat Patriarchy", "Wohnung Patriarchat",position(135,614,0),15000,2558,365, "Cadomyr","5","Page","Page"},
 {"Flat Property", "Wohnung Besitz",position(136,616,1),20000,2558,366, "Cadomyr","6","Squire","Knappe"},
 --Runewick
-{"First Fire Apartment", "",position(945,756,0),30000,2558,240, "Runewick","3","Student","Student"},
-{"Second Fire Apartment", "",position(950,756,0),30000,2558,241, "Runewick","3","Student","Student"},
-{"Third Fire Apartment", "",position(958,758,0),60000,2558,242, "Runewick","6","Doctor","Doktor"},
-{"Fourth Fire Apartment", "",position(957,756,1),80000,2558,243, "Runewick","7","Docent","Dozent"},
-{"First Air Apartment", "",position(958,839,1),70000,2558,210, "Runewick","6","Doctor","Doktor"},
-{"Second Air Apartment", "",position(956,835,1),50000,2558,211, "Runewick","5","Master","Magister"},
-{"First Earth Apartment", "",position(901,762,1),30000,2558,230, "Runewick","4","Scholar","Gelehrter"},
-{"Second Earth Apartment", "",position(902,763,1),30000,2558,231, "Runewick","4","Scholar","Gelehrter"},
-{"Third Earth Apartment", "",position(899,759,-3),30000,2558,233, "Runewick","4","Scholar","Gelehrter"},
-{"Fourth Earth Apartment", "",position(899,769,-3),20000,2558,234, "Runewick","3","Student","Student"},
-{"Fifth Earth Apartment", "",position(902,755,-3),20000,2558,235, "Runewick","3","Student","Student"},
-{"Sixth Earth Apartment", "",position(900,755,-3),20000,2558,236, "Runewick","3","Student","Student"},
+{"First Fire Apartment", "Erstes Feuerapartment",position(945,756,0),30000,2558,240, "Runewick","3","Student","Student"},
+{"Second Fire Apartment", "Zweites Feuerapartment",position(950,756,0),30000,2558,241, "Runewick","3","Student","Student"},
+{"Third Fire Apartment", "Drittes Feuerapartment",position(958,758,0),60000,2558,242, "Runewick","6","Doctor","Doktor"},
+{"Fourth Fire Apartment", "Viertes Feuerapartment",position(957,756,1),80000,2558,243, "Runewick","7","Docent","Dozent"},
+{"First Air Apartment", "Erstes Luftapartment",position(958,839,1),70000,2558,210, "Runewick","6","Doctor","Doktor"},
+{"Second Air Apartment", "Zweites Luftapartment",position(956,835,1),50000,2558,211, "Runewick","5","Master","Magister"},
+{"First Earth Apartment", "Erstes Erdapartment",position(901,762,1),30000,2558,230, "Runewick","4","Scholar","Gelehrter"},
+{"Second Earth Apartment", "Zweites Erdapartment",position(902,763,1),30000,2558,231, "Runewick","4","Scholar","Gelehrter"},
+{"Third Earth Apartment", "Drittes Erdapartment",position(899,759,-3),30000,2558,233, "Runewick","4","Scholar","Gelehrter"},
+{"Fourth Earth Apartment", "Viertes Erdapartment",position(899,769,-3),20000,2558,234, "Runewick","3","Student","Student"},
+{"Fifth Earth Apartment", "Fünftes Erdapartment",position(902,755,-3),20000,2558,235, "Runewick","3","Student","Student"},
+{"Sixth Earth Apartment", "Sechstes Erdapartment",position(900,755,-3),20000,2558,236, "Runewick","3","Student","Student"},
 {"Cottage", "Landhaus",position(791,795,0),30000,2558,251, "Runewick","5","Master","Magister"},
 {"Quadruped Red Bird","Vierbeiniger Roter Vogel",position(745,803,0),100000,2558,250, "Runewick","7","Docent","Dozent"},
 --Galmair
-{"House of Malachite","Malachite Haus",position(372,323,0), 100000, 3056, 110, "Galmair", "7", "Patrician","Patrizier"},
+{"House of Malachite","Malachithaus",position(372,323,0), 100000, 3056, 110, "Galmair", "7", "Patrician","Patrizier"},
 {"Villa Goldvein","Villa Goldader", position(300, 281, 0), 80000, 3055, 111, "Galmair", "7", "Patrician","Patrizier"},
 {"Flat Irmorom","Wohnung Irmorom",position(373,216,-6), 30000,2558,120, "Galmair","4","Grocer","Krämer"},
 {"Flat Elara","Wohnung Elara",position(384,219,-6), 30000,2558,121, "Galmair","4","Grocer","Krämer"},
 {"Flat Adron","Wohnung Adron",position(383,230,-6), 20000,2558,122, "Galmair","3","Pedlar","Hausierer"},
-{"Flat Malachin","Wohnung Malachin",position(382,240,-6),20000,2558,123, "Galmair","3","Pedlar","Hausierer"},
+{"Flat Malachin","Wohnung Malachín",position(382,240,-6),20000,2558,123, "Galmair","3","Pedlar","Hausierer"},
 {"Flat Oldra","Wohnung Oldra",position(376,238,-6),30000,2558,124, "Galmair","4","Grocer","Krämer"},
-{"Flat Nargun","Wohnung Nargun",position(383,240,-5),20000,2558,125, "Galmair","3","Pedlar","Hausierer"},
+{"Flat Nargun","Wohnung Nargùn",position(383,240,-5),20000,2558,125, "Galmair","3","Pedlar","Hausierer"},
 {"Flat Ronagan","Wohnung Ronagan",position(384,228,-5),20000,2558,126, "Galmair","3","Pedlar","Hausierer"},
 {"Flat Sirani","Wohnung Sirani",position(385,220,-5),30000,2558,127, "Galmair","4","Grocer","Krämer"},
 {"Flat Zhambra","Wohnung Zhambra",position(373,215,-5),30000,2558,128, "Galmair","4","Grocer","Krämer"},
@@ -67,19 +67,19 @@ M.propertyTable = {
 {"Flat Diamond","Wohnung Diamant",position(406,222,1),60000,2558,132, "Galmair","6","Financier","Finanzier"},
 {"Flat Obsidian","Wohnung Obsidian",position(428,216,1),60000,2558,133, "Galmair","6","Financier","Finanzier"},
 --Estates, Galmair
-{"Galmair Harbour Estate","",position(447,124,0),200000, 2558, 134, "Galmair", "7", "Patrician", "Patrizier", true},
-{"Galmair Roadside Estate","",position(462,175,0),200000, 2558, 135, "Galmair", "7", "Patrician", "Patrizier", true},
-{"Galmair Mountainside Estate","",position(565,168,0),200000, 2558, 136, "Galmair", "7", "Patrician", "Patrizier", true},
+{"Galmair Harbour Estate","Hafengrundstück in Galmair",position(447,124,0),200000, 2558, 134, "Galmair", "7", "Patrician", "Patrizier", true},
+{"Galmair Roadside Estate","Grundstück Am Wegesrand in Galmair",position(462,175,0),200000, 2558, 135, "Galmair", "7", "Patrician", "Patrizier", true},
+{"Galmair Mountainside Estate","Grundstück Bergblick in Galmair",position(565,168,0),200000, 2558, 136, "Galmair", "7", "Patrician", "Patrizier", true},
 --Cadomyr
-{"Cadomyr Harbour Estate", "",position(106,769,0),200000, 2558,368, "Cadomyr","7","Knight","Ritter"},
-{"Cadomyr Riverside Estate", "",position(173,674,0),200000, 2558,369, "Cadomyr","7","Knight","Ritter"},
-{"Cadomyr Seaside Estate", "",position(49,661,0),200000, 2558,370, "Cadomyr","7","Knight","Ritter"},
+{"Cadomyr Harbour Estate", "Hafengrundstück in Cadomyr",position(106,769,0),200000, 2558,368, "Cadomyr","7","Knight","Ritter"},
+{"Cadomyr Riverside Estate", "Grundstück am Flussufer in Cadomyr",position(173,674,0),200000, 2558,369, "Cadomyr","7","Knight","Ritter"},
+{"Cadomyr Seaside Estate", "Grundstück Meerblick in Cadomyr",position(49,661,0),200000, 2558,370, "Cadomyr","7","Knight","Ritter"},
 --Runewick
-{"Runewick Harbour Estate", "",position(758,778,0),200000, 2558,252, "Runewick","7","Docent","Dozent"},
-{"Runewick Forest Estate", "",position(869,889,0),200000, 2558,253, "Runewick","7","Docent","Dozent"},
-{"Runewick Roadside Estate", "",position(834,728,0),200000, 2558,254, "Runewick","7","Docent","Dozent"},
+{"Runewick Harbour Estate", "Hafengrundstück in Runewick",position(758,778,0),200000, 2558,252, "Runewick","7","Docent","Dozent"},
+{"Runewick Forest Estate", "Waldgrundstück in Runewick",position(869,889,0),200000, 2558,253, "Runewick","7","Docent","Dozent"},
+{"Runewick Roadside Estate", "Grundstück Am Wegesrand in Runewick",position(834,728,0),200000, 2558,254, "Runewick","7","Docent","Dozent"},
 --Outlaw
-{"Outlaw Base One", "",position(967,243,0),200000,2558,504,"Outlaw","0","None","None"}
+{"Outlaw Base One", "Erstes Lager der Vogelfreien",position(967,243,0),200000,2558,504,"Outlaw","0","None","None"}
 }
 M.max_guest_number = 20
 M.max_builder_number = 20
@@ -198,7 +198,7 @@ local property
         end
         local input = dialog:getInput()
             if (input == nil or input == '') then
-                User:inform(M.getText(User,"Das Namenfeld darf nicht leer sein.","The name field can not be empty."))
+                User:inform(M.getText(User,"Das Namensfeld darf nicht leer sein.","The name field can not be empty."))
             elseif M.checkIfOwnsProperty(input) and not M.checkIfEstate(property) then
                 User:inform(M.getText(User,"Der Charakter mietet bereits ein Grundstück.","Character already rents a property."))
             else
@@ -240,7 +240,7 @@ local textEn
         end
         local input = dialog:getInput()
         if (input == nil or input == '') then
-            User:inform(M.getText(User,"Das Namenfeld darf nicht leer sein.","The name field can not be empty."))
+            User:inform(M.getText(User,"Das Namensfeld darf nicht leer sein.","The name field can not be empty."))
         else
             for i = 1, M["max_"..builderOrGuest.."_number"] do
                 local foundBuilderOrGuest = ScriptVars:find(builderOrGuest..i..property)
@@ -292,7 +292,7 @@ local skippedGuestSlots = 0
                     if selected == i-skippedGuestSlots then
                         ScriptVars:remove(builderOrGuest..i..property)
                         ScriptVars:save()
-                        User:inform(M.getText(User,currentBuilderOrGuest.." wurde von der liste entfernt.",currentBuilderOrGuest.." has been removed from the list."))
+                        User:inform(M.getText(User,currentBuilderOrGuest.." wurde von der Liste entfernt.",currentBuilderOrGuest.." has been removed from the list."))
                     end
                 else
                     skippedGuestSlots = skippedGuestSlots+1
@@ -301,7 +301,7 @@ local skippedGuestSlots = 0
         end
     end
     local dialog = SelectionDialog(M.getText(User,dialogNameDe,dialogNameEn) ,
-    M.getText(User,"Wähle einen Namen aus, der von der liste entfernt werden soll.",
+    M.getText(User,"Wähle einen Namen aus, der von der Liste entfernt werden soll.",
     "Select a name to remove them from the list.") , callback)
     for i = 1, M["max_"..builderOrGuest.."_number"] do
         local foundBuilderOrGuest, currentBuilderOrGuest = ScriptVars:find(builderOrGuest..i..property)
@@ -538,7 +538,7 @@ local rentDE = M.getRentDE(Item, propertyName)
                 User:inform(M.getText(User,"Die Zahl muss grösser als 0 sein.","You must set a number higher than 0."))
             else
                 ScriptVars:set("rentfor"..propertyName,input)
-                User:inform(M.getText(User,"Mietpreis auf "..input.." gesetzt","Rent set to "..input))
+                User:inform(M.getText(User,"Mietpreis auf "..input.." gesetzt.","Rent set to "..input))
                 ScriptVars:save()
                 M.setSignature(User,Item, propertyName)
             end
