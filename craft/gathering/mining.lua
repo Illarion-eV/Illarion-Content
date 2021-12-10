@@ -171,9 +171,7 @@ local function gotGem(user, sourceItem)
                 end
             cumulatedChance = cumulatedChance + chance
             if rand <= cumulatedChance*100 then --since math.random doesn't do decimals, multiply by 100 and random out of 10000
-                common.CreateItem(user, gem, 1, 333, nil)
-                reduceAmount(user, sourceItem)
-                return true
+                return gem
             end
         end
     end
@@ -290,25 +288,22 @@ function M.StartGathering(user, sourceItem, ltstate)
         return
     end
 
-    local productId = getResource(sourceItem.id);
+    local productId = gotGem(user, sourceItem)
+        if not productId then
+            productId = getResource(sourceItem.id);
+        end
     local maxAmount = getAmount(sourceItem.id)
 
     user:learn( mining.LeadSkill, mining.SavedWorkTime[user.id], mining.LearnLimit);
     local amount = 1; -- set the amount of items that are produced
-    local created
-    if not isPrison(sourceItem.pos) then
-        created = gotGem(user, sourceItem)
-    end
     local amountLeft = sourceItem:getData("amount")
     if not amountLeft or amountLeft == "" then
         sourceItem:setData("amount", maxAmount)
         world:changeItem(sourceItem)
         amountLeft = sourceItem:getData("amount")
     end
-    if not created then
-        created = common.CreateItem(user, productId, amount, 333, nil) -- create the new produced items
-        reduceAmount(user, sourceItem)
-    end
+    local created = common.CreateItem(user, productId, amount, 333, nil) -- create the new produced items
+    reduceAmount(user, sourceItem)
 
     if created then
         if tonumber(amountLeft) > 0 then  -- there are still items we can work on
@@ -317,7 +312,7 @@ function M.StartGathering(user, sourceItem, ltstate)
             if not shared.toolBreaks( user, toolItem, mining:GenWorkTime(user) ) then -- damage and possibly break the tool
                 user:startAction( mining.SavedWorkTime[user.id], 0, 0, 18, 15);
             end
-        else -- no items left (as the rock is still okay, this should never happen... handle it anyway)
+        else
             common.HighInformNLS(user,
             "Hier gibt es keine Steine mehr, an denen du arbeiten kannst.",
             "There are no stones for mining anymore.");
