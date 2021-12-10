@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 --[[To enable scheduled script that checks whether any positions are incorrect or obstructed every 24 hours:
-INSERT INTO scheduledscripts VALUES('scheduled.oreCheck',864,000,864,000,'checkOres');
+INSERT INTO scheduledscripts VALUES('scheduled.oreCheck',864000,864000,'checkOres');
 ]]
 
 local M = {}
