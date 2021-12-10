@@ -126,7 +126,7 @@ end
 
 local function gotGem(user, sourceItem)
     local gemMine = checkIfGemMine(sourceItem.pos)
-    local rand = math.random(1,100);
+    local rand = math.random(1,10000);
     local cumulatedChance = 0
     local miningLevel = user:getSkill(Character.mining)
     for _, gems in pairs(gemList) do
@@ -137,7 +137,9 @@ local function gotGem(user, sourceItem)
                     chance = chance*2
                 end
             cumulatedChance = cumulatedChance + chance
-            if rand <= cumulatedChance then
+            if rand <= cumulatedChance*100 then --since math.random doesn't do decimals, multiply by 100 and random out of 10000
+                debug("rand: "..tostring(rand))
+                debug("cumulatedChance: "..tostring(cumulatedChance*100))
                 common.CreateItem(user, gem, 1, 333, nil)
                 reduceAmount(user, sourceItem)
                 return true
