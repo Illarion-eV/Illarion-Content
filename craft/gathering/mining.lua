@@ -61,7 +61,40 @@ local gemList = {
 {id = 254, level = 90, chance = 0.44}
 }
 
-
+function M.doesOreExistOnLocation()
+local missingLocations = false
+    for _, location in pairs(locations.mines) do
+        local field = world:getField(location.coordinates)
+        local itemsOnField = field:countItems()
+        if itemsOnField >= 1 then
+            local theOre = field:getStackItem(itemsOnField - 1)
+            local foundOre = false
+            for _, ore in pairs(oreList) do
+                if theOre.id == ore.veinId or theOre.id == ore.depletedId then
+                    foundOre = true
+                end
+            end
+            if not foundOre then
+                if not missingLocations then
+                    missingLocations = {}
+                end
+                missingLocations[#missingLocations+1] = location.coordinates
+            end
+        end
+    end
+    if missingLocations then
+        local text = "Ore veins were found to be missing or obstructed at the following locations: "
+        for i = 1, #missingLocations do
+            text = text..tostring(missingLocations[i])
+            if i == #missingLocations then
+                text = text.."."
+            else
+                text = text..", "
+            end
+        end
+        log(text)
+    end
+end
 
 
 local function checkIfGemMine(orePosition)
@@ -159,7 +192,7 @@ local function isMinableRock(user, sourceItem)
         end
     end
     for _, location in pairs(locations.mines) do
-        if tostring(sourceItem.pos) == location.coordinates then
+        if sourceItem.pos == location.coordinates then
             correctPosition = true
         end
     end
