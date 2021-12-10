@@ -60,11 +60,7 @@ function M.loadEffect( rebirthEffect, Reborn )
     if Reborn:isAdmin() then
       return;
     end
-
-
-    common.InformNLS( Reborn,
-        "[Wiederbelebung] Du fühlst dich noch immer schwach.",
-        "[Respawn] You feel still weak." );
+    local inform = false
 
     local maxChange = 0;
     for _,attrib in pairs(attribs) do
@@ -75,6 +71,7 @@ function M.loadEffect( rebirthEffect, Reborn )
             changeBy = 0;
         end;
         if changeBy > 0 then
+            inform = true
             rebirthEffect:addValue( attrib, changeBy );
             maxChange = math.max( maxChange, changeBy );
             Reborn:increaseAttrib( attrib, -changeBy );
@@ -92,6 +89,11 @@ function M.loadEffect( rebirthEffect, Reborn )
         end;
         regEffect:addValue( "maxHP", math.floor( 10000 / ( oldMaxChange + 1 ) * ( oldMaxChange + 1 - maxChange ) ) );
     end;
+    if inform then
+        common.InformNLS( Reborn,
+        "[Wiederbelebung] Du fühlst dich noch immer schwach.",
+        "[Respawn] You feel still weak." );
+    end
 end;
 
 function M.callEffect( rebirthEffect, Reborn )

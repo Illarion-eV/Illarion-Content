@@ -744,10 +744,17 @@ local function settingsForCharReligion(user, chosenPlayer)
 end
 
 local function resetDeathPenalty(target)
+    local attribs = {"strength","dexterity","constitution","agility","intelligence","perception","willpower","essence"}
     local foundRes, resEffect = target.effects:find(400);
     if foundRes then
         resurrected.removeEffect( resEffect, target )
         target:increaseAttrib("hitpoints", 10000)
+        for _,attrib in pairs(attribs) do
+            local foundChange= resEffect:findValue( attrib );
+            if foundChange then
+                resEffect:removeValue( attrib );
+            end;
+        end;
     end
 end
 
