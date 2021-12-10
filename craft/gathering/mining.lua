@@ -312,10 +312,6 @@ function M.StartGathering(user, sourceItem, ltstate)
             if not shared.toolBreaks( user, toolItem, mining:GenWorkTime(user) ) then -- damage and possibly break the tool
                 user:startAction( mining.SavedWorkTime[user.id], 0, 0, 18, 15);
             end
-        else
-            common.HighInformNLS(user,
-            "Hier gibt es keine Steine mehr, an denen du arbeiten kannst.",
-            "There are no stones for mining anymore.");
         end
     end
 end
