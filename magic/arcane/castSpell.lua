@@ -30,17 +30,15 @@ local skilling = require("magic.arcane.skilling")
 local M = {}
 
 function M.castSpell(user, spell, actionState)
-local position = targeting.getPosition(user, spell)
+local positionsAndTargets = targeting.getPositionsAndTargets(user, spell)
+local position = positionsAndTargets.thePosition
 local element = runes.fetchElement(spell)
-local rangeNum = range.getCastingRange(user, spell, element)
-local Lev = runes.checkSpellForRuneByName("Lev", spell)
 local CUN = runes.checkSpellForRuneByName("CUN", spell)
 local RA = runes.checkSpellForRuneByName("RA", spell)
 local Sul = runes.checkSpellForRuneByName("Sul", spell)
 local JUS = runes.checkSpellForRuneByName("JUS", spell)
 local Mes = runes.checkSpellForRuneByName("Mes", spell)
 local Orl = runes.checkSpellForRuneByName("Orl", spell)
-local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
 local targets
 local castDuration = castTime.arcaneSpellCastSpeed(user, spell)
 local castSFX = magicSFX.getMagicSFXUser()
@@ -64,7 +62,7 @@ local castGFX = magicGFX.getUserGFX(spell)
     elseif actionState == Action.abort then
         return
     elseif actionState == Action.success then
-        targets = targeting.getTargets(user, spell, position)
+        targets = targeting.getPositionsAndTargets(user, spell)
         if not range.isTargetInRange(user, spell, element, position) then
             user:inform("","The target is too far away.")
             return
@@ -80,19 +78,6 @@ local castGFX = magicGFX.getUserGFX(spell)
             else
                 delayedAttack.spellEffects(user, targets, spell, element)
                 incantation.speakIncantation(user, spell)
-                if Lev then
-                local LevTarget
-                    if RA or CUN then
-                        LevTarget = targeting.getWeakestNearTarget(user, position, rangeNum)
-                    end
-                    if SOLH then
-                        LevTarget = targeting.getSlowestNearTarget(user, position, rangeNum)
-                    end
-                    if LevTarget then
-                        targets = targeting.getTargets(user, spell, LevTarget.pos)
-                        delayedAttack.spellEffects(user, targets, spell, element)
-                    end
-                end
             end
         else
             teaching.teachRune(user, targets, spell)

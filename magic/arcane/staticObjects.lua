@@ -16,7 +16,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local runes = require("magic.arcane.runes")
-local targeting = require("magic.arcane.targeting")
 local effectScaling = require("magic.arcane.effectScaling")
 
 local M = {}
@@ -90,13 +89,33 @@ return wear
 end
 
 function M.spawnStaticObjects(user, targets, spell)
-    for _, target in pairs(targets) do
-        local position = targeting.getPositionByTarget(target)
-        M.spawnStaticObject(user, target.target, target.category, spell, position)
+    for _, item in pairs(targets.items) do
+        M.spawnStaticObject(user, item, "item", spell, item.pos)
+    end
+    for _, position in pairs(targets.positions) do
+        M.spawnStaticObject(user, position, "position", spell, position)
+    end
+    for _, character in pairs(targets.targets) do
+        M.spawnStaticObject(user, character, "character", spell, character.pos)
     end
 end
 
-function M.spawnStaticObject(user, target, targetType, spell, position)
+local function checkForRelevantRunes(spell)
+local Anth = runes.checkSpellForRuneByName("Anth", spell)
+local Orl = runes.checkSpellForRuneByName("Orl", spell)
+local RA = runes.checkSpellForRuneByName("RA", spell)
+local CUN = runes.checkSpellForRuneByName("CUN", spell)
+    if (RA or CUN) and (Anth or Orl) then
+        return true
+    end
+return false
+end
+
+function M.spawnStaticObject(user, target, targetType, spell, targetPos)
+local relevantRunes = checkForRelevantRunes(spell)
+    if not relevantRunes then
+        return
+    end
 local spawnObject = checkIfObjectShouldBeSpawned(spell, targetType)
 local objectID = getObjectID(spell)
 local wear = M.getWearBasedOnDuration(user, target, spell)
@@ -108,8 +127,15 @@ local illusion = "false"
     if not objectID or not spawnObject then
         return
     end
-world:createItemFromId(objectID, 1, position, true, 999, {["illusion"] = illusion})
-local item = world:getItemOnField(position)
+
+    if user then
+        if user.pos == targetPos then
+            return
+        end
+    end
+
+world:createItemFromId(objectID, 1, targetPos, true, 999, {["illusion"] = illusion})
+local item = world:getItemOnField(targetPos)
 item.wear = wear
 world:changeItem(item)
 end

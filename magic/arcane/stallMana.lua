@@ -62,13 +62,13 @@ local Lhor = runes.checkSpellForRuneByName("Lhor", spell)
         return
     end
     if Ira and SOLH then
-        for _, target in pairs(targets) do
-            local duration = getDuration(user, spell, target.target, earthTrap)
-            local foundEffect, myEffect = target.target.effects:find(17)
+        for _, target in pairs(targets.targets) do
+            local duration = getDuration(user, spell, target, earthTrap)
+            local foundEffect, myEffect = target.effects:find(17)
             if not foundEffect then
                 myEffect = LongTimeEffect(17, 10)
                 myEffect:addValue("seconds", duration)
-                target.target.effects:addEffect(myEffect)
+                target.effects:addEffect(myEffect)
             else
                 myEffect:addValue("seconds", duration)
             end

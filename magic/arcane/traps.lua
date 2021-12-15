@@ -31,45 +31,63 @@ local MP = require("magic.arcane.magicPenetration")
 
 local M = {}
 
+local function trapCreation(user, target, spell, item)
+    local graphicID = 372
+    local Lhor = runes.checkSpellForRuneByName("Lhor", spell)
+    local Luk = runes.checkSpellForRuneByName("Luk", spell)
+    local element = runes.fetchElement(spell)
+    local wear = staticObjects.getWearBasedOnDuration(user, target, spell)
+    local scaling = effectScaling.getEffectScaling(user, target, spell)
+    local damage = magicDamage.getMagicDamage(user, spell, element, target, false, target:getType(), false)
+    local field = plantRoot.getField(target)
+    local magicPenetration = MP.getMagicPenetration(user, element, spell)
+    if not field then
+        return
+    end
+    if Luk then
+        if plantRoot.checkForSuitableSoil(field) then
+            graphicID = 3644
+        end
+    end
+    if item then
+        if not field:isPassable() then
+            return
+        end
+    end
+    local myPosition = plantRoot.getPosition(target)
+    local trap = world:createItemFromId(graphicID, 1, myPosition, true, 999, {["illusion"] = tostring(Lhor), ["spell"] = spell, ["illuminateWear"] = wear, ["damage"] = damage, ["scaling"] = scaling, ["magicPenetration"] = magicPenetration})
+    trap.wear = wear
+    world:changeItem(trap)
+end
+
 function M.createEarthTraps(user, targets, spell)
 local Orl = runes.checkSpellForRuneByName("Orl", spell)
 local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
 local Luk = runes.checkSpellForRuneByName("Luk", spell)
-local Lhor = runes.checkSpellForRuneByName("Lhor", spell)
 local Anth = runes.checkSpellForRuneByName("Anth", spell)
-local element = runes.fetchElement(spell)
+
     if not SOLH or not (Orl or (Anth and not Luk)) then
         return
     end
-    local graphicID = 372
-    for _, target in pairs(targets) do
-        if not Orl and Anth then
-            if not target.category == "item" then
-                return
-            end
-        end
-        local wear = staticObjects.getWearBasedOnDuration(user, target.target, spell)
-        local scaling = effectScaling.getEffectScaling(user, target.target, spell)
-        local damage = magicDamage.getMagicDamage(user, spell, element, target.target, false, target.category, false)
-        local field = plantRoot.getField(target)
-        local magicPenetration = MP.getMagicPenetration(user, element, spell)
-        if not field then
+    for _, item in pairs(targets.items) do
+        if not Orl or not Anth then
             return
         end
-        if Luk then
-            if plantRoot.checkForSuitableSoil(field) then
-                graphicID = 3644
-            end
+        trapCreation(user, item, spell, true)
+    end
+
+    for _, target in pairs(targets.targets) do
+        if not Orl then
+            return
         end
-        if target.category == "item" then
-            if not field:isPassable() then
-                return
-            end
+        trapCreation(user, target, spell)
+    end
+
+    for _, pos in pairs(targets.positions) do
+        if not Orl then
+            return
         end
-        local myPosition = plantRoot.getPosition(target)
-        local trap = world:createItemFromId(graphicID, 1, myPosition, true, 999, {["illusion"] = tostring(Lhor), ["spell"] = spell, ["illuminateWear"] = wear, ["damage"] = damage, ["scaling"] = scaling, ["magicPenetration"] = magicPenetration})
-        trap.wear = wear
-        world:changeItem(trap)
+        trapCreation(user, pos, spell)
     end
 end
 

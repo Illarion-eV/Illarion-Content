@@ -49,10 +49,8 @@ local PEN = runes.checkSpellForRuneByName("PEN", spell)
     if not Hept or PEN then
         return
     end
-    for _, target in pairs(targets) do
-        if target.category == "character" then
-            M.applyStun(target.target)
-        end
+    for _, target in pairs(targets.targets) do
+        M.applyStun(target)
     end
 end
 

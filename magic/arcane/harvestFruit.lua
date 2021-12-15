@@ -34,11 +34,8 @@ local fruitList = {
 }
 
 local function harvestFruit(user, targets)
-    for _, target in pairs(targets) do
-        if target.category ~= "item" then
-            return
-        end
-        local itemToHarvest = target.target
+    for _, item in pairs(targets.items) do
+        local itemToHarvest = item
         if itemToHarvest:getData("nameEn") == "Holy Vine" then
             return
         end
@@ -63,11 +60,11 @@ local function harvestFruit(user, targets)
         if not fruit then
             return
         end
-        local dropPositions = targeting.increaseArea(target.position)
+        local dropPositions = targeting.increaseArea(item.pos)
         repeat
             for _, dropPos in pairs(dropPositions) do
                 local dropPosition = dropPos.position
-                if dropPosition ~= target.position and amount > 0 then
+                if dropPosition ~= item.pos and amount > 0 then
                     local field = world:getField(dropPosition)
                     if field and field:isPassable() then
                         world:createItemFromId(fruit, 1, dropPosition, true, 333, {})

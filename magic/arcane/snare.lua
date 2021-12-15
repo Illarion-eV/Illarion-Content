@@ -88,33 +88,33 @@ local rune
     end
 
 local howManySecondsUntilFullSpeed = 10
-    for _, target in pairs(targets) do
-        if target.category == "character" and Sul and (SOLH or JUS) then
-            local getSpeed = M.getSpeed(user, target.target, spell, JUS, SOLH, Orl)
+    for _, target in pairs(targets.targets) do
+        if Sul and (SOLH or JUS) then
+            local getSpeed = M.getSpeed(user, target, spell, JUS, SOLH, Orl)
             if not getSpeed then
                 return
             end
             local raceBonus
             if rune then
-                raceBonus = magicDamage.checkIfRaceBonus(target.target, rune)
+                raceBonus = magicDamage.checkIfRaceBonus(target, rune)
             end
             if Tah then
                 getSpeed = -getSpeed
             end
-            local foundEffect, myEffect = target.target.effects:find(15)
+            local foundEffect, myEffect = target.effects:find(15)
             if not foundEffect then
                 myEffect = LongTimeEffect(15, 10)
                 myEffect:addValue("speed", getSpeed)
                 myEffect:addValue("remainingSpeed", getSpeed)
                 myEffect:addValue("ticks", howManySecondsUntilFullSpeed)
-                target.target.effects:addEffect(myEffect)
+                target.effects:addEffect(myEffect)
             else
                 local foundRemainingSpeed, remainingSpeed = myEffect:findValue("remainingSpeed")
                 if foundRemainingSpeed then
                     myEffect:addValue("speed", getSpeed - remainingSpeed)
                     myEffect:addValue("remainingSpeed", getSpeed)
                     myEffect:addValue("ticks", howManySecondsUntilFullSpeed)
-                    M.addEffect(myEffect, target.target)
+                    M.addEffect(myEffect, target)
                 end
             end
             if Sih and not Tah then

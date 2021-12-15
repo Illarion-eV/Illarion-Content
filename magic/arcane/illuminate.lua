@@ -17,7 +17,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local runes = require("magic.arcane.runes")
 local staticObjects = require("magic.arcane.staticObjects")
-local targeting = require("magic.arcane.targeting")
 
 local M = {}
 
@@ -42,9 +41,16 @@ local PEN = runes.checkSpellForRuneByName("PEN", spell)
         return
     end
 
-    for _, target in pairs(targets) do
-        local myPosition = targeting.getPositionByTarget(target)
-        illuminate(user, myPosition, spell, earthTrap, target.target)
+    for _, target in pairs(targets.targets) do
+        local myPosition = target.pos
+        illuminate(user, myPosition, spell, earthTrap, target)
+    end
+    for _, item in pairs(targets.items) do
+        local myPosition = item.pos
+        illuminate(user, myPosition, spell, earthTrap, item)
+    end
+    for _, position in pairs (targets.positions) do
+        illuminate(user, position, spell, earthTrap, position)
     end
 end
 

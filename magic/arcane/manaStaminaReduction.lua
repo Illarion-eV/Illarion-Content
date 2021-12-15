@@ -70,10 +70,8 @@ local stamina = false
         stamina = true
     end
 
-    for _, target in pairs(targets) do
-        if target.category == "character" then
-            applyReduceManaOrStamina(user, target.target, false, stamina, true, spell, earthTrap)
-        end
+    for _, target in pairs(targets.targets) do
+        applyReduceManaOrStamina(user, target, false, stamina, true, spell, earthTrap)
     end
 
 end
@@ -92,10 +90,8 @@ local stamina = false
         mana = true
     end
     if RA then
-        for _, target in pairs(targets) do
-            if target.category == "character" then
-                applyReduceManaOrStamina(user, target.target, mana, stamina, false, spell)
-            end
+        for _, target in pairs(targets.targets) do
+            applyReduceManaOrStamina(user, target, mana, stamina, false, spell)
         end
     end
 end

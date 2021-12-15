@@ -15,19 +15,25 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local runes = require("magic.arcane.runes")
-local targeting = require("magic.arcane.targeting")
 
 local M = {}
 
 function M.getTargetGFX(targets, spell, fancyLights)
-local position
-    for _, target in pairs(targets) do
-        position = targeting.getPositionByTarget(target)
-        M.castTargetGFX(position, spell, fancyLights)
+
+    for _, target in pairs(targets.targets) do
+        M.castTargetGFX(target.pos, spell, fancyLights)
+    end
+
+    for _, item in pairs (targets.items) do
+        M.castTargetGFX(item.pos, spell, fancyLights)
+    end
+
+    for _, pos in pairs (targets.positions) do
+        M.castTargetGFX(pos, spell, fancyLights)
     end
 end
 
-function M.castTargetGFX(target, spell, fancyLights)
+function M.castTargetGFX(pos, spell, fancyLights)
 local gfxNumber = 0
     if runes.checkSpellForRuneByName("RA", spell) then
         gfxNumber = 9
@@ -64,12 +70,8 @@ local gfxNumber = 0
     if runes.checkSpellForRuneByName("Bhona", spell) then
         gfxNumber = 41
     end
-local position = target
-    if target.pos then
-        position = target.pos
-    end
 
-    world:gfx(gfxNumber, position)
+    world:gfx(gfxNumber, pos)
 end
 
 function M.getUserGFX(spell)

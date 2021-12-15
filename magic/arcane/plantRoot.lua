@@ -86,37 +86,52 @@ local positionToCheck
 return positionToCheck
 end
 
+local function plantCreation(user, target, spell, item)
+    local Lhor = runes.checkSpellForRuneByName("Lhor", spell)
+    local plantID = 3644
+    local wear = staticObjects.getWearBasedOnDuration(user, target, spell)
+    local scaling = effectScaling.getEffectScaling(user, target, spell)
+    local field = M.getField(target)
+        if not field then
+            return
+        end
+        if item then
+            if not field:isPassable() then
+                return
+            end
+        end
+        if not M.checkForSuitableSoil(field) then
+            return
+        end
+        local myPosition = M.getPosition(target)
+        local plant = world:createItemFromId(plantID, 1, myPosition, true, 999, {["illusion"] = tostring(Lhor), ["scaling"] = scaling})
+        plant.wear = wear
+        world:changeItem(plant)
+end
 
 function M.createEntanglingPlant(user, targets, spell)
 local Orl = runes.checkSpellForRuneByName("Orl", spell)
 local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
 local Luk = runes.checkSpellForRuneByName("Luk", spell)
-local Lhor = runes.checkSpellForRuneByName("Lhor", spell)
-local plantID = 3644
+
     if Orl then --To prevent overlap of plant and trap, trap as the stronger one takes priority. Trap will instead get plant graphic if this rune is used.
         return
     end
-    for _, target in pairs(targets) do
-        local wear = staticObjects.getWearBasedOnDuration(user, target.target, spell)
-        local scaling = effectScaling.getEffectScaling(user, target.target, spell)
-        if SOLH and Luk then
-            local field = M.getField(target)
-            if not field then
-                return
-            end
-            if target.category == "item" then
-                if not field:isPassable() then
-                    return
-                end
-            end
-            if not M.checkForSuitableSoil(field) then
-                return
-            end
-            local myPosition = M.getPosition(target)
-            local plant = world:createItemFromId(plantID, 1, myPosition, true, 999, {["illusion"] = tostring(Lhor), ["scaling"] = scaling})
-            plant.wear = wear
-            world:changeItem(plant)
-        end
+
+    if not (SOLH and Luk) then
+        return
+    end
+
+    for _, target in pairs(targets.targets) do
+        plantCreation(user, target, spell)
+    end
+
+    for _, item in pairs(targets.items) do
+        plantCreation(user, item, spell, true)
+    end
+
+    for _, pos in pairs(targets.positions) do
+        plantCreation(user, pos, spell)
     end
 end
 
@@ -146,26 +161,26 @@ end
 
 function M.applyPlantRoot(user, targets, spell, earthTrap)
 local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
-    for _, target in pairs(targets) do
-        if target.category == "character" and SOLH then
-            local getSpeed = M.getSpeed(user, target.target, spell, earthTrap)
+    for _, target in pairs(targets.targets) do
+        if SOLH then
+            local getSpeed = M.getSpeed(user, target, spell, earthTrap)
             if not getSpeed then
                 return
             end
-            local foundEffect, myEffect = target.target.effects:find(16)
+            local foundEffect, myEffect = target.effects:find(16)
             if not foundEffect then
                 myEffect = LongTimeEffect(16, 10)
                 myEffect:addValue("speed", getSpeed)
                 myEffect:addValue("remainingSpeed", getSpeed)
                 myEffect:addValue("ticks", howManySecondsUntilFullSpeed)
-                target.target.effects:addEffect(myEffect)
+                target.effects:addEffect(myEffect)
             else
                 local foundRemainingSpeed, remainingSpeed = myEffect:findValue("remainingSpeed")
                 if foundRemainingSpeed then
                     myEffect:addValue("speed", getSpeed - remainingSpeed)
                     myEffect:addValue("remainingSpeed", getSpeed)
                     myEffect:addValue("ticks", howManySecondsUntilFullSpeed)
-                    M.addEffect(myEffect, target.target)
+                    M.addEffect(myEffect, target)
                 end
             end
         end

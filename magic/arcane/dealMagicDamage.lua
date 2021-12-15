@@ -59,19 +59,21 @@ local Sih = runes.checkSpellForRuneByName("Sih", spell)
 end
 
 function M.applyMagicDamage(user, targets, spell, element, Orl, earthTrap)
-    for _, target in pairs(targets) do
-        if target.category == "character" then
-            local myTarget = target.target
-            local targetType = myTarget:getType()
-            local damage
-            if earthTrap then
-                damage = earthTrap:getData("damage")
-            else
-                damage = magicDamage.getMagicDamage(user, spell, element, myTarget, false, targetType, Orl)
+    for _, target in pairs(targets.targets) do
+        if user then
+            if target.pos == user.pos then -- no self harm
+                return
             end
-            M.dealMagicDamage(user, myTarget, spell, damage)
-            myTarget:learn(Character.magicResistance, damage/100, 100) -- Will need balancing for how fast magic resistance is learned.
         end
+        local targetType = target:getType()
+        local damage
+        if earthTrap then
+            damage = earthTrap:getData("damage")
+        else
+            damage = magicDamage.getMagicDamage(user, spell, element, target, false, targetType, Orl)
+        end
+        M.dealMagicDamage(user, target, spell, damage)
+        target:learn(Character.magicResistance, damage/100, 100) -- Will need balancing for how fast magic resistance is learned.
     end
 end
 

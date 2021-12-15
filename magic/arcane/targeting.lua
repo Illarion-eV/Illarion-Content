@@ -20,190 +20,88 @@ local range = require("magic.arcane.castingRange")
 
 local M = {}
 
-function M.increaseArea(targetPosition)
-    local positionTable = {}
-    table.insert(positionTable, {position = position(targetPosition.x,targetPosition.y,targetPosition.z)})
-    table.insert(positionTable, {position = position(targetPosition.x+1,targetPosition.y,targetPosition.z)})
-    table.insert(positionTable, {position = position(targetPosition.x,targetPosition.y+1,targetPosition.z)})
-    table.insert(positionTable, {position = position(targetPosition.x-1,targetPosition.y,targetPosition.z)})
-    table.insert(positionTable, {position = position(targetPosition.x,targetPosition.y-1,targetPosition.z)})
-    table.insert(positionTable, {position = position(targetPosition.x+1,targetPosition.y-1,targetPosition.z)})
-    table.insert(positionTable, {position = position(targetPosition.x-1,targetPosition.y+1,targetPosition.z)})
-    table.insert(positionTable, {position = position(targetPosition.x+1,targetPosition.y+1,targetPosition.z)})
-    table.insert(positionTable, {position = position(targetPosition.x-1,targetPosition.y-1,targetPosition.z)})
-    return positionTable
-end
+M.playerTargets = {}
 
-local function getPENLukDunPositionTable(targetPosition)
-    local positionTable = {}
-    table.insert(positionTable, {position = position(targetPosition.x+2,targetPosition.y,targetPosition.z)})
-    table.insert(positionTable, {position = position(targetPosition.x,targetPosition.y+2,targetPosition.z)})
-    table.insert(positionTable, {position = position(targetPosition.x-2,targetPosition.y,targetPosition.z)})
-    table.insert(positionTable, {position = position(targetPosition.x,targetPosition.y-2,targetPosition.z)})
-    table.insert(positionTable, {position = position(targetPosition.x+2,targetPosition.y-2,targetPosition.z)})
-    table.insert(positionTable, {position = position(targetPosition.x-2,targetPosition.y+2,targetPosition.z)})
-    table.insert(positionTable, {position = position(targetPosition.x+2,targetPosition.y+2,targetPosition.z)})
-    table.insert(positionTable, {position = position(targetPosition.x-2,targetPosition.y-2,targetPosition.z)})
-    return positionTable
-end
-
-function M.getPosition(user, spell)
-local element = runes.fetchElement(spell)
-local rangeNum = range.getCastingRange(user, spell, element)
-local Tah = runes.checkSpellForRuneByName("Tah", spell)
-local RA = runes.checkSpellForRuneByName("RA", spell)
-local CUN = runes.checkSpellForRuneByName("CUN", spell)
-local retPos = common.GetFrontPosition(user)
-local foundTarget, getTarget = ScriptVars:find("onMagicAttackTargetFor"..user.name)
-    if foundTarget then
-        if user.attackmode then
-            local _, _, x, y, z = string.find(getTarget, "(%d+), (%d+), (%d+)")
-            retPos = position(tonumber(x), tonumber(y), tonumber(z))
-        end
-    end
-
-    if Tah and (RA or CUN) then
-        local target = M.getWeakestNearTarget(user, retPos, rangeNum)
-        if target then
-            retPos = target.pos
-        end
-    end
-return retPos
-end
-
-function M.refreshTargets(user, spell)
-    local myPosition = M.getPosition(user, spell)
-    local targets = M.getTargets(user, spell, myPosition)
-    return targets
-end
-
-function M.getTargets(user, spell, targeted)
-local name = user.name
-local element = runes.fetchElement(spell)
-local rangeNum = range.getCastingRange(user, spell, element)
-local targetPosition = targeted
-local Fhen = runes.checkSpellForRuneByName("Fhen", spell)
-local RA = runes.checkSpellForRuneByName("RA", spell)
-local CUN = runes.checkSpellForRuneByName("CUN", spell)
-local Dun = runes.checkSpellForRuneByName("Dun", spell)
-local PEN = runes.checkSpellForRuneByName("PEN", spell)
-local Luk = runes.checkSpellForRuneByName("Luk", spell)
-local Hept = runes.checkSpellForRuneByName("Hept", spell)
-local Lev = runes.checkSpellForRuneByName("Lev", spell)
-local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
-    if Fhen and (RA or CUN or SOLH) then
-        if M.FhenGetTarget(user, targetPosition, rangeNum) then
-            targetPosition = M.FhenGetTarget(user, targetPosition, rangeNum).pos
-        end
-    end
-    if PEN and Hept then
-        ScriptVars:set("Hept"..name, targetPosition)
-        ScriptVars:save()
-        user:setQuestProgress(7004, tonumber(world:getTime("unix")))
-    end
-    if PEN and Lev then
-        local storedTime = user:getQuestProgress(7004)
-        local timeLimit = 1800
-        local currentTime = world:getTime("unix")
-        if storedTime ~= 0 then
-            local foundTarget, getTarget = ScriptVars:find("Hept"..name)
-            if currentTime-storedTime > timeLimit then
-                ScriptVars:remove("Hept"..name)
-                ScriptVars:save()
-                user:setQuestProgress(7004, 0)
-                user:inform("","It's been too long since you last cast this spell with Hept.")
-                return
-            elseif foundTarget then
-                targetPosition = getTarget
-                ScriptVars:remove("Hept"..name)
-                ScriptVars:save()
-                user:setQuestProgress(7004, 0)
-            end
-        end
-    end
-local positions
-    if Dun and not (PEN and Luk) then
-        positions = M.increaseArea(targetPosition)
-    elseif Dun and PEN and Luk then
-        positions = getPENLukDunPositionTable(targetPosition)
-    elseif PEN and Luk then
-        positions = M.increaseArea(targetPosition)
-    else
-        positions = {}
-        table.insert(positions, {position = targetPosition})
-    end
-return M.positionsIntoTargets(positions)
-end
-
-function M.positionsIntoTargets(positions)
-local targets = {}
-    for _, posi in pairs(positions) do
-        local field = world:getField(posi.position)
+local function addDunTargets(targetsPositions)
+local targetPosition = targetsPositions.thePosition
+local possiblePositions =
+    {position(targetPosition.x+1,targetPosition.y,targetPosition.z), position(targetPosition.x,targetPosition.y+1,targetPosition.z),
+    position(targetPosition.x-1,targetPosition.y,targetPosition.z), position(targetPosition.x,targetPosition.y-1,targetPosition.z),
+    position(targetPosition.x+1,targetPosition.y-1,targetPosition.z), position(targetPosition.x-1,targetPosition.y+1,targetPosition.z),
+    position(targetPosition.x+1,targetPosition.y+1,targetPosition.z), position(targetPosition.x-1,targetPosition.y-1,targetPosition.z)}
+    for _, possiblePosition in pairs(possiblePositions) do
+        local field = world:getField(possiblePosition)
         local foundItems = field:countItems()
-        if world:isCharacterOnField(posi.position) then
-            local char = world:getCharacterOnField(posi.position)
+        local foundChar = world:isCharacterOnField(possiblePosition)
+        if foundChar then
+            local char =  world:getCharacterOnField(possiblePosition)
             if char:getType() ~= Character.npc then
-                table.insert(targets, {target = char , category = "character"})
+                targetsPositions.targets[#targetsPositions.targets+1] = char
             end
-        elseif foundItems ~= 0 then
+        end
+
+        if foundItems >= 1 then
             local item = field:getStackItem(foundItems - 1)
-            table.insert(targets, {target = item, category = "item", position = posi.position})
-        else
-            table.insert(targets, {target = posi.position, category = "position"})
+            targetsPositions.items[#targetsPositions.items+1] = item
+        end
+        if not (foundItems >= 1) and not foundChar then
+            targetsPositions.positions[#targetsPositions.positions+1] = possiblePosition
         end
     end
-return targets
+    return targetsPositions
 end
 
-function M.getPositionByTarget(target)
-local myPosition
-    if target.category == "position" then
-        myPosition = target.target
-    elseif target.category == "character" then
-        myPosition = target.target.pos
-    elseif target.category == "item" then
-        myPosition = target.position
-    end
-return myPosition
-end
-
-function M.FhenGetTarget(user, position, rangeNum)
-local targets = world:getCharactersInRangeOf(position, rangeNum)
-local returnTarget = false
-    for i = 1, #targets do
-        local target = targets[i]
-        if target.pos ~= user.pos and target:getType() ~= Character.npc then
-            returnTarget = target
-        end
-    end
-return returnTarget
-end
-
-function M.getWeakestNearTarget(user, target, rangeNum)
-local position = target
-    if target.pos then
-        position = target.pos
-    end
-
-local targets = world:getCharactersInRangeOf(position, rangeNum)
-local returnTarget = false
-local lowestHealth
-    for i = 1, #targets do
-        local newTarget = targets[i]
-        if position ~= newTarget.pos and user.pos ~= newTarget.pos and newTarget:getType() ~= Character.npc then
-            if returnTarget == false then
-                returnTarget = newTarget
-                lowestHealth = newTarget:increaseAttrib("hitpoints", 0)
-            elseif newTarget:increaseAttrib("hitpoints", 0) < lowestHealth then
-                returnTarget = newTarget
-                lowestHealth = newTarget:increaseAttrib("hitpoints", 0)
+local function addPENLukDunTargets(targetsPositions)
+    local targetPosition = targetsPositions.thePosition
+    local possiblePositions =
+    {position(targetPosition.x+2,targetPosition.y,targetPosition.z), position(targetPosition.x,targetPosition.y+2,targetPosition.z),
+    position(targetPosition.x-2,targetPosition.y,targetPosition.z), position(targetPosition.x,targetPosition.y-2,targetPosition.z),
+    position(targetPosition.x+2,targetPosition.y-2,targetPosition.z), position(targetPosition.x-2,targetPosition.y+2,targetPosition.z),
+    position(targetPosition.x+2,targetPosition.y+2,targetPosition.z), position(targetPosition.x-2,targetPosition.y-2,targetPosition.z)}
+    for _, possiblePosition in pairs(possiblePositions) do
+        local field = world:getField(possiblePosition)
+        local foundItems = field:countItems()
+        local foundChar = world:isCharacterOnField(possiblePosition)
+        if foundChar then
+            local char =  world:getCharacterOnField(possiblePosition)
+            if char:getType() ~= Character.npc then
+                targetsPositions.targets[#targetsPositions.targets+1] = char
             end
         end
+        if foundItems >= 1 then
+            local item = field:getStackItem(foundItems - 1)
+            targetsPositions.items[#targetsPositions.items+1] = item
+        end
+        if not (foundItems >= 1) and not foundChar then
+            targetsPositions.positions[#targetsPositions.positions+1] = possiblePosition
+        end
     end
-return returnTarget
+    return targetsPositions
 end
 
-function M.getSlowestNearTarget(user, target, rangeNum)
+local function FhenGetTarget(user, position, rangeNum)
+    local targets = world:getCharactersInRangeOf(position, rangeNum)
+    local returnTarget = false
+        for i = 1, #targets do
+            local target = targets[i]
+            if target.pos ~= user.pos and target:getType() ~= Character.npc then
+                returnTarget = target
+            end
+        end
+    return returnTarget
+end
+
+local function  positionHasNPC(thePosition)
+    local targetIsOnTile = world:isCharacterOnField(thePosition)
+    if targetIsOnTile then
+        local targeted = world:getCharacterOnField(thePosition)
+        if targeted:getType() == Character.npc then
+            return true
+        end
+    end
+end
+
+local function getSlowestNearTarget(user, target, rangeNum)
     local position = target
         if target.pos then
             position = target.pos
@@ -224,6 +122,170 @@ function M.getSlowestNearTarget(user, target, rangeNum)
             end
         end
     return returnTarget
+end
+
+local function getWeakestNearTarget(user, target, rangeNum)
+    local position = target
+        if target.pos then
+            position = target.pos
+        end
+    local targets = world:getCharactersInRangeOf(position, rangeNum)
+    local returnTarget = false
+    local lowestHealth
+        for i = 1, #targets do
+            local newTarget = targets[i]
+            if position ~= newTarget.pos and user.pos ~= newTarget.pos and newTarget:getType() ~= Character.npc then
+                if returnTarget == false then
+                    returnTarget = newTarget
+                    lowestHealth = newTarget:increaseAttrib("hitpoints", 0)
+                elseif newTarget:increaseAttrib("hitpoints", 0) < lowestHealth then
+                    returnTarget = newTarget
+                    lowestHealth = newTarget:increaseAttrib("hitpoints", 0)
+                end
+            end
+        end
+    return returnTarget
     end
+
+local function getPosition(user, spell, positionsAndTargets, delayed)
+local element = runes.fetchElement(spell)
+local rangeNum = range.getCastingRange(user, spell, element)
+local Tah = runes.checkSpellForRuneByName("Tah", spell)
+local RA = runes.checkSpellForRuneByName("RA", spell)
+local CUN = runes.checkSpellForRuneByName("CUN", spell)
+local Hept = runes.checkSpellForRuneByName("Hept", spell)
+local Lev = runes.checkSpellForRuneByName("Lev", spell)
+local PEN = runes.checkSpellForRuneByName("PEN", spell)
+local Fhen = runes.checkSpellForRuneByName("Fhen", spell)
+local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
+local thePosition
+local setPos = true
+
+    if not delayed then
+        if user.attackmode then
+            local name = user.name
+            local targeted = M.playerTargets[name]
+            positionsAndTargets.targets[#positionsAndTargets.targets+1] = targeted
+            thePosition = targeted.pos
+            setPos = false
+        else
+            thePosition = common.GetFrontPosition(user) --later replace with entry point that returns boolean(to determine success of whether player selected a tile) and position of selected tile
+        end
+    else
+        thePosition = delayed
+    end
+
+    if Tah and (RA or CUN) then
+        local target = getWeakestNearTarget(user, thePosition, rangeNum)
+        if target then
+            if target:getType() == Character.player or target:getType() == Character.monster then
+                positionsAndTargets.targets[#positionsAndTargets.targets+1] = target
+                setPos = false
+            end
+        end
+    end
+
+    if Lev and SOLH then
+        local target = getSlowestNearTarget(user, thePosition, rangeNum)
+        if target then
+            if target:getType() == Character.player or target:getType() == Character.monster then
+                positionsAndTargets.targets[#positionsAndTargets.targets+1] = target
+                setPos = false
+            end
+        end
+    end
+
+    if PEN and Hept then
+        local name = user.name
+        ScriptVars:set("Hept"..name, thePosition)
+        ScriptVars:save()
+        user:setQuestProgress(7004, tonumber(world:getTime("unix")))
+    end
+
+    if PEN and Lev then
+        local storedTime = user:getQuestProgress(7004)
+        local timeLimit = 1800
+        local currentTime = world:getTime("unix")
+        if storedTime ~= 0 then
+            local name = user.name
+            local foundTarget, target = ScriptVars:find("Hept"..name)
+            if currentTime-storedTime > timeLimit then
+                ScriptVars:remove("Hept"..name)
+                ScriptVars:save()
+                user:setQuestProgress(7004, 0)
+                user:inform("","It's been too long since you last cast this spell with Hept.")
+                return
+            elseif foundTarget then
+                local _, _, x, y, z = string.find(target, "(%d+), (%d+), (%d+)")
+                local levPosition = position(tonumber(x), tonumber(y), tonumber(z))
+                local targetExists = world:isCharacterOnField(levPosition)
+                if targetExists then
+                    local LevTarget = world:getCharacterOnField(levPosition)
+                    if LevTarget:getType() == Character.player or LevTarget:getType() == Character.monster then
+                        positionsAndTargets.targets[#positionsAndTargets.targets+1] = LevTarget
+                        setPos = false
+                    end
+                end
+                ScriptVars:remove("Hept"..name)
+                ScriptVars:save()
+                user:setQuestProgress(7004, 0)
+            end
+        end
+    end
+
+    if Fhen and (RA or CUN or SOLH) then
+        local fhenTarget = FhenGetTarget(user, thePosition, rangeNum)
+        if fhenTarget then
+            if fhenTarget:getType() == Character.player or fhenTarget:getType() == Character.monster then
+                positionsAndTargets.targets[#positionsAndTargets.targets+1] = fhenTarget
+                setPos = false
+            end
+        end
+    end
+
+    positionsAndTargets.thePosition = thePosition
+
+    local field = world:getField(thePosition)
+    local foundItems = field:countItems()
+
+    if foundItems >= 1 then
+        local item = field:getStackItem(foundItems - 1)
+        positionsAndTargets.items[#positionsAndTargets.items+1] = item
+        setPos = false
+    end
+
+    if positionHasNPC(thePosition) then
+        setPos = false
+    end
+
+    if setPos then
+        positionsAndTargets.positions[#positionsAndTargets.positions+1] = thePosition
+    end
+
+return positionsAndTargets
+end
+
+
+
+local function addTargets(user, spell, positionsAndTargets)
+local Dun = runes.checkSpellForRuneByName("Dun", spell)
+local PEN = runes.checkSpellForRuneByName("PEN", spell)
+local Luk = runes.checkSpellForRuneByName("Luk", spell)
+
+    if Dun and PEN and Luk then
+        positionsAndTargets = addPENLukDunTargets(positionsAndTargets)
+    elseif (PEN and Luk) or Dun then
+        positionsAndTargets = addDunTargets(positionsAndTargets)
+    end
+
+return positionsAndTargets
+end
+
+function M.getPositionsAndTargets(user, spell)
+    local positionsAndTargets = {positions = {}, targets = {}, items = {}}
+    positionsAndTargets = getPosition(user, spell, positionsAndTargets)
+    positionsAndTargets = addTargets(user, spell, positionsAndTargets)
+    return positionsAndTargets
+end
 
 return M

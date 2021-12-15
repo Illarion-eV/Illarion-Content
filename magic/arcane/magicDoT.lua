@@ -23,31 +23,30 @@ local manaStaminaReduction = require("magic.arcane.manaStaminaReduction")
 local M = {}
 
 function M.dealMagicDoT(user, targets, spell, element)
-    for _, target in pairs(targets) do
-        if target.category == "character" and target.position ~= user.pos then
-            local myTarget = target.target
-            local targetType = myTarget:getType()
-            local damage = magicDamage.getMagicDamage(user, spell, element, myTarget, true, targetType)
+    for _, target in pairs(targets.targets) do
+        if target.position ~= user.pos then
+            local targetType = target:getType()
+            local damage = magicDamage.getMagicDamage(user, spell, element, target, true, targetType)
             local manaReduction = 0
             local foodReduction = 0
             local CUN = runes.checkSpellForRuneByName("CUN", spell)
             local Ira = runes.checkSpellForRuneByName("Ira", spell)
             local Kah = runes.checkSpellForRuneByName("Kah", spell)
             if Ira then
-                manaReduction = manaStaminaReduction.getManaToReduce(user, target.target, spell)
+                manaReduction = manaStaminaReduction.getManaToReduce(user, target, spell)
             end
             if Kah then
-                foodReduction = manaStaminaReduction.getStaminaToReduce(user, target.target, spell)
+                foodReduction = manaStaminaReduction.getStaminaToReduce(user, target, spell)
             end
             if damage > 0 then
-                local foundEffect = myTarget.effects:find(1)
-                local foundEffect2 = myTarget.effects:find(3)
+                local foundEffect = target.effects:find(1)
+                local foundEffect2 = target.effects:find(3)
                 local DoT = LongTimeEffect(1,10)
                 DoT:addValue("remainingDamage", damage)
                 DoT:addValue("remainingTicks", 5)
                 DoT:addValue("spell", spell)
                 if not foundEffect then
-                    myTarget.effects:addEffect(DoT)
+                    target.effects:addEffect(DoT)
                 end
 
                 if runes.checkSpellForRuneByName("Sih", spell) and CUN then
@@ -61,23 +60,23 @@ function M.dealMagicDoT(user, targets, spell, element)
                 end
             end
             if manaReduction > 0 and CUN then
-                local foundEffect3 = myTarget.effects:find(9)
+                local foundEffect3 = target.effects:find(9)
                 local MoT = LongTimeEffect(9,10)
                 MoT:addValue("remainingManaReduction", manaReduction)
                 MoT:addValue("remainingTicks", 5)
                 MoT:addValue("spell", spell)
                 if not foundEffect3 then
-                    myTarget.effects:addEffect(MoT)
+                    target.effects:addEffect(MoT)
                 end
             end
             if foodReduction > 0 and CUN then
-                local foundEffect4 = myTarget.effects:find(10)
+                local foundEffect4 = target.effects:find(10)
                 local SoT = LongTimeEffect(10,10)
                 SoT:addValue("remainingStaminaReduction", foodReduction)
                 SoT:addValue("remainingTicks", 5)
                 SoT:addValue("spell", spell)
                 if not foundEffect4 then
-                    myTarget.effects:addEffect(SoT)
+                    target.effects:addEffect(SoT)
                 end
             end
         end

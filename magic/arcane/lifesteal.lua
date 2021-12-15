@@ -39,12 +39,12 @@ local rune
     end
 local amountStolen = 500
 
-    for _, target in pairs(targets) do
-        local scaling = effectScaling.getEffectScaling(user, target.target, spell)
+    for _, target in pairs(targets.targets) do
+        local scaling = effectScaling.getEffectScaling(user, target, spell)
         amountStolen = amountStolen*scaling
-        if JUS and target.category == "character" then
+        if JUS then
             if rune then
-                if magicDamage.checkIfRaceBonus(target.target, rune) then
+                if magicDamage.checkIfRaceBonus(target, rune) then
                     amountStolen = amountStolen + (amountStolen/2)
                 end
             end
@@ -53,14 +53,14 @@ local amountStolen = 500
             end
             if Sih then
                 character.ChangeHP(user, amountStolen)
-                character.ChangeHP(target.target, -amountStolen)
+                character.ChangeHP(target, -amountStolen)
                 user:inform("","You siphon some health from your target.")
             end
             if Ira then
-                if target.target:increaseAttrib("mana", 0) > amountStolen then
-                    target.target:increaseAttrib("mana", -amountStolen)
+                if target:increaseAttrib("mana", 0) > amountStolen then
+                    target:increaseAttrib("mana", -amountStolen)
                 else
-                    target.target:increaseAttrib("mana", 0)
+                    target:increaseAttrib("mana", 0)
                 end
                 user:increaseAttrib("mana", amountStolen)
                 user:inform("","You siphon some mana from your target.")

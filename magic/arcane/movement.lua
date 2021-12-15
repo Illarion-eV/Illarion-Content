@@ -16,7 +16,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local runes = require("magic.arcane.runes")
-local targeting = require("magic.arcane.targeting")
 local magicDamage = require("magic.arcane.magicDamage")
 local effectScaling = require("magic.arcane.effectScaling")
 
@@ -144,15 +143,6 @@ local function checkIfWindSpell(spell)
 return true
 end
 
-local function checkForMovableItems(target, spell)
-    if target.category == "item" then
-        if not runes.checkSpellForRuneByName("Anth", spell) then
-            return false
-        end
-    end
-return true
-end
-
 local function getDirection(user, target, reverse)
 local userX = user.pos.x
 local userY = user.pos.y
@@ -197,32 +187,26 @@ table.insert(directionCorrection, {away = "southeast", toward = "northwest", X =
 table.insert(directionCorrection, {away = "northwest", toward = "southeast", X = 1, Y = 1})
 table.insert(directionCorrection, {away = "northeast", toward = "southwest", X = -1, Y = 1})
 
-local function moveTargets(user, target, spell, Orl)
+local function moveTargets(user, target, spell, Orl, items)
 local Fhen = runes.checkSpellForRuneByName("Fhen", spell)
 local Fhan = runes.checkSpellForRuneByName("Fhan", spell)
 local Sav = runes.checkSpellForRuneByName("Sav", spell)
-local items = target.category == "item"
-local characters = target.category == "character"
-    if not items and not characters then
-        return
-    end
+local characters = not items
+
     if not Fhan and not Fhen and not Sav then
         return
     end
+
     if items then
-        if not checkIfItemMovable(target.target) then
+        if not checkIfItemMovable(target) then
             return
         end
     end
-local myTarget
-    if items then
-        myTarget = target.position
-    elseif characters then
-        myTarget = target.target.pos
-    end
+
+local myTarget = target.pos
 local direction = getDirection(user, myTarget)
 local directionReverse = getDirection(user, myTarget, Sav)
-local range = getRangeOfMovement(user, spell, target.target, characters, Orl)
+local range = getRangeOfMovement(user, spell, target, characters, Orl)
 local Z = myTarget.z
 local landingX
 local landingY
@@ -316,9 +300,9 @@ local function forceWalkTarget(target, spell)
 local possibleDirections = {"North", "North-east", "East", "South-east", "South", "South-west", "West", "North-west"}
 local direction = math.random(#possibleDirections)
 local Lev = runes.checkSpellForRuneByName("Lev", spell)
-    if Lev and target.category == "character" then
-        target.target:move(direction, true)
-        target.target:inform("","A strong wind forces you to step aside.")
+    if Lev then
+        target:move(direction, true)
+        target:inform("","A strong wind forces you to step aside.")
     end
 end
 
@@ -337,46 +321,49 @@ local turningTargetsDirections = {
 local function turnTarget(user, target, spell)
 local Luk = runes.checkSpellForRuneByName("Luk", spell)
 local Tah = runes.checkSpellForRuneByName("Tah", spell)
-    if target.category ~= "character" then
-        return
-    end
-local direction = getDirection(user, target.target.pos)
+local direction = getDirection(user, target.pos)
     if Luk and Tah then
         return
     end
     if Tah then
-        target.target:turn(user.pos)
+        target:turn(user.pos)
     end
     if Luk then
         for _, turning in pairs(turningTargetsDirections) do
             if direction == turning.direction then
-                target.target:turn(turning.to)
+                target:turn(turning.to)
             end
         end
     end
     if Luk or Tah then
-        target.target:inform("","A sudden burst of wind turns you around.")
+        target:inform("","A sudden burst of wind turns you around.")
     end
 end
 
-function M.applyMovementSpells(user, spell, Orl)
-local targets = targeting.refreshTargets(user, spell)
-local targetAmount = 0
-local currentTarget = 0
-    for _, target in pairs(targets) do
-        if target.category == "item" or target.category == "character" then
-            targetAmount = targetAmount + 1
-        end
+function M.applyMovementSpells(user, targets, spell, Orl)
+    if not checkIfWindSpell(spell) then
+        return
     end
-    for _, target in pairs(targets) do
+local targetAmount = #targets.targets + #targets.items
+local currentTarget = 0
+local Anth = runes.checkSpellForRuneByName("Anth", spell)
+
+    for _, target in pairs(targets.targets) do
         currentTarget = currentTarget + 1
         if currentTarget == targetAmount then
             M.KelVars.finalTarget = true
         end
-        if checkIfWindSpell(spell) and checkForMovableItems(target, spell) then
-            moveTargets(user, target, spell, Orl)
-            forceWalkTarget(target, spell)
-            turnTarget(user, target, spell)
+        moveTargets(user, target, spell, Orl)
+        forceWalkTarget(target, spell)
+        turnTarget(user, target, spell)
+    end
+    for _, item in pairs(targets.items) do
+        currentTarget = currentTarget + 1
+        if currentTarget == targetAmount then
+            M.KelVars.finalTarget = true
+        end
+        if Anth then
+            moveTargets(user, item, spell, Orl, true)
         end
     end
 end

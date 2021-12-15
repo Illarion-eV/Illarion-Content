@@ -25,7 +25,6 @@ local MSReduction = require("magic.arcane.manaStaminaReduction")
 local illuminate = require("magic.arcane.illuminate")
 local DoT = require("magic.arcane.magicDoT")
 local runes = require("magic.arcane.runes")
-local range = require("magic.arcane.castingRange")
 local harvestFruit = require("magic.arcane.harvestFruit")
 local movement = require("magic.arcane.movement")
 local lifesteal = require("magic.arcane.lifesteal")
@@ -68,7 +67,7 @@ function M.spellEffects(user, targets, spell, element, Orl)
     staticObjects.spawnStaticObjects(user, targets, spell)
     MSReduction.checkForReduceManaOrStamina(user, targets, spell)
     harvestFruit.checkIfHarvestFruit(user, targets, spell)
-    movement.applyMovementSpells(user, spell, Orl)
+    movement.applyMovementSpells(user, targets, spell, Orl)
     lifesteal.instantLifeOrManaSteal(user, targets, spell, Orl)
     traps.createEarthTraps(user, targets, spell)
     plantRoot.createEntanglingPlant(user, targets, spell)
@@ -107,6 +106,11 @@ end
 function M.addEffect(myEffect, user)
 end
 
+local function nextPositionIntoTargets(nextPosition)
+local targets = {positions = {nextPosition}, items = {}, targets = {}}
+return targets
+end
+
 function M.callEffect(myEffect, user)
 local foundLX, lx = myEffect:findValue("lastX")
 local foundLY, ly = myEffect:findValue("lastY")
@@ -117,10 +121,13 @@ local foundOrl, Orl = myEffect:findValue("Orl")
 local nextPosition
 local castSpell = false
 local positions = {}
+local targetPosition
+local targets
     if not foundOrl then
         Orl = false
     end
     if foundLX and foundLY and foundTX and foundTY and foundTZ then
+        targetPosition = position(tonumber(tx), tonumber(ty), tonumber(tz))
         nextPosition = M.getTarget(user, myEffect, lx, ly, tx, ty, tz)
         if not nextPosition then
             nextPosition = position(tx, ty, tz)
@@ -133,31 +140,14 @@ local element
     if foundSpell then
         element = runes.fetchElement(spell)
     end
-local targets = targeting.positionsIntoTargets(positions)
-local rangeNum = range.getCastingRange(user, spell, element)
-local Lev = runes.checkSpellForRuneByName("Lev", spell)
-local CUN = runes.checkSpellForRuneByName("CUN", spell)
-local RA = runes.checkSpellForRuneByName("RA", spell)
-local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
+local effectTargets = nextPositionIntoTargets(nextPosition)
     if castSpell then
-        targets = targeting.getTargets(user, spell, nextPosition)
+        targets = targeting.getPositionsAndTargets(user, spell, targetPosition)
         M.spellEffects(user, targets, spell, element, Orl)
-        if Lev then
-            local LevTarget
-            if RA or CUN then
-                LevTarget = targeting.getWeakestNearTarget(user, position, rangeNum)
-            elseif SOLH then
-                LevTarget = targeting.getSlowestNearTarget(user, position, rangeNum)
-            end
-            if LevTarget then
-                targets = targeting.getTargets(user, LevTarget, spell)
-                M.spellEffects(user, targets, spell, element)
-            end
-        end
         return false
     end
     if foundSpell then
-        magicGFX.getTargetGFX(targets, spell)
+        magicGFX.getTargetGFX(effectTargets, spell)
         myEffect.nextCalled=5
     end
 return true

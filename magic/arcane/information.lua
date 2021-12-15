@@ -154,21 +154,18 @@ function M.getInputFromAndSendTo(user, target)
 end
 
 local function telepathy(user, targets, spell)
-    for _, target in pairs(targets) do
-        if target.category ~= "character" then
-            return
-        end
-        if target.target:getType() ~= Character.player then
+    for _, target in pairs(targets.targets) do
+        if target:getType() ~= Character.player then
             return
         end
         if runes.checkSpellForRuneByName("Kel", spell) or runes.checkSpellForRuneByName("Tah", spell) then
-            target.target:inform("","You feel a telepathic connection establish between you and someone else.")
+            target:inform("","You feel a telepathic connection establish between you and someone else.")
         end
         if runes.checkSpellForRuneByName("Kel", spell) then
-            M.getInputFromAndSendTo(user, target.target)
+            M.getInputFromAndSendTo(user, target)
         end
         if runes.checkSpellForRuneByName("Tah", spell) then
-            M.getInputFromAndSendTo(target.target, user)
+            M.getInputFromAndSendTo(target, user)
         end
     end
 end
@@ -436,13 +433,13 @@ local returnText = "Tile information:\n"
 return returnText
 end
 
-function M.getText(user, target, spell)
+function M.getText(user, target, spell, item, character)
 local returnText
 local Anth = runes.checkSpellForRuneByName("Anth", spell)
 local Fhen = runes.checkSpellForRuneByName("Fhen", spell)
-    if Anth and target.category == "item" then
+    if Anth and item then
         returnText = getItemProperties(user, target)
-    elseif target.category == "character" then
+    elseif character then
         if Fhen and target.target:getType() == Character.player then
             returnText = getPlayerProperties(target.target, spell)
         elseif target.target:getType() == Character.monster then
@@ -880,8 +877,16 @@ end
 local function gatherTextsIntoDialogue(user, targets, spell)
 local returnText = ""
 local targetNumber = 1
-    for _, target in pairs(targets) do
-        returnText = returnText.."Target "..targetNumber..":\n"..M.getText(user, target, spell)
+    for _, target in pairs(targets.targets) do
+        returnText = returnText.."Target "..targetNumber..":\n"..M.getText(user, target, spell, false, true)
+        targetNumber = targetNumber + 1
+    end
+    for _, item in pairs(targets.items) do
+        returnText = returnText.."Target "..targetNumber..":\n"..M.getText(user, item, spell, true, false)
+        targetNumber = targetNumber + 1
+    end
+    for _, position in pairs(targets.positions) do
+        returnText = returnText.."Target "..targetNumber..":\n"..M.getText(user, position, spell, false, false)
         targetNumber = targetNumber + 1
     end
 return returnText

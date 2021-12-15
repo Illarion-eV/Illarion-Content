@@ -24,6 +24,8 @@ UPDATE weapon SET wp_attack = 44, wp_accuracy = 74, wp_range = 5 WHERE wp_itemid
 UPDATE weapon SET wp_attack = 29, wp_accuracy = 70, wp_range = 5 WHERE wp_itemid = 323;
 ]]
 
+local magicTargeting = require("magic.arcane.targeting")
+
 local M = {}
 local MAGIC_LOAD_LIST = {}
 local ELEMENTS = {["NONE"] = 0, ["AIR"] = 1, ["EARTH"] = 2, ["WATER"] = 3, ["SPIRIT"] = 4, ["FIRE"] = 5}
@@ -239,12 +241,7 @@ function M.onMagicAttack(attackerStruct, defenderStruct)
     local spell = attackerStruct.Char:getQuestProgress(7001)
     if spell ~= 0 then
         local name = attackerStruct.Char.name
-        local x = defenderStruct.Char.pos.x
-        local y = defenderStruct.Char.pos.y
-        local z = defenderStruct.Char.pos.z
-        local myTarget = x..", "..y..", "..z
-        ScriptVars:set("onMagicAttackTargetFor"..name, tostring(myTarget))
-        ScriptVars:save()
+        magicTargeting.playerTargets[name] = defenderStruct.Char
         return
     end
 

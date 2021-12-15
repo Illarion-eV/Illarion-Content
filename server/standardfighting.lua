@@ -334,6 +334,7 @@ function M.onAttack(Attacker, Defender)
             end
             if spell ~= 0 then -- A spell model is loaded, wand magic is deactivated
                 magicAttack.onMagicAttack(Attacker, Defender)
+                return false
             end
         end
     end

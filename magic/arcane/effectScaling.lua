@@ -24,7 +24,7 @@ local M = {}
 function M.getEffectScaling(user, target, spell, earthTrap)
 local element = runes.fetchElement(spell)
 local magicResistance = 0
-    if not target.x and (target:getType() == Character.player or target:getType() == Character.monster) then
+    if target.pos and not target.itempos then
         magicResistance = MR.getMagicResistance(target, spell)
     end
 local magicPenetration
