@@ -36,6 +36,8 @@ Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = tutorial.getTutorialTextDE("pathway")
 Description[ENGLISH][1] = tutorial.getTutorialTextEN("pathway")
+Description[GERMAN][2] = tutorial.getTutorialTextDE("pathway")
+Description[ENGLISH][2] = tutorial.getTutorialTextEN("pathway")
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
 local Start = nil
@@ -44,7 +46,7 @@ local Start = nil
 local QuestTarget = {}
 
 -- Insert the quest status which is reached at the end of the quest
-local FINAL_QUEST_STATUS = 1
+local FINAL_QUEST_STATUS = 2
 
 
 function M.QuestTitle(user)

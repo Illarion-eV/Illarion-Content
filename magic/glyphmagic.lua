@@ -71,6 +71,8 @@ local function endRitualAddGlyph(user, forgePos, item)
         local randomFactor = math.random() * 0.25
         charges = nominalCharges * CHARGE_LOWER_RANGE + nominalCharges * CHARGE_RANGE * (skillFactor + attributeFactor + qualityFactor + randomFactor)
         glyphs.setRemainingGlyphs(item, charges)
+        item:setData("GlyphForger",user.name)
+        world:changeItem(item)
         common.InformNLS(user,"Du versiehst " .. common.getItemName(item, Player.german) .. " mit einer Glyphe.",
                               "You add a glyph to " .. common.getItemName(item, Player.english) .. ".")
     else

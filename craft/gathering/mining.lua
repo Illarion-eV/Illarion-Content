@@ -22,292 +22,197 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local shared = require("craft.base.shared")
 local gathering = require("craft.base.gathering")
+local locations = require("craft.base.resourceLocations")
 
 local M = {}
+--[[add ores to item database sql:
+UPDATE items SET itm_script='item.rock' WHERE itm_id IN(1234,1235,1236,1237,1238,1239);
+UPDATE items SET itm_objectafterrot='1239', itm_agingspeed='4' WHERE itm_id IN(3719);
+UPDATE items SET itm_objectafterrot='1237', itm_agingspeed='4' WHERE itm_id IN(3717);
+UPDATE items SET itm_objectafterrot='1238', itm_agingspeed='4' WHERE itm_id IN(3718);
+UPDATE items SET itm_objectafterrot='1235', itm_agingspeed='4' WHERE itm_id IN(3579);
+UPDATE items SET itm_objectafterrot='1236', itm_agingspeed='4'WHERE itm_id IN(3580);
+UPDATE items SET itm_objectafterrot='1234', itm_agingspeed='4'WHERE itm_id IN(3578);
+]]
 
-local Rocks = {}
-Rocks[1246]  = 915;
-Rocks[1245]  = 1254;
-Rocks[232]   = 233;
-Rocks[914]   = 1265;
-Rocks[1273]  = 1257;
-Rocks[1276]  = 1278;
-Rocks[1250]  = 1251;
+local oreList = {
+{veinId = 1246, depletedId = 915, productId = 735, maxAmount = 20, levelReq = 0},
+{veinId = 1245, depletedId = 1254, productId = 735, maxAmount = 20, levelReq = 0},
+{veinId = 232, depletedId = 233, productId = 735, maxAmount = 20, levelReq = 0},
+{veinId = 914, depletedId = 1265, productId = 735, maxAmount = 20, levelReq = 0},
+{veinId = 1273, depletedId = 1257, productId = 735, maxAmount = 20, levelReq = 0},
+{veinId = 1276, depletedId = 1278, productId = 735, maxAmount = 20, levelReq = 0},
+{veinId = 1250, depletedId = 1251, productId = 735, maxAmount = 20, levelReq = 0},
+{veinId = 1234, depletedId = 3578, productId = 21, maxAmount = 20, levelReq = 10},
+{veinId = 1236, depletedId = 3580, productId = 22, maxAmount = 10, levelReq = 20},
+{veinId = 1235, depletedId = 3579, productId = 2536, maxAmount = 10, levelReq = 30},
+{veinId = 1238, depletedId = 3718, productId = 1062, maxAmount = 10, levelReq = 40},
+{veinId = 1237, depletedId = 3717, productId = 234, maxAmount = 10, levelReq = 60},
+{veinId = 1239, depletedId = 3719, productId = 2534, maxAmount = 3, levelReq = 80}
+}
 
+local gemList = {
+{id = 251, level = 10, chance = 4},
+{id = 255, level = 20, chance = 2},
+{id = 252, level = 30, chance = 1.33},
+{id = 253, level = 40, chance = 1},
+{id = 256, level = 50, chance = 0.8},
+{id = 257, level = 70, chance = 0.57},
+{id = 254, level = 90, chance = 0.44}
+}
 
-local Area = {}
-local function AddArea(AreaID,Center,Rad)
-
-    Area[AreaID] = { };
-    Area[AreaID]["Center"] = Center;
-    Area[AreaID]["Radius"] = Rad;
-end
-
-local function AddStone(AreaID,StoneID)
-    if ( Area[AreaID]["Stones"] == nil ) then
-        Area[AreaID]["Stones"] = { };
-    end
-    Area[AreaID]["Stones"][StoneID] = { };
-end
-
-local function SetResource(AreaID,StoneID,RessID,Chance)
-    Area[AreaID]["Stones"][StoneID][RessID] = Chance;
-end
-
---[[
-For coals mines:
-1245: 60% Coal + 3% Obsidian + 1% Ruby
-1246: 40% Coal + 3% Amethyst + 1% Emerald
-
-For iron mines:
-914: 60% Iron + 3% Ruby + 1% Topaz
-1273: 40% Iron + 3% Sapphire + 1% Obsidian
-
-For copper mines:
-1276: 60% Copper + 3% Emerald + 1% Sapphire
-
-For gold and copper mines:
-232: 40% Copper + 5% Gold + 3% Diamond 1% Amethyst
-
-For gold and merinium mines:
-1250: 10% Gold + 1% Merinium + 3% Topaz + 1% Diamond
-
-Coalmine/silver: Galmair "Dark Hole Mine" +10iron&coal+5silver
-Coordinates: 406,159,-3
-Radius 20
-
-Iron/gold/coppermine: Galmair "Malachite Mine" +10iron-2gold
-Coordinates: 420,371,0
-Radius 30
-
-Coalmine/silver: Cadomyr "Cornerstone of Candour" -20iron-15coal
-Coordinates: 142,686,0
-Radius 15
-
-Iron/gold/coppermine: Cadomyr "Liberty Quarry" -20iron
-Coordinates: 165,603,0
-Radius 15
-
-Merinium/gold/coalmine/silver: Wilderness "Glittering Cave"
-Coordinates: 548,371,0
-Radius 15
-
-Coal/Iron/Gold/coppermine: Wilderness "Skewer Drift" +20
-Coordinates: 942,444,0
-Radius 15
-]]--
-
---Galmair "Dark Hole Mine"
-AddArea( 1, position(406,159,-3), 20 );
-AddStone( 1, 1245 );
-SetResource( 1, 1245,  21, 70); -- coal
-SetResource( 1, 1245, 1062,  10); -- silver
-SetResource( 1, 1245,  252, 6); -- obsidian
-SetResource( 1, 1245,  255, 2); -- rubys
-AddStone( 1, 1246 );
-SetResource( 1, 1246, 21,  50); -- coal
-SetResource( 1, 1246, 1062,  10); -- silver
-SetResource( 1, 1246, 251,  6); -- amethysts
-SetResource( 1, 1246,  256,  2); -- emerald
-
---Galmair "Malachite Mine"
-AddArea( 2, position(420,371,0), 30 );
-AddStone( 2, 232 );
-SetResource( 2, 232, 2536, 40); -- copper
-SetResource( 2, 232, 234,  3); -- gold nuggets
-SetResource( 2, 232, 254,  3); -- diamonds
-SetResource( 2, 232, 251,  1); -- amethysts
-AddStone( 2, 914 );
-SetResource( 2, 914,  22, 70); -- iron ore
-SetResource( 2, 914,  255, 3); -- rubys
-SetResource( 2, 914,  257, 1); -- topas
-AddStone( 2, 1273 );
-SetResource( 2, 1273,  22, 50); -- iron ore
-SetResource( 2, 1273,  253, 3); -- sapphire
-SetResource( 2, 1273,  252, 1); -- obsidian
-AddStone( 2, 1276 );
-SetResource( 2, 1276,  2536, 40); -- copper ore
-SetResource( 2, 1276,  256, 3); -- emerald
-SetResource( 2, 1276,  253, 1); -- sapphire
-
---Cadomyr "Cornerstone of Candour"
-AddArea( 3, position(142,686,0), 15 );
-AddStone( 3, 1245 );
-SetResource( 3, 1245,  21, 40); -- coal
-SetResource( 3, 1245, 1062,  5); -- silver
-SetResource( 3, 1245,  252, 3); -- obsidian
-SetResource( 3, 1245,  255, 1); -- rubys
-AddStone( 3, 1246 );
-SetResource( 3, 1246, 21,  25); -- coal
-SetResource( 3, 1246, 1062,  5); -- silver
-SetResource( 3, 1246, 251,  3); -- amethysts
-SetResource( 3, 1246,  256,  1); -- emerald
-
---Cadomyr "Liberty Quarry"
-AddArea( 4, position(165,603,0), 15 );
-AddStone( 4, 232 );
-SetResource( 4, 232, 2536, 40); -- copper
-SetResource( 4, 232, 234,  5); -- gold nuggets
-SetResource( 4, 232, 254,  3); -- diamonds
-SetResource( 4, 232, 251,  1); -- amethysts
-AddStone( 4, 914 );
-SetResource( 4, 914,  22, 40); -- iron ore
-SetResource( 4, 914,  255, 3); -- rubys
-SetResource( 4, 914,  257, 1); -- topas
-AddStone( 4, 1273 );
-SetResource( 4, 1273,  22, 25); -- iron ore
-SetResource( 4, 1273,  253, 3); -- sapphire
-SetResource( 4, 1273,  252, 1); -- obsidian
-AddStone( 4, 1276 );
-SetResource( 4, 1276,  2536, 40); -- copper ore
-SetResource( 4, 1276,  256, 3); -- emerald
-SetResource( 4, 1276,  253, 1); -- sapphire
-
---Wilderness "Glittering Cave"
-AddArea( 5, position(548,371,0), 15 );
-AddStone( 5, 1245 );
-SetResource( 5, 1245,  21, 60); -- coal
-SetResource( 5, 1245, 1062,  5); -- silver
-SetResource( 5, 1245,  252, 3); -- obsidian
-SetResource( 5, 1245,  255, 1); -- rubys
-AddStone( 5, 1246 );
-SetResource( 5, 1246, 21,  40); -- coal
-SetResource( 5, 1246, 1062,  5); -- silver
-SetResource( 5, 1246, 251,  3); -- amethysts
-SetResource( 5, 1246, 256,  1); -- emerald
-AddStone( 5, 1250 );
-SetResource( 5, 1250, 234,  10); -- gold nuggets
-SetResource( 5, 1250, 2534,  1); -- merinium ore
-SetResource( 5, 1250,  254,  3); -- diamonds
-SetResource( 5, 1250,  257,  1); -- topas
-
---Wilderness "Skewer Drift"
-AddArea( 6, position(942,444,0), 15 );
-AddStone( 6, 232 );
-SetResource( 6, 232, 2536, 60); -- copper
-SetResource( 6, 232, 234,  15); -- gold nuggets
-SetResource( 6, 232, 254,  9); -- diamonds
-SetResource( 6, 232, 251,  3); -- amethysts
-AddStone( 6, 914 );
-SetResource( 6, 914,  22, 80); -- iron ore
-SetResource( 6, 914,  255, 9); -- rubys
-SetResource( 6, 914,  257, 3); -- topas
-AddStone( 6, 1273 );
-SetResource( 6, 1273,  22, 60); -- iron ore
-SetResource( 6, 1273,  253, 9); -- sapphire
-SetResource( 6, 1273,  252, 3); -- obsidian
-AddStone( 6, 1245 );
-SetResource( 6, 1245,  21, 80); -- coal
-SetResource( 6, 1245,  252, 9); -- obsidian
-SetResource( 6, 1245,  255, 3); -- rubys
-AddStone( 6, 1246 );
-SetResource( 6, 1246, 21,  60); -- coal
-SetResource( 6, 1246, 251,  9); -- amethysts
-SetResource( 6, 1246,  256,  3); -- emerald
-AddStone( 6, 1276 );
-SetResource( 6, 1276,  2536, 60); -- copper ore
-SetResource( 6, 1276,  256, 9); -- emerald
-SetResource( 6, 1276,  253, 3); -- sapphire
-
------------ Prison Mine -----------
-AddArea( 8, position(-480,-480,-40), 30 );
-AddStone( 8, 232 );
-SetResource( 8, 232, 2536, 40); -- copper
-SetResource( 8, 232, 234,  5); -- gold nuggets
-SetResource( 8, 232, 254,  3); -- diamonds
-SetResource( 8, 232, 251,  1); -- amethysts
-AddStone( 8, 914 );
-SetResource( 8, 914,  22, 60); -- iron ore
-SetResource( 8, 914,  255, 3); -- rubys
-SetResource( 8, 914,  257, 1); -- topas
-AddStone( 8, 1273 );
-SetResource( 8, 1273,  22, 40); -- iron ore
-SetResource( 8, 1273,  253, 3); -- sapphire
-SetResource( 8, 1273,  252, 1); -- obsidian
-AddStone( 8, 1245 );
-SetResource( 8, 1245,  21, 60); -- coal
-SetResource( 8, 1245,  252, 3); -- obsidian
-SetResource( 8, 1245,  255, 1); -- rubys
-AddStone( 8, 1246 );
-SetResource( 8, 1246, 21,  40); -- coal
-SetResource( 8, 1246, 1062,  5); -- silver
-SetResource( 8, 1246, 251,  3); -- amethysts
-SetResource( 8, 1246,  256,  1); -- emerald
-AddStone( 8, 1276 );
-SetResource( 8, 1276,  2536, 40); -- copper ore
-SetResource( 8, 1276,  256, 3); -- emerald
-SetResource( 8, 1276,  253, 1); -- sapphire
-AddStone( 8, 1250 );
-SetResource( 8, 1250, 234,  10); -- gold nuggets
-SetResource( 8, 1250, 2534,  1); -- merinium ore
-SetResource( 8, 1250,  254,  3); -- diamonds
-SetResource( 8, 1250,  257,  1); -- topas
-------- Prison Mine - FERTIG ------
-
-local function GetResource(AreaID, StoneID)
-    local ResourceList = Area[AreaID]["Stones"][StoneID];
-    local cumulatedProbability = 0;
-    local rand = math.random(1,100);
-    -- Default: raw stone
-    local resourceId = 735;
-    for i,chances in pairs(ResourceList) do
-        cumulatedProbability = cumulatedProbability + chances;
-        if (rand <= cumulatedProbability) then
-            resourceId = i;
-            break;
-        end
-    end
-    return resourceId;
-end
-
-local function GetAreaId(TargetPos)
-
-    for i, AreaData in pairs(Area) do
-        local XDiff = AreaData["Center"].x - TargetPos.x;
-        local YDiff = AreaData["Center"].y - TargetPos.y;
-        if (math.sqrt((XDiff * XDiff) + (YDiff * YDiff)) <= AreaData["Radius"]) then
-            if (TargetPos.z == AreaData["Center"].z) then
-                return i;
+function M.doesOreExistOnLocation()
+local missingLocations = false
+    for _, location in pairs(locations.mines) do
+        local field = world:getField(location.coordinates)
+        local itemsOnField = field:countItems()
+        if itemsOnField >= 1 then
+            local theOre = field:getStackItem(itemsOnField - 1)
+            local foundOre = false
+            for _, ore in pairs(oreList) do
+                if theOre.id == ore.veinId or theOre.id == ore.depletedId then
+                    foundOre = true
+                end
+            end
+            if not foundOre then
+                if not missingLocations then
+                    missingLocations = {}
+                end
+                missingLocations[#missingLocations+1] = location.coordinates
             end
         end
     end
-    return nil;
+    if missingLocations then
+        local text = "Ore veins were found to be missing or obstructed at the following locations: "
+        for i = 1, #missingLocations do
+            text = text..tostring(missingLocations[i])
+            if i == #missingLocations then
+                text = text.."."
+            else
+                text = text..", "
+            end
+        end
+        log(text)
+    end
 end
 
-local function breakRock(Rock)
-    local RockQual=Rock.quality;
-    local HitDMG=math.random(6,8);
-    if (RockQual<HitDMG) then
-        world:swap(Rock,Rocks[Rock.id],333);
-        return true;
+
+local function checkIfGemMine(orePosition)
+    for _, location in pairs(locations.mines) do
+        if location.coordinates == orePosition then
+            return location.gemMine
+        end
+    end
+end
+
+local function getResource(stoneId)
+    for _, ore in pairs(oreList) do
+        if ore.veinId == stoneId then
+            return ore.productId
+        end
+    end
+end
+
+local function getAmount(stoneId)
+    for _, ore in pairs(oreList) do
+        if ore.veinId == stoneId then
+            return ore.maxAmount
+        end
+    end
+end
+
+local function getDepletedObject(stoneId)
+    for _, ore in pairs(oreList) do
+        if ore.veinId == stoneId then
+            return ore.depletedId
+        end
+    end
+end
+
+local function passesLevelReq(user, stoneId)
+    local miningLevel = user:getSkill(Character.mining)
+    local levelReq
+    for _, ore in pairs(oreList) do
+        if ore.veinId == stoneId then
+            levelReq = ore.levelReq
+            if levelReq <= miningLevel then
+                return true
+            end
+        end
+    end
+    user:inform(common.GetNLS(user,"Du musst Level "..levelReq.." in Bergbau haben, um hier arbeiten zu können.","You must be level "..levelReq.." in mining to mine here."))
+return false
+end
+
+local function reduceAmount(user, sourceItem)
+    local maxAmount = getAmount(sourceItem.id)
+    local amountLeft = sourceItem:getData("amount")
+    sourceItem:setData("amount", tonumber(amountLeft)-1)
+    world:changeItem(sourceItem)
+    if tonumber(sourceItem:getData("amount")) == 0 then
+        local depletedObject = getDepletedObject(sourceItem.id)
+        world:erase(sourceItem, sourceItem.number)
+        local newItem = world:createItemFromId(depletedObject, 1, sourceItem.pos, true, 333, nil);
+        newItem:setData("amount", maxAmount)
+    end
+end
+
+local function gotGem(user, sourceItem)
+    local gemMine = checkIfGemMine(sourceItem.pos)
+    local rand = math.random(1,10000);
+    local cumulatedChance = 0
+    local miningLevel = user:getSkill(Character.mining)
+    for _, gems in pairs(gemList) do
+        local gem = gems.id
+        if miningLevel >= gems.level then
+            local chance = gems.chance
+                if gemMine then
+                    chance = chance*2
+                end
+            cumulatedChance = cumulatedChance + chance
+            if rand <= cumulatedChance*100 then --since math.random doesn't do decimals, multiply by 100 and random out of 10000
+                return gem
+            end
+        end
+    end
+return false
+end
+
+local function isMinableRock(user, sourceItem)
+    local correctRock
+    local correctPosition
+    if not sourceItem then
+        return false
+    end
+    for _, rock in pairs(oreList) do
+        if sourceItem.id == rock.veinId then
+            correctRock = true
+        end
+    end
+    for _, location in pairs(locations.mines) do
+        if sourceItem.pos == location.coordinates then
+            correctPosition = true
+        end
+    end
+    if correctRock and correctPosition then
+        return true
     else
-        if ((RockQual-HitDMG)==(math.floor(RockQual/100))*100) then HitDMG=HitDMG-1 end
-        --world:changeQuality(Rock,-HitDMG)
-        Rock.quality=RockQual-HitDMG
-        world:changeItem(Rock)
+        return false
     end
-    return false;
 end
 
-local function isMinableRock(AreaId, Rock)
-    if (Rock ~= nil and Area[AreaId]["Stones"][Rock.id] ~= nil) then
-        return true;
-    end
-    return false;
-end
-
-local function getRock(User, AreaId)
-    local targetItem = common.GetFrontItem(User);
-    if (isMinableRock(AreaId, targetItem)) then
+function M.getRock(user)
+    local targetItem = common.GetFrontItem(user);
+    if isMinableRock(user, targetItem) then
         return targetItem;
     end
-    local Radius = 1;
-    for x=-Radius,Radius do
-        for y=-Radius,Radius do
-            local targetPos = position(User.pos.x + x, User.pos.y + y, User.pos.z);
+    local radius = 1;
+    for x=-radius,radius do
+        for y=-radius,radius do
+            local targetPos = position(user.pos.x + x, user.pos.y + y, user.pos.z);
             if (world:isItemOnField(targetPos)) then
                 targetItem = world:getItemOnField(targetPos);
-                if (isMinableRock(AreaId, targetItem)) then
+                if isMinableRock(user, targetItem) then
                     return targetItem;
                 end
             end
@@ -316,88 +221,99 @@ local function getRock(User, AreaId)
     return nil;
 end
 
-function M.StartGathering(User, SourceItem, ltstate)
+local function isPrison(positionOfItem)
+    for _, location in pairs(locations.mines) do
+        if location.coordinate == positionOfItem then
+            if location.prisonMine then
+                return true
+            end
+        end
+    end
+return false
+end
 
-    local toolItem=shared.getTool(User, 2763) --pick-axe (2763)
+function M.StartGathering(user, sourceItem, ltstate)
+
+    local toolItem=shared.getTool(user, 2763) --pick-axe (2763)
 
     if not toolItem then
         return
     end
 
-    local gatheringBonus=shared.getGatheringBonus(User, toolItem)
+    if not isMinableRock(user, sourceItem) then
+        return
+    end
+
+    if not passesLevelReq(user, sourceItem.id) then
+        return
+    end
+
+    local gatheringBonus=shared.getGatheringBonus(user, toolItem)
 
     local mining = gathering.GatheringCraft:new{LeadSkill = Character.mining, LearnLimit = 100}; -- id_2763_pickaxe
-    mining:AddRandomPureElement(User,gathering.prob_element*gatheringBonus); -- Any pure element
-    mining:SetTreasureMap(User,gathering.prob_map*gatheringBonus,"In einer engen Felsspalte findest du ein altes Pergament, das wie eine Karte aussieht. Kein Versteck ist so sicher, dass es nicht gefunden wird.","In a narrow crevice you find an old parchment that looks like a map. No hiding place is too safe that it cannot be found.");
-    mining:AddMonster(User,1052,gathering.prob_monster/gatheringBonus,"Als du den Fels malträtierst, läuft etwas Schleim aus einer Felsspalte...","As you slam your pick-axe on the rock, some slime flows out of the fissure...",4,7);
-    mining:AddRandomItem(310,1,333,{},gathering.prob_rarely,"Zwerge scheinen alten Krügen keine Beachtung beizumessen, insbesondere, wenn sie leer sind. Auch hier liegt einfach einer herum.","Dwarves seem to pay no attention to old pitchers, especially if they are empty. As you work one catches your eye."); --mug with lid
-    mining:AddRandomItem(2183,1,333,{},gathering.prob_occasionally,"Diese Mine wurde offensichtlich kürzlich von Zwergen aufgesucht. Wie sonst erklärt sich der Krug, den du zwischen dem Geröll findest?","This mine was occupied recently. How else would you explain the mug at your feet?"); --clay mug
-    mining:AddRandomItem(391,1,333,{},gathering.prob_frequently,"In einer Felsspalte liegt eine alte Fackel. Hier ist wohl jemanden ein Licht aufgegangen.","In a crevice you spot an old torch."); --torch
-
-    common.ResetInterruption( User, ltstate );
+    if not isPrison(sourceItem.pos) then --Prisoners don't get rewards
+        mining:AddRandomPureElement(user,gathering.prob_element*gatheringBonus); -- Any pure element
+        mining:SetTreasureMap(user,gathering.prob_map*gatheringBonus,"In einer engen Felsspalte findest du ein altes Pergament, das wie eine Karte aussieht. Kein Versteck ist so sicher, dass es nicht gefunden wird.","In a narrow crevice you find an old parchment that looks like a map. No hiding place is too safe that it cannot be found.");
+        mining:AddMonster(user,1052,gathering.prob_monster/gatheringBonus,"Als du den Fels malträtierst, läuft etwas Schleim aus einer Felsspalte...","As you slam your pick-axe on the rock, some slime flows out of the fissure...",4,7);
+        mining:AddRandomItem(310,1,333,{},gathering.prob_rarely,"Zwerge scheinen alten Krügen keine Beachtung beizumessen, insbesondere, wenn sie leer sind. Auch hier liegt einfach einer herum.","Dwarves seem to pay no attention to old pitchers, especially if they are empty. As you work one catches your eye."); --mug with lid
+        mining:AddRandomItem(2183,1,333,{},gathering.prob_occasionally,"Diese Mine wurde offensichtlich kürzlich von Zwergen aufgesucht. Wie sonst erklärt sich der Krug, den du zwischen dem Geröll findest?","This mine was occupied recently. How else would you explain the mug at your feet?"); --clay mug
+        mining:AddRandomItem(391,1,333,{},gathering.prob_frequently,"In einer Felsspalte liegt eine alte Fackel. Hier ist wohl jemanden ein Licht aufgegangen.","In a crevice you spot an old torch."); --torch
+    end
+    common.ResetInterruption( user, ltstate );
     if ( ltstate == Action.abort ) then -- work interrupted
         return
     end
 
-    if not common.CheckItem( User, SourceItem ) then -- security check
+    if not common.CheckItem( user, sourceItem ) then -- security check
         return
     end
 
-    if not common.FitForWork( User ) then -- check minimal food points
+    if not common.FitForWork( user ) then -- check minimal food points
         return
     end
 
-    common.TurnTo( User, SourceItem.pos ); -- turn if necessary
+    common.TurnTo( user, sourceItem.pos ); -- turn if necessary
 
     -- user feedback per nice animation
-    User:performAnimation(14)
+    user:performAnimation(14)
 
     if ( ltstate == Action.none ) then -- currently not working -> let's go
-        mining.SavedWorkTime[User.id] = mining:GenWorkTime(User);
-        User:startAction( mining.SavedWorkTime[User.id], 0, 0, 18, 15);
+        mining.SavedWorkTime[user.id] = mining:GenWorkTime(user);
+        user:startAction( mining.SavedWorkTime[user.id], 0, 0, 18, 15);
         return
     end
 
     -- since we're here, we're working
-    if mining:FindRandomItem(User) then
+    if mining:FindRandomItem(user) then
         return
     end
 
-    local areaId = GetAreaId(User.pos);
-    local productId = GetResource(areaId, SourceItem.id);
+    local productId = gotGem(user, sourceItem)
+        if not productId then
+            productId = getResource(sourceItem.id);
+        end
+    local maxAmount = getAmount(sourceItem.id)
 
-    User:learn( mining.LeadSkill, mining.SavedWorkTime[User.id], mining.LearnLimit);
+    user:learn( mining.LeadSkill, mining.SavedWorkTime[user.id], mining.LearnLimit);
     local amount = 1; -- set the amount of items that are produced
-    local created = common.CreateItem(User, productId, amount, 333, nil) -- create the new produced items
-    local rockBroken = breakRock(SourceItem);
-    if created then -- character can still carry something
-        if not rockBroken then -- rock is okay
-            SourceItem = getRock(User, areaId);
-            if (SourceItem ~= nil) then  -- there are still items we can work on
-                mining.SavedWorkTime[User.id] = mining:GenWorkTime(User);
-                User:changeSource(SourceItem);
-                if not shared.toolBreaks( User, toolItem, mining:GenWorkTime(User) ) then -- damage and possibly break the tool
-                    User:startAction( mining.SavedWorkTime[User.id], 0, 0, 18, 15);
-                end
-            else -- no items left (as the rock is still okay, this should never happen... handle it anyway)
-                common.HighInformNLS(User,
-                "Hier gibt es keine Steine mehr, an denen du arbeiten kannst.",
-                "There are no stones for mining anymore.");
+    local amountLeft = sourceItem:getData("amount")
+    if not amountLeft or amountLeft == "" then
+        sourceItem:setData("amount", maxAmount)
+        world:changeItem(sourceItem)
+        amountLeft = sourceItem:getData("amount")
+    end
+    local created = common.CreateItem(user, productId, amount, 333, nil) -- create the new produced items
+    reduceAmount(user, sourceItem)
+
+    if created then
+        if tonumber(amountLeft) > 0 then  -- there are still items we can work on
+            mining.SavedWorkTime[user.id] = mining:GenWorkTime(user);
+            user:changeSource(sourceItem);
+            if not shared.toolBreaks( user, toolItem, mining:GenWorkTime(user) ) then -- damage and possibly break the tool
+                user:startAction( mining.SavedWorkTime[user.id], 0, 0, 18, 15);
             end
-        else
-            -- rock is broken
-            common.HighInformNLS(User,
-            "Hier gibt es keine Steine mehr, an denen du arbeiten kannst.",
-            "There are no stones for mining anymore.");
         end
     end
 end
-
--- Used by item.rock
-M.GetAreaId = GetAreaId
-M.isMinableRock = isMinableRock
-
--- Used by item.id_2763_pickaxe
-M.getRock = getRock
 
 return M

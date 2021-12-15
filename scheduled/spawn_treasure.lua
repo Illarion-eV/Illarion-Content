@@ -32,7 +32,7 @@ local treasureParameter = {
     {position(336,326,-6),LOW_LOW,LOW_HIGH,1}, --Galmair sewers
     {position(907,574,0),LOW_LOW,LOW_HIGH,1}, --Wonderland
     {position(841,524,-12),LOW_LOW,LOW_HIGH,1}, --Bandit Hideout
-    {position(703,421,-3),MEDIUM_LOW,MEDIUM_HIGH,1}, --Salavesh dungeon
+    {position(702,420,-3),MEDIUM_LOW,MEDIUM_HIGH,1}, --Salavesh dungeon
     {position(531,804,-6),MEDIUM_LOW,MEDIUM_HIGH,1}, --Akaltuts level 2
     {position(202,415,-3),MEDIUM_LOW,MEDIUM_HIGH,1}, --Fortress Hammerfall
     {position(847,503,-6),MEDIUM_LOW,MEDIUM_HIGH,1}, --Spider Nest

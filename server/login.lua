@@ -27,6 +27,8 @@ local hairdresser = require("npc.hairdresser")
 local seafaring = require("base.seafaring")
 local gods_common = require("content._gods.gods_common")
 local tutorial = require("content.tutorial")
+local keys = require("item.keys")
+local ceilingtrowel = require("gm.items.id_382_ceilingtrowel")
 
 -- Called after every player login
 
@@ -287,7 +289,7 @@ function M.onLogin( player )
     end
 
     --Newbie handling
-    if player:isInRangeToPosition(position(702, 283, 0), 7) and player:getQuestProgress(325) == 0 and player:getQuestProgress(314) ~= 1 then --only show the dialog if the char is close to the noob spawn, has not answered the tutorial message question and did not arrive at the last station of the old tutorial
+    if player:isInRangeToPosition(position(702, 283, 0), 7) and player:getQuestProgress(325) == 0 and player:getQuestProgress(358) == 0 and player:getQuestProgress(314) ~= 1 then --only show the dialog if the char is close to the noob spawn, has not answered the tutorial message question and did not arrive at the last station of the old tutorial
         showNewbieDialog(player)
     else
         --Messages of the day
@@ -296,6 +298,11 @@ function M.onLogin( player )
         end
         local dailyMessageID = math.random(1, #messageG) --chosing a message at random
         common.InformNLS(player, messageG[dailyMessageID], messageE[dailyMessageID]) --sending a message
+    end
+
+    --Handle legacy quest status
+    if player:getQuestProgress(358) == 0 and player:getQuestProgress(325) ~= 0 then
+        player:setQuestProgress(358,1)
     end
 
     --Initiate inline tutorial
@@ -335,6 +342,12 @@ function M.onLogin( player )
     if not found then
         player.effects:addEffect(LongTimeEffect(gods_common.EFFECT_ID, 10))
     end
+
+    --Checking for pending town behaviour changes
+    keys.changeTownBehaviourOnLogin(player)
+
+    --Checking for pending rank changes
+    ceilingtrowel.changeRankOnLogin(player)
 end
 
 function showNewbieDialog(player)
@@ -355,6 +368,7 @@ function showNewbieDialog(player)
                     dialogMessage = MessageDialog("Tutorial", tutorial.getTutorialTextEN("skipYes"), callbackPostSkip)
                 end
                 player:setQuestProgress(325,2) --Set flag: Declined tutorial messages
+                player:setQuestProgress(358,1) --Set flag: Player took a decision
                 player:requestMessageDialog(dialogMessage) --showing the text after skipping dialog
 
             elseif dialogSkip:getSuccess() and dialogSkip:getSelectedIndex() == 0 then --continue the tutorial
@@ -364,6 +378,7 @@ function showNewbieDialog(player)
                     dialogMessage = MessageDialog("Tutorial", tutorial.getTutorialTextEN("skipNo"), callbackPostSkip)
                 end
                 player:setQuestProgress(325,1) --Set flag: Accepted tutorial messages
+                player:setQuestProgress(358,1) --Set flag: Player took a decision
                 player:requestMessageDialog(dialogMessage) --showing the text after skipping dialog
 
             elseif not dialogSkip:getSuccess() then

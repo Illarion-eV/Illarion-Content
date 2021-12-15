@@ -20,14 +20,18 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Medicine (since illness will be a postVBU project, this will also be postVBU)
 
 local alchemy = require("alchemy.base.alchemy")
+local customPotion = require("alchemy.base.customPotion")
 
 local M = {}
 
-local function DrinkPotion(User,SourceItem)
-    User:inform("Der Trank scheint keine Wirkung zu haben.","The potion seems to have no effect.")
+local function DrinkPotion(user,SourceItem)
+    user:inform("Der Trank scheint keine Wirkung zu haben.","The potion seems to have no effect.")
 end
 
-function M.UseItem(User, SourceItem, ltstate)
+function M.UseItem(user, SourceItem, ltstate)
+    if SourceItem:getData("customPotion") ~= "" then
+        customPotion.drinkInform(user, SourceItem)
+    end
     -- repair potion in case it's broken
     alchemy.repairPotion(SourceItem)
     -- repair end
@@ -36,15 +40,15 @@ function M.UseItem(User, SourceItem, ltstate)
         return -- no potion, no essencebrew, something else
     end
 
-    local cauldron = alchemy.GetCauldronInfront(User)
+    local cauldron = alchemy.GetCauldronInfront(user)
     if cauldron then -- infront of a cauldron?
-        alchemy.FillIntoCauldron(User,SourceItem,cauldron,ltstate)
+        alchemy.FillIntoCauldron(user,SourceItem,cauldron,ltstate)
 
     else -- not infront of a cauldron, therefore drink!
-        User:talk(Character.say, "#me trinkt eine gelbe Flüssigkeit.", "#me drinks a yellow liquid.")
-        User.movepoints=User.movepoints - 20
-        DrinkPotion(User,SourceItem) -- call effect
-        alchemy.EmptyBottle(User,SourceItem)
+        user:talk(Character.say, "#me trinkt eine gelbe Flüssigkeit.", "#me drinks a yellow liquid.")
+        user.movepoints=user.movepoints - 20
+        DrinkPotion(user,SourceItem) -- call effect
+        alchemy.EmptyBottle(user,SourceItem)
     end
 end
 return M

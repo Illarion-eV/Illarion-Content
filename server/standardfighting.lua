@@ -444,7 +444,10 @@ function ArmourAbsorption(Attacker, Defender, Globals)
     --Essentially what this does is choose how much the values are divided. So stroke is half as effective as punc is half as effective as thrust for one type etc.
     local ArmourDefenseScalingFactor = 4 / 3
     local GeneralScalingFactor = 2.8
-
+    -- Unequip armour
+    if common.isBroken(Globals.HittedItem) and character.IsPlayer(Defender.Char) and armour.Type ~= 0 then
+        common.readdItem(Defender.Char, Globals.HittedItem)
+    end
     if character.IsPlayer(Defender.Char) then
         if armourfound then
             skillmod = 1-Defender.DefenseSkill/250
@@ -560,7 +563,7 @@ function ArmourDegrade(Defender, Globals)
         if durability > 0 then
             durability = durability - 1
             if (durability == 0) then
-                common.InformNLS(Defender.Char,
+                common.HighInformNLS(Defender.Char,
                     "Dein Rüstungsteil '"..nameText.."' zerbricht. Glücklicherweise tritt kein Splitter in deinen Körper ein.",
                     "Your armour piece '"..nameText.."' shatters. Fortunately, no fragments end up in your body.")
             end
@@ -597,14 +600,13 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
         if durability > 0 then
             durability = durability - 1
             if (durability == 0) then
-                common.InformNLS(Attacker.Char,
+                common.HighInformNLS(Attacker.Char,
                     "Deine Waffe '"..nameText.."' zerbricht. Du vergießt eine bitter Träne und sagst lebe wohl, als sie in das nächste Leben übergeht.",
                     "Your weapon '"..nameText.."' shatters. You shed a single tear and bid it farewell as it moves on to its next life.")
             end
             Attacker.WeaponItem.quality = quality * 100 + durability
             world:changeItem(Attacker.WeaponItem)
         end
-
         --[[if (durability < 10) then
             common.InformNLS(Attacker.Char,
                 "Deine Waffe '"..nameText.."' hat schon bessere Zeiten gesehen. Vielleicht solltest du sie reparieren lassen.",
@@ -620,8 +622,8 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
         if durability > 0 then
             durability = durability - 1
             if (durability == 0) then
-                common.InformNLS(Defender.Char,
-                    "Dein Gegenstand '"..nameText.."' zerbricht, dies erschwert es dir, dich zu verteidigen.",
+                common.HighInformNLS(Defender.Char,
+                    "Dein Gegenstand '"..nameText.."' zerbricht. Dies erschwert es dir, dich zu verteidigen.",
                     "Your item '"..nameText.."' shatters, making it more difficult for you to defend yourself.")
             end
             ParryWeapon.quality = quality * 100 + durability

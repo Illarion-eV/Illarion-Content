@@ -944,8 +944,8 @@ function M.CreateItem(character, id, amount, quality, data)
 
     if not _isNumber(quality) then
         error("The parameter 'quality' is not a number as it was expected.")
-    elseif quality < 101 or quality > 999 then
-        error("The parameter 'quality' must be a number between 101 and 999.")
+    elseif quality < 100 or quality > 999 then
+        error("The parameter 'quality' must be a number between 100 and 999.")
     end
 
     if data ~= nil and not _isTable(data) then
@@ -1886,12 +1886,11 @@ function M.GetTargetItemAnywhere(user, itemList)
     local backpack = user:getBackPack()
     if backpack then
         for i = 0, 99 do
-            local isItem
-            isItem, tmpItem = backpack:viewItemNr(i)
+            local isItem, tmpItemb, _ = backpack:viewItemNr(i)
             if isItem then
-                if M.isInList(tmpItem.id, itemList) then
+                if M.isInList(tmpItemb.id, itemList) then
                     countItems = countItems + 1
-                    foundItem = tmpItem
+                    foundItem = tmpItemb
                 end
             end
         end
@@ -1917,7 +1916,7 @@ end
 --- Returns the real date as a String
 -- @return date in format: YYYY-MM-DD
 function M.GetRealDateString()
-    local year, month, day = M.GetRealDate()
+    local year, month, day, _, _, _ = M.GetRealDate()
     local timeString =
         function(int)
             if int < 10 then
@@ -2582,9 +2581,6 @@ function M.pushBack(user,extDistance,extCenterPos)
         if math.random() < 0.5 then
             diffY = - diffY
         end
-    else
-        diffX = centerPos.x - user.pos.x
-        diffY = centerPos.y - user.pos.y
     end
     local alpha = math.atan2(diffX,diffY)
     local distX = math.floor(math.sin(alpha)*distance)
@@ -2853,6 +2849,12 @@ function M.numberToPosition(number)
     number = number - ((posy +1000) * 10000)
     local posx = math.floor (number - 1000)
     return position(posx, posy, posz)
+end
+
+-- Erases one item and readds it to the inventory
+function M.readdItem(user, item)
+    world:erase(item, 1)
+    M.CreateItem(user, item.id, 1, item.quality, item.data)
 end
 
 return M

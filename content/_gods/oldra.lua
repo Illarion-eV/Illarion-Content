@@ -37,13 +37,13 @@ function M.Oldra:_init(ordinal, youngerOrdinal)
     self.devotionItems = {
         {id = 258, number = 1}, -- flail
         {id = 3609, number = 1}, -- banana bread
-        {id = 1149, number = 1}, -- brown egg
+        {id = 1150, number = 1}, -- white egg
     }
     self.sacrificeItems = {  -- array of tables defining groups of items for sacrificing
         {
             id_set = common.setFromList({ -- array of item IDs
                 258, -- flail
-                1149, -- brown egg
+                1150, -- white egg
                 -- ## From craft\final\baking.lua ##
                 -- category: Baked goods
                 191, -- bread roll

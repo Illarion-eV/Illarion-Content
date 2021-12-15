@@ -33,6 +33,8 @@ Better state (imo) would be:
 --- better: change function name to match behavior better
 --- even better: split function into checkRange and checkBlocked (or so)
 ]]
+local common = require("base.common")
+
 local M = {}
 
 --[[ Check the range from the attacker to the defender and ensure that it is
@@ -74,6 +76,17 @@ function M.loadWeapons(charStruct)
     local lItem = charStruct.Char:getItemAt(Character.left_tool)
     local rAttFound, rAttWeapon = world:getWeaponStruct(rItem.id)
     local lAttFound, lAttWeapon = world:getWeaponStruct(lItem.id)
+
+    -- Unequip broken weapons
+    if (rAttFound and common.isBroken(rItem)) or  (lAttFound and common.isBroken(lItem)) then
+        local item
+        if(rAttFound) then
+            item = rItem
+        else
+            item = lItem
+        end
+        common.readdItem(charStruct.Char, item)
+    end
 
     -- the right item is ALWAYS used as the weapon now!
     local isRWp = 1

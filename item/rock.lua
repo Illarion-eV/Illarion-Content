@@ -14,7 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-local common = require("base.common")
 local lookat = require("base.lookat")
 local teacher = require("alchemy.base.teacher")
 local mining = require("craft.gathering.mining")
@@ -30,24 +29,7 @@ function M.UseItem(User, SourceItem, ltstate)
         return
     end
     -- alchemy end
-
-    local areaId = mining.GetAreaId(User.pos);
-    if (areaId == nil) then
-        common.HighInformNLS(User,
-        "Die Gegend sieht nicht so aus, als könnte man hier etwas finden.",
-        "The area doesn't look like a good place to mine.");
-        return;
-    end
-
-    if (mining.isMinableRock(areaId, SourceItem) == false) then
-        common.HighInformNLS(User,
-        "Du musst neben einem Felsen stehen um Bergbau zu betreiben.",
-        "You have to stand next to a rock to mine.");
-        return
-    end
-
     mining.StartGathering(User, SourceItem, ltstate);
-
 end
 
 function M.LookAtItem(User,Item)
