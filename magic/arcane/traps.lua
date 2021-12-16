@@ -38,7 +38,7 @@ local function trapCreation(user, target, spell, item)
     local element = runes.fetchElement(spell)
     local wear = staticObjects.getWearBasedOnDuration(user, target, spell)
     local scaling = effectScaling.getEffectScaling(user, target, spell)
-    local damage = magicDamage.getMagicDamage(user, spell, element, target, false, target:getType(), false)
+    local damage = magicDamage.getMagicDamage(user, spell, element, target, false, false)
     local field = plantRoot.getField(target)
     local magicPenetration = MP.getMagicPenetration(user, element, spell)
     if not field then

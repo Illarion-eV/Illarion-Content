@@ -25,8 +25,7 @@ local M = {}
 function M.dealMagicDoT(user, targets, spell, element)
     for _, target in pairs(targets.targets) do
         if target.position ~= user.pos then
-            local targetType = target:getType()
-            local damage = magicDamage.getMagicDamage(user, spell, element, target, true, targetType)
+            local damage = magicDamage.getMagicDamage(user, spell, element, target, true)
             local manaReduction = 0
             local foodReduction = 0
             local CUN = runes.checkSpellForRuneByName("CUN", spell)

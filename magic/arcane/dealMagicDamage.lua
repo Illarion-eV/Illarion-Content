@@ -72,12 +72,11 @@ function M.applyMagicDamage(user, targets, spell, element, Orl, earthTrap)
         end
         text = text.."."
 
-        local targetType = target:getType()
         local damage
         if earthTrap then
             damage = earthTrap:getData("damage")
         else
-            damage = magicDamage.getMagicDamage(user, spell, element, target, false, targetType, Orl)
+            damage = magicDamage.getMagicDamage(user, spell, element, target, false, Orl)
         end
         log("Magic testing: Damage tracking. Damage dealt: "..tostring(damage)..text)
         M.dealMagicDamage(user, target, spell, damage)

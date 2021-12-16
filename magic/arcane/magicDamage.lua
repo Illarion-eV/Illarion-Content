@@ -81,7 +81,7 @@ M.raceList = {
 
 
 local function CheckIftargetPriest(target)
-    if target.getMagicType() == 1 then
+    if target:getMagicType() == 1 then
         return true
     end
 return false
@@ -147,19 +147,15 @@ local list
 return damage
 end
 
-function M.getMagicDamage(user, spell, element, target, DoT, targetType, Orl)
+function M.getMagicDamage(user, spell, element, target, DoT, Orl)
 local damage
 local magicResist
 local magicPen
 local finalDamage
 local illusion = runes.checkSpellForRuneByName("Lhor", spell)
 local teaching = runes.checkSpellForRuneByName("Bhona", spell)
-local playerOrMonster = targetType
-    if targetType == "character" then
-        playerOrMonster = target:getType()
-    elseif targetType == "item" or playerOrMonster == "position" then
-        return 0
-    end
+local playerOrMonster = target:getType()
+
     if illusion or teaching then
         finalDamage = 0
     elseif playerOrMonster == Character.player then
