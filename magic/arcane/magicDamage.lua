@@ -200,6 +200,7 @@ local raceBonus
     if finalDamage > 4444 then
         finalDamage = 4444 -- Should take at least three shots to kill someone
     end
+    finalDamage = math.floor(finalDamage)
 return finalDamage
 end
 
