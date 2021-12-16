@@ -67,14 +67,22 @@ local function checkForDialogOptions2(user) -- Check if there are any primary ru
     end
 end
 local function createSpell(user, TargetItem, slot)
+local BHONA = runes.checkIfLearnedRune(user, TargetItem, 6, "isSpell", "spell"..slot)
+local runeStart = 7
+    if BHONA then
+        runeStart = 1
+    end
     local callback = function(dialog)
         if not dialog:getSuccess() then
             return
         end
         local index = dialog:getSelectedIndex() +1
-        local unknownRunes = 5 --Counter for runes that are unknown or already in use, starting at the first rune after elemental ones
-        for i = 6, #runes.Runes do -- For every rune
+        local unknownRunes = runeStart-1 --Counter for runes that are unknown or already in use, starting at the first rune after elemental ones
+        for i = runeStart, #runes.Runes do -- For every rune
             if runes.checkIfLearnedRune(user,"", i, "isQuest") and (not runes.checkIfLearnedRune(user, TargetItem, i, "isSpell", "spell"..slot)) then -- check if user knows rune and if rune is already part of spell being created
+                if i == 6 then -- skip BHONA
+                    unknownRunes = unknownRunes+1
+                end
                 if index == i-unknownRunes then -- Check if selected index is the rune in question
                     if  magic.hasSufficientMana(user,3000) then
                         user:increaseAttrib("mana", -3000)
@@ -94,9 +102,11 @@ local function createSpell(user, TargetItem, slot)
         end
     end
     local dialog = SelectionDialog(common.GetNLS(user,"","Spell Creation"), common.GetNLS(user,"","Select which rune you want to add to your spell."), callback)
-    for i = 6, #runes.Runes do -- For every rune
-        if runes.checkIfLearnedRune(user,"", i, "isQuest") and (not runes.checkIfLearnedRune(user, TargetItem, i, "isSpell", "spell"..slot)) then -- check if user knows rune and if rune is already part of spell being created
-            dialog:addOption(0,runes.Runes[i][2])
+    for i = runeStart, #runes.Runes do -- For every rune
+        if i ~= 6 then
+            if runes.checkIfLearnedRune(user,"", i, "isQuest") and (not runes.checkIfLearnedRune(user, TargetItem, i, "isSpell", "spell"..slot)) then -- check if user knows rune and if rune is already part of spell being created
+                dialog:addOption(0,runes.Runes[i][2])
+            end
         end
     end
     if not checkIfKnowsAnyMinorRune(user) then -- If you do not know any runes
