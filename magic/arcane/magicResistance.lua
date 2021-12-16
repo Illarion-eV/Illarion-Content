@@ -89,7 +89,7 @@ local stats = getMagicStatValue(target)
 local equipment = getEquipmentValue(target)
 local magicGems = getGemValue(target)
 local skill = getSkillValue(target)
-local magicResistance = math.floor((((equipment+magicGems)/2)+stats+skill)/3)
+local magicResistance = (((equipment+magicGems)/2)+stats+skill)/3
     if runes.checkSpellForRuneByName("Sav", spell) and not runes.checkSpellForRuneByName("JUS", spell) and not runes.checkSpellForRuneByName("PEN", spell) then
         magicResistance = magicResistance/1.3
     end
