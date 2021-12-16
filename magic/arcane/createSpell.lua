@@ -30,15 +30,34 @@ local function getMagicBook(user)
         return rightItem
     end
 end
-local function primaryElementCheck(user, TargetItem, slot)
+local function primaryElementCheck(user, targetItem, slot)
     for i = 1,6 do
-        if runes.checkIfLearnedRune(user, TargetItem, i, "isSpell", "spell"..slot) then
+        if runes.checkIfLearnedRune(user, targetItem, i, "isSpell", "spell"..slot) then
             return false
         elseif i == 6 then
             return true
         end
     end
 end
+
+local function bhonaCheck(user, targetItem, slot)
+local BHONA = runes.checkIfLearnedRune(user, targetItem, 6, "isSpell", "spell"..slot)
+    if not BHONA then
+        return false
+    end
+local count = 0
+    for i = 1, #runes.Runes do
+        if runes.checkIfLearnedRune(user, targetItem, i, "isSpell", "spell"..slot) then
+            count = count+1
+        end
+    end
+    if count >= 2 then
+        user:inform("", "Bhona spells may only contain up to two runes.")
+        return true
+    end
+return false
+end
+
 local function checkIfKnowsAnyMinorRune(user)
     for i = 6, #runes.Runes do -- for every minor rune
         if runes.checkIfLearnedRune(user,"", i, "isQuest") then
@@ -48,9 +67,9 @@ local function checkIfKnowsAnyMinorRune(user)
         end
     end
 end
-local function checkForDialogOptions(user, TargetItem, slot) -- Check if there are any minor runes that can be selected
+local function checkForDialogOptions(user, targetItem, slot) -- Check if there are any minor runes that can be selected
     for i = 6, #runes.Runes do -- For every minor rune
-        if runes.checkIfLearnedRune(user,"", i, "isQuest") and (not runes.checkIfLearnedRune(user, TargetItem, i, "isSpell", "spell"..slot)) and runes.Runes[i][2] ~= "Bhona" then -- check if user knows rune and if rune is already part of spell being created
+        if runes.checkIfLearnedRune(user,"", i, "isQuest") and (not runes.checkIfLearnedRune(user, targetItem, i, "isSpell", "spell"..slot)) and runes.Runes[i][2] ~= "Bhona" then -- check if user knows rune and if rune is already part of spell being created
             return true
         elseif i == #runes.Runes then
             return false
@@ -66,8 +85,8 @@ local function checkForDialogOptions2(user) -- Check if there are any primary ru
         end
     end
 end
-local function createSpell(user, TargetItem, slot)
-local BHONA = runes.checkIfLearnedRune(user, TargetItem, 6, "isSpell", "spell"..slot)
+local function createSpell(user, targetItem, slot)
+local BHONA = runes.checkIfLearnedRune(user, targetItem, 6, "isSpell", "spell"..slot)
 local runeStart = 7
     if BHONA then
         runeStart = 1
@@ -79,7 +98,7 @@ local runeStart = 7
         local index = dialog:getSelectedIndex() +1
         local unknownRunes = runeStart-1 --Counter for runes that are unknown or already in use, starting at the first rune after elemental ones
         for i = runeStart, #runes.Runes do -- For every rune
-            if runes.checkIfLearnedRune(user,"", i, "isQuest") and (not runes.checkIfLearnedRune(user, TargetItem, i, "isSpell", "spell"..slot)) then -- check if user knows rune and if rune is already part of spell being created
+            if runes.checkIfLearnedRune(user,"", i, "isQuest") and (not runes.checkIfLearnedRune(user, targetItem, i, "isSpell", "spell"..slot)) then -- check if user knows rune and if rune is already part of spell being created
                 if i == 6 then -- skip BHONA
                     unknownRunes = unknownRunes+1
                 end
@@ -88,12 +107,12 @@ local runeStart = 7
                         user:increaseAttrib("mana", -3000)
                         world:gfx(41,user.pos)
                         world:makeSound(13,user.pos)
-                        runes.learnRune(user, TargetItem, i, "isSpell", "spell"..slot) -- Add rune to spell
-                        M.spellCreationSelectionMenu(user, TargetItem, slot)
+                        runes.learnRune(user, targetItem, i, "isSpell", "spell"..slot) -- Add rune to spell
+                        M.spellCreationSelectionMenu(user, targetItem, slot)
                         user:inform("","The rune "..runes.Runes[i][2].." has been added to the spell.")
                     else
                         user:inform("","Not enough mana.")
-                        M.spellCreationSelectionMenu(user, TargetItem, slot)
+                        M.spellCreationSelectionMenu(user, targetItem, slot)
                     end
                 end
             else
@@ -104,22 +123,22 @@ local runeStart = 7
     local dialog = SelectionDialog(common.GetNLS(user,"","Spell Creation"), common.GetNLS(user,"","Select which rune you want to add to your spell."), callback)
     for i = runeStart, #runes.Runes do -- For every rune
         if i ~= 6 then
-            if runes.checkIfLearnedRune(user,"", i, "isQuest") and (not runes.checkIfLearnedRune(user, TargetItem, i, "isSpell", "spell"..slot)) then -- check if user knows rune and if rune is already part of spell being created
+            if runes.checkIfLearnedRune(user,"", i, "isQuest") and (not runes.checkIfLearnedRune(user, targetItem, i, "isSpell", "spell"..slot)) then -- check if user knows rune and if rune is already part of spell being created
                 dialog:addOption(0,runes.Runes[i][2])
             end
         end
     end
     if not checkIfKnowsAnyMinorRune(user) then -- If you do not know any runes
-        M.spellCreationSelectionMenu(user, TargetItem, slot)
+        M.spellCreationSelectionMenu(user, targetItem, slot)
         user:inform("","You must first learn how to use any minor rune before you can add it to your spell.")
-    elseif not checkForDialogOptions(user, TargetItem, slot) then
-        M.spellCreationSelectionMenu(user, TargetItem, slot)
+    elseif not checkForDialogOptions(user, targetItem, slot) then
+        M.spellCreationSelectionMenu(user, targetItem, slot)
         user:inform("","You do not know any more runes that can be added to the spell.")
     else
         user:requestSelectionDialog(dialog)
     end
 end
-local function elementSelection(user, TargetItem, slot)
+local function elementSelection(user, targetItem, slot)
 local unknownRunes = 0
     local callback = function(dialog)
         if not dialog:getSuccess() then
@@ -133,12 +152,12 @@ local unknownRunes = 0
                         user:increaseAttrib("mana", -3000)
                         world:gfx(41,user.pos)
                         world:makeSound(13,user.pos)
-                        runes.learnRune(user, TargetItem, i, "isSpell", "spell"..slot)
-                        M.spellCreationSelectionMenu(user, TargetItem, slot)
+                        runes.learnRune(user, targetItem, i, "isSpell", "spell"..slot)
+                        M.spellCreationSelectionMenu(user, targetItem, slot)
                         user:inform("","The rune "..runes.Runes[i][2].." has been added as the primary rune of the spell.")
                     else
                         user:inform("","Not enough mana.")
-                        M.spellCreationSelectionMenu(user, TargetItem, slot)
+                        M.spellCreationSelectionMenu(user, targetItem, slot)
                     end
                     return
                 end
@@ -155,30 +174,30 @@ local unknownRunes = 0
     end
 user:requestSelectionDialog(dialog)
 end
-local function nameSpell(user, TargetItem, slot)
+local function nameSpell(user, targetItem, slot)
     local callback = function(dialog)
         if not dialog:getSuccess() then
             return
         end
         local input = dialog:getInput()
-        TargetItem:setData("spellName"..slot,input) -- Set name for spell
-        world:changeItem(TargetItem) -- save name for spell
+        targetItem:setData("spellName"..slot,input) -- Set name for spell
+        world:changeItem(targetItem) -- save name for spell
         user:inform("","You name the spell in spell slot "..slot.. ": "..input..".")
     end
 user:requestInputDialog(InputDialog("Spell Creation","Name your spell.",false,255,callback))
 end
-function M.spellCreationSelectionMenu(user, TargetItem, slot)
+function M.spellCreationSelectionMenu(user, targetItem, slot)
     local callback = function(dialog)
         if not dialog:getSuccess() then
             return
         end
         local index = dialog:getSelectedIndex() +1
-        if index == 1 and primaryElementCheck(user, TargetItem, slot) then
-            elementSelection(user,TargetItem, slot)
-        elseif index == 1 then
-            createSpell(user, TargetItem, slot)
+        if index == 1 and primaryElementCheck(user, targetItem, slot) then
+            elementSelection(user,targetItem, slot)
+        elseif index == 1 and not bhonaCheck(user, targetItem, slot) then
+            createSpell(user, targetItem, slot)
         elseif index == 2 then
-            nameSpell(user, TargetItem, slot)
+            nameSpell(user, targetItem, slot)
         end
     end
     local dialog = SelectionDialog(common.GetNLS(user,"","Spell Creation"), common.GetNLS(user,"","Pick an option."), callback)
@@ -186,17 +205,17 @@ function M.spellCreationSelectionMenu(user, TargetItem, slot)
     dialog:addOption(0, "Finish spell")
 user:requestSelectionDialog(dialog)
 end
-local function overWriteConfirmation(user, TargetItem, slot)
+local function overWriteConfirmation(user, targetItem, slot)
     local callback = function(dialog)
         if not dialog:getSuccess() then
             return
         end
         local index = dialog:getSelectedIndex() +1
         if index == 1 then
-            TargetItem:setData("spell"..slot,"0") -- Reset the spell slot
-            TargetItem:setData("spellName"..slot,"Unfinished") -- Remove old spell name
-            world:changeItem(TargetItem) -- Save the changes above
-            M.spellCreationSelectionMenu(user, TargetItem, slot)
+            targetItem:setData("spell"..slot,"0") -- Reset the spell slot
+            targetItem:setData("spellName"..slot,"Unfinished") -- Remove old spell name
+            world:changeItem(targetItem) -- Save the changes above
+            M.spellCreationSelectionMenu(user, targetItem, slot)
         elseif index == 2 then
             M.slotSelection(user)
         end
