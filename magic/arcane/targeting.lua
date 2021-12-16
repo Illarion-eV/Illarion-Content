@@ -170,6 +170,11 @@ local setPos = true
             setPos = false
         else
             thePosition = common.GetFrontPosition(user) --later replace with entry point that returns boolean(to determine success of whether player selected a tile) and position of selected tile
+            local target = world:getCharacterOnField(thePosition)
+            if target:getType() == Character.player or target:getType() == Character.monster then
+                positionsAndTargets.targets[#positionsAndTargets.targets+1] = target
+                setPos = false
+            end
         end
     else
         thePosition = delayed
