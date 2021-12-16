@@ -60,11 +60,18 @@ end
 
 function M.applyMagicDamage(user, targets, spell, element, Orl, earthTrap)
     for _, target in pairs(targets.targets) do
+        local text = ""
         if user then
             if target.pos == user.pos then -- no self harm
                 return
             end
+            text = " by "..tostring(user.name)
         end
+        if target.name then
+            text =text.." to "..tostring(target.name)
+        end
+        text = text.."."
+
         local targetType = target:getType()
         local damage
         if earthTrap then
@@ -72,6 +79,7 @@ function M.applyMagicDamage(user, targets, spell, element, Orl, earthTrap)
         else
             damage = magicDamage.getMagicDamage(user, spell, element, target, false, targetType, Orl)
         end
+        log("Magic testing: Damage tracking. Damage dealt: "..tostring(damage)..text)
         M.dealMagicDamage(user, target, spell, damage)
         target:learn(Character.magicResistance, damage/100, 100) -- Will need balancing for how fast magic resistance is learned.
     end
