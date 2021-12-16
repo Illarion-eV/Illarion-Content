@@ -118,11 +118,18 @@ local foundTX, tx = myEffect:findValue("targetX")
 local foundTY, ty = myEffect:findValue("targetY")
 local foundTZ, tz = myEffect:findValue("targetZ")
 local foundOrl, Orl = myEffect:findValue("Orl")
+local foundSpell, spell = myEffect:findValue("spell")
 local nextPosition
 local castSpell = false
 local positions = {}
 local targetPosition
 local targets
+    if not foundSpell then
+        return
+    end
+local RA = runes.checkSpellForRuneByName("RA", spell)
+local CUN = runes.checkSpellForRuneByName("CUN", spell)
+local Sul = runes.checkSpellForRuneByName("Sul", spell)
     if not foundOrl then
         Orl = false
     end
@@ -135,7 +142,6 @@ local targets
         end
         table.insert(positions, {position = nextPosition})
     end
-local foundSpell, spell = myEffect:findValue("spell")
 local element
     if foundSpell then
         element = runes.fetchElement(spell)
@@ -143,6 +149,9 @@ local element
 local effectTargets = nextPositionIntoTargets(nextPosition)
     if castSpell then
         targets = targeting.getPositionsAndTargets(user, spell, targetPosition)
+        if (RA or CUN) and Sul then
+           targets = targeting.refreshTargets(targets)
+        end
         M.spellEffects(user, targets, spell, element, Orl)
         return false
     end

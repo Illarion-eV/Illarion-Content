@@ -22,7 +22,10 @@ local M = {}
 
 M.playerTargets = {}
 
-local function addDunTargets(targetsPositions)
+local function addDunTargets(targetsPositions, spell)
+local RA = runes.checkSpellForRuneByName("RA", spell)
+local CUN = runes.checkSpellForRuneByName("CUN", spell)
+local Sul = runes.checkSpellForRuneByName("Sul", spell)
 local targetPosition = targetsPositions.thePosition
 local possiblePositions =
     {position(targetPosition.x+1,targetPosition.y,targetPosition.z), position(targetPosition.x,targetPosition.y+1,targetPosition.z),
@@ -33,6 +36,9 @@ local possiblePositions =
         local field = world:getField(possiblePosition)
         local foundItems = field:countItems()
         local foundChar = world:isCharacterOnField(possiblePosition)
+        if (RA or CUN) and Sul then
+            foundChar = false
+        end
         if foundChar then
             local char =  world:getCharacterOnField(possiblePosition)
             if char:getType() ~= Character.npc then
@@ -159,6 +165,8 @@ local Lev = runes.checkSpellForRuneByName("Lev", spell)
 local PEN = runes.checkSpellForRuneByName("PEN", spell)
 local Fhen = runes.checkSpellForRuneByName("Fhen", spell)
 local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
+local Sul = runes.checkSpellForRuneByName("Sul", spell)
+local dodgable = (CUN or RA) and Sul
 local thePosition
 local setPos = true
 
@@ -169,13 +177,15 @@ local setPos = true
             if not targeted then --onAttack did not load the target yet, very rarely happens
                 return
             end
-            positionsAndTargets.targets[#positionsAndTargets.targets+1] = targeted
             thePosition = targeted.pos
-            setPos = false
+            if not dodgable then
+                positionsAndTargets.targets[#positionsAndTargets.targets+1] = targeted
+                setPos = false
+            end
         else
             thePosition = common.GetFrontPosition(user) --later replace with entry point that returns boolean(to determine success of whether player selected a tile) and position of selected tile
             local foundCharacter = world:isCharacterOnField(thePosition)
-            if foundCharacter then
+            if foundCharacter and not dodgable then
                 local target = world:getCharacterOnField(thePosition)
                 if target:getType() == Character.player or target:getType() == Character.monster then
                     positionsAndTargets.targets[#positionsAndTargets.targets+1] = target
@@ -191,8 +201,12 @@ local setPos = true
         local target = getWeakestNearTarget(user, thePosition, rangeNum, Lev)
         if target then
             if target:getType() == Character.player or target:getType() == Character.monster then
-                positionsAndTargets.targets[#positionsAndTargets.targets+1] = target
-                setPos = false
+                if not dodgable then
+                    positionsAndTargets.targets[#positionsAndTargets.targets+1] = target
+                    setPos = false
+                else
+                    positionsAndTargets.positions[#positionsAndTargets.positions+1] = target.pos
+                end
             end
         end
     end
@@ -249,8 +263,12 @@ local setPos = true
         local fhenTarget = FhenGetTarget(user, thePosition, rangeNum)
         if fhenTarget then
             if fhenTarget:getType() == Character.player or fhenTarget:getType() == Character.monster then
-                positionsAndTargets.targets[#positionsAndTargets.targets+1] = fhenTarget
-                setPos = false
+                if not dodgable then
+                    positionsAndTargets.targets[#positionsAndTargets.targets+1] = fhenTarget
+                    setPos = false
+                else
+                    positionsAndTargets.positions[#positionsAndTargets.positions+1] = fhenTarget.pos
+                end
             end
         end
     end
@@ -287,17 +305,39 @@ local Luk = runes.checkSpellForRuneByName("Luk", spell)
     if Dun and PEN and Luk then
         positionsAndTargets = addPENLukDunTargets(positionsAndTargets)
     elseif (PEN and Luk) or Dun then
-        positionsAndTargets = addDunTargets(positionsAndTargets)
+        positionsAndTargets = addDunTargets(positionsAndTargets, spell)
     end
 
 return positionsAndTargets
 end
 
-function M.getPositionsAndTargets(user, spell)
+function M.getPositionsAndTargets(user, spell, delayed)
     local positionsAndTargets = {positions = {}, targets = {}, items = {}}
-    positionsAndTargets = getPosition(user, spell, positionsAndTargets)
+    positionsAndTargets = getPosition(user, spell, positionsAndTargets, delayed)
     positionsAndTargets = addTargets(user, spell, positionsAndTargets)
     return positionsAndTargets
+end
+
+function M.refreshTargets(targets)
+    for _, pos in pairs(targets.positions) do
+        local foundCharacter = world:isCharacterOnField(pos)
+        if foundCharacter then
+            local target = world:getCharacterOnField(pos)
+            if target:getType() == Character.player or target:getType() == Character.monster then
+                targets.targets[#targets.targets+1] = target
+            end
+        end
+    end
+    for _, item in pairs(targets.items) do
+        local foundCharacter = world:isCharacterOnField(item.pos)
+        if foundCharacter then
+            local target = world:getCharacterOnField(item.pos)
+            if target:getType() == Character.player or target:getType() == Character.monster then
+                targets.targets[#targets.targets+1] = target
+            end
+        end
+    end
+return targets
 end
 
 return M
