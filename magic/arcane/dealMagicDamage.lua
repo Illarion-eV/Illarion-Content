@@ -53,7 +53,8 @@ local Sih = runes.checkSpellForRuneByName("Sih", spell)
     end
     if user then
         if Sih and (RA or CUN) then
-            character.ChangeHP(user, damage/20) -- 5% lifesteal
+            character.ChangeHP(user, math.floor(damage/20)) -- 5% lifesteal
+            log("Magic testing: Leech tracking. Caster healed by "..tostring(damage/20))
         end
     end
 end
