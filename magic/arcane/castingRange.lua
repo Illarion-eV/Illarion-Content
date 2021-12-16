@@ -96,31 +96,47 @@ return true
 
 end
 
-function M.checkForObstacles(User, spell, element, target, newTarget, wandAim)
-local targetpos = target
-local startingpos = User.pos
-    if target.pos then
-        targetpos = target.pos
-    end
-    if runes.checkSpellForRuneByName("Fhen", spell) then
-        if wandAim then
-            startingpos = target.pos
+function M.checkForObstacles(user, spell, element, pos)
+local startingpos = user.pos
+local Fhan = runes.checkSpellForRuneByName("Fhan", spell)
+local PEN = runes.checkSpellForRuneByName("PEN", spell)
+local JUS = runes.checkSpellForRuneByName("JUS", spell)
+local obstacleBypass = Fhan and not PEN and not JUS
+local blockList = world:LoS(startingpos, pos)
+local next = next
+    if (next(blockList)~=nil) then
+        if not obstacleBypass then
+            return true
         else
-            startingpos = target
-        end
-        if newTarget then
-            startingpos = newTarget.pos
+            local listIndex = next(blockList)
+            local object = blockList[listIndex].OBJECT
+            local objectPos = object.pos
+            local objectX = objectPos.x
+            local objectY = objectPos.y
+            local objectZ = objectPos.z
+            local tileToCheck1 = position(objectX, objectY+2, objectZ)
+            local tileToCheck2 = position(objectX, objectY-2, objectZ)
+            local tileToCheck3 = position(objectX+2, objectY, objectZ)
+            local tileToCheck4 = position(objectX-2, objectY, objectZ)
+            local newBlockList = {}
+            newBlockList[1] = world:LoS(objectPos, tileToCheck1)
+            newBlockList[2] = world:LoS(objectPos, tileToCheck2)
+            newBlockList[3] = world:LoS(objectPos, tileToCheck3)
+            newBlockList[4] = world:LoS(objectPos, tileToCheck4)
+            local count = 0
+            for i = 1, #newBlockList do
+                if next(newBlockList[i]) then
+                    if newBlockList[i][next(newBlockList[i])].TYPE == "ITEM" then
+                        count = count+1
+                    end
+                end
+            end
+            if count >= 2 then -- if more than two solid objects are found directly adjacent to the first, obstacle will not be ignored to prevent shooting through walls
+                return true
+            end
         end
     end
-    if runes.checkSpellForRuneByName("Fhan", spell) and not runes.checkSpellForRuneByName("PEN", spell) and not runes.checkSpellForRuneByName("JUS", spell) then
-        return false
-    else
-        local blockList = world:LoS(startingpos, targetpos)
-        local next = next
-        if (next(blockList)~=nil) then
-            return true , M.getCastingRange(User, spell, element)
-        end
-    end
+
 return false
 end
 
