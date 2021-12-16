@@ -31,6 +31,9 @@ local M = {}
 
 function M.castSpell(user, spell, actionState)
 local positionsAndTargets = targeting.getPositionsAndTargets(user, spell)
+    if not positionsAndTargets then --rarely happens if you try to cast immediately after an !fr
+        return
+    end
 local position = positionsAndTargets.thePosition
 local element = runes.fetchElement(spell)
 local CUN = runes.checkSpellForRuneByName("CUN", spell)
