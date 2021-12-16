@@ -124,11 +124,12 @@ local function getSlowestNearTarget(user, target, rangeNum)
     return returnTarget
 end
 
-local function getWeakestNearTarget(user, target, rangeNum)
-    local position = target
-        if target.pos then
-            position = target.pos
+local function getWeakestNearTarget(user, position, rangeNum, Lev)
+    if Lev then
+        if not world:isCharacterOnField(position) then
+            return
         end
+    end
     local targets = world:getCharactersInRangeOf(position, rangeNum)
     local returnTarget = false
     local lowestHealth
@@ -165,6 +166,9 @@ local setPos = true
         if user.attackmode then
             local name = user.name
             local targeted = M.playerTargets[name]
+            if not targeted then --onAttack did not load the target yet, very rarely happens
+                return
+            end
             positionsAndTargets.targets[#positionsAndTargets.targets+1] = targeted
             thePosition = targeted.pos
             setPos = false
@@ -183,8 +187,8 @@ local setPos = true
         thePosition = delayed
     end
 
-    if Tah and (RA or CUN) then
-        local target = getWeakestNearTarget(user, thePosition, rangeNum)
+    if (Tah or Lev) and (RA or CUN) then
+        local target = getWeakestNearTarget(user, thePosition, rangeNum, Lev)
         if target then
             if target:getType() == Character.player or target:getType() == Character.monster then
                 positionsAndTargets.targets[#positionsAndTargets.targets+1] = target
