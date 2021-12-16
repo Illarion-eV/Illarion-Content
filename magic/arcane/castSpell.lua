@@ -70,7 +70,7 @@ local castGFX = magicGFX.getUserGFX(spell)
             user:inform("","The target is too far away.")
             return
         end
-        if not runes.checkSpellForRuneByName("Bhona", spell) then
+        if not runes.checkSpellForRuneByName("BHONA", spell) then
             mana.removedUsedMana(user, spell)
             skilling.increaseExperience(user, spell)
             if JUS and Orl then
