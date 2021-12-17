@@ -56,7 +56,7 @@ local gfxNumber = 0
     if runes.checkSpellForRuneByName("JUS", spell) then
         gfxNumber = 7
         if runes.checkSpellForRuneByName("Mes", spell) then
-            if not fancyLights or not M.checkSpellForMoreThanJUSMes(spell) then
+            if not fancyLights or not runes.checkSpellForMoreThanJUSMes(spell) then
                 gfxNumber = 46
             end
         end
