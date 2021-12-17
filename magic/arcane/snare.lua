@@ -98,7 +98,7 @@ local ticks = 10
                 raceBonus = magicDamage.checkIfRaceBonus(target, rune)
             end
             if SOLH and Tah then
-                getSpeed = -getSpeed
+                getSpeed = -getSpeed/5 -- 20% of speed is given
             end
             local foundEffect, myEffect = target.effects:find(15)
             if not foundEffect then
