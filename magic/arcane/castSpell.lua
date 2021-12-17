@@ -61,6 +61,9 @@ local castGFX = magicGFX.getUserGFX(spell)
             user:inform("","You do not have enough mana.")
             return
         end
+        if castGFX == 0 then
+            user:inform("", "You secretly begin casting a wind spell.")
+        end
         user:startAction(castDuration, castGFX, castGFXDuration, castSFX, castSFXDuration)
     elseif actionState == Action.abort then
         return
