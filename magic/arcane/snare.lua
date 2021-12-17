@@ -60,8 +60,8 @@ local raceBonus
     if SOLH and Qwan then
         retVal = retVal + 0.1
     end
-    retVal = math.floor(retVal*scaling)
     retVal = retVal*100 -- because LTE's store values as integers
+    retVal = math.floor(retVal*scaling)
     if Lhor and SOLH then
         retVal = false
     end
@@ -86,8 +86,7 @@ local rune
     elseif Yeg then
         rune = "Yeg"
     end
-
-local howManySecondsUntilFullSpeed = 10
+local ticks = 10
     for _, target in pairs(targets.targets) do
         if Sul and (SOLH or JUS) then
             local getSpeed = M.getSpeed(user, target, spell, JUS, SOLH, Orl)
@@ -98,7 +97,7 @@ local howManySecondsUntilFullSpeed = 10
             if rune then
                 raceBonus = magicDamage.checkIfRaceBonus(target, rune)
             end
-            if Tah then
+            if SOLH and Tah then
                 getSpeed = -getSpeed
             end
             local foundEffect, myEffect = target.effects:find(15)
@@ -106,14 +105,14 @@ local howManySecondsUntilFullSpeed = 10
                 myEffect = LongTimeEffect(15, 10)
                 myEffect:addValue("speed", getSpeed)
                 myEffect:addValue("remainingSpeed", getSpeed)
-                myEffect:addValue("ticks", howManySecondsUntilFullSpeed)
+                myEffect:addValue("ticks", ticks)
                 target.effects:addEffect(myEffect)
             else
                 local foundRemainingSpeed, remainingSpeed = myEffect:findValue("remainingSpeed")
                 if foundRemainingSpeed then
                     myEffect:addValue("speed", getSpeed - remainingSpeed)
                     myEffect:addValue("remainingSpeed", getSpeed)
-                    myEffect:addValue("ticks", howManySecondsUntilFullSpeed)
+                    myEffect:addValue("ticks", ticks)
                     M.addEffect(myEffect, target)
                 end
             end
@@ -131,14 +130,14 @@ local howManySecondsUntilFullSpeed = 10
                     userEffect = LongTimeEffect(15, 10)
                     userEffect:addValue("speed", mySpeed)
                     userEffect:addValue("remainingSpeed", mySpeed)
-                    userEffect:addValue("ticks", howManySecondsUntilFullSpeed)
+                    userEffect:addValue("ticks", ticks)
                     user.effects:addEffect(userEffect)
                 else
                     local foundRemainingSpeed, remainingSpeed = userEffect:findValue("remainingSpeed")
                     if foundRemainingSpeed then
                         userEffect:addValue("speed", mySpeed - remainingSpeed)
                         userEffect:addValue("remainingSpeed", mySpeed)
-                        userEffect:addValue("ticks", howManySecondsUntilFullSpeed)
+                        userEffect:addValue("ticks", ticks)
                         M.addEffect(userEffect, user)
                     end
                 end
@@ -157,18 +156,25 @@ end
 function M.callEffect(myEffect, target)
     local foundRemainingSpeed, remainingSpeed = myEffect:findValue("remainingSpeed")
     local foundTicks, ticks = myEffect:findValue("ticks")
-    if foundRemainingSpeed and foundTicks then
-        if remainingSpeed > 0 then
-            local speedIncrease = (remainingSpeed/100)/ticks
-            target.speed = target.speed + speedIncrease
-            myEffect:addValue("ticks", ticks-1)
-            myEffect:addValue("speed", target.speed)
-            myEffect:addValue("remainingSpeed", remainingSpeed-(remainingSpeed/ticks))
-            myEffect.nextCalled = 10
-            return true
+    if foundRemainingSpeed and foundTicks  then
+        if ticks >= 1 then
+            local speedIncrease = math.floor(remainingSpeed/ticks)
+            if remainingSpeed > 0 then
+            local newRemainingSpeed
+                if remainingSpeed/ticks < 1 or ticks == 0 then
+                    target.speed = target.speed + remainingSpeed/100
+                    newRemainingSpeed = 0
+                else
+                    target.speed = target.speed + speedIncrease/100
+                    newRemainingSpeed = remainingSpeed - speedIncrease
+                end
+                myEffect:addValue("remainingSpeed", newRemainingSpeed)
+                myEffect.nextCalled = 10
+                return true
+            end
         end
     end
-    return false
+return false
 end
 
 function M.loadEffect(myEffect, target)
@@ -177,8 +183,9 @@ function M.loadEffect(myEffect, target)
         if remainingSpeed > 0 then
             target.speed = target.speed - ((remainingSpeed)/100)
             myEffect.nextCalled = 10
+            log("Loaded snare effect, speed is now: "..tostring(target.speed))
         end
     end
-end
 
+end
 return M
