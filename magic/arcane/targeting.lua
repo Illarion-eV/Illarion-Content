@@ -152,7 +152,7 @@ local function getWeakestNearTarget(user, position, rangeNum, Lev)
             end
         end
     return returnTarget
-    end
+end
 
 local function getPosition(user, spell, positionsAndTargets, delayed)
 local element = runes.fetchElement(spell)

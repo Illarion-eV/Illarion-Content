@@ -28,6 +28,7 @@ local illuminate = require("magic.arcane.illuminate")
 local snare = require("magic.arcane.snare")
 local stallMana = require("magic.arcane.stallMana")
 local MP = require("magic.arcane.magicPenetration")
+local targeting = require("magic.arcane.targeting")
 
 local M = {}
 
@@ -63,17 +64,14 @@ end
 function M.createEarthTraps(user, targets, spell)
 local Orl = runes.checkSpellForRuneByName("Orl", spell)
 local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
-local Luk = runes.checkSpellForRuneByName("Luk", spell)
-local Anth = runes.checkSpellForRuneByName("Anth", spell)
 
-    if not SOLH or not (Orl or (Anth and not Luk)) then
+    if not SOLH or not Orl then
         return
     end
     for _, item in pairs(targets.items) do
-        if not Orl or not Anth then
-            return
+        if Orl then
+            trapCreation(user, item, spell, true)
         end
-        trapCreation(user, item, spell, true)
     end
 
     for _, target in pairs(targets.targets) do
@@ -94,8 +92,8 @@ end
 
 function M.triggerEarthTrap(sourceItem, trapTarget)
 local myPosition = trapTarget.pos
-local targets = {{target = trapTarget, category = "character"}}
 local spell = sourceItem:getData("spell")
+local targets = targeting.getPositionsAndTargets(false, spell, myPosition)
 local element = runes.fetchElement(spell)
 local illusion = sourceItem:getData("illusion")
 local wear = sourceItem.wear

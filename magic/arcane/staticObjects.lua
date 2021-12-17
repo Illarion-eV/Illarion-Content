@@ -67,6 +67,8 @@ local objectID
         objectID = 359
     elseif runes.checkSpellForRuneByName("CUN", spell) then
         objectID = 360
+    elseif runes.checkSpellForRuneByName("SOLH", spell) then
+        objectID = 372
     end
 
 return objectID
@@ -105,7 +107,12 @@ local Anth = runes.checkSpellForRuneByName("Anth", spell)
 local Orl = runes.checkSpellForRuneByName("Orl", spell)
 local RA = runes.checkSpellForRuneByName("RA", spell)
 local CUN = runes.checkSpellForRuneByName("CUN", spell)
+local Luk = runes.checkSpellForRuneByName("Luk", spell)
+local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
+
     if (RA or CUN) and (Anth or Orl) then
+        return true
+    elseif SOLH and Anth and not (Luk or Orl) then
         return true
     end
 return false
@@ -134,7 +141,7 @@ local illusion = "false"
         end
     end
 
-world:createItemFromId(objectID, 1, targetPos, true, 999, {["illusion"] = illusion})
+world:createItemFromId(objectID, 1, targetPos, true, 999, {["illusion"] = illusion,["spell"] = spell})
 local item = world:getItemOnField(targetPos)
 item.wear = wear
 world:changeItem(item)
