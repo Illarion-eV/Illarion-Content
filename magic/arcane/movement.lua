@@ -21,8 +21,6 @@ local effectScaling = require("magic.arcane.effectScaling")
 
 local M = {}
 
-M.KelVars = {applied = false, finalTarget = false}
-
 local townEntrances = {
 {lowerX = 116, upperX = 119, lowerY = 641, upperY = 641, z = 0},
 {lowerX = 417, upperX = 417, lowerY = 249, upperY = 250, z = 0},
@@ -93,7 +91,7 @@ local field = world:getField(positionToCheck)
 return false, positionToCheck
 end
 
-local function getRangeOfMovement(user, spell, target, character, Orl)
+local function getRangeOfMovement(user, spell, target, character, Orl, targetAmount, currentTarget)
 local range = 4
 local scaling = effectScaling.getEffectScaling(user, target, spell)
 local Qwan = runes.checkSpellForRuneByName("Qwan", spell)
@@ -122,12 +120,9 @@ local raceBonus
     end
     if Kel then
         if not M.KelVars.applied then
-            local options = {false, true}
-            local fiftyfifty = options[math.random(#options)]
-            if fiftyfifty then
+            local rand = math.random(tonumber(currentTarget), tonumber(targetAmount))
+            if rand == tonumber(currentTarget) then
                 M.KelVars.applied = true
-                range = range + 1
-            elseif M.KelVars.finalTarget then
                 range = range + 1
             end
         end
@@ -189,7 +184,7 @@ table.insert(directionCorrection, {away = "southeast", toward = "northwest", X =
 table.insert(directionCorrection, {away = "northwest", toward = "southeast", X = 1, Y = 1})
 table.insert(directionCorrection, {away = "northeast", toward = "southwest", X = -1, Y = 1})
 
-local function moveTargets(user, target, spell, Orl, items)
+local function moveTargets(user, target, spell, Orl, items, targetAmount, currentTarget)
 local Fhen = runes.checkSpellForRuneByName("Fhen", spell)
 local Fhan = runes.checkSpellForRuneByName("Fhan", spell)
 local Sav = runes.checkSpellForRuneByName("Sav", spell)
@@ -208,7 +203,7 @@ local characters = not items
 local myTarget = target.pos
 local direction = getDirection(user, myTarget)
 local directionReverse = getDirection(user, myTarget, Sav)
-local range = getRangeOfMovement(user, spell, target, characters, Orl)
+local range = getRangeOfMovement(user, spell, target, characters, Orl, targetAmount, currentTarget)
 local Z = myTarget.z
 local landingX
 local landingY
@@ -333,26 +328,21 @@ function M.applyMovementSpells(user, targets, spell, Orl)
     if not checkIfWindSpell(spell) then
         return
     end
+M.KelVars = {applied = false}
 local targetAmount = #targets.targets + #targets.items
 local currentTarget = 0
 local Anth = runes.checkSpellForRuneByName("Anth", spell)
 
     for _, target in pairs(targets.targets) do
         currentTarget = currentTarget + 1
-        if currentTarget == targetAmount then
-            M.KelVars.finalTarget = true
-        end
-        moveTargets(user, target, spell, Orl)
+        moveTargets(user, target, spell, Orl, false, targetAmount, currentTarget)
         forceWalkTarget(target, spell)
         turnTarget(user, target, spell)
     end
     for _, item in pairs(targets.items) do
         currentTarget = currentTarget + 1
-        if currentTarget == targetAmount then
-            M.KelVars.finalTarget = true
-        end
         if Anth then
-            moveTargets(user, item, spell, Orl, true)
+            moveTargets(user, item, spell, Orl, true, targetAmount, currentTarget)
         end
     end
 end
