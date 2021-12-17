@@ -101,13 +101,23 @@ return false
 end
 
 function M.checkSpellForMoreThanJUSSav(spell)
+local Sav
     for i = 1, #M.Runes do
         local runeName = M.Runes[i][2]
-        if runeName ~= "JUS" and runeName ~= "Sav" and runeName ~= "Orl" then
+        if runeName == "Sav" then
             if M.checkSpellForRuneByName(runeName, spell) then
-                return true
+                Sav = true
+            end
+        elseif runeName ~= "JUS" and runeName ~= "Orl" then
+            if M.checkSpellForRuneByName(runeName, spell) then
+                if Sav then
+                    return true
+                end
             end
         end
+    end
+    if not Sav then
+        return true
     end
 return false
 end
