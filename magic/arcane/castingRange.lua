@@ -24,9 +24,9 @@ local wandList = {
 {id = 2785, element = "Air"},
 {id = 3608, element = "Spirit"}
 }
-local function getWand(User)
-local left = User:getItemAt(5)
-local right = User:getItemAt(6)
+local function getWand(user)
+local left = user:getItemAt(5)
+local right = user:getItemAt(6)
     for _, wand in pairs(wandList) do
         if left.id == wand.id then
             return left
@@ -37,10 +37,10 @@ local right = User:getItemAt(6)
 return false
 end
 
-function M.getWandBonus(User, element)
+function M.getWandBonus(user, element)
 local wandItem
-    if getWand(User) then
-        wandItem = getWand(User)
+    if getWand(user) then
+        wandItem = getWand(user)
     else
         return 0
     end
@@ -57,9 +57,12 @@ local wandItem
     end
 end
 
-function M.getCastingRange(User, spell, element)
+function M.getCastingRange(user, spell, element)
 local baseRange = 4
-local wandbonus = M.getWandBonus(User, element)
+local wandbonus = 0
+if user then
+    wandbonus = M.getWandBonus(user, element)
+end
 local range = baseRange+wandbonus
     if runes.checkSpellForRuneByName("Kel", spell) then
         range = range + 2
@@ -68,9 +71,9 @@ local range = baseRange+wandbonus
 return range
 end
 
-function M.isTargetInRange(User, spell, element, target, newTarget, wandAim)
-local range = M.getCastingRange(User, spell, element)
-local pos1 = User.pos
+function M.isTargetInRange(user, spell, element, target, newTarget, wandAim)
+local range = M.getCastingRange(user, spell, element)
+local pos1 = user.pos
 local pos2 = target
     if target.pos then
         pos2 = target.pos
