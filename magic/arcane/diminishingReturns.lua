@@ -43,16 +43,16 @@ function M.callEffect(myEffect, user)
     local foundSpell, spell = myEffect:findValue("spell")
     local element
     local myPosition
-    local positions = {}
     local targets
     if foundX and foundY and foundZ and foundSpell then
         myPosition = position(x, y, z)
         element = runes.fetchElement(spell)
     end
-
-    table.insert(positions,{position = myPosition})
-
-    targets = targeting.positionsIntoTargets(positions)
+    if not myPosition then
+        return
+    end
+    targets = targeting.getPositionsAndTargets(user, spell, myPosition)
+    targets = targeting.refreshTargets(targets)
 local Mes = runes.checkSpellForRuneByName("Mes", spell)
     if Mes then
         delayedAttack.applyDelay(user, myPosition, spell, true)
