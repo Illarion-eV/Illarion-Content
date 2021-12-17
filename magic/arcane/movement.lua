@@ -238,7 +238,7 @@ local lastY = myTarget.y
 local lastXReverse = user.pos.x
 local lastYReverse = user.pos.y
     if Fhan or Fhen then
-        for i = 1, range do
+        for i = 1, range+1 do
             local positionCleared, thePosition = checkForCollisionAndFreeSpace(lastX, lastY, landingX, landingY, Z)
 
             if not positionCleared then
