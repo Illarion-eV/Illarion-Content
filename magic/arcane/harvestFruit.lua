@@ -15,7 +15,6 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
-local targeting = require("magic.arcane.targeting")
 local runes = require("magic.arcane.runes")
 
 local M = {}
@@ -32,6 +31,20 @@ local fruitList = {
 {fruit = Item.grapes, harvestable = 387, harvested = 386},
 {fruit = Item.blackberry, harvestable = 3892, harvested = 3893}
 }
+
+local function increaseArea(targetPosition)
+    local positionTable = {}
+    table.insert(positionTable, {position = position(targetPosition.x,targetPosition.y,targetPosition.z)})
+    table.insert(positionTable, {position = position(targetPosition.x+1,targetPosition.y,targetPosition.z)})
+    table.insert(positionTable, {position = position(targetPosition.x,targetPosition.y+1,targetPosition.z)})
+    table.insert(positionTable, {position = position(targetPosition.x-1,targetPosition.y,targetPosition.z)})
+    table.insert(positionTable, {position = position(targetPosition.x,targetPosition.y-1,targetPosition.z)})
+    table.insert(positionTable, {position = position(targetPosition.x+1,targetPosition.y-1,targetPosition.z)})
+    table.insert(positionTable, {position = position(targetPosition.x-1,targetPosition.y+1,targetPosition.z)})
+    table.insert(positionTable, {position = position(targetPosition.x+1,targetPosition.y+1,targetPosition.z)})
+    table.insert(positionTable, {position = position(targetPosition.x-1,targetPosition.y-1,targetPosition.z)})
+    return positionTable
+end
 
 local function harvestFruit(user, targets)
     for _, item in pairs(targets.items) do
@@ -60,8 +73,9 @@ local function harvestFruit(user, targets)
         if not fruit then
             return
         end
-        local dropPositions = targeting.increaseArea(item.pos)
-        repeat
+        local dropPositions = increaseArea(item.pos)
+
+        for i = 1, amount do
             for _, dropPos in pairs(dropPositions) do
                 local dropPosition = dropPos.position
                 if dropPosition ~= item.pos and amount > 0 then
@@ -72,7 +86,7 @@ local function harvestFruit(user, targets)
                     end
                 end
             end
-        until amount == 0
+        end
 
         local resetAmount = 10
         if isPlayerPlanted then

@@ -84,6 +84,8 @@ local field = world:getField(positionToCheck)
         return true, lastClearedPosition
     elseif not field:isPassable() then
         return true, lastClearedPosition
+    elseif world:isCharacterOnField(positionToCheck) then
+        return true, lastClearedPosition
     end
     if x == tx and y == ty then
         return true, positionToCheck
@@ -236,46 +238,33 @@ local targetPositionReverse
         end
 
     end
-local proceed = false
 local lastX = myTarget.x
 local lastY = myTarget.y
 local lastXReverse = user.pos.x
 local lastYReverse = user.pos.y
-local proceedReverse = false
-local loopCounter = 0
     if Fhan or Fhen then
-        repeat
+        for i = 1, range do
             local positionCleared, thePosition = checkForCollisionAndFreeSpace(lastX, lastY, landingX, landingY, Z)
-            if loopCounter >= 100 then
-                debug("Error: Loop never ends. Targeting for movement magic spell failed.")
-                break
-            end
+
             if not positionCleared then
                 lastX = thePosition.x
                 lastY = thePosition.y
-                loopCounter = loopCounter + 1
             else
                 targetPosition = thePosition
-                proceed = true
             end
-        until proceed
+        end
     end
     if Sav then
-        repeat
+        for i = 1, range do
             local positionCleared, thePosition = checkForCollisionAndFreeSpace(lastXReverse, lastYReverse, landingXReverse, landingYReverse, Z)
-            if loopCounter >= 100 then
-                debug("Error: Loop never ends. Targeting for movement magic spell failed.")
-                break
-            end
+
             if not positionCleared then
                 lastXReverse = thePosition.x
                 lastYReverse = thePosition.y
-                loopCounter = loopCounter + 1
             else
                 targetPositionReverse = thePosition
-                proceedReverse = true
             end
-        until proceedReverse
+        end
     end
     if items then
         local field = world:getField(myTarget)
