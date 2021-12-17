@@ -153,10 +153,9 @@ local magicResist
 local magicPen
 local finalDamage
 local illusion = runes.checkSpellForRuneByName("Lhor", spell)
-local teaching = runes.checkSpellForRuneByName("Bhona", spell)
 local playerOrMonster = target:getType()
 
-    if illusion or teaching then
+    if illusion then
         finalDamage = 0
     elseif playerOrMonster == Character.player then
         damage = checkForDamageRunes(user, target, spell, element, DoT)
