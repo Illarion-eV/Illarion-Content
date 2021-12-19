@@ -127,8 +127,14 @@ local spawnObject = checkIfObjectShouldBeSpawned(spell, targetType)
 local objectID = getObjectID(spell)
 local wear = M.getWearBasedOnDuration(user, target, spell)
 local illusion = "false"
+local earthCloud = "false"
+local scaling = effectScaling.getEffectScaling(user, target, spell)
     if runes.checkSpellForRuneByName("Lhor", spell) then
         illusion = "true"
+    end
+
+    if runes.checkSpellForRuneByName("SOLH", spell) then
+        earthCloud = "true"
     end
 
     if not objectID or not spawnObject then
@@ -141,7 +147,7 @@ local illusion = "false"
         end
     end
 
-world:createItemFromId(objectID, 1, targetPos, true, 999, {["illusion"] = illusion,["spell"] = spell})
+world:createItemFromId(objectID, 1, targetPos, true, 999, {["illusion"] = illusion,["spell"] = spell,["earthCloud"] = earthCloud, ["scaling"] = scaling})
 local item = world:getItemOnField(targetPos)
 item.wear = wear
 world:changeItem(item)

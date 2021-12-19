@@ -90,7 +90,13 @@ local function FhenGetTarget(user, position, rangeNum)
     local returnTarget = false
         for i = 1, #targets do
             local target = targets[i]
-            if target.pos ~= user.pos and target:getType() ~= Character.npc then
+            local userPosCheck = true
+                if user then
+                    if user.pos == target.pos then
+                        userPosCheck = false
+                    end
+                end
+            if userPosCheck and target:getType() ~= Character.npc then
                 returnTarget = target
             end
         end
@@ -117,7 +123,13 @@ local function getSlowestNearTarget(user, target, rangeNum)
     local lowestSpeed
         for i = 1, #targets do
             local newTarget = targets[i]
-            if position ~= newTarget.pos and user.pos ~= newTarget.pos and newTarget:getType() ~= Character.npc then
+            local userPosCheck = true
+                if user then
+                    if user.pos == newTarget.pos then
+                        userPosCheck = false
+                    end
+                end
+            if position ~= newTarget.pos and userPosCheck and newTarget:getType() ~= Character.npc then
                 if returnTarget == false then
                     returnTarget = newTarget
                     lowestSpeed = newTarget.speed
@@ -195,6 +207,14 @@ local setPos = true
         end
     else
         thePosition = delayed
+        local foundCharacter = world:isCharacterOnField(thePosition)
+        if foundCharacter and not dodgable then
+            local target = world:getCharacterOnField(thePosition)
+            if target:getType() == Character.player or target:getType() == Character.monster then
+                positionsAndTargets.targets[#positionsAndTargets.targets+1] = target
+                setPos = false
+            end
+        end
     end
 
     if (Tah or Lev) and (RA or CUN) then

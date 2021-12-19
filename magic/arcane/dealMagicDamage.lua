@@ -74,12 +74,7 @@ end
 
 function M.applyMagicDamage(user, targets, spell, element, Orl, earthTrap)
     for _, target in pairs(targets.targets) do
-        local damage
-        if earthTrap then
-            damage = earthTrap:getData("damage")
-        else
-            damage = magicDamage.getMagicDamage(user, spell, element, target, false, Orl)
-        end
+        local damage = magicDamage.getMagicDamage(user, spell, element, target, false, Orl, earthTrap)
         M.dealMagicDamage(user, target, spell, damage)
     end
 end

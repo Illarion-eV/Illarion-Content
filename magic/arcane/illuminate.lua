@@ -23,7 +23,7 @@ local M = {}
 local function illuminate(user, myPosition, spell, earthTrap, target)
 local wear
     if earthTrap then
-        wear = earthTrap:getData("illuminateWear")
+        wear = tonumber(earthTrap:getData("illuminateWear"))
     else
         wear = staticObjects.getWearBasedOnDuration(user, target, spell)
     end

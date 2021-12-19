@@ -16,21 +16,26 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local plantRoot = require("magic.arcane.plantRoot")
-local lookat = require("base.lookat")
+local runes = require("magic.arcane.runes")
+local traps = require("magic.arcane.traps")
 
 local M = {}
 
 function M.CharacterOnField(user)
     local sourceItem = world:getItemOnField( user.pos )
-    if sourceItem:getData("spell") then
-        plantRoot.applyPlantRootForEntanglingPlant(sourceItem, user)
+    if sourceItem.id ~= 3644 then
+        return
+    end
+    local spell = sourceItem:getData("spell")
+    if spell ~= "" then
+        if runes.checkSpellForRuneByName("Orl", spell) then
+            traps.triggerEarthTrap(sourceItem, user)
+        else
+            plantRoot.applyPlantRootForEntanglingPlant(sourceItem, user)
+        end
     end
 end
 
-function M.lookAt(sourceItem)
-    if sourceItem:getData("spell") then
-        lookat.SetSpecialName(sourceItem,"","Entangling Plant")
-        lookat.SetSpecialDescription(sourceItem,"","Upon closer inspection, you may notice the leaves of the plant having a magical looking glow to them.")
-    end
+function M.lookAt(user, sourceItem)
 end
 return M

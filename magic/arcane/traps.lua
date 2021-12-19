@@ -18,7 +18,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local runes = require("magic.arcane.runes")
 local plantRoot = require("magic.arcane.plantRoot")
 local staticObjects = require("magic.arcane.staticObjects")
-local magicDamage = require("magic.arcane.magicDamage")
 local effectScaling = require("magic.arcane.effectScaling")
 local magicGFX = require("magic.arcane.magicGFX")
 local dealDamage = require("magic.arcane.dealMagicDamage")
@@ -39,7 +38,6 @@ local function trapCreation(user, target, spell, item)
     local element = runes.fetchElement(spell)
     local wear = staticObjects.getWearBasedOnDuration(user, target, spell)
     local scaling = effectScaling.getEffectScaling(user, target, spell)
-    local damage = magicDamage.getMagicDamage(user, spell, element, target, false, false)
     local field = plantRoot.getField(target)
     local magicPenetration = MP.getMagicPenetration(user, element, spell)
     if not field then
@@ -56,7 +54,7 @@ local function trapCreation(user, target, spell, item)
         end
     end
     local myPosition = plantRoot.getPosition(target)
-    local trap = world:createItemFromId(graphicID, 1, myPosition, true, 999, {["illusion"] = tostring(Lhor), ["spell"] = spell, ["illuminateWear"] = wear, ["damage"] = damage, ["scaling"] = scaling, ["magicPenetration"] = magicPenetration})
+    local trap = world:createItemFromId(graphicID, 1, myPosition, true, 999, {["illusion"] = tostring(Lhor), ["spell"] = spell, ["illuminateWear"] = wear, ["scaling"] = scaling, ["magicPenetration"] = magicPenetration})
     trap.wear = wear
     world:changeItem(trap)
 end
@@ -91,26 +89,31 @@ end
 
 
 function M.triggerEarthTrap(sourceItem, trapTarget)
+    world:erase(sourceItem, 1)
+    log("target speed pre trap: "..trapTarget.speed)
 local myPosition = trapTarget.pos
 local spell = sourceItem:getData("spell")
 local targets = targeting.getPositionsAndTargets(false, spell, myPosition)
 local element = runes.fetchElement(spell)
 local illusion = sourceItem:getData("illusion")
 local wear = sourceItem.wear
-    dealDamage.applyMagicDamage(false, targets, spell, element, false, sourceItem)
-    illuminate.CheckIfIlluminate(false, targets, spell, sourceItem)
-    snare.applySnare(false, targets, spell, false, sourceItem)
-    magicGFX.getTargetGFX(targets, spell, true)
-    stun.checkForStun(spell, targets)
-    MSReduction.checkForIncreaseStamina(false, targets, spell, sourceItem)
+local earthCloud = sourceItem:getData("earthCloud")
+    if earthCloud ~= "true" then
+        dealDamage.applyMagicDamage(false, targets, spell, element, false, sourceItem)
+        illuminate.CheckIfIlluminate(false, targets, spell, sourceItem)
+        snare.applySnare(false, targets, spell, false, sourceItem)
+        stun.checkForStun(spell, targets)
+        MSReduction.checkForIncreaseStamina(false, targets, spell, sourceItem)
+        stallMana.applyManaStalling(false, targets, spell, sourceItem)
+    end
     plantRoot.applyPlantRoot(false, targets, spell, sourceItem)
-    stallMana.applyManaStalling(false, targets, spell, sourceItem)
-    world:erase(sourceItem, 1)
+    magicGFX.getTargetGFX(targets, spell, true)
     if sourceItem.id == 3466 then
         local newPlant = world:createItemFromId(3466, 1, myPosition, true, 999, {["illusion"] = illusion})
         newPlant.wear = wear
         world:changeItem(newPlant)
     end
+    log("target speed post trap: "..trapTarget.speed)
 end
 
 

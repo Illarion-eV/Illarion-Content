@@ -112,7 +112,7 @@ return CheckIftargetType(target, targetType)
 end
 
 
-local function checkForDamageRunes(user, target, spell, element, DoT)
+local function checkForDamageRunes(target, spell, element, DoT, earthTrap)
 local RA = runes.checkSpellForRuneByName("RA", spell)
 local damage = 0
 local list
@@ -147,24 +147,26 @@ local list
 return damage
 end
 
-function M.getMagicDamage(user, spell, element, target, DoT, Orl)
-local damage
+function M.getMagicDamage(user, spell, element, target, DoT, Orl, earthTrap)
+local damage = checkForDamageRunes(target, spell, element, DoT)
 local magicResist
 local magicPen
-local finalDamage
+    if not earthTrap then
+        magicPen = MP.getMagicPenetration(user, element, spell)
+        damage = checkForDamageRunes(target, spell, element, DoT)
+    else
+        magicPen = earthTrap:getData("magicPenetration")
+    end
+local finalDamage = 0
 local illusion = runes.checkSpellForRuneByName("Lhor", spell)
 local playerOrMonster = target:getType()
 
     if illusion then
         finalDamage = 0
     elseif playerOrMonster == Character.player then
-        damage = checkForDamageRunes(user, target, spell, element, DoT)
         magicResist = MR.getMagicResistance(target, spell)
-        magicPen = MP.getMagicPenetration(user, element, spell)
         finalDamage = damage*(1+magicPen-magicResist)
     elseif playerOrMonster == Character.monster then
-        damage = checkForDamageRunes(user, target, spell, element, DoT)
-        magicPen = MP.getMagicPenetration(user, element, spell)
         finalDamage = damage*(1+(magicPen/2))
     end
     if runes.checkSpellForRuneByName("Sul",spell) then
