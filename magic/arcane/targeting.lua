@@ -193,14 +193,14 @@ local setPos = true
                 return
             end
             thePosition = targeted.pos
-            if not dodgable then
+            if not dodgable and not (PEN and Lev) then
                 positionsAndTargets.targets[#positionsAndTargets.targets+1] = targeted
                 setPos = false
             end
         else
             thePosition = common.GetFrontPosition(user) --later replace with entry point that returns boolean(to determine success of whether player selected a tile) and position of selected tile
             local foundCharacter = world:isCharacterOnField(thePosition)
-            if foundCharacter and not dodgable then
+            if foundCharacter and not dodgable and not (PEN and Lev) then
                 local target = world:getCharacterOnField(thePosition)
                 if target:getType() == Character.player or target:getType() == Character.monster then
                     positionsAndTargets.targets[#positionsAndTargets.targets+1] = target
@@ -246,38 +246,35 @@ local setPos = true
 
     if PEN and Hept then
         local name = user.name
-        ScriptVars:set("Hept"..name, thePosition)
-        ScriptVars:save()
-        user:setQuestProgress(7004, tonumber(world:getTime("unix")))
+        M.playerTargets["Hept"..name] = thePosition
+        M.playerTargets["Hept"..name.."time"] = tonumber(world:getTime("unix"))
     end
 
     if PEN and Lev then
-        local storedTime = user:getQuestProgress(7004)
         local timeLimit = 1800
         local currentTime = world:getTime("unix")
-        if storedTime ~= 0 then
-            local name = user.name
-            local foundTarget, target = ScriptVars:find("Hept"..name)
-            if currentTime-storedTime > timeLimit then
-                ScriptVars:remove("Hept"..name)
-                ScriptVars:save()
-                user:setQuestProgress(7004, 0)
+        local name = user.name
+        local heptPosition = M.playerTargets["Hept"..name]
+        local heptTime = M.playerTargets["Hept"..name.."time"]
+
+        if heptTime then
+            if currentTime-heptTime > timeLimit then
                 user:inform("","It's been too long since you last cast this spell with Hept.")
                 return
-            elseif foundTarget then
-                local _, _, x, y, z = string.find(target, "(%d+), (%d+), (%d+)")
-                local levPosition = position(tonumber(x), tonumber(y), tonumber(z))
-                local targetExists = world:isCharacterOnField(levPosition)
+            elseif heptPosition then
+                setPos = false
+                local targetExists = world:isCharacterOnField(heptPosition)
+                local setLevPos = true
                 if targetExists then
-                    local LevTarget = world:getCharacterOnField(levPosition)
+                    local LevTarget = world:getCharacterOnField(heptPosition)
                     if LevTarget:getType() == Character.player or LevTarget:getType() == Character.monster then
                         positionsAndTargets.targets[#positionsAndTargets.targets+1] = LevTarget
-                        setPos = false
+                        setLevPos = false
                     end
                 end
-                ScriptVars:remove("Hept"..name)
-                ScriptVars:save()
-                user:setQuestProgress(7004, 0)
+                if setLevPos then
+                    positionsAndTargets.positions[#positionsAndTargets.positions+1] = heptPosition
+                end
             end
         end
     end
