@@ -28,6 +28,7 @@ local snare = require("magic.arcane.snare")
 local stallMana = require("magic.arcane.stallMana")
 local MP = require("magic.arcane.magicPenetration")
 local targeting = require("magic.arcane.targeting")
+local lookat = require("base.lookat")
 
 local M = {}
 
@@ -53,9 +54,20 @@ local function trapCreation(user, target, spell, item)
             return
         end
     end
+
     local myPosition = plantRoot.getPosition(target)
+    if user then
+        if user.pos == myPosition then
+            return
+        end
+    end
+    if staticObjects.checkForPreExistingTraps(myPosition) then
+        return
+    end
     local trap = world:createItemFromId(graphicID, 1, myPosition, true, 999, {["illusion"] = tostring(Lhor), ["spell"] = spell, ["illuminateWear"] = wear, ["scaling"] = scaling, ["magicPenetration"] = magicPenetration})
     trap.wear = wear
+    lookat.SetSpecialName(trap,"","Earth Cloud")
+    lookat.SetSpecialDescription(trap,"","A misty green cloud with an earthy scent to it.")
     world:changeItem(trap)
 end
 

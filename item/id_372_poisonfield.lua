@@ -19,7 +19,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local monstermagic = require("monster.base.spells.base")
 local character = require("base.character")
-local lookat = require("base.lookat")
 local traps = require("magic.arcane.traps")
 
 local M = {}
@@ -60,7 +59,7 @@ function M.CharacterOnField(User)
             break
         end
     end
-    if FieldItem:getData("spell") then --It is an earth spell trap from arcane magic and not a poison cloud
+    if FieldItem:getData("spell") ~= "" then --It is an earth spell trap from arcane magic and not a poison cloud
         traps.triggerEarthTrap(FieldItem, User)
         return
     end
@@ -103,10 +102,6 @@ function M.CharacterOnField(User)
 end
 
 function M.lookAt(sourceItem)
-    if sourceItem:getData("spell") then
-        lookat.SetSpecialName(sourceItem,"","Earth Cloud")
-        lookat.SetSpecialDescription(sourceItem,"","A misty green cloud with an earthy scent to it.")
-    end
 end
 
 

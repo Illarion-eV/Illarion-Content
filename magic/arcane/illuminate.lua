@@ -21,6 +21,11 @@ local staticObjects = require("magic.arcane.staticObjects")
 local M = {}
 
 local function illuminate(user, myPosition, spell, earthTrap, target)
+    debug("myPosition: "..tostring(myPosition))
+    debug("spell: "..tostring(spell))
+    debug("earthTrap: "..tostring(earthTrap))
+    debug("target: "..tostring(target))
+    debug("user: "..tostring(user))
 local wear
     if earthTrap then
         wear = tonumber(earthTrap:getData("illuminateWear"))

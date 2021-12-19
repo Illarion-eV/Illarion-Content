@@ -87,7 +87,7 @@ local wear = duration/wearInSeconds
     if wear >= 255 then
         wear = 254
     end
-return wear
+return math.floor(wear)
 end
 
 function M.spawnStaticObjects(user, targets, spell)
@@ -114,6 +114,20 @@ local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
         return true
     elseif SOLH and Anth and not (Luk or Orl) then
         return true
+    end
+return false
+end
+
+function M.checkForPreExistingTraps(myPosition)
+    local field = world:getField(myPosition)
+    local numberOfItems = field:countItems()
+    if numberOfItems > 0 then
+        for i = 1, numberOfItems do
+            local theItem = field:getStackItem(i)
+            if theItem:getData("spell") ~= "" then
+                return true
+            end
+        end
     end
 return false
 end
@@ -146,7 +160,9 @@ local scaling = effectScaling.getEffectScaling(user, target, spell)
             return
         end
     end
-
+    if M.checkForPreExistingTraps(targetPos) then
+        return
+    end
 world:createItemFromId(objectID, 1, targetPos, true, 999, {["illusion"] = illusion,["spell"] = spell,["earthCloud"] = earthCloud, ["scaling"] = scaling})
 local item = world:getItemOnField(targetPos)
 item.wear = wear

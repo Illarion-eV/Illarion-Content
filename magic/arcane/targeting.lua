@@ -166,7 +166,7 @@ local function getWeakestNearTarget(user, position, rangeNum, Lev)
     return returnTarget
 end
 
-local function getPosition(user, spell, positionsAndTargets, delayed)
+local function getPosition(user, spell, positionsAndTargets, delayed, trap)
 local element = runes.fetchElement(spell)
 local rangeNum = range.getCastingRange(user, spell, element)
 local Tah = runes.checkSpellForRuneByName("Tah", spell)
@@ -178,9 +178,12 @@ local PEN = runes.checkSpellForRuneByName("PEN", spell)
 local Fhen = runes.checkSpellForRuneByName("Fhen", spell)
 local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
 local Sul = runes.checkSpellForRuneByName("Sul", spell)
+local Orl = runes.checkSpellForRuneByName("Orl", spell)
+local earthTrap = SOLH and Orl and not trap
 local dodgable = (CUN or RA) and Sul
 local thePosition
 local setPos = true
+
 
     if not delayed then
         if user.attackmode then
@@ -231,7 +234,7 @@ local setPos = true
         end
     end
 
-    if Lev and SOLH then
+    if Lev and SOLH and not earthTrap then
         local target = getSlowestNearTarget(user, thePosition, rangeNum)
         if target then
             if target:getType() == Character.player or target:getType() == Character.monster then
@@ -279,7 +282,7 @@ local setPos = true
         end
     end
 
-    if Fhen and (RA or CUN or SOLH) then
+    if Fhen and (RA or CUN or SOLH) and not earthTrap then
         local fhenTarget = FhenGetTarget(user, thePosition, rangeNum)
         if fhenTarget then
             if fhenTarget:getType() == Character.player or fhenTarget:getType() == Character.monster then
