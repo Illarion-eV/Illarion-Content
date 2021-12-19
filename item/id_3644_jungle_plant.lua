@@ -18,13 +18,18 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local plantRoot = require("magic.arcane.plantRoot")
 local runes = require("magic.arcane.runes")
 local traps = require("magic.arcane.traps")
+local common = require("base.common")
 
 local M = {}
 
 function M.CharacterOnField(user)
-    local sourceItem = world:getItemOnField( user.pos )
-    if sourceItem.id ~= 3644 then
-        return
+    local sourceItem
+    local Items = common.GetItemsOnField(user.pos)
+    for _, item in pairs(Items) do
+        if(item.id == 3644) then
+            sourceItem = item
+            break
+        end
     end
     local spell = sourceItem:getData("spell")
     if spell ~= "" then
