@@ -60,10 +60,22 @@ end
 local function addPENLukDunTargets(targetsPositions)
     local targetPosition = targetsPositions.thePosition
     local possiblePositions =
-    {position(targetPosition.x+2,targetPosition.y,targetPosition.z), position(targetPosition.x,targetPosition.y+2,targetPosition.z),
-    position(targetPosition.x-2,targetPosition.y,targetPosition.z), position(targetPosition.x,targetPosition.y-2,targetPosition.z),
-    position(targetPosition.x+2,targetPosition.y-2,targetPosition.z), position(targetPosition.x-2,targetPosition.y+2,targetPosition.z),
-    position(targetPosition.x+2,targetPosition.y+2,targetPosition.z), position(targetPosition.x-2,targetPosition.y-2,targetPosition.z)}
+    {position(targetPosition.x+2,targetPosition.y,targetPosition.z),
+    position(targetPosition.x+2,targetPosition.y+1,targetPosition.z),
+    position(targetPosition.x+2,targetPosition.y-1,targetPosition.z),
+    position(targetPosition.x,targetPosition.y+2,targetPosition.z),
+    position(targetPosition.x+1,targetPosition.y+2,targetPosition.z),
+    position(targetPosition.x-1,targetPosition.y+2,targetPosition.z),
+    position(targetPosition.x-2,targetPosition.y,targetPosition.z),
+    position(targetPosition.x-2,targetPosition.y+1,targetPosition.z),
+    position(targetPosition.x-2,targetPosition.y-1,targetPosition.z),
+    position(targetPosition.x,targetPosition.y-2,targetPosition.z),
+    position(targetPosition.x-1,targetPosition.y-2,targetPosition.z),
+    position(targetPosition.x+1,targetPosition.y-2,targetPosition.z),
+    position(targetPosition.x+2,targetPosition.y-2,targetPosition.z),
+    position(targetPosition.x-2,targetPosition.y+2,targetPosition.z),
+    position(targetPosition.x+2,targetPosition.y+2,targetPosition.z),
+    position(targetPosition.x-2,targetPosition.y-2,targetPosition.z)}
     for _, possiblePosition in pairs(possiblePositions) do
         local field = world:getField(possiblePosition)
         local foundItems = field:countItems()
@@ -259,8 +271,7 @@ local setPos = true
 
         if heptTime then
             if currentTime-heptTime > timeLimit then
-                user:inform("","It's been too long since you last cast this spell with Hept.")
-                return
+                user:inform("","It's been too long since you last cast this spell with Hept, casting on selected target instead.")
             elseif heptPosition then
                 setPos = false
                 local targetExists = world:isCharacterOnField(heptPosition)

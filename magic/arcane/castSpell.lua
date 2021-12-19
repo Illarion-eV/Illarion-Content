@@ -31,7 +31,7 @@ local M = {}
 
 function M.castSpell(user, spell, actionState)
 local positionsAndTargets = targeting.getPositionsAndTargets(user, spell)
-    if not positionsAndTargets then --rarely happens if you try to cast immediately after an !fr
+    if not positionsAndTargets then --rarely happens if you try to cast immediately after an !fr, also happens if you cast a PEN Lev spell after expiry
         return
     end
 local position = positionsAndTargets.thePosition
