@@ -48,9 +48,9 @@ M.Runes = { -- [(1)Rune Number], [(2)Rune Name], [(3)Mana cost],[(4)Cast Time],[
 {29,"Pera","Small","Short",10}
 }
 
-function M.getLevelRequirementOfRune(runeName)
+function M.getLevelRequirementOfRune(runeNumber)
     for _, rune in pairs(M.Runes) do
-        if rune[2] == runeName then
+        if rune[1] == runeNumber then
             return rune[5]
         end
     end

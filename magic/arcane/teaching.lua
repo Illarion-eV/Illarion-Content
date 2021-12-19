@@ -32,8 +32,38 @@ local function getRuneToTeach(spell)
     end
 end
 
-local function levelRequirementNotMet(target, spell)
-    return false --temporarily just bypass level requirement
+local function getTargetsMagicLevels(target, rune)
+    local skillNames = {"fireMagic", "spiritMagic", "windMagic","earthMagic","waterMagic"}
+    local targetLevels = {}
+    local magicLevel = 0
+    for _, skill in pairs(skillNames) do
+        local targetLevel= target:getSkill(Character[skill])
+        if targetLevel then
+            targetLevels[#targetLevels+1] = targetLevel
+        end
+    end
+    if rune == 6 then
+        for _, level in pairs(targetLevels) do
+            magicLevel = magicLevel + level
+        end
+        magicLevel = magicLevel/#skillNames
+    else
+        for _, level in pairs(targetLevels) do
+            if level > magicLevel then
+                magicLevel = level
+            end
+        end
+    end
+return magicLevel
+end
+
+local function levelRequirementNotMet(target, runeToTeach)
+    local levelReq = runes.getLevelRequirementOfRune(runeToTeach)
+    local targetLevel = getTargetsMagicLevels(target, runeToTeach)
+    if targetLevel >= levelReq then
+        return false
+    end
+return true
 end
 
 local function notEnoughTimeHasPassed(target, spell)
@@ -68,7 +98,7 @@ local function teachingCheck(user, target, spell)
                 user:inform("","Target already knows that rune.")
                 return
             end
-            if levelRequirementNotMet(target, spell) then
+            if levelRequirementNotMet(target, runeToTeach) then
                 user:inform("", "Target is not skilled enough at magic to learn this rune yet.")
                 return
             end
