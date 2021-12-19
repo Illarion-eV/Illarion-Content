@@ -334,9 +334,9 @@ local Luk = runes.checkSpellForRuneByName("Luk", spell)
 return positionsAndTargets
 end
 
-function M.getPositionsAndTargets(user, spell, delayed)
+function M.getPositionsAndTargets(user, spell, delayed, trap)
     local positionsAndTargets = {positions = {}, targets = {}, items = {}}
-    positionsAndTargets = getPosition(user, spell, positionsAndTargets, delayed)
+    positionsAndTargets = getPosition(user, spell, positionsAndTargets, delayed, trap)
     positionsAndTargets = addTargets(user, spell, positionsAndTargets)
     return positionsAndTargets
 end

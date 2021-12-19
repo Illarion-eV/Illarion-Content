@@ -66,8 +66,13 @@ local function trapCreation(user, target, spell, item)
     end
     local trap = world:createItemFromId(graphicID, 1, myPosition, true, 999, {["illusion"] = tostring(Lhor), ["spell"] = spell, ["illuminateWear"] = wear, ["scaling"] = scaling, ["magicPenetration"] = magicPenetration})
     trap.wear = wear
-    lookat.SetSpecialName(trap,"","Earth Cloud")
-    lookat.SetSpecialDescription(trap,"","A misty green cloud with an earthy scent to it.")
+    if graphicID == 372 then
+        lookat.SetSpecialName(trap,"","Earth Cloud")
+        lookat.SetSpecialDescription(trap,"","A misty green cloud with an earthy scent to it.")
+    else
+        lookat.SetSpecialName(trap,"GERMAN HERE","Entangling Plant")
+        lookat.SetSpecialDescription(trap,"GERMAN HERE","Upon closer inspection, you may notice the leaves of the plant having a magical looking glow to them.")
+    end
     world:changeItem(trap)
 end
 
@@ -99,13 +104,29 @@ local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
     end
 end
 
+local function deleteTrap(target, trap)
+    local field = world:getField(target.pos)
+    local count = field:countItems()
+    local currentitem
+    local items = { }
+    for i=0, count-1 do
+        currentitem = world:getItemOnField(target.pos)
+        world:erase(currentitem, currentitem.number)
+        if(currentitem.id ~= trap.id) then
+            table.insert(items, currentitem)
+        end
+    end
+    for i,item in pairs(items) do
+        world:createItemFromItem(item, target.pos, true)
+    end
+end
+
 
 function M.triggerEarthTrap(sourceItem, trapTarget)
-    world:erase(sourceItem, 1)
-    log("target speed pre trap: "..trapTarget.speed)
+deleteTrap(trapTarget, sourceItem)
 local myPosition = trapTarget.pos
-local spell = sourceItem:getData("spell")
-local targets = targeting.getPositionsAndTargets(false, spell, myPosition)
+local spell = tonumber(sourceItem:getData("spell"))
+local targets = targeting.getPositionsAndTargets(false, spell, myPosition, true)
 local element = runes.fetchElement(spell)
 local illusion = sourceItem:getData("illusion")
 local wear = sourceItem.wear
@@ -120,12 +141,20 @@ local earthCloud = sourceItem:getData("earthCloud")
     end
     plantRoot.applyPlantRoot(false, targets, spell, sourceItem)
     magicGFX.getTargetGFX(targets, spell, true)
-    if sourceItem.id == 3466 then
-        local newPlant = world:createItemFromId(3466, 1, myPosition, true, 999, {["illusion"] = illusion})
+    if sourceItem.id == 3644 then
+        local newPlant = world:createItemFromId(3644, 1, myPosition, true, 999, {["illusion"] = illusion})
         newPlant.wear = wear
         world:changeItem(newPlant)
+        if illusion == "false" then
+            trapTarget:inform("","As you step onto the plant, it releases a gaseous substance that seems to flock towards you in an attempt to enter your body.")
+        end
+    else
+        if illusion == "true" then
+            trapTarget:inform("","As you step into the cloud of earth magic, nothing happens to you. Was it just an illusion?")
+        else
+            trapTarget:inform("", "Stepping into the cloud of earth magic, the gaseous substance flocks towards you in an attempt to enter your body.")
+        end
     end
-    log("target speed post trap: "..trapTarget.speed)
 end
 
 

@@ -20,17 +20,43 @@ local staticObjects = require("magic.arcane.staticObjects")
 
 local M = {}
 
+local function checkForPreExistingIlluminate(myPosition, wear)
+    local field = world:getField(myPosition)
+    local numberOfItems = field:countItems()
+    if numberOfItems > 0 then
+        for i = 1, numberOfItems do
+            local theItem = field:getStackItem(i)
+            if theItem.id == 3518 then
+                theItem.wear = wear
+                world:changeItem(theItem)
+                return true
+            end
+        end
+    end
+return false
+end
+
+local function fieldIsntEmpty(myPosition)
+    local field = world:getField(myPosition)
+    local numberOfItems = field:countItems()
+    if numberOfItems > 0 then
+        return true
+    end
+return false
+end
+
 local function illuminate(user, myPosition, spell, earthTrap, target)
-    debug("myPosition: "..tostring(myPosition))
-    debug("spell: "..tostring(spell))
-    debug("earthTrap: "..tostring(earthTrap))
-    debug("target: "..tostring(target))
-    debug("user: "..tostring(user))
 local wear
     if earthTrap then
         wear = tonumber(earthTrap:getData("illuminateWear"))
     else
         wear = staticObjects.getWearBasedOnDuration(user, target, spell)
+    end
+    if checkForPreExistingIlluminate(myPosition, wear) then
+        return
+    end
+    if fieldIsntEmpty(myPosition) then
+        return
     end
 local item = world:createItemFromId(3518, 1, myPosition, true, 999, {})
     item.wear = wear
@@ -49,10 +75,6 @@ local PEN = runes.checkSpellForRuneByName("PEN", spell)
     for _, target in pairs(targets.targets) do
         local myPosition = target.pos
         illuminate(user, myPosition, spell, earthTrap, target)
-    end
-    for _, item in pairs(targets.items) do
-        local myPosition = item.pos
-        illuminate(user, myPosition, spell, earthTrap, item)
     end
     for _, position in pairs (targets.positions) do
         illuminate(user, position, spell, earthTrap, position)
