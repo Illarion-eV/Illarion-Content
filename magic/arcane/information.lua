@@ -215,7 +215,7 @@ return returnText
 end
 
 local function getItemProperties(user, target)
-local lookAtInfo = lookAt.GenerateLookAt(user, target.target)
+local lookAtInfo = lookAt.GenerateLookAt(user, target)
 local itemName = lookAtInfo.name
 local itemWeight = lookAtInfo.weight
 local returnText = itemName
@@ -416,12 +416,10 @@ local tileDescriptions = {
 
 local function getTileProperties(target)
 local field
-    if target.target.pos then
-        field = world:getField(target.target.pos)
-    elseif target.category == "item" then
-        field = world:getField(target.position)
+    if target.pos then
+        field = world:getField(target.pos)
     else
-        field = world:getField(target.target)
+        field = world:getField(target)
     end
 local tileID = field:tile()
 local returnText = "Tile information:\n"
@@ -440,10 +438,10 @@ local Fhen = runes.checkSpellForRuneByName("Fhen", spell)
     if Anth and item then
         returnText = getItemProperties(user, target)
     elseif character then
-        if Fhen and target.target:getType() == Character.player then
-            returnText = getPlayerProperties(target.target, spell)
-        elseif target.target:getType() == Character.monster then
-            returnText = getMonsterProperties(target.target, spell)
+        if Fhen and target:getType() == Character.player then
+            returnText = getPlayerProperties(target, spell)
+        elseif target:getType() == Character.monster then
+            returnText = getMonsterProperties(target, spell)
         end
     end
     if not returnText then
