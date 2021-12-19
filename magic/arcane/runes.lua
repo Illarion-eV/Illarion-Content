@@ -16,37 +16,46 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local M = {}
 
-M.Runes = { -- [(1)Rune Number], [(2)Rune Name], [(3)Mana cost],[(4)Cast Time]
-{1,"CUN","Small","Short"},
-{2,"JUS","Small","Short"},
-{3,"PEN","Small","Short"},
-{4,"RA","Small","Short"},
-{5,"SOLH","Small","Short"},
-{6,"BHONA","Small","Short"},
-{7,"Anth","Small","Short"},
-{8,"Dun","Large","Long"},
-{9,"Fhan","Large","Long"},
-{10,"Fhen","Small","Short"},
-{11,"Hept","Medium","Medium"},
-{12,"Ira","Medium","Medium"},
-{13,"Kah","Small","Short"},
-{14,"Kel","Large","Long"},
-{15,"Lev","Small","Short"},
-{16,"Lhor","Small","Short"},
-{17,"Luk","Medium","Medium"},
-{18,"Mes","Small","Short"},
-{19,"Orl","Large","Long"},
-{20,"Pherc","Medium","Medium"},
-{21,"Qwan","Large","Long"},
-{22,"Sav","Medium","Medium"},
-{23,"Sih","Large","Long"},
-{24,"Sul","Medium","Medium"},
-{25,"Tah","Medium","Medium"},
-{26,"Taur","Medium","Medium"},
-{27,"Ura","Medium","Medium"},
-{28,"Yeg","Medium","Medium"},
-{29,"Pera","Small","Short"}
+M.Runes = { -- [(1)Rune Number], [(2)Rune Name], [(3)Mana cost],[(4)Cast Time],[(5)Level Requirement]
+{1,"CUN","Small","Short",0},
+{2,"JUS","Small","Short",0},
+{3,"PEN","Small","Short",0},
+{4,"RA","Small","Short",0},
+{5,"SOLH","Small","Short",0},
+{6,"BHONA","Small","Short",80},
+{7,"Anth","Small","Short",10},
+{8,"Dun","Large","Long",60},
+{9,"Fhan","Large","Long",50},
+{10,"Fhen","Small","Short",20},
+{11,"Hept","Medium","Medium",30},
+{12,"Ira","Medium","Medium",30},
+{13,"Kah","Small","Short",20},
+{14,"Kel","Large","Long",50},
+{15,"Lev","Small","Short",10},
+{16,"Lhor","Small","Short",30},
+{17,"Luk","Medium","Medium",30},
+{18,"Mes","Small","Short",20},
+{19,"Orl","Large","Long",50},
+{20,"Pherc","Medium","Medium",30},
+{21,"Qwan","Large","Long",60},
+{22,"Sav","Medium","Medium",40},
+{23,"Sih","Large","Long",50},
+{24,"Sul","Medium","Medium",30},
+{25,"Tah","Medium","Medium",30},
+{26,"Taur","Medium","Medium",40},
+{27,"Ura","Medium","Medium",40},
+{28,"Yeg","Medium","Medium",40},
+{29,"Pera","Small","Short",10}
 }
+
+function M.getLevelRequirementOfRune(runeName)
+    for _, rune in pairs(M.Runes) do
+        if rune[2] == runeName then
+            return rune[5]
+        end
+    end
+return false
+end
 
 function M.learnedRunesToQuestprogress(RuneNumber)
     if RuneNumber < 2^31 then
