@@ -32,7 +32,7 @@ local snare = require("magic.arcane.snare")
 local plantRoot = require("magic.arcane.plantRoot")
 local stallMana = require("magic.arcane.stallMana")
 local traps = require("magic.arcane.traps")
-local information = require("magic.arcane.information")
+local information = require("magic.arcane.spirit.information")
 
 local M = {}
 

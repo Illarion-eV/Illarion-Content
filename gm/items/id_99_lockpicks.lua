@@ -80,7 +80,7 @@ local maxuserLocation = 6
 local maxActionOnChar = 6
 local maxActionOnGroup = 6
 
-local skillNames = {
+M.skillNames = {
     Character.alchemy,
     Character.armourer,
     Character.blacksmithing,
@@ -600,7 +600,7 @@ local function settingsForCharSkills(user, chosenPlayer)
         if (not dialog:getSuccess()) then
             return
         end
-        local chosenSkill = skillNames[dialog:getSelectedIndex() + 1]
+        local chosenSkill = M.skillNames[dialog:getSelectedIndex() + 1]
         local changeDialog = function (subdialog)
             if (not subdialog:getSuccess()) then
                 return
@@ -622,7 +622,7 @@ local function settingsForCharSkills(user, chosenPlayer)
         user:requestInputDialog(sdChange)
     end
     local sdSkill = SelectionDialog("Select skill", "What skill do you wish to change for "..chosenPlayer.name.."?", skillDialog)
-    for _, skill in ipairs(skillNames) do
+    for _, skill in ipairs(M.skillNames) do
         sdSkill:addOption(0,user:getSkillName(skill).." value: "..chosenPlayer:getSkill(skill))
     end
     user:requestSelectionDialog(sdSkill)

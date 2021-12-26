@@ -20,6 +20,7 @@ local M = {}
 function M.getIncantationText(user, spell)
 local Lhor = runes.checkSpellForRuneByName("Lhor", spell)
 local JUS = runes.checkSpellForRuneByName("JUS", spell)
+local PEN = runes.checkSpellForRuneByName("PEN", spell)
     if Lhor and JUS then
         return
     end
@@ -27,10 +28,12 @@ local theText = ""
     for i = 1, #runes.Runes do
         local rune = runes.Runes[i][2]
         if runes.checkSpellForRuneByName(rune, spell) then
-            if theText == "" then
-                theText = rune
-            else
-                theText = theText.." "..rune
+            if not(PEN and (rune == "Lhor")) then
+                if theText == "" then
+                    theText = rune
+                else
+                    theText = theText.." "..rune
+                end
             end
             if i == #runes.Runes then
                 theText = theText.."."

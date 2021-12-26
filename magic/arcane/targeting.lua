@@ -46,11 +46,16 @@ local possiblePositions =
             end
         end
 
+        local foundItem = false
+
         if foundItems >= 1 then
             local item = field:getStackItem(foundItems - 1)
-            targetsPositions.items[#targetsPositions.items+1] = item
+            if item.id ~= 0 and item.id ~= 3518 then
+                foundItem = true
+                targetsPositions.items[#targetsPositions.items+1] = item
+            end
         end
-        if not (foundItems >= 1) and not foundChar then
+        if not foundItem and not foundChar then
             targetsPositions.positions[#targetsPositions.positions+1] = possiblePosition
         end
     end
@@ -311,8 +316,10 @@ local setPos = true
 
     if foundItems >= 1 then
         local item = field:getStackItem(foundItems - 1)
-        positionsAndTargets.items[#positionsAndTargets.items+1] = item
-        setPos = false
+        if item.id ~= 0 and item.id ~= 3518 then
+            positionsAndTargets.items[#positionsAndTargets.items+1] = item
+            setPos = false
+        end
     end
 
     if positionHasNPC(thePosition) then
