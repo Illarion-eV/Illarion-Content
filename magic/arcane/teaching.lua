@@ -19,6 +19,8 @@ local magic = require("base.magic")
 local incantation = require("magic.arcane.incantation")
 local M = {}
 
+local cooldown =  604800 --604800 is one week in seconds
+
 local function getRuneToTeach(spell)
     for i = 1, #runes.Runes do
         if i ~= 6 then --no point checking for Bhona
@@ -54,7 +56,7 @@ local function getTargetsMagicLevels(target, rune)
             end
         end
     end
-return magicLevel
+    return magicLevel
 end
 
 local function levelRequirementNotMet(target, runeToTeach)
@@ -63,11 +65,18 @@ local function levelRequirementNotMet(target, runeToTeach)
     if targetLevel >= levelReq then
         return false
     end
-return true
+    return true
 end
 
-local function notEnoughTimeHasPassed(target, spell)
-    return false --temporarily just bypass teaching cooldown
+local function notEnoughTimeHasPassed(target)
+    local quests = {7002, 7003}
+    for _, quest in pairs(quests) do
+        local time = target:getQuestProgress(quest)
+        if time == 0 then
+            return false
+        end
+    end
+    return true
 end
 
 local function statRequirementNotMet(target, runeToTeach)
@@ -78,28 +87,77 @@ local function statRequirementNotMet(target, runeToTeach)
         return false
     end
 
-return true
+    return true
 end
 
 local function notAMage(target)
-    return false --temporarily bypass mage check
+    if target:getMagicType() == 0 then
+        return false
+    end
+return true
 end
 
 local function reachedTeachingCapacity(user)
-    return false --temporarily bypass teaching capacity
+    local quests = {7004, 7005, 7006, 7007}
+    for _, quest in pairs(quests) do
+        local time = user:getQuestProgress(quest)
+        if time == 0 then
+            return false
+        end
+    end
+return true
+end
+
+local function checkForExpiredCooldowns(target)
+    local time = tonumber(world:getTime("unix"))
+    local quests = {7002, 7003, 7004, 7005, 7006, 7007}
+    for _, quest in pairs(quests) do
+        local setTime = target:getQuestProgress(quest)
+        if time >= setTime then
+            target:setQuestProgress(quest, 0)
+        end
+    end
 end
 
 local function setLearningCooldown(target)
-    return --awaiting implementation of learning cooldown
+    local time = tonumber(world:getTime("unix"))
+    local timeWithCooldown = time+cooldown
+    local learnedTime1 = target:getQuestProgress(7002)
+    local learnedTime2 = target:getQuestProgress(7003)
+    if learnedTime1 == 0 then
+        target:setQuestProgress(7002, timeWithCooldown)
+    elseif learnedTime2 == 0 then
+        target:setQuestProgress(7003, timeWithCooldown)
+    else
+        debug("This shouldn't happen.")
+    end
 end
 
 local function setTeachingCooldown(user)
-    return --awaiting implemenation of teaching cooldown
+    local time = tonumber(world:getTime("unix"))
+    local timeWithCooldown = time+cooldown
+    local learnedTime1 = user:getQuestProgress(7004)
+    local learnedTime2 = user:getQuestProgress(7005)
+    local learnedTime3 = user:getQuestProgress(7006)
+    local learnedTime4 = user:getQuestProgress(7007)
+    if learnedTime1 == 0 then
+        user:setQuestProgress(7004, timeWithCooldown)
+    elseif learnedTime2 == 0 then
+        user:setQuestProgress(7005, timeWithCooldown)
+    elseif learnedTime3 == 0 then
+        user:setQuestProgress(7006, timeWithCooldown)
+    elseif learnedTime4 == 0 then
+        user:setQuestProgress(7007, timeWithCooldown)
+    else
+        debug("This shouldn't happen.")
+    end
 end
 
 local function teachingCheck(user, target, spell)
     local manaCost = 5000
     local runeToTeach = getRuneToTeach(spell)
+    checkForExpiredCooldowns(user)
+    checkForExpiredCooldowns(target)
         if  magic.hasSufficientMana(user,manaCost) then
             if runes.checkIfLearnedRune(target,"", runeToTeach, "isQuest") then
                 user:inform("","Target already knows that rune.")
@@ -109,7 +167,7 @@ local function teachingCheck(user, target, spell)
                 user:inform("", "Target is not skilled enough at magic to learn this rune yet.")
                 return
             end
-            if notEnoughTimeHasPassed(target, spell) then
+            if notEnoughTimeHasPassed(target) then
                 user:inform("", "Not enough time has passed yet since the last time the target was taught how to use a magic rune.")
                 return
             end
