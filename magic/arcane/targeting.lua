@@ -212,6 +212,7 @@ local setPos = true
             thePosition = targeted.pos
             if not dodgable and not (PEN and Lev) then
                 positionsAndTargets.targets[#positionsAndTargets.targets+1] = targeted
+                positionsAndTargets.targetToTeach = targeted
                 setPos = false
             end
         else
@@ -221,6 +222,7 @@ local setPos = true
                 local target = world:getCharacterOnField(thePosition)
                 if target:getType() == Character.player or target:getType() == Character.monster then
                     positionsAndTargets.targets[#positionsAndTargets.targets+1] = target
+                    positionsAndTargets.targetToTeach = target
                     setPos = false
                 end
             end
