@@ -48,6 +48,31 @@ M.Runes = { -- [(1)Rune Number], [(2)Rune Name], [(3)Mana cost],[(4)Cast Time],[
 {29,"Pera","Small","Short",10}
 }
 
+function M.getStatRequirementOfRune(runeNumber)
+    local manaCost
+    local stat
+    for _, rune in pairs(M.Runes) do
+        if rune[1] == runeNumber then
+            manaCost = rune[3]
+        end
+    end
+    local costToStatReq = {
+        {cost = "Large", stat = 40},
+        {cost = "Medium", stat = 35},
+        {cost = "Small", stat = 30}
+    }
+    for _, cost in pairs(costToStatReq) do
+        if manaCost == cost.cost then
+            stat = cost.stat
+        end
+    end
+    if runeNumber == 6 then
+        stat = 50 --Only the most dedicated mage character can become teachers
+    end
+    return stat
+end
+
+
 function M.getLevelRequirementOfRune(runeNumber)
     for _, rune in pairs(M.Runes) do
         if rune[1] == runeNumber then
