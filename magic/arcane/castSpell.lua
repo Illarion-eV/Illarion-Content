@@ -29,6 +29,24 @@ local skilling = require("magic.arcane.skilling")
 
 local M = {}
 
+local function statReqMet(user, spell)
+local statReq = 0
+    for _ , rune in pairs(runes.Runes) do
+        if runes.checkSpellForRune(rune[1], spell) then
+            local newStat = runes.getStatRequirementOfRune(rune[1])
+            if newStat > statReq then
+                statReq = newStat
+            end
+        end
+    end
+    local userStats = user:increaseAttrib("willpower", 0) + user:increaseAttrib("essence", 0) + user:increaseAttrib("intelligence", 0)
+
+    if userStats >= statReq then
+        return true
+    end
+    return false
+end
+
 function M.castSpell(user, spell, actionState)
 local positionsAndTargets = targeting.getPositionsAndTargets(user, spell)
     if not positionsAndTargets then --rarely happens if you try to cast immediately after an !fr, also happens if you cast a PEN Lev spell after expiry
@@ -49,6 +67,11 @@ local castSFXDuration = 0
 local castGFXDuration = 10
 local castGFX = magicGFX.getUserGFX(spell)
     if actionState == Action.none then
+        if not statReqMet(user, spell) then
+            --If stats are lowered below the threshhold to learn a rune, whether through a trainer, a potion or something else
+            user:inform("", "As you attempt to cast the spell, you feel an abrupt headache prevent you from proceeding. Did something happen to your ability to cast magic?")
+            return
+        end
         if not range.isTargetInRange(user, spell, element, position) then
             user:inform("","The target is too far away.")
             return
