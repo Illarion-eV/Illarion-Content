@@ -70,8 +70,15 @@ local function notEnoughTimeHasPassed(target, spell)
     return false --temporarily just bypass teaching cooldown
 end
 
-local function statRequirementNotMet(target, spell)
-    return false --temporarily bypass stat requirement
+local function statRequirementNotMet(target, runeToTeach)
+    local statReq = runes.getStatRequirementOfRune(runeToTeach)
+    local targetStatTotal = target:increaseAttrib("willpower", 0) + target:increaseAttrib("essence", 0) + target:increaseAttrib("intelligence", 0)
+
+    if tonumber(targetStatTotal) >= tonumber(statReq) then
+        return false
+    end
+
+return true
 end
 
 local function notAMage(target)
@@ -106,7 +113,7 @@ local function teachingCheck(user, target, spell)
                 user:inform("", "Not enough time has passed yet since the last time the target was taught how to use a magic rune.")
                 return
             end
-            if statRequirementNotMet(target, spell) then
+            if statRequirementNotMet(target, runeToTeach) then
                 user:inform("", "The target does not have the mental faculties to learn this rune.")
                 return
             end
@@ -134,19 +141,18 @@ local function teachingCheck(user, target, spell)
 end
 
 function M.teachRune(user, targets, spell)
-local targetExists = false
-    for _, target in pairs(targets.targets) do
+local target = targets.targetToTeach
+    if not target then
+        user:inform("","You need a target.")
+        return
+    else
         if target:getType() == Character.monster or target:getType() == Character.npc then
             user:inform("","Target must be a player.")
             return
         end
         teachingCheck(user, target, spell)
-        targetExists = true
     end
-    if not targetExists then
-        user:inform("","You need a target.")
-        return
-    end
+
 end
 
 
