@@ -48,7 +48,6 @@ local emptySpellSlots = 0
             if spellName ~= "" and spellName ~= "Unfinished" then
                 if index == i-emptySpellSlots then
                     spellQuestStatus = SourceItem:getData("spell"..i)
-                    User:setQuestProgress(7002,0)
                     User:setQuestProgress(7001,tonumber(spellQuestStatus))
                     User:inform("","Wand primed for the spell: "..spellName..".")
                     return
