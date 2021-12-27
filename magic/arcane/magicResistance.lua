@@ -42,6 +42,8 @@ local willpower = target:increaseAttrib("willpower", 0)
 end
 
 local function getEquipmentValue(target) -- Return a number between 0 and 1.
+local skill = Character["magicResistance"]
+local skillLevel = target:getSkill(skill)
 local equipmentValue = 0
 local jewelleryValue = 0
     for _, equipment in ipairs(equipmentList) do
@@ -49,6 +51,9 @@ local jewelleryValue = 0
         local level = world:getItemStatsFromId(targetItem.id).Level
         if level then
             local addedValue = level/100
+            if tonumber(level) > skillLevel then
+                addedValue = addedValue/10 --90% decreased value if magic resistance level is not higher or the same as the equipments level
+            end
             equipmentValue = equipmentValue + addedValue
         end
     end
