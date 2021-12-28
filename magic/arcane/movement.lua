@@ -18,6 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local runes = require("magic.arcane.runes")
 local magicDamage = require("magic.arcane.magicDamage")
 local effectScaling = require("magic.arcane.effectScaling")
+local texts = require("magic.arcane.base.texts")
 
 local M = {}
 
@@ -208,8 +209,8 @@ local Z = myTarget.z
 local landingX
 local landingY
 local directionToMove
-local informEN = "A blast of air magic sends you flying."
-local informDE = ""
+local informEN = texts.movementTexts.flying.english
+local informDE = texts.movementTexts.flying.german
 local targetPosition
 local landingXReverse
 local landingYReverse
@@ -286,7 +287,7 @@ local direction = math.random(#possibleDirections)
 local Lev = runes.checkSpellForRuneByName("Lev", spell)
     if Lev then
         target:move(direction, true)
-        target:inform("","A strong wind forces you to step aside.")
+        target:inform(texts.movementTexts.walk.german, texts.movementTexts.walk.english)
     end
 end
 
@@ -320,7 +321,7 @@ local direction = getDirection(user, target.pos)
         end
     end
     if Luk or Tah then
-        target:inform("","A sudden burst of wind turns you around.")
+        target:inform(texts.movementTexts.turn.german, texts.movementTexts.turn.english)
     end
 end
 

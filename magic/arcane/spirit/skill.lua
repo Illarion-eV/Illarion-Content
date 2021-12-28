@@ -16,27 +16,20 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local runes = require("magic.arcane.runes")
 local gmTool = require("gm.items.id_99_lockpicks")
+local texts = require("magic.arcane.base.texts")
 
 local M = {}
 
-M.skillTexts= {
-    {value = 3200, english = "Target is highly experienced in many professions.", german = ""},
-    {value = 2200, english = "Target is very experienced in many professions", german = ""},
-    {value = 700, english = "Target is experienced in many professions.", german = ""},
-    {value = 450, english = "Target is experienced in some professions.", german = ""},
-    {value = 300, english = "Target has some experience in multiple professions.", german = ""},
-    {value = 200, english = "Target has at least some experience in a profession.", german = ""},
-    {value = 0, english = "Target has little to no experience in a profession.", german = ""}
-    }
+M.skillTexts = texts.skillTexts
 
 local skillNames = gmTool.skillNames
 
 local function getTotalSkillValue(target)
-local skillValue = 0
+    local skillValue = 0
     for _, skill in pairs(skillNames) do
         skillValue = skillValue + target:getSkill(skill)
     end
-return skillValue
+    return skillValue
 end
 
 function M.skillValueIntoText(information, spell)
@@ -64,7 +57,7 @@ function M.skillValueIntoText(information, spell)
             target.skill.german = germanText
         end
     end
-return information
+    return information
 end
 
 return M

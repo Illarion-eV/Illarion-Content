@@ -16,15 +16,11 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local runes = require("magic.arcane.runes")
+local texts = require("magic.arcane.base.texts")
 
 local M = {}
 
-M.speedTexts = {
-normal = {english = "Target is not under the effect of any hastening or slowing spells.", german = ""},
-high = {english = "Target is under the effect of a hastening spell.", german = ""},
-low =  {english = "Target is under the effect of a slowing spell.", german = ""}
-
-}
+M.speedTexts = texts.speedTexts
 
 function M.getSpeedText(information, spell)
     local speedTexts = M.speedTexts

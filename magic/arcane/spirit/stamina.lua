@@ -16,17 +16,11 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local runes = require("magic.arcane.runes")
+local texts = require("magic.arcane.base.texts")
 
 local M = {}
 
-M.staminaTexts = {
-    {english = "Target is brimming with energy.", german = "", food = 10000},
-    {english = "Target is almost full of energy.", german = "", food = 8000},
-    {english = "Target is starting to get tired.", german = "", food = 5000},
-    {english = "Target is tired.", german = "", food = 2000},
-    {english = "Target is nearly exhausted.", german = "", food = 1},
-    {english = "Target is exhausted and starving.", german = "", food = 0},
-    }
+M.staminaTexts = texts.staminaTexts
 
 function M.getStaminaText(information, spell)
     local Kah = runes.checkSpellForRuneByName("Kah", spell)

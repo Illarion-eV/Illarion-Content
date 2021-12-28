@@ -17,19 +17,13 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local lookat = require("base.lookat")
 local runes = require("magic.arcane.runes")
+local texts = require("magic.arcane.base.texts")
 
 
 
 local M = {}
 
-M.itemTexts = {
-    durability = {english = "Durability: ", german = ""},
-    quality = {english = "Quality: ", german = ""},
-    weight = {english = "Weight: ", german = ""},
-    name = {english = "Item name: ", german = ""},
-    description = {english = "Details: ", german = ""},
-    unit = {singular = {english = "Blackberry", german = ""}, plural = {english = "Blackberries", german = ""}}
-    }
+M.itemTexts = texts.itemTexts
 
 function M.individualItemText(theItem, dIndex, qIndex, fakeWeight)
     local itemTexts = M.itemTexts

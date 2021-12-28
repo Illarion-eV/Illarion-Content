@@ -16,19 +16,13 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local runes = require("magic.arcane.runes")
+local texts = require("magic.arcane.base.texts")
 
 local M = {}
 
-M.directionsList = {
-    {direction = {english = "east", german = ""}},
-    {direction = {english = "west", german = ""}},
-    {direction = {english = "north", german = ""}},
-    {direction = {english = "south", german = ""}},
-    {direction = {english = "southeast", german = ""}},
-    {direction = {english = "northeast", german = ""}},
-    {direction = {english = "southwest", german = ""}},
-    {direction = {english = "northwest", german = ""}}
-    }
+M.directionsList = texts.directionsList
+
+M.locationTexts = texts.locationTexts
 
 local function getDirectionRelativeToUser(user, target)
     local userX = user.pos.x
@@ -101,11 +95,6 @@ local function getDistanceBetweenUserAndTarget(user, target)
     return retVal
 
 end
-
-M.locationTexts = {
-{english = "Target's position is ", german = ""},
-{english = " tiles to the ", german = ""},
-}
 
 function M.getLocationText(user, information, spell)
 local locationTexts = M.locationTexts

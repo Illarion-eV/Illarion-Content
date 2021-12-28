@@ -15,9 +15,11 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
+local texts = require("magic.arcane.base.texts")
+
 local M = {}
 function M.addEffect(myEffect, target)
-    target:inform("","You can feel some of your mana being drained out of your body.")
+    target:inform(texts.manaReduction.german, texts.manaReduction.english)
 end
 
 function M.callEffect(myEffect, target)

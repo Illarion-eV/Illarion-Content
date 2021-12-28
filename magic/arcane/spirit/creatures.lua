@@ -15,14 +15,15 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
+local texts = require("magic.arcane.base.texts")
+
 local M = {}
 
-M.genderTexts = {
-    {english = "male", german = "", value = 0},
-    {english = "female", german = "", value = 1},
-    {english = "Gender: ", german = "", value = 2}
-}
+M.genderTexts = texts.genderTexts
 
+M.racePrefixText = texts.racePrefixText
+
+M.raceList = texts.raceList
 
 
 local function getGenderText(target)
@@ -50,51 +51,6 @@ local function getGenderText(target)
 
     return englishText, germanText
 end
-
-M.raceList = {
-    {name = {english = "human", german = ""}, id = 0},
-    {name = {english = "dwarf", german = ""}, id = 1},
-    {name = {english = "halfling", german = ""}, id = 2},
-    {name = {english = "elf", german = ""}, id = 3},
-    {name = {english = "orc", german = ""}, id = 4},
-    {name = {english = "lizardman", german = ""}, id = 5},
-    {name = {english = "forest troll", german = ""},  id = 9},
-    {name = {english = "mummy", german = ""},  id = 10},
-    {name = {english = "skeleton", german = ""},  id = 11},
-    {name = {english = "beholder", german = ""},  id = 12},
-    {name = {english = "sheep", german = ""},  id = 18},
-    {name = {english = "spider", german = ""},  id = 19},
-    {name = {english = "pig", german = ""},  id = 24},
-    {name = {english = "wasp", german = ""},  id = 27},
-    {name = {english = "stone golem", german = ""},  id = 30},
-    {name = {english = "cow", german = ""},  id = 37},
-    {name = {english = "wolf", german = ""},  id =39},
-    {name = {english = "bear", german = ""},  id = 51},
-    {name = {english = "raptor", german = ""},  id = 52},
-    {name = {english = "zombie", german = ""},  id = 53},
-    {name = {english = "hellhound", german = ""},  id = 54},
-    {name = {english = "imp", german = ""},  id = 55},
-    {name = {english = "iron golem", german = ""},  id = 56},
-    {name = {english = "ratman", german = ""},  id = 57},
-    {name = {english = "dog", german = ""},  id = 58},
-    {name = {english = "beetle", german = ""},  id = 59},
-    {name = {english = "fox", german = ""},  id = 60},
-    {name = {english = "slime", german = ""},  id = 61},
-    {name = {english = "chicken", german = ""},  id = 62},
-    {name = {english = "bone dragon", german = ""},  id = 63},
-    {name = {english = "rat", german = ""},  id = 111},
-    {name = {english = "dragon", german = ""},  id = 112},
-    {name = {english = "rabbit", german = ""},  id = 113},
-    {name = {english = "demon", german = ""},  id = 114},
-    {name = {english = "fairy", german = ""},  id = 115},
-    {name = {english = "deer", german = ""},  id = 116},
-    {name = {english = "ettin", german = ""},  id = 117}
-}
-
-M.racePrefixText = {
-    english = "Race: ",
-    german = ""
-}
 
 local function getRaceText(target)
     local raceNumber = target:getRace()

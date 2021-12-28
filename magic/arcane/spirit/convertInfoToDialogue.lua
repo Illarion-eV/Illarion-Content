@@ -18,27 +18,9 @@ local gatherInfo = require("magic.arcane.spirit.gatherInfo")
 local common = require("base.common")
 local runes = require("magic.arcane.runes")
 local attributes = require("magic.arcane.spirit.attributes")
+local texts = require("magic.arcane.base.texts")
 
 local M = {}
-
-M.informDialogueTexts = {
-
-}
-
-M.infoOptionsText = {
-    {english = "Gender/race", german = "", identifier = "genderRace", rune = "Fhen"},
-    {english = "Mana", german = "", identifier = "MP", rune = "Ira"},
-    {english = "Stamina", german = "", identifier = "FP", rune = "Kah"},
-    {english = "Location", german = "", identifier = "location", rune = "Mes"},
-    {english = "Skill", german = "", identifier = "skill", rune = "Orl"},
-    {english = "Magic Resistance", german = "", identifier = "MR", rune = "Pherc"},
-    {english = "Attributes", german = "", identifier = "intelligence", rune = "Qwan"},
-    {english = "Terrain type", german = "", identifier = "terrain", rune = "PEN"},
-    {english = "Health", german = "", identifier = "HP", rune = "Sih"},
-    {english = "Speed", german = "", identifier = "spd", rune = "Sul"},
-    {english = "Item properties", german = "", identifier = "item", rune = "Anth"},
-    {english = "Equipment", german = "", identifier = "equipment", rune = "Sav"}
-    }
 
 local function viewEquippedItem(informedTarget, selectedItem, information, spell)
     local germanTitle = selectedItem.name.german
@@ -61,7 +43,7 @@ local function viewEquipmentSelectionDialogue(informedTarget, information, selec
     local englishText
     local germanText
 
-    for _, infoText in pairs(M.infoOptionsText) do
+    for _, infoText in pairs(texts.infoOptionsText) do
         if infoText.identifier == "equipment" then
             englishTitle = infoText.english
             germanTitle = infoText.german
@@ -120,7 +102,7 @@ local function viewAttributteMessageDialogue(informedTarget, information, select
     local englishTitle
     local germanTitle
 
-    for _, infoText in pairs(M.infoOptionsText) do
+    for _, infoText in pairs(texts.infoOptionsText) do
         if infoText.identifier == "intelligence" then
             englishTitle = infoText.english
             germanTitle = infoText.german
@@ -170,7 +152,7 @@ local function viewMessageDialogue(informedTarget, information, selectedTarget, 
         return
     end
 
-    for _, infoText in pairs(M.infoOptionsText) do
+    for _, infoText in pairs(texts.infoOptionsText) do
         if infoText.identifier == identifier then
             englishTitle = infoText.english
             germanTitle = infoText.german
@@ -193,15 +175,10 @@ local function viewMessageDialogue(informedTarget, information, selectedTarget, 
 
 end
 
-M.chooseInfoTexts = {
-title = {english = "Target information", german = ""},
-text = {english = "Choose what information of the target you want to view.", german = ""}
-}
-
 local function chooseWhatInfoToView(informedTarget, information, selectedTarget, spell)
 
-    local infoOptionsText = M.infoOptionsText
-    local chooseInfoTexts = M.chooseInfoTexts
+    local infoOptionsText = texts.infoOptionsText
+    local chooseInfoTexts = texts.chooseInfoTexts
 
     local callback = function(dialog)
         if not dialog:getSuccess() then
@@ -241,22 +218,8 @@ local function chooseWhatInfoToView(informedTarget, information, selectedTarget,
 
 end
 
-M.targetSelectionList = {
-    title = {english = "Target Selection", german = ""},
-    text1 = {english = "Select which target you want to send the information to.", german = ""},
-    text2 = {english = "Select which target you want to view the information of.", german = ""},
-    target = {english = "Target ", german = ""}
-}
-
-M.types = {
-    {english = "creature", german = ""},
-    {english = "item", german = ""},
-    {english = "position", german = ""},
-    {english = "player", german = ""}
-}
-
 local function getGermanType(type)
-    for _, currentType in pairs(M.types) do
+    for _, currentType in pairs(texts.types) do
         if type == currentType.english then
             return currentType.german
         end
@@ -264,7 +227,7 @@ local function getGermanType(type)
 end
 
 function M.startDialogue(informedTarget, information, spell)
-    local targetSelectionList = M.targetSelectionList
+    local targetSelectionList = texts.targetSelectionList
 
     if #information == 1 then
         chooseWhatInfoToView(informedTarget, information, information[1].target, spell)
@@ -297,7 +260,7 @@ function M.startDialogue(informedTarget, information, spell)
 end
 
 local function getTargetFromList(user, information, spell)
-    local targetSelectionList = M.targetSelectionList
+    local targetSelectionList = texts.targetSelectionList
     local range = 7
     local nearbyPlayers = world:getCharactersInRangeOf(user.pos, range)
 

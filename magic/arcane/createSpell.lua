@@ -17,9 +17,11 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local runes = require("magic.arcane.runes")
 local magic = require("base.magic")
+local texts = require("magic.arcane.base.texts")
 
 local M = {}
 M.MAX_SPELL_SLOTS = 20
+local createSpellTexts = texts.createSpellTexts
 
 local function getMagicBook(user)
     local leftItem = user:getItemAt(5)
@@ -52,7 +54,7 @@ local count = 0
         end
     end
     if count >= 2 then
-        user:inform("", "Bhona spells may only contain up to two runes.")
+        user:inform(createSpellTexts.BHONA.german, createSpellTexts.BHONA.english )
         return true
     end
 return false
@@ -109,9 +111,9 @@ local runeStart = 7
                         world:makeSound(13,user.pos)
                         runes.learnRune(user, targetItem, i, "isSpell", "spell"..slot) -- Add rune to spell
                         M.spellCreationSelectionMenu(user, targetItem, slot)
-                        user:inform("","The rune "..runes.Runes[i][2].." has been added to the spell.")
+                        user:inform(createSpellTexts.prefix.german..runes.Runes[i][2]..createSpellTexts.suffix.german,createSpellTexts.prefix.english..runes.Runes[i][2]..createSpellTexts.suffix.english)
                     else
-                        user:inform("","Not enough mana.")
+                        user:inform(createSpellTexts.mana.german ,createSpellTexts.mana.english)
                         M.spellCreationSelectionMenu(user, targetItem, slot)
                     end
                 end
@@ -120,7 +122,7 @@ local runeStart = 7
             end
         end
     end
-    local dialog = SelectionDialog(common.GetNLS(user,"","Spell Creation"), common.GetNLS(user,"","Select which rune you want to add to your spell."), callback)
+    local dialog = SelectionDialog(common.GetNLS(user,createSpellTexts.creation.german, createSpellTexts.creation.english), common.GetNLS(user, createSpellTexts.selectRune.german, createSpellTexts.selectRune.english), callback)
     for i = runeStart, #runes.Runes do -- For every rune
         if i ~= 6 then
             if runes.checkIfLearnedRune(user,"", i, "isQuest") and (not runes.checkIfLearnedRune(user, targetItem, i, "isSpell", "spell"..slot)) then -- check if user knows rune and if rune is already part of spell being created
@@ -130,10 +132,10 @@ local runeStart = 7
     end
     if not checkIfKnowsAnyMinorRune(user) then -- If you do not know any runes
         M.spellCreationSelectionMenu(user, targetItem, slot)
-        user:inform("","You must first learn how to use any minor rune before you can add it to your spell.")
+        user:inform(createSpellTexts.minor.german, createSpellTexts.minor.english)
     elseif not checkForDialogOptions(user, targetItem, slot) then
         M.spellCreationSelectionMenu(user, targetItem, slot)
-        user:inform("","You do not know any more runes that can be added to the spell.")
+        user:inform(createSpellTexts.allRunes.german ,createSpellTexts.allRunes.english)
     else
         user:requestSelectionDialog(dialog)
     end
@@ -154,9 +156,9 @@ local unknownRunes = 0
                         world:makeSound(13,user.pos)
                         runes.learnRune(user, targetItem, i, "isSpell", "spell"..slot)
                         M.spellCreationSelectionMenu(user, targetItem, slot)
-                        user:inform("","The rune "..runes.Runes[i][2].." has been added as the primary rune of the spell.")
+                        user:inform(createSpellTexts.prefix.german..runes.Runes[i][2]..createSpellTexts.suffixPrimary.german, createSpellTexts.prefix.english..runes.Runes[i][2]..createSpellTexts.suffixPrimary.english)
                     else
-                        user:inform("","Not enough mana.")
+                        user:inform(createSpellTexts.mana.german, createSpellTexts.mana.english)
                         M.spellCreationSelectionMenu(user, targetItem, slot)
                     end
                     return
@@ -166,7 +168,7 @@ local unknownRunes = 0
             end
         end
     end
-    local dialog = SelectionDialog(common.GetNLS(user,"","Spell Creation"), common.GetNLS(user,"","Select a primary rune for your spell."), callback)
+    local dialog = SelectionDialog(common.GetNLS(user,createSpellTexts.creation.german, createSpellTexts.creation.english), common.GetNLS(user, createSpellTexts.selectPrimary.german, createSpellTexts.selectPrimary.english), callback)
     for i = 1,6 do
         if runes.checkIfLearnedRune(user,"", i, "isQuest") then
             dialog:addOption(0, runes.Runes[i][2])
@@ -182,9 +184,9 @@ local function nameSpell(user, targetItem, slot)
         local input = dialog:getInput()
         targetItem:setData("spellName"..slot,input) -- Set name for spell
         world:changeItem(targetItem) -- save name for spell
-        user:inform("","You name the spell in spell slot "..slot.. ": "..input..".")
+        user:inform(createSpellTexts.slot.german..slot.. ": "..input..".",createSpellTexts.slot.english..slot.. ": "..input..".")
     end
-user:requestInputDialog(InputDialog("Spell Creation","Name your spell.",false,255,callback))
+user:requestInputDialog(InputDialog(common.GetNLS(user,createSpellTexts.creation.german, createSpellTexts.creation.english), common.GetNLS(user, createSpellTexts.nameSpell.german, createSpellTexts.nameSpell.english),false,255,callback))
 end
 function M.spellCreationSelectionMenu(user, targetItem, slot)
     local callback = function(dialog)
@@ -200,9 +202,9 @@ function M.spellCreationSelectionMenu(user, targetItem, slot)
             nameSpell(user, targetItem, slot)
         end
     end
-    local dialog = SelectionDialog(common.GetNLS(user,"","Spell Creation"), common.GetNLS(user,"","Pick an option."), callback)
-    dialog:addOption(0, "Add rune")
-    dialog:addOption(0, "Finish spell")
+    local dialog = SelectionDialog(common.GetNLS(user,createSpellTexts.creation.german, createSpellTexts.creation.english), common.GetNLS(user,createSpellTexts.pickOption.german,createSpellTexts.pickOption.english), callback)
+    dialog:addOption(0, common.GetNLS(user, createSpellTexts.addRune.german, createSpellTexts.addRune.english))
+    dialog:addOption(0, common.GetNLS(user, createSpellTexts.finish.german, createSpellTexts.finish.english))
 user:requestSelectionDialog(dialog)
 end
 local function overWriteConfirmation(user, targetItem, slot)
@@ -213,16 +215,16 @@ local function overWriteConfirmation(user, targetItem, slot)
         local index = dialog:getSelectedIndex() +1
         if index == 1 then
             targetItem:setData("spell"..slot,"0") -- Reset the spell slot
-            targetItem:setData("spellName"..slot,"Unfinished") -- Remove old spell name
+            targetItem:setData("spellName"..slot, common.GetNLS(user, createSpellTexts.unfinished.german, createSpellTexts.unfinished.english)) -- Remove old spell name
             world:changeItem(targetItem) -- Save the changes above
             M.spellCreationSelectionMenu(user, targetItem, slot)
         elseif index == 2 then
             M.slotSelection(user)
         end
     end
-    local dialog = SelectionDialog(common.GetNLS(user,"","Spell Creation"), common.GetNLS(user,"","This  spell slot is already in use.\nAre you sure you want to overwrite the selected spell slot?"), callback)
-    dialog:addOption(0, "Yes, overwrite it.")
-    dialog:addOption(0, "No, select another slot.")
+    local dialog = SelectionDialog(common.GetNLS(user,createSpellTexts.creation.german, createSpellTexts.creation.english), common.GetNLS(user,"","This  spell slot is already in use.\nAre you sure you want to overwrite the selected spell slot?"), callback)
+    dialog:addOption(0, common.GetNLS(user, createSpellTexts.overwrite.german, createSpellTexts.overwrite.english))
+    dialog:addOption(0, common.GetNLS(user, createSpellTexts.dontOverwrite.german, createSpellTexts.dontOverwrite.english))
     user:requestSelectionDialog(dialog)
 end
 local function slotSelection(user)
@@ -233,20 +235,23 @@ local mBook = getMagicBook(user)
         end
         local index = dialog:getSelectedIndex() +1
         for i = 1,M.MAX_SPELL_SLOTS do
-            if index == i and (mBook:getData("spellName"..i) ~= "Unfinished") and (mBook:getData("spellName"..i) ~= "") then
+            local spellName = mBook:getData("spellName"..i)
+            local germanUnfinished = createSpellTexts.unfinished.german
+            local englishUnfinished = createSpellTexts.unfinished.english
+            if index == i and spellName ~= englishUnfinished and spellName ~= germanUnfinished and spellName ~= "" then
                 overWriteConfirmation(user, mBook, i)
                 return
-            elseif index == i and (mBook:getData("spellName"..i) == "Unfinished") then
+            elseif index == i and (spellName == englishUnfinished or spellName == germanUnfinished) then
                 M.spellCreationSelectionMenu(user, mBook, i)
             elseif index == i then
-                mBook:setData("spellName"..i,"Unfinished") -- Remove old spell name
+                mBook:setData("spellName"..i, common.GetNLS(user, germanUnfinished, englishUnfinished)) -- Remove old spell name
                 mBook:setData("spell"..i,"0") -- Set a blank value for spell so it doesn't end up being NIL
                 world:changeItem(mBook) -- Save the changes above
                 M.spellCreationSelectionMenu(user, mBook, i)
             end
         end
     end
-    local dialog = SelectionDialog(common.GetNLS(user,"","Spell Creation"), common.GetNLS(user,"","Select which spell slot you want to store a spell in."), callback)
+    local dialog = SelectionDialog(common.GetNLS(user,createSpellTexts.creation.german, createSpellTexts.creation.english), common.GetNLS(user,"","Select which spell slot you want to store a spell in."), callback)
     for i = 1,M.MAX_SPELL_SLOTS do
         if (mBook:getData("spellName"..i) ~= "") then
             dialog:addOption(0,"Spell Slot "..i.."("..mBook:getData("spellName"..i)..")")
@@ -274,7 +279,7 @@ local function learnRunesAdmin(user)
             end
         end
     end
-    local dialog = SelectionDialog(common.GetNLS(user,"","Spell Creation"), common.GetNLS(user,"","Select which rune you want to add to your spell."), callback)
+    local dialog = SelectionDialog(common.GetNLS(user,createSpellTexts.creation.german, createSpellTexts.creation.english), common.GetNLS(user,createSpellTexts.selectRune.german,createSpellTexts.selectRune.english), callback)
     for i = 1, #runes.Runes do -- For every rune
         if not runes.checkIfLearnedRune(user,"", i, "isQuest") then -- check if user doesn't know rune
             dialog:addOption(0,runes.Runes[i][2])
@@ -284,11 +289,11 @@ local function learnRunesAdmin(user)
 end
 local function unLearnAllRunesAdmin(user)
     user:setQuestProgress(7000, 0)
-    user:inform("","You've lost all knowledge of magic runes that you used to have.")
+    user:inform("You've lost all knowledge of magic runes that you used to have.","You've lost all knowledge of magic runes that you used to have.") --temporary text for testing, needs no german translation
 end
 local function dispenseMagicBookAdmin(user)
     common.CreateItem(user,2619,1,999,{["magicBook"]="true"})
-    user:inform("","Book dispensed.")
+    user:inform("Book dispensed.","Book dispensed.") --Temporary testing text, no need for  translation
 end
 function M.mainDialog(user)
     local callback = function(dialog)
@@ -301,10 +306,10 @@ function M.mainDialog(user)
                 if user:countItemAt("body",2619,{["magicBook"]="true"}) ~= 0 and user:countItemAt("body",463) ~= 0 then
                     slotSelection(user)
                 else
-                    user:inform("","You must hold a magic book and quill in your hands.")
+                    user:inform(createSpellTexts.quillAndBook.german,createSpellTexts.quillAndBook.english)
                 end
             else
-                user:inform("","You must first learn how to use a primary rune before you can create a spell.")
+                user:inform(createSpellTexts.noPrimary.german, createSpellTexts.noPrimary.english)
             end
         elseif index == 2 then --and user:isAdmin() then
             learnRunesAdmin(user)
@@ -314,13 +319,11 @@ function M.mainDialog(user)
             dispenseMagicBookAdmin(user)
         end
     end
-    local dialog = SelectionDialog(common.GetNLS(user,"","Spell Creation"), common.GetNLS(user,"","Pick an option."), callback)
-    dialog:addOption(0, "Create a spell")
-    --if user:isAdmin() then
-        dialog:addOption(0, "Learn runes(admin only)")
-        dialog:addOption(0, "Unlearn all runes (admin only)")
-        dialog:addOption(0, "Dispense Spellbook (admin only)")
-    --end
+    local dialog = SelectionDialog(common.GetNLS(user,createSpellTexts.creation.german, createSpellTexts.creation.english), common.GetNLS(user, createSpellTexts.pickOption.german, createSpellTexts.pickOption.english), callback)
+    dialog:addOption(0, common.GetNLS(user, createSpellTexts.create.german, createSpellTexts.create.english))
+    dialog:addOption(0, "Learn runes(admin only)") --No need for this and the two below to have translations as they are temporary for testing
+    dialog:addOption(0, "Unlearn all runes (admin only)")
+    dialog:addOption(0, "Dispense Spellbook (admin only)")
     user:requestSelectionDialog(dialog)
 end
 return M

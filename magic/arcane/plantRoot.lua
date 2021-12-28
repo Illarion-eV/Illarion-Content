@@ -20,6 +20,7 @@ local magicDamage = require("magic.arcane.magicDamage")
 local staticObjects = require("magic.arcane.staticObjects")
 local effectScaling = require("magic.arcane.effectScaling")
 local lookat = require("base.lookat")
+local texts = require("magic.arcane.base.texts")
 local M = {}
 
 local howManySecondsUntilFullSpeed = 10
@@ -111,8 +112,8 @@ local function plantCreation(user, target, spell, item)
         local myPosition = M.getPosition(target)
         local plant = world:createItemFromId(plantID, 1, myPosition, true, 999, {["illusion"] = tostring(Lhor), ["scaling"] = scaling, ["spell"] = spell})
         plant.wear = wear
-        lookat.SetSpecialName(plant,"GERMAN HERE","Entangling Plant")
-        lookat.SetSpecialDescription(plant,"GERMAN HERE","Upon closer inspection, you may notice the leaves of the plant having a magical looking glow to them.")
+        lookat.SetSpecialName(plant, texts.plantRootTexts.name.german, texts.plantRootTexts.name.english)
+        lookat.SetSpecialDescription(plant, texts.plantRootTexts.description.german, texts.plantRootTexts.description.english)
         world:changeItem(plant)
 end
 

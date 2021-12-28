@@ -18,27 +18,15 @@ local runes = require("magic.arcane.runes")
 local common = require("base.common")
 local gatherInfo = require("magic.arcane.spirit.gatherInfo")
 local convertInfoToDialogue = require("magic.arcane.spirit.convertInfoToDialogue")
-local skill = require("magic.arcane.spirit.skill")
-local fakeMana = require("magic.arcane.spirit.mana")
-local magicResistance = require("magic.arcane.spirit.magicResistance")
-local fakeHeal = require("magic.arcane.spirit.health")
-local attributeText = require("magic.arcane.spirit.attributes")
-local stamina = require("magic.arcane.spirit.stamina")
 local lookat = require("base.lookat")
-local fakeItems = require("magic.arcane.spirit.items")
-local fakeCreatures = require("magic.arcane.spirit.creatures")
-local location = require("magic.arcane.spirit.location")
-local terrain = require("magic.arcane.spirit.terrain")
 local playerlookat = require("server.playerlookat")
-local speed = require("magic.arcane.spirit.speed")
+local texts = require("magic.arcane.base.texts")
+local fakeItems = require("magic.arcane.spirit.items")
 local information = {}
 
 local M = {}
 
-M.fakeEquipmentText = {
-durability = {name = {english = "Set Durability", german = ""}, text = {english = "Choose what durability the equipment should be portrayed as having."}},
-quality = {name = {english = "Set Quality", german = ""}, text = {english = "Choose what quality the equipment should be portrayed as having."}}
-}
+M.fakeEquipmentText = texts.fakeEquipmentText
 
 
 local function fakeEquipment(user, targets, myTarget, spell)
@@ -229,8 +217,8 @@ end
 
 local function fakeTerrain(user, targets, myTarget, spell)
 
-    local tilePrefix = terrain.tilePrefix
-    local tileDescriptions = terrain.tileDescriptions
+    local tilePrefix = texts.tilePrefix
+    local tileDescriptions = texts.tileDescriptions
     local callback = function(dialog)
         if not dialog:getSuccess() then
             return
@@ -261,8 +249,8 @@ local function fakeTerrain(user, targets, myTarget, spell)
 end
 
 local function fakeLocation(user, targets, myTarget, spell)
-    local directionsList = location.directionsList
-    local locationTexts = location.locationTexts
+    local directionsList = texts.directionsList
+    local locationTexts = texts.locationTexts
     local directionEn
     local directionDe
     local distance
@@ -321,9 +309,9 @@ local function fakeGenderRace(user, targets, myTarget, spell)
     local germanRace
     local englishGender
     local germanGender
-    local raceList = fakeCreatures.raceList
-    local racePrefixText = fakeCreatures.racePrefixText
-    local genderTexts = fakeCreatures.genderTexts
+    local raceList = texts.raceList
+    local racePrefixText = texts.racePrefixText
+    local genderTexts = texts.genderTexts
 
     local callback2 = function(genderDialog)
         if not genderDialog:getSuccess() then
@@ -383,7 +371,7 @@ local function fakeGenderRace(user, targets, myTarget, spell)
 end
 
 local function fakeSpeed(user, targets, myTarget, spell)
-    local speedTexts = speed.speedTexts
+    local speedTexts = texts.speedTexts
     local germanText
     local englishText
     local speedValues = {"high", "normal", "low"}
@@ -499,8 +487,8 @@ local function fakeItem(user, targets, myTarget, spell)
 end
 
 local function fakeAttributes(user, targets, myTarget, spell)
-    local statText = attributeText.statText
-    local statValuesText = attributeText.statValuesText
+    local statText = texts.statText
+    local statValuesText = texts.statValuesText
     local callback = function(dialog)
 
         if not dialog:getSuccess() then
@@ -544,7 +532,7 @@ local function fakeAttributes(user, targets, myTarget, spell)
 end
 
 local function fakeHealth(user, targets, myTarget, spell)
-    local healthTexts = fakeHeal.healthTexts
+    local healthTexts = texts.healthTexts
 
     local attribValues = {
         {value = 10000},
@@ -601,7 +589,7 @@ local function fakeHealth(user, targets, myTarget, spell)
 end
 
 local function fakeMagicResistance(user, targets, myTarget, spell)
-    local MRtexts = magicResistance.MRtexts
+    local MRtexts = texts.MRtexts
     local magicResistanceValues = {
         {value = 1},
         {value = 0.65},
@@ -660,7 +648,7 @@ local function fakeMagicResistance(user, targets, myTarget, spell)
 end
 
 local function fakeSkill(user, targets, myTarget, spell)
-    local skillTexts = skill.skillTexts
+    local skillTexts = texts.skillTexts
 
     local callback = function(dialog)
         if not dialog:getSuccess() then
@@ -694,7 +682,7 @@ local function fakeSkill(user, targets, myTarget, spell)
 end
 
 local function fakePlayerMana(user, targets, myTarget, spell)
-    local manaTexts = fakeMana.manaTexts
+    local manaTexts = texts.manaTexts
 
     local attribValues = {
         {value = 10000},
@@ -752,7 +740,7 @@ local function fakePlayerMana(user, targets, myTarget, spell)
 end
 
 local function fakeFood(user, targets, myTarget, spell)
-    local staminaTexts = stamina.staminaTexts
+    local staminaTexts = texts.staminaTexts
         local attribValues = {
             {value = 10000},
             {value = 8001},

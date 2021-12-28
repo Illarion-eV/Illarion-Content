@@ -18,28 +18,13 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local runes = require("magic.arcane.runes")
 local playerlookat = require("server.playerlookat")
 local items = require("magic.arcane.spirit.items")
+local texts = require("magic.arcane.base.texts")
 
 local M = {}
 
-M.equipmentNames = {
-    {english = "Backpack", german = "", slot = 0},
-    {english = "Head", german = "", slot = 1},
-    {english = "Neck", german = "", slot = 2},
-    {english = "Torso", german = "", slot = 3},
-    {english = "Hands", german = "", slot = 4},
-    {english = "In Left Hand", german = "", slot = 5},
-    {english = "In Right Hand", german = "", slot = 6},
-    {english = "Left ring finger", german = "", slot = 7},
-    {english = "Right ring finger", german = "", slot = 8},
-    {english = "Legs", german = "", slot = 9},
-    {english = "Feet", german = "", slot = 10},
-    {english = "Back", german = "", slot = 11},
-}
+M.equipmentNames = texts.equipmentNames
 
-M.equipmentPrefix = {
-quality = {english = "Equipment quality: ", german = ""},
-durability = {english = "Equipment state: ", german = ""}
-}
+M.equipmentPrefix = texts.equipmentPrefix
 
 function M.getEquipmentText(information, spell)
     local Anth = runes.checkSpellForRuneByName("Anth", spell)

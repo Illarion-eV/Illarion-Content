@@ -16,25 +16,29 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
 local createSpell = require("magic.arcane.createSpell")
+local texts = require("magic.arcane.base.texts")
 
 local M = {}
-local function checkIfCompleteSpells(User, SourceItem)
+
+local myTexts = texts.magicBookTexts
+
+local function checkIfCompleteSpells(user, SourceItem)
     for i = 1,createSpell.MAX_SPELL_SLOTS do
-        if SourceItem:getData("spellName"..i) ~= "" and SourceItem:getData("spellName"..i) ~= "Unfinished" then
+        if SourceItem:getData("spellName"..i) ~= "" and SourceItem:getData("spellName"..i) ~= texts.createSpellTexts.unfinished.english and SourceItem:getData("spellName"..i) ~= texts.createSpellTexts.unfinished.german then
             return true
         elseif i == createSpell.MAX_SPELL_SLOTS then
             return false
         end
     end
 end
-function M.spellSelection(User, SourceItem)
+function M.spellSelection(user, SourceItem)
 local spellQuestStatus
     if SourceItem:getData("owner") == "" then
-        User:inform("","The spell list is empty. Perhaps you could fill it in at a desk?")
+        user:inform(myTexts.empty.german, myTexts.empty.english)
         return
     end
-    if SourceItem:getData("owner") ~= User.name then
-        User:inform("","All you can see are the inane scribbles made by someone else. They make no sense to you!")
+    if SourceItem:getData("owner") ~= user.name then
+        user:inform(myTexts.inane.german, myTexts.inane.english)
         return
     end
 local emptySpellSlots = 0
@@ -45,11 +49,11 @@ local emptySpellSlots = 0
         local index = dialog:getSelectedIndex() +1
         for i = 1,createSpell.MAX_SPELL_SLOTS do
             local spellName = SourceItem:getData("spellName"..i)
-            if spellName ~= "" and spellName ~= "Unfinished" then
+            if spellName ~= "" and spellName ~= texts.createSpellTexts.unfinished.english and spellName ~= texts.createSpellTexts.unfinished.german then
                 if index == i-emptySpellSlots then
                     spellQuestStatus = SourceItem:getData("spell"..i)
-                    User:setQuestProgress(7001,tonumber(spellQuestStatus))
-                    User:inform("","Wand primed for the spell: "..spellName..".")
+                    user:setQuestProgress(7001,tonumber(spellQuestStatus))
+                    user:inform(myTexts.primed.german..spellName..".",myTexts.primed.english..spellName..".")
                     return
                 end
             else
@@ -57,25 +61,25 @@ local emptySpellSlots = 0
             end
         end
     end
-    local dialog = SelectionDialog(common.GetNLS(User,"","Spell Selection"), common.GetNLS(User,"","Select which spell you want to cast."), callback)
+    local dialog = SelectionDialog(common.GetNLS(user,myTexts.selection.german,myTexts.selection.english), common.GetNLS(user, myTexts.select.german, myTexts.select.english), callback)
     for i = 1,createSpell.MAX_SPELL_SLOTS do
-        if SourceItem:getData("spellName"..i) ~= "" and SourceItem:getData("spellName"..i) ~= "Unfinished" then
+        if SourceItem:getData("spellName"..i) ~= "" and SourceItem:getData("spellName"..i) ~= texts.createSpellTexts.unfinished.english and SourceItem:getData("spellName"..i) ~= texts.createSpellTexts.unfinished.german then
             dialog:addOption(0,SourceItem:getData("spellName"..i))
         end
     end
-    if checkIfCompleteSpells(User, SourceItem) then
-        User:requestSelectionDialog(dialog)
+    if checkIfCompleteSpells(user, SourceItem) then
+        user:requestSelectionDialog(dialog)
     else
-        User:inform("","The spellbook has no complete spells in it for you to cast.")
+        user:inform(myTexts.incomplete.german,myTexts.incomplete.english)
     end
 end
-function M.mainSelectionDialog(User, SourceItem)
-local intelligence = User:increaseAttrib("intelligence", 0)
-local essence = User:increaseAttrib("essence", 0)
-local willpower = User:increaseAttrib("willpower", 0)
+function M.mainSelectionDialog(user, SourceItem)
+local intelligence = user:increaseAttrib("intelligence", 0)
+local essence = user:increaseAttrib("essence", 0)
+local willpower = user:increaseAttrib("willpower", 0)
 local attributeSum = (intelligence + essence + willpower)
-    if attributeSum < 30 or User:getMagicType() ~= 0 or User:getQuestProgress(37) == 0 then
-        User:inform("","All you can see are nonsenical scribbles. Wait, did that line just move? This may be beyond your ability to understand.")
+    if attributeSum < 30 or user:getMagicType() ~= 0 or user:getQuestProgress(37) == 0 then
+        user:inform(myTexts.nonsense.german,myTexts.nonsense.english)
         return
     end
     local callback = function(dialog)
@@ -84,15 +88,15 @@ local attributeSum = (intelligence + essence + willpower)
         end
         local index = dialog:getSelectedIndex() +1
         if index == 1 then
-            M.spellSelection(User, SourceItem)
+            M.spellSelection(user, SourceItem)
         elseif index == 2 then
-            User:setQuestProgress(7001, 0)
-            User:inform("","Wand primed for wand magic & glyph forging.")
+            user:setQuestProgress(7001, 0)
+            user:inform(myTexts.glyphWand.german, myTexts.glyphWand.english)
         end
     end
-local dialog = SelectionDialog(common.GetNLS(User,"","Wand priming"), common.GetNLS(User,"","Select what type of magic you want your wand primed to."), callback)
-dialog:addOption(0,"Spells")
-dialog:addOption(0,"Wand Magic & Glyph Forging")
-User:requestSelectionDialog(dialog)
+local dialog = SelectionDialog(common.GetNLS(user,myTexts.priming.german,myTexts.priming.english), common.GetNLS(user,myTexts.type.german,myTexts.type.english), callback)
+dialog:addOption(0,common.GetNLS(user, myTexts.spells.german, myTexts.spells.english))
+dialog:addOption(0,common.GetNLS(user, myTexts.wandGlyph.german, myTexts.wandGlyph.english))
+user:requestSelectionDialog(dialog)
 end
 return M

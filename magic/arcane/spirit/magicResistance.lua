@@ -17,14 +17,11 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local runes = require("magic.arcane.runes")
 local magicResistance = require("magic.arcane.magicResistance")
+local texts = require("magic.arcane.base.texts")
 
 local M = {}
 
-M.MRtexts = {
- low = {english = "The target has low magic resistance.", german = ""},
- average = {english = "The target has average magic resistance.", german = ""},
- high = {english = "The target has high magic resistance.", german = ""},
-}
+M.MRtexts = texts.MRtexts
 
 function M.getMRText(information, spell)
 local MRtexts = M.MRtexts

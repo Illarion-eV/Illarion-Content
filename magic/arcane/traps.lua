@@ -29,6 +29,7 @@ local stallMana = require("magic.arcane.stallMana")
 local MP = require("magic.arcane.magicPenetration")
 local targeting = require("magic.arcane.targeting")
 local lookat = require("base.lookat")
+local texts = require("magic.arcane.base.texts")
 
 local M = {}
 
@@ -67,11 +68,11 @@ local function trapCreation(user, target, spell, item)
     local trap = world:createItemFromId(graphicID, 1, myPosition, true, 999, {["illusion"] = tostring(Lhor), ["spell"] = spell, ["illuminateWear"] = wear, ["scaling"] = scaling, ["magicPenetration"] = magicPenetration})
     trap.wear = wear
     if graphicID == 372 then
-        lookat.SetSpecialName(trap,"","Earth Cloud")
-        lookat.SetSpecialDescription(trap,"","A misty green cloud with an earthy scent to it.")
+        lookat.SetSpecialName(trap, texts.earthTrapTexts.name.german, texts.earthTrapTexts.name.english)
+        lookat.SetSpecialDescription(trap, texts.earthTrapTexts.description.german, texts.earthTrapTexts.description.english)
     else
-        lookat.SetSpecialName(trap,"GERMAN HERE","Entangling Plant")
-        lookat.SetSpecialDescription(trap,"GERMAN HERE","Upon closer inspection, you may notice the leaves of the plant having a magical looking glow to them.")
+        lookat.SetSpecialName(trap, texts.plantRootTexts.name.german, texts.plantRootTexts.name.english)
+        lookat.SetSpecialDescription(trap, texts.plantRootTexts.description.german, texts.plantRootTexts.description.english)
     end
     world:changeItem(trap)
 end
@@ -146,13 +147,13 @@ local earthCloud = sourceItem:getData("earthCloud")
         newPlant.wear = wear
         world:changeItem(newPlant)
         if illusion == "false" then
-            trapTarget:inform("","As you step onto the plant, it releases a gaseous substance that seems to flock towards you in an attempt to enter your body.")
+            trapTarget:inform(texts.earthTrapTexts.plant.german, texts.earthTrapTexts.plant.english)
         end
     else
         if illusion == "true" then
-            trapTarget:inform("","As you step into the cloud of earth magic, nothing happens to you. Was it just an illusion?")
+            trapTarget:inform(texts.earthTrapTexts.illusion.german, texts.earthTrapTexts.illusion.english)
         else
-            trapTarget:inform("", "Stepping into the cloud of earth magic, the gaseous substance flocks towards you in an attempt to enter your body.")
+            trapTarget:inform(texts.earthTrapTexts.cloud.german, texts.earthTrapTexts.cloud.english)
         end
     end
 end

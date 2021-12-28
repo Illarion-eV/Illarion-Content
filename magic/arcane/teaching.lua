@@ -17,6 +17,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local runes = require("magic.arcane.runes")
 local magic = require("base.magic")
 local incantation = require("magic.arcane.incantation")
+local texts = require("magic.arcane.base.texts")
+
 local M = {}
 
 local cooldown =  604800 --604800 is one week in seconds
@@ -153,6 +155,8 @@ local function setTeachingCooldown(user)
     end
 end
 
+local myTexts = texts.teachingTexts
+
 local function teachingCheck(user, target, spell)
     local manaCost = 5000
     local runeToTeach = getRuneToTeach(spell)
@@ -160,40 +164,40 @@ local function teachingCheck(user, target, spell)
     checkForExpiredCooldowns(target)
         if  magic.hasSufficientMana(user,manaCost) then
             if runes.checkIfLearnedRune(target,"", runeToTeach, "isQuest") then
-                user:inform("","Target already knows that rune.")
+                user:inform(myTexts.knows.german, myTexts.knows.english)
                 return
             end
             if levelRequirementNotMet(target, runeToTeach) then
-                user:inform("", "Target is not skilled enough at magic to learn this rune yet.")
+                user:inform(myTexts.level.german, myTexts.level.english)
                 return
             end
             if notEnoughTimeHasPassed(target) then
-                user:inform("", "Not enough time has passed yet since the last time the target was taught how to use a magic rune.")
+                user:inform(myTexts.studentCooldown.german, myTexts.studentCooldown.english)
                 return
             end
             if statRequirementNotMet(target, runeToTeach) then
-                user:inform("", "The target does not have the mental faculties to learn this rune.")
+                user:inform(myTexts.stats.german, myTexts.stats.english)
                 return
             end
             if notAMage(target) then
-                user:inform("", "The target is not attuned to the ways of magic.")
+                user:inform(myTexts.mage.german, myTexts.mage.english)
                 return
             end
             if reachedTeachingCapacity(user) then
-                user:inform("", "You've been teaching too many people runes recently.")
+                user:inform(myTexts.teacherCooldown.german, myTexts.teacherCooldown.english)
                 return
             end
             user:increaseAttrib("mana", -manaCost)
             world:gfx(41,target.pos)
             world:makeSound(13,target.pos)
             runes.learnRune(target,"", runeToTeach, "isQuest")
-            target:inform("","You have learned how to use the rune "..runes.Runes[runeToTeach][2]..".")
-            user:inform("","You have taught the target how to use the rune "..runes.Runes[runeToTeach][2]..".")
+            target:inform(myTexts.learned.german..runes.Runes[runeToTeach][2]..".", myTexts.learned.english..runes.Runes[runeToTeach][2]..".")
+            user:inform(myTexts.taught.german..runes.Runes[runeToTeach][2]..".", myTexts.taught.english..runes.Runes[runeToTeach][2]..".")
             setLearningCooldown(target)
             setTeachingCooldown(user)
             incantation.speakIncantation(user, spell)
         else
-            user:inform("","Not enough mana.")
+            user:inform(myTexts.mana.german, myTexts.mana.english)
         end
     return
 end
@@ -201,11 +205,11 @@ end
 function M.teachRune(user, targets, spell)
 local target = targets.targetToTeach
     if not target then
-        user:inform("","You need a target.")
+        user:inform(myTexts.target.german, myTexts.target.english)
         return
     else
         if target:getType() == Character.monster or target:getType() == Character.npc then
-            user:inform("","Target must be a player.")
+            user:inform(myTexts.player.german, myTexts.player.english)
             return
         end
         teachingCheck(user, target, spell)

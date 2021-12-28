@@ -16,17 +16,11 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local runes = require("magic.arcane.runes")
+local texts = require("magic.arcane.base.texts")
 
 local M = {}
 
-M.manaTexts = {
-    {english = "Target is brimming with mana.", german = "", mana = 10000},
-    {english = "Target is nearly satiated with mana.", german = "", mana = 8000},
-    {english = "Target has moderate amount of mana.", german = "", mana = 5000},
-    {english = "Target is running low on mana.", german = "", mana = 2000},
-    {english = "Target is almost out of mana.", german = "", mana = 1},
-    {english = "Target only has enough mana to survive.", german = "", mana = 0},
-    }
+M.manaTexts = texts.manaTexts
 
 function M.getManaText(information, spell)
     local Ira = runes.checkSpellForRuneByName("Ira", spell)

@@ -15,20 +15,25 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
-local M = {}
 local runes = require("magic.arcane.runes")
+local texts = require("magic.arcane.base.texts")
+local common = require("base.common")
+
+local M = {}
+
+M.telepathyTexts = texts.telepathyTexts
 
 local function getInputFromAndSendTo(user, target)
     local callback = function(dialog)
         if not dialog:getSuccess() then
-            user:inform("You decided against responding to the telepathic connection.")
+            user:inform(M.telepathyTexts.failure.german, M.telepathyTexts.failure.english)
         else
             local input = dialog:getInput()
-            target:inform("","You hear the voice of your telepathic partner in your mind: "..input)
+            target:inform(M.telepathyTexts.success.german..input,M.telepathyTexts.success.english..input)
         end
     end
 
-    local dialog = InputDialog("What do you want to tell your telepathic partner?","", false, 255, callback)
+    local dialog = InputDialog(common.GetNLS(user, M.telepathyTexts.request.german, M.telepathyTexts.request.english),"", false, 255, callback)
     user:requestInputDialog(dialog)
 end
 
@@ -38,7 +43,7 @@ function M.invoke(user, targets, spell)
             return
         end
         if runes.checkSpellForRuneByName("Kel", spell) or runes.checkSpellForRuneByName("Tah", spell) then
-            target:inform("","You feel a telepathic connection establish between you and someone else.")
+            target:inform(M.telepathyTexts.established.german, M.telepathyTexts.established.english)
         end
         if runes.checkSpellForRuneByName("Kel", spell) then
             getInputFromAndSendTo(user, target)

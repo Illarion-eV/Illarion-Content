@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local runes = require("magic.arcane.runes")
 local range = require("magic.arcane.castingRange")
+local texts = require("magic.arcane.base.texts")
 
 local M = {}
 
@@ -278,7 +279,7 @@ local setPos = true
 
         if heptTime then
             if currentTime-heptTime > timeLimit then
-                user:inform("","It's been too long since you last cast this spell with Hept, casting on selected target instead.")
+                user:inform(texts.levText.german, texts.levText.english)
             elseif heptPosition then
                 setPos = false
                 local targetExists = world:isCharacterOnField(heptPosition)

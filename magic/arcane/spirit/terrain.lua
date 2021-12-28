@@ -15,68 +15,13 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
+local texts = require("magic.arcane.base.texts.lua")
+
 local M = {}
 
-M.tileDescriptions = {
-    {id = 0, english = "Air", german = ""},
-    {id = 1, english = "Rocky terrain", german = ""},
-    {id = 2, english = "Rocky terrain", german = ""},
-    {id = 3, english = "Sandy terrain", german = ""},
-    {id = 4, english = "Muddy terrain", german = ""},
-    {id = 5, english = "Lava", german = ""},
-    {id = 6, english = "Water", german = ""},
-    {id = 7, english = "Rocky terrain", german = ""},
-    {id = 8, english = "Muddy terrain", german = ""},
-    {id = 9, english = "Muddy terrain", german = ""},
-    {id = 10, english = "Snowy terrain", german = ""},
-    {id = 11, english = "Grassy terrain", german = ""},
-    {id = 12, english = "Sandy terrain", german = ""},
-    {id = 13, english = "Rocky terrain", german = ""},
-    {id = 14, english = "Grassy terrain", german = ""},
-    {id = 15, english = "Rocky terrain", german = ""},
-    {id = 16, english = "Muddy terrain", german = ""},
-    {id = 17, english = "Rocky terrain", german = ""},
-    {id = 18, english = "Rocky terrain", german = ""},
-    {id = 19, english = "Icy terrain", german = ""},
-    {id = 20, english = "Icy terrain", german = ""},
-    {id = 34, english = "Air", german = ""},
-    {id = 40, english = "Wooden ground", german = ""},
-    {id = 41, english = "Rocky terrain", german = ""},
-    {id = 42, english = "Rocky terrain", german = ""},
-    {id = 43, english = "Wooden ground", german = ""},
-    {id = 45, english = "Carpet", german = ""},
-    {id = 46, english = "Carpet", german = ""},
-    {id = 47, english = "Carpet", german = ""},
-    {id = 48, english = "Carpet", german = ""},
-    {id = 49, english = "Carpet", german = ""},
-    {id = 50, english = "Carpet", german = ""},
-    {id = 51, english = "Carpet", german = ""},
-    {id = 52, english = "Carpet", german = ""},
-    {id = 53, english = "Carpet", german = ""},
-    {id = 55, english = "Rocky terrain", german = ""},
-    {id = 56, english = "Rocky terrain", german = ""},
-    {id = 57, english = "Rocky terrain", german = ""},
-    {id = 58, english = "Rocky terrain", german = ""},
-    {id = 59, english = "Wooden ground", german = ""},
-    {id = 60, english = "Layered bricks", german = ""},
-    {id = 61, english = "Layered bricks", german = ""},
-    {id = 62, english = "Wooden ground", german = ""},
-    {id = 63, english = "Wooden ground", german = ""},
-    {id = 64, english = "Wooden ground", german = ""},
-    {id = 65, english = "Wooden ground", german = ""},
-    {id = 66, english = "Rocky terrain", german = ""},
-    {id = 67, english = "Carpet", german = ""},
-    {id = 68, english = "Carpet", german = ""},
-    {id = 69, english = "Carpet", german = ""},
-    {id = 70, english = "Carpet", german = ""},
-    {id = 71, english = "Carpet", german = ""},
-    {id = 72, english = "Carpet", german = ""},
-    {id = 73, english = "Carpet", german = ""},
-    {id = 74, english = "Muddy terrain", german = ""},
-    {id = 75, english = "Muddy terrain", german = ""}
-    }
+M.tileDescriptions = texts.tileDescriptions
 
-M.tilePrefix = {english = "Terrain: ", german = ""}
+M.tilePrefix = texts.tilePrefix
 
 function M.getTerrainText(information, spell)
 

@@ -19,6 +19,7 @@ local mdamage = require("magic.arcane.dealMagicDamage")
 local magicDamage = require("magic.arcane.magicDamage")
 local runes = require("magic.arcane.runes")
 local manaStaminaReduction = require("magic.arcane.manaStaminaReduction")
+local texts = require("magic.arcane.base.texts")
 
 local M = {}
 
@@ -91,9 +92,9 @@ function M.addEffect(myEffect, target)
         poison = runes.checkSpellForRuneByName("CUN", spell)
     end
     if burn then
-        target:inform("","You've been inflicted with a magical burn, causing you to suffer fire damage over time.")
+        target:inform(texts.burn.german, texts.burn.english)
     elseif poison then
-        target:inform("","You've been inflicted with a magical poison, causing you to suffer poisonous damage over time.")
+        target:inform(texts.poison.german, texts.poison.english)
     end
 end
 
@@ -127,9 +128,9 @@ function M.loadEffect(myEffect, target)
     if found then
         if ticks > 0 then
             if burn then
-                target:inform("","You've been inflicted with a magical burn, causing you to suffer fire damage over time.")
+                target:inform(texts.burn.german, texts.burn.english)
             elseif poison then
-                target:inform("","You've been inflicted with a magical poison, causing you to suffer poisonous damage over time.")
+                target:inform(texts.poison.german, texts.poison.english)
             end
             myEffect.nextCalled=10
         end

@@ -19,6 +19,7 @@ local character = require("base.character")
 local runes = require("magic.arcane.runes")
 local magicDamage = require("magic.arcane.magicDamage")
 local effectScaling = require("magic.arcane.effectScaling")
+local texts = require("magic.arcane.base.texts")
 
 local M = {}
 
@@ -54,7 +55,7 @@ local amountStolen = 500
             if Sih then
                 character.ChangeHP(user, amountStolen)
                 character.ChangeHP(target, -amountStolen)
-                user:inform("","You siphon some health from your target.")
+                user:inform(texts.lifestealTexts.health.german, texts.lifestealTexts.health.english)
             end
             if Ira then
                 if target:increaseAttrib("mana", 0) > amountStolen then
@@ -63,7 +64,7 @@ local amountStolen = 500
                     target:increaseAttrib("mana", 0)
                 end
                 user:increaseAttrib("mana", amountStolen)
-                user:inform("","You siphon some mana from your target.")
+                user:inform(texts.lifestealTexts.mana.german, texts.lifestealTexts.mana.english)
             end
         end
     end
@@ -71,7 +72,7 @@ end
 
 
 function M.addEffect(myEffect, target)
-    target:inform("","You siphon health from your target, recovering your own over time.") -- replace with different inform depending on spell type
+    target:inform(texts.lifestealTexts.overTime.german, texts.lifestealTexts.overTime.english)
 end
 
 function M.callEffect(myEffect, target)
