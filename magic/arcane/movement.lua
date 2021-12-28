@@ -33,6 +33,12 @@ local function checkIfItemMovable(item)
 local id = item.id
 local wear = item.wear
 local weight = world:getItemStatsFromId(id).Weight
+local bags = {97, 799}
+    for _, bag in pairs(bags) do
+        if id == bag then
+            return false
+        end
+    end
     if weight >= 30000 or wear == 255 then
         return false
     end
