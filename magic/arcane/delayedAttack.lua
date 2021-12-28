@@ -15,7 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
-local magicGFX = require("magic.arcane.magicGFX")
+local magicGFXSFX = require("magic.arcane.magicGFXSFX")
 local targeting = require("magic.arcane.targeting")
 local dealDamage = require("magic.arcane.dealMagicDamage")
 local incantation = require("magic.arcane.incantation")
@@ -67,7 +67,7 @@ function M.spellEffects(user, targets, spell, element, Orl)
     if not (SOLH and OrlRune) then
         illuminate.CheckIfIlluminate(user, targets, spell)
         DoT.dealMagicDoT(user, targets, spell, element)
-        magicGFX.getAdditionalUserGFX(user, spell)
+        magicGFXSFX.getAdditionalUserGFXSFX(user, spell)
         MSReduction.checkForReduceManaOrStamina(user, targets, spell)
         harvestFruit.checkIfHarvestFruit(user, targets, spell)
         movement.applyMovementSpells(user, targets, spell, Orl)
@@ -84,7 +84,7 @@ function M.spellEffects(user, targets, spell, element, Orl)
     else --spell effect gets applied to trap instead
         traps.createEarthTraps(user, targets, spell)
     end
-    magicGFX.getTargetGFX(targets, spell, true)
+    magicGFXSFX.getTargetGFXSFX(targets, spell, true)
 end
 
 function M.applyDelay(user, target, spell, Orl)
@@ -161,7 +161,7 @@ local effectTargets = nextPositionIntoTargets(nextPosition)
         return false
     end
     if foundSpell then
-        magicGFX.getTargetGFX(effectTargets, spell)
+        magicGFXSFX.getTargetGFXSFX(effectTargets, spell)
         myEffect.nextCalled=5
     end
 return true

@@ -19,7 +19,7 @@ local runes = require("magic.arcane.runes")
 local plantRoot = require("magic.arcane.plantRoot")
 local staticObjects = require("magic.arcane.staticObjects")
 local effectScaling = require("magic.arcane.effectScaling")
-local magicGFX = require("magic.arcane.magicGFX")
+local magicGFXSFX = require("magic.arcane.magicGFXSFX")
 local dealDamage = require("magic.arcane.dealMagicDamage")
 local stun = require("magic.arcane.stun")
 local MSReduction = require("magic.arcane.manaStaminaReduction")
@@ -140,7 +140,7 @@ local earthCloud = sourceItem:getData("earthCloud")
         stallMana.applyManaStalling(false, targets, spell, sourceItem)
     end
     plantRoot.applyPlantRoot(false, targets, spell, sourceItem)
-    magicGFX.getTargetGFX(targets, spell, true)
+    magicGFXSFX.getTargetGFXSFX(targets, spell, true)
     if sourceItem.id == 3644 then
         local newPlant = world:createItemFromId(3644, 1, myPosition, true, 999, {["illusion"] = illusion})
         newPlant.wear = wear

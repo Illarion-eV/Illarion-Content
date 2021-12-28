@@ -17,11 +17,10 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local mana = require("magic.arcane.mana")
 local range = require("magic.arcane.castingRange")
 local castTime = require("magic.arcane.castingSpeed")
-local magicGFX = require("magic.arcane.magicGFX")
+local magicGFXSFX = require("magic.arcane.magicGFXSFX")
 local targeting = require("magic.arcane.targeting")
 local runes = require("magic.arcane.runes")
 local teaching = require("magic.arcane.teaching")
-local magicSFX = require("magic.arcane.magicSFX")
 local delayedAttack = require("magic.arcane.delayedAttack")
 local incantation = require("magic.arcane.incantation")
 local diminishingReturns = require("magic.arcane.diminishingReturns")
@@ -62,10 +61,10 @@ local Mes = runes.checkSpellForRuneByName("Mes", spell)
 local Orl = runes.checkSpellForRuneByName("Orl", spell)
 local targets
 local castDuration = castTime.arcaneSpellCastSpeed(user, spell)
-local castSFX = magicSFX.getMagicSFXUser()
-local castSFXDuration = 0
+local castSFX = 0
+local castSFXDuration = 10
 local castGFXDuration = 10
-local castGFX = magicGFX.getUserGFX(spell)
+local castGFX = magicGFXSFX.getUserGFXSFX(spell)
     if actionState == Action.none then
         if not statReqMet(user, spell) then
             --If stats are lowered below the threshhold to learn a rune, whether through a trainer, a potion or something else
