@@ -48,11 +48,21 @@ local equipmentValue = 0
 local jewelleryValue = 0
     for _, equipment in ipairs(equipmentList) do
         local targetItem = target:getItemAt(equipment.position)
+        local armorfound, armorItem = world:getArmorStruct(targetItem.id)
+        local clothing = false
+            if armorfound then
+                if armorItem.Type == ArmorStruct.clothing then
+                    clothing = true
+                end
+            end
         local level = world:getItemStatsFromId(targetItem.id).Level
         if level then
             local addedValue = level/100
             if tonumber(level) > skillLevel then
                 addedValue = addedValue/10 --90% decreased value if magic resistance level is not higher or the same as the equipments level
+            end
+            if not clothing then
+                addedValue = addedValue/2
             end
             equipmentValue = equipmentValue + addedValue
         end
@@ -62,6 +72,9 @@ local jewelleryValue = 0
         local level = world:getItemStatsFromId(targetItem.id).Level
         if level then
             local addedValue = level/100
+            if tonumber(level) > skillLevel then
+                addedValue = addedValue/10 --90% decreased value if magic resistance level is not higher or the same as the equipments level
+            end
             jewelleryValue = jewelleryValue + addedValue
         end
     end
@@ -73,7 +86,17 @@ local function getGemValue(target) --Return a value between 0 and 1
 local gemValue = 0
     for _, equipment in pairs(equipmentList) do
         local targetItem = target:getItemAt(equipment.position)
+        local armorfound, armorItem = world:getArmorStruct(targetItem.id)
+        local clothing = false
+            if armorfound then
+                if armorItem.Type == ArmorStruct.clothing then
+                    clothing = true
+                end
+            end
         local addedValue = math.floor(gems.getGemBonus(targetItem)/120)
+            if not clothing then
+                addedValue = addedValue/2
+            end
         gemValue = gemValue + addedValue
     end
 gemValue = gemValue/5

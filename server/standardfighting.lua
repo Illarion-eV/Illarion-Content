@@ -522,6 +522,12 @@ function ArmourAbsorption(Attacker, Defender, Globals)
     end
 
     local GemBonus = gems.getGemBonus(Globals.HittedItem)
+    local armorfound, armorItem = world:getArmorStruct(Globals.HittedItem.id)
+    if armorfound then
+        if armorItem.Type == ArmorStruct.clothing then --Clothing objects are gemmable for magic resistance purposes, but does not affect physical defense
+            GemBonus = 0
+        end
+    end
     GemBonus = modifyGemEffect(Attacker, GemBonus)
     armourValue = armourValue + armourValue * GemBonus / 100
 

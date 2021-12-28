@@ -35,9 +35,13 @@ local slots = {}
     table.insert(slots, Character.belt_pos_4)
     table.insert(slots, Character.belt_pos_5)
     table.insert(slots, Character.belt_pos_6)
+    table.insert(slots, Character.coat)
 
 
 local function isSocketable(itemId)
+    if itemId == 0 then
+        return false
+    end
     -- weapons can be socketed
     local weaponfound, weaponitem = world:getWeaponStruct(itemId)
     if weaponfound then
@@ -55,7 +59,7 @@ local function isSocketable(itemId)
     local armorfound, armorItem = world:getArmorStruct(itemId)
     if armorfound then
         local armortype = armorItem.Type
-        if armortype ==  ArmorStruct.clothing or armortype == ArmorStruct.general or armortype == ArmorStruct.juwellery then
+        if armortype == ArmorStruct.general or armortype == ArmorStruct.juwellery then
             return false
         else
             return true
