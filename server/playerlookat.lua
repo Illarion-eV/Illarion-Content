@@ -384,15 +384,15 @@ function M.getCharDescription( SourceCharacter, TargetCharacter, mode)
 
     -- what is in the belt?
     addtext = ""
-    addtext = addtext .. getCharWears ( TargetCharacter, lang, Character.belt_pos_1	, limitToSeeBelt, common.IsNilOrEmpty(addtext),false); -- belt 1
-    addtext = addtext .. getCharWears ( TargetCharacter, lang, Character.belt_pos_2	, limitToSeeBelt, common.IsNilOrEmpty(addtext),false); -- belt 2
-    addtext = addtext .. getCharWears ( TargetCharacter, lang, Character.belt_pos_3	, limitToSeeBelt, common.IsNilOrEmpty(addtext),false); -- belt 3
+    addtext = addtext .. getCharWears ( TargetCharacter, lang, Character.belt_pos_1, limitToSeeBelt, common.IsNilOrEmpty(addtext),false); -- belt 1
+    addtext = addtext .. getCharWears ( TargetCharacter, lang, Character.belt_pos_2, limitToSeeBelt, common.IsNilOrEmpty(addtext),false); -- belt 2
+    addtext = addtext .. getCharWears ( TargetCharacter, lang, Character.belt_pos_3, limitToSeeBelt, common.IsNilOrEmpty(addtext),false); -- belt 3
     local cloak = TargetCharacter:getItemAt(Character.coat)
     if cloak then
         if cloak.id == 0 then
-            addtext = addtext .. getCharWears ( TargetCharacter, lang, Character.belt_pos_4	, limitToSeeBelt, common.IsNilOrEmpty(addtext),false); -- belt 4
-            addtext = addtext .. getCharWears ( TargetCharacter, lang, Character.belt_pos_5	, limitToSeeBelt, common.IsNilOrEmpty(addtext),false); -- belt 5
-            addtext = addtext .. getCharWears ( TargetCharacter, lang, Character.belt_pos_6	, limitToSeeBelt, common.IsNilOrEmpty(addtext),false); -- belt 6
+            addtext = addtext .. getCharWears ( TargetCharacter, lang, Character.belt_pos_4, limitToSeeBelt, common.IsNilOrEmpty(addtext),false); -- belt 4
+            addtext = addtext .. getCharWears ( TargetCharacter, lang, Character.belt_pos_5, limitToSeeBelt, common.IsNilOrEmpty(addtext),false); -- belt 5
+            addtext = addtext .. getCharWears ( TargetCharacter, lang, Character.belt_pos_6, limitToSeeBelt, common.IsNilOrEmpty(addtext),false); -- belt 6
         end
     end
 
