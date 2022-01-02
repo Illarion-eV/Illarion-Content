@@ -388,6 +388,10 @@ product:addIngredient(2573, 1) -- long staff handle
 
 catId = carving:addCategory("Tools", "Werkzeuge")
 
+-- Quill
+product = carving:addProduct(catId, 463, 1)
+product:addIngredient(2696, 5) -- feathers
+
 -- fishing rod
 product = carving:addProduct(catId, 72, 1)
 product:addIngredient(2543, 1) -- conifer wood boards
