@@ -23,6 +23,7 @@ local learnMagic = require("magic.learnMagic")
 local glyphs = require("base.glyphs")
 local glyphmagic = require("magic.glyphmagic")
 local arcane = require("magic.arcane.castSpell")
+local spatial = require("magic.arcane.spatial")
 
 local currentWandUse = {}
 local WAND_USE_GLYPH_FORGE_ERECT = 1
@@ -136,9 +137,16 @@ function M.MoveItemAfterMove(User, SourceItem, TargetItem)
     return true
 end
 
+
+
 function M.UseItem(user, sourceItem, ltstate)
 local spellMode = user:getQuestProgress(7001)
+local portalMode = user:getQuestProgress(7009)
     if common.IsItemInHands(sourceItem) then
+        if portalMode ~= 0 then
+            spatial.castSpatialMagic(user, ltstate)
+            return
+        end
         if spellMode == 0 then
             if ltstate == Action.none then
                 if magicWands[sourceItem.id] then

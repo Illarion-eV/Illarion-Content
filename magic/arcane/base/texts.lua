@@ -155,7 +155,9 @@ local M = {
         noPrimary = {english = "You must first learn how to use a primary rune before you can create a spell.", german = ""},
         create = {english = "Create a spell", german = ""},
         overwrite = {english = "Yes, overwrite it.", german = ""},
-        dontOverwrite = {english = "No, select another slot.", german = ""}
+        dontOverwrite = {english = "No, select another slot.", german = ""},
+        quill = {english = "You need a quill to do any work at a desk.", german = ""},
+        createBook = {english = "Portal Book Creation", german = ""}
         },
     -- targeting.lua
     levText = {
@@ -369,7 +371,9 @@ local M = {
         priming = {english = "Wand priming", german = ""},
         type = {english = "Select what type of magic you want your wand primed to.", german = ""},
         spells = {english = "Spells", german = ""},
-        wandGlyph = {english = "Wand Magic & Glyph Forging", german = ""}
+        wandGlyph = {english = "Wand Magic & Glyph Forging", german = ""},
+        spatial = {english = "Spatial Magic", german = ""},
+        spatialAttune = {english = "Wand attuned to spatial magic", german = ""}
 
     },
     --teaching.lua
@@ -385,6 +389,145 @@ local M = {
         mana = {english = "Not enough mana.", german = ""},
         target = {english = "You need a target.", german = ""},
         player = {english = "Target must be a player.", german = ""}
+    },
+    --craft/final/portals.lua
+    portalBookTexts = {
+        craft = {english = "Portal  Book Creation", german = ""},
+        category = {english = "Portal Books", german = ""},
+        book = {english = "Portal book: ", german = ""},
+    },
+    --spatial.lua
+    --plan is to add one portal location per zone (avoiding "dead mana" areas) once Slightly has finalised the zone name list
+    portalSpots = {
+        { location = position(684, 307, 0),
+            english = "Portal to the Hemp Necktie Inn",
+            german = "Portal zum Gasthof zur Hanfschlinge",
+            level = 0,
+            nameEn = "Hemp Necktie Inn",
+            nameDe = "Gasthof zur Hanfschlinge"
+        },
+        { location = position(126, 647, 0),
+          english = "Portal to Cadomyr",
+          german = "Portal nach Cadomyr",
+          level = 0,
+          nameEn = "Cadomyr",
+          nameDe = "Cadomyr"
+        },
+        { location = position(423, 246, 0),
+          english = "Portal to Galmair",
+          german = "Portal nach Galmair",
+          level = 0,
+          nameEn = "Galmair",
+          nameDe = "Galmair"
+        },
+        { location = position(835, 813, 0),
+          english = "Portal to Runewick",
+          german = "Portal nach Runewick",
+          level = 0,
+          nameEn = "Runewick",
+          nameDe = "Runewick"
+        },
+    },
+    spatialTexts = {
+        distanceTexts = {
+            {value = 600, english = " very far ", german = ""},
+            {value = 400, english = " far ", german = ""},
+            {value = 100, english = " somewhere ", german = ""},
+            {value = 50, english = " close ", german = ""},
+            {value = 0, english = " very close ", german = ""},
+        },
+        binderTexts = {
+            english = "to the ",
+            german = ""
+        },
+        alreadyAttuned = {
+            english  = "You've already attuned your spatial magic to this location.",
+            german = ""
+        },
+        doneAttuning  = {
+            english = "You've attuned to the crossing mana lines in the area. You will now be able to remember the spatial coordinates to teleport, cast portals and even write portal books that lead to this area, should your expertise in spatial magic allow.",
+            german = ""
+        },
+        lackingSkill = {
+            english = "You need to attain a higher level of expertise in spatial magic to remember the spatial coordinates for this location.",
+            german = ""
+        },
+        noNearby = {
+            english = "There are no crossing mana lines nearby for you to attune your spatial magic to. The nearest one is ",
+            german = ""
+        },
+        red = {
+            english = "Portal colour set to red",
+            german = ""
+        },
+        blue = {
+            english = "Portal colour set to blue",
+            german = ""
+        },
+        name = {
+            english = "Spatial Magic",
+            german = ""
+        },
+        selectColour = {
+            english = "Select which colour your portals should have",
+            german = ""
+        },
+        colours = {
+            red = { english = "Red", german = ""},
+            blue = { english = "Blue", german = ""}
+        },
+        incantation = {
+            portal = "Locus Ianua", -- latin for "space door"
+            teleport = "Locus Itinerantur" --latin for "space travel"
+        },
+        teleportation = {
+            english = "Teleportation",
+            german = ""
+        },
+        destination = {
+            english = "Select your destination",
+            german = ""
+        },
+        castSelect  = {
+            english = "What kind of spatial magic do you want to cast?",
+            german = ""
+        },
+        attuneTo = {
+            english = "Attune to location",
+            german = ""
+        },
+        teleport = {
+            english = "Teleport",
+            german = ""
+        },
+        portal = {
+            english = "Create Portal",
+            german = ""
+        },
+        portalColour = {
+            english = "Portal colour",
+            german = ""
+        },
+        interruptedCast = {
+            english = "Your casting of spatial magic was interrupted.",
+            german = ""
+        },
+        cantFindMore = {
+            english = "You don't detect any more crossing mana lines to attune to. Perhaps you've found them all?",
+            german = ""
+        },
+        differentElevation = {
+            english = "You can feel that there are crossed mana lines nearby that you can attune your spatial magic to, however not here. Perhaps you'd had better luck searching at a different elevation?",
+            german = ""
+        },
+        vanish = {
+            english = "#me finishes the incantation, vanishing in a flash of bright magical light.",
+            german = ""
+        },
+        appear = {
+            english = "#me appears in a flash of bright magical light.",
+            german = ""
+        }
     }
 }
 

@@ -72,7 +72,6 @@ function M.getStatRequirementOfRune(runeNumber)
     return stat
 end
 
-
 function M.getLevelRequirementOfRune(runeNumber)
     for _, rune in pairs(M.Runes) do
         if rune[1] == runeNumber then
@@ -89,6 +88,7 @@ function M.learnedRunesToQuestprogress(RuneNumber)
         return 2^31- 1 - RuneNumber
     end
 end
+
 function M.QuestprogressToLearnedRunes(questprogress)
     if tonumber(questprogress)<0 then
         return 2^31-1-tonumber(questprogress)
@@ -96,6 +96,7 @@ function M.QuestprogressToLearnedRunes(questprogress)
         return tonumber(questprogress)
     end
 end
+
 function M.checkIfLearnedRune(User, TargetItem, RuneNumber, questorspell, spellnumber, spell)
 local learnedRunes
     local retVal=false;
@@ -112,6 +113,7 @@ local learnedRunes
     end
     return retVal;
 end
+
 function M.checkSpellForRune(RuneNumber, spell)
     local retVal=false;
     local runeOffset=math.fmod(RuneNumber-1,32);

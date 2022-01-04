@@ -19,23 +19,23 @@ local M = {}
 
 -- UPDATE items SET itm_script='item.desk' WHERE itm_id IN (550, 551, 1219, 1220, 1221, 1222);
 
-function M.UseItem(User, SourceItem)
-    if SourceItem.pos == position(592, 171, -3) then --then player used the desk and breaks something
-        User:inform(
+function M.UseItem(user, sourceItem)
+    if sourceItem.pos == position(592, 171, -3) then --then player used the desk and breaks something
+        user:inform(
             "Als du etwas auf dem Schreibtisch berührst, kippt eine Flasche um und zerbricht mit einer Explosion, die dich für einen Moment blendet.",
             "As you move something on the desk, a bottle is jostled around and breaks, causing an explosion that temporarily blinds you.")
-        world:gfx(31, SourceItem.pos) -- bright star gfx
-        world:makeSound(5, SourceItem.pos) --a loud boom
-        local foundEffect, myEffect = User.effects:find(100); -- perception debuff
+        world:gfx(31, sourceItem.pos) -- bright star gfx
+        world:makeSound(5, sourceItem.pos) --a loud boom
+        local foundEffect, myEffect = user.effects:find(100); -- perception debuff
         if foundEffect then
             myEffect.nextCalled = 5 * 600;
         else
             myEffect = LongTimeEffect(100, 5 * 600) --5min
-            User.effects:addEffect(myEffect)
+            user.effects:addEffect(myEffect)
         end
     else
-    -- If it is just a regular desk and not used for the above quest purposes, then use it for magic purposes
-        createSpell.mainDialog(User)
+        -- If it is just a regular desk and not used for the above quest purposes, then use it for magic purposes
+        createSpell.mainDialog(user, sourceItem)
     end
 end
 

@@ -18,6 +18,7 @@ local common = require("base.common")
 local runes = require("magic.arcane.runes")
 local magic = require("base.magic")
 local texts = require("magic.arcane.base.texts")
+local portalCrafting = require("craft.final.portals")
 
 local M = {}
 M.MAX_SPELL_SLOTS = 20
@@ -295,7 +296,11 @@ local function dispenseMagicBookAdmin(user)
     common.CreateItem(user,2619,1,999,{["magicBook"]="true"})
     user:inform("Book dispensed.","Book dispensed.") --Temporary testing text, no need for  translation
 end
-function M.mainDialog(user)
+function M.mainDialog(user, sourceItem)
+    if user:countItemAt("body",463) == 0 then
+        user:inform(createSpellTexts.quill.german, createSpellTexts.quill.english)
+        return
+    end
     local callback = function(dialog)
         if not dialog:getSuccess() then
             return
@@ -311,12 +316,14 @@ function M.mainDialog(user)
             else
                 user:inform(createSpellTexts.noPrimary.german, createSpellTexts.noPrimary.english)
             end
-        elseif index == 2 then --and user:isAdmin() then
+        elseif index == 2 then
             learnRunesAdmin(user)
-        elseif index == 3 then --and user:isAdmin() then
+        elseif index == 3 then
             unLearnAllRunesAdmin(user)
-        elseif index == 4 then --and user:isAdmin() then
+        elseif index == 4 then
             dispenseMagicBookAdmin(user)
+        elseif index == 5 then
+            portalCrafting.portalBookCreation(user, sourceItem)
         end
     end
     local dialog = SelectionDialog(common.GetNLS(user,createSpellTexts.creation.german, createSpellTexts.creation.english), common.GetNLS(user, createSpellTexts.pickOption.german, createSpellTexts.pickOption.english), callback)
@@ -324,6 +331,7 @@ function M.mainDialog(user)
     dialog:addOption(0, "Learn runes(admin only)") --No need for this and the two below to have translations as they are temporary for testing
     dialog:addOption(0, "Unlearn all runes (admin only)")
     dialog:addOption(0, "Dispense Spellbook (admin only)")
+    dialog:addOption(0, common.GetNLS(user, createSpellTexts.createBook.german, createSpellTexts.createBook.english))
     user:requestSelectionDialog(dialog)
 end
 return M

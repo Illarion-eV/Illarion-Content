@@ -32,7 +32,7 @@ local function checkIfCompleteSpells(user, SourceItem)
     end
 end
 function M.spellSelection(user, SourceItem)
-local spellQuestStatus
+    local spellQuestStatus
     if SourceItem:getData("owner") == "" then
         user:inform(myTexts.empty.german, myTexts.empty.english)
         return
@@ -41,7 +41,7 @@ local spellQuestStatus
         user:inform(myTexts.inane.german, myTexts.inane.english)
         return
     end
-local emptySpellSlots = 0
+    local emptySpellSlots = 0
     local callback = function(dialog)
         if not dialog:getSuccess() then
             return
@@ -74,10 +74,10 @@ local emptySpellSlots = 0
     end
 end
 function M.mainSelectionDialog(user, SourceItem)
-local intelligence = user:increaseAttrib("intelligence", 0)
-local essence = user:increaseAttrib("essence", 0)
-local willpower = user:increaseAttrib("willpower", 0)
-local attributeSum = (intelligence + essence + willpower)
+    local intelligence = user:increaseAttrib("intelligence", 0)
+    local essence = user:increaseAttrib("essence", 0)
+    local willpower = user:increaseAttrib("willpower", 0)
+    local attributeSum = (intelligence + essence + willpower)
     if attributeSum < 30 or user:getMagicType() ~= 0 or user:getQuestProgress(37) == 0 then
         user:inform(myTexts.nonsense.german,myTexts.nonsense.english)
         return
@@ -88,15 +88,21 @@ local attributeSum = (intelligence + essence + willpower)
         end
         local index = dialog:getSelectedIndex() +1
         if index == 1 then
+            user:setQuestProgress(7009, 0)
             M.spellSelection(user, SourceItem)
         elseif index == 2 then
             user:setQuestProgress(7001, 0)
+            user:setQuestProgress(7009, 0)
             user:inform(myTexts.glyphWand.german, myTexts.glyphWand.english)
+        elseif index == 3 then
+            user:setQuestProgress(7009, 1)
+            user:inform(myTexts.spatialAttune.german, myTexts.spatialAttune.english)
         end
     end
-local dialog = SelectionDialog(common.GetNLS(user,myTexts.priming.german,myTexts.priming.english), common.GetNLS(user,myTexts.type.german,myTexts.type.english), callback)
-dialog:addOption(0,common.GetNLS(user, myTexts.spells.german, myTexts.spells.english))
-dialog:addOption(0,common.GetNLS(user, myTexts.wandGlyph.german, myTexts.wandGlyph.english))
-user:requestSelectionDialog(dialog)
+    local dialog = SelectionDialog(common.GetNLS(user,myTexts.priming.german,myTexts.priming.english), common.GetNLS(user,myTexts.type.german,myTexts.type.english), callback)
+    dialog:addOption(0,common.GetNLS(user, myTexts.spells.german, myTexts.spells.english))
+    dialog:addOption(0,common.GetNLS(user, myTexts.wandGlyph.german, myTexts.wandGlyph.english))
+    dialog:addOption(0,common.GetNLS(user, myTexts.spatial.german, myTexts.spatial.english))
+    user:requestSelectionDialog(dialog)
 end
 return M

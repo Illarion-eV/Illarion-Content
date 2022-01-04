@@ -24,7 +24,7 @@ M.directionsList = texts.directionsList
 
 M.locationTexts = texts.locationTexts
 
-local function getDirectionRelativeToUser(user, target)
+function M.getDirectionRelativeToUser(user, target)
     local userX = user.pos.x
     local userY = user.pos.y
     local targetX
@@ -59,7 +59,7 @@ local function getDirectionRelativeToUser(user, target)
     return direction
 end
 
-local function getGermanDirection(englishDirection)
+function M.getGermanDirection(englishDirection)
     for _, direction in pairs(M.directionsList) do
         if englishDirection == direction.direction.english then
             return direction.direction.german
@@ -105,8 +105,8 @@ local Mes = runes.checkSpellForRuneByName("Mes", spell)
     end
 
     for _, target in pairs(information) do
-        local direction = getDirectionRelativeToUser(user, target.target)
-        local germanDirection = getGermanDirection(direction)
+        local direction = M.getDirectionRelativeToUser(user, target.target)
+        local germanDirection = M.getGermanDirection(direction)
         local distance = getDistanceBetweenUserAndTarget(user, target.target)
         local germanText = locationTexts[1].german..distance..locationTexts[2].german..germanDirection
         local englishText = locationTexts[1].english..distance..locationTexts[2].english..direction

@@ -28,16 +28,21 @@ local skillTable = {
 {name = "spiritMagic", element = "Spirit"}
 }
 
+local balanceLearningSpeed = 3 --Will need changing according to how the cast time gets balanced in order to balance learning speed
+
 function M.increaseExperience(user, spell)
 local spellElement = runes.fetchElement(spell)
 local castTime = castingSpeed.arcaneSpellCastSpeed(user, spell)
-local balanceLearningSpeed = 3 --Will need changing according to how the cast time gets balanced in order to balance learning speed
     for _, skill in pairs(skillTable) do
         if skill.element == spellElement then
             user:learn(Character[skill.name], castTime/balanceLearningSpeed, 100)
             return
         end
     end
+end
+
+function M.increaseExperiencePortalMagic(user, duration)
+    user:learn(Character.spatialMagic, duration/balanceLearningSpeed, 100)
 end
 
 

@@ -122,7 +122,8 @@ M.skillNames = {
     Character.earthMagic,
     Character.windMagic,
     Character.spiritMagic,
-    Character.waterMagic
+    Character.waterMagic,
+    Character.spatialMagic
 }
 local attributeNames={
     "agility",
@@ -1393,6 +1394,17 @@ local function actionOnGroup(user,item)
     user:requestSelectionDialog(sdPlayer)
 end
 
+local function settingsForCharRedPortalPermission(user, chosenPlayer)
+    if chosenPlayer:getQuestProgress(7010) ~= 0 then
+        chosenPlayer:setQuestProgress(7010, 0)
+        chosenPlayer:setQuestProgress(7011, 10) --Change the  stored portal colour back to blue
+        user:inform("Player's access to the creation of red portals has been removed.")
+    else
+        chosenPlayer:setQuestProgress(7010, 1)
+        user:inform("Player is now permitted to create red portals instead of blue ones.")
+    end
+end
+
 local function settingsForChar(user)
 
     local playersTmp = world:getPlayersInRangeOf(user.pos, 25)
@@ -1435,6 +1447,8 @@ local function settingsForChar(user)
                 settingsForCharAttributes(user, chosenPlayer)
             elseif actionToPerform == 10 then
                 settingsForCharReligion(user, chosenPlayer)
+            elseif actionToPerform == 11 then
+                settingsForCharRedPortalPermission(user, chosenPlayer)
             end
         end
         local sdAction = SelectionDialog("Character settings", chosenPlayer.name.."\n" .. charInfo(chosenPlayer), charActionDialog)
@@ -1470,6 +1484,12 @@ local function settingsForChar(user)
         sdAction:addOption(93,"Set attributes")
 
         sdAction:addOption(1060, "Religion")
+
+        if chosenPlayer:getQuestProgress(7010) ~= 0 then
+            sdAction:addOption(798, "Remove player's access to red portal creation")
+        else
+            sdAction:addOption(798, "Allow player to create red portals")
+        end
 
         user:requestSelectionDialog(sdAction)
     end
