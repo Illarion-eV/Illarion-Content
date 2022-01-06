@@ -30,6 +30,7 @@ local MP = require("magic.arcane.magicPenetration")
 local targeting = require("magic.arcane.targeting")
 local lookat = require("base.lookat")
 local texts = require("magic.arcane.base.texts")
+local antiTroll = require("magic.arcane.base.antiTroll")
 
 local M = {}
 
@@ -42,7 +43,8 @@ local function trapCreation(user, target, spell, item)
     local scaling = effectScaling.getEffectScaling(user, target, spell)
     local field = plantRoot.getField(target)
     local magicPenetration = MP.getMagicPenetration(user, element, spell)
-    if not field then
+
+    if not field or not antiTroll.passesAntiTrollCheck(target) then
         return
     end
     if Luk then
@@ -84,6 +86,7 @@ local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
     if not SOLH or not Orl then
         return
     end
+
     for _, item in pairs(targets.items) do
         if Orl then
             trapCreation(user, item, spell, true)

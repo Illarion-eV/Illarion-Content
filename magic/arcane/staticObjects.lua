@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local runes = require("magic.arcane.runes")
 local effectScaling = require("magic.arcane.effectScaling")
+local antiTroll = require("magic.arcane.base.antiTroll")
 
 local M = {}
 
@@ -143,6 +144,11 @@ local wear = M.getWearBasedOnDuration(user, target, spell)
 local illusion = "false"
 local earthCloud = "false"
 local scaling = effectScaling.getEffectScaling(user, target, spell)
+
+    if not antiTroll.passesAntiTrollCheck(target) then
+        return
+    end
+
     if runes.checkSpellForRuneByName("Lhor", spell) then
         illusion = "true"
     end

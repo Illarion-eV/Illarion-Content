@@ -24,21 +24,21 @@ local monsterHooks = require("monster.base.hooks")
 
 local M = {}
 
-local harborList = {}
-    harborList[1] = {nameDe="Cadomyr Hafen", nameEn="Cadomyr Harbour", targetDe="zum Hafen Cadomyr" ,pos=position(101,790,0),pict=2701,start=true}
-    harborList[2] = {nameDe="Galmair Hafen", nameEn="Galmair Harbour", targetDe="zum Hafen Galmair", pos=position(451,95,0),pict=61,start=true}
-    harborList[3] = {nameDe="Runewick Hafen", nameEn="Runewick Harbour", targetDe="zum Hafen Runewick", pos=position(727,809,0),pict=105,start=true}
-    harborList[4] = {nameDe="Gasthof zur Hanfschlinge", nameEn="Hemp Necktie Inn", targetDe="zum Gasthof zur Hanfschlinge", pos=position(683,284,0),pict=155,start=true}
-    harborList[5] = {nameDe="Cadomyr - Verlorener Hafen", nameEn="Cadomyr - Lost Harbour", targetDe="zum verlorenen Hafen Cadomyr", pos=position(105,833,0),pict=272,start=true}
-    harborList[6] = {nameDe="Leuchtturm", nameEn="Lighthouse", targetDe="zum Leuchtturm", pos=position(554,658,0),pict=509,start=true}
-    harborList[7] = {nameDe="Ostland Hafen", nameEn="Eastland Harbour", targetDe="zum Ostlandg Hafen", pos=position(888,485,0),pict=2760,start=true}
-    harborList[8] = {nameDe="Nördlicher Hafen", nameEn="Northern Harbour", targetDe="zum Nördlichen Hafen", pos=position(870,285,0),pict=308,start=true}
-    harborList[9] = {nameDe="Unüberwindbarer Limes", nameEn="Insurmountable Limes", targetDe="zum Unüberwindbaren Limes", pos=position(678,46,0),pict=474,start=true}
-    harborList[10] = {nameDe="Nördliche Inseln - Ra", nameEn="Northern Islands - Ra", targetDe="zu der nördlichen Insel Ra", pos=position(364,49,0),pict=359,start=false}
-    harborList[11] = {nameDe="Nördliche Inseln - Hept", nameEn="Northern Islands - Hept", targetDe="zu der nördlichen Insel Hept", pos=position(415,85,0),pict=360,start=false}
-    harborList[12] = {nameDe="Nördliche Inseln - Yeg", nameEn="Northern Islands - Yeg", targetDe="zu der nördlichen Insel Yeg", pos=position(478,34,0),pict=372,start=false}
-    harborList[13] = {nameDe="Nördliche Inseln - Sohl", nameEn="Northern Islands - Sohl", targetDe="zu der nördlichen Insel Sohl", pos=position(424,24,0),pict=1272,start=false}
-    harborList[14] = {nameDe="Nördliche Inseln - Pen", nameEn="Northern Islands - Pen", targetDe="zu der nördlichen Insel Pen", pos=position(389,39,0),pict=467,start=false}
+M.harborList = {}
+    M.harborList[1] = {nameDe="Cadomyr Hafen", nameEn="Cadomyr Harbour", targetDe="zum Hafen Cadomyr" ,pos=position(101,790,0),pict=2701,start=true}
+    M.harborList[2] = {nameDe="Galmair Hafen", nameEn="Galmair Harbour", targetDe="zum Hafen Galmair", pos=position(451,95,0),pict=61,start=true}
+    M.harborList[3] = {nameDe="Runewick Hafen", nameEn="Runewick Harbour", targetDe="zum Hafen Runewick", pos=position(727,809,0),pict=105,start=true}
+    M.harborList[4] = {nameDe="Gasthof zur Hanfschlinge", nameEn="Hemp Necktie Inn", targetDe="zum Gasthof zur Hanfschlinge", pos=position(683,284,0),pict=155,start=true}
+    M.harborList[5] = {nameDe="Cadomyr - Verlorener Hafen", nameEn="Cadomyr - Lost Harbour", targetDe="zum verlorenen Hafen Cadomyr", pos=position(105,833,0),pict=272,start=true}
+    M.harborList[6] = {nameDe="Leuchtturm", nameEn="Lighthouse", targetDe="zum Leuchtturm", pos=position(554,658,0),pict=509,start=true}
+    M.harborList[7] = {nameDe="Ostland Hafen", nameEn="Eastland Harbour", targetDe="zum Ostlandg Hafen", pos=position(888,485,0),pict=2760,start=true}
+    M.harborList[8] = {nameDe="Nördlicher Hafen", nameEn="Northern Harbour", targetDe="zum Nördlichen Hafen", pos=position(870,285,0),pict=308,start=true}
+    M.harborList[9] = {nameDe="Unüberwindbarer Limes", nameEn="Insurmountable Limes", targetDe="zum Unüberwindbaren Limes", pos=position(678,46,0),pict=474,start=true}
+    M.harborList[10] = {nameDe="Nördliche Inseln - Ra", nameEn="Northern Islands - Ra", targetDe="zu der nördlichen Insel Ra", pos=position(364,49,0),pict=359,start=false}
+    M.harborList[11] = {nameDe="Nördliche Inseln - Hept", nameEn="Northern Islands - Hept", targetDe="zu der nördlichen Insel Hept", pos=position(415,85,0),pict=360,start=false}
+    M.harborList[12] = {nameDe="Nördliche Inseln - Yeg", nameEn="Northern Islands - Yeg", targetDe="zu der nördlichen Insel Yeg", pos=position(478,34,0),pict=372,start=false}
+    M.harborList[13] = {nameDe="Nördliche Inseln - Sohl", nameEn="Northern Islands - Sohl", targetDe="zu der nördlichen Insel Sohl", pos=position(424,24,0),pict=1272,start=false}
+    M.harborList[14] = {nameDe="Nördliche Inseln - Pen", nameEn="Northern Islands - Pen", targetDe="zu der nördlichen Insel Pen", pos=position(389,39,0),pict=467,start=false}
 
 local PRICE_FERRY = 1000 --costs of one trip
 local PRICE_PIRATES = 10000 -- pay the pirates
@@ -436,11 +436,11 @@ local function piratesAttack(user)
 end
 
 local function directTravel(user,harborId)
-    common.InformNLS(user,"Du hast dich dazu entschlossen, " .. harborList[harborId].targetDe .. " zu reisen.",
-                           "You have chosen to travel to " ..harborList[harborId].nameEn ..".")
+    common.InformNLS(user,"Du hast dich dazu entschlossen, " .. M.harborList[harborId].targetDe .. " zu reisen.",
+                           "You have chosen to travel to " ..M.harborList[harborId].nameEn ..".")
     world:gfx(1,user.pos)
     world:makeSound(9,user.pos)
-    user:warp(harborList[harborId].pos)
+    user:warp(M.harborList[harborId].pos)
     world:gfx(globalvar.gfxPLATSCH,user.pos)
     world:makeSound(9,user.pos)
 end
@@ -481,12 +481,12 @@ local function takePartInTravel(user, harborId)
     end
 
     dialogTitle = common.GetNLS(user,"Fähre","Ferry")
-    dialogAddText = common.GetNLS(user,"Möchtest du in die Fähre " .. harborList[harborId].targetDe .. " einsteigen?",
-                                       "Do you want to enter the ferry to " .. harborList[harborId].nameEn .. "?")
+    dialogAddText = common.GetNLS(user,"Möchtest du in die Fähre " .. M.harborList[harborId].targetDe .. " einsteigen?",
+                                       "Do you want to enter the ferry to " .. M.harborList[harborId].nameEn .. "?")
     local extDialog = SelectionDialog(dialogTitle, dialogAddText, callback)
     extDialog:setCloseOnMove()
 
-    extDialog:addOption(harborList[harborId].pict, common.GetNLS(user,"Ja, ich möchte reisen!","Yes, I want to travel!"))
+    extDialog:addOption(M.harborList[harborId].pict, common.GetNLS(user,"Ja, ich möchte reisen!","Yes, I want to travel!"))
     extDialog:addOption(228, common.GetNLS(user,"Nein, ich will hier bleiben!","No, I want to stay here!"))
     user:requestSelectionDialog(extDialog)
 end
@@ -501,7 +501,7 @@ local function travelToTarget(user, harborId, startPos)
     local travelers = world:getPlayersInRangeOf(startPos, 5)
     for _, player in pairs(travelers) do
         if facePirates then
-            M.personalTarget[player.id] = {player, harborList[harborId].pos}
+            M.personalTarget[player.id] = {player, M.harborList[harborId].pos}
         else
             M.personalTarget[player.id]=nil
         end
@@ -561,7 +561,7 @@ local function startFerry(user, sourceItem)
     dialog:setCloseOnMove()
 
     dialogOption = {}
-    for i, harbor in pairs(harborList) do
+    for i, harbor in pairs(M.harborList) do
         if not common.isBitSet(blockedHarbors, i) and sourceItem.pos ~= harbor.pos then
             dialog:addOption(harbor.pict, common.GetNLS(user,harbor.nameDe,harbor.nameEn))
             table.insert(dialogOption,{i,true})
@@ -575,7 +575,7 @@ local function startFerry(user, sourceItem)
 end
 
 function M.ferryLookAt(user, sourceItem, lookAt)
-    for i, harbor in pairs(harborList) do
+    for i, harbor in pairs(M.harborList) do
         if sourceItem.pos == harbor.pos then
             local foundValue, blockedHarbors = ScriptVars:find("seafaringBlockOutgoing")
             if not foundValue then
@@ -723,7 +723,7 @@ local function gmManageBlockPort(user,harborId)
     end
     blockedOut, blockedIn = getSettingsForHarbor(harborId)
     dialogTitle = common.GetNLS(user,"Fähre - Einstellungen","Ferry - Settings")
-    dialogAddText = common.GetNLS(user,harborList[harborId].nameDe,harborList[harborId].nameEn) .. "\n" ..blockText(user,blockedOut, blockedIn)
+    dialogAddText = common.GetNLS(user,M.harborList[harborId].nameDe,M.harborList[harborId].nameEn) .. "\n" ..blockText(user,blockedOut, blockedIn)
 
     local dialog = SelectionDialog(dialogTitle, dialogAddText, callback)
     dialog:addOption(0, common.GetNLS(user,"Voll in Betrieb","Fully operational"))
@@ -774,7 +774,7 @@ function M.gmManagePorts(user)
     local chancePirateAttack = getChancePirateAttack()
     dialog:addOption(1, common.GetNLS(user,"Wahrscheilichkeit Piratenüberfall ("..tostring(chancePirateAttack).."%)","Probability pirate attack ("..tostring(chancePirateAttack).."%)"))
     table.insert(optionList, SELECT_PROPERTY_PIRATE)
-    for i, harbor in pairs (harborList) do
+    for i, harbor in pairs (M.harborList) do
         if not common.IsNilOrEmpty(harbor.nameDe) and not common.IsNilOrEmpty(harbor.nameEn) then
             blockedOut, blockedIn = getSettingsForHarbor(i)
             dialog:addOption(harbor.pict, common.GetNLS(user,harbor.nameDe,harbor.nameEn).." ("..blockText(user,blockedOut, blockedIn)..")")
@@ -796,7 +796,7 @@ function M.login(user)
 end
 
 function M.useFerry(user, sourceItem)
-    for i, harbor in pairs(harborList) do
+    for i, harbor in pairs(M.harborList) do
         if sourceItem.pos == harbor.pos then
             local foundValue, blockedHarbors = ScriptVars:find("seafaringBlockOutgoing")
             if not foundValue then

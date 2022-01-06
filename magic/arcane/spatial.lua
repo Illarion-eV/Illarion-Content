@@ -20,6 +20,7 @@ local texts = require("magic.arcane.base.texts")
 local magic = require("base.magic")
 local spiritlocation = require("magic.arcane.spirit.location")
 local skilling = require("magic.arcane.skilling")
+local antiTroll = require("magic.arcane.base.antiTroll")
 
 local M = {}
 
@@ -267,9 +268,13 @@ local function teleport(user, actionState, portal, destination)
     removeUsedMana(user)
     skilling.increaseExperiencePortalMagic(user, castDuration)
     if portal then
-        local thePortal = world:createItemFromId(portalType, 1, thePos, true, 999, {destinationCoordsZ = destination.z, destinationCoordsY = destination.y, destinationCoordsX = destination.x})
-        thePortal.wear = wear
-        world:changeItem(thePortal)
+        if antiTroll.passesAntiTrollCheck(thePos) then
+            local thePortal = world:createItemFromId(portalType, 1, thePos, true, 999, {destinationCoordsZ = destination.z, destinationCoordsY = destination.y, destinationCoordsX = destination.x})
+            thePortal.wear = wear
+            world:changeItem(thePortal)
+        else
+            user:inform(myTexts.badTarget.german, myTexts.badTarget.english)
+        end
     else
         user:talk(Character.say, myTexts.vanish.german, myTexts.vanish.english)
         user:warp(destination)

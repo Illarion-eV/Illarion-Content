@@ -527,6 +527,10 @@ local M = {
         appear = {
             english = "#me appears in a flash of bright magical light.",
             german = ""
+        },
+        badTarget  = {
+            english = "Something in the area disrupts your casting in the final moment. Perhaps this isn't a good spot for spatial magic?",
+            german = ""
         }
     }
 }

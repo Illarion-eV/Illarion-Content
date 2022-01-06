@@ -21,6 +21,7 @@ local staticObjects = require("magic.arcane.staticObjects")
 local effectScaling = require("magic.arcane.effectScaling")
 local lookat = require("base.lookat")
 local texts = require("magic.arcane.base.texts")
+local antiTroll = require("magic.arcane.base.antiTroll")
 local M = {}
 
 local howManySecondsUntilFullSpeed = 10
@@ -98,7 +99,7 @@ local function plantCreation(user, target, spell, item)
     local wear = staticObjects.getWearBasedOnDuration(user, target, spell)
     local scaling = effectScaling.getEffectScaling(user, target, spell)
     local field = M.getField(target)
-        if not field then
+        if not field or not antiTroll.passesAntiTrollCheck(target) then
             return
         end
         if item then
