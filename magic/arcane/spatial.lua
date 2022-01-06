@@ -21,6 +21,7 @@ local magic = require("base.magic")
 local spiritlocation = require("magic.arcane.spirit.location")
 local skilling = require("magic.arcane.skilling")
 local antiTroll = require("magic.arcane.base.antiTroll")
+local lookat = require("base.lookat")
 
 local M = {}
 
@@ -192,11 +193,42 @@ local function getPortalWear(user)
     return duration
 end
 
+local baseCastTime = 200
+local maxDecrease = 100
+
 local function getCastTime(user)
     local spatialMagicLevel = user:getSkill(Character.spatialMagic)
-    local baseCastTime = 30 --seconds
-    local reducedCastTime = baseCastTime - math.floor(0.15*spatialMagicLevel) --minimum of 15 seconds, no cheesy teleporting away from instant danger
-    return reducedCastTime*10
+    local reducedCastTime = baseCastTime - math.floor((maxDecrease/100)*spatialMagicLevel)
+    return reducedCastTime
+end
+
+function M.getBookCastDuration(portalBook)
+    local quality = math.floor(portalBook.quality/100)+1
+    local reducedCastTime = baseCastTime - (maxDecrease/10)*quality
+    return reducedCastTime
+end
+
+local function getBookQualityText(portalBook)
+
+    local germanQuals = lookat.GenericQualDe
+    local englishQuals = lookat.GenericQualEn
+    local quality = math.floor(portalBook.quality/100)
+    local germanText = germanQuals[10-quality]
+    local englishText = englishQuals[10-quality]
+
+    return germanText, englishText
+end
+
+function M.showBookQuality(user, portalBook)
+    local germanTitle = myTexts.showBookQuality.german
+    local englishTitle = myTexts.showBookQuality.english
+    local germanText, englishText = getBookQualityText(portalBook)
+
+    local callback = function(dialog)
+    end
+
+    local dialog = MessageDialog(common.GetNLS(user, germanTitle, englishTitle), common.GetNLS(user, myTexts.bookQuality.german..germanText, myTexts.bookQuality.english..englishText), callback)
+    user:requestMessageDialog(dialog)
 end
 
 local function getManaCost(user)

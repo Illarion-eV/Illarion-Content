@@ -373,7 +373,8 @@ local M = {
         spells = {english = "Spells", german = ""},
         wandGlyph = {english = "Wand Magic & Glyph Forging", german = ""},
         spatial = {english = "Spatial Magic", german = ""},
-        spatialAttune = {english = "Wand attuned to spatial magic", german = ""}
+        spatialAttune = {english = "Wand attuned to spatial magic", german = ""},
+        portalBookNeeded = {english = "You must hold the portal book you wish to evaluate in your hand.", german = ""}
 
     },
     --teaching.lua
@@ -512,6 +513,10 @@ local M = {
             english = "Your casting of spatial magic was interrupted.",
             german = ""
         },
+        interruptedBook = {
+            english = "Your reading of the portal books incantation was interrupted.",
+            german = ""
+        },
         cantFindMore = {
             english = "You don't detect any more crossing mana lines to attune to. Perhaps you've found them all?",
             german = ""
@@ -531,8 +536,21 @@ local M = {
         badTarget  = {
             english = "Something in the area disrupts your casting in the final moment. Perhaps this isn't a good spot for spatial magic?",
             german = ""
+        },
+        showBookQuality = {
+            english = "Portal Book Evaluation",
+            german = ""
+        },
+        bookQuality = {
+            english = "Portal book quality:\n",
+            german = ""
+        },
+        portalBookChant = {
+            english = "#me begins chanting the incantation written in a portal book.",
+            german = ""
         }
     }
 }
-
+M.qListDe = {"fürchterliche","schlechte","schwache","leicht schwache","durchschnittliche","gute","sehr gute","großartige","hervorragende"}
+M.qListEn = {"awful","bad","weak","slightly weak","average","good","very good","great","outstanding"}
 return M

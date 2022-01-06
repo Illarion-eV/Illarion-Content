@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
 local createSpell = require("magic.arcane.createSpell")
+local spatial = require("magic.arcane.spatial")
 local texts = require("magic.arcane.base.texts")
 
 local M = {}
@@ -97,12 +98,25 @@ function M.mainSelectionDialog(user, SourceItem)
         elseif index == 3 then
             user:setQuestProgress(7009, 1)
             user:inform(myTexts.spatialAttune.german, myTexts.spatialAttune.english)
+        elseif index == 4 then
+            local portalBook
+            if user:getItemAt(5).id == 1061 then
+                portalBook = user:getItemAt(5)
+            elseif user:getItemAt(6).id == 1061 then
+                portalBook = user:getItemAt(6)
+            end
+            if portalBook then
+                spatial.showBookQuality(user, portalBook)
+            else
+                user:inform(myTexts.portalBookNeeded.german, myTexts.portalBookNeeded.english)
+            end
         end
     end
     local dialog = SelectionDialog(common.GetNLS(user,myTexts.priming.german,myTexts.priming.english), common.GetNLS(user,myTexts.type.german,myTexts.type.english), callback)
     dialog:addOption(0,common.GetNLS(user, myTexts.spells.german, myTexts.spells.english))
     dialog:addOption(0,common.GetNLS(user, myTexts.wandGlyph.german, myTexts.wandGlyph.english))
     dialog:addOption(0,common.GetNLS(user, myTexts.spatial.german, myTexts.spatial.english))
+    dialog:addOption(0,common.GetNLS(user, texts.spatialTexts.showBookQuality.german, texts.spatialTexts.showBookQuality.english))
     user:requestSelectionDialog(dialog)
 end
 return M

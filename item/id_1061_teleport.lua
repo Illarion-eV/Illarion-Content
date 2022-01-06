@@ -18,12 +18,15 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local staticteleporter = require("base.static_teleporter")
+local spatial = require("magic.arcane.spatial")
+local texts = require("magic.arcane.base.texts")
+local myTexts = texts.spatialTexts
 
 local M = {}
 
-function M.UseItem(User, SourceItem, ltstate)
-    if common.isInPrison(User.pos) then
-        User:inform("Nichts passiert.", "Nothing happens.")
+function M.UseItem(user, SourceItem, actionState)
+    if common.isInPrison(user.pos) then
+        user:inform("Nichts passiert.", "Nothing happens.")
         return
     end
 
@@ -31,34 +34,43 @@ function M.UseItem(User, SourceItem, ltstate)
     local destCoordY = SourceItem:getData("destinationCoordsY")
     local destCoordZ = SourceItem:getData("destinationCoordsZ")
 
-    if (destCoordX ~= "") and (destCoordY ~= "") and (destCoordZ ~= "") then
+    if staticteleporter.isBlocked(position(tonumber(destCoordX),tonumber(destCoordY),tonumber(destCoordZ))) then
+        common.InformNLS( user,
+        "Das Buch in deiner Hand schlägt von alleine wieder zu!",
+        "The book in your hand closes itself!" )
+        return
+    end
 
-        if staticteleporter.isBlocked(position(tonumber(destCoordX),tonumber(destCoordY),tonumber(destCoordZ))) then
-            common.InformNLS( User,
-            "Das Buch in deiner Hand schlägt von alleine wieder zu!",
-            "The book in your hand closes itself!" )
-            return
+    local castDuration = spatial.getBookCastDuration(SourceItem)
+
+    if actionState == Action.none then
+        user:talk(Character.say, myTexts.portalBookChant.german, myTexts.portalBookChant.english)
+        user:startAction(castDuration, 21, 10, 0, 0)
+    elseif actionState == Action.abort then
+        user:inform(common.GetNLS(user, myTexts.interruptedBook.german, myTexts.interruptedBook.english))
+        return
+    elseif actionState == Action.success then
+
+        if (destCoordX ~= "") and (destCoordY ~= "") and (destCoordZ ~= "") then
+            local radius = 4;
+            local targetPos = common.getFreePos(user.pos, radius)
+
+            if targetPos ~= user.Pos then
+                -- create a gate
+                local myPortal = world:createItemFromId( 10, 1, targetPos, true, 933, nil);
+                myPortal:setData("destinationCoordsX", destCoordX)
+                myPortal:setData("destinationCoordsY", destCoordY)
+                myPortal:setData("destinationCoordsZ", destCoordZ)
+                world:changeItem(myPortal)
+                world:makeSound(4, targetPos)
+            else -- no free space found
+                common.InformNLS( user,
+                "Rings um Dich erzittern Boden und Gegenstände!",
+                "All around you ground and items are trembling!" )
+            end
+
+            world:erase(SourceItem, 1)
         end
-
-        local radius = 4;
-        local targetPos = common.getFreePos(User.pos, radius)
-
-        if targetPos ~= User.Pos then
-            -- create a gate
-            local myPortal = world:createItemFromId( 10, 1, targetPos, true, 933, nil);
-            myPortal:setData("destinationCoordsX", destCoordX)
-            myPortal:setData("destinationCoordsY", destCoordY)
-            myPortal:setData("destinationCoordsZ", destCoordZ)
-            world:changeItem(myPortal)
-            world:makeSound(4, targetPos)
-
-        else -- no free space found
-            common.InformNLS( User,
-            "Rings um Dich erzittern Boden und Gegenstände!",
-            "All around you ground and items are trembling!" )
-        end
-
-        world:erase(SourceItem, 1)
     end
 end
 
