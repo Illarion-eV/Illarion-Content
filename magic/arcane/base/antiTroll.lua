@@ -14,12 +14,13 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-
+local texts = require("magic.arcane.base.texts")
 local seafaring = require("base.seafaring")
 
 local M = {}
 
 local harbours = seafaring.harborList
+local portals = texts.portalSpots
 
 local teleporters = {
     --Hemptie teleporter
@@ -78,6 +79,10 @@ local function checkForIllegalLocations(myPosition)
 
     for _, harbour in pairs(harbours) do
         positionTable = increaseArea(harbour.pos, positionTable)
+    end
+
+    for _, portal in pairs(portals) do
+        positionTable = increaseArea(portal.location, positionTable)
     end
 
     for _, myPos in pairs(positionTable) do
