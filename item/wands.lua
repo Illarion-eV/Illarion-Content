@@ -24,6 +24,7 @@ local glyphs = require("base.glyphs")
 local glyphmagic = require("magic.glyphmagic")
 local arcane = require("magic.arcane.castSpell")
 local spatial = require("magic.arcane.spatial")
+local texts = require("magic.arcane.base.texts")
 
 local currentWandUse = {}
 local WAND_USE_GLYPH_FORGE_ERECT = 1
@@ -169,6 +170,36 @@ local portalMode = user:getQuestProgress(7009)
     else
         user:inform("Du solltest lieber den Zauberstab in die Hand nehmen, wenn du ihn benutzen willst.","To use the wand you should hold it in your hands.")
     end
+end
+
+function M.actionDisturbed(player, attacker)
+
+    local health = player:increaseAttrib("hitpoints", 0)
+    local max_chance = 25 --max percentage chance of interrupting a cast
+    local healthRoof = 7500 -- chance to interrupt begin at 7500 health
+    local healthFloor = 2500 -- chance to interrupt reaches max_chance at 2500 health
+    local healthRange = healthRoof-healthFloor
+    local percent = healthRange/100
+    local actual_chance = max_chance - math.floor(((health-healthFloor)/percent)/(100/max_chance))
+
+    if health > healthRoof then
+        return false
+    end
+
+    if health < healthFloor then
+        actual_chance = max_chance
+    end
+
+    local chance = math.random(1,100)
+    log("actual_chance: "..tostring(actual_chance))
+
+    if chance <= actual_chance then
+        player:inform(texts.wounded.german, texts.wounded.english)
+        return true
+    end
+
+    return false
+
 end
 
 return M
