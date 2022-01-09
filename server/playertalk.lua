@@ -15,10 +15,24 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
+local oralCasting = require("magic.arcane.oralCasting")
+local wands = require("item.wands")
+
 local M = {}
 
-function M.talk(player, talkType, text)
+function M.talk(player, talkType, text, actionState)
+
+    if talkType == Character.say then
+        oralCasting.checkForMagicIncantations(player, actionState, text)
+    end
+
     return text
+end
+
+function M.actionDisturbed(player, attacker)
+
+    return wands.actionDisturbed(player, attacker)
+
 end
 
 return M

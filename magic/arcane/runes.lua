@@ -48,6 +48,14 @@ M.Runes = { -- [(1)Rune Number], [(2)Rune Name], [(3)Mana cost],[(4)Cast Time],[
 {29,"Pera","Small","Short",10}
 }
 
+function M.runeNameToNumber(runeName)
+    for _, rune in pairs(M.Runes) do
+        if runeName == rune[2] then
+            return rune[1]
+        end
+    end
+end
+
 function M.getStatRequirementOfRune(runeNumber)
     local manaCost
     local stat
@@ -98,7 +106,7 @@ function M.QuestprogressToLearnedRunes(questprogress)
 end
 
 function M.checkIfLearnedRune(User, TargetItem, RuneNumber, questorspell, spellnumber, spell)
-local learnedRunes
+    local learnedRunes
     local retVal=false;
     local runeOffset=math.fmod(RuneNumber-1,32);
     if spell then
@@ -137,7 +145,7 @@ return false
 end
 
 function M.checkSpellForMoreThanJUSSav(spell)
-local Sav
+    local Sav
     for i = 1, #M.Runes do
         local runeName = M.Runes[i][2]
         if runeName == "Sav" then
@@ -155,11 +163,11 @@ local Sav
     if not Sav then
         return true
     end
-return false
+    return false
 end
 
 function M.checkSpellForRuneByName(RuneName, spell)
-local runeNumber
+    local runeNumber
     for i = 1, #M.Runes do
          if M.Runes[i][2] == RuneName then
             runeNumber = M.Runes[i][1]
@@ -177,6 +185,10 @@ function M.learnRune(User, TargetItem, RuneNumber, questorspell, spellnumber)
         TargetItem:setData(spellnumber, M.learnedRunesToQuestprogress(bit32.bor(2^runeOffset,learnedRunes)))
         TargetItem:setData("owner",User.name)
         world:changeItem(TargetItem)
+    elseif questorspell == "neither" then
+        local spell = spellnumber
+        local newSpell = M.learnedRunesToQuestprogress(bit32.bor(2^runeOffset, spell))
+        return newSpell
     end
 end
 

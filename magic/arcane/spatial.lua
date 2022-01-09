@@ -277,7 +277,7 @@ function M.selectPortalColor(user)
     user:requestSelectionDialog(dialog)
 end
 
-local function teleport(user, actionState, portal, destination)
+local function teleport(user, actionState, portal, destination, oralCast)
     local castDuration = getCastTime(user)
     local wear = getPortalWear(user)
     local thePos = user.pos
@@ -294,7 +294,9 @@ local function teleport(user, actionState, portal, destination)
         incantation = myTexts.incantation.portal
     end
 
-    user:talk(Character.say, incantation)
+    if not oralCast then
+        user:talk(Character.say, incantation)
+    end
     world:gfx(41, thePos)
     world:makeSound(13, thePos)
     removeUsedMana(user)
@@ -383,16 +385,29 @@ local function portalMenu(user, ltstate)
     user:requestSelectionDialog(dialog)
 end
 
-function M.castSpatialMagic(user, actionState)
+local  function skipPortalMenu(user, actionState, incantation)
+
+    if incantation == myTexts.incantation.teleport then
+        chooseLocation(user, actionState)
+    elseif incantation == myTexts.incantation.portal then
+        chooseLocation(user, actionState, true)
+    end
+end
+
+function M.castSpatialMagic(user, actionState, oralCast)
     if actionState == Action.none then
-        portalMenu(user, actionState)
+        if not oralCast then
+            portalMenu(user, actionState)
+        else
+            skipPortalMenu(user, actionState, oralCast.portal)
+        end
     elseif actionState == Action.abort then
         user:inform(common.GetNLS(user, myTexts.interruptedCast.german, myTexts.interruptedCast.english))
         return
     elseif actionState == Action.success then
         local destination = M[user.name.."destination"]
         local portal = M[user.name.."portal"]
-        teleport(user, actionState, portal, destination)
+        teleport(user, actionState, portal, destination, oralCast)
     end
 end
 

@@ -47,7 +47,7 @@ local function statReqMet(user, spell)
     return false
 end
 
-function M.castSpell(user, spell, actionState)
+function M.castSpell(user, spell, actionState, oralCast)
     local positionsAndTargets = targeting.getPositionsAndTargets(user, spell)
 
     if not positionsAndTargets then --rarely happens if you try to cast immediately after an !fr, also happens if you cast a PEN Lev spell after expiry
@@ -102,6 +102,9 @@ function M.castSpell(user, spell, actionState)
             return
         end
         if not runes.checkSpellForRuneByName("BHONA", spell) then
+            if not oralCast then
+                incantation.speakIncantation(user, spell)
+            end
             mana.removedUsedMana(user, spell)
             skilling.increaseExperience(user, spell)
             if JUS and Orl then
@@ -111,10 +114,9 @@ function M.castSpell(user, spell, actionState)
                 delayedAttack.applyDelay(user, position, spell)
             else
                 delayedAttack.spellEffects(user, targets, spell, element)
-                incantation.speakIncantation(user, spell)
             end
         else
-            teaching.teachRune(user, targets, spell)
+            teaching.teachRune(user, targets, spell, oralCast)
         end
     end
 end

@@ -549,7 +549,9 @@ local M = {
             english = "#me begins chanting the incantation written in a portal book.",
             german = ""
         }
-    }
+    },
+    --item/wands.lua
+    wounded = { english = "Your wounds made it hard for you to concentrate, causing you to make a mistake in your casting.", german = ""}
 }
 M.qListDe = {"fürchterliche","schlechte","schwache","leicht schwache","durchschnittliche","gute","sehr gute","großartige","hervorragende"}
 M.qListEn = {"awful","bad","weak","slightly weak","average","good","very good","great","outstanding"}
