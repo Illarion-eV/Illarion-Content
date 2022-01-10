@@ -76,6 +76,7 @@ end
 
 local function addRunesToSpell(user, spokenWords, primaryRune)
     local primaryRuneNumber = runes.runeNameToNumber(primaryRune)
+    local BHONA = primaryRune == "BHONA"
     local spell = 0
     local incantation = primaryRune
     spell = runes.learnRune(user, false, primaryRuneNumber, "neither", spell)
@@ -99,13 +100,19 @@ local function addRunesToSpell(user, spokenWords, primaryRune)
 
             if found then
                 --a rune being repeated or an additional primal rune being spoken ends the incantation and returns the spell said up to that point
-                if  runes.checkSpellForRuneByName(rune.name, spell) or additionalPrimalRuneCheck(rune.name) then
+                if  runes.checkSpellForRuneByName(rune.name, spell) or (additionalPrimalRuneCheck(rune.name) and not BHONA )then
                     return spell
                 end
 
                 foundAny = true
                 spell = runes.learnRune(user, false, rune.number, "neither", spell)
                 incantation = incantation.." "..rune.name
+
+                --Teaching spells only teach one rune at a time
+                if BHONA then
+                    return spell
+                end
+
             end
 
         end
