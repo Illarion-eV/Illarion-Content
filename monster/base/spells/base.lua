@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local character = require("base.character")
 local chr_reg = require("lte.chr_reg")
+local magicResistance = require("magic.arcane.magicResistance")
 
 local M = {}
 
@@ -58,12 +59,9 @@ function M.isValidTarget(char)
 end
 
 function M.getSpellResistence(char)
-    local willpower = char:increaseAttrib("willpower", 0);
 
-    local minResistence = willpower;
-    local maxResistence = willpower * 2;
+    return magicResistance.getMagicResistance(char)
 
-    return common.Limit(math.random(minResistence, maxResistence) / 80.0, 0, 1);
 end
 
 -- Check if the line of sight is free from large objects that obstruct the view

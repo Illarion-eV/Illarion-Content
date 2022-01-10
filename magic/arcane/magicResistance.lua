@@ -132,8 +132,10 @@ function M.getMagicResistance(target, spell) --Returns a value between 0 and 1(m
         end
     end
 
-    if runes.checkSpellForRuneByName("Sav", spell) and not runes.checkSpellForRuneByName("JUS", spell) and not runes.checkSpellForRuneByName("PEN", spell) then
-        magicResistance = magicResistance/1.3
+    if spell then
+        if runes.checkSpellForRuneByName("Sav", spell) and not runes.checkSpellForRuneByName("JUS", spell) and not runes.checkSpellForRuneByName("PEN", spell) then
+            magicResistance = magicResistance/1.3
+        end
     end
 
     return magicResistance
