@@ -113,15 +113,31 @@ local function getSkillValue(target) --Return a value between 0 and 1, EG level 
 end
 
 function M.getMagicResistance(target, spell) --Returns a value between 0 and 1(max magic resistance percentage of 100%, which is nigh impossible to get (requires a max level set of gems for 9 items), and is lowered by magic penetration thereafter)
-local stats = getMagicStatValue(target)
-local equipment = getEquipmentValue(target)
-local magicGems = getGemValue(target)
-local skill = getSkillValue(target)
-local magicResistance = (((equipment+magicGems)/2)+stats+skill)/3
+
+    local magicResistance
+
+    local playerOrMonster = target:getType()
+    local skill = getSkillValue(target)
+
+    if playerOrMonster == Character.player then
+        local stats = getMagicStatValue(target)
+        local equipment = getEquipmentValue(target)
+        local magicGems = getGemValue(target)
+        magicResistance = (((equipment+magicGems)/2)+stats+skill)/3
+    elseif playerOrMonster == Character.monster then
+        if skill == 1 then
+            magicResistance = skill
+        else
+            magicResistance = skill/1.5
+        end
+    end
+
     if runes.checkSpellForRuneByName("Sav", spell) and not runes.checkSpellForRuneByName("JUS", spell) and not runes.checkSpellForRuneByName("PEN", spell) then
         magicResistance = magicResistance/1.3
     end
-return magicResistance
+
+    return magicResistance
+
 end
 
 return M

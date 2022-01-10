@@ -161,13 +161,9 @@ local finalDamage = 0
 local illusion = runes.checkSpellForRuneByName("Lhor", spell)
 local playerOrMonster = target:getType()
 
-    if illusion then
-        finalDamage = 0
-    elseif playerOrMonster == Character.player then
+    if playerOrMonster ~= Character.npc and not illusion then
         magicResist = MR.getMagicResistance(target, spell)
         finalDamage = damage*(1+magicPen-magicResist)
-    elseif playerOrMonster == Character.monster then
-        finalDamage = damage*(1+(magicPen/2))
     end
     if runes.checkSpellForRuneByName("Sul",spell) then
         finalDamage = finalDamage*1.1 --10% damage increase
