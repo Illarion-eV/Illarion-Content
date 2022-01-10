@@ -22,6 +22,12 @@ local character = require("base.character")
 local chr_reg = require("lte.chr_reg")
 local magicDamage = require("magic.arcane.magicDamage")
 
+function M.learnMagicResistance(target, damage)
+
+    target:learn(Character.magicResistance, damage/10, 100) -- Will need balancing for how fast magic resistance is learned.
+
+end
+
 function M.dealMagicDamage(user, target, spell, damage)
 local RA = runes.checkSpellForRuneByName("RA", spell)
 local CUN = runes.checkSpellForRuneByName("CUN", spell)
@@ -38,7 +44,9 @@ if target.name then
 end
 text = text.."."
 log("Magic testing: Damage tracking. Damage dealt: "..tostring(damage)..text)
-target:learn(Character.magicResistance, damage/10, 100) -- Will need balancing for how fast magic resistance is learned.
+
+    M.learnMagicResistance(target, damage)
+
     if user then
         if target.pos == user.pos then
             return

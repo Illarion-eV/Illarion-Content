@@ -18,14 +18,16 @@ local common = require("base.common")
 local character = require("base.character")
 local chr_reg = require("lte.chr_reg")
 local magicResistance = require("magic.arcane.magicResistance")
+local arcaneMagicDamage = require("magic.arcane.dealMagicDamage")
 
 local M = {}
 
-function M.dealMagicDamage(target, damange)
-    if damange < 1 then return end
+function M.dealMagicDamage(target, damage)
+
+    if damage < 1 then return end
     -- Check for damage + 1 to avoid the case that a regular hit lowers the hitpoints down to 1 and directly sends a
     -- character to the brink of death.
-    if character.IsPlayer(target) and character.WouldDie(target, damange + 1) then
+    if character.IsPlayer(target) and character.WouldDie(target, damage + 1) then
         if character.AtBrinkOfDeath(target) then
             if target:isAdmin() then
                 chr_reg.stallRegeneration(target, 0)
@@ -44,7 +46,8 @@ function M.dealMagicDamage(target, damange)
             chr_reg.stallRegeneration(target, 60 / timeFactor)
         end
     else
-        target:increaseAttrib("hitpoints", -damange)
+        arcaneMagicDamage.learnMagicResistance(target, damage)
+        target:increaseAttrib("hitpoints", -damage)
     end
 end
 
