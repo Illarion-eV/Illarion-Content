@@ -26,6 +26,7 @@ UPDATE weapon SET wp_attack = 29, wp_accuracy = 70, wp_range = 5 WHERE wp_itemid
 
 local magicTargeting = require("magic.arcane.targeting")
 local magicResistance = require("magic.arcane.magicResistance")
+local dealMagicDamage = require("magic.arcane.dealMagicDamage")
 
 local M = {}
 local MAGIC_LOAD_LIST = {}
@@ -226,6 +227,7 @@ local function applyDamage(attackerStruct, defenderStruct)
             chr_reg.stallRegeneration(defenderStruct.Char, 60 / timeFactor)
         end
     else
+        dealMagicDamage.learnMagicResistance(defenderStruct.Char, damage)
         character.ChangeHP(defenderStruct.Char, -damage)
     end
 
