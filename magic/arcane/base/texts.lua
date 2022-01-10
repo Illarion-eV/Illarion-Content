@@ -551,7 +551,21 @@ local M = {
         }
     },
     --item/wands.lua
-    wounded = { english = "Your wounds made it hard for you to concentrate, causing you to make a mistake in your casting.", german = ""}
+    wounded = { english = "Your wounds made it hard for you to concentrate, causing you to make a mistake in your casting.", german = ""},
+    --item/fountain.lua
+    forgetfulFountain = {
+        name = { english = "Fountain of Forgetfulness", german = ""},
+        description = { english = "A mysterious fountain covered in vapour. As you near it, you feel foggy minded; Did you just forget something important?", german = ""}
+    },
+    fountainDialogue = {
+        yes = { english = "Yes", german = "Ja"},
+        no = { english = "No", german = "Nein"},
+        certain = { english = "Are you certain you wish to forget all your existing magical knowledge? This can not be undone once it has been done", german = ""},
+        reallyCertain = { english = "Are you really sure?", german = ""},
+        finalVerification = { english = "Then your magical knowledge will be forgotten... right?", german = ""},
+        removed = { english = "As you drink from the fountain your eyes grow dazed and your head feels foggy. Why does it suddenly feel like your memory is full of blank spots? What are you doing here? Why is the sky blue? You don't know.", german = ""},
+        kept = { english = "You wisely decided to keep your magical knowledge. What kind of fool would give up such precious wisdom, anyways?", german = ""}
+    }
 }
 M.qListDe = {"fürchterliche","schlechte","schwache","leicht schwache","durchschnittliche","gute","sehr gute","großartige","hervorragende"}
 M.qListEn = {"awful","bad","weak","slightly weak","average","good","very good","great","outstanding"}
