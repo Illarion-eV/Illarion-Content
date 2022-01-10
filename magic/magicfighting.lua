@@ -25,6 +25,7 @@ UPDATE weapon SET wp_attack = 29, wp_accuracy = 70, wp_range = 5 WHERE wp_itemid
 ]]
 
 local magicTargeting = require("magic.arcane.targeting")
+local magicResistance = require("magic.arcane.magicResistance")
 
 local M = {}
 local MAGIC_LOAD_LIST = {}
@@ -180,11 +181,8 @@ local function applyDamage(attackerStruct, defenderStruct)
 
     damage = damage - (damage * magicBonusDefender/350)
 
-    local resistance = math.max(1, math.floor(
-        (2*(defenderStruct.willpower - 6)
-        + 0.5*(defenderStruct.intelligence - 6)
-        + 0.5*(defenderStruct.essence - 6))))
-    resistance = common.Limit(Random.uniform(resistance, resistance*2) / 160.0, 0, 1)
+    local resistance = magicResistance.getMagicResistance(defenderStruct.Char)
+
     damage = damage* (1 - resistance)
 
    -- take consitution of enemy in account
