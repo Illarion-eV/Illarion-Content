@@ -238,8 +238,9 @@ end
 function M.onMagicAttack(attackerStruct, defenderStruct)
     common.TurnTo(attackerStruct.Char,defenderStruct.Char.pos)
 
-    local spell = attackerStruct.Char:getQuestProgress(7001)
-    if spell ~= 0 then
+    local spellMode = attackerStruct.Char:getQuestProgress(7001)
+    local portalMode = attackerStruct.Char:getQuestProgress(7009)
+    if spellMode ~= 0 or portalMode ~= 0 then
         local name = attackerStruct.Char.name
         magicTargeting.playerTargets[name] = defenderStruct.Char
         return
