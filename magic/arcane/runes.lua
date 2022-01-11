@@ -210,4 +210,59 @@ function M.fetchElement(spell)
     end
 end
 
+--GM tool functions:
+
+function M.teachAllRunes(user, target)
+
+    for i = 1, #M.Runes do
+        if not M.checkIfLearnedRune(target, false, i, "isQuest") then
+            M.learnRune(target, false, i, "isQuest")
+        end
+    end
+
+    user.inform(target.name.." now knows all runes.")
+    user:logAdmin(user.name.." has taught all runes to "..target.name)
+
+end
+
+function M.chooseRuneToTeach(user, target)
+
+    local callback = function (dialog)
+        if (not dialog:getSuccess()) then
+            return
+        end
+
+        local index = dialog:getSelectedIndex() + 1
+
+        local skippedRunes = 0
+
+        for _, rune in ipairs(M.Runes) do
+            if M.checkIfLearnedRune(target, false, rune[1], "isQuest") then
+                skippedRunes = skippedRunes + 1
+            elseif index == rune[1] - skippedRunes then
+                M.learnRune(target, false, rune[1], "isQuest")
+                user:inform("You taught "..rune[2].." to "..target.name)
+                user:logAdmin(user.name.." has taught the rune "..rune[2].." to "..target.name)
+            end
+        end
+    end
+    local dialog = SelectionDialog("Runes", "Select a rune to teach", callback)
+
+    local unknownRunes = 0
+
+    for _, rune in ipairs(M.Runes) do
+        if not M.checkIfLearnedRune(target, false, rune[1], "isQuest") then
+            dialog:addOption(0, rune[2])
+            unknownRunes = unknownRunes +1
+        end
+    end
+
+    if unknownRunes > 0 then
+        user:requestSelectionDialog(dialog)
+    else
+        user:inform(target.name.." already knows all runes.")
+    end
+
+end
+
 return M

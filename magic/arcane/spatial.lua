@@ -411,4 +411,59 @@ function M.castSpatialMagic(user, actionState, oralCast)
     end
 end
 
+
+--GM tool functions:
+
+function M.chooseLocationToAttune(user, target)
+
+    local callback = function (dialog)
+        if (not dialog:getSuccess()) then
+            return
+        end
+
+        local index = dialog:getSelectedIndex() + 1
+
+        local skippedSpots = 0
+
+        for i = 1, #portalSpots do
+            if M.spotAttuned(target, i) then
+                skippedSpots = skippedSpots+1
+            elseif index == i - skippedSpots then
+                M.attuneSpot(target, i)
+                user:inform("You attuned "..target.name.." to the portal location of "..portalSpots[i]["nameEn"])
+                user:logAdmin(user.name.." has attuned "..target.name.." to the portal location of "..portalSpots[i]["nameEn"])
+            end
+        end
+    end
+    local dialog = SelectionDialog("Runes", "Select a rune to teach", callback)
+
+    local unknownSpots = 0
+
+    for i = 1, #portalSpots do
+        if not M.spotAttuned(target, i) then
+            dialog:addOption(0, portalSpots[i]["nameEn"])
+            unknownSpots = unknownSpots +1
+        end
+    end
+
+    if unknownSpots > 0 then
+        user:requestSelectionDialog(dialog)
+    else
+        user:inform(target.name.." is already attuned to all spots.")
+    end
+
+end
+
+function M.attuneAllLocations(user, target)
+
+    for i = 1, #portalSpots do
+        if not M.spotAttuned(target, i) then
+            M.attuneSpot(target, i)
+        end
+    end
+    user:inform(target.name.." has been attuned to all portal spots.")
+    user:logAdmin(user.name.." has attuned all portal spots "..target.name)
+
+end
+
 return M

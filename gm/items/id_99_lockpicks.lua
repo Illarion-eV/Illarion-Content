@@ -27,6 +27,8 @@ local areas = require("content.areas")
 local shard = require("item.shard")
 local gods = require("content.gods")
 local resurrected = require("lte.resurrected")
+local runes = require("magic.arcane.runes")
+local spatial = require("magic.arcane.spatial")
 
 local M = {}
 
@@ -1405,6 +1407,69 @@ local function settingsForCharRedPortalPermission(user, chosenPlayer)
     end
 end
 
+local function removePortalsRunes(user, target, questID)
+
+    local name
+
+    target:setQuestProgress(questID, 0)
+
+    if questID == 7000 then
+        name = "runes"
+    else
+        name = "portals"
+    end
+
+    user:inform("Knowledge of "..name.." has been removed from "..target.name)
+
+    user:logAdmin(user.name.." has removed knowledge of "..name.." from "..target.name)
+
+end
+
+local function settingsForMagic(user, target)
+
+
+    local callback = function (dialog)
+
+        if (not dialog:getSuccess()) then
+            return
+        end
+
+        local index = dialog:getSelectedIndex() + 1
+
+        if index == 1 then
+            runes.chooseRuneToTeach(user, target)
+        elseif index == 2 then
+            spatial.chooseLocationToAttune(user, target)
+        elseif index == 3 then
+            runes.teachAllRunes(user, target)
+        elseif index == 4 then
+            spatial.attuneAllLocations(user, target)
+        elseif index == 5 then
+            removePortalsRunes(user, target, 7000)
+        elseif index == 6 then
+            removePortalsRunes(user, target, 7008)
+        elseif index == 7 then
+            settingsForCharRedPortalPermission(user, target)
+        end
+    end
+    local dialog = SelectionDialog( "Magic", "Select what you want to do", callback)
+
+    dialog:addOption(0, "Teach the character a rune")
+    dialog:addOption(0, "Attune the character to a portal location")
+    dialog:addOption(0, "Teach the character all runes")
+    dialog:addOption(0, "Attune the character to all portal locations")
+    dialog:addOption(0, "Remove knowledge of all runes")
+    dialog:addOption(0, "Remove knowledge of all portal locations")
+
+    if target:getQuestProgress(7010) ~= 0 then
+        dialog:addOption(798, "Remove player's access to red portal creation")
+    else
+        dialog:addOption(798, "Allow player to create red portals")
+    end
+
+    user:requestSelectionDialog(dialog)
+end
+
 local function settingsForChar(user)
 
     local playersTmp = world:getPlayersInRangeOf(user.pos, 25)
@@ -1448,7 +1513,7 @@ local function settingsForChar(user)
             elseif actionToPerform == 10 then
                 settingsForCharReligion(user, chosenPlayer)
             elseif actionToPerform == 11 then
-                settingsForCharRedPortalPermission(user, chosenPlayer)
+                settingsForMagic(user, chosenPlayer)
             end
         end
         local sdAction = SelectionDialog("Character settings", chosenPlayer.name.."\n" .. charInfo(chosenPlayer), charActionDialog)
@@ -1485,11 +1550,9 @@ local function settingsForChar(user)
 
         sdAction:addOption(1060, "Religion")
 
-        if chosenPlayer:getQuestProgress(7010) ~= 0 then
-            sdAction:addOption(798, "Remove player's access to red portal creation")
-        else
-            sdAction:addOption(798, "Allow player to create red portals")
-        end
+        sdAction:addOption(1060, "Magic")
+
+
 
         user:requestSelectionDialog(sdAction)
     end
