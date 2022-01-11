@@ -565,6 +565,43 @@ local M = {
         finalVerification = { english = "Then your magical knowledge will be forgotten... right?", german = ""},
         removed = { english = "As you drink from the fountain your eyes grow dazed and your head feels foggy. Why does it suddenly feel like your memory is full of blank spots? What are you doing here? Why is the sky blue? You don't know.", german = ""},
         kept = { english = "You wisely decided to keep your magical knowledge. What kind of fool would give up such precious wisdom, anyways?", german = ""}
+    },
+    --runeHintsBook.lua
+    runeHintsBookTexts = {
+        CUN = {english = "Near the ruins of a mother praised lies the secret of water.", german = ""},
+        JUS = {english = "", german = ""},
+        PEN = {english = "", german = ""},
+        RA = {english = "A lone man betwixt the desert dry and forest lush guards the secret of the flame.", german = ""},
+        SOLH = {english = "", german = ""},
+        BHONA = {english = "", german = ""},
+        Anth = {english = "", german = ""},
+        Dun = {english = "", german = ""},
+        Fhan = {english = "", german = ""},
+        Fhen = {english = "", german = ""},
+        Hept = {english = "", german = ""},
+        Ira = {english = "", german = ""},
+        Kah = {english = "", german = ""},
+        Kel = {english = "", german = ""},
+        Lev = {english = "", german = ""},
+        Lhor = {english = "", german = ""},
+        Luk = {english = "", german = ""},
+        Mes = {english = "", german = ""},
+        Orl = {english = "", german = ""},
+        Pherc = {english = "", german = ""},
+        Qwan = {english = "", german = ""},
+        Sav = {english = "", german = ""},
+        Sih = {english = "", german = ""},
+        Sul = {english = "", german = ""},
+        Tah = {english = "", german = ""},
+        Taur = {english = "", german = ""},
+        Ura = {english = "", german = ""},
+        Yeg = {english = "", german = ""},
+        Pera = {english = "", german = ""},
+        knowAll = {english = "There does not appear to be any knowledge in this book that you do not already know.", german = ""},
+        requirementNotMet = {english = "While there's knowledge in this book that you are not knowledgable of, it appears to be beyond your capability to understand right now.", german = ""},
+        bookName = {english = "Mysterious Book", german = ""},
+        bookDescription = {english = "An old, faded looking book full of scribbles only some may understand.", german = ""},
+        selectRune = {english = "Select the name of the rune you wish to locate.", german = ""}
     }
 }
 M.qListDe = {"fürchterliche","schlechte","schwache","leicht schwache","durchschnittliche","gute","sehr gute","großartige","hervorragende"}

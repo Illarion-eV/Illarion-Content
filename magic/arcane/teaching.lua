@@ -36,7 +36,7 @@ local function getRuneToTeach(spell)
     end
 end
 
-local function getTargetsMagicLevels(target, rune)
+function M.getTargetsMagicLevels(target, rune)
     local skillNames = {"fireMagic", "spiritMagic", "windMagic","earthMagic","waterMagic"}
     local targetLevels = {}
     local magicLevel = 0
@@ -63,7 +63,7 @@ end
 
 local function levelRequirementNotMet(target, runeToTeach)
     local levelReq = runes.getLevelRequirementOfRune(runeToTeach)
-    local targetLevel = getTargetsMagicLevels(target, runeToTeach)
+    local targetLevel = M.getTargetsMagicLevels(target, runeToTeach)
     if targetLevel >= levelReq then
         return false
     end

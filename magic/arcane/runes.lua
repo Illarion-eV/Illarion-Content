@@ -220,7 +220,7 @@ function M.teachAllRunes(user, target)
         end
     end
 
-    user.inform(target.name.." now knows all runes.")
+    user:inform(target.name.." now knows all runes.")
     user:logAdmin(user.name.." has taught all runes to "..target.name)
 
 end
