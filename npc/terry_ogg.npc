@@ -1,0 +1,164 @@
+-- Illarion Server
+-- 
+-- This program is free software: you can redistribute it and/or modify it under
+-- the terms of the GNU Affero General Public License as published by the Free
+-- Software Foundation, either version 3 of the License, or (at your option) any
+-- later version.
+-- 
+-- This program is distributed in the hope that it will be useful, but WITHOUT
+-- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+-- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+-- details.
+-- 
+-- You should have received a copy of the GNU Affero General Public License
+-- along with this program.  If not, see <http://www.gnu.org/licenses/>.
+------------------------------------------------------------------------------AC
+-- NPC Name: Terry Ogg                                                  None  --
+-- NPC Job:  Magic Teacher                                                    --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  656, 316, 0            --
+-- NPC Sex:  male                       NPC Direction: southwest              --
+--                                                                            --
+-- Author:   Brightrim                                                        --
+--                                                     easyNPC Parser v1.23.1 --
+--------------------------------------------------------------------------------
+
+name = "Terry Ogg"
+race = human
+sex = male
+position = 656, 316, 0
+direction = southwest
+affiliation = "None"
+job = "Magic Teacher"
+
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
+
+author = "Brightrim"
+
+lookatDE = ""
+lookatUS = "An frail, middle aged man with a glint of wisdom in his eyes."
+useMsgDE = "Fass mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut dich verwirrt an."
+wrongLangUS = "#me looks at you confused."
+radius = 0
+hairID = 1
+beardID = 2
+colorHair = 28, 24, 23
+colorSkin = 108, 65, 33
+itemHead = 357
+itemChest = 819
+itemCoat = 558
+itemMainHand = 323
+itemSecondHand = 0
+itemHands = 0
+itemTrousers = 461
+itemShoes = 53
+
+------------------------------------------------------------------------------AC
+-- Trading
+-- Here are all items the NPCs is able to trade. They will be displayed inside
+-- the merchant dialog.
+
+sellItem = id(2619), de("Zauberbuch"), en("Grimoire"), price(2000), stack(1), quality(999), data("magicBook" = "true")
+
+tradeNotEnoughMoneyMsg "", "Oh, I'm afraid you can't afford that. How unfortunate."
+tradeFinishedMsg "", "Ah, funding for my magical research. Thank you."
+tradeFinishedWithoutTradingMsg "", "Oh, changed your mind?"
+tradeWrongItemMsg "", "If your intent is to sell your wares, I am not your man."
+
+-- Help
+"Help" -> inform("[Game Help] This NPC is Terry Ogg, a wandering mage visiting Troll's Haven. Keywords: Hello, Buy, Sell, Trade, Troll's Haven, Elara, Magic, Rune , Glyph, Spatial, Wand")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Terry Ogg, "
+
+-- Trade
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I can't offer a lot, but if it's magical knowledge you seek.", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "", trade
+
+-- General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Oh, you're back? Or is this our first time meeting?", "Hello! Have you seen my wand? Oh, it's right here.", "Hello there! Welcome to my... Well, welcome, anyhow."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "", "", ""
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Oh, you're back? Or is this our first time meeting?", "Hello! Have you seen my wand? Oh, it's right here.", "Hello there! Welcome to my... Well, welcome, anyhow."
+"Hiho", "Hallo", "Hey", "Greeb" -> "", "", ""
+"Farewell", "Bye", "Fare well", "See you" -> "Carry on then.", "Good bye.", "Good luck with your... whatever it is.", "Safe journey, see you soon."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "", "Auf Wiedersehen.", "", "Gute Reise, bis bald."
+"How are you", "How do you feel", "How do you do" -> "I'm doing quite splendid, thank you. I could do with a little more funding though.", "Why? Trying to butter me up so I'll teach you runes, are you?", "Fine. Now spare me your nonsense and get on with it, I have research to perform."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "" -> "", "", ""
+"your name", "who are you", "who art thou" -> "Oh, me? Terry Ogg, and that's Ogg, not Egg!", "Aha, you wish to know this handsome gentlemans name? I am Terry Ogg, the mighty... What was I doing again?", "Who am I? Terry Ogg. Who are you? Wait before you answer that, I don't really care."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "", "", ""
+"my name", "I am called", "I'm called" -> "#me nods half-heartedly, clearly not paying your introduction any mind."
+"mein Name", "ich heiße"-> ""
+english, "Egg" -> "I told you not to call me that!"
+
+"magic" -> "You want to know more about magic? Well there's rune magic, wand magic, glyph magic and even spatial magic! Which one would you like to know more about?"
+
+-- Magic quest triggers
+"wand" -> "Wand magic tutorial goes here."
+"spatial" -> "spatial magic tutorial goes here."
+"rune" -> "rune magic tutorial goes here."
+"glyph" -> "glyph magic tutorial goes here."
+
+-- Catching quest triggers
+english, "quest", "mission" -> "Default to one of the above magic questlines if not complete."
+"quest", "mission" -> ""
+"task", "adventure", "order" -> ""
+"Auftrag", "Aufgabe", "Abenteuer", ""
+
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession", "work" -> "What do I do for a living? Isn't it obvious? I'm a proud almighty magician, darn it! See the hat?"
+"beruf" -> ""
+english, "job" -> "What do I do for a living? Isn't it obvious? I'm a proud almighty magician, darn it! See the hat?"
+"job" -> ""
+english, "Illarion" -> "Illarion. That's what this place is called, isn't it? I go where my research leads me."
+"Illarion" -> ""
+english, "Troll's Haven", "Trolls Haven", "Trollshaven" -> "What? Are you saying I am a troll for taking haven in this place!? Oh. It's the name of this place?"
+"Troll's Haven", "Trolls Haven", "Trollshaven" -> ""
+
+-- Faction stuff
+"queen" -> "A queen? You know, I used to serve as the royal archmage in a palace at one point. Then I almost got my head chopped off for sleeping with the...  Eh-hem... Moving on."
+"königin" -> ""
+english, "Rosaline", "Edwards" -> "Queen Rosaline Edwards! Now that's a looker, I wouldn't mind... Eh-hem-hem... Moving on."
+"Rosaline", "Edwards" -> ""
+english, "Cadomyr" -> "#me shudders. "Sand... sand everywhere. That city is no good."
+"Cadomyr" -> ""
+english, "Don" -> "The Don, leader of Galmair? Why DON't we talk about something else instead? He-he."
+"Don" -> ""
+english, "Valerio", "Guilianni" -> "Sounds familiar... Wait, that guy owes me money!"
+"Valerio", "Guilianni" -> ""
+english, "Galmair" -> "Thieves! Scum! Can you believe they wanted me to PAY for protection!? Me, an almighty archmage!?"
+"Galmair" -> ""
+"Archmage" -> "Archmage? Are you gossiping about me, again?"
+"Erzmagier" -> ""
+english, "Elvaine", "Morgan" -> "Pfah, that elf in Runewick? I'm clearly a much superior mage."
+"Elvaine", "Morgan" -> ""
+english, "Runewick" -> "A bunch of losers! No, I was not kicked out of their academy and you can not prove it!"
+"Runewick" -> ""
+
+-- Gods - use the triggers of the god the NPC worships or fights
+"god" -> "Gods? Who has time for gods these days, research is taking place! Though come to think of it, Elara isn't all that bad."
+"Gott", "Götter" -> ""
+english, "Elara" -> "Elara, the goddess of wisdom and knowledge. Truly the only god or goddess worthy of the piety of a grand archmage such as myself... must be quite a looker, too."
+"Elara" -> ""
+
+-- Last catch: Think about keywords the player might say and that are not caught until here
+english, "Terry", "Ogg" -> "Yes, what is it? Can't you see I'm busy with my research?"
+"Terry", "Ogg" -> ""
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "#me ", "#me lifts his wand, giving it a swish and flick."
+cycletext "#me ", "#me mutters some intelligible words under his breath."
+cycletext "#me ", "#me picks his nose, looking around before subtly wiping it off on the inside of his archmage robes."
+cycletext "#me ", "#me moves over to the nearby table, making a note in the book on there."
+cycletext "#me ", "#me utters a thoughtful hum as he reads silently from a book."
+cycletext " ", "What!? Out of research material again!?"
+cycletext " ", "I, the almighty Archmage Terry Ogg, am selling grimoires and books on magic! Come fund my grand magical research efforts today!"
+cycletext " ", "Huh? Who... Where was I?"
+cycletext " ", "Resarch, research, research... Now where did my dinner go off to?"
+cycletext " ", "They'll regret kicking me out of the academy, you'll see..."
