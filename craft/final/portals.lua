@@ -34,13 +34,10 @@ function M.portalBookCreation(user, sourceItem)
         sfxDuration = 80,
         }
 
-    --desks to work at
-    portalBooks:addTool(1219)
-    portalBooks:addTool(1220)
-    portalBooks:addTool(1221)
-    portalBooks:addTool(1222)
-    portalBooks:addTool(550)
-    portalBooks:addTool(551)
+    -- magic desks to work at
+    portalBooks:addTool(3502)
+    portalBooks:addTool(3503)
+
 
     local catId = portalBooks:addCategory(myTexts.category.english, myTexts.category.german)
 

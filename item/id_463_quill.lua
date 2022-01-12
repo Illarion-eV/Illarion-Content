@@ -257,8 +257,8 @@ local function removeLabel(user)
     end
 end
 
-local function checkIfDeskInFrontOfuser(user)
-    local desks = {1219, 1220, 1221, 1222, 550, 551}
+local function checkIfMagicDeskInFrontOfuser(user)
+    local desks = {3502, 3503}
     local potentialDesk = common.GetFrontItem(user)
     for _, desk in pairs(desks) do
         if potentialDesk.id == desk then
@@ -275,7 +275,7 @@ function M.UseItem(user, sourceItem, ltstate)
         return
     end
 
-    if checkIfDeskInFrontOfuser(user) then
+    if checkIfMagicDeskInFrontOfuser(user) then
         createSpell.mainDialog(user, sourceItem)
         return
     end

@@ -14,7 +14,12 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
+
 local createSpell = require("magic.arcane.createSpell")
+local common = require("base.common")
+local lookat = require("base.lookat")
+local texts = require("magic.arcane.base.texts")
+
 local M = {}
 
 -- UPDATE items SET itm_script='item.desk' WHERE itm_id IN (550, 551, 1219, 1220, 1221, 1222);
@@ -33,10 +38,22 @@ function M.UseItem(user, sourceItem)
             myEffect = LongTimeEffect(100, 5 * 600) --5min
             user.effects:addEffect(myEffect)
         end
-    else
-        -- If it is just a regular desk and not used for the above quest purposes, then use it for magic purposes
+    elseif sourceItem.id == 3502 or sourceItem.id == 3503 then
+        -- it's a magic desk
         createSpell.mainDialog(user, sourceItem)
     end
+end
+
+function M.LookAtItem(user, item)
+
+    local lookAt = lookat.GenerateLookAt(user, item)
+
+    if item.id == 3502 or item.id == 3503 then
+        lookAt.name= common.GetNLS(user, texts.magicDesk.name.german , texts.magicDesk.name.english )
+        lookAt.description = common.GetNLS(user, texts.magicDesk.description.german, texts.magicDesk.description.english)
+    end
+
+    return lookAt
 end
 
 return M

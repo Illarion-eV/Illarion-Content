@@ -610,7 +610,9 @@ local M = {
         notMetCriteria = {english = "As you touch the sphere, you get the feeling that you are not well versed enough or perhaps even talented enough at magic to learn the rune.", german = ""},
         notMage = { english = "As you touch the sphere, it has no reaction other than returning to its dim state.", german = ""},
         alreadyKnows = { english = "While the magical information enters your mind, you discover nothing new. You already know how to use this rune.", german = ""}
-    }
+    },
+    --item/desk.lua
+    magicDesk = {name = {english = "Magical Desk", german = ""}, description = {english = "A desk where mages can create spells, craft portal books and enchant grimoires", german = ""}}
 }
 M.qListDe = {"fürchterliche","schlechte","schwache","leicht schwache","durchschnittliche","gute","sehr gute","großartige","hervorragende"}
 M.qListEn = {"awful","bad","weak","slightly weak","average","good","very good","great","outstanding"}
