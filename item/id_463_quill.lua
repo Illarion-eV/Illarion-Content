@@ -17,7 +17,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE items SET itm_script='item.id_463_quill' WHERE itm_id IN (463)
 local common = require("base.common")
 local alchemy = require("alchemy.base.alchemy")
-local lookat = require("base.lookat")
 local recipe_creation = require("alchemy.base.recipe_creation")
 local createSpell = require("magic.arcane.createSpell")
 local texts = require("magic.arcane.base.texts")
