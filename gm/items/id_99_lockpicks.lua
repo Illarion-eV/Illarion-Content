@@ -1061,7 +1061,7 @@ local function settingsForCharMagicClass(user, chosenPlayer)
             else
                 chosenPlayer:setQuestProgress(37, 0)
             end
-            common.InformNLS(chosenPlayer, "[GM Info] Die magische Klasse wurde auf " .. classNames[targetClass] .. "geändert", "[GM Info] The magic class has been changed to" .. classNames[targetClass].. ".")
+            common.InformNLS(chosenPlayer, "[GM Info] Die magische Klasse wurde auf " .. classNames[targetClass] .. "geändert", "[GM Info] The magic class has been changed to " .. classNames[targetClass].. ".")
         end
     end
     local sdClass = SelectionDialog("Change Magic Class", "What magic class should be set for "..chosenPlayer.name.."?", magicClassDialog)
