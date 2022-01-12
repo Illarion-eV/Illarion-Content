@@ -71,8 +71,8 @@ tradeFinishedWithoutTradingMsg "", "Oh, changed your mind?"
 tradeWrongItemMsg "", "If your intent is to sell your wares, I am not your man."
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Terry Ogg, a wandering mage visiting Troll's Haven. Keywords: Hello, Buy, Sell, Trade, Troll's Haven, Elara, Magic, Rune , Glyph, Spatial, Wand")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Terry Ogg, "
+"Help" -> inform("[Game Help] This NPC is Terry Ogg, a wandering mage visiting Troll's Haven. Keywords: Hello, Buy, Sell, Trade, Troll's Haven, Elara, Magic, Rune , Glyph, Spatial, Wand"), ""
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Terry Ogg, "), ""
 
 -- Trade
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I can't offer a lot, but if it's magical knowledge you seek.", trade
@@ -105,7 +105,7 @@ english, "Egg" -> "I told you not to call me that!"
 english, "quest", "mission" -> "Default to one of the above magic questlines if not complete."
 "quest", "mission" -> ""
 "task", "adventure", "order" -> ""
-"Auftrag", "Aufgabe", "Abenteuer", ""
+"Auftrag", "Aufgabe", "Abenteuer" -> ""
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession", "work" -> "What do I do for a living? Isn't it obvious? I'm a proud almighty magician, darn it! See the hat?"
@@ -120,9 +120,9 @@ english, "Troll's Haven", "Trolls Haven", "Trollshaven" -> "What? Are you saying
 -- Faction stuff
 "queen" -> "A queen? You know, I used to serve as the royal archmage in a palace at one point. Then I almost got my head chopped off for sleeping with the...  Eh-hem... Moving on."
 "königin" -> ""
-english, "Rosaline", "Edwards" -> "Queen Rosaline Edwards! Now that's a looker, I wouldn't mind... Eh-hem-hem... Moving on."
+english, "Rosaline", "Edwards" -> "Queen Rosaline Edwards! Now that's a looker, I wouldn't mind... Eh-hem-hem... Moving on.", "The queen? Why, did she ask about me?"
 "Rosaline", "Edwards" -> ""
-english, "Cadomyr" -> "#me shudders. "Sand... sand everywhere. That city is no good."
+english, "Cadomyr" -> "#me shudders. 'Sand... sand everywhere. That city is no good.'"
 "Cadomyr" -> ""
 english, "Don" -> "The Don, leader of Galmair? Why DON't we talk about something else instead? He-he."
 "Don" -> ""
