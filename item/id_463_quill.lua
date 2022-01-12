@@ -21,6 +21,7 @@ local lookat = require("base.lookat")
 local recipe_creation = require("alchemy.base.recipe_creation")
 local createSpell = require("magic.arcane.createSpell")
 local texts = require("magic.arcane.base.texts")
+local lookat = require("base.lookat")
 
 local M = {}
 
@@ -403,6 +404,13 @@ function M.UseItem(user, sourceItem, ltstate)
     dialog:addOption(0, getText(user,"Zauberbuch beschriften","Label Grimoire"))
 
     user:requestSelectionDialog(dialog)
+end
+
+function M.LookAtItem(user, sourceItem)
+
+    local lookAt = lookat.GenerateLookAt(user, sourceItem, lookat.WOOD)
+
+    return lookAt
 end
 
 return M
