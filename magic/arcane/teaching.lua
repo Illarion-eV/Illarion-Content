@@ -61,7 +61,7 @@ function M.getTargetsMagicLevels(target, rune)
     return magicLevel
 end
 
-local function levelRequirementNotMet(target, runeToTeach)
+function M.levelRequirementNotMet(target, runeToTeach)
     local levelReq = runes.getLevelRequirementOfRune(runeToTeach)
     local targetLevel = M.getTargetsMagicLevels(target, runeToTeach)
     if targetLevel >= levelReq then
@@ -70,7 +70,7 @@ local function levelRequirementNotMet(target, runeToTeach)
     return true
 end
 
-local function notEnoughTimeHasPassed(target)
+function M.notEnoughTimeHasPassed(target)
     local quests = {7002, 7003}
     for _, quest in pairs(quests) do
         local time = target:getQuestProgress(quest)
@@ -81,7 +81,7 @@ local function notEnoughTimeHasPassed(target)
     return true
 end
 
-local function statRequirementNotMet(target, runeToTeach)
+function M.statRequirementNotMet(target, runeToTeach)
     local statReq = runes.getStatRequirementOfRune(runeToTeach)
     local targetStatTotal = target:increaseAttrib("willpower", 0) + target:increaseAttrib("essence", 0) + target:increaseAttrib("intelligence", 0)
 
@@ -92,7 +92,7 @@ local function statRequirementNotMet(target, runeToTeach)
     return true
 end
 
-local function notAMage(target)
+function M.notAMage(target)
     if target:getMagicType() == 0 then
         return false
     end
@@ -110,7 +110,7 @@ local function reachedTeachingCapacity(user)
 return true
 end
 
-local function checkForExpiredCooldowns(target)
+function M.checkForExpiredCooldowns(target)
     local time = tonumber(world:getTime("unix"))
     local quests = {7002, 7003, 7004, 7005, 7006, 7007}
     for _, quest in pairs(quests) do
@@ -121,7 +121,7 @@ local function checkForExpiredCooldowns(target)
     end
 end
 
-local function setLearningCooldown(target)
+function M.setLearningCooldown(target)
     local time = tonumber(world:getTime("unix"))
     local timeWithCooldown = time+cooldown
     local learnedTime1 = target:getQuestProgress(7002)
@@ -160,26 +160,26 @@ local myTexts = texts.teachingTexts
 local function teachingCheck(user, target, spell, oralCast)
     local manaCost = 5000
     local runeToTeach = getRuneToTeach(spell)
-    checkForExpiredCooldowns(user)
-    checkForExpiredCooldowns(target)
+    M.checkForExpiredCooldowns(user)
+    M.checkForExpiredCooldowns(target)
         if  magic.hasSufficientMana(user,manaCost) then
             if runes.checkIfLearnedRune(target,"", runeToTeach, "isQuest") then
                 user:inform(myTexts.knows.german, myTexts.knows.english)
                 return
             end
-            if levelRequirementNotMet(target, runeToTeach) then
+            if M.levelRequirementNotMet(target, runeToTeach) then
                 user:inform(myTexts.level.german, myTexts.level.english)
                 return
             end
-            if notEnoughTimeHasPassed(target) then
+            if M.notEnoughTimeHasPassed(target) then
                 user:inform(myTexts.studentCooldown.german, myTexts.studentCooldown.english)
                 return
             end
-            if statRequirementNotMet(target, runeToTeach) then
+            if M.statRequirementNotMet(target, runeToTeach) then
                 user:inform(myTexts.stats.german, myTexts.stats.english)
                 return
             end
-            if notAMage(target) then
+            if M.notAMage(target) then
                 user:inform(myTexts.mage.german, myTexts.mage.english)
                 return
             end
@@ -193,7 +193,7 @@ local function teachingCheck(user, target, spell, oralCast)
             runes.learnRune(target,"", runeToTeach, "isQuest")
             target:inform(myTexts.learned.german..runes.Runes[runeToTeach][2]..".", myTexts.learned.english..runes.Runes[runeToTeach][2]..".")
             user:inform(myTexts.taught.german..runes.Runes[runeToTeach][2]..".", myTexts.taught.english..runes.Runes[runeToTeach][2]..".")
-            setLearningCooldown(target)
+            M.setLearningCooldown(target)
             setTeachingCooldown(user)
             if not oralCast then
                 incantation.speakIncantation(user, spell)

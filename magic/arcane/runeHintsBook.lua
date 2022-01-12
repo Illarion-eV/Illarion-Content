@@ -112,7 +112,7 @@ local function runeHint(user, runeName)
     local callback = function(dialog)
     end
 
-    local dialog = MessageDialog(common.GetNLS(user, myTexts.bookName.german, myTexts.bookName.english), common.GetNLS(user, myTexts[runeName].german, myTexts[runeName].english), callback)
+    local dialog = MessageDialog(common.GetNLS(user, myTexts.bookName.german, myTexts.bookName.english), common.GetNLS(user, myTexts[runeName].hint.german, myTexts[runeName].hint.english), callback)
 
     user:requestMessageDialog(dialog)
 
