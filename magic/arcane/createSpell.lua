@@ -262,40 +262,47 @@ local mBook = getMagicBook(user)
     end
     user:requestSelectionDialog(dialog)
 end
-local function learnRunesAdmin(user)
-    local callback = function(dialog)
-        if not dialog:getSuccess() then
-            return
-        end
-        local index = dialog:getSelectedIndex() +1
-        local knownRunes = "0" --Counter for runes that are already known
-        for i = 1, #runes.Runes do -- For every rune
-            if not runes.checkIfLearnedRune(user,"", i, "isQuest") then -- check if user doesn't know rune
-                if index == i-knownRunes then -- Check if selected index is the rune in question
-                    runes.learnRune(user,"", i, "isQuest") -- Learn rune
-                    user:requestSelectionDialog(dialog) -- Allow you to select another rune to learn
-                end
-            else
-                knownRunes = knownRunes+1 -- For every rune that the user has not learned or is already part of the spell, the index numbering is corrected.
-            end
+
+local function enchantGrimoire(user)
+    local leftItem = user:getItemAt(5)
+    local rightItem = user:getItemAt(6)
+
+    local books = {105,106,129,2609,2610,114,115,2608,2615,107,108,111,112,2605,2617,109,110,117,128,130,2604,131,2602,2620,116,2621,2607,127,2598,2606,2616,2619}
+
+    local theBook = false
+
+    for _, id in pairs(books) do
+        if id == rightItem.id then
+            theBook = rightItem
+        elseif id == leftItem.id then
+            theBook = leftItem
         end
     end
-    local dialog = SelectionDialog(common.GetNLS(user,createSpellTexts.creation.german, createSpellTexts.creation.english), common.GetNLS(user,createSpellTexts.selectRune.german,createSpellTexts.selectRune.english), callback)
-    for i = 1, #runes.Runes do -- For every rune
-        if not runes.checkIfLearnedRune(user,"", i, "isQuest") then -- check if user doesn't know rune
-            dialog:addOption(0,runes.Runes[i][2])
+
+    if theBook then
+        if theBook:getData("magicBook") ~= "" or theBook:getData("book") ~= "" then --book is already a grimoire or already has content
+            theBook = false
         end
     end
-    user:requestSelectionDialog(dialog)
+
+    if not theBook then
+        user:inform(texts.createSpellTexts.bookNeeded.german, texts.createSpellTexts.bookNeeded.english)
+        return
+    end
+
+    if magic.hasSufficientMana(user, 5000) then
+        user:increaseAttrib("mana", -5000)
+        world:gfx(41,user.pos)
+        world:makeSound(13,user.pos)
+        theBook:setData("magicBook", "true")
+        world:changeItem(theBook)
+        user:inform(texts.createSpellTexts.enchantSuccess.german, texts.createSpellTexts.enchantSuccess.english)
+    else
+        user:inform(texts.createSpellTexts.mana.german, texts.createSpellTexts.mana.english)
+    end
+
 end
-local function unLearnAllRunesAdmin(user)
-    user:setQuestProgress(7000, 0)
-    user:inform("You've lost all knowledge of magic runes that you used to have.","You've lost all knowledge of magic runes that you used to have.") --temporary text for testing, needs no german translation
-end
-local function dispenseMagicBookAdmin(user)
-    common.CreateItem(user,2619,1,999,{["magicBook"]="true"})
-    user:inform("Book dispensed.","Book dispensed.") --Temporary testing text, no need for  translation
-end
+
 function M.mainDialog(user, sourceItem)
     if user:countItemAt("body",463) == 0 then
         user:inform(createSpellTexts.quill.german, createSpellTexts.quill.english)
@@ -317,21 +324,15 @@ function M.mainDialog(user, sourceItem)
                 user:inform(createSpellTexts.noPrimary.german, createSpellTexts.noPrimary.english)
             end
         elseif index == 2 then
-            learnRunesAdmin(user)
-        elseif index == 3 then
-            unLearnAllRunesAdmin(user)
-        elseif index == 4 then
-            dispenseMagicBookAdmin(user)
-        elseif index == 5 then
             portalCrafting.portalBookCreation(user, sourceItem)
+        elseif index == 3 then
+            enchantGrimoire(user)
         end
     end
     local dialog = SelectionDialog(common.GetNLS(user,createSpellTexts.creation.german, createSpellTexts.creation.english), common.GetNLS(user, createSpellTexts.pickOption.german, createSpellTexts.pickOption.english), callback)
     dialog:addOption(0, common.GetNLS(user, createSpellTexts.create.german, createSpellTexts.create.english))
-    dialog:addOption(0, "Learn runes(admin only)") --No need for this and the two below to have translations as they are temporary for testing
-    dialog:addOption(0, "Unlearn all runes (admin only)")
-    dialog:addOption(0, "Dispense Spellbook (admin only)")
     dialog:addOption(0, common.GetNLS(user, createSpellTexts.createBook.german, createSpellTexts.createBook.english))
+    dialog:addOption(0, common.GetNLS(user, createSpellTexts.createGrimoire.german, createSpellTexts.createGrimoire.english))
     user:requestSelectionDialog(dialog)
 end
 return M

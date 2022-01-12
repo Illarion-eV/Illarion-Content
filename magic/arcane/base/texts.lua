@@ -157,7 +157,10 @@ local M = {
         overwrite = {english = "Yes, overwrite it.", german = ""},
         dontOverwrite = {english = "No, select another slot.", german = ""},
         quill = {english = "You need a quill to do any work at a desk.", german = ""},
-        createBook = {english = "Portal Book Creation", german = ""}
+        createBook = {english = "Portal Book Creation", german = ""},
+        createGrimoire = {english = "Enchant a book into a Grimoire", german = ""},
+        bookNeeded = {english = "You need to hold a blank book in your hand in order to enchant it into a Grimoire.", german = ""},
+        enchantSuccess = {english = "You have successfully enchanted the book into a Grimoire.", german = ""}
         },
     -- targeting.lua
     levText = {
