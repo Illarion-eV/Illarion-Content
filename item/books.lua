@@ -57,7 +57,9 @@ end
 function M.LookAtItem(User,Item)
     if Item:getData("magicBook") ~= "" then
         lookat.SetSpecialName(Item,"","Grimoire")
-        lookat.SetSpecialDescription(Item,"","A grimoire used by mages.")
+        if Item:getData("descriptionEn") == "" then
+            lookat.SetSpecialDescription(Item,"","A grimoire used by mages.")
+        end
     end
     local book = Item:getData("book")
     if book ~= "" then

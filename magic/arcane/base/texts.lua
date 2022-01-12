@@ -615,7 +615,10 @@ local M = {
         alreadyKnows = { english = "While the magical information enters your mind, you discover nothing new. You already know how to use this rune.", german = ""}
     },
     --item/desk.lua
-    magicDesk = {name = {english = "Magical Desk", german = ""}, description = {english = "A desk where mages can create spells, craft portal books and enchant grimoires", german = ""}}
+    magicDesk = {name = {english = "Magical Desk", german = ""}, description = {english = "A desk where mages can create spells, craft portal books and enchant grimoires", german = ""}},
+    quill = {
+        bookNeeded = {english = "You need to hold the grimoire you want to label in your hand.", german = ""}
+    }
 }
 M.qListDe = {"fürchterliche","schlechte","schwache","leicht schwache","durchschnittliche","gute","sehr gute","großartige","hervorragende"}
 M.qListEn = {"awful","bad","weak","slightly weak","average","good","very good","great","outstanding"}

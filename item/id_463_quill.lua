@@ -20,6 +20,7 @@ local alchemy = require("alchemy.base.alchemy")
 local lookat = require("base.lookat")
 local recipe_creation = require("alchemy.base.recipe_creation")
 local createSpell = require("magic.arcane.createSpell")
+local texts = require("magic.arcane.base.texts")
 
 local M = {}
 
@@ -260,12 +261,71 @@ end
 local function checkIfMagicDeskInFrontOfuser(user)
     local desks = {3502, 3503}
     local potentialDesk = common.GetFrontItem(user)
+
+    if not potentialDesk then
+        return false
+    end
+
     for _, desk in pairs(desks) do
         if potentialDesk.id == desk then
             return true
         end
     end
 return false
+end
+
+local function requestGrimoireLabel(user, theBook)
+    local title = getText(user, "Zauberbuch beschriften", "Label Grimoire")
+    local infoText = getText(user, "Füge hier den Text ein, mit dem du das Etikett beschriften willst.", "Insert the text you want to write on the label.")
+
+    local callback = function(dialog)
+        if not dialog:getSuccess() then
+            return
+        end
+
+        local labelText = dialog:getInput()
+        local labelPrefixEn = "Label: "
+        local labelPrefixDe = "Etikett: "
+        lookat.SetSpecialDescription(theBook, labelPrefixDe..labelText, labelPrefixEn..labelText)
+        world:changeItem(theBook)
+        user:inform("Du beschriftest die Zauberbuch mit '"..labelText.."'.","You label the grimoire as '"..labelText.."'.")
+    end
+
+    local dialog = InputDialog(title, infoText, false, 100, callback)
+
+    user:requestInputDialog(dialog)
+
+end
+
+local function labelGrimoire(user)
+    local leftItem = user:getItemAt(5)
+    local rightItem = user:getItemAt(6)
+
+    local books = createSpell.books
+
+    local theBook = false
+
+    for _, id in pairs(books) do
+        if id == rightItem.id then
+            theBook = rightItem
+        elseif id == leftItem.id then
+            theBook = leftItem
+        end
+    end
+
+    if theBook then
+        if theBook:getData("magicBook") == "" then
+            theBook = false
+        end
+    end
+
+    if not theBook then
+        user:inform(texts.quill.bookNeeded.german, texts.quill.bookNeeded.english)
+        return
+    end
+
+    requestGrimoireLabel(user, theBook)
+
 end
 
 function M.UseItem(user, sourceItem, ltstate)
@@ -327,6 +387,8 @@ function M.UseItem(user, sourceItem, ltstate)
                 else
                     SignParchment(user,sourceItem)
                 end
+            elseif selected == 7 then
+                labelGrimoire(user)
             end
         end
     end
@@ -338,6 +400,7 @@ function M.UseItem(user, sourceItem, ltstate)
     dialog:addOption(0, getText(user,"Flaschenetikett entfernen","Remove label of a bottle"))
     dialog:addOption(0, getText(user,"Pergament beschreiben","Write a parchment"))
     dialog:addOption(0, getText(user,"Pergament unterschreiben","Sign a parchment"))
+    dialog:addOption(0, getText(user,"Zauberbuch beschriften","Label Grimoire"))
 
     user:requestSelectionDialog(dialog)
 end
