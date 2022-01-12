@@ -1016,5 +1016,70 @@ product:addIngredient(50, 7) -- thread
 product:addIngredient(179, 5) -- blue cloth
 product:addIngredient(3787, 1) -- silk
 
+catId = tailoring:addCategory("Books", "Bücher")
+
+local books = { blue = {105, 106, 129, 2609, 2610}, green = {114, 115, 2608, 2615}, red = {107, 108, 111, 112, 2605, 2617}, black = {109, 110, 117, 128, 130, 2604}, yellow = {131, 2602, 2620}, white = {116, 2621, 2607}, plain = {127, 2598, 2606, 2616, 2619}}
+
+for _, book in ipairs(books.blue) do
+    product = tailoring:addProduct(catId, book, 1)
+    product:addIngredient(50, 10) -- thread
+    product:addIngredient(2745, 10) -- parchment
+    product:addIngredient(2547, 2) -- leather
+    product:addIngredient(2680) -- blue dye
+    product:addRemnant(51) --empty bucket
+end
+
+for _, book in ipairs(books.green) do
+    product = tailoring:addProduct(catId, book, 1)
+    product:addIngredient(50, 10) -- thread
+    product:addIngredient(2745, 10) -- parchment
+    product:addIngredient(2547, 2) -- leather
+    product:addIngredient(2679) -- green dye
+    product:addRemnant(51) --empty bucket
+end
+
+for _, book in ipairs(books.red) do
+    product = tailoring:addProduct(catId, book, 1)
+    product:addIngredient(50, 10) -- thread
+    product:addIngredient(2745, 10) -- parchment
+    product:addIngredient(2547, 2) -- leather
+    product:addIngredient(2681) -- red dye
+    product:addRemnant(51) --empty bucket
+end
+
+for _, book in ipairs(books.black) do
+    product = tailoring:addProduct(catId, book, 1)
+    product:addIngredient(50, 10) -- thread
+    product:addIngredient(2745, 10) -- parchment
+    product:addIngredient(2547, 2) -- leather
+    product:addIngredient(2678) -- black dye
+    product:addRemnant(51) --empty bucket
+end
+
+for _, book in ipairs(books.yellow) do
+    product = tailoring:addProduct(catId, book, 1)
+    product:addIngredient(50, 10) -- thread
+    product:addIngredient(2745, 10) -- parchment
+    product:addIngredient(2547, 2) -- leather
+    product:addIngredient(2682) -- yellow dye
+    product:addRemnant(51) --empty bucket
+end
+
+for _, book in ipairs(books.white) do
+    product = tailoring:addProduct(catId, book, 1)
+    product:addIngredient(50, 10) -- thread
+    product:addIngredient(2745, 10) -- parchment
+    product:addIngredient(2547, 2) -- leather
+    product:addIngredient(2683) -- white dye
+    product:addRemnant(51) --empty bucket
+end
+
+for _, book in ipairs(books.plain) do
+    product = tailoring:addProduct(catId, book, 1)
+    product:addIngredient(50, 10) -- thread
+    product:addIngredient(2745, 10) -- parchment
+    product:addIngredient(2547, 2) -- leather
+end
+
 M.tailoring = tailoring
 return M
