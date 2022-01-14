@@ -23,6 +23,34 @@ local runes = require("magic.arcane.runes")
 
 local M = {}
 
+function M.checkPenPosition(user)
+
+    local penPosition = position(794, 128, 0)
+
+    local distance = 15
+
+    local biggerX =  user.pos.x > penPosition.x + distance
+    local smallerX = user.pos.x < penPosition.x - distance
+    local biggerY =  user.pos.y > penPosition.y + distance
+    local smallerY = user.pos.y < penPosition.y - distance
+
+    if biggerX or smallerX or biggerY or smallerY then
+        return false
+    end
+
+    return true
+
+end
+
+function M.penInfo(user, item)
+
+    local callback = function(dialog)
+    end
+
+    local dialog = MessageDialog("", common.GetNLS(user, texts.penPuzzle.german, texts.penPuzzle.english), callback)
+
+    user:requestMessageDialog(dialog)
+end
 
 local function getRune(item)
     for _, rune in pairs(texts.runeHintsBookTexts) do
@@ -174,6 +202,11 @@ local function checkIfCriteriaMet(user, rune)
 
     if rune == "CUN" then
         if cunPuzzleSolved() then
+            retVal = true
+        end
+    elseif rune == "PEN" then
+        if M.penActivate then
+            M.penActivate = false
             retVal = true
         end
     else --Any remaining puzzles will only require you to find, get to and use the sphere to activate it

@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local oralCasting = require("magic.arcane.oralCasting")
 local wands = require("item.wands")
+local magicSphere = require("item.magicSphere")
 
 local M = {}
 
@@ -24,6 +25,12 @@ function M.talk(player, talkType, text, actionState)
 
     if talkType == Character.say then
         oralCasting.checkForMagicIncantations(player, actionState, text)
+    end
+
+    if string.find(text, "feather") or string.find(text, "Feather") then
+        if magicSphere.checkPenPosition(player) then
+            magicSphere.penActivate = true
+        end
     end
 
     return text

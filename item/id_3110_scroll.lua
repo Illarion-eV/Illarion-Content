@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local transformation_dog = require("alchemy.teaching.transformation_dog")
 local id_266_bookshelf = require("item.id_266_bookshelf")
 local lookat = require("base.lookat")
+local magicSphere = require("item.magicSphere")
 local M = {}
 
 -- UPDATE items SET itm_script = 'item.id_3110_scroll' WHERE itm_id = 3110;
@@ -32,6 +33,12 @@ function M.LookAtItem(User,Item)
 end
 
 function M.UseItem(User, SourceItem)
+
+    if SourceItem.pos == position(794, 128, 0) then
+        magicSphere.penInfo(User, SourceItem)
+        return
+    end
+
     if SourceItem:getData("teachDogTransformationPotion") == "true" then
         transformation_dog.UseSealedScroll(User, SourceItem)
         return

@@ -571,11 +571,11 @@ local M = {
     },
     --runeHintsBook.lua and magicSphere.lua
     runeHintsBookTexts = {
-        CUN =  {rune = "CUN", hint = {english = "Near the ruins of a mother praised lies the secret of water.", german = ""}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(630,599,0)},
-        JUS = {rune = "JUS", hint = {english = "", german = ""}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(329,156,1)},
-        PEN = {rune = "PEN", hint = {english = "", german = ""}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(0,0,0)},
+        CUN =  {rune = "CUN", hint = {english = "Near the ruins of a mother praised lies the secret of water.", german = ""}, name = { english = "", german = "Mysterious Blue Sphere"}, description = { english = "A mysterious glass sphere that  appears to contain it's own ocean of water.", german = ""}, location = position(630,599,0)},
+        JUS = {rune = "JUS", hint = {english = "Up high where wind and ocean meet, with fuzzy creatures at your feet.", german = ""}, name = { english = "Windy Mysterious  Sphere", german = ""}, description = { english = "A mysterious glass sphere that appears to be full of blowing wind.", german = ""}, location = position(329,156,1)},
+        PEN = {rune = "PEN", hint = {english = "In a place a hermit might call home, you'll find a hidden tome.", german = ""}, name = { english = "Mysterious Spiritual Sphere", german = ""}, description = { english = "A mysterious glass sphere that contains a bright spiritual light.", german = ""}, location = position(786,128,0)},
         RA = {rune = "RA", hint = {english = "A lone man betwixt the desert dry and forest lush guards the secret of the flame.", german = ""}, name = { english = "Fiery Mysterious Sphere", german = ""}, description = { english = "A mysterious glass sphere that appears to be full of flickering flames. It doesn't appear to give off any heat, though.", german = ""}, location = position(472,765,0)},
-        SOLH = {rune = "SOLH", hint = {english = "", german = ""}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(0,0,0)},
+        SOLH = {rune = "SOLH", hint = {english = "Deep below and long forgotten, a garden lush with guards that are rotten.", german = ""}, name = { english = "Myserious Earthy Sphere", german = ""}, description = { english = "A mysterious sphere that appears to contain a deep, dark soil", german = ""}, location = position(793,297,-3)},
         BHONA = {rune = "BHONA", hint = {english = "", german = ""}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(0,0,0)},
         Anth = {rune = "Anth", hint = {english = "", german = ""}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(0,0,0)},
         Dun = {rune = "Dun", hint = {english = "", german = ""}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(0,0,0)},
@@ -629,7 +629,12 @@ local M = {
     windPuzzle = {
         blasted = {english = "You're sent flying by a blast of wind magic.", german = ""}
 
+    },
+    penPuzzle = {
+        english = "I am easy to lift but hard to throw. What am I?\nSpeak me out loud and you shall be enlightened.",
+        german = ""
     }
+
 }
 M.qListDe = {"fürchterliche","schlechte","schwache","leicht schwache","durchschnittliche","gute","sehr gute","großartige","hervorragende"}
 M.qListEn = {"awful","bad","weak","slightly weak","average","good","very good","great","outstanding"}
