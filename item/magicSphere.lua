@@ -23,6 +23,46 @@ local runes = require("magic.arcane.runes")
 
 local M = {}
 
+local function anthResult(user, answer)
+
+    local status
+
+    if answer < 1332 then
+        status = "higher"
+    elseif answer > 1332 then
+        status = "lower"
+    elseif answer == 1332 then
+        status = "success"
+        ScriptVars:set("anthActivate", 1)
+        ScriptVars:save()
+    end
+
+    local callback = function(dialog)
+    end
+
+    local dialog = MessageDialog("", common.GetNLS(user, texts.anthPuzzle[status].german, texts.anthPuzzle[status].english), callback)
+
+    user:requestMessageDialog(dialog)
+end
+
+function M.anthInfo(user, item)
+
+    local callback = function(dialog)
+        if not dialog:getSuccess() then
+            return
+        end
+
+        local input = dialog:getInput()
+        anthResult(user, tonumber(input))
+
+    end
+
+    local dialog = InputDialog("", common.GetNLS(user, texts.anthPuzzle.main.german, texts.anthPuzzle.main.english), false, 255, callback)
+
+    user:requestInputDialog(dialog)
+
+end
+
 function M.checkPenPosition(user)
 
     local penPosition = position(794, 128, 0)
@@ -42,7 +82,7 @@ function M.checkPenPosition(user)
 
 end
 
-function M.penInfo(user, item)
+function M.penInfo(user)
 
     local callback = function(dialog)
     end
@@ -113,6 +153,8 @@ local portalLocations = {
     {destination = position(342, 150, 1), origin = position(411, 159, 1), lever = position(409, 158, 1)},
     {destination = position(410, 159, 1), origin = position(343, 151, 1), lever = position(343, 150, 1)},
     {destination = position(410, 159, 1), origin = position(337, 161, 1), lever = position(337, 160, 1)},
+    {destination = position(855, 242, -3), origin = position(749, 321, 0), lever = position(750, 321, 0)},
+    {destination = position(749, 322, 0), origin = position(856, 242, -3), lever = position(855, 243, -3)}
 }
 
 local function createPortal(user, portalPos)
@@ -208,6 +250,15 @@ local function checkIfCriteriaMet(user, rune)
         if M.penActivate then
             M.penActivate = false
             retVal = true
+        end
+    elseif rune == "Anth" then
+        local success, anthActivate = ScriptVars:find("anthActivate")
+        if success then
+            if tonumber(anthActivate) == 1 then
+                ScriptVars:set("anthActivate", 0)
+                ScriptVars:save()
+                retVal = true
+            end
         end
     else --Any remaining puzzles will only require you to find, get to and use the sphere to activate it
         retVal = true

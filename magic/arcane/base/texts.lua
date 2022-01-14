@@ -577,7 +577,7 @@ local M = {
         RA = {rune = "RA", hint = {english = "A lone man betwixt the desert dry and forest lush guards the secret of the flame.", german = ""}, name = { english = "Fiery Mysterious Sphere", german = ""}, description = { english = "A mysterious glass sphere that appears to be full of flickering flames. It doesn't appear to give off any heat, though.", german = ""}, location = position(472,765,0)},
         SOLH = {rune = "SOLH", hint = {english = "Deep below and long forgotten, a garden lush with guards that are rotten.", german = ""}, name = { english = "Myserious Earthy Sphere", german = ""}, description = { english = "A mysterious sphere that appears to contain a deep, dark soil", german = ""}, location = position(793,297,-3)},
         BHONA = {rune = "BHONA", hint = {english = "Back to where you started, after you first departed.", german = ""}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(0,0,0)},
-        Anth = {rune = "Anth", hint = {english = "An enormous structure, static as can be. Were it not, a flood you would see.", german = ""}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(0,0,0)},
+        Anth = {rune = "Anth", hint = {english = "An enormous structure, static as can be. Were it not, a flood you would see.", german = ""}, name = { english = "Mysterious Sphere", german = ""}, description = { english = "Within the sphere various objects can be seen, but what they all have in common is that they stand perfectly still. One could even call them static.", german = ""}, location = position(843, 216 , -3)},
         Dun = {rune = "Dun", hint = {english = "In an area vast and empty.", german = ""}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(0,0,0)},
         Fhan = {rune = "Fhan", hint = {english = "Among a castle of bones, you'll find what you desire.", german = ""}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(0,0,0)},
         Fhen = {rune = "Fhen", hint = {english = "Where trolls seek haven and drink fine wine, out in the garden do we dine.", german = ""}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(0,0,0)},
@@ -633,6 +633,12 @@ local M = {
     penPuzzle = {
         english = "I am easy to lift but hard to throw. What am I?\nSpeak me out loud and you shall be enlightened.",
         german = ""
+    },
+    anthPuzzle = {
+        main = { english = "Write down the correct four-digit number and you shall be enlightened. The answer can be found by studying the pillars.", german = "" },
+        lower = { english = "Lower", german = ""},
+        higher = { english = "Higher", german = ""},
+        success = { english = "Success", german = ""},
     }
 
 }

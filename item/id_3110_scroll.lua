@@ -35,7 +35,12 @@ end
 function M.UseItem(User, SourceItem)
 
     if SourceItem.pos == position(794, 128, 0) then
-        magicSphere.penInfo(User, SourceItem)
+        magicSphere.penInfo(User)
+        return
+    end
+
+    if SourceItem.pos == position(844, 216, -3) then
+        magicSphere.anthInfo(User)
         return
     end
 
