@@ -26,6 +26,7 @@ local warpgroup = require("handler.warpgroup")
 local evilrock = require("triggerfield.evilrock")
 local oldSlimeFeeding = require("content.oldSlimeFeeding")
 local volcano_chest = require("triggerfield.volcano_chest")
+local magicSphere = require("item.magicSphere")
 
 local M = {}
 
@@ -310,6 +311,10 @@ function M.UseItem(User, SourceItem, ltstate)
     end
     if SourceItem:getData("volcanoTreasure") == "true" then
         volcano_chest.useLever(User, SourceItem)
+    end
+
+    if magicSphere.leverPosCheck(SourceItem) then
+        magicSphere.useLever(User, SourceItem)
     end
 
     local key = SourceItem.pos.x * 1024 * 1024 + SourceItem.pos.y * 1024 + SourceItem.pos.z

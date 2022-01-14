@@ -572,7 +572,7 @@ local M = {
     --runeHintsBook.lua and magicSphere.lua
     runeHintsBookTexts = {
         CUN =  {rune = "CUN", hint = {english = "Near the ruins of a mother praised lies the secret of water.", german = ""}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(630,599,0)},
-        JUS = {rune = "JUS", hint = {english = "", german = ""}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(0,0,0)},
+        JUS = {rune = "JUS", hint = {english = "", german = ""}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(329,156,1)},
         PEN = {rune = "PEN", hint = {english = "", german = ""}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(0,0,0)},
         RA = {rune = "RA", hint = {english = "A lone man betwixt the desert dry and forest lush guards the secret of the flame.", german = ""}, name = { english = "Fiery Mysterious Sphere", german = ""}, description = { english = "A mysterious glass sphere that appears to be full of flickering flames. It doesn't appear to give off any heat, though.", german = ""}, location = position(472,765,0)},
         SOLH = {rune = "SOLH", hint = {english = "", german = ""}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(0,0,0)},
@@ -625,6 +625,10 @@ local M = {
     offeringHints = {
         { location = position(628, 598, 0), hint = {english = "If you wash me, I will not be clean. If you do not wash me, I will. What am I?", german = ""}
         }
+    },
+    windPuzzle = {
+        blasted = {english = "You're sent flying by a blast of wind magic.", german = ""}
+
     }
 }
 M.qListDe = {"fürchterliche","schlechte","schwache","leicht schwache","durchschnittliche","gute","sehr gute","großartige","hervorragende"}

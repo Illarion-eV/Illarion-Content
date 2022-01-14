@@ -81,6 +81,71 @@ local function lightSphere(user, item, lit)
     world:createItemFromId(newItemId, 1, item.pos, true, 999, {})
 end
 
+local portalLocations = {
+    {destination = position(342, 150, 1), origin = position(411, 159, 1), lever = position(409, 158, 1)},
+    {destination = position(410, 159, 1), origin = position(343, 151, 1), lever = position(343, 150, 1)},
+    {destination = position(410, 159, 1), origin = position(337, 161, 1), lever = position(337, 160, 1)},
+}
+
+local function createPortal(user, portalPos)
+
+    for _, location in pairs(portalLocations) do
+        if location.origin == portalPos then
+            local field = world:getField(portalPos)
+            local itemsOnField = field:countItems()
+            local topItem = field:getStackItem(itemsOnField-1)
+            if topItem.id ~= 10 then
+                local destination = location.destination
+                local thePortal = world:createItemFromId(10, 1, portalPos, true, 999, {destinationCoordsZ = destination.z, destinationCoordsY = destination.y, destinationCoordsX = destination.x})
+                thePortal.wear = 3
+                world:changeItem(thePortal)
+            elseif topItem.id == 10 then
+                world:erase(topItem, 1)
+            end
+            break
+        end
+    end
+end
+
+function M.useLever(user, lever)
+
+    local lever1 = 436
+    local lever2 = 434
+    local lever3 = 437
+    local lever4 = 439
+
+    for  _, currentLever in pairs(portalLocations)  do
+        if currentLever.lever == lever.pos then
+            createPortal(user, currentLever.origin)
+            local newLeverId = 0
+
+            if lever.id == lever1 then
+                newLeverId = lever2
+            elseif lever.id == lever2 then
+                newLeverId = lever1
+            elseif lever.id == lever3 then
+                newLeverId = lever4
+            elseif lever.id == lever4 then
+                newLeverId = lever3
+            end
+            lever.id = newLeverId
+            world:changeItem(lever)
+        end
+    end
+end
+
+function M.leverPosCheck(lever)
+
+    for  _, currentLever in pairs(portalLocations) do
+        if currentLever.lever == lever.pos then
+            return true
+        end
+    end
+
+    return false
+
+end
+
 local function cunPuzzleSolved()
 
     local waterItems = {52, 1841, 1854, 1855, 2058, 2186, 2496, 2554}
@@ -107,14 +172,12 @@ local function checkIfCriteriaMet(user, rune)
 
     local retVal = false
 
-    if rune == "RA" then --Simple puzzle, you only have to find the sphere to activate it
-        retVal = true
-    end
-
     if rune == "CUN" then
         if cunPuzzleSolved() then
             retVal = true
         end
+    else --Any remaining puzzles will only require you to find, get to and use the sphere to activate it
+        retVal = true
     end
 
     if retVal then
