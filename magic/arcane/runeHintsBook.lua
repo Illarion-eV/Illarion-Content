@@ -118,6 +118,23 @@ local function runeHint(user, runeName)
 
 end
 
+local function cooldownMessage(user)
+
+    local message = false
+
+    teaching.checkForExpiredCooldowns(user)
+
+    if teaching.notEnoughTimeHasPassed(user) then
+        message = true
+    end
+
+
+    if message then
+        user:inform(myTexts.unwise.german, myTexts.unwise.english)
+    end
+
+end
+
 local function selectRune(user)
 
     local runeList = listOfRunes(user)
@@ -171,6 +188,8 @@ function M.UseItem(user, sourceItem)
         tooAdvanced(user)
         return
     end
+
+    cooldownMessage(user)
 
     selectRune(user)
 
