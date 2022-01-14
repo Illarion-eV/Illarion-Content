@@ -81,12 +81,40 @@ local function lightSphere(user, item, lit)
     world:createItemFromId(newItemId, 1, item.pos, true, 999, {})
 end
 
+local function cunPuzzleSolved()
+
+    local waterItems = {52, 1841, 1854, 1855, 2058, 2186, 2496, 2554}
+    local solved = false
+    local platePos = position(628, 598, 0)
+    local field = world:getField(platePos)
+    local itemsOnField = field:countItems()
+    local currentitem
+
+    for i= 0, itemsOnField-1 do --from lowest to highest item in stack
+        currentitem = field:getStackItem(i)
+        for _, water in pairs(waterItems) do
+            if currentitem.id == water then
+                solved = true
+                break
+            end
+        end
+    end
+
+    return solved
+end
+
 local function checkIfCriteriaMet(user, rune)
 
     local retVal = false
 
     if rune == "RA" then --Simple puzzle, you only have to find the sphere to activate it
         retVal = true
+    end
+
+    if rune == "CUN" then
+        if cunPuzzleSolved() then
+            retVal = true
+        end
     end
 
     if retVal then

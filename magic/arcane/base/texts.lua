@@ -571,7 +571,7 @@ local M = {
     },
     --runeHintsBook.lua and magicSphere.lua
     runeHintsBookTexts = {
-        CUN =  {rune = "CUN", hint = {english = "Near the ruins of a mother praised lies the secret of water.", german = ""}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(0,0,0)},
+        CUN =  {rune = "CUN", hint = {english = "Near the ruins of a mother praised lies the secret of water.", german = ""}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(630,599,0)},
         JUS = {rune = "JUS", hint = {english = "", german = ""}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(0,0,0)},
         PEN = {rune = "PEN", hint = {english = "", german = ""}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(0,0,0)},
         RA = {rune = "RA", hint = {english = "A lone man betwixt the desert dry and forest lush guards the secret of the flame.", german = ""}, name = { english = "Fiery Mysterious Sphere", german = ""}, description = { english = "A mysterious glass sphere that appears to be full of flickering flames. It doesn't appear to give off any heat, though.", german = ""}, location = position(472,765,0)},
@@ -607,6 +607,7 @@ local M = {
         bookDescription = {english = "An old, faded looking book full of scribbles only some may understand.", german = ""},
         selectRune = {english = "Select the name of the rune you wish to locate.", german = ""},
         unsolved = {english = "The sphere has no reaction to your touch. Perhaps there is something in the area that can change this?", german = ""},
+        unwise = {english = "It hasn't been long enough since you last learned a rune, making it unwise to go searching for a new one.", german = ""},
         activated = {english = "With a sudden glow the sphere lights up, revealing to you the sights within.", german = ""},
         learned = {english = "You feel a sudden surge of information enter your mind, it appears you just learned how to use the rune ", german = ""},
         cooldown = {english = "Not enough time has passed since you last learned a rune. You feel a headache just thinking about learning a new one.", german = ""},
@@ -618,6 +619,12 @@ local M = {
     magicDesk = {name = {english = "Magical Desk", german = ""}, description = {english = "A desk where mages can create spells, craft portal books and enchant grimoires", german = ""}},
     quill = {
         bookNeeded = {english = "You need to hold the grimoire you want to label in your hand.", german = ""}
+    },
+    --item/id_1001_greenplate.lua
+    offeringPlate = {name = { english = "Offering Plate", german = ""}, description = {english = "The plate seems to contain something.", german = ""}, use = {english = "Upon closer examination, you find a piece of paper on the plate.", german = ""}},
+    offeringHints = {
+        { location = position(628, 598, 0), hint = {english = "If you wash me, I will not be clean. If you do not wash me, I will. What am I?", german = ""}
+        }
     }
 }
 M.qListDe = {"fürchterliche","schlechte","schwache","leicht schwache","durchschnittliche","gute","sehr gute","großartige","hervorragende"}
