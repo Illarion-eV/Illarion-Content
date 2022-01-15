@@ -20,8 +20,82 @@ local lookat = require("base.lookat")
 local texts = require("magic.arcane.base.texts")
 local teaching = require("magic.arcane.teaching")
 local runes = require("magic.arcane.runes")
+local increaseArea = require("magic.arcane.harvestFruit")
 
 local M = {}
+
+local function dunRequirementCheck(user)
+
+    local mainPos = position(354, 454, 0)
+    local pos1 = position(mainPos.x+1, mainPos.y+1, 0)
+    local pos2 = position(mainPos.x-1, mainPos.y-1, 0)
+    local pos3 = position(mainPos.x+1, mainPos.y-1, 0)
+    local pos4 = position(mainPos.x-1, mainPos.y+1, 0)
+
+    local locations1 = increaseArea.increaseArea(pos1)
+    local locations2 = increaseArea.increaseArea(pos2)
+    local locations3 = increaseArea.increaseArea(pos3)
+    local locations4 = increaseArea.increaseArea(pos4)
+
+    for _, location in pairs(locations1) do
+        local field = world:getField(location.position)
+        local itemsOnField = field:countItems()
+        if itemsOnField == 0 then
+            return false
+        end
+    end
+
+    for _, location in pairs(locations2) do
+        local field = world:getField(location.position)
+        local itemsOnField = field:countItems()
+        if itemsOnField == 0 then
+            return false
+        end
+    end
+
+    for _, location in pairs(locations3) do
+        local field = world:getField(location.position)
+        local itemsOnField = field:countItems()
+        if itemsOnField == 0 then
+            return false
+        end
+    end
+
+    for _, location in pairs(locations4) do
+        local field = world:getField(location.position)
+        local itemsOnField = field:countItems()
+        if itemsOnField == 0 then
+            return false
+        end
+    end
+
+    return true
+
+end
+
+function M.dunInfo(user)
+
+    local orcish =  user:getSkill(Character["orcLanguage"])
+
+
+    local callback = function(dialog)
+    end
+
+    local english
+    local german
+
+    if orcish >= 80 then
+        english = texts.dunPuzzle.english
+        german = texts.dunPuzzle.german
+    else
+        english = texts.dunPuzzle.orcish.english
+        german = texts.dunPuzzle.orcish.german
+    end
+
+    local dialog = MessageDialog("", common.GetNLS(user, german, english), callback)
+    user:requestMessageDialog(dialog)
+
+end
 
 local function anthResult(user, answer)
 
@@ -259,6 +333,10 @@ local function checkIfCriteriaMet(user, rune)
                 ScriptVars:save()
                 retVal = true
             end
+        end
+    elseif rune == "Dun" then
+        if dunRequirementCheck(user) then
+            retVal = true
         end
     else --Any remaining puzzles will only require you to find, get to and use the sphere to activate it
         retVal = true

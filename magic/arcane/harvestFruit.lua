@@ -32,7 +32,7 @@ local fruitList = {
 {fruit = Item.blackberry, harvestable = 3892, harvested = 3893}
 }
 
-local function increaseArea(targetPosition)
+function M.increaseArea(targetPosition)
     local positionTable = {}
     table.insert(positionTable, {position = position(targetPosition.x,targetPosition.y,targetPosition.z)})
     table.insert(positionTable, {position = position(targetPosition.x+1,targetPosition.y,targetPosition.z)})
@@ -73,7 +73,7 @@ local function harvestFruit(user, targets)
         if not fruit then
             return
         end
-        local dropPositions = increaseArea(item.pos)
+        local dropPositions = M.increaseArea(item.pos)
 
         for i = 1, amount do
             for _, dropPos in pairs(dropPositions) do

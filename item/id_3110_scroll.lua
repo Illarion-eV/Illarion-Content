@@ -22,53 +22,58 @@ local M = {}
 
 -- UPDATE items SET itm_script = 'item.id_3110_scroll' WHERE itm_id = 3110;
 
-function M.LookAtItem(User,Item)
-    local book = Item:getData("book")
+function M.LookAtItem(user, item)
+    local book = item:getData("book")
     if book ~= "" then
         if id_266_bookshelf.bookList[book] ~= nil then
-            lookat.SetSpecialName(Item,id_266_bookshelf.bookList[book].german,id_266_bookshelf.bookList[book].english)
+            lookat.SetSpecialName(item,id_266_bookshelf.bookList[book].german,id_266_bookshelf.bookList[book].english)
         end
     end
-    return lookat.GenerateLookAt(User, Item, 0)
+    return lookat.GenerateLookAt(user, item, 0)
 end
 
-function M.UseItem(User, SourceItem)
+function M.UseItem(user, sourceItem)
 
-    if SourceItem.pos == position(794, 128, 0) then
-        magicSphere.penInfo(User)
+    if sourceItem.pos == position(794, 128, 0) then
+        magicSphere.penInfo(user)
         return
     end
 
-    if SourceItem.pos == position(844, 216, -3) then
-        magicSphere.anthInfo(User)
+    if sourceItem.pos == position(844, 216, -3) then
+        magicSphere.anthInfo(user)
         return
     end
 
-    if SourceItem:getData("teachDogTransformationPotion") == "true" then
-        transformation_dog.UseSealedScroll(User, SourceItem)
+    if sourceItem.pos == position(355, 454, 0) then
+        magicSphere.dunInfo(user)
         return
     end
 
-    local book = SourceItem:getData("book")
+    if sourceItem:getData("teachDogTransformationPotion") == "true" then
+        transformation_dog.UseSealedScroll(user, sourceItem)
+        return
+    end
+
+    local book = sourceItem:getData("book")
     if book ~= "" then
         if id_266_bookshelf.bookList[book] ~= nil then
-            User:sendBook(id_266_bookshelf.bookList[book].bookId)
+            user:sendBook(id_266_bookshelf.bookList[book].bookId)
         end
     end
 
     -- teleport character on use
-    local destCoordX = tonumber(SourceItem:getData("destinationCoordsX"))
-    local destCoordY = tonumber(SourceItem:getData("destinationCoordsY"))
-    local destCoordZ = tonumber(SourceItem:getData("destinationCoordsZ"))
+    local destCoordX = tonumber(sourceItem:getData("destinationCoordsX"))
+    local destCoordY = tonumber(sourceItem:getData("destinationCoordsY"))
+    local destCoordZ = tonumber(sourceItem:getData("destinationCoordsZ"))
     if destCoordX and destCoordY and destCoordZ then
-        User:talk(Character.say,
+        user:talk(Character.say,
             "#me öffnet eine Schriftrolle und verschwindet in einem hellen Leuchten.",
             "#me opens a scroll and disappears in a bright light.")
-        world:gfx(31, User.pos)
-        world:gfx(41, User.pos)
-        User:warp(position(destCoordX, destCoordY, destCoordZ))
-        world:gfx(41, User.pos)
-        world:erase(SourceItem,1)
+        world:gfx(31, user.pos)
+        world:gfx(41, user.pos)
+        user:warp(position(destCoordX, destCoordY, destCoordZ))
+        world:gfx(41, user.pos)
+        world:erase(sourceItem,1)
         return
     end
 end

@@ -578,7 +578,7 @@ local M = {
         SOLH = {rune = "SOLH", hint = {english = "Deep below and long forgotten, a garden lush with guards that are rotten.", german = ""}, name = { english = "Myserious Earthy Sphere", german = ""}, description = { english = "A mysterious sphere that appears to contain a deep, dark soil", german = ""}, location = position(793,297,-3)},
         BHONA = {rune = "BHONA", hint = {english = "Back to where you started, after you first departed.", german = ""}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(0,0,0)},
         Anth = {rune = "Anth", hint = {english = "An enormous structure, static as can be. Were it not, a flood you would see.", german = ""}, name = { english = "Mysterious Sphere", german = ""}, description = { english = "Within the sphere various objects can be seen, but what they all have in common is that they stand perfectly still. One could even call them static.", german = ""}, location = position(843, 216 , -3)},
-        Dun = {rune = "Dun", hint = {english = "In an area vast and empty.", german = ""}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(0,0,0)},
+        Dun = {rune = "Dun", hint = {english = "In an area vast and empty, where white hands rule.", german = ""}, name = { english = "Mysterious Sphere", german = ""}, description = { english = "The sphere reveals the scene of a vast empty land.", german = ""}, location = position(354, 454, 0)},
         Fhan = {rune = "Fhan", hint = {english = "Among a castle of bones, you'll find what you desire.", german = ""}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(0,0,0)},
         Fhen = {rune = "Fhen", hint = {english = "Where trolls seek haven and drink fine wine, out in the garden do we dine.", german = ""}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(0,0,0)},
         Hept = {rune = "Hept", hint = {english = "In a cold place oh so high. Watch out, or you'll freeze.", german = ""}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(0,0,0)},
@@ -639,6 +639,11 @@ local M = {
         lower = { english = "Lower", german = ""},
         higher = { english = "Higher", german = ""},
         success = { english = "Success", german = ""},
+    },
+    dunPuzzle = {
+        english = "You snagas get to work now! This room should've been filled up with items yesterday!",
+        german = "",
+        orcish = { english = "There seems to be something written in orcish on the scroll. You'd need someone to translate it for you.", german = ""}
     }
 
 }
