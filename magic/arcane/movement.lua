@@ -272,7 +272,7 @@ local lastYReverse = user.pos.y
         local field = world:getField(myTarget)
         local foundItems = field:countItems()
         local targetItem = field:getStackItem(foundItems - 1)
-        world:erase(targetItem, 1)
+        world:erase(targetItem, targetItem.number)
         world:createItemFromItem(targetItem, targetPosition, true)
     elseif characters then
         if Fhan or Fhen then
