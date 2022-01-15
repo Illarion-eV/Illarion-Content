@@ -158,7 +158,7 @@ local M = {
         dontOverwrite = {english = "No, select another slot.", german = "Nein,ich wähle einen anderen Platz. "},
         quill = {english = "You need a quill to do any work at a desk.", german = "Du brauchst eine Schreibfeder um an diesem Tisch arbeiten zu können."},
         createBook = {english = "Portal Book Creation", german = "Erschaffung von Portal Büchern"},
-		createGrimoire = {english = "Enchant a book into a Grimoire", german = "Verzaubere ein Buch in ein Grimoire"},
+        createGrimoire = {english = "Enchant a book into a Grimoire", german = "Verzaubere ein Buch in ein Grimoire"},
         bookNeeded = {english = "You need to hold a blank book in your hand in order to enchant it into a Grimoire.", german = "Du musst einen leere Buch in deinen Händen halten um es in ein Grimoire verzaubern zu können."},
         enchantSuccess = {english = "You have successfully enchanted the book into a Grimoire.", german = "Du hast erfolgreich ein Buch in ein Grimoire verzaubert."}
         },
@@ -685,12 +685,12 @@ local M = {
                 english = "In a cold place oh so high. Watch out, or you'll freeze.",
                 german = "Ein Ort so kalt und hoch. Pass auf, dort erfrierst du noch!"},
             name = {
-                english = "",
+                english = "Mysterious Frosty Sphere",
                 german = ""},
             description = {
-                english = "",
+                english = "Inside the sphere you see what resembles as snowstorm swirling about with the occasional hail",
                 german = ""},
-            location = position(0,0,0)},
+            location = position(266,375,1)},
         Ira = {rune = "Ira",
             hint = {
                 english = "Creatures not of nature, how many eyes does this one have?",
@@ -1014,6 +1014,10 @@ local M = {
     fhenPuzzle = {
         english = "An elf and a dwarf sit down to drink together. What do they drink? Place both beverages on the offering plate and be enlightened.",
         german = "Ein Zwerg und ein Elf haben zusammen getrunken. Aber was? Platziere beide Getränke auf dem Opferteller und werde erleuchtet."
+    },
+    heptPuzzle = {
+        english = "Brr, it's so cold. If only there was a way to make it warmer. There's only snow, stone and all these pesky trees nearby!",
+        german = ""
     }
 
 }
