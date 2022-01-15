@@ -17,7 +17,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local gatherInfo = require("magic.arcane.spirit.gatherInfo")
 local common = require("base.common")
 local runes = require("magic.arcane.runes")
-local attributes = require("magic.arcane.spirit.attributes")
 local texts = require("magic.arcane.base.texts")
 
 local M = {}
@@ -111,7 +110,7 @@ local function viewAttributteMessageDialogue(informedTarget, information, select
 
     local germanText = ""
     local englishText = ""
-    local statText = attributes.statText
+    local statText = texts.statText
 
     for _, target in pairs(information) do
         if tostring(target.target) == tostring(selectedTarget) then
