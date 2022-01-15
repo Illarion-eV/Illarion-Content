@@ -27,7 +27,7 @@ function M.talk(player, talkType, text, actionState)
         oralCasting.checkForMagicIncantations(player, actionState, text)
     end
 
-    if string.find(text, "feather") or string.find(text, "Feather") then
+    if string.find(text, "feather") or string.find(text, "Feather") or string.find(text, "Feder") or string.find(text, "feder") then
         if magicSphere.checkPenPosition(player) then
             magicSphere.penActivate = true
         end
