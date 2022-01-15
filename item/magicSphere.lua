@@ -24,6 +24,87 @@ local increaseArea = require("magic.arcane.harvestFruit")
 
 local M = {}
 
+function M.kahInfo(user)
+
+    local callback = function(dialog)
+    end
+
+    local dialog = MessageDialog("", common.GetNLS(user, texts.kahPuzzle.german, texts.kahPuzzle.english), callback)
+
+    user:requestMessageDialog(dialog)
+
+end
+
+local function kahPuzzleSolved()
+
+    local platePos1 = position(793, 803, 0)
+    local platePos2 = position(793, 804, 0)
+    local platePos3 = position(793, 805, 0)
+    local field1 = world:getField(platePos1)
+    local field2 = world:getField(platePos2)
+    local field3 = world:getField(platePos3)
+    local itemsOnField1 = field1:countItems()
+    local itemsOnField2 = field2:countItems()
+    local itemsOnField3 = field3:countItems()
+    local currentItem
+    local supper = false
+    local dinner = false
+    local breakfast = false
+    local soup = Item.mushroomSoup
+    local dish = Item.venisonDish
+    local sandwich = Item.eggSaladSandwich
+
+    for i = 0, itemsOnField1 - 1 do
+        currentItem = field1:getStackItem(i)
+        if currentItem.id == soup then
+            supper = true
+            break
+        elseif currentItem.id == dish then
+            dinner = true
+            break
+        elseif currentItem.id == sandwich then
+            breakfast = true
+            break
+        end
+    end
+
+    for i = 0, itemsOnField2 - 1 do
+        currentItem = field2:getStackItem(i)
+        if currentItem.id == soup then
+            supper = true
+            break
+        elseif currentItem.id == dish then
+            dinner = true
+            break
+        elseif currentItem.id == sandwich then
+            breakfast = true
+            break
+        end
+    end
+
+    for i = 0, itemsOnField3 - 1 do
+        currentItem = field3:getStackItem(i)
+        if currentItem.id == soup then
+            supper = true
+            break
+        elseif currentItem.id == dish then
+            dinner = true
+            break
+        elseif currentItem.id == sandwich then
+            breakfast = true
+            break
+        end
+    end
+
+
+    if breakfast and dinner and supper then
+        return true
+    end
+
+    return false
+
+end
+
 function M.iraInfo(user)
 
     local callback = function(dialog)
@@ -506,6 +587,10 @@ local function checkIfCriteriaMet(user, rune)
     elseif rune == "Ira" then
         if M.iraActivate then
             M.iraActivate = false
+            retVal = true
+        end
+    elseif rune == "Kah" then
+        if kahPuzzleSolved() then
             retVal = true
         end
     else --Any remaining puzzles will only require you to find, get to and use the sphere to activate it

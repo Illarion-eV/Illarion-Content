@@ -707,12 +707,12 @@ local M = {
                 english = "If a mortal were to require sustenance, much could be found here.",
                 german = "Dort wo sterbliche Stärkung suchen, dort findet man viel."},
             name = {
-                english = "",
+                english = "Mysterious Sphere",
                 german = ""},
             description = {
-                english = "",
+                english = "As you peer into the sphere you see a steaming hot pie, so life-like you can almost smell it.",
                 german = ""},
-            location = position(0,0,0)},
+            location = position(794 , 804, 0)},
         Kel = {rune = "Kel",
             hint = {
                 english = "Where dark creatures of flight reside.",
@@ -1021,6 +1021,10 @@ local M = {
     },
     iraPuzzle = {
         english = "One eye to lift and one to sleep.\nOne to charm and one for beast.\nOne eye to wound and one eye to slow.\nOne to bring fear and one to make stone.\nOne eye makes dust and one eye brings death.\nSpeak my name aloud and you will know.",
+        german = ""
+    },
+    kahPuzzle = {
+        english = "For breakfast, I want an egg salad sandwich!\nFor dinner, I want a venison dish!\nFor supper... Mushroom soup!",
         german = ""
     }
 

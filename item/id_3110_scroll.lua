@@ -68,6 +68,11 @@ local function magicInfo(user, sourceItem)
         return true
     end
 
+    if sourceItem.pos == position(794, 805, 0) then
+        magicSphere.kahInfo(user)
+        return true
+    end
+
     return false
 end
 
