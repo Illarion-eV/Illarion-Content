@@ -129,7 +129,7 @@ local M = {
         failure = {english = "You decided against responding to the telepathic connection.", german = "Du hast dich gegen eine telephatische Verbindung entschieden."},
         success = {english = "You hear the voice of your telepathic partner in your mind: ", german = "Du hörst die Stimme der Person mit der du eine telephatische Verbindung eingegangen bist."},
         request = {english = "What do you want to tell your telepathic partner?", german = "Was willst du deinem Telepathiepartner sagen?"},
-        established = {emglish = "You feel a telepathic connection establish between you and someone else.", german = "Du spürst wie sich eine telephatische Verbindung zwischen dir und jemand anderem aufbaut."}
+        established = {english = "You feel a telepathic connection establish between you and someone else.", german = "Du spürst wie sich eine telephatische Verbindung zwischen dir und jemand anderem aufbaut."}
         },
     -- createSpell.lua
     createSpellTexts = {
