@@ -20,26 +20,13 @@ local texts = require("magic.arcane.base.texts")
 
 local M = {}
 
-
-function M.MoveItemBeforeMove(User, SourceItem, TargetItem)
-
-    if SourceItem:getData("spawnSpiders") == "true" then
-        User:inform("Das schleimige Spinnenei rutscht dir aus der Hand.","The slimy spider egg slips from your hands.")
-        return false
-    end
-
-    return true
-
-end
-
 function M.UseItem(user, sourceItem, actionState)
 
-    if sourceItem.pos == position(704, 621, -6) or sourceItem.pos == position(704, 618, -6) then
-        user:inform(texts.kelPuzzle.egg.german, texts.kelPuzzle.egg.english)
-        user:setQuestProgress(7017, 1)
+    if sourceItem.pos == position(708, 625, -6) then
+        user:inform(texts.kelPuzzle.feather.german, texts.kelPuzzle.feather.english)
+        user:setQuestProgress(7017, 0)
     end
 
 end
 
 return M
-

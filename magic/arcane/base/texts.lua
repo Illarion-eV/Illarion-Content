@@ -718,12 +718,12 @@ local M = {
                 english = "Where dark creatures of flight reside.",
                 german = "Dort wo dunkle geschöpfe des Himmels hausen."},
             name = {
-                english = "",
+                english = "Mysterious Sphere",
                 german = ""},
             description = {
-                english = "",
+                english = "As you peer into the sphere you see a feather, though before you can determine what kind of feather it is, you witness it change into a dragon wing.",
                 german = ""},
-            location = position(0,0,0)},
+            location = position(711,619,-6)},
         Lev = {rune = "Lev",
             hint = {
                 english = "Once a glorious combat academy, now left in ruins. Oh the changes of time.",
@@ -1026,6 +1026,22 @@ local M = {
     kahPuzzle = {
         english = "For breakfast, I want an egg salad sandwich!\nFor dinner, I want a venison dish!\nFor supper... Mushroom soup!",
         german = ""
+    },
+    kelPuzzle = {
+        english = "Together, we can fly up high and soar the skies. However, it is not possible in my current state. Find me, and you shall have the knowledge you seek.",
+        german = "",
+        egg = {
+            english = "A dragon egg. Could this be the answer?",
+            german = ""
+        },
+        feather = {
+            english = "A feather... of the chicken variety. Surely it can't be this, right?",
+            german = ""
+        },
+        air = {
+            english = "A swirling mass of pure air. You could probably fly with this?",
+            german = ""
+        }
     }
 
 }

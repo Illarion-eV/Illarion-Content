@@ -24,6 +24,17 @@ local increaseArea = require("magic.arcane.harvestFruit")
 
 local M = {}
 
+function M.kelInfo(user)
+
+    local callback = function(dialog)
+    end
+
+    local dialog = MessageDialog("", common.GetNLS(user, texts.kelPuzzle.german, texts.kelPuzzle.english), callback)
+
+    user:requestMessageDialog(dialog)
+
+end
+
 function M.kahInfo(user)
 
     local callback = function(dialog)
@@ -592,6 +603,11 @@ local function checkIfCriteriaMet(user, rune)
     elseif rune == "Kah" then
         if kahPuzzleSolved() then
             retVal = true
+        end
+    elseif rune == "Kel" then
+        if user:getQuestProgress(7017) == 1 then
+            retVal = true
+            user:setQuestProgress(7017, 0)
         end
     else --Any remaining puzzles will only require you to find, get to and use the sphere to activate it
         retVal = true
