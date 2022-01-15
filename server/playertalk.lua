@@ -21,16 +21,29 @@ local magicSphere = require("item.magicSphere")
 
 local M = {}
 
-function M.talk(player, talkType, text, actionState)
-
-    if talkType == Character.say then
-        oralCasting.checkForMagicIncantations(player, actionState, text)
-    end
+local function puzzleTriggers(player, text)
 
     if string.find(text, "feather") or string.find(text, "Feather") or string.find(text, "Feder") or string.find(text, "feder") then
         if magicSphere.checkPenPosition(player) then
             magicSphere.penActivate = true
         end
+    end
+
+    if string.find(text, "beholder") or string.find(text, "Beholder") then
+        if magicSphere.checkIraPosition(player) then
+            magicSphere.iraActivate = true
+        end
+    end
+
+
+end
+
+function M.talk(player, talkType, text, actionState)
+
+    puzzleTriggers(player, text)
+
+    if talkType == Character.say then
+        oralCasting.checkForMagicIncantations(player, actionState, text)
     end
 
     return text

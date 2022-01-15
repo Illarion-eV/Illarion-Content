@@ -32,35 +32,48 @@ function M.LookAtItem(user, item)
     return lookat.GenerateLookAt(user, item, 0)
 end
 
-function M.UseItem(user, sourceItem)
-
+local function magicInfo(user, sourceItem)
     if sourceItem.pos == position(794, 128, 0) then
         magicSphere.penInfo(user)
-        return
+        return true
     end
 
     if sourceItem.pos == position(844, 216, -3) then
         magicSphere.anthInfo(user)
-        return
+        return true
     end
 
     if sourceItem.pos == position(355, 454, 0) then
         magicSphere.dunInfo(user)
-        return
+        return true
     end
 
     if sourceItem.pos == position(601, 316, 3) then
         magicSphere.fhanInfo(user)
-        return
+        return true
     end
 
     if sourceItem.pos == position(736, 318, 0) then
         magicSphere.fhenInfo(user)
-        return
+        return true
     end
 
     if sourceItem.pos == position(272, 378, 1) then
         magicSphere.heptInfo(user)
+        return true
+    end
+
+    if sourceItem.pos == position(469, 744, -3) then
+        magicSphere.iraInfo(user)
+        return true
+    end
+
+    return false
+end
+
+function M.UseItem(user, sourceItem)
+
+    if magicInfo(user, sourceItem) then
         return
     end
 

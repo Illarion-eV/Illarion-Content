@@ -24,6 +24,40 @@ local increaseArea = require("magic.arcane.harvestFruit")
 
 local M = {}
 
+function M.iraInfo(user)
+
+    local callback = function(dialog)
+    end
+
+    local dialog = MessageDialog("", common.GetNLS(user, texts.iraPuzzle.german, texts.iraPuzzle.english), callback)
+
+    user:requestMessageDialog(dialog)
+
+end
+
+function M.checkIraPosition(user)
+
+    local penPosition = position(473, 746, -3)
+
+    local distance = 10
+
+    local biggerX =  user.pos.x > penPosition.x + distance
+    local smallerX = user.pos.x < penPosition.x - distance
+    local biggerY =  user.pos.y > penPosition.y + distance
+    local smallerY = user.pos.y < penPosition.y - distance
+
+    if user.pos.z ~= penPosition.z then
+        return false
+    end
+
+    if biggerX or smallerX or biggerY or smallerY then
+        return false
+    end
+
+    return true
+
+end
+
 local function heptPuzzleSolved()
 
     local mainPos = position(266, 375, 1)
@@ -467,6 +501,11 @@ local function checkIfCriteriaMet(user, rune)
         end
     elseif rune == "Hept" then
         if heptPuzzleSolved() then
+            retVal = true
+        end
+    elseif rune == "Ira" then
+        if M.iraActivate then
+            M.iraActivate = false
             retVal = true
         end
     else --Any remaining puzzles will only require you to find, get to and use the sphere to activate it

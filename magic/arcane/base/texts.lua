@@ -696,12 +696,12 @@ local M = {
                 english = "Creatures not of nature, how many eyes does this one have?",
                 german = "Wieviele Augen hat diese Kreatur, entspringt sicher nicht der Natur!"},
             name = {
-                english = "",
+                english = "Mysterious Eye-shaped Sphere",
                 german = ""},
             description = {
-                english = "",
+                english = "As you peer into the sphere you feel like you can see a pupil peering right back at you.",
                 german = ""},
-            location = position(0,0,0)},
+            location = position(475, 746, -3)},
         Kah = {rune = "Kah",
             hint = {
                 english = "If a mortal were to require sustenance, much could be found here.",
@@ -1017,6 +1017,10 @@ local M = {
     },
     heptPuzzle = {
         english = "Brr, it's so cold. If only there was a way to make it warmer. There's only snow, stone and all these pesky trees nearby!",
+        german = ""
+    },
+    iraPuzzle = {
+        english = "One eye to lift and one to sleep.\nOne to charm and one for beast.\nOne eye to wound and one eye to slow.\nOne to bring fear and one to make stone.\nOne eye makes dust and one eye brings death.\nSpeak my name aloud and you will know.",
         german = ""
     }
 
