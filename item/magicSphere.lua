@@ -24,6 +24,52 @@ local increaseArea = require("magic.arcane.harvestFruit")
 
 local M = {}
 
+local function fhanPuzzleSolved()
+
+    local puzzle = {
+        {solution = Item.chickenDish, location = position(598, 321, 3)},
+        {solution = Item.drowSword, location = position(598, 317, 3)},
+        {solution = Item.pureFire, location = position(592, 317, 3)},
+        {solution = Item.stone, location = position(592, 321, 3)},
+    }
+
+    local solved = 0
+
+    for _, segment in pairs(puzzle) do
+
+        local field = world:getField(segment.location)
+        local itemsOnField = field:countItems()
+        local currentitem
+
+        for i= 0, itemsOnField-1 do --from lowest to highest item in stack
+            currentitem = field:getStackItem(i)
+            if currentitem.id == segment.solution then
+                solved = solved+1
+                break
+            end
+        end
+    end
+
+    if solved == 4 then
+        solved = true
+    else
+        solved = false
+    end
+
+    return solved
+end
+
+function M.fhanInfo(user)
+
+    local callback = function(dialog)
+    end
+
+    local dialog = MessageDialog("", common.GetNLS(user, texts.fhanPuzzle.german, texts.fhanPuzzle.english), callback)
+
+    user:requestMessageDialog(dialog)
+
+end
+
 local function dunRequirementCheck(user)
 
     local mainPos = position(354, 454, 0)
@@ -336,6 +382,10 @@ local function checkIfCriteriaMet(user, rune)
         end
     elseif rune == "Dun" then
         if dunRequirementCheck(user) then
+            retVal = true
+        end
+    elseif rune == "Fhan" then
+        if fhanPuzzleSolved() then
             retVal = true
         end
     else --Any remaining puzzles will only require you to find, get to and use the sphere to activate it

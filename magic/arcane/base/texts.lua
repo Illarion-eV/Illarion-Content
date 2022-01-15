@@ -579,7 +579,7 @@ local M = {
         BHONA = {rune = "BHONA", hint = {english = "Back to where you started, after you first departed.", german = ""}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(0,0,0)},
         Anth = {rune = "Anth", hint = {english = "An enormous structure, static as can be. Were it not, a flood you would see.", german = ""}, name = { english = "Mysterious Sphere", german = ""}, description = { english = "Within the sphere various objects can be seen, but what they all have in common is that they stand perfectly still. One could even call them static.", german = ""}, location = position(843, 216 , -3)},
         Dun = {rune = "Dun", hint = {english = "In an area vast and empty, where white hands rule.", german = ""}, name = { english = "Mysterious Sphere", german = ""}, description = { english = "The sphere reveals the scene of a vast empty land.", german = ""}, location = position(354, 454, 0)},
-        Fhan = {rune = "Fhan", hint = {english = "Among a castle of bones, you'll find what you desire.", german = ""}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(0,0,0)},
+        Fhan = {rune = "Fhan", hint = {english = "Among a castle of bones, you'll find what you desire.", german = ""}, name = { english = "Myserious Sphere", german = ""}, description = { english = "The sphere glows with an eerie light.", german = ""}, location = position(595, 319, 3)},
         Fhen = {rune = "Fhen", hint = {english = "Where trolls seek haven and drink fine wine, out in the garden do we dine.", german = ""}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(0,0,0)},
         Hept = {rune = "Hept", hint = {english = "In a cold place oh so high. Watch out, or you'll freeze.", german = ""}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(0,0,0)},
         Ira = {rune = "Ira", hint = {english = "Creatures not of nature, how many eyes does this one have?", german = ""}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(0,0,0)},
@@ -644,6 +644,16 @@ local M = {
         english = "You snagas get to work now! This room should've been filled up with items yesterday!",
         german = "",
         orcish = { english = "There seems to be something written in orcish on the scroll. You'd need someone to translate it for you.", german = ""}
+    },
+    fhanPuzzle = {
+        english = "We don't have time to honour the dead, they said.\nWe need to fend off Cherass' invading army, they said.\nSending off the dead is a waste of time, they said.\nWell now who's laughing?",
+        german = "",
+        coffins = {
+            {english = "Here lies Maxwell 'the Pebble' Orson, may he find rest in death.", german = "", location = position(591,321,3)},
+            {english = "Aren Ighys rests here. A devout follower of Bragon, his only wish was to be closer to his god.", german = "", location = position(591,317,3)},
+            {english = "Here lies the swordsman Drovan Darksword. Little did people know, he was secretly obsessed with the drow.", german = "", location = position(599, 317, 3)},
+            {english = "Jonathan Corn, a man born to a chicken farmer. His last request was a meal from home, though he never got it.", german = "", location = position(599,321,3)}
+        }
     }
 
 }

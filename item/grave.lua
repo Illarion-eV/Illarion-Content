@@ -20,6 +20,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local transformation_dog = require("alchemy.teaching.transformation_dog")
 local lookat = require("base.lookat")
+local texts = require("magic.arcane.base.texts")
 
 local M = {}
 
@@ -56,13 +57,32 @@ local dragonCaveCoffinPos = {
 local CoffinContents
 local letmaCoffin
 
+local function fhanPuzzlePos(user, item)
+
+    for _, coffin in pairs(texts.fhanPuzzle.coffins) do
+        if coffin.location == item.pos then
+            local lookAt = lookat.GenerateLookAt(user, item)
+            lookAt.description = common.GetNLS(user, coffin.german, coffin.english)
+            return lookAt
+        end
+    end
+
+    return false
+end
+
 function M.LookAtItem(User, Item)
+
+    local lookAt = lookat.GenerateLookAt(User, Item, lookat.NONE)
+
+    if fhanPuzzlePos(User, Item) then
+        return fhanPuzzlePos(User, Item)
+    end
 
     if Item:getData("teachDogTransformationPotion") == "true" then
         return transformation_dog.LookAtGrave(User,Item)
     end
 
-    return lookat.GenerateLookAt(User, Item, lookat.NONE)
+    return lookAt
 end
 
 local findPlayersForGems={}
@@ -79,6 +99,10 @@ gemsAlreadyFound[2]={284,329,481,526}
 gemsAlreadyFound[3]={45,242,329,526}
 
 function M.UseItem(User, SourceItem)
+
+    if fhanPuzzlePos(User, Item) then
+        return
+    end
 
     if SourceItem:getData("teachDogTransformationPotion") == "true" then
         transformation_dog.UseGrave(User, SourceItem)
