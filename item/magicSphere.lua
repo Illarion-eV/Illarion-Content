@@ -24,6 +24,41 @@ local increaseArea = require("magic.arcane.harvestFruit")
 
 local M = {}
 
+local function heptPuzzleSolved()
+
+    local mainPos = position(266, 375, 1)
+    local positionsToCheck = increaseArea.increaseArea(mainPos)
+    local fireFound = false
+
+    for _, currentPos in pairs(positionsToCheck) do
+        local field = world:getField(currentPos.position)
+        local itemsOnField = field:countItems()
+        local currentItem
+        local campfire = Item.campFire
+
+        for i = 0, itemsOnField-1 do
+            currentItem = field:getStackItem(i)
+            if currentItem.id == campfire then
+                fireFound = true
+                break
+            end
+        end
+    end
+
+    return fireFound
+end
+
+function M.heptInfo(user)
+
+    local callback = function(dialog)
+    end
+
+    local dialog = MessageDialog("", common.GetNLS(user, texts.heptPuzzle.german, texts.heptPuzzle.english), callback)
+
+    user:requestMessageDialog(dialog)
+
+end
+
 local function fhenPuzzleSolved()
 
     local platePos = position(735, 317, 0)
@@ -428,6 +463,10 @@ local function checkIfCriteriaMet(user, rune)
         end
     elseif rune == "Fhen" then
         if fhenPuzzleSolved() then
+            retVal = true
+        end
+    elseif rune == "Hept" then
+        if heptPuzzleSolved() then
             retVal = true
         end
     else --Any remaining puzzles will only require you to find, get to and use the sphere to activate it

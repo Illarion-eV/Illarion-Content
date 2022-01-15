@@ -59,6 +59,11 @@ function M.UseItem(user, sourceItem)
         return
     end
 
+    if sourceItem.pos == position(272, 378, 1) then
+        magicSphere.heptInfo(user)
+        return
+    end
+
     if sourceItem:getData("teachDogTransformationPotion") == "true" then
         transformation_dog.UseSealedScroll(user, sourceItem)
         return
