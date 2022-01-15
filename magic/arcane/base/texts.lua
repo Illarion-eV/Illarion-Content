@@ -970,48 +970,50 @@ local M = {
     },
     penPuzzle = {
         english = "I am easy to lift but hard to throw. What am I?\nSpeak me out loud and you shall be enlightened.",
-        german = ""
+        german = "Ich bin leicht zu heben aber schwer zu werfen. Was bin ich?\nRufe mich und werde erleuchtet."
     },
     anthPuzzle = {
         main = {
             english = "Write down the correct four-digit number and you shall be enlightened. The answer can be found by studying the pillars.",
-            german = "" },
+            german = "Schreibe die richtige vierstellige Zahl nieder und werde erleuchtet. Die Antwort findest du durch das Studium der Säulen" },
         lower = {
             english = "Lower",
-            german = ""},
+            german = "Niedriger"},
         higher = {
             english = "Higher",
-            german = ""},
+            german = "Höher"},
         success = {
             english = "Success",
-            german = ""},
+            german = "Erfolg"},
     },
     dunPuzzle = {
         english = "You snagas get to work now! This room should've been filled up with items yesterday!",
-        german = "",
-        orcish = { english = "There seems to be something written in orcish on the scroll. You'd need someone to translate it for you.", german = ""}
+        german = "An die Arbeit ihr Maden. Dieser Raum hätte schon gestern mit Zeugs voll sein müssen",
+        orcish = {
+            english = "There seems to be something written in orcish on the scroll. You'd need someone to translate it for you.",
+            german = "Die Schriftrolle scheint in einem Orkdialekt verfasst. Du brauchst Hilfe um das zu übersetzen"}
     },
     fhanPuzzle = {
         english = "We don't have time to honour the dead, they said.\nWe need to fend off Cherass' invading army, they said.\nSending off the dead is a waste of time, they said.\nWell now who's laughing?",
-        german = "",
+        german = "Wir haben nicht genug Zeit die Toten zu ehren haben sie gesagt.\nWie müssen uns gegen Cherass Armee verteidigen haben sie gesagt,\nDie Toten zu vernichten sei Zeitverschwendung haben sie gesagt.\n Doch wer lacht jetzt?",
         coffins = {
             {english = "Here lies Maxwell 'the Pebble' Orson, may he find rest in death.",
-            german = "",
+            german = "Hier liegt Maxwell 'der Kiesel' Orson, möge er in Frieden ruhen.",
             location = position(591,321,3)},
             {english = "Aren Ighys rests here. A devout follower of Bragon, his only wish was to be closer to his god.",
-            german = "",
+            german = "Hier ruht Aren Ighys. Ein gläubiger Anhänger Bragons. Er wollte näher zu seinem Gott, das war sein letzter Wunsch.",
             location = position(591,317,3)},
             {english = "Here lies the swordsman Drovan Darksword. Little did people know, he was secretly obsessed with the drow.",
-            german = "",
+            german = "Hier ruht der Schwertkämpfer Drovan Dunkelklinge. Wenige wissen, dass er ein heimlicher Verehrer der Drow war.",
             location = position(599, 317, 3)},
             {english = "Jonathan Corn, a man born to a chicken farmer. His last request was a meal from home, though he never got it.",
-            german = "",
+            german = "Jonathan Korn, geboren als Sohn eines Hühnerzüchters. Sein letzter Wunsch war eine Mahlzeit von Zuhause, die er aber nie bekam.",
             location = position(599,321,3)}
         }
     },
     fhenPuzzle = {
         english = "An elf and a dwarf sit down to drink together. What do they drink? Place both beverages on the offering plate and be enlightened.",
-        german = ""
+        german = "Ein Zwerg und ein Elf haben zusammen getrunken. Aber was? Platziere beide Getränke auf dem Opferteller und werde erleuchtet."
     }
 
 }
