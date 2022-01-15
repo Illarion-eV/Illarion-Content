@@ -24,6 +24,44 @@ local increaseArea = require("magic.arcane.harvestFruit")
 
 local M = {}
 
+local function fhenPuzzleSolved()
+
+    local platePos = position(735, 317, 0)
+    local field = world:getField(platePos)
+    local itemsOnField = field:countItems()
+    local currentItem
+    local beerFound = false
+    local wineFound = false
+    local beer = Item.beerMug
+    local wine = Item.bottleOfElvenWine
+
+    for i = 0, itemsOnField-1 do
+        currentItem = field:getStackItem(i)
+        if currentItem.id == wine then
+            wineFound = true
+        elseif currentItem.id == beer then
+            beerFound = true
+        end
+        if beerFound and wineFound then
+            return true
+        end
+    end
+
+    return false
+
+end
+
+function M.fhenInfo(user)
+
+    local callback = function(dialog)
+    end
+
+    local dialog = MessageDialog("", common.GetNLS(user, texts.fhenPuzzle.german, texts.fhenPuzzle.english), callback)
+
+    user:requestMessageDialog(dialog)
+
+end
+
 local function fhanPuzzleSolved()
 
     local puzzle = {
@@ -386,6 +424,10 @@ local function checkIfCriteriaMet(user, rune)
         end
     elseif rune == "Fhan" then
         if fhanPuzzleSolved() then
+            retVal = true
+        end
+    elseif rune == "Fhen" then
+        if fhenPuzzleSolved() then
             retVal = true
         end
     else --Any remaining puzzles will only require you to find, get to and use the sphere to activate it

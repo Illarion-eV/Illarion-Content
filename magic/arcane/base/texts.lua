@@ -571,63 +571,401 @@ local M = {
     },
     --runeHintsBook.lua and magicSphere.lua
     runeHintsBookTexts = {
-        CUN =  {rune = "CUN", hint = {english = "Near the ruins of a mother praised lies the secret of water.", german = "In der Nähe der Ruinen einer gelobten Mutter liegt das Gehemnis des Wassers."}, name = { english = "Mysterious Blue Sphere", german = "Mysteriöse blaue Sphäre"}, description = { english = "A mysterious glass sphere that appears to contain it's own ocean of water.", german = "Eine mysteriöse, gläserne Sphäre. Es scheint als würde sie ein ganzes Meer beinhalten."}, location = position(630,599,0)},
-        JUS = {rune = "JUS", hint = {english = "Up high where wind and ocean meet, with fuzzy creatures at your feet.", german = "Hoch oben, wo sich Wind und Meer treffen, mit flauschigen Geschöpfen zu deinen Füßen."}, name = { english = "Windy Mysterious  Sphere", german = "Mysteriöse windige Sphäre"}, description = { english = "A mysterious glass sphere that appears to be full of blowing wind.", german = "Eine mysteriöse, gläserne Sphäre. Es scheint als wäre sie voll mit stürmendem Wind. "}, location = position(329,156,1)},
-        PEN = {rune = "PEN", hint = {english = "In a place a hermit might call home, you'll find a hidden tome.", german = "Am Ort den der Einsiedler sein Zuhause nennt, dort findest du den hellsten Geist."}, name = { english = "Mysterious Spiritual Sphere", german = "Mysteriöse strahlende Sphäre"}, description = { english = "A mysterious glass sphere that contains a bright spiritual light.", german = "Eine mysteriöse, gläserne Spähre, die ein strahlendes Licht enthält. Wie ein strahlender Geist."}, location = position(786,128,0)},
-        RA = {rune = "RA", hint = {english = "A lone man betwixt the desert dry and forest lush guards the secret of the flame.", german = "Ein einsamer Mann zwischen der trockenen Wüste und dem üppigen Wald hütet das Gehemnis des Feuers."}, name = { english = "Fiery Mysterious Sphere", german = "Mysteriöse feurige Sphäre"}, description = { english = "A mysterious glass sphere that appears to be full of flickering flames. It doesn't appear to give off any heat, though.", german = "Eine mysteriöse, gläserne Sphäre. Es scheint als würde sie im Inneren brennen. "}, location = position(472,765,0)},
-        SOLH = {rune = "SOLH", hint = {english = "Deep below and long forgotten, a garden lush with guards that are rotten.", german = "Tief unten und längst vergessen, ein Garten voller Wächter die schon längst zerfressen."}, name = { english = "Myserious Earthy Sphere", german = "Mysteriöse erdige Sphäre"}, description = { english = "A mysterious sphere that appears to contain a deep, dark soil", german = " Eine mysteriöse, gläserne Sphäre. Es scheint als würde sie dunkle, schwarze Erde beinhalten."}, location = position(793,297,-3)},
-        BHONA = {rune = "BHONA", hint = {english = "Back to where you started, after you first departed.", german = "Zurück dorthin, als du einst gingst."}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(0,0,0)},
-        Anth = {rune = "Anth", hint = {english = "An enormous structure, static as can be. Were it not, a flood you would see.", german = "Ein gigantisches Bauwerk so unbeweglich. Wäre es nicht, die Flut würdest du sehen. "}, name = { english = "Mysterious Sphere", german = ""}, description = { english = "Within the sphere various objects can be seen, but what they all have in common is that they stand perfectly still. One could even call them static.", german = ""}, location = position(843, 216 , -3)},
-        Dun = {rune = "Dun", hint = {english = "In an area vast and empty, where white hands rule.", german = ""}, name = { english = "Mysterious Sphere", german = ""}, description = { english = "The sphere reveals the scene of a vast empty land.", german = ""}, location = position(354, 454, 0)},
-        Fhan = {rune = "Fhan", hint = {english = "Among a castle of bones, you'll find what you desire.", german = "In einem Schloss aus Knochen wirst du findet was du suchst."}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(0,0,0)},
-        Fhen = {rune = "Fhen", hint = {english = "Where trolls seek haven and drink fine wine, out in the garden do we dine.", german = "Wo Trolle Zuflucht suchen und besten Wein versuchen, dort im Garten speisen wir."}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(0,0,0)},
-        Hept = {rune = "Hept", hint = {english = "In a cold place oh so high. Watch out, or you'll freeze.", german = "Ein Ort so kalt und hoch. Pass auf, dort erfrierst du noch!"}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(0,0,0)},
-        Ira = {rune = "Ira", hint = {english = "Creatures not of nature, how many eyes does this one have?", german = "Wieviele Augen hat diese Kreatur, entspringt sicher nicht der Natur!"}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(0,0,0)},
-        Kah = {rune = "Kah", hint = {english = "If a mortal were to require sustenance, much could be found here.", german = "Dort wo sterbliche Stärkung suchen, dort findet man viel."}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(0,0,0)},
-        Kel = {rune = "Kel", hint = {english = "Where dark creatures of flight reside.", german = "Dort wo dunkle geschöpfe des Himmels hausen."}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(0,0,0)},
-        Lev = {rune = "Lev", hint = {english = "Once a glorious combat academy, now left in ruins. Oh the changes of time.", german = "Einst eine stolze Kampfakademie, nun nur mehr Ruinen. Wie die Zeit sich ändert."}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(0,0,0)},
-        Lhor = {rune = "Lhor", hint = {english = "Trick you, fool you, lead you astray. Who am I?", german = "Ich betrüge, ich täusche ich führe dich in die Irre. Wer bin ich?"}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(0,0,0)},
-        Luk = {rune = "Luk", hint = {english = "Among hostile elves, down down we go.", german = "Unter feindesligen Elfen, tief tief runter müssen wir."}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(0,0,0)},
-        Mes = {rune = "Mes", hint = {english = "I light up the path for beings made of wood that have lost their way.", german = "Ich erleuchte den Weg für Wesen aus Holz, die den Weg verloren haben."}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(0,0,0)},
-        Orl = {rune = "Orl", hint = {english = "Created from an egg. Creepy, crawly, eight legged friends.", german = "Zuerst ein Ei. Gruselige, krabbelnde, achtbeinige....."}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(0,0,0)},
-        Pherc = {rune = "Pherc", hint = {english = "The pain of the desert heat is nigh as high as the pain of their axes.", german = "Der Schmerz der Wüstenhitze ist fast so groß wie der Schmerz der Axt!"}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(0,0,0)},
-        Qwan = {rune = "Qwan", hint = {english = "On a mountain up high, where creatures of stone reside.", german = "Hoch in den Bergen, bei Kreaturen aus Stein."}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(0,0,0)},
-        Sav = {rune = "Sav", hint = {english = "In a firey castle where dragons reside below.", german = "Ein brennendes Schloss in dem die Drachen hausen."}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(0,0,0)},
-        Sih = {rune = "Sih", hint = {english = "Near water claimed by some to be capable of healing your very soul.", german = "In der Nähe des Wasser so rein, es könne die Seele heilen."}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(0,0,0)},
-        Sul = {rune = "Sul", hint = {english = "Rotten, smelly and cursed to be slow. Such is the fate of a civilization that met its demise.", german = "Stinkend, verrottet zum Stillstand verflucht. Das Schicksal einer Zivilisation die ihren Untergang fand. "}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(0,0,0)},
-        Tah = {rune = "Tah", hint = {english = "Steal from the rich, give to the poor... as long as the poor are they themselves.", german = "Ich stehle von den Reichen und gebe den Armen...bin doch ich der Ärmste."}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(0,0,0)},
-        Taur = {rune = "Taur", hint = {english = "This secret is guarded by creatures that dwell in a cave. What do they look like, you ask? Do they have one head? Two? Are they ugly and deranged?", german = "Dieses Geheimnis wird von Kreaturen bewacht die tief in Höhlen leben. Wie sehen sie aus fragst du? Haben sie einen Kopf? Zwei? Sind sie hässlich und verstört?"}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(0,0,0)},
-        Ura = {rune = "Ura", hint = {english = "Where the guardians of nature reside", german = "Dort wo die Hüter der Natur wohnen."}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(0,0,0)},
-        Yeg = {rune = "Yeg", hint = {english = "Muddy, grimey and full of despair. This place is not natural, of death beware.", german = "Schlammig, schmutzig und voller Verzweiflung. Dieser Ort ist nicht natürlich. Hüte dich vor dem Tod."}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(0,0,0)},
-        Pera = {rune = "Pera", hint = {english = "Found in a place where a competition of speed is famously held.", german = "Dort an jenem Ort wo die Wettkämpfe der Schnellsten ausgetragen werden."}, name = { english = "", german = ""}, description = { english = "", german = ""}, location = position(0,0,0)},
-        unlitSphere = {english = "Empty glass sphere", german = "Leere gläserne Sphäre"},
-        knowAll = {english = "There does not appear to be any knowledge in this book that you do not already know.", german = "Dieses Buch enthält kein Wissen, dass du nicht schon kennst."},
-        requirementNotMet = {english = "While there's knowledge in this book that you are not knowledgable of, it appears to be beyond your capability to understand right now.", german = "Ein Buch voller Wissen. Doch es ist jenseits deiner Fähigkeiten es zu verstehen."},
-        bookName = {english = "Mysterious Book", german = "Mysteriöses Buch"},
-        bookDescription = {english = "An old, faded looking book full of scribbles only some may understand.", german = "Ein altes, verblasstes Buch voller Kritzeleinen die wohl nur die Wenigsten verstehen."},
-        selectRune = {english = "Select the name of the rune you wish to locate.", german = "Wähle den Namen der Rune die du suchen möchstest."},
-        unsolved = {english = "The sphere has no reaction to your touch. Perhaps there is something in the area that can change this?", german = "Als du die Sphäre berührst passiert...nichts. Möglicherweise befindet sich etwas in der Nähe, dass dies ändern könnte."},
-        unwise = {english = "It hasn't been long enough since you last learned a rune, making it unwise to go searching for a new one.", german = "Es ist noch nicht lange her, dass du nach einer Rune gesucht hast. Es wäre nicht klug jetzt schon wieder eine Neue zu suchen."},
-        activated = {english = "With a sudden glow the sphere lights up, revealing to you the sights within.", german = "Mit einem plötzlichen Erstrahlen leichtet die Sphäre auf und enhüllt ihre Gehemnisse."},
-        learned = {english = "You feel a sudden surge of information enter your mind, it appears you just learned how to use the rune ", german = "Eine Welle von Informationen durchflutet deinen Geist. Du hast verstanden wie du die Rune nutzen kannst."},
-        cooldown = {english = "Not enough time has passed since you last learned a rune. You feel a headache just thinking about learning a new one.", german = "Es ist noch nicht genug Zeit vergangen seit du die letzte Rune gelernt hast. Allein der Gedanke an eine neue Rune bereitet dir Kopfschmerzen."},
-        notMetCriteria = {english = "As you touch the sphere, you get the feeling that you are not well versed enough or perhaps even talented enough at magic to learn the rune.", german = "Als du die Sphäre berührst fühlst du dich völlig überwältigt. Du hast das Gefühl, dass du noch viel lernen musst bevor du dieses Wissen aufnehmen kannst. Vielleicht bist du auch nicht talentiert genug um es je zu verstehen."},
-        notMage = { english = "As you touch the sphere, it has no reaction other than returning to its dim state.", german = "Als du die Sphäre berührst passiert....nichts. Sie hört einfach auf zu Leuchten."},
-        alreadyKnows = { english = "While the magical information enters your mind, you discover nothing new. You already know how to use this rune.", german = "Als die Welle an Informationen auf dich trifft, ist dir das Wissen schon vertraut. Du kennst diese Rune bereits."}
+        CUN =  {rune = "CUN",
+            hint = {
+                english = "Near the ruins of a mother praised lies the secret of water.",
+                german = "In der Nähe der Ruinen einer gelobten Mutter liegt das Gehemnis des Wassers."},
+            name = {
+                english = "Mysterious Blue Sphere",
+                german = "Mysteriöse blaue Sphäre"},
+            description = {
+                english = "A mysterious glass sphere that appears to contain it's own ocean of water.",
+                german = "Eine mysteriöse, gläserne Sphäre. Es scheint als würde sie ein ganzes Meer beinhalten."},
+            location = position(630,599,0)},
+        JUS = {rune = "JUS",
+            hint = {
+                english = "Up high where wind and ocean meet, with fuzzy creatures at your feet.",
+                german = "Hoch oben, wo sich Wind und Meer treffen, mit flauschigen Geschöpfen zu deinen Füßen."},
+            name = {
+                english = "Windy Mysterious  Sphere",
+                german = "Mysteriöse windige Sphäre"},
+            description = {
+                english = "A mysterious glass sphere that appears to be full of blowing wind.",
+                german = "Eine mysteriöse, gläserne Sphäre. Es scheint als wäre sie voll mit stürmendem Wind. "},
+            location = position(329,156,1)},
+        PEN = {rune = "PEN",
+            hint = {
+                english = "In a place a hermit might call home, you'll find a hidden tome.",
+                german = "Am Ort den der Einsiedler sein Zuhause nennt, dort findest du den hellsten Geist."},
+            name = {
+                english = "Mysterious Spiritual Sphere",
+                german = "Mysteriöse strahlende Sphäre"},
+            description = {
+                english = "A mysterious glass sphere that contains a bright spiritual light.",
+                german = "Eine mysteriöse, gläserne Spähre, die ein strahlendes Licht enthält. Wie ein strahlender Geist."},
+            location = position(786,128,0)},
+        RA = {rune = "RA",
+            hint = {
+                english = "A lone man betwixt the desert dry and forest lush guards the secret of the flame.",
+                german = "Ein einsamer Mann zwischen der trockenen Wüste und dem üppigen Wald hütet das Gehemnis des Feuers."},
+            name = {
+                english = "Fiery Mysterious Sphere",
+                german = "Mysteriöse feurige Sphäre"},
+            description = {
+                english = "A mysterious glass sphere that appears to be full of flickering flames. It doesn't appear to give off any heat, though.",
+                german = "Eine mysteriöse, gläserne Sphäre. Es scheint als würde sie im Inneren brennen. "},
+            location = position(472,765,0)},
+        SOLH = {rune = "SOLH",
+            hint = {english = "Deep below and long forgotten, a garden lush with guards that are rotten.",
+                german = "Tief unten und längst vergessen, ein Garten voller Wächter die schon längst zerfressen."},
+            name = {
+                english = "Myserious Earthy Sphere",
+                german = "Mysteriöse erdige Sphäre"},
+            description = {
+                english = "A mysterious sphere that appears to contain a deep, dark soil",
+                german = " Eine mysteriöse, gläserne Sphäre. Es scheint als würde sie dunkle, schwarze Erde beinhalten."},
+            location = position(793,297,-3)},
+        BHONA = {rune = "BHONA",
+            hint = {
+                english = "Back to where you started, after you first departed.",
+                german = "Zurück dorthin, als du einst gingst."},
+            name = {
+                english = "",
+                german = ""},
+            description = {
+                english = "",
+                german = ""},
+            location = position(0,0,0)},
+        Anth = {rune = "Anth",
+            hint = {
+                english = "An enormous structure, static as can be. Were it not, a flood you would see.",
+                german = "Ein gigantisches Bauwerk so unbeweglich. Wäre es nicht, die Flut würdest du sehen. "},
+            name = {
+                english = "Mysterious Sphere",
+                german = ""},
+            description = {
+                english = "Within the sphere various objects can be seen, but what they all have in common is that they stand perfectly still. One could even call them static.",
+                german = ""},
+            location = position(843, 216 , -3)},
+        Dun = {rune = "Dun",
+            hint = {
+                english = "In an area vast and empty, where white hands rule.",
+                german = ""},
+            name = {
+                english = "Mysterious Sphere",
+                german = ""},
+            description = {
+                english = "The sphere reveals the scene of a vast empty land.",
+                german = ""},
+            location = position(354, 454, 0)},
+        Fhan = {rune = "Fhan",
+            hint = {
+                english = "Among a castle of bones, you'll find what you desire.",
+                german = "In einem Schloss aus Knochen wirst du findet was du suchst."},
+            name = {
+                english = "Mysterious Sphere",
+                german = "The sphere contains an eerie magical fog that seems to attempt to get away from you."},
+            description = {
+                english = "",
+                german = ""},
+            location = position(0,0,0)},
+        Fhen = {rune = "Fhen",
+            hint = {
+                english = "Where trolls seek haven and drink fine wine, out in the garden do we dine.",
+                german = "Wo Trolle Zuflucht suchen und besten Wein versuchen, dort im Garten speisen wir."},
+            name = {
+                english = "Mysterious Sphere",
+                german = ""},
+            description = {
+                english = "The sphere contains an eerie magical fog that seems to attempt to get closer to you.",
+                german = ""},
+            location = position(736,317,0)},
+        Hept = {rune = "Hept",
+            hint = {
+                english = "In a cold place oh so high. Watch out, or you'll freeze.",
+                german = "Ein Ort so kalt und hoch. Pass auf, dort erfrierst du noch!"},
+            name = {
+                english = "",
+                german = ""},
+            description = {
+                english = "",
+                german = ""},
+            location = position(0,0,0)},
+        Ira = {rune = "Ira",
+            hint = {
+                english = "Creatures not of nature, how many eyes does this one have?",
+                german = "Wieviele Augen hat diese Kreatur, entspringt sicher nicht der Natur!"},
+            name = {
+                english = "",
+                german = ""},
+            description = {
+                english = "",
+                german = ""},
+            location = position(0,0,0)},
+        Kah = {rune = "Kah",
+            hint = {
+                english = "If a mortal were to require sustenance, much could be found here.",
+                german = "Dort wo sterbliche Stärkung suchen, dort findet man viel."},
+            name = {
+                english = "",
+                german = ""},
+            description = {
+                english = "",
+                german = ""},
+            location = position(0,0,0)},
+        Kel = {rune = "Kel",
+            hint = {
+                english = "Where dark creatures of flight reside.",
+                german = "Dort wo dunkle geschöpfe des Himmels hausen."},
+            name = {
+                english = "",
+                german = ""},
+            description = {
+                english = "",
+                german = ""},
+            location = position(0,0,0)},
+        Lev = {rune = "Lev",
+            hint = {
+                english = "Once a glorious combat academy, now left in ruins. Oh the changes of time.",
+                german = "Einst eine stolze Kampfakademie, nun nur mehr Ruinen. Wie die Zeit sich ändert."},
+            name = {
+                english = "",
+                german = ""},
+            description = {
+                english = "",
+                german = ""},
+            location = position(0,0,0)},
+        Lhor = {rune = "Lhor",
+            hint = {
+                english = "Trick you, fool you, lead you astray. Who am I?",
+                german = "Ich betrüge, ich täusche ich führe dich in die Irre. Wer bin ich?"},
+            name = {
+                english = "",
+                german = ""},
+            description = {
+                english = "",
+                german = ""},
+            location = position(0,0,0)},
+        Luk = {rune = "Luk",
+            hint = {
+                english = "Among hostile elves, down down we go.",
+                german = "Unter feindesligen Elfen, tief tief runter müssen wir."},
+            name = {
+                english = "",
+                german = ""},
+            description = {
+                english = "",
+                german = ""},
+            location = position(0,0,0)},
+        Mes = {rune = "Mes",
+            hint = {
+                english = "I light up the path for beings made of wood that have lost their way.",
+                german = "Ich erleuchte den Weg für Wesen aus Holz, die den Weg verloren haben."},
+            name = {
+                english = "",
+                german = ""},
+            description = {
+                english = "",
+                german = ""},
+            location = position(0,0,0)},
+        Orl = {rune = "Orl",
+            hint = {
+                english = "Created from an egg. Creepy, crawly, eight legged friends.",
+                german = "Zuerst ein Ei. Gruselige, krabbelnde, achtbeinige....."},
+            name = {
+                english = "",
+                german = ""},
+            description = {
+                english = "",
+                german = ""},
+            location = position(0,0,0)},
+        Pherc = {rune = "Pherc",
+            hint = {
+                english = "The pain of the desert heat is nigh as high as the pain of their axes.",
+                german = "Der Schmerz der Wüstenhitze ist fast so groß wie der Schmerz der Axt!"},
+            name = {
+                english = "",
+                german = ""},
+            description = {
+                english = "",
+                german = ""},
+            location = position(0,0,0)},
+        Qwan = {rune = "Qwan",
+            hint = {
+                english = "On a mountain up high, where creatures of stone reside.",
+                german = "Hoch in den Bergen, bei Kreaturen aus Stein."},
+            name = {
+                english = "",
+                german = ""},
+            description = {
+                english = "",
+                german = ""},
+            location = position(0,0,0)},
+        Sav = {rune = "Sav",
+            hint = {
+                english = "In a firey castle where dragons reside below.",
+                german = "Ein brennendes Schloss in dem die Drachen hausen."},
+            name = {
+                english = "",
+                german = ""},
+            description = {
+                english = "",
+                german = ""},
+            location = position(0,0,0)},
+        Sih = {rune = "Sih",
+            hint = {
+                english = "Near water claimed by some to be capable of healing your very soul.",
+                german = "In der Nähe des Wasser so rein, es könne die Seele heilen."},
+            name = {
+                english = "",
+                german = ""},
+            description = {
+                english = "",
+                german = ""},
+            location = position(0,0,0)},
+        Sul = {rune = "Sul",
+            hint = {
+                english = "Rotten, smelly and cursed to be slow. Such is the fate of a civilization that met its demise.",
+                german = "Stinkend, verrottet zum Stillstand verflucht. Das Schicksal einer Zivilisation die ihren Untergang fand. "},
+            name = {
+                english = "",
+                german = ""},
+            description = {
+                english = "",
+                german = ""},
+            location = position(0,0,0)},
+        Tah = {rune = "Tah",
+            hint = {
+                english = "Steal from the rich, give to the poor... as long as the poor are they themselves.",
+                german = "Ich stehle von den Reichen und gebe den Armen...bin doch ich der Ärmste."},
+            name = {
+                english = "",
+                german = ""},
+            description = {
+                english = "",
+                german = ""},
+            location = position(0,0,0)},
+        Taur = {rune = "Taur",
+            hint = {
+                english = "This secret is guarded by creatures that dwell in a cave. What do they look like, you ask? Do they have one head? Two? Are they ugly and deranged?",
+                german = "Dieses Geheimnis wird von Kreaturen bewacht die tief in Höhlen leben. Wie sehen sie aus fragst du? Haben sie einen Kopf? Zwei? Sind sie hässlich und verstört?"},
+            name = {
+                english = "",
+                german = ""},
+            description = {
+                english = "",
+                german = ""},
+            location = position(0,0,0)},
+        Ura = {rune = "Ura",
+            hint = {
+                english = "Where the guardians of nature reside",
+                german = "Dort wo die Hüter der Natur wohnen."},
+            name = {
+                english = "",
+                german = ""},
+            description = {
+                english = "",
+                german = ""},
+            location = position(0,0,0)},
+        Yeg = {rune = "Yeg",
+            hint = {
+                english = "Muddy, grimey and full of despair. This place is not natural, of death beware.",
+                german = "Schlammig, schmutzig und voller Verzweiflung. Dieser Ort ist nicht natürlich. Hüte dich vor dem Tod."},
+            name = {
+                english = "",
+                german = ""},
+            description = {
+                english = "",
+                german = ""},
+            location = position(0,0,0)},
+        Pera = {rune = "Pera",
+            hint = {
+                english = "Found in a place where a competition of speed is famously held.",
+                german = "Dort an jenem Ort wo die Wettkämpfe der Schnellsten ausgetragen werden."},
+            name = {
+                english = "",
+                german = ""},
+            description = {
+                english = "",
+                german = ""},
+            location = position(0,0,0)},
+        unlitSphere = {
+            english = "Empty glass sphere",
+            german = "Leere gläserne Sphäre"},
+        knowAll = {
+            english = "There does not appear to be any knowledge in this book that you do not already know.",
+            german = "Dieses Buch enthält kein Wissen, dass du nicht schon kennst."},
+        requirementNotMet = {
+            english = "While there's knowledge in this book that you are not knowledgable of, it appears to be beyond your capability to understand right now.",
+            german = "Ein Buch voller Wissen. Doch es ist jenseits deiner Fähigkeiten es zu verstehen."},
+        bookName = {
+            english = "Mysterious Book",
+            german = "Mysteriöses Buch"},
+        bookDescription = {
+            english = "An old, faded looking book full of scribbles only some may understand.",
+            german = "Ein altes, verblasstes Buch voller Kritzeleinen die wohl nur die Wenigsten verstehen."},
+        selectRune = {
+            english = "Select the name of the rune you wish to locate.",
+            german = "Wähle den Namen der Rune die du suchen möchstest."},
+        unsolved = {
+            english = "The sphere has no reaction to your touch. Perhaps there is something in the area that can change this?",
+            german = "Als du die Sphäre berührst passiert...nichts. Möglicherweise befindet sich etwas in der Nähe, dass dies ändern könnte."},
+        unwise = {
+            english = "It hasn't been long enough since you last learned a rune, making it unwise to go searching for a new one.",
+            german = "Es ist noch nicht lange her, dass du nach einer Rune gesucht hast. Es wäre nicht klug jetzt schon wieder eine Neue zu suchen."},
+        activated = {
+            english = "With a sudden glow the sphere lights up, revealing to you the sights within.",
+            german = "Mit einem plötzlichen Erstrahlen leichtet die Sphäre auf und enhüllt ihre Gehemnisse."},
+        learned = {
+            english = "You feel a sudden surge of information enter your mind, it appears you just learned how to use the rune ",
+            german = "Eine Welle von Informationen durchflutet deinen Geist. Du hast verstanden wie du die Rune nutzen kannst."},
+        cooldown = {
+            english = "Not enough time has passed since you last learned a rune. You feel a headache just thinking about learning a new one.",
+            german = "Es ist noch nicht genug Zeit vergangen seit du die letzte Rune gelernt hast. Allein der Gedanke an eine neue Rune bereitet dir Kopfschmerzen."},
+        notMetCriteria = {
+            english = "As you touch the sphere, you get the feeling that you are not well versed enough or perhaps even talented enough at magic to learn the rune.",
+            german = "Als du die Sphäre berührst fühlst du dich völlig überwältigt. Du hast das Gefühl, dass du noch viel lernen musst bevor du dieses Wissen aufnehmen kannst. Vielleicht bist du auch nicht talentiert genug um es je zu verstehen."},
+        notMage = {
+            english = "As you touch the sphere, it has no reaction other than returning to its dim state.",
+            german = "Als du die Sphäre berührst passiert....nichts. Sie hört einfach auf zu Leuchten."},
+        alreadyKnows = {
+            english = "While the magical information enters your mind, you discover nothing new. You already know how to use this rune.",
+            german = "Als die Welle an Informationen auf dich trifft, ist dir das Wissen schon vertraut. Du kennst diese Rune bereits."}
     },
     --item/desk.lua
-    magicDesk = {name = {english = "Magical Desk", german = "Magischer Schreibtisch"}, description = {english = "A desk where mages can create spells, craft portal books and enchant grimoires", german = "Ein Schreibtisch welcher von Magiern benutzt wird um Zaubersprüche zu kreieren, Portalbücher zu schreiben und Grimoires zu verzaubern."}},
+    magicDesk = {name = {
+        english = "Magical Desk",
+        german = "Magischer Schreibtisch"},
+        description = {
+            english = "A desk where mages can create spells, craft portal books and enchant grimoires",
+            german = "Ein Schreibtisch welcher von Magiern benutzt wird um Zaubersprüche zu kreieren, Portalbücher zu schreiben und Grimoires zu verzaubern."}},
     quill = {
-        bookNeeded = {english = "You need to hold the grimoire you want to label in your hand.", german = "Du musst den Grimoire den du benennen willst in deinen Händen halten."}
+        bookNeeded = {
+            english = "You need to hold the grimoire you want to label in your hand.",
+            german = "Du musst den Grimoire den du benennen willst in deinen Händen halten."}
     },
     --item/id_1001_greenplate.lua
-    offeringPlate = {name = { english = "Offering Plate", german = "Opferteller"}, description = {english = "The plate seems to contain something.", german = "Der Teller scheint etwas zu enthalten."}, use = {english = "Upon closer examination, you find a piece of paper on the plate.", german = "Bei näherer Betrachtung findest du ein Stück Papier am Teller."}},
+    offeringPlate = {
+        name = {
+            english = "Offering Plate",
+            german = "Opferteller"},
+        description = {
+            english = "The plate seems to contain something.",
+            german = "Der Teller scheint etwas zu enthalten."},
+        use = {
+            english = "Upon closer examination, you find a piece of paper on the plate.",
+            german = "Bei näherer Betrachtung findest du ein Stück Papier am Teller."}},
     offeringHints = {
-        { location = position(628, 598, 0), hint = {english = "If you wash me, I will not be clean. If you do not wash me, I will. What am I?", german = "Wenn du mich wäschst werde ich nicht sauber, lässt du es aber, so werde ich es doch. Was bin ich?"}
+        { location = position(628, 598, 0),
+        hint = {
+            english = "If you wash me, I will not be clean. If you do not wash me, I will. What am I?",
+            german = "Wenn du mich wäschst werde ich nicht sauber, lässt du es aber, so werde ich es doch. Was bin ich?"}
         }
     },
     windPuzzle = {
-        blasted = {english = "You're sent flying by a blast of wind magic.", german = "Du wirst durch einen magischen Windstoß davongeschleudert."}
+        blasted = {
+            english = "You're sent flying by a blast of wind magic.",
+            german = "Du wirst durch einen magischen Windstoß davongeschleudert."}
 
     },
     penPuzzle = {
@@ -635,10 +973,18 @@ local M = {
         german = ""
     },
     anthPuzzle = {
-        main = { english = "Write down the correct four-digit number and you shall be enlightened. The answer can be found by studying the pillars.", german = "" },
-        lower = { english = "Lower", german = ""},
-        higher = { english = "Higher", german = ""},
-        success = { english = "Success", german = ""},
+        main = {
+            english = "Write down the correct four-digit number and you shall be enlightened. The answer can be found by studying the pillars.",
+            german = "" },
+        lower = {
+            english = "Lower",
+            german = ""},
+        higher = {
+            english = "Higher",
+            german = ""},
+        success = {
+            english = "Success",
+            german = ""},
     },
     dunPuzzle = {
         english = "You snagas get to work now! This room should've been filled up with items yesterday!",
@@ -649,11 +995,23 @@ local M = {
         english = "We don't have time to honour the dead, they said.\nWe need to fend off Cherass' invading army, they said.\nSending off the dead is a waste of time, they said.\nWell now who's laughing?",
         german = "",
         coffins = {
-            {english = "Here lies Maxwell 'the Pebble' Orson, may he find rest in death.", german = "", location = position(591,321,3)},
-            {english = "Aren Ighys rests here. A devout follower of Bragon, his only wish was to be closer to his god.", german = "", location = position(591,317,3)},
-            {english = "Here lies the swordsman Drovan Darksword. Little did people know, he was secretly obsessed with the drow.", german = "", location = position(599, 317, 3)},
-            {english = "Jonathan Corn, a man born to a chicken farmer. His last request was a meal from home, though he never got it.", german = "", location = position(599,321,3)}
+            {english = "Here lies Maxwell 'the Pebble' Orson, may he find rest in death.",
+            german = "",
+            location = position(591,321,3)},
+            {english = "Aren Ighys rests here. A devout follower of Bragon, his only wish was to be closer to his god.",
+            german = "",
+            location = position(591,317,3)},
+            {english = "Here lies the swordsman Drovan Darksword. Little did people know, he was secretly obsessed with the drow.",
+            german = "",
+            location = position(599, 317, 3)},
+            {english = "Jonathan Corn, a man born to a chicken farmer. His last request was a meal from home, though he never got it.",
+            german = "",
+            location = position(599,321,3)}
         }
+    },
+    fhenPuzzle = {
+        english = "An elf and a dwarf sit down to drink together. What do they drink? Place both beverages on the offering plate and be enlightened.",
+        german = ""
     }
 
 }
