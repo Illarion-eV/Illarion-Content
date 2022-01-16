@@ -18,7 +18,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local magicGFXSFX = require("magic.arcane.magicGFXSFX")
 local targeting = require("magic.arcane.targeting")
 local dealDamage = require("magic.arcane.dealMagicDamage")
-local incantation = require("magic.arcane.incantation")
 local staticObjects = require("magic.arcane.staticObjects")
 local stun = require("magic.arcane.stun")
 local MSReduction = require("magic.arcane.manaStaminaReduction")
@@ -95,7 +94,6 @@ function M.applyDelay(user, target, spell, Orl)
     local castery = user.pos.y
 
     local myEffect = LongTimeEffect(7,5)
-    incantation.speakIncantation(user, spell)
     user.effects:addEffect(myEffect)
     myEffect:addValue("lastX", casterx)
     myEffect:addValue("lastY", castery)

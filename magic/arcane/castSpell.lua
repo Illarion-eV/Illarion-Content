@@ -72,6 +72,9 @@ function M.castSpell(user, spell, actionState, oralCast)
     local myTexts = texts.castSpellTexts
 
     if actionState == Action.none then
+        if not oralCast then
+            incantation.speakIncantation(user, spell)
+        end
         if not statReqMet(user, spell) then
             --If stats are lowered below the threshhold to learn a rune, whether through a trainer, a potion or something else
             user:inform(myTexts.stats.german, myTexts.stats.english)
@@ -102,9 +105,6 @@ function M.castSpell(user, spell, actionState, oralCast)
             return
         end
         if not runes.checkSpellForRuneByName("BHONA", spell) then
-            if not oralCast then
-                incantation.speakIncantation(user, spell)
-            end
             mana.removedUsedMana(user, spell)
             skilling.increaseExperience(user, spell)
             if JUS and Orl then

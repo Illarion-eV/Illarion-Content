@@ -16,7 +16,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local runes = require("magic.arcane.runes")
 local magic = require("base.magic")
-local incantation = require("magic.arcane.incantation")
 local texts = require("magic.arcane.base.texts")
 
 local M = {}
@@ -195,9 +194,6 @@ local function teachingCheck(user, target, spell, oralCast)
             user:inform(myTexts.taught.german..runes.Runes[runeToTeach][2]..".", myTexts.taught.english..runes.Runes[runeToTeach][2]..".")
             M.setLearningCooldown(target)
             setTeachingCooldown(user)
-            if not oralCast then
-                incantation.speakIncantation(user, spell)
-            end
         else
             user:inform(myTexts.mana.german, myTexts.mana.english)
         end
