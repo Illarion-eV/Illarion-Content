@@ -134,7 +134,7 @@ end
 
 function M.checkSpellForLightning(spell)
 
-    local okRunes = {"JUS", "Pherc", "Orl", "Hept", "Ira", "Lhor", "Orl", "Sih", "Taur", "Ura", "Yeg", "Pera"}
+    local okRunes = {"JUS", "Pherc", "Orl", "Hept", "Ira", "Lhor", "Orl", "Sih", "Taur", "Ura", "Yeg", "Pera", "Dun"}
 
     if not M.checkSpellForRuneByName("Pherc", spell) or not M.checkSpellForRuneByName("JUS", spell) then
         return true
