@@ -93,16 +93,31 @@ function M.applyDelay(user, target, spell, Orl)
     local casterx = user.pos.x
     local castery = user.pos.y
 
-    local myEffect = LongTimeEffect(7,5)
-    user.effects:addEffect(myEffect)
-    myEffect:addValue("lastX", casterx)
-    myEffect:addValue("lastY", castery)
-    myEffect:addValue("targetX", targetx)
-    myEffect:addValue("targetY", targety)
-    myEffect:addValue("targetZ", targetz)
-    myEffect:addValue("spell", spell)
-    if Orl then
-        myEffect:addValue("Orl", Orl)
+    local foundEffect, myEffect = user.effects:find(7)
+
+    if not foundEffect then
+        myEffect = LongTimeEffect(7,5)
+        myEffect:addValue("lastX", casterx)
+        myEffect:addValue("lastY", castery)
+        myEffect:addValue("targetX", targetx)
+        myEffect:addValue("targetY", targety)
+        myEffect:addValue("targetZ", targetz)
+        myEffect:addValue("spell", spell)
+        if Orl then
+            myEffect:addValue("Orl", Orl)
+        end
+        user.effects:addEffect(myEffect)
+    else
+        myEffect:addValue("lastX", casterx)
+        myEffect:addValue("lastY", castery)
+        myEffect:addValue("targetX", targetx)
+        myEffect:addValue("targetY", targety)
+        myEffect:addValue("targetZ", targetz)
+        myEffect:addValue("spell", spell)
+        if Orl then
+            myEffect:addValue("Orl", Orl)
+        end
+        M.addEffect(myEffect, user)
     end
 end
 
