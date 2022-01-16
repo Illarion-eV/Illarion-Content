@@ -210,6 +210,9 @@ local setPos = true
             if not targeted then --onAttack did not load the target yet, very rarely happens
                 return
             end
+            if not isValidChar(targeted) then
+                return
+            end
             thePosition = targeted.pos
             if not dodgable and not (PEN and Lev) then
                 positionsAndTargets.targets[#positionsAndTargets.targets+1] = targeted
