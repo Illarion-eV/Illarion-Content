@@ -62,7 +62,6 @@ function M.castSpell(user, spell, actionState, oralCast)
     local JUS = runes.checkSpellForRuneByName("JUS", spell)
     local Mes = runes.checkSpellForRuneByName("Mes", spell)
     local Orl = runes.checkSpellForRuneByName("Orl", spell)
-    local targets
     local castDuration = castTime.arcaneSpellCastSpeed(user, spell)
     local castSFX = 0
     local castSFXDuration = 10
@@ -99,7 +98,6 @@ function M.castSpell(user, spell, actionState, oralCast)
     elseif actionState == Action.abort then
         return
     elseif actionState == Action.success then
-        targets = targeting.getPositionsAndTargets(user, spell)
         if not range.isTargetInRange(user, spell, element, position) then
             user:inform(myTexts.range.german, myTexts.range.english)
             return
@@ -113,10 +111,10 @@ function M.castSpell(user, spell, actionState, oralCast)
             if (Sul and (RA or CUN)) or (JUS and Mes) then
                 delayedAttack.applyDelay(user, position, spell)
             else
-                delayedAttack.spellEffects(user, targets, spell, element)
+                delayedAttack.spellEffects(user, positionsAndTargets, spell, element)
             end
         else
-            teaching.teachRune(user, targets, spell, oralCast)
+            teaching.teachRune(user, positionsAndTargets, spell, oralCast)
         end
     end
 end

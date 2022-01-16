@@ -23,11 +23,14 @@ local M = {}
 
 M.playerTargets = {}
 
-local function addDunTargets(targetsPositions, spell)
+local function addDunTargets(user, targetsPositions, spell)
 local RA = runes.checkSpellForRuneByName("RA", spell)
 local CUN = runes.checkSpellForRuneByName("CUN", spell)
 local Sul = runes.checkSpellForRuneByName("Sul", spell)
 local targetPosition = targetsPositions.thePosition
+    if M[user.name.."LevDunPos"] then
+        targetPosition = M[user.name.."LevDunPos"]
+    end
 local possiblePositions =
     {position(targetPosition.x+1,targetPosition.y,targetPosition.z), position(targetPosition.x,targetPosition.y+1,targetPosition.z),
     position(targetPosition.x-1,targetPosition.y,targetPosition.z), position(targetPosition.x,targetPosition.y-1,targetPosition.z),
@@ -60,11 +63,15 @@ local possiblePositions =
             targetsPositions.positions[#targetsPositions.positions+1] = possiblePosition
         end
     end
+    M[user.name.."LevDunPos"] = false
     return targetsPositions
 end
 
-local function addPENLukDunTargets(targetsPositions)
+local function addPENLukDunTargets(user, targetsPositions)
     local targetPosition = targetsPositions.thePosition
+    if M[user.name.."LevDunPos"] then
+        targetPosition = M[user.name.."LevDunPos"]
+    end
     local possiblePositions =
     {position(targetPosition.x+2,targetPosition.y,targetPosition.z),
     position(targetPosition.x+2,targetPosition.y+1,targetPosition.z),
@@ -100,6 +107,7 @@ local function addPENLukDunTargets(targetsPositions)
             targetsPositions.positions[#targetsPositions.positions+1] = possiblePosition
         end
     end
+    M[user.name.."LevDunPos"] = false
     return targetsPositions
 end
 
@@ -287,6 +295,7 @@ local setPos = true
                 setPos = false
                 local targetExists = world:isCharacterOnField(heptPosition)
                 local setLevPos = true
+                M[name.."LevDunPos"] = heptPosition
                 if targetExists then
                     local LevTarget = world:getCharacterOnField(heptPosition)
                     if LevTarget:getType() == Character.player or LevTarget:getType() == Character.monster then
@@ -346,10 +355,11 @@ local Dun = runes.checkSpellForRuneByName("Dun", spell)
 local PEN = runes.checkSpellForRuneByName("PEN", spell)
 local Luk = runes.checkSpellForRuneByName("Luk", spell)
 
+debug("spell: "..tostring(spell))
     if Dun and PEN and Luk then
-        positionsAndTargets = addPENLukDunTargets(positionsAndTargets)
+        positionsAndTargets = addPENLukDunTargets(user, positionsAndTargets)
     elseif (PEN and Luk) or Dun then
-        positionsAndTargets = addDunTargets(positionsAndTargets, spell)
+        positionsAndTargets = addDunTargets(user, positionsAndTargets, spell)
     end
 
 return positionsAndTargets
