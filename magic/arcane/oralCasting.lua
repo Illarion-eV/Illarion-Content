@@ -149,17 +149,20 @@ function M.checkForMagicIncantations(user, actionState, spokenWords)
 
         local primaryRune = checkForPrimaryRunes(user, spokenWords)
         portal = checkForPortalIncantation(spokenWords)
-        spell = false
 
         if primaryRune then
             spell = addRunesToSpell(user, spokenWords, primaryRune)
+            M[user.name.."portal"] = portal
+            M[user.name.."spell"] = spell
+            castMagic(user, actionState, spell, portal)
+        elseif portal then
+            castMagic(user, actionState, spell, portal)
         end
 
-        M[user.name.."portal"] = portal
-        M[user.name.."spell"] = spell
-        castMagic(user, actionState, spell, portal)
     elseif actionState ==  Action.abort or actionState == Action.success then
 
+        debug("portal: "..tostring(portal))
+        debug("spell: "..tostring(spell))
         castMagic(user, actionState, spell, portal)
 
     end
