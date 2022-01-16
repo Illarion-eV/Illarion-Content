@@ -24,17 +24,27 @@ local M = {}
 
 local function checkForPrimaryRunes(user, spokenWords)
 
-    for i = 1, 6 do
+    local BHONA = 6
 
-        local found = string.find(spokenWords, runes.Runes[i][2])
+    local found = string.find(spokenWords, runes.Runes[BHONA][2])
+
+        if found then
+            local knowsRune = runes.checkIfLearnedRune(user, false, BHONA, "isQuest", false, false)
+
+            if knowsRune then
+                return runes.Runes[BHONA][2]
+            end
+        end
+
+    for i = 1, 5 do
+
+        found = string.find(spokenWords, runes.Runes[i][2])
 
         if found then
             local knowsRune = runes.checkIfLearnedRune(user, false, i, "isQuest", false, false)
 
             if knowsRune then
                 return runes.Runes[i][2]
-            else
-                return false
             end
         end
     end
