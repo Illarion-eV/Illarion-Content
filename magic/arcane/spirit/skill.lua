@@ -41,7 +41,8 @@ function M.skillValueIntoText(information, spell)
 
     for _, target in pairs(information) do
         local player = target.type == "player"
-        if player then
+        local creature = target.type == "creature"
+        if player or creature then
             local skill = getTotalSkillValue(target.target)
             local englishText
             local germanText

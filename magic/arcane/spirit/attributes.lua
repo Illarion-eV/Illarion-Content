@@ -31,7 +31,8 @@ function M.getAttributeText(information, spell)
 
     for _, target in pairs(information) do
         local player = target.type == "player"
-        if player then
+        local creature = target.type == "creature"
+        if player or creature then
             for _, attribute in ipairs(texts.statText) do
                 local stat = target.target:increaseAttrib(attribute.stat, 0)
                 for _, value in ipairs(texts.statValuesText) do
