@@ -257,7 +257,7 @@ local lastYReverse = user.pos.y
         end
     end
     if Sav then
-        for i = 1, range do
+        for i = 1, range+1 do
             local positionCleared, thePosition = checkForCollisionAndFreeSpace(lastXReverse, lastYReverse, landingXReverse, landingYReverse, Z)
 
             if not positionCleared then
@@ -269,21 +269,23 @@ local lastYReverse = user.pos.y
         end
     end
     if items then
-        local field = world:getField(myTarget)
-        local foundItems = field:countItems()
-        local targetItem = field:getStackItem(foundItems - 1)
-        world:erase(targetItem, targetItem.number)
-        world:createItemFromItem(targetItem, targetPosition, true)
+        if Fhan or Fhen then
+            local field = world:getField(myTarget)
+            local foundItems = field:countItems()
+            local targetItem = field:getStackItem(foundItems - 1)
+            world:erase(targetItem, targetItem.number)
+            world:createItemFromItem(targetItem, targetPosition, true)
+        end
     elseif characters then
         if Fhan or Fhen then
             local targetedChar = world:getCharacterOnField(myTarget)
             targetedChar:forceWarp(targetPosition)
             targetedChar:inform(informDE, informEN)
         end
-        if Sav then
-            user:forceWarp(targetPositionReverse)
-            user:inform(informDE, informEN)
-        end
+    end
+    if Sav then
+        user:forceWarp(targetPositionReverse)
+        user:inform(informDE, informEN)
     end
 end
 

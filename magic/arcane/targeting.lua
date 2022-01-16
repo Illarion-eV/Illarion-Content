@@ -355,7 +355,6 @@ local Dun = runes.checkSpellForRuneByName("Dun", spell)
 local PEN = runes.checkSpellForRuneByName("PEN", spell)
 local Luk = runes.checkSpellForRuneByName("Luk", spell)
 
-debug("spell: "..tostring(spell))
     if Dun and PEN and Luk then
         positionsAndTargets = addPENLukDunTargets(user, positionsAndTargets)
     elseif (PEN and Luk) or Dun then
