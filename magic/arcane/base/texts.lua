@@ -1050,6 +1050,15 @@ local M = {
             english = "A swirling mass of pure air. You could probably fly with this?",
             german = "Eine wirbelnde Masse reiner Luft. Damit könntest du wahrscheinlich davonfliegen?"
         }
+    },
+    --item/books.lua
+    grimoire = {
+        name = {
+            english = "Grimoire",
+            german = "Grimoire"},
+        description = {
+            english = "A grimoire used by mages.",
+            german = "Ein Grimoire das Magier verwenden."}
     }
 
 }

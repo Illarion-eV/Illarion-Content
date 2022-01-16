@@ -21,6 +21,7 @@ local lookat = require("base.lookat")
 local id_266_bookshelf = require("item.id_266_bookshelf")
 local granorsHut = require("content.granorsHut")
 local magicBook = require("magic.arcane.magicBook")
+local texts = require("magic.arcane.base.texts")
 
 local M = {}
 
@@ -56,9 +57,9 @@ end
 
 function M.LookAtItem(User,Item)
     if Item:getData("magicBook") ~= "" then
-        lookat.SetSpecialName(Item,"","Grimoire")
+        lookat.SetSpecialName(Item, texts.grimoire.name.german, texts.grimoire.name.english)
         if Item:getData("descriptionEn") == "" then
-            lookat.SetSpecialDescription(Item,"","A grimoire used by mages.")
+            lookat.SetSpecialDescription(Item, texts.grimoire.description.german, texts.grimoire.description.english)
         end
     end
     local book = Item:getData("book")
