@@ -170,11 +170,7 @@ function M.checkForMagicIncantations(user, actionState, spokenWords)
         end
 
     elseif actionState ==  Action.abort or actionState == Action.success then
-
-        debug("portal: "..tostring(portal))
-        debug("spell: "..tostring(spell))
         castMagic(user, actionState, spell, portal)
-
     end
 end
 
