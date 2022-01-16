@@ -253,7 +253,13 @@ local setPos = true
 
     if (Tah or Lev) and (RA or CUN) then
         local target = getWeakestNearTarget(user, thePosition, rangeNum, Lev)
-        if target then
+        local proceed = true
+
+        if Lev and not world:isCharacterOnField(thePosition) then --Lev only targets the weakest nearby character to a targeted character. Tah doesn't care.
+            proceed = false
+        end
+
+        if target and proceed then
             if target:getType() == Character.player or target:getType() == Character.monster then
                 if not dodgable then
                     positionsAndTargets.targets[#positionsAndTargets.targets+1] = target
