@@ -179,8 +179,16 @@ local M = {
     },
     -- plantRoot.lua, traps.lua
     plantRootTexts = {
-        name = {english = "Entangling Plant", german = "Schlingpflanze"},
-        description = {english = "Upon closer inspection, you may notice the leaves of the plant having a magical looking glow to them.", german = "Bei genauerer Betrachtung stellst du fest, dass die Blätter der Pflanze ein magisches Leuchten abgeben."}
+        name = {
+            english = "Entangling Plant",
+            german = "Schlingpflanze"},
+        description = {
+            english = "Upon closer inspection, you may notice the leaves of the plant having a magical looking glow to them.",
+            german = "Bei genauerer Betrachtung stellst du fest, dass die Blätter der Pflanze ein magisches Leuchten abgeben."},
+        entangled = {
+            english = "Stepping onto the plant, you are entangled by its vines, slowing you down.",
+            german = ""
+        }
     },
     earthTrapTexts = {
         name = {english = "Earth Cloud", german = "Erdwolke"},

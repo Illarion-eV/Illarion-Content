@@ -80,17 +80,20 @@ function M.checkForSuitableSoil(field)
             return true
         end
     end
-return false
+    return false
 end
 
 function M.getPosition(target)
-local positionToCheck
+
+    local positionToCheck
+
     if target.pos then
         positionToCheck = target.pos
     else
         positionToCheck = target
     end
-return positionToCheck
+
+    return positionToCheck
 end
 
 local function plantCreation(user, target, spell, item)
@@ -119,9 +122,9 @@ local function plantCreation(user, target, spell, item)
 end
 
 function M.createEntanglingPlant(user, targets, spell)
-local Orl = runes.checkSpellForRuneByName("Orl", spell)
-local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
-local Luk = runes.checkSpellForRuneByName("Luk", spell)
+    local Orl = runes.checkSpellForRuneByName("Orl", spell)
+    local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
+    local Luk = runes.checkSpellForRuneByName("Luk", spell)
 
     if Orl then --To prevent overlap of plant and trap, trap as the stronger one takes priority. Trap will instead get plant graphic if this rune is used.
         return
@@ -171,17 +174,19 @@ function M.applyPlantRootForEntanglingPlant(sourceItem, target)
             M.addEffect(myEffect, target)
         end
     end
+    target:inform(texts.plantRootTexts.entangled.german, texts.plantRootTexts.entangled.english)
 end
 
 function M.applyPlantRoot(user, targets, spell, earthTrap)
-local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
-local Qwan = runes.checkSpellForRuneByName("Qwan", spell)
-local Sih = runes.checkSpellForRuneByName("Sih", spell)
-local Tah = runes.checkSpellForRuneByName("Tah", spell)
-local Taur = runes.checkSpellForRuneByName("Taur", spell)
-local Ura = runes.checkSpellForRuneByName("Ura", spell)
-local Yeg = runes.checkSpellForRuneByName("Yeg", spell)
-local rune
+    local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
+    local Qwan = runes.checkSpellForRuneByName("Qwan", spell)
+    local Sih = runes.checkSpellForRuneByName("Sih", spell)
+    local Tah = runes.checkSpellForRuneByName("Tah", spell)
+    local Taur = runes.checkSpellForRuneByName("Taur", spell)
+    local Ura = runes.checkSpellForRuneByName("Ura", spell)
+    local Yeg = runes.checkSpellForRuneByName("Yeg", spell)
+    local rune
+
     if Taur then
         rune = "Taur"
     elseif Ura then
@@ -189,6 +194,7 @@ local rune
     elseif Yeg then
         rune = "Yeg"
     end
+
     for _, target in pairs(targets.targets) do
         local myEffectNumber = 16
         local TahEffectNumber = 28
@@ -265,11 +271,11 @@ end
 
 function M.addEffect(myEffect, target)
     log("Magic testing: "..tostring(target.name).."'s speed before application of plant root: "..tostring(target.speed))
-local Tah
-local SOLH
-local Sih
-local foundUser, isUser = myEffect:findValue("user")
-local foundSpell, spell = myEffect:findValue("spell")
+    local Tah
+    local SOLH
+    local Sih
+    local foundUser, isUser = myEffect:findValue("user")
+    local foundSpell, spell = myEffect:findValue("spell")
     if foundUser then
         if 1 == isUser then
             Sih = true
@@ -280,7 +286,7 @@ local foundSpell, spell = myEffect:findValue("spell")
         SOLH = runes.checkSpellForRuneByName("SOLH", spell)
     end
 
-local foundSpeed, speed = myEffect:findValue("speed")
+    local foundSpeed, speed = myEffect:findValue("speed")
     if foundSpeed then
         local speedChange = speed/100 --Divided by 100 because speed is a percentage value due to it being stored as integers.
         if Tah and SOLH then
@@ -351,11 +357,11 @@ function M.callEffect(myEffect, target)
 end
 
 function M.callEffect(myEffect, target)
-local Tah
-local SOLH
-local Sih
-local foundUser, isUser = myEffect:findValue("user")
-local foundSpell, spell = myEffect:findValue("spell")
+    local Tah
+    local SOLH
+    local Sih
+    local foundUser, isUser = myEffect:findValue("user")
+    local foundSpell, spell = myEffect:findValue("spell")
     if foundSpell then
         Tah = runes.checkSpellForRuneByName("Tah", spell)
         SOLH = runes.checkSpellForRuneByName("SOLH", spell)
@@ -403,7 +409,7 @@ local foundSpell, spell = myEffect:findValue("spell")
         end
     end
     log("Magic testing: "..tostring(target.name).."'s speed after last call of plant root: "..tostring(target.speed))
-return false
+    return false
 end
 
 function M.loadEffect(myEffect, target)
