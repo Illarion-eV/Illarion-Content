@@ -28,11 +28,13 @@ local RA = runes.checkSpellForRuneByName("RA", spell)
 local CUN = runes.checkSpellForRuneByName("CUN", spell)
 local Sul = runes.checkSpellForRuneByName("Sul", spell)
 local targetPosition = targetsPositions.thePosition
-    if M[user.name.."LevDunPos"] then
-        targetPosition = M[user.name.."LevDunPos"]
-    end
-    if M[user.name.."FhenPos"] then
-        targetPosition = M[user.name.."FhenPos"]
+    if user then
+        if M[user.name.."LevDunPos"] then
+            targetPosition = M[user.name.."LevDunPos"]
+        end
+        if M[user.name.."FhenPos"] then
+            targetPosition = M[user.name.."FhenPos"]
+        end
     end
 local possiblePositions =
     {position(targetPosition.x+1,targetPosition.y,targetPosition.z), position(targetPosition.x,targetPosition.y+1,targetPosition.z),
@@ -66,8 +68,10 @@ local possiblePositions =
             targetsPositions.positions[#targetsPositions.positions+1] = possiblePosition
         end
     end
-    M[user.name.."FhenPos"] = false
-    M[user.name.."LevDunPos"] = false
+    if user then
+        M[user.name.."FhenPos"] = false
+        M[user.name.."LevDunPos"] = false
+    end
     return targetsPositions
 end
 
