@@ -31,6 +31,9 @@ local targetPosition = targetsPositions.thePosition
     if M[user.name.."LevDunPos"] then
         targetPosition = M[user.name.."LevDunPos"]
     end
+    if M[user.name.."FhenPos"] then
+        targetPosition = M[user.name.."FhenPos"]
+    end
 local possiblePositions =
     {position(targetPosition.x+1,targetPosition.y,targetPosition.z), position(targetPosition.x,targetPosition.y+1,targetPosition.z),
     position(targetPosition.x-1,targetPosition.y,targetPosition.z), position(targetPosition.x,targetPosition.y-1,targetPosition.z),
@@ -63,6 +66,7 @@ local possiblePositions =
             targetsPositions.positions[#targetsPositions.positions+1] = possiblePosition
         end
     end
+    M[user.name.."FhenPos"] = false
     M[user.name.."LevDunPos"] = false
     return targetsPositions
 end
@@ -223,7 +227,9 @@ local setPos = true
             end
             thePosition = targeted.pos
             if not dodgable and not (PEN and Lev) then
-                positionsAndTargets.targets[#positionsAndTargets.targets+1] = targeted
+                if not (Fhen and (RA or CUN or SOLH)) then
+                    positionsAndTargets.targets[#positionsAndTargets.targets+1] = targeted
+                end
                 positionsAndTargets.targetToTeach = targeted
                 setPos = false
             end
@@ -233,7 +239,9 @@ local setPos = true
             if foundCharacter and not dodgable and not (PEN and Lev) then
                 local target = world:getCharacterOnField(thePosition)
                 if target:getType() == Character.player or target:getType() == Character.monster then
-                    positionsAndTargets.targets[#positionsAndTargets.targets+1] = target
+                    if not (Fhen and (RA or CUN or SOLH)) then
+                        positionsAndTargets.targets[#positionsAndTargets.targets+1] = target
+                    end
                     positionsAndTargets.targetToTeach = target
                     setPos = false
                 end
@@ -245,7 +253,9 @@ local setPos = true
         if foundCharacter and not dodgable then
             local target = world:getCharacterOnField(thePosition)
             if target:getType() == Character.player or target:getType() == Character.monster then
-                positionsAndTargets.targets[#positionsAndTargets.targets+1] = target
+                if not (Fhen and (RA or CUN or SOLH)) then
+                    positionsAndTargets.targets[#positionsAndTargets.targets+1] = target
+                end
                 setPos = false
             end
         end
@@ -321,6 +331,7 @@ local setPos = true
         if fhenTarget then
             if fhenTarget:getType() == Character.player or fhenTarget:getType() == Character.monster then
                 if not dodgable then
+                    M[user.name.."FhenPos"] = fhenTarget.pos
                     positionsAndTargets.targets[#positionsAndTargets.targets+1] = fhenTarget
                     setPos = false
                 else
