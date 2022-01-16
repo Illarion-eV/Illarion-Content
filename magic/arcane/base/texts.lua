@@ -22,7 +22,7 @@ local M = {
         {stat = "strength", germanStat = "Stärke", adjective = {english = "strong.", german = "stark."}},
         {stat = "constitution", germanStat = "Ausdauer", adjective = {english = "sturdy.", german = "ausdauernd."}},
         {stat = "dexterity", germanStat = "Geschicklichkeit", adjective = {english = "dexterous.", german = "geschickt."}},
-        {stat = "agility", germanStat = "", adjective = {english = "nimble.", german = "flink."}},
+        {stat = "agility", germanStat = "Schnelligkeit", adjective = {english = "nimble.", german = "flink."}},
         {stat = "willpower", germanStat = "Willenskraft", adjective = {english = "strong-minded.", german = "willensstark."}},
         {stat = "perception", germanStat = "Wahrnehmung", adjective = {english = "perceptive.", german = "aufmerksam."}},
         {stat = "essence", germanStat = "Essenz", adjective = {english = "spiritual.", german = "spirituell."}}
@@ -30,7 +30,7 @@ local M = {
     statValuesText = {
         {value = 14, english = "The target is very ", german = "Das Ziel ist sehr "},
         {value = 8, english = "The target is somewhat ", german = "Das Ziel ist einigermaßen "},
-        {value = 0, english = "The target is not very ", german = "Das Ziel ist nicht sehr"}
+        {value = 0, english = "The target is not very ", german = "Das Ziel ist nicht sehr "}
         },
     --spirit/converInfoToDialogue.lua
     infoOptionsText = {
@@ -127,7 +127,7 @@ local M = {
     -- spirit/telepathy.lua
     telepathyTexts = {
         failure = {english = "You decided against responding to the telepathic connection.", german = "Du hast dich gegen eine telephatische Verbindung entschieden."},
-        success = {english = "You hear the voice of your telepathic partner in your mind: ", german = "Du hörst die Stimme der Person mit der du eine telephatische Verbindung eingegangen bist."},
+        success = {english = "You hear the voice of your telepathic partner in your mind: ", german = "Du hörst die Stimme der Person mit der du eine telephatische Verbindung eingegangen bist: "},
         request = {english = "What do you want to tell your telepathic partner?", german = "Was willst du deinem Telepathiepartner sagen?"},
         established = {english = "You feel a telepathic connection establish between you and someone else.", german = "Du spürst wie sich eine telephatische Verbindung zwischen dir und jemand anderem aufbaut."}
         },
@@ -135,31 +135,31 @@ local M = {
     createSpellTexts = {
         BHONA = {english = "BHONA spells may only contain up to two runes.", german = "Zaubersprüche mit BHONA dürfen maximal 2 Runen enthalten."},
         --Example texts for prefix/suffix: The rune Fhen has been added to the spell., The rune RA has been added as the primary rune of the spell.
-        prefix = {english = "The rune ", german = "Die Runde "},
-        suffix = {english = " has been added to the spell.", german = "wurde dem Zauberspruch hinzugefügt."},
-        suffixPrimary = {english = " has been added as the primary rune of the spell.", german = "wurde als primäre Rune dem spruch hinzugefügt."},
+        prefix = {english = "The rune ", german = "Die Rune "},
+        suffix = {english = " has been added to the spell.", german = " wurde dem Zauberspruch hinzugefügt."},
+        suffixPrimary = {english = " has been added as the primary rune of the spell.", german = " wurde als primäre Rune dem Zauberspruch hinzugefügt."},
         mana = {english = "Not enough mana.", german = "Nicht genug Mana."},
         minor = {english = "You must first learn how to use any minor rune before you can add it to your spell.", german = "Du musst zuerst lernen wie man eine geringe Rune nutzt bevor du sie zu deinem Zauberspruch hinzufügst. " },
         allRunes = {english = "You do not know any more runes that can be added to the spell.", german = "Du kennst keine weiteren Runen die zum Zauberspruch hinzugefügt werden können."},
         --example text for slot: You name the spell in spell slot 7: Fire ball
-        slot = {english = "You name the spell in spell slot ", german = "Du benennst den Zauberspruch auf Zauberplatz "},
+        slot = {english = "You name the spell on page ", german = "Du benennst den Zauberspruch auf Seite  "},
         creation = {english = "Spell Creation", german = "Zauberspruch Erstellung"},
         selectRune = {english = "Select which rune you want to add to your spell.", german = "Wähle welche Rune du dem Zauberspruch hinzufügen möchtest."},
         selectPrimary = {english = "Select a primary rune for your spell.", german = "Wähle eine primäre Rune für deinen Zauberspruch."},
         nameSpell = {english = "Name the spell", german = "Benenne den Zauberspruch."},
         pickOption = {english = "Pick an option.", german = "Wähle eine Möglichkeit."},
         addRune = {english = "Add rune", german = "Füge eine Rune hinzu."},
-        finish = {english = "Finish spell", german = "Finalisiere den Zauberspruch."},
+        finish = {english = "Finish spell", german = "Finalisiere den Zauber."},
         unfinished = {english = "Unfinished", german = "Unvollendet"},
         quillAndBook = {english = "You must hold a magic book and quill in your hands.", german = "Du musst ein magisches Buch und eine Schreibfeder in deinen Händen halten."},
         noPrimary = {english = "You must first learn how to use a primary rune before you can create a spell.", german = "Du musst zuerst lernen wie man eine primäre Rune nutzt bevor du einen Zauberspruch erstellen kannst."},
         create = {english = "Create a spell", german = "Erschaffe einen Zauberspruch."},
         overwrite = {english = "Yes, overwrite it.", german = "Ja, ich überschreibe ihn."},
-        dontOverwrite = {english = "No, select another slot.", german = "Nein,ich wähle einen anderen Platz. "},
+        dontOverwrite = {english = "No, select another page.", german = "Nein, ich wähle eine andere Seite. "},
         quill = {english = "You need a quill to do any work at a desk.", german = "Du brauchst eine Schreibfeder um an diesem Tisch arbeiten zu können."},
-        createBook = {english = "Portal Book Creation", german = "Erschaffung von Portal Büchern"},
+        createBook = {english = "Portal Book Creation", german = "Erschaffung von Portalbüchern"},
         createGrimoire = {english = "Enchant a book into a Grimoire", german = "Verzaubere ein Buch in ein Grimoire"},
-        bookNeeded = {english = "You need to hold a blank book in your hand in order to enchant it into a Grimoire.", german = "Du musst einen leere Buch in deinen Händen halten um es in ein Grimoire verzaubern zu können."},
+        bookNeeded = {english = "You need to hold a blank book in your hand in order to enchant it into a Grimoire.", german = "Du musst einen leeres Buch in deinen Händen halten, um es in ein Grimoire verzaubern zu können."},
         enchantSuccess = {english = "You have successfully enchanted the book into a Grimoire.", german = "Du hast erfolgreich ein Buch in ein Grimoire verzaubert."}
         },
     -- targeting.lua
@@ -186,7 +186,7 @@ local M = {
             english = "Upon closer inspection, you may notice the leaves of the plant having a magical looking glow to them.",
             german = "Bei genauerer Betrachtung stellst du fest, dass die Blätter der Pflanze ein magisches Leuchten abgeben."},
         entangled = {
-            english = "Stepping onto the plant, you are entangled by its vines, slowing you down.",
+            english = "Stepping onto the plant, yo uare entangled by its vines, slowing you down.",
             german = ""
         }
     },
@@ -207,12 +207,12 @@ local M = {
     genderTexts = {
         {english = "male", german = "männlich", value = 0},
         {english = "female", german = "weiblich", value = 1},
-        {english = "Gender: ", german = "Geschlecht", value = 2}
+        {english = "Gender: ", german = "Geschlecht: ", value = 2}
     },
 
     racePrefixText = {
         english = "Race: ",
-        german = "Rasse"
+        german = "Rasse: "
     },
 
     raceList = {
@@ -256,8 +256,8 @@ local M = {
     },
     -- spirit/equipment.lua
     equipmentPrefix = {
-        quality = {english = "Equipment quality: ", german = "Qualität der Ausrüstung"},
-        durability = {english = "Equipment state: ", german = "Zustand der Ausrüstung"}
+        quality = {english = "Equipment quality: ", german = "Qualität der Ausrüstung: "},
+        durability = {english = "Equipment state: ", german = "Zustand der Ausrüstung: "}
     },
     equipmentNames = {
         {english = "Backpack", german = "Tasche", slot = 0},
@@ -287,7 +287,7 @@ local M = {
     },
     --magicDoT.lua
     burn = {english = "You've been inflicted with a magical burn, causing you to suffer fire damage over time.", german = "Dir wurde eine magische Verbrennung zugefügt, du erleidest mit der Zeit Feuerschaden."},
-    poison = {english = "You've been inflicted with a magical poison, causing you to suffer poisonous damage over time.", german = "Dir wurde eine magische VErgiftung zugefügt, du erleidest mit der Zeit Giftschaden."},
+    poison = {english = "You've been inflicted with a magical poison, causing you to suffer poisonous damage over time.", german = "Dir wurde eine magische Vergiftung zugefügt, du erleidest mit der Zeit Giftschaden."},
     --spirit/health.lua
     healthTexts = {
         {english = "Target is perfectly healthy.", german = "Dein Ziel ist kerngesund.", health = 10000},
@@ -299,11 +299,11 @@ local M = {
         },
     --spirit/items.lua
     itemTexts = {
-        durability = {english = "Durability: ", german = "Haltbarkeit"},
-        quality = {english = "Quality: ", german = "Qualität"},
-        weight = {english = "Weight: ", german = "Gewicht"},
-        name = {english = "Item name: ", german = "Gegenstandsname"},
-        description = {english = "Details: ", german = "Details"},
+        durability = {english = "Durability: ", german = "Haltbarkeit: "},
+        quality = {english = "Quality: ", german = "Qualität: "},
+        weight = {english = "Weight: ", german = "Gewicht: "},
+        name = {english = "Item name: ", german = "Gegenstandsname: "},
+        description = {english = "Details: ", german = "Details: "},
         unit = {singular = {english = "Blackberry", german = "Brombeere"}, plural = {english = "Blackberries", german = "Brombeeren"}}
         },
     --spirit/location.lua
@@ -392,12 +392,12 @@ local M = {
     teachingTexts = {
         knows = {english = "Target already knows that rune.", german = "Dein Ziel kennt diese Rune bereits."},
         level = {english = "Target is not skilled enough at magic to learn this rune yet.", german = "Dein Ziel versteht noch nicht genug von Magie um diese Rune lernen zu können. "},
-        studentCooldown = {english = "Not enough time has passed yet since the last time the target was taught how to use a magic rune.", german = "Es verging noch nicht genug Zeit seit das Ziel die letzte Rune gelernt hat."},
+        studentCooldown = {english = "Not enough time has passed yet since the last time the target was taught how to use a magic rune.", german = "Es verging noch nicht genug Zeit seit dein Ziel die letzte Rune gelernt hat."},
         teacherCooldown = {english = "You've been teaching too many people runes recently.", german = "Du hast in letzter Zeit zu vielen Personen Runen gelehrt."},
-        stats = {english = "The target does not have the mental faculties to learn this rune.", german = "Dein Ziel besitzt nicht die geistige Leistungsfähigkeit um diese Runen zu lernen."},
+        stats = {english = "The target does not have the mental faculties to learn this rune.", german = "Dein Ziel besitzt nicht die geistige Leistungsfähigkeit um diese Rune zu lernen."},
         mage = {english = "The target is not attuned to the ways of magic.", german = "Dein Ziel ist nicht mit den Wegen der Magie bewandert."},
         learned = {english = "You have learned how to use the rune ", german = "Du lernst die Rune "}, --followed by the name of the rune
-        taught = {english = "You have taught the target how to use the rune ", german = "Du lehrst die Rune"}, --followed by the name of the rune
+        taught = {english = "You have taught the target how to use the rune ", german = "Du lehrst die Rune "}, --followed by the name of the rune
         mana = {english = "Not enough mana.", german = "Nicht genug Mana."},
         target = {english = "You need a target.", german = "Du brauchst ein Ziel."},
         player = {english = "Target must be a player.", german = "Dein Ziel muss ein Spieler sein."}
@@ -406,7 +406,7 @@ local M = {
     portalBookTexts = {
         craft = {english = "Portal  Book Creation", german = "Portalbuch Erstellung"},
         category = {english = "Portal Books", german = "Portalbücher"},
-        book = {english = "Portal book: ", german = "Portalbuch"},
+        book = {english = "Portal book: ", german = "Portalbuch: "},
     },
     --spatial.lua
     --plan is to add one portal location per zone (avoiding "dead mana" areas) once Slightly has finalised the zone name list
@@ -442,11 +442,11 @@ local M = {
     },
     spatialTexts = {
         distanceTexts = {
-            {value = 600, english = " very far ", german = "sehr fern"},
-            {value = 400, english = " far ", german = "fern"},
-            {value = 100, english = " somewhere ", german = "in der Nähe"},
-            {value = 50, english = " close ", german = "nahe"},
-            {value = 0, english = " very close ", german = "sehr nahe"},
+            {value = 600, english = " very far ", german = "sehr fern "},
+            {value = 400, english = " far ", german = "fern "},
+            {value = 100, english = " somewhere ", german = "in der Nähe "},
+            {value = 50, english = " close ", german = "nahe "},
+            {value = 0, english = " very close ", german = "sehr nahe "},
         },
         binderTexts = {
             english = "to the ",
@@ -514,7 +514,7 @@ local M = {
         },
         portal = {
             english = "Create Portal",
-            german = "Erschaffe ein portal"
+            german = "Erschaffe ein Portal"
         },
         portalColour = {
             english = "Portal colour",
@@ -538,11 +538,11 @@ local M = {
         },
         vanish = {
             english = "#me finishes the incantation, vanishing in a flash of bright magical light.",
-            german = "#me beendet seine Beschwörungsformel und verschwindet in einem leuchtenden, magischen Lichtblitz."
+            german = "#me beendet seine Beschwörungsformel und verschwindet in einem magisch leuchtendem Lichtblitz."
         },
         appear = {
             english = "#me appears in a flash of bright magical light.",
-            german = "#me  erscheint in einem leuchtendem, magischem Licht."
+            german = "#me erscheint in einem magisch leuchtendem Licht."
         },
         badTarget  = {
             english = "Something in the area disrupts your casting in the final moment. Perhaps this isn't a good spot for spatial magic?",
@@ -550,11 +550,11 @@ local M = {
         },
         showBookQuality = {
             english = "Portal Book Evaluation",
-            german = "Portalbuch Bewertung"
+            german = "Portalbuchbewertung"
         },
         bookQuality = {
             english = "Portal book quality:\n",
-            german = "Portalbuch quality:\n "
+            german = "Qualität des Portalbuches:\n "
         },
         portalBookChant = {
             english = "#me begins chanting the incantation written in a portal book.",
@@ -650,21 +650,21 @@ local M = {
                 german = "Ein gigantisches Bauwerk so unbeweglich. Wäre es nicht, die Flut würdest du sehen. "},
             name = {
                 english = "Mysterious Sphere",
-                german = ""},
+                german = "Mysteriöse Sphäre"},
             description = {
                 english = "Within the sphere various objects can be seen, but what they all have in common is that they stand perfectly still. One could even call them static.",
-                german = ""},
+                german = "Innerhalb der Sphäre kannst du die unterschiedlichsten Objekte erkennen. Eines haben sie alle gemeinsam, sie stehen vollkommen still. Man könnte sie auch statisch nennen. "},
             location = position(843, 216 , -3)},
         Dun = {rune = "Dun",
             hint = {
                 english = "In an area vast and empty, where white hands rule.",
-                german = ""},
+                german = "Mysteriöse Sphäre"},
             name = {
                 english = "Mysterious Sphere",
-                german = ""},
+                german = "Mysteriöse Sphäre"},
             description = {
                 english = "The sphere reveals the scene of a vast empty land.",
-                german = ""},
+                german = "Die Kugel zeigt das Bild eines weiten, leeren Landes."},
             location = position(354, 454, 0)},
         Fhan = {rune = "Fhan",
             hint = {
@@ -672,10 +672,10 @@ local M = {
                 german = "In einem Schloss aus Knochen wirst du findet was du suchst."},
             name = {
                 english = "Mysterious Sphere",
-                german = "The sphere contains an eerie magical fog that seems to attempt to get away from you."},
+                german = "Mysteriöse Sphäre"},
             description = {
-                english = "",
-                german = ""},
+                english = "The sphere contains an eerie magical fog that seems to attempt to get away from you.",
+                german = "Die Sphäre enthält einen unheimlichen magischen Nebel, der zu versuchen scheint, von dir wegzukommen."},
             location = position(0,0,0)},
         Fhen = {rune = "Fhen",
             hint = {
@@ -683,10 +683,10 @@ local M = {
                 german = "Wo Trolle Zuflucht suchen und besten Wein versuchen, dort im Garten speisen wir."},
             name = {
                 english = "Mysterious Sphere",
-                german = ""},
+                german = "Mysteriöse Sphäre"},
             description = {
                 english = "The sphere contains an eerie magical fog that seems to attempt to get closer to you.",
-                german = ""},
+                german = "Die Sphäre enthält einen unheimlichen magischen Nebel, der zu versuchen scheint, sich dir zu nähern."},
             location = position(736,317,0)},
         Hept = {rune = "Hept",
             hint = {
@@ -694,10 +694,10 @@ local M = {
                 german = "Ein Ort so kalt und hoch. Pass auf, dort erfrierst du noch!"},
             name = {
                 english = "Mysterious Frosty Sphere",
-                german = ""},
+                german = "Mysteriöse Sphäre"},
             description = {
                 english = "Inside the sphere you see what resembles as snowstorm swirling about with the occasional hail",
-                german = ""},
+                german = "Im Inneren der Sphäre sieht man etwas, das wie ein Schneesturm aussieht, der mit gelegentlichem Hagel umherwirbelt"},
             location = position(266,375,1)},
         Ira = {rune = "Ira",
             hint = {
@@ -705,10 +705,10 @@ local M = {
                 german = "Wieviele Augen hat diese Kreatur, entspringt sicher nicht der Natur!"},
             name = {
                 english = "Mysterious Eye-shaped Sphere",
-                german = ""},
+                german = "Mysteriöse augenförmige Sphäre"},
             description = {
                 english = "As you peer into the sphere you feel like you can see a pupil peering right back at you.",
-                german = ""},
+                german = "Als du in die Sphäre starrst, fühlt es sich so an als würde eine Pupille direkt zurückstarren."},
             location = position(475, 746, -3)},
         Kah = {rune = "Kah",
             hint = {
@@ -716,10 +716,10 @@ local M = {
                 german = "Dort wo sterbliche Stärkung suchen, dort findet man viel."},
             name = {
                 english = "Mysterious Sphere",
-                german = ""},
+                german = "Mysteriöse Sphäre"},
             description = {
                 english = "As you peer into the sphere you see a steaming hot pie, so life-like you can almost smell it.",
-                german = ""},
+                german = "Beim Blick in die Sphäre siehst du einen heiß dampfenden Kuchen, so lebensecht, das du ihn fast riechen kannst."},
             location = position(794 , 804, 0)},
         Kel = {rune = "Kel",
             hint = {
@@ -727,18 +727,18 @@ local M = {
                 german = "Dort wo dunkle geschöpfe des Himmels hausen."},
             name = {
                 english = "Mysterious Sphere",
-                german = ""},
+                german = "Mysteriöse Sphäre"},
             description = {
                 english = "As you peer into the sphere you see a feather, though before you can determine what kind of feather it is, you witness it change into a dragon wing.",
-                german = ""},
+                german = "Als du in die Sphäre blickst, siehst du eine Feder. Doch bevor du feststellen kannst, um was für eine Feder es sich handelt, wirst du Zeuge, wie sie sich in einen Drachenflügel verwandelt"},
             location = position(711,619,-6)},
         Lev = {rune = "Lev",
             hint = {
                 english = "Once a glorious combat academy, now left in ruins. Oh the changes of time.",
                 german = "Einst eine stolze Kampfakademie, nun nur mehr Ruinen. Wie die Zeit sich ändert."},
             name = {
-                english = "",
-                german = ""},
+                english = "Mysterious Sphere",
+                german = "Mysteriöse Sphäre"},
             description = {
                 english = "",
                 german = ""},
@@ -748,8 +748,8 @@ local M = {
                 english = "Trick you, fool you, lead you astray. Who am I?",
                 german = "Ich betrüge, ich täusche ich führe dich in die Irre. Wer bin ich?"},
             name = {
-                english = "",
-                german = ""},
+                english = "Mysterious Sphere",
+                german = "Mysteriöse Sphäre"},
             description = {
                 english = "",
                 german = ""},
@@ -759,8 +759,8 @@ local M = {
                 english = "Among hostile elves, down down we go.",
                 german = "Unter feindesligen Elfen, tief tief runter müssen wir."},
             name = {
-                english = "",
-                german = ""},
+                english = "Mysterious Sphere",
+                german = "Mysteriöse Sphäre"},
             description = {
                 english = "",
                 german = ""},
@@ -770,8 +770,8 @@ local M = {
                 english = "I light up the path for beings made of wood that have lost their way.",
                 german = "Ich erleuchte den Weg für Wesen aus Holz, die den Weg verloren haben."},
             name = {
-                english = "",
-                german = ""},
+                english = "Mysterious Sphere",
+                german = "Mysteriöse Sphäre"},
             description = {
                 english = "",
                 german = ""},
@@ -781,8 +781,8 @@ local M = {
                 english = "Created from an egg. Creepy, crawly, eight legged friends.",
                 german = "Zuerst ein Ei. Gruselige, krabbelnde, achtbeinige....."},
             name = {
-                english = "",
-                german = ""},
+                english = "Mysterious Sphere",
+                german = "Mysteriöse Sphäre"},
             description = {
                 english = "",
                 german = ""},
@@ -792,8 +792,8 @@ local M = {
                 english = "The pain of the desert heat is nigh as high as the pain of their axes.",
                 german = "Der Schmerz der Wüstenhitze ist fast so groß wie der Schmerz der Axt!"},
             name = {
-                english = "",
-                german = ""},
+                english = "Mysterious Sphere",
+                german = "Mysteriöse Sphäre"},
             description = {
                 english = "",
                 german = ""},
@@ -803,8 +803,8 @@ local M = {
                 english = "On a mountain up high, where creatures of stone reside.",
                 german = "Hoch in den Bergen, bei Kreaturen aus Stein."},
             name = {
-                english = "",
-                german = ""},
+                english = "Mysterious Sphere",
+                german = "Mysteriöse Sphäre"},
             description = {
                 english = "",
                 german = ""},
@@ -814,8 +814,8 @@ local M = {
                 english = "In a firey castle where dragons reside below.",
                 german = "Ein brennendes Schloss in dem die Drachen hausen."},
             name = {
-                english = "",
-                german = ""},
+                english = "Mysterious Sphere",
+                german = "Mysteriöse Sphäre"},
             description = {
                 english = "",
                 german = ""},
@@ -825,8 +825,8 @@ local M = {
                 english = "Near water claimed by some to be capable of healing your very soul.",
                 german = "In der Nähe des Wasser so rein, es könne die Seele heilen."},
             name = {
-                english = "",
-                german = ""},
+                english = "Mysterious Sphere",
+                german = "Mysteriöse Sphäre"},
             description = {
                 english = "",
                 german = ""},
@@ -836,8 +836,8 @@ local M = {
                 english = "Rotten, smelly and cursed to be slow. Such is the fate of a civilization that met its demise.",
                 german = "Stinkend, verrottet zum Stillstand verflucht. Das Schicksal einer Zivilisation die ihren Untergang fand. "},
             name = {
-                english = "",
-                german = ""},
+                english = "Mysterious Sphere",
+                german = "Mysteriöse Sphäre"},
             description = {
                 english = "",
                 german = ""},
@@ -847,8 +847,8 @@ local M = {
                 english = "Steal from the rich, give to the poor... as long as the poor are they themselves.",
                 german = "Ich stehle von den Reichen und gebe den Armen...bin doch ich der Ärmste."},
             name = {
-                english = "",
-                german = ""},
+                english = "Mysterious Sphere",
+                german = "Mysteriöse Sphäre"},
             description = {
                 english = "",
                 german = ""},
@@ -858,8 +858,8 @@ local M = {
                 english = "This secret is guarded by creatures that dwell in a cave. What do they look like, you ask? Do they have one head? Two? Are they ugly and deranged?",
                 german = "Dieses Geheimnis wird von Kreaturen bewacht die tief in Höhlen leben. Wie sehen sie aus fragst du? Haben sie einen Kopf? Zwei? Sind sie hässlich und verstört?"},
             name = {
-                english = "",
-                german = ""},
+                english = "Mysterious Sphere",
+                german = "Mysteriöse Sphäre"},
             description = {
                 english = "",
                 german = ""},
@@ -869,8 +869,8 @@ local M = {
                 english = "Where the guardians of nature reside",
                 german = "Dort wo die Hüter der Natur wohnen."},
             name = {
-                english = "",
-                german = ""},
+                english = "Mysterious Sphere",
+                german = "Mysteriöse Sphäre"},
             description = {
                 english = "",
                 german = ""},
@@ -880,8 +880,8 @@ local M = {
                 english = "Muddy, grimey and full of despair. This place is not natural, of death beware.",
                 german = "Schlammig, schmutzig und voller Verzweiflung. Dieser Ort ist nicht natürlich. Hüte dich vor dem Tod."},
             name = {
-                english = "",
-                german = ""},
+                english = "Mysterious Sphere",
+                german = "Mysteriöse Sphäre"},
             description = {
                 english = "",
                 german = ""},
@@ -891,8 +891,8 @@ local M = {
                 english = "Found in a place where a competition of speed is famously held.",
                 german = "Dort an jenem Ort wo die Wettkämpfe der Schnellsten ausgetragen werden."},
             name = {
-                english = "",
-                german = ""},
+                english = "Mysterious Sphere",
+                german = "Mysteriöse Sphäre"},
             description = {
                 english = "",
                 german = ""},
@@ -946,11 +946,11 @@ local M = {
         german = "Magischer Schreibtisch"},
         description = {
             english = "A desk where mages can create spells, craft portal books and enchant grimoires",
-            german = "Ein Schreibtisch welcher von Magiern benutzt wird um Zaubersprüche zu kreieren, Portalbücher zu schreiben und Grimoires zu verzaubern."}},
+            german = "Ein Schreibtisch welcher von Magiern benutzt wird um Zaubersprüche zu schreiben, Portalbücher zu erstellen und Grimoires zu verzaubern."}},
     quill = {
         bookNeeded = {
             english = "You need to hold the grimoire you want to label in your hand.",
-            german = "Du musst den Grimoire den du benennen willst in deinen Händen halten."}
+            german = "Du musst den Grimoire, den du benennen willst, in deinen Händen halten."}
     },
     --item/id_1001_greenplate.lua
     offeringPlate = {
@@ -999,7 +999,7 @@ local M = {
         german = "An die Arbeit ihr Maden. Dieser Raum hätte schon gestern mit Zeugs voll sein müssen",
         orcish = {
             english = "There seems to be something written in orcish on the scroll. You'd need someone to translate it for you.",
-            german = "Die Schriftrolle scheint in einem Orkdialekt verfasst. Du brauchst Hilfe um das zu übersetzen"}
+            german = "Die Schriftrolle scheint in einem Orkdialekt verfasst zu sein. Du brauchst Hilfe um das zu übersetzen"}
     },
     fhanPuzzle = {
         english = "We don't have time to honour the dead, they said.\nWe need to fend off Cherass' invading army, they said.\nSending off the dead is a waste of time, they said.\nWell now who's laughing?",
@@ -1025,30 +1025,30 @@ local M = {
     },
     heptPuzzle = {
         english = "Brr, it's so cold. If only there was a way to make it warmer. There's only snow, stone and all these pesky trees nearby!",
-        german = ""
+        german = "Brr, es ist so fürchterlich kalt. Wenn es nur einen Weg geben würde es wärmer zu haben. Hier gibt es nur Schnee, Stein und diese lästigen Bäume! "
     },
     iraPuzzle = {
         english = "One eye to lift and one to sleep.\nOne to charm and one for beast.\nOne eye to wound and one eye to slow.\nOne to bring fear and one to make stone.\nOne eye makes dust and one eye brings death.\nSpeak my name aloud and you will know.",
-        german = ""
+        german = "Ein Auge zum Aufstehen und eines zum Schlafen. \nEines zum Bezaubern und eines für die Bestien.\nEin Auge zum Verwunden und ein Auge zum Verlangsamen.\nEines um Angst zu verbreiten und eines um Stein zu machen. \nEin Auge macht Staub und ein Auge bringt den Tod.\nSprich meinen Namen und du wirst es wissen."
     },
     kahPuzzle = {
         english = "For breakfast, I want an egg salad sandwich!\nFor dinner, I want a venison dish!\nFor supper... Mushroom soup!",
-        german = ""
+        german = "Zum Frühstück will ich Eiersalatsandwich! \n Zum Mittagessen will ich ein Wildgericht mit Beilage! \n Zum Abendessen...Pilzsuppe! "
     },
     kelPuzzle = {
         english = "Together, we can fly up high and soar the skies. However, it is not possible in my current state. Find me, and you shall have the knowledge you seek.",
-        german = "",
+        german = "Gemeinsam können wir hoch fliegen und die Lüfte erklimmen. Doch in meinem derzeitigen Zustand ist das nicht möglich. Finde mich und du wirst das Wissen bekommen das du suchst.",
         egg = {
             english = "A dragon egg. Could this be the answer?",
-            german = ""
+            german = "Ein Drachenei. Könnte das die Antwort sein?"
         },
         feather = {
             english = "A feather... of the chicken variety. Surely it can't be this, right?",
-            german = ""
+            german = "Eine Feder....von einem Hähnchen. Also das kann es nicht sein, oder?"
         },
         air = {
             english = "A swirling mass of pure air. You could probably fly with this?",
-            german = ""
+            german = "Eine wirbelnde Masse reiner Luft. Damit könntest du wahrscheinlich davonfliegen?"
         }
     }
 
