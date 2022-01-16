@@ -63,7 +63,7 @@ local sfxNumber = 13
                 gfxNumber = 46
             end
         elseif runes.checkSpellForRuneByName("Pherc", spell) then
-            if not runes.checkSpellForMoreThanJUSPherc(spell) then
+            if not runes.checkSpellForLightning(spell) then
                 gfxNumber = 2
                 sfxNumber = 4
             end

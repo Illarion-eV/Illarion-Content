@@ -132,12 +132,25 @@ function M.checkSpellForRune(RuneNumber, spell)
     return retVal;
 end
 
-function M.checkSpellForMoreThanJUSPherc(spell)
+function M.checkSpellForLightning(spell)
+
+    local okRunes = {"JUS", "Pherc", "Orl", "Hept", "Ira", "Lhor", "Orl", "Sih", "Taur", "Ura", "Yeg", "Pera"}
+
+    if not M.checkSpellForRuneByName("Pherc", spell) or not M.checkSpellForRuneByName("JUS", spell) then
+        return true
+    end
+
     for i = 1, #M.Runes do
         local runeName = M.Runes[i][2]
-        if runeName ~= "JUS" and runeName ~= "Pherc" and runeName ~= "Orl" then
-            if M.checkSpellForRuneByName(runeName, spell) then
-                return true
+        local runeCount = 0
+        for _, okRune in pairs(okRunes) do
+            if okRune ~= runeName then
+                runeCount = runeCount+1
+            end
+            if runeCount == #okRunes then
+                if M.checkSpellForRuneByName(runeName, spell) then
+                    return true
+                end
             end
         end
     end
