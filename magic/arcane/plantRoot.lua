@@ -148,7 +148,7 @@ function M.createEntanglingPlant(user, targets, spell)
 end
 
 function M.applyPlantRootForEntanglingPlant(sourceItem, target)
-    local spell = sourceItem:getData("spell")
+    local spell = tonumber(sourceItem:getData("spell"))
     local getSpeed = M.getSpeed(false, target, spell, sourceItem)
     local foundEffect, myEffect = target.effects:find(16)
     if not getSpeed then
