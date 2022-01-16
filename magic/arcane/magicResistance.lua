@@ -34,10 +34,19 @@ local jewelleryList = {
 
 
 local function getMagicStatValue(target) -- Return a number between 0 and 1
-local max_stats = 51 -- 20 in each stats + food buff + potions
+local max_stats = 60 -- stat influence caps out at 20
 local intelligence = target:increaseAttrib("intelligence", 0)
 local essence = target:increaseAttrib("essence", 0)
 local willpower = target:increaseAttrib("willpower", 0)
+    if intelligence > 20 then
+        intelligence = 20
+    end
+    if essence > 20 then
+        essence = 20
+    end
+    if willpower > 20 then
+        willpower = 20
+    end
     return (math.floor(2*(willpower) + 0.5*(intelligence) + 0.5*(essence)))/max_stats
 end
 
