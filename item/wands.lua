@@ -191,7 +191,6 @@ function M.actionDisturbed(player, attacker)
     end
 
     local chance = math.random(1,100)
-    log("actual_chance: "..tostring(actual_chance))
 
     if chance <= actual_chance then
         player:inform(texts.wounded.german, texts.wounded.english)
