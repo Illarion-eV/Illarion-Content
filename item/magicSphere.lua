@@ -748,6 +748,7 @@ local function createPortal(user, portalPos)
             local topItem = field:getStackItem(itemsOnField-1)
             if topItem.id ~= 10 then
                 local destination = location.destination
+                world:makeSound(13, destination)
                 local thePortal = world:createItemFromId(10, 1, portalPos, true, 999, {destinationCoordsZ = destination.z, destinationCoordsY = destination.y, destinationCoordsX = destination.x})
                 thePortal.wear = 3
                 world:changeItem(thePortal)
