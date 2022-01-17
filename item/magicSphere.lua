@@ -24,6 +24,37 @@ local increaseArea = require("magic.arcane.harvestFruit")
 
 local M = {}
 
+local function passesOrlPuzzle(user)
+    local monsters = world:getMonstersInRangeOf(user.pos, 5)
+
+    local spiderCount = 0
+
+    local spidersNeeded = 8
+
+    for _, monster in pairs(monsters) do
+        if monster:getRace() == Character.spider then
+            spiderCount = spiderCount+1
+        end
+    end
+
+    if spiderCount == spidersNeeded then
+        return true
+    end
+
+    return false
+end
+
+function M.orlInfo(user)
+
+    local callback = function(dialog)
+    end
+
+    local dialog = MessageDialog("", common.GetNLS(user, texts.orlPuzzle.german, texts.orlPuzzle.english), callback)
+
+    user:requestMessageDialog(dialog)
+
+end
+
 local mesLamps = {
     position(526, 608, 1),
     position(538, 613, 1),
@@ -725,6 +756,10 @@ local function checkIfCriteriaMet(user, rune)
         end
     elseif rune == "Mes" then
         if checkMesPuzzle() then
+            retVal = true
+        end
+    elseif rune == "Orl" then
+        if passesOrlPuzzle(user) then
             retVal = true
         end
     else --Any remaining puzzles will only require you to find, get to and use the sphere to activate it

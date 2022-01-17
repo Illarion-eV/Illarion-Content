@@ -83,6 +83,11 @@ local function magicInfo(user, sourceItem)
         return true
     end
 
+    if sourceItem.pos == position(907, 488, -6) then
+        magicSphere.orlInfo(user)
+        return true
+    end
+
     return false
 end
 

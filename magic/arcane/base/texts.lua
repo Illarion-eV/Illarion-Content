@@ -784,9 +784,9 @@ local M = {
                 english = "Mysterious Sphere",
                 german = "Mysteriöse Sphäre"},
             description = {
-                english = "",
+                english = "The sphere appears as if full of tiny little spiders, desperately trying to make their way out to get to you.",
                 german = ""},
-            location = position(0,0,0)},
+            location = position(907, 487, -6)},
         Pherc = {rune = "Pherc",
             hint = {
                 english = "The pain of the desert heat is nigh as high as the pain of their axes.",
@@ -1053,6 +1053,10 @@ local M = {
     },
     mesPuzzle = {
         english = "You call this a lighthouse? Lights! We need more lights! Go get the oil, now!",
+        german = ""
+    },
+    orlPuzzle = {
+        english = "They may not be your friends, but these foul creatures will be neccessary to obtain the knowledge that you seek. Find as many as they have legs, and just... try to endure.",
         german = ""
     },
     --item/books.lua
