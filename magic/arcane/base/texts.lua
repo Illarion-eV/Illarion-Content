@@ -894,9 +894,9 @@ local M = {
                 english = "Mysterious Sphere",
                 german = "Mysteriöse Sphäre"},
             description = {
-                english = "",
+                english = "All you can see within the sphere is a figure moving so fast it has become nothing but a blurry shadow.",
                 german = ""},
-            location = position(0,0,0)},
+            location = position(391, 137, 0)},
         unlitSphere = {
             english = "Empty glass sphere",
             german = "Leere gläserne Sphäre"},
@@ -1058,6 +1058,22 @@ local M = {
     orlPuzzle = {
         english = "They may not be your friends, but these foul creatures will be neccessary to obtain the knowledge that you seek. Find as many as they have legs, and just... try to endure.",
         german = ""
+    },
+    peraPuzzle = {
+        english = "It's a race! Pull both levers fast enough and you shall obtain the knowledge you seek!",
+        german = "",
+        slow = {
+            english = "Too slow! You can always try again, though.",
+            german = ""
+        },
+        fast = {
+            english = "You made it! Now go back to reap your reward!",
+            german = ""
+        },
+        pulled = {
+            english = "You've pulled the lever, starting the timer! Hurry to the other lever!",
+            german = ""
+        }
     },
     --item/books.lua
     grimoire = {

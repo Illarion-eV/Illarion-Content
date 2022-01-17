@@ -88,6 +88,11 @@ local function magicInfo(user, sourceItem)
         return true
     end
 
+    if sourceItem.pos == position(394, 138, 0) then
+        magicSphere.peraInfo(user)
+        return true
+    end
+
     return false
 end
 

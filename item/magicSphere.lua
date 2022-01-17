@@ -24,6 +24,103 @@ local increaseArea = require("magic.arcane.harvestFruit")
 
 local M = {}
 
+local peraLevers = {
+    {id = 1, location = position(395, 138, 0)},
+    {id = 2, location = position(429, 219, 0)}
+}
+
+function M.peraPuzzle(user, sourceItem)
+
+    local leverPulled
+
+    for _, lever in pairs(peraLevers) do
+        if lever.location == sourceItem.pos then
+            leverPulled = lever.id
+        end
+    end
+
+    local lever1 = 436
+    local lever2 = 434
+    local lever3 = 437
+    local lever4 = 439
+
+    if leverPulled then
+        local newLeverId
+
+        if sourceItem.id == lever1 then
+            newLeverId = lever2
+        elseif sourceItem.id == lever2 then
+            newLeverId = lever1
+        elseif sourceItem.id == lever3 then
+            newLeverId = lever4
+        elseif sourceItem.id == lever4 then
+            newLeverId = lever3
+        end
+        sourceItem.id = newLeverId
+        world:changeItem(sourceItem)
+    end
+
+    if leverPulled then
+        local otherLever
+
+        if leverPulled == 1 then
+            otherLever = 2
+        else
+            otherLever = 1
+        end
+
+        local setTime = true
+
+        if M[user.name.."lever"..otherLever] then
+
+            local timer = 40
+
+            local time = tonumber(world:getTime("unix"))
+            local timePulled = tonumber(M[user.name.."lever"..otherLever])
+            local timeCheck = time < timePulled+timer
+
+            if timeCheck then
+                setTime = false
+            else
+                user:inform(texts.peraPuzzle.slow.german, texts.peraPuzzle.slow.english)
+                M[user.name.."lever"..otherLever] = false
+                M[user.name.."lever"..leverPulled] = false
+            end
+        else
+            user:inform(texts.peraPuzzle.pulled.german, texts.peraPuzzle.pulled.english)
+        end
+
+        if setTime then
+            M[user.name.."lever"..leverPulled] = tonumber(world:getTime("unix"))
+        end
+
+        if not setTime then
+            user:inform(texts.peraPuzzle.fast.german, texts.peraPuzzle.fast.english)
+            user:setQuestProgress(7018, 1)
+        end
+    end
+end
+
+local function passedPeraPuzzle(user)
+
+    if user:getQuestProgress(7018) == 1 then
+        return true
+    else
+        return false
+    end
+end
+
+function M.peraInfo(user)
+
+    local callback = function(dialog)
+    end
+
+    local dialog = MessageDialog("", common.GetNLS(user, texts.peraPuzzle.german, texts.peraPuzzle.english), callback)
+
+    user:requestMessageDialog(dialog)
+
+end
+
 local function passesOrlPuzzle(user)
     local monsters = world:getMonstersInRangeOf(user.pos, 5)
 
@@ -760,6 +857,10 @@ local function checkIfCriteriaMet(user, rune)
         end
     elseif rune == "Orl" then
         if passesOrlPuzzle(user) then
+            retVal = true
+        end
+    elseif rune == "Pera" then
+        if passedPeraPuzzle(user) then
             retVal = true
         end
     else --Any remaining puzzles will only require you to find, get to and use the sphere to activate it

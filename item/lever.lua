@@ -317,6 +317,8 @@ function M.UseItem(User, SourceItem, ltstate)
         magicSphere.useLever(User, SourceItem)
     end
 
+    magicSphere.peraPuzzle(User, SourceItem)
+
     local key = SourceItem.pos.x * 1024 * 1024 + SourceItem.pos.y * 1024 + SourceItem.pos.z
     if leverList[key] ~= nil then
         leverList[key]:switchLever(User)
