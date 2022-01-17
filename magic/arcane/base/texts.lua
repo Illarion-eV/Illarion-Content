@@ -740,9 +740,9 @@ local M = {
                 english = "Mysterious Sphere",
                 german = "Mysteriöse Sphäre"},
             description = {
-                english = "",
+                english = "If you peer into the sphere, you would witness an ever-changing scenery. A desert in one moment, the next a tundra, it constantly shows you new, unique sights.",
                 german = ""},
-            location = position(0,0,0)},
+            location = position(188, 809, -3)},
         Lhor = {rune = "Lhor",
             hint = {
                 english = "Trick you, fool you, lead you astray. Who am I?",

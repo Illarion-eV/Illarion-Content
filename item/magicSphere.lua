@@ -24,6 +24,75 @@ local increaseArea = require("magic.arcane.harvestFruit")
 
 local M = {}
 
+local levStatues = {
+    {location = position(192, 803, -3), reset = 440, correct = 443, rotation = {440, 441, 442, 443}},
+    {location = position(192, 807, -3), reset = 695, correct = 693, rotation = {692, 694, 693, 695}},
+    {location = position(192, 811, -3), reset = 693, correct = 692, rotation = {692, 693}},
+    {location = position(192, 816, -3), reset = 442, correct = 272, rotation = {692, 694, 442, 272}}
+}
+
+function M.changeStatue(user, sourceItem)
+
+    local newStatue
+
+    for _, statue in pairs(levStatues) do
+        if statue.location == sourceItem.pos then
+            for i = 1, #statue.rotation do
+                if statue.rotation[i] == sourceItem.id then
+                    if i == #statue.rotation then
+                        newStatue = statue.rotation[1]
+                        break
+                    else
+                        newStatue = statue.rotation[i+1]
+                        break
+                    end
+                end
+            end
+            break
+        end
+    end
+
+    if newStatue then
+        sourceItem.id = newStatue
+        world:changeItem(sourceItem)
+    end
+
+end
+
+local function passesLevPuzzle()
+
+    local correctStatues = 0
+
+    for _, statue in pairs(levStatues) do
+        local field = world:getField(statue.location)
+        local itemsOnField = field:countItems()
+        local topItem = field:getStackItem(itemsOnField-1)
+        if topItem.id == statue.correct then
+            correctStatues = correctStatues+1
+        end
+    end
+
+    if correctStatues == 4 then
+        return true
+    end
+
+    return false
+
+end
+
+local function resetLevPuzzle()
+
+    for _, statue in pairs(levStatues) do
+        local field = world:getField(statue.location)
+        local itemsOnField = field:countItems()
+        local topItem = field:getStackItem(itemsOnField-1)
+        if topItem.id == statue.correct then
+            topItem.id = statue.reset
+            world:changeItem(topItem)
+        end
+    end
+end
+
 function M.kelInfo(user)
 
     local callback = function(dialog)
@@ -473,7 +542,9 @@ local portalLocations = {
     {destination = position(410, 159, 1), origin = position(343, 151, 1), lever = position(343, 150, 1)},
     {destination = position(410, 159, 1), origin = position(337, 161, 1), lever = position(337, 160, 1)},
     {destination = position(855, 242, -3), origin = position(749, 321, 0), lever = position(750, 321, 0)},
-    {destination = position(749, 322, 0), origin = position(856, 242, -3), lever = position(855, 243, -3)}
+    {destination = position(749, 322, 0), origin = position(856, 242, -3), lever = position(855, 243, -3)},
+    {destination = position(181, 809, -3), origin = position(230, 711, 0), lever = position(229, 711, 0)},
+    {destination = position(230, 712, 0), origin = position(180, 809, -3), lever = position(180, 808, -3)}
 }
 
 local function createPortal(user, portalPos)
@@ -608,6 +679,11 @@ local function checkIfCriteriaMet(user, rune)
         if user:getQuestProgress(7017) == 1 then
             retVal = true
             user:setQuestProgress(7017, 0)
+        end
+    elseif rune == "Lev" then
+        if passesLevPuzzle() then
+            resetLevPuzzle()
+            retVal = true
         end
     else --Any remaining puzzles will only require you to find, get to and use the sphere to activate it
         retVal = true
