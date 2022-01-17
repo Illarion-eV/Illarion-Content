@@ -1046,7 +1046,11 @@ local M = {
         air = {
             english = "A swirling mass of pure air. You could probably fly with this?",
             german = "Eine wirbelnde Masse reiner Luft. Damit könntest du wahrscheinlich davonfliegen?"
-        }
+        },
+        suffix = {
+            english = "\nIf you believe this to be the answer, go back to the sphere and find out.",
+            german = ""
+        },
     },
     mesPuzzle = {
         english = "You call this a lighthouse? Lights! We need more lights! Go get the oil, now!",
