@@ -38,7 +38,7 @@ autointroduce = on
 
 author = "Brightrim"
 
-lookatDE = ""
+lookatDE = "Ein gebrechlicher Mann mittleren Alters, mit einem Hauch von Weisheit in den Augen."
 lookatUS = "An frail, middle aged man with a glint of wisdom in his eyes."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
@@ -63,102 +63,107 @@ itemShoes = 53
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-sellItem = id(2619), de("Zauberbuch"), en("Grimoire"), price(2000), stack(1), quality(999), data("magicBook" = "true")
+sellItem = id(2619), de("Grimoire"), en("Grimoire"), price(2000), stack(1), quality(999), data("magicBook" = "true")
 
-tradeNotEnoughMoneyMsg "", "Oh, I'm afraid you can't afford that. How unfortunate."
-tradeFinishedMsg "", "Ah, funding for my magical research. Thank you."
-tradeFinishedWithoutTradingMsg "", "Oh, changed your mind?"
-tradeWrongItemMsg "", "If your intent is to sell your wares, I am not your man."
+tradeNotEnoughMoneyMsg "Oh, ich fürchte, das kannst du dir nicht leisten. Wie bedauerlich", "Oh, I'm afraid you can't afford that. How unfortunate."
+tradeFinishedMsg "Ah, eine Förderung für meine magische Forschung. Ich danke dir.", "Ah, funding for my magical research. Thank you."
+tradeFinishedWithoutTradingMsg "Oh, hast du deine Meinung geändert?", "Oh, changed your mind?"
+tradeWrongItemMsg "Wenn du deine Waren verkaufen willst, bin ich nicht dein Mann.", "If your intent is to sell your wares, I am not your man."
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Terry Ogg, a wandering mage visiting Troll's Haven. Keywords: Hello, Buy, Sell, Trade, Troll's Haven, Elara, Magic, Rune , Glyph, Spatial, Wand"), ""
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Terry Ogg, "), ""
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Terry Ogg, ein umherziehender Magier der Trolls's Haven besucht. Stichworte: Hallo, Kaufe, Verkaufe, Handel, Troll's Haven, Elara, Magie, Rune, Glyphe, Raum, Zauberstab"), ""
 
 -- Trade
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I can't offer a lot, but if it's magical knowledge you seek.", trade
-"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich kann nicht viel bieten, aber wenn du magisches Wissen suchst bin ich der Richtige.", trade
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Oh, you're back? Or is this our first time meeting?", "Hello! Have you seen my wand? Oh, it's right here.", "Hello there! Welcome to my... Well, welcome, anyhow."
-"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "", "", ""
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Oh du bist zurück? Oder treffen wir uns zum ersten Mal?", "Hallo! Hast du meinen Zauberstab gesehen? Oh, da ist er ja.", "Guten Tag! Willkommen zu meinem...Also, willkommen halt. "
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Oh, you're back? Or is this our first time meeting?", "Hello! Have you seen my wand? Oh, it's right here.", "Hello there! Welcome to my... Well, welcome, anyhow."
-"Hiho", "Hallo", "Hey", "Greeb" -> "", "", ""
+"Hiho", "Hallo", "Hey", "Greeb" -> "Oh du bist zurück? Oder treffen wir uns zum ersten Mal?", "Hallo! Hast du meinen Zauberstab gesehen? Oh, da ist er ja.", "Guten Tag! Willkommen zu meinem...Also, willkommen halt."
 "Farewell", "Bye", "Fare well", "See you" -> "Carry on then.", "Good bye.", "Good luck with your... whatever it is.", "Safe journey, see you soon."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "", "Auf Wiedersehen.", "", "Gute Reise, bis bald."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "", "Auf Wiedersehen.", "Alles Gute mit.....was auch immer.", "Gute Reise, bis bald."
 "How are you", "How do you feel", "How do you do" -> "I'm doing quite splendid, thank you. I could do with a little more funding though.", "Why? Trying to butter me up so I'll teach you runes, are you?", "Fine. Now spare me your nonsense and get on with it, I have research to perform."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "" -> "", "", ""
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "" -> "Mir geht es hervorragend, vielen dank. Obwohl etwas bessere Finanzierung nicht schaden wprde.", "Wieso fragst du? Willst du mir etwas schmeicheln, sodass ich dir Runen lehre?", "Gut. Und nun lass mich mit deinem Blödsinn in Ruhe. Ich muss arbeiten!"
 "your name", "who are you", "who art thou" -> "Oh, me? Terry Ogg, and that's Ogg, not Egg!", "Aha, you wish to know this handsome gentlemans name? I am Terry Ogg, the mighty... What was I doing again?", "Who am I? Terry Ogg. Who are you? Wait before you answer that, I don't really care."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "", "", ""
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Wer? Ich? Ich bin Terry Ogg, und es heißt Ogg, nicht Egg!", "Ah du willst also den Namen dieses gutausehenden Gentelmens wissen? Ich bin Terry Ogg, der mächtige.....was wollte ich noch schnell machen?", "Wer ich bin? Terry Ogg. Und wer bist du? Wobei, bevor du das beantwortest....es ist mir egal."
 "my name", "I am called", "I'm called" -> "#me nods half-heartedly, clearly not paying your introduction any mind."
-"mein Name", "ich heiße"-> ""
+"mein Name", "ich heiße"-> "#me nickt halbherzig und schenkt deiner Vorstellung offensichtlich keine Beachtung. "
 english, "Egg" -> "I told you not to call me that!"
 
 "magic" -> "You want to know more about magic? Well there's rune magic, wand magic, glyph magic and even spatial magic! Which one would you like to know more about?"
+"magie" -> " Du willst mehr über Magie erfahen? Nun es gibt Runenmagie, Stabmagie, Glyphenmagie und sogar Raummagie! Über welche Magie willst du mehr erfahren?"
 
 -- Magic quest triggers
 "wand" -> "Wand magic tutorial goes here."
+"Zauberstab" -> "Zauberstab magie tutorial"
 "spatial" -> "spatial magic tutorial goes here."
+"Raum" -> "Raummagie tutorial."
 "rune" -> "rune magic tutorial goes here."
+"Rune" -> "Runenmagie tutorial"
 "glyph" -> "glyph magic tutorial goes here."
+"Glyphe" -> "Glyühenmagie tutorial"
 
 -- Catching quest triggers
 english, "quest", "mission" -> "Default to one of the above magic questlines if not complete."
-"quest", "mission" -> ""
+"quest", "mission" -> "Standardmäßig eine der oben genannten magischen Quests, wenn nicht abgeschlossen"
 "task", "adventure", "order" -> ""
 "Auftrag", "Aufgabe", "Abenteuer" -> ""
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession", "work" -> "What do I do for a living? Isn't it obvious? I'm a proud almighty magician, darn it! See the hat?"
-"beruf" -> ""
+"beruf" -> "Womit verdiene ich meinen Lebensunterhalt? Ist das nicht offensichtlich? Ich bin ein stolzer, allmächtiger Zauberer, verflixt noch mal! Siehst du den Hut denn nicht?"
 english, "job" -> "What do I do for a living? Isn't it obvious? I'm a proud almighty magician, darn it! See the hat?"
-"job" -> ""
+"job" -> "Womit verdiene ich meinen Lebensunterhalt? Ist das nicht offensichtlich? Ich bin ein stolzer, allmächtiger Zauberer, verflixt noch mal! Siehst du den Hut denn nicht?"
 english, "Illarion" -> "Illarion. That's what this place is called, isn't it? I go where my research leads me."
-"Illarion" -> ""
+"Illarion" -> "Illarion. So heißt dieser Ort doch, oder? Ich gehe dorthin, wohin mich meine Forschung führt."
 english, "Troll's Haven", "Trolls Haven", "Trollshaven" -> "What? Are you saying I am a troll for taking haven in this place!? Oh. It's the name of this place?"
-"Troll's Haven", "Trolls Haven", "Trollshaven" -> ""
+"Troll's Haven", "Trolls Haven", "Trollshaven" -> "Wie bitte? Willst du sagen, dass ich ein Troll bin, weil ich hier Zuflucht suche? Oh. Das ist der Name dieses Ortes?"
 
 -- Faction stuff
 "queen" -> "A queen? You know, I used to serve as the royal archmage in a palace at one point. Then I almost got my head chopped off for sleeping with the...  Eh-hem... Moving on."
-"königin" -> ""
+"königin" -> "Eine Königin? Weißt du, ich habe mal als königlicher Erzmagier in einem Palast gedient. Dann wurde mir fast der Kopf abgehackt, weil ich mit der...  Eh-hem... Weiter im Text."
 english, "Rosaline", "Edwards" -> "Queen Rosaline Edwards! Now that's a looker, I wouldn't mind... Eh-hem-hem... Moving on.", "The queen? Why, did she ask about me?"
-"Rosaline", "Edwards" -> ""
+"Rosaline", "Edwards" -> "Königin Rosaline Edwards! Das ist ein Hingucker, ich hätte nichts dagegen... Eh-hem-hem... Weiter geht's.", "Die Königin? Warum, hat sie nach mir gefragt?"
 english, "Cadomyr" -> "#me shudders. 'Sand... sand everywhere. That city is no good.'"
-"Cadomyr" -> ""
+"Cadomyr" -> "#me schaudert es. 'Sand... überall Sand. Diese Stadt ist nicht lebenswert.'"
 english, "Don" -> "The Don, leader of Galmair? Why DON't we talk about something else instead? He-he."
-"Don" -> ""
+"Don" -> "Der Don, Anführer von Galmair? Warum reden wir nicht lieber über etwas anderes?"
 english, "Valerio", "Guilianni" -> "Sounds familiar... Wait, that guy owes me money!"
-"Valerio", "Guilianni" -> ""
+"Valerio", "Guilianni" -> "Kommt mir bekannt vor... Warte, der Typ schuldet mir Geld!"
 english, "Galmair" -> "Thieves! Scum! Can you believe they wanted me to PAY for protection!? Me, an almighty archmage!?"
-"Galmair" -> ""
+"Galmair" -> "Diebe! Abschaum! Unglaublich, dass sie von mir Geld für Schutz verlangen!? Ich, ein allmächtiger Erzmagier!?"
 "Archmage" -> "Archmage? Are you gossiping about me, again?"
-"Erzmagier" -> ""
+"Erzmagier" -> "Erzmagier? Tratschst du schon wieder über mich?"
 english, "Elvaine", "Morgan" -> "Pfah, that elf in Runewick? I'm clearly a much superior mage."
-"Elvaine", "Morgan" -> ""
+"Elvaine", "Morgan" -> "Pfah, dieser Elf in Runewick? Ich bin eindeutig ein viel überlegenerer Magier."
 english, "Runewick" -> "A bunch of losers! No, I was not kicked out of their academy and you can not prove it!"
-"Runewick" -> ""
+"Runewick" -> "Ein Haufen von Verlierern! Nein, ich wurde nicht aus ihrer Akademie rausgeschmissen und du kannst es nicht beweisen!"
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "Gods? Who has time for gods these days, research is taking place! Though come to think of it, Elara isn't all that bad."
-"Gott", "Götter" -> ""
+"Gott", "Götter" -> "Götter? Wer hat heutzutage noch Zeit für Götter. Es wird geforscht! Obwohl, wenn ich so darüber nachdenke, ist Elara gar nicht so schlecht."
 english, "Elara" -> "Elara, the goddess of wisdom and knowledge. Truly the only god or goddess worthy of the piety of a grand archmage such as myself... must be quite a looker, too."
-"Elara" -> ""
+"Elara" -> "Elara, die Göttin der Weisheit und des Wissens. Wahrlich der einzige Gott oder die einzige Göttin, die der Frömmigkeit eines großen Erzmagiers wie mir würdig ist... Sie muss auch ziemlich gut aussehen."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Terry", "Ogg" -> "Yes, what is it? Can't you see I'm busy with my research?"
-"Terry", "Ogg" -> ""
+"Terry", "Ogg" -> "Was ist denn? Siehst du nicht das ich arbeite?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "#me ", "#me lifts his wand, giving it a swish and flick."
-cycletext "#me ", "#me mutters some intelligible words under his breath."
-cycletext "#me ", "#me picks his nose, looking around before subtly wiping it off on the inside of his archmage robes."
-cycletext "#me ", "#me moves over to the nearby table, making a note in the book on there."
-cycletext "#me ", "#me utters a thoughtful hum as he reads silently from a book."
-cycletext " ", "What!? Out of research material again!?"
-cycletext " ", "I, the almighty Archmage Terry Ogg, am selling grimoires and books on magic! Come fund my grand magical research efforts today!"
-cycletext " ", "Huh? Who... Where was I?"
-cycletext " ", "Resarch, research, research... Now where did my dinner go off to?"
-cycletext " ", "They'll regret kicking me out of the academy, you'll see..."
+cycletext "#me hebt seinen Zauberstab dann wutscht und wedelt er. ", "#me lifts his wand, giving it a swish and flick."
+cycletext "#me murmelt einige verständliche Worte.", "#me mutters some intelligible words under his breath."
+cycletext "#me bohrt in der Nase, schaut sich um und wischt seinen Finger dann vorsichtig an der Innenseite seiner Erzmagierrobe ab. ", "#me picks his nose, looking around before subtly wiping it off on the inside of his archmage robes."
+cycletext "#me geht zu dem Tisch in der Nähe und macht eine Notiz in dem Buch, das dort liegt.", "#me moves over to the nearby table, making a note in the book on there."
+cycletext "#me gibt ein nachdenkliches Brummen von sich, während er leise in einem Buch liest. ", "#me utters a thoughtful hum as he reads silently from a book."
+cycletext "Was? Schon wieder kein Forschungsmaterial mehr!?", "What!? Out of research material again!?"
+cycletext "Ich, der allmächtige Erzmagier Terry Ogg, verkaufe Grimoires und Bücher über Magie! Finanzieren Sie noch heute meine großartigen magischen Forschungsbemühungen!", "I, the almighty Archmage Terry Ogg, am selling grimoires and books on magic! Come fund my grand magical research efforts today!"
+cycletext "Huh? Wer...wo war ich?", "Huh? Who... Where was I?"
+cycletext "Forschen, Forschen, Forschen...Wo ist jetzt mein Essen geblieben?", "Resarch, research, research... Now where did my dinner go off to?"
+cycletext "Sie werden es noch bereuen, mich aus der Akademie geworfen zu haben...", "They'll regret kicking me out of the academy, you'll see..."
