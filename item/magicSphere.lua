@@ -487,8 +487,8 @@ end
 local function fhanPuzzleSolved()
 
     local puzzle = {
-        {solution = Item.chickenDish, location = position(598, 321, 3)},
-        {solution = Item.drowSword, location = position(598, 317, 3)},
+        {solution = Item.chickenDish, solution2 = Item.chickenSoup, location = position(598, 321, 3)},
+        {solution = Item.drowSword, solution2 = Item.drowBlade, location = position(598, 317, 3)},
         {solution = Item.pureFire, location = position(592, 317, 3)},
         {solution = Item.stone, location = position(592, 321, 3)},
     }
@@ -503,7 +503,13 @@ local function fhanPuzzleSolved()
 
         for i= 0, itemsOnField-1 do --from lowest to highest item in stack
             currentitem = field:getStackItem(i)
-            if currentitem.id == segment.solution then
+            local solution2 = 488 --just a random impossible item
+
+            if segment.solution2 then
+                solution2 = segment.solution2
+            end
+
+            if currentitem.id == segment.solution or currentitem.id == solution2 then
                 solved = solved+1
                 break
             end
