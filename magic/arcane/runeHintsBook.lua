@@ -114,6 +114,11 @@ local function runeHint(user, runeName)
 
     local dialog = MessageDialog(common.GetNLS(user, myTexts.bookName.german, myTexts.bookName.english), common.GetNLS(user, myTexts[runeName].hint.german, myTexts[runeName].hint.english), callback)
 
+    if runeName == "BHONA" then
+        if user:getQuestProgress(7019) == 0 then
+            user:setQuestProgress(7019, 1)
+        end
+    end
     user:requestMessageDialog(dialog)
 
 end

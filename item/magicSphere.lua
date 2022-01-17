@@ -24,6 +24,32 @@ local increaseArea = require("magic.arcane.harvestFruit")
 
 local M = {}
 
+local function bhonaMessageDialogue(user, germanText, englishText)
+
+    local callback = function(dialog)
+    end
+
+    local dialog = MessageDialog("", common.GetNLS(user, germanText, englishText), callback)
+
+    user:requestMessageDialog(dialog)
+end
+
+function M.bhonaInfo(user, sourceItem)
+
+    for _, location in pairs(texts.bhonaPuzzle.locations) do
+        if location.location == sourceItem.pos then
+            if user:getQuestProgress(7019) < location.before  then
+                bhonaMessageDialogue(user, texts.bhonaPuzzle.gibberish.german, texts.bhonaPuzzle.gibberish.english)
+            else
+                bhonaMessageDialogue(user, location.german, location.english)
+                if user:getQuestProgress(7019) == location.before then
+                    user:setQuestProgress(7019, location.after)
+                end
+            end
+        end
+    end
+end
+
 local peraLevers = {
     {id = 1, location = position(395, 138, 0)},
     {id = 2, location = position(429, 219, 0)}
@@ -861,6 +887,10 @@ local function checkIfCriteriaMet(user, rune)
         end
     elseif rune == "Pera" then
         if passedPeraPuzzle(user) then
+            retVal = true
+        end
+    elseif rune == "BHONA" then
+        if user:getQuestProgress(7019) == 18 then
             retVal = true
         end
     else --Any remaining puzzles will only require you to find, get to and use the sphere to activate it

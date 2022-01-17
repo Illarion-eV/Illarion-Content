@@ -102,6 +102,8 @@ function M.UseItem(user, sourceItem)
         return
     end
 
+    magicSphere.bhonaInfo(user, sourceItem)
+
     if sourceItem:getData("teachDogTransformationPotion") == "true" then
         transformation_dog.UseSealedScroll(user, sourceItem)
         return

@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local monsterId = 1141
 
+local texts = require("magic.arcane.base.texts")
 local akaltut = require("monster.race_114_akaltut.base")
 local mageBehaviour = require("monster.base.behaviour.mage")
 local monstermagic = require("monster.base.monstermagic")
@@ -76,6 +77,14 @@ function M.onDeath(monster)
     spiderEgg.wear = 3
     world:changeItem(spiderEgg)
     id_1142_akaltut.eggExists = true
+
+    local nearbyPlayers = world:getCharactersInRangeOf(pos, 10)
+    for _, player in pairs(nearbyPlayers) do
+        if player:getQuestProgress(7019) == 17 then
+            player:setQuestProgress(7019, 18)
+            player:inform(texts.bhonaPuzzle.success.german, texts.bhonaPuzzle.success.english)
+        end
+    end
 
     scheduledFunction.registerFunction(8, function() spawnEnragedAkaltut(pos) end)
 end
