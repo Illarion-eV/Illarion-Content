@@ -607,14 +607,12 @@ local function anthResult(user, answer)
 
     local status
 
-    if answer < 1332 then
-        status = "higher"
-    elseif answer > 1332 then
-        status = "lower"
-    elseif answer == 1332 then
+    if answer == 1332 then
         status = "success"
         ScriptVars:set("anthActivate", 1)
         ScriptVars:save()
+    else
+        status = "wrong"
     end
 
     local callback = function(dialog)
