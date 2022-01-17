@@ -456,12 +456,15 @@ local function fhenPuzzleSolved()
     local wineFound = false
     local beer = Item.beerMug
     local wine = Item.bottleOfElvenWine
+    local beerBottle  = Item.bottleOfBeer
 
     for i = 0, itemsOnField-1 do
         currentItem = field:getStackItem(i)
         if currentItem.id == wine then
             wineFound = true
         elseif currentItem.id == beer then
+            beerFound = true
+        elseif currentItem.id == beerBottle then
             beerFound = true
         end
         if beerFound and wineFound then
