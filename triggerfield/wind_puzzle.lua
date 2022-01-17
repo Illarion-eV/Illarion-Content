@@ -21,7 +21,6 @@ local myTexts = texts.windPuzzle
 local M = {}
 
 local locations = {
-{origin = position(0,0,0), destination = position(0,0,0)},
 {origin = position(341, 150, 1), destination = position(318, 150, 1)},
 {origin = position(340, 151, 1), destination = position(340, 166, 1)},
 {origin = position(338, 152, 1), destination = position(332, 152, 1)},
@@ -52,7 +51,7 @@ local locations = {
 {origin = position(315, 165, 1), destination = position(315, 155, 1)},
 {origin = position(316, 166, 1), destination = position(323, 166, 1)},
 {origin = position(315, 167, 1), destination = position(315, 155, 1)},
-{origin = position(322, 166, 1), destination = position(523, 166, 1)},
+{origin = position(322, 166, 1), destination = position(323, 166, 1)},
 {origin = position(325, 164, 1), destination = position(338, 164, 1)},
 {origin = position(328, 162, 1), destination = position(335, 162, 1)},
 {origin = position(328, 161, 1), destination = position(335, 161, 1)},
