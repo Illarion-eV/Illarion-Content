@@ -24,6 +24,44 @@ local increaseArea = require("magic.arcane.harvestFruit")
 
 local M = {}
 
+local mesLamps = {
+    position(526, 608, 1),
+    position(538, 613, 1),
+    position(532, 615, 1),
+    position(533, 605, 1),
+    position(527, 609, 0),
+    position(536, 609, 0),
+    position(536, 618, 0)
+}
+
+local function checkMesPuzzle()
+
+    local lampOff = 395
+
+    for _, location in pairs(mesLamps) do
+        local field = world:getField(location)
+        local itemsOnField = field:countItems()
+        local topItem = field:getStackItem(itemsOnField-1)
+        if topItem.id == lampOff then
+            return false
+        end
+    end
+
+    return true
+end
+
+function M.mesInfo(user)
+
+    local callback = function(dialog)
+    end
+
+    local dialog = MessageDialog("", common.GetNLS(user, texts.mesPuzzle.german, texts.mesPuzzle.english), callback)
+
+    user:requestMessageDialog(dialog)
+
+end
+
+
 local levStatues = {
     {location = position(192, 803, -3), reset = 440, correct = 443, rotation = {440, 441, 442, 443}},
     {location = position(192, 807, -3), reset = 695, correct = 693, rotation = {692, 694, 693, 695}},
@@ -683,6 +721,10 @@ local function checkIfCriteriaMet(user, rune)
     elseif rune == "Lev" then
         if passesLevPuzzle() then
             resetLevPuzzle()
+            retVal = true
+        end
+    elseif rune == "Mes" then
+        if checkMesPuzzle() then
             retVal = true
         end
     else --Any remaining puzzles will only require you to find, get to and use the sphere to activate it

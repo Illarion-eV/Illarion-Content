@@ -773,9 +773,9 @@ local M = {
                 english = "Mysterious Sphere",
                 german = "Mysteriöse Sphäre"},
             description = {
-                english = "",
+                english = "The sphere gives off a warm, radiant light.",
                 german = ""},
-            location = position(0,0,0)},
+            location = position(537, 612, 1)},
         Orl = {rune = "Orl",
             hint = {
                 english = "Created from an egg. Creepy, crawly, eight legged friends.",
@@ -1050,6 +1050,10 @@ local M = {
             english = "A swirling mass of pure air. You could probably fly with this?",
             german = "Eine wirbelnde Masse reiner Luft. Damit könntest du wahrscheinlich davonfliegen?"
         }
+    },
+    mesPuzzle = {
+        english = "You call this a lighthouse? Lights! We need more lights! Go get the oil, now!",
+        german = ""
     },
     --item/books.lua
     grimoire = {

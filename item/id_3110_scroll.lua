@@ -78,6 +78,11 @@ local function magicInfo(user, sourceItem)
         return true
     end
 
+    if sourceItem.pos == position(537, 613, 1) then
+        magicSphere.mesInfo(user)
+        return true
+    end
+
     return false
 end
 
