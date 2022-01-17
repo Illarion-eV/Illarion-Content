@@ -658,7 +658,7 @@ local M = {
         Dun = {rune = "Dun",
             hint = {
                 english = "In an area vast and empty, where white hands rule.",
-                german = "In einem weiten und leeren Gebiet, in dem die weiße Hände regiert."},
+                german = "MIn einem weiten und leeren Gebiet, in dem die weiße Hände regiert."},
             name = {
                 english = "Mysterious Sphere",
                 german = "Mysteriöse Sphäre"},
@@ -676,7 +676,7 @@ local M = {
             description = {
                 english = "The sphere contains an eerie magical fog that seems to attempt to get away from you.",
                 german = "Die Sphäre enthält einen unheimlichen magischen Nebel, der zu versuchen scheint, von dir wegzukommen."},
-            location = position(0,0,0)},
+            location = position(595, 319, 3)},
         Fhen = {rune = "Fhen",
             hint = {
                 english = "Where trolls seek haven and drink fine wine, out in the garden do we dine.",
