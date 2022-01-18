@@ -828,9 +828,9 @@ local M = {
                 english = "Mysterious Sphere",
                 german = "Mysteriöse Sphäre"},
             description = {
-                english = "",
+                english = "The sphere gives off a feeling of warmth and wellness.",
                 german = ""},
-            location = position(0,0,0)},
+            location = position(783 , 262, -8)},
         Sul = {rune = "Sul",
             hint = {
                 english = "Rotten, smelly and cursed to be slow. Such is the fate of a civilization that met its demise.",
@@ -1209,6 +1209,14 @@ local M = {
         },
         spiderExists = {
             english = "Nothing happened. Bunbun must already be out here somewhere.",
+            german = ""
+        }
+    },
+    sihPuzzle = {
+        english = "Recipe for holy water:\nTwo parts the mother's water, the purest kind.\nOne part water that heals with utmost efficiency.",
+        german = "",
+        lizardish = {
+            english = "All you see are clawmarks that form various symbols. Maybe a lizardman could help you decipher it?",
             german = ""
         }
     },

@@ -25,6 +25,82 @@ local monsterHooks = require("monster.base.hooks")
 
 local M = {}
 
+local function passesSihPuzzle()
+    local platePos1 = position(782, 263, -8)
+    local platePos2 = position(784, 263, -8)
+    local field1 = world:getField(platePos1)
+    local field2 = world:getField(platePos2)
+    local itemsOnField1 = field1:countItems()
+    local itemsOnField2 = field2:countItems()
+    local currentItem
+    local healthPotionFound = false
+    local twoPureWaterFound = false
+    local water = Item.pureWater
+    local potion = 166 -- No Item.name for violet potion in the database
+
+    for i = 0, itemsOnField1-1 do
+        currentItem = field1:getStackItem(i)
+        if currentItem.id == water then
+            if currentItem.number == 2 then
+                twoPureWaterFound = true
+                break
+            end
+        elseif currentItem.id == potion then
+            local effect = currentItem:getData("potionEffectId")
+            if tonumber(effect) == 95559555 then
+                healthPotionFound = true
+                break
+            end
+        end
+    end
+
+    for i = 0, itemsOnField2-1 do
+        currentItem = field2:getStackItem(i)
+        if currentItem.id == water then
+            if currentItem.number == 2 then
+                twoPureWaterFound = true
+                break
+            end
+        elseif currentItem.id == potion then
+            local effect = currentItem:getData("potionEffectId")
+            if tonumber(effect) == 95559555 then
+                healthPotionFound = true
+                break
+            end
+        end
+    end
+
+    if healthPotionFound and twoPureWaterFound then
+        return true
+    end
+
+    return false
+end
+
+function M.sihInfo(user)
+
+    local lizardish =  user:getSkill(Character["lizardLanguage"])
+
+
+    local callback = function(dialog)
+    end
+
+    local english
+    local german
+
+    if lizardish >= 80 then
+        english = texts.sihPuzzle.english
+        german = texts.sihPuzzle.german
+    else
+        english = texts.sihPuzzle.lizardish.english
+        german = texts.sihPuzzle.lizardish.german
+    end
+
+    local dialog = MessageDialog("", common.GetNLS(user, german, english), callback)
+    user:requestMessageDialog(dialog)
+
+end
+
 local function savPuzzleSolved()
 
     local monsters = world:getMonstersInRangeOf(position(111, 887, -3), 3)
@@ -1179,6 +1255,10 @@ local function checkIfCriteriaMet(user, rune)
         end
     elseif rune == "Sav" then
         if savPuzzleSolved() then
+            retVal = true
+        end
+    elseif rune == "Sih" then
+        if passesSihPuzzle() then
             retVal = true
         end
     else --Any remaining puzzles will only require you to find, get to and use the sphere to activate it
