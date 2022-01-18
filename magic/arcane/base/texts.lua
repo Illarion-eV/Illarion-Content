@@ -187,7 +187,7 @@ local M = {
             german = "Bei genauerer Betrachtung stellst du fest, dass die Blätter der Pflanze ein magisches Leuchten abgeben."},
         entangled = {
             english = "Stepping onto the plant, yo uare entangled by its vines, slowing you down.",
-            german = ""
+            german = "Als du auf die Pflanze trittst wirst du von ihren Ranken umschlungen und wirst langsamer."
         }
     },
     earthTrapTexts = {
@@ -344,7 +344,7 @@ local M = {
         {english = "Target has moderate amount of mana.", german = "Dein Ziel hat eine durchschnittliche Menge an Mana. ", mana = 5000},
         {english = "Target is running low on mana.", german = "Dein Ziel hat nur mehr wenig Mana.", mana = 2000},
         {english = "Target is almost out of mana.", german = "Dein Ziel hat fast kein Mana mehr.", mana = 1},
-        {english = "Target only has enough mana to survive.", german = "Dein Ziel hat genug Mana um zu Leben.", mana = 0},
+        {english = "Target only has enough mana to survive.", german = "Dein Ziel hat gerade genug Mana um zu Leben.", mana = 0},
         },
     --spirit/stamina.lua
     staminaTexts = {
@@ -357,8 +357,8 @@ local M = {
         },
     --spirit/fakeInfo.lua
     fakeEquipmentText = {
-        durability = {name = {english = "Set Durability", german = "Bestimmeung der Haltbarkeit"}, text = {english = "Choose what durability the equipment should be portrayed as having.", german = " Bestimme mit welcher Haltbarkeit der Gegenstand dargestellt werden soll."}},
-        quality = {name = {english = "Set Quality", german = "Bestimmung der Qualität"}, text = {english = "Choose what quality the equipment should be portrayed as having." ,  german = " Bestimme mit welcher Qualität der Gegenstand dargestellt werden soll. "}}
+        durability = {name = {english = "Set Durability", german = "Bestimmeung der Haltbarkeit"}, text = {english = "Choose what durability the equipment should be portrayed as having.", german = " Bestimme mit welcher Haltbarkeit Ausrüstung dargestellt werden soll."}},
+        quality = {name = {english = "Set Quality", german = "Bestimmung der Qualität"}, text = {english = "Choose what quality the equipment should be portrayed as having." ,  german = " Bestimme mit welcher Qualität Ausrüstung dargestellt werden soll. "}}
         },
     --castSpell.lua
     castSpellTexts = {
@@ -373,12 +373,12 @@ local M = {
         empty = {english = "The spell list is empty. Perhaps you could fill it in at a desk?", german = "Deine Zauberliste ist leer. Vielleicht kannst du sie an einem Schreibtisch befüllen?"},
         inane = {english = "All you can see are the inane scribbles made by someone else. They make no sense to you!", german = "Alles was du siehst sind unsinnige Kritzeleinen die jemand anderes gemacht hat. Das ergibt keinen Sinn!"},
         --primed example text: "Wand primed for the spell: Fireball."
-        primed = {english = "Wand primed for the spell: ", german = "Der Zauberstab ist vorbereitet für den Zauber:"},
+        primed = {english = "Wand primed for the spell: ", german = "Der Zauberstab ist vorbereitet für den Zauber: "},
         selection = {english = "Spell Selection", german = "Zauberauswahl"},
         select = {english = "Select which spell you want to cast.", german = "Wähle welchen Zauber du sprechen willst."},
         incomplete = {english = "The spellbook has no complete spells in it for you to cast.", german = "Das Zauberbuch beinhaltet keinen vollständigen Zauber die du sprechen kannst."},
         nonsense = {english = "All you can see are nonsensical scribbles. Wait, did that line just move? This may be beyond your ability to understand.", german = "Alles was du sehen kannst sind unsinnige Kritzeleine. Warte...hat sich die Linie etwas bewegt? Das übersteigt dein Verständnis. "},
-        glyphWand = {english = "Wand primed for wand magic & glyph forging.", german = "Der Zauberstab ist vorberiette für Stabmagie und Glyphenmagie"},
+        glyphWand = {english = "Wand primed for wand magic & glyph forging.", german = "Der Zauberstab ist vorberiette für Stabmagie und Glyphenmagie."},
         priming = {english = "Wand priming", german = "Zauberstab Vorbereitung"},
         type = {english = "Select what type of magic you want your wand primed to.", german = "Wähle auf welche Magie du deinen Zauberstab vorbereiten willst."},
         spells = {english = "Spells", german = "Zaubersprüche"},
@@ -481,7 +481,7 @@ local M = {
             german = "Raummagie"
         },
         selectColour = {
-            english = "Select which colour your portals should have",
+            english = "Select which colour your portals should have.",
             german = "Wähle welche Farbe deine Portale haben sollen."
         },
         colours = {
@@ -522,7 +522,7 @@ local M = {
         },
         interruptedCast = {
             english = "Your casting of spatial magic was interrupted.",
-            german = "Das sprechen deiner Raummagie wurde unterbrochen."
+            german = "Das wirken deiner Raummagie wurde unterbrochen."
         },
         interruptedBook = {
             english = "Your reading of the portal books incantation was interrupted.",
@@ -642,7 +642,7 @@ local M = {
                 german = "Mysteriöse Sphäre"},
             description = {
                 english = "Within the sphere you spot two vague figures. One stands before the other, appearing to be preaching. The latter appears to be kowtowing in a show of piety towards the former.",
-                german = ""},
+                german = "Im Inneren der Sphäre erkennen Sie zwei vage Gestalten. Die eine steht vor der anderen und scheint zu predigen. Letztere scheint sich vor der ersteren in einem Anflug von Frömmigkeit zu verneigen."},
             location = position(469, 869 , -9)},
         Anth = {rune = "Anth",
             hint = {
@@ -658,7 +658,7 @@ local M = {
         Dun = {rune = "Dun",
             hint = {
                 english = "In an area vast and empty, where white hands rule.",
-                german = "MIn einem weiten und leeren Gebiet, in dem die weiße Hände regiert."},
+                german = "MIn einem weiten und leeren Gebiet, in dem die weiße Hand regiert."},
             name = {
                 english = "Mysterious Sphere",
                 german = "Mysteriöse Sphäre"},
@@ -694,7 +694,7 @@ local M = {
                 german = "Ein Ort so kalt und hoch. Pass auf, dort erfrierst du noch!"},
             name = {
                 english = "Mysterious Frosty Sphere",
-                german = "Mysteriöse Sphäre"},
+                german = "Mysteriöse vereiste Sphäre"},
             description = {
                 english = "Inside the sphere you see what resembles as snowstorm swirling about with the occasional hail",
                 german = "Im Inneren der Sphäre sieht man etwas, das wie ein Schneesturm aussieht, der mit gelegentlichem Hagel umherwirbelt"},
@@ -741,7 +741,7 @@ local M = {
                 german = "Mysteriöse Sphäre"},
             description = {
                 english = "If you peer into the sphere, you would witness an ever-changing scenery. A desert in one moment, the next a tundra, it constantly shows you new, unique sights.",
-                german = ""},
+                german = "Wenn du in die Sphäre blickst wirst du Zeuge einer sich ständig verändernden Landschaft. In einem Moment ist es eine Wüste, im nächsten eine Tundra, sie zeigt dir ständig neue, einzigartige Anblicke."},
             location = position(188, 809, -3)},
         Lhor = {rune = "Lhor",
             hint = {
@@ -752,7 +752,7 @@ local M = {
                 german = "Mysteriöse Sphäre"},
             description = {
                 english = "An illusory raven is sat inside the sphere, cleaning its wings with its beak.",
-                german = ""},
+                german = "Im Innern der Sphäre sitzt ein fiktiver Rabe, der sich mit seinem Schnabel die Flügel putzt."},
             location = position(781, 438, 0)},
         Luk = {rune = "Luk",
             hint = {
@@ -763,7 +763,7 @@ local M = {
                 german = "Mysteriöse Sphäre"},
             description = {
                 english = "A bloodshot eye appears to be peering back out at you from inside the sphere.",
-                german = ""},
+                german = "Ein blutunterlaufenes Auge scheint dich aus dem Inneren der Kugel heraus anzustarren."},
             location = position(564, 542 , -6)},
         Mes = {rune = "Mes",
             hint = {
@@ -774,7 +774,7 @@ local M = {
                 german = "Mysteriöse Sphäre"},
             description = {
                 english = "The sphere gives off a warm, radiant light.",
-                german = ""},
+                german = "Die Sphäre gibt ein warmes, strahlendes Licht ab."},
             location = position(537, 612, 1)},
         Orl = {rune = "Orl",
             hint = {
@@ -785,7 +785,7 @@ local M = {
                 german = "Mysteriöse Sphäre"},
             description = {
                 english = "The sphere appears as if full of tiny little spiders, desperately trying to make their way out to get to you.",
-                german = ""},
+                german = "Die Sphäre sieht aus, als wäre sie voller winziger kleiner Spinnen. Sie versuchen verzweifelt sich einen Weg nach draußen zu bahnen um dich zu erwischen."},
             location = position(907, 487, -6)},
         Pherc = {rune = "Pherc",
             hint = {
@@ -793,10 +793,10 @@ local M = {
                 german = "Der Schmerz der Wüstenhitze ist fast so groß wie der Schmerz der Axt!"},
             name = {
                 english = "Mysterious Bloody Sphere",
-                german = ""},
+                german = "Mysteriöse blutverschmierte Sphäre"},
             description = {
                 english = "A grotesque scene full of blood and gore meet you as you peer into the sphere.",
-                german = ""},
+                german = "Beim Blick in die Sphäre bietet sich dem Betrachter eine groteske Szene voller Blut und Qualen."},
             location = position(80, 431, -6)},
         Qwan = {rune = "Qwan",
             hint = {
@@ -807,7 +807,7 @@ local M = {
                 german = "Mysteriöse Sphäre"},
             description = {
                 english = "Within the sphere lies a lone, huge-looking boulder... or is it a pebble?",
-                german = ""},
+                german = "In der Sphäre liegt ein einsamer, riesig wirkender Felsbrocken... oder ist es ein Kieselstein?"},
             location = position(241, 776, 1)},
         Sav = {rune = "Sav",
             hint = {
@@ -817,8 +817,8 @@ local M = {
                 english = "Mysterious Sphere",
                 german = "Mysteriöse Sphäre"},
             description = {
-                english = "Within the orb you can see a majestic looking shield.",
-                german = ""},
+                english = "Within the sphere you can see a majestic looking shield.",
+                german = "Im Inneren der Sphäre ist ein majestätisch aussehender Schild zu sehen."},
             location = position(111 , 887, -3)},
         Sih = {rune = "Sih",
             hint = {
@@ -829,7 +829,7 @@ local M = {
                 german = "Mysteriöse Sphäre"},
             description = {
                 english = "The sphere gives off a feeling of warmth and wellness.",
-                german = ""},
+                german = "Die Sphäre strahlt ein Gefühl von Wärme und Wohlbefinden aus."},
             location = position(783 , 262, -8)},
         Sul = {rune = "Sul",
             hint = {
@@ -840,7 +840,7 @@ local M = {
                 german = "Mysteriöse Sphäre"},
             description = {
                 english = "Peering into the sphere, you'd see the shadow of figures passing by ever so slowly.",
-                german = ""},
+                german = "Wenn man in die Sphäre hineinschaut, sieht man die Schatten von Gestalten, die ganz langsam vorüberziehen."},
             location = position(937, 391, -3)},
         Tah = {rune = "Tah",
             hint = {
@@ -851,7 +851,7 @@ local M = {
                 german = "Mysteriöse Sphäre"},
             description = {
                 english = "Peering into the sphere, you see yourself but upside down.",
-                german = ""},
+                german = "Wenn du in die Kugel schaust, siehst du dich selbst, aber auf dem Kopf stehend."},
             location = position(14, 522, 0)},
         Taur = {rune = "Taur",
             hint = {
@@ -862,7 +862,7 @@ local M = {
                 german = "Mysteriöse Sphäre"},
             description = {
                 english = "Within the sphere you see the silhouette of a humanoid being, though it quickly changes form into that of various other creatures one by one.",
-                german = ""},
+                german = "In der Sphäre sieht man die Silhouette eines humanoiden Wesens, das jedoch schnell die Form verschiedener anderer Kreaturen annimmt."},
             location = position(179, 550, 0)},
         Ura = {rune = "Ura",
             hint = {
@@ -870,10 +870,10 @@ local M = {
                 german = "Dort wo die Hüter der Natur wohnen."},
             name = {
                 english = "Mysterious Mossy Sphere",
-                german = ""},
+                german = "Mysteriöse moosbewachsene Sphäre"},
             description = {
                 english = "Within the sphere you can see the picturesque image of nature in its barest, most untouched form.",
-                german = ""},
+                german = "In der Sphäre kann man das malerische Bild der Natur in ihrer ursprünglichsten, unberührten Form sehen."},
             location = position(827 , 156, 0)},
         Yeg = {rune = "Yeg",
             hint = {
@@ -884,7 +884,7 @@ local M = {
                 german = "Mysteriöse Sphäre"},
             description = {
                 english = "Peering into the sphere, a vision of death and decay meet you. Are you just imagining it, or can you also hear the terrifying wails of the tortured dead?",
-                german = ""},
+                german = "Wenn du in die Sphäre blickst, bietet sich dir eine Vision von Tod und Verwesung. Bildest du dir das nur ein, oder hörst du auch die schrecklichen Schreie der gequälten Toten?"},
             location = position(793, 576, 0)},
         Pera = {rune = "Pera",
             hint = {
@@ -895,7 +895,7 @@ local M = {
                 german = "Mysteriöse Sphäre"},
             description = {
                 english = "All you can see within the sphere is a figure moving so fast it has become nothing but a blurry shadow.",
-                german = ""},
+                german = "Alles, was du in der Sphäre sehen kannst ist eine Figur, die sich so schnell bewegt, dass sie nur noch ein verschwommener Schatten ist."},
             location = position(391, 137, 0)},
         unlitSphere = {
             english = "Empty glass sphere",
@@ -1049,196 +1049,196 @@ local M = {
         },
         suffix = {
             english = "\nIf you believe this to be the answer, go back to the sphere and find out.",
-            german = ""
+            german = "\nWenn du glaubst, dass das die Antwort ist, geh zurück zur Kugel und finde es heraus."
         },
     },
     mesPuzzle = {
         english = "You call this a lighthouse? Lights! We need more lights! Go get the oil, now!",
-        german = ""
+        german = "Das soll ein Leuchtturm sein? Lichter! Wir brauchen mehr Lichter! Holt das Öl, sofort!"
     },
     orlPuzzle = {
         english = "They may not be your friends, but these foul creatures will be neccessary to obtain the knowledge that you seek. Find as many as they have legs, and just... try to endure.",
-        german = ""
+        german = "Sie mögen nicht deine Freunde sein, aber diese üblen Kreaturen werden notwendig sein, um das Wissen zu erlangen, das du suchst. Finde genau so viele, wie sie Beine haben, und... versuche einfach zu überleben."
     },
     peraPuzzle = {
         english = "It's a race! Pull both levers fast enough and you shall obtain the knowledge you seek!",
-        german = "",
+        german = "Es ist ein Wettrennen! Ziehe beide Hebel schnell genug und du wirst das Wissen erhalten, das du suchst!",
         slow = {
             english = "Too slow! You can always try again, though.",
-            german = ""
+            german = "Zu langsam! Du kannst es aber jederzeit wieder versuchen."
         },
         fast = {
             english = "You made it! Now go back to reap your reward!",
-            german = ""
+            german = "Du hast es geschafft! Jetzt geh zurück und hol dir deine Belohnung ab!"
         },
         pulled = {
             english = "You've pulled the lever, starting the timer! Hurry to the other lever!",
-            german = ""
+            german = "Du hast den Hebel gezogen und damit den Timer gestartet! Beeil dich mit dem anderen Hebel!"
         }
     },
     bhonaPuzzle = {
         success = {
             english = "You did it! You've solved all the riddles to get you this far, and now you've slain Akaltut! All that's left to do is to go reap your reward at the nearby rune shrine!",
-            german = ""
+            german = "Du hast es geschafft! Du hast alle Rätsel gelöst, die dich so weit gebracht haben, und jetzt hast du Akaltut getötet! Jetzt musst du nur noch deine Belohnung am nahe gelegenen Runenschrein abholen!"
         },
         gibberish = {
             english = "Whatever is written on this scroll, it doesn't look like much more than gibberish to you right now.",
-            german = ""
+            german = "Was auch immer auf dieser Schriftrolle steht, es sieht für dich im Moment nicht nach viel mehr als Kauderwelsch aus."
         },
         locations = {
             {location = position(471, 765, 0),
             english = "Your journey next, takes you to a place where an exile takes rest, from her evil brethrens monotheistic pest.\n X X A",
-            german = "",
+            german = "Deine nächste Reise führt dich an einen Ort, an dem sich eine Verbannte von der monotheistischen Pest ihrer bösen Geschwister erholt \n X X A.",
             before = 1,
             after = 2},
             {location = position(751, 338, -9),
             english = "Next on the list, an isle of snow. When will you go, if not now?\n X X X X X X X L",
-            german = "",
+            german = "Als nächstes steht eine Schneeinsel auf der Liste. Wann wirst du gehen, wenn nicht jetzt?\n X X X X X X X L",
             before = 2,
             after = 3},
             {location = position(425, 65, 0),
             english = "In the fiery depths, where spiders guard. A place where many adventurers have been scarred. \n S",
-            german = "",
+            german = "In den feurigen Tiefen, wo Spinnen wachen. Ein Ort, an dem schon viele Abenteurer entstellt wurden. \n S",
             before = 3,
             after = 4},
             {location = position(528, 794, -6),
             english = "Back up we go, no time to waste. Better yet return, to where merchants make haste. \n X L",
-            german = "",
+            german = "Zurück nach oben, wir haben keine Zeit zu verlieren. Besser noch, wir kehren zurück, dahin, wo die Kaufleute sich tummeln. \n X L",
             before = 4,
             after = 5},
             {location = position(673, 317, 0),
             english = "In the ruins of civilization, ruined by creatures of stone. Now swarmed with the dead, it lies entombed. \n X X X X A",
-            german = "",
+            german = "In den Ruinen der Zivilisation, zerstört von Kreaturen aus Stein. Jetzt wimmelt es von Toten und die Zivilisation liegt begraben. \n X X X X A",
             before = 5,
             after = 6},
             {location = position(926, 415, -3),
             english = "Sleep you with pirates, and you will see. There's nowhere to hide, near Cadomyr's sea. \n X X X Y",
-            german = "",
+            german = "Wer mit Piraten schläft, wird sehen. Es gibt kein Versteck, am Meer von Cadomyr. \n X X X Y",
             before = 7,
             after = 8},
             {location = position(214, 478, -3),
             english = "Next with the thieves, I dare you to be. Near a land full of wonder, this time by the eastern sea. \n X X X X X K",
-            german = "",
+            german = "Als nächstes bei den Dieben, das traue ich dir zu. In der Nähe eines Landes voller Wunder, dieses Mal am östlichen Meer. \n X X X X X K",
             before = 8,
             after = 9},
             {location = position(918, 592, -3),
             english = "Into the forests, in the home of a hermit, you will find me. \n X X X X X X X X X U",
-            german = "",
+            german = "In den Wäldern, im Haus eines Einsiedlers, wirst du mich finden. \n X X X X X X X X X X U",
             before = 10,
             after = 11},
             {location = position(820, 94, 0),
             english = "Your thirst for knowledge is like that of which a man lost in the desert will face. Oddly apt, as you would both find what you seek in the very same place. \n X X X X X X A X X X X",
-            german = "",
+            german = "Dein Wissensdurst ist wie der eines Mannes, der sich in der Wüste verirrt hat. Seltsam treffend, denn du würdest beides was du suchst am selben Ort finden. \n X X X X X X A X X X X",
             before = 12,
             after = 13},
             {location = position(386, 671, 0),
             english = "Give praise to the gods of old, and you will find. It can be rewarding, doing what you're told. \n X X X X X X X X T",
-            german = "",
+            german = "Lobt die Götter der Vergangenheit, und du wirst es finden. Es kann lohnend sein, das zu tun, was man dir sagt. \n X X X X X X X X X T",
             before = 14,
             after = 15},
             {location = position(570, 127, 0),
             english = "Now for the final answer, you will have to combine. What you've learned so far, into one mind. \n X X X X X X X X X X T",
-            german = "",
+            german = "Für die endgültige Antwort musst du nun alles kombinieren. Das was du bisher gelernt hast, zu einem Gedanken zusammenfügen. \n X X X X X X X X X X X T",
             before = 16,
             after = 17},
         }
     },
     lhorPuzzle = {
         english = "My coat is dark as the night, my home shines like the sun. When Nargun is playing tricks, I'll be there. What am I? Speak my name out loud, and knowledge shall be granted to you.",
-        german = ""
+        german = "Mein Mantel ist dunkel wie die Nacht, mein Haus scheint wie die Sonne. Wenn Nargun Streiche spielt, werde ich da sein. Was bin ich? Sprich meinen Namen laut aus, und die Weisheit wird dir gewährt werden."
     },
     lukPuzzle = {
         denounce = {
             english = "Will you denounce the fallen god in the name of knowledge?",
-            german = "",
+            german = "Wirst du den gefallenen Gott im Namen des Wissens verdammen?",
             yes = {
                 english = "Denounce Moshran",
-                german = ""
+                german = "Veruteile Moshran"
             },
             no = {
                 english = "Praise Moshran",
-                german = ""
+                german = "Lobpreise Moshran"
             },
             denounced = {
                 english = "You did well by denouncing that evil. Go reap your reward, if you haven't already.",
-                german = ""
+                german = "Du hast gut daran getan, dieses Übel zu verurteilen. Geh und hol dir deine Belohnung - wenn du es nicht schon getan hast."
             },
             praised = {
                 english = "You've already praised Moshran. It is too late to take back this offense now.",
-                german = ""
+                german = "Du hast Moshran bereits gelobt. Jetzt ist es zu spät, diese Tat zurückzunehmen."
             }
         },
         denounced = {
             english = "As you touch the orb, an ethereal feeling of good-will seems to reach out from the void, making it light up. Could it be the gods approving of your actions?",
-            german = ""
+            german = "Als du die Kugel berührst, scheint ein überirdisches Gefühl des guten Willens aus der Leere zu kommen und sie zum Leuchten zu bringen. Könnte es sein, dass die Götter dein Handeln gutheißen?"
         },
         praised = {
             english = "As you touch the orb, an ethereal entity radiating hostility seems to reach out from the void in an attempt to prevent the orb from lighting up. However, at the same moment, a separate ethereal entity reaches out from the nearby altar, overpowering the first entity and lighting up the sphere.",
-            german = ""
+            german = "Als du die Kugel berührst, scheint ein feindseliges Wesen aus der Leere zu kommen und zu versuchen, die Kugel am Aufleuchten zu hindern. Doch im selben Moment greift ein anderes übernatürliches Wesen aus dem nahegelegenen Altar hervor, überwältigt das erste Wesen und bringt die Kugel zum Leuchten."
         },
         denouncedInform = {
             english = "You denounce Moshran. You feel like the gods look more favourably upon you already.",
-            german = ""
+            german = "Du verurteilst Moshran. Du hast das Gefühl, dass die Götter bereits wohlwollender auf dich schauen."
         },
         praisedInform = {
             english = "You praised Moshran. Oh you anarchist you, what have you done?",
-            german = ""
+            german = "Du hast Moshran gelobt. Oh, du Anarchist, du, was hast du getan?"
         }
     },
     phercPuzzle = {
         english = "If knowledge you seek, blood you must spill. Come on; give it a try, it might just be an unexpected thrill.",
-        german = ""
+        german = "Wenn du Wissen suchst, musst du Blut vergießen. Komm schon, versuch es, es könnte ein unerwarteter Nervenkitzel sein."
     },
     qwanPuzzle = {
         fail = {
             english = "The lever refuses to budge. It would seem you may need the aid of someone stronger if you want to proceed.",
-            german = ""
+            german = "Der Hebel weigert sich sich zu bewegen. Es sieht so aus als bräuchtest du die Hilfe von jemandem, der stärker ist, wenn du weitermachen willst."
         },
         success = {
             english = "Using all your strength, you barely manage to move the lever.",
-            german = ""
+            german = "Mit aller Kraft schaffst du es gerade noch, den Hebel zu bewegen."
         }
 
     },
     savPuzzle = {
         english = "I lost my darling pet Bunbun! She should be across this sea of lava! If you want my knowledge, help me find her and bring her safely here!",
-        german = "",
+        german = "Ich habe mein liebes Haustier Bunbun verloren! Sie sollte auf der anderen Seite dieses Lavameers sein! Wenn du mein Wissen willst, hilf mir, sie zu finden und sicher hierher zu bringen!",
         noSpider = {
             english = "As you activate the mechanism, you notice a small spider is forced out of its hole. Could this actually be Bunbun?",
-            german = ""
+            german = "Als du den Mechanismus aktivierst, bemerkst du, dass eine kleine Spinne aus ihrem Loch herauskommt. Könnte das tatsächlich Bunbun sein?"
         },
         spiderExists = {
             english = "Nothing happened. Bunbun must already be out here somewhere.",
-            german = ""
+            german = "Es ist nichts passiert. Bunbun muss schon irgendwo hier draußen sein."
         }
     },
     sihPuzzle = {
         english = "Recipe for holy water:\nTwo parts the mother's water, the purest kind.\nOne part water that heals with utmost efficiency.",
-        german = "",
+        german = "Rezept für Weihwasser:\nZwei Teile Wasser der Mutter, die reinste Art.\nEin Teil Wasser, das mit höchster Effizienz heilt.",
         lizardish = {
             english = "All you see are clawmarks that form various symbols. Maybe a lizardman could help you decipher it?",
-            german = ""
+            german = "Alles was du siehst sind Kratzspuren die verschiedene Symbole bilden. Vielleicht kann dir ein Echsenmensch helfen, sie zu entziffern?"
         }
     },
     yegPuzzle = {
         english = "If it is my knowledge you seek, face me while wielding a weapon many might despise as dishonorable. Only a slow, torterous death can satisfy my cravings.",
-        german = ""
+        german = "Wenn es mein Wissen ist das du suchst, dann stelle dich mir während du eine Waffe schwingst, die viele als unehrenhaft verachten würden. Nur ein langsamer, qualvoller Tod kann meine Begierde stillen."
     },
     tahPuzzle = {
         english = "What word is always pronounced wrong? Though before you answer this riddle, bear in mind that sometimes things are the opposite of what they might seem.",
-        german = ""
+        german = "Welches Wort wird immer falsch ausgesprochen? Bevor du dieses Rätsel beantwortest, solltest du bedenken, dass die Dinge manchmal das Gegenteil von dem sind, was sie zu sein scheinen."
     },
     sulPuzzle = {
         english = "Look at you! Only skin and bones, no meat! You know those of the family Epphurd buried in these tombs were not buried with just their heavy possessions, but their heavy bodies too! Go put on some weight, one way or the other!",
-        german = ""
+        german = "Sieh dich an! Nur Haut und Knochen, kein Fleisch! Du weißt, dass die Angehörigen der Familie Epphurd, die in diesen Gräbern begraben sind, nicht nur mit ihren schweren Besitztümern, sondern auch mit ihren schweren Körpern begraben wurden! Geh und nimm etwas zu, so oder so!"
     },
     taurPuzzle = {
         english = "What kind of creature walks on four legs in the morning, two legs in the afternoon and three in the evening?",
-        german = ""
+        german = "Welches Lebewesen geht morgens auf vier Beinen, nachmittags auf zwei und abends auf drei Beinen?"
     },
     uraPuzzle = {
         english = "These noble creatures stand TOWERING as they SHIELD the EARTH on which you stand. Bring them an offering with a PURE mind and they might just impart the knowledge of nature of which you seek.",
-        german = ""
+        german = "Diese edlen Kreaturen stehen TÜRMEND da und SCHILDEN die ERDE, auf der du stehst. Bringe ihnen ein Opfer mit einem REINEN Geist und sie könnten dir das Wissen über die Natur vermitteln, das du suchst."
     },
     --item/books.lua
     grimoire = {
