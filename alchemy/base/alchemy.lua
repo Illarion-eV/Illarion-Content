@@ -225,6 +225,8 @@ M.potionName[551] = {"Shape Shifter Female Lizardman","Verwandler Weiblicher Ech
 setPotion(551, 449, 23417592, 766, 162, 760, 767, false, false, false, false)
 M.potionName[560] = {"Shape Shifter Dog","Verwandler Hund"}
 setPotion(560, 449, 31397191, 766, 152, 81, 81, 762, false, false, false)
+M.potionName[561] = {"Shape Shifter Small Spider","Verwandler Kleine Spinne"}
+setPotion(561, 449, 71526316, 766, 155, 147, 147, 757, false, false, false)
 -- transformation potions end
 
 --language potions
@@ -605,6 +607,23 @@ function M.EmptyBottle(User,Bottle)
     end
 end
 
+M.brewingPermissions = { --temporary manual table for brewing permissions until Jupiter has implemented his system for teaching your own created recipes to others
+    {effect = 561, users = {"admin", "Amanda Brightrim"}} -- "admin" is set as the creator of admin created potions via gm tool
+}
+
+local function checkBrewingPermissions(fromItem)
+    for _, currentPotion in pairs(M.brewingPermissions) do --Go through the list of brewing permissions
+        if fromItem:getData("potionEffectId") == currentPotion.effect then --Check if potion requires permissions
+            for _, currentUser in pairs(currentPotion.users) do -- Go through list of users with permissions
+                if fromItem:getData("creator") == currentUser then --If user who created the potion(added the gemdust) is on the list, permissions are granted
+                    return true
+                end
+            end
+            return false
+        end
+    end
+end
+
 function M.FillFromTo(fromItem,toItem)
     -- copies all datas (and quality and id) from fromItem to toItem
     for i=1,8 do
@@ -632,6 +651,12 @@ function M.FillFromTo(fromItem,toItem)
     if toItem.id >= 1008 and toItem.id <= 1018 then
         toItem.id = reCauldron
     else
+        local hasPermission = checkBrewingPermissions(fromItem)
+
+        if not hasPermission then
+            toItem:setData("potionEffectId", 0)
+        end
+
         toItem.id = reBottle
     end
     world:changeItem(toItem)
@@ -794,11 +819,9 @@ function M.CombineStockEssence( User, stock, essenceBrew)
         M.RemoveAll(cauldron)
         M.SetQuality(User,cauldron)
         cauldron.id = newCauldron
-        debug("effect id 2: "..effectID)
         cauldron:setData("potionEffectId", ""..effectID)
         cauldron:setData("filledWith", "potion")
         world:changeItem(cauldron)
-        debug("effect id after adding: "..cauldron:getData("potionEffectId"))
         world:makeSound(13,cauldron.pos)
         world:gfx(52,cauldron.pos)
         -- and learn!
