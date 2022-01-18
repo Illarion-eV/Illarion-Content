@@ -24,6 +24,48 @@ local increaseArea = require("magic.arcane.harvestFruit")
 
 local M = {}
 
+
+function M.qwanPuzzle(user, sourceItem)
+
+    local leverPulled
+
+    local lever = position(240, 776, 1)
+
+    if lever == sourceItem.pos then
+        leverPulled = true
+    end
+
+    local lever1 = 436
+    local lever2 = 434
+    local lever3 = 437
+    local lever4 = 439
+
+    if leverPulled then
+        local strength = user:increaseAttrib("strength", 0)
+        if strength >= 15 then
+            local newLeverId
+
+            if sourceItem.id == lever1 then
+                newLeverId = lever2
+            elseif sourceItem.id == lever2 then
+                newLeverId = lever1
+            elseif sourceItem.id == lever3 then
+                newLeverId = lever4
+            elseif sourceItem.id == lever4 then
+                newLeverId = lever3
+            end
+            sourceItem.id = newLeverId
+            world:changeItem(sourceItem)
+            ScriptVars:set("qwanActivate", 1)
+            ScriptVars:save()
+            user:inform(texts.qwanPuzzle.success.german, texts.qwanPuzzle.success.english)
+        else
+            user:inform(texts.qwanPuzzle.fail.german, texts.qwanPuzzle.fail.english)
+        end
+    end
+
+end
+
 local function passesPhercPuzzle()
 
     local mainPos = position(80, 431, -6)
@@ -1039,6 +1081,15 @@ local function checkIfCriteriaMet(user, rune)
     elseif rune == "Pherc" then
         if passesPhercPuzzle() then
             retVal = true
+        end
+    elseif rune == "Qwan" then
+        local success, qwanActivate = ScriptVars:find("qwanActivate")
+        if success then
+            if tonumber(qwanActivate) == 1 then
+                ScriptVars:set("qwanActivate", 0)
+                ScriptVars:save()
+                retVal = true
+            end
         end
     else --Any remaining puzzles will only require you to find, get to and use the sphere to activate it
         retVal = true

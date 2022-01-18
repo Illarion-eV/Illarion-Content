@@ -318,6 +318,7 @@ function M.UseItem(User, SourceItem, ltstate)
     end
 
     magicSphere.peraPuzzle(User, SourceItem)
+    magicSphere.qwanPuzzle(User, SourceItem)
 
     local key = SourceItem.pos.x * 1024 * 1024 + SourceItem.pos.y * 1024 + SourceItem.pos.z
     if leverList[key] ~= nil then

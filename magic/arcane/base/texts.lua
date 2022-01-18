@@ -806,9 +806,9 @@ local M = {
                 english = "Mysterious Sphere",
                 german = "Mysteriöse Sphäre"},
             description = {
-                english = "",
+                english = "Within the sphere lies a lone, huge-looking boulder... or is it a pebble?",
                 german = ""},
-            location = position(0,0,0)},
+            location = position(241, 776, 1)},
         Sav = {rune = "Sav",
             hint = {
                 english = "In a firey castle where dragons reside below.",
@@ -1188,6 +1188,17 @@ local M = {
     phercPuzzle = {
         english = "If knowledge you seek, blood you must spill. Come on; give it a try, it might just be an unexpected thrill.",
         german = ""
+    },
+    qwanPuzzle = {
+        fail = {
+            english = "The lever refuses to budge. It would seem you may need the aid of someone stronger if you want to proceed.",
+            german = ""
+        },
+        success = {
+            english = "Using all your strength, you barely manage to move the lever.",
+            german = ""
+        }
+
     },
     --item/books.lua
     grimoire = {
