@@ -21,6 +21,7 @@ local texts = require("magic.arcane.base.texts")
 local teaching = require("magic.arcane.teaching")
 local runes = require("magic.arcane.runes")
 local increaseArea = require("magic.arcane.harvestFruit")
+local monsterHooks = require("monster.base.hooks")
 
 local M = {}
 
@@ -30,6 +31,10 @@ local function savPuzzleSolved()
 
     for _, monster in pairs(monsters) do
         if monster.name == "Small Spider" then
+            monster:warp(position(0, 0, 0))
+            monsterHooks.setForcedDeath(monster)
+            monster:increaseAttrib("hitpoints", -10000)
+            monsterHooks.cleanHooks(monster)
             return true
         end
     end
