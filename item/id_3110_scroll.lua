@@ -133,6 +133,11 @@ local function magicInfo(user, sourceItem)
         return true
     end
 
+    if sourceItem.pos == position(823, 160, 0) then
+        magicSphere.uraInfo(user)
+        return true
+    end
+
     return false
 end
 

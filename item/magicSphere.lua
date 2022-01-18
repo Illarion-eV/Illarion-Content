@@ -26,6 +26,62 @@ local characterLoad = require("triggerfield.zelphiasStream")
 
 local M = {}
 
+local function uraPuzzleSolved()
+
+    local towerShields = {Item.steelTowerShield, Item.legionnairesTowerShield, Item.ornateTowerShield}
+
+    local earth = Item.pureEarth
+
+    local earthFound = false
+
+    local shieldFound = false
+
+    local plate1 = position(826, 156, 0)
+    local plate2 = position(828, 156, 0)
+
+    local field1 = world:getField(plate1)
+    local field2 = world:getField(plate2)
+
+    local itemsOnField1 = field1:countItems()
+    local itemsOnField2 = field2:countItems()
+
+    local currentItem
+
+    for i = 0, itemsOnField1-1 do
+        currentItem = field1:getStackItem(i)
+        if currentItem.id == earth then
+            earthFound = true
+            break
+        end
+        for _, shield in pairs(towerShields) do
+            if currentItem.id == shield then
+                shieldFound = true
+                break
+            end
+        end
+    end
+    for i = 0, itemsOnField2-1 do
+        currentItem = field2:getStackItem(i)
+        if currentItem.id == earth then
+            earthFound = true
+            break
+        end
+        for _, shield in pairs(towerShields) do
+            if currentItem.id == shield then
+                shieldFound = true
+                break
+            end
+        end
+    end
+
+    if earthFound and shieldFound then
+        return true
+    end
+
+    return false
+
+end
+
 local function passesSulPuzzle(user)
 
     local maxLoad = characterLoad.getMaximumLoad(user)
@@ -1379,6 +1435,10 @@ local function checkIfCriteriaMet(user, rune)
         end
     elseif rune == "Sul" then
         if passesSulPuzzle(user) then
+            retVal = true
+        end
+    elseif rune == "Ura" then
+        if uraPuzzleSolved() then
             retVal = true
         end
     else --Any remaining puzzles will only require you to find, get to and use the sphere to activate it

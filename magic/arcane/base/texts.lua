@@ -869,12 +869,12 @@ local M = {
                 english = "Where the guardians of nature reside",
                 german = "Dort wo die Hüter der Natur wohnen."},
             name = {
-                english = "Mysterious Sphere",
-                german = "Mysteriöse Sphäre"},
-            description = {
-                english = "",
+                english = "Mysterious Mossy Sphere",
                 german = ""},
-            location = position(0,0,0)},
+            description = {
+                english = "Within the sphere you can see the picturesque image of nature in its barest, most untouched form.",
+                german = ""},
+            location = position(827 , 156, 0)},
         Yeg = {rune = "Yeg",
             hint = {
                 english = "Muddy, grimey and full of despair. This place is not natural, of death beware.",
