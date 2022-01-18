@@ -1145,7 +1145,7 @@ local M = {
     },
     lhorPuzzle = {
         english = "My coat is dark as the night, my home shines like the sun. When Nargun is playing tricks, I'll be there. What am I? Speak my name out loud, and knowledge shall be granted to you.",
-        german = "Mein Mantel ist dunkel wie die Nacht, mein Haus scheint wie die Sonne. Wenn Nargun Streiche spielt, werde ich da sein. Was bin ich? Sprich meinen Namen laut aus, und die Weisheit wird dir gewährt werden."
+        german = "Mein Mantel ist dunkel wie die Nacht, mein Heim funkelt wie die Sonne. Wenn Nargun Streiche spielt, werde ich da sein. Was bin ich? Sprich meinen Namen laut aus, und die Weisheit wird dir gewährt werden."
     },
     lukPuzzle = {
         denounce = {
