@@ -304,31 +304,32 @@ function M.init()
     AddToLevers(ThroneRoom)
 end
 
-function M.UseItem(User, SourceItem, ltstate)
+function M.UseItem(user, sourceItem, ltstate)
 
-    if SourceItem:getData("oldSlimeFeeding") == "true" then
-        oldSlimeFeeding.useLever(User, SourceItem)
+    if sourceItem:getData("oldSlimeFeeding") == "true" then
+        oldSlimeFeeding.useLever(user, sourceItem)
     end
-    if SourceItem:getData("volcanoTreasure") == "true" then
-        volcano_chest.useLever(User, SourceItem)
-    end
-
-    if magicSphere.leverPosCheck(SourceItem) then
-        magicSphere.useLever(User, SourceItem)
+    if sourceItem:getData("volcanoTreasure") == "true" then
+        volcano_chest.useLever(user, sourceItem)
     end
 
-    magicSphere.peraPuzzle(User, SourceItem)
-    magicSphere.qwanPuzzle(User, SourceItem)
+    if magicSphere.leverPosCheck(sourceItem) then
+        magicSphere.useLever(user, sourceItem)
+    end
 
-    local key = SourceItem.pos.x * 1024 * 1024 + SourceItem.pos.y * 1024 + SourceItem.pos.z
+    magicSphere.peraPuzzle(user, sourceItem)
+    magicSphere.qwanPuzzle(user, sourceItem)
+    magicSphere.checkForSpider(user, sourceItem)
+
+    local key = sourceItem.pos.x * 1024 * 1024 + sourceItem.pos.y * 1024 + sourceItem.pos.z
     if leverList[key] ~= nil then
-        leverList[key]:switchLever(User)
+        leverList[key]:switchLever(user)
     end
 end
 
-function M.LookAtItem(User, Item)
+function M.LookAtItem(user, Item)
 
-    return lookat.GenerateLookAt(User, Item, lookat.NONE)
+    return lookat.GenerateLookAt(user, Item, lookat.NONE)
 end
 
 return M

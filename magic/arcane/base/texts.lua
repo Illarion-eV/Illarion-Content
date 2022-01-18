@@ -817,9 +817,9 @@ local M = {
                 english = "Mysterious Sphere",
                 german = "Mysteriöse Sphäre"},
             description = {
-                english = "",
+                english = "Within the orb you can see a majestic looking shield.",
                 german = ""},
-            location = position(0,0,0)},
+            location = position(111 , 887, -3)},
         Sih = {rune = "Sih",
             hint = {
                 english = "Near water claimed by some to be capable of healing your very soul.",
@@ -1199,6 +1199,18 @@ local M = {
             german = ""
         }
 
+    },
+    savPuzzle = {
+        english = "I lost my darling pet Bunbun! She should be across this sea of lava! If you want my knowledge, help me find her and bring her safely here!",
+        german = "",
+        noSpider = {
+            english = "As you activate the mechanism, you notice a small spider is forced out of its hole. Could this actually be Bunbun?",
+            german = ""
+        },
+        spiderExists = {
+            english = "Nothing happened. Bunbun must already be out here somewhere.",
+            german = ""
+        }
     },
     --item/books.lua
     grimoire = {

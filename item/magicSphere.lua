@@ -24,6 +24,85 @@ local increaseArea = require("magic.arcane.harvestFruit")
 
 local M = {}
 
+local function savPuzzleSolved()
+
+    local monsters = world:getMonstersInRangeOf(position(111, 887, -3), 3)
+
+    for _, monster in pairs(monsters) do
+        if monster.name == "Small Spider" then
+            return true
+        end
+    end
+
+    return false
+
+end
+
+function M.savInfo(user)
+
+    local callback = function(dialog)
+    end
+
+    local dialog = MessageDialog("", common.GetNLS(user, texts.savPuzzle.german, texts.savPuzzle.english), callback)
+
+    user:requestMessageDialog(dialog)
+
+end
+
+function M.checkForSpider(user, sourceItem)
+
+    local leverPulled
+
+    local lever = position(111, 850, -3)
+
+    if lever == sourceItem.pos then
+        leverPulled = true
+    end
+
+    if not leverPulled then
+        return
+    end
+
+    local lever1 = 436
+    local lever2 = 434
+    local lever3 = 437
+    local lever4 = 439
+
+    local newLeverId
+
+    if sourceItem.id == lever1 then
+        newLeverId = lever2
+    elseif sourceItem.id == lever2 then
+        newLeverId = lever1
+    elseif sourceItem.id == lever3 then
+        newLeverId = lever4
+    elseif sourceItem.id == lever4 then
+        newLeverId = lever3
+    end
+
+    sourceItem.id = newLeverId
+    world:changeItem(sourceItem)
+
+    local centerCoord = position(112, 874, -3)
+    local range = 25
+    local spawnCoord = position(108, 852, -3)
+    local spiderFound = false
+
+    local monsters = world:getMonstersInRangeOf(centerCoord, range)
+
+    for _, monster in pairs(monsters) do
+        if monster.name == "Small Spider" then
+            spiderFound = true
+        end
+    end
+
+    if spiderFound then
+        user:inform(texts.savPuzzle.spiderExists.german, texts.savPuzzle.spiderExists.english)
+    else
+        user:inform(texts.savPuzzle.noSpider.german, texts.savPuzzle.noSpider.english)
+        world:createMonster(196, spawnCoord, 0)
+    end
+end
 
 function M.qwanPuzzle(user, sourceItem)
 
@@ -906,7 +985,9 @@ local portalLocations = {
     {destination = position(855, 242, -3), origin = position(749, 321, 0), lever = position(750, 321, 0)},
     {destination = position(749, 322, 0), origin = position(856, 242, -3), lever = position(855, 243, -3)},
     {destination = position(181, 809, -3), origin = position(230, 711, 0), lever = position(229, 711, 0)},
-    {destination = position(230, 712, 0), origin = position(180, 809, -3), lever = position(180, 808, -3)}
+    {destination = position(230, 712, 0), origin = position(180, 809, -3), lever = position(180, 808, -3)},
+    {destination = position(116, 893, -3), origin = position(800, 658, 2), lever = position(801, 657, 2)},
+    {destination = position(801, 658, 2), origin = position(118, 893, -3), lever = position(117, 892, -3)}
 }
 
 local function createPortal(user, portalPos)
@@ -1090,6 +1171,10 @@ local function checkIfCriteriaMet(user, rune)
                 ScriptVars:save()
                 retVal = true
             end
+        end
+    elseif rune == "Sav" then
+        if savPuzzleSolved() then
+            retVal = true
         end
     else --Any remaining puzzles will only require you to find, get to and use the sphere to activate it
         retVal = true
