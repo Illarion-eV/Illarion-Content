@@ -55,9 +55,12 @@ local function puzzleTriggers(player, text)
         end
     end
 
-    if string.find(text, "man") then
-        if magicSphere.checkTaurPosition(player) then
-            magicSphere.taurActivate = true
+    local man = {"man", "Man", "mensch", "Mensch"}
+    for _, variation in pairs(man) do
+        if string.find(text, variation) then
+            if magicSphere.checkTaurPosition(player) then
+                magicSphere.taurActivate = true
+            end
         end
     end
 
