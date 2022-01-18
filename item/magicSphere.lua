@@ -25,6 +25,30 @@ local monsterHooks = require("monster.base.hooks")
 
 local M = {}
 
+local function passesYegPuzzle(user)
+
+    local poisonedWeapons = {549, 2635, 2636, 2655, 2668, 2689, 2694, 2705, 2725}
+
+    for _, weapon in pairs(poisonedWeapons) do
+        if user:countItemAt("body", weapon) > 0 then
+            return true
+        end
+    end
+
+    return false
+end
+
+function M.yegInfo(user)
+
+    local callback = function(dialog)
+    end
+
+    local dialog = MessageDialog("", common.GetNLS(user, texts.yegPuzzle.german, texts.yegPuzzle.english), callback)
+
+    user:requestMessageDialog(dialog)
+
+end
+
 local function passesSihPuzzle()
     local platePos1 = position(782, 263, -8)
     local platePos2 = position(784, 263, -8)
@@ -1259,6 +1283,10 @@ local function checkIfCriteriaMet(user, rune)
         end
     elseif rune == "Sih" then
         if passesSihPuzzle() then
+            retVal = true
+        end
+    elseif rune == "Yeg" then
+        if passesYegPuzzle(user) then
             retVal = true
         end
     else --Any remaining puzzles will only require you to find, get to and use the sphere to activate it

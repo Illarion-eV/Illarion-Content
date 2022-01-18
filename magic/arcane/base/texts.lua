@@ -883,9 +883,9 @@ local M = {
                 english = "Mysterious Sphere",
                 german = "Mysteriöse Sphäre"},
             description = {
-                english = "",
+                english = "Peering into the sphere, a vision of death and decay meet you. Are you just imagining it, or can you also hear the terrifying wails of the tortured dead?",
                 german = ""},
-            location = position(0,0,0)},
+            location = position(793, 576, 0)},
         Pera = {rune = "Pera",
             hint = {
                 english = "Found in a place where a competition of speed is famously held.",
@@ -1219,6 +1219,10 @@ local M = {
             english = "All you see are clawmarks that form various symbols. Maybe a lizardman could help you decipher it?",
             german = ""
         }
+    },
+    yegPuzzle = {
+        english = "If it is my knowledge you seek, face me while wielding a weapon many might despise as dishonorable. Only a slow, torterous death can satisfy my cravings.",
+        german = ""
     },
     --item/books.lua
     grimoire = {
