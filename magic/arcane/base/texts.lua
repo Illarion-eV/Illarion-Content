@@ -792,12 +792,12 @@ local M = {
                 english = "The pain of the desert heat is nigh as high as the pain of their axes.",
                 german = "Der Schmerz der Wüstenhitze ist fast so groß wie der Schmerz der Axt!"},
             name = {
-                english = "Mysterious Sphere",
-                german = "Mysteriöse Sphäre"},
-            description = {
-                english = "",
+                english = "Mysterious Bloody Sphere",
                 german = ""},
-            location = position(0,0,0)},
+            description = {
+                english = "A grotesque scene full of blood and gore meet you as you peer into the sphere.",
+                german = ""},
+            location = position(80, 431, -6)},
         Qwan = {rune = "Qwan",
             hint = {
                 english = "On a mountain up high, where creatures of stone reside.",
@@ -1184,6 +1184,10 @@ local M = {
             english = "You praised Moshran. Oh you anarchist you, what have you done?",
             german = ""
         }
+    },
+    phercPuzzle = {
+        english = "If knowledge you seek, blood you must spill. Come on; give it a try, it might just be an unexpected thrill.",
+        german = ""
     },
     --item/books.lua
     grimoire = {

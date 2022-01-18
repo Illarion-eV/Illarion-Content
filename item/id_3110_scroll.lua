@@ -103,6 +103,11 @@ local function magicInfo(user, sourceItem)
         return true
     end
 
+    if sourceItem.pos == position(84, 433, -6) then
+        magicSphere.phercInfo(user)
+        return true
+    end
+
     return false
 end
 

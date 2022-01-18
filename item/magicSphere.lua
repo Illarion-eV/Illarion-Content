@@ -24,6 +24,43 @@ local increaseArea = require("magic.arcane.harvestFruit")
 
 local M = {}
 
+local function passesPhercPuzzle()
+
+    local mainPos = position(80, 431, -6)
+    local positionsToCheck = increaseArea.increaseArea(mainPos)
+    local bloodFound = false
+    local blood = 3101 -- blood spot, has no Item.name in database
+    local substitute = Item.heartBlood
+
+    for _, currentPos in pairs(positionsToCheck) do
+        local field = world:getField(currentPos.position)
+        local itemsOnField = field:countItems()
+        local currentItem
+
+        for i = 0, itemsOnField-1 do
+            currentItem = field:getStackItem(i)
+            if currentItem.id == blood or currentItem.id == substitute then
+                bloodFound = true
+                break
+            end
+        end
+    end
+
+    return bloodFound
+
+end
+
+function M.phercInfo(user)
+
+    local callback = function(dialog)
+    end
+
+    local dialog = MessageDialog("", common.GetNLS(user, texts.phercPuzzle.german, texts.phercPuzzle.english), callback)
+
+    user:requestMessageDialog(dialog)
+
+end
+
 function M.lukPuzzle(user)
 
     local germanText
@@ -998,6 +1035,10 @@ local function checkIfCriteriaMet(user, rune)
         elseif progress == 2 then
             user:inform(texts.lukPuzzle.praised.german, texts.lukPuzzle.praised.english)
             return true
+        end
+    elseif rune == "Pherc" then
+        if passesPhercPuzzle() then
+            retVal = true
         end
     else --Any remaining puzzles will only require you to find, get to and use the sphere to activate it
         retVal = true
