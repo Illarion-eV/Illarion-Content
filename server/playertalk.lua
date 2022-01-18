@@ -35,6 +35,16 @@ local function puzzleTriggers(player, text)
         end
     end
 
+    local raven = {"Raven", "raven", "Rabe", "rabe"}
+
+    for _, variation in pairs(raven) do
+        if string.find(text, variation) then
+            if magicSphere.checkLhorPosition(player) then
+                magicSphere.lhorActivate = true
+            end
+        end
+    end
+
 
 end
 

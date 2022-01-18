@@ -93,6 +93,11 @@ local function magicInfo(user, sourceItem)
         return true
     end
 
+    if sourceItem.pos == position(782, 438, 0) then
+        magicSphere.lhorInfo(user)
+        return true
+    end
+
     return false
 end
 

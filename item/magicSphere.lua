@@ -24,6 +24,40 @@ local increaseArea = require("magic.arcane.harvestFruit")
 
 local M = {}
 
+function M.checkLhorPosition(user)
+
+    local lhorPosition = position(781, 438, 0)
+
+    local distance = 10
+
+    local biggerX =  user.pos.x > lhorPosition.x + distance
+    local smallerX = user.pos.x < lhorPosition.x - distance
+    local biggerY =  user.pos.y > lhorPosition.y + distance
+    local smallerY = user.pos.y < lhorPosition.y - distance
+
+    if user.pos.z ~= lhorPosition.z then
+        return false
+    end
+
+    if biggerX or smallerX or biggerY or smallerY then
+        return false
+    end
+
+    return true
+
+end
+
+function M.lhorInfo(user)
+
+    local callback = function(dialog)
+    end
+
+    local dialog = MessageDialog("", common.GetNLS(user, texts.lhorPuzzle.german, texts.lhorPuzzle.english), callback)
+
+    user:requestMessageDialog(dialog)
+end
+
+
 local function bhonaMessageDialogue(user, germanText, englishText)
 
     local callback = function(dialog)
@@ -390,16 +424,16 @@ end
 
 function M.checkIraPosition(user)
 
-    local penPosition = position(473, 746, -3)
+    local iraPosition = position(473, 746, -3)
 
     local distance = 10
 
-    local biggerX =  user.pos.x > penPosition.x + distance
-    local smallerX = user.pos.x < penPosition.x - distance
-    local biggerY =  user.pos.y > penPosition.y + distance
-    local smallerY = user.pos.y < penPosition.y - distance
+    local biggerX =  user.pos.x > iraPosition.x + distance
+    local smallerX = user.pos.x < iraPosition.x - distance
+    local biggerY =  user.pos.y > iraPosition.y + distance
+    local smallerY = user.pos.y < iraPosition.y - distance
 
-    if user.pos.z ~= penPosition.z then
+    if user.pos.z ~= iraPosition.z then
         return false
     end
 
@@ -899,6 +933,11 @@ local function checkIfCriteriaMet(user, rune)
         end
     elseif rune == "BHONA" then
         if user:getQuestProgress(7019) == 18 then
+            retVal = true
+        end
+    elseif rune == "Lhor" then
+        if M.lhorActivate then
+            M.lhorActivate = false
             retVal = true
         end
     else --Any remaining puzzles will only require you to find, get to and use the sphere to activate it

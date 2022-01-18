@@ -751,9 +751,9 @@ local M = {
                 english = "Mysterious Sphere",
                 german = "Mysteriöse Sphäre"},
             description = {
-                english = "",
+                english = "An illusory raven is sat inside the sphere, cleaning its wings with its beak.",
                 german = ""},
-            location = position(0,0,0)},
+            location = position(781, 438, 0)},
         Luk = {rune = "Luk",
             hint = {
                 english = "Among hostile elves, down down we go.",
@@ -1142,6 +1142,10 @@ local M = {
             before = 16,
             after = 17},
         }
+    },
+    lhorPuzzle = {
+        english = "My coat is dark as the night, my home shines like the sun. When Nargun is playing tricks, I'll be there. What am I? Speak my name out loud, and knowledge shall be granted to you.",
+        german = ""
     },
     --item/books.lua
     grimoire = {
