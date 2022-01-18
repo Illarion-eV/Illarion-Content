@@ -34,6 +34,19 @@ local function checkPlatePosition(item)
     return false
 end
 
+local function checkPlatePositionTwo(item)
+
+    local plates = {position(826, 156, 0), position(828, 156, 0), position(782, 263, -8), position(784, 263, -8), position(793, 803, 0), position(793, 804, 0), position(793, 805, 0), position(735,317,0)}
+
+    for _, plate in pairs(plates) do
+        if item.pos == plate then
+            return true
+        end
+    end
+
+    return false
+end
+
 local function getHint(item)
 
     for _, hint in pairs(hints) do
@@ -70,12 +83,15 @@ end
 function M.LookAtItem(user, item)
 
     local offeringPlate = checkPlatePosition(item)
+    local offeringPlate2 =  checkPlatePositionTwo(item)
 
     local lookAt = lookat.GenerateLookAt(user, item)
 
-    if offeringPlate then
+    if offeringPlate2 then
         lookAt.name = common.GetNLS(user, plateText.name.german, plateText.name.english)
-        lookAt.description = common.GetNLS(user, plateText.description.german, plateText.description.english)
+        if offeringPlate then
+            lookAt.description = common.GetNLS(user, plateText.description.german, plateText.description.english)
+        end
     end
 
     return lookAt
