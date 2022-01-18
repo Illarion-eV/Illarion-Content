@@ -48,6 +48,11 @@ local function statReqMet(user, spell)
 end
 
 function M.castSpell(user, spell, actionState, oralCast)
+    if not oralCast then
+        incantation.speakIncantation(user, spell)
+        return
+    end
+
     local positionsAndTargets = targeting.getPositionsAndTargets(user, spell)
 
     if not positionsAndTargets then --rarely happens if you try to cast immediately after an !fr, also happens if you cast a PEN Lev spell after expiry
@@ -71,9 +76,6 @@ function M.castSpell(user, spell, actionState, oralCast)
     local myTexts = texts.castSpellTexts
 
     if actionState == Action.none then
-        if not oralCast then
-            incantation.speakIncantation(user, spell)
-        end
         if not statReqMet(user, spell) then
             --If stats are lowered below the threshhold to learn a rune, whether through a trainer, a potion or something else
             user:inform(myTexts.stats.german, myTexts.stats.english)
@@ -114,7 +116,7 @@ function M.castSpell(user, spell, actionState, oralCast)
                 delayedAttack.spellEffects(user, positionsAndTargets, spell, element)
             end
         else
-            teaching.teachRune(user, positionsAndTargets, spell, oralCast)
+            teaching.teachRune(user, positionsAndTargets, spell)
         end
     end
 end

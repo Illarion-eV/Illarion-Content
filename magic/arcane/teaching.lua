@@ -156,7 +156,7 @@ end
 
 local myTexts = texts.teachingTexts
 
-local function teachingCheck(user, target, spell, oralCast)
+local function teachingCheck(user, target, spell)
     local manaCost = 5000
     local runeToTeach = getRuneToTeach(spell)
     M.checkForExpiredCooldowns(user)
@@ -200,7 +200,7 @@ local function teachingCheck(user, target, spell, oralCast)
     return
 end
 
-function M.teachRune(user, targets, spell, oralCast)
+function M.teachRune(user, targets, spell)
 local target = targets.targetToTeach
     if not target then
         user:inform(myTexts.target.german, myTexts.target.english)

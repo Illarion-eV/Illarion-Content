@@ -135,8 +135,7 @@ local function addRunesToSpell(user, spokenWords, primaryRune)
 end
 
 local function castMagic(user, actionState, spell, portal)
-
-    local oralCast = { spell = spell, portal = portal}
+    local oralCast = {spatial = portal}
     if spell or portal then
         if user:getQuestProgress(37) == 0 then --checking a quest status every time a character speaks will likely cause more lag than the other checks, hence why its the final check
             return -- user is not a mage
@@ -152,24 +151,25 @@ local function castMagic(user, actionState, spell, portal)
 end
 
 function M.checkForMagicIncantations(user, actionState, spokenWords)
-    local portal = M[user.name.."portal"]
-    local spell = M[user.name.."spell"]
 
     if actionState == Action.none then
 
         local primaryRune = checkForPrimaryRunes(user, spokenWords)
-        portal = checkForPortalIncantation(spokenWords)
 
         if primaryRune then
-            spell = addRunesToSpell(user, spokenWords, primaryRune)
-            M[user.name.."portal"] = portal
+            local spell = addRunesToSpell(user, spokenWords, primaryRune)
             M[user.name.."spell"] = spell
-            castMagic(user, actionState, spell, portal)
-        elseif portal then
-            castMagic(user, actionState, spell, portal)
+            M[user.name.."portal"] = false
+            castMagic(user, actionState, spell, false)
+        elseif checkForPortalIncantation(spokenWords) then
+            M[user.name.."portal"] = checkForPortalIncantation(spokenWords)
+            M[user.name.."spell"] = false
+            castMagic(user, actionState, false, checkForPortalIncantation(spokenWords))
         end
 
     elseif actionState ==  Action.abort or actionState == Action.success then
+        local portal = M[user.name.."portal"]
+        local spell = M[user.name.."spell"]
         castMagic(user, actionState, spell, portal)
     end
 end
