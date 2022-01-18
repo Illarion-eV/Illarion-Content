@@ -138,6 +138,11 @@ local function magicInfo(user, sourceItem)
         return true
     end
 
+    if sourceItem.pos == position(171, 553, 0) then
+        magicSphere.taurInfo(user)
+        return true
+    end
+
     return false
 end
 

@@ -861,9 +861,9 @@ local M = {
                 english = "Mysterious Sphere",
                 german = "Mysteriöse Sphäre"},
             description = {
-                english = "",
+                english = "Within the sphere you see the silhouette of a humanoid being, though it quickly changes form into that of various other creatures one by one.",
                 german = ""},
-            location = position(0,0,0)},
+            location = position(179, 550, 0)},
         Ura = {rune = "Ura",
             hint = {
                 english = "Where the guardians of nature reside",
@@ -1233,7 +1233,7 @@ local M = {
         german = ""
     },
     taurPuzzle = {
-        english = "",
+        english = "What kind of creature walks on four legs in the morning, two legs in the afternoon and three in the evening?",
         german = ""
     },
     uraPuzzle = {

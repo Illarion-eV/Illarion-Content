@@ -26,6 +26,29 @@ local characterLoad = require("triggerfield.zelphiasStream")
 
 local M = {}
 
+function M.checkTaurPosition(user)
+
+    local taurPosition = position(179, 551, 0)
+
+    local distance = 10
+
+    local biggerX =  user.pos.x > taurPosition.x + distance
+    local smallerX = user.pos.x < taurPosition.x - distance
+    local biggerY =  user.pos.y > taurPosition.y + distance
+    local smallerY = user.pos.y < taurPosition.y - distance
+
+    if user.pos.z ~= taurPosition.z then
+        return false
+    end
+
+    if biggerX or smallerX or biggerY or smallerY then
+        return false
+    end
+
+    return true
+
+end
+
 local function uraPuzzleSolved()
 
     local towerShields = {Item.steelTowerShield, Item.legionnairesTowerShield, Item.ornateTowerShield}
@@ -105,7 +128,6 @@ function M.taurInfo(user)
 
 end
 
-
 function M.uraInfo(user)
 
     local callback = function(dialog)
@@ -117,7 +139,6 @@ function M.uraInfo(user)
 
 end
 
-
 function M.sulInfo(user)
 
     local callback = function(dialog)
@@ -128,7 +149,6 @@ function M.sulInfo(user)
     user:requestMessageDialog(dialog)
 
 end
-
 
 function M.tahInfo(user)
 
@@ -1439,6 +1459,11 @@ local function checkIfCriteriaMet(user, rune)
         end
     elseif rune == "Ura" then
         if uraPuzzleSolved() then
+            retVal = true
+        end
+    elseif rune == "Taur" then
+        if M.taurActivate then
+            M.taurActivate = false
             retVal = true
         end
     else --Any remaining puzzles will only require you to find, get to and use the sphere to activate it

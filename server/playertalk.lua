@@ -55,6 +55,12 @@ local function puzzleTriggers(player, text)
         end
     end
 
+    if string.find(text, "man") then
+        if magicSphere.checkTaurPosition(player) then
+            magicSphere.taurActivate = true
+        end
+    end
+
 end
 
 function M.talk(player, talkType, text, actionState)
