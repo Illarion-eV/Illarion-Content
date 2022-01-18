@@ -24,6 +24,56 @@ local increaseArea = require("magic.arcane.harvestFruit")
 
 local M = {}
 
+function M.lukPuzzle(user)
+
+    local germanText
+    local englishText
+
+    local callback = function(dialog)
+    end
+
+    local callback2 = function(dialog)
+
+        if not dialog:getSuccess() then
+            return
+        end
+
+        local index = dialog:getSelectedIndex()+1
+
+        local status
+
+        if index == 1 then
+            status = "denouncedInform"
+        elseif index == 2 then
+            status = "praisedInform"
+        end
+        user:inform(texts.lukPuzzle[status].german, texts.lukPuzzle[status].english)
+
+        user:setQuestProgress(7020, index)
+    end
+
+    if user:getQuestProgress(7020) == 1 then
+        germanText = texts.lukPuzzle.denounce.denounced.german
+        englishText = texts.lukPuzzle.denounce.denounced.english
+        local dialog = MessageDialog("", common.GetNLS(user, germanText, englishText), callback)
+        user:requestMessageDialog(dialog)
+    elseif user:getQuestProgress(7020) == 2 then
+        germanText = texts.lukPuzzle.denounce.praised.german
+        englishText = texts.lukPuzzle.denounce.praised.english
+        local dialog = MessageDialog("", common.GetNLS(user, germanText, englishText), callback)
+        user:requestMessageDialog(dialog)
+    else
+        germanText = texts.lukPuzzle.denounce.german
+        englishText = texts.lukPuzzle.denounce.english
+        local dialog = SelectionDialog("", common.GetNLS(user, germanText, englishText), callback2)
+        dialog:addOption(0, common.GetNLS(user, texts.lukPuzzle.denounce.yes.german, texts.lukPuzzle.denounce.yes.english))
+        dialog:addOption(0, common.GetNLS(user, texts.lukPuzzle.denounce.no.german, texts.lukPuzzle.denounce.no.english))
+        user:requestSelectionDialog(dialog)
+    end
+
+
+end
+
 function M.checkLhorPosition(user)
 
     local lhorPosition = position(781, 438, 0)
@@ -939,6 +989,15 @@ local function checkIfCriteriaMet(user, rune)
         if M.lhorActivate then
             M.lhorActivate = false
             retVal = true
+        end
+    elseif rune == "Luk" then
+        local progress = user:getQuestProgress(7020)
+        if progress == 1 then
+            user:inform(texts.lukPuzzle.denounced.german, texts.lukPuzzle.denounced.english)
+            return true
+        elseif progress == 2 then
+            user:inform(texts.lukPuzzle.praised.german, texts.lukPuzzle.praised.english)
+            return true
         end
     else --Any remaining puzzles will only require you to find, get to and use the sphere to activate it
         retVal = true

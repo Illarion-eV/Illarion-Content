@@ -762,9 +762,9 @@ local M = {
                 english = "Mysterious Sphere",
                 german = "Mysteriöse Sphäre"},
             description = {
-                english = "",
+                english = "A bloodshot eye appears to be peering back out at you from inside the sphere.",
                 german = ""},
-            location = position(0,0,0)},
+            location = position(564, 542 , -6)},
         Mes = {rune = "Mes",
             hint = {
                 english = "I light up the path for beings made of wood that have lost their way.",
@@ -1146,6 +1146,44 @@ local M = {
     lhorPuzzle = {
         english = "My coat is dark as the night, my home shines like the sun. When Nargun is playing tricks, I'll be there. What am I? Speak my name out loud, and knowledge shall be granted to you.",
         german = ""
+    },
+    lukPuzzle = {
+        denounce = {
+            english = "Will you denounce the fallen god in the name of knowledge?",
+            german = "",
+            yes = {
+                english = "Denounce Moshran",
+                german = ""
+            },
+            no = {
+                english = "Praise Moshran",
+                german = ""
+            },
+            denounced = {
+                english = "You did well by denouncing that evil. Go reap your reward, if you haven't already.",
+                german = ""
+            },
+            praised = {
+                english = "You've already praised Moshran. It is too late to take back this offense now.",
+                german = ""
+            }
+        },
+        denounced = {
+            english = "As you touch the orb, an ethereal feeling of good-will seems to reach out from the void, making it light up. Could it be the gods approving of your actions?",
+            german = ""
+        },
+        praised = {
+            english = "As you touch the orb, an ethereal entity radiating hostility seems to reach out from the void in an attempt to prevent the orb from lighting up. However, at the same moment, a separate ethereal entity reaches out from the nearby altar, overpowering the first entity and lighting up the sphere.",
+            german = ""
+        },
+        denouncedInform = {
+            english = "You denounce Moshran. You feel like the gods look more favourably upon you already.",
+            german = ""
+        },
+        praisedInform = {
+            english = "You praised Moshran. Oh you anarchist you, what have you done?",
+            german = ""
+        }
     },
     --item/books.lua
     grimoire = {

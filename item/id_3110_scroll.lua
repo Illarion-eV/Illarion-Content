@@ -98,6 +98,11 @@ local function magicInfo(user, sourceItem)
         return true
     end
 
+    if sourceItem.pos == position(553, 539, -6) then
+        magicSphere.lukPuzzle(user)
+        return true
+    end
+
     return false
 end
 
