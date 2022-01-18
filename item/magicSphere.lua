@@ -290,7 +290,6 @@ local function savPuzzleSolved()
 
     for _, monster in pairs(monsters) do
         if monster.name == "Small Spider" then
-            monster:warp(position(0, 0, 0))
             monsterHooks.setForcedDeath(monster)
             monster:increaseAttrib("hitpoints", -10000)
             monsterHooks.cleanHooks(monster)
@@ -312,6 +311,32 @@ function M.savInfo(user)
     user:requestMessageDialog(dialog)
 
 end
+
+function M.isBunbun(monster)
+
+    local cornerPos = position(101, 850, -3)
+    local rangeY = 60
+    local rangeX = 30
+
+    if monster.pos.z ~= cornerPos.z then
+        return false
+    end
+
+    local monsterY = monster.pos.y
+    local monsterX = monster.pos.x
+
+    if monsterX < cornerPos.x or monsterX > cornerPos.x + rangeX then
+        return false
+    end
+
+    if monsterY < cornerPos.y or monsterY > cornerPos.y + rangeY then
+        return false
+    end
+
+    return true
+
+end
+
 
 function M.checkForSpider(user, sourceItem)
 
