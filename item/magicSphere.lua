@@ -25,6 +25,40 @@ local monsterHooks = require("monster.base.hooks")
 
 local M = {}
 
+function M.tahInfo(user)
+
+    local callback = function(dialog)
+    end
+
+    local dialog = MessageDialog("", common.GetNLS(user, texts.tahPuzzle.german, texts.tahPuzzle.english), callback)
+
+    user:requestMessageDialog(dialog)
+
+end
+
+function M.checkTahPosition(user)
+
+    local tahPosition = position(14, 522, 0)
+
+    local distance = 10
+
+    local biggerX =  user.pos.x > tahPosition.x + distance
+    local smallerX = user.pos.x < tahPosition.x - distance
+    local biggerY =  user.pos.y > tahPosition.y + distance
+    local smallerY = user.pos.y < tahPosition.y - distance
+
+    if user.pos.z ~= tahPosition.z then
+        return false
+    end
+
+    if biggerX or smallerX or biggerY or smallerY then
+        return false
+    end
+
+    return true
+
+end
+
 local function passesYegPuzzle(user)
 
     local poisonedWeapons = {549, 2635, 2636, 2655, 2668, 2689, 2694, 2705, 2725}
@@ -1287,6 +1321,11 @@ local function checkIfCriteriaMet(user, rune)
         end
     elseif rune == "Yeg" then
         if passesYegPuzzle(user) then
+            retVal = true
+        end
+    elseif rune == "Tah" then
+        if M.tahActivate then
+            M.tahActivate = false
             retVal = true
         end
     else --Any remaining puzzles will only require you to find, get to and use the sphere to activate it

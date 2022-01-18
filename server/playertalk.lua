@@ -45,6 +45,15 @@ local function puzzleTriggers(player, text)
         end
     end
 
+    local right = {"Right", "right", "Richtig", "richtig"}
+
+    for _, variation in pairs(right) do
+        if string.find(text, variation) then
+            if magicSphere.checkTahPosition(player) then
+                magicSphere.tahActivate = true
+            end
+        end
+    end
 
 end
 

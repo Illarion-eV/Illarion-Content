@@ -850,9 +850,9 @@ local M = {
                 english = "Mysterious Sphere",
                 german = "Mysteriöse Sphäre"},
             description = {
-                english = "",
+                english = "Peering into the sphere, you see yourself but upside down.",
                 german = ""},
-            location = position(0,0,0)},
+            location = position(14, 522, 0)},
         Taur = {rune = "Taur",
             hint = {
                 english = "This secret is guarded by creatures that dwell in a cave. What do they look like, you ask? Do they have one head? Two? Are they ugly and deranged?",
@@ -1222,6 +1222,10 @@ local M = {
     },
     yegPuzzle = {
         english = "If it is my knowledge you seek, face me while wielding a weapon many might despise as dishonorable. Only a slow, torterous death can satisfy my cravings.",
+        german = ""
+    },
+    tahPuzzle = {
+        english = "What word is always pronounced wrong? Though before you answer this riddle, bear in mind that sometimes things are the opposite of what they might seem.",
         german = ""
     },
     --item/books.lua
