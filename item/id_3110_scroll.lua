@@ -128,6 +128,11 @@ local function magicInfo(user, sourceItem)
         return true
     end
 
+    if sourceItem.pos == position(936, 391, -3) then
+        magicSphere.sulInfo(user)
+        return true
+    end
+
     return false
 end
 

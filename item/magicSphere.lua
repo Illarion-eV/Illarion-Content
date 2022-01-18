@@ -22,8 +22,57 @@ local teaching = require("magic.arcane.teaching")
 local runes = require("magic.arcane.runes")
 local increaseArea = require("magic.arcane.harvestFruit")
 local monsterHooks = require("monster.base.hooks")
+local characterLoad = require("triggerfield.zelphiasStream")
 
 local M = {}
+
+local function passesSulPuzzle(user)
+
+    local maxLoad = characterLoad.getMaximumLoad(user)
+    local currentLoad = characterLoad.getCharacterLoad(user)
+
+    if currentLoad+1000 >= maxLoad then
+        return true
+    end
+
+    return false
+end
+
+function M.taurInfo(user)
+
+    local callback = function(dialog)
+    end
+
+    local dialog = MessageDialog("", common.GetNLS(user, texts.taurPuzzle.german, texts.taurPuzzle.english), callback)
+
+    user:requestMessageDialog(dialog)
+
+end
+
+
+function M.uraInfo(user)
+
+    local callback = function(dialog)
+    end
+
+    local dialog = MessageDialog("", common.GetNLS(user, texts.uraPuzzle.german, texts.uraPuzzle.english), callback)
+
+    user:requestMessageDialog(dialog)
+
+end
+
+
+function M.sulInfo(user)
+
+    local callback = function(dialog)
+    end
+
+    local dialog = MessageDialog("", common.GetNLS(user, texts.sulPuzzle.german, texts.sulPuzzle.english), callback)
+
+    user:requestMessageDialog(dialog)
+
+end
+
 
 function M.tahInfo(user)
 
@@ -1326,6 +1375,10 @@ local function checkIfCriteriaMet(user, rune)
     elseif rune == "Tah" then
         if M.tahActivate then
             M.tahActivate = false
+            retVal = true
+        end
+    elseif rune == "Sul" then
+        if passesSulPuzzle(user) then
             retVal = true
         end
     else --Any remaining puzzles will only require you to find, get to and use the sphere to activate it

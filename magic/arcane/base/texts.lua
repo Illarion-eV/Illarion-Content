@@ -839,9 +839,9 @@ local M = {
                 english = "Mysterious Sphere",
                 german = "Mysteriöse Sphäre"},
             description = {
-                english = "",
+                english = "Peering into the sphere, you'd see the shadow of figures passing by ever so slowly.",
                 german = ""},
-            location = position(0,0,0)},
+            location = position(937, 391, -3)},
         Tah = {rune = "Tah",
             hint = {
                 english = "Steal from the rich, give to the poor... as long as the poor are they themselves.",
@@ -1226,6 +1226,18 @@ local M = {
     },
     tahPuzzle = {
         english = "What word is always pronounced wrong? Though before you answer this riddle, bear in mind that sometimes things are the opposite of what they might seem.",
+        german = ""
+    },
+    sulPuzzle = {
+        english = "Look at you! Only skin and bones, no meat! You know those of the family Epphurd buried in these tombs were not buried with just their heavy possessions, but their heavy bodies too! Go put on some weight, one way or the other!",
+        german = ""
+    },
+    taurPuzzle = {
+        english = "",
+        german = ""
+    },
+    uraPuzzle = {
+        english = "These noble creatures stand TOWERING as they SHIELD the EARTH on which you stand. Bring them an offering with a PURE mind and they might just impart the knowledge of nature of which you seek.",
         german = ""
     },
     --item/books.lua

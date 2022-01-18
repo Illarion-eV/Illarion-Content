@@ -19,11 +19,11 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local M = {}
 
-local function getMaximumLoad(user)
+function M.getMaximumLoad(user)
     return user:increaseAttrib("strength", 0) * 500 + 5000 -- This calculation is the same the server uses.
 end
 
-local function getCharacterLoad(user)
+function M.getCharacterLoad(user)
     local totalLoad = 0
 
     local backPack
@@ -47,7 +47,7 @@ end
 
 function M.MoveToField(user)
 
-    if getCharacterLoad(user) >= getMaximumLoad(user)/5 then
+    if M.getCharacterLoad(user) >= M.getMaximumLoad(user)/5 then
 
         if user:getRace() == 5 then
             user:inform("Durch das Gewicht deiner Ausrüstung wirst du tief ins Wasser gezogen und von einer Strömung erfasst, doch durch das natürliche Schwimmvermögen deiner Rasse kannst du dich ihr entgegenstemmen.","The weighty equipment pulls you into the depths of the dark water. But the natural swimming abilities of your kind enable you to withstand the treacherous currents as you press on in spite of your burden.")
