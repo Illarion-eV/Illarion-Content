@@ -495,7 +495,7 @@ function M.lukPuzzle(user)
             status = "praisedInform"
         end
         user:inform(texts.lukPuzzle[status].german, texts.lukPuzzle[status].english)
-
+        world:makeSound(25, user.pos)
         user:setQuestProgress(7020, index)
     end
 
