@@ -658,7 +658,7 @@ local M = {
         Dun = {rune = "Dun",
             hint = {
                 english = "In an area vast and empty, where white hands rule.",
-                german = "MIn einem weiten und leeren Gebiet, in dem die weiße Hand regiert."},
+                german = "In einem weiten und leeren Gebiet, in dem die weiße Hand regiert."},
             name = {
                 english = "Mysterious Sphere",
                 german = "Mysteriöse Sphäre"},
