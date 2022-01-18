@@ -65,8 +65,8 @@ function M.getStatRequirementOfRune(runeNumber)
         end
     end
     local costToStatReq = {
-        {cost = "Large", stat = 40},
-        {cost = "Medium", stat = 35},
+        {cost = "Large", stat = 45},
+        {cost = "Medium", stat = 40},
         {cost = "Small", stat = 30}
     }
     for _, cost in pairs(costToStatReq) do
