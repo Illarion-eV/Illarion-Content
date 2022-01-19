@@ -2063,15 +2063,15 @@ local function specialItemCreationGlyphShard(user)
         if (string.find(input,"(%d+)") ~= nil) then
             if (string.find(input,"[1-7][1-7]") ~= nil) then
                 local _, _, level = string.find(input,"(%d+)")
-                shard.createShardWithLevelOnuser(user, level)
+                shard.createShardWithLevelOnUser(user, level)
             else
                 local _, _, amount = string.find(input,"(%d+)")
                 for i=1, tonumber(amount) do
-                    shard.createShardOnuser(user)
+                    shard.createShardOnUser(user)
                 end
             end
         else
-            shard.createShardOnuser(user)
+            shard.createShardOnUser(user)
         end
     end
     user:requestInputDialog(InputDialog("Glyph Shard Creation",
