@@ -73,6 +73,11 @@ local function endRitualAddGlyph(user, forgePos, item)
         glyphs.setRemainingGlyphs(item, charges)
         item:setData("GlyphForger",user.name)
         world:changeItem(item)
+        if item.id == 79 or item.id == 3526 or item.id == 3528 then --amethyst amulets are used in the tutorial
+            if user:getQuestProgress(241) == 3 then
+                user:setQuestProgress(241, 4)
+            end
+        end
         common.InformNLS(user,"Du versiehst " .. common.getItemName(item, Player.german) .. " mit einer Glyphe.",
                               "You add a glyph to " .. common.getItemName(item, Player.english) .. ".")
     else
@@ -126,6 +131,9 @@ local function endRitualPrepareRitual(user, forgePos, forgeItem)
     user:learn(workingSkill, workingTime, 100)
     common.InformNLS(user,"Der Glyphen-Ritualplatz ist vorbereitet. Jetzt können hier Rituale durchgeführt werden.",
                           "The glyph ritual place is prepared. Now it is possible to perform rituals here.")
+    if user:getQuestProgress(241) == 1 then
+        user:setQuestProgress(241, 2)
+    end
 end
 
 local function endRitualBreakGlyph(user, forgePos, item)
@@ -166,16 +174,21 @@ local function endRitualBreakGlyph(user, forgePos, item)
         end
         if returnedShards == 1 then
             common.InformNLS(user,"Du brichst die Glyphe aus folgendem Objet heraus: " .. common.getItemName(item, Player.german) .. ". Der Gegenstand zerbricht und dir bleibt ein Glyphensplitter.",
-                                  "You break the glpyh from the following object: " .. common.getItemName(item, Player.english) .. ". The item breaks and one shard remains.")
+                                  "You break the glyph from the following object: " .. common.getItemName(item, Player.english) .. ". The item breaks and one shard remains.")
         else
             common.InformNLS(user,"Du brichst die Glyphe aus folgendem Objekt heraus: " .. common.getItemName(item, Player.german) .. ". Der Gegenstand zerbricht und dir bleiben " .. tostring(returnedShards) .. " Glyphensplitter.",
-                                  "You break the glpyh from the following object: " .. common.getItemName(item, Player.english) .. ". The item breaks and " .. tostring(returnedShards) .. " shards remain.")
+                                  "You break the glyph from the following object: " .. common.getItemName(item, Player.english) .. ". The item breaks and " .. tostring(returnedShards) .. " shards remain.")
         end
     else
         common.InformNLS(user,"Du brichst die Glyphe aus folgendem Objet heraus: " .. common.getItemName(item, Player.german) .. ". Der Gegenstand zerbricht und nichts bleibt zurück.",
-                              "You break the glpyh from the following object: " .. common.getItemName(item, Player.english) .. ". The item breaks and nothing remains.")
+                              "You break the glyph from the following object: " .. common.getItemName(item, Player.english) .. ". The item breaks and nothing remains.")
     end
     world:erase(item,item.number)
+    if item.id == 79 or item.id == 3526 or item.id == 3528 then --amethyst amulets are used in the tutorial
+        if user:getQuestProgress(241) == 5 then
+            user:setQuestProgress(241, 6)
+        end
+    end
 end
 
 local function performRitual(user)

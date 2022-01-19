@@ -143,7 +143,15 @@ queststatus(240) = 6, german, "teleport", "quest", "mission", "auftrag", "aufgab
 queststatus(240) = 7, item(1061, all) > 0, german, "teleport", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "order" -> queststatus(240) = 8, ""
 queststatus(240) = 7, german, "teleport", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "order" -> ""
 --glyph magic tutorial
-queststatus(241) = 0, english, "glyph", "quest", "mission", "task", "adventure", "order" -> ""
+queststatus(241) = 0, english, "glyph", "quest", "mission", "task", "adventure", "order" -> inform("[New quest] Glyph Magic"), queststatus(241) = 1, "Glyph forging? I suppose I can show you the ropes. Go prepare a glyph ritual. You can use the shrine over there, but you'll need some candles and candlesticks to proceed."
+queststatus(241) = 1, english, "glyph", "quest", "mission", "task", "adventure", "order" -> "Didn't I tell you to go prepare a glyph ritual?"
+queststatus(241) = 2, english, "glyph", "quest", "mission", "task", "adventure", "order" -> queststatus(241) = 3, "Well done! Next up, make use of the prepared shrine to glyph an amethyst amulet for me. You'll of course need an amethyst amulet to forge the glyphs into, and even more importantly, the correct set of glyphs."
+queststatus(241) = 3, english, "glyph", "quest", "mission", "task", "adventure", "order" -> "Didn't I tell you to go glyph an amethyst amulet?"
+queststatus(241) = 4, english, "glyph", "quest", "mission", "task", "adventure", "order" -> queststatus(241) = 5, "Good, good! For your next task, take the amulet you just made over to the shrine and remove the glyphs from it. What? Don't look at me like that. The amulet might break, but you'll most likely still keep the useful glyphs and more importantly the valuable experience!"
+queststatus(241) = 5, english, "glyph", "quest", "mission", "task", "adventure", "order" -> "Didn't I tell you to break out the glyphs from that amulet?"
+queststatus(241) = 6, english, "glyph", "quest", "mission", "task", "adventure", "order" -> queststatus(241) = 7, "Job well done! You're now a qualified glyph forger, well, sort of! The rest you'll have to learn by your own trial and error, now shoo. Move along."
+
+
 queststatus(241) = 0, "glyphe", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "order"  -> ""
 
 --fountain of forgetfulness startquest
