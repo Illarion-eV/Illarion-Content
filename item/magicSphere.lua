@@ -1529,6 +1529,11 @@ function M.UseItem(user, item)
         if item.id == 3501 then
             learnRune(user, rune.rune)
             lightSphere(user, item, false)
+            if rune.rune == "RA" then
+                if user:getQuestProgress(7012) == 1 then
+                    user:setQuestProgress(7012, 2)
+                end
+            end
         elseif item.id == 3499 then
             if checkIfCriteriaMet(user, rune.rune) then
                 lightSphere(user, item, true)

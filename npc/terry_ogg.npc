@@ -22,7 +22,7 @@
 -- Author:   Brightrim                                                        --
 --                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
-
+-- Personality: Arrogant and lecherous braggart.
 name = "Terry Ogg"
 race = human
 sex = male
@@ -71,8 +71,8 @@ tradeFinishedWithoutTradingMsg "Oh, hast du deine Meinung geändert?", "Oh, chang
 tradeWrongItemMsg "Wenn du deine Waren verkaufen willst, bin ich nicht dein Mann.", "If your intent is to sell your wares, I am not your man."
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Terry Ogg, a wandering mage visiting Troll's Haven. Keywords: Hello, Buy, Sell, Trade, Troll's Haven, Elara, Magic, Rune , Glyph, Spatial, Wand"), ""
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Terry Ogg, ein umherziehender Magier der Trolls's Haven besucht. Stichworte: Hallo, Kaufe, Verkaufe, Handel, Troll's Haven, Elara, Magie, Rune, Glyphe, Raum, Zauberstab"), ""
+"Help" -> inform("[Game Help] This NPC is Terry Ogg, a wandering mage visiting Troll's Haven. Keywords: Hello, Buy, Sell, Trade, Troll's Haven, Elara, Magic, Rune , Glyph, Spatial, Wand")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Terry Ogg, ein umherziehender Magier der Trolls's Haven besucht. Stichworte: Hallo, Kaufe, Verkaufe, Handel, Troll's Haven, Elara, Magie, Rune, Glyphe, Raum, Zauberstab")
 
 -- Trade
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I can't offer a lot, but if it's magical knowledge you seek.", trade
@@ -84,33 +84,80 @@ tradeWrongItemMsg "Wenn du deine Waren verkaufen willst, bin ich nicht dein Mann
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Oh, you're back? Or is this our first time meeting?", "Hello! Have you seen my wand? Oh, it's right here.", "Hello there! Welcome to my... Well, welcome, anyhow."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Oh du bist zurück? Oder treffen wir uns zum ersten Mal?", "Hallo! Hast du meinen Zauberstab gesehen? Oh, da ist er ja.", "Guten Tag! Willkommen zu meinem...Also, willkommen halt."
 "Farewell", "Bye", "Fare well", "See you" -> "Carry on then.", "Good bye.", "Good luck with your... whatever it is.", "Safe journey, see you soon."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "", "Auf Wiedersehen.", "Alles Gute mit.....was auch immer.", "Gute Reise, bis bald."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Auf Wiedersehen.", "Alles Gute mit.....was auch immer.", "Gute Reise, bis bald."
 "How are you", "How do you feel", "How do you do" -> "I'm doing quite splendid, thank you. I could do with a little more funding though.", "Why? Trying to butter me up so I'll teach you runes, are you?", "Fine. Now spare me your nonsense and get on with it, I have research to perform."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "" -> "Mir geht es hervorragend, vielen dank. Obwohl etwas bessere Finanzierung nicht schaden wprde.", "Wieso fragst du? Willst du mir etwas schmeicheln, sodass ich dir Runen lehre?", "Gut. Und nun lass mich mit deinem Blödsinn in Ruhe. Ich muss arbeiten!"
+"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Mir geht es hervorragend, vielen dank. Obwohl etwas bessere Finanzierung nicht schaden wprde.", "Wieso fragst du? Willst du mir etwas schmeicheln, sodass ich dir Runen lehre?", "Gut. Und nun lass mich mit deinem Blödsinn in Ruhe. Ich muss arbeiten!"
 "your name", "who are you", "who art thou" -> "Oh, me? Terry Ogg, and that's Ogg, not Egg!", "Aha, you wish to know this handsome gentlemans name? I am Terry Ogg, the mighty... What was I doing again?", "Who am I? Terry Ogg. Who are you? Wait before you answer that, I don't really care."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Wer? Ich? Ich bin Terry Ogg, und es heißt Ogg, nicht Egg!", "Ah du willst also den Namen dieses gutausehenden Gentelmens wissen? Ich bin Terry Ogg, der mächtige.....was wollte ich noch schnell machen?", "Wer ich bin? Terry Ogg. Und wer bist du? Wobei, bevor du das beantwortest....es ist mir egal."
 "my name", "I am called", "I'm called" -> "#me nods half-heartedly, clearly not paying your introduction any mind."
 "mein Name", "ich heiße"-> "#me nickt halbherzig und schenkt deiner Vorstellung offensichtlich keine Beachtung. "
 english, "Egg" -> "I told you not to call me that!"
 
+-- Magic quest triggers
+
+--check for mage status
+queststatus(37) = 0, english, "rune", "glyph", "wand", "spatial", "quest", "mission", "task", "adventure", "order"  -> "If you want me to teach you about magic, you have to at least attune to a wand first. Learn how to do so by reading books about magic then try to attune to your wand. After that you may return to me."
+queststatus(37) = 0, german, "zauberstab", "teleport", "rune", "glyphe", "quest", "mission", "auftrag", "aufgabe", "abenteuer" -> ""
+
+--rune magic tutorial
+queststatus(7012) = 0, english, "rune", "quest", "mission", "task", "adventure", "order" -> inform("[New quest] Rune Magic"), queststatus(7012) = 1, "So you want to learn rune magic, eh? First things first, you'll have to learn a rune. My book over there will give you a hint to their whereabouts. Go find the location of the primary rune RA, the rune of fire. Learn it, then return to me."
+queststatus(7012) = 1, english, "rune", "quest", "mission", "task", "adventure", "order" -> "You still haven't found the location of the rune RA. Return to me when you have."
+queststatus(7012) = 2, english, "rune", "quest", "mission", "task", "adventure", "order" -> queststatus(7012) = 3, "Great! Now that you've learned how to use the rune RA, you can head on to the magic desk over there to store the spell into your grimoire. For that you'll need a quill and grimoire. Return to me when you're done."
+queststatus(7012) = 3, english, "rune", "quest", "mission", "task", "adventure", "order" -> "You still haven't stored the spell RA into your grimoire. Return to me when you have."
+queststatus(7012) = 4, english, "rune", "quest", "mission", "task", "adventure", "order" -> queststatus(7012) = 5, "Getting there! Now all that remains is casting the spell. You can either use your grimoire to attune your wand to the stored spell, or you can just speak the rune out loud while picturing the result you want in your mind. Go on, cast one before me. Show me what you got."
+queststatus(7012) = 5, english, "rune", "quest", "mission", "task", "adventure", "order" -> "Come on, I don't have all day. Cast RA for me!"
+queststatus(7012) = 6, english, "rune", "quest", "mission", "task", "adventure", "order" -> queststatus(7012) = 7, "Well done, that is all I can teach you of rune magic! Though there are other kinds of magic I can also teach you about."
+queststatus(7012) = 0, "rune", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "order" -> inform("[] "), queststatus(7012) = 1, ""
+queststatus(7012) = 1, "rune", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "order" -> ""
+queststatus(7012) = 2, "rune", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "order" -> queststatus(7012) = 3, ""
+queststatus(7012) = 3, "rune", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "order" -> ""
+queststatus(7012) = 4, "rune", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "order" -> queststatus(7012) = 5, ""
+queststatus(7012) = 5, "rune", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "order" -> ""
+queststatus(7012) = 6, "rune", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "order" -> queststatus(7012) = 7, ""
+
+--wand magic tutorial
+queststatus(7014) = 0, english, "wand", "quest", "mission", "task", "adventure", "order" -> inform("[New quest] Wand Magic"), queststatus(7014) = 1, "Wand magic? It's the easiest kind of magic. All you have to do is attune your wand to it using your grimoire, if it is not already attuned to it. Then you're good to go, just aim at a monster and... shoot! Go on, go find an opponent and give it a try."
+queststatus(7014) = 1, english, "wand", "quest", "mission", "task", "adventure", "order" -> "I can see you haven't tried wand magic yet, so why are you here?"
+queststatus(7014) = 2, english, "wand", "quest", "mission", "task", "adventure", "order" -> queststatus(7014) = 3, "Well done. Depending on what wand you use, the element of your attack will differ. Otherwise, that's really all there is to wand magic. I told you it was easy, didn't I?"
+queststatus(7014) = 0, "zauberstab", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "order" -> inform("[] "), queststatus(7014) = 1, ""
+queststatus(7014) = 1, "zauberstab", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "order" -> ""
+queststatus(7014) = 2, "zauberstab", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "order" -> queststatus(7014) = 3, ""
+
+--spatial magic tutorial
+queststatus(7015) = 0, english, "spatial", "quest", "mission", "task", "adventure", "order" -> inform("[New quest] Spatial Magic"), queststatus(7015) = 1, "If you want to learn spatial magic, use your grimoire to attune your wand to spatial magic. Then you can head over to the nearby teleporter to attune to it and return once you have."
+queststatus(7015) = 1, english, "spatial", "quest", "mission", "task", "adventure", "order" -> "Go on then. Go attune yourself to the teleporter."
+queststatus(7015) = 2, english, "spatial", "quest", "mission", "task", "adventure", "order" -> queststatus(7015) = 3, "Good, you're attuned to the teleporter! Next up, show me how you teleport to it. The incantation is 'Locus Itinerantur'."
+queststatus(7015) = 3, english, "spatial", "quest", "mission", "task", "adventure", "order" -> "Well go on then. I want to see you teleport to the nearby teleporter."
+queststatus(7015) = 4, english, "spatial", "quest", "mission", "task", "adventure", "order" -> queststatus(7015) = 5, "Well done! Next up, I want to see you open a portal to it as well. The incantation is 'Locus Ianua'."
+queststatus(7015) = 5, english, "spatial", "quest", "mission", "task", "adventure", "order" -> "Well go on then. I want to see you open a portal to the nearby teleporter."
+queststatus(7015) = 6, english, "spatial", "quest", "mission", "task", "adventure", "order" -> queststatus(7015) = 7, "Alright then, you know your way around spatial magic. For your last task, I want you to go over to the magic desk over there and craft me a portal book. Once created, you can use your grimoire's assistance to inspect the quality of your book."
+queststatus(7015) = 7, english, "spatial", "quest", "mission", "task", "adventure", "order" -> "Where's my portal book?"
+queststatus(7015) = 8, english, "spatial", "quest", "mission", "task", "adventure", "order" -> queststatus(7015) = 8, "Splendid! That's all there is that I have to teach you about spatial magic. Though you can always ask me about other types of magic."
+queststatus(7015) = 0, german, "teleport", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "order" -> inform("[] "), queststatus(7015) = 1, ""
+queststatus(7015) = 1, german, "teleport", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "order" -> ""
+queststatus(7015) = 2, german, "teleport", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "order" -> queststatus(7015) = 3, "'Locus Itinerantur'."
+queststatus(7015) = 3, german, "teleport", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "order" -> ""
+queststatus(7015) = 4, german, "teleport", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "order" -> queststatus(7015) = 5, "'Locus Ianua'."
+queststatus(7015) = 5, german, "teleport", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "order" -> ""
+queststatus(7015) = 6, german, "teleport", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "order" -> queststatus(7015) = 7, ""
+queststatus(7015) = 7, german, "teleport", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "order" -> "Where's my portal book?"
+queststatus(7015) = 8, german, "teleport", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "order" -> queststatus(7015) = 8, ""
+
+--glyph magic tutorial
+queststatus(7016) = 0, english, "glyph", "quest", "mission", "task", "adventure", "order" -> ""
+queststatus(7016) = 0, "glyphe", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "order"  -> ""
+
+--fountain of forgetfulness startquest
+queststatus(7013) = 0, english, "forget", "change", "alchemy", "priest", "bard" -> inform("[New quest] The fountain of forgetfulness"), queststatus(7013) = 1, "You no longer want to be a mage? Pfah. Go search for the fountain of forgetfulness then and get out of my sight!"
+queststatus(7013) = 0, "germantext", "germantext", "germantext", "germantext", "germantext" -> inform("[] "), queststatus(7013) = 1, ""
+
+-- Catching quest triggers post magic tutorials
+english, "rune", "glyph", "wand", "spatial", "quest", "mission", "task", "adventure", "order"   -> "There is nothing more I can teach you. You can always have a look in my book over there, though."
+german, "zauberstab", "teleport", "rune", "glyphe", "quest", "mission", "auftrag", "aufgabe", "abenteuer"  -> ""
+
+
 "magic" -> "You want to know more about magic? Well there's rune magic, wand magic, glyph magic and even spatial magic! Which one would you like to know more about?"
 "magie" -> " Du willst mehr über Magie erfahen? Nun es gibt Runenmagie, Stabmagie, Glyphenmagie und sogar Raummagie! Über welche Magie willst du mehr erfahren?"
-
--- Magic quest triggers
-"wand" -> "Wand magic tutorial goes here."
-"Zauberstab" -> "Zauberstab magie tutorial"
-"spatial" -> "spatial magic tutorial goes here."
-"Raum" -> "Raummagie tutorial."
-"rune" -> "rune magic tutorial goes here."
-"Rune" -> "Runenmagie tutorial"
-"glyph" -> "glyph magic tutorial goes here."
-"Glyphe" -> "Glyühenmagie tutorial"
-
--- Catching quest triggers
-english, "quest", "mission" -> "Default to one of the above magic questlines if not complete."
-"quest", "mission" -> "Standardmäßig eine der oben genannten magischen Quests, wenn nicht abgeschlossen"
-"task", "adventure", "order" -> ""
-"Auftrag", "Aufgabe", "Abenteuer" -> ""
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession", "work" -> "What do I do for a living? Isn't it obvious? I'm a proud almighty magician, darn it! See the hat?"

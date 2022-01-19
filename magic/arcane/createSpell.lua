@@ -186,6 +186,9 @@ local function nameSpell(user, targetItem, slot)
         targetItem:setData("spellName"..slot,input) -- Set name for spell
         world:changeItem(targetItem) -- save name for spell
         user:inform(createSpellTexts.slot.german..slot.. ": "..input..".",createSpellTexts.slot.english..slot.. ": "..input..".")
+        if user:getQuestProgress(7012) == 3 then
+            user:setQuestProgress(7012, 4)
+        end
     end
 user:requestInputDialog(InputDialog(common.GetNLS(user,createSpellTexts.creation.german, createSpellTexts.creation.english), common.GetNLS(user, createSpellTexts.nameSpell.german, createSpellTexts.nameSpell.english),false,255,callback))
 end

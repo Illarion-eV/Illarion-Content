@@ -32,6 +32,7 @@ local plantRoot = require("magic.arcane.plantRoot")
 local stallMana = require("magic.arcane.stallMana")
 local traps = require("magic.arcane.traps")
 local information = require("magic.arcane.spirit.information")
+local tutorials = require("magic.tutorials")
 
 local M = {}
 
@@ -84,6 +85,13 @@ function M.spellEffects(user, targets, spell, element, Orl)
         traps.createEarthTraps(user, targets, spell)
     end
     magicGFXSFX.getTargetGFXSFX(targets, spell, true)
+    if spell == 8 then
+        if tutorials.isTutorialNPCnearby(user) then
+            if user:getQuestProgress(7012) == 5 then
+                user:setQuestProgress(7012, 6)
+            end
+        end
+    end
 end
 
 function M.applyDelay(user, target, spell, Orl)
