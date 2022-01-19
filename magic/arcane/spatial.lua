@@ -98,6 +98,7 @@ local function getDirectionDistance(user)
             local total = xDiff+yDiff
             if not distance then
                 distance = total
+                targetPos = location
             elseif total < distance then
                 distance = total
                 targetPos = location
