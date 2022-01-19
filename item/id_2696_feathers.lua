@@ -24,7 +24,7 @@ function M.UseItem(user, sourceItem, actionState)
 
     if sourceItem.pos == position(708, 625, -6) then
         user:inform(texts.kelPuzzle.feather.german..texts.kelPuzzle.suffix.german, texts.kelPuzzle.feather.english..texts.kelPuzzle.suffix.english)
-        user:setQuestProgress(7017, 0)
+        user:setQuestProgress(242, 0)
     end
 
 end

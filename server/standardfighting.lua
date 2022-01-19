@@ -328,7 +328,7 @@ function M.onAttack(Attacker, Defender)
     if Attacker.AttackKind == 5 then
         if fightingutil.isMagicUser(Attacker.Char) then
             local magicAttack = require("magic.magicfighting")
-            local spell = Attacker.Char:getQuestProgress(7001)
+            local spell = Attacker.Char:getQuestProgress(39)
             if not CheckAttackOK(Attacker) then
                 return false
             end

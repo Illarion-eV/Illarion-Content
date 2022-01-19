@@ -53,7 +53,7 @@ function M.spellSelection(user, SourceItem)
             if spellName ~= "" and spellName ~= texts.createSpellTexts.unfinished.english and spellName ~= texts.createSpellTexts.unfinished.german then
                 if index == i-emptySpellSlots then
                     spellQuestStatus = SourceItem:getData("spell"..i)
-                    user:setQuestProgress(7001,tonumber(spellQuestStatus))
+                    user:setQuestProgress(39,tonumber(spellQuestStatus))
                     user:inform(myTexts.primed.german..spellName..".",myTexts.primed.english..spellName..".")
                     return
                 end
@@ -89,14 +89,14 @@ function M.mainSelectionDialog(user, SourceItem)
         end
         local index = dialog:getSelectedIndex() +1
         if index == 1 then
-            user:setQuestProgress(7009, 0)
+            user:setQuestProgress(180, 0)
             M.spellSelection(user, SourceItem)
         elseif index == 2 then
-            user:setQuestProgress(7001, 0)
-            user:setQuestProgress(7009, 0)
+            user:setQuestProgress(39, 0)
+            user:setQuestProgress(180, 0)
             user:inform(myTexts.glyphWand.german, myTexts.glyphWand.english)
         elseif index == 3 then
-            user:setQuestProgress(7009, 1)
+            user:setQuestProgress(180, 1)
             user:inform(myTexts.spatialAttune.german, myTexts.spatialAttune.english)
         elseif index == 4 then
             local portalBook

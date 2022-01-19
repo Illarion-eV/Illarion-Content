@@ -77,7 +77,7 @@ local Lhor = runes.checkSpellForRuneByName("Lhor", spell)
 end
 
 function M.addEffect(myEffect, target)
-    target:setQuestProgress(7500, 1)
+    target:setQuestProgress(246, 1)
 end
 
 
@@ -104,6 +104,6 @@ local foundSeconds, seconds = myEffect:findValue("seconds")
 end
 
 function M.removeEffect(myEffect, target)
-    target:setQuestProgress(7500, 0)
+    target:setQuestProgress(246, 0)
 end
 return M

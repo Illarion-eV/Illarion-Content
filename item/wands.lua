@@ -139,8 +139,8 @@ function M.MoveItemAfterMove(User, SourceItem, TargetItem)
 end
 
 function M.UseItem(user, sourceItem, ltstate)
-local spellMode = user:getQuestProgress(7001)
-local portalMode = user:getQuestProgress(7009)
+local spellMode = user:getQuestProgress(39)
+local portalMode = user:getQuestProgress(180)
     if common.IsItemInHands(sourceItem) then
         if portalMode ~= 0 then
             spatial.castSpatialMagic(user, ltstate)

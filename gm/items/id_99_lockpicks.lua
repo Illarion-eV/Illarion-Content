@@ -1397,12 +1397,12 @@ local function actionOnGroup(user,item)
 end
 
 local function settingsForCharRedPortalPermission(user, chosenPlayer)
-    if chosenPlayer:getQuestProgress(7010) ~= 0 then
-        chosenPlayer:setQuestProgress(7010, 0)
-        chosenPlayer:setQuestProgress(7011, 10) --Change the  stored portal colour back to blue
+    if chosenPlayer:getQuestProgress(225) ~= 0 then
+        chosenPlayer:setQuestProgress(225, 0)
+        chosenPlayer:setQuestProgress(235, 10) --Change the  stored portal colour back to blue
         user:inform("Player's access to the creation of red portals has been removed.")
     else
-        chosenPlayer:setQuestProgress(7010, 1)
+        chosenPlayer:setQuestProgress(225, 1)
         user:inform("Player is now permitted to create red portals instead of blue ones.")
     end
 end
@@ -1413,7 +1413,7 @@ local function removePortalsRunes(user, target, questID)
 
     target:setQuestProgress(questID, 0)
 
-    if questID == 7000 then
+    if questID == 51 then
         name = "runes"
     else
         name = "portals"
@@ -1445,9 +1445,9 @@ local function settingsForMagic(user, target)
         elseif index == 4 then
             spatial.attuneAllLocations(user, target)
         elseif index == 5 then
-            removePortalsRunes(user, target, 7000)
+            removePortalsRunes(user, target, 51)
         elseif index == 6 then
-            removePortalsRunes(user, target, 7008)
+            removePortalsRunes(user, target, 216)
         elseif index == 7 then
             settingsForCharRedPortalPermission(user, target)
         end
@@ -1461,7 +1461,7 @@ local function settingsForMagic(user, target)
     dialog:addOption(0, "Remove knowledge of all runes")
     dialog:addOption(0, "Remove knowledge of all portal locations")
 
-    if target:getQuestProgress(7010) ~= 0 then
+    if target:getQuestProgress(225) ~= 0 then
         dialog:addOption(798, "Remove player's access to red portal creation")
     else
         dialog:addOption(798, "Allow player to create red portals")

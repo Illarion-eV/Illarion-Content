@@ -70,7 +70,7 @@ function M.levelRequirementNotMet(target, runeToTeach)
 end
 
 function M.notEnoughTimeHasPassed(target)
-    local quests = {7002, 7003}
+    local quests = {174, 175}
     for _, quest in pairs(quests) do
         local time = target:getQuestProgress(quest)
         if time == 0 then
@@ -99,7 +99,7 @@ return true
 end
 
 local function reachedTeachingCapacity(user)
-    local quests = {7004, 7005, 7006, 7007}
+    local quests = {176, 177, 178, 179}
     for _, quest in pairs(quests) do
         local time = user:getQuestProgress(quest)
         if time == 0 then
@@ -111,7 +111,7 @@ end
 
 function M.checkForExpiredCooldowns(target)
     local time = tonumber(world:getTime("unix"))
-    local quests = {7002, 7003, 7004, 7005, 7006, 7007}
+    local quests = {174, 175, 176, 177, 178, 179}
     for _, quest in pairs(quests) do
         local setTime = target:getQuestProgress(quest)
         if time >= setTime then
@@ -123,12 +123,12 @@ end
 function M.setLearningCooldown(target)
     local time = tonumber(world:getTime("unix"))
     local timeWithCooldown = time+cooldown
-    local learnedTime1 = target:getQuestProgress(7002)
-    local learnedTime2 = target:getQuestProgress(7003)
+    local learnedTime1 = target:getQuestProgress(174)
+    local learnedTime2 = target:getQuestProgress(175)
     if learnedTime1 == 0 then
-        target:setQuestProgress(7002, timeWithCooldown)
+        target:setQuestProgress(174, timeWithCooldown)
     elseif learnedTime2 == 0 then
-        target:setQuestProgress(7003, timeWithCooldown)
+        target:setQuestProgress(175, timeWithCooldown)
     else
         debug("This shouldn't happen.")
     end
@@ -137,18 +137,18 @@ end
 local function setTeachingCooldown(user)
     local time = tonumber(world:getTime("unix"))
     local timeWithCooldown = time+cooldown
-    local learnedTime1 = user:getQuestProgress(7004)
-    local learnedTime2 = user:getQuestProgress(7005)
-    local learnedTime3 = user:getQuestProgress(7006)
-    local learnedTime4 = user:getQuestProgress(7007)
+    local learnedTime1 = user:getQuestProgress(176)
+    local learnedTime2 = user:getQuestProgress(177)
+    local learnedTime3 = user:getQuestProgress(178)
+    local learnedTime4 = user:getQuestProgress(179)
     if learnedTime1 == 0 then
-        user:setQuestProgress(7004, timeWithCooldown)
+        user:setQuestProgress(176, timeWithCooldown)
     elseif learnedTime2 == 0 then
-        user:setQuestProgress(7005, timeWithCooldown)
+        user:setQuestProgress(177, timeWithCooldown)
     elseif learnedTime3 == 0 then
-        user:setQuestProgress(7006, timeWithCooldown)
+        user:setQuestProgress(178, timeWithCooldown)
     elseif learnedTime4 == 0 then
-        user:setQuestProgress(7007, timeWithCooldown)
+        user:setQuestProgress(179, timeWithCooldown)
     else
         debug("This shouldn't happen.")
     end

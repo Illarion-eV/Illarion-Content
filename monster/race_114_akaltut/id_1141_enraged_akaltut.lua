@@ -80,8 +80,8 @@ function M.onDeath(monster)
 
     local nearbyPlayers = world:getCharactersInRangeOf(pos, 10)
     for _, player in pairs(nearbyPlayers) do
-        if player:getQuestProgress(7019) == 17 then
-            player:setQuestProgress(7019, 18)
+        if player:getQuestProgress(244) == 17 then
+            player:setQuestProgress(244, 18)
             player:inform(texts.bhonaPuzzle.success.german, texts.bhonaPuzzle.success.english)
         end
     end

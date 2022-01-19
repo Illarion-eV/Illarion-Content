@@ -112,7 +112,7 @@ function M.checkIfLearnedRune(User, TargetItem, RuneNumber, questorspell, spelln
     if spell then
         learnedRunes = M.QuestprogressToLearnedRunes(spell)
     elseif questorspell == "isQuest" then
-        learnedRunes = M.QuestprogressToLearnedRunes(User:getQuestProgress(7000))
+        learnedRunes = M.QuestprogressToLearnedRunes(User:getQuestProgress(51))
     elseif questorspell == "isSpell" then
         learnedRunes = M.QuestprogressToLearnedRunes(TargetItem:getData(spellnumber))
     end
@@ -203,8 +203,8 @@ end
 function M.learnRune(User, TargetItem, RuneNumber, questorspell, spellnumber)
     local runeOffset=math.fmod(RuneNumber-1,32);
     if questorspell == "isQuest" then
-        local learnedRunes = M.QuestprogressToLearnedRunes(User:getQuestProgress(7000))
-        User:setQuestProgress(7000,M.learnedRunesToQuestprogress(bit32.bor(2^runeOffset,learnedRunes)))
+        local learnedRunes = M.QuestprogressToLearnedRunes(User:getQuestProgress(51))
+        User:setQuestProgress(51,M.learnedRunesToQuestprogress(bit32.bor(2^runeOffset,learnedRunes)))
     elseif questorspell == "isSpell" then
         local learnedRunes = M.QuestprogressToLearnedRunes(TargetItem:getData(spellnumber))
         TargetItem:setData(spellnumber, M.learnedRunesToQuestprogress(bit32.bor(2^runeOffset,learnedRunes)))

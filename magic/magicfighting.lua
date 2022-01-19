@@ -239,8 +239,8 @@ end
 function M.onMagicAttack(attackerStruct, defenderStruct)
     common.TurnTo(attackerStruct.Char,defenderStruct.Char.pos)
 
-    local spellMode = attackerStruct.Char:getQuestProgress(7001)
-    local portalMode = attackerStruct.Char:getQuestProgress(7009)
+    local spellMode = attackerStruct.Char:getQuestProgress(39)
+    local portalMode = attackerStruct.Char:getQuestProgress(180)
     if spellMode ~= 0 or portalMode ~= 0 then
         local name = attackerStruct.Char.name
         magicTargeting.playerTargets[name] = defenderStruct.Char
@@ -319,8 +319,8 @@ function M.onMagicAttack(attackerStruct, defenderStruct)
     -- take glyph effects on move points into consideration
     glypheffects.effectOnFight(attackerStruct.Char,defenderStruct.Char)
 
-    if attackerStruct.Char:getQuestProgress(7014) == 1 then
-        attackerStruct.Char:setQuestProgress(7014, 2)
+    if attackerStruct.Char:getQuestProgress(239) == 1 then
+        attackerStruct.Char:setQuestProgress(239, 2)
         attackerStruct.Char:inform(texts.wandTutorial.german, texts.wandTutorial.english)
     end
 

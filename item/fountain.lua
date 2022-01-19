@@ -49,11 +49,14 @@ end
 
 local function resetMagicRelatedQuests(user)
 
-    user:setQuestProgress(7000, 0) --unlearn all arcane runes
-    user:setQuestProgress(7008, 0) --unattune all portal locations
-    user:setQuestProgress(7010, 0) --reset red portal permits
-    user:setQuestProgress(7011, 0) --reset stored portal colour
-    user:setQuestProgress(7012, 0) --reset arcane runes learning questline
+    user:setQuestProgress(51, 0) --unlearn all arcane runes
+    user:setQuestProgress(216, 0) --unattune all portal locations
+    user:setQuestProgress(225, 0) --reset red portal permits
+    user:setQuestProgress(235, 0) --reset stored portal colour
+    user:setQuestProgress(237, 0) --reset arcane runes learning questline
+    user:setQuestProgress(239, 0) --reset wand magic learning questline
+    user:setQuestProgress(240, 0) --reset spatial magic learning questline
+    user:setQuestProgress(241, 0) --reset glyph magic learning questline
     user:setQuestProgress(350, 0) --alchemy teacher
     user:setQuestProgress(351, 0) --same as above
     user:setQuestProgress(352, 0) --same as above

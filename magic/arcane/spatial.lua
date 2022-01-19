@@ -46,7 +46,7 @@ function M.QuestprogressToAttunedSpots(questprogress)
 end
 
 function M.spotAttuned(user, spotNumber)
-    local attunedSpots = M.QuestprogressToAttunedSpots(user:getQuestProgress(7008))
+    local attunedSpots = M.QuestprogressToAttunedSpots(user:getQuestProgress(216))
     local retVal = false
     local offset = math.fmod(spotNumber-1,32)
 
@@ -59,8 +59,8 @@ end
 
 function M.attuneSpot(user, spotNumber)
     local offset= math.fmod(spotNumber-1,32);
-    local attunedSpots = M.QuestprogressToAttunedSpots(user:getQuestProgress(7008))
-    user:setQuestProgress(7008, M.attunedSpotsToQuestprogress(bit32.bor(2^offset, attunedSpots)))
+    local attunedSpots = M.QuestprogressToAttunedSpots(user:getQuestProgress(216))
+    user:setQuestProgress(216, M.attunedSpotsToQuestprogress(bit32.bor(2^offset, attunedSpots)))
 end
 
 local function getDistance(userXY, targetXY)
@@ -260,10 +260,10 @@ function M.selectPortalColor(user)
         local index = dialog:getSelectedIndex() + 1
 
         if index == 1 then
-            user:setQuestProgress(7011, 798)
+            user:setQuestProgress(235, 798)
             user:inform(myTexts.red.german, myTexts.red.english)
         elseif index == 2 then
-            user:setQuestProgress(7011, 10)
+            user:setQuestProgress(235, 10)
             user:inform(myTexts.blue.german, myTexts.blue.english)
         end
     end
@@ -283,7 +283,7 @@ local function teleport(user, actionState, portal, destination)
     local wear = getPortalWear(user)
     local thePos = user.pos
 
-    local portalType = user:getQuestProgress(7011)
+    local portalType = user:getQuestProgress(235)
 
         if portalType == 0 then
             portalType = 10
@@ -379,7 +379,7 @@ local function portalMenu(user, ltstate)
     dialog:addOption(0,common.GetNLS(user, myTexts.attuneTo.german, myTexts.attuneTo.english))
     dialog:addOption(0, common.GetNLS(user, myTexts.teleport.german, myTexts.teleport.english))
     dialog:addOption(0, common.GetNLS(user, myTexts.portal.german, myTexts.portal.english))
-    if user:getQuestProgress(7010) ~= 0 then
+    if user:getQuestProgress(225) ~= 0 then
         dialog:addOption(0, common.GetNLS(user, myTexts.portalColour.german, myTexts.portalColour.english))
     end
     user:requestSelectionDialog(dialog)

@@ -496,15 +496,15 @@ function M.lukPuzzle(user)
         end
         user:inform(texts.lukPuzzle[status].german, texts.lukPuzzle[status].english)
         world:makeSound(25, user.pos)
-        user:setQuestProgress(7020, index)
+        user:setQuestProgress(245, index)
     end
 
-    if user:getQuestProgress(7020) == 1 then
+    if user:getQuestProgress(245) == 1 then
         germanText = texts.lukPuzzle.denounce.denounced.german
         englishText = texts.lukPuzzle.denounce.denounced.english
         local dialog = MessageDialog("", common.GetNLS(user, germanText, englishText), callback)
         user:requestMessageDialog(dialog)
-    elseif user:getQuestProgress(7020) == 2 then
+    elseif user:getQuestProgress(245) == 2 then
         germanText = texts.lukPuzzle.denounce.praised.german
         englishText = texts.lukPuzzle.denounce.praised.english
         local dialog = MessageDialog("", common.GetNLS(user, germanText, englishText), callback)
@@ -569,12 +569,12 @@ function M.bhonaInfo(user, sourceItem)
 
     for _, location in pairs(texts.bhonaPuzzle.locations) do
         if location.location == sourceItem.pos then
-            if user:getQuestProgress(7019) < location.before  then
+            if user:getQuestProgress(244) < location.before  then
                 bhonaMessageDialogue(user, texts.bhonaPuzzle.gibberish.german, texts.bhonaPuzzle.gibberish.english)
             else
                 bhonaMessageDialogue(user, location.german, location.english)
-                if user:getQuestProgress(7019) == location.before then
-                    user:setQuestProgress(7019, location.after)
+                if user:getQuestProgress(244) == location.before then
+                    user:setQuestProgress(244, location.after)
                 end
             end
         end
@@ -653,14 +653,14 @@ function M.peraPuzzle(user, sourceItem)
 
         if not setTime then
             user:inform(texts.peraPuzzle.fast.german, texts.peraPuzzle.fast.english)
-            user:setQuestProgress(7018, 1)
+            user:setQuestProgress(243, 1)
         end
     end
 end
 
 local function passedPeraPuzzle(user)
 
-    if user:getQuestProgress(7018) == 1 then
+    if user:getQuestProgress(243) == 1 then
         return true
     else
         return false
@@ -1409,9 +1409,9 @@ local function checkIfCriteriaMet(user, rune)
             retVal = true
         end
     elseif rune == "Kel" then
-        if user:getQuestProgress(7017) == 1 then
+        if user:getQuestProgress(242) == 1 then
             retVal = true
-            user:setQuestProgress(7017, 0)
+            user:setQuestProgress(242, 0)
         end
     elseif rune == "Lev" then
         if passesLevPuzzle() then
@@ -1431,7 +1431,7 @@ local function checkIfCriteriaMet(user, rune)
             retVal = true
         end
     elseif rune == "BHONA" then
-        if user:getQuestProgress(7019) == 18 then
+        if user:getQuestProgress(244) == 18 then
             retVal = true
         end
     elseif rune == "Lhor" then
@@ -1440,7 +1440,7 @@ local function checkIfCriteriaMet(user, rune)
             retVal = true
         end
     elseif rune == "Luk" then
-        local progress = user:getQuestProgress(7020)
+        local progress = user:getQuestProgress(245)
         if progress == 1 then
             user:inform(texts.lukPuzzle.denounced.german, texts.lukPuzzle.denounced.english)
             return true
@@ -1530,8 +1530,8 @@ function M.UseItem(user, item)
             learnRune(user, rune.rune)
             lightSphere(user, item, false)
             if rune.rune == "RA" then
-                if user:getQuestProgress(7012) == 1 then
-                    user:setQuestProgress(7012, 2)
+                if user:getQuestProgress(237) == 1 then
+                    user:setQuestProgress(237, 2)
                 end
             end
         elseif item.id == 3499 then

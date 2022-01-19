@@ -87,8 +87,8 @@ function M.spellEffects(user, targets, spell, element, Orl)
     magicGFXSFX.getTargetGFXSFX(targets, spell, true)
     if spell == 8 then
         if tutorials.isTutorialNPCnearby(user) then
-            if user:getQuestProgress(7012) == 5 then
-                user:setQuestProgress(7012, 6)
+            if user:getQuestProgress(237) == 5 then
+                user:setQuestProgress(237, 6)
             end
         end
     end
