@@ -24,6 +24,7 @@ UPDATE weapon SET wp_attack = 44, wp_accuracy = 74, wp_range = 5 WHERE wp_itemid
 UPDATE weapon SET wp_attack = 29, wp_accuracy = 70, wp_range = 5 WHERE wp_itemid = 323;
 ]]
 
+local texts = require("magic.arcane.base.texts")
 local magicTargeting = require("magic.arcane.targeting")
 local magicResistance = require("magic.arcane.magicResistance")
 local dealMagicDamage = require("magic.arcane.dealMagicDamage")
@@ -317,6 +318,11 @@ function M.onMagicAttack(attackerStruct, defenderStruct)
 
     -- take glyph effects on move points into consideration
     glypheffects.effectOnFight(attackerStruct.Char,defenderStruct.Char)
+
+    if attackerStruct.Char:getQuestProgress(7014) == 1 then
+        attackerStruct.Char:setQuestProgress(7014, 2)
+        attackerStruct.Char:inform(texts.wandTutorial.german, texts.wandTutorial.english)
+    end
 
     return true
 end

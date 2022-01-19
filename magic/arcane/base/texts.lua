@@ -1248,6 +1248,11 @@ local M = {
         description = {
             english = "A grimoire used by mages.",
             german = "Ein Grimoire das Magier verwenden."}
+    },
+    --magic/magicfighting.lua
+    wandTutorial = {
+        english = "You've successfully used wand magic! You can now return to Terry Ogg.",
+        german = ""
     }
 
 }
