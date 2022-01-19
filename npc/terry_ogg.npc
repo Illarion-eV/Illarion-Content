@@ -131,8 +131,8 @@ queststatus(240) = 3, english, "spatial", "quest", "mission", "task", "adventure
 queststatus(240) = 4, english, "spatial", "quest", "mission", "task", "adventure", "order" -> queststatus(240) = 5, "Well done! Next up, I want to see you open a portal to it as well. The incantation is 'Locus Ianua'."
 queststatus(240) = 5, english, "spatial", "quest", "mission", "task", "adventure", "order" -> "Well go on then. I want to see you open a portal to the nearby teleporter."
 queststatus(240) = 6, english, "spatial", "quest", "mission", "task", "adventure", "order" -> queststatus(240) = 7, "Alright then, you know your way around spatial magic. For your last task, I want you to go over to the magic desk over there and craft me a portal book. Once created, you can use your grimoire's assistance to inspect the quality of your book."
+queststatus(240) = 7, item(1061, all) > 0, english, "spatial", "quest", "mission", "task", "adventure", "order" -> queststatus(240) = 8, "Splendid! You can keep the book. That's all there is that I have to teach you about spatial magic. Though you can always ask me about other types of magic."
 queststatus(240) = 7, english, "spatial", "quest", "mission", "task", "adventure", "order" -> "Where's my portal book?"
-queststatus(240) = 8, english, "spatial", "quest", "mission", "task", "adventure", "order" -> queststatus(240) = 8, "Splendid! That's all there is that I have to teach you about spatial magic. Though you can always ask me about other types of magic."
 queststatus(240) = 0, german, "teleport", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "order" -> inform("[] "), queststatus(240) = 1, ""
 queststatus(240) = 1, german, "teleport", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "order" -> ""
 queststatus(240) = 2, german, "teleport", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "order" -> queststatus(240) = 3, "'Locus Itinerantur'."
@@ -140,9 +140,8 @@ queststatus(240) = 3, german, "teleport", "quest", "mission", "auftrag", "aufgab
 queststatus(240) = 4, german, "teleport", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "order" -> queststatus(240) = 5, "'Locus Ianua'."
 queststatus(240) = 5, german, "teleport", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "order" -> ""
 queststatus(240) = 6, german, "teleport", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "order" -> queststatus(240) = 7, ""
-queststatus(240) = 7, german, "teleport", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "order" -> "Where's my portal book?"
-queststatus(240) = 8, german, "teleport", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "order" -> queststatus(240) = 8, ""
-
+queststatus(240) = 7, item(1061, all) > 0, german, "teleport", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "order" -> queststatus(240) = 8, ""
+queststatus(240) = 7, german, "teleport", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "order" -> ""
 --glyph magic tutorial
 queststatus(241) = 0, english, "glyph", "quest", "mission", "task", "adventure", "order" -> ""
 queststatus(241) = 0, "glyphe", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "order"  -> ""
