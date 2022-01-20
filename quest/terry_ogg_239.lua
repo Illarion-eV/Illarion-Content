@@ -24,7 +24,7 @@ local ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
 local Title = {}
-Title[GERMAN] = ""
+Title[GERMAN] = "Stabmagie"
 Title[ENGLISH] = "Wand Magic"
 
 -- Insert an extensive description of each status here, in both languages
@@ -32,9 +32,9 @@ Title[ENGLISH] = "Wand Magic"
 local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = ""
+Description[GERMAN][1] = "Der wandernde Magier Terry Ogg hat dich damit beauftragt, ein Ziel zu finden, das du mit deinem Zauberstab angreifen kannst. Um die Stabmagie zu verwenden, musst du dich zunächst mit deinem Grimoire auf die Stabmagie einstimmen. Danach legst du den Zauberstab in einen deiner Handslots und klickst mit der rechten Maustaste auf das Ziel, das du angreifen willst."
 Description[ENGLISH][1] = "The wandering mage Terry Ogg has tasked you with going out to find a target to attack with your wand using wand magic. To use wand magic, you must first attune to wand magic using your grimoire. Then, simply equip the wand into one of your hand slots and right click the target you want to blast away at."
-Description[GERMAN][2] = ""
+Description[GERMAN][2] = "Kehrt zu Terry Ogg auf der magischen Insel in Troll's Haven zurück."
 Description[ENGLISH][2] = "Return to Terry Ogg at the magic island in Troll's Haven."
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)

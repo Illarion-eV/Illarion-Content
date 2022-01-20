@@ -24,7 +24,7 @@ local ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
 local Title = {}
-Title[GERMAN] = ""
+Title[GERMAN] = "Runenmagie"
 Title[ENGLISH] = "Rune Magic"
 
 -- Insert an extensive description of each status here, in both languages
@@ -32,17 +32,17 @@ Title[ENGLISH] = "Rune Magic"
 local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = ""
+Description[GERMAN][1] = "Der wandernde Magier Terry Ogg hat dich mit der Aufgabe betraut, die Rune RA zu finden und sie zu lernen. Einen Hinweis darauf, wo sie zu finden ist, findest du in dem Buch auf dem Tisch neben ihm auf der magischen Insel in Troll's Haven."
 Description[ENGLISH][1] = "The wandering mage Terry Ogg has sent you on the task to find the rune RA and learn it. There's a hint as to its location in the book on the table next to him on the magic island in Troll's Haven."
-Description[GERMAN][2] = ""
+Description[GERMAN][2] = "Kehrt zu Terry Ogg auf der magischen Insel in Troll's Haven zurück."
 Description[ENGLISH][2] = "Return to Terry Ogg at the magic island in Troll's Haven for your next task."
-Description[GERMAN][3] = ""
+Description[GERMAN][3] = "Der wandernde Magier Terry Ogg hat dir gesagt, du sollst deine neu erlernte Rune als Zauberspruch in deinem Grimoire schreiben. Gehe dazu mit einem Grimoire und einer Schreibfeder ausgerüstet zu einem magischen Schreibtisch. Du kannst Grimoire von Terry kaufen oder normale Bücher am Zauberpult in Grimoire verzaubern. Normale Bücher und Schreibfedern werden von Half-hung Bryan im Hemp Necktie Inn verkauft, während Schneider und Schreiner sie auch herstellen können."
 Description[ENGLISH][3] = "The wandering mage Terry Ogg has told you to store your newly learned rune as a spell in your grimoire. Go to a magic desk while equipped with a grimoire and quill to do so. You can purchase grimoires from Terry, or enchant regular books into Grimoires at the magic desk. Regular books and quills are sold by Half-hung Bryan by the Hemp Necktie Inn, while tailors and carpenters can also craft them."
-Description[GERMAN][4] = ""
+Description[GERMAN][4] = "Kehrt zu Terry Ogg auf der magischen Insel in Troll's Haven zurück."
 Description[ENGLISH][4] = "Return to Terry Ogg at the magic island in Troll's Haven for your next task."
-Description[GERMAN][5] = ""
+Description[GERMAN][5] = "Der wandernde Magier Terry Ogg möchte sehen wie du den Zauberspruch RA sprichst. Dazu musst du entweder die Rune 'RA' sprechen oder dein Grimoire benutzen, um den neu gelernten Zauber auf deinen Zauberstab einzustimmen, und ihn dann mit einem Doppelklick anwenden."
 Description[ENGLISH][5] = "The wandering mage Terry Ogg wants you to see you cast the spell RA. This can be done by either speaking the rune 'RA' or using your grimoire to attune your newly stored spell to your wand, then double clicking the wand to use it."
-Description[GERMAN][6] = ""
+Description[GERMAN][6] = "Kehrt zu Terry Ogg auf der magischen Insel in Troll's Haven zurück."
 Description[ENGLISH][6] = "Return to Terry Ogg at the magic island in Troll's Haven."
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
