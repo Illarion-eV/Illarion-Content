@@ -64,6 +64,7 @@ itemShoes = 53
 -- the merchant dialog.
 
 sellItem = id(2619), de("Grimoire"), en("Grimoire"), price(2000), stack(1), quality(999), data("magicBook" = "true")
+sellItem = id(105), de("Die Enzyklopädie der arkanen Runen"), en("The arcane runes encyclopedia"), price(2000), stack(1), quality(999), data("book" = "arcane_runes_encyclopedia")
 
 tradeNotEnoughMoneyMsg "Oh, ich fürchte, das kannst du dir nicht leisten. Wie bedauerlich", "Oh, I'm afraid you can't afford that. How unfortunate."
 tradeFinishedMsg "Ah, eine Förderung für meine magische Forschung. Ich danke dir.", "Ah, funding for my magical research. Thank you."
