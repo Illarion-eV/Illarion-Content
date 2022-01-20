@@ -91,6 +91,7 @@ M.bookList["god_zhambra"] = {english = "Zhambra - God of Friendship", german = "
 M.bookList["zodiac_sign"] = {english = "The Zodiac Sign of Illarion", german = "Die Tierkreiszeichen", bookId = 26, bookGraphic = bookYellowVeryHeavy}
 M.bookList["alchemy"] = {english = "Book of Alchemy", german = "Buch der Alchemie", bookId = 101, bookGraphic = bookWhiteRune}
 M.bookList["the_steps_of_alchemy"] = {english = "The Steps of Alchemy", german = "Die Schritte der Alchemie", bookId = 102, bookGraphic = bookBlueRedLong}
+M.bookList["arcane_runes_encyclopedia"] = {english = "The arcane runes encyclopedia", german = "Die Enzyklopädie der arkanen Runen", bookId = 103, bookGraphic = bookBlueOrnament}
 M.bookList["journal_of_abbot_elzechiel"] = {english = "Journal of Abbot Elzechiel", german = "Tagebuch des Abtes Elzechiel", bookId = 201, bookGraphic = pell}
 M.bookList["a_hermit_on_the_lookout_for_eldan"] = {english = "A Hermit on the Lookout for Eldan", german = "Einsiedler auf der Suche nach Eldan", bookId = 301, bookGraphic = bookletPink}
 M.bookList["a_question_of_honour"] = {english = "A Question of Honour", german = "Eine Frage der Ehre", bookId = 302, bookGraphic = bookBlackSmallHeavy}

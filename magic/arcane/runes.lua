@@ -16,6 +16,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local M = {}
 
+--If the effects, costs or cast times of runes change, the in game rune encyclopedia book should be changed to reflect that
+
 M.Runes = { -- [(1)Rune Number], [(2)Rune Name], [(3)Mana cost],[(4)Cast Time],[(5)Level Requirement]
 {1,"CUN","Small","Short",0},
 {2,"JUS","Small","Short",0},
