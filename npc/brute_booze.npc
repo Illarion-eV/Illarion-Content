@@ -90,7 +90,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Save Travel!", "...or like 
 
 -- Fountain of forgetfulness
 queststatus(238) = 1, "forget" -> "Uh? A fountain ob forgetfulness? Hurr. Meh would like a fountain that spews rum."
-queststatus(238) = 1, ""vergessen"" -> "Äh? Ein Springbrunnen des Vergessens? Hurr. Ich hätte gerne einen Brunnen, der Rum spuckt."
+queststatus(238) = 1, "vergessen" -> "Äh? Ein Springbrunnen des Vergessens? Hurr. Ich hätte gerne einen Brunnen, der Rum spuckt."
 
 
 -- Catching quest triggers
