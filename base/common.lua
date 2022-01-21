@@ -2230,8 +2230,9 @@ leadAttribTable[Character.spiritMagic]="intelligence"
 leadAttribTable[Character.windMagic]="intelligence"
 leadAttribTable[Character.earthMagic]="intelligence"
 leadAttribTable[Character.waterMagic]="intelligence"
+leadAttribTable[Character.spatialMagic]="intelligence"
 
---Willpower: Priests
+--Willpower: Priests and magic resistance
 leadAttribTable[Character.blessing]="willpower"
 leadAttribTable[Character.praying]="willpower"
 leadAttribTable[Character.vowing]="willpower"
@@ -2239,6 +2240,7 @@ leadAttribTable[Character.confessing]="willpower"
 leadAttribTable[Character.ceremony]="willpower"
 leadAttribTable[Character.consecrateWeapons]="willpower"
 leadAttribTable[Character.consecrateArmours]="willpower"
+leadAttribTable[Character.magicResistance]="willpower"
 
 function M.GetLeadAttributeName(Skill)
     return leadAttribTable[Skill]
