@@ -83,7 +83,11 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell", "Goodbye.", "Hav
 "your name", "who are you", "who art thou" -> "I am Grator Bottlebreak."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Grator Bottlebreak."
 
--- tasks-- leraning recipes
+--fountain of forgetfulness startquest
+queststatus(238) = 0, english, "forget", "change", "mage", "priest", "bard" -> inform("[New quest] The fountain of forgetfulness"), queststatus(238) = 1, "You no longer want to be an alchemist? Pfah. Go search for the fountain of forgetfulness then and get out of my sight!"
+queststatus(238) = 0, "vergessen", "verändern", "magie", "priester", "barde" -> inform("[Neue Quest]Der Brunnen des Vergessens "), queststatus(238) = 1, "Du willst kein Alchemist mehr sein? Pfah. Dann geh auf die Suche nach dem Brunnen des Vergessens und verschwinde aus meinen Augen!"
+
+-- tasks-- learning recipes
 english, "quest", "mission" -> "If you want to learn the proper creation of a certain potion, have a look at my list here."
 "quest", "mission" -> "Wenn Ihr ein die richtige Herstellung eines Trankes lernen wollt, schaut hier auf die Liste auf meinem Tisch."
 "task", "adventure", "order", "recipe", "leran", "lesson" -> "If you want to learn the proper creation of a certain potion, have a look at my list here."
