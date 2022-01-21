@@ -578,19 +578,19 @@ local M = {
         kept = { english = "You wisely decided to keep your magical knowledge. What kind of fool would give up such precious wisdom, anyways?", german = "Du entscheidest dich weise und behälst dein magisches Wissen. Welcher Narr würde etwas so Kostbares auch aufgeben?"},
         offered = {
             english = "Having provided the required offering, you may now drink of the fountains waters.",
-            german = ""
+            german = "Nachdem du die erforderliche Opfergabe erbracht hast, darfst du jetzt vom Wasser des Brunnens trinken."
         },
         lacking = {
             english = "An offering ceremony is required to make use of the fountain.",
-            german = ""
+            german = "Um den Brunnen nutzen zu können, ist eine Opferzeremonie erforderlich."
         },
         whatToDo = {
             english = "It's a fountain. Even if there's something special about it, you wouldn't know what to do.",
-            german = ""
+            german = "Es ist ein Brunnen. Selbst wenn er etwas Besonderes wäre, wüsstest du nicht, was du tun sollst."
         },
         found = {
             english = "You found the fountain, though now what? It seems to require some kind of offering, perhaps you can find a clue as to what somewhere nearby?",
-            german = ""
+            german = "Du hast den Brunnen gefunden, aber was nun? Er scheint eine Art von Opfergabe zu verlangen, vielleicht kannst du irgendwo in der Nähe einen Hinweis darauf finden, was?"
         }
     },
     --runeHintsBook.lua and magicSphere.lua
@@ -1273,7 +1273,7 @@ local M = {
     --item/fountain.lua
     fountainInfo = {
         english = "To drink of me, an offering I pursue. The blessing of the elders, I want from you.",
-        german = ""
+        german = "Um von mir zu trinken, verlange ich ein Opfer. Den Segen der Alten will ich von dir."
     }
 
 }

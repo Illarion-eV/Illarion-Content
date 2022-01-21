@@ -93,6 +93,7 @@ queststatus(107) > 14, ".+" -> inform("[Error] Something went wrong, please info
 
 -- Fountain of forgetfulness
 queststatus(238) = 1, "forget" -> "What? The fountain of forgetfulness? As long as you don't forget your debts to the Don!"
+queststatus(238) = 1, "vergessen" -> "Was? Der Brunnen des Vergessens? Solange du deine Schulden beim Don nicht vergisst!"
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Groktan Flintsplit the 'reminder'. Keywords: Reminder, Don Valerio Guilianni, quest, gods, debt, money.")

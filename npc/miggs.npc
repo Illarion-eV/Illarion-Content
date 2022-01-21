@@ -81,6 +81,7 @@ itemShoes = 326
 
 -- Fountain of forgetfulness
 queststatus(238) = 1, "forget" -> queststatus(238) = 2, "Arr? I believe I heard the hermit in the northern woods knows about that stuff!"
+queststatus(238) = 1, "vergessen" -> queststatus(238) = 2, "Arr? Ich glaube, ich habe gehört, dass der Einsiedler in den nördlichen Wäldern davon weiß!"
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Miggs, the henchman of Don Valerio. Keywords: Hello, henchman, quest, Don Valerio, rules.")

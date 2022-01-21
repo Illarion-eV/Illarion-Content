@@ -90,6 +90,7 @@ itemShoes = 369
 
 -- Fountain of forgetfulness
 queststatus(238) = 1, "forget" -> queststatus(238) = 2, "My good friend Raban, a hermit in the northern woods, spoke of that once I believe."
+queststatus(238) = 1, "vergessen" -> queststatus(238) = 2, "Mein guter Freund Raban, ein Einsiedler in den nördlichen Wäldern, sprach einmal davon, glaube ich."
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is the scholar Sir Fludnar Yednos. Keywords: Hello, quest, god, orc.")

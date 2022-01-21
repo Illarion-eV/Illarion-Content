@@ -119,6 +119,8 @@ state = 2, ".*" -> state = 0, "Dich erwartet Reichtum", "Du wirst ein Geschenk b
 
 -- Fountain of forgetfulness
 queststatus(238) = 1, "forget" -> "The fountain of forgetfulness? Never heard of it."
+queststatus(238) = 1, "vergessen" -> "Der Brunnen des Vergessens? Nie davon gehört."
+
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am a fortune teller. You know what a fortune teller does?", "I listen to the wind and the people.", "People come and ask me for advice and so I give advice."

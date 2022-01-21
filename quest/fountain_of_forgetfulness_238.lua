@@ -24,7 +24,7 @@ local ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
 local Title = {}
-Title[GERMAN] = ""
+Title[GERMAN] = "Der Brunnen des Vergessens"
 Title[ENGLISH] = "The fountain of forgetfulness"
 
 -- Insert an extensive description of each status here, in both languages
@@ -32,17 +32,17 @@ Title[ENGLISH] = "The fountain of forgetfulness"
 local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = ""
+Description[GERMAN][1] = "Auf der Suche nach einem neuen magischen Beruf sollst du den Brunnen des Vergessens finden. Aber wer weiß schon von einer so obskuren Sache?\nViele NPCs haben Wissen über solche Dinge, du musst einfach dein Glück versuchen."
 Description[ENGLISH][1] = "Seeking to change your magical occupation, you've been told to find the fountain of forgetfulness. Who would even know of such an obscure thing, however?\nVarious NPCs hold knowledge of things like this, you might just have to try your luck."
-Description[GERMAN][2] = ""
+Description[GERMAN][2] = "Du hast schließlich jemanden gefunden, der von dem Brunnen gehört hat. Sie sprachen von einem Einsiedler, der in den Wäldern lebt und vielleicht mehr weiß. Wer könnte das sein?"
 Description[ENGLISH][2] = "You finally found someone who had heard of the fountain. They spoke of a hermit living in the woods that might know more. Who could that be?"
-Description[GERMAN][3] = ""
+Description[GERMAN][3] = "Du hast Raban, den Einsiedler im nördlichen Wald, getroffen, der dir von einem Brunnen in der Wüste erzählte, der das sein könnte, wonach du suchst. Er warnte dich jedoch vor den Gefahren, die dort lauern, und vor der Forderung nach einer Opfergabe."
 Description[ENGLISH][3] = "You met with Raban, the hermit in the northern woods, who told you of a fountain in the desert which might be what you are looking for. However he warned you of its dangers and its requirements of an offering."
-Description[GERMAN][4] = ""
+Description[GERMAN][4] = "Du hast den Brunnen gefunden, aber du weißt nicht, welche Opfergabe er von dir verlangt, bevor du von seinem Wasser trinken kannst. Vielleicht gibt es in der Nähe etwas, das dir einen Hinweis geben kann?"
 Description[ENGLISH][4] = "You found the fountain, but you don't know what offering it requires of you before you can drink of its waters. Maybe there is something in the area that can give you a clue?"
-Description[GERMAN][5] = ""
+Description[GERMAN][5] = "Du hast eine Schriftrolle gefunden, die in der Nähe lag, deren Inhalt dir aber nicht viel sagt. Der Segen der Ältesten? Du wirst wohl herausfinden müssen, was er bedeutet, dann kannst du endlich die Opferzeremonie durchführen und aus dem Brunnenwasser trinken!"
 Description[ENGLISH][5] = "You found a scroll lying nearby, though its contents do not make much sense to you. The blessing of the elders? You suppose you'll have to figure out what it means, then you should finally be able to conduct the offering ceremony and drink from the fountains waters!"
-Description[GERMAN][6] = ""
+Description[GERMAN][6] = "Nachdem du die Opfergabe dargebracht hast, kannst du nun aus dem Wasser des Brunnens des Vergessens trinken."
 Description[ENGLISH][6] = "Having provided the offering, you can now drink from the water of the fountain of forgetfulness."
 -- Insert the position of the quest start here (probably the position of an NPC or item)
 local Start = {position(656, 316, 0)}

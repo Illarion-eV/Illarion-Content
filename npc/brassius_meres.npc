@@ -91,6 +91,7 @@ queststatus(109) > 6, ".+" -> inform("[Error] Something went wrong, please infor
 
 -- Fountain of forgetfulness
 queststatus(238) = 1, "forget" -> "Wouldn't we all like to forget, sometimes."
+queststatus(238) = 1, "vergessen" -> "Würden wir nicht alle gerne vergessen, manchmal."
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Brassius Meres the Guard. Keywords: hello, quest, profession, Runewick, law, bridge, gods.")

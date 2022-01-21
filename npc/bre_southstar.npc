@@ -90,6 +90,7 @@ hitPlayerMsg "#me verpasst dem Eindringling einen Hieb 'Verschwinde!'", "#me hit
 
 -- Fountain of forgetfulness
 queststatus(238) = 1, "forget" -> "I don't believe I recall anything like a fountain of forgetfulness."
+queststatus(238) = 1, "vergessen" -> "Ich glaube nicht, dass ich mich an so etwas wie einen Brunnen des Vergessens erinnern kann."
 
 
 -- Background:

@@ -101,6 +101,8 @@ english, "Ciao", "Adieu", "Au revoir" -> "Farewell, until we meet again.", "May 
 
 -- Fountain of forgetfulness
 queststatus(238) = 1, "forget" -> queststatus(238) = 2, "I believe I heard that hermit in the woods speak of it once."
+queststatus(238) = 1, "vergessen" -> queststatus(238) = 2, "Ich glaube, ich habe diesen Einsiedler im Wald einmal davon sprechen hören."
+
 
 -- Catching quest triggers of other factions' members.
 english, town = none, "quest", "mission" -> "I do not have work for you outsider."

@@ -75,7 +75,7 @@ itemShoes = 698
 
 -- Fountain of forgetfulness
 queststatus(238) = 1, "forget" -> "The fountain of forgetfulness? Never heard of it."
-
+queststatus(238) = 1, "forget" -> "Der Brunnen des Vergessens? Nie davon gehört."
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help

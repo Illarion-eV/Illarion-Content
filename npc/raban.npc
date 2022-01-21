@@ -83,6 +83,8 @@ itemShoes = 369
 -- Fountain of forgetfulness
 queststatus(238) = 1, "forget" -> "The fountain of forgetfulness? I can't say I've heard of it."
 queststatus(238) = 2, "forget" -> queststatus(238) = 3, "The fountain of forgetfulness? I can't say I've heard of it. You say someone told you I have? That can't be.. Unless, you mean that fountain out in the Kantabi desert?"
+queststatus(238) = 1, "vergessen" -> "Der Brunnen des Vergessens? Ich kann nicht sagen, dass ich davon gehört habe."
+queststatus(238) = 2, "vergessen" -> queststatus(238) = 3, "Der Brunnen des Vergessens? Ich kann nicht sagen, dass ich davon gehört habe. Du sagst, jemand hat dir gesagt, ich hätte davon gehört? Das kann nicht sein... Es sei denn, du meinst den Brunnen in der Kantabi-Wüste?"
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is the hermit Raban. Keywords: Hello, quest, sickle, herbs.")

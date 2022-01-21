@@ -155,6 +155,8 @@ queststatus(75) = 2, "Palast" -> "Wenn Cadomyr die Krone des Landes ist, dann is
 
 -- Fountain of forgetfulness
 queststatus(238) = 1, "forget" -> "Eh? A fountain of forgetfulness? I too would like a fountain that spews rum, pal."
+queststatus(238) = 1, "vergessen" -> "Eh? Ein Brunnen des Vergessens? Ich hätte auch gerne einen Brunnen, der Rum spuckt, Kumpel."
+
 
 -- Small talk--
 "profession" -> "I am a servant of the Queen herself!", "I am a royal fan-waver! A glorious task!"
