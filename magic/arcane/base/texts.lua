@@ -575,7 +575,23 @@ local M = {
         reallyCertain = { english = "Are you really sure?", german = "Bist du dir wirklich sicher?"},
         finalVerification = { english = "Then your magical knowledge will be forgotten... right?", german = "Dein gesamtes magisches Wissen wird vergessen....Bist du dir sicher?"},
         removed = { english = "As you drink from the fountain your eyes grow dazed and your head feels foggy. Why does it suddenly feel like your memory is full of blank spots? What are you doing here? Why is the sky blue? You don't know.", german = "Als du aus dem Brunnen trinkst schweifen deine Augen in die Ferne und dein Kopf füllt sich mit Nebel. Warum fühlt es sich plötzlich so an als ob dein Gedächntis voller leerer Stellen ist? Was machst du hier? Wieso ist der Himmel blau? Du weißt es nicht."},
-        kept = { english = "You wisely decided to keep your magical knowledge. What kind of fool would give up such precious wisdom, anyways?", german = "Du entscheidest dich weise und behälst dein magisches Wissen. Welcher Narr würde etwas so Kostbares auch aufgeben?"}
+        kept = { english = "You wisely decided to keep your magical knowledge. What kind of fool would give up such precious wisdom, anyways?", german = "Du entscheidest dich weise und behälst dein magisches Wissen. Welcher Narr würde etwas so Kostbares auch aufgeben?"},
+        offered = {
+            english = "Having provided the required offering, you may now drink of the fountains waters.",
+            german = ""
+        },
+        lacking = {
+            english = "An offering ceremony is required to make use of the fountain.",
+            german = ""
+        },
+        whatToDo = {
+            english = "It's a fountain. Even if there's something special about it, you wouldn't know what to do.",
+            german = ""
+        },
+        found = {
+            english = "You found the fountain, though now what? It seems to require some kind of offering, perhaps you can find a clue as to what somewhere nearby?",
+            german = ""
+        }
     },
     --runeHintsBook.lua and magicSphere.lua
     runeHintsBookTexts = {
@@ -1252,6 +1268,11 @@ local M = {
     --magic/magicfighting.lua
     wandTutorial = {
         english = "You've successfully used wand magic! You can now return to Terry Ogg.",
+        german = ""
+    },
+    --item/fountain.lua
+    fountainInfo = {
+        english = "To drink of me, an offering I pursue. The blessing of the elders, I want from you.",
         german = ""
     }
 

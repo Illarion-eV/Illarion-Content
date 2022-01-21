@@ -24,6 +24,52 @@ local myTexts = texts.fountainDialogue
 
 local M = {}
 
+local function takeOffering(user, offerings)
+
+    for _, offering in pairs(offerings) do
+        user:eraseItem(offering, 1)
+    end
+user:setQuestProgress(238, 6) --offering has been given
+user:inform(myTexts.offered.german, myTexts.offered.english)
+end
+
+local function checkForOffering(user)
+
+    local offerings = {Item.pureAir, Item.pureEarth, Item.pureFire, Item.pureSpirit, Item.pureWater}
+    local proceed = common.userHasItems(user,offerings)
+
+    if proceed then
+        takeOffering(user, offerings)
+    else
+        user:inform(myTexts.lacking.german, myTexts.lacking.english)
+    end
+end
+
+local function offeringRequired(user)
+
+    local status = user:getQuestProgress(238)
+
+    if status == 5 or status == 7 then
+        checkForOffering(user)
+        return true
+    end
+
+    if status == 6 then
+        return false
+    end
+
+    if status == 3 then
+        user:setQuestProgress(238, 4)
+    end
+    if status < 3 then
+        user:inform(myTexts.whatToDo.german, myTexts.whatToDo.english)
+    end
+    if status < 5 then
+        user:inform(myTexts.found.german, myTexts.found.english)
+    end
+    return true
+end
+
 local lakeOfLifeFountainPos = {
     position(660, 238, -9),
     position(744, 203, -9),
@@ -62,6 +108,7 @@ local function resetMagicRelatedQuests(user)
     user:setQuestProgress(352, 0) --same as above
     user:setQuestProgress(37, 0) --remove mage status
     user:setQuestProgress(38, 0) --reset magic books read
+    user:setQuestProgress(238, 7) --Offering will be required again next time
 
 end
 
@@ -93,10 +140,6 @@ local function applyKnowledgeRemoval(user)
         user:inform(myTexts.removed.german, myTexts.removed.english)
     end
 
-end
-
-local function questLineComplete(user)
-    return true
 end
 
 local function finalCheck(user)
@@ -185,9 +228,11 @@ end
 
 local function useFountainOfForgetfulness(user)
 
-    if questLineComplete(user) then
-        firstCheck(user)
+    if offeringRequired(user) then
+        return
     end
+
+    firstCheck(user)
 
 end
 

@@ -91,6 +91,9 @@ itemShoes = 53
 -- Debugging
 queststatus(107) > 14, ".+" -> inform("[Error] Something went wrong, please inform a developer.")
 
+-- Fountain of forgetfulness
+queststatus(238) = 1, "forget" -> "What? The fountain of forgetfulness? As long as you don't forget your debts to the Don!"
+
 -- Help
 "Help" -> inform("[Game Help] This NPC is Groktan Flintsplit the 'reminder'. Keywords: Reminder, Don Valerio Guilianni, quest, gods, debt, money.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Groktan Flintsplit der 'Erinnerer'. Schlüsselwörter: Erinnerer, Don Valerio Guilianni, Quest, Götter, Schulden, Geld.")

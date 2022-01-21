@@ -88,6 +88,10 @@ hitPlayerMsg "#me verpasst dem Eindringling einen Hieb 'Verschwinde!'", "#me hit
 -- Personality:
 -- Amiable, very social, talkative, brave but scared, lazy.
 
+-- Fountain of forgetfulness
+queststatus(238) = 1, "forget" -> "I don't believe I recall anything like a fountain of forgetfulness."
+
+
 -- Background:
 -- Bre's parents when she was 10(human years) were killed by Cadomyrians on the road between Cadomyr and Galmair.
 -- She was too young to even grasp the reason why. She made her way down a long road until she made it back to Galmair.

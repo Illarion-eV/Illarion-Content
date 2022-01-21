@@ -100,6 +100,9 @@ english, "Ciao", "Adieu", "Au revoir" -> "Goodbye", "Farewell", "#me nods slowly
 english, "job" -> "I'm a potter, do you wantsss to help Zlatxhol?"
 "job", "beruf" -> "Ich binss Töpfer, wollen du michssz helfen?"
 
+-- Fountain of forgetfulness
+queststatus(238) = 1, "forget" -> "Forgetfulnesss? Zat iss.. Ss.. I forgotss."
+
 -- Help triggers
 "potter", "craft" -> "You need tongsss to take the hot potter ware out of the kiln! Don't burn your fingersss."
 "Töpfer", "Handwerk" -> "Du brauchssst eine Zssange, um die heißsse Töpferware ausss dem Ofen zssu holen. Verbrenn dir nicht die Finger!"

@@ -117,6 +117,9 @@ state = 2, ".*" -> state = 0, "Dich erwartet Reichtum", "Du wirst ein Geschenk b
 "fortune", "future" -> state = 1, "I'll tell you your future, if you give me three silver coins in return. Do you want to hear about your fortune?"
 "Zukunft" -> state = 1, "Ich sage dir deine Zukunft voraus, wenn du mir dafür drei Silberstücke gibst. Möchtest du etwas über deine  Zukunft hören?"
 
+-- Fountain of forgetfulness
+queststatus(238) = 1, "forget" -> "The fountain of forgetfulness? Never heard of it."
+
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am a fortune teller. You know what a fortune teller does?", "I listen to the wind and the people.", "People come and ask me for advice and so I give advice."
 "beruf" -> "Ich bin eine Wahrsagerin. Wisst ihr was eine Wahrsagerin tut?", "Ich höre dem Wind und den Leuten zu.", "Die Leute kommen und fragen mich um Rat, also gebe ich Rat."

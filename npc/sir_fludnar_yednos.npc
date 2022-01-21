@@ -88,6 +88,9 @@ itemShoes = 369
 -- 1;4: No book, send to Miggs
 -- 7: Buch kaufbar
 
+-- Fountain of forgetfulness
+queststatus(238) = 1, "forget" -> queststatus(238) = 2, "My good friend Raban, a hermit in the northern woods, spoke of that once I believe."
+
 -- Help
 "Help" -> inform("[Game Help] This NPC is the scholar Sir Fludnar Yednos. Keywords: Hello, quest, god, orc.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Gelehrte Sir Fludnar Yednos. Schlüsselwörter: Hallo, Quest, Götter, Ork.")

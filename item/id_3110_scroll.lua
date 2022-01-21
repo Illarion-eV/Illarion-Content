@@ -18,6 +18,8 @@ local transformation_dog = require("alchemy.teaching.transformation_dog")
 local id_266_bookshelf = require("item.id_266_bookshelf")
 local lookat = require("base.lookat")
 local magicSphere = require("item.magicSphere")
+local common = require("base.common")
+local texts = require("magic.arcane.base.texts")
 local M = {}
 
 -- UPDATE items SET itm_script = 'item.id_3110_scroll' WHERE itm_id = 3110;
@@ -146,6 +148,20 @@ local function magicInfo(user, sourceItem)
     return false
 end
 
+local function fountainInfo(user)
+
+    if user:getQuestProgress(238) == 4 then
+        user:setQuestProgress(238, 5)
+    end
+
+    local callback = function(dialog)
+    end
+
+    local dialog = MessageDialog("", common.GetNLS(user, texts.fountainInfo.german, texts.fountainInfo.english), callback)
+
+    user:requestMessageDialog(dialog)
+end
+
 function M.UseItem(user, sourceItem)
 
     if magicInfo(user, sourceItem) then
@@ -153,6 +169,10 @@ function M.UseItem(user, sourceItem)
     end
 
     magicSphere.bhonaInfo(user, sourceItem)
+
+    if sourceItem.pos == position(344, 564, 0) then
+        fountainInfo(user)
+    end
 
     if sourceItem:getData("teachDogTransformationPotion") == "true" then
         transformation_dog.UseSealedScroll(user, sourceItem)

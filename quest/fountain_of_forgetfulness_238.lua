@@ -33,7 +33,7 @@ local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = ""
-Description[ENGLISH][1] = "Seeking to change your magical occupation, you've been told to find the fountain of forgetfulness. Who would even know of such an obscure thing, however?"
+Description[ENGLISH][1] = "Seeking to change your magical occupation, you've been told to find the fountain of forgetfulness. Who would even know of such an obscure thing, however?\nVarious NPCs hold knowledge of things like this, you might just have to try your luck."
 Description[GERMAN][2] = ""
 Description[ENGLISH][2] = "You finally found someone who had heard of the fountain. They spoke of a hermit living in the woods that might know more. Who could that be?"
 Description[GERMAN][3] = ""
@@ -42,6 +42,8 @@ Description[GERMAN][4] = ""
 Description[ENGLISH][4] = "You found the fountain, but you don't know what offering it requires of you before you can drink of its waters. Maybe there is something in the area that can give you a clue?"
 Description[GERMAN][5] = ""
 Description[ENGLISH][5] = "You found a scroll lying nearby, though its contents do not make much sense to you. The blessing of the elders? You suppose you'll have to figure out what it means, then you should finally be able to conduct the offering ceremony and drink from the fountains waters!"
+Description[GERMAN][6] = ""
+Description[ENGLISH][6] = "Having provided the offering, you can now drink from the water of the fountain of forgetfulness."
 -- Insert the position of the quest start here (probably the position of an NPC or item)
 local Start = {position(656, 316, 0)}
 
@@ -49,7 +51,7 @@ local Start = {position(656, 316, 0)}
 local QuestTarget = {}
 
 -- Insert the quest status which is reached at the end of the quest
-local FINAL_QUEST_STATUS = 6
+local FINAL_QUEST_STATUS = 7
 
 function M.QuestTitle(user)
 

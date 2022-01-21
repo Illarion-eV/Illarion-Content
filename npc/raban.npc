@@ -80,6 +80,10 @@ itemShoes = 369
 -- 7: Quest 4 taken - gather 10 distant raw materials for 200cp
 -- 8: Quest 4 solved
 
+-- Fountain of forgetfulness
+queststatus(238) = 1, "forget" -> "The fountain of forgetfulness? I can't say I've heard of it."
+queststatus(238) = 2, "forget" -> queststatus(238) = 3, "The fountain of forgetfulness? I can't say I've heard of it. You say someone told you I have? That can't be.. Unless, you mean that fountain out in the Kantabi desert?"
+
 -- Help
 "Help" -> inform("[Game Help] This NPC is the hermit Raban. Keywords: Hello, quest, sickle, herbs.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Einsiedler Raban. Schlüsselwörter: Hallo, Quest, Sichel, Kräuter.")

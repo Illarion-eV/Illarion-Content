@@ -79,6 +79,9 @@ itemShoes = 53
 -- 7: Quest 4 taken
 -- 8: Quest 4 solved
 
+-- Fountain of forgetfulness
+queststatus(238) = 1, "forget" -> queststatus(238) = 2, "Arr. Forgetfulness. My good friend Raban, a hermit in the northern woods, spoke of that once."
+
 -- Help
 "Help" -> inform("[Game Help] This NPC is the smuggler Ehrom Goldhammer. Keywords: Hello, quest, smuggler.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Schmuggler Ehrom Goldhammer. Schlüsselwörter: Hallo, Quest, Schmuggler.")

@@ -89,6 +89,9 @@ hitPlayerMsg "#me verpasst dem Eindringling einen Hieb 'Verschwinde!'", "#me hit
 -- Debugging
 queststatus(109) > 6, ".+" -> inform("[Error] Something went wrong, please inform a developer.")
 
+-- Fountain of forgetfulness
+queststatus(238) = 1, "forget" -> "Wouldn't we all like to forget, sometimes."
+
 -- Help
 "Help" -> inform("[Game Help] This NPC is Brassius Meres the Guard. Keywords: hello, quest, profession, Runewick, law, bridge, gods.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Brassius Meres der Wächter. Schlüsselwörter: Hallo, Auftrag, Berufung, Runewick, Brücke, Gesetze, Götter.")

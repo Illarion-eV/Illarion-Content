@@ -153,6 +153,9 @@ queststatus(75) = 2, "Wein" -> "#me schlürft etwas Wein: 'Danke für den Wein, de
 queststatus(75) = 2, "Nachbar" -> "#me knurrt: 'Oh! Galmair und Runewick, die Pest soll über sie kommen. Die Geschichte lehrt uns, dass die Herren von Cadomyr die Herren der Ländereien sind.'"
 queststatus(75) = 2, "Palast" -> "Wenn Cadomyr die Krone des Landes ist, dann ist der Palast das funkelnste Kronjuwel. Leider sind nicht alle Palastdiener so loyal und verlässlich wie ich."
 
+-- Fountain of forgetfulness
+queststatus(238) = 1, "forget" -> "Eh? A fountain of forgetfulness? I too would like a fountain that spews rum, pal."
+
 -- Small talk--
 "profession" -> "I am a servant of the Queen herself!", "I am a royal fan-waver! A glorious task!"
 "beruf" -> "Ich ein Diener der Königin.", "Ich bin der königliche Fächelwedler. Eine ehrenhafte Tätigkeit!"

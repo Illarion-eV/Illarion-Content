@@ -79,6 +79,9 @@ itemShoes = 326
 -- 1;2: No book, send to Hector
 -- 5: Buch kaufbar
 
+-- Fountain of forgetfulness
+queststatus(238) = 1, "forget" -> queststatus(238) = 2, "Arr? I believe I heard the hermit in the northern woods knows about that stuff!"
+
 -- Help
 "Help" -> inform("[Game Help] This NPC is Miggs, the henchman of Don Valerio. Keywords: Hello, henchman, quest, Don Valerio, rules.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Miggs, der Handlanger von Don Valerio. Schlüsselwörter: Hallo, Handlanger, Quest, Don Valerio, Regeln.")

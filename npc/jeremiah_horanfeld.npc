@@ -99,6 +99,9 @@ english, "Ciao", "Adieu", "Au revoir" -> "Farewell, until we meet again.", "May 
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
 "kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
+-- Fountain of forgetfulness
+queststatus(238) = 1, "forget" -> queststatus(238) = 2, "I believe I heard that hermit in the woods speak of it once."
+
 -- Catching quest triggers of other factions' members.
 english, town = none, "quest", "mission" -> "I do not have work for you outsider."
 town = none, "quest", "mission" -> "Ich habe keine Arbeit für dich Vogelfreier."

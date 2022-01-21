@@ -88,6 +88,9 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Save Travel!", "...or like 
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
 "kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
+-- Fountain of forgetfulness
+queststatus(238) = 1, "forget" -> "Uh? A fountain ob forgetfulness? Hurr. Meh would like a fountain that spews rum."
+
 -- Catching quest triggers
 english, "quest", "mission" -> "Oh, yes! Keep asking people for work and tasks, and one day you will become great hero, just like myself. However I don't have any work for you at the moment."
 "quest", "mission" -> "Hach, ja-ja! Fraget immerhig alle Leute nach Arbeit und Aufgaben. Dann werdet auch Ihr eines Tagiges ein ebenso großer Held sein, wie iche es bin. Allerdings habe iche im Moment keine Arbeit fü-hür Euch."
