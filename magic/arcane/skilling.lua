@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local runes = require("magic.arcane.runes")
 local castingSpeed = require("magic.arcane.castingSpeed")
+local common = require("base.common")
 
 local M = {}
 
@@ -35,14 +36,20 @@ local spellElement = runes.fetchElement(spell)
 local castTime = castingSpeed.arcaneSpellCastSpeed(user, spell)
     for _, skill in pairs(skillTable) do
         if skill.element == spellElement then
-            user:learn(Character[skill.name], castTime/balanceLearningSpeed, 100)
+            local theSkill = Character[skill.name]
+            local leadAttrib = common.GetLeadAttrib(user, theSkill)
+            local leadAttribBonus = common.GetAttributeBonus(leadAttrib, 10)
+            user:learn(theSkill, (castTime/balanceLearningSpeed)*(1+leadAttribBonus), 100)
             return
         end
     end
 end
 
 function M.increaseExperiencePortalMagic(user, duration)
-    user:learn(Character.spatialMagic, duration/balanceLearningSpeed, 100)
+    local theSkill = Character.spatialMagic
+    local leadAttrib = common.GetLeadAttrib(user, theSkill)
+    local leadAttribBonus = common.GetAttributeBonus(leadAttrib, 10)
+    user:learn(theSkill, (duration/balanceLearningSpeed)*(1+leadAttribBonus), 100)
 end
 
 
