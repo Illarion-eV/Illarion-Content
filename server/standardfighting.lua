@@ -774,7 +774,7 @@ end
 
 --- Returns the parry weapon and the parry item. Broken items are no valid parry weapons
 -- @param Defender The character who is attacked
-local function GetParryWeaponAndItem(Defender)
+function GetParryWeaponAndItem(Defender)
     local parryWeapon
     local parryItem = nil -- For degradation
 
@@ -1577,7 +1577,7 @@ function LearnSuccess(Attacker, Defender, AP, Globals)
         end
     end
 
-    local parryWeapon, parryItem = GetParryWeaponAndItem(Defender)
+    local parryWeapon,_ = GetParryWeaponAndItem(Defender)
 
     -- Defender learns only with a valid non-broken parry weapon
     if parryWeapon ~= nil then
