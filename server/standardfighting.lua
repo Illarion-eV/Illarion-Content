@@ -76,6 +76,7 @@ local CalculateDamage
 local ArmourAbsorption
 local ConstitutionEffect
 local CauseDamage
+local GetParryWeaponAndItem
 local ArmourDegrade
 local ShowEffects
 local LearnSuccess
@@ -771,15 +772,42 @@ function CauseDamage(Attacker, Defender, Globals)
     end
 end
 
+--- Returns the parry weapon and the parry item. Broken items are no valid parry weapons
+-- @param Defender The character who is attacked
+function GetParryWeaponAndItem(Defender)
+    local parryWeapon
+    local parryItem = nil -- For degradation
+
+    --Choose which weapon has the largest defence
+    if Defender.IsWeapon then
+        parryItem = Defender.WeaponItem
+        parryWeapon = Defender.Weapon
+    end
+
+    if Defender.SecIsWeapon then
+        if not parryWeapon then
+            parryItem = Defender.SecWeaponItem
+            parryWeapon = Defender.SecWeapon
+        elseif (parryWeapon.Defence < Defender.SecWeapon.Defence) or common.isBroken(parryWeapon) then
+            parryItem = Defender.SecWeaponItem
+            parryWeapon = Defender.SecWeapon
+        end
+    end
+
+    if parryItem == nil or common.isBroken(parryItem) then
+        return nil, nil
+    else
+        return parryWeapon, parryItem
+    end
+end
+
 --- Check that the attack hits
--- @param Defender The character who attacks
+-- @param Attacker The character who attacks
 -- @param Defender The character who is attacked
 -- @return true if the attack is successful
 function HitChance(Attacker, Defender, Globals)
     local DirectionDifference = math.abs(Defender.Char:getFaceTo()-Attacker.Char:getFaceTo())
-    local parryWeapon
     local canParry=true
-    local parryItem -- For degradation
 
     --Miss chance. 2% bonus to hit chance for 18 perc, 1.75% malus for 3 perc. Added onto weapon accuracy.
     local chancetohit
@@ -833,20 +861,10 @@ function HitChance(Attacker, Defender, Globals)
         return true
     end
 
-    --Choose which weapon has the largest defence
-    if Defender.IsWeapon then
-        parryItem = Defender.WeaponItem
-        parryWeapon = Defender.Weapon
-    end
+    local parryWeapon, parryItem = GetParryWeaponAndItem(Defender)
 
-    if Defender.SecIsWeapon then
-        if not parryWeapon then
-            parryItem = Defender.SecWeaponItem
-            parryWeapon = Defender.SecWeapon
-        elseif (parryWeapon.Defence < Defender.SecWeapon.Defence) then
-            parryItem = Defender.SecWeaponItem
-            parryWeapon = Defender.SecWeapon
-        end
+    if not parryWeapon then
+        return true
     end
 
     --The Shield Scaling Factor (SSF). Changes how much the top shield is better than the worse one.
@@ -867,10 +885,6 @@ function HitChance(Attacker, Defender, Globals)
 
     if character.IsPlayer(Defender.Char) and world:getItemStatsFromId(parryItem.id).Level>Defender.parry then
         parryChance = parryChance/messupmalus
-    end
-
-    if character.IsPlayer(Defender.Char) and common.isBroken(parryItem) then
-        parryChance = 0
     end
 
      -- Min and max parry are 5% and 95% respectively
@@ -1548,36 +1562,25 @@ end
 -- @param Attacker The table containing the attacker data
 -- @param Defender The table containing the defender data
 function LearnSuccess(Attacker, Defender, AP, Globals)
-    -- Attacker learns weapon skill
-    if Attacker.Skillname then
-        Attacker.Char:learn(Attacker.Skillname, AP/3, math.max(Defender.DefenseSkill, Defender.parry) + 20)
+    if Attacker.Weapon and not common.isBroken(Attacker.WeaponItem) then
+        -- Attacker learns weapon skill
+        if Attacker.Skillname then
+            Attacker.Char:learn(Attacker.Skillname, AP/3, math.max(Defender.DefenseSkill, Defender.parry) + 20)
+        end
     end
 
     -- Defender learns armour skill
     if Defender.DefenseSkillName then
         local armourfound, _ = world:getArmorStruct(Globals.HittedItem.id)
-        if armourfound then
+        if armourfound and not common.isBroken(Globals.HittedItem) then
             Defender.Char:learn(Defender.DefenseSkillName,(AP)/3,Attacker.skill + 20)
         end
     end
 
-    -- Defender learns parry skill
-    local parryWeapon
+    local parryWeapon,_ = GetParryWeaponAndItem(Defender)
 
-    --Choose which weapon has the largest defence
-    if Defender.IsWeapon then
-        parryWeapon = Defender.Weapon
-    end
-
-    if Defender.SecIsWeapon then
-        if not parryWeapon then
-            parryWeapon = Defender.SecWeapon
-        elseif (parryWeapon.Defence < Defender.SecWeapon.Defence) then
-            parryWeapon = Defender.SecWeapon
-        end
-    end
-
-    if parryWeapon then
+    -- Defender learns only with a valid non-broken parry weapon
+    if parryWeapon ~= nil then
         Defender.Char:learn(Character.parry, AP/3, Attacker.skill + 20)
     end
 end
