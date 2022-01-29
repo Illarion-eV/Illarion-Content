@@ -144,22 +144,9 @@ local function passesLevelReq(user, stoneId)
 return false
 end
 
-local function reduceAmount(user, sourceItem)
-    local maxAmount = getAmount(sourceItem.id)
-    local amountLeft = sourceItem:getData("amount")
-    sourceItem:setData("amount", tonumber(amountLeft)-1)
-    world:changeItem(sourceItem)
-    if tonumber(sourceItem:getData("amount")) == 0 then
-        local depletedObject = getDepletedObject(sourceItem.id)
-        world:erase(sourceItem, sourceItem.number)
-        local newItem = world:createItemFromId(depletedObject, 1, sourceItem.pos, true, 333, nil);
-        newItem:setData("amount", maxAmount)
-    end
-end
-
 local function gotGem(user, sourceItem)
     local gemMine = checkIfGemMine(sourceItem.pos)
-    local rand = math.random(1,10000);
+    local rand = math.random(1,10000)
     local cumulatedChance = 0
     local miningLevel = user:getSkill(Character.mining)
     for _, gems in pairs(gemList) do
@@ -202,23 +189,23 @@ local function isMinableRock(user, sourceItem)
 end
 
 function M.getRock(user)
-    local targetItem = common.GetFrontItem(user);
+    local targetItem = common.GetFrontItem(user)
     if isMinableRock(user, targetItem) then
-        return targetItem;
+        return targetItem
     end
-    local radius = 1;
+    local radius = 1
     for x=-radius,radius do
         for y=-radius,radius do
-            local targetPos = position(user.pos.x + x, user.pos.y + y, user.pos.z);
+            local targetPos = position(user.pos.x + x, user.pos.y + y, user.pos.z)
             if (world:isItemOnField(targetPos)) then
-                targetItem = world:getItemOnField(targetPos);
+                targetItem = world:getItemOnField(targetPos)
                 if isMinableRock(user, targetItem) then
-                    return targetItem;
+                    return targetItem
                 end
             end
         end
     end
-    return nil;
+    return nil
 end
 
 local function isPrison(positionOfItem)
@@ -234,9 +221,21 @@ end
 
 function M.StartGathering(user, sourceItem, ltstate)
 
-    local toolItem=shared.getTool(user, 2763) --pick-axe (2763)
+    local mining = gathering.GatheringCraft:new{LeadSkill = Character.mining, LearnLimit = 100}
+    local toolID = Item.pickaxe
+    local maxAmount = getAmount(sourceItem.id)
+    local GFX = 14
+    local resourceID = gotGem(user, sourceItem)
+    local depletedResourceID = getDepletedObject(sourceItem.id)
+    local restockWear = 4 -- 15 minutes
 
-    if not toolItem then
+    if not resourceID then
+        resourceID = getResource(sourceItem.id)
+    end
+
+    local success, toolItem, amount, gatheringBonus = gathering.InitGathering(user, sourceItem, toolID, maxAmount, mining.LeadSkill)
+
+    if not success then
         return
     end
 
@@ -248,18 +247,16 @@ function M.StartGathering(user, sourceItem, ltstate)
         return
     end
 
-    local gatheringBonus=shared.getGatheringBonus(user, toolItem)
-
-    local mining = gathering.GatheringCraft:new{LeadSkill = Character.mining, LearnLimit = 100}; -- id_2763_pickaxe
     if not isPrison(sourceItem.pos) then --Prisoners don't get rewards
-        mining:AddRandomPureElement(user,gathering.prob_element*gatheringBonus); -- Any pure element
-        mining:SetTreasureMap(user,gathering.prob_map*gatheringBonus,"In einer engen Felsspalte findest du ein altes Pergament, das wie eine Karte aussieht. Kein Versteck ist so sicher, dass es nicht gefunden wird.","In a narrow crevice you find an old parchment that looks like a map. No hiding place is too safe that it cannot be found.");
-        mining:AddMonster(user,1052,gathering.prob_monster/gatheringBonus,"Als du den Fels malträtierst, läuft etwas Schleim aus einer Felsspalte...","As you slam your pick-axe on the rock, some slime flows out of the fissure...",4,7);
-        mining:AddRandomItem(310,1,333,{},gathering.prob_rarely,"Zwerge scheinen alten Krügen keine Beachtung beizumessen, insbesondere, wenn sie leer sind. Auch hier liegt einfach einer herum.","Dwarves seem to pay no attention to old pitchers, especially if they are empty. As you work one catches your eye."); --mug with lid
-        mining:AddRandomItem(2183,1,333,{},gathering.prob_occasionally,"Diese Mine wurde offensichtlich kürzlich von Zwergen aufgesucht. Wie sonst erklärt sich der Krug, den du zwischen dem Geröll findest?","This mine was occupied recently. How else would you explain the mug at your feet?"); --clay mug
-        mining:AddRandomItem(391,1,333,{},gathering.prob_frequently,"In einer Felsspalte liegt eine alte Fackel. Hier ist wohl jemanden ein Licht aufgegangen.","In a crevice you spot an old torch."); --torch
+        mining:AddRandomPureElement(user,gathering.prob_element*gatheringBonus) -- Any pure element
+        mining:SetTreasureMap(user,gathering.prob_map*gatheringBonus,"In einer engen Felsspalte findest du ein altes Pergament, das wie eine Karte aussieht. Kein Versteck ist so sicher, dass es nicht gefunden wird.","In a narrow crevice you find an old parchment that looks like a map. No hiding place is too safe that it cannot be found.")
+        mining:AddMonster(user,1052,gathering.prob_monster/gatheringBonus,"Als du den Fels malträtierst, läuft etwas Schleim aus einer Felsspalte...","As you slam your pick-axe on the rock, some slime flows out of the fissure...",4,7)
+        mining:AddRandomItem(310,1,333,{},gathering.prob_rarely,"Zwerge scheinen alten Krügen keine Beachtung beizumessen, insbesondere, wenn sie leer sind. Auch hier liegt einfach einer herum.","Dwarves seem to pay no attention to old pitchers, especially if they are empty. As you work one catches your eye.") --mug with lid
+        mining:AddRandomItem(2183,1,333,{},gathering.prob_occasionally,"Diese Mine wurde offensichtlich kürzlich von Zwergen aufgesucht. Wie sonst erklärt sich der Krug, den du zwischen dem Geröll findest?","This mine was occupied recently. How else would you explain the mug at your feet?") --clay mug
+        mining:AddRandomItem(391,1,333,{},gathering.prob_frequently,"In einer Felsspalte liegt eine alte Fackel. Hier ist wohl jemanden ein Licht aufgegangen.","In a crevice you spot an old torch.") --torch
     end
-    common.ResetInterruption( user, ltstate );
+
+    --Case 1: Interrupted
     if ( ltstate == Action.abort ) then -- work interrupted
         return
     end
@@ -272,47 +269,40 @@ function M.StartGathering(user, sourceItem, ltstate)
         return
     end
 
-    common.TurnTo( user, sourceItem.pos ); -- turn if necessary
+    common.TurnTo( user, sourceItem.pos ) -- turn if necessary
 
     -- user feedback per nice animation
-    user:performAnimation(14)
+    user:performAnimation(GFX)
 
+    --Case 2: Initialise action
     if ( ltstate == Action.none ) then -- currently not working -> let's go
-        mining.SavedWorkTime[user.id] = mining:GenWorkTime(user);
-        user:startAction( mining.SavedWorkTime[user.id], 0, 0, 18, 15);
+        mining.SavedWorkTime[user.id] = mining:GenWorkTime(user)
+        user:startAction( mining.SavedWorkTime[user.id], 0, 0, 18, 15)
         return
     end
 
-    -- since we're here, we're working
+    --Case 3: Action executed
+
+    user:learn( mining.LeadSkill, mining.SavedWorkTime[user.id], mining.LearnLimit)
+
     if mining:FindRandomItem(user) then
         return
     end
 
-    local productId = gotGem(user, sourceItem)
-        if not productId then
-            productId = getResource(sourceItem.id);
-        end
-    local maxAmount = getAmount(sourceItem.id)
-
-    user:learn( mining.LeadSkill, mining.SavedWorkTime[user.id], mining.LearnLimit);
-    local amount = 1; -- set the amount of items that are produced
-    local amountLeft = sourceItem:getData("amount")
-    if not amountLeft or amountLeft == "" then
-        sourceItem:setData("amount", maxAmount)
-        world:changeItem(sourceItem)
-        amountLeft = sourceItem:getData("amount")
-    end
-    local created = common.CreateItem(user, productId, amount, 333, nil) -- create the new produced items
-    reduceAmount(user, sourceItem)
+    local created, newAmount = gathering.FindResource(user, sourceItem, amount, resourceID) -- create the new produced items
 
     if created then
-        if tonumber(amountLeft) > 0 then  -- there are still items we can work on
-            mining.SavedWorkTime[user.id] = mining:GenWorkTime(user);
-            user:changeSource(sourceItem);
-            if not shared.toolBreaks( user, toolItem, mining:GenWorkTime(user) ) then -- damage and possibly break the tool
-                user:startAction( mining.SavedWorkTime[user.id], 0, 0, 18, 15);
-            end
+        user:changeSource(sourceItem)
+        if newAmount > 0 and not shared.toolBreaks( user, toolItem, mining:GenWorkTime(user) ) then -- there are still items we can work on and tool is not broken
+            mining.SavedWorkTime[user.id] = mining:GenWorkTime(user)
+            user:startAction( mining.SavedWorkTime[user.id], 0, 0, 18, 15)
         end
+    end
+
+    if newAmount <= 0 then
+        gathering.SwapSource(sourceItem, depletedResourceID, restockWear)
+        user:inform( "Hier gibt es keine Steine mehr, an denen du arbeiten kannst.", "There are no stones for mining anymore.", Character.highPriority)
+        return
     end
 end
 
