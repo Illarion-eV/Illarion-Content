@@ -24,31 +24,9 @@ local BAG_LABEL_KEY = "bagLabel"
 local BAG_LABEL_COMMAND = "!bag"
 local MAX_LABEL_LENGTH = 100
 
-function M.movementRangeCheck(user, location1, location2)
-
-    local retval = true
-
-    local range = 2
-
-    if location1.z ~= location2.z then
-        retval = false
-    end
-
-    if location1.y > location2.y + range or location1.y < location2.y - range then
-        retval = false
-    end
-
-    if location1.x > location2.x + range or location1.x < location2.x - range then
-        retval = false
-    end
-
-    return retval
-
-end
-
 function M.MoveItemBeforeMove(user, source, target)
 
-    if not M.movementRangeCheck(user, source.pos, target.pos) then
+    if not common.isInRect(source.pos, target.pos, 2) then
         user:inform(common.GetNLS(user, "Du kannst eine Tasche nicht werfen.", "You can't throw a bag."))
         return false --unlike other items, bags and baskets can be moved further than they should when moved from tile to tile. This hotfixes this until a server change is made sometime in the future to fix the relevant script.
     end
