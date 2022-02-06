@@ -23,7 +23,6 @@ local common = require("base.common")
 local M = {}
 
 local monthlyQuestsIds = {504}
-local storedMessage = {}
 
 -- Check quests that can be done once in every ingame month
 local function checkMonthlyQuests(char)
@@ -609,30 +608,6 @@ function M.callEffect( Effect, Char ) -- Effect is called
     cooldownQuest(Char,562)
     --Addition by Banduk: wait until next learn by searching a forge
     cooldownQuest(Char,563)
-
-    --Rule compliance detection
-    local players = world:getPlayersOnline()
-    local counter = Char:getQuestProgress(47)
-    local mypos = position(Char:getQuestProgress(48) or Char.pos.x, Char:getQuestProgress(49) or Char.pos.y, Char:getQuestProgress(50) or Char.pos.z)
-
-    if storedMessage[Char.id] == Char.lastSpokenText and common.isInRect(Char.pos, mypos, 3) and Char:idleTime() < 300 and #players > 1 then
-
-        Char:setQuestProgress(47,counter+1)
-
-    elseif storedMessage[Char.id] ~= Char.lastSpokenText or not common.isInRect(Char.pos, mypos, 3) then
-
-        Char:setQuestProgress(47,0)
-
-    else
-
-        Char:setQuestProgress(47,counter)
-
-    end
-
-    storedMessage[Char.id] = Char.lastSpokenText
-    Char:setQuestProgress(48,Char.pos.x)
-    Char:setQuestProgress(49,Char.pos.y)
-    Char:setQuestProgress(50,Char.pos.z)
 
     Effect.nextCalled = 3000 --Effect gets called each 5 minutes
     return true

@@ -45,10 +45,10 @@ ID,Title,NPCs,Status,Responsible Author,Description
 44,Introduction,,,Estralis,Introduction after tutorial - Places
 45,Introduction,,,Estralis,Introduction after tutorial - Greeting
 46,Introduction,,,Estralis,Introduction after tutorial - Overall status
-47,Advanced Idle Detection,,,Estralis,Advanced Idle Detection - Counter
-48,Advanced Idle Detection,,,Estralis,Advanced Idle Detection - X
-49,Advanced Idle Detection,,,Estralis,Advanced Idle Detection - Y
-50,Advanced Idle Detection,,,Estralis,Advanced Idle Detection - Z
+47,Advanced Idle Detection,,,Estralis,Advanced Idle Detection - Counter - not in active use anymore
+48,Advanced Idle Detection,,,Estralis,Advanced Idle Detection - X - not in active use anymore
+49,Advanced Idle Detection,,,Estralis,Advanced Idle Detection - Y - not in active use anymore
+50,Advanced Idle Detection,,,Estralis,Advanced Idle Detection - Z - not in active use anymore
 51-59, rune magic learning,,,Brightrim,Only 51 used so far but the others reserved in case of future expansion
 60,Treasure map counter,,,Merung,Used to count how many successful treasure huntings the char has taken part in
 61,Orders for npcs,,,Ardian,stores the thrustworthyness of a character (i value is to less you won't get new orders for an amount of time) value between 1-100

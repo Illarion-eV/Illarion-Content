@@ -143,9 +143,9 @@ function M.getGatheringBonus(user, toolItem)
     local gatheringBonus = 1 --Default
 
     if toolItem then
-        gatheringBonus=gatheringBonus+common.GetAttributeBonusHigh(user:increaseAttrib("constitution", 0))+common.GetQualityBonusStandard(toolItem)+gems.getGemBonus(toolItem)/gemScaling
+        gatheringBonus=gatheringBonus+common.GetAttributeBonusHigh(user:increaseAttrib("constitution", 0))+common.GetAttributeBonusLow(user:increaseAttrib("perception", 0))+common.GetQualityBonusStandard(toolItem)+gems.getGemBonus(toolItem)/gemScaling
     else
-        gatheringBonus=gatheringBonus+common.GetAttributeBonusHigh(user:increaseAttrib("constitution", 0))
+        gatheringBonus=gatheringBonus+common.GetAttributeBonusHigh(user:increaseAttrib("constitution", 0))+common.GetAttributeBonusLow(user:increaseAttrib("perception", 0))
     end
 
     return gatheringBonus
