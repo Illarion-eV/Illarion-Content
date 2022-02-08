@@ -597,10 +597,12 @@ function Craft:generateQuality(user, productId, toolItem)
     end
 
     local gemBonus = tonumber(self:getCurrentGemBonus(user))
-    local userDexterity = user:increaseAttrib("dexterity", 0)
+    local skill = self.leadSkill
+    local leadAttribName = common.GetLeadAttributeName(skill)
+    local leadAttribValue = user:increaseAttrib(leadAttribName, 0)
 
     local meanQuality = 5
-    meanQuality = meanQuality*(1+common.GetAttributeBonusHigh(userDexterity)+common.GetQualityBonusStandard(toolItem))+gemBonus/100 --Apply boni of dexterity, tool quality and gems.
+    meanQuality = meanQuality*(1+common.GetAttributeBonusHigh(leadAttribValue)+common.GetQualityBonusStandard(toolItem))+gemBonus/100 --Apply boni of dexterity, tool quality and gems.
     meanQuality = common.Limit(meanQuality, 1, 8.5) --Limit to a reasonable maximum to avoid overflow ("everything quality 9"). The value here needs unnatural attributes.
     local quality = 1 --Minimum quality value.
     local rolls = 8 --There are eight chances to increase the quality by one. This results in a quality distribution 1-9.
