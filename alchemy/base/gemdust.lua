@@ -20,6 +20,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local alchemy = require("alchemy.base.alchemy")
 local licence = require("base.licence")
+local shared = require("craft.base.shared")
 
 local M = {}
 
@@ -27,6 +28,8 @@ function M.UseItem(user, SourceItem, ltstate)
 
     -- infront of a cauldron?
     local cauldron = alchemy.GetCauldronInfront(user)
+    local tool = alchemy.getAlchemyTool(user)
+
     if cauldron then
 
         if licence.licence(user) then --checks if user is citizen or has a licence
@@ -56,14 +59,17 @@ function M.UseItem(user, SourceItem, ltstate)
             return
         end
 
+        local worktime = 50
+
         if (ltstate == Action.none) then
-           user:startAction(50,21,5,15,25);
+           user:startAction(worktime,21,5,15,25);
            return
         end
 
         M.BrewingGemDust(user,SourceItem.id,cauldron)
         world:erase(SourceItem,1)
         alchemy.lowerFood(user)
+        shared.toolBreaks(user, tool, worktime)
     else
         -- not infront of cauldron, maybe do something else with herbs
         return

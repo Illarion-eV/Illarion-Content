@@ -2213,13 +2213,13 @@ leadAttribTable[Character.wrestling]="strength"
 leadAttribTable[Character.concussionWeapons]="strength"
 leadAttribTable[Character.punctureWeapons]="strength"
 
---Perception: Druids
-leadAttribTable[Character.alchemy]="perception"
-leadAttribTable[Character.potionLore]="perception"
-leadAttribTable[Character.animalTaming]="perception"
-leadAttribTable[Character.summoning]="perception"
-leadAttribTable[Character.natureLore]="perception"
-leadAttribTable[Character.cauldronLore]="perception"
+--Essence: Druids
+leadAttribTable[Character.alchemy]="essence"
+leadAttribTable[Character.potionLore]="essence"
+leadAttribTable[Character.animalTaming]="essence"
+leadAttribTable[Character.summoning]="essence"
+leadAttribTable[Character.natureLore]="essence"
+leadAttribTable[Character.cauldronLore]="essence"
 
 --Intelligence: Magic
 leadAttribTable[Character.wandMagic]="intelligence"

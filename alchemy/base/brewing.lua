@@ -22,41 +22,50 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local alchemy = require("alchemy.base.alchemy")
 local herbs = require("alchemy.base.herbs")
 local gemdust = require("alchemy.base.gemdust")
+local common = require("base.common")
 local transformation_dog = require("alchemy.teaching.transformation_dog")
 local lookat = require("base.lookat")
 local shipmasterParchments = require("content.shipmasterParchments")
 local M = {}
 
-function M.UseItem(User, SourceItem, ltstate)
-    if SourceItem:getData("parchmentMode") == "register" and User.name == "Teflon" then
-        shipmasterParchments.setParchment(User, SourceItem)
+function M.informAlchemyToolNeeded(user)
+    user:inform(common.GetNLS(user, "Du brauchst einen Mörtel, um Zutaten fürs Brauen vorzubereiten.", "You must wield a mortar in order to process the ingredients for your brewing."))
+end
+
+function M.UseItem(user, sourceItem, ltstate)
+    if sourceItem:getData("parchmentMode") == "register" and user.name == "Teflon" then
+        shipmasterParchments.setParchment(user, sourceItem)
         return
-    elseif SourceItem:getData("parchmentMode") == "remove" and User.name == "Teflon" then
-        shipmasterParchments.removeAll(User)
+    elseif sourceItem:getData("parchmentMode") == "remove" and user.name == "Teflon" then
+        shipmasterParchments.removeAll(user)
         return
-    elseif SourceItem:getData("parchmentMode") == "found" and User.name == "Teflon" then
-        shipmasterParchments.whatWasFound(User)
+    elseif sourceItem:getData("parchmentMode") == "found" and user.name == "Teflon" then
+        shipmasterParchments.whatWasFound(user)
         return
     end
     -- no map items
-    if SourceItem.wear == 255 then
+    if sourceItem.wear == 255 then
         return
     end
-    local isPlant = alchemy.getPlantSubstance(SourceItem.id, User)
-    local isGemDust = alchemy.CheckIfGemDust(SourceItem.id, User)
-    if isPlant  or SourceItem.id == 157 then
-        herbs.UseItem(User, SourceItem, ltstate)
+    if not alchemy.getAlchemyTool(user) then
+        M.informAlchemyToolNeeded(user)
+        return
+    end
+    local isPlant = alchemy.getPlantSubstance(sourceItem.id, user)
+    local isGemDust = alchemy.CheckIfGemDust(sourceItem.id, user)
+    if isPlant  or sourceItem.id == 157 then
+        herbs.UseItem(user, sourceItem, ltstate)
     elseif isGemDust then
-        gemdust.UseItem(User, SourceItem, ltstate)
+        gemdust.UseItem(user, sourceItem, ltstate)
     end
 end
 
-function M.LookAtItem(User, Item)
+function M.LookAtItem(user, Item)
 
     if Item.id == 140 and Item:getData("teachDogTransformationPotion") ~= "" then
-        return transformation_dog.LookAtDonfbladeMap(User, Item)
+        return transformation_dog.LookAtDonfbladeMap(user, Item)
     end
-    return lookat.GenerateLookAt(User, Item, lookat.NONE)
+    return lookat.GenerateLookAt(user, Item, lookat.NONE)
 end
 return M
 
