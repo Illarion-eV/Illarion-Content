@@ -633,6 +633,9 @@ end
 
 function Craft:checkIfFoodItem(productId)
     local product = self.products[productId]
+    if not foodScript.foodList[product.item] then
+        return false
+    end
     if foodScript.foodList[product.item].crafted then
         return true, foodScript.foodList[product.item].buffs
     end
