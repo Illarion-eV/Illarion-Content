@@ -254,6 +254,14 @@ attributesGerman.essence      = "Essenz"
 attributesGerman.perception   = "Wahrnehmung"
 attributesGerman.willpower    = "Willensstärke"
 
+local function getAmountOfBuffs(buffs)
+    local count = 0
+    for _ in pairs(buffs) do
+        count = count + 1
+    end
+    return count
+end
+
 local function buffsAdding(user, sourceItem)
 
     local buffs = M.foodList[sourceItem.id].buffs
@@ -271,10 +279,36 @@ local function buffsAdding(user, sourceItem)
         messageDe = "Die vorherige Nahrungswirkung wird ersetzt. " .. messageDe
         messageEn = "The former diet effect is replaced. " .. messageEn
     end
+    local rarity = sourceItem:getData("rareness")
+    local duration = M.foodList[sourceItem.id].duration
 
-    local dietEffect=LongTimeEffect(12, M.foodList[sourceItem.id].duration)
+    if rarity ~= "" then
+        rarity = tonumber(rarity)
+        if rarity >= 3 then
+            duration = duration*(1 + (rarity-2)/10) -- 10,20% increase of duration based on rarity
+        end
+     end
+
+    local dietEffect=LongTimeEffect(12, duration)
     local addComma = false
+
+    local rarityBuff = 0
+    local attribsRaised = getAmountOfBuffs(buffs)
+    local attribsChecked = 0
+
     for attribute, value in pairs(buffs) do
+
+        if rarity == 4 and rarityBuff == 0 then -- The buff is applied to one stat for rare items
+            if value > 0 then -- if the stat will be buffed by the food item to begin with
+                local rand = math.random(1, attribsRaised-attribsChecked)
+                if rand == 1 then
+                    value = value + 1
+                    rarityBuff = rarityBuff + 1
+                end
+                attribsChecked = attribsChecked + 1
+            end
+        end
+
         if addComma then
             messageDe = messageDe .. ", "
             messageEn = messageEn .. ", "
@@ -285,6 +319,7 @@ local function buffsAdding(user, sourceItem)
 
         local oldValue = user:increaseAttrib(attribute, 0)
         local newValue = user:increaseAttrib(attribute, value)
+
         dietEffect:addValue(attribute, newValue - oldValue)
 
     end
@@ -430,7 +465,17 @@ function M.UseItem(user, sourceItem, ltstate)
     fortuneCookie(sourceItem, user)
 
     local oldFoodLevel = user:increaseAttrib("foodlevel", 0)
-    local newFoodLevel = user:increaseAttrib("foodlevel", M.foodList[sourceItem.id].foodPoints)
+
+    local foodIncrease = M.foodList[sourceItem.id].foodPoints
+
+    local rarity = sourceItem:getData("rareness")
+
+    if rarity ~= "" then
+        rarity = tonumber(rarity)
+        foodIncrease = foodIncrease*(1 + (rarity-1)/10) --This results in a 10%, 20% and 30% food value increase for the uncommon, rare and unique food rarities
+    end
+
+    local newFoodLevel = user:increaseAttrib("foodlevel", foodIncrease)
 
     foodLevelInform(user, newFoodLevel, oldFoodLevel)
 

@@ -25,6 +25,7 @@ local lookat = require("base.lookat")
 local licence = require("base.licence")
 local gems = require("base.gems")
 local glypheffects = require("magic.glypheffects")
+local foodScript = require("item.food")
 
 local OFFSET_PRODUCTS_REPAIR = 235
 local repairItemList = {}
@@ -590,6 +591,53 @@ function Craft:checkMaterial(user, productId)
     return materialsAvailable
 end
 
+function Craft:generateRarity(user, productId, toolItem)
+
+    -- 1 = common, 2 = uncommon, 3 = rare, 4 = unique
+
+    if self.npcCraft then
+        return 1
+    end
+
+    --[[
+    Max probability 0.4166~: 19% chance common, 42% uncommon, 30 % rare, 7.2% unique.
+    Actual chance when accounting for perfect quality: 51.4~% common, 25.2~% uncommon, 18~% rare, 4.3~% unique
+    Min probability of 0.0833~: 77% common, 21% uncommon, 1.9% rare, 0.05% unique
+    Actual chance when accounting for perfect quality: 99.999999% chance common, the chance of getting a perfect item with that low dex is nigh impossible to begin with
+    ]]
+
+    local gemBonus = tonumber(self:getCurrentGemBonus(user))
+    local skill = self.leadSkill
+    local leadAttribName = common.GetLeadAttributeName(skill)
+    local leadAttribValue = user:increaseAttrib(leadAttribName, 0)
+
+    local meanRarity = 1.25
+    meanRarity = meanRarity*(1+common.GetAttributeBonusHigh(leadAttribValue)+common.GetQualityBonusStandard(toolItem)+gemBonus/500)
+    --EG: 22 dexterity, a perfect tool and 48% (full set of tier 4 gems) gem bonus would allow you to reach the cap of 2.25
+    meanRarity = common.Limit(meanRarity, 1, 2.25)
+    local rarity = 1 --common rarity
+    local rolls = 3 -- rarity can be between 1-4
+    local probability = (meanRarity-1)/rolls
+
+    for i=1,rolls do
+        if math.random()<probability then
+            rarity = rarity + 1
+        end
+    end
+
+    rarity = common.Limit(rarity, 1, 4)
+
+    return rarity
+
+end
+
+function Craft:checkIfFoodItem(productId)
+    local product = self.products[productId]
+    if foodScript.foodList[product.item].crafted then
+        return true, foodScript.foodList[product.item].buffs
+    end
+end
+
 function Craft:generateQuality(user, productId, toolItem)
 
     if self.npcCraft then
@@ -597,10 +645,12 @@ function Craft:generateQuality(user, productId, toolItem)
     end
 
     local gemBonus = tonumber(self:getCurrentGemBonus(user))
-    local userDexterity = user:increaseAttrib("dexterity", 0)
+    local skill = self.leadSkill
+    local leadAttribName = common.GetLeadAttributeName(skill)
+    local leadAttribValue = user:increaseAttrib(leadAttribName, 0)
 
     local meanQuality = 5
-    meanQuality = meanQuality*(1+common.GetAttributeBonusHigh(userDexterity)+common.GetQualityBonusStandard(toolItem))+gemBonus/100 --Apply boni of dexterity, tool quality and gems.
+    meanQuality = meanQuality*(1+common.GetAttributeBonusHigh(leadAttribValue)+common.GetQualityBonusStandard(toolItem))+gemBonus/100 --Apply boni of dexterity, tool quality and gems.
     meanQuality = common.Limit(meanQuality, 1, 8.5) --Limit to a reasonable maximum to avoid overflow ("everything quality 9"). The value here needs unnatural attributes.
     local quality = 1 --Minimum quality value.
     local rolls = 8 --There are eight chances to increase the quality by one. This results in a quality distribution 1-9.
@@ -732,6 +782,7 @@ end
 
 function Craft:createItem(user, productId, toolItem)
     local product = self.products[productId]
+    product.data.rareness = "" -- reset rarity or else it creates the most recent result of the rarity calculation even if not a perfect item
 
     for i = 1, #product.ingredients do
         if not glypheffects.effectSaveMaterialOnProduction(user) then
@@ -747,6 +798,26 @@ function Craft:createItem(user, productId, toolItem)
         product.data.craftedBy = user.name
     else
         product.data.craftedBy = nil
+    end
+
+    local foodItem, foodBuff = self:checkIfFoodItem(productId)
+    if foodItem and quality >= 900 then
+        local rarity = self:generateRarity(user, productId, toolItem)
+        local setRarity = false
+
+        if rarity > 2 then
+            if not foodBuff then
+                rarity = 2 -- only food with buffs can be rarer than uncommon
+            end
+        end
+
+        if rarity > 1 then
+            setRarity = true
+        end
+
+        if setRarity then
+            product.data.rareness = rarity
+        end
     end
 
     common.CreateItem(user, product.item, product.quantity, quality, product.data)
