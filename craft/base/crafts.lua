@@ -770,6 +770,8 @@ end
 
 function Craft:createItem(user, productId, toolItem)
     local product = self.products[productId]
+    product.data.descriptionDe = ""
+    product.data.descriptionEn = "" -- reset descriptions, same reasoning as below
     product.data.rareness = "" -- reset rarity or else it creates the most recent result of the rarity calculation even if not a perfect item
 
     for i = 1, #product.ingredients do
