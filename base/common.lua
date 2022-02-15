@@ -174,6 +174,25 @@ function M.Chance(Value, Base)
     return (math.random() <= Value)
 end
 
+
+---This function returns a value based on a binomial distribution.
+-- Consider this function rolling dices against a minimum value
+-- Mean value = probability * rolls
+function M.BinomialByProbability(probability, rolls)
+    local result = 0
+    for i=1,rolls do
+        if math.random()<probability then
+            result = result + 1
+        end
+    end
+    return result
+end
+
+function M.BinomialByMean(mean, rolls)
+    local probability = mean / rolls
+    return M.BinomialByProbability(probability, rolls)
+end
+
 --- Determine if a character is looking at a position or not
 -- @param User The character whos looking direction matters
 -- @param Location The position the character should look at
