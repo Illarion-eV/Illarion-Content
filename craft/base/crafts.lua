@@ -615,16 +615,8 @@ function Craft:generateRarity(user, productId, toolItem)
     meanRarity = meanRarity*(1+common.GetAttributeBonusHigh(leadAttribValue)+common.GetQualityBonusStandard(toolItem)+gemBonus/500)
     --EG: 22 dexterity, a perfect tool and 48% (full set of tier 4 gems) gem bonus would allow you to reach the cap of 2.25
     meanRarity = common.Limit(meanRarity, 1, 2.25)
-    local rarity = 1 --common rarity
     local rolls = 3 -- rarity can be between 1-4
-    local probability = (meanRarity-1)/rolls
-
-    for i=1,rolls do
-        if math.random()<probability then
-            rarity = rarity + 1
-        end
-    end
-
+    local rarity = 1 + common.BinomialByMean((meanRarity-1), rolls)
     rarity = common.Limit(rarity, 1, 4)
 
     return rarity
@@ -655,17 +647,10 @@ function Craft:generateQuality(user, productId, toolItem)
     local meanQuality = 5
     meanQuality = meanQuality*(1+common.GetAttributeBonusHigh(leadAttribValue)+common.GetQualityBonusStandard(toolItem))+gemBonus/100 --Apply boni of dexterity, tool quality and gems.
     meanQuality = common.Limit(meanQuality, 1, 8.5) --Limit to a reasonable maximum to avoid overflow ("everything quality 9"). The value here needs unnatural attributes.
-    local quality = 1 --Minimum quality value.
     local rolls = 8 --There are eight chances to increase the quality by one. This results in a quality distribution 1-9.
-    local probability = (meanQuality-1)/rolls --This will result in a binominal distribution of quality with meanQuality as average value.
-
-    for i=1,rolls do
-        if math.random()<probability then
-            quality=quality+1
-        end
-    end
-
+    local quality = 1 + common.BinomialByMean((meanQuality-1), rolls)
     quality = common.Limit(quality, 1, common.ITEM_MAX_QUALITY)
+
     local durability = common.ITEM_MAX_DURABILITY
     return common.calculateItemQualityDurability(quality, durability)
 
