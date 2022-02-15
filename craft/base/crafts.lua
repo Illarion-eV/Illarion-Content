@@ -804,15 +804,28 @@ function Craft:createItem(user, productId, toolItem)
     end
 
     local rarities = {
-        {english = "uncommon", german = "", identifier = 2},
-        {english = "rare", german = "", identifier = 3},
-        {english = "unique", german = "", identifier = 4}}
+        {english = "uncommon", german = "", identifier = 2,
+        foodDescription = {
+            english = "An uncommonly well made dish. Sure to be more filling than its common counterparts.",
+            german = "german translation here"}},
+        {english = "rare", german = "", identifier = 3,
+        foodDescription = {
+            english = "A dish so well-made it's a rarity among dishes. Not only more filling than its lesser counterparts, but also beneficial to the longevity of the boons of your good diet",
+            german = "german translation here"}},
+        {english = "unique", german = "", identifier = 4,
+        foodDescription = {
+            english = "A dish made by such refined culinary arts, you might even say it's unique. Not only more filling than its lesser counterparts, but also beneficial to both the longevity and strength of the boons of your good diet.",
+            german = "german translation here"}}}
 
     for _, selectedRarity in pairs(rarities) do
         if rarity == selectedRarity.identifier then
             local nameEnglish = itemStats.English
             local nameGerman = itemStats.German
             common.TempInformNLS(user, "german translation here"..nameGerman, "Through your masterful skill, your "..nameEnglish.." ended up being of "..selectedRarity.english.." quality.")
+            if foodItem then
+                product.data.descriptionDe = selectedRarity.foodDescription.german
+                product.data.descriptionEn = selectedRarity.foodDescription.english
+            end
             break
         end
     end
