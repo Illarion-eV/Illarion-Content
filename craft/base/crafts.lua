@@ -788,9 +788,11 @@ function Craft:createItem(user, productId, toolItem)
         product.data.craftedBy = nil
     end
 
+    local rarity = 0
+
     local foodItem, foodBuff = self:checkIfFoodItem(productId)
     if foodItem and quality >= 900 then
-        local rarity = self:generateRarity(user, productId, toolItem)
+        rarity = self:generateRarity(user, productId, toolItem)
 
         if not foodBuff then
             rarity = common.Limit(rarity, 0, 2)
@@ -798,6 +800,20 @@ function Craft:createItem(user, productId, toolItem)
 
         if rarity > 1 then
             product.data.rareness = rarity
+        end
+    end
+
+    local rarities = {
+        {english = "uncommon", german = "", identifier = 2},
+        {english = "rare", german = "", identifier = 3},
+        {english = "unique", german = "", identifier = 4}}
+
+    for _, selectedRarity in pairs(rarities) do
+        if rarity == selectedRarity.identifier then
+            local nameEnglish = itemStats.English
+            local nameGerman = itemStats.German
+            common.TempInformNLS(user, "german translation here"..nameGerman, "Through your masterful skill, your "..nameEnglish.." ended up being of "..selectedRarity.english.." quality.")
+            break
         end
     end
 
