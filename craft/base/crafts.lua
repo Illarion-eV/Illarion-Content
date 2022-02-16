@@ -806,24 +806,24 @@ function Craft:createItem(user, productId, toolItem)
     end
 
     local rarities = {
-        {english = "uncommon", german = "", identifier = 2,
+        {english = "uncommon", german = "außergewöhnlich gut", identifier = 2,
         foodDescription = {
             english = "An uncommonly well made dish. Sure to be more filling than its common counterparts.",
-            german = "german translation here"}},
-        {english = "rare", german = "", identifier = 3,
+            german = "Ein außergewöhnlich gut gelungenes Gericht. Ein wahrer Schmauß, der besser sättigt als ein normales Gericht."}},
+        {english = "rare", german = "exzellent", identifier = 3,
         foodDescription = {
-            english = "A dish so well-made it's a rarity among dishes. Not only more filling than its lesser counterparts, but also beneficial to the longevity of the boons of your good diet",
-            german = "german translation here"}},
-        {english = "unique", german = "", identifier = 4,
+            english = "A dish so well-made it's a rarity among dishes. Not only more filling than its lesser counterparts, but also beneficial to the longevity of the boons of your good diet.",
+            german = "Ein wahres Schlemmergericht. Wohlbekömmlich und eine Wohltat für die Länge und Auswirkung deiner guten Ernährung."}},
+        {english = "unique", german = "einzigartig gut", identifier = 4,
         foodDescription = {
             english = "A dish made by such refined culinary arts, you might even say it's unique. Not only more filling than its lesser counterparts, but also beneficial to both the longevity and strength of the boons of your good diet.",
-            german = "german translation here"}}}
+            german = "Eine kulinarisches Köstlichkeit, die ihres Gleichen sucht. Äußerst wohlbekömmlich und eine Wohltat für die Länge und Auswirkung deiner guten Ernährung."}}}
 
     for _, selectedRarity in pairs(rarities) do
         if rarity == selectedRarity.identifier then
             local nameEnglish = itemStats.English
             local nameGerman = itemStats.German
-            common.TempInformNLS(user, "german translation here"..nameGerman, "Through your masterful skill, your "..nameEnglish.." ended up being of "..selectedRarity.english.." quality.")
+            common.TempInformNLS(user, "Die Speise '"..nameGerman.."' ist dir "..nameGerman.." gelungen.", "Through your masterful skill, your "..nameEnglish.." ended up being of "..selectedRarity.english.." quality.")
             if foodItem then
                 product.data.descriptionDe = selectedRarity.foodDescription.german
                 product.data.descriptionEn = selectedRarity.foodDescription.english
