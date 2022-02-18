@@ -23,10 +23,9 @@ local lastCollected = false
 function M.rent()
 
     local month = world:getTime("month")
-    local day = world:getTime("day")
 
     --Rent duration is reduced on the first day of each month except for Mas
-    if (month == 16) or (day > 1) then
+    if (month == 16) then
         return
     end
 
