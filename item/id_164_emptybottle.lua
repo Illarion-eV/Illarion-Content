@@ -24,16 +24,16 @@ local granorsHut = require("content.granorsHut")
 
 local M = {}
 
-local function CheckWaterEmpty(User, SourceItem, cauldron)
+local function CheckWaterEmpty(user, SourceItem, cauldron)
 
     if (cauldron:getData("filledWith") == "water") then -- water belongs into a bucket, not a potion bottle!
-    common.InformNLS( User,
+    common.InformNLS( user,
         "Es ist zu viel Wasser im Kessel, als dass es in die Flaschen passen würde. Ein Eimer wäre hilfreicher.",
         "There is too much water in the cauldron to bottle it. Better use a bucket.")
     return nil ;
     -- no stock, no potion, not essence brew -> nothing we could fil into the bottle
     elseif cauldron:getData("filledWith") == "" then
-        common.InformNLS( User,
+        common.InformNLS( user,
             "Es befindet sich nichts zum Abfüllen im Kessel.",
             "There is nothing to be bottled in the cauldron.")
         return nil;
@@ -41,22 +41,22 @@ local function CheckWaterEmpty(User, SourceItem, cauldron)
     return true
 end
 
-local function GetSlimeFromTree(User, SourceItem, ltstate)
+local function GetSlimeFromTree(user, SourceItem, ltstate)
 
     if ( ltstate == Action.abort ) then
         return
     end
 
     if (ltstate == Action.none) then
-        User:startAction(50,21,5,0,0);
+        user:startAction(50,21,5,0,0);
         return
     end
 
     if SourceItem.number > 1 then
         local data = {}
         data.filledWith="meraldilised slime"
-        common.CreateItem(User, 327, 1, 333, data)
-        User:eraseItem(SourceItem.id, 1)
+        common.CreateItem(user, 327, 1, 333, data)
+        user:eraseItem(SourceItem.id, 1)
     else
         SourceItem.id = 327
         SourceItem:setData("filledWith","meraldilised slime")
@@ -64,56 +64,56 @@ local function GetSlimeFromTree(User, SourceItem, ltstate)
     end
 end
 
-function M.UseItem(User, SourceItem, ltstate)
+function M.UseItem(user, SourceItem, ltstate)
 
     -- alchemy
     -- infront of a cauldron?
-    local cauldron = alchemy.GetCauldronInfront(User)
+    local cauldron = alchemy.GetCauldronInfront(user)
     if cauldron then
 
         if cauldron:getData("granorsHut") ~= "" then
-            granorsHut.fillingFromCauldron(User, ltstate)
+            granorsHut.fillingFromCauldron(user, ltstate)
             return
         end
 
-        if licence.licence(User) then --checks if user is citizen or has a licence
+        if licence.licence(user) then --checks if user is citizen or has a licence
             return -- avoids crafting if user is neither citizen nor has a licence
         end
 
-        if not CheckWaterEmpty(User, SourceItem, cauldron) then
+        if not CheckWaterEmpty(user, SourceItem, cauldron) then
             return
         end
 
-        if not alchemy.checkFood(User) then
+        if not alchemy.checkFood(user) then
             return
         end
 
         if ( ltstate == Action.abort ) then
-            common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
+            common.InformNLS(user, "Du brichst deine Arbeit ab.", "You abort your work.")
            return
         end
 
         if (ltstate == Action.none) then
-           User:startAction(20,21,5,15,25);
+           user:startAction(20,21,5,15,25);
            return
         end
 
-        M.FillIntoBottle(User, SourceItem, cauldron)
-        alchemy.lowerFood(User)
+        M.FillIntoBottle(user, SourceItem, cauldron)
+        alchemy.lowerFood(user)
     end
 
     -- The Glutinous Tree
-    local frontItem = common.GetFrontItem(User)
+    local frontItem = common.GetFrontItem(user)
     if frontItem and frontItem.id == 589 and frontItem.pos == position(376,288,0) then
-        GetSlimeFromTree(User, SourceItem, ltstate)
+        GetSlimeFromTree(user, SourceItem, ltstate)
     end
 end
 
-function M.FillIntoBottle(User, SourceItem, cauldron)
+function M.FillIntoBottle(user, SourceItem, cauldron)
 
     -- stock, essence brew or potion; fill it up
    if (cauldron:getData("filledWith") == "stock") or (cauldron:getData("filledWith") == "essenceBrew") or (cauldron:getData("filledWith") == "potion") then
-        local _, _, _, reBottle = alchemy.GemDustBottleCauldron(nil, nil, cauldron.id, nil, User)
+        local _, _, _, reBottle = alchemy.GemDustBottleCauldron(nil, nil, cauldron.id, nil, user)
         if SourceItem.number > 1 then -- stack!
             if cauldron:getData("filledWith") == "stock" then
                 local data = {}
@@ -126,7 +126,7 @@ function M.FillIntoBottle(User, SourceItem, cauldron)
                 data.OrcanolConcentration=cauldron:getData("OrcanolConcentration")
                 data.FenolinConcentration=cauldron:getData("FenolinConcentration")
                 data.filledWith="stock"
-                common.CreateItem(User, reBottle, 1, 333, data)
+                common.CreateItem(user, reBottle, 1, 333, data)
 
             elseif cauldron:getData("filledWith") == "essenceBrew" then
                 local data = {}
@@ -139,13 +139,14 @@ function M.FillIntoBottle(User, SourceItem, cauldron)
                 data.essenceHerb7=cauldron:getData("essenceHerb7")
                 data.essenceHerb8=cauldron:getData("essenceHerb8")
                 data.filledWith="essenceBrew"
-                common.CreateItem(User, reBottle, 1, 333, data)
+                common.CreateItem(user, reBottle, 1, 333, data)
 
             elseif cauldron:getData("filledWith") == "potion" then
                     local data = {}
                     data.potionEffectId=cauldron:getData("potionEffectId")
                     data.filledWith="potion"
-                    common.CreateItem(User, reBottle, 1, tonumber(cauldron:getData("potionQuality")), data)
+                    data.creator=user.name
+                    common.CreateItem(user, reBottle, 1, tonumber(cauldron:getData("potionQuality")), data)
             end
             world:erase(SourceItem,1)
         else

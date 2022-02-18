@@ -161,7 +161,7 @@ local function getCharLoad( TargetCharacter, lang, currentLookingAt)
             if (weightRelation > 0.99) then
                 text = text .. ( lang == 0 and "ist völlig überladen. " or "is totally overloaded. " )
             elseif  (weightRelation > 0.74) then
-                text = text .. ( lang == 0 and "sieht aus als ob " .. ( TargetCharacterSex == 0 and "\ner " or "\nsie " ) .. " kaum mehr tragen kann. " or "looks as if " .. ( TargetCharacterSex == 0 and "\nhe " or "\nshe " ) .. " is hardly able to carry much more. " )
+                text = text .. ( lang == 0 and "sieht aus als ob " .. ( TargetCharacterSex == 0 and " er " or " sie " ) .. " kaum mehr tragen kann. " or "looks as if " .. ( TargetCharacterSex == 0 and " he " or " she " ) .. " is hardly able to carry much more. " )
             elseif  (weightRelation > 0.2) then
                 text = ""
             else
@@ -182,7 +182,7 @@ local function getCharHairdresserState( Char, lang, currentLookingAt)
     local text = ""
     if (currentLookingAt >= 0) then
         if Char:getQuestProgress(229) > 0 then
-            text = ( lang == 0 and "\nDie Haare sind frisch geschnitten." or "\nThe hair was made short ago." )
+            text = ( lang == 0 and "\nDie Haare sind frisch geschnitten." or "\nThe hair was cut not long ago." )
         elseif Char:getQuestProgress(230) > 0 then
             text = ( lang == 0 and "\nDer Kamm glänzt wie frisch poliert." or "\nThe comb is freshly polished, making it shine." )
         end
@@ -230,11 +230,11 @@ local function getClothesText(qual, dura, lang, sex,char)
     local ClDuraText={}
     local sexText={}
     local clText={}
-    ClQualText[0]={"adelige",     "noble", "sehr feine", "feine", "sehr gute", "gute", "normale", "billige","schäbige","lumpige"}
-    ClQualText[1]={"aristocratic","noble", "very fine",  "fine",  "very good", "good", "normal",  "cheap",  "shabby",  "lousy"}
+    ClQualText[0]={"adelige", "noble", "sehr feine", "feine", "sehr gute", "gute", "normale", "billige","schäbige","lumpige"}
+    ClQualText[1]={"aristocratic","noble", "very fine", "fine", "very good", "good", "normal", "cheap", "shabby", "lousy"}
 
-    ClDuraText[0]={"nagelneu" ,"neu", "leicht abgenutzt","gebraucht","abgenutzt","sehr abgenutzt","alt","dreckig", "kaputt", "zerschlissen"  }
-    ClDuraText[1]={"brand new", "new",  "slightly torn",    "used",      "torn",      "highly torn",    "old","dirty",  "tattered","threadbare"}
+    ClDuraText[0]={"nagelneu" ,"neu", "leicht abgenutzt","gebraucht","abgenutzt","sehr abgenutzt","alt","dreckig", "kaputt", "zerschlissen"}
+    ClDuraText[1]={"brand new", "new", "slightly torn", "used", "torn", "highly torn", "old","dirty", "tattered","threadbare"}
 
     sexText[0]={}
     sexText[1]={}
@@ -251,8 +251,8 @@ end
 local function getClothesQualText(qual, lang)
     local ClQQualText={}
     local clQText={}
-    ClQQualText[0]={"adelig",     "nobel", "sehr fein", "fein", "sehr gut", "gut", "normal", "billig","schäbig","lumpig"}
-    ClQQualText[1]={"aristocratically","nobly", "very finely",  "finely",  "very well", "well", "normally",  "cheaply",  "shabbily",  "lousy"}
+    ClQQualText[0]={"adelig", "nobel", "sehr fein", "fein", "sehr gut", "gut", "normal", "billig","schäbig","lumpig"}
+    ClQQualText[1]={"aristocratically","nobly", "very finely", "finely", "very well", "well", "normally", "cheaply", "shabbily", "lousily"}
 
     clQText[0]=" gekleidet"
     clQText[1]=" dressed"
@@ -264,15 +264,15 @@ local function getAgeDescriptor(race,age,sex, language)
     local ageName = { }
     ageName[0] = { }
     ageName[1] = { }
-    --                                                                                 human,dwarf,halfling, elf,orc,lizard,gnome,fairy,goblin,default
-    ageName[0][1] = "sehr junge";         ageName[1][1] = "very young";   ageList[1] = {    18,   30,      20, 180, 18,    20,   30,   18,    18,     18 }
-    ageName[0][2] = "junge";              ageName[1][2] = "young";        ageList[2] = {    20,   50,      25, 300, 20,    60,   50,   40,    23,     20 }
-    ageName[0][3] = "";                   ageName[1][3] = "";             ageList[3] = {   nil,  nil,     nil, nil, nil,   nil,  nil,  nil,   nil,    22 }
-    ageName[0][4] = "erwachsene";         ageName[1][4] = "grown up";     ageList[4] = {    25,   80,      40, 500, 30,   130,   80,   80,    28,     25 }
-    ageName[0][5] = "mittelalte";         ageName[1][5] = "in midlife";   ageList[5] = {    35,  125,      60, 1000, 45,   250,  125,  150,    38,     35 }
-    ageName[0][6] = "etwas ältere";       ageName[1][6] = "elderly";      ageList[6] = {    45,  175,      80, 2000, 65,   375,  175,  220,    47,     45 }
-    ageName[0][7] = "alte";               ageName[1][7] = "old";          ageList[7] = {    55,  220,     100, 3000, 85,   500,  220,  280,    56,     55 }
-    ageName[0][8] = "sehr alte";           ageName[1][8] = "very old";     ageList[8] = {    70,  260,     115, 4500,105,   600,  260,  340,    63,     70 }
+    -- human,dwarf,halfling, elf,orc,lizard,gnome,fairy,goblin,default
+    ageName[0][1] = "sehr junge"; ageName[1][1] = "very young";ageList[1] = {18, 30, 20, 180, 18, 20, 30, 18, 18, 18 }
+    ageName[0][2] = "junge"; ageName[1][2] = "young"; ageList[2] = { 20, 50, 25, 300, 20, 60, 50, 40, 23, 20 }
+    ageName[0][3] = ""; ageName[1][3] = ""; ageList[3] = { nil, nil, nil, nil, nil, nil, nil, nil, nil, 22 }
+    ageName[0][4] = "erwachsene"; ageName[1][4] = "grown up"; ageList[4] = { 25, 80, 40, 500, 30, 130, 80, 80, 28, 25 }
+    ageName[0][5] = "mittelalte"; ageName[1][5] = "in midlife";ageList[5] = { 35, 125, 60, 1000, 45, 250, 125, 150, 38, 35 }
+    ageName[0][6] = "etwas ältere"; ageName[1][6] = "elderly"; ageList[6] = { 45, 175, 80, 2000, 65, 375, 175, 220, 47, 45 }
+    ageName[0][7] = "alte"; ageName[1][7] = "old"; ageList[7] = { 55, 220, 100, 3000, 85, 500, 220, 280, 56, 55 }
+    ageName[0][8] = "sehr alte"; ageName[1][8] = "very old"; ageList[8] = { 70, 260, 115, 4500,105, 600, 260, 340, 63, 70 }
     if ((race==34) or (race==35)) then
         race=3
     end
@@ -343,7 +343,7 @@ function M.getCharDescription( SourceCharacter, TargetCharacter, mode)
             output = output .. getCharAtribute( TargetCharacter, lang, "dexterity", 14, "geschickte", "dexterous")
             output = output .. getCharAtribute( TargetCharacter, lang, "agility", 14, "flinke", "agile")
             output = output .. getCharAtribute( TargetCharacter, lang, "constitution", 15, "robuste", "robust")
-            output = output .. getCharAtribute( TargetCharacter, lang, "intelligence", 18, "wissende", "nowledgeable")
+            output = output .. getCharAtribute( TargetCharacter, lang, "intelligence", 18, "wissende", "knowledgeable")
             output = output .. getCharAtribute( TargetCharacter, lang, "willpower", 18, "zielstrebige", "determined")
             output = output .. getCharAtribute( TargetCharacter, lang, "perception", 18, "aufmerksame", "attentive")
             output = output .. getCharAtribute( TargetCharacter, lang, "essence", 18, "magische", "spiritual")
@@ -358,15 +358,15 @@ function M.getCharDescription( SourceCharacter, TargetCharacter, mode)
 
     -- what wears the char?
     local addtext = ""
-    addtext = addtext .. getCharWears ( TargetCharacter, lang, 11, limitToSeeBreast, common.IsNilOrEmpty(addtext) , true); -- robe
-    addtext = addtext .. getCharWears ( TargetCharacter, lang, 3, limitToSeeBreast, common.IsNilOrEmpty(addtext) , true); -- breast
-    addtext = addtext .. getCharWears ( TargetCharacter, lang, 1, limitToSeeBreast, common.IsNilOrEmpty(addtext) , true); -- helmet
-    addtext = addtext .. getCharWears ( TargetCharacter, lang, 9, limitToSeeLeg, common.IsNilOrEmpty(addtext) , true); -- legs
-    addtext = addtext .. getCharWears ( TargetCharacter, lang, 10, limitToSeeShoe, common.IsNilOrEmpty(addtext) , true); -- feet
-    addtext = addtext .. getCharWears ( TargetCharacter, lang, 4, limitToSeeLeg, common.IsNilOrEmpty(addtext) , true); -- hands
-    addtext = addtext .. getCharWears ( TargetCharacter, lang, 2, limitToSeeJewels, common.IsNilOrEmpty(addtext) , true); -- neck
-    addtext = addtext .. getCharWears ( TargetCharacter, lang, 7, limitToSeeJewels, common.IsNilOrEmpty(addtext) , true); -- left finger
-    addtext = addtext .. getCharWears ( TargetCharacter, lang, 8, limitToSeeJewels, common.IsNilOrEmpty(addtext) , true); -- right finger
+    addtext = addtext .. getCharWears ( TargetCharacter, lang, Character.coat, limitToSeeBreast, common.IsNilOrEmpty(addtext) , true); -- robe
+    addtext = addtext .. getCharWears ( TargetCharacter, lang, Character.breast, limitToSeeBreast, common.IsNilOrEmpty(addtext) , true); -- breast
+    addtext = addtext .. getCharWears ( TargetCharacter, lang, Character.head, limitToSeeBreast, common.IsNilOrEmpty(addtext) , true); -- helmet
+    addtext = addtext .. getCharWears ( TargetCharacter, lang, Character.legs, limitToSeeLeg, common.IsNilOrEmpty(addtext) , true); -- legs
+    addtext = addtext .. getCharWears ( TargetCharacter, lang, Character.feet, limitToSeeShoe, common.IsNilOrEmpty(addtext) , true); -- feet
+    addtext = addtext .. getCharWears ( TargetCharacter, lang, Character.hands, limitToSeeLeg, common.IsNilOrEmpty(addtext) , true); -- hands
+    addtext = addtext .. getCharWears ( TargetCharacter, lang, Character.neck, limitToSeeJewels, common.IsNilOrEmpty(addtext) , true); -- neck
+    addtext = addtext .. getCharWears ( TargetCharacter, lang, Character.finger_left_hand, limitToSeeJewels, common.IsNilOrEmpty(addtext) , true); -- left finger
+    addtext = addtext .. getCharWears ( TargetCharacter, lang, Character.finger_right_hand, limitToSeeJewels, common.IsNilOrEmpty(addtext) , true); -- right finger
 
     if ( common.IsNilOrEmpty(addtext) == false ) then
         if ( TargetCharacter:increaseAttrib( "sex", 0 ) == 0 ) then
@@ -384,12 +384,17 @@ function M.getCharDescription( SourceCharacter, TargetCharacter, mode)
 
     -- what is in the belt?
     addtext = ""
-    addtext = addtext .. getCharWears ( TargetCharacter, lang, 12, limitToSeeBelt, common.IsNilOrEmpty(addtext),false); -- belt 1
-    addtext = addtext .. getCharWears ( TargetCharacter, lang, 13, limitToSeeBelt, common.IsNilOrEmpty(addtext),false); -- belt 2
-    addtext = addtext .. getCharWears ( TargetCharacter, lang, 14, limitToSeeBelt, common.IsNilOrEmpty(addtext),false); -- belt 3
-    addtext = addtext .. getCharWears ( TargetCharacter, lang, 15, limitToSeeBelt, common.IsNilOrEmpty(addtext),false); -- belt 4
-    addtext = addtext .. getCharWears ( TargetCharacter, lang, 16, limitToSeeBelt, common.IsNilOrEmpty(addtext),false); -- belt 5
-    addtext = addtext .. getCharWears ( TargetCharacter, lang, 17, limitToSeeBelt, common.IsNilOrEmpty(addtext),false); -- belt 6
+    addtext = addtext .. getCharWears ( TargetCharacter, lang, Character.belt_pos_1, limitToSeeBelt, common.IsNilOrEmpty(addtext),false); -- belt 1
+    addtext = addtext .. getCharWears ( TargetCharacter, lang, Character.belt_pos_2, limitToSeeBelt, common.IsNilOrEmpty(addtext),false); -- belt 2
+    addtext = addtext .. getCharWears ( TargetCharacter, lang, Character.belt_pos_3, limitToSeeBelt, common.IsNilOrEmpty(addtext),false); -- belt 3
+    local cloak = TargetCharacter:getItemAt(Character.coat)
+    if cloak then
+        if cloak.id == 0 then
+            addtext = addtext .. getCharWears ( TargetCharacter, lang, Character.belt_pos_4, limitToSeeBelt, common.IsNilOrEmpty(addtext),false); -- belt 4
+            addtext = addtext .. getCharWears ( TargetCharacter, lang, Character.belt_pos_5, limitToSeeBelt, common.IsNilOrEmpty(addtext),false); -- belt 5
+            addtext = addtext .. getCharWears ( TargetCharacter, lang, Character.belt_pos_6, limitToSeeBelt, common.IsNilOrEmpty(addtext),false); -- belt 6
+        end
+    end
 
     if ( common.IsNilOrEmpty(addtext) == false ) then
         output = output .. ( lang == 0 and "\nIm Gürtel erkennst du: " or "\nYou see in the belt: " ) .. addtext .. ". "
@@ -401,8 +406,8 @@ function M.getCharDescription( SourceCharacter, TargetCharacter, mode)
 
     -- what hold the char in hand?
     addtext = ""
-    addtext = addtext .. getCharWears ( TargetCharacter, lang, 5, limitToSeeHand, common.IsNilOrEmpty(addtext),true); -- left hand
-    addtext = addtext .. getCharWears ( TargetCharacter, lang, 6, limitToSeeHand, common.IsNilOrEmpty(addtext),true); -- right hand
+    addtext = addtext .. getCharWears ( TargetCharacter, lang, Character.left_tool, limitToSeeHand, common.IsNilOrEmpty(addtext),true); -- left hand
+    addtext = addtext .. getCharWears ( TargetCharacter, lang, Character.right_tool, limitToSeeHand, common.IsNilOrEmpty(addtext),true); -- right hand
 
     if ( common.IsNilOrEmpty(addtext) == false ) then
         if ( TargetCharacter:increaseAttrib( "sex", 0 ) == 0 ) then

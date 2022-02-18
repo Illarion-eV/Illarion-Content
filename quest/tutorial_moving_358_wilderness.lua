@@ -26,16 +26,14 @@ local ENGLISH = Player.english
 -- Insert the quest title here, in both languages
 
 local Title = {}
-Title[GERMAN] = "Tutorial - Bewegung"
-Title[ENGLISH] = "Tutorial - Moving"
+Title[GERMAN] = "Tutorial - Willkommen"
+Title[ENGLISH] = "Tutorial - Welcome"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
 local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = tutorial.getTutorialTextDE("skipNo")
-Description[ENGLISH][1] = tutorial.getTutorialTextEN("skipNo")
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
 local Start = nil
@@ -52,6 +50,15 @@ function M.QuestTitle(user)
 end
 
 function M.QuestDescription(user, status)
+
+    if user:getQuestProgress(325) == 1 then
+        Description[GERMAN][1] = tutorial.getTutorialTextDE("skipNo")
+        Description[ENGLISH][1] = tutorial.getTutorialTextEN("skipNo")
+    else
+        Description[GERMAN][1] = tutorial.getTutorialTextDE("skipYes")
+        Description[ENGLISH][1] = tutorial.getTutorialTextEN("skipYes")
+    end
+
     local german = Description[GERMAN][status] or ""
     local english = Description[ENGLISH][status] or ""
 

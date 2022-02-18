@@ -27,110 +27,110 @@ local specialeggs = require("content.specialeggs")
 local ratCistern = require("content.ratCistern")
 local onionball = require("npc.sepp_leaf")
 
-local foodList = {}
+M.foodList = {}
 
 -- COOKED FOOD --
 -- Tier 1 Food
 -- bread roll
-foodList[191] = {crafted = true}
+M.foodList[191] = {crafted = true}
 -- Sausage
-foodList[3051] = {crafted = true}
+M.foodList[3051] = {crafted = true}
 -- Ham
-foodList[306] = {crafted = true}
+M.foodList[306] = {crafted = true}
 -- Smoked trout
-foodList[455] = {crafted = true}
+M.foodList[455] = {crafted = true}
 -- Smoked salmon
-foodList[3916] = {crafted = true}
+M.foodList[3916] = {crafted = true}
 -- Smoked rose fish
-foodList[3915] = {crafted = true}
+M.foodList[3915] = {crafted = true}
 -- Smoked horse mackerel
-foodList[3914] = {crafted = true}
+M.foodList[3914] = {crafted = true}
 -- Smoked rabbit
-foodList[3710] = {crafted = true}
+M.foodList[3710] = {crafted = true}
 -- Smoked chicken
-foodList[3709] = {crafted = true}
+M.foodList[3709] = {crafted = true}
 -- Grilled Steak
-foodList[3606] = {crafted = true}
+M.foodList[3606] = {crafted = true}
 -- Grilled Lamb
-foodList[3713] = {crafted = true}
+M.foodList[3713] = {crafted = true}
 -- Grilled Venison
-foodList[3714] = {crafted = true}
+M.foodList[3714] = {crafted = true}
 -- Cookies
-foodList[453] = {crafted = true}
+M.foodList[453] = {crafted = true}
 -- Cheese
-foodList[3573] = {crafted = true}
+M.foodList[3573] = {crafted = true}
 -- Tier 2 Food
 -- Mushroom Soup
-foodList[2456] = {crafted = true, leftOver = 2935, buffs = {agility = 1}}
+M.foodList[2456] = {crafted = true, leftOver = 2935, buffs = {agility = 1}}
 -- Baked Potato
-foodList[3568] = {crafted = true, buffs = {dexterity = 1}}
+M.foodList[3568] = {crafted = true, buffs = {dexterity = 1}}
 -- Veggie Hash
-foodList[3716] = {crafted = true, leftOver = 2952, buffs = {essence = 1}}
+M.foodList[3716] = {crafted = true, leftOver = 2952, buffs = {essence = 1}}
 -- Bread
-foodList[49] = {crafted = true, buffs = {strength = 1}}
+M.foodList[49] = {crafted = true, buffs = {strength = 1}}
 -- Onion Soup
-foodList[2923] = {crafted = true, leftOver = 2935, buffs = {intelligence = 1}}
+M.foodList[2923] = {crafted = true, leftOver = 2935, buffs = {intelligence = 1}}
 -- Mystery Meat
-foodList[3715] = {crafted = true, leftOver = 2952, buffs = {perception = 1}}
+M.foodList[3715] = {crafted = true, leftOver = 2952, buffs = {perception = 1}}
 -- Trout fillet Dish
-foodList[2459] = {crafted = true, leftOver = 2952, buffs = {willpower = 1}}
+M.foodList[2459] = {crafted = true, leftOver = 2952, buffs = {willpower = 1}}
 -- Sausage on bread
-foodList[3631] = {crafted = true, buffs = {constitution = 1}}
+M.foodList[3631] = {crafted = true, buffs = {constitution = 1}}
 -- Tier 3 Food
 -- Banana Bread
-foodList[3609] = {crafted = true, buffs = {willpower = 1, intelligence = 1}}
+M.foodList[3609] = {crafted = true, buffs = {willpower = 1, intelligence = 1}}
 --Cabbage Stew
-foodList[2278] = {crafted = true, leftOver = 2935, buffs = {dexterity = 1, agility = 1}}
+M.foodList[2278] = {crafted = true, leftOver = 2935, buffs = {dexterity = 1, agility = 1}}
 -- Salmon Dish
-foodList[556] = {crafted = true, leftOver = 2952, buffs = {strength = 1, constitution = 1}}
+M.foodList[556] = {crafted = true, leftOver = 2952, buffs = {strength = 1, constitution = 1}}
 -- Blackberry Muffin
-foodList[454] = {crafted = true, buffs = {essence = 1, perception = 1}}
+M.foodList[454] = {crafted = true, buffs = {essence = 1, perception = 1}}
 -- Mulligan
-foodList[2276] = {crafted = true, leftOver = 2935, buffs = {willpower = 1, intelligence = 1}}
+M.foodList[2276] = {crafted = true, leftOver = 2935, buffs = {willpower = 1, intelligence = 1}}
 -- Egg Dish
-foodList[1154] = {crafted = true, leftOver = 2952, buffs = {strength = 1, constitution = 1}}
+M.foodList[1154] = {crafted = true, leftOver = 2952, buffs = {strength = 1, constitution = 1}}
 -- Potato Soup
-foodList[3569] = {crafted = true, leftOver = 2935, buffs = {essence = 1, perception = 1}}
+M.foodList[3569] = {crafted = true, leftOver = 2935, buffs = {essence = 1, perception = 1}}
 -- Meat Dish
-foodList[2277] = {crafted = true, leftOver = 2952, buffs = {dexterity = 1, agility = 1}}
+M.foodList[2277] = {crafted = true, leftOver = 2952, buffs = {dexterity = 1, agility = 1}}
 -- Apple Pie
-foodList[353] = {crafted = true, buffs = {willpower = 1, intelligence = 1}}
+M.foodList[353] = {crafted = true, buffs = {willpower = 1, intelligence = 1}}
 -- Tier 4 Food
 -- Cherry Cake
-foodList[303] = {crafted = true, buffs = {dexterity = 1, agility = 2}}
+M.foodList[303] = {crafted = true, buffs = {dexterity = 1, agility = 2}}
 --Egg Salad
-foodList[3570] = {crafted = true, leftOver = 2935, buffs = {strength = 2, constitution = 1}}
+M.foodList[3570] = {crafted = true, leftOver = 2935, buffs = {strength = 2, constitution = 1}}
 --Sausages Dish
-foodList[2922] = {crafted = true, leftOver = 2952, buffs = {essence = 2, perception = 1}}
+M.foodList[2922] = {crafted = true, leftOver = 2952, buffs = {essence = 2, perception = 1}}
 -- Steak dish
-foodList[557] = {crafted = true, leftOver = 2952, buffs = {willpower = 2, intelligence = 1}}
+M.foodList[557] = {crafted = true, leftOver = 2952, buffs = {willpower = 2, intelligence = 1}}
 -- Fish Soup
-foodList[3572] = {crafted = true, leftOver = 2935, buffs = {strength = 1, constitution = 2}}
+M.foodList[3572] = {crafted = true, leftOver = 2935, buffs = {strength = 1, constitution = 2}}
 -- Egg Salad Sandwich
-foodList[3571] = {crafted = true, buffs = {dexterity = 2, agility = 1}}
+M.foodList[3571] = {crafted = true, buffs = {dexterity = 2, agility = 1}}
 -- Tier 5 Food
 --Rabbit Dish
-foodList[555] = {crafted = true, leftOver = 2952, buffs = {strength = 2, constitution = 2}}
+M.foodList[555] = {crafted = true, leftOver = 2952, buffs = {strength = 2, constitution = 2}}
 -- Beer Soup
-foodList[3712] = {crafted = true, leftOver = 2935, buffs = {essence = 1, perception = 2, intelligence = 1}}
+M.foodList[3712] = {crafted = true, leftOver = 2935, buffs = {essence = 1, perception = 2, intelligence = 1}}
 -- Strawberry Cake
-foodList[354] = {crafted = true, buffs = {dexterity = 2, agility = 2}}
+M.foodList[354] = {crafted = true, buffs = {dexterity = 2, agility = 2}}
 -- Lamb Dish
-foodList[559] = {crafted = true, leftOver = 2952, buffs = {essence = 2, perception = 2}}
+M.foodList[559] = {crafted = true, leftOver = 2952, buffs = {essence = 2, perception = 2}}
 -- nut Bread
-foodList[3723] = {crafted = true, buffs = {essence = 1, perception = 1,willpower = 1, intelligence = 1}}
+M.foodList[3723] = {crafted = true, buffs = {essence = 1, perception = 1,willpower = 1, intelligence = 1}}
 -- Custard Pie
-foodList[1153] = {crafted = true, buffs = {dexterity = 2, agility = 2}}
+M.foodList[1153] = {crafted = true, buffs = {dexterity = 2, agility = 2}}
 -- Venison Dish
-foodList[554] = {crafted = true, leftOver = 2952, buffs = {strength = 2, constitution = 2}}
+M.foodList[554] = {crafted = true, leftOver = 2952, buffs = {strength = 2, constitution = 2}}
 -- Goulash
-foodList[3711] = {crafted = true, leftOver = 2935, buffs = {strength = 1, constitution = 1, agility = 1, dexterity = 1}}
+M.foodList[3711] = {crafted = true, leftOver = 2935, buffs = {strength = 1, constitution = 1, agility = 1, dexterity = 1}}
 -- Elderberry Pie
-foodList[3610] = {crafted = true, buffs = {willpower = 2, intelligence = 2}}
+M.foodList[3610] = {crafted = true, buffs = {willpower = 2, intelligence = 2}}
 --Chicken Dish
-foodList[1155] = {crafted = true, leftOver = 2952, buffs = {essence = 2, perception = 2}}
+M.foodList[1155] = {crafted = true, leftOver = 2952, buffs = {essence = 2, perception = 2}}
 -- Chicken Soup
-foodList[1152] = {crafted = true, leftOver = 2935, buffs = {willpower = 2, intelligence = 2}}
+M.foodList[1152] = {crafted = true, leftOver = 2935, buffs = {willpower = 2, intelligence = 2}}
 -- COOKED FOOD END --
 
 -- constants for free food (everything uncooked); use only those
@@ -140,78 +140,76 @@ local valueLarge = 3000
 
 -- FREE FOOD
 -- apple:
-foodList[15]   = {foodPoints = valueMedium}
+M.foodList[15]   = {foodPoints = valueMedium}
 -- trout
-foodList[73] = {foodPoints = valueMedium}
+M.foodList[73] = {foodPoints = valueMedium}
 -- banana:
-foodList[80]   = {foodPoints = valueMedium}
+M.foodList[80]   = {foodPoints = valueMedium}
 -- berries:
-foodList[81]   = {foodPoints = valueMedium}
+M.foodList[81]   = {foodPoints = valueMedium}
 -- sand berry:
-foodList[142]  = {foodPoints = valueSmall}
+M.foodList[142]  = {foodPoints = valueSmall}
 -- red elder:
-foodList[143]  = {foodPoints = valueSmall}
+M.foodList[143]  = {foodPoints = valueSmall}
 -- black berry:
-foodList[147]  = {foodPoints = valueSmall}
+M.foodList[147]  = {foodPoints = valueSmall}
 -- strawberries:
-foodList[151]  = {foodPoints = valueMedium}
+M.foodList[151]  = {foodPoints = valueMedium}
 -- bulbsponge:
-foodList[158]  = {foodPoints = valueSmall, poisonPoints = 1000}
+M.foodList[158]  = {foodPoints = valueSmall, poisonPoints = 1000}
 -- toadstool:
-foodList[159]  = {foodPoints = valueSmall, poisonPoints = 1000}
+M.foodList[159]  = {foodPoints = valueSmall, poisonPoints = 1000}
 -- redhead:
-foodList[160]  = {foodPoints = valueSmall}
+M.foodList[160]  = {foodPoints = valueSmall}
 -- herders mushroom:
-foodList[161]  = {foodPoints = valueSmall}
+M.foodList[161]  = {foodPoints = valueSmall}
 -- birth mushroom:
-foodList[162]  = {foodPoints = valueSmall, poisonPoints = 1000}
+M.foodList[162]  = {foodPoints = valueSmall, poisonPoints = 1000}
 -- champignon:
-foodList[163]  = {foodPoints = valueSmall}
+M.foodList[163]  = {foodPoints = valueSmall}
 -- tangerine:
-foodList[199]  = {foodPoints = valueMedium}
+M.foodList[199]  = {foodPoints = valueMedium}
 -- tomato:
-foodList[200]  = {foodPoints = valueMedium}
+M.foodList[200]  = {foodPoints = valueMedium}
 -- onion:
-foodList[201]  = {foodPoints = valueMedium}
+M.foodList[201]  = {foodPoints = valueMedium}
 -- Cabbage:
-foodList[290]  = {foodPoints = valueMedium}
+M.foodList[290]  = {foodPoints = valueMedium}
 -- cherry:
-foodList[302]  = {foodPoints = valueMedium}
+M.foodList[302]  = {foodPoints = valueMedium}
 -- pork
-foodList[307] = {foodPoints = valueMedium}
+M.foodList[307] = {foodPoints = valueMedium}
 -- salmon
-foodList[355] = {foodPoints = valueMedium}
+M.foodList[355] = {foodPoints = valueMedium}
 -- grapes:
-foodList[388]  = {foodPoints = valueMedium}
+M.foodList[388]  = {foodPoints = valueMedium}
 -- deer meat
-foodList[552] = {foodPoints = valueMedium}
+M.foodList[552] = {foodPoints = valueMedium}
 -- rabbit
-foodList[553] = {foodPoints = valueMedium}
+M.foodList[553] = {foodPoints = valueMedium}
 -- nuts:
-foodList[759]  = {foodPoints = valueMedium}
--- brown egg:
-foodList[1149] = {foodPoints = valueSmall}
+M.foodList[759]  = {foodPoints = valueMedium}
 -- white egg:
-foodList[1150] = {foodPoints = valueSmall}
+M.foodList[1150] = {foodPoints = valueSmall}
 -- chicken
-foodList[1151] = {foodPoints = valueMedium}
+M.foodList[1151] = {foodPoints = valueMedium}
 -- orange:
-foodList[1207] = {foodPoints = valueMedium}
+M.foodList[1207] = {foodPoints = valueMedium}
 -- horse mackerel
-foodList[1209] = {foodPoints = valueMedium}
+M.foodList[1209] = {foodPoints = valueMedium}
 -- rose fish
-foodList[1210] = {foodPoints = valueLarge}
+M.foodList[1210] = {foodPoints = valueLarge}
 -- carrots:
-foodList[2493] = {foodPoints = valueMedium}
+M.foodList[2493] = {foodPoints = valueMedium}
 -- lamb
-foodList[2934] = {foodPoints = valueMedium}
+M.foodList[2934] = {foodPoints = valueMedium}
 -- raw steak
-foodList[2940] = {foodPoints = valueMedium}
+M.foodList[2940] = {foodPoints = valueMedium}
 -- Potato
-foodList[3567] = {foodPoints = valueMedium}
+M.foodList[3567] = {foodPoints = valueMedium}
 
 -- get difficulty from the database
-for foodId, foodItem in pairs(foodList) do
+for foodId, foodItem in pairs(M.foodList) do
     if foodItem.crafted then
         foodItem.difficulty = world:getItemStatsFromId(foodId).Level
     end
@@ -223,7 +221,7 @@ local minCraftedFoodvalue = 6000
 local maxCraftedFoodvalue = 55000
 local difference = maxCraftedFoodvalue - minCraftedFoodvalue
 -- calculate food points for crafted food
-for _, foodItem in pairs(foodList) do
+for _, foodItem in pairs(M.foodList) do
     if foodItem.difficulty ~= nil and foodItem.foodPoints == nil then
       foodItem.foodPoints = minCraftedFoodvalue + difference*(foodItem.difficulty/maxDifficulty)
     end
@@ -233,16 +231,16 @@ local minCraftedBuffDuration = 1800 -- 1/10 seconds
 local maxCraftedBuffDuration = 12000 -- 1/10 seconds
 difference = maxCraftedBuffDuration - minCraftedBuffDuration
 -- calculate buff duration for crafted food
-for _, foodItem in pairs(foodList) do
+for _, foodItem in pairs(M.foodList) do
     if foodItem.difficulty ~= nil and foodItem.duration == nil then
         foodItem.duration = math.ceil(minCraftedBuffDuration + difference*(foodItem.difficulty/maxDifficulty))
     end
 end
 
-local function poisonedFood(User, sourceItem)
-    local poisonPoints = foodList[sourceItem.id]["poisonPoints"]
+local function poisonedFood(user, sourceItem)
+    local poisonPoints = M.foodList[sourceItem.id]["poisonPoints"]
     if poisonPoints then
-        User:increaseAttrib("poisonlevel", poisonPoints)
+        user:increaseAttrib("poisonlevel", poisonPoints)
     end
 end
 
@@ -256,9 +254,17 @@ attributesGerman.essence      = "Essenz"
 attributesGerman.perception   = "Wahrnehmung"
 attributesGerman.willpower    = "Willensstärke"
 
-local function buffsAdding(User, sourceItem)
+local function getAmountOfBuffs(buffs)
+    local count = 0
+    for _ in pairs(buffs) do
+        count = count + 1
+    end
+    return count
+end
 
-    local buffs = foodList[sourceItem.id].buffs
+local function buffsAdding(user, sourceItem)
+
+    local buffs = M.foodList[sourceItem.id].buffs
 
     if not buffs then
         return
@@ -267,16 +273,62 @@ local function buffsAdding(User, sourceItem)
     local messageDe = "Durch das Essen erfährst du folgende Veränderungen: "
     local messageEn = "Because of the meal you experience following changes: "
 
-    local foundEffect = User.effects:find(12)
+    local foundEffect = user.effects:find(12)
     if foundEffect then
-        User.effects:removeEffect(12)
+        user.effects:removeEffect(12)
         messageDe = "Die vorherige Nahrungswirkung wird ersetzt. " .. messageDe
         messageEn = "The former diet effect is replaced. " .. messageEn
     end
+    local rarity = sourceItem:getData("rareness")
+    local duration = M.foodList[sourceItem.id].duration
 
-    local dietEffect=LongTimeEffect(12, foodList[sourceItem.id].duration)
+    if rarity ~= "" then
+        rarity = tonumber(rarity)
+        if rarity >= 3 then
+            duration = duration*(1 + (rarity-2)/10) -- 10,20% increase of duration based on rarity
+        end
+     end
+
+    local dietEffect=LongTimeEffect(12, duration)
     local addComma = false
+
+    local rarityBuff = 0
+    local attribsRaised = getAmountOfBuffs(buffs)
+    local attribsChecked = 0
+
+    local numberOfBuffedStats = 0
     for attribute, value in pairs(buffs) do
+        if value > 0 then
+            numberOfBuffedStats = numberOfBuffedStats+1
+        end
+    end
+
+    for attribute, value in pairs(buffs) do
+
+        if rarity == 3 and rarityBuff == 0 then -- The buff is applied to one stat for rare items
+            if value > 0 then -- if the stat will be buffed by the food item to begin with
+                local rand = math.random(1, attribsRaised-attribsChecked)
+                if rand == 1 then
+                    value = value + 1
+                    rarityBuff = rarityBuff + 1
+                end
+                attribsChecked = attribsChecked + 1
+            end
+        end
+
+        if rarity == 4 and rarityBuff < 2 then -- The buff is applied to two stats for unique items or twice for one if there's only one
+            if value > 0 then -- if the stat will be buffed by the food item to begin with
+                local increment = 1
+
+                if numberOfBuffedStats == 1 then
+                    increment = 2
+                end
+
+                value = value + increment
+                rarityBuff = rarityBuff + increment
+            end
+        end
+
         if addComma then
             messageDe = messageDe .. ", "
             messageEn = messageEn .. ", "
@@ -285,27 +337,28 @@ local function buffsAdding(User, sourceItem)
         messageEn = messageEn .. attribute .. " +" .. value
         addComma = true
 
-        local oldValue = User:increaseAttrib(attribute, 0)
-        local newValue = User:increaseAttrib(attribute, value)
+        local oldValue = user:increaseAttrib(attribute, 0)
+        local newValue = user:increaseAttrib(attribute, value)
+
         dietEffect:addValue(attribute, newValue - oldValue)
 
     end
 
-    User.effects:addEffect(dietEffect)
-    User:inform(messageDe, messageEn)
+    user.effects:addEffect(dietEffect)
+    user:inform(messageDe, messageEn)
 end
 
-local function leftOverCreation(User, leftOverId)
+local function leftOverCreation(user, leftOverId)
     if leftOverId then
         if math.random(1,20) == 1 then
-            User:inform("Das alte Geschirr ist nicht mehr brauchbar.", "The old dishes are no longer usable.", Character.highPriority)
+            user:inform("Das alte Geschirr ist nicht mehr brauchbar.", "The old dishes are no longer usable.", Character.highPriority)
         else
-            common.CreateItem(User, leftOverId, 1, 333, nil)
+            common.CreateItem(user, leftOverId, 1, 333, nil)
         end
     end
 end
 
-local function foodLevelInform(User, newFoodLevel, oldFoodLevel)
+local function foodLevelInform(user, newFoodLevel, oldFoodLevel)
     local messageDe
     local messageEn
 
@@ -330,55 +383,55 @@ local function foodLevelInform(User, newFoodLevel, oldFoodLevel)
     end
 
     if messageDe and messageEn then
-        User:inform(messageDe,messageEn, Character.mediumPriority)
+        user:inform(messageDe,messageEn, Character.mediumPriority)
     end
 end
 
-local function mapItem(User, sourceItem)
+local function mapItem(user, sourceItem)
     if sourceItem.wear == 255 then
-        if not ratCistern.checkCarrot(User,sourceItem) then
-            User:inform("Das kannst du nicht essen.", "You can't eat that.", Character.highPriority)
+        if not ratCistern.checkCarrot(user,sourceItem) then
+            user:inform("Das kannst du nicht essen.", "You can't eat that.", Character.highPriority)
         end
         return true
     end
 end
 
-local function alchemyCheck(User, sourceItem, ltstate)
-    local isPlant = alchemy.getPlantSubstance(sourceItem.id, User)
-    local cauldron = alchemy.GetCauldronInfront(User, sourceItem)
+local function alchemyCheck(user, sourceItem, ltstate)
+    local isPlant = alchemy.getPlantSubstance(sourceItem.id, user)
+    local cauldron = alchemy.GetCauldronInfront(user, sourceItem)
     if (cauldron ~= nil) and isPlant then
-        herbs.UseItem(User, sourceItem, ltstate)
+        herbs.UseItem(user, sourceItem, ltstate)
         return true
     end
     return false
 end
 
-local function specialEgg(User, sourceItem)
-    if specialeggs.checkSpecialEgg(sourceItem, User) then
+local function specialEgg(user, sourceItem)
+    if specialeggs.checkSpecialEgg(sourceItem, user) then
         return true
     end
     return false
 end
 
-local function holyGrapes(User, sourceItem)
+local function holyGrapes(user, sourceItem)
     if sourceItem:getData("nameEn") == "Holy Grapes" then
-        User:increaseAttrib("foodlevel", 2000)
-        User:inform("Die Trauben haben einen vollen Geschmack und füllen deinen ganzen Mund mit ihrem süßlichen Saft. Köstlich! Doch sie umspielen nicht nur deine Geschmacksknospen, sondern auch deinen Geist. Du bist leicht angetrunken.","The grapes have a rich, sweet taste that lingers on your tongue as their flavourful juice fills your entire mouth. Delicious! However, they not only play with your taste buds but also with your mind. You feel slightly drunk.")
+        user:increaseAttrib("foodlevel", 2000)
+        user:inform("Die Trauben haben einen vollen Geschmack und füllen deinen ganzen Mund mit ihrem süßlichen Saft. Köstlich! Doch sie umspielen nicht nur deine Geschmacksknospen, sondern auch deinen Geist. Du bist leicht angetrunken.","The grapes have a rich, sweet taste that lingers on your tongue as their flavourful juice fills your entire mouth. Delicious! However, they not only play with your taste buds but also with your mind. You feel slightly drunk.")
         world:erase(sourceItem, 1)
         return true
     end
 end
 
-local function thievesPoisonQuest(User, sourceItem)
+local function thievesPoisonQuest(user, sourceItem)
 
     if sourceItem:getData("nameEn") == "Thieves Dinner" then
-        if User:getQuestProgress(543) == 7 then
-            if User:countItemAt("all", 1323) == 0 then
-                User:inform("Du benötigst das Gift, um es unter das Essen zu mischen.", "You need the poison to tamper with the food.")
+        if user:getQuestProgress(543) == 7 then
+            if user:countItemAt("all", 1323) == 0 then
+                user:inform("Du benötigst das Gift, um es unter das Essen zu mischen.", "You need the poison to tamper with the food.")
             else
-                User:inform("Du hast den Inhalt des Fläschchens unbemerkt unter das Essen gemischt. Kehre zu Brigette zurück, um deine Belohnung abzuholen.", "You successfully sneak the contents of the vial Brigette gave you into the food, return to her for a reward.")
-                User:setQuestProgress(543, 8)
-                User:eraseItem(1323, 1)
+                user:inform("Du hast den Inhalt des Fläschchens unbemerkt unter das Essen gemischt. Kehre zu Brigette zurück, um deine Belohnung abzuholen.", "You successfully sneak the contents of the vial Brigette gave you into the food, return to her for a reward.")
+                user:setQuestProgress(543, 8)
+                user:eraseItem(1323, 1)
             end
         end
         return true
@@ -387,54 +440,74 @@ local function thievesPoisonQuest(User, sourceItem)
     return false
 end
 
-local function fortuneCookie(sourceItem, User)
+local function fortuneCookie(sourceItem, user)
     if sourceItem.id == 453 then
         if math.random(1, 100) == 1 then
             local deText, enText = furtunecookies.cookie()
-            User:inform("Du findest ein Stück Papier in dem Keks: \""..deText.."\"", "You find a piece of paper inside the cookie: \""..enText.."\"")
+            user:inform("Du findest ein Stück Papier in dem Keks: \""..deText.."\"", "You find a piece of paper inside the cookie: \""..enText.."\"")
         end
     end
 end
 
-function M.MoveItemAfterMove( User, SourceItem, TargetItem )
-    if onionball.moveOnion(User, SourceItem, TargetItem) then
+local function customInform(sourceItem, user)
+    local customInformEN = sourceItem:getData("customInformEN")
+    local customInformDE = sourceItem:getData("customInformDE")
+    if customInformEN ~= "" and customInformDE ~= "" then
+        common.InformNLS( user, customInformDE, customInformEN)
+    end
+end
+function M.MoveItemAfterMove( user, SourceItem, TargetItem )
+    if onionball.moveOnion(user, SourceItem, TargetItem) then
         return false
     end
     return true
 end
 
-function M.UseItem(User, sourceItem, ltstate)
-    if onionball.useOnion(User, sourceItem) then
+
+function M.UseItem(user, sourceItem, ltstate)
+    if onionball.useOnion(user, sourceItem) then
         return
     end
 
-    if holyGrapes(User, sourceItem) then
+    if holyGrapes(user, sourceItem) then
         return
-    elseif specialEgg(User, sourceItem) then
+    elseif specialEgg(user, sourceItem) then
         return
-    elseif alchemyCheck(User, sourceItem, ltstate) then
+    elseif alchemyCheck(user, sourceItem, ltstate) then
         return
-    elseif thievesPoisonQuest(User, sourceItem) then
+    elseif thievesPoisonQuest(user, sourceItem) then
         return
-    elseif mapItem(User, sourceItem) then
+    elseif mapItem(user, sourceItem) then
         return
 
     end
 
-    fortuneCookie(sourceItem, User)
+    fortuneCookie(sourceItem, user)
 
-    local oldFoodLevel = User:increaseAttrib("foodlevel", 0)
-    local newFoodLevel = User:increaseAttrib("foodlevel", foodList[sourceItem.id].foodPoints)
+    local oldFoodLevel = user:increaseAttrib("foodlevel", 0)
 
-    foodLevelInform(User, newFoodLevel, oldFoodLevel)
+    local foodIncrease = M.foodList[sourceItem.id].foodPoints
 
-    poisonedFood(User, sourceItem)
+    local rarity = sourceItem:getData("rareness")
 
-    buffsAdding(User, sourceItem)
+    if rarity ~= "" then
+        rarity = tonumber(rarity)
+        foodIncrease = foodIncrease*(1 + (rarity-1)/10) --This results in a 10%, 20% and 30% food value increase for the uncommon, rare and unique food rarities
+    end
+
+    local newFoodLevel = user:increaseAttrib("foodlevel", foodIncrease)
+
+    foodLevelInform(user, newFoodLevel, oldFoodLevel)
+
+    poisonedFood(user, sourceItem)
+
+    buffsAdding(user, sourceItem)
+
+    customInform(sourceItem, user)
 
     world:erase(sourceItem, 1)
 
-    leftOverCreation(User, foodList[sourceItem.id].leftOver)
+    leftOverCreation(user, M.foodList[sourceItem.id].leftOver)
 end
 
 return M

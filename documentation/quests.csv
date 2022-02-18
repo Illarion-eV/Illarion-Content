@@ -37,6 +37,7 @@ ID,Title,NPCs,Status,Responsible Author,Description
 36,Indicates if player will be attacked by monsters,,,vilarion,"0: monsters will attack; not 0: monsters will NOT attack, time until effect end."
 37,New mage Flag by queststatus,,,Merung,Learning wand magic
 38,Boook read for mage learning,,,Merung,Bitmap
+39,Rune Magic Spell Attunement Storage,,,Brightrim, Rune Magic Functionality
 40,Skill transfer,,,Merung,Used to check if the player already chose an option
 41,Skill transfer,,,Merung,Used to check if the player already chose an option
 42,Skill transfer,,,Merung,Used to check if the player already chose an option
@@ -44,10 +45,11 @@ ID,Title,NPCs,Status,Responsible Author,Description
 44,Introduction,,,Estralis,Introduction after tutorial - Places
 45,Introduction,,,Estralis,Introduction after tutorial - Greeting
 46,Introduction,,,Estralis,Introduction after tutorial - Overall status
-47,Advanced Idle Detection,,,Estralis,Advanced Idle Detection - Counter
-48,Advanced Idle Detection,,,Estralis,Advanced Idle Detection - X
-49,Advanced Idle Detection,,,Estralis,Advanced Idle Detection - Y
-50,Advanced Idle Detection,,,Estralis,Advanced Idle Detection - Z
+47,Advanced Idle Detection,,,Estralis,Advanced Idle Detection - Counter - not in active use anymore
+48,Advanced Idle Detection,,,Estralis,Advanced Idle Detection - X - not in active use anymore
+49,Advanced Idle Detection,,,Estralis,Advanced Idle Detection - Y - not in active use anymore
+50,Advanced Idle Detection,,,Estralis,Advanced Idle Detection - Z - not in active use anymore
+51-59, rune magic learning,,,Brightrim,Only 51 used so far but the others reserved in case of future expansion
 60,Treasure map counter,,,Merung,Used to count how many successful treasure huntings the char has taken part in
 61,Orders for npcs,,,Ardian,stores the thrustworthyness of a character (i value is to less you won't get new orders for an amount of time) value between 1-100
 62,"Mineth, the Coat of Arms tailoress",,,Ardian,"a woman npc needs help to make something for a group, stores the quest status"
@@ -162,6 +164,8 @@ ID,Title,NPCs,Status,Responsible Author,Description
 171,Ssiguss's Orphans-Artimer,,,Evie,Quest for the wilderness for Orphaned eggs.
 172,Homeland - Cadomyr2,,,Evie,Show a message if the player leaves the homeland for the first time
 173,patrol quest for Galmair-artimer,,,Evie,triggerfield for a Galmair patrol quest
+174-179, rune magic learning/teaching cooldowns,,,Brightrim, rune magic functionality
+180, spatial magic portal mode,,,Brightrim, spatial magic functionality
 181,Informant Spy,,,Caldarion,Daily quest by Bula Glasha - quest selector
 182,Informant Spy,,,Caldarion,Daily quest by Bula Glasha - quest countdown
 183,Informant Spy,,,Caldarion,Daily quest by Bula Glasha - quest cooldown
@@ -196,11 +200,13 @@ ID,Title,NPCs,Status,Responsible Author,Description
 213,A Wistful Journey,,,Estralis,Daily quest by Pesnar Rolemnes - quest selector
 214,A Wistful Journey,,,Estralis,Daily quest by Pesnar Rolemnes - quest countdown
 215,A Wistful Journey,,,Estralis,Daily quest by Pesnar Rolemnes - quest cooldown
+216-219, spatial magic attunement,,,Brightrim, stores locations for portal magic(only 216 used for now but the others are there for room for expansion)
 220,Bookseller Helper Quest Galmair,,,Caldarion,Daily quest
 221,Bookseller Helper Quest Runewick,,,Caldarion,Daily quest
 222,Bookseller Helper Quest Cadomyr,,,Caldarion,Daily quest
 223,Knowledge about Runewick,,,Banduk,Runewick patrol quest
 224,Knowledge about Runewick,,,Banduk,Runewick patrol quest - Patrol target
+225, red portal permit,,,Brightrim, allows GMs to give players permission to spawn red portals via portal magic
 226,Hairdresser,,,Banduk,Time new hair colour disappear
 227,Hairdresser,,,Banduk,Time new hair style disappear
 228,Hairdresser,,,Banduk,Time new beard style disappear
@@ -210,7 +216,18 @@ ID,Title,NPCs,Status,Responsible Author,Description
 232,Hairdresser,,,Banduk,Cooldown for delayed payment
 233,Hairdresser,,,Banduk,Warnings for delayed paymen
 234,Hairdresser,,,Banduk,time next haircut possible
+235, portal colour storage,,,Brightrim, spatial magic functionality
 236,Temporary No attack with cooldown,,,Evie," ""Gm item"""
+237,rune magic tutorial,,,Brightrim, magic tutorials
+238,fountain of forgetfulness,,,Brightrim, questline to change magic profession at a price
+239, wand magic tutorial,,,Brightrim, magic tutorials
+240, spatial magic tutorial,,,Brightrim, magic tutorials
+241, glyph magic tutorial,,,Brightrim, magic tutorials
+242, Kel puzzle,,,Brightrim, magic puzzles
+243, Pera puzzle,,,Brightrim, magic puzzles
+244, BHONA puzzle,,,Brightrim, magic puzzles
+245, Luk puzzle,,,Brightrim, magic puzzles
+246, mana stalling,,,Brightrim, rune magic functionality
 252,Stock up Galmairs Storage,,,Evie,Galmair daily mission - Cooldown
 253,Replace poisoned carrots,,,Banduk,Subquest for rat den
 260,For Runewick cool down,,,Evie,Runewick daily missions- cool down
@@ -274,6 +291,7 @@ ID,Title,NPCs,Status,Responsible Author,Description
 355,Tutorial - Pathway,,,Estralis,Show message just once
 356,Tutorial - Henry,,,Estralis,Show message just once
 357,Tutorial - Nimbur,,,Estralis,Show message just once
+358,Tutorial - Moving,,,Estralis,Ask only once for tutorial messages
 360,Pet system: race,,,merung,race of the pet
 361-363,Pet system: position,,,merung,stores the position of the pet
 364,Pet system: sex,,,merung,sex of the pet

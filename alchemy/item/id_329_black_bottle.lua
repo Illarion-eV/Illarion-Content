@@ -22,6 +22,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local alchemy = require("alchemy.base.alchemy")
 local lookat = require("base.lookat")
+local customPotion = require("alchemy.base.customPotion")
 
 local M = {}
 
@@ -70,21 +71,29 @@ ListHairFemale[3] = {1,7,8}
 ListHairFemale[4] = {1,7,8}
 ListHairFemale[5] = {1,2,3,4,5,6}
 
-local dogTransformation
+local monsterTransformation
 
-local function DrinkPotion(User,SourceItem)
+local function DrinkPotion(user,SourceItem)
 
     local potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
 
     if potionEffectId == 0 or potionEffectId == nil  then -- no effect
-        common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert.",
+        common.InformNLS(user, "Du hast nicht das Gefühl, dass etwas passiert.",
         "You don't have the feeling that something happens.")
         return
 
     elseif (potionEffectId >= 500) and (potionEffectId < 599) then -- transformation potion
 
-        if potionEffectId == 560 then
-            dogTransformation(User,SourceItem)
+        local dog = 560
+        local spider = 561
+
+        if potionEffectId == dog then
+            monsterTransformation(user,SourceItem, 58)
+            return
+        end
+
+        if potionEffectId == spider then
+            monsterTransformation(user, SourceItem, 19)
             return
         end
 
@@ -94,22 +103,22 @@ local function DrinkPotion(User,SourceItem)
         local newRace = math.floor(((potionEffectId - newSex - 500)/10))
         local isMonster = 0
         -- our old value to change the char later back
-        local oldRace = User:getRace()
-        local oldSkinColour = User:getSkinColour()
-        local oldHairColour = User:getHairColour()
-        local oldSex = User:increaseAttrib("sex",0)
-        local oldHair = User:getHair()
-        local oldBeard = User:getBeard()
-        local oldHeight = User:increaseAttrib("body_height",0)
+        local oldRace = user:getRace()
+        local oldSkinColour = user:getSkinColour()
+        local oldHairColour = user:getHairColour()
+        local oldSex = user:increaseAttrib("sex",0)
+        local oldHair = user:getHair()
+        local oldBeard = user:getBeard()
+        local oldHeight = user:increaseAttrib("body_height",0)
         -- check if there is already a an effect
-        local  find, myEffect = User.effects:find(329)
+        local  find, myEffect = user.effects:find(329)
 
         if find then
             local findNewRace, LteNewRace = myEffect:findValue("newRace")
             local _, counterBlack = myEffect:findValue("counterBlack")
             if findNewRace then
                 if LteNewRace == newRace then
-                    User:inform("LteNewRace == newRace")
+                    user:inform("LteNewRace == newRace")
                     if duration > counterBlack then -- same transformation, but the new potion will last longer
                         myEffect:addValue("counterBlack",duration)
                         return
@@ -143,9 +152,9 @@ local function DrinkPotion(User,SourceItem)
                     _, oldRace = myEffect:findValue("oldRace")
                     _, oldHeight = myEffect:findValue("oldHeight")
                     -- and remove the old effect
-                    local effectRemoved = User.effects:removeEffect(329)
+                    local effectRemoved = user.effects:removeEffect(329)
                     if not effectRemoved then
-                        common.InformNLS( User,"Fehler: informiere einen dev. lte nicht entfernt. black bottle script", "Error: inform dev. Lte not removed. black bottle script.")
+                        common.InformNLS( user,"Fehler: informiere einen dev. lte nicht entfernt. black bottle script", "Error: inform dev. Lte not removed. black bottle script.")
                         return
                     end
                 end
@@ -175,7 +184,7 @@ local function DrinkPotion(User,SourceItem)
         local newHeight = math.random(80,120)
 
         -- LTE and transformation
-        find = User.effects:find(329)
+        find = user.effects:find(329)
         if not find then
 
         myEffect = LongTimeEffect(329,1)
@@ -211,40 +220,40 @@ local function DrinkPotion(User,SourceItem)
 
           -- transformation
           if isMonster ~= 1 then
-             User:setAttrib("sex",newSex)
-             User:setHair(newHair)
-             User:setBeard(newBeard)
-             User:setSkinColour(colour(newSkincolor1,newSkincolor2,newSkincolor3))
-             User:setHairColour(colour(newHaircolor1,newHaircolor2,newHaircolor3))
+             user:setAttrib("sex",newSex)
+             user:setHair(newHair)
+             user:setBeard(newBeard)
+             user:setSkinColour(colour(newSkincolor1,newSkincolor2,newSkincolor3))
+             user:setHairColour(colour(newHaircolor1,newHaircolor2,newHaircolor3))
           end
-          User:setRace(newRace)
-          User:setAttrib("body_height",newHeight)
+          user:setRace(newRace)
+          user:setAttrib("body_height",newHeight)
 
           -- to make the changes visible
-          User:increaseAttrib("hitpoints",-10)
-          User:increaseAttrib("hitpoints",10)
+          user:increaseAttrib("hitpoints",-10)
+          user:increaseAttrib("hitpoints",10)
 
           -- duration depends on the potion's quality
          myEffect:addValue("counterBlack",duration)
-          User.effects:addEffect(myEffect)
+          user.effects:addEffect(myEffect)
         end
     end
 end
 
-function dogTransformation(User,SourceItem)
+function monsterTransformation(user,SourceItem, race)
 
-    local oldRace = User:getRace()
-    local oldSkinColour = User:getSkinColour()
-    local oldHairColour = User:getHairColour()
-    local oldSex = User:increaseAttrib("sex",0)
-    local oldHair = User:getHair()
-    local oldBeard = User:getBeard()
-    local oldHeight = User:increaseAttrib("body_height",0)
+    local oldRace = user:getRace()
+    local oldSkinColour = user:getSkinColour()
+    local oldHairColour = user:getHairColour()
+    local oldSex = user:increaseAttrib("sex",0)
+    local oldHair = user:getHair()
+    local oldBeard = user:getBeard()
+    local oldHeight = user:increaseAttrib("body_height",0)
 
     local duration = math.floor(SourceItem.quality/100)*10 -- effect is called every minute. quality 1 = 10 minutes; quality 9 = 90
 
     -- check if there is already a an effect
-    local find, myEffect = User.effects:find(329)
+    local find, myEffect = user.effects:find(329)
     if find then
         local  findNewRace, LteNewRace = myEffect:findValue("newRace")
         local _, counterBlack = myEffect:findValue("counterBlack")
@@ -281,23 +290,25 @@ function dogTransformation(User,SourceItem)
                 _, oldRace = myEffect:findValue("oldRace")
                 _, oldHeight = myEffect:findValue("oldHeight")
                 -- and remove the old effect
-                local effectRemoved = User.effects:removeEffect(329)
+                local effectRemoved = user.effects:removeEffect(329)
                 if not effectRemoved then
-                    common.InformNLS( User,"Fehler: informiere einen dev. lte nicht entfernt. black bottle script", "Error: inform dev. Lte not removed. black bottle script.")
+                    common.InformNLS( user,"Fehler: informiere einen dev. lte nicht entfernt. black bottle script", "Error: inform dev. Lte not removed. black bottle script.")
                     return
                 end
             end
         end
     end
 
-    local newRace = 58
+    local newRace = race
+
     local newHeight = math.random(80,120)
+
     local newSkincolor1 = 102
     local newSkincolor2 = 51
     local newSkincolor3 = 0
 
     -- LTE and transformation
-    find = User.effects:find(329)
+    find = user.effects:find(329)
     if not find then
         myEffect = LongTimeEffect(329,1)
         myEffect:addValue("oldSex",oldSex)
@@ -317,19 +328,22 @@ function dogTransformation(User,SourceItem)
         myEffect:addValue("newSkincolor2",newSkincolor2)
         myEffect:addValue("newSkincolor3",newSkincolor3)
 
-        User:setSkinColour(colour(newSkincolor1,newSkincolor2,newSkincolor3))
-        User:setRace(newRace)
-        User:setAttrib("body_height",newHeight)
+        user:setSkinColour(colour(newSkincolor1,newSkincolor2,newSkincolor3))
+        user:setRace(newRace)
+        user:setAttrib("body_height",newHeight)
 
         -- duration depends on the potion's quality
         myEffect:addValue("counterBlack",duration)
-        User.effects:addEffect(myEffect)
+        user.effects:addEffect(myEffect)
     end
 
 
 end
 
-function M.UseItem(User, SourceItem, ltstate)
+function M.UseItem(user, SourceItem, ltstate)
+    if SourceItem:getData("customPotion") ~= "" then
+        customPotion.drinkInform(user, SourceItem)
+    end
     -- repair potion in case it's broken
     alchemy.repairPotion(SourceItem)
     -- repair end
@@ -338,20 +352,20 @@ function M.UseItem(User, SourceItem, ltstate)
         return -- no potion, no essencebrew, something else
     end
 
-    local cauldron = alchemy.GetCauldronInfront(User)
+    local cauldron = alchemy.GetCauldronInfront(user)
     if cauldron then -- infront of a cauldron?
-        alchemy.FillIntoCauldron(User,SourceItem,cauldron,ltstate)
+        alchemy.FillIntoCauldron(user,SourceItem,cauldron,ltstate)
 
     else -- not infront of a cauldron, therefore drink!
-        User:talk(Character.say, "#me trinkt eine schwarze Flüssigkeit.", "#me drinks a black liquid.")
-        User.movepoints=User.movepoints - 20
-        DrinkPotion(User,SourceItem) -- call effect
-        alchemy.EmptyBottle(User,SourceItem)
+        user:talk(Character.say, "#me trinkt eine schwarze Flüssigkeit.", "#me drinks a black liquid.")
+        user.movepoints=user.movepoints - 20
+        DrinkPotion(user,SourceItem) -- call effect
+        alchemy.EmptyBottle(user,SourceItem)
     end
 end
 
-function M.LookAtItem(User,Item)
-    return lookat.GenerateLookAt(User, Item, 0)
+function M.LookAtItem(user,Item)
+    return lookat.GenerateLookAt(user, Item, 0)
 end
 
 return M

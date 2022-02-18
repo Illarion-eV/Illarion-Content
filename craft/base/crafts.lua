@@ -26,6 +26,8 @@ local licence = require("base.licence")
 local gems = require("base.gems")
 local glypheffects = require("magic.glypheffects")
 local itemList = require("craft.base.itemList")
+local foodScript = require("item.food")
+
 local OFFSET_PRODUCTS_REPAIR = 235
 local repairItemList = {}
 local housingTool = Item.constructiontrowel
@@ -635,6 +637,46 @@ function Craft:checkMaterial(user, productId)
     return materialsAvailable
 end
 
+function Craft:generateRarity(user, productId, toolItem)
+
+    -- 1 = common, 2 = uncommon, 3 = rare, 4 = unique
+    -- Max chances: 0.4% unique, 2% rare, 10% uncommon, 87.6% common
+
+    if self.npcCraft then
+        return 1
+    end
+
+    local retVal = 1
+
+    local maxPerfectChance = 0.5967194738 --Maximum probability for quality 9(perfect) items
+
+    local rarities = {unique = 0.004/maxPerfectChance,
+    rare = 0.02/maxPerfectChance,
+    uncommon = 0.1/maxPerfectChance
+    }
+
+    local rand = math.random()
+
+    for _, rarity in ipairs(rarities) do
+        if rarity <= rand then
+            retVal = retVal+1
+        end
+    end
+
+    return retVal
+
+end
+
+function Craft:checkIfFoodItem(productId)
+    local product = self.products[productId]
+    if not foodScript.foodList[product.item] then
+        return false
+    end
+    if foodScript.foodList[product.item].crafted then
+        return true, foodScript.foodList[product.item].buffs
+    end
+end
+
 function Craft:generateQuality(user, productId, toolItem)
 
     if self.npcCraft then
@@ -642,22 +684,17 @@ function Craft:generateQuality(user, productId, toolItem)
     end
 
     local gemBonus = tonumber(self:getCurrentGemBonus(user))
-    local userDexterity = user:increaseAttrib("dexterity", 0)
+    local skill = self.leadSkill
+    local leadAttribName = common.GetLeadAttributeName(skill)
+    local leadAttribValue = user:increaseAttrib(leadAttribName, 0)
 
     local meanQuality = 5
-    meanQuality = meanQuality*(1+common.GetAttributeBonusHigh(userDexterity)+common.GetQualityBonusStandard(toolItem))+gemBonus/100 --Apply boni of dexterity, tool quality and gems.
+    meanQuality = meanQuality*(1+common.GetAttributeBonusHigh(leadAttribValue)+common.GetQualityBonusStandard(toolItem))+gemBonus/100 --Apply boni of dexterity, tool quality and gems.
     meanQuality = common.Limit(meanQuality, 1, 8.5) --Limit to a reasonable maximum to avoid overflow ("everything quality 9"). The value here needs unnatural attributes.
-    local quality = 1 --Minimum quality value.
     local rolls = 8 --There are eight chances to increase the quality by one. This results in a quality distribution 1-9.
-    local probability = (meanQuality-1)/rolls --This will result in a binominal distribution of quality with meanQuality as average value.
-
-    for i=1,rolls do
-        if math.random()<probability then
-            quality=quality+1
-        end
-    end
-
+    local quality = 1 + common.BinomialByMean((meanQuality-1), rolls)
     quality = common.Limit(quality, 1, common.ITEM_MAX_QUALITY)
+
     local durability = common.ITEM_MAX_DURABILITY
     return common.calculateItemQualityDurability(quality, durability)
 
@@ -794,6 +831,9 @@ end
 
 function Craft:createItem(user, productId, toolItem, housing)
     local product = self.products[productId]
+    product.data.descriptionDe = ""
+    product.data.descriptionEn = "" -- reset descriptions, same reasoning as below
+    product.data.rareness = "" -- reset rarity or else it creates the most recent result of the rarity calculation even if not a perfect item
 
     local quality = self:generateQuality(user, productId, toolItem)
 
@@ -804,6 +844,47 @@ function Craft:createItem(user, productId, toolItem, housing)
         product.data.craftedBy = nil
     end
     if not housing then
+        local rarity = 0
+
+        local foodItem, foodBuff = self:checkIfFoodItem(productId)
+        if foodItem and quality >= 900 then
+            rarity = self:generateRarity(user, productId, toolItem)
+
+            if not foodBuff then
+                rarity = common.Limit(rarity, 0, 2)
+            end
+
+            if rarity > 1 then
+                product.data.rareness = rarity
+            end
+        end
+
+        local rarities = {
+            {english = "uncommon", german = "außergewöhnlich gut", identifier = 2,
+            foodDescription = {
+                english = "An uncommonly well made dish. Sure to be more filling than its common counterparts.",
+                german = "Ein außergewöhnlich gut gelungenes Gericht. Ein wahrer Schmauß, der besser sättigt als ein normales Gericht."}},
+            {english = "rare", german = "exzellent", identifier = 3,
+            foodDescription = {
+                english = "A dish so well-made it's a rarity among dishes. Not only more filling than its lesser counterparts, but also somewhat beneficial to the longevity and strength of the boons of your good diet.",
+                german = "Ein wahres Schlemmergericht. Wohlbekömmlich und eine Wohltat für die Länge und Auswirkung deiner guten Ernährung."}},
+            {english = "unique", german = "einzigartig gut", identifier = 4,
+            foodDescription = {
+                english = "A dish made by such refined culinary arts, you might even say it's unique. Not only more filling than its lesser counterparts, but also very beneficial to both the longevity and strength of the boons of your good diet.",
+                german = "Eine kulinarisches Köstlichkeit, die ihres Gleichen sucht. Äußerst wohlbekömmlich und eine Wohltat für die Länge und Auswirkung deiner guten Ernährung."}}}
+
+        for _, selectedRarity in pairs(rarities) do
+            if rarity == selectedRarity.identifier then
+                local nameEnglish = itemStats.English
+                local nameGerman = itemStats.German
+                common.TempInformNLS(user, "Die Speise '"..nameGerman.."' ist dir "..nameGerman.." gelungen.", "Through your masterful skill, your "..nameEnglish.." ended up being of "..selectedRarity.english.." quality.")
+                if foodItem then
+                    product.data.descriptionDe = selectedRarity.foodDescription.german
+                    product.data.descriptionEn = selectedRarity.foodDescription.english
+                end
+                break
+            end
+        end
         Craft:eraseIngredients(user, product)
         common.CreateItem(user, product.item, product.quantity, quality, product.data)
     elseif housing then
@@ -852,6 +933,7 @@ function Craft:createItem(user, productId, toolItem, housing)
             end
         end
     end
+
     for i=1, #product.remnants do
         local remnant = product.remnants[i]
        common.CreateItem(user, remnant.item, remnant.quantity, 333, remnant.data)

@@ -16,8 +16,33 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
 local licence = require("base.licence")
+local gems = require("base.gems")
 
 local M = {}
+
+local alchemyTool = Item.mortar
+
+function M.getAlchemyTool(user)
+    local leftTool = user:getItemAt(Character.left_tool)
+    local rightTool = user:getItemAt(Character.right_tool)
+
+    if leftTool.id == alchemyTool and common.isBroken(leftTool) == false then
+        return leftTool
+    elseif rightTool.id == alchemyTool and common.isBroken(rightTool) == false then
+        return rightTool
+    end
+
+    return false
+end
+
+local function getGemBonus(user)
+    local handItem = M.getAlchemyTool(user)
+    if handItem ~= nil then
+        return gems.getGemBonus(handItem)
+    else
+        return 0
+    end
+end
 
 local plantList = {}
 local function setPlantSubstance(id, plusSubstance, minusSubstance)
@@ -225,6 +250,8 @@ M.potionName[551] = {"Shape Shifter Female Lizardman","Verwandler Weiblicher Ech
 setPotion(551, 449, 23417592, 766, 162, 760, 767, false, false, false, false)
 M.potionName[560] = {"Shape Shifter Dog","Verwandler Hund"}
 setPotion(560, 449, 31397191, 766, 152, 81, 81, 762, false, false, false)
+M.potionName[561] = {"Shape Shifter Small Spider","Verwandler Kleine Spinne"}
+setPotion(561, 449, 71526316, 766, 155, 147, 147, 757, false, false, false)
 -- transformation potions end
 
 --language potions
@@ -577,6 +604,7 @@ end
 function M.RemoveAll(Item)
     M.RemoveEssenceBrew(Item)
     M.RemoveStock(Item)
+    Item:setData("creator","")
     Item:setData("potionEffectId","")
     Item:setData("potionQuality","")
     Item:setData("filledWith","")
@@ -604,12 +632,30 @@ function M.EmptyBottle(User,Bottle)
     end
 end
 
+M.brewingPermissions = { --temporary manual table for brewing permissions until Jupiter has implemented his system for teaching your own created recipes to others
+    {effect = 561, users = {"admin", "Amanda Brightrim"}} -- "admin" is set as the creator of admin created potions via gm tool
+}
+
+local function checkBrewingPermissions(fromItem)
+    for _, currentPotion in pairs(M.brewingPermissions) do --Go through the list of brewing permissions
+        if fromItem:getData("potionEffectId") == currentPotion.effect then --Check if potion requires permissions
+            for _, currentUser in pairs(currentPotion.users) do -- Go through list of users with permissions
+                if fromItem:getData("creator") == currentUser then --If user who created the potion(added the gemdust) is on the list, permissions are granted
+                    return true
+                end
+            end
+            return false
+        end
+    end
+end
+
 function M.FillFromTo(fromItem,toItem)
     -- copies all datas (and quality and id) from fromItem to toItem
     for i=1,8 do
         toItem:setData(M.wirkstoff[i].."Concentration",fromItem:getData(M.wirkstoff[i].."Concentration"))
         toItem:setData("essenceHerb"..i,fromItem:getData("essenceHerb"..i))
     end
+    toItem:setData("creator",fromItem:getData("creator"))
     toItem:setData("filledWith",fromItem:getData("filledWith"))
     toItem:setData("potionEffectId",fromItem:getData("potionEffectId"))
     local quality = tonumber(fromItem:getData("potionQuality"))
@@ -630,6 +676,12 @@ function M.FillFromTo(fromItem,toItem)
     if toItem.id >= 1008 and toItem.id <= 1018 then
         toItem.id = reCauldron
     else
+        local hasPermission = checkBrewingPermissions(fromItem)
+
+        if not hasPermission then
+            toItem:setData("potionEffectId", 0)
+        end
+
         toItem.id = reBottle
     end
     world:changeItem(toItem)
@@ -677,19 +729,32 @@ function M.CauldronDestruction(User,cauldron,effectId)
     world:changeItem(cauldron)
 end
 
-function M.SetQuality(User,Item)
-    -- skill has an influence of 75% on the mean
-    local skillQuali = User:getSkill(Character.alchemy)*0.75
-    -- attributes have an influence of 25% on the mean (if the sum of the attributes is 54 or higher, we reach the maixmum influence)
-    local attribCalc = (((User:increaseAttrib("essence",0) + User:increaseAttrib("perception",0) + User:increaseAttrib("intelligence",0) )/3))*5
-    local attribQuali = common.Scale(0,25,attribCalc)
-    -- the mean
-    local mean =  common.Scale(1,9,(attribQuali + skillQuali))
-    -- normal distribution; mean determined by skill and attributes; fixed standard deviation
-    local quality = Random.normal(mean, 4.5)
-    quality = common.Limit(quality, 1, 9)
+function M.SetQuality(user, item)
 
-    Item:setData("potionQuality",quality*100+99)-- duarability is useless, we set it anway
+    local alchemyLevel = user:getSkill(Character.alchemy)
+    local gemBonus = tonumber(getGemBonus(user))
+    local leadAttribName = common.GetLeadAttributeName(Character.alchemy)
+    local leadAttribValue = user:increaseAttrib(leadAttribName, 0)
+    local toolItem = M.getAlchemyTool(user)
+    local meanQuality = 5
+    meanQuality = meanQuality*(1+common.GetAttributeBonusHigh(leadAttribValue)+common.GetQualityBonusStandard(toolItem))+gemBonus/100 --Apply boni of lead attrib, tool quality and gems.
+    meanQuality = meanQuality*(0.5+(alchemyLevel/200)) -- The level of your alchemy skill has a 50% influence on the average quality
+    meanQuality = common.Limit(meanQuality, 1, 8.5) --Limit to a reasonable maximum to avoid overflow ("everything quality 9"). The value here needs unnatural attributes.
+    local quality = 1 --Minimum quality value.
+    local rolls = 8 --There are eight chances to increase the quality by one. This results in a quality distribution 1-9.
+    local probability = (meanQuality-1)/rolls --This will result in a binominal distribution of quality with meanQuality as average value.
+
+    for i=1,rolls do
+        if math.random()<probability then
+            quality=quality+1
+        end
+    end
+
+    quality = common.Limit(quality, 1, common.ITEM_MAX_QUALITY)
+    local durability = common.ITEM_MAX_DURABILITY
+    local qualityDurability = common.calculateItemQualityDurability(quality, durability)
+    item:setData("potionQuality", qualityDurability)
+    world:changeItem(item)
 end
 
 function M.GemDustBottleCauldron(gemId, gemdustId, cauldronId, bottleId)
@@ -792,11 +857,9 @@ function M.CombineStockEssence( User, stock, essenceBrew)
         M.RemoveAll(cauldron)
         M.SetQuality(User,cauldron)
         cauldron.id = newCauldron
-        debug("effect id 2: "..effectID)
         cauldron:setData("potionEffectId", ""..effectID)
         cauldron:setData("filledWith", "potion")
         world:changeItem(cauldron)
-        debug("effect id after adding: "..cauldron:getData("potionEffectId"))
         world:makeSound(13,cauldron.pos)
         world:gfx(52,cauldron.pos)
         -- and learn!

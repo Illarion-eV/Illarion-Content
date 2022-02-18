@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local lookat = require("base.lookat")
+local common = require("base.common")
 local checks = require("item.general.checks")
 
 local M = {}
@@ -33,14 +34,65 @@ function M.LookAtItem(user, item)
     return lookat.GenerateLookAt(user, item, lookat.CLOTH)
 end
 
-function M.MoveItemBeforeMove(User, SourceItem, TargetItem)
+function M.MoveItemBeforeMove(user, sourceItem, targetItem)
 
-    if TargetItem:getType() == 4 then --inventory, not belt
-        checks.HaveABreak(User)
-        return checks.checkLevel(User, SourceItem, TargetItem)
+
+    if targetItem:getType() == scriptItem.inventory then
+        checks.HaveABreak(user)
+        return checks.checkLevel(user, sourceItem, targetItem)
     end
 
     return true
+end
+
+local function coatHidesItemsInform(user, sourceItem, targetItem)
+    if targetItem:getType() == scriptItem.inventory then
+        if targetItem.itempos == Character.coat then
+            local belt4 = user:getItemAt(Character.belt_pos_4).id
+            local belt5 = user:getItemAt(Character.belt_pos_5).id
+            local belt6 = user:getItemAt(Character.belt_pos_6).id
+            local itemsEn = ""
+            local itemsDe = ""
+            local cloakEn = world:getItemStatsFromId(targetItem.id).English
+            local cloakDe = world:getItemStatsFromId(targetItem.id).German
+
+            if belt4 ~= 0 then
+                local nameEn = world:getItemStatsFromId(belt4).English
+                local nameDe = world:getItemStatsFromId(belt4).German
+                itemsEn = itemsEn..nameEn
+                itemsDe = itemsDe..nameDe
+            end
+            if belt5 ~= 0 then
+                if belt4 ~= 0 then
+                    itemsEn = itemsEn..", "
+                    itemsDe = itemsDe..", "
+                end
+                local nameEn = world:getItemStatsFromId(belt5).English
+                local nameDe = world:getItemStatsFromId(belt5).German
+                itemsEn = itemsEn..nameEn
+                itemsDe = itemsDe..nameDe
+            end
+            if belt6 ~= 0 then
+                if belt4 ~= 0 or belt5 ~= 0 then
+                    itemsEn = itemsEn..", "
+                    itemsDe = itemsDe..", "
+                end
+                local nameEn = world:getItemStatsFromId(belt6).English
+                local nameDe = world:getItemStatsFromId(belt6).German
+                itemsEn = itemsEn..nameEn
+                itemsDe = itemsDe..nameDe
+            end
+            itemsEn = itemsEn.."."
+            itemsDe = itemsDe.."."
+            if itemsEn ~= "" then
+                user:inform(common.GetNLS(user, cloakDe.." auszurüsten verbirgt folgende Items an deinem Gürtel: "..itemsDe, "Equipping the "..cloakEn.." hides some of the items on your belt from view: "..itemsEn))
+            end
+        end
+    end
+end
+
+function M.MoveItemAfterMove(user, sourceItem, targetItem)
+    coatHidesItemsInform(user, sourceItem, targetItem)
 end
 
 return M

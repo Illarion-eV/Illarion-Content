@@ -23,13 +23,14 @@ local common = require("base.common")
 local alchemy = require("alchemy.base.alchemy")
 local lookat = require("base.lookat")
 local granorsHut = require("content.granorsHut")
+local customPotion = require("alchemy.base.customPotion")
 
 local M = {}
 
 local topBorder = {7000       ,7000  ,50000      ,10000        ,7000         ,7000    ,50000        ,10000}
 local attribList ={"hitpoints","mana","foodlevel","poisonvalue","hitpointsOT","manaOT","foodlevelOT","poisonvalueOT"}
 
-local function GenerateEffectMessage(User,dataZList)
+local function GenerateEffectMessage(user,dataZList)
     local effectMessageDE = ""
     local effectMessageEN = ""
     local anyEffect = false
@@ -54,31 +55,31 @@ local function GenerateEffectMessage(User,dataZList)
         effectMessageDE = "Du spürst keine Wirkung."
         effectMessageEN = "You don't feel any effect."
     end
-    common.InformNLS(User,effectMessageDE,effectMessageEN);
+    common.InformNLS(user,effectMessageDE,effectMessageEN);
 end
 
-local function DrinkPotion(User,SourceItem)
+local function DrinkPotion(user,SourceItem)
     local potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
 
     if potionEffectId == 0 or potionEffectId == nil  then -- no effect
-        common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert.",
+        common.InformNLS(user, "Du hast nicht das Gefühl, dass etwas passiert.",
         "You don't have the feeling that something happens.")
         return
 
     elseif potionEffectId >= 11111111 and potionEffectId <= 99999999 then -- it's an attribute changer
 
         -- there is already an effect; sadly,therefore, the current potion will have no effect
-        local foundEffect = User.effects:find(166)
+        local foundEffect = user.effects:find(166)
         if foundEffect then
-            common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert. Scheinbar verhindert der bereits wirkende Heiltrank weitere Effekte.",
+            common.InformNLS(user, "Du hast nicht das Gefühl, dass etwas passiert. Scheinbar verhindert der bereits wirkende Heiltrank weitere Effekte.",
             "You don't have the feeling that something happens. It seems that the already affecting healing potion prevents other effects.")
             return
         end
 
-        local dataZList = alchemy.SplitData(User,potionEffectId)
+        local dataZList = alchemy.SplitData(user,potionEffectId)
         -- taste and effect message
-        alchemy.generateTasteMessage(User,dataZList)
-        GenerateEffectMessage(User,dataZList)
+        alchemy.generateTasteMessage(user,dataZList)
+        GenerateEffectMessage(user,dataZList)
 
         local hitpointsOT, poisonvalueOT, manaOT, foodlevelOT
         for i=1,8 do
@@ -94,10 +95,10 @@ local function DrinkPotion(User,SourceItem)
             elseif ( attribList[i] == "foodlevelOT" ) then
                    foodlevelOT = (Val * 1.25) / 5;
             elseif ( attribList[i] == "poisonvalue" ) then
-                Val = common.Limit( (User:getPoisonValue() - Val) , 0, 10000 );
-                User:setPoisonValue( Val );
+                Val = common.Limit( (user:getPoisonValue() - Val) , 0, 10000 );
+                user:setPoisonValue( Val );
             else
-                User:increaseAttrib(attribList[i],Val);
+                user:increaseAttrib(attribList[i],Val);
             end
         end
         -- LTE
@@ -124,31 +125,31 @@ local function DrinkPotion(User,SourceItem)
             myEffect:addValue("poisonvalueIncrease",poisonvalueOT)
         end
        myEffect:addValue("counterPink",5)
-       User.effects:addEffect(myEffect)
+       user.effects:addEffect(myEffect)
 
     elseif potionEffectId == 10 then
         -- potion to spit fire
 
         -- there is already a fire spitting potion effect going on
         -- char pukes out a flame on the map, no further effect added
-        local foundEffect = User.effects:find(60)
+        local foundEffect = user.effects:find(60)
         if foundEffect then
-            common.InformNLS(User, "Sofort steigt Hitze und Erbrochenes in dir auf.",
+            common.InformNLS(user, "Sofort steigt Hitze und Erbrochenes in dir auf.",
             "Immediately, your body heats up and and some stomach contents comes up.")
-            User:talk(Character.say, "#me übergibt sich und spuckt dabei einen großen Feuerball aus.", "#me throws up and pukes out a big fireball.")
-            local frontPos = common.GetFrontPosition(User)
+            user:talk(Character.say, "#me übergibt sich und spuckt dabei einen großen Feuerball aus.", "#me throws up and pukes out a big fireball.")
+            local frontPos = common.GetFrontPosition(user)
             world:makeSound(5,frontPos)
             world:gfx(9,frontPos)
             world:createItemFromId(359,1,frontPos,true,333,nil)
-            local effectRemoved = User.effects:removeEffect(60)
+            local effectRemoved = user.effects:removeEffect(60)
             if not effectRemoved then
-                common.InformNLS( User,"Fehler: Informiere einen Dev.", "Error: Inform a dev.")
+                common.InformNLS( user,"Fehler: Informiere einen Dev.", "Error: Inform a dev.")
                 return
             end
             return
         end
         -- inform and add effect
-        User:inform("Die Flüssigkeit läuft deine Kehle hinunter und sofort merkst du ein starkes Brennen.",
+        user:inform("Die Flüssigkeit läuft deine Kehle hinunter und sofort merkst du ein starkes Brennen.",
                     "The potion runs down your throat and immediately, you get the feeling that throat was on fire.")
 
         -- quality determines length until char spits fire (better quality, shorter time)
@@ -156,7 +157,7 @@ local function DrinkPotion(User,SourceItem)
 
         local myEffect=LongTimeEffect(60,firstCall)
         myEffect:addValue("quality",math.floor(SourceItem.quality/100))
-        User.effects:addEffect(myEffect)
+        user.effects:addEffect(myEffect)
     end
 
     if SourceItem:getData("granorsHut") ~= "" then
@@ -164,7 +165,10 @@ local function DrinkPotion(User,SourceItem)
     end
 end
 
-function M.UseItem(User, SourceItem, ltstate)
+function M.UseItem(user, SourceItem, ltstate)
+    if SourceItem:getData("customPotion") ~= "" then
+        customPotion.drinkInform(user, SourceItem)
+    end
     -- repair potion in case it's broken
     alchemy.repairPotion(SourceItem)
     -- repair end
@@ -173,20 +177,20 @@ function M.UseItem(User, SourceItem, ltstate)
         return -- no potion, no essencebrew, something else
     end
 
-    local cauldron = alchemy.GetCauldronInfront(User)
+    local cauldron = alchemy.GetCauldronInfront(user)
     if cauldron then -- infront of a cauldron?
-        alchemy.FillIntoCauldron(User,SourceItem,cauldron,ltstate)
+        alchemy.FillIntoCauldron(user,SourceItem,cauldron,ltstate)
 
     else -- not infront of a cauldron, therefore drink!
-        User:talk(Character.say, "#me trinkt eine violette Flüssigkeit.", "#me drinks a violet liquid.")
-        User.movepoints=User.movepoints - 20
-        DrinkPotion(User,SourceItem) -- call effect
-        alchemy.EmptyBottle(User,SourceItem)
+        user:talk(Character.say, "#me trinkt eine violette Flüssigkeit.", "#me drinks a violet liquid.")
+        user.movepoints=user.movepoints - 20
+        DrinkPotion(user,SourceItem) -- call effect
+        alchemy.EmptyBottle(user,SourceItem)
     end
 end
 
-function M.LookAtItem(User,Item)
-    return lookat.GenerateLookAt(User, Item, 0)
+function M.LookAtItem(user,Item)
+    return lookat.GenerateLookAt(user, Item, 0)
 end
 return M
 

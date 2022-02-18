@@ -23,14 +23,15 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local alchemy = require("alchemy.base.alchemy")
 local lookat = require("base.lookat")
+local customPotion = require("alchemy.base.customPotion")
 
 local M = {}
 
-local function SupportStock(User,support,stock)
+local function SupportStock(user,support,stock)
 
     -- no effects yet, support has no effect, stock is unchanged
 
-    local cauldron = common.GetFrontItem( User )
+    local cauldron = common.GetFrontItem( user )
     -- remove support potion in case it was in the cauldron
     alchemy.RemoveAll(cauldron)
     -- fill in the stock
@@ -39,11 +40,11 @@ local function SupportStock(User,support,stock)
     world:gfx(1,cauldron.pos)
 end
 
-local function SupportEssenceBrew(User,support,essenceBrew)
+local function SupportEssenceBrew(user,support,essenceBrew)
 
     -- no effects yet, support has no effect, essenceBrew is unchanged
 
-    local cauldron = common.GetFrontItem( User )
+    local cauldron = common.GetFrontItem( user )
     -- remove the support
     alchemy.RemoveAll(cauldron)
     -- fill in the brew
@@ -52,8 +53,8 @@ local function SupportEssenceBrew(User,support,essenceBrew)
     world:gfx(1,cauldron.pos)
 end
 
-local function SupportPotion(User,support,potion)
-    local cauldron = common.GetFrontItem( User )
+local function SupportPotion(user,support,potion)
+    local cauldron = common.GetFrontItem( user )
     local supportEffectId = tonumber(support:getData("potionEffectId"))
 
     local supportQuality, potionQuality
@@ -93,7 +94,7 @@ local function SupportPotion(User,support,potion)
     world:changeItem(cauldron)
 end
 
-local function FillIn(User, SourceItem, cauldron)
+local function FillIn(user, SourceItem, cauldron)
 
     if (SourceItem:getData("filledWith")=="potion") then -- potion should be filled into the cauldron
     -- water leads to a failure
@@ -101,35 +102,38 @@ local function FillIn(User, SourceItem, cauldron)
         world:gfx(1,cauldron.pos)
 
     elseif cauldron:getData("filledWith") == "essenceBrew" then
-        SupportEssenceBrew(User,SourceItem,cauldron)
+        SupportEssenceBrew(user,SourceItem,cauldron)
 
     elseif cauldron:getData("filledWith") == "potion" then
-        SupportPotion(User,SourceItem,cauldron)
+        SupportPotion(user,SourceItem,cauldron)
 
     elseif cauldron:getData("filledWith") == "stock" then
-        SupportStock(User,SourceItem,cauldron)
+        SupportStock(user,SourceItem,cauldron)
 
     else
         alchemy.FillFromTo(SourceItem,cauldron)
         world:changeItem(cauldron)
     end
-    alchemy.EmptyBottle(User,SourceItem)
+    alchemy.EmptyBottle(user,SourceItem)
 
     elseif (SourceItem:getData("filledWith") =="essenceBrew") then -- essence brew should be filled into the cauldron
     -- unlike the support potion itself, the essence brew of it has no specail effects when filled in
     -- therefore we call the ordinary fill-function; note that we call it after checking for potion in this script
     -- and we do not set ltstate as a parameter, since we did the abort stuff already here
-    alchemy.FillIntoCauldron(User,SourceItem,cauldron)
+    alchemy.FillIntoCauldron(user,SourceItem,cauldron)
     end
 end
 
-local function DrinkPotion(User,SourceItem)
+local function DrinkPotion(user,SourceItem)
     -- no effecs yet
-     common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert.",
+     common.InformNLS(user, "Du hast nicht das Gefühl, dass etwas passiert.",
         "You don't have the feeling that something happens.")
 end
 
-function M.UseItem(User, SourceItem, ltstate)
+function M.UseItem(user, SourceItem, ltstate)
+    if SourceItem:getData("customPotion") ~= "" then
+        customPotion.drinkInform(user, SourceItem)
+    end
     -- repair potion in case it's broken
     alchemy.repairPotion(SourceItem)
     -- repair end
@@ -138,18 +142,18 @@ function M.UseItem(User, SourceItem, ltstate)
         return -- no potion, no essencebrew, something else
     end
 
-    local cauldron = alchemy.GetCauldronInfront(User)
+    local cauldron = alchemy.GetCauldronInfront(user)
     if cauldron then -- infront of a cauldron?
 
        -- is the char an alchemist?
-        local anAlchemist = alchemy.CheckIfAlchemist(User)
+        local anAlchemist = alchemy.CheckIfAlchemist(user)
         if not anAlchemist then
-            User:inform("Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.","Only those who have been introduced to the art of alchemy are able to work here.")
+            user:inform("Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.","Only those who have been introduced to the art of alchemy are able to work here.")
             return
         end
 
        if ( ltstate == Action.abort ) then
-            common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
+            common.InformNLS(user, "Du brichst deine Arbeit ab.", "You abort your work.")
            return
         end
 
@@ -160,21 +164,21 @@ function M.UseItem(User, SourceItem, ltstate)
             else
                 actionDuration = 20
             end
-            User:startAction( actionDuration, 21, 5, 10, 45)
+            user:startAction( actionDuration, 21, 5, 10, 45)
             return
         end
 
-        FillIn(User, SourceItem, cauldron)
+        FillIn(user, SourceItem, cauldron)
     else -- not infront of a cauldron, therefore drink!
-        User:talk(Character.say, "#me trinkt eine hellblaue Flüssigkeit.", "#me drinks a light blue liquid.")
-        User.movepoints=User.movepoints - 20
-        DrinkPotion(User,SourceItem)
-        alchemy.EmptyBottle(User,SourceItem)
+        user:talk(Character.say, "#me trinkt eine hellblaue Flüssigkeit.", "#me drinks a light blue liquid.")
+        user.movepoints=user.movepoints - 20
+        DrinkPotion(user,SourceItem)
+        alchemy.EmptyBottle(user,SourceItem)
     end
 end
 
-function M.LookAtItem(User,Item)
-    return lookat.GenerateLookAt(User, Item, 0)
+function M.LookAtItem(user,Item)
+    return lookat.GenerateLookAt(user, Item, 0)
 end
 
 -- Used by alchemy.base.alchemy

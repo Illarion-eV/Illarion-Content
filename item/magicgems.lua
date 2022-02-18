@@ -24,6 +24,15 @@ local vision = require("content.vision")
 
 local M = {}
 
+function M.MoveItemBeforeMove(user, source, target)
+    if not target.inside then
+        log(tostring(target.number).." magic gems of ID "..tostring(target.id).." have been moved to a tile by player "..tostring(user.name)..". Position: "..tostring(target.pos))
+    elseif not source.inside then
+        log(tostring(target.number).." magic gems of ID "..tostring(target.id).." have been picked up by player "..tostring(user.name).." from a tile. Position: "..tostring(source.pos))
+    end
+    return true
+end
+
 function M.LookAtItem(user, item)
     local lookAt = lookat.GenerateLookAt(user, item)
 
