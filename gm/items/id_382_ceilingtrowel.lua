@@ -1464,8 +1464,10 @@ function M.decideWhatToDoWithProperty(User, property)
                 notice.extendRent(User, nil, property)
             elseif index == 9 then
                 notice.setReqRank(User, nil, property)
-            else
+            elseif index == 10 then
                 notice.setIndefiniteRent(User, nil, property)
+            else
+                notice.allowAutomaticRentExtension(User, nil, property)
             end
         end
     end
@@ -1480,6 +1482,7 @@ function M.decideWhatToDoWithProperty(User, property)
     dialog:addOption(0,"Extend Rent Duration")
     dialog:addOption(0,"Set Required Rank")
     dialog:addOption(0,"Indefinite Rent Settings")
+    dialog:addOption(0,"Automatic Rent Settings")
     User:requestSelectionDialog(dialog)
 end
 function M.selectProperty(User)
@@ -1488,7 +1491,15 @@ local selectedProperty
         if dialog:getSuccess() then
             local index = dialog:getSelectedIndex() +1
             for i = 1, #notice.propertyTable do
-                if index == i then
+                if index == 1 then
+                    notice.allowAllAutomaticRentExtension(User, "Cadomyr")
+                elseif index == 2 then
+                    notice.allowAllAutomaticRentExtension(User, "Galmair")
+                elseif index == 3 then
+                    notice.allowAllAutomaticRentExtension(User, "Runewick")
+                elseif index == 4 then
+                    notice.allowAllAutomaticRentExtension(User, "Outlaw")
+                elseif index == i+4 then
                     selectedProperty = notice.propertyTable[i][1]
                     M.decideWhatToDoWithProperty(User, selectedProperty)
                 end
@@ -1496,6 +1507,10 @@ local selectedProperty
         end
     end
     local dialog = SelectionDialog("Properties", "Select a property to make changes to.", callback)
+    dialog:addOption("Make changes to all Cadomyr properties")
+    dialog:addOption("Make changes to all Galmair properties")
+    dialog:addOption("Make changes to all Runewick properties")
+    dialog:addOption("Make changes to all Outlaw properties")
     for i = 1, #notice.propertyTable do
         dialog:addOption(0, notice.propertyTable[i][1])
     end

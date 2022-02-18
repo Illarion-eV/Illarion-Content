@@ -331,6 +331,256 @@ local foundOwner, currentOwner = ScriptVars:find("ownerof"..propertyName)
     end
 end
 
+local function getRentNumeral(item)
+    local propertyName = M.getPropertyName(item)
+    local defaultRent = M.getDefaultRent(item)
+    local foundRent, currentRent = ScriptVars:find("rentfor"..propertyName)
+
+    if foundRent then
+        return currentRent
+    else
+        return defaultRent
+    end
+end
+
+local function addRent(town, rent)
+
+    local foundAmount, currentAmount = ScriptVars:find("rentBelongingTo"..town)
+
+    if foundAmount then
+        ScriptVars:set("rentBelongingTo"..town, (tonumber(currentAmount)+tonumber(rent)))
+    else
+        ScriptVars:set("rentBelongingTo"..town, tonumber(rent))
+    end
+    ScriptVars:save()
+end
+
+local function payRent(user, item)
+    local propertyName = M.getPropertyName(item)
+    local town = M.getTownName(item)
+       local callback = function (dialog)
+            if (not dialog:getSuccess()) then
+                return
+            end
+            local input = dialog:getInput()
+                if tonumber(input) == nil then
+                    user:inform(M.getText(user,"GERMAN TRANSLATION HERE","Input must be a number."))
+                elseif tonumber(input) <= 0 then
+                    user:inform(M.getText(user,"GERMAN TRANSLATION HERE","The number of months to rent has to be more than 0."))
+                else
+                    local rent_cost = (tonumber(getRentNumeral(item))*tonumber(input))
+                    local foundCurrentRentDuration, currentRentDuration = ScriptVars:find("rentDuration"..propertyName)
+                    if (input == nil or input == "") then
+                        user:inform(M.getText(user,"GERMAN TRANSLATION HERE","Input field can't be left empty."))
+                    elseif not money.CharHasMoney(user, rent_cost) then--check money
+                        user:inform(M.getText(user,"GERMAN TRANSLATION HERE","You can't afford that."))
+                    else
+                        if (foundCurrentRentDuration == true) then
+                            if ((tonumber(input)+tonumber(currentRentDuration)) > 48)  then
+                                user:inform(M.getText(user,"GERMAN TRANSLATION HERE","Duration increase can not exceed the maximum of 48 months rent."))
+                            else
+                                money.TakeMoneyFromChar(user, rent_cost)
+                                addRent(town, rent_cost)
+                                ScriptVars:set("rentDuration"..propertyName, (tonumber(input)+tonumber(currentRentDuration)) )
+                                ScriptVars:set("ownerof"..propertyName,user.name)
+                                ScriptVars:save()
+                                user:inform(M.getText(user,"GERMAN TRANSLATION HERE","After another visit to the quartermaster's office, your purse may feel lighter, but you rest comfortably in the knowledge that the residence before you is now yours for an additional "..input.." months."))
+                            end
+                        end
+
+                    end
+                end
+        end
+        if M.checkOwner(item) == user.name then
+            local foundCurrentRentDuration, currentRentDuration = ScriptVars:find("rentDuration"..propertyName)
+            if foundCurrentRentDuration then
+                user:requestInputDialog(InputDialog(M.getText(user,"Miete","Rent"), M.getText(user,
+                "GERMAN TRANSLATION HERE"..M.getRentDE(item)..
+                "GERMAN TRANSLATION HERE"..currentRentDuration..
+                "GERMAN TRANSLATION HERE",
+                "The current rental fee is "..M.getRent(item)..
+                "\n You currently have "..currentRentDuration..
+                " months left on your lease. \nHow many months do you want to extend your rent by?"),
+                false, 255, callback))
+            end
+        else
+        user:requestInputDialog(InputDialog(M.getText(user,"Miete","Rent"), M.getText(user,
+        "GERMAN TRANSLATION HERE"..M.getRentDE(item)..
+        "GERMAN TRANSLATION HERE",
+        "The current rental fee is "..M.getRent(item)..
+        "\n The first month paid for only counts until the start of next month. \nHow many months do you want to rent for?"), false, 255, callback))
+        end
+    end
+
+function M.allowAllAutomaticRentExtension(user, realm)
+
+    local state = 1
+
+    for i = 1, #M.propertyTable do
+        local property = M.propertyTable[i][1]
+        local town = M.propertyTable[i][7]
+
+        if town == realm then
+            local found, result = ScriptVars:find("automaticRentExtension"..property)
+
+            if not found then
+                result = 0
+            end
+
+            state = math.min(state, tonumber(result))
+
+            if state == 0 then
+                break
+            end
+        end
+    end
+
+    local newState
+
+    if state == 0 then
+        newState = 1
+    else
+        newState = 0
+    end
+
+    local title = {english = "Enable/Disable automatic rent", german = "GERMAN TRANSLATION HERE"}
+    local texts = {
+        {english = "Do you want to let the residents of all properties pay to extend their rent duration without your supervision?",
+        german = "GERMAN TRANSLATION HERE",
+        identifier = 1,
+        informText = {
+            english = "The residents of all properties will now be able to pay to extend their rent duration on their own. The resulting rent money can be collected at the town management instrument.",
+            german = "GERMAN TRANSLATION HERE"}
+        },
+        {english = "Do you want to no longer let the residents any properties pay to extend their rent duration without your supervision?",
+        german = "GERMAN TRANSLATION HERE",
+        identifier = 0,
+        informText = {
+            english = "No residents will be able to pay to extend their rent duration without your supervision anymore.",
+            german = "GERMAN TRANSLATION HERE"}
+        }
+    }
+
+    local callback = function(dialog)
+        local success = dialog:getSuccess()
+        if not success then
+            return
+        end
+        local selected = dialog:getSelectedIndex()+1
+
+        if selected == 1 then
+            for i = 1, #M.propertyTable do
+                local property = M.propertyTable[i][1]
+                local town = M.propertyTable[i][7]
+                if town == realm then
+                    ScriptVars:set("automaticRentExtension"..property, newState)
+                end
+            end
+            ScriptVars:save()
+            for _, text in pairs(texts) do
+                if text.identifier == newState then
+                    user:inform(text.informText.german, text.informText.english)
+                    break
+                end
+            end
+        end
+    end
+
+    local dialog
+
+    for _, text in pairs(texts) do
+        if text.identifier == newState then
+            dialog = SelectionDialog(M.getText(user, title.german, title.english), M.getText(user, text.german, text.english), callback)
+            dialog:addOption(0, M.getText(user, "Ja", "Yes"))
+            break
+        end
+    end
+
+    user:requestSelectionDialog(dialog)
+
+
+end
+
+
+function M.allowAutomaticRentExtension(user, item, propertyName)
+    local property
+
+    if propertyName == nil then
+        property = M.getPropertyName(item)
+    else
+        property = propertyName
+    end
+
+    local currentState
+
+    local found, result = ScriptVars:find("automaticRentExtension"..property)
+
+    if not found then
+        currentState = 0
+    else
+        currentState = tonumber(result)
+    end
+
+    local newState
+
+    if currentState == 1 then
+        newState = 0
+    else
+        newState = 1
+    end
+
+    local title = {english = "Enable/Disable automatic rent extension", german = "GERMAN TRANSLATION HERE"}
+    local texts = {
+        {english = "Do you want to let the resident of "..property.." pay to extend their rent duration without your supervision?",
+        german = "GERMAN TRANSLATION HERE",
+        identifier = 1,
+        informText = {
+            english = "The resident of "..property.." will now be able to pay to extend their rent duration on their own. The resulting rent money can be collected at the town management instrument.",
+            german = "GERMAN TRANSLATION HERE"}
+        },
+        {english = "Do you want to no longer let the resident of "..property.." pay to extend their rent duration without your supervision?",
+        german = "GERMAN TRANSLATION HERE",
+        identifier = 0,
+        informText = {
+            english = "The resident of "..property.." will no longer be able to pay to extend their rent duration without your supervision.",
+            german = "GERMAN TRANSLATION HERE"}
+        }
+    }
+
+    local callback = function(dialog)
+        local success = dialog:getSuccess()
+        if not success then
+            return
+        end
+        local selected = dialog:getSelectedIndex()+1
+
+        if selected == 1 then
+            ScriptVars:set("automaticRentExtension"..property, newState)
+            ScriptVars:save()
+            for _, text in pairs(texts) do
+                if text.identifier == newState then
+                    user:inform(text.informText.german, text.informText.english)
+                    break
+                end
+            end
+        end
+    end
+
+    local dialog
+
+    for _, text in pairs(texts) do
+        if text.identifier == newState then
+            dialog = SelectionDialog(M.getText(user, title.german, title.english), M.getText(user, text.german, text.english), callback)
+            dialog:addOption(0, M.getText(user, "Ja", "Yes"))
+            break
+        end
+    end
+
+    user:requestSelectionDialog(dialog)
+
+end
+
+
 function M.setIndefiniteRent(user, item, propertyName)
     local property
 
@@ -1107,6 +1357,19 @@ function M.informuserOfKeyRetrieval(user)
         end
     end
 end
+
+local function isAutomaticRentEnabled(property)
+    local found, result = ScriptVars:find("automaticRentExtension"..property)
+
+    if found then
+        if tonumber(result) == 1 then
+            return true
+        end
+    end
+
+    return false
+end
+
 -- Main lookAt function
 function M.LookAtItem(user, item)
 
@@ -1148,31 +1411,42 @@ function M.UseItem(user, SourceItem)
             local callback2 = function(dialogOwnedByuser)
                 local success = dialogOwnedByuser:getSuccess()
                 if success then
+                    local count = 0
                     local selected = dialogOwnedByuser:getSelectedIndex()+1
-                    if selected == 1 then
+
+                    if isAutomaticRentEnabled(property) then
+                        if selected == 1 then
+                            payRent(user, SourceItem)
+                        end
+                        count = count + 1
+                    end
+
+                    if selected == 1+count then
                         M.propertyInformation(user, SourceItem)
-                    elseif selected == 2 then
+                    elseif selected == 2+count then
                         M.abandonPropertyDialog(user, SourceItem)
-                    elseif selected == 3 then
+                    elseif selected == 3+count then
                         M.setBuilderOrGuest(user, SourceItem, "builder")
-                    elseif selected == 4 then
+                    elseif selected == 4+count then
                         M.removeBuilderOrGuest(user, SourceItem, "builder")
-                    elseif selected == 5 then
-                        M.setGuest(user, SourceItem)
-                    elseif selected == 6 then
-                        M.removeGuest(user, SourceItem)
-                    elseif selected == 7 then
+                    elseif selected == 5+count then
+                        M.setBuilderOrGuest(user, SourceItem, "guest")
+                    elseif selected == 6+count then
+                        M.removeBuilderOrGuest(user, SourceItem, "guest")
+                    elseif selected == 7+count then
                         M.setOwner(user, SourceItem)
-                    elseif selected == 8 then
+                    elseif selected == 8+count then
                         M.removeOwner(user, SourceItem)
-                    elseif selected == 9 then
+                    elseif selected == 9+count then
                         M.setRent(user, SourceItem)
-                    elseif selected == 10 then
+                    elseif selected == 10+count then
                         M.extendRent(user, SourceItem)
-                    elseif selected == 11 then
+                    elseif selected == 11+count then
                         M.setReqRank(user, SourceItem)
-                    elseif selected == 12 then
+                    elseif selected == 12+count then
                         M.setIndefiniteRent(user, SourceItem)
+                    elseif selected == 13+count then
+                        M.allowAutomaticRentExtension(user, SourceItem)
                     end
                 end
             end
@@ -1196,8 +1470,10 @@ function M.UseItem(user, SourceItem)
                         M.extendRent(user, SourceItem)
                     elseif selected == 8 then
                         M.setReqRank(user, SourceItem)
-                    else
+                    elseif selected == 9 then
                         M.setIndefiniteRent(user, SourceItem)
+                    else
+                        M.allowAutomaticRentExtension(user, SourceItem)
                     end
                 end
             end
@@ -1205,6 +1481,9 @@ function M.UseItem(user, SourceItem)
             local dialogOwnedByuser = SelectionDialog(M.getText(user,M.getPropertyNameDE(SourceItem),M.getPropertyName(SourceItem)) , M.getText(user,"Wähle aus, was du machen willst.","Select what you want to do.") , callback2)
             local dialogOwnedNotByuser = SelectionDialog(M.getText(user,M.getPropertyNameDE(SourceItem),M.getPropertyName(SourceItem)) , M.getText(user,"Wähle aus, was du machen willst.","Select what you want to do.") , callback3)
             dialogUnowned:addOption(0, M.getText(user,"Betrachte 'Notiz des Quartiermeisters'","Inspect 'Notice from the Quartermaster'"))
+            if isAutomaticRentEnabled(property) then
+                dialogOwnedByuser:addOption(0, M.getText(user, "GERMAN TRANSLATION HERE", "Pay to extend rent duration"))
+            end
             dialogOwnedByuser:addOption(0, M.getText(user,"Betrachte 'Notiz des Quartiermeisters'","Inspect 'Notice from the Quartermaster'"))
             dialogOwnedByuser:addOption(0, M.getText(user,"Mietverhältnis beenden","Abandon Property"))
             dialogOwnedByuser:addOption(0, M.getText(user,"Erteile Rechte als Erbauer","Give Builder Permission"))
@@ -1228,6 +1507,7 @@ function M.UseItem(user, SourceItem)
                 dialogOwnedByuser:addOption(0, M.getText(user,"Miete verlängern","Extend Rent"))
                 dialogOwnedByuser:addOption(0, M.getText(user,"Erforderlichen Rang anpassen","Change Required Rank"))
                 dialogOwnedByuser:addOption(0, M.getText(user,"GERMAN TRANSLATION HERE","Manage rent-free living"))
+                dialogOwnedByuser:addOption(0, M.getText(user,"GERMAN TRANSLATION HERE","(Dis)Allow Unsupervised Rent Extension"))
                 dialogOwnedNotByuser:addOption(0, M.getText(user,"Gast hinzufügen","Add Guest"))
                 dialogOwnedNotByuser:addOption(0, M.getText(user,"Gast entfernen","Remove Guest"))
                 dialogOwnedNotByuser:addOption(0, M.getText(user,"Mieter eintragen","Set Renter"))
@@ -1236,6 +1516,7 @@ function M.UseItem(user, SourceItem)
                 dialogOwnedNotByuser:addOption(0, M.getText(user,"Miete verlängern","Extend Rent"))
                 dialogOwnedNotByuser:addOption(0, M.getText(user,"Miete anpassen","Change Required Rank"))
                 dialogOwnedNotByuser:addOption(0, M.getText(user,"GERMAN TRANSLATION HERE","Manage rent-free living"))
+                dialogOwnedNotByuser:addOption(0, M.getText(user,"GERMAN TRANSLATION HERE","(Dis)Allow Unsupervised Rent Extension"))
             end
             if M.checkOwner(SourceItem) == "Unowned" then
                 user:requestSelectionDialog(dialogUnowned)
