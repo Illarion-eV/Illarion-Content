@@ -594,32 +594,30 @@ end
 function Craft:generateRarity(user, productId, toolItem)
 
     -- 1 = common, 2 = uncommon, 3 = rare, 4 = unique
+    -- Max chances: 0.4% unique, 2% rare, 10% uncommon, 87.6% common
 
     if self.npcCraft then
         return 1
     end
 
-    --[[
-    Max probability 0.4166~: 19% chance common, 42% uncommon, 30 % rare, 7.2% unique.
-    Actual chance when accounting for perfect quality: 51.4~% common, 25.2~% uncommon, 18~% rare, 4.3~% unique
-    Min probability of 0.0833~: 77% common, 21% uncommon, 1.9% rare, 0.05% unique
-    Actual chance when accounting for perfect quality: 99.999999% chance common, the chance of getting a perfect item with that low dex is nigh impossible to begin with
-    ]]
+    local retVal = 1
 
-    local gemBonus = tonumber(self:getCurrentGemBonus(user))
-    local skill = self.leadSkill
-    local leadAttribName = common.GetLeadAttributeName(skill)
-    local leadAttribValue = user:increaseAttrib(leadAttribName, 0)
+    local maxPerfectChance = 0.5967194738 --Maximum probability for quality 9(perfect) items
 
-    local meanRarity = 1.25
-    meanRarity = meanRarity*(1+common.GetAttributeBonusHigh(leadAttribValue)+common.GetQualityBonusStandard(toolItem)+gemBonus/500)
-    --EG: 22 dexterity, a perfect tool and 48% (full set of tier 4 gems) gem bonus would allow you to reach the cap of 2.25
-    meanRarity = common.Limit(meanRarity, 1, 2.25)
-    local rolls = 3 -- rarity can be between 1-4
-    local rarity = 1 + common.BinomialByMean((meanRarity-1), rolls)
-    rarity = common.Limit(rarity, 1, 4)
+    local rarities = {unique = 0.004/maxPerfectChance,
+    rare = 0.02/maxPerfectChance,
+    uncommon = 0.1/maxPerfectChance
+    }
 
-    return rarity
+    local rand = math.random()
+
+    for _, rarity in ipairs(rarities) do
+        if rarity <= rand then
+            retVal = retVal+1
+        end
+    end
+
+    return retVal
 
 end
 
@@ -812,11 +810,11 @@ function Craft:createItem(user, productId, toolItem)
             german = "Ein außergewöhnlich gut gelungenes Gericht. Ein wahrer Schmauß, der besser sättigt als ein normales Gericht."}},
         {english = "rare", german = "exzellent", identifier = 3,
         foodDescription = {
-            english = "A dish so well-made it's a rarity among dishes. Not only more filling than its lesser counterparts, but also beneficial to the longevity of the boons of your good diet.",
+            english = "A dish so well-made it's a rarity among dishes. Not only more filling than its lesser counterparts, but also somewhat beneficial to the longevity and strength of the boons of your good diet.",
             german = "Ein wahres Schlemmergericht. Wohlbekömmlich und eine Wohltat für die Länge und Auswirkung deiner guten Ernährung."}},
         {english = "unique", german = "einzigartig gut", identifier = 4,
         foodDescription = {
-            english = "A dish made by such refined culinary arts, you might even say it's unique. Not only more filling than its lesser counterparts, but also beneficial to both the longevity and strength of the boons of your good diet.",
+            english = "A dish made by such refined culinary arts, you might even say it's unique. Not only more filling than its lesser counterparts, but also very beneficial to both the longevity and strength of the boons of your good diet.",
             german = "Eine kulinarisches Köstlichkeit, die ihres Gleichen sucht. Äußerst wohlbekömmlich und eine Wohltat für die Länge und Auswirkung deiner guten Ernährung."}}}
 
     for _, selectedRarity in pairs(rarities) do

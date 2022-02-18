@@ -296,9 +296,16 @@ local function buffsAdding(user, sourceItem)
     local attribsRaised = getAmountOfBuffs(buffs)
     local attribsChecked = 0
 
+    local numberOfBuffedStats = 0
+    for attribute, value in pairs(buffs) do
+        if value > 0 then
+            numberOfBuffedStats = numberOfBuffedStats+1
+        end
+    end
+
     for attribute, value in pairs(buffs) do
 
-        if rarity == 4 and rarityBuff == 0 then -- The buff is applied to one stat for rare items
+        if rarity == 3 and rarityBuff == 0 then -- The buff is applied to one stat for rare items
             if value > 0 then -- if the stat will be buffed by the food item to begin with
                 local rand = math.random(1, attribsRaised-attribsChecked)
                 if rand == 1 then
@@ -306,6 +313,19 @@ local function buffsAdding(user, sourceItem)
                     rarityBuff = rarityBuff + 1
                 end
                 attribsChecked = attribsChecked + 1
+            end
+        end
+
+        if rarity == 4 and rarityBuff < 2 then -- The buff is applied to two stats for unique items or twice for one if there's only one
+            if value > 0 then -- if the stat will be buffed by the food item to begin with
+                local increment = 1
+
+                if numberOfBuffedStats == 1 then
+                    increment = 2
+                end
+
+                value = value + increment
+                rarityBuff = rarityBuff + increment
             end
         end
 
