@@ -95,7 +95,7 @@ local targetTile = common.GetFrontPosition(user)
 return false
 end
 -- Fetches the town a property belongs to based on property deed position
-function M.getTownName(Item, property)
+function M.getTownName(item, property)
     if property then
         for i = 1, #M.propertyTable do
             if property == M.propertyTable[i][1] then
@@ -104,7 +104,7 @@ function M.getTownName(Item, property)
         end
     else
         for i = 1, #M.propertyTable do
-            if (Item.pos == M.propertyTable[i][3]) then
+            if (item.pos == M.propertyTable[i][3]) then
                 return M.propertyTable[i][7]
             end
         end
@@ -123,23 +123,23 @@ local home = factions.getMembershipByName(user)
     end
 end
 --Fetches the name of a property based on property deed position
-function M.getPropertyName(Item)
+function M.getPropertyName(item)
     for i = 1, #M.propertyTable do
-        if (Item.pos == M.propertyTable[i][3]) then
+        if (item.pos == M.propertyTable[i][3]) then
             return M.propertyTable[i][1]
         end
     end
 end
 --Fetches the german name of a property
-function M.getPropertyNameDE(Item)
+function M.getPropertyNameDE(item)
     for i = 1, #M.propertyTable do
-        if (Item.pos == M.propertyTable[i][3]) then
+        if (item.pos == M.propertyTable[i][3]) then
             return M.propertyTable[i][2]
         end
     end
 end
 -- Returns a default rent value for when no rent value has been set by a GM
-function M.getDefaultRent(Item, property)
+function M.getDefaultRent(item, property)
     if property then
         for i = 1, #M.propertyTable do
             if property == M.propertyTable[i][1] then
@@ -148,17 +148,17 @@ function M.getDefaultRent(Item, property)
         end
     else
         for i = 1, #M.propertyTable do
-            if (Item.pos == M.propertyTable[i][3]) then
+            if (item.pos == M.propertyTable[i][3]) then
                 return M.propertyTable[i][4]
             end
         end
     end
 end
 -- The lookAt for the property deed
-function M.propertyDeedLookAt(user, Item)
+function M.propertyDeedLookAt(user, item)
   local lookAt = ItemLookAt()
     lookAt.name = common.GetNLS(user, "Grundstücksurkunde", "Property Deed")
-    lookAt.description = common.GetNLS(user, "Grundstücksurkunde von "..M.getPropertyNameDE(Item)..".", "The Property Deed of "..M.getPropertyName(Item)..".")
+    lookAt.description = common.GetNLS(user, "Grundstücksurkunde von "..M.getPropertyNameDE(item)..".", "The Property Deed of "..M.getPropertyName(item)..".")
     return lookAt
 end
 -- shortens common.GetNLS into getText
@@ -166,10 +166,10 @@ function M.getText(user,deText,enText)
     return common.GetNLS(user,deText,enText)
 end
 -- puts owners and guests of property back to NIL, making the property unowned
-function M.removeOwner(user, Item, property)
+function M.removeOwner(user, item, property)
 local propertyName
     if property == nil then
-        propertyName = M.getPropertyName(Item)
+        propertyName = M.getPropertyName(item)
     else
         propertyName = property
     end
@@ -185,10 +185,10 @@ ScriptVars:save()
 user:inform(M.getText(user,"Vorheriger Mieter entfernt.","Previous renter removed."))
 end
 -- sets an owner
-function M.setOwner(user, Item, propertyName)
+function M.setOwner(user, item, propertyName)
 local property
     if propertyName == nil then
-        property = M.getPropertyName(Item)
+        property = M.getPropertyName(item)
     else
         property = propertyName
     end
@@ -202,12 +202,12 @@ local property
             elseif M.checkIfOwnsProperty(input) and not M.checkIfEstate(property) then
                 user:inform(M.getText(user,"Der Charakter mietet bereits ein Grundstück.","Character already rents a property."))
             else
-                M.removeOwner(user, Item, propertyName)
+                M.removeOwner(user, item, propertyName)
                 ScriptVars:set("rentDuration"..property,1)
                 ScriptVars:set("ownerof"..property,input)
                 ScriptVars:save()
                 user:inform(M.getText(user,input.." wurde als neuer Mieter eingetragen.",input.." set as new renter."))
-                M.setSignature(user,Item, propertyName)
+                M.setSignature(user, item, propertyName)
             end
     end
     user:requestInputDialog(InputDialog(M.getText(user,"Mieter eintragen","Set Renter"),
@@ -215,10 +215,10 @@ local property
     "Write in the name of who you want to set as the new renter."),
     false, 255, callback))
 end
-function M.setBuilderOrGuest(user, Item, builderOrGuest, propertyName)
+function M.setBuilderOrGuest(user, item, builderOrGuest, propertyName)
 local property
     if propertyName == nil then
-        property = M.getPropertyName(Item)
+        property = M.getPropertyName(item)
     else
         property = propertyName
     end
@@ -263,11 +263,11 @@ local textEn
     "Write in the name of who you want to set as a "..builderOrGuest),
     false, 255, callback))
 end
-function M.removeBuilderOrGuest(user, Item, builderOrGuest, propertyName)
+function M.removeBuilderOrGuest(user, item, builderOrGuest, propertyName)
 local guestOrBuildersExist = false
 local property
     if propertyName == nil then
-        property = M.getPropertyName(Item)
+        property = M.getPropertyName(item)
     else
         property = propertyName
     end
@@ -321,8 +321,8 @@ local skippedGuestSlots = 0
 end
 
 -- Fetches who the owner is
-function M.checkOwner(Item)
-local propertyName = M.getPropertyName(Item)
+function M.checkOwner(item)
+local propertyName = M.getPropertyName(item)
 local foundOwner, currentOwner = ScriptVars:find("ownerof"..propertyName)
     if foundOwner then
         return currentOwner
@@ -330,15 +330,94 @@ local foundOwner, currentOwner = ScriptVars:find("ownerof"..propertyName)
         return "Unowned"
     end
 end
--- Overwrites the default required english name rank for a property
-function M.setReqRank(user, Item, propertyName)
-local property
+
+function M.setIndefiniteRent(user, item, propertyName)
+    local property
+
     if propertyName == nil then
-        property = M.getPropertyName(Item)
+        property = M.getPropertyName(item)
     else
         property = propertyName
     end
-local town = M.getTownName(Item, propertyName)
+
+    local currentState
+
+    local found, result = ScriptVars:find("indefiniteRent"..property)
+
+    if not found then
+        currentState = 0
+    else
+        currentState = tonumber(result)
+    end
+
+    local newState
+
+    if currentState == 1 then
+        newState = 0
+    else
+        newState = 1
+    end
+
+    local title = {english = "Enable/Disable rent", german = "GERMAN TRANSLATION HERE"}
+    local texts = {
+        {english = "Do you want to let the resident of "..property.." live rent free?",
+        german = "GERMAN TRANSLATION HERE",
+        identifier = 1,
+        informText = {
+            english = "The resident of "..property.." will now live rent free.",
+            german = "GERMAN TRANSLATION HERE"}
+        },
+        {english = "Do you want to no longer let the resident of "..property.." live rent free?",
+        german = "GERMAN TRANSLATION HERE",
+        identifier = 0,
+        informText = {
+            english = "The resident of "..property.." will no longer live rent free.",
+            german = "GERMAN TRANSLATION HERE"}
+        }
+    }
+
+    local callback = function(dialog)
+        local success = dialog:getSuccess()
+        if not success then
+            return
+        end
+        local selected = dialog:getSelectedIndex()+1
+
+        if selected == 1 then
+            ScriptVars:set("indefiniteRent"..property, newState)
+            ScriptVars:save()
+            for _, text in pairs(texts) do
+                if text.identifier == newState then
+                    user:inform(text.informText.german, text.informText.english)
+                    break
+                end
+            end
+        end
+    end
+
+    local dialog
+
+    for _, text in pairs(texts) do
+        if text.identifier == newState then
+            dialog = SelectionDialog(M.getText(user, title.german, title.english), M.getText(user, text.german, text.english), callback)
+            dialog:addOption(0, M.getText(user, "Ja", "Yes"))
+            break
+        end
+    end
+
+    user:requestSelectionDialog(dialog)
+
+end
+
+-- Overwrites the default required rank for a property
+function M.setReqRank(user, item, propertyName)
+local property
+    if propertyName == nil then
+        property = M.getPropertyName(item)
+    else
+        property = propertyName
+    end
+local town = M.getTownName(item, propertyName)
     if town == "Outlaw" then
         user:inform("Bei Grundstücken außerhalb des Einflussbereiches einer Stadt kann kein Rang erforderlich gemacht werden.","Can't set required rank for non-town properties.")
         return
@@ -422,15 +501,15 @@ local town = M.getTownName(Item, propertyName)
     end
 end
 -- Changes the rent of a property based on input
-function M.setRent(user, Item, property)
+function M.setRent(user, item, property)
 local propertyName
     if property == nil then
-        propertyName = M.getPropertyName(Item)
+        propertyName = M.getPropertyName(item)
     else
         propertyName = property
     end
-local rentEN = M.getRent(Item, propertyName)
-local rentDE = M.getRentDE(Item, propertyName)
+local rentEN = M.getRent(item, propertyName)
+local rentDE = M.getRentDE(item, propertyName)
     local newRent = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -445,7 +524,7 @@ local rentDE = M.getRentDE(Item, propertyName)
                 ScriptVars:set("rentfor"..propertyName,input)
                 user:inform(M.getText(user,"Mietpreis auf "..input.." gesetzt.","Rent set to "..input))
                 ScriptVars:save()
-                M.setSignature(user,Item, propertyName)
+                M.setSignature(user, item, propertyName)
             end
         else
             user:inform(M.getText(user,"Hier muss eine Zahl eingetragen werden.","Input must be a number."))
@@ -454,14 +533,14 @@ local rentDE = M.getRentDE(Item, propertyName)
     user:requestInputDialog(InputDialog(M.getText(user,"Miete festsetzen.","Set rent."), M.getText(user,"Aktuelle Miete: "..rentDE.."\nSetze eine neue monatliche Miete in Kupferstücken fest.","Current rent: "..rentEN.."\nSet a new monthly rent in coppers."), false, 255, newRent))
 end
 -- Returns the rent value divided into gold, silver and copper coins
-function M.getRent(Item, property)
+function M.getRent(item, property)
 local propertyName
     if property == nil then
-        propertyName = M.getPropertyName(Item)
+        propertyName = M.getPropertyName(item)
     else
         propertyName = property
     end
-local defaultRent = M.getDefaultRent(Item, property)
+local defaultRent = M.getDefaultRent(item, property)
 local foundRent, currentRent = ScriptVars:find("rentfor"..propertyName)
     if foundRent then
         local coins = tonumber(currentRent)
@@ -501,14 +580,14 @@ local foundRent, currentRent = ScriptVars:find("rentfor"..propertyName)
         end
     end
 end
-function M.getRentDE(Item, property)
+function M.getRentDE(item, property)
 local propertyName
     if property == nil then
-        propertyName = M.getPropertyName(Item)
+        propertyName = M.getPropertyName(item)
     else
         propertyName = property
     end
-local defaultRent = M.getDefaultRent(Item, property)
+local defaultRent = M.getDefaultRent(item, property)
 local foundRent, currentRent = ScriptVars:find("rentfor"..propertyName)
     if foundRent then
         local coins = tonumber(currentRent)
@@ -586,8 +665,8 @@ function M.checkIfPlayerIsGuest(user, property)
 return false
 end
 -- Returns how many rent months remain
-function M.getRentDuration(Item)
-local propertyName = M.getPropertyName(Item)
+function M.getRentDuration(item)
+local propertyName = M.getPropertyName(item)
 local foundCurrentRentDuration, currentRentDuration = ScriptVars:find("rentDuration"..propertyName)
     if foundCurrentRentDuration then
         return currentRentDuration
@@ -595,12 +674,21 @@ local foundCurrentRentDuration, currentRentDuration = ScriptVars:find("rentDurat
         return "No rent duration found."
     end
 end
+
 --On a monthly cooldown in scheduled scripts, reduces all properties rentduration by 1
 function M.reduceRentTimer()
     for i = 1, #M.propertyTable do
-        local foundCurrentRentDuration, currentRentDuration = ScriptVars:find("rentDuration"..(M.propertyTable[i][1]))
+        local property = M.propertyTable[i][1]
+        local foundCurrentRentDuration, currentRentDuration = ScriptVars:find("rentDuration"..property)
         if foundCurrentRentDuration == true and tonumber(currentRentDuration) > 0 then
-            ScriptVars:set("rentDuration"..(M.propertyTable[i][1]), (tonumber(currentRentDuration)-1))
+            local foundRentExemption, rentExemption = ScriptVars:find("indefiniteRent"..property)
+            if not foundRentExemption then
+                rentExemption = 0
+            end
+
+            if tonumber(rentExemption) ~= 1 then
+                ScriptVars:set("rentDuration"..(M.propertyTable[i][1]), (tonumber(currentRentDuration)-1))
+            end
         end
     end
 ScriptVars:save()
@@ -687,12 +775,12 @@ function M.keyRetrieval(char)
     end
 end
 -- Fetch the name of the required rank for the property in English
-function M.getRequiredRankName(Item, language)
-local property = M.getPropertyName(Item)
+function M.getRequiredRankName(item, language)
+local property = M.getPropertyName(item)
 local foundDE, getDE = ScriptVars:find("nameDE"..property)
 local foundEN, getEN = ScriptVars:find("nameEN"..property)
     for i = 1, #M.propertyTable do
-        if (Item.pos == M.propertyTable[i][3]) then
+        if (item.pos == M.propertyTable[i][3]) then
             if (language == "DE") and foundDE then
                 return getDE
             elseif (language == "EN") and foundEN then
@@ -723,10 +811,10 @@ local Faction = factions.getFaction(player);
         return factions.townRanks[tonumber(Faction.tid)+3][Faction.rankTown].eRank;
     end
 end
-function M.setSignature(user,Item, propertyName)
+function M.setSignature(user, item, propertyName)
 local property
     if propertyName == nil then
-        property = M.getPropertyName(Item)
+        property = M.getPropertyName(item)
     else
         property = propertyName
     end
@@ -743,8 +831,8 @@ local name = user.name
         ScriptVars:save()
     end
 end
-function M.getSignature(Item, language)
-local property = M.getPropertyName(Item)
+function M.getSignature(item, language)
+local property = M.getPropertyName(item)
 local foundSignatureEN, signatureEN = ScriptVars:find("signatureEN"..property)
 local foundSignatureDE, signatureDE = ScriptVars:find("signatureDE"..property)
     if (language == "DE") and foundSignatureEN then
@@ -772,21 +860,21 @@ function M.getTownLeaderTitle(town, language)
         return "Noble"
     end
 end
-function M.propertyInformation(user, Item)
-local town = M.getTownName(Item)
-local rent = M.getRent(Item)
-local rentDE = M.getRentDE(Item)
-local property = M.getPropertyName(Item)
-local propertyDE = M.getPropertyNameDE(Item)
-local rank = M.getRequiredRankName(Item, "EN")
-local rankDE = M.getRequiredRankName(Item, "DE")
-local remainingDuration = M.getRentDuration(Item)
-local owner = M.checkOwner(Item)
-local signatureEN = M.getSignature(Item, "EN")
-local signatureDE = M.getSignature(Item, "DE")
+function M.propertyInformation(user, item)
+local town = M.getTownName(item)
+local rent = M.getRent(item)
+local rentDE = M.getRentDE(item)
+local property = M.getPropertyName(item)
+local propertyDE = M.getPropertyNameDE(item)
+local rank = M.getRequiredRankName(item, "EN")
+local rankDE = M.getRequiredRankName(item, "DE")
+local remainingDuration = M.getRentDuration(item)
+local owner = M.checkOwner(item)
+local signatureEN = M.getSignature(item, "EN")
+local signatureDE = M.getSignature(item, "DE")
 local townLeaderTitle = M.getTownLeaderTitle(town, "EN")
 local townLeaderTitleDE = M.getTownLeaderTitle(town, "DE")
-    if M.checkOwner(Item) == "Unowned" then -- Shows info specific for when property is unowned
+    if M.checkOwner(item) == "Unowned" then -- Shows info specific for when property is unowned
         local propertyInfo = MessageDialog(M.getText(user,"Notiz des Quartiermeisters","Quartermaster's notice"),
         M.getText(user,
         "Bürger von "..town..
@@ -804,7 +892,7 @@ local townLeaderTitleDE = M.getTownLeaderTitle(town, "DE")
         "s.\n~Signed, "..signatureEN),
         function() end)
         user:requestMessageDialog(propertyInfo)
-    elseif M.checkOwner(Item) == user.name then -- Shows info specific for when property is owned by user
+    elseif M.checkOwner(item) == user.name then -- Shows info specific for when property is owned by user
         local propertyInfo = MessageDialog(M.getText(user,"Notiz des Quartiermeisters","Quartermaster's notice"),
         M.getText(user,
         "An den aktuellen Bewohner von"..propertyDE..
@@ -839,13 +927,13 @@ local townLeaderTitleDE = M.getTownLeaderTitle(town, "DE")
     end
 end
 -- Remove user as tenant at users own volition
-function M.abandonPropertyDialog(user, Item)
+function M.abandonPropertyDialog(user, item)
     local callback = function(dialog)
         local success = dialog:getSuccess()
         if success then
             local selected = dialog:getSelectedIndex()+1
             if selected == 1 then
-                M.abandonProperty(user, Item)
+                M.abandonProperty(user, item)
                 user:inform(M.getText(user,"Nachdem du dem Quartiermeister den Schlüssel zurückgegeben hast, verabschiedest du dich von deinem alten Heim. Wo wirst du nun schlafen?","Having returned the key to the Quartermaster, you bid farewell to your old home. Now where will you sleep?"))
             else
                 user:inform(M.getText(user,"Du hast dich entschieden das Mietverhältnis nicht zu beenden. ","You decide against giving up on your lease for the property."))
@@ -857,8 +945,8 @@ function M.abandonPropertyDialog(user, Item)
     dialog:addOption(0, M.getText(user,"Nein, ich habe meine Meinung geändert.","No, I changed my mind."))
     user:requestSelectionDialog(dialog)
 end
-function M.abandonProperty(user, Item)
-    local propertyName = M.getPropertyName(Item)
+function M.abandonProperty(user, item)
+    local propertyName = M.getPropertyName(item)
     ScriptVars:remove("ownerof"..propertyName)
     for i = 1, M.max_builder_number do
         ScriptVars:remove("builder"..i..propertyName)
@@ -871,10 +959,10 @@ function M.abandonProperty(user, Item)
     ScriptVars:save()
 end
 -- GM/PL extend rent at no cost option
-function M.extendRent(user, Item, property)
+function M.extendRent(user, item, property)
 local propertyName
     if property == nil then
-        propertyName = M.getPropertyName(Item)
+        propertyName = M.getPropertyName(item)
     else
         propertyName = property
     end
@@ -1020,20 +1108,20 @@ function M.informuserOfKeyRetrieval(user)
     end
 end
 -- Main lookAt function
-function M.LookAtItem(user,Item)
+function M.LookAtItem(user, item)
 
     local lookAt
     -- Property Deeds
     for i = 1, #M.propertyTable do
-        if (Item.pos == M.propertyTable[i][3]) then
-            lookAt = M.propertyDeedLookAt(user, Item)
+        if (item.pos == M.propertyTable[i][3]) then
+            lookAt = M.propertyDeedLookAt(user, item)
         end
     end
 
     if lookAt then
         return lookAt
     else
-        return lookat.GenerateLookAt(user, Item, 0)
+        return lookat.GenerateLookAt(user, item, 0)
     end
 end
 -- Use item
@@ -1083,6 +1171,8 @@ function M.UseItem(user, SourceItem)
                         M.extendRent(user, SourceItem)
                     elseif selected == 11 then
                         M.setReqRank(user, SourceItem)
+                    elseif selected == 12 then
+                        M.setIndefiniteRent(user, SourceItem)
                     end
                 end
             end
@@ -1104,8 +1194,10 @@ function M.UseItem(user, SourceItem)
                         M.setRent(user, SourceItem)
                     elseif selected == 7 then
                         M.extendRent(user, SourceItem)
-                    else
+                    elseif selected == 8 then
                         M.setReqRank(user, SourceItem)
+                    else
+                        M.setIndefiniteRent(user, SourceItem)
                     end
                 end
             end
@@ -1118,7 +1210,7 @@ function M.UseItem(user, SourceItem)
             dialogOwnedByuser:addOption(0, M.getText(user,"Erteile Rechte als Erbauer","Give Builder Permission"))
             dialogOwnedByuser:addOption(0, M.getText(user,"","Remove Builder Permission"))
             dialogOwnedNotByuser:addOption(0, M.getText(user,"Betrachte 'Notiz des Quartiermeisters'","Inspect 'Notice from the Quartermaster'"))
-            if M.checkIfEstate(property) then
+            if M.checkIfEstate(property) then --Renters are allowed to set guests themselves on estate properties
                 dialogOwnedByuser:addOption(0, M.getText(user,"Gast hinzufügen","Add Guest"))
                 dialogOwnedByuser:addOption(0, M.getText(user,"Gast entfernen","Remove Guest"))
             end
@@ -1126,7 +1218,7 @@ function M.UseItem(user, SourceItem)
                 dialogUnowned:addOption(0, M.getText(user,"Mieter eintragen","Set Renter"))
                 dialogUnowned:addOption(0, M.getText(user,"Miete anpassen","Change Rent"))
                 dialogUnowned:addOption(0, M.getText(user,"Erforderlichen Rang anpassen","Change Required Rank"))
-                if not M.checkIfEstate(property) then
+                if not M.checkIfEstate(property) then --Only admins/player leaders can set who can have keys to the property if not an estate
                     dialogOwnedByuser:addOption(0, M.getText(user,"Gast hinzufügen","Add Guest"))
                     dialogOwnedByuser:addOption(0, M.getText(user,"Gast entfernen","Remove Guest"))
                 end
@@ -1135,6 +1227,7 @@ function M.UseItem(user, SourceItem)
                 dialogOwnedByuser:addOption(0, M.getText(user,"Miete anpassen","Change Rent"))
                 dialogOwnedByuser:addOption(0, M.getText(user,"Miete verlängern","Extend Rent"))
                 dialogOwnedByuser:addOption(0, M.getText(user,"Erforderlichen Rang anpassen","Change Required Rank"))
+                dialogOwnedByuser:addOption(0, M.getText(user,"GERMAN TRANSLATION HERE","Manage rent-free living"))
                 dialogOwnedNotByuser:addOption(0, M.getText(user,"Gast hinzufügen","Add Guest"))
                 dialogOwnedNotByuser:addOption(0, M.getText(user,"Gast entfernen","Remove Guest"))
                 dialogOwnedNotByuser:addOption(0, M.getText(user,"Mieter eintragen","Set Renter"))
@@ -1142,6 +1235,7 @@ function M.UseItem(user, SourceItem)
                 dialogOwnedNotByuser:addOption(0, M.getText(user,"Miete anpassen","Change Rent"))
                 dialogOwnedNotByuser:addOption(0, M.getText(user,"Miete verlängern","Extend Rent"))
                 dialogOwnedNotByuser:addOption(0, M.getText(user,"Miete anpassen","Change Required Rank"))
+                dialogOwnedNotByuser:addOption(0, M.getText(user,"GERMAN TRANSLATION HERE","Manage rent-free living"))
             end
             if M.checkOwner(SourceItem) == "Unowned" then
                 user:requestSelectionDialog(dialogUnowned)

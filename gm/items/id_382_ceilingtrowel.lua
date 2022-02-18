@@ -1462,8 +1462,10 @@ function M.decideWhatToDoWithProperty(User, property)
                 notice.setRent(User, nil, property)
             elseif index == 8 then
                 notice.extendRent(User, nil, property)
-            else
+            elseif index == 9 then
                 notice.setReqRank(User, nil, property)
+            else
+                notice.setIndefiniteRent(User, nil, property)
             end
         end
     end
@@ -1477,6 +1479,7 @@ function M.decideWhatToDoWithProperty(User, property)
     dialog:addOption(0,"Set Rent Cost")
     dialog:addOption(0,"Extend Rent Duration")
     dialog:addOption(0,"Set Required Rank")
+    dialog:addOption(0,"Indefinite Rent Settings")
     User:requestSelectionDialog(dialog)
 end
 function M.selectProperty(User)
