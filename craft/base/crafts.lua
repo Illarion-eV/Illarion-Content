@@ -811,11 +811,11 @@ function Craft:createItem(user, productId, toolItem)
         {english = "rare", german = "exzellent", identifier = 3,
         foodDescription = {
             english = "A dish so well-made it's a rarity among dishes. Not only more filling than its lesser counterparts, but also somewhat beneficial to the longevity and strength of the boons of your good diet.",
-            german = "Ein wahres Schlemmergericht. Wohlbekömmlich und eine Wohltat für die Länge und Auswirkung deiner guten Ernährung."}},
+            german = "Ein wahres Schlemmergericht. Wohlbekömmlich und eine kleine Wohltat für die Länge und Auswirkung deiner guten Ernährung."}},
         {english = "unique", german = "einzigartig gut", identifier = 4,
         foodDescription = {
             english = "A dish made by such refined culinary arts, you might even say it's unique. Not only more filling than its lesser counterparts, but also very beneficial to both the longevity and strength of the boons of your good diet.",
-            german = "Eine kulinarisches Köstlichkeit, die ihres Gleichen sucht. Äußerst wohlbekömmlich und eine Wohltat für die Länge und Auswirkung deiner guten Ernährung."}}}
+            german = "Eine kulinarisches Köstlichkeit, die ihres Gleichen sucht. Äußerst wohlbekömmlich und eine wahre Wohltat für die Länge und Auswirkung deiner guten Ernährung."}}}
 
     for _, selectedRarity in pairs(rarities) do
         if rarity == selectedRarity.identifier then
