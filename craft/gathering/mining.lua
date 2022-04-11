@@ -15,33 +15,42 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
--- rocks
+--[[
+Existing mine locations and their proper lore names.
 
--- additional tool: pickaxe ( 2763 )
+Galmair - Dark Hole Mine
+Warp position: 389, 158, -3
+
+Galmair - Malachite Mine
+Warp position: 437, 354, 0
+
+Cadomyr - Liberty Quarry
+Warp position: 168, 609, 0
+
+Cadomyr - Cornerstone of Candour
+Warp position: 142, 687, 0
+
+Neutral - Hammerfall Mine
+Warp position: 31, 440, -6
+
+Neutral - Glittering Cave
+Warp position: 546, 369, 0
+
+Neutral - Skewer Drift
+Warp position: 933, 466, 0
+
+Neutral - Prison Mine
+Warp position: -469, -490, -40
+]]
 
 local common = require("base.common")
 local shared = require("craft.base.shared")
 local gathering = require("craft.base.gathering")
 
 local M = {}
---[[add ores to item database sql:
-UPDATE items SET itm_script='item.rock' WHERE itm_id IN(1234,1235,1236,1237,1238,1239);
-UPDATE items SET itm_objectafterrot='1239', itm_agingspeed='4' WHERE itm_id IN(3719);
-UPDATE items SET itm_objectafterrot='1237', itm_agingspeed='4' WHERE itm_id IN(3717);
-UPDATE items SET itm_objectafterrot='1238', itm_agingspeed='4' WHERE itm_id IN(3718);
-UPDATE items SET itm_objectafterrot='1235', itm_agingspeed='4' WHERE itm_id IN(3579);
-UPDATE items SET itm_objectafterrot='1236', itm_agingspeed='4'WHERE itm_id IN(3580);
-UPDATE items SET itm_objectafterrot='1234', itm_agingspeed='4'WHERE itm_id IN(3578);
-]]
 
 M.oreList = {
-{id = 1246, depletedId = 915, productId = 735, maxAmount = 20, levelReq = 0},
-{id = 1245, depletedId = 1254, productId = 735, maxAmount = 20, levelReq = 0},
 {id = 232, depletedId = 233, productId = 735, maxAmount = 20, levelReq = 0},
-{id = 914, depletedId = 1265, productId = 735, maxAmount = 20, levelReq = 0},
-{id = 1273, depletedId = 1257, productId = 735, maxAmount = 20, levelReq = 0},
-{id = 1276, depletedId = 1278, productId = 735, maxAmount = 20, levelReq = 0},
-{id = 1250, depletedId = 1251, productId = 735, maxAmount = 20, levelReq = 0},
 {id = 1234, depletedId = 3578, productId = 21, maxAmount = 20, levelReq = 10},
 {id = 1236, depletedId = 3580, productId = 22, maxAmount = 10, levelReq = 20},
 {id = 1235, depletedId = 3579, productId = 2536, maxAmount = 10, levelReq = 30},
@@ -53,13 +62,13 @@ M.oreList = {
 local oreList = M.oreList
 
 local gemList = {
-{id = 251, level = 10, chance = 4},
-{id = 255, level = 20, chance = 2},
-{id = 252, level = 30, chance = 1.33},
-{id = 253, level = 40, chance = 1},
-{id = 256, level = 50, chance = 0.8},
-{id = 257, level = 70, chance = 0.57},
-{id = 254, level = 90, chance = 0.44}
+{id = 251, level = 10, chance = 0.04},
+{id = 255, level = 20, chance = 0.02},
+{id = 252, level = 30, chance = 0.0133},
+{id = 253, level = 40, chance = 0.01},
+{id = 256, level = 50, chance = 0.008},
+{id = 257, level = 70, chance = 0.0057},
+{id = 254, level = 90, chance = 0.0044}
 }
 
 local function checkIfGemMine(orePosition)
@@ -124,7 +133,7 @@ function M.StartGathering(user, sourceItem, ltstate)
         return
     end
 
-    if not M.isDepletableResource(user, sourceItem, oreList) then
+    if not gathering.isDepletableResource(user, sourceItem, oreList) then
         return
     end
 
