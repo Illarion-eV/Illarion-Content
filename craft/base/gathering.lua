@@ -258,6 +258,14 @@ function M.SkillCheck(User, SourceItem, skill)
 
 end
 
+function M.getMaxAmountFromResourceList(resourceList, resourceId)
+    for _, resource in pairs(resourceList) do
+        if resource.id == resourceId then
+            return resource.maxAmount
+        end
+    end
+end
+
 M.GatheringCraft = GatheringCraft
 
 M.prob_frequently = 1/2000;

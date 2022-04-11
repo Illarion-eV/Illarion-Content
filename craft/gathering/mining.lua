@@ -36,19 +36,19 @@ UPDATE items SET itm_objectafterrot='1234', itm_agingspeed='4'WHERE itm_id IN(35
 ]]
 
 local oreList = {
-{veinId = 1246, depletedId = 915, productId = 735, maxAmount = 20, levelReq = 0},
-{veinId = 1245, depletedId = 1254, productId = 735, maxAmount = 20, levelReq = 0},
-{veinId = 232, depletedId = 233, productId = 735, maxAmount = 20, levelReq = 0},
-{veinId = 914, depletedId = 1265, productId = 735, maxAmount = 20, levelReq = 0},
-{veinId = 1273, depletedId = 1257, productId = 735, maxAmount = 20, levelReq = 0},
-{veinId = 1276, depletedId = 1278, productId = 735, maxAmount = 20, levelReq = 0},
-{veinId = 1250, depletedId = 1251, productId = 735, maxAmount = 20, levelReq = 0},
-{veinId = 1234, depletedId = 3578, productId = 21, maxAmount = 20, levelReq = 10},
-{veinId = 1236, depletedId = 3580, productId = 22, maxAmount = 10, levelReq = 20},
-{veinId = 1235, depletedId = 3579, productId = 2536, maxAmount = 10, levelReq = 30},
-{veinId = 1238, depletedId = 3718, productId = 1062, maxAmount = 10, levelReq = 40},
-{veinId = 1237, depletedId = 3717, productId = 234, maxAmount = 10, levelReq = 60},
-{veinId = 1239, depletedId = 3719, productId = 2534, maxAmount = 3, levelReq = 80}
+{id = 1246, depletedId = 915, productId = 735, maxAmount = 20, levelReq = 0},
+{id = 1245, depletedId = 1254, productId = 735, maxAmount = 20, levelReq = 0},
+{id = 232, depletedId = 233, productId = 735, maxAmount = 20, levelReq = 0},
+{id = 914, depletedId = 1265, productId = 735, maxAmount = 20, levelReq = 0},
+{id = 1273, depletedId = 1257, productId = 735, maxAmount = 20, levelReq = 0},
+{id = 1276, depletedId = 1278, productId = 735, maxAmount = 20, levelReq = 0},
+{id = 1250, depletedId = 1251, productId = 735, maxAmount = 20, levelReq = 0},
+{id = 1234, depletedId = 3578, productId = 21, maxAmount = 20, levelReq = 10},
+{id = 1236, depletedId = 3580, productId = 22, maxAmount = 10, levelReq = 20},
+{id = 1235, depletedId = 3579, productId = 2536, maxAmount = 10, levelReq = 30},
+{id = 1238, depletedId = 3718, productId = 1062, maxAmount = 10, levelReq = 40},
+{id = 1237, depletedId = 3717, productId = 234, maxAmount = 10, levelReq = 60},
+{id = 1239, depletedId = 3719, productId = 2534, maxAmount = 3, levelReq = 80}
 }
 
 local gemList = {
@@ -113,13 +113,7 @@ local function getResource(stoneId)
     end
 end
 
-local function getAmount(stoneId)
-    for _, ore in pairs(oreList) do
-        if ore.veinId == stoneId then
-            return ore.maxAmount
-        end
-    end
-end
+
 
 local function getDepletedObject(stoneId)
     for _, ore in pairs(oreList) do
@@ -223,7 +217,7 @@ function M.StartGathering(user, sourceItem, ltstate)
 
     local mining = gathering.GatheringCraft:new{LeadSkill = Character.mining, LearnLimit = 100}
     local toolID = Item.pickaxe
-    local maxAmount = getAmount(sourceItem.id)
+    local maxAmount = gathering.getMaxAmountFromResourceList(oreList, sourceItem.id)
     local GFX = 14
     local resourceID = gotGem(user, sourceItem)
     local depletedResourceID = getDepletedObject(sourceItem.id)
