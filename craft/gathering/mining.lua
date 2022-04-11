@@ -172,13 +172,18 @@ function M.getRock(user)
 end
 
 local function isPrison(positionOfItem)
-    for _, location in pairs(locations.mines) do
-        if location.coordinate == positionOfItem then
-            if location.prisonMine then
-                return true
-            end
-        end
+
+    local lowerCorner = position(-500, -500, -40)
+    local upperCorner = position(-461, -436, -40)
+
+    if lowerCorner.z ~= positionOfItem.z then
+        return false
     end
+
+    if positionOfItem.x > lowerCorner.x and positionOfItem.y > lowerCorner.y and positionOfItem.x < upperCorner.x and positionOfItem.y < upperCorner.y then
+        return true
+    end
+
 return false
 end
 
