@@ -299,6 +299,21 @@ function M.passesLevelReq(user, resourceList, resourceId, skillLevel)
 return false, levelReq
 end
 
+local function checkIfGMQuestItem(theResource)
+    local descriptionEn = theResource:getData("descriptionEn")
+    local nameEn = theResource:getData("nameEn")
+    local descriptionDe = theResource:getData("descriptionDe")
+    local nameDe = theResource:getData("nameDe")
+
+    local gmItem = descriptionEn..nameEn..descriptionDe..nameDe
+
+    if gmItem ~= "" then
+        return false --One of the descriptions or names were customized indicating its a resource item being used for GM purposes
+    end
+
+    return true
+end
+
 function M.isDepletableResource(user, theResource, resourceList)
 
     if not theResource then
@@ -307,7 +322,7 @@ function M.isDepletableResource(user, theResource, resourceList)
 
     for _, resource in pairs(resourceList) do
         if theResource.id == resource.id then
-            return true
+            return checkIfGMQuestItem(theResource)
         end
     end
 
