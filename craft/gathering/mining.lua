@@ -105,38 +105,7 @@ local function checkIfGemMine(orePosition)
     end
 end
 
-local function getResource(stoneId)
-    for _, ore in pairs(oreList) do
-        if ore.veinId == stoneId then
-            return ore.productId
-        end
-    end
-end
 
-
-
-local function getDepletedObject(stoneId)
-    for _, ore in pairs(oreList) do
-        if ore.veinId == stoneId then
-            return ore.depletedId
-        end
-    end
-end
-
-local function passesLevelReq(user, stoneId)
-    local miningLevel = user:getSkill(Character.mining)
-    local levelReq
-    for _, ore in pairs(oreList) do
-        if ore.veinId == stoneId then
-            levelReq = ore.levelReq
-            if levelReq <= miningLevel then
-                return true
-            end
-        end
-    end
-    user:inform(common.GetNLS(user,"Du musst Level "..levelReq.." in Bergbau haben, um hier arbeiten zu können.","You must be level "..levelReq.." in mining to mine here."))
-return false
-end
 
 local function gotGem(user, sourceItem)
     local gemMine = checkIfGemMine(sourceItem.pos)
@@ -220,11 +189,11 @@ function M.StartGathering(user, sourceItem, ltstate)
     local maxAmount = gathering.getMaxAmountFromResourceList(oreList, sourceItem.id)
     local GFX = 14
     local resourceID = gotGem(user, sourceItem)
-    local depletedResourceID = getDepletedObject(sourceItem.id)
+    local depletedResourceID = gathering.getDepletedObject(oreList, sourceItem.id)
     local restockWear = 4 -- 15 minutes
 
     if not resourceID then
-        resourceID = getResource(sourceItem.id)
+        resourceID = gathering.getProductId(oreList, sourceItem.id)
     end
 
     local success, toolItem, amount, gatheringBonus = gathering.InitGathering(user, sourceItem, toolID, maxAmount, mining.LeadSkill)
@@ -237,7 +206,12 @@ function M.StartGathering(user, sourceItem, ltstate)
         return
     end
 
-    if not passesLevelReq(user, sourceItem.id) then
+    local miningLevel = user:getSkill(Character.mining)
+
+    local passesLevelRequirement, levelReq = gathering.passesLevelReq(user, oreList, sourceItem.id, miningLevel)
+
+    if not passesLevelRequirement then
+        user:inform(common.GetNLS(user,"Du musst Level "..levelReq.." in Bergbau haben, um hier arbeiten zu können.","You must be level "..levelReq.." in mining to mine here."))
         return
     end
 

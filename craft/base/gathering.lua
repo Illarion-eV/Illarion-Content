@@ -266,6 +266,39 @@ function M.getMaxAmountFromResourceList(resourceList, resourceId)
     end
 end
 
+function M.getProductId(resourceList, resourceId)
+    for _, resource in pairs(resourceList) do
+        if resource.id == resourceId then
+            return resource.productId
+        end
+    end
+end
+
+function M.getDepletedObject(resourceList, resourceId)
+    for _, resource in pairs(resourceList) do
+        if resource.id == resourceId then
+            return resource.depletedId
+        end
+    end
+end
+
+function M.passesLevelReq(user, resourceList, resourceId, skillLevel)
+
+    local levelReq
+    for _, resource in pairs(resourceList) do
+        if resource.id == resourceId then
+            levelReq = resource.levelReq
+            if not levelReq then
+                levelReq = 0 --No levelReq listed defaults to 0
+            end
+            if levelReq <= skillLevel then
+                return true
+            end
+        end
+    end
+return false, levelReq
+end
+
 M.GatheringCraft = GatheringCraft
 
 M.prob_frequently = 1/2000;
