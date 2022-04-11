@@ -299,6 +299,41 @@ function M.passesLevelReq(user, resourceList, resourceId, skillLevel)
 return false, levelReq
 end
 
+function M.isDepletableResource(user, theResource, resourceList)
+
+    if not theResource then
+        return false
+    end
+
+    for _, resource in pairs(resourceList) do
+        if theResource.id == resource.id then
+            return true
+        end
+    end
+
+    return false
+end
+
+function M.getDepletableResource(user, resourceList)
+    local targetItem = common.GetFrontItem(user)
+    if M.isDepletableResource(user, targetItem, resourceList) then
+        return targetItem
+    end
+    local radius = 1
+    for x=-radius,radius do
+        for y=-radius,radius do
+            local targetPos = position(user.pos.x + x, user.pos.y + y, user.pos.z)
+            if (world:isItemOnField(targetPos)) then
+                targetItem = world:getItemOnField(targetPos)
+                if M.isDepletableResource(user, targetItem, resourceList) then
+                    return targetItem
+                end
+            end
+        end
+    end
+    return nil
+end
+
 M.GatheringCraft = GatheringCraft
 
 M.prob_frequently = 1/2000;

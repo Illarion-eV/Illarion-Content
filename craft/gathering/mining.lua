@@ -22,7 +22,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local shared = require("craft.base.shared")
 local gathering = require("craft.base.gathering")
-local locations = require("craft.base.resourceLocations")
 
 local M = {}
 --[[add ores to item database sql:
@@ -35,7 +34,7 @@ UPDATE items SET itm_objectafterrot='1236', itm_agingspeed='4'WHERE itm_id IN(35
 UPDATE items SET itm_objectafterrot='1234', itm_agingspeed='4'WHERE itm_id IN(3578);
 ]]
 
-local oreList = {
+M.oreList = {
 {id = 1246, depletedId = 915, productId = 735, maxAmount = 20, levelReq = 0},
 {id = 1245, depletedId = 1254, productId = 735, maxAmount = 20, levelReq = 0},
 {id = 232, depletedId = 233, productId = 735, maxAmount = 20, levelReq = 0},
@@ -51,6 +50,8 @@ local oreList = {
 {id = 1239, depletedId = 3719, productId = 2534, maxAmount = 3, levelReq = 80}
 }
 
+local oreList = M.oreList
+
 local gemList = {
 {id = 251, level = 10, chance = 4},
 {id = 255, level = 20, chance = 2},
@@ -61,55 +62,30 @@ local gemList = {
 {id = 254, level = 90, chance = 0.44}
 }
 
-function M.doesOreExistOnLocation()
-local missingLocations = false
-    for _, location in pairs(locations.mines) do
-        local field = world:getField(location.coordinates)
-        local itemsOnField = field:countItems()
-        if itemsOnField >= 1 then
-            local theOre = field:getStackItem(itemsOnField - 1)
-            local foundOre = false
-            for _, ore in pairs(oreList) do
-                if theOre.id == ore.veinId or theOre.id == ore.depletedId then
-                    foundOre = true
-                end
-            end
-            if not foundOre then
-                if not missingLocations then
-                    missingLocations = {}
-                end
-                missingLocations[#missingLocations+1] = location.coordinates
-            end
-        end
-    end
-    if missingLocations then
-        local text = "Ore veins were found to be missing or obstructed at the following locations: "
-        for i = 1, #missingLocations do
-            text = text..tostring(missingLocations[i])
-            if i == #missingLocations then
-                text = text.."."
-            else
-                text = text..", "
-            end
-        end
-        log(text)
-    end
-end
-
-
 local function checkIfGemMine(orePosition)
-    for _, location in pairs(locations.mines) do
-        if location.coordinates == orePosition then
-            return location.gemMine
-        end
+
+    local upperCorner = position(957, 458, 0)
+    local lowerCorner = position(924, 426, 0)
+
+    if orePosition.z ~= upperCorner.z then
+        return false
     end
+
+    if upperCorner.y < orePosition.y or upperCorner.x < orePosition.x then
+        return false
+    end
+
+    if lowerCorner.y > orePosition.y or lowerCorner.x > orePosition.x then
+        return false
+    end
+
+    return true
+
 end
-
-
 
 local function gotGem(user, sourceItem)
     local gemMine = checkIfGemMine(sourceItem.pos)
-    local rand = math.random(1,10000)
+    local rand = math.random()
     local cumulatedChance = 0
     local miningLevel = user:getSkill(Character.mining)
     for _, gems in pairs(gemList) do
@@ -120,70 +96,11 @@ local function gotGem(user, sourceItem)
                     chance = chance*2
                 end
             cumulatedChance = cumulatedChance + chance
-            if rand <= cumulatedChance*100 then --since math.random doesn't do decimals, multiply by 100 and random out of 10000
+            if rand <= cumulatedChance then
                 return gem
             end
         end
     end
-return false
-end
-
-local function isMinableRock(user, sourceItem)
-    local correctRock
-    local correctPosition
-    if not sourceItem then
-        return false
-    end
-    for _, rock in pairs(oreList) do
-        if sourceItem.id == rock.veinId then
-            correctRock = true
-        end
-    end
-    for _, location in pairs(locations.mines) do
-        if sourceItem.pos == location.coordinates then
-            correctPosition = true
-        end
-    end
-    if correctRock and correctPosition then
-        return true
-    else
-        return false
-    end
-end
-
-function M.getRock(user)
-    local targetItem = common.GetFrontItem(user)
-    if isMinableRock(user, targetItem) then
-        return targetItem
-    end
-    local radius = 1
-    for x=-radius,radius do
-        for y=-radius,radius do
-            local targetPos = position(user.pos.x + x, user.pos.y + y, user.pos.z)
-            if (world:isItemOnField(targetPos)) then
-                targetItem = world:getItemOnField(targetPos)
-                if isMinableRock(user, targetItem) then
-                    return targetItem
-                end
-            end
-        end
-    end
-    return nil
-end
-
-local function isPrison(positionOfItem)
-
-    local lowerCorner = position(-500, -500, -40)
-    local upperCorner = position(-461, -436, -40)
-
-    if lowerCorner.z ~= positionOfItem.z then
-        return false
-    end
-
-    if positionOfItem.x > lowerCorner.x and positionOfItem.y > lowerCorner.y and positionOfItem.x < upperCorner.x and positionOfItem.y < upperCorner.y then
-        return true
-    end
-
 return false
 end
 
@@ -207,7 +124,7 @@ function M.StartGathering(user, sourceItem, ltstate)
         return
     end
 
-    if not isMinableRock(user, sourceItem) then
+    if not M.isDepletableResource(user, sourceItem, oreList) then
         return
     end
 
@@ -220,7 +137,7 @@ function M.StartGathering(user, sourceItem, ltstate)
         return
     end
 
-    if not isPrison(sourceItem.pos) then --Prisoners don't get rewards
+    if not common.isInPrison(sourceItem.pos) then --Prisoners don't get rewards
         mining:AddRandomPureElement(user,gathering.prob_element*gatheringBonus) -- Any pure element
         mining:SetTreasureMap(user,gathering.prob_map*gatheringBonus,"In einer engen Felsspalte findest du ein altes Pergament, das wie eine Karte aussieht. Kein Versteck ist so sicher, dass es nicht gefunden wird.","In a narrow crevice you find an old parchment that looks like a map. No hiding place is too safe that it cannot be found.")
         mining:AddMonster(user,1052,gathering.prob_monster/gatheringBonus,"Als du den Fels malträtierst, läuft etwas Schleim aus einer Felsspalte...","As you slam your pick-axe on the rock, some slime flows out of the fissure...",4,7)
