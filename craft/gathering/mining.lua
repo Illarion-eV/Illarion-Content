@@ -18,28 +18,28 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 --[[
 Existing mine locations and their proper lore names.
 
-Galmair - Dark Hole Mine
+Galmair - Dark Hole Mine / Dunkellochmine
 Warp position: 389, 158, -3
 
-Galmair - Malachite Mine
+Galmair - Malachite Mine / Malachitmine
 Warp position: 437, 354, 0
 
-Cadomyr - Liberty Quarry
+Cadomyr - Liberty Quarry / Freiheitsbruch
 Warp position: 168, 609, 0
 
-Cadomyr - Cornerstone of Candour
+Cadomyr - Cornerstone of Candour / Grundstein der Aufrichtigkeit
 Warp position: 142, 687, 0
 
-Neutral - Hammerfall Mine
+Neutral - Hammerfall Mine / Hammerfallmine
 Warp position: 31, 440, -6
 
-Neutral - Glittering Cave
+Neutral - Glittering Cave / Funkelhöhle
 Warp position: 546, 369, 0
 
-Neutral - Skewer Drift
+Neutral - Skewer Drift / Spießstollen
 Warp position: 933, 466, 0
 
-Neutral - Prison Mine
+Neutral - Prison Mine / Gefängnismine
 Warp position: -469, -490, -40
 ]]
 
