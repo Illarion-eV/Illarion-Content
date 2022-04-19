@@ -46,6 +46,7 @@ local mining = require("craft.gathering.mining")
 local metal = require("item.general.metal")
 local transformation_dog = require("alchemy.teaching.transformation_dog")
 local glyphmagic = require("magic.glyphmagic")
+local gathering = require("craft.base.gathering")
 
 local M = {}
 
@@ -101,7 +102,9 @@ function M.UseItem(user, SourceItem, ltstate)
         return;
     end
 
-    local rock = mining.getRock(user);
+    local oreList = mining.oreList
+
+    local rock = gathering.getDepletableResource(user, oreList)
     if not rock then
         common.HighInformNLS(user,
         "Du musst neben einem Felsen stehen um Bergbau zu betreiben.",

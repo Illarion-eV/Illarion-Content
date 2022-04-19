@@ -15,138 +15,86 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
--- rocks
+--[[
+Existing mine locations and their proper lore names.
 
--- additional tool: pickaxe ( 2763 )
+Galmair - Dark Hole Mine / Dunkellochmine
+Warp position: 389, 158, -3
+
+Galmair - Malachite Mine / Malachitmine
+Warp position: 437, 354, 0
+
+Cadomyr - Liberty Quarry / Freiheitsbruch
+Warp position: 168, 609, 0
+
+Cadomyr - Cornerstone of Candour / Grundstein der Aufrichtigkeit
+Warp position: 142, 687, 0
+
+Neutral - Hammerfall Mine / Hammerfallmine
+Warp position: 31, 440, -6
+
+Neutral - Glittering Cave / Funkelhöhle
+Warp position: 546, 369, 0
+
+Neutral - Skewer Drift / Spießstollen
+Warp position: 933, 466, 0
+
+Neutral - Prison Mine / Gefängnismine
+Warp position: -469, -490, -40
+]]
 
 local common = require("base.common")
 local shared = require("craft.base.shared")
 local gathering = require("craft.base.gathering")
-local locations = require("craft.base.resourceLocations")
 
 local M = {}
---[[add ores to item database sql:
-UPDATE items SET itm_script='item.rock' WHERE itm_id IN(1234,1235,1236,1237,1238,1239);
-UPDATE items SET itm_objectafterrot='1239', itm_agingspeed='4' WHERE itm_id IN(3719);
-UPDATE items SET itm_objectafterrot='1237', itm_agingspeed='4' WHERE itm_id IN(3717);
-UPDATE items SET itm_objectafterrot='1238', itm_agingspeed='4' WHERE itm_id IN(3718);
-UPDATE items SET itm_objectafterrot='1235', itm_agingspeed='4' WHERE itm_id IN(3579);
-UPDATE items SET itm_objectafterrot='1236', itm_agingspeed='4'WHERE itm_id IN(3580);
-UPDATE items SET itm_objectafterrot='1234', itm_agingspeed='4'WHERE itm_id IN(3578);
-]]
 
-local oreList = {
-{veinId = 1246, depletedId = 915, productId = 735, maxAmount = 20, levelReq = 0},
-{veinId = 1245, depletedId = 1254, productId = 735, maxAmount = 20, levelReq = 0},
-{veinId = 232, depletedId = 233, productId = 735, maxAmount = 20, levelReq = 0},
-{veinId = 914, depletedId = 1265, productId = 735, maxAmount = 20, levelReq = 0},
-{veinId = 1273, depletedId = 1257, productId = 735, maxAmount = 20, levelReq = 0},
-{veinId = 1276, depletedId = 1278, productId = 735, maxAmount = 20, levelReq = 0},
-{veinId = 1250, depletedId = 1251, productId = 735, maxAmount = 20, levelReq = 0},
-{veinId = 1234, depletedId = 3578, productId = 21, maxAmount = 20, levelReq = 10},
-{veinId = 1236, depletedId = 3580, productId = 22, maxAmount = 10, levelReq = 20},
-{veinId = 1235, depletedId = 3579, productId = 2536, maxAmount = 10, levelReq = 30},
-{veinId = 1238, depletedId = 3718, productId = 1062, maxAmount = 10, levelReq = 40},
-{veinId = 1237, depletedId = 3717, productId = 234, maxAmount = 10, levelReq = 60},
-{veinId = 1239, depletedId = 3719, productId = 2534, maxAmount = 3, levelReq = 80}
+M.oreList = {
+{id = 232, depletedId = 233, productId = 735, maxAmount = 20, levelReq = 0},
+{id = 1234, depletedId = 3578, productId = 21, maxAmount = 20, levelReq = 10},
+{id = 1236, depletedId = 3580, productId = 22, maxAmount = 10, levelReq = 20},
+{id = 1235, depletedId = 3579, productId = 2536, maxAmount = 10, levelReq = 30},
+{id = 1238, depletedId = 3718, productId = 1062, maxAmount = 10, levelReq = 40},
+{id = 1237, depletedId = 3717, productId = 234, maxAmount = 10, levelReq = 60},
+{id = 1239, depletedId = 3719, productId = 2534, maxAmount = 3, levelReq = 80}
 }
+
+local oreList = M.oreList
 
 local gemList = {
-{id = 251, level = 10, chance = 4},
-{id = 255, level = 20, chance = 2},
-{id = 252, level = 30, chance = 1.33},
-{id = 253, level = 40, chance = 1},
-{id = 256, level = 50, chance = 0.8},
-{id = 257, level = 70, chance = 0.57},
-{id = 254, level = 90, chance = 0.44}
+{id = 251, level = 10, chance = 0.04},
+{id = 255, level = 20, chance = 0.02},
+{id = 252, level = 30, chance = 0.0133},
+{id = 253, level = 40, chance = 0.01},
+{id = 256, level = 50, chance = 0.008},
+{id = 257, level = 70, chance = 0.0057},
+{id = 254, level = 90, chance = 0.0044}
 }
 
-function M.doesOreExistOnLocation()
-local missingLocations = false
-    for _, location in pairs(locations.mines) do
-        local field = world:getField(location.coordinates)
-        local itemsOnField = field:countItems()
-        if itemsOnField >= 1 then
-            local theOre = field:getStackItem(itemsOnField - 1)
-            local foundOre = false
-            for _, ore in pairs(oreList) do
-                if theOre.id == ore.veinId or theOre.id == ore.depletedId then
-                    foundOre = true
-                end
-            end
-            if not foundOre then
-                if not missingLocations then
-                    missingLocations = {}
-                end
-                missingLocations[#missingLocations+1] = location.coordinates
-            end
-        end
-    end
-    if missingLocations then
-        local text = "Ore veins were found to be missing or obstructed at the following locations: "
-        for i = 1, #missingLocations do
-            text = text..tostring(missingLocations[i])
-            if i == #missingLocations then
-                text = text.."."
-            else
-                text = text..", "
-            end
-        end
-        log(text)
-    end
-end
-
-
 local function checkIfGemMine(orePosition)
-    for _, location in pairs(locations.mines) do
-        if location.coordinates == orePosition then
-            return location.gemMine
-        end
-    end
-end
 
-local function getResource(stoneId)
-    for _, ore in pairs(oreList) do
-        if ore.veinId == stoneId then
-            return ore.productId
-        end
-    end
-end
+    local upperCorner = position(957, 458, 0)
+    local lowerCorner = position(924, 426, 0)
 
-local function getAmount(stoneId)
-    for _, ore in pairs(oreList) do
-        if ore.veinId == stoneId then
-            return ore.maxAmount
-        end
+    if orePosition.z ~= upperCorner.z then
+        return false
     end
-end
 
-local function getDepletedObject(stoneId)
-    for _, ore in pairs(oreList) do
-        if ore.veinId == stoneId then
-            return ore.depletedId
-        end
+    if upperCorner.y < orePosition.y or upperCorner.x < orePosition.x then
+        return false
     end
-end
 
-local function passesLevelReq(user, stoneId)
-    local miningLevel = user:getSkill(Character.mining)
-    local levelReq
-    for _, ore in pairs(oreList) do
-        if ore.veinId == stoneId then
-            levelReq = ore.levelReq
-            if levelReq <= miningLevel then
-                return true
-            end
-        end
+    if lowerCorner.y > orePosition.y or lowerCorner.x > orePosition.x then
+        return false
     end
-    user:inform(common.GetNLS(user,"Du musst Level "..levelReq.." in Bergbau haben, um hier arbeiten zu können.","You must be level "..levelReq.." in mining to mine here."))
-return false
+
+    return true
+
 end
 
 local function gotGem(user, sourceItem)
     local gemMine = checkIfGemMine(sourceItem.pos)
-    local rand = math.random(1,10000)
+    local rand = math.random()
     local cumulatedChance = 0
     local miningLevel = user:getSkill(Character.mining)
     for _, gems in pairs(gemList) do
@@ -157,62 +105,8 @@ local function gotGem(user, sourceItem)
                     chance = chance*2
                 end
             cumulatedChance = cumulatedChance + chance
-            if rand <= cumulatedChance*100 then --since math.random doesn't do decimals, multiply by 100 and random out of 10000
+            if rand <= cumulatedChance then
                 return gem
-            end
-        end
-    end
-return false
-end
-
-local function isMinableRock(user, sourceItem)
-    local correctRock
-    local correctPosition
-    if not sourceItem then
-        return false
-    end
-    for _, rock in pairs(oreList) do
-        if sourceItem.id == rock.veinId then
-            correctRock = true
-        end
-    end
-    for _, location in pairs(locations.mines) do
-        if sourceItem.pos == location.coordinates then
-            correctPosition = true
-        end
-    end
-    if correctRock and correctPosition then
-        return true
-    else
-        return false
-    end
-end
-
-function M.getRock(user)
-    local targetItem = common.GetFrontItem(user)
-    if isMinableRock(user, targetItem) then
-        return targetItem
-    end
-    local radius = 1
-    for x=-radius,radius do
-        for y=-radius,radius do
-            local targetPos = position(user.pos.x + x, user.pos.y + y, user.pos.z)
-            if (world:isItemOnField(targetPos)) then
-                targetItem = world:getItemOnField(targetPos)
-                if isMinableRock(user, targetItem) then
-                    return targetItem
-                end
-            end
-        end
-    end
-    return nil
-end
-
-local function isPrison(positionOfItem)
-    for _, location in pairs(locations.mines) do
-        if location.coordinate == positionOfItem then
-            if location.prisonMine then
-                return true
             end
         end
     end
@@ -223,14 +117,14 @@ function M.StartGathering(user, sourceItem, ltstate)
 
     local mining = gathering.GatheringCraft:new{LeadSkill = Character.mining, LearnLimit = 100}
     local toolID = Item.pickaxe
-    local maxAmount = getAmount(sourceItem.id)
+    local maxAmount = gathering.getMaxAmountFromResourceList(oreList, sourceItem.id)
     local GFX = 14
     local resourceID = gotGem(user, sourceItem)
-    local depletedResourceID = getDepletedObject(sourceItem.id)
+    local depletedResourceID = gathering.getDepletedObject(oreList, sourceItem.id)
     local restockWear = 4 -- 15 minutes
 
     if not resourceID then
-        resourceID = getResource(sourceItem.id)
+        resourceID = gathering.getProductId(oreList, sourceItem.id)
     end
 
     local success, toolItem, amount, gatheringBonus = gathering.InitGathering(user, sourceItem, toolID, maxAmount, mining.LeadSkill)
@@ -239,15 +133,20 @@ function M.StartGathering(user, sourceItem, ltstate)
         return
     end
 
-    if not isMinableRock(user, sourceItem) then
+    if not gathering.isDepletableResource(user, sourceItem, oreList) then
         return
     end
 
-    if not passesLevelReq(user, sourceItem.id) then
+    local miningLevel = user:getSkill(Character.mining)
+
+    local passesLevelRequirement, levelReq = gathering.passesLevelReq(user, oreList, sourceItem.id, miningLevel)
+
+    if not passesLevelRequirement then
+        user:inform(common.GetNLS(user,"Du musst Level "..levelReq.." in Bergbau haben, um hier arbeiten zu können.","You must be level "..levelReq.." in mining to mine here."))
         return
     end
 
-    if not isPrison(sourceItem.pos) then --Prisoners don't get rewards
+    if not common.isInPrison(sourceItem.pos) then --Prisoners don't get rewards
         mining:AddRandomPureElement(user,gathering.prob_element*gatheringBonus) -- Any pure element
         mining:SetTreasureMap(user,gathering.prob_map*gatheringBonus,"In einer engen Felsspalte findest du ein altes Pergament, das wie eine Karte aussieht. Kein Versteck ist so sicher, dass es nicht gefunden wird.","In a narrow crevice you find an old parchment that looks like a map. No hiding place is too safe that it cannot be found.")
         mining:AddMonster(user,1052,gathering.prob_monster/gatheringBonus,"Als du den Fels malträtierst, läuft etwas Schleim aus einer Felsspalte...","As you slam your pick-axe on the rock, some slime flows out of the fissure...",4,7)
