@@ -129,7 +129,7 @@ end
 local function placeStakeOnPosition(selectedPosition)
     clearStakePosition(selectedPosition)
     local name = {english = "Property Lot Stake", german = "GERMAN TRANSLATION HERE!"}
-    local description = {english = "A property lot stake indicating one of the corners of which a property begins or ends.", german = "GERMAN TRANSLATION HERE!"}
+    local description = {english = "A stake marking the corner of the boundary for a property lot.", german = "GERMAN TRANSLATION HERE!"}
     local theStake = world:createItemFromId(handrail, 1, selectedPosition, true, 999, {nameEn = name.english, nameDe = name.german, descriptionEn = description.english, descriptionDe = description.german})
     theStake.wear = 255
     world:changeItem(theStake)
