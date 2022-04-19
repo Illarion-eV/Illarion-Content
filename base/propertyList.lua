@@ -95,6 +95,75 @@ table.insert(M.properties, {name = "Runewick Roadside Estate", lower = position(
 --Outlaw
 table.insert(M.properties, {name = "Outlaw Base One", lower = position(967,343,0), upper = position(983,362,2), estate = true, outlaw = true})
 table.insert(M.properties, {name = "Outlaw Base One", lower = position(967,343,-21), upper = position(983,362,-21), estate = true, outlaw = true})
+
+
+local handrail = 3601
+
+local function checkPositionForStake(selectedPosition)
+    local field = world:getField(selectedPosition)
+    local itemsOnField = field:countItems()
+    if itemsOnField >= 1 then
+        local theStake = field:getStackItem(itemsOnField - 1 )
+        if theStake.id == handrail then
+            local stakeName = theStake:getData("nameEn")
+            if stakeName == "Property Lot Stake" then
+                return true
+            end
+        end
+    end
+
+    return false
+
+end
+
+local function clearStakePosition(selectedPosition)
+    local field = world:getField(selectedPosition)
+    local itemsOnField = field:countItems()
+    while itemsOnField >= 1 do
+        local chosenItem = field:getStackItem(itemsOnField - 1 )
+        world:erase(chosenItem, chosenItem.number)
+        itemsOnField = field:countItems()
+    end
+end
+
+local function placeStakeOnPosition(selectedPosition)
+    clearStakePosition(selectedPosition)
+    local name = {english = "Property Lot Stake", german = "GERMAN TRANSLATION HERE!"}
+    local description = {english = "A property lot stake indicating one of the corners of which a property begins or ends.", german = "GERMAN TRANSLATION HERE!"}
+    local theStake = world:createItemFromId(handrail, 1, selectedPosition, true, 999, {nameEn = name.english, nameDe = name.german, descriptionEn = description.english, descriptionDe = description.german})
+    theStake.wear = 255
+    world:changeItem(theStake)
+end
+
+local function checkIfPropertyHasTenant(propertyName)
+    local foundOwner = ScriptVars:find("ownerof"..propertyName)
+    if foundOwner then
+        return true
+    else
+        return false
+    end
+end
+
+function M.checkForAndPlaceMissingStakes()
+
+    log("Check for and placing of missing stakes has been initiated.")
+    for _, property in pairs(M.properties) do
+        if not checkIfPropertyHasTenant(property.name) and property.lower.z == 0 and property.estate and not property.outlaw then
+            local positions = {}
+            positions[1] = property.lower
+            positions[2] = position(property.upper.x, property.upper.y, property.lower.z)
+            positions[3] = position(property.lower.x, property.upper.y, property.lower.z)
+            positions[4] = position(property.upper.x, property.lower.y, property.lower.z)
+
+            for _, selectedPosition in pairs(positions) do
+                if not checkPositionForStake(selectedPosition) then
+                    placeStakeOnPosition(selectedPosition)
+                end
+            end
+        end
+    end
+end
+
 function M.checkIfPlantOrTree(User, itemId)
     for _, item in pairs(itemList.items) do
         if item.category == "Plants" or item.category == "Trees" then
@@ -275,14 +344,12 @@ local targetItem = world:getItemOnField(targetPosition)
 local targetId
 local tileField = world:getField(targetPosition)
 local tileId = tileField:tile()
-debug("tile Id: "..tostring(tileId))
     if createOrErase == "create" then
         targetId = itemId
     elseif createOrErase == "erase" then
         targetId = targetItem.id
     end
     if not M.checkIfRoofOrRoofTile(User, targetId, tileBoolean, tileId, createOrErase) or not M.fetchBuildersPermission(User, targetPosition) then
-        debug("Roof tile: "..tostring(M.checkIfRoofOrRoofTile(User, targetId, tileBoolean, tileId)).." Permission: "..tostring(M.fetchBuildersPermission(User, targetPosition)))
         return false
     end
     if not tileBoolean then

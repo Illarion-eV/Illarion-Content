@@ -16,18 +16,12 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local building = require("base.propertyList")
-local persistenceSet = false
 
 local M = {}
 
-function M.setPersistence()
-    if persistenceSet == false then
-        log("Persistence script has been initiated.")
-        building.setPersistenceForProperties()
-        log("Persistence script has run.")
-        persistenceSet = true
-        return
-    end
+function M.checkForAndPlaceMissingStakes()
+    building.checkForAndPlaceMissingStakes()
+    log("The script for Property Lot Stakes has run.")
 end
 
 return M
