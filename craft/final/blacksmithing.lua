@@ -487,6 +487,11 @@ product = blacksmithing:addProduct(catId, 2763, 1)
 product:addIngredient(2535, 2) -- iron ingot
 product:addIngredient(2525, 1) -- axe handle
 
+-- mortar
+product = blacksmithing:addProduct(catId, 58, 1)
+product:addIngredient(2535, 1) -- iron ingot
+product:addIngredient(2528, 1) -- small handle
+
 catId = blacksmithing:addCategory("Two handed axes", "Zweihändige Äxte")
 
 -- executioner's axe
