@@ -74,7 +74,7 @@ tradeWrongItemMsg "Das benötige ich nicht.", "I do not need that."
 -- Template Version 1.03, 01/05/2011 by Estralis Seborian
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is the royal builder Robertus. Keywords: buy, sell, trade, Hello, builder.")
+"Help" -> inform("[Game Help] This NPC is the royal builder Robertus. Keywords: buy, sell, trade, hello, builder.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der königliche Baumeister Robertus. Schlüsselwörter: kaufe, verkaufe, Handel, Hallo, Baumeister.")
 
 -- Trade
