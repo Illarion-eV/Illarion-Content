@@ -28,6 +28,7 @@ local licence = require("base.licence")
 local shipmasterParchments = require("content.shipmasterParchments")
 local shared = require("craft.base.shared")
 local brewing = require("alchemy.base.brewing")
+local messenger = require("content.messenger")
 
 local M = {}
 
@@ -46,6 +47,9 @@ local GetItem
 local ViewRecipe
 local getIngredients
 
+local function selectParchmentToGiveMessenger(user, parchment)
+    return parchment
+end
 
 local function bookListLookAt(user,Item)
     local itemLookat = lookat.GenerateLookAt(user, Item, lookat.NONE)
@@ -60,6 +64,13 @@ end
 -- it is important for alchemy
 -- you can just ignore it
 function M.UseItem(user, SourceItem,ltstate,checkVar)
+
+    -- Check if the messenger has requested a parchment
+    if messenger.getParchmentSelectionStatus(user) then
+        local parchment = selectParchmentToGiveMessenger(user, SourceItem)
+        messenger.verifyParchment(user, parchment)
+        return
+    end
 
     -- Check if it is an alchemy recipe.
     if SourceItem:getData("alchemyRecipe") == "true" then

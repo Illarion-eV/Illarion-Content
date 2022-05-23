@@ -29,6 +29,7 @@ local gods_common = require("content._gods.gods_common")
 local tutorial = require("content.tutorial")
 local keys = require("item.keys")
 local ceilingtrowel = require("gm.items.id_382_ceilingtrowel")
+local messenger = require("content.messenger")
 
 -- Called after every player login
 
@@ -348,6 +349,9 @@ function M.onLogin( player )
 
     --Checking for pending rank changes
     ceilingtrowel.changeRankOnLogin(player)
+
+    --Checking for pending messages from the messenger
+    messenger.sendStoredMessages(player)
 end
 
 function showNewbieDialog(player)
