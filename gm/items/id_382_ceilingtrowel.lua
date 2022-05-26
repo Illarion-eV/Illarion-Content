@@ -28,6 +28,7 @@ local glyphs = require("base.glyphs")
 local seafaring = require("base.seafaring")
 local staticteleporter = require("base.static_teleporter")
 local notice = require("item.notice")
+local building = require("base.propertyList")
 local drinks = require("item.drinks")
 local food = require("item.food")
 local customPotion = require("alchemy.base.customPotion")
@@ -2276,7 +2277,7 @@ end
 
 function M.UseItem(user, SourceItem)
     -- First check for mode change
-    local modes = {"Items", "Weather", "Factions", "Spawnpoint", "Special Item Creation", "Script Variables","Teleporter","Harbours", "Portals", "Potions","Property Management"}
+    local modes = {"Items", "Weather", "Factions", "Spawnpoint", "Special Item Creation", "Script Variables","Teleporter","Harbours", "Portals", "Potions","Property Management","Apply Persistence For Properties"}
     local cbSetMode = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -2305,6 +2306,9 @@ function M.UseItem(user, SourceItem)
             potionSelection(user)
         elseif index == 11 then
             M.selectProperty(user)
+        elseif index == 12 then
+            building.setPersistenceForProperties()
+            user:inform("Persistence has been applied to all tile coordinates entailed in the properties list. This only needs to be done once whenever new properties have been added to the list.")
         end
     end
     local sd = SelectionDialog("Set mode of this ceiling trowel", "To which mode you want to change?", cbSetMode)
