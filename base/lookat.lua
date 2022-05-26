@@ -179,12 +179,7 @@ function M.GenerateLookAt(user, item, material)
             end
 
             local qualIndex = 10 - itemQual
-
-            if qualIndex < 1 then
-                qualIndex = 1
-            elseif qualIndex > 10 then
-                qualIndex = 10
-            end
+            qualIndex=common.Limit(qualIndex, 1, 10)
 
             if (isGerman) then
                 lookAt.qualityText = GenericQualDe[qualIndex]
