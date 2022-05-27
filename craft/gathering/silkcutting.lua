@@ -22,6 +22,15 @@ local gathering = require("craft.base.gathering")
 
 local M = {}
 
+M.silkList = {
+    {id = 3634, depletedId = 3638},
+    {id = 3635, depletedId = 3639},
+    {id = 3636, depletedId = 3640},
+    {id = 3637, depletedId = 3641}
+    }
+
+local silkList = M.silkList
+
 function M.StartGathering(User, SourceItem, ltstate)
 
     local silkcutting = gathering.GatheringCraft:new{LeadSkill = Character.tanningAndWeaving, LearnLimit = 100}
@@ -29,19 +38,9 @@ function M.StartGathering(User, SourceItem, ltstate)
     local maxAmount = 3
     local GFX = 22
     local SFX = 0
-    local resourceID = 3787 --silk
+    local resourceID = 3787
     local restockWear = 4 --15 minutes
-    local depletedSourceID
-
-    if SourceItem.id == 3634 then
-        depletedSourceID = 3638
-    elseif SourceItem.id == 3635 then
-        depletedSourceID = 3639
-    elseif SourceItem.id == 3636 then
-        depletedSourceID = 3640
-    elseif SourceItem.id == 3637 then
-        depletedSourceID = 3641
-    end
+    local depletedSourceID = gathering.getDepletedObject(silkList, SourceItem.id)
 
     local success, toolItem, amount, gatheringBonus = gathering.InitGathering(User, SourceItem, toolID, maxAmount, silkcutting.LeadSkill)
 
