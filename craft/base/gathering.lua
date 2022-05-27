@@ -282,19 +282,11 @@ function M.getDepletedObject(resourceList, resourceId)
     end
 end
 
-function M.passesLevelReq(user, resourceList, resourceId, skillLevel)
-
-    local levelReq
-    for _, resource in pairs(resourceList) do
-        if resource.id == resourceId then
-            levelReq = resource.levelReq
-            if not levelReq then
-                levelReq = 0 --No levelReq listed defaults to 0
-            end
-            if levelReq <= skillLevel then
-                return true
-            end
-        end
+function M.passesLevelReq(user, sourceItem, skillLevel)
+    local itemCommon = world:getItemStatsFromId(sourceItem.id)
+    local levelReq = itemCommon.level
+    if levelReq <= skillLevel then
+        return true
     end
 return false, levelReq
 end

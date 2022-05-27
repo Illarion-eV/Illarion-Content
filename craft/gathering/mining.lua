@@ -50,13 +50,13 @@ local gathering = require("craft.base.gathering")
 local M = {}
 
 M.oreList = {
-{id = 232, depletedId = 233, productId = 735, maxAmount = 20, levelReq = 0},
-{id = 1234, depletedId = 3578, productId = 21, maxAmount = 20, levelReq = 10},
-{id = 1236, depletedId = 3580, productId = 22, maxAmount = 10, levelReq = 20},
-{id = 1235, depletedId = 3579, productId = 2536, maxAmount = 10, levelReq = 30},
-{id = 1238, depletedId = 3718, productId = 1062, maxAmount = 10, levelReq = 40},
-{id = 1237, depletedId = 3717, productId = 234, maxAmount = 10, levelReq = 60},
-{id = 1239, depletedId = 3719, productId = 2534, maxAmount = 3, levelReq = 80}
+{id = 232, depletedId = 233, productId = 735, maxAmount = 20},
+{id = 1234, depletedId = 3578, productId = 21, maxAmount = 20},
+{id = 1236, depletedId = 3580, productId = 22, maxAmount = 10},
+{id = 1235, depletedId = 3579, productId = 2536, maxAmount = 10},
+{id = 1238, depletedId = 3718, productId = 1062, maxAmount = 10},
+{id = 1237, depletedId = 3717, productId = 234, maxAmount = 10},
+{id = 1239, depletedId = 3719, productId = 2534, maxAmount = 3}
 }
 
 local oreList = M.oreList
@@ -139,7 +139,7 @@ function M.StartGathering(user, sourceItem, ltstate)
 
     local miningLevel = user:getSkill(Character.mining)
 
-    local passesLevelRequirement, levelReq = gathering.passesLevelReq(user, oreList, sourceItem.id, miningLevel)
+    local passesLevelRequirement, levelReq = gathering.passesLevelReq(user, sourceItem, miningLevel)
 
     if not passesLevelRequirement then
         user:inform(common.GetNLS(user,"Du musst Level "..levelReq.." in Bergbau haben, um hier arbeiten zu können.","You must be level "..levelReq.." in mining to mine here."))
