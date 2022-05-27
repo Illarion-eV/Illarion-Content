@@ -1264,7 +1264,14 @@ local function lightSphere(user, item, lit)
         newItemId = 3499
     end
     world:erase(item, item.number)
-    world:createItemFromId(newItemId, 1, item.pos, true, 999, {})
+    local theSphere = world:createItemFromId(newItemId, 1, item.pos, true, 999, {})
+    if lit then
+        theSphere.wear = 4
+    else
+        theSphere.wear = 255
+    end
+
+    world:changeItem(theSphere)
 end
 
 local portalLocations = {
