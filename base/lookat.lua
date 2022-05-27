@@ -20,6 +20,7 @@ local common = require("base.common")
 local gems = require("base.gems")
 local money = require("base.money")
 local glyphs = require("base.glyphs")
+local mining = require("craft.gathering.mining")
 
 local M = {}
 
@@ -75,7 +76,51 @@ ArmourType[ArmorStruct.medium] = {de = "Mittlere Rüstung", en = "Medium Armour",
 ArmourType[ArmorStruct.heavy] = {de = "Schwere Rüstung", en = "Heavy Armour", skill = Character.heavyArmour}
 ArmourType[ArmorStruct.juwellery] = {de = "Schmuck", en = "Jewellery"}
 
+-- Here you can add items that are not part of the armourstruct or weaponstruct but should still show their item level in the lookAt
+-- Input should be a table consisting of {id = theID, skill = theSkill} eg: {id = 3578, skill = "mining", type = {english = "Vein", german = "Ader"}}
+local listOfItemsThatShouldShowLevel = {}
+
+--Adds veins used in mining to list of items that should show level
+for _, oreVein in pairs(mining.oreList) do
+    listOfItemsThatShouldShowLevel[#listOfItemsThatShouldShowLevel+1] = {id = oreVein.depletedId, skill = "mining", type = {english = "Vein", german = "Ader"}}
+    listOfItemsThatShouldShowLevel[#listOfItemsThatShouldShowLevel+1] = {id = oreVein.id, skill = "mining", type = {english = "Vein", german = "Ader"}}
+end
+
+local function showItemLevel(user, itemId, lookat , itemLevel)
+    local showLevel = false
+    local skillName
+    local theTypes
+
+    for _, theItem in pairs(listOfItemsThatShouldShowLevel) do
+        if theItem.id == itemId then
+            showLevel = true
+            skillName = theItem.skill
+            theTypes = theItem.type
+        end
+    end
+
+    if showLevel then
+        local skill = 100
+
+        if skillName then
+            skill = user:getSkill(Character[skillName])
+        end
+
+        local theType = common.GetNLS(user, theTypes.german, theTypes.english)
+
+        lookat.type = theType
+
+        lookat.usable = skill >= itemLevel
+
+        return true, lookat
+    end
+
+    return false
+
+end
+
 function M.GenerateLookAt(user, item, material)
+
     if user == nil then
         debug("Sanity check failed, no valid character supplied.")
         return
@@ -191,7 +236,6 @@ function M.GenerateLookAt(user, item, material)
 
             lookAt.durabilityValue = itemDura + 1
         end
-
         lookAt = AddWeaponOrArmourType(lookAt, user, item.id, level)
 
         lookAt.diamondLevel = GetGemLevel(item, "magicalDiamond")
@@ -202,6 +246,12 @@ function M.GenerateLookAt(user, item, material)
         lookAt.obsidianLevel = GetGemLevel(item, "magicalObsidian")
         lookAt.topazLevel = GetGemLevel(item, "magicalTopaz")
         lookAt.bonus = gems.getGemBonus(item)
+    end
+
+    local otherItemFound, newLookAt = showItemLevel(user, item.id, lookAt , level)
+
+    if otherItemFound then
+        lookAt = newLookAt
     end
 
     return lookAt
@@ -270,10 +320,8 @@ function AddWeaponOrArmourType(lookAt, user, itemId, itemLevel)
 
     if weaponfound then
         lookAt = AddTypeAndUsable(lookAt, user, WeaponType, weapon.WeaponType, itemLevel)
-    else
-        if armourfound then
-            lookAt = AddTypeAndUsable(lookAt, user, ArmourType, armour.Type, itemLevel)
-        end
+    elseif armourfound then
+        lookAt = AddTypeAndUsable(lookAt, user, ArmourType, armour.Type, itemLevel)
     end
 
     return lookAt
