@@ -1305,7 +1305,7 @@ function M.removeRentalOfPropertiesOfOtherTowns(user)
     end
 end
 --Inform user about their keys being confiscated upon login
-function M.informuserOfKeyRetrieval(user)
+function M.informUserOfKeyRetrieval(user)
     for i = 1, #M.propertyTable do
         local propertyName = M.propertyTable[i][1]
         local foundOwner, currentOwner = ScriptVars:find("ownerof"..propertyName)
