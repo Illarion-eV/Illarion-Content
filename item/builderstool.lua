@@ -100,7 +100,7 @@ local function destroyingPermitted(User, targetItem)
     for _, item in pairs(itemList.items) do
         if item.itemId == targetItem.id then
             if item.typeOf == "Estate" then
-                if propertyList.checkIfPropertyIsEstate(User) then
+                if propertyList.checkIfEstate(User) then
                     return true
                 end
             end
