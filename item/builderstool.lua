@@ -498,7 +498,7 @@ local propertyName = propertyList.fetchPropertyName(User)
                         M.propertyManagement(User)
                     end
                 else
-                    User:inform("Du bist hierzu nicht berechtigt.","You do not have permission to do this.") -- This only happens if the user tries to cheat by turning while in dialog at property borders.
+                    User:inform("Du kannst nicht außerhalb eines Grundstückes bauen.","You can't build outside of property land.") -- This only happens if the user tries to cheat by turning while in dialog at property borders.
                 end
             end
         end
@@ -520,7 +520,8 @@ local propertyName = propertyList.fetchPropertyName(User)
     elseif propertyList.fetchBuildersPermission(User) then
         mainDialog(User, SourceItem)
     else
-        User:inform("Du bist hierzu nicht berechtigt.","You do not have permission to do this.")
+        -- NEW GERMAN TRANSLATION NEEDED BELOW
+        User:inform("Du bist hierzu nicht berechtigt.","To build here you must be the owner of the property or have their permission.")
     end
 end
 return M
