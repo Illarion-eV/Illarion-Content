@@ -131,7 +131,7 @@ function Product:addRemnant(item, quantity, data)
     table.insert(self["remnants"], {["item"]=item, ["quantity"]=quantity, ["data"]=data})
 end
 
-function Craft:addProduct(categoryId, itemId, quantity, data, housing, tile)
+function Craft:addProduct(categoryId, itemId, quantity, data, housing, tile, thePosition)
     local difficulty
     if housing then
         difficulty = math.min(itemList.getLevelReq(itemId, tile),100)
@@ -227,6 +227,7 @@ function Craft:showDialog(user, source)
 end
 
 function Craft:allowCrafting(user, source)
+
     if not self.npcCraft then
         return self:allowUserCrafting(user, source)
     elseif not self.houseCraft then
@@ -888,13 +889,13 @@ function Craft:createItem(user, productId, toolItem, housing)
         Craft:eraseIngredients(user, product)
         common.CreateItem(user, product.item, product.quantity, quality, product.data)
     elseif housing then
-        local target = common.GetFrontPosition(user)
+        local target = self.targetPosition
         if product.tile == true then
             if propertyList.checkIfRoofOrRoofTile(user, product.item, true, product.item, "create") then
                 if propertyList.roofAndRoofTiles(user, product.item, true, "create") then
                     Craft:eraseIngredients(user, product)
                 else
-                    user:inform("","You do not have permission to build there.")
+                    user:inform("GERMAN TRANSLATION HERE","You do not have permission to build there.")
                 end
             else
                 Craft:eraseIngredients(user, product)
@@ -905,29 +906,29 @@ function Craft:createItem(user, productId, toolItem, housing)
                 if propertyList.createWarpsAndExitObject(user, product.item, "create") then
                     Craft:eraseIngredients(user, product)
                     world:createItemFromId(product.item, product.quantity, target, true, quality, nil)
-                    local targetItem = common.GetFrontItem(user)
+                    local targetItem = world:getItemOnField(target)
                     targetItem.wear = 255
                     world:changeItem(targetItem)
                 else
-                    user:inform("","You do not have permission to build there.")
+                    user:inform("GERMAN TRANSLATION HERE","You do not have permission to build there.")
                 end
             elseif propertyList.checkIfRoofOrRoofTile(user, product.item, false) then
                 if propertyList.roofAndRoofTiles(user, product.item, false, "create") then
                     Craft:eraseIngredients(user, product)
                 else
-                    user:inform("","You do not have permission to build there.")
+                    user:inform("GERMAN TRANSLATION HERE","You do not have permission to build there.")
                 end
             elseif propertyList.checkIfPlantOrTree(user, product.item) then
                 if propertyList.checkIfGardeningCriteriaMet(user, product.item) then
                     Craft:eraseIngredients(user, product)
                     world:createItemFromId(product.item, product.quantity, target, true, quality, nil)
                 else
-                    user:inform("","You can't plant this here.")
+                    user:inform("GERMAN TRANSLATION HERE","You can't plant this here.")
                 end
             else
                 Craft:eraseIngredients(user, product)
                 world:createItemFromId(product.item, product.quantity, target, true, quality, nil)
-                local targetItem = common.GetFrontItem(user)
+                local targetItem = world:getItemOnField(target)
                 targetItem.wear = 255
                 world:changeItem(targetItem)
             end

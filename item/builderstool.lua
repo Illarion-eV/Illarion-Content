@@ -103,6 +103,8 @@ local function destroyingPermitted(User, targetItem)
                 if propertyList.checkIfEstate(User) then
                     return true
                 end
+            else
+                return true
             end
         elseif propertyList.checkIfEstate(User) then --Estates can destroy anything on the property, even things they can not build.
             return true
@@ -442,6 +444,11 @@ local foundCurrentRentDuration, currentRentDuration = ScriptVars:find("rentDurat
         return currentRentDuration
     end
 end
+
+local function userTriesToCheatByTurning(user)
+    user:inform("GERMAN TRANSLATION HERE", "You changed the direction you were facing and lost track of what you were doing.")
+end
+
 function M.propertyManagement(User)
 local property = propertyList.fetchPropertyName(User)
     local callback = function(dialog)
@@ -459,7 +466,7 @@ local property = propertyList.fetchPropertyName(User)
                     notice.removeBuilderOrGuest(User, nil, "builder", property)
                 end
             else
-                User:inform("Du bist hierzu nicht berechtigt.","You do not have permission to do this.") -- This only happens if the user tries to cheat by turning while in dialog at property borders.
+                userTriesToCheatByTurning(User)
             end
         end
     end
@@ -471,6 +478,15 @@ local property = propertyList.fetchPropertyName(User)
     dialog:setCloseOnMove()
     User:requestSelectionDialog(dialog)
 end
+
+local function notPermittedToBuildOnEntrances(user)
+    user:inform("GERMAN TRANSLATION HERE", "You're not permitted to build on stairs or doorways.")
+end
+
+local function cantBuildOnPropertyDeed(user)
+    user:inform("GERMAN TRANSLATION HERE", "The property deed is off limits for building.")
+end
+
 local function mainDialog(User, SourceItem)
 local outlawRentDuration = ""
 local Outlaw
@@ -484,9 +500,14 @@ local propertyName = propertyList.fetchPropertyName(User)
         if success then
             local selected = dialog:getSelectedIndex()+1
             if propertyName then
-                if propertyList.fetchBuildersPermission(User) then
+                if propertyList.checkIfEntrance(User) then
+                    notPermittedToBuildOnEntrances(User)
+                elseif notice.checkForPropertyDeed(User) then
+                    cantBuildOnPropertyDeed(User)
+                elseif propertyList.fetchBuildersPermission(User) then
                     if selected == 1 then
-                        construction.makeAllCategories(User)
+                        local thePosition = common.GetFrontPosition(User)
+                        construction.makeAllCategories(User, thePosition)
                         craftSelection(User, SourceItem)
                     elseif selected == 2 and propertyList.checkIfEstate(User) then
                         destroySelection(User)
@@ -498,7 +519,7 @@ local propertyName = propertyList.fetchPropertyName(User)
                         M.propertyManagement(User)
                     end
                 else
-                    User:inform("Du kannst nicht außerhalb eines Grundstückes bauen.","You can't build outside of property land.") -- This only happens if the user tries to cheat by turning while in dialog at property borders.
+                    userTriesToCheatByTurning(User)
                 end
             end
         end
@@ -517,11 +538,14 @@ function M.UseItem(User, SourceItem)
 local propertyName = propertyList.fetchPropertyName(User)
     if not propertyName then
         User:inform("Du kannst nicht außerhalb eines Grundstückes bauen.","You can't build outside of property land.")
+    elseif propertyList.checkIfEntrance(User) then
+        notPermittedToBuildOnEntrances(User)
+    elseif notice.checkForPropertyDeed(User) then
+        cantBuildOnPropertyDeed(User)
     elseif propertyList.fetchBuildersPermission(User) then
         mainDialog(User, SourceItem)
     else
-        -- NEW GERMAN TRANSLATION NEEDED BELOW
-        User:inform("Du bist hierzu nicht berechtigt.","To build here you must be the owner of the property or have their permission.")
+        User:inform("GERMAN TRANSLATION HERE","To build here you must be the owner of the property or have their permission.")
     end
 end
 return M

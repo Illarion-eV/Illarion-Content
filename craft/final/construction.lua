@@ -84,7 +84,7 @@ local function addItems(cat, craft, isTile, user)
         end
     end
 end
-local function createCategory(cat, craft, sfxNumber, sfxDur, isTile, user)
+local function createCategory(cat, craft, sfxNumber, sfxDur, isTile, user, thePosition)
 local checkIfNoSkill = true
 local skill = 0
     if craft ~= "misc" then
@@ -102,7 +102,8 @@ local skill = 0
                             sfx = sfxNumber,
                             sfxDuration = sfxDur,
                             houseCraft = checkIfNoSkill,
-                            housing = true
+                            housing = true,
+                            targetPosition = thePosition
                             }
             addItems(cat, craft, isTile, user)
         end
@@ -126,7 +127,7 @@ local function clearPreviousBuild()
     end
 end
 
-function M.makeAllCategories(user)
+function M.makeAllCategories(user, thePosition)
 local sfx
     clearPreviousBuild() --Fixes bug where estate items would not show if non estate build menu was accessed first.
     for _, item in ipairs(itemList.items) do
@@ -138,7 +139,7 @@ local sfx
                             sfx = skill.sfx
                         end
                     end
-                    createCategory(item.category, item.skill, sfx, 25, false, user)
+                    createCategory(item.category, item.skill, sfx, 25, false, user, thePosition)
                 end
             end
         end
@@ -152,7 +153,7 @@ local sfx
                             sfx = skill.sfx
                         end
                     end
-                    createCategory(tile.category, tile.skill, sfx, 25, true, user)
+                    createCategory(tile.category, tile.skill, sfx, 25, true, user, thePosition)
                 end
             end
         end
