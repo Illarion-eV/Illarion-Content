@@ -2277,7 +2277,7 @@ end
 
 function M.UseItem(user, SourceItem)
     -- First check for mode change
-    local modes = {"Items", "Weather", "Factions", "Spawnpoint", "Special Item Creation", "Script Variables","Teleporter","Harbours", "Portals", "Potions","Property Management","Apply Persistence For Properties"}
+    local modes = {"Items", "Weather", "Factions", "Spawnpoint", "Special Item Creation", "Script Variables","Teleporter","Harbours", "Portals", "Potions","Property Management","Apply Persistence For Properties[Warning: Server-lag]"}
     local cbSetMode = function (dialog)
         if (not dialog:getSuccess()) then
             return
