@@ -83,14 +83,14 @@ local listOfItemsThatShouldShowLevel = {}
 
 --Adds veins used in mining to list of items that should show level
 for _, oreVein in pairs(mining.oreList) do
-    listOfItemsThatShouldShowLevel[#listOfItemsThatShouldShowLevel+1] = {id = oreVein.depletedId, skill = "mining", type = {english = "Vein", german = "Ader"}}
-    listOfItemsThatShouldShowLevel[#listOfItemsThatShouldShowLevel+1] = {id = oreVein.id, skill = "mining", type = {english = "Vein", german = "Ader"}}
+    table.insert(listOfItemsThatShouldShowLevel,{id = oreVein.depletedId, skill = "mining", type = {english = "Vein", german = "Ader"}})
+    table.insert(listOfItemsThatShouldShowLevel,{id = oreVein.id, skill = "mining", type = {english = "Vein", german = "Ader"}})
 end
 
 --Adds silk sources used in silkcutting to list of items that should show level
 for _, silkBush in pairs(silkcutting.silkList) do
-    listOfItemsThatShouldShowLevel[#listOfItemsThatShouldShowLevel+1] = {id = silkBush.depletedId, skill = "mining", type = {english = "Butterflies", german = "Schmetterlinge"}}
-    listOfItemsThatShouldShowLevel[#listOfItemsThatShouldShowLevel+1] = {id = silkBush.id, skill = "mining", type = {english = "Butterflies", german = "Schmetterlinge"}}
+    table.insert(listOfItemsThatShouldShowLevel,{id = silkBush.depletedId, skill = "mining", type = {english = "Butterflies", german = "Schmetterlinge"}})
+    table.insert(listOfItemsThatShouldShowLevel,{id = silkBush.id, skill = "mining", type = {english = "Butterflies", german = "Schmetterlinge"}})
 end
 
 local function showItemLevel(user, itemId, lookat , itemLevel)
