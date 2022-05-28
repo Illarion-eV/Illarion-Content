@@ -284,7 +284,7 @@ end
 
 function M.passesLevelReq(user, sourceItem, skillLevel)
     local itemCommon = world:getItemStatsFromId(sourceItem.id)
-    local levelReq = itemCommon.level
+    local levelReq = itemCommon.level or 0
     if levelReq <= skillLevel then
         return true
     end
