@@ -200,7 +200,7 @@ function M.StartGathering(user, sourceItem, ltstate)
 
     if newAmount <= 0 then
         gathering.SwapSource(sourceItem, depletedResourceID, restockWear)
-        user:inform( "Hier gibt es keine Steine mehr, an denen du arbeiten kannst.", "There are no stones for mining anymore.", Character.highPriority)
+        user:inform( "Hier gibt es keine Steine mehr, an denen du arbeiten kannst.", "There are no stones for mining anymore.", Character.lowPriority)
         return
     end
 end

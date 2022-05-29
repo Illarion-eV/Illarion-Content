@@ -120,7 +120,7 @@ function M.StartGathering(User, SourceItem, ltstate)
         SourceItem.wear = 4
         world:changeItem(SourceItem)
         User:inform("Du scheinst hier alles leergefischt zu haben.",
-                    "You seem to have caught all the fish here.",Character.highPriority)
+                    "You seem to have caught all the fish here.",Character.lowPriority)
         return
     end
 

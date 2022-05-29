@@ -79,7 +79,7 @@ function M.StartGathering(User, SourceItem, ltstate)
         SourceItem.wear = 4
         world:changeItem(SourceItem)
         User:inform("Hier gibt es kaum noch Schnee.",
-                    "You have depleted the snow pile.",Character.highPriority)
+                    "You have depleted the snow pile.",Character.lowPriority)
         return
     end
 end

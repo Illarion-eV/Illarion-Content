@@ -86,7 +86,7 @@ function M.StartGathering(User, SourceItem, ltstate)
 
     if newAmount <= 0 then
         gathering.SwapSource(SourceItem, depletedSourceID, restockWear)
-        User:inform( "Du findest hier keine Seidenraupen mehr.", "You can't find any silkworms here anymore.", Character.highPriority)
+        User:inform( "Du findest hier keine Seidenraupen mehr.", "You can't find any silkworms here anymore.", Character.lowPriority)
         return
     end
 

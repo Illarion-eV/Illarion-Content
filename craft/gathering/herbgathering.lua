@@ -299,7 +299,7 @@ function M.StartGathering(User, SourceItem, ltstate)
         end
         if ( amount == 0 ) then
             -- not regrown...
-            common.HighInformNLS( User,
+            common.TempInformNLS( User,
             "Diese Pflanze ist schon komplett abgeerntet. Gib ihr Zeit um nachzuwachsen.",
             "This plant is already completely harvested. Give it time to grow again." );
             if ( changeItem ) then
@@ -326,7 +326,7 @@ function M.StartGathering(User, SourceItem, ltstate)
     -- there is a harvestable item, but does the ground fit?
     local harvestProduct = GetValidProduct(SourceItem);
     if ( harvestProduct == nil ) then
-        common.HighInformNLS( User,
+        common.TempInformNLS( User,
         "Diese Pflanze trägt nichts Nützliches, das du mit deiner Sichel schneiden kannst. Vielleicht wird diese Art Pflanze in einem anderen Boden besser gedeihen.",
         "This plant yields nothing useful which you can cut with your sickle. Maybe this type of plant will flourish better in another soil." );
         return;
@@ -393,7 +393,7 @@ function M.StartGathering(User, SourceItem, ltstate)
                 User:startAction( theCraft.SavedWorkTime[User.id], 0, 0, 0, 0);
             end
         else
-            common.HighInformNLS( User,
+            common.TempInformNLS( User,
             "Diese Pflanze ist schon komplett abgeerntet. Gib ihr Zeit um nachzuwachsen.",
             "This plant is already completely harvested. Give it time to grow again." );
         end

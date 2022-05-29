@@ -28,7 +28,7 @@ local function preventGathering(User, theNest)
     if effectType == "ssigus" then
         world:gfx(21,User.pos)
         world:makeSound(31,User.pos)
-        User:inform("", "As you attempt to steal his eggs, Ssigus turns and swipes at you with a claw.", Character.highPriority)
+        User:inform("Als du versuchst, seine Eier zu stehlen, dreht sich Ssigus um und schlägt mit einer Klaue nach dir.", "As you attempt to steal his eggs, Ssigus turns and swipes at you with a claw.", Character.lowPriority)
         User:increaseAttrib("hitpoints",-2000)
     end
 
@@ -71,7 +71,7 @@ function M.StartGathering(User, SourceItem, ltstate)
     end
 
     if SourceItem.id == EMPTY_NEST  then
-      User:inform("Hier befinden sich keine Eier.","There are no eggs here.",Player.highPriority)
+      User:inform("Hier befinden sich keine Eier.","There are no eggs here.",Player.lowPriority)
       return;
     end
     -- check the amount
@@ -122,9 +122,7 @@ function M.StartGathering(User, SourceItem, ltstate)
         end
     end
     if (amount<=0) then
-      common.HighInformNLS(User,
-      "Dieses Nest ist leer.",
-      "This nest is empty." );
+      common.TempInformNLS(User,"Dieses Nest ist leer.","This nest is empty." );
       -- reset amount
         amount = 10;
         SourceItem:setData("amount","" .. amount);

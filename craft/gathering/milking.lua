@@ -59,7 +59,7 @@ function M.StartGathering(User, SourceAnimal, ltstate)
     common.TurnTo( User, SourceAnimal.pos ); -- turn if necessary
 
     if (User:countItemAt("all",2498) == 0) then -- check for items to work on
-        common.HighInformNLS( User,
+        common.TempInformNLS( User,
         "Du brauchst eine große leere Flasche um zu melken.",
         "You need a large empty bottle for milking." );
         return;
@@ -67,7 +67,7 @@ function M.StartGathering(User, SourceAnimal, ltstate)
 
     -- should be fine already, but check it nevertheless
     if ( SourceAnimal == nil or (SourceAnimal ~= nil and not isMilkable(SourceAnimal) )) then
-        common.HighInformNLS( User,
+        common.TempInformNLS( User,
         "Du musst vor einem Tier stehen, um es zu melken.",
         "You have to stand in front of an animal for milk it." );
         return;
@@ -86,7 +86,7 @@ function M.StartGathering(User, SourceAnimal, ltstate)
     if ( ltstate == Action.none ) then
 
         if gatherAmount >= 2 then
-            common.HighInformNLS( User,
+            common.TempInformNLS( User,
             "Dieses Tier wurde erst kürzlich gemolken und gibt momentan keine Milch.",
             "This animal was milked recently and doesn't give milk right now." );
             return;
@@ -119,7 +119,7 @@ function M.StartGathering(User, SourceAnimal, ltstate)
             SourceAnimal.movepoints = -1 * milking.SavedWorkTime[User.id]; -- make sure the animal doesn't move away
             User:startAction(milking.SavedWorkTime[User.id], 21, 5, 10, 25);
         else
-            common.HighInformNLS( User,
+            common.TempInformNLS( User,
             "Dieses Tier ist ausreichend gemolken und gibt keine Milch mehr.",
             "This animal is milked properly and doesn't give any more milk." );
         end

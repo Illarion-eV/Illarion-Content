@@ -63,7 +63,7 @@ function M.StartGathering(User, SourceItem, ltstate)
 
     local seed = SourceItem
     if seed.number < 1 then
-        User:inform("Du hast das Saatgut aufgebraucht.","You used all the seeds.")
+        User:inform("Du hast das Saatgut aufgebraucht.","You used all the seeds.", Character.lowPriority)
         return
     end
 
@@ -86,7 +86,7 @@ function M.StartGathering(User, SourceItem, ltstate)
 
     -- should not stack plants on top of anything
     if (world:isItemOnField(TargetPos)) then
-        common.HighInformNLS(User,
+        common.TempInformNLS(User,
         "Du kannst nur auf einem freien Feld Saatgut aussäen.",
         "Sowing seeds is only possible at a free spot.");
         return;
@@ -96,7 +96,7 @@ function M.StartGathering(User, SourceItem, ltstate)
     local Field = world:getField( TargetPos )
     local groundType = common.GetGroundType( Field:tile() );
     if ( groundType ~= 1 ) then
-        common.HighInformNLS(User,
+        common.TempInformNLS(User,
             "Du kannst nur auf Ackerboden Saatgut aussäen.",
         "Sowing seeds is only possible on farm land.");
         return
@@ -107,7 +107,7 @@ function M.StartGathering(User, SourceItem, ltstate)
         User:startAction( sowing.SavedWorkTime[User.id], 0, 0, 0, 0);
     -- this is no batch action => no emote message, only inform player
         if sowing.SavedWorkTime[User.id] > 15 then
-            common.InformNLS(User, "Du säst Saatgut aus.","You sow seeds.");
+            common.TempInformNLS(User, "Du säst Saatgut aus.","You sow seeds.");
         end
         return
     end
