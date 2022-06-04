@@ -28,7 +28,7 @@ local function preventGathering(User, theNest)
     if effectType == "ssigus" then
         world:gfx(21,User.pos)
         world:makeSound(31,User.pos)
-        User:inform("Als du versuchst, seine Eier zu stehlen, dreht sich Ssigus um und schlägt mit einer Klaue nach dir.", "As you attempt to steal his eggs, Ssigus turns and swipes at you with a claw.", Character.lowPriority)
+        User:inform("Als du versuchst, seine Eier zu stehlen, dreht sich Ssigus um und schlägt mit einer Klaue nach dir.", "As you attempt to steal his eggs, Ssigus turns and swipes at you with a claw.")
         User:increaseAttrib("hitpoints",-2000)
     end
 
