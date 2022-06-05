@@ -23,6 +23,7 @@ local globalvar = require("base.globalvar")
 local salaveshDungeon = require("content.salaveshDungeon")
 local akaltutDungeon = require("content.akaltutDungeon")
 local volcano_chest = require("triggerfield.volcano_chest")
+local scheduledSpawn = require("scheduled.spawn_treasure")
 
 local MAX_CHARS = 8
 
@@ -122,6 +123,7 @@ function M.UseItem(user,sourceItem)
         sourceItem:setData("unlockerId"..tostring(playerTried),user.id)
         world:changeItem(sourceItem)
     else
+        scheduledSpawn.setTimer(sourceItem)
         common.TalkNLS(user, Character.say,
             "#me öffnet die Kiste.",
             "#me opens the chest.")
