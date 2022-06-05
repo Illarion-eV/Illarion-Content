@@ -794,7 +794,9 @@ function GetParryWeaponAndItem(Defender)
         end
     end
 
-    if parryItem == nil or common.isBroken(parryItem) then
+    if parryItem == nil then
+        return nil, nil
+    elseif  common.isBroken(parryItem) then
         return nil, nil
     else
         return parryWeapon, parryItem
