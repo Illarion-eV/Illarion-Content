@@ -1,0 +1,106 @@
+-- Illarion Server
+-- 
+-- This program is free software: you can redistribute it and/or modify it under
+-- the terms of the GNU Affero General Public License as published by the Free
+-- Software Foundation, either version 3 of the License, or (at your option) any
+-- later version.
+-- 
+-- This program is distributed in the hope that it will be useful, but WITHOUT
+-- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+-- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+-- details.
+-- 
+-- You should have received a copy of the GNU Affero General Public License
+-- along with this program.  If not, see <http://www.gnu.org/licenses/>.
+------------------------------------------------------------------------------AC
+-- Author:  Banduk, moved from lua to npc files by Brightrim                  --
+--                                                     easyNPC Parser v1.23.1 --
+--------------------------------------------------------------------------------
+
+name = "Blight Ronin"
+race = human
+sex = male
+position = 695, 311, 0
+direction = south
+affiliation = "None"
+job = "Attribute Trainer"
+
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
+
+author = "Banduk"
+
+lookatDE = ""
+lookatUS = ""
+useMsgDE = "Fasst mich nicht an!"
+useMsgUS = "Hands off me!"
+wrongLangDE = "#me schaut verwirrt."
+wrongLangUS = "#me looks around confused."
+radius = 0
+hairID = 2
+beardID = 6
+colorHair = 36, 37, 34
+colorSkin = 245, 180, 137
+itemHead = 0
+itemChest = 181
+itemCoat = 193
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 48
+itemTrousers = 461
+itemShoes = 53
+
+------------------------------------------------------------------------------AC
+-- Template Version 1.06, 08/29/2012 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Order of triggers: Triggers are checked from top to bottom in the script. Never use very general triggers like "hi" or even ".*" on top of the script unless you know exactly what you are doing.
+-- Style of triggers: Keywords are preferred. Avoid usage of phrases such as "tell me more"
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change anything your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Equipment: You can find a graphical item list here: http://illarion.org/~martin/itemlist.pdf
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly
+-- When you are done, please hit the "Rebuild Script" button and save the LUA script. Both, this npc file and the LUA file have to be uploaded to the script repository
+-- After uploading, your NPC needs to be submitted to the database and a developer has to perform a full reload (!fr) of the server
+
+-- TRADING
+-- The trader should buy all items he sells. Primary items are bought at 10% of the worth, secondary items yield only 5%
+
+-- MANDATORY TRIGGERS
+
+-- Mandatory: Help
+"Help" -> inform("[Help] This NPC is a trainer. Ask him for training to change your basic attributes permanently, for a small fee of course.")
+"Hilfe" -> inform("[Hilfe] Dieser NPC ist ein Trainer. Bitte ihn dich zu trainieren um deine grundlegenden Attribute dauerhaft zu ändern, gegen eine geringe Gebühr natürlich.")
+
+-- Mandatory: General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted!","Hello my friend!","Hello, I haven't seen you for awhile!"
+"Grüße", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin" -> "Grüß dich!","Hallo mein Freund!","Hallo, lange nicht gesehen!"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello, hello!"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Hallo, hallo!"
+"Farewell", "Bye", "Fare well", "See you" -> "Bye and good luck!","Goodbye and good luck!","Have fun!"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Tschüss und viel Glück!","Man sieht sich!","Machs gut und pass auf dich auf!"
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Adieu."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Adieu."
+"How are you", "How feel", "How do you do" -> "Thank you, and yourself?","I can't complain, but you should.","Never better than today."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Danke und dir?","Ich kann nicht klagen aber du solltest das.","Mir ging es nie besser."
+"your name", "who are you", "who art thou" -> "I am Blight Ronin."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Blight Ronin."
+
+-- Mandatory: Catching quest triggers. Modify if the NPC does quests
+english, "quest", "mission" -> "I don't have any tasks for you."
+"quest", "mission" -> "Ich vergebe keine Aufgaben."
+"task", "adventure", "order" -> "I don't have any tasks for you."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich vergebe keine Aufgaben."
+
+-- Job related
+
+"better", "improve" -> "You can always improve yourself, if you want.","There is always something to do. Let's start.","Do you really want to stay as you are?"
+"besser" -> "Man kann immer besser werden. Man muss nur wollen.","Es gibt immer was zu tun, packen wir es an.","Wer will schon bleiben wie er ist?"
+"god" -> "Be assured as I work with you the Gods close their eyes.","Gods give, gods take, but in the end we decide if we want to use the gifts at their best.","Your trainer is your seventeenth God."
+"gott", "gött" -> "Wenn ich dich unter meine Fitiche nehme schauen die Götter lieber weg.","Was die Götter uns gaben können wir verbessern.","Dein Trainer ist dein siebzehnter Gott."
+
+-- Training trigger
+
+"train" -> attribtrainer
