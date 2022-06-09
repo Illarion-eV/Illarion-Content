@@ -788,7 +788,7 @@ function GetParryWeaponAndItem(Defender)
         if not parryWeapon then
             parryItem = Defender.SecWeaponItem
             parryWeapon = Defender.SecWeapon
-        elseif (parryWeapon.Defence < Defender.SecWeapon.Defence) or common.isBroken(parryWeapon) then
+        elseif (parryWeapon.Defence < Defender.SecWeapon.Defence) or common.isBroken(parryItem) then
             parryItem = Defender.SecWeaponItem
             parryWeapon = Defender.SecWeapon
         end
