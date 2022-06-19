@@ -2870,10 +2870,41 @@ function M.numberToPosition(number)
     return position(posx, posy, posz)
 end
 
--- Erases one item and readds it to the inventory
-function M.readdItem(user, item)
-    world:erase(item, 1)
-    M.CreateItem(user, item.id, 1, item.quality, item.data)
+function M.isContainerFull(container, containerId)
+
+    local containerSlots = 100
+
+    if containerId == Item.wickerBasket then
+        containerSlots = 58
+    end
+
+    for i = 1, containerSlots do
+        local success = container:viewItemNr(i-1)
+
+        if not success then --No item was found in that slot
+            return false
+        end
+
+    end
+
+    return true
+
+end
+
+function M.moveItemToBackpack(user, theItem)
+    local backpack = user:getBackPack()
+    local backpackId = user:getItemAt(Character.backpack).id
+
+    if not backpack or M.isContainerFull(backpack, backpackId) then -- if there is no backpack or it is full, items fall on the ground instead
+        local itemStats = world:getItemStatsFromId(theItem.id)
+        user:inform("GERMAN TRANSLATION"..itemStats.German,"Having no backpack/no space in your backpack to put them in, the pieces of your broken "..itemStats.English.." fall to the ground.")
+        return false
+    end
+
+    world:erase(theItem, theItem.number)
+    backpack:insertItem(theItem)
+
+    return true
 end
 
 return M
