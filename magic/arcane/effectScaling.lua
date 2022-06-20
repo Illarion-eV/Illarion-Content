@@ -41,12 +41,11 @@ function M.getEffectScaling(user, target, spell, earthTrap)
 
     local wandQualityImpact = magicDamage.getWandQualityImpact(user)
     local attributeImpact = magicDamage.getAttribBonusForMagic(user, spell)
+    local magicGemImpact = magicDamage.getMagicGemImpact(user)
 
     local retVal = 1 + magicPenetration - magicResistance
 
-    retVal = retVal*wandQualityImpact
-
-    retVal = retVal*attributeImpact
+    retVal = retVal*wandQualityImpact*attributeImpact*magicGemImpact
 
     return retVal
 end

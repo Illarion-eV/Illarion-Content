@@ -20,6 +20,7 @@ local MR = require("magic.arcane.magicResistance")
 local MP = require("magic.arcane.magicPenetration")
 local runes = require("magic.arcane.runes")
 local skilling = require("magic.arcane.skilling")
+local gems = require("base.gems")
 
 local M = {}
 local damageList = {
@@ -175,6 +176,19 @@ function M.getWandQualityImpact(user)
 
 end
 
+function M.getMagicGemImpact(user)
+
+    local wand = M.getWand(user)
+    local gemBonus = 0
+
+    if wand then
+        gemBonus = gems.getGemBonus(wand)
+    end
+
+    return 1 + gemBonus
+
+end
+
 function M.getAttribBonusForMagic(user, spell)
 
     local skillName = skilling.getMagicSkillSpellBelongsTo(spell)
@@ -185,35 +199,41 @@ function M.getAttribBonusForMagic(user, spell)
 end
 
 function M.getMagicDamage(user, spell, element, target, DoT, Orl, earthTrap)
-local damage = checkForDamageRunes(target, spell, element, DoT)
-local qualityImpact = M.getWandQualityImpact(user)
-local attributeImpact = M.getAttribBonusForMagic(user, spell)
-    damage = damage*qualityImpact
-    damage = damage*attributeImpact
-local magicResist
-local magicPen
+    local damage = checkForDamageRunes(target, spell, element, DoT)
+    local qualityImpact = M.getWandQualityImpact(user)
+    local attributeImpact = M.getAttribBonusForMagic(user, spell)
+    local magicGemImpact = M.getMagicGemImpact(user)
+    local magicResist
+    local magicPen
+
+    damage = damage*qualityImpact*attributeImpact*magicGemImpact
+
     if not earthTrap then
         magicPen = MP.getMagicPenetration(user, element, spell)
         damage = checkForDamageRunes(target, spell, element, DoT)
     else
         magicPen = earthTrap:getData("magicPenetration")
     end
-local finalDamage = 0
-local illusion = runes.checkSpellForRuneByName("Lhor", spell)
-local playerOrMonster = target:getType()
+
+    local finalDamage = 0
+    local illusion = runes.checkSpellForRuneByName("Lhor", spell)
+    local playerOrMonster = target:getType()
 
     if playerOrMonster ~= Character.npc and not illusion then
         magicResist = MR.getMagicResistance(target, spell)
         finalDamage = damage*(1+magicPen-magicResist)
     end
+
     if runes.checkSpellForRuneByName("Sul",spell) then
         finalDamage = finalDamage*1.1 --10% damage increase
     end
-local Taur = runes.checkSpellForRuneByName("Taur", spell)
-local Ura = runes.checkSpellForRuneByName("Ura", spell)
-local Yeg = runes.checkSpellForRuneByName("Yeg", spell)
-local JUS = runes.checkSpellForRuneByName("JUS", spell)
-local rune
+
+    local Taur = runes.checkSpellForRuneByName("Taur", spell)
+    local Ura = runes.checkSpellForRuneByName("Ura", spell)
+    local Yeg = runes.checkSpellForRuneByName("Yeg", spell)
+    local JUS = runes.checkSpellForRuneByName("JUS", spell)
+    local rune
+
     if Taur then
         rune = "Taur"
     elseif Ura then
@@ -221,21 +241,28 @@ local rune
     elseif Yeg then
         rune = "Yeg"
     end
-local raceBonus
+
+    local raceBonus
+
     if rune then
         raceBonus = M.checkIfRaceBonus(target, rune)
     end
+
     if raceBonus and JUS then
         finalDamage = finalDamage*2
     end
+
     if Orl and JUS then
         finalDamage = finalDamage/2
     end
+
     if finalDamage > 4444 then
         finalDamage = 4444 -- Should take at least three shots to kill someone
     end
+
     finalDamage = math.floor(finalDamage)
-return finalDamage
+
+    return finalDamage
 end
 
 return M
