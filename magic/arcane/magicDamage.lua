@@ -19,6 +19,8 @@ local magic = require("magic.magic")
 local MR = require("magic.arcane.magicResistance")
 local MP = require("magic.arcane.magicPenetration")
 local runes = require("magic.arcane.runes")
+local skilling = require("magic.arcane.skilling")
+
 local M = {}
 local damageList = {
 {rune = "RA", damage = 1000, element = "Fire"},
@@ -173,10 +175,21 @@ function M.getWandQualityImpact(user)
 
 end
 
+function M.getAttribBonusForMagic(user, spell)
+
+    local skillName = skilling.getMagicSkillSpellBelongsTo(spell)
+
+
+    return 1 + common.GetAttributeBonusHigh(nil, skillName, user)
+
+end
+
 function M.getMagicDamage(user, spell, element, target, DoT, Orl, earthTrap)
 local damage = checkForDamageRunes(target, spell, element, DoT)
 local qualityImpact = M.getWandQualityImpact(user)
+local attributeImpact = M.getAttribBonusForMagic(user, spell)
     damage = damage*qualityImpact
+    damage = damage*attributeImpact
 local magicResist
 local magicPen
     if not earthTrap then

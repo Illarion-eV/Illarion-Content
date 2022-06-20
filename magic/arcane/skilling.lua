@@ -31,18 +31,26 @@ local skillTable = {
 
 local balanceLearningSpeed = 3 --Will need changing according to how the cast time gets balanced in order to balance learning speed
 
-function M.increaseExperience(user, spell)
-local spellElement = runes.fetchElement(spell)
-local castTime = castingSpeed.arcaneSpellCastSpeed(user, spell)
+function M.getMagicSkillSpellBelongsTo(spell)
+
+    local spellElement = runes.fetchElement(spell)
+
     for _, skill in pairs(skillTable) do
         if skill.element == spellElement then
-            local theSkill = Character[skill.name]
-            local leadAttrib = common.GetLeadAttrib(user, theSkill)
-            local leadAttribBonus = common.GetAttributeBonus(leadAttrib, 10)
-            user:learn(theSkill, (castTime/balanceLearningSpeed)*(1+leadAttribBonus), 100)
-            return
+            return skill.name
         end
     end
+
+end
+
+function M.increaseExperience(user, spell)
+
+    local castTime = castingSpeed.arcaneSpellCastSpeed(user, spell)
+    local skillName = M.getMagicSkillSpellBelongsTo(spell)
+    local theSkill = Character[skillName]
+    local leadAttrib = common.GetLeadAttrib(user, theSkill)
+    local leadAttribBonus = common.GetAttributeBonus(leadAttrib, 10)
+    user:learn(theSkill, (castTime/balanceLearningSpeed)*(1+leadAttribBonus), 100)
 end
 
 function M.increaseExperiencePortalMagic(user, duration)
