@@ -33,6 +33,7 @@ local stallMana = require("magic.arcane.stallMana")
 local traps = require("magic.arcane.traps")
 local information = require("magic.arcane.spirit.information")
 local tutorials = require("magic.tutorials")
+local dispel = require("magic.arcane.dispel")
 
 local M = {}
 
@@ -81,6 +82,7 @@ function M.spellEffects(user, targets, spell, element, Orl)
         staticObjects.spawnStaticObjects(user, targets, spell)
         stallMana.applyManaStalling(user, targets, spell)
         information.invokeSpiritSpells(user, targets, spell)
+        dispel.dispel(spell, targets)
     else --spell effect gets applied to trap instead
         traps.createEarthTraps(user, targets, spell)
     end
