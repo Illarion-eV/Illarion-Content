@@ -15,7 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
-local magic = require("magic.magic")
+local magic = require("base.magic")
 local MR = require("magic.arcane.magicResistance")
 local MP = require("magic.arcane.magicPenetration")
 local runes = require("magic.arcane.runes")
