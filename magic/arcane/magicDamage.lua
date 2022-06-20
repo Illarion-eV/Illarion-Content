@@ -14,6 +14,8 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
+local common = require("base.common")
+local magic = require("magic.magic")
 local MR = require("magic.arcane.magicResistance")
 local MP = require("magic.arcane.magicPenetration")
 local runes = require("magic.arcane.runes")
@@ -147,8 +149,34 @@ local list
 return damage
 end
 
+function M.getWand(user)
+
+    local leftTool = user:getItemAt(Character.left_tool)
+    local rightTool = user:getItemAt(Character.right_tool)
+    if common.isInList(leftTool.id, magic.wandIds) then
+        return leftTool
+    elseif common.isInList(rightTool.id, magic.wandIds) then
+        return rightTool
+    else
+        return false
+    end
+
+end
+
+function M.getWandQualityImpact(user)
+
+    local wand = M.getWand(user)
+    if not wand then
+        return 1
+    end
+    return 1 + common.GetQualityBonusStandard(wand)
+
+end
+
 function M.getMagicDamage(user, spell, element, target, DoT, Orl, earthTrap)
 local damage = checkForDamageRunes(target, spell, element, DoT)
+local qualityImpact = M.getWandQualityImpact(user)
+    damage = damage*qualityImpact
 local magicResist
 local magicPen
     if not earthTrap then

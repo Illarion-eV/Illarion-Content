@@ -18,23 +18,33 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local MR = require("magic.arcane.magicResistance")
 local MP = require("magic.arcane.magicPenetration")
 local runes = require("magic.arcane.runes")
+local magicDamage = require("magic.arcane.magicDamage")
+
 
 local M = {}
 
 function M.getEffectScaling(user, target, spell, earthTrap)
-local element = runes.fetchElement(spell)
-local magicResistance = 0
+    local element = runes.fetchElement(spell)
+    local magicResistance = 0
+
     if target.pos and not target.itempos then
         magicResistance = MR.getMagicResistance(target, spell)
     end
-local magicPenetration
+
+    local magicPenetration
+
     if not earthTrap then
         magicPenetration = MP.getMagicPenetration(user, element, spell)
     else
         magicPenetration = earthTrap:getData("magicPenetration")
     end
-local retVal = 1 + magicPenetration - magicResistance
-return retVal
+
+    local wandQualityImpact = magicDamage.getWandQualityImpact(user)
+    local retVal = 1 + magicPenetration - magicResistance
+
+    retVal = retVal*wandQualityImpact
+
+    return retVal
 end
 
 
