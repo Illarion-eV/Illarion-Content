@@ -71,7 +71,7 @@ ListHairFemale[3] = {1,7,8}
 ListHairFemale[4] = {1,7,8}
 ListHairFemale[5] = {1,2,3,4,5,6}
 
-local dogTransformation
+local monsterTransformation
 
 local function DrinkPotion(user,SourceItem)
 
@@ -84,8 +84,16 @@ local function DrinkPotion(user,SourceItem)
 
     elseif (potionEffectId >= 500) and (potionEffectId < 599) then -- transformation potion
 
-        if potionEffectId == 560 then
-            dogTransformation(user,SourceItem)
+        local dog = 560
+        local spider = 561
+
+        if potionEffectId == dog then
+            monsterTransformation(user,SourceItem, 58)
+            return
+        end
+
+        if potionEffectId == spider then
+            monsterTransformation(user, SourceItem, 19)
             return
         end
 
@@ -232,7 +240,7 @@ local function DrinkPotion(user,SourceItem)
     end
 end
 
-function dogTransformation(user,SourceItem)
+function monsterTransformation(user,SourceItem, race)
 
     local oldRace = user:getRace()
     local oldSkinColour = user:getSkinColour()
@@ -291,8 +299,10 @@ function dogTransformation(user,SourceItem)
         end
     end
 
-    local newRace = 58
+    local newRace = race
+
     local newHeight = math.random(80,120)
+
     local newSkincolor1 = 102
     local newSkincolor2 = 51
     local newSkincolor3 = 0

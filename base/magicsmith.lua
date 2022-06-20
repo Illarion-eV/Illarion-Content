@@ -67,7 +67,7 @@ local function isSocketable(itemId)
     end
 
     -- tools can also be socketed
-    local toolList = {72,74,121,2781,2697,122,311,2710,23,2709,227,737,47,2495,9,24,6,271,126,2763,2751,2140,2752,2715}
+    local toolList = {72,74,121,2781,2697,122,311,2710,23,2709,227,737,47,2495,9,24,6,271,126,2763,2751,2140,2752,2715, Item.mortar}
     -- 72:fishing rod;74:hatchet;121:peel;2781:dyeing rod;2697:rasp;122:finesmithing hammer;311:glass blow pipe;2710:mould;23:hammer;2709:armourer's hammer;227:cooking spoon;737:chisel;47:needle;2495:pan;9:saw;24:shovel;6:scissors;271:scythe;126:sickle;2763:pick-axe;2751:crucible-pincers;2140:tongs;2752:carving tools;2715:plane
     for i in pairs(toolList) do
         if itemId == toolList[i] then

@@ -61,7 +61,7 @@ function M.StartGathering(User, SourceAnimal, ltstate)
 
     -- Sheep should actually be already a sheep character struct, but check it nevertheless
     if ( SourceAnimal == nil or (SourceAnimal ~= nil and SourceAnimal:getRace()~=18) ) then
-        common.HighInformNLS( User,
+        common.TempInformNLS( User,
         "Du musst vor einem Schaf stehen, um es zu scheren.",
         "You have to stand in front of a sheep for shearing it." );
         return;
@@ -78,7 +78,7 @@ function M.StartGathering(User, SourceAnimal, ltstate)
     if ( ltstate == Action.none ) then -- currently not working -> let's go
 
         if gatherAmount >= 20 then
-            common.HighInformNLS( User,
+            common.TempInformNLS( User,
             "Dieses Schaf wurde kürzlich erst geschoren und gibt momentan keine Wolle.",
             "This sheep has been sheared recently and doesn't give wool right now." );
             return;
@@ -115,7 +115,7 @@ function M.StartGathering(User, SourceAnimal, ltstate)
                 SourceAnimal.movepoints = math.min(SourceAnimal.movepoints, -1*woolcutting.SavedWorkTime[User.id]);
             end
         else
-            common.HighInformNLS( User,
+            common.TempInformNLS( User,
             "Dieses Schaf ist nun geschoren und gibt keine Wolle mehr.",
             "This sheep is now sheared properly and doesn't give any more wool." );
         end

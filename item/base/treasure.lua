@@ -295,17 +295,17 @@ local function informAboutError(user)
     )
 end
 
-function M.createMapData()
+function M.createMapData(name)
     local location = findPosition();
     if location == nil then
         return nil;
     end
 
-    return {MapPosX = location.x, MapPosY = location.y, MapPosZ = location.z}
+    return {MapPosX = location.x, MapPosY = location.y, MapPosZ = location.z, foundBy = name}
 end
 
 function M.createMap(player, mapLevel)
-    local data = M.createMapData()
+    local data = M.createMapData(player.name)
     if data == nil then
         return false
     end

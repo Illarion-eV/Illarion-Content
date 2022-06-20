@@ -16,6 +16,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
 
+local restTime = {}
+local storedMessage = {}
+local storedPosition = {}
 local M = {}
 
 -- Called by the server when user:learn(...) is issued by a script
@@ -124,7 +127,7 @@ function M.learn(user, skill, actionPoints, learnLimit)
 
             end
         user:increaseMentalCapacity(amplification * actionPoints)
-        user:setQuestProgress(47,0)
+        M.resetRestTime(user)
     end
 end
 
@@ -133,7 +136,9 @@ end
 
 function M.reduceMC(user)
 
-    if user:idleTime() < 300 and user:getQuestProgress(47) < 12 then
+    M.checkRest(user)
+
+    if user:idleTime() < 300 and M.getRestTime(user) < 360 then
         --Has the user done any action within the last five minutes?
 
         user:increaseMentalCapacity(-1 * math.floor(user:getMentalCapacity() * damping + 0.5))
@@ -146,9 +151,48 @@ function M.reduceMC(user)
         end
 
     end
+
     --For debugging, use the following line.
     --[[user:inform("MC="..user:getMentalCapacity()..", idleTime="..user:idleTime()..", MCfactor="..normalMC /
-        math.max(lowerBorder, user:getMentalCapacity())..", Counter="..user:getQuestProgress(47)..".")]]
+        math.max(lowerBorder, user:getMentalCapacity())..", Counter="..M.getRestTime(user)..".")]]
+end
+
+function M.getRestTime(user)
+
+    if not restTime[user.id] then
+        restTime[user.id] = 0
+    end
+
+    return restTime[user.id]
+end
+
+function M.increaseRestTime(user)
+    if not restTime[user.id] then
+        restTime[user.id] = 1
+    else
+        restTime[user.id] = restTime[user.id] + 1
+    end
+end
+
+function M.resetRestTime(user)
+    restTime[user.id] = 0
+end
+
+function M.checkRest(user)
+
+    if storedMessage[user.id] == user.lastSpokenText and common.isInRect(user.pos, storedPosition[user.id], 3) and user:idleTime() < 300  then
+
+        M.increaseRestTime(user)
+
+    elseif storedMessage[user.id] ~= user.lastSpokenText or not common.isInRect(user.pos, storedPosition[user.id], 3) then
+
+        M.resetRestTime(user)
+
+    end
+
+    storedMessage[user.id] = user.lastSpokenText
+    storedPosition[user.id] = position(user.pos.x,user.pos.y,user.pos.z)
+
 end
 
 return M

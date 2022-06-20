@@ -1569,7 +1569,7 @@ local _
                     return
                 end
                 local potionName = dialog3:getInput()
-                common.CreateItem(user,tonumber(potionID),tonumber(potionAmount),tonumber(potionQuality),{["potionEffectId"]=tonumber(potionEffect),["descriptionEn"]=potionName,["descriptionDe"]=potionName})
+                common.CreateItem(user,tonumber(potionID),tonumber(potionAmount),tonumber(potionQuality),{["potionEffectId"]=tonumber(potionEffect),["descriptionEn"]=potionName,["descriptionDe"]=potionName,["creator"]="admin"})
             end
             user:requestInputDialog(InputDialog("Potion Creation", "What do you want to label your potions?",false,255,callback3))
         end
@@ -1634,8 +1634,6 @@ local function potionTypeSelection(user, potionType)
             createPotion(user,"166","11111111")
         elseif index == 14 then
             createPotion(user,"166","10")
-        elseif index == 15 then
-            createCustomInformPotion(user, "166")
         end
     end
     local callback2 = function(dialog2)
@@ -1653,8 +1651,6 @@ local function potionTypeSelection(user, potionType)
             createPotion(user,"59","99999999")
         elseif index == 5 then
             createPotion(user,"59","11111111")
-        elseif index == 6 then
-            createCustomInformPotion(user, "59")
         end
     end
     local callback3 = function(dialog3)
@@ -1689,7 +1685,7 @@ local function potionTypeSelection(user, potionType)
         elseif index == 13 then
             createPotion(user,"329","510")
         elseif index == 14 then
-            createCustomInformPotion(user, "329")
+            createPotion(user, "329", "561")
         end
     end
     local callback4 = function(dialog4)
@@ -1721,8 +1717,6 @@ local function potionTypeSelection(user, potionType)
             createPotion(user,"327","314")
         elseif index == 12 then
             createPotion(user,"327","320")
-        elseif index == 13 then
-            createCustomInformPotion(user, "327")
         end
     end
     local callback5 = function(dialog5)
@@ -1746,8 +1740,6 @@ local function potionTypeSelection(user, potionType)
             createPotion(user,"330","605")
         elseif index == 8 then
             createPotion(user,"330","602")
-        elseif index == 9 then
-            createCustomInformPotion(user, "330")
         end
     end
     local callback6 = function(dialog6)
@@ -1769,8 +1761,6 @@ local function potionTypeSelection(user, potionType)
             createPotion(user,"165","405")
         elseif index == 7 then
             createPotion(user,"165","406")
-        elseif index == 8 then
-            createCustomInformPotion(user, "165")
         end
     end
     local callback7 = function(dialog7)
@@ -1851,6 +1841,7 @@ local function potionTypeSelection(user, potionType)
     dialog3:addOption(0, "Male Orc")
     dialog3:addOption(0, "Female Dwarf")
     dialog3:addOption(0, "Male Dwarf")
+    dialog3:addOption(0, "Small Spider")
     dialog4:addOption(0, "Small Explosive")
     dialog4:addOption(0, "Medium Explosive")
     dialog4:addOption(0, "Big Explosive")

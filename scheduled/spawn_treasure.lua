@@ -49,11 +49,109 @@ local treasureParameter = {
     {position(703,616,-6),6,9,4} --Volcano dungeon - end of dungeon
 }
 
+local function checkForAndSpawnSignPost()
+
+    local location = position(206, 105, 0)
+    local id = 2927
+    local title = "Chest Respawn Timers"
+    local description = "This signpost is a hack to store dynamic treasure chest respawn timers in a way that survives server reloads, without causing the lag that accessing the database would cause. Do not erase this signpost."
+
+    local signPostExists = false
+
+    if not world:isPersistentAt(location) then
+        world:makePersistentAt(location)
+    end
+
+    local field = world:getField(location)
+    local count = field:countItems()
+
+    for i = 0, count do
+        local theItem = field:getStackItem(i)
+        if theItem.id == id then
+            signPostExists = theItem
+        end
+    end
+
+    local newSignPost
+
+    if not signPostExists then
+        newSignPost = world:createItemFromId(id, 1, location, true, 999, {["titleEn"] = title, ["titleDe"] = title, ["descriptionEn"] = description, ["descriptionDe"] = description})
+        newSignPost.wear = 255
+        world:changeItem(newSignPost)
+    end
+
+    return signPostExists, newSignPost
+end
+
+local function timerIsUp(chestNumber)
+
+    local signPost = checkForAndSpawnSignPost()
+
+    if signPost then
+
+        local timer = signPost:getData("chest"..chestNumber)
+        local time = world:getTime("unix")
+
+        if timer ~= "" then
+            timer = tonumber(timer)
+            if timer < time then
+                return true
+            else
+                return false
+            end
+        else
+            return true
+        end
+    else
+        return false
+    end
+
+end
+
+function M.setTimer(chest)
+
+    local location = chest.pos
+
+    local signPost, newSignPost = checkForAndSpawnSignPost()
+
+    local chestNumber = false
+
+    if not signPost then
+        signPost = newSignPost
+    end
+
+    for i = 1, #treasureParameter do
+        local thisIsTheChestWeAreLookingFor = treasureParameter[i][1] == location
+        if thisIsTheChestWeAreLookingFor then
+            chestNumber = i
+        end
+    end
+
+    if not chestNumber then
+        debug("This will only happen if a GM spawns a chest that is not in the list for players to loot.")
+        return
+    end
+
+    local time = world:getTime("unix")
+
+    local rand = math.random(21600, 64800) --Between 6 and 18 hours for a chest to respawn, determined when the chest is looted
+
+    local timer = time+rand
+
+    signPost:setData("chest"..chestNumber, timer)
+    world:changeItem(signPost)
+end
+
+
 function M.spawnTreasure()
 
     for i = 1, #treasureParameter do
-        if #world:getPlayersInRangeOf(treasureParameter[i][1],20) == 0 and world:isItemOnField(treasureParameter[i][1]) == false then --only spawn a treasure if nobody is around
-            M.spawnTreasureChest(treasureParameter[i][1], math.random(treasureParameter[i][2],treasureParameter[i][3]), treasureParameter[i][4])
+        local noPlayersInRange = #world:getPlayersInRangeOf(treasureParameter[i][1],20) == 0
+        local noItemsOnField = not world:isItemOnField(treasureParameter[i][1])
+        if noPlayersInRange and noItemsOnField then --only spawn a treasure if nobody is around
+            if timerIsUp(i) then
+                M.spawnTreasureChest(treasureParameter[i][1], math.random(treasureParameter[i][2],treasureParameter[i][3]), treasureParameter[i][4])
+            end
         end
     end
 

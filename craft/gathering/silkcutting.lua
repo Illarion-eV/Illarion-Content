@@ -22,6 +22,15 @@ local gathering = require("craft.base.gathering")
 
 local M = {}
 
+M.silkList = {
+    {id = 3634, depletedId = 3638},
+    {id = 3635, depletedId = 3639},
+    {id = 3636, depletedId = 3640},
+    {id = 3637, depletedId = 3641}
+    }
+
+local silkList = M.silkList
+
 function M.StartGathering(User, SourceItem, ltstate)
 
     local silkcutting = gathering.GatheringCraft:new{LeadSkill = Character.tanningAndWeaving, LearnLimit = 100}
@@ -29,19 +38,9 @@ function M.StartGathering(User, SourceItem, ltstate)
     local maxAmount = 3
     local GFX = 22
     local SFX = 0
-    local resourceID = 3787 --silk
+    local resourceID = 3787
     local restockWear = 4 --15 minutes
-    local depletedSourceID
-
-    if SourceItem.id == 3634 then
-        depletedSourceID = 3638
-    elseif SourceItem.id == 3635 then
-        depletedSourceID = 3639
-    elseif SourceItem.id == 3636 then
-        depletedSourceID = 3640
-    elseif SourceItem.id == 3637 then
-        depletedSourceID = 3641
-    end
+    local depletedSourceID = gathering.getDepletedObject(silkList, SourceItem.id)
 
     local success, toolItem, amount, gatheringBonus = gathering.InitGathering(User, SourceItem, toolID, maxAmount, silkcutting.LeadSkill)
 
@@ -53,7 +52,7 @@ function M.StartGathering(User, SourceItem, ltstate)
     silkcutting:SetTreasureMap(User,gathering.prob_map*gatheringBonus,"Eine Raupe nagt genüßlich an einer Karte mit einem großem X.","A caterpillar chews on a map with a big X.")
     silkcutting:AddMonster(User,1113,gathering.prob_monster/gatheringBonus,"Eine aggressive Ratte hat es sich in diesem Busch gemütlich gemacht.","An aggressive rat has made itself comfortable in this bush.",4,7)
     silkcutting:AddRandomItem(549,1,333,{},gathering.prob_rarely,"Ein vergifteter Pfeil steckt in diesem Busch. Sei vorsichtig damit.","A poisoned arrow sticks in this bush. Handle with care.")
-    silkcutting:AddRandomItem(3555,1,333,{},gathering.prob_occasionally,"Diebesgut? Ein abgelehnter Verlobungsantrag? Wen kümmert's, der Ring im GebÃ¼sch ist jetzt deiner.","Stolen goods? A rejected proposal? Who cares, the ring in the bush is now yours.")
+    silkcutting:AddRandomItem(3555,1,333,{},gathering.prob_occasionally,"Diebesgut? Ein abgelehnter Verlobungsantrag? Wen kümmert's, der Ring im Gebüsch ist jetzt deiner.","Stolen goods? A rejected proposal? Who cares, the ring in the bush is now yours.")
     silkcutting:AddRandomItem(3631,1,333,{},gathering.prob_frequently,"Ein altes Wurstbrot wurde wohl achtlos in diesen Busch geworfen. Wohl bekommt's.","An old sausage bread has been cast into this bush carelessly. Enjoy.")
 
     --Case 1: Interrupted
@@ -87,7 +86,7 @@ function M.StartGathering(User, SourceItem, ltstate)
 
     if newAmount <= 0 then
         gathering.SwapSource(SourceItem, depletedSourceID, restockWear)
-        User:inform( "Du findest hier keine Seidenraupen mehr.", "You can't find any silkworms here anymore.", Character.highPriority)
+        User:inform( "Du findest hier keine Seidenraupen mehr.", "You can't find any silkworms here anymore.", Character.lowPriority)
         return
     end
 

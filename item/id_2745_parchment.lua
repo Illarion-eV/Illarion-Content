@@ -26,6 +26,8 @@ local recipe_creation = require("alchemy.base.recipe_creation")
 local lookat = require("base.lookat")
 local licence = require("base.licence")
 local shipmasterParchments = require("content.shipmasterParchments")
+local shared = require("craft.base.shared")
+local brewing = require("alchemy.base.brewing")
 
 local M = {}
 
@@ -45,10 +47,10 @@ local ViewRecipe
 local getIngredients
 
 
-local function bookListLookAt(User,Item)
-    local itemLookat = lookat.GenerateLookAt(User, Item, lookat.NONE)
-    itemLookat.name = common.GetNLS(User, "Liste der magischen Bücher", "Magic Book List")
-    itemLookat.description = common.GetNLS(User,
+local function bookListLookAt(user,Item)
+    local itemLookat = lookat.GenerateLookAt(user, Item, lookat.NONE)
+    itemLookat.name = common.GetNLS(user, "Liste der magischen Bücher", "Magic Book List")
+    itemLookat.description = common.GetNLS(user,
         "Diese Bücher können gelesen werden um Stabmagie zu erlernen:Der alte Pfad der Magie, Magisches Wasser, Echsen und Magie, Von den Ebenen, Grundlagen arkaner Theorie, Manaströme, Grundwerk der Artefaktmagie, Die Sippen, Die Beschwörung von Pran Xixuan, Taschenbuch der Thaumatologie und Von der Herkunft dr Magie",
         "These books can be read to learn wand magic: The Old Path of Magic, The Magic Water, Lizards and Magic, About the Planes, Basics of Arcane Theory, Mana Streams, Basics of Artifact Magic, The Clansmen, Summoning of Pran Xixuan, Handbook of Thaumathology and About the Origins of Magic")
     return itemLookat
@@ -57,16 +59,16 @@ end
 -- important: do not remove the fourth parameter "checkVar".
 -- it is important for alchemy
 -- you can just ignore it
-function M.UseItem(User, SourceItem,ltstate,checkVar)
+function M.UseItem(user, SourceItem,ltstate,checkVar)
 
     -- Check if it is an alchemy recipe.
     if SourceItem:getData("alchemyRecipe") == "true" then
-        AlchemyRecipe(User, SourceItem,ltstate,checkVar)
+        AlchemyRecipe(user, SourceItem,ltstate,checkVar)
         return
     end
 
     if SourceItem:getData("TeachLenniersDream")=="true" then
-        LearnLenniersDream(User)
+        LearnLenniersDream(user)
     end
 
     if not common.IsNilOrEmpty(SourceItem:getData("writtenText")) then
@@ -75,11 +77,11 @@ function M.UseItem(User, SourceItem,ltstate,checkVar)
             writtenText = writtenText .. "\n~" .. SourceItem:getData("signatureText") .. "~"
         end
         local dialog = MessageDialog(
-            common.GetNLS(User, "Pergament", "Parchment"),
+            common.GetNLS(user, "Pergament", "Parchment"),
             writtenText,
             --[[callback=]]function(d) end
             )
-        User:requestMessageDialog(dialog)
+        user:requestMessageDialog(dialog)
     end
 end
 
@@ -87,50 +89,50 @@ end
 ---------------- ALCHEMY -------------------------------
 --------------------------------------------------------
 
-local function getText(User,deText,enText)
-    return common.GetNLS(User,deText,enText)
+local function getText(user,deText,enText)
+    return common.GetNLS(user,deText,enText)
 end
 
 
-function LearnLenniersDream(User)
+function LearnLenniersDream(user)
 
-    local anAlchemist = alchemy.CheckIfAlchemist(User)
+    local anAlchemist = alchemy.CheckIfAlchemist(user)
     if not anAlchemist then
-        User:inform("Du erkennst hier nur seltsames Gekritzel.","Only strange scribbling can be seen here.")
+        user:inform("Du erkennst hier nur seltsames Gekritzel.","Only strange scribbling can be seen here.")
         return
     end
 
-    local foundEffect, myEffect = User.effects:find(59);
+    local foundEffect, myEffect = user.effects:find(59);
     if foundEffect then
         local findsight, sightpotion = myEffect:findValue("sightpotion")
         if findsight then
-            if sightpotion == User:getQuestProgress(860) then
-                TeachLenniersDream(User)
+            if sightpotion == user:getQuestProgress(860) then
+                TeachLenniersDream(user)
                 return
             end
         end
     end
 
-    TaskToLearn(User)
+    TaskToLearn(user)
 end
 
-function TeachLenniersDream(User)
+function TeachLenniersDream(user)
 
 
     local callback = function(dialog)
-        potionToTeacher.TellRecipe(User, 318)
+        potionToTeacher.TellRecipe(user, 318)
     end
 
     local textDE = "Als du deinen Blick auf die wirren Zeilen richtest, beginnen sie sich zu ordnen. Das unleserliche Chaos weicht langsam einer Ordnung."
     local textEN = "As you look at the confusing lines, they start to arrange themselves. The unreadable chaos is replaced by order."
 
     local dialog
-    if User:getPlayerLanguage() == 0 then
+    if user:getPlayerLanguage() == 0 then
         dialog = MessageDialog("Was steht da wohl?", textDE, callback)
     else
         dialog = MessageDialog("What could be written here?", textEN, callback)
     end
-    User:requestMessageDialog(dialog)
+    user:requestMessageDialog(dialog)
 
 end
 
@@ -156,19 +158,19 @@ function M.GenerateStockConcentration()
     return stockList
 end
 
-function M.GetStockFromQueststatus(User)
+function M.GetStockFromQueststatus(user)
 
-    if User:getQuestProgress(860) == 0 then
+    if user:getQuestProgress(860) == 0 then
         local stockList
         stockList = M.GenerateStockConcentration()
-        User:setQuestProgress(860,alchemy.DataListToNumber(stockList))
+        user:setQuestProgress(860,alchemy.DataListToNumber(stockList))
     end
-    return alchemy.SplitData(User,User:getQuestProgress(860))
+    return alchemy.SplitData(user,user:getQuestProgress(860))
 end
 
-function GenerateStockDescription(User)
+function GenerateStockDescription(user)
 
-    local stockList = M.GetStockFromQueststatus(User)
+    local stockList = M.GetStockFromQueststatus(user)
     local de = ""
     local en = ""
     for i=1,#stockList do
@@ -182,74 +184,80 @@ function GenerateStockDescription(User)
     return de, en
 end
 
-function TaskToLearn(User)
+function TaskToLearn(user)
 
     local callback = function(dialog) end
 
-    local stockDe, stockEn = GenerateStockDescription(User)
+    local stockDe, stockEn = GenerateStockDescription(user)
 
     local textDE = "Die Zeilen auf dem Pergament sind verschwommen und scheinen sich ständig zu bewegen. Nur ein paar Zeilen, lassen sich lesen:\n\n\nNeugierig, was hier steht? Nun, dann flößt euch das folgende Gebräu ein und ich verrate euch das Geheimnis:\nEin Trank, der zum einen aus einem Essenzgebräu auf Rubinstaubbasis (essenzierte Kräuter: Wutbeere, Wutbeere, Regenkraut, Tagtraum, Fliegenpilz) besteht und zum anderen aus einem Sud mit folgenden Konzentrationen: " .. stockDe
     local textEN = "The writing on this parchment is blurry and the lines seem to be constantly moving. Only the following lines can be read:\n\n\nAre you curious what might be written here? Well, swallow the following potion and I will tell you the secret:\nA potion made from an essence brew based on ruby powder (containing: anger berry, anger berry, rain weed, daydream, toadstool) and from a stock having the following concentrations: " .. stockEn
 
     local dialog
-    if User:getPlayerLanguage() == 0 then
+    if user:getPlayerLanguage() == 0 then
         dialog = MessageDialog("Was steht da wohl?", textDE, callback)
     else
         dialog = MessageDialog("What could be written here?", textEN, callback)
     end
-    User:requestMessageDialog(dialog)
+    user:requestMessageDialog(dialog)
 
 end
 
-function AlchemyRecipe(User, SourceItem,ltstate,checkVar)
+function AlchemyRecipe(user, SourceItem,ltstate,checkVar)
 
 
-    if alchemy.GetCauldronInfront(User) then
+    if alchemy.GetCauldronInfront(user) then
         -- The char wants to use the recipe infront of a cauldron.
-        UseRecipe(User, SourceItem,ltstate,checkVar)
+        UseRecipe(user, SourceItem,ltstate,checkVar)
     else
         -- Not infront of a cauldron.
-        ViewRecipe(User, SourceItem)
+        ViewRecipe(user, SourceItem)
     end
 
 end
 
-function UseRecipe(User, SourceItem,ltstate,checkVar)
+function UseRecipe(user, SourceItem,ltstate,checkVar)
 
 
     -- is the char an alchemist?
-    local anAlchemist = alchemy.CheckIfAlchemist(User)
+    local anAlchemist = alchemy.CheckIfAlchemist(user)
     if not anAlchemist then
-        User:inform("Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.","Only those who have been introduced to the art of alchemy are able to work here.")
+        user:inform("Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.","Only those who have been introduced to the art of alchemy are able to work here.")
         return
     end
 
     -- proper attriutes?
-    if ( User:increaseAttrib("perception",0) + User:increaseAttrib("essence",0) + User:increaseAttrib("intelligence",0) ) < 30 then
-        User:inform("Verstand, ein gutes Auge und ein Gespür für die feinstofflichen Dinge - dir fehlt es daran, als dass du hier arbeiten könntest.",
+    if ( user:increaseAttrib("perception",0) + user:increaseAttrib("essence",0) + user:increaseAttrib("intelligence",0) ) < 30 then
+        user:inform("Verstand, ein gutes Auge und ein Gespür für die feinstofflichen Dinge - dir fehlt es daran, als dass du hier arbeiten könntest.",
                     "Mind, good eyes and a feeling for the world of fine matter - with your lack of those, you are unable to work here."
                     )
         return
     end
 
     -- let's start!
-    StartBrewing(User, SourceItem,ltstate,checkVar)
+    StartBrewing(user, SourceItem,ltstate,checkVar)
 end
 
-function StartBrewing(User,SourceItem,ltstate,checkVar)
+function StartBrewing(user,SourceItem,ltstate,checkVar)
     local listOfTheIngredients = getIngredients(SourceItem)
-    local cauldron = alchemy.GetCauldronInfront(User)
+    local cauldron = alchemy.GetCauldronInfront(user)
+    local tool = alchemy.getAlchemyTool(user)
+
+    if not tool then
+        brewing.informAlchemyToolNeeded(user)
+        return
+    end
 
     if not cauldron then -- security check
         return
     end
 
-    if licence.licence(User) then --checks if user is citizen or has a licence
+    if licence.licence(user) then --checks if user is citizen or has a licence
         return -- avoids crafting if user is neither citizen nor has a licence
     end
 
     if ( ltstate == Action.abort ) then
-        User:inform("Du brichst deine Arbeit vor dem "..USER_POSITION_LIST[User.id]..". Arbeitsschritt ab.", "You abort your work before the "..USER_POSITION_LIST[User.id].." work step.")
+        user:inform("Du brichst deine Arbeit vor dem "..USER_POSITION_LIST[user.id]..". Arbeitsschritt ab.", "You abort your work before the "..USER_POSITION_LIST[user.id].." work step.")
         return
     end
 
@@ -258,11 +266,11 @@ function StartBrewing(User,SourceItem,ltstate,checkVar)
             local success = dialog:getSuccess()
             if success then
                 local selected = dialog:getSelectedIndex()+1
-                USER_POSITION_LIST[User.id] = selected
-                StartBrewing(User, SourceItem,ltstate,true)
+                USER_POSITION_LIST[user.id] = selected
+                StartBrewing(user, SourceItem,ltstate,true)
             end
         end
-        local dialog = SelectionDialog(getText(User,"Rezept","Recipe"), getText(User,"Wähle die Zutat aus, ab welcher das Rezept abgearbeitet werden soll.","Select the ingredient which you want to start to brew from."), callback)
+        local dialog = SelectionDialog(getText(user,"Rezept","Recipe"), getText(user,"Wähle die Zutat aus, ab welcher das Rezept abgearbeitet werden soll.","Select the ingredient which you want to start to brew from."), callback)
         dialog:setCloseOnMove()
         if #listOfTheIngredients > 0 then
             local counter = 0
@@ -270,96 +278,98 @@ function StartBrewing(User,SourceItem,ltstate,checkVar)
                 counter = counter + 1
                 if type(listOfTheIngredients[i])=="string" then
                     if string.find(listOfTheIngredients[i],"bottle") then
-                        dialog:addOption(164, getText(User,counter..". Abfüllen",counter..". Bottling"))
+                        dialog:addOption(164, getText(user,counter..". Abfüllen",counter..". Bottling"))
                     else
                         local liquid, liquidList = recipe_creation.StockEssenceList(listOfTheIngredients[i])
                         if liquid == "stock" then
-                            dialog:addOption(331, getText(User,counter..". Sud",counter..". Stock"))
+                            dialog:addOption(331, getText(user,counter..". Sud",counter..". Stock"))
                         elseif liquid == "essence brew" then
-                            dialog:addOption(liquidList[1], getText(User,counter..". Essenzgebräu",counter..". Essence brew"))
+                            dialog:addOption(liquidList[1], getText(user,counter..". Essenzgebräu",counter..". Essence brew"))
                         end
                     end
                 else
-                    dialog:addOption(listOfTheIngredients[i], getText(User,counter..". "..world:getItemName(listOfTheIngredients[i],Player.german),counter..". "..world:getItemName(listOfTheIngredients[i],Player.english)))
+                    dialog:addOption(listOfTheIngredients[i], getText(user,counter..". "..world:getItemName(listOfTheIngredients[i],Player.german),counter..". "..world:getItemName(listOfTheIngredients[i],Player.english)))
                 end
             end
-            User:requestSelectionDialog(dialog)
+            user:requestSelectionDialog(dialog)
             return
         end
     end
 
-    local deleteItem, deleteId, missingDe, missingEn = GetItem(User, listOfTheIngredients)
+    local deleteItem, deleteId, missingDe, missingEn = GetItem(user, listOfTheIngredients)
 
     if missingDe then
-        User:inform("Du brichst deine Arbeit vor dem "..USER_POSITION_LIST[User.id]..". Arbeitsschritt ab. "..missingDe, "You abort your work before the "..USER_POSITION_LIST[User.id]..". work step. "..missingEn)
+        user:inform("Du brichst deine Arbeit vor dem "..USER_POSITION_LIST[user.id]..". Arbeitsschritt ab. "..missingDe, "You abort your work before the "..USER_POSITION_LIST[user.id]..". work step. "..missingEn)
         return
     end
+
+    local duration,gfxId,gfxIntervall,sfxId,sfxIntervall = GetStartAction(user, listOfTheIngredients, cauldron)
 
     if (ltstate == Action.none) then
 
-        local duration,gfxId,gfxIntervall,sfxId,sfxIntervall = GetStartAction(User, listOfTheIngredients, cauldron)
-        User:startAction(duration,gfxId,gfxIntervall,sfxId,sfxIntervall);
+        user:startAction(duration,gfxId,gfxIntervall,sfxId,sfxIntervall);
         return
 
     end
 
-    CallBrewFunctionAndDeleteItem(User,deleteItem, deleteId,cauldron)
+    CallBrewFunctionAndDeleteItem(user,deleteItem, deleteId,cauldron)
+    shared.toolBreaks(user, tool, duration)
 
-    USER_POSITION_LIST[User.id] = USER_POSITION_LIST[User.id]+1
+    USER_POSITION_LIST[user.id] = USER_POSITION_LIST[user.id]+1
 
-    if alchemy.CheckExplosionAndCleanList(User) then
-        if USER_POSITION_LIST[User.id] < #listOfTheIngredients then
-            User:inform("Du brichst deine Arbeit vor dem "..USER_POSITION_LIST[User.id]..". Arbeitsschritt ab.", "You abort your work before the "..USER_POSITION_LIST[User.id]..". work step.")
+    if alchemy.CheckExplosionAndCleanList(user) then
+        if USER_POSITION_LIST[user.id] < #listOfTheIngredients then
+            user:inform("Du brichst deine Arbeit vor dem "..USER_POSITION_LIST[user.id]..". Arbeitsschritt ab.", "You abort your work before the "..USER_POSITION_LIST[user.id]..". work step.")
         end
         return
     end
 
-    if USER_POSITION_LIST[User.id] > #listOfTheIngredients then
+    if USER_POSITION_LIST[user.id] > #listOfTheIngredients then
         return
     else
-        local duration,gfxId,gfxIntervall,sfxId,sfxIntervall = GetStartAction(User, listOfTheIngredients, cauldron)
-        User:startAction(duration,gfxId,gfxIntervall,sfxId,sfxIntervall);
+        duration,gfxId,gfxIntervall,sfxId,sfxIntervall = GetStartAction(user, listOfTheIngredients, cauldron)
+        user:startAction(duration,gfxId,gfxIntervall,sfxId,sfxIntervall);
     end
 
 end
 
-function CallBrewFunctionAndDeleteItem(User,deleteItem, deleteId,cauldron)
+function CallBrewFunctionAndDeleteItem(user,deleteItem, deleteId,cauldron)
 
     if deleteId then
         if deleteId == 52 then -- water
-            local buckets = User:getItemList(deleteId)
+            local buckets = user:getItemList(deleteId)
             -- here, we could need a check if the bucket has no datas
-            id_52_filledbucket.FillIn(User, buckets[1], cauldron, true)
+            id_52_filledbucket.FillIn(user, buckets[1], cauldron, true)
 
         elseif alchemy.CheckIfGemDust(deleteId) then    --gemdust
-            gemdust.BrewingGemDust(User,deleteId,cauldron)
+            gemdust.BrewingGemDust(user,deleteId,cauldron)
             local data = {}
-            User:eraseItem(deleteId,1,data)
+            user:eraseItem(deleteId,1,data)
 
         elseif alchemy.getPlantSubstance(deleteId) or deleteId == 157 then -- plant/rotten tree bark
-            herbs.BeginnBrewing(User,deleteId,cauldron)
+            herbs.BeginnBrewing(user,deleteId,cauldron)
             local data = {}
-            User:eraseItem(deleteId,1,data)
+            user:eraseItem(deleteId,1,data)
         end
 
     else
         if deleteItem.id == 164 then -- empty bottle
-            id_164_emptybottle.FillIntoBottle(User, deleteItem, cauldron)
+            id_164_emptybottle.FillIntoBottle(user, deleteItem, cauldron)
 
         elseif deleteItem.id == 331 then -- stock
-            id_331_green_bottle.FillStockIn(User,deleteItem, cauldron)
-            alchemy.EmptyBottle(User,deleteItem)
+            id_331_green_bottle.FillStockIn(user,deleteItem, cauldron)
+            alchemy.EmptyBottle(user,deleteItem)
 
         elseif alchemy.CheckIfPotionBottle(deleteItem) then
-            alchemy.FillIntoCauldron(User,deleteItem,cauldron)
+            alchemy.FillIntoCauldron(user,deleteItem,cauldron)
         end
     end
 
 end
 
-function GetStartAction(User, listOfTheIngredients, cauldron)
+function GetStartAction(user, listOfTheIngredients, cauldron)
 
-    local ingredient = listOfTheIngredients[USER_POSITION_LIST[User.id]]
+    local ingredient = listOfTheIngredients[USER_POSITION_LIST[user.id]]
     local theString
 
     if type(ingredient) == "number" then
@@ -380,15 +390,15 @@ function GetStartAction(User, listOfTheIngredients, cauldron)
         end
     end
 
-    local duration,gfxId,gfxIntervall,sfxId,sfxIntervall = alchemy.GetStartAction(User, theString, cauldron)
+    local duration,gfxId,gfxIntervall,sfxId,sfxIntervall = alchemy.GetStartAction(user, theString, cauldron)
     return duration,gfxId,gfxIntervall,sfxId,sfxIntervall
 end
 
-function GetItem(User, listOfTheIngredients)
+function GetItem(user, listOfTheIngredients)
     local deleteItem, deleteId, missingDe, missingEn
-    if type(listOfTheIngredients[USER_POSITION_LIST[User.id]])=="string" then
-        if string.find(listOfTheIngredients[USER_POSITION_LIST[User.id]],"bottle") then
-            local bottleList = User:getItemList(164)
+    if type(listOfTheIngredients[USER_POSITION_LIST[user.id]])=="string" then
+        if string.find(listOfTheIngredients[USER_POSITION_LIST[user.id]],"bottle") then
+            local bottleList = user:getItemList(164)
             if #bottleList > 0 then
                 deleteItem = bottleList[1] -- here, we take the first bottle we get
                 for i=1,#bottleList do
@@ -403,9 +413,9 @@ function GetItem(User, listOfTheIngredients)
                 missingEn = "You don't have: empty bottle"
             end
         else
-            local liquid, neededList = recipe_creation.StockEssenceList(listOfTheIngredients[USER_POSITION_LIST[User.id]])
+            local liquid, neededList = recipe_creation.StockEssenceList(listOfTheIngredients[USER_POSITION_LIST[user.id]])
             if liquid == "stock" then
-                local stockList = User:getItemList(331)
+                local stockList = user:getItemList(331)
                 for i=1,#stockList do
                     local currentList = alchemy.SubstanceDatasToList(stockList[i])
                     if alchemy.CheckListsIfEqual(neededList,currentList) then
@@ -418,7 +428,7 @@ function GetItem(User, listOfTheIngredients)
                 end
             elseif liquid == "essence brew" then
                 local neededId = table.remove(neededList,1)
-                local bottleList = User:getItemList(neededId)
+                local bottleList = user:getItemList(neededId)
                 local currentList
                 for i=1,#bottleList do
                     currentList = {}
@@ -441,21 +451,21 @@ function GetItem(User, listOfTheIngredients)
         end
     else
         local data = {}
-        if (User:countItemAt("all",listOfTheIngredients[USER_POSITION_LIST[User.id]],data) > 0) then
-            deleteId = listOfTheIngredients[USER_POSITION_LIST[User.id]]
+        if (user:countItemAt("all",listOfTheIngredients[USER_POSITION_LIST[user.id]],data) > 0) then
+            deleteId = listOfTheIngredients[USER_POSITION_LIST[user.id]]
         end
         if not deleteId then
-            missingDe = "Dir fehlt: "..world:getItemName(listOfTheIngredients[USER_POSITION_LIST[User.id]],Player.german)
-            missingEn = "You don't have: "..world:getItemName(listOfTheIngredients[USER_POSITION_LIST[User.id]],Player.english)
+            missingDe = "Dir fehlt: "..world:getItemName(listOfTheIngredients[USER_POSITION_LIST[user.id]],Player.german)
+            missingEn = "You don't have: "..world:getItemName(listOfTheIngredients[USER_POSITION_LIST[user.id]],Player.english)
         end
     end
 
     return deleteItem, deleteId, missingDe, missingEn
 end
 
-function ViewRecipe(User, SourceItem)
+function ViewRecipe(user, SourceItem)
     local listOfTheIngredients = getIngredients(SourceItem)
-    recipe_creation.ShowRecipe(User, listOfTheIngredients, true)
+    recipe_creation.ShowRecipe(user, listOfTheIngredients, true)
 end
 
 function getIngredients(SourceItem)
@@ -480,13 +490,13 @@ end
 
 
 
-function M.LookAtItem(User, Item)
+function M.LookAtItem(user, Item)
 
     if Item:getData("bookList") == "true" then
-        return bookListLookAt(User, Item)
+        return bookListLookAt(user, Item)
     end
 
-    return lookat.GenerateLookAt(User, Item)
+    return lookat.GenerateLookAt(user, Item)
 end
 
 function M.MoveItemAfterMove(user, sourceItem, targetItem)

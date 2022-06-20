@@ -174,6 +174,25 @@ function M.Chance(Value, Base)
     return (math.random() <= Value)
 end
 
+
+---This function returns a value based on a binomial distribution.
+-- Consider this function rolling dices against a minimum value
+-- Mean value = probability * rolls
+function M.BinomialByProbability(probability, rolls)
+    local result = 0
+    for i=1,rolls do
+        if math.random()<probability then
+            result = result + 1
+        end
+    end
+    return result
+end
+
+function M.BinomialByMean(mean, rolls)
+    local probability = mean / rolls
+    return M.BinomialByProbability(probability, rolls)
+end
+
 --- Determine if a character is looking at a position or not
 -- @param User The character whos looking direction matters
 -- @param Location The position the character should look at
@@ -2213,13 +2232,13 @@ leadAttribTable[Character.wrestling]="strength"
 leadAttribTable[Character.concussionWeapons]="strength"
 leadAttribTable[Character.punctureWeapons]="strength"
 
---Perception: Druids
-leadAttribTable[Character.alchemy]="perception"
-leadAttribTable[Character.potionLore]="perception"
-leadAttribTable[Character.animalTaming]="perception"
-leadAttribTable[Character.summoning]="perception"
-leadAttribTable[Character.natureLore]="perception"
-leadAttribTable[Character.cauldronLore]="perception"
+--Essence: Druids
+leadAttribTable[Character.alchemy]="essence"
+leadAttribTable[Character.potionLore]="essence"
+leadAttribTable[Character.animalTaming]="essence"
+leadAttribTable[Character.summoning]="essence"
+leadAttribTable[Character.natureLore]="essence"
+leadAttribTable[Character.cauldronLore]="essence"
 
 --Intelligence: Magic
 leadAttribTable[Character.wandMagic]="intelligence"
@@ -2853,10 +2872,41 @@ function M.numberToPosition(number)
     return position(posx, posy, posz)
 end
 
--- Erases one item and readds it to the inventory
-function M.readdItem(user, item)
-    world:erase(item, 1)
-    M.CreateItem(user, item.id, 1, item.quality, item.data)
+function M.isContainerFull(container, containerId)
+
+    local containerSlots = 100
+
+    if containerId == Item.wickerBasket then
+        containerSlots = 58
+    end
+
+    for i = 1, containerSlots do
+        local success = container:viewItemNr(i-1)
+
+        if not success then --No item was found in that slot
+            return false
+        end
+
+    end
+
+    return true
+
+end
+
+function M.moveItemToBackpack(user, theItem)
+    local backpack = user:getBackPack()
+    local backpackId = user:getItemAt(Character.backpack).id
+
+    if not backpack or M.isContainerFull(backpack, backpackId) then -- if there is no backpack or it is full, items fall on the ground instead
+        local itemStats = world:getItemStatsFromId(theItem.id)
+        user:inform("GERMAN TRANSLATION"..itemStats.German,"Having no backpack/no space in your backpack to put them in, the pieces of your broken "..itemStats.English.." fall to the ground.")
+        return false
+    end
+
+    world:erase(theItem, theItem.number)
+    backpack:insertItem(theItem)
+
+    return true
 end
 
 return M

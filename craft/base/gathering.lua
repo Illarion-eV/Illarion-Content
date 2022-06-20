@@ -258,6 +258,89 @@ function M.SkillCheck(User, SourceItem, skill)
 
 end
 
+function M.getMaxAmountFromResourceList(resourceList, resourceId)
+    for _, resource in pairs(resourceList) do
+        if resource.id == resourceId then
+            return resource.maxAmount
+        end
+    end
+end
+
+function M.getProductId(resourceList, resourceId)
+    for _, resource in pairs(resourceList) do
+        if resource.id == resourceId then
+            return resource.productId
+        end
+    end
+end
+
+function M.getDepletedObject(resourceList, resourceId)
+    for _, resource in pairs(resourceList) do
+        if resource.id == resourceId then
+            return resource.depletedId
+        end
+    end
+end
+
+function M.passesLevelReq(user, sourceItem, skillLevel)
+    local itemCommon = world:getItemStatsFromId(sourceItem.id)
+    local levelReq = itemCommon.level or 0
+    if levelReq <= skillLevel then
+        return true
+    end
+return false, levelReq
+end
+
+local function checkIfGMQuestItem(theResource)
+    local descriptionEn = theResource:getData("descriptionEn")
+    local nameEn = theResource:getData("nameEn")
+    local descriptionDe = theResource:getData("descriptionDe")
+    local nameDe = theResource:getData("nameDe")
+
+    local gmItem = descriptionEn..nameEn..descriptionDe..nameDe
+
+    if gmItem ~= "" then
+        return false --One of the descriptions or names were customized indicating its a resource item being used for GM purposes
+    end
+
+    return true
+end
+
+function M.isDepletableResource(user, theResource, resourceList)
+
+    if not theResource then
+        return false
+    end
+
+    for _, resource in pairs(resourceList) do
+        if theResource.id == resource.id then
+            return checkIfGMQuestItem(theResource)
+        end
+    end
+
+    return false
+end
+
+function M.getDepletableResource(user, resourceList)
+    local targetItem = common.GetFrontItem(user)
+    if M.isDepletableResource(user, targetItem, resourceList) then
+        return targetItem
+    end
+    local radius = 1
+    for x=-radius,radius do
+        for y=-radius,radius do
+            local targetPos = position(user.pos.x + x, user.pos.y + y, user.pos.z)
+            if (world:isItemOnField(targetPos)) then
+                targetItem = world:getItemOnField(targetPos)
+                if M.isDepletableResource(user, targetItem, resourceList) then
+                    return targetItem
+                end
+            end
+        end
+    end
+    return nil
+end
+
 M.GatheringCraft = GatheringCraft
 
 M.prob_frequently = 1/2000;
