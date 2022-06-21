@@ -434,7 +434,10 @@ function ArmourAbsorption(Attacker, Defender, Globals)
     local GeneralScalingFactor = 2.8
     -- Unequip armour
     if common.isBroken(Globals.HittedItem) and character.IsPlayer(Defender.Char) and armour.Type ~= 0 then
-        common.readdItem(Defender.Char, Globals.HittedItem)
+        if not common.moveItemToBackpack(character, Globals.HittedItem) then
+            world:erase(Globals.HittedItem, Globals.HittedItem.number)
+            world:createItemFromItem(Globals.HittedItem, character.pos, true)
+        end
     end
     if character.IsPlayer(Defender.Char) then
         if armourfound then
@@ -788,7 +791,7 @@ function GetParryWeaponAndItem(Defender)
         if not parryWeapon then
             parryItem = Defender.SecWeaponItem
             parryWeapon = Defender.SecWeapon
-        elseif (parryWeapon.Defence < Defender.SecWeapon.Defence) or common.isBroken(parryWeapon) then
+        elseif (parryWeapon.Defence < Defender.SecWeapon.Defence) or common.isBroken(parryItem) then
             parryItem = Defender.SecWeaponItem
             parryWeapon = Defender.SecWeapon
         end

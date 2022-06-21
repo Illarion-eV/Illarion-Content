@@ -641,7 +641,7 @@ end
 function Craft:generateRarity(user, productId, toolItem)
 
     -- 1 = common, 2 = uncommon, 3 = rare, 4 = unique
-    -- Max chances: 0.4% unique, 2% rare, 10% uncommon, 87.6% common
+    -- Max chances: 0.4% unique, 2% rare, 10% uncommon, 87.6% common (includes the chance to get perfect items to even get here)
 
     if self.npcCraft then
         return 1
@@ -651,15 +651,12 @@ function Craft:generateRarity(user, productId, toolItem)
 
     local maxPerfectChance = 0.5967194738 --Maximum probability for quality 9(perfect) items
 
-    local rarities = {unique = 0.004/maxPerfectChance,
-    rare = 0.02/maxPerfectChance,
-    uncommon = 0.1/maxPerfectChance
-    }
+    local rarities = {0.004/maxPerfectChance, 0.02/maxPerfectChance, 0.1/maxPerfectChance} --unique, rare, uncommon
 
     local rand = math.random()
 
     for _, rarity in ipairs(rarities) do
-        if rarity <= rand then
+        if rarity >= rand then
             retVal = retVal+1
         end
     end
@@ -848,6 +845,7 @@ function Craft:createItem(user, productId, toolItem, housing)
         local rarity = 0
 
         local foodItem, foodBuff = self:checkIfFoodItem(productId)
+
         if foodItem and quality >= 900 then
             rarity = self:generateRarity(user, productId, toolItem)
 

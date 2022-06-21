@@ -87,7 +87,7 @@ function M.StartGathering(User, SourceItem, ltstate)
         User:startAction( grainharvesting.SavedWorkTime[User.id], 0, 0, 0, 0);
         -- this is no batch action => no emote message, only inform player
         if grainharvesting.SavedWorkTime[User.id] > 15 then
-            common.InformNLS(User,
+            common.TempInformNLS(User,
             "Du schneidest das Getreide mit der Sense.",
             "You harvest the grain with the scythe.");
         end

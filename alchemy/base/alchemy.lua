@@ -637,16 +637,23 @@ M.brewingPermissions = { --temporary manual table for brewing permissions until 
 }
 
 local function checkBrewingPermissions(fromItem)
+
+    local hasPermission = true
+
     for _, currentPotion in pairs(M.brewingPermissions) do --Go through the list of brewing permissions
-        if fromItem:getData("potionEffectId") == currentPotion.effect then --Check if potion requires permissions
+        if tonumber(fromItem:getData("potionEffectId")) == currentPotion.effect then --Check if potion requires permissions
+            hasPermission = false
             for _, currentUser in pairs(currentPotion.users) do -- Go through list of users with permissions
                 if fromItem:getData("creator") == currentUser then --If user who created the potion(added the gemdust) is on the list, permissions are granted
-                    return true
+                    hasPermission = true
+                    break
                 end
             end
-            return false
+
         end
     end
+
+    return hasPermission
 end
 
 function M.FillFromTo(fromItem,toItem)

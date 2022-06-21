@@ -74,19 +74,30 @@ end
 function M.loadWeapons(charStruct)
     local rItem = charStruct.Char:getItemAt(Character.right_tool)
     local lItem = charStruct.Char:getItemAt(Character.left_tool)
-    local rAttFound, rAttWeapon = world:getWeaponStruct(rItem.id)
-    local lAttFound, lAttWeapon = world:getWeaponStruct(lItem.id)
+
+    local items = {rItem, lItem}
 
     -- Unequip broken weapons
-    if (rAttFound and common.isBroken(rItem)) or  (lAttFound and common.isBroken(lItem)) then
-        local item
-        if(rAttFound) then
-            item = rItem
-        else
-            item = lItem
+    for _, theItem in pairs(items) do -- Both items in hand are checked one after the other
+        if theItem and theItem.id ~= 0 and common.isBroken(theItem) then -- Makes sure the item actually exists then checks if it is broken
+            local itemIsWeapon, theWeaponStruct = world:getWeaponStruct(theItem.id)
+            if itemIsWeapon then -- Makes sure the item is a weapon, not a tool or anything else
+                local weaponType = theWeaponStruct.WeaponType
+                if not (weaponType == WeaponStruct.arrow or weaponType == WeaponStruct.bolt or weaponType == WeaponStruct.stone) then -- Ammunition counts as a weapon, so this excludes that from the check if there is somehow a broken arrow or something
+                    if not common.moveItemToBackpack(charStruct.Char, theItem) then
+                        world:erase(theItem, theItem.number)
+                        world:createItemFromItem(theItem, charStruct.Char.pos, true)
+                    end
+                end
+            end
         end
-        common.readdItem(charStruct.Char, item)
     end
+
+    -- items are fetched again in case they were unequipped above
+    rItem = charStruct.Char:getItemAt(Character.right_tool)
+    lItem = charStruct.Char:getItemAt(Character.left_tool)
+    local rAttFound, rAttWeapon = world:getWeaponStruct(rItem.id)
+    local lAttFound, lAttWeapon = world:getWeaponStruct(lItem.id)
 
     -- the right item is ALWAYS used as the weapon now!
     local isRWp = 1

@@ -313,9 +313,14 @@ function StartBrewing(user,SourceItem,ltstate,checkVar)
     end
 
     CallBrewFunctionAndDeleteItem(user,deleteItem, deleteId,cauldron)
-    shared.toolBreaks(user, tool, duration)
+    local toolbroken = shared.toolBreaks(user, tool, duration)
 
     USER_POSITION_LIST[user.id] = USER_POSITION_LIST[user.id]+1
+
+    if toolbroken and USER_POSITION_LIST[user.id] < #listOfTheIngredients then
+        user:inform("Du brichst deine Arbeit vor dem "..USER_POSITION_LIST[user.id]..". Arbeitsschritt ab.", "You abort your work before the "..USER_POSITION_LIST[user.id]..". work step.")
+        return
+    end
 
     if alchemy.CheckExplosionAndCleanList(user) then
         if USER_POSITION_LIST[user.id] < #listOfTheIngredients then

@@ -82,7 +82,7 @@ function M.StartGathering(User, SourceItem, ltstate)
         end
         if ( amount == 0 ) then
             -- not regrown...
-            common.HighInformNLS( User,
+            common.TempInformNLS( User,
             "Dieser Bienenstock ist leer. Gib den Bienen einige Zeit neuen Honig zu machen.",
             "This beehive is empty. Give the bees some time to make new honey." );
             if ( changeItem ) then
@@ -152,7 +152,7 @@ function M.StartGathering(User, SourceItem, ltstate)
             User:startAction( honeygathering.SavedWorkTime[User.id], 0, 0, 0, 0);
         else -- no items left
             -- only inform for non farming items. Farming items with amount==0 should already be erased.
-            common.HighInformNLS(User,
+            common.TempInformNLS(User,
             "Dieser Bienenstock ist leer. Gib den Bienen einige Zeit neuen Honig zu machen.",
             "This beehive is empty. Give the bees some time to make new honey." );
         end
