@@ -89,6 +89,25 @@ M.max_builder_number = 20
 -- List of the different depot IDs
 M.depotList={100,101,102,103}
 
+local function removeTenantGuestBuilderDuration(propertyDeed)
+    propertyDeed:setData("tenant", "")
+    propertyDeed:setData("tenantID", "")
+
+    for number = 1, M.max_builder_number do
+        propertyDeed:setData("builder"..number, "")
+        propertyDeed:setData("builderID"..number, "")
+    end
+
+    for number = 1, M.max_guest_number do
+        propertyDeed:setData("guest"..number, "")
+        propertyDeed:setData("guestID"..number, "")
+    end
+
+    propertyDeed:setData("rentDuration", "")
+
+    world:changeItem(propertyDeed)
+end
+
 function M.deletePreviewItem(propertyName, bypassTTL)
 
     local propertyDeed = M.getPropertyDeed(propertyName)
@@ -242,19 +261,9 @@ local propertyName
     end
 local propertyDeed = M.getPropertyDeed(propertyName)
 
-propertyDeed:setData("tenant", "")
+    removeTenantGuestBuilderDuration(propertyDeed)
 
-    for i = 1, M.max_builder_number do
-        propertyDeed:setData("builder", "")
-    end
-    for i = 1, M.max_guest_number do
-        propertyDeed:setData("guest", "")
-    end
-    propertyDeed:setData("rentDuration", "")
-
-    world:changeItem(propertyDeed)
-
-user:inform(M.getText(user,"Vorheriger Mieter entfernt.","Previous tenant evicted."))
+    user:inform(M.getText(user,"Vorheriger Mieter entfernt.","Previous tenant evicted."))
 end
 -- sets an owner
 function M.setOwner(user, item, propertyName)
@@ -270,20 +279,26 @@ local property
             return
         end
         local input = dialog:getInput()
-            if (input == nil or input == '') then
-                user:inform(M.getText(user,"Das Namensfeld darf nicht leer sein.","The name field can not be empty."))
+
+        if (input == nil or input == '') then
+            user:inform(M.getText(user,"Das Namensfeld darf nicht leer sein.","The name field can not be empty."))
+        else
+            local tenantExists = world:whateverTheVilarionCallsTheFunction(input)
+
+            if tenantExists == nil or tenantExists == 0 then
+                user:inform("GERMAN TRANSLATION HERE", "That name is not in the citizen registry. Did you perhaps misspell the name?")
             elseif M.checkIfOwnsProperty(input) and not M.checkIfEstate(property) then
                 user:inform(M.getText(user,"Der Charakter mietet bereits ein Grundstück.","Character already rents a property."))
             else
                 M.removeOwner(user, item, propertyName)
-
                 propertyDeed:setData("rentDuration", 1)
                 propertyDeed:setData("tenant", input)
+                propertyDeed:setData("tenantID", tenantExists)
                 world:changeItem(propertyDeed)
-
                 user:inform(M.getText(user,input.." wurde als neuer Mieter eingetragen.",input.." set as new renter."))
                 M.setSignature(user, item, propertyName)
             end
+        end
     end
     user:requestInputDialog(InputDialog(M.getText(user,"Mieter eintragen","Set Renter"),
     M.getText(user,"Trag hier den Namen des neuen Mieters ein.",
@@ -321,17 +336,24 @@ local textEn
         if (input == nil or input == '') then
             user:inform(M.getText(user,"Das Namensfeld darf nicht leer sein.","The name field can not be empty."))
         else
-            for i = 1, M["max_"..builderOrGuest.."_number"] do
+            local builderOrGuestExists = world:whateverTheVilarionCallsTheFunction(input)
 
-                local foundBuilderOrGuest = propertyDeed:getData(builderOrGuest..i)
+            if builderOrGuestExists == nil or builderOrGuestExists == 0 then
+                user:inform("GERMAN TRANSLATION HERE", "That name is not in the citizen registry. Did you perhaps misspell the name?")
+            else
+                for i = 1, M["max_"..builderOrGuest.."_number"] do
 
-                if foundBuilderOrGuest == "" then
-                    propertyDeed:setData(builderOrGuest..i, input)
-                    world:changeItem(propertyDeed)
-                    user:inform(M.getText(user,input.." hat nun die Rechte als "..builderOrGuestDe.."."..textDe,input.." set as a "..builderOrGuest..". "..textEn))
-                    return
-                elseif i == M["max_"..builderOrGuest.."_number"] then
-                    user:inform(M.getText(user,"Du kannst nur "..M["max_"..builderOrGuest.."_number"].." "..builderOrGuestDePlural.." gleichzeitig haben. Du musst einen von der List entfernen, bevor du jemanden Neues ernennen kannst.","You may only have "..M["max_"..builderOrGuest.."_number"].." "..builderOrGuest.."s at a time. You must remove one if you want to add another." ))
+                    local foundBuilderOrGuest = propertyDeed:getData(builderOrGuest..i)
+
+                    if foundBuilderOrGuest == "" then
+                        propertyDeed:setData(builderOrGuest..i, input)
+                        propertyDeed:setData(builderOrGuest.."ID"..i, builderOrGuestExists)
+                        world:changeItem(propertyDeed)
+                        user:inform(M.getText(user,input.." hat nun die Rechte als "..builderOrGuestDe.."."..textDe,input.." set as a "..builderOrGuest..". "..textEn))
+                        return
+                    elseif i == M["max_"..builderOrGuest.."_number"] then
+                        user:inform(M.getText(user,"Du kannst nur "..M["max_"..builderOrGuest.."_number"].." "..builderOrGuestDePlural.." gleichzeitig haben. Du musst einen von der List entfernen, bevor du jemanden Neues ernennen kannst.","You may only have "..M["max_"..builderOrGuest.."_number"].." "..builderOrGuest.."s at a time. You must remove one if you want to add another." ))
+                    end
                 end
             end
         end
@@ -375,6 +397,7 @@ local skippedGuestSlots = 0
                 if currentBuilderOrGuest ~= "" then
                     if selected == i-skippedGuestSlots then
                         propertyDeed:setData(builderOrGuest..i, "")
+                        propertyDeed:setData(builderOrGuest..i.."ID", "")
                         world:changeItem(propertyDeed)
                         user:inform(M.getText(user,currentBuilderOrGuest.." wurde von der Liste entfernt.",currentBuilderOrGuest.." has been removed from the list."))
                     end
@@ -403,7 +426,7 @@ end
 
 -- Fetches who the owner is
 function M.checkOwner(item)
-local currentOwner = item:getData("tenant")
+local currentOwner = item:getData("tenantID")
     if currentOwner ~= "" then
         return currentOwner
     else
@@ -504,6 +527,7 @@ local function payRent(user, item)
                                 addRent(town, rent_cost)
                                 item:setData("rentDuration", (tonumber(input) + tonumber(rentDuration)))
                                 item:setData("tenant", user.name)
+                                item:setData("tenantID", user.id)
                                 world:changeItem(item)
                                 user:inform(M.getText(user,"GERMAN TRANSLATION HERE","After another visit to the quartermaster's office, your purse may feel lighter, but you rest comfortably in the knowledge that the residence before you is now yours for an additional "..input.." months."))
                             end
@@ -512,7 +536,7 @@ local function payRent(user, item)
                     end
                 end
         end
-        if M.checkOwner(item) == user.name then
+        if M.checkOwner(item) == user.id then
             local rentDuration = item:getData("rentDuration")
             if rentDuration ~= "" then
                 user:requestInputDialog(InputDialog(M.getText(user,"Miete","Rent"), M.getText(user,
@@ -1053,9 +1077,9 @@ function M.checkIfPlayerIsGuest(user, property)
 
         local propertyDeed = M.getPropertyDeed(property)
 
-        local guest = propertyDeed:getData("guest"..i)
+        local guest = propertyDeed:getData("guestID"..i)
         if guest ~= "" then
-            if guest == user.name then
+            if guest == user.id then
                 return true
             end
         end
@@ -1277,7 +1301,7 @@ local propertyDE = M.getPropertyNameDE(item)
 local rank = M.getRequiredRankName(item, "EN")
 local rankDE = M.getRequiredRankName(item, "DE")
 local remainingDuration = M.getRentDuration(item)
-local owner = M.checkOwner(item)
+local tenant = item:getData("tenant")
 local signatureEN = M.getSignature(item, "EN")
 local signatureDE = M.getSignature(item, "DE")
 local townLeaderTitle = M.getTownLeaderTitle(town, "EN")
@@ -1300,7 +1324,7 @@ local townLeaderTitleDE = M.getTownLeaderTitle(town, "DE")
         "s.\n~Signed, "..signatureEN),
         function() end)
         user:requestMessageDialog(propertyInfo)
-    elseif M.checkOwner(item) == user.name then -- Shows info specific for when property is owned by user
+    elseif M.checkOwner(item) == user.id then -- Shows info specific for when property is owned by user
         local propertyInfo = MessageDialog(M.getText(user,"Notiz des Quartiermeisters","Quartermaster's notice"),
         M.getText(user,
         "An den aktuellen Bewohner von"..propertyDE..
@@ -1321,12 +1345,12 @@ local townLeaderTitleDE = M.getTownLeaderTitle(town, "DE")
          local propertyInfo = MessageDialog(M.getText(user,"Notiz des Quartiermeisters","Quartermaster's notice"),
          M.getText(user,
         "Bürger von "..town..
-        ",\n dieses Grundstück ist aktuell gemietet von "..owner..
+        ",\n dieses Grundstück ist aktuell gemietet von "..tenant..
         ". Solltest du irgendwelche Bedenken haben oder ein freies Grundstück mieten wollen, wende dich bitte an \z
         den Quartiermeister oder melde dich bei einem "..townLeaderTitleDE..
         ".\nUnterzeichnet, "..signatureDE,
         "Citizen of "..town..
-        ",\nThis property is currently being leased to "..owner..
+        ",\nThis property is currently being leased to "..tenant..
         ". Should you have any concerns, or wish to rent a property that is currently available, please \z
         seek out the quartermaster or one of your "..townLeaderTitle..
         "s.\n~Signed, "..signatureEN),
@@ -1356,21 +1380,10 @@ end
 
 function M.abandonProperty(user, item)
 
-    item:setData("tenant", "")
-
-    for i = 1, M.max_builder_number do
-        item:setData("builder"..i, "")
-    end
-
-    for i = 1, M.max_guest_number do
-        item:setData("guest"..i, "")
-    end
-
-    item:setData("rentDuration", "")
+    removeTenantGuestBuilderDuration(item)
 
     M.keyRetrieval(user)
 
-    world:changeItem(item)
 end
 
 -- GM/PL extend rent at no cost option
@@ -1412,22 +1425,6 @@ local rentDuration = propertyDeed:getData("rentDuration")
     user:requestInputDialog(InputDialog(M.getText(user,"Miete verlängern","Extend rent"), M.getText(user,"Mietdauer für den aktuellen Mieter umsonst verlängern.\n Derzeit beträgt die Mietdauer noch "..rentDuration.." Monate.","Extend rent for current renter at no charge.\n There's currently "..rentDuration.." months left on the lease."), false, 255, extendRent))
 end
 
-local function removeTenantGuestBuilderDuration(propertyDeed)
-    propertyDeed:setData("tenant", "")
-
-    for number = 1, M.max_builder_number do
-        propertyDeed:setData("builder"..number, "")
-    end
-
-    for number = 1, M.max_guest_number do
-        propertyDeed:setData("guest"..number, "")
-    end
-
-    propertyDeed:setData("rentDuration", "")
-
-    world:changeItem(propertyDeed)
-end
-
 -- If rent duration is up, the renter gets removed
 function M.removeRentalIfDurationIsUp()
     for i = 1, #M.propertyTable do
@@ -1451,10 +1448,10 @@ function M.removeRentalOfPropertiesOfOtherTowns(user)
         local propertyName = M.propertyTable[i][1]
         local propertyNameDE = M.propertyTable[i][2]
         local propertyDeed = M.getPropertyDeed(propertyName)
-        local tenant = propertyDeed:getData("tenant")
+        local tenant = propertyDeed:getData("tenantID")
         local town = M.propertyTable[i][7]
         if tenant ~= "" then
-            if tenant == user.name then
+            if tenant == user.id then
 
                 removeTenantGuestBuilderDuration(propertyDeed)
 
@@ -1475,18 +1472,18 @@ function M.informUserOfKeyRetrieval(user)
     for i = 1, #M.propertyTable do
         local propertyName = M.propertyTable[i][1]
         local propertyDeed = M.getPropertyDeed(propertyName)
-        local tenant = propertyDeed:getData("tenant")
+        local tenant = propertyDeed:getData("tenantID")
         local town = M.propertyTable[i][7]
         for number = 1, M.max_guest_number do
-            local guest = propertyDeed:getData("guest"..number)
+            local guest = propertyDeed:getData("guestID"..number)
             if guest ~= "" then
-                if guest == user.name then
+                if guest == user.id then
                     return
                 end
             end
         end
         if tenant ~= "" then
-            if tenant ~= user.name then
+            if tenant ~= user.id then
                 if M.checkIfLeaderOfTown(user, town) or user:isAdmin() then
                     return
                 else
@@ -1688,7 +1685,7 @@ function M.UseItem(user, SourceItem)
             end
             if M.checkOwner(SourceItem) == "Unowned" then
                 user:requestSelectionDialog(dialogUnowned)
-            elseif M.checkOwner(SourceItem) == user.name then
+            elseif M.checkOwner(SourceItem) == user.id then
                 user:requestSelectionDialog(dialogOwnedByuser)
             else
                 user:requestSelectionDialog(dialogOwnedNotByuser)

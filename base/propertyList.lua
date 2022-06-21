@@ -303,20 +303,20 @@ function M.fetchPropertyName(User, pos)
     return nil
 end
 
-function M.fetchBuildersPermission(User, pos)
-    local propertyName = M.fetchPropertyName(User, pos)
+function M.fetchBuildersPermission(user, pos)
+    local propertyName = M.fetchPropertyName(user, pos)
     local propertyDeed = notice.getPropertyDeed(propertyName)
-    if M.fetchPropertyName(User, pos) then
-    local tenant = propertyDeed:getData("tenant")
-        if tenant ~= "" then
-            if tenant == User.name then
+    if M.fetchPropertyName(user, pos) then
+    local tenantID = propertyDeed:getData("tenantID")
+        if tenantID ~= "" then
+            if tonumber(tenantID) == user.id then
                 return true
             end
         end
     for i = 1, notice.max_builder_number do
-        local builder = propertyDeed:getData("builder"..i)
-            if builder ~= "" then
-                if builder == User.name then
+        local builderID = propertyDeed:getData("builderID"..i)
+            if builderID ~= "" then
+                if tonumber(builderID) == user.id then
                     return true
                 end
             end
