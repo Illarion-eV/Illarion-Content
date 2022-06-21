@@ -216,7 +216,9 @@ function M.setPersistenceForProperties()
         for x = property.lower.x, property.upper.x do
             for y = property.lower.y, property.upper.y do
                 for z = property.lower.z, property.upper.z do
-                    world:makePersistentAt(position(x, y, z))
+                    if not world:isPersistentAt(position(x, y, z)) then
+                        world:makePersistentAt(position(x, y, z))
+                    end
                 end
             end
         end
@@ -224,6 +226,11 @@ function M.setPersistenceForProperties()
 
     for i = 1, #notice.propertyTable do
         local location = notice.propertyTable[i][3]
+
+        if not world:isPersistentAt(location) then
+            world:makePersistentAt(location)
+        end
+
         local field = world:getField(location)
         local itemsOnField = field:countItems()
         local propertyDeedFound = false
