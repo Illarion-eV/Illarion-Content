@@ -642,8 +642,8 @@ local function settingsForCharAttributes(user, chosenPlayer)
                 user:inform("Value out of permitted range.")
                 return
             end
-            user:logAdmin("changes attribute of character " .. chosenPlayer.name .. ". " .. chosenAttribute .. " from " .. chosenPlayer:getBaseAttribute(chosenAttribute).. " to " .. tostring(attributeValue)..".")
-            user:inform(chosenAttribute .. " was changed from " .. chosenPlayer:getBaseAttribute(chosenAttribute).. " to " .. tostring(attributeValue)..".")
+            user:logAdmin("changes attribute of character " .. chosenPlayer.name .. ". " .. chosenAttribute .. " from " .. chosenPlayer:increaseAttrib(chosenAttribute, 0).. " to " .. tostring(attributeValue)..".")
+            user:inform(chosenAttribute .. " was changed from " .. chosenPlayer:increaseAttrib(chosenAttribute, 0).. " to " .. tostring(attributeValue)..".")
             chosenPlayer:setAttrib(chosenAttribute,attributeValue)
         end
         local sdChange = InputDialog("Change attribute for "..chosenPlayer.name, "Type in the new value for "..chosenAttribute.."\nCurrent value: " .. chosenPlayer:getBaseAttribute(chosenAttribute), false, 255, changeDialog)
