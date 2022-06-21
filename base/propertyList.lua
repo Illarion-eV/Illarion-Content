@@ -221,6 +221,23 @@ function M.setPersistenceForProperties()
             end
         end
     end
+
+    for i = 1, #notice.propertyTable do
+        local location = notice.propertyTable[i][3]
+        local field = world:getField(location)
+        local itemsOnField = field:countItems()
+        local propertyDeedFound = false
+        for i2 = 0, itemsOnField do
+            local chosenItem = field:getStackItem(itemsOnField - i2 )
+            if chosenItem.id == 3772 or chosenItem.id == 3773 then --it is a notice
+                propertyDeedFound = true
+            end
+        end
+
+        if not propertyDeedFound then
+            world:createItemFromId(3772, 1, location, true, 333, nil) --This will lead to some deeds that should be 3773 facing the wrong direction, but this is also only ever called if one is missing to begin with when a GM sets persistence
+        end
+    end
 end
 
 function M.checkIfEstate(User)
