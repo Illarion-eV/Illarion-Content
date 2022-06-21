@@ -99,6 +99,21 @@ table.insert(M.properties, {name = "Outlaw Base One", lower = position(967,343,-
 
 local handrail = 3601
 
+function M.getPropertyLocationIsPartOf(location)
+    local X = location.x
+    local Y = location.y
+    local Z = location.z
+
+    for _, property in pairs(M.properties) do
+        local lower = property.lower
+        local upper = property.upper
+
+        if Z >= lower.z and X >= lower.x and Y >= lower.y and Z <= upper.z and X <= upper.x and Y <= upper.y then
+            return property.name
+        end
+    end
+end
+
 local function checkPositionForStake(selectedPosition)
     local field = world:getField(selectedPosition)
     local itemsOnField = field:countItems()
@@ -172,12 +187,13 @@ function M.checkIfPlantOrTree(User, itemId)
             end
         end
     end
-return false
+    return false
 end
+
 function M.checkIfGardeningCriteriaMet(User, itemId)
-local targetPosition = common.GetFrontPosition(User)
-local targetField = world:getField(targetPosition)
-local targetTileId = targetField:tile()
+    local targetPosition = common.GetFrontPosition(User)
+    local targetField = world:getField(targetPosition)
+    local targetTileId = targetField:tile()
     for _, item in pairs(itemList.items) do
         if item.category == "Plants" or item.category == "Trees" then
             if item.itemId == itemId then
@@ -192,8 +208,9 @@ local targetTileId = targetField:tile()
             end
         end
     end
-return false
+    return false
 end
+
 function M.setPersistenceForProperties()
     for _, property in pairs(M.properties) do
         for x = property.lower.x, property.upper.x do
@@ -205,8 +222,9 @@ function M.setPersistenceForProperties()
         end
     end
 end
+
 function M.checkIfEstate(User)
-local propertyName = M.fetchPropertyName(User)
+    local propertyName = M.fetchPropertyName(User)
     for _, property in ipairs(M.properties) do
         if propertyName == property.name then
             if property.estate then
@@ -214,10 +232,11 @@ local propertyName = M.fetchPropertyName(User)
             end
         end
     end
-return false
+    return false
 end
+
 function M.checkIfOutlaw(User)
-local propertyName = M.fetchPropertyName(User)
+    local propertyName = M.fetchPropertyName(User)
     for _, property in ipairs(M.properties) do
         if propertyName == property.name then
             if property.outlaw then
@@ -225,15 +244,18 @@ local propertyName = M.fetchPropertyName(User)
             end
         end
     end
-return false
+    return false
 end
+
 function M.fetchPropertyName(User, pos)
-local direct = User:getFaceTo()
-local d = 1
-local vX, vY = common.GetDirectionVector(direct)
-local x
-local y
-local z
+
+    local direct = User:getFaceTo()
+    local d = 1
+    local vX, vY = common.GetDirectionVector(direct)
+    local x
+    local y
+    local z
+
     if pos == nil then
         x = User.pos.x + vX * d
         y = User.pos.y + vY * d
@@ -255,8 +277,9 @@ local z
     end
     return nil
 end
+
 function M.fetchBuildersPermission(User, pos)
-local propertyName = M.fetchPropertyName(User, pos)
+    local propertyName = M.fetchPropertyName(User, pos)
     if M.fetchPropertyName(User, pos) then
     local foundOwner, currentOwner = ScriptVars:find("ownerof"..propertyName)
         if foundOwner then
@@ -273,13 +296,14 @@ local propertyName = M.fetchPropertyName(User, pos)
             end
         end
     end
-return false
+    return false
 end
+
 function M.checkIfEntrance(User)
     if M.checkIfEstate(User) then
         return false
     end
-local targetItem
+    local targetItem
     if not common.GetFrontItem(User) then
         return false
     else
@@ -297,8 +321,9 @@ local targetItem
             return true
         end
     end
-return false
+    return false
 end
+
 function M.checkIfStairsOrTrapDoor(User, itemId)
     for _, item in pairs (itemList.items) do
         if item.category == "Stairs" or item.category == "Trap Doors" then
@@ -307,10 +332,11 @@ function M.checkIfStairsOrTrapDoor(User, itemId)
             end
         end
     end
-return false
+    return false
 end
+
 function M.checkIfRoofOrRoofTile(User, itemId, tileBoolean, tileId, createOrErase)
-local tileIdentifier
+    local tileIdentifier
     if createOrErase == "create" then
         tileIdentifier = itemId
     else
@@ -333,17 +359,19 @@ local tileIdentifier
             end
         end
     end
-return false
+    return false
 end
+
 function M.roofAndRoofTiles(User, itemId, tileBoolean, createOrErase)
-local direct = User:getFaceTo()
-local d = 1
-local vX, vY = common.GetDirectionVector(direct)
-local targetPosition = position(User.pos.x + vX * d, User.pos.y + vY * d, User.pos.z + 1)
-local targetItem = world:getItemOnField(targetPosition)
-local targetId
-local tileField = world:getField(targetPosition)
-local tileId = tileField:tile()
+    local direct = User:getFaceTo()
+    local d = 1
+    local vX, vY = common.GetDirectionVector(direct)
+    local targetPosition = position(User.pos.x + vX * d, User.pos.y + vY * d, User.pos.z + 1)
+    local targetItem = world:getItemOnField(targetPosition)
+    local targetId
+    local tileField = world:getField(targetPosition)
+    local tileId = tileField:tile()
+
     if createOrErase == "create" then
         targetId = itemId
     elseif createOrErase == "erase" then
@@ -367,20 +395,22 @@ local tileId = tileField:tile()
             User:inform(common.GetNLS(User,"","You destroy the roof tile."))
         end
     end
-return true
+    return true
 end
+
 function M.createWarpsAndExitObject(User, itemId, createOrErase)
-local direct = User:getFaceTo()
-local d = 1
-local vX, vY = common.GetDirectionVector(direct)
-local targetPosition = position(User.pos.x + vX * d, User.pos.y + vY * d, User.pos.z)
-local v2X = 0
-local v2Y = 0
-local v2Z = 0
-local positionTwo
-local positionThree
-local positionFour
-local trapStair
+    local direct = User:getFaceTo()
+    local d = 1
+    local vX, vY = common.GetDirectionVector(direct)
+    local targetPosition = position(User.pos.x + vX * d, User.pos.y + vY * d, User.pos.z)
+    local v2X = 0
+    local v2Y = 0
+    local v2Z = 0
+    local positionTwo
+    local positionThree
+    local positionFour
+    local trapStair
+
     if M.checkIfStairsOrTrapDoor then
         for _, stair in pairs(itemList.Stairs) do
             if stair.Downstairs == itemId then --It's a stair item
@@ -432,21 +462,24 @@ local trapStair
             end
         end
     end
-return true
+    return true
 end
+
 function M.createStairTrap(User, positionOne, positionTwo, positionThree, positionFour, trapStair)
-local warpOne = world:getField(positionOne)
-local warpTwo = world:getField(positionTwo)
+    local warpOne = world:getField(positionOne)
+    local warpTwo = world:getField(positionTwo)
     world:changeTile(40, positionTwo)
     world:changeTile(40, positionThree)
     world:createItemFromId(trapStair, 1, positionTwo, true, 999, nil)
     warpOne:setWarp(positionThree)
     warpTwo:setWarp(positionFour)
 end
+
 function M.eraseStairTrap(User, positionOne, positionTwo)
-local warpOne = world:getField(positionOne)
-local warpTwo = world:getField(positionTwo)
-local targetItem = world:getItemOnField(positionTwo)
+    local warpOne = world:getField(positionOne)
+    local warpTwo = world:getField(positionTwo)
+    local targetItem = world:getItemOnField(positionTwo)
+
     world:erase(targetItem,1)
     if warpOne:isWarp() then
         warpOne:removeWarp()

@@ -27,11 +27,14 @@ local gems = require("base.gems")
 local glypheffects = require("magic.glypheffects")
 local itemList = require("craft.base.itemList")
 local foodScript = require("item.food")
-
+local propertyList = require("base.propertyList")
+local notice = require("item.notice")
 local OFFSET_PRODUCTS_REPAIR = 235
 local repairItemList = {}
 local housingTool = Item.constructiontrowel
-local propertyList = require("base.propertyList")
+
+local previewInformCooldown = {}
+
 --[[productId for craftable items: id in products table.
 productId for repairable items position in inventory plus offset. Inventory has 17 positions, max productId = 255
 ]]--
@@ -171,6 +174,35 @@ function Craft:addProduct(categoryId, itemId, quantity, data, housing, tile, the
     return nil
 end
 
+local function showTemporaryPreviewOfItem(productId, target, user)
+    -- For special items like stairs, only the first object will be previewed and not the upper/lower stair
+
+    local propertyName = propertyList.getPropertyLocationIsPartOf(target)
+
+    local propertyDeed = notice.getPropertyDeed(propertyName)
+
+    notice.deletePreviewItem(propertyName, true)
+
+    local currentTime = common.GetCurrentTimestamp()
+    propertyDeed:setData("previewItemPositionX", target.x)
+    propertyDeed:setData("previewItemPositionY", target.y)
+    propertyDeed:setData("previewItemPositionZ", target.z)
+    propertyDeed:setData("previewItemTimer", currentTime)
+    world:changeItem(propertyDeed)
+
+    local previewItem = world:createItemFromId(productId, 1, target, true, 111, {["preview"] = "true"})
+    previewItem.wear = 255
+    world:changeItem(previewItem)
+
+    if previewInformCooldown[user.id] and  previewInformCooldown[user.id] >= currentTime then
+        user:inform("GERMAN TRANSLATION HERE", "Preview item placed.")
+    else
+        user:inform("GERMAN TRANSLATION HERE", "By hovering over the item in the menu, you've created an item for preview in the location it will be built if you craft it. This item will disappear after 30 seconds, or whenever you or someone else preview another item on the same property.")
+        previewInformCooldown[user.id] = currentTime + 3600 --This long inform only shows once an hour, so as to not be spammy
+    end
+end
+
+
 function Craft:showDialog(user, source)
 
     if not self:allowCrafting(user, source) then
@@ -198,6 +230,13 @@ function Craft:showDialog(user, source)
             return canWork
         elseif result == CraftingDialog.playerLooksAtItem then
             local productId = dialog:getCraftableId()
+
+            if self:getHandToolEquipped(user).id == housingTool then
+                local target = self.targetPosition
+                local product = self.products[productId]
+                showTemporaryPreviewOfItem(product.item, target, user)    --Preview of item, used only in housing
+            end
+
             return self:getProductLookAt(user, productId)
         elseif result == CraftingDialog.playerLooksAtIngredient then
             local productId = dialog:getCraftableId()
@@ -888,6 +927,9 @@ function Craft:createItem(user, productId, toolItem, housing)
         common.CreateItem(user, product.item, product.quantity, quality, product.data)
     elseif housing then
         local target = self.targetPosition
+        local propertyName = propertyList.getPropertyLocationIsPartOf(target)
+        notice.deletePreviewItem(propertyName, true)
+
         if product.tile == true then
             if propertyList.checkIfRoofOrRoofTile(user, product.item, true, product.item, "create") then
                 if propertyList.roofAndRoofTiles(user, product.item, true, "create") then

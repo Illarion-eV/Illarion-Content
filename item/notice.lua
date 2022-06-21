@@ -79,12 +79,76 @@ M.propertyTable = {
 {"Runewick Forest Estate", "Waldgrundstück in Runewick",position(869,889,0),200000, 2558,253, "Runewick","7",factions.RunewickRankListMale[7]["eRank"],factions.RunewickRankListMale[7]["gRank"], true},
 {"Runewick Roadside Estate", "Grundstück Am Wegesrand in Runewick",position(834,728,0),200000, 2558,254, "Runewick","7",factions.RunewickRankListMale[7]["eRank"],factions.RunewickRankListMale[7]["gRank"], true},
 --Outlaw
-{"Outlaw Base One", "Erstes Lager der Vogelfreien",position(967,243,0),200000,2558,504,"Outlaw","0","None","None", true}
+{"Outlaw Base One", "Erstes Lager der Vogelfreien",position(213,97,0),200000,2558,504,"Outlaw","0","None","None", true}
 }
 M.max_guest_number = 20
 M.max_builder_number = 20
 -- List of the different depot IDs
 M.depotList={100,101,102,103}
+
+function M.deletePreviewItem(propertyName, bypassTTL)
+
+    local propertyDeed = M.getPropertyDeed(propertyName)
+
+    if propertyDeed == nil then
+        log("A property deed is missing from the map, causing script errors.")
+        return
+    end
+
+    local timer = propertyDeed:getData("previewItemTimer")
+
+    if timer == "" then
+        return
+    end
+
+    local X = propertyDeed:getData("previewItemPositionX")
+    local Y = propertyDeed:getData("previewItemPositionY")
+    local Z = propertyDeed:getData("previewItemPositionZ")
+    local currentTime = common.GetCurrentTimestamp()
+    local TTL = 30
+
+    if not bypassTTL and timer+TTL > currentTime then
+        return
+    end
+
+    local location = position(tonumber(X), tonumber(Y), tonumber(Z))
+    local field = world:getField(location)
+    local itemsOnField = field:countItems()
+
+    for i = 0, itemsOnField do
+        local currentItem = field:getStackItem(itemsOnField-i)
+        local preview = currentItem:getData("preview")
+
+        if preview == "true" then
+            world:erase(currentItem, currentItem.number)
+            propertyDeed:setData("previewItemTimer", "")
+            world:changeItem(propertyDeed)
+            break
+        end
+    end
+end
+
+function M.scheduledDeletionOfPreviewItems()
+    for i = 1, #M.propertyTable do
+        M.deletePreviewItem(M.propertyTable[i][1], false)
+    end
+end
+
+function M.getPropertyDeed(propertyName)
+    for i = 1, #M.propertyTable do
+        if propertyName == M.propertyTable[i][1] then
+            local field = world:getField(M.propertyTable[i][3])
+            local itemsOnField = field:countItems()
+            for i2 = 0, itemsOnField do
+                local currentItem = field:getStackItem(itemsOnField-i2)
+                if currentItem.id == 3772 or currentItem.id == 3773 then
+                    return currentItem
+                end
+            end
+        end
+    end
+end
+
 function M.checkForPropertyDeed(user)
 local targetTile = common.GetFrontPosition(user)
     for i = 1, #M.propertyTable do
