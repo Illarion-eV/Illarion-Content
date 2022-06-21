@@ -151,8 +151,9 @@ local function placeStakeOnPosition(selectedPosition)
 end
 
 local function checkIfPropertyHasTenant(propertyName)
-    local foundOwner = ScriptVars:find("ownerof"..propertyName)
-    if foundOwner then
+    local propertyDeed = notice.getPropertyDeed(propertyName)
+    local tenant = propertyDeed:getData("tenant")
+    if tenant ~= "" then
         return true
     else
         return false
@@ -304,17 +305,18 @@ end
 
 function M.fetchBuildersPermission(User, pos)
     local propertyName = M.fetchPropertyName(User, pos)
+    local propertyDeed = notice.getPropertyDeed(propertyName)
     if M.fetchPropertyName(User, pos) then
-    local foundOwner, currentOwner = ScriptVars:find("ownerof"..propertyName)
-        if foundOwner then
-            if currentOwner == User.name then
+    local tenant = propertyDeed:getData("tenant")
+        if tenant ~= "" then
+            if tenant == User.name then
                 return true
             end
         end
     for i = 1, notice.max_builder_number do
-        local foundBuilder, currentBuilder = ScriptVars:find("builder"..i..propertyName)
-            if foundBuilder then
-                if currentBuilder == User.name then
+        local builder = propertyDeed:getData("builder"..i)
+            if builder ~= "" then
+                if builder == User.name then
                     return true
                 end
             end

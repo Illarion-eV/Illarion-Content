@@ -26,7 +26,7 @@ local notice = require("item.notice")
 local M = {}
 
  -- Cadomyr, Runewick, Galmair
-M.townManagmentItemPos = {position(116, 527, 0), position(951, 786, 1), position(344, 223, 0)}
+M.townManagmentItemPos = notice.townManagmentItemPos
 
 local TownAnnouncement
 local TownAnnouncementShow
@@ -68,7 +68,7 @@ function M.townManagmentUseItem(User, SourceItem)
         elseif selected == 4 then
             TownKey(User,toolTown)
         elseif selected == 5 then
-            townProperties(User, toolTown)
+            townProperties(User, toolTown, SourceItem)
         elseif selected == 6 then
             TownMaterial(User,toolTown)
         end
@@ -103,17 +103,16 @@ local function getTown(toolTown)
     end
 end
 
-local function getRentAmount(toolTown)
-    local town = getTown(toolTown)
-    local foundCollectedRent, collectedRent = ScriptVars:find("rentBelongingTo"..town)
-    if foundCollectedRent then
-        return collectedRent
+local function getRentAmount(toolTown, SourceItem)
+    local rent = SourceItem:getData("rent")
+    if rent ~= "" then
+        return tonumber(rent)
     else
         return 0
     end
 end
-local function collectedRentIntoMoney(toolTown)
-local coins = getRentAmount(toolTown)
+local function collectedRentIntoMoney(toolTown, SourceItem)
+local coins = getRentAmount(toolTown, SourceItem)
 local gCoins, sCoins, cCoins = money.MoneyToCoins(coins)
     if gCoins > 0 and sCoins == 0 and cCoins == 0 then
         return(gCoins.." gold coins.")
@@ -133,8 +132,8 @@ local gCoins, sCoins, cCoins = money.MoneyToCoins(coins)
         return("no money")
     end
 end
-local function collectedRentIntoMoneyDE(toolTown)
-local coins = getRentAmount(toolTown)
+local function collectedRentIntoMoneyDE(toolTown, SourceItem)
+local coins = getRentAmount(toolTown, SourceItem)
 local gCoins, sCoins, cCoins = money.MoneyToCoins(coins)
     if gCoins > 0 and sCoins == 0 and cCoins == 0 then
         return(gCoins.." Goldstücke")
@@ -192,8 +191,8 @@ local gCoins, sCoins, cCoins = money.MoneyToCoins(coins)
         return(gCoins.." Gold-, "..sCoins.." Silber- and "..cCoins.." Kupferstücke")
     end
 end
-local function withdrawRent(User, toolTown)
-local rent = getRentAmount(toolTown)
+local function withdrawRent(User, toolTown, SourceItem)
+local rent = getRentAmount(toolTown, SourceItem)
 local town = getTown(toolTown)
     local callback = function (dialog)
         if (not dialog:getSuccess()) then
@@ -208,8 +207,6 @@ local town = getTown(toolTown)
             elseif (tonumber(input) > tonumber(rent)) then
                  User:inform(common.GetNLS(User,"Die Zahl kann nicht größer sein als die Anzahl der Münzen in der Schatzkiste.","The amount can not be larger than the amount in the treasury.")) -- DE
             else
-                debug("input: "..input)
-                debug("rent: "..rent)
                 local coins = input
                 local gCoins, sCoins, cCoins = money.MoneyToCoins(coins)
                 money.GiveCoinsToChar(User, gCoins, sCoins, cCoins)
@@ -224,21 +221,23 @@ local town = getTown(toolTown)
     end
     User:requestInputDialog(InputDialog(common.GetNLS(User,"Mietenentnahme","Rent Withdrawal"),common.GetNLS(User,"Gib an, wie viele Kupfermünzen du entnehmen möchtest.","Type in how much money you want to withdraw in copper coins."), false, 255, callback))
 end
-local function rentCollection(User,toolTown)
-local rent = collectedRentIntoMoney(toolTown)
-local rentDE = collectedRentIntoMoneyDE(toolTown)
+local function rentCollection(User,toolTown, SourceItem)
+local rent = collectedRentIntoMoney(toolTown, SourceItem)
+local rentDE = collectedRentIntoMoneyDE(toolTown, SourceItem)
     local callback = function(dialog)
-        if not dialog:getSuccess() then
-            return
-        end
-        local selected = dialog:getSelectedIndex() + 1
-        if selected == 1 then
-            withdrawRent(User, toolTown)
-        else
-            User:inform(common.GetNLS(User,"Du entscheidest dich gegen das Entnehmen der Miete für den Augenblick","You decide against withdrawing any rent for now."))
+        if getRentAmount(toolTown, SourceItem) ~= 0 then --the below code only matters for selectionDialog and not messageDialog
+            if not dialog:getSuccess() then
+                return
+            end
+            local selected = dialog:getSelectedIndex() + 1
+            if selected == 1 then
+                withdrawRent(User, toolTown, SourceItem)
+            else
+                User:inform(common.GetNLS(User,"Du entscheidest dich gegen das Entnehmen der Miete für den Augenblick","You decide against withdrawing any rent for now."))
+            end
         end
     end
-    if tostring(getRentAmount(toolTown)) == "0" then
+    if getRentAmount(toolTown, SourceItem) == 0 then
         local dialog = MessageDialog(common.GetNLS(User,"Grundstücksmiete","Property Rent"), common.GetNLS(User,"Derzeit ist kein Geld in der Schatzkiste, das du entnehmen könntest.","There's currently no money in the treasury for you to withdraw."), callback)
         User:requestMessageDialog(dialog)
     else
@@ -249,7 +248,7 @@ local rentDE = collectedRentIntoMoneyDE(toolTown)
     end
 end
 
-function townProperties(user, toolTown)
+function townProperties(user, toolTown, SourceItem)
 
     local town = getTown(toolTown)
 
@@ -261,7 +260,7 @@ function townProperties(user, toolTown)
         local selected = dialog:getSelectedIndex() + 1
 
         if selected == 1 then
-            rentCollection(user, toolTown)
+            rentCollection(user, toolTown, SourceItem)
         else
             notice.allowAllAutomaticRentExtension(user, town)
         end

@@ -439,9 +439,10 @@ local propertyName = propertyList.fetchPropertyName(User)
 end
 function M.getRentDuration(User)
 local property = propertyList.fetchPropertyName(User)
-local foundCurrentRentDuration, currentRentDuration = ScriptVars:find("rentDuration"..property)
-    if foundCurrentRentDuration then
-        return currentRentDuration
+local propertyDeed = M.getPropertyDeed(property)
+local duration = propertyDeed:getData("rentDuration")
+    if duration ~= "" then
+        return duration
     end
 end
 

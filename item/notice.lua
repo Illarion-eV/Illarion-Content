@@ -20,6 +20,9 @@ local money = require("base.money")
 local factions = require("base.factions")
 local M = {}
 
+ -- Cadomyr, Runewick, Galmair
+ M.townManagmentItemPos = {position(116, 527, 0), position(951, 786, 1), position(344, 223, 0)}
+
 M.propertyTable = {
 -- 1property name, 2DE name, 3position, 4default rent, 5keyID, 6doorID, 7town, 8required rank, 9required rank name, 10DE rank name, 11 estate(boolean)
 -- Some of the information is not used and was there for a fully automated version of housing. It is kept in case of future need.
@@ -237,16 +240,21 @@ local propertyName
     else
         propertyName = property
     end
-ScriptVars:remove("ownerof"..propertyName)
+local propertyDeed = M.getPropertyDeed(propertyName)
+
+propertyDeed:setData("tenant", "")
+
     for i = 1, M.max_builder_number do
-        ScriptVars:remove("builder"..i..propertyName)
+        propertyDeed:setData("builder", "")
     end
     for i = 1, M.max_guest_number do
-        ScriptVars:remove("guest"..i..propertyName)
+        propertyDeed:setData("guest", "")
     end
-ScriptVars:remove("rentDuration"..propertyName)
-ScriptVars:save()
-user:inform(M.getText(user,"Vorheriger Mieter entfernt.","Previous renter removed."))
+    propertyDeed:setData("rentDuration", "")
+
+    world:changeItem(propertyDeed)
+
+user:inform(M.getText(user,"Vorheriger Mieter entfernt.","Previous tenant evicted."))
 end
 -- sets an owner
 function M.setOwner(user, item, propertyName)
@@ -256,6 +264,7 @@ local property
     else
         property = propertyName
     end
+    local propertyDeed = M.getPropertyDeed(property)
     local callback = function (dialog)
         if not dialog:getSuccess() then
             return
@@ -267,9 +276,11 @@ local property
                 user:inform(M.getText(user,"Der Charakter mietet bereits ein Grundstück.","Character already rents a property."))
             else
                 M.removeOwner(user, item, propertyName)
-                ScriptVars:set("rentDuration"..property,1)
-                ScriptVars:set("ownerof"..property,input)
-                ScriptVars:save()
+
+                propertyDeed:setData("rentDuration", 1)
+                propertyDeed:setData("tenant", input)
+                world:changeItem(propertyDeed)
+
                 user:inform(M.getText(user,input.." wurde als neuer Mieter eingetragen.",input.." set as new renter."))
                 M.setSignature(user, item, propertyName)
             end
@@ -286,6 +297,7 @@ local property
     else
         property = propertyName
     end
+    local propertyDeed = M.getPropertyDeed(property)
 local builderOrGuestDe
 local builderOrGuestDePlural
 local textDe
@@ -310,10 +322,12 @@ local textEn
             user:inform(M.getText(user,"Das Namensfeld darf nicht leer sein.","The name field can not be empty."))
         else
             for i = 1, M["max_"..builderOrGuest.."_number"] do
-                local foundBuilderOrGuest = ScriptVars:find(builderOrGuest..i..property)
-                if not foundBuilderOrGuest then
-                    ScriptVars:set(builderOrGuest..i..property,input)
-                    ScriptVars:save()
+
+                local foundBuilderOrGuest = propertyDeed:getData(builderOrGuest..i)
+
+                if foundBuilderOrGuest == "" then
+                    propertyDeed:setData(builderOrGuest..i, input)
+                    world:changeItem(propertyDeed)
                     user:inform(M.getText(user,input.." hat nun die Rechte als "..builderOrGuestDe.."."..textDe,input.." set as a "..builderOrGuest..". "..textEn))
                     return
                 elseif i == M["max_"..builderOrGuest.."_number"] then
@@ -335,6 +349,9 @@ local property
     else
         property = propertyName
     end
+
+    local propertyDeed = M.getPropertyDeed(property)
+
 local builderOrGuestDe
 local dialogNameEn
 local dialogNameDe
@@ -354,11 +371,11 @@ local skippedGuestSlots = 0
         if success then
             local selected = dialog:getSelectedIndex()+1
             for i = 1, M["max_"..builderOrGuest.."_number"] do
-                local foundBuilderOrGuest, currentBuilderOrGuest = ScriptVars:find(builderOrGuest..i..property)
-                if foundBuilderOrGuest then
+                local currentBuilderOrGuest = propertyDeed:getData(builderOrGuest..i)
+                if currentBuilderOrGuest ~= "" then
                     if selected == i-skippedGuestSlots then
-                        ScriptVars:remove(builderOrGuest..i..property)
-                        ScriptVars:save()
+                        propertyDeed:setData(builderOrGuest..i, "")
+                        world:changeItem(propertyDeed)
                         user:inform(M.getText(user,currentBuilderOrGuest.." wurde von der Liste entfernt.",currentBuilderOrGuest.." has been removed from the list."))
                     end
                 else
@@ -371,8 +388,8 @@ local skippedGuestSlots = 0
     M.getText(user,"Wähle einen Namen aus, der von der Liste entfernt werden soll.",
     "Select a name to remove them from the list.") , callback)
     for i = 1, M["max_"..builderOrGuest.."_number"] do
-        local foundBuilderOrGuest, currentBuilderOrGuest = ScriptVars:find(builderOrGuest..i..property)
-        if foundBuilderOrGuest then
+        local currentBuilderOrGuest = propertyDeed:getData(builderOrGuest..i)
+        if currentBuilderOrGuest ~= "" then
             dialog:addOption(0, currentBuilderOrGuest)
             guestOrBuildersExist = true
         end
@@ -386,9 +403,8 @@ end
 
 -- Fetches who the owner is
 function M.checkOwner(item)
-local propertyName = M.getPropertyName(item)
-local foundOwner, currentOwner = ScriptVars:find("ownerof"..propertyName)
-    if foundOwner then
+local currentOwner = item:getData("tenant")
+    if currentOwner ~= "" then
         return currentOwner
     else
         return "Unowned"
@@ -396,31 +412,72 @@ local foundOwner, currentOwner = ScriptVars:find("ownerof"..propertyName)
 end
 
 local function getRentNumeral(item)
-    local propertyName = M.getPropertyName(item)
     local defaultRent = M.getDefaultRent(item)
-    local foundRent, currentRent = ScriptVars:find("rentfor"..propertyName)
+    local rent = item:getData("rent")
 
-    if foundRent then
-        return currentRent
+    if rent ~= "" then
+        return rent
     else
         return defaultRent
     end
 end
 
+local function getTownManagementTool(town)
+    local listOfTools = M.townManagmentItemPos
+    local location
+
+    if town == "Cadomyr" then
+        location = listOfTools[1]
+    elseif town == "Runewick" then
+        location = listOfTools[2]
+    elseif town == "Galmair" then
+        location = listOfTools[3]
+    end
+
+    if not location then
+        return
+    end
+
+    local toolId = 3106
+
+    local field = world:getField(location)
+    local itemsOnField = field:countItems()
+
+    for i = 0, itemsOnField do
+        local chosenItem = field:getStackItem(itemsOnField - i )
+        if chosenItem.id == toolId then
+            return chosenItem
+        end
+    end
+
+end
+
+
+
+
 local function addRent(town, rent)
 
-    local foundAmount, currentAmount = ScriptVars:find("rentBelongingTo"..town)
+    local townManagementTool = getTownManagementTool(town)
 
-    if foundAmount then
-        ScriptVars:set("rentBelongingTo"..town, (tonumber(currentAmount)+tonumber(rent)))
-    else
-        ScriptVars:set("rentBelongingTo"..town, tonumber(rent))
+    if not townManagementTool then
+        return
     end
-    ScriptVars:save()
+
+    if not world:isPersistentAt(townManagementTool.pos) then
+        world:makePersistentAt(townManagementTool.pos)
+    end
+
+    local amount = townManagementTool:getData("rent")
+
+    if amount ~= "" then
+        townManagementTool:setData("rent", (tonumber(amount)+tonumber(rent)))
+    else
+        townManagementTool:setData("rent", tonumber(rent))
+    end
+    world:changeItem(townManagementTool)
 end
 
 local function payRent(user, item)
-    local propertyName = M.getPropertyName(item)
     local town = M.getTownName(item)
        local callback = function (dialog)
             if (not dialog:getSuccess()) then
@@ -433,21 +490,21 @@ local function payRent(user, item)
                     user:inform(M.getText(user,"GERMAN TRANSLATION HERE","The number of months to rent has to be more than 0."))
                 else
                     local rent_cost = (tonumber(getRentNumeral(item))*tonumber(input))
-                    local foundCurrentRentDuration, currentRentDuration = ScriptVars:find("rentDuration"..propertyName)
+                    local rentDuration = item:getData("rentDuration")
                     if (input == nil or input == "") then
                         user:inform(M.getText(user,"GERMAN TRANSLATION HERE","Input field can't be left empty."))
                     elseif not money.CharHasMoney(user, rent_cost) then--check money
                         user:inform(M.getText(user,"GERMAN TRANSLATION HERE","You can't afford that."))
                     else
-                        if (foundCurrentRentDuration == true) then
-                            if ((tonumber(input)+tonumber(currentRentDuration)) > 48)  then
+                        if rentDuration ~= "" then
+                            if ((tonumber(input)+tonumber(rentDuration)) > 48)  then
                                 user:inform(M.getText(user,"GERMAN TRANSLATION HERE","Duration increase can not exceed the maximum of 48 months rent."))
                             else
                                 money.TakeMoneyFromChar(user, rent_cost)
                                 addRent(town, rent_cost)
-                                ScriptVars:set("rentDuration"..propertyName, (tonumber(input)+tonumber(currentRentDuration)) )
-                                ScriptVars:set("ownerof"..propertyName,user.name)
-                                ScriptVars:save()
+                                item:setData("rentDuration", (tonumber(input) + tonumber(rentDuration)))
+                                item:setData("tenant", user.name)
+                                world:changeItem(item)
                                 user:inform(M.getText(user,"GERMAN TRANSLATION HERE","After another visit to the quartermaster's office, your purse may feel lighter, but you rest comfortably in the knowledge that the residence before you is now yours for an additional "..input.." months."))
                             end
                         end
@@ -456,14 +513,14 @@ local function payRent(user, item)
                 end
         end
         if M.checkOwner(item) == user.name then
-            local foundCurrentRentDuration, currentRentDuration = ScriptVars:find("rentDuration"..propertyName)
-            if foundCurrentRentDuration then
+            local rentDuration = item:getData("rentDuration")
+            if rentDuration ~= "" then
                 user:requestInputDialog(InputDialog(M.getText(user,"Miete","Rent"), M.getText(user,
                 "GERMAN TRANSLATION HERE"..M.getRentDE(item)..
-                "GERMAN TRANSLATION HERE"..currentRentDuration..
+                "GERMAN TRANSLATION HERE"..rentDuration..
                 "GERMAN TRANSLATION HERE",
                 "The current rental fee is "..M.getRent(item)..
-                "\n You currently have "..currentRentDuration..
+                "\n You currently have "..rentDuration..
                 " months left on your lease. \nHow many months do you want to extend your rent by?"),
                 false, 255, callback))
             end
@@ -483,15 +540,19 @@ function M.allowAllAutomaticRentExtension(user, realm)
     for i = 1, #M.propertyTable do
         local property = M.propertyTable[i][1]
         local town = M.propertyTable[i][7]
+        local propertyDeed = M.getPropertyDeed(property)
 
         if town == realm then
-            local found, result = ScriptVars:find("automaticRentExtension"..property)
+            local result = propertyDeed:getData("automaticRentExtension")
 
-            if not found then
+            if result ~= "" then
+                result = tonumber(result)
+            else
                 result = 0
             end
 
-            state = math.min(state, tonumber(result))
+
+            state = math.min(state, result)
 
             if state == 0 then
                 break
@@ -536,11 +597,12 @@ function M.allowAllAutomaticRentExtension(user, realm)
             for i = 1, #M.propertyTable do
                 local property = M.propertyTable[i][1]
                 local town = M.propertyTable[i][7]
+                local propertyDeed = M.getPropertyDeed(property)
                 if town == realm then
-                    ScriptVars:set("automaticRentExtension"..property, newState)
+                    propertyDeed:setData("automaticRentExtension", newState)
+                    world:changeItem(propertyDeed)
                 end
             end
-            ScriptVars:save()
             for _, text in pairs(texts) do
                 if text.identifier == newState then
                     user:inform(text.informText.german, text.informText.english)
@@ -575,11 +637,13 @@ function M.allowAutomaticRentExtension(user, item, propertyName)
         property = propertyName
     end
 
+    local propertyDeed = M.getPropertyDeed(property)
+
     local currentState
 
-    local found, result = ScriptVars:find("automaticRentExtension"..property)
+    local result = propertyDeed:getData("automaticRentExtension")
 
-    if not found then
+    if result == "" then
         currentState = 0
     else
         currentState = tonumber(result)
@@ -619,8 +683,8 @@ function M.allowAutomaticRentExtension(user, item, propertyName)
         local selected = dialog:getSelectedIndex()+1
 
         if selected == 1 then
-            ScriptVars:set("automaticRentExtension"..property, newState)
-            ScriptVars:save()
+            propertyDeed:setData("automaticRentExtension", newState)
+            world:changeItem(propertyDeed)
             for _, text in pairs(texts) do
                 if text.identifier == newState then
                     user:inform(text.informText.german, text.informText.english)
@@ -654,11 +718,13 @@ function M.setIndefiniteRent(user, item, propertyName)
         property = propertyName
     end
 
+    local propertyDeed = M.getPropertyDeed(propertyName)
+
     local currentState
 
-    local found, result = ScriptVars:find("indefiniteRent"..property)
+    local result= propertyDeed:getData("indefiniteRent")
 
-    if not found then
+    if result == "" then
         currentState = 0
     else
         currentState = tonumber(result)
@@ -698,8 +764,8 @@ function M.setIndefiniteRent(user, item, propertyName)
         local selected = dialog:getSelectedIndex()+1
 
         if selected == 1 then
-            ScriptVars:set("indefiniteRent"..property, newState)
-            ScriptVars:save()
+            propertyDeed:setData("indefiniteRent", newState)
+            world:changeItem(propertyDeed)
             for _, text in pairs(texts) do
                 if text.identifier == newState then
                     user:inform(text.informText.german, text.informText.english)
@@ -731,7 +797,10 @@ local property
     else
         property = propertyName
     end
-local town = M.getTownName(item, propertyName)
+
+    local propertyDeed = M.getPropertyDeed(property)
+
+local town = M.getTownName(item, property)
     if town == "Outlaw" then
         user:inform("Bei Grundstücken außerhalb des Einflussbereiches einer Stadt kann kein Rang erforderlich gemacht werden.","Can't set required rank for non-town properties.")
         return
@@ -742,9 +811,9 @@ local town = M.getTownName(item, propertyName)
             local selected = dialogGalmair:getSelectedIndex()+1
             for i = 1,7 do
                 if selected == i then
-                    ScriptVars:set("nameEN"..property,factions.GalmairRankListMale[i]["eRank"])
-                    ScriptVars:set("nameDE"..property, factions.GalmairRankListMale[i]["gRank"])
-                    ScriptVars:save()
+                    propertyDeed:setData("nameEN", factions.GalmairRankListMale[i]["eRank"])
+                    propertyDeed:setData("nameDE", factions.GalmairRankListMale[i]["gRank"])
+                    world:changeItem(propertyDeed)
                     user:inform(M.getText(user,"Der benötigte Rang wurde auf "..factions.GalmairRankListMale[i]["gRank"].." gesetzt.","Required rank has been set to "..factions.GalmairRankListMale[i]["eRank"].."."))
                 end
             end
@@ -756,9 +825,9 @@ local town = M.getTownName(item, propertyName)
             local selected = dialogRunewick:getSelectedIndex()+1
             for i = 1,7 do
                 if selected == i then
-                    ScriptVars:set("nameEN"..property,factions.RunewickRankListMale[i]["eRank"])
-                    ScriptVars:set("nameDE"..property, factions.RunewickRankListMale[i]["gRank"])
-                    ScriptVars:save()
+                    propertyDeed:setData("nameEN", factions.RunewickRankListMale[i]["eRank"])
+                    propertyDeed:setData("nameDE", factions.RunewickRankListMale[i]["gRank"])
+                    world:changeItem(propertyDeed)
                     user:inform(M.getText(user,"Der benötigte Rang wurde auf "..factions.RunewickRankListMale[i]["gRank"].." gesetzt.","Required rank has been set to "..factions.RunewickRankListMale[i]["eRank"].."."))
                 end
             end
@@ -770,9 +839,9 @@ local town = M.getTownName(item, propertyName)
             local selected = dialogCadomyr:getSelectedIndex()+1
             for i = 1,7 do
                 if selected == i then
-                    ScriptVars:set("nameEN"..property,factions.CadomyrRankListMale[i]["eRank"])
-                    ScriptVars:set("nameDE"..property, factions.CadomyrRankListMale[i]["gRank"])
-                    ScriptVars:save()
+                    propertyDeed:setData("nameEN", factions.CadomyrRankListMale[i]["eRank"])
+                    propertyDeed:setData("nameDE", factions.CadomyrRankListMale[i]["gRank"])
+                    world:changeItem(propertyDeed)
                     user:inform(M.getText(user,"Der benötigte Rang wurde auf "..factions.CadomyrRankListMale[i]["gRank"].." gesetzt.","Required rank has been set to "..factions.CadomyrRankListMale[i]["eRank"].."."))
                 end
             end
@@ -822,6 +891,9 @@ local propertyName
     else
         propertyName = property
     end
+
+    local propertyDeed = M.getPropertyDeed(propertyName)
+
 local rentEN = M.getRent(item, propertyName)
 local rentDE = M.getRentDE(item, propertyName)
     local newRent = function (dialog)
@@ -835,9 +907,9 @@ local rentDE = M.getRentDE(item, propertyName)
             elseif tonumber(input) <= 0 then
                 user:inform(M.getText(user,"Die Zahl muss grösser als 0 sein.","You must set a number higher than 0."))
             else
-                ScriptVars:set("rentfor"..propertyName,input)
+                propertyDeed:setData("rent", input)
+                world:changeItem(propertyDeed)
                 user:inform(M.getText(user,"Mietpreis auf "..input.." gesetzt.","Rent set to "..input))
-                ScriptVars:save()
                 M.setSignature(user, item, propertyName)
             end
         else
@@ -854,10 +926,13 @@ local propertyName
     else
         propertyName = property
     end
+
+    local propertyDeed = M.getPropertyDeed(propertyName)
+
 local defaultRent = M.getDefaultRent(item, property)
-local foundRent, currentRent = ScriptVars:find("rentfor"..propertyName)
-    if foundRent then
-        local coins = tonumber(currentRent)
+local rent = propertyDeed:getData("rent")
+    if rent ~= "" then
+        local coins = tonumber(rent)
         local gCoins, sCoins, cCoins = money.MoneyToCoins(coins)
         if gCoins > 0 and sCoins == 0 and cCoins == 0 then
             return(gCoins.." gold coins per month.")
@@ -901,10 +976,13 @@ local propertyName
     else
         propertyName = property
     end
+
+    local propertyDeed = M.getPropertyDeed(propertyName)
+
 local defaultRent = M.getDefaultRent(item, property)
-local foundRent, currentRent = ScriptVars:find("rentfor"..propertyName)
-    if foundRent then
-        local coins = tonumber(currentRent)
+local rent = propertyDeed:getData("rent")
+    if rent ~= "" then
+        local coins = tonumber(rent)
         local gCoins, sCoins, cCoins = money.MoneyToCoins(coins)
         if gCoins > 0 and sCoins == 0 and cCoins == 0 then
             return(gCoins.." Goldstücke pro Monat.")
@@ -955,9 +1033,12 @@ end
 function M.checkIfOwnsProperty(Input)
     for i = 1, #M.propertyTable do
         local propertyName = M.propertyTable[i][1]
-        local foundOwner, currentOwner = ScriptVars:find("ownerof"..propertyName)
-        if foundOwner then
-            if currentOwner == Input then
+
+        local propertyDeed = M.getPropertyDeed(propertyName)
+
+        local tenant = propertyDeed:getData("tenant")
+        if tenant ~= "" then
+            if tenant == Input then
                 if not M.checkIfEstate(propertyName) then
                     return true
                 end
@@ -969,9 +1050,12 @@ end
 
 function M.checkIfPlayerIsGuest(user, property)
     for i = 1, M.max_guest_number do
-        local foundGuest, currentGuest = ScriptVars:find("guest"..i..property)
-        if foundGuest then
-            if currentGuest == user.name then
+
+        local propertyDeed = M.getPropertyDeed(property)
+
+        local guest = propertyDeed:getData("guest"..i)
+        if guest ~= "" then
+            if guest == user.name then
                 return true
             end
         end
@@ -980,10 +1064,11 @@ return false
 end
 -- Returns how many rent months remain
 function M.getRentDuration(item)
-local propertyName = M.getPropertyName(item)
-local foundCurrentRentDuration, currentRentDuration = ScriptVars:find("rentDuration"..propertyName)
-    if foundCurrentRentDuration then
-        return currentRentDuration
+
+    local rentDuration = item:getData("rentDuration")
+
+    if rentDuration ~= "" then
+        return rentDuration
     else
         return "No rent duration found."
     end
@@ -993,19 +1078,20 @@ end
 function M.reduceRentTimer()
     for i = 1, #M.propertyTable do
         local property = M.propertyTable[i][1]
-        local foundCurrentRentDuration, currentRentDuration = ScriptVars:find("rentDuration"..property)
-        if foundCurrentRentDuration == true and tonumber(currentRentDuration) > 0 then
-            local foundRentExemption, rentExemption = ScriptVars:find("indefiniteRent"..property)
-            if not foundRentExemption then
+        local propertyDeed = M.getPropertyDeed(property)
+        local rentDuration = propertyDeed:getData("rentDuration")
+        if rentDuration ~= "" and tonumber(rentDuration) > 0 then
+            local rentExemption = propertyDeed:getData("indefiniteRent")
+            if rentExemption == "" then
                 rentExemption = 0
             end
 
             if tonumber(rentExemption) ~= 1 then
-                ScriptVars:set("rentDuration"..(M.propertyTable[i][1]), (tonumber(currentRentDuration)-1))
+                propertyDeed:setData("rentDuration", (tonumber(rentDuration)-1))
+                world:changeItem(propertyDeed)
             end
         end
     end
-ScriptVars:save()
 end
 -- Returns how many keys a character has in their depot
 function M.charOwnedDepotKeys(char)
@@ -1032,9 +1118,10 @@ function M.deleteKeys(char)
     local town = M.propertyTable[i][7]
         if not M.checkIfLeaderOfTown(char, town) then --Check if leader of town
             local propertyName = M.propertyTable[i][1] -- Fetch name of property
-            local foundOwner, currentOwner = ScriptVars:find("ownerof"..propertyName) --Fetch owner of property
-            if foundOwner then --Check if there is an owner of the property
-                if not (char.name == currentOwner) and not M.checkIfPlayerIsGuest(char, propertyName) then -- Check if the character is the owner or guest of the property the key belongs to
+            local propertyDeed = M.getPropertyDeed(propertyName)
+            local tenant = propertyDeed:getData("tenant") --Fetch owner of property
+            if tenant ~= "" then --Check if there is an owner of the property
+                if not (char.name == tenant) and not M.checkIfPlayerIsGuest(char, propertyName) then -- Check if the character is the owner or guest of the property the key belongs to
                     local keyID = M.propertyTable[i][6] --Fetch what lock the key belongs to
                     local keyType = M.propertyTable[i][5] -- Fetch what type of key item it is
                     local keyAmount = char:countItemAt("all",keyType,{["lockId"]=keyID}) -- Fetch how many keys character has in inventory
@@ -1090,15 +1177,16 @@ function M.keyRetrieval(char)
 end
 -- Fetch the name of the required rank for the property in English
 function M.getRequiredRankName(item, language)
-local property = M.getPropertyName(item)
-local foundDE, getDE = ScriptVars:find("nameDE"..property)
-local foundEN, getEN = ScriptVars:find("nameEN"..property)
+
+    local nameDE = item:getData("nameDE")
+    local nameEN = item:getData("nameEN")
+
     for i = 1, #M.propertyTable do
         if (item.pos == M.propertyTable[i][3]) then
-            if (language == "DE") and foundDE then
-                return getDE
-            elseif (language == "EN") and foundEN then
-                return getEN
+            if (language == "DE") and nameDE ~= "" then
+                return nameDE
+            elseif (language == "EN") and nameEN ~= "" then
+                return nameEN
             elseif language == "DE" then
                 return M.propertyTable[i][10]
             elseif language == "EN" then
@@ -1132,33 +1220,39 @@ local property
     else
         property = propertyName
     end
+
+    local propertyDeed = M.getPropertyDeed(property)
+
 local rankTitleEN = M.getRankTitle(user, "EN")
 local rankTitleDE = M.getRankTitle(user, "DE")
 local name = user.name
     if user:isAdmin() then
-        ScriptVars:set("signatureEN"..property, "The Quartermaster")
-        ScriptVars:set("signatureDE"..property, "Der Quartiermeister")
-        ScriptVars:save()
+        propertyDeed:setData("signatureEN", "The Quartermaster")
+        propertyDeed:setData("signatureDE", "Der Quartiermeister")
     else
-        ScriptVars:set("signatureEN"..property, rankTitleEN.." "..name)
-        ScriptVars:set("signatureDE"..property, rankTitleDE.." "..name)
-        ScriptVars:save()
+        propertyDeed:setData("signatureEN", rankTitleEN.." "..name)
+        propertyDeed:setData("signatureDE", rankTitleDE.." "..name)
     end
+    world:changeItem(propertyDeed)
 end
+
 function M.getSignature(item, language)
-local property = M.getPropertyName(item)
-local foundSignatureEN, signatureEN = ScriptVars:find("signatureEN"..property)
-local foundSignatureDE, signatureDE = ScriptVars:find("signatureDE"..property)
-    if (language == "DE") and foundSignatureEN then
+
+    local signatureEN = item:getData("signatureEN")
+    local signatureDE = item:getData("signatureDE")
+
+    if language == "DE" and signatureDE ~= "" then
         return signatureDE
-    elseif (language == "EN") and foundSignatureDE then
+    elseif language == "EN" and signatureEN ~= "" then
         return signatureEN
-    elseif (language == "DE") then
+    elseif language == "DE" then
         return "der Quartiermeister"
     else
         return "the Quartermaster"
     end
+
 end
+
 function M.getTownLeaderTitle(town, language)
     if (town == "Galmair") and (language == "DE") then
         return "Kanzler"
@@ -1259,19 +1353,26 @@ function M.abandonPropertyDialog(user, item)
     dialog:addOption(0, M.getText(user,"Nein, ich habe meine Meinung geändert.","No, I changed my mind."))
     user:requestSelectionDialog(dialog)
 end
+
 function M.abandonProperty(user, item)
-    local propertyName = M.getPropertyName(item)
-    ScriptVars:remove("ownerof"..propertyName)
+
+    item:setData("tenant", "")
+
     for i = 1, M.max_builder_number do
-        ScriptVars:remove("builder"..i..propertyName)
+        item:setData("builder"..i, "")
     end
+
     for i = 1, M.max_guest_number do
-        ScriptVars:remove("guest"..i..propertyName)
+        item:setData("guest"..i, "")
     end
-    ScriptVars:remove("rentDuration"..propertyName)
+
+    item:setData("rentDuration", "")
+
     M.keyRetrieval(user)
-    ScriptVars:save()
+
+    world:changeItem(item)
 end
+
 -- GM/PL extend rent at no cost option
 function M.extendRent(user, item, property)
 local propertyName
@@ -1280,8 +1381,11 @@ local propertyName
     else
         propertyName = property
     end
-local foundCurrentRentDuration, currentRentDuration = ScriptVars:find("rentDuration"..propertyName)
-    if not foundCurrentRentDuration then
+
+    local propertyDeed = M.getPropertyDeed(propertyName)
+
+local rentDuration = propertyDeed:getData("rentDuration")
+    if rentDuration == "" then
         return
     end
     local extendRent = function (dialog)
@@ -1294,48 +1398,49 @@ local foundCurrentRentDuration, currentRentDuration = ScriptVars:find("rentDurat
                 user:inform(M.getText(user,"Hier muss eine Zahl eingetragen werden.","Input must be a number."))
             elseif tonumber(input) <= 0 then
                 user:inform(M.getText(user,"Die Zahl muss grösser als 0 sein.","You must set a number higher than 0."))
-            elseif (tonumber(input)+currentRentDuration) > 48 then
+            elseif (tonumber(input)+rentDuration) > 48 then
                 user:inform(M.getText(user,"Die Mietdauer darf 48 Monate nicht überschreiten.","Rent duration can not exceed 48 months."))
             else
-                ScriptVars:set("rentDuration"..propertyName,(currentRentDuration+input))
+                propertyDeed:setData("rentDuration", (rentDuration+input))
+                world:changeItem(propertyDeed)
                 user:inform(M.getText(user,"Mietdauer um"..input.." Monate verlängert.","Rent duration extended by "..input.." months."))
-                ScriptVars:save()
             end
         else
             user:inform(M.getText(user,"Hier muss eine Zahl eingetragen werden.","Input must be a number."))
         end
     end
-    user:requestInputDialog(InputDialog(M.getText(user,"Miete verlängern","Extend rent"), M.getText(user,"Mietdauer für den aktuellen Mieter umsonst verlängern.\n Derzeit beträgt die Mietdauer noch "..currentRentDuration.." Monate.","Extend rent for current renter at no charge.\n There's currently "..currentRentDuration.." months left on the lease."), false, 255, extendRent))
+    user:requestInputDialog(InputDialog(M.getText(user,"Miete verlängern","Extend rent"), M.getText(user,"Mietdauer für den aktuellen Mieter umsonst verlängern.\n Derzeit beträgt die Mietdauer noch "..rentDuration.." Monate.","Extend rent for current renter at no charge.\n There's currently "..rentDuration.." months left on the lease."), false, 255, extendRent))
 end
+
+local function removeTenantGuestBuilderDuration(propertyDeed)
+    propertyDeed:setData("tenant", "")
+
+    for number = 1, M.max_builder_number do
+        propertyDeed:setData("builder"..number, "")
+    end
+
+    for number = 1, M.max_guest_number do
+        propertyDeed:setData("guest"..number, "")
+    end
+
+    propertyDeed:setData("rentDuration", "")
+
+    world:changeItem(propertyDeed)
+end
+
 -- If rent duration is up, the renter gets removed
 function M.removeRentalIfDurationIsUp()
     for i = 1, #M.propertyTable do
         local propertyName = M.propertyTable[i][1]
-        local foundDuration, currentDuration = ScriptVars:find("rentDuration"..propertyName)
-        if foundDuration then
-            if currentDuration == nil then
-                ScriptVars:remove("ownerof"..propertyName)
-                for number = 1, M.max_builder_number do
-                    ScriptVars:remove("builder"..number..propertyName)
-                end
-                for number = 1, M.max_guest_number do
-                    ScriptVars:remove("guest"..number..propertyName)
-                end
-                ScriptVars:remove("rentDuration"..propertyName)
-                ScriptVars:save()
-            elseif currentDuration == 0 then
-                ScriptVars:remove("ownerof"..propertyName)
-                for number = 1, M.max_builder_number do
-                    ScriptVars:remove("builder"..number..propertyName)
-                end
-                for number = 1, M.max_guest_number do
-                    ScriptVars:remove("guest"..number..propertyName)
-                end
-                ScriptVars:remove("rentDuration"..propertyName)
-                ScriptVars:save()
-            else
-                return
-            end
+        local propertyDeed = M.getPropertyDeed(propertyName)
+        local duration = propertyDeed:getData("rentDuration")
+
+        if duration == "" or tonumber(duration) == 0 then
+
+            removeTenantGuestBuilderDuration(propertyDeed)
+
+        else
+            return
         end
     end
 end
@@ -1345,20 +1450,16 @@ function M.removeRentalOfPropertiesOfOtherTowns(user)
     for i = 1, #M.propertyTable do
         local propertyName = M.propertyTable[i][1]
         local propertyNameDE = M.propertyTable[i][2]
-        local foundOwner, currentOwner = ScriptVars:find("ownerof"..propertyName)
+        local propertyDeed = M.getPropertyDeed(propertyName)
+        local tenant = propertyDeed:getData("tenant")
         local town = M.propertyTable[i][7]
-        if foundOwner then
-            if currentOwner == user.name then
-                ScriptVars:remove("ownerof"..propertyName)
-                for number = 1, M.max_builder_number do
-                    ScriptVars:remove("builder"..number..propertyName)
-                end
-                for number = 1, M.max_guest_number do
-                    ScriptVars:remove("guest"..number..propertyName)
-                end
-                ScriptVars:remove("rentDuration"..propertyName)
+        if tenant ~= "" then
+            if tenant == user.name then
+
+                removeTenantGuestBuilderDuration(propertyDeed)
+
                 M.keyRetrieval(user)
-                ScriptVars:save()
+
                 if town == "Outlaw" then
                     user:inform("Als Bürger einer Stadt kannst du keine Grundstücke außerhalb des Einflussbereiches einer Stadt behalten.","Having become a citizen of a town, you are no longer eligible to keep former properties that do not belong to the town.")
                 else
@@ -1368,22 +1469,24 @@ function M.removeRentalOfPropertiesOfOtherTowns(user)
         end
     end
 end
+
 --Inform user about their keys being confiscated upon login
 function M.informUserOfKeyRetrieval(user)
     for i = 1, #M.propertyTable do
         local propertyName = M.propertyTable[i][1]
-        local foundOwner, currentOwner = ScriptVars:find("ownerof"..propertyName)
+        local propertyDeed = M.getPropertyDeed(propertyName)
+        local tenant = propertyDeed:getData("tenant")
         local town = M.propertyTable[i][7]
         for number = 1, M.max_guest_number do
-            local foundGuest, currentGuest = ScriptVars:find("guest"..number..propertyName)
-            if foundGuest then
-                if currentGuest == user.name then
+            local guest = propertyDeed:getData("guest"..number)
+            if guest ~= "" then
+                if guest == user.name then
                     return
                 end
             end
         end
-        if foundOwner then
-            if currentOwner ~= user.name then
+        if tenant ~= "" then
+            if tenant ~= user.name then
                 if M.checkIfLeaderOfTown(user, town) or user:isAdmin() then
                     return
                 else
@@ -1423,9 +1526,10 @@ function M.informUserOfKeyRetrieval(user)
 end
 
 local function isAutomaticRentEnabled(property)
-    local found, result = ScriptVars:find("automaticRentExtension"..property)
+    local propertyDeed = M.getPropertyDeed(property)
+    local result = propertyDeed:getData("automaticRentExtension")
 
-    if found then
+    if result ~= "" then
         if tonumber(result) == 1 then
             return true
         end
