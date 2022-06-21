@@ -638,30 +638,21 @@ local function settingsForCharAttributes(user, chosenPlayer)
                 user:inform("no number")
                 return
             end
-            if not chosenPlayer:isBaseAttributeValid(chosenAttribute,attributeValue) then
+            if not chosenPlayer:isBaseAttributeValid(chosenAttribute,attributeValue) and not chosenPlayer:isAdmin() then
                 user:inform("Value out of permitted range.")
---                return
+                return
             end
             user:logAdmin("changes attribute of character " .. chosenPlayer.name .. ". " .. chosenAttribute .. " from " .. chosenPlayer:getBaseAttribute(chosenAttribute).. " to " .. tostring(attributeValue)..".")
-            user:inform("change " .. chosenAttribute .. " from " .. chosenPlayer:getBaseAttribute(chosenAttribute).. " to " .. tostring(attributeValue)..".")
-            chosenPlayer:setBaseAttribute(chosenAttribute,attributeValue)
+            user:inform(chosenAttribute .. " was changed from " .. chosenPlayer:getBaseAttribute(chosenAttribute).. " to " .. tostring(attributeValue)..".")
+            chosenPlayer:setAttrib(chosenAttribute,attributeValue)
         end
         local sdChange = InputDialog("Change attribute for "..chosenPlayer.name, "Type in the new value for "..chosenAttribute.."\nCurrent value: " .. chosenPlayer:getBaseAttribute(chosenAttribute), false, 255, changeDialog)
         user:requestInputDialog(sdChange)
     end
-    local attributeSum = chosenPlayer:getBaseAttributeSum()
-    local attributePermit = chosenPlayer:getMaxAttributePoints()
-    textShown = "What attribute do you wish to change for "..chosenPlayer.name.."?\nToals sum is "..tostring(attributeSum).." of "..tostring(attributePermit).."."
-    if attributeSum > attributePermit then
-        textShown = textShown .. "\n"..tostring(attributeSum-attributePermit).." too hight!"
-    elseif attributeSum < attributePermit then
-        textShown = textShown .. "\n"..tostring(attributePermit-attributeSum).." too low!"
-    else
-        textShown = textShown .. "\nConfiguration is permitted!"
-    end
+    textShown = "What attribute do you wish to change for "..chosenPlayer.name.."?\n Reflected below is the status of the current stats of the player, temporary buffs included."
     local sdAttribute = SelectionDialog("Select attribute", textShown, attibuteDialog)
     for _, attribute in ipairs(attributeNames) do
-        sdAttribute:addOption(0,attribute.." value: "..chosenPlayer:getBaseAttribute(attribute))
+        sdAttribute:addOption(0,attribute.." value: "..chosenPlayer:increaseAttrib(attribute, 0))
     end
     user:requestSelectionDialog(sdAttribute)
 end
