@@ -57,8 +57,11 @@ local gems = require("base.gems")
 local monsterHooks = require("monster.base.hooks")
 local fightingutil = require("base.fightingutil")
 local glypheffects = require("magic.glypheffects")
+local lookat = require("base.lookat")
 
 local M = {}
+
+local fightingGemBonusDivisionValue = lookat.fightingGemBonusDivisionValue
 
 local GetAttackType
 local LoadAttribsSkills
@@ -85,6 +88,7 @@ local PlayParrySound
 local WeaponDegrade
 local Counter
 local setArcherMonsterOnRoute
+local gemBonusEffect
 
 local function NotNil(val)
     if val==nil then
@@ -392,8 +396,11 @@ function M.onAttack(Attacker, Defender)
     -- Reduce the damage due the absorbtion of the armour
     ArmourAbsorption(Attacker, Defender, Globals)
 
-    -- The effect of the constitution. After this the final damage is avaiable.
+    -- The effect of the constitution.
     ConstitutionEffect(Defender, Globals)
+
+    -- The effect the magic gems have on damage.  After this the final damage is available.
+    gemBonusEffect(Attacker, Defender, Globals)
 
     -- Cause the finally calculated damage to the player
     CauseDamage(Attacker, Defender, Globals)
@@ -511,10 +518,6 @@ function ArmourAbsorption(Attacker, Defender, Globals)
     else
         armourValue = 0
     end
-
-    local GemBonus = gems.getGemBonus(Globals.HittedItem)
-    GemBonus = modifyGemEffect(Attacker, GemBonus)
-    armourValue = armourValue + armourValue * GemBonus / 100
 
     --Race armour for monsters
     armourfound, armour = world:getNaturalArmor(Defender.Race)
@@ -665,9 +668,6 @@ function CalculateDamage(Attacker, Globals)
     DexterityBonus = (Attacker.dexterity - 6) * 1
     SkillBonus = (Attacker.skill - 20) * 1.5
 
-    local GemBonus = gems.getGemBonus(Attacker.WeaponItem)
-    GemBonus = modifyGemEffect(Attacker, GemBonus)
-
     --Quality Bonus: Multiplies final value by 0.93-1.09
     QualityBonus = 0.91+0.02*math.floor(Attacker.WeaponItem.quality/100)
 
@@ -678,7 +678,7 @@ function CalculateDamage(Attacker, Globals)
 
     --The Global Damage Factor (GDF). Adjust this to change how much damage is done per hit on all attacks.
     local GlobalDamageFactor = 1/180
-    Globals["Damage"] = GlobalDamageFactor*BaseDamage * CritBonus * QualityBonus * (100 + StrengthBonus + PerceptionBonus + DexterityBonus + SkillBonus + GemBonus)
+    Globals["Damage"] = GlobalDamageFactor*BaseDamage * CritBonus * QualityBonus * (100 + StrengthBonus + PerceptionBonus + DexterityBonus + SkillBonus)
 end
 
 --- Deform some final checks on the damage that would be caused and send it to
@@ -1112,6 +1112,27 @@ function ConstitutionEffect(Defender, Globals)
     end
 
     Globals.Damage = Globals.Damage * 14 / Defender.constitution
+end
+
+function gemBonusEffect(Attacker, Defender, Globals)
+
+    if (Globals.Damage == 0) then
+        return
+    end
+
+    local GemBonusAttacker = gems.getGemBonus(Attacker.WeaponItem)/fightingGemBonusDivisionValue
+    GemBonusAttacker = modifyGemEffect(Attacker, GemBonusAttacker)
+    local GemBonusDefender = gems.getGemBonus(Globals.HittedItem)/fightingGemBonusDivisionValue
+    GemBonusDefender = modifyGemEffect(Attacker, GemBonusDefender)
+
+    local gemBonus = GemBonusAttacker-GemBonusDefender
+
+    local gemBonusAsPercentage = gemBonus/100
+
+    gemBonusAsPercentage = gemBonusAsPercentage/fightingGemBonusDivisionValue --reduces the bonus from 1-120% to 0.5-60%
+
+    Globals.Damage = Globals.Damage * (1+gemBonusAsPercentage)
+
 end
 
 --- Checks if a coup de gráce is performed on the attacked character and kills

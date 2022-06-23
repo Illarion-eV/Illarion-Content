@@ -49,6 +49,8 @@ GenericDuraEn[4] = {"sparkling", "shiny", "glittery",   "used", "slightly scrape
 
 local GenericDuraLm = {90, 80, 70, 60, 50, 40, 30, 20, 10, 1, 0}
 
+M.fightingGemBonusDivisionValue = 2
+
 M.NONE = 0
 M.METAL = 1
 M.WOOD = 2
@@ -243,7 +245,6 @@ function M.GenerateLookAt(user, item, material)
 
             lookAt.durabilityValue = itemDura + 1
         end
-        lookAt = AddWeaponOrArmourType(lookAt, user, item.id, level)
 
         lookAt.diamondLevel = GetGemLevel(item, "magicalDiamond")
         lookAt.emeraldLevel = GetGemLevel(item, "magicalEmerald")
@@ -253,6 +254,8 @@ function M.GenerateLookAt(user, item, material)
         lookAt.obsidianLevel = GetGemLevel(item, "magicalObsidian")
         lookAt.topazLevel = GetGemLevel(item, "magicalTopaz")
         lookAt.bonus = gems.getGemBonus(item)
+
+        lookAt = AddWeaponOrArmourType(lookAt, user, item.id, level, item)
     end
 
     local otherItemFound, newLookAt = showItemLevel(user, item.id, lookAt , level)
@@ -321,7 +324,7 @@ function TitleCase(name)
     return name:gsub("([%a‰ˆ¸ƒ÷‹])([%w‰ˆ¸ƒ÷‹ﬂ_']*)", tchelper)
 end
 
-function AddWeaponOrArmourType(lookAt, user, itemId, itemLevel)
+function AddWeaponOrArmourType(lookAt, user, itemId, itemLevel, item)
     local armourfound, armour = world:getArmorStruct(itemId)
     local weaponfound, weapon = world:getWeaponStruct(itemId)
 
@@ -329,6 +332,13 @@ function AddWeaponOrArmourType(lookAt, user, itemId, itemLevel)
         lookAt = AddTypeAndUsable(lookAt, user, WeaponType, weapon.WeaponType, itemLevel)
     elseif armourfound then
         lookAt = AddTypeAndUsable(lookAt, user, ArmourType, armour.Type, itemLevel)
+    end
+
+    if (weaponfound or armourfound) and item then --only applicable when not generated from ID
+        local gemBonus = gems.getGemBonus(item)
+        -- The below line is commented out as the client lookat currently does not support decimal values. If it at some point does, the below line of code will allow us to portray the accurate % increase to damage/defense
+        -- gemBonus = gemBonus/M.fightingGemBonusDivisionValue
+        lookAt.bonus = gemBonus
     end
 
     return lookAt
