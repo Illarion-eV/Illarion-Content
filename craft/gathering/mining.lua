@@ -52,7 +52,7 @@ local M = {}
 M.oreList = {
 {id = 232, depletedId = 233, productId = 735, maxAmount = 20},
 {id = 1234, depletedId = 3578, productId = 21, maxAmount = 20},
-{id = 1236, depletedId = 3580, productId = 22, maxAmount = 10},
+{id = 1236, depletedId = 3580, productId = 22, maxAmount = 20},
 {id = 1235, depletedId = 3579, productId = 2536, maxAmount = 10},
 {id = 1238, depletedId = 3718, productId = 1062, maxAmount = 10},
 {id = 1237, depletedId = 3717, productId = 234, maxAmount = 10},
