@@ -2897,7 +2897,7 @@ function M.moveItemToBackpack(user, theItem)
 
     if not backpack or M.isContainerFull(backpack, backpackId) then -- if there is no backpack or it is full, items fall on the ground instead
         local itemStats = world:getItemStatsFromId(theItem.id)
-        user:inform("GERMAN TRANSLATION"..itemStats.German,"Having no backpack/no space in your backpack to put them in, the pieces of your broken "..itemStats.English.." fall to the ground.")
+        user:inform("Da du keinen Platz im Rucksack hast, fällt dieser Gegenstand zu Boden: "..itemStats.German,"Having no backpack/no space in your backpack to put them in, the pieces of your broken "..itemStats.English.." fall to the ground.")
         return false
     end
 
