@@ -37,7 +37,7 @@ Neutral - Glittering Cave / Funkelhöhle
 Warp position: 546, 369, 0
 
 Neutral - Skewer Drift / Spießstollen
-Warp position: 933, 466, 0
+Warp position: 932, 444, 0
 
 Neutral - Prison Mine / Gefängnismine
 Warp position: -469, -490, -40
@@ -97,8 +97,8 @@ local function gotGem(user, sourceItem)
     local rand = math.random()
     local cumulatedChance = 0
     local miningLevel = user:getSkill(Character.mining)
+
     for _, gems in pairs(gemList) do
-        local gem = gems.id
         if miningLevel >= gems.level then
             local chance = gems.chance
                 if gemMine then
@@ -106,11 +106,12 @@ local function gotGem(user, sourceItem)
                 end
             cumulatedChance = cumulatedChance + chance
             if rand <= cumulatedChance then
-                return gem
+                common.CreateItem(user, gems.id, 1, 333, nil)
+                break
             end
         end
     end
-return false
+
 end
 
 function M.StartGathering(user, sourceItem, ltstate)
@@ -119,13 +120,9 @@ function M.StartGathering(user, sourceItem, ltstate)
     local toolID = Item.pickaxe
     local maxAmount = gathering.getMaxAmountFromResourceList(oreList, sourceItem.id)
     local GFX = 14
-    local resourceID = gotGem(user, sourceItem)
+    local resourceID = gathering.getProductId(oreList, sourceItem.id)
     local depletedResourceID = gathering.getDepletedObject(oreList, sourceItem.id)
     local restockWear = 4 -- 15 minutes
-
-    if not resourceID then
-        resourceID = gathering.getProductId(oreList, sourceItem.id)
-    end
 
     local success, toolItem, amount, gatheringBonus = gathering.InitGathering(user, sourceItem, toolID, maxAmount, mining.LeadSkill)
 
@@ -147,6 +144,7 @@ function M.StartGathering(user, sourceItem, ltstate)
     end
 
     if not common.isInPrison(sourceItem.pos) then --Prisoners don't get rewards
+        gotGem(user, sourceItem)
         mining:AddRandomPureElement(user,gathering.prob_element*gatheringBonus) -- Any pure element
         mining:SetTreasureMap(user,gathering.prob_map*gatheringBonus,"In einer engen Felsspalte findest du ein altes Pergament, das wie eine Karte aussieht. Kein Versteck ist so sicher, dass es nicht gefunden wird.","In a narrow crevice you find an old parchment that looks like a map. No hiding place is too safe that it cannot be found.")
         mining:AddMonster(user,1052,gathering.prob_monster/gatheringBonus,"Als du den Fels malträtierst, läuft etwas Schleim aus einer Felsspalte...","As you slam your pick-axe on the rock, some slime flows out of the fissure...",4,7)
