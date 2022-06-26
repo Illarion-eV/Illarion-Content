@@ -39,7 +39,7 @@ local function spawnParchment(user, text, signature, descriptionEn, descriptionD
 end
 
 function M.sendStoredMessages(recipient)
-    local foundStoredMessages, numberOfMessages = ScriptVars:find(recipient.name.."storedMessages")
+    local foundStoredMessages, numberOfMessages = ScriptVars:find(recipient.id.."storedMessages")
 
     if not foundStoredMessages then
         return
@@ -54,24 +54,24 @@ function M.sendStoredMessages(recipient)
     recipient:inform("GERMAN TRANSLATION HERE", "A messenger comes up to you, delivering "..numberOfMessages.." "..parchments.." before scurrying off.")
 
     for i = 1, tonumber(numberOfMessages) do
-        local foundText, text = ScriptVars:find(recipient.name.."storedMessageText"..i)
-        local foundSignature, signature = ScriptVars:find(recipient.name.."storedMessageSignature"..i)
-        local foundDescriptionEn, descriptionEn = ScriptVars:find(recipient.name.."storedMessageDescriptionEn"..i)
-        local foundDescriptionDe, descriptionDe = ScriptVars:find(recipient.name.."storedMessageDescriptionDe"..i)
+        local foundText, text = ScriptVars:find(recipient.id.."storedMessageText"..i)
+        local foundSignature, signature = ScriptVars:find(recipient.id.."storedMessageSignature"..i)
+        local foundDescriptionEn, descriptionEn = ScriptVars:find(recipient.id.."storedMessageDescriptionEn"..i)
+        local foundDescriptionDe, descriptionDe = ScriptVars:find(recipient.id.."storedMessageDescriptionDe"..i)
 
         if foundText and foundSignature and foundDescriptionEn and foundDescriptionDe then
             spawnParchment(recipient, text, signature, descriptionEn, descriptionDe)
         end
     end
 
-    ScriptVars:set(recipient.name.."storedMessages", "0")
+    ScriptVars:set(recipient.id.."storedMessages", "0")
 end
 
 local function isRecipientCharacterOnline(recipient)
     local onlineChars = world:getPlayersOnline()
 
     for _, char in pairs(onlineChars) do
-        if char.name == recipient then
+        if char.id == recipient then
             M.sendStoredMessages(char)
         end
     end
@@ -118,20 +118,18 @@ local function payMoney(user, writtenText, signatureText, descriptionDe, descrip
 end
 
 function M.getParchmentSelectionStatus(user)
-    if not parchmentSelectionStatus[user.name] then
+    if not parchmentSelectionStatus[user.id] then
         return false
     end
 
-    if parchmentSelectionStatus[user.name].position ~= user.pos then
+    if parchmentSelectionStatus[user.id].position ~= user.pos then
         return -- user moved
     end
 
-    return parchmentSelectionStatus[user.name].status
+    return parchmentSelectionStatus[user.id].status
 end
 
 local function writeRecipientName(user, writtenText, signatureText, descriptionDe, descriptionEn, parchment)
-    -- Rework if we ever get an entry point allowing us to check if a name is in the player-database without them being online
-    -- Write in recipient name. Specify that typos will lead to it not being sent to the correct person.
 
     local callback = function(dialog)
         if not dialog:getSuccess() then
@@ -140,7 +138,14 @@ local function writeRecipientName(user, writtenText, signatureText, descriptionD
 
         local input = dialog:getInput()
 
-        payMoney(user, writtenText, signatureText, descriptionDe, descriptionEn, input, parchment)
+        local recipientExists, recipientId = world:getPlayerIdByName(input)
+
+        if not recipientExists then
+            user:inform("GERMAN TRANSLATION", "No recipient by that name exists.")
+            return
+        end
+
+        payMoney(user, writtenText, signatureText, descriptionDe, descriptionEn, recipientId, parchment)
     end
 
     local dialog = InputDialog(common.GetNLS(user, "GERMAN TRANSLATION HERE", "Enter Recipient"), common.GetNLS(user, "GERMAN TRANSLATION HERE", "The messenger needs the name of the intended recipient. Please note that this requires the recipients full name and that any spelling mistakes will lead to it not being sent."), false, 255, callback)
@@ -153,7 +158,7 @@ function M.verifyParchment(user, parchment)
     local descriptionDe = parchment:getData("descriptionDe")
     local descriptionEn = parchment:getData("descriptionEn")
 
-    parchmentSelectionStatus[user.name].status = false
+    parchmentSelectionStatus[user.id].status = false
 
     if writtenText ~= "" and signatureText ~= "" then
         writeRecipientName(user, writtenText, signatureText, descriptionDe, descriptionEn, parchment)
@@ -167,12 +172,12 @@ function M.messengerRequested(user)
 
     user:inform("GERMAN TRANSLATION HERE", "Select the parchment you wish to send by double clicking it. It must be a written and signed parchment for it to be sent. Do also bear in mind that it costs "..(price/100).." silver coins to send a message using this service.")
 
-    if not parchmentSelectionStatus[user.name] then
-        parchmentSelectionStatus[user.name] = {}
+    if not parchmentSelectionStatus[user.id] then
+        parchmentSelectionStatus[user.id] = {}
     end
 
-    parchmentSelectionStatus[user.name].status = true
-    parchmentSelectionStatus[user.name].position = user.pos
+    parchmentSelectionStatus[user.id].status = true
+    parchmentSelectionStatus[user.id].position = user.pos
     --select a parchment you wish to send or message about having no parchments to send
     --activate a top level variable that makes it so the next parchment you double click is selected instead of its usual purpose
     -- if the parchment does not contain a message and signature, decline it
