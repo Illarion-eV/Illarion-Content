@@ -283,9 +283,9 @@ local property
         if (input == nil or input == '') then
             user:inform(M.getText(user,"Das Namensfeld darf nicht leer sein.","The name field can not be empty."))
         else
-            local tenantExists = world:whateverTheVilarionCallsTheFunction(input)
+            local tenantExists, tenantID = world:getPlayerIdByName(input)
 
-            if tenantExists == nil or tenantExists == 0 then
+            if not tenantExists then
                 user:inform("GERMAN TRANSLATION HERE", "That name is not in the citizen registry. Did you perhaps misspell the name?")
             elseif M.checkIfOwnsProperty(input) and not M.checkIfEstate(property) then
                 user:inform(M.getText(user,"Der Charakter mietet bereits ein Grundstück.","Character already rents a property."))
@@ -293,7 +293,7 @@ local property
                 M.removeOwner(user, item, propertyName)
                 propertyDeed:setData("rentDuration", 1)
                 propertyDeed:setData("tenant", input)
-                propertyDeed:setData("tenantID", tenantExists)
+                propertyDeed:setData("tenantID", tenantID)
                 world:changeItem(propertyDeed)
                 user:inform(M.getText(user,input.." wurde als neuer Mieter eingetragen.",input.." set as new renter."))
                 M.setSignature(user, item, propertyName)
@@ -336,9 +336,9 @@ local textEn
         if (input == nil or input == '') then
             user:inform(M.getText(user,"Das Namensfeld darf nicht leer sein.","The name field can not be empty."))
         else
-            local builderOrGuestExists = world:whateverTheVilarionCallsTheFunction(input)
+            local builderOrGuestExists, builderOrGuestID = world:getPlayerIdByName(input)
 
-            if builderOrGuestExists == nil or builderOrGuestExists == 0 then
+            if not builderOrGuestExists then
                 user:inform("GERMAN TRANSLATION HERE", "That name is not in the citizen registry. Did you perhaps misspell the name?")
             else
                 for i = 1, M["max_"..builderOrGuest.."_number"] do
@@ -347,7 +347,7 @@ local textEn
 
                     if foundBuilderOrGuest == "" then
                         propertyDeed:setData(builderOrGuest..i, input)
-                        propertyDeed:setData(builderOrGuest.."ID"..i, builderOrGuestExists)
+                        propertyDeed:setData(builderOrGuest.."ID"..i, builderOrGuestID)
                         world:changeItem(propertyDeed)
                         user:inform(M.getText(user,input.." hat nun die Rechte als "..builderOrGuestDe.."."..textDe,input.." set as a "..builderOrGuest..". "..textEn))
                         return
