@@ -148,7 +148,7 @@ local function writeRecipientName(user, writtenText, signatureText, descriptionD
         payMoney(user, writtenText, signatureText, descriptionDe, descriptionEn, recipientId, parchment)
     end
 
-    local dialog = InputDialog(common.GetNLS(user, "GERMAN TRANSLATION HERE", "Enter Recipient"), common.GetNLS(user, "GERMAN TRANSLATION HERE", "The messenger needs the name of the intended recipient. Please note that this requires the recipients full name and that any spelling mistakes will lead to it not being sent."), false, 255, callback)
+    local dialog = InputDialog(common.GetNLS(user, "GERMAN TRANSLATION HERE", "Enter Recipient"), common.GetNLS(user, "GERMAN TRANSLATION HERE", "The messenger needs the name of the intended recipient."), false, 255, callback)
     user:requestInputDialog(dialog)
 end
 
