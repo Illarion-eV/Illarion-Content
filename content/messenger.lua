@@ -67,6 +67,52 @@ function M.sendStoredMessages(recipient)
     ScriptVars:set(recipient.id.."storedMessages", "0")
 end
 
+local function tooManyMessages(recipient)
+
+    local foundStoredMessages, numberOfMessages = ScriptVars:find(recipient.."storedMessages")
+
+    if not foundStoredMessages then
+        return false
+    end
+
+    if tonumber(numberOfMessages) >= 21 then --Seven people can send the messaging cap of 3 letters each
+        return true
+    end
+
+    return false
+
+end
+
+local function alreadySentTooManyMessages(user, recipient)
+
+    local foundStoredMessages, numberOfMessages = ScriptVars:find(recipient.."storedMessages")
+
+    if not foundStoredMessages then
+        return false
+    end
+
+    local messageCount = 0
+    numberOfMessages = tonumber(numberOfMessages)
+
+    for i = 1, numberOfMessages do
+        local foundSender, sender = ScriptVars:find(recipient.."sender"..i)
+        if foundSender then
+            if sender == user.id then
+                messageCount = messageCount + 1
+            end
+        end
+    end
+
+    if messageCount >= 3 then
+        user:inform("GERMAN TRANSLATION", "You've already sent that person three messages. Please wait for them to receive those before trying to send more.")
+        return true
+    end
+
+    return false
+end
+
+
+
 local function isRecipientCharacterOnline(recipient)
     local onlineChars = world:getPlayersOnline()
 
@@ -93,6 +139,7 @@ local function storeMessageInDatabase(user, writtenText, signatureText, descript
     ScriptVars:set(recipient.."storedMessageSignature"..messageNumber, signatureText)
     ScriptVars:set(recipient.."storedMessageDescriptionEn"..messageNumber, descriptionEn)
     ScriptVars:set(recipient.."storedMessageDescriptionDe"..messageNumber, descriptionDe)
+    ScriptVars:set(recipient.."sender"..messageNumber, user.id)
     ScriptVars:save()
 
     isRecipientCharacterOnline(recipient)
@@ -105,6 +152,10 @@ local function payMoney(user, writtenText, signatureText, descriptionDe, descrip
 
     if not hasMoney then
         user:inform("GERMAN TRANSLATION", "You can't afford that.")
+        return
+    end
+
+    if tooManyMessages(user, recipient) or alreadySentTooManyMessages(user, recipient) then
         return
     end
 
