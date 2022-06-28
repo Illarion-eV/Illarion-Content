@@ -107,10 +107,12 @@ local function gotGem(user, sourceItem)
             cumulatedChance = cumulatedChance + chance
             if rand <= cumulatedChance then
                 common.CreateItem(user, gems.id, 1, 333, nil)
-                break
+                return true
             end
         end
     end
+
+    return false
 
 end
 
@@ -144,7 +146,6 @@ function M.StartGathering(user, sourceItem, ltstate)
     end
 
     if not common.isInPrison(sourceItem.pos) then --Prisoners don't get rewards
-        gotGem(user, sourceItem)
         mining:AddRandomPureElement(user,gathering.prob_element*gatheringBonus) -- Any pure element
         mining:SetTreasureMap(user,gathering.prob_map*gatheringBonus,"In einer engen Felsspalte findest du ein altes Pergament, das wie eine Karte aussieht. Kein Versteck ist so sicher, dass es nicht gefunden wird.","In a narrow crevice you find an old parchment that looks like a map. No hiding place is too safe that it cannot be found.")
         mining:AddMonster(user,1052,gathering.prob_monster/gatheringBonus,"Als du den Fels malträtierst, läuft etwas Schleim aus einer Felsspalte...","As you slam your pick-axe on the rock, some slime flows out of the fissure...",4,7)
@@ -186,7 +187,19 @@ function M.StartGathering(user, sourceItem, ltstate)
         return
     end
 
-    local created, newAmount = gathering.FindResource(user, sourceItem, amount, resourceID) -- create the new produced items
+    local created
+
+    local newAmount
+
+
+    if gotGem(user, sourceItem) then
+        if not shared.toolBreaks( user, toolItem, mining:GenWorkTime(user)) then
+            user:changeSource(sourceItem)
+            user:startAction( mining.SavedWorkTime[user.id], 0, 0, 18, 15)
+        end
+    else
+        created, newAmount = gathering.FindResource(user, sourceItem, amount, resourceID) -- create the new produced items
+    end
 
     if created then
         user:changeSource(sourceItem)
@@ -196,7 +209,7 @@ function M.StartGathering(user, sourceItem, ltstate)
         end
     end
 
-    if newAmount <= 0 then
+    if newAmount and newAmount <= 0 then
         gathering.SwapSource(sourceItem, depletedResourceID, restockWear)
         user:inform( "Hier gibt es keine Steine mehr, an denen du arbeiten kannst.", "There are no stones for mining anymore.", Character.lowPriority)
         return
