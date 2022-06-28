@@ -441,9 +441,9 @@ function ArmourAbsorption(Attacker, Defender, Globals)
     local GeneralScalingFactor = 2.8
     -- Unequip armour
     if common.isBroken(Globals.HittedItem) and character.IsPlayer(Defender.Char) and armour.Type ~= 0 then
-        if not common.moveItemToBackpack(character, Globals.HittedItem) then
+        if not common.moveItemToBackpack(Defender.Char, Globals.HittedItem) then
             world:erase(Globals.HittedItem, Globals.HittedItem.number)
-            world:createItemFromItem(Globals.HittedItem, character.pos, true)
+            world:createItemFromItem(Globals.HittedItem, Defender.Char.pos, true)
         end
     end
     if character.IsPlayer(Defender.Char) then
