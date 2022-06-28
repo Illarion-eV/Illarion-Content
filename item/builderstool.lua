@@ -535,18 +535,38 @@ local propertyName = propertyList.fetchPropertyName(User)
     dialog:setCloseOnMove()
     User:requestSelectionDialog(dialog)
 end
-function M.UseItem(User, SourceItem)
-local propertyName = propertyList.fetchPropertyName(User)
+
+local function checkIfIsInHand(user, sourceItem)
+    local leftTool = user:getItemAt(Character.left_tool)
+    local rightTool = user:getItemAt(Character.right_tool)
+
+    if leftTool.id == sourceItem.id and common.isBroken(sourceItem) == false then
+        return true
+    elseif rightTool.id == sourceItem.id and common.isBroken(sourceItem) == false then
+        return true
+    end
+
+    user:inform("GERMAN TRANSLATION HERE", "The construction trowel must be intact and in one of your hands for you to use it.")
+    return false
+end
+
+function M.UseItem(user, sourceItem)
+
+    if not checkIfIsInHand(user, sourceItem) then
+        return
+    end
+
+local propertyName = propertyList.fetchPropertyName(user)
     if not propertyName then
-        User:inform("Du kannst nicht außerhalb eines Grundstückes bauen.","You can't build outside of property land.")
-    elseif propertyList.checkIfEntrance(User) then
-        notPermittedToBuildOnEntrances(User)
-    elseif notice.checkForPropertyDeed(User) then
-        cantBuildOnPropertyDeed(User)
-    elseif propertyList.fetchBuildersPermission(User) then
-        mainDialog(User, SourceItem)
+        user:inform("Du kannst nicht außerhalb eines Grundstückes bauen.","You can't build outside of property land.")
+    elseif propertyList.checkIfEntrance(user) then
+        notPermittedToBuildOnEntrances(user)
+    elseif notice.checkForPropertyDeed(user) then
+        cantBuildOnPropertyDeed(user)
+    elseif propertyList.fetchBuildersPermission(user) then
+        mainDialog(user, sourceItem)
     else
-        User:inform("GERMAN TRANSLATION HERE","To build here you must be the owner of the property or have their permission.")
+        user:inform("GERMAN TRANSLATION HERE","To build here you must be the owner of the property or have their permission.")
     end
 end
 return M

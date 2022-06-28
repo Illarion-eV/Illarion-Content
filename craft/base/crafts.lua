@@ -231,7 +231,7 @@ function Craft:showDialog(user, source)
         elseif result == CraftingDialog.playerLooksAtItem then
             local productId = dialog:getCraftableId()
 
-            if self:getHandToolEquipped(user).id == housingTool then
+            if self:allowCrafting(user, source) and self:getHandToolEquipped(user).id == housingTool then
                 local target = self.targetPosition
                 local product = self.products[productId]
                 showTemporaryPreviewOfItem(product.item, target, user)    --Preview of item, used only in housing
@@ -267,12 +267,18 @@ end
 
 function Craft:allowCrafting(user, source)
 
-    if not self.npcCraft then
+    if not self.npcCraft then --regular crafting and house crafting
         return self:allowUserCrafting(user, source)
-    elseif not self.houseCraft then
+    elseif not self.houseCraft then -- npc crafting
         return self:allowNpcCrafting(user, source)
-    else
+    elseif self:isHandToolEquipped(user) then -- house crafting for categories that do not use skill only needs the tool check
         return true
+    else
+        self:swapToInactiveItem(user)
+            common.HighInformNLS(user,
+            "Du musst ein intaktes Werkzeug in die Hand nehmen um damit zu arbeiten.",
+            "You must have an intact tool in your hand to work with.")
+        return false
     end
 end
 
