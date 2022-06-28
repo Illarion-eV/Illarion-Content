@@ -31,7 +31,7 @@ local propertyList = require("base.propertyList")
 local notice = require("item.notice")
 local OFFSET_PRODUCTS_REPAIR = 235
 local repairItemList = {}
-local housingTool = Item.constructiontrowel
+local housingTool = Item.constructionTrowel
 
 local previewInformCooldown = {}
 
