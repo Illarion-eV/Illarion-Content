@@ -426,9 +426,9 @@ end
 
 -- Fetches who the owner is
 function M.checkOwner(item)
-local currentOwner = item:getData("tenantID")
-    if currentOwner ~= "" then
-        return currentOwner
+local tenant = item:getData("tenantID")
+    if tenant ~= "" then
+        return tonumber(tenant)
     else
         return "Unowned"
     end
@@ -1079,7 +1079,7 @@ function M.checkIfPlayerIsGuest(user, property)
 
         local guest = propertyDeed:getData("guestID"..i)
         if guest ~= "" then
-            if guest == user.id then
+            if tonumber(guest) == user.id then
                 return true
             end
         end
@@ -1451,7 +1451,7 @@ function M.removeRentalOfPropertiesOfOtherTowns(user)
         local tenant = propertyDeed:getData("tenantID")
         local town = M.propertyTable[i][7]
         if tenant ~= "" then
-            if tenant == user.id then
+            if tonumber(tenant) == user.id then
 
                 removeTenantGuestBuilderDuration(propertyDeed)
 
@@ -1477,12 +1477,13 @@ function M.informUserOfKeyRetrieval(user)
         for number = 1, M.max_guest_number do
             local guest = propertyDeed:getData("guestID"..number)
             if guest ~= "" then
-                if guest == user.id then
+                if tonumber(guest) == user.id then
                     return
                 end
             end
         end
         if tenant ~= "" then
+            tenant = tonumber(tenant)
             if tenant ~= user.id then
                 if M.checkIfLeaderOfTown(user, town) or user:isAdmin() then
                     return
