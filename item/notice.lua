@@ -746,7 +746,7 @@ function M.setIndefiniteRent(user, item, propertyName)
 
     local currentState
 
-    local result= propertyDeed:getData("indefiniteRent")
+    local result = propertyDeed:getData("indefiniteRent")
 
     if result == "" then
         currentState = 0
@@ -1609,7 +1609,7 @@ function M.UseItem(user, SourceItem)
                     elseif selected == 11+count then
                         M.setReqRank(user, SourceItem)
                     elseif selected == 12+count then
-                        M.setIndefiniteRent(user, SourceItem)
+                        M.setIndefiniteRent(user, SourceItem, property)
                     elseif selected == 13+count then
                         M.allowAutomaticRentExtension(user, SourceItem)
                     end
@@ -1636,7 +1636,7 @@ function M.UseItem(user, SourceItem)
                     elseif selected == 8 then
                         M.setReqRank(user, SourceItem)
                     elseif selected == 9 then
-                        M.setIndefiniteRent(user, SourceItem)
+                        M.setIndefiniteRent(user, SourceItem, property)
                     else
                         M.allowAutomaticRentExtension(user, SourceItem)
                     end
