@@ -59,6 +59,24 @@ end
 -- important: do not remove the fourth parameter "checkVar".
 -- it is important for alchemy
 -- you can just ignore it
+
+function M.getWrittenTextFromParchment(theParchment)
+    if not common.IsNilOrEmpty(theParchment:getData("writtenText")) then
+        local writtenText = theParchment:getData("writtenText")
+        for i = 2, 4 do
+            local addText = theParchment:getData("writtenText"..i)
+            writtenText = writtenText..addText
+        end
+        if not common.IsNilOrEmpty(theParchment:getData("signatureText")) then
+            writtenText = writtenText .. "\n~" .. theParchment:getData("signatureText") .. "~"
+        end
+
+        return writtenText
+    end
+
+    return false
+end
+
 function M.UseItem(user, SourceItem,ltstate,checkVar)
 
     -- Check if it is an alchemy recipe.
@@ -71,11 +89,9 @@ function M.UseItem(user, SourceItem,ltstate,checkVar)
         LearnLenniersDream(user)
     end
 
-    if not common.IsNilOrEmpty(SourceItem:getData("writtenText")) then
-        local writtenText = SourceItem:getData("writtenText")
-        if not common.IsNilOrEmpty(SourceItem:getData("signatureText")) then
-            writtenText = writtenText .. "\n~" .. SourceItem:getData("signatureText") .. "~"
-        end
+    local writtenText = M.getWrittenTextFromParchment(SourceItem)
+
+    if writtenText then
         local dialog = MessageDialog(
             common.GetNLS(user, "Pergament", "Parchment"),
             writtenText,
