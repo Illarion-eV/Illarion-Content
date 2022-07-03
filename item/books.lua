@@ -99,12 +99,15 @@ function readBook(user, book, atPage)
     local dialog = SelectionDialog(title, text, callback)
     local dialog2 = MessageDialog(title, text, callback2)
 
+    --This artifical widener of 50x2 spaces is a hack to widen the dialog menu to prevent really long heights on books
+    local artificalWidener = "                                                  "
+
     if page > 1 then
-        dialog:addOption(0, common.GetNLS(user, "GERMAN TRANSLATION", "Previous page"))
+        dialog:addOption(0, artificalWidener..common.GetNLS(user, "GERMAN TRANSLATION", "Previous page"..artificalWidener))
     end
 
     if maxPage > page then
-        dialog:addOption(0, common.GetNLS(user, "GERMAN TRANSLATION", "Next page"))
+        dialog:addOption(0, artificalWidener..common.GetNLS(user, "GERMAN TRANSLATION", "Next page"..artificalWidener))
     end
 
     if page == 1 and maxPage == page then
