@@ -726,9 +726,8 @@ function Craft:craftItem(user, productId)
         return false
     end
 
-    local neededFood = 0
+    local foodOK, neededFood = self:checkRequiredFood(user, product:getCraftingTime(skill))
     if not self.npcCraft then
-        local foodOK = self:checkRequiredFood(user, product:getCraftingTime(skill))
         if not foodOK then
             self:swapToInactiveItem(user)
             return false
@@ -858,9 +857,9 @@ function Craft:repairItem(user, productIdList)
         return false
     end
 
-    local neededFood = 0
+    local foodOK, neededFood = self:checkRequiredFood(user, repairTime)
+
     if not self.npcCraft then
-        local foodOK = self:checkRequiredFood(user, repairTime)
         if not foodOK then
             self:swapToInactiveItem(user)
             return false
