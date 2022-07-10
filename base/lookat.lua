@@ -95,6 +95,19 @@ for _, silkBush in pairs(silkcutting.silkList) do
     table.insert(listOfItemsThatShouldShowLevel,{id = silkBush.id, skill = "mining", type = {english = "Butterflies", german = "Schmetterlinge"}})
 end
 
+local function itemIsAGatheringTool(itemId)
+
+    local gatheringTools = {Item.fishingRod, Item.hatchet, Item.shovel, Item.scissors, Item.scythe, Item.sickle, Item.pickaxe}
+
+    for _, tool in pairs(gatheringTools) do
+        if tool == itemId then
+            return true
+        end
+    end
+
+    return false
+end
+
 local function showItemLevel(user, itemId, lookat , itemLevel)
     local showLevel = false
     local skillName
@@ -246,6 +259,7 @@ function M.GenerateLookAt(user, item, material)
             lookAt.durabilityValue = itemDura + 1
         end
 
+        local gemBonus = gems.getGemBonusLookAtValue(item)
         lookAt.diamondLevel = GetGemLevel(item, "magicalDiamond")
         lookAt.emeraldLevel = GetGemLevel(item, "magicalEmerald")
         lookAt.rubyLevel = GetGemLevel(item, "magicalRuby")
@@ -253,7 +267,11 @@ function M.GenerateLookAt(user, item, material)
         lookAt.amethystLevel = GetGemLevel(item, "magicalAmethyst")
         lookAt.obsidianLevel = GetGemLevel(item, "magicalObsidian")
         lookAt.topazLevel = GetGemLevel(item, "magicalTopaz")
-        lookAt.bonus = gems.getGemBonus(item)
+        lookAt.bonus = gemBonus
+
+        if itemIsAGatheringTool(item.id) then
+            lookAt.bonus = gemBonus/5  --reflects gathering calculation of dividing gemBonus by 500 to get the % influence
+        end
 
         lookAt = AddWeaponOrArmourType(lookAt, user, item.id, level, item)
     end
@@ -335,9 +353,8 @@ function AddWeaponOrArmourType(lookAt, user, itemId, itemLevel, item)
     end
 
     if (weaponfound or armourfound) and item then --only applicable when not generated from ID
-        local gemBonus = gems.getGemBonus(item)
-        -- The below line is commented out as the client lookat currently does not support decimal values. If it at some point does, the below line of code will allow us to portray the accurate % increase to damage/defense
-        -- gemBonus = gemBonus/M.fightingGemBonusDivisionValue
+        local gemBonus = gems.getGemBonusLookAtValue(item)
+        gemBonus = gemBonus/M.fightingGemBonusDivisionValue
         lookAt.bonus = gemBonus
     end
 

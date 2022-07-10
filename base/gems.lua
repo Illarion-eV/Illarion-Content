@@ -90,6 +90,11 @@ function M.getGemBonus(item)
 
 end
 
+function M.getGemBonusLookAtValue(item)
+    local retVal = M.getGemBonus(item)*100
+    return retVal
+end
+
 function M.lookAtFilter(user, lookAt, data)
     local gemLevel = data.gemLevel
 
