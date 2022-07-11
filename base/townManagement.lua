@@ -153,67 +153,32 @@ local gCoins, sCoins, cCoins = money.MoneyToCoins(coins)
         return("kein Geld")
     end
 end
-local function inputIntoMoney(input)
-local coins = input
-local gCoins, sCoins, cCoins = money.MoneyToCoins(coins)
-    if gCoins > 0 and sCoins == 0 and cCoins == 0 then
-        return(gCoins.." gold coins.")
-    elseif gCoins > 0 and sCoins > 0 and cCoins == 0 then
-        return(gCoins.." gold and "..sCoins.." silver coins")
-    elseif gCoins > 0 and sCoins == 0 and cCoins > 0 then
-        return(gCoins.." gold and "..cCoins.." copper coins")
-    elseif gCoins == 0 and sCoins > 0 and cCoins == 0 then
-        return(sCoins.." silver coins ")
-    elseif gCoins == 0 and sCoins > 0 and cCoins > 0 then
-        return(sCoins.." silver and "..cCoins.." copper coins")
-    elseif gCoins == 0 and sCoins == 0 and cCoins > 0 then
-        return(cCoins.." copper coins ")
-    elseif gCoins > 0 and sCoins > 0 and cCoins > 0 then
-        return(gCoins.." gold, "..sCoins.." silver and "..cCoins.." copper coins")
-    end
-end
-local function inputIntoMoneyDE(input)
-local coins = input
-local gCoins, sCoins, cCoins = money.MoneyToCoins(coins)
-    if gCoins > 0 and sCoins == 0 and cCoins == 0 then
-        return(gCoins.." Goldstücke")
-    elseif gCoins > 0 and sCoins > 0 and cCoins == 0 then
-        return(gCoins.." Gold- and "..sCoins.." Silberstücke")
-    elseif gCoins > 0 and sCoins == 0 and cCoins > 0 then
-        return(gCoins.." Gold- and "..cCoins.." Kupferstücke")
-    elseif gCoins == 0 and sCoins > 0 and cCoins == 0 then
-        return(sCoins.." Silberstücke ")
-    elseif gCoins == 0 and sCoins > 0 and cCoins > 0 then
-        return(sCoins.." Silber- and "..cCoins.." Kupferstücke")
-    elseif gCoins == 0 and sCoins == 0 and cCoins > 0 then
-        return(cCoins.." Kupferstücke ")
-    elseif gCoins > 0 and sCoins > 0 and cCoins > 0 then
-        return(gCoins.." Gold-, "..sCoins.." Silber- and "..cCoins.." Kupferstücke")
-    end
-end
+
 local function withdrawRent(User, toolTown, SourceItem)
 local rent = getRentAmount(toolTown, SourceItem)
 local town = getTown(toolTown)
+local _
     local callback = function (dialog)
         if (not dialog:getSuccess()) then
             return
         end
         local input = dialog:getInput()
-        if (string.find(input,"") ~= nil) then
-            if tonumber(input) == nil then
-                User:inform(common.GetNLS(User,"Hier muss eine Zahl eingetragen werden.","Input must be a number."))
-            elseif tonumber(input) <= 0 then
+        if string.find(input,"(%d+)") ~= nil then
+            _, _, input = string.find(input,"(%d+)")
+            input = tonumber(input)
+            if input <= 0 then
                 User:inform(common.GetNLS(User,"Die Zahl muss größer als 0 sein.","You must set a number higher than 0."))
-            elseif (tonumber(input) > tonumber(rent)) then
-                 User:inform(common.GetNLS(User,"Die Zahl kann nicht größer sein als die Anzahl der Münzen in der Schatzkiste.","The amount can not be larger than the amount in the treasury.")) -- DE
+            elseif input > rent then
+                User:inform(common.GetNLS(User,"Die Zahl kann nicht größer sein als die Anzahl der Münzen in der Schatzkiste.","The amount can not be larger than the amount in the treasury."))
             else
                 local coins = input
                 local gCoins, sCoins, cCoins = money.MoneyToCoins(coins)
                 money.GiveCoinsToChar(User, gCoins, sCoins, cCoins)
-                ScriptVars:set("rentBelongingTo"..town,(rent-input))
+                ScriptVars:set("rent", (rent - input))
                 ScriptVars:save()
-                User:inform(common.GetNLS(User,"Du entnimmst "..inputIntoMoneyDE(input).." aus der Schatzkiste der Stadt.","You withdraw "..inputIntoMoney(input).." from the town's treasury."))
-                log(User.name.." withdrew "..inputIntoMoney(input).." from the "..town.." rent treasury.")
+                local inputIntoMoneyDe, inputIntoMoneyEn = money.MoneyToString(input)
+                User:inform(common.GetNLS(User,"Du entnimmst "..inputIntoMoneyDe.." aus der Schatzkiste der Stadt.","You withdraw "..inputIntoMoneyEn.." from the town's treasury."))
+                log(User.name.." withdrew "..inputIntoMoneyEn.." from the "..town.." rent treasury.")
             end
         else
             User:inform(common.GetNLS(User,"Hier muss eine Zahl eingetragen werden.","Input must be a number."))
