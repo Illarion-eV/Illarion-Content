@@ -49,7 +49,7 @@ GenericDuraEn[4] = {"sparkling", "shiny", "glittery",   "used", "slightly scrape
 
 local GenericDuraLm = {90, 80, 70, 60, 50, 40, 30, 20, 10, 1, 0}
 
-M.fightingGemBonusDivisionValue = 2
+M.fightingGemBonusDivisionValue = 2 --Changing this might break the gem lookat due to current server limitations
 
 M.NONE = 0
 M.METAL = 1
@@ -93,19 +93,6 @@ end
 for _, silkBush in pairs(silkcutting.silkList) do
     table.insert(listOfItemsThatShouldShowLevel,{id = silkBush.depletedId, skill = "mining", type = {english = "Butterflies", german = "Schmetterlinge"}})
     table.insert(listOfItemsThatShouldShowLevel,{id = silkBush.id, skill = "mining", type = {english = "Butterflies", german = "Schmetterlinge"}})
-end
-
-local function itemIsAGatheringTool(itemId)
-
-    local gatheringTools = {Item.fishingRod, Item.hatchet, Item.shovel, Item.scissors, Item.scythe, Item.sickle, Item.pickaxe}
-
-    for _, tool in pairs(gatheringTools) do
-        if tool == itemId then
-            return true
-        end
-    end
-
-    return false
 end
 
 local function showItemLevel(user, itemId, lookat , itemLevel)
@@ -259,7 +246,6 @@ function M.GenerateLookAt(user, item, material)
             lookAt.durabilityValue = itemDura + 1
         end
 
-        local gemBonus = gems.getGemBonusLookAtValue(item)
         lookAt.diamondLevel = GetGemLevel(item, "magicalDiamond")
         lookAt.emeraldLevel = GetGemLevel(item, "magicalEmerald")
         lookAt.rubyLevel = GetGemLevel(item, "magicalRuby")
@@ -267,11 +253,7 @@ function M.GenerateLookAt(user, item, material)
         lookAt.amethystLevel = GetGemLevel(item, "magicalAmethyst")
         lookAt.obsidianLevel = GetGemLevel(item, "magicalObsidian")
         lookAt.topazLevel = GetGemLevel(item, "magicalTopaz")
-        lookAt.bonus = gemBonus
-
-        if itemIsAGatheringTool(item.id) then
-            lookAt.bonus = gemBonus/5  --reflects gathering calculation of dividing gemBonus by 500 to get the % influence
-        end
+        lookAt.bonus = gems.getGemBonusLookAtValue(item)
 
         lookAt = AddWeaponOrArmourType(lookAt, user, item.id, level, item)
     end
