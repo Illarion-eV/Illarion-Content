@@ -174,8 +174,8 @@ local _
                 local coins = input
                 local gCoins, sCoins, cCoins = money.MoneyToCoins(coins)
                 money.GiveCoinsToChar(User, gCoins, sCoins, cCoins)
-                ScriptVars:set("rent", (rent - input))
-                ScriptVars:save()
+                SourceItem:setData("rent", (rent - input))
+                world:changeItem(SourceItem)
                 local inputIntoMoneyDe, inputIntoMoneyEn = money.MoneyToString(input)
                 User:inform(common.GetNLS(User,"Du entnimmst "..inputIntoMoneyDe.." aus der Schatzkiste der Stadt.","You withdraw "..inputIntoMoneyEn.." from the town's treasury."))
                 log(User.name.." withdrew "..inputIntoMoneyEn.." from the "..town.." rent treasury.")
