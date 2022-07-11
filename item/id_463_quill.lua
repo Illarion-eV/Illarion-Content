@@ -284,7 +284,7 @@ end
 
 function M.UseItem(User, SourceItem, ltstate)
 
-    if SourceItem.itempos ~= 5 and SourceItem.itempos ~= 6 then
+    if not common.IsItemInHands(SourceItem) then
         User:inform("Du musst die Schreibfeder in der Hand halten.","You have to hold the quill in your hand.",Character.highPriority)
         return
     end
