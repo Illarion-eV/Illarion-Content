@@ -1042,7 +1042,7 @@ table.insert(M.tiles, {tileId = 63, nameEn = "Dark Parquet", nameDe = "Dunkles P
 table.insert(M.tiles, {tileId = 64, nameEn = "Shoddy Light Parquet", nameDe = "Schmutziges helles Parkett", typeOf = "House", category = "Parquet", skill = "carpentry", level = 20, ingredient1 = 2543, ingredient1Amount = 25})
 table.insert(M.tiles, {tileId = 65, nameEn = "Shoddy Dark Parquet", nameDe = "Schmutziges dunkles Parkett", typeOf = "House", category = "Parquet", skill = "carpentry", level = 40, ingredient1 = 546, ingredient1Amount = 25})
 table.insert(M.tiles, {tileId = 43, nameEn = "Light Wooden Roof", nameDe = "Helles Holzdach", typeOf = "Estate", category = "Roof Tiles", skill = "carpentry", level = 0, ingredient1 = 2543, ingredient1Amount = 25})
-table.insert(M.tiles, {tileId = 59, nameEn = "Wooden Roof", nameDe = "Holzdach", typeOf = "Estate", category = "Roof Tiles", skill = "carpentry", level = 50, ingredient1 = 2588, ingredient1Amount = 25})
+table.insert(M.tiles, {tileId = 59, nameEn = "Wooden Roof", nameDe = "Holzdach", typeOf = "Estate", category = "Roof Tiles", skill = "carpentry", level = 50, ingredient1 = 2543, ingredient1Amount = 25})
 table.insert(M.tiles, {tileId = 2, nameEn = "stone", nameDe = "Stein", typeOf = "Estate", category = "Terraforming", skill = "digging", level = 40, ingredient1 = 735, ingredient1Amount = 25})
 table.insert(M.tiles, {tileId = 3, nameEn = "sand", nameDe = "Sand", typeOf = "Estate", category = "Terraforming", skill = "digging", level = 50, ingredient1 = 316, ingredient1Amount = 25})
 table.insert(M.tiles, {tileId = 6, nameEn = "water", nameDe = "Wasser", typeOf = "Estate", category = "Terraforming", skill = "digging", level = 100, ingredient1 = 2554, ingredient1Amount = 1})
