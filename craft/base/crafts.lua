@@ -234,7 +234,9 @@ function Craft:showDialog(user, source)
             if self:allowCrafting(user, source) and self:getHandToolEquipped(user).id == housingTool then
                 local target = self.targetPosition
                 local product = self.products[productId]
-                showTemporaryPreviewOfItem(product.item, target, user)    --Preview of item, used only in housing
+                if not product.tile then
+                    showTemporaryPreviewOfItem(product.item, target, user)    --Preview of item, used only in housing
+                end
             end
 
             return self:getProductLookAt(user, productId)
@@ -399,7 +401,7 @@ function Craft:getLookAt(user, object)
         lookAt = lookat.GenerateItemLookAtFromId(user, item, quantity, data)
     end
 
-    if object.tile == true then
+    if object.tile then
         lookAt = ItemLookAt()
         lookAt.name = itemList.getTileName(user, item)
     end
