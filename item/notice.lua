@@ -136,18 +136,27 @@ function M.deletePreviewItem(propertyName, bypassTTL)
     local location = position(tonumber(X), tonumber(Y), tonumber(Z))
     local field = world:getField(location)
     local itemsOnField = field:countItems()
+    local itemsToReplace = {}
 
     for i = 0, itemsOnField do
         local currentItem = field:getStackItem(itemsOnField-i)
         local preview = currentItem:getData("preview")
+        local isPreviewItem = preview == "true"
 
-        if preview == "true" then
+        if currentItem.id ~= 0 then
             world:erase(currentItem, currentItem.number)
-            propertyDeed:setData("previewItemTimer", "")
-            world:changeItem(propertyDeed)
-            break
+            if not isPreviewItem then
+                table.insert(itemsToReplace, currentItem)
+            end
         end
     end
+
+    for _, theItem in pairs(itemsToReplace) do
+        world:createItemFromItem(theItem, location, true)
+    end
+
+    propertyDeed:setData("previewItemTimer", "")
+    world:changeItem(propertyDeed)
 end
 
 function M.scheduledDeletionOfPreviewItems()
