@@ -2243,36 +2243,61 @@ function M.decideWhatToDoWithProperty(User, property)
     dialog:addOption(0,"Automatic Rent Settings")
     User:requestSelectionDialog(dialog)
 end
-function M.selectProperty(User)
+
+local function chooseWhatToDoForAllpropertiesOfSpecifiedRealm(user, realm)
+
+    local callback = function(dialog)
+        if not dialog:getSuccess() then
+            return
+        end
+
+        local index = dialog:getSelectedIndex()+1
+
+        if index == 1 then
+            notice.allowAllAutomaticRentExtension(user, realm)
+        end
+    end
+
+    local dialog = SelectionDialog(realm.." properties", "Select what to do with all properties that belong to "..realm, callback)
+
+    dialog:addOption(0, "Allow automatic rent extension")
+
+    user:requestSelectionDialog(dialog)
+
+end
+
+function M.selectProperty(user)
 local selectedProperty
     local callback = function(dialog)
         if dialog:getSuccess() then
             local index = dialog:getSelectedIndex() +1
-            for i = 1, #notice.propertyTable do
-                if index == 1 then
-                    notice.allowAllAutomaticRentExtension(User, "Cadomyr")
-                elseif index == 2 then
-                    notice.allowAllAutomaticRentExtension(User, "Galmair")
-                elseif index == 3 then
-                    notice.allowAllAutomaticRentExtension(User, "Runewick")
-                elseif index == 4 then
-                    notice.allowAllAutomaticRentExtension(User, "Outlaw")
-                elseif index == i+4 then
-                    selectedProperty = notice.propertyTable[i][1]
-                    M.decideWhatToDoWithProperty(User, selectedProperty)
+            if index == 1 then
+                chooseWhatToDoForAllpropertiesOfSpecifiedRealm(user, "Cadomyr")
+            elseif index == 2 then
+                chooseWhatToDoForAllpropertiesOfSpecifiedRealm(user, "Galmair")
+            elseif index == 3 then
+                chooseWhatToDoForAllpropertiesOfSpecifiedRealm(user, "Runewick")
+            elseif index == 4 then
+                chooseWhatToDoForAllpropertiesOfSpecifiedRealm(user, "Outlaw")
+            else
+                for i = 1, #notice.propertyTable do
+                    if index == i+4 then
+                        selectedProperty = notice.propertyTable[i][1]
+                        M.decideWhatToDoWithProperty(user, selectedProperty)
+                    end
                 end
             end
         end
     end
     local dialog = SelectionDialog("Properties", "Select a property to make changes to.", callback)
-    dialog:addOption("Make changes to all Cadomyr properties")
-    dialog:addOption("Make changes to all Galmair properties")
-    dialog:addOption("Make changes to all Runewick properties")
-    dialog:addOption("Make changes to all Outlaw properties")
+    dialog:addOption(0, "Make changes to all Cadomyr properties")
+    dialog:addOption(0, "Make changes to all Galmair properties")
+    dialog:addOption(0, "Make changes to all Runewick properties")
+    dialog:addOption(0, "Make changes to all Outlaw properties")
     for i = 1, #notice.propertyTable do
         dialog:addOption(0, notice.propertyTable[i][1])
     end
-    User:requestSelectionDialog(dialog)
+    user:requestSelectionDialog(dialog)
 end
 
 function M.UseItem(user, SourceItem)
@@ -2307,6 +2332,7 @@ function M.UseItem(user, SourceItem)
         elseif index == 11 then
             M.selectProperty(user)
         elseif index == 12 then
+            user:inform("Persistence script is starting. If this is the first time, or a lot of properties were added, this can cause massive lag.")
             building.setPersistenceForProperties()
             user:inform("Persistence has been applied to all tile coordinates entailed in the properties list. This only needs to be done once whenever new properties have been added to the list.")
         end
