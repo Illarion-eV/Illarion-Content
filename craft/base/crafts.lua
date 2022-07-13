@@ -163,8 +163,10 @@ end
 
 function Craft:showDialog(user, source)
 
-    if not self:allowCrafting(user, source) then
-        if self.fallbackCraft then
+    local allowCraft, checkForFallbackCraft = self:allowCrafting(user, source)
+
+    if not allowCraft then
+        if checkForFallbackCraft and self.fallbackCraft then
             self.fallbackCraft:showDialog(user, source)
         end
 
@@ -231,7 +233,7 @@ function Craft:allowUserCrafting(user, source)
         common.TurnTo(user, source.pos)
 
         if not self:userHasLicense(user) then
-            return false
+            return false, false
         end
 
         if not self:isHandToolEquipped(user) then
@@ -243,15 +245,15 @@ function Craft:allowUserCrafting(user, source)
             common.HighInformNLS(user,
             "Dir fehlt ein intaktes Werkzeug in deiner Hand um hier zu arbeiten: " .. germanTool,
             "To work here you have to hold an intact tool in your hand: " .. englishTool)
-            return false
+            return false, false
         end
     else
         if not self:locationFine(user) then
-            return false
+            return false, true
         end
 
         if not self:userHasLicense(user) then
-            return false
+            return false, false
         end
 
         if not self:isHandToolEquipped(user) then
@@ -259,7 +261,7 @@ function Craft:allowUserCrafting(user, source)
             common.HighInformNLS(user,
             "Du musst ein intaktes Werkzeug in die Hand nehmen um damit zu arbeiten.",
             "You must have an intact tool in your hand to work with.")
-            return false
+            return false, false
         end
     end
 
