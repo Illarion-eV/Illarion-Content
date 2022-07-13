@@ -112,7 +112,7 @@ local function destroyingPermitted(User, targetItem)
     end
 return false
 end
-local function deleteRoofItemOrTile(User, tile)
+local function deleteRoofItemOrTile(User, tile, thePosition)
 local tileOrObject
 local tileOrObjectDe
 local germanArticle
@@ -130,7 +130,7 @@ local germanArticle
         if success then
             local selected = dialog:getSelectedIndex()+1
             if selected == 1 then
-                if not propertyList.roofAndRoofTiles(User, nil, tile, "erase") then
+                if not propertyList.roofAndRoofTiles(User, nil, tile, "erase", thePosition) then
                     User:inform("Das Ziel muss ein "..tileOrObjectDe.." sein und sich auf einem Grundstück befinden, auf dem du bauen darfst. Es muss sich zudem direkt vor und über dir befinden.","Targeted item must be a roof "..tileOrObject.." on a property you are permitted to build on, one tile in front of you and above you.")
                 end
             else
@@ -173,13 +173,13 @@ local itemName = world:getItemName(targetItem.id, User:getPlayerLanguage())
     dialog:setCloseOnMove()
     User:requestSelectionDialog(dialog)
 end
-local function destroyItem(User)
-local targetItem
-    if not common.GetFrontItem(User) then
-        targetItem = false
-    else
-        targetItem = common.GetFrontItem(User)
+local function destroyItem(User, thePosition)
+    local targetItem
+
+    if world:isItemOnField(thePosition) then
+        targetItem = world:getItemOnField(thePosition)
     end
+
     if not targetItem then
         User:inform("Hier ist nichts, was du abreißen könntest.","There is no item to destroy.")
     elseif destroyingPermitted(User, targetItem) then
@@ -196,12 +196,10 @@ local function staticPermitted(User, targetItem)
     end
 return true
 end
-local function makeStatic(User)
-local targetItem
-    if not common.GetFrontItem(User) then
-        targetItem = false
-    else
-        targetItem = common.GetFrontItem(User)
+local function makeStatic(User, thePosition)
+    local targetItem
+    if world:isItemOnField(thePosition) then
+        targetItem = world:getItemOnField(thePosition)
     end
     if not targetItem then
         User:inform("Hier ist nichts, was dauerhaft haltbar gemacht werden könnte.","There is no item to be made/unmade static.")
@@ -304,22 +302,19 @@ local amount = 0
 return false
 end
 
-local function listOfCategories(User, SourceItem, skill)
+local function listOfCategories(User, SourceItem, skill, targetPosition)
 local categoryNumber = 0
     local callback = function(dialog)
         local success = dialog:getSuccess()
         if success then
             local selected = dialog:getSelectedIndex()+1
             for _, category in ipairs(itemList.categories) do
-                if construction[tostring(category)..skill] and checkIfCategoryShown(User, category.categoryEn, skill) then
-                    if category.Estate then
-                        if propertyList.checkIfEstate(User) then
-                            categoryNumber = categoryNumber+1
-                            if selected == categoryNumber then
-                                construction[tostring(category)..skill]:showDialog(User, SourceItem)
-                            end
-                        end
-                    else
+                if construction[tostring(category)..skill] and checkIfCategoryShown(User, category.categoryEn, skill) and (not category.Estate or propertyList.checkIfEstate(User)) then
+                    local existingItemOnTile
+                    if world:isItemOnField(targetPosition) then
+                        existingItemOnTile = world:getItemOnField(targetPosition)
+                    end
+                    if not propertyList.checkIfWall(User, existingItemOnTile) or (category.categoryEn == "Wall Decorations" or category.categoryEn == "Flags and crests" or category.categoryEn == "Paintings") then
                         categoryNumber = categoryNumber+1
                         if selected == categoryNumber then
                             construction[tostring(category)..skill]:showDialog(User, SourceItem)
@@ -329,22 +324,29 @@ local categoryNumber = 0
             end
         end
     end
+    local optionCount = 0
     local dialog = SelectionDialog(common.GetNLS(User,"Kategorien","Categories"), common.GetNLS(User,"Wähle eine Kategorie.","Choose a category."), callback)
     for _, category in ipairs(itemList.categories) do
-        if construction[tostring(category)..skill] and checkIfCategoryShown(User, category.categoryEn, skill) then
-            if category.Estate then
-                if propertyList.checkIfEstate(User) then
-                    dialog:addOption(0,common.GetNLS(User,category.categoryDe,category.categoryEn))
-                end
-            else
-                dialog:addOption(0,common.GetNLS(User,category.categoryDe,category.categoryEn))
+        if construction[tostring(category)..skill] and checkIfCategoryShown(User, category.categoryEn, skill) and (not category.Estate or propertyList.checkIfEstate(User)) then
+            local existingItemOnTile
+            if world:isItemOnField(targetPosition) then
+                existingItemOnTile = world:getItemOnField(targetPosition)
+            end
+            if not propertyList.checkIfWall(User, existingItemOnTile) or (category.categoryEn == "Wall Decorations" or category.categoryEn == "Flags and crests" or category.categoryEn == "Paintings") then
+            dialog:addOption(0,common.GetNLS(User,category.categoryDe,category.categoryEn))
+            optionCount = optionCount+1
             end
         end
     end
     dialog:setCloseOnMove()
-    User:requestSelectionDialog(dialog)
+
+    if optionCount == 0 then
+        User:inform("GERMAN TRANSLATION", "There's no items in this category that you can build on a wall.")
+    else
+        User:requestSelectionDialog(dialog)
+    end
 end
-local function craftSelection(User, SourceItem)
+local function craftSelection(User, SourceItem, targetPosition)
 local categoryNumber = 0
     local callback = function(dialog)
         local success = dialog:getSuccess()
@@ -354,7 +356,7 @@ local categoryNumber = 0
                 if checkIfSkillIsShown(User, skill.name) then
                     categoryNumber = categoryNumber+1
                     if selected == categoryNumber then
-                        listOfCategories(User, SourceItem, skill.name)
+                        listOfCategories(User, SourceItem, skill.name, targetPosition)
                     end
                 end
             end
@@ -369,17 +371,17 @@ local categoryNumber = 0
     dialog:setCloseOnMove()
     User:requestSelectionDialog(dialog)
 end
-local function destroySelection(User)
+local function destroySelection(User, thePosition)
     local callback = function(dialog)
         local success = dialog:getSuccess()
         if success then
             local selected = dialog:getSelectedIndex()+1
             if selected == 1 then
-                destroyItem(User)
+                destroyItem(User, thePosition)
             elseif selected == 2 then
-                deleteRoofItemOrTile(User, false)
+                deleteRoofItemOrTile(User, false, thePosition)
             else
-                deleteRoofItemOrTile(User, true)
+                deleteRoofItemOrTile(User, true, thePosition)
             end
         end
     end
@@ -401,7 +403,7 @@ local targetTileId = targetField:tile()
         User:inform("Vor dir muss sich Wasser befinden.","The tile in front of you needs to be a water tile.")
     end
 end
-local function miscDialog(User)
+local function miscDialog(User, thePosition)
 local propertyName = propertyList.fetchPropertyName(User)
     local callback = function(dialog)
         local success = dialog:getSuccess()
@@ -410,7 +412,7 @@ local propertyName = propertyList.fetchPropertyName(User)
             if propertyName then
                 if propertyList.fetchBuildersPermission(User) then
                     if selected == 1 then
-                        makeStatic(User)
+                        makeStatic(User, thePosition)
                     elseif selected == 2 then
                         writeOnSignPost(User)
                     elseif selected == 3 then
@@ -488,7 +490,7 @@ local function cantBuildOnPropertyDeed(user)
     user:inform("GERMAN TRANSLATION HERE", "The property deed is off limits for building.")
 end
 
-local function mainDialog(User, SourceItem)
+local function mainDialog(User, SourceItem, thePosition)
 local outlawRentDuration = ""
 local Outlaw
     if propertyList.checkIfOutlaw(User) then
@@ -507,15 +509,14 @@ local propertyName = propertyList.fetchPropertyName(User)
                     cantBuildOnPropertyDeed(User)
                 elseif propertyList.fetchBuildersPermission(User) then
                     if selected == 1 then
-                        local thePosition = common.GetFrontPosition(User)
                         construction.makeAllCategories(User, thePosition)
-                        craftSelection(User, SourceItem)
+                        craftSelection(User, SourceItem, thePosition)
                     elseif selected == 2 and propertyList.checkIfEstate(User) then
-                        destroySelection(User)
+                        destroySelection(User, thePosition)
                     elseif selected == 2 then
-                        destroyItem(User)
+                        destroyItem(User, thePosition)
                     elseif selected == 3 then
-                        miscDialog(User)
+                        miscDialog(User, thePosition)
                     elseif selected == 4 then
                         M.propertyManagement(User)
                     end
@@ -552,6 +553,8 @@ end
 
 function M.UseItem(user, sourceItem)
 
+    local thePosition = common.GetFrontPosition(user)   --To prevent cheating by turning, the position is set at the very start(dialogue can only be set to close on movement)
+
     if not checkIfIsInHand(user, sourceItem) then
         return
     end
@@ -564,7 +567,7 @@ local propertyName = propertyList.fetchPropertyName(user)
     elseif notice.checkForPropertyDeed(user) then
         cantBuildOnPropertyDeed(user)
     elseif propertyList.fetchBuildersPermission(user) then
-        mainDialog(user, sourceItem)
+        mainDialog(user, sourceItem, thePosition)
     else
         user:inform("GERMAN TRANSLATION HERE","To build here you must be the owner of the property or have their permission.")
     end

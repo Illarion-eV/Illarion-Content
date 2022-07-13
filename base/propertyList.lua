@@ -325,6 +325,23 @@ function M.fetchBuildersPermission(user, pos)
     return false
 end
 
+function M.checkIfWall(user, suspectedWall)
+
+    if not suspectedWall then
+        return false
+    end
+
+    for _, item in pairs(itemList.items) do
+        if item.category == "Walls" then
+            if item.itemId == suspectedWall.id then
+                return true
+            end
+        end
+    end
+
+    return false
+end
+
 function M.checkIfEntrance(User)
     if M.checkIfEstate(User) then
         return false
@@ -388,8 +405,8 @@ function M.checkIfRoofOrRoofTile(User, itemId, tileBoolean, tileId, createOrEras
     return false
 end
 
-function M.roofAndRoofTiles(User, itemId, tileBoolean, createOrErase)
-    local direct = User:getFaceTo()
+function M.roofAndRoofTiles(User, itemId, tileBoolean, createOrErase, thePosition)
+    local direct = common.GetDirection(User.pos, thePosition)
     local d = 1
     local vX, vY = common.GetDirectionVector(direct)
     local targetPosition = position(User.pos.x + vX * d, User.pos.y + vY * d, User.pos.z + 1)
