@@ -26,10 +26,10 @@ local areas = require("content.areas")
 local hairdresser = require("npc.hairdresser")
 local seafaring = require("base.seafaring")
 local gods_common = require("content._gods.gods_common")
-local notice = require("item.notice")
 local tutorial = require("content.tutorial")
 local keys = require("item.keys")
 local ceilingtrowel = require("gm.items.id_382_ceilingtrowel")
+local utility = require("housing.utility")
 
 -- Called after every player login
 
@@ -344,9 +344,9 @@ function M.onLogin( player )
         player.effects:addEffect(LongTimeEffect(gods_common.EFFECT_ID, 10))
     end
 
-    notice.informUserOfKeyRetrieval(player)
+    utility.informUserOfKeyRetrieval(player)
 
-    notice.keyRetrieval(player)
+    utility.keyRetrieval(player)
     --Checking for pending town behaviour changes
     keys.changeTownBehaviourOnLogin(player)
 

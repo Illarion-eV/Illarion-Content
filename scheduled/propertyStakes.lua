@@ -15,12 +15,12 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
-local building = require("base.propertyList")
+local utility = require("housing.utility")
 
 local M = {}
 
 function M.checkForAndPlaceMissingStakes()
-    building.checkForAndPlaceMissingStakes()
+    utility.checkForAndPlaceMissingStakes()
     log("The script for Property Lot Stakes has run.")
 end
 

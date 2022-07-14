@@ -21,12 +21,12 @@ local common = require("base.common")
 local licence = require("base.licence")
 local collectionchest = require("content.collectionchest")
 local money = require("base.money")
-local notice = require("item.notice")
+local utility = require("housing.utility")
 
 local M = {}
 
  -- Cadomyr, Runewick, Galmair
-M.townManagmentItemPos = notice.townManagmentItemPos
+M.townManagmentItemPos = utility.townManagmentItemPos
 
 local TownAnnouncement
 local TownAnnouncementShow
@@ -227,7 +227,7 @@ function townProperties(user, toolTown, SourceItem)
         if selected == 1 then
             rentCollection(user, toolTown, SourceItem)
         else
-            notice.allowAllAutomaticRentExtension(user, town)
+            utility.allowAllAutomaticRentExtension(user, town)
         end
     end
 

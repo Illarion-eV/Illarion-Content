@@ -863,10 +863,10 @@ table.insert(M.items, {itemId = 1121, typeOf = "House", category = "Shelves and 
 table.insert(M.items, {itemId = 1122, typeOf = "House", category = "Shelves and cabinets", skill = "carpentry", level = 90, ingredient1 = 544, ingredient1Amount = 35, ingredient2 = 2745, ingredient2Amount = 20, ingredient3 = 2547, ingredient3Amount = 10, ingredient4 = 2553, ingredient4Amount = 1})
 table.insert(M.items, {itemId = 1397, typeOf = "House", category = "Shelves and cabinets", skill = "carpentry", level = 60, ingredient1 = 545, ingredient1Amount = 40, ingredient2 = 2738, ingredient2Amount = 50, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
 table.insert(M.items, {itemId = 1398, typeOf = "House", category = "Shelves and cabinets", skill = "carpentry", level = 60, ingredient1 = 545, ingredient1Amount = 40, ingredient2 = 2738, ingredient2Amount = 50, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
-table.insert(M.items, {itemId = 1408, typeOf = "House", category = "Shelves and cabinets", skill = "mining", level = 60, ingredient1 = 546, ingredient1Amount = 30, ingredient2 = 2738, ingredient2Amount = 50, ingredient3 = 733, ingredient3Amount = 10, ingredient4 = 2553, ingredient4Amount = nil})
-table.insert(M.items, {itemId = 1409, typeOf = "House", category = "Shelves and cabinets", skill = "mining", level = 60, ingredient1 = 546, ingredient1Amount = 30, ingredient2 = 2738, ingredient2Amount = 50, ingredient3 = 733, ingredient3Amount = 10, ingredient4 = 2553, ingredient4Amount = nil})
-table.insert(M.items, {itemId = 1412, typeOf = "House", category = "Shelves and cabinets", skill = "mining", level = 90, ingredient1 = 546, ingredient1Amount = 15, ingredient2 = 2738, ingredient2Amount = 25, ingredient3 = 733, ingredient3Amount = 30, ingredient4 = 2553, ingredient4Amount = nil})
-table.insert(M.items, {itemId = 1414, typeOf = "House", category = "Shelves and cabinets", skill = "mining", level = 90, ingredient1 = 546, ingredient1Amount = 15, ingredient2 = 2738, ingredient2Amount = 25, ingredient3 = 733, ingredient3Amount = 30, ingredient4 = 2553, ingredient4Amount = nil})
+table.insert(M.items, {itemId = 1408, typeOf = "House", category = "Shelves and cabinets", skill = "mining", level = 60, ingredient1 = 546, ingredient1Amount = 30, ingredient2 = 2738, ingredient2Amount = 50, ingredient3 = 733, ingredient3Amount = 10, ingredient4 = 2553, ingredient4Amount = 1})
+table.insert(M.items, {itemId = 1409, typeOf = "House", category = "Shelves and cabinets", skill = "mining", level = 60, ingredient1 = 546, ingredient1Amount = 30, ingredient2 = 2738, ingredient2Amount = 50, ingredient3 = 733, ingredient3Amount = 10, ingredient4 = 2553, ingredient4Amount = 1})
+table.insert(M.items, {itemId = 1412, typeOf = "House", category = "Shelves and cabinets", skill = "mining", level = 90, ingredient1 = 546, ingredient1Amount = 15, ingredient2 = 2738, ingredient2Amount = 25, ingredient3 = 733, ingredient3Amount = 30, ingredient4 = 2553, ingredient4Amount = 1})
+table.insert(M.items, {itemId = 1414, typeOf = "House", category = "Shelves and cabinets", skill = "mining", level = 90, ingredient1 = 546, ingredient1Amount = 15, ingredient2 = 2738, ingredient2Amount = 25, ingredient3 = 733, ingredient3Amount = 30, ingredient4 = 2553, ingredient4Amount = 1})
 table.insert(M.items, {itemId = 3260, typeOf = "House", category = "Shelves and cabinets", skill = "carpentry", level = 20, ingredient1 = 546, ingredient1Amount = 30, ingredient2 = 41, ingredient2Amount = 10, ingredient3 = 2738, ingredient3Amount = 50, ingredient4 = nil, ingredient4Amount = nil})
 table.insert(M.items, {itemId = 3261, typeOf = "House", category = "Shelves and cabinets", skill = "carpentry", level = 20, ingredient1 = 546, ingredient1Amount = 30, ingredient2 = 41, ingredient2Amount = 10, ingredient3 = 2738, ingredient3Amount = 50, ingredient4 = nil, ingredient4Amount = nil})
 table.insert(M.items, {itemId = 3277, typeOf = "House", category = "Shelves and cabinets", skill = "carpentry", level = 40, ingredient1 = 546, ingredient1Amount = 30, ingredient2 = 41, ingredient2Amount = 10, ingredient3 = 2738, ingredient3Amount = 50, ingredient4 = nil, ingredient4Amount = nil})
@@ -1236,108 +1236,5 @@ table.insert(M.gardening, {criteria = "soil", tileId = 74 })
 table.insert(M.gardening, {criteria = "soil", tileId = 75 })
 table.insert(M.gardening, {criteria = "water", tileId = 6 })
 table.insert(M.gardening, {criteria = "sand", tileId = 3 })
-
-function M.checkIfSignPost(User)
-local targetItem
-    if not common.GetFrontItem(User) then
-        return false
-    else
-        targetItem = common.GetFrontItem(User)
-    end
-    for _, item in pairs(M.items) do
-        if item.category == "Sign Posts" then
-            if item.itemId == targetItem.id then
-                return targetItem
-            end
-        end
-    end
-return false
-end
-
-function M.checkIfLockable(User)
-local targetItem
-    if not common.GetFrontItem(User) then
-        return false
-    else
-        targetItem = common.GetFrontItem(User)
-    end
-    for _, item in pairs(M.items) do
-        if item.category == "Doors" then --All doors and gates
-            if item.itemId == targetItem.id then
-                return targetItem
-            end
-        elseif item.criteria == "Key" then -- Fence gates
-            if item.itemId == targetItem.id then
-                return targetItem
-            end
-        end
-    end
-return false
-end
-
-function M.getTileGraphic(tileIdentifier)
-    for _, tile in pairs(M.tiles) do
-        if tile.tileId == tileIdentifier then
-            return tile.ingredient1
-        end
-    end
-end
-function M.getTileName(User, tileIdentifier)
-    for _, tile in pairs(M.tiles) do
-        if tile.tileId == tileIdentifier then
-            return common.GetNLS(User, tile.nameDe, tile.nameEn)
-        end
-    end
-end
-function M.getItemName(user, itemIdentifier)
-    for _, item in pairs(M.items) do
-        if item.itemId == itemIdentifier then
-            if item.nameDe then
-                return common.GetNLS(user, item.nameDe, item.nameEn)
-            end
-        end
-    end
-return false
-end
-function M.getLevelReq(identifier, isTile)
-    if isTile then
-        for _, tile in pairs(M.tiles) do
-            if tile.tileId == identifier then
-                return tile.level
-            end
-        end
-    else
-        for _, item in pairs(M.items) do
-            if item.itemId == identifier then
-                return item.level
-            end
-        end
-    end
-end
-function M.getCraftTimeInSeconds(identifier, isTile)
-    local level = M.getLevelReq(identifier, isTile)
-    local baseTime = 10
-    local timePerLevel = 3
-    local amountOfSeconds = baseTime+timePerLevel*level
-
-    return amountOfSeconds
-end
-function M.getSkill(identifier, tileIdentifier)
-    if not tileIdentifier then
-        for _, item in pairs(M.items) do
-            if item.itemId == identifier then
-                return Character[item.skill]
-            end
-        end
-    elseif tileIdentifier then
-        for _, tile in pairs(M.tiles) do
-            if tile.tileId == identifier then
-                return Character[tile.skill]
-            end
-        end
-    else
-        return 0
-    end
-end
 
 return M

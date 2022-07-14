@@ -27,8 +27,8 @@ local shard = require("item.shard")
 local glyphs = require("base.glyphs")
 local seafaring = require("base.seafaring")
 local staticteleporter = require("base.static_teleporter")
-local notice = require("item.notice")
-local building = require("base.propertyList")
+local utility = require("housing.utility")
+local propertyList = require("housing.propertyList")
 local drinks = require("item.drinks")
 local food = require("item.food")
 local customPotion = require("alchemy.base.customPotion")
@@ -2205,27 +2205,27 @@ function M.decideWhatToDoWithProperty(User, property)
         if dialog:getSuccess() then
             local index = dialog:getSelectedIndex() +1
             if index == 1 then
-                notice.setOwner(User, nil, property)
+                utility.setOwner(User, nil, property)
             elseif index == 2 then
-                notice.removeOwner(User, nil, property)
+                utility.removeOwner(User, nil, property)
             elseif index == 3 then
-                notice.setBuilderOrGuest(User, nil, "guest", property)
+                utility.setBuilderOrGuest(User, nil, "guest", property)
             elseif index == 4 then
-                notice.removeBuilderOrGuest(User, nil, "guest", property)
+                utility.removeBuilderOrGuest(User, nil, "guest", property)
             elseif index == 5 then
-                notice.setBuilderOrGuest(User, nil, "builder", property)
+                utility.setBuilderOrGuest(User, nil, "builder", property)
             elseif index == 6 then
-                notice.removeBuilderOrGuest(User, nil, "builder", property)
+                utility.removeBuilderOrGuest(User, nil, "builder", property)
             elseif index == 7 then
-                notice.setRent(User, nil, property)
+                utility.setRent(User, nil, property)
             elseif index == 8 then
-                notice.extendRent(User, nil, property)
+                utility.extendRent(User, nil, property)
             elseif index == 9 then
-                notice.setReqRank(User, nil, property)
+                utility.setReqRank(User, nil, property)
             elseif index == 10 then
-                notice.setIndefiniteRent(User, nil, property)
+                utility.setIndefiniteRent(User, nil, property)
             else
-                notice.allowAutomaticRentExtension(User, nil, property)
+                utility.allowAutomaticRentExtension(User, nil, property)
             end
         end
     end
@@ -2254,7 +2254,7 @@ local function chooseWhatToDoForAllpropertiesOfSpecifiedRealm(user, realm)
         local index = dialog:getSelectedIndex()+1
 
         if index == 1 then
-            notice.allowAllAutomaticRentExtension(user, realm)
+            utility.allowAllAutomaticRentExtension(user, realm)
         end
     end
 
@@ -2280,9 +2280,9 @@ local selectedProperty
             elseif index == 4 then
                 chooseWhatToDoForAllpropertiesOfSpecifiedRealm(user, "Outlaw")
             else
-                for i = 1, #notice.propertyTable do
+                for i = 1, #propertyList.propertyTable do
                     if index == i+4 then
-                        selectedProperty = notice.propertyTable[i][1]
+                        selectedProperty = propertyList.propertyTable[i][1]
                         M.decideWhatToDoWithProperty(user, selectedProperty)
                     end
                 end
@@ -2294,8 +2294,8 @@ local selectedProperty
     dialog:addOption(0, "Make changes to all Galmair properties")
     dialog:addOption(0, "Make changes to all Runewick properties")
     dialog:addOption(0, "Make changes to all Outlaw properties")
-    for i = 1, #notice.propertyTable do
-        dialog:addOption(0, notice.propertyTable[i][1])
+    for i = 1, #propertyList.propertyTable do
+        dialog:addOption(0, propertyList.propertyTable[i][1])
     end
     user:requestSelectionDialog(dialog)
 end
@@ -2333,7 +2333,7 @@ function M.UseItem(user, SourceItem)
             M.selectProperty(user)
         elseif index == 12 then
             user:inform("Persistence script is starting. If this is the first time, or a lot of properties were added, this can cause massive lag.")
-            building.setPersistenceForProperties()
+            utility.setPersistenceForProperties()
             user:inform("Persistence has been applied to all tile coordinates entailed in the properties list. This only needs to be done once whenever new properties have been added to the list.")
         end
     end

@@ -15,7 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
-local notice = require("item.notice")
+local utility = require("housing.utility")
 local M = {}
 
 local lastCollected = false
@@ -38,7 +38,7 @@ function M.rent()
     end
 
     if not lastCollected or lastCollected ~= month then
-        notice.reduceRentTimer()
+        utility.reduceRentTimer()
         lastCollected = month
         ScriptVars:set("lastMonthRentWasCalled", month)
         ScriptVars:save()

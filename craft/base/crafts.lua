@@ -24,16 +24,10 @@ local shared = require("craft.base.shared")
 local lookat = require("base.lookat")
 local licence = require("base.licence")
 local gems = require("base.gems")
-local glypheffects = require("magic.glypheffects")
-local itemList = require("craft.base.itemList")
 local foodScript = require("item.food")
-local propertyList = require("base.propertyList")
-local notice = require("item.notice")
+
 local OFFSET_PRODUCTS_REPAIR = 235
 local repairItemList = {}
-local housingTool = Item.constructionTrowel
-
-local previewInformCooldown = {}
 
 --[[productId for craftable items: id in products table.
 productId for repairable items position in inventory plus offset. Inventory has 17 positions, max productId = 255
@@ -134,13 +128,8 @@ function Product:addRemnant(item, quantity, data)
     table.insert(self["remnants"], {["item"]=item, ["quantity"]=quantity, ["data"]=data})
 end
 
-function Craft:addProduct(categoryId, itemId, quantity, data, housing, tile, thePosition)
-    local difficulty
-    if housing then
-        difficulty = math.min(itemList.getLevelReq(itemId, tile),100)
-    else
-        difficulty = math.min(world:getItemStatsFromId(itemId).Level, 100)
-    end
+function Craft:addProduct(categoryId, itemId, quantity, data)
+    local difficulty = math.min(world:getItemStatsFromId(itemId).Level, 100)
     local learnLimit = math.min(difficulty + 20, 100)
     quantity = quantity or 1
     data = data or {}
@@ -155,8 +144,6 @@ function Craft:addProduct(categoryId, itemId, quantity, data, housing, tile, the
             ["data"] = data,
             ["ingredients"] = {},
             ["remnants"] = {},
-            ["tile"] = tile,
-            ["housing"] = housing
         })
 
         if self.categories[categoryId].minSkill then
@@ -174,39 +161,12 @@ function Craft:addProduct(categoryId, itemId, quantity, data, housing, tile, the
     return nil
 end
 
-local function showTemporaryPreviewOfItem(productId, target, user)
-    -- For special items like stairs, only the first object will be previewed and not the upper/lower stair
-
-    local propertyName = propertyList.getPropertyLocationIsPartOf(target)
-
-    local propertyDeed = notice.getPropertyDeed(propertyName)
-
-    notice.deletePreviewItem(propertyName, true)
-
-    local currentTime = common.GetCurrentTimestamp()
-    propertyDeed:setData("previewItemPositionX", target.x)
-    propertyDeed:setData("previewItemPositionY", target.y)
-    propertyDeed:setData("previewItemPositionZ", target.z)
-    propertyDeed:setData("previewItemTimer", currentTime)
-    world:changeItem(propertyDeed)
-
-    local previewItem = world:createItemFromId(productId, 1, target, true, 111, {["preview"] = "true"})
-    previewItem.wear = 255
-    world:changeItem(previewItem)
-
-    if previewInformCooldown[user.id] and  previewInformCooldown[user.id] >= currentTime then
-        user:inform("GERMAN TRANSLATION HERE", "Preview item placed.")
-    else
-        user:inform("GERMAN TRANSLATION HERE", "By hovering over the item in the menu, you've created an item for preview in the location it will be built if you craft it. This item will disappear after 30 seconds, or whenever you or someone else preview another item on the same property.")
-        previewInformCooldown[user.id] = currentTime + 3600 --This long inform only shows once an hour, so as to not be spammy
-    end
-end
-
-
 function Craft:showDialog(user, source)
 
-    if not self:allowCrafting(user, source) then
-        if self.fallbackCraft then
+    local allowCraft, checkForFallbackCraft = self:allowCrafting(user, source)
+
+    if not allowCraft then
+        if checkForFallbackCraft and self.fallbackCraft then
             self.fallbackCraft:showDialog(user, source)
         end
 
@@ -224,21 +184,12 @@ function Craft:showDialog(user, source)
             local product = self.products[productId]
             local foodOK = self:checkRequiredFood(user, product:getCraftingTime(self:getSkill(user)))
             local canWork = self:allowCrafting(user, source) and self:checkMaterial(user, productId) and foodOK
-            if canWork and not self:getHandToolEquipped(user).id == housingTool then
+            if canWork then
                 self:swapToActiveItem(user)
             end
             return canWork
         elseif result == CraftingDialog.playerLooksAtItem then
             local productId = dialog:getCraftableId()
-
-            if self:allowCrafting(user, source) and self:getHandToolEquipped(user).id == housingTool then
-                local target = self.targetPosition
-                local product = self.products[productId]
-                if not product.tile then
-                    showTemporaryPreviewOfItem(product.item, target, user)    --Preview of item, used only in housing
-                end
-            end
-
             return self:getProductLookAt(user, productId)
         elseif result == CraftingDialog.playerLooksAtIngredient then
             local productId = dialog:getCraftableId()
@@ -256,9 +207,9 @@ function Craft:showDialog(user, source)
                 self:refreshDialog(dialog, user)
             end
             return skillGain
-        elseif result == CraftingDialog.playerCraftingAborted and not self:getHandToolEquipped(user).id == housingTool then
+        elseif result == CraftingDialog.playerCraftingAborted then
             self:swapToInactiveItem(user)
-        elseif not self:getHandToolEquipped(user).id == housingTool then
+        else
             self:swapToInactiveItem(user)
         end
     end
@@ -267,20 +218,13 @@ function Craft:showDialog(user, source)
     user:requestCraftingDialog(dialog)
 end
 
-function Craft:allowCrafting(user, source)
+--------------------------------------------------------------------------------
 
-    if not self.npcCraft then --regular crafting and house crafting
+function Craft:allowCrafting(user, source)
+    if not self.npcCraft then
         return self:allowUserCrafting(user, source)
-    elseif not self.houseCraft then -- npc crafting
-        return self:allowNpcCrafting(user, source)
-    elseif self:isHandToolEquipped(user) then -- house crafting for categories that do not use skill only needs the tool check
-        return true
     else
-        self:swapToInactiveItem(user)
-            common.HighInformNLS(user,
-            "Du musst ein intaktes Werkzeug in die Hand nehmen um damit zu arbeiten.",
-            "You must have an intact tool in your hand to work with.")
-        return false
+        return self:allowNpcCrafting(user, source)
     end
 end
 
@@ -289,7 +233,7 @@ function Craft:allowUserCrafting(user, source)
         common.TurnTo(user, source.pos)
 
         if not self:userHasLicense(user) then
-            return false
+            return false, false
         end
 
         if not self:isHandToolEquipped(user) then
@@ -301,15 +245,15 @@ function Craft:allowUserCrafting(user, source)
             common.HighInformNLS(user,
             "Dir fehlt ein intaktes Werkzeug in deiner Hand um hier zu arbeiten: " .. germanTool,
             "To work here you have to hold an intact tool in your hand: " .. englishTool)
-            return false
+            return false, false
         end
     else
         if not self:locationFine(user) then
-            return false
+            return false, true
         end
 
         if not self:userHasLicense(user) then
-            return false
+            return false, false
         end
 
         if not self:isHandToolEquipped(user) then
@@ -317,7 +261,7 @@ function Craft:allowUserCrafting(user, source)
             common.HighInformNLS(user,
             "Du musst ein intaktes Werkzeug in die Hand nehmen um damit zu arbeiten.",
             "You must have an intact tool in your hand to work with.")
-            return false
+            return false, false
         end
     end
 
@@ -325,9 +269,6 @@ function Craft:allowUserCrafting(user, source)
 end
 
 function Craft:userHasLicense(user)
-    if self:getHandToolEquipped(user).id == housingTool then --bypass for housing
-        return true
-    end
     return not licence.licence(user)
 end
 
@@ -396,15 +337,7 @@ function Craft:getLookAt(user, object)
     local item = object.item
     local quantity = object.quantity
     local data = object.data
-    local lookAt = itemList.getItemName(user, item)
-    if not lookAt then
-        lookAt = lookat.GenerateItemLookAtFromId(user, item, quantity, data)
-    end
-
-    if object.tile then
-        lookAt = ItemLookAt()
-        lookAt.name = itemList.getTileName(user, item)
-    end
+    local lookAt = lookat.GenerateItemLookAtFromId(user, item, quantity, data)
 
     if self.lookAtFilter then
         lookAt = self.lookAtFilter(user, lookAt, data)
@@ -451,25 +384,14 @@ function Craft:loadDialog(dialog, user)
     end
     local repairListId = listId
 
-    local glyphEffect = glypheffects.effectOnCraftingTime(user)
-
     for i = 1,#self.products do
         local product = self.products[i]
         local productRequirement = product.difficulty
 
         if productRequirement <= skill and self:isRepairCategory(product.category) == false then
 
-            local craftingTime = self:getCraftingTime(product, skill) * glyphEffect
-            if product.tile == true then
-                dialog:addCraftable(i, categoryListId[product.category], itemList.getTileGraphic(product.item), itemList.getTileName(user, product.item), craftingTime, product.quantity)
-            else
-                local lookAtName = itemList.getItemName(user, product.item)
-                    if not lookAtName then
-                        lookAtName = self:getLookAt(user, product).name
-                    end
-                dialog:addCraftable(i, categoryListId[product.category], product.item, lookAtName, craftingTime, product.quantity)
-            end
-
+            local craftingTime = self:getCraftingTime(product, skill)
+            dialog:addCraftable(i, categoryListId[product.category], product.item, self:getLookAt(user, product).name, craftingTime, product.quantity)
 
             for j = 1, #product.ingredients do
                 local ingredient = product.ingredients[j]
@@ -482,7 +404,6 @@ function Craft:loadDialog(dialog, user)
     local repairPositions = {12, 13, 14, 15, 16, 17} -- all belt positions
     local showRepairGroup = false
     local repairSkill = self:getRepairSkill(user)
-    glyphEffect = 1
     local repairItemListSub = {}
     local hasDataRepairItemListSub = false
     for k = 1, #repairPositions do
@@ -498,9 +419,8 @@ function Craft:loadDialog(dialog, user)
                     if showRepairGroup == false then
                         dialog:addGroup(user:getPlayerLanguage() == Player.german and "Reparieren" or "Repair")
                         showRepairGroup = true
-                        glyphEffect = glypheffects.effectOnRepairTime(user)
                     end
-                    craftingTime = craftingTime * glyphEffect * (99 - durability)/99
+                    craftingTime = craftingTime * (99 - durability)/99
                     local listPosition = OFFSET_PRODUCTS_REPAIR+repairPositions[k]
                     dialog:addCraftable(listPosition, repairListId, product.item, self:getLookAt(user, product).name, craftingTime, product.quantity)
                     repairItemListSub[listPosition] = {product.item, durability}
@@ -530,23 +450,6 @@ function Craft:refreshDialog(dialog, user)
 end
 
 function Craft:getCraftingTime(product, skill)
-local housing = product.housing
-    if housing then --This check must be before the npcCraft check, as housing uses npcCraft for items that do not belong to a specific skill aka the "misc" category
-        local amountOfSeconds = itemList.getCraftTimeInSeconds(product.item, product.tile)*10
-        if not self.npcCraft then
-            local learnProgress
-            if (self.learnLimit == self.difficulty) then
-                learnProgress = 50
-            else
-                learnProgress = (skill - self.difficulty) / (self.learnLimit - self.difficulty) * 100
-            end
-            amountOfSeconds = common.Scale(amountOfSeconds, amountOfSeconds/2, learnProgress)
-        end
-        if amountOfSeconds > 99 then
-            amountOfSeconds = 10 * math.floor(amountOfSeconds/10 + 0.5) -- Round correctly to whole seconds
-        end
-        return amountOfSeconds
-    end
     if not self.npcCraft then
         return product:getCraftingTime(skill)
     else
@@ -746,9 +649,7 @@ function Craft:generateQuality(user, productId, toolItem)
 end
 
 function Craft:locationFine(user)
-    if self:getHandToolEquipped(user).id == housingTool then --Bypass for construction/sandboxing
-        return true
-    end
+
     self:turnToTool(user)
 
     local staticTool = common.GetFrontItemID(user)
@@ -764,14 +665,14 @@ function Craft:locationFine(user)
             local germanTool = world:getItemName(self.defaultTool, Player.german)
             local englishTool = world:getItemName(self.defaultTool, Player.english)
             common.HighInformNLS(user,
-            "Du stehst nicht neben dem benötigten Werkzeug: " .. germanTool,
+            "Du stehst nicht neben dem ben?tigten Werkzeug: " .. germanTool,
             "There is no " .. englishTool .. " close by to work with.")
         end
         return false
     elseif common.GetFrontItem(user).id == 359 and common.GetFrontItem(user).quality == 100 then
         if not self.fallbackCraft then
             common.HighInformNLS(user,
-            "Aus irgendeinem Grund liefert die Flamme nicht die benötigte Hitze.",
+            "Aus irgendeinem Grund liefert die Flamme nicht die ben?tigte Hitze.",
             "For some reason the flame does not provide the required heat.")
         end
         return false
@@ -816,25 +717,19 @@ function Craft:craftItem(user, productId)
     local product = self.products[productId]
     local skill = self:getSkill(user)
     local skillGain = false
+
     local toolItem = self:getHandToolEquipped(user)
-    local housing
-    if self:getHandToolEquipped(user).id == housingTool then
-        housing = true
-    else
-        housing = false
-    end
 
     if product.difficulty > skill then
         common.HighInformNLS(user,
-        "Du bist nicht fähig genug um das zu tun.",
+        "Du bist nicht f?hig genug um das zu tun.",
         "You are not skilled enough to do this.")
         self:swapToInactiveItem(user)
         return false
     end
 
-    local neededFood = 0
+    local foodOK, neededFood = self:checkRequiredFood(user, product:getCraftingTime(skill))
     if not self.npcCraft then
-        local foodOK = self:checkRequiredFood(user, product:getCraftingTime(skill))
         if not foodOK then
             self:swapToInactiveItem(user)
             return false
@@ -842,43 +737,35 @@ function Craft:craftItem(user, productId)
     end
 
     if self:checkMaterial(user, productId) then
-        self:createItem(user, productId, toolItem, housing)
+        self:createItem(user, productId, toolItem)
 
         if not self.npcCraft then
-            local originalDurability = common.getItemDurability(toolItem)
-            if not shared.toolBreaks(user, toolItem, product:getCraftingTime(skill)) then
-                glypheffects.effectToolSelfRepair(user, toolItem, originalDurability)
-            end
+            shared.toolBreaks(user, toolItem, product:getCraftingTime(skill))
             common.GetHungry(user, neededFood)
         end
 
-        if type(self.leadSkill) == "number" and not housing then --learning for housing disabled, at least until proper balance is reviewed for material costs and level requirements for items
+        if type(self.leadSkill) == "number" then
             user:learn(self.leadSkill, product:getCraftingTime(skill), product.learnLimit)
             local newSkill = self:getSkill(user)
             skillGain = (newSkill > skill)
         end
     end
 
-    if not self:getHandToolEquipped(user).id == housingTool then
-        self:swapToInactiveItem(user)
-    end
+    self:swapToInactiveItem(user)
 
     return skillGain
 end
-function Craft:eraseIngredients(user, product)
-    for i = 1, #product.ingredients do
-        if not glypheffects.effectSaveMaterialOnProduction(user) then
-            local ingredient = product.ingredients[i]
-            user:eraseItem(ingredient.item, ingredient.quantity, ingredient.data)
-        end
-    end
-end
 
-function Craft:createItem(user, productId, toolItem, housing)
+function Craft:createItem(user, productId, toolItem)
     local product = self.products[productId]
     product.data.descriptionDe = ""
     product.data.descriptionEn = "" -- reset descriptions, same reasoning as below
     product.data.rareness = "" -- reset rarity or else it creates the most recent result of the rarity calculation even if not a perfect item
+
+    for i = 1, #product.ingredients do
+        local ingredient = product.ingredients[i]
+        user:eraseItem(ingredient.item, ingredient.quantity, ingredient.data)
+    end
 
     local quality = self:generateQuality(user, productId, toolItem)
 
@@ -888,100 +775,51 @@ function Craft:createItem(user, productId, toolItem, housing)
     else
         product.data.craftedBy = nil
     end
-    if not housing then
-        local rarity = 0
 
-        local foodItem, foodBuff = self:checkIfFoodItem(productId)
+    local rarity = 0
 
-        if foodItem and quality >= 900 then
-            rarity = self:generateRarity(user, productId, toolItem)
+    local foodItem, foodBuff = self:checkIfFoodItem(productId)
 
-            if not foodBuff then
-                rarity = common.Limit(rarity, 0, 2)
-            end
+    if foodItem and quality >= 900 then
+        rarity = self:generateRarity(user, productId, toolItem)
 
-            if rarity > 1 then
-                product.data.rareness = rarity
-            end
+        if not foodBuff then
+            rarity = common.Limit(rarity, 0, 2)
         end
 
-        local rarities = {
-            {english = "uncommon", german = "außergewöhnlich gut", identifier = 2,
-            foodDescription = {
-                english = "An uncommonly well made dish. Sure to be more filling than its common counterparts.",
-                german = "Ein außergewöhnlich gut gelungenes Gericht. Ein wahrer Schmauß, der besser sättigt als ein normales Gericht."}},
-            {english = "rare", german = "exzellent", identifier = 3,
-            foodDescription = {
-                english = "A dish so well-made it's a rarity among dishes. Not only more filling than its lesser counterparts, but also somewhat beneficial to the longevity and strength of the boons of your good diet.",
-                german = "Ein wahres Schlemmergericht. Wohlbekömmlich und eine kleine Wohltat für die Länge und Auswirkung deiner guten Ernährung."}},
-            {english = "unique", german = "einzigartig gut", identifier = 4,
-            foodDescription = {
-                english = "A dish made by such refined culinary arts, you might even say it's unique. Not only more filling than its lesser counterparts, but also very beneficial to both the longevity and strength of the boons of your good diet.",
-                german = "Eine kulinarisches Köstlichkeit, die ihres Gleichen sucht. Äußerst wohlbekömmlich und eine wahre Wohltat für die Länge und Auswirkung deiner guten Ernährung."}}}
-
-        for _, selectedRarity in pairs(rarities) do
-            if rarity == selectedRarity.identifier then
-                local nameEnglish = itemStats.English
-                local nameGerman = itemStats.German
-                common.TempInformNLS(user, "Die Speise '"..nameGerman.."' ist dir "..nameGerman.." gelungen.", "Through your masterful skill, your "..nameEnglish.." ended up being of "..selectedRarity.english.." quality.")
-                if foodItem then
-                    product.data.descriptionDe = selectedRarity.foodDescription.german
-                    product.data.descriptionEn = selectedRarity.foodDescription.english
-                end
-                break
-            end
-        end
-        Craft:eraseIngredients(user, product)
-        common.CreateItem(user, product.item, product.quantity, quality, product.data)
-    elseif housing then
-        local target = self.targetPosition
-        local propertyName = propertyList.getPropertyLocationIsPartOf(target)
-        notice.deletePreviewItem(propertyName, true)
-
-        if product.tile == true then
-            if propertyList.checkIfRoofOrRoofTile(user, product.item, true, product.item, "create") then
-                if propertyList.roofAndRoofTiles(user, product.item, true, "create") then
-                    Craft:eraseIngredients(user, product)
-                else
-                    user:inform("GERMAN TRANSLATION HERE","You do not have permission to build there.")
-                end
-            else
-                Craft:eraseIngredients(user, product)
-                world:changeTile(product.item, target)
-            end
-        else
-            if propertyList.checkIfStairsOrTrapDoor(user, product.item) then
-                if propertyList.createWarpsAndExitObject(user, product.item, "create") then
-                    Craft:eraseIngredients(user, product)
-                    world:createItemFromId(product.item, product.quantity, target, true, quality, nil)
-                    local targetItem = world:getItemOnField(target)
-                    targetItem.wear = 255
-                    world:changeItem(targetItem)
-                else
-                    user:inform("GERMAN TRANSLATION HERE","You do not have permission to build there.")
-                end
-            elseif propertyList.checkIfRoofOrRoofTile(user, product.item, false) then
-                if propertyList.roofAndRoofTiles(user, product.item, false, "create") then
-                    Craft:eraseIngredients(user, product)
-                else
-                    user:inform("GERMAN TRANSLATION HERE","You do not have permission to build there.")
-                end
-            elseif propertyList.checkIfPlantOrTree(user, product.item) then
-                if propertyList.checkIfGardeningCriteriaMet(user, product.item) then
-                    Craft:eraseIngredients(user, product)
-                    world:createItemFromId(product.item, product.quantity, target, true, quality, nil)
-                else
-                    user:inform("GERMAN TRANSLATION HERE","You can't plant this here.")
-                end
-            else
-                Craft:eraseIngredients(user, product)
-                world:createItemFromId(product.item, product.quantity, target, true, quality, nil)
-                local targetItem = world:getItemOnField(target)
-                targetItem.wear = 255
-                world:changeItem(targetItem)
-            end
+        if rarity > 1 then
+            product.data.rareness = rarity
         end
     end
+
+    local rarities = {
+        {english = "uncommon", german = "au?ergew?hnlich gut", identifier = 2,
+        foodDescription = {
+            english = "An uncommonly well made dish. Sure to be more filling than its common counterparts.",
+            german = "Ein au?ergew?hnlich gut gelungenes Gericht. Ein wahrer Schmau?, der besser s?ttigt als ein normales Gericht."}},
+        {english = "rare", german = "exzellent", identifier = 3,
+        foodDescription = {
+            english = "A dish so well-made it's a rarity among dishes. Not only more filling than its lesser counterparts, but also somewhat beneficial to the longevity and strength of the boons of your good diet.",
+            german = "Ein wahres Schlemmergericht. Wohlbek?mmlich und eine kleine Wohltat f?r die L?nge und Auswirkung deiner guten Ern?hrung."}},
+        {english = "unique", german = "einzigartig gut", identifier = 4,
+        foodDescription = {
+            english = "A dish made by such refined culinary arts, you might even say it's unique. Not only more filling than its lesser counterparts, but also very beneficial to both the longevity and strength of the boons of your good diet.",
+            german = "Eine kulinarisches K?stlichkeit, die ihres Gleichen sucht. ?u?erst wohlbek?mmlich und eine wahre Wohltat f?r die L?nge und Auswirkung deiner guten Ern?hrung."}}}
+
+    for _, selectedRarity in pairs(rarities) do
+        if rarity == selectedRarity.identifier then
+            local nameEnglish = itemStats.English
+            local nameGerman = itemStats.German
+            common.TempInformNLS(user, "Die Speise '"..nameGerman.."' ist dir "..nameGerman.." gelungen.", "Through your masterful skill, your "..nameEnglish.." ended up being of "..selectedRarity.english.." quality.")
+            if foodItem then
+                product.data.descriptionDe = selectedRarity.foodDescription.german
+                product.data.descriptionEn = selectedRarity.foodDescription.english
+            end
+            break
+        end
+    end
+
+    common.CreateItem(user, product.item, product.quantity, quality, product.data)
 
     for i=1, #product.remnants do
         local remnant = product.remnants[i]
@@ -1002,13 +840,13 @@ function Craft:repairItem(user, productIdList)
     local toolItem = self:getHandToolEquipped(user)
     if itemToRepair.id ~= repairItemList[user.id][productIdList][1] or common.getItemDurability(itemToRepair) ~= repairItemList[user.id][productIdList][2] then
     common.HighInformNLS(user,
-        "[Info] Bitte tausche die Gegenstände in deinem Inventar nicht während der Reparatur.",
+        "[Info] Bitte tausche die Gegenst?nde in deinem Inventar nicht w?hrend der Reparatur.",
         "[Info] Please don't move items in your inventory during the repair.")
         return false
     end
     if product.difficulty > repairSkill then  -- safty grid
         common.HighInformNLS(user,
-        "Du bist nicht fähig genug um das zu tun.",
+        "Du bist nicht f?hig genug um das zu tun.",
         "You are not skilled enough to do this.")
         self:swapToInactiveItem(user)
         return false
@@ -1016,14 +854,14 @@ function Craft:repairItem(user, productIdList)
 
     if common.getItemDurability(itemToRepair) == 99 then  -- safty grid
         common.InformNLS(user,
-        "Du findest nichts, was du an dem Werkstück reparieren könntest.",
+        "Du findest nichts, was du an dem Werkst?ck reparieren k?nntest.",
         "There is nothing to repair on that item.")
         return false
     end
 
-    local neededFood = 0
+    local foodOK, neededFood = self:checkRequiredFood(user, repairTime)
+
     if not self.npcCraft then
-        local foodOK = self:checkRequiredFood(user, repairTime)
         if not foodOK then
             self:swapToInactiveItem(user)
             return false
@@ -1034,10 +872,7 @@ function Craft:repairItem(user, productIdList)
         self:createRepairedItem(user, productId, itemToRepair)
 
         if not self.npcCraft then
-            local originalDurability = common.getItemDurability(toolItem)
-            if not shared.toolBreaks(user, toolItem, repairTime) then
-                glypheffects.effectToolSelfRepair(user, toolItem, originalDurability)
-            end
+            shared.toolBreaks(user, toolItem, repairTime)
             common.GetHungry(user, neededFood)
         end
 
@@ -1060,9 +895,7 @@ function Craft:createRepairedItem(user, productId, itemToRepair)
     for i = 1, #product.ingredients do
         local ingredient = product.ingredients[i]
         if math.random() < itemDamage * REPAIR_RESOURCE_USAGE then
-            if not glypheffects.effectSaveMaterialOnRepair(user) then
-                user:eraseItem(ingredient.item, ingredient.quantity, ingredient.data)
-            end
+            user:eraseItem(ingredient.item, ingredient.quantity, ingredient.data)
         end
     end
 
@@ -1073,16 +906,15 @@ function Craft:createRepairedItem(user, productId, itemToRepair)
         itemToRepair:setData("qualityAtCreation", quality)
     else
         if (quality < tonumber(bestQuality)) then
-            local glyphBonus = glypheffects.effectOnUserRepairQuality(user,itemToRepair)
             if Craft:isKnownCrafter(itemToRepair) then
-                repairQualityIncrease = REPAIR_QUALITY_INCREASE_GENERAL + REPAIR_QUALITY_INCREASE_KNOWN_CRAFTER + glyphBonus
+                repairQualityIncrease = REPAIR_QUALITY_INCREASE_GENERAL + REPAIR_QUALITY_INCREASE_KNOWN_CRAFTER
             else
-                repairQualityIncrease = REPAIR_QUALITY_INCREASE_GENERAL + glyphBonus
+                repairQualityIncrease = REPAIR_QUALITY_INCREASE_GENERAL
             end
             if (math.random() < itemDamage * repairQualityIncrease) then
                 quality = quality +1
                 common.InformNLS(user,
-                "Dir gelingt es, die Qualität des Gegenstands "..world:getItemName(itemToRepair.id,Player.german).." etwas zu verbessern.",
+                "Dir gelingt es, die Qualit?t des Gegenstands "..world:getItemName(itemToRepair.id,Player.german).." etwas zu verbessern.",
                 "You have succeeded in improving the quality of the item "..world:getItemName(itemToRepair.id,Player.english)..".")
             else
                 common.InformNLS(user,
