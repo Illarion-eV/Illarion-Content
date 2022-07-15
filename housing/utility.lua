@@ -52,22 +52,20 @@ end
     return false
 end
 
-function M.checkIfRoofOrRoofTile(id, tileBoolean)
+function M.checkIfRoofOrRoofTile(theId, tileBoolean)
 
     if not tileBoolean then
         for _, item in pairs (itemList.items) do
-            if item.category == "Roof" then
-                if item.itemId == id then
-                    return true
-                end
+            if item.category == "Roof" and item.itemId == theId then
+                return true
             end
         end
     else
         for _, tile in pairs (itemList.tiles) do
-            if tile.category == "Roof Tiles" then
-                if tile.tileId == id then
-                    return true
-                end
+            if theId == 0 then
+                return false
+            elseif tile.category == "Roof Tiles" and tile.tileId == theId then
+                return true
             end
         end
     end
@@ -314,6 +312,24 @@ function M.checkIfItemIsWallDeco(itemId)
     return false
 end
 
+function M.wallWindowPermissions(user, pos, id)
+
+    local suspectedWall
+
+    if world:isItemOnField(pos) then
+            suspectedWall = world:getItemOnField(pos)
+        end
+
+    if suspectedWall and not M.checkIfEstate(user) and M.checkIfWallOrWindow(user, suspectedWall) then
+        if not M.checkIfItemIsWallDeco(id) then
+            user:inform("GERMAN TRANSLATION", "You can't build that item on a wall/window.")
+            return false
+        end
+    end
+
+    return true
+end
+
 function M.checkPositionForStake(selectedPosition)
     local handrail = 3601
     local field = world:getField(selectedPosition)
@@ -332,14 +348,14 @@ function M.checkPositionForStake(selectedPosition)
 
 end
 
-function M.checkIfWall(user, suspectedWall)
+function M.checkIfWallOrWindow(user, suspectedWall)
 
     if not suspectedWall then
         return false
     end
 
     for _, item in pairs(itemList.items) do
-        if item.category == "Walls" then
+        if item.category == "Walls" or item.category == "Windows" then
             if item.itemId == suspectedWall.id then
                 return true
             end
@@ -438,14 +454,17 @@ function M.checkIfIsInHand(user, sourceItem)
     return false
 end
 
-function M.roofAndRoofTiles(user, itemId, tileBoolean, createOrErase, thePosition)
-    local direct = common.GetDirection(user.pos, thePosition)
-    local d = 1
-    local vX, vY = common.GetDirectionVector(direct)
-    local targetPosition = position(user.pos.x + vX * d, user.pos.y + vY * d, user.pos.z + 1)
+function M.roofAndRoofTiles(user, itemId, tileBoolean, createOrErase)
+    local thePosition = common.GetFrontPosition(user)
+    local targetPosition = position(thePosition.x, thePosition.y, thePosition.z + 1)
     local targetItem = world:getItemOnField(targetPosition)
     local targetId
     local tileField = world:getField(targetPosition)
+
+    if user.pos.z < 0 then
+        user:inform("You're underground. There's no roof for you to manage.")
+        return
+    end
 
     if createOrErase == "create" then
         targetId = itemId
@@ -453,19 +472,23 @@ function M.roofAndRoofTiles(user, itemId, tileBoolean, createOrErase, thePositio
         targetId = targetItem.id
     end
 
-    if tileBoolean then
+    if tileBoolean and createOrErase == "erase" then
         targetId = tileField:tile()
     end
 
-    if not M.checkIfRoofOrRoofTile(user, targetId) or not M.allowBuilding(user, targetPosition) then
+    if not M.checkIfRoofOrRoofTile(targetId, tileBoolean) or not M.allowBuilding(user, targetPosition) then
         return false
     end
+
     if not tileBoolean then
         if createOrErase == "create" then
+            M.ifNoTileAddOne(targetPosition)
             world:createItemFromId(itemId, 1, targetPosition, true, 999, nil)
         elseif createOrErase == "erase" then
-            world:erase(targetItem, 1)
-            user:inform(common.GetNLS(user,"","You destroy the roof object."))
+            local itemDeleted = common.DeleteItemFromStack(targetPosition, {itemId = targetItem.id})
+            if itemDeleted then
+                user:inform(common.GetNLS(user,"","You destroy the roof object."))
+            end
         end
     else
         if createOrErase == "create" then
@@ -647,7 +670,7 @@ function M.createWarpsAndExitObject(user, itemId, createOrErase)
     local positionFour
     local trapStair
 
-    if M.checkIfStairsOrTrapDoor then
+    if M.checkIfStairsOrTrapDoor(itemId) then
         for _, stair in pairs(itemList.Stairs) do
             if stair.Downstairs == itemId then --It's a stair item
                 if user.pos.z == 0 or user.pos.z == 1 then
@@ -660,8 +683,8 @@ function M.createWarpsAndExitObject(user, itemId, createOrErase)
                 elseif stair.Direction == "east" then
                     v2X = 1
                 end
-                positionTwo = position(targetPosition.x + v2X * 2, targetPosition.y + v2Y * 2, targetPosition.z + v2Z)
-                positionThree = position(targetPosition.x + v2X * 3, targetPosition.y + v2Y * 3, targetPosition.z + v2Z)
+                positionTwo = position(targetPosition.x + v2X * 1, targetPosition.y + v2Y * 1, targetPosition.z + v2Z)
+                positionThree = position(targetPosition.x + v2X * 2, targetPosition.y + v2Y * 2, targetPosition.z + v2Z)
                 positionFour = position(targetPosition.x + v2X * -1, targetPosition.y + v2Y * -1, targetPosition.z)
                 trapStair = stair.Upstairs
                 if not M.allowBuilding(user, positionTwo)
@@ -670,9 +693,9 @@ function M.createWarpsAndExitObject(user, itemId, createOrErase)
                 then return false
                 end
                 if createOrErase == "create" then
-                    M.createStairTrap(user, targetPosition, positionTwo, positionThree, positionFour, trapStair)
+                    M.createStairTrap(targetPosition, positionTwo, positionThree, positionFour, trapStair)
                 elseif createOrErase == "erase" then
-                    M.eraseStairTrap(user, targetPosition, positionTwo)
+                    M.eraseStairTrap(targetPosition, positionTwo, stair.Upstairs)
                 end
             elseif stair.Upstairs == itemId then --It's a trap door item
                 if user.pos.z == 0 then
@@ -685,8 +708,8 @@ function M.createWarpsAndExitObject(user, itemId, createOrErase)
                 elseif stair.Direction == "east" then
                     v2X = -1
                 end
-                positionTwo = position(targetPosition.x + v2X * 2, targetPosition.y + v2Y * 2, targetPosition.z + v2Z)
-                positionThree = position(targetPosition.x + v2X * 3, targetPosition.y + v2Y * 3, targetPosition.z + v2Z)
+                positionTwo = position(targetPosition.x + v2X * 1, targetPosition.y + v2Y * 1, targetPosition.z + v2Z)
+                positionThree = position(targetPosition.x + v2X * 2, targetPosition.y + v2Y * 2, targetPosition.z + v2Z)
                 positionFour = position(targetPosition.x + v2X * -1, targetPosition.y + v2Y * -1, targetPosition.z)
                 trapStair = stair.Downstairs
                 if not M.allowBuilding(user, positionTwo)
@@ -697,7 +720,7 @@ function M.createWarpsAndExitObject(user, itemId, createOrErase)
                 if createOrErase == "create" then
                     M.createStairTrap(targetPosition, positionTwo, positionThree, positionFour, trapStair)
                 elseif createOrErase == "erase" then
-                    M.eraseStairTrap(targetPosition, positionTwo)
+                    M.eraseStairTrap(targetPosition, positionTwo, stair.Downstairs)
                 end
             end
         end
@@ -705,12 +728,11 @@ function M.createWarpsAndExitObject(user, itemId, createOrErase)
     return true
 end
 
-function M.eraseStairTrap(positionOne, positionTwo)
+function M.eraseStairTrap(positionOne, positionTwo, targetId)
     local warpOne = world:getField(positionOne)
     local warpTwo = world:getField(positionTwo)
-    local targetItem = world:getItemOnField(positionTwo)
 
-    world:erase(targetItem,1)
+    common.DeleteItemFromStack(positionTwo, {itemId = targetId})
 
     if warpOne:isWarp() then
         warpOne:removeWarp()
@@ -753,6 +775,7 @@ end
 function M.destroyItem(user)
     local targetItem
     local thePosition = common.GetFrontPosition(user)
+    local itemDeleted = false
 
     if world:isItemOnField(thePosition) then
         targetItem = world:getItemOnField(thePosition)
@@ -761,32 +784,46 @@ function M.destroyItem(user)
     if not targetItem then
         user:inform("Hier ist nichts, was du abreißen könntest.","There is no item to destroy.")
     elseif M.checkIfDestroyingPermitted(user, targetItem) then
+
         local itemName = world:getItemName(targetItem.id, user:getPlayerLanguage())
-    local callback = function(dialog)
-        local success = dialog:getSuccess()
-        if success then
+
+        local previewItem = targetItem:getData("preview") == "true"
+
+        local callback = function(dialog)
+
+            if not dialog:getSuccess() then
+                return
+            end
+
             local selected = dialog:getSelectedIndex()+1
+
             if selected == 1 then
-                user:inform(common.GetNLS(user,"Du reißt ab: "..itemName,"You destroy the "..itemName))
-                if M.checkIfStairsOrTrapDoor(targetItem.id) then
+                if not previewItem and M.checkIfStairsOrTrapDoor(targetItem.id) then
+                    if user.pos.z < 0 then
+                         user:inform("GERMAN TRANSLATION", "To destroy a set of basement stairs, you'll have to be above ground. Wouldn't want to get stuck down here, would you.")
+                        return
+                    end
+
                     if M.createWarpsAndExitObject(user, targetItem.id, "erase") then
-                        world:erase(targetItem,1)
+                        itemDeleted = common.DeleteItemFromStack(thePosition, {itemId = targetItem.id})
                     else
                         user:inform("Du bist nicht berechtigt dies abzureißen.","You aren't allowed to destroy that.")
                     end
                 else
-                    world:erase(targetItem,1)
+                    itemDeleted = common.DeleteItemFromStack(thePosition, {itemId = targetItem.id})
+                end
+                if itemDeleted then
+                    user:inform(common.GetNLS(user,"Du reißt ab: "..itemName,"You destroy the "..itemName))
                 end
             else
                 user:inform(common.GetNLS(user,"Nicht abgerissen: "..itemName,"You decide against destroying the "..itemName))
             end
         end
-    end
-    local dialog = SelectionDialog(common.GetNLS(user,"Bestätigung","Confirmation Check"), common.GetNLS(user,"Bist du sicher, dass du dies abreißen möchtest: "..itemName,"Are you sure you want to destroy the "..itemName.."?"), callback)
-    dialog:addOption(0,common.GetNLS(user,"Ja, das kann weg.","Yes, destroy it."))
-    dialog:addOption(0,common.GetNLS(user,"Nein, das ist Kunst.","No, I changed my mind."))
-    dialog:setCloseOnMove()
-    user:requestSelectionDialog(dialog)
+        local dialog = SelectionDialog(common.GetNLS(user,"Bestätigung","Confirmation Check"), common.GetNLS(user,"Bist du sicher, dass du dies abreißen möchtest: "..itemName,"Are you sure you want to destroy the "..itemName.."?"), callback)
+        dialog:addOption(0,common.GetNLS(user,"Ja, das kann weg.","Yes, destroy it."))
+        dialog:addOption(0,common.GetNLS(user,"Nein, das ist Kunst.","No, I changed my mind."))
+        dialog:setCloseOnMove()
+        user:requestSelectionDialog(dialog)
     else
         user:inform("Du bist nicht berechtigt dies abzureißen.","You're not allowed to destroy this item.")
     end
@@ -978,11 +1015,22 @@ function M.scheduledDeletionOfPreviewItems()
     end
 end
 
+function M.ifNoTileAddOne(thePosition)
+
+    local field = world:getField(thePosition)
+
+    if field.tile == 0 then
+        world:changeTile(40, thePosition)
+    end
+end
+
 function M.createStairTrap(positionOne, positionTwo, positionThree, positionFour, trapStair)
+    M.ifNoTileAddOne(positionTwo)
+    M.ifNoTileAddOne(positionThree)
+    M.ifNoTileAddOne(positionOne)
+    M.ifNoTileAddOne(positionFour)
     local warpOne = world:getField(positionOne)
     local warpTwo = world:getField(positionTwo)
-    world:changeTile(40, positionTwo)
-    world:changeTile(40, positionThree)
     world:createItemFromId(trapStair, 1, positionTwo, true, 999, nil)
     warpOne:setWarp(positionThree)
     warpTwo:setWarp(positionFour)

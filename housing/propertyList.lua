@@ -142,7 +142,7 @@ table.insert(M.properties, {name = "Galmair Mountainside Estate", lower = positi
 table.insert(M.properties, {name = "Galmair Mountainside Estate", lower = position(566,157,-21), upper = position(577,166,-21), estate = true})
 --Cadomyr
 table.insert(M.properties, {name = "Cadomyr Harbour Estate", lower = position(97,760,0), upper = position(107,767,2), estate = true})
-table.insert(M.properties, {name = "Cadomyr Harbour Estate", lower = position(97,760,-21), upper = position(107,767,-21), estate = true})
+table.insert(M.properties, {name = "Cadomyr Harbour Estate", lower = position(97,760,-21), upper = position(107,770,-21), estate = true})
 table.insert(M.properties, {name = "Cadomyr Riverside Estate", lower = position(175,673,0), upper = position(182,682,2), estate = true})
 table.insert(M.properties, {name = "Cadomyr Riverside Estate", lower = position(175,673,-21), upper = position(182,682,-21), estate = true})
 table.insert(M.properties, {name = "Cadomyr Seaside Estate", lower = position(51,657,0), upper = position(60,663,2), estate = true})

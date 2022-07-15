@@ -49,7 +49,7 @@ local function showObject(user, object, category, skill)
     if category.nameEN == object.category
         and object.skill == skill.name
         and object.level <= skill.level
-        and (not category.Estate or utility.checkIfEstate(user))
+        and (object.typeOf ~= "Estate" or utility.checkIfEstate(user))
         then return true
     end
 end
@@ -67,7 +67,9 @@ local function loadObjects(user, products, index, object, category, skill)
         end
 
         table.insert(products, {level = object.level, category = index, id = id, ingredients = ingredients, remnants = remnants, tile = tile, difficulty = object.level, quantity = 1, data = {}})
+        return true
     end
+    return false
 end
 
 local function loadProducts(user, categories, skill)
@@ -79,7 +81,9 @@ local function loadProducts(user, categories, skill)
         end
 
         for _, object in ipairs(theList) do
-            loadObjects(user, products, index, object, category, skill)
+            if loadObjects(user, products, index, object, category, skill) then
+                category.productAmount = category.productAmount + 1
+            end
         end
     end
 
@@ -114,7 +118,7 @@ local function loadCategories(user, skill)
     for _, category in ipairs(itemList.categories) do
         local showCat, tile = showCategory(user, skill, category)
         if showCat then
-            table.insert(categories, {nameEN = category.categoryEn, nameDE = category.categoryDe, tile = tile, Estate = category.Estate})
+            table.insert(categories, {nameEN = category.categoryEn, nameDE = category.categoryDe, tile = tile, Estate = category.Estate, productAmount = 0})
         end
     end
 
@@ -161,14 +165,14 @@ local function loadDialog(user, dialog, skill, categories, products)
     local listId = 0
 
     for index , category in ipairs(categories) do
-        dialog:addGroup(common.GetNLS(user, category.nameDE, category.nameEN))
+        if category.productAmount > 0 then
+            dialog:addGroup(common.GetNLS(user, category.nameDE, category.nameEN))
+            categoryList[index] = {}
+            categoryList[index].id =listId
+            categoryList[index].tile = category.tile
 
-        categoryList[index] = {}
-        categoryList[index].id =listId
-        categoryList[index].tile = category.tile
-
-        listId = listId + 1
-
+            listId = listId + 1
+        end
     end
 
     for index , product in ipairs(products) do
@@ -196,6 +200,20 @@ end
 local function showTemporaryPreviewOfItem(productId, user)
     -- For special items like stairs, only the first object will be previewed and not the upper/lower stair
     local frontPos = common.GetFrontPosition(user)
+
+    if utility.checkIfRoofOrRoofTile(productId, false) and user.pos.z >= 0 then
+        frontPos = position(frontPos.x, frontPos.y, frontPos.z+1)
+    end
+
+    local field = world:getField(frontPos)
+
+    if not field then
+        return
+    end
+
+    if not utility.wallWindowPermissions(user, frontPos, productId) then
+        return
+    end
 
     local propertyName = utility.getPropertyLocationIsPartOf(frontPos)
 
@@ -337,21 +355,14 @@ local function createItem(user, product, trowel, skill)
             world:changeTile(product.id, target)
         end
     else
-        local suspectedWall
-        if world:isItemOnField(target) then
-            suspectedWall = world:getItemOnField(target)
+        if not utility.wallWindowPermissions(user, target, product.id) then
+            return
         end
 
-        if suspectedWall and utility.checkIfWall(user, suspectedWall) then
-            if not utility.checkIfItemIsWallDeco(product.id) then
-                return
-            end
-        end
-        if utility.checkIfStairsOrTrapDoor(user, product.id) then
+        if utility.checkIfStairsOrTrapDoor(product.id) then
             if utility.createWarpsAndExitObject(user, product.id, "create") then
                 eraseIngredients(user, product)
-                world:createItemFromId(product.id, product.quantity, target, true, quality, nil)
-                local targetItem = world:getItemOnField(target)
+                local targetItem = world:createItemFromId(product.id, product.quantity, target, true, quality, nil)
                 targetItem.wear = 255
                 world:changeItem(targetItem)
             else
@@ -372,8 +383,7 @@ local function createItem(user, product, trowel, skill)
             end
         else
             eraseIngredients(user, product)
-            world:createItemFromId(product.id, product.quantity, target, true, quality, nil)
-            local targetItem = world:getItemOnField(target)
+            local targetItem = world:createItemFromId(product.id, product.quantity, target, true, quality, nil)
             targetItem.wear = 255
             world:changeItem(targetItem)
         end
@@ -436,6 +446,12 @@ function M.showDialog(user, skillName)
             local product = products[productIndex]
             local foodOK = utility.checkRequiredFood(user, loadCraftingTime(product.level))
             local canWork = utility.allowBuilding(user) and foodOK
+
+            local frontPos = common.GetFrontPosition(user)
+
+            if not utility.wallWindowPermissions(user, frontPos, product.id) then
+                canWork = false
+            end
 
             return canWork
 
