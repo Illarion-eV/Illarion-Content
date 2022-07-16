@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-local common = require("base.common")
+
 local M = {}
 M.items = {}
 table.insert(M.items, {itemId = 560, typeOf = "Estate", category = "Logs", skill = "woodcutting", level = 20, ingredient1 = 2560, ingredient1Amount = 20, ingredient2 = nil, ingredient2Amount = nil, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
