@@ -22,6 +22,33 @@ local common = require("base.common")
 
 local M = {}
 
+local function carpentrySelection(user)
+
+    local callback = function(dialog)
+        local success = dialog:getSuccess()
+
+        if not success then
+            return
+        end
+
+        local index = dialog:getSelectedIndex()+1
+
+        if index == 1 then
+            construction.showDialog(user, "carpentry", false)
+        else
+            construction.showDialog(user, "carpentry", true)
+        end
+    end
+
+    local dialog = SelectionDialog(common.GetNLS(user, "GERMAN TRANSLATION", "Catalogue selection"), common.GetNLS(user, "GERMAN TRANSLATION", "Select which category of carpented items you want to access."), callback)
+
+    dialog:addOption(0, common.GetNLS(user, "GERMAN TRANSLATION", "Regular catalogue"))
+    dialog:addOption(0, common.GetNLS(user, "GERMAN TRANSLATION", "Estate catalogue"))
+
+    user:requestSelectionDialog(dialog)
+end
+
+
 local function craftSelection(user)
 
     local skills = utility.getSkillsToShow(user)
@@ -30,7 +57,11 @@ local function craftSelection(user)
         local success = dialog:getSuccess()
         if success then
             local index = dialog:getSelectedIndex()+1
-            construction.showDialog(user, skills[index].name)
+            if skills[index].name == "carpentry" and utility.checkIfEstate(user) then
+                carpentrySelection(user)
+            else
+                construction.showDialog(user, skills[index].name, nil)
+            end
         end
     end
     local dialog = SelectionDialog(common.GetNLS(user,"Handwerksauswahl","Skill Selection"), common.GetNLS(user,"Mit welchem Handwerk möchtest du Gegenstände herstellen?","Choose which skill you want to use to create items with."), callback)

@@ -44,7 +44,13 @@ local function loadIngredients(object)
     return ingredients, remnants
 end
 
-local function showObject(user, object, category, skill)
+local function showObject(user, object, category, skill, carpentryEstateCatalogue)
+
+    if carpentryEstateCatalogue ~= nil
+    and ((carpentryEstateCatalogue and object.typeOf ~= "Estate")
+    or (not carpentryEstateCatalogue and object.typeOf == "Estate"))
+    then return false
+    end
 
     if category.nameEN == object.category
         and object.skill == skill.name
@@ -52,10 +58,12 @@ local function showObject(user, object, category, skill)
         and (object.typeOf ~= "Estate" or utility.checkIfEstate(user))
         then return true
     end
+
+    return false
 end
 
-local function loadObjects(user, products, index, object, category, skill)
-    if showObject(user, object, category, skill) then
+local function loadObjects(user, products, index, object, category, skill, carpentryEstateCatalogue)
+    if showObject(user, object, category, skill, carpentryEstateCatalogue) then
         local ingredients, remnants = loadIngredients(object)
         local id, tile
         if object.itemId then
@@ -72,7 +80,7 @@ local function loadObjects(user, products, index, object, category, skill)
     return false
 end
 
-local function loadProducts(user, categories, skill)
+local function loadProducts(user, categories, skill, carpentryEstateCatalogue)
     local products = {}
     for index, category in ipairs(categories) do
         local theList = itemList.items
@@ -81,7 +89,7 @@ local function loadProducts(user, categories, skill)
         end
 
         for _, object in ipairs(theList) do
-            if loadObjects(user, products, index, object, category, skill) then
+            if loadObjects(user, products, index, object, category, skill, carpentryEstateCatalogue) then
                 category.productAmount = category.productAmount + 1
             end
         end
@@ -163,6 +171,8 @@ local function loadDialog(user, dialog, skill, categories, products)
     local categoryList = {}
 
     local listId = 0
+
+    log("products: "..tostring(#products))
 
     for index , category in ipairs(categories) do
         if category.productAmount > 0 then
@@ -423,7 +433,7 @@ local function craftItem(user, product, skill)
 
 end
 
-function M.showDialog(user, skillName)
+function M.showDialog(user, skillName, carpentryEstateCatalogue)
 
     local skill = {}
     skill.level = loadSkill(user, skillName)
@@ -431,7 +441,7 @@ function M.showDialog(user, skillName)
 
     local categories = loadCategories(user, skill)
 
-    local products = loadProducts(user, categories, skill)
+    local products = loadProducts(user, categories, skill, carpentryEstateCatalogue)
 
     if not utility.allowBuilding(user) then
         return
