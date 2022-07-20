@@ -95,31 +95,6 @@ local function DrinkPotion(user,SourceItem)
         alchemy.generateTasteMessage(user,dataZList) -- potion taste
         GenerateEffectMessage(user,dataZList) -- inform about the effects
 
-        local attribValue, bottomBorder
-        local logmsg = ""..user.name.." ("..user.id..") used an attribute potion, giving: "
-        for i=1,8 do
-
-            attribValue = user:increaseAttrib(M.attribList[i],0)
-
-            bottomBorder = 1
-
-            if (attribValue + dataZList[i] - 5) < bottomBorder then
-                dataZList[i] = (bottomBorder - attribValue) + 5
-            end
-
-            if dataZList[i] ~= 5 then
-                user:increaseAttrib(M.attribList[i],dataZList[i]-5)
-                local emptystring = " "
-                if(dataZList[i]-5>0) then
-                    emptystring = " +"
-                end
-                logmsg = logmsg..emptystring..(dataZList[i]-5).." to ".. M.attribList[i]..", and"
-                myEffect:addValue("".. M.attribList[i],dataZList[i])
-            end
-
-        end
-        logmsg = logmsg.." it will last for "..myEffectDuration/600 .. " minutes."
-        log(logmsg)
         foundEffect = user.effects:find(59) -- security check, there shouldn't be an effect at this point anymore
         if not foundEffect then
             user.effects:addEffect(myEffect)

@@ -50,8 +50,6 @@ function M.PutItemOnField(Item,User)
 
             if town ~= "None" then
                 townTreasure.ChangeTownTreasure(town, payToFaction) -- add to the town treasure
-                log(string.format("[donation][camp] %s handed %u %s (%u) over. Faction wealth of %s increased by %d copper to %d copper.",
-                    character.LogText(User), Item.number, world:getItemName(Item.id,Player.english), Item.id, town, payToFaction, townTreasure.GetTownTreasure(town)))
             end
 
             -- reduce work load of char
