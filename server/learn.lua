@@ -51,6 +51,8 @@ function M.learn(user, skill, actionPoints, learnLimit)
     local MCvalue = math.max(lowerBorder, user:getMentalCapacity())
     --below 2.5% of time spent online, no additional bonus is granted.
 
+    M.resetRestTime(user)
+
     if skillValue < learnLimit and skillValue < 100 then
     --you only learn when your skill is lower than the skill of the learnLimit and your skill is <100.
 
@@ -127,7 +129,6 @@ function M.learn(user, skill, actionPoints, learnLimit)
 
             end
         user:increaseMentalCapacity(amplification * actionPoints)
-        M.resetRestTime(user)
     end
 end
 
@@ -138,7 +139,7 @@ function M.reduceMC(user)
 
     M.checkRest(user)
 
-    if user:idleTime() < 300 and M.getRestTime(user) < 360 then
+    if user:idleTime() < 300 and M.getRestTime(user) < 300 then
         --Has the user done any action within the last five minutes?
 
         user:increaseMentalCapacity(-1 * math.floor(user:getMentalCapacity() * damping + 0.5))
@@ -162,7 +163,6 @@ function M.getRestTime(user)
     if not restTime[user.id] then
         restTime[user.id] = 0
     end
-
     return restTime[user.id]
 end
 
@@ -179,6 +179,14 @@ function M.resetRestTime(user)
 end
 
 function M.checkRest(user)
+
+    if not storedMessage[user.id] then
+        storedMessage[user.id] = user.lastSpokenText
+    end
+
+    if not storedPosition[user.id] then
+        storedPosition[user.id] = position(user.pos.x,user.pos.y,user.pos.z)
+    end
 
     if storedMessage[user.id] == user.lastSpokenText and common.isInRect(user.pos, storedPosition[user.id], 3) and user:idleTime() < 300  then
 
