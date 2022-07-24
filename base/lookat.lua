@@ -49,7 +49,7 @@ GenericDuraEn[4] = {"sparkling", "shiny", "glittery",   "used", "slightly scrape
 
 local GenericDuraLm = {90, 80, 70, 60, 50, 40, 30, 20, 10, 1, 0}
 
-M.fightingGemBonusDivisionValue = 2
+M.fightingGemBonusDivisionValue = 2 --Changing this might break the gem lookat due to current server limitations
 
 M.NONE = 0
 M.METAL = 1
@@ -253,7 +253,7 @@ function M.GenerateLookAt(user, item, material)
         lookAt.amethystLevel = GetGemLevel(item, "magicalAmethyst")
         lookAt.obsidianLevel = GetGemLevel(item, "magicalObsidian")
         lookAt.topazLevel = GetGemLevel(item, "magicalTopaz")
-        lookAt.bonus = gems.getGemBonus(item)
+        lookAt.bonus = gems.getGemBonusLookAtValue(item)
 
         lookAt = AddWeaponOrArmourType(lookAt, user, item.id, level, item)
     end
@@ -335,9 +335,8 @@ function AddWeaponOrArmourType(lookAt, user, itemId, itemLevel, item)
     end
 
     if (weaponfound or armourfound) and item then --only applicable when not generated from ID
-        local gemBonus = gems.getGemBonus(item)
-        -- The below line is commented out as the client lookat currently does not support decimal values. If it at some point does, the below line of code will allow us to portray the accurate % increase to damage/defense
-        -- gemBonus = gemBonus/M.fightingGemBonusDivisionValue
+        local gemBonus = gems.getGemBonusLookAtValue(item)
+        gemBonus = gemBonus/M.fightingGemBonusDivisionValue
         lookAt.bonus = gemBonus
     end
 

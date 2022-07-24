@@ -88,6 +88,7 @@ function M.UseItem(user, SourceItem,ltstate,checkVar)
 
     if SourceItem:getData("TeachLenniersDream")=="true" then
         LearnLenniersDream(user)
+        return
     end
 
     if bookWriting.getParchmentSelectionStatus(user) then
@@ -106,7 +107,10 @@ function M.UseItem(user, SourceItem,ltstate,checkVar)
             --[[callback=]]function(d) end
             )
         user:requestMessageDialog(dialog)
+    else
+        user:inform("Auf diesem Pergament steht noch nichts. Benutze einen Federkiel um auf ihm zu schreiben.","Nothing is written on this parchment. Use a quill to write on it.")
     end
+
 end
 
 
