@@ -69,7 +69,7 @@ end
 
 local function tooManyMessages(recipient)
 
-    local foundStoredMessages, numberOfMessages = ScriptVars:find(recipient.."storedMessages")
+    local foundStoredMessages, numberOfMessages = ScriptVars:find(recipient.id.."storedMessages")
 
     if not foundStoredMessages then
         return false
@@ -146,7 +146,28 @@ local function storeMessageInDatabase(user, writtenText, signatureText, descript
 
 end
 
-local function payMoney(user, writtenText, signatureText, descriptionDe, descriptionEn, recipient, parchment)
+local function isParchmentStillViable(user, signatureText, writtenText)
+
+    for i = 1, 6 do
+        local possibleParchment = user:getItemAt(Character["belt_pos_"..i])
+
+        if possibleParchment.id == Item.parchment then
+            local selectedParchmentText = possibleParchment:getData("writtenText")
+            local selectedParchmentSignature = possibleParchment:getData("signatureText")
+
+            if selectedParchmentText == writtenText and selectedParchmentSignature == signatureText then
+                return possibleParchment
+            end
+        end
+    end
+
+    user:inform("GERMAN TRANSLATION", "The selected parchment must be in your belt.")
+
+    return false
+
+end
+
+local function payMoney(user, writtenText, signatureText, descriptionDe, descriptionEn, recipient)
 
     local hasMoney = money.CharHasMoney(user, price)
 
@@ -160,6 +181,12 @@ local function payMoney(user, writtenText, signatureText, descriptionDe, descrip
     end
 
     money.TakeMoneyFromChar(user, price)
+
+    local parchment = isParchmentStillViable(user, signatureText, writtenText)
+
+    if not parchment then
+        return
+    end
 
     world:erase(parchment, 1)
 
@@ -180,7 +207,7 @@ function M.getParchmentSelectionStatus(user)
     return parchmentSelectionStatus[user.id].status
 end
 
-local function writeRecipientName(user, writtenText, signatureText, descriptionDe, descriptionEn, parchment)
+local function writeRecipientName(user, writtenText, signatureText, descriptionDe, descriptionEn)
 
     local callback = function(dialog)
         if not dialog:getSuccess() then
@@ -196,10 +223,15 @@ local function writeRecipientName(user, writtenText, signatureText, descriptionD
             return
         end
 
-        payMoney(user, writtenText, signatureText, descriptionDe, descriptionEn, recipientId, parchment)
+        payMoney(user, writtenText, signatureText, descriptionDe, descriptionEn, recipientId)
     end
 
     local dialog = InputDialog(common.GetNLS(user, "GERMAN TRANSLATION HERE", "Enter Recipient"), common.GetNLS(user, "GERMAN TRANSLATION HERE", "The messenger needs the name of the intended recipient."), false, 255, callback)
+
+    if not isParchmentStillViable(user, signatureText, writtenText) then
+        return
+    end
+
     user:requestInputDialog(dialog)
 end
 
@@ -212,7 +244,7 @@ function M.verifyParchment(user, parchment)
     parchmentSelectionStatus[user.id].status = false
 
     if writtenText ~= "" and signatureText ~= "" then
-        writeRecipientName(user, writtenText, signatureText, descriptionDe, descriptionEn, parchment)
+        writeRecipientName(user, writtenText, signatureText, descriptionDe, descriptionEn)
     else
         user:inform("GERMAN TRANSLATION HERE", "The messenger won't accept this parchment. It has to be both written and signed using a quill.")
     end
