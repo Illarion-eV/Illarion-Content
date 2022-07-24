@@ -16,16 +16,17 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
 local money = require("base.money")
-local glypheffects = require("magic.glypheffects")
 
 local itemPos = {{en="Head", de="Kopf"},{en="Neck", de="Hals"},{en="Breast", de="Brust"},{en="Both Hands", de="Beide Hände"},{en="Left Hand", de="Linke Hand"}, {en="Right Hand", de="Rechte Hand"},
     {en="Left Finger", de="Linker Finger"},{en="Right Finger", de="Rechter Finger"} ,{en="Legs", de="Beine"}, {en="Feet", de="Füße"}, {en="Coat", de="Umhang"},{en="Belt 1", de="Gürtel 1"},
     {en="Belt 2", de="Gürtel 2"},{en="Belt 3", de="Gürtel 3"},{en="Belt 4", de="Gürtel 4"},{en="Belt 5", de="Gürtel 5"},{en="Belt 6", de="Gürtel 6"}}
 itemPos[0] = {en="Backpack", de="Rucksack"}
 
-local REPAIR_QUALITY_REDUCTION_FACTOR = 0.3 --probability a totally damaged item lost quality
+local REPAIR_QUALITY_REDUCTION_FACTOR = 1 --probability a totally damaged item lost quality
 
 local M = {}
+
+M.itemPos = itemPos
 
 --returns the price as string to repair the item according to playerlanguage or 0 if the price is 0
 local function getRepairPrice(theItem, speaker)
@@ -34,6 +35,9 @@ local function getRepairPrice(theItem, speaker)
     if theItemStats.MaxStack == 1 then
         local durability=common.getItemDurability(theItem) --calculate the durability
         local toRepair=99-durability --the amount of durability points that has to repaired
+        if durability == 0 then --Account for broken items now being repairable
+            toRepair = 100
+        end
         price=math.ceil(0.5*theItemStats.Worth*toRepair/1000)*10 --Price rounded up in 10 cp steps
     end
     return price
@@ -79,15 +83,9 @@ local function repair(npcChar, speaker, theItem, theItemPos, language)
             end
             local targetQuality = quality
             if (math.random() < damage * REPAIR_QUALITY_REDUCTION_FACTOR) and (quality > 1) then
-                local glyphEffect = glypheffects.effectOnNpcRepair(speaker)
-                if math.random() < glyphEffect then
-                    common.InformNLS(speaker,"Der Gegenstand wird für"..priceMessage.." in Stand gesetzt.",
-                                             "The item is repaired at a cost of"..priceMessage..".")
-                else
-                    targetQuality = quality - 1
-                    common.InformNLS(speaker,"Der Gegenstand wird für"..priceMessage.." in Stand gesetzt, verliert aber an Qualität.",
-                                             "The item is repaired at a cost of"..priceMessage.." but lost quality.")
-                end
+                targetQuality = quality - 1
+                common.InformNLS(speaker,"Der Gegenstand wird für"..priceMessage.." in Stand gesetzt, verliert aber an Qualität.",
+                                        "The item is repaired at a cost of"..priceMessage.." but lost quality.")
             else
                 common.InformNLS(speaker,"Der Gegenstand wird für"..priceMessage.." in Stand gesetzt.",
                                          "The item is repaired at a cost of"..priceMessage..".")

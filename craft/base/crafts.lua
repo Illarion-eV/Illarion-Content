@@ -26,17 +26,6 @@ local licence = require("base.licence")
 local gems = require("base.gems")
 local foodScript = require("item.food")
 
-local OFFSET_PRODUCTS_REPAIR = 235
-local repairItemList = {}
-
---[[productId for craftable items: id in products table.
-productId for repairable items position in inventory plus offset. Inventory has 17 positions, max productId = 255
-]]--
-local REPAIR_RESOURCE_USAGE = 0.3 -- 0-1; 0.5 means: probability to need ingedient for 100% repair
-local REPAIR_QUALITY_INCREASE_GENERAL = 0.6 -- probability for quality increase at 100% repair
-local REPAIR_QUALITY_INCREASE_KNOWN_CRAFTER = 0.4 -- additional probability for quality increase at 100% repair if item made by player
-local DUMMY_MIN_SKILL_REPAIR_ONLY = 200 -- not reachable skill for group 'repair only', need to hide not craftable items
-
 local M = {}
 
 local foodRarityTexts = {
@@ -166,9 +155,6 @@ function Craft:addProduct(categoryId, itemId, quantity, data)
         else
             self.categories[categoryId].minSkill = difficulty
         end
-        if self:isRepairCategory(categoryId) then
-            self.categories[categoryId].minSkill = DUMMY_MIN_SKILL_REPAIR_ONLY
-        end
 
         return self.products[#self.products]
     end
@@ -192,10 +178,6 @@ function Craft:showDialog(user, source)
         local result = dialog:getResult()
         if result == CraftingDialog.playerCrafts then
             local productId = dialog:getCraftableId()
-            if self:isRepairItem(productId) then
-                productId = self:findReferenceProductId(user,productId)
-            end
-
             local product = self.products[productId]
             local foodOK = self:checkRequiredFood(user, product:getCraftingTime(self:getSkill(user)))
             local canWork = self:allowCrafting(user, source) and self:checkMaterial(user, productId) and foodOK
@@ -212,18 +194,11 @@ function Craft:showDialog(user, source)
             return self:getIngredientLookAt(user, productId, ingredientId)
         elseif result == CraftingDialog.playerCraftingComplete then
             local productId = dialog:getCraftableId()
-            local skillGain
-            if self:isRepairItem(productId) then
-                skillGain = self:repairItem(user, productId)
-            else
-                skillGain = self:craftItem(user, productId)
-            end
+            local skillGain = self:craftItem(user, productId)
             if skillGain then
                 self:refreshDialog(dialog, user)
             end
             return skillGain
-        elseif result == CraftingDialog.playerCraftingAborted then
-            self:swapToInactiveItem(user)
         else
             self:swapToInactiveItem(user)
         end
@@ -232,8 +207,6 @@ function Craft:showDialog(user, source)
     self:loadDialog(dialog, user)
     user:requestCraftingDialog(dialog)
 end
-
---------------------------------------------------------------------------------
 
 function Craft:allowCrafting(user, source)
     if not self.npcCraft then
@@ -328,23 +301,14 @@ function Craft:allowNpcCrafting(user, source)
 end
 
 function Craft:getProductLookAt(user, productId)
-    local lookAt
-    if self:isRepairItem(productId) then
-        lookAt = lookat.GenerateLookAt(user, user:getItemAt( productId - OFFSET_PRODUCTS_REPAIR ), 0)
-    else
-        local product = self.products[productId]
-        lookAt = self:getLookAt(user, product)
-    end
+    local product = self.products[productId]
+    local lookAt = self:getLookAt(user, product)
     return lookAt
 end
 
 function Craft:getIngredientLookAt(user, productId, ingredientId)
-   local lookAt
-    if self:isRepairItem(productId) then
-        productId = self:findReferenceProductId(user, productId)
-    end
     local ingredient = self.products[productId].ingredients[ingredientId]
-    lookAt = self:getLookAt(user, ingredient)
+    local lookAt = self:getLookAt(user, ingredient)
     return lookAt
 end
 
@@ -397,13 +361,12 @@ function Craft:loadDialog(dialog, user)
             end
         end
     end
-    local repairListId = listId
 
     for i = 1,#self.products do
         local product = self.products[i]
         local productRequirement = product.difficulty
 
-        if productRequirement <= skill and self:isRepairCategory(product.category) == false then
+        if productRequirement <= skill then
 
             local craftingTime = self:getCraftingTime(product, skill)
             dialog:addCraftable(i, categoryListId[product.category], product.item, self:getLookAt(user, product).name, craftingTime, product.quantity)
@@ -414,49 +377,6 @@ function Craft:loadDialog(dialog, user)
             end
         end
     end
-
-
-    local repairPositions = {12, 13, 14, 15, 16, 17} -- all belt positions
-    local showRepairGroup = false
-    local repairSkill = self:getRepairSkill(user)
-    local repairItemListSub = {}
-    local hasDataRepairItemListSub = false
-    for k = 1, #repairPositions do
-        local itemAtCharacter = user:getItemAt( repairPositions[k] )
-        local itemStats = world:getItemStatsFromId(itemAtCharacter.id)
-        local durability = common.getItemDurability(itemAtCharacter)
-        if itemStats.MaxStack == 1 then
-            for i = 1, #self.products do
-                local product = self.products[i]
-                local productRequirement = product.difficulty
-                local craftingTime = self:getCraftingTime(product, repairSkill)
-                if product.item == itemAtCharacter.id and productRequirement <= repairSkill and ((craftingTime * (99 - durability)/99) > 9 or durability < 91 ) then
-                    if showRepairGroup == false then
-                        dialog:addGroup(user:getPlayerLanguage() == Player.german and "Reparieren" or "Repair")
-                        showRepairGroup = true
-                    end
-                    craftingTime = craftingTime * (99 - durability)/99
-                    local listPosition = OFFSET_PRODUCTS_REPAIR+repairPositions[k]
-                    dialog:addCraftable(listPosition, repairListId, product.item, self:getLookAt(user, product).name, craftingTime, product.quantity)
-                    repairItemListSub[listPosition] = {product.item, durability}
-                    hasDataRepairItemListSub = true
-                    for j = 1, #product.ingredients do
-                        local ingredient = product.ingredients[j]
-                        dialog:addCraftableIngredient(ingredient.item, ingredient.quantity)
-                    end
-
-                end
-            end
-        end
-    end
-
-    if hasDataRepairItemListSub then
-        repairItemListSub[1] = common.GetCurrentTimestamp()
-        repairItemList[user.id] = repairItemListSub
-    else
-        repairItemList[user.id]=nil
-    end
-
 end
 
 function Craft:refreshDialog(dialog, user)
@@ -904,158 +824,6 @@ function Craft:createItem(user, productId, toolItem)
         local remnant = product.remnants[i]
        common.CreateItem(user, remnant.item, remnant.quantity, 333, remnant.data)
     end
-end
-
-function Craft:repairItem(user, productIdList)
-    local productId = self:findReferenceProductId(user, productIdList)
-    local product = self.products[productId]
-    local itemToRepair = user:getItemAt( productIdList - OFFSET_PRODUCTS_REPAIR )
-    local skill = self:getSkill(user)
-    local repairSkill = self:getRepairSkill(user)
-    local repairTime = product:getCraftingTime(skill) * (99 - common.getItemDurability(itemToRepair))/99
-
-    local skillGain = false
-
-    local toolItem = self:getHandToolEquipped(user)
-    if itemToRepair.id ~= repairItemList[user.id][productIdList][1] or common.getItemDurability(itemToRepair) ~= repairItemList[user.id][productIdList][2] then
-    common.HighInformNLS(user,
-        "[Info] Bitte tausche die Gegenstände in deinem Inventar nicht während der Reparatur.",
-        "[Info] Please don't move items in your inventory during the repair.")
-        return false
-    end
-    if product.difficulty > repairSkill then  -- safty grid
-        common.HighInformNLS(user,
-        "Du bist nicht fähig genug um das zu tun.",
-        "You are not skilled enough to do this.")
-        self:swapToInactiveItem(user)
-        return false
-    end
-
-    if common.getItemDurability(itemToRepair) == 99 then  -- safty grid
-        common.InformNLS(user,
-        "Du findest nichts, was du an dem Werkstück reparieren könntest.",
-        "There is nothing to repair on that item.")
-        return false
-    end
-
-    local foodOK, neededFood = self:checkRequiredFood(user, repairTime)
-
-    if not self.npcCraft then
-        if not foodOK then
-            self:swapToInactiveItem(user)
-            return false
-        end
-    end
-
-    if self:checkMaterial(user, productId) then
-        self:createRepairedItem(user, productId, itemToRepair)
-
-        if not self.npcCraft then
-            shared.toolBreaks(user, toolItem, repairTime)
-            common.GetHungry(user, neededFood)
-        end
-
-        if type(self.leadSkill) == "number" then
-            user:learn(self.leadSkill, repairTime, product.learnLimit)
-            local newSkill = self:getSkill(user)
-            skillGain = (newSkill > skill)
-        end
-    end
-
-    self:swapToInactiveItem(user)
-
-    return skillGain
-end
-
-function Craft:createRepairedItem(user, productId, itemToRepair)
-    local product = self.products[productId]
-    local itemDamage = (100 - common.getItemDurability(itemToRepair))/100
-    local quality = common.getItemQuality(itemToRepair)
-    for i = 1, #product.ingredients do
-        local ingredient = product.ingredients[i]
-        if math.random() < itemDamage * REPAIR_RESOURCE_USAGE then
-            user:eraseItem(ingredient.item, ingredient.quantity, ingredient.data)
-        end
-    end
-
-    local bestQuality = itemToRepair:getData("qualityAtCreation")
-    local repairQualityIncrease
-
-    if common.IsNilOrEmpty(bestQuality) then
-        itemToRepair:setData("qualityAtCreation", quality)
-    else
-        if (quality < tonumber(bestQuality)) then
-            if Craft:isKnownCrafter(itemToRepair) then
-                repairQualityIncrease = REPAIR_QUALITY_INCREASE_GENERAL + REPAIR_QUALITY_INCREASE_KNOWN_CRAFTER
-            else
-                repairQualityIncrease = REPAIR_QUALITY_INCREASE_GENERAL
-            end
-            if (math.random() < itemDamage * repairQualityIncrease) then
-                quality = quality +1
-                common.InformNLS(user,
-                "Dir gelingt es, die Qualität des Gegenstands "..world:getItemName(itemToRepair.id,Player.german).." etwas zu verbessern.",
-                "You have succeeded in improving the quality of the item "..world:getItemName(itemToRepair.id,Player.english)..".")
-            else
-                common.InformNLS(user,
-                "Du reparierst "..world:getItemName(itemToRepair.id,Player.german)..".",
-                "You repair "..world:getItemName(itemToRepair.id,Player.english)..".")
-            end
-        else
-            common.InformNLS(user,
-            "Du reparierst "..world:getItemName(itemToRepair.id,Player.german)..".",
-            "You repair "..world:getItemName(itemToRepair.id,Player.english)..".")
-        end
-    end
-
-    itemToRepair.quality = common.calculateItemQualityDurability(quality, common.ITEM_MAX_DURABILITY)
-    world:changeItem(itemToRepair)
-end
-
-function Craft:isKnownCrafter(item)
-    if not common.IsNilOrEmpty(item:getData("craftedBy")) then
-        return true
-    end
-    if not common.IsNilOrEmpty(item:getData("nameEn")) then
-        return true
-    end
-    if not common.IsNilOrEmpty(item:getData("descriptionEn")) then
-        return true
-    end
-    return false
-end
-
-function Craft:findReferenceProductId(user, productId)
-    if self:isRepairItem(productId) then
-        local itemAtCharacter = user:getItemAt( productId - OFFSET_PRODUCTS_REPAIR )
-        for i = 1, #self.products do
-            local product = self.products[i]
-            if product.item == itemAtCharacter.id then
-                return i
-            end
-        end
-    else
-        return productId
-    end
-    return 0
-end
-
-function Craft:getRepairSkill(user)
-    local repairSkill = self:getSkill(user) + tonumber (self:getCurrentGemBonus(user))
-    return repairSkill
-end
-
-function Craft:isRepairItem(productId)
-    if productId > OFFSET_PRODUCTS_REPAIR then
-        return true
-    end
-return false
-end
-
-function Craft:isRepairCategory(categoryId)
-    if self.categories[categoryId].nameEN == "repair only" then
-        return true
-    end
-    return false
 end
 
 M.Product = Product

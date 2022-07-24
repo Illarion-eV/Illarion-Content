@@ -487,6 +487,11 @@ product = blacksmithing:addProduct(catId, 2763, 1)
 product:addIngredient(2535, 2) -- iron ingot
 product:addIngredient(2525, 1) -- axe handle
 
+-- mortar
+product = blacksmithing:addProduct(catId, 58, 1)
+product:addIngredient(2535, 1) -- iron ingot
+product:addIngredient(2528, 1) -- small handle
+
 catId = blacksmithing:addCategory("Two handed axes", "Zweihändige Äxte")
 
 -- executioner's axe
@@ -585,23 +590,72 @@ product:addIngredient(2571, 3) -- merinium ingot
 product:addIngredient(452, 1) -- diamond powder
 product:addIngredient(236, 2) -- gold ingot
 
--- Dummy group for items that cannot be crafted but repaired
-catId = blacksmithing:addCategory("repair only", "nur reparieren")
+-- Repair kits
+catId = blacksmithing:addCategory("Sharpening Kits", "GERMAN TRANSLATION HERE")
 
--- drow blade
-product = blacksmithing:addProduct(catId, 2777, 1)
-product:addIngredient(2535, 7) -- iron ingot
-product:addIngredient(2584, 1) -- sword handle
-product:addIngredient(2571, 2) -- merinium ingot
-product:addIngredient(3607, 1) -- pure spirit
+-- Basic Sharpening Kit
+product = blacksmithing:addProduct(catId, 4022, 1)
+product:addIngredient(2535, 5) -- iron ingot
+
+-- Novice Sharpening Kit
+product = blacksmithing:addProduct(catId, 4023, 1)
+product:addIngredient(2535, 5) -- iron ingot
+
+-- Apprentice Sharpening Kit
+product = blacksmithing:addProduct(catId, 4024, 1)
+product:addIngredient(2535, 5) -- iron ingot
+product:addIngredient(2550, 1) -- copper ingot
+product:addIngredient(450, 1) -- amethyst powder
+
+-- Initiate Sharpening Kit
+product = blacksmithing:addProduct(catId, 4025, 1)
+product:addIngredient(2535, 5) -- iron ingot
+product:addIngredient(2550, 2) -- copper ingot
+product:addIngredient(447, 1) -- ruby powder
+
+-- Journeyman Sharpening Kit
+product = blacksmithing:addProduct(catId, 4026, 1)
+product:addIngredient(2535, 5) -- iron ingot
+product:addIngredient(104, 2) -- silver ingot
+product:addIngredient(449, 1) -- obsidian powder
+
+-- Specialist Sharpening Kit
+product = blacksmithing:addProduct(catId, 4027, 1)
+product:addIngredient(2535, 6) -- iron ingot
+product:addIngredient(104, 3) -- silver ingot
+product:addIngredient(446, 1) -- sapphire powder
+
+-- Expert Sharpening Kit
+product = blacksmithing:addProduct(catId, 4028, 1)
+product:addIngredient(2535, 6) -- iron ingot
+product:addIngredient(104, 4) -- silver ingot
+product:addIngredient(448, 1) -- emerald powder
 product:addIngredient(236, 2) -- gold ingot
 
--- drow sword
-product = blacksmithing:addProduct(catId, 3035, 1)
-product:addIngredient(2535, 12) -- iron ingot
-product:addIngredient(2525, 1) -- axe handle
-product:addIngredient(2571, 4) -- merinium ingot
-product:addIngredient(3607, 1) -- pure spirit
+-- Adept Sharpening Kit
+product = blacksmithing:addProduct(catId, 4029, 1)
+product:addIngredient(2535, 6) -- iron ingot
+product:addIngredient(2571, 1) -- merinium ingot
+product:addIngredient(451, 1) -- topaz powder
+product:addIngredient(236, 2) -- gold ingot
+
+-- Artisan Sharpening Kit
+product = blacksmithing:addProduct(catId, 4030, 1)
+product:addIngredient(2535, 6) -- iron ingot
+product:addIngredient(2571, 2) -- merinium ingot
+product:addIngredient(452, 1) -- diamond powder
+product:addIngredient(236, 2) -- gold ingot
+
+-- Master Sharpening Kit
+product = blacksmithing:addProduct(catId, 4031, 1)
+product:addIngredient(2535, 6) -- iron ingot
+product:addIngredient(2571, 6) -- merinium ingot
+product:addIngredient(236, 2) -- gold ingot
+
+-- Grandmaster Sharpening Kit
+product = blacksmithing:addProduct(catId, 4032, 1)
+product:addIngredient(2535, 7) -- iron ingot
+product:addIngredient(2571, 6) -- merinium ingot
 product:addIngredient(236, 2) -- gold ingot
 
 M.blacksmithing = blacksmithing
