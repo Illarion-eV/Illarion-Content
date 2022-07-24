@@ -15,7 +15,6 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
-local character = require("base.character")
 local common = require("base.common")
 local money = require("base.money")
 local townTreasure = require("base.townTreasure")

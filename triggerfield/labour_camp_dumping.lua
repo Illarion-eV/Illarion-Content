@@ -21,7 +21,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local townTreasure = require("base.townTreasure")
-local character = require("base.character")
 
 local M = {}
 
