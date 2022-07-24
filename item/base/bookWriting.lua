@@ -64,6 +64,10 @@ function M.writeBook(user)
 
     local book = isBookInHand(user)
 
+    if not book then
+        return
+    end
+
     local callback = function(dialog)
         local success = dialog:getSuccess()
         if not success then
