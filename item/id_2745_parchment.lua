@@ -29,6 +29,7 @@ local shipmasterParchments = require("content.shipmasterParchments")
 local shared = require("craft.base.shared")
 local brewing = require("alchemy.base.brewing")
 local messenger = require("content.messenger")
+local bookWriting = require("item.base.bookWriting")
 
 local M = {}
 
@@ -100,6 +101,13 @@ function M.UseItem(user, SourceItem,ltstate,checkVar)
         LearnLenniersDream(user)
         return
     end
+
+    if bookWriting.getParchmentSelectionStatus(user) then
+        bookWriting.addNewPageToBook(user, SourceItem)
+        return
+    end
+
+
 
     local writtenText = M.getWrittenTextFromParchment(SourceItem)
 

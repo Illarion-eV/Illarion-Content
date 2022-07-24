@@ -20,11 +20,12 @@ local alchemy = require("alchemy.base.alchemy")
 local lookat = require("base.lookat")
 local recipe_creation = require("alchemy.base.recipe_creation")
 local parchmentScript = require("item.id_2745_parchment")
+local bookWriting = require("item.base.bookWriting")
 
 local M = {}
 
 local parchmentList = {2745, 3109}
-local parchmentMaxTextLength = 986
+local parchmentMaxTextLength = bookWriting.parchmentMaxTextLength
 
 local function getText(User,deText,enText)
     return common.GetNLS(User,deText,enText)
@@ -131,28 +132,6 @@ local function CheckIfParchmentCanSigned(User, SourceItem)
     return nil
 end
 
-function M.convertStringToMultipleParchmentDataValues(theParchment, writtenText)
-    local texts = {
-        string.sub(writtenText, 1, 250),
-        string.sub(writtenText, 251, 500),
-        string.sub(writtenText, 501, 750),
-        string.sub(writtenText, 751, parchmentMaxTextLength),
-    }
-
-    theParchment:setData("writtenText", texts[1])
-
-    for i = 2, 4 do
-        theParchment:setData("writtenText"..i, texts[i])
-    end
-
-    lookat.SetSpecialDescription(theParchment,"Das Pergament ist beschrieben.","The parchment has been written on.")
-
-    theParchment.wear = 254 -- Written parchments should have maximum rot time to allow message exchange
-
-    world:changeItem(theParchment)
-
-end
-
 local function WriteParchment(User,SourceItem)
 
     local title = getText(User, "Pergament beschreiben", "Write Parchment")
@@ -179,7 +158,7 @@ local function WriteParchment(User,SourceItem)
                 elseif textLength > parchmentMaxTextLength then
                     User:inform("Du findest nicht genügend freien Platz auf dem Pergament.","The parchment is too small for your text.",Character.highPriority)
                 else
-                    M.convertStringToMultipleParchmentDataValues(parchment, writtenText)
+                    bookWriting.convertStringToMultipleParchmentDataValues(parchment, writtenText)
                     User:inform("Du schreibst auf das Pergament:\n'".. string.gsub (writtenText,"\\n","\n") .."'.","You write on the parchment:\n'".. string.gsub (writtenText,"\\n","\n") .."'.")
                 end
             else
@@ -336,6 +315,8 @@ function M.UseItem(User, SourceItem, ltstate)
                 else
                     SignParchment(User,SourceItem)
                 end
+            elseif selected == 7 then
+                bookWriting.writeBook(User, SourceItem)
             end
         end
     end
@@ -347,6 +328,7 @@ function M.UseItem(User, SourceItem, ltstate)
     dialog:addOption(0, getText(User,"Flaschenetikett entfernen","Remove label of a bottle"))
     dialog:addOption(0, getText(User,"Pergament beschreiben","Write a parchment"))
     dialog:addOption(0, getText(User,"Pergament unterschreiben","Sign a parchment"))
+    dialog:addOption(0, getText(User, "GERMAN TRANSLATION", "Author a book"))
 
     User:requestSelectionDialog(dialog)
 end

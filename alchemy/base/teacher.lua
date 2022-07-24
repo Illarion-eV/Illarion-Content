@@ -178,8 +178,8 @@ questionAnswerList["english"]["answer"][2][4] = {"Eight","Four","Ten"}
 
 questionAnswerList["german"]["question"][2][5]  = {"Mit welchem Edelsteinstaub stellen wir Wurfbomben her?"}
 questionAnswerList["english"]["question"][2][5] = {"Which gem dust is used to create throwing bombs?"}
-questionAnswerList["german"]["answer"][2][5]  = {"Smaragdstaub","Rubinstaub","Obsidianstaub"}
-questionAnswerList["english"]["answer"][2][5] = {"Emerald Gemdust","Ruby Gemdust","Obisdian Gemdust"}
+questionAnswerList["german"]["answer"][2][5]  = {"Saphirstaub","Rubinstaub","Obsidianstaub"}
+questionAnswerList["english"]["answer"][2][5] = {"Sapphire Gemdust","Ruby Gemdust","Obisdian Gemdust"}
 
 questionAnswerList["german"]["question"][2][6]  = {"Welcher Wirkstoff kann keinen Einfluss auf Gift haben?"}
 questionAnswerList["english"]["question"][2][6] = {"Which active substance doesn't influence poison?"}

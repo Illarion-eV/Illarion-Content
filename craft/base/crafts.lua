@@ -39,6 +39,21 @@ local DUMMY_MIN_SKILL_REPAIR_ONLY = 200 -- not reachable skill for group 'repair
 
 local M = {}
 
+local foodRarityTexts = {
+    {english = "uncommon", german = "außergewöhnlich gut", identifier = 2,
+    foodDescription = {
+        english = "An uncommonly well made dish. Sure to be more filling than its common counterparts.",
+        german = "Ein außergewöhnlich gut gelungenes Gericht. Ein wahrer Schmauß, der besser sättigt als ein normales Gericht."}},
+    {english = "rare", german = "exzellent", identifier = 3,
+    foodDescription = {
+        english = "A dish so well-made it's a rarity among dishes. Not only more filling than its lesser counterparts, but also somewhat beneficial to the longevity and strength of the boons of your good diet.",
+        german = "Ein wahres Schlemmergericht. Wohlbekömmlich und eine kleine Wohltat für die Länge und Auswirkung deiner guten Ernährung."}},
+    {english = "unique", german = "einzigartig gut", identifier = 4,
+    foodDescription = {
+        english = "A dish made by such refined culinary arts, you might even say it's unique. Not only more filling than its lesser counterparts, but also very beneficial to both the longevity and strength of the boons of your good diet.",
+        german = "Eine kulinarisches Köstlichkeit, die ihres Gleichen sucht. Äußerst wohlbekömmlich und eine wahre Wohltat für die Länge und Auswirkung deiner guten Ernährung."}}}
+
+
 local Product = {
             quantity = 1,
             ingredients = {},
@@ -548,6 +563,59 @@ function Craft:getSkill(user)
     end
 end
 
+
+
+local function checkForRareFoodIngredient(user, ingredient)
+
+    local available = 0
+
+    for _, foodRarity in pairs(foodRarityTexts) do
+        local descriptionEn = foodRarity.foodDescription.english
+        local descriptionDe = foodRarity.foodDescription.german
+        local identifier = foodRarity.identifier
+        available = available + user:countItemAt("all", ingredient.item, {["descriptionDe"] = descriptionDe, ["descriptionEn"] = descriptionEn, ["rareness"] = identifier})
+    end
+
+    return available
+end
+
+local function deleteRareItems(user, ingredient, rareItemsToDelete)
+
+    local deletedSoFar = 0
+
+    local rareIngredientBonus = 0
+
+    for _, foodRarity in ipairs(foodRarityTexts) do
+
+        local descriptionEn = foodRarity.foodDescription.english
+        local descriptionDe = foodRarity.foodDescription.german
+        local identifier = foodRarity.identifier
+        local data = {["descriptionDe"] = descriptionDe, ["descriptionEn"] = descriptionEn, ["rareness"] = identifier}
+        local available = user:countItemAt("all", ingredient.item, data)
+        local deleteAmount
+
+        if available > rareItemsToDelete then
+            deleteAmount = rareItemsToDelete
+        else
+            deleteAmount = available
+        end
+
+        if deleteAmount > 0 then
+            user:eraseItem(ingredient.item, deleteAmount, data)
+        end
+
+        rareIngredientBonus = rareIngredientBonus + deleteAmount-1*identifier
+
+        deletedSoFar = deletedSoFar + deleteAmount
+
+        if deletedSoFar == rareItemsToDelete then
+            break
+        end
+    end
+
+    return rareIngredientBonus
+end
+
 function Craft:checkMaterial(user, productId)
     local product = self.products[productId]
 
@@ -562,6 +630,9 @@ function Craft:checkMaterial(user, productId)
     for i = 1, #product.ingredients do
         local ingredient = product.ingredients[i]
         local available = user:countItemAt("all", ingredient.item, ingredient.data)
+        local rareFoodIngredients = checkForRareFoodIngredient(user, ingredient)
+
+        available = available + rareFoodIngredients
 
         if available < ingredient.quantity then
             materialsAvailable = false
@@ -588,7 +659,7 @@ function Craft:checkMaterial(user, productId)
     return materialsAvailable
 end
 
-function Craft:generateRarity(user, productId, toolItem)
+function Craft:generateRarity(user, productId, toolItem, rareIngredientBonus)
 
     -- 1 = common, 2 = uncommon, 3 = rare, 4 = unique
     -- Max chances: 0.4% unique, 2% rare, 10% uncommon, 87.6% common (includes the chance to get perfect items to even get here)
@@ -601,7 +672,9 @@ function Craft:generateRarity(user, productId, toolItem)
 
     local maxPerfectChance = 0.5967194738 --Maximum probability for quality 9(perfect) items
 
-    local rarities = {0.004/maxPerfectChance, 0.02/maxPerfectChance, 0.1/maxPerfectChance} --unique, rare, uncommon
+    local rareIngredientInfluence = 1 + rareIngredientBonus/100 -- increase the final chance by an additional 1%/2%/3% per uncommon/rare/unique item used, eg a chance of 10% uncommon when you use an uncommon ingredient becomes 10.1%
+
+    local rarities = {(0.004*rareIngredientInfluence)/maxPerfectChance, (0.02*rareIngredientInfluence)/maxPerfectChance, (0.1*rareIngredientInfluence)/maxPerfectChance} --unique, rare, uncommon
 
     local rand = math.random()
 
@@ -762,9 +835,29 @@ function Craft:createItem(user, productId, toolItem)
     product.data.descriptionEn = "" -- reset descriptions, same reasoning as below
     product.data.rareness = "" -- reset rarity or else it creates the most recent result of the rarity calculation even if not a perfect item
 
+    local rareIngredientBonus = 0
+
     for i = 1, #product.ingredients do
         local ingredient = product.ingredients[i]
-        user:eraseItem(ingredient.item, ingredient.quantity, ingredient.data)
+        local regularFoodIngredients = user:countItemAt("all", ingredient.item, ingredient.data)
+        local totalToDelete = ingredient.quantity
+        local regularItemsToDelete
+        local rareItemsToDelete = 0
+
+        if regularFoodIngredients >= totalToDelete then
+            regularItemsToDelete = totalToDelete
+        else
+            regularItemsToDelete = regularFoodIngredients
+            rareItemsToDelete = totalToDelete-regularFoodIngredients
+        end
+
+        if regularItemsToDelete > 0 then
+            user:eraseItem(ingredient.item, regularItemsToDelete, ingredient.data)
+        end
+
+        if rareItemsToDelete > 0 then
+            rareIngredientBonus = deleteRareItems(user, ingredient, rareItemsToDelete)
+        end
     end
 
     local quality = self:generateQuality(user, productId, toolItem)
@@ -781,7 +874,7 @@ function Craft:createItem(user, productId, toolItem)
     local foodItem, foodBuff = self:checkIfFoodItem(productId)
 
     if foodItem and quality >= 900 then
-        rarity = self:generateRarity(user, productId, toolItem)
+        rarity = self:generateRarity(user, productId, toolItem, rareIngredientBonus)
 
         if not foodBuff then
             rarity = common.Limit(rarity, 0, 2)
@@ -792,21 +885,7 @@ function Craft:createItem(user, productId, toolItem)
         end
     end
 
-    local rarities = {
-        {english = "uncommon", german = "außergewöhnlich gut", identifier = 2,
-        foodDescription = {
-            english = "An uncommonly well made dish. Sure to be more filling than its common counterparts.",
-            german = "Ein außergewöhnlich gut gelungenes Gericht. Ein wahrer Schmauß, der besser sättigt als ein normales Gericht."}},
-        {english = "rare", german = "exzellent", identifier = 3,
-        foodDescription = {
-            english = "A dish so well-made it's a rarity among dishes. Not only more filling than its lesser counterparts, but also somewhat beneficial to the longevity and strength of the boons of your good diet.",
-            german = "Ein wahres Schlemmergericht. Wohlbekömmlich und eine kleine Wohltat für die Länge und Auswirkung deiner guten Ernährung."}},
-        {english = "unique", german = "einzigartig gut", identifier = 4,
-        foodDescription = {
-            english = "A dish made by such refined culinary arts, you might even say it's unique. Not only more filling than its lesser counterparts, but also very beneficial to both the longevity and strength of the boons of your good diet.",
-            german = "Eine kulinarisches Köstlichkeit, die ihres Gleichen sucht. Äußerst wohlbekömmlich und eine wahre Wohltat für die Länge und Auswirkung deiner guten Ernährung."}}}
-
-    for _, selectedRarity in pairs(rarities) do
+    for _, selectedRarity in pairs(foodRarityTexts) do
         if rarity == selectedRarity.identifier then
             local nameEnglish = itemStats.English
             local nameGerman = itemStats.German
