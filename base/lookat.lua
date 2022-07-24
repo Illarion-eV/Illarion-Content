@@ -20,6 +20,7 @@ local common = require("base.common")
 local gems = require("base.gems")
 local money = require("base.money")
 local glyphs = require("base.glyphs")
+local repairs = require("craft.repairs")
 local mining = require("craft.gathering.mining")
 local silkcutting = require("craft.gathering.silkcutting")
 
@@ -324,14 +325,50 @@ function TitleCase(name)
     return name:gsub("([%aäöüÄÖÜ])([%wäöüÄÖÜß_']*)", tchelper)
 end
 
+local function itemIsRepairKit(user, itemId, lookAt, itemLevel)
+
+    local repairKit = false
+    local skillName = false
+
+    for _, itemRange in pairs(repairs.itemRangeTable) do
+        if itemId >= itemRange.start and itemId <= itemRange.stop then
+            skillName = itemRange.skill
+            repairKit = true
+        end
+    end
+
+    if repairKit then
+        local skill = 100
+
+        if skillName then
+            skill = user:getSkill(Character[skillName])
+        end
+
+        if user:getPlayerLanguage() == Player.german then
+            lookAt.type = ""
+        else
+            lookAt.type = "Repair Kit"
+        end
+
+        lookAt.usable = skill >= itemLevel
+
+        return true, lookAt
+    end
+
+    return false
+end
+
 function AddWeaponOrArmourType(lookAt, user, itemId, itemLevel, item)
     local armourfound, armour = world:getArmorStruct(itemId)
     local weaponfound, weapon = world:getWeaponStruct(itemId)
+    local repairKitFound, repairKitLookAt = itemIsRepairKit(user, itemId, lookAt, itemLevel)
 
     if weaponfound then
         lookAt = AddTypeAndUsable(lookAt, user, WeaponType, weapon.WeaponType, itemLevel)
     elseif armourfound then
         lookAt = AddTypeAndUsable(lookAt, user, ArmourType, armour.Type, itemLevel)
+    elseif repairKitFound then
+        lookAt = repairKitLookAt
     end
 
     if (weaponfound or armourfound) and item then --only applicable when not generated from ID

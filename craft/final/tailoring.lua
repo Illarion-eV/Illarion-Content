@@ -1016,5 +1016,94 @@ product:addIngredient(50, 7) -- thread
 product:addIngredient(179, 5) -- blue cloth
 product:addIngredient(3787, 1) -- silk
 
+catId = tailoring:addCategory("Sewing Kits", "Flickzeug")
+
+-- Basic Sewing Kit
+product = tailoring:addProduct(catId, 4011 ,1)
+product:addIngredient(176, 2) -- grey cloth
+product:addIngredient(2547, 2) -- leather
+product:addIngredient(50, 2) -- thread
+
+-- Novice Sewing Kit
+product = tailoring:addProduct(catId, 4012 ,1)
+product:addIngredient(50, 4) -- thread
+product:addIngredient(178, 3) -- white cloth
+product:addIngredient(2547, 3) -- leather
+
+
+-- Apprentice Sewing Kit
+product = tailoring:addProduct(catId, 4013 ,1)
+product:addIngredient(50, 5) -- thread
+product:addIngredient(174, 3) -- red cloth
+product:addIngredient(2547, 3) -- leather
+
+-- Initiate Sewing Kit
+product = tailoring:addProduct(catId, 4014 ,1)
+product:addIngredient(50, 7) -- thread
+product:addIngredient(174, 2) -- red cloth
+product:addIngredient(177, 2) -- yellow cloth
+product:addIngredient(2547, 4) -- leather
+
+-- Journeyman Sewing Kit
+product = tailoring:addProduct(catId, 4015 ,1)
+product:addIngredient(50, 7) -- thread
+product:addIngredient(177, 8) -- yellow cloth
+product:addIngredient(2586, 1) -- fur
+product:addIngredient(2547, 8) -- leather
+
+-- Specialist Sewing Kit
+product = tailoring:addProduct(catId, 4016 ,1)
+product:addIngredient(50, 8) -- thread
+product:addIngredient(54, 5) -- green cloth
+product:addIngredient(2547, 5) -- leather
+product:addIngredient(2586, 3) -- fur
+product:addIngredient(3787, 1) -- silk
+
+-- Expert Sewing Kit
+product = tailoring:addProduct(catId, 4017 ,1)
+product:addIngredient(50, 9) -- thread
+product:addIngredient(179, 6) -- blue cloth
+product:addIngredient(2547, 6) -- leather
+product:addIngredient(2586, 4) -- fur
+product:addIngredient(3787, 1) -- silk
+
+-- Adept Sewing Kit
+product = tailoring:addProduct(catId, 4018 ,1)
+product:addIngredient(50, 10) -- thread
+product:addIngredient(179, 4) -- blue cloth
+product:addIngredient(174, 2) -- red cloth
+product:addIngredient(2547, 6) -- leather
+product:addIngredient(2586, 4) -- fur
+product:addIngredient(3787, 2) -- silk
+
+-- Artisan Sewing Kit
+product = tailoring:addProduct(catId, 4019 ,1)
+product:addIngredient(50, 12) -- thread
+product:addIngredient(179, 3) -- blue cloth
+product:addIngredient(174, 6) -- red cloth
+product:addIngredient(2547, 5) -- leather
+product:addIngredient(2586, 4) -- fur
+product:addIngredient(3787, 3) -- silk
+
+-- Master Sewing Kit
+product = tailoring:addProduct(catId, 4020 ,1)
+product:addIngredient(50, 13) -- thread
+product:addIngredient(175, 10) -- black cloth
+product:addIngredient(2547, 5) -- leather
+product:addIngredient(2586, 4) -- fur
+product:addIngredient(3787, 4) -- silk
+
+-- Grandmaster Sewing Kit
+product = tailoring:addProduct(catId, 4021 ,1)
+product:addIngredient(50, 14) -- thread
+product:addIngredient(179, 3) -- blue cloth
+product:addIngredient(174, 5) -- red cloth
+product:addIngredient(54, 2) -- green cloth
+product:addIngredient(177, 3) -- yellow cloth
+product:addIngredient(2547, 4) -- leather
+product:addIngredient(2586, 3) -- fur
+product:addIngredient(3787, 6) -- silk
+
 M.tailoring = tailoring
+
 return M

@@ -829,24 +829,81 @@ product:addIngredient(2571, 2) -- merinium ingot
 product:addIngredient(285, 1) -- diamond
 product:addIngredient(2552, 1) -- pure earth
 
--- Dummy group for items that cannot be crafted but repaired
-catId = armourer:addCategory("repair only", "nur reparieren")
+-- Repair Kits
+catId = armourer:addCategory("Armour Mending Kits", "GERMAN TRANSLATION HERE")
 
--- drow helmet
-product = armourer:addProduct(catId, 2303, 1)
+-- Basic
+product = armourer:addProduct(catId, 4044, 1)
+product:addIngredient(2535, 4) -- iron ingot
+product:addIngredient(2537, 1) -- iron plate
+
+-- Novice
+product = armourer:addProduct(catId, 4045, 1)
+product:addIngredient(2535, 6) -- iron ingot
+product:addIngredient(2537, 2) -- iron plate
+
+-- Apprentice
+product = armourer:addProduct(catId, 4046, 1)
 product:addIngredient(2535, 7) -- iron ingot
 product:addIngredient(2537, 2) -- iron plate
-product:addIngredient(2571, 1) -- merinium ingot
-product:addIngredient(285, 1) -- diamond
-product:addIngredient(104, 2) -- silver ingot
 
--- drow armour
-product = armourer:addProduct(catId, 2402, 1)
-product:addIngredient(2535, 18) -- iron ingot
+-- Initiate
+product = armourer:addProduct(catId, 4047, 1)
+product:addIngredient(2535, 9) -- iron ingot
+product:addIngredient(2537, 3) -- iron plate
+product:addIngredient(2550, 3) -- copper ingot
+
+-- Journeyman
+product = armourer:addProduct(catId, 4048, 1)
+product:addIngredient(2535, 10) -- iron ingot
+product:addIngredient(2537, 3) -- iron plate
+product:addIngredient(104, 3) -- silver ingot
+product:addIngredient(197, 1) -- amethyst
+
+-- Specialist
+product = armourer:addProduct(catId, 4049, 1)
+product:addIngredient(2535, 12) -- iron ingot
+product:addIngredient(2537, 4) -- iron plate
+product:addIngredient(236, 4) -- gold ingot
+product:addIngredient(46, 1) -- ruby
+
+-- Expert
+product = armourer:addProduct(catId, 4050, 1)
+product:addIngredient(2535, 14) -- iron ingot
+product:addIngredient(2537, 5) -- iron plate
+product:addIngredient(236, 5) -- gold ingot
+product:addIngredient(284, 1) -- sapphire
+
+-- Adept
+product = armourer:addProduct(catId, 4051, 1)
+product:addIngredient(2535, 15) -- iron ingot
+product:addIngredient(2537, 5) -- iron plate
+product:addIngredient(236, 5) -- gold ingot
+product:addIngredient(283, 1) -- obsidian
+product:addIngredient(2550, 4) -- copper ingot
+
+-- Artisan
+product = armourer:addProduct(catId, 4052, 1)
+product:addIngredient(2535, 17) -- iron ingot
 product:addIngredient(2537, 6) -- iron plate
 product:addIngredient(2571, 2) -- merinium ingot
-product:addIngredient(285, 1) -- diamond
+product:addIngredient(45, 1) -- emerald
+product:addIngredient(104, 4) -- silver ingot
+
+-- Master
+product = armourer:addProduct(catId, 4053, 1)
+product:addIngredient(2535, 18) -- iron ingot
+product:addIngredient(2537, 6) -- iron plate
+product:addIngredient(2571, 3) -- merinium ingot
+product:addIngredient(198, 1) -- topaz
 product:addIngredient(236, 4) -- gold ingot
+
+-- Grandmaster
+product = armourer:addProduct(catId, 4054, 1)
+product:addIngredient(2535, 20) -- iron ingot
+product:addIngredient(2537, 7) -- iron plate
+product:addIngredient(2571, 6) -- merinium ingot
+product:addIngredient(285, 1) -- diamond
 
 M.armourer = armourer
 return M
