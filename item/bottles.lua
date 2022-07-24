@@ -102,6 +102,10 @@ function M.UseItem(User, SourceItem, ltstate)
             return
         end
 
+        if SourceItem.wear == 255 then --It's a static display item, not something to consume
+            return
+        end
+
         local TargetItems = {}
         for _, combo in pairs(food[4]) do
             table.insert(TargetItems,combo[1])

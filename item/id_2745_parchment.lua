@@ -63,6 +63,24 @@ end
 -- important: do not remove the fourth parameter "checkVar".
 -- it is important for alchemy
 -- you can just ignore it
+
+function M.getWrittenTextFromParchment(theParchment)
+    if not common.IsNilOrEmpty(theParchment:getData("writtenText")) then
+        local writtenText = theParchment:getData("writtenText")
+        for i = 2, 4 do
+            local addText = theParchment:getData("writtenText"..i)
+            writtenText = writtenText..addText
+        end
+        if not common.IsNilOrEmpty(theParchment:getData("signatureText")) then
+            writtenText = writtenText .. "\n~" .. theParchment:getData("signatureText") .. "~"
+        end
+
+        return writtenText
+    end
+
+    return false
+end
+
 function M.UseItem(user, SourceItem,ltstate,checkVar)
 
     -- Check if the messenger has requested a parchment
@@ -80,20 +98,22 @@ function M.UseItem(user, SourceItem,ltstate,checkVar)
 
     if SourceItem:getData("TeachLenniersDream")=="true" then
         LearnLenniersDream(user)
+        return
     end
 
-    if not common.IsNilOrEmpty(SourceItem:getData("writtenText")) then
-        local writtenText = SourceItem:getData("writtenText")
-        if not common.IsNilOrEmpty(SourceItem:getData("signatureText")) then
-            writtenText = writtenText .. "\n~" .. SourceItem:getData("signatureText") .. "~"
-        end
+    local writtenText = M.getWrittenTextFromParchment(SourceItem)
+
+    if writtenText then
         local dialog = MessageDialog(
             common.GetNLS(user, "Pergament", "Parchment"),
             writtenText,
             --[[callback=]]function(d) end
             )
         user:requestMessageDialog(dialog)
+    else
+        user:inform("Auf diesem Pergament steht noch nichts. Benutze einen Federkiel um auf ihm zu schreiben.","Nothing is written on this parchment. Use a quill to write on it.")
     end
+
 end
 
 
@@ -324,9 +344,14 @@ function StartBrewing(user,SourceItem,ltstate,checkVar)
     end
 
     CallBrewFunctionAndDeleteItem(user,deleteItem, deleteId,cauldron)
-    shared.toolBreaks(user, tool, duration)
+    local toolbroken = shared.toolBreaks(user, tool, duration)
 
     USER_POSITION_LIST[user.id] = USER_POSITION_LIST[user.id]+1
+
+    if toolbroken and USER_POSITION_LIST[user.id] < #listOfTheIngredients then
+        user:inform("Du brichst deine Arbeit vor dem "..USER_POSITION_LIST[user.id]..". Arbeitsschritt ab.", "You abort your work before the "..USER_POSITION_LIST[user.id]..". work step.")
+        return
+    end
 
     if alchemy.CheckExplosionAndCleanList(user) then
         if USER_POSITION_LIST[user.id] < #listOfTheIngredients then

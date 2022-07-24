@@ -83,24 +83,24 @@ local function preventCutting(User, theAxe, theTree)
     if effectType == "lightning" then
         world:gfx(2,User.pos)
         world:makeSound(13,User.pos)
-        User:inform("Aus heiterem Himmel wirst du von einem Blitz getroffen!", "Out of the blue, you are struck by lightning!", Character.highPriority)
+        User:inform("Aus heiterem Himmel wirst du von einem Blitz getroffen!", "Out of the blue, you are struck by lightning!")
         User:increaseAttrib("hitpoints",-3000)
     elseif effectType == "axeSlippingOff" then
-        User:inform("Als du zum Fällen ausholst, rutscht dir das Beil fast aus der Hand. Du kannst es gerade noch so festhalten.", "As you strike out, you nearly drop the hatchet. You barely keep hold of it.", Character.highPriority)
+        User:inform("Als du zum Fällen ausholst, rutscht dir das Beil fast aus der Hand. Du kannst es gerade noch so festhalten.", "As you strike out, you nearly drop the hatchet. You barely keep hold of it.")
     elseif effectType == "slimyAcid" then
         world:gfx(8,User.pos)
         world:gfx(11,User.pos)
         world:makeSound(9,User.pos)
         User:increaseAttrib("hitpoints",-1000)
         User:talk(Character.say, "#me wird, bevor die Axt den berühren kann, von einem dicken Batzen Schleim getroffen, der aus der Baumkrone heraustropfte.", "#me is, before the hatchet touches the tree, hit by a big blob of slime which dropped down from the treetrop.")
-        User:inform("Der Schleim verursacht ein überaus schmerzhaftes Brennen auf deiner Haut.", "The slime causes very painful burning to your skin.", Character.highPriority)
+        User:inform("Der Schleim verursacht ein überaus schmerzhaftes Brennen auf deiner Haut.", "The slime causes very painful burning to your skin.")
     elseif effectType == "protected" then
         User:inform("Dieser Baum kann nicht gefällt werden.","This tree cannot be cut down.")
     elseif effectType == "tutorial" then
         local Nimbur = common.getNpc(position(710,297,0),1,"Nimbur Goldbrew")
         common.TalkNLS(Nimbur, Character.shout, "Hand ab sonst Hand ab! Finger weg von meinen Bäumen!", "Hands off or your hands are off! Leave my trees alone.")
     else
-        User:inform("Als du zum Fällen ausholst, rutscht dir das Beil fast aus der Hand. Du kannst es gerade noch so festhalten.", "As you strike out, you nearly drop the hatchet. You barely keep hold of it.", Character.highPriority)
+        User:inform("Als du zum Fällen ausholst, rutscht dir das Beil fast aus der Hand. Du kannst es gerade noch so festhalten.", "As you strike out, you nearly drop the hatchet. You barely keep hold of it.")
         debug("Tree at " .. theTree.x .. ", " .. theTree.y .. ", " .. theTree.z .. " is missing a proper data value for the data key treeProtectionType")
     end
 end
@@ -116,7 +116,7 @@ end
 local function isUnchoppableTree(targetItem,User)
     if targetItem ~= nil and unchoppableTrees[targetItem.id] ~= nil then
         common.TurnTo( User, targetItem.pos )
-        User:inform("Diese Baumart kann nicht gefällt werden.","This kind of tree cannot be cut down.")
+        User:inform("Diese Baumart kann nicht gefällt werden.","This kind of tree cannot be cut down.", Character.lowPriority)
         return true;
     end
 
@@ -222,10 +222,10 @@ function M.StartGathering(User, SourceItem, ltstate)
         -- should never happen, but handle it nevertheless
         world:erase(SourceItem, SourceItem.number)
         if isPlayerPlanted then
-            common.HighInformNLS(User, "Der Baum war zu jung, um nachwachsen zu können.", "The tree was too young to regrow.")
+            common.TempInformNLS(User, "Der Baum war zu jung, um nachwachsen zu können.", "The tree was too young to regrow.")
         else
             world:createItemFromId(tree.TrunkId, 1, SourceItem.pos, true, 333, nil);
-            common.HighInformNLS( User,
+            common.TempInformNLS( User,
             "Hier gibt es kein Holz mehr zu holen. Gib dem Baum Zeit um nachzuwachsen.",
             "There is no wood anymore that you can chop. Give the tree time to grow again." );
         end
@@ -277,10 +277,10 @@ function M.StartGathering(User, SourceItem, ltstate)
     if ( amount <= 0 ) then
         world:erase(SourceItem, SourceItem.number);
         if isPlayerPlanted then
-            common.HighInformNLS(User, "Der Baum war zu jung, um nachwachsen zu können.", "The tree was too you to regrow.")
+            common.TempInformNLS(User, "Der Baum war zu jung, um nachwachsen zu können.", "The tree was too you to regrow.")
         else
             world:createItemFromId(tree.TrunkId, 1, SourceItem.pos, true, 333, nil);
-            common.HighInformNLS( User,
+            common.TempInformNLS( User,
             "Hier gibt es kein Holz mehr zu holen. Gib dem Baum Zeit um nachzuwachsen.",
             "There is no wood anymore that you can chop. Give the tree time to grow again." );
         end

@@ -16,7 +16,7 @@
 -- NPC Name: Fijanna Squall                                              None --
 -- NPC Job:  fortune teller                                                   --
 --                                                                            --
--- NPC Race: human                      NPC Position:  670, 323, 0            --
+-- NPC Race: human                      NPC Position:  661, 301, 0            --
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   Miriam                                                           --
@@ -26,7 +26,7 @@
 name = "Fijanna Squall"
 race = human
 sex = female
-position = 670, 323, 0
+position = 661, 301, 0
 direction = south
 affiliation = "None"
 job = "fortune teller"

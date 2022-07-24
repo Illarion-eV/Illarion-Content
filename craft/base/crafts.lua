@@ -24,7 +24,6 @@ local shared = require("craft.base.shared")
 local lookat = require("base.lookat")
 local licence = require("base.licence")
 local gems = require("base.gems")
-local glypheffects = require("magic.glypheffects")
 local foodScript = require("item.food")
 
 local OFFSET_PRODUCTS_REPAIR = 235
@@ -164,8 +163,10 @@ end
 
 function Craft:showDialog(user, source)
 
-    if not self:allowCrafting(user, source) then
-        if self.fallbackCraft then
+    local allowCraft, checkForFallbackCraft = self:allowCrafting(user, source)
+
+    if not allowCraft then
+        if checkForFallbackCraft and self.fallbackCraft then
             self.fallbackCraft:showDialog(user, source)
         end
 
@@ -232,7 +233,7 @@ function Craft:allowUserCrafting(user, source)
         common.TurnTo(user, source.pos)
 
         if not self:userHasLicense(user) then
-            return false
+            return false, false
         end
 
         if not self:isHandToolEquipped(user) then
@@ -244,15 +245,15 @@ function Craft:allowUserCrafting(user, source)
             common.HighInformNLS(user,
             "Dir fehlt ein intaktes Werkzeug in deiner Hand um hier zu arbeiten: " .. germanTool,
             "To work here you have to hold an intact tool in your hand: " .. englishTool)
-            return false
+            return false, false
         end
     else
         if not self:locationFine(user) then
-            return false
+            return false, true
         end
 
         if not self:userHasLicense(user) then
-            return false
+            return false, false
         end
 
         if not self:isHandToolEquipped(user) then
@@ -260,7 +261,7 @@ function Craft:allowUserCrafting(user, source)
             common.HighInformNLS(user,
             "Du musst ein intaktes Werkzeug in die Hand nehmen um damit zu arbeiten.",
             "You must have an intact tool in your hand to work with.")
-            return false
+            return false, false
         end
     end
 
@@ -383,15 +384,13 @@ function Craft:loadDialog(dialog, user)
     end
     local repairListId = listId
 
-    local glyphEffect = glypheffects.effectOnCraftingTime(user)
-
     for i = 1,#self.products do
         local product = self.products[i]
         local productRequirement = product.difficulty
 
         if productRequirement <= skill and self:isRepairCategory(product.category) == false then
 
-            local craftingTime = self:getCraftingTime(product, skill) * glyphEffect
+            local craftingTime = self:getCraftingTime(product, skill)
             dialog:addCraftable(i, categoryListId[product.category], product.item, self:getLookAt(user, product).name, craftingTime, product.quantity)
 
             for j = 1, #product.ingredients do
@@ -405,7 +404,6 @@ function Craft:loadDialog(dialog, user)
     local repairPositions = {12, 13, 14, 15, 16, 17} -- all belt positions
     local showRepairGroup = false
     local repairSkill = self:getRepairSkill(user)
-    glyphEffect = 1
     local repairItemListSub = {}
     local hasDataRepairItemListSub = false
     for k = 1, #repairPositions do
@@ -421,9 +419,8 @@ function Craft:loadDialog(dialog, user)
                     if showRepairGroup == false then
                         dialog:addGroup(user:getPlayerLanguage() == Player.german and "Reparieren" or "Repair")
                         showRepairGroup = true
-                        glyphEffect = glypheffects.effectOnRepairTime(user)
                     end
-                    craftingTime = craftingTime * glyphEffect * (99 - durability)/99
+                    craftingTime = craftingTime * (99 - durability)/99
                     local listPosition = OFFSET_PRODUCTS_REPAIR+repairPositions[k]
                     dialog:addCraftable(listPosition, repairListId, product.item, self:getLookAt(user, product).name, craftingTime, product.quantity)
                     repairItemListSub[listPosition] = {product.item, durability}
@@ -594,7 +591,7 @@ end
 function Craft:generateRarity(user, productId, toolItem)
 
     -- 1 = common, 2 = uncommon, 3 = rare, 4 = unique
-    -- Max chances: 0.4% unique, 2% rare, 10% uncommon, 87.6% common
+    -- Max chances: 0.4% unique, 2% rare, 10% uncommon, 87.6% common (includes the chance to get perfect items to even get here)
 
     if self.npcCraft then
         return 1
@@ -604,15 +601,12 @@ function Craft:generateRarity(user, productId, toolItem)
 
     local maxPerfectChance = 0.5967194738 --Maximum probability for quality 9(perfect) items
 
-    local rarities = {unique = 0.004/maxPerfectChance,
-    rare = 0.02/maxPerfectChance,
-    uncommon = 0.1/maxPerfectChance
-    }
+    local rarities = {0.004/maxPerfectChance, 0.02/maxPerfectChance, 0.1/maxPerfectChance} --unique, rare, uncommon
 
     local rand = math.random()
 
     for _, rarity in ipairs(rarities) do
-        if rarity <= rand then
+        if rarity >= rand then
             retVal = retVal+1
         end
     end
@@ -734,9 +728,8 @@ function Craft:craftItem(user, productId)
         return false
     end
 
-    local neededFood = 0
+    local foodOK, neededFood = self:checkRequiredFood(user, product:getCraftingTime(skill))
     if not self.npcCraft then
-        local foodOK = self:checkRequiredFood(user, product:getCraftingTime(skill))
         if not foodOK then
             self:swapToInactiveItem(user)
             return false
@@ -747,10 +740,7 @@ function Craft:craftItem(user, productId)
         self:createItem(user, productId, toolItem)
 
         if not self.npcCraft then
-            local originalDurability = common.getItemDurability(toolItem)
-            if not shared.toolBreaks(user, toolItem, product:getCraftingTime(skill)) then
-                glypheffects.effectToolSelfRepair(user, toolItem, originalDurability)
-            end
+            shared.toolBreaks(user, toolItem, product:getCraftingTime(skill))
             common.GetHungry(user, neededFood)
         end
 
@@ -773,10 +763,8 @@ function Craft:createItem(user, productId, toolItem)
     product.data.rareness = "" -- reset rarity or else it creates the most recent result of the rarity calculation even if not a perfect item
 
     for i = 1, #product.ingredients do
-        if not glypheffects.effectSaveMaterialOnProduction(user) then
-            local ingredient = product.ingredients[i]
-            user:eraseItem(ingredient.item, ingredient.quantity, ingredient.data)
-        end
+        local ingredient = product.ingredients[i]
+        user:eraseItem(ingredient.item, ingredient.quantity, ingredient.data)
     end
 
     local quality = self:generateQuality(user, productId, toolItem)
@@ -791,6 +779,7 @@ function Craft:createItem(user, productId, toolItem)
     local rarity = 0
 
     local foodItem, foodBuff = self:checkIfFoodItem(productId)
+
     if foodItem and quality >= 900 then
         rarity = self:generateRarity(user, productId, toolItem)
 
@@ -870,9 +859,9 @@ function Craft:repairItem(user, productIdList)
         return false
     end
 
-    local neededFood = 0
+    local foodOK, neededFood = self:checkRequiredFood(user, repairTime)
+
     if not self.npcCraft then
-        local foodOK = self:checkRequiredFood(user, repairTime)
         if not foodOK then
             self:swapToInactiveItem(user)
             return false
@@ -883,10 +872,7 @@ function Craft:repairItem(user, productIdList)
         self:createRepairedItem(user, productId, itemToRepair)
 
         if not self.npcCraft then
-            local originalDurability = common.getItemDurability(toolItem)
-            if not shared.toolBreaks(user, toolItem, repairTime) then
-                glypheffects.effectToolSelfRepair(user, toolItem, originalDurability)
-            end
+            shared.toolBreaks(user, toolItem, repairTime)
             common.GetHungry(user, neededFood)
         end
 
@@ -909,9 +895,7 @@ function Craft:createRepairedItem(user, productId, itemToRepair)
     for i = 1, #product.ingredients do
         local ingredient = product.ingredients[i]
         if math.random() < itemDamage * REPAIR_RESOURCE_USAGE then
-            if not glypheffects.effectSaveMaterialOnRepair(user) then
-                user:eraseItem(ingredient.item, ingredient.quantity, ingredient.data)
-            end
+            user:eraseItem(ingredient.item, ingredient.quantity, ingredient.data)
         end
     end
 
@@ -922,11 +906,10 @@ function Craft:createRepairedItem(user, productId, itemToRepair)
         itemToRepair:setData("qualityAtCreation", quality)
     else
         if (quality < tonumber(bestQuality)) then
-            local glyphBonus = glypheffects.effectOnUserRepairQuality(user,itemToRepair)
             if Craft:isKnownCrafter(itemToRepair) then
-                repairQualityIncrease = REPAIR_QUALITY_INCREASE_GENERAL + REPAIR_QUALITY_INCREASE_KNOWN_CRAFTER + glyphBonus
+                repairQualityIncrease = REPAIR_QUALITY_INCREASE_GENERAL + REPAIR_QUALITY_INCREASE_KNOWN_CRAFTER
             else
-                repairQualityIncrease = REPAIR_QUALITY_INCREASE_GENERAL + glyphBonus
+                repairQualityIncrease = REPAIR_QUALITY_INCREASE_GENERAL
             end
             if (math.random() < itemDamage * repairQualityIncrease) then
                 quality = quality +1

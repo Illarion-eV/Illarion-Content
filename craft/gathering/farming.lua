@@ -125,7 +125,7 @@ function M.StartGathering(User, SourceItem, ltstate)
 
     if ( amount == 0 ) then
         -- this is a farming item, it can't regrow
-        common.HighInformNLS( User,
+        common.TempInformNLS( User,
         "Hier kannst du nichts ernten.",
         "There is nothing you can harvest." );
         return;
@@ -173,7 +173,7 @@ function M.StartGathering(User, SourceItem, ltstate)
                 User:startAction( theCraft.SavedWorkTime[User.id], 0, 0, 0, 0);
             end
         else
-            common.HighInformNLS( User,
+            common.TempInformNLS( User,
             "Hier ist nichts mehr, was du mit der Sichel ernten kannst.",
             "There is nothing anymore which you can harvest with the sickle." );
         end

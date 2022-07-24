@@ -37,7 +37,7 @@ Neutral - Glittering Cave / Funkelhöhle
 Warp position: 546, 369, 0
 
 Neutral - Skewer Drift / Spießstollen
-Warp position: 933, 466, 0
+Warp position: 932, 444, 0
 
 Neutral - Prison Mine / Gefängnismine
 Warp position: -469, -490, -40
@@ -50,13 +50,13 @@ local gathering = require("craft.base.gathering")
 local M = {}
 
 M.oreList = {
-{id = 232, depletedId = 233, productId = 735, maxAmount = 20, levelReq = 0},
-{id = 1234, depletedId = 3578, productId = 21, maxAmount = 20, levelReq = 10},
-{id = 1236, depletedId = 3580, productId = 22, maxAmount = 10, levelReq = 20},
-{id = 1235, depletedId = 3579, productId = 2536, maxAmount = 10, levelReq = 30},
-{id = 1238, depletedId = 3718, productId = 1062, maxAmount = 10, levelReq = 40},
-{id = 1237, depletedId = 3717, productId = 234, maxAmount = 10, levelReq = 60},
-{id = 1239, depletedId = 3719, productId = 2534, maxAmount = 3, levelReq = 80}
+{id = 232, depletedId = 233, productId = 735, maxAmount = 20},
+{id = 1234, depletedId = 3578, productId = 21, maxAmount = 20},
+{id = 1236, depletedId = 3580, productId = 22, maxAmount = 20},
+{id = 1235, depletedId = 3579, productId = 2536, maxAmount = 10},
+{id = 1238, depletedId = 3718, productId = 1062, maxAmount = 10},
+{id = 1237, depletedId = 3717, productId = 234, maxAmount = 10},
+{id = 1239, depletedId = 3719, productId = 2534, maxAmount = 3}
 }
 
 local oreList = M.oreList
@@ -97,8 +97,8 @@ local function gotGem(user, sourceItem)
     local rand = math.random()
     local cumulatedChance = 0
     local miningLevel = user:getSkill(Character.mining)
+
     for _, gems in pairs(gemList) do
-        local gem = gems.id
         if miningLevel >= gems.level then
             local chance = gems.chance
                 if gemMine then
@@ -106,11 +106,14 @@ local function gotGem(user, sourceItem)
                 end
             cumulatedChance = cumulatedChance + chance
             if rand <= cumulatedChance then
-                return gem
+                common.CreateItem(user, gems.id, 1, 333, nil)
+                return true
             end
         end
     end
-return false
+
+    return false
+
 end
 
 function M.StartGathering(user, sourceItem, ltstate)
@@ -119,13 +122,9 @@ function M.StartGathering(user, sourceItem, ltstate)
     local toolID = Item.pickaxe
     local maxAmount = gathering.getMaxAmountFromResourceList(oreList, sourceItem.id)
     local GFX = 14
-    local resourceID = gotGem(user, sourceItem)
+    local resourceID = gathering.getProductId(oreList, sourceItem.id)
     local depletedResourceID = gathering.getDepletedObject(oreList, sourceItem.id)
     local restockWear = 4 -- 15 minutes
-
-    if not resourceID then
-        resourceID = gathering.getProductId(oreList, sourceItem.id)
-    end
 
     local success, toolItem, amount, gatheringBonus = gathering.InitGathering(user, sourceItem, toolID, maxAmount, mining.LeadSkill)
 
@@ -139,7 +138,7 @@ function M.StartGathering(user, sourceItem, ltstate)
 
     local miningLevel = user:getSkill(Character.mining)
 
-    local passesLevelRequirement, levelReq = gathering.passesLevelReq(user, oreList, sourceItem.id, miningLevel)
+    local passesLevelRequirement, levelReq = gathering.passesLevelReq(user, sourceItem, miningLevel)
 
     if not passesLevelRequirement then
         user:inform(common.GetNLS(user,"Du musst Level "..levelReq.." in Bergbau haben, um hier arbeiten zu können.","You must be level "..levelReq.." in mining to mine here."))
@@ -188,7 +187,19 @@ function M.StartGathering(user, sourceItem, ltstate)
         return
     end
 
-    local created, newAmount = gathering.FindResource(user, sourceItem, amount, resourceID) -- create the new produced items
+    local created
+
+    local newAmount
+
+
+    if gotGem(user, sourceItem) then
+        if not shared.toolBreaks( user, toolItem, mining:GenWorkTime(user)) then
+            user:changeSource(sourceItem)
+            user:startAction( mining.SavedWorkTime[user.id], 0, 0, 18, 15)
+        end
+    else
+        created, newAmount = gathering.FindResource(user, sourceItem, amount, resourceID) -- create the new produced items
+    end
 
     if created then
         user:changeSource(sourceItem)
@@ -198,9 +209,9 @@ function M.StartGathering(user, sourceItem, ltstate)
         end
     end
 
-    if newAmount <= 0 then
+    if newAmount and newAmount <= 0 then
         gathering.SwapSource(sourceItem, depletedResourceID, restockWear)
-        user:inform( "Hier gibt es keine Steine mehr, an denen du arbeiten kannst.", "There are no stones for mining anymore.", Character.highPriority)
+        user:inform( "Hier gibt es keine Steine mehr, an denen du arbeiten kannst.", "There are no stones for mining anymore.", Character.lowPriority)
         return
     end
 end

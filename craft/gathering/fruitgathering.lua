@@ -129,11 +129,11 @@ function M.StartGathering(User, SourceItem, ltstate)
     end
     if ( harvestProduct == nil ) then
         if (IsTree[SourceItem.id] == true) then
-          common.HighInformNLS( User,
+          common.TempInformNLS( User,
           "Dieser Baum trägt keine Früchte. Vielleicht wird diese Art Baum in einem anderen Boden besser gedeihen.",
           "This tree bears no fruits. Maybe this type of tree will flourish better in another soil." )
         else
-          common.HighInformNLS( User,
+          common.TempInformNLS( User,
           "Diese Pflanze trägt keine Früchte. Vielleicht wird diese Art Pflanze in einem anderen Boden besser gedeihen.",
           "This plant bears no fruits. Maybe this type of plant will flourish better in another soil." )
         end
@@ -193,11 +193,11 @@ function M.StartGathering(User, SourceItem, ltstate)
     end
     if (amount<=0) then
         if (IsTree[SourceItem.id] == true) then
-          common.HighInformNLS(User,
+          common.TempInformNLS(User,
           "Dieser Baum ist schon komplett abgeerntet. Gib ihm Zeit um nachzuwachsen.",
           "This tree is already completely harvested. Give it time to grow again." )
         else
-          common.HighInformNLS(User,
+          common.TempInformNLS(User,
           "Diese Pflanze ist schon komplett abgeerntet. Gib ihr Zeit um nachzuwachsen.",
           "This plant is already completely harvested. Give it time to grow again." )
         end

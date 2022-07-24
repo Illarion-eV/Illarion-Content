@@ -18,13 +18,42 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local gemcutting = require("craft.final.gemcutting")
 local metal = require("item.general.metal")
+local common = require("base.common")
 
 local M = {}
 
 M.LookAtItem = metal.LookAtItem
 
-function M.UseItem(User, SourceItem, ltstate)
-    gemcutting.gemcutting:showDialog(User, SourceItem)
+function M.UseItem(user, sourceItem, actionstate)
+
+
+    local staticTool = common.GetFrontItemID(user)
+    local kilns = {1240, 1241, 1242, 1243}
+    local germanKiln = world:getItemName(1240, Player.german)
+    local englishKiln = world:getItemName(1240, Player.english)
+    local grinder = 270
+    local germanGrinder = world:getItemName(grinder, Player.german)
+    local englishGrinder = world:getItemName(grinder, Player.english)
+    local staticToolExists = false
+    local germanText = "Du stehst nicht neben dem benötigten Werkzeug: " .. germanGrinder .." oder " .. germanKiln
+    local englishText = "There is no " .. englishKiln .. " or " .. englishGrinder .. " close by to work with."
+
+    if staticTool == grinder then
+        staticToolExists = true
+    else
+        for _, kiln in pairs(kilns) do
+            if staticTool == kiln then
+                staticToolExists = true
+            end
+        end
+    end
+
+    if staticToolExists then
+        gemcutting.gemcutting:showDialog(user, sourceItem)
+    else
+        common.HighInformNLS(user, germanText, englishText)
+    end
+
 end
 
 return M

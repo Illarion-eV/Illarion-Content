@@ -20,6 +20,8 @@ local common = require("base.common")
 local gems = require("base.gems")
 local money = require("base.money")
 local glyphs = require("base.glyphs")
+local mining = require("craft.gathering.mining")
+local silkcutting = require("craft.gathering.silkcutting")
 
 local M = {}
 
@@ -46,6 +48,8 @@ GenericDuraEn[3] = {"brand new", "new",   "almost new", "used", "slightly frayed
 GenericDuraEn[4] = {"sparkling", "shiny", "glittery",   "used", "slightly scraped",   "scraped",   "highly scraped",   "old", "tarnished",  "fragile",        "broken"}
 
 local GenericDuraLm = {90, 80, 70, 60, 50, 40, 30, 20, 10, 1, 0}
+
+M.fightingGemBonusDivisionValue = 2 --Changing this might break the gem lookat due to current server limitations
 
 M.NONE = 0
 M.METAL = 1
@@ -75,7 +79,57 @@ ArmourType[ArmorStruct.medium] = {de = "Mittlere R¸stung", en = "Medium Armour",
 ArmourType[ArmorStruct.heavy] = {de = "Schwere R¸stung", en = "Heavy Armour", skill = Character.heavyArmour}
 ArmourType[ArmorStruct.juwellery] = {de = "Schmuck", en = "Jewellery"}
 
+-- Here you can add items that are not part of the armourstruct or weaponstruct but should still show their item level in the lookAt
+-- Input should be a table consisting of {id = theID, skill = theSkill} eg: {id = 3578, skill = "mining", type = {english = "Vein", german = "Ader"}}
+local listOfItemsThatShouldShowLevel = {}
+
+--Adds veins used in mining to list of items that should show level
+for _, oreVein in pairs(mining.oreList) do
+    table.insert(listOfItemsThatShouldShowLevel,{id = oreVein.depletedId, skill = "mining", type = {english = "Vein", german = "Ader"}})
+    table.insert(listOfItemsThatShouldShowLevel,{id = oreVein.id, skill = "mining", type = {english = "Vein", german = "Ader"}})
+end
+
+--Adds silk sources used in silkcutting to list of items that should show level
+for _, silkBush in pairs(silkcutting.silkList) do
+    table.insert(listOfItemsThatShouldShowLevel,{id = silkBush.depletedId, skill = "mining", type = {english = "Butterflies", german = "Schmetterlinge"}})
+    table.insert(listOfItemsThatShouldShowLevel,{id = silkBush.id, skill = "mining", type = {english = "Butterflies", german = "Schmetterlinge"}})
+end
+
+local function showItemLevel(user, itemId, lookat , itemLevel)
+    local showLevel = false
+    local skillName
+    local theTypes
+
+    for _, theItem in pairs(listOfItemsThatShouldShowLevel) do
+        if theItem.id == itemId then
+            showLevel = true
+            skillName = theItem.skill
+            theTypes = theItem.type
+        end
+    end
+
+    if showLevel then
+        local skill = 100
+
+        if skillName then
+            skill = user:getSkill(Character[skillName])
+        end
+
+        local theType = common.GetNLS(user, theTypes.german, theTypes.english)
+
+        lookat.type = theType
+
+        lookat.usable = skill >= itemLevel
+
+        return true, lookat
+    end
+
+    return false
+
+end
+
 function M.GenerateLookAt(user, item, material)
+
     if user == nil then
         debug("Sanity check failed, no valid character supplied.")
         return
@@ -179,12 +233,7 @@ function M.GenerateLookAt(user, item, material)
             end
 
             local qualIndex = 10 - itemQual
-
-            if qualIndex < 1 then
-                qualIndex = 1
-            elseif qualIndex > 10 then
-                qualIndex = 10
-            end
+            qualIndex=common.Limit(qualIndex, 1, 10)
 
             if (isGerman) then
                 lookAt.qualityText = GenericQualDe[qualIndex]
@@ -197,8 +246,6 @@ function M.GenerateLookAt(user, item, material)
             lookAt.durabilityValue = itemDura + 1
         end
 
-        lookAt = AddWeaponOrArmourType(lookAt, user, item.id, level)
-
         lookAt.diamondLevel = GetGemLevel(item, "magicalDiamond")
         lookAt.emeraldLevel = GetGemLevel(item, "magicalEmerald")
         lookAt.rubyLevel = GetGemLevel(item, "magicalRuby")
@@ -206,7 +253,15 @@ function M.GenerateLookAt(user, item, material)
         lookAt.amethystLevel = GetGemLevel(item, "magicalAmethyst")
         lookAt.obsidianLevel = GetGemLevel(item, "magicalObsidian")
         lookAt.topazLevel = GetGemLevel(item, "magicalTopaz")
-        lookAt.bonus = gems.getGemBonus(item)
+        lookAt.bonus = gems.getGemBonusLookAtValue(item)
+
+        lookAt = AddWeaponOrArmourType(lookAt, user, item.id, level, item)
+    end
+
+    local otherItemFound, newLookAt = showItemLevel(user, item.id, lookAt , level)
+
+    if otherItemFound then
+        lookAt = newLookAt
     end
 
     return lookAt
@@ -269,16 +324,20 @@ function TitleCase(name)
     return name:gsub("([%a‰ˆ¸ƒ÷‹])([%w‰ˆ¸ƒ÷‹ﬂ_']*)", tchelper)
 end
 
-function AddWeaponOrArmourType(lookAt, user, itemId, itemLevel)
+function AddWeaponOrArmourType(lookAt, user, itemId, itemLevel, item)
     local armourfound, armour = world:getArmorStruct(itemId)
     local weaponfound, weapon = world:getWeaponStruct(itemId)
 
     if weaponfound then
         lookAt = AddTypeAndUsable(lookAt, user, WeaponType, weapon.WeaponType, itemLevel)
-    else
-        if armourfound then
-            lookAt = AddTypeAndUsable(lookAt, user, ArmourType, armour.Type, itemLevel)
-        end
+    elseif armourfound then
+        lookAt = AddTypeAndUsable(lookAt, user, ArmourType, armour.Type, itemLevel)
+    end
+
+    if (weaponfound or armourfound) and item then --only applicable when not generated from ID
+        local gemBonus = gems.getGemBonusLookAtValue(item)
+        gemBonus = gemBonus/M.fightingGemBonusDivisionValue
+        lookAt.bonus = gemBonus
     end
 
     return lookAt
