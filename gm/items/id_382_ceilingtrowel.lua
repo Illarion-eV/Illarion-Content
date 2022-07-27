@@ -496,7 +496,7 @@ local function changeItemDescriptionGerman(user, TargetItem)
                 newDescription = ""
             end
             if common.IsNilOrEmpty(newDescription) == false then
-                TargetItem:setData("descriptionEn",newDescription)
+                TargetItem:setData("descriptionDe",newDescription)
                 world:changeItem(TargetItem)
                 user:inform("German description of "..world:getItemName(TargetItem.id, Player.english).." set to: " ..newDescription)
                 user:logAdmin("changed German description of "..world:getItemName(TargetItem.id, Player.english).." to: " ..newDescription)
