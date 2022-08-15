@@ -25,9 +25,9 @@ local parchmentSelectionStatus = {}
 local M = {}
 
 
-local function spawnParchment(user, text, signature, descriptionEn, descriptionDe)
+local function spawnParchment(user, texts, signature, descriptionEn, descriptionDe)
 
-    local theDataTable = {["writtenText"] = text, ["signatureText"]  = signature, ["descriptionEn"] = descriptionEn, ["descriptionDe"] = descriptionDe}
+    local theDataTable = {["writtenText"] = texts[1],["writtenText2"] = texts[2],["writtenText3"] = texts[3],["writtenText4"] = texts[4], ["signatureText"]  = signature, ["descriptionEn"] = descriptionEn, ["descriptionDe"] = descriptionDe}
 
     local itemCreated = user:createItem(Item.parchment, 1, 999, theDataTable)
 
@@ -54,13 +54,17 @@ function M.sendStoredMessages(recipient)
     recipient:inform("Ein Bote bringt dir "..numberOfMessages.." Nachrichten und verschwindet wieder, so schnell er gekommen ist.", "A messenger comes up to you, delivering "..numberOfMessages.." "..parchments.." before scurrying off.")
 
     for i = 1, tonumber(numberOfMessages) do
-        local foundText, text = ScriptVars:find(recipient.id.."storedMessageText"..i)
+        local foundText1, text1 = ScriptVars:find(recipient.id.."storedMessageText"..i)
+        local foundText2, text2 = ScriptVars:find(recipient.id.."storedMessageText2"..i)
+        local foundText3, text3 = ScriptVars:find(recipient.id.."storedMessageText3"..i)
+        local foundText4, text4 = ScriptVars:find(recipient.id.."storedMessageText4"..i)
         local foundSignature, signature = ScriptVars:find(recipient.id.."storedMessageSignature"..i)
         local foundDescriptionEn, descriptionEn = ScriptVars:find(recipient.id.."storedMessageDescriptionEn"..i)
         local foundDescriptionDe, descriptionDe = ScriptVars:find(recipient.id.."storedMessageDescriptionDe"..i)
 
-        if foundText and foundSignature and foundDescriptionEn and foundDescriptionDe then
-            spawnParchment(recipient, text, signature, descriptionEn, descriptionDe)
+        if foundText1 and foundText2 and foundText3 and foundText4 and foundSignature and foundDescriptionEn and foundDescriptionDe then
+            local texts = {text1, text2, text3, text4}
+            spawnParchment(recipient, texts, signature, descriptionEn, descriptionDe)
         end
     end
 
@@ -124,7 +128,7 @@ local function isRecipientCharacterOnline(recipient)
 
 end
 
-local function storeMessageInDatabase(user, writtenText, signatureText, descriptionDe, descriptionEn, recipient)
+local function storeMessageInDatabase(user, writtenTexts, signatureText, descriptionDe, descriptionEn, recipient)
 
     local foundStoredMessages, numberOfAlreadyStoredMessages = ScriptVars:find(recipient.."storedMessages")
 
@@ -135,7 +139,10 @@ local function storeMessageInDatabase(user, writtenText, signatureText, descript
     local messageNumber = tonumber(numberOfAlreadyStoredMessages) + 1
 
     ScriptVars:set(recipient.."storedMessages", tostring(messageNumber))
-    ScriptVars:set(recipient.."storedMessageText"..messageNumber, writtenText)
+    ScriptVars:set(recipient.."storedMessageText"..messageNumber, writtenTexts[1])
+    ScriptVars:set(recipient.."storedMessageText2"..messageNumber, writtenTexts[2])
+    ScriptVars:set(recipient.."storedMessageText3"..messageNumber, writtenTexts[3])
+    ScriptVars:set(recipient.."storedMessageText4"..messageNumber, writtenTexts[4])
     ScriptVars:set(recipient.."storedMessageSignature"..messageNumber, signatureText)
     ScriptVars:set(recipient.."storedMessageDescriptionEn"..messageNumber, descriptionEn)
     ScriptVars:set(recipient.."storedMessageDescriptionDe"..messageNumber, descriptionDe)
@@ -146,7 +153,7 @@ local function storeMessageInDatabase(user, writtenText, signatureText, descript
 
 end
 
-local function isParchmentStillViable(user, signatureText, writtenText)
+local function isParchmentStillViable(user, signatureText, writtenTexts)
 
     for i = 1, 6 do
         local possibleParchment = user:getItemAt(Character["belt_pos_"..i])
@@ -155,7 +162,7 @@ local function isParchmentStillViable(user, signatureText, writtenText)
             local selectedParchmentText = possibleParchment:getData("writtenText")
             local selectedParchmentSignature = possibleParchment:getData("signatureText")
 
-            if selectedParchmentText == writtenText and selectedParchmentSignature == signatureText then
+            if selectedParchmentText == writtenTexts[1] and selectedParchmentSignature == signatureText then
                 return possibleParchment
             end
         end
@@ -167,7 +174,7 @@ local function isParchmentStillViable(user, signatureText, writtenText)
 
 end
 
-local function payMoney(user, writtenText, signatureText, descriptionDe, descriptionEn, recipient)
+local function payMoney(user, writtenTexts, signatureText, descriptionDe, descriptionEn, recipient)
 
     local hasMoney = money.CharHasMoney(user, price)
 
@@ -182,7 +189,7 @@ local function payMoney(user, writtenText, signatureText, descriptionDe, descrip
 
     money.TakeMoneyFromChar(user, price)
 
-    local parchment = isParchmentStillViable(user, signatureText, writtenText)
+    local parchment = isParchmentStillViable(user, signatureText, writtenTexts)
 
     if not parchment then
         return
@@ -190,7 +197,7 @@ local function payMoney(user, writtenText, signatureText, descriptionDe, descrip
 
     world:erase(parchment, 1)
 
-    storeMessageInDatabase(user, writtenText, signatureText, descriptionDe, descriptionEn, recipient)
+    storeMessageInDatabase(user, writtenTexts, signatureText, descriptionDe, descriptionEn, recipient)
 
     user:inform("Du zahlst "..(price/100).." Silberstücke und ein Bote macht sich mit deiner Nachricht auf den Weg.", "Having paid the "..(price/100).." silver fee, a messenger is dispatched with your letter.")
 end
@@ -207,7 +214,7 @@ function M.getParchmentSelectionStatus(user)
     return parchmentSelectionStatus[user.id].status
 end
 
-local function writeRecipientName(user, writtenText, signatureText, descriptionDe, descriptionEn)
+local function writeRecipientName(user, writtenTexts, signatureText, descriptionDe, descriptionEn)
 
     local callback = function(dialog)
         if not dialog:getSuccess() then
@@ -223,12 +230,12 @@ local function writeRecipientName(user, writtenText, signatureText, descriptionD
             return
         end
 
-        payMoney(user, writtenText, signatureText, descriptionDe, descriptionEn, recipientId)
+        payMoney(user, writtenTexts, signatureText, descriptionDe, descriptionEn, recipientId)
     end
 
     local dialog = InputDialog(common.GetNLS(user, "Empfänger", "Enter Recipient"), common.GetNLS(user, "An wen soll der Bote die Nachricht liefern?", "The messenger needs the name of the intended recipient."), false, 255, callback)
 
-    if not isParchmentStillViable(user, signatureText, writtenText) then
+    if not isParchmentStillViable(user, signatureText, writtenTexts) then
         return
     end
 
@@ -236,15 +243,19 @@ local function writeRecipientName(user, writtenText, signatureText, descriptionD
 end
 
 function M.verifyParchment(user, parchment)
-    local writtenText = parchment:getData("writtenText")
+    local writtenText1 = parchment:getData("writtenText")
+    local writtenText2 = parchment:getData("writtenText2")
+    local writtenText3 = parchment:getData("writtenText3")
+    local writtenText4 = parchment:getData("writtenText4")
+    local writtenTexts = {writtenText1, writtenText2, writtenText3, writtenText4}
     local signatureText = parchment:getData("signatureText")
     local descriptionDe = parchment:getData("descriptionDe")
     local descriptionEn = parchment:getData("descriptionEn")
 
     parchmentSelectionStatus[user.id].status = false
 
-    if writtenText ~= "" and signatureText ~= "" then
-        writeRecipientName(user, writtenText, signatureText, descriptionDe, descriptionEn)
+    if writtenText1 ~= "" and signatureText ~= "" then
+        writeRecipientName(user, writtenTexts, signatureText, descriptionDe, descriptionEn)
     else
         user:inform("Der Bote weist deine Nachricht zurück. Sie muss beschriftet und signiert sein.", "The messenger won't accept this parchment. It has to be both written and signed using a quill.")
     end
