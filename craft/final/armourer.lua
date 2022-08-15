@@ -830,7 +830,7 @@ product:addIngredient(285, 1) -- diamond
 product:addIngredient(2552, 1) -- pure earth
 
 -- Repair Kits
-catId = armourer:addCategory("Armour Mending Kits", "GERMAN TRANSLATION HERE")
+catId = armourer:addCategory("Armour Mending Kits", "Reparatursätze für Rüstungen")
 
 -- Basic
 product = armourer:addProduct(catId, 4044, 1)

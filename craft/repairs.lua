@@ -309,10 +309,10 @@ local function getRepairAmount(user, theItem, staticTool, repairCount)
     end
 
     if repairCount >= maxRepairs then
-        local germanText = "GERMAN TRANSLATION"
+        local germanText = itemCommon.German.." ist durch deine Reparaturversuche schon so abgenutzt, dass eine weitere Instandsetzung außerhalb einer Werkstatt nutzlos wären."
         local englishText = "The "..itemCommon.English.." is so worn down by all your repairs that any further repair work while out in the field would surely be pointless."
         if staticTool then
-            germanText = "GERMAN TRANSLATION"
+            germanText = itemCommon.German.." ist nun sowas von verfrickelt, dass ein weiterer Reparaturversuch besser von einem Fachmann durchgeführt werden sollte."
             englishText = "You've made too many attempts at repairing the "..itemCommon.English.." to the point where any further repair will require a proportionately skilled craftsman."
         end
         user:inform(germanText, englishText)
@@ -332,11 +332,11 @@ local function getRepairAmount(user, theItem, staticTool, repairCount)
     local increasedCount = math.floor(durabilityIncreasedBy/10)
 
     if maxDurability <= durability then
-        local germanText = "GERMAN TRANSLATION"
+        local germanText = itemCommon.German.." wurde zu oft außerhalb einer Werkstatt repariert und kann nicht weiter instand gesetzt werden."
         local englishText = "You've previously done too many repairs to the "..itemCommon.English.." to increase the durability any further than it already is, at least while out in the field."
 
         if staticTool then
-            germanText = "GERMAN TRANSLATION"
+            germanText = itemCommon.German.." wurde zu oft von ungeschickten Händen repariert und um weiter instand gesetzt zu werden sollte ein Fachmann übernehmen."
             englishText = "You've previously done too many repairs to the "..itemCommon.English.." to increase the durability any further than it already is. If you want to increase the durability even further, you'll have to seek out a proportionately skilled craftsman."
         end
 
@@ -437,10 +437,10 @@ local function repairItem(user, theRepairKit)
 
     common.setItemQualityDurability(item, tonumber(quality), tonumber(repairAmount))
 
-    local germanText = "GERMAN TRANSLATION HERE"
+    local germanText = "Du benutzt "..commonRepairKit.German.." um "..commonItem.German.." so gut es geht instand zu setzen."
     local englishText = "You use up the "..commonRepairKit.English.." to repair the "..commonItem.English.." as best as you can."
         if recovered then
-            germanText = germanText.."GERMAN TRANSLATION HERE"
+            germanText = germanText.." Mit Erfahrung und geschickter Hand gelingt es dir, den Pfusch, den ein anderer angerichtet hat, auszubessern. Die Qualität des Gegenstandes steigt."
             englishText = englishText.." Through your skill and expertise, you manage to recover some of the quality previously lost at the hands of an inferior craftsman."
         end
     user:inform(germanText, englishText)
@@ -529,7 +529,7 @@ local function selectItemToRepair(user, repairKit, actionState)
     end
     if #itemsOnChar == 0 then --nothing to repair
         user:inform(common.GetNLS(user,
-        "GERMAN TRANSLATION HERE",
+        "Bei dir gibt's nichts zu reparieren. Es können nur ausgerüstete Gegenstände im Inventar oder im Gürtel repariert werden.",
         "You have nothing left to repair. Items you want to repair must be equipped, in your hands or in one of your belt slots."))
         return
     end
@@ -568,7 +568,7 @@ end
 function M.UseItem(user, repairKit, actionState)
 
     if not isRepairKitInHand(user, repairKit) then
-        user:inform("GERMAN TRANSLATION HERE", "You must hold the repair kit in your hands in order to use it.")
+        user:inform("Du musst den Reparatursatz in den Händen halten.", "You must hold the repair kit in your hands in order to use it.")
         return
     end
 
@@ -577,13 +577,13 @@ function M.UseItem(user, repairKit, actionState)
     elseif actionState == Action.success then
         repairItem(user, repairKit)
     elseif actionState == Action.abort then
-        user:inform("GERMAN TRANSLATION HERE", "You interrupt the ongoing repairs.")
+        user:inform("Du unterbrichst deinen Reparaturversuch.", "You interrupt the ongoing repairs.")
     end
 
 end
 
 function M.actionDisturbed(user, attacker)
-    user:inform("GERMAN TRANSLATION HERE", "You should find somewhere safe from enemies before attempting to repair something.")
+    user:inform("Nicht recht sicher hier, such dir lieber einen geschützten Ort zum Reparieren.", "You should find somewhere safe from enemies before attempting to repair something.")
 end
 
 return M

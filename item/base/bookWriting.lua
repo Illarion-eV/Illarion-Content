@@ -44,7 +44,7 @@ local function isBookInHand(user)
                     local bookPermissions = book:getData("bookPermissions")
 
                     if not common.IsNilOrEmpty(book:getData("book")) or (not common.IsNilOrEmpty(bookPermissions) and tonumber(bookPermissions) ~= user.id) then --is it an official book already or a book written by someone else
-                        user:inform("GERMAN TRANSLATION", "This is a book that's already been written, and by a different author. It's not your place to write in it..")
+                        user:inform("Dieses Buch wurde von einem anderen Verfasser geschrieben. Bitte kritzel nicht in ihm herum.", "This is a book that's already been written, and by a different author. It's not your place to write in it.")
                         return false
                     end
 
@@ -54,7 +54,7 @@ local function isBookInHand(user)
         end
     end
 
-    user:inform("GERMAN TRANSLATION", "You must hold a book in your hand if you want to write in it.")
+    user:inform("Nimm das Buch in die Hand um in ihm zu schreiben.", "You must hold a book in your hand if you want to write in it.")
     return false
 
 end
@@ -93,19 +93,19 @@ function M.writeBook(user)
         end
     end
 
-    local dialog = SelectionDialog(common.GetNLS(user,"GERMAN TRANSLATION","Book Writing") , common.GetNLS(user,"Wähle aus, was du machen willst.","Select what you want to do.") , callback)
+    local dialog = SelectionDialog(common.GetNLS(user,"Verfasse ein Buch","Book Writing") , common.GetNLS(user,"Wähle aus, was du machen willst.","Select what you want to do.") , callback)
 
-    dialog:addOption(0, common.GetNLS(user,"GERMAN TRANSLATION","Set Book Title"))
-    dialog:addOption(0, common.GetNLS(user,"GERMAN TRANSLATION","Add New Page"))
-    dialog:addOption(0, common.GetNLS(user,"GERMAN TRANSLATION","Remove Last Page"))
-    dialog:addOption(0, common.GetNLS(user,"GERMAN TRANSLATION","Sign Book"))
+    dialog:addOption(0, common.GetNLS(user,"Buchtitel","Set Book Title"))
+    dialog:addOption(0, common.GetNLS(user,"Neue Seite","Add New Page"))
+    dialog:addOption(0, common.GetNLS(user,"Entferne die letzte Seite","Remove Last Page"))
+    dialog:addOption(0, common.GetNLS(user,"Buch signieren","Sign Book"))
 
     user:requestSelectionDialog(dialog)
 end
 
 function setTitle(user)
 
-    local title = common.GetNLS(user, "GERMAN TRANSLATION", "Set Title")
+    local title = common.GetNLS(user, "Buchtitel", "Set Title")
 
     local callback = function(dialog)
         if not dialog:getSuccess() then
@@ -115,12 +115,12 @@ function setTitle(user)
         local input = dialog:getInput()
 
         if common.IsNilOrEmpty(input) then
-            user:inform("GERMAN TRANSLATION", "The title can not be left blank.")
+            user:inform("Ein Buch ohne Titel ist wie eine Seite ohne Buchstaben.", "The title can not be left blank.")
             return
         end
 
         if string.len(input) > 40 then
-            user:inform("GERMAN TRANSLATION", "The cover of the book is not large enough to fit such a long title.")
+            user:inform("Bei dieser Titellänge hast du es etwas übertrieben.", "The cover of the book is not large enough to fit such a long title.")
             return
         end
 
@@ -133,7 +133,7 @@ function setTitle(user)
         book:setData("bookTitle", input)
         world:changeItem(book)
 
-        user:inform("GERMAN TRANSLATION", "You set the title of the book to "..input..".")
+        user:inform("Neuer Buchtitel: "..input..".", "You set the title of the book to "..input..".")
     end
 
     local dialog = InputDialog(title, "", false, 40, callback)
@@ -150,7 +150,7 @@ function selectNewPage(user)
         parchmentSelectionStatus[user.name].status = true
         parchmentSelectionStatus[user.name].position = user.pos
 
-    user:inform("GERMAN TRANSLATION", "Select the parchment you want to add to the book as a page.")
+    user:inform("Welche Schriftrolle möchtest du dem Buch als Seite hinzufügen?", "Select the parchment you want to add to the book as a page.")
 end
 
 
@@ -172,7 +172,7 @@ function M.addNewPageToBook(user, sourceItem)
     parchmentSelectionStatus[user.name].status = false
 
     if sourceItem.wear == 255 then
-        user:inform("GERMAN TRANSLATION", "You can't add this page to the book, it's been pinned down!")
+        user:inform("Diesem Buch kannst du keine Seiten hinzufügen.", "You can't add this page to the book, it's been pinned down!")
         return
     end
 
@@ -185,7 +185,7 @@ function M.addNewPageToBook(user, sourceItem)
     local pageText = getWrittenTextFromParchment(sourceItem)
 
     if not pageText then
-        user:inform("GERMAN TRANSLATION", "The parchment must have been written on.")
+        user:inform("Auf der Schriftrolle steht nichts.", "The parchment must have been written on.")
     end
 
     local lastPage = book:getData("pageCount")
@@ -219,7 +219,7 @@ function M.addNewPageToBook(user, sourceItem)
 
     world:erase(sourceItem, 1)
 
-    user:inform("GERMAN TRANSLATION", "You added the selected parchment to the book.")
+    user:inform("Seite hinzugefügt.", "You added the selected parchment to the book.")
 
 end
 
@@ -255,7 +255,7 @@ function removePage(user, book)
 
     world:changeItem(book)
 
-    user:inform("GERMAN TRANSLATION", "Carefully removing the page from the book, you are left with a written parchment.")
+    user:inform("Du reißt die Seite vorsichtig aus dem Buch.", "Carefully removing the page from the book, you are left with a written parchment.")
 
 end
 
@@ -266,7 +266,7 @@ function signBook(user, book)
 
     world:changeItem(book)
 
-    user:inform("GERMAN TRANSLATION", "You sign the book. From now on, only you have the permission to write in the book.")
+    user:inform("Du hast das Buch signiert. Nur noch du kannst Änderungen an ihm vornehmen.", "You sign the book. From now on, only you have the permission to write in the book.")
 
 end
 

@@ -51,7 +51,7 @@ function M.sendStoredMessages(recipient)
         parchments = "parchment"
     end
 
-    recipient:inform("GERMAN TRANSLATION HERE", "A messenger comes up to you, delivering "..numberOfMessages.." "..parchments.." before scurrying off.")
+    recipient:inform("Ein Bote bringt dir "..numberOfMessages.." Nachrichten und verschwindet wieder, so schnell er gekommen ist.", "A messenger comes up to you, delivering "..numberOfMessages.." "..parchments.." before scurrying off.")
 
     for i = 1, tonumber(numberOfMessages) do
         local foundText, text = ScriptVars:find(recipient.id.."storedMessageText"..i)
@@ -104,7 +104,7 @@ local function alreadySentTooManyMessages(user, recipient)
     end
 
     if messageCount >= 3 then
-        user:inform("GERMAN TRANSLATION", "You've already sent that person three messages. Please wait for them to receive those before trying to send more.")
+        user:inform("Du hast diesem Empfänger schon drei Nachrichten geschickt. Lass ihn doch erstmal lesen, was du geschrieben hast.", "You've already sent that person three messages. Please wait for them to receive those before trying to send more.")
         return true
     end
 
@@ -161,7 +161,7 @@ local function isParchmentStillViable(user, signatureText, writtenText)
         end
     end
 
-    user:inform("GERMAN TRANSLATION", "The selected parchment must be in your belt.")
+    user:inform("Die Schriftrolle muss sich in deinem Gürtel befinden.", "The selected parchment must be in your belt.")
 
     return false
 
@@ -172,7 +172,7 @@ local function payMoney(user, writtenText, signatureText, descriptionDe, descrip
     local hasMoney = money.CharHasMoney(user, price)
 
     if not hasMoney then
-        user:inform("GERMAN TRANSLATION", "You can't afford that.")
+        user:inform("Das kannst du dir nicht leisten.", "You can't afford that.")
         return
     end
 
@@ -192,7 +192,7 @@ local function payMoney(user, writtenText, signatureText, descriptionDe, descrip
 
     storeMessageInDatabase(user, writtenText, signatureText, descriptionDe, descriptionEn, recipient)
 
-    user:inform("GERMAN TRANSLATION HERE", "Having paid the "..(price/100).." silver fee, a messenger is dispatched with your letter.")
+    user:inform("Du zahlst "..(price/100).." Silberstücke und ein Bote macht sich mit deiner Nachricht auf den Weg.", "Having paid the "..(price/100).." silver fee, a messenger is dispatched with your letter.")
 end
 
 function M.getParchmentSelectionStatus(user)
@@ -219,14 +219,14 @@ local function writeRecipientName(user, writtenText, signatureText, descriptionD
         local recipientExists, recipientId = world:getPlayerIdByName(input)
 
         if not recipientExists then
-            user:inform("GERMAN TRANSLATION", "No recipient by that name exists.")
+            user:inform("Unbekannter Adressat.", "No recipient by that name exists.")
             return
         end
 
         payMoney(user, writtenText, signatureText, descriptionDe, descriptionEn, recipientId)
     end
 
-    local dialog = InputDialog(common.GetNLS(user, "GERMAN TRANSLATION HERE", "Enter Recipient"), common.GetNLS(user, "GERMAN TRANSLATION HERE", "The messenger needs the name of the intended recipient."), false, 255, callback)
+    local dialog = InputDialog(common.GetNLS(user, "Empfänger", "Enter Recipient"), common.GetNLS(user, "An wen soll der Bote die Nachricht liefern?", "The messenger needs the name of the intended recipient."), false, 255, callback)
 
     if not isParchmentStillViable(user, signatureText, writtenText) then
         return
@@ -246,14 +246,14 @@ function M.verifyParchment(user, parchment)
     if writtenText ~= "" and signatureText ~= "" then
         writeRecipientName(user, writtenText, signatureText, descriptionDe, descriptionEn)
     else
-        user:inform("GERMAN TRANSLATION HERE", "The messenger won't accept this parchment. It has to be both written and signed using a quill.")
+        user:inform("Der Bote weist deine Nachricht zurück. Sie muss beschriftet und signiert sein.", "The messenger won't accept this parchment. It has to be both written and signed using a quill.")
     end
 
 end
 
 function M.messengerRequested(user)
 
-    user:inform("GERMAN TRANSLATION HERE", "Select the parchment you wish to send by double clicking it. It must be a written and signed parchment for it to be sent. Do also bear in mind that it costs "..(price/100).." silver coins to send a message using this service.")
+    user:inform("Wähle die Schriftrolle, die du verschicken möchtest, mit einem Doppelklick. Nur beschriebene und unterzeichnete Schriftrollen können verschickt werden. Diese Dienstleistung kostet "..(price/100).." Silberstücke.", "Select the parchment you wish to send by double clicking it. It must be a written and signed parchment for it to be sent. Do also bear in mind that it costs "..(price/100).." silver coins to send a message using this service.")
 
     if not parchmentSelectionStatus[user.id] then
         parchmentSelectionStatus[user.id] = {}

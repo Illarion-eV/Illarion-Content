@@ -591,7 +591,7 @@ product:addIngredient(452, 1) -- diamond powder
 product:addIngredient(236, 2) -- gold ingot
 
 -- Repair kits
-catId = blacksmithing:addCategory("Sharpening Kits", "GERMAN TRANSLATION HERE")
+catId = blacksmithing:addCategory("Sharpening Kits", "Wetzsteinsätze")
 
 -- Basic Sharpening Kit
 product = blacksmithing:addProduct(catId, 4022, 1)

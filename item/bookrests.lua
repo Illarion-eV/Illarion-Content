@@ -320,7 +320,7 @@ function showBulletinBoard(user, theItem)
         { icon = 0, text = common.GetNLS(user, "Nachrichten lesen", "Read messages"), func = readBulletinBoard, args = { user } },
         { icon = 0, text = common.GetNLS(user, "Nachricht schreiben", "Write new message"), func = writeBulletinBoard, args = { user, theItem } },
         { icon = 0, text = common.GetNLS(user, "Nachricht entfernen", "Remove a message"), func = removeFromBulletinBoard, args = { user, theItem } },
-        { icon = 0, text = common.GetNLS(user, "GERMAN TRANSLATION HERE", "Hire a messenger"), func = messenger.messengerRequested, args = { user } }
+        { icon = 0, text = common.GetNLS(user, "Schicke einen Boten", "Hire a messenger"), func = messenger.messengerRequested, args = { user } }
     }
 
     local dialogTitle = common.GetNLS(user, "Anschlagtafel", "Bulletin board")

@@ -69,10 +69,10 @@ function readBook(user, book, atPage)
 
     local text = getPageTextFromBook(book, page)
 
-    text = text.."\n\n"..common.GetNLS(user, "GERMAN TRANSLATION", "Page "..tostring(page).." out of "..tostring(maxPage))
+    text = text.."\n\n"..common.GetNLS(user, "Seite "..tostring(page).." von "..tostring(maxPage), "Page "..tostring(page).." out of "..tostring(maxPage))
 
     if not common.IsNilOrEmpty(author) and page == 1 then
-        text = common.GetNLS(user, "GERMAN TRANSLATION"..author, "Authored by: "..author).."\n\n"..text
+        text = common.GetNLS(user, "Verfasst von: "..author, "Authored by: "..author).."\n\n"..text
     end
 
     local callback = function(dialog)
@@ -103,11 +103,11 @@ function readBook(user, book, atPage)
     local artificalWidener = "                                                  "
 
     if page > 1 then
-        dialog:addOption(0, artificalWidener..common.GetNLS(user, "GERMAN TRANSLATION", "Previous page"..artificalWidener))
+        dialog:addOption(0, artificalWidener..common.GetNLS(user, "Vorherige Seite"..artificalWidener, "Previous page"..artificalWidener))
     end
 
     if maxPage > page then
-        dialog:addOption(0, artificalWidener..common.GetNLS(user, "GERMAN TRANSLATION", "Next page"..artificalWidener))
+        dialog:addOption(0, artificalWidener..common.GetNLS(user, "Nächste Seite"..artificalWidener, "Next page"..artificalWidener))
     end
 
     if page == 1 and maxPage == page then

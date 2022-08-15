@@ -328,7 +328,7 @@ function M.UseItem(User, SourceItem, ltstate)
     dialog:addOption(0, getText(User,"Flaschenetikett entfernen","Remove label of a bottle"))
     dialog:addOption(0, getText(User,"Pergament beschreiben","Write a parchment"))
     dialog:addOption(0, getText(User,"Pergament unterschreiben","Sign a parchment"))
-    dialog:addOption(0, getText(User, "GERMAN TRANSLATION", "Author a book"))
+    dialog:addOption(0, getText(User, "Buch verfassen", "Author a book"))
 
     User:requestSelectionDialog(dialog)
 end

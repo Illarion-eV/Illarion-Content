@@ -244,7 +244,7 @@ product:addIngredient(545, 2) -- cherry wood boards
 product:addIngredient(2530, 1) -- dagger handle
 
 -- Repair Kits
-catId = planing:addCategory("Wood Waxing Kits", "GERMAN TRANSLATION HERE")
+catId = planing:addCategory("Wood Waxing Kits", "Polituren")
 
 -- Basic
 product = planing:addProduct(catId, 4055, 1)
@@ -303,6 +303,7 @@ product:addIngredient(2537, 1) -- iron plate
 product:addIngredient(63, 2) -- entrails
 product:addIngredient(3786, 2) -- heartwood
 product:addIngredient(431, 4) -- wax
+
 -- Artisan
 product = planing:addProduct(catId, 4063, 1)
 product:addIngredient(546, 4) -- naldor wood boards
@@ -310,6 +311,7 @@ product:addIngredient(2537, 1) -- iron plate
 product:addIngredient(63, 2) -- entrails
 product:addIngredient(3786, 3) -- heartwood
 product:addIngredient(431, 4) -- wax
+
 -- Master
 product = planing:addProduct(catId, 4064, 1)
 product:addIngredient(546, 4) -- naldor wood boards

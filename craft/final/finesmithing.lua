@@ -401,7 +401,7 @@ product:addIngredient(2550, 3) -- copper ingot
 
 --Repair Kits
 
-catId = finesmithing:addCategory("Gem Polishing Kits", "GERMAN TRANSLATION HERE")
+catId = finesmithing:addCategory("Gem Polishing Kits", "Juwelenpolitur")
 
 -- Basic Gem Polishing Kit
 product = finesmithing:addProduct(catId, 4033, 1)
