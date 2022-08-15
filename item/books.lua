@@ -107,7 +107,7 @@ function readBook(user, book, atPage)
     end
 
     if maxPage > page then
-        dialog:addOption(0, artificalWidener..common.GetNLS(user, "NÃ¤chste Seite"..artificalWidener, "Next page"..artificalWidener))
+        dialog:addOption(0, artificalWidener..common.GetNLS(user, "Nächste Seite"..artificalWidener, "Next page"..artificalWidener))
     end
 
     if page == 1 and maxPage == page then

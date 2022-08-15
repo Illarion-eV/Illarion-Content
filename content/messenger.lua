@@ -108,7 +108,7 @@ local function alreadySentTooManyMessages(user, recipient)
     end
 
     if messageCount >= 3 then
-        user:inform("Du hast diesem EmpfÃ¤nger schon drei Nachrichten geschickt. Lass ihn doch erstmal lesen, was du geschrieben hast.", "You've already sent that person three messages. Please wait for them to receive those before trying to send more.")
+        user:inform("Du hast diesem Empfänger schon drei Nachrichten geschickt. Lass ihn doch erstmal lesen, was du geschrieben hast.", "You've already sent that person three messages. Please wait for them to receive those before trying to send more.")
         return true
     end
 
@@ -168,7 +168,7 @@ local function isParchmentStillViable(user, signatureText, writtenTexts)
         end
     end
 
-    user:inform("Die Schriftrolle muss sich in deinem GÃ¼rtel befinden.", "The selected parchment must be in your belt.")
+    user:inform("Die Schriftrolle muss sich in deinem Gürtel befinden.", "The selected parchment must be in your belt.")
 
     return false
 
@@ -199,7 +199,7 @@ local function payMoney(user, writtenTexts, signatureText, descriptionDe, descri
 
     storeMessageInDatabase(user, writtenTexts, signatureText, descriptionDe, descriptionEn, recipient)
 
-    user:inform("Du zahlst "..(price/100).." SilberstÃ¼cke und ein Bote macht sich mit deiner Nachricht auf den Weg.", "Having paid the "..(price/100).." silver fee, a messenger is dispatched with your letter.")
+    user:inform("Du zahlst "..(price/100).." Silberstücke und ein Bote macht sich mit deiner Nachricht auf den Weg.", "Having paid the "..(price/100).." silver fee, a messenger is dispatched with your letter.")
 end
 
 function M.getParchmentSelectionStatus(user)
@@ -233,7 +233,7 @@ local function writeRecipientName(user, writtenTexts, signatureText, description
         payMoney(user, writtenTexts, signatureText, descriptionDe, descriptionEn, recipientId)
     end
 
-    local dialog = InputDialog(common.GetNLS(user, "EmpfÃ¤nger", "Enter Recipient"), common.GetNLS(user, "An wen soll der Bote die Nachricht liefern?", "The messenger needs the name of the intended recipient."), false, 255, callback)
+    local dialog = InputDialog(common.GetNLS(user, "Empfänger", "Enter Recipient"), common.GetNLS(user, "An wen soll der Bote die Nachricht liefern?", "The messenger needs the name of the intended recipient."), false, 255, callback)
 
     if not isParchmentStillViable(user, signatureText, writtenTexts) then
         return
@@ -257,14 +257,14 @@ function M.verifyParchment(user, parchment)
     if writtenText1 ~= "" and signatureText ~= "" then
         writeRecipientName(user, writtenTexts, signatureText, descriptionDe, descriptionEn)
     else
-        user:inform("Der Bote weist deine Nachricht zurÃ¼ck. Sie muss beschriftet und signiert sein.", "The messenger won't accept this parchment. It has to be both written and signed using a quill.")
+        user:inform("Der Bote weist deine Nachricht zurück. Sie muss beschriftet und unterschrieben sein.", "The messenger won't accept this parchment. It has to be both written and signed using a quill.")
     end
 
 end
 
 function M.messengerRequested(user)
 
-    user:inform("WÃ¤hle die Schriftrolle, die du verschicken mÃ¶chtest, mit einem Doppelklick. Nur beschriebene und unterzeichnete Schriftrollen kÃ¶nnen verschickt werden. Diese Dienstleistung kostet "..(price/100).." SilberstÃ¼cke.", "Select the parchment you wish to send by double clicking it. It must be a written and signed parchment for it to be sent. Do also bear in mind that it costs "..(price/100).." silver coins to send a message using this service.")
+    user:inform("Wähle die Schriftrolle, die du verschicken möchtest, mit einem Doppelklick. Nur beschriebene und unterzeichnete Schriftrollen können verschickt werden. Diese Dienstleistung kostet "..(price/100).." Silberstücke.", "Select the parchment you wish to send by double clicking it. It must be a written and signed parchment for it to be sent. Do also bear in mind that it costs "..(price/100).." silver coins to send a message using this service.")
 
     if not parchmentSelectionStatus[user.id] then
         parchmentSelectionStatus[user.id] = {}
