@@ -244,7 +244,7 @@ product:addIngredient(545, 2) -- cherry wood boards
 product:addIngredient(2530, 1) -- dagger handle
 
 -- Repair Kits
-catId = planing:addCategory("Wood Waxing Kits", "Polituren")
+catId = planing:addCategory("Wood Waxing Kits", "Holzpolituren")
 
 -- Basic
 product = planing:addProduct(catId, 4055, 1)
