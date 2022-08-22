@@ -52,7 +52,7 @@ function M.UseItem(user, sourceItem, actionState)
         alchemy.FillIntoCauldron(user,sourceItem,cauldron,actionState)
 
     else -- not infront of a cauldron, therefore drink!
-        user:talk(Character.say, "#me GERMAN TRANSLATION.", "#me applies a salve from a jar.")
+        user:talk(Character.say, "#me trägt eine Salbe aus einem Glas auf.", "#me applies a salve from a jar.")
         user.movepoints = user.movepoints - 20
         applySalve(user, sourceItem) -- call effect
         alchemy.EmptyBottle(user, sourceItem)

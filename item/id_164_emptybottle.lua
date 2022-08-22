@@ -112,7 +112,7 @@ end
 function M.FillIntoBottle(user, SourceItem, cauldron)
 
     if cauldron:getData("filledWith") == "salve" then
-        user:inform("GERMAN TRANSLATION", "The liquid in the cauldron is way too thick. You'll need an empty salve jar here, not a potion bottle.")
+        user:inform("Die Flüssigkeit im Kessel ist viel zu dick. Du brauchst ein leeres Salbengefäß, keine Zaubertrankflasche", "The liquid in the cauldron is way too thick. You'll need an empty salve jar here, not a potion bottle.")
         return
     end
 

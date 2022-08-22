@@ -78,7 +78,7 @@ function M.FirstMenu(User, ListOfIngredients)
     dialog:addOption(0, getText("Edelsteinstaub", "Gem powder"))
     dialog:addOption(0, getText("Kessel befüllen","Fill into the cauldron"))
     dialog:addOption(0, getText("Kesselinhalt abfüllen","Bottle cauldron content"))
-    dialog:addOption(0, getText("GERMAN TRANSLATION","Jar cauldron content"))
+    dialog:addOption(0, getText("In eine Dose füllen","Fill into a jar"))
     dialog:addOption(0, getText("Letzte Zutat entfernen","Remove last ingredient"))
     dialog:addOption(0, getText("Rezept betrachten","Show recipe"))
     dialog:addOption(0, getText("Rezept fertigstellen","Finish recipe"))
@@ -244,7 +244,7 @@ function jarCauldronContent(user, ingredients)
         return
     end
     AddToRecipe(ingredients, "jar")
-    user:inform("Wurde dem Rezept hinzugefügt: GERMAN TRANSLATION", "Added to the recipe: Fill into jar",Character.lowPriority)
+    user:inform("Wurde dem Rezept hinzugefügt: In eine Dose füllen", "Added to the recipe: Fill into jar",Character.lowPriority)
     M.FirstMenu(user, ingredients)
 end
 
@@ -531,7 +531,7 @@ function M.ShowRecipe(User, ListOfIngredients, notMenu)
                 if string.find(ListOfIngredients[i],"bottle") then
                     dialog:addOption(164, getText(counter..". Abfüllen",counter..". Bottling"))
                 elseif string.find(ListOfIngredients[i], "jar") then
-                    dialog:addOption(3643, getText(counter..". GERMAN TRANSLATION",counter..". Fill into jar"))
+                    dialog:addOption(3643, getText(counter..". In eine Dose füllen",counter..". Fill into jar"))
                 else
                     local liquid, liquidList = M.StockEssenceList(ListOfIngredients[i])
                     if liquid == "stock" then

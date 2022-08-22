@@ -71,7 +71,7 @@ local function selectRecipeToTeach(user, target)
         end
     end
 
-    local dialog = SelectionDialog(common.GetNLS(user,"GERMAN TRANSLATION","Alchemy Teaching") , common.GetNLS(user,"GERMAN TRANSLATION","Select which potion recipe you want to teach your target.") , callback)
+    local dialog = SelectionDialog(common.GetNLS(user,"Alchemieunterricht","Alchemy Teaching") , common.GetNLS(user,"Wähle aus, welches Trankrezept du deinem Ziel beibringen willst.","Select which potion recipe you want to teach your target.") , callback)
 
     for _, potion in ipairs(potionsToTeach) do
         dialog:addOption(0, potion.name)
@@ -102,14 +102,14 @@ local function pickNearbyPlayer(user, cauldronPos)
         selectRecipeToTeach(user, eligiblePlayers[index])
     end
 
-    local dialog = SelectionDialog(common.GetNLS(user,"GERMAN TRANSLATION","Alchemy Teaching") , common.GetNLS(user,"GERMAN TRANSLATION","Select who to teach the recipe to.") , callback)
+    local dialog = SelectionDialog(common.GetNLS(user,"Alchemieunterricht","Alchemy Teaching") , common.GetNLS(user,"Wähle aus, wem du das Rezept beibringen willst.","Select who to teach the recipe to.") , callback)
 
     for _, player in ipairs(eligiblePlayers) do
         dialog:addOption(0, player.name)
     end
 
     if #eligiblePlayers == 0 then
-        user:inform(common.GetNLS(user, "GERMAN TRANSLATION", "There's no one nearby qualified for you to teach."))
+        user:inform(common.GetNLS(user, "Es gibt niemanden in der Nähe, den du unterrichten kannst.", "There's no one nearby qualified for you to teach."))
     else
         user:requestSelectionDialog(dialog)
     end

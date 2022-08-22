@@ -29,7 +29,7 @@ function M.UseItem(user, SourceItem, ltstate)
     local cauldron = alchemy.GetCauldronInfront(user)
 
     if not cauldron then
-        user:inform("GERMAN TRANSLATION", "You'll need a cauldron in front of you if you want to do anything with this.")
+        user:inform("Du brauchst einen Kessel vor dir, wenn du damit etwas anfangen willst.", "You'll need a cauldron in front of you if you want to do anything with this.")
         return
     end
 
@@ -67,13 +67,13 @@ end
 function M.FillIntoJar(user, sourceItem, cauldron)
 
     if (cauldron:getData("filledWith") == "stock") or (cauldron:getData("filledWith") == "essenceBrew") or (cauldron:getData("filledWith") == "potion") then
-        user:inform("GERMAN TRANSLATION", "The liquid in the cauldron is far too thin. You'll need an empty potion bottle here, not a salve jar!")
+        user:inform("Die Flüssigkeit im Kessel ist viel zu dünn. Du brauchst hier eine leere Zaubertrankflasche, kein Salbengefäß!", "The liquid in the cauldron is far too thin. You'll need an empty potion bottle here, not a salve jar!")
         return
     end
 
     if cauldron:getData("filledWith") == "salve" then
         if sourceItem.number > 1 then -- stack!
-            user:inform("GERMAN TRANSLATION", "You must use one jar at a time.")
+            user:inform("Du kannst immer nur einen Krug gleichzeitig verwenden.", "You must use one jar at a time.")
             return
         else
             alchemy.FillFromTo(cauldron, sourceItem)
