@@ -1569,7 +1569,7 @@ local _
                     return
                 end
                 local potionName = dialog3:getInput()
-                common.CreateItem(user,tonumber(potionID),tonumber(potionAmount),tonumber(potionQuality),{["potionEffectId"]=tonumber(potionEffect),["descriptionEn"]=potionName,["descriptionDe"]=potionName,["creator"]="admin"})
+                common.CreateItem(user,tonumber(potionID),tonumber(potionAmount),tonumber(potionQuality),{["potionEffectId"]=tonumber(potionEffect),["descriptionEn"]=potionName,["descriptionDe"]=potionName,["creator"]="admin", ["legitimateKnowledgeOfPotionRecipe"]="true"})
             end
             user:requestInputDialog(InputDialog("Potion Creation", "What do you want to label your potions?",false,255,callback3))
         end

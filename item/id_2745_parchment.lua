@@ -27,7 +27,6 @@ local lookat = require("base.lookat")
 local licence = require("base.licence")
 local shipmasterParchments = require("content.shipmasterParchments")
 local shared = require("craft.base.shared")
-local brewing = require("alchemy.base.brewing")
 local messenger = require("content.messenger")
 local bookWriting = require("item.base.bookWriting")
 
@@ -283,7 +282,7 @@ function StartBrewing(user,SourceItem,ltstate,checkVar)
     local tool = alchemy.getAlchemyTool(user)
 
     if not tool then
-        brewing.informAlchemyToolNeeded(user)
+        alchemy.informAlchemyToolNeeded(user)
         return
     end
 

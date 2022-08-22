@@ -1015,7 +1015,7 @@ function M.DeleteItemFromStack(stackPosition, itemProperties)
         if (itemProperties.itemId == checkItem.id) and (not itemProperties.deleteAmount or checkItem.number <= itemProperties.deleteAmount) and (not itemProperties.quality or checkItem.quality == itemProperties.quality) then
             if itemProperties.data then
                 for i=1,#itemProperties.data do
-                    if not checkItem:getData(itemProperties["data"][1]["dataKey"]) == itemProperties["data"][1]["dataValue"] then
+                    if not checkItem:getData(itemProperties["data"][i]["dataKey"]) == itemProperties["data"][i]["dataValue"] then
                         break
                     end
                 end
@@ -2906,5 +2906,54 @@ function M.moveItemToBackpack(user, theItem)
 
     return true
 end
+
+
+-- functions for storage of bitwise flags in quest IDs, see alchemy.teaching.playerInventedPotions for an example of its usage
+
+local function questprogressToIndexedObject(qpg)
+    if qpg<0 then
+        return 2^31-1-qpg
+    else
+        return qpg
+    end
+end
+
+local function indexedObjectToQuestprogress(number)
+    if number < 2^31 then
+        return number
+    else
+        return 2^31- 1 - number
+    end
+end
+
+function M.writeBitwise(user, index, questIdStart)
+
+    local base = questIdStart + math.floor((index-1)/32)
+
+    local baseOffset = math.fmod(index-1,32)
+
+    local current = questprogressToIndexedObject(user:getQuestProgress(base))
+
+    user:setQuestProgress(base, indexedObjectToQuestprogress(bit32.bor(2^baseOffset, current)))
+end
+
+function M.readBitwise(user, index, questIdStart)
+
+
+    local base = questIdStart + math.floor((index-1)/32)
+
+    local baseOffset = math.fmod(index - 1, 32)
+
+    local current = questprogressToIndexedObject(user:getQuestProgress(base))
+
+
+    if bit32.btest(bit32.lshift(1, baseOffset), current) then
+        return true
+    end
+
+    return false
+end
+
+-- bitwise flag functions end
 
 return M
