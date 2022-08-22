@@ -24,6 +24,7 @@ local SelectPlantCategory
 local SelectPlant
 local SelectGemDust
 local BottleFromCauldron
+local jarCauldronContent
 local SelectFillIntoCauldron
 local SelectEssenceBrewOption
 local SelectActiveSubstance
@@ -56,10 +57,12 @@ function M.FirstMenu(User, ListOfIngredients)
             elseif selected == 4 then
                 BottleFromCauldron(User, ListOfIngredients)
             elseif selected == 5 then
-                RemoveLastIngredient(User, ListOfIngredients)
+                jarCauldronContent(User, ListOfIngredients)
             elseif selected == 6 then
-                M.ShowRecipe(User, ListOfIngredients)
+                RemoveLastIngredient(User, ListOfIngredients)
             elseif selected == 7 then
+                M.ShowRecipe(User, ListOfIngredients)
+            elseif selected == 8 then
                 FinishRecipe(User, ListOfIngredients)
             end
         else
@@ -75,6 +78,7 @@ function M.FirstMenu(User, ListOfIngredients)
     dialog:addOption(0, getText("Edelsteinstaub", "Gem powder"))
     dialog:addOption(0, getText("Kessel befüllen","Fill into the cauldron"))
     dialog:addOption(0, getText("Kesselinhalt abfüllen","Bottle cauldron content"))
+    dialog:addOption(0, getText("GERMAN TRANSLATION","Jar cauldron content"))
     dialog:addOption(0, getText("Letzte Zutat entfernen","Remove last ingredient"))
     dialog:addOption(0, getText("Rezept betrachten","Show recipe"))
     dialog:addOption(0, getText("Rezept fertigstellen","Finish recipe"))
@@ -232,6 +236,16 @@ function BottleFromCauldron(User, ListOfIngredients)
     AddToRecipe(ListOfIngredients,"bottle")
     User:inform("Wurde dem Rezept hinzugefügt: Abfüllen","Added to the recipe: Bottling",Character.lowPriority)
     M.FirstMenu(User, ListOfIngredients)
+end
+
+function jarCauldronContent(user, ingredients)
+
+    if not CheckAmount(ingredients) then
+        return
+    end
+    AddToRecipe(ingredients, "jar")
+    user:inform("Wurde dem Rezept hinzugefügt: GERMAN TRANSLATION", "Added to the recipe: Fill into jar",Character.lowPriority)
+    M.FirstMenu(user, ingredients)
 end
 
 local ESSENCE_BREWS_IDS = {59,165,166,167,327,329,330}

@@ -21,6 +21,7 @@ local id_52_filledbucket = require("item.id_52_filledbucket")
 local id_331_green_bottle = require("alchemy.item.id_331_green_bottle")
 local gemdust = require("alchemy.base.gemdust")
 local id_164_emptybottle = require("item.id_164_emptybottle")
+local id_3642_empty_salve_jar = require("alchemy.item.id_3642_empty_salve_jar")
 local potionToTeacher = require("triggerfield.potionToTeacher")
 local recipe_creation = require("alchemy.base.recipe_creation")
 local lookat = require("base.lookat")
@@ -315,7 +316,7 @@ function StartBrewing(user,SourceItem,ltstate,checkVar)
             for i=1,#listOfTheIngredients do
                 counter = counter + 1
                 if type(listOfTheIngredients[i])=="string" then
-                    if string.find(listOfTheIngredients[i],"bottle") then
+                    if string.find(listOfTheIngredients[i],"bottle") or string.find(listOfTheIngredients[i],"jar") then
                         dialog:addOption(164, getText(user,counter..". Abfüllen",counter..". Bottling"))
                     else
                         local liquid, liquidList = recipe_creation.StockEssenceList(listOfTheIngredients[i])
@@ -399,6 +400,9 @@ function CallBrewFunctionAndDeleteItem(user,deleteItem, deleteId,cauldron)
         if deleteItem.id == 164 then -- empty bottle
             id_164_emptybottle.FillIntoBottle(user, deleteItem, cauldron)
 
+        elseif deleteItem.id == 3642 then
+            id_3642_empty_salve_jar.FillIntoJar(user, deleteItem, cauldron)
+
         elseif deleteItem.id == 331 then -- stock
             id_331_green_bottle.FillStockIn(user,deleteItem, cauldron)
             alchemy.EmptyBottle(user,deleteItem)
@@ -454,6 +458,21 @@ function GetItem(user, listOfTheIngredients)
             if not (deleteItem) then
                 missingDe = "Dir fehlt: leere Flasche"
                 missingEn = "You don't have: empty bottle"
+            end
+        elseif string.find(listOfTheIngredients[USER_POSITION_LIST[user.id]],"jar") then
+            local jarList = user:getItemList(3642)
+            if #jarList > 0 then
+                deleteItem = jarList[1]
+                for i = 1, #jarList do
+                    if not string.find(jarList[i]:getData("descriptionEn"), "Bottle label:") then
+                        deleteItem = jarList[i]
+                        break
+                    end
+                end
+            end
+            if not (deleteItem) then
+                missingDe = "Dir fehlt: leere Salbendose"
+                missingEn = "You don't have: empty salve jar"
             end
         else
             local liquid, neededList = recipe_creation.StockEssenceList(listOfTheIngredients[USER_POSITION_LIST[user.id]])
