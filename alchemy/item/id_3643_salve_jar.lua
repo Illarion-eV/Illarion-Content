@@ -31,7 +31,7 @@ local function applySalve(user, sourceItem)
                                "You don't have the feeling that something happens.")
         return
     elseif potionEffectId == 700 then
-        user:inform("GERMAN TRANSLATION", "As you apply the salve on your skin, you feel any rashes, burns or irritation of your skin get noticeably soothed.")
+        user:inform("Wenn du die Salbe auf deine Haut aufträgst, spürst du, wie Ausschläge, Verbrennungen oder Hautreizungen spürbar gelindert werden.", "As you apply the salve on your skin, you feel any rashes, burns or irritation of your skin get noticeably soothed.")
         return
     end
 end
