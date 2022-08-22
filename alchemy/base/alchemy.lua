@@ -26,7 +26,8 @@ M.playerPotionStartQuest = 870 -- 870-900 reserved for bitwise storage of potion
 
 M.playerInventedPotionList = {
     {id = 561, creator = "Amanda Brightrim", index = 1},
-    {id = 319, creator = "Amanda Brightrim", index = 2}
+    {id = 319, creator = "Amanda Brightrim", index = 2},
+    {id = 700, creator = "Yridia Anar", index = 3}
 }
 
 function M.getAlchemyTool(user)
@@ -279,6 +280,15 @@ setPotion(606, 452, 56612824, 756, 765, 768, false, false, false, false, false)
 M.potionName[607] = {"Language Potion Ancient Language","Sprachtrank Antike Sprache"}
 setPotion(607, 452, 25796346, 756, 756, 765, 152, false, false, false, false)
 -- language potions end
+
+-- Salves start
+local salveStart = 700
+local salveEnd = 799
+
+M.potionName[700] = {"Yridia's Rash and Skin Irritation ointment", "GERMAN TRANSLATION"}
+setPotion(700, 451, 34885446, 153, 153, 153, 148, 145, false, false, false)
+
+-- salve end
 
 
 --- Get the effect of a potion
@@ -635,20 +645,30 @@ local function checkBrewingPermissions(fromItem)
 
 end
 
-function M.EmptyBottle(User,Bottle)
+function M.EmptyBottle(user, bottle)
+
+    local emptyBottle = 164
+
+    if bottle.id == 3643 then   --salve jar instead of potion
+        emptyBottle = 3642
+    end
+
     if math.random(1,20) == 1 then
-        world:erase(Bottle,1) -- bottle breaks
-        common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.", Player.lowPriority)
+
+        world:erase(bottle,1) -- bottle breaks
+        common.InformNLS(user, "Die Flasche zerbricht.", "The bottle breaks.", Player.lowPriority)
+
+    elseif bottle.number > 1 then -- if we empty a bottle (stock, potion or essence brew) it should normally never be a stack! but to be one the safe side, we check anyway
+
+        common.CreateItem(user, emptyBottle, 1, 333, nil)
+        world:erase(bottle, 1)
+
     else
-        if Bottle.number > 1 then -- if we empty a bottle (stock, potion or essence brew) it should normally never be a stack! but to be one the safe side, we check anyway
-        common.CreateItem(User, 164, 1, 333, nil)
-        world:erase(Bottle, 1)
-        else
-            M.RemoveAll(Bottle)
-            Bottle.id = 164
-            Bottle.quality = 333
-            world:changeItem(Bottle)
-        end
+
+        M.RemoveAll(bottle)
+        bottle.id = emptyBottle
+        bottle.quality = 333
+        world:changeItem(bottle)
     end
 end
 
@@ -698,6 +718,10 @@ function M.FillFromTo(fromItem,toItem)
             if not hasPermission then
                 toItem:setData("potionEffectId", 0)
             end
+        end
+
+        if toItem.id == 3642 then --account for salve jars
+            reBottle = 3643
         end
 
         toItem.id = reBottle
@@ -904,7 +928,12 @@ function M.CombineStockEssence( user, stock, essenceBrew)
         if potionRequiresPermission(effectID) then
             cauldron:setData("legitimateKnowledgeOfPotionRecipe", tostring(checkIfPlayerKnowsPotion(user, effectID)))
         end
-        cauldron:setData("filledWith", "potion")
+
+        if effectID <= salveEnd and effectID >= salveStart then
+            cauldron:setData("filledWith", "salve")
+        else
+            cauldron:setData("filledWith", "potion")
+        end
         world:changeItem(cauldron)
         world:makeSound(13,cauldron.pos)
         world:gfx(52,cauldron.pos)
