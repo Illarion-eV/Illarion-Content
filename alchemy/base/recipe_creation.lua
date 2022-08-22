@@ -501,7 +501,7 @@ function M.ShowRecipe(User, ListOfIngredients, notMenu)
             end
             if selected == 1 and not notMenu then
                 M.FirstMenu(User, ListOfIngredients)
-            elseif type(ListOfIngredients[selected-minus])=="string" and not string.find(ListOfIngredients[selected-minus],"bottle") then
+            elseif type(ListOfIngredients[selected-minus])=="string" and not string.find(ListOfIngredients[selected-minus],"bottle") and not string.find(ListOfIngredients[selected-minus],"jar") then
                 ShowStockEssence(User, ListOfIngredients[selected-minus], ListOfIngredients, notMenu)
             else
                 M.ShowRecipe(User, ListOfIngredients, notMenu)
