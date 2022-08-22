@@ -1095,8 +1095,15 @@ end
 -- a bug led to a situation that some potions missed the "filledWith"-data
 -- this function will be called whenever seomething is done to a potion and set the proper data
 function M.repairPotion(Item)
+    local filled
     if tonumber(Item:getData("potionEffectId")) ~= nil then
-        Item:setData("filledWith","potion")
+        local effectID = tonumber(Item:getData("potionEffectId"))
+        if effectID <= salveEnd and effectID >= salveStart then
+            filled = "salve"
+        else
+            filled = "potion"
+        end
+        Item:setData("filledWith", filled)
         world:changeItem(Item)
     end
 end
