@@ -86,6 +86,10 @@ local function CheckIfBottleInHand(User, SourceItem)
         end
     end
 
+    if bottleItem.id == 3642 or bottleItem.id == 3643 then --salve jars
+        return bottleItem
+    end
+
     return nil
 end
 
