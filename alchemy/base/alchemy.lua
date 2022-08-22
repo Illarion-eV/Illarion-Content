@@ -285,7 +285,7 @@ setPotion(607, 452, 25796346, 756, 756, 765, 152, false, false, false, false)
 local salveStart = 700
 local salveEnd = 799
 
-M.potionName[700] = {"Yridia's Rash and Skin Irritation ointment", "GERMAN TRANSLATION"}
+M.potionName[700] = {"Yridia's Rash and Skin Irritation ointment", "Yridias Salbe gegen Hautausschlag und Hautreizungen"}
 setPotion(700, 451, 34885446, 153, 153, 153, 148, 145, false, false, false)
 
 -- salve end
