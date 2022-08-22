@@ -316,8 +316,10 @@ function StartBrewing(user,SourceItem,ltstate,checkVar)
             for i=1,#listOfTheIngredients do
                 counter = counter + 1
                 if type(listOfTheIngredients[i])=="string" then
-                    if string.find(listOfTheIngredients[i],"bottle") or string.find(listOfTheIngredients[i],"jar") then
+                    if string.find(listOfTheIngredients[i],"bottle") then
                         dialog:addOption(164, getText(user,counter..". Abfüllen",counter..". Bottling"))
+                    elseif string.find(listOfTheIngredients[i],"jar") then
+                        dialog:addOption(3642, getText(user, counter..". GERMAN TRANSLATION",counter..". Fill into jar"))
                     else
                         local liquid, liquidList = recipe_creation.StockEssenceList(listOfTheIngredients[i])
                         if liquid == "stock" then

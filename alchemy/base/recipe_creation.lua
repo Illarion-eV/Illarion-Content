@@ -530,6 +530,8 @@ function M.ShowRecipe(User, ListOfIngredients, notMenu)
             if type(ListOfIngredients[i])=="string" then
                 if string.find(ListOfIngredients[i],"bottle") then
                     dialog:addOption(164, getText(counter..". Abfüllen",counter..". Bottling"))
+                elseif string.find(ListOfIngredients[i], "jar") then
+                    dialog:addOption(3643, getText(counter..". GERMAN TRANSLATION",counter..". Fill into jar"))
                 else
                     local liquid, liquidList = M.StockEssenceList(ListOfIngredients[i])
                     if liquid == "stock" then
