@@ -75,7 +75,7 @@ itemShoes = 53
 "Hilfe" -> inform("[Hilfe] Dieser NPC ist ein Trainer. Bitte ihn dich zu trainieren um deine grundlegenden Attribute dauerhaft zu ändern, gegen eine geringe Gebühr natürlich.")
 
 -- Mandatory: General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted!","Hello my friend!","Hello, I haven't seen you for awhile!"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted!","Hello my friend!","Hello, I haven't seen you for a while!"
 "Grüße", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin" -> "Grüß dich!","Hallo mein Freund!","Hallo, lange nicht gesehen!"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello, hello!"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Hallo, hallo!"
