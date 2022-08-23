@@ -114,17 +114,19 @@ function M.MoveItemAfterMove(user, SourceItem, TargetItem)
                 TargetItem:setData("identifierTimeStamp", timeStamp)
                 world:changeItem(TargetItem)
                 local potionQuality = TargetItem.quality
-                scheduledFunction.registerFunction(360, function()
-                                                            local field = world:getField(itemPos)
-                                                            if field:countItems() > 0 then
-                                                                local deleted = common.DeleteItemFromStack(itemPos, {itemId = 327, quality = potionQuality, potionEffectId = 319, identifierTimeStamp = timeStamp})
-                                                                if deleted then
-                                                                    world:createItemFromId(327, 1, itemPos, true, potionQuality, {potionEffectId = 320, filledWith = "potion"})
-                                                                    world:gfx(4, itemPos)
-                                                                end
-                                                            end
 
-                                                        end)
+                scheduledFunction.registerFunction(360, function()
+                    local field = world:getField(itemPos)
+
+                    if field:countItems() > 0 then
+                        local deleted = common.DeleteItemFromStack(itemPos, {itemId = 327, quality = potionQuality, data = { {dataKey = "potionEffectId", dataValue = 319}, {dataKey = "identifierTimeStamp", dataValue = timeStamp}}})
+
+                        if deleted then
+                            world:createItemFromId(327, 1, itemPos, true, potionQuality, {potionEffectId = 320, filledWith = "potion"})
+                            world:gfx(4, itemPos)
+                        end
+                    end
+                end)
             else
                 if TargetItem:getData("identifierTimeStamp") ~= "" then
                     TargetItem:setData("identifierTimeStamp", "")
@@ -210,7 +212,7 @@ function M.UseItem(user, SourceItem, ltstate)
         alchemy.FillIntoCauldron(user,SourceItem,cauldron,ltstate)
 
     else -- not infront of a cauldron, therefore use it
-        if (potionEffectId >= 300) and (potionEffectId <= 399) then -- a bomb
+        if (potionEffectId >= 300) and (potionEffectId <= 399) and potionEffectId ~= 319 then -- a bomb
             local missileStatus = SourceItem:getData("missileStatus")
             if (missileStatus == "deactivated") or (missileStatus == "") then -- potion deactivated or status not set --> activate
                 common.InformNLS( user,

@@ -399,5 +399,74 @@ catId = finesmithing:addCategory("Tools", "Werkzeuge")
 product = finesmithing:addProduct(catId, 311, 1)
 product:addIngredient(2550, 3) -- copper ingot
 
+--Repair Kits
+
+catId = finesmithing:addCategory("Gem Polishing Kits", "Juwelenpolitur")
+
+-- Basic Gem Polishing Kit
+product = finesmithing:addProduct(catId, 4033, 1)
+product:addIngredient(2550, 1) -- copper ingot
+
+-- Novice Gem Polishing Kit
+product = finesmithing:addProduct(catId, 4034, 1)
+product:addIngredient(236, 1) -- gold ingot
+product:addIngredient(197, 1) -- amethyst
+
+-- Apprentice Gem Polishing Kit
+product = finesmithing:addProduct(catId, 4035, 1)
+product:addIngredient(2550, 1) -- copper ingot
+product:addIngredient(283, 1) -- obsidian
+
+-- Initiate Gem Polishing Kit
+product = finesmithing:addProduct(catId, 4036, 1)
+product:addIngredient(236, 1) -- gold ingot
+product:addIngredient(283, 1) -- obsidian
+
+-- Journeyman Gem Polishing Kit
+product = finesmithing:addProduct(catId, 4037, 1)
+product:addIngredient(104, 2) -- silver ingot
+product:addIngredient(284, 2) -- sapphire
+product:addIngredient(450, 1) -- amethyst powder
+
+-- Specialist Gem Polishing Kit
+product = finesmithing:addProduct(catId, 4038, 1)
+product:addIngredient(236, 2) -- gold ingot
+product:addIngredient(45, 2) -- emerald
+product:addIngredient(104, 1) -- silver ingot
+product:addIngredient(448, 1) -- emerald powder
+
+-- Expert Gem Polishing Kit
+product = finesmithing:addProduct(catId, 4039, 1)
+product:addIngredient(2550, 2) -- copper ingot
+product:addIngredient(45, 2) -- emerald
+product:addIngredient(104, 1) -- silver ingot
+product:addIngredient(449, 1) -- obsidian powder
+
+-- Adept Gem Polishing Kit
+product = finesmithing:addProduct(catId, 4040, 1)
+product:addIngredient(236, 2) -- gold ingot
+product:addIngredient(45, 2) -- emerald
+product:addIngredient(104, 1) -- silver ingot
+product:addIngredient(448, 1) -- emerald powder
+
+-- Artisan Gem Polishing Kit
+product = finesmithing:addProduct(catId, 4041, 1)
+product:addIngredient(104, 3) -- silver ingot
+product:addIngredient(198, 2) -- topaz
+product:addIngredient(2550, 1) -- copper ingot
+product:addIngredient(452, 1) -- diamond powder
+
+-- Master Gem Polishing Kit
+product = finesmithing:addProduct(catId, 4042, 1)
+product:addIngredient(2550, 3) -- copper ingot
+product:addIngredient(285, 2) -- diamond
+product:addIngredient(2571, 2) -- merinium ingot
+
+-- Grandmaster Gem Polishing Kit
+product = finesmithing:addProduct(catId, 4043, 1)
+product:addIngredient(236, 3) -- gold ingot
+product:addIngredient(285, 2) -- diamond
+product:addIngredient(2571, 5) -- merinium ingot
+
 M.finesmithing = finesmithing
 return M

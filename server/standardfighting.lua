@@ -57,8 +57,11 @@ local gems = require("base.gems")
 local monsterHooks = require("monster.base.hooks")
 local fightingutil = require("base.fightingutil")
 local glypheffects = require("magic.glypheffects")
+local lookat = require("base.lookat")
 
 local M = {}
+
+local fightingGemBonusDivisionValue = lookat.fightingGemBonusDivisionValue
 
 local GetAttackType
 local LoadAttribsSkills
@@ -85,6 +88,7 @@ local PlayParrySound
 local WeaponDegrade
 local Counter
 local setArcherMonsterOnRoute
+local gemBonusEffect
 
 local function NotNil(val)
     if val==nil then
@@ -405,8 +409,11 @@ function M.onAttack(Attacker, Defender)
     -- Reduce the damage due the absorbtion of the armour
     ArmourAbsorption(Attacker, Defender, Globals)
 
-    -- The effect of the constitution. After this the final damage is avaiable.
+    -- The effect of the constitution.
     ConstitutionEffect(Defender, Globals)
+
+    -- The effect the magic gems have on damage.  After this the final damage is available.
+    gemBonusEffect(Attacker, Defender, Globals)
 
     -- Cause the finally calculated damage to the player
     CauseDamage(Attacker, Defender, Globals)
@@ -447,9 +454,9 @@ function ArmourAbsorption(Attacker, Defender, Globals)
     local GeneralScalingFactor = 2.8
     -- Unequip armour
     if common.isBroken(Globals.HittedItem) and character.IsPlayer(Defender.Char) and armour.Type ~= 0 then
-        if not common.moveItemToBackpack(character, Globals.HittedItem) then
+        if not common.moveItemToBackpack(Defender.Char, Globals.HittedItem) then
             world:erase(Globals.HittedItem, Globals.HittedItem.number)
-            world:createItemFromItem(Globals.HittedItem, character.pos, true)
+            world:createItemFromItem(Globals.HittedItem, Defender.Char.pos, true)
         end
     end
     if character.IsPlayer(Defender.Char) then
@@ -524,16 +531,6 @@ function ArmourAbsorption(Attacker, Defender, Globals)
     else
         armourValue = 0
     end
-
-    local GemBonus = gems.getGemBonus(Globals.HittedItem)
-    local armorfound, armorItem = world:getArmorStruct(Globals.HittedItem.id)
-    if armorfound then
-        if armorItem.Type == ArmorStruct.clothing then --Clothing objects are gemmable for magic resistance purposes, but does not affect physical defense
-            GemBonus = 0
-        end
-    end
-    GemBonus = modifyGemEffect(Attacker, GemBonus)
-    armourValue = armourValue + armourValue * GemBonus / 100
 
     --Race armour for monsters
     armourfound, armour = world:getNaturalArmor(Defender.Race)
@@ -684,9 +681,6 @@ function CalculateDamage(Attacker, Globals)
     DexterityBonus = (Attacker.dexterity - 6) * 1
     SkillBonus = (Attacker.skill - 20) * 1.5
 
-    local GemBonus = gems.getGemBonus(Attacker.WeaponItem)
-    GemBonus = modifyGemEffect(Attacker, GemBonus)
-
     --Quality Bonus: Multiplies final value by 0.93-1.09
     QualityBonus = 0.91+0.02*math.floor(Attacker.WeaponItem.quality/100)
 
@@ -697,7 +691,7 @@ function CalculateDamage(Attacker, Globals)
 
     --The Global Damage Factor (GDF). Adjust this to change how much damage is done per hit on all attacks.
     local GlobalDamageFactor = 1/180
-    Globals["Damage"] = GlobalDamageFactor*BaseDamage * CritBonus * QualityBonus * (100 + StrengthBonus + PerceptionBonus + DexterityBonus + SkillBonus + GemBonus)
+    Globals["Damage"] = GlobalDamageFactor*BaseDamage * CritBonus * QualityBonus * (100 + StrengthBonus + PerceptionBonus + DexterityBonus + SkillBonus)
 end
 
 --- Deform some final checks on the damage that would be caused and send it to
@@ -1133,6 +1127,34 @@ function ConstitutionEffect(Defender, Globals)
     Globals.Damage = Globals.Damage * 14 / Defender.constitution
 end
 
+function gemBonusEffect(Attacker, Defender, Globals)
+
+    if (Globals.Damage == 0) then
+        return
+    end
+
+    local GemBonusAttacker = gems.getGemBonus(Attacker.WeaponItem)/fightingGemBonusDivisionValue
+    GemBonusAttacker = modifyGemEffect(Attacker, GemBonusAttacker)
+    local GemBonusDefender = gems.getGemBonus(Globals.HittedItem)/fightingGemBonusDivisionValue
+    GemBonusDefender = modifyGemEffect(Attacker, GemBonusDefender)
+
+    local armorfound, armorItem = world:getArmorStruct(Globals.HittedItem.id)
+    if armorfound then
+        if armorItem.Type == ArmorStruct.clothing then --Clothing objects are gemmable for magic resistance purposes, but does not affect physical defense
+            GemBonusDefender = 0
+        end
+    end
+
+    local gemBonus = GemBonusAttacker-GemBonusDefender
+
+    local gemBonusAsPercentage = gemBonus/100
+
+    gemBonusAsPercentage = gemBonusAsPercentage/fightingGemBonusDivisionValue --reduces the bonus from 1-120% to 0.5-60%
+
+    Globals.Damage = Globals.Damage * (1+gemBonusAsPercentage)
+
+end
+
 --- Checks if a coup de gráce is performed on the attacked character and kills
 -- the char if needed
 -- @param Attacker The table of the attacking character
@@ -1148,14 +1170,7 @@ function CoupDeGrace(Attacker, Defender)
         return false
     end
 
-    if (character.AtBrinkOfDeath(Defender.Char)) then
-        -- character nearly down
-        --[[local gText = common.GetGenderText(Attacker.Char, "seinem", "ihrem")
-        local eText = common.GetGenderText(Attacker.Char, "his", "her")
-        Attacker.Char:talk(Character.say,
-                string.format("#me gibt %s Gegner den Gnadenstoß.", gText),
-                string.format("#me gives %s enemy the coup de gráce.", eText))
-        --]]
+    if (character.AtBrinkOfDeath(Defender.Char)) then -- character nearly down
         -- Kill character and notify other scripts about the death
         if not character.Kill(Defender.Char) then
             -- something interrupted the kill
@@ -1299,77 +1314,6 @@ end
 -- @param Defender The table of the attacked Character
 -- @param Globals The table of the global values
 function Specials(Attacker, Defender, Globals)
-    local hisher =  common.GetGenderText(Attacker.Char,"his","her")
-    local seinihr = common.GetGenderText(Attacker.Char,"sein","ihr")
-    if not character.IsPlayer(Attacker.Char) then
-        if(Globals.criticalHit==1) then -- 1HS
-            common.TalkNLS(Attacker.Char, Character.say,
-                    "#me schlägt schnell zu und teilt rasch zwei Hiebe aus.",
-                    "#me quickly strikes, dealing two blows in rapid succession.")
-        elseif(Globals.criticalHit==2) then -- 1HC
-            common.TalkNLS(Attacker.Char, Character.say,
-                    "#me greift mit solcher Kraft an, dass der Angriff nicht pariert werden kann.",
-                    "#me attacks with such force that it cannot be blocked.")
-        elseif(Globals.criticalHit==3) then -- 1HP
-            common.TalkNLS(Attacker.Char, Character.say,
-                    "#me führt eine schmerzhafte Attacke aus.",
-                    "#me delivers a painful attack.")
-        elseif(Globals.criticalHit==4) then -- 2HS
-            common.TalkNLS(Attacker.Char, Character.say,
-                    "#me führt einen gewaltigen Hieb aus und schlägt "..seinihr.."en Gegner zurück.",
-                    "#me delivers a broad attack, knocking back "..hisher.." opponent.")
-        elseif(Globals.criticalHit==5) then -- 2HC
-            common.TalkNLS(Attacker.Char, Character.say,
-                    "#me greift mit großer Kraft an und setzt "..seinihr.."en Gegner außer Gefecht.",
-                    "#me attacks with great force, stunning "..hisher.." foe.")
-        elseif(Globals.criticalHit==6) then -- 2HP
-            common.TalkNLS(Attacker.Char, Character.say,
-                    "#me stößt vor und landet einen durchbohrenden Treffer.",
-                    "#me thrusts out, delivering a powerful, piercing attack.")
-        elseif(Globals.criticalHit==7) then -- Dist
-            common.TalkNLS(Attacker.Char, Character.say,
-                    "#me zielt etwas länger und er trifft dadurch "..seinihr.." Ziel an einer ungeschützten Stelle.",
-                    "#me takes careful aim, hitting "..hisher.." target with precision and power.")
-        elseif(Globals.criticalHit==8) then -- Wrest
-            common.TalkNLS(Attacker.Char, Character.say,
-                    "#me führt einen extrem schnellen Hieb gegen "..seinihr.."en Gegner.",
-                    "#me strikes out extremely quickly, dealing a powerful blow to "..hisher.." opponent.")
-        end
-    else
-        if(Globals.criticalHit==1) then -- 1HS
-            common.TalkNLS(Attacker.Char, Character.say,
-                "#me schwingt "..seinihr.."e Klinge und teilt rasch zwei Hiebe aus.",
-                "#me sweeps "..hisher.." blade, dealing two blows in rapid succession.")
-        elseif(Globals.criticalHit==2) then -- 1HC
-            common.TalkNLS(Attacker.Char, Character.say,
-                "#me schwingt "..seinihr.."e Waffe mit solcher Kraft, dass diese nicht pariert werden kann.",
-                "#me swings "..hisher.." weapon with such force that it cannot be blocked.")
-        elseif(Globals.criticalHit==3) then -- 1HP
-            common.TalkNLS(Attacker.Char, Character.say,
-                "#me rammt "..seinihr.."e Klinge schnell in den Rücken "..seinihr.."es Gegners.",
-                "#me slams "..hisher.." blade quickly into "..hisher.." opponent's back.")
-        elseif(Globals.criticalHit==4) then -- 2HS
-            common.TalkNLS(Attacker.Char, Character.say,
-                "#me führ einen gewaltigen Hieb aus und schlägt "..seinihr.."en Gegner zurück.",
-                "#me delivers a mighty swing, knocking back "..hisher.." opponent.")
-        elseif(Globals.criticalHit==5) then -- 2HC
-            common.TalkNLS(Attacker.Char, Character.say,
-                "#me lässt "..seinihr.."e Waffe mit gewaltiger Kraft nach unten fahren so dass "..seinihr.." Gegner benommen ist.",
-                "#me brings down "..hisher.." weapon with great force, stunning "..hisher.." foe.")
-        elseif(Globals.criticalHit==6) then -- 2HP
-            common.TalkNLS(Attacker.Char, Character.say,
-                "#me stößt "..seinihr.."e Waffe mit einem kraftvollen Stich nach vorne.",
-                "#me thrusts "..hisher.." weapon with a powerful, piercing attack.")
-        elseif(Globals.criticalHit==7) then -- Dist
-            common.TalkNLS(Attacker.Char, Character.say,
-                "#me zielt etwas länger und trifft dadurch "..seinihr.." Ziel an einer ungeschützten Stelle.",
-                "#me takes careful aim, hitting "..hisher.." target with precision and power.")
-        elseif(Globals.criticalHit==8) then -- Wrest
-            common.TalkNLS(Attacker.Char, Character.say,
-                "#me führt einen extrem schnellen Hieb gegen "..seinihr.."en Gegner.",
-                "#me strikes out extremely quickly, dealing a powerful blow to "..hisher.." opponent.")
-        end
-    end
 
     if(Globals.criticalHit==4) then
         --Knockback
@@ -1421,9 +1365,6 @@ end
 function Counter(Attacker, Defender)
     if Defender.Char.attackmode then
         if common.Chance(1,50) then
-            common.TalkNLS(Defender.Char, Character.say,
-            "#me blockt geschickt den Hieb und macht sich schnell für einen Konter bereit.",
-            "#me deftly blocks the hit and quickly readies stance for a counter attack.")
             character.ChangeFightingpoints(Defender.Char,-Defender.Char.fightpoints)
             Defender.Char.fightpoints = 21
         end

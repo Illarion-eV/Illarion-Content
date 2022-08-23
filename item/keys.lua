@@ -131,7 +131,7 @@ function M.UseItem(user, SourceItem)
    end
 
     local frontItem = common.GetFrontItem(user)
-    if frontItem.id == 2830 then
+    if frontItem ~= nil and frontItem.id == 2830 then
         if not frontItem:getData("treasureLockId") == SourceItem:getData("treasureLockId") then
             common.InformNLS(user, "Der Schlüssel passt hier nicht.","The key doesn't fit here.")
             return

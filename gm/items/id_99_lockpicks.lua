@@ -32,6 +32,8 @@ local spatial = require("magic.arcane.spatial")
 
 local M = {}
 
+local settingsForCharAttributesPerm
+
 local itemPos = {"Head","Neck","Breast","Hands","Left Tool","Right Tool",
     "Left Finger","Right Finger","Legs","Feet","Coat","Belt 1",
     "Belt 2","Belt 3","Belt 4","Belt 5","Belt 6"}
@@ -631,7 +633,7 @@ local function settingsForCharSkills(user, chosenPlayer)
     user:requestSelectionDialog(sdSkill)
 end
 
-local function settingsForCharAttributes(user, chosenPlayer)
+local function settingsForCharAttributesTemp(user, chosenPlayer)
     local textShown
     local attibuteDialog = function (dialog)
         if (not dialog:getSuccess()) then
@@ -644,35 +646,104 @@ local function settingsForCharAttributes(user, chosenPlayer)
             end
             local attributeValue, okay = String2Number(subdialog:getInput())
             if (not okay) then
-                user:inform("no number")
+                user:inform("The input must be a number.")
                 return
             end
-            if not chosenPlayer:isBaseAttributeValid(chosenAttribute,attributeValue) then
-                user:inform("Value out of permitted range.")
---                return
+            if not chosenPlayer:isBaseAttributeValid(chosenAttribute,attributeValue) and not chosenPlayer:isAdmin() then
+                user:inform("The value you input is outside of the permitted range for this characters race.")
+                return
             end
-            user:logAdmin("changes attribute of character " .. chosenPlayer.name .. ". " .. chosenAttribute .. " from " .. chosenPlayer:getBaseAttribute(chosenAttribute).. " to " .. tostring(attributeValue)..".")
-            user:inform("change " .. chosenAttribute .. " from " .. chosenPlayer:getBaseAttribute(chosenAttribute).. " to " .. tostring(attributeValue)..".")
-            chosenPlayer:setBaseAttribute(chosenAttribute,attributeValue)
+            user:logAdmin(" changed attribute of character " .. chosenPlayer.name .. ". " .. chosenAttribute .. " from " .. chosenPlayer:increaseAttrib(chosenAttribute, 0).. " to " .. tostring(attributeValue)..".")
+            user:inform(chosenAttribute .. " was changed from " .. chosenPlayer:increaseAttrib(chosenAttribute, 0).. " to " .. tostring(attributeValue)..".")
+            chosenPlayer:setAttrib(chosenAttribute,attributeValue)
         end
         local sdChange = InputDialog("Change attribute for "..chosenPlayer.name, "Type in the new value for "..chosenAttribute.."\nCurrent value: " .. chosenPlayer:getBaseAttribute(chosenAttribute), false, 255, changeDialog)
         user:requestInputDialog(sdChange)
     end
-    local attributeSum = chosenPlayer:getBaseAttributeSum()
-    local attributePermit = chosenPlayer:getMaxAttributePoints()
-    textShown = "What attribute do you wish to change for "..chosenPlayer.name.."?\nToals sum is "..tostring(attributeSum).." of "..tostring(attributePermit).."."
-    if attributeSum > attributePermit then
-        textShown = textShown .. "\n"..tostring(attributeSum-attributePermit).." too hight!"
-    elseif attributeSum < attributePermit then
-        textShown = textShown .. "\n"..tostring(attributePermit-attributeSum).." too low!"
-    else
-        textShown = textShown .. "\nConfiguration is permitted!"
-    end
+    textShown = "What attribute do you wish to change for "..chosenPlayer.name.."?\n Reflected below is the status of the current stats of the player, temporary buffs included."
     local sdAttribute = SelectionDialog("Select attribute", textShown, attibuteDialog)
     for _, attribute in ipairs(attributeNames) do
-        sdAttribute:addOption(0,attribute.." value: "..chosenPlayer:getBaseAttribute(attribute))
+        sdAttribute:addOption(0,attribute.." value: "..chosenPlayer:increaseAttrib(attribute, 0))
     end
     user:requestSelectionDialog(sdAttribute)
+end
+
+function settingsForCharAttributesPerm(user, chosenPlayer)
+    local textShown
+    local attibuteDialog = function (dialog)
+        if (not dialog:getSuccess()) then
+            return
+        end
+        local index = dialog:getSelectedIndex()+1
+        if index == #attributeNames+1 then
+            local successfullySaved = chosenPlayer:saveBaseAttributes()
+            if successfullySaved then
+                user:inform("The changes to "..chosenPlayer.name.."'s attributes were successfully saved.")
+            else
+                user:inform("The changes to "..chosenPlayer.name.."'s attributes could not be saved and have been returned to the previous values. Did you make sure the sum of the attributes match the wanted value?")
+                settingsForCharAttributesPerm(user, chosenPlayer)
+            end
+        else
+            local chosenAttribute = attributeNames[index]
+            local changeDialog = function (subdialog)
+                if (not subdialog:getSuccess()) then
+                    return
+                end
+                local attributeValue, okay = String2Number(subdialog:getInput())
+                if (not okay) then
+                    user:inform("The input must be a number.")
+                    return
+                end
+                if not chosenPlayer:isBaseAttributeValid(chosenAttribute,attributeValue) then
+                    user:inform("The value you input is outside of the permitted range for this characters race.")
+                    return
+                end
+                user:logAdmin(" changed attribute of character " .. chosenPlayer.name .. ". " .. chosenAttribute .. " from " .. chosenPlayer:getBaseAttribute(chosenAttribute).. " to " .. tostring(attributeValue)..".")
+                user:inform(chosenAttribute .. " was changed from " .. chosenPlayer:getBaseAttribute(chosenAttribute).. " to " .. tostring(attributeValue)..".")
+                chosenPlayer:setBaseAttribute(chosenAttribute,attributeValue)
+                settingsForCharAttributesPerm(user, chosenPlayer)
+            end
+            local sdChange = InputDialog("Change attribute for "..chosenPlayer.name, "Type in the new value for "..chosenAttribute.."\nCurrent value: " .. chosenPlayer:getBaseAttribute(chosenAttribute), false, 255, changeDialog)
+
+            if index ~= #attributeNames+1 then
+                user:requestInputDialog(sdChange)
+            end
+        end
+    end
+    local attributeSum = chosenPlayer:getBaseAttributeSum()
+    local attributePermit = chosenPlayer:getMaxAttributePoints()
+
+    textShown = "What attribute do you wish to change for "..chosenPlayer.name.."?\n To save the changes, the sum of the characters attribute must be "..attributePermit..". It is currently "..attributeSum.."."
+    local sdAttribute = SelectionDialog("Select attribute", textShown, attibuteDialog)
+    for _, attribute in ipairs(attributeNames) do
+        sdAttribute:addOption(0,attribute.." value: "..chosenPlayer:increaseAttrib(attribute, 0))
+    end
+    sdAttribute:addOption(0, "Save changes.")
+    user:requestSelectionDialog(sdAttribute)
+end
+
+local function settingsForCharAttributes(user, chosenPlayer)
+    local callback = function (dialog)
+        if (not dialog:getSuccess()) then
+            return
+        end
+
+        local index = dialog:getSelectedIndex()+1
+
+        if index == 1 then
+            settingsForCharAttributesPerm(user, chosenPlayer)
+        else
+            settingsForCharAttributesTemp(user, chosenPlayer)
+        end
+    end
+
+    local dialog = SelectionDialog("Attribute Changer","Should the changes to attributes be permanent or temporary?", callback)
+
+    dialog:addOption(0, "Permanent")
+    dialog:addOption(0, "Temporary")
+
+    user:requestSelectionDialog(dialog)
+
 end
 
 local function settingsForCharChangeDevotion(user, chosenPlayer)

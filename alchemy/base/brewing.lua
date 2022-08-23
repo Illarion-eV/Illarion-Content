@@ -22,15 +22,10 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local alchemy = require("alchemy.base.alchemy")
 local herbs = require("alchemy.base.herbs")
 local gemdust = require("alchemy.base.gemdust")
-local common = require("base.common")
 local transformation_dog = require("alchemy.teaching.transformation_dog")
 local lookat = require("base.lookat")
 local shipmasterParchments = require("content.shipmasterParchments")
 local M = {}
-
-function M.informAlchemyToolNeeded(user)
-    user:inform(common.GetNLS(user, "Du brauchst einen Mörtel, um Zutaten fürs Brauen vorzubereiten.", "You must wield a mortar in order to process the ingredients for your brewing."))
-end
 
 function M.UseItem(user, sourceItem, ltstate)
     if sourceItem:getData("parchmentMode") == "register" and user.name == "Teflon" then
@@ -48,7 +43,7 @@ function M.UseItem(user, sourceItem, ltstate)
         return
     end
     if not alchemy.getAlchemyTool(user) then
-        M.informAlchemyToolNeeded(user)
+        alchemy.informAlchemyToolNeeded(user)
         return
     end
     local isPlant = alchemy.getPlantSubstance(sourceItem.id, user)

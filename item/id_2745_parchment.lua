@@ -21,13 +21,15 @@ local id_52_filledbucket = require("item.id_52_filledbucket")
 local id_331_green_bottle = require("alchemy.item.id_331_green_bottle")
 local gemdust = require("alchemy.base.gemdust")
 local id_164_emptybottle = require("item.id_164_emptybottle")
+local id_3642_empty_salve_jar = require("alchemy.item.id_3642_empty_salve_jar")
 local potionToTeacher = require("triggerfield.potionToTeacher")
 local recipe_creation = require("alchemy.base.recipe_creation")
 local lookat = require("base.lookat")
 local licence = require("base.licence")
 local shipmasterParchments = require("content.shipmasterParchments")
 local shared = require("craft.base.shared")
-local brewing = require("alchemy.base.brewing")
+local messenger = require("content.messenger")
+local bookWriting = require("item.base.bookWriting")
 
 local M = {}
 
@@ -46,6 +48,9 @@ local GetItem
 local ViewRecipe
 local getIngredients
 
+local function selectParchmentToGiveMessenger(user, parchment)
+    return parchment
+end
 
 local function bookListLookAt(user,Item)
     local itemLookat = lookat.GenerateLookAt(user, Item, lookat.NONE)
@@ -59,7 +64,32 @@ end
 -- important: do not remove the fourth parameter "checkVar".
 -- it is important for alchemy
 -- you can just ignore it
+
+function M.getWrittenTextFromParchment(theParchment)
+    if not common.IsNilOrEmpty(theParchment:getData("writtenText")) then
+        local writtenText = theParchment:getData("writtenText")
+        for i = 2, 4 do
+            local addText = theParchment:getData("writtenText"..i)
+            writtenText = writtenText..addText
+        end
+        if not common.IsNilOrEmpty(theParchment:getData("signatureText")) then
+            writtenText = writtenText .. "\n~" .. theParchment:getData("signatureText") .. "~"
+        end
+
+        return writtenText
+    end
+
+    return false
+end
+
 function M.UseItem(user, SourceItem,ltstate,checkVar)
+
+    -- Check if the messenger has requested a parchment
+    if messenger.getParchmentSelectionStatus(user) then
+        local parchment = selectParchmentToGiveMessenger(user, SourceItem)
+        messenger.verifyParchment(user, parchment)
+        return
+    end
 
     -- Check if it is an alchemy recipe.
     if SourceItem:getData("alchemyRecipe") == "true" then
@@ -69,20 +99,29 @@ function M.UseItem(user, SourceItem,ltstate,checkVar)
 
     if SourceItem:getData("TeachLenniersDream")=="true" then
         LearnLenniersDream(user)
+        return
     end
 
-    if not common.IsNilOrEmpty(SourceItem:getData("writtenText")) then
-        local writtenText = SourceItem:getData("writtenText")
-        if not common.IsNilOrEmpty(SourceItem:getData("signatureText")) then
-            writtenText = writtenText .. "\n~" .. SourceItem:getData("signatureText") .. "~"
-        end
+    if bookWriting.getParchmentSelectionStatus(user) then
+        bookWriting.addNewPageToBook(user, SourceItem)
+        return
+    end
+
+
+
+    local writtenText = M.getWrittenTextFromParchment(SourceItem)
+
+    if writtenText then
         local dialog = MessageDialog(
             common.GetNLS(user, "Pergament", "Parchment"),
             writtenText,
             --[[callback=]]function(d) end
             )
         user:requestMessageDialog(dialog)
+    else
+        user:inform("Auf diesem Pergament steht noch nichts. Benutze einen Federkiel um auf ihm zu schreiben.","Nothing is written on this parchment. Use a quill to write on it.")
     end
+
 end
 
 
@@ -244,7 +283,7 @@ function StartBrewing(user,SourceItem,ltstate,checkVar)
     local tool = alchemy.getAlchemyTool(user)
 
     if not tool then
-        brewing.informAlchemyToolNeeded(user)
+        alchemy.informAlchemyToolNeeded(user)
         return
     end
 
@@ -279,6 +318,8 @@ function StartBrewing(user,SourceItem,ltstate,checkVar)
                 if type(listOfTheIngredients[i])=="string" then
                     if string.find(listOfTheIngredients[i],"bottle") then
                         dialog:addOption(164, getText(user,counter..". Abfüllen",counter..". Bottling"))
+                    elseif string.find(listOfTheIngredients[i],"jar") then
+                        dialog:addOption(3642, getText(user, counter..". In eine Dose füllen",counter..". Fill into jar"))
                     else
                         local liquid, liquidList = recipe_creation.StockEssenceList(listOfTheIngredients[i])
                         if liquid == "stock" then
@@ -313,9 +354,14 @@ function StartBrewing(user,SourceItem,ltstate,checkVar)
     end
 
     CallBrewFunctionAndDeleteItem(user,deleteItem, deleteId,cauldron)
-    shared.toolBreaks(user, tool, duration)
+    local toolbroken = shared.toolBreaks(user, tool, duration)
 
     USER_POSITION_LIST[user.id] = USER_POSITION_LIST[user.id]+1
+
+    if toolbroken and USER_POSITION_LIST[user.id] < #listOfTheIngredients then
+        user:inform("Du brichst deine Arbeit vor dem "..USER_POSITION_LIST[user.id]..". Arbeitsschritt ab.", "You abort your work before the "..USER_POSITION_LIST[user.id]..". work step.")
+        return
+    end
 
     if alchemy.CheckExplosionAndCleanList(user) then
         if USER_POSITION_LIST[user.id] < #listOfTheIngredients then
@@ -355,6 +401,9 @@ function CallBrewFunctionAndDeleteItem(user,deleteItem, deleteId,cauldron)
     else
         if deleteItem.id == 164 then -- empty bottle
             id_164_emptybottle.FillIntoBottle(user, deleteItem, cauldron)
+
+        elseif deleteItem.id == 3642 then
+            id_3642_empty_salve_jar.FillIntoJar(user, deleteItem, cauldron)
 
         elseif deleteItem.id == 331 then -- stock
             id_331_green_bottle.FillStockIn(user,deleteItem, cauldron)
@@ -411,6 +460,21 @@ function GetItem(user, listOfTheIngredients)
             if not (deleteItem) then
                 missingDe = "Dir fehlt: leere Flasche"
                 missingEn = "You don't have: empty bottle"
+            end
+        elseif string.find(listOfTheIngredients[USER_POSITION_LIST[user.id]],"jar") then
+            local jarList = user:getItemList(3642)
+            if #jarList > 0 then
+                deleteItem = jarList[1]
+                for i = 1, #jarList do
+                    if not string.find(jarList[i]:getData("descriptionEn"), "Bottle label:") then
+                        deleteItem = jarList[i]
+                        break
+                    end
+                end
+            end
+            if not (deleteItem) then
+                missingDe = "Dir fehlt: leere Salbendose"
+                missingEn = "You don't have: empty salve jar"
             end
         else
             local liquid, neededList = recipe_creation.StockEssenceList(listOfTheIngredients[USER_POSITION_LIST[user.id]])

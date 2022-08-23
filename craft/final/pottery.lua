@@ -41,10 +41,6 @@ catId = pottery:addCategory("Pottery", "Töpfern")
 product = pottery:addProduct(catId, 2588, 1)
 product:addIngredient(26, 2) -- clay
 
--- mortar
-product = pottery:addProduct(catId, 58, 1)
-product:addIngredient(26, 8) -- clay
-
 -- clay mug
 product = pottery:addProduct(catId, 2183, 1)
 product:addIngredient(26, 4) -- clay

@@ -21,11 +21,13 @@ local recipe_creation = require("alchemy.base.recipe_creation")
 local createSpell = require("magic.arcane.createSpell")
 local texts = require("magic.arcane.base.texts")
 local lookat = require("base.lookat")
+local parchmentScript = require("item.id_2745_parchment")
+local bookWriting = require("item.base.bookWriting")
 
 local M = {}
 
 local parchmentList = {2745, 3109}
-local parchmentMaxTextLength = 240
+local parchmentMaxTextLength = bookWriting.parchmentMaxTextLength
 
 local function getText(user,deText,enText)
     return common.GetNLS(user,deText,enText)
@@ -84,6 +86,10 @@ local function CheckIfBottleInHand(user, sourceItem)
         if (bottleItem.id == emptyBottleList[i]) then
             return bottleItem
         end
+    end
+
+    if bottleItem.id == 3642 or bottleItem.id == 3643 then --salve jars
+        return bottleItem
     end
 
     return nil
@@ -145,18 +151,20 @@ local function WriteParchment(user,sourceItem)
             local parchment = CheckIfParchmentInHand(user,sourceItem) -- check for the parchment again
             if parchment then
                 local writtenText = dialog:getInput()
-                if not common.IsNilOrEmpty(parchment:getData("writtenText")) then
-                    writtenText = parchment:getData("writtenText") .. "\n" .. writtenText
+                local existingText = parchmentScript.getWrittenTextFromParchment(parchment)
+
+                if existingText then
+                    writtenText = existingText .. writtenText
                 end
+
+                local textLength = string.len (writtenText)
+
                 if CheckIfParchmentIsSigned(parchment) then
                     user:inform("Du kannst ein unterschriebenes Pergament nicht verändern.","You cannot change an already signed parchment.",Character.highPriority)
-                elseif string.len (writtenText) > parchmentMaxTextLength then
+                elseif textLength > parchmentMaxTextLength then
                     user:inform("Du findest nicht genügend freien Platz auf dem Pergament.","The parchment is too small for your text.",Character.highPriority)
                 else
-                    parchment:setData("writtenText",writtenText)
-                    lookat.SetSpecialDescription(parchment,"Das Pergament ist beschrieben.","The parchment has been written on.")
-                    parchment.wear = 254 -- Written parchments should have maximum rot time to allow message exchange
-                    world:changeItem(parchment)
+                    bookWriting.convertStringToMultipleParchmentDataValues(parchment, writtenText)
                     user:inform("Du schreibst auf das Pergament:\n'".. string.gsub (writtenText,"\\n","\n") .."'.","You write on the parchment:\n'".. string.gsub (writtenText,"\\n","\n") .."'.")
                 end
             else
@@ -330,13 +338,13 @@ end
 
 function M.UseItem(user, sourceItem, ltstate)
 
-    if sourceItem.itempos ~= 5 and sourceItem.itempos ~= 6 then
-        user:inform("Du musst die Schreibfeder in der Hand halten.","You have to hold the quill in your hand.",Character.highPriority)
+    if checkIfMagicDeskInFrontOfuser(user) then
+        createSpell.mainDialog(user, sourceItem)
         return
     end
 
-    if checkIfMagicDeskInFrontOfuser(user) then
-        createSpell.mainDialog(user, sourceItem)
+    if not common.IsItemInHands(sourceItem) then
+        user:inform("Du musst die Schreibfeder in der Hand halten.","You have to hold the quill in your hand.",Character.highPriority)
         return
     end
 
@@ -389,6 +397,8 @@ function M.UseItem(user, sourceItem, ltstate)
                 end
             elseif selected == 7 then
                 labelGrimoire(user)
+            elseif selected == 8 then
+                bookWriting.writeBook(user, sourceItem)
             end
         end
     end
@@ -401,6 +411,7 @@ function M.UseItem(user, sourceItem, ltstate)
     dialog:addOption(0, getText(user,"Pergament beschreiben","Write a parchment"))
     dialog:addOption(0, getText(user,"Pergament unterschreiben","Sign a parchment"))
     dialog:addOption(0, getText(user,"Zauberbuch beschriften","Label Grimoire"))
+    dialog:addOption(0, getText(user, "Buch verfassen", "Author a book"))
 
     user:requestSelectionDialog(dialog)
 end

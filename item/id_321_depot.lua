@@ -23,6 +23,9 @@ local lookat = require("base.lookat")
 
 local M = {}
 
+-- A list for use in other scripts that access _all_ depots via user:getDepot() to check for items
+M.depots = {100,101,102,103,200,201,202} -- For some reason user:getDepot() uses a number lower than the depotId, hence Runewick depotId 102 is actually 101 in this list and so on
+
 function M.LookAtItem(User, Item)
     local lookAt = lookat.GenerateLookAt(User, Item)
     local depotId = tonumber(Item:getData("depot"))

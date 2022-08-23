@@ -496,7 +496,7 @@ local function changeItemDescriptionGerman(user, TargetItem)
                 newDescription = ""
             end
             if common.IsNilOrEmpty(newDescription) == false then
-                TargetItem:setData("descriptionEn",newDescription)
+                TargetItem:setData("descriptionDe",newDescription)
                 world:changeItem(TargetItem)
                 user:inform("German description of "..world:getItemName(TargetItem.id, Player.english).." set to: " ..newDescription)
                 user:logAdmin("changed German description of "..world:getItemName(TargetItem.id, Player.english).." to: " ..newDescription)
@@ -1569,7 +1569,7 @@ local _
                     return
                 end
                 local potionName = dialog3:getInput()
-                common.CreateItem(user,tonumber(potionID),tonumber(potionAmount),tonumber(potionQuality),{["potionEffectId"]=tonumber(potionEffect),["descriptionEn"]=potionName,["descriptionDe"]=potionName,["creator"]="admin"})
+                common.CreateItem(user,tonumber(potionID),tonumber(potionAmount),tonumber(potionQuality),{["potionEffectId"]=tonumber(potionEffect),["descriptionEn"]=potionName,["descriptionDe"]=potionName,["creator"]="admin", ["legitimateKnowledgeOfPotionRecipe"]="true"})
             end
             user:requestInputDialog(InputDialog("Potion Creation", "What do you want to label your potions?",false,255,callback3))
         end

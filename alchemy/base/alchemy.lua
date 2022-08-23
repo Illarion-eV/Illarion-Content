@@ -22,6 +22,14 @@ local M = {}
 
 local alchemyTool = Item.mortar
 
+M.playerPotionStartQuest = 870 -- 870-900 reserved for bitwise storage of potion knowledge
+
+M.playerInventedPotionList = {
+    {id = 561, creator = "Amanda Brightrim", index = 1},
+    {id = 319, creator = "Amanda Brightrim", index = 2},
+    {id = 700, creator = "Yridia Anar", index = 3}
+}
+
 function M.getAlchemyTool(user)
     local leftTool = user:getItemAt(Character.left_tool)
     local rightTool = user:getItemAt(Character.right_tool)
@@ -202,7 +210,7 @@ setPotion(317, 446, 76576456, 140, 140, 140, 140, 152, 152, 146, 146)
 M.potionName[318] = {"Lennier's Dream","Lenniers Traum"}
 setPotion(318, 446, 57932798, 765,146,146,146,148,15,151,764)
 M.potionName[319] = {"Protogebräu: Brightrim's demon skeleton weakener","Proto brewing: Brightrims Dämonenskelettschwächer"}
-setPotion(318, 446, 57932798, 760, 146, 146, 146, 134, 134, 760, 752)
+setPotion(319, 446, 48923699, 760, 146, 146, 146, 134, 134, 760, 752)
 M.potionName[320] = {"Brightrim's demon skeleton weakener","Brightrims Dämonenskelettschwächer"}
 -- bombs end
 
@@ -250,7 +258,7 @@ M.potionName[551] = {"Shape Shifter Female Lizardman","Verwandler Weiblicher Ech
 setPotion(551, 449, 23417592, 766, 162, 760, 767, false, false, false, false)
 M.potionName[560] = {"Shape Shifter Dog","Verwandler Hund"}
 setPotion(560, 449, 31397191, 766, 152, 81, 81, 762, false, false, false)
-M.potionName[561] = {"Shape Shifter Small Spider","Verwandler Kleine Spinne"}
+M.potionName[561] = {"Shape Shifter Spider","Verwandler Spinne"}
 setPotion(561, 449, 71526316, 766, 155, 147, 147, 757, false, false, false)
 -- transformation potions end
 
@@ -272,6 +280,15 @@ setPotion(606, 452, 56612824, 756, 765, 768, false, false, false, false, false)
 M.potionName[607] = {"Language Potion Ancient Language","Sprachtrank Antike Sprache"}
 setPotion(607, 452, 25796346, 756, 756, 765, 152, false, false, false, false)
 -- language potions end
+
+-- Salves start
+local salveStart = 700
+local salveEnd = 799
+
+M.potionName[700] = {"Yridia's Rash and Skin Irritation ointment", "Yridias Salbe gegen Hautausschlag und Hautreizungen"}
+setPotion(700, 451, 34885446, 153, 153, 153, 148, 145, false, false, false)
+
+-- salve end
 
 
 --- Get the effect of a potion
@@ -608,6 +625,7 @@ function M.RemoveAll(Item)
     Item:setData("potionEffectId","")
     Item:setData("potionQuality","")
     Item:setData("filledWith","")
+    Item:setData("legitimateKnowledgeOfPotionRecipe", "")
     if (Item.id >= 1008) or (Item.id <= 1018) then
         Item.id = 1008
     else
@@ -615,45 +633,54 @@ function M.RemoveAll(Item)
     end
 end
 
-function M.EmptyBottle(User,Bottle)
+local function checkBrewingPermissions(fromItem)
+
+    local permitted = fromItem:getData("legitimateKnowledgeOfPotionRecipe")
+
+    if permitted == "false" then
+        return false
+    end
+
+    return true
+
+end
+
+function M.EmptyBottle(user, bottle)
+
+    local emptyBottle = 164
+
+    if bottle.id == 3643 then   --salve jar instead of potion
+        emptyBottle = 3642
+    end
+
     if math.random(1,20) == 1 then
-        world:erase(Bottle,1) -- bottle breaks
-        common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.", Player.lowPriority)
+
+        world:erase(bottle,1) -- bottle breaks
+        common.InformNLS(user, "Die Flasche zerbricht.", "The bottle breaks.", Player.lowPriority)
+
+    elseif bottle.number > 1 then -- if we empty a bottle (stock, potion or essence brew) it should normally never be a stack! but to be one the safe side, we check anyway
+
+        common.CreateItem(user, emptyBottle, 1, 333, nil)
+        world:erase(bottle, 1)
+
     else
-        if Bottle.number > 1 then -- if we empty a bottle (stock, potion or essence brew) it should normally never be a stack! but to be one the safe side, we check anyway
-        common.CreateItem(User, 164, 1, 333, nil)
-        world:erase(Bottle, 1)
-        else
-            M.RemoveAll(Bottle)
-            Bottle.id = 164
-            Bottle.quality = 333
-            world:changeItem(Bottle)
-        end
+
+        M.RemoveAll(bottle)
+        bottle.id = emptyBottle
+        bottle.quality = 333
+        world:changeItem(bottle)
     end
 end
 
-M.brewingPermissions = { --temporary manual table for brewing permissions until Jupiter has implemented his system for teaching your own created recipes to others
-    {effect = 561, users = {"admin", "Amanda Brightrim"}} -- "admin" is set as the creator of admin created potions via gm tool
-}
+local function potionRequiresPermission(potionId)
 
-local function checkBrewingPermissions(fromItem)
-
-    local hasPermission = true
-
-    for _, currentPotion in pairs(M.brewingPermissions) do --Go through the list of brewing permissions
-        if tonumber(fromItem:getData("potionEffectId")) == currentPotion.effect then --Check if potion requires permissions
-            hasPermission = false
-            for _, currentUser in pairs(currentPotion.users) do -- Go through list of users with permissions
-                if fromItem:getData("creator") == currentUser then --If user who created the potion(added the gemdust) is on the list, permissions are granted
-                    hasPermission = true
-                    break
-                end
-            end
-
+    for _, potion in pairs(M.playerInventedPotionList) do
+        if potion.id == potionId then
+            return true
         end
     end
 
-    return hasPermission
+    return false
 end
 
 function M.FillFromTo(fromItem,toItem)
@@ -665,6 +692,7 @@ function M.FillFromTo(fromItem,toItem)
     toItem:setData("creator",fromItem:getData("creator"))
     toItem:setData("filledWith",fromItem:getData("filledWith"))
     toItem:setData("potionEffectId",fromItem:getData("potionEffectId"))
+    toItem:setData("legitimateKnowledgeOfPotionRecipe", fromItem:getData("legitimateKnowledgeOfPotionRecipe"))
     local quality = tonumber(fromItem:getData("potionQuality"))
     if quality == nil then
         quality = fromItem.quality
@@ -683,10 +711,17 @@ function M.FillFromTo(fromItem,toItem)
     if toItem.id >= 1008 and toItem.id <= 1018 then
         toItem.id = reCauldron
     else
-        local hasPermission = checkBrewingPermissions(fromItem)
 
-        if not hasPermission then
-            toItem:setData("potionEffectId", 0)
+        if potionRequiresPermission(tonumber(fromItem:getData("potionEffectId"))) then
+            local hasPermission = checkBrewingPermissions(fromItem)
+
+            if not hasPermission then
+                toItem:setData("potionEffectId", 0)
+            end
+        end
+
+        if toItem.id == 3642 then --account for salve jars
+            reBottle = 3643
         end
 
         toItem.id = reBottle
@@ -734,6 +769,10 @@ function M.CauldronDestruction(User,cauldron,effectId)
     M.RemoveAll(cauldron)
     cauldron.id = 1008
     world:changeItem(cauldron)
+end
+
+function M.informAlchemyToolNeeded(user)
+    user:inform(common.GetNLS(user, "Du brauchst einen Mörtel, um Zutaten fürs Brauen vorzubereiten.", "You must wield a mortar in order to process the ingredients for your brewing."))
 end
 
 function M.SetQuality(user, item)
@@ -797,11 +836,32 @@ function M.GemDustBottleCauldron(gemId, gemdustId, cauldronId, bottleId)
     end
     return reGem, reGemdust, reCauldron, reBottle
 end
+
+local function checkIfPlayerKnowsPotion(user, potionId)
+
+    local creator
+    local index
+
+    for _, potion in pairs(M.playerInventedPotionList) do
+        if potion.id == potionId then
+            creator = potion.creator
+            index = potion.index
+        end
+    end
+
+    if creator == user.name or common.readBitwise(user, index, M.playerPotionStartQuest) then
+        return true
+    end
+
+    return false
+
+end
 ----------------------------------------------------
 -- combine of stock and essence brew to create a potion
 -- function is only called when item 331 is a stock or when a potion-bottle is an essence brew
-function M.CombineStockEssence( User, stock, essenceBrew)
-    local cauldron = M.GetCauldronInfront(User)
+function M.CombineStockEssence( user, stock, essenceBrew)
+
+    local cauldron = M.GetCauldronInfront(user)
     if cauldron then
 
         -- we get the gem dust used as an ingredient; and the new cauldron id we need later
@@ -854,23 +914,31 @@ function M.CombineStockEssence( User, stock, essenceBrew)
         -- check if char is able to combine
         effectID = tonumber(effectID)
         if effectID >= 1000 and effectID <= 1999 then
-            if User:getQuestProgress(effectID+1000) == 0 then
-                User:inform("Du versuchst die Gebräue zu verbinden, doch sie scheinen sich nicht vermischen zu wollen. Scheinbar beherrscht du diesen Trank noch nicht richtig.",
+            if user:getQuestProgress(effectID+1000) == 0 then
+                user:inform("Du versuchst die Gebräue zu verbinden, doch sie scheinen sich nicht vermischen zu wollen. Scheinbar beherrscht du diesen Trank noch nicht richtig.",
                     "You try to combine the brews but they just don't admix. It seem that you haven't learned how to create this potion properly.")
                 return false
             end
         end
         -- delte old cauldron datas and add new ones
         M.RemoveAll(cauldron)
-        M.SetQuality(User,cauldron)
+        M.SetQuality(user,cauldron)
         cauldron.id = newCauldron
         cauldron:setData("potionEffectId", ""..effectID)
-        cauldron:setData("filledWith", "potion")
+        if potionRequiresPermission(effectID) then
+            cauldron:setData("legitimateKnowledgeOfPotionRecipe", tostring(checkIfPlayerKnowsPotion(user, effectID)))
+        end
+
+        if effectID <= salveEnd and effectID >= salveStart then
+            cauldron:setData("filledWith", "salve")
+        else
+            cauldron:setData("filledWith", "potion")
+        end
         world:changeItem(cauldron)
         world:makeSound(13,cauldron.pos)
         world:gfx(52,cauldron.pos)
         -- and learn!
-        User:learn(Character.alchemy, 80/2, 100)
+        user:learn(Character.alchemy, 80/2, 100)
         return true
     end
 end
@@ -935,24 +1003,32 @@ local function SupportPotion(User,support,potion)
     world:changeItem(cauldron)
 end
 
-function M.FillIntoCauldron(User,SourceItem,cauldron,ltstate)
+function M.FillIntoCauldron(user,SourceItem,cauldron,ltstate)
+
+    local tool = M.getAlchemyTool(user)
+
+    if not tool then
+        M.informAlchemyToolNeeded(user)
+        return
+    end
+
     -- function to fill stock, essencebrew or potion into a cauldron
     -- is the char an alchemist?
-    local anAlchemist = M.CheckIfAlchemist(User,"Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.","Only those who have been introduced to the art of alchemy are able to work here.")
+    local anAlchemist = M.CheckIfAlchemist(user,"Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.","Only those who have been introduced to the art of alchemy are able to work here.")
     if not anAlchemist then
         return
     end
 
-    if licence.licence(User) then --checks if user is citizen or has a licence
+    if licence.licence(user) then --checks if user is citizen or has a licence
     return -- avoids crafting if user is neither citizen nor has a licence
     end
 
-    if not M.checkFood(User) then
+    if not M.checkFood(user) then
         return
     end
 
     if ( ltstate == Action.abort ) then
-        common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
+        common.InformNLS(user, "Du brichst deine Arbeit ab.", "You abort your work.")
         return
     end
 
@@ -963,27 +1039,27 @@ function M.FillIntoCauldron(User,SourceItem,cauldron,ltstate)
         else
             actionDuration = 20
         end
-        User:startAction( actionDuration, 21, 5, 10, 45)
+        user:startAction( actionDuration, 21, 5, 10, 45)
         return
     end
 
     if (SourceItem:getData("filledWith") =="essenceBrew") then -- essence brew should be filled into the cauldron
     -- water, essence brew or potion is in the cauldron; leads to a failure
     if cauldron:getData("filledWith") == "water" then
-        M.CauldronDestruction(User,cauldron,1)
+        M.CauldronDestruction(user,cauldron,1)
 
     elseif cauldron:getData("filledWith") == "essenceBrew" then
-        M.CauldronDestruction(User,cauldron,2)
+        M.CauldronDestruction(user,cauldron,2)
 
     elseif cauldron:getData("filledWith") == "potion" then
         if cauldron.id == 1013 then -- support potion
-        SupportEssenceBrew(User,cauldron,SourceItem)
+        SupportEssenceBrew(user,cauldron,SourceItem)
         else
-            M.CauldronDestruction(User,cauldron,2)
+            M.CauldronDestruction(user,cauldron,2)
         end
 
     elseif cauldron:getData("filledWith") == "stock" then -- stock is in the cauldron; we call the combin function
-    M.CombineStockEssence( User, cauldron, SourceItem)
+    M.CombineStockEssence( user, cauldron, SourceItem)
 
     else -- nothing in the cauldron, we just fill in the essence brew
     M.FillFromTo(SourceItem,cauldron)
@@ -992,20 +1068,20 @@ function M.FillIntoCauldron(User,SourceItem,cauldron,ltstate)
     elseif (SourceItem:getData("filledWith")=="potion") then -- potion should be filled into the cauldron
     -- water, essence brew, potion or stock is in the cauldron; leads to a failure
     if cauldron:getData("cauldronFilledWith") == "water" then
-        M.CauldronDestruction(User,cauldron,1)
+        M.CauldronDestruction(user,cauldron,1)
 
     elseif cauldron:getData("cauldronFilledWith") == "essenceBrew" then
-        M.CauldronDestruction(User,cauldron,2)
+        M.CauldronDestruction(user,cauldron,2)
 
     elseif cauldron:getData("filledWith") == "potion" then
         if cauldron.id == 1013 then -- support potion
-        SupportPotion(User,cauldron,SourceItem)
+        SupportPotion(user,cauldron,SourceItem)
         else
-            M.CauldronDestruction(User,cauldron,2)
+            M.CauldronDestruction(user,cauldron,2)
         end
 
     elseif cauldron:getData("filledWith") == "stock" then
-        M.CauldronDestruction(User,cauldron,2)
+        M.CauldronDestruction(user,cauldron,2)
 
     else -- nothing in the cauldron, we just fill in the potion
     M.FillFromTo(SourceItem,cauldron)
@@ -1013,14 +1089,21 @@ function M.FillIntoCauldron(User,SourceItem,cauldron,ltstate)
     end
 
     end
-    M.EmptyBottle(User,SourceItem)
+    M.EmptyBottle(user,SourceItem)
 end
 
 -- a bug led to a situation that some potions missed the "filledWith"-data
 -- this function will be called whenever seomething is done to a potion and set the proper data
 function M.repairPotion(Item)
+    local filled
     if tonumber(Item:getData("potionEffectId")) ~= nil then
-        Item:setData("filledWith","potion")
+        local effectID = tonumber(Item:getData("potionEffectId"))
+        if effectID <= salveEnd and effectID >= salveStart then
+            filled = "salve"
+        else
+            filled = "potion"
+        end
+        Item:setData("filledWith", filled)
         world:changeItem(Item)
     end
 end
