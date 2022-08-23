@@ -127,7 +127,9 @@ local runeStart = 7
     for i = runeStart, #runes.Runes do -- For every rune
         if i ~= 6 then
             if runes.checkIfLearnedRune(user,"", i, "isQuest") and (not runes.checkIfLearnedRune(user, targetItem, i, "isSpell", "spell"..slot)) then -- check if user knows rune and if rune is already part of spell being created
-                dialog:addOption(0,runes.Runes[i][2])
+                local runeName = runes.Runes[i][2]
+                local lowerCaseName = string.lower(runeName)
+                dialog:addOption(Item[lowerCaseName], runeName)
             end
         end
     end
@@ -172,7 +174,9 @@ local unknownRunes = 0
     local dialog = SelectionDialog(common.GetNLS(user,createSpellTexts.creation.german, createSpellTexts.creation.english), common.GetNLS(user, createSpellTexts.selectPrimary.german, createSpellTexts.selectPrimary.english), callback)
     for i = 1,6 do
         if runes.checkIfLearnedRune(user,"", i, "isQuest") then
-            dialog:addOption(0, runes.Runes[i][2])
+            local runeName = runes.Runes[i][2]
+            local lowerCaseName = string.lower(runeName)
+            dialog:addOption(Item[lowerCaseName], runeName)
         end
     end
 user:requestSelectionDialog(dialog)
