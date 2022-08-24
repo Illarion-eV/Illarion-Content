@@ -155,8 +155,17 @@ end
 
 local function isParchmentStillViable(user, signatureText, writtenTexts)
 
+    local possibleItems = {}
+
     for i = 1, 6 do
-        local possibleParchment = user:getItemAt(Character["belt_pos_"..i])
+        table.insert(possibleItems, user:getItemAt(Character["belt_pos_"..i]))
+    end
+
+    table.insert(possibleItems, user:getItemAt(Character.left_tool))
+    table.insert(possibleItems, user:getItemAt(Character.right_tool))
+
+
+    for _, possibleParchment in pairs(possibleItems) do
 
         if possibleParchment.id == Item.parchment then
             local selectedParchmentText = possibleParchment:getData("writtenText")
@@ -168,7 +177,7 @@ local function isParchmentStillViable(user, signatureText, writtenTexts)
         end
     end
 
-    user:inform("Die Schriftrolle muss sich in deinem Gürtel befinden.", "The selected parchment must be in your belt.")
+    user:inform("Die Schriftrolle muss sich in deinem Gürtel befinden.", "The selected parchment must be in your belt or your hands.") -- GERMAN TRANSLATION NEEDS TO BE UPDATED
 
     return false
 
