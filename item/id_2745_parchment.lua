@@ -473,7 +473,7 @@ function GetItem(user, listOfTheIngredients)
                 end
             end
             if not (deleteItem) then
-                missingDe = "Dir fehlt: leere Salbendose"
+                missingDe = "Dir fehlt: leerer Salbentiegel"
                 missingEn = "You don't have: empty salve jar"
             end
         else
