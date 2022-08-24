@@ -67,13 +67,13 @@ end
 function M.FillIntoJar(user, sourceItem, cauldron)
 
     if (cauldron:getData("filledWith") == "stock") or (cauldron:getData("filledWith") == "essenceBrew") or (cauldron:getData("filledWith") == "potion") then
-        user:inform("Die Flüssigkeit im Kessel ist viel zu dünn. Du brauchst hier eine leere Zaubertrankflasche, kein Salbengefäß!", "The liquid in the cauldron is far too thin. You'll need an empty potion bottle here, not a salve jar!")
+        user:inform("Die Flüssigkeit im Kessel ist viel zu dünn. Du brauchst hier eine leere Zaubertrankflasche, keinen Salbentiegel!", "The liquid in the cauldron is far too thin. You'll need an empty potion bottle here, not a salve jar!")
         return
     end
 
     if cauldron:getData("filledWith") == "salve" then
         if sourceItem.number > 1 then -- stack!
-            user:inform("Du kannst immer nur einen Krug gleichzeitig verwenden.", "You must use one jar at a time.")
+            user:inform("Du kannst immer nur einen Tiegel gleichzeitig verwenden.", "You must use one jar at a time.")
             return
         else
             alchemy.FillFromTo(cauldron, sourceItem)
