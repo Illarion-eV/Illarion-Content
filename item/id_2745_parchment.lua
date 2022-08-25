@@ -48,10 +48,6 @@ local GetItem
 local ViewRecipe
 local getIngredients
 
-local function selectParchmentToGiveMessenger(user, parchment)
-    return parchment
-end
-
 local function bookListLookAt(user,Item)
     local itemLookat = lookat.GenerateLookAt(user, Item, lookat.NONE)
     itemLookat.name = common.GetNLS(user, "Liste der magischen Bücher", "Magic Book List")
@@ -85,9 +81,7 @@ end
 function M.UseItem(user, SourceItem,ltstate,checkVar)
 
     -- Check if the messenger has requested a parchment
-    if messenger.getParchmentSelectionStatus(user) then
-        local parchment = selectParchmentToGiveMessenger(user, SourceItem)
-        messenger.verifyParchment(user, parchment)
+    if messenger.getParchmentSelectionStatus(user, SourceItem) then
         return
     end
 

@@ -24,6 +24,15 @@ local parchmentSelectionStatus = {}
 
 local M = {}
 
+local function checkPosition(user)
+
+    if user.pos ~= parchmentSelectionStatus[user.id].position then
+        user:inform("GERMAN TRANSLATION", "Having moved elsewhere, the messenger lost track of you.")
+        return false
+    end
+
+    return true
+end
 
 local function spawnParchment(user, texts, signature, descriptionEn, descriptionDe)
 
@@ -192,17 +201,17 @@ local function payMoney(user, writtenTexts, signatureText, descriptionDe, descri
         return
     end
 
-    if tooManyMessages(user, recipient) or alreadySentTooManyMessages(user, recipient) then
+    if tooManyMessages(user, recipient) or alreadySentTooManyMessages(user, recipient) or not checkPosition(user) then
         return
     end
-
-    money.TakeMoneyFromChar(user, price)
 
     local parchment = isParchmentStillViable(user, signatureText, writtenTexts)
 
     if not parchment then
         return
     end
+
+    money.TakeMoneyFromChar(user, price)
 
     world:erase(parchment, 1)
 
@@ -211,16 +220,14 @@ local function payMoney(user, writtenTexts, signatureText, descriptionDe, descri
     user:inform("Du zahlst "..(price/100).." Silberstücke und ein Bote macht sich mit deiner Nachricht auf den Weg.", "Having paid the "..(price/100).." silver fee, a messenger is dispatched with your letter.")
 end
 
-function M.getParchmentSelectionStatus(user)
-    if not parchmentSelectionStatus[user.id] then
-        return false
+function M.getParchmentSelectionStatus(user, parchment)
+
+    if parchmentSelectionStatus[user.id] and parchmentSelectionStatus[user.id].status and parchmentSelectionStatus[user.id].position == user.pos then
+        M.verifyParchment(user, parchment)
+        return true
     end
 
-    if parchmentSelectionStatus[user.id].position ~= user.pos then
-        return -- user moved
-    end
-
-    return parchmentSelectionStatus[user.id].status
+    return false
 end
 
 local function writeRecipientName(user, writtenTexts, signatureText, descriptionDe, descriptionEn)
@@ -234,6 +241,10 @@ local function writeRecipientName(user, writtenTexts, signatureText, description
 
         local recipientExists, recipientId = world:getPlayerIdByName(input)
 
+        if not checkPosition(user) then
+            return
+        end
+
         if not recipientExists then
             user:inform("Unbekannter Adressat.", "No recipient by that name exists.")
             return
@@ -244,7 +255,7 @@ local function writeRecipientName(user, writtenTexts, signatureText, description
 
     local dialog = InputDialog(common.GetNLS(user, "Empfänger", "Enter Recipient"), common.GetNLS(user, "An wen soll der Bote die Nachricht liefern?", "The messenger needs the name of the intended recipient."), false, 255, callback)
 
-    if not isParchmentStillViable(user, signatureText, writtenTexts) then
+    if not isParchmentStillViable(user, signatureText, writtenTexts) or not checkPosition(user) then
         return
     end
 
@@ -280,7 +291,7 @@ function M.messengerRequested(user)
     end
 
     parchmentSelectionStatus[user.id].status = true
-    parchmentSelectionStatus[user.id].position = user.pos
+    parchmentSelectionStatus[user.id].position = position(user.pos.x, user.pos.y, user.pos.z)
     --select a parchment you wish to send or message about having no parchments to send
     --activate a top level variable that makes it so the next parchment you double click is selected instead of its usual purpose
     -- if the parchment does not contain a message and signature, decline it
