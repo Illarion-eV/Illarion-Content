@@ -50,7 +50,7 @@ end
 function M.sendStoredMessages(recipient)
     local foundStoredMessages, numberOfMessages = ScriptVars:find(recipient.id.."storedMessages")
 
-    if not foundStoredMessages then
+    if not foundStoredMessages or numberOfMessages == 0 then
         return
     end
 
