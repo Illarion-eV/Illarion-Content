@@ -484,6 +484,8 @@ local function getDurationBasedOnRestoredDurability(user, repairKit, chosenItem)
 
     if repairCount == "" then
         repairCount = 0
+    else
+        repairCount = tonumber(repairCount)
     end
 
     if staticTool and hasRequiredSkill then
