@@ -82,10 +82,10 @@ function M.FillIntoJar(user, sourceItem, cauldron)
         else
             sourceItem.id = 3643
             alchemy.FillFromTo(cauldron, sourceItem)
+            world:changeItem(sourceItem)
         end
         alchemy.RemoveAll(cauldron)
     end
-    world:changeItem(sourceItem)
     world:changeItem(cauldron)
     world:makeSound(10,cauldron.pos)
 end
