@@ -131,6 +131,8 @@ function setTitle(user)
         end
 
         book:setData("bookTitle", input)
+        book:setData("descriptionEn", "Title: "..input)
+        book:setData("descriptionDe", "Titel: "..input)
         world:changeItem(book)
 
         user:inform("Neuer Buchtitel: "..input..".", "You set the title of the book to "..input..".")
