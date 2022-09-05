@@ -27,7 +27,7 @@ local M = {}
 local function checkPosition(user)
 
     if user.pos ~= parchmentSelectionStatus[user.id].position then
-        user:inform("GERMAN TRANSLATION", "Having moved elsewhere, the messenger lost track of you.")
+        user:inform("Bitte bleib an Ort und Stelle, damit der Bote deine Nachricht entgegennehmen kann.", "Having moved elsewhere, the messenger lost track of you.")
         return false
     end
 
@@ -186,7 +186,7 @@ local function isParchmentStillViable(user, signatureText, writtenTexts)
         end
     end
 
-    user:inform("Die Schriftrolle muss sich in deinem Gürtel befinden.", "The selected parchment must be in your belt or your hands.") -- GERMAN TRANSLATION NEEDS TO BE UPDATED
+    user:inform("Die Schriftrolle muss sich in deinen Händen oder im Gürtel befinden.", "The selected parchment must be in your belt or your hands.")
 
     return false
 

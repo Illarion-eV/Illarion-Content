@@ -150,7 +150,7 @@ function selectNewPage(user)
         parchmentSelectionStatus[user.name].status = true
         parchmentSelectionStatus[user.name].position = user.pos
 
-    user:inform("Welche Schriftrolle möchtest du dem Buch als Seite hinzufügen?", "Select the parchment you want to add to the book as a page.")
+    user:inform("Benutze die Schriftrolle, die du dem Buch als Seite hinzufügen möchtest.", "Select the parchment you want to add to the book as a page by using it.")
 end
 
 
