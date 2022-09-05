@@ -307,7 +307,7 @@ function M.UseItem(User, SourceItem, ltstate)
                 end
             elseif selected == 5 then
                 if not CheckIfParchmentInHand(User,SourceItem) then
-                    User:inform("Du brauchst ein einzelnes leeres oder halb beschriebenes Pergament in deiner Hand auf dem du schreiben kannst.","You need a single empty or half filled parchment in your hand to write on.",Character.highPriority)
+                    User:inform("Du brauchst ein einzelnes leeres oder teilweise beschriebenes Pergament in deiner Hand auf dem du schreiben kannst.","You need a single empty or half filled parchment in your hand to write on.",Character.highPriority)
                     return
                 else
                     WriteParchment(User,SourceItem)
