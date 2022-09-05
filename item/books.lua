@@ -140,7 +140,7 @@ function M.UseItem(User, SourceItem)
 
     local isWritten = SourceItem:getData("pageCount")
 
-    if not common.IsNilOrEmpty(isWritten) then
+    if not common.IsNilOrEmpty(isWritten) and tonumber(isWritten) >= 1 then
         readBook(User, SourceItem)
     end
 
