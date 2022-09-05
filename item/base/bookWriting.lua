@@ -227,6 +227,12 @@ function removePage(user, book)
 
     local pageNumber = tonumber(book:getData("pageCount"))
 
+    if not pageNumber or pageNumber <= 0 then
+        user:inform("GERMAN TRANSLATION", "You can not remove a page from a book that has none.w")
+        return
+    end
+
+
     local theText, theSignature = getWrittenTextAndSignatureFromBook(book, pageNumber)
 
     local theParchment = world:createItemFromId(Item.parchment, 1, user.pos, true, 333, {})
