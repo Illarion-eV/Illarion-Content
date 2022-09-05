@@ -60,7 +60,8 @@ function M.sendStoredMessages(recipient)
         parchments = "parchment"
     end
 
-    recipient:inform("Ein Bote bringt dir "..numberOfMessages.." Nachrichten und verschwindet wieder, so schnell er gekommen ist.", "A messenger comes up to you, delivering "..numberOfMessages.." "..parchments.." before scurrying off.")
+local text = common.GetNLS(recipient, "Ein Bote bringt dir "..numberOfMessages.." Nachrichten und verschwindet wieder, so schnell er gekommen ist.", "A messenger comes up to you, delivering "..numberOfMessages.." "..parchments.." before scurrying off.")
+local title = common.GetNLS(recipient, "GERMAN TRANSLATION", "Message Delivery")
 
     for i = 1, tonumber(numberOfMessages) do
         local foundText1, text1 = ScriptVars:find(recipient.id.."storedMessageText"..i)
@@ -78,6 +79,17 @@ function M.sendStoredMessages(recipient)
     end
 
     ScriptVars:set(recipient.id.."storedMessages", "0")
+
+    local callback = function(dialog)
+        local success = dialog:getSuccess()
+        if not success then
+            return
+        end
+    end
+
+    local dialog = MessageDialog(title, text, callback)
+
+    recipient:requestMessageDialog(dialog)
 end
 
 local function tooManyMessages(recipient)
