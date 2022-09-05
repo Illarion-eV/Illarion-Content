@@ -649,14 +649,18 @@ function M.EmptyBottle(user, bottle)
 
     local emptyBottle = 164
 
+    local texts = {german = "Die Flasche zerbricht.", english = "The bottle breaks."}
+
     if bottle.id == 3643 then   --salve jar instead of potion
         emptyBottle = 3642
+        texts.german = "GERMAN TRANSLATION"
+        texts.english = "The salve jar breaks."
     end
 
     if math.random(1,20) == 1 then
 
         world:erase(bottle,1) -- bottle breaks
-        common.InformNLS(user, "Die Flasche zerbricht.", "The bottle breaks.", Player.lowPriority)
+        common.InformNLS(user, texts.german, texts.english, Player.lowPriority)
 
     elseif bottle.number > 1 then -- if we empty a bottle (stock, potion or essence brew) it should normally never be a stack! but to be one the safe side, we check anyway
 
