@@ -73,13 +73,19 @@ function M.FillIntoJar(user, sourceItem, cauldron)
 
     if cauldron:getData("filledWith") == "salve" then
         if sourceItem.number > 1 then -- stack!
-            user:inform("Du kannst immer nur einen Tiegel gleichzeitig verwenden.", "You must use one jar at a time.")
-            return
+            local data = {}
+            data.potionEffectId = cauldron:getData("potionEffectId")
+            data.filledWith = "salve"
+            data.creator = user.name
+            common.CreateItem(user, 3643, 1, tonumber(cauldron:getData("potionQuality")), data)
+            world:erase(sourceItem, 1)
         else
+            sourceItem.id = 3643
             alchemy.FillFromTo(cauldron, sourceItem)
         end
         alchemy.RemoveAll(cauldron)
     end
+    world:changeItem(sourceItem)
     world:changeItem(cauldron)
     world:makeSound(10,cauldron.pos)
 end
