@@ -230,7 +230,7 @@ function removePage(user, book)
     local pageNumber = tonumber(book:getData("pageCount"))
 
     if not pageNumber or pageNumber <= 0 then
-        user:inform("GERMAN TRANSLATION", "You can not remove a page from a book that has none.w")
+        user:inform("Du kannst keine Seite aus einem leeren Buch entfernen.", "You can not remove a page from a book that has none.")
         return
     end
 

@@ -61,7 +61,7 @@ function M.sendStoredMessages(recipient)
     end
 
 local text = common.GetNLS(recipient, "Ein Bote bringt dir "..numberOfMessages.." Nachrichten und verschwindet wieder, so schnell er gekommen ist.", "A messenger comes up to you, delivering "..numberOfMessages.." "..parchments.." before scurrying off.")
-local title = common.GetNLS(recipient, "GERMAN TRANSLATION", "Message Delivery")
+local title = common.GetNLS(recipient, "Post", "Message Delivery")
 
     for i = 1, tonumber(numberOfMessages) do
         local foundText1, text1 = ScriptVars:find(recipient.id.."storedMessageText"..i)

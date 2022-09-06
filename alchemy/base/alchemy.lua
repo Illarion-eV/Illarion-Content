@@ -653,7 +653,7 @@ function M.EmptyBottle(user, bottle)
 
     if bottle.id == 3643 then   --salve jar instead of potion
         emptyBottle = 3642
-        texts.german = "GERMAN TRANSLATION"
+        texts.german = "Der Salbentiegel zerbricht."
         texts.english = "The salve jar breaks."
     end
 
