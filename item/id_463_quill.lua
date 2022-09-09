@@ -278,7 +278,7 @@ function M.UseItem(User, SourceItem, ltstate)
             local selected = dialog:getSelectedIndex()+1
             if selected == 2 then
                 if not CheckIfBottleInHand(User, SourceItem) then
-                    User:inform("Du brauchst eine Flasche, um diese zu beschriften.","You need a bottle if you want to label one.",Character.highPriority)
+                    User:inform("Du brauchst eine Flasche in deiner Hand, um diese zu beschriften.","You need a bottle in your hand if you want to label one.",Character.highPriority)
                     return
                 else
                     WriteLabel(User,SourceItem)
