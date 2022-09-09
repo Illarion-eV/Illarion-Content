@@ -1007,38 +1007,43 @@ local function SupportPotion(User,support,potion)
     world:changeItem(cauldron)
 end
 
-function M.FillIntoCauldron(user,SourceItem,cauldron,ltstate)
+-- function to fill stock, essencebrew or potion into a cauldron
+function M.FillIntoCauldron(user, sourceItem, cauldron, ltstate)
 
     local tool = M.getAlchemyTool(user)
+    local bottleContents = sourceItem:getData("filledWith")
+    local cauldronContents = cauldron:getData("filledWith")
 
     if not tool then
         M.informAlchemyToolNeeded(user)
         return
     end
 
-    -- function to fill stock, essencebrew or potion into a cauldron
     -- is the char an alchemist?
-    local anAlchemist = M.CheckIfAlchemist(user,"Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.","Only those who have been introduced to the art of alchemy are able to work here.")
+    local anAlchemist = M.CheckIfAlchemist(user,
+                        "Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.",
+                        "Only those who have been introduced to the art of alchemy are able to work here.")
+
     if not anAlchemist then
         return
     end
 
     if licence.licence(user) then --checks if user is citizen or has a licence
-    return -- avoids crafting if user is neither citizen nor has a licence
+        return -- avoids crafting if user is neither citizen nor has a licence
     end
 
     if not M.checkFood(user) then
         return
     end
 
-    if ( ltstate == Action.abort ) then
+    if ltstate == Action.abort then
         common.InformNLS(user, "Du brichst deine Arbeit ab.", "You abort your work.")
         return
     end
 
-    if ( ltstate == Action.none ) then
+    if ltstate == Action.none then
         local actionDuration
-        if (SourceItem:getData("filledWith") =="essenceBrew") and (cauldron:getData("filledWith") == "stock") then
+        if bottleContents =="essenceBrew" and cauldronContents == "stock" then
             actionDuration = 80 -- when we combine a stock and an essence brew, it takes longer
         else
             actionDuration = 20
@@ -1047,53 +1052,42 @@ function M.FillIntoCauldron(user,SourceItem,cauldron,ltstate)
         return
     end
 
-    if (SourceItem:getData("filledWith") =="essenceBrew") then -- essence brew should be filled into the cauldron
-    -- water, essence brew or potion is in the cauldron; leads to a failure
-    if cauldron:getData("filledWith") == "water" then
-        M.CauldronDestruction(user,cauldron,1)
+    if bottleContents == "essenceBrew" or bottleContents == "potion" or bottleContents == "salve" then -- essence brew should be filled into the cauldron
+        -- water, essence brew or potion is in the cauldron; leads to a failure
 
-    elseif cauldron:getData("filledWith") == "essenceBrew" then
-        M.CauldronDestruction(user,cauldron,2)
+        if cauldronContents == "water" then
+            M.CauldronDestruction(user,cauldron,1)
 
-    elseif cauldron:getData("filledWith") == "potion" then
-        if cauldron.id == 1013 then -- support potion
-        SupportEssenceBrew(user,cauldron,SourceItem)
-        else
-            M.CauldronDestruction(user,cauldron,2)
+        elseif cauldronContents == "essenceBrew" then
+            M.CauldronDestruction(user, cauldron, 2)
+
+        elseif cauldronContents == "potion" then
+            if cauldron.id == 1013 then -- support potion
+                if bottleContents == "potion" then
+                    SupportPotion(user, cauldron, sourceItem)
+                elseif bottleContents == "essenceBrew" then
+                    SupportEssenceBrew(user, cauldron, sourceItem)
+                else
+                    M.CauldronDestruction(user, cauldron, 2)
+                end
+            else
+                M.CauldronDestruction(user, cauldron, 2)
+            end
+        elseif cauldronContents == "salve" then
+            M.CauldronDestruction(user, cauldron, 2)
+
+        elseif cauldronContents == "stock" then -- stock is in the cauldron; we call the combin function
+            if bottleContents == "essenceBrew" then
+                M.CombineStockEssence(user, cauldron, sourceItem)
+            else
+                M.CauldronDestruction(user, cauldron, 2)
+            end
+
+        else -- nothing in the cauldron, we just fill in the essence brew
+            M.FillFromTo(sourceItem, cauldron)
         end
-
-    elseif cauldron:getData("filledWith") == "stock" then -- stock is in the cauldron; we call the combin function
-    M.CombineStockEssence( user, cauldron, SourceItem)
-
-    else -- nothing in the cauldron, we just fill in the essence brew
-    M.FillFromTo(SourceItem,cauldron)
     end
-
-    elseif (SourceItem:getData("filledWith")=="potion") then -- potion should be filled into the cauldron
-    -- water, essence brew, potion or stock is in the cauldron; leads to a failure
-    if cauldron:getData("cauldronFilledWith") == "water" then
-        M.CauldronDestruction(user,cauldron,1)
-
-    elseif cauldron:getData("cauldronFilledWith") == "essenceBrew" then
-        M.CauldronDestruction(user,cauldron,2)
-
-    elseif cauldron:getData("filledWith") == "potion" then
-        if cauldron.id == 1013 then -- support potion
-        SupportPotion(user,cauldron,SourceItem)
-        else
-            M.CauldronDestruction(user,cauldron,2)
-        end
-
-    elseif cauldron:getData("filledWith") == "stock" then
-        M.CauldronDestruction(user,cauldron,2)
-
-    else -- nothing in the cauldron, we just fill in the potion
-    M.FillFromTo(SourceItem,cauldron)
-    world:changeItem(cauldron)
-    end
-
-    end
-    M.EmptyBottle(user,SourceItem)
+    M.EmptyBottle(user, sourceItem)
 end
 
 -- a bug led to a situation that some potions missed the "filledWith"-data
