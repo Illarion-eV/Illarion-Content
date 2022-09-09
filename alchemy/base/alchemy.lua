@@ -776,7 +776,7 @@ function M.CauldronDestruction(User,cauldron,effectId)
 end
 
 function M.informAlchemyToolNeeded(user)
-    user:inform(common.GetNLS(user, "Du brauchst einen Mörtel, um Zutaten fürs Brauen vorzubereiten.", "You must wield a mortar in order to process the ingredients for your brewing."))
+    user:inform(common.GetNLS(user, "Du brauchst einen Mörser, um Zutaten fürs Brauen vorzubereiten.", "You must wield a mortar in order to process the ingredients for your brewing."))
 end
 
 function M.SetQuality(user, item)
