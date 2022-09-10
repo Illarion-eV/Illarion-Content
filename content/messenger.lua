@@ -54,13 +54,15 @@ function M.sendStoredMessages(recipient)
         return
     end
 
-    local parchments = "parchments"
+    local parchments = numberOfMessages.." parchments"
+    local parchmentsDE = numberOfMessages.." Nachrichten"
 
     if tonumber(numberOfMessages) == 1 then
-        parchments = "parchment"
+        parchments = "a parchment"
+        parchmentsDE = "eine Nachricht"
     end
 
-local text = common.GetNLS(recipient, "Ein Bote bringt dir "..numberOfMessages.." Nachrichten und verschwindet wieder, so schnell er gekommen ist.", "A messenger comes up to you, delivering "..numberOfMessages.." "..parchments.." before scurrying off.")
+local text = common.GetNLS(recipient, "Ein Bote bringt dir "..parchmentsDE.." und verschwindet wieder, so schnell er gekommen ist.", "A messenger comes up to you, delivering "..parchments.." before scurrying off.")
 local title = common.GetNLS(recipient, "Post", "Message Delivery")
 
     for i = 1, tonumber(numberOfMessages) do
