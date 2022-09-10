@@ -99,7 +99,7 @@ local function findStaticTool(user, skillName)
     local tailorTable2 = common.GetItemInArea(user.pos, 103)
 
     if anvil then
-        if skillName == "armourer" or "skillName" == "finesmithing" or "skillName" == "blacksmithing" then
+        if skillName == "armourer" or skillName == "finesmithing" or skillName == "blacksmithing" then
             return anvil
         end
     end
@@ -495,6 +495,10 @@ local function getDurationBasedOnRestoredDurability(user, repairKit, chosenItem)
 
     local repairAmount = getRepairAmount(user, chosenItem, staticTool, repairCount)
 
+    if not repairAmount then
+        return false
+    end
+
     local repairPerAmount = maxDuration/100
 
     local baseRepairTime = repairPerAmount
@@ -549,6 +553,10 @@ local function selectItemToRepair(user, repairKit, actionState)
 
         if chosenItem ~= nil then
             local duration = getDurationBasedOnRestoredDurability(user, repairKit, chosenItem)
+
+            if not duration then
+                return
+            end
             storeItemForUser(user, chosenItem, posOnChar)
             user:startAction(duration, GFX, GFXDuration, SFX, SFXDuration)
         end
