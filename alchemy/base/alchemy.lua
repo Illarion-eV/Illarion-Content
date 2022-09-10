@@ -578,8 +578,9 @@ function M.GetCauldronInfront(User, Item)
     return retVal
 end
 
-function M.CheckIfAlchemist(User)
-    if (User:getMagicType() ~= 3) then
+function M.CheckIfAlchemist(user, german, english)
+    if (user:getMagicType() ~= 3) then
+        user:inform(german, english)
         return false
     else
         return true
@@ -724,7 +725,7 @@ function M.FillFromTo(fromItem,toItem)
             end
         end
 
-        if toItem.id == 3642 then --account for salve jars
+        if toItem.id == 3643 or toItem.id == 3642 then --account for salve jars
             reBottle = 3643
         end
 
@@ -810,6 +811,11 @@ end
 function M.GemDustBottleCauldron(gemId, gemdustId, cauldronId, bottleId)
     -- this function returns matching gem id, gemdust id, cauldron id and bottle id
     -- only one parameter is needed; if there are more than one, only the first one will be taken into account
+
+    if bottleId == 3643 then
+        return 198, 451, 1018, 3643
+    end
+
     local myList
     local myValue
     if gemId then
