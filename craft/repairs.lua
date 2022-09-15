@@ -437,8 +437,8 @@ local function repairItem(user, theRepairKit)
 
     common.setItemQualityDurability(item, tonumber(quality), tonumber(repairAmount))
 
-    local germanText = "Du benutzt "..commonRepairKit.German.." um "..commonItem.German.." so gut es geht instand zu setzen."
-    local englishText = "You use up the "..commonRepairKit.English.." to repair the "..commonItem.English.." as best as you can."
+    local germanText = "Du benutzt "..commonRepairKit.German.." um "..commonItem.German.." instand zu setzen."
+    local englishText = "You use up the "..commonRepairKit.English.." to repair the "..commonItem.English.."."
         if recovered then
             germanText = germanText.." Mit Erfahrung und geschickter Hand gelingt es dir, den Pfusch, den ein anderer angerichtet hat, auszubessern. Die Qualität des Gegenstandes steigt."
             englishText = englishText.." Through your skill and expertise, you manage to recover some of the quality previously lost at the hands of an inferior craftsman."
