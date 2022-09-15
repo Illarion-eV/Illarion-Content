@@ -524,20 +524,33 @@ local function selectItemToRepair(user, repairKit, actionState)
     local dialogInfoText = common.GetNLS(user, "Wähle den Gegenstand aus, den du reparieren möchtest:", "Please choose an item you wish to repair:")
 
     local itemsOnChar = {}
+    local itemTooHighLevelButCorrectSkill = false
+
     for i = 17, 0, -1 do
         local currentItem = user:getItemAt(i)
         local itemExists = currentItem.id > 0
         local itemIsNotAStack = currentItem.number == 1
         local itemHasLoweredDurability = common.getItemDurability(currentItem) ~= 99
-        if itemExists and itemIsNotAStack and itemHasLoweredDurability and itemIsSameCategoryAsRepairKit(currentItem, skillName) and itemLevelIsSameOrLowerThanKit(currentItem, repairKit) then
-            table.insert(itemsOnChar, {currentItem,itemPos[i],i})
+        if itemExists and itemIsNotAStack and itemHasLoweredDurability and itemIsSameCategoryAsRepairKit(currentItem, skillName) then
+            if itemLevelIsSameOrLowerThanKit(currentItem, repairKit) then
+                table.insert(itemsOnChar, {currentItem,itemPos[i],i})
+            else
+                itemTooHighLevelButCorrectSkill = true
+            end
         end
     end
     if #itemsOnChar == 0 then --nothing to repair
-        user:inform(common.GetNLS(user,
-        "Bei dir gibt's nichts zu reparieren. Es können nur ausgerüstete Gegenstände im Inventar oder im Gürtel repariert werden.",
-        "You have nothing left to repair. Items you want to repair must be equipped, in your hands or in one of your belt slots."))
-        return
+        if itemTooHighLevelButCorrectSkill then
+            user:inform(
+                "GERMAN TRANSLATION",
+                "While there are things for you to repair, there is nothing you can do with your current repair kit. You need a more advanced one.")
+            return
+        else
+            user:inform(
+            "Bei dir gibt's nichts zu reparieren. Es können nur ausgerüstete Gegenstände im Inventar oder im Gürtel repariert werden.",
+            "You have nothing left to repair. Items you want to repair must be equipped, in your hands or in one of your belt slots.")
+            return
+        end
     end
 
     local cbChooseItem = function (dialog)
