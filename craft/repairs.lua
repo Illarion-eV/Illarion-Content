@@ -542,7 +542,7 @@ local function selectItemToRepair(user, repairKit, actionState)
     if #itemsOnChar == 0 then --nothing to repair
         if itemTooHighLevelButCorrectSkill then
             user:inform(
-                "GERMAN TRANSLATION",
+                "Mit diesem Reparatursatz kannst du keinen deiner beschädigten Gegenstände reparieren. Du benötigst einen höherwertigen Reparatursatz.",
                 "While there are things for you to repair, there is nothing you can do with your current repair kit. You need a more advanced one.")
             return
         else
