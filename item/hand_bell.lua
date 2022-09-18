@@ -135,7 +135,7 @@ function M.LookAtItem(user, sourceItem)
             charging = {}
         }
         text.english = "A bell that has been magically enchanted to spread its sound far and wide."
-        text.german = "Eine magisch aufgeladene Glocke, der Klang über Feld und Wald erschallen kann."
+        text.german = "Eine magisch aufgeladene Glocke, deren Klang weit über Feld und Wald erschallen kann."
         suffix.recharged.english = " If you require assistance, ring the bell."
         suffix.recharged.german = " Falls du Hilfe benötigst, läute die Glocke."
         suffix.charging.english = " The bell is currently recharging its magic after recent use, you'll have to wait if you want to make use of it again."
