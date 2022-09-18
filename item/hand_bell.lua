@@ -61,15 +61,15 @@ local function sendHospitalBellInform(user, location)
     end
 
     for _, recipient in pairs(sendLongMessageTo) do
-        recipient:inform("GERMAN TRANSLATION", "Off in the distance you hear the ringing of the hospital bell. Perhaps your aid could be required?")
+        recipient:inform("Von weit her hörst du die Spitalglocke läuten. Deine Hilfe wird benötigt.", "Off in the distance you hear the ringing of the hospital bell. Perhaps your aid could be required?")
     end
 
     for _, recipient in pairs(sendMediumMessageTo) do
-        recipient:inform("GERMAN TRANSLATION", "You hear the ringing of the hospital bell. Perhaps your aid could be required?")
+        recipient:inform("Du hörst die Spitalglocke läuten. Deine Hilfe wird benötigt.", "You hear the ringing of the hospital bell. Perhaps your aid could be required?")
     end
 
     for _, recipient in pairs(sendShortMessageTo) do
-        recipient:inform("GERMAN TRANSLATION", "The hospital bell rings loudly in your ears as it is rung. With some luck, assistance will be here soon.")
+        recipient:inform("Deine Ohren klingeln vom Läuten der Spitalglocke. Hilfe wird sicher bald eintreffen.", "The hospital bell rings loudly in your ears as it is rung. With some luck, assistance will be here soon.")
     end
 
 end
@@ -92,7 +92,7 @@ end
 local function triggerHospitalBell(user, sourceItem)
 
     if not isCooldownOver(sourceItem) then
-        user:inform("GERMAN TRANSLATION", "The hospital bell has been used too recently. The magical enhancement needs time to recharge.")
+        user:inform("Die Spitalglocke wurde kürzlich schon geläutet. Ihre magische Aufladung ist verbraucht.", "The hospital bell has been used too recently. The magical enhancement needs time to recharge.")
         return false
     end
 
@@ -109,7 +109,7 @@ end
 
 
 local function ringTheBell(user, sourceItem)
-    user:talk(Character.say,"#me GERMAN TRANSLATION", "#me shakes the bell, producing a light ringing sound.")
+    user:talk(Character.say,"#me läutet eine Glocke, die ein klingelndes Geräusch macht.", "#me shakes the bell, producing a light ringing sound.")
 end
 
 function M.UseItem(user, sourceItem)
@@ -135,11 +135,11 @@ function M.LookAtItem(user, sourceItem)
             charging = {}
         }
         text.english = "A bell that has been magically enchanted to spread its sound far and wide."
-        text.german = "GERMAN TRANSLATION"
+        text.german = "Eine magisch aufgeladene Glocke, der Klang über Feld und Wald erschallen kann."
         suffix.recharged.english = " If you require assistance, ring the bell."
-        suffix.recharged.german = " GERMAN TRANSLATION"
+        suffix.recharged.german = " Falls du Hilfe benötigst, läute die Glocke."
         suffix.charging.english = " The bell is currently recharging its magic after recent use, you'll have to wait if you want to make use of it again."
-        suffix.charging.german = " GERMAN TRANSLATION"
+        suffix.charging.german = " Die Magie der Glocke muss sich zunächst aufladen, bevor du sie benutzen kannst."
 
         if isCooldownOver(sourceItem) then
             text.english = text.english..suffix.recharged.english
@@ -150,7 +150,7 @@ function M.LookAtItem(user, sourceItem)
         end
 
         lookat.SetSpecialDescription(sourceItem, text.german, text.english)
-        lookat.SetSpecialName(sourceItem, "GERMAN TRANSLATION", "Hospital Bell")
+        lookat.SetSpecialName(sourceItem, "Spitalglocke", "Hospital Bell")
     end
 
     return lookat.GenerateLookAt(user, sourceItem, lookat.METAL)
