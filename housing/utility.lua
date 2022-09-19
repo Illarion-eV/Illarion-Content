@@ -872,8 +872,8 @@ end
 
 local function placeBasementTiles(tileID, lowerCoords, upperCoords)
 
-    for x = lowerCoords.x, upperCoords.x do
-        for y = lowerCoords.y, upperCoords.y do
+    for x = lowerCoords.x - 1, upperCoords.x + 1 do
+        for y = lowerCoords.y - 1, upperCoords.y + 1 do
             checkForAndCreateBasementTile(tileID, position(x, y, lowerCoords.z))
         end
     end
