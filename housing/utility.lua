@@ -600,8 +600,10 @@ function M.writeOnSignPost(user)
         end
         local input = dialog:getInput()
         if M.allowBuilding(user) then
-            if M.checkIfSignPost(user) then
-                local TargetItem = itemList.checkIfSignPost(user)
+
+            local TargetItem = M.checkIfSignPost(user)
+
+            if TargetItem then
                 TargetItem:setData("descriptionDe",input)
                 TargetItem:setData("descriptionEn",input)
                 world:changeItem(TargetItem)
@@ -2445,8 +2447,12 @@ function M.checkIfSignPost(user)
         targetItem = common.GetFrontItem(user)
     end
     for _, item in pairs(itemList.items) do
-        if item.category == "Sign Posts" then
-            if item.itemId == targetItem.id then
+        if item.category == "Sign Posts" and item.itemId == targetItem.id  then
+            local previewItem = targetItem:getData("preview") == "true"
+
+            if previewItem then
+                user:inform("GERMAN TRANSLATION", "You can't write on a preview item.")
+            else
                 return targetItem
             end
         end
