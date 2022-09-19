@@ -2333,8 +2333,10 @@ function M.UseItem(user, SourceItem)
             M.selectProperty(user)
         elseif index == 12 then
             user:inform("Persistence script is starting. If this is the first time, or a lot of properties were added, this can cause massive lag.")
+            log("Persistence script for housing started. This may cause lag.")
             utility.setPersistenceForProperties()
             user:inform("Persistence has been applied to all tile coordinates entailed in the properties list. This only needs to be done once whenever new properties have been added to the list.")
+            log("Persistence script has completed its run.")
         end
     end
     local sd = SelectionDialog("Set mode of this ceiling trowel", "To which mode you want to change?", cbSetMode)
