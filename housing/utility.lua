@@ -43,10 +43,10 @@ end
 
  function M.checkIfStairsOrTrapDoor(itemId)
     for _, item in pairs (itemList.items) do
-        if item.category == "Stairs" or item.category == "Trap Doors" then
-            if item.itemId == itemId then
-                return true
-            end
+        if item.category == "Stairs" and item.itemId == itemId then
+            return true, "stairs"
+        elseif item.category == "Trap Doors" and item.itemId == itemId then
+            return true, "trapdoor"
         end
     end
     return false
@@ -840,9 +840,13 @@ function M.destroyItem(user)
             local selected = dialog:getSelectedIndex()+1
 
             if selected == 1 then
-                if not previewItem and M.checkIfStairsOrTrapDoor(targetItem.id) then
-                    if user.pos.z < 0 then
+                local stairTrapExist, stairsOrTrapdoor = M.checkIfStairsOrTrapDoor(targetItem.id)
+                if not previewItem and stairTrapExist then
+                    if user.pos.z < 0 and stairsOrTrapdoor == "stairs" then
                          user:inform("GERMAN TRANSLATION", "To destroy a set of basement stairs, you'll have to be above ground. Wouldn't want to get stuck down here, would you.")
+                        return
+                    elseif user.pos.z > 0 and stairsOrTrapdoor == "trapdoor" then
+                        user:inform("GERMAN TRANSLATION", "To destroy a trapdoor that belong to an upper floor, you'll have to do so from the floor below. Wouldn't want to get stuck up here, would you.")
                         return
                     end
 
