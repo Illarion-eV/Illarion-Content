@@ -1020,16 +1020,17 @@ end
 function M.ifNoTileAddOne(thePosition)
 
     local field = world:getField(thePosition)
+    local tileID = field:tile()
 
-    if field.tile == 0 then
+    if tileID == 0 then
         world:changeTile(40, thePosition)
     end
 end
 
 function M.createStairTrap(positionOne, positionTwo, positionThree, positionFour, trapStair)
+    M.ifNoTileAddOne(positionOne)
     M.ifNoTileAddOne(positionTwo)
     M.ifNoTileAddOne(positionThree)
-    M.ifNoTileAddOne(positionOne)
     M.ifNoTileAddOne(positionFour)
     local warpOne = world:getField(positionOne)
     local warpTwo = world:getField(positionTwo)
