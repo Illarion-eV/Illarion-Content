@@ -159,6 +159,14 @@ local function itemIsSameCategoryAsRepairKit(currentItem, skillName)
         end
     end
 
+    if currentItem.id == Item.crown or currentItem.id == Item.diadem or currentItem.id == 3556 or currentItem.id == 3557 then -- crowns are added as an exception as they are clothing but do not belong to tailoring
+        if skillName == "finesmithing" then
+            return true
+        else
+            return false
+        end
+    end
+
     if armourFound then
         local skill = armourType[armour.Type]
         if skill == skillName then
@@ -195,7 +203,7 @@ local function itemIsSameCategoryAsRepairKit(currentItem, skillName)
         end
     end
 
-    if currentItem.id == Item.glassBlowPipe then
+    if currentItem.id == Item.glassBlowPipe or currentItem.id == Item.copperHandBell then
         if skillName == "finesmithing" then
             return true
         end
