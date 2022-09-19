@@ -675,7 +675,7 @@ function M.createWarpsAndExitObject(user, itemId, createOrErase)
     if M.checkIfStairsOrTrapDoor(itemId) then
         for _, stair in pairs(itemList.Stairs) do
             if stair.Downstairs == itemId then --It's a stair item
-                if user.pos.z == 0 or user.pos.z == 1 then
+                if user.pos.z >= 0 then
                     v2Z = 1
                 elseif user.pos.z == -21 then
                     v2Z = 21
@@ -702,7 +702,7 @@ function M.createWarpsAndExitObject(user, itemId, createOrErase)
             elseif stair.Upstairs == itemId then --It's a trap door item
                 if user.pos.z == 0 then
                     v2Z = -21
-                elseif user.pos.z == 1 or user.pos.z == 2 then
+                elseif user.pos.z >= 1 then
                     v2Z = -1
                 end
                 if stair.Direction == "north" then
