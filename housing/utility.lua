@@ -774,6 +774,33 @@ function M.checkIfLeaderOfTown(user, Town)
     end
 end
 
+function M.destroyTile(user)
+
+    if not M.allowBuilding(user) or not M.checkIfEstate(user) then
+        return
+    end
+
+    if user.pos.z < 1 then
+        user:inform("GERMAN TRANSLATION", "You can only destroy tiles that are above ground level.")
+        return
+    end
+
+    local thePosition = common.GetFrontPosition(user)
+
+    if world:isItemOnField(thePosition) then
+        user:inform("GERMAN TRANSLATION", "If you want to destroy that tile, first clear it of any objects.")
+        return
+    end
+
+    world:changeTile(0, thePosition)
+
+    user:inform("GERMAN TRANSLATION", "You destroy the tile.")
+end
+
+
+
+
+
 function M.destroyItem(user)
     local targetItem
     local thePosition = common.GetFrontPosition(user)

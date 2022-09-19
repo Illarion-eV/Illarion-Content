@@ -81,6 +81,8 @@ local function destroySelection(user )
             if selected == 1 then
                 utility.destroyItem(user)
             elseif selected == 2 then
+                utility.destroyTile(user)
+            elseif selected == 3 then
                 utility.deleteRoofItemOrTile(user, false)
             else
                 utility.deleteRoofItemOrTile(user, true)
@@ -89,6 +91,7 @@ local function destroySelection(user )
     end
     local dialog = SelectionDialog(common.GetNLS(user,"Abreißen","Destroy"), common.GetNLS(user,"Was möchtest du abreißen?","Choose type of destruction."), callback)
     dialog:addOption(0,common.GetNLS(user,"Gegenstände","Items"))
+    dialog:addOption(0,common.GetNLS(user,"Schindeln","Tiles"))
     dialog:addOption(0,common.GetNLS(user,"Dachausrüstung","Roof Objects"))
     dialog:addOption(0,common.GetNLS(user,"Dachschindeln","Roof Tiles"))
     dialog:setCloseOnMove()
