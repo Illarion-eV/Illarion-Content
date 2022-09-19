@@ -172,8 +172,6 @@ local function loadDialog(user, dialog, skill, categories, products)
 
     local listId = 0
 
-    log("products: "..tostring(#products))
-
     for index , category in ipairs(categories) do
         if category.productAmount > 0 then
             dialog:addGroup(common.GetNLS(user, category.nameDE, category.nameEN))
