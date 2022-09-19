@@ -72,9 +72,9 @@ function M.checkIfRoofOrRoofTile(theId, tileBoolean)
     return false
 end
 
-function M.fetchPropertyName(User, pos)
+function M.fetchPropertyName(user, pos)
 
-    local direct = User:getFaceTo()
+    local direct = user:getFaceTo()
     local d = 1
     local vX, vY = common.GetDirectionVector(direct)
     local x
@@ -82,9 +82,9 @@ function M.fetchPropertyName(User, pos)
     local z
 
     if pos == nil then
-        x = User.pos.x + vX * d
-        y = User.pos.y + vY * d
-        z = User.pos.z
+        x = user.pos.x + vX * d
+        y = user.pos.y + vY * d
+        z = user.pos.z
     else
         x = pos.x
         y = pos.y
@@ -527,6 +527,8 @@ function M.setPersistenceForProperties()
         end
     end
 
+    M.createEstateBasements() -- in case any estates are lacking basement tiles and walls, this function will fix that
+
     for i = 1, #propertyList.propertyTable do
         local location = propertyList.propertyTable[i][3]
 
@@ -810,9 +812,93 @@ function M.destroyTile(user)
     user:inform("GERMAN TRANSLATION", "You destroy the tile.")
 end
 
+function M.getBasementTileWall(propertyName)
 
+    local realm = false
 
+    for _, property in ipairs(propertyList.propertyTable) do
+        if propertyName == property[1] then
+            realm = property[7]
+        end
+    end
 
+    if realm and realm == "Cadomyr" then
+        return 12, 3622
+    end
+
+    return 2, 287
+end
+
+local function placeBasementWalls(wallID, lowerCoords, upperCoords)
+    local lowerX = lowerCoords.x - 1
+    local lowerY = lowerCoords.y - 1
+    local upperX = upperCoords.x + 1
+    local upperY = upperCoords.y + 1
+
+    local positionsToCheckForWalls = {}
+
+    for x = lowerX, upperX do
+        table.insert(positionsToCheckForWalls, position(x, lowerY, lowerCoords.z))
+        table.insert(positionsToCheckForWalls, position(x, upperY, lowerCoords.z))
+    end
+
+    for y = lowerY, upperY do
+        table.insert(positionsToCheckForWalls, position(lowerX, y, lowerCoords.z))
+        table.insert(positionsToCheckForWalls, position(upperX, y, lowerCoords.z))
+    end
+
+    for _, wallSpot in pairs(positionsToCheckForWalls) do
+
+        if not world:isPersistentAt(wallSpot) then
+            world:makePersistentAt(wallSpot)
+        end
+
+        if not world:isItemOnField(wallSpot) then
+            world:createItemFromId(wallID, 1, wallSpot, true, 333, nil)
+        end
+    end
+
+end
+
+local function checkForAndCreateBasementTile(basementTileID, location)
+
+    local field = world:getField(location)
+    local tileID = field:tile()
+
+    if tileID == 0 then
+        world:changeTile(basementTileID, location)
+    end
+end
+
+local function placeBasementTiles(tileID, lowerCoords, upperCoords)
+
+    for x = lowerCoords.x, upperCoords.x do
+        for y = lowerCoords.y, upperCoords.y do
+            checkForAndCreateBasementTile(tileID, position(x, y, lowerCoords.z))
+        end
+    end
+
+end
+
+function M.createEstateBasements()
+
+    local basementProperties = {}
+
+    for _, property in pairs(propertyList.properties) do
+        if property.estate then
+            table.insert(basementProperties, property)
+        end
+    end
+
+    for _, property in pairs(basementProperties) do
+        local tileID, wallID = M.getBasementTileWall(property.name)
+        if property.lower.z == -21 then --only for basement layers
+            placeBasementWalls(wallID, property.lower, property.upper)
+            placeBasementTiles(tileID, property.lower, property.upper)
+        end
+    end
+
+end
 
 function M.destroyItem(user)
     local targetItem
