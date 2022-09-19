@@ -476,8 +476,21 @@ function M.roofAndRoofTiles(user, itemId, tileBoolean, createOrErase)
         targetId = tileField:tile()
     end
 
-    if not M.checkIfRoofOrRoofTile(targetId, tileBoolean) or not M.allowBuilding(user, targetPosition) then
+    if not M.checkIfRoofOrRoofTile(targetId, tileBoolean) then
         return false
+    end
+
+    if not M.allowBuilding(user, targetPosition) then
+        if createOrErase == "create" then
+            local lowerPosition = position(targetPosition.x, targetPosition.y, targetPosition.z - 1)
+            if M.allowBuilding(user, lowerPosition) then
+                targetPosition = lowerPosition -- Build the object/tile in front of you instead, if you want a roof you can access via stairs by building on the topmost floor
+            else
+                return false
+            end
+        else
+            return false
+        end
     end
 
     if not tileBoolean then
@@ -871,6 +884,8 @@ function M.getPropertyLocationIsPartOf(location)
             return property.name
         end
     end
+
+    return false
 end
 
 function M.clearStakePosition(selectedPosition)

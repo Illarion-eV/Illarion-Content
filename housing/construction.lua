@@ -208,9 +208,10 @@ end
 local function showTemporaryPreviewOfItem(productId, user)
     -- For special items like stairs, only the first object will be previewed and not the upper/lower stair
     local frontPos = common.GetFrontPosition(user)
+    local roofPos = position(frontPos.x, frontPos.y, frontPos.z+1)
 
-    if utility.checkIfRoofOrRoofTile(productId, false) and user.pos.z >= 0 then
-        frontPos = position(frontPos.x, frontPos.y, frontPos.z+1)
+    if utility.checkIfRoofOrRoofTile(productId, false) and user.pos.z >= 0 and utility.getPropertyLocationIsPartOf(roofPos) then
+        frontPos = roofPos
     end
 
     local field = world:getField(frontPos)
