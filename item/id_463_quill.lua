@@ -19,11 +19,13 @@ local common = require("base.common")
 local alchemy = require("alchemy.base.alchemy")
 local lookat = require("base.lookat")
 local recipe_creation = require("alchemy.base.recipe_creation")
+local parchmentScript = require("item.id_2745_parchment")
+local bookWriting = require("item.base.bookWriting")
 
 local M = {}
 
 local parchmentList = {2745, 3109}
-local parchmentMaxTextLength = 240
+local parchmentMaxTextLength = bookWriting.parchmentMaxTextLength
 
 local function getText(User,deText,enText)
     return common.GetNLS(User,deText,enText)
@@ -82,6 +84,10 @@ local function CheckIfBottleInHand(User, SourceItem)
         if (bottleItem.id == emptyBottleList[i]) then
             return bottleItem
         end
+    end
+
+    if bottleItem.id == 3642 or bottleItem.id == 3643 then --salve jars
+        return bottleItem
     end
 
     return nil
@@ -143,18 +149,20 @@ local function WriteParchment(User,SourceItem)
             local parchment = CheckIfParchmentInHand(User,SourceItem) -- check for the parchment again
             if parchment then
                 local writtenText = dialog:getInput()
-                if not common.IsNilOrEmpty(parchment:getData("writtenText")) then
-                    writtenText = parchment:getData("writtenText") .. "\n" .. writtenText
+                local existingText = parchmentScript.getWrittenTextFromParchment(parchment)
+
+                if existingText then
+                    writtenText = existingText .. writtenText
                 end
+
+                local textLength = string.len (writtenText)
+
                 if CheckIfParchmentIsSigned(parchment) then
                     User:inform("Du kannst ein unterschriebenes Pergament nicht verändern.","You cannot change an already signed parchment.",Character.highPriority)
-                elseif string.len (writtenText) > parchmentMaxTextLength then
+                elseif textLength > parchmentMaxTextLength then
                     User:inform("Du findest nicht genügend freien Platz auf dem Pergament.","The parchment is too small for your text.",Character.highPriority)
                 else
-                    parchment:setData("writtenText",writtenText)
-                    lookat.SetSpecialDescription(parchment,"Das Pergament ist beschrieben.","The parchment has been written on.")
-                    parchment.wear = 254 -- Written parchments should have maximum rot time to allow message exchange
-                    world:changeItem(parchment)
+                    bookWriting.convertStringToMultipleParchmentDataValues(parchment, writtenText)
                     User:inform("Du schreibst auf das Pergament:\n'".. string.gsub (writtenText,"\\n","\n") .."'.","You write on the parchment:\n'".. string.gsub (writtenText,"\\n","\n") .."'.")
                 end
             else
@@ -259,7 +267,7 @@ end
 
 function M.UseItem(User, SourceItem, ltstate)
 
-    if SourceItem.itempos ~= 5 and SourceItem.itempos ~= 6 then
+    if not common.IsItemInHands(SourceItem) then
         User:inform("Du musst die Schreibfeder in der Hand halten.","You have to hold the quill in your hand.",Character.highPriority)
         return
     end
@@ -270,7 +278,7 @@ function M.UseItem(User, SourceItem, ltstate)
             local selected = dialog:getSelectedIndex()+1
             if selected == 2 then
                 if not CheckIfBottleInHand(User, SourceItem) then
-                    User:inform("Du brauchst eine Flasche, um diese zu beschriften.","You need a bottle if you want to label one.",Character.highPriority)
+                    User:inform("Du brauchst eine Flasche in deiner Hand, um diese zu beschriften.","You need a bottle in your hand if you want to label one.",Character.highPriority)
                     return
                 else
                     WriteLabel(User,SourceItem)
@@ -299,7 +307,7 @@ function M.UseItem(User, SourceItem, ltstate)
                 end
             elseif selected == 5 then
                 if not CheckIfParchmentInHand(User,SourceItem) then
-                    User:inform("Du brauchst ein einzelnes leeres oder halb beschriebenes Pergament in deiner Hand auf dem du schreiben kannst.","You need a single empty or half filled parchment in your hand to write on.",Character.highPriority)
+                    User:inform("Du brauchst ein einzelnes leeres oder teilweise beschriebenes Pergament in deiner Hand auf dem du schreiben kannst.","You need a single empty or half filled parchment in your hand to write on.",Character.highPriority)
                     return
                 else
                     WriteParchment(User,SourceItem)
@@ -311,6 +319,8 @@ function M.UseItem(User, SourceItem, ltstate)
                 else
                     SignParchment(User,SourceItem)
                 end
+            elseif selected == 7 then
+                bookWriting.writeBook(User, SourceItem)
             end
         end
     end
@@ -322,6 +332,7 @@ function M.UseItem(User, SourceItem, ltstate)
     dialog:addOption(0, getText(User,"Flaschenetikett entfernen","Remove label of a bottle"))
     dialog:addOption(0, getText(User,"Pergament beschreiben","Write a parchment"))
     dialog:addOption(0, getText(User,"Pergament unterschreiben","Sign a parchment"))
+    dialog:addOption(0, getText(User, "Buch verfassen", "Author a book"))
 
     User:requestSelectionDialog(dialog)
 end

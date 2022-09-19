@@ -32,9 +32,17 @@ tanning:addTool(2052) -- stretcher
 
 local catId = tanning:addCategory("Leather", "Leder")
 
---White Dye
+-- Leather
 local product = tanning:addProduct(catId, 2547, 1)
 product:addIngredient(69) -- raw leather
+
+catId = tanning:addCategory("Other", "Sonstiges")
+
+-- Parchment
+product = tanning:addProduct(catId, 2745, 1)
+product:addIngredient(2547) -- leather
+product:addIngredient(469) -- lamp oil (While parchment is made by animal skin and treated with lime, I'm using oil as a replacement since there is no quicklime or limestone in illarion)
+product:addRemnant(390) -- empty oil bottle
 
 M.tanning = tanning
 return M

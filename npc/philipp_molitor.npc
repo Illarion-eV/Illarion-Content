@@ -2810,9 +2810,9 @@ queststatus(127) = 158, item(357, all) < 5, town = Cadomyr, "Auftrag", "Aufgabe"
 -- Order 159: Gather five empty salve jars (3642) in four hours
 -- Order 159 taken, get five empty salve jars, reward: two hundred sp, 2 rankpoints
 queststatus(127) = 0, english, chance(2.7027027027027026), town = Cadomyr, "quest", "mission" -> inform("[New Order] Get five empty salve jars."), "I have the following order for you. The next caravan has a demand for five empty salve jars. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward will be two hundred silver coins.", queststatus(127) = 159, queststatus(128) = 48
-queststatus(127) = 0, german, chance(2.7027027027027026), town = Cadomyr, "quest", "mission" -> inform("[Neuer Auftrag] Beschaffe fünf leere Salbendosen."), "Für euch liegt folgender Auftrag vor: Die nächste Karawane benötigt fünf leere Salbendosen. Besorgt diese Waren so bald wie möglich. Euer Lohn sollen zweihundert Silberstücke sein. Für die Ehre von Cadomyr!", queststatus(127) = 159, queststatus(128) = 48
+queststatus(127) = 0, german, chance(2.7027027027027026), town = Cadomyr, "quest", "mission" -> inform("[Neuer Auftrag] Beschaffe fünf leere Salbentiegel."), "Für euch liegt folgender Auftrag vor: Die nächste Karawane benötigt fünf leere Salbentiegel. Besorgt diese Waren so bald wie möglich. Euer Lohn sollen zweihundert Silberstücke sein. Für die Ehre von Cadomyr!", queststatus(127) = 159, queststatus(128) = 48
 queststatus(127) = 0, chance(2.7027027027027026), town = Cadomyr, "task", "adventure", "order" -> inform("[New Order] Get five empty salve jars."), "I have the following order for you. The next caravan has a demand for five empty salve jars. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward will be two hundred silver coins.", queststatus(127) = 159, queststatus(128) = 48
-queststatus(127) = 0, chance(2.7027027027027026), town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neuer Auftrag] Beschaffe fünf leere Salbendosen."), "Für euch liegt folgender Auftrag vor: Die nächste Karawane benötigt fünf leere Salbendosen. Besorgt diese Waren so bald wie möglich. Euer Lohn sollen zweihundert Silberstücke sein. Für die Ehre von Cadomyr!", queststatus(127) = 159, queststatus(128) = 48
+queststatus(127) = 0, chance(2.7027027027027026), town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neuer Auftrag] Beschaffe fünf leere Salbentiegel."), "Für euch liegt folgender Auftrag vor: Die nächste Karawane benötigt fünf leere Salbentiegel. Besorgt diese Waren so bald wie möglich. Euer Lohn sollen zweihundert Silberstücke sein. Für die Ehre von Cadomyr!", queststatus(127) = 159, queststatus(128) = 48
 
 -- Order 159 solved, reward: two hundred sp, rankpoints, delay: 4h
 queststatus(127) = 159, item(3642, all) >= 5, english, town = Cadomyr, ".*" -> inform("[Order finished] You are awarded two hundred silver coins."), "Just in time. The caravan is about to depart. Here is your reward.", money + 20000, deleteItem(3642, 5), queststatus(127) = 0, queststatus(128) = 0, queststatus(129) = 48, rankpoints + 2
@@ -2820,9 +2820,9 @@ queststatus(127) = 159, item(3642, all) >= 5, town = Cadomyr, ".*" -> inform("[A
 
 -- Order 159 taken but not solved, repeat the instructions
 queststatus(127) = 159, item(3642, all) < 5, english, town = Cadomyr, "quest", "mission" -> "Your order is to get five empty salve jars. Please hurry. The caravan cannot wait forever."
-queststatus(127) = 159, item(3642, all) < 5, town = Cadomyr, "quest", "mission" -> "Euer Auftrag ist es, fünf leere Salbendosen zu besorgen. Beeilt euch bitte, die Karawane kann nicht ewig warten."
+queststatus(127) = 159, item(3642, all) < 5, town = Cadomyr, "quest", "mission" -> "Euer Auftrag ist es, fünf leere Salbentiegel zu besorgen. Beeilt euch bitte, die Karawane kann nicht ewig warten."
 queststatus(127) = 159, item(3642, all) < 5, town = Cadomyr, "task", "adventure", "order" -> "Your order is to get five empty salve jars. Please hurry. The caravan cannot wait forever."
-queststatus(127) = 159, item(3642, all) < 5, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Euer Auftrag ist es, fünf leere Salbendosen zu besorgen. Beeilt euch bitte, die Karawane kann nicht ewig warten."
+queststatus(127) = 159, item(3642, all) < 5, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Euer Auftrag ist es, fünf leere Salbentiegel zu besorgen. Beeilt euch bitte, die Karawane kann nicht ewig warten."
 
 -- Order 160: Gather five yellow wizard hats (3868) in four hours
 -- Order 160 taken, get five yellow wizard hats, reward: two hundred sp, 2 rankpoints

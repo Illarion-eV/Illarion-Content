@@ -118,7 +118,7 @@ function M.callEffect( Effect, Char ) -- Effect is called
         if theQuestStatus > 0 then --Is there a cooldown? Will only be reduced if the player isn't AFK/idle
             Char:setQuestProgress(811,theQuestStatus-1) --cooling!
             if theQuestStatus == 1 then --only for this quest. the player should know when he can do it again.
-                common.InformNLS(Char,"Deine Lizenz für die Benutzung der Geräte von Cadomyr ist abgelaufen. Du kannst sie im Zensusbüro von Cadomyr erneuern.","Your licence for Cadomyr's static tools has expired. You can get a new one at the census office of Cadomyr.")
+                common.InformNLS(Char,"Deine Lizenz für die Benutzung der Werkzeuge von Cadomyr ist abgelaufen. Du kannst sie im Zensusbüro von Cadomyr erneuern.","Your licence for Cadomyr's static tools has expired. You can get a new one at the census office of Cadomyr.")
             end
         end
         --Addition end
@@ -129,7 +129,7 @@ function M.callEffect( Effect, Char ) -- Effect is called
         if theQuestStatus > 0 then --Is there a cooldown? Will only be reduced if the player isn't AFK/idle
             Char:setQuestProgress(812,theQuestStatus-1) --cooling!
             if theQuestStatus == 1 then --only for this quest. the player should know when he can do it again.
-                common.InformNLS(Char,"Deine Lizenz für die Benutzung der Geräte von Runewick ist abgelaufen. Du kannst sie im Zensusbüro von Runewick erneuern.","Your licence for Runewick's static tools has expired. You can get a new one at the census office of Runewick.")
+                common.InformNLS(Char,"Deine Lizenz für die Benutzung der Werkzeuge von Runewick ist abgelaufen. Du kannst sie im Zensusbüro von Runewick erneuern.","Your licence for Runewick's static tools has expired. You can get a new one at the census office of Runewick.")
             end
         end
         --Addition end
@@ -140,7 +140,7 @@ function M.callEffect( Effect, Char ) -- Effect is called
         if theQuestStatus > 0 then --Is there a cooldown? Will only be reduced if the player isn't AFK/idle
             Char:setQuestProgress(813,theQuestStatus-1) --cooling!
             if theQuestStatus == 1 then --only for this quest. the player should know when he can do it again.
-                common.InformNLS(Char,"Deine Lizenz für die Benutzung der Geräte von Galmair ist abgelaufen. Du kannst sie im Zensusbüro von Galmair erneuern.","Your licence for Galmair's static tools has expired. You can get a new one at the census office of Galmair.")
+                common.InformNLS(Char,"Deine Lizenz für die Benutzung der Werkzeuge von Galmair ist abgelaufen. Du kannst sie im Zensusbüro von Galmair erneuern.","Your licence for Galmair's static tools has expired. You can get a new one at the census office of Galmair.")
             end
         end
         --Addition end
