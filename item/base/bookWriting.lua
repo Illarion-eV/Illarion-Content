@@ -131,6 +131,8 @@ function setTitle(user)
         end
 
         book:setData("bookTitle", input)
+        book:setData("descriptionEn", "Title: "..input)
+        book:setData("descriptionDe", "Titel: "..input)
         world:changeItem(book)
 
         user:inform("Neuer Buchtitel: "..input..".", "You set the title of the book to "..input..".")
@@ -150,7 +152,7 @@ function selectNewPage(user)
         parchmentSelectionStatus[user.name].status = true
         parchmentSelectionStatus[user.name].position = user.pos
 
-    user:inform("Welche Schriftrolle möchtest du dem Buch als Seite hinzufügen?", "Select the parchment you want to add to the book as a page.")
+    user:inform("Benutze die Schriftrolle, die du dem Buch als Seite hinzufügen möchtest.", "Select the parchment you want to add to the book as a page by using it.")
 end
 
 
@@ -226,6 +228,12 @@ end
 function removePage(user, book)
 
     local pageNumber = tonumber(book:getData("pageCount"))
+
+    if not pageNumber or pageNumber <= 0 then
+        user:inform("Du kannst keine Seite aus einem leeren Buch entfernen.", "You can not remove a page from a book that has none.")
+        return
+    end
+
 
     local theText, theSignature = getWrittenTextAndSignatureFromBook(book, pageNumber)
 

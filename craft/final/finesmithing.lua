@@ -208,6 +208,11 @@ product = finesmithing:addProduct(catId, 399, 1)
 product:addIngredient(236, 1) -- gold ingot
 product:addIngredient(197, 1) -- amethyst
 
+-- copper hand-bell
+product = finesmithing:addProduct(catId, 4095, 1)
+product:addIngredient(2550, 2) -- copper ingot
+product:addIngredient(2570, 1) -- sickle handle
+
 -- oil lamp
 product = finesmithing:addProduct(catId, 92, 1)
 product:addIngredient(236, 2) -- gold ingot

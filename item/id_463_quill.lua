@@ -354,7 +354,7 @@ function M.UseItem(user, sourceItem, ltstate)
             local selected = dialog:getSelectedIndex()+1
             if selected == 2 then
                 if not CheckIfBottleInHand(user, sourceItem) then
-                    user:inform("Du brauchst eine Flasche, um diese zu beschriften.","You need a bottle if you want to label one.",Character.highPriority)
+                    user:inform("Du brauchst eine Flasche in deiner Hand, um diese zu beschriften.","You need a bottle in your hand if you want to label one.",Character.highPriority)
                     return
                 else
                     WriteLabel(user,sourceItem)
@@ -382,8 +382,8 @@ function M.UseItem(user, sourceItem, ltstate)
                     removeLabel(user)
                 end
             elseif selected == 5 then
-                if not CheckIfParchmentInHand(user,sourceItem) then
-                    user:inform("Du brauchst ein einzelnes leeres oder halb beschriebenes Pergament in deiner Hand auf dem du schreiben kannst.","You need a single empty or half filled parchment in your hand to write on.",Character.highPriority)
+                if not CheckIfParchmentInHand(user, sourceItem) then
+                    user:inform("Du brauchst ein einzelnes leeres oder teilweise beschriebenes Pergament in deiner Hand auf dem du schreiben kannst.","You need a single empty or half filled parchment in your hand to write on.",Character.highPriority)
                     return
                 else
                     WriteParchment(user,sourceItem)

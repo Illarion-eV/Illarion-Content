@@ -38,10 +38,6 @@ end
 
 function M.UseItem(user, sourceItem, actionState)
 
-    if sourceItem:getData("customPotion") ~= "" then
-        customPotion.drinkInform(user, sourceItem)
-    end
-
     if not sourceItem:getData("filledWith") == "salve" then
         return
     end
@@ -50,9 +46,11 @@ function M.UseItem(user, sourceItem, actionState)
 
     if cauldron then -- infront of a cauldron?
         alchemy.FillIntoCauldron(user,sourceItem,cauldron,actionState)
-
     else -- not infront of a cauldron, therefore drink!
-        user:talk(Character.say, "#me trägt eine Salbe aus einem Glas auf.", "#me applies a salve from a jar.")
+        if sourceItem:getData("customPotion") ~= "" then
+            customPotion.drinkInform(user, sourceItem)
+        end
+        user:talk(Character.say, "#me trägt eine Salbe aus einem Tiegel auf.", "#me applies a salve from a jar.")
         user.movepoints = user.movepoints - 20
         applySalve(user, sourceItem) -- call effect
         alchemy.EmptyBottle(user, sourceItem)

@@ -99,7 +99,7 @@ local function findStaticTool(user, skillName)
     local tailorTable2 = common.GetItemInArea(user.pos, 103)
 
     if anvil then
-        if skillName == "armourer" or "skillName" == "finesmithing" or "skillName" == "blacksmithing" then
+        if skillName == "armourer" or skillName == "finesmithing" or skillName == "blacksmithing" then
             return anvil
         end
     end
@@ -159,6 +159,14 @@ local function itemIsSameCategoryAsRepairKit(currentItem, skillName)
         end
     end
 
+    if currentItem.id == Item.crown or currentItem.id == Item.diadem or currentItem.id == 3556 or currentItem.id == 3557 then -- crowns are added as an exception as they are clothing but do not belong to tailoring
+        if skillName == "finesmithing" then
+            return true
+        else
+            return false
+        end
+    end
+
     if armourFound then
         local skill = armourType[armour.Type]
         if skill == skillName then
@@ -195,7 +203,7 @@ local function itemIsSameCategoryAsRepairKit(currentItem, skillName)
         end
     end
 
-    if currentItem.id == Item.glassBlowPipe then
+    if currentItem.id == Item.glassBlowPipe or currentItem.id == Item.copperHandBell then
         if skillName == "finesmithing" then
             return true
         end
@@ -437,8 +445,8 @@ local function repairItem(user, theRepairKit)
 
     common.setItemQualityDurability(item, tonumber(quality), tonumber(repairAmount))
 
-    local germanText = "Du benutzt "..commonRepairKit.German.." um "..commonItem.German.." so gut es geht instand zu setzen."
-    local englishText = "You use up the "..commonRepairKit.English.." to repair the "..commonItem.English.." as best as you can."
+    local germanText = "Du benutzt "..commonRepairKit.German.." um "..commonItem.German.." instand zu setzen."
+    local englishText = "You use up the "..commonRepairKit.English.." to repair the "..commonItem.English.."."
         if recovered then
             germanText = germanText.." Mit Erfahrung und geschickter Hand gelingt es dir, den Pfusch, den ein anderer angerichtet hat, auszubessern. Die Qualität des Gegenstandes steigt."
             englishText = englishText.." Through your skill and expertise, you manage to recover some of the quality previously lost at the hands of an inferior craftsman."
@@ -484,6 +492,8 @@ local function getDurationBasedOnRestoredDurability(user, repairKit, chosenItem)
 
     if repairCount == "" then
         repairCount = 0
+    else
+        repairCount = tonumber(repairCount)
     end
 
     if staticTool and hasRequiredSkill then
@@ -492,6 +502,10 @@ local function getDurationBasedOnRestoredDurability(user, repairKit, chosenItem)
 
 
     local repairAmount = getRepairAmount(user, chosenItem, staticTool, repairCount)
+
+    if not repairAmount then
+        return false
+    end
 
     local repairPerAmount = maxDuration/100
 
@@ -518,20 +532,33 @@ local function selectItemToRepair(user, repairKit, actionState)
     local dialogInfoText = common.GetNLS(user, "Wähle den Gegenstand aus, den du reparieren möchtest:", "Please choose an item you wish to repair:")
 
     local itemsOnChar = {}
+    local itemTooHighLevelButCorrectSkill = false
+
     for i = 17, 0, -1 do
         local currentItem = user:getItemAt(i)
         local itemExists = currentItem.id > 0
         local itemIsNotAStack = currentItem.number == 1
         local itemHasLoweredDurability = common.getItemDurability(currentItem) ~= 99
-        if itemExists and itemIsNotAStack and itemHasLoweredDurability and itemIsSameCategoryAsRepairKit(currentItem, skillName) and itemLevelIsSameOrLowerThanKit(currentItem, repairKit) then
-            table.insert(itemsOnChar, {currentItem,itemPos[i],i})
+        if itemExists and itemIsNotAStack and itemHasLoweredDurability and itemIsSameCategoryAsRepairKit(currentItem, skillName) then
+            if itemLevelIsSameOrLowerThanKit(currentItem, repairKit) then
+                table.insert(itemsOnChar, {currentItem,itemPos[i],i})
+            else
+                itemTooHighLevelButCorrectSkill = true
+            end
         end
     end
     if #itemsOnChar == 0 then --nothing to repair
-        user:inform(common.GetNLS(user,
-        "Bei dir gibt's nichts zu reparieren. Es können nur ausgerüstete Gegenstände im Inventar oder im Gürtel repariert werden.",
-        "You have nothing left to repair. Items you want to repair must be equipped, in your hands or in one of your belt slots."))
-        return
+        if itemTooHighLevelButCorrectSkill then
+            user:inform(
+                "Mit diesem Reparatursatz kannst du keinen deiner beschädigten Gegenstände reparieren. Du benötigst einen höherwertigen Reparatursatz.",
+                "While there are things for you to repair, there is nothing you can do with your current repair kit. You need a more advanced one.")
+            return
+        else
+            user:inform(
+            "Bei dir gibt's nichts zu reparieren. Es können nur ausgerüstete Gegenstände im Inventar oder im Gürtel repariert werden.",
+            "You have nothing left to repair. Items you want to repair must be equipped, in your hands or in one of your belt slots.")
+            return
+        end
     end
 
     local cbChooseItem = function (dialog)
@@ -547,6 +574,10 @@ local function selectItemToRepair(user, repairKit, actionState)
 
         if chosenItem ~= nil then
             local duration = getDurationBasedOnRestoredDurability(user, repairKit, chosenItem)
+
+            if not duration then
+                return
+            end
             storeItemForUser(user, chosenItem, posOnChar)
             user:startAction(duration, GFX, GFXDuration, SFX, SFXDuration)
         end
