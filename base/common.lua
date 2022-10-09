@@ -2350,36 +2350,56 @@ end
 -- @return scrItem  If an item with ItemId is found, this is the first one found. Otherwise it is nil.
 -- @return bool  Writeable flag. If there are multiple items on the field, only the top one is writeable.
 --               If none is found, nil is returned.
-function M.GetItemInArea(CenterPos, ItemId, Radius, OnlyWriteable)
-  if (Radius == nil) then
-    Radius = 1
-  end
-  if (OnlyWriteable == nil) then
-    OnlyWriteable = false
-  end
-  for x=-Radius,Radius do
-    for y=-Radius,Radius do
-      local field = world:getField(position(CenterPos.x + x, CenterPos.y + y, CenterPos.z))
-      if field ~= nil then
-      local itemCount = field:countItems()
-          if (itemCount > 0) then
-            if (OnlyWriteable) then
-              itemCount = 1
-            end
-            for i=0,itemCount-1 do
-              local item = field:getStackItem(i)
-              if (item.id == ItemId) then
-                item.pos.x = CenterPos.x + x
-                item.pos.y = CenterPos.y + y
-                item.pos.z = CenterPos.z
-                return item, (i==0)
-              end
-            end
-          end
-      end
+function M.GetItemInArea(CenterPos, ItemId, Radius, OnlyWriteable, itemData)
+
+    if (Radius == nil) then
+        Radius = 1
     end
-  end
-  return nil, nil
+
+    if (OnlyWriteable == nil) then
+        OnlyWriteable = false
+    end
+
+    for x=-Radius,Radius do
+        for y=-Radius,Radius do
+
+            local field = world:getField(position(CenterPos.x + x, CenterPos.y + y, CenterPos.z))
+
+            if field ~= nil then
+
+                local itemCount = field:countItems()
+
+                if (itemCount > 0) then
+
+                    if (OnlyWriteable) then
+                        itemCount = 1
+                    end
+
+                    for i=0,itemCount-1 do
+                        local item = field:getStackItem(i)
+                        if (item.id == ItemId) then
+                            item.pos.x = CenterPos.x + x
+                            item.pos.y = CenterPos.y + y
+                            item.pos.z = CenterPos.z
+
+                            if itemData then
+                                local dataValue = item:getData(itemData.key)
+
+                                if dataValue == itemData.value then
+
+                                    return item, (i==0)
+                                end
+                            else
+                                return item, (i==0)
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+
+    return nil, nil
 end
 
 -- Checks if a given position is located in the prison mine.
