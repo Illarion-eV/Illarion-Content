@@ -25,10 +25,19 @@ local vision = require("content.vision")
 local M = {}
 
 function M.MoveItemBeforeMove(user, source, target)
-    if not target.inside then
-        log(tostring(target.number).." magic gems of ID "..tostring(target.id).." have been moved to a tile by player "..tostring(user.name)..". Position: "..tostring(target.pos))
+
+    local amount = tostring(target.number)
+    local id = tostring(target.id)
+    local level = tostring(target:getData("gemLevel")) or 1
+    local name = tostring(user.name)
+    local gemPos = tostring(target.pos)
+    local userPos = tostring(user.pos)
+
+
+    if not target.inside and user.pos == target.pos and source.inside or not target.inside and user.pos ~= target.pos then
+        log(amount.." magic gems of ID "..id.." and rank "..level.." have been moved to a tile by player "..name..". Position of gem: "..gemPos.." Position of player: "..userPos)
     elseif not source.inside then
-        log(tostring(target.number).." magic gems of ID "..tostring(target.id).." have been picked up by player "..tostring(user.name).." from a tile. Position: "..tostring(source.pos))
+        log(amount.." magic gems of ID "..id.." and rank "..level.." have been picked up by player "..name.." from a tile. Position of gem: "..gemPos.." Position of player: "..userPos)
     end
     return true
 end
