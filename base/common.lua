@@ -2608,8 +2608,8 @@ function M.pushBack(user,extDistance,extCenterPos)
     local distance = extDistance or 1
     local centerPos = extCenterPos or M.GetFrontPosition(user)
 
-    local diffX
-    local diffY
+    local diffX = 0
+    local diffY = 0
 
     if (centerPos.x == user.pos.x and centerPos.y == user.pos.y) then -- any direction
         diffX = math.random(1,5)
@@ -2621,6 +2621,7 @@ function M.pushBack(user,extDistance,extCenterPos)
             diffY = - diffY
         end
     end
+
     local alpha = math.atan2(diffX,diffY)
     local distX = math.floor(math.sin(alpha)*distance)
     local distY = math.floor(math.cos(alpha)*distance)
@@ -2629,7 +2630,7 @@ function M.pushBack(user,extDistance,extCenterPos)
     local posY = user.pos.y - distY
     local posZ = user.pos.z
 
-    local targetPos=user.pos
+    local targetPos = user.pos
 
     local isNotBlocked = function(pos)
         if world:getField(pos):isPassable() then
