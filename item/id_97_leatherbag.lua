@@ -50,9 +50,12 @@ function M.isInBackpack(user, bagContainer)
             return true
         end
     end
+
+    return false
 end
 
 function M.rectCheck(user, source, target, range, basket)
+
     if not common.isInRect(source.pos, target.pos, range) then
         local english = "You can't throw a bag."
         local german = "Du kannst eine Tasche nicht werfen."
@@ -66,9 +69,17 @@ function M.rectCheck(user, source, target, range, basket)
     return true
 end
 
+function M.isBackPackSlot(user, source, target)
+    if target:getType() == 4 and target.itempos == 0 or source:getType() == 4 and source.itempos == 0 then --allow movement from and between bag slot
+        return true
+    end
+
+    return false
+end
+
 function M.MoveItemBeforeMove(user, source, target)
 
-    if M.isInDepot(user, source.inside) or M.isInBackpack(user, source.inside) or M.isInDepot(user, target.inside) or M.isInBackpack(user, target.inside) then
+    if M.isInDepot(user, source.inside) or M.isInBackpack(user, source.inside) or M.isInDepot(user, target.inside) or M.isInBackpack(user, target.inside) or M.isBackPackSlot(user, source, target) then
         return M.rectCheck(user, source, target, 1)
     end
 
