@@ -17,13 +17,15 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- UPDATE items SET itm_script='item.spidernet' WHERE itm_id IN (3093,3094,3095,3096);
 
+local common = require("base.common")
+
 local M = {}
 
 local LastWarp = {}
 
 function M.CharacterOnField(User)
 
-    local AktTime = {world:getTime("day"),world:getTime("hour"),world:getTime("minute")};
+    local AktTime = {common.getTime("day"),common.getTime("hour"),common.getTime("minute")};
     local Ensnarl
 
     local PosVal=User.pos.x+User.pos.y+User.pos.z

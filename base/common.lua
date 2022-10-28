@@ -17,7 +17,82 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Generic Routine Collection
 local M = {}
 
+function M.getTime(timeType)
 
+    local unixTime = world:getTime("unix")
+
+    if timeType == "unix" then
+        return unixTime
+    end
+
+    local startOfIllarion = 950742000
+
+    local illarionTimeInSeconds = (unixTime - startOfIllarion) * 3
+
+    local secondsInYear = 60 * 60 * 24 * 365
+
+    local year = math.floor(illarionTimeInSeconds / secondsInYear)
+
+    illarionTimeInSeconds = illarionTimeInSeconds - (year * secondsInYear)
+
+    local secondsInDay = 60 * 60 * 24
+
+    local day = math.floor(illarionTimeInSeconds / secondsInDay)
+
+    illarionTimeInSeconds = illarionTimeInSeconds - (day * secondsInDay)
+
+    day = day + 1
+
+    local daysInIllarionMonth = 24
+    local daysInMas = 5
+    local monthsInAYear = 16
+    local month = math.floor(day / daysInIllarionMonth)
+
+    day = day - (month * daysInIllarionMonth)
+
+    if day == 0 then
+        if month > 0 and month < monthsInAYear then
+            day = daysInIllarionMonth
+        else
+            day = daysInMas
+        end
+    else
+        month = month + 1
+    end
+
+    if month == 0 then
+        month = monthsInAYear
+        year = year - 1
+    end
+
+    local secondsInHour = 60*60
+
+    local hour = math.floor(illarionTimeInSeconds / secondsInHour)
+
+    illarionTimeInSeconds = illarionTimeInSeconds - (hour*secondsInHour)
+
+    local secondsInMinute = 60
+
+    local minute = math.floor(illarionTimeInSeconds / secondsInMinute)
+
+    local second = illarionTimeInSeconds - (minute * secondsInMinute)
+
+    if timeType == "year" then
+        return year
+    elseif timeType == "month" then
+        return month
+    elseif timeType == "day" then
+        return day
+    elseif timeType == "hour" then
+        return hour
+    elseif timeType == "minute" then
+        return minute
+    elseif timeType == "second" then
+        return second
+    else
+        return year, month, day, hour, minute, second
+    end
+end
 --- Select the proper text upon the language flag of the character
 -- @param User The character who's language flag matters
 -- @param textInDe german text
@@ -729,12 +804,12 @@ end
 --- Get a timestamp based on the current server time. Resolution in RL seconds.
 -- @return The current timestamp
 function M.GetCurrentTimestamp()
-    return M.GetCurrentTimestampForDate(world:getTime("year"),
-        world:getTime("month"),
-        world:getTime("day"),
-        world:getTime("hour"),
-        world:getTime("minute"),
-        world:getTime("second"))
+    return M.GetCurrentTimestampForDate(M.getTime("year"),
+        M.getTime("month"),
+        M.getTime("day"),
+        M.getTime("hour"),
+        M.getTime("minute"),
+        M.getTime("second"))
 end
 
 --- Converts a date into a timestamp in with the resolution in RL seconds.
