@@ -89,12 +89,12 @@ function M.callEffect( Tying, Captive )
         -- no capturers near! Handle possible logout (or warp)
         if not Tying:findValue("logout") then
             Tying:addValue("logout",1)
-            Tying:addValue("logyears",world:getTime("year"))
-            Tying:addValue("logmonths",world:getTime("month"))
-            Tying:addValue("logdays",world:getTime("day"))
-            Tying:addValue("loghours",world:getTime("hour"))
-            Tying:addValue("logminutes",world:getTime("minute")+3)
-            Tying:addValue("logseconds",world:getTime("second"))
+            Tying:addValue("logyears", common.getTime("year"))
+            Tying:addValue("logmonths", common.getTime("month"))
+            Tying:addValue("logdays", common.getTime("day"))
+            Tying:addValue("loghours", common.getTime("hour"))
+            Tying:addValue("logminutes", common.getTime("minute")+3)
+            Tying:addValue("logseconds", common.getTime("second"))
             local PosX = Captive.pos.x+500
             local PosY = Captive.pos.y+500
             Tying:addValue("logposx",PosX)
@@ -285,12 +285,12 @@ function M.IsEffectInLogoutTime( Effect, Character )
     local foundMinutes, minutes = Effect:findValue("logminutes")
     local _, seconds = Effect:findValue("logseconds")
     if foundYears and foundMonths and foundDays and foundHours and foundMinutes then
-        local curYear = world:getTime("year")
-        local curMonth = world:getTime("month")
-        local curDay = world:getTime("day")
-        local curHour = world:getTime("hour")
-        local curMinute = world:getTime("minute")
-        local curSecond = world:getTime("second")
+        local curYear = common.getTime("year")
+        local curMonth = common.getTime("month")
+        local curDay = common.getTime("day")
+        local curHour = common.getTime("hour")
+        local curMinute = common.getTime("minute")
+        local curSecond = common.getTime("second")
         if minutes >= 60 then
             minutes = minutes-60
             hours = hours+1

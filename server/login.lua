@@ -254,9 +254,9 @@ function M.onLogin( player )
     local players = world:getPlayersOnline() --Reading all players online so we can count them
 
     --Reading current date
-    local datum = world:getTime("day")
-    local monthString = common.Month_To_String(world:getTime("month"))
-    local hourStringG, hourStringE = common.Hour_To_String(world:getTime("hour"))
+    local datum = common.getTime("day")
+    local monthString = common.Month_To_String(common.getTime("month"))
+    local hourStringG, hourStringE = common.Hour_To_String(common.getTime("hour"))
 
     local lastDigit = datum % 10 --Is it st, nd or rd?
 
@@ -430,8 +430,8 @@ function welcomeNewPlayer(player)
 end
 
 function payTaxes(taxPayer)
-    local yr = world:getTime("year")
-    local mon = world:getTime("month")
+    local yr = common.getTime("year")
+    local mon = common.getTime("month")
     local timeStmp = yr * 1000 + mon
     local lastTax = taxPayer:getQuestProgress(123)
 
@@ -449,8 +449,8 @@ function payTaxes(taxPayer)
 end
 
 function receiveGems(gemRecipient)
-    local yr = world:getTime("year")
-    local mon = world:getTime("month")
+    local yr = common.getTime("year")
+    local mon = common.getTime("month")
     local timeStmp = yr * 1000 + mon
     local town = factions.getMembershipByName(gemRecipient)
     if town == "None" then

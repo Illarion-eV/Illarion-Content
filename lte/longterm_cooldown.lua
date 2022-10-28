@@ -27,7 +27,7 @@ local monthlyQuestsIds = {504}
 -- Check quests that can be done once in every ingame month
 local function checkMonthlyQuests(char)
     local currentTimeUnix = world:getTime("unix")
-    local secondsOfCurrentMonth = world:getTime("day")*24*60*60 + world:getTime("hour")*60*60 + world:getTime("seconds")
+    local secondsOfCurrentMonth = common.getTime("day")*24*60*60 + common.getTime("hour")*60*60 + common.getTime("seconds")
 
     for i = 1, #monthlyQuestsIds do
         local questId = monthlyQuestsIds[i]

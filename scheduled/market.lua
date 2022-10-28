@@ -45,10 +45,10 @@ local over = true
 function M.market()
 
     --Read date and time
-    local month = world:getTime("month")
-    local day = world:getTime("day")
-    local hour = world:getTime("hour")
-    local monthString = common.Month_To_String(world:getTime("month"))
+    local month = common.getTime("month")
+    local day = common.getTime("day")
+    local hour = common.getTime("hour")
+    local monthString = common.Month_To_String(common.getTime("month"))
 
     --Market takes place the first three days of each month except for Mas
     if (month == 16) or (day > 3) then

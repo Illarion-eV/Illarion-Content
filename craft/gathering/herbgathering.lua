@@ -357,7 +357,7 @@ function M.StartGathering(User, SourceItem, ltstate)
         -- look for a free slot
         if ( t == "") then
             -- set the next regrow time according to season and grow factor
-            local season = math.ceil(world:getTime("month")/4);
+            local season = math.ceil(common.getTime("month")/4);
             SourceItem:setData("next_regrow_" .. i, "" .. world:getTime("unix") + math.floor(RegrowTime*harvestProduct.growFactors[season]));
             regrowOk = true;
             changeItem = true;
