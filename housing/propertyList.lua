@@ -27,11 +27,8 @@ M.propertyTable = {
     {"Villa Edward", "Villa Edward",position(89,606,0),40000,3054,341, "Cadomyr","7",factions.CadomyrRankListMale[7]["eRank"],factions.CadomyrRankListMale[7]["gRank"]},
     {"Villa Reginald", "Villa Reginald",position(94,561,0),30000,3054,342, "Cadomyr","6",factions.CadomyrRankListMale[6]["eRank"],factions.CadomyrRankListMale[6]["gRank"]},
     {"Flat Faith and Obedience", "Wohnung Glaube und Gehorsam",position(137,605,0),5000,2558,361, "Cadomyr","4",factions.CadomyrRankListMale[4]["eRank"],factions.CadomyrRankListMale[4]["gRank"]},
-    {"Flat Honour and Lineage", "Wohnung Ehre und Abstammung",position(138,603,1),5000,2558,362, "Cadomyr","4",factions.CadomyrRankListMale[4]["eRank"],factions.CadomyrRankListMale[4]["gRank"]},
     {"Flat Truth and Justice", "Wohnung Ehrlichkeit und Gerechtigkeit",position(136,609,0),10000,2558,363, "Cadomyr","5",factions.CadomyrRankListMale[5]["eRank"],factions.CadomyrRankListMale[5]["gRank"]},
-    {"Flat Courage", "Wohnung Mut",position(137,609,1),15000,2558,364, "Cadomyr","5",factions.CadomyrRankListMale[5]["eRank"],factions.CadomyrRankListMale[5]["gRank"]},
     {"Flat Patriarchy", "Wohnung Patriarchat",position(135,614,0),15000,2558,365, "Cadomyr","5",factions.CadomyrRankListMale[5]["eRank"],factions.CadomyrRankListMale[5]["gRank"]},
-    {"Flat Property", "Wohnung Besitz",position(136,616,1),20000,2558,366, "Cadomyr","6",factions.CadomyrRankListMale[6]["eRank"],factions.CadomyrRankListMale[6]["gRank"]},
     --Runewick
     {"First Fire Apartment", "Erstes Feuerapartment",position(945,756,0),30000,2558,240, "Runewick","3",factions.RunewickRankListMale[3]["eRank"],factions.RunewickRankListMale[3]["gRank"]},
     {"Second Fire Apartment", "Zweites Feuerapartment",position(950,756,0),30000,2558,241, "Runewick","3",factions.RunewickRankListMale[3]["eRank"],factions.RunewickRankListMale[3]["gRank"]},
@@ -88,11 +85,11 @@ table.insert(M.properties, {name = "Villa Annabeth", lower = position(119, 625, 
 table.insert(M.properties, {name = "Villa Edward", lower = position(85,597,0), upper = position(97,606,1)})
 table.insert(M.properties, {name = "Villa Reginald", lower = position(89,552,0), upper = position(97,561,0)})
 table.insert(M.properties, {name = "Flat Faith and Obedience", lower = position(138,602,0), upper = position(144,605,0)})
-table.insert(M.properties, {name = "Flat Honour and Lineage", lower = position(139,601,1), upper = position(145,605,1)})
+table.insert(M.properties, {name = "Flat Faith and Obedience", lower = position(139,601,1), upper = position(145,605,1)})
 table.insert(M.properties, {name = "Flat Truth and Justice", lower = position(137,606,0), upper = position(144,611,0)})
-table.insert(M.properties, {name = "Flat Courage", lower = position(139,606,1), upper = position(145,611,1)})
+table.insert(M.properties, {name = "Flat Truth and Justice", lower = position(139,606,1), upper = position(145,611,1)})
 table.insert(M.properties, {name = "Flat Patriarchy", lower = position(136,612,0), upper = position(146,617,0)})
-table.insert(M.properties, {name = "Flat Property", lower = position(137,613,1), upper = position(147,618,1)})
+table.insert(M.properties, {name = "Flat Patriarchy", lower = position(137,613,1), upper = position(147,618,1)})
 --Runewick houses
 table.insert(M.properties, {name = "First Fire Apartment", lower = position(946,748,0), upper = position(950,754,0)})
 table.insert(M.properties, {name = "Second Fire Apartment", lower = position(951,748,0), upper = position(955,754,0)})
