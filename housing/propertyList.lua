@@ -65,7 +65,7 @@ M.propertyTable = {
     --Estates, Galmair
     {"Galmair Harbour Estate","Hafengrundstück in Galmair",position(447,124,0),200000, 2558, 134, "Galmair", "7", factions.GalmairRankListMale[7]["eRank"],factions.GalmairRankListMale[7]["gRank"], true},
     {"Galmair Roadside Estate","Grundstück Am Wegesrand in Galmair",position(462,175,0),200000, 2558, 135, "Galmair", "7", factions.GalmairRankListMale[7]["eRank"],factions.GalmairRankListMale[7]["gRank"], true},
-    {"Galmair Mountainside Estate","Grundstück Bergblick in Galmair",position(565,168,0),200000, 2558, 136, "Galmair", "7", factions.GalmairRankListMale[7]["eRank"],factions.GalmairRankListMale[7]["gRank"], true},
+    {"Galmair Mountainside Estate","Grundstück Bergblick in Galmair",position(565,172,0),200000, 2558, 136, "Galmair", "7", factions.GalmairRankListMale[7]["eRank"],factions.GalmairRankListMale[7]["gRank"], true},
     --Cadomyr
     {"Cadomyr Harbour Estate", "Hafengrundstück in Cadomyr",position(106,769,0),200000, 2558,368, "Cadomyr","7",factions.CadomyrRankListMale[7]["eRank"],factions.CadomyrRankListMale[7]["gRank"], true},
     {"Cadomyr Riverside Estate", "Grundstück am Flussufer in Cadomyr",position(173,674,0),200000, 2558,369, "Cadomyr","7",factions.CadomyrRankListMale[7]["eRank"],factions.CadomyrRankListMale[7]["gRank"], true},
@@ -131,27 +131,26 @@ table.insert(M.properties, {name = "Flat Sapphire", lower = position(394,212,1),
 table.insert(M.properties, {name = "Flat Diamond", lower = position(405,206,1), upper = position(415,222,1)})
 table.insert(M.properties, {name = "Flat Obsidian", lower = position(420,206,1), upper = position(432,220,1)})
 --Estates, Galmair
-table.insert(M.properties, {name = "Galmair Harbour Estate", lower = position(448,124,0), upper = position(458,135,2), estate = true})
-table.insert(M.properties, {name = "Galmair Harbour Estate", lower = position(448,124,-21), upper = position(458,135,-21), estate = true})
-table.insert(M.properties, {name = "Galmair Roadside Estate", lower = position(461,169,0), upper = position(473,181,2), estate = true})
-table.insert(M.properties, {name = "Galmair Roadside Estate", lower = position(461,169,-21), upper = position(473,181,-21), estate = true})
-table.insert(M.properties, {name = "Galmair Mountainside Estate", lower = position(566,157,0), upper = position(577,166,2), estate = true})
-table.insert(M.properties, {name = "Galmair Mountainside Estate", lower = position(566,157,-21), upper = position(577,166,-21), estate = true})
+table.insert(M.properties, {name = "Galmair Harbour Estate", lower = position(448,124,0), upper = position(458,139,2), estate = true})
+table.insert(M.properties, {name = "Galmair Harbour Estate", lower = position(448,124,-21), upper = position(458,139,-21), estate = true})
+table.insert(M.properties, {name = "Galmair Roadside Estate", lower = position(464,168,0), upper = position(474,183,2), estate = true})
+table.insert(M.properties, {name = "Galmair Roadside Estate", lower = position(464,168,-21), upper = position(474,183,-21), estate = true})
+table.insert(M.properties, {name = "Galmair Mountainside Estate", lower = position(566,160,0), upper = position(581,170,2), estate = true})
+table.insert(M.properties, {name = "Galmair Mountainside Estate", lower = position(566,160,-21), upper = position(581,170,-21), estate = true})
 --Cadomyr
-table.insert(M.properties, {name = "Cadomyr Harbour Estate", lower = position(97,760,0), upper = position(107,767,2), estate = true})
-table.insert(M.properties, {name = "Cadomyr Harbour Estate", lower = position(97,760,-21), upper = position(107,770,-21), estate = true})
-table.insert(M.properties, {name = "Cadomyr Riverside Estate", lower = position(175,673,0), upper = position(182,682,2), estate = true})
-table.insert(M.properties, {name = "Cadomyr Riverside Estate", lower = position(175,673,-21), upper = position(182,682,-21), estate = true})
-table.insert(M.properties, {name = "Cadomyr Seaside Estate", lower = position(51,657,0), upper = position(60,663,2), estate = true})
-table.insert(M.properties, {name = "Cadomyr Seaside Estate", lower = position(51,657,-21), upper = position(60,663,-21), estate = true})
+table.insert(M.properties, {name = "Cadomyr Harbour Estate", lower = position(94,757,0), upper = position(109,767,2), estate = true})
+table.insert(M.properties, {name = "Cadomyr Harbour Estate", lower = position(94,757,-21), upper = position(109,767,-21), estate = true})
+table.insert(M.properties, {name = "Cadomyr Riverside Estate", lower = position(175,673,0), upper = position(185,688,2), estate = true})
+table.insert(M.properties, {name = "Cadomyr Riverside Estate", lower = position(175,673,-21), upper = position(185,688,-21), estate = true})
+table.insert(M.properties, {name = "Cadomyr Seaside Estate", lower = position(51,653,0), upper = position(66,663,2), estate = true})
+table.insert(M.properties, {name = "Cadomyr Seaside Estate", lower = position(51,653,-21), upper = position(66,663,-21), estate = true})
 --Runewick
-table.insert(M.properties, {name = "Runewick Harbour Estate", lower = position(760,778,0), upper = position(767,785,2), estate = true})
-table.insert(M.properties, {name = "Runewick Harbour Estate", lower = position(760,778,-21), upper = position(767,785,-21), estate = true})
-table.insert(M.properties, {name = "Runewick Forest Estate", lower = position(863,882,0), upper = position(872,888,2), estate = true})
-table.insert(M.properties, {name = "Runewick Forest Estate", lower = position(863,882,-21), upper = position(872,888,-21), estate = true})
-table.insert(M.properties, {name = "Runewick Roadside Estate", lower = position(828,718,0), upper = position(834,726,2), estate = true})
-table.insert(M.properties, {name = "Runewick Roadside Estate", lower = position(823,722,0), upper = position(834,726,2), estate = true})
-table.insert(M.properties, {name = "Runewick Roadside Estate", lower = position(823,718,-21), upper = position(834,726,-21), estate = true})
+table.insert(M.properties, {name = "Runewick Harbour Estate", lower = position(760,770,0), upper = position(769,785,2), estate = true})
+table.insert(M.properties, {name = "Runewick Harbour Estate", lower = position(760,770,-21), upper = position(769,785,-21), estate = true})
+table.insert(M.properties, {name = "Runewick Forest Estate", lower = position(857,878,0), upper = position(872,888,2), estate = true})
+table.insert(M.properties, {name = "Runewick Forest Estate", lower = position(857,878,-21), upper = position(872,888,-21), estate = true})
+table.insert(M.properties, {name = "Runewick Roadside Estate", lower = position(828,716,0), upper = position(834,726,2), estate = true})
+table.insert(M.properties, {name = "Runewick Roadside Estate", lower = position(821,716,-21), upper = position(836,726,-21), estate = true})
 --Outlaw
 table.insert(M.properties, {name = "Outlaw Base One", lower = position(967,343,0), upper = position(983,362,2), estate = true, outlaw = true})
 table.insert(M.properties, {name = "Outlaw Base One", lower = position(967,343,-21), upper = position(983,362,-21), estate = true, outlaw = true})
