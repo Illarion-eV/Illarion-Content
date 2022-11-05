@@ -55,10 +55,10 @@ M.propertyTable = {
     {"Flat Adron","Wohnung Adron",position(383,230,-6), 20000,2558,122, "Galmair","3",factions.GalmairRankListMale[3]["eRank"],factions.GalmairRankListMale[3]["gRank"]},
     {"Flat Malachin","Wohnung Malachín",position(382,240,-6),20000,2558,123, "Galmair","3",factions.GalmairRankListMale[3]["eRank"],factions.GalmairRankListMale[3]["gRank"]},
     {"Flat Oldra","Wohnung Oldra",position(376,238,-6),30000,2558,124, "Galmair","4",factions.GalmairRankListMale[4]["eRank"],factions.GalmairRankListMale[4]["gRank"]},
-    {"Flat Nargun","Wohnung Nargùn",position(383,240,-5),20000,2558,125, "Galmair","3",factions.GalmairRankListMale[3]["eRank"],factions.GalmairRankListMale[3]["gRank"]},
-    {"Flat Ronagan","Wohnung Ronagan",position(384,228,-5),20000,2558,126, "Galmair","3",factions.GalmairRankListMale[3]["eRank"],factions.GalmairRankListMale[3]["gRank"]},
-    {"Flat Sirani","Wohnung Sirani",position(385,220,-5),30000,2558,127, "Galmair","4",factions.GalmairRankListMale[4]["eRank"],factions.GalmairRankListMale[4]["gRank"]},
-    {"Flat Zhambra","Wohnung Zhambra",position(373,215,-5),30000,2558,128, "Galmair","4",factions.GalmairRankListMale[4]["eRank"],factions.GalmairRankListMale[4]["gRank"]},
+    {"Flat Nargun","Wohnung Nargùn",position(384,240,-5),20000,2558,125, "Galmair","3",factions.GalmairRankListMale[3]["eRank"],factions.GalmairRankListMale[3]["gRank"]},
+    {"Flat Ronagan","Wohnung Ronagan",position(385,228,-5),20000,2558,126, "Galmair","3",factions.GalmairRankListMale[3]["eRank"],factions.GalmairRankListMale[3]["gRank"]},
+    {"Flat Sirani","Wohnung Sirani",position(386,220,-5),30000,2558,127, "Galmair","4",factions.GalmairRankListMale[4]["eRank"],factions.GalmairRankListMale[4]["gRank"]},
+    {"Flat Zhambra","Wohnung Zhambra",position(373,214,-5),30000,2558,128, "Galmair","4",factions.GalmairRankListMale[4]["eRank"],factions.GalmairRankListMale[4]["gRank"]},
     {"Lucky Copper","Glückskupfer",position(416,289,1),40000,2558,113, "Galmair","5",factions.GalmairRankListMale[5]["eRank"],factions.GalmairRankListMale[5]["gRank"]},
     {"Silver Profit","Silberner Verdienst",position(419,294,1),50000,2558,114, "Galmair","5",factions.GalmairRankListMale[5]["eRank"],factions.GalmairRankListMale[5]["gRank"]},
     {"Golden Deal","Goldener Abschluss",position(419,291,1),60000,2558,115, "Galmair","6",factions.GalmairRankListMale[6]["eRank"],factions.GalmairRankListMale[6]["gRank"]},
@@ -122,10 +122,10 @@ table.insert(M.properties, {name = "Flat Elara", lower = position(386,217,-6), u
 table.insert(M.properties, {name = "Flat Adron", lower = position(384,224,-6), upper = position(395,233,-6)})
 table.insert(M.properties, {name = "Flat Malachin", lower = position(383,234,-6), upper = position(395,242,-6)})
 table.insert(M.properties, {name = "Flat Oldra", lower = position(369,224,-6), upper = position(376,236,-6)})
-table.insert(M.properties, {name = "Flat Nargun", lower = position(385,234,-5), upper = position(395,243,-5)})
-table.insert(M.properties, {name = "Flat Ronagan", lower = position(386,224,-5), upper = position(395,232,-5)})
-table.insert(M.properties, {name = "Flat Sirani", lower = position(387,214,-5), upper = position(396,223,-5)})
-table.insert(M.properties, {name = "Flat Zhambra", lower = position(371,206,-5), upper = position(386,213,-5)})
+table.insert(M.properties, {name = "Flat Nargun", lower = position(386,234,-5), upper = position(396,243,-5)})
+table.insert(M.properties, {name = "Flat Ronagan", lower = position(387,224,-5), upper = position(396,232,-5)})
+table.insert(M.properties, {name = "Flat Sirani", lower = position(388,214,-5), upper = position(397,223,-5)})
+table.insert(M.properties, {name = "Flat Zhambra", lower = position(371,205,-5), upper = position(386,212,-5)})
 table.insert(M.properties, {name = "Lucky Copper", lower = position(409,289,1), upper = position(414,300,1)})
 table.insert(M.properties, {name = "Silver Profit", lower = position(415,296,1), upper = position(426,300,1)})
 table.insert(M.properties, {name = "Golden Deal", lower = position(420,286,1), upper = position(426,295,1)})
