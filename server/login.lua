@@ -255,9 +255,9 @@ function M.onLogin( player )
     local players = world:getPlayersOnline() --Reading all players online so we can count them
 
     --Reading current date
-    local datum = world:getTime("day")
-    local monthString = common.Month_To_String(world:getTime("month"))
-    local hourStringG, hourStringE = common.Hour_To_String(world:getTime("hour"))
+    local datum = common.getTime("day")
+    local monthString = common.Month_To_String(common.getTime("month"))
+    local hourStringG, hourStringE = common.Hour_To_String(common.getTime("hour"))
 
     local lastDigit = datum % 10 --Is it st, nd or rd?
 
@@ -272,11 +272,22 @@ function M.onLogin( player )
         extensionString = "th" --default
     end
 
+    local varTextDe
+    local varTextEn
+
     if #players > 1 then
-        common.InformNLS(player,"[Login] Willkommen auf Illarion! Es ist "..hourStringG.." am "..datum..". "..monthString..". Es sind "..#players.." Spieler online.","[Login] Welcome to Illarion! It is "..hourStringE.." on the "..datum..""..extensionString.." of "..monthString..". There are "..#players.." players online.") --sending a message
+        varTextDe = ". Es sind "..#players.." Spieler online."
+        varTextEn = ". There are "..#players.." players online."
     else --player is alone
-        common.InformNLS(player,"[Login] Willkommen auf Illarion! Es ist "..hourStringG.." am "..datum..". "..monthString..". Ein Spieler ist online.","[Login] Welcome to Illarion! It is "..hourStringE.." on the "..datum..""..extensionString.." of "..monthString..". One player is online.") --sending a message
+        varTextDe =  ". Ein Spieler ist online."
+        varTextEn = ". One player is online."
     end
+
+    common.InformNLS(
+        player,
+        "[Login] Willkommen auf Illarion! Es ist "..hourStringG.." am "..datum..". "..monthString..varTextDe,
+        "[Login] Welcome to Illarion! It is "..hourStringE.." on the "..datum..""..extensionString.." of "..monthString..varTextEn
+        )
 
     --Taxes
     if not player:isAdmin() then --Admins don't pay taxes or get gems.
@@ -423,8 +434,8 @@ function welcomeNewPlayer(player)
 end
 
 function payTaxes(taxPayer)
-    local yr = world:getTime("year")
-    local mon = world:getTime("month")
+    local yr = common.getTime("year")
+    local mon = common.getTime("month")
     local timeStmp = yr * 1000 + mon
     local lastTax = taxPayer:getQuestProgress(123)
 
@@ -442,8 +453,8 @@ function payTaxes(taxPayer)
 end
 
 function receiveGems(gemRecipient)
-    local yr = world:getTime("year")
-    local mon = world:getTime("month")
+    local yr = common.getTime("year")
+    local mon = common.getTime("month")
     local timeStmp = yr * 1000 + mon
     local town = factions.getMembershipByName(gemRecipient)
     if town == "None" then

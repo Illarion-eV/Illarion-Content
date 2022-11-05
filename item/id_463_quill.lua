@@ -136,42 +136,83 @@ local function CheckIfParchmentCanSigned(User, SourceItem)
     return nil
 end
 
-local function WriteParchment(User,SourceItem)
+local function WriteParchment(user, sourceItem)
 
-    local title = getText(User, "Pergament beschreiben", "Write Parchment")
-    local infoText = getText(User, "Füge hier den Text ein, den du auf das Pergament schreiben willst.", "Insert the text you want to write on the parchment.")
+    local title = getText(user, "Pergament beschreiben", "Write Parchment")
+    local infoText = getText(user, "Füge hier den Text ein, den du auf das Pergament schreiben willst.", "Insert the text you want to write on the parchment.")
+    local newLine = false
 
     -- input dialog
     local callback = function(dialog)
         if not dialog:getSuccess() then
             return
         else
-            local parchment = CheckIfParchmentInHand(User,SourceItem) -- check for the parchment again
+            local parchment = CheckIfParchmentInHand(user, sourceItem) -- check for the parchment again
             if parchment then
                 local writtenText = dialog:getInput()
                 local existingText = parchmentScript.getWrittenTextFromParchment(parchment)
+                local existingNewLines = parchment:getData("newLines")
+                if not common.IsNilOrEmpty(existingNewLines) then
+                    existingNewLines = tonumber(existingNewLines)
+                else
+                    existingNewLines = 0
+                end
 
                 if existingText then
+                    if newLine then
+                        existingNewLines = existingNewLines + 1
+                        existingText = existingText .. "\n"
+                        parchment:setData("newLines", tostring(existingNewLines))
+                    end
                     writtenText = existingText .. writtenText
                 end
 
-                local textLength = string.len (writtenText)
+                local textLength = string.len (writtenText) + (41 * existingNewLines) --the latter part ensures that texts do not get too long with lineskips
 
                 if CheckIfParchmentIsSigned(parchment) then
-                    User:inform("Du kannst ein unterschriebenes Pergament nicht verändern.","You cannot change an already signed parchment.",Character.highPriority)
+                    user:inform("Du kannst ein unterschriebenes Pergament nicht verändern.","You cannot change an already signed parchment.",Character.highPriority)
                 elseif textLength > parchmentMaxTextLength then
-                    User:inform("Du findest nicht genügend freien Platz auf dem Pergament.","The parchment is too small for your text.",Character.highPriority)
+                    user:inform("Du findest nicht genügend freien Platz auf dem Pergament.","The parchment is too small for your text.",Character.highPriority)
                 else
                     bookWriting.convertStringToMultipleParchmentDataValues(parchment, writtenText)
-                    User:inform("Du schreibst auf das Pergament:\n'".. string.gsub (writtenText,"\\n","\n") .."'.","You write on the parchment:\n'".. string.gsub (writtenText,"\\n","\n") .."'.")
+                    user:inform("Du schreibst auf das Pergament:\n'".. string.gsub (writtenText,"\\n","\n") .."'.","You write on the parchment:\n'".. string.gsub (writtenText,"\\n","\n") .."'.")
                 end
             else
-                User:inform("Du brauchst ein Pergament in deiner Hand, um darauf zu schreiben.","You need a parchment in your hand if you want to write.",Character.highPriority)
+                user:inform("Du brauchst ein Pergament in deiner Hand, um darauf zu schreiben.","You need a parchment in your hand if you want to write.",Character.highPriority)
             end
         end
     end
     local dialog = InputDialog(title, infoText, false, parchmentMaxTextLength, callback)
-    User:requestInputDialog(dialog)
+
+    local callback2 = function(dialog2)
+        if not dialog2:getSuccess() then
+            return
+        end
+
+        local index = dialog2:getSelectedIndex()+1
+
+        if index == 1 then
+            newLine = true
+            user:requestInputDialog(dialog)
+        else
+            user:requestInputDialog(dialog)
+        end
+    end
+
+    local text2 = common.GetNLS(user, "Dieses Pergament ist bereits beschrieben. Wo möchtest du weiterschreiben? ", "The parchment was already written on. Where do you want to resume writing?")
+
+    local dialog2 = SelectionDialog(title, text2, callback2)
+
+    dialog2:addOption(0, common.GetNLS(user, "In einer neuen Zeile.", "On a new line."))
+    dialog2:addOption(0, common.GetNLS(user, "In der vorherigen Zeile.", "On the previous line."))
+
+    local parchment = CheckIfParchmentInHand(user, sourceItem)
+
+    if parchment and not common.IsNilOrEmpty(parchment:getData("writtenText")) then
+        user:requestSelectionDialog(dialog2)
+    else
+        user:requestInputDialog(dialog)
+    end
 end
 
 local function SignParchment(User,SourceItem)

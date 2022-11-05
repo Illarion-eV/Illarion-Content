@@ -23,8 +23,6 @@ local monstermagic = require("monster.base.monstermagic")
 local poisonfield = require("item.id_372_poisonfield")
 local scheduledFunction = require("scheduled.scheduledFunction")
 local common = require("base.common")
-local id_1142_akaltut = require("monster.race_114_akaltut.id_1142_akaltut")
-local hooks = require("monster.base.hooks")
 
 local magic = monstermagic()
 magic.addPoisonball{probability = 0.06, damage = {from = 1500, to = 1800}}
@@ -45,21 +43,16 @@ local function spawnEnragedAkaltut(pos)
     if not common.DeleteItemFromStack(pos, {itemId = 1175}) then
         debug("Failed to remove the spider eggs for split Akaltut")
     end
-    id_1142_akaltut.eggExists = false
 
     local spawnPosition = common.GetFreePositions(pos, 1, true, true)() or pos
     local spiderQueen = world:createMonster(195, spawnPosition, -5)
     if spiderQueen ~= nil and isValidChar(spiderQueen) then
         spiderQueen:talk(Character.say, "#me zerbricht das Ei und erscheint in ihrem normalen Aussehen.", "#me bursts forth from the egg in it's natural state.")
-        id_1142_akaltut.akaltutSpiderFormExists = true
-        hooks.registerOnDeath(spiderQueen, function() id_1142_akaltut.akaltutSpiderFormExists = false; end)
     end
     local humanMage = world:createMonster(3,spawnPosition, -5)
     if humanMage ~= nil and isValidChar(humanMage) then
         humanMage:setAttrib("sex", 1)
         humanMage:talk(Character.say, "#me zerbricht das Ei und erscheint in ihrem normalen Aussehen.", "#me bursts forth from the egg in it's natural state.")
-        id_1142_akaltut.akaltutMageFormExists = true
-        hooks.registerOnDeath(humanMage, function() id_1142_akaltut.akaltutMageFormExists = false; end)
     end
 end
 
@@ -72,10 +65,9 @@ function M.onDeath(monster)
     local pos = position(monster.pos.x, monster.pos.y, monster.pos.z)
     monster:talk(Character.say, "Ein Schrei ist zu hören als das Monster fällt.", "A scream is heard as the monster falls.")
     world:gfx(45, pos)
-    local spiderEgg = world:createItemFromId(1175, 1, pos, true, 333, nil)
+    local spiderEgg = world:createItemFromId(1175, 1, pos, true, 333, {["akaltutEgg"] = "true"})
     spiderEgg.wear = 3
     world:changeItem(spiderEgg)
-    id_1142_akaltut.eggExists = true
 
     scheduledFunction.registerFunction(8, function() spawnEnragedAkaltut(pos) end)
 end

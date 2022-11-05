@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- UPDATE items SET itm_script='item.tree' WHERE itm_id IN (308, 586, 1804, 1807, 1808, 1809, 1817, 960, 961, 962, 963, 589,203,892,893,894,910,911,912,913,959,960,961,962,963,1193,1194,1195,1198,1807,1808);
 
+local common = require("base.common")
 local teacher = require("alchemy.base.teacher")
 local lookat = require("base.lookat")
 local herbgathering = require("craft.gathering.herbgathering")
@@ -40,7 +41,7 @@ function M.UseItem(User, SourceItem, ltstate)
         return;
     end
 
-    if User:getRace() == 3 and User:increaseAttrib("sex", 0) == Character.male and world:getTime("month") == 5 and SourceItem.id == 962 then --Male elves using a Mevrannon tree during month Siros
+    if User:getRace() == 3 and User:increaseAttrib("sex", 0) == Character.male and common.getTime("month") == 5 and SourceItem.id == 962 then --Male elves using a Mevrannon tree during month Siros
         User:inform("Du steckst dir einen Mevrannonzweig an das Revers.","You put a Mevrannon twig on your lapel.")
         return
     end

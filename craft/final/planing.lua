@@ -61,7 +61,7 @@ product:addIngredient(3786, 1) -- heartwood
 
 -- long bow
 product = planing:addProduct(catId, 2708, 1)
-product:addIngredient(546, 3) -- naldor wood boards
+product:addIngredient(546, 4) -- naldor wood boards
 product:addIngredient(63, 2) -- entrails
 product:addIngredient(3786, 1) -- heartwood
 
@@ -130,7 +130,7 @@ catId = planing:addCategory("Shields", "Schilde")
 
 -- small wooden shield
 product = planing:addProduct(catId, 2445, 1)
-product:addIngredient(2543, 2) -- conifer wood boards
+product:addIngredient(2543, 1) -- conifer wood boards
 product:addIngredient(2537, 1) -- iron plate
 
 -- wooden shield
@@ -150,19 +150,19 @@ product:addIngredient(2537, 2) -- iron plate
 
 -- metal shield
 product = planing:addProduct(catId, 19, 1)
-product:addIngredient(2543, 4) -- conifer wood boards
+product:addIngredient(2543, 3) -- conifer wood boards
 product:addIngredient(2537, 2) -- iron plate
 product:addIngredient(3786, 1) -- heartwood
 
 -- knight shield
 product = planing:addProduct(catId, 20, 1)
-product:addIngredient(2543, 5) -- conifer wood boards
+product:addIngredient(2543, 4) -- conifer wood boards
 product:addIngredient(2537, 2) -- iron plate
 product:addIngredient(3786, 1) -- heartwood
 
 -- round metal shield
 product = planing:addProduct(catId, 186, 1)
-product:addIngredient(2543, 5) -- conifer wood boards
+product:addIngredient(2543, 4) -- conifer wood boards
 product:addIngredient(2537, 2) -- iron plate
 product:addIngredient(3786, 2) -- heartwood
 
@@ -174,9 +174,9 @@ product:addIngredient(3786, 2) -- heartwood
 
 -- legionnaire's tower shield
 product = planing:addProduct(catId, 2448, 1)
-product:addIngredient(2543, 6) -- conifer wood boards
+product:addIngredient(2543, 5) -- conifer wood boards
 product:addIngredient(2537, 2) -- iron plate
-product:addIngredient(3786, 2) -- heartwood
+product:addIngredient(3786, 3) -- heartwood
 
 -- heraldic shield
 product = planing:addProduct(catId, 95, 1)
@@ -188,7 +188,7 @@ product:addIngredient(3786, 3) -- heartwood
 product = planing:addProduct(catId, 96, 1)
 product:addIngredient(2543, 6) -- conifer wood boards
 product:addIngredient(2537, 2) -- iron plate
-product:addIngredient(3786, 3) -- heartwood
+product:addIngredient(3786, 4) -- heartwood
 
 -- ornate tower shield
 product = planing:addProduct(catId, 916, 1)
@@ -205,7 +205,7 @@ product:addIngredient(2551, 1) -- pure air
 
 -- mosaic shield
 product = planing:addProduct(catId, 2447, 1)
-product:addIngredient(2543, 7) -- conifer wood boards
+product:addIngredient(2543, 8) -- conifer wood boards
 product:addIngredient(2537, 2) -- iron plate
 product:addIngredient(3786, 2) -- heartwood
 product:addIngredient(3607, 1) -- pure spirit
@@ -254,7 +254,7 @@ product:addIngredient(431, 1) -- wax
 
 -- Novice
 product = planing:addProduct(catId, 4056, 1)
-product:addIngredient(2716, 1) -- apple wood boards
+product:addIngredient(2716, 2) -- apple wood boards
 product:addIngredient(2537, 1) -- iron plate
 product:addIngredient(431, 1) -- wax
 
@@ -274,7 +274,7 @@ product:addIngredient(431, 2) -- wax
 
 -- Journeyman
 product = planing:addProduct(catId, 4059, 1)
-product:addIngredient(545, 5) -- cherry wood boards
+product:addIngredient(545, 3) -- cherry wood boards
 product:addIngredient(2537, 1) -- iron plate
 product:addIngredient(63, 2) -- entrails
 product:addIngredient(3786, 1) -- heartwood
@@ -301,7 +301,7 @@ product = planing:addProduct(catId, 4062, 1)
 product:addIngredient(2543, 4) -- conifer wood boards
 product:addIngredient(2537, 1) -- iron plate
 product:addIngredient(63, 2) -- entrails
-product:addIngredient(3786, 2) -- heartwood
+product:addIngredient(3786, 3) -- heartwood
 product:addIngredient(431, 4) -- wax
 
 -- Artisan
@@ -309,7 +309,7 @@ product = planing:addProduct(catId, 4063, 1)
 product:addIngredient(546, 4) -- naldor wood boards
 product:addIngredient(2537, 1) -- iron plate
 product:addIngredient(63, 2) -- entrails
-product:addIngredient(3786, 3) -- heartwood
+product:addIngredient(3786, 4) -- heartwood
 product:addIngredient(431, 4) -- wax
 
 -- Master
@@ -322,10 +322,10 @@ product:addIngredient(431, 5) -- wax
 
 -- Grandmaster
 product = planing:addProduct(catId, 4065, 1)
-product:addIngredient(546, 4) -- naldor wood boards
+product:addIngredient(546, 7) -- naldor wood boards
 product:addIngredient(2537, 1) -- iron plate
 product:addIngredient(63, 2) -- entrails
-product:addIngredient(3786, 7) -- heartwood
+product:addIngredient(3786, 8) -- heartwood
 product:addIngredient(431, 6) -- wax
 
 M.planing = planing

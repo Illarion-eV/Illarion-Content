@@ -23,12 +23,12 @@ local M = {}
 local function gatherFromHolyVine(user)
     local questStatus, lastSet = user:getQuestProgress(451)
 
-    if questStatus == 0 or questStatus < world:getTime("day") or world:getTime("unix") - lastSet > 30000 then
+    if questStatus == 0 or questStatus < common.getTime("day") or world:getTime("unix") - lastSet > 30000 then
 
         local datas = {nameDe = "Heilige Trauben", nameEn = "Holy Grapes", descriptionDe = "Die Weintrauben geben einen sehr angenehmen süßlichen Geruch von sich.", descriptionEn = "The grapes have a very pleasant, sweet scent."}
         common.CreateItem(user, 388, 1, 333, datas)
         user:inform("Du sammelst ein einzelne Rebe von dem Weinstock.","You collect a single vine from the plant.")
-        user:setQuestProgress(451, world:getTime("day"))
+        user:setQuestProgress(451, common.getTime("day"))
     else
         user:inform("Jedes mal, als du eine Rebe zu greifen versuchts, greifst du daneben. So sehr du dich auch anstrengst, deine Hand geht vorbei.", "Everytime you try to get hold of a vine, you miss. No matter how hard you try, your hand seems always to be to far to the left of to the right of the vine.")
     end
@@ -213,7 +213,7 @@ function M.StartGathering(User, SourceItem, ltstate)
         world:swap(SourceItem, harvestProduct.nextItemId, 333)
         return
         -- regrow according to season: currently deactivated
-            -- local season = math.ceil(world:getTime("month")/4);
+            -- local season = math.ceil(common.getTime("month")/4);
             -- SourceItem.wear = SourceItem.wear + harvestProduct.growCycles[season];
     end
     SourceItem:setData("amount","" .. amount)
