@@ -112,7 +112,7 @@ end
 function M.handleSocketing(user, gem)
 
     if not common.CheckItem(user, gem) then
-        user:inform("Den magischen Edelstein, den du einlassen möchtest muss entweder in deiner Tasche oder in deinem Inventar sein.",
+        user:inform("Der magische Edelstein, den du sockeln möchtest, muss entweder in deiner Tasche oder in deinem Inventar sein.",
         "The magical gem you intend to socket into an item must be in your bag or on your person.")
         return
     end
