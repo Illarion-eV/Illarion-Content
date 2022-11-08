@@ -69,7 +69,7 @@ local function activateGolem(user, sourceItem)
 
     local theGolem = world:createMonster(golemToSpawn, spawnPos, 0)
 
-    theGolem:talk(Character.say, "#me wirft ihre äußere Hülle ab, die ihn wie eine Statue hat aussehen lassen.", "#me sheds its outer skin that made it look like a statue.")
+    theGolem:talk(Character.say, "#me wirft seine äußere Hülle ab, die ihn wie eine Statue hat aussehen lassen.", "#me sheds its outer skin that made it look like a statue.")
 
 end
 
