@@ -23,13 +23,13 @@ local function activateGolem(user, sourceItem)
 
     local realGolem = sourceItem:getData("realGolem")
 
-    user:inform("GERMAN TRANSLATION", "As you touch the statue, its eyes begin to glow soon followed by creaking noises.")
+    user:inform("Du berührst die Statue. Ihre Augen beginnen zu glühen und sie beginnt sich mit quietschende Geräuschen zu bewegen.", "As you touch the statue, its eyes begin to glow soon followed by creaking noises.")
 
     local nearbyPlayers = world:getPlayersInRangeOf(sourceItem.pos, 10)
 
     for _, char in pairs(nearbyPlayers) do
         if char.id ~= user.id then
-            char:inform("GERMAN TRANSLATION", "A nearby golem statue's eyes begin to glow, followed by creaking noises.")
+            char:inform("Eine Golemstatue mit glühenden Augen beginnt sich mit quietschenden Geräuschen zu bewegen.", "A nearby golem statue's eyes begin to glow, followed by creaking noises.")
         end
     end
 
@@ -69,7 +69,7 @@ local function activateGolem(user, sourceItem)
 
     local theGolem = world:createMonster(golemToSpawn, spawnPos, 0)
 
-    theGolem:talk(Character.say, "GERMAN TRANSLATION", "#me sheds its outer skin that made it look like a statue.")
+    theGolem:talk(Character.say, "#me wirft ihre äußere Hülle ab, die ihn wie eine Statue hat aussehen lassen.", "#me sheds its outer skin that made it look like a statue.")
 
 end
 
