@@ -43,7 +43,7 @@ local function spawnEnragedAkaltut(pos)
     local spawnPosition = common.GetFreePositions(pos, 1, true, true)() or pos
     local enragedAkaltut = world:createMonster(1141, spawnPosition, -5)
     if enragedAkaltut ~= nil and isValidChar(enragedAkaltut) then
-        enragedAkaltut:talk(Character.say, "#me zerbricht aus dem Ei und faucht wütend.", "#me bursts from the egg and hisses angrily.")
+        enragedAkaltut:talk(Character.say, "#me bricht aus dem Ei und faucht wütend.", "#me bursts from the egg and hisses angrily.")
     end
 end
 
