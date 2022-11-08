@@ -58,12 +58,12 @@ function M.UseItem(user, sourceItem)
 
     if lamp then
         if sourceItem:getType() == scriptItem.container then
-            user:inform("GERMAN TRANSLATION", "To use the lamp oil, it must be in your belt or hands.", Character.lowPriority)
+            user:inform("Das Lampenöl muss sich in deinen Händen oder im Gürtel befinden, wenn du es benutzen möchtest.", "To use the lamp oil, it must be in your belt or hands.", Character.lowPriority)
         else
             lights.UseItem(user, lamp)
         end
     else
-        user:inform("GERMAN TRANSLATION", "You need an unlit oil lamp in your hands, belt or in front of you to use the lamp oil with.", Character.lowPriority)
+        user:inform("Du musst vor einer Öllampe stehen oder eine in deinen Händen beziehungsweise Gürtel haben, um etwas mit dem Lampenöl anfangen zu können.", "You need an unlit oil lamp in your hands, belt or in front of you to use the lamp oil with.", Character.lowPriority)
     end
 end
 
