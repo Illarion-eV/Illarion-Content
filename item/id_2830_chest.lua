@@ -94,7 +94,7 @@ local function spawnMobHiddenInChest(user, posi, level)
 
     local theMonster = world:createMonster(monsterID, posi, 0)
 
-    user:inform("Anstelle des erwarteten Schatzes springt dich ein "..theMonster.name.." an!", "Instead of the expected treasure, a "..theMonster.name.." jumps out at you!")
+    user:inform("Anstelle des erwarteten Schatzes springt dich ein Monster an: "..theMonster.name, "Instead of the expected treasure, a "..theMonster.name.." jumps out at you!")
 
 end
 
