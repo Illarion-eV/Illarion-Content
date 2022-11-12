@@ -14,8 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- Skeleton Forest
--- Skeleton Spawn Script
 
 local common = require("base.common")
 
