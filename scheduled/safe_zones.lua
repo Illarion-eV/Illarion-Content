@@ -17,18 +17,45 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local M = {}
 
+M.trollsHaven = { posi = position(695, 310, 0), range = 40}
+
 function M.sweepMonsters()
-    local Monsters = world:getMonstersInRangeOf(position(695,310,0),40);
+    local Monsters = world:getMonstersInRangeOf(M.trollsHaven.posi, M.trollsHaven.range);
+
+    local monstersKilled = 0
+
+    local singularInform = {}
+
+    local pluralInform = {}
+
+    pluralInform.english = "As they spot the incoming threat, a group of Half Hung Bryans hired guards rush out and swiftly dispose of it."
+    pluralInform.german = "GERMAN TRANSLATION"
 
     if (#Monsters > 0) then
         for _, Monster in pairs(Monsters) do
             if  Monster:getMonsterType() ~= 1111 then -- Orchard rats are not sweeped.
+                singularInform.english = "As they spot the "..Monster.name.." a group of Half Hung Bryans hired guards rush out and swiftly dispose of it."
+                singularInform.german = "GERMAN TRANSLATION"
+                monstersKilled = monstersKilled + 1
                 world:gfx(41, Monster.pos)
                 Monster:warp(position(1,1,0)) -- Warp it out of sight
                 Monster:increaseAttrib("hitpoints", -10000) -- Kill it
             end
         end
     end
+
+    local playersInTrollsHavenSafeZone = world:getPlayersInRangeOf(M.trollsHaven.posi, M.trollsHaven.range)
+
+    if monstersKilled > 0 then
+        for _, player in pairs(playersInTrollsHavenSafeZone) do
+            if monstersKilled == 1 then
+                player:inform(singularInform.german, singularInform.english)
+            else
+                player:inform(pluralInform.german, pluralInform.english)
+            end
+        end
+    end
+
 
 end
 

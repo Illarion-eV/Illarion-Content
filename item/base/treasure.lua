@@ -24,6 +24,7 @@ local content = require("content.treasure")
 local money = require("base.money")
 local monsterHooks = require("monster.base.hooks")
 local scheduledFunction = require("scheduled.scheduledFunction")
+local safeZones = require("scheduled.safe_zones")
 
 local M = {}
 
@@ -503,6 +504,29 @@ function M.performDiggingForTreasure(treasureHunter, diggingLocation, additional
     local remainingMonsters = #monsterList
 
     local function handleMonsterDeath(monster)
+
+        if common.isInRect(monster.pos, position(1, 1, 0), 20) then --The guardian was teleported to the test island by the hemptie safety net
+            monsterList = {}    --reset monster list
+            remainingMonsters = 0
+            local playersNearTreasure = world:getPlayersInRangeOf(diggingLocation, 12)
+            local playersInTrollsHavenSafeZone = world:getPlayersInRangeOf(safeZones.trollsHaven.posi, safeZones.trollsHaven.range)
+            local english = "Having dealt with a guardian of the treasure site on your behalf, half hung Bryan's crew spares no time to retrieve the treasure as payment. It is only fair, right?"
+            local german = "GERMAN TRANSLATION"
+
+            for _, player in pairs(playersNearTreasure) do
+                player:inform(german, english)
+            end
+
+            for _, player in pairs(playersInTrollsHavenSafeZone) do
+                if player.id == treasureHunter.id then
+                    player:inform(german, english)
+                end
+            end
+
+            return -- no loot for cheaters
+        end
+
+
         remainingMonsters = remainingMonsters - 1
         for index, monsterInList in pairs(monsterList) do
             if monsterInList.id == monster.id then
