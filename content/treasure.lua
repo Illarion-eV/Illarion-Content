@@ -93,7 +93,13 @@ M.msgBeatenGuardians:addMessage(
 
 -- One or multiple areas were treasures may be spawned.
 local treasureLocations = {
-    {x = {from = 475, to = 925}, y = {from = 50, to = 650}, z = 0}
+    {x = {from = 475, to = 915}, y = {from = 50, to = 200}, z = 0}, --Northern forest
+    {x = {from = 600, to = 750}, y = {from = 200, to = 250}, z = 0}, --Plains
+    {x = {from = 750, to = 850}, y = {from = 200, to = 300}, z = 0}, --Plains
+    {x = {from = 750, to = 1000}, y = {from = 300, to = 600}, z = 0}, --Pauldron Island, Elstree Forest
+    {x = {from = 450, to = 750}, y = {from = 350, to = 600}, z = 0}, --Snakehead Bay
+    {x = {from = 250, to = 450}, y = {from = 400, to = 600}, z = 0}, --Northern Kantabi Desert
+    {x = {from = 250, to = 700}, y = {from = 600, to = 850}, z = 0} --Southern Kantabi Desert, Sentry Forest
 }
 
 -- The tiles that allow a treasure to be spawned
