@@ -44,7 +44,7 @@ function M.callEffect( effect, target )
         return true
     elseif findDuration and duration == 0 and target:getQuestProgress(254) == 1 then
         target:setQuestProgress(254, 0)
-        target:inform("GERMAN TRANSLATION", "The protective effect granted to you by the previously drunk potion has worn off.")
+        target:inform("Der durch einen Trank gewährte Schutz ist nun abgeklungen.", "The protective effect granted to you by the previously drunk potion has worn off.")
         effect.nextCalled = 6000 --10 min cooldown
         return true
     end

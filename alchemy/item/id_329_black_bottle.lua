@@ -472,16 +472,16 @@ function druidsEscape(user, duration)
     local foundEffect = user.effects:find(32)
 
     if foundEffect then
-        user:inform("GERMAN TRANSLATION", "You already drank a Druid's Escape recently. Any more and you will only feel sick.")
+        user:inform("Du hast kürzlich den Trank Druidenflucht getrunken. Ein Weiterer wird deinem Magen nicht gut bekommen.", "You already drank a Druid's Escape recently. Any more and you will only feel sick.")
         return false
     end
 
     if checkForArmour(user) or checkForWeapons(user) then
-        user:inform("GERMAN TRANSLATION", "As you are equipped with tools of war, your attackers are still able to recognise you even as a deer. Perhaps it is Ushara refusing to protect those armed to harm others?")
+        user:inform("Als Reh mit Waffen und Rüstung wirst du deine Feinde nicht täuschen können. Ushara ist nicht mit denen, die anderen Schaden zufügen wollen.", "As you are equipped with tools of war, your attackers are still able to recognise you even as a deer. Perhaps it is Ushara refusing to protect those armed to harm others?")
         return true
     end
 
-    user:inform("GERMAN TRANSLATION", "Your sudden transformation seems to confuse most enemies, whether by Ushara's blessing or something else entirely. It won't last forever, though, so you better hurry to get away!")
+    user:inform("Durch deine Verwandlung stiftest du Verwirrung unter deinen Feinden. Doch Usharas Segen wird dich nicht ewig beschützen, also nimm die Beine in die Hand!", "Your sudden transformation seems to confuse most enemies, whether by Ushara's blessing or something else entirely. It won't last forever, though, so you better hurry to get away!")
     applyProtection(user, duration)
 
     return true

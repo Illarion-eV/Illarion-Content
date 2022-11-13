@@ -28,14 +28,14 @@ function M.sweepMonsters()
 
     local pluralInform = {}
 
-    pluralInform.english = "As they spot the incoming threat, a group of Half Hung Bryans hired guards rush out and swiftly dispose of it."
-    pluralInform.german = "GERMAN TRANSLATION"
+    pluralInform.english = "As they spot the incoming threat, a group of Half-Hung Bryans hired guards rush out and swiftly dispose of it."
+    pluralInform.german = "Half-Hung Bryans Handlanger machen mit den Angreiferen kurzen Prozess."
 
     if (#Monsters > 0) then
         for _, Monster in pairs(Monsters) do
             if  Monster:getMonsterType() ~= 1111 then -- Orchard rats are not sweeped.
-                singularInform.english = "As they spot the "..Monster.name.." a group of Half Hung Bryans hired guards rush out and swiftly dispose of it."
-                singularInform.german = "GERMAN TRANSLATION"
+                singularInform.english = "As they spot the "..Monster.name.." a group of Half-Hung Bryans hired guards rush out and swiftly dispose of it."
+                singularInform.german = "Half-Hung Bryans Handlanger machen mit dem Angreifer kurzen Prozess."
                 monstersKilled = monstersKilled + 1
                 world:gfx(41, Monster.pos)
                 Monster:warp(position(1,1,0)) -- Warp it out of sight

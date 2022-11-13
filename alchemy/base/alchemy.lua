@@ -261,9 +261,9 @@ M.potionName[560] = {"Shape Shifter Dog","Verwandler Hund"}
 setPotion(560, 449, 31397191, 766, 152, 81, 81, 762, false, false, false)
 M.potionName[561] = {"Shape Shifter Spider","Verwandler Spinne"}
 setPotion(561, 449, 71526316, 766, 155, 147, 147, 757, false, false, false)
-M.potionName[562] = {"Proto brew: Druid's Escape", "Protogebräu: GERMAN TRANSLATION"}
+M.potionName[562] = {"Proto brew: Druid's Escape", "Protogebräu: Druidenflucht"}
 setPotion(562, 449, 96962638, 766, 764, 161, 161, 153, false, false, false)
-M.potionName[563] = {"Druid's Escape", "GERMAN TRANSLATION"}
+M.potionName[563] = {"Druid's Escape", "Druidenflucht"}
 -- transformation potions end
 
 --language potions

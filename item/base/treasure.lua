@@ -510,8 +510,8 @@ function M.performDiggingForTreasure(treasureHunter, diggingLocation, additional
             remainingMonsters = 0
             local playersNearTreasure = world:getPlayersInRangeOf(diggingLocation, 12)
             local playersInTrollsHavenSafeZone = world:getPlayersInRangeOf(safeZones.trollsHaven.posi, safeZones.trollsHaven.range)
-            local english = "Having dealt with a guardian of the treasure site on your behalf, half hung Bryan's crew spares no time to retrieve the treasure as payment. It is only fair, right?"
-            local german = "GERMAN TRANSLATION"
+            local english = "Having dealt with a guardian of the treasure site on your behalf, Half-Hung Bryan's crew spares no time to retrieve the treasure as payment. It is only fair, right?"
+            local german = "Half-Hung Bryans Handlanger machen kurzen Prozess mit dem Wächter des Schatzes und machen sich auf, die Kiste zu plündern. Eine Hand wäscht die andere, nicht wahr?"
 
             for _, player in pairs(playersNearTreasure) do
                 player:inform(german, english)
