@@ -516,6 +516,7 @@ end
 
 function M.setPersistenceForProperties()
     for _, property in pairs(propertyList.properties) do
+        log("Setting persistence for "..property.name)
         for x = property.lower.x, property.upper.x do
             for y = property.lower.y, property.upper.y do
                 for z = property.lower.z, property.upper.z do
@@ -525,14 +526,19 @@ function M.setPersistenceForProperties()
                 end
             end
         end
+        log("Done setting persistence for "..property.name)
     end
 
+    log("Creating estate basements")
     M.createEstateBasements() -- in case any estates are lacking basement tiles and walls, this function will fix that
+    log("Done creating estate basements")
 
+    log("Now checking that all property deeds are where they should be")
     for i = 1, #propertyList.propertyTable do
         local location = propertyList.propertyTable[i][3]
 
         if not world:isPersistentAt(location) then
+            log("Setting persistence for property deed belonging to "..propertyList.propertyTable[i][1])
             world:makePersistentAt(location)
         end
 
@@ -547,6 +553,7 @@ function M.setPersistenceForProperties()
         end
 
         if not propertyDeedFound then
+            log("Creating missing property deed for property "..propertyList.propertyTable[i][1])
             world:createItemFromId(3772, 1, location, true, 333, nil) --This will lead to some deeds that should be 3773 facing the wrong direction, but this is also only ever called if one is missing to begin with when a GM sets persistence
         end
     end
@@ -893,7 +900,9 @@ function M.createEstateBasements()
     for _, property in pairs(basementProperties) do
         local tileID, wallID = M.getBasementTileWall(property.name)
         if property.lower.z == -21 then --only for basement layers
+            log("Creating basement walls for property "..property.name)
             placeBasementWalls(wallID, property.lower, property.upper)
+            log("Creating basement tiles for property "..property.name)
             placeBasementTiles(tileID, property.lower, property.upper)
         end
     end
