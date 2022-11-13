@@ -24,6 +24,7 @@ local salaveshDungeon = require("content.salaveshDungeon")
 local akaltutDungeon = require("content.akaltutDungeon")
 local volcano_chest = require("triggerfield.volcano_chest")
 local scheduledSpawn = require("scheduled.spawn_treasure")
+local arena = require("base.arena")
 
 local MAX_CHARS = 8
 
@@ -79,6 +80,24 @@ function M.LookAtItem(user, item)
     return lookat.GenerateLookAt(user, item, lookat.NONE)
 end
 
+local function getRandomMonsterBasedOnLevel(level)
+
+    local randomNumber = math.random(1, #arena.monsterIDsByLevel[level].monsters)
+
+    return arena.monsterIDsByLevel[level].monsters[randomNumber]
+
+end
+
+local function spawnMobHiddenInChest(user, posi, level)
+
+    local monsterID = getRandomMonsterBasedOnLevel(level)
+
+    local theMonster = world:createMonster(monsterID, posi, 0)
+
+    user:inform("Anstelle des erwarteten Schatzes springt dich ein Monster an: "..theMonster.name, "Instead of the expected treasure, a "..theMonster.name.." jumps out at you!")
+
+end
+
 function M.UseItem(user,sourceItem)
     local posi=sourceItem.pos
     local level=tonumber(sourceItem:getData("trsCat"))
@@ -129,9 +148,17 @@ function M.UseItem(user,sourceItem)
             "#me opens the chest.")
         world:erase(sourceItem, sourceItem.number)
         if (level ~= nil) and (level~=0) and (level < 10) then
+            --the chest is not empty
+            local mimicChance = math.random()
             world:gfx(globalvar.gfxRAIN,posi)
             world:makeSound(globalvar.sfxSNARING,posi)
-            treasureBase.dropTreasureItems(posi, level)
+            if mimicChance > 0.02 then
+                -- 98 % chance to find treasure
+                treasureBase.dropTreasureItems(posi, level)
+            else
+                -- 2 % chance the chest contains a mob (Replace with mimic if we ever get a graphic dev willing to animate one)
+                spawnMobHiddenInChest(user, posi, level)
+            end
         else
             world:gfx(globalvar.gfxFIZZLE,posi)
             world:makeSound(globalvar.sfxWIND,posi)
