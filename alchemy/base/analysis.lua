@@ -99,7 +99,7 @@ local function IsCharacterAnalysingGem(gem)
     return false
 end
 
-local function StockAnalysis(User, gem, brew, ltstate)
+local function StockAnalysis(User, gem, brew)
     local analysisResultDE = "Substanz:\nKräutersud\n\nWirkstoffkonzentrationen:\n"
     local analysisResultEN = "Substance:\nHerbal Stock\n\nActive substance concentrations:\n"
     for i=1,8 do -- loop to get the concentration of the eight active substances
@@ -116,7 +116,7 @@ local function StockAnalysis(User, gem, brew, ltstate)
     return analysisResultDE, analysisResultEN
 end
 
-local function EssenceBrewAnalysis(User, gem, brew, ltstate)
+local function EssenceBrewAnalysis(User, gem, brew)
     local reGem, reGemdust
     if brew.id >= 1008 and brew.id <= 1018 then -- brew is a cauldron
         reGem, reGemdust = alchemy.GemDustBottleCauldron(nil, nil, brew.id, nil)
@@ -149,7 +149,7 @@ local function EssenceBrewAnalysis(User, gem, brew, ltstate)
     return analysisResultDE, analysisResultEN
 end
 
-local function PotionAnalysis(User, theGem, brew, ltstate)
+local function PotionAnalysis(User, theGem, brew)
     local potionQuality, potionQualityDE, potionQualityEN
     local reGem, reGemdust
     if brew.id >= 1008 and brew.id <= 1018 then -- brew is a cauldron
@@ -205,16 +205,59 @@ local function PotionAnalysis(User, theGem, brew, ltstate)
     return analysisResultDE, analysisResultEN
 end
 
-local function AnalysisOfBrew(User, theGem, brew, ltstate)
+local function salveAnalysis(user, theGem, brew)
 
-    local isAlchemist = alchemy.CheckIfAlchemist(User)
+    local quality, qualityDE, qualityEN
+
+    local gem = Item.topaz
+
+    local dust = Item.topazPowder
+
+    if brew.id >= 1008 and brew.id <= 1018 then -- brew is a cauldron
+        quality = tonumber(brew:getData("potionQuality"))
+    else -- brew is a salve jar
+        quality = brew.quality
+    end
+
+    local analysisResultDE
+    local analysisResultEN
+
+    if theGem.id ~= gem then -- the gem used does not match the substance
+        analysisResultDE = "Die Analyse führt zu keinen schlüssigen Ergebnissen."
+        analysisResultEN = "The analysis does not provide any decent results."
+    else
+        qualityEN = alchemy.qListEn[math.floor(quality/100)]
+        qualityDE = alchemy.qListDe[math.floor(quality/100)]
+        analysisResultDE = "Substanz:\nSalbe auf "..world:getItemName(dust,Player.german).."basis\n\nSalbegüte:\n"..qualityDE.." Qualität\n\nWirkung:\n"
+        analysisResultEN = "Substance:\nSalve based on "..world:getItemName(dust,Player.english).."\n\nSalve quality:\n"..qualityEN.." quality\n\nEffect:"
+        local potionEffectId = tonumber(brew:getData("potionEffectId"))
+        if (potionEffectId == 0) or (potionEffectId == nil) then
+            analysisResultDE = analysisResultDE.."Keine Wirkung"
+            analysisResultEN = analysisResultEN.."No effect"
+        else
+            local effectList = alchemy.potionName
+            local potionEffectEN = effectList[potionEffectId][1]
+            local potionEffectDE = effectList[potionEffectId][2]
+            if (potionEffectEN == nil) or (potionEffectDE == nil) then -- potion has an effect id, but the effect id has no entry in the name list
+                potionEffectEN = "Unknown effect"; potionEffectDE = "Unbekannte Wirkung"
+            end
+            analysisResultDE = analysisResultDE..potionEffectDE
+            analysisResultEN = analysisResultEN..potionEffectEN
+        end
+    end
+    return analysisResultDE, analysisResultEN
+end
+
+local function AnalysisOfBrew(user, theGem, brew)
+
+    local isAlchemist = alchemy.CheckIfAlchemist(user)
     if not isAlchemist then
-        User:inform("Nur jene, die die Kunst der Alchemie beherrschen vermögen zu analysieren.","Only those who have been introduced to the art of alchemy are able to analyse.")
+        user:inform("Nur jene, die die Kunst der Alchemie beherrschen vermögen zu analysieren.","Only those who have been introduced to the art of alchemy are able to analyse.")
         return
     end
 
-    if ( User:increaseAttrib("perception",0) + User:increaseAttrib("essence",0) + User:increaseAttrib("intelligence",0) ) < 30 then
-        User:inform("Verstand, ein gutes Auge und ein Gespür für die feinstofflichen Dinge - dir fehlt es daran, als dass du hier arbeiten könntest.",
+    if ( user:increaseAttrib("perception",0) + user:increaseAttrib("essence",0) + user:increaseAttrib("intelligence",0) ) < 30 then
+        user:inform("Verstand, ein gutes Auge und ein Gespür für die feinstofflichen Dinge - dir fehlt es daran, als dass du hier arbeiten könntest.",
                     "Mind, good eyes and a feeling for the world of fine matter - with your lack of those, you are unable to work here."
                     )
         return
@@ -232,13 +275,16 @@ local function AnalysisOfBrew(User, theGem, brew, ltstate)
         analysisResultEN = "Substance: Meraldilised Slime"
 
     elseif brew:getData("filledWith") == "stock" then
-        analysisResultDE, analysisResultEN = StockAnalysis(User, theGem, brew, ltstate)
+        analysisResultDE, analysisResultEN = StockAnalysis(user, theGem, brew)
 
     elseif brew:getData("filledWith") == "essenceBrew" then
-        analysisResultDE, analysisResultEN = EssenceBrewAnalysis(User, theGem, brew, ltstate)
+        analysisResultDE, analysisResultEN = EssenceBrewAnalysis(user, theGem, brew)
 
     elseif brew:getData("filledWith") == "potion" then
-        analysisResultDE, analysisResultEN = PotionAnalysis(User, theGem, brew, ltstate)
+        analysisResultDE, analysisResultEN = PotionAnalysis(user, theGem, brew)
+
+    elseif brew:getData("filledWith") == "salve" then
+        analysisResultDE, analysisResultEN = salveAnalysis(user, theGem, brew)
 
     elseif brew:getData("granorsHut") ~= "" then
         analysisResultDE, analysisResultEN = granorsHut.granorsPotion()
@@ -248,33 +294,33 @@ local function AnalysisOfBrew(User, theGem, brew, ltstate)
         -- message box for the results
         local callback = function(dialog) end
         local dialog
-        if User:getPlayerLanguage() == 0 then
+        if user:getPlayerLanguage() == 0 then
             dialog = MessageDialog("Analyseergebnis", analysisResultDE, callback)
         else
             dialog = MessageDialog("Results of the analysis", analysisResultEN, callback)
         end
-        User:requestMessageDialog(dialog)
+        user:requestMessageDialog(dialog)
     end
 end
 
-local function CauldronPotionCheck(User, SourceItem, TargetItem, ltstate)
+local function CauldronPotionCheck(User, SourceItem)
     local cauldron = alchemy.GetCauldronInfront(User)
     if (cauldron) and (cauldron.id ~= 1008) then
-        AnalysisOfBrew(User, SourceItem, cauldron, ltstate)
+        AnalysisOfBrew(User, SourceItem, cauldron)
     else
         local brew = User:getItemAt(Character.left_tool)
         -- repair potion in case it's broken
         alchemy.repairPotion(brew)
         -- repair end
-        if (brew:getData("filledWith") == "stock") or (brew:getData("filledWith") == "essenceBrew") or (brew:getData("filledWith") == "potion") or brew:getData("filledWith")=="meraldilised slime" then
-            AnalysisOfBrew(User, SourceItem, brew, ltstate)
+        if (brew:getData("filledWith") == "stock") or (brew:getData("filledWith") == "essenceBrew") or (brew:getData("filledWith") == "potion") or brew:getData("filledWith")=="meraldilised slime" or brew:getData("filledWith") == "salve" then
+            AnalysisOfBrew(User, SourceItem, brew)
         else
             brew = User:getItemAt(Character.right_tool)
             -- repair potion in case it's broken
             alchemy.repairPotion(brew)
             -- repair end
-            if (brew:getData("filledWith") == "stock") or (brew:getData("filledWith") == "essenceBrew") or (brew:getData("filledWith") == "potion") or brew:getData("filledWith")=="meraldilised slime" then
-                AnalysisOfBrew(User, SourceItem, brew, ltstate)
+            if (brew:getData("filledWith") == "stock") or (brew:getData("filledWith") == "essenceBrew") or (brew:getData("filledWith") == "potion") or brew:getData("filledWith")=="meraldilised slime" or brew:getData("filledWith") == "salve" then
+                AnalysisOfBrew(User, SourceItem, brew)
             end
         end
     end

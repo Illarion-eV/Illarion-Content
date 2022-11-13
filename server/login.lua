@@ -29,6 +29,7 @@ local gods_common = require("content._gods.gods_common")
 local tutorial = require("content.tutorial")
 local keys = require("item.keys")
 local ceilingtrowel = require("gm.items.id_382_ceilingtrowel")
+local messenger = require("content.messenger")
 
 -- Called after every player login
 
@@ -270,11 +271,22 @@ function M.onLogin( player )
         extensionString = "th" --default
     end
 
+    local varTextDe
+    local varTextEn
+
     if #players > 1 then
-        common.InformNLS(player,"[Login] Willkommen auf Illarion! Es ist "..hourStringG.." am "..datum..". "..monthString..". Es sind "..#players.." Spieler online.","[Login] Welcome to Illarion! It is "..hourStringE.." on the "..datum..""..extensionString.." of "..monthString..". There are "..#players.." players online.") --sending a message
+        varTextDe = ". Es sind "..#players.." Spieler online."
+        varTextEn = ". There are "..#players.." players online."
     else --player is alone
-        common.InformNLS(player,"[Login] Willkommen auf Illarion! Es ist "..hourStringG.." am "..datum..". "..monthString..". Ein Spieler ist online.","[Login] Welcome to Illarion! It is "..hourStringE.." on the "..datum..""..extensionString.." of "..monthString..". One player is online.") --sending a message
+        varTextDe =  ". Ein Spieler ist online."
+        varTextEn = ". One player is online."
     end
+
+    common.InformNLS(
+        player,
+        "[Login] Willkommen auf Illarion! Es ist "..hourStringG.." am "..datum..". "..monthString..varTextDe,
+        "[Login] Welcome to Illarion! It is "..hourStringE.." on the "..datum..""..extensionString.." of "..monthString..varTextEn
+        )
 
     --Taxes
     if not player:isAdmin() then --Admins don't pay taxes or get gems.
@@ -348,6 +360,9 @@ function M.onLogin( player )
 
     --Checking for pending rank changes
     ceilingtrowel.changeRankOnLogin(player)
+
+    --Checking for pending messages from the messenger
+    messenger.sendStoredMessages(player)
 end
 
 function showNewbieDialog(player)

@@ -29,6 +29,7 @@ local vision = require("content.vision")
 local lookat = require("base.lookat")
 local money = require("base.money")
 local tutorial = require("content.tutorial")
+local messenger = require("content.messenger")
 
 local M = {}
 
@@ -313,36 +314,37 @@ local getBulletinMessages
 local setBulletinMessages
 local showBulletinMessage
 
-function showBulletinBoard(User, Item)
+function showBulletinBoard(user, theItem)
     -- select what to do
     local dialogOptions = {
-        { icon = 0, text = common.GetNLS(User, "Nachrichten lesen", "Read messages"), func = readBulletinBoard, args = { User, Item } },
-        { icon = 0, text = common.GetNLS(User, "Nachricht schreiben", "Write new message"), func = writeBulletinBoard, args = { User, Item } },
-        { icon = 0, text = common.GetNLS(User, "Nachricht entfernen", "Remove a message"), func = removeFromBulletinBoard, args = { User, Item } }
+        { icon = 0, text = common.GetNLS(user, "Nachrichten lesen", "Read messages"), func = readBulletinBoard, args = { user } },
+        { icon = 0, text = common.GetNLS(user, "Nachricht schreiben", "Write new message"), func = writeBulletinBoard, args = { user, theItem } },
+        { icon = 0, text = common.GetNLS(user, "Nachricht entfernen", "Remove a message"), func = removeFromBulletinBoard, args = { user, theItem } },
+        { icon = 0, text = common.GetNLS(user, "Schicke einen Boten", "Hire a messenger"), func = messenger.messengerRequested, args = { user } }
     }
 
-    local dialogTitle = common.GetNLS(User, "Anschlagtafel", "Bulletin board")
-    local dialogText = common.GetNLS(User, "Wähle eine Option.", "Chose an option.")
-    common.selectionDialogWrapper(User, dialogTitle, dialogText, dialogOptions)
+    local dialogTitle = common.GetNLS(user, "Anschlagtafel", "Bulletin board")
+    local dialogText = common.GetNLS(user, "Wähle eine Option.", "Choose an option.")
+    common.selectionDialogWrapper(user, dialogTitle, dialogText, dialogOptions)
 end
 
-function readBulletinBoard(User, Item)
+function readBulletinBoard(user)
 
-    local bulletinMessages = getBulletinMessages(User)
+    local bulletinMessages = getBulletinMessages(user)
 
     if #bulletinMessages > 0 then
         --show all messages in dialog
         local dialogOptions = {}
         for i = 1, #bulletinMessages do
             table.insert(dialogOptions,
-                { icon = 2745, text = bulletinMessages[i].Title, func = showBulletinMessage, args = { User, bulletinMessages[i] } }
+                { icon = 2745, text = bulletinMessages[i].Title, func = showBulletinMessage, args = { user, bulletinMessages[i] } }
             )
         end
-        local dialogTitle = common.GetNLS(User, "Anschlagtafel", "Bulletin board")
-        local dialogText = common.GetNLS(User, "Wähle eine Nachricht.", "Chose a message.")
-        common.selectionDialogWrapper(User, dialogTitle, dialogText, dialogOptions)
+        local dialogTitle = common.GetNLS(user, "Anschlagtafel", "Bulletin board")
+        local dialogText = common.GetNLS(user, "Wähle eine Nachricht.", "Choose a message.")
+        common.selectionDialogWrapper(user, dialogTitle, dialogText, dialogOptions)
     else
-        User:inform("Es sind keine Nachrichten angeschlagen.","There are no messages.")
+        user:inform("Es sind keine Nachrichten angeschlagen.","There are no messages.")
     end
 end
 

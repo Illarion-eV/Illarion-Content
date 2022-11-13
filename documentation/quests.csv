@@ -230,6 +230,7 @@ ID,Title,NPCs,Status,Responsible Author,Description
 246, mana stalling,,,Brightrim, rune magic functionality
 252,Stock up Galmairs Storage,,,Evie,Galmair daily mission - Cooldown
 253,Replace poisoned carrots,,,Banduk,Subquest for rat den
+254, Druid's Escape,,,Brightrim, custom player potion
 260,For Runewick cool down,,,Evie,Runewick daily missions- cool down
 298,Fireproof on stationary flames,,,Banduk,"0:damage by flames; > 0:Proof, no damage by flames over time until effect end"
 299,Iceproof on stationary flames,,,Banduk,"0:damage by ice flames; not 0:Proof, no damage by ice flames over time until effect end"
@@ -462,6 +463,7 @@ ID,Title,NPCs,Status,Responsible Author,Description
 860,LearnLenniersDream,,,,
 861,CorrectSightingPotion,,,,
 862,ApperanceOfDog,,,,
+870-900, Alchemy Player Inventions,,,,
 999,An ursurper to the Throne (Cadomyr),,,Mr.Cromwell/Faladron,"Baron Hastings & his henchman Victor Tolenor try to harm Cadomyr and its ""unrightful"" Queen"
 1000-1999,Recipes learning (alchemy),,,merung,used to remember if a char has learned a certain recipe
 2000,factionpoints,,,envi,used to distribute faction points

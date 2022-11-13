@@ -65,10 +65,10 @@ itemShoes = 53
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-sellItems = 2745, 463, 1118
--- parchment, quill, bottle of ink
-buyPrimaryItems = 2745, 463, 1118, 505
--- parchment, quill, bottle of ink, treasure map
+sellItems = 2745, 463, 1118, 105,106,129,2609,2610,114,115,2608,2615,107,108,111,112,2605,2617,109,110,117,128,130,2604,131,2602,2620,116,2621,2607,127,2598,2606,2616,2619
+-- parchment, quill, bottle of ink, empty books
+buyPrimaryItems = 2745, 463, 1118, 505, 105,106, 129,2609,2610,114,115,2608,2615,107,108,111,112,2605,2617,109,110,117,128,130,2604,131,2602,2620,116,2621,2607,127,2598,2606,2616,2619
+-- parchment, quill, bottle of ink, treasure map, empty books
 
 tradeNotEnoughMoneyMsg "Pleite, wah?", "Broke, eh?"
 tradeFinishedMsg "Half-hung Bryan dankt.", "Half-hung Bryan thanks you."

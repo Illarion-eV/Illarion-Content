@@ -24,7 +24,7 @@ local granorsHut = require("content.granorsHut")
 
 local M = {}
 
-local function CheckWaterEmpty(user, SourceItem, cauldron)
+function M.CheckWaterEmpty(user, SourceItem, cauldron)
 
     if (cauldron:getData("filledWith") == "water") then -- water belongs into a bucket, not a potion bottle!
     common.InformNLS( user,
@@ -80,7 +80,7 @@ function M.UseItem(user, SourceItem, ltstate)
             return -- avoids crafting if user is neither citizen nor has a licence
         end
 
-        if not CheckWaterEmpty(user, SourceItem, cauldron) then
+        if not M.CheckWaterEmpty(user, SourceItem, cauldron) then
             return
         end
 
@@ -110,6 +110,11 @@ function M.UseItem(user, SourceItem, ltstate)
 end
 
 function M.FillIntoBottle(user, SourceItem, cauldron)
+
+    if cauldron:getData("filledWith") == "salve" then
+        user:inform("Die Flüssigkeit im Kessel ist viel zu dick. Du brauchst einen leeren Salbentiegel, keine Zaubertrankflasche", "The liquid in the cauldron is way too thick. You'll need an empty salve jar here, not a potion bottle.")
+        return
+    end
 
     -- stock, essence brew or potion; fill it up
    if (cauldron:getData("filledWith") == "stock") or (cauldron:getData("filledWith") == "essenceBrew") or (cauldron:getData("filledWith") == "potion") then

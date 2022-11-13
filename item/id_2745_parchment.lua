@@ -21,13 +21,15 @@ local id_52_filledbucket = require("item.id_52_filledbucket")
 local id_331_green_bottle = require("alchemy.item.id_331_green_bottle")
 local gemdust = require("alchemy.base.gemdust")
 local id_164_emptybottle = require("item.id_164_emptybottle")
+local id_3642_empty_salve_jar = require("alchemy.item.id_3642_empty_salve_jar")
 local potionToTeacher = require("triggerfield.potionToTeacher")
 local recipe_creation = require("alchemy.base.recipe_creation")
 local lookat = require("base.lookat")
 local licence = require("base.licence")
 local shipmasterParchments = require("content.shipmasterParchments")
 local shared = require("craft.base.shared")
-local brewing = require("alchemy.base.brewing")
+local messenger = require("content.messenger")
+local bookWriting = require("item.base.bookWriting")
 
 local M = {}
 
@@ -45,7 +47,6 @@ local GetStartAction
 local GetItem
 local ViewRecipe
 local getIngredients
-
 
 local function bookListLookAt(user,Item)
     local itemLookat = lookat.GenerateLookAt(user, Item, lookat.NONE)
@@ -79,6 +80,11 @@ end
 
 function M.UseItem(user, SourceItem,ltstate,checkVar)
 
+    -- Check if the messenger has requested a parchment
+    if messenger.getParchmentSelectionStatus(user, SourceItem) then
+        return
+    end
+
     -- Check if it is an alchemy recipe.
     if SourceItem:getData("alchemyRecipe") == "true" then
         AlchemyRecipe(user, SourceItem,ltstate,checkVar)
@@ -89,6 +95,13 @@ function M.UseItem(user, SourceItem,ltstate,checkVar)
         LearnLenniersDream(user)
         return
     end
+
+    if bookWriting.getParchmentSelectionStatus(user) then
+        bookWriting.addNewPageToBook(user, SourceItem)
+        return
+    end
+
+
 
     local writtenText = M.getWrittenTextFromParchment(SourceItem)
 
@@ -264,7 +277,7 @@ function StartBrewing(user,SourceItem,ltstate,checkVar)
     local tool = alchemy.getAlchemyTool(user)
 
     if not tool then
-        brewing.informAlchemyToolNeeded(user)
+        alchemy.informAlchemyToolNeeded(user)
         return
     end
 
@@ -299,6 +312,8 @@ function StartBrewing(user,SourceItem,ltstate,checkVar)
                 if type(listOfTheIngredients[i])=="string" then
                     if string.find(listOfTheIngredients[i],"bottle") then
                         dialog:addOption(164, getText(user,counter..". Abfüllen",counter..". Bottling"))
+                    elseif string.find(listOfTheIngredients[i],"jar") then
+                        dialog:addOption(3642, getText(user, counter..". In einen Tiegel füllen",counter..". Fill into jar"))
                     else
                         local liquid, liquidList = recipe_creation.StockEssenceList(listOfTheIngredients[i])
                         if liquid == "stock" then
@@ -381,6 +396,9 @@ function CallBrewFunctionAndDeleteItem(user,deleteItem, deleteId,cauldron)
         if deleteItem.id == 164 then -- empty bottle
             id_164_emptybottle.FillIntoBottle(user, deleteItem, cauldron)
 
+        elseif deleteItem.id == 3642 then
+            id_3642_empty_salve_jar.FillIntoJar(user, deleteItem, cauldron)
+
         elseif deleteItem.id == 331 then -- stock
             id_331_green_bottle.FillStockIn(user,deleteItem, cauldron)
             alchemy.EmptyBottle(user,deleteItem)
@@ -436,6 +454,21 @@ function GetItem(user, listOfTheIngredients)
             if not (deleteItem) then
                 missingDe = "Dir fehlt: leere Flasche"
                 missingEn = "You don't have: empty bottle"
+            end
+        elseif string.find(listOfTheIngredients[USER_POSITION_LIST[user.id]],"jar") then
+            local jarList = user:getItemList(3642)
+            if #jarList > 0 then
+                deleteItem = jarList[1]
+                for i = 1, #jarList do
+                    if not string.find(jarList[i]:getData("descriptionEn"), "Bottle label:") then
+                        deleteItem = jarList[i]
+                        break
+                    end
+                end
+            end
+            if not (deleteItem) then
+                missingDe = "Dir fehlt: leerer Salbentiegel"
+                missingEn = "You don't have: empty salve jar"
             end
         else
             local liquid, neededList = recipe_creation.StockEssenceList(listOfTheIngredients[USER_POSITION_LIST[user.id]])

@@ -47,16 +47,16 @@ product:addIngredient(2547, 1) -- leather
 -- robust jackboots
 product = armourer:addProduct(catId, 1057, 1)
 product:addIngredient(2535, 2) -- iron ingot
-product:addIngredient(2547, 1) -- leather
+product:addIngredient(2547, 2) -- leather
 
 -- guardian's boots
 product = armourer:addProduct(catId, 1056, 1)
 product:addIngredient(2535, 3) -- iron ingot
-product:addIngredient(2547, 1) -- leather
+product:addIngredient(2547, 2) -- leather
 
 -- silversteel boots
 product = armourer:addProduct(catId, 1058, 1)
-product:addIngredient(2535, 3) -- iron ingot
+product:addIngredient(2535, 2) -- iron ingot
 product:addIngredient(2547, 1) -- leather
 product:addIngredient(104, 1) -- silver ingot
 product:addIngredient(197, 1) -- amethyst
@@ -121,7 +121,7 @@ product:addIngredient(176, 1) -- grey cloth
 
 -- reinforced chain gloves
 product = armourer:addProduct(catId, 1462, 1)
-product:addIngredient(2535, 2) -- iron ingot
+product:addIngredient(2535, 3) -- iron ingot
 product:addIngredient(176, 1) -- grey cloth
 
 -- coppered chain gloves
@@ -203,7 +203,7 @@ product:addIngredient(2547, 1) -- leather
 -- simple scale greaves
 product = armourer:addProduct(catId, 1487, 1)
 product:addIngredient(2535, 4) -- iron ingot
-product:addIngredient(2547, 1) -- leather
+product:addIngredient(2547, 2) -- leather
 
 -- scale greaves
 product = armourer:addProduct(catId, 2193, 1)
@@ -262,7 +262,7 @@ catId = armourer:addCategory("Chain helmets", "Kettenhelme")
 
 -- chain helmet
 product = armourer:addProduct(catId, 324, 1)
-product:addIngredient(2535, 2) -- iron ingot
+product:addIngredient(2535, 1) -- iron ingot
 product:addIngredient(176, 1) -- grey cloth
 
 -- orc helmet
@@ -272,7 +272,7 @@ product:addIngredient(176, 1) -- grey cloth
 
 -- coppered chain helmet
 product = armourer:addProduct(catId, 1425, 1)
-product:addIngredient(2535, 3) -- iron ingot
+product:addIngredient(2535, 2) -- iron ingot
 product:addIngredient(176, 1) -- grey cloth
 product:addIngredient(2550, 1) -- copper ingot
 
@@ -422,8 +422,7 @@ catId = armourer:addCategory("Plate boots", "Panzerstiefel")
 
 -- iron boots
 product = armourer:addProduct(catId, 1520, 1)
-product:addIngredient(2535, 1) -- iron ingot
-product:addIngredient(2537, 1) -- iron plate
+product:addIngredient(2535, 2) -- iron ingot
 
 -- simple steel boots
 product = armourer:addProduct(catId, 1513, 1)
@@ -449,7 +448,7 @@ product:addIngredient(197, 1) -- amethyst
 
 -- dwarven boots
 product = armourer:addProduct(catId, 1055, 1)
-product:addIngredient(2535, 3) -- iron ingot
+product:addIngredient(2535, 4) -- iron ingot
 product:addIngredient(2537, 1) -- iron plate
 product:addIngredient(2550, 1) -- copper ingot
 product:addIngredient(46, 1) -- ruby
@@ -504,8 +503,7 @@ catId = armourer:addCategory("Plate gloves", "Panzerhandschuhe")
 
 -- simple steel gloves
 product = armourer:addProduct(catId, 1470, 1)
-product:addIngredient(2535, 1) -- iron ingot
-product:addIngredient(2537, 1) -- iron plate
+product:addIngredient(2535, 2) -- iron ingot
 
 -- steel gloves
 product = armourer:addProduct(catId, 325, 1)
@@ -588,16 +586,15 @@ catId = armourer:addCategory("Plate greaves", "Panzerhosen")
 -- simple short iron greaves
 product = armourer:addProduct(catId, 1492, 1)
 product:addIngredient(2535, 2) -- iron ingot
-product:addIngredient(2537, 1) -- iron plate
 
 -- short iron greaves
 product = armourer:addProduct(catId, 2117, 1)
-product:addIngredient(2535, 3) -- iron ingot
+product:addIngredient(2535, 2) -- iron ingot
 product:addIngredient(2537, 1) -- iron plate
 
 -- reinforced short iron greaves
 product = armourer:addProduct(catId, 1493, 1)
-product:addIngredient(2535, 4) -- iron ingot
+product:addIngredient(2535, 3) -- iron ingot
 product:addIngredient(2537, 1) -- iron plate
 
 -- simple iron greaves
@@ -677,7 +674,7 @@ product:addIngredient(2537, 1) -- iron plate
 
 -- reinforced steel hat
 product = armourer:addProduct(catId, 1430, 1)
-product:addIngredient(2535, 3) -- iron ingot
+product:addIngredient(2535, 4) -- iron ingot
 product:addIngredient(2537, 1) -- iron plate
 
 -- round steel hat
@@ -785,7 +782,7 @@ product:addIngredient(46, 1) -- ruby
 
 -- albarian steel plate
 product = armourer:addProduct(catId, 2369, 1)
-product:addIngredient(2535, 14) -- iron ingot
+product:addIngredient(2535, 13) -- iron ingot
 product:addIngredient(2537, 5) -- iron plate
 product:addIngredient(236, 5) -- gold ingot
 product:addIngredient(284, 1) -- sapphire
@@ -829,24 +826,81 @@ product:addIngredient(2571, 2) -- merinium ingot
 product:addIngredient(285, 1) -- diamond
 product:addIngredient(2552, 1) -- pure earth
 
--- Dummy group for items that cannot be crafted but repaired
-catId = armourer:addCategory("repair only", "nur reparieren")
+-- Repair Kits
+catId = armourer:addCategory("Armour Mending Kits", "Reparatursätze für Rüstungen")
 
--- drow helmet
-product = armourer:addProduct(catId, 2303, 1)
+-- Basic
+product = armourer:addProduct(catId, 4044, 1)
+product:addIngredient(2535, 4) -- iron ingot
+product:addIngredient(2537, 1) -- iron plate
+
+-- Novice
+product = armourer:addProduct(catId, 4045, 1)
+product:addIngredient(2535, 6) -- iron ingot
+product:addIngredient(2537, 2) -- iron plate
+
+-- Apprentice
+product = armourer:addProduct(catId, 4046, 1)
 product:addIngredient(2535, 7) -- iron ingot
 product:addIngredient(2537, 2) -- iron plate
-product:addIngredient(2571, 1) -- merinium ingot
-product:addIngredient(285, 1) -- diamond
-product:addIngredient(104, 2) -- silver ingot
 
--- drow armour
-product = armourer:addProduct(catId, 2402, 1)
-product:addIngredient(2535, 18) -- iron ingot
+-- Initiate
+product = armourer:addProduct(catId, 4047, 1)
+product:addIngredient(2535, 9) -- iron ingot
+product:addIngredient(2537, 3) -- iron plate
+product:addIngredient(2550, 3) -- copper ingot
+
+-- Journeyman
+product = armourer:addProduct(catId, 4048, 1)
+product:addIngredient(2535, 10) -- iron ingot
+product:addIngredient(2537, 3) -- iron plate
+product:addIngredient(104, 3) -- silver ingot
+product:addIngredient(197, 1) -- amethyst
+
+-- Specialist
+product = armourer:addProduct(catId, 4049, 1)
+product:addIngredient(2535, 12) -- iron ingot
+product:addIngredient(2537, 4) -- iron plate
+product:addIngredient(236, 4) -- gold ingot
+product:addIngredient(46, 1) -- ruby
+
+-- Expert
+product = armourer:addProduct(catId, 4050, 1)
+product:addIngredient(2535, 14) -- iron ingot
+product:addIngredient(2537, 5) -- iron plate
+product:addIngredient(236, 5) -- gold ingot
+product:addIngredient(284, 1) -- sapphire
+
+-- Adept
+product = armourer:addProduct(catId, 4051, 1)
+product:addIngredient(2535, 15) -- iron ingot
+product:addIngredient(2537, 5) -- iron plate
+product:addIngredient(236, 5) -- gold ingot
+product:addIngredient(283, 1) -- obsidian
+product:addIngredient(2550, 4) -- copper ingot
+
+-- Artisan
+product = armourer:addProduct(catId, 4052, 1)
+product:addIngredient(2535, 17) -- iron ingot
 product:addIngredient(2537, 6) -- iron plate
 product:addIngredient(2571, 2) -- merinium ingot
-product:addIngredient(285, 1) -- diamond
+product:addIngredient(45, 1) -- emerald
+product:addIngredient(104, 4) -- silver ingot
+
+-- Master
+product = armourer:addProduct(catId, 4053, 1)
+product:addIngredient(2535, 18) -- iron ingot
+product:addIngredient(2537, 6) -- iron plate
+product:addIngredient(2571, 3) -- merinium ingot
+product:addIngredient(198, 1) -- topaz
 product:addIngredient(236, 4) -- gold ingot
+
+-- Grandmaster
+product = armourer:addProduct(catId, 4054, 1)
+product:addIngredient(2535, 20) -- iron ingot
+product:addIngredient(2537, 7) -- iron plate
+product:addIngredient(2571, 6) -- merinium ingot
+product:addIngredient(285, 1) -- diamond
 
 M.armourer = armourer
 return M

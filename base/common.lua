@@ -1090,7 +1090,7 @@ function M.DeleteItemFromStack(stackPosition, itemProperties)
         if (itemProperties.itemId == checkItem.id) and (not itemProperties.deleteAmount or checkItem.number <= itemProperties.deleteAmount) and (not itemProperties.quality or checkItem.quality == itemProperties.quality) then
             if itemProperties.data then
                 for i=1,#itemProperties.data do
-                    if not checkItem:getData(itemProperties["data"][1]["dataKey"]) == itemProperties["data"][1]["dataValue"] then
+                    if not checkItem:getData(itemProperties["data"][i]["dataKey"]) == itemProperties["data"][i]["dataValue"] then
                         break
                     end
                 end
@@ -2425,36 +2425,56 @@ end
 -- @return scrItem  If an item with ItemId is found, this is the first one found. Otherwise it is nil.
 -- @return bool  Writeable flag. If there are multiple items on the field, only the top one is writeable.
 --               If none is found, nil is returned.
-function M.GetItemInArea(CenterPos, ItemId, Radius, OnlyWriteable)
-  if (Radius == nil) then
-    Radius = 1
-  end
-  if (OnlyWriteable == nil) then
-    OnlyWriteable = false
-  end
-  for x=-Radius,Radius do
-    for y=-Radius,Radius do
-      local field = world:getField(position(CenterPos.x + x, CenterPos.y + y, CenterPos.z))
-      if field ~= nil then
-      local itemCount = field:countItems()
-          if (itemCount > 0) then
-            if (OnlyWriteable) then
-              itemCount = 1
-            end
-            for i=0,itemCount-1 do
-              local item = field:getStackItem(i)
-              if (item.id == ItemId) then
-                item.pos.x = CenterPos.x + x
-                item.pos.y = CenterPos.y + y
-                item.pos.z = CenterPos.z
-                return item, (i==0)
-              end
-            end
-          end
-      end
+function M.GetItemInArea(CenterPos, ItemId, Radius, OnlyWriteable, itemData)
+
+    if (Radius == nil) then
+        Radius = 1
     end
-  end
-  return nil, nil
+
+    if (OnlyWriteable == nil) then
+        OnlyWriteable = false
+    end
+
+    for x=-Radius,Radius do
+        for y=-Radius,Radius do
+
+            local field = world:getField(position(CenterPos.x + x, CenterPos.y + y, CenterPos.z))
+
+            if field ~= nil then
+
+                local itemCount = field:countItems()
+
+                if (itemCount > 0) then
+
+                    if (OnlyWriteable) then
+                        itemCount = 1
+                    end
+
+                    for i=0,itemCount-1 do
+                        local item = field:getStackItem(i)
+                        if (item.id == ItemId) then
+                            item.pos.x = CenterPos.x + x
+                            item.pos.y = CenterPos.y + y
+                            item.pos.z = CenterPos.z
+
+                            if itemData then
+                                local dataValue = item:getData(itemData.key)
+
+                                if dataValue == itemData.value then
+
+                                    return item, (i==0)
+                                end
+                            else
+                                return item, (i==0)
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+
+    return nil, nil
 end
 
 -- Checks if a given position is located in the prison mine.
@@ -2663,8 +2683,8 @@ function M.pushBack(user,extDistance,extCenterPos)
     local distance = extDistance or 1
     local centerPos = extCenterPos or M.GetFrontPosition(user)
 
-    local diffX
-    local diffY
+    local diffX = 0
+    local diffY = 0
 
     if (centerPos.x == user.pos.x and centerPos.y == user.pos.y) then -- any direction
         diffX = math.random(1,5)
@@ -2676,6 +2696,7 @@ function M.pushBack(user,extDistance,extCenterPos)
             diffY = - diffY
         end
     end
+
     local alpha = math.atan2(diffX,diffY)
     local distX = math.floor(math.sin(alpha)*distance)
     local distY = math.floor(math.cos(alpha)*distance)
@@ -2684,7 +2705,7 @@ function M.pushBack(user,extDistance,extCenterPos)
     local posY = user.pos.y - distY
     local posZ = user.pos.z
 
-    local targetPos=user.pos
+    local targetPos = user.pos
 
     local isNotBlocked = function(pos)
         if world:getField(pos):isPassable() then
@@ -2981,5 +3002,54 @@ function M.moveItemToBackpack(user, theItem)
 
     return true
 end
+
+
+-- functions for storage of bitwise flags in quest IDs, see alchemy.teaching.playerInventedPotions for an example of its usage
+
+local function questprogressToIndexedObject(qpg)
+    if qpg<0 then
+        return 2^31-1-qpg
+    else
+        return qpg
+    end
+end
+
+local function indexedObjectToQuestprogress(number)
+    if number < 2^31 then
+        return number
+    else
+        return 2^31- 1 - number
+    end
+end
+
+function M.writeBitwise(user, index, questIdStart)
+
+    local base = questIdStart + math.floor((index-1)/32)
+
+    local baseOffset = math.fmod(index-1,32)
+
+    local current = questprogressToIndexedObject(user:getQuestProgress(base))
+
+    user:setQuestProgress(base, indexedObjectToQuestprogress(bit32.bor(2^baseOffset, current)))
+end
+
+function M.readBitwise(user, index, questIdStart)
+
+
+    local base = questIdStart + math.floor((index-1)/32)
+
+    local baseOffset = math.fmod(index - 1, 32)
+
+    local current = questprogressToIndexedObject(user:getQuestProgress(base))
+
+
+    if bit32.btest(bit32.lshift(1, baseOffset), current) then
+        return true
+    end
+
+    return false
+end
+
+-- bitwise flag functions end
 
 return M

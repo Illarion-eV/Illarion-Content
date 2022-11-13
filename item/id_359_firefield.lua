@@ -85,6 +85,10 @@ function M.CharacterOnField(User)
         end
     end
 
+    if not FieldItem then   -- the flame doesn't exist anymore
+        return
+    end
+
     -- immune
     if not character.IsPlayer(User) then
         if checkFlameImmunity(User:getMonsterType()) then

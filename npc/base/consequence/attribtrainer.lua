@@ -14,19 +14,20 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
+local class = require("base.class")
+local consequence = require("npc.base.consequence.consequence")
+local npc_base_attribtrainer = require("npc.base.attribute_trainer")
 
-local bagScript = require("item.id_97_leatherbag")
+local _attribtrainer_helper
 
-local M = {}
+local attribtrainer = class(consequence,
+function(self)
+    consequence:init(self)
+    self["perform"] = _attribtrainer_helper
+end)
 
-function M.MoveItemBeforeMove(user, source, target)
-
-    if bagScript.isInDepot(user, source.inside) or bagScript.isInBackpack(user, source.inside) or bagScript.isInDepot(user, target.inside) or bagScript.isInBackpack(user, target.inside) and bagScript.isBackPackSlot(user, source, target) then
-        return bagScript.rectCheck(user, source, target, 1, true)
-    end
-
-    return bagScript.rectCheck(user, source, target, 0, true)
-
+function _attribtrainer_helper(self, npcChar, player)
+    npc_base_attribtrainer.train(player)
 end
 
-return M
+return attribtrainer

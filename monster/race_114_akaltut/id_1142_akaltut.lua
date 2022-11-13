@@ -23,7 +23,6 @@ local monstermagic = require("monster.base.monstermagic")
 local poisonfield = require("item.id_372_poisonfield")
 local scheduledFunction = require("scheduled.scheduledFunction")
 local common = require("base.common")
-local hooks = require("monster.base.hooks")
 
 local magic = monstermagic()
 magic.addPoisonball{probability = 0.06, damage = {from = 1000, to = 1300}}
@@ -37,21 +36,14 @@ local M = akaltut.generateCallbacks()
 M = magic.addCallbacks(M)
 M = mageBehaviour.addCallbacks(magic, M)
 
-M.eggExists = false
-M.enragedAkaltutExists = false
-M.akaltutMageFormExists = false
-M.akaltutSpiderFormExists = false
-
 local function spawnEnragedAkaltut(pos)
     if not common.DeleteItemFromStack(pos, {itemId = 1174}) then
         debug("Failed to remove the spider eggs for enraged Akaltut.")
     end
-    M.eggExists = false
     local spawnPosition = common.GetFreePositions(pos, 1, true, true)() or pos
     local enragedAkaltut = world:createMonster(1141, spawnPosition, -5)
     if enragedAkaltut ~= nil and isValidChar(enragedAkaltut) then
-        M.enragedAkaltutExists = true
-        enragedAkaltut:talk(Character.say, "#me zerbricht aus dem Ei und faucht wütend.", "#me bursts from the egg and hisses angrily.")
+        enragedAkaltut:talk(Character.say, "#me bricht aus dem Ei und faucht wütend.", "#me bursts from the egg and hisses angrily.")
     end
 end
 
@@ -64,10 +56,9 @@ function M.onDeath(monster)
     local pos = position(monster.pos.x, monster.pos.y, monster.pos.z)
     monster:talk(Character.say, "#me verschwindet und ein Ei erscheint.", "#me vanishes and an egg appears.")
     world:gfx(45, pos)
-    local spiderEgg = world:createItemFromId(1174, 1, pos, true, 333, nil)
+    local spiderEgg = world:createItemFromId(1174, 1, pos, true, 333, {["akaltutEgg"] = "true"})
     spiderEgg.wear = 3
     world:changeItem(spiderEgg)
-    M.eggExists = true
 
     scheduledFunction.registerFunction(8, function() spawnEnragedAkaltut(pos) end)
 end
@@ -77,13 +68,6 @@ function M.onSpawn(monster)
     if orgOnSpawn ~= nil then
         orgOnSpawn(monster)
     end
-
-    if M.eggExists or M.enragedAkaltutExists or M.akaltutMageFormExists or M.akaltutSpiderFormExists then
-        hooks.setForcedDeath(monster)
-        hooks.isNoDrop(monster)
-        monster:increaseAttrib("hitpoints", -10000)
-    end
-
 end
 
 return M
