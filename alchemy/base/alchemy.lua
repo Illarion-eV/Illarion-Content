@@ -27,7 +27,8 @@ M.playerPotionStartQuest = 870 -- 870-900 reserved for bitwise storage of potion
 M.playerInventedPotionList = {
     {id = 561, creator = "Amanda Brightrim", index = 1},
     {id = 319, creator = "Amanda Brightrim", index = 2},
-    {id = 700, creator = "Yridia Anar", index = 3}
+    {id = 700, creator = "Yridia Anar", index = 3},
+    {id = 562, creator = "Yet to  be invented", index = 4}
 }
 
 function M.getAlchemyTool(user)
@@ -209,7 +210,7 @@ M.potionName[317] = {"Big Slime Barrier","Groﬂe Schleimbarriere"}
 setPotion(317, 446, 76576456, 140, 140, 140, 140, 152, 152, 146, 146)
 M.potionName[318] = {"Lennier's Dream","Lenniers Traum"}
 setPotion(318, 446, 57932798, 765,146,146,146,148,15,151,764)
-M.potionName[319] = {"Protogebr‰u: Brightrim's demon skeleton weakener","Proto brewing: Brightrims D‰monenskelettschw‰cher"}
+M.potionName[319] = {"Proto brew: Brightrim's demon skeleton weakener","Protogebr‰u: Brightrims D‰monenskelettschw‰cher"}
 setPotion(319, 446, 48923699, 760, 146, 146, 146, 134, 134, 760, 752)
 M.potionName[320] = {"Brightrim's demon skeleton weakener","Brightrims D‰monenskelettschw‰cher"}
 -- bombs end
@@ -260,6 +261,9 @@ M.potionName[560] = {"Shape Shifter Dog","Verwandler Hund"}
 setPotion(560, 449, 31397191, 766, 152, 81, 81, 762, false, false, false)
 M.potionName[561] = {"Shape Shifter Spider","Verwandler Spinne"}
 setPotion(561, 449, 71526316, 766, 155, 147, 147, 757, false, false, false)
+M.potionName[562] = {"Proto brew: Druid's Escape", "Protogebr‰u: GERMAN TRANSLATION"}
+setPotion(562, 449, 96962638, 766, 764, 161, 161, 153, false, false, false)
+M.potionName[563] = {"Druid's Escape", "GERMAN TRANSLATION"}
 -- transformation potions end
 
 --language potions

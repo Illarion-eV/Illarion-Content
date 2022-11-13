@@ -23,6 +23,7 @@ local common = require("base.common")
 local alchemy = require("alchemy.base.alchemy")
 local lookat = require("base.lookat")
 local customPotion = require("alchemy.base.customPotion")
+local scheduledFunction = require("scheduled.scheduledFunction")
 
 local M = {}
 
@@ -72,29 +73,42 @@ ListHairFemale[4] = {1,7,8}
 ListHairFemale[5] = {1,2,3,4,5,6}
 
 local monsterTransformation
+local druidsEscape
 
 local function DrinkPotion(user,SourceItem)
 
     local potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
 
-    if potionEffectId == 0 or potionEffectId == nil  then -- no effect
+    if potionEffectId == 0 or potionEffectId == nil or potionEffectId == 562  then -- no effect
         common.InformNLS(user, "Du hast nicht das Gefühl, dass etwas passiert.",
         "You don't have the feeling that something happens.")
-        return
+        return true
 
     elseif (potionEffectId >= 500) and (potionEffectId < 599) then -- transformation potion
 
         local dog = 560
         local spider = 561
+        local deer = 563
 
         if potionEffectId == dog then
-            monsterTransformation(user,SourceItem, 58)
-            return
+            monsterTransformation(user,SourceItem, 58, 102, 51, 0, false)
+            return true
         end
 
         if potionEffectId == spider then
-            monsterTransformation(user, SourceItem, 19)
-            return
+            monsterTransformation(user, SourceItem, 19, 102, 51, 0, false)
+            return true
+        end
+
+        if potionEffectId == deer then
+            local deerID = 116
+            local duration = math.floor(SourceItem.quality/100) -- 1-9 seconds of protection, 1-9 min of transformation
+            if druidsEscape(user, duration) then
+                monsterTransformation(user, SourceItem, deerID, 255, 255, 255, duration)
+                return true
+            else
+                return false
+            end
         end
 
         local duration = math.floor(SourceItem.quality/100)*10 -- effect is called every minute. quality 1 = 10 minutes; quality 9 = 90
@@ -121,7 +135,7 @@ local function DrinkPotion(user,SourceItem)
                     user:inform("LteNewRace == newRace")
                     if duration > counterBlack then -- same transformation, but the new potion will last longer
                         myEffect:addValue("counterBlack",duration)
-                        return
+                        return true
                     end
                 else -- not the same transformation; we need to get the old apperance values from the LTE
                    local _, foundMonster = myEffect:findValue("isMonster")
@@ -155,7 +169,7 @@ local function DrinkPotion(user,SourceItem)
                     local effectRemoved = user.effects:removeEffect(329)
                     if not effectRemoved then
                         common.InformNLS( user,"Fehler: informiere einen dev. lte nicht entfernt. black bottle script", "Error: inform dev. Lte not removed. black bottle script.")
-                        return
+                        return true
                     end
                 end
             end
@@ -238,9 +252,10 @@ local function DrinkPotion(user,SourceItem)
           user.effects:addEffect(myEffect)
         end
     end
+    return true
 end
 
-function monsterTransformation(user,SourceItem, race)
+function monsterTransformation(user,SourceItem, race, newSkincolor1, newSkincolor2, newSkincolor3, customDuration)
 
     local oldRace = user:getRace()
     local oldSkinColour = user:getSkinColour()
@@ -251,6 +266,10 @@ function monsterTransformation(user,SourceItem, race)
     local oldHeight = user:increaseAttrib("body_height",0)
 
     local duration = math.floor(SourceItem.quality/100)*10 -- effect is called every minute. quality 1 = 10 minutes; quality 9 = 90
+
+    if customDuration then
+        duration = customDuration
+    end
 
     -- check if there is already a an effect
     local find, myEffect = user.effects:find(329)
@@ -303,10 +322,6 @@ function monsterTransformation(user,SourceItem, race)
 
     local newHeight = math.random(80,120)
 
-    local newSkincolor1 = 102
-    local newSkincolor2 = 51
-    local newSkincolor3 = 0
-
     -- LTE and transformation
     find = user.effects:find(329)
     if not find then
@@ -355,17 +370,210 @@ function M.UseItem(user, SourceItem, ltstate)
     local cauldron = alchemy.GetCauldronInfront(user)
     if cauldron then -- infront of a cauldron?
         alchemy.FillIntoCauldron(user,SourceItem,cauldron,ltstate)
-
     else -- not infront of a cauldron, therefore drink!
-        user:talk(Character.say, "#me trinkt eine schwarze Flüssigkeit.", "#me drinks a black liquid.")
-        user.movepoints=user.movepoints - 20
-        DrinkPotion(user,SourceItem) -- call effect
-        alchemy.EmptyBottle(user,SourceItem)
+        if DrinkPotion(user,SourceItem) then
+            alchemy.EmptyBottle(user,SourceItem)
+            user:talk(Character.say, "#me trinkt eine schwarze Flüssigkeit.", "#me drinks a black liquid.")
+            user.movepoints=user.movepoints - 20
+        end
     end
 end
 
 function M.LookAtItem(user,Item)
     return lookat.GenerateLookAt(user, Item, 0)
+end
+
+local function isGMTool(itemID)
+
+    local GMtoolIds = {93, 99, 100, 382}
+
+    for _, id in pairs(GMtoolIds) do
+        if itemID == id then
+            return true
+        end
+    end
+
+    return false
+end
+
+local function checkForArmour(user)
+
+    local equipmentSlotsToCheck = {Character.head, Character.breast, Character.hands, Character.legs, Character.feet}
+
+    local equipmentItems = {}
+
+    for _, slot in pairs(equipmentSlotsToCheck) do
+        table.insert(equipmentItems, user:getItemAt(slot))
+    end
+
+    for _, equipment in pairs(equipmentItems) do
+        local isArmour, armour = world:getArmorStruct(equipment.id)
+
+        if isArmour and (armour.Type == ArmorStruct.light or armour.Type == ArmorStruct.medium or armour.Type == ArmorStruct.heavy) then
+            return true
+        end
+    end
+
+    return false
+
+end
+
+local function checkForWeapons(user)
+
+    local equipmentSlotsToCheck = {}
+
+    for i = 1, 6 do
+        table.insert(equipmentSlotsToCheck, user:getItemAt(Character["belt_pos_"..i]))
+    end
+
+    table.insert(equipmentSlotsToCheck, user:getItemAt(Character.left_tool))
+    table.insert(equipmentSlotsToCheck, user:getItemAt(Character.right_tool))
+
+    for _, equipment in pairs(equipmentSlotsToCheck) do
+        local isWeapon = world:getWeaponStruct(equipment.id)
+
+        if isWeapon and not isGMTool(equipment.id) then
+            return true
+        end
+    end
+
+    local backpack = user:getBackPack()
+
+    if not backpack then
+        return false
+    end
+
+    for i = 0, 99 do
+        local success, equipment = backpack:viewItemNr(i)
+
+        if success then
+            local isWeapon = world:getWeaponStruct(equipment.id)
+
+            if isWeapon and not isGMTool(equipment.id) then
+                return true
+            end
+        end
+    end
+
+    return false
+
+end
+
+local function applyProtection(user, duration)
+
+    local myEffect = LongTimeEffect(32,1)
+    myEffect:addValue("duration", duration)
+    user.effects:addEffect(myEffect)
+
+end
+
+function druidsEscape(user, duration)
+
+    local foundEffect = user.effects:find(32)
+
+    if foundEffect then
+        user:inform("GERMAN TRANSLATION", "You already drank a Druid's Escape recently. Any more and you will only feel sick.")
+        return false
+    end
+
+    if checkForArmour(user) or checkForWeapons(user) then
+        user:inform("GERMAN TRANSLATION", "As you are equipped with tools of war, your attackers are still able to recognise you even as a deer. Perhaps it is Ushara refusing to protect those armed to harm others?")
+        return true
+    end
+
+    user:inform("GERMAN TRANSLATION", "Your sudden transformation seems to confuse most enemies, whether by Ushara's blessing or something else entirely. It won't last forever, though, so you better hurry to get away!")
+    applyProtection(user, duration)
+
+    return true
+end
+
+local function potionChangeID(stackPosition, timeStamp, effectID)
+
+    if not world:isItemOnField(stackPosition) then
+        return false
+    end
+
+    local newID = {
+        [562] = 563
+    }
+
+    local theField = world:getField(stackPosition)
+    local counter = 1
+    while counter <= theField:countItems() do
+        local checkItem = theField:getStackItem(theField:countItems()- counter )
+        if 329 == checkItem.id and checkItem:getData("identifierTimeStamp") == tostring(timeStamp) and tonumber(checkItem:getData("potionEffectId")) == effectID then
+            checkItem:setData("potionEffectId", newID[effectID])
+            world:changeItem(checkItem)
+            return true
+        end
+        counter = counter + 1
+    end
+
+    return false
+
+end
+
+local function nearUsharaAltar(thePosition)
+
+    local altars = {1162, 1163}
+
+    local positions = {
+        thePosition,
+        position(thePosition.x +1, thePosition.y, thePosition.z),
+        position(thePosition.x +1, thePosition.y +1, thePosition.z),
+        position(thePosition.x -1, thePosition.y, thePosition.z),
+        position(thePosition.x -1, thePosition.y - 1, thePosition.z),
+        position(thePosition.x, thePosition.y +1, thePosition.z),
+        position(thePosition.x, thePosition.y -1, thePosition.z)}
+
+    for _, currentPosition in pairs(positions) do
+        local theField = world:getField(currentPosition)
+
+        for i = 0, theField:countItems() do
+            local checkItem = theField:getStackItem(i)
+            for _, altar in pairs(altars) do
+                if checkItem.id == altar then
+                    return true
+                end
+            end
+        end
+    end
+
+    return false
+end
+
+local function druidsEscapePrototype(user, targetItem)
+    local itemPos = position(targetItem.pos.x, targetItem.pos.y, targetItem.pos.z)
+
+    if targetItem:getType() == 3 and nearUsharaAltar(itemPos) then
+        local timeStamp = world:getTime("unix")
+        targetItem:setData("identifierTimeStamp", timeStamp)
+        world:changeItem(targetItem)
+
+        scheduledFunction.registerFunction(360, function()
+            if potionChangeID(itemPos, timeStamp, 562) then
+                world:gfx(16, itemPos)
+            end
+        end)
+    else
+        if targetItem:getData("identifierTimeStamp") ~= "" then
+            targetItem:setData("identifierTimeStamp", "")
+            world:changeItem(targetItem)
+        end
+    end
+end
+
+function M.MoveItemAfterMove(user, sourceItem, targetItem)
+
+    local potionEffectId = tonumber(sourceItem:getData("potionEffectId"))
+
+    if potionEffectId == nil then
+        potionEffectId = 0
+    end
+
+    if potionEffectId == 562 then
+        druidsEscapePrototype(user, targetItem)
+    end
 end
 
 return M
