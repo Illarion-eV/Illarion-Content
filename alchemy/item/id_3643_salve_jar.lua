@@ -50,6 +50,7 @@ function M.UseItem(user, sourceItem, actionState)
         if sourceItem:getData("customPotion") ~= "" then
             customPotion.drinkInform(user, sourceItem)
         end
+        alchemy.logConsumption(user, sourceItem)
         user:talk(Character.say, "#me trägt eine Salbe aus einem Tiegel auf.", "#me applies a salve from a jar.")
         user.movepoints = user.movepoints - 20
         applySalve(user, sourceItem) -- call effect
