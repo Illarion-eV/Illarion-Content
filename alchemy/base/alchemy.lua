@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local licence = require("base.licence")
 local gems = require("base.gems")
+local gm_lectern = require("gm.gm_lectern")
 
 local M = {}
 
@@ -30,6 +31,10 @@ M.playerInventedPotionList = {
     {id = 700, creator = "Yridia Anar", index = 3},
     {id = 562, creator = "Yet to  be invented", index = 4}
 }
+
+function M.logConsumption(user, potion)
+    gm_lectern.logConsumption(user, potion)
+end
 
 function M.getAlchemyTool(user)
     local leftTool = user:getItemAt(Character.left_tool)
