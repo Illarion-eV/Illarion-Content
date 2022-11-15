@@ -25,8 +25,13 @@ local M = {}
 M.max_potions_logged = 100
 M.pos = position(247, 97, 0)
 local lecternId = 661
+local theLectern
 
 local function getLectern()
+
+    if theLectern and theLectern.id == lecternId then
+        return theLectern
+    end
 
     if not world:isPersistentAt(M.pos) then
         world:makePersistentAt(M.pos)
@@ -38,6 +43,7 @@ local function getLectern()
     for i = 0, count do
         local theItem = field:getStackItem(i)
         if theItem.id == lecternId then
+            theLectern = theItem
             return theItem
         end
     end
@@ -45,7 +51,7 @@ local function getLectern()
     local newLectern = world:createItemFromId(lecternId, 1, M.pos, true, 999, {["titleEn"] = "GM Lectern", ["titleDe"] = "GM Lesepult"})
     newLectern.wear = 255
     world:changeItem(newLectern)
-
+    theLectern = newLectern
     return newLectern
 end
 
@@ -59,55 +65,21 @@ local function getPotionInfo(potion)
 
 end
 
-local function checkIfIdenticalEntryAlreadyLogged(user, potion, lectern)
-
-    for i = 1, M.max_potions_logged do
-
-        local consumer = lectern:getData("potionConsumer"..i)
-        local creator = lectern:getData("potionCreator"..i)
-        local typeOf = lectern:getData("potionType"..i)
-        local effect = lectern:getData("potionEffect"..i)
-
-        local pCreator, pEffect, pType = getPotionInfo(potion)
-
-        if consumer == user.name and creator == pCreator and effect == pEffect and typeOf == pType then
-            return true
-        end
-    end
-
-    return false
-end
-
 function M.logConsumption(user, potion)
 
     local lectern = getLectern()
 
-    if checkIfIdenticalEntryAlreadyLogged(user, potion, lectern) then
-        return
-    end
+    local index = lectern:getData("potionLastIndex")
 
     local entryToUse
-    local previousTime
 
-    for i = 1, M.max_potions_logged do  --check for empty entries to use
-
-        local time = lectern:getData("potionTimeStamp"..i)
-
-        if common.IsNilOrEmpty(time) then
-            entryToUse = i
-            break
-        end
+    if not common.IsNilOrEmpty(index) and tonumber(index) < M.max_potions_logged then
+        index = tonumber(index)
+        entryToUse = index + 1
+    else
+        entryToUse = 1
     end
 
-    if not entryToUse then  -- find the oldest entry to use
-        for i = 1, M.max_potions_logged do
-            local time = lectern:getData("potionTimeStamp"..i)
-            if not previousTime or previousTime < time then
-                entryToUse = i
-                previousTime = time
-            end
-        end
-    end
 
     local creator, effect, typeOf = getPotionInfo(potion)
 
@@ -116,9 +88,9 @@ function M.logConsumption(user, potion)
     lectern:setData("potionEffect"..entryToUse, effect)
     lectern:setData("potionType"..entryToUse, typeOf)
     lectern:setData("potionTimeStamp"..entryToUse, world:getTime("unix"))
+    lectern:setData("potionLastIndex", entryToUse)
 
     world:changeItem(lectern)
-
 
 end
 
