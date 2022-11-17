@@ -22,8 +22,6 @@ local common = require("base.common")
 
 local tableOfLogEntries = {}
 
-local lastPotionIndex = 0
-
 local M = {}
 
 M.max_potions_logged = 100
@@ -87,31 +85,54 @@ end
 
 local function loadPotionLog()
 
-    if not tableOfLogEntries[1] or not tableOfLogEntries[1].consumer then
+    if not tableOfLogEntries[1] then
 
         local lectern = getLectern()
 
         for i = 1, M.max_potions_logged do
-            local consumer = lectern:getData("potionConsumer")
+            local consumer = lectern:getData("potionConsumer"..i)
 
             if common.IsNilOrEmpty(consumer) then
                 break
             end
 
-            local creator = lectern.getData("potionCreator")
-            local effect = lectern:getData("potionEffect")
-            local typeOf = lectern:getData("potionType")
-            local time = lectern:getData("potionTimeStamp")
+            local creator = lectern:getData("potionCreator"..i)
+            local effect = lectern:getData("potionEffect"..i)
+            local typeOf = lectern:getData("potionType"..i)
+            local time = lectern:getData("potionTimeStamp"..i)
 
             tableOfLogEntries[i] = {["consumer"] = consumer, ["creator"] = creator, ["effect"] = effect, ["typeOf"] = typeOf, ["time"] = time}
         end
     end
 end
 
+local lastPotionIndex
+
+local function getLastPotionAdded()
+
+    local timeStamp
+
+    for index, potion in pairs(tableOfLogEntries) do
+        if not timeStamp or timeStamp < potion.time then
+            timeStamp = potion.time
+            lastPotionIndex = index - 1
+        end
+    end
+
+    if not lastPotionIndex then
+        lastPotionIndex = 0
+    end
+
+end
+
 
 function M.logConsumption(user, potion)
 
     loadPotionLog()
+
+    if not lastPotionIndex then
+        getLastPotionAdded()
+    end
 
     local entryToUse
 
@@ -124,7 +145,7 @@ function M.logConsumption(user, potion)
 
     local creator, effect, typeOf = getPotionInfo(potion)
 
-    tableOfLogEntries[entryToUse] = {["consumer"] = user.name, ["creator"] = creator, ["effect"] = effect, ["typeOf"] = typeOf, ["time"] = world:getData("time")}
+    tableOfLogEntries[entryToUse] = {["consumer"] = user.name, ["creator"] = creator, ["effect"] = effect, ["typeOf"] = typeOf, ["time"] = world:getTime("unix")}
 
     lastPotionIndex = entryToUse
 
@@ -152,7 +173,7 @@ local function checkPotionConsumptionLog(user, lectern)
             displayTexts[pageNumber] = ""
         end
 
-        displayTexts[pageNumber] = displayTexts[pageNumber].."A "..result.type.." potion made by "..result.creator.." was consumed by "..result.consumer.." at UNIX time "..result.time..". EffectId("..result.effect..")".."\n"
+        displayTexts[pageNumber] = displayTexts[pageNumber].."A "..result.typeOf.." potion made by "..result.creator.." was consumed by "..result.consumer.." at UNIX time "..result.time..". EffectId("..result.effect..")".."\n"
     end
 
     local title = "Potion Consumption Log"
@@ -180,6 +201,10 @@ local function checkPotionConsumptionLog(user, lectern)
     end
 
     dialog:setCloseOnMove()
+
+    if common.IsNilOrEmpty(displayTexts[1]) then
+        displayTexts[1] = "There are no potion logs to be found."
+    end
 
     local messageCallback = function(messageDialog) end
     local messageDialog = MessageDialog(title, displayTexts[1], messageCallback)
