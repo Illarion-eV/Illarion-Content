@@ -20,6 +20,10 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 
+local tableOfLogEntries = {}
+
+local lastPotionIndex = 0
+
 local M = {}
 
 M.max_potions_logged = 100
@@ -65,17 +69,54 @@ local function getPotionInfo(potion)
 
 end
 
-function M.logConsumption(user, potion)
+local function storePotionLog()
 
     local lectern = getLectern()
 
-    local index = lectern:getData("potionLastIndex")
+    for index, entry in pairs(tableOfLogEntries) do
+        lectern:setData("potionConsumer"..index, entry.consumer)
+        lectern:setData("potionCreator"..index, entry.creator)
+        lectern:setData("potionEffect"..index, entry.effect)
+        lectern:setData("potionType"..index, entry.typeOf)
+        lectern:setData("potionTimeStamp"..index, entry.time)
+    end
+
+    world:changeItem(lectern)
+
+end
+
+local function loadPotionLog()
+
+    if not tableOfLogEntries[1].consumer then
+
+        local lectern = getLectern()
+
+        for i = 1, M.max_potions_logged do
+            local consumer = lectern:getData("potionConsumer")
+
+            if common.IsNilOrEmpty(consumer) then
+                break
+            end
+
+            local creator = lectern.getData("potionCreator")
+            local effect = lectern:getData("potionEffect")
+            local typeOf = lectern:getData("potionType")
+            local time = lectern:getData("potionTimeStamp")
+
+            tableOfLogEntries[i] = {["consumer"] = consumer, ["creator"] = creator, ["effect"] = effect, ["typeOf"] = typeOf, ["time"] = time}
+        end
+    end
+end
+
+
+function M.logConsumption(user, potion)
+
+    loadPotionLog()
 
     local entryToUse
 
-    if not common.IsNilOrEmpty(index) and tonumber(index) < M.max_potions_logged then
-        index = tonumber(index)
-        entryToUse = index + 1
+    if lastPotionIndex < M.max_potions_logged then
+        entryToUse = lastPotionIndex + 1
     else
         entryToUse = 1
     end
@@ -83,47 +124,32 @@ function M.logConsumption(user, potion)
 
     local creator, effect, typeOf = getPotionInfo(potion)
 
-    lectern:setData("potionConsumer"..entryToUse, user.name)
-    lectern:setData("potionCreator"..entryToUse, creator)
-    lectern:setData("potionEffect"..entryToUse, effect)
-    lectern:setData("potionType"..entryToUse, typeOf)
-    lectern:setData("potionTimeStamp"..entryToUse, world:getTime("unix"))
-    lectern:setData("potionLastIndex", entryToUse)
+    tableOfLogEntries[entryToUse] = {["consumer"] = user.name, ["creator"] = creator, ["effect"] = effect, ["typeOf"] = typeOf, ["time"] = world:getData("time")}
 
-    world:changeItem(lectern)
+    lastPotionIndex = entryToUse
+
+    if lastPotionIndex == M.max_potions_logged then
+        storePotionLog()
+    end
 
 end
 
 local function checkPotionConsumptionLog(user, lectern)
 
-    local results = {}
-
-    for i = 1, M.max_potions_logged do
-
-        local consumer = lectern:getData("potionConsumer"..i)
-
-        if common.IsNilOrEmpty(consumer) then
-            break
-        end
-
-        results[i] = {}
-        results[i].consumer = consumer
-        results[i].creator = lectern:getData("potionCreator"..i)
-        results[i].type = lectern:getData("potionType"..i)
-        results[i].effect = lectern:getData("potionEffect"..i)
-        results[i].time = lectern:getData("potionTimeStamp"..i)
-    end
+    loadPotionLog()
 
     local displayTexts = {}
 
     local pageNumber = 1
 
-    for _, result in ipairs(results) do
+    for _, result in ipairs(tableOfLogEntries) do
+
+        if not common.IsNilOrEmpty(displayTexts[pageNumber]) and string.len(displayTexts[pageNumber]) > 900 then
+            pageNumber = pageNumber + 1
+        end
+
         if common.IsNilOrEmpty(displayTexts[pageNumber]) then
             displayTexts[pageNumber] = ""
-        end
-        if string.len(displayTexts[pageNumber]) > 900 then
-            pageNumber = pageNumber + 1
         end
 
         displayTexts[pageNumber] = displayTexts[pageNumber].."A "..result.type.." potion made by "..result.creator.." was consumed by "..result.consumer.." at UNIX time "..result.time..". EffectId("..result.effect..")".."\n"
