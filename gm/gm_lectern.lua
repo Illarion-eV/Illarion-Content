@@ -103,7 +103,10 @@ local function loadPotionLog()
 
             tableOfLogEntries[i] = {["consumer"] = consumer, ["creator"] = creator, ["effect"] = effect, ["typeOf"] = typeOf, ["time"] = time}
         end
+
+        return true
     end
+    return false
 end
 
 local lastPotionIndex
@@ -157,7 +160,9 @@ end
 
 local function checkPotionConsumptionLog(user, lectern)
 
-    loadPotionLog()
+    if not loadPotionLog() then
+        storePotionLog()
+    end
 
     local displayTexts = {}
 
