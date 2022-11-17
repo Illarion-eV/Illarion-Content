@@ -87,7 +87,7 @@ end
 
 local function loadPotionLog()
 
-    if not tableOfLogEntries[1].consumer then
+    if not tableOfLogEntries[1] or not tableOfLogEntries[1].consumer then
 
         local lectern = getLectern()
 
