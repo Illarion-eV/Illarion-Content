@@ -1144,8 +1144,9 @@ function M.deletePreviewItem(propertyName, bypassTTL)
         end
     end
 
-    for _, theItem in pairs(itemsToReplace) do
-        world:createItemFromItem(theItem, location, true)
+    for i = 1, #itemsToReplace do
+        local newIndex = #itemsToReplace + 1 - i
+        world:createItemFromItem(itemsToReplace[newIndex], location, true)
     end
 
     propertyDeed:setData("previewItemTimer", "")
