@@ -21,11 +21,8 @@ local M = {}
 
 function M.MoveItemBeforeMove(user, source, target)
 
-    if bagScript.isInDepot(user, source.inside) or bagScript.isInBackpack(user, source.inside) or bagScript.isInDepot(user, target.inside) or bagScript.isInBackpack(user, target.inside) and bagScript.isBackPackSlot(user, source, target) then
-        return bagScript.rectCheck(user, source, target, 1, true)
-    end
+    return bagScript.MoveItemBeforeMove(user, source, target, true)
 
-    return bagScript.rectCheck(user, source, target, 0, true)
 
 end
 

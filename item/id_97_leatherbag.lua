@@ -77,13 +77,13 @@ function M.isBackPackSlot(user, source, target)
     return false
 end
 
-function M.MoveItemBeforeMove(user, source, target)
+function M.MoveItemBeforeMove(user, source, target, basket)
 
     if M.isInDepot(user, source.inside) or M.isInBackpack(user, source.inside) or M.isInDepot(user, target.inside) or M.isInBackpack(user, target.inside) or M.isBackPackSlot(user, source, target) then
-        return M.rectCheck(user, source, target, 1)
+        return M.rectCheck(user, source, target, 1, basket)
     end
 
-    return M.rectCheck(user, source, target, 0)
+    return M.rectCheck(user, source, target, 0, basket)
 
 end
 
