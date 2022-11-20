@@ -719,7 +719,7 @@ function M.createWarpsAndExitObject(user, itemId, createOrErase)
                 if createOrErase == "create" then
                     M.createStairTrap(targetPosition, positionTwo, positionThree, positionFour, trapStair)
                 elseif createOrErase == "erase" then
-                    M.eraseStairTrap(targetPosition, positionTwo, stair.Upstairs)
+                    M.eraseStairTrap(targetPosition, positionTwo, stair.Upstairs, positionThree)
                 end
             elseif stair.Upstairs == itemId then --It's a trap door item
                 if user.pos.z == 0 then
@@ -744,7 +744,7 @@ function M.createWarpsAndExitObject(user, itemId, createOrErase)
                 if createOrErase == "create" then
                     M.createStairTrap(targetPosition, positionTwo, positionThree, positionFour, trapStair)
                 elseif createOrErase == "erase" then
-                    M.eraseStairTrap(targetPosition, positionTwo, stair.Downstairs)
+                    M.eraseStairTrap(targetPosition, positionTwo, stair.Downstairs, positionThree)
                 end
             end
         end
@@ -752,9 +752,11 @@ function M.createWarpsAndExitObject(user, itemId, createOrErase)
     return true
 end
 
-function M.eraseStairTrap(positionOne, positionTwo, targetId)
+function M.eraseStairTrap(positionOne, positionTwo, targetId, tile1pos)
     local warpOne = world:getField(positionOne)
     local warpTwo = world:getField(positionTwo)
+
+    M.ifNoSurroundingTilesDeleteStairTiles(tile1pos, positionTwo)
 
     common.DeleteItemFromStack(positionTwo, {itemId = targetId})
 
@@ -1156,6 +1158,43 @@ end
 function M.scheduledDeletionOfPreviewItems()
     for i = 1, #propertyList.propertyTable do
         M.deletePreviewItem(propertyList.propertyTable[i][1], false)
+    end
+end
+
+function M.ifNoSurroundingTilesDeleteStairTiles(tile1pos, tile2pos)
+
+    local positionsToCheck = {}
+
+    local deleteTiles = true
+
+    for x = 0, 1 do
+        for y = 0, 1 do
+            table.insert(positionsToCheck, position(tile1pos.x + x, tile1pos.y + y, tile1pos.z))
+            table.insert(positionsToCheck, position(tile1pos.x - x, tile1pos.y - y, tile1pos.z))
+            table.insert(positionsToCheck, position(tile1pos.x + x, tile1pos.y - y, tile1pos.z))
+            table.insert(positionsToCheck, position(tile1pos.x - x, tile1pos.y + y, tile1pos.z))
+            table.insert(positionsToCheck, position(tile2pos.x + x, tile2pos.y + y, tile2pos.z))
+            table.insert(positionsToCheck, position(tile2pos.x - x, tile2pos.y - y, tile2pos.z))
+            table.insert(positionsToCheck, position(tile2pos.x + x, tile2pos.y - y, tile2pos.z))
+            table.insert(positionsToCheck, position(tile2pos.x - x, tile2pos.y + y, tile2pos.z))
+        end
+    end
+
+    for _, thePos in pairs(positionsToCheck) do
+        if thePos ~= tile1pos and thePos ~= tile2pos then
+            local field = world:getField(thePos)
+            local tileID = field:tile()
+            if tileID ~= 0 then
+                log("tileID: "..tostring(tileID).." at position: "..tostring(thePos))
+                deleteTiles = false
+                break
+            end
+        end
+    end
+
+    if deleteTiles then
+        world:changeTile(0, tile1pos)
+        world:changeTile(0, tile2pos)
     end
 end
 
