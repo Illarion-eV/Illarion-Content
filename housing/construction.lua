@@ -458,7 +458,7 @@ function M.showDialog(user, skillName, carpentryEstateCatalogue)
 
             local frontPos = common.GetFrontPosition(user)
 
-            if not utility.wallWindowPermissions(user, frontPos, product.id) then
+            if not utility.wallWindowPermissions(user, frontPos, product.id) or not hasMaterials(user, product) then
                 canWork = false
             end
 
