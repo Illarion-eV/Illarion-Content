@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local common = require("base.common")
+local lookat = require("base.lookat")
 
 local itemRepairList = {}
 
@@ -65,18 +66,12 @@ local function getQualityAtCreation(theItem)
     return tonumber(qualityAtCreation)
 end
 
-M.itemRangeTable = {
-    {start = 4011, stop  = 4021, skill = "tailoring"},
-    {start = 4022, stop  = 4032, skill = "blacksmithing"},
-    {start = 4033, stop  = 4043, skill = "finesmithing"},
-    {start = 4044, stop  = 4054, skill = "armourer"},
-    {start = 4055, stop  = 4065, skill = "carpentry"}
-}
+
 
 local function getSkillName(itemId)
 
     local skillName
-    for _, itemRange in pairs(M.itemRangeTable) do
+    for _, itemRange in pairs(lookat.itemRangeTable) do
         if itemId >= itemRange.start and itemId <= itemRange.stop then
             skillName = itemRange.skill
         end
@@ -305,10 +300,23 @@ local function checkForQualityRecovery(user, theItem, quality)
     return quality, recovered
 end
 
-local function getRepairAmount(user, theItem, staticTool, repairCount)
+local function getRepairUsesLeft(theRepairKit)
+    local repairUsesLeft = theRepairKit:getData("remainingUses")
+
+    if common.IsNilOrEmpty(repairUsesLeft) then
+        repairUsesLeft = 10
+    else
+        repairUsesLeft = tonumber(repairUsesLeft)
+    end
+
+    return repairUsesLeft
+end
+
+local function getRepairAmount(user, theItem, staticTool, repairCount, theRepairKit)
 
     local durability = common.getItemDurability(theItem)
     local itemCommon = world:getItemStatsFromId(theItem.id)
+    local repairsRemaining =  getRepairUsesLeft(theRepairKit)*10 --each use can increase the value by up to 10
 
     local maxRepairs = maxRepairsInField
 
@@ -336,6 +344,14 @@ local function getRepairAmount(user, theItem, staticTool, repairCount)
     local maxDurability = 99 - (durabilityReduction*10)
 
     local durabilityIncreasedBy = maxDurability-durability
+
+    if durabilityIncreasedBy > repairsRemaining then
+        durabilityIncreasedBy = repairsRemaining
+    end
+
+    if maxDurability > durability + repairsRemaining then
+        maxDurability = durability + repairsRemaining
+    end
 
     local increasedCount = math.floor(durabilityIncreasedBy/10)
 
@@ -392,6 +408,8 @@ local function reduceRepairCount(user, repairCount)
 
 end
 
+
+
 local function repairItem(user, theRepairKit)
 
     local skillName = getSkillName(theRepairKit.id)
@@ -403,6 +421,8 @@ local function repairItem(user, theRepairKit)
     local theItem, theItemPos = getStoredItemForUser(user)
 
     local item = user:getItemAt(tonumber(theItemPos))
+
+    local previousDurability = math.ceil(common.getItemDurability(theItem)/10)
 
     local itemIsValid = item ~= nil and item.id == theItem.id
 
@@ -431,7 +451,7 @@ local function repairItem(user, theRepairKit)
         repairCount = reduceRepairCount(user, repairCount)
     end
 
-    local repairAmount, increasedCount = getRepairAmount(user, item, foundStaticTool, tonumber(repairCount))
+    local repairAmount, increasedCount = getRepairAmount(user, item, foundStaticTool, tonumber(repairCount), theRepairKit)
 
     if not repairAmount then
         return
@@ -445,15 +465,44 @@ local function repairItem(user, theRepairKit)
 
     common.setItemQualityDurability(item, tonumber(quality), tonumber(repairAmount))
 
-    local germanText = "Du benutzt "..commonRepairKit.German.." um "..commonItem.German.." instand zu setzen."
-    local englishText = "You use up the "..commonRepairKit.English.." to repair the "..commonItem.English.."."
-        if recovered then
-            germanText = germanText.." Mit Erfahrung und geschickter Hand gelingt es dir, den Pfusch, den ein anderer angerichtet hat, auszubessern. Die Qualität des Gegenstandes steigt."
-            englishText = englishText.." Through your skill and expertise, you manage to recover some of the quality previously lost at the hands of an inferior craftsman."
-        end
-    user:inform(germanText, englishText)
+    local repairUsesLeft =  getRepairUsesLeft(theRepairKit)
 
-    world:erase(theRepairKit, 1)
+    local repairUsesToReduce = 10 - previousDurability
+
+    repairUsesLeft = repairUsesLeft - repairUsesToReduce
+
+    local germanText
+    local englishText
+
+    if repairUsesLeft <= 0 then
+        world:erase(theRepairKit, 1)
+        germanText = "Du benutzt "..commonRepairKit.German.." um "..commonItem.German.." instand zu setzen."
+        englishText = "You use up the "..commonRepairKit.English.." to repair the "..commonItem.English.."."
+    else
+
+        germanText = "GERMAN TRANSLATION"..commonRepairKit.German.." um "..commonItem.German.." GERMAN TRANSLATION."
+        englishText = "You use the "..commonRepairKit.English.." to repair the "..commonItem.English..", though the kit appears to still have some use left."
+
+        if theRepairKit.number == 1 then
+            theRepairKit:setData("remainingUses", tostring(repairUsesLeft))
+            world:changeItem(theRepairKit)
+        else
+            world:erase(theRepairKit, 1)
+
+            local itemsFailedToCreate = user:createItem(theRepairKit.id, 1, 999, {["remainingUses"] = tostring(repairUsesLeft)})
+
+            if itemsFailedToCreate == 1 then
+                world:createItemFromId(theRepairKit.id, 1, user.pos, true, 999, {["remainingUses"] = tostring(repairUsesLeft)})
+            end
+        end
+    end
+
+    if recovered then
+        germanText = germanText.." Mit Erfahrung und geschickter Hand gelingt es dir, den Pfusch, den ein anderer angerichtet hat, auszubessern. Die Qualität des Gegenstandes steigt."
+        englishText = englishText.." Through your skill and expertise, you manage to recover some of the quality previously lost at the hands of an inferior craftsman."
+    end
+
+    user:inform(germanText, englishText)
 end
 
 local function isRepairKitInHand(user, theRepairKit)
@@ -501,7 +550,7 @@ local function getDurationBasedOnRestoredDurability(user, repairKit, chosenItem)
     end
 
 
-    local repairAmount = getRepairAmount(user, chosenItem, staticTool, repairCount)
+    local repairAmount = getRepairAmount(user, chosenItem, staticTool, repairCount, repairKit)
 
     if not repairAmount then
         return false
@@ -615,6 +664,42 @@ end
 
 function M.actionDisturbed(user, attacker)
     user:inform("Nicht recht sicher hier, such dir lieber einen geschützten Ort zum Reparieren.", "You should find somewhere safe from enemies before attempting to repair something.")
+end
+
+local usedDescriptions = {}
+usedDescriptions[Player.german] = {
+    "GERMAN TRANSLATION",
+    "GERMAN TRANSLATION",
+    "GERMAN TRANSLATION",
+    "GERMAN TRANSLATION"
+}
+usedDescriptions[Player.english] = {
+    "The kit is brand new.",
+    "The kit has barely seen any use.",
+    "The kit has been used before.",
+    "The kit is worn down, it can barely be used anymore."
+}
+
+function M.LookAtItem(user, repairKit)
+
+    local baseLookat = lookat.GenerateLookAt(user, repairKit)
+
+    local repairUsesLeft = getRepairUsesLeft(repairKit)
+    local index = 4
+
+    if repairUsesLeft == 10 then
+        index = 1
+    elseif repairUsesLeft >= 7 then
+        index = 2
+    elseif repairUsesLeft >= 4 then
+        index = 3
+    end
+
+    local addedDescription = usedDescriptions[user:getPlayerLanguage()][index]
+
+    baseLookat.description = baseLookat.description.."\n"..addedDescription
+
+    return baseLookat
 end
 
 return M
