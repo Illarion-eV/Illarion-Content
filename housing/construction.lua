@@ -318,9 +318,16 @@ end
 local function generateQuality(user, trowel, skill)
 
     local gemBonus = gems.getGemBonus(trowel)
-    local skillID = Character[skill.name]
-    local leadAttribName = common.GetLeadAttributeName(skillID)
-    local leadAttribValue = user:increaseAttrib(leadAttribName, 0)
+    local skillID
+    local leadAttribName
+    local leadAttribValue
+    if skill.name ~= "misc" then
+        skillID = Character[skill.name]
+        leadAttribName = common.GetLeadAttributeName(skillID)
+        leadAttribValue = user:increaseAttrib(leadAttribName, 0)
+    else
+        leadAttribValue = user:increaseAttrib("dexterity", 0)
+    end
 
     local meanQuality = 5
     meanQuality = meanQuality*(1+common.GetAttributeBonusHigh(leadAttribValue)+common.GetQualityBonusStandard(trowel))+gemBonus/100 --Apply boni of dexterity, tool quality and gems.
