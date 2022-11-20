@@ -83,10 +83,6 @@ local title = common.GetNLS(recipient, "Post", "Message Delivery")
     ScriptVars:set(recipient.id.."storedMessages", "0")
 
     local callback = function(dialog)
-        local success = dialog:getSuccess()
-        if not success then
-            return
-        end
     end
 
     local dialog = MessageDialog(title, text, callback)
