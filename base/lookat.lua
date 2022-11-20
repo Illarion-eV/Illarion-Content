@@ -20,11 +20,18 @@ local common = require("base.common")
 local gems = require("base.gems")
 local money = require("base.money")
 local glyphs = require("base.glyphs")
-local repairs = require("craft.repairs")
 local mining = require("craft.gathering.mining")
 local silkcutting = require("craft.gathering.silkcutting")
 
 local M = {}
+
+M.itemRangeTable = {
+    {start = 4011, stop  = 4021, skill = "tailoring"},
+    {start = 4022, stop  = 4032, skill = "blacksmithing"},
+    {start = 4033, stop  = 4043, skill = "finesmithing"},
+    {start = 4044, stop  = 4054, skill = "armourer"},
+    {start = 4055, stop  = 4065, skill = "carpentry"}
+}
 
 local TitleCase
 local AddWeaponOrArmourType
@@ -330,7 +337,7 @@ local function itemIsRepairKit(user, itemId, lookAt, itemLevel)
     local repairKit = false
     local skillName = false
 
-    for _, itemRange in pairs(repairs.itemRangeTable) do
+    for _, itemRange in pairs(M.itemRangeTable) do
         if itemId >= itemRange.start and itemId <= itemRange.stop then
             skillName = itemRange.skill
             repairKit = true
