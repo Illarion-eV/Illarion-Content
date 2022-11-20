@@ -356,9 +356,7 @@ function M.onLogin( player )
         player.effects:addEffect(LongTimeEffect(gods_common.EFFECT_ID, 10))
     end
 
-    utility.informUserOfKeyRetrieval(player)
-
-    utility.keyRetrieval(player)
+    utility.keyRetrieval(player, true)
     --Checking for pending town behaviour changes
     keys.changeTownBehaviourOnLogin(player)
 
