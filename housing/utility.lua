@@ -1404,58 +1404,73 @@ function M.charOwnedDepotKeys(char)
     end
 end
 
-function M.deleteKeys(char)
-    for i = 1, #propertyList.propertyTable do --Go through all properties
+local towns = {"Cadomyr", "Runewick", "Galmair", "Outlaw"}
 
-        local town = propertyList.propertyTable[i][7]
+function M.deleteKeys(char, inform)
 
-        if not M.checkIfLeaderOfTown(char, town) then --Check if leader of town
+    local removedKeys = false
+
+    for _, theTown in pairs(towns) do
+        for i = 1, #propertyList.propertyTable do --Go through all properties
+
+            local townPropertyBelongsTo = propertyList.propertyTable[i][7]
+
+            if M.checkIfLeaderOfTown(char, townPropertyBelongsTo) and theTown == townPropertyBelongsTo then
+                break
+            end
 
             local propertyName = propertyList.propertyTable[i][1] -- Fetch name of property
             local propertyDeed = M.getPropertyDeed(propertyName)
-            local tenant = propertyDeed:getData("tenant") --Fetch owner of property
+            local tenantID = propertyDeed:getData("tenantID") --Fetch owner of property
+            local noTenant = common.IsNilOrEmpty(tenantID)
+            local characterIsTenant = false
+            local characterIsGuest = false
+            if not noTenant then
+                characterIsTenant = char.id == tonumber(tenantID)
+                characterIsGuest = M.checkIfPlayerIsGuest(char, propertyName)
+            end
 
-            if tenant ~= "" and not (char.name == tenant) and not M.checkIfPlayerIsGuest(char, propertyName) then
-                local keyID = propertyList.propertyTable[i][6] --Fetch what lock the key belongs to
-                local keyType = propertyList.propertyTable[i][5] -- Fetch what type of key item it is
-                local keyAmount = char:countItemAt("all",keyType,{["lockId"]=keyID}) -- Fetch how many keys character has in inventory
-                local depotKeyAmount = M.charOwnedDepotKeys(char) -- Fetch how many keys character has in depot
+            local keyID = propertyList.propertyTable[i][6] --Fetch what lock the key belongs to
+            local keyType = propertyList.propertyTable[i][5] -- Fetch what type of key item it is
+            local keyAmount = char:countItemAt("all",keyType,{["lockId"]=keyID}) -- Fetch how many keys character has in inventory
+            local depotKeyAmount = M.charOwnedDepotKeys(char) -- Fetch how many keys character has in depot
+            local totalKeys = 0
 
-                for y = 1, keyAmount do
-                    char:eraseItem(keyType,1,{["lockId"]=keyID})
+            if keyAmount then
+                totalKeys = keyAmount
+            end
+
+            if depotKeyAmount then
+                totalKeys = totalKeys + depotKeyAmount
+            end
+
+            if totalKeys > 0 and (noTenant or not characterIsTenant and  not characterIsGuest) then
+
+                if keyAmount > 0 then
+                    char:eraseItem(keyType,keyAmount,{["lockId"]=keyID})
+                    removedKeys = true
                 end
 
-                for x = 1, #M.depotList do
+                for depotIndex = 1, #M.depotList do
 
-                    local depNr = M.depotList[x]
+                    local depNr = M.depotList[depotIndex]
                     local depot = char:getDepot(depNr)
 
                     if depot and depotKeyAmount ~= nil then
                         for z = 1, depotKeyAmount do
                             depot:eraseItem(keyType,1,{["lockId"]=keyID})
-                        end
-                    end
-                end
-            else
-                local keyID = propertyList.propertyTable[i][6]
-                local keyType = propertyList.propertyTable[i][5]
-                local keyAmount = char:countItemAt("all",keyType,{["lockId"]=keyID})
-                local depotKeyAmount = M.charOwnedDepotKeys(char)
-                for y = 1, keyAmount do
-                    char:eraseItem(keyType,1,{["lockId"]=keyID})
-                end
-                for x = 1, #M.depotList do
-                local depNr = M.depotList[x]
-                local depot = char:getDepot(depNr)
-                    if depot and depotKeyAmount ~= nil then
-                        for z = 1, depotKeyAmount do
-                            depot:eraseItem(keyType,1,{["lockId"]=keyID})
+                            removedKeys = true
                         end
                     end
                 end
             end
         end
     end
+
+    if removedKeys and inform then
+        char:inform("Bei deinem letzten Stadtbesuch wurden bei einer routinemäßigen Taschenkontrolle durch die Wachen Schlüssel, die du nicht besitzen solltest, gefunden und konfisziert.", "Upon your latest town visit, some keys you were not supposed to have were confiscated by the guards in a random bag check at the gates.")
+    end
+
 end
 
 function M.getRequiredRankName(item, language)
@@ -1632,61 +1647,6 @@ function M.removeRentalOfPropertiesOfOtherTowns(user)
     end
 end
 
-function M.informUserOfKeyRetrieval(user)
-    for i = 1, #propertyList.propertyTable do
-        local propertyName = propertyList.propertyTable[i][1]
-        local propertyDeed = M.getPropertyDeed(propertyName)
-        local tenant = propertyDeed:getData("tenantID")
-        local town = propertyList.propertyTable[i][7]
-        for number = 1, M.max_guest_number do
-            local guest = propertyDeed:getData("guestID"..number)
-            if guest ~= "" then
-                if tonumber(guest) == user.id then
-                    return
-                end
-            end
-        end
-        if tenant ~= "" then
-            tenant = tonumber(tenant)
-            if tenant ~= user.id then
-                if M.checkIfLeaderOfTown(user, town) or user:isAdmin() then
-                    return
-                else
-                local keyID = propertyList.propertyTable[i][6]
-                local keyType = propertyList.propertyTable[i][5]
-                local keyAmount = user:countItemAt("all",keyType,{["lockId"]=keyID})
-                local depotKeyAmount = M.charOwnedDepotKeys(user)
-                    if tonumber(keyAmount) > 0 and town ~= "Outlaw" then
-                        user:inform(M.getText(user,"Bei deinem letzten Besuch in "..town.." wurden bei einer routinemäßigen Taschenkontrolle durch die Wachen Schlüssel, die du nicht besitzen solltest, gefunden und konfisziert.","Upon your latest visit to "..town.." some keys you were not supposed to have were confiscated by the guards in a random bag check at the gates."))
-                        return
-                    elseif depotKeyAmount ~= nil then
-                        if tonumber(depotKeyAmount) > 0 and town ~= "Outlaw"  then
-                            user:inform(M.getText(user,"Bei deinem letzten Besuch in "..town.." wurden bei einer routinemäßigen Taschenkontrolle durch die Wachen Schlüssel, die du nicht besitzen solltest, gefunden und konfisziert.","Upon your latest visit to "..town.." some keys you were not supposed to have were confiscated by the guards in a random bag check at the gates."))
-                            return
-                        end
-                    end
-                end
-            end
-        elseif M.checkIfLeaderOfTown(user, town) or user:isAdmin() then
-            return
-        else
-        local keyID = propertyList.propertyTable[i][6]
-        local keyType = propertyList.propertyTable[i][5]
-        local keyAmount = user:countItemAt("all",keyType,{["lockId"]=keyID})
-        local depotKeyAmount = M.charOwnedDepotKeys(user)
-            if tonumber(keyAmount) > 0 and town ~= "Outlaw"  then
-                user:inform(M.getText(user,"Bei deinem letzten Besuch in "..town.." wurden bei einer routinemäßigen Taschenkontrolle durch die Wachen Schlüssel, die du nicht besitzen solltest, gefunden und konfisziert.","Upon your latest visit to "..town.." some keys you were not supposed to have were confiscated by the guards in a random bag check at the gates."))
-                return
-            elseif depotKeyAmount ~= nil and town ~= "Outlaw"  then
-                if tonumber(depotKeyAmount) > 0 then
-                    user:inform(M.getText(user,"Bei deinem letzten Besuch in "..town.." wurden bei einer routinemäßigen Taschenkontrolle durch die Wachen Schlüssel, die du nicht besitzen solltest, gefunden und konfisziert.","Upon your latest visit to "..town.." some keys you were not supposed to have were confiscated by the guards in a random bag check at the gates."))
-                    return
-                end
-            end
-        end
-    end
-end
-
 function M.removeRentalIfDurationIsUp()
     for i = 1, #propertyList.propertyTable do
         local propertyName = propertyList.propertyTable[i][1]
@@ -1795,12 +1755,12 @@ function M.getRankTitle(player, language)
     end
 end
 
-function M.keyRetrieval(char)
+function M.keyRetrieval(char, inform)
     -- check if character owns any keys or is admin
     if (M.charOwnedKeys(char) == 0) and (M.charOwnedDepotKeys(char) == nil) or char:isAdmin() then
         return
     else
-        M.deleteKeys(char)
+        M.deleteKeys(char, inform)
     end
 end
 
