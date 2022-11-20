@@ -1929,7 +1929,7 @@ function M.removeBuilderOrGuest(user, item, builderOrGuest, propertyName)
                 if currentBuilderOrGuest ~= "" then
                     if selected == i-skippedGuestSlots then
                         propertyDeed:setData(builderOrGuest..i, "")
-                        propertyDeed:setData(builderOrGuest..i.."ID", "")
+                        propertyDeed:setData(builderOrGuest.."ID"..i, "")
                         world:changeItem(propertyDeed)
                         user:inform(M.getText(user,currentBuilderOrGuest.." wurde von der Liste entfernt.",currentBuilderOrGuest.." has been removed from the list."))
                     end
