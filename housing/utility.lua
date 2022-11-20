@@ -401,9 +401,27 @@ function M.allowBuilding(user, alternatePosition)
 
 end
 
+function M.itemIsLitLightSource(itemId)
+
+    local litObjects = {392, 402, 404, 2851, 2852, 400, 397, 396, 394, 2855}
+
+    for _, litObject in pairs(litObjects) do
+        if litObject == itemId then
+            return true
+        end
+    end
+
+    return false
+
+end
+
 function M.isStaticPermitted(user, targetItem)
 
     if not M.allowBuilding(user) then
+        return false
+    end
+
+    if M.itemIsLitLightSource(targetItem.id) then
         return false
     end
 
@@ -1016,7 +1034,6 @@ function M.makeStatic(user)
     if not M.allowBuilding(user) then
         return
     end
-
 
     if world:isItemOnField(thePosition) then
         targetItem = world:getItemOnField(thePosition)
