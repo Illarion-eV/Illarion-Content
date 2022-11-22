@@ -54,15 +54,25 @@ function M.isInBackpack(user, bagContainer)
     return false
 end
 
-function M.rectCheck(user, source, target, range, basket)
+function M.rectCheck(user, source, target, range, isBasket)
+
+    local container = {english = "bag", german = "eine Tasche"}
+
+    if isBasket then
+        container.english = "basket"
+        container.german = "einen Korb"
+    end
 
     if not common.isInRect(source.pos, target.pos, range) then
-        local english = "You can't throw a bag."
-        local german = "Du kannst eine Tasche nicht werfen."
-        if basket then
-            english = "You can't throw a basket."
-            german = "Du kannst einen Korb nicht werfen."
+        local english = "You can't throw a "..container.english.."."
+        local german = "Du kannst "..container.german.." nicht werfen."
+        local possiblePAttempt = target.pos == user.pos
+
+        if possiblePAttempt then
+            english = "To pick up a "..container.english.." using the 'P' hotkey, you must be standing on it. Alternatively, you can drag the "..container.english.." to your bag slot or an existing container by using your mouse."
+            german = "GERMAN TRANSLATION"
         end
+
         user:inform(common.GetNLS(user, german, english))
         return false --To prevent bags within bags that are too heavy to move and can't be accessed, you can't throw bags further than 1 tile so it will always be in the range of the depot it is removed from
     end
