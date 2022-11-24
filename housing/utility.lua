@@ -1544,23 +1544,23 @@ function M.getTownLeaderTitle(town, language)
     end
 end
 
-function M.propertyInformation(user, item)
+function M.propertyInformation(user, deed)
 
-    local town = M.getTownName(item)
-    local rent = M.getRent(item)
-    local rentDE = M.getRentDE(item)
-    local property = M.getPropertyName(item)
-    local propertyDE = M.getPropertyNameDE(item)
-    local rank = M.getRequiredRankName(item, "EN")
-    local rankDE = M.getRequiredRankName(item, "DE")
-    local remainingDuration = M.getRentDuration(item)
-    local tenant = item:getData("tenant")
-    local signatureEN = M.getSignature(item, "EN")
-    local signatureDE = M.getSignature(item, "DE")
+    local town = M.getTownName(deed)
+    local rent = M.getRent(deed)
+    local rentDE = M.getRentDE(deed)
+    local property = M.getPropertyName(deed)
+    local propertyDE = M.getPropertyNameDE(deed)
+    local rank = M.getRequiredRankName(deed, "EN")
+    local rankDE = M.getRequiredRankName(deed, "DE")
+    local remainingDuration = M.getRentDuration(deed)
+    local tenant = deed:getData("tenant")
+    local signatureEN = M.getSignature(deed, "EN")
+    local signatureDE = M.getSignature(deed, "DE")
     local townLeaderTitle = M.getTownLeaderTitle(town, "EN")
     local townLeaderTitleDE = M.getTownLeaderTitle(town, "DE")
 
-    if M.checkOwner(item) == "Unowned" then -- Shows info specific for when property is unowned
+    if M.checkOwner(deed) == "Unowned" then -- Shows info specific for when property is unowned
         local propertyInfo = MessageDialog(M.getText(user,"Notiz des Quartiermeisters","Quartermaster's notice"),
         M.getText(user,
         "Bürger von "..town..
@@ -1578,21 +1578,48 @@ function M.propertyInformation(user, item)
         "s.\n~Signed, "..signatureEN),
         function() end)
         user:requestMessageDialog(propertyInfo)
-    elseif M.checkOwner(item) == user.id then -- Shows info specific for when property is owned by user
-        local propertyInfo = MessageDialog(M.getText(user,"Notiz des Quartiermeisters","Quartermaster's notice"),
-        M.getText(user,
-        "An den aktuellen Bewohner von"..propertyDE..
+    elseif M.checkOwner(deed) == user.id then -- Shows info specific for when property is owned by user
+
+        local germanText
+        local englishText
+
+        local germanDefault = "An den aktuellen Bewohner von"..propertyDE..
         ",\n,es wird von Euch erwartet, dass Ihr die Miete von "..rentDE..
         " bezahlt.\n Ohne zusätzliche Zahlungen, läuft das aktuelle Mietverhältnis in "..remainingDuration..
         " Monaten aus.\nFür weitere Fragen oder Anmerkungen, wende dich an den Quartiermeister oder melde dich \z
         bei einem  "..townLeaderTitleDE..
-        ".\n~Unterzeichnet, "..signatureDE,
-        "To the current inhabitant of "..property..
+        ".\n~Unterzeichnet, "..signatureDE
+        local englishDefault = "To the current inhabitant of "..property..
         ",\nLet it be known that you are expected to pay a rent of "..rent..
         " Without additional payments, your current lease expires in "..remainingDuration..
         " months.\nFor additional questions or concerns, please seek out the quartermaster or one of \z
         your "..townLeaderTitle..
-        "s.\n~Signed, "..signatureEN),
+        "s.\n~Signed, "..signatureEN
+
+        local indefiniteRent = deed:getData("indefiniteRent")
+        local freeRent = false
+
+        if not common.IsNilOrEmpty(indefiniteRent) and tonumber(indefiniteRent) == 1 then
+            freeRent = true
+        end
+
+        local englishFreeRent = "To the current inhabitant of "..property..",\n Let it be known that you are currently not expected to pay rent.\nFor additional questions or concerns, please seek out the quartermaster or one of \z
+        your "..townLeaderTitle..
+        "s.\n~Signed, "..signatureEN
+        local germanFreeRent = "GERMAN TRANSLATION"
+
+
+        if not freeRent then
+            germanText = germanDefault
+            englishText = englishDefault
+        else
+            germanText = germanFreeRent
+            englishText = englishFreeRent
+        end
+
+        local propertyInfo = MessageDialog(M.getText(user,"Notiz des Quartiermeisters","Quartermaster's notice"),
+        M.getText(user, germanText, englishText
+        ),
         function() end)
         user:requestMessageDialog(propertyInfo)
     else -- Shows info specific for when property is owned but not by user.
