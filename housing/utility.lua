@@ -1330,16 +1330,16 @@ function M.setOwner(user, item, propertyName)
                 propertyDeed:setData("tenant", input)
                 propertyDeed:setData("tenantID", tenantID)
                 world:changeItem(propertyDeed)
-                user:inform(M.getText(user,input.." wurde als neuer Mieter eingetragen.",input.." set as new renter."))
+                user:inform(M.getText(user,input.." wurde als neuer Mieter eingetragen.",input.." set as new tenant."))
                 M.setSignature(user, item, propertyName)
             end
         end
     end
 
-    user:requestInputDialog(InputDialog(M.getText(user,"Mieter eintragen","Set Renter"),
+    user:requestInputDialog(InputDialog(M.getText(user,"Mieter eintragen","Set Tenant"),
 
     M.getText(user,"Trag hier den Namen des neuen Mieters ein.",
-    "Write in the name of who you want to set as the new renter."), false, 255, callback))
+    "Write in the name of who you want to set as the new tenant."), false, 255, callback))
 end
 
 function M.checkIfOwnsProperty(Input)
@@ -1722,7 +1722,7 @@ function M.extendRent(user, item, property)
         end
     end
 
-    user:requestInputDialog(InputDialog(M.getText(user,"Miete verlängern","Extend rent"), M.getText(user,"Mietdauer für den aktuellen Mieter umsonst verlängern.\n Derzeit beträgt die Mietdauer noch "..rentDuration.." Monate.","Extend rent for current renter at no charge.\n There's currently "..rentDuration.." months left on the lease."), false, 255, extendRent))
+    user:requestInputDialog(InputDialog(M.getText(user,"Miete verlängern","Extend rent"), M.getText(user,"Mietdauer für den aktuellen Mieter umsonst verlängern.\n Derzeit beträgt die Mietdauer noch "..rentDuration.." Monate.","Extend rent for current tenant at no charge.\n There's currently "..rentDuration.." months left on the lease."), false, 255, extendRent))
 end
 
 function M.setSignature(user, item, propertyName)
