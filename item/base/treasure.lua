@@ -75,7 +75,7 @@ local function findPosition()
                 local tileId = field:tile();
                 for _, validTileId in pairs(content.treasureTiles) do
                     if tileId == validTileId then
-                        if not world:isItemOnField(pos) then
+                        if not world:isItemOnField(pos) and field:isPassable() then
                             return pos
                         end
                         break
