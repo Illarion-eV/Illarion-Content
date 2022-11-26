@@ -416,7 +416,7 @@ cycletext "#me schüttelt den Kopf während er einen Brief liest", "#me shakes his
 cycletext "#me zählt einige Münzen.", "#me counts some coins."
 cycletext "#me starrt vor sich hin.", "#me stares into thin air."
 cycletext "#me schreibt einen Brief.", " #me writes a letter."
-cycletext "#me grummelt: 'Arbeit, nichts ale Arbeit!'", "#me mumbles: 'Work, nothing but work.'"
+cycletext "#me grummelt: 'Arbeit, nichts als Arbeit!'", "#me mumbles: 'Work, nothing but work.'"
 cycletext "Werdet Bürger von Galmair! Macht mich reich!...äh ich meine, werdet reich in Galmair!", "Become a citzen of Galmair! Make me rich...ehm, I mean become rich in Galmair."
 cycletext "#me niest.", "#me sneezes."
 cycletext "#me kratzt sich am Kopf.", "#me scratches his head."
