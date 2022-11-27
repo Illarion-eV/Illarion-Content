@@ -514,6 +514,10 @@ table.insert(M.items, {itemId = 2862, typeOf = "Estate", category = "Decorations
 table.insert(M.items, {itemId = 2863, typeOf = "Estate", category = "Decorations", skill = "carpentry", level = 30, ingredient1 = 56, ingredient1Amount = 20, ingredient2 = 176, ingredient2Amount = 5, ingredient3 = 249, ingredient3Amount = 15, ingredient4 = nil, ingredient4Amount = nil})
 table.insert(M.items, {itemId = 1198, typeOf = "Estate", category = "Trees", criteria = "soil", skill = "herblore", level = 50, ingredient1 = 767, ingredient1Amount = 1, ingredient2 = 52, ingredient2Amount = 1, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
 table.insert(M.items, {itemId = 301, typeOf = "House", category = "Plants", criteria = "soil", skill = "herblore", level = 50, ingredient1 = 143, ingredient1Amount = 1, ingredient2 = 52, ingredient2Amount = 1, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
+table.insert(M.items, {itemId = 4100, typeOf = "House", category = "Plants", criteria = "soil", skill = "herblore", level = 70, ingredient1 = 149, ingredient1Amount = 1, ingredient2 = 148, ingredient2Amount = 1, ingredient3 = 52, ingredient3Amount = 1, ingredient4 = nil, ingredient4Amount = nil})
+table.insert(M.items, {itemId = 4101, typeOf = "House", category = "Plants", criteria = "soil", skill = "herblore", level = 70, ingredient1 = 149, ingredient1Amount = 1, ingredient2 = 148, ingredient2Amount = 1, ingredient3 = 52, ingredient3Amount = 1, ingredient4 = nil, ingredient4Amount = nil})
+table.insert(M.items, {itemId = 4102, typeOf = "House", category = "Plants", criteria = "soil", skill = "herblore", level = 70, ingredient1 = 149, ingredient1Amount = 1, ingredient2 = 148, ingredient2Amount = 1, ingredient3 = 52, ingredient3Amount = 1, ingredient4 = nil, ingredient4Amount = nil})
+table.insert(M.items, {itemId = 4103, typeOf = "House", category = "Plants", criteria = "soil", skill = "herblore", level = 70, ingredient1 = 149, ingredient1Amount = 1, ingredient2 = 148, ingredient2Amount = 1, ingredient3 = 52, ingredient3Amount = 1, ingredient4 = nil, ingredient4Amount = nil})
 table.insert(M.items, {itemId = 338, typeOf = "House", category = "Plants", criteria = "water", skill = "herblore", level = 50, ingredient1 = 155, ingredient1Amount = 1, ingredient2 = 52, ingredient2Amount = 1, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
 table.insert(M.items, {itemId = 387, typeOf = "House", category = "Plants", criteria = "soil", skill = "herblore", level = 50, ingredient1 = 81, ingredient1Amount = 1, ingredient2 = 52, ingredient2Amount = 1, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
 table.insert(M.items, {itemId = 1782, typeOf = "House", category = "Plants", criteria = "soil", skill = "herblore", level = 50, ingredient1 = 141, ingredient1Amount = 1, ingredient2 = 52, ingredient2Amount = 1, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
@@ -1206,7 +1210,7 @@ M.excludedFromStatic = {
 3911,3912,3913,3919,3920,3921,3922,3923,3924,3925,3926,3927,3938,3939,3940,3941,3942,3943,3944,
 3945,3946,3947,3948,3949,3950,3951,3952,3953,3954,3955,3956,3957,3958,3959,3960,3961,3962,3963,
 3964,3965,3966,3967,3968,3969,3970,3971,3972,3973,3974,3975,3976,3977,3978,3979,3980,3981,3982,
-3983,3984,3985,3986,3987,3988
+3983,3984,3985,3986,3987,3988,4096,4097,4098,4099,4100,4101,4102,4103
 }
 
 M.alternateDoors = {
