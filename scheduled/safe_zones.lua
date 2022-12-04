@@ -15,12 +15,20 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
+local common = require("base.common")
+
 local M = {}
 
-M.trollsHaven = { posi = position(695, 310, 0), range = 40}
+M.trollsHaven = {
+    {pos = position(682, 303, 0), range = 26},
+    {pos = position(651, 322, 0), range = 10},
+    {pos = position(712, 303, 0), range = 27},
+    {pos = position(678, 324, 0), range = 22}
+}
 
 function M.sweepMonsters()
-    local Monsters = world:getMonstersInRangeOf(M.trollsHaven.posi, M.trollsHaven.range);
+    local monsters = common.getCharactersInRangeOfMultiplePositions("monsters", M.trollsHaven)
+    local playersInTrollsHavenSafeZone = common.getCharactersInRangeOfMultiplePositions("players", M.trollsHaven)
 
     local monstersKilled = 0
 
@@ -31,8 +39,8 @@ function M.sweepMonsters()
     pluralInform.english = "As they spot the incoming threat, a group of Half-Hung Bryans hired guards rush out and swiftly dispose of it."
     pluralInform.german = "Half-Hung Bryans Handlanger machen mit den Angreifern kurzen Prozess."
 
-    if (#Monsters > 0) then
-        for _, Monster in pairs(Monsters) do
+    if (#monsters > 0) then
+        for _, Monster in pairs(monsters) do
             if  Monster:getMonsterType() ~= 1111 then -- Orchard rats are not sweeped.
                 singularInform.english = "As they spot the "..Monster.name.." a group of Half-Hung Bryans hired guards rush out and swiftly dispose of it."
                 singularInform.german = "Half-Hung Bryans Handlanger machen mit dem Angreifer kurzen Prozess."
@@ -43,8 +51,6 @@ function M.sweepMonsters()
             end
         end
     end
-
-    local playersInTrollsHavenSafeZone = world:getPlayersInRangeOf(M.trollsHaven.posi, M.trollsHaven.range)
 
     if monstersKilled > 0 then
         for _, player in pairs(playersInTrollsHavenSafeZone) do
