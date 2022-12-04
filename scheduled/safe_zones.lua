@@ -37,7 +37,7 @@ function M.sweepMonsters()
     local pluralInform = {}
 
     pluralInform.english = "As they spot the incoming threat, a group of Half-Hung Bryans hired guards rush out and swiftly dispose of it."
-    pluralInform.german = "Half-Hung Bryans Handlanger machen mit den Angreiferen kurzen Prozess."
+    pluralInform.german = "Half-Hung Bryans Handlanger machen mit den Angreifern kurzen Prozess."
 
     if (#monsters > 0) then
         for _, Monster in pairs(monsters) do
