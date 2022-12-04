@@ -3052,4 +3052,37 @@ end
 
 -- bitwise flag functions end
 
+function M.getCharactersInRangeOfMultiplePositions(characterType, tableOfPosRange)
+
+    local charactersToReturn = {}
+
+    for _, posRange in pairs(tableOfPosRange) do
+        local characters
+            if characterType == "monsters" then
+                characters = world:getMonstersInRangeOf(posRange.pos, posRange.range)
+            elseif characterType == "players" then
+                characters = world:getPlayersInRangeOf(posRange.pos, posRange.range)
+            elseif characterType == "npcs" then
+                characters = world:getNPCSInRangeOf(posRange.pos, posRange.range)
+            else
+                characters = world:getCharactersInRangeOf(posRange.pos, posRange.range)
+            end
+
+        for _, character in pairs(characters) do
+            local alreadyFoundCharacter = false
+            for _, alreadyFound in pairs(charactersToReturn) do
+                if alreadyFound == character then
+                    alreadyFoundCharacter = true
+                    break
+                end
+            end
+            if not alreadyFoundCharacter then
+                table.insert(charactersToReturn, character)
+            end
+        end
+    end
+
+    return charactersToReturn
+end
+
 return M
