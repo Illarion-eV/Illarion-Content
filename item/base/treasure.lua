@@ -505,27 +505,11 @@ function M.performDiggingForTreasure(treasureHunter, diggingLocation, additional
 
     local function handleMonsterDeath(monster)
 
-        if common.isInRect(monster.pos, position(1, 1, 0), 20) then --The guardian was teleported to the test island by the hemptie safety net
+        if safeZones.cheatingViaTrollshavenSafeZone(monster, diggingLocation, treasureHunter) then
             monsterList = {}    --reset monster list
             remainingMonsters = 0
-            local playersNearTreasure = world:getPlayersInRangeOf(diggingLocation, 12)
-            local playersInTrollsHavenSafeZone = world:getPlayersInRangeOf(safeZones.trollsHaven.posi, safeZones.trollsHaven.range)
-            local english = "Having dealt with a guardian of the treasure site on your behalf, Half-Hung Bryan's crew spares no time to retrieve the treasure as payment. It is only fair, right?"
-            local german = "Half-Hung Bryans Handlanger machen kurzen Prozess mit dem Wächter des Schatzes und machen sich auf, die Kiste zu plündern. Eine Hand wäscht die andere, nicht wahr?"
-
-            for _, player in pairs(playersNearTreasure) do
-                player:inform(german, english)
-            end
-
-            for _, player in pairs(playersInTrollsHavenSafeZone) do
-                if player.id == treasureHunter.id then
-                    player:inform(german, english)
-                end
-            end
-
-            return -- no loot for cheaters
+            return
         end
-
 
         remainingMonsters = remainingMonsters - 1
         for index, monsterInList in pairs(monsterList) do
