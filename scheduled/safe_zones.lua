@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local common = require("base.common")
+local monsterHooks = require("monster.base.hooks")
 
 local M = {}
 
@@ -25,6 +26,42 @@ M.trollsHaven = {
     {pos = position(712, 303, 0), range = 27},
     {pos = position(678, 324, 0), range = 22}
 }
+
+local function monsterIsInTrollshaven(monster)
+
+    for _, havenPos in pairs(M.trollsHaven) do
+        if common.isInRect(monster.pos, havenPos.pos, havenPos.range) then
+            return true
+        end
+    end
+
+    return false
+
+end
+
+function M.cheatingViaTrollshavenSafeZone(monster, diggingLocation, treasureHunter)
+
+    if monsterHooks.isForcedDeath(monster) and monsterIsInTrollshaven(monster) then --The guardian was force killed by half hung bryans crew
+        local playersNearTreasure = world:getPlayersInRangeOf(diggingLocation, 12)
+        local playersInTrollsHavenSafeZone = common.getCharactersInRangeOfMultiplePositions("players", M.trollsHaven)
+        local english = "Having dealt with a guardian of the treasure site on your behalf, Half-Hung Bryan's crew spares no time to retrieve the treasure as payment. It is only fair, right?"
+        local german = "Half-Hung Bryans Handlanger machen kurzen Prozess mit dem Wächter des Schatzes und machen sich auf, die Kiste zu plündern. Eine Hand wäscht die andere, nicht wahr?"
+
+        for _, player in pairs(playersNearTreasure) do
+            player:inform(german, english)
+        end
+
+        for _, player in pairs(playersInTrollsHavenSafeZone) do
+            if player.id == treasureHunter.id then
+                player:inform(german, english)
+            end
+        end
+
+        return true -- no loot for cheaters
+    end
+
+    return false
+end
 
 function M.sweepMonsters()
     local monsters = common.getCharactersInRangeOfMultiplePositions("monsters", M.trollsHaven)
@@ -45,9 +82,10 @@ function M.sweepMonsters()
                 singularInform.english = "As they spot the "..Monster.name.." a group of Half-Hung Bryans hired guards rush out and swiftly dispose of it."
                 singularInform.german = "Half-Hung Bryans Handlanger machen mit dem Angreifer kurzen Prozess."
                 monstersKilled = monstersKilled + 1
-                world:gfx(41, Monster.pos)
-                Monster:warp(position(1,1,0)) -- Warp it out of sight
+                monsterHooks.setForcedDeath(Monster) -- Prevent madness creature respawns
+                monsterHooks.setNoDrop(Monster) -- Half Hung Bryans guards takes the loot
                 Monster:increaseAttrib("hitpoints", -10000) -- Kill it
+                monsterHooks.cleanHooks(Monster)
             end
         end
     end
