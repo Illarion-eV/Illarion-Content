@@ -70,7 +70,7 @@ function M.rectCheck(user, source, target, range, isBasket)
 
         if possiblePAttempt then
             english = "To pick up a "..container.english.." using the 'P' hotkey, you must be standing on it. Alternatively, you can drag the "..container.english.." to your bag slot or an existing container by using your mouse."
-            german = "Um "..container.german.." mit 'P' aufzuheben, musst du auf dem selben Feld stehen. Du kannst "..container.german.." auch in deinen Taschenslot oder einen anderen BehÃ¤lter mit der Maus ziehen."
+            german = "Um "..container.german.." mit 'P' aufzuheben, musst du auf dem selben Feld stehen. Du kannst "..container.german.." auch mit der Maus in deinen Taschenslot oder einen anderen Behälter ziehen."
         end
 
         user:inform(common.GetNLS(user, german, english))
