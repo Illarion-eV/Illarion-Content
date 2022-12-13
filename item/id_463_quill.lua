@@ -139,7 +139,7 @@ end
 local function WriteParchment(user, sourceItem)
 
     local title = getText(user, "Pergament beschreiben", "Write Parchment")
-    local infoText = getText(user, "Füge hier den Text ein, den du auf das Pergament schreiben willst. GERMAN TRANSLATION", "Insert the text you want to write on the parchment. If you want to skip to a new line, confirm your current text first.")
+    local infoText = getText(user, "Füge hier den Text ein, den du auf das Pergament schreiben willst. Wenn du zu einer neuen Zeile springen willst, bestätige zuerst deinen aktuellen Text.", "Insert the text you want to write on the parchment. If you want to skip to a new line, confirm your current text first.")
     local newLine = false
 
     -- input dialog

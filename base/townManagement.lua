@@ -80,9 +80,9 @@ function M.townManagmentUseItem(User, SourceItem)
 
     local toolUse
     if collectionchest.isCollectionChestExists(toolTown) then
-        toolUse = common.GetNLS(User, {"Ankündigung", "Verbannung", "Lizenz", "Schlüssel","GERMAN TRANSLATION HERE", "Materialsammlung"}, {"Announcement", "Ban a character", "Licence", "Key","Property Management", "Material collection"})
+        toolUse = common.GetNLS(User, {"Ankündigung", "Verbannung", "Lizenz", "Schlüssel","Grundstücksverwaltung", "Materialsammlung"}, {"Announcement", "Ban a character", "Licence", "Key","Property Management", "Material collection"})
     else
-        toolUse = common.GetNLS(User, {"Ankündigung", "Verbannung", "Lizenz", "Schlüssel", "GERMAN TRANSLATION HERE"}, {"Announcement", "Ban a character", "Licence", "Key", "Property Management"})
+        toolUse = common.GetNLS(User, {"Ankündigung", "Verbannung", "Lizenz", "Schlüssel", "Grundstücksverwaltung"}, {"Announcement", "Ban a character", "Licence", "Key", "Property Management"})
     end
 
     for i = 1, #toolUse do
@@ -233,18 +233,18 @@ function townProperties(user, toolTown, SourceItem)
 
     local title = {
         english = "Property Management",
-        german = "GERMAN TRANSLATION HERE"
+        german = "Grundstücksverwaltung"
     }
 
     local text = {
         english = "Select what you want to do",
-        german = "GERMAN TRANSLATION HERE"
+        german = "Was möchtest du tun?"
     }
 
     local dialog = SelectionDialog(common.GetNLS(user, title.german, title.english), common.GetNLS(user, text.german, text.english), callback)
 
-    dialog:addOption(0, common.GetNLS(user, "GERMAN TRANSLATION HERE", "Collect Rent"))
-    dialog:addOption(0, common.GetNLS(user, "GERMAN TRANSLATION HERE", "Allow Unsupervised Rent Extension for All properties"))
+    dialog:addOption(0, common.GetNLS(user, "Miete abkassieren", "Collect Rent"))
+    dialog:addOption(0, common.GetNLS(user, "Unbeaufsichtigte Mietverlängerung für alle Grundstücke zulassen", "Allow Unsupervised Rent Extension for All properties"))
     user:requestSelectionDialog(dialog)
 end
 
