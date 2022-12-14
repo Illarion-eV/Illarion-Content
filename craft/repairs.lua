@@ -480,7 +480,7 @@ local function repairItem(user, theRepairKit)
         englishText = "You use up the "..commonRepairKit.English.." to repair the "..commonItem.English.."."
     else
 
-        germanText = "GERMAN TRANSLATION"..commonRepairKit.German.." um "..commonItem.German.." GERMAN TRANSLATION."
+        germanText = "Du benutzt "..commonRepairKit.German.." um "..commonItem.German.." instand zu setzen. Der Reparatursatz wird dir noch weiter von Nutzen sein."
         englishText = "You use the "..commonRepairKit.English.." to repair the "..commonItem.English..", though the kit appears to still have some use left."
 
         if theRepairKit.number == 1 then
@@ -668,10 +668,10 @@ end
 
 local usedDescriptions = {}
 usedDescriptions[Player.german] = {
-    "GERMAN TRANSLATION",
-    "GERMAN TRANSLATION",
-    "GERMAN TRANSLATION",
-    "GERMAN TRANSLATION"
+    "Der Reparatursatz ist unbenutzt.",
+    "Der Reparatursatz ist noch fast wie neu.",
+    "Der Reparatursatz ist schon recht verbraucht.",
+    "Der Reparatursatz ist kaum noch zu etwas gut."
 }
 usedDescriptions[Player.english] = {
     "The kit is brand new.",
