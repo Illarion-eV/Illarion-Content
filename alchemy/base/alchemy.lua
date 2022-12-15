@@ -584,7 +584,9 @@ end
 
 function M.CheckIfAlchemist(user, german, english)
     if (user:getMagicType() ~= 3) then
-        user:inform(german, english)
+        if german and english then
+            user:inform(german, english)
+        end
         return false
     else
         return true
