@@ -242,9 +242,9 @@ local function showTemporaryPreviewOfItem(productId, user)
     world:changeItem(previewItem)
 
     if previewInformCooldown[user.id] and  previewInformCooldown[user.id] >= currentTime then
-        user:inform("GERMAN TRANSLATION HERE", "Preview item placed.")
+        user:inform("Vorschau des Gegenstandes.", "Preview item placed.")
     else
-        user:inform("GERMAN TRANSLATION HERE", "By hovering over the item in the menu, you've created an item for preview in the location it will be built if you craft it. This item will disappear after 30 seconds, or whenever you or someone else preview another item on the same property.")
+        user:inform("Indem du den Mauszeiger über den Gegenstand im Menü bewegst, erstellst du einen Gegenstand zur Vorschau an dem Ort, an dem er gebaut wird, wenn du ihn herstellst. Dieser Gegenstand verschwindet nach 30 Sekunden oder immer dann, wenn du oder jemand anderes einen anderen Gegenstand auf demselben Grundstück zur Vorschau erstellt.", "By hovering over the item in the menu, you've created an item for preview in the location it will be built if you craft it. This item will disappear after 30 seconds, or whenever you or someone else preview another item on the same property.")
         previewInformCooldown[user.id] = currentTime + 3600 --This long inform only shows once an hour, so as to not be spammy
     end
 end
@@ -364,7 +364,7 @@ local function createItem(user, product, trowel, skill)
             if utility.roofAndRoofTiles(user, product.id, true, "create") then
                 eraseIngredients(user, product)
             else
-                user:inform("GERMAN TRANSLATION HERE","You do not have permission to build there.")
+                user:inform("Du bist nicht dazu berechtigt, hier zu bauen.","You do not have permission to build there.")
             end
         else
             eraseIngredients(user, product)
@@ -382,20 +382,20 @@ local function createItem(user, product, trowel, skill)
                 targetItem.wear = 255
                 world:changeItem(targetItem)
             else
-                user:inform("GERMAN TRANSLATION HERE","You do not have permission to build there.")
+                user:inform("Du bist nicht dazu berechtigt, hier zu bauen.","You do not have permission to build there.")
             end
         elseif utility.checkIfRoofOrRoofTile(product.id, false) then
             if utility.roofAndRoofTiles(user, product.id, false, "create") then
                 eraseIngredients(user, product)
             else
-                user:inform("GERMAN TRANSLATION HERE","You do not have permission to build there.")
+                user:inform("Du bist nicht dazu berechtigt, hier zu bauen.","You do not have permission to build there.")
             end
         elseif utility.checkIfPlantOrTree(user, product.id) then
             if utility.checkIfGardeningCriteriaMet(user, product.id) then
                 eraseIngredients(user, product)
                 world:createItemFromId(product.id, product.quantity, target, true, quality, nil)
             else
-                user:inform("GERMAN TRANSLATION HERE","You can't plant this here.")
+                user:inform("Das kannst du hier nicht pflanzen.","You can't plant this here.")
             end
         else
             eraseIngredients(user, product)
@@ -506,7 +506,7 @@ function M.showDialog(user, skillName, carpentryEstateCatalogue)
         end
     end
 
-    local dialog = CraftingDialog(common.GetNLS(user, "GERMAN TRANSLATION", "Construction"), sfx, sfxDuration, callback)
+    local dialog = CraftingDialog(common.GetNLS(user, "Baumenü", "Construction"), sfx, sfxDuration, callback)
     loadDialog(user, dialog, skill, categories, products)
     user:requestCraftingDialog(dialog)
 end
