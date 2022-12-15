@@ -146,11 +146,11 @@ function M.checkRequiredFood(user, time)
 end
 
 local function notPermittedToBuildOnEntrances(user)
-    user:inform("GERMAN TRANSLATION HERE", "You're not permitted to build on stairs or doorways.")
+    user:inform("Du kannst nicht auf Treppen oder Türen bauen.", "You're not permitted to build on stairs or doorways.")
 end
 
 local function cantBuildOnPropertyDeed(user)
-    user:inform("GERMAN TRANSLATION HERE", "The property deed is off limits for building.")
+    user:inform("Du kannst nicht auf dem Feld der Grundstücksurkunde bauen.", "The property deed is off limits for building.")
 end
 
 function M.checkIfPlayerKnowsSkillByName(user, skillName)
@@ -322,7 +322,7 @@ function M.wallWindowPermissions(user, pos, id)
 
     if suspectedWall and not M.checkIfEstate(user) and M.checkIfWallOrWindow(user, suspectedWall) then
         if not M.checkIfItemIsWallDeco(id) then
-            user:inform("GERMAN TRANSLATION", "You can't build that item on a wall/window.")
+            user:inform("Du kannst diesen Gegenstand nicht auf dem Feld einer Mauer bzw. eines Fensters bauen.", "You can't build that item on a wall/window.")
             return false
         end
     end
@@ -468,7 +468,7 @@ function M.checkIfIsInHand(user, sourceItem)
         return true
     end
 
-    user:inform("GERMAN TRANSLATION HERE", "The construction trowel must be intact and in one of your hands for you to use it.")
+    user:inform("Die Baukelle muss noch intakt sein und du musst sie in einer Hand halten, um sie zu benutzen.", "The construction trowel must be intact and in one of your hands for you to use it.")
     return false
 end
 
@@ -823,20 +823,20 @@ function M.destroyTile(user)
     end
 
     if user.pos.z < 1 then
-        user:inform("GERMAN TRANSLATION", "You can only destroy tiles that are above ground level.")
+        user:inform("Du kannst nur Bodenfelder löschen, die über dem Erdgeschoss liegen.", "You can only destroy tiles that are above ground level.")
         return
     end
 
     local thePosition = common.GetFrontPosition(user)
 
     if world:isItemOnField(thePosition) then
-        user:inform("GERMAN TRANSLATION", "If you want to destroy that tile, first clear it of any objects.")
+        user:inform("Das Bodenfeld ist nicht leer. Entferne zunächst alle Gegenstände von ihm.", "If you want to destroy that tile, first clear it of any objects.")
         return
     end
 
     world:changeTile(0, thePosition)
 
-    user:inform("GERMAN TRANSLATION", "You destroy the tile.")
+    user:inform("Du zerstörst das Bodenfeld.", "You destroy the tile.")
 end
 
 function M.getBasementTileWall(propertyName)
@@ -958,10 +958,10 @@ function M.destroyItem(user)
                 local stairTrapExist, stairsOrTrapdoor = M.checkIfStairsOrTrapDoor(targetItem.id)
                 if not previewItem and stairTrapExist then
                     if user.pos.z < 0 and stairsOrTrapdoor == "stairs" then
-                         user:inform("GERMAN TRANSLATION", "To destroy a set of basement stairs, you'll have to be above ground. Wouldn't want to get stuck down here, would you.")
+                         user:inform("Um Kellerleitern zu zerstören musst du im Erdgeschoss sein. Du willst ja nicht hier unten gefangen sein.", "To destroy a set of basement stairs, you'll have to be above ground. Wouldn't want to get stuck down here, would you.")
                         return
                     elseif user.pos.z > 0 and stairsOrTrapdoor == "trapdoor" then
-                        user:inform("GERMAN TRANSLATION", "To destroy a trapdoor that belong to an upper floor, you'll have to do so from the floor below. Wouldn't want to get stuck up here, would you.")
+                        user:inform("Um eine Falltür eines höheren Geschosses zu zerstören musst du ein Stockwerk runter gehen. Du willst ja nicht hier oben gefangen sein.", "To destroy a trapdoor that belong to an upper floor, you'll have to do so from the floor below. Wouldn't want to get stuck up here, would you.")
                         return
                     end
 
@@ -1020,8 +1020,8 @@ end
 function M.placeStakeOnPosition(selectedPosition)
     local handrail = 3601
     M.clearStakePosition(selectedPosition)
-    local name = {english = "Property Lot Stake", german = "GERMAN TRANSLATION HERE!"}
-    local description = {english = "A stake marking the corner of the boundary for a property lot.", german = "GERMAN TRANSLATION HERE!"}
+    local name = {english = "Property Lot Stake", german = "Grenzstein"}
+    local description = {english = "A stake marking the corner of the boundary for a property lot.", german = "Ein Grenzstein, der ein Grundstück absteckt."}
     local theStake = world:createItemFromId(handrail, 1, selectedPosition, true, 999, {nameEn = name.english, nameDe = name.german, descriptionEn = description.english, descriptionDe = description.german})
     theStake.wear = 255
     world:changeItem(theStake)
@@ -1321,7 +1321,7 @@ function M.setOwner(user, item, propertyName)
             local tenantExists, tenantID = world:getPlayerIdByName(input)
 
             if not tenantExists then
-                user:inform("GERMAN TRANSLATION HERE", "That name is not in the citizen registry. Did you perhaps misspell the name?")
+                user:inform("Dieser Name steht nicht in der Bürgerrolle. Hast du den Namen vielleicht falsch geschrieben?", "That name is not in the citizen registry. Did you perhaps misspell the name?")
             elseif M.checkIfOwnsProperty(input) and not M.checkIfEstateViaName(property) then
                 user:inform(M.getText(user,"Der Charakter mietet bereits ein Grundstück.","Character already rents a property."))
             else
@@ -1584,10 +1584,10 @@ function M.propertyInformation(user, deed)
         local englishText
 
         local germanDefault = "An den aktuellen Bewohner von"..propertyDE..
-        ",\n,es wird von Euch erwartet, dass Ihr die Miete von "..rentDE..
+        ",\n, es wird von Euch erwartet, dass Ihr die Miete von "..rentDE..
         " bezahlt.\n Ohne zusätzliche Zahlungen, läuft das aktuelle Mietverhältnis in "..remainingDuration..
         " Monaten aus.\nFür weitere Fragen oder Anmerkungen, wende dich an den Quartiermeister oder melde dich \z
-        bei einem  "..townLeaderTitleDE..
+        bei einem "..townLeaderTitleDE..
         ".\n~Unterzeichnet, "..signatureDE
         local englishDefault = "To the current inhabitant of "..property..
         ",\nLet it be known that you are expected to pay a rent of "..rent..
@@ -1606,8 +1606,10 @@ function M.propertyInformation(user, deed)
         local englishFreeRent = "To the current inhabitant of "..property..",\n Let it be known that you are currently not expected to pay rent.\nFor additional questions or concerns, please seek out the quartermaster or one of \z
         your "..townLeaderTitle..
         "s.\n~Signed, "..signatureEN
-        local germanFreeRent = "GERMAN TRANSLATION"
-
+        local germanFreeRent = "An den aktuellen Bewohner von"..propertyDE..
+        ",\n, ihr wohnt von nun an mietfrei.\nFür weitere Fragen oder Anmerkungen, wende dich an den Quartiermeister oder melde dich \z
+        bei einem "..townLeaderTitleDE..
+        ".\n~Unterzeichnet, "..signatureDE
 
         if not freeRent then
             germanText = germanDefault
@@ -1626,7 +1628,7 @@ function M.propertyInformation(user, deed)
          local propertyInfo = MessageDialog(M.getText(user,"Notiz des Quartiermeisters","Quartermaster's notice"),
          M.getText(user,
         "Bürger von "..town..
-        ",\n dieses Grundstück ist aktuell gemietet von "..tenant..
+        ",\n dieses Grundstück wird aktuell gemietet von "..tenant..
         ". Solltest du irgendwelche Bedenken haben oder ein freies Grundstück mieten wollen, wende dich bitte an \z
         den Quartiermeister oder melde dich bei einem "..townLeaderTitleDE..
         ".\nUnterzeichnet, "..signatureDE,
@@ -1846,7 +1848,7 @@ function M.setBuilderOrGuest(user, item, builderOrGuest, propertyName)
             local builderOrGuestExists, builderOrGuestID = world:getPlayerIdByName(input)
 
             if not builderOrGuestExists then
-                user:inform("GERMAN TRANSLATION HERE", "That name is not in the citizen registry. Did you perhaps misspell the name?")
+                user:inform("Dieser Name steht nicht in der Bürgerrolle. Hast du den Namen vielleicht falsch geschrieben?", "That name is not in the citizen registry. Did you perhaps misspell the name?")
             else
                 for i = 1, M["max_"..builderOrGuest.."_number"] do
 
@@ -1910,7 +1912,7 @@ function M.setBuilderOrGuest(user, item, builderOrGuest, propertyName)
             local builderOrGuestExists, builderOrGuestID = world:getPlayerIdByName(input)
 
             if not builderOrGuestExists then
-                user:inform("GERMAN TRANSLATION HERE", "That name is not in the citizen registry. Did you perhaps misspell the name?")
+                user:inform("Dieser Name steht nicht in der Bürgerrolle. Hast du den Namen vielleicht falsch geschrieben?", "That name is not in the citizen registry. Did you perhaps misspell the name?")
             else
                 for i = 1, M["max_"..builderOrGuest.."_number"] do
 
@@ -2077,20 +2079,20 @@ function M.payRent(user, item)
         local input = dialog:getInput()
 
         if tonumber(input) == nil then
-            user:inform(M.getText(user,"GERMAN TRANSLATION HERE","Input must be a number."))
+            user:inform(M.getText(user,"Bitte gib eine Zahl ein.","Input must be a number."))
         elseif tonumber(input) <= 0 then
-            user:inform(M.getText(user,"GERMAN TRANSLATION HERE","The number of months to rent has to be more than 0."))
+            user:inform(M.getText(user,"Die Mietdauer muss wenigstens einen Monat lang sein.","The number of months to rent has to be more than 0."))
         else
             local rent_cost = (tonumber(M.getRentNumeral(item))*tonumber(input))
             local rentDuration = item:getData("rentDuration")
 
             if (input == nil or input == "") then
-                user:inform(M.getText(user,"GERMAN TRANSLATION HERE","Input field can't be left empty."))
+                user:inform(M.getText(user,"Das Eingabefeld darf nicht leer sein.","Input field can't be left empty."))
             elseif not money.CharHasMoney(user, rent_cost) then--check money
-                user:inform(M.getText(user,"GERMAN TRANSLATION HERE","You can't afford that."))
+                user:inform(M.getText(user,"Das kannst du dir nicht leisten.","You can't afford that."))
             elseif rentDuration ~= "" then
                 if ((tonumber(input)+tonumber(rentDuration)) > 48)  then
-                    user:inform(M.getText(user,"GERMAN TRANSLATION HERE","Duration increase can not exceed the maximum of 48 months rent."))
+                    user:inform(M.getText(user,"Du kannst die Mietdauer nicht auf mehr als 48 Monate verlängern.","Duration increase can not exceed the maximum of 48 months rent."))
                 else
                     money.TakeMoneyFromChar(user, rent_cost)
                     M.addRent(town, rent_cost)
@@ -2098,7 +2100,7 @@ function M.payRent(user, item)
                     item:setData("tenant", user.name)
                     item:setData("tenantID", user.id)
                     world:changeItem(item)
-                    user:inform(M.getText(user,"GERMAN TRANSLATION HERE","After another visit to the quartermaster's office, your purse may feel lighter, but you rest comfortably in the knowledge that the residence before you is now yours for an additional "..input.." months."))
+                    user:inform(M.getText(user,"Auch wenn sich dein Geldbeutel nun deutlich leichter anfühlt, verlässt du das Büro des Quartiermeisters mit dem guten Gefühl, dass dein Grundstück dir für weitere "..input.." Monate gehört.","After another visit to the quartermaster's office, your purse may feel lighter, but you rest comfortably in the knowledge that the residence before you is now yours for an additional "..input.." months."))
                 end
             end
 
@@ -2111,9 +2113,9 @@ function M.payRent(user, item)
 
         if rentDuration ~= "" then
             user:requestInputDialog(InputDialog(M.getText(user,"Miete","Rent"), M.getText(user,
-            "GERMAN TRANSLATION HERE"..M.getRentDE(item)..
-            "GERMAN TRANSLATION HERE"..rentDuration..
-            "GERMAN TRANSLATION HERE",
+            "Deine Miete beträgt: "..M.getRentDE(item)..
+            "\n Die verbleibende Mietdauer beträgt "..rentDuration..
+            "Monate. \nUm wie viele Monate möchtest du das Mietverhältnis verlängern?",
             "The current rental fee is "..M.getRent(item)..
             "\n You currently have "..rentDuration..
             " months left on your lease. \nHow many months do you want to extend your rent by?"),
@@ -2121,8 +2123,8 @@ function M.payRent(user, item)
         end
     else
         user:requestInputDialog(InputDialog(M.getText(user,"Miete","Rent"), M.getText(user,
-        "GERMAN TRANSLATION HERE"..M.getRentDE(item)..
-        "GERMAN TRANSLATION HERE",
+        "Deine Miete beträgt: "..M.getRentDE(item)..
+        "\n Der erste Zahlungsmonat gilt nur bis zum Beginn des nächsten Monats. \nFür wie viele Monate möchtest du die Miete bezahlen?",
         "The current rental fee is "..M.getRent(item)..
         "\n The first month paid for only counts until the start of next month. \nHow many months do you want to rent for?"), false, 255, callback))
     end
@@ -2162,21 +2164,21 @@ function M.allowAllAutomaticRentExtension(user, realm)
         newState = 0
     end
 
-    local title = {english = "Enable/Disable automatic rent", german = "GERMAN TRANSLATION HERE"}
+    local title = {english = "Enable/Disable automatic rent", german = "Automatische Mietzahlung"}
     local texts = {
         {english = "Do you want to let the residents of all properties pay to extend their rent duration without your supervision?",
-        german = "GERMAN TRANSLATION HERE",
+        german = "Möchtest du den Bewohnern aller Grundstücke erlauben, ihr Mietverhältnis ohne deine Aufsicht zu verlängern?",
         identifier = 1,
         informText = {
             english = "The residents of all properties will now be able to pay to extend their rent duration on their own. The resulting rent money can be collected at the town management instrument.",
-            german = "GERMAN TRANSLATION HERE"}
+            german = "Die Bewohner aller Grundstücke können nun selbst die Verlängerung ihres Mietverhältnisses bezahlen. Das Miete kann über das Stadtverwaltungswerkzeug abkassiert werden."}
         },
         {english = "Do you want to no longer let the residents any properties pay to extend their rent duration without your supervision?",
-        german = "GERMAN TRANSLATION HERE",
+        german = "Möchtest du den Bewohnern aller Grundstücke nicht mehr erlauben, ihr Mietverhältnis ohne deine Aufsicht zu verlängern?",
         identifier = 0,
         informText = {
             english = "No residents will be able to pay to extend their rent duration without your supervision anymore.",
-            german = "GERMAN TRANSLATION HERE"}
+            german = "Die Bewohner können nun nicht mehr selbst die Verlängerung ihres Mietverhältnisses bezahlen."}
         }
     }
 
@@ -2249,21 +2251,21 @@ function M.allowAutomaticRentExtension(user, item, propertyName)
         newState = 1
     end
 
-    local title = {english = "Enable/Disable automatic rent extension", german = "GERMAN TRANSLATION HERE"}
+    local title = {english = "Enable/Disable automatic rent extension", german = "Automatische Verlängerung des Mietverhältnisses"}
     local texts = {
         {english = "Do you want to let the resident of "..property.." pay to extend their rent duration without your supervision?",
-        german = "GERMAN TRANSLATION HERE",
+        german = "Möchtest du den Bewohnern von "..property.." erlauben, ihr Mietverhältnis ohne deine Aufsicht zu verlängern?",
         identifier = 1,
         informText = {
             english = "The resident of "..property.." will now be able to pay to extend their rent duration on their own. The resulting rent money can be collected at the town management instrument.",
-            german = "GERMAN TRANSLATION HERE"}
+            german = "Die Bewohner von "..property.." können nun selbst die Verlängerung ihres Mietverhältnisses bezahlen. Das Miete kann über das Stadtverwaltungswerkzeug abkassiert werden."}
         },
         {english = "Do you want to no longer let the resident of "..property.." pay to extend their rent duration without your supervision?",
-        german = "GERMAN TRANSLATION HERE",
+        german = "Möchtest du den Bewohnern von "..property.." nicht mehr erlauben, ihr Mietverhältnis ohne deine Aufsicht zu verlängern?",
         identifier = 0,
         informText = {
             english = "The resident of "..property.." will no longer be able to pay to extend their rent duration without your supervision.",
-            german = "GERMAN TRANSLATION HERE"}
+            german = "Die Bewohner von "..property.." können nun nicht mehr selbst die Verlängerung ihres Mietverhältnisses bezahlen."}
         }
     }
 
@@ -2329,21 +2331,21 @@ function M.setIndefiniteRent(user, item, propertyName)
         newState = 1
     end
 
-    local title = {english = "Enable/Disable rent", german = "GERMAN TRANSLATION HERE"}
+    local title = {english = "Enable/Disable rent", german = "Miete kassieren oder freistellen"}
     local texts = {
         {english = "Do you want to let the resident of "..property.." live rent free?",
-        german = "GERMAN TRANSLATION HERE",
+        german = "Willst du den Bewohner von "..property.." mietfrei wohnen lassen?",
         identifier = 1,
         informText = {
             english = "The resident of "..property.." will now live rent free.",
-            german = "GERMAN TRANSLATION HERE"}
+            german = "Der Bewohner von "..property.." wohnt nun mietfrei."}
         },
         {english = "Do you want to no longer let the resident of "..property.." live rent free?",
-        german = "GERMAN TRANSLATION HERE",
+        german = "Möchtest du vom Bewohner von "..property.." wieder miete kassieren?",
         identifier = 0,
         informText = {
             english = "The resident of "..property.." will no longer live rent free.",
-            german = "GERMAN TRANSLATION HERE"}
+            german = "Der Bewohner von "..property.." lebt nun nicht mehr mietfrei."}
         }
     }
 
@@ -2637,7 +2639,7 @@ function M.checkIfSignPost(user)
             local previewItem = targetItem:getData("preview") == "true"
 
             if previewItem then
-                user:inform("GERMAN TRANSLATION", "You can't write on a preview item.")
+                user:inform("Du kannst einen zur Vorschau platzierten Gegenstand nicht beschriften.", "You can't write on a preview item.")
             else
                 return targetItem
             end
