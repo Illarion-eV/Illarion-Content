@@ -40,10 +40,10 @@ local function carpentrySelection(user)
         end
     end
 
-    local dialog = SelectionDialog(common.GetNLS(user, "GERMAN TRANSLATION", "Catalogue selection"), common.GetNLS(user, "GERMAN TRANSLATION", "Select which category of carpented items you want to access."), callback)
+    local dialog = SelectionDialog(common.GetNLS(user, "Auswahl", "Catalogue selection"), common.GetNLS(user, "Welche Schreinergegenstände möchtest du auswählen?", "Select which category of carpented items you want to access."), callback)
 
-    dialog:addOption(0, common.GetNLS(user, "GERMAN TRANSLATION", "Regular catalogue"))
-    dialog:addOption(0, common.GetNLS(user, "GERMAN TRANSLATION", "Estate catalogue"))
+    dialog:addOption(0, common.GetNLS(user, "Normale Gegenstände", "Regular catalogue"))
+    dialog:addOption(0, common.GetNLS(user, "Grundstücksgegenstände", "Estate catalogue"))
 
     user:requestSelectionDialog(dialog)
 end
@@ -238,7 +238,7 @@ function M.UseItem(user, sourceItem)
     elseif utility.allowBuilding(user) then
         mainDialog(user, sourceItem, thePosition)
     else
-        user:inform("GERMAN TRANSLATION HERE","To build here you must be the tenant of the property or have their permission.")
+        user:inform("Du musst ein Bewohner sein, um hier bauen zu dürfen, oder eine Genehmigung haben.","To build here you must be the tenant of the property or have their permission.")
     end
 end
 
