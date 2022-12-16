@@ -697,7 +697,7 @@ function M.LookAtItem(user, repairKit)
 
     local addedDescription = usedDescriptions[user:getPlayerLanguage()][index]
 
-    baseLookat.description = baseLookat.description.."\n"..addedDescription
+    baseLookat.description = baseLookat.description.."\n\n"..addedDescription
 
     return baseLookat
 end
