@@ -477,7 +477,7 @@ local function repairItem(user, theRepairKit)
     if repairUsesLeft <= 0 then
         world:erase(theRepairKit, 1)
         germanText = "Du benutzt "..commonRepairKit.German.." um "..commonItem.German.." instand zu setzen. Der Reparatursatz ist verbraucht."
-        englishText = "You use up the "..commonRepairKit.English.." to repair the "..commonItem.English..". The kit is used up."
+        englishText = "You use up the "..commonRepairKit.English.." to repair the "..commonItem.English.."."
     else
 
         germanText = "Du benutzt "..commonRepairKit.German.." um "..commonItem.German.." instand zu setzen. Der Reparatursatz wird dir noch weiter von Nutzen sein."
