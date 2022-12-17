@@ -476,12 +476,12 @@ local function repairItem(user, theRepairKit)
 
     if repairUsesLeft <= 0 then
         world:erase(theRepairKit, 1)
-        germanText = "Du benutzt "..commonRepairKit.German.." um "..commonItem.German.." instand zu setzen. Der Reparatursatz ist verbraucht."
-        englishText = "You use up the "..commonRepairKit.English.." to repair the "..commonItem.English.."."
+        germanText = "Du reparierst "..commonItem.German.." und verbrauchst dabei "..commonRepairKit.German.."."
+        englishText = "You repair the "..commonItem.English..", using the "..commonRepairKit.English.." up."
     else
 
-        germanText = "Du benutzt "..commonRepairKit.German.." um "..commonItem.German.." instand zu setzen. Der Reparatursatz wird dir noch weiter von Nutzen sein."
-        englishText = "You use the "..commonRepairKit.English.." to repair the "..commonItem.English..", though the kit appears to still have some use left."
+        germanText = "Du reparierst "..commonItem.German.." mit "..commonRepairKit.German..". Der Reparatursatz wird dir noch weiter von Nutzen sein."
+        englishText = "You repair the "..commonItem.English..", using the "..commonRepairKit.English..", which can be used again."
 
         if theRepairKit.number == 1 then
             theRepairKit:setData("remainingUses", tostring(repairUsesLeft))
