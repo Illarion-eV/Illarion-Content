@@ -668,16 +668,28 @@ end
 
 local usedDescriptions = {}
 usedDescriptions[Player.german] = {
-    "Der Reparatursatz ist unbenutzt.",
-    "Der Reparatursatz ist noch fast wie neu.",
+    "Der Reparatursatz pfeift aus dem letzten Loch.",
+    "Der Reparatursatz ist kaum noch zu etwas gut.",
+    "Der Reparatursatz ist schon recht schäbig.",
+    "Der Reparatursatz ist verbraucht.",
     "Der Reparatursatz ist schon recht verbraucht.",
-    "Der Reparatursatz ist kaum noch zu etwas gut."
+    "Der Reparatursatz ist gebraucht.",
+    "Der Reparatursatz wurde schon verwendet.",
+    "Der Reparatursatz ist recht unverbraucht.",
+    "Der Reparatursatz ist noch fast wie neu.",
+    "Der Reparatursatz ist unbenutzt."
 }
 usedDescriptions[Player.english] = {
-    "The kit is brand new.",
-    "The kit has barely seen any use.",
+    "The kit is on its last legs.",
+    "The kit is worn down, it can barely be used anymore.",
+    "The kit is shabby.",
+    "The kit is worn.",
+    "The kit is quite worn.",
+    "The kit is used.",
     "The kit has been used before.",
-    "The kit is worn down, it can barely be used anymore."
+    "The kit is quite new.",
+    "The kit has barely seen any use.",
+    "The kit is brand new."
 }
 
 function M.LookAtItem(user, repairKit)
@@ -685,17 +697,8 @@ function M.LookAtItem(user, repairKit)
     local baseLookat = lookat.GenerateLookAt(user, repairKit)
 
     local repairUsesLeft = getRepairUsesLeft(repairKit)
-    local index = 4
 
-    if repairUsesLeft == 10 then
-        index = 1
-    elseif repairUsesLeft >= 7 then
-        index = 2
-    elseif repairUsesLeft >= 4 then
-        index = 3
-    end
-
-    local addedDescription = usedDescriptions[user:getPlayerLanguage()][index]
+    local addedDescription = usedDescriptions[user:getPlayerLanguage()][repairUsesLeft]
 
     baseLookat.description = baseLookat.description.."\n\n"..addedDescription
 
