@@ -422,7 +422,7 @@ local function repairItem(user, theRepairKit)
 
     local item = user:getItemAt(tonumber(theItemPos))
 
-    local previousDurability = math.ceil(common.getItemDurability(theItem)/10)
+    local previousDurability = math.floor(common.getItemDurability(theItem)/10)
 
     local itemIsValid = item ~= nil and item.id == theItem.id
 
