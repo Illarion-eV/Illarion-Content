@@ -1583,9 +1583,8 @@ function M.propertyInformation(user, deed)
         local germanText
         local englishText
 
-        local germanDefault = "An den aktuellen Bewohner von"..propertyDE..
-        ",\n, es wird von Euch erwartet, dass Ihr die Miete von "..rentDE..
-        " bezahlt.\n Ohne zusätzliche Zahlungen, läuft das aktuelle Mietverhältnis in "..remainingDuration..
+        local germanDefault = "An den aktuellen Bewohner von "..propertyDE..",\n die derzeitige Miete beträgt "..rentDE..
+        ".\n Ohne zusätzliche Zahlungen, läuft das aktuelle Mietverhältnis in "..remainingDuration..
         " Monaten aus.\nFür weitere Fragen oder Anmerkungen, wende dich an den Quartiermeister oder melde dich \z
         bei einem "..townLeaderTitleDE..
         ".\n~Unterzeichnet, "..signatureDE
@@ -1606,8 +1605,7 @@ function M.propertyInformation(user, deed)
         local englishFreeRent = "To the current inhabitant of "..property..",\n Let it be known that you are currently not expected to pay rent.\nFor additional questions or concerns, please seek out the quartermaster or one of \z
         your "..townLeaderTitle..
         "s.\n~Signed, "..signatureEN
-        local germanFreeRent = "An den aktuellen Bewohner von"..propertyDE..
-        ",\n, ihr wohnt von nun an mietfrei.\nFür weitere Fragen oder Anmerkungen, wende dich an den Quartiermeister oder melde dich \z
+        local germanFreeRent = "An den aktuellen Bewohner von"..propertyDE..",\n ihr wohnt von nun an mietfrei.\nFür weitere Fragen oder Anmerkungen, wende dich an den Quartiermeister oder melde dich \z
         bei einem "..townLeaderTitleDE..
         ".\n~Unterzeichnet, "..signatureDE
 
