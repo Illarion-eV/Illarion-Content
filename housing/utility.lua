@@ -1584,7 +1584,7 @@ function M.propertyInformation(user, deed)
         local englishText
 
         local germanDefault = "An den aktuellen Bewohner von "..propertyDE..",\n die derzeitige Miete beträgt "..rentDE..
-        ".\n Ohne zusätzliche Zahlungen, läuft das aktuelle Mietverhältnis in "..remainingDuration..
+        "\n Ohne zusätzliche Zahlungen, läuft das aktuelle Mietverhältnis in "..remainingDuration..
         " Monaten aus.\nFür weitere Fragen oder Anmerkungen, wende dich an den Quartiermeister oder melde dich \z
         bei einem "..townLeaderTitleDE..
         ".\n~Unterzeichnet, "..signatureDE
@@ -2332,18 +2332,18 @@ function M.setIndefiniteRent(user, item, propertyName)
     local title = {english = "Enable/Disable rent", german = "Miete kassieren oder freistellen"}
     local texts = {
         {english = "Do you want to let the resident of "..property.." live rent free?",
-        german = "Willst du den Bewohner von "..property.." mietfrei wohnen lassen?",
+        german = "Willst du den Bewohner von "..propertyDE.." mietfrei wohnen lassen?",
         identifier = 1,
         informText = {
             english = "The resident of "..property.." will now live rent free.",
-            german = "Der Bewohner von "..property.." wohnt nun mietfrei."}
+            german = "Der Bewohner von "..propertyDE.." wohnt nun mietfrei."}
         },
         {english = "Do you want to no longer let the resident of "..property.." live rent free?",
-        german = "Möchtest du vom Bewohner von "..property.." wieder miete kassieren?",
+        german = "Möchtest du vom Bewohner von "..propertyDE.." wieder Miete kassieren?",
         identifier = 0,
         informText = {
             english = "The resident of "..property.." will no longer live rent free.",
-            german = "Der Bewohner von "..property.." lebt nun nicht mehr mietfrei."}
+            german = "Der Bewohner von "..propertyDE.." lebt nun nicht mehr mietfrei."}
         }
     }
 
