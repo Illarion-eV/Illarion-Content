@@ -2309,6 +2309,7 @@ function M.setIndefiniteRent(user, item, propertyName)
         propertyDE = M.getPropertyNameDE(item)
     else
         property = propertyName
+        propertyDE = M.getPropertyNameDE(item)
     end
 
     local propertyDeed = M.getPropertyDeed(propertyName)
