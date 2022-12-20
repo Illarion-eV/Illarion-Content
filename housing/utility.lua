@@ -2302,9 +2302,11 @@ end
 
 function M.setIndefiniteRent(user, item, propertyName)
     local property
+    local propertyDE
 
     if propertyName == nil then
         property = M.getPropertyName(item)
+        propertyDE = M.getPropertyNameDE(item)
     else
         property = propertyName
     end
