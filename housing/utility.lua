@@ -1837,8 +1837,8 @@ function M.setBuilderOrGuest(user, item, builderOrGuest, propertyName)
     local textDe
     local textEn
     if builderOrGuest == "builder" then
-        builderOrGuestDe = "Erbauer"
-        builderOrGuestDePlural = "Erbauer"
+        builderOrGuestDe = "Bauherr"
+        builderOrGuestDePlural = "Bauherren"
         textDe = "Er/sie darf jetzt auf deinem Grundstück bauen."
         textEn = "They will now be permitted to build on your property."
     elseif builderOrGuest == "guest" then
@@ -1868,7 +1868,7 @@ function M.setBuilderOrGuest(user, item, builderOrGuest, propertyName)
                         propertyDeed:setData(builderOrGuest..i, input)
                         propertyDeed:setData(builderOrGuest.."ID"..i, builderOrGuestID)
                         world:changeItem(propertyDeed)
-                        user:inform(M.getText(user,input.." hat nun die Rechte als "..builderOrGuestDe.."."..textDe,input.." set as a "..builderOrGuest..". "..textEn))
+                        user:inform(M.getText(user,input.." hat nun die Rechte als "..builderOrGuestDe..". "..textDe,input.." set as a "..builderOrGuest..". "..textEn))
                         return
                     elseif i == M["max_"..builderOrGuest.."_number"] then
                         user:inform(M.getText(user,"Du kannst nur "..M["max_"..builderOrGuest.."_number"].." "..builderOrGuestDePlural.." gleichzeitig haben. Du musst einen von der List entfernen, bevor du jemanden Neues ernennen kannst.","You may only have "..M["max_"..builderOrGuest.."_number"].." "..builderOrGuest.."s at a time. You must remove one if you want to add another." ))
@@ -1900,8 +1900,8 @@ function M.setBuilderOrGuest(user, item, builderOrGuest, propertyName)
     local textEn
 
     if builderOrGuest == "builder" then
-        builderOrGuestDe = "Erbauer"
-        builderOrGuestDePlural = "Erbauer"
+        builderOrGuestDe = "Bauherr"
+        builderOrGuestDePlural = "Bauherren"
         textDe = "Er/sie darf jetzt auf deinem Grundstück bauen."
         textEn = "They will now be permitted to build on your property."
     elseif builderOrGuest == "guest" then
@@ -1932,7 +1932,7 @@ function M.setBuilderOrGuest(user, item, builderOrGuest, propertyName)
                         propertyDeed:setData(builderOrGuest..i, input)
                         propertyDeed:setData(builderOrGuest.."ID"..i, builderOrGuestID)
                         world:changeItem(propertyDeed)
-                        user:inform(M.getText(user,input.." hat nun die Rechte als "..builderOrGuestDe.."."..textDe,input.." set as a "..builderOrGuest..". "..textEn))
+                        user:inform(M.getText(user,input.." hat nun die Rechte als "..builderOrGuestDe..". "..textDe,input.." set as a "..builderOrGuest..". "..textEn))
                         return
                     elseif i == M["max_"..builderOrGuest.."_number"] then
                         user:inform(M.getText(user,"Du kannst nur "..M["max_"..builderOrGuest.."_number"].." "..builderOrGuestDePlural.." gleichzeitig haben. Du musst einen von der List entfernen, bevor du jemanden Neues ernennen kannst.","You may only have "..M["max_"..builderOrGuest.."_number"].." "..builderOrGuest.."s at a time. You must remove one if you want to add another." ))
@@ -1967,9 +1967,9 @@ function M.removeBuilderOrGuest(user, item, builderOrGuest, propertyName)
     local skippedGuestSlots = 0
 
     if builderOrGuest == "builder" then
-        builderOrGuestDe = "Erbauer"
+        builderOrGuestDe = "Bauherr"
         dialogNameEn = "Builder's list"
-        dialogNameDe = "Liste der Erbauer"
+        dialogNameDe = "Liste der Bauherren"
     elseif builderOrGuest == "guest" then
         builderOrGuestDe = "Gäste"
         dialogNameEn = "Guest List"
@@ -2234,11 +2234,14 @@ end
 
 function M.allowAutomaticRentExtension(user, item, propertyName)
     local property
+    local propertyDE
 
     if propertyName == nil then
         property = M.getPropertyName(item)
+        propertyDE = M.getPropertyNameDE(item)
     else
         property = propertyName
+        propertyDE = M.getPropertyNameDE(item)
     end
 
     local propertyDeed = M.getPropertyDeed(property)
@@ -2261,21 +2264,21 @@ function M.allowAutomaticRentExtension(user, item, propertyName)
         newState = 1
     end
 
-    local title = {english = "Enable/Disable automatic rent extension", german = "Automatische Verlängerung des Mietverhältnisses"}
+    local title = {english = "Enable/Disable automatic rent extension", german = "Miete"}
     local texts = {
         {english = "Do you want to let the resident of "..property.." pay to extend their rent duration without your supervision?",
-        german = "Möchtest du den Bewohnern von "..property.." erlauben, ihr Mietverhältnis ohne deine Aufsicht zu verlängern?",
+        german = "Möchtest du den Bewohnern von "..propertyDE.." erlauben, ihr Mietverhältnis ohne deine Aufsicht zu verlängern?",
         identifier = 1,
         informText = {
             english = "The resident of "..property.." will now be able to pay to extend their rent duration on their own. The resulting rent money can be collected at the town management instrument.",
-            german = "Die Bewohner von "..property.." können nun selbst die Verlängerung ihres Mietverhältnisses bezahlen. Das Miete kann über das Stadtverwaltungswerkzeug abkassiert werden."}
+            german = "Die Bewohner von "..propertyDE.." können nun selbst die Verlängerung ihres Mietverhältnisses bezahlen. Das Miete kann über das Stadtverwaltungswerkzeug abkassiert werden."}
         },
         {english = "Do you want to no longer let the resident of "..property.." pay to extend their rent duration without your supervision?",
-        german = "Möchtest du den Bewohnern von "..property.." nicht mehr erlauben, ihr Mietverhältnis ohne deine Aufsicht zu verlängern?",
+        german = "Möchtest du den Bewohnern von "..propertyDE.." nicht mehr erlauben, ihr Mietverhältnis ohne deine Aufsicht zu verlängern?",
         identifier = 0,
         informText = {
             english = "The resident of "..property.." will no longer be able to pay to extend their rent duration without your supervision.",
-            german = "Die Bewohner von "..property.." können nun nicht mehr selbst die Verlängerung ihres Mietverhältnisses bezahlen."}
+            german = "Die Bewohner von "..propertyDE.." können nun nicht mehr selbst die Verlängerung ihres Mietverhältnisses bezahlen."}
         }
     }
 
@@ -2344,7 +2347,7 @@ function M.setIndefiniteRent(user, item, propertyName)
         newState = 1
     end
 
-    local title = {english = "Enable/Disable rent", german = "Miete kassieren oder freistellen"}
+    local title = {english = "Enable/Disable rent", german = "Miete"}
     local texts = {
         {english = "Do you want to let the resident of "..property.." live rent free?",
         german = "Willst du den Bewohner von "..propertyDE.." mietfrei wohnen lassen?",
