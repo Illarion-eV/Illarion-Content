@@ -135,8 +135,8 @@ function M.UseItem(user, SourceItem)
             end
             dialogOwnedByuser:addOption(0, utility.getText(user,"Betrachte 'Notiz des Quartiermeisters'","Inspect 'Notice from the Quartermaster'"))
             dialogOwnedByuser:addOption(0, utility.getText(user,"Mietverhältnis beenden","Abandon Property"))
-            dialogOwnedByuser:addOption(0, utility.getText(user,"Erteile Rechte als Erbauer","Give Builder Permission"))
-            dialogOwnedByuser:addOption(0, utility.getText(user,"Entziehe Rechte als Erbauer","Remove Builder Permission"))
+            dialogOwnedByuser:addOption(0, utility.getText(user,"Erteile Rechte als Bauherr","Give Builder Permission"))
+            dialogOwnedByuser:addOption(0, utility.getText(user,"Entziehe Rechte als Bauherr","Remove Builder Permission"))
             dialogOwnedNotByuser:addOption(0, utility.getText(user,"Betrachte 'Notiz des Quartiermeisters'","Inspect 'Notice from the Quartermaster'"))
             if utility.checkIfEstateViaName(property) then --Tenants are allowed to set guests themselves on estate properties
                 dialogOwnedByuser:addOption(0, utility.getText(user,"Gast hinzufügen","Add Guest"))
