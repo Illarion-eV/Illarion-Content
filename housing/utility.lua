@@ -1920,7 +1920,7 @@ function M.setBuilderOrGuest(user, item, builderOrGuest, propertyName)
                         propertyDeed:setData(builderOrGuest..i, input)
                         propertyDeed:setData(builderOrGuest.."ID"..i, builderOrGuestID)
                         world:changeItem(propertyDeed)
-                        user:inform(M.getText(user,input.." hat nun die Rechte als "..builderOrGuestDe.."."..textDe,input.." set as a "..builderOrGuest..". "..textEn))
+                        user:inform(M.getText(user,input.." hat nun die Rechte als "..builderOrGuestDe..". "..textDe,input.." set as a "..builderOrGuest..". "..textEn))
                         return
                     elseif i == M["max_"..builderOrGuest.."_number"] then
                         user:inform(M.getText(user,"Du kannst nur "..M["max_"..builderOrGuest.."_number"].." "..builderOrGuestDePlural.." gleichzeitig haben. Du musst einen von der List entfernen, bevor du jemanden Neues ernennen kannst.","You may only have "..M["max_"..builderOrGuest.."_number"].." "..builderOrGuest.."s at a time. You must remove one if you want to add another." ))
