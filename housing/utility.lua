@@ -170,9 +170,21 @@ function M.checkIfPlayerKnowsSkillByName(user, skillName)
     return false
 end
 
+function M.checkIfSkillOnlyHasEstateContents(skill)
+
+    for _, indexedSkill in pairs(itemList.skills) do
+        if indexedSkill.name == skill and indexedSkill.estate then
+            return true
+        end
+    end
+
+    return false
+
+end
+
 function M.checkIfSkillIsShown(user, skill)
 
-    if M.checkIfPlayerKnowsSkillByName(user, skill) then
+    if M.checkIfPlayerKnowsSkillByName(user, skill) and (not M.checkIfSkillOnlyHasEstateContents(skill) or M.checkIfEstate(user)) then
         return true
     end
 
