@@ -209,7 +209,7 @@ local function showTemporaryPreviewOfItem(productId, user, isTile)
     -- For special items like stairs, only the first object will be previewed and not the upper/lower stair
 
     if isTile then
-        productId = M.getTilePreview(productId)
+        productId = utility.getTilePreview(productId)
     end
 
     local frontPos = common.GetFrontPosition(user)
