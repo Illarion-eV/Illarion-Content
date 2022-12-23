@@ -205,13 +205,8 @@ local function loadDialog(user, dialog, skill, categories, products)
     end
 end
 
-local function showTemporaryPreviewOfItem(productId, user, isTile)
+local function showTemporaryPreviewOfItem(productId, user)
     -- For special items like stairs, only the first object will be previewed and not the upper/lower stair
-
-    if isTile then
-        productId = M.getTilePreview(productId)
-    end
-
     local frontPos = common.GetFrontPosition(user)
     local roofPos = position(frontPos.x, frontPos.y, frontPos.z+1)
 
@@ -479,8 +474,8 @@ function M.showDialog(user, skillName, carpentryEstateCatalogue)
         elseif result == CraftingDialog.playerLooksAtItem then
             local productIndex = dialog:getCraftableId()
             local product = products[productIndex]
-            if utility.allowBuilding(user) then
-                showTemporaryPreviewOfItem(product.id, user, product.tile)
+            if utility.allowBuilding(user) and not product.tile then
+                showTemporaryPreviewOfItem(product.id, user)
             end
 
             return getLookAt(user, product)

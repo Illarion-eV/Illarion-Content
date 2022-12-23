@@ -72,17 +72,6 @@ function M.checkIfRoofOrRoofTile(theId, tileBoolean)
     return false
 end
 
-function M.getTilePreview(tileId)
-
-    for _, tile in pairs(itemList.tiles) do
-        if tileId == tile.tileId then
-            return tile.displayId
-        end
-    end
-
-    return false
-end
-
 function M.fetchPropertyName(user, pos)
 
     local direct = user:getFaceTo()
@@ -2702,15 +2691,14 @@ end
 function M.getTileGraphic(tileIdentifier)
     for _, tile in pairs(itemList.tiles) do
         if tile.tileId == tileIdentifier then
-            return tile.displayId
+            return tile.ingredient1
         end
     end
 end
 function M.getTileName(user, tileIdentifier)
     for _, tile in pairs(itemList.tiles) do
         if tile.tileId == tileIdentifier then
-            local tileStats = world:getItemStatsFromId(tile.displayId)
-            return common.GetNLS(user, tileStats.german, tileStats.english)
+            return common.GetNLS(user, tile.nameDe, tile.nameEn)
         end
     end
 end
