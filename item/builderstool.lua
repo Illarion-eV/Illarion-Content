@@ -180,7 +180,7 @@ local function mainDialog(user, sourceItem)
 
     if utility.checkIfOutlaw(user) then
         Outlaw = true
-        outlawRentDuration = common.GetNLS(user,"Du bist nun der Eigentümer für die nächsten "..utility.getRentDuration(user).." Monate. Ein Gamemaster muss während dieser Zeit die Frist verlängern oder das Grundstück wird wieder frei verfügbar.\n","You will remain the owner of this property for the next "..utility.getRentDuration(user).." months. A GM will have to renew your duration within that time or the property will be forfeit.\n")
+        outlawRentDuration = common.GetNLS(user,"Du bist nun der Eigentümer für die nächsten "..utility.getRentDurationByUser(user).." Monate. Ein Gamemaster muss während dieser Zeit die Frist verlängern oder das Grundstück wird wieder frei verfügbar.\n","You will remain the owner of this property for the next "..utility.getRentDurationByUser(user).." months. A GM will have to renew your duration within that time or the property will be forfeit.\n")
     end
 
     local propertyName = utility.fetchPropertyName(user)
