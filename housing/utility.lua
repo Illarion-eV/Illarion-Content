@@ -1970,7 +1970,7 @@ function M.removeBuilderOrGuest(user, item, builderOrGuest, propertyName)
     local skippedGuestSlots = 0
 
     if builderOrGuest == "builder" then
-        builderOrGuestDe = "Bauherr"
+        builderOrGuestDe = "Bauherren"
         dialogNameEn = "Builder's list"
         dialogNameDe = "Liste der Bauherren"
     elseif builderOrGuest == "guest" then
