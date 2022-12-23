@@ -1082,7 +1082,7 @@ function M.makeWaterWalkable(user)
 
 end
 
-function M.getRentDuration(user)
+function M.getRentDurationByUser(user)
     local property = M.fetchPropertyName(user)
     local deed = M.getPropertyDeed(property)
     local duration = deed:getData("rentDuration")
