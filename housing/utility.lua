@@ -1539,7 +1539,6 @@ function M.getSignature(item, language)
 
 end
 
-
 function M.getTownLeaderTitle(town, language)
     if (town == "Galmair") and (language == "DE") then
         return "Kanzler"
@@ -1553,6 +1552,10 @@ function M.getTownLeaderTitle(town, language)
         return "Adeligen"
     elseif (town == "Cadomyr") and (language == "EN") then
         return "Noble"
+    elseif language == "DE" then
+        return "Anführer"
+    else
+        return "Leader"
     end
 end
 
