@@ -2707,12 +2707,15 @@ function M.getTileGraphic(tileIdentifier)
     end
 end
 function M.getTileName(user, tileIdentifier)
+
     for _, tile in pairs(itemList.tiles) do
         if tile.tileId == tileIdentifier then
             local tileStats = world:getItemStatsFromId(tile.displayId)
-            return common.GetNLS(user, tileStats.german, tileStats.english)
+            return common.GetNLS(user, tileStats.German, tileStats.English)
         end
     end
+
+    return "Unknown" --Catch-all. Should not reach this point to begin with.
 end
 function M.getItemName(user, itemIdentifier)
     for _, item in pairs(itemList.items) do
