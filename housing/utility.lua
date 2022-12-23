@@ -1880,8 +1880,8 @@ function M.setBuilderOrGuest(user, item, builderOrGuest, propertyName)
             end
         end
     end
-    user:requestInputDialog(InputDialog(M.getText(user,"Ernenne "..builderOrGuestDe,"Set "..builderOrGuest),
-    M.getText(user,"Wen möchtest du als "..builderOrGuestDe.." benennen?",
+    user:requestInputDialog(InputDialog(M.getText(user,builderOrGuestDe.." eintragen","Set "..builderOrGuest),
+    M.getText(user,"Wen möchtest du als "..builderOrGuestDe.." eintragen?",
     "Write in the name of who you want to set as a "..builderOrGuest),
     false, 255, callback))
 end
@@ -1945,9 +1945,9 @@ function M.setBuilderOrGuest(user, item, builderOrGuest, propertyName)
         end
     end
 
-    user:requestInputDialog(InputDialog(M.getText(user,"Ernenne "..builderOrGuestDe,"Set "..builderOrGuest),
+    user:requestInputDialog(InputDialog(M.getText(user,builderOrGuestDe.. "eintragen","Set "..builderOrGuest),
 
-    M.getText(user,"Wen möchtest du als "..builderOrGuestDe.." benennen?",
+    M.getText(user,"Wen möchtest du als "..builderOrGuestDe.." eintragen?",
     "Write in the name of who you want to set as a "..builderOrGuest),
     false, 255, callback))
 end
