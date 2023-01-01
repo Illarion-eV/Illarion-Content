@@ -109,6 +109,9 @@ tutorialInformEN["lights"] = "[Quest 'Tutorial I' end] You can continue the tuto
 tutorialInformDE["lightsStart"] = "[Quest 'Tutorial I'] Doppelklicke die Fackel um sie zu entzünden. Die Fackel wird eine Zeit lang brennen und sobald sie ausgebrannt ist, verschwindet sie aus deinem Inventar."
 tutorialInformEN["lightsStart"] = "[Quest 'Tutorial I'] To light the torch double click on it. The torch will burn for a while and once it has burnt out, it will disappear from your inventory."
 
+tutorialInformDE["housing"] = "Eine reich verzierte Plakette ziert dieses Gebäude."
+tutorialInformEN["housing"] = "A richly decorated plaque adorns this building."
+
 --Texts for dialogues
 
 --Quest 336: Brewery
@@ -217,6 +220,10 @@ tutorialTextEN["NewbieTaskTextGalmair"] = "Being new in town isn't easy. You don
 --Quest 320: Explorer stone
 tutorialTextDE["explorer"] = "Auf das gesamte Spiel verteilt, kannst du Markierungssteine finden. Wenn du diese Steine doppelt anklickst und somit sammelst, bekommst du Punkte. Wenn du eine bestimmte Anzahl von Punkten gesammelt hast, bekommst du eine Belohnung.\n\nVersuche es einmal und klicke doppelt auf den Markierungsstein."
 tutorialTextEN["explorer"] = "Throughout the game you can find marker stones. If you double click a stone, and therefore collect it, you will get points for it. When you collect a specific number of stones you will get a reward.\n\nTry it now and double click the marker stone."
+
+--Quest 359: Housing
+tutorialTextDE["housing"] = "In ganz Illarion gibt es Grundstücke, auf denen gebaut werden darf. Hierzu musst du das Grundstück zunächst anmieten und regelmäßig Pacht bezahlen. Wende dich an einen Anführer deiner Stadt oder einen Gamemaster. Du benötigst weiterhin eine Baukelle, welche ein Schmied herstellen kann oder die auf dem Marktplatz gekauft werden kann."
+tutorialTextEN["housing"] = "Throughout Illarion there are plots of land on which you can build. You must first rent the land and pay regular rent. To do this, contact a leader of your city or a Gamemaster. You also need a construction trowel, which can be crafted by a blacksmith or bought at the marketplace."
 
 --NPC texts outside .npc files
 
