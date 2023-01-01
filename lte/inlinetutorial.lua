@@ -79,6 +79,14 @@ function M.callEffect(inlineTutorial,Character)
                 tutorial.tutorialDialog(Character,329,"first encounter")
             end
         end
+
+        --Housing
+        if Character:getQuestProgress(359) == 0 then
+            if common.GetFrontItemID(Character) == 3772 or common.GetFrontItemID(Character) == 3773 then
+                tutorial.tutorialDialog(Character,359,"housing")
+            end
+        end
+
     end
 
     inlineTutorial.nextCalled=10 --One second

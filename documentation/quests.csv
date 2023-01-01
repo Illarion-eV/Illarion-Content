@@ -293,6 +293,7 @@ ID,Title,NPCs,Status,Responsible Author,Description
 356,Tutorial - Henry,,,Estralis,Show message just once
 357,Tutorial - Nimbur,,,Estralis,Show message just once
 358,Tutorial - Moving,,,Estralis,Ask only once for tutorial messages
+359,Tutorial - Housing,,,Estralis,Show message just once
 360,Pet system: race,,,merung,race of the pet
 361-363,Pet system: position,,,merung,stores the position of the pet
 364,Pet system: sex,,,merung,sex of the pet
