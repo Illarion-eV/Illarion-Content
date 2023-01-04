@@ -20,6 +20,7 @@ local itemList = require("housing.itemList")
 local common = require("base.common")
 local money = require("base.money")
 local factions = require("base.factions")
+local messenger = require("content.messenger")
 
 local M = {}
 
@@ -1313,6 +1314,8 @@ function M.removeOwner(user, item, property)
         propertyName = property
     end
 
+    local propertyNameDE = M.getPropertyNameDE(item)
+
     local propertyDeed = M.getPropertyDeed(propertyName)
 
     local tenantID = propertyDeed:getData("tenantID")
@@ -1325,6 +1328,9 @@ function M.removeOwner(user, item, property)
     M.removeTenantGuestBuilderDuration(propertyDeed)
 
     if tenantExists then
+        local english = "You've been evicted from your former residence in "..propertyName..".\n\n~The Quartermaster"
+        local german = "GERMAN TRANSLATION"..propertyNameDE
+        messenger.sendMessageViaScript(english, german, tenantID)
         user:inform(M.getText(user,"Vorheriger Mieter entfernt.","Previous tenant evicted."))
     end
 end
