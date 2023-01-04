@@ -1518,6 +1518,10 @@ function M.getRequiredRankName(item, language)
     local nameDE = item:getData("nameDE")
     local nameEN = item:getData("nameEN")
 
+    if not common.IsNilOrEmpty(nameEN) and nameEN == "false" then
+        return false
+    end
+
     for i = 1, #propertyList.propertyTable do
         if (item.pos == propertyList.propertyTable[i][3]) then
             if (language == "DE") and nameDE ~= "" then
@@ -1589,20 +1593,26 @@ function M.propertyInformation(user, deed)
     local retText
 
     if M.checkOwner(deed) == "Unowned" then -- Shows info specific for when property is unowned
+
+        local rankText = {english = "", german = ""}
+
+        if rank then
+            rankText.english = " Renting this property requires at minimum the rank of "..rank.."."
+            rankText.german = " Um dieses Grundstück mieten zu können, müsst ihr zumindest "..rankDE.." sein."
+        end
+
         retText = M.getText(user,
         "Bürger von "..town..
         ",\nihr könnt nun die "..propertyDE..
         " zum Preis von "..rentDE..
-        " mieten. Um dieses Grundstück mieten zu können, müsst ihr zumindest "..rankDE..
-        " sein. Solltest du dieses Grundstück mieten wollen, wende dich an den Quartiermeister oder melde \z
+        " mieten."..rankText.german.." Solltest du dieses Grundstück mieten wollen, wende dich an den Quartiermeister oder melde \z
         dich bei einem "..townLeaderTitleDE..
         "~Unterzeichnet, "..signatureDE,
         "Citizen of "..town..
         ",\nit is now possible to rent the "..property..
-        " at a price of "..rent..
-        " Renting this property requires at minimum the rank of "..rank..
-        ". Should you seek to rent this property, please seek out the quartermaster or one of your "..townLeaderTitle..
-        "s.\n~Signed, "..signatureEN)
+        " at a price of "..rent..rankText.english..
+        " Should you seek to rent this property, please seek out the quartermaster or one of your "
+        ..townLeaderTitle.."s.\n~Signed, "..signatureEN)
     elseif M.checkOwner(deed) == user.id then -- Shows info specific for when property is owned by user
 
         local germanText
@@ -2406,6 +2416,19 @@ function M.setIndefiniteRent(user, item, propertyName)
 
 end
 
+local function setNoRankReq(selected, propertyDeed, user)
+
+    if not selected == 8 then
+        return
+    end
+
+    propertyDeed:setData("nameEN", "false")
+    propertyDeed:setData("nameDE", "false")
+    world:changeItem(propertyDeed)
+    user:inform(M.getText(user,"GERMAN TRANSLATION","You've set it so that there is no longer any rank requirement associated with renting this property."))
+
+end
+
 function M.setReqRank(user, item, propertyName)
     local property
 
@@ -2440,6 +2463,7 @@ function M.setReqRank(user, item, propertyName)
                 user:inform(M.getText(user,"Der benötigte Rang wurde auf "..factions.GalmairRankListMale[i]["gRank"].." gesetzt.","Required rank has been set to "..factions.GalmairRankListMale[i]["eRank"].."."))
             end
         end
+        setNoRankReq(selected, propertyDeed, user)
     end
 
     local callback2 = function (dialogRunewick)
@@ -2454,6 +2478,7 @@ function M.setReqRank(user, item, propertyName)
                     user:inform(M.getText(user,"Der benötigte Rang wurde auf "..factions.RunewickRankListMale[i]["gRank"].." gesetzt.","Required rank has been set to "..factions.RunewickRankListMale[i]["eRank"].."."))
                 end
             end
+            setNoRankReq(selected, propertyDeed, user)
         end
     end
     local callback3 = function (dialogCadomyr)
@@ -2468,6 +2493,7 @@ function M.setReqRank(user, item, propertyName)
                     user:inform(M.getText(user,"Der benötigte Rang wurde auf "..factions.CadomyrRankListMale[i]["gRank"].." gesetzt.","Required rank has been set to "..factions.CadomyrRankListMale[i]["eRank"].."."))
                 end
             end
+            setNoRankReq(selected, propertyDeed, user)
         end
     end
 
@@ -2497,6 +2523,10 @@ function M.setReqRank(user, item, propertyName)
         dialogRunewick:addOption(0, M.getText(user,factions.RunewickRankListMale[i]["gRank"],factions.RunewickRankListMale[i]["eRank"]))
         dialogCadomyr:addOption(0, M.getText(user,factions.CadomyrRankListMale[i]["gRank"],factions.CadomyrRankListMale[i]["eRank"]))
     end
+
+    dialogGalmair:addOption(0, M.getText(user, "GERMAN TRANSLATION", "None"))
+    dialogRunewick:addOption(0, M.getText(user, "GERMAN TRANSLATION", "None"))
+    dialogCadomyr:addOption(0, M.getText(user, "GERMAN TRANSLATION", "None"))
 
     if town == "Galmair" then
         user:requestSelectionDialog(dialogGalmair)
