@@ -1586,9 +1586,10 @@ function M.propertyInformation(user, deed)
     local townLeaderTitle = M.getTownLeaderTitle(town, "EN")
     local townLeaderTitleDE = M.getTownLeaderTitle(town, "DE")
 
+    local retText
+
     if M.checkOwner(deed) == "Unowned" then -- Shows info specific for when property is unowned
-        local propertyInfo = MessageDialog(M.getText(user,"Notiz des Quartiermeisters","Quartermaster's notice"),
-        M.getText(user,
+        retText = M.getText(user,
         "Bürger von "..town..
         ",\nihr könnt nun die "..propertyDE..
         " zum Preis von "..rentDE..
@@ -1601,9 +1602,7 @@ function M.propertyInformation(user, deed)
         " at a price of "..rent..
         " Renting this property requires at minimum the rank of "..rank..
         ". Should you seek to rent this property, please seek out the quartermaster or one of your "..townLeaderTitle..
-        "s.\n~Signed, "..signatureEN),
-        function() end)
-        user:requestMessageDialog(propertyInfo)
+        "s.\n~Signed, "..signatureEN)
     elseif M.checkOwner(deed) == user.id then -- Shows info specific for when property is owned by user
 
         local germanText
@@ -1643,14 +1642,9 @@ function M.propertyInformation(user, deed)
             englishText = englishFreeRent
         end
 
-        local propertyInfo = MessageDialog(M.getText(user,"Notiz des Quartiermeisters","Quartermaster's notice"),
-        M.getText(user, germanText, englishText
-        ),
-        function() end)
-        user:requestMessageDialog(propertyInfo)
+        retText = M.getText(user, germanText, englishText)
     else -- Shows info specific for when property is owned but not by user.
-         local propertyInfo = MessageDialog(M.getText(user,"Notiz des Quartiermeisters","Quartermaster's notice"),
-         M.getText(user,
+        retText = M.getText(user,
         "Bürger von "..town..
         ",\n dieses Grundstück wird aktuell gemietet von "..tenant..
         ". Solltest du irgendwelche Bedenken haben oder ein freies Grundstück mieten wollen, wende dich bitte an \z
@@ -1660,10 +1654,10 @@ function M.propertyInformation(user, deed)
         ",\nThis property is currently being leased to "..tenant..
         ". Should you have any concerns, or wish to rent a property that is currently available, please \z
         seek out the quartermaster or one of your "..townLeaderTitle..
-        "s.\n~Signed, "..signatureEN),
-        function() end)
-        user:requestMessageDialog(propertyInfo)
+        "s.\n~Signed, "..signatureEN)
     end
+
+    return retText
 end
 
 function M.abandonPropertyDialog(user, item)

@@ -47,10 +47,8 @@ function M.UseItem(user, SourceItem)
                 if success then
                     local selected = dialogUnowned:getSelectedIndex()+1
                     if selected == 1 then
-                        utility.propertyInformation(user, SourceItem)
-                    elseif selected == 2 then
                         utility.setOwner(user, SourceItem)
-                    elseif selected == 3 then
+                    elseif selected == 2 then
                         utility.setRent(user, SourceItem)
                     else
                         utility.setReqRank(user, SourceItem)
@@ -71,30 +69,28 @@ function M.UseItem(user, SourceItem)
                     end
 
                     if selected == 1+count then
-                        utility.propertyInformation(user, SourceItem)
-                    elseif selected == 2+count then
                         utility.abandonPropertyDialog(user, SourceItem)
-                    elseif selected == 3+count then
+                    elseif selected == 2+count then
                         utility.setBuilderOrGuest(user, SourceItem, "builder")
-                    elseif selected == 4+count then
+                    elseif selected == 3+count then
                         utility.removeBuilderOrGuest(user, SourceItem, "builder")
-                    elseif selected == 5+count then
+                    elseif selected == 4+count then
                         utility.setBuilderOrGuest(user, SourceItem, "guest")
-                    elseif selected == 6+count then
+                    elseif selected == 5+count then
                         utility.removeBuilderOrGuest(user, SourceItem, "guest")
-                    elseif selected == 7+count then
+                    elseif selected == 6+count then
                         utility.setOwner(user, SourceItem)
-                    elseif selected == 8+count then
+                    elseif selected == 7+count then
                         utility.removeOwner(user, SourceItem)
-                    elseif selected == 9+count then
+                    elseif selected == 8+count then
                         utility.setRent(user, SourceItem)
-                    elseif selected == 10+count then
+                    elseif selected == 9+count then
                         utility.extendRent(user, SourceItem)
-                    elseif selected == 11+count then
+                    elseif selected == 10+count then
                         utility.setReqRank(user, SourceItem)
-                    elseif selected == 12+count then
+                    elseif selected == 11+count then
                         utility.setIndefiniteRent(user, SourceItem, property)
-                    elseif selected == 13+count then
+                    elseif selected == 12+count then
                         utility.allowAutomaticRentExtension(user, SourceItem)
                     end
                 end
@@ -104,40 +100,35 @@ function M.UseItem(user, SourceItem)
                 if success then
                     local selected = dialogOwnedNotByuser:getSelectedIndex()+1
                     if selected == 1 then
-                        utility.propertyInformation(user, SourceItem)
-                    elseif selected == 2 then
                         utility.setBuilderOrGuest(user, SourceItem, "guest")
-                    elseif selected == 3 then
+                    elseif selected == 2 then
                         utility.removeBuilderOrGuest(user, SourceItem, "guest")
-                    elseif selected == 4 then
+                    elseif selected == 3 then
                         utility.setOwner(user, SourceItem)
-                    elseif selected == 5 then
+                    elseif selected == 4 then
                         utility.removeOwner(user, SourceItem)
-                    elseif selected == 6 then
+                    elseif selected == 5 then
                         utility.setRent(user, SourceItem)
-                    elseif selected == 7 then
+                    elseif selected == 6 then
                         utility.extendRent(user, SourceItem)
-                    elseif selected == 8 then
+                    elseif selected == 7 then
                         utility.setReqRank(user, SourceItem)
-                    elseif selected == 9 then
+                    elseif selected == 8 then
                         utility.setIndefiniteRent(user, SourceItem, property)
                     else
                         utility.allowAutomaticRentExtension(user, SourceItem)
                     end
                 end
             end
-            local dialogUnowned = SelectionDialog(utility.getText(user,utility.getPropertyNameDE(SourceItem),utility.getPropertyName(SourceItem)) , utility.getText(user,"Wähle aus, was du machen willst.","Select what you want to do.") , callback1)
-            local dialogOwnedByuser = SelectionDialog(utility.getText(user,utility.getPropertyNameDE(SourceItem),utility.getPropertyName(SourceItem)) , utility.getText(user,"Wähle aus, was du machen willst.","Select what you want to do.") , callback2)
-            local dialogOwnedNotByuser = SelectionDialog(utility.getText(user,utility.getPropertyNameDE(SourceItem),utility.getPropertyName(SourceItem)) , utility.getText(user,"Wähle aus, was du machen willst.","Select what you want to do.") , callback3)
-            dialogUnowned:addOption(0, utility.getText(user,"Betrachte 'Notiz des Quartiermeisters'","Inspect 'Notice from the Quartermaster'"))
+            local dialogUnowned = SelectionDialog(utility.getText(user,utility.getPropertyNameDE(SourceItem),utility.getPropertyName(SourceItem)) , utility.propertyInformation(user, SourceItem).."\n\n"..utility.getText(user,"Wähle aus, was du machen willst.","Select what you want to do.") , callback1)
+            local dialogOwnedByuser = SelectionDialog(utility.getText(user,utility.getPropertyNameDE(SourceItem),utility.getPropertyName(SourceItem)) , utility.propertyInformation(user, SourceItem).."\n\n"..utility.getText(user,"Wähle aus, was du machen willst.","Select what you want to do.") , callback2)
+            local dialogOwnedNotByuser = SelectionDialog(utility.getText(user,utility.getPropertyNameDE(SourceItem),utility.getPropertyName(SourceItem)) , utility.propertyInformation(user, SourceItem).."\n\n"..utility.getText(user,"Wähle aus, was du machen willst.","Select what you want to do.") , callback3)
             if utility.isAutomaticRentEnabled(property) then
                 dialogOwnedByuser:addOption(0, utility.getText(user, "Miete zahlen", "Pay to extend rent duration"))
             end
-            dialogOwnedByuser:addOption(0, utility.getText(user,"Betrachte 'Notiz des Quartiermeisters'","Inspect 'Notice from the Quartermaster'"))
             dialogOwnedByuser:addOption(0, utility.getText(user,"Mietverhältnis beenden","Abandon Property"))
             dialogOwnedByuser:addOption(0, utility.getText(user,"Erteile Rechte als Bauherr","Give Builder Permission"))
             dialogOwnedByuser:addOption(0, utility.getText(user,"Entziehe Rechte als Bauherr","Remove Builder Permission"))
-            dialogOwnedNotByuser:addOption(0, utility.getText(user,"Betrachte 'Notiz des Quartiermeisters'","Inspect 'Notice from the Quartermaster'"))
             if utility.checkIfEstateViaName(property) then --Tenants are allowed to set guests themselves on estate properties
                 dialogOwnedByuser:addOption(0, utility.getText(user,"Gast hinzufügen","Add Guest"))
                 dialogOwnedByuser:addOption(0, utility.getText(user,"Gast entfernen","Remove Guest"))
