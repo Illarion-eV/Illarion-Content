@@ -1304,6 +1304,29 @@ function M.propertyDeedLookAt(user, item)
       return lookAt
 end
 
+function M.sendMessageToRemovedTenant(propertyName, propertyNameDE, tenantID, user)
+
+    local english = "You've been evicted from your former residence in "..propertyName..".\n\n~The Quartermaster"
+        local german = "GERMAN TRANSLATION"..propertyNameDE
+
+        local callback = function(dialog)
+            local success = dialog:getSuccess()
+            if not success then
+                return
+            end
+            local selected = dialog:getSelectedIndex()+1
+            if selected == 1 then
+                messenger.sendMessageViaScript(english, german, tenantID)
+            end
+        end
+
+        local dialog = SelectionDialog(common.GetNLS(user, "GERMAN TRANSLATION", "Send Message"), common.GetNLS(user, "GERMAN TRANSLATION", "Do you wish to send the evicted tenant an automated notice of their eviction?"), callback)
+        dialog:addOption(0, common.GetNLS(user, "Ja", "Yes"))
+
+        user:requestSelectionDialog(dialog)
+
+end
+
 function M.removeOwner(user, item, property)
 
     local propertyName
@@ -1328,9 +1351,9 @@ function M.removeOwner(user, item, property)
     M.removeTenantGuestBuilderDuration(propertyDeed)
 
     if tenantExists then
-        local english = "You've been evicted from your former residence in "..propertyName..".\n\n~The Quartermaster"
-        local german = "GERMAN TRANSLATION"..propertyNameDE
-        messenger.sendMessageViaScript(english, german, tenantID)
+
+        M.sendMessageToRemovedTenant(propertyName, propertyNameDE, tenantID, user)
+
         user:inform(M.getText(user,"Vorheriger Mieter entfernt.","Previous tenant evicted."))
     end
 end
