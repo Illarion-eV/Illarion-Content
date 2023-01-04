@@ -1315,9 +1315,18 @@ function M.removeOwner(user, item, property)
 
     local propertyDeed = M.getPropertyDeed(propertyName)
 
+    local tenantID = propertyDeed:getData("tenantID")
+    local tenantExists = false
+
+    if not common.IsNilOrEmpty(tenantID) then
+        tenantExists = true
+    end
+
     M.removeTenantGuestBuilderDuration(propertyDeed)
 
-    user:inform(M.getText(user,"Vorheriger Mieter entfernt.","Previous tenant evicted."))
+    if tenantExists then
+        user:inform(M.getText(user,"Vorheriger Mieter entfernt.","Previous tenant evicted."))
+    end
 end
 
 function M.setOwner(user, item, propertyName)
@@ -1728,9 +1737,7 @@ function M.removeRentalIfDurationIsUp()
         local duration = propertyDeed:getData("rentDuration")
 
         if duration == "" or tonumber(duration) == 0 then
-
             M.removeTenantGuestBuilderDuration(propertyDeed)
-
         else
             return
         end
