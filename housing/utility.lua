@@ -2530,7 +2530,7 @@ function M.setReqRank(user, item, propertyName)
                 propertyDeed:setData("nameEN", factions.GalmairRankListMale[i]["eRank"])
                 propertyDeed:setData("nameDE", factions.GalmairRankListMale[i]["gRank"])
                 world:changeItem(propertyDeed)
-                user:inform(M.getText(user,"Der benötigte Rang wurde auf "..factions.GalmairRankListMale[i]["gRank"].." gesetzt.","Required rank has been set to "..factions.GalmairRankListMale[i]["eRank"].."."))
+                user:inform(M.getText(user,"Der benötigte Rang wurde auf GERMAN TRANSLATION NEEDED TO CONFORM WITH UPDATED ENGLISH "..factions.GalmairRankListMale[i]["gRank"].." gesetzt.","Required rank to rent "..property.." has been set to "..factions.GalmairRankListMale[i]["eRank"].."."))
             end
         end
         setNoRankReq(selected, propertyDeed, user)
