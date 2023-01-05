@@ -1585,7 +1585,7 @@ function M.deleteKeys(char, inform)
         if propertiesRemovedFrom == 1 then
             char:inform(
                 "GERMAN TRANSLATION"..listedPropertiesDe,
-                "No longer welcome to property "..listedPropertiesEn..", guards have been instructed to confiscate some keys you are no longer entitled to.")
+                "No more welcome at property "..listedPropertiesEn..", guards have been instructed to confiscate some keys you are no longer entitled to.")
         elseif propertiesRemovedFrom >= 1 then
             char:inform(
                 "GERMAN TRANSLATION"..listedPropertiesDe,
