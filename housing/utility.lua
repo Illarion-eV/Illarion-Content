@@ -2548,7 +2548,7 @@ function M.setReqRank(user, item, propertyName)
                     propertyDeed:setData("nameEN", factions.RunewickRankListMale[i]["eRank"])
                     propertyDeed:setData("nameDE", factions.RunewickRankListMale[i]["gRank"])
                     world:changeItem(propertyDeed)
-                    user:inform(M.getText(user,"Der benötigte Rang wurde auf "..factions.RunewickRankListMale[i]["gRank"].." gesetzt.","Required rank has been set to "..factions.RunewickRankListMale[i]["eRank"].."."))
+                    user:inform(M.getText(user,"Der benötigte Rang wurde auf GERMAN TRANSLATION NEEDED TO CONFORM WITH UPDATED ENGLISH "..factions.RunewickRankListMale[i]["gRank"].." gesetzt.","Required rank to rent "..property.." has been set to "..factions.RunewickRankListMale[i]["eRank"].."."))
                 end
             end
             setNoRankReq(selected, propertyDeed, user)
@@ -2563,7 +2563,7 @@ function M.setReqRank(user, item, propertyName)
                     propertyDeed:setData("nameEN", factions.CadomyrRankListMale[i]["eRank"])
                     propertyDeed:setData("nameDE", factions.CadomyrRankListMale[i]["gRank"])
                     world:changeItem(propertyDeed)
-                    user:inform(M.getText(user,"Der benötigte Rang wurde auf "..factions.CadomyrRankListMale[i]["gRank"].." gesetzt.","Required rank has been set to "..factions.CadomyrRankListMale[i]["eRank"].."."))
+                    user:inform(M.getText(user,"Der benötigte Rang wurde auf GERMAN TRANSLATION NEEDED TO CONFORM WITH UPDATED ENGLISH "..factions.CadomyrRankListMale[i]["gRank"].." gesetzt.","Required rank to rent "..property.." has been set to "..factions.CadomyrRankListMale[i]["eRank"].."."))
                 end
             end
             setNoRankReq(selected, propertyDeed, user)
