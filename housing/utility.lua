@@ -2198,7 +2198,7 @@ function M.payRent(user, item)
                     item:setData("tenant", user.name)
                     item:setData("tenantID", user.id)
                     world:changeItem(item)
-                    user:inform(M.getText(user,"Auch wenn sich dein Geldbeutel nun deutlich leichter anfühlt, verlässt du das Büro des Quartiermeisters mit dem guten Gefühl, dass dein Grundstück dir für weitere "..input.." Monate gehört.","After another visit to the quartermaster's office, your purse may feel lighter, but you rest comfortably in the knowledge that the residence before you is now yours for an additional "..input.." months."))
+                    user:inform(M.getText(user,"GERMAN TRANSLATION REQUIRED TO CONFORM WITH ENGLISH CHANGES Auch wenn sich dein Geldbeutel nun deutlich leichter anfühlt, verlässt du das Büro des Quartiermeisters mit dem guten Gefühl, dass dein Grundstück dir für weitere "..input.." Monate gehört.","Your purse may feel lighter, but you rest comfortably in the knowledge that the residence before you is now yours for an additional "..input.." months."))
                 end
             end
 
