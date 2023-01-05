@@ -2417,6 +2417,9 @@ function M.setIndefiniteRent(user, item, propertyName)
 
     local propertyDeed = M.getPropertyDeed(propertyName)
 
+    local rentEn = M.getRent(propertyDeed, propertyName)
+    local rentDe = M.getRentDE(propertyDeed, propertyName)
+
     local currentState
 
     local result = propertyDeed:getData("indefiniteRent")
@@ -2442,17 +2445,25 @@ function M.setIndefiniteRent(user, item, propertyName)
         identifier = 1,
         informText = {
             english = "The resident of "..property.." will now live rent free.",
-            german = "Der Bewohner von "..propertyDE.." wohnt nun mietfrei."}
+            german = "Der Bewohner von "..propertyDE.." wohnt nun mietfrei."},
+        informImpactedTenant = {
+            english = "To the resident of "..property..". Let it be known that you are for the time being not expected to pay rent for your tenancy at said property. This may change in the future and you shall receive a similar letter if it does. \n\n ~The Quartermaster",
+            german = "GERMAN TRANSLATION"..propertyDE
+        }
         },
         {english = "Do you want to no longer let the resident of "..property.." live rent free?",
         german = "Möchtest du vom Bewohner von "..propertyDE.." wieder Miete kassieren?",
         identifier = 0,
         informText = {
             english = "The resident of "..property.." will no longer live rent free.",
-            german = "Der Bewohner von "..propertyDE.." lebt nun nicht mehr mietfrei."}
+            german = "Der Bewohner von "..propertyDE.." lebt nun nicht mehr mietfrei."},
+        informImpactedTenant = {
+            english = "To the resident of "..property..". Let it be known that you are once more expected to pay rent for your tenancy at said property. The current rent is set to "..rentEn..". \n\n ~ The Quartermaster",
+            german = "GERMAN TRANSLATION"..propertyDE..rentDe
+        }
         }
     }
-
+ 
     local callback = function(dialog)
         local success = dialog:getSuccess()
         if not success then
@@ -2460,15 +2471,23 @@ function M.setIndefiniteRent(user, item, propertyName)
         end
         local selected = dialog:getSelectedIndex()+1
 
+        local tenantEnglish
+        local tenantGerman
+
         if selected == 1 then
             propertyDeed:setData("indefiniteRent", newState)
             world:changeItem(propertyDeed)
             for _, text in pairs(texts) do
                 if text.identifier == newState then
                     user:inform(text.informText.german, text.informText.english)
+                    tenantEnglish = text.informImpactedTenant.english
+                    tenantGerman = text.informImpactedTenant.german
                     break
                 end
             end
+
+            local tenant = propertyDeed:getData("tenantID")
+            messenger.sendMessageViaScript(tenantEnglish, tenantGerman, tenant)
         end
     end
 
