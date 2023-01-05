@@ -1685,14 +1685,12 @@ function M.propertyInformation(user, deed)
         end
 
         retText = M.getText(user,
-        "Bürger von "..town..
-        ",\nihr könnt nun die "..propertyDE..
+        "Ihr könnt nun die "..propertyDE..
         " zum Preis von "..rentDE..
         " mieten."..rankText.german.." Solltest du dieses Grundstück mieten wollen, wende dich an den Quartiermeister oder melde \z
         dich bei einem "..townLeaderTitleDE..
         "~Unterzeichnet, "..signatureDE,
-        "Citizen of "..town..
-        ",\nit is now possible to rent the "..property..
+        "It is now possible to rent the "..property..
         " at a price of "..rent..rankText.english..
         " Should you seek to rent this property, please seek out the quartermaster or one of your "
         ..townLeaderTitle.."s.\n~Signed, "..signatureEN)
@@ -1738,13 +1736,11 @@ function M.propertyInformation(user, deed)
         retText = M.getText(user, germanText, englishText)
     else -- Shows info specific for when property is owned but not by user.
         retText = M.getText(user,
-        "Bürger von "..town..
-        ",\n dieses Grundstück wird aktuell gemietet von "..tenant..
+        "Dieses Grundstück wird aktuell gemietet von "..tenant..
         ". Solltest du irgendwelche Bedenken haben oder ein freies Grundstück mieten wollen, wende dich bitte an \z
         den Quartiermeister oder melde dich bei einem "..townLeaderTitleDE..
         ".\nUnterzeichnet, "..signatureDE,
-        "Citizen of "..town..
-        ",\nThis property is currently being leased to "..tenant..
+        "This property is currently being leased to "..tenant..
         ". Should you have any concerns, or wish to rent a property that is currently available, please \z
         seek out the quartermaster or one of your "..townLeaderTitle..
         "s.\n~Signed, "..signatureEN)
