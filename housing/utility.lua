@@ -1882,6 +1882,24 @@ function M.charOwnedKeys(char)
     return ((char:countItem(2558))+(char:countItem(3054))+(char:countItem(3055))+(char:countItem(3056)))
 end
 
+local function sendMessageToInformNewBuilderGuest(builderOrGuestID, builderOrGuest, propertyName, propertyNameDe)
+
+    local english
+    local german
+
+    if builderOrGuest == "builder" then
+        english = "Following recommendation by the tenant of "..propertyName.." , you are hereby authorised as a builder of the property. \n\n ~~The Quartermaster"
+        german = "GERMAN TRANSLATION"..propertyNameDe
+    else
+        english = "The tenant of "..propertyName.." has informed us of your residency as a guest at their property. The guards have been notified to let you keep any keys to said property you may have in your possession. /n/n ~The Quartermaster"
+        german = "GERMAN TRANSLATION"..propertyNameDe
+    end
+
+
+    messenger.sendMessageViaScript(english, german, builderOrGuestID)
+
+end
+
 function M.setBuilderOrGuest(user, item, builderOrGuest, propertyName)
 
     local property
@@ -1891,6 +1909,8 @@ function M.setBuilderOrGuest(user, item, builderOrGuest, propertyName)
     else
         property = propertyName
     end
+
+    local propertyNameDe = M.getPropertyNameDE(item)
 
     local propertyDeed = M.getPropertyDeed(property)
     local builderOrGuestDe
@@ -1938,6 +1958,7 @@ function M.setBuilderOrGuest(user, item, builderOrGuest, propertyName)
                         propertyDeed:setData(builderOrGuest.."ID"..i, builderOrGuestID)
                         world:changeItem(propertyDeed)
                         user:inform(M.getText(user,input.." hat nun die Rechte als "..builderOrGuestDe..". "..textDe,input.." set as a "..builderOrGuest..". "..textEn))
+                        sendMessageToInformNewBuilderGuest(builderOrGuestID, builderOrGuest, property, propertyNameDe)
                         return
                     elseif i == M["max_"..builderOrGuest.."_number"] then
                         user:inform(M.getText(user,"Du kannst nur "..M["max_"..builderOrGuest.."_number"].." "..builderOrGuestDePlural.." gleichzeitig haben. Du musst einen von der List entfernen, bevor du jemanden Neues ernennen kannst.","You may only have "..M["max_"..builderOrGuest.."_number"].." "..builderOrGuest.."s at a time. You must remove one if you want to add another." ))
