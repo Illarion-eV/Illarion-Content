@@ -1932,7 +1932,7 @@ local function sendMessageToInformNewBuilderGuest(builderOrGuestID, builderOrGue
         english = "Following recommendation by the tenant of "..propertyName.." , you are hereby authorised as a builder of the property. So fetch your trusted Construction Trowel and get to work! \n\n ~~The Quartermaster"
         german = "GERMAN TRANSLATION"..propertyNameDe
     else
-        english = "The tenant of "..propertyName.." has informed us of your residency as a guest at their property. The guards have been notified to let you keep any keys to said property you may have in your possession. /n/n ~The Quartermaster"
+        english = "The tenant of "..propertyName.." has informed us of your residency as a guest at their property. The guards have been notified to let you keep any keys to said property you may have in your possession. \n\n ~The Quartermaster"
         german = "GERMAN TRANSLATION"..propertyNameDe
     end
 
@@ -1947,10 +1947,10 @@ local function sendMessageToInformRemovedBuilderGuest(builderOrGuestID, builderO
     local german
 
     if builderOrGuest == "builder" then
-        english = "We regret to inform you that the tenant of "..propertyName.." has had your right to build on the property revoked. /n/n ~~The Quartermaster"
+        english = "We regret to inform you that the tenant of "..propertyName.." has had your right to build on the property revoked. \n\n ~~The Quartermaster"
         german = "GERMAN TRANSLATION"..propertyNameDe
     else
-        english = "The tenant of "..propertyName.." has informed us that you have vacated your residency as a guest of their property. If you have yet to hand over your keys, the guards will now confiscate them. /n/n ~The Quartermaster "
+        english = "The tenant of "..propertyName.." has informed us that you have vacated your residency as a guest of their property. If you have yet to hand over your keys, the guards will now confiscate them. \n\n ~The Quartermaster "
         german = "GERMAN TRANSLATION"..propertyNameDe
     end
 
@@ -2618,8 +2618,8 @@ function M.setRent(user, item, property)
     end
 
     local propertyDeed = M.getPropertyDeed(propertyName)
-    local rentEN = M.getRent(item, propertyName)
-    local rentDE = M.getRentDE(item, propertyName)
+    local rentEN = M.getRent(propertyDeed, propertyName)
+    local rentDE = M.getRentDE(propertyDeed, propertyName)
 
     local propertyDe = M.getPropertyNameDE(propertyDeed)
 
@@ -2640,7 +2640,16 @@ function M.setRent(user, item, property)
                 propertyDeed:setData("rent", input)
                 world:changeItem(propertyDeed)
                 user:inform(M.getText(user,"GERMAN TRANSLATION"..propertyDe..germanMoney.." gesetzt.","Rent for "..propertyName.." has been set to "..englishMoney.."."))
-                M.setSignature(user, item, propertyName)
+                M.setSignature(user, propertyDeed, propertyName)
+
+                local textToImpactedPlayer = {english = "To the tenant of "..propertyName..". We send you this letter to inform you that the rent you are expected to pay has been changed from "..rentEN.." to "..englishMoney..". \n\n ~The Quartermaster", german = "GERMAN TRANSLATION"..propertyDe..germanMoney}
+
+                local tenant = propertyDeed:getData("tenantID")
+
+                if not common.IsNilOrEmpty(tenant) then
+                    tenant = tonumber(tenant)
+                    messenger.sendMessageViaScript(textToImpactedPlayer.english, textToImpactedPlayer.german, tenant)
+                end
             end
         else
             user:inform(M.getText(user,"Hier muss eine Zahl eingetragen werden.","Input must be a number."))
