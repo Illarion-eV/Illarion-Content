@@ -1900,6 +1900,22 @@ local function sendMessageToInformNewBuilderGuest(builderOrGuestID, builderOrGue
 
 end
 
+local function sendMessageToInformRemovedBuilderGuest(builderOrGuestID, builderOrGuest, propertyName, propertyNameDe)
+
+    local english
+    local german
+
+    if builderOrGuest == "builder" then
+        english = "We regret to inform you that the tenant of "..propertyName.." has had your right to build on the property revoked. /n/n ~~The Quartermaster"
+        german = "GERMAN TRANSLATION"..propertyNameDe
+    else
+        english = "The tenant of "..propertyName.." has informed us that you have vacated your residency as a guest of their property. If you have yet to hand over your keys, the guards will now confiscate them. /n/n ~The Quartermaster "
+        german = "GERMAN TRANSLATION"..propertyNameDe
+    end
+
+    messenger.sendMessageViaScript(english, german, builderOrGuestID)
+end
+
 function M.setBuilderOrGuest(user, item, builderOrGuest, propertyName)
 
     local property
@@ -1910,9 +1926,10 @@ function M.setBuilderOrGuest(user, item, builderOrGuest, propertyName)
         property = propertyName
     end
 
-    local propertyNameDe = M.getPropertyNameDE(item)
-
     local propertyDeed = M.getPropertyDeed(property)
+
+    local propertyNameDe = M.getPropertyNameDE(propertyDeed)
+
     local builderOrGuestDe
     local builderOrGuestDePlural
     local textDe
@@ -1986,6 +2003,8 @@ function M.removeBuilderOrGuest(user, item, builderOrGuest, propertyName)
 
     local propertyDeed = M.getPropertyDeed(property)
 
+    local propertyNameDe = M.getPropertyNameDE(propertyDeed)
+
     local builderOrGuestDe
     local dialogNameEn
     local dialogNameDe
@@ -2009,10 +2028,12 @@ function M.removeBuilderOrGuest(user, item, builderOrGuest, propertyName)
                 local currentBuilderOrGuest = propertyDeed:getData(builderOrGuest..i)
                 if currentBuilderOrGuest ~= "" then
                     if selected == i-skippedGuestSlots then
+                        local builderOrGuestID = tonumber(propertyDeed:getData(builderOrGuest.."ID"..i))
                         propertyDeed:setData(builderOrGuest..i, "")
                         propertyDeed:setData(builderOrGuest.."ID"..i, "")
                         world:changeItem(propertyDeed)
                         user:inform(M.getText(user,currentBuilderOrGuest.." wurde von der Liste entfernt.",currentBuilderOrGuest.." has been removed from the list."))
+                        sendMessageToInformRemovedBuilderGuest(builderOrGuestID, builderOrGuest, propertyName, propertyNameDe)
                     end
                 else
                     skippedGuestSlots = skippedGuestSlots+1
