@@ -2492,10 +2492,13 @@ local function setNoRankReq(selected, propertyDeed, user)
         return
     end
 
+    local propertyDe = M.getPropertyNameDE(propertyDeed)
+    local propertyEn = M.getPropertyName(propertyDeed)
+
     propertyDeed:setData("nameEN", "false")
     propertyDeed:setData("nameDE", "false")
     world:changeItem(propertyDeed)
-    user:inform(M.getText(user,"GERMAN TRANSLATION","You've set it so that there is no longer any rank requirement associated with renting this property."))
+    user:inform(M.getText(user,"GERMAN TRANSLATION"..propertyDe,"You've set it so that there is no longer any rank requirement associated with renting "..propertyEn.."."))
 
 end
 
