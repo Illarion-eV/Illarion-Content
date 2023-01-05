@@ -1488,9 +1488,31 @@ end
 
 local towns = {"Cadomyr", "Runewick", "Galmair", "Outlaw"}
 
+local function convertTableIntoList(theTable)
+
+    local retString
+
+    for _, object in pairs(theTable) do
+        if not retString then
+            retString = object
+        else
+            retString = retString..", "..object
+        end
+    end
+
+    return retString
+
+end
+
 function M.deleteKeys(char, inform)
 
     local removedKeys = false
+
+    local propertiesRemovedFrom = 0
+
+    local listOfPropertyNamesEn = {}
+
+    local listOfPropertyNamesDe = {}
 
     for _, theTown in pairs(towns) do
         for i = 1, #propertyList.propertyTable do --Go through all properties
@@ -1503,6 +1525,7 @@ function M.deleteKeys(char, inform)
 
             local propertyName = propertyList.propertyTable[i][1] -- Fetch name of property
             local propertyDeed = M.getPropertyDeed(propertyName)
+            local propertyNameDe = M.getPropertyNameDE(propertyDeed)
             local tenantID = propertyDeed:getData("tenantID") --Fetch owner of property
             local noTenant = common.IsNilOrEmpty(tenantID)
             local characterIsTenant = false
@@ -1528,6 +1551,12 @@ function M.deleteKeys(char, inform)
 
             if totalKeys > 0 and (noTenant or not characterIsTenant and  not characterIsGuest) then
 
+                propertiesRemovedFrom = propertiesRemovedFrom + 1
+
+                table.insert(listOfPropertyNamesEn, propertyName)
+
+                table.insert(listOfPropertyNamesDe, propertyNameDe)
+
                 if keyAmount > 0 then
                     char:eraseItem(keyType,keyAmount,{["lockId"]=keyID})
                     removedKeys = true
@@ -1549,8 +1578,20 @@ function M.deleteKeys(char, inform)
         end
     end
 
+    local listedPropertiesEn = convertTableIntoList(listOfPropertyNamesEn)
+    local listedPropertiesDe = convertTableIntoList(listOfPropertyNamesDe)
+
     if removedKeys and inform then
-        char:inform("Bei deinem letzten Stadtbesuch wurden bei einer routinemäßigen Taschenkontrolle durch die Wachen Schlüssel, die du nicht besitzen solltest, gefunden und konfisziert.", "Upon your latest town visit, some keys you were not supposed to have were confiscated by the guards in a random bag check at the gates.")
+        if propertiesRemovedFrom == 1 then
+            char:inform(
+                "GERMAN TRANSLATION"..listedPropertiesDe,
+                "No longer welcome to property "..listedPropertiesEn..", guards have been instructed to confiscate some keys you are no longer entitled to.")
+        elseif propertiesRemovedFrom >= 1 then
+            char:inform(
+                "GERMAN TRANSLATION"..listedPropertiesDe,
+                "As you are no longer welcome to the following properties, guards have been instructed to confiscate some keys you are no longer entitled to: "..listedPropertiesEn.."."
+            )
+        end
     end
 
 end
