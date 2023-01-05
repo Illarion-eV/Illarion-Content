@@ -2621,6 +2621,8 @@ function M.setRent(user, item, property)
     local rentEN = M.getRent(item, propertyName)
     local rentDE = M.getRentDE(item, propertyName)
 
+    local propertyDe = M.getPropertyNameDE(propertyDeed)
+
     local newRent = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -2634,9 +2636,10 @@ function M.setRent(user, item, property)
             elseif tonumber(input) <= 0 then
                 user:inform(M.getText(user,"Die Zahl muss grösser als 0 sein.","You must set a number higher than 0."))
             else
+                local germanMoney, englishMoney = money.MoneyToString(tonumber(input))
                 propertyDeed:setData("rent", input)
                 world:changeItem(propertyDeed)
-                user:inform(M.getText(user,"Mietpreis auf "..input.." gesetzt.","Rent set to "..input))
+                user:inform(M.getText(user,"GERMAN TRANSLATION"..propertyDe..germanMoney.." gesetzt.","Rent for "..propertyName.." has been set to "..englishMoney.."."))
                 M.setSignature(user, item, propertyName)
             end
         else
