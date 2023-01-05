@@ -124,7 +124,7 @@ function M.UseItem(user, SourceItem)
             local dialogOwnedByuser = SelectionDialog(utility.getText(user,utility.getPropertyNameDE(SourceItem),utility.getPropertyName(SourceItem)) , utility.propertyInformation(user, SourceItem).."\n\n"..utility.getText(user,"Wähle aus, was du machen willst.","Select what you want to do.") , callback2)
             local dialogOwnedNotByuser = SelectionDialog(utility.getText(user,utility.getPropertyNameDE(SourceItem),utility.getPropertyName(SourceItem)) , utility.propertyInformation(user, SourceItem).."\n\n"..utility.getText(user,"Wähle aus, was du machen willst.","Select what you want to do.") , callback3)
             if utility.isAutomaticRentEnabled(property) then
-                dialogOwnedByuser:addOption(0, utility.getText(user, "Miete zahlen", "Pay to extend rent duration"))
+                dialogOwnedByuser:addOption(0, utility.getText(user, "Miete zahlen", "Lease Extension"))
             end
             dialogOwnedByuser:addOption(0, utility.getText(user,"Mietverhältnis beenden","Abandon Property"))
             dialogOwnedByuser:addOption(0, utility.getText(user,"Erteile Rechte als Bauherr","Give Builder Permission"))
