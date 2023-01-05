@@ -129,18 +129,12 @@ function M.UseItem(user, SourceItem)
             dialogOwnedByuser:addOption(0, utility.getText(user,"Mietverhältnis beenden","Abandon Property"))
             dialogOwnedByuser:addOption(0, utility.getText(user,"Erteile Rechte als Bauherr","Give Builder Permission"))
             dialogOwnedByuser:addOption(0, utility.getText(user,"Entziehe Rechte als Bauherr","Remove Builder Permission"))
-            if utility.checkIfEstateViaName(property) then --Tenants are allowed to set guests themselves on estate properties
-                dialogOwnedByuser:addOption(0, utility.getText(user,"Gast hinzufügen","Add Guest"))
-                dialogOwnedByuser:addOption(0, utility.getText(user,"Gast entfernen","Remove Guest"))
-            end
+            dialogOwnedByuser:addOption(0, utility.getText(user,"Gast hinzufügen","Add Guest"))
+            dialogOwnedByuser:addOption(0, utility.getText(user,"Gast entfernen","Remove Guest"))
             if utility.checkIfLeaderOfTown(user, town) or user:isAdmin() then
                 dialogUnowned:addOption(0, utility.getText(user,"Mieter eintragen","Set Tenant"))
                 dialogUnowned:addOption(0, utility.getText(user,"Miete anpassen","Change Rent"))
                 dialogUnowned:addOption(0, utility.getText(user,"Erforderlichen Rang anpassen","Change Required Rank"))
-                if not utility.checkIfEstateViaName(property) then --Only admins/player leaders can set who can have keys to the property if not an estate
-                    dialogOwnedByuser:addOption(0, utility.getText(user,"Gast hinzufügen","Add Guest"))
-                    dialogOwnedByuser:addOption(0, utility.getText(user,"Gast entfernen","Remove Guest"))
-                end
                 dialogOwnedByuser:addOption(0, utility.getText(user,"Mieter eintragen","Set Tenant"))
                 dialogOwnedByuser:addOption(0, utility.getText(user,"Mieter entfernen","Remove Tenant"))
                 dialogOwnedByuser:addOption(0, utility.getText(user,"Miete anpassen","Change Rent"))
