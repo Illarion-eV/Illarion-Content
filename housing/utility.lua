@@ -1888,7 +1888,7 @@ local function sendMessageToInformNewBuilderGuest(builderOrGuestID, builderOrGue
     local german
 
     if builderOrGuest == "builder" then
-        english = "Following recommendation by the tenant of "..propertyName.." , you are hereby authorised as a builder of the property. \n\n ~~The Quartermaster"
+        english = "Following recommendation by the tenant of "..propertyName.." , you are hereby authorised as a builder of the property. So fetch your trusted Construction Trowel and get to work! \n\n ~~The Quartermaster"
         german = "GERMAN TRANSLATION"..propertyNameDe
     else
         english = "The tenant of "..propertyName.." has informed us of your residency as a guest at their property. The guards have been notified to let you keep any keys to said property you may have in your possession. /n/n ~The Quartermaster"
