@@ -1883,17 +1883,21 @@ function M.charOwnedKeys(char)
 end
 
 function M.setBuilderOrGuest(user, item, builderOrGuest, propertyName)
+
     local property
+
     if propertyName == nil then
         property = M.getPropertyName(item)
     else
         property = propertyName
     end
+
     local propertyDeed = M.getPropertyDeed(property)
     local builderOrGuestDe
     local builderOrGuestDePlural
     local textDe
     local textEn
+
     if builderOrGuest == "builder" then
         builderOrGuestDe = "Bauherr"
         builderOrGuestDePlural = "Bauherren"
@@ -1905,6 +1909,7 @@ function M.setBuilderOrGuest(user, item, builderOrGuest, propertyName)
         textDe = "Schlüssel, die diese Person hat, werden nicht länger von den Wachen konfisziert."
         textEn = "Keys they have will no longer be confiscated by the guards."
     end
+
     local callback = function (dialog)
         if not dialog:getSuccess() then
             return
@@ -1917,6 +1922,12 @@ function M.setBuilderOrGuest(user, item, builderOrGuest, propertyName)
 
             if not builderOrGuestExists then
                 informDoesntExist(user)
+            elseif builderOrGuestID == user.id then
+                if builderOrGuest == "builder" then
+                    user:inform("GERMAN TRANSLATION", "As the tenant of the property, you already have permission to build on it.")
+                else
+                    user:inform("GERMAN TRANSLATION", "As the tenant of the property, it'd be superflous to make yourself a guest as well. If you want to let the guards know to let others keep keys to your property, however, you should register them as guest.")
+                end
             else
                 for i = 1, M["max_"..builderOrGuest.."_number"] do
 
@@ -1935,6 +1946,7 @@ function M.setBuilderOrGuest(user, item, builderOrGuest, propertyName)
             end
         end
     end
+
     user:requestInputDialog(InputDialog(M.getText(user,builderOrGuestDe.." eintragen","Set "..builderOrGuest),
     M.getText(user,"Wen möchtest du als "..builderOrGuestDe.." eintragen?",
     "Write in the name of who you want to set as a "..builderOrGuest),
