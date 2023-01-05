@@ -2020,6 +2020,7 @@ function M.removeBuilderOrGuest(user, item, builderOrGuest, propertyName)
         dialogNameDe = "Gästeliste"
     end
 
+
     local callback = function(dialog)
         local success = dialog:getSuccess()
         if success then
@@ -2032,7 +2033,7 @@ function M.removeBuilderOrGuest(user, item, builderOrGuest, propertyName)
                         propertyDeed:setData(builderOrGuest..i, "")
                         propertyDeed:setData(builderOrGuest.."ID"..i, "")
                         world:changeItem(propertyDeed)
-                        user:inform(M.getText(user,currentBuilderOrGuest.." wurde von der Liste entfernt.",currentBuilderOrGuest.." has been removed from the list."))
+                        user:inform(M.getText(user,currentBuilderOrGuest.." wurde von der GERMAN TRANSLATION TO MATCH UPDATED ENGLISH Liste entfernt.",currentBuilderOrGuest.." has been removed from the list of "..builderOrGuest.."s."))
                         sendMessageToInformRemovedBuilderGuest(builderOrGuestID, builderOrGuest, propertyName, propertyNameDe)
                     end
                 else
@@ -2043,8 +2044,8 @@ function M.removeBuilderOrGuest(user, item, builderOrGuest, propertyName)
     end
 
     local dialog = SelectionDialog(M.getText(user,dialogNameDe,dialogNameEn) ,
-    M.getText(user,"Wähle einen Namen aus, der von der Liste entfernt werden soll.",
-    "Select a name to remove them from the list.") , callback)
+    M.getText(user,"Wähle einen Namen aus, der von der Liste entfernt werden soll. GERMAN TRANSLATION TO MATCH UPDATED ENGLISH",
+    "Select a name to remove them from the "..builderOrGuest.." list.") , callback)
 
     for i = 1, M["max_"..builderOrGuest.."_number"] do
         local currentBuilderOrGuest = propertyDeed:getData(builderOrGuest..i)
