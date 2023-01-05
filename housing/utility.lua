@@ -2463,7 +2463,7 @@ function M.setIndefiniteRent(user, item, propertyName)
         }
         }
     }
- 
+
     local callback = function(dialog)
         local success = dialog:getSuccess()
         if not success then
