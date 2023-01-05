@@ -30,6 +30,10 @@ local M = {}
  M.max_builder_number = 20
  M.depotList={100,101,102,103}
 
+ local function informDoesntExist(user)
+    user:inform("GERMAN TRANSLATION. Hast du den Namen vielleicht falsch geschrieben?", "Nobody of that name is recognised here. Did you perhaps misspell the name?")
+ end
+
  function M.checkOwner(item)
 
     local tenant = item:getData("tenantID")
@@ -1382,7 +1386,7 @@ function M.setOwner(user, item, propertyName)
             local tenantExists, tenantID = world:getPlayerIdByName(input)
 
             if not tenantExists then
-                user:inform("Dieser Name steht nicht in der Bürgerrolle. Hast du den Namen vielleicht falsch geschrieben?", "That name is not in the citizen registry. Did you perhaps misspell the name?")
+                informDoesntExist(user)
             elseif M.checkIfOwnsProperty(input) and not M.checkIfEstateViaName(property) then
                 user:inform(M.getText(user,"Der Charakter mietet bereits ein Grundstück.","Character already rents a property."))
             else
@@ -1912,7 +1916,7 @@ function M.setBuilderOrGuest(user, item, builderOrGuest, propertyName)
             local builderOrGuestExists, builderOrGuestID = world:getPlayerIdByName(input)
 
             if not builderOrGuestExists then
-                user:inform("Dieser Name steht nicht in der Bürgerrolle. Hast du den Namen vielleicht falsch geschrieben?", "That name is not in the citizen registry. Did you perhaps misspell the name?")
+                informDoesntExist(user)
             else
                 for i = 1, M["max_"..builderOrGuest.."_number"] do
 
@@ -1976,7 +1980,7 @@ function M.setBuilderOrGuest(user, item, builderOrGuest, propertyName)
             local builderOrGuestExists, builderOrGuestID = world:getPlayerIdByName(input)
 
             if not builderOrGuestExists then
-                user:inform("Dieser Name steht nicht in der Bürgerrolle. Hast du den Namen vielleicht falsch geschrieben?", "That name is not in the citizen registry. Did you perhaps misspell the name?")
+                informDoesntExist(user)
             else
                 for i = 1, M["max_"..builderOrGuest.."_number"] do
 
