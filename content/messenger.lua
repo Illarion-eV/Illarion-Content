@@ -47,6 +47,37 @@ local function spawnParchment(user, texts, signature, descriptionEn, description
     end
 end
 
+local function garbleTheMessage(message) -- Make it recognisable for those with database access to check if it matches, but unrecognisable for others for privacy reasons
+    --[[sends the first 21 characters in the letter.
+    EG: "I need to talk to you. Find me in Galmair when you read this." becomes "I****d****t****t****."
+    Undecipherable for those without database access to match it to the variables there,
+    or the foreknowledge of what the message is meant to hold
+    ]]
+    return string.sub(message, 1, 1).."****"..string.sub(message, 6, 6).."****"..string.sub(message, 11, 11).."****"..string.sub(message, 16, 16).."****"..string.sub(message, 21, 21)
+end
+
+local function convertContentsIntoString(contents)
+
+    local retString = ""
+
+    for index, message in pairs(contents) do
+        retString = retString.." (Sender "..index..": "..message.sender.." Message"..index..": "..garbleTheMessage(message.text)..")"
+    end
+
+    return retString
+
+end
+
+local function logThatMessagesWereReceived(recipient, contents)
+    local numberOfMessages = #contents
+
+    local loggedMessage = "[Messenger]: "..recipient.name.." at "..tostring(recipient.pos).." has received "..numberOfMessages.." messages. They contain the following, garbled for privacy reasons: "
+
+    loggedMessage = loggedMessage..convertContentsIntoString(contents)
+
+    log(loggedMessage)
+end
+
 function M.sendStoredMessages(recipient)
     local foundStoredMessages, numberOfMessages = ScriptVars:find(recipient.id.."storedMessages")
 
@@ -64,6 +95,7 @@ function M.sendStoredMessages(recipient)
 
 local text = common.GetNLS(recipient, "Ein Bote bringt dir "..parchmentsDE.." und verschwindet wieder, so schnell er gekommen ist.", "A messenger comes up to you, delivering "..parchments.." before scurrying off.")
 local title = common.GetNLS(recipient, "Post", "Message Delivery")
+local contents = {}
 
     for i = 1, tonumber(numberOfMessages) do
         local foundText1, text1 = ScriptVars:find(recipient.id.."storedMessageText"..i)
@@ -76,8 +108,13 @@ local title = common.GetNLS(recipient, "Post", "Message Delivery")
 
         if foundText1 and foundText2 and foundText3 and foundText4 and foundSignature and foundDescriptionEn and foundDescriptionDe then
             local texts = {text1, text2, text3, text4}
+            table.insert(contents, {text = text1, sender = signature})
             spawnParchment(recipient, texts, signature, descriptionEn, descriptionDe)
         end
+    end
+
+    if tonumber(numberOfMessages) > 0 then
+        logThatMessagesWereReceived(recipient, contents)
     end
 
     ScriptVars:set(recipient.id.."storedMessages", "0")
