@@ -544,7 +544,7 @@ local function changeItemGlyph(user, TargetItem)
         end
         local input = dialog:getInput()
         if (string.find(input,"(%d+)")~=nil) then
-            if glyphs.getGlyphRingOrAmulet(TargetItem) == 0 then
+            if glyphs.getGlyphRingOrAmulet(TargetItem.id) == nil then
                 user:inform("Item "..world:getItemName(TargetItem.id, Player.english).." cannot be glyphed. Only rings or amulets can contain glyph charges.")
             else
                 local _, _, newcharges = string.find(input,"(%d+)")
@@ -2053,25 +2053,22 @@ local function specialItemCreationGlyphShard(user)
             return
         end
         local input = dialog:getInput()
+
+        local shardsToCreate = 1
+
         if (string.find(input,"(%d+)") ~= nil) then
-            if (string.find(input,"[1-7][1-7]") ~= nil) then
-                local _, _, level = string.find(input,"(%d+)")
-                shard.createShardWithLevelOnuser(user, level)
-            else
-                local _, _, amount = string.find(input,"(%d+)")
-                for i=1, tonumber(amount) do
-                    shard.createShardOnuser(user)
-                end
-            end
-        else
-            shard.createShardOnuser(user)
+
+            local _, _, amount = string.find(input,"(%d+)")
+
+            shardsToCreate = tonumber(amount)
+        end
+
+        for i = 1, shardsToCreate do
+            shard.createShardOnUser(user)
         end
     end
     user:requestInputDialog(InputDialog("Glyph Shard Creation",
-                                        "Please enter which shard you want to create" ..
-                                        "\n- Nothing: A single random shard." ..
-                                        "\n- [1-7][1-7]: A singe defined shard." ..
-                                        "\n- Other numbers: Number of random shards.",false, 255, cbInputDialog))
+                                        "Please enter the amount of random shards you want to create",false, 255, cbInputDialog))
 end
 
 local function specialItemCreationCreate(user,indexItem)
