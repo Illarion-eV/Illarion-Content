@@ -23,76 +23,53 @@ local M = {}
 -- UPDATE items SET itm_script='item.shard',itm_weight=20, itm_agingspeed=254, itm_brightness=1, itm_worth=10000, itm_maxstack=1000, itm_name_german='Splitter', itm_name_english='Shard',itm_rareness=2 WHERE itm_id IN (3493, 3494, 3495,3496,3497);
 
 function M.UseItem(user, item)
-        user:inform(
-            "Es scheint sich um ein Stück eines zerbrochenen magischen Artefakts zu handeln. Vielleicht kann man es wieder zusammensetzen?",
-            "The shard looks like a piece of a broken magical artifact. Maybe you can put it together again?")
+
+    local isMage = user:getMagicType() == 0 and user:getMagicFlags(0) > 0 or user:getMagicType() == 0 and user:getQuestProgress(37) ~= 0
+
+    local informTextGerman = "Es scheint sich um ein Stück eines zerbrochenen magischen Artefakts zu handeln."
+    local informTextEnglish = "The shard looks like a piece of a broken magical artifact."
+
+    if isMage then
+        informTextEnglish = informTextEnglish.." Maybe you can put it together again?"
+        informTextGerman = informTextGerman.." Vielleicht kann man es wieder zusammensetzen?"
+    else
+        informTextEnglish = informTextEnglish.." Perhaps you can find someone with the required magical prowess to make use of this?"
+        informTextGerman = informTextGerman.." GERMAN TRANSLATION"
+    end
+
+    user:inform(informTextGerman, informTextEnglish)
+
 end
 
+local oldShards = {3493, 3494, 3495,3496,3497}
+
 function M.LookAtItem(user, item)
+
     local lookAt = lookat.GenerateLookAt(user, item)
-    lookAt.description = common.GetNLS(user, "Glyphenscherbe", "Glyph shard")
-    lookAt.name = glyphs.getShardName(item)
-    lookAt.rareness = 2
+
+    for _, shard in pairs(oldShards) do
+        if shard == item.id then
+            lookAt.description = common.GetNLS(user, "GERMAN TRANSLATION", "Relict glyph shard. Move it anywhere else in your inventory or on the ground to change it into the new updated shard item.")
+        end
+    end
 
     return lookAt
 end
 
 function M.createShardOnUser(user)
-    local shardLevel = glyphs.getRandomShardLevel()
-    local shardId = tonumber(glyphs.getShardId(shardLevel))
-    common.CreateItem(user, shardId, 1, 999, {[glyphs.SHARD_LEVEL_DATA_KEY] = shardLevel})
-end
 
-function M.createShardWithLevelOnUser(user, shardLevel)
-    local shardId = tonumber(glyphs.getShardId(shardLevel))
-    common.CreateItem(user, shardId, 1, 999, {[glyphs.SHARD_LEVEL_DATA_KEY] = shardLevel})
+    local shardId = glyphs.getRandomShard()
+
+    common.CreateItem(user, shardId, 1, 999)
+
 end
 
 function M.createShardOnPosition(pos)
-    local shardLevel = glyphs.getRandomShardLevel()
-    local shardId = tonumber(glyphs.getShardId(shardLevel))
-    world:createItemFromId(shardId,1,pos,false,999,{[glyphs.SHARD_LEVEL_DATA_KEY] = shardLevel})
-end
 
-function M.dropShardByChance(treasureLocation,treasureLevel)
-    if treasureLevel >=1 and treasureLevel <= 5 then
-        local singleProb = 1 / (3 + tonumber(treasureLevel) / 2)
-        for i=1, treasureLevel do
-            if math.random() < singleProb then
-                M.createShardOnPosition(treasureLocation)
-            end
-        end
-    end
-end
+    local shardId = glyphs.getRandomShard()
 
-function M.shardInInvertory(user,shardLevel)
-    local itemId = glyphs.getShardId(shardLevel)
-    local dataValues = {}
-    dataValues[1] = {glyphs.SHARD_LEVEL_DATA_KEY,shardLevel}
-    return common.GetItemInInventory(user, itemId, dataValues)
-end
+    world:createItemFromId(shardId, 1, pos, false, 999, nil)
 
-function M.removeShardsForItem(user,targetItem)
-    local ringOrAmulet = glyphs.getGlyphRingOrAmulet(targetItem)
-    local level = glyphs.getGlyphLevel(targetItem)
-    local shardLevel
-    local sucess = true
-    local shardItem
-
-    for i=1, 7 do
-        if ringOrAmulet == glyphs.RING then
-            shardLevel = level*10+i
-        else
-            shardLevel = i*10+level
-        end
-        shardItem = M.shardInInvertory(user,shardLevel)
-        if shardItem == nil then
-            sucess = false
-        else
-             world:erase(shardItem,1)
-        end
-    end
-    return sucess
 end
 
 return M
