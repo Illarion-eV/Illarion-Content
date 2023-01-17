@@ -541,13 +541,15 @@ function Craft:generateRarity(user, productId, toolItem, rareIngredientBonus)
 end
 
 function Craft:checkIfFoodItem(productId)
+
     local product = self.products[productId]
-    if not foodScript.foodList[product.item] then
-        return false
+
+    if foodScript.foodList[product.item] and foodScript.foodList[product.item].crafted then
+        return true
     end
-    if foodScript.foodList[product.item].crafted then
-        return true, foodScript.foodList[product.item].buffs
-    end
+
+    return false
+
 end
 
 function Craft:generateQuality(user, productId, toolItem)
@@ -712,14 +714,10 @@ function Craft:createItem(user, productId, toolItem)
 
     local rarity = 0
 
-    local foodItem, foodBuff = self:checkIfFoodItem(productId)
+    local foodItem = self:checkIfFoodItem(productId)
 
     if foodItem and quality >= 900 then
         rarity = self:generateRarity(user, productId, toolItem, rareIngredientBonus)
-
-        if not foodBuff then
-            rarity = common.Limit(rarity, 0, 2)
-        end
 
         if rarity > 1 then
             product.data.rareness = rarity
