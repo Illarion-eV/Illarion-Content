@@ -20,7 +20,33 @@ local lookat = require("base.lookat")
 
 local M = {}
 
--- UPDATE items SET itm_script='item.shard',itm_weight=20, itm_agingspeed=254, itm_brightness=1, itm_worth=10000, itm_maxstack=1000, itm_name_german='Splitter', itm_name_english='Shard',itm_rareness=2 WHERE itm_id IN (3493, 3494, 3495,3496,3497);
+local oldShardNameListing =
+{{"Anemo", "Pyr", "Hydor", "Chous", "Dendron", "Nomizo", "Hieros"},
+{"gwynt", "tan", "ilyn", "daear", "coeden", "ysbryd", "dwyfol"}}
+
+function M.MoveItemAfterMove(user, sourceItem, targetItem)
+
+    local shardLevel = tonumber(targetItem:getData("shardLevel"))
+
+    if common.IsNilOrEmpty(shardLevel) then
+        return true
+    end
+
+
+    local textParts = common.Split_number(shardLevel,2)
+
+    local shardName = oldShardNameListing[1][textParts[1] ] .. oldShardNameListing[2][textParts[2]]
+
+    local shardItemId = Item[shardName:lower()]
+
+    targetItem.id = shardItemId
+    targetItem:setData("shardLevel", "") -- allows it to stack with the new ones unless it has other custom data not set by the old glyph script
+
+    world:changeItem(targetItem)
+
+    return true
+
+end
 
 function M.UseItem(user, item)
 
@@ -43,13 +69,18 @@ end
 
 local oldShards = {3493, 3494, 3495,3496,3497}
 
-function M.LookAtItem(user, item)
+function M.LookAtItem(user, theShard)
 
-    local lookAt = lookat.GenerateLookAt(user, item)
+    local lookAt = lookat.GenerateLookAt(user, theShard)
 
     for _, shard in pairs(oldShards) do
-        if shard == item.id then
-            lookAt.description = common.GetNLS(user, "GERMAN TRANSLATION", "Relict glyph shard. Move it anywhere else in your inventory or on the ground to change it into the new updated shard item.")
+        if shard == theShard.id then
+
+            local shardLevel = tonumber(theShard:getData("shardLevel"))
+
+            if not common.IsNilOrEmpty(shardLevel) then
+                lookAt.description = common.GetNLS(user, "GERMAN TRANSLATION", "Relict glyph shard. Move it anywhere else in your inventory or on the ground to change it into the new updated shard item.")
+            end
         end
     end
 
