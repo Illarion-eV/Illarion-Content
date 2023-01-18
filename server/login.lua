@@ -234,6 +234,7 @@ local payTaxes
 local receiveGems
 local PayOutWage
 local payNow
+local checkForNewBulletinMessages
 
 function M.onLogin( player )
 
@@ -365,6 +366,9 @@ function M.onLogin( player )
 
     --Checking for pending messages from the messenger
     messenger.sendStoredMessages(player)
+
+    --Check for and provide an inform if there are unread messages at the Troll's haven bulletin board or the relevant town boards if a citizen
+    checkForNewBulletinMessages(player)
 end
 
 function showNewbieDialog(player)
@@ -646,6 +650,84 @@ function exchangeFactionLeader( playerName )
                 factionLeader.informationTable[i].newPosition)
         end
     end
+end
+
+local function checkTrollsHavenBulletin(user)
+
+    local lastSeen = user:getQuestProgress(255)
+
+    local foundLatest, latest = ScriptVars:find("latestBulletinMessage")
+
+    if not foundLatest then
+        return false
+    end
+
+    latest = tonumber(latest)
+
+    if lastSeen ~= latest and lastSeen ~= 0 then --Only those who are aware of the bulletin by having checked it at least once will be informed of new messages, as to avoid confusing new players
+        return true
+    end
+
+    return false
+
+end
+
+local function checkRealmBulletin(user)
+
+    local town = factions.getMembershipByName(user)
+
+    local townBoardQuestIds = {Runewick = 256, Cadomyr = 257, Galmair = 258}
+
+    local townQuestId = townBoardQuestIds[town]
+
+    if common.IsNilOrEmpty(townQuestId) then --outlaws
+        return false
+    end
+
+    local foundTownLatest, townLatest = ScriptVars:find("latestMessage"..town)
+
+    if not foundTownLatest then
+        return false
+    end
+
+    townLatest = tonumber(townLatest)
+
+    local lastSeen = user:getQuestProgress(townQuestId)
+
+    if lastSeen ~= 0 and lastSeen ~= townLatest then
+        return true, town
+    end
+
+    return false
+
+end
+
+function checkForNewBulletinMessages(user)
+
+    local sendTrollsHavenMessage = checkTrollsHavenBulletin(user)
+
+    local sendRealmMessage, town = checkRealmBulletin(user)
+
+
+    if not sendRealmMessage and not sendTrollsHavenMessage then
+        return
+    end
+
+    local texts = {}
+
+    if sendRealmMessage and sendTrollsHavenMessage then
+        texts.english = "There are new messages to be read at both the Hemp Necktie Inn bulletin board and the town board of "..town.."."
+        texts.german = "GERMAN TRANSLATION"
+    elseif sendRealmMessage then
+        texts.english = "There are new messages to be read at the "..town.." town board."
+        texts.german = ""
+    else
+        texts.english = "There are new messages to be read at the Hemp Necktie Inn bulletin board."
+        texts.german = ""
+    end
+
+    user:inform("GERMAN TRANSLATION"..texts.german, "[Bulletin] "..texts.english)
+
 end
 
 return M
