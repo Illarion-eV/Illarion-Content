@@ -248,7 +248,19 @@ function townProperties(user, toolTown, SourceItem)
     user:requestSelectionDialog(dialog)
 end
 
-function TownAnnouncement(User,toolTown)
+function TownAnnouncement(user, toolTown)
+
+    local townNames = {"Cadomyr", "Runewick", "Galmair"}
+    local townBoardQuestIds = {Runewick = 256, Cadomyr = 257, Galmair = 258}
+    local townQuestId = townBoardQuestIds[townNames[toolTown]]
+
+    local lastSeen = user:getQuestProgress(townQuestId)
+
+    local foundLatest, latest = ScriptVars:find("latestMessage"..townNames[toolTown])
+
+    if foundLatest and tonumber(latest) ~= lastSeen then
+        user:setQuestProgress(townQuestId, tonumber(latest))
+    end
 
     -- selection dialog
     local callback = function(dialog)
@@ -257,24 +269,24 @@ function TownAnnouncement(User,toolTown)
         end
         local selected = dialog:getSelectedIndex() + 1
         if selected == 1 then
-            TownAnnouncementShow(User,toolTown)
+            TownAnnouncementShow(user,toolTown)
         elseif selected == 2 then
-            TownAnnouncementInput(User,toolTown)
+            TownAnnouncementInput(user,toolTown)
         end
     end
 
-    local dialogTitle = common.GetNLS(User, "Ankündigung", "Announcement")
-    local dialogText = common.GetNLS(User, "Wähle eine Option.", "Chose an option.")
+    local dialogTitle = common.GetNLS(user, "Ankündigung", "Announcement")
+    local dialogText = common.GetNLS(user, "Wähle eine Option.", "Chose an option.")
     local dialog = SelectionDialog(dialogTitle, dialogText, callback)
 
-    local options = common.GetNLS(User, {"Ankündigung lesen", "Ankündigung schreiben"}, {"Read announcement", "Write new announcement"})
+    local options = common.GetNLS(user, {"Ankündigung lesen", "Ankündigung schreiben"}, {"Read announcement", "Write new announcement"})
 
     for i = 1, #options do
         dialog:addOption(0, options[i])
     end
 
     dialog:setCloseOnMove()
-    User:requestSelectionDialog(dialog)
+    user:requestSelectionDialog(dialog)
 
 end
 
@@ -304,11 +316,11 @@ function TownAnnouncementShow(User,toolTown)
 
 end
 
-function TownAnnouncementInput(User,toolTown)
+function TownAnnouncementInput(user,toolTown)
 
     -- input dialog
-    local title = common.GetNLS(User, "Ankündigung schreiben", "Write new announcement")
-    local text = common.GetNLS(User, "Schreibe deine neue Ankündigung. Abbruch führt dazu, dass die derzeitige Ankündigung beibehalten wird.", "Write your new annoucement. Cancel to keep current announcement.")
+    local title = common.GetNLS(user, "Ankündigung schreiben", "Write new announcement")
+    local text = common.GetNLS(user, "Schreibe deine neue Ankündigung. Abbruch führt dazu, dass die derzeitige Ankündigung beibehalten wird.", "Write your new annoucement. Cancel to keep current announcement.")
 
     local callback = function(dialog)
         if not dialog:getSuccess() then
@@ -316,24 +328,40 @@ function TownAnnouncementInput(User,toolTown)
         else
             local writtenText = dialog:getInput()
             if string.len (writtenText) > 986 then
-                User:inform("Deine Ankündigung ist zu lang.","The announcement is too long.",Character.highPriority)
+                user:inform("Deine Ankündigung ist zu lang.","The announcement is too long.",Character.highPriority)
             else
                 --write
                 local options = {"announcementCadomyr", "announcementRunewick", "announcementGalmair"}
                 local townNames = {"Cadomyr", "Runewick", "Galmair"}
+                local townBoardQuestIds = {Runewick = 256, Cadomyr = 257, Galmair = 258}
+                local townQuestId = townBoardQuestIds[townNames[toolTown]]
 
                 if options[toolTown] then
                     ScriptVars:set(options[toolTown], writtenText)
+
+                    local foundLatest, latest = ScriptVars:find("latestMessage"..townNames[toolTown])
+
+                    if not foundLatest then
+                        latest = 0
+                    end
+
+                    latest = tonumber(latest) + 1
+
+                    ScriptVars:set("latestMessage"..townNames[toolTown], tostring(latest))
+
                     ScriptVars:save()
+
+                    user:setQuestProgress(townQuestId, latest)
+
                     world:broadcast("In "..townNames[toolTown].." wurde eine neue Ankündigung veröffentlicht.", "A new announcement has been published in "..townNames[toolTown]..".")
                 else
-                    common.InformNLS(User,"Ungültige Stadt. Bitte informiere einen Entwickler.","Invalid town. Please report to a developer.")
+                    common.InformNLS(user,"Ungültige Stadt. Bitte informiere einen Entwickler.","Invalid town. Please report to a developer.")
                 end
             end
         end
     end
     local dialog = InputDialog(title, text, false, 986, callback)
-    User:requestInputDialog(dialog)
+    user:requestInputDialog(dialog)
 
 end
 

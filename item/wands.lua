@@ -20,7 +20,6 @@ local common = require("base.common")
 local magic = require("base.magic")
 local checks = require("item.general.checks")
 local learnMagic = require("magic.learnMagic")
-local glyphs = require("base.glyphs")
 local glyphmagic = require("magic.glyphmagic")
 
 local currentWandUse = {}
@@ -49,7 +48,7 @@ local function useWandSelection(user, item, ltstate)
     local ACTION_GLYPH_BREAK = 6
     local ACTION_EXAMINE_FORGE = 7
 
-    local forgeItem = common.GetItemInArea(user.pos, glyphs.GLYPH_SHRINE_ID, 1, true)
+    local forgeItem = common.GetItemInArea(user.pos, glyphmagic.GLYPH_SHRINE_ID, 1, true)
 
     local cbSetMode = function (dialog)
         if (not dialog:getSuccess()) then
@@ -84,14 +83,14 @@ local function useWandSelection(user, item, ltstate)
     if forgeItem == nil then
         sd:addOption(505, common.GetNLS(user,"Suche einen Glyphen-Ritualplatz","Find a glyph ritual place"))
         table.insert(actionIndex,ACTION_FIND_GLYPH_FORGE)
-        if  user:getSkill(glyphs.SKILL_GLYPHING) >= glyphs.glyphForgeErectionMinSkill then
-            sd:addOption(glyphs.GLYPH_SHRINE_ID, common.GetNLS(user,"Errichte einen Glyphen-Ritualplatz","Build a glyph ritual place"))
+        if  user:getSkill(glyphmagic.SKILL_GLYPHING) >= glyphmagic.glyphForgeErectionMinSkill then
+            sd:addOption(glyphmagic.GLYPH_SHRINE_ID, common.GetNLS(user,"Errichte einen Glyphen-Ritualplatz","Build a glyph ritual place"))
             table.insert(actionIndex,ACTION_ERECT_GLYPH_FORGE)
         end
     else
         sd:addOption(3493, common.GetNLS(user,"Überprüfe deine Glyphensplitter","Check your glyph shards"))
         table.insert(actionIndex,ACTION_COUNT_SHARDS)
-        if  user:getSkill(glyphs.SKILL_GLYPHING) >= glyphs.glyphRitualPrepareMinSkill then
+        if  user:getSkill(glyphmagic.SKILL_GLYPHING) >= glyphmagic.glyphRitualPrepareMinSkill then
             sd:addOption(400, common.GetNLS(user,"Bereite ein Glyphenritual vor","Prepare a glyph ritual"))
             table.insert(actionIndex,ACTION_PREPARE_GLYPH_RITUAL)
         end
