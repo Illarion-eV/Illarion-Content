@@ -198,16 +198,16 @@ local rentDE = collectedRentIntoMoneyDE(toolTown, SourceItem)
             if selected == 1 then
                 withdrawRent(User, toolTown, SourceItem)
             else
-                User:inform(common.GetNLS(User,"Du entscheidest dich gegen das Entnehmen der Miete für den Augenblick","You decide against withdrawing any rent for now."))
+                User:inform(common.GetNLS(User,"Du entscheidest dich gegen das Entnehmen der Miete für den Augenblick.","You decide against withdrawing any rent for now."))
             end
         end
     end
     if getRentAmount(toolTown, SourceItem) == 0 then
-        local dialog = MessageDialog(common.GetNLS(User,"Grundstücksmiete","Property Rent"), common.GetNLS(User,"GERMAN TRANSLATION","There is currently no rental payment available for collection."), callback)
+        local dialog = MessageDialog(common.GetNLS(User,"Grundstücksmiete","Property Rent"), common.GetNLS(User,"Es sind keine Mieteinnahmen in der Schatzkiste.","There is currently no rental payment available for collection."), callback)
         User:requestMessageDialog(dialog)
     else
-        local dialog = SelectionDialog(common.GetNLS(User,"Grundstücksmiete","Property Rent") , common.GetNLS(User,"Derzeit sind "..rentDE.." in der Schatzkiste GERMAN TRANSLATION TO CONFORM WITH ENGLISH CHANGE NEEDED. Möchtest du sie entnehmen?","There's currently "..rent.." in the treasury for rental payments.\nDo you want to withdraw any?") , callback)
-        dialog:addOption(0,common.GetNLS(User,"Geldentnehmen","Withdraw money"))
+        local dialog = SelectionDialog(common.GetNLS(User,"Grundstücksmiete","Property Rent") , common.GetNLS(User,"Derzeit sind Mieteinnahmen von "..rentDE.." in der Schatzkiste. Möchtest du sie entnehmen?","There's currently "..rent.." in the treasury for rental payments.\nDo you want to withdraw any?") , callback)
+        dialog:addOption(0,common.GetNLS(User,"Geld entnehmen","Withdraw money"))
         dialog:addOption(0,common.GetNLS(User,"Nichts entnehmen","Do not withdraw any"))
         User:requestSelectionDialog(dialog)
     end
