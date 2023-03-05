@@ -31,7 +31,7 @@ local M = {}
  M.depotList={100,101,102,103}
 
  local function informDoesntExist(user)
-    user:inform("GERMAN TRANSLATION. Hast du den Namen vielleicht falsch geschrieben?", "Nobody of that name is recognised here. Did you perhaps misspell the name?")
+    user:inform("Dieser Namen ist unbekannt. Hast du den Namen vielleicht falsch geschrieben?", "Nobody of that name is recognised here. Did you perhaps misspell the name?")
  end
 
  function M.checkOwner(item)
@@ -1311,7 +1311,7 @@ end
 function M.sendMessageToRemovedTenant(propertyName, propertyNameDE, tenantID, user)
 
     local english = "You've been evicted from your former residence in "..propertyName..".\n\n~The Quartermaster"
-        local german = "GERMAN TRANSLATION"..propertyNameDE
+        local german = "Du bist kein Bewohner von "..propertyNameDE.." mehr.\n\nDer Quartiersmeister"
 
         local callback = function(dialog)
             local success = dialog:getSuccess()
@@ -1324,7 +1324,7 @@ function M.sendMessageToRemovedTenant(propertyName, propertyNameDE, tenantID, us
             end
         end
 
-        local dialog = SelectionDialog(common.GetNLS(user, "GERMAN TRANSLATION", "Send Message"), common.GetNLS(user, "GERMAN TRANSLATION", "Do you wish to send the evicted tenant an automated notice of their eviction?"), callback)
+        local dialog = SelectionDialog(common.GetNLS(user, "Sende eine Nachricht", "Send Message"), common.GetNLS(user, "Möchtest du dem ehemaligen Bewohner eine Nachricht über seinen Rausschmiss schicken?", "Do you wish to send the evicted tenant an automated notice of their eviction?"), callback)
         dialog:addOption(0, common.GetNLS(user, "Ja", "Yes"))
 
         user:requestSelectionDialog(dialog)
@@ -1584,11 +1584,11 @@ function M.deleteKeys(char, inform)
     if removedKeys and inform then
         if propertiesRemovedFrom == 1 then
             char:inform(
-                "GERMAN TRANSLATION"..listedPropertiesDe,
+                "Die Schlüssel von "..listedPropertiesDe.." wurden von den Wachen einkassiert. Du bist dort nicht mehr willkommen.",
                 "No more welcome at property "..listedPropertiesEn..", guards have been instructed to confiscate some keys you are no longer entitled to.")
         elseif propertiesRemovedFrom >= 1 then
             char:inform(
-                "GERMAN TRANSLATION"..listedPropertiesDe,
+                "Die Wachen kassieren die Schlüssel für die folgenden Grunstücke ein, da du dort nicht mehr willkommen bist: "..listedPropertiesDe..".",
                 "As you are no longer welcome to the following properties, guards have been instructed to confiscate some keys you are no longer entitled to: "..listedPropertiesEn.."."
             )
         end
@@ -1925,11 +1925,11 @@ local function sendMessageToInformNewBuilderGuest(builderOrGuestID, builderOrGue
     local german
 
     if builderOrGuest == "builder" then
-        english = "Following recommendation by the tenant of "..propertyName.." , you are hereby authorised as a builder of the property. So fetch your trusted Construction Trowel and get to work! \n\n ~~The Quartermaster"
-        german = "GERMAN TRANSLATION"..propertyNameDe
+        english = "Following recommendation by the tenant of "..propertyName..", you are hereby authorised as a builder of the property. So fetch your trusted Construction Trowel and get to work! \n\n ~The Quartermaster"
+        german = "Der Mieter von "..propertyNameDe.." hat dir das Baurecht erteilt. Also schwing die Kelle! \n\n Der Quartiermeister"
     else
         english = "The tenant of "..propertyName.." has informed us of your residency as a guest at their property. The guards have been notified to let you keep any keys to said property you may have in your possession. \n\n ~The Quartermaster"
-        german = "GERMAN TRANSLATION"..propertyNameDe
+        german = "Du bist fortan als Gast von "..propertyNameDe.." willkommen. Die Wachen wurden darüber informiert, dass du rechtmäßige Inhaber eines Schlüssels bist. \n\n Der Quartiermeister"
     end
 
 
@@ -1943,11 +1943,11 @@ local function sendMessageToInformRemovedBuilderGuest(builderOrGuestID, builderO
     local german
 
     if builderOrGuest == "builder" then
-        english = "We regret to inform you that the tenant of "..propertyName.." has had your right to build on the property revoked. \n\n ~~The Quartermaster"
-        german = "GERMAN TRANSLATION"..propertyNameDe
+        english = "We regret to inform you that the tenant of "..propertyName.." has had your right to build on the property revoked. \n\n ~The Quartermaster"
+        german = "Der Mieter von "..propertyNameDe.." hat dir das Baurecht entzogen. \n\n Der Quartiermeister"
     else
         english = "The tenant of "..propertyName.." has informed us that you have vacated your residency as a guest of their property. If you have yet to hand over your keys, the guards will now confiscate them. \n\n ~The Quartermaster "
-        german = "GERMAN TRANSLATION"..propertyNameDe
+        german = "Der Mieter von "..propertyNameDe.." hat uns darüber in Kenntnis gesetzt, dass du nicht länger ein Gast auf dem Grundstück bist. Schlüssel, die du noch abzugeben hast, werden dir von der Wache abgenommen. \n\n Der Quartiermeister"
     end
 
     messenger.sendMessageViaScript(english, german, builderOrGuestID)
@@ -1998,9 +1998,9 @@ function M.setBuilderOrGuest(user, item, builderOrGuest, propertyName)
                 informDoesntExist(user)
             elseif builderOrGuestID == user.id then
                 if builderOrGuest == "builder" then
-                    user:inform("GERMAN TRANSLATION", "As the tenant of the property, you already have permission to build on it.")
+                    user:inform("Als Mieter des Grundstücks hast du bereits das Baurecht.", "As the tenant of the property, you already have permission to build on it.")
                 else
-                    user:inform("GERMAN TRANSLATION", "As the tenant of the property, it'd be superflous to make yourself a guest as well. If you want to let the guards know to let others keep keys to your property, however, you should register them as guest.")
+                    user:inform("Als Mieter des Grunstücks brauchst du dich nicht als Gast eintragen. Dies dient dazu, die Wachen darüber zu informieren, dass die Gäste Schlüssel zu deinem Grundstück besitzen dürfen.", "As the tenant of the property, it'd be superflous to make yourself a guest as well. If you want to let the guards know to let others keep keys to your property, however, you should register them as guest.")
                 end
             else
                 for i = 1, M["max_"..builderOrGuest.."_number"] do
@@ -2070,7 +2070,7 @@ function M.removeBuilderOrGuest(user, item, builderOrGuest, propertyName)
                         propertyDeed:setData(builderOrGuest..i, "")
                         propertyDeed:setData(builderOrGuest.."ID"..i, "")
                         world:changeItem(propertyDeed)
-                        user:inform(M.getText(user,currentBuilderOrGuest.." wurde von der GERMAN TRANSLATION TO MATCH UPDATED ENGLISH Liste entfernt.",currentBuilderOrGuest.." has been removed from the list of "..builderOrGuest.."s."))
+                        user:inform(M.getText(user,currentBuilderOrGuest.." wurde von der Liste der "..builderOrGuestDe.." entfernt.",currentBuilderOrGuest.." has been removed from the list of "..builderOrGuest.."s."))
                         sendMessageToInformRemovedBuilderGuest(builderOrGuestID, builderOrGuest, propertyName, propertyNameDe)
                     end
                 else
@@ -2081,7 +2081,7 @@ function M.removeBuilderOrGuest(user, item, builderOrGuest, propertyName)
     end
 
     local dialog = SelectionDialog(M.getText(user,dialogNameDe,dialogNameEn) ,
-    M.getText(user,"Wähle einen Namen aus, der von der Liste entfernt werden soll. GERMAN TRANSLATION TO MATCH UPDATED ENGLISH",
+    M.getText(user,"Wähle einen Namen aus, der von der Liste der "..builderOrGuestDe.." entfernt werden soll.",
     "Select a name to remove them from the "..builderOrGuest.." list.") , callback)
 
     for i = 1, M["max_"..builderOrGuest.."_number"] do
@@ -2194,7 +2194,7 @@ function M.payRent(user, item)
                     item:setData("tenant", user.name)
                     item:setData("tenantID", user.id)
                     world:changeItem(item)
-                    user:inform(M.getText(user,"GERMAN TRANSLATION REQUIRED TO CONFORM WITH ENGLISH CHANGES Auch wenn sich dein Geldbeutel nun deutlich leichter anfühlt, verlässt du das Büro des Quartiermeisters mit dem guten Gefühl, dass dein Grundstück dir für weitere "..input.." Monate gehört.","Your purse may feel lighter, but you rest comfortably in the knowledge that the residence before you is now yours for an additional "..input.." months."))
+                    user:inform(M.getText(user,"Auch wenn sich dein Geldbeutel nun deutlich leichter anfühlt, erfüllt dich das gute Gefühl, dass dein Grundstück dir für weitere "..input.." Monate gehört.","Your purse may feel lighter, but you rest comfortably in the knowledge that the residence before you is now yours for an additional "..input.." months."))
                 end
             end
 
@@ -2444,7 +2444,7 @@ function M.setIndefiniteRent(user, item, propertyName)
             german = "Der Bewohner von "..propertyDE.." wohnt nun mietfrei."},
         informImpactedTenant = {
             english = "To the resident of "..property..". Let it be known that you are for the time being not expected to pay rent for your tenancy at said property. This may change in the future and you shall receive a similar letter if it does. \n\n ~The Quartermaster",
-            german = "GERMAN TRANSLATION"..propertyDE
+            german = "An den Mieter von "..propertyDE..": Bis auf Weiteres wohnst du nun mietfrei. Sollte sich hieran etwas ändern, wirst du davon rechtzeitig in Kenntnis gesetzt.  \n\n Der Quartiermeister"
         }
         },
         {english = "Do you want to no longer let the resident of "..property.." live rent free?",
@@ -2452,10 +2452,10 @@ function M.setIndefiniteRent(user, item, propertyName)
         identifier = 0,
         informText = {
             english = "The resident of "..property.." will no longer live rent free.",
-            german = "Der Bewohner von "..propertyDE.." lebt nun nicht mehr mietfrei."},
+            german = "Der Bewohner von "..propertyDE.." wohnt nun nicht mehr mietfrei."},
         informImpactedTenant = {
-            english = "To the resident of "..property..". Let it be known that you are once more expected to pay rent for your tenancy at said property. The current rent is set to "..rentEn..". \n\n ~ The Quartermaster",
-            german = "GERMAN TRANSLATION"..propertyDE..rentDe
+            english = "To the resident of "..property..". Let it be known that you are once more expected to pay rent for your tenancy at said property. The current rent is set to "..rentEn..". \n\n ~The Quartermaster",
+            german = "Als Bewohner von "..propertyDE.." musst du fortan wieder Miete zahlen. Die Mietzahlung beträgt "..rentDe.." pro Monat. \n\n Der Quartiermeister"
         }
         }
     }
@@ -2513,7 +2513,7 @@ local function setNoRankReq(selected, propertyDeed, user)
     propertyDeed:setData("nameEN", "false")
     propertyDeed:setData("nameDE", "false")
     world:changeItem(propertyDeed)
-    user:inform(M.getText(user,"GERMAN TRANSLATION"..propertyDe,"You've set it so that there is no longer any rank requirement associated with renting "..propertyEn.."."))
+    user:inform(M.getText(user,"Zum Anmieten von "..propertyDe.."wird nun kein besonderer Rang mehr benötigt.","You've set it so that there is no longer any rank requirement associated with renting "..propertyEn.."."))
 
 end
 
@@ -2527,6 +2527,7 @@ function M.setReqRank(user, item, propertyName)
     end
 
     local propertyDeed = M.getPropertyDeed(property)
+    local propertyDe = M.getPropertyNameDE(propertyDeed)
 
     local town = M.getTownName(item, property)
 
@@ -2548,7 +2549,7 @@ function M.setReqRank(user, item, propertyName)
                 propertyDeed:setData("nameEN", factions.GalmairRankListMale[i]["eRank"])
                 propertyDeed:setData("nameDE", factions.GalmairRankListMale[i]["gRank"])
                 world:changeItem(propertyDeed)
-                user:inform(M.getText(user,"Der benötigte Rang wurde auf GERMAN TRANSLATION NEEDED TO CONFORM WITH UPDATED ENGLISH "..factions.GalmairRankListMale[i]["gRank"].." gesetzt.","Required rank to rent "..property.." has been set to "..factions.GalmairRankListMale[i]["eRank"].."."))
+                user:inform(M.getText(user,"Der benötigte Rang für "..propertyDe.." wurde auf "..factions.GalmairRankListMale[i]["gRank"].." gesetzt.","Required rank to rent "..property.." has been set to "..factions.GalmairRankListMale[i]["eRank"].."."))
             end
         end
         setNoRankReq(selected, propertyDeed, user)
@@ -2563,7 +2564,7 @@ function M.setReqRank(user, item, propertyName)
                     propertyDeed:setData("nameEN", factions.RunewickRankListMale[i]["eRank"])
                     propertyDeed:setData("nameDE", factions.RunewickRankListMale[i]["gRank"])
                     world:changeItem(propertyDeed)
-                    user:inform(M.getText(user,"Der benötigte Rang wurde auf GERMAN TRANSLATION NEEDED TO CONFORM WITH UPDATED ENGLISH "..factions.RunewickRankListMale[i]["gRank"].." gesetzt.","Required rank to rent "..property.." has been set to "..factions.RunewickRankListMale[i]["eRank"].."."))
+                    user:inform(M.getText(user,"Der benötigte Rang für "..propertyDe.." wurde auf "..factions.RunewickRankListMale[i]["gRank"].." gesetzt.","Required rank to rent "..property.." has been set to "..factions.RunewickRankListMale[i]["eRank"].."."))
                 end
             end
             setNoRankReq(selected, propertyDeed, user)
@@ -2578,7 +2579,7 @@ function M.setReqRank(user, item, propertyName)
                     propertyDeed:setData("nameEN", factions.CadomyrRankListMale[i]["eRank"])
                     propertyDeed:setData("nameDE", factions.CadomyrRankListMale[i]["gRank"])
                     world:changeItem(propertyDeed)
-                    user:inform(M.getText(user,"Der benötigte Rang wurde auf GERMAN TRANSLATION NEEDED TO CONFORM WITH UPDATED ENGLISH "..factions.CadomyrRankListMale[i]["gRank"].." gesetzt.","Required rank to rent "..property.." has been set to "..factions.CadomyrRankListMale[i]["eRank"].."."))
+                    user:inform(M.getText(user,"Der benötigte Rang für "..propertyDe.." wurde auf "..factions.CadomyrRankListMale[i]["gRank"].." gesetzt.","Required rank to rent "..property.." has been set to "..factions.CadomyrRankListMale[i]["eRank"].."."))
                 end
             end
             setNoRankReq(selected, propertyDeed, user)
@@ -2612,9 +2613,9 @@ function M.setReqRank(user, item, propertyName)
         dialogCadomyr:addOption(0, M.getText(user,factions.CadomyrRankListMale[i]["gRank"],factions.CadomyrRankListMale[i]["eRank"]))
     end
 
-    dialogGalmair:addOption(0, M.getText(user, "GERMAN TRANSLATION", "None"))
-    dialogRunewick:addOption(0, M.getText(user, "GERMAN TRANSLATION", "None"))
-    dialogCadomyr:addOption(0, M.getText(user, "GERMAN TRANSLATION", "None"))
+    dialogGalmair:addOption(0, M.getText(user, "Keiner", "None"))
+    dialogRunewick:addOption(0, M.getText(user, "Keiner", "None"))
+    dialogCadomyr:addOption(0, M.getText(user, "Keiner", "None"))
 
     if town == "Galmair" then
         user:requestSelectionDialog(dialogGalmair)
@@ -2657,10 +2658,10 @@ function M.setRent(user, item, property)
                 local germanMoney, englishMoney = money.MoneyToString(tonumber(input))
                 propertyDeed:setData("rent", input)
                 world:changeItem(propertyDeed)
-                user:inform(M.getText(user,"GERMAN TRANSLATION"..propertyDe..germanMoney.." gesetzt.","Rent for "..propertyName.." has been set to "..englishMoney.."."))
+                user:inform(M.getText(user,"Die Miete für "..propertyDe.." beträgt nun "..germanMoney..".","Rent for "..propertyName.." has been set to "..englishMoney.."."))
                 M.setSignature(user, propertyDeed, propertyName)
 
-                local textToImpactedPlayer = {english = "To the tenant of "..propertyName..". We send you this letter to inform you that the rent you are expected to pay has been changed from "..rentEN.." to "..englishMoney..". \n\n ~The Quartermaster", german = "GERMAN TRANSLATION"..propertyDe..germanMoney}
+                local textToImpactedPlayer = {english = "To the tenant of "..propertyName..". We send you this letter to inform you that the rent you are expected to pay has been changed from "..rentEN.." to "..englishMoney..". \n\n ~The Quartermaster", german = "An den Mieter von "..propertyDe..": Die Miete wurde von "..rentDE.." auf "..germanMoney.." erhöht. \n\n Der Quartiermeister"}
 
                 local tenant = propertyDeed:getData("tenantID")
 
