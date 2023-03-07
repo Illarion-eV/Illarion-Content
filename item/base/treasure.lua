@@ -24,6 +24,7 @@ local content = require("content.treasure")
 local money = require("base.money")
 local monsterHooks = require("monster.base.hooks")
 local scheduledFunction = require("scheduled.scheduledFunction")
+local safeZones = require("scheduled.safe_zones")
 
 local M = {}
 
@@ -74,7 +75,7 @@ local function findPosition()
                 local tileId = field:tile();
                 for _, validTileId in pairs(content.treasureTiles) do
                     if tileId == validTileId then
-                        if not world:isItemOnField(pos) then
+                        if not world:isItemOnField(pos) and field:isPassable() then
                             return pos
                         end
                         break
@@ -503,6 +504,13 @@ function M.performDiggingForTreasure(treasureHunter, diggingLocation, additional
     local remainingMonsters = #monsterList
 
     local function handleMonsterDeath(monster)
+
+        if safeZones.cheatingViaTrollshavenSafeZone(monster, diggingLocation, treasureHunter) then
+            monsterList = {}    --reset monster list
+            remainingMonsters = 0
+            return
+        end
+
         remainingMonsters = remainingMonsters - 1
         for index, monsterInList in pairs(monsterList) do
             if monsterInList.id == monster.id then

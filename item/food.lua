@@ -15,8 +15,6 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
--- UPDATE items SET itm_script='item.food' WHERE itm_id IN (15,49,73,80,81,142,143,147,151,158,159,160,161,162,163,191,199,200,201,302,303,306,307,353,354,355,388,453,454,455,552,553,554,555,556,557,559,1207,2276,2277,2278,2456,2459,2493,2922,2923,2934,2940,3051,3711,3712,3716,3715,3709,3710,3713,3714,3723,3914,3915,3916);
-
 local M = {}
 
 local common = require("base.common")
@@ -31,106 +29,60 @@ M.foodList = {}
 
 -- COOKED FOOD --
 -- Tier 1 Food
--- bread roll
-M.foodList[191] = {crafted = true}
--- Sausage
-M.foodList[3051] = {crafted = true}
--- Ham
-M.foodList[306] = {crafted = true}
--- Smoked trout
-M.foodList[455] = {crafted = true}
--- Smoked salmon
-M.foodList[3916] = {crafted = true}
--- Smoked rose fish
-M.foodList[3915] = {crafted = true}
--- Smoked horse mackerel
-M.foodList[3914] = {crafted = true}
--- Smoked rabbit
-M.foodList[3710] = {crafted = true}
--- Smoked chicken
-M.foodList[3709] = {crafted = true}
--- Grilled Steak
-M.foodList[3606] = {crafted = true}
--- Grilled Lamb
-M.foodList[3713] = {crafted = true}
--- Grilled Venison
-M.foodList[3714] = {crafted = true}
--- Cookies
-M.foodList[453] = {crafted = true}
--- Cheese
-M.foodList[3573] = {crafted = true}
+M.foodList[Item.breadRoll] = {crafted = true, rareBuff = {constitution = 0}}
+M.foodList[Item.sausage] = {crafted = true, rareBuff = {agility = 0}}
+M.foodList[Item.ham] = {crafted = true, rareBuff = {dexterity = 0}}
+--smoked trout
+M.foodList[Item.smokedFish] = {crafted = true, rareBuff = {intelligence = 0}}
+--smoked salmon
+M.foodList[3916] = {crafted = true, rareBuff = {essence = 0}}
+M.foodList[Item.smokedRosefish] = {crafted = true, rareBuff = {perception = 0}}
+M.foodList[Item.smokedHorsemackerel] = {crafted = true, rareBuff = {willpower = 0}}
+M.foodList[Item.smokedRabbit] = {crafted = true, rareBuff = {strength = 0}}
+M.foodList[Item.smokedChicken] = {crafted = true, rareBuff = {constitution = 0}}
+M.foodList[Item.grilledSteak] = {crafted = true, rareBuff = {agility = 0}}
+M.foodList[Item.grilledLamb] = {crafted = true, rareBuff = {dexterity = 0}}
+M.foodList[Item.grilledVenison] = {crafted = true, rareBuff = {intelligence = 0}}
+M.foodList[Item.cookies] = {crafted = true, rareBuff = {essence = 0}}
+M.foodList[Item.cheese] = {crafted = true, rareBuff = {perception = 1}}
 -- Tier 2 Food
--- Mushroom Soup
-M.foodList[2456] = {crafted = true, leftOver = 2935, buffs = {agility = 1}}
--- Baked Potato
-M.foodList[3568] = {crafted = true, buffs = {dexterity = 1}}
--- Veggie Hash
-M.foodList[3716] = {crafted = true, leftOver = 2952, buffs = {essence = 1}}
--- Bread
-M.foodList[49] = {crafted = true, buffs = {strength = 1}}
--- Onion Soup
-M.foodList[2923] = {crafted = true, leftOver = 2935, buffs = {intelligence = 1}}
--- Mystery Meat
-M.foodList[3715] = {crafted = true, leftOver = 2952, buffs = {perception = 1}}
--- Trout fillet Dish
-M.foodList[2459] = {crafted = true, leftOver = 2952, buffs = {willpower = 1}}
--- Sausage on bread
-M.foodList[3631] = {crafted = true, buffs = {constitution = 1}}
+M.foodList[Item.mushroomSoup] = {crafted = true, leftOver = 2935, buffs = {agility = 1}}
+M.foodList[Item.bakedPotato] = {crafted = true, buffs = {dexterity = 1}}
+M.foodList[Item.veggieHash] = {crafted = true, leftOver = 2952, buffs = {essence = 1}}
+M.foodList[Item.potatoBread] = {crafted = true, buffs = {strength = 1}}
+M.foodList[Item.onionSoup] = {crafted = true, leftOver = 2935, buffs = {intelligence = 1}}
+M.foodList[Item.cabbageRoll] = {crafted = true, leftOver = 2952, buffs = {perception = 1}}
+M.foodList[Item.troutFilletDish] = {crafted = true, leftOver = 2952, buffs = {willpower = 1}}
+M.foodList[Item.sausageOnBread] = {crafted = true, buffs = {constitution = 1}}
 -- Tier 3 Food
--- Banana Bread
-M.foodList[3609] = {crafted = true, buffs = {willpower = 1, intelligence = 1}}
---Cabbage Stew
-M.foodList[2278] = {crafted = true, leftOver = 2935, buffs = {dexterity = 1, agility = 1}}
--- Salmon Dish
-M.foodList[556] = {crafted = true, leftOver = 2952, buffs = {strength = 1, constitution = 1}}
--- Blackberry Muffin
-M.foodList[454] = {crafted = true, buffs = {essence = 1, perception = 1}}
--- Mulligan
-M.foodList[2276] = {crafted = true, leftOver = 2935, buffs = {willpower = 1, intelligence = 1}}
--- Egg Dish
-M.foodList[1154] = {crafted = true, leftOver = 2952, buffs = {strength = 1, constitution = 1}}
--- Potato Soup
-M.foodList[3569] = {crafted = true, leftOver = 2935, buffs = {essence = 1, perception = 1}}
--- Meat Dish
-M.foodList[2277] = {crafted = true, leftOver = 2952, buffs = {dexterity = 1, agility = 1}}
--- Apple Pie
-M.foodList[353] = {crafted = true, buffs = {willpower = 1, intelligence = 1}}
+M.foodList[Item.bananaBread] = {crafted = true, buffs = {willpower = 1, intelligence = 1}}
+M.foodList[Item.cabbageStew] = {crafted = true, leftOver = 2935, buffs = {dexterity = 1, agility = 1}}
+M.foodList[Item.salmonDish] = {crafted = true, leftOver = 2952, buffs = {strength = 1, constitution = 1}}
+M.foodList[Item.blackberryMuffin] = {crafted = true, buffs = {essence = 1, perception = 1}}
+M.foodList[Item.mulligan] = {crafted = true, leftOver = 2935, buffs = {willpower = 1, intelligence = 1}}
+M.foodList[Item.eggDish] = {crafted = true, leftOver = 2952, buffs = {strength = 1, constitution = 1}}
+M.foodList[Item.potatoSoup] = {crafted = true, leftOver = 2935, buffs = {essence = 1, perception = 1}}
+M.foodList[Item.meatDish] = {crafted = true, leftOver = 2952, buffs = {dexterity = 1, agility = 1}}
+M.foodList[Item.applePie] = {crafted = true, buffs = {willpower = 1, intelligence = 1}}
 -- Tier 4 Food
--- Cherry Cake
-M.foodList[303] = {crafted = true, buffs = {dexterity = 1, agility = 2}}
---Egg Salad
-M.foodList[3570] = {crafted = true, leftOver = 2935, buffs = {strength = 2, constitution = 1}}
---Sausages Dish
-M.foodList[2922] = {crafted = true, leftOver = 2952, buffs = {essence = 2, perception = 1}}
--- Steak dish
-M.foodList[557] = {crafted = true, leftOver = 2952, buffs = {willpower = 2, intelligence = 1}}
--- Fish Soup
-M.foodList[3572] = {crafted = true, leftOver = 2935, buffs = {strength = 1, constitution = 2}}
--- Egg Salad Sandwich
-M.foodList[3571] = {crafted = true, buffs = {dexterity = 2, agility = 1}}
+M.foodList[Item.cherryCake] = {crafted = true, buffs = {dexterity = 1, agility = 2}}
+M.foodList[Item.eggSalad] = {crafted = true, leftOver = 2935, buffs = {strength = 2, constitution = 1}}
+M.foodList[Item.sausagesDish] = {crafted = true, leftOver = 2952, buffs = {essence = 2, perception = 1}}
+M.foodList[Item.steakDish] = {crafted = true, leftOver = 2952, buffs = {willpower = 2, intelligence = 1}}
+M.foodList[Item.fishSoup] = {crafted = true, leftOver = 2935, buffs = {strength = 1, constitution = 2}}
+M.foodList[Item.eggSaladSandwich] = {crafted = true, buffs = {dexterity = 2, agility = 1}}
 -- Tier 5 Food
---Rabbit Dish
-M.foodList[555] = {crafted = true, leftOver = 2952, buffs = {strength = 2, constitution = 2}}
--- Beer Soup
-M.foodList[3712] = {crafted = true, leftOver = 2935, buffs = {essence = 1, perception = 2, intelligence = 1}}
--- Strawberry Cake
-M.foodList[354] = {crafted = true, buffs = {dexterity = 2, agility = 2}}
--- Lamb Dish
-M.foodList[559] = {crafted = true, leftOver = 2952, buffs = {essence = 2, perception = 2}}
--- nut Bread
-M.foodList[3723] = {crafted = true, buffs = {essence = 1, perception = 1,willpower = 1, intelligence = 1}}
--- Custard Pie
-M.foodList[1153] = {crafted = true, buffs = {dexterity = 2, agility = 2}}
--- Venison Dish
-M.foodList[554] = {crafted = true, leftOver = 2952, buffs = {strength = 2, constitution = 2}}
--- Goulash
-M.foodList[3711] = {crafted = true, leftOver = 2935, buffs = {strength = 1, constitution = 1, agility = 1, dexterity = 1}}
--- Elderberry Pie
-M.foodList[3610] = {crafted = true, buffs = {willpower = 2, intelligence = 2}}
---Chicken Dish
-M.foodList[1155] = {crafted = true, leftOver = 2952, buffs = {essence = 2, perception = 2}}
--- Chicken Soup
-M.foodList[1152] = {crafted = true, leftOver = 2935, buffs = {willpower = 2, intelligence = 2}}
+M.foodList[Item.rabbitDish] = {crafted = true, leftOver = 2952, buffs = {strength = 2, constitution = 2}}
+M.foodList[Item.beerSoup] = {crafted = true, leftOver = 2935, buffs = {essence = 1, perception = 2, intelligence = 1}}
+M.foodList[Item.strawberryCake] = {crafted = true, buffs = {dexterity = 2, agility = 2}}
+M.foodList[Item.lambDish] = {crafted = true, leftOver = 2952, buffs = {essence = 2, perception = 2}}
+M.foodList[Item.nutbread] = {crafted = true, buffs = {essence = 1, perception = 1,willpower = 1, intelligence = 1}}
+M.foodList[Item.custardPie] = {crafted = true, buffs = {dexterity = 2, agility = 2}}
+M.foodList[Item.venisonDish] = {crafted = true, leftOver = 2952, buffs = {strength = 2, constitution = 2}}
+M.foodList[Item.goulash] = {crafted = true, leftOver = 2935, buffs = {strength = 1, constitution = 1, agility = 1, dexterity = 1}}
+M.foodList[Item.elderberryPie] = {crafted = true, buffs = {willpower = 2, intelligence = 2}}
+M.foodList[Item.chickenDish] = {crafted = true, leftOver = 2952, buffs = {essence = 2, perception = 2}}
+M.foodList[Item.chickenSoup] = {crafted = true, leftOver = 2935, buffs = {willpower = 2, intelligence = 2}}
 -- COOKED FOOD END --
 
 -- constants for free food (everything uncooked); use only those
@@ -139,74 +91,40 @@ local valueMedium = 1200
 local valueLarge = 3000
 
 -- FREE FOOD
--- apple:
-M.foodList[15]   = {foodPoints = valueMedium}
--- trout
-M.foodList[73] = {foodPoints = valueMedium}
--- banana:
-M.foodList[80]   = {foodPoints = valueMedium}
--- berries:
-M.foodList[81]   = {foodPoints = valueMedium}
--- sand berry:
-M.foodList[142]  = {foodPoints = valueSmall}
--- red elder:
-M.foodList[143]  = {foodPoints = valueSmall}
--- black berry:
-M.foodList[147]  = {foodPoints = valueSmall}
--- strawberries:
-M.foodList[151]  = {foodPoints = valueMedium}
--- bulbsponge:
-M.foodList[158]  = {foodPoints = valueSmall, poisonPoints = 1000}
--- toadstool:
-M.foodList[159]  = {foodPoints = valueSmall, poisonPoints = 1000}
--- redhead:
-M.foodList[160]  = {foodPoints = valueSmall}
--- herders mushroom:
-M.foodList[161]  = {foodPoints = valueSmall}
--- birth mushroom:
-M.foodList[162]  = {foodPoints = valueSmall, poisonPoints = 1000}
--- champignon:
-M.foodList[163]  = {foodPoints = valueSmall}
--- tangerine:
-M.foodList[199]  = {foodPoints = valueMedium}
--- tomato:
-M.foodList[200]  = {foodPoints = valueMedium}
--- onion:
-M.foodList[201]  = {foodPoints = valueMedium}
--- Cabbage:
-M.foodList[290]  = {foodPoints = valueMedium}
--- cherry:
-M.foodList[302]  = {foodPoints = valueMedium}
--- pork
-M.foodList[307] = {foodPoints = valueMedium}
--- salmon
-M.foodList[355] = {foodPoints = valueMedium}
--- grapes:
-M.foodList[388]  = {foodPoints = valueMedium}
--- deer meat
-M.foodList[552] = {foodPoints = valueMedium}
--- rabbit
-M.foodList[553] = {foodPoints = valueMedium}
--- nuts:
-M.foodList[759]  = {foodPoints = valueMedium}
--- white egg:
-M.foodList[1150] = {foodPoints = valueSmall}
--- chicken
-M.foodList[1151] = {foodPoints = valueMedium}
--- orange:
-M.foodList[1207] = {foodPoints = valueMedium}
--- horse mackerel
-M.foodList[1209] = {foodPoints = valueMedium}
--- rose fish
-M.foodList[1210] = {foodPoints = valueLarge}
--- carrots:
-M.foodList[2493] = {foodPoints = valueMedium}
--- lamb
-M.foodList[2934] = {foodPoints = valueMedium}
--- raw steak
-M.foodList[2940] = {foodPoints = valueMedium}
--- Potato
-M.foodList[3567] = {foodPoints = valueMedium}
+M.foodList[Item.apple]   = {foodPoints = valueMedium}
+M.foodList[Item.trout] = {foodPoints = valueMedium}
+M.foodList[Item.banana]   = {foodPoints = valueMedium}
+M.foodList[Item.berries]   = {foodPoints = valueMedium}
+M.foodList[Item.sandberry]  = {foodPoints = valueSmall}
+M.foodList[Item.redElder]  = {foodPoints = valueSmall}
+M.foodList[Item.blackberry]  = {foodPoints = valueSmall}
+M.foodList[Item.strawberry]  = {foodPoints = valueMedium}
+M.foodList[Item.bulbspongeMushroom]  = {foodPoints = valueSmall, poisonPoints = 1000}
+M.foodList[Item.toadstool]  = {foodPoints = valueSmall, poisonPoints = 1000}
+M.foodList[Item.redHead]  = {foodPoints = valueSmall}
+M.foodList[Item.herdersMushroom]  = {foodPoints = valueSmall}
+M.foodList[Item.birthMushroom]  = {foodPoints = valueSmall, poisonPoints = 1000}
+M.foodList[Item.champignon]  = {foodPoints = valueSmall}
+M.foodList[Item.tangerine]  = {foodPoints = valueMedium}
+M.foodList[Item.tomato]  = {foodPoints = valueMedium}
+M.foodList[Item.onion]  = {foodPoints = valueMedium}
+M.foodList[Item.cabbage]  = {foodPoints = valueMedium}
+M.foodList[Item.cherries]  = {foodPoints = valueMedium}
+M.foodList[Item.pork] = {foodPoints = valueMedium}
+M.foodList[Item.salmon] = {foodPoints = valueMedium}
+M.foodList[Item.grapes]  = {foodPoints = valueMedium}
+M.foodList[Item.deerMeat] = {foodPoints = valueMedium}
+M.foodList[Item.rabbitMeat] = {foodPoints = valueMedium}
+M.foodList[Item.nuts]  = {foodPoints = valueMedium}
+M.foodList[Item.whiteEgg] = {foodPoints = valueSmall}
+M.foodList[Item.chickenMeat] = {foodPoints = valueMedium}
+M.foodList[Item.orange] = {foodPoints = valueMedium}
+M.foodList[Item.horseMackerel] = {foodPoints = valueMedium}
+M.foodList[Item.roseFish] = {foodPoints = valueLarge}
+M.foodList[Item.carrots] = {foodPoints = valueMedium}
+M.foodList[Item.lambMeat] = {foodPoints = valueMedium}
+M.foodList[Item.rawSteak] = {foodPoints = valueMedium}
+M.foodList[Item.potato] = {foodPoints = valueMedium}
 
 -- get difficulty from the database
 for foodId, foodItem in pairs(M.foodList) do
@@ -265,9 +183,21 @@ end
 local function buffsAdding(user, sourceItem)
 
     local buffs = M.foodList[sourceItem.id].buffs
+    local rarity = sourceItem:getData("rareness")
+
+    if not common.IsNilOrEmpty(rarity) then
+        rarity = tonumber(rarity)
+    else
+        rarity = 0
+    end
 
     if not buffs then
-        return
+        local rareBuff = M.foodList[sourceItem.id].rareBuff
+        if rareBuff and rarity >= 3 then
+            buffs = rareBuff
+        else
+            return
+        end
     end
 
     local messageDe = "Durch das Essen erfährst du folgende Veränderungen: "
@@ -279,60 +209,59 @@ local function buffsAdding(user, sourceItem)
         messageDe = "Die vorherige Nahrungswirkung wird ersetzt. " .. messageDe
         messageEn = "The former diet effect is replaced. " .. messageEn
     end
-    local rarity = sourceItem:getData("rareness")
+
     local duration = M.foodList[sourceItem.id].duration
 
-    if rarity ~= "" then
-        rarity = tonumber(rarity)
-        if rarity >= 3 then
-            duration = duration*(1 + (rarity-2)/10) -- 10,20% increase of duration based on rarity
-        end
-     end
+
+    if rarity >= 3 then
+        duration = duration*(1 + (rarity-2)/10) -- 10,20% increase of duration based on rarity
+    end
 
     local dietEffect=LongTimeEffect(12, duration)
     local addComma = false
 
     local rarityBuff = 0
     local attribsRaised = getAmountOfBuffs(buffs)
+
     local attribsChecked = 0
 
     local numberOfBuffedStats = 0
-    for attribute, value in pairs(buffs) do
-        if value > 0 then
-            numberOfBuffedStats = numberOfBuffedStats+1
-        end
+    for _, value in pairs(buffs) do
+        numberOfBuffedStats = numberOfBuffedStats+1
     end
 
     for attribute, value in pairs(buffs) do
 
         if rarity == 3 and rarityBuff == 0 then -- The buff is applied to one stat for rare items
-            if value > 0 then -- if the stat will be buffed by the food item to begin with
-                local rand = math.random(1, attribsRaised-attribsChecked)
-                if rand == 1 then
+
+            local rand = math.random(1, attribsRaised-attribsChecked)
+
+            if rand == 1 then
                     value = value + 1
                     rarityBuff = rarityBuff + 1
-                end
-                attribsChecked = attribsChecked + 1
             end
+
+            attribsChecked = attribsChecked + 1
         end
 
         if rarity == 4 and rarityBuff < 2 then -- The buff is applied to two stats for unique items or twice for one if there's only one
-            if value > 0 then -- if the stat will be buffed by the food item to begin with
-                local increment = 1
 
-                if numberOfBuffedStats == 1 then
-                    increment = 2
-                end
+            local increment = 1
 
-                value = value + increment
-                rarityBuff = rarityBuff + increment
+            if numberOfBuffedStats == 1 then
+                increment = 2
             end
+
+            value = value + increment
+            rarityBuff = rarityBuff + increment
+
         end
 
         if addComma then
             messageDe = messageDe .. ", "
             messageEn = messageEn .. ", "
         end
+
         messageDe = messageDe .. attributesGerman[attribute] .. " +" .. value
         messageEn = messageEn .. attribute .. " +" .. value
         addComma = true

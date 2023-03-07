@@ -39,20 +39,20 @@ local PROBABILITY_DESTROY_ON_END_GOLD = 0.6
 
 local WAIT_TIME_AFTER_EQUIPPING = 120 --seconds after put the jewel on before it can be used
 
-M.EFFEKT_RING_AMETHYST = glyphs.EFFEKT_RING_AMETHYST
-M.EFFEKT_RING_RUBY = glyphs.EFFEKT_RING_RUBY
-M.EFFEKT_RING_SAPPIRE = glyphs.EFFEKT_RING_SAPPIRE
-M.EFFEKT_RING_OBSIDIAN = glyphs.EFFEKT_RING_OBSIDIAN
-M.EFFEKT_RING_EMERALD = glyphs.EFFEKT_RING_EMERALD
-M.EFFEKT_RING_TOPAZ = glyphs.EFFEKT_RING_TOPAZ
-M.EFFEKT_RING_DIAMOND = glyphs.EFFEKT_RING_DIAMOND
-M.EFFEKT_AMULET_AMETHYST = glyphs.EFFEKT_AMULET_AMETHYST
-M.EFFEKT_AMULET_RUBY = glyphs.EFFEKT_AMULET_RUBY
-M.EFFEKT_AMULET_SAPPIRE = glyphs.EFFEKT_AMULET_SAPPIRE
-M.EFFEKT_AMULET_OBSIDIAN = glyphs.EFFEKT_AMULET_OBSIDIAN
-M.EFFEKT_AMULET_EMERALD = glyphs.EFFEKT_AMULET_EMERALD
-M.EFFEKT_AMULET_TOPAZ = glyphs.EFFEKT_AMULET_TOPAZ
-M.EFFEKT_AMULET_DIAMOND = glyphs.EFFEKT_AMULET_DIAMOND
+M.EFFEKT_RING_AMETHYST = 1
+M.EFFEKT_RING_RUBY = 2
+M.EFFEKT_RING_SAPPIRE = 3
+M.EFFEKT_RING_OBSIDIAN = 4
+M.EFFEKT_RING_EMERALD = 5
+M.EFFEKT_RING_TOPAZ = 6
+M.EFFEKT_RING_DIAMOND = 7
+M.EFFEKT_AMULET_AMETHYST = 8
+M.EFFEKT_AMULET_RUBY = 9
+M.EFFEKT_AMULET_SAPPIRE = 10
+M.EFFEKT_AMULET_OBSIDIAN = 11
+M.EFFEKT_AMULET_EMERALD = 12
+M.EFFEKT_AMULET_TOPAZ = 13
+M.EFFEKT_AMULET_DIAMOND = 14
 
 local function consumeGlyph(item, user, number)
     local itemName
@@ -61,9 +61,9 @@ local function consumeGlyph(item, user, number)
     if glyphNo < 1 then
         local carrierMaterial = glyphs.getGlyphMaterial(item)
         local destroyProbability = PROBABILITY_DESTROY_ON_END_GOLD
-        if carrierMaterial == glyphs.COPPER then
+        if carrierMaterial == 1 then -- copper
             destroyProbability = PROBABILITY_DESTROY_ON_END_COPPER
-        elseif carrierMaterial == glyphs.SILVER then
+        elseif carrierMaterial == 2 then -- silver
             destroyProbability = PROBABILITY_DESTROY_ON_END_SILVER
         end
         if math.random() < destroyProbability then
@@ -95,38 +95,14 @@ local function consumeGlyph(item, user, number)
     return false
 end
 
-local function checkFingerNeck(user,finger,itemIds)
 
-    local itemAtCharacter = user:getItemAt(finger)
-    if common.isInList(itemAtCharacter.id, itemIds) then
-        if glyphs.isGlyphed(itemAtCharacter) then
-            local glyphEffectItem = itemAtCharacter
-            local glyphEffectPower = common.posInList(itemAtCharacter.id, itemIds)
-            return true, glyphEffectItem, glyphEffectPower
-        end
-    end
-    return false, nil, nil
-end
 
-local function EffectIsSupported(user,effectId)
+local function effectIsSupported(user, effectId)
 
-    local itemIds
-    if effectId <= 7 then
-        itemIds = {glyphs.ringAndAmuletDefinition[effectId][1],glyphs.ringAndAmuletDefinition[effectId+7][1],glyphs.ringAndAmuletDefinition[effectId+14][1]}
-        for finger = 7,8 do --finger left hand, finger right hand
-            local isEquipped, glyphEffectItem, glyphEffectPower = checkFingerNeck(user,finger,itemIds)
-            if isEquipped then
-                return true, glyphEffectItem, glyphEffectPower
-            end
-        end
-    else
-        itemIds = {glyphs.ringAndAmuletDefinition[effectId-7][2],glyphs.ringAndAmuletDefinition[effectId][2],glyphs.ringAndAmuletDefinition[effectId+7][2]}
-        local isEquipped, glyphEffectItem, glyphEffectPower = checkFingerNeck(user,2,itemIds)-- neck
-        if isEquipped then
-            return true, glyphEffectItem, glyphEffectPower
-        end
-    end
-    return false, nil, nil
+    local isEquipped, glyphEffectItem, glyphEffectPower = glyphs.checkFingerNeck(user, effectId)
+
+    return isEquipped, glyphEffectItem, glyphEffectPower
+
 end
 
 local function effectRepel(user)
@@ -161,19 +137,17 @@ local function effectRepel(user)
     return false
 end
 
-function M.effectUse(user,effectId,numberOfCharges,specialProbaility)
+function M.effectUse(user, effectId, numberOfCharges, specialProbability)
+
     local consumedCharges = numberOfCharges or 1
-    local isSupported
-    local glyphEffectItem
-    local glyphEffectPower
-    local isDestroyed
 
     if not character.IsPlayer(user) then
         return false
     end
 
-    isSupported, glyphEffectItem, glyphEffectPower = EffectIsSupported(user,effectId)
-    if not isSupported then
+    local isSupported, glyphEffectItem, glyphEffectPower = effectIsSupported(user, effectId)
+
+    if not isSupported then -- User does not have a glyph item with the relevant effectId equipped
         return false
     end
 
@@ -192,12 +166,15 @@ function M.effectUse(user,effectId,numberOfCharges,specialProbaility)
         end
     end
 
-    local probability = specialProbaility or glyphs.glyphEffects[effectId][2]
-    if math.random() > probability then
+    local probability = specialProbability or glyphs.getProbability(effectId)
+
+    if math.random() > probability then --Effect was not triggered
         return false
     end
-    isDestroyed = consumeGlyph(glyphEffectItem, user, consumedCharges)
-    return true, glyphs.glyphEffects[effectId][2 + glyphEffectPower], isDestroyed
+
+    local isDestroyed = consumeGlyph(glyphEffectItem, user, consumedCharges)
+
+    return true, glyphEffectPower, isDestroyed
 end
 
 function M.effectOnFight(attacker,defender)
@@ -207,6 +184,7 @@ function M.effectOnFight(attacker,defender)
 
     local MOVE_POINT_BASE = 10
     isFired,parameter = M.effectUse(attacker,M.EFFEKT_RING_AMETHYST)
+
     if isFired then
         if effectRepel(defender) then
             world:gfx(globalvar.gfxFIZZLE,defender.pos)

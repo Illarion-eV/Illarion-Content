@@ -50,29 +50,50 @@ function M.isInBackpack(user, bagContainer)
             return true
         end
     end
+
+    return false
 end
 
-function M.rectCheck(user, source, target, range, basket)
+function M.rectCheck(user, source, target, range, isBasket)
+
+    local container = {english = "bag", german = "eine Tasche"}
+
+    if isBasket then
+        container.english = "basket"
+        container.german = "einen Korb"
+    end
+
     if not common.isInRect(source.pos, target.pos, range) then
-        local english = "You can't throw a bag."
-        local german = "Du kannst eine Tasche nicht werfen."
-        if basket then
-            english = "You can't throw a basket."
-            german = "Du kannst einen Korb nicht werfen."
+        local english = "You can't throw a "..container.english.."."
+        local german = "Du kannst "..container.german.." nicht werfen."
+        local possiblePAttempt = target.pos == user.pos
+
+        if possiblePAttempt then
+            english = "To pick up a "..container.english.." using the 'P' hotkey, you must be standing on it. Alternatively, you can drag the "..container.english.." to your bag slot or an existing container by using your mouse."
+            german = "Um "..container.german.." mit 'P' aufzuheben, musst du auf dem selben Feld stehen. Du kannst "..container.german.." auch mit der Maus in deinen Taschenslot oder einen anderen Behälter ziehen."
         end
+
         user:inform(common.GetNLS(user, german, english))
         return false --To prevent bags within bags that are too heavy to move and can't be accessed, you can't throw bags further than 1 tile so it will always be in the range of the depot it is removed from
     end
     return true
 end
 
-function M.MoveItemBeforeMove(user, source, target)
-
-    if M.isInDepot(user, source.inside) or M.isInBackpack(user, source.inside) or M.isInDepot(user, target.inside) or M.isInBackpack(user, target.inside) then
-        return M.rectCheck(user, source, target, 1)
+function M.isBackPackSlot(user, source, target)
+    if target:getType() == 4 and target.itempos == 0 or source:getType() == 4 and source.itempos == 0 then --allow movement from and between bag slot
+        return true
     end
 
-    return M.rectCheck(user, source, target, 0)
+    return false
+end
+
+function M.MoveItemBeforeMove(user, source, target, basket)
+
+    if M.isInDepot(user, source.inside) or M.isInBackpack(user, source.inside) or M.isInDepot(user, target.inside) or M.isInBackpack(user, target.inside) or M.isBackPackSlot(user, source, target) then
+        return M.rectCheck(user, source, target, 1, basket)
+    end
+
+    return M.rectCheck(user, source, target, 0, basket)
 
 end
 

@@ -156,7 +156,7 @@ product:addIngredient(178, 2) -- white cloth
 
 -- green doublet
 product = tailoring:addProduct(catId, 810, 1)
-product:addIngredient(50, 4) -- thread
+product:addIngredient(50, 3) -- thread
 product:addIngredient(54, 3) -- green cloth
 
 -- black doublet
@@ -338,7 +338,7 @@ product:addIngredient(2547, 2) -- leather
 
 -- reinforced short leather leggings
 product = tailoring:addProduct(catId, 1479, 1)
-product:addIngredient(50, 4) -- thread
+product:addIngredient(50, 3) -- thread
 product:addIngredient(2547, 3) -- leather
 
 -- simple leather leggings
@@ -418,7 +418,7 @@ product:addIngredient(2696, 1) -- feathers
 -- green hat with feather
 product = tailoring:addProduct(catId, 831, 1)
 product:addIngredient(50, 2) -- thread
-product:addIngredient(54, 2) -- green cloth
+product:addIngredient(54, 1) -- green cloth
 product:addIngredient(2696, 1) -- feathers
 
 -- red hat with feather
@@ -455,20 +455,20 @@ product:addIngredient(3787, 2) -- silk
 
 -- yellow wizard hat
 product = tailoring:addProduct(catId, 3868, 1)
-product:addIngredient(50, 3) -- thread
+product:addIngredient(50, 4) -- thread
 product:addIngredient(177, 2) -- yellow cloth
 product:addIngredient(3787, 2) -- silk
 
 -- colourful wizard hat
 product = tailoring:addProduct(catId, 370, 1)
-product:addIngredient(50, 3) -- thread
-product:addIngredient(174, 2) -- red cloth
+product:addIngredient(50, 4) -- thread
+product:addIngredient(174, 3) -- red cloth
 product:addIngredient(3787, 2) -- silk
 
 -- witch hat
 product = tailoring:addProduct(catId, 3708, 1)
-product:addIngredient(50, 3) -- thread
-product:addIngredient(175, 2) -- black cloth
+product:addIngredient(50, 4) -- thread
+product:addIngredient(175, 3) -- black cloth
 product:addIngredient(3787, 2) -- silk
 
 -- fine wizard hat
@@ -524,8 +524,8 @@ product:addIngredient(45, 1) -- emerald
 
 -- Norodaj horned helmet
 product = tailoring:addProduct(catId, 1421, 1)
-product:addIngredient(50, 6) -- thread
-product:addIngredient(2547, 5) -- leather
+product:addIngredient(50, 5) -- thread
+product:addIngredient(2547, 4) -- leather
 product:addIngredient(333, 2) -- horn
 product:addIngredient(2586, 1) -- fur
 product:addIngredient(3787, 1) -- silk
@@ -566,7 +566,7 @@ product:addIngredient(2547, 1) -- leather
 -- thief's gloves
 product = tailoring:addProduct(catId, 384, 1)
 product:addIngredient(50, 2) -- thread
-product:addIngredient(2547, 2) -- leather
+product:addIngredient(2547, 1) -- leather
 
 -- leather gloves
 product = tailoring:addProduct(catId, 48, 1)
@@ -650,7 +650,7 @@ catId = tailoring:addCategory("Robes", "Roben")
 -- grey coat
 product = tailoring:addProduct(catId, 196, 1)
 product:addIngredient(50, 2) -- thread
-product:addIngredient(176, 2) -- grey cloth
+product:addIngredient(176, 1) -- grey cloth
 
 -- grey priest robe
 product = tailoring:addProduct(catId, 2418, 1)
@@ -671,7 +671,7 @@ product:addIngredient(45, 1) -- emerald
 -- black robe
 product = tailoring:addProduct(catId, 194, 1)
 product:addIngredient(50, 2) -- thread
-product:addIngredient(175, 2) -- black cloth
+product:addIngredient(175, 1) -- black cloth
 product:addIngredient(283, 1) -- obsidian
 
 -- black cult robe
@@ -688,7 +688,7 @@ product:addIngredient(283, 1) -- obsidian
 
 -- black priest robe
 product = tailoring:addProduct(catId, 2420, 1)
-product:addIngredient(50, 3) -- thread
+product:addIngredient(50, 2) -- thread
 product:addIngredient(175, 2) -- black cloth
 product:addIngredient(3787, 1) -- silk
 
@@ -701,19 +701,19 @@ product:addIngredient(3787, 1) -- silk
 
 -- red priest robe
 product = tailoring:addProduct(catId, 2419, 1)
-product:addIngredient(50, 3) -- thread
+product:addIngredient(50, 4) -- thread
 product:addIngredient(174, 2) -- red cloth
 product:addIngredient(3787, 1) -- silk
 
 -- red mage robe
 product = tailoring:addProduct(catId, 2377, 1)
-product:addIngredient(50, 3) -- thread
-product:addIngredient(174, 2) -- red cloth
+product:addIngredient(50, 4) -- thread
+product:addIngredient(174, 3) -- red cloth
 product:addIngredient(3787, 1) -- silk
 
 -- yellow robe
 product = tailoring:addProduct(catId, 195, 1)
-product:addIngredient(50, 3) -- thread
+product:addIngredient(50, 4) -- thread
 product:addIngredient(177, 2) -- yellow cloth
 product:addIngredient(3787, 2) -- silk
 
@@ -761,8 +761,8 @@ catId = tailoring:addCategory("Shirts", "Hemden")
 
 -- green shirt
 product = tailoring:addProduct(catId, 457, 1)
-product:addIngredient(50, 4) -- thread
-product:addIngredient(54, 3) -- green cloth
+product:addIngredient(50, 3) -- thread
+product:addIngredient(54, 2) -- green cloth
 
 -- black shirt
 product = tailoring:addProduct(catId, 182, 1)
@@ -809,7 +809,7 @@ product:addIngredient(283, 1) -- obsidian
 
 -- red white skirt
 product = tailoring:addProduct(catId, 843, 1)
-product:addIngredient(50, 3) -- thread
+product:addIngredient(50, 2) -- thread
 product:addIngredient(174, 2) -- red cloth
 product:addIngredient(178, 1) -- white cloth
 product:addIngredient(3787, 1) -- silk
@@ -955,7 +955,7 @@ product:addIngredient(3787, 1) -- silk
 
 -- short yellow trousers
 product = tailoring:addProduct(catId, 460, 1)
-product:addIngredient(50, 3) -- thread
+product:addIngredient(50, 4) -- thread
 product:addIngredient(177, 2) -- yellow cloth
 product:addIngredient(3787, 1) -- silk
 
@@ -991,7 +991,7 @@ product:addIngredient(178, 2) -- white cloth
 
 -- green tunic
 product = tailoring:addProduct(catId, 817, 1)
-product:addIngredient(50, 4) -- thread
+product:addIngredient(50, 3) -- thread
 product:addIngredient(54, 3) -- green cloth
 
 -- black tunic
@@ -1096,7 +1096,6 @@ product = tailoring:addProduct(catId, 4012 ,1)
 product:addIngredient(50, 4) -- thread
 product:addIngredient(178, 3) -- white cloth
 product:addIngredient(2547, 3) -- leather
-
 
 -- Apprentice Sewing Kit
 product = tailoring:addProduct(catId, 4013 ,1)

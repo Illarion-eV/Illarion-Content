@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local lookat = require("base.lookat")
 local ranklist = require("base.ranklist")
+local gm_lectern = require("gm.gm_lectern")
 
 -- UPDATE items SET itm_script='item.id_661_lectern' WHERE itm_id IN (661, 660);
 
@@ -25,30 +26,36 @@ local function isRanklistLocation(pos)
     return pos == position(138, 551, 0) or pos == position(358, 217, 0) or pos == position(960, 791, 0)
 end
 
-function M.UseItem(User, SourceItem)
-    if isRanklistLocation(SourceItem.pos) then
-        ranklist.getRanklist(User, "explorerRanklist", true)
+function M.UseItem(user, sourceItem)
+
+    if sourceItem.pos == gm_lectern.pos then
+        gm_lectern.mainOverview(user, sourceItem)
+        return
     end
 
-    if (User:getQuestProgress(539) == 5) and SourceItem.pos == position(613, 188, -3) then --OK, the player does the quest 3
-        User:inform(
+    if isRanklistLocation(sourceItem.pos) then
+        ranklist.getRanklist(user, "explorerRanklist", true)
+    end
+
+    if (user:getQuestProgress(539) == 5) and sourceItem.pos == position(613, 188, -3) then --OK, the player does the quest 3
+        user:inform(
         "Das Rezept ist für Kaefitys absolute Lebensauslöschungsbombe, aber die meisten können den Kauderwelsch nicht entziffern. Die wenigen, die es lesen können, werden feststellen, dass an entscheidenden Stellen wichtige Zutaten fehlen. Berichte Pasinn was du gefunden hast.",
         "The recipe is for Kaefity's Total Life Annihilator Bomb, but most cannot read the gibberish. The few who can read it will find that there are important ingredients missing in key places. Please tell Pasinn of your finding.")
-        User:setQuestProgress(539, 6)
+        user:setQuestProgress(539, 6)
         return
-    elseif SourceItem.pos == position(613, 188, -3) then
-        User:inform(
+    elseif sourceItem.pos == position(613, 188, -3) then
+        user:inform(
         "Das Rezept ist für Kaefitys absolute Lebensauslöschungsbombe, aber die meisten können den Kauderwelsch nicht entziffern. Die wenigen, die es lesen können, werden feststellen, dass an entscheidenden Stellen wichtige Zutaten fehlen.",
         "The recipe is for Kaefity's Total Life Annihilator Bomb, but most cannot read the gibberish. The few who can read it will find that there are important ingredients missing in key places.")
         return
     end
 end
 
-function M.LookAtItem(User, item)
-    if isRanklistLocation(item.pos) then
-        lookat.SetSpecialDescription(item, "Rangliste der Entdeckergilde.", "Ranklist of the explorer guild")
+function M.LookAtItem(user, sourceItem)
+    if isRanklistLocation(sourceItem.pos) then
+        lookat.SetSpecialDescription(sourceItem, "Rangliste der Entdeckergilde.", "Ranklist of the explorer guild")
     end
-    return lookat.GenerateLookAt(User, item, lookat.NONE)
+    return lookat.GenerateLookAt(user, sourceItem, lookat.NONE)
 end
 
 return M

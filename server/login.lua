@@ -29,6 +29,7 @@ local gods_common = require("content._gods.gods_common")
 local tutorial = require("content.tutorial")
 local keys = require("item.keys")
 local ceilingtrowel = require("gm.items.id_382_ceilingtrowel")
+local utility = require("housing.utility")
 local messenger = require("content.messenger")
 
 -- Called after every player login
@@ -233,6 +234,7 @@ local payTaxes
 local receiveGems
 local PayOutWage
 local payNow
+local checkForNewBulletinMessages
 
 function M.onLogin( player )
 
@@ -254,9 +256,9 @@ function M.onLogin( player )
     local players = world:getPlayersOnline() --Reading all players online so we can count them
 
     --Reading current date
-    local datum = world:getTime("day")
-    local monthString = common.Month_To_String(world:getTime("month"))
-    local hourStringG, hourStringE = common.Hour_To_String(world:getTime("hour"))
+    local datum = common.getTime("day")
+    local monthString = common.Month_To_String(common.getTime("month"))
+    local hourStringG, hourStringE = common.Hour_To_String(common.getTime("hour"))
 
     local lastDigit = datum % 10 --Is it st, nd or rd?
 
@@ -271,11 +273,22 @@ function M.onLogin( player )
         extensionString = "th" --default
     end
 
+    local varTextDe
+    local varTextEn
+
     if #players > 1 then
-        common.InformNLS(player,"[Login] Willkommen auf Illarion! Es ist "..hourStringG.." am "..datum..". "..monthString..". Es sind "..#players.." Spieler online.","[Login] Welcome to Illarion! It is "..hourStringE.." on the "..datum..""..extensionString.." of "..monthString..". There are "..#players.." players online.") --sending a message
+        varTextDe = ". Es sind "..#players.." Spieler online."
+        varTextEn = ". There are "..#players.." players online."
     else --player is alone
-        common.InformNLS(player,"[Login] Willkommen auf Illarion! Es ist "..hourStringG.." am "..datum..". "..monthString..". Ein Spieler ist online.","[Login] Welcome to Illarion! It is "..hourStringE.." on the "..datum..""..extensionString.." of "..monthString..". One player is online.") --sending a message
+        varTextDe =  ". Ein Spieler ist online."
+        varTextEn = ". One player is online."
     end
+
+    common.InformNLS(
+        player,
+        "[Login] Willkommen auf Illarion! Es ist "..hourStringG.." am "..datum..". "..monthString..varTextDe,
+        "[Login] Welcome to Illarion! It is "..hourStringE.." on the "..datum..""..extensionString.." of "..monthString..varTextEn
+        )
 
     --Taxes
     if not player:isAdmin() then --Admins don't pay taxes or get gems.
@@ -344,6 +357,7 @@ function M.onLogin( player )
         player.effects:addEffect(LongTimeEffect(gods_common.EFFECT_ID, 10))
     end
 
+    utility.keyRetrieval(player, true)
     --Checking for pending town behaviour changes
     keys.changeTownBehaviourOnLogin(player)
 
@@ -352,6 +366,9 @@ function M.onLogin( player )
 
     --Checking for pending messages from the messenger
     messenger.sendStoredMessages(player)
+
+    --Check for and provide an inform if there are unread messages at the Troll's haven bulletin board or the relevant town boards if a citizen
+    checkForNewBulletinMessages(player)
 end
 
 function showNewbieDialog(player)
@@ -419,8 +436,8 @@ function welcomeNewPlayer(player)
 end
 
 function payTaxes(taxPayer)
-    local yr = world:getTime("year")
-    local mon = world:getTime("month")
+    local yr = common.getTime("year")
+    local mon = common.getTime("month")
     local timeStmp = yr * 1000 + mon
     local lastTax = taxPayer:getQuestProgress(123)
 
@@ -438,8 +455,8 @@ function payTaxes(taxPayer)
 end
 
 function receiveGems(gemRecipient)
-    local yr = world:getTime("year")
-    local mon = world:getTime("month")
+    local yr = common.getTime("year")
+    local mon = common.getTime("month")
     local timeStmp = yr * 1000 + mon
     local town = factions.getMembershipByName(gemRecipient)
     if town == "None" then
@@ -633,6 +650,84 @@ function exchangeFactionLeader( playerName )
                 factionLeader.informationTable[i].newPosition)
         end
     end
+end
+
+local function checkTrollsHavenBulletin(user)
+
+    local lastSeen = user:getQuestProgress(255)
+
+    local foundLatest, latest = ScriptVars:find("latestBulletinMessage")
+
+    if not foundLatest then
+        return false
+    end
+
+    latest = tonumber(latest)
+
+    if lastSeen ~= latest and lastSeen ~= 0 then --Only those who are aware of the bulletin by having checked it at least once will be informed of new messages, as to avoid confusing new players
+        return true
+    end
+
+    return false
+
+end
+
+local function checkRealmBulletin(user)
+
+    local town = factions.getMembershipByName(user)
+
+    local townBoardQuestIds = {Runewick = 256, Cadomyr = 257, Galmair = 258}
+
+    local townQuestId = townBoardQuestIds[town]
+
+    if common.IsNilOrEmpty(townQuestId) then --outlaws
+        return false
+    end
+
+    local foundTownLatest, townLatest = ScriptVars:find("latestMessage"..town)
+
+    if not foundTownLatest then
+        return false
+    end
+
+    townLatest = tonumber(townLatest)
+
+    local lastSeen = user:getQuestProgress(townQuestId)
+
+    if lastSeen ~= 0 and lastSeen ~= townLatest then
+        return true, town
+    end
+
+    return false
+
+end
+
+function checkForNewBulletinMessages(user)
+
+    local sendTrollsHavenMessage = checkTrollsHavenBulletin(user)
+
+    local sendRealmMessage, town = checkRealmBulletin(user)
+
+
+    if not sendRealmMessage and not sendTrollsHavenMessage then
+        return
+    end
+
+    local texts = {}
+
+    if sendRealmMessage and sendTrollsHavenMessage then
+        texts.english = "There are new messages to be read at both the Hemp Necktie Inn bulletin board and the town board of "..town.."."
+        texts.german = "GERMAN TRANSLATION"
+    elseif sendRealmMessage then
+        texts.english = "There are new messages to be read at the "..town.." town board."
+        texts.german = ""
+    else
+        texts.english = "There are new messages to be read at the Hemp Necktie Inn bulletin board."
+        texts.german = ""
+    end
+
+    user:inform("GERMAN TRANSLATION"..texts.german, "[Bulletin] "..texts.english)
+
 end
 
 return M

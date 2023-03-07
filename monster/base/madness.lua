@@ -31,10 +31,10 @@ local function _isTable(value)
 end
 
 local function isSpecialTime()
-    if world:getTime("month") == 16 then
+    if common.getTime("month") == 16 then
         return true -- It is Mas!
     end
-    local hour = world:getTime("hour")
+    local hour = common.getTime("hour")
     -- "Special time" from 20:00 to 3:59
     return hour >= 20 or hour <= 3
 end

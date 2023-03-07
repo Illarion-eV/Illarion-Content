@@ -14,11 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- script to put lights on and off
--- off items: save old wear value in data (+1000)
---                if data is <1000, set to default wear or keep current (if there's no requirement, e.g. for a torch)
--- on items: save old wear value in data (+500)
---                if data is <500, set wear to 255 or default portable wear
 
 local common = require("base.common")
 local lookat = require("base.lookat")
@@ -26,10 +21,7 @@ local tutorial = require("content.tutorial")
 
 local M = {}
 
--- UPDATE items SET itm_script='item.lights' WHERE itm_id IN (92, 397, 393, 394, 2856, 2855, 391, 392, 401, 402, 403, 404, 2851, 2852, 2853, 2854, 399, 400, 395, 396);
-
-local PORTABLE_WEAR = 10 -- default wear value for portable items, when put off
-local DEFAULT_WEAR = 10 -- default wear value for light sources, when put on
+local DEFAULT_WEAR = 20 -- default duration of one hour (57-60 min depending on when in the rot cycle it is lit)
 
 local LightsOff = {}
 local LightsOn = {}
@@ -37,10 +29,10 @@ local LightsOn = {}
 LightsOff[391] = { on = 392 }
 LightsOn[392] = { off = 391, portable = true }
 -- torch holder
-LightsOff[401] = { on = 402, req = { id = 392, num = 1 } } -- facing south
-LightsOn[402] = { off = 401, back = 392 }
-LightsOff[403] = { on = 404, req = { id = 392, num = 1 } } -- facing west
-LightsOn[404] = { off = 403, back = 392 }
+LightsOff[401] = { on = 402, req = { id = 392, alternative = 391, num = 1 } } -- facing south
+LightsOn[402] = { off = 401}
+LightsOff[403] = { on = 404, req = { id = 392, alternative = 391, num = 1 } } -- facing west
+LightsOn[404] = { off = 403}
 -- candles
 LightsOff[2853] = { on = 2851, req = { id = 43, num = 3 } } -- facing south
 LightsOn[2851] = { off = 2853 }
@@ -65,120 +57,152 @@ local ReqTexts = {}
 ReqTexts.german = { [392] = "Fackeln", [43] = "Kerzen", [469] = "Lampenöl" }
 ReqTexts.english = { [392] = "torches", [43] = "candles", [469] = "lamp oil" }
 
-local checkReq
-local putOn
-local getLightData
-local setLightData
 
-function M.UseItem(User, SourceItem, ltstate)
-    if SourceItem.id == Item.torch and SourceItem:getType() ~= scriptItem.inventory then
-        common.InformNLS(User,
-            "Nimm die Lichtquelle in die Hand.",
-            "Take the light source into your hand.")
-        return
-    end
-    if SourceItem:getType() == scriptItem.container then
-        common.InformNLS(User,
-            "Nimm die Lichtquelle in die Hand oder lege sie am Gürtel ab.",
-            "Take the light source into your hand or put it on your belt.")
-        return
-    end
+local function lightTheItem(theItem, newWear)
 
-    if SourceItem.number > 1 then
-        User:inform("Du kannst immer nur eine Lichtquelle auf einmal anzünden. Um einen Stapel aufzuteilen, halte die Umschalttaste, während du den Stapel auf ein freies Inventarfeld ziehst.",
-                    "You can only light up one light source at once. To split a stack, hold shift while dragging the item stack to a free inventory slot.")
-        return
-    end
-
-    local this = LightsOff[SourceItem.id]
-    if this then
-        local ok, wear = checkReq(User,SourceItem,this)
-        if ok then
-            --Noobia Quest 330: Lighting a torch with NPC Henry Cunnigan
-            if User:getQuestProgress(330) == 2 and SourceItem.id == 391 and User:isInRangeToPosition((position (703,290,0)),20) then -- Only invoked if the user has the quest, has a torch and is in range of the NPC
-                User:setQuestProgress(330,3) -- Quest advanced when torch lit
-                common.InformNLS(User, tutorial.getTutorialInformDE("lights"), tutorial.getTutorialInformEN("lights"))
-                local Henry = common.getNpc(position(703,290,0),1,"Henry Cunnigan")
-                common.TalkNLS(Henry, Character.say, tutorial.getTutorialTalkDE("lights"), tutorial.getTutorialTalkEN("lights"))
-            end
-            --Noobia end
-
-            --Quest 105: NPC Gregor Remethar "A light at the end of the tunnel"
-            if SourceItem.id == 395 and (SourceItem.pos == position (873, 796, -3) or SourceItem.pos == position (873, 798, -3) ) and User:getQuestProgress(105) == 1 then
-                common.InformNLS(User, "[Queststatus] Du entfachst die Ehrenfeuer von Runewick. Kehre zu Gregor Remethar zurück, um deine Belohnung einzufordern.", "[Quest status] You lit the lights of honour of Runewick. Return to Gregor Remethar to claim your reward.")
-                User:setQuestProgress(105,2)
-                putOn(SourceItem,math.random(20,60),false) --these lights burn quite long
-            else
-            --Quest end, default below
-                putOn(SourceItem,wear,false)
-            end
-
-        elseif this.req then
-            common.InformNLS(User,
-                "Dafür brauchst du ".. ReqTexts.german[this.req.id] .. " in der Hand oder im Gürtel.",
-                "You need ".. ReqTexts.english[this.req.id] .. " in your belt or hands to do that.")
-        end
-    elseif LightsOn[SourceItem.id] then
-        common.InformNLS(User,"Du verbrennst dir die Finger beim Versuch, das Feuer zu ersticken.","You burn your fingers while trying to extinguish the flames.")
-    end
+    theItem.id = LightsOff[theItem.id].on
+    theItem.wear = newWear
+    world:changeItem(theItem)
 end
 
-function checkReq(User, Item, this)
-    local wear = -1
-    if getLightData(Item)>=1000 then
-        -- item has already been used and old wear is saved in data
-        wear = getLightData(Item)-1000
+local function passesCheckForStackSizeAndPosition(user, sourceItem)
 
-    elseif this.req then
+    if sourceItem.id == Item.torch and sourceItem:getType() ~= scriptItem.inventory then
+        common.InformNLS(user,
+            "Nimm die Lichtquelle in die Hand.",
+            "Take the light source into your hand.")
+        return false
+    end
+    if sourceItem:getType() == scriptItem.container then
+        common.InformNLS(user,
+            "Nimm die Lichtquelle in die Hand oder lege sie am Gürtel ab.",
+            "Take the light source into your hand or put it on your belt.")
+        return false
+    end
+
+    if sourceItem.number > 1 then
+        user:inform("Du kannst immer nur eine Lichtquelle auf einmal anzünden. Um einen Stapel aufzuteilen, halte die Umschalttaste, während du den Stapel auf ein freies Inventarfeld ziehst.",
+                    "You can only light up one light source at once. To split a stack, hold shift while dragging the item stack to a free inventory slot.")
+        return false
+    end
+
+    return true
+end
+
+local function checkIfRequirementsAreMetAndConsumeUnlitItem(user, unlitItem)
+
+    local litTorch = false
+
+    if unlitItem.req then
         -- there's a requirement, check on body and belt
-        if ( User:countItemAt("body", this.req.id) + User:countItemAt("belt", this.req.id) >= this.req.num ) then
-            wear = 0
+
+        local alternative = unlitItem.req.alternative
+
+        local hasEnoughAlternativeItem = false
+
+        if alternative then
+            hasEnoughAlternativeItem = user:countItemAt("body", alternative) + user:countItemAt("belt", alternative) >= unlitItem.req.num
+        end
+
+        local hasEnoughOfRequiredItem = user:countItemAt("body", unlitItem.req.id) + user:countItemAt("belt", unlitItem.req.id) >= unlitItem.req.num
+
+        local itemToTake = unlitItem.req.id
+
+        if not hasEnoughOfRequiredItem and hasEnoughAlternativeItem then
+            itemToTake = alternative
+        end
+
+        if hasEnoughOfRequiredItem or hasEnoughAlternativeItem then
             local myItem
-            local itemRest = this.req.num
+            local itemRest = unlitItem.req.num
             for i=1,17 do
-                myItem = User:getItemAt( i )
-                if ( myItem.id == this.req.id ) then
-                    wear = wear + myItem.wear -- save wear for torches
+                myItem = user:getItemAt( i )
+                if ( myItem.id == itemToTake ) then
                     world:erase( myItem, math.min( itemRest, myItem.number ) )
+                    if itemToTake == 392 then
+                        litTorch = myItem.wear
+                    end
                     itemRest = itemRest - math.min( itemRest, myItem.number )
                     if itemRest == 0 then
                         break
                     end
                 end
             end
-            if this.req.remnant then
-                common.CreateItem(User, this.req.remnant, this.req.num, 333, nil)
+            if unlitItem.req.remnant then
+                common.CreateItem(user, unlitItem.req.remnant, unlitItem.req.num, 333, nil)
             end
-            if this.req.id~=392 then
-                -- use default wear for all non-torch-requirements
-                wear = DEFAULT_WEAR
-            end
+        else
+            return false, litTorch
         end
-    else
-        -- no requirement
-        wear = Item.wear
     end
-    return (wear>=0), wear
+
+    return true, litTorch
 end
 
-function putOn(Item, newWear, noBack)
-
-    if noBack then
-        setLightData(Item, 2) -- give nothing back
-    else
-        setLightData(Item, newWear + 500) -- save old wear value
+local function handleUsageQuests(user, sourceItem)  -- returns true if the quest handles the lighting process
+    --Tutorial Quest 330: Lighting a torch with NPC Henry Cunnigan
+    if user:getQuestProgress(330) == 2 and sourceItem.id == 391 and user:isInRangeToPosition((position (703,290,0)),20) then -- Only invoked if the user has the quest, has a torch and is in range of the NPC
+        user:setQuestProgress(330,3) -- Quest advanced when torch lit
+        common.InformNLS(user, tutorial.getTutorialInformDE("lights"), tutorial.getTutorialInformEN("lights"))
+        local Henry = common.getNpc(position(703,290,0),1,"Henry Cunnigan")
+        common.TalkNLS(Henry, Character.say, tutorial.getTutorialTalkDE("lights"), tutorial.getTutorialTalkEN("lights"))
+        return false
     end
-    Item.id = LightsOff[Item.id].on
-    Item.wear = newWear
-    world:changeItem(Item)
+
+    --Quest 105: NPC Gregor Remethar "A light at the end of the tunnel"
+    if sourceItem.id == 395 and (sourceItem.pos == position (873, 796, -3) or sourceItem.pos == position (873, 798, -3) ) and user:getQuestProgress(105) == 1 then
+        common.InformNLS(user, "[Queststatus] Du entfachst die Ehrenfeuer von Runewick. Kehre zu Gregor Remethar zurück, um deine Belohnung einzufordern.", "[Quest status] You lit the lights of honour of Runewick. Return to Gregor Remethar to claim your reward.")
+        user:setQuestProgress(105,2)
+        lightTheItem(sourceItem, math.random(20,60)) --these lights burn quite long
+        return true
+    end
+
+    return false
 end
 
-function M.MoveItemAfterMove(User,SourceItem,TargetItem)
+function M.UseItem(user, sourceItem)
+
+    if not passesCheckForStackSizeAndPosition(user, sourceItem) then
+        return
+    end
+
+    local unlitItem = LightsOff[sourceItem.id]
+    local litItem = LightsOn[sourceItem.id]
+
+    if unlitItem then
+        local requirementsMet, litTorch = checkIfRequirementsAreMetAndConsumeUnlitItem(user, unlitItem)
+        if requirementsMet then
+            if not handleUsageQuests(user, sourceItem) then
+                -- no quests that already lit the item, proceeding with default
+                local wear = DEFAULT_WEAR
+
+                if litTorch then
+                    wear = litTorch
+                end
+
+                lightTheItem(sourceItem, wear)
+            end
+        elseif unlitItem.req then
+            local number = ""
+            if  unlitItem.req.num > 1 then
+                number = tostring(unlitItem.req.num).." "
+            end
+
+            common.InformNLS(user,
+                "Dafür brauchst du "..number.. ReqTexts.german[unlitItem.req.id] .. " in der Hand oder im Gürtel.",
+                "You need "..number.. ReqTexts.english[unlitItem.req.id] .. " in your belt or hands to do that.")
+        end
+    elseif litItem then
+        common.InformNLS(user,"Du verbrennst dir die Finger beim Versuch, das Feuer zu ersticken.","You burn your fingers while trying to extinguish the flames.")
+    end
+end
+
+function M.MoveItemAfterMove(user, itemBefore, itemAfter)
 
     -- Quest 305: we burn a tobacco plantation
-    if User:getQuestProgress(305) == 2 then
-        if (TargetItem.pos.x >= 3) and (TargetItem.pos.x <= 6) and (TargetItem.pos.y >= 565) and (TargetItem.pos.y <= 571) and (TargetItem.pos.z <= 0) then
-            if LightsOn[SourceItem.id] then
+    if user:getQuestProgress(305) == 2 then
+        if (itemAfter.pos.x >= 3) and (itemAfter.pos.x <= 6) and (itemAfter.pos.y >= 565) and (itemAfter.pos.y <= 571) and (itemAfter.pos.z <= 0) then
+            if LightsOn[itemBefore.id] then
                 local spawnFire = function(posi)
                     world:createItemFromId(359,1,posi,true,333,nil)
                 end
@@ -186,66 +210,51 @@ function M.MoveItemAfterMove(User,SourceItem,TargetItem)
                 world:createItemFromId(359,1,position(5,568,0),true,333,nil)
                 common.CreateCircle(position(5,568,0), 1, spawnFire)
                 common.CreateCircle(position(5,568,0), 2, spawnFire)
-                User:setQuestProgress(305,3)
-                User:inform("Du hast das Tabakfeld zerstört. Gut gemacht. Spreche nun mit Tobis Vunu.","You destroyed the tobacco field. Well done. Talk to Tobis Vunu now.")
+                user:setQuestProgress(305,3)
+                user:inform("Du hast das Tabakfeld zerstört. Gut gemacht. Spreche nun mit Tobis Vunu.","You destroyed the tobacco field. Well done. Talk to Tobis Vunu now.")
             else
-                User:inform("Du kannst das Feld vermutlich mit brennenden Dingen besser abfackeln.","It's much easier to burn down a field if you are using fire.")
+                user:inform("Du kannst das Feld vermutlich mit brennenden Dingen besser abfackeln.","It's much easier to burn down a field if you are using fire.")
             end
         end
     end
 
-    --Noobia Quest 330: Equipping a torch with NPC Henry Cunnigan
-    if User:getQuestProgress(330)==1 and TargetItem.id==391 and User:isInRangeToPosition((position (703,290,0)),20) and TargetItem:getType() == 4 then -- Only invoked if the user has the quest, has a torch and is in range of the NPC
-        User:setQuestProgress(330,2) --Quest advancement when torch equipped
+    --Tutorial Quest 330: Equipping a torch with NPC Henry Cunnigan
+    if user:getQuestProgress(330)==1 and itemAfter.id==391 and user:isInRangeToPosition((position (703,290,0)),20) and itemAfter:getType() == 4 then -- Only invoked if the user has the quest, has a torch and is in range of the NPC
+        user:setQuestProgress(330,2) --Quest advancement when torch equipped
         local NPCList=world:getNPCSInRangeOf(position(703,290,0),1) --Let's be tolerant, the NPC might move a tile.
-        common.InformNLS(User, tutorial.getTutorialInformDE("lightsStart"), tutorial.getTutorialInformEN("lightsStart"))
+        common.InformNLS(user, tutorial.getTutorialInformDE("lightsStart"), tutorial.getTutorialInformEN("lightsStart"))
         for i, Henry in pairs(NPCList) do
             common.TalkNLS(Henry, Character.say, tutorial.getTutorialTalkDE("lightsStart"), tutorial.getTutorialTalkEN("lightsStart"))
         end
     end
-    --Noobia end
 
     return true --leave safely
 end
 
-function M.LookAtItem(User, Item)
+function M.LookAtItem(user, sourceItem)
 
-    if(LightsOn[Item.id]) then
-        local TimeLeftI = Item.wear
+    if(LightsOn[sourceItem.id]) then
+        local TimeLeftI = sourceItem.wear
         if(TimeLeftI == 255) then
-            lookat.SetSpecialDescription(Item, "Sie wird nie ausbrennen.", "It will never burn down.")
+            lookat.SetSpecialDescription(sourceItem, "Sie wird nie ausbrennen.", "It will never burn down.")
         elseif (TimeLeftI == 0) then
-            lookat.SetSpecialDescription(Item, "Sie wird sofort ausbrennen.", "It will burn down immediately.")
+            lookat.SetSpecialDescription(sourceItem, "Sie wird sofort ausbrennen.", "It will burn down immediately.")
         elseif (TimeLeftI == 1) then
-            lookat.SetSpecialDescription(Item, "Sie wird demnächst ausbrennen.", "It will burn down anytime soon.")
+            lookat.SetSpecialDescription(sourceItem, "Sie wird demnächst ausbrennen.", "It will burn down anytime soon.")
         elseif (TimeLeftI == 2) then
-            lookat.SetSpecialDescription(Item, "Sie wird bald ausbrennen.", "It will burn down soon.")
+            lookat.SetSpecialDescription(sourceItem, "Sie wird bald ausbrennen.", "It will burn down soon.")
         elseif (TimeLeftI <= 4) then
-            lookat.SetSpecialDescription(Item, "Sie wird nach einer Weile ausbrennen.", "It will burn down in a while.")
-        elseif (TimeLeftI <= PORTABLE_WEAR) then
-            lookat.SetSpecialDescription(Item, "Sie wird nicht allzu bald ausbrennen.", "It will not burn down anytime soon.")
-        elseif (TimeLeftI > PORTABLE_WEAR) then
-            lookat.SetSpecialDescription(Item, "Sie wird nach langer Zeit ausbrennen.", "It will burn down in a long time.")
+            lookat.SetSpecialDescription(sourceItem, "Sie wird nach einer Weile ausbrennen.", "It will burn down in a while.")
+        elseif (TimeLeftI <= DEFAULT_WEAR) then
+            lookat.SetSpecialDescription(sourceItem, "Sie wird nicht allzu bald ausbrennen.", "It will not burn down anytime soon.")
+        elseif (TimeLeftI > DEFAULT_WEAR) then
+            lookat.SetSpecialDescription(sourceItem, "Sie wird nach langer Zeit ausbrennen.", "It will burn down in a long time.")
         end
-    elseif (LightsOff[Item.id]) then
-        lookat.SetSpecialDescription(Item, "Sie ist nicht angezündet.", "It is not lit, yet.")
+    elseif (LightsOff[sourceItem.id]) then
+        lookat.SetSpecialDescription(sourceItem, "Sie ist nicht angezündet.", "It is not lit, yet.")
     end
 
-    return lookat.GenerateLookAt(User, Item, lookat.NONE)
-end
-
--- dirty quick fix for old data
-function getLightData(Item)
-  local str = Item:getData("lightData")
-  if (str == "") then
-    setLightData(Item, 0)
-    return 0
-  end
-  return tonumber(str)
-end
-
-function setLightData(Item, Num)
-  Item:setData("lightData", "" .. Num)
+    return lookat.GenerateLookAt(user, sourceItem, lookat.NONE)
 end
 
 return M

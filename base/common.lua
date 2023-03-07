@@ -17,7 +17,82 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Generic Routine Collection
 local M = {}
 
+function M.getTime(timeType)
 
+    local unixTime = world:getTime("unix")
+
+    if timeType == "unix" then
+        return unixTime
+    end
+
+    local startOfIllarion = 950742000
+
+    local illarionTimeInSeconds = (unixTime - startOfIllarion) * 3
+
+    local secondsInYear = 60 * 60 * 24 * 365
+
+    local year = math.floor(illarionTimeInSeconds / secondsInYear)
+
+    illarionTimeInSeconds = illarionTimeInSeconds - (year * secondsInYear)
+
+    local secondsInDay = 60 * 60 * 24
+
+    local day = math.floor(illarionTimeInSeconds / secondsInDay)
+
+    illarionTimeInSeconds = illarionTimeInSeconds - (day * secondsInDay)
+
+    day = day + 1
+
+    local daysInIllarionMonth = 24
+    local daysInMas = 5
+    local monthsInAYear = 16
+    local month = math.floor(day / daysInIllarionMonth)
+
+    day = day - (month * daysInIllarionMonth)
+
+    if day == 0 then
+        if month > 0 and month < monthsInAYear then
+            day = daysInIllarionMonth
+        else
+            day = daysInMas
+        end
+    else
+        month = month + 1
+    end
+
+    if month == 0 then
+        month = monthsInAYear
+        year = year - 1
+    end
+
+    local secondsInHour = 60*60
+
+    local hour = math.floor(illarionTimeInSeconds / secondsInHour)
+
+    illarionTimeInSeconds = illarionTimeInSeconds - (hour*secondsInHour)
+
+    local secondsInMinute = 60
+
+    local minute = math.floor(illarionTimeInSeconds / secondsInMinute)
+
+    local second = illarionTimeInSeconds - (minute * secondsInMinute)
+
+    if timeType == "year" then
+        return year
+    elseif timeType == "month" then
+        return month
+    elseif timeType == "day" then
+        return day
+    elseif timeType == "hour" then
+        return hour
+    elseif timeType == "minute" then
+        return minute
+    elseif timeType == "second" then
+        return second
+    else
+        return year, month, day, hour, minute, second
+    end
+end
 --- Select the proper text upon the language flag of the character
 -- @param User The character who's language flag matters
 -- @param textInDe german text
@@ -729,12 +804,12 @@ end
 --- Get a timestamp based on the current server time. Resolution in RL seconds.
 -- @return The current timestamp
 function M.GetCurrentTimestamp()
-    return M.GetCurrentTimestampForDate(world:getTime("year"),
-        world:getTime("month"),
-        world:getTime("day"),
-        world:getTime("hour"),
-        world:getTime("minute"),
-        world:getTime("second"))
+    return M.GetCurrentTimestampForDate(M.getTime("year"),
+        M.getTime("month"),
+        M.getTime("day"),
+        M.getTime("hour"),
+        M.getTime("minute"),
+        M.getTime("second"))
 end
 
 --- Converts a date into a timestamp in with the resolution in RL seconds.
@@ -2357,36 +2432,56 @@ end
 -- @return scrItem  If an item with ItemId is found, this is the first one found. Otherwise it is nil.
 -- @return bool  Writeable flag. If there are multiple items on the field, only the top one is writeable.
 --               If none is found, nil is returned.
-function M.GetItemInArea(CenterPos, ItemId, Radius, OnlyWriteable)
-  if (Radius == nil) then
-    Radius = 1
-  end
-  if (OnlyWriteable == nil) then
-    OnlyWriteable = false
-  end
-  for x=-Radius,Radius do
-    for y=-Radius,Radius do
-      local field = world:getField(position(CenterPos.x + x, CenterPos.y + y, CenterPos.z))
-      if field ~= nil then
-      local itemCount = field:countItems()
-          if (itemCount > 0) then
-            if (OnlyWriteable) then
-              itemCount = 1
-            end
-            for i=0,itemCount-1 do
-              local item = field:getStackItem(i)
-              if (item.id == ItemId) then
-                item.pos.x = CenterPos.x + x
-                item.pos.y = CenterPos.y + y
-                item.pos.z = CenterPos.z
-                return item, (i==0)
-              end
-            end
-          end
-      end
+function M.GetItemInArea(CenterPos, ItemId, Radius, OnlyWriteable, itemData)
+
+    if (Radius == nil) then
+        Radius = 1
     end
-  end
-  return nil, nil
+
+    if (OnlyWriteable == nil) then
+        OnlyWriteable = false
+    end
+
+    for x=-Radius,Radius do
+        for y=-Radius,Radius do
+
+            local field = world:getField(position(CenterPos.x + x, CenterPos.y + y, CenterPos.z))
+
+            if field ~= nil then
+
+                local itemCount = field:countItems()
+
+                if (itemCount > 0) then
+
+                    if (OnlyWriteable) then
+                        itemCount = 1
+                    end
+
+                    for i=0,itemCount-1 do
+                        local item = field:getStackItem(i)
+                        if (item.id == ItemId) then
+                            item.pos.x = CenterPos.x + x
+                            item.pos.y = CenterPos.y + y
+                            item.pos.z = CenterPos.z
+
+                            if itemData then
+                                local dataValue = item:getData(itemData.key)
+
+                                if dataValue == itemData.value then
+
+                                    return item, (i==0)
+                                end
+                            else
+                                return item, (i==0)
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+
+    return nil, nil
 end
 
 -- Checks if a given position is located in the prison mine.
@@ -2595,8 +2690,8 @@ function M.pushBack(user,extDistance,extCenterPos)
     local distance = extDistance or 1
     local centerPos = extCenterPos or M.GetFrontPosition(user)
 
-    local diffX
-    local diffY
+    local diffX = 0
+    local diffY = 0
 
     if (centerPos.x == user.pos.x and centerPos.y == user.pos.y) then -- any direction
         diffX = math.random(1,5)
@@ -2608,6 +2703,7 @@ function M.pushBack(user,extDistance,extCenterPos)
             diffY = - diffY
         end
     end
+
     local alpha = math.atan2(diffX,diffY)
     local distX = math.floor(math.sin(alpha)*distance)
     local distY = math.floor(math.cos(alpha)*distance)
@@ -2616,7 +2712,7 @@ function M.pushBack(user,extDistance,extCenterPos)
     local posY = user.pos.y - distY
     local posZ = user.pos.z
 
-    local targetPos=user.pos
+    local targetPos = user.pos
 
     local isNotBlocked = function(pos)
         if world:getField(pos):isPassable() then
@@ -2962,5 +3058,38 @@ function M.readBitwise(user, index, questIdStart)
 end
 
 -- bitwise flag functions end
+
+function M.getCharactersInRangeOfMultiplePositions(characterType, tableOfPosRange)
+
+    local charactersToReturn = {}
+
+    for _, posRange in pairs(tableOfPosRange) do
+        local characters
+            if characterType == "monsters" then
+                characters = world:getMonstersInRangeOf(posRange.pos, posRange.range)
+            elseif characterType == "players" then
+                characters = world:getPlayersInRangeOf(posRange.pos, posRange.range)
+            elseif characterType == "npcs" then
+                characters = world:getNPCSInRangeOf(posRange.pos, posRange.range)
+            else
+                characters = world:getCharactersInRangeOf(posRange.pos, posRange.range)
+            end
+
+        for _, character in pairs(characters) do
+            local alreadyFoundCharacter = false
+            for _, alreadyFound in pairs(charactersToReturn) do
+                if alreadyFound == character then
+                    alreadyFoundCharacter = true
+                    break
+                end
+            end
+            if not alreadyFoundCharacter then
+                table.insert(charactersToReturn, character)
+            end
+        end
+    end
+
+    return charactersToReturn
+end
 
 return M

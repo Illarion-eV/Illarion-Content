@@ -52,7 +52,7 @@ function M.dealMagicDamage(target, damage)
 end
 
 function M.isValidTarget(char)
-    local noAttackQuestProgress = char:getQuestProgress(36) or char:getQuestProgress(236)
+    local noAttackQuestProgress = char:getQuestProgress(36) or char:getQuestProgress(236) or char:getQuestProgress(254)
     if noAttackQuestProgress ~= 0 then
         return false
     end

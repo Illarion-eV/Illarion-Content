@@ -414,31 +414,29 @@ product:addIngredient(2550, 1) -- copper ingot
 
 -- Novice Gem Polishing Kit
 product = finesmithing:addProduct(catId, 4034, 1)
-product:addIngredient(236, 1) -- gold ingot
+product:addIngredient(2550, 1) -- copper ingot
 product:addIngredient(197, 1) -- amethyst
 
 -- Apprentice Gem Polishing Kit
 product = finesmithing:addProduct(catId, 4035, 1)
-product:addIngredient(2550, 1) -- copper ingot
-product:addIngredient(283, 1) -- obsidian
+product:addIngredient(104, 1) -- silver ingot
+product:addIngredient(46, 1) -- ruby
 
 -- Initiate Gem Polishing Kit
 product = finesmithing:addProduct(catId, 4036, 1)
-product:addIngredient(236, 1) -- gold ingot
+product:addIngredient(2550, 1) -- copper ingot
 product:addIngredient(283, 1) -- obsidian
 
 -- Journeyman Gem Polishing Kit
 product = finesmithing:addProduct(catId, 4037, 1)
-product:addIngredient(104, 2) -- silver ingot
-product:addIngredient(284, 2) -- sapphire
-product:addIngredient(450, 1) -- amethyst powder
+product:addIngredient(236, 1) -- gold ingot
+product:addIngredient(283, 1) -- obsidian
 
 -- Specialist Gem Polishing Kit
 product = finesmithing:addProduct(catId, 4038, 1)
-product:addIngredient(236, 2) -- gold ingot
-product:addIngredient(45, 2) -- emerald
-product:addIngredient(104, 1) -- silver ingot
-product:addIngredient(448, 1) -- emerald powder
+product:addIngredient(104, 2) -- silver ingot
+product:addIngredient(284, 2) -- sapphire
+product:addIngredient(450, 1) -- amethyst powder
 
 -- Expert Gem Polishing Kit
 product = finesmithing:addProduct(catId, 4039, 1)

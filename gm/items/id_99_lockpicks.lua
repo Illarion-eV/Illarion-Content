@@ -365,6 +365,31 @@ local function ambientActionShardShower(targetChar)
     end
 end
 
+local function verifyTheGMReallyWantsToDeleteThePropertyDeed(user, chosenItem)
+
+    local title = "Notice Deletion"
+    local text = "Are you sure you want to delete this notice? If it is a property deed it contains a lot of vital information for the relevant property which will then all be reset."
+
+    local callback = function(dialog)
+        if not dialog:getSuccess() then
+            return
+        end
+
+        local index = dialog:getSelectedIndex()+1
+
+        if index == 1 then
+            world:erase(chosenItem, chosenItem.number)
+            user:logAdmin("erases " .. chosenItem.number .. " items from map: " .. world:getItemName(chosenItem.id, Player.english) .. "(" .. chosenItem.id .. ") at " .. tostring(common.GetFrontPosition(user)))
+        end
+    end
+
+    local dialog = SelectionDialog(title, text, callback)
+
+    dialog:addOption(0, "Yes, I am sure that I want to delete this potentially important information.")
+
+    user:requestSelectionDialog(dialog)
+end
+
 local function eraser(user)
 
     --get all the items the char has on him, with the stuff in the backpack
@@ -386,14 +411,22 @@ local function eraser(user)
         if (index == 0) then
             chosenItem = common.GetFrontItem(user)
             if chosenItem ~= nil then
-                world:erase(chosenItem, chosenItem.number)
-                user:logAdmin("erases " .. chosenItem.number .. " items from map: " .. world:getItemName(chosenItem.id, Player.english) .. "(" .. chosenItem.id .. ") at " .. tostring(common.GetFrontPosition(user)))
+                if chosenItem.id == 3772 or chosenItem.id == 3773 then -- property deeds
+                    verifyTheGMReallyWantsToDeleteThePropertyDeed(user, chosenItem)
+                else
+                    world:erase(chosenItem, chosenItem.number)
+                    user:logAdmin("erases " .. chosenItem.number .. " items from map: " .. world:getItemName(chosenItem.id, Player.english) .. "(" .. chosenItem.id .. ") at " .. tostring(common.GetFrontPosition(user)))
+                end
             end
         elseif (index == 1) then
             while common.GetFrontItem(user) ~= nil do
                 chosenItem = common.GetFrontItem(user)
-                world:erase(chosenItem, chosenItem.number)
-                user:logAdmin("erases " .. chosenItem.number .. " items from map: " .. world:getItemName(chosenItem.id, Player.english) .. "(" .. chosenItem.id .. ") at " .. tostring(common.GetFrontPosition(user)))
+                if chosenItem.id == 3772 or chosenItem.id == 3773 then -- property deeds
+                    verifyTheGMReallyWantsToDeleteThePropertyDeed(user, chosenItem)
+                else
+                    world:erase(chosenItem, chosenItem.number)
+                    user:logAdmin("erases " .. chosenItem.number .. " items from map: " .. world:getItemName(chosenItem.id, Player.english) .. "(" .. chosenItem.id .. ") at " .. tostring(common.GetFrontPosition(user)))
+                end
             end
         else
             chosenItem = itemsOnChar[index-1]
@@ -1670,7 +1703,7 @@ end
 local function resetTutorial(user)
     user:turn(4) --south
     user:warp(position(702, 283, 0))
-    local questlist={154,199,309,310,311,312,313,314,315,319,320,321,322,323,324,325,326,327,328,329,330,331,332,336,337,338,339,340,341,344,345,346,347,348,349,353,354,355,356,357,358}
+    local questlist={154,199,309,310,311,312,313,314,315,319,320,321,322,323,324,325,326,327,328,329,330,331,332,336,337,338,339,340,341,344,345,346,347,348,349,353,354,355,356,357,358,359}
     for i=1,#questlist do
         user:setQuestProgress(questlist[i],0)
     end

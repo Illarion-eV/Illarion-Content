@@ -15,10 +15,11 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
-local price = 2000 -- twenty silver, same as bulletins
+local price = 500 -- five silver
 
 local common = require("base.common")
 local money = require("base.money")
+local bookWriting = require("item.base.bookWriting")
 
 local parchmentSelectionStatus = {}
 
@@ -47,46 +48,115 @@ local function spawnParchment(user, texts, signature, descriptionEn, description
     end
 end
 
-function M.sendStoredMessages(recipient)
-    local foundStoredMessages, numberOfMessages = ScriptVars:find(recipient.id.."storedMessages")
+local function garbleTheMessage(message) -- Make it recognisable for those with database access to check if it matches, but unrecognisable for others for privacy reasons
+    --[[sends the first 21 characters in the letter.
+    EG: "I need to talk to you. Find me in Galmair when you read this." becomes "I****d****t****t****."
+    Undecipherable for those without database access to match it to the variables there,
+    or the foreknowledge of what the message is meant to hold
+    ]]
+    return string.sub(message, 1, 1).."****"..string.sub(message, 6, 6).."****"..string.sub(message, 11, 11).."****"..string.sub(message, 16, 16).."****"..string.sub(message, 21, 21)
+end
 
-    if not foundStoredMessages or tonumber(numberOfMessages) == 0 then
+local function convertContentsIntoString(contents)
+
+    local retString = ""
+
+    for index, message in pairs(contents) do
+        retString = retString.." (Sender "..index..": "..message.sender.." Message"..index..": "..garbleTheMessage(message.text)..")"
+    end
+
+    return retString
+
+end
+
+local function logThatMessagesWereReceived(recipient, contents)
+    local numberOfMessages = #contents
+
+    local loggedMessage = "[Messenger]: "..recipient.name.." at "..tostring(recipient.pos).." has received "..numberOfMessages.." messages. They contain the following, garbled for privacy reasons: "
+
+    loggedMessage = loggedMessage..convertContentsIntoString(contents)
+
+    log(loggedMessage)
+end
+
+function M.sendStoredMessages(recipient)
+
+    local foundStoredMessages, numberOfMessages = ScriptVars:find(recipient.id.."storedMessages")
+    local foundScriptMessages, numberOfScriptMessages = ScriptVars:find(recipient.id.."storedScriptMessages")
+    local totalMessages = 0
+
+
+    if foundStoredMessages and foundScriptMessages then
+        totalMessages =  tonumber(numberOfMessages) + tonumber(numberOfScriptMessages)
+    elseif foundStoredMessages then
+        totalMessages = tonumber(numberOfMessages)
+    elseif foundScriptMessages then
+        totalMessages = tonumber(numberOfScriptMessages)
+    end
+
+    if totalMessages == 0 then
         return
     end
 
-    local parchments = numberOfMessages.." parchments"
-    local parchmentsDE = numberOfMessages.." Nachrichten"
+    local parchments = totalMessages.." parchments"
+    local parchmentsDE = totalMessages.." Nachrichten"
 
-    if tonumber(numberOfMessages) == 1 then
+    if tonumber(totalMessages) == 1 then
         parchments = "a parchment"
         parchmentsDE = "eine Nachricht"
     end
 
-local text = common.GetNLS(recipient, "Ein Bote bringt dir "..parchmentsDE.." und verschwindet wieder, so schnell er gekommen ist.", "A messenger comes up to you, delivering "..parchments.." before scurrying off.")
-local title = common.GetNLS(recipient, "Post", "Message Delivery")
+    local text = common.GetNLS(recipient, "Ein Bote bringt dir "..parchmentsDE.." und verschwindet wieder, so schnell er gekommen ist.", "A messenger comes up to you, delivering "..parchments.." before scurrying off.")
+    local title = common.GetNLS(recipient, "Post", "Message Delivery")
+    local contents = {}
 
-    for i = 1, tonumber(numberOfMessages) do
-        local foundText1, text1 = ScriptVars:find(recipient.id.."storedMessageText"..i)
-        local foundText2, text2 = ScriptVars:find(recipient.id.."storedMessageText2"..i)
-        local foundText3, text3 = ScriptVars:find(recipient.id.."storedMessageText3"..i)
-        local foundText4, text4 = ScriptVars:find(recipient.id.."storedMessageText4"..i)
-        local foundSignature, signature = ScriptVars:find(recipient.id.."storedMessageSignature"..i)
-        local foundDescriptionEn, descriptionEn = ScriptVars:find(recipient.id.."storedMessageDescriptionEn"..i)
-        local foundDescriptionDe, descriptionDe = ScriptVars:find(recipient.id.."storedMessageDescriptionDe"..i)
+    if foundStoredMessages then
+        for i = 1, tonumber(numberOfMessages) do
+            local foundText1, text1 = ScriptVars:find(recipient.id.."storedMessageText"..i)
+            local foundText2, text2 = ScriptVars:find(recipient.id.."storedMessageText2"..i)
+            local foundText3, text3 = ScriptVars:find(recipient.id.."storedMessageText3"..i)
+            local foundText4, text4 = ScriptVars:find(recipient.id.."storedMessageText4"..i)
+            local foundSignature, signature = ScriptVars:find(recipient.id.."storedMessageSignature"..i)
+            local foundDescriptionEn, descriptionEn = ScriptVars:find(recipient.id.."storedMessageDescriptionEn"..i)
+            local foundDescriptionDe, descriptionDe = ScriptVars:find(recipient.id.."storedMessageDescriptionDe"..i)
 
-        if foundText1 and foundText2 and foundText3 and foundText4 and foundSignature and foundDescriptionEn and foundDescriptionDe then
-            local texts = {text1, text2, text3, text4}
-            spawnParchment(recipient, texts, signature, descriptionEn, descriptionDe)
+            if foundText1 and foundText2 and foundText3 and foundText4 and foundSignature and foundDescriptionEn and foundDescriptionDe then
+                local texts = {text1, text2, text3, text4}
+                table.insert(contents, {text = text1, sender = signature})
+                spawnParchment(recipient, texts, signature, descriptionEn, descriptionDe)
+            end
         end
     end
 
+    if foundScriptMessages then
+        for i = 1, tonumber(numberOfScriptMessages) do
+            local foundGermanText1, germanText1 = ScriptVars:find(recipient.id.."storedScriptMessageTextGerman"..i)
+            local foundGermanText2, germanText2 = ScriptVars:find(recipient.id.."storedScriptMessageTextGerman2"..i)
+            local foundGermanText3, germanText3 = ScriptVars:find(recipient.id.."storedScriptMessageTextGerman3"..i)
+            local foundGermanText4, germanText4 = ScriptVars:find(recipient.id.."storedScriptMessageTextGerman4"..i)
+            local foundEnglishText1, englishText1 = ScriptVars:find(recipient.id.."storedScriptMessageTextEnglish"..i)
+            local foundEnglishText2, englishText2 = ScriptVars:find(recipient.id.."storedScriptMessageTextEnglish2"..i)
+            local foundEnglishText3, englishText3 = ScriptVars:find(recipient.id.."storedScriptMessageTextEnglish3"..i)
+            local foundEnglishText4, englishText4 = ScriptVars:find(recipient.id.."storedScriptMessageTextEnglish4"..i)
+            local descriptionEnglish = bookWriting.englishParchmentDescription
+            local descriptionGerman = bookWriting.germanParchmentDescription
+
+            if foundGermanText1 and foundGermanText2 and foundGermanText3 and foundGermanText4 and foundEnglishText1 and foundEnglishText2 and foundEnglishText3 and foundEnglishText4 then
+                local texts = common.GetNLS(recipient, {germanText1, germanText2, germanText3, germanText4}, {englishText1, englishText2, englishText3, englishText4})
+                spawnParchment(recipient, texts, "", descriptionEnglish, descriptionGerman)
+            end
+        end
+    end
+
+    if tonumber(#contents) > 0 then
+        logThatMessagesWereReceived(recipient, contents)
+    end
+
     ScriptVars:set(recipient.id.."storedMessages", "0")
+    ScriptVars:set(recipient.id.."storedScriptMessages", "0")
+    ScriptVars:save()
 
     local callback = function(dialog)
-        local success = dialog:getSuccess()
-        if not success then
-            return
-        end
     end
 
     local dialog = MessageDialog(title, text, callback)
@@ -311,6 +381,60 @@ function M.messengerRequested(user)
     -- if the parchment does not contain a message and signature, decline it
     -- reset the top level variable if the character moves from the spot
 
+end
+
+
+local function isScriptMessageRecipientCharacterOnline(recipient)
+    local onlineChars = world:getPlayersOnline()
+
+    for _, char in pairs(onlineChars) do
+        if char.id == recipient then
+            M.sendStoredMessages(char)
+        end
+    end
+end
+
+local function storeScriptMessageInDatabase(recipient, english, german)
+
+    local foundStoredMessages, numberOfAlreadyStoredMessages = ScriptVars:find(recipient.."storedScriptMessages")
+
+    if not foundStoredMessages then
+        numberOfAlreadyStoredMessages = 0
+    end
+
+    local messageNumber = tonumber(numberOfAlreadyStoredMessages) + 1
+
+    ScriptVars:set(recipient.."storedScriptMessages", tostring(messageNumber))
+    ScriptVars:set(recipient.."storedScriptMessageTextEnglish"..messageNumber, english[1])
+    ScriptVars:set(recipient.."storedScriptMessageTextEnglish2"..messageNumber, english[2])
+    ScriptVars:set(recipient.."storedScriptMessageTextEnglish3"..messageNumber, english[3])
+    ScriptVars:set(recipient.."storedScriptMessageTextEnglish4"..messageNumber, english[4])
+    ScriptVars:set(recipient.."storedScriptMessageTextGerman"..messageNumber, german[1])
+    ScriptVars:set(recipient.."storedScriptMessageTextGerman2"..messageNumber, german[2])
+    ScriptVars:set(recipient.."storedScriptMessageTextGerman3"..messageNumber, german[3])
+    ScriptVars:set(recipient.."storedScriptMessageTextGerman4"..messageNumber, german[4])
+    ScriptVars:save()
+
+    isScriptMessageRecipientCharacterOnline(recipient)
+end
+
+function M.sendMessageViaScript(english, german, recipientID)
+
+    local englishTexts = {
+        string.sub(english, 1, 250),
+        string.sub(english, 251, 500),
+        string.sub(english, 501, 750),
+        string.sub(english, 751, bookWriting.parchmentMaxTextLength),
+    }
+
+    local germanTexts = {
+        string.sub(german, 1, 250),
+        string.sub(german, 251, 500),
+        string.sub(german, 501, 750),
+        string.sub(german, 751, bookWriting.parchmentMaxTextLength),
+    }
+
+    storeScriptMessageInDatabase(recipientID, englishTexts, germanTexts)
 end
 
 return M

@@ -18,6 +18,7 @@ local class = require("base.class")
 local consequence = require("npc.base.consequence.consequence")
 local tools = require("npc.base.tools")
 local factions = require("base.factions")
+local utility = require("housing.utility")
 
 local _town_helper_set
 local _town_helper_status
@@ -37,6 +38,7 @@ function _town_helper_set(self, npcChar, player)
     local value = tools.get_value(self.npc, self.value, self.valuetype)
     local factionValues = factions.getFaction(player)
     factions.makeCharMemberOfTown(player,npcChar,factionValues,1, value)
+    utility.removeRentalOfPropertiesOfOtherTowns(player)
 end
 
 function _town_helper_status(self, npcChar, player)

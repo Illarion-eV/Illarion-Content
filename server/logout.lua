@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local factionLeader = require("scheduled.factionLeader")
+local common = require("base.common")
 
 local M = {}
 
@@ -37,12 +38,12 @@ function M.onLogout( theChar )
     local foundEffect, Tying = theChar.effects:find(24);
     if foundEffect then -- Char is a captive, save logout time
         Tying:addValue("logout",1);
-        Tying:addValue("logyears",world:getTime("year"));
-        Tying:addValue("logmonths",world:getTime("month"));
-        Tying:addValue("logdays",world:getTime("day"));
-        Tying:addValue("loghours",world:getTime("hour"));
-        Tying:addValue("logminutes",world:getTime("minute")+3);
-        Tying:addValue("logseconds",world:getTime("second"));
+        Tying:addValue("logyears", common.getTime("year"));
+        Tying:addValue("logmonths", common.getTime("month"));
+        Tying:addValue("logdays", common.getTime("day"));
+        Tying:addValue("loghours", common.getTime("hour"));
+        Tying:addValue("logminutes", common.getTime("minute")+3);
+        Tying:addValue("logseconds", common.getTime("second"));
         local foundCapturer, Capturer = Tying:findValue("Capturer");
         log("[Rope]: Tied up character "..theChar.name.." has logged out."..(foundCapturer and " Capturer: "..Capturer or ""))
     end

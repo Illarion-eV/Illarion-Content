@@ -26,7 +26,6 @@ local shipmasterParchments = require("content.shipmasterParchments")
 local M = {}
 
 function M.onReload()
-
     oldSlimeFeeding.resetLever()
     lever.init()
     granorsHut.potionReplacer()
