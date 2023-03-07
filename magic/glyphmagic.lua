@@ -89,9 +89,13 @@ local function endRitualAddGlyph(user, forgePos, item)
         glyphs.setRemainingGlyphs(item, charges)
         item:setData("GlyphForger", user.name)
         world:changeItem(item)
-        common.InformNLS(user,
-            "Du versiehst " .. common.getItemName(item, Player.german) .. " mit einer Glyphe.",
-            "You add a glyph to " .. common.getItemName(item, Player.english) .. ".")
+        if item.id == 79 or item.id == 3526 or item.id == 3528 then --amethyst amulets are used in the tutorial
+            if user:getQuestProgress(241) == 3 then
+                user:setQuestProgress(241, 4)
+            end
+        end
+        common.InformNLS(user,"Du versiehst " .. common.getItemName(item, Player.german) .. " mit einer Glyphe.",
+                              "You add a glyph to " .. common.getItemName(item, Player.english) .. ".")
     else
         common.HighInformNLS(user,
             "Die notwendigen Splitter sind nicht mehr vorhanden.",
@@ -155,9 +159,11 @@ local function endRitualPrepareRitual(user, forgePos, forgeItem)
     world:changeItem(forgeItem)
 
     user:learn(workingSkill, workingTime, 100)
-    common.InformNLS(user,
-        "Der Glyphen-Ritualplatz ist vorbereitet. Jetzt können hier Rituale durchgeführt werden.",
-        "The glyph ritual place is prepared. Now it is possible to perform rituals here.")
+    common.InformNLS(user,"Der Glyphen-Ritualplatz ist vorbereitet. Jetzt können hier Rituale durchgeführt werden.",
+                          "The glyph ritual place is prepared. Now it is possible to perform rituals here.")
+    if user:getQuestProgress(241) == 1 then
+        user:setQuestProgress(241, 2)
+    end
 end
 
 local function endRitualBreakGlyph(user, forgePos, item)
