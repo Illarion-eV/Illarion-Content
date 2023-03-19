@@ -717,16 +717,16 @@ function checkForNewBulletinMessages(user)
 
     if sendRealmMessage and sendTrollsHavenMessage then
         texts.english = "There are new messages to be read at both the Hemp Necktie Inn bulletin board and the town board of "..town.."."
-        texts.german = "GERMAN TRANSLATION"
+        texts.german = "Neue Nachrichten wurde an das Brett des Gasthofes zur Hanschlinge und von "..town.." angeschlagen."
     elseif sendRealmMessage then
         texts.english = "There are new messages to be read at the "..town.." town board."
-        texts.german = ""
+        texts.german = "Neue Nachrichten wurde an das Brett von "..town.." angeschlagen."
     else
         texts.english = "There are new messages to be read at the Hemp Necktie Inn bulletin board."
-        texts.german = ""
+        texts.german = "Neue Nachrichten wurde an das Brett des Gasthofes zur Hanschlinge angeschlagen."
     end
 
-    user:inform("GERMAN TRANSLATION"..texts.german, "[Bulletin] "..texts.english)
+    user:inform("[Nachrichten] "..texts.german, "[Bulletin] "..texts.english)
 
 end
 
