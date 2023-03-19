@@ -60,7 +60,7 @@ function M.UseItem(user, item)
         informTextGerman = informTextGerman.." Vielleicht kann man es wieder zusammensetzen?"
     else
         informTextEnglish = informTextEnglish.." Perhaps you can find someone with the required magical prowess to make use of this?"
-        informTextGerman = informTextGerman.." GERMAN TRANSLATION"
+        informTextGerman = informTextGerman.." Vielleicht kannst du einen Kundigen in den magischen Künsten finden, der damit etwas anfangen kann?"
     end
 
     user:inform(informTextGerman, informTextEnglish)
@@ -79,7 +79,7 @@ function M.LookAtItem(user, theShard)
             local shardLevel = tonumber(theShard:getData("shardLevel"))
 
             if not common.IsNilOrEmpty(shardLevel) then
-                lookAt.description = common.GetNLS(user, "GERMAN TRANSLATION", "Relict glyph shard. Move it anywhere else in your inventory or on the ground to change it into the new updated shard item.")
+                lookAt.description = common.GetNLS(user, "Obsolete Glyphenscherbe. Bewege sie in deinem Inventar oder werfe sie auf den Boden, um einen aktuellen Gegenstand zu erhalten.", "Relict glyph shard. Move it anywhere else in your inventory or on the ground to change it into the new updated shard item.")
             end
         end
     end
