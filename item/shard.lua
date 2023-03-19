@@ -24,31 +24,38 @@ local oldShardNameListing =
 {{"Anemo", "Pyr", "Hydor", "Chous", "Dendron", "Nomizo", "Hieros"},
 {"gwynt", "tan", "ilyn", "daear", "coeden", "ysbryd", "dwyfol"}}
 
-function M.MoveItemAfterMove(user, sourceItem, targetItem)
+local function convertOldShardToNew(user, shard)
 
-    local shardLevel = tonumber(targetItem:getData("shardLevel"))
+    local shardLevel = tonumber(shard:getData("shardLevel"))    -- Old value that was used to determine the type of shard
 
     if common.IsNilOrEmpty(shardLevel) then
-        return true
+        return  --No old shard value assigned, nothing to do here
     end
 
 
-    local textParts = common.Split_number(shardLevel,2)
+    local textParts = common.Split_number(shardLevel, 2)    -- The old shard number is split to determine which shard name combination should be used
 
-    local shardName = oldShardNameListing[1][textParts[1] ] .. oldShardNameListing[2][textParts[2]]
+    local shardName = oldShardNameListing[1][textParts[1] ] .. oldShardNameListing[2][textParts[2]] -- The shard names are combined to make for the name of the shard we actually want
 
-    local shardItemId = Item[shardName:lower()]
+    local shardItemId = Item[shardName:lower()] -- Using the shard name, the ID of the new shard item we want the old shard to transform into is fetched via the Item.name functionality
 
-    targetItem.id = shardItemId
-    targetItem:setData("shardLevel", "") -- allows it to stack with the new ones unless it has other custom data not set by the old glyph script
+    shard.id = shardItemId -- Changing the shard to its new ID
 
-    world:changeItem(targetItem)
+    shard:setData("shardLevel", "") -- remove the old shardlevel value, allowing it to stack with the new ones unless it has other custom data not set by the old glyph script
 
-    return true
+    world:changeItem(shard) -- Tells the world to save the changes made to the item so they will actually take effect
 
 end
 
-function M.UseItem(user, item)
+local oldShards = {3493, 3494, 3495, 3496, 3497}
+
+function M.UseItem(user, theShard)
+
+    for _, shard in pairs(oldShards) do
+        if shard == theShard.id then
+            return  -- The old shards need no informs and will only be useable if spawned in by a GM to begin with
+        end
+    end
 
     local isMage = user:getMagicType() == 0 and user:getMagicFlags(0) > 0 or user:getMagicType() == 0 and user:getQuestProgress(37) ~= 0
 
@@ -67,8 +74,6 @@ function M.UseItem(user, item)
 
 end
 
-local oldShards = {3493, 3494, 3495,3496,3497}
-
 function M.LookAtItem(user, theShard)
 
     local lookAt = lookat.GenerateLookAt(user, theShard)
@@ -76,11 +81,15 @@ function M.LookAtItem(user, theShard)
     for _, shard in pairs(oldShards) do
         if shard == theShard.id then
 
-            local shardLevel = tonumber(theShard:getData("shardLevel"))
+            convertOldShardToNew(user, theShard)
 
-            if not common.IsNilOrEmpty(shardLevel) then
-                lookAt.description = common.GetNLS(user, "Obsolete Glyphenscherbe. Bewege sie in deinem Inventar oder werfe sie auf den Boden, um einen aktuellen Gegenstand zu erhalten.", "Relict glyph shard. Move it anywhere else in your inventory or on the ground to change it into the new updated shard item.")
-            end
+            --[[ As the above function will turn any old shards into their new equivalent upon lookat,
+                the below descriptions are only relevant if the shard was spawned in by GM via item ID
+                with no attached shardLevel datavalue meaning it has no equivalent shard to be transformed
+                into and might be a GM quest item. Of course a GM will likely have added a custom description
+                to replace the one below, if that is the case.
+            ]]
+            lookAt.description = common.GetNLS(user, "Obsolete Glyphenscherbe.", "Relict glyph shard.")
         end
     end
 
