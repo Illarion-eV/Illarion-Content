@@ -25,6 +25,7 @@ local utility = require("housing.utility")
 local M = {}
 
 local previewInformCooldown = {}
+local hintCooldown = {}
 
 local function loadIngredients(object)
 
@@ -456,6 +457,15 @@ function M.showDialog(user, skillName, carpentryEstateCatalogue)
 
     if not utility.allowBuilding(user) then
         return
+    end
+
+    local currentTime = common.GetCurrentTimestamp()
+
+    if not hintCooldown[user.id] or hintCooldown[user.id] <= currentTime then
+
+        user:inform("[] GERMAN TRANSLATION", "[Housing Hint] If you hover over the graphic of an object in the construction menu, it will place a preview of that item in front of you so that you can see how it looks.")
+        -- If we want to add more hints this way later on, we can change this to its own function that picks a hint from a list of hints and cycles through them based on a questID status so there are no repeats until they have all been shown.
+        hintCooldown[user.id] = currentTime + 3600 --Only shows once an hour, so as to not be spammy
     end
 
     local callback = function(dialog)
