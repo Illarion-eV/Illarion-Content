@@ -2287,12 +2287,12 @@ local selectedProperty
         end
     end
     local dialog = SelectionDialog("Properties", "Select a property to make changes to.", callback)
-    dialog:addOption(0, "Make changes to all Cadomyr properties")
-    dialog:addOption(0, "Make changes to all Galmair properties")
-    dialog:addOption(0, "Make changes to all Runewick properties")
-    dialog:addOption(0, "Make changes to all Outlaw properties")
+    dialog:addOption(0, "Cadomyr - All properties")
+    dialog:addOption(0, "Galmair - All properties")
+    dialog:addOption(0, "Runewick - All properties")
+    dialog:addOption(0, "Outlaw - All properties")
     for i = 1, #propertyList.propertyTable do
-        dialog:addOption(0, propertyList.propertyTable[i][1])
+        dialog:addOption(0, propertyList.propertyTable[i][7].." - "..propertyList.propertyTable[i][1])
     end
     user:requestSelectionDialog(dialog)
 end
