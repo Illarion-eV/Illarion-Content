@@ -51,7 +51,7 @@ local CadomyrRankListFemale = {
     {gRank = "Pagin", eRank = "Page"},         --rank 5
     {gRank = "Knappin", eRank = "Squire"},                --rank 6
     {gRank = "Ritterin", eRank = "Knight"},                --rank 7
-    {gRank = "Baroin", eRank = "Baroness"},                 --rank 8
+    {gRank = "Baronin", eRank = "Baroness"},                 --rank 8
     {gRank = "Gräfin", eRank = "Countess"},               --rank 9
     {gRank = "Herzogin", eRank = "Duchess"},                --rank 10
     {gRank = "Königin", eRank = "Queen"}};                --rank leader
