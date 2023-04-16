@@ -65,7 +65,7 @@ M.propertyTable = {
     --Estates, Galmair
     {"Syrita Estate","Grundstück Syrita",position(447,124,0),200000, 2558, 134, "Galmair", "7", factions.GalmairRankListMale[7]["eRank"],factions.GalmairRankListMale[7]["gRank"], true},
     {"Galmair Roadside Estate","Grundstück Am Wegesrand in Galmair",position(462,175,0),200000, 2558, 135, "Galmair", "7", factions.GalmairRankListMale[7]["eRank"],factions.GalmairRankListMale[7]["gRank"], true},
-    {"Galmair Mountainside Estate","Grundstück Bergblick in Galmair",position(565,172,0),200000, 2558, 136, "Galmair", "7", factions.GalmairRankListMale[7]["eRank"],factions.GalmairRankListMale[7]["gRank"], true},
+    {"Rumil Estate","Grundstück Rumil",position(381,354,0),200000, 2558, 136, "Galmair", "7", factions.GalmairRankListMale[7]["eRank"],factions.GalmairRankListMale[7]["gRank"], true},
     --Cadomyr
     {"Cadomyr Harbour Estate", "Hafengrundstück in Cadomyr",position(77,786,0),200000, 2558,368, "Cadomyr","7",factions.CadomyrRankListMale[7]["eRank"],factions.CadomyrRankListMale[7]["gRank"], true},
     {"Kantabi Estate", "Grundstück Kantabi",position(173,674,0),200000, 2558,369, "Cadomyr","7",factions.CadomyrRankListMale[7]["eRank"],factions.CadomyrRankListMale[7]["gRank"], true},
@@ -135,8 +135,11 @@ table.insert(M.properties, {name = "Syrita Estate", lower = position(448,124,0),
 table.insert(M.properties, {name = "Syrita Estate", lower = position(448,124,-21), upper = position(458,139,-21), estate = true})
 table.insert(M.properties, {name = "Galmair Roadside Estate", lower = position(464,168,0), upper = position(474,183,2), estate = true})
 table.insert(M.properties, {name = "Galmair Roadside Estate", lower = position(464,168,-21), upper = position(474,183,-21), estate = true})
-table.insert(M.properties, {name = "Galmair Mountainside Estate", lower = position(566,160,0), upper = position(581,170,2), estate = true})
-table.insert(M.properties, {name = "Galmair Mountainside Estate", lower = position(566,160,-21), upper = position(581,170,-21), estate = true})
+table.insert(M.properties, {name = "Rumil Estate", lower = position(384,351,0), upper = position(391,364,2), estate = true})
+table.insert(M.properties, {name = "Rumil Estate", lower = position(384,351,-21), upper = position(391,364,-21), estate = true})
+table.insert(M.properties, {name = "Rumil Estate", lower = position(378,359,0), upper = position(384,364,2), estate = true})
+table.insert(M.properties, {name = "Rumil Estate", lower = position(378,359,-21), upper = position(384,364,-21), estate = true})
+
 --Cadomyr
 table.insert(M.properties, {name = "Cadomyr Harbour Estate", lower = position(77,772,0), upper = position(92,782,2), estate = true})
 table.insert(M.properties, {name = "Cadomyr Harbour Estate", lower = position(77,772,-21), upper = position(92,782,-21), estate = true})
