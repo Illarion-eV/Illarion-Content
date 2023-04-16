@@ -238,7 +238,7 @@ function M.UseItem(User, SourceItem, actionState)
     end
 
     -- ferries
-    if seafaring.useFerry(User, SourceItem) then
+    if seafaring.useFerry(User, SourceItem, actionState) then
         return
     end
 
