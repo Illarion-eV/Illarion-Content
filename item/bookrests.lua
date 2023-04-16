@@ -248,6 +248,11 @@ function M.UseItem(User, SourceItem, actionState)
     end
 end
 
+function M.actionDisturbed(user, attacker)
+    user:inform("GERMAN TRANSLATION", "You should deal with your attacker first.")
+    return true
+end
+
 function WonderlandTeleporter(User, SourceItem)
     local choices = {common.GetNLS(User, "Ja, natürlich!", "Yes, of course!"), common.GetNLS(User, "Nein, lieber nicht...", "No, better not...")}
     local callback = function(dialog)

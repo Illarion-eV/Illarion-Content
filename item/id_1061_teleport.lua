@@ -23,6 +23,11 @@ local bookCastTime = 200 -- When portal magic is implemented, this will be repla
 
 local M = {}
 
+function M.actionDisturbed(user, attacker)
+    user:inform("GERMAN TRANSLATION", "You should deal with your attacker before trying to read the chant of the portal book.")
+    return true
+end
+
 function M.UseItem(user, sourceItem, actionState)
 
     if common.isInPrison(user.pos) then
