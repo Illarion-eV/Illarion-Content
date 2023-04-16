@@ -73,7 +73,7 @@ M.propertyTable = {
     --Runewick
     {"Runewick Harbour Estate", "Hafengrundstück in Runewick",position(758,778,0),200000, 2558,252, "Runewick","7",factions.RunewickRankListMale[7]["eRank"],factions.RunewickRankListMale[7]["gRank"], true},
     {"Runewick Forest Estate", "Waldgrundstück in Runewick",position(869,889,0),200000, 2558,253, "Runewick","7",factions.RunewickRankListMale[7]["eRank"],factions.RunewickRankListMale[7]["gRank"], true},
-    {"Runewick Roadside Estate", "Grundstück Am Wegesrand in Runewick",position(834,728,0),200000, 2558,254, "Runewick","7",factions.RunewickRankListMale[7]["eRank"],factions.RunewickRankListMale[7]["gRank"], true},
+    {"Merryglade Estate", "Grundstück Merryglade",position(834,728,0),200000, 2558,254, "Runewick","7",factions.RunewickRankListMale[7]["eRank"],factions.RunewickRankListMale[7]["gRank"], true},
     --Outlaw
     {"Outlaw Base One", "Erstes Lager der Vogelfreien",position(213,97,0),200000,2558,504,"Outlaw","0","None","None", true}
     }
@@ -152,8 +152,8 @@ table.insert(M.properties, {name = "Runewick Harbour Estate", lower = position(7
 table.insert(M.properties, {name = "Runewick Harbour Estate", lower = position(760,770,-21), upper = position(769,785,-21), estate = true})
 table.insert(M.properties, {name = "Runewick Forest Estate", lower = position(857,878,0), upper = position(872,888,2), estate = true})
 table.insert(M.properties, {name = "Runewick Forest Estate", lower = position(857,878,-21), upper = position(872,888,-21), estate = true})
-table.insert(M.properties, {name = "Runewick Roadside Estate", lower = position(828,716,0), upper = position(834,726,2), estate = true})
-table.insert(M.properties, {name = "Runewick Roadside Estate", lower = position(821,716,-21), upper = position(836,726,-21), estate = true})
+table.insert(M.properties, {name = "Merryglade Estate", lower = position(828,716,0), upper = position(834,726,2), estate = true})
+table.insert(M.properties, {name = "Merryglade Estate", lower = position(821,716,-21), upper = position(836,726,-21), estate = true})
 --Outlaw
 table.insert(M.properties, {name = "Outlaw Base One", lower = position(967,343,0), upper = position(983,362,2), estate = true, outlaw = true})
 table.insert(M.properties, {name = "Outlaw Base One", lower = position(967,343,-21), upper = position(983,362,-21), estate = true, outlaw = true})
