@@ -664,6 +664,7 @@ end
 
 function M.actionDisturbed(user, attacker)
     user:inform("Nicht recht sicher hier, such dir lieber einen geschützten Ort zum Reparieren.", "You should find somewhere safe from enemies before attempting to repair something.")
+    return true
 end
 
 local usedDescriptions = {}

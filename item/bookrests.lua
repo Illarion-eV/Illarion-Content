@@ -158,7 +158,7 @@ function tutorialBookrestLookAt(User, Item)
     return lookAt
 end
 
-function M.UseItem(User, SourceItem)
+function M.UseItem(User, SourceItem, actionState)
 
     -- Bookrest for the Salavesh dungeon
     if (SourceItem.pos == salaveshBookrest) then
@@ -238,14 +238,19 @@ function M.UseItem(User, SourceItem)
     end
 
     -- ferries
-    if seafaring.useFerry(User, SourceItem) then
+    if seafaring.useFerry(User, SourceItem, actionState) then
         return
     end
 
     -- static teleporter
-    if staticteleporter.useTeleporter(User, SourceItem) then
+    if staticteleporter.useTeleporter(User, SourceItem, actionState) then
         return
     end
+end
+
+function M.actionDisturbed(user, attacker)
+    user:inform("GERMAN TRANSLATION", "You should deal with your attacker first.")
+    return true
 end
 
 function WonderlandTeleporter(User, SourceItem)

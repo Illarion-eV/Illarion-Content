@@ -19,9 +19,9 @@ local common = require("base.common")
 
 local M = {}
 
-function M.UseItem(User, SourceItem, ltstate)
-    common.TurnTo(User, SourceItem.pos)
-    User:inform("Du findest hier keine Seidenraupen.", "You can't find any silkworms here.", Character.highPriority)
+function M.UseItem(user, sourceItem, ltstate)
+    common.TurnTo(user, sourceItem.pos)
+    user:inform("Du findest hier keine Seidenraupen.", "You can't find any silkworms here.", Character.highPriority)
 end
 
 return M

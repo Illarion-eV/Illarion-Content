@@ -63,17 +63,17 @@ M.propertyTable = {
     {"Flat Diamond","Wohnung Diamant",position(406,222,1),60000,2558,132, "Galmair","6",factions.GalmairRankListMale[6]["eRank"],factions.GalmairRankListMale[6]["gRank"]},
     {"Flat Obsidian","Wohnung Obsidian",position(428,216,1),60000,2558,133, "Galmair","6",factions.GalmairRankListMale[6]["eRank"],factions.GalmairRankListMale[6]["gRank"]},
     --Estates, Galmair
-    {"Galmair Harbour Estate","Hafengrundstück in Galmair",position(447,124,0),200000, 2558, 134, "Galmair", "7", factions.GalmairRankListMale[7]["eRank"],factions.GalmairRankListMale[7]["gRank"], true},
+    {"Syrita Estate","Grundstück Syrita",position(447,124,0),200000, 2558, 134, "Galmair", "7", factions.GalmairRankListMale[7]["eRank"],factions.GalmairRankListMale[7]["gRank"], true},
     {"Galmair Roadside Estate","Grundstück Am Wegesrand in Galmair",position(462,175,0),200000, 2558, 135, "Galmair", "7", factions.GalmairRankListMale[7]["eRank"],factions.GalmairRankListMale[7]["gRank"], true},
-    {"Galmair Mountainside Estate","Grundstück Bergblick in Galmair",position(565,172,0),200000, 2558, 136, "Galmair", "7", factions.GalmairRankListMale[7]["eRank"],factions.GalmairRankListMale[7]["gRank"], true},
+    {"Rumil Estate","Grundstück Rumil",position(381,354,0),200000, 2558, 136, "Galmair", "7", factions.GalmairRankListMale[7]["eRank"],factions.GalmairRankListMale[7]["gRank"], true},
     --Cadomyr
-    {"Cadomyr Harbour Estate", "Hafengrundstück in Cadomyr",position(106,769,0),200000, 2558,368, "Cadomyr","7",factions.CadomyrRankListMale[7]["eRank"],factions.CadomyrRankListMale[7]["gRank"], true},
-    {"Cadomyr Riverside Estate", "Grundstück am Flussufer in Cadomyr",position(173,674,0),200000, 2558,369, "Cadomyr","7",factions.CadomyrRankListMale[7]["eRank"],factions.CadomyrRankListMale[7]["gRank"], true},
-    {"Cadomyr Seaside Estate", "Grundstück Meerblick in Cadomyr",position(49,661,0),200000, 2558,370, "Cadomyr","7",factions.CadomyrRankListMale[7]["eRank"],factions.CadomyrRankListMale[7]["gRank"], true},
+    {"Cadomyr Harbour Estate", "Hafengrundstück in Cadomyr",position(77,786,0),200000, 2558,368, "Cadomyr","7",factions.CadomyrRankListMale[7]["eRank"],factions.CadomyrRankListMale[7]["gRank"], true},
+    {"Kantabi Estate", "Grundstück Kantabi",position(173,674,0),200000, 2558,369, "Cadomyr","7",factions.CadomyrRankListMale[7]["eRank"],factions.CadomyrRankListMale[7]["gRank"], true},
+    {"Siba Estate", "Grundstück Siba",position(91,686,0),200000, 2558,370, "Cadomyr","7",factions.CadomyrRankListMale[7]["eRank"],factions.CadomyrRankListMale[7]["gRank"], true},
     --Runewick
-    {"Runewick Harbour Estate", "Hafengrundstück in Runewick",position(758,778,0),200000, 2558,252, "Runewick","7",factions.RunewickRankListMale[7]["eRank"],factions.RunewickRankListMale[7]["gRank"], true},
-    {"Runewick Forest Estate", "Waldgrundstück in Runewick",position(869,889,0),200000, 2558,253, "Runewick","7",factions.RunewickRankListMale[7]["eRank"],factions.RunewickRankListMale[7]["gRank"], true},
-    {"Runewick Roadside Estate", "Grundstück Am Wegesrand in Runewick",position(834,728,0),200000, 2558,254, "Runewick","7",factions.RunewickRankListMale[7]["eRank"],factions.RunewickRankListMale[7]["gRank"], true},
+    {"Anthil Estate", "Grundstück Anthil",position(775,740,0),200000, 2558,252, "Runewick","7",factions.RunewickRankListMale[7]["eRank"],factions.RunewickRankListMale[7]["gRank"], true},
+    {"Oldra Estate", "Grundstück Oldra",position(841,884,0),200000, 2558,253, "Runewick","7",factions.RunewickRankListMale[7]["eRank"],factions.RunewickRankListMale[7]["gRank"], true},
+    {"Merryglade Estate", "Grundstück Merryglade",position(834,728,0),200000, 2558,254, "Runewick","7",factions.RunewickRankListMale[7]["eRank"],factions.RunewickRankListMale[7]["gRank"], true},
     --Outlaw
     {"Outlaw Base One", "Erstes Lager der Vogelfreien",position(213,97,0),200000,2558,504,"Outlaw","0","None","None", true}
     }
@@ -131,26 +131,29 @@ table.insert(M.properties, {name = "Flat Sapphire", lower = position(394,212,1),
 table.insert(M.properties, {name = "Flat Diamond", lower = position(405,206,1), upper = position(415,222,1)})
 table.insert(M.properties, {name = "Flat Obsidian", lower = position(420,206,1), upper = position(432,220,1)})
 --Estates, Galmair
-table.insert(M.properties, {name = "Galmair Harbour Estate", lower = position(448,124,0), upper = position(458,139,2), estate = true})
-table.insert(M.properties, {name = "Galmair Harbour Estate", lower = position(448,124,-21), upper = position(458,139,-21), estate = true})
+table.insert(M.properties, {name = "Syrita Estate", lower = position(448,124,0), upper = position(458,139,2), estate = true})
+table.insert(M.properties, {name = "Syrita Estate", lower = position(448,124,-21), upper = position(458,139,-21), estate = true})
 table.insert(M.properties, {name = "Galmair Roadside Estate", lower = position(464,168,0), upper = position(474,183,2), estate = true})
 table.insert(M.properties, {name = "Galmair Roadside Estate", lower = position(464,168,-21), upper = position(474,183,-21), estate = true})
-table.insert(M.properties, {name = "Galmair Mountainside Estate", lower = position(566,160,0), upper = position(581,170,2), estate = true})
-table.insert(M.properties, {name = "Galmair Mountainside Estate", lower = position(566,160,-21), upper = position(581,170,-21), estate = true})
+table.insert(M.properties, {name = "Rumil Estate", lower = position(384,351,0), upper = position(391,364,2), estate = true})
+table.insert(M.properties, {name = "Rumil Estate", lower = position(384,351,-21), upper = position(391,364,-21), estate = true})
+table.insert(M.properties, {name = "Rumil Estate", lower = position(378,359,0), upper = position(384,364,2), estate = true})
+table.insert(M.properties, {name = "Rumil Estate", lower = position(378,359,-21), upper = position(384,364,-21), estate = true})
+
 --Cadomyr
-table.insert(M.properties, {name = "Cadomyr Harbour Estate", lower = position(94,757,0), upper = position(109,767,2), estate = true})
-table.insert(M.properties, {name = "Cadomyr Harbour Estate", lower = position(94,757,-21), upper = position(109,767,-21), estate = true})
-table.insert(M.properties, {name = "Cadomyr Riverside Estate", lower = position(175,673,0), upper = position(185,688,2), estate = true})
-table.insert(M.properties, {name = "Cadomyr Riverside Estate", lower = position(175,673,-21), upper = position(185,688,-21), estate = true})
-table.insert(M.properties, {name = "Cadomyr Seaside Estate", lower = position(51,653,0), upper = position(66,663,2), estate = true})
-table.insert(M.properties, {name = "Cadomyr Seaside Estate", lower = position(51,653,-21), upper = position(66,663,-21), estate = true})
+table.insert(M.properties, {name = "Cadomyr Harbour Estate", lower = position(77,772,0), upper = position(92,782,2), estate = true})
+table.insert(M.properties, {name = "Cadomyr Harbour Estate", lower = position(77,772,-21), upper = position(92,782,-21), estate = true})
+table.insert(M.properties, {name = "Kantabi Estate", lower = position(175,673,0), upper = position(185,688,2), estate = true})
+table.insert(M.properties, {name = "Kantabi Estate", lower = position(175,673,-21), upper = position(185,688,-21), estate = true})
+table.insert(M.properties, {name = "Siba Estate", lower = position(79,672,0), upper = position(94,682,2), estate = true})
+table.insert(M.properties, {name = "Siba Estate", lower = position(79,672,-21), upper = position(94,682,-21), estate = true})
 --Runewick
-table.insert(M.properties, {name = "Runewick Harbour Estate", lower = position(760,770,0), upper = position(769,785,2), estate = true})
-table.insert(M.properties, {name = "Runewick Harbour Estate", lower = position(760,770,-21), upper = position(769,785,-21), estate = true})
-table.insert(M.properties, {name = "Runewick Forest Estate", lower = position(857,878,0), upper = position(872,888,2), estate = true})
-table.insert(M.properties, {name = "Runewick Forest Estate", lower = position(857,878,-21), upper = position(872,888,-21), estate = true})
-table.insert(M.properties, {name = "Runewick Roadside Estate", lower = position(828,716,0), upper = position(834,726,2), estate = true})
-table.insert(M.properties, {name = "Runewick Roadside Estate", lower = position(821,716,-21), upper = position(836,726,-21), estate = true})
+table.insert(M.properties, {name = "Anthil Estate", lower = position(767,728,0), upper = position(781,737,2), estate = true})
+table.insert(M.properties, {name = "Anthil Estate", lower = position(767,728,-21), upper = position(781,737,-21), estate = true})
+table.insert(M.properties, {name = "Oldra Estate", lower = position(844,871,0), upper = position(853,885,2), estate = true})
+table.insert(M.properties, {name = "Oldra Estate", lower = position(844,871,-21), upper = position(853,885,-21), estate = true})
+table.insert(M.properties, {name = "Merryglade Estate", lower = position(828,716,0), upper = position(834,726,2), estate = true})
+table.insert(M.properties, {name = "Merryglade Estate", lower = position(821,716,-21), upper = position(836,726,-21), estate = true})
 --Outlaw
 table.insert(M.properties, {name = "Outlaw Base One", lower = position(967,343,0), upper = position(983,362,2), estate = true, outlaw = true})
 table.insert(M.properties, {name = "Outlaw Base One", lower = position(967,343,-21), upper = position(983,362,-21), estate = true, outlaw = true})
