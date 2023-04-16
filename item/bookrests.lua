@@ -158,7 +158,7 @@ function tutorialBookrestLookAt(User, Item)
     return lookAt
 end
 
-function M.UseItem(User, SourceItem)
+function M.UseItem(User, SourceItem, actionState)
 
     -- Bookrest for the Salavesh dungeon
     if (SourceItem.pos == salaveshBookrest) then
@@ -243,7 +243,7 @@ function M.UseItem(User, SourceItem)
     end
 
     -- static teleporter
-    if staticteleporter.useTeleporter(User, SourceItem) then
+    if staticteleporter.useTeleporter(User, SourceItem, actionState) then
         return
     end
 end
