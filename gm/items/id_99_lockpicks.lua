@@ -27,6 +27,7 @@ local areas = require("content.areas")
 local shard = require("item.shard")
 local gods = require("content.gods")
 local resurrected = require("lte.resurrected")
+local persistenceTracker = require("gm.persistenceTracker")
 
 local M = {}
 
@@ -1643,6 +1644,8 @@ local function changePersistence(user)
                 world:makePersistentAt(frontOfUser)
                 user:inform("The tile is now persistent.")
             end
+        elseif index == 2 then
+            persistenceTracker.listPersistenceInArea(user)
         end
     end
     local dialog = SelectionDialog("Persistence", text, callback)
@@ -1651,6 +1654,7 @@ local function changePersistence(user)
         else
             dialog:addOption(0, "Make tile persistent")
         end
+        dialog:addOption(0, "Persistence tracker")
     user:requestSelectionDialog(dialog)
 end
 
