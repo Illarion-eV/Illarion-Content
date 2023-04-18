@@ -49,9 +49,11 @@ local treasureParameter = {
     {position(703,616,-6),6,9,4} --Volcano dungeon - end of dungeon
 }
 
+M.pos = position(206, 105, 0)
+
 local function checkForAndSpawnSignPost()
 
-    local location = position(206, 105, 0)
+    local location = M.pos
     local id = 2927
     local title = "Chest Respawn Timers"
     local description = "This signpost is a hack to store dynamic treasure chest respawn timers in a way that survives server reloads, without causing the lag that accessing the database would cause. Do not erase this signpost."
