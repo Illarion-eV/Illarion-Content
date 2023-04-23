@@ -27,6 +27,7 @@ local areas = require("content.areas")
 local shard = require("item.shard")
 local gods = require("content.gods")
 local resurrected = require("lte.resurrected")
+local persistenceTracker = require("gm.persistenceTracker")
 
 local M = {}
 
@@ -1491,9 +1492,67 @@ local function actionOnGroup(user,item)
     user:requestSelectionDialog(sdPlayer)
 end
 
+local function sendGroupMessage(user, chosenPlayer)
+
+    local playersInRange = world:getPlayersInRangeOf(chosenPlayer.pos, 25)
+
+    local callback = function (dialog)
+
+        if not dialog:getSuccess() then
+            return
+        end
+
+        local input = dialog:getInput()
+
+        local english = "Message for you: "
+        local german = "Nachricht an dich: "
+
+        local nameList = ""
+
+        for index, selectedPlayer in ipairs(playersInRange) do
+
+            selectedPlayer:inform(common.GetNLS(user, german, english)..input)
+
+            nameList = nameList..selectedPlayer.name
+
+            if index < #playersInRange then
+                nameList = nameList..", "
+            end
+        end
+
+        user:inform("Sent message ("..input..")".." to the following players: "..nameList..".")
+
+    end
+
+    user:requestInputDialog(InputDialog("Send Message", "Send a message to anyone in a 25 tile range of "..chosenPlayer.name.."\nWrite what you want the message to say" ,false, 255, callback))
+
+end
+
+local function sendTalkToMessage(user, chosenPlayer)
+
+    local callback = function (dialog)
+
+        if not dialog:getSuccess() then
+            return
+        end
+
+        local input = dialog:getInput()
+
+        local english = "Message for you: "
+        local german = "Nachricht an dich: "
+
+        chosenPlayer:inform(common.GetNLS(user, german, english)..input)
+        user:inform("To "..chosenPlayer.name.."("..chosenPlayer.id.."): "..input)
+
+    end
+
+    user:requestInputDialog(InputDialog("Send a message to "..chosenPlayer.name, "Write what you want the message to say" ,false, 255, callback))
+
+end
+
 local function settingsForChar(user)
 
-    local playersTmp = world:getPlayersInRangeOf(user.pos, 25)
+    local playersTmp = world:getPlayersOnline()
     local players = {user}
     for _, player in pairs(playersTmp) do
         if (player.id ~= user.id) then
@@ -1512,30 +1571,39 @@ local function settingsForChar(user)
             end
             local actionToPerform = subdialog:getSelectedIndex()
             if actionToPerform == 0 then
-                settingsForCharQueststatus(user, chosenPlayer)
+                sendTalkToMessage(user, chosenPlayer)
             elseif actionToPerform == 1 then
-                settingsForCharAttacableLimited(user, chosenPlayer)
+                sendGroupMessage(user, chosenPlayer)
             elseif actionToPerform == 2 then
-                settingsForCharAttacableForever(user, chosenPlayer)
+                settingsForCharQueststatus(user, chosenPlayer)
             elseif actionToPerform == 3 then
-                settingsForCharSkills(user, chosenPlayer)
+                settingsForCharAttacableLimited(user, chosenPlayer)
             elseif actionToPerform == 4 then
-                settingsForCharMagicClass(user, chosenPlayer)
+                settingsForCharAttacableForever(user, chosenPlayer)
             elseif actionToPerform == 5 then
-                settingsForCharMC(user, chosenPlayer)
+                settingsForCharSkills(user, chosenPlayer)
             elseif actionToPerform == 6 then
-                settingsForCharFireProof(user, chosenPlayer)
+                settingsForCharMagicClass(user, chosenPlayer)
             elseif actionToPerform == 7 then
-                settingsForCharIceFlameProof(user, chosenPlayer)
+                settingsForCharMC(user, chosenPlayer)
             elseif actionToPerform == 8 then
-                settingsForCharPoisonCloudProof(user, chosenPlayer)
+                settingsForCharFireProof(user, chosenPlayer)
             elseif actionToPerform == 9 then
-                settingsForCharAttributes(user, chosenPlayer)
+                settingsForCharIceFlameProof(user, chosenPlayer)
             elseif actionToPerform == 10 then
+                settingsForCharPoisonCloudProof(user, chosenPlayer)
+            elseif actionToPerform == 11 then
+                settingsForCharAttributes(user, chosenPlayer)
+            elseif actionToPerform == 12 then
                 settingsForCharReligion(user, chosenPlayer)
             end
         end
         local sdAction = SelectionDialog("Character settings", chosenPlayer.name.."\n" .. charInfo(chosenPlayer), charActionDialog)
+
+        sdAction:addOption(333, "Send a message to "..chosenPlayer.name)
+
+        sdAction:addOption(333, "Send a message to "..chosenPlayer.name.." and anyone in a 25 tile range of "..chosenPlayer.name)
+
         sdAction:addOption(3109,"Get/set Queststatus")
         if chosenPlayer:getQuestProgress(236) == 0 then
             sdAction:addOption(20,"Make 15 min attack proof!")
@@ -1643,6 +1711,8 @@ local function changePersistence(user)
                 world:makePersistentAt(frontOfUser)
                 user:inform("The tile is now persistent.")
             end
+        elseif index == 2 then
+            persistenceTracker.listPersistenceInArea(user)
         end
     end
     local dialog = SelectionDialog("Persistence", text, callback)
@@ -1651,6 +1721,7 @@ local function changePersistence(user)
         else
             dialog:addOption(0, "Make tile persistent")
         end
+        dialog:addOption(0, "Persistence tracker")
     user:requestSelectionDialog(dialog)
 end
 
