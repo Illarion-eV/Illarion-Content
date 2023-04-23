@@ -147,7 +147,7 @@ end
 
 local function abortTeleport(user)
 
-    user:inform("GERMAN TRANSLATION", "Your chanting is interrupted and the teleportation process left unfinished. At least you get to keep your coin, though.")
+    user:inform("Der Zauber ist unterbrochen worden und du wirst nicht teleportiert. Wenigstens kannst du dein Geld behalten.", "Your chanting is interrupted and the teleportation process left unfinished. At least you get to keep your coin, though.")
 
 end
 
@@ -158,7 +158,7 @@ local function finishTeleport(user)
     local destinationid = getDestinationId(user)
 
     money.TakeMoneyFromChar(user, priceTeleporter)
-    user:talk(Character.say, "GERMAN TRANSLATION", "#me, having finished chanting, disappears in a bright light along with the coins that were previously placed on the pedestal.")
+    user:talk(Character.say, "#me und die Münzen auf dem Podest verschwinden in gleißendem Licht.", "#me, having finished chanting, disappears in a bright light along with the coins that were previously placed on the pedestal.")
     travelToTarget(user, destinationid)
 end
 
@@ -181,7 +181,7 @@ local function startTeleport(user, sourceItem)
             if dialogOption[selected+1][2] then
                 if  money.CharHasMoney(user,priceTeleporter) then
 
-                    user:talk(Character.say, "GERMAN TRANSLATION", "#me places some coins onto the teleporter's pedestal, then begins chanting the incantation written on it.")
+                    user:talk(Character.say, "#me legt ein paar Münzen auf das Podest und beginnt, die Inschrift zu verlesen.", "#me places some coins onto the teleporter's pedestal, then begins chanting the incantation written on it.")
                     setDestinationId(user, dialogOption[selected+1][1])
                     user:startAction(200, 21, 10, 0, 0)
 

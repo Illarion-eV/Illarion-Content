@@ -249,7 +249,7 @@ function M.UseItem(User, SourceItem, actionState)
 end
 
 function M.actionDisturbed(user, attacker)
-    user:inform("GERMAN TRANSLATION", "You should deal with your attacker first.")
+    user:inform("Du solltest dich erstmal mit deinem Angreifer befassen.", "You should deal with your attacker first.")
     return true
 end
 
