@@ -642,7 +642,7 @@ function Craft:craftItem(user, productId)
 
     if product.difficulty > skill then
         common.HighInformNLS(user,
-        "Du bist nicht f?hig genug um das zu tun.",
+        "Du bist nicht fähig genug um das zu tun.",
         "You are not skilled enough to do this.")
         return false
     end
