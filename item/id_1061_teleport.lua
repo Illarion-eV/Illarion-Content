@@ -24,7 +24,7 @@ local bookCastTime = 200 -- When portal magic is implemented, this will be repla
 local M = {}
 
 function M.actionDisturbed(user, attacker)
-    user:inform("GERMAN TRANSLATION", "You should deal with your attacker before trying to read the chant of the portal book.")
+    user:inform("Du solltest dich erstmal mit deinem Angreifer befassen, bevor du versuchst, den Zauberspruch des Portalbuchs zu lesen.", "You should deal with your attacker before trying to read the chant of the portal book.")
     return true
 end
 
@@ -54,12 +54,12 @@ function M.UseItem(user, sourceItem, actionState)
     --Time to check whether casting has started
     if actionState == Action.none then
 
-        user:talk(Character.say, "GERMAN TRANSLATION", "#me begins chanting the incantation written in a portal book.")
+        user:talk(Character.say, "#me beginnt, den Zauberspruch eines Portalbuches zu lesen.", "#me begins chanting the incantation written in a portal book.")
         user:startAction(bookCastTime, 21, 10, 0, 0)
 
     elseif actionState == Action.abort then
 
-        user:inform(common.GetNLS(user, "GERMAN TRANSLATION", "Your reading of the portal books incantation was interrupted."))
+        user:inform(common.GetNLS(user, "Du wurdest beim Lesen des Zauberspruches des Portalbuches unterbrochen.", "Your reading of the portal books incantation was interrupted."))
         return
 
     elseif actionState == Action.success then
