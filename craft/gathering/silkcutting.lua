@@ -22,6 +22,8 @@ local gathering = require("craft.base.gathering")
 
 local M = {}
 
+M.skill = "tanningAndWeaving"
+
 M.silkList = {
     {id = 3634, depletedId = 3638},
     {id = 3635, depletedId = 3639},

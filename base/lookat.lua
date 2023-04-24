@@ -22,6 +22,7 @@ local money = require("base.money")
 local glyphs = require("base.glyphs")
 local mining = require("craft.gathering.mining")
 local silkcutting = require("craft.gathering.silkcutting")
+local fishing = require("craft.gathering.fishing")
 
 local M = {}
 
@@ -91,16 +92,17 @@ ArmourType[ArmorStruct.juwellery] = {de = "Schmuck", en = "Jewellery"}
 -- Input should be a table consisting of {id = theID, skill = theSkill} eg: {id = 3578, skill = "mining", type = {english = "Vein", german = "Ader"}}
 local listOfItemsThatShouldShowLevel = {}
 
---Adds veins used in mining to list of items that should show level
-for _, oreVein in pairs(mining.oreList) do
-    table.insert(listOfItemsThatShouldShowLevel,{id = oreVein.depletedId, skill = "mining", type = {english = "Vein", german = "Ader"}})
-    table.insert(listOfItemsThatShouldShowLevel,{id = oreVein.id, skill = "mining", type = {english = "Vein", german = "Ader"}})
-end
+local gatheringLists = {
+    {list = mining.oreList, skill = mining.skill, type = {english = "Vein", german = "Ader"}},
+    {list = silkcutting.silkList, skill = silkcutting.skill, type = {english = "Butterflies", german = "Schmetterlinge"}},
+    {list = fishing.fishList, skill = fishing.skill, type = {english = "Shoal", german = "Schwarm"}},
+}
 
---Adds silk sources used in silkcutting to list of items that should show level
-for _, silkBush in pairs(silkcutting.silkList) do
-    table.insert(listOfItemsThatShouldShowLevel,{id = silkBush.depletedId, skill = "mining", type = {english = "Butterflies", german = "Schmetterlinge"}})
-    table.insert(listOfItemsThatShouldShowLevel,{id = silkBush.id, skill = "mining", type = {english = "Butterflies", german = "Schmetterlinge"}})
+for _, gatheringList in pairs(gatheringLists) do
+    for _, gatheringNode in pairs(gatheringList.list) do
+        table.insert(listOfItemsThatShouldShowLevel, {id = gatheringNode.depletedId, skill = gatheringList.skill, type = gatheringList.type})
+        table.insert(listOfItemsThatShouldShowLevel, {id = gatheringNode.id, skill = gatheringList.skill, type = gatheringList.type})
+    end
 end
 
 local function showItemLevel(user, itemId, lookat , itemLevel)
