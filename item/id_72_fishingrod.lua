@@ -24,83 +24,62 @@ local M = {}
 
 M.LookAtItem = wood.LookAtItem
 
-local function getWaterTilePosition(User)
-    local targetPos = common.GetFrontPosition(User)
-    if (common.GetGroundType(world:getField(targetPos):tile()) == common.GroundType.water) then
-        return targetPos
-    end
-
-    local Radius = 1;
-    for x=-Radius,Radius do
-        for y=-Radius,Radius do
-            targetPos = position(User.pos.x + x, User.pos.y, User.pos.z)
-            if (common.GetGroundType(world:getField(targetPos):tile()) == common.GroundType.water) then
-                return targetPos
-            end
-        end
-    end
-    return nil;
+local function noShoal(user)
+    common.HighInformNLS(user,
+        "Hier scheinen sich keine Fische zu befinden. Halte Ausschau nach einem Fischschwarm.",
+        "There doesn't seem to be any fish here. You should look for waters with a shoal.")
 end
 
-local function getShoal(User, shoalId)
+function M.UseItem(user, sourceItem, actionstate)
 
-    local targetItem = common.GetFrontItem(User)
-    if (targetItem ~= nil and targetItem.id == shoalId) then
-        return targetItem;
-    end
+    local shoal = common.GetFrontItem(user)
+    local targetPos = common.GetFrontPosition(user)
+    local isWater = common.GetGroundType(world:getField(targetPos):tile()) == common.GroundType.water
+    local isShoal = false
 
-    local Radius = 1;
-    for x=-Radius,Radius do
-        for y=-Radius,Radius do
-            local targetPos = position(User.pos.x + x, User.pos.y + y, User.pos.z)
-            if (world:isItemOnField(targetPos)) then
-                targetItem = world:getItemOnField(targetPos)
-                if (targetItem ~= nil and targetItem.id == shoalId) then
-                    return targetItem
-                end
-            end
-        end
-    end
-    return nil;
-end
-
-function M.UseItem(User, SourceItem, ltstate)
-
-    if (getWaterTilePosition(User) == nil) then -- fishing only possible on water tiles
-        common.HighInformNLS(User,
+    if not isWater then -- fishing only possible on water tiles
+        common.HighInformNLS(user,
         "Die Chance im Wasser einen Fisch zu fangen ist bedeutend höher als auf dem Land.",
         "The chance to catch a fish is much higher in the water than on the land.")
         return
     end
 
-    local shoalItem = getShoal(User, 1170)
-    if not shoalItem then
-        shoalItem = getShoal(User, 1244)
-        if shoalItem then
-            User:inform("Die wenigen Fische hier scheinen nicht anbeißen zu wollen. Finde einen anderen Schwarm oder warte, bis sich hier mehr angesiedelt haben.","The few fish here don't seem willing to be caught. Look for another shoal or wait until there are more fish here.",Character.highPriority)
-            return
-        end
-    end
-
-    if not shoalItem then
-        common.HighInformNLS(User,
-        "Hier scheinen sich keine Fische zu befinden. Halte Ausschau nach einem Fischschwarm.",
-        "There seems to be no fish here. Look for a shoal.")
+    if not shoal then -- there is no item at all
+        noShoal(user)
         return
     end
 
-    if User:getQuestProgress(688) ~= 1 then
-        if User:getQuestProgress(718) == 3 or User:getQuestProgress(71) == 3 or common.Chance(1, 100) then
-            common.InformNLS(User,
+    for _, shoalType in pairs(fishing.fishList) do
+
+        if shoal.id == shoalType.depletedId then
+            user:inform("Die wenigen Fische hier scheinen nicht anbeißen zu wollen. Finde einen anderen Schwarm oder warte, bis sich hier mehr angesiedelt haben.","The few fish here don't seem willing to be caught. Look for another shoal or wait until there are more fish here.",Character.highPriority)
+            return
+        end
+
+        if shoal.id == shoalType.id then
+            isShoal = true
+            break
+        end
+    end
+
+
+    if not isShoal then --there is an item but it is not a shoal
+        noShoal(user)
+        return
+    end
+
+    if user:getQuestProgress(688) ~= 1 then
+        if user:getQuestProgress(718) == 3 or user:getQuestProgress(71) == 3 or common.Chance(1, 100) then
+            common.InformNLS(user,
             "Müll gehört nicht ins Wasser. Du findest eine alte Pfanne, in der wohl früher mal Fische geräuchert wurden.",
             "Garbage doesn't belongs in the water. You find an old rusty pan that was used to smoke fish earlier.")
-            User:setQuestProgress(688,1)
-            common.CreateItem(User, 2495, 1, 117)
+            user:setQuestProgress(688,1)
+            common.CreateItem(user, 2495, 1, 117)
             return
         end
     end
 
-    fishing.StartGathering(User, shoalItem, ltstate)
+    fishing.StartGathering(user, shoal, actionstate)
 end
 
 return M
