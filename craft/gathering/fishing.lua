@@ -18,14 +18,67 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 --[[
 Existing fishing hotspots, their proper lore names and fish allocation.
 
-Galmair - Plains of Nargun
-Warp position: ??, ???, ??
-Trout:
-Salmon:
-Horse mackerel:
-Rose fish:
+Galmair - Rumil something? Near Rumil Estate, correct name needs to be filled in
+Warp position: 407, 342, 0
+7 trout shoals
+
+Galmair - At the bridge by galmair farm fields, any specific name?, correct name needs to be filled in
+Warp position: 479, 249, 0
+3 trout shoals, 5 salmon shoals
+
+Galmair - Narguns plains
+Warp position: 539, 219, 0
+5 salmon shoals, 3 horse mackerel shoals
+
+Runewick - Runewick peninsula and yewdale
+Warp position: 817, 821, 0
+15 trout, 5 salmon
+
+Runewick - betweeen yewdale and dewy swamps
+Warp position: 840, 728, 0
+5 trout, 10 salmon
 
 
+Runewick - Dewy swamps
+Warp position: 905, 646, 0
+5 salmon, 6 horse mackerel
+
+
+Wild - Raban's Grove
+Warp position: 791, 133, 0
+2 rosefish shoals
+
+Wild - Skewer Drift / Spieﬂstollen
+Warp position: 932, 459, 0
+1 trout shoal, 6 salmon shoals, 3 horse mackerel shoals
+
+Wild - Elstree forest
+Warp position: 814, 467, 0
+3 trout, 4 salmon, 2 horse mackerel
+
+Wild -- ?? ruins
+Warp position: 533, 431, 0
+4 trout, 6 salmon
+
+Wild -- ??
+Warp position: 113, 799, 0
+7 trout, 3 salmon
+
+Wild -- kantabi oasis
+Warp position: 384, 671, 0
+1 rosefish
+
+Wild - ??
+Warp position: 257, 444, 0
+4 trout 4 salmon 1 horse
+
+Wild - ??
+Warp position: 594, 743, 0
+3 horse mackerel, 7 salmon, 12 trout
+
+Wild - Tanoras ruined temple
+Warp position: 618, 593, 0
+3 rosefish
 
 ]]
 
