@@ -109,13 +109,13 @@ queststatus(71) = 0, "rute", "angel" -> "Brauchenss Angelrute, gehenss Advari."
 
 -- 1st quest: Take a tool and gather 10 raw materials for 500cp.
 queststatus(71) = 0, english, town = Galmair, "quest", "mission" -> inform("[New quest] Da Fishin Spot I"), item(72, 1, 333), queststatus(71) = 1, "Zerarisa hass hurt her claw. Take thiss rod, if you could collect ten trout for me, I give you coinsss."
-queststatus(71) = 0, town = Galmair, "quest", "mission" -> inform("[Neues Quest] De Angelstelle I"), item(72, 1, 333), queststatus(71) = 1, "Sschwester Zerarisa habenss verletzt Pfote. Nehmens Rute, fangenss zssehn Forelle, kriegenss Münzssen."
+queststatus(71) = 0, town = Galmair, "quest", "mission" -> inform("[Neues Quest] Die Angelstelle I"), item(72, 1, 333), queststatus(71) = 1, "Sschwester Zerarisa habenss verletzt Pfote. Nehmens Rute, fangenss zssehn Forelle, kriegenss Münzssen."
 queststatus(71) = 0, town = Galmair, "task", "adventure", "order" -> inform("[New quest] Da Fishin Spot I"), item(72, 1, 333), queststatus(71) = 1, "Zerarisa hass hurt her claw. Take thiss rod, if you could collect ten trout for me, I give you coinsss."
-queststatus(71) = 0, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] De Angelstelle I"), item(72, 1, 333), queststatus(71) = 1, "Sschwester Zerarisa habenss verletzt Pfote, fangenss zssehn Forelle, kriegenss Münzssen."
+queststatus(71) = 0, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Die Angelstelle I"), item(72, 1, 333), queststatus(71) = 1, "Sschwester Zerarisa habenss verletzt Pfote, fangenss zssehn Forelle, kriegenss Münzssen."
 queststatus(71) = 0, english, "quest", "mission" -> inform("[New quest] Da Fishin Spot I"), item(72, 1, 333), queststatus(71) = 1, "Zerarisa hass hurt her claw. Take thiss rod, if you could collect ten trout for me, I give you coinsss."
-queststatus(71) = 0, "quest", "mission" -> inform("[Neues Quest] De Angelstelle I"), item(72, 1, 333), queststatus(71) = 1, "Sschwester Zerarisa habenss verletzt Pfote, fangenss zssehn Forelle, kriegenss Münzssen."
+queststatus(71) = 0, "quest", "mission" -> inform("[Neues Quest] Die Angelstelle I"), item(72, 1, 333), queststatus(71) = 1, "Sschwester Zerarisa habenss verletzt Pfote, fangenss zssehn Forelle, kriegenss Münzssen."
 queststatus(71) = 0, "task", "adventure", "order" -> inform("[New quest] Da Fishin Spot I"), item(72, 1, 333), queststatus(71) = 1, "Zerarisa hass hurt her claw. Take thiss rod, if you could collect ten trout for me, I give you coinsss."
-queststatus(71) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] De Angelstelle I"), item(72, 1, 333), queststatus(71) = 1, "Sschwester Zerarisa habenss verletzt Pfote, fangenss zssehn Forelle, kriegenss Münzssen."
+queststatus(71) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Die Angelstelle I"), item(72, 1, 333), queststatus(71) = 1, "Sschwester Zerarisa habenss verletzt Pfote, fangenss zssehn Forelle, kriegenss Münzssen."
 queststatus(71) = 1, item(73, all) < 10, english, "quest", "mission" -> "Did you get the ten troutss for me yet?", "Zerarisa iss sstill waiting for the troutss."
 queststatus(71) = 1, item(73, all) < 10, "quest", "mission" -> "Habenss zssehn Forellen? Nein?", "Zerarisa wartenss auf Forellen."
 queststatus(71) = 1, item(73, all) < 10, "task", "adventure", "order" -> "Did you get the ten troutss for me yet?", "Zerarisa iss sstill waiting for the troutss."
@@ -131,9 +131,9 @@ queststatus(71) = 1, item(73, all) > 9, ".+" -> inform("[Quest gelöst] Du erhält
 
 -- 2nd quest: Gather 20 different raw materials for 10sp.
 queststatus(71) = 2, english, "quest", "mission" -> inform("[New quest] Da Fishin Spot II"), queststatus(71) = 3, "Thankss for the troutss again, if you want you can catch twenty ssalmonss for me now."
-queststatus(71) = 2, "quest", "mission" -> inform("[Neues Quest] De Angelstelle II"), queststatus(71) = 3, "Dankss für Forellen nochmalss, wollenss fangen zsswanzig Lachss nun für Zerarisa?"
+queststatus(71) = 2, "quest", "mission" -> inform("[Neues Quest] Die Angelstelle II"), queststatus(71) = 3, "Dankss für Forellen nochmalss, wollenss fangen zsswanzig Lachss nun für Zerarisa?"
 queststatus(71) = 2, "task", "adventure", "order" -> inform("[New quest] Da Fishin Spot II"), queststatus(71) = 3, "Thankss for the troutss again, if you want you can catch twenty ssalmonss for me now."
-queststatus(71) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] De Angelstelle II"), queststatus(71) = 3, "Dankss für Forellen nochmalss, wollenss fangen zsswanzig Lachss nun für Zerarisa?"
+queststatus(71) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Die Angelstelle II"), queststatus(71) = 3, "Dankss für Forellen nochmalss, wollenss fangen zsswanzig Lachss nun für Zerarisa?"
 queststatus(71) = 3, item(355, all) < 20, english, "quest", "mission" -> "Twenty ssalmonss for Zerarisa, and you get coinss.", "Zerarisa sstill waitss for her ssalmonss."
 queststatus(71) = 3, item(355, all) < 20, "quest", "mission" -> "Zsswanzigs Lachsess, kriegenss Münzssenss.", "Zerarisa immernoch wartenss für Lachsss."
 queststatus(71) = 3, item(355, all) < 20, "task", "adventure", "order" -> "Twenty ssalmonss for Zerarisa, and you get coinss.", "Zerarisa sstill waitss for her ssalmonss."
@@ -149,9 +149,9 @@ queststatus(71) = 3, item(355, all) > 19, ".+" -> inform("[Quest gelöst] Du erhä
 
 -- 3rd quest: 5 raw materials for 10sp
 queststatus(71) = 4, english, "quest", "mission" -> inform("[New quest] Da Fishin Spot III"), queststatus(71) = 5, "Zerarisa needss five roasst trout now, you can cookss them at a ssmoke oven. You'll get coinsss."
-queststatus(71) = 4, "quest", "mission" -> inform("[Neues Quest] De Angelstelle III"), queststatus(71) = 5, "Zerarisa brauchenss fünf geräuchert Forellenss nun, könnenss räuchern in Ofenss. Kriegensss Münzssenss!"
+queststatus(71) = 4, "quest", "mission" -> inform("[Neues Quest] Die Angelstelle III"), queststatus(71) = 5, "Zerarisa brauchenss fünf geräuchert Forellenss nun, könnenss räuchern in Ofenss. Kriegensss Münzssenss!"
 queststatus(71) = 4, "task", "adventure", "order" -> inform("[New quest] Da Fishin Spot III"), queststatus(71) = 5, "Zerarisa needss five roasst trout now, you can cookss them at a ssmoke oven. You'll get coinsss."
-queststatus(71) = 4, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] De Angelstelle III"), queststatus(71) = 5, "Zerarisa brauchenss fünf geräuchert Forellenss nun, könnenss räuchern in Ofenss. Kriegensss Münzssenss!"
+queststatus(71) = 4, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Die Angelstelle III"), queststatus(71) = 5, "Zerarisa brauchenss fünf geräuchert Forellenss nun, könnenss räuchern in Ofenss. Kriegensss Münzssenss!"
 queststatus(71) = 5, item(455, all) < 5, english, "quest", "mission" -> "Have you the five roasst trout? Catch five trout and smoke them at an oven.", "Zerarisa ssstill waitss for the roasst trout, sshe wantss five."
 queststatus(71) = 5, item(455, all) < 5, "quest", "mission" -> "Habenss fünf geräuchertss Forellenss? Fangenss und räuchernss in Räuchehütte.", "Zerarisa wartenss auf fünf geräuchertss Forellenss, wollenss!"
 queststatus(71) = 5, item(455, all) < 5, "task", "adventure", "order" -> "Have you the five roasst trout? Catch five trout and cook them at an oven.", "Zerarisa ssstill waitss for the roasst trout, sshe wantss five."
@@ -167,9 +167,9 @@ queststatus(71) = 5, item(455, all) > 4, ".+" -> inform("[Quest gelöst] Du erhäl
 
 -- 4th quest: Gather 10 raw materials from a totally different location for 20sp. Link to other quest. Hint how to get there.
 queststatus(71) = 6, english, "quest", "mission" -> inform("[New quest] Da Fishin Spot IV"), queststatus(71) = 7, "Do Zerarisa a favour, go findss Henry, he'ss a butcher in the Dewy Sswampss, getss me ten piecess of tanned leather from him."
-queststatus(71) = 6, "quest", "mission" -> inform("[Neues Quest] De Angelstelle IV"), queststatus(71) = 7, "Tuenss Zerarisa Gefallen, findenss Henry, isst Sschlachter in Morgentausumpfss, bringenss zehn gegerbte Lederhäute von ihmss."
+queststatus(71) = 6, "quest", "mission" -> inform("[Neues Quest] Die Angelstelle IV"), queststatus(71) = 7, "Tuenss Zerarisa Gefallen, findenss Henry, isst Sschlachter in Morgentausumpfss, bringenss zehn gegerbte Lederhäute von ihmss."
 queststatus(71) = 6, "task", "adventure", "order" -> inform("[New quest] Da Fishin Spot IV"), queststatus(71) = 7, "Do Zerarisa a favour, go findss Henryss, he'ss a butcher in the Dewy Swampss, getss me ten piecess of tanned leather from him."
-queststatus(71) = 6, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] De Angelstelle IV"), queststatus(71) = 7, "Tuenss Zerarisa Gefallen, findenss Henry, isst Sschlachter in Morgentausumpfss, bringenss zehn gegerbte Lederhäute von ihmss."
+queststatus(71) = 6, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Die Angelstelle IV"), queststatus(71) = 7, "Tuenss Zerarisa Gefallen, findenss Henry, isst Sschlachter in Morgentausumpfss, bringenss zehn gegerbte Lederhäute von ihmss."
 queststatus(71) = 7, item(2547, all) < 10, english, "quest", "mission" -> "You findss Henry in Dewy Swampss? He owess me ten piecess of tanned leather.", "Zerarisa sstill waitss for the tanned leather from Henry in Dewy Swampss."
 queststatus(71) = 7, item(2547, all) < 10, "quest", "mission" -> "Habenss sschon gefundenss Henry in Morgentausumpfss? Schuldenss zehn Lederhäute.", "Zerarisa wartenss noch auf gegerbtes Leder von Henry in Morgentaussumpf."
 queststatus(71) = 7, item(2547, all) < 10, "task", "adventure", "order" -> "You findss Henry in Dewy Swampss? He owess me ten piecess of tanned leather.", "Zerarisa sstill waitss for the tanned leather from Henry in Dewy Swampss."

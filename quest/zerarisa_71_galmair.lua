@@ -26,7 +26,7 @@ local ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
 local Title = {}
-Title[GERMAN] = "De Angelstelle"
+Title[GERMAN] = "Die Angelstelle"
 Title[ENGLISH] = "Da Fishin Spot"
 
 -- Insert an extensive description of each status here, in both languages
@@ -36,15 +36,15 @@ Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Besorge zehn Forellen und bringe sie Zerarisa. Stelle dich ans Wasser und benutze die Angel um Fische zu fangen."
 Description[ENGLISH][1] = "Obtain ten trout and take them back to Zerarisa. To fish, place yourself next to the water and use a fishing rod."
-Description[GERMAN][2] = "Geh zu Zerarisa, die sich am De Angelstelle aufhält. Sie hat bestimmt noch eine Aufgabe für dich."
+Description[GERMAN][2] = "Geh zu Zerarisa, die sich am der Angelstelle aufhält. Sie hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][2] = "Go back to Zerarisa at Da Fishin Spot, she will certainly have another task for you."
 Description[GERMAN][3] = "Besorge zwanzig Lachse und bringe sie Zerarisa. Stelle dich ans Wasser und benutze die Angel um Fische zu fangen."
 Description[ENGLISH][3] = "Obtain twenty salmon and take them back to Zerarisa. To fish, place yourself next to the water and use a fishing rod."
-Description[GERMAN][4] = "Geh zu Zerarisa, die sich am De Angelstelle aufhält. Sie hat bestimmt noch eine Aufgabe für dich."
+Description[GERMAN][4] = "Geh zu Zerarisa, die sich am der Angelstelle aufhält. Sie hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][4] = "Go back to Zerarisa at Da Fishin Spot, she will certainly have another task for you."
 Description[GERMAN][5] = "Besorge fünf geräucherte Forellen und bringe sie Zerarisa. Stelle dich vor eine Räucherhütte und benutze diese."
 Description[ENGLISH][5] = "Obtain five smoked trouts and take them back to Zerarisa. Stand in front of a smoke oven and use it to cook raw fish."
-Description[GERMAN][6] = "Geh zu Zerarisa, die sich am De Angelstelle aufhält. Sie hat bestimmt noch eine Aufgabe für dich."
+Description[GERMAN][6] = "Geh zu Zerarisa, die sich am der Angelstelle aufhält. Sie hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][6] = "Go back to Zerarisa at the Da Fishin Spot, she will certainly have another task for you."
 Description[GERMAN][7] = "Besorge zehn Stück gegerbtes Leder und bringe sie Zerarisa. Du kannst Leder beim Händler kaufen oder du kannst Rohleder oder Fell am Spannrahmen mit einer Rasierklinge gerben."
 Description[ENGLISH][7] = "Obtain ten pieces of tanned leather and take them back to Zerarisa. You can buy leather from a merchant or tan raw leather or fur with a razor on a strecher."
