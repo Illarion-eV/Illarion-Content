@@ -72,6 +72,9 @@ M.foodList[Item.steakDish] = {crafted = true, leftOver = 2952, buffs = {willpowe
 M.foodList[Item.fishSoup] = {crafted = true, leftOver = 2935, buffs = {strength = 1, constitution = 2}}
 M.foodList[Item.eggSaladSandwich] = {crafted = true, buffs = {dexterity = 2, agility = 1}}
 -- Tier 5 Food
+M.foodList[Item.mackerelSalad] = {crafted = true, leftOver = Item.soupBowl, buffs = {essence = 1, willpower = 2, intelligence = 1}}
+M.foodList[Item.rosefishDish] = {crafted = true, leftOver = Item.woodenPlate, buffs = {essence = 2, intelligence = 2}}
+M.foodList[Item.rosefishStew] = {crafted = true, leftOver = Item.soupBowl, buffs = {perception = 2, agility = 2}}
 M.foodList[Item.rabbitDish] = {crafted = true, leftOver = 2952, buffs = {strength = 2, constitution = 2}}
 M.foodList[Item.beerSoup] = {crafted = true, leftOver = 2935, buffs = {essence = 1, perception = 2, intelligence = 1}}
 M.foodList[Item.strawberryCake] = {crafted = true, buffs = {dexterity = 2, agility = 2}}

@@ -134,6 +134,15 @@ product:addIngredient(2493, 3) -- carrots
 product:addIngredient(517, 1) -- bottle of rum
 product:addRemnant(518, 1) -- empty rum bottle
 
+product = cooking:addProduct(catId, Item.rosefishDish, 1)
+product:addIngredient(Item.woodenPlate, 1)
+product:addIngredient(Item.smokedRosefish, 1)
+product:addIngredient(Item.carrots, 3)
+product:addIngredient(Item.tomato, 3)
+product:addIngredient(Item.cabbage, 3)
+product:addIngredient(Item.bottleOfBearSlayer, 1)
+product:addRemnant(Item.emptyLiquorBottle, 1)
+
 catId = cooking:addCategory("Bowl recipes", "Schüsselgerichte")
 
 -- mushroom soup
@@ -203,6 +212,16 @@ product:addIngredient(2502, 1) -- bottle of milk
 product:addRemnant(2498, 1) -- large empty bottle
 product:addIngredient(3573, 2) -- cheese
 
+product = cooking:addProduct(catId, Item.mackerelSalad, 1)
+product:addIngredient(Item.soupBowl, 1)
+product:addIngredient(Item.smokedHorsemackerel, 2)
+product:addIngredient(Item.bottleOfMilk, 1)
+product:addIngredient(Item.potato, 3)
+product:addIngredient(Item.onion, 1)
+product:addIngredient(Item.flour, 1)
+product:addIngredient(Item.cabbage, 2)
+product:addRemnant(Item.largeEmptyBottle, 1)
+
 -- goulash
 product = cooking:addProduct(catId, 3711, 1)
 product:addIngredient(2935, 1) -- soup bowl
@@ -223,6 +242,19 @@ product:addIngredient(788, 1) -- bottle of carrot juice
 product:addIngredient(52, 1) -- bucket of water
 product:addRemnant(51, 1) -- bucket
 product:addRemnant(790,1) -- empty juice bottle
+
+product = cooking:addProduct(catId, Item.rosefishStew, 1)
+product:addIngredient(Item.soupBowl, 1)
+product:addIngredient(Item.roseFish, 1)
+product:addIngredient(Item.tomato, 3)
+product:addIngredient(Item.onion, 2)
+product:addIngredient(Item.potato, 2)
+product:addIngredient(Item.bottleOfBerryBooze, 1)
+product:addIngredient(Item.bucketOfWater, 1)
+product:addRemnant(Item.bucket, 1)
+product:addRemnant(Item.emptyLiquorBottle, 1)
+
+
 
 M.cooking = cooking
 return M
