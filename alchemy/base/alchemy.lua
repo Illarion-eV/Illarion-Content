@@ -29,7 +29,7 @@ M.playerInventedPotionList = {
     {id = 561, creator = "Amanda Brightrim", index = 1},
     {id = 319, creator = "Amanda Brightrim", index = 2},
     {id = 700, creator = "Yridia Anar", index = 3},
-    {id = 562, creator = "Yet to  be invented", index = 4}
+    {id = 562, creator = "Yridia Anar", index = 4}
 }
 
 function M.logConsumption(user, potion)
