@@ -520,10 +520,12 @@ local function nearUsharaAltar(thePosition)
 
     local positions = {
         thePosition,
-        position(thePosition.x +1, thePosition.y, thePosition.z),
         position(thePosition.x +1, thePosition.y +1, thePosition.z),
+        position(thePosition.x +1, thePosition.y -1, thePosition.z),
+        position(thePosition.x +1, thePosition.y, thePosition.z),
+        position(thePosition.x -1, thePosition.y +1, thePosition.z),
+        position(thePosition.x -1, thePosition.y -1, thePosition.z),
         position(thePosition.x -1, thePosition.y, thePosition.z),
-        position(thePosition.x -1, thePosition.y - 1, thePosition.z),
         position(thePosition.x, thePosition.y +1, thePosition.z),
         position(thePosition.x, thePosition.y -1, thePosition.z)}
 
