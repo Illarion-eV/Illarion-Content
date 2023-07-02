@@ -28,6 +28,7 @@ local shard = require("item.shard")
 local gods = require("content.gods")
 local resurrected = require("lte.resurrected")
 local persistenceTracker = require("gm.persistenceTracker")
+local activityTracker = require("lte.activity_tracker")
 
 local M = {}
 
@@ -1550,6 +1551,56 @@ local function sendTalkToMessage(user, chosenPlayer)
 
 end
 
+local function viewActivityForPlayer(user, chosenPlayer)
+
+    local textToList = ""
+    local currentMonth = common.getTime("month")
+    local activityTrackerID = 84
+    local found, tracker = chosenPlayer.effects:find(activityTrackerID)
+
+    for i = 1, 15 do --check each month
+
+        local monthInString = common.Month_To_String(i)
+
+        local activeTicks = chosenPlayer:getQuestProgress(activityTracker.monthQuestIDs[monthInString])
+
+        if i == currentMonth then   --Add to it the value of the current session to display correct data despite it not being saved yet
+            if found then
+                local foundActivity, activity = tracker:findValue("sessionActiveTime")
+                if foundActivity then
+                    activeTicks = activeTicks + activity
+                end
+            end
+        end
+
+        textToList = textToList.."Month "..monthInString..": "..tostring(activeTicks*5).." minutes.\n"
+    end
+
+    local interactionTicks = chosenPlayer:getQuestProgress(activityTracker.reputationTrackerQuestID)
+
+    if found then
+        local foundInteractionsForSession, interactionsForSession = tracker:findValue("sessionInteractionTime")
+
+        if foundInteractionsForSession then
+            interactionTicks = interactionTicks + interactionsForSession
+        end
+    end
+
+    textToList = textToList.."\nReputation points: "..interactionTicks.." \nReputation rank: TBD"
+
+    if chosenPlayer:isAdmin() then
+        textToList = "Admin activity is not tracked."
+    end
+
+    local messageCallback = function(messageDialog)
+    end
+
+    local messageDialog = MessageDialog(chosenPlayer.name.." activity:", textToList, messageCallback)
+
+    user:requestMessageDialog(messageDialog)
+
+end
+
 local function settingsForChar(user)
 
     local playersTmp = world:getPlayersOnline()
@@ -1577,24 +1628,26 @@ local function settingsForChar(user)
             elseif actionToPerform == 2 then
                 settingsForCharQueststatus(user, chosenPlayer)
             elseif actionToPerform == 3 then
-                settingsForCharAttacableLimited(user, chosenPlayer)
+                viewActivityForPlayer(user, chosenPlayer)
             elseif actionToPerform == 4 then
-                settingsForCharAttacableForever(user, chosenPlayer)
+                settingsForCharAttacableLimited(user, chosenPlayer)
             elseif actionToPerform == 5 then
-                settingsForCharSkills(user, chosenPlayer)
+                settingsForCharAttacableForever(user, chosenPlayer)
             elseif actionToPerform == 6 then
-                settingsForCharMagicClass(user, chosenPlayer)
+                settingsForCharSkills(user, chosenPlayer)
             elseif actionToPerform == 7 then
-                settingsForCharMC(user, chosenPlayer)
+                settingsForCharMagicClass(user, chosenPlayer)
             elseif actionToPerform == 8 then
-                settingsForCharFireProof(user, chosenPlayer)
+                settingsForCharMC(user, chosenPlayer)
             elseif actionToPerform == 9 then
-                settingsForCharIceFlameProof(user, chosenPlayer)
+                settingsForCharFireProof(user, chosenPlayer)
             elseif actionToPerform == 10 then
-                settingsForCharPoisonCloudProof(user, chosenPlayer)
+                settingsForCharIceFlameProof(user, chosenPlayer)
             elseif actionToPerform == 11 then
-                settingsForCharAttributes(user, chosenPlayer)
+                settingsForCharPoisonCloudProof(user, chosenPlayer)
             elseif actionToPerform == 12 then
+                settingsForCharAttributes(user, chosenPlayer)
+            elseif actionToPerform == 13 then
                 settingsForCharReligion(user, chosenPlayer)
             end
         end
@@ -1605,6 +1658,8 @@ local function settingsForChar(user)
         sdAction:addOption(333, "Send a message to "..chosenPlayer.name.." and anyone in a 25 tile range of "..chosenPlayer.name)
 
         sdAction:addOption(3109,"Get/set Queststatus")
+
+        sdAction:addOption(3109, "View Activity/Reputation")
         if chosenPlayer:getQuestProgress(236) == 0 then
             sdAction:addOption(20,"Make 15 min attack proof!")
         else

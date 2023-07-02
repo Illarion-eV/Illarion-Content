@@ -176,6 +176,12 @@ end
 
 function M.resetRestTime(user)
     restTime[user.id] = 0
+    local activityTrackerEffect = 84
+    local foundEffect, myEffect = user.effects:find(activityTrackerEffect)
+
+    if foundEffect then
+        myEffect:addValue("lastResetRestTime", world:getTime("unix"))
+    end
 end
 
 function M.checkRest(user)
