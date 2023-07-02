@@ -351,6 +351,12 @@ function M.onLogin( player )
         player.effects:addEffect(LongTimeEffect(33, 10))
     end
 
+    -- Initiate activity tracker
+    local activityTrackerID = 84
+    if not player:isAdmin() and not player.effects:find(activityTrackerID) then -- Not tracking admins playtime in case we use reputation/playtime for display purposes/highscores or the likes in the future
+        player.effects:addEffect(LongTimeEffect(activityTrackerID, 10)) --Initiate the activity tracker for the first time
+    end
+
     --Checking gods cooldown
     found = player.effects:find(gods_common.EFFECT_ID)
     if not found then
