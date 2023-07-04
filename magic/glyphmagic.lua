@@ -42,7 +42,7 @@ local glyphRitualBreakManaPortion = 0.5
 local orderOfGem = {
     {"Amethyst","Amethyst"},
     {"Rubin","Ruby"},
-    {"Saphir","Sappire"},
+    {"Saphir","Sapphire"},
     {"Obsidian","Obsidian"},
     {"Smaragd","Emerald"},
     {"Topas","Topaz"},

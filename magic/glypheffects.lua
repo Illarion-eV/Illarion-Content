@@ -39,20 +39,20 @@ local PROBABILITY_DESTROY_ON_END_GOLD = 0.6
 
 local WAIT_TIME_AFTER_EQUIPPING = 120 --seconds after put the jewel on before it can be used
 
-M.EFFEKT_RING_AMETHYST = 1
-M.EFFEKT_RING_RUBY = 2
-M.EFFEKT_RING_SAPPIRE = 3
-M.EFFEKT_RING_OBSIDIAN = 4
-M.EFFEKT_RING_EMERALD = 5
-M.EFFEKT_RING_TOPAZ = 6
-M.EFFEKT_RING_DIAMOND = 7
-M.EFFEKT_AMULET_AMETHYST = 8
-M.EFFEKT_AMULET_RUBY = 9
-M.EFFEKT_AMULET_SAPPIRE = 10
-M.EFFEKT_AMULET_OBSIDIAN = 11
-M.EFFEKT_AMULET_EMERALD = 12
-M.EFFEKT_AMULET_TOPAZ = 13
-M.EFFEKT_AMULET_DIAMOND = 14
+M.EFFECT_RING_AMETHYST = 1
+M.EFFECT_RING_RUBY = 2
+M.EFFECT_RING_SAPPHIRE = 3
+M.EFFECT_RING_OBSIDIAN = 4
+M.EFFECT_RING_EMERALD = 5
+M.EFFECT_RING_TOPAZ = 6
+M.EFFECT_RING_DIAMOND = 7
+M.EFFECT_AMULET_AMETHYST = 8
+M.EFFECT_AMULET_RUBY = 9
+M.EFFECT_AMULET_SAPPHIRE = 10
+M.EFFECT_AMULET_OBSIDIAN = 11
+M.EFFECT_AMULET_EMERALD = 12
+M.EFFECT_AMULET_TOPAZ = 13
+M.EFFECT_AMULET_DIAMOND = 14
 
 local function consumeGlyph(item, user, number)
     local itemName
@@ -113,7 +113,7 @@ local function effectRepel(user)
     local isFired
     local parameter
     local isDestroyed
-    isFired,parameter,isDestroyed = M.effectUse(user,M.EFFEKT_AMULET_OBSIDIAN)
+    isFired,parameter,isDestroyed = M.effectUse(user,M.EFFECT_AMULET_OBSIDIAN)
     if user:increaseAttrib("hitpoints", 0) > HITPOINT_LIMIT then
         if isFired then
             local hitpointCost = math.floor(HITPOINT_FAKTOR/parameter)
@@ -183,7 +183,7 @@ function M.effectOnFight(attacker,defender)
     local isDestroyed
 
     local MOVE_POINT_BASE = 10
-    isFired,parameter = M.effectUse(attacker,M.EFFEKT_RING_AMETHYST)
+    isFired,parameter = M.effectUse(attacker,M.EFFECT_RING_AMETHYST)
 
     if isFired then
         if effectRepel(defender) then
@@ -194,7 +194,7 @@ function M.effectOnFight(attacker,defender)
         end
     end
 
-    isFired,parameter = M.effectUse(attacker,M.EFFEKT_AMULET_AMETHYST)
+    isFired,parameter = M.effectUse(attacker,M.EFFECT_AMULET_AMETHYST)
     if isFired then
         if effectRepel(defender) then
             world:gfx(globalvar.gfxFIZZLE,defender.pos)
@@ -211,7 +211,7 @@ function M.effectOnFight(attacker,defender)
     local duration
     local foundEffect
     local paralysisEffect
-    isFired,parameter,isDestroyed = M.effectUse(defender,M.EFFEKT_AMULET_EMERALD)
+    isFired,parameter,isDestroyed = M.effectUse(defender,M.EFFECT_AMULET_EMERALD)
     if isFired then
         if effectRepel(attacker) then
             world:gfx(globalvar.gfxFIZZLE,attacker.pos)
@@ -238,7 +238,7 @@ function M.effectOnFight(attacker,defender)
     local MAX_REDUCTION = 30
     local mpReductionEffect
     local totalReduction
-    isFired,parameter,isDestroyed = M.effectUse(attacker,M.EFFEKT_RING_EMERALD)
+    isFired,parameter,isDestroyed = M.effectUse(attacker,M.EFFECT_RING_EMERALD)
     if isFired then
         if effectRepel(defender) then
             world:gfx(globalvar.gfxFIZZLE,defender.pos)
@@ -262,7 +262,7 @@ function M.effectOnFight(attacker,defender)
     end
 
     local flameDuration
-    isFired = M.effectUse(attacker,M.EFFEKT_RING_RUBY)
+    isFired = M.effectUse(attacker,M.EFFECT_RING_RUBY)
     if isFired then
         if effectRepel(defender) then
             world:gfx(globalvar.gfxFIZZLE,defender.pos)
@@ -275,7 +275,7 @@ function M.effectOnFight(attacker,defender)
     end
 
     local FLAME_ATTACKER_S = 2
-    isFired,parameter = M.effectUse(defender,M.EFFEKT_AMULET_RUBY)
+    isFired,parameter = M.effectUse(defender,M.EFFECT_AMULET_RUBY)
     if isFired then
         if effectRepel(attacker) then
             world:gfx(globalvar.gfxFIZZLE,attacker.pos)
@@ -293,7 +293,7 @@ function M.effectOnFight(attacker,defender)
     local HP_FAKTOR_ENEMY = 1.5
     local hpCosts
     if attacker:increaseAttrib("hitpoints", 0) > HP_LIMIT then
-        isFired,parameter = M.effectUse(attacker,M.EFFEKT_RING_OBSIDIAN)
+        isFired,parameter = M.effectUse(attacker,M.EFFECT_RING_OBSIDIAN)
         if isFired then
             world:gfx(globalvar.gfxBLOOD,attacker.pos)
             world:gfx(globalvar.gfxBLOOD,defender.pos)
@@ -307,7 +307,7 @@ function M.effectOnFight(attacker,defender)
 
     local DISTANCE_BASE_ATTACK = 2
     local effectiveDistance
-    isFired,parameter,isDestroyed = M.effectUse(attacker,M.EFFEKT_RING_SAPPIRE)
+    isFired,parameter,isDestroyed = M.effectUse(attacker,M.EFFECT_RING_SAPPHIRE)
     if isFired then
         if effectRepel(defender) then
             world:gfx(globalvar.gfxFIZZLE,defender.pos)
@@ -322,7 +322,7 @@ function M.effectOnFight(attacker,defender)
     end
 
     local DISTANCE_BASE_DEFEND = 2
-    isFired,parameter,isDestroyed = M.effectUse(defender,M.EFFEKT_AMULET_SAPPIRE)
+    isFired,parameter,isDestroyed = M.effectUse(defender,M.EFFECT_AMULET_SAPPHIRE)
     if isFired then
         if effectRepel(attacker) then
             world:gfx(globalvar.gfxFIZZLE,attacker.pos)
@@ -341,7 +341,7 @@ function M.effectOnCraftingTime(user)
     local CRAFTING_TIME_IMPROVEMENT = 0.05
     local craftingTime = 1
 
-    local isFired, parameter = M.effectUse(user,M.EFFEKT_RING_AMETHYST)
+    local isFired, parameter = M.effectUse(user,M.EFFECT_RING_AMETHYST)
     if isFired then
         craftingTime = 1 - parameter * CRAFTING_TIME_IMPROVEMENT
         world:gfx(globalvar.gfxSPELL,user.pos)
@@ -356,7 +356,7 @@ function M.effectOnRepairTime(user)
     local isDestroyed
     local craftingTime = 1
 
-    isFired,parameter,isDestroyed = M.effectUse(user,M.EFFEKT_AMULET_AMETHYST)
+    isFired,parameter,isDestroyed = M.effectUse(user,M.EFFECT_AMULET_AMETHYST)
     if isFired then
         craftingTime = 1 - parameter * REPAIR_TIME_IMPROVEMENT
         world:gfx(globalvar.gfxSPELL,user.pos)
@@ -374,7 +374,7 @@ function M.effectOnUserRepairQuality(user,item)
     local isDestroyed
     local improvementValue = 0
 
-    isFired,parameter,isDestroyed = M.effectUse(user,M.EFFEKT_AMULET_TOPAZ)
+    isFired,parameter,isDestroyed = M.effectUse(user,M.EFFECT_AMULET_TOPAZ)
     if isFired then
         world:gfx(globalvar.gfxDEMFIRE,user.pos)
         if not isDestroyed then
@@ -387,7 +387,7 @@ function M.effectOnUserRepairQuality(user,item)
     local workbenchPos = common.GetFrontPosition(user)
     local playerInSight = world:getPlayersInRangeOf(workbenchPos,1)
     if #playerInSight > NUMBER_OF_HELPER then
-        isFired,parameter,isDestroyed = M.effectUse(user,M.EFFEKT_AMULET_RUBY)
+        isFired,parameter,isDestroyed = M.effectUse(user,M.EFFECT_AMULET_RUBY)
         if isFired then
             if not isDestroyed then
                 common.InformNLS(user,"Mit einer Person neben dir arbeitest du konzentrierter. Die Qualität deiner Arbeit wird besser.",
@@ -404,7 +404,7 @@ function M.effectOnUserRepairQuality(user,item)
 
     local CHARGES_ON_DIAMOND = 4
     local PROBABILITY_ON_DIAMOND = 0.5
-    isFired, parameter = M.effectUse(user,M.EFFEKT_RING_DIAMOND,CHARGES_ON_DIAMOND,PROBABILITY_ON_DIAMOND)
+    isFired, parameter = M.effectUse(user,M.EFFECT_RING_DIAMOND,CHARGES_ON_DIAMOND,PROBABILITY_ON_DIAMOND)
     if isFired then
         world:gfx(globalvar.gfxSCOTTY,user.pos)
         item:setData("craftedBy",user.name)
@@ -413,7 +413,7 @@ function M.effectOnUserRepairQuality(user,item)
         improvementValue = improvementValue + parameter * QUALITY_BASE
     end
 
-    isFired, parameter = M.effectUse(user,M.EFFEKT_AMULET_DIAMOND,CHARGES_ON_DIAMOND,PROBABILITY_ON_DIAMOND)
+    isFired, parameter = M.effectUse(user,M.EFFECT_AMULET_DIAMOND,CHARGES_ON_DIAMOND,PROBABILITY_ON_DIAMOND)
     if isFired then
         world:gfx(globalvar.gfxSCOTTY,user.pos)
         local bestQuality = item:getData("qualityAtCreation")
@@ -443,7 +443,7 @@ function M.effectOnNpcRepair(user)
     local PROB_FACTOR = 0.24
     local preventionProb
 
-    isFired,parameter,isDestroyed = M.effectUse(user,M.EFFEKT_RING_OBSIDIAN)
+    isFired,parameter,isDestroyed = M.effectUse(user,M.EFFECT_RING_OBSIDIAN)
     if user:increaseAttrib("hitpoints", 0) > HITPOINT_LIMIT then
         if isFired then
             world:gfx(globalvar.gfxSPRINKLE,user.pos)
@@ -466,7 +466,7 @@ function M.effectDamageIncrease(user,defender)
     local parameter
     local damageIncrease
 
-    isFired,parameter = M.effectUse(user,M.EFFEKT_RING_TOPAZ)
+    isFired,parameter = M.effectUse(user,M.EFFECT_RING_TOPAZ)
     if isFired then
         world:gfx(globalvar.gfxFLAMESTRIKE,defender.pos)
         damageIncrease = 1 + parameter * DAMAGE_INCREASE_FACTOR
@@ -481,7 +481,7 @@ function M.effectRevertDamage(user,attacker)
     local parameter
     local damagePortion
 
-    isFired,parameter = M.effectUse(user,M.EFFEKT_AMULET_TOPAZ)
+    isFired,parameter = M.effectUse(user,M.EFFECT_AMULET_TOPAZ)
     if isFired then
         if effectRepel(attacker) then
             world:gfx(globalvar.gfxFIZZLE,attacker.pos)
@@ -534,8 +534,8 @@ local function applyDamageOverTime(user,damageTaker,damage,effectCarrier,textDe,
 end
 
 function M.effectDamageOverTime(attacker,defender,damage)
-    applyDamageOverTime(attacker,defender,damage,M.EFFEKT_RING_DIAMOND,standardTextRingDe,standardTextRingEn)
-    applyDamageOverTime(defender,attacker,damage,M.EFFEKT_AMULET_DIAMOND,standardTextAmuletDe,standardTextAmuletEn)
+    applyDamageOverTime(attacker,defender,damage,M.EFFECT_RING_DIAMOND,standardTextRingDe,standardTextRingEn)
+    applyDamageOverTime(defender,attacker,damage,M.EFFECT_AMULET_DIAMOND,standardTextAmuletDe,standardTextAmuletEn)
 end
 
 function M.effectOnQuality(user)
@@ -546,7 +546,7 @@ function M.effectOnQuality(user)
 
     local REQUIRED_CHARGES = 4
     local QUALITY_FAKTOR = 0.7
-    isFired,parameter,isDestroyed = M.effectUse(user,M.EFFEKT_RING_TOPAZ, REQUIRED_CHARGES)
+    isFired,parameter,isDestroyed = M.effectUse(user,M.EFFECT_RING_TOPAZ, REQUIRED_CHARGES)
     if isFired then
         world:gfx(globalvar.gfxSCOTTY,user.pos)
         if not isDestroyed then
@@ -559,7 +559,7 @@ function M.effectOnQuality(user)
     local workbenchPos = common.GetFrontPosition(user)
     local playerInSight = world:getPlayersInRangeOf(workbenchPos,1)
     if #playerInSight > NUMBER_OF_HELPER then
-        isFired,parameter,isDestroyed = M.effectUse(user,M.EFFEKT_RING_RUBY, REQUIRED_CHARGES)
+        isFired,parameter,isDestroyed = M.effectUse(user,M.EFFECT_RING_RUBY, REQUIRED_CHARGES)
         if isFired then
             if not isDestroyed then
                 common.InformNLS(user,"Mit einer Person neben dir arbeitest du konzentrierter. Die Qualität deiner Arbeit wird besser.",
@@ -587,7 +587,7 @@ function M.effectBloodToQuality(user)
     local qualityImprovement
 
     if user:increaseAttrib("hitpoints", 0) > HP_LIMIT then
-        isFired,parameter = M.effectUse(user,M.EFFEKT_AMULET_OBSIDIAN, REQUIRED_CHARGES)
+        isFired,parameter = M.effectUse(user,M.EFFECT_AMULET_OBSIDIAN, REQUIRED_CHARGES)
         if isFired then
             world:gfx(globalvar.gfxBLOOD,user.pos)
             user:increaseAttrib("hitpoints", - HP_COSTS)
@@ -610,7 +610,7 @@ function M.effectToolSelfRepair(user, toolItem, originalDurability)
     local improvement
     local targetDurability
 
-    isFired,parameter,isDestroyed = M.effectUse(user,M.EFFEKT_RING_EMERALD)
+    isFired,parameter,isDestroyed = M.effectUse(user,M.EFFECT_RING_EMERALD)
     if isFired then
         currentDurability = common.getItemDurability(toolItem)
         improvement = math.max(MIN_IMPROVEMENT, (originalDurability - currentDurability) * parameter * DURABILITY_IMPROVEMENT_FACTOR)
@@ -632,7 +632,7 @@ function M.effectPreventMonsterOnGathering(user)
     local isDestroyed
     local preventionProbability
 
-    isFired,parameter,isDestroyed = M.effectUse(user,M.EFFEKT_AMULET_EMERALD,1,EFFECT_PROBABILITY)
+    isFired,parameter,isDestroyed = M.effectUse(user,M.EFFECT_AMULET_EMERALD,1,EFFECT_PROBABILITY)
     if isFired then
         preventionProbability = parameter * PREVENTION_BASE_VALUE
         if math.random() < preventionProbability then
@@ -659,7 +659,7 @@ function M.effectSaveMaterialOnProduction(user)
     local isDestroyed
     local saveProbability
 
-    isFired,parameter,isDestroyed = M.effectUse(user,M.EFFEKT_RING_SAPPIRE,1,EFFECT_PROBABILITY)
+    isFired,parameter,isDestroyed = M.effectUse(user,M.EFFECT_RING_SAPPHIRE,1,EFFECT_PROBABILITY)
     if isFired then
         saveProbability = SAVE_BASE_SUMAND + parameter * SAVE_BASE_FACTOR
         if math.random() < saveProbability then
@@ -686,7 +686,7 @@ function M.effectSaveMaterialOnRepair(user)
     local isDestroyed
     local saveProbability
 
-    isFired,parameter,isDestroyed = M.effectUse(user,M.EFFEKT_AMULET_SAPPIRE,1,EFFECT_PROBABILITY)
+    isFired,parameter,isDestroyed = M.effectUse(user,M.EFFECT_AMULET_SAPPHIRE,1,EFFECT_PROBABILITY)
     if isFired then
         saveProbability = SAVE_BASE_SUMAND + parameter * SAVE_BASE_FACTOR
         if math.random() < saveProbability then
