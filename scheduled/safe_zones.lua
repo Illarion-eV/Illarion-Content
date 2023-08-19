@@ -41,7 +41,7 @@ end
 
 function M.cheatingViaTrollshavenSafeZone(monster, diggingLocation, treasureHunter)
 
-    if monsterHooks.isForcedDeath(monster) and monsterIsInTrollshaven(monster) then --The guardian was force killed by half hung bryans crew
+    if monsterHooks.isForcedDeath(monster) and monsterIsInTrollshaven(monster) then --The guardian was force killed by Half-Hung Bryan's crew
         local playersNearTreasure = world:getPlayersInRangeOf(diggingLocation, 12)
         local playersInTrollsHavenSafeZone = common.getCharactersInRangeOfMultiplePositions("players", M.trollsHaven)
         local english = "Having dealt with a guardian of the treasure site on your behalf, Half-Hung Bryan's crew spares no time to retrieve the treasure as payment. It is only fair, right?"
@@ -73,17 +73,17 @@ function M.sweepMonsters()
 
     local pluralInform = {}
 
-    pluralInform.english = "As they spot the incoming threat, a group of Half-Hung Bryans hired guards rush out and swiftly dispose of it."
+    pluralInform.english = "As they spot the incoming threat, a group of Half-Hung Bryan's hired guards rush out and swiftly dispose of it."
     pluralInform.german = "Half-Hung Bryans Handlanger machen mit den Angreifern kurzen Prozess."
 
     if (#monsters > 0) then
         for _, Monster in pairs(monsters) do
             if  Monster:getMonsterType() ~= 1111 then -- Orchard rats are not sweeped.
-                singularInform.english = "As they spot the "..Monster.name.." a group of Half-Hung Bryans hired guards rush out and swiftly dispose of it."
+                singularInform.english = "As they spot the "..Monster.name.." a group of Half-Hung Bryan's hired guards rush out and swiftly dispose of it."
                 singularInform.german = "Half-Hung Bryans Handlanger machen mit dem Angreifer kurzen Prozess."
                 monstersKilled = monstersKilled + 1
                 monsterHooks.setForcedDeath(Monster) -- Prevent madness creature respawns
-                monsterHooks.setNoDrop(Monster) -- Half Hung Bryans guards takes the loot
+                monsterHooks.setNoDrop(Monster) -- Half Hung Bryan's guards takes the loot
                 Monster:increaseAttrib("hitpoints", -10000) -- Kill it
                 monsterHooks.cleanHooks(Monster)
             end
