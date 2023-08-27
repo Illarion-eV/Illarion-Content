@@ -123,7 +123,7 @@ function M.MoveItemAfterMove(User, SourceItem, TargetItem)
             elseif not (User:getMagicType() == 0 and (User:getQuestProgress(37) ~= 0 or User:getMagicFlags(0) > 0)) then
                 if bit32.extract(questProgress, 30) == 0 then
                     User:inform("Um das Handwerk der Stabmagie zu erlernen, musst du drei Bücher über magische Theorie lesen. Sieh dir die Liste der Bücher in den Bibliotheken der Städte an.",
-                    "To learn the craft of wand magic you must read three books on magical theory. Look for the list of books in your town's library.")
+                    "To learn the art of wand magic you must read three books on magical theory. Look for the list of books in your town's library.")
                 end
             end
         else
