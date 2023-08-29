@@ -438,7 +438,9 @@ local function craftItem(user, product, skill)
 
 end
 
-local function allSmithingCountedAsOne(user, skill, productLevel, hasSkillLevel, languageAppropriateSkillName)
+local function multiSkillsThatAreCountedAsOne(user, skill, productLevel, hasSkillLevel, languageAppropriateSkillName)
+
+    local playerIsGerman = user:getPlayerLanguage() == Player.german
 
     if skill.name == "blacksmithing" then
 
@@ -450,12 +452,28 @@ local function allSmithingCountedAsOne(user, skill, productLevel, hasSkillLevel,
             hasSkillLevel = true
         end
 
-        if user:getPlayerLanguage() == Player.german then
+        if playerIsGerman then
             languageAppropriateSkillName = "GERMAN TRANSLATION"
         else
             languageAppropriateSkillName = "blacksmithing, finesmithing or armouring"
         end
     end
+
+    if skill.name == "herblore" then
+
+        local farming = loadSkill(user, "farming")
+
+        if productLevel <= farming then
+            hasSkillLevel = true
+        end
+
+        if playerIsGerman then
+            languageAppropriateSkillName = "GERMAN TRANSLATION"
+        else
+            languageAppropriateSkillName = "herblore or farming"
+        end
+    end
+
 
     return hasSkillLevel, languageAppropriateSkillName
 
@@ -499,10 +517,10 @@ function M.showDialog(user, skillName, carpentryEstateCatalogue)
 
             local languageAppropriateSkillName = user:getSkillName(Character[skill.name])
 
-            hasSkillLevel, languageAppropriateSkillName = allSmithingCountedAsOne(user, skill, product.level, hasSkillLevel, languageAppropriateSkillName)
+            hasSkillLevel, languageAppropriateSkillName = multiSkillsThatAreCountedAsOne(user, skill, product.level, hasSkillLevel, languageAppropriateSkillName)
 
             if not hasSkillLevel then
-                common.HighInformNLS(user, "GERMAN TRANSLATION", "You need level "..product.level.." in "..languageAppropriateSkillName.." to craft that. You could always seek out someone else to build it for you.")
+                common.HighInformNLS(user, "GERMAN TRANSLATION", "You need level "..product.level.." in "..languageAppropriateSkillName.." to do that. You could always seek out someone else to do it for you.")
                 return false
             end
 
