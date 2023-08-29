@@ -1133,7 +1133,7 @@ table.insert(M.categories, {categoryEn = "Mirrors", categoryDe = "Spiegel"})
 M.skills = {}
 table.insert(M.skills, {name = "carpentry", displayDe = "Schreinern", displayEn = "Carpentry", sfx = 14, level = 1 })
 table.insert(M.skills, {name = "tailoring", displayDe = "Schneidern", displayEn = "Tailoring", sfx = 0, level = 1 })
-table.insert(M.skills, {name = "blacksmithing", displayDe = "Schmieden", displayEn = "Blacksmithing", sfx = 8, level = 1 })
+table.insert(M.skills, {name = "blacksmithing", displayDe = "Schmieden", displayEn = "Smithing", sfx = 8, level = 1 })
 table.insert(M.skills, {name = "mining", displayDe = "Steinmetzkunst", displayEn = "Stone Masonry", sfx = 8, level = 1 })
 table.insert(M.skills, {name = "pottery", displayDe = "Maurern", displayEn = "Clay Masonry", sfx = 7, level = 1 })
 table.insert(M.skills, {name = "digging", displayDe = "Graben", displayEn = "Digging", sfx = 0, level = 1, estate = true})

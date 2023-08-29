@@ -438,6 +438,29 @@ local function craftItem(user, product, skill)
 
 end
 
+local function allSmithingCountedAsOne(user, skill, productLevel, hasSkillLevel, languageAppropriateSkillName)
+
+    if skill.name == "blacksmithing" then
+
+        local finesmithing = loadSkill(user, "finesmithing")
+
+        local armourer = loadSkill(user, "armourer")
+
+        if productLevel <= armourer or productLevel <= finesmithing then
+            hasSkillLevel = true
+        end
+
+        if user:getPlayerLanguage() == Player.german then
+            languageAppropriateSkillName = "GERMAN TRANSLATION"
+        else
+            languageAppropriateSkillName = "blacksmithing, finesmithing or armouring"
+        end
+    end
+
+    return hasSkillLevel, languageAppropriateSkillName
+
+end
+
 function M.showDialog(user, skillName, carpentryEstateCatalogue)
 
     local skill = {}
@@ -474,8 +497,12 @@ function M.showDialog(user, skillName, carpentryEstateCatalogue)
 
             local frontPos = common.GetFrontPosition(user)
 
+            local languageAppropriateSkillName = user:getSkillName(Character[skill.name])
+
+            hasSkillLevel, languageAppropriateSkillName = allSmithingCountedAsOne(user, skill, product.level, hasSkillLevel, languageAppropriateSkillName)
+
             if not hasSkillLevel then
-                common.HighInformNLS(user, "GERMAN TRANSLATION", "You need level "..product.level.." in "..user:getSkillName(Character[skill.name]).." to craft that. You could always seek out someone else to build it for you.")
+                common.HighInformNLS(user, "GERMAN TRANSLATION", "You need level "..product.level.." in "..languageAppropriateSkillName.." to craft that. You could always seek out someone else to build it for you.")
                 return false
             end
 
