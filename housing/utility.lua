@@ -200,7 +200,7 @@ end
 
 function M.checkIfSkillIsShown(user, skill)
 
-    if M.checkIfPlayerKnowsSkillByName(user, skill) and (not M.checkIfSkillOnlyHasEstateContents(skill) or M.checkIfEstate(user)) then
+    if not M.checkIfSkillOnlyHasEstateContents(skill) or M.checkIfEstate(user) then
         return true
     end
 
