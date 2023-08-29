@@ -1139,7 +1139,7 @@ table.insert(M.skills, {name = "pottery", displayDe = "Maurern", displayEn = "Cl
 table.insert(M.skills, {name = "digging", displayDe = "Graben", displayEn = "Digging", sfx = 0, level = 1, estate = true})
 table.insert(M.skills, {name = "herblore", displayDe = "Gartenarbeit", displayEn = "Gardening", sfx = 0, level = 50 })
 table.insert(M.skills, {name = "glassBlowing", displayDe = "Glasblasen", displayEn = "Glassblowing", sfx = 7, level = 50 })
-table.insert(M.skills, {name = "woodcutting", displayDe = "Sägen", displayEn = "Woodcutting", sfx = 14, level = 20 })
+table.insert(M.skills, {name = "woodcutting", displayDe = "Sägen", displayEn = "Woodcutting", sfx = 14, level = 20, estate = true})
 table.insert(M.skills, {name = "misc", displayDe = "Keine", displayEn = "None", sfx = 0, level = 0})
 
 

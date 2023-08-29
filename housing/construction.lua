@@ -48,14 +48,13 @@ end
 local function showObject(user, object, category, skill, carpentryEstateCatalogue)
 
     if carpentryEstateCatalogue ~= nil
-    and ((carpentryEstateCatalogue and object.typeOf ~= "Estate")
-    or (not carpentryEstateCatalogue and object.typeOf == "Estate"))
-    then return false
+        and ((carpentryEstateCatalogue and object.typeOf ~= "Estate")
+        or (not carpentryEstateCatalogue and object.typeOf == "Estate"))
+        then return false
     end
 
     if category.nameEN == object.category
         and object.skill == skill.name
-        and object.level <= skill.level
         and (object.typeOf ~= "Estate" or utility.checkIfEstate(user))
         then return true
     end
@@ -103,7 +102,6 @@ local function showCategory(user, skill, category)
     for _, item in ipairs(itemList.items) do
         if category.categoryEn == item.category
             and skill.name == item.skill
-            and skill.level >= item.level
             and (not category.Estate or utility.checkIfEstate(user))
             then return true, false
         end
@@ -111,7 +109,6 @@ local function showCategory(user, skill, category)
     for _, tile in ipairs(itemList.tiles) do
         if category.categoryEn == tile.category
             and skill.name == tile.skill
-            and skill.level >= tile.level
             and (not category.Estate or utility.checkIfEstate(user))
             then return true, true
         end
@@ -185,20 +182,16 @@ local function loadDialog(user, dialog, skill, categories, products)
     end
 
     for index , product in ipairs(products) do
-        local requirement = product.difficulty
 
-        if requirement <= skill.level then
-
-            local time = loadCraftingTime(product.level)
-            local category = categoryList[product.category]
-            local categoryId = category.id
-            local name = loadProductName(user, product.id, category.tile)
-            local productId = product.id
-            if category.tile then
-                productId = utility.getTileGraphic(product.id)
-            end
-            dialog:addCraftable( index, categoryId , productId, name, time, 1)
+        local time = loadCraftingTime(product.level)
+        local category = categoryList[product.category]
+        local categoryId = category.id
+        local name = loadProductName(user, product.id, category.tile)
+        local productId = product.id
+        if category.tile then
+            productId = utility.getTileGraphic(product.id)
         end
+        dialog:addCraftable( index, categoryId , productId, name, time, 1)
 
         for _, ingredient in ipairs(product.ingredients) do
             dialog:addCraftableIngredient(ingredient.id, ingredient.quantity)
@@ -477,8 +470,14 @@ function M.showDialog(user, skillName, carpentryEstateCatalogue)
             local product = products[productIndex]
             local foodOK = utility.checkRequiredFood(user, loadCraftingTime(product.level))
             local canWork = utility.allowBuilding(user) and foodOK
+            local hasSkillLevel = product.level <= skill.level
 
             local frontPos = common.GetFrontPosition(user)
+
+            if not hasSkillLevel then
+                common.HighInformNLS(user, "GERMAN TRANSLATION", "You need level "..product.level.." in "..user:getSkillName(Character[skill.name]).." to craft that. You could always seek out someone else to build it for you.")
+                return false
+            end
 
             if not utility.wallWindowPermissions(user, frontPos, product.id) or not hasMaterials(user, product) then
                 canWork = false
