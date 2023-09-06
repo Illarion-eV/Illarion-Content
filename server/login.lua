@@ -664,13 +664,7 @@ local function checkTrollsHavenBulletin(user)
 
     local foundLatest, latest = ScriptVars:find("latestBulletinMessage")
 
-    if not foundLatest then
-        return false
-    end
-
-    latest = tonumber(latest)
-
-    if lastSeen ~= latest and lastSeen ~= 0 then --Only those who are aware of the bulletin by having checked it at least once will be informed of new messages, as to avoid confusing new players
+    if foundLatest and lastSeen ~= tonumber(latest) then
         return true
     end
 
@@ -682,25 +676,19 @@ local function checkRealmBulletin(user)
 
     local town = factions.getMembershipByName(user)
 
+    if town == "None" then
+        return
+    end
+
     local townBoardQuestIds = {Runewick = 256, Cadomyr = 257, Galmair = 258}
 
     local townQuestId = townBoardQuestIds[town]
 
-    if common.IsNilOrEmpty(townQuestId) then --outlaws
-        return false
-    end
-
     local foundTownLatest, townLatest = ScriptVars:find("latestMessage"..town)
-
-    if not foundTownLatest then
-        return false
-    end
-
-    townLatest = tonumber(townLatest)
 
     local lastSeen = user:getQuestProgress(townQuestId)
 
-    if lastSeen ~= 0 and lastSeen ~= townLatest then
+    if foundTownLatest and lastSeen ~= tonumber(townLatest) then
         return true, town
     end
 

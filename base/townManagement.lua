@@ -320,7 +320,7 @@ function TownAnnouncementInput(user,toolTown)
 
     -- input dialog
     local title = common.GetNLS(user, "Ankündigung schreiben", "Write new announcement")
-    local text = common.GetNLS(user, "Schreibe deine neue Ankündigung. Abbruch führt dazu, dass die derzeitige Ankündigung beibehalten wird.", "Write your new annoucement. Cancel to keep current announcement.")
+    local text = common.GetNLS(user, "Schreibe deine neue Ankündigung. Abbruch führt dazu, dass die derzeitige Ankündigung beibehalten wird.", "Write your new announcement. Cancel to keep current announcement.")
 
     local callback = function(dialog)
         if not dialog:getSuccess() then
