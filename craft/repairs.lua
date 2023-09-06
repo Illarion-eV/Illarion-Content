@@ -22,11 +22,11 @@ local itemRepairList = {}
 
 local M = {}
 
-local amountOfDurabilities = 9
+local amountOfDurabilityPoints = 99
 
-local maxUsesPerRepairKit = 25 --No matter the value of the repair, a repair kit can never be used more than this amount. This makes it so that a level 100 kit might be able to repair a tool a few more times than a level 20 kit, but not too many times more.
+local maxDurabilityPointsRegainedPerOnePercentKitUsage = 3 --This means that if you repair a 10 gold item with a 10 gold kit you get max 99 points aka one full repair, but if you repair a 1 gold item with a 10 gold kit you get at most 297 points aka 3 full repairs, so you make a loss of 7 gold for using a too high kit.
 
-local maxRepairsInField = 9*amountOfDurabilities
+local maxRepairsInField = 9*amountOfDurabilityPoints
 
 local staticToolCountMultiplier = 2
 
@@ -323,7 +323,7 @@ local function getPossibleRepairs(theItem, theRepairKit)
 
     local commonRepairKit = world:getItemStatsFromId(theRepairKit.id)
 
-    local minimumDecrease = commonRepairKit.Worth/maxUsesPerRepairKit/10
+    local minimumDecrease = math.ceil(commonRepairKit.Worth/100/maxDurabilityPointsRegainedPerOnePercentKitUsage) --math.ceil in case it results in a decimal number, eg 10 gold value divided by 100 divided by 3 would be 333.333~~ so instead turns into 334
 
     local decreasePerDurabilityPoint
 
@@ -341,6 +341,10 @@ local function getPossibleRepairs(theItem, theRepairKit)
     end
 
     local retVal = math.floor(remainingValue/decreasePerDurabilityPoint)
+
+    if remainingValue - retVal*decreasePerDurabilityPoint > 0 then -- Give some leeway to the cost of the last point so we dont end up with repair kits with only 1 point left to give
+        retVal = retVal + 1
+    end
 
     if retVal < 1 then
         retVal = 1
@@ -372,14 +376,14 @@ local function getRepairAmount(user, theItem, staticTool, repairCount, theRepair
         return false
     end
 
-    local durabilityReduction = math.ceil(repairCount/amountOfDurabilities)
+    local durabilityReduction = math.ceil(repairCount/amountOfDurabilityPoints)
 
     if staticTool then
         durabilityReduction = math.ceil(durabilityReduction/staticToolCountMultiplier)
     end
 
 
-    local maxDurability = 99 - (durabilityReduction*10)
+    local maxDurability = 99 - (durabilityReduction)
 
     local durabilityIncreasedBy = maxDurability-durability
 
@@ -438,15 +442,13 @@ local function reduceRepairCount(user, repairCount)
     local rolls = 8
     local reduction = 1 + common.BinomialByMean((meanReduction-1), rolls)
 
-    reduction = maxRepairsAtStaticTool/amountOfDurabilities*reduction
+    reduction = maxRepairsAtStaticTool/amountOfDurabilityPoints*reduction
 
     reduction = common.Limit(reduction, 1, tonumber(repairCount))
 
     return tonumber(repairCount) - math.ceil(reduction)
 
 end
-
-
 
 local function repairItem(user, theRepairKit)
 
@@ -495,14 +497,14 @@ local function repairItem(user, theRepairKit)
     end
 
     if not foundStaticTool or not hasRequiredSkill then
-        repairCountIncrease = math.ceil(increasedCount/10)
+        repairCountIncrease = increasedCount
     end
 
     item:setData("repairCount", repairCount+repairCountIncrease)
 
     common.setItemQualityDurability(item, tonumber(quality), tonumber(newDurability))
 
-    local minimumDecrease = commonRepairKit.Worth/maxUsesPerRepairKit
+    local minimumDecrease = math.ceil(commonRepairKit.Worth/100/maxDurabilityPointsRegainedPerOnePercentKitUsage) --math.ceil in case it results in a decimal number, eg 10 gold value divided by 100 divided by 3 would be 333.333~~ so instead turns into 334
 
     local _, decreasePerPointOfDurability = getPossibleRepairs(theItem, theRepairKit)
 
@@ -516,7 +518,7 @@ local function repairItem(user, theRepairKit)
     local germanText
     local englishText
 
-    if valueRemainingAfterRepair < minimumDecrease/10 then
+    if valueRemainingAfterRepair < minimumDecrease then
         world:erase(theRepairKit, 1)
         germanText = "Du reparierst "..commonItem.German.." und verbrauchst dabei "..commonRepairKit.German.."."
         englishText = "You repair the "..commonItem.English..", using the "..commonRepairKit.English.." up."
@@ -598,7 +600,7 @@ local function getDurationBasedOnRestoredDurability(user, repairKit, chosenItem)
         return false
     end
 
-    local repairPerAmount = maxDuration/100
+    local repairPerAmount = maxDuration/99
 
     local baseRepairTime = repairPerAmount
 
@@ -739,7 +741,7 @@ function M.LookAtItem(user, repairKit)
 
     local baseLookat = lookat.GenerateLookAt(user, repairKit)
 
-    local repairUsesLeft = math.ceil(getPossibleRepairs(nil, repairKit)/25)
+    local repairUsesLeft = math.ceil(getPossibleRepairs(nil, repairKit)/10/maxDurabilityPointsRegainedPerOnePercentKitUsage)
 
     local addedDescription = usedDescriptions[user:getPlayerLanguage()][repairUsesLeft]
 
