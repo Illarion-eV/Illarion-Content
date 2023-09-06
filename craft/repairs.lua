@@ -309,7 +309,7 @@ local function getRemainingRepairValue(theRepairKit)
     local commonRepairKit = world:getItemStatsFromId(theRepairKit.id)
 
     if common.IsNilOrEmpty(remainingValue) then
-        remainingValue = commonRepairKit.Worth
+        remainingValue = commonRepairKit.Worth - (commonRepairKit.Worth/100) -- 99% of the value because an item only has 99 durability points
     else
         remainingValue = tonumber(remainingValue)
     end
