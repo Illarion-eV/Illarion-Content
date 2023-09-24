@@ -453,7 +453,7 @@ local function multiSkillsThatAreCountedAsOne(user, skill, productLevel, hasSkil
         end
 
         if playerIsGerman then
-            languageAppropriateSkillName = "GERMAN TRANSLATION"
+            languageAppropriateSkillName = "Schmieden, Feinschmieden oder Rüstschmieden"
         else
             languageAppropriateSkillName = "blacksmithing, finesmithing or armouring"
         end
@@ -468,7 +468,7 @@ local function multiSkillsThatAreCountedAsOne(user, skill, productLevel, hasSkil
         end
 
         if playerIsGerman then
-            languageAppropriateSkillName = "GERMAN TRANSLATION"
+            languageAppropriateSkillName = "Kräuterkunde oder Ackerbau"
         else
             languageAppropriateSkillName = "herblore or farming"
         end
@@ -520,7 +520,7 @@ function M.showDialog(user, skillName, carpentryEstateCatalogue)
             hasSkillLevel, languageAppropriateSkillName = multiSkillsThatAreCountedAsOne(user, skill, product.level, hasSkillLevel, languageAppropriateSkillName)
 
             if not hasSkillLevel then
-                common.HighInformNLS(user, "GERMAN TRANSLATION", "You need level "..product.level.." in "..languageAppropriateSkillName.." to do that. You could always seek out someone else to do it for you.")
+                common.HighInformNLS(user, "Hierfür benötigst du Level "..product.level.." in "..languageAppropriateSkillName..". Oder du fragst jemanden, der sich damit besser auskennt als du.", "You need level "..product.level.." in "..languageAppropriateSkillName.." to do that. You could always seek out someone else to do it for you.")
                 return false
             end
 
