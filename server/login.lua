@@ -31,6 +31,7 @@ local keys = require("item.keys")
 local ceilingtrowel = require("gm.items.id_382_ceilingtrowel")
 local utility = require("housing.utility")
 local messenger = require("content.messenger")
+local bookrests = require("item.bookrests")
 
 -- Called after every player login
 
@@ -660,9 +661,28 @@ end
 
 local function checkTrollsHavenBulletin(user)
 
+    local messageExists = false
+
+    for i = 1, bookrests.BULLETIN_MAX_SLOTS do
+
+        local expirationFound, expirationContent = ScriptVars:find("messageExpiration"..tostring(i))
+
+        if expirationFound and not common.IsNilOrEmpty(expirationContent) then
+            expirationContent = tonumber(expirationContent)
+            if expirationContent > world:getTime("unix") then
+                messageExists = true
+            end
+        end
+    end
+
     local lastSeen = user:getQuestProgress(255)
 
     local foundLatest, latest = ScriptVars:find("latestBulletinMessage")
+
+    if not messageExists and foundLatest then --The message expired before the user got the chance to read it and there are no current messages
+        lastSeen = tonumber(latest)
+        user:setQuestProgress(255, lastSeen)
+    end
 
     if foundLatest and lastSeen ~= tonumber(latest) then
         return true
@@ -677,7 +697,7 @@ local function checkRealmBulletin(user)
     local town = factions.getMembershipByName(user)
 
     if town == "None" then
-        return
+        return false
     end
 
     local townBoardQuestIds = {Runewick = 256, Cadomyr = 257, Galmair = 258}
