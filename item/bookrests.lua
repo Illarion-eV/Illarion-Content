@@ -34,6 +34,7 @@ local messenger = require("content.messenger")
 local M = {}
 
 local BULLETIN_MAX_SLOTS = 10
+M.BULLETIN_MAX_SLOTS = BULLETIN_MAX_SLOTS
 local BULLETIN_EXPRIATION_TIME = 604800 -- seven RL days
 --local BULLETIN_EXPRIATION_TIME = 5*60 --
 local BULLETIN_COST = 2000
