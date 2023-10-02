@@ -248,7 +248,7 @@ function townProperties(user, toolTown, SourceItem)
     user:requestSelectionDialog(dialog)
 end
 
-function TownAnnouncement(user, toolTown)
+local function messageSeen(user, toolTown)
 
     local townNames = {"Cadomyr", "Runewick", "Galmair"}
     local townBoardQuestIds = {Runewick = 256, Cadomyr = 257, Galmair = 258}
@@ -261,6 +261,11 @@ function TownAnnouncement(user, toolTown)
     if foundLatest and tonumber(latest) ~= lastSeen then
         user:setQuestProgress(townQuestId, tonumber(latest))
     end
+end
+
+function TownAnnouncement(user, toolTown)
+
+    messageSeen(user, toolTown)
 
     -- selection dialog
     local callback = function(dialog)
@@ -291,6 +296,8 @@ function TownAnnouncement(user, toolTown)
 end
 
 function TownAnnouncementShow(User,toolTown)
+
+    messageSeen(User, toolTown)
 
     -- message dialog
     local callback = function() end --empty callback
