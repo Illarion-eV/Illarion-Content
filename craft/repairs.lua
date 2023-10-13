@@ -143,6 +143,8 @@ local smithedTools = {Item.scissors, Item.saw, Item.hammer, Item.shovel, Item.ne
 
 local woodenTools = {Item.fishingRod, Item.rollingPin, Item.peel, Item.cookingSpoon, Item.flail, Item.candleMould, Item.brickMould, Item.collectionPan, Item.dyeingRod, Item.woodenShovel}
 
+local woodenWeapons = {Item.woodenSword, Item.woodenDagger}
+
 local function itemIsSameCategoryAsRepairKit(currentItem, skillName)
 
     local armourFound, armour = world:getArmorStruct(currentItem.id)
@@ -153,6 +155,14 @@ local function itemIsSameCategoryAsRepairKit(currentItem, skillName)
             return true
         else
             return false
+        end
+    end
+
+    for index , woodenWeapon in ipairs(woodenWeapons) do
+        if woodenWeapon == currentItem.id and skillName == "carpentry" then
+            return true
+        elseif woodenWeapon == currentItem.id then
+            return false --If it isn't carpentry but is the wooden weapon, we return false here so that it doesn't get repaired by blacksmithing tools also as a weapon below
         end
     end
 
