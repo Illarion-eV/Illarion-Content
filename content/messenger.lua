@@ -110,11 +110,18 @@ local contents = {}
             local texts = {text1, text2, text3, text4}
             table.insert(contents, {text = text1, sender = signature})
             spawnParchment(recipient, texts, signature, descriptionEn, descriptionDe)
+        else
+            log("Message "..i.." out of "..numberOfMessages.." to be received by "..recipient.name.."("..recipient.id..") failed to be sent. Texts found: "..tostring(foundText1).." "..tostring(foundText2).." "..tostring(foundText3).." "..tostring(foundText4).." ".." Signature found: "..tostring(foundSignature).." Descriptions found: "..tostring(foundDescriptionEn).." "..tostring(foundDescriptionDe))
         end
     end
 
-    if tonumber(numberOfMessages) > 0 then
+    if tonumber(#contents) > 0 then
         logThatMessagesWereReceived(recipient, contents)
+    end
+
+    if tonumber(#contents) ~= tonumber(numberOfMessages) then
+        local failed = tonumber(numberOfMessages) - tonumber(#contents)
+        log(failed.." messages meant for "..recipient.name.."("..recipient.id..")".."failed to send!")
     end
 
     ScriptVars:set(recipient.id.."storedMessages", "0")
