@@ -176,8 +176,8 @@ queststatus(188) = 22, town = Runewick, "Auftrag", "Aufgabe", "quest", "mission"
 -- Quest 4 solved, 20 silver, +5 rankpoints
 -- Quest 5 kill ten rats
 -- Give out quest 5
-queststatus(188) = 23, town = Runewick, english, "quest", "mission" -> inform("[Solved and new quest] Save The Fields V"), queststatus(188) = 24, "What a surprize, the rats must be more intelligent than we thought! We must do something now. I can not think of anything better than to kill another ten rats now.", money + 2000, rankpoints + 5
-queststatus(188) = 23, town = Runewick, "task", "adventure", "poison", "carrot" -> inform("[Solved and new quest] Save The Fields V"), queststatus(188) = 24, "What a surprize, the rats must be more intelligent than we thought! We must do something now. I can not think of anything better than to kill another ten rats now.", money + 2000, rankpoints + 5
+queststatus(188) = 23, town = Runewick, english, "quest", "mission" -> inform("[Solved and new quest] Save The Fields V"), queststatus(188) = 24, "What a surprise, the rats must be more intelligent than we thought! We must do something now. I can not think of anything better than to kill another ten rats now.", money + 2000, rankpoints + 5
+queststatus(188) = 23, town = Runewick, "task", "adventure", "poison", "carrot" -> inform("[Solved and new quest] Save The Fields V"), queststatus(188) = 24, "What a surprise, the rats must be more intelligent than we thought! We must do something now. I can not think of anything better than to kill another ten rats now.", money + 2000, rankpoints + 5
 queststatus(188) = 23, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission", "Gift", "Möhre" -> inform("[Gelöstes und neues Quest] Rette die Äcker V"), queststatus(188) = 24, "Ich bin erstaunt, die Ratten sind scheinbar intelligenter, als wir dachten! Wir müssen etwas tun. Mir fällt jetzt auch nichts Besseres ein, als weitere zehn Ratten zu töten.", money + 2000, rankpoints + 5
 
 -- Quest 5 solved, 20 silver, +5 rankpoints
