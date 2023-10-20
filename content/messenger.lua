@@ -124,6 +124,8 @@ function M.sendStoredMessages(recipient)
                 local texts = {text1, text2, text3, text4}
                 table.insert(contents, {text = text1, sender = signature})
                 spawnParchment(recipient, texts, signature, descriptionEn, descriptionDe)
+            else
+                log("Message "..i.." out of "..numberOfMessages.." player sent messages to be received by "..recipient.name.."("..recipient.id..") failed to be sent. Texts found: "..tostring(foundText1).." "..tostring(foundText2).." "..tostring(foundText3).." "..tostring(foundText4).." ".." Signature found: "..tostring(foundSignature).." Descriptions found: "..tostring(foundDescriptionEn).." "..tostring(foundDescriptionDe))
             end
         end
     end
@@ -144,12 +146,19 @@ function M.sendStoredMessages(recipient)
             if foundGermanText1 and foundGermanText2 and foundGermanText3 and foundGermanText4 and foundEnglishText1 and foundEnglishText2 and foundEnglishText3 and foundEnglishText4 then
                 local texts = common.GetNLS(recipient, {germanText1, germanText2, germanText3, germanText4}, {englishText1, englishText2, englishText3, englishText4})
                 spawnParchment(recipient, texts, "", descriptionEnglish, descriptionGerman)
+            else
+                log("Message "..i.." out of "..numberOfScriptMessages.." script sent messages to be received by "..recipient.name.."("..recipient.id..") failed to be sent. Texts found: "..tostring(foundGermanText1).." "..tostring(foundGermanText2).." "..tostring(foundGermanText3).." "..tostring(foundGermanText4)..tostring(foundEnglishText1).." "..tostring(foundEnglishText2).." "..tostring(foundEnglishText3)..tostring(foundEnglishText4))
             end
         end
     end
 
     if tonumber(#contents) > 0 then
         logThatMessagesWereReceived(recipient, contents)
+    end
+
+    if tonumber(#contents) ~= tonumber(totalMessages) then
+        local failed = tonumber(totalMessages) - tonumber(#contents)
+        log(failed.." messages meant for "..recipient.name.."("..recipient.id..")".."failed to send!")
     end
 
     ScriptVars:set(recipient.id.."storedMessages", "0")
