@@ -40,7 +40,7 @@ function M.UseItem(user, sourceItem, actionstate)
     if not isWater then -- fishing only possible on water tiles
         common.HighInformNLS(user,
         "Die Chance im Wasser einen Fisch zu fangen ist bedeutend höher als auf dem Land.",
-        "The chance to catch a fish is much higher in the water than on the land.")
+        "The chance to catch a fish is much higher in the water than on land.")
         return
     end
 

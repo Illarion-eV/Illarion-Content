@@ -31,6 +31,11 @@ tailoring:addTool(103) -- tailoring table
 local product
 local catId
 
+catId = tailoring:addCategory("Tools", "Werkzeuge")
+
+product = tailoring:addProduct(catId, Item.fishingNet, 1)
+product:addIngredient(50, 10) -- thread, same recipe as rope which is also a level 5 item
+
 catId = tailoring:addCategory("Boots", "Stiefel")
 
 -- simple leather shoes

@@ -69,6 +69,13 @@ product:addIngredient(73) -- trout
 product = roasting:addProduct(catId, 3916, 1)
 product:addIngredient(355) -- salmon
 
+product = roasting:addProduct(catId, Item.cookedShrimp, 1)
+product:addIngredient(Item.shrimp)
+
+product = roasting:addProduct(catId, Item.grilledFlounder, 1)
+product:addIngredient(Item.flounder)
+
+
 -- Smoked horse mackerel
 product = roasting:addProduct(catId, 3914, 1)
 product:addIngredient(1209) -- horse mackerel
@@ -76,6 +83,15 @@ product:addIngredient(1209) -- horse mackerel
 -- Smoked rose fish
 product = roasting:addProduct(catId, 3915, 1)
 product:addIngredient(1210) -- rose fish
+
+product = roasting:addProduct(catId, Item.cookedCrab, 1)
+product:addIngredient(Item.crab)
+
+product = roasting:addProduct(catId, Item.grilledOctopus, 1)
+product:addIngredient(Item.octopus)
+
+product = roasting:addProduct(catId, Item.cookedLobster, 1)
+product:addIngredient(Item.lobster)
 
 M.roasting = roasting
 return M
