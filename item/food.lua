@@ -44,8 +44,13 @@ M.foodList[Item.grilledSteak] = {crafted = true, rareBuff = {agility = 0}}
 M.foodList[Item.grilledLamb] = {crafted = true, rareBuff = {dexterity = 0}}
 M.foodList[Item.grilledVenison] = {crafted = true, rareBuff = {intelligence = 0}}
 M.foodList[Item.cookies] = {crafted = true, rareBuff = {essence = 0}}
-M.foodList[Item.cheese] = {crafted = true, rareBuff = {perception = 1}}
+M.foodList[Item.cookedShrimp] = {crafted = true, rareBuff = {perception = 0}}
+M.foodList[Item.cookedCrab] = {crafted = true, rareBuff = {willpower = 0}}
+M.foodList[Item.cookedLobster] = {crafted = true, rareBuff = {strength = 0}}
+M.foodList[Item.grilledOctopus] = {crafted = true, rareBuff = {constitution = 0}}
+M.foodList[Item.grilledFlounder] = {crafted = true, rareBuff = {agility = 0}}
 -- Tier 2 Food
+M.foodList[Item.cheese] = {crafted = true, rareBuff = {perception = 1}}
 M.foodList[Item.mushroomSoup] = {crafted = true, leftOver = 2935, buffs = {agility = 1}}
 M.foodList[Item.bakedPotato] = {crafted = true, buffs = {dexterity = 1}}
 M.foodList[Item.veggieHash] = {crafted = true, leftOver = 2952, buffs = {essence = 1}}
@@ -96,6 +101,13 @@ local valueLarge = 3000
 -- FREE FOOD
 M.foodList[Item.apple]   = {foodPoints = valueMedium}
 M.foodList[Item.trout] = {foodPoints = valueMedium}
+M.foodList[Item.swordfish] = {foodPoints = valueMedium}
+M.foodList[Item.crab] = {foodPoints = valueMedium}
+M.foodList[Item.lobster] = {foodPoints = valueMedium}
+M.foodList[Item.shrimp] = {foodPoints = valueMedium}
+M.foodList[Item.octopus] = {foodPoints = valueMedium}
+M.foodList[Item.eel] = {foodPoints = valueMedium}
+M.foodList[Item.flounder] = {foodPoints = valueMedium}
 M.foodList[Item.banana]   = {foodPoints = valueMedium}
 M.foodList[Item.berries]   = {foodPoints = valueMedium}
 M.foodList[Item.sandberry]  = {foodPoints = valueSmall}
