@@ -61,9 +61,9 @@ product:addIngredient(2940) -- raw steak
 
 catId = roasting:addCategory("Fish", "Fisch")
 
--- Smoked rose fish
-product = roasting:addProduct(catId, 3915, 1)
-product:addIngredient(1210) -- rose fish
+-- Smoked trout
+product = roasting:addProduct(catId, 455, 1)
+product:addIngredient(73) -- trout
 
 -- Smoked salmon
 product = roasting:addProduct(catId, 3916, 1)
@@ -73,9 +73,9 @@ product:addIngredient(355) -- salmon
 product = roasting:addProduct(catId, 3914, 1)
 product:addIngredient(1209) -- horse mackerel
 
--- Smoked trout
-product = roasting:addProduct(catId, 455, 1)
-product:addIngredient(73) -- trout
+-- Smoked rose fish
+product = roasting:addProduct(catId, 3915, 1)
+product:addIngredient(1210) -- rose fish
 
 M.roasting = roasting
 return M
