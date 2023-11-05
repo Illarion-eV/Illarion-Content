@@ -585,14 +585,14 @@ function Craft:locationFine(user)
             local germanTool = world:getItemName(self.defaultTool, Player.german)
             local englishTool = world:getItemName(self.defaultTool, Player.english)
             common.HighInformNLS(user,
-            "Du stehst nicht neben dem ben?tigten Werkzeug: " .. germanTool,
+            "Du stehst nicht neben dem benötigten Werkzeug: " .. germanTool,
             "There is no " .. englishTool .. " close by to work with.")
         end
         return false
     elseif common.GetFrontItem(user).id == 359 and common.GetFrontItem(user).quality == 100 then
         if not self.fallbackCraft then
             common.HighInformNLS(user,
-            "Aus irgendeinem Grund liefert die Flamme nicht die ben?tigte Hitze.",
+            "Aus irgendeinem Grund liefert die Flamme nicht die benötigte Hitze.",
             "For some reason the flame does not provide the required heat.")
         end
         return false
