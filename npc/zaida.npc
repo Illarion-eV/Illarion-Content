@@ -160,7 +160,7 @@ english, "Gobaith", "Gobiath" -> "I read about Gobaith in the library. A terribl
 "mein Name" -> "Oh, hallo. Setzt euch doch."
 
 -- Faction stuff
-queststatus(76) = 2, "Archmage" -> "Elvaine Morgan, the Archmage of Runewick is our wise and glorious leaders. He is of both high birth and intellect, which is hardly what can be said of the so called 'leaders' of the other towns!"
+queststatus(76) = 2, "Archmage" -> "Elvaine Morgan, the Archmage of Runewick is our wise and glorious leader. He is of both high birth and intellect, which is hardly what can be said of the so-called 'leaders' of the other towns!"
 queststatus(76) = 2, english, "Elvaine", "Morgan" -> "#me casts a light smile at you. 'I see that you have been keeping your ears open, very good. He is indeed the guiding hand and protecting lion of our orderly community.'"
 queststatus(76) = 2, "Erzmagier" -> "Elvaine Morgan, Erzmagier von Runewick, ist unser weiser und glorreicher Anführer. Hochgeboren und mit Weisheit ausgestatten, dies kann man kaum von den anderen so genannten 'Anführern' der anderen Städte behaupten."
 queststatus(76) = 2, "Elvaine", "Morgan" -> "#me wirft dir ein Lächeln zu: 'Ich sehe, ihr habt eure Ohren offen gehalten, sehr gut. Er ist wirklich die führende Hand und der schützende Löwe unserer wohlgeordneten Gemeinschaft.'"
@@ -188,7 +188,7 @@ english, "salkama" -> "Do not laugh - I will make it to Salkamar one day. And fr
 "salkama" -> "Lacht nicht, ich werde es nach Salkamar schaffen. Und von dort nach Lor Angur und von dort..."
 
 -- Gods - use the triggers of the god the NPC worships or fights
-queststatus(76) = 2, "god" -> "We are faithful servants of the gods here in Runewick. Of course, we avoid the foolish fanaticsm of Cadomyr. We should be free to pursuit knowledge, not stagnation."
+queststatus(76) = 2, "god" -> "We are faithful servants of the gods here in Runewick. Of course, we avoid the foolish fanaticism of Cadomyr. We should be free to pursuit knowledge, not stagnation."
 queststatus(76) = 2, "gott", "götter" -> "Wir sind fromme Diener der Götter hier in Runewick. Selbstredend vermeiden wir den blinden Fanatismus derer aus Cadomyr. Wir sollten alle frei sein, der Weisheit nachzutrachten, nicht aber in Stagnation verfallen."
 queststatus(76) = 2, english, "Elara" -> "Some say Elara is Eldan's daughter. They mean it metaphorically, of course."
 queststatus(76) = 2, "Elara" -> "Manche sagen, Elara sei Eldans Tochter. Aber das meinen sie metaphorisch, nicht wörtlich."
