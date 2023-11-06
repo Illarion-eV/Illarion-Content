@@ -139,10 +139,10 @@ function M.StartGathering(user, sourceItem, actionstate)
     fishing:AddRandomPureElement(user,gathering.prob_element*gatheringBonus); -- Any pure element
 
     local treasureMapText = {
-        german = "Statt eines Fisches hast du eine Karte am Haken hängen.",
+        german = "Statt eines Fisches hast du eine Karte am Haken hängen. Gedankt sei Nargùn!",
         english = "Nargùn's favour has finally found you for there is a treasure map on your hook instead of a fish!"}
     local monsterText = {
-        german = "Ein heftiger Ruck reißt dir fast die Angel aus der Hand. Noch während du dich wunderst teilt sich das Wasser vor dir und eine glitschige Wasserleiche steigt aus den Wellen empor.",
+        german = "Ein heftiger Ruck reißt dir fast die Angel aus der Hand. Noch während du dich wunderst, teilt sich das Wasser vor dir und eine glitschige Wasserleiche steigt aus den Wellen empor.",
         english = "A heavy force pulls on your fishing line momentarily before it releases. Then without warning the water before you erupts as a putrified mummy vaults toward you."}
     local bucketText = {
         german = "Ein Eimer verfängt sich in deiner Angelschnur. Den hat hier wohl jemand verloren.",
@@ -155,13 +155,13 @@ function M.StartGathering(user, sourceItem, actionstate)
         english = "As you angle back and forth for fish you feel a snag. Instead of a fish, however, a pair of old perforated boots tied together hangs from your hook!"}
 
     if toolID == Item.fishingNet then --Alternate texts for fishing nets
-        treasureMapText.german = "GERMAN TRANSLATION"
+        treasureMapText.german = "Statt eines Fisches hast du eine Karte im Netz. Gedankt sei Nargùn!"
         treasureMapText.english = "Nargùn's favour has finally found you for there is a treasure map in your net instead of a fish!"
-        monsterText.german = "GERMAN TRANSLATION"
+        monsterText.german = "Ein heftiger Ruck reißt dir fast das Netz aus der Hand. Noch während du dich wunderst, teilt sich das Wasser vor dir und eine glitschige Wasserleiche steigt aus den Wellen empor."
         monsterText.english = "A heavy force pulls on your fishing net momentarily before it releases. Then without warning the water before you erupts as a putrified mummy vaults toward you."
-        bucketText.german = "GERMAN TRANSLATION"
+        bucketText.german = "Ein Eimer verfängt sich in deinem Netz. Den hat hier wohl jemand verloren."
         bucketText.english = "As you brung your net back in you feel a heavy resistance. With sufficient use of force you are able to pull a bucket ashore."
-        bootsText.german = "GERMAN TRANSLATION"
+        bootsText.german = "Ein paar alter, durchlöcherter Lederstiefel hat sich in deinem Netz verfangen."
         bootsText.english = "As you move your net back and forth in the water, you feel a tug. Instead of a fish, however, a pair of old perforated boots tied together is stuck in your net!"
     end
 
