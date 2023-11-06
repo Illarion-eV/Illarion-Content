@@ -37,8 +37,8 @@ Description[GERMAN][1] = "Besorge zehn Forellen und bringe sie Alwin Sommerkorn.
 Description[ENGLISH][1] = "Obtain ten trout and take them back to Alwin Sommerkorn. To fish, place yourself next to a shoal and use a fishing rod."
 Description[GERMAN][2] = "Geh zu Alwin Sommerkorn, der sich im Eibenthal aufhält. Er hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][2] = "Go back to Alwin Sommerkorn in Yewdale, he will certainly have another task for you."
-Description[GERMAN][3] = "Besorge zehn Lachse und fünf Stachelmakrelen und bringe sie Alwin Sommerkorn. Stelle dich ans Wasser an einem Fischschwarm und benutze die Angel um Fische zu fangen."
-Description[ENGLISH][3] = "Obtain ten salmon and five horse mackerels and take them back to Alwin Sommerkorn. To fish, place yourself next to a shoal and use a fishing rod."
+Description[GERMAN][3] = "Besorge zehn Lachse und bringe sie Alwin Sommerkorn. GERMAN TRANSLATION Stelle dich ans Wasser an einem Fischschwarm und benutze die Angel um Fische zu fangen."
+Description[ENGLISH][3] = "Obtain ten salmon and take them back to Alwin Sommerkorn. He told you about an island full of salmon that is past the forest just south of Runewick's fields. To fish, place yourself next to a shoal and use a fishing rod."
 Description[GERMAN][4] = "Geh zu Alwin Sommerkorn, der sich im Eibenthal aufhält. Er hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][4] = "Go back to Alwin Sommerkorn in Yewdale, he will certainly have another task for you."
 Description[GERMAN][5] = "Besorge fünf geräucherte Lachse und bringe sie Alwin Sommerkorn. Stelle dich vor eine Räucherhütte und benutze diese."
@@ -51,19 +51,19 @@ Description[GERMAN][8] = "Du hast alle Aufgaben von Alwin Sommerkorn erfüllt. "
 Description[ENGLISH][8] = "You have fulfilled all the tasks for Alwin Sommerkorn."
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-local Start = {759, 819, 0}
+local Start = {824, 840, 0}
 
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {position(759, 819, 0), position(761, 821, 0)} -- Angelplatz
-QuestTarget[2] = {position(759, 819, 0)}
-QuestTarget[3] = {position(759, 819, 0), position(761, 821, 0)} -- Angelplatz
-QuestTarget[4] = {position(759, 819, 0)}
-QuestTarget[5] = {position(759, 819, 0), position(963, 841, 0)} -- smoke oven
-QuestTarget[6] = {position(759, 819, 0)}
-QuestTarget[7] = {position(759, 819, 0), position(952, 835, 0), position(948, 816, 0)} -- Händler, Spinnrad
-QuestTarget[8] = {position(759, 819, 0)}
+QuestTarget[1] = {position(821, 842, 0), position(824, 840, 0)} -- Trout shoal, Alwin
+QuestTarget[2] = {position(824, 840, 0)} -- Return to Alwin
+QuestTarget[3] = {position(901, 932, 0), position(824, 840, 0)} -- Salmon shoal, Alwin
+QuestTarget[4] = {position(824, 840, 0)} -- Return to Alwin
+QuestTarget[5] = {position(963, 841, 0), position(824, 840, 0)} -- smoke oven, Alwin
+QuestTarget[6] = {position(824, 840, 0)} -- Return to Alwin
+QuestTarget[7] = {position(952, 835, 0), position(948, 816, 0), position(824, 840, 0)} -- Tailoring merchant, spinning wheel, Alwin
+QuestTarget[8] = {position(824, 840, 0)} -- Return to Alwin
 
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 8
