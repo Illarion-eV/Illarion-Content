@@ -1,0 +1,37 @@
+Sandboxing/Housing Documentation
+
+How to add new properties to the housing system:
+
+New properties need to be added to two tables, namely the "M.properties" and "M.propertyTable" tables in propertyList.lua
+
+When entering the coordinates in M.properties, you enter the corner-spots of the property to form a square area. If the property is not square, you simply put in the same estate name multiple times to add multiple squares to form the shape you want. An example where this might be useful could be instances such as one of the estates being next to a bent river, where you do not want the player to be able to terraform the river.
+
+For ground level properties, the lower z level is 0 while the upper z level is 2 to form a ground level, upper level and roof level. The basement is put in separately with z level -21 dedicated to housing. It is important for it to be -21, as that's the layer stairs are created on if you build stairs to go down below ground level.
+
+Any other information on what to input in the two tables should be obvious by looking at the script comments or table key names.
+
+Once a property has been added and the scripts have been reloaded on live, a GM will have to use the GM tool to apply persistence to the new property so changes to it survive crashes and server restarts. This is done via the new function added to the bottom of the id_382_ceilingtrowel tool called "Apply Persistence For Properties".
+
+A property deed (3772 or 3773) also has to be added to the location specified in the notice.lua script table. The outlaw base has a dummy one in the GM castle, due to how outlaws aren't governed by a realm but a lot of information is stored in the property deeds.
+
+How to add new items to the housing system:
+
+To add an item to the housing system, you must add it to the itemList.items table. The keynames in the table speak for themselves in what needs to be put in. One that only some of the items has though is "criteria" which ranges between "key" for items like doors that keys can be made for and "soil" or "sand" for plants that require specific soil underneath them.
+
+If the item is a stair, it must additionally be added to the itemList.Stairs table, where the direction the stair leads to and the upstairs/downstairs graphic is listed.
+
+Doors must have their non-built version (you build the closed version, the open door version can not be built) added to the itemList.alternateDoors table so the script knows how to handle them for deletion and key/lock rights.
+
+If an item is added to the game that is static but is not buildable by the housing system, such as permanent lights, they need to be added to the itemList.excludedFromStatic table. This is because the housing system allows you to make movable items static, something it does by checking if an item can be built by the housing system or is in the excluded list. So this prevents players from making items they should not be able to un-static.
+
+If a category does not already exist that is suitable for the added item, one must be added to the itemList.categories table. The same goes in regards to the skill used and the itemList.skills table.
+
+
+
+How to add new tiles to the housing system.
+
+Tiles are added to the itemList.tiles table. The key names should speak for themselves as to what needs to be added.
+
+If the tile is a type of soil or terrain that plants can grow on, it must be added to the itemList.gardening table.
+
+Just like for items above, if a category or skill suitable for the new tile does not exist, it must be added to the category and skill tables.
