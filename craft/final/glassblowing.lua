@@ -46,7 +46,7 @@ product:addIngredient(41, 1) -- glass ingot
 product = glassblowing:addProduct(catId, 518, 1)
 product:addIngredient(41, 1) -- glass ingot
 
--- oil bottle
+-- empty oil bottle
 product = glassblowing:addProduct(catId, 390, 1)
 product:addIngredient(41, 2) -- glass ingot
 
