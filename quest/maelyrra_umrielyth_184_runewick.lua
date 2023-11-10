@@ -433,10 +433,17 @@ local FINAL_QUEST_STATUS = 0
 
 local HUNTING_POS = position(811, 735, 0)
 
+local runewick_crypt_pos = position(863, 788, -3)
+
+local runewick_crypt_range = 100
+
 -- Register the monster kill parts of the quest.
 monsterQuests.addQuest{
     questId = 184,
-    location = {position = HUNTING_POS, radius = 300},
+    locations = {
+        {position = HUNTING_POS, radius = 300},
+        {position = runewick_crypt_pos, radius = runewick_crypt_range}
+    },
     queststatus = {from = 1, to = 5},
     questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Schleime", english = "slimes"},
@@ -445,7 +452,10 @@ monsterQuests.addQuest{
 }
 monsterQuests.addQuest{
     questId = 184,
-    location = {position = HUNTING_POS, radius = 300},
+    locations = {
+        {position = HUNTING_POS, radius = 300},
+        {position = runewick_crypt_pos, radius = runewick_crypt_range}
+    },
     queststatus = {from = 6, to = 14},
     questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Schleime", english = "slimes"},
@@ -454,7 +464,10 @@ monsterQuests.addQuest{
 }
 monsterQuests.addQuest{
     questId = 184,
-    location = {position = HUNTING_POS, radius = 300},
+    locations = {
+        {position = HUNTING_POS, radius = 300},
+        {position = runewick_crypt_pos, radius = runewick_crypt_range}
+    },
     queststatus = {from = 15, to = 27},
     questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Schleime", english = "slimes"},
