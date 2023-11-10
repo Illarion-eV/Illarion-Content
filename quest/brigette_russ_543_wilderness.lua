@@ -80,7 +80,7 @@ Description[GERMAN][21] = "Geh zu Brigette. Sie hat bestimmt noch eine Aufgabe f
 Description[ENGLISH][21] = "Go back to Brigette, she certainly has another task for you."
 
 Description[GERMAN][22] = "Töte den Anführer der Diebe, den Elfenkrieger, um ihrem schurkischen Lebenswandel ein Ende zu machen."
-Description[ENGLISH][22] = "Kill the leader of the thieves, the elven warrior to end their turncoat ways."
+Description[ENGLISH][22] = "Kill the leader of the thieves, the elven warrior, to end their turncoat ways."
 Description[GERMAN][23] = "Gehe zu Brigette zurück und teile ihr mit, dass du den Anführer getötet hast."
 Description[ENGLISH][23] = "Report back to Brigette that you have killed the leader."
 
@@ -131,7 +131,7 @@ monsterQuests.addQuest{
     },
     queststatus = {from = 10, to = 20},
     questTitle = {german = "Der Pfad des Fuchses IV", english = "The Path of the Fox IV"},
-    monsterName = {german = "Diebe, Priester, und Krieger", english = "Thieves, Priest, and Warrior"},
+    monsterName = {german = "Diebe, Priester, und Krieger", english = "thieves, priests, and warriors"},
     npcName = "Brigette Russ",
     monsterIds = {1, 5, 22, 23, 32, 33, 43} -- different thieves, priests, and warriors
 }
@@ -141,7 +141,7 @@ monsterQuests.addQuest{
     location = {position = position(896, 588, -9), radius = 40},
     queststatus = {from = 22, to = 23},
     questTitle = {german = "Der Pfad des Fuchses V", english = "The Path of the Fox V"},
-    monsterName = {german = "Elfenkrieger", english = "Elven Warrior"},
+    monsterName = {german = "Elfenkrieger", english = "elven warrior"},
     npcName = "Brigette Russ",
     monsterIds = {32} -- Elven warrior
 }
