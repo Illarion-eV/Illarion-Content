@@ -448,7 +448,7 @@ monsterQuests.addQuest{
     questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Schleime", english = "slimes"},
     npcName = "Maelyrra Umrielyth",
-    raceIds = {61} -- all slimes
+    raceIds = {61, 103, 104, 105} -- all slimes
 }
 monsterQuests.addQuest{
     questId = 184,
@@ -460,7 +460,7 @@ monsterQuests.addQuest{
     questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Schleime", english = "slimes"},
     npcName = "Maelyrra Umrielyth",
-    raceIds = {61} -- all slimes
+    raceIds = {61, 103, 104, 105} -- all slimes
 }
 monsterQuests.addQuest{
     questId = 184,
@@ -472,7 +472,7 @@ monsterQuests.addQuest{
     questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Schleime", english = "slimes"},
     npcName = "Maelyrra Umrielyth",
-    raceIds = {61} -- all slimes
+    raceIds = {61, 103, 104, 105} -- all slimes
 }
 monsterQuests.addQuest{
     questId = 184,
