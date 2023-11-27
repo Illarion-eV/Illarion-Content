@@ -531,13 +531,13 @@ monsterQuests.addQuest{
 }
 monsterQuests.addQuest{
     questId = 184,
-    location = {position = HUNTING_POS, radius = 300},
-    queststatus = {from = 69, to = 81},
-    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     locations = {
         {position = HUNTING_POS, radius = 300},
         {position = wolf_mountain_pos, radius = wolf_mountain_range}
     },
+    queststatus = {from = 69, to = 81},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
+    monsterName = {german = "Wölfe", english = "wolves"},
     npcName = "Maelyrra Umrielyth",
     raceIds = {39} -- all wolves
 }
