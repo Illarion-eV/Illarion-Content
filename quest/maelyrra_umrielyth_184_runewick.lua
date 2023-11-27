@@ -437,6 +437,10 @@ local runewick_crypt_pos = position(863, 788, -3)
 
 local runewick_crypt_range = 100
 
+local wolf_mountain_pos = position(763, 710, 1)
+
+local wolf_mountain_range = 100
+
 -- Register the monster kill parts of the quest.
 monsterQuests.addQuest{
     questId = 184,
@@ -503,7 +507,10 @@ monsterQuests.addQuest{
 }
 monsterQuests.addQuest{
     questId = 184,
-    location = {position = HUNTING_POS, radius = 300},
+    locations = {
+        {position = HUNTING_POS, radius = 300},
+        {position = wolf_mountain_pos, radius = wolf_mountain_range}
+    },
     queststatus = {from = 55, to = 59},
     questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Wölfe", english = "wolves"},
@@ -512,7 +519,10 @@ monsterQuests.addQuest{
 }
 monsterQuests.addQuest{
     questId = 184,
-    location = {position = HUNTING_POS, radius = 300},
+    locations = {
+        {position = HUNTING_POS, radius = 300},
+        {position = wolf_mountain_pos, radius = wolf_mountain_range}
+    },
     queststatus = {from = 60, to = 68},
     questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Wölfe", english = "wolves"},
@@ -524,7 +534,10 @@ monsterQuests.addQuest{
     location = {position = HUNTING_POS, radius = 300},
     queststatus = {from = 69, to = 81},
     questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
-    monsterName = {german = "Wölfe", english = "wolves"},
+    locations = {
+        {position = HUNTING_POS, radius = 300},
+        {position = wolf_mountain_pos, radius = wolf_mountain_range}
+    },
     npcName = "Maelyrra Umrielyth",
     raceIds = {39} -- all wolves
 }
