@@ -531,7 +531,7 @@ function M.makeCharMemberOfTown(originator,thisNPC,fv,theRank,theTown)
             return;
         end
 
-        local amountToPay = 1000*(2^fv.towncnt) -- amount in coppercoins
+        local amountToPay = 1000*(2^fv.towncnt) -- amount in copper coins
         local germanMoney, englishMoney = money.MoneyToString(amountToPay);
 
         if not money.CharHasMoney(originator,amountToPay) then --not enough money!
