@@ -64,7 +64,7 @@ M.propertyTable = {
     {"Flat Obsidian","Wohnung Obsidian",position(428,216,1),60000,2558,133, "Galmair","6",factions.GalmairRankListMale[6]["eRank"],factions.GalmairRankListMale[6]["gRank"]},
     --Estates, Galmair
     {"Syrita Estate","Grundstück Syrita",position(447,124,0),200000, 2558, 134, "Galmair", "7", factions.GalmairRankListMale[7]["eRank"],factions.GalmairRankListMale[7]["gRank"], true},
-    {"Galmair Roadside Estate","Grundstück Am Wegesrand in Galmair",position(462,175,0),200000, 2558, 135, "Galmair", "7", factions.GalmairRankListMale[7]["eRank"],factions.GalmairRankListMale[7]["gRank"], true},
+    {"Nargun Estate","Grundstück Nargun",position(527,263,0),200000, 2558, 135, "Galmair", "7", factions.GalmairRankListMale[7]["eRank"],factions.GalmairRankListMale[7]["gRank"], true},
     {"Rumil Estate","Grundstück Rumil",position(381,354,0),200000, 2558, 136, "Galmair", "7", factions.GalmairRankListMale[7]["eRank"],factions.GalmairRankListMale[7]["gRank"], true},
     --Cadomyr
     {"Cadomyr Harbour Estate", "Hafengrundstück in Cadomyr",position(77,786,0),200000, 2558,368, "Cadomyr","7",factions.CadomyrRankListMale[7]["eRank"],factions.CadomyrRankListMale[7]["gRank"], true},
@@ -75,7 +75,7 @@ M.propertyTable = {
     {"Oldra Estate", "Grundstück Oldra",position(841,884,0),200000, 2558,253, "Runewick","7",factions.RunewickRankListMale[7]["eRank"],factions.RunewickRankListMale[7]["gRank"], true},
     {"Merryglade Estate", "Grundstück Merryglade",position(834,728,0),200000, 2558,254, "Runewick","7",factions.RunewickRankListMale[7]["eRank"],factions.RunewickRankListMale[7]["gRank"], true},
     --Outlaw
-    {"Outlaw Base One", "Erstes Lager der Vogelfreien",position(213,97,0),200000,2558,504,"Outlaw","0","None","None", true}
+    {"Pauldron Estate", "GERMAN TRANSLATION",position(213,97,0),200000,2558,504,"Outlaw","0","None","None", true}
     }
 
 M.properties = {}
@@ -133,8 +133,8 @@ table.insert(M.properties, {name = "Flat Obsidian", lower = position(420,206,1),
 --Estates, Galmair
 table.insert(M.properties, {name = "Syrita Estate", lower = position(448,124,0), upper = position(458,139,2), estate = true})
 table.insert(M.properties, {name = "Syrita Estate", lower = position(448,124,-21), upper = position(458,139,-21), estate = true})
-table.insert(M.properties, {name = "Galmair Roadside Estate", lower = position(464,168,0), upper = position(474,183,2), estate = true})
-table.insert(M.properties, {name = "Galmair Roadside Estate", lower = position(464,168,-21), upper = position(474,183,-21), estate = true})
+table.insert(M.properties, {name = "Nargun Estate", lower = position(529,256,0), upper = position(543,265,2), estate = true})
+table.insert(M.properties, {name = "Nargun Estate", lower = position(529,256,-21), upper = position(543,265,-21), estate = true})
 table.insert(M.properties, {name = "Rumil Estate", lower = position(384,351,0), upper = position(391,364,2), estate = true})
 table.insert(M.properties, {name = "Rumil Estate", lower = position(384,351,-21), upper = position(391,364,-21), estate = true})
 table.insert(M.properties, {name = "Rumil Estate", lower = position(378,359,0), upper = position(384,364,2), estate = true})
@@ -155,7 +155,7 @@ table.insert(M.properties, {name = "Oldra Estate", lower = position(844,871,-21)
 table.insert(M.properties, {name = "Merryglade Estate", lower = position(828,716,0), upper = position(834,726,2), estate = true})
 table.insert(M.properties, {name = "Merryglade Estate", lower = position(821,716,-21), upper = position(836,726,-21), estate = true})
 --Outlaw
-table.insert(M.properties, {name = "Outlaw Base One", lower = position(967,343,0), upper = position(983,362,2), estate = true, outlaw = true})
-table.insert(M.properties, {name = "Outlaw Base One", lower = position(967,343,-21), upper = position(983,362,-21), estate = true, outlaw = true})
+table.insert(M.properties, {name = "Pauldron Estate", lower = position(967,343,0), upper = position(983,362,2), estate = true, outlaw = true})
+table.insert(M.properties, {name = "Pauldron Estate", lower = position(967,343,-21), upper = position(983,362,-21), estate = true, outlaw = true})
 
 return M
