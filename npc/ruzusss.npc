@@ -78,7 +78,7 @@ queststatus(644) = 1, ".*" -> inform("[Quest Ende 'Find Ruzusss 2'] Du hast 10 S
 
 queststatus(640) = 1, english, town = Cadomyr, ".*" -> inform("[Quest End 'Find Ruzusss'] You receive 10 silver coins."), money + 1000, queststatus(640) = 2, "Greetingsss. You finally found me! Frizza hasss already informed me about your visit. Here, have sssome well-earned coins."
 queststatus(640) = 1, town = Cadomyr, ".*" -> inform("[Quest Ende 'Finde Ruzusss'] Du hast 10 Silberstücke erhalten."), money + 1000, queststatus(640) = 2, "Grüsssse. Endlich habssst du mich gefunden. Frizza hat mich bereitsss informiert über deinen Besssuch. Hier hassst du deine wohlverdienten Münzen."
-queststatus(640) = 1, english, ".*" -> inform("[Quest End 'Find Ruzusss'] You receive 10 silvercoins."), money + 1000, queststatus(640) = 2, "Greetingsss. You finally found me! Frizza hasss already informed me about your visit. Here, have sssome well-earned coins."
+queststatus(640) = 1, english, ".*" -> inform("[Quest End 'Find Ruzusss'] You receive 10 silver coins."), money + 1000, queststatus(640) = 2, "Greetingsss. You finally found me! Frizza hasss already informed me about your visit. Here, have sssome well-earned coins."
 queststatus(640) = 1, ".*" -> inform("[Quest Ende 'Finde Ruzusss'] Du hast 10 Silberstücke erhalten."), money + 1000, queststatus(640) = 2, "Grüsssse. Endlich habssst du mich gefunden. Frizza hat mich bereitsss informiert über deinen Besssuch. Hier hassst du deine wohlverdienten Münzen."
 
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetingsss, can I help you?"
