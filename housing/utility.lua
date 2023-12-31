@@ -1341,9 +1341,9 @@ function M.removeOwner(user, item, property)
         propertyName = property
     end
 
-    local propertyNameDE = M.getPropertyNameDE(item)
-
     local propertyDeed = M.getPropertyDeed(propertyName)
+
+    local propertyNameDE = M.getPropertyNameDE(propertyDeed)
 
     local tenantID = propertyDeed:getData("tenantID")
     local tenantExists = false
