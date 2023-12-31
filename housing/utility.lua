@@ -1972,6 +1972,10 @@ end
 
 local function sendMessageToInformRemovedBuilderGuest(builderOrGuestID, builderOrGuest, propertyName, propertyNameDe)
 
+    if M.isOutlawProperty(propertyName) then
+        return --Such a message would be unimmersive for outlaw estates
+    end
+
     local english
     local german
 
