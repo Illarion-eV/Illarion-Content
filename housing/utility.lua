@@ -1638,6 +1638,8 @@ function M.getSignature(item, language)
 end
 
 function M.getTownLeaderTitle(town, language)
+
+    --[[ Keeping this bit of code in case we in the future want to return to having unique titles for the town leaders you are told to seek out
     if (town == "Galmair") and (language == "DE") then
         return "Kanzler"
     elseif (town == "Galmair") and (language == "EN") then
@@ -1654,6 +1656,13 @@ function M.getTownLeaderTitle(town, language)
         return "Anführer"
     else
         return "Leader"
+    end
+]]
+
+    if language == "DE" then
+        return "Stadtverwaltung"
+    else
+        return "Town Official"
     end
 end
 
@@ -1688,11 +1697,11 @@ function M.propertyInformation(user, deed)
         "Ihr könnt nun die "..propertyDE..
         " zum Preis von "..rentDE..
         " mieten."..rankText.german.." Solltest du dieses Grundstück mieten wollen, wende dich an den Quartiermeister oder melde \z
-        dich bei einem "..townLeaderTitleDE..
+        dich bei der "..townLeaderTitleDE..
         "~Unterzeichnet, "..signatureDE,
         "It is now possible to rent the "..property..
         " at a price of "..rent..rankText.english..
-        " Should you seek to rent this property, please seek out the quartermaster or one of your "
+        " Should you wish to rent this property, please seek out the Quartermaster or one of your "
         ..townLeaderTitle.."s.\n~Signed, "..signatureEN)
     elseif M.checkOwner(deed) == user.id then -- Shows info specific for when property is owned by user
 
@@ -1702,7 +1711,7 @@ function M.propertyInformation(user, deed)
         local germanDefault = "An den aktuellen Bewohner von "..propertyDE..",\n die derzeitige Miete beträgt "..rentDE..
         "\n Ohne zusätzliche Zahlungen, läuft das aktuelle Mietverhältnis in "..remainingDuration..
         " Monaten aus.\nFür weitere Fragen oder Anmerkungen, wende dich an den Quartiermeister oder melde dich \z
-        bei einem "..townLeaderTitleDE..
+        bei der "..townLeaderTitleDE..
         ".\n~Unterzeichnet, "..signatureDE
         local englishDefault = "To the current inhabitant of "..property..
         ",\nLet it be known that you are expected to pay a rent of "..rent..
@@ -1722,7 +1731,7 @@ function M.propertyInformation(user, deed)
         your "..townLeaderTitle..
         "s.\n~Signed, "..signatureEN
         local germanFreeRent = "An den aktuellen Bewohner von"..propertyDE..",\n ihr wohnt von nun an mietfrei.\nFür weitere Fragen oder Anmerkungen, wende dich an den Quartiermeister oder melde dich \z
-        bei einem "..townLeaderTitleDE..
+        bei der "..townLeaderTitleDE..
         ".\n~Unterzeichnet, "..signatureDE
 
         if not freeRent then
@@ -1738,7 +1747,7 @@ function M.propertyInformation(user, deed)
         retText = M.getText(user,
         "Dieses Grundstück wird aktuell gemietet von "..tenant..
         ". Solltest du irgendwelche Bedenken haben oder ein freies Grundstück mieten wollen, wende dich bitte an \z
-        den Quartiermeister oder melde dich bei einem "..townLeaderTitleDE..
+        den Quartiermeister oder melde dich bei der "..townLeaderTitleDE..
         ".\nUnterzeichnet, "..signatureDE,
         "This property is currently being leased to "..tenant..
         ". Should you have any concerns, or wish to rent a property that is currently available, please \z
