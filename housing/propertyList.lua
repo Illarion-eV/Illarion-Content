@@ -131,8 +131,8 @@ table.insert(M.properties, {name = "Flat Sapphire", lower = position(394,212,1),
 table.insert(M.properties, {name = "Flat Diamond", lower = position(405,206,1), upper = position(415,222,1)})
 table.insert(M.properties, {name = "Flat Obsidian", lower = position(420,206,1), upper = position(432,220,1)})
 --Estates, Galmair
-table.insert(M.properties, {name = "Syrita Estate", lower = position(448,124,0), upper = position(458,139,2), estate = true})
-table.insert(M.properties, {name = "Syrita Estate", lower = position(448,124,-21), upper = position(458,139,-21), estate = true})
+table.insert(M.properties, {name = "Syrita Estate", lower = position(449,124,0), upper = position(459,139,2), estate = true})
+table.insert(M.properties, {name = "Syrita Estate", lower = position(449,124,-21), upper = position(459,139,-21), estate = true})
 table.insert(M.properties, {name = "Nargun Estate", lower = position(529,256,0), upper = position(543,265,2), estate = true})
 table.insert(M.properties, {name = "Nargun Estate", lower = position(529,256,-21), upper = position(543,265,-21), estate = true})
 table.insert(M.properties, {name = "Rumil Estate", lower = position(384,351,0), upper = position(391,364,2), estate = true})

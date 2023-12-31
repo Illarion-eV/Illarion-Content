@@ -1716,7 +1716,7 @@ function M.propertyInformation(user, deed)
         local englishDefault = "To the current inhabitant of "..property..
         ",\nLet it be known that you are expected to pay a rent of "..rent..
         " Without additional payments, your current lease expires in "..remainingDuration..
-        " months.\nFor additional questions or concerns, please seek out the quartermaster or one of \z
+        " months.\nFor additional questions or concerns, please seek out the Quartermaster or one of \z
         your "..townLeaderTitle..
         "s.\n~Signed, "..signatureEN
 
@@ -1727,7 +1727,7 @@ function M.propertyInformation(user, deed)
             freeRent = true
         end
 
-        local englishFreeRent = "To the current inhabitant of "..property..",\n Let it be known that you are currently not expected to pay rent.\nFor additional questions or concerns, please seek out the quartermaster or one of \z
+        local englishFreeRent = "To the current inhabitant of "..property..",\n Let it be known that you are currently not expected to pay rent.\nFor additional questions or concerns, please seek out the Quartermaster or one of \z
         your "..townLeaderTitle..
         "s.\n~Signed, "..signatureEN
         local germanFreeRent = "An den aktuellen Bewohner von"..propertyDE..",\n ihr wohnt von nun an mietfrei.\nFür weitere Fragen oder Anmerkungen, wende dich an den Quartiermeister oder melde dich \z
@@ -1751,7 +1751,7 @@ function M.propertyInformation(user, deed)
         ".\nUnterzeichnet, "..signatureDE,
         "This property is currently being leased to "..tenant..
         ". Should you have any concerns, or wish to rent a property that is currently available, please \z
-        seek out the quartermaster or one of your "..townLeaderTitle..
+        seek out the Quartermaster or one of your "..townLeaderTitle..
         "s.\n~Signed, "..signatureEN)
     end
 
