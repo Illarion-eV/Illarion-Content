@@ -34,6 +34,15 @@ local M = {}
     user:inform("Dieser Namen ist unbekannt. Hast du den Namen vielleicht falsch geschrieben?", "Nobody of that name is recognised here. Did you perhaps misspell the name?")
  end
 
+ function M.isOutlawProperty(propertyName)
+
+    for _, property in pairs(propertyList.properties) do
+        if property.name == propertyName then
+            return property.outlaw
+        end
+    end
+end
+
  function M.checkOwner(item)
 
     local tenant = item:getData("tenantID")
@@ -1514,6 +1523,8 @@ function M.deleteKeys(char, inform)
 
     local listOfPropertyNamesDe = {}
 
+    local outlaw = false
+
     for _, theTown in pairs(towns) do
         for i = 1, #propertyList.propertyTable do --Go through all properties
 
@@ -1574,6 +1585,10 @@ function M.deleteKeys(char, inform)
                         end
                     end
                 end
+
+                if M.isOutlawProperty(propertyName) then
+                    outlaw = true
+                end
             end
         end
     end
@@ -1582,14 +1597,19 @@ function M.deleteKeys(char, inform)
     local listedPropertiesDe = convertTableIntoList(listOfPropertyNamesDe)
 
     if removedKeys and inform then
-        if propertiesRemovedFrom == 1 then
+        if propertiesRemovedFrom == 1 and not outlaw then
             char:inform(
                 "Die Schlüssel von "..listedPropertiesDe.." wurden von den Wachen einkassiert. Du bist dort nicht mehr willkommen.",
                 "No more welcome at property "..listedPropertiesEn..", guards have been instructed to confiscate some keys you are no longer entitled to.")
-        elseif propertiesRemovedFrom >= 1 then
+        elseif propertiesRemovedFrom >= 1 and not outlaw then
             char:inform(
                 "Die Wachen kassieren die Schlüssel für die folgenden Grunstücke ein, da du dort nicht mehr willkommen bist: "..listedPropertiesDe..".",
                 "As you are no longer welcome to the following properties, guards have been instructed to confiscate some keys you are no longer entitled to: "..listedPropertiesEn.."."
+            )
+        elseif propertiesRemovedFrom >= 1 and outlaw then
+            char:inform(
+                "GERMAN TRANSLATION"..listedPropertiesDe..".",
+                "You notice that some of your keys, namely ones belonging to "..listedPropertiesEn.." are gone. Did someone steal them while you slept?"
             )
         end
     end
@@ -1932,6 +1952,10 @@ local function sendMessageToInformNewBuilderGuest(builderOrGuestID, builderOrGue
 
     local english
     local german
+
+    if M.isOutlawProperty(propertyName) then
+        return --Such a message would be unimmersive for outlaw estates
+    end
 
     if builderOrGuest == "builder" then
         english = "Following recommendation by the tenant of "..propertyName..", you are hereby authorised as a builder of the property. So fetch your trusted Construction Trowel and get to work! \n\n ~The Quartermaster"
