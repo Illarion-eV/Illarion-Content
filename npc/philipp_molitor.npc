@@ -903,22 +903,22 @@ queststatus(127) = 46, item(7, all) < 10, town = Cadomyr, "quest", "mission" -> 
 queststatus(127) = 46, item(7, all) < 10, town = Cadomyr, "task", "adventure", "order" -> "Your order is to get ten horned helmets. Please hurry. The caravan cannot wait forever."
 queststatus(127) = 46, item(7, all) < 10, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Euer Auftrag ist es, zehn Hörnerhelme zu besorgen. Beeilt euch bitte, die Karawane kann nicht ewig warten."
 
--- Order 47: Gather ten oil bottles (390) in four hours
--- Order 47 taken, get ten oil bottles, reward: twenty four sp, 1 rankpoints
-queststatus(127) = 0, english, chance(0.67114093959731547), town = Cadomyr, "quest", "mission" -> inform("[New Order] Get ten oil bottles."), "I have the following order for you. The next caravan has a demand for ten oil bottles. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward will be twenty four silver coins.", queststatus(127) = 47, queststatus(128) = 48
-queststatus(127) = 0, german, chance(0.67114093959731547), town = Cadomyr, "quest", "mission" -> inform("[Neuer Auftrag] Beschaffe zehn Ölflaschen."), "Für euch liegt folgender Auftrag vor: Die nächste Karawane benötigt zehn Ölflaschen. Besorgt diese Waren so bald wie möglich. Euer Lohn sollen vierundzwanzig Silberstücke sein. Für die Ehre von Cadomyr!", queststatus(127) = 47, queststatus(128) = 48
-queststatus(127) = 0, chance(0.67114093959731547), town = Cadomyr, "task", "adventure", "order" -> inform("[New Order] Get ten oil bottles."), "I have the following order for you. The next caravan has a demand for ten oil bottles. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward will be twenty four silver coins.", queststatus(127) = 47, queststatus(128) = 48
-queststatus(127) = 0, chance(0.67114093959731547), town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neuer Auftrag] Beschaffe zehn Ölflaschen."), "Für euch liegt folgender Auftrag vor: Die nächste Karawane benötigt zehn Ölflaschen. Besorgt diese Waren so bald wie möglich. Euer Lohn sollen vierundzwanzig Silberstücke sein. Für die Ehre von Cadomyr!", queststatus(127) = 47, queststatus(128) = 48
+-- Order 47: Gather ten empty oil bottles (390) in four hours
+-- Order 47 taken, get ten empty oil bottles, reward: twenty four sp, 1 rankpoints
+queststatus(127) = 0, english, chance(0.67114093959731547), town = Cadomyr, "quest", "mission" -> inform("[New Order] Get ten empty oil bottles."), "I have the following order for you. The next caravan has a demand for ten empty oil bottles. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward will be twenty four silver coins.", queststatus(127) = 47, queststatus(128) = 48
+queststatus(127) = 0, german, chance(0.67114093959731547), town = Cadomyr, "quest", "mission" -> inform("[Neuer Auftrag] Beschaffe zehn leere Ölflaschen."), "Für euch liegt folgender Auftrag vor: Die nächste Karawane benötigt zehn leere Ölflaschen. Besorgt diese Waren so bald wie möglich. Euer Lohn sollen vierundzwanzig Silberstücke sein. Für die Ehre von Cadomyr!", queststatus(127) = 47, queststatus(128) = 48
+queststatus(127) = 0, chance(0.67114093959731547), town = Cadomyr, "task", "adventure", "order" -> inform("[New Order] Get ten empty oil bottles."), "I have the following order for you. The next caravan has a demand for ten empty oil bottles. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward will be twenty four silver coins.", queststatus(127) = 47, queststatus(128) = 48
+queststatus(127) = 0, chance(0.67114093959731547), town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neuer Auftrag] Beschaffe zehn leere Ölflaschen."), "Für euch liegt folgender Auftrag vor: Die nächste Karawane benötigt zehn leere Ölflaschen. Besorgt diese Waren so bald wie möglich. Euer Lohn sollen vierundzwanzig Silberstücke sein. Für die Ehre von Cadomyr!", queststatus(127) = 47, queststatus(128) = 48
 
 -- Order 47 solved, reward: twenty four sp, rankpoints, delay: 4h
 queststatus(127) = 47, item(390, all) >= 10, english, town = Cadomyr, ".*" -> inform("[Order finished] You are awarded twenty four silver coins."), "Just in time. The caravan is about to depart. Here is your reward.", money + 2400, deleteItem(390, 10), queststatus(127) = 0, queststatus(128) = 0, queststatus(129) = 48, rankpoints + 1
 queststatus(127) = 47, item(390, all) >= 10, town = Cadomyr, ".*" -> inform("[Auftrag erledigt] Du erhältst vierundzwanzig Silberstücke."), "Genau zur rechten Zeit. Die Karawane wird bald losziehen. Hier ist eure Belohnung.", money + 2400, deleteItem(390, 10), queststatus(127) = 0, queststatus(128) = 0, queststatus(129) = 48, rankpoints + 1
 
 -- Order 47 taken but not solved, repeat the instructions
-queststatus(127) = 47, item(390, all) < 10, english, town = Cadomyr, "quest", "mission" -> "Your order is to get ten oil bottles. Please hurry. The caravan cannot wait forever."
-queststatus(127) = 47, item(390, all) < 10, town = Cadomyr, "quest", "mission" -> "Euer Auftrag ist es, zehn Ölflaschen zu besorgen. Beeilt euch bitte, die Karawane kann nicht ewig warten."
-queststatus(127) = 47, item(390, all) < 10, town = Cadomyr, "task", "adventure", "order" -> "Your order is to get ten oil bottles. Please hurry. The caravan cannot wait forever."
-queststatus(127) = 47, item(390, all) < 10, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Euer Auftrag ist es, zehn Ölflaschen zu besorgen. Beeilt euch bitte, die Karawane kann nicht ewig warten."
+queststatus(127) = 47, item(390, all) < 10, english, town = Cadomyr, "quest", "mission" -> "Your order is to get ten empty oil bottles. Please hurry. The caravan cannot wait forever."
+queststatus(127) = 47, item(390, all) < 10, town = Cadomyr, "quest", "mission" -> "Euer Auftrag ist es, zehn leere Ölflaschen zu besorgen. Beeilt euch bitte, die Karawane kann nicht ewig warten."
+queststatus(127) = 47, item(390, all) < 10, town = Cadomyr, "task", "adventure", "order" -> "Your order is to get ten empty oil bottles. Please hurry. The caravan cannot wait forever."
+queststatus(127) = 47, item(390, all) < 10, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Euer Auftrag ist es, zehn leere Ölflaschen zu besorgen. Beeilt euch bitte, die Karawane kann nicht ewig warten."
 
 -- Order 48: Gather ten green hats with feather (831) in four hours
 -- Order 48 taken, get ten green hats with feather, reward: twenty four sp, 1 rankpoints

@@ -20,11 +20,19 @@ local common = require("base.common")
 local gems = require("base.gems")
 local money = require("base.money")
 local glyphs = require("base.glyphs")
-local repairs = require("craft.repairs")
 local mining = require("craft.gathering.mining")
 local silkcutting = require("craft.gathering.silkcutting")
+local fishing = require("craft.gathering.fishing")
 
 local M = {}
+
+M.itemRangeTable = {
+    {start = 4011, stop  = 4021, skill = "tailoring"},
+    {start = 4022, stop  = 4032, skill = "blacksmithing"},
+    {start = 4033, stop  = 4043, skill = "finesmithing"},
+    {start = 4044, stop  = 4054, skill = "armourer"},
+    {start = 4055, stop  = 4065, skill = "carpentry"}
+}
 
 local TitleCase
 local AddWeaponOrArmourType
@@ -32,23 +40,22 @@ local AddTypeAndUsable
 local GetGemLevel
 
 -- init german descriptions
-local GenericQualDe = {"perfekt", "exzellent", "sehr gut", "gut", "normal", "mäßig", "schlecht", "sehr schlecht",
-    "schrecklich", "furchtbar"}
+local GenericQualDe = {"perfekt", "exzellent", "sehr gut", "gut", "normal", "mäßig", "schlecht", "sehr schlecht","schrecklich", "furchtbar"}
 local GenericDuraDe = {}
-GenericDuraDe[1] = {"nagelneu", "neu",       "fast neu", "gebraucht", "leicht abgenutzt", "abgenutzt", "sehr abgenutzt", "alt", "rostig",        "klapprig",    "kaputt"  }
-GenericDuraDe[2] = {"nagelneu", "neu",       "fast neu", "gebraucht", "leicht abgenutzt", "abgenutzt", "sehr abgenutzt", "alt", "morsch",        "zerfallend",  "kaputt"}
-GenericDuraDe[3] = {"nagelneu", "neu",       "fast neu", "gebraucht", "leicht abgenutzt", "abgenutzt", "sehr abgenutzt", "alt", "fadenscheinig", "zerfetzt",    "kaputt"  }
-GenericDuraDe[4] = {"funkelnd", "strahlend", "glänzend", "gebraucht", "angekratzt",       "zerkratzt", "matt",           "alt", "stumpf",        "brüchig",     "kaputt"   }
+GenericDuraDe[1] = {"nagelneu", "neu", "fast neu", "gebraucht", "leicht abgenutzt", "abgenutzt", "sehr abgenutzt", "alt", "rostig", "klapprig", "sehr klapprig", "kaputt"}
+GenericDuraDe[2] = {"nagelneu", "neu", "fast neu", "gebraucht", "leicht abgenutzt", "abgenutzt", "sehr abgenutzt", "alt", "morsch", "zerfallend", "sehr zerfallen", "kaputt"}
+GenericDuraDe[3] = {"nagelneu", "neu", "fast neu", "gebraucht", "leicht abgenutzt", "abgenutzt", "sehr abgenutzt", "alt", "fadenscheinig", "zerfetzt", "komplett zerfetzt", "kaputt"}
+GenericDuraDe[4] = {"funkelnd", "strahlend", "glänzend", "gebraucht", "angekratzt", "zerkratzt", "matt", "alt", "stumpf", "brüchig", "sehr brüchig", "kaputt"}
 
 -- init english descriptions
 local GenericQualEn = {"perfect", "excellent", "very good", "good", "normal", "average", "bad", "very bad", "awful", "horrible"}
 local GenericDuraEn = {}
-GenericDuraEn[1] = {"brand new", "new",   "almost new", "used", "slightly scraped",   "scraped",   "highly scraped",   "old", "rusty",      "corroded",       "broken"}
-GenericDuraEn[2] = {"brand new", "new",   "almost new", "used", "slightly scratched", "scratched", "highly scratched", "old", "rotten",     "nearly decayed", "broken"}
-GenericDuraEn[3] = {"brand new", "new",   "almost new", "used", "slightly frayed",    "frayed",    "highly frayed",    "old", "threadbare", "ragged",         "broken"}
-GenericDuraEn[4] = {"sparkling", "shiny", "glittery",   "used", "slightly scraped",   "scraped",   "highly scraped",   "old", "tarnished",  "fragile",        "broken"}
+GenericDuraEn[1] = {"brand new", "new", "almost new", "used", "slightly scraped", "scraped", "highly scraped", "old", "rusty", "corroded", "highly corroded", "broken"}
+GenericDuraEn[2] = {"brand new", "new", "almost new", "used", "slightly scratched", "scratched", "highly scratched", "old", "rotten", "nearly decayed", "decayed", "broken"}
+GenericDuraEn[3] = {"brand new", "new", "almost new", "used", "slightly frayed", "frayed", "highly frayed", "old", "threadbare", "ragged", "highly ragged", "broken"}
+GenericDuraEn[4] = {"sparkling", "shiny", "glittery", "used", "slightly scraped", "scraped", "highly scraped", "old", "tarnished", "fragile", "highly fragile", "broken"}
 
-local GenericDuraLm = {90, 80, 70, 60, 50, 40, 30, 20, 10, 1, 0}
+local GenericDuraLm = {99, 90, 80, 70, 60, 50, 40, 30, 20, 10, 1, 0}
 
 M.fightingGemBonusDivisionValue = 2 --Changing this might break the gem lookat due to current server limitations
 
@@ -84,16 +91,17 @@ ArmourType[ArmorStruct.juwellery] = {de = "Schmuck", en = "Jewellery"}
 -- Input should be a table consisting of {id = theID, skill = theSkill} eg: {id = 3578, skill = "mining", type = {english = "Vein", german = "Ader"}}
 local listOfItemsThatShouldShowLevel = {}
 
---Adds veins used in mining to list of items that should show level
-for _, oreVein in pairs(mining.oreList) do
-    table.insert(listOfItemsThatShouldShowLevel,{id = oreVein.depletedId, skill = "mining", type = {english = "Vein", german = "Ader"}})
-    table.insert(listOfItemsThatShouldShowLevel,{id = oreVein.id, skill = "mining", type = {english = "Vein", german = "Ader"}})
-end
+local gatheringLists = {
+    {list = mining.oreList, skill = mining.skill, type = {english = "Vein", german = "Ader"}},
+    {list = silkcutting.silkList, skill = silkcutting.skill, type = {english = "Butterflies", german = "Schmetterlinge"}},
+    {list = fishing.fishList, skill = fishing.skill, type = {english = "Shoal", german = "Schwarm"}},
+}
 
---Adds silk sources used in silkcutting to list of items that should show level
-for _, silkBush in pairs(silkcutting.silkList) do
-    table.insert(listOfItemsThatShouldShowLevel,{id = silkBush.depletedId, skill = "mining", type = {english = "Butterflies", german = "Schmetterlinge"}})
-    table.insert(listOfItemsThatShouldShowLevel,{id = silkBush.id, skill = "mining", type = {english = "Butterflies", german = "Schmetterlinge"}})
+for _, gatheringList in pairs(gatheringLists) do
+    for _, gatheringNode in pairs(gatheringList.list) do
+        table.insert(listOfItemsThatShouldShowLevel, {id = gatheringNode.depletedId, skill = gatheringList.skill, type = gatheringList.type})
+        table.insert(listOfItemsThatShouldShowLevel, {id = gatheringNode.id, skill = gatheringList.skill, type = gatheringList.type})
+    end
 end
 
 local function showItemLevel(user, itemId, lookat , itemLevel)
@@ -330,7 +338,7 @@ local function itemIsRepairKit(user, itemId, lookAt, itemLevel)
     local repairKit = false
     local skillName = false
 
-    for _, itemRange in pairs(repairs.itemRangeTable) do
+    for _, itemRange in pairs(M.itemRangeTable) do
         if itemId >= itemRange.start and itemId <= itemRange.stop then
             skillName = itemRange.skill
             repairKit = true

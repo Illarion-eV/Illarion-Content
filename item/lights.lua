@@ -183,9 +183,14 @@ function M.UseItem(user, sourceItem)
                 lightTheItem(sourceItem, wear)
             end
         elseif unlitItem.req then
+            local number = ""
+            if  unlitItem.req.num > 1 then
+                number = tostring(unlitItem.req.num).." "
+            end
+
             common.InformNLS(user,
-                "Dafür brauchst du ".. ReqTexts.german[unlitItem.req.id] .. " in der Hand oder im Gürtel.",
-                "You need ".. ReqTexts.english[unlitItem.req.id] .. " in your belt or hands to do that.")
+                "Dafür brauchst du "..number.. ReqTexts.german[unlitItem.req.id] .. " in der Hand oder im Gürtel.",
+                "You need "..number.. ReqTexts.english[unlitItem.req.id] .. " in your belt or hands to do that.")
         end
     elseif litItem then
         common.InformNLS(user,"Du verbrennst dir die Finger beim Versuch, das Feuer zu ersticken.","You burn your fingers while trying to extinguish the flames.")

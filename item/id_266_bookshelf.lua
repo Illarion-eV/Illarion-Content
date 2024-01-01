@@ -222,7 +222,7 @@ M.bookList["galmair_headhunter"] = {english = "Wanted! Headhunters", german = "G
 M.bookList["galmair_merchants"] = {english = "Wanted! Merchants", german = "Gesucht! Kaufleute", bookId = 514, bookGraphic = pell}
 M.bookList["galmair_priester"] = {english = "Wanted! Priests", german = "Gesucht! Priester", bookId = 515, bookGraphic = pell}
 M.bookList["galmair_translator"] = {english = "Wanted! Interpreter", german = "Gesucht! Dolmetscher", bookId = 516, bookGraphic = pell}
-M.bookList["galmair_quartermaster"] = {english = "Wanted! Quatermaster", german = "Gesucht! Quartiermeister", bookId = 517, bookGraphic = pell}
+M.bookList["galmair_quartermaster"] = {english = "Wanted! Quartermaster", german = "Gesucht! Quartiermeister", bookId = 517, bookGraphic = pell}
 M.bookList["the_history_of_illarion"] = {english = "The History of Illarion", german = "Geschichte Illarions", bookId = 27, bookGraphic = bookBrownSmall}
 M.bookList["the_history_of_the_gods"] = {english = "The History of the Gods", german = "Geschichte der Götter", bookId = 28, bookGraphic = bookBrownSmall}
 M.bookList["the_history_of_the_mortals"] = {english = "The History of the Mortals", german = "Geschichte der Sterblichen", bookId = 29, bookGraphic = bookBrownSmall}

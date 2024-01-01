@@ -59,6 +59,9 @@ local function GenerateEffectMessage(user,dataZList)
 end
 
 local function DrinkPotion(user,SourceItem)
+
+    local isMage = user:getMagicType() == 0 and user:getMagicFlags(0) > 0 or user:getMagicType() == 0 and user:getQuestProgress(37) ~= 0
+
     local potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
 
     if potionEffectId == 0 or potionEffectId == nil  then -- no effect
@@ -97,7 +100,7 @@ local function DrinkPotion(user,SourceItem)
             elseif ( attribList[i] == "poisonvalue" ) then
                 Val = common.Limit( (user:getPoisonValue() - Val) , 0, 10000 );
                 user:setPoisonValue( Val );
-            else
+            elseif not (attribList[i] == "mana" ) or isMage then
                 user:increaseAttrib(attribList[i],Val);
             end
         end
@@ -109,9 +112,9 @@ local function DrinkPotion(user,SourceItem)
         else
             myEffect:addValue("hitpointsIncrease",hitpointsOT)
         end
-        if manaOT < 0 then
+        if manaOT < 0 and isMage then
             myEffect:addValue("manaDecrease",manaOT*-1)
-        else
+        elseif isMage then
             myEffect:addValue("manaIncrease",manaOT)
         end
         if foodlevelOT < 0 then
@@ -182,6 +185,7 @@ function M.UseItem(user, SourceItem, ltstate)
         alchemy.FillIntoCauldron(user,SourceItem,cauldron,ltstate)
 
     else -- not infront of a cauldron, therefore drink!
+        alchemy.logConsumption(user, SourceItem)
         user:talk(Character.say, "#me trinkt eine violette Flüssigkeit.", "#me drinks a violet liquid.")
         user.movepoints=user.movepoints - 20
         DrinkPotion(user,SourceItem) -- call effect

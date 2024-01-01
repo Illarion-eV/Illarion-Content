@@ -170,6 +170,7 @@ function M.UseItem(user, SourceItem, ltstate)
 
         FillIn(user, SourceItem, cauldron)
     else -- not infront of a cauldron, therefore drink!
+        alchemy.logConsumption(user, SourceItem)
         user:talk(Character.say, "#me trinkt eine hellblaue Flüssigkeit.", "#me drinks a light blue liquid.")
         user.movepoints=user.movepoints - 20
         DrinkPotion(user,SourceItem)

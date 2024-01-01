@@ -30,7 +30,7 @@ M.galmair = 3
 local TownList = {}
 
 --A list with the ranks
-local CadomyrRankListMale = {
+M.CadomyrRankListMale = {
     {gRank = "Leibeigener", eRank = "Serf"},            --rank 1
     {gRank = "Höriger", eRank = "Bondsman"},               --rank 2
     {gRank = "Diener", eRank = "Servant"},               --rank 3
@@ -51,12 +51,12 @@ local CadomyrRankListFemale = {
     {gRank = "Pagin", eRank = "Page"},         --rank 5
     {gRank = "Knappin", eRank = "Squire"},                --rank 6
     {gRank = "Ritterin", eRank = "Knight"},                --rank 7
-    {gRank = "Baroin", eRank = "Baroness"},                 --rank 8
+    {gRank = "Baronin", eRank = "Baroness"},                 --rank 8
     {gRank = "Gräfin", eRank = "Countess"},               --rank 9
     {gRank = "Herzogin", eRank = "Duchess"},                --rank 10
     {gRank = "Königin", eRank = "Queen"}};                --rank leader
 
-local RunewickRankListMale = {
+M.RunewickRankListMale = {
     {gRank = "Novize", eRank = "Novice"},            --rank 1
     {gRank = "Anwärter", eRank = "Apprentice"},           --rank 2
     {gRank = "Student", eRank = "Student"},             --rank 3
@@ -82,7 +82,7 @@ local RunewickRankListFemale = {
     {gRank = "Rektorin", eRank = "Rector"},                --rank 10
     {gRank = "Erzmagierin", eRank = "Archmage"}};        --rank leader
 
-local GalmairRankListMale = {
+M.GalmairRankListMale = {
     {gRank = "Rumtreiber", eRank = "Tramp"},          --rank 1
     {gRank = "Gehilfe", eRank = "Assistant"},          --rank 2
     {gRank = "Hausierer", eRank = "Pedlar"},             --rank 3
@@ -111,7 +111,7 @@ local GalmairRankListFemale = {
 local NoneRankList ={};
 NoneRankList[0] = {gRank = "Geächteter", eRank = "Outcast"};
 
-M.townRanks = {CadomyrRankListMale, RunewickRankListMale, GalmairRankListMale, CadomyrRankListFemale, RunewickRankListFemale, GalmairRankListFemale}
+M.townRanks = {M.CadomyrRankListMale, M.RunewickRankListMale, M.GalmairRankListMale, CadomyrRankListFemale, RunewickRankListFemale, GalmairRankListFemale}
 M.townRanks[0] = NoneRankList;
 
 --[[
@@ -531,7 +531,7 @@ function M.makeCharMemberOfTown(originator,thisNPC,fv,theRank,theTown)
             return;
         end
 
-        local amountToPay = 1000*(2^fv.towncnt) -- amount in coppercoins
+        local amountToPay = 1000*(2^fv.towncnt) -- amount in copper coins
         local germanMoney, englishMoney = money.MoneyToString(amountToPay);
 
         if not money.CharHasMoney(originator,amountToPay) then --not enough money!

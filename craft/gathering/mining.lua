@@ -49,26 +49,28 @@ local gathering = require("craft.base.gathering")
 
 local M = {}
 
+M.skill = "mining"
+
 M.oreList = {
-{id = 232, depletedId = 233, productId = 735, maxAmount = 20},
-{id = 1234, depletedId = 3578, productId = 21, maxAmount = 20},
-{id = 1236, depletedId = 3580, productId = 22, maxAmount = 20},
-{id = 1235, depletedId = 3579, productId = 2536, maxAmount = 10},
-{id = 1238, depletedId = 3718, productId = 1062, maxAmount = 10},
-{id = 1237, depletedId = 3717, productId = 234, maxAmount = 10},
-{id = 1239, depletedId = 3719, productId = 2534, maxAmount = 3}
+    {id = 232, depletedId = 233, productId = 735, maxAmount = 20},
+    {id = 1234, depletedId = 3578, productId = 21, maxAmount = 20},
+    {id = 1236, depletedId = 3580, productId = 22, maxAmount = 20},
+    {id = 1235, depletedId = 3579, productId = 2536, maxAmount = 10},
+    {id = 1238, depletedId = 3718, productId = 1062, maxAmount = 10},
+    {id = 1237, depletedId = 3717, productId = 234, maxAmount = 10},
+    {id = 1239, depletedId = 3719, productId = 2534, maxAmount = 3}
 }
 
 local oreList = M.oreList
 
 local gemList = {
-{id = 251, level = 10, chance = 0.04},
-{id = 255, level = 20, chance = 0.02},
-{id = 252, level = 30, chance = 0.0133},
-{id = 253, level = 40, chance = 0.01},
-{id = 256, level = 50, chance = 0.008},
-{id = 257, level = 70, chance = 0.0057},
-{id = 254, level = 90, chance = 0.0044}
+    {id = 251, level = 10, chance = 0.04},
+    {id = 255, level = 20, chance = 0.02},
+    {id = 252, level = 30, chance = 0.0133},
+    {id = 253, level = 40, chance = 0.01},
+    {id = 256, level = 50, chance = 0.008},
+    {id = 257, level = 70, chance = 0.0057},
+    {id = 254, level = 90, chance = 0.0044}
 }
 
 local function checkIfGemMine(orePosition)
@@ -133,15 +135,6 @@ function M.StartGathering(user, sourceItem, ltstate)
     end
 
     if not gathering.isDepletableResource(user, sourceItem, oreList) then
-        return
-    end
-
-    local miningLevel = user:getSkill(Character.mining)
-
-    local passesLevelRequirement, levelReq = gathering.passesLevelReq(user, sourceItem, miningLevel)
-
-    if not passesLevelRequirement then
-        user:inform(common.GetNLS(user,"Du musst Level "..levelReq.." in Bergbau haben, um hier arbeiten zu können.","You must be level "..levelReq.." in mining to mine here."))
         return
     end
 

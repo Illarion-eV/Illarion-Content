@@ -95,7 +95,7 @@ function talkNPC:nextCycle(npcChar, counter)
         local german, english = self._cycleText:getRandomMessage()
         local textTypeDe, textDe = tools.get_text_and_talktype(german)
         local _, textEn = tools.get_text_and_talktype(english)
-        npcChar:talk(textTypeDe, textDe, textEn)
+        npcChar:talk(textTypeDe, textDe.."#npc", textEn.."#npc")
     else
         self._nextCycleText = self._nextCycleText - counter
     end
@@ -197,7 +197,7 @@ function talkNPCEntry:execute(npcChar, player)
         end
 
         local textType, text = tools.get_text_and_talktype(responseText)
-        npcChar:talk(textType, text)
+        npcChar:talk(textType, text.."#npc")
     end
 
     for _, conseq in pairs(self._consequences) do

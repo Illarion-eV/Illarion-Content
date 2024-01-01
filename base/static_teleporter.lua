@@ -19,6 +19,8 @@ local money = require("base.money")
 
 local M = {}
 
+local destinationIds = {}
+
 local teleporterList = {}
     teleporterList[1] = {nameDe="Cadomyr", nameEn="Cadomyr", targetDe="nach Cadomyr" ,posItem=position(127,647,0), posWarp=position(126,647,0), pict=2701}
     teleporterList[2] = {nameDe="Galmair", nameEn="Galmair", targetDe="nach Galmair", posItem=position(424,246,0), posWarp=position(423,246,0), pict=61}
@@ -118,17 +120,55 @@ local function travelToTarget(user,targetId)
     user:inform("Du hast dich dazu entschlossen, " ..teleporterList[targetId].targetDe.. " zu reisen.", "You have chosen to travel to " ..teleporterList[targetId].nameEn..".")
 end
 
-local function startTeleport(user, sourceItem)
-    local dialogTitle
-    local dialogAddText
-    local dialogOption
+local function getTeleporterPrice(user)
 
     local priceTeleporter
+
     if user:isNewPlayer() then
         priceTeleporter = getTeleporterPriceNewbe()
     else
         priceTeleporter = getTeleporterPriceNormal()
     end
+
+    return priceTeleporter
+end
+
+local function setDestinationId(user, destinationId)
+
+    destinationIds[user.id] = destinationId
+
+end
+
+local function getDestinationId(user)
+
+    return destinationIds[user.id]
+
+end
+
+local function abortTeleport(user)
+
+    user:inform("Der Zauber ist unterbrochen worden und du wirst nicht teleportiert. Wenigstens kannst du dein Geld behalten.", "Your chanting is interrupted and the teleportation process left unfinished. At least you get to keep your coin, though.")
+
+end
+
+local function finishTeleport(user)
+
+    local priceTeleporter = getTeleporterPrice(user)
+
+    local destinationid = getDestinationId(user)
+
+    money.TakeMoneyFromChar(user, priceTeleporter)
+    user:talk(Character.say, "#me und die Münzen auf dem Podest verschwinden in gleißendem Licht.", "#me, having finished chanting, disappears in a bright light along with the coins that were previously placed on the pedestal.")
+    travelToTarget(user, destinationid)
+end
+
+local function startTeleport(user, sourceItem)
+    local dialogTitle
+    local dialogAddText
+    local dialogOption
+
+    local priceTeleporter = getTeleporterPrice(user)
+
     local germanMoney, englishMoney = money.MoneyToString(priceTeleporter)
 
     common.TurnTo(user,sourceItem.pos)
@@ -140,8 +180,11 @@ local function startTeleport(user, sourceItem)
             local selected = dialog:getSelectedIndex()
             if dialogOption[selected+1][2] then
                 if  money.CharHasMoney(user,priceTeleporter) then
-                    money.TakeMoneyFromChar(user,priceTeleporter)
-                   travelToTarget(user, dialogOption[selected+1][1])
+
+                    user:talk(Character.say, "#me legt ein paar Münzen auf das Podest und beginnt, die Inschrift zu verlesen.", "#me places some coins onto the teleporter's pedestal, then begins chanting the incantation written on it.")
+                    setDestinationId(user, dialogOption[selected+1][1])
+                    user:startAction(200, 21, 10, 0, 0)
+
                 else
                     common.InformNLS(user,"Du hast nicht genug Geld für diese Reise. Die Reise kostet" .. germanMoney .." für eine Überfahrt.",
                                            "You don't have enough money for this journey. The journey costs" .. englishMoney .." for one passage.")
@@ -353,12 +396,18 @@ function M.isBlocked(targetPos)
     return false
 end
 
-function M.useTeleporter(user, sourceItem)
+function M.useTeleporter(user, sourceItem, actionState)
     for i, teleporter in pairs(teleporterList) do
         if sourceItem.pos == teleporter.posItem then
             local blockedOut = getSettingsForTeleporter(i)
             if not blockedOut then
-                startTeleport(user, sourceItem)
+                if actionState == Action.none then
+                    startTeleport(user, sourceItem)
+                elseif actionState == Action.abort then
+                    abortTeleport(user)
+                elseif actionState == Action.success then
+                    finishTeleport(user)
+                end
             end
             return true
         end

@@ -114,7 +114,7 @@ function M.useMagicWand(user, sourceItem)
     -- Has not read enough books
     if bit32.extract(questProgress, 30) == 0 then
         user:inform("Um das Handwerk der Stabmagie zu erlernen, musst du drei Bücher über magische Theorie lesen. Sieh dir die Liste der Bücher in den Bibliotheken der Städte.",
-        "To learn the craft of wand magic you must read three books of magical theory. Look for the list of books in your town's library.")
+        "To learn the art of wand magic you must read three books of magical theory. Look for the list of books in your town's library.")
         return
     end
 

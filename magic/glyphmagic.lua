@@ -14,23 +14,40 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---- This script contains basics for glyph forging.
---
---  Author: Banduk
 
 local common = require("base.common")
 local glyphs = require("base.glyphs")
 local magic = require("base.magic")
-local shard = require("item.shard")
 local globalvar = require("base.globalvar")
 local triggerfield = require("triggerfield.base.triggerfield")
 
 local M = {}
 
-local SKILL_MISSING = 1
-local SHARD_MISSING = 2
-local IS_GLYPHED = 3
-local CAN_FORGED = 4
+M.GLYPH_SHRINE_ID = 3498
+M.SKILL_GLYPHING = Character.enchantingOfJewels
+M.glyphForgeErectionMinSkill = 25
+M.glyphRitualPrepareMinSkill = 0
+
+local ITEM_ID_CANDLES = Item.candles
+local ITEM_ID_CANDLEHOLDER = Item.smallCandlestick
+local glyphForgeFindTime = 4
+local glyphForgeFindMaxSkill = 20
+local glyphForgeErectionTime = 54
+local glyphRitualPrepareTime = 82
+local glyphRitualPrepareExposureTime = 300
+local glyphRitualPrepareNecessaryItems = { {ITEM_ID_CANDLES, 2} , {ITEM_ID_CANDLEHOLDER, 2} }
+local glyphRitualBreakTimePortion = 0.5
+local glyphRitualBreakManaPortion = 0.5
+
+local orderOfGem = {
+    {"Amethyst","Amethyst"},
+    {"Rubin","Ruby"},
+    {"Saphir","Sapphire"},
+    {"Obsidian","Obsidian"},
+    {"Smaragd","Emerald"},
+    {"Topas","Topaz"},
+    {"Diamant","Diamond"}}
+
 --[[defined working time divided by WORKING_CYCLES_DIV created the number of displayed cycles
 WORKING_CYCLE_S is the duration of the displayed cycle]]
 local WORKING_CYCLE_S = 8
@@ -47,23 +64,22 @@ local RITUAL_GLYPHING = 1
 local RITUAL_ERECT_FORGE = 2
 local RITUAL_PREPARE_RITUAL = 3
 local RITUAL_BREAK_GLYPH = 4
-
-local ITEM_ID_CANDLES = 43
-local ITEM_ID_CANDLEHOLDER = 399
 local ITEM_ID_BURNING_CANDLE = 400
 
 local workingGfx = {globalvar.gfxRAIN,globalvar.gfxSCOTTY,globalvar.gfxSPRINKLE,globalvar.gfxSPRINKLE,globalvar.gfxSPRINKLE}
 
 local function endRitualAddGlyph(user, forgePos, item)
-    local workingSkill = glyphs.SKILL_GLYPHING
+
+    local workingSkill = M.SKILL_GLYPHING
     local workingTime
     local nominalCharges
     local charges
-    if shard.removeShardsForItem(user,item) then
-        world:gfx(globalvar.gfxSUN,forgePos)
-        workingTime = glyphs.getWorkingTime(item)
+
+    if glyphs.consumeShardsUsedToGlyphItem(user, item) then
+        world:gfx(globalvar.gfxSUN, forgePos)
+        workingTime = glyphs.getGlyphWorkingTime(item.id)
         user:learn(workingSkill, workingTime, 100)
-        nominalCharges = glyphs.getNominalCharges(item)
+        nominalCharges = glyphs.getNominalCharges(item.id)
 
         local skillFactor = user:getSkill(workingSkill) / 100 * 0.25
         local attributeFactor = (magic.getBestMageAttribute(user) -10) / 10 * 0.25 --10 - 20
@@ -71,46 +87,59 @@ local function endRitualAddGlyph(user, forgePos, item)
         local randomFactor = math.random() * 0.25
         charges = nominalCharges * CHARGE_LOWER_RANGE + nominalCharges * CHARGE_RANGE * (skillFactor + attributeFactor + qualityFactor + randomFactor)
         glyphs.setRemainingGlyphs(item, charges)
-        item:setData("GlyphForger",user.name)
+        item:setData("GlyphForger", user.name)
         world:changeItem(item)
-        common.InformNLS(user,"Du versiehst " .. common.getItemName(item, Player.german) .. " mit einer Glyphe.",
-                              "You add a glyph to " .. common.getItemName(item, Player.english) .. ".")
+        common.InformNLS(user,
+            "Du versiehst " .. common.getItemName(item, Player.german) .. " mit einer Glyphe.",
+            "You add a glyph to " .. common.getItemName(item, Player.english) .. ".")
     else
-        common.HighInformNLS(user,"Die notwendigen Splitter sind nicht mehr vorhanden.",
-                                  "You no longer have the required shards with you.")
+        common.HighInformNLS(user,
+            "Die notwendigen Splitter sind nicht mehr vorhanden.",
+            "You no longer have the required shards with you.")
     end
 end
 
 function M.checkForgeIsReady(forgeItem)
-    local timeLimit = common.GetCurrentTimestamp() - glyphs.glyphRitualPrepareExposureTime
+
+    local timeLimit = common.GetCurrentTimestamp() - glyphRitualPrepareExposureTime
+
     local lastPrepared = tonumber(forgeItem:getData("lastPrepared"))
+
     if lastPrepared ~= nil and lastPrepared > timeLimit then
         return true
     end
+
     return false
 end
 
 local function endRitualErectForge(user, forgePos, unused)
-    local workingSkill = glyphs.SKILL_GLYPHING
-    local workingTime = glyphs.glyphForgeErectionTime
+    local workingSkill = M.SKILL_GLYPHING
+    local workingTime = glyphForgeErectionTime
     world:gfx(globalvar.gfxSUN,forgePos)
-    local forgeCreated = world:createItemFromId(glyphs.GLYPH_SHRINE_ID,1,forgePos,false,333,{craftedBy=user.name})
+    local forgeCreated = world:createItemFromId(M.GLYPH_SHRINE_ID,1,forgePos,false,333,{craftedBy=user.name})
     forgeCreated.wear = 60
     world:changeItem(forgeCreated)
     user:learn(workingSkill, workingTime, 100)
 end
 
 local function endRitualPrepareRitual(user, forgePos, forgeItem)
-    local workingSkill = glyphs.SKILL_GLYPHING
-    local workingTime = glyphs.glyphRitualPrepareTime
+
+    local workingSkill = M.SKILL_GLYPHING
+    local workingTime = glyphRitualPrepareTime
     local candlePos
     local candleItem
-    if not common.userHasItems(user,glyphs.glyphRitualPrepareNecessaryItems) then
-        common.InformNLS(user,"Um das Ritual erfolgreich abzuschließen, benötigst du zwei Kerzen und zwei Kerzenhalter.",
-                              "To prepare the ritual successfully you need two candles and two small candlesticks.")
+
+    if not common.userHasItems(user, glyphRitualPrepareNecessaryItems) then
+
+        common.InformNLS(user,
+            "Um das Ritual erfolgreich abzuschließen, benötigst du zwei Kerzen und zwei Kerzenhalter.",
+            "To prepare the ritual successfully you need two candles and two small candlesticks.")
+
         world:gfx(globalvar.gfxFIZZLE,forgePos)
+
         return
     end
+
     for i=1,2 do
         candlePos = common.getFreePos(forgeItem.pos, 1)
         candleItem = world:createItemFromId(ITEM_ID_BURNING_CANDLE,1,candlePos,false,333,{belongsTo="ritual"})
@@ -118,52 +147,50 @@ local function endRitualPrepareRitual(user, forgePos, forgeItem)
         world:changeItem(candleItem)
         world:gfx(globalvar.gfxSUN,candlePos)
     end
+
     user:eraseItem(ITEM_ID_CANDLES,2)
     user:eraseItem(ITEM_ID_CANDLEHOLDER,2)
+
     forgeItem:setData("lastPrepared", common.GetCurrentTimestamp())
     world:changeItem(forgeItem)
 
     user:learn(workingSkill, workingTime, 100)
-    common.InformNLS(user,"Der Glyphen-Ritualplatz ist vorbereitet. Jetzt können hier Rituale durchgeführt werden.",
-                          "The glyph ritual place is prepared. Now it is possible to perform rituals here.")
+    common.InformNLS(user,
+        "Der Glyphen-Ritualplatz ist vorbereitet. Jetzt können hier Rituale durchgeführt werden.",
+        "The glyph ritual place is prepared. Now it is possible to perform rituals here.")
 end
 
 local function endRitualBreakGlyph(user, forgePos, item)
-    local workingSkill = glyphs.SKILL_GLYPHING
+
+    local workingSkill = M.SKILL_GLYPHING
     local workingTime
-    local materialBonus = 0
 
     world:gfx(globalvar.gfxSPLASH,forgePos)
-    workingTime = glyphs.getWorkingTime(item) / glyphs.glyphRitualBreakTimePortion
+    workingTime = glyphs.getGlyphWorkingTime(item.id) / glyphRitualBreakTimePortion
     user:learn(workingSkill, workingTime, 100)
 
     local nominalCharges = glyphs.getNominalCharges(item)
     local maxCharges = nominalCharges * CHARGE_LOWER_RANGE + nominalCharges * CHARGE_RANGE
     local remainingCharges = glyphs.getRemainingGlyphs(item)
     local material = glyphs.getGlyphMaterial(item)
-    if material == glyphs.COPPER then
-        materialBonus = 2
-    elseif material == glyphs.SILVER then
-        materialBonus = 1
-    end
+
+    local materialBonus = material - 1
+
     local skillBonus = math.max(0, - math.floor(user:getSkill(workingSkill) / 15) + 3)
-    local returnedShards = math.random( math.floor(0.5 * remainingCharges / maxCharges * 7), math.floor(0.9 * remainingCharges / maxCharges * 7))
-    returnedShards = math.min (7, returnedShards + materialBonus + skillBonus)
-    local level = glyphs.getGlyphLevel(item)
-    local isRing = glyphs.getGlyphRingOrAmulet(item)
-    local shardList = {}
-    for i=1,7 do
-        if isRing == glyphs.RING then
-            table.insert(shardList,level*10+i)
-        else
-            table.insert(shardList,i*10+level)
-        end
-    end
+
+    local returnedShards = math.min (7, math.random( math.floor(0.5 * remainingCharges / maxCharges * 7), math.floor(0.9 * remainingCharges / maxCharges * 7)) + materialBonus + skillBonus)
+
+    local shardList = glyphs.getListOfShardsRequiredToGlyphTheItem(item.id)
+
     common.Shuffle(shardList)
+
     if returnedShards > 0 then
+
         for i=1, returnedShards do
-            shard.createShardWithLevelOnUser(user, shardList[i])
+            local shardId = shardList[i]
+            common.CreateItem(user, shardId, 1, 999)
         end
+
         if returnedShards == 1 then
             common.InformNLS(user,"Du brichst die Glyphe aus folgendem Objet heraus: " .. common.getItemName(item, Player.german) .. ". Der Gegenstand zerbricht und dir bleibt ein Glyphensplitter.",
                                   "You break the glpyh from the following object: " .. common.getItemName(item, Player.english) .. ". The item breaks and one shard remains.")
@@ -217,18 +244,25 @@ local function performRitual(user)
 end
 
 local function startRitual(user, workingTime, manaConsumption, workingPlace, ritualId, specialValues)
+
     manaConsumption = magic.getValueWithGemBonus(user, manaConsumption)
+
     local workingFood = magic.neededFood(user, workingTime)
+
     if not common.FitForHardWork(user, workingFood) then
         return false
     end
+
     local workingCycles = math.max(1, math.floor(workingTime/ WORKING_CYCLES_DIV))
+
     if not magic.hasSufficientMana(user,manaConsumption) then
         common.InformNLS(user,"Dein Mana wird voraussichtlich nicht ausreichen, um das Ritual abzuschließen. Du wartest lieber noch etwas.",
                               "Most probably you don't have sufficient mana to finish the ritual successfully. Better you wait a moment.")
         return false
     end
+
     local deltaMana = - math.floor(manaConsumption / workingCycles)
+
     local deltaFood = math.floor(workingFood / workingCycles)
 
     workingRitual[user.id]={workingCycles, deltaMana, deltaFood, workingPlace, ritualId, specialValues}
@@ -249,10 +283,15 @@ local function startRitual(user, workingTime, manaConsumption, workingPlace, rit
 end
 
 local function startRitualGlyphToItem(user, item)
-    local workingTime = glyphs.getWorkingTime(item)
-    local manaConsumption = (40 - 20 * glyphs.getGlyphSkillLevel(item) / 100) * MAX_MANA / 100
+
+    local workingTime = glyphs.getGlyphWorkingTime(item.id)
+
+    local manaConsumption = (40 - 20 * glyphs.getSkillRequiredToGlyphTheItem(item.id) / 100) * MAX_MANA / 100
+
     local workingPlace = common.GetFrontPosition(user)
+
     local ritualId = RITUAL_GLYPHING
+
     local specialValues = item
 
     if startRitual(user, workingTime, manaConsumption, workingPlace, ritualId, specialValues) then
@@ -262,8 +301,8 @@ local function startRitualGlyphToItem(user, item)
 end
 
 local function startRitualErectGlyphForge(user)
-    local workingTime = glyphs.glyphForgeErectionTime
-    local manaConsumption = (20 - 10 * user:getSkill(glyphs.SKILL_GLYPHING) / 100) * MAX_MANA / 100
+    local workingTime = glyphForgeErectionTime
+    local manaConsumption = (20 - 10 * user:getSkill(M.SKILL_GLYPHING) / 100) * MAX_MANA / 100
     local workingPlace = common.GetFrontPosition(user)
     local ritualId = RITUAL_ERECT_FORGE
     local specialValues = nil
@@ -275,8 +314,8 @@ local function startRitualErectGlyphForge(user)
 end
 
 local function startRitualPrepareGlyphRitual(user, forgeItem)
-    local workingTime = glyphs.glyphRitualPrepareTime
-    local manaConsumption = (40 - 20 * user:getSkill(glyphs.SKILL_GLYPHING) / 100) * MAX_MANA / 100
+    local workingTime = glyphRitualPrepareTime
+    local manaConsumption = (40 - 20 * user:getSkill(M.SKILL_GLYPHING) / 100) * MAX_MANA / 100
     local workingPlace = forgeItem.pos
     local ritualId = RITUAL_PREPARE_RITUAL
     local specialValues = forgeItem
@@ -288,8 +327,8 @@ local function startRitualPrepareGlyphRitual(user, forgeItem)
 end
 
 local function startRitualBreakGlyph(user, item)
-    local workingTime = glyphs.getWorkingTime(item) * glyphs.glyphRitualBreakManaPortion
-    local manaConsumption = (40 - 20 * glyphs.getGlyphSkillLevel(item) / 100) * MAX_MANA / 100 * glyphs.glyphRitualBreakManaPortion
+    local workingTime = glyphs.getGlyphWorkingTime(item.id) * glyphRitualBreakManaPortion
+    local manaConsumption = (40 - 20 * glyphs.getSkillRequiredToGlyphTheItem(item.id) / 100) * MAX_MANA / 100 * glyphRitualBreakManaPortion
     local workingPlace = common.GetFrontPosition(user)
     local ritualId = RITUAL_BREAK_GLYPH
     local specialValues = item
@@ -300,317 +339,315 @@ local function startRitualBreakGlyph(user, item)
     end
 end
 
-local function countShardOnUser(user,level,ringOrAmulet)
-    local shardLevel
-    local countShards = 0
-    for i=1, 7 do
-        if ringOrAmulet == glyphs.RING then
-            shardLevel = tonumber(level)*10+i
-        else
-            shardLevel = i*10+tonumber(level)
-        end
-        if shard.shardInInvertory(user,shardLevel) ~= nil then
-            countShards = countShards + 1
-        end
-    end
-    return countShards
-end
+local function showShardStateDetail(user, ringOrAmulet, gemTypeNumber)
 
-
-local function showShardStateDetail(user,ringOrAmulet,level)
-    local shardLevel
     local displayText
-    local cbSetMode = function (dialog)
-        if (not dialog:getSuccess()) then
-            return
-        end
 
+    local callback = function (dialog)
         return
-        -- return in every case
     end
+
     local windowText
-    if ringOrAmulet == glyphs.RING then
-        windowText = common.GetNLS(user,"Verfügbare Splitter für " .. glyphs.orderOfGem[level][1] .. " Ringe:",
-                                        "Available shards for " .. glyphs.orderOfGem[level][2] .. " rings:", cbSetMode)
-    else
-        windowText = common.GetNLS(user,"Verfügbare Splitter für " .. glyphs.orderOfGem[level][1] .. " Amulette:",
-                                        "Available shards for " .. glyphs.orderOfGem[level][2] .. " amulets:", cbSetMode)
+
+    local suffix = {german = "Amulette", english = "amulets"}
+
+    if ringOrAmulet == "ring" then
+        suffix = {german = "Ringe", english = "rings"}
     end
+
+    windowText = common.GetNLS(user,
+        "Verfügbare Splitter für " .. orderOfGem[gemTypeNumber][Player.german+1] .. " "..suffix.german..":",
+        "Available shards for " .. orderOfGem[gemTypeNumber][Player.english+1] .. " "..suffix.english..":",
+        callback)
+
     local commentText = common.GetNLS(user,"Ringe oder Amulette können nur dann mit Glyphen versehen werden, wenn alle Splitter vorhanden sind.",
-                                           "Rings and amulets can get a glyph if all shards are available.")
-    local sd = SelectionDialog(windowText, commentText, cbSetMode)
-    for i=1, 7 do
-        if ringOrAmulet == glyphs.RING then
-            shardLevel = level*10+i
-        else
-            shardLevel = i*10+level
-        end
-        if shard.shardInInvertory(user,shardLevel) ~= nil then
+                                           "Rings and amulets can be glyphed if all of the required shards are available.")
+
+    local sd = SelectionDialog(windowText, commentText, callback)
+
+    local listOfShardsRequired =  glyphs.getListOfShardsRequiredToGlyphItemViaGemTypeNumber(ringOrAmulet, gemTypeNumber)
+
+    for _, shardId in ipairs(listOfShardsRequired) do
+
+        if user:countItem(shardId) > 0 then
             displayText = common.GetNLS(user," (verfügbar)", " (available)")
         else
             displayText = common.GetNLS(user," (fehlt)", " (missing)")
         end
-        displayText = glyphs.getShardNameFromLevel(shardLevel) .. displayText
-        sd:addOption(glyphs.getShardId(shardLevel), displayText )
+
+        local shardStats = world:getItemStatsFromId(shardId)
+
+        displayText = common.GetNLS(user, shardStats.German..displayText, shardStats.English..displayText)
+
+        sd:addOption(shardId, displayText)
+
     end
+
     sd:setCloseOnMove()
     user:requestSelectionDialog(sd)
 end
 
 function M.showShardState(user)
-    local countShards
-    local displayText
-    local cbSetMode = function (dialog)
+
+    local callback = function (dialog)
+
         if (not dialog:getSuccess()) then
             return
         end
+
         local index = dialog:getSelectedIndex() + 1
+
         if index <= 7 then
-            showShardStateDetail(user,glyphs.RING,index)
+            showShardStateDetail(user, "ring", index)
         else
-            showShardStateDetail(user,glyphs.AMULET,index-7)
+            showShardStateDetail(user, "amulet", index-7)
         end
     end
+
     local windowText = common.GetNLS(user,"Verfügbare Splitter", "Available shards")
-    local commentText = ""
-    local sd = SelectionDialog(windowText, commentText, cbSetMode)
-    for i=1, 7 do
-        countShards = countShardOnUser(user,i,glyphs.RING)
-        if countShards == 7 then
-            displayText = common.GetNLS(user,"Vollständiger Satz!", "Complete set!")
+
+    local sd = SelectionDialog(windowText, "", callback)
+
+    for i= 1, 7 do
+
+        local ringId = glyphs.getJewelledItemBasedOnGemTypeNumber("ring", i)
+        local amuletId = glyphs.getJewelledItemBasedOnGemTypeNumber("amulet", i)
+        local requiredShardsForRing, shardsFoundRing = glyphs.playerHasRequiredShardsToGlyphTheItem(user, ringId)
+        local requiredShardsForAmulet, shardsFoundAmulet = glyphs.playerHasRequiredShardsToGlyphTheItem(user, amuletId)
+        local haveSet = common.GetNLS(user,"Vollständiger Satz!", "Complete set!")
+        local lackingSet = common.GetNLS(user," Splitter fehlen!", " missing shards!")
+        local lackingShardsAmulet = 7 - shardsFoundAmulet
+        local lackingShardsRing = 7 - shardsFoundRing
+        local ringDisplayText = common.GetNLS(user, orderOfGem[i][1] .. " Ringe: ", orderOfGem[i][2] .. " rings: ") .. shardsFoundRing .. common.GetNLS(user," Splitter (", " shards (")
+        local amuletDisplayText = common.GetNLS(user, orderOfGem[i][1] .. " Amulette: ", orderOfGem[i][2] .. " amulets: ") .. shardsFoundAmulet .. common.GetNLS(user," Splitter (", " shards (")
+
+        if requiredShardsForRing then
+            ringDisplayText = ringDisplayText..haveSet..")"
         else
-            displayText = tostring(7 - countShards) .. common.GetNLS(user," Splitter fehlen!", " missing shards!")
+            ringDisplayText = ringDisplayText..lackingShardsRing..lackingSet..")"
         end
-        displayText = common.GetNLS(user,glyphs.orderOfGem[i][1] .. " Ringe: ",glyphs.orderOfGem[i][2] .. " rings: ") ..
-                       tostring(countShards) .. common.GetNLS(user," Splitter (", " shards (") ..
-                       displayText .. ")"
-        sd:addOption(glyphs.ringAndAmuletDefinition[7 + i][1], displayText )
-    end
-    for i=1, 7 do
-        countShards = countShardOnUser(user,i,glyphs.AMULET)
-        if countShards == 7 then
-            displayText = common.GetNLS(user,"Vollstädiger Satz!", "Complete set!")
+
+        if requiredShardsForAmulet then
+            amuletDisplayText = amuletDisplayText..haveSet..")"
         else
-            displayText = tostring(7 - countShards) .. common.GetNLS(user," Splitter fehlen!", " missing shards!")
+            amuletDisplayText = amuletDisplayText..lackingShardsAmulet..lackingSet..")"
         end
-        displayText = common.GetNLS(user,glyphs.orderOfGem[i][1] .. " Amulette: ",glyphs.orderOfGem[i][2] .. " amulets: ") ..
-                       tostring(countShards) .. common.GetNLS(user," Splitter (", " shards (") ..
-                       displayText .. ")"
-        sd:addOption(glyphs.ringAndAmuletDefinition[7 + i][2], displayText )
+
+        sd:addOption(ringId, ringDisplayText)
+        sd:addOption(amuletId, amuletDisplayText)
     end
+
     sd:setCloseOnMove()
     user:requestSelectionDialog(sd)
 end
 
-local function showForgeSelection(user,userRings,userAmulets)
-    local displayText
-    local canForged
-    local countShards
-    local selectionTopics = {}
-    local selectionTopicNo = 0
+local function addJewelleryToDialog(user, sd, jewelleryList, theJewellery, ringOrAmulet, forgeOrBreak)
 
-    local cbSetMode = function (dialog)
+    local displayText
+    local skillReq = glyphs.getSkillRequiredToGlyphTheItem(theJewellery.id)
+    if forgeOrBreak == "break" then
+        skillReq = skillReq + 20
+        if skillReq > 100 then
+            skillReq = 100
+        end
+    end
+    local hasSkill = user:getSkill(M.SKILL_GLYPHING) > skillReq
+    local glyphed = glyphs.isGlyphed(theJewellery)
+    local hasShards, shardAmount = glyphs.playerHasRequiredShardsToGlyphTheItem(user, theJewellery.id)
+
+    if not hasSkill then
+        displayText = common.GetNLS(user," (Skill nicht ausreichend)"," (Skill not sufficient)")
+    elseif glyphed and forgeOrBreak == "forge" then
+        displayText = common.GetNLS(user," (Glyphe bereits eingearbeitet)"," (Glyph forged already)")
+    elseif glyphed and forgeOrBreak == "break" then
+        displayText = common.GetNLS(user," (Glyphe zerstörbar)"," (Glyph can be destroyed)")
+    elseif forgeOrBreak == "forge" and shardAmount == 6 then
+        displayText = common.GetNLS(user," (1 Splitter fehlt)", " (1 shard missing)")
+    elseif forgeOrBreak == "forge" and shardAmount < 6 then
+        displayText = common.GetNLS(user," (" .. tostring(7 - shardAmount) .. " Splitter fehlen)",
+        " (" .. tostring(7 - shardAmount) .. " shards missing)")
+    elseif forgeOrBreak == "forge" and shardAmount == 7 then
+        displayText = common.GetNLS(user," (Bearbeitbar)"," (Forgeable)")
+    else
+        displayText = common.GetNLS(user, " (Keine Glyphe eingearbeitet)", " (Contains no glyph)")
+    end
+
+    local data = {
+        amuletOrRing = ringOrAmulet,
+        item = theJewellery,
+        skillMet = hasSkill,
+        glyphed = glyphed,
+        shardsOwned = hasShards
+        }
+
+    sd:addOption(theJewellery.id, common.GetNLS(user,common.getItemName(theJewellery, Player.german), common.getItemName(theJewellery, Player.english)) .. displayText )
+
+    table.insert(jewelleryList, data)
+end
+
+local function showForgeBreakSelection(user, userRings, userAmulets, forgeOrBreak)
+
+    local jewelleryList = {}
+
+    local callback = function (dialog)
+
         if (not dialog:getSuccess()) then
             return
         end
+
         local index = dialog:getSelectedIndex() + 1
-        if selectionTopics[index][1] == SHARD_MISSING then
-            showShardStateDetail(user,glyphs.getGlyphRingOrAmulet(selectionTopics[index][2]),glyphs.getGlyphLevel(selectionTopics[index][2]))
-        elseif selectionTopics[index][1] == IS_GLYPHED then
-            common.InformNLS(user,"Diese Gegenstand kann keine zweite Glyphe aufnehmen: " .. common.getItemName(selectionTopics[index][2], Player.german),
-                                  "This object cannot take a second glyph: " ..common.getItemName(selectionTopics[index][2], Player.english))
-        elseif selectionTopics[index][1] == SKILL_MISSING then
-            common.InformNLS(user,"Deine Fähigkeiten reichen nicht aus um diesen Gegenstand mit einer Glyphe zu versehen: " ..common.getItemName(selectionTopics[index][2], Player.german),
-                                  "Your skill is not sufficient to add a glyph to this object: "..common.getItemName(selectionTopics[index][2], Player.english))
-        else
-            startRitualGlyphToItem(user,selectionTopics[index][2])
+
+        local selectedJewellery = jewelleryList[index]
+
+        if not selectedJewellery.shardsOwned and forgeOrBreak == "forge" then
+            showShardStateDetail(user, selectedJewellery.ringOrAmulet, glyphs.getGemTypeNumberFromJewelleryId(selectedJewellery.item))
+        elseif selectedJewellery.glyphed and forgeOrBreak == "forge" then
+            common.InformNLS(user,
+                "Diese Gegenstand kann keine zweite Glyphe aufnehmen: " .. common.getItemName(selectedJewellery.item, Player.german),
+                "This object cannot take a second glyph: " ..common.getItemName(selectedJewellery.item, Player.english))
+        elseif not selectedJewellery.glyphed and forgeOrBreak == "break" then
+            common.InformNLS(user,
+                "Das Item "..common.getItemName(selectedJewellery.item, Player.german) .. " beinhaltet noch keine Glyphe.",
+                "The item "..common.getItemName(selectedJewellery.item, Player.english) .. " doesn't have a glyph.")
+        elseif not selectedJewellery.skillMet then
+            if forgeOrBreak == "forge" then
+                common.InformNLS(user,
+                    "Deine Fähigkeiten reichen nicht aus um diesen Gegenstand mit einer Glyphe zu versehen: " ..common.getItemName(selectedJewellery.item, Player.german),
+                    "Your skill is not sufficient to add a glyph to this object: "..common.getItemName(selectedJewellery.item, Player.english))
+            else
+                common.InformNLS(user,
+                    "Deine Fähigkeiten reichen nicht aus um diesen Gegenstand zu zerstören: " ..common.getItemName(selectedJewellery.item, Player.german),
+                    "Your skill is not sufficient to destroy this item: "..common.getItemName(selectedJewellery.item, Player.english))
+            end
+        elseif forgeOrBreak == "forge" then
+            startRitualGlyphToItem(user, selectedJewellery.item)
+        elseif forgeOrBreak == "break" then
+            startRitualBreakGlyph(user, selectedJewellery.item)
         end
     end
+
     local windowText = common.GetNLS(user,"Ringe und Amulette", "Rings and amulets")
+
     local commentText = common.GetNLS(user,"Wähle einen Gegenstand aus, das alle Voraussetzungen erfüllt, um mit einer Glyphe versehen zu werden.",
                                            "Please select an item that should get a glyph.\nAll preconditions must be fulfilled")
-    local sd = SelectionDialog(windowText, commentText, cbSetMode)
-    if #userRings > 0 then
-        for i=1,#userRings do
-            countShards = countShardOnUser(user,glyphs.getGlyphLevel(userRings[i]),glyphs.RING)
-            if user:getSkill(glyphs.SKILL_GLYPHING) < glyphs.getGlyphSkillLevel(userRings[i]) then
-                displayText = common.GetNLS(user," (Skill nicht ausreichend)"," (Skill not sufficient)")
-                canForged = SKILL_MISSING
-            elseif glyphs.isGlyphed(userRings[i]) then
-                displayText = common.GetNLS(user," (Glyphe bereits eingearbeitet)"," (Glyph forged already)")
-                canForged = IS_GLYPHED
-            elseif countShards == 6 then
-                displayText = common.GetNLS(user," (1 Splitter fehlt)", " (1 shard missing)")
-                canForged = SHARD_MISSING
-            elseif countShards < 6 then
-                displayText = common.GetNLS(user," (" .. tostring(7-countShards) .. " Splitter fehlen)",
-                                                 " (" .. tostring(7-countShards) .. " shards missing)")
-                canForged = SHARD_MISSING
-            else
-                displayText = common.GetNLS(user," (Bearbeitbar)"," (Forgeable)")
-                canForged = CAN_FORGED
-            end
-            sd:addOption(userRings[i].id, common.GetNLS(user,common.getItemName(userRings[i], Player.german),common.getItemName(userRings[i], Player.english)) .. displayText )
-            selectionTopicNo = selectionTopicNo + 1
-            selectionTopics[selectionTopicNo] = {canForged, userRings[i]}
-        end
+
+    if forgeOrBreak == "break" then
+        commentText = common.GetNLS(user,"Wähle einen Gegenstand aus, den du zerstören willst, um einige der Splitter wiederzubekommen.",
+        "Please select an item that is to be destroyed to get back some of the shards.")
     end
-    if #userAmulets > 0 then
-        for i=1,#userAmulets do
-            countShards = countShardOnUser(user,glyphs.getGlyphLevel(userAmulets[i]),glyphs.AMULET)
-            if user:getSkill(glyphs.SKILL_GLYPHING) < glyphs.getGlyphSkillLevel(userAmulets[i]) then
-                displayText = common.GetNLS(user," (Skill nicht ausreichend)"," (Skill not sufficient)")
-                canForged = SKILL_MISSING
-            elseif glyphs.isGlyphed(userAmulets[i]) then
-                displayText = common.GetNLS(user," (Glyphe eingearbeitet)"," (Glyph forged)")
-                canForged = IS_GLYPHED
-            elseif countShards == 6 then
-                displayText = common.GetNLS(user," (1 Splitter fehlt)", " (1 shard missing)")
-                canForged = SHARD_MISSING
-            elseif countShards < 6 then
-                displayText = common.GetNLS(user," (" .. tostring(7-countShards) .. " Splitter fehlen)",
-                                                 " (" .. tostring(7-countShards) .. " shards missing)")
-                canForged = SHARD_MISSING
-            else
-                displayText = common.GetNLS(user," (Bearbeitbar)"," (Forgeable)")
-                canForged = CAN_FORGED
-            end
-            sd:addOption(userAmulets[i].id, common.GetNLS(user,common.getItemName(userAmulets[i], Player.german),common.getItemName(userAmulets[i], Player.english)) .. displayText )
-            selectionTopicNo = selectionTopicNo + 1
-            selectionTopics[selectionTopicNo] = {canForged, userAmulets[i]}
-        end
+
+    local sd = SelectionDialog(windowText, commentText, callback)
+
+    for _, ring in ipairs(userRings) do
+
+        addJewelleryToDialog(user, sd, jewelleryList, ring, "ring", forgeOrBreak)
+
     end
+
+    for _, amulet in ipairs(userAmulets) do
+
+        addJewelleryToDialog(user, sd, jewelleryList, amulet, "amulet", forgeOrBreak)
+
+    end
+
     sd:setCloseOnMove()
+
     user:requestSelectionDialog(sd)
 
 end
 
-local function showBreakSelection(user,userRings,userAmulets)
-    local displayText
-    local canBreak
-    local selectionTopics = {}
-    local selectionTopicNo = 0
+function M.forgeGlyphs(user, glyphForgeItem, ltstate)
 
-    local cbSetMode = function (dialog)
-        if (not dialog:getSuccess()) then
-            return
-        end
-        local index = dialog:getSelectedIndex() + 1
-        if selectionTopics[index][1] == CAN_FORGED then
-            common.InformNLS(user,"Das Item "..common.getItemName(selectionTopics[index][2], Player.german) .. " beinhaltet noch keine Glyphe.",
-                                  "The item "..common.getItemName(selectionTopics[index][2], Player.english) .. " doesn't have a glyph.")
-        elseif selectionTopics[index][1] == SKILL_MISSING then
-            common.InformNLS(user,"Deine Fähigkeiten reichen nicht aus um diesen Gegenstand zu zerstören: " ..common.getItemName(selectionTopics[index][2], Player.german),
-                                  "Your skill is not sufficient to destroy this item: "..common.getItemName(selectionTopics[index][2], Player.english))
-        else
-            startRitualBreakGlyph(user,selectionTopics[index][2])
-        end
-    end
-    local windowText = common.GetNLS(user,"Ringe und Amulette", "Rings and amulets")
-    local commentText = common.GetNLS(user,"Wähle einen Gegenstand aus, den du zerstören willst, um einige der Splitter wiederzubekommen.",
-                                           "Please select an item that is to be destroyed to get back some of the shards.")
-    local sd = SelectionDialog(windowText, commentText, cbSetMode)
-    if #userRings > 0 then
-        for i=1,#userRings do
-            if user:getSkill(glyphs.SKILL_GLYPHING) - glyphs.glyphRitualBreakGlyphSkill < glyphs.getGlyphSkillLevel(userRings[i]) then
-                displayText = common.GetNLS(user," (Skill nicht ausreichend)"," (Skill not sufficient)")
-                canBreak = SKILL_MISSING
-            elseif glyphs.isGlyphed(userRings[i]) then
-                displayText = common.GetNLS(user," (Glyphe zerstörbar)"," (Glyph can be destroyed)")
-                canBreak = IS_GLYPHED
-            else
-                displayText = common.GetNLS(user," (Keine Glyphe eingearbeitet)"," (Contains no glyph)")
-                canBreak = CAN_FORGED
-            end
-            sd:addOption(userRings[i].id, common.GetNLS(user,common.getItemName(userRings[i], Player.german),common.getItemName(userRings[i], Player.english)) .. displayText )
-            selectionTopicNo = selectionTopicNo + 1
-            selectionTopics[selectionTopicNo] = {canBreak, userRings[i]}
-        end
-    end
-    if #userAmulets > 0 then
-        for i=1,#userAmulets do
-            if user:getSkill(glyphs.SKILL_GLYPHING) - glyphs.glyphRitualBreakGlyphSkill < glyphs.getGlyphSkillLevel(userAmulets[i]) then
-                displayText = common.GetNLS(user," (Skill nicht ausreichend)"," (Skill not sufficient)")
-                canBreak = SKILL_MISSING
-            elseif glyphs.isGlyphed(userAmulets[i]) then
-                displayText = common.GetNLS(user," (Glyphe zerstörbar)"," (Glyph can be destroyed)")
-                canBreak = IS_GLYPHED
-            else
-                displayText = common.GetNLS(user," (Keine Glyphe eingearbeitet)"," (Contains no glyph)")
-                canBreak = CAN_FORGED
-            end
-            sd:addOption(userAmulets[i].id, common.GetNLS(user,common.getItemName(userAmulets[i], Player.german),common.getItemName(userAmulets[i], Player.english)) .. displayText )
-            selectionTopicNo = selectionTopicNo + 1
-            selectionTopics[selectionTopicNo] = {canBreak, userAmulets[i]}
-        end
-    end
-    sd:setCloseOnMove()
-    user:requestSelectionDialog(sd)
+    local isMage = user:getMagicType() == 0 and (user:getQuestProgress(37) ~= 0 or user:getMagicFlags(0) > 0)
 
-end
-
-function M.forgeGlyphs(user,glyphForgeItem,ltstate)
-    if user:getMagicType() == 0 and (user:getQuestProgress(37) ~= 0 or user:getMagicFlags(0) > 0)then --mage
-        if ltstate == Action.none then
-            if glyphForgeItem.wear < 3 then
-                common.InformNLS(user,"Dieser Glyphen-Ritualplatz zeigt schon deutliche Zeichen des Verfalls. Vergeude deine Zeit nicht hier.",
-                                      "This glyph ritual place already shows signs of decay. Do not waste your time here.")
-                return
-            end
-            if not M.checkForgeIsReady(glyphForgeItem) then
-                common.InformNLS(user,"Hier ist noch nichts vorbereitet. Vielleicht solltest du damit beginnen.",
-                                      "Nothing is prepared. You should arrange everything for a successful ritual.")
-                return
-            end
-            local userRings = glyphs.hasRing(user)
-            local userAmulets = glyphs.hasAmulet(user)
-            common.TurnTo(user,glyphForgeItem.pos)
-            if #userRings == 0 and #userAmulets == 0 then
-                common.InformNLS(user,"Du hast keinen Ring und kein Amulett. Nimm den Gegenstand, den du glyphen willst, in die Hand oder in den Gürtel.",
-                                      "You don't have a ring or amulet. The item you want to glyph has to be in your hand or your belt.")
-                M.showShardState(user)
-            else
-                showForgeSelection(user,userRings,userAmulets)
-            end
-        elseif ltstate == Action.success then
-            performRitual(user)
-        elseif ltstate == Action.abort then
-            common.InformNLS(user,"Du brichst das Ritual ab.","Your interrupt the ritual.")
-            world:gfx(globalvar.gfxFIZZLE,user.pos)
-            workingRitual[user.id]=nil
-        end
-    else
+    if not isMage then
         common.InformNLS(user,"Dieser Ritualplatz ist voll mit Symbolen, die dir nichts sagen. Du entschließt dich hier nichts zu verändern und zählst die Splitter in deiner Tasche.",
                               "This ritual place is covered in symbols that mean nothing to you. You decide not to change anything here and count the shards in your bag.")
         M.showShardState(user)
+        return
+    end
+
+    if ltstate == Action.none then
+
+        if glyphForgeItem.wear < 3 then
+            common.InformNLS(user,
+                "Dieser Glyphen-Ritualplatz zeigt schon deutliche Zeichen des Verfalls. Vergeude deine Zeit nicht hier.",
+                "This glyph ritual place already shows signs of decay. Do not waste your time here.")
+            return
+        end
+
+        if not M.checkForgeIsReady(glyphForgeItem) then
+            common.InformNLS(user,
+                "Hier ist noch nichts vorbereitet. Vielleicht solltest du damit beginnen.",
+                "Nothing is prepared. You should arrange everything for a successful ritual.")
+            return
+        end
+
+        local tableOfRings, tableOfAmulets = glyphs.hasRingOrAmulet(user)
+
+        local userRings = #tableOfRings
+        local userAmulets = #tableOfAmulets
+
+        common.TurnTo(user, glyphForgeItem.pos)
+
+        if userRings == 0 and userAmulets == 0 then
+            common.InformNLS(user,
+                "Du hast keinen Ring und kein Amulett. Nimm den Gegenstand, den du glyphen willst, in die Hand oder in den Gürtel.",
+                "You don't have a ring or amulet. The item you want to glyph has to be in your hand or your belt.")
+                M.showShardState(user)
+        else
+            showForgeBreakSelection(user, tableOfRings, tableOfAmulets, "forge")
+        end
+
+    elseif ltstate == Action.success then
+
+        performRitual(user)
+
+    elseif ltstate == Action.abort then
+
+        common.InformNLS(user,"Du brichst das Ritual ab.","You interrupt the ritual.")
+
+        world:gfx(globalvar.gfxFIZZLE,user.pos)
+
+        workingRitual[user.id]=nil
+
     end
 end
 
 function M.breakGlyphs(user,glyphForgeItem,ltstate)
+
     if ltstate == Action.none then
+
         if glyphForgeItem.wear < 3 then
             common.InformNLS(user,"Dieser Glyphen-Ritualplatz zeigt schon deutliche Zeichen des Verfalls. Vergeude deine Zeit nicht hier.",
                                   "This glyph ritual place already shows signs of decay. Do not waste your time here.")
             return
         end
+
         if not M.checkForgeIsReady(glyphForgeItem) then
             common.InformNLS(user,"Hier ist noch nichts vorbereitet. Vielleicht solltest du damit beginnen.",
                                   "Nothing is prepared. You should arrange everything for a successful ritual.")
             return
         end
-        local userRings = glyphs.hasRing(user)
-        local userAmulets = glyphs.hasAmulet(user)
+
+        local userRings, userAmulets = glyphs.hasRingOrAmulet(user)
+
         common.TurnTo(user,glyphForgeItem.pos)
+
         if #userRings == 0 and #userAmulets == 0 then
             common.InformNLS(user,"Du hast keinen Ring und kein Amulett. Nimm den Gegenstand, den du zerstören willst, in die Hand oder in den Gürtel.",
                                   "You don't have a ring or amulet. The item you want to destroy has to be in your hand or your belt.")
         else
-            showBreakSelection(user,userRings,userAmulets)
+            showForgeBreakSelection(user, userRings, userAmulets, "break")
         end
+
     elseif ltstate == Action.success then
+
         performRitual(user)
+
     elseif ltstate == Action.abort then
-        common.InformNLS(user,"Du brichst das Ritual ab.","Your interrupt the ritual.")
+
+        common.InformNLS(user,"Du brichst das Ritual ab.","You interrupt the ritual.")
         world:gfx(globalvar.gfxFIZZLE,user.pos)
         workingRitual[user.id]=nil
     end
@@ -647,18 +684,6 @@ local function isPossibleLocation(user, position)
         return false
     end
 
-    --[[
-    -- Permission denied
-    local deniedAreas = {"Runewick","Cadomyr","Galmair"}
-    for i=1, #deniedAreas do
-        if areas.PointInArea(user.pos, deniedAreas[i]) then
-            common.InformNLS(user,"In den Städten sind keine Glyphen Ritualplätze erwünscht.",
-                                  "No glyph ritual places are desired within the cities.")
-            return false
-        end
-    end
-    --]]
-
     -- not level 0
     if user.pos.z ~= 0 then
         common.InformNLS(user,"Nur die Götter wissen, was an diesem Platz nicht stimmt. Probier es doch auf der Oberfläche Illarions.",
@@ -671,20 +696,20 @@ end
 
 function M.findGlyphForge(user)
     user:performAnimation(globalvar.charAnimationSPELL)
-    local forgeItem = common.GetItemInArea(user.pos, glyphs.GLYPH_SHRINE_ID, 60, true)
+    local forgeItem = common.GetItemInArea(user.pos, M.GLYPH_SHRINE_ID, 60, true)
     if forgeItem ~= nil then
         world:gfx(globalvar.gfxSUN,forgeItem.pos)
         local directionInfo = common.getDistanceHint(user, forgeItem.pos)
         local textDirection = common.GetNLS(user,"Möglicherweise befindet sich " .. directionInfo.distance.de .. " im " .. directionInfo.direction.de .. " ein Glyphen-Ritualplatz.",
                                                  "There might be a glyph ritual place " .. directionInfo.distance.en .. " in the " .. directionInfo.direction.en .. ".")
 
-        if user:getQuestProgress(562) == 0 and user:getSkill(glyphs.SKILL_GLYPHING) <= glyphs.glyphForgeFindMaxSkill then
+        if user:getQuestProgress(562) == 0 and user:getSkill(M.SKILL_GLYPHING) <= glyphForgeFindMaxSkill then
             local nextLearn = math.random(1,2)
             user:setQuestProgress(562,nextLearn)
-            user:learn(glyphs.SKILL_GLYPHING, glyphs.glyphForgeFindTime, 100)
+            user:learn(M.SKILL_GLYPHING, glyphForgeFindTime, 100)
             common.InformNLS(user,textDirection .. " Seine Magie zieht dich an und doch kannst du dich für einen Moment nicht bewegen.",
                                   textDirection .. " The magic attracts you but for a moment you are unable to move.")
-            common.ParalyseCharacter(user, glyphs.glyphForgeFindTime)
+            common.ParalyseCharacter(user, glyphForgeFindTime)
         else
             common.InformNLS(user,textDirection .. " Vielleicht kannst du ihn bereits sehen?",
                                   textDirection .. " Maybe you can see it already?")
@@ -710,7 +735,7 @@ function M.placeGlyphForge(user, ltstate)
             return
         end
         local position = common.GetFrontPosition(user)
-        if  user:getSkill(glyphs.SKILL_GLYPHING) < glyphs.glyphForgeErectionMinSkill then
+        if  user:getSkill(M.SKILL_GLYPHING) < M.glyphForgeErectionMinSkill then
             common.InformNLS(user,"Deine Fähigkeiten reichen nicht aus, um das Ritual durchzuführen.",
                                   "Your skills are not sufficient to perform the ritual.")
             return
@@ -729,7 +754,7 @@ end
 
 function M.prepareGlyphRitual(user, ltstate)
     if ltstate == Action.none then
-        local forgeItem = common.GetItemInArea(user.pos, glyphs.GLYPH_SHRINE_ID, 1, true)
+        local forgeItem = common.GetItemInArea(user.pos, M.GLYPH_SHRINE_ID, 1, true)
         if forgeItem == nil then
             M.findGlyphForge(user)
             return
@@ -745,13 +770,13 @@ function M.prepareGlyphRitual(user, ltstate)
                                   "Everything is prepared already, there is nothing left to do.")
             return
         end
-        if not common.userHasItems(user,glyphs.glyphRitualPrepareNecessaryItems) then
+        if not common.userHasItems(user, glyphRitualPrepareNecessaryItems) then
             common.InformNLS(user,"Um das Ritual vorzubereiten, benötigst du zwei Kerzen und zwei Kerzenhalter.",
                                   "To prepare the ritual you need two candles and two small candlesticks.")
             return
         end
 
-        if  user:getSkill(glyphs.SKILL_GLYPHING) >= glyphs.glyphRitualPrepareMinSkill then
+        if  user:getSkill(M.SKILL_GLYPHING) >= M.glyphRitualPrepareMinSkill then
             startRitualPrepareGlyphRitual(user, forgeItem)
         else
             common.InformNLS(user,"Deine Fähigkeiten reichen nicht aus, um das Ritual durchzuführen.",
@@ -770,7 +795,7 @@ end
 function M.removeGlyphForge(user)
     -- returns false if no glyph forge
     local forgeItem = common.GetFrontItem(user,user:getFaceTo())
-    if forgeItem ~= nil and forgeItem.id == glyphs.GLYPH_SHRINE_ID then
+    if forgeItem ~= nil and forgeItem.id == M.GLYPH_SHRINE_ID then
         local userSkill = user:getSkill(Character.mining)
         local limitSkill --wear 3=0, 43=100 max wear=60
         if forgeItem.wear < 3 then

@@ -34,7 +34,7 @@ local catId = pressing:addCategory("Lamp oil", "Lampenöl")
 -- Lamp oil
 local product = pressing:addProduct(catId, 469, 1)
 product:addIngredient(141 , 2) -- black thistle
-product:addIngredient(390) -- oil bottle
+product:addIngredient(390) -- empty oil bottle
 
 catId = pressing:addCategory("Wax", "Wachs")
 

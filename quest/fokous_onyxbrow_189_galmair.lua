@@ -49,8 +49,8 @@ Description[ENGLISH][5] = "Kill five rats in the Cistern, you still have one lef
 Description[GERMAN][6] = "Kehre zu Fokous Onyxbrow für Deine Belohnung zurück."
 Description[ENGLISH][6] = "Return to Fokous Onyxbrow for your reward."
 
-Description[GERMAN][7] = "Kehre zurück zum Bierlieferant Quartiermeister Fokous Onyxbrow, er hat vielleicht noch eine weitere Aufgabe für Dich."
-Description[ENGLISH][7] = "Check back with Beer Supply Quartermaster Fokous Onyxbrow, he may have another task for you."
+Description[GERMAN][7] = "Kehre zurück zum Bierlieferant Fokous Onyxbrow, er hat vielleicht noch eine weitere Aufgabe für Dich."
+Description[ENGLISH][7] = "Check back with Beer Supplier Fokous Onyxbrow, he may have another task for you."
 
 Description[GERMAN][8] = "Sammle zehn Rattenfelle und bringe sie als Beweis zu Fokous Onyxbrow."
 Description[ENGLISH][8] = "Collect ten rat furs and bring them to Fokous Onyxbrow as evidence."
@@ -80,8 +80,8 @@ Description[ENGLISH][19] = "Kill ten rats in the Cistern, you still have one lef
 Description[GERMAN][20] = "Kehre zu Fokous Onyxbrow für Deine Belohnung zurück."
 Description[ENGLISH][20] = "Return to Fokous Onyxbrow for your reward."
 
-Description[GERMAN][21] = "Kehre zurück zum Bierlieferant Quartiermeister Fokous Onyxbrow, er hat vielleicht noch eine weitere Aufgabe für Dich."
-Description[ENGLISH][21] = "Check back with Beer Supply Quartermaster Fokous Onyxbrow, he may have another task for you."
+Description[GERMAN][21] = "Kehre zurück zum Bierlieferant Fokous Onyxbrow, er hat vielleicht noch eine weitere Aufgabe für Dich."
+Description[ENGLISH][21] = "Check back with Beer Supplier Fokous Onyxbrow, he may have another task for you."
 
 Description[GERMAN][22] = "Prüfe fünf vergiftete Rattenköder in der Zusterne. Benutze den Köder (vergiftete Möhren) um die Prüfung auszuführen. Ziehe dazu Handschuhe an."
 Description[ENGLISH][22] = "Check five poisoned rat baits in the cistern. Use the baits (poisoned carrots) to carry out the check. You should wear gloves."
@@ -111,8 +111,8 @@ Description[ENGLISH][33] = "Kill ten rats in the Cistern, you still have one lef
 Description[GERMAN][34] = "Kehre zu Fokous Onyxbrow für Deine Belohnung zurück."
 Description[ENGLISH][34] = "Return to Fokous Onyxbrow for your reward."
 
-Description[GERMAN][35] = "Kehre zurück zum Bierlieferant Quartiermeister Fokous Onyxbrow, er hat vielleicht noch eine weitere Aufgabe für Dich."
-Description[ENGLISH][35] = "Check back with Beer Supply Quartermaster Fokous Onyxbrow, he may have another task for you."
+Description[GERMAN][35] = "Kehre zurück zum Bierlieferant Fokous Onyxbrow, er hat vielleicht noch eine weitere Aufgabe für Dich."
+Description[ENGLISH][35] = "Check back with Beer Supplier Fokous Onyxbrow, he may have another task for you."
 
 Description[GERMAN][36] = "Töte in der Zisterne den Rattenmenschen"
 Description[ENGLISH][36] = "Kill the Ratman boss in the Cistern."

@@ -34,6 +34,7 @@ local messenger = require("content.messenger")
 local M = {}
 
 local BULLETIN_MAX_SLOTS = 10
+M.BULLETIN_MAX_SLOTS = BULLETIN_MAX_SLOTS
 local BULLETIN_EXPRIATION_TIME = 604800 -- seven RL days
 --local BULLETIN_EXPRIATION_TIME = 5*60 --
 local BULLETIN_COST = 2000
@@ -45,11 +46,9 @@ local SalaveshLookAt
 local AkaltutLookAt
 local ronaganLookAt
 local bulletinLookAt
-local tradingPostLookAt
 local tutorialBookrestLookAt
 local WonderlandTeleporter
 local showBulletinBoard
-local showTradingPost
 
 
 local salaveshBookrest = position(741, 406, -3)
@@ -58,7 +57,6 @@ local evilrockBookrest = position(975, 173, 0)
 local wonderlandBookrest = position(864, 550, 0)
 local ronaganBookrest = position(904, 585, -6)
 local bulletinBoard = position(696, 315, 0)
-local tradingPost = position (690, 290, 0)
 local tutorialBookrest = position (683, 284, 0)
 
 function M.LookAtItem(User,Item)
@@ -82,11 +80,6 @@ function M.LookAtItem(User,Item)
     -- Bulletin board
     if (Item.pos == bulletinBoard) then
         lookAt = bulletinLookAt(User, Item)
-    end
-
-    -- Eliza's trading post
-    if (Item.pos == tradingPost) then
-        lookAt = tradingPostLookAt(User, Item)
     end
 
     -- Bookrest for townManagement
@@ -159,13 +152,6 @@ function bulletinLookAt(User, Item)
     return lookAt
 end
 
-function tradingPostLookAt(User, Item)
-    local lookAt = ItemLookAt()
-    lookAt.name = common.GetNLS(User, "Elizas Handelsposten", "Eliza's trading post")
-    lookAt.description = common.GetNLS(User, "Die Anlaufstelle für den Handel mit Fern und Nah.", "The place to be for trading thereabout and whereabout.")
-    return lookAt
-end
-
 function tutorialBookrestLookAt(User, Item)
     local lookAt = ItemLookAt()
     lookAt.name = common.GetNLS(User, "Fähre", "Ferry")
@@ -173,7 +159,7 @@ function tutorialBookrestLookAt(User, Item)
     return lookAt
 end
 
-function M.UseItem(User, SourceItem)
+function M.UseItem(User, SourceItem, actionState)
 
     -- Bookrest for the Salavesh dungeon
     if (SourceItem.pos == salaveshBookrest) then
@@ -207,11 +193,6 @@ function M.UseItem(User, SourceItem)
     -- Bulletin board
     if (SourceItem.pos == bulletinBoard) then
         showBulletinBoard(User, Item)
-    end
-
-    -- Eliza's trading post
-    if (SourceItem.pos == tradingPost) then
-        showTradingPost(User, Item)
     end
 
     -- Bookrest for the Evilrock
@@ -258,14 +239,19 @@ function M.UseItem(User, SourceItem)
     end
 
     -- ferries
-    if seafaring.useFerry(User, SourceItem) then
+    if seafaring.useFerry(User, SourceItem, actionState) then
         return
     end
 
     -- static teleporter
-    if staticteleporter.useTeleporter(User, SourceItem) then
+    if staticteleporter.useTeleporter(User, SourceItem, actionState) then
         return
     end
+end
+
+function M.actionDisturbed(user, attacker)
+    user:inform("Du solltest dich erstmal mit deinem Angreifer befassen.", "You should deal with your attacker first.")
+    return true
 end
 
 function WonderlandTeleporter(User, SourceItem)
@@ -315,6 +301,21 @@ local setBulletinMessages
 local showBulletinMessage
 
 function showBulletinBoard(user, theItem)
+
+    local foundLatest, latest = ScriptVars:find("latestBulletinMessage")
+
+    if foundLatest then
+        local latestCheckedByUser = user:getQuestProgress(255)
+
+        latest = tonumber(latest)
+
+        if latestCheckedByUser ~= latest then
+
+            user:setQuestProgress(255, latest)
+
+        end
+    end
+
     -- select what to do
     local dialogOptions = {
         { icon = 0, text = common.GetNLS(user, "Nachrichten lesen", "Read messages"), func = readBulletinBoard, args = { user } },
@@ -415,10 +416,10 @@ function writeBulletinBoardStep2(User, Item, newTitleContent)
     User:requestInputDialog(dialogText)
 end
 
-function writeBulletinBoardStep3(User, Item, newTitleContent, newTextContent)
+function writeBulletinBoardStep3(user, Item, newTitleContent, newTextContent)
     -- add the message to the board
     -- we do the checks all over again, because the state might have changed in the time that user replied to all the dialogs
-    local bulletinMessages = getBulletinMessages(User)
+    local bulletinMessages = getBulletinMessages(user)
     if #bulletinMessages >= BULLETIN_MAX_SLOTS then
         local closestExpirationTime = bulletinMessages[1].Expiration
         for _,message in ipairs(bulletinMessages) do
@@ -428,22 +429,36 @@ function writeBulletinBoardStep3(User, Item, newTitleContent, newTextContent)
         local timeDifferenceDays = math.floor(timeDifference/(60*60*24))
         local timeDifferenceHours = math.floor((timeDifference-timeDifferenceDays*60*60*24)/(60*60))
         local timeDifferenceMinutes = math.floor((timeDifference-timeDifferenceDays*60*60*24-timeDifferenceHours*60*60)/60)
-        User:inform("Die Anschlagtafel ist voll. Warte, bis ein Anschlagplatz frei wird. Dies wird noch "..timeDifferenceDays.." Tage, "..timeDifferenceHours.." Stunden und "..timeDifferenceMinutes.." Minuten dauern", "The bulletin board is full. Please wait for a free slot. It will take "..timeDifferenceDays.." days, "..timeDifferenceHours.." hours and "..timeDifferenceMinutes.." minutes.")
+        user:inform("Die Anschlagtafel ist voll. Warte, bis ein Anschlagplatz frei wird. Dies wird noch "..timeDifferenceDays.." Tage, "..timeDifferenceHours.." Stunden und "..timeDifferenceMinutes.." Minuten dauern", "The bulletin board is full. Please wait for a free slot. It will take "..timeDifferenceDays.." days, "..timeDifferenceHours.." hours and "..timeDifferenceMinutes.." minutes.")
         return
     end
 
-    if not money.CharHasMoney(User, BULLETIN_COST) then--check money
-        User:inform("Du hast nicht genug Geld. ".. BULLETIN_COST_STR_DE, "You don't have enough money. ".. BULLETIN_COST_STR_EN)
+    if not money.CharHasMoney(user, BULLETIN_COST) then--check money
+        user:inform("Du hast nicht genug Geld. ".. BULLETIN_COST_STR_DE, "You don't have enough money. ".. BULLETIN_COST_STR_EN)
         return
     end
 
     table.insert(bulletinMessages,
-        { Title = newTitleContent, Text = newTextContent, Author = User.name, AuthorId = User.id, Expiration = world:getTime("unix")+BULLETIN_EXPRIATION_TIME }
+        { Title = newTitleContent, Text = newTextContent, Author = user.name, AuthorId = user.id, Expiration = world:getTime("unix")+BULLETIN_EXPRIATION_TIME }
     )
-    money.TakeMoneyFromChar(User, BULLETIN_COST) --pay
+    money.TakeMoneyFromChar(user, BULLETIN_COST) --pay
     world:broadcast("Am Gasthof zur Hanfschlinge hängt ein neuer Anschlag.", "A new bulletin has been published at the Hemp Necktie Inn.")
 
-    setBulletinMessages(User, bulletinMessages)
+    local foundLatest, latest = ScriptVars:find("latestBulletinMessage")
+
+    if not foundLatest then
+        latest = 0
+    end
+
+    latest = tonumber(latest) + 1
+
+    user:setQuestProgress(255, latest)
+
+    ScriptVars:set("latestBulletinMessage", tostring(latest))
+
+    ScriptVars:save()
+
+    setBulletinMessages(user, bulletinMessages)
 end
 
 function removeFromBulletinBoard(User, Item)
@@ -558,11 +573,6 @@ function showBulletinMessage(User, bulletinMessage)
     local text = bulletinMessage.Text.."\n~"..bulletinMessage.Author
     local dialog = MessageDialog(title, text, callback)
     User:requestMessageDialog(dialog)
-end
-
--- Eliza's trading post
-function showTradingPost(User, Item)
-
 end
 
 return M

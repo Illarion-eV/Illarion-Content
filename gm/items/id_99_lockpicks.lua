@@ -27,6 +27,8 @@ local areas = require("content.areas")
 local shard = require("item.shard")
 local gods = require("content.gods")
 local resurrected = require("lte.resurrected")
+local persistenceTracker = require("gm.persistenceTracker")
+local activityTracker = require("lte.activity_tracker")
 
 local M = {}
 
@@ -356,6 +358,31 @@ local function ambientActionShardShower(targetChar)
     end
 end
 
+local function verifyTheGMReallyWantsToDeleteThePropertyDeed(user, chosenItem)
+
+    local title = "Notice Deletion"
+    local text = "Are you sure you want to delete this notice? If it is a property deed it contains a lot of vital information for the relevant property which will then all be reset."
+
+    local callback = function(dialog)
+        if not dialog:getSuccess() then
+            return
+        end
+
+        local index = dialog:getSelectedIndex()+1
+
+        if index == 1 then
+            world:erase(chosenItem, chosenItem.number)
+            user:logAdmin("erases " .. chosenItem.number .. " items from map: " .. world:getItemName(chosenItem.id, Player.english) .. "(" .. chosenItem.id .. ") at " .. tostring(common.GetFrontPosition(user)))
+        end
+    end
+
+    local dialog = SelectionDialog(title, text, callback)
+
+    dialog:addOption(0, "Yes, I am sure that I want to delete this potentially important information.")
+
+    user:requestSelectionDialog(dialog)
+end
+
 local function eraser(user)
 
     --get all the items the char has on him, with the stuff in the backpack
@@ -377,14 +404,22 @@ local function eraser(user)
         if (index == 0) then
             chosenItem = common.GetFrontItem(user)
             if chosenItem ~= nil then
-                world:erase(chosenItem, chosenItem.number)
-                user:logAdmin("erases " .. chosenItem.number .. " items from map: " .. world:getItemName(chosenItem.id, Player.english) .. "(" .. chosenItem.id .. ") at " .. tostring(common.GetFrontPosition(user)))
+                if chosenItem.id == 3772 or chosenItem.id == 3773 then -- property deeds
+                    verifyTheGMReallyWantsToDeleteThePropertyDeed(user, chosenItem)
+                else
+                    world:erase(chosenItem, chosenItem.number)
+                    user:logAdmin("erases " .. chosenItem.number .. " items from map: " .. world:getItemName(chosenItem.id, Player.english) .. "(" .. chosenItem.id .. ") at " .. tostring(common.GetFrontPosition(user)))
+                end
             end
         elseif (index == 1) then
             while common.GetFrontItem(user) ~= nil do
                 chosenItem = common.GetFrontItem(user)
-                world:erase(chosenItem, chosenItem.number)
-                user:logAdmin("erases " .. chosenItem.number .. " items from map: " .. world:getItemName(chosenItem.id, Player.english) .. "(" .. chosenItem.id .. ") at " .. tostring(common.GetFrontPosition(user)))
+                if chosenItem.id == 3772 or chosenItem.id == 3773 then -- property deeds
+                    verifyTheGMReallyWantsToDeleteThePropertyDeed(user, chosenItem)
+                else
+                    world:erase(chosenItem, chosenItem.number)
+                    user:logAdmin("erases " .. chosenItem.number .. " items from map: " .. world:getItemName(chosenItem.id, Player.english) .. "(" .. chosenItem.id .. ") at " .. tostring(common.GetFrontPosition(user)))
+                end
             end
         else
             chosenItem = itemsOnChar[index-1]
@@ -1458,9 +1493,117 @@ local function actionOnGroup(user,item)
     user:requestSelectionDialog(sdPlayer)
 end
 
+local function sendGroupMessage(user, chosenPlayer)
+
+    local playersInRange = world:getPlayersInRangeOf(chosenPlayer.pos, 25)
+
+    local callback = function (dialog)
+
+        if not dialog:getSuccess() then
+            return
+        end
+
+        local input = dialog:getInput()
+
+        local english = "Message for you: "
+        local german = "Nachricht an dich: "
+
+        local nameList = ""
+
+        for index, selectedPlayer in ipairs(playersInRange) do
+
+            selectedPlayer:inform(common.GetNLS(user, german, english)..input)
+
+            nameList = nameList..selectedPlayer.name
+
+            if index < #playersInRange then
+                nameList = nameList..", "
+            end
+        end
+
+        user:inform("Sent message ("..input..")".." to the following players: "..nameList..".")
+
+    end
+
+    user:requestInputDialog(InputDialog("Send Message", "Send a message to anyone in a 25 tile range of "..chosenPlayer.name.."\nWrite what you want the message to say" ,false, 255, callback))
+
+end
+
+local function sendTalkToMessage(user, chosenPlayer)
+
+    local callback = function (dialog)
+
+        if not dialog:getSuccess() then
+            return
+        end
+
+        local input = dialog:getInput()
+
+        local english = "Message for you: "
+        local german = "Nachricht an dich: "
+
+        chosenPlayer:inform(common.GetNLS(user, german, english)..input)
+        user:inform("To "..chosenPlayer.name.."("..chosenPlayer.id.."): "..input)
+
+    end
+
+    user:requestInputDialog(InputDialog("Send a message to "..chosenPlayer.name, "Write what you want the message to say" ,false, 255, callback))
+
+end
+
+local function viewActivityForPlayer(user, chosenPlayer)
+
+    local textToList = ""
+    local currentMonth = common.getTime("month")
+    local activityTrackerID = 84
+    local found, tracker = chosenPlayer.effects:find(activityTrackerID)
+
+    for i = 1, 15 do --check each month
+
+        local monthInString = common.Month_To_String(i)
+
+        local activeTicks = chosenPlayer:getQuestProgress(activityTracker.monthQuestIDs[monthInString])
+
+        if i == currentMonth then   --Add to it the value of the current session to display correct data despite it not being saved yet
+            if found then
+                local foundActivity, activity = tracker:findValue("sessionActiveTime")
+                if foundActivity then
+                    activeTicks = activeTicks + activity
+                end
+            end
+        end
+
+        textToList = textToList.."Month "..monthInString..": "..tostring(activeTicks*5).." minutes.\n"
+    end
+
+    local interactionTicks = chosenPlayer:getQuestProgress(activityTracker.reputationTrackerQuestID)
+
+    if found then
+        local foundInteractionsForSession, interactionsForSession = tracker:findValue("sessionInteractionTime")
+
+        if foundInteractionsForSession then
+            interactionTicks = interactionTicks + interactionsForSession
+        end
+    end
+
+    textToList = textToList.."\nReputation points: "..interactionTicks.." \nReputation rank: TBD"
+
+    if chosenPlayer:isAdmin() then
+        textToList = "Admin activity is not tracked."
+    end
+
+    local messageCallback = function(messageDialog)
+    end
+
+    local messageDialog = MessageDialog(chosenPlayer.name.." activity:", textToList, messageCallback)
+
+    user:requestMessageDialog(messageDialog)
+
+end
+
 local function settingsForChar(user)
 
-    local playersTmp = world:getPlayersInRangeOf(user.pos, 25)
+    local playersTmp = world:getPlayersOnline()
     local players = {user}
     for _, player in pairs(playersTmp) do
         if (player.id ~= user.id) then
@@ -1479,31 +1622,44 @@ local function settingsForChar(user)
             end
             local actionToPerform = subdialog:getSelectedIndex()
             if actionToPerform == 0 then
-                settingsForCharQueststatus(user, chosenPlayer)
+                sendTalkToMessage(user, chosenPlayer)
             elseif actionToPerform == 1 then
-                settingsForCharAttacableLimited(user, chosenPlayer)
+                sendGroupMessage(user, chosenPlayer)
             elseif actionToPerform == 2 then
-                settingsForCharAttacableForever(user, chosenPlayer)
+                settingsForCharQueststatus(user, chosenPlayer)
             elseif actionToPerform == 3 then
-                settingsForCharSkills(user, chosenPlayer)
+                viewActivityForPlayer(user, chosenPlayer)
             elseif actionToPerform == 4 then
-                settingsForCharMagicClass(user, chosenPlayer)
+                settingsForCharAttacableLimited(user, chosenPlayer)
             elseif actionToPerform == 5 then
-                settingsForCharMC(user, chosenPlayer)
+                settingsForCharAttacableForever(user, chosenPlayer)
             elseif actionToPerform == 6 then
-                settingsForCharFireProof(user, chosenPlayer)
+                settingsForCharSkills(user, chosenPlayer)
             elseif actionToPerform == 7 then
-                settingsForCharIceFlameProof(user, chosenPlayer)
+                settingsForCharMagicClass(user, chosenPlayer)
             elseif actionToPerform == 8 then
-                settingsForCharPoisonCloudProof(user, chosenPlayer)
+                settingsForCharMC(user, chosenPlayer)
             elseif actionToPerform == 9 then
-                settingsForCharAttributes(user, chosenPlayer)
+                settingsForCharFireProof(user, chosenPlayer)
             elseif actionToPerform == 10 then
+                settingsForCharIceFlameProof(user, chosenPlayer)
+            elseif actionToPerform == 11 then
+                settingsForCharPoisonCloudProof(user, chosenPlayer)
+            elseif actionToPerform == 12 then
+                settingsForCharAttributes(user, chosenPlayer)
+            elseif actionToPerform == 13 then
                 settingsForCharReligion(user, chosenPlayer)
             end
         end
         local sdAction = SelectionDialog("Character settings", chosenPlayer.name.."\n" .. charInfo(chosenPlayer), charActionDialog)
+
+        sdAction:addOption(333, "Send a message to "..chosenPlayer.name)
+
+        sdAction:addOption(333, "Send a message to "..chosenPlayer.name.." and anyone in a 25 tile range of "..chosenPlayer.name)
+
         sdAction:addOption(3109,"Get/set Queststatus")
+
+        sdAction:addOption(3109, "View Activity/Reputation")
         if chosenPlayer:getQuestProgress(236) == 0 then
             sdAction:addOption(20,"Make 15 min attack proof!")
         else
@@ -1581,7 +1737,7 @@ end
 local function resetTutorial(user)
     user:turn(4) --south
     user:warp(position(702, 283, 0))
-    local questlist={154,199,309,310,311,312,313,314,315,319,320,321,322,323,324,325,326,327,328,329,330,331,332,336,337,338,339,340,341,344,345,346,347,348,349,353,354,355,356,357,358}
+    local questlist={154,199,309,310,311,312,313,314,315,319,320,321,322,323,324,325,326,327,328,329,330,331,332,336,337,338,339,340,341,344,345,346,347,348,349,353,354,355,356,357,358,359}
     for i=1,#questlist do
         user:setQuestProgress(questlist[i],0)
     end
@@ -1610,6 +1766,8 @@ local function changePersistence(user)
                 world:makePersistentAt(frontOfUser)
                 user:inform("The tile is now persistent.")
             end
+        elseif index == 2 then
+            persistenceTracker.listPersistenceInArea(user)
         end
     end
     local dialog = SelectionDialog("Persistence", text, callback)
@@ -1618,6 +1776,7 @@ local function changePersistence(user)
         else
             dialog:addOption(0, "Make tile persistent")
         end
+        dialog:addOption(0, "Persistence tracker")
     user:requestSelectionDialog(dialog)
 end
 

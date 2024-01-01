@@ -358,7 +358,7 @@ queststatus(160) = 0, chance(9.09), town = Runewick, "task", "adventure", "order
 queststatus(160) = 0, chance(9.09), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 15, queststatus(260) = 36, "Unser erhabener Erzmagier erwartet Besuch. Für die Verköstigung brauchen wir noch eine Flasche runewicker Wein. Bring mir doch schnell eine."
 
 -- Quest 15 solved, reward: 1 Silver , 3 rankpoints, delay: 5h
-queststatus(160) = 15, item(2500, all) > 0, english, town = Runewick, ".*" -> inform("[Quest solved] You are awarded a silver coin."), money + 100, deleteItem(2500, 1), queststatus(160) = 0, queststatus(260) = 0, queststatus(161) = 60, rankpoints + 3, "Thank you for this bottle. Our guest will know how good our wine is. For you, i have this silver coin as payment."
+queststatus(160) = 15, item(2500, all) > 0, english, town = Runewick, ".*" -> inform("[Quest solved] You are awarded a silver coin."), money + 100, deleteItem(2500, 1), queststatus(160) = 0, queststatus(260) = 0, queststatus(161) = 60, rankpoints + 3, "Thank you for this bottle. Our guest will know how good our wine is. For you, I have this silver coin as payment."
 queststatus(160) = 15, item(2500, all) > 0, town = Runewick, ".*" -> inform("[Quest gelöst] Du erhältst ein Silberstück."), money + 100, deleteItem(2500, 1), queststatus(160) = 0, queststatus(260) = 0, queststatus(161) = 60, rankpoints + 3, "Danke für die Flasche. Unser Gast soll wissen welchen guten Wein wir hier haben. Für euch hab ich eine Silbermünze als Bezahlung."
 
 -- Quest 15 taken but not solved, repeat the instructions

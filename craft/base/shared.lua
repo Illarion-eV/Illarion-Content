@@ -105,7 +105,7 @@ function M.getTool(User, id)
             return false
         end
     else
-        common.HighInformNLS(User,"Du musst ein"..germanExtension.." "..world:getItemName(id, Player.german).." in der Hand halten.","You need to hold the "..world:getItemName(id, Player.english).." in your hand.")
+        common.HighInformNLS(User,"Du musst ein"..germanExtension.." "..world:getItemName(id, Player.german).." in der Hand halten.","You need to hold a "..world:getItemName(id, Player.english).." in your hand.")
         return false
     end
 end

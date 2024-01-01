@@ -119,6 +119,8 @@ function M.rewardDialog(Char, nrStones)
         if success then
             local selected = dialog:getSelectedIndex()+1
             common.CreateItem(Char, reward[nrStones][selected][1], reward[nrStones][selected][2], 699, nil)
+        else
+            Char:requestSelectionDialog(dialog)
         end
     end
 

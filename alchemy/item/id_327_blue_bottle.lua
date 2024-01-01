@@ -228,6 +228,7 @@ function M.UseItem(user, SourceItem, ltstate)
                 world:changeItem( SourceItem );
             end
         else -- not a bomb
+            alchemy.logConsumption(user, SourceItem)
             user:talk(Character.say, "#me trinkt eine dunkelblaue Flüssigkeit.", "#me drinks a dark blue liquid.")
             user.movepoints=user.movepoints - 20
             DrinkPotion(user,SourceItem)

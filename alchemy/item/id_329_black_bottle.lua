@@ -372,6 +372,7 @@ function M.UseItem(user, SourceItem, ltstate)
         alchemy.FillIntoCauldron(user,SourceItem,cauldron,ltstate)
     else -- not infront of a cauldron, therefore drink!
         if DrinkPotion(user,SourceItem) then
+            alchemy.logConsumption(user, SourceItem)
             alchemy.EmptyBottle(user,SourceItem)
             user:talk(Character.say, "#me trinkt eine schwarze Flüssigkeit.", "#me drinks a black liquid.")
             user.movepoints=user.movepoints - 20
@@ -515,14 +516,16 @@ end
 
 local function nearUsharaAltar(thePosition)
 
-    local altars = {1162, 1163}
+    local altars = {1162, 1163, 2872}
 
     local positions = {
         thePosition,
-        position(thePosition.x +1, thePosition.y, thePosition.z),
         position(thePosition.x +1, thePosition.y +1, thePosition.z),
+        position(thePosition.x +1, thePosition.y -1, thePosition.z),
+        position(thePosition.x +1, thePosition.y, thePosition.z),
+        position(thePosition.x -1, thePosition.y +1, thePosition.z),
+        position(thePosition.x -1, thePosition.y -1, thePosition.z),
         position(thePosition.x -1, thePosition.y, thePosition.z),
-        position(thePosition.x -1, thePosition.y - 1, thePosition.z),
         position(thePosition.x, thePosition.y +1, thePosition.z),
         position(thePosition.x, thePosition.y -1, thePosition.z)}
 
@@ -533,7 +536,10 @@ local function nearUsharaAltar(thePosition)
             local checkItem = theField:getStackItem(i)
             for _, altar in pairs(altars) do
                 if checkItem.id == altar then
-                    return true
+                    local god = checkItem:getData("god")
+                    if god == "1" then  --It is an altar dedicated to Ushara of either the Ushara's altar variant or generic five gods variant
+                        return true
+                    end
                 end
             end
         end

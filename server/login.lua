@@ -29,7 +29,9 @@ local gods_common = require("content._gods.gods_common")
 local tutorial = require("content.tutorial")
 local keys = require("item.keys")
 local ceilingtrowel = require("gm.items.id_382_ceilingtrowel")
+local utility = require("housing.utility")
 local messenger = require("content.messenger")
+local bookrests = require("item.bookrests")
 
 -- Called after every player login
 
@@ -233,6 +235,7 @@ local payTaxes
 local receiveGems
 local PayOutWage
 local payNow
+local checkForNewBulletinMessages
 
 function M.onLogin( player )
 
@@ -349,12 +352,19 @@ function M.onLogin( player )
         player.effects:addEffect(LongTimeEffect(33, 10))
     end
 
+    -- Initiate activity tracker
+    local activityTrackerID = 84
+    if not player:isAdmin() and not player.effects:find(activityTrackerID) then -- Not tracking admins playtime in case we use reputation/playtime for display purposes/highscores or the likes in the future
+        player.effects:addEffect(LongTimeEffect(activityTrackerID, 10)) --Initiate the activity tracker for the first time
+    end
+
     --Checking gods cooldown
     found = player.effects:find(gods_common.EFFECT_ID)
     if not found then
         player.effects:addEffect(LongTimeEffect(gods_common.EFFECT_ID, 10))
     end
 
+    utility.keyRetrieval(player, true)
     --Checking for pending town behaviour changes
     keys.changeTownBehaviourOnLogin(player)
 
@@ -363,6 +373,9 @@ function M.onLogin( player )
 
     --Checking for pending messages from the messenger
     messenger.sendStoredMessages(player)
+
+    --Check for and provide an inform if there are unread messages at the Troll's haven bulletin board or the relevant town boards if a citizen
+    checkForNewBulletinMessages(player)
 end
 
 function showNewbieDialog(player)
@@ -644,6 +657,91 @@ function exchangeFactionLeader( playerName )
                 factionLeader.informationTable[i].newPosition)
         end
     end
+end
+
+local function checkTrollsHavenBulletin(user)
+
+    local messageExists = false
+
+    for i = 1, bookrests.BULLETIN_MAX_SLOTS do
+
+        local expirationFound, expirationContent = ScriptVars:find("messageExpiration"..tostring(i))
+
+        if expirationFound and not common.IsNilOrEmpty(expirationContent) then
+            expirationContent = tonumber(expirationContent)
+            if expirationContent > world:getTime("unix") then
+                messageExists = true
+            end
+        end
+    end
+
+    local lastSeen = user:getQuestProgress(255)
+
+    local foundLatest, latest = ScriptVars:find("latestBulletinMessage")
+
+    if not messageExists and foundLatest then --The message expired before the user got the chance to read it and there are no current messages
+        lastSeen = tonumber(latest)
+        user:setQuestProgress(255, lastSeen)
+    end
+
+    if foundLatest and lastSeen ~= tonumber(latest) then
+        return true
+    end
+
+    return false
+
+end
+
+local function checkRealmBulletin(user)
+
+    local town = factions.getMembershipByName(user)
+
+    if town == "None" then
+        return false
+    end
+
+    local townBoardQuestIds = {Runewick = 256, Cadomyr = 257, Galmair = 258}
+
+    local townQuestId = townBoardQuestIds[town]
+
+    local foundTownLatest, townLatest = ScriptVars:find("latestMessage"..town)
+
+    local lastSeen = user:getQuestProgress(townQuestId)
+
+    if foundTownLatest and lastSeen ~= tonumber(townLatest) then
+        return true, town
+    end
+
+    return false
+
+end
+
+function checkForNewBulletinMessages(user)
+
+    local sendTrollsHavenMessage = checkTrollsHavenBulletin(user)
+
+    local sendRealmMessage, town = checkRealmBulletin(user)
+
+
+    if not sendRealmMessage and not sendTrollsHavenMessage then
+        return
+    end
+
+    local texts = {}
+
+    if sendRealmMessage and sendTrollsHavenMessage then
+        texts.english = "There are new messages to be read at both the Hemp Necktie Inn bulletin board and the town board of "..town.."."
+        texts.german = "Neue Nachrichten wurde an das Brett des Gasthofes zur Hanschlinge und von "..town.." angeschlagen."
+    elseif sendRealmMessage then
+        texts.english = "There are new messages to be read at the "..town.." town board."
+        texts.german = "Neue Nachrichten wurde an das Brett von "..town.." angeschlagen."
+    else
+        texts.english = "There are new messages to be read at the Hemp Necktie Inn bulletin board."
+        texts.german = "Neue Nachrichten wurde an das Brett des Gasthofes zur Hanschlinge angeschlagen."
+    end
+
+    user:inform("[Nachrichten] "..texts.german, "[Bulletin] "..texts.english)
+
 end
 
 return M

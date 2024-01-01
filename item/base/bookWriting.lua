@@ -303,6 +303,10 @@ function M.getParchmentSelectionStatus(user)
     return parchmentSelectionStatus[user.name].status
 end
 
+M.germanParchmentDescription = "Das Pergament ist beschrieben."
+M.englishParchmentDescription = "The parchment has been written on."
+
+
 function M.convertStringToMultipleParchmentDataValues(theParchment, writtenText)
     local texts = {
         string.sub(writtenText, 1, 250),
@@ -317,7 +321,7 @@ function M.convertStringToMultipleParchmentDataValues(theParchment, writtenText)
         theParchment:setData("writtenText"..i, texts[i])
     end
 
-    lookat.SetSpecialDescription(theParchment,"Das Pergament ist beschrieben.","The parchment has been written on.")
+    lookat.SetSpecialDescription(theParchment,M.germanParchmentDescription,M.englishParchmentDescription)
 
     theParchment.wear = 254 -- Written parchments should have maximum rot time to allow message exchange
 

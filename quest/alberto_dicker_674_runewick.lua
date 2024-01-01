@@ -46,7 +46,7 @@ Description[GERMAN] = {}
 Description[ENGLISH] = {}
 -- Quests
 Description[GERMAN][1] = "Schau dir das Gemälde des Hahnes genau an. Sage Numila Irunnleh was nicht stimmt. Fällt dir an der Unterschrift was auf? Du kannst in der Bücherei über den Maler nachlesen, dort findest du die Antwort."
-Description[ENGLISH][1] = "Look over the picture of the rooster. Tell Numila Irunnleh what is maybe not right with it. Take a clos look at the signature. You can find in the library a book about the painter, it contains hints for your answer."
+Description[ENGLISH][1] = "Look over the picture of the rooster. Tell Numila Irunnleh what is maybe not right with it. Take a close look at the signature. You can find in the library a book about the painter, it contains hints for your answer."
 Description[GERMAN][2] = "Gehe zu Rabans Hain im Nordwald und sprich mit Raban. Rabans Hain befindet sich in der Mitte des Nordwaldes."
 Description[ENGLISH][2] = "Go to Raban's Grove in the northern forest and talk to Raban. You find Raban's Grove in the middle of the northern forest."
 Description[GERMAN][3] = "Kehre zu Numila Irunnleh zurück und sprich mit ihr."

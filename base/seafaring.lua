@@ -24,6 +24,8 @@ local monsterHooks = require("monster.base.hooks")
 
 local M = {}
 
+local destinationIds = {}
+
 local harborList = {}
     harborList[1] = {nameDe="Cadomyr Hafen", nameEn="Cadomyr Harbour", targetDe="zum Hafen Cadomyr" ,pos=position(101,790,0),pict=2701,start=true}
     harborList[2] = {nameDe="Galmair Hafen", nameEn="Galmair Harbour", targetDe="zum Hafen Galmair", pos=position(451,95,0),pict=61,start=true}
@@ -520,6 +522,34 @@ local function travelToTarget(user, harborId, startPos)
 
 end
 
+local function setDestinationId(user, destinationId)
+
+    destinationIds[user.id] = destinationId
+
+end
+
+local function getDestinationId(user)
+
+    return destinationIds[user.id]
+
+end
+
+local function setSail(user, sourceItem)
+
+    local priceFerry = getFerryPrice()
+    local destinationId = getDestinationId(user)
+
+    money.TakeMoneyFromChar(user, priceFerry)
+    travelToTarget(user, destinationId, sourceItem.pos)
+
+end
+
+local function abortFerry(user)
+
+    user:inform("Da das Auslaufen unterbrochen wurde, geben die Matrosen dein Geld zurück, bevor sie sich wieder ihrem Tagesgeschäft widmen.", "As the process of setting sail is interrupted, the sailors return your money before returning to their usual work.")
+
+end
+
 local function startFerry(user, sourceItem)
     local dialogTitle
     local dialogAddText
@@ -541,8 +571,18 @@ local function startFerry(user, sourceItem)
             local selected = dialog:getSelectedIndex()
             if dialogOption[selected+1][2] then
                 if  money.CharHasMoney(user,priceFerry) then
-                    money.TakeMoneyFromChar(user,priceFerry)
-                    travelToTarget(user, dialogOption[selected+1][1],sourceItem.pos)
+
+                    user:talk(Character.say, "#me gibt die Münzen an ein Mannschaftsmitglied weiter und macht anschließend einen Eintrag ins Logbuch.", "#me hands over some coins to a nearby sailor, then begins filling in the required information into the sailors log in front.")
+
+                    local potentialTravelers = world:getPlayersInRangeOf(sourceItem.pos, 10)
+
+                    for _, potentialTraveler in pairs(potentialTravelers) do
+                        potentialTraveler:inform("Nach dem Abkassieren deutet der Fährmann der Mannschaft, alles bereit zum Ablegen zu machen.", "As the sailor is handed the coins, he calls for his fellow crewmates and they start getting ready to set sail.")
+                    end
+
+                    setDestinationId(user, dialogOption[selected+1][1])
+
+                    user:startAction(200, 21, 10, 0, 0)
                 else
                     common.InformNLS(user,"Du hast nicht genug Geld für diese Reise. Die Reise kostet" .. germanMoney .." für eine Überfahrt.",
                                            "You don't have enough money for this journey. The journey costs" .. englishMoney .." for one passage.")
@@ -795,7 +835,7 @@ function M.login(user)
     end
 end
 
-function M.useFerry(user, sourceItem)
+function M.useFerry(user, sourceItem, actionState)
     for i, harbor in pairs(harborList) do
         if sourceItem.pos == harbor.pos then
             local foundValue, blockedHarbors = ScriptVars:find("seafaringBlockOutgoing")
@@ -803,7 +843,13 @@ function M.useFerry(user, sourceItem)
                 blockedHarbors = 0
             end
             if not common.isBitSet(blockedHarbors, i) then
-                startFerry(user, sourceItem)
+                if actionState == Action.none then
+                    startFerry(user, sourceItem)
+                elseif actionState == Action.abort then
+                    abortFerry(user)
+                elseif actionState == Action.success then
+                    setSail(user, sourceItem)
+                end
             end
             return true
         end

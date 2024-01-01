@@ -287,7 +287,7 @@ treasureContents[2] = {
 {187,1}, --steel hat
 {283,1}, --obsidian
 {284,1}, --sapphire
-{390,1}, --oil bottle
+{390,1}, --empty oil bottle
 {831,1}, --green hat with feather
 {1425,1}, --coppered chain helmet
 {183,1}, --short green trousers

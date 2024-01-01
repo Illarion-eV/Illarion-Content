@@ -65,8 +65,6 @@ local Craft = {
 
     handTool = 0,
     tool = {},
-    activeTool = {},
-    toolLink = {},
 
     sfx = 0,
     sfxDuration = 0,
@@ -95,8 +93,6 @@ function Craft:new(c)
     c.products = {}
     c.categories = {}
     c.tool = {}
-    c.activeTool = {}
-    c.toolLink = {}
     c.defaultProduct = Product:new{}
     return c
 end
@@ -107,12 +103,6 @@ function Craft:addTool(itemId)
     end
 
     self.tool[itemId] = true
-end
-
-function Craft:addActiveTool(inactiveItemId, itemId)
-    self.activeTool[itemId] = true
-    self.toolLink[itemId] = inactiveItemId
-    self.toolLink[inactiveItemId] = itemId
 end
 
 function Craft:addCategory(categoryNameEN, categoryNameDE)
@@ -181,9 +171,6 @@ function Craft:showDialog(user, source)
             local product = self.products[productId]
             local foodOK = self:checkRequiredFood(user, product:getCraftingTime(self:getSkill(user)))
             local canWork = self:allowCrafting(user, source) and self:checkMaterial(user, productId) and foodOK
-            if canWork then
-                self:swapToActiveItem(user)
-            end
             return canWork
         elseif result == CraftingDialog.playerLooksAtItem then
             local productId = dialog:getCraftableId()
@@ -199,8 +186,6 @@ function Craft:showDialog(user, source)
                 self:refreshDialog(dialog, user)
             end
             return skillGain
-        else
-            self:swapToInactiveItem(user)
         end
     end
     local dialog = CraftingDialog(self:getName(user), self.sfx, self.sfxDuration, callback)
@@ -245,7 +230,6 @@ function Craft:allowUserCrafting(user, source)
         end
 
         if not self:isHandToolEquipped(user) then
-            self:swapToInactiveItem(user)
             common.HighInformNLS(user,
             "Du musst ein intaktes Werkzeug in die Hand nehmen um damit zu arbeiten.",
             "You must have an intact tool in your hand to work with.")
@@ -412,56 +396,6 @@ function Product:getCraftingTime(skill)
 
 end
 
-function Craft:swapToActiveItem(user)
-    if self.npcCraft then
-        return
-    end
-
-    local frontItem = common.GetFrontItem(user)
-
-    if not self.toolLink[frontItem.id] then
-        return
-    end
-
-    if not self.tool[frontItem.id] then
-        return
-    end
-
-    if self.activeTool[frontItem.id] then
-        return
-    end
-
-    frontItem.id = self.toolLink[frontItem.id]
-    frontItem.wear = 2
-    world:changeItem(frontItem)
-end
-
-function Craft:swapToInactiveItem(user)
-    if self.npcCraft then
-        return
-    end
-
-    local frontItem = common.GetFrontItem(user)
-
-    if not self.toolLink[frontItem.id] then
-        return
-    end
-
-    if self.tool[frontItem.id] then
-        return
-    end
-
-    if not self.activeTool[frontItem.id] then
-        return
-    end
-
-    if frontItem.id ~= self.toolLink[frontItem.id] then
-        frontItem.id = self.toolLink[frontItem.id]
-        frontItem.wear = 255
-        world:changeItem(frontItem)
-    end
-end
-
 function Craft:checkRequiredFood(user, craftingTime)
     local neededFood=craftingTime*4 --One second of crafting takes 40 food points
     if common.FitForHardWork(user, math.ceil(neededFood+craftingTime*0.1)) then --Each second, one spends one food point per default.
@@ -482,8 +416,6 @@ function Craft:getSkill(user)
         return 0
     end
 end
-
-
 
 local function checkForRareFoodIngredient(user, ingredient)
 
@@ -609,13 +541,15 @@ function Craft:generateRarity(user, productId, toolItem, rareIngredientBonus)
 end
 
 function Craft:checkIfFoodItem(productId)
+
     local product = self.products[productId]
-    if not foodScript.foodList[product.item] then
-        return false
+
+    if foodScript.foodList[product.item] and foodScript.foodList[product.item].crafted then
+        return true
     end
-    if foodScript.foodList[product.item].crafted then
-        return true, foodScript.foodList[product.item].buffs
-    end
+
+    return false
+
 end
 
 function Craft:generateQuality(user, productId, toolItem)
@@ -646,14 +580,7 @@ function Craft:locationFine(user)
     self:turnToTool(user)
 
     local staticTool = common.GetFrontItemID(user)
-    if self.activeTool[staticTool] then
-        if not self.fallbackCraft then
-            common.HighInformNLS(user,
-            "Hier arbeitet schon jemand.",
-            "Someone is working here already.")
-        end
-        return false
-    elseif not self.tool[staticTool] then
+    if not self.tool[staticTool] then
         if not self.fallbackCraft then
             local germanTool = world:getItemName(self.defaultTool, Player.german)
             local englishTool = world:getItemName(self.defaultTool, Player.english)
@@ -717,14 +644,12 @@ function Craft:craftItem(user, productId)
         common.HighInformNLS(user,
         "Du bist nicht fähig genug um das zu tun.",
         "You are not skilled enough to do this.")
-        self:swapToInactiveItem(user)
         return false
     end
 
     local foodOK, neededFood = self:checkRequiredFood(user, product:getCraftingTime(skill))
     if not self.npcCraft then
         if not foodOK then
-            self:swapToInactiveItem(user)
             return false
         end
     end
@@ -743,8 +668,6 @@ function Craft:craftItem(user, productId)
             skillGain = (newSkill > skill)
         end
     end
-
-    self:swapToInactiveItem(user)
 
     return skillGain
 end
@@ -791,14 +714,10 @@ function Craft:createItem(user, productId, toolItem)
 
     local rarity = 0
 
-    local foodItem, foodBuff = self:checkIfFoodItem(productId)
+    local foodItem = self:checkIfFoodItem(productId)
 
     if foodItem and quality >= 900 then
         rarity = self:generateRarity(user, productId, toolItem, rareIngredientBonus)
-
-        if not foodBuff then
-            rarity = common.Limit(rarity, 0, 2)
-        end
 
         if rarity > 1 then
             product.data.rareness = rarity

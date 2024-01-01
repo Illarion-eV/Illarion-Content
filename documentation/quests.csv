@@ -231,6 +231,10 @@ ID,Title,NPCs,Status,Responsible Author,Description
 252,Stock up Galmairs Storage,,,Evie,Galmair daily mission - Cooldown
 253,Replace poisoned carrots,,,Banduk,Subquest for rat den
 254, Druid's Escape,,,Brightrim, custom player potion
+255, store latest message player has checked in the troll's haven bulletin,,,Brightrim, Troll's Haven bulletin board
+256, same as above but the Runewick town announcement board,,,Brightrim, runewick bulletin board
+257, same as above but the Cadomyr town announcement board,,,Brightrim, cadomyr bulletin board
+258, same as above but the Galmair town announcement board,,,Brightrim, galmair bulletin board
 260,For Runewick cool down,,,Evie,Runewick daily missions- cool down
 298,Fireproof on stationary flames,,,Banduk,"0:damage by flames; > 0:Proof, no damage by flames over time until effect end"
 299,Iceproof on stationary flames,,,Banduk,"0:damage by ice flames; not 0:Proof, no damage by ice flames over time until effect end"
@@ -293,6 +297,7 @@ ID,Title,NPCs,Status,Responsible Author,Description
 356,Tutorial - Henry,,,Estralis,Show message just once
 357,Tutorial - Nimbur,,,Estralis,Show message just once
 358,Tutorial - Moving,,,Estralis,Ask only once for tutorial messages
+359,Tutorial - Housing,,,Estralis,Show message just once
 360,Pet system: race,,,merung,race of the pet
 361-363,Pet system: position,,,merung,stores the position of the pet
 364,Pet system: sex,,,merung,sex of the pet
@@ -302,6 +307,8 @@ ID,Title,NPCs,Status,Responsible Author,Description
 371-374,Pet system: name,,,merung,binary saved pet name
 375,Pet system: owner,,,merung,Flag for being a pet owner
 376,Pet system: death protection,,,merung,Flag if the pet is proctected from death
+377-392, activity tracker,,,brightrim,track activity of players
+393, reputation tracker,,,brightrim,track reputation of players
 401,,,,Estralis/pharse,Priest system: Devotion
 402,,,,Estralis/pharse,Priest system: Priesthood
 403-418,,,,snus-mumrik,Priest system: Gods favour
