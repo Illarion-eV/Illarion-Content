@@ -31,7 +31,7 @@ local M = {}
  M.depotList={100,101,102,103}
 
  local function informDoesntExist(user)
-    user:inform("Dieser Namen ist unbekannt. Hast du den Namen vielleicht falsch geschrieben?", "Nobody of that name is recognised here. Did you perhaps misspell the name?")
+    user:inform("Dieser Name ist unbekannt. Hast du den Namen vielleicht falsch geschrieben?", "Nobody of that name is recognised here. Did you perhaps misspell the name?")
  end
 
  function M.isOutlawProperty(propertyName)
@@ -555,7 +555,7 @@ function M.roofAndRoofTiles(user, itemId, tileBoolean, createOrErase)
         elseif createOrErase == "erase" then
             local itemDeleted = common.DeleteItemFromStack(targetPosition, {itemId = targetItem.id})
             if itemDeleted then
-                user:inform(common.GetNLS(user,"","You destroy the roof object."))
+                user:inform(common.GetNLS(user,"Du zerstörst den Gegenstand auf dem Dach.","You destroy the roof object."))
             end
         end
     else
@@ -563,7 +563,7 @@ function M.roofAndRoofTiles(user, itemId, tileBoolean, createOrErase)
             world:changeTile(itemId, targetPosition)
         elseif createOrErase == "erase" then
             world:changeTile(34, targetPosition)
-            user:inform(common.GetNLS(user,"","You destroy the roof tile."))
+            user:inform(common.GetNLS(user,"Du zerstörst das Dachfeld.","You destroy the roof tile."))
         end
     end
     return true
@@ -1608,7 +1608,7 @@ function M.deleteKeys(char, inform)
             )
         elseif propertiesRemovedFrom >= 1 and outlaw then
             char:inform(
-                "GERMAN TRANSLATION"..listedPropertiesDe..".",
+                "Du kannst die Schlüssel von "..listedPropertiesDe.." nicht an deinem Schlüsselbund finden. Hat sie dir wohlmöglich jemand des Nachts gestohlen?",
                 "You notice that some of your keys, namely ones belonging to "..listedPropertiesEn.." are gone. Did someone steal them while you slept?"
             )
         end
