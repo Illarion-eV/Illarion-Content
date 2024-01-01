@@ -75,7 +75,7 @@ M.propertyTable = {
     {"Oldra Estate", "Grundstück Oldra",position(841,884,0),200000, 2558,253, "Runewick","7",factions.RunewickRankListMale[7]["eRank"],factions.RunewickRankListMale[7]["gRank"], true},
     {"Merryglade Estate", "Grundstück Merryglade",position(834,728,0),200000, 2558,254, "Runewick","7",factions.RunewickRankListMale[7]["eRank"],factions.RunewickRankListMale[7]["gRank"], true},
     --Outlaw
-    {"Pauldron Estate", "GERMAN TRANSLATION",position(213,97,0),200000,2558,504,"Outlaw","0","None","None", true}
+    {"Pauldron Estate", "Grundstück Schulterplatte",position(213,97,0),200000,2558,504,"Outlaw","0","None","None", true}
     }
 
 M.properties = {}
