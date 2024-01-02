@@ -27,6 +27,8 @@ local shard = require("item.shard")
 local glyphs = require("base.glyphs")
 local seafaring = require("base.seafaring")
 local staticteleporter = require("base.static_teleporter")
+local utility = require("housing.utility")
+local propertyList = require("housing.propertyList")
 local drinks = require("item.drinks")
 local food = require("item.food")
 local customPotion = require("alchemy.base.customPotion")
@@ -2198,10 +2200,109 @@ function M.saveRemovePosition(thePos)
         end
     end
 end
+function M.decideWhatToDoWithProperty(User, property)
+    local callback = function(dialog)
+        if dialog:getSuccess() then
+            local index = dialog:getSelectedIndex() +1
+            if index == 1 then
+                utility.setOwner(User, nil, property)
+            elseif index == 2 then
+                utility.removeOwner(User, nil, property)
+            elseif index == 3 then
+                utility.setBuilderOrGuest(User, nil, "guest", property)
+            elseif index == 4 then
+                utility.removeBuilderOrGuest(User, nil, "guest", property)
+            elseif index == 5 then
+                utility.setBuilderOrGuest(User, nil, "builder", property)
+            elseif index == 6 then
+                utility.removeBuilderOrGuest(User, nil, "builder", property)
+            elseif index == 7 then
+                utility.setRent(User, nil, property)
+            elseif index == 8 then
+                utility.extendRent(User, nil, property)
+            elseif index == 9 then
+                utility.setReqRank(User, nil, property)
+            elseif index == 10 then
+                utility.setIndefiniteRent(User, nil, property)
+            else
+                utility.allowAutomaticRentExtension(User, nil, property)
+            end
+        end
+    end
+    local dialog = SelectionDialog("Property Management", "Select what you want to do with the selected property", callback)
+    dialog:addOption(0,"Set Tenant")
+    dialog:addOption(0,"Remove Tenant")
+    dialog:addOption(0,"Set Guest")
+    dialog:addOption(0,"Remove Guest")
+    dialog:addOption(0,"Set Builder")
+    dialog:addOption(0,"Remove Builder")
+    dialog:addOption(0,"Set Rent Cost")
+    dialog:addOption(0,"Extend Rent Duration")
+    dialog:addOption(0,"Set Required Rank")
+    dialog:addOption(0,"Indefinite Rent Settings")
+    dialog:addOption(0,"Automatic Rent Settings")
+    User:requestSelectionDialog(dialog)
+end
+
+local function chooseWhatToDoForAllpropertiesOfSpecifiedRealm(user, realm)
+
+    local callback = function(dialog)
+        if not dialog:getSuccess() then
+            return
+        end
+
+        local index = dialog:getSelectedIndex()+1
+
+        if index == 1 then
+            utility.allowAllAutomaticRentExtension(user, realm)
+        end
+    end
+
+    local dialog = SelectionDialog(realm.." properties", "Select what to do with all properties that belong to "..realm, callback)
+
+    dialog:addOption(0, "Allow automatic rent extension")
+
+    user:requestSelectionDialog(dialog)
+
+end
+
+function M.selectProperty(user)
+local selectedProperty
+    local callback = function(dialog)
+        if dialog:getSuccess() then
+            local index = dialog:getSelectedIndex() +1
+            if index == 1 then
+                chooseWhatToDoForAllpropertiesOfSpecifiedRealm(user, "Cadomyr")
+            elseif index == 2 then
+                chooseWhatToDoForAllpropertiesOfSpecifiedRealm(user, "Galmair")
+            elseif index == 3 then
+                chooseWhatToDoForAllpropertiesOfSpecifiedRealm(user, "Runewick")
+            elseif index == 4 then
+                chooseWhatToDoForAllpropertiesOfSpecifiedRealm(user, "Outlaw")
+            else
+                for i = 1, #propertyList.propertyTable do
+                    if index == i+4 then
+                        selectedProperty = propertyList.propertyTable[i][1]
+                        M.decideWhatToDoWithProperty(user, selectedProperty)
+                    end
+                end
+            end
+        end
+    end
+    local dialog = SelectionDialog("Properties", "Select a property to make changes to.", callback)
+    dialog:addOption(0, "Make changes to all Cadomyr properties")
+    dialog:addOption(0, "Make changes to all Galmair properties")
+    dialog:addOption(0, "Make changes to all Runewick properties")
+    dialog:addOption(0, "Make changes to all Outlaw properties")
+    for i = 1, #propertyList.propertyTable do
+        dialog:addOption(0, propertyList.propertyTable[i][1])
+    end
+    user:requestSelectionDialog(dialog)
+end
 
 function M.UseItem(user, SourceItem)
     -- First check for mode change
-    local modes = {"Items", "Weather", "Factions", "Spawnpoint", "Special Item Creation", "Script Variables","Teleporter","Harbours", "Portals", "Potions"}
+    local modes = {"Items", "Weather", "Factions", "Spawnpoint", "Special Item Creation", "Script Variables","Teleporter","Harbours", "Portals", "Potions","Property Management","Apply Persistence For Properties[Warning: Server-lag]"}
     local cbSetMode = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -2228,6 +2329,14 @@ function M.UseItem(user, SourceItem)
             portalsSelection(user)
         elseif index == 10 then
             potionSelection(user)
+        elseif index == 11 then
+            M.selectProperty(user)
+        elseif index == 12 then
+            user:inform("Persistence script is starting. If this is the first time, or a lot of properties were added, this can cause massive lag.")
+            log("Persistence script for housing started. This may cause lag.")
+            utility.setPersistenceForProperties()
+            user:inform("Persistence has been applied to all tile coordinates entailed in the properties list. This only needs to be done once whenever new properties have been added to the list.")
+            log("Persistence script has completed its run.")
         end
     end
     local sd = SelectionDialog("Set mode of this ceiling trowel", "To which mode you want to change?", cbSetMode)

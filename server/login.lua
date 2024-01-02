@@ -29,6 +29,7 @@ local gods_common = require("content._gods.gods_common")
 local tutorial = require("content.tutorial")
 local keys = require("item.keys")
 local ceilingtrowel = require("gm.items.id_382_ceilingtrowel")
+local utility = require("housing.utility")
 local messenger = require("content.messenger")
 
 -- Called after every player login
@@ -355,6 +356,9 @@ function M.onLogin( player )
         player.effects:addEffect(LongTimeEffect(gods_common.EFFECT_ID, 10))
     end
 
+    utility.informUserOfKeyRetrieval(player)
+
+    utility.keyRetrieval(player)
     --Checking for pending town behaviour changes
     keys.changeTownBehaviourOnLogin(player)
 
