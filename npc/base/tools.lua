@@ -18,13 +18,13 @@ local M = {}
 
 function M.get_text_and_talktype(text)
     if (string.find(text, "[#/]w") == 1) then
-        return Character.whisper, string.gsub(text, "[#/]w%s*", "", 1)
+        return Character.whisper, string.gsub(text, "[#/]w%s*", "", 1).."#npc"
     elseif (string.find(text, "[#/]s") == 1) then
-        return Character.yell, string.gsub(text, "[#/]s%s*", "", 1)
+        return Character.yell, string.gsub(text, "[#/]s%s*", "", 1).."#npc"
     elseif (string.find(text, "[#/]o") == 1) then
-        return Character.whisper, text
+        return Character.whisper, text.."#npc"
     else
-        return Character.say, text
+        return Character.say, text.."#npc"
     end
 end
 
