@@ -1119,7 +1119,6 @@ end
 
 function M.checkForAndPlaceMissingStakes()
 
-    log("Check for and placing of missing stakes has been initiated.")
     for _, property in pairs(propertyList.properties) do
         if not M.checkIfPropertyHasTenant(property.name) and property.lower.z == 0 and property.estate and not property.outlaw then
             local positions = {}
