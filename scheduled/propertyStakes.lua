@@ -21,7 +21,6 @@ local M = {}
 
 function M.checkForAndPlaceMissingStakes()
     utility.checkForAndPlaceMissingStakes()
-    log("The script for Property Lot Stakes has run.")
 end
 
 return M
