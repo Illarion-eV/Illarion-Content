@@ -1477,7 +1477,7 @@ function M.reduceRentTimer()
     end
 end
 
-function M.charOwnedDepotKeys(char)
+function M.charOwnedDepotKeys(char, keyData)
 
     for i = 1, #M.depotList do
 
@@ -1485,7 +1485,13 @@ function M.charOwnedDepotKeys(char)
         local depot = char:getDepot(depNr)
 
         if depot then
-            local ownedDepotKeys = (depot:countItem(2558))+(depot:countItem(3054))+(depot:countItem(3055))+(depot:countItem(3056))
+            local ownedDepotKeys
+            if keyData then
+                ownedDepotKeys = (depot:countItem(2558, keyData))+(depot:countItem(3054, keyData))+(depot:countItem(3055, keyData))+(depot:countItem(3056, keyData))
+            else
+                ownedDepotKeys = (depot:countItem(2558))+(depot:countItem(3054))+(depot:countItem(3055))+(depot:countItem(3056))
+            end
+
             if ownedDepotKeys >= 1 then
                 return ownedDepotKeys
             else
@@ -1530,47 +1536,40 @@ function M.deleteKeys(char, inform)
 
             local townPropertyBelongsTo = propertyList.propertyTable[i][7]
 
-            if M.checkIfLeaderOfTown(char, townPropertyBelongsTo) and theTown == townPropertyBelongsTo then
+            if M.checkIfLeaderOfTown(char, theTown) and theTown == townPropertyBelongsTo then
                 break
             end
 
-            local propertyName = propertyList.propertyTable[i][1] -- Fetch name of property
-            local propertyDeed = M.getPropertyDeed(propertyName)
-            local propertyNameDe = M.getPropertyNameDE(propertyDeed)
-            local tenantID = propertyDeed:getData("tenantID") --Fetch owner of property
-            local noTenant = common.IsNilOrEmpty(tenantID)
-            local characterIsTenant = false
-            local characterIsGuest = false
-            if not noTenant then
-                characterIsTenant = char.id == tonumber(tenantID)
-                characterIsGuest = M.checkIfPlayerIsGuest(char, propertyName)
-            end
+            if theTown == townPropertyBelongsTo then
 
-            local keyID = propertyList.propertyTable[i][6] --Fetch what lock the key belongs to
-            local keyType = propertyList.propertyTable[i][5] -- Fetch what type of key item it is
-            local keyAmount = char:countItemAt("all",keyType,{["lockId"]=keyID}) -- Fetch how many keys character has in inventory
-            local depotKeyAmount = M.charOwnedDepotKeys(char) -- Fetch how many keys character has in depot
-            local totalKeys = 0
+                local propertyName = propertyList.propertyTable[i][1] -- Fetch name of property
+                local propertyDeed = M.getPropertyDeed(propertyName)
+                local propertyNameDe = M.getPropertyNameDE(propertyDeed)
+                local tenantID = propertyDeed:getData("tenantID") --Fetch owner of property
+                local noTenant = common.IsNilOrEmpty(tenantID)
+                local characterIsTenant = false
+                local characterIsGuest = false
+                local deleteKey = false
 
-            if keyAmount then
-                totalKeys = keyAmount
-            end
+                if not noTenant then
+                    characterIsTenant = char.id == tonumber(tenantID)
+                    characterIsGuest = M.checkIfPlayerIsGuest(char, propertyName)
+                end
 
-            if depotKeyAmount then
-                totalKeys = totalKeys + depotKeyAmount
-            end
+                if noTenant or (not characterIsTenant and not characterIsGuest) then
+                    deleteKey = true
+                end
 
-            if totalKeys > 0 and (noTenant or not characterIsTenant and  not characterIsGuest) then
+                local keyID = propertyList.propertyTable[i][6] --Fetch what lock the key belongs to
+                local keyType = propertyList.propertyTable[i][5] -- Fetch what type of key item it is
+                local keyAmount = char:countItemAt("all",keyType,{["lockId"]=keyID}) -- Fetch how many keys character has in inventory
+                local depotKeyAmount = M.charOwnedDepotKeys(char, {["lockId"]=keyID}) -- Fetch how many keys character has in depot
+                local keysDeleted = false
 
-                propertiesRemovedFrom = propertiesRemovedFrom + 1
-
-                table.insert(listOfPropertyNamesEn, propertyName)
-
-                table.insert(listOfPropertyNamesDe, propertyNameDe)
-
-                if keyAmount > 0 then
+                if keyAmount > 0 and deleteKey then
                     char:eraseItem(keyType,keyAmount,{["lockId"]=keyID})
-                    removedKeys = true
+                    removedKeys = true --external check for any keys at all deleted so inform gets sent
+                    keysDeleted = true --internal key for adding this specific key to the inform
                 end
 
                 for depotIndex = 1, #M.depotList do
@@ -1578,16 +1577,26 @@ function M.deleteKeys(char, inform)
                     local depNr = M.depotList[depotIndex]
                     local depot = char:getDepot(depNr)
 
-                    if depot and depotKeyAmount ~= nil then
+                    if depot and depotKeyAmount ~= nil and deleteKey then
                         for z = 1, depotKeyAmount do
                             depot:eraseItem(keyType,1,{["lockId"]=keyID})
-                            removedKeys = true
+                            removedKeys = true --external check for any keys at all deleted so inform gets sent
+                            keysDeleted = true --internal key for adding this specific key to the inform
                         end
                     end
                 end
 
-                if M.isOutlawProperty(propertyName) then
+                if M.isOutlawProperty(propertyName) and keysDeleted then
                     outlaw = true
+                end
+
+                if keysDeleted then
+
+                    propertiesRemovedFrom = propertiesRemovedFrom + 1
+
+                    table.insert(listOfPropertyNamesEn, propertyName)
+
+                    table.insert(listOfPropertyNamesDe, propertyNameDe)
                 end
             end
         end
