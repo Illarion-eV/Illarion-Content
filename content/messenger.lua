@@ -62,6 +62,9 @@ local function convertContentsIntoString(contents)
     local retString = ""
 
     for index, message in pairs(contents) do
+        if not message.sender then
+            message.sender = "script"
+        end
         retString = retString.." (Sender "..index..": "..message.sender.." Message"..index..": "..garbleTheMessage(message.text)..")"
     end
 
@@ -70,6 +73,11 @@ local function convertContentsIntoString(contents)
 end
 
 local function logThatMessagesWereReceived(recipient, contents)
+
+    if tonumber(#contents) == 0 then --Checks the table of contents whether any messages were sent. The table of contents contains any first part(out of 4) of a text in the message and a signature if its a player message.
+        return --If there are no messages that were sent, there is nothing to log
+    end
+
     local numberOfMessages = #contents
 
     local loggedMessage = "[Messenger]: "..recipient.name.." at "..tostring(recipient.pos).." has received "..numberOfMessages.." messages. They contain the following, garbled for privacy reasons: "
@@ -79,38 +87,10 @@ local function logThatMessagesWereReceived(recipient, contents)
     log(loggedMessage)
 end
 
-function M.sendStoredMessages(recipient)
-
-    local foundStoredMessages, numberOfMessages = ScriptVars:find(recipient.id.."storedMessages")
-    local foundScriptMessages, numberOfScriptMessages = ScriptVars:find(recipient.id.."storedScriptMessages")
-    local totalMessages = 0
-
-
-    if foundStoredMessages and foundScriptMessages then
-        totalMessages =  tonumber(numberOfMessages) + tonumber(numberOfScriptMessages)
-    elseif foundStoredMessages then
-        totalMessages = tonumber(numberOfMessages)
-    elseif foundScriptMessages then
-        totalMessages = tonumber(numberOfScriptMessages)
-    end
-
-    if totalMessages == 0 then
-        return
-    end
-
-    local parchments = totalMessages.." parchments"
-    local parchmentsDE = totalMessages.." Nachrichten"
-
-    if tonumber(totalMessages) == 1 then
-        parchments = "a parchment"
-        parchmentsDE = "eine Nachricht"
-    end
-
-    local text = common.GetNLS(recipient, "Ein Bote bringt dir "..parchmentsDE.." und verschwindet wieder, so schnell er gekommen ist.", "A messenger comes up to you, delivering "..parchments.." before scurrying off.")
-    local title = common.GetNLS(recipient, "Post", "Message Delivery")
+local function sendPlayerMessages(numberOfMessages, recipient)
     local contents = {}
 
-    if foundStoredMessages then
+    if numberOfMessages > 0 then
         for i = 1, tonumber(numberOfMessages) do
             local foundText1, text1 = ScriptVars:find(recipient.id.."storedMessageText"..i)
             local foundText2, text2 = ScriptVars:find(recipient.id.."storedMessageText2"..i)
@@ -120,17 +100,50 @@ function M.sendStoredMessages(recipient)
             local foundDescriptionEn, descriptionEn = ScriptVars:find(recipient.id.."storedMessageDescriptionEn"..i)
             local foundDescriptionDe, descriptionDe = ScriptVars:find(recipient.id.."storedMessageDescriptionDe"..i)
 
-            if foundText1 and foundText2 and foundText3 and foundText4 and foundSignature and foundDescriptionEn and foundDescriptionDe then
+            if not foundText2 then
+                text2 = ""
+            end
+
+            if not foundText3 then
+                text3 = ""
+            end
+
+            if not foundText4 then
+                text4 = ""
+            end
+
+            if foundText1 and foundSignature and foundDescriptionEn and foundDescriptionDe then
                 local texts = {text1, text2, text3, text4}
                 table.insert(contents, {text = text1, sender = signature})
                 spawnParchment(recipient, texts, signature, descriptionEn, descriptionDe)
             else
-                log("Message "..i.." out of "..numberOfMessages.." player sent messages to be received by "..recipient.name.."("..recipient.id..") failed to be sent. Texts found: "..tostring(foundText1).." "..tostring(foundText2).." "..tostring(foundText3).." "..tostring(foundText4).." ".." Signature found: "..tostring(foundSignature).." Descriptions found: "..tostring(foundDescriptionEn).." "..tostring(foundDescriptionDe))
+                local sender = "unknown"
+                local startOfText = "unknown"
+                local descriptionsFound = "Descriptions were missing."
+
+                if foundSignature then
+                    sender = signature
+                end
+
+                if foundText1 then
+                    startOfText = text1
+                end
+
+                if foundDescriptionEn and foundDescriptionDe then
+                    descriptionsFound = "Descriptions were found."
+                end
+
+                log("Message "..i.." out of "..numberOfMessages.." to be received by "..recipient.name.."("..recipient.id..") failed to be sent. Sender is "..sender.." and the start of the text is "..startOfText..". "..descriptionsFound)
+
             end
         end
     end
 
-    if foundScriptMessages then
+    return contents
+end
+
+local function sendScriptMessages(numberOfScriptMessages, recipient, contents)
+    if numberOfScriptMessages > 0 then
         for i = 1, tonumber(numberOfScriptMessages) do
             local foundGermanText1, germanText1 = ScriptVars:find(recipient.id.."storedScriptMessageTextGerman"..i)
             local foundGermanText2, germanText2 = ScriptVars:find(recipient.id.."storedScriptMessageTextGerman2"..i)
@@ -143,34 +156,147 @@ function M.sendStoredMessages(recipient)
             local descriptionEnglish = bookWriting.englishParchmentDescription
             local descriptionGerman = bookWriting.germanParchmentDescription
 
+            if not foundGermanText2 then
+                germanText2 = ""
+            end
+
+            if not foundGermanText3 then
+                germanText3 = ""
+            end
+
+            if not foundGermanText4 then
+                germanText4 = ""
+            end
+
+            if not foundEnglishText2 then
+                englishText2 = ""
+            end
+
+            if not foundEnglishText3 then
+                englishText3 = ""
+            end
+
+            if not foundEnglishText4 then
+                englishText4 = ""
+            end
+
             if foundGermanText1 and foundGermanText2 and foundGermanText3 and foundGermanText4 and foundEnglishText1 and foundEnglishText2 and foundEnglishText3 and foundEnglishText4 then
                 local texts = common.GetNLS(recipient, {germanText1, germanText2, germanText3, germanText4}, {englishText1, englishText2, englishText3, englishText4})
                 spawnParchment(recipient, texts, "", descriptionEnglish, descriptionGerman)
+                table.insert(contents, {text = englishText1})
             else
-                log("Message "..i.." out of "..numberOfScriptMessages.." script sent messages to be received by "..recipient.name.."("..recipient.id..") failed to be sent. Texts found: "..tostring(foundGermanText1).." "..tostring(foundGermanText2).." "..tostring(foundGermanText3).." "..tostring(foundGermanText4)..tostring(foundEnglishText1).." "..tostring(foundEnglishText2).." "..tostring(foundEnglishText3)..tostring(foundEnglishText4))
+                local startOfTextGerman = "German text was not found."
+                local startOfTextEnglish = "English text was not found."
+                local descriptionsFound = "Descriptions were missing."
+
+                if foundGermanText1 then
+                    startOfTextGerman = "The start of the German text: ("..germanText1..")."
+                end
+
+                if foundEnglishText1 then
+                    startOfTextEnglish = "The start of the English text: ("..englishText1..")."
+                end
+
+                if descriptionEnglish and descriptionGerman then
+                    descriptionsFound = "Descriptions were found."
+                end
+
+                log("Message "..i.." out of "..numberOfScriptMessages.." to be received by "..recipient.name.."("..recipient.id..") failed to be sent. Sender is a script. "..startOfTextGerman.." "..startOfTextEnglish.." "..descriptionsFound)
             end
         end
     end
 
-    if tonumber(#contents) > 0 then
-        logThatMessagesWereReceived(recipient, contents)
+    return contents
+end
+
+local function findMessages(recipient)
+
+    local foundStoredMessages, numberOfMessages = ScriptVars:find(recipient.id.."storedMessages")
+    local foundScriptMessages, numberOfScriptMessages = ScriptVars:find(recipient.id.."storedScriptMessages")
+    local totalMessages = 0
+
+
+    if foundStoredMessages and foundScriptMessages then
+        totalMessages =  tonumber(numberOfMessages) + tonumber(numberOfScriptMessages)
+    elseif foundStoredMessages then
+        totalMessages = tonumber(numberOfMessages)
+        numberOfScriptMessages = 0
+    elseif foundScriptMessages then
+        totalMessages = tonumber(numberOfScriptMessages)
+        numberOfMessages = 0
     end
 
-    if tonumber(#contents) ~= tonumber(totalMessages) then
-        local failed = tonumber(totalMessages) - tonumber(#contents)
-        log(failed.." messages meant for "..recipient.name.."("..recipient.id..")".."failed to send!")
+    numberOfMessages = tonumber(numberOfMessages)
+
+    numberOfScriptMessages = tonumber(numberOfScriptMessages)
+
+    return totalMessages, numberOfMessages, numberOfScriptMessages
+
+end
+
+local function getInformTextTitle(recipient, totalMessages)
+    local parchments = totalMessages.." parchments"
+    local parchmentsDE = totalMessages.." Nachrichten"
+
+    if tonumber(totalMessages) == 1 then
+        parchments = "a parchment"
+        parchmentsDE = "eine Nachricht"
     end
 
-    ScriptVars:set(recipient.id.."storedMessages", "0")
-    ScriptVars:set(recipient.id.."storedScriptMessages", "0")
-    ScriptVars:save()
+    local text = common.GetNLS(recipient, "Ein Bote bringt dir "..parchmentsDE.." und verschwindet wieder, so schnell er gekommen ist.", "A messenger comes up to you, delivering "..parchments.." before scurrying off.")
+    local title = common.GetNLS(recipient, "Post", "Message Delivery")
 
+    return text, title
+end
+
+local function sendInformMessageDialogue(recipient, title, text)
     local callback = function(dialog)
     end
 
     local dialog = MessageDialog(title, text, callback)
 
     recipient:requestMessageDialog(dialog)
+end
+
+local function resetStoredMessages(recipient)
+    ScriptVars:set(recipient.id.."storedMessages", "0")
+    ScriptVars:set(recipient.id.."storedScriptMessages", "0")
+    ScriptVars:save()
+end
+
+local function logThatMessagesFailed(contents, totalMessages, recipient)
+
+    local failedMessages = totalMessages - #contents -- The number of messages that were found minus the number of messages actually sent
+
+    if failedMessages == 0 then
+        return
+    end
+
+    log(failedMessages.." messages out of "..totalMessages.." meant for "..recipient.name.."("..recipient.id..")".."failed to send!")
+
+end
+
+function M.sendStoredMessages(recipient)
+
+    local totalMessages, numberOfMessages, numberOfScriptMessages = findMessages(recipient) -- Checks how many, if any, messages there are in total and of each type
+
+    if totalMessages == 0 then
+        return --no messages to send, so the script does not proceed
+    end
+
+    local text, title = getInformTextTitle(recipient, totalMessages) --Gets the text and title for the message dialogue inform that pops up upon receiving a message
+
+    local contents = sendPlayerMessages(numberOfMessages, recipient) --Checks if there are more than 0 messages sent by players for the recipient and sends them if so
+
+    contents = sendScriptMessages(numberOfScriptMessages, recipient, contents) --Checks if there are more than 0 messages sent by scripts for the recipient and sends them if so
+
+    logThatMessagesWereReceived(recipient, contents) -- writes to the GM log that the player received the messages and what the senders were
+
+    logThatMessagesFailed(contents, totalMessages, recipient) -- Notes in the log that #failedMessages amount of messages failed to send
+
+    resetStoredMessages(recipient) -- The tally for the stored messages for the recipient are wiped. New messages will thus overwrite old ones in the database, saving space.
+
+    sendInformMessageDialogue(recipient, title, text) -- Lets the recipient know through a message dialogue that they have received messages
 end
 
 local function tooManyMessages(recipient)
