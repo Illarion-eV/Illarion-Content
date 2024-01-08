@@ -2665,7 +2665,7 @@ function M.setReqRank(user, item, propertyName)
     if town == "Galmair" then
         user:requestSelectionDialog(dialogGalmair)
     elseif town == "Runewick" then
-        user:requestSelectionDialog(dialogCadomyr)
+        user:requestSelectionDialog(dialogRunewick)
     elseif town == "Cadomyr" then
         user:requestSelectionDialog(dialogCadomyr)
     end
