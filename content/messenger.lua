@@ -180,7 +180,7 @@ local function sendScriptMessages(numberOfScriptMessages, recipient, contents)
                 englishText4 = ""
             end
 
-            if foundGermanText1 and foundGermanText2 and foundGermanText3 and foundGermanText4 and foundEnglishText1 and foundEnglishText2 and foundEnglishText3 and foundEnglishText4 then
+            if foundGermanText1 and foundEnglishText1 then
                 local texts = common.GetNLS(recipient, {germanText1, germanText2, germanText3, germanText4}, {englishText1, englishText2, englishText3, englishText4})
                 spawnParchment(recipient, texts, "", descriptionEnglish, descriptionGerman)
                 table.insert(contents, {text = englishText1})
