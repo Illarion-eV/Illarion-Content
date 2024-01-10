@@ -472,6 +472,40 @@ local function setuserTeleporter(user,Item)
     user:requestSelectionDialog(sdTeleport)
 end
 
+local function summon(user, sourceItem)
+
+    local listedPlayers = {}
+
+    local onlinePlayers = world:getPlayersOnline()
+
+    local callback = function (dialog)
+
+        if (not dialog:getSuccess()) then
+            return
+        end
+
+        local playerToSummon = listedPlayers[dialog:getSelectedIndex() + 1]
+
+        if isValidChar(playerToSummon) then
+            playerToSummon:warp(position(user.pos.x, user.pos.y, user.pos.z))
+        else
+            user:inform("This character is not online anymore.")
+        end
+    end
+
+    local dialog = SelectionDialog("Summon", "Choose the player you wish to summon to your present location", callback)
+
+    for _, player in ipairs (onlinePlayers) do
+        if player.id ~= user.id then
+            dialog:addOption(0, player.name)
+            table.insert(listedPlayers, player)
+        end
+    end
+
+    user:requestSelectionDialog(dialog)
+
+end
+
 local function teleporter(user,item)
     local validTarget = {}
     local validCharPos = {}
@@ -1787,7 +1821,7 @@ function M.UseItem(user, SourceItem, ltstate)
     user:increaseAttrib("foodlevel", 100000)
 
     -- First check for mode change
-    local modes = {"Eraser", "Teleport", "Instant kill/ revive", "Char Settings", "Global events", "Events on single char", "Events on groups", "Faction info of chars in radius", "Quest events","Define Teleporter Targets","Define events on single char","Define events on groups","Test area","Reset tutorial","Persistence"}
+    local modes = {"Eraser", "Teleport", "Summon", "Instant kill/ revive", "Char Settings", "Global events", "Events on single char", "Events on groups", "Faction info of chars in radius", "Quest events","Define Teleporter Targets","Define events on single char","Define events on groups","Test area","Reset tutorial","Persistence"}
     local cbSetMode = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -1797,6 +1831,8 @@ function M.UseItem(user, SourceItem, ltstate)
             eraser(user)
         elseif index == 2 then
             teleporter(user, SourceItem)
+        elseif index == 3 then
+            summon(user, SourceItem)
         elseif index == 3 then
             godMode(user, SourceItem, ltstate)
         elseif index == 4 then
