@@ -2116,7 +2116,7 @@ function M.removeBuilderOrGuest(user, item, builderOrGuest, propertyName)
                         propertyDeed:setData(builderOrGuest.."ID"..i, "")
                         world:changeItem(propertyDeed)
                         user:inform(M.getText(user,currentBuilderOrGuest.." wurde von der Liste der "..builderOrGuestDe.." entfernt.",currentBuilderOrGuest.." has been removed from the list of "..builderOrGuest.."s."))
-                        sendMessageToInformRemovedBuilderGuest(builderOrGuestID, builderOrGuest, propertyName, propertyNameDe)
+                        sendMessageToInformRemovedBuilderGuest(builderOrGuestID, builderOrGuest, property, propertyNameDe)
                     end
                 else
                     skippedGuestSlots = skippedGuestSlots+1
