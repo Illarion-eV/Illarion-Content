@@ -110,7 +110,7 @@ table.insert(M.properties, {name = "Sixth Earth Apartment", lower = position(893
 table.insert(M.properties, {name = "Cottage", "Landhaus", lower = position(785,795,0), upper = position(792,789,0)})
 table.insert(M.properties, {name = "Quadruped Red Bird", lower = position(740,795,0), upper = position(755,803,0)})
 table.insert(M.properties, {name = "Quadruped Red Bird", lower = position(741,795,1), upper = position(745,799,1)})
-table.insert(M.properties, {name = "Quadruped Red Bird", lower = position(741,796,2), upper = position(744,799,2)})
+table.insert(M.properties, {name = "Quadruped Red Bird", lower = position(741,795,2), upper = position(745,799,2)})
 --Galmair houses
 table.insert(M.properties, {name = "House of Malachite", lower = position(367,309,0), upper = position(377,323,0)})
 table.insert(M.properties, {name = "Villa Goldvein", lower = position(294,269,0), upper = position(309,281,0)})
