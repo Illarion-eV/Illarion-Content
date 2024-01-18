@@ -219,7 +219,7 @@ local function showTemporaryPreviewOfItem(productId, user, isTile)
         return
     end
 
-    if not utility.wallWindowPermissions(user, frontPos, productId, isTile) then
+    if not utility.wallWindowPermissions(user, frontPos, productId, isTile) or utility.checkIfEntrance(user, frontPos, isTile) then
         return
     end
 
@@ -370,7 +370,7 @@ local function createItem(user, product, trowel, skill)
             world:changeTile(product.id, target)
         end
     else
-        if not utility.wallWindowPermissions(user, target, product.id, product.tile) then
+        if not utility.wallWindowPermissions(user, target, product.id, product.tile) or utility.checkIfEntrance(user, target, product.tile) then
             return
         end
 
@@ -527,7 +527,7 @@ function M.showDialog(user, skillName, carpentryEstateCatalogue)
                 end
             end
 
-            if not utility.wallWindowPermissions(user, frontPos, product.id, product.tile) or not hasMaterials(user, product) then
+            if not utility.wallWindowPermissions(user, frontPos, product.id, product.tile) or not hasMaterials(user, product) or utility.checkIfEntrance(user, frontPos, product.tile) then
                 canWork = false
             end
 

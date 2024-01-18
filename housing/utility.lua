@@ -255,15 +255,21 @@ function M.checkIfEstateViaName(propertyName)
 
 end
 
-local function checkIfEntrance(user)
+function M.checkIfEntrance(user, pos, tile)
 
-    if M.checkIfEstate(user) then
+    if M.checkIfEstate(user) then --Estates are allowed to build on entrances
         return false
     end
 
-    local targetItem = common.GetFrontItem(user)
+    if tile then
+        return false -- You can build a tile under entrances
+    end
 
-    if not targetItem then
+    local targetItem
+
+    if world:isItemOnField(pos) then
+        targetItem = world:getItemOnField(pos)
+    else
         return false
     end
 
@@ -408,10 +414,6 @@ end
 
 
 function M.allowBuilding(user, alternatePosition)
-
-    if checkIfEntrance(user) then
-        return false
-    end
 
     local frontPos = common.GetFrontPosition(user)
         if alternatePosition then
