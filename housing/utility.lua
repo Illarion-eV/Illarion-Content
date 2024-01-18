@@ -349,7 +349,11 @@ function M.checkIfItemIsWallDeco(itemId)
     return false
 end
 
-function M.wallWindowPermissions(user, pos, id)
+function M.wallWindowPermissions(user, pos, id, tile)
+
+    if tile then --While items can not be built on walls in non-estate properties, you should still be able to change the tile under them
+        return true
+    end
 
     local suspectedWall
 
