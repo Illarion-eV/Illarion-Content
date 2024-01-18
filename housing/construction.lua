@@ -515,13 +515,16 @@ function M.showDialog(user, skillName, carpentryEstateCatalogue)
 
             local frontPos = common.GetFrontPosition(user)
 
-            local languageAppropriateSkillName = user:getSkillName(Character[skill.name])
+            if skill.name ~= "misc" then
 
-            hasSkillLevel, languageAppropriateSkillName = multiSkillsThatAreCountedAsOne(user, skill, product.level, hasSkillLevel, languageAppropriateSkillName)
+                local languageAppropriateSkillName = user:getSkillName(Character[skill.name])
 
-            if not hasSkillLevel then
-                common.HighInformNLS(user, "Hierfür benötigst du Level "..product.level.." in "..languageAppropriateSkillName..". Oder du fragst jemanden, der sich damit besser auskennt als du.", "You need level "..product.level.." in "..languageAppropriateSkillName.." to do that. You could always seek out someone else to do it for you.")
-                return false
+                hasSkillLevel, languageAppropriateSkillName = multiSkillsThatAreCountedAsOne(user, skill, product.level, hasSkillLevel, languageAppropriateSkillName)
+
+                if not hasSkillLevel then
+                    common.HighInformNLS(user, "Hierfür benötigst du Level "..product.level.." in "..languageAppropriateSkillName..". Oder du fragst jemanden, der sich damit besser auskennt als du.", "You need level "..product.level.." in "..languageAppropriateSkillName.." to do that. You could always seek out someone else to do it for you.")
+                    return false
+                end
             end
 
             if not utility.wallWindowPermissions(user, frontPos, product.id, product.tile) or not hasMaterials(user, product) then
