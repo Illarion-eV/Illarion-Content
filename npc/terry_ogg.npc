@@ -1,0 +1,197 @@
+-- Illarion Server
+-- 
+-- This program is free software: you can redistribute it and/or modify it under
+-- the terms of the GNU Affero General Public License as published by the Free
+-- Software Foundation, either version 3 of the License, or (at your option) any
+-- later version.
+-- 
+-- This program is distributed in the hope that it will be useful, but WITHOUT
+-- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+-- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+-- details.
+-- 
+-- You should have received a copy of the GNU Affero General Public License
+-- along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+name = "Terry Ogg"
+race = human
+sex = male
+position = 656, 316, 0
+direction = southwest
+job = "Magic Teacher"
+
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
+wrongLangDE = "#me schaut dich verwirrt an."
+wrongLangUS = "#me looks at you in confusion."
+
+hairID = 1
+beardID = 2
+colorHair = 28, 24, 23
+colorSkin = 108, 65, 33
+itemHead = 357
+itemChest = 819
+itemCoat = 558
+itemMainHand = 323
+itemSecondHand = 0
+itemHands = 0
+itemTrousers = 461
+itemShoes = 53
+
+-- Trading
+-- Here are all items the NPCs is able to trade. They will be displayed inside
+-- the merchant dialog.
+
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser" -> "GERMAN TRANSLATION!", trade
+"sell", "buy", "wares", "price", "trade", "purchase" -> "What? Oh, sure, I'll let you fund my research.", "Can I interest you in some scented candles? Err.. At least I think they're scented. Wax is a scent, right?", "How about purchasing one of my old wands? Almost certainly assured to maybe not explode on you upon use! Guaranteed, maybe!", trade
+
+-- Grimoires and rune encyclopedia will be for sale when rune magic is released
+-- sellItem = id(2619), de("Grimoire"), en("Grimoire"), price(2000), stack(1), quality(999), data("magicBook" = "true")
+-- sellItem = id(105), de("Die Enzyklopädie der arkanen Runen"), en("The arcane runes encyclopedia"), price(2000), stack(1), quality(999), data("book" = "arcane_runes_encyclopedia")
+-- Terry sells his old wands to new students, custom name but worse quality and durability than a fresh one from a carpenter merchant
+sellItem = id(323), de("GERMAN TRANSLATION"), en("Terry's old wand"), stack(1), quality(333), data("nameEn" = "Terry's old wand", "nameDe" = "GERMAN TRANSLATION", "descriptionEn" = "An old worn down wand that used to belong to Terry Ogg the wandering mage.", "descriptionDe" = "GERMAN TRANSLATION")
+-- Terry sells the basic candles and candlesticks needed for glyph rituals
+sellItem = id(43)
+sellItem = id(399)
+
+tradeNotEnoughMoneyMsg "Oh, ich fürchte, das kannst du dir nicht leisten. Wie bedauerlich", "Oh, I'm afraid you can't afford that. How unfortunate."
+tradeFinishedMsg "Ah, eine Förderung für meine magische Forschung. Ich danke dir.", "Ah, funding for my magical research. Thank you."
+tradeFinishedWithoutTradingMsg "Oh, hast du deine Meinung geändert?", "Oh, changed your mind?"
+tradeWrongItemMsg "Wenn du deine Waren verkaufen willst, bin ich nicht dein Mann.", "If your intent is to sell your wares, I am not your man."
+
+
+-- Help, more keywords to be added as magical systems are introduced
+"Help" -> inform("[Game Help] This NPC is Terry Ogg, a wandering mage visiting Troll's Haven. Keywords: Magic")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Terry Ogg, ein umherziehender Magier der Trolls's Haven besucht. Stichworte: Magie")
+
+-- General speech
+
+english, "Hiho", "Hallo", "Hey", "Greeb", "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Oh, you're back? Or is this our first time meeting?", "Hello! Have you seen my wand? Oh, it's right here.", "Hello there! Welcome to my... Well, welcome, anyhow."
+"Hiho", "Hallo", "Hey", "Greeb", "Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Oh du bist zurück? Oder treffen wir uns zum ersten Mal?", "Hallo! Hast du meinen Zauberstab gesehen? Oh, da ist er ja.", "Guten Tag! Willkommen zu meinem...Also, willkommen halt. "
+
+"Farewell", "Bye", "Fare well", "See you" -> "Carry on then.", "Good bye.", "Good luck with your... whatever it is.", "Safe journey, see you soon."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Auf Wiedersehen.", "Alles Gute mit.....was auch immer.", "Gute Reise, bis bald."
+
+"How are you", "How do you feel", "How do you do" -> "I'm doing quite splendid, thank you. I could do with a little more funding though.", "Why? Trying to butter me up so I'll teach you magic, are you?", "Fine. Now spare me your nonsense and get on with it, I have research to perform."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Mir geht es hervorragend, vielen dank. Obwohl etwas bessere Finanzierung nicht schaden wprde.", "Wieso fragst du? Willst du mir etwas schmeicheln, sodass ich dir Magie lehre?", "Gut. Und nun lass mich mit deinem Blödsinn in Ruhe. Ich muss arbeiten!"
+
+"your name", "who are you", "who art thou" -> "Oh, me? Terry Ogg, and that's Ogg, not Egg!", "Aha, you wish to know this handsome gentlemans name? I am Terry Ogg, the mighty... What was I doing again?", "Who am I? Terry Ogg. Who are you? Wait before you answer that, I don't really care."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Wer? Ich? Ich bin Terry Ogg, und es heißt Ogg, nicht Egg!", "Ah du willst also den Namen dieses gutausehenden Gentelmens wissen? Ich bin Terry Ogg, der mächtige.....was wollte ich noch schnell machen?", "Wer ich bin? Terry Ogg. Und wer bist du? Wobei, bevor du das beantwortest....es ist mir egal."
+
+"my name", "I am called", "I'm called" -> "#me nods half-heartedly, clearly not paying your introduction any mind."
+"mein Name", "ich heiße"-> "#me nickt halbherzig und schenkt deiner Vorstellung offensichtlich keine Beachtung. "
+
+english, "Egg" -> "I told you not to call me that!"
+-- This joke does not really work in German and has no translation
+
+-- Magic quest triggers, more to be added on as magic systems are released
+
+--check if magic quest started
+queststatus(568) = 0, english, "magic", "rune", "glyph", "wand", "spatial", "quest", "mission", "task", "adventure", "order"  -> "If you want me to teach you about magic, you have to at least attune to a wand first. Learn how to do so by reading books about magic then try to attune to your wand. After that you may return to me.", queststatus(568) = 1
+queststatus(568) = 0, german, "magie", "zauberstab", "teleport", "rune", "glyphe", "quest", "mission", "auftrag", "aufgabe", "abenteuer" -> "Wenn du willst, dass ich dir etwas über Magie beibringe, musst du dich zumindest auf einen Zauberstab einstimmen. Lerne, wie man das macht, indem du Bücher über Magie liest, und versuche dann dich auf den Zauberstab einzustimmen. Danach kannst du zu mir zurückkehren.", queststatus(568) = 1
+
+--check if become a mage yet
+queststatus(37) = 0, queststatus(568) = 1, english, "magic", "rune", "glyph", "wand", "spatial", "quest", "mission", "task", "adventure", "order"  -> "Didn't I tell you to read more books and attune to your wand before you return to me? Now shoo!"
+queststatus(37) = 0, queststatus(568) = 1, german, "magie", "zauberstab", "teleport", "rune", "glyphe", "quest", "mission", "auftrag", "aufgabe", "abenteuer" -> "GERMAN TRANSLATION"
+
+--turn in of magic tutorial
+queststatus(37) = 1, queststatus(568) = 2, english, "magic", "rune", "glyph", "wand", "spatial", "quest", "mission", "task", "adventure", "order"  -> queststatus(568) = 3, "Good! I can see you've attuned yourself to a wand! Now what would you like to learn about, enchanting perhaps?"
+queststatus(37) = 1, queststatus(568) = 2, german, "magie", "zauberstab", "teleport", "rune", "glyphe", "quest", "mission", "auftrag", "aufgabe", "abenteuer" -> queststatus(568) = 3, "GERMAN TRANSLATION"
+
+
+-- Glyph tutorial
+queststatus(241) = 0, queststatus(37) = 1, english, "glyph", "enchant", "quest", "mission", "task", "adventure", "order", "magic"  ->  queststatus(241) = 1, "So you want to learn about enchanting items through the means of glyphs? Fine, I'll teach you the basics. First of all, you need a shrine to perform the enchantment at. You can use the one I set up over there, or if in the future you find yourself far away, you can use your wand to set up your own based on it. Go have a look at it, then you can return to me for your next task."
+queststatus(241) = 0, queststatus(37) = 1, german, "glyph", "verzauber", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "magie" -> queststatus(241) = 1, "GERMAN TRANSLATION"
+queststatus(241) = 1, english, "glyph", "enchant", "quest", "mission", "task", "adventure", "order", "magic"  -> "You still need to examine a glyph ritual shrine. Return to me once you have."
+queststatus(241) = 1, german, "glyph", "verzauber", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "magie" -> "GERMAN TRANSLATION"
+queststatus(241) = 2, english, "glyph", "enchant", "quest", "mission", "task", "adventure", "order", "magic"  -> queststatus(241) = 3,item(43, 2),item(399, 2), "Good. Now that you've familiarised yourself with where you will be performing the work, we can move on to the next step. Here, take these candles and candlesticks. You'll use them as you channel your mana into the shrine, in a ritual to prepare it for your work. Make sure not to lose them, if you do you'll have to buy your own."
+queststatus(241) = 2, german, "glyph", "verzauber", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "magie" -> queststatus(241) = 3,item(43, 2),item(399, 2), "GERMAN TRANSLATION"
+queststatus(241) = 3, english, "glyph", "enchant", "quest", "mission", "task", "adventure", "order", "magic"  -> "You still need to examine a glyph ritual shrine. Return to me once you have."
+queststatus(241) = 3, german, "glyph", "verzauber", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "magie" -> "GERMAN TRANSLATION"
+queststatus(241) = 4, english, "glyph", "enchant", "quest", "mission", "task", "adventure", "order", "magic"  -> queststatus(241) = 5, item(4184, 1), item(4185, 1), item(4186, 1), item(4187, 1), item(4188, 1), item(4189, 1), item(4190, 1), "Good! Now with the shrine set up, you can use it to combine glyph shards you find around the lands of illarion into a fully fledged glyph. Since I'm so nice, I will provide you with a full set you can use to give it a try."
+queststatus(241) = 4, german, "glyph", "verzauber", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "magie" -> queststatus(241) = 5, item(4184, 1), item(4185, 1), item(4186, 1), item(4187, 1), item(4188, 1), item(4189, 1), item(4190, 1), "GERMAN TRANSLATION"
+queststatus(241) = 5, english, "glyph", "enchant", "quest", "mission", "task", "adventure", "order", "magic"  -> "You still need to combine the shards I gave you into a glyph. Return to me once you have. If you lost the shards, you'll have to search the lands of Illarion for new ones as I have no more for you."
+queststatus(241) = 5, german, "glyph", "verzauber", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "magie" -> "GERMAN TRANSLATION"
+queststatus(241) = 6, english, "glyph", "enchant", "quest", "mission", "task", "adventure", "order", "magic"  -> queststatus(241) = 7, "Now that you have a glyph, first thing you can do is to inspect it! Simply use your wand to channel your mana into it, and you should be able to learn more about it through feeling your way around!"
+queststatus(241) = 6, german, "glyph", "verzauber", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "magie" -> queststatus(241) = 7, "GERMAN TRANSLATION"
+queststatus(241) = 7, english, "glyph", "enchant", "quest", "mission", "task", "adventure", "order", "magic"  -> "You still need to inspect the glyph you made. Return to me once you have."
+queststatus(241) = 7, german, "glyph", "verzauber", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "magie" -> "GERMAN TRANSLATION"
+queststatus(241) = 8, english, "glyph", "enchant", "quest", "mission", "task", "adventure", "order", "magic"  -> queststatus(241) = 9,item(3527, 1), "Now you know more about the glyph, such as the jewellery type it can be used with. In this case, it requires amethyst rings. You can use your own, but I have one for you here that you can use. Simply hold both the ring and glyph in your hands, then press the glyph against the ring for them to merge. It is so simple, even a commoner can do it! The magic happens during the forging after all, so you can feel free to sell glyphs to others without socketing a glyph into a piece of jewellery first."
+queststatus(241) = 8, german, "glyph", "verzauber", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "magie" -> queststatus(241) = 9, "GERMAN TRANSLATION"
+queststatus(241) = 9, english, "glyph", "enchant", "quest", "mission", "task", "adventure", "order", "magic"  -> "You still need to socket the glyph into a ring. Return to me once you have."
+queststatus(241) = 9, german, "glyph", "verzauber", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "magie" -> "GERMAN TRANSLATION"
+queststatus(241) = 10, english, "glyph", "enchant", "quest", "mission", "task", "adventure", "order", "magic"  -> queststatus(241) = 11, "Good! Now that the glyph has been socketed into the ring, there are two things you can do. You can inspect it, just like you did with the glyph previously. If you're unhappy with it, you can also use the shrine to break the glyph out of the jewellery. Don't worry, this won't harm the jewellery; though you'll only be able to recover some of the shards, or even none if the glyph has too few charges causing it to be too frail! Go on, give it a go."
+queststatus(241) = 10, german, "glyph", "verzauber", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "magie" -> queststatus(241) = 11, "GERMAN TRANSLATION"
+queststatus(241) = 11, english, "glyph", "enchant", "quest", "mission", "task", "adventure", "order", "magic"  -> "You still need to break out the glyph in the ring you socketed previously. Return to me once you have. If you lost the ring, or used up its charges, then any other ring you've socketed will do."
+queststatus(241) = 11, german, "glyph", "verzauber", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "magie" -> "GERMAN TRANSLATION"
+queststatus(241) = 12, english, "glyph", "enchant", "quest", "mission", "task", "adventure", "order", "magic"  -> queststatus(241) = 13, item(43, 4), item(399, 4), "That's all I have to teach you about enchanting jewellery through the means of glyph forging. Don't feel too down about destroying the glyph you just made, you'll find plenty more in the wild from meteors that have hit Illarion. Here, have these candles and candlesticks as a reward to get you started on your path as an enchanter!"
+queststatus(241) = 12, german, "glyph", "verzauber", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "magie" -> queststatus(241) = 13, item(43, 4), item(399, 4), "GERMAN TRANSLATION"
+
+-- Catching quest triggers post magic tutorials
+english, "magic", "rune", "glyph", "wand", "spatial", "quest", "mission", "task", "adventure", "order"   -> "There is nothing more I can teach you for now. Once I've had a chance to settle all my things, I may have more for you to learn though."
+german, "magie", "zauberstab", "teleport", "rune", "glyphe", "quest", "mission", "auftrag", "aufgabe", "abenteuer"  -> "GERMAN TRANSLATION"
+
+-- Small talk
+
+english, "job", "profession", "work" -> "What do I do for a living? Isn't it obvious? I'm a proud almighty magician, darn it! See the hat?"
+"job", "beruf" -> "Womit verdiene ich meinen Lebensunterhalt? Ist das nicht offensichtlich? Ich bin ein stolzer, allmächtiger Zauberer, verflixt noch mal! Siehst du den Hut denn nicht?"
+
+english, "Illarion" -> "Illarion. That's what this place is called, isn't it? I go where my research leads me."
+"Illarion" -> "Illarion. So heißt dieser Ort doch, oder? Ich gehe dorthin, wohin mich meine Forschung führt."
+
+english, "Troll's Haven", "Trolls Haven", "Trollshaven" -> "What? Are you saying I am a troll for taking haven in this place!? Oh. It's the name of this place?"
+"Troll's Haven", "Trolls Haven", "Trollshaven" -> "Wie bitte? Willst du sagen, dass ich ein Troll bin, weil ich hier Zuflucht suche? Oh. Das ist der Name dieses Ortes?"
+
+-- Faction stuff
+"queen" -> "A queen? You know, I used to serve as the royal archmage in a palace at one point. Then I almost got my head chopped off for sleeping with the...  Eh-hem... Moving on."
+"königin" -> "Eine Königin? Weißt du, ich habe mal als königlicher Erzmagier in einem Palast gedient. Dann wurde mir fast der Kopf abgehackt, weil ich mit der...  Eh-hem... Weiter im Text."
+
+english, "Rosaline", "Edwards" -> "Queen Rosaline Edwards! Now that's a looker, I wouldn't mind... Eh-hem-hem... Moving on.", "The queen? Why, did she ask about me?"
+"Rosaline", "Edwards" -> "Königin Rosaline Edwards! Das ist ein Hingucker, ich hätte nichts dagegen... Eh-hem-hem... Weiter geht's.", "Die Königin? Warum, hat sie nach mir gefragt?"
+
+english, "Cadomyr" -> "#me shudders. 'Sand... sand everywhere. That city is no good.'"
+"Cadomyr" -> "#me schaudert es. 'Sand... überall Sand. Diese Stadt ist nicht lebenswert.'"
+
+english, "Don" -> "The Don, leader of Galmair? Why DON't we talk about something else instead? He-he."
+"Don" -> "Der Don, Anführer von Galmair? Warum reden wir nicht lieber über etwas anderes?"
+
+english, "Valerio", "Guilianni" -> "Sounds familiar... Wait, that guy owes me money!"
+"Valerio", "Guilianni" -> "Kommt mir bekannt vor... Warte, der Typ schuldet mir Geld!"
+
+english, "Galmair" -> "Thieves! Scum! Can you believe they wanted me to PAY for protection!? Me, an almighty archmage!?"
+"Galmair" -> "Diebe! Abschaum! Unglaublich, dass sie von mir Geld für Schutz verlangen!? Ich, ein allmächtiger Erzmagier!?"
+
+-- Note: This character is meant to be a shameless braggart. Whether that is just an act he puts on, and whether he is actually an archmage or not... let's leave that for the players judgement.
+
+"Archmage" -> "Archmage? Are you gossiping about me, again?"
+"Erzmagier" -> "Erzmagier? Tratschst du schon wieder über mich?"
+
+english, "Elvaine", "Morgan" -> "Pfah, that elf in Runewick? I'm clearly a much superior mage."
+"Elvaine", "Morgan" -> "Pfah, dieser Elf in Runewick? Ich bin eindeutig ein viel überlegenerer Magier."
+
+english, "Runewick" -> "A bunch of losers! No, I was not kicked out of their academy and you can not prove it!"
+"Runewick" -> "Ein Haufen von Verlierern! Nein, ich wurde nicht aus ihrer Akademie rausgeschmissen und du kannst es nicht beweisen!"
+
+-- Gods
+
+"god" -> "Gods? Who has time for gods these days, research is taking place! Though come to think of it, Elara isn't all that bad."
+"Gott", "Götter" -> "Götter? Wer hat heutzutage noch Zeit für Götter. Es wird geforscht! Obwohl, wenn ich so darüber nachdenke, ist Elara gar nicht so schlecht."
+english, "Elara" -> "Elara, the goddess of wisdom and knowledge. Truly the only god or goddess worthy of the piety of a grand archmage such as myself... must be quite a looker, too."
+"Elara" -> "Elara, die Göttin der Weisheit und des Wissens. Wahrlich der einzige Gott oder die einzige Göttin, die der Frömmigkeit eines großen Erzmagiers wie mir würdig ist... Sie muss auch ziemlich gut aussehen."
+
+-- NPC name
+english, "Terry", "Ogg" -> "Yes, what is it? Can't you see I'm busy with my research?"
+"Terry", "Ogg" -> "Was ist denn? Siehst du nicht das ich arbeite?"
+
+-- Cycle Texts
+-- More cycle texts planned that relate to future content yet to be added to this npc such as sale of grimoires
+cycletext "#me hebt seinen Zauberstab dann wutscht und wedelt er. ", "#me lifts his wand, giving it a swish and flick."
+cycletext "#me murmelt einige verständliche Worte.", "#me mutters some unintelligible words under his breath."
+cycletext "#me bohrt in der Nase, schaut sich um und wischt seinen Finger dann vorsichtig an der Innenseite seiner Erzmagierrobe ab. ", "#me picks his nose, looking around before subtly wiping it off on the inside of his archmage robes."
+cycletext "#me gibt ein nachdenkliches Brummen von sich, während er leise in einem Buch liest. ", "#me utters a thoughtful hum as he reads silently from a book."
+cycletext "Was? Schon wieder kein Forschungsmaterial mehr!?", "What!? Out of research material again!?"
+cycletext "Huh? Wer...wo war ich?", "Huh? Who... Where was I?"
+cycletext "Forschen, Forschen, Forschen...Wo ist jetzt mein Essen geblieben?", "Resarch, research, research... Now where did my dinner go off to?"
+cycletext "Sie werden es noch bereuen, mich aus der Akademie geworfen zu haben...", "They'll regret kicking me out of the academy, you'll see..."

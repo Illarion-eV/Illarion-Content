@@ -25,6 +25,9 @@ local lookat = require("base.lookat")
 local licence = require("base.licence")
 local gems = require("base.gems")
 local foodScript = require("item.food")
+local pyr = require("magic.arcane.enchanting.effects.pyr")
+local daear = require("magic.arcane.enchanting.effects.daear")
+local ilyn = require("magic.arcane.enchanting.effects.ilyn")
 
 local M = {}
 
@@ -453,7 +456,20 @@ local function deleteRareItems(user, ingredient, rareItemsToDelete)
         end
 
         if deleteAmount > 0 then
-            user:eraseItem(ingredient.item, deleteAmount, data)
+
+            local saved = 0
+
+            for _ = 1, deleteAmount do  --Roll glyph chance for each ingredient
+                local saveIngredient = daear.saveResource(user, world:getItemStatsFromId(ingredient.item).Level)
+                if saveIngredient then
+                    saved = saved + 1
+                end
+            end
+
+            if saved ~= deleteAmount then --Check for anyone insanely lucky that managed to save ALL the ingredients
+                user:eraseItem(ingredient.item, deleteAmount - saved, data)
+            end
+
         end
 
         rareIngredientBonus = rareIngredientBonus + deleteAmount-1*identifier
@@ -569,6 +585,12 @@ function Craft:generateQuality(user, productId, toolItem)
     local rolls = 8 --There are eight chances to increase the quality by one. This results in a quality distribution 1-9.
     local quality = 1 + common.BinomialByMean((meanQuality-1), rolls)
     quality = common.Limit(quality, 1, common.ITEM_MAX_QUALITY)
+
+    if quality < common.ITEM_MAX_QUALITY then
+        if pyr.upQuality(user) then
+            quality = quality + 1
+        end
+    end
 
     local durability = common.ITEM_MAX_DURABILITY
     return common.calculateItemQualityDurability(quality, durability)
@@ -695,7 +717,20 @@ function Craft:createItem(user, productId, toolItem)
         end
 
         if regularItemsToDelete > 0 then
-            user:eraseItem(ingredient.item, regularItemsToDelete, ingredient.data)
+
+            local saved = 0
+
+            for _ = 1, regularItemsToDelete do  --Roll glyph chance for each ingredient
+                local saveIngredient = daear.saveResource(user, world:getItemStatsFromId(ingredient.item).Level)
+                if saveIngredient then
+                    saved = saved + 1
+                end
+            end
+
+            if saved ~= regularItemsToDelete then --Check for anyone insanely lucky that managed to save ALL the ingredients
+                user:eraseItem(ingredient.item, regularItemsToDelete - saved, ingredient.data)
+            end
+
         end
 
         if rareItemsToDelete > 0 then
@@ -738,6 +773,10 @@ function Craft:createItem(user, productId, toolItem)
     end
 
     common.CreateItem(user, product.item, product.quantity, quality, product.data)
+
+    if ilyn.duplicateItem(user, world:getItemStatsFromId(product.item).Level) then
+        common.CreateItem(user, product.item, product.quantity, quality, product.data)
+    end
 
     for i=1, #product.remnants do
         local remnant = product.remnants[i]

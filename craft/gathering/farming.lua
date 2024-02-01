@@ -22,6 +22,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local shared = require("craft.base.shared")
 local gathering = require("craft.base.gathering")
+local gwynt = require("magic.arcane.enchanting.effects.gwynt")
 
 local M = {}
 
@@ -158,7 +159,16 @@ function M.StartGathering(User, SourceItem, ltstate)
 
     -- since we're here, everything should be alright
     User:learn( theCraft.LeadSkill, theCraft.SavedWorkTime[User.id], theCraft.LearnLimit);
-    local created = common.CreateItem(User, FarmingItems[SourceItem.id], 1, 333, nil) -- create the new produced items
+
+    local productAmount = 1
+
+    -- temp glyph effect until farming is streamlined like other gathering skills
+    if gwynt.includeExtraResource(User, 0) then
+        productAmount = 2
+    end
+    -- end of glyph
+
+    local created = common.CreateItem(User, FarmingItems[SourceItem.id], productAmount, 333, nil) -- create the new produced items
     if created then -- character can still carry something
         -- try to find a next item of the same farming type
         local nextItem = getFarmingItem(User);

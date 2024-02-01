@@ -18,6 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local shared = require("craft.base.shared")
 local gathering = require("craft.base.gathering")
+local gwynt = require("magic.arcane.enchanting.effects.gwynt")
 
 local M = {}
 
@@ -31,6 +32,16 @@ local function isMilkable(targetCharacter)
         end
     end
     return false;
+end
+
+local function hasExtraBottle(user, bottleId)
+
+    if (user:countItemAt("all", bottleId) == 0) then -- check for items to work on
+        return false
+    end
+
+    return true
+
 end
 
 
@@ -109,7 +120,17 @@ function M.StartGathering(User, SourceAnimal, ltstate)
     milkingEffect:addValue("gatherAmount", gatherAmount);
 
     User:eraseItem(2498, 1);
-    local created = common.CreateItem(User, 2502, 1, 333, nil) -- create the new produced items
+
+    -- temp glyph effect until herbgathering is streamlined like other gathering skills
+    local productAmount = 1
+
+    if hasExtraBottle(User, 2498) and gwynt.includeExtraResource(User, 0) then
+        productAmount = 2
+        User:eraseItem(2498, 1);
+    end
+    -- end of glyph
+
+    local created = common.CreateItem(User, 2502, productAmount, 333, nil) -- create the new produced items
     if created then -- character can still carry something
         if gatherAmount < 2 then -- more milk is available
             if User:countItemAt("all",2498) == 0 then -- no empty bottles left

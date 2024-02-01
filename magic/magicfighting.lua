@@ -34,10 +34,17 @@ local STAFF_ELEMENTS = {[2785] = ELEMENTS.AIR, [2783] = ELEMENTS.FIRE,
 local common = require("base.common")
 local character = require("base.character")
 local fightingutil = require("base.fightingutil")
-local glypheffects = require("magic.glypheffects")
 local globalvar = require("base.globalvar")
 local magic = require("base.magic")
 local chr_reg = require("lte.chr_reg")
+local hydor = require("magic.arcane.enchanting.effects.hydor")
+local tan = require("magic.arcane.enchanting.effects.tan")
+local chous = require("magic.arcane.enchanting.effects.chous")
+local coeden = require("magic.arcane.enchanting.effects.coeden")
+local hieros = require("magic.arcane.enchanting.effects.hieros")
+local dendron = require("magic.arcane.enchanting.effects.dendron")
+local ysbryd = require("magic.arcane.enchanting.effects.ysbryd")
+local dwyfol = require("magic.arcane.enchanting.effects.dwyfol")
 
 local function getNeededMana(castTime)
     return math.ceil(80 + (castTime-7)*20)
@@ -190,21 +197,28 @@ local function applyDamage(attackerStruct, defenderStruct)
     -- scale damage based on the level of the armour parts the mage wears
     --damage = damage*(1 - common.Scale(0, 0.5, averageArmourLevel(attackerStruct.Char))) -- deactived to remove malus
 
-    -- apply glyph effects
-    local glyphDamageFactor = glypheffects.effectDamageIncrease(attackerStruct.Char,defenderStruct.Char)
-    local isGlyphRevertDamage, glyphRevertDamageFactor = glypheffects.effectRevertDamage(defenderStruct.Char, attackerStruct.Char)
-    damage = damage * glyphDamageFactor * glyphRevertDamageFactor
-
     -- limits for damage
     damage = math.max(0, damage)
     damage = damage * ((9+math.random())/10)
     damage = math.min(damage, 4999)
     damage = math.floor(damage)
 
-    glypheffects.effectDamageOverTime(attackerStruct.Char,defenderStruct.Char,damage)
+    -- apply glyph effects
 
-    if isGlyphRevertDamage then
-        defenderStruct = attackerStruct
+    dendron.lifesteal(attackerStruct.Char, damage) -- chance to heal for a portion of the damage you deal
+
+    ysbryd.liferegen(defenderStruct.Char, damage) -- chance to heal for a portion of damage you are about to receive
+
+    local hierosApplied, newDamage = hieros.increaseDamage(attackerStruct.Char, defenderStruct.Char, damage)
+
+    if hierosApplied then   -- chance to apply extra damage on hit in the form of fire
+        damage = newDamage
+    end
+
+    if dwyfol.deflectAttackAsLightning(defenderStruct.Char, attackerStruct.Char) then -- This glyph if activated deflects the attack, dealing the same amount they would have taken as magic damage to the attacker instead in the form of a lightning strike
+        local storedDefender = defenderStruct.char
+        defenderStruct.char = attackerStruct.char
+        attackerStruct.char = storedDefender
     end
 
     -- inflict damage and check if character would die
@@ -226,7 +240,10 @@ local function applyDamage(attackerStruct, defenderStruct)
             chr_reg.stallRegeneration(defenderStruct.Char, 60 / timeFactor)
         end
     else
+        -- Add check here for whether Dwyfol has activated to reduce the damage based on magic resistance when magic resistance is applied
         character.ChangeHP(defenderStruct.Char, -damage)
+        chous.apply(attackerStruct.Char, defenderStruct.Char) --After being hit, this glyph has a chance to activate to teleport the attacker away from the defender
+        coeden.apply(defenderStruct.Char, attackerStruct.Char) --After being hit, this glyph has a chance to activate to teleport the defender away from the attacker
     end
 
     magicItemsDegrade(defenderStruct.Char, magicItemsDefender)
@@ -249,6 +266,10 @@ function M.onMagicAttack(attackerStruct, defenderStruct)
 
     local neededCastTime = calculateCastTime(attackerStruct)
 
+    if tan.reduceCastTime(attackerStruct.Char) then
+        neededCastTime = neededCastTime/2
+    end
+
     -- Any attack must preload a given time before he can be executed
     if not isMagicAttackLoaded(attackerStruct, defenderStruct.Char, neededCastTime) then
         return
@@ -266,6 +287,11 @@ function M.onMagicAttack(attackerStruct, defenderStruct)
         attackerStruct.Char:inform("Dein Mana reicht nicht aus", "Your mana is depleted")
         return
     end
+
+    if hydor.reduceManaCost(attackerStruct.Char) then
+        neededMana = neededMana/2
+    end
+
     attackerStruct.Char:increaseAttrib("mana", -neededMana)
 
     attackerStruct.Char:performAnimation(globalvar.charAnimationSPELL)
@@ -305,9 +331,6 @@ function M.onMagicAttack(attackerStruct, defenderStruct)
     attackerStruct.Char:learn(Character.wandMagic, neededCastTime/3, 100)
 
     magic.wandDegrade(attackerStruct.Char, attackerStruct.WeaponItem)
-
-    -- take glyph effects on move points into consideration
-    glypheffects.effectOnFight(attackerStruct.Char,defenderStruct.Char)
 
     return true
 end

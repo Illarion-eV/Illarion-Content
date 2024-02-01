@@ -56,8 +56,13 @@ local chr_reg = require("lte.chr_reg")
 local gems = require("base.gems")
 local monsterHooks = require("monster.base.hooks")
 local fightingutil = require("base.fightingutil")
-local glypheffects = require("magic.glypheffects")
 local lookat = require("base.lookat")
+local chous = require("magic.arcane.enchanting.effects.chous")
+local coeden = require("magic.arcane.enchanting.effects.coeden")
+local ysbryd = require("magic.arcane.enchanting.effects.ysbryd")
+local hieros = require("magic.arcane.enchanting.effects.hieros")
+local dendron = require("magic.arcane.enchanting.effects.dendron")
+local dwyfol = require("magic.arcane.enchanting.effects.dwyfol")
 
 local M = {}
 
@@ -368,9 +373,6 @@ function M.onAttack(Attacker, Defender)
 
     -- Calculate and reduce the required movepoints
     local APreduction = HandleMovepoints(Attacker, Globals)
-
-    -- take glyph effects on move points into consideration
-    glypheffects.effectOnFight(Attacker.Char,Defender.Char)
 
     -- Turning the attacker to his victim
     common.TurnTo(Attacker.Char,Defender.Char.pos)
@@ -692,15 +694,24 @@ function CauseDamage(Attacker, Defender, Globals)
         AIMING_TIME_LIST[Attacker.Char.id]["started"] = world:getTime("unix")
     end
 
-    local glyphDamageFactor = glypheffects.effectDamageIncrease(Attacker.Char,Defender.Char)
-    local isGlyphRevertDamage, glyphRevertDamageFactor = glypheffects.effectRevertDamage(Defender.Char, Attacker.Char)
-    Globals.Damage=Globals.Damage*glyphDamageFactor*glyphRevertDamageFactor*(Random.uniform(9,10)/10) --Damage is randomised: 90-100%
+    Globals.Damage=Globals.Damage*(Random.uniform(9,10)/10) --Damage is randomised: 90-100%
     Globals.Damage=math.min(Globals.Damage,4999) --Damage is capped at 4999 Hitpoints to prevent "one hit kills"
     Globals.Damage=math.floor(Globals.Damage) --Hitpoints are an integer
-    glypheffects.effectDamageOverTime(Attacker.Char,Defender.Char,Globals.Damage)
 
-    if isGlyphRevertDamage then -- attacker attacks himself
-        Defender = Attacker
+    dendron.lifesteal(Attacker.Char, Globals.Damage) -- chance to heal for a portion of the damage you deal
+
+    ysbryd.liferegen(Defender.Char, Globals.Damage) -- chance to heal for a portion of damage you are about to receive
+
+    local hierosApplied, newDamage = hieros.increaseDamage(Attacker.Char, Defender.Char, Globals.Damage)
+
+    if hierosApplied then   -- chance to apply extra damage on hit in the form of fire
+        Globals.Damage = newDamage
+    end
+
+    if dwyfol.deflectAttackAsLightning(Defender.Char, Attacker.Char) then -- This glyph if activated deflects the attack, dealing the same amount they would have taken as magic damage to the attacker instead in the form of a lightning strike
+        local storedDefender = Defender.char
+        Defender.char = Attacker.char
+        Attacker.char = storedDefender
     end
 
     if character.IsPlayer(Defender.Char) and not Defender.Char:isAdmin()
@@ -770,8 +781,12 @@ function CauseDamage(Attacker, Defender, Globals)
             DropAmmo(Attacker, Defender.Char, false)
         end
 
+        -- Add check here for whether Dwyfol has activated to reduce the damage based on magic resistance when magic resistance is applied
+
         character.ChangeHP(Defender.Char,-Globals.Damage) -- Finally dealing the damage.
 
+        chous.apply(Attacker.Char, Defender.Char) --After being hit, this glyph has a chance to activate to teleport the attacker away from the defender
+        coeden.apply(Defender.Char, Attacker.Char) --After being hit, this glyph has a chance to activate to teleport the defender away from the attacker
     end
 end
 

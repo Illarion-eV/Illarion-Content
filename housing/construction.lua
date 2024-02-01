@@ -21,6 +21,7 @@ local lookat = require("base.lookat")
 local itemList = require("housing.itemList")
 local gems = require("base.gems")
 local utility = require("housing.utility")
+local daear = require("magic.arcane.enchanting.effects.daear")
 
 local M = {}
 
@@ -341,8 +342,12 @@ local function generateQuality(user, trowel, skill)
 end
 
 local function eraseIngredients(user, product)
+
     for _, ingredient in ipairs(product.ingredients) do
-        user:eraseItem(ingredient.id, ingredient.quantity, ingredient.data)
+        local saveIngredient = daear.saveResource(user, world:getItemStatsFromId(ingredient.id).Level)
+        if not saveIngredient then
+            user:eraseItem(ingredient.id, ingredient.quantity, ingredient.data)
+        end
     end
 end
 

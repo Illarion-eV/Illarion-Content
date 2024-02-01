@@ -22,6 +22,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local shared = require("craft.base.shared")
 local gathering = require("craft.base.gathering")
+local gwynt = require("magic.arcane.enchanting.effects.gwynt")
 
 local M = {}
 
@@ -263,7 +264,24 @@ function M.StartGathering(User, SourceItem, ltstate)
     elseif (math.random() <= tree.BoughProbability ) then
         producedItemId = tree.BoughId;
     end
-    local created = common.CreateItem(User, producedItemId, 1, 333, nil) -- create the new produced items
+
+    local resourceAmount = 1
+
+    local heartwood = 3786
+
+    -- Temporary placement for glyph bonus until woodchopping is reworked and streamlined like other gathering skills
+    local level = 0
+
+    if producedItemId == heartwood then
+        level = 100
+    end
+
+    if gwynt.includeExtraResource(User, level) then
+        resourceAmount = 2
+    end
+    -- End of glyph bonus
+
+    local created = common.CreateItem(User, producedItemId, resourceAmount, 333, nil) -- create the new produced items
     if created then -- character can still carry something
         if (amount > 0) then  -- there are still items we can work on
             theCraft.SavedWorkTime[User.id] = theCraft:GenWorkTime(User);

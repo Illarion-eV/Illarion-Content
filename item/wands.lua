@@ -17,14 +17,16 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local lookat = require("base.lookat")
 local common = require("base.common")
-local magic = require("base.magic")
 local checks = require("item.general.checks")
-local learnMagic = require("magic.learnMagic")
-local glyphmagic = require("magic.glyphmagic")
+local learnMagic = require("magic.arcane.learn")
+local enchantingRituals = require("magic.arcane.enchanting.core.rituals")
+local combineShards = require("magic.arcane.enchanting.core.combine_shards_into_glyph")
+local breakShards = require("magic.arcane.enchanting.core.glyphed_item_into_shards")
+local inspectGlyph = require("magic.arcane.enchanting.core.inspection_of_glyph")
+local inspectGlyphedItem = require("magic.arcane.enchanting.core.inspection_of_glyphed_item")
+local glyphTutorial = require("magic.arcane.enchanting.core.tutorial")
 
 local currentWandUse = {}
-local WAND_USE_GLYPH_FORGE_ERECT = 1
-local WAND_USE_GLYPH_RITUAL_PREPARE = 2
 
 local M = {}
 
@@ -37,118 +39,136 @@ local magicWands = {}
     magicWands[2785] = true
     magicWands[3608] = true
 
+function M.enchantingSelection(user, wand, actionstate)
 
-local function useWandSelection(user, item, ltstate)
-    local actionIndex = {}
-    local ACTION_ERECT_GLYPH_FORGE = 1
-    local ACTION_FIND_GLYPH_FORGE = 2
-    local ACTION_PREPARE_GLYPH_RITUAL = 3
-    local ACTION_COUNT_SHARDS = 4
-    local ACTION_GLYPH_JEWELRY = 5
-    local ACTION_GLYPH_BREAK = 6
-    local ACTION_EXAMINE_FORGE = 7
+    local forgeItem = common.GetItemInArea(user.pos, 3498, 1, true) -- Check if a glyph ritual shrine is in range
 
-    local forgeItem = common.GetItemInArea(user.pos, glyphmagic.GLYPH_SHRINE_ID, 1, true)
+    if forgeItem and forgeItem.wear <= 3 then -- 10-15 min left on it
+        user:inform("GERMAN TRANSLATION", "This forge does not look like it will last much longer.")
+    end
 
-    local cbSetMode = function (dialog)
-        if (not dialog:getSuccess()) then
+    if forgeItem then
+        glyphTutorial.update(user, 1)
+    end
+
+    local callback = function(dialog)
+        if not dialog:getSuccess() or not common.IsItemInHands(wand) then
             return
         end
-        local index = dialog:getSelectedIndex() + 1
-        if actionIndex[index] == ACTION_ERECT_GLYPH_FORGE then
-            currentWandUse[user.id] = WAND_USE_GLYPH_FORGE_ERECT
-            glyphmagic.placeGlyphForge(user, ltstate)
-        elseif actionIndex[index] == ACTION_PREPARE_GLYPH_RITUAL then
-            currentWandUse[user.id] = WAND_USE_GLYPH_RITUAL_PREPARE
-            glyphmagic.prepareGlyphRitual(user, ltstate)
-        elseif actionIndex[index] == ACTION_FIND_GLYPH_FORGE then
-            currentWandUse[user.id] = nil
-            if not glyphmagic.findGlyphForge(user) then
-                common.InformNLS(user,"Du kannst in der weiteren Umgebung keinen Glyphen-Ritualplatz ausmachen.",
-                                      "You cannot detect an existing glyph ritual place in the area.")
+
+        local selected = dialog:getSelectedIndex() + 1
+
+        local last = 1
+
+        if not forgeItem and selected == 1 then
+            local suitableLocation, theLocation = enchantingRituals.findSuitableLocation(user)
+            if suitableLocation then
+                enchantingRituals.start(user, actionstate, theLocation, "shrine")
+                currentWandUse[user.id] = "erect"
             end
-        elseif actionIndex[index] == ACTION_COUNT_SHARDS then
-            glyphmagic.showShardState(user)
-        elseif actionIndex[index] == ACTION_GLYPH_JEWELRY then
-            glyphmagic.forgeGlyphs(user,forgeItem,ltstate)
-        elseif actionIndex[index] == ACTION_GLYPH_BREAK then
-            glyphmagic.breakGlyphs(user,forgeItem,ltstate)
-        elseif actionIndex[index] == ACTION_EXAMINE_FORGE then
-            glyphmagic.examineGlyphForge(user,forgeItem)
+        elseif forgeItem and not enchantingRituals.candleRitualExists(forgeItem) and selected == 1 then
+            enchantingRituals.start(user, actionstate, forgeItem.pos, "candle")
+            currentWandUse[user.id] = "candle"
+        elseif forgeItem and enchantingRituals.candleRitualExists(forgeItem) then
+            last = 2
+            if selected == 1 then
+                combineShards.start(user, wand)
+            elseif selected == 2 then
+                breakShards.start(user, actionstate)
+                currentWandUse[user.id] = "break"
+            end
         end
-    end
-    local windowText = common.GetNLS(user,"Rituale", "Rituals")
-    local commentText = ""
-    local sd = SelectionDialog(windowText, commentText, cbSetMode)
-    if forgeItem == nil then
-        sd:addOption(505, common.GetNLS(user,"Suche einen Glyphen-Ritualplatz","Find a glyph ritual place"))
-        table.insert(actionIndex,ACTION_FIND_GLYPH_FORGE)
-        if  user:getSkill(glyphmagic.SKILL_GLYPHING) >= glyphmagic.glyphForgeErectionMinSkill then
-            sd:addOption(glyphmagic.GLYPH_SHRINE_ID, common.GetNLS(user,"Errichte einen Glyphen-Ritualplatz","Build a glyph ritual place"))
-            table.insert(actionIndex,ACTION_ERECT_GLYPH_FORGE)
+
+        if selected == last + 1 then
+            inspectGlyph.start(user)
+        elseif selected == last + 2 then
+            inspectGlyphedItem.start(user)
         end
-    else
-        sd:addOption(3493, common.GetNLS(user,"Überprüfe deine Glyphensplitter","Check your glyph shards"))
-        table.insert(actionIndex,ACTION_COUNT_SHARDS)
-        if  user:getSkill(glyphmagic.SKILL_GLYPHING) >= glyphmagic.glyphRitualPrepareMinSkill then
-            sd:addOption(400, common.GetNLS(user,"Bereite ein Glyphenritual vor","Prepare a glyph ritual"))
-            table.insert(actionIndex,ACTION_PREPARE_GLYPH_RITUAL)
-        end
-        sd:addOption(235, common.GetNLS(user,"Arbeite eine Glyphe in ein Schmuckstück ein","Glyph some jewellery"))
-        table.insert(actionIndex,ACTION_GLYPH_JEWELRY)
-        sd:addOption(2140, common.GetNLS(user,"Breche eine Glyphe aus einem Schmuckstück heraus","Break a glyph out of some jewellery"))
-        table.insert(actionIndex,ACTION_GLYPH_BREAK)
-        sd:addOption(100, common.GetNLS(user,"Untersuche den Glyphen-Ritualplatz","Examine the glyph ritual place"))
-        table.insert(actionIndex,ACTION_EXAMINE_FORGE)
     end
 
-    sd:setCloseOnMove()
-    user:requestSelectionDialog(sd)
+    local title = common.GetNLS(user,"Verzauberung", "Enchanting")
+
+    local text = common.GetNLS(user, "GERMAN TRANSLATION", "Select what you want to do.")
+
+    local dialog = SelectionDialog(title, text, callback)
+
+    if not forgeItem then
+        dialog:addOption(3498, common.GetNLS(user,"Errichte einen Glyphen-Ritualplatz","Build a glyph ritual place"))
+    elseif forgeItem and not enchantingRituals.candleRitualExists(forgeItem)then
+        dialog:addOption(400, common.GetNLS(user,"Bereite ein Glyphenritual vor","Prepare a glyph ritual"))
+    elseif forgeItem and enchantingRituals.candleRitualExists(forgeItem) then
+        dialog:addOption(Item.anemo, common.GetNLS(user,"GERMAN TRANSLATION", "Combine shards into glyphs"))
+        dialog:addOption(Item.goldenAmethystAmulet, common.GetNLS(user, "GERMAN TRANSLATION", "Remove glyph from jewellery"))
+    end
+
+    dialog:addOption(Item.anemo, common.GetNLS(user, "GERMAN TRANSLATION", "Inspection of glyphs"))
+    dialog:addOption(Item.goldenAmethystAmulet, common.GetNLS(user, "GERMAN TRANSLATION", "Inspection of enchanted jewellery"))
+
+    dialog:setCloseOnMove()
+    user:requestSelectionDialog(dialog)
+
+end
+
+
+local function selectMagicType(user, wand, actionstate)
+
+    local callback = function (dialog)
+
+        if not dialog:getSuccess() or not common.IsItemInHands(wand) then
+            return
+        end
+
+        local index = dialog:getSelectedIndex() + 1
+
+        if index == 1 then
+            M.enchantingSelection(user, wand, actionstate)
+        end
+    end
+
+    local title = common.GetNLS(user,"Zauberstab", "Wand")
+    local dialog = SelectionDialog(title, "", callback)
+
+    dialog:addOption(Item.anemo, common.GetNLS(user, "Verzauberung", "Enchanting"))
+
+    user:requestSelectionDialog(dialog)
 end
 
 function M.LookAtItem(user, item)
     return lookat.GenerateLookAt(user, item, lookat.WOOD)
 end
 
-function M.MoveItemAfterMove(User, SourceItem, TargetItem)
-    local questProgress = User:getQuestProgress(38)
-    if TargetItem:getType() == 4 then --inventory, not belt
-        if magicWands[SourceItem.id]then
-            if User:getMagicType() == 3 then
-                User:inform("Alchemisten können die Stabmagie nicht erlernen.",
-                "Alchemists are unable to use wand magic.")
-            elseif not magic.hasMageAttributes(User) then
-                User:inform("Um Stabmagie zu verwenden, muss die Summe der Attribute Intelligenz, Essenz und Willensstärke wenigstens 30 ergeben. Attribute können bei den Trainer-NPCs geändert werden.",
-                "To use wand magic, your combined attributes of intelligence, essence, and willpower must total at least 30. Attributes can be changed at the Trainer NPC.")
-            elseif not (User:getMagicType() == 0 and (User:getQuestProgress(37) ~= 0 or User:getMagicFlags(0) > 0)) then
-                if bit32.extract(questProgress, 30) == 0 then
-                    User:inform("Um das Handwerk der Stabmagie zu erlernen, musst du drei Bücher über magische Theorie lesen. Sieh dir die Liste der Bücher in den Bibliotheken der Städte an.",
-                    "To learn the art of wand magic you must read three books on magical theory. Look for the list of books in your town's library.")
-                end
-            end
+function M.MoveItemAfterMove(user, sourceItem, targetItem)
+
+    if targetItem:getType() == 4 then --inventory, not belt
+        if magicWands[sourceItem.id] then
+            learnMagic.useMagicWand(user, sourceItem, true) -- removes the need for duplicate inform texts by using this function for the move too
         else
-            return checks.checkLevel(User, SourceItem, TargetItem)
+            return checks.checkLevel(user, sourceItem, targetItem)
         end
     end
 
     return true
 end
 
-function M.UseItem(user, sourceItem, ltstate)
+function M.UseItem(user, sourceItem, actionstate)
+
     if common.IsItemInHands(sourceItem) then
-        if ltstate == Action.none then
+        if actionstate == Action.none then
             if magicWands[sourceItem.id] then
                 if user:getMagicType() == 0 and (user:getQuestProgress(37) ~= 0 or user:getMagicFlags(0) > 0) then
-                    useWandSelection(user, sourceItem, ltstate)
+                    selectMagicType(user, sourceItem, actionstate)
                 else
                     learnMagic.useMagicWand(user, sourceItem)
                 end
             end
         else
-            if currentWandUse[user.id] == WAND_USE_GLYPH_FORGE_ERECT then
-                glyphmagic.placeGlyphForge(user, ltstate)
-            elseif currentWandUse[user.id] == WAND_USE_GLYPH_RITUAL_PREPARE then
-                glyphmagic.prepareGlyphRitual(user, ltstate)
+            if currentWandUse[user.id] == "erect" then
+                enchantingRituals.continue(user, actionstate, false, "shrine")
+            elseif currentWandUse[user.id] == "candle" then
+                local forgeItem = common.GetItemInArea(user.pos, 3498, 1, true) -- Check if a glyph ritual shrine is in range
+                enchantingRituals.continue(user, actionstate, forgeItem, "candle")
+            elseif currentWandUse[user.id] == "break" then
+                breakShards.continue(user, actionstate)
             end
         end
     else

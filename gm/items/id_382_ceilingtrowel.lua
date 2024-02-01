@@ -23,8 +23,7 @@ local specialeggs = require("content.specialeggs")
 local scheduledFunction = require("scheduled.scheduledFunction")
 local mysticalcracker = require ("item.id_3894_mystical_cracker")
 local spawntreasures = require ("scheduled.spawn_treasure")
-local shard = require("item.shard")
-local glyphs = require("base.glyphs")
+local glyphs = require("magic.arcane.enchanting.core.shared")
 local seafaring = require("base.seafaring")
 local staticteleporter = require("base.static_teleporter")
 local utility = require("housing.utility")
@@ -544,11 +543,11 @@ local function changeItemGlyph(user, TargetItem)
         end
         local input = dialog:getInput()
         if (string.find(input,"(%d+)")~=nil) then
-            if glyphs.getGlyphRingOrAmulet(TargetItem.id) == nil then
+            if not glyphs.isValidItemForGlyphs(TargetItem.id) then
                 user:inform("Item "..world:getItemName(TargetItem.id, Player.english).." cannot be glyphed. Only rings or amulets can contain glyph charges.")
             else
                 local _, _, newcharges = string.find(input,"(%d+)")
-                glyphs.setRemainingGlyphs(TargetItem,newcharges)
+                glyphs.setCharges(TargetItem, newcharges)
                 user:inform("Item "..world:getItemName(TargetItem.id, Player.english).." got "..tostring(newcharges).." glyph charges.")
             end
         else
@@ -2064,7 +2063,7 @@ local function specialItemCreationGlyphShard(user)
         end
 
         for i = 1, shardsToCreate do
-            shard.createShardOnUser(user)
+            glyphs.createShardOnUser(user)
         end
     end
     user:requestInputDialog(InputDialog("Glyph Shard Creation",

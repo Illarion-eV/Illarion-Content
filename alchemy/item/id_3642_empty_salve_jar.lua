@@ -84,7 +84,11 @@ function M.FillIntoJar(user, sourceItem, cauldron)
             alchemy.FillFromTo(cauldron, sourceItem)
             world:changeItem(sourceItem)
         end
-        alchemy.RemoveAll(cauldron)
+        if cauldron:getData("ilyn") == "true" then -- In order to duplicate the potion, we have there be enough liquid in the cauldron for two potions
+            cauldron:setData("ilyn", "false")
+        else
+            alchemy.RemoveAll(cauldron)
+        end
     end
     world:changeItem(cauldron)
     world:makeSound(10,cauldron.pos)

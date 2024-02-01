@@ -39,6 +39,11 @@ function M.readMagicBooks(user, bookId)
         return
     end
 
+    -- Check if visited Terry Ogg yet (The purpose here is to guide new mages to the magic tutorial npc as early as possible)
+    if user:getQuestProgress(568) == 0 then
+        return
+    end
+
     local questProgress = user:getQuestProgress(38)
 
     -- Already did all the reading
@@ -88,19 +93,19 @@ function M.readMagicBooks(user, bookId)
     user:setQuestProgress(38, questProgress)
 end
 
-function M.useMagicWand(user, sourceItem)
+function M.useMagicWand(user, sourceItem, moved)
 
     -- Alchemists cannot become mages.
     if user:getMagicType() == 3 then
-        user:inform("Alchemisten können die Stabmagie nicht erlernen.",
-        "Alchemist are unable to use wand magic.")
+        user:inform("Alchemisten können die Magie nicht erlernen.",
+        "Alchemist are unable to use magic.")
         return
     end
 
     -- Attribute requirements
     if user:increaseAttrib("willpower", 0) + user:increaseAttrib("essence", 0) + user:increaseAttrib("intelligence", 0) < 30 then
-        user:inform("Um Stabmagie zu benutzen muss die Summe der Attribute Intelligenz, Essenz und Willensstärke 30 ergeben. Attribute können bei den Trainer NPC's geändert werden.",
-        "To use wand magic, your combined attributes of intelligence, essence, and willpower must total at least 30. Attributes can be changed at the trainer NPC.")
+        user:inform("Um Magie zu benutzen muss die Summe der Attribute Intelligenz, Essenz und Willensstärke 30 ergeben. Attribute können bei den Trainer NPC's geändert werden GERMAN TRANSLATION NEEDED FOR LAST AMENDMENT IN ENGLISH.",
+        "To use magic, your combined attributes of intelligence, essence, and willpower must total at least 30. Attributes can be changed at the trainer NPC in Troll's Haven.")
         return
     end
 
@@ -113,9 +118,20 @@ function M.useMagicWand(user, sourceItem)
 
     -- Has not read enough books
     if bit32.extract(questProgress, 30) == 0 then
-        user:inform("Um das Handwerk der Stabmagie zu erlernen, musst du drei Bücher über magische Theorie lesen. Sieh dir die Liste der Bücher in den Bibliotheken der Städte.",
-        "To learn the art of wand magic you must read three books of magical theory. Look for the list of books in your town's library.")
-        return
+        -- Check if visited Terry Ogg yet (The purpose here is to guide new mages to the magic tutorial npc as early as possible)
+        if user:getQuestProgress(568) == 0 then
+            user:inform("GERMAN TRANSLATION",
+            "To wield the art of magic you must first learn more about it. Rumour has it a wandering mage willing to teach others has taken up residence in Troll's Haven.")
+            return
+        else
+            user:inform("GERMAN TRANSLATION",
+            "Terry Ogg told you to read more books on magic before attempting to attune to your wand. Better listen to him.")
+            return
+        end
+    end
+
+    if moved then
+        return  -- attunement happens via clicking on it, not just moving it
     end
 
     local callback = function(dialog)
@@ -135,8 +151,11 @@ function M.useMagicWand(user, sourceItem)
                 if user:getPlayerLanguage() == Player.german then
                     messageDialog = MessageDialog("Ein neuer Magier", "Du gibst dich der im Stab verborgenen arkanen Kraft hin und lässt sie durch deinen Körper fließen. Ja! Du kannst diese Macht beherrschen. Von nun an bist du in der Lage Magier zu werden. Der Stab wird dir gehorchen.", messageCallback)
                 else
-                    messageDialog = MessageDialog("A new mage", "You induldge in the hidden arcane powers which you found in the wand. You let it run through your body. Yes! You are now able to control this force. From this day on, you are able to use magic. The wand will obey your commands.", messageCallback)
+                    messageDialog = MessageDialog("A new mage", "You indulge in the hidden arcane powers which you found in the wand. You let it run through your body. Yes! You are now able to control this force. From this day on, you are able to use magic. The wand will obey your commands.", messageCallback)
                 end
+
+                user:setQuestProgress(568, 2)
+
                 user:requestMessageDialog(messageDialog)
 
             else

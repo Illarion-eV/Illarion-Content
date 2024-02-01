@@ -17,7 +17,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local lookat = require("base.lookat")
 local checks = require("item.general.checks")
-local glypheffects = require("magic.glypheffects")
+local oldGlyphs = require("magic.arcane.enchanting.core.handling_of_old_glyphed_jewellery")
+local glyphEquip = require("magic.arcane.enchanting.core.handling_of_glyph_equipment")
 
 local M = {}
 
@@ -30,16 +31,21 @@ local M = {}
 -- Weapon Items:
 -- UPDATE common SET com_script='item.general.jewel' WHERE com_itemid IN ();
 
-function M.LookAtItem(user, item)
-    return lookat.GenerateLookAt(user, item, lookat.JEWELLERY)
+function M.LookAtItem(user, jewellery)
+
+    if oldGlyphs.checkIfOldGlyphedJewellery(jewellery) then
+        oldGlyphs.convertOldGlyphedJewelleryToNew(jewellery)
+    end
+
+    return lookat.GenerateLookAt(user, jewellery, lookat.JEWELLERY)
 end
 
-function M.MoveItemBeforeMove(User, SourceItem, TargetItem)
+function M.MoveItemBeforeMove(user, sourceItem, targetItem)
 
-    if TargetItem:getType() == 4 then --inventory, not belt
-        glypheffects.equipWithGlyphedItem(User, TargetItem)
-        checks.HaveABreak(User)
-        return checks.checkLevel(User, SourceItem, TargetItem)
+    if targetItem:getType() == 4 and (targetItem.itempos == Character.neck or targetItem.itempos == Character.finger_right_hand or targetItem.itempos == Character.finger_left_hand) then --inventory, not belt
+        glyphEquip.saveTimeOfJewelleryEquipment(user, targetItem)
+        checks.HaveABreak(user)
+        return checks.checkLevel(user, sourceItem, targetItem)
     end
 
     return true

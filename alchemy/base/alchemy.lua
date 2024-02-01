@@ -18,6 +18,8 @@ local common = require("base.common")
 local licence = require("base.licence")
 local gems = require("base.gems")
 local gm_lectern = require("gm.gm_lectern")
+local pyr = require("magic.arcane.enchanting.effects.pyr")
+local ilyn = require("magic.arcane.enchanting.effects.ilyn")
 
 local M = {}
 
@@ -813,9 +815,19 @@ function M.SetQuality(user, item)
     end
 
     quality = common.Limit(quality, 1, common.ITEM_MAX_QUALITY)
+
+    if quality < common.ITEM_MAX_QUALITY then
+        if pyr.upQuality(user) then
+            quality = quality + 1
+        end
+    end
+
+    local ilynProcced = ilyn.duplicateItem(user, 20)
+
     local durability = common.ITEM_MAX_DURABILITY
     local qualityDurability = common.calculateItemQualityDurability(quality, durability)
     item:setData("potionQuality", qualityDurability)
+    item:setData("ilyn", tostring(ilynProcced))
     world:changeItem(item)
 end
 

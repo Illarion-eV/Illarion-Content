@@ -17,6 +17,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local shared = require("craft.base.shared")
 local treasure = require("item.base.treasure")
+local gwynt = require("magic.arcane.enchanting.effects.gwynt")
+local anemo = require("magic.arcane.enchanting.effects.anemo")
+local nomizo = require("magic.arcane.enchanting.effects.nomizo")
 
 local M = {}
 
@@ -81,8 +84,8 @@ function GatheringCraft:SetTreasureMap(User,Probability, MessageDE, MessageEN)
     self.TreasureMsg[2] = MessageEN;
 end
 
-function GatheringCraft:AddMonster(User,MonsterID, Probability, MessageDE, MessageEN, Sound, GFX)
-    if not User:isNewPlayer() then
+function GatheringCraft:AddMonster(user,MonsterID, Probability, MessageDE, MessageEN, Sound, GFX)
+    if not user:isNewPlayer() then
         table.insert(self.Monsters, Monster:new{["MonsterID"] = MonsterID, ["Probability"] = Probability, ["MessageDE"] = MessageDE, ["MessageEN"] = MessageEN, ["Sound"] = Sound, ["GFX"] = GFX});
     end
 end
@@ -119,10 +122,25 @@ function GatheringCraft:FindRandomItem(User)
        return false
     end
 
+    local guaranteeMap = false
+
+    local guaranteeRandomItem = false
+
+    if nomizo.increaseTreasureChance(User) then
+        local rand = math.random()
+
+        if rand > 0.5 then
+            guaranteeMap = true
+        else
+            guaranteeRandomItem = true
+        end
+    end
+
+
     local skill  = common.Limit(User:getSkill(self.LeadSkill), 0, 100);
     if (self.Treasure > 0) then
         local rand = math.random();
-        if(rand < self.Treasure*self.FastActionFactor) and treasure.createMapFromSkill(User, skill) then
+        if ((rand < self.Treasure*self.FastActionFactor) or guaranteeMap) and treasure.createMapFromSkill(User, skill) then
             common.InformNLS(User, self.TreasureMsg[1], self.TreasureMsg[2]);
             return true;
         end
@@ -136,7 +154,9 @@ function GatheringCraft:FindRandomItem(User)
             if TargetPos == nil then
                 return false
             end
-            world:createMonster(self.Monsters[ra].MonsterID, TargetPos, 20);
+            if not anemo.monsterSpawnPrevented(User) then
+                world:createMonster(self.Monsters[ra].MonsterID, TargetPos, 20);
+            end
             if ( self.Monsters[ra].GFX ~= nil ) then
                 world:gfx(self.Monsters[ra].GFX, TargetPos);
             end
@@ -148,17 +168,26 @@ function GatheringCraft:FindRandomItem(User)
         end
     end
 
+    local itemGuaranteedAlready = false
+
     if(#self.RandomItems > 0) then
 
         -- check all items with same random number and choose any possible item again randomly
 
         local itemIndexList = {};
 
-        -- list all items that are possible
+        -- list all items that are possible¨
+
         for it = 1, #self.RandomItems, 1 do
             local rand = math.random();
+            local guaranteeThisItem = false
 
-            if (rand <= self.RandomItems[it].Probability*self.FastActionFactor) then
+            if not itemGuaranteedAlready and (guaranteeRandomItem and rand <= 1/(#self.RandomItems-it)) then
+                itemGuaranteedAlready = true
+                guaranteeThisItem = true
+            end
+
+            if (rand <= self.RandomItems[it].Probability*self.FastActionFactor) or guaranteeThisItem then
 
                 table.insert(itemIndexList, it);
 
@@ -207,13 +236,20 @@ function M.GetAmount(maxAmount, SourceItem)
  end
 
 -- Find a resource from a source
-function M.FindResource(User, SourceItem, amount, resourceID)
+function M.FindResource(user, SourceItem, amount, resourceID)
 
     amount = amount - 1
     SourceItem:setData("amount", "" .. amount)
     world:changeItem(SourceItem)
 
-    local created = common.CreateItem(User, resourceID, 1, 333, nil)
+    local resourceAmount = 1
+    local commonItem = world:getItemStatsFromId(resourceID)
+
+    if gwynt.includeExtraResource(user, commonItem.Level) then
+        resourceAmount = 2
+    end
+
+    local created = common.CreateItem(user, resourceID, resourceAmount, 333, nil)
 
     return created, amount
 

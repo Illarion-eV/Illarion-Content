@@ -2317,8 +2317,7 @@ leadAttribTable[Character.cauldronLore]="essence"
 
 --Intelligence: Magic
 leadAttribTable[Character.wandMagic]="intelligence"
-leadAttribTable[Character.enchantingOfJewels]="intelligence"
-leadAttribTable[Character.enchantingOfAmulets]="intelligence"
+leadAttribTable[Character.enchanting]="intelligence"
 leadAttribTable[Character.fireMagic]="intelligence"
 leadAttribTable[Character.spiritMagic]="intelligence"
 leadAttribTable[Character.windMagic]="intelligence"

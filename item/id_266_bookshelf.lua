@@ -18,7 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local lookat = require("base.lookat")
-local learnMagic = require("magic.learnMagic")
+local learnMagic = require("magic.arcane.learn")
 local elesil_dalewon_223 = require("quest.elesil_daelwon_223_runewick")
 
 local M = {}

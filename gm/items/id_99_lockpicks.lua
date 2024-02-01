@@ -24,7 +24,7 @@ local factions = require("base.factions")
 local monsterHooks = require("monster.base.hooks")
 local explosion = require("base.explosion")
 local areas = require("content.areas")
-local shard = require("item.shard")
+local shared = require("magic.arcane.enchanting.core.shared")
 local gods = require("content.gods")
 local resurrected = require("lte.resurrected")
 local persistenceTracker = require("gm.persistenceTracker")
@@ -120,7 +120,7 @@ local skillNames = {
     Character.wandMagic,
     Character.woodcutting,
     Character.wrestling,
-    Character.enchantingOfJewels
+    Character.enchanting
 }
 local attributeNames={
     "agility",
@@ -353,7 +353,7 @@ local function ambientActionShardShower(targetChar)
     local centerPos = targetChar.pos
     for i=1, shardNumber do
         local pos = common.getFreePos(centerPos, radius)
-        shard.createShardOnPosition(pos)
+        shared.createShardOnPosition(pos)
         world:gfx(globalvar.gfxSUN,pos)
     end
 end
