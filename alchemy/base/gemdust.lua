@@ -148,10 +148,10 @@ function M.BrewingGemDust(user,gemDustId, gemDust, cauldron)
         user:learn(Character.alchemy, 50/2, 100)
 
     elseif not saved then -- nothing in the cauldron and not saved
-        common.InformNLS(user, "Der Edelsteinstaub verflüchtigt sich, als du ihn in den leeren Kessel schüttest.",
+        common.InformNLS(user, "Der Edelsteinstaub verdampft sich, als du ihn in den leeren Kessel schüttest.",
                                     "The gem dust dissipates, as you fill it into the empty cauldron.")
     else    --nothing in the cauldron but was saved by glyph effect
-        common.InformNLS(user, "GERMAN TRANSLATION",
+        common.InformNLS(user, "Während du den Edelsteinstaub in den leeren Kessel füllst, aktiviert sich deine Glyphe und bewahrt ihn vor dem Verdampfen.",
                                     "As you fill the gem dust into the empty cauldron, your glyph luckily activates to save it from dissipating.")
     end
 
