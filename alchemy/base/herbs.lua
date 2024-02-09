@@ -156,7 +156,7 @@ local function BrewingPlant(user,plantId,cauldron, saved)
         common.InformNLS(user, "Die Pflanze vertrocknet auf dem Boden des heißen Kessels und zerfällt zu Asche",
                                     "The plant dries up on the hot bottom of the cauldron and falls to ashes.")
     else
-        common.InformNLS(user, "GERMAN TRANSLATION",
+        common.InformNLS(user, "Als du die Pflanze auf den heißen Boden des Kessels fallen lässt, aktiviert sich deine Glyphe glücklicherweise und bewahrt sie davor, zu Asche zu zerfallen.",
                                     "As you drop the plant on to the hot bottom of the cauldron, your glyph luckily activates to save it from turning into ashes.")
     end
 end
