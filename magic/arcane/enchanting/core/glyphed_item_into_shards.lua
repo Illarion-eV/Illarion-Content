@@ -76,8 +76,8 @@ local function glyphedItemIntoShardsAndItem(user, jewellery)
     if count >= 1 then
         local pluralOrNotEnglish = count == 1 and "shard." or "shards."
         local pluralOrNotGerman = count == 1 and "GERMAN TRANSLATION" or "GERMAN TRANSLATION"
-        german = german.."GERMAN TRANSLATION"..count..pluralOrNotGerman
-        english = english.." You managed to salvage "..count..pluralOrNotEnglish
+        german = german.."GERMAN TRANSLATION"..count.." "..pluralOrNotGerman
+        english = english.." You managed to salvage "..count.." "..pluralOrNotEnglish
     else
         german = german.."GERMAN TRANSLATION"
         english = english.." You did not manage to salvage any shards."
