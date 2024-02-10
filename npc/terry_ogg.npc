@@ -44,7 +44,7 @@ itemShoes = 53
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-"kauf", "waren", "preis", "Handel", "veräußer", "veräusser" -> "Was? Oh, natürlich kannst du meine Forschung finanzieren!", "Kann ich Euch an einer Duftkerze interessieren? Uh.. zumindest glaube ich, dass sie einen Duft haben. Wachs ist ein Duft, richtig?", "Möchtest du einen meiner alten Zauberstäbe haben? Ich kann vielleicht fast sicher garantieren, dass vielleicht nichts explodiert! Hoffentlich..." trade
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser" -> "Was? Oh, natürlich kannst du meine Forschung finanzieren!", "Kann ich Euch an einer Duftkerze interessieren? Uh.. zumindest glaube ich, dass sie einen Duft haben. Wachs ist ein Duft, richtig?", "Möchtest du einen meiner alten Zauberstäbe haben? Ich kann vielleicht fast sicher garantieren, dass vielleicht nichts explodiert! Hoffentlich...", trade
 "sell", "buy", "wares", "price", "trade", "purchase" -> "What? Oh, sure, I'll let you fund my research.", "Can I interest you in some scented candles? Err.. At least I think they're scented. Wax is a scent, right?", "How about purchasing one of my old wands? Almost certainly assured to maybe not explode on you upon use! Guaranteed, maybe!", trade
 
 -- Grimoires and rune encyclopedia will be for sale when rune magic is released
