@@ -24,15 +24,15 @@ local GERMAN = Player.german
 local ENGLISH = Player.english
 
 local Title = {}
-Title[GERMAN] = "GERMAN TRANSLATION"
+Title[GERMAN] = "Einführung in die Magie"
 Title[ENGLISH] = "Introduction to Magic"
 
 local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "GERMAN TRANSLATION"
+Description[GERMAN][1] = "Terry Ogg hat dich angewiesen, einige Bücher über Magie zu lesen, um ein Verständnis für deinen Zauberstab zu entwickeln, bevor du zu ihm zurückkehrst, um mehr zu lernen."
 Description[ENGLISH][1] = "Terry Ogg has instructed you to go read some books about magic so that you can attune yourself to your wand, before returning to him to seek further knowledge."
-Description[GERMAN][2] = "GERMAN TRANSLATION"
+Description[GERMAN][2] = "Nachdem du nun deine Hausaufgaben gemacht hast, indem du Bücher über Magie gelesen und ein Verständnis für deinen Zauberstab entwickeln konntest, solltest du zu Terry Ogg in Troll's Haven zurückkehren, um mehr über Magie zu lernen."
 Description[ENGLISH][2] = "Now that you've done your homework in reading books about magic and have attuned to your wand, you should return to Terry Ogg in Troll's Haven to seek further knowledge on magic."
 
 

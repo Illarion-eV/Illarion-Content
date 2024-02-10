@@ -70,16 +70,16 @@ local function glyphedItemIntoShardsAndItem(user, jewellery)
 
     local commonItem = world:getItemStatsFromId(jewellery.id)
 
-    local german = "GERMAN TRANSLATION"..commonItem.German.."."
+    local german = "Du entfernst die Glyphe von dem folgenden Item: "..commonItem.German.."." --Because of articles "dem/der", there is no good way to phrase it 
     local english = "You remove the glyph from the "..commonItem.English.."."
 
     if count >= 1 then
         local pluralOrNotEnglish = count == 1 and "shard." or "shards."
-        local pluralOrNotGerman = count == 1 and "GERMAN TRANSLATION" or "GERMAN TRANSLATION"
-        german = german.."GERMAN TRANSLATION"..count.." "..pluralOrNotGerman
+        local pluralOrNotGerman = count == 1 and "Scherbe konnte" or "Scherben konnten"
+        german = german.." "..count.." "..pluralOrNotGerman.." erfolgreich entfernt werden."
         english = english.." You managed to salvage "..count.." "..pluralOrNotEnglish
     else
-        german = german.."GERMAN TRANSLATION"
+        german = german.." Die entfernten Scherben scheinen nicht mehr zu gebrauchen zu sein."
         english = english.." You did not manage to salvage any shards."
     end
 
@@ -102,7 +102,8 @@ function M.start(user, actionstate)
     local jewelleryList = shared.listGlyphedJewelleryAtBelt(user)
 
     if #jewelleryList == 0 then
-        user:inform("GERMAN TRANSLATION", "You need to have a glyphed piece of jewellery in your belt if you want to remove a glyph from one.")
+        user:inform("Du musst mit einer Glyphe versehenen Schmuck an deinem Gürtel haben, wenn du eine Glyphe aus dem Schmuckstück entfernen willst.",
+        "You need to have a glyphed piece of jewellery in a belt slot if you want to remove a glyph from one.")
         return
     end
 
@@ -120,7 +121,7 @@ function M.start(user, actionstate)
 
         local commonItem = world:getItemStatsFromId(jewelleryList[selected].id)
 
-        user:inform("GERMAN TRANSLATION"..commonItem.German..".", "You begin to remove the glyph from the "..commonItem.English..".")
+        user:inform("Du beginnst die Glyphe von dem folgenden Item zu entfernen: "..commonItem.German..".", "You begin to remove the glyph from the "..commonItem.English..".")
 
         user:startAction(60, globalvar.gfxCLAW, 20, 0, 0)
 
@@ -145,7 +146,7 @@ function M.continue(user, actionstate)
         local jewellery = selectedJewellery[user.id]
         glyphedItemIntoShardsAndItem(user, jewellery)
     elseif actionstate == Action.abort then
-        common.InformNLS(user,"GERMAN TRANSLATION","You interrupt the process of removing the glyph from the jewellery.")
+        common.InformNLS(user,"Du unterbrichst den Prozess, die Glyphe aus dem Schmuck zu entfernen.","You interrupt the process of removing the glyph from the jewellery.")
     end
 end
 

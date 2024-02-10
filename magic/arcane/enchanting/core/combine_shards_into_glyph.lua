@@ -113,7 +113,7 @@ local function checkRequiredMana(user, craftingTime)
     if magic.hasSufficientMana(user, manaConsumption) then
         return true, manaConsumption
     else
-        user:inform("GERMAN TRANSLATION", "You do not have enough mana to imbue the shards with the required magic to turn them into a glyph.")
+        user:inform("Du hast nicht genügend Mana, um die Scherben mit Magie zu füllen, um sie zu einer Glyphe zusammenzufügen.", "You do not have enough mana to imbue the shards with the required magic to turn them into a glyph.")
         return false, 0
     end
 
@@ -126,7 +126,7 @@ local function hasMaterials(user, shards)
         local foundShards = user:countItemAt("all", shard)
 
         if foundShards == 0 then
-            user:inform("GERMAN TRANSLATION", "You do not have all the required shards to create this glyph.")
+            user:inform("Du hast nicht alle nötigen Scherben, um diese Glyphe herzustellen.", "You do not have all the required shards to create this glyph.")
             return false
         end
     end
@@ -145,14 +145,14 @@ local function passesChecks(user, wand)
     end
 
     if not wandInHand then
-        user:inform("GERMAN TRANSLATION", "Your wand must remain intact and in your hands for you to work here.")
+        user:inform("Dein Zauberstab muss intakt und in deiner Hand bleiben, um hier zu arbeiten.", "Your wand must remain intact and in your hands for you to work here.")
         return false
     end
 
     local forge = common.GetItemInArea(user.pos, 3498, 1, true)
 
     if not forge or not enchantingRituals.candleRitualExists(forge) then
-        user:inform("GERMAN TRANSLATION", "There must be a functional glyph ritual shrine nearby for you to work with.")
+        user:inform("Es muss ein funktionstüchtiger Glyphenritualschrein in der Nähe sein, mit dem du arbeiten kannst.", "There must be a functional glyph ritual shrine nearby for you to work with.")
         return false
     end
 
@@ -246,7 +246,7 @@ local function craftGlyph(user, glyph, skill, wand)
 end
 
 local function loadDialog(user, dialog, listOfGlyphs, skill)
-    dialog:addGroup(common.GetNLS(user, "GERMAN TRANSLATION", "Glyphs"))
+    dialog:addGroup(common.GetNLS(user, "Glyphen", "Glyphs"))
     addGlyphs(user, dialog, listOfGlyphs, skill)
 end
 

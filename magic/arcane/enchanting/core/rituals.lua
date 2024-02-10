@@ -35,21 +35,21 @@ function M.findSuitableLocation(user)
 
     -- Exclude triggerfields
     if triggerfield.isTriggerfield(position) then
-        common.InformNLS(user,"Die Magie dieses Ortes verindert das Aufstellen des Glyphen-Ritualplatzes.",
+        common.InformNLS(user,"Die Magie dieses Ortes verindert das Aufstellen des Glyphenritualschreins.",
                               "The magic of this location prevents you from building a glyph ritual shrine.")
         return false
     end
 
     local theField = world:getField(position)
     if not common.isInList(common.GetGroundType(theField:tile()), permittedTiles) then
-        common.InformNLS(user,"Dieser Boden eignet sich nicht für das Aufstellen des Glyphen-Ritualplatzes. GERMAN TRANSLATION",
+        common.InformNLS(user,"Dieser Boden eignet sich nicht für das Aufstellen des Glyphenritualschreins. Vielleicht solltest du es besser in einem Wald, auf einer Wiese oder in der Wüste versuchen.",
                               "This ground is not good for building a glyph ritual place. Perhaps you should try somewhere else like a forest, a grassy plain or the desert.")
         return false
     end
 
     -- Field must be empty and  there must be no blocking items in view axis
     if theField:countItems() > 0 or (common.getNumberOfPassableFieldsInArea(user.pos, 1) < 9 or common.getNumberOfPassableFieldsFromList(position, freeViewAxis) < #freeViewAxis) then
-        common.InformNLS(user,"Hier ist nicht genügend Platz für einen Glyphen-Ritualplatz.",
+        common.InformNLS(user,"Hier ist nicht genügend Platz für einen Glyphenritualschrein.",
                               "There is not enough space for a glyph ritual shrine here.")
         return false
     end
@@ -57,11 +57,11 @@ function M.findSuitableLocation(user)
 
     -- must be layer 0
     if user.pos.z > 0 then
-        common.InformNLS(user,"GERMAN TRANSLATION",
+        common.InformNLS(user,"Hier oben scheinen die Manaflüsse gestört zu sein. Du solltest versuchen einen Schrein an einer tiefergelegenen Stelle zu errichten.",
                               "The mana flows irregularly up here. You should try erecting a shrine further down in elevation instead.")
         return false
     elseif user.pos.z < 0 then
-        common.InformNLS(user,"GERMAN TRANSLATION",
+        common.InformNLS(user,"Hier unten scheinen die Manaflüsse gestört zu sein. Du solltest versuchen einen Schrein an einer höhergelegenen Stelle zu errichten.",
                               "The mana flows irregularly down here. You should try erecting a shrine on the surface of Illarion instead.")
         return false
     end
@@ -124,7 +124,7 @@ local function startNewCycle(user)
 
     if (user:increaseAttrib("foodlevel", 0) < consumption) then
         common.InformNLS(user,
-        "GERMAN TRANSLATION, um das Ritual abzuschließen. Du solltest etwas essen.",
+        "Du bist zu erschöpft, um das Ritual abzuschließen. Du solltest etwas essen.",
         "You are too exhausted to finish the ritual. You should eat something.")
         world:gfx(globalvar.gfxFIZZLE, location)
         ongoingRitual[user.id] = nil
@@ -174,10 +174,10 @@ function M.start(user, actionstate, location, candleOrShrine)
     user:performAnimation(globalvar.charAnimationSPELL)
 
     if candleOrShrine == "shrine" then
-        common.InformNLS(user,"Du beginnst ein Ritual, um einen Glyphen-Ritualplatz zu errichten.",
+        common.InformNLS(user,"Du beginnst ein Ritual, um einen Glyphenritualschrein zu errichten.",
                               "You begin the ritual to build a glyph ritual shrine.")
     elseif candleOrShrine == "candle" then
-        common.InformNLS(user,"GERMAN TRANSLATION",
+        common.InformNLS(user,"Du beginnst ein Ritual, um Glyphen am Schrein zu verbinden oder aufzubrechen.",
                               "You begin the ritual necessary to combine and break apart glyphs at the shrine.")
     end
 
@@ -188,7 +188,7 @@ end
 local function finishCandles(user, actionstate, forge)
 
     if not forge then -- The forge decayed after starting the ritual
-        user:inform("GERMAN TRANSLATION", "You could not finish the ritual as the forge has decayed!")
+        user:inform("Du konntest das Ritual nicht beenden, weil der Schrein auseinandergefallen ist.", "You could not finish the ritual as the forge has decayed!")
         return
     end
 
@@ -212,7 +212,7 @@ local function finishCandles(user, actionstate, forge)
     world:changeItem(forge)
 
     common.InformNLS(user,
-        "Der Glyphen-Ritualplatz ist vorbereitet. Jetzt können hier GERMAN TRANSLATION.",
+        "Der Glyphenritualschrein ist vorbereitet. Nun können hier Glyphen zusammengefügt und auseinandergebrochen werden.",
         "The glyph ritual place is prepared. Now it is possible to combine and shatter glyphs here.")
 
     glyphTutorial.update(user, 3)

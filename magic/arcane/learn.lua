@@ -104,7 +104,7 @@ function M.useMagicWand(user, sourceItem, moved)
 
     -- Attribute requirements
     if user:increaseAttrib("willpower", 0) + user:increaseAttrib("essence", 0) + user:increaseAttrib("intelligence", 0) < 30 then
-        user:inform("Um Magie zu benutzen muss die Summe der Attribute Intelligenz, Essenz und Willensstärke 30 ergeben. Attribute können bei den Trainer NPC's geändert werden GERMAN TRANSLATION NEEDED FOR LAST AMENDMENT IN ENGLISH.",
+        user:inform("Um Magie zu benutzen muss die Summe der Attribute Intelligenz, Essenz und Willensstärke 30 ergeben. Attribute können bei dem Trainer NPC in Troll's Haven geändert werden.",
         "To use magic, your combined attributes of intelligence, essence, and willpower must total at least 30. Attributes can be changed at the trainer NPC in Troll's Haven.")
         return
     end
@@ -120,11 +120,11 @@ function M.useMagicWand(user, sourceItem, moved)
     if bit32.extract(questProgress, 30) == 0 then
         -- Check if visited Terry Ogg yet (The purpose here is to guide new mages to the magic tutorial npc as early as possible)
         if user:getQuestProgress(568) == 0 then
-            user:inform("GERMAN TRANSLATION",
+            user:inform("Um Magie wirken zu können, musst du zunächst etwas darüber lernen. Gerüchten zufolge, hat sich ein wandernder Magier in Troll's Haven niedergelassen, um Interessenten zu unterrichten.",
             "To wield the art of magic you must first learn more about it. Rumour has it a wandering mage willing to teach others has taken up residence in Troll's Haven.")
             return
         else
-            user:inform("GERMAN TRANSLATION",
+            user:inform("Terry Ogg rät dir mehr Bücher über Magie zu lesen, bevor du versuchst dich mit deinem Zauberstab vertraut zu machen. Vielleicht ist es besser, seinem Rat zu folgen.",
             "Terry Ogg told you to read more books on magic before attempting to attune to your wand. Better listen to him.")
             return
         end

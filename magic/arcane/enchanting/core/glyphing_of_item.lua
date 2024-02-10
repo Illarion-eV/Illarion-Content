@@ -45,7 +45,7 @@ function M.addGlyphToItem(user, glyph, actionState)
 
     if not common.IsItemInHands(glyph) or jewellery == nil then
         user:inform(
-            "GERMAN TRANSLATION",
+            "Um eine Glyphe in ein Schmuckstück einzusetzen, musst du die Glyphe in der einen Hand und ein Schmuckstück, das der Art der Glyphe entspricht, in der anderen Hand halten.",
             "To socket a piece of jewellery with a glyph, you must hold the glyph in one hand and a piece of jewellery that matches the type of glyph in your other hand.")
         return
     end
@@ -53,19 +53,19 @@ function M.addGlyphToItem(user, glyph, actionState)
     local remainingCharges = tonumber(jewellery:getData("glyphCharges"))
 
     if not common.IsNilOrEmpty(remainingCharges) and tonumber(remainingCharges) > 0 then
-        user:inform("GERMAN TRANSLATION", "This piece of jewellery already has a glyph attached to it.")
+        user:inform("Dieses Schmuckstück hat bereits eine Glyphe.", "This piece of jewellery already has a glyph attached to it.")
         return
     end
 
     if actionState == Action.none then
-        user:inform("GERMAN TRANSLATION", "You begin the process of attaching the glyph to the piece of jewellery.")
+        user:inform("Du beginnst, die Glyphe in das Schmuckstück einzusetzen.", "You begin the process of attaching the glyph to the piece of jewellery.")
         user:startAction(50, 21, 10, 0, 0)
 
     elseif actionState == Action.abort then
-        user:inform("GERMAN TRANSLATION", "You abort the process of attaching the glyph to the piece of jewellery.")
+        user:inform("Du gibst den Versuch auf, die Glyphe in das Schmuckstück einzusetzen.", "You abort the process of attaching the glyph to the piece of jewellery.")
         return
     elseif actionState == Action.success then
-        user:inform("GERMAN TRANSLATION", "You successfully attached the glyph to the piece of jewellery.")
+        user:inform("Du hast die Glyphe erfolgreich in das Schmuckstück eingesetzt.", "You successfully attached the glyph to the piece of jewellery.")
         local quality = common.getItemQuality(glyph)
         local charges = shared.getAmountOfCharges(jewellery, glyph)
         jewellery:setData("glyphQuality", quality)

@@ -32,10 +32,10 @@ M.ringAndAmuletDefinitions = {
         effect = {
             amulet =
                 {english = "Has a chance to duplicate a resource when you are gathering.",
-                german = "GERMAN TRANSLATION"},
+                german = "Beim Sammeln von Ressourcen besteht eine Chance, die gesammelte Ressource zu verdoppeln."},
             ring =
                 {english = "Repels hostile lifeforms that may appear to guard resources that you are gathering.",
-                german = "GERMAN TRANSLATION"}},
+                german = "Bietet Schutz vor feindlichen Lebensformen, die dich möglicherweise angreifen könnten, um ihren Lebensraum zu verteidigen."}},
     },
     {
         gem = "ruby",
@@ -46,10 +46,10 @@ M.ringAndAmuletDefinitions = {
         effect = {
             amulet =
                 {english = "Has the chance to replicate a resource used when creating a product, saving yours from being used.",
-                german = "GERMAN TRANSLATION"},
+                german = "Beim Herstellen eines Produkts besteht eine Chance, dass eine Ressource ersetzt wird. Du behälst die entsprechende Ressource."},
             ring =
                 {english = "Has a chance to increase the quality of a product you create.",
-                german = "GERMAN TRANSLATION"}}
+                german = "Bei der Herstellung eines Produkts besteht die Chance, dass die Qualität verbessert wird."}}
     },
     {
         gem = "obsidian",
@@ -60,10 +60,10 @@ M.ringAndAmuletDefinitions = {
         effect = {
             amulet =
                 {english = "Has the chance to teleport you away from your attacker upon being hit by someones attack.",
-                german = "GERMAN TRANSLATION"},
+                german = "Erfolgreiche Angriffe gegen dich haben eine Chance, dich von dem Angreifer weg zu teleportieren."},
             ring =
                 {english = "Has the chance to teleport your target away from you upon hitting someone with an attack.",
-                german = "GERMAN TRANSLATION"}}
+                german = "Erfolgreiche Angriffe von dir haben eine Chance, dein Ziel von dir weg zu teleportieren."}}
     },
     {
         gem = "sapphire",
@@ -74,10 +74,10 @@ M.ringAndAmuletDefinitions = {
         effect = {
             amulet =
                 {english = "Has the chance to reduce the cast time required for your next spellcast.",
-                german = "GERMAN TRANSLATION"},
+                german = "Dein nächster Zauber hat eine Chance, schneller ausgeführt zu werden."},
             ring =
                 {english = "Has the chance to reduce the amount of mana required for your next spellcast.",
-                german = "GERMAN TRANSLATION"}}
+                german = "Bei deinem nächsten Zauber besteht die Chance, dass die Manakosten reduziert werden."}}
     },
     {
         gem = "emerald",
@@ -88,10 +88,10 @@ M.ringAndAmuletDefinitions = {
         effect = {
             amulet =
                 {english = "Has the chance to activate upon being hit by an attack, healing you for a small amount.",
-                german = "GERMAN TRANSLATION"},
+                german = "Erfolgreiche Anrgiffe gegen dich haben eine Chance, dich ein wenig zu heilen."},
             ring =
                 {english = "Has the chance to activate upon hitting someone with an attack, healing you for a small amount.",
-                german = "GERMAN TRANSLATION"}}
+                german = "Erfolgreiche Angriffe von dir haben die Chance, dich ein wenig zu heilen."}}
     },
     {
         gem = "topaz",
@@ -102,10 +102,10 @@ M.ringAndAmuletDefinitions = {
         effect = {
             amulet =
                 {english = "Has the chance to produce a duplicate when you create a new product.",
-                german = "GERMAN TRANSLATION"},
+                german = "Wenn du ein neues Produkt herstellst, besteht eine Chance, dass es sich verdoppelt."},
             ring =
                 {english = "Has the chance to allow you to find additional treasure when gathering materials.",
-                german = "GERMAN TRANSLATION"}}
+                german = "Beim Sammeln von Materialien besteht eine Chance, einen zusätzlichen Schatz zu finden."}}
     },
     {
         gem = "diamond",
@@ -116,10 +116,10 @@ M.ringAndAmuletDefinitions = {
         effect = {
             amulet = {
                 english = "Upon being attacked by someone, there is a chance for the glyph to activate, absorbing the force of the attack and using it to strike the attacker with lightning.",
-                german = "GERMAN TRANSLATION"},
+                german = "Wenn du von jemandem angegriffen wirst besteht die Chance, dass die Glyphe aktiviert wird, die Kraft des Angriffs absorbiert wird und in einem Blitz auf den Angreifer zurückgeworfen wird."},
             ring =
                 {english = "Upon attacking someone, there is a chance for the glyph to activate and engulf the target in fire.",
-                german = "GERMAN TRANSLATION"}}
+                german = "Wenn du jemanden angreifst besteht die Chance, dass die Glyphe aktiviert wird und das Ziel in Brand steckt."}}
     }
 }
 
@@ -196,7 +196,8 @@ function M.activateGlyph(user, glyphName, chances, chargesRequired)
     if newCharges <= 0 then
         jewellery:setData("glyphCharges", "")
         jewellery:setData("glyphQuality", "")
-        user:inform("GERMAN TRANSLATION", "The glyph in your ring glows brightly as it activates for one last time, before fading away into nothingness.")
+        user:inform("Die Glyphe in deinem Ring leuchtet hell auf, als sie ein letztes Mal aktiviert wird. Dann erlischt sie und löst sich ins Nichts auf.",
+    "The glyph in your ring glows brightly as it activates for one last time, before fading away into nothingness.")
     else
         jewellery:setData("glyphCharges", newCharges)
     end
@@ -227,10 +228,10 @@ local function lookatText(lang, jewellery, detailed)
     local maxCharges = M.getAmountOfCharges(jewellery, jewellery, true)
 
     local texts = {
-        {identifier = math.floor(maxCharges*0.1), german = "GERMAN TRANSLATION", english = "barely"},
-        {identifier = math.floor(maxCharges*0.5), german = "GERMAN TRANSLATION", english = "below half-way"},
-        {identifier = math.floor(maxCharges*0.9), german = "GERMAN TRANSLATION", english = "above half-way"},
-        {identifier = math.floor(maxCharges), german = "GERMAN TRANSLATION", english = "fully"}
+        {identifier = math.floor(maxCharges*0.1), german = "kaum", english = "barely"},
+        {identifier = math.floor(maxCharges*0.5), german = "weniger als die Hälfte", english = "below half-way"},
+        {identifier = math.floor(maxCharges*0.9), german = "mehr als die Hälfte", english = "above half-way"},
+        {identifier = math.floor(maxCharges), german = "vollständig", english = "fully"}
         }
 
     local retVal
@@ -239,7 +240,7 @@ local function lookatText(lang, jewellery, detailed)
     for _, text in pairs(texts) do
         if text.identifier < lastIdentifier and tonumber(charges) <= text.identifier then --Get the smallest amount that the amount of charges is below
             lastIdentifier= text.identifier
-            retVal = lang == Player.german and "GERMAN TRANSLATION"..text.german or "The attached glyph seems to be ".. text.english .. " charged"
+            retVal = lang == Player.german and "Die eingefügte Glyphe scheint "..text.german.." geladen zu sein." or "The attached glyph seems to be ".. text.english .. " charged."
         end
     end
 

@@ -41,7 +41,7 @@ local function showGlyphItemMessageDialogue(user, glyph)
     local jewelleryName = common.GetNLS(user, commonCopperJewellery.German, commonCopperJewellery.English)
     local jewelleryText = common.GetNLS(user, string.gsub(jewelleryName, "Kupfernes ", ""), string.gsub(jewelleryName, "copper ", ""))
 
-    text.german = "GERMAN TRANSLATION"..shared.qualityTexts.german[glyphQuality].."\n\n"..jewelleryPrefix.german..jewelleryText..germanEffect
+    text.german = "Qualität: "..shared.qualityTexts.german[glyphQuality].."\n\n"..jewelleryPrefix.german..jewelleryText.."\n\nEffekt:\n\n"..germanEffect
 
     text.english = "Quality: "..shared.qualityTexts.english[glyphQuality].."\n\n"..jewelleryPrefix.english..jewelleryText.."\n\nEffect:\n\n"..englishEffect
 
@@ -58,7 +58,7 @@ function M.start(user)
     local glyphsAtBelt = shared.listGlyphsAtBelt(user)
 
     if #glyphsAtBelt == 0 then
-        user:inform("GERMAN TRANSLATION", "The glyph needs to be at your belt if you want to inspect it.")
+        user:inform("Die Glyphe muss an deinem Gürtel sein, um sie untersuchen zu können.", "The glyph needs to be in a belt slot if you want to inspect it.")
         return
     end
 
@@ -74,9 +74,9 @@ function M.start(user)
 
     end
 
-    local title = common.GetNLS(user,"GERMAN TRANSLATION", "Inspection of glyphs")
+    local title = common.GetNLS(user,"Untersuchung von Glyphen", "Inspection of glyphs")
 
-    local description = common.GetNLS(user, "GERMAN TRANSLATION", "Select the glyph you wish to inspect.")
+    local description = common.GetNLS(user, "Wähle die Glpyhe aus, die du untersuchen möchtest.", "Select the glyph you wish to inspect.")
 
     local dialog = SelectionDialog(title, description, callback)
 

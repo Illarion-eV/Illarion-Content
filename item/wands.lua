@@ -44,7 +44,7 @@ function M.enchantingSelection(user, wand, actionstate)
     local forgeItem = common.GetItemInArea(user.pos, 3498, 1, true) -- Check if a glyph ritual shrine is in range
 
     if forgeItem and forgeItem.wear <= 3 then -- 10-15 min left on it
-        user:inform("GERMAN TRANSLATION", "This forge does not look like it will last much longer.")
+        user:inform("Dieser Ritualplatz sieht nicht so aus, als würde sie noch lange halten.", "This forge does not look like it will last much longer.")
     end
 
     if forgeItem then
@@ -88,7 +88,7 @@ function M.enchantingSelection(user, wand, actionstate)
 
     local title = common.GetNLS(user,"Verzauberung", "Enchanting")
 
-    local text = common.GetNLS(user, "GERMAN TRANSLATION", "Select what you want to do.")
+    local text = common.GetNLS(user, "Wähle aus, was du tun möchtest", "Select what you want to do.")
 
     local dialog = SelectionDialog(title, text, callback)
 
@@ -97,12 +97,12 @@ function M.enchantingSelection(user, wand, actionstate)
     elseif forgeItem and not enchantingRituals.candleRitualExists(forgeItem)then
         dialog:addOption(400, common.GetNLS(user,"Bereite ein Glyphenritual vor","Prepare a glyph ritual"))
     elseif forgeItem and enchantingRituals.candleRitualExists(forgeItem) then
-        dialog:addOption(Item.anemo, common.GetNLS(user,"GERMAN TRANSLATION", "Combine shards into glyphs"))
-        dialog:addOption(Item.goldenAmethystAmulet, common.GetNLS(user, "GERMAN TRANSLATION", "Remove glyph from jewellery"))
+        dialog:addOption(Item.anemo, common.GetNLS(user,"Kombiniere Scherben zu Glyphen", "Combine shards into glyphs"))
+        dialog:addOption(Item.goldenAmethystAmulet, common.GetNLS(user, "Entferne Glyphen aus Schmuck", "Remove glyph from jewellery"))
     end
 
-    dialog:addOption(Item.anemo, common.GetNLS(user, "GERMAN TRANSLATION", "Inspection of glyphs"))
-    dialog:addOption(Item.goldenAmethystAmulet, common.GetNLS(user, "GERMAN TRANSLATION", "Inspection of enchanted jewellery"))
+    dialog:addOption(Item.anemo, common.GetNLS(user, "Überprüfung von Glyphen", "Inspection of glyphs"))
+    dialog:addOption(Item.goldenAmethystAmulet, common.GetNLS(user, "Überprüfung von verzaubertem Schmuck", "Inspection of enchanted jewellery"))
 
     dialog:setCloseOnMove()
     user:requestSelectionDialog(dialog)

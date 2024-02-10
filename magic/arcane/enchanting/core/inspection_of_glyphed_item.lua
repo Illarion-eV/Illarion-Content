@@ -33,9 +33,9 @@ local function showGlyphedItemMessageDialogue(user, jewellery)
 
     local englishEffect, germanEffect = shared.getJewelleryEffectText(jewellery)
 
-    text.german = "GERMAN TRANSLATION"..shared.qualityTexts.german[glyphQuality]..remaining..germanEffect
+    text.german = "Glyphen Qualität: "..shared.qualityTexts.german[glyphQuality].."\n\nVerbleibende Ladungen: "..remaining.."\n\nEffekt:\n\n"..germanEffect
 
-    text.english = "Glyph Quality: "..shared.qualityTexts.english[glyphQuality].."\n\nRemaining charges: "..remaining.."\n+nEffect:\n\n"..englishEffect
+    text.english = "Glyph Quality: "..shared.qualityTexts.english[glyphQuality].."\n\nRemaining charges: "..remaining.."\n\nEffect:\n\n"..englishEffect
 
     local dialog = MessageDialog(title, common.GetNLS(user, text.german, text.english), callback)
 
@@ -48,7 +48,7 @@ function M.start(user)
     local jewelleryAtBelt = shared.listGlyphedJewelleryAtBelt(user, true)
 
     if #jewelleryAtBelt == 0 then
-        user:inform("GERMAN TRANSLATION", "The piece of enchanted jewellery needs to be at your belt if you want to inspect it.")
+        user:inform("Das Schmuckstück muss an deinem Gürtel sein, um es untersuchen zu können.", "The piece of enchanted jewellery needs to be in a belt slot if you want to inspect it.")
         return
     end
 
@@ -64,9 +64,9 @@ function M.start(user)
 
     end
 
-    local title = common.GetNLS(user,"GERMAN TRANSLATION", "Inspection of enchanted jewellery")
+    local title = common.GetNLS(user,"Untersuchung von verzaubertem Schmuck", "Inspection of enchanted jewellery")
 
-    local description = common.GetNLS(user, "GERMAN TRANSLATION", "Select the piece of enchanted jewellery you wish to inspect.")
+    local description = common.GetNLS(user, "Wähle das Schmuckstück aus, das du untersuchen möchtest.", "Select the piece of enchanted jewellery you wish to inspect.")
 
     local dialog = SelectionDialog(title, description, callback)
 

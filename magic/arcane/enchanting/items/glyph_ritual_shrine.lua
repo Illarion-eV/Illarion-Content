@@ -32,7 +32,7 @@ function M.UseItem(user, shrine, actionstate)
     local isMage = user:getMagicType() == 0 and (user:getQuestProgress(37) ~= 0 or user:getMagicFlags(0) > 0)
 
     if not wand then
-        user:inform("GERMAN TRANSLATION", "You need a wand in hand to work here.")
+        user:inform("Du musst einen Zauberstab in der Hand halten, um hier arbeiten zu können.", "You need a wand in hand to work here.")
         return
     end
 
@@ -56,11 +56,11 @@ function M.LookAtItem(user, shrine)
         lookAt.description = common.GetNLS(user, "Die Steine bröckeln. Die Magie des Ortes scheint fast völlig verschwunden.",
                                                  "The stones of the shrine are crumbling, the magic having almost disappeared.")
     elseif enchantingRituals.candleRitualExists(shrine) then
-        lookAt.description = common.GetNLS(user, "GERMAN TRANSLATION",
-                                                 "The appropriate rituals have been prepared and the shrine is ready for use.")
+        lookAt.description = common.GetNLS(user, "Die notwendigen Rituale wurden ausgeführt und der Schrein kann genutzt werden.",
+                                                 "The appropriate rituals have been performed and the shrine is ready for use.")
     else
-        lookAt.description = common.GetNLS(user, "GERMAN TRANSLATION",
-                                                 "The glyph ritual still needs to prepared before the shrine can be used.")
+        lookAt.description = common.GetNLS(user, "Das Ritual für die Glyphen muss noch vorbereitet werden, bevor der Schrein genutzt werden kann.",
+                                                 "The glyph ritual still needs to be prepared before the shrine can be used.")
     end
 
     return lookAt
