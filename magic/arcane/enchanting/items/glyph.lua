@@ -41,7 +41,7 @@ function M.LookAtItem(user, item)
         lookAt.description = baseText..common.GetNLS(user, " Mit dem richtigen Einsatz eines Zauberstabs solltest du in der Lage sein, mehr Informationen über den Zustand der Glyphe zu erhalten",
     " With the correct use of a wand, you should be able to glean more information about its present state.")
     else
-        lookAt.description = baseText..common.GetNLS(user, "Ein Magier wäre wahrscheinlich in der Lage dir detailiert von dem Zustand und der Nutzung dieser Glyphe zu erzählen. Du kannst allerdings auch die Glyphe einfach in ein Schmuckstück einsetzen und schauen, was passiert.", 
+        lookAt.description = baseText..common.GetNLS(user, "Ein Magier wäre wahrscheinlich in der Lage dir detailiert von dem Zustand und der Nutzung dieser Glyphe zu erzählen. Du kannst allerdings auch die Glyphe einfach in ein Schmuckstück einsetzen und schauen, was passiert.",
     " A mage would likely be able to tell you more details about its present state and usage, though you can always try to socket it into a piece of jewellery to see what happens.")
     end
 

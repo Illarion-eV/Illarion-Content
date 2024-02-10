@@ -70,7 +70,7 @@ local function glyphedItemIntoShardsAndItem(user, jewellery)
 
     local commonItem = world:getItemStatsFromId(jewellery.id)
 
-    local german = "Du entfernst die Glyphe von dem folgenden Item: "..commonItem.German.."." --Because of articles "dem/der", there is no good way to phrase it 
+    local german = "Du entfernst die Glyphe von dem folgenden Item: "..commonItem.German.."." --Because of articles "dem/der", there is no good way to phrase it
     local english = "You remove the glyph from the "..commonItem.English.."."
 
     if count >= 1 then
