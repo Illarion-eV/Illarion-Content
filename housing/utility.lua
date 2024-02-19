@@ -412,6 +412,44 @@ function M.checkIfWallOrWindow(user, suspectedWall)
     return false
 end
 
+function M.isBuilder(user)
+
+    local frontPos = common.GetFrontPosition(user)
+
+    local propertyName = M.fetchPropertyName(user, frontPos)
+
+    local deed = M.getPropertyDeed(propertyName)
+
+    for i = 1, M.max_builder_number do
+
+        local builderID = deed:getData("builderID"..i)
+
+        if builderID ~= "" and tonumber(builderID) == user.id then
+            return true
+        end
+    end
+
+    return false
+end
+
+function M.isTenant(user)
+
+    local frontPos = common.GetFrontPosition(user)
+
+    local propertyName = M.fetchPropertyName(user, frontPos)
+
+    local deed = M.getPropertyDeed(propertyName)
+
+    local tenantID = deed:getData("tenantID")
+
+    if tenantID ~= "" and tonumber(tenantID) == user.id then
+        return true
+    end
+
+    return false
+end
+
+
 
 function M.allowBuilding(user, alternatePosition)
 
@@ -421,6 +459,11 @@ function M.allowBuilding(user, alternatePosition)
         end
     local propertyName = M.fetchPropertyName(user, frontPos)
     local deed = M.getPropertyDeed(propertyName)
+
+    if deed:getData("demolishmentInProgress") == "true" then
+        user:inform("GERMAN TRANSLATION", "You can not build at an estate that is being demolished.")
+        return false
+    end
 
     if M.fetchPropertyName(user, frontPos) then
 
@@ -577,7 +620,6 @@ end
 
 function M.setPersistenceForProperties()
     for _, property in pairs(propertyList.properties) do
-        log("Setting persistence for "..property.name)
         for x = property.lower.x, property.upper.x do
             for y = property.lower.y, property.upper.y do
                 for z = property.lower.z, property.upper.z do
@@ -587,19 +629,14 @@ function M.setPersistenceForProperties()
                 end
             end
         end
-        log("Done setting persistence for "..property.name)
     end
 
-    log("Creating estate basements")
     M.createEstateBasements() -- in case any estates are lacking basement tiles and walls, this function will fix that
-    log("Done creating estate basements")
 
-    log("Now checking that all property deeds are where they should be")
     for i = 1, #propertyList.propertyTable do
         local location = propertyList.propertyTable[i][3]
 
         if not world:isPersistentAt(location) then
-            log("Setting persistence for property deed belonging to "..propertyList.propertyTable[i][1])
             world:makePersistentAt(location)
         end
 
@@ -614,7 +651,6 @@ function M.setPersistenceForProperties()
         end
 
         if not propertyDeedFound then
-            log("Creating missing property deed for property "..propertyList.propertyTable[i][1])
             world:createItemFromId(3772, 1, location, true, 333, nil) --This will lead to some deeds that should be 3773 facing the wrong direction, but this is also only ever called if one is missing to begin with when a GM sets persistence
         end
     end
@@ -648,6 +684,74 @@ function M.createLock(user)
         user:inform("Du kannst nur auf deinem Grundstück Schlösser in Türen und Tore einsetzen.","You can only create locks for doors or gates that are on your property.")
     end
 end
+
+local function scheduleDemolishment(user, propertyName)
+
+    local callback = function(dialog)
+
+        if not dialog:getSuccess() then
+            return
+        end
+
+        local selected = dialog:getSelectedIndex()+1
+
+        if selected == 1 then
+            local deed = M.getPropertyDeed(propertyName)
+            deed:setData("demolish", "true") --Used to determine which property will be demolished when the scheduled script triggers
+
+            -- Below is a little hack since we do not use global variables, to not have to check every single property each time if there are none scheduled at all
+
+            local pauldronDeed = M.getPropertyDeed("Pauldron Estate") -- refresh in case the deed was changed above as one of the demolished properties
+
+            if deed.pos == pauldronDeed.pos then
+                deed:setData("newDemolishments", "true")
+            else
+                pauldronDeed:setData("newDemolishments", "true")
+                world:changeItem(pauldronDeed)
+            end
+
+            -- end of the hack
+
+            world:changeItem(deed)
+
+            user:inform("GERMAN TRANSLATION", "Upon your request of a demolition, a bunch of dwarves appear to demolish the estate. One by one they scurry off with the broken down material as their payment, at this rate they should be done in no time. ")
+        else
+            return
+        end
+    end
+
+    local dialog = SelectionDialog(common.GetNLS(user,"Bestätigung","Confirmation Check"), common.GetNLS(user,"GERMAN TRANSLATION", "Are you certain that you are absolutely positively sure you want to go through with this? This is the final warning. The demolition can not be stopped or undone after this, and will destroy everything on your property including items you made static or items that are not static!"), callback)
+    dialog:addOption(0,common.GetNLS(user,"Ja","Yes"))
+    dialog:addOption(0,common.GetNLS(user,"Nein, das ist Kunst.","No, I changed my mind."))
+    dialog:setCloseOnMove()
+    user:requestSelectionDialog(dialog)
+end
+
+function M.demolishConfirmation(user, propertyName)
+
+    local callback = function(dialog)
+
+        if not dialog:getSuccess() then
+            return
+        end
+
+        local selected = dialog:getSelectedIndex()+1
+
+        if selected == 1 then
+            scheduleDemolishment(user, propertyName)
+        else
+            return
+        end
+    end
+
+    local dialog = SelectionDialog(common.GetNLS(user,"Bestätigung","Confirmation Check"), common.GetNLS(user,"GERMAN TRANSLATION", "Are you certain you want to demolish your estate property? This can not be undone and once initiated, it can not stop."), callback)
+    dialog:addOption(0,common.GetNLS(user,"Ja","Yes"))
+    dialog:addOption(0,common.GetNLS(user,"Nein, das ist Kunst.","No, I changed my mind."))
+    dialog:setCloseOnMove()
+    user:requestSelectionDialog(dialog)
+
+end
+
 
 function M.createKey(user)
 
@@ -963,9 +1067,7 @@ function M.createEstateBasements()
     for _, property in pairs(basementProperties) do
         local tileID, wallID = M.getBasementTileWall(property.name)
         if property.lower.z == -21 then --only for basement layers
-            log("Creating basement walls for property "..property.name)
             placeBasementWalls(wallID, property.lower, property.upper)
-            log("Creating basement tiles for property "..property.name)
             placeBasementTiles(tileID, property.lower, property.upper)
         end
     end
@@ -1167,7 +1269,6 @@ function M.deletePreviewItem(propertyName, bypassTTL)
     local propertyDeed = M.getPropertyDeed(propertyName)
 
     if propertyDeed == nil then
-        log("The property deed for "..propertyName.." is missing from the map, causing script errors.")
         return
     end
 
@@ -1244,7 +1345,6 @@ function M.ifNoSurroundingTilesDeleteStairTiles(tile1pos, tile2pos)
             local field = world:getField(thePos)
             local tileID = field:tile()
             if tileID ~= 0 then
-                log("tileID: "..tostring(tileID).." at position: "..tostring(thePos))
                 deleteTiles = false
                 break
             end

@@ -63,7 +63,7 @@ local function convertContentsIntoString(contents)
 
     for index, message in pairs(contents) do
         if not message.sender then
-            message.sender = "script"
+            return false --script message not to be logged to avoid spam in the log
         end
         retString = retString.." (Sender "..index..": "..message.sender.." Message"..index..": "..garbleTheMessage(message.text)..")"
     end
@@ -84,7 +84,11 @@ local function logThatMessagesWereReceived(recipient, contents)
 
     loggedMessage = loggedMessage..convertContentsIntoString(contents)
 
-    log(loggedMessage)
+    if loggedMessage then
+
+        log(loggedMessage)
+
+    end
 end
 
 local function sendPlayerMessages(numberOfMessages, recipient)

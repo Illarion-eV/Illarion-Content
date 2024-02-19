@@ -1833,31 +1833,31 @@ function M.UseItem(user, SourceItem, ltstate)
             teleporter(user, SourceItem)
         elseif index == 3 then
             summon(user, SourceItem)
-        elseif index == 3 then
-            godMode(user, SourceItem, ltstate)
         elseif index == 4 then
-            settingsForChar(user)
+            godMode(user, SourceItem, ltstate)
         elseif index == 5 then
-            ambientAction(user)
+            settingsForChar(user)
         elseif index == 6 then
-            actionOnChar(user, SourceItem)
+            ambientAction(user)
         elseif index == 7 then
-            actionOnGroup(user, SourceItem)
+            actionOnChar(user, SourceItem)
         elseif index == 8 then
-            factionInfoOfCharsInRadius(user, SourceItem, ltstate)
+            actionOnGroup(user, SourceItem)
         elseif index == 9 then
-            questEvents(user, SourceItem, ltstate)
+            factionInfoOfCharsInRadius(user, SourceItem, ltstate)
         elseif index == 10 then
-            setuserTeleporter(user, SourceItem)
+            questEvents(user, SourceItem, ltstate)
         elseif index == 11 then
-            setuserActionOnChar(user, SourceItem)
+            setuserTeleporter(user, SourceItem)
         elseif index == 12 then
-            setuserActionOnGroup(user, SourceItem)
+            setuserActionOnChar(user, SourceItem)
         elseif index == 13 then
-            testArea(user)
+            setuserActionOnGroup(user, SourceItem)
         elseif index == 14 then
-            resetTutorial(user)
+            testArea(user)
         elseif index == 15 then
+            resetTutorial(user)
+        elseif index == 16 then
             changePersistence(user)
         end
     end

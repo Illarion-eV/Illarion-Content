@@ -48,7 +48,6 @@ local function carpentrySelection(user)
     user:requestSelectionDialog(dialog)
 end
 
-
 local function craftSelection(user)
 
     local skills = utility.getSkillsToShow(user)
@@ -72,7 +71,9 @@ local function craftSelection(user)
     user:requestSelectionDialog(dialog)
 end
 
-local function destroySelection(user )
+local function destroySelection(user)
+
+    local propertyName = utility.fetchPropertyName(user)
 
     local callback = function(dialog)
         local success = dialog:getSuccess()
@@ -84,8 +85,10 @@ local function destroySelection(user )
                 utility.destroyTile(user)
             elseif selected == 3 then
                 utility.deleteRoofItemOrTile(user, false)
-            else
+            elseif selected == 4 then
                 utility.deleteRoofItemOrTile(user, true)
+            elseif selected == 5 then
+                utility.demolishConfirmation(user, propertyName)
             end
         end
     end
@@ -94,8 +97,14 @@ local function destroySelection(user )
     dialog:addOption(0,common.GetNLS(user,"Schindeln","Tiles"))
     dialog:addOption(0,common.GetNLS(user,"Dachausrüstung","Roof Objects"))
     dialog:addOption(0,common.GetNLS(user,"Dachschindeln","Roof Tiles"))
+    dialog:addOption(0, common.GetNLS(user, "GERMAN TRANSLATION", "Demolish the entire estate"))
     dialog:setCloseOnMove()
-    user:requestSelectionDialog(dialog)
+
+    if utility.checkIfEstate(user) then
+        user:requestSelectionDialog(dialog)
+    else
+        utility.destroyItem(user)
+    end
 end
 
 local function miscDialog(user)
@@ -219,13 +228,19 @@ local function mainDialog(user, sourceItem)
 
     dialog:setCloseOnMove()
 
-    user:requestSelectionDialog(dialog)
+    if utility.isTenant(user) then
+
+        user:requestSelectionDialog(dialog)
+
+    elseif utility.isBuilder(user) then
+
+        craftSelection(user, sourceItem)
+
+    end
 
 end
 
 function M.UseItem(user, sourceItem)
-
-    local thePosition = common.GetFrontPosition(user)   --To prevent cheating by turning, the position is set at the very start(dialogue can only be set to close on movement)
 
     if not utility.checkIfIsInHand(user, sourceItem) then
         return
@@ -236,7 +251,7 @@ function M.UseItem(user, sourceItem)
     if not propertyName then
         user:inform("Du kannst nicht außerhalb eines Grundstückes bauen.","You can't build outside of property land.")
     elseif utility.allowBuilding(user) then
-        mainDialog(user, sourceItem, thePosition)
+        mainDialog(user, sourceItem)
     else
         user:inform("Du musst ein Bewohner sein, um hier bauen zu dürfen, oder eine Genehmigung haben.","To build here you must be the tenant of the property or have their permission.")
     end
