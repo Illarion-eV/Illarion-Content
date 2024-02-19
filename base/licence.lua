@@ -30,17 +30,70 @@ local licenceQuestID
 M.PERMISSION_NONE = 0    -- Permission for static tools is restricted
 M.PERMISSION_ACTIVE = 1    -- Permission for static tools is granted
 
+local function checkIfCharHasSpecialPermissions(char, townManagementItem)
+
+    local status = townManagementItem:getData("licence"..char.id)
+
+    if common.IsNilOrEmpty(status) then
+        return nil
+    elseif status == "granted" then
+        return true
+    elseif status == "restricted" then
+        return false
+    end
+
+end
+
+local function getTownManagementTool(town)
+    local listOfTools = factions.townManagmentItemPos
+    local location
+
+    if town == "Cadomyr" then
+        location = listOfTools[1]
+    elseif town == "Runewick" then
+        location = listOfTools[2]
+    elseif town == "Galmair" then
+        location = listOfTools[3]
+    end
+
+    if not location then
+        return
+    end
+
+    local toolId = 3106
+
+    local field = world:getField(location)
+    local itemsOnField = field:countItems()
+
+    for i = 0, itemsOnField do
+        local chosenItem = field:getStackItem(itemsOnField - i )
+        if chosenItem.id == toolId then
+            return chosenItem
+        end
+    end
+
+end
 
 local function licenceCheck(char)
-    if factions.getMembership(char) == 0 or factions.getRankpoints(char) >=100 then --check if player is outlaw or at least rank 2, anyone else will be ignored
-        if not ((factions.getMembership(char) == licencerequired) or (char:getQuestProgress(licenceQuestID) > 0) or (M.GetLicenceByFaction(licencerequired, factions.getFaction(char).tid) == M.PERMISSION_ACTIVE)) then --check if player is member of the right faction or has licence or his/her faction has permission
-            --            if math.random(1,100)< 51 then --chance that the player can break the law
-            --                common.InformNLS(char,"Hast du gar kein schlechtes Gewissen, hier ohne Lizenz zu arbeiten? Gehe ins Zensusbüro, um dort eine zu erwerben und damit die Werkzeuge verwenden zu können oder werde Bürger dieser Stadt.","Do you not feel bad about working without a licence here? Go to the census office and purchase one in order to be able to use their static tools or become a citizen."); --player gets info he breaks law
-            --            else
+
+    local charIsOutlaw = factions.getMembership(char) == 0
+    local charIsAtleastRank2 = factions.getRankpoints(char) >= 100
+
+    if charIsOutlaw or charIsAtleastRank2 then
+
+        local townName = factions.getTownNameByID(licencerequired)
+        local townManagementItem = getTownManagementTool(townName)
+
+        local char_has_special_permissions = checkIfCharHasSpecialPermissions(char, townManagementItem)
+        local char_belongs_to_same_faction_as_tool = factions.getMembership(char) == licencerequired
+        local char_has_purchased_license = char:getQuestProgress(licenceQuestID) > 0
+        local town_has_activated_licence_requirement_for_chars_faction = M.GetLicenceByFaction(licencerequired, factions.getFaction(char).tid) == M.PERMISSION_ACTIVE
+
+        if not (char_belongs_to_same_faction_as_tool or char_has_purchased_license or char_has_special_permissions == true) and ((town_has_activated_licence_requirement_for_chars_faction and char_has_special_permissions == nil) or char_has_special_permissions == false) then --check if player is member of the right faction or has licence or his/her faction has permission, and whether individual restrictions or permissions have been set for them
+
             common.InformNLS(char,"Du besitzt keine Lizenz für die Verwendung der Werkzeuge dieser Stadt. Gehe ins Zensusbüro, um dort eine zu erwerben und damit die Werkzeuge verwenden zu können oder werde Bürger dieser Stadt.","You do not have a licence for the use of static tools in this town. Go to the census office and purchase one in order to be able to use their static tools or become a citizen.") --player gets info to buy licence
 
             return true --craft-script stops later; set to true as soon as NPCs are ready
-            --            end
         end
     end
 end

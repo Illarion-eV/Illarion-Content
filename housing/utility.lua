@@ -25,7 +25,7 @@ local messenger = require("content.messenger")
 local M = {}
 
  -- Cadomyr, Runewick, Galmair
- M.townManagmentItemPos = {position(116, 527, 0), position(951, 786, 1), position(344, 223, 0)}
+ M.townManagmentItemPos = factions.townMagagmentItemPos
  M.max_guest_number = 20
  M.max_builder_number = 20
  M.depotList={100,101,102,103}
