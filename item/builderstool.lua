@@ -22,7 +22,7 @@ local common = require("base.common")
 
 local M = {}
 
-local function carpentrySelection(user)
+local function overloadedSelection(user, skill)
 
     local callback = function(dialog)
         local success = dialog:getSuccess()
@@ -34,9 +34,9 @@ local function carpentrySelection(user)
         local index = dialog:getSelectedIndex()+1
 
         if index == 1 then
-            construction.showDialog(user, "carpentry", false)
+            construction.showDialog(user, skill, false)
         else
-            construction.showDialog(user, "carpentry", true)
+            construction.showDialog(user, skill, true)
         end
     end
 
@@ -56,8 +56,8 @@ local function craftSelection(user)
         local success = dialog:getSuccess()
         if success then
             local index = dialog:getSelectedIndex()+1
-            if skills[index].name == "carpentry" and utility.checkIfEstate(user) then
-                carpentrySelection(user)
+            if (skills[index].name == "carpentry" or skills[index].name == "mining") and utility.checkIfEstate(user) then --Carpentry and mining have too many items to display in one crafting menu alone, so they are separated into estate and shell housing categories
+                overloadedSelection(user, skills[index].name)
             else
                 construction.showDialog(user, skills[index].name, nil)
             end

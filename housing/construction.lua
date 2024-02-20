@@ -46,11 +46,11 @@ local function loadIngredients(object)
     return ingredients, remnants
 end
 
-local function showObject(user, object, category, skill, carpentryEstateCatalogue)
+local function showObject(user, object, category, skill, overloaded)
 
-    if carpentryEstateCatalogue ~= nil
-        and ((carpentryEstateCatalogue and object.typeOf ~= "Estate")
-        or (not carpentryEstateCatalogue and object.typeOf == "Estate"))
+    if overloaded ~= nil
+        and ((overloaded and object.typeOf ~= "Estate")
+        or (not overloaded and object.typeOf == "Estate"))
         then return false
     end
 
@@ -63,8 +63,8 @@ local function showObject(user, object, category, skill, carpentryEstateCatalogu
     return false
 end
 
-local function loadObjects(user, products, index, object, category, skill, carpentryEstateCatalogue)
-    if showObject(user, object, category, skill, carpentryEstateCatalogue) then
+local function loadObjects(user, products, index, object, category, skill, overloaded)
+    if showObject(user, object, category, skill, overloaded) then
         local ingredients, remnants = loadIngredients(object)
         local id, tile
         if object.itemId then
@@ -81,7 +81,7 @@ local function loadObjects(user, products, index, object, category, skill, carpe
     return false
 end
 
-local function loadProducts(user, categories, skill, carpentryEstateCatalogue)
+local function loadProducts(user, categories, skill, overloaded)
     local products = {}
     for index, category in ipairs(categories) do
         local theList = itemList.items
@@ -90,7 +90,7 @@ local function loadProducts(user, categories, skill, carpentryEstateCatalogue)
         end
 
         for _, object in ipairs(theList) do
-            if loadObjects(user, products, index, object, category, skill, carpentryEstateCatalogue) then
+            if loadObjects(user, products, index, object, category, skill, overloaded) then
                 category.productAmount = category.productAmount + 1
             end
         end
@@ -484,7 +484,7 @@ local function multiSkillsThatAreCountedAsOne(user, skill, productLevel, hasSkil
 
 end
 
-function M.showDialog(user, skillName, carpentryEstateCatalogue)
+function M.showDialog(user, skillName, overloaded)
 
     local skill = {}
     skill.level = loadSkill(user, skillName)
@@ -492,7 +492,7 @@ function M.showDialog(user, skillName, carpentryEstateCatalogue)
 
     local categories = loadCategories(user, skill)
 
-    local products = loadProducts(user, categories, skill, carpentryEstateCatalogue)
+    local products = loadProducts(user, categories, skill, overloaded)
 
     if not utility.allowBuilding(user) then
         return
