@@ -158,10 +158,19 @@ local function isIvy(itemId)
     return false
 end
 
+local function isGrass(itemId)
+
+    if itemId == 1782 or itemId == 1783 then
+        return true
+    end
+
+    return false
+end
+
 function M.checkIfPlantOrTree(user, itemId)
     for _, item in pairs(itemList.items) do
         if item.category == "Plants" or item.category == "Trees" then
-            if item.itemId == itemId and not isIvy(itemId) then
+            if item.itemId == itemId and not isIvy(itemId) and not isGrass(itemId) then
                 return true
             end
         end
