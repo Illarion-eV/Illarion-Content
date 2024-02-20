@@ -536,6 +536,13 @@ function M.showDialog(user, skillName, overloaded)
                 canWork = false
             end
 
+            if utility.checkIfPlantOrTree(user, product.id) then
+                if not utility.checkIfGardeningCriteriaMet(user, product.id) then
+                    canWork = false
+                    user:inform("Das kannst du hier nicht pflanzen.","You can't plant this here.")
+                end
+            end
+
             return canWork
 
         elseif result == CraftingDialog.playerLooksAtItem then

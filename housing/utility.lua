@@ -149,10 +149,19 @@ function M.checkIfGardeningCriteriaMet(user, itemId)
     return false
 end
 
+local function isIvy(itemId)
+
+    if itemId == 644 or itemId == 645 or itemId == 646 or itemId == 647 then
+        return true
+    end
+
+    return false
+end
+
 function M.checkIfPlantOrTree(user, itemId)
     for _, item in pairs(itemList.items) do
         if item.category == "Plants" or item.category == "Trees" then
-            if item.itemId == itemId then
+            if item.itemId == itemId and not isIvy(itemId) then
                 return true
             end
         end
