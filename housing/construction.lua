@@ -410,7 +410,7 @@ local function createItem(user, product, trowel, skill)
     end
 
     for _, remnant in ipairs(product.remnants) do
-       common.CreateItem(user, remnant.item, remnant.quantity, 333, remnant.data)
+       common.CreateItem(user, remnant.id, remnant.quantity, 333, remnant.data)
     end
 end
 
