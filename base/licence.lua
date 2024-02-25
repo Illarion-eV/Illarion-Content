@@ -45,6 +45,7 @@ local function checkIfCharHasSpecialPermissions(char, townManagementItem)
 end
 
 local function getTownManagementTool(town)
+
     local listOfTools = factions.townManagmentItemPos
     local location
 
@@ -60,14 +61,14 @@ local function getTownManagementTool(town)
         return
     end
 
-    local toolId = 3106
+    local toolId = {3106, 3104}
 
     local field = world:getField(location)
     local itemsOnField = field:countItems()
 
     for i = 0, itemsOnField do
         local chosenItem = field:getStackItem(itemsOnField - i )
-        if chosenItem.id == toolId then
+        if chosenItem.id == toolId[1] or chosenItem.id == toolId[2] then
             return chosenItem
         end
     end
@@ -87,9 +88,9 @@ local function licenceCheck(char)
         local char_has_special_permissions = checkIfCharHasSpecialPermissions(char, townManagementItem)
         local char_belongs_to_same_faction_as_tool = factions.getMembership(char) == licencerequired
         local char_has_purchased_license = char:getQuestProgress(licenceQuestID) > 0
-        local town_has_activated_licence_requirement_for_chars_faction = M.GetLicenceByFaction(licencerequired, factions.getFaction(char).tid) == M.PERMISSION_ACTIVE
+        local town_has_activated_licence_requirement_for_chars_faction = M.GetLicenceByFaction(licencerequired, factions.getFaction(char).tid) == M.PERMISSION_NONE
 
-        if not (char_belongs_to_same_faction_as_tool or char_has_purchased_license or char_has_special_permissions == true) and ((town_has_activated_licence_requirement_for_chars_faction and char_has_special_permissions == nil) or char_has_special_permissions == false) then --check if player is member of the right faction or has licence or his/her faction has permission, and whether individual restrictions or permissions have been set for them
+        if not (char_belongs_to_same_faction_as_tool or char_has_purchased_license or char_has_special_permissions == true) and (town_has_activated_licence_requirement_for_chars_faction and (char_has_special_permissions == nil or char_has_special_permissions == false)) then --check if player is member of the right faction or has licence or his/her faction has permission, and whether individual restrictions or permissions have been set for them
 
             common.InformNLS(char,"Du besitzt keine Lizenz für die Verwendung der Werkzeuge dieser Stadt. Gehe ins Zensusbüro, um dort eine zu erwerben und damit die Werkzeuge verwenden zu können oder werde Bürger dieser Stadt.","You do not have a licence for the use of static tools in this town. Go to the census office and purchase one in order to be able to use their static tools or become a citizen.") --player gets info to buy licence
 
