@@ -98,6 +98,12 @@ product:addIngredient(2553, 1) -- pure fire
 
 catId = planing:addCategory("Music instruments", "Instrumente")
 
+-- horn
+product = planing:addProduct(catId, 333, 1)
+product:addIngredient(4364, 1) -- material version of horn item
+product:addIngredient(546, 1) -- naldor wood boards
+product:addIngredient(2550, 1) -- copper ingot
+
 -- flute
 product = planing:addProduct(catId, 90, 1)
 product:addIngredient(546, 2) -- naldor wood boards
