@@ -25,11 +25,11 @@ local M = {}
 
 local skill = Character.horn
 
-music.addTalkText("#me 's cheeks turn red while blowing in a horn but no sound is audible","#me's Wangen werden beim Blasen in das Horn rot, aber kein Ton ist zu hören.", skill);
-music.addTalkText("#me blows in a horn producing a buzzing sound","#me bläst in das Horn und erzeugt ein summendes Geräusch", skill);
-music.addTalkText("#me blows in a horn, sounding like a dying animal","#me bläst in das Horn und macht ein Geräusch das wie ein sterbendes Tier klingt.", skill);
-music.addTalkText("#me blows into a horn and produces a great sound","#me bläst in das Horn und erzeugt so einen guten Klang", skill);
-music.addTalkText("#me blows into a horn and produces a awesome sound","#me bläst in das Horn und erzeugt einen beeindruckenden Klang", skill);
+music.addTalkText("#me's cheeks turn red while blowing into a horn, but no sound is audible.","#me's Wangen werden beim Blasen in das Horn rot, aber kein Ton ist zu hören.", skill);
+music.addTalkText("#me blows into a horn, producing a buzzing sound.","#me bläst in das Horn und erzeugt ein summendes Geräusch.", skill);
+music.addTalkText("#me blows into a horn, producing a sound akin to that of a dying animal.","#me bläst in das Horn und macht ein Geräusch das wie ein sterbendes Tier klingt.", skill);
+music.addTalkText("#me blows into a horn, producing a great sound.","#me bläst in das Horn und erzeugt so einen guten Klang.", skill);
+music.addTalkText("#me blows into a horn, producing an awesome sound.","#me bläst in das Horn und erzeugt einen beeindruckenden Klang.", skill);
 
 function M.UseItem(User, SourceItem)
     music.PlayInstrument(User,SourceItem, skill);
