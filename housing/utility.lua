@@ -21,6 +21,7 @@ local common = require("base.common")
 local money = require("base.money")
 local factions = require("base.factions")
 local messenger = require("content.messenger")
+local doors = require("base.doors")
 
 local M = {}
 
@@ -99,9 +100,20 @@ end
 
 function M.fetchPropertyName(user, pos)
 
-    local direct = user:getFaceTo()
+    local direct
+
+    if user then
+        direct = user:getFaceTo()
+    end
+
     local d = 1
-    local vX, vY = common.GetDirectionVector(direct)
+
+    local vX, vY
+
+    if user then
+        vX, vY = common.GetDirectionVector(direct)
+    end
+
     local x
     local y
     local z
@@ -480,7 +492,7 @@ function M.allowBuilding(user, alternatePosition)
 
     if deed:getData("demolishmentInProgress") == "true" then
         user:inform("GERMAN TRANSLATION", "You can not build at an estate that is being demolished.")
-        return false
+        return false, true
     end
 
     if M.fetchPropertyName(user, frontPos) then
@@ -674,6 +686,90 @@ function M.setPersistenceForProperties()
     end
 end
 
+
+local trapDoors = {start = 3790, stop = 3809}
+local stairs = {319, 1185, 1186, 1403, 1404, 28, 35, 1003}
+
+M.stairs = stairs
+
+function M.doorIsAStair(doorId)
+
+    for _, stair in pairs(stairs) do
+        if stair == doorId then
+            return true
+        end
+    end
+
+    return false
+end
+
+function M.doorIsATrapDoor(doorId)
+
+    if doorId >= trapDoors.start and doorId <= trapDoors.stop then
+        return true
+    end
+
+    return false
+end
+
+-- Check if there is a stair or trap door on the position and return the resulting item, nil for no item or false if not the wanted stair/trap door. Stairswanted is true if you want stairs, false if you want trapdoors.
+function M.getStairsTrapDoor(pos, stairsWanted)
+
+    local potentialStairTrapDoor
+
+    if world:isItemOnField(pos) then
+        potentialStairTrapDoor = world:getItemOnField(pos)
+    end
+
+    if potentialStairTrapDoor then
+
+        if not stairsWanted then
+            for trapID = trapDoors.start, trapDoors.stop do
+                if trapID == potentialStairTrapDoor.id then
+                    return potentialStairTrapDoor
+                end
+            end
+        else
+            for _, stairID in pairs(stairs) do
+                if stairID == potentialStairTrapDoor.id then
+                    return potentialStairTrapDoor
+                end
+            end
+        end
+    else
+        return nil -- No item found
+    end
+
+    return false -- Item was not the wanted stair/trapdoor, stair/trapdoor could exist but something was placed ontop of it
+
+end
+
+
+local function createLockForStairTrapDoor(user, trapDoor, category, theId, propertyName, propertyNameDe)
+
+    local stair
+
+    if category == "Stairs" then
+        stair = trapDoor
+        trapDoor = nil
+    end
+
+    local thePosition =  M.getTrapDoorOrStairPosition(stair, trapDoor)
+
+    local stairDoor = M.getStairsTrapDoor(thePosition, trapDoor)
+
+    if not stairDoor then
+        user:inform("GERMAN TRANSLATION", "Something is obstructing the stair or trap door. Make sure no items are on top of either, then try again.")
+        return false
+    end
+
+    stairDoor:setData("lockId", theId)
+    stairDoor:setData("descriptionEn",propertyName)
+    stairDoor:setData("descriptionDe",propertyNameDe)
+    world:changeItem(stairDoor)
+    return true
+end
+
 function M.createLock(user)
 
     local propertyName = M.fetchPropertyName(user)
@@ -686,20 +782,34 @@ function M.createLock(user)
     end
 
     if M.allowBuilding(user) and M.checkIfLockable(user) then
-        local TargetItem = M.checkIfLockable(user)
+        local TargetItem, category = M.checkIfLockable(user)
+
+        if not common.IsNilOrEmpty(TargetItem:getData("lockId")) then
+            user:inform("GERMAN TRANSLATION", "There's already a lock in place.")
+            return
+        end
+
         for i = 1, #propertyList.propertyTable do
             if propertyList.propertyTable[i][1] == propertyName then
                 local doorId = propertyList.propertyTable[i][6]
+
+                if category == "Stairs" or category == "Trap Doors" then
+                    if not createLockForStairTrapDoor(user, TargetItem, category, doorId, propertyName, propertyNameDe) then
+                        return
+                    end
+                end
+
                 TargetItem:setData("lockId",doorId)
-                TargetItem:setData("doorLock","locked")
+                TargetItem:setData("doorLock","unlocked")
                 TargetItem:setData("descriptionEn",propertyName)
                 TargetItem:setData("descriptionDe",propertyNameDe)
                 world:changeItem(TargetItem)
                 user:inform("Schloss eingebaut.","Lock created.")
+
             end
         end
     else
-        user:inform("Du kannst nur auf deinem Grundstück Schlösser in Türen und Tore einsetzen.","You can only create locks for doors or gates that are on your property.")
+        user:inform("Du kannst nur auf deinem Grundstück Schlösser in Türen und Tore einsetzen. GERMAN TRANSLATION","You can only create locks for doors, gates, stairs or trap doors that are on your property.")
     end
 end
 
@@ -933,6 +1043,85 @@ function M.createWarpsAndExitObject(user, itemId, createOrErase)
         end
     end
     return true
+end
+
+function M.getTrapDoorOrStairPosition(stair, trapDoor)
+
+    local direction
+
+    for _, stairPair in pairs(itemList.Stairs) do
+        if (stair and stairPair.Downstairs == stair.id) or (trapDoor and stairPair.Upstairs == trapDoor.id) then
+            direction = stairPair.Direction
+        end
+    end
+
+    if trapDoor and not direction then -- There is a chance this is a closed trap door, housing needs the open version Id so we check that
+
+        local openId
+
+        if doors.CheckClosedDoor(trapDoor.id) then
+            openId = doors.ClosedDoors[trapDoor.id]
+            log("openId : "..tostring(openId))
+        end
+
+        for _, stairPair in pairs(itemList.Stairs) do
+            if stairPair.Upstairs == openId then
+                direction = stairPair.Direction
+            end
+        end
+
+    end
+
+    if not direction then
+        --illegitimate item for housing that is not in housing catalogue
+        return false
+    end
+
+    local targetPosition
+
+    if stair then
+        targetPosition = stair.pos
+    else
+        targetPosition = trapDoor.pos
+    end
+
+    local v2X = 0
+    local v2Y = 0
+    local v2Z = 0
+
+    if stair then
+
+        if targetPosition.z >= 0 then
+            v2Z = 1
+        elseif targetPosition.z == -21 then
+            v2Z = 21
+        end
+
+        if direction == "north" then
+            v2Y = -1
+        elseif direction == "east" then
+            v2X = 1
+        end
+
+        return position(targetPosition.x + v2X * 1, targetPosition.y + v2Y * 1, targetPosition.z + v2Z)
+
+    elseif trapDoor then
+
+        if targetPosition.z == 0 then
+            v2Z = -21
+        elseif targetPosition.z >= 1 then
+            v2Z = -1
+        end
+
+        if direction == "north" then
+            v2Y = 1
+        elseif direction == "east" then
+            v2X = -1
+        end
+
+        return position(targetPosition.x + v2X * 1, targetPosition.y + v2Y * 1, targetPosition.z + v2Z)
+    end
+
 end
 
 function M.eraseStairTrap(positionOne, positionTwo, targetId, tile1pos)
@@ -2973,23 +3162,37 @@ function M.checkIfSignPost(user)
 end
 
 function M.checkIfLockable(user)
-        local targetItem
+
+    local targetItem
+
     if not common.GetFrontItem(user) then
         return false
     else
         targetItem = common.GetFrontItem(user)
     end
+
     for _, item in pairs(itemList.items) do
+
         if item.category == "Doors" then --All doors and gates
+
             if item.itemId == targetItem.id then
-                return targetItem
+                return targetItem, item.category
             end
+
         elseif item.criteria == "Key" then -- Fence gates
+
             if item.itemId == targetItem.id then
-                return targetItem
+                return targetItem, item.category
             end
         end
     end
+
+    if M.doorIsATrapDoor(targetItem.id) then
+        return targetItem, "Trap Doors"
+    elseif M.doorIsAStair(targetItem.id) then
+        return targetItem, "Stairs"
+    end
+
     return false
 end
 

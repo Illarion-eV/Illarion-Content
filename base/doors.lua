@@ -126,6 +126,8 @@ AddToDoorList(3847, 3851)
 AddToDoorList(3848, 3852)
 AddToDoorList(3849, 3853)
 
+M.ClosedDoors = ClosedDoors --For use in housing
+
 --[[
     CheckOpenDoor
     Check if this a item ID is a opened door.

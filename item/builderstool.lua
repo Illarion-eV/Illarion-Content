@@ -250,10 +250,14 @@ function M.UseItem(user, sourceItem)
 
     if not propertyName then
         user:inform("Du kannst nicht außerhalb eines Grundstückes bauen.","You can't build outside of property land.")
-    elseif utility.allowBuilding(user) then
-        mainDialog(user, sourceItem)
     else
-        user:inform("Du musst ein Bewohner sein, um hier bauen zu dürfen, oder eine Genehmigung haben.","To build here you must be the tenant of the property or have their permission.")
+        local allowed, informAlreadySent = utility.allowBuilding(user)
+
+        if allowed then
+            mainDialog(user, sourceItem)
+        elseif not informAlreadySent then
+            user:inform("Du musst ein Bewohner sein, um hier bauen zu dürfen, oder eine Genehmigung haben.","To build here you must be the tenant of the property or have their permission.")
+        end
     end
 end
 
