@@ -195,7 +195,7 @@ function M.UseItem(user, SourceItem)
         common.TurnTo(user, stairItem.pos)
     end
 
-    if doorItem and keys.CheckKey(SourceItem, doorItem, user) then
+    if doorItem and not stairIsFrontItem and keys.CheckKey(SourceItem, doorItem, user) then
 
         if keys.LockDoor(doorItem, user) then
             common.InformNLS(user,"Du sperrst die Tür ab.","You lock the door.")
