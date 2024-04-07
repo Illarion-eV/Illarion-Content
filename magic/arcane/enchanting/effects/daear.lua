@@ -24,7 +24,7 @@ function M.saveResource(user, resourceLevel)
 
     local chargesRequired = math.max(1, resourceLevel/10)
 
-    local chance = {min = 0.001, bonus = 0.004}
+    local chance = {min = 0.01, bonus = 0.04}
 
     local success = shared.activateGlyph(user, "daear", chance, chargesRequired)
 
