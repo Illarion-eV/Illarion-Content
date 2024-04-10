@@ -155,16 +155,16 @@ function M.getGlyphedJewellery(user, glyphName, requiredCharges)
     local matchingJewellery = M.getJewelleryBasedOnGlyphName(glyphName)
 
     for _, jewellery in pairs(matchingJewellery) do
-        for _, ringOrAmuletToCheck in pairs(jewelleryToCheck) do
+        for index, ringOrAmuletToCheck in pairs(jewelleryToCheck) do
             local matches = jewellery == ringOrAmuletToCheck.id
             local charges = tonumber(ringOrAmuletToCheck:getData("glyphCharges"))
             local equippedRecently = not equipped.checkIfLongEnoughTimePassedSinceEquip(user, ringOrAmuletToCheck.itempos)
             local isGlyphed = not common.IsNilOrEmpty(charges) and charges > 0
 
             if matches and isGlyphed and not equippedRecently then
-                local hasEnoughCharges = charges >= requiredCharges
-                if hasEnoughCharges then
-                    return ringOrAmuletToCheck, charges
+                local hasCharges = charges >= 1
+                if hasCharges then
+                    return ringOrAmuletToCheck, charges, index
                 end
             end
         end
@@ -175,9 +175,9 @@ end
 
 function M.activateGlyph(user, glyphName, chances, chargesRequired)
 
-    local jewellery, charges = M.getGlyphedJewellery(user, glyphName, chargesRequired)
+    local jewellery, charges, index = M.getGlyphedJewellery(user, glyphName, chargesRequired)
 
-    if not jewellery then -- No eligible glyphed jewellery
+    if not jewellery and charges == nil then -- No eligible glyphed jewellery
         return
     end
 
@@ -196,8 +196,20 @@ function M.activateGlyph(user, glyphName, chances, chargesRequired)
     if newCharges <= 0 then
         jewellery:setData("glyphCharges", "")
         jewellery:setData("glyphQuality", "")
-        user:inform("Die Glyphe in deinem Ring leuchtet hell auf, als sie ein letztes Mal aktiviert wird. Dann erlischt sie und löst sich ins Nichts auf.",
-    "The glyph in your ring glows brightly as it activates for one last time, before fading away into nothingness.")
+
+        local dur = common.getItemDurability(jewellery)
+        common.setItemDurability(jewellery, math.max(0, dur - 30)) --Loses up to three grades of durability upon full consumption of glyph
+
+        local ringOrAmulet
+        if index == 3 then -- It is an amulet
+            ringOrAmulet = {german = "Amulett", english = "amulet"}
+        else
+            ringOrAmulet = {german = "Ring", english = "ring"}
+        end
+        user:inform(
+            "Die Glyphe in deinem "..ringOrAmulet.german.." leuchtet hell auf, als sie ein letztes Mal aktiviert wird. Dann erlischt sie und löst sich ins Nichts auf.",
+            "The glyph in your "..ringOrAmulet.english.." glows brightly as it activates for one last time, before fading away into nothingness."
+        )
     else
         jewellery:setData("glyphCharges", newCharges)
     end

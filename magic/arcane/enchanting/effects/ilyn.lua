@@ -23,7 +23,7 @@ local M = {}
 function M.duplicateItem(user, itemLevel)
 
     local chargesRequired = math.max(1, itemLevel/10)
-    local chance = {min = 0.0025, bonus = 0.0075}
+    local chance = {min = 0.01, bonus = 0.04}
     local success = shared.activateGlyph(user, "ilyn", chance, chargesRequired)
 
     if success then

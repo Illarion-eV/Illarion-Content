@@ -214,7 +214,7 @@ function M.BeginnBrewing(user,plantId, plantItem, cauldron)
 
     local isPlant = alchemy.getPlantSubstance(plantId, user)
 
-    local saved = daear.saveResource(user, world:getItemStatsFromId(plantId).Level)
+    local saved = daear.saveResource(user, world:getItemStatsFromId(plantId).Level, 1)
 
     if not saved then
         if not plantItem then

@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local shared = require("magic.arcane.enchanting.core.shared")
+local sharedCraft = require("craft.base.shared")
 local lookat = require("base.lookat")
 local magic = require("base.magic")
 local gems = require("base.gems")
@@ -25,6 +26,7 @@ local pyr = require("magic.arcane.enchanting.effects.pyr")
 local daear = require("magic.arcane.enchanting.effects.daear")
 local ilyn = require("magic.arcane.enchanting.effects.ilyn")
 local glyphTutorial = require("magic.arcane.enchanting.core.tutorial")
+local globalvar = require("base.globalvar")
 
 local M = {}
 
@@ -188,15 +190,16 @@ end
 
 local function createGlyph(user, glyph, wand)
 
+    local saveShard = daear.saveResource(user, glyph.level, #glyph.shards)
+    local shardSaved = false
 
-    for _, shard in ipairs(glyph.shards) do
+    for index , shard in ipairs(glyph.shards) do
 
-        local saveShard = daear.saveResource(user, glyph.level)
-
-        if not saveShard then
+        if saveShard and not shardSaved and (math.random()>(1/#glyph.shards) or index == #glyph.shards) then
+            shardSaved = true
+        else
             user:eraseItem(shard, 1)
         end
-
     end
 
     local quality = generateQuality(user, glyph, wand)
@@ -234,10 +237,13 @@ local function craftGlyph(user, glyph, skill, wand)
 
         createGlyph(user, glyph, wand)
 
-        shared.toolBreaks(user, wand, craftingTime)
+        sharedCraft.toolBreaks(user, wand, craftingTime)
         common.GetHungry(user, neededFood)
         user:increaseAttrib("mana", -neededMana)
         user:learn(Character.enchanting, craftingTime, learnLimit)
+        local location = common.GetFrontPosition(user)
+        user:performAnimation(globalvar.charAnimationSPELL)
+        world:gfx(globalvar.gfxSUN, location)
         local newSkill = user:getSkill(Character.enchanting)
         skillGain = (newSkill > skill)
     end

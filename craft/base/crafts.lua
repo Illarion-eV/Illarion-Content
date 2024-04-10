@@ -434,7 +434,7 @@ local function checkForRareFoodIngredient(user, ingredient)
     return available
 end
 
-local function deleteRareItems(user, ingredient, rareItemsToDelete)
+local function deleteRareItems(user, ingredient, rareItemsToDelete, amountOfIngredients, index, toSave)
 
     local deletedSoFar = 0
 
@@ -457,17 +457,12 @@ local function deleteRareItems(user, ingredient, rareItemsToDelete)
 
         if deleteAmount > 0 then
 
-            local saved = 0
-
-            for _ = 1, deleteAmount do  --Roll glyph chance for each ingredient
-                local saveIngredient = daear.saveResource(user, world:getItemStatsFromId(ingredient.item).Level)
-                if saveIngredient then
-                    saved = saved + 1
-                end
+            if toSave <= 0 then --failsafe in case negative numbers ever reach here, which they should not to begin with
+                toSave = 0
             end
 
-            if saved ~= deleteAmount then --Check for anyone insanely lucky that managed to save ALL the ingredients
-                user:eraseItem(ingredient.item, deleteAmount - saved, data)
+            if toSave >= deleteAmount then --Check that not all ingredients are saved here
+                user:eraseItem(ingredient.item, deleteAmount - toSave, data)
             end
 
         end
@@ -694,6 +689,19 @@ function Craft:craftItem(user, productId)
     return skillGain
 end
 
+local function getTotalQuantity(product)
+
+    local retval = 0
+
+    for i = 1, #product.ingredients do
+        local ingredient = product.ingredients[i]
+        retval = retval + ingredient.quantity
+    end
+
+    return retval
+end
+
+
 function Craft:createItem(user, productId, toolItem)
     local product = self.products[productId]
     product.data.descriptionDe = ""
@@ -701,40 +709,49 @@ function Craft:createItem(user, productId, toolItem)
     product.data.rareness = "" -- reset rarity or else it creates the most recent result of the rarity calculation even if not a perfect item
 
     local rareIngredientBonus = 0
+    local amountOfIngredients = #product.ingredients
+    local ingredientSaved = false
 
-    for i = 1, #product.ingredients do
+    for i = 1, amountOfIngredients do
+
         local ingredient = product.ingredients[i]
-        local regularFoodIngredients = user:countItemAt("all", ingredient.item, ingredient.data)
+        local regularIngredients = user:countItemAt("all", ingredient.item, ingredient.data)
         local totalToDelete = ingredient.quantity
         local regularItemsToDelete
         local rareItemsToDelete = 0
+        local toSave = 0
 
-        if regularFoodIngredients >= totalToDelete then
+        local chance = 1/amountOfIngredients -- equal chance for each ingredient involved to be the one saved
+
+        if not ingredientSaved then -- Did the glyph proc and has the proc not already been used by a previous ingredient?
+            if math.random() <= chance or i == amountOfIngredients then -- equal chance that each ingredient is picked to roll for the save, if its the last ingredient and none were picked before it picks that
+                local saveIngredient = daear.saveResource(user, world:getItemStatsFromId(ingredient.item).Level, getTotalQuantity(product), totalToDelete)
+                if saveIngredient then
+                    toSave = math.ceil(totalToDelete/5) --possible to save up to 1 resource per 5 required of it. EG if a recipe requires 46-50 pins, you get 10 instead of just 1 in return.
+                    ingredientSaved = true
+                end
+            end
+        end
+
+        if regularIngredients >= totalToDelete then -- Prioritises consuming normal items over rare ones
             regularItemsToDelete = totalToDelete
         else
-            regularItemsToDelete = regularFoodIngredients
-            rareItemsToDelete = totalToDelete-regularFoodIngredients
+            regularItemsToDelete = regularIngredients
+            rareItemsToDelete = totalToDelete-regularIngredients
         end
 
         if regularItemsToDelete > 0 then
 
-            local saved = 0
-
-            for _ = 1, regularItemsToDelete do  --Roll glyph chance for each ingredient
-                local saveIngredient = daear.saveResource(user, world:getItemStatsFromId(ingredient.item).Level)
-                if saveIngredient then
-                    saved = saved + 1
-                end
+            if toSave < regularItemsToDelete then --Check for recipes where there is only one ingredient and it got saved
+                user:eraseItem(ingredient.item, regularItemsToDelete - toSave, ingredient.data) -- delete the ingredients minus the ones to be saved
             end
 
-            if saved ~= regularItemsToDelete then --Check for anyone insanely lucky that managed to save ALL the ingredients
-                user:eraseItem(ingredient.item, regularItemsToDelete - saved, ingredient.data)
-            end
+            toSave = toSave - regularItemsToDelete
 
         end
 
         if rareItemsToDelete > 0 then
-            rareIngredientBonus = deleteRareItems(user, ingredient, rareItemsToDelete)
+            rareIngredientBonus = deleteRareItems(user, ingredient, rareItemsToDelete, amountOfIngredients, i, toSave)
         end
     end
 

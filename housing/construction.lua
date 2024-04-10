@@ -341,13 +341,38 @@ local function generateQuality(user, trowel, skill)
 
 end
 
+local function getTotalQuantity(product)
+
+    local retval = 0
+
+    for _, ingredient in pairs(product.ingredients) do
+        retval = retval + ingredient.quantity
+    end
+
+    return retval
+end
+
 local function eraseIngredients(user, product)
 
-    for _, ingredient in ipairs(product.ingredients) do
-        local saveIngredient = daear.saveResource(user, world:getItemStatsFromId(ingredient.id).Level)
-        if not saveIngredient then
-            user:eraseItem(ingredient.id, ingredient.quantity, ingredient.data)
+    local ingredientSaved = false
+
+    for index, ingredient in ipairs(product.ingredients) do
+
+        local save = 0
+
+        if not ingredientSaved and (math.random() <= 1/#product.ingredients or index == #product.ingredients) then
+            local commonItem = world:getItemStatsFromId(ingredient.id)
+            local saveIngredient = daear.saveResource(user, commonItem.Level, getTotalQuantity(product), ingredient.quantity)
+            if saveIngredient then
+                ingredientSaved = true
+                save = math.ceil(ingredient.quantity/5) --possible to save up to 1 resource per 5 required of it. EG if a recipe requires 46-50 pins, you get 10 instead of just 1 in return.
+            end
         end
+
+        if save < ingredient.quantity then
+            user:eraseItem(ingredient.id, ingredient.quantity - save, ingredient.data)
+        end
+
     end
 end
 

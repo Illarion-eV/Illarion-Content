@@ -102,8 +102,8 @@ function M.start(user, actionstate)
     local jewelleryList = shared.listGlyphedJewelleryAtBelt(user)
 
     if #jewelleryList == 0 then
-        user:inform("Du musst mit einer Glyphe versehenen Schmuck an deinem Gürtel haben, wenn du eine Glyphe aus dem Schmuckstück entfernen willst.",
-        "You need to have a glyphed piece of jewellery in a belt slot if you want to remove a glyph from one.")
+        user:inform("Du musst mit einer Glyphe versehenen Schmuck GERMAN TRANSLATION an deinem Gürtel haben, wenn du eine Glyphe aus dem Schmuckstück entfernen willst.",
+        "You need to have a glyphed piece of jewellery that you are skilled enough to craft the glyph of in a belt slot if you want to remove a glyph from one.")
         return
     end
 
@@ -145,6 +145,8 @@ function M.continue(user, actionstate)
     if actionstate == Action.success then
         local jewellery = selectedJewellery[user.id]
         glyphedItemIntoShardsAndItem(user, jewellery)
+        local dur = common.getItemDurability(jewellery)
+        common.setItemDurability(jewellery, math.max(0, dur - 99))
     elseif actionstate == Action.abort then
         common.InformNLS(user,"Du unterbrichst den Prozess, die Glyphe aus dem Schmuck zu entfernen.","You interrupt the process of removing the glyph from the jewellery.")
     end

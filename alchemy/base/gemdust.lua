@@ -122,7 +122,7 @@ function M.BrewingGemDust(user,gemDustId, gemDust, cauldron)
         gemDustId = gemDust.id
     end
 
-    local saved = daear.saveResource(user, world:getItemStatsFromId(gemDustId).Level)
+    local saved = daear.saveResource(user, world:getItemStatsFromId(gemDustId).Level, 1)
 
     if not saved then
 
