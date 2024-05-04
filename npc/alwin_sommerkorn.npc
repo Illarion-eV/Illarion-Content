@@ -16,7 +16,7 @@
 -- NPC Name: Alwin Sommerkorn         Runewick                              --
 -- NPC Job:  fisherman                                                        --
 --                                                                            --
--- NPC Race: halfling                   NPC Position: 759, 819, 0             --
+-- NPC Race: halfling                   NPC Position: 824, 840, 0             --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Rakaya                                                           --
@@ -26,7 +26,7 @@
 name = "Alwin Sommerkorn"
 race = halfling
 sex = male
-position = 759, 819, 0
+position = 824, 840, 0
 direction = south
 affiliation = "Runewick"
 job = "fisherman"
