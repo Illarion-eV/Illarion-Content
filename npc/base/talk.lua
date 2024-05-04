@@ -19,6 +19,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- This script offers all functions needed to get NPCs to talk.
 --
 -- Author: Martin Karing
+
 local messages = require("base.messages")
 local class = require("base.class")
 local baseNPC = require("npc.base.basic")
