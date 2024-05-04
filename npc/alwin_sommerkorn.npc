@@ -63,10 +63,10 @@ itemShoes = 0
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Alwin Sommerkorn, ein Fischer von Runewick. Schlüsselwörter: Hallo, Quest.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hiho.", "Greetings."
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüße.", "Hiho."
-english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hiho.", "Greetings."
-"Hiho", "Hallo", "Hey", "Greeb" -> "Grüße.", "Hiho."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hiho. Nice day for fishing ain't it?", "Greetings. The fish are biting well today."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüße. Die Fische beißen heute gut.", "Hiho. Netter Tag zum Fischen, nicht wahr?"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hiho. Nice day for fishing ain't it?", "Greetings. The fish are biting well today."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Grüße. Die Fische beißen heute gut.", "Hiho. Netter Tag zum Fischen, nicht wahr?"
 "Farewell", "Bye", "Fare well", "See you" -> "Farewell."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Auf bald.", "Bis bald.", "Machs gut."
 english, "Ciao", "Adieu", "Au revoir" -> "Farewell.", "Goodbye."
@@ -74,7 +74,7 @@ english, "Ciao", "Adieu", "Au revoir" -> "Farewell.", "Goodbye."
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
 "kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 "How are you", "How feel", "How do you do" -> "Fine.", "#me smiles broadly."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "#me grinst breit", "Gut. Sehr gut."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "#me grinst breit.", "Gut. Sehr gut."
 "your name", "who are you", "who art thou" -> "Call me Alwin."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Nenn mich Alwin."
 
@@ -151,8 +151,8 @@ queststatus(718) = 5, item(3916, all) < 5, town = Runewick, "Auftrag", "Aufgabe"
 -- 3rd quest solved
 skill(fishing) < 90, queststatus(718) = 5, item(3916, all) > 4, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded five silver coins and your fishing skill increases."), skill(fishing) + 1, money + 500, queststatus(718) = 6, "#me smiles broadly 'Keep the smoked salmon, I don't like them. Take the coins for your effort.'"
 queststatus(718) = 5, item(3916, all) > 4, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded five silver coins."), money + 500, queststatus(718) = 6, "#me smiles broadly 'Keep the smoked salmon, I don't like them. Take the coins for your effort.'"
-skill(fishing) < 90, queststatus(718) = 5, item(3916, all) > 4, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke und deine Fischereifertigkeit steigt."), skill(fishing) + 1, money + 500, queststatus(718) = 6, "#me grinst breit 'Behalten den geräucherten Lachs, ich mag ihn sowieso nicht. Nimm die Münzen für den Aufwand.'"
-queststatus(718) = 5, item(3916, all) > 4, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke."), money + 500, queststatus(718) = 6, "#me grinst breit 'Behalten den geräucherten Lachs, ich mag ihn sowieso nicht. Nimm die Münzen für den Aufwand.'"
+skill(fishing) < 90, queststatus(718) = 5, item(3916, all) > 4, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke und deine Fischereifertigkeit steigt."), skill(fishing) + 1, money + 500, queststatus(718) = 6, "#me grinst breit 'Behalte den geräucherten Lachs, ich mag ihn sowieso nicht. Nimm die Münzen für den Aufwand.'"
+queststatus(718) = 5, item(3916, all) > 4, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke."), money + 500, queststatus(718) = 6, "#me grinst breit 'Behalte den geräucherten Lachs, ich mag ihn sowieso nicht. Nimm die Münzen für den Aufwand.'"
 
 -- 4th quest
 queststatus(718) = 6, english, town = Runewick, "quest", "mission" -> inform("[New quest] Relaxed fishing in Runewick IV"), queststatus(718) = 7, "You also have to keep your fishing rod in a good repair. Bring ten spools of thread to me, then I will teach you how to repair your fishing rod."
@@ -174,9 +174,9 @@ queststatus(718) = 7, item(50, all) > 9, town = Runewick, ".+" -> inform("[Quest
 
 -- No more quests
 queststatus(718) = 8, english, town = Runewick, "quest", "mission" -> "I don't have anything more for you to do. Thank you for the help though!"
-queststatus(718) = 8, town = Runewick, "quest", "mission" -> "Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für eure Hilfe!"
+queststatus(718) = 8, town = Runewick, "quest", "mission" -> "Ich habe nichts weiter für dich zu tun. Aber danke nochmals für deine Hilfe!"
 queststatus(718) = 8, town = Runewick, "task", "adventure", "order" -> "I don't have anything more for you to do. Thank you for the help though!"
-queststatus(718) = 8, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für eure Hilfe!"
+queststatus(718) = 8, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts weiter für dich zu tun. Aber danke nochmals für deine Hilfe!"
 
 -- No quests for non runewickians
 english, town = none, "quest", "mission" -> "No thanks stranger. I only have work for citizens of Runewick."
