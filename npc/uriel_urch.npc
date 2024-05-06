@@ -63,8 +63,8 @@ itemShoes = 699
 -- Template Version 1.03, 01/05/2011 by Estralis Seborian
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Uriel Urch the retired soldier. Keywords: tell something, Serinjah, Orcs, lizardman, elf.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Uriel Urch der Veteran. Schlüsselwörter: erzähl etwas, Serinjah, Orks, Echsenmann, Elf.")
+"Help" -> inform("[Game Help] This NPC is Uriel Urch the retired soldier. Keywords: Beer, Serinjah, Orcs, lizardman, elf.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Uriel Urch der Veteran. Schlüsselwörter: Bier, Serinjah, Orks, Echsenmann, Elf.")
 
 -- - General speech
 "Hello", "Greet", "Hail" -> "Oh! What do you want?", "Who goes there!", "Leave me alone..."
@@ -108,7 +108,7 @@ queststatus(307) = 3, "task", "adventure", "beer" -> inform("Quest: Tales and Sw
 queststatus(307) = 3, "quest", "mission" -> inform("Quest: Geschichten und Schwerter - Bringe Uriel ein weiteres Bier."), "Ich dachte Ihr wolltet mir noch ein Bier bringen?"
 queststatus(307) = 3, "Auftrag", "Aufgabe", "Abenteuer", "bier" -> inform("Quest: Geschichten und Schwerter - Bringe Uriel ein weiteres Bier."), "Ich dachte Ihr wolltet mir noch ein Bier bringen?"
 queststatus(307) = 4, english, ".*" -> inform("Quest: Tales and Swords - Fetch one more beermug for Uriel."), queststatus(307) = 5, "My gods it was a massacre. Children dead, their mothers taken to be burnt *sob* Beer?"
-queststatus(307) = 4, ".*" -> inform("Quest: Geschichten und Schwerter - Bringe Uriel noch ein Bier!"), queststatus(307) = 5, "Bei Maláchin! Das ganze Dorf wurde abgeschlachtet. Kinder tot und ihre Mütter verbrannt! Ihre Schreie! Ich kann sie nicht vergessen. *er seufzt tief und blickt dich fragend an* Bier?"
+queststatus(307) = 4, ".*" -> inform("Quest: Geschichten und Schwerter - Bringe Uriel noch ein Bier!"), queststatus(307) = 5, "Bei Malachín! Das ganze Dorf wurde abgeschlachtet. Kinder tot und ihre Mütter verbrannt! Ihre Schreie! Ich kann sie nicht vergessen. *er seufzt tief und blickt dich fragend an* Bier?"
 queststatus(307) = 5, item(1909, all) >= 1, english, "quest", "mission" -> inform("Quest: Tales and Swords solved. - Uriel reaches for his belt and takes his sword. Then he puts it into your hands."), deleteItem(1909, 1), item(2701, 1, 655), queststatus(307) = 7, "#me drinks the beer, and seems much better after it. 'From then on I have not used my sword again. *pauses* I tell you what, since you have been so good as to hear me out. Take it with you. I won't need it anymore.'"
 queststatus(307) = 5, item(1909, all) >= 1, "task", "adventure", "beer" -> inform("Quest: Tales and Swords solved. - Uriel reaches for his belt and takes his sword. Then he puts it into your hands."), deleteItem(1909, 1), item(2701, 1, 655), queststatus(307) = 7, "#me drinks the beer, and seems much better after it. 'From then on I have not used my sword again.' He pauses. 'I tell you what, since you have been so good as to hear me out. Take it with you. I won't need it anymore.'"
 queststatus(307) = 5, item(1909, all) >= 1, ".*" -> deleteItem(1909, 1), queststatus(307) = 6, "#me leert das Bier in einem Zug. 'Seit damals... habe ich mein Schwert niemals mehr gezogen.' Er hält einen Moment inne..."
