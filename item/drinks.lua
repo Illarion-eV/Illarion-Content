@@ -22,63 +22,206 @@ local lookat = require("base.lookat")
 
 local M = {}
 
--- item ID,  food value,  leftover item, alcohol strength
+-- [item ID], {food value, remnant item}
 M.drinkList = {}
-M.drinkList[2502] = {  800, 2498,   0} -- bottle with sheep milk
-M.drinkList[1841] = {  100, 1840,   0} -- goblet with water
-M.drinkList[1842] = {  800, 1840,  15} -- goblet with wine
-M.drinkList[1843] = { 1000, 1840,  10} -- goblet with mead
-M.drinkList[1844] = {  800, 1840,  20} -- goblet with cider
-M.drinkList[1853] = { 1000, 1858,  10} -- goblet with mead
-M.drinkList[1854] = {  100,  224,   0} -- goblet with water
-M.drinkList[1855] = {  100, 1858,   0} -- goblet with water
-M.drinkList[1856] = { 1000,  224,  10} -- goblet with mead
-M.drinkList[1857] = {  800,  224,  15} -- goblet with wine
-M.drinkList[1859] = {  800, 1858,  20} -- goblet with cider
-M.drinkList[1860] = {  800, 1858,  15} -- goblet with wine
-M.drinkList[1861] = {  800,  224,  20} -- goblet with cider
-M.drinkList[1906] = {  200, 1908,  10} -- beer mug
-M.drinkList[1907] = {  200, 1910,  10} -- beer mug
-M.drinkList[1909] = {  200, 1907,  10} -- beer mug
-M.drinkList[1910] = {  200, 1906,  10} -- beer mug
-M.drinkList[2056] = {  500, 2055,  10} -- goblet with mead
-M.drinkList[2057] = {  400, 2055,  15} -- goblet with wine
-M.drinkList[2058] = {   50, 2055,   0} -- goblet with water
-M.drinkList[2059] = {  400, 2055,  20} -- goblet with cider
-M.drinkList[2186] = {  100, 2185,   0} -- mug with water
-M.drinkList[2187] = {  800, 2185,  15} -- mug with wine
-M.drinkList[2188] = { 1000, 2185,  10} -- mug with mead
-M.drinkList[2189] = {  800, 2185,  20} -- mug with cider
-M.drinkList[517] = {  400, 518,  35} -- bottle of rum
-M.drinkList[1315] = {  400, 1317,  35} -- bottle of berry booze
-M.drinkList[1316] = {  400, 1317,  35} -- bottle of bear slayer
-M.drinkList[1318] = {  400, 1317,  35} -- bottle of elven wine
-M.drinkList[1319] = {  400, 1317,  35} -- bottle of cherry schnapps
-M.drinkList[783] = {500, 790, 0} -- bottle of blackberry juice
-M.drinkList[784] = {500, 790, 0} -- bottle of tangerine juice
-M.drinkList[785] = {500, 790, 0} -- bottle of banana juice
-M.drinkList[786] = {500, 790, 0} -- bottle of cabbage juice
-M.drinkList[787] = {500, 790, 0} -- bottle of virgings weed tea
-M.drinkList[788] = {500, 790, 0} -- bottle of carrot juice
-M.drinkList[789] = {500, 790, 0} -- bottle of strawberry juice
-M.drinkList[791] = {500, 790, 0} -- bottle of grape juice
-M.drinkList[3611] =  {500, 790, 0}  -- bottle of orange juice
-M.drinkList[1320] = {  400, 1317,  35} -- bottle of stone face
-M.drinkList[1321] = {  400, 1317,  35} -- bottle of absinthe
-M.drinkList[1322] = {  400, 1317,  35} -- bottle of orange schnapps
-M.drinkList[1323] = {  400, 1317,  35} -- bottle of mulled wine
-M.drinkList[3720] = {500, 790, 0} -- bottle of fir needle tea
-M.drinkList[3721] = {500, 790, 0} -- bottle of green tea
-M.drinkList[3722] = {500, 790, 0} -- bottle of druids tea
+
+M.drinkList[Item.cupWithWater] = {100, Item.woodenCup}
+M.drinkList[Item.cupWithWine] = {800, Item.woodenCup}
+M.drinkList[Item.cupWithMead] = {1000, Item.woodenCup}
+M.drinkList[Item.cupWithCider] = {800, Item.woodenCup}
+M.drinkList[Item.cupWithMilk] = {400, Item.woodenCup}
+M.drinkList[Item.cupWithFairywine] = {1000, Item.woodenCup}
+
+M.drinkList[Item.clayCupWithWater] = {100, Item.clayCup}
+M.drinkList[Item.clayCupWithWine] = {800, Item.clayCup}
+M.drinkList[Item.clayCupWithMead] = {1000, Item.clayCup}
+M.drinkList[Item.clayCupWithCider] = {800, Item.clayCup}
+M.drinkList[Item.clayCupWithMilk] = {400, Item.clayCup}
+M.drinkList[Item.clayCupWithFairywine] = {1000, Item.clayCup}
+
+M.drinkList[Item.ceramicCupWithWater] = {100, Item.ceramicCup}
+M.drinkList[Item.ceramicCupWithWine] = {800, Item.ceramicCup}
+M.drinkList[Item.ceramicCupWithMead] = {1000, Item.ceramicCup}
+M.drinkList[Item.ceramicCupWithCider] = {800, Item.ceramicCup}
+M.drinkList[Item.ceramicCupWithMilk] = {400, Item.ceramicCup}
+M.drinkList[Item.ceramicCupWithFairyWine] = {1000, Item.ceramicCup}
+
+M.drinkList[Item.ironGobletWithWater] = {100, Item.ironGoblet}
+M.drinkList[Item.ironGobletWithWine] = {800, Item.ironGoblet}
+M.drinkList[Item.ironGobletWithMead] = {1000, Item.ironGoblet}
+M.drinkList[Item.ironGobletWithCider] = {800, Item.ironGoblet}
+M.drinkList[Item.ironGobletWithMilk] = {400, Item.ironGoblet}
+M.drinkList[Item.ironGobletWithFairywine] = {1000, Item.ironGoblet}
+
+M.drinkList[Item.copperGobletWithWater] = {100, Item.copperGoblet}
+M.drinkList[Item.copperGobletWithWine] = {800, Item.copperGoblet}
+M.drinkList[Item.copperGobletWithMead] = {1000, Item.copperGoblet}
+M.drinkList[Item.copperGobletWithCider] = {800, Item.copperGoblet}
+M.drinkList[Item.copperGobletWithMilk] = {400, Item.copperGoblet}
+M.drinkList[Item.copperGobletWithFairywine] = {1000, Item.copperGoblet}
+
+M.drinkList[Item.silverGobletWithWater] = {100, Item.silverGoblet}
+M.drinkList[Item.silverGobletWithWine] = {800, Item.silverGoblet}
+M.drinkList[Item.silverGobletWithMead] = {1000, Item.silverGoblet}
+M.drinkList[Item.silverGobletWithCider] = {800, Item.silverGoblet}
+M.drinkList[Item.silverGobletglassWithMilk] = {400, Item.silverGoblet}
+M.drinkList[Item.silverGobletWithFairywine] = {1000, Item.silverGoblet}
+
+M.drinkList[Item.goldenGobletWithWater] = {100, Item.goldenGoblet}
+M.drinkList[Item.goldenGobletWithWine] = {800, Item.goldenGoblet}
+M.drinkList[Item.goldenGobletWithMead] = {1000, Item.goldenGoblet}
+M.drinkList[Item.goldenGobletWithCider] = {800, Item.goldenGoblet}
+M.drinkList[Item.goldGobletWithMilk] = {400, Item.goldenGoblet}
+M.drinkList[Item.goldGobletWithFairywine] = {1000, Item.goldenGoblet}
+
+M.drinkList[Item.glassWithWater] = {50, Item.glass}
+M.drinkList[Item.glassWithWine] = {400, Item.glass}
+M.drinkList[Item.glassWithMead] = {500, Item.glass}
+M.drinkList[Item.glassWithCider] = {400, Item.glass}
+M.drinkList[Item.glassWithMilk] = {400, Item.glass}
+M.drinkList[Item.glassWithFairywine] = {1000, Item.glass}
+
+M.drinkList[Item.beerMug] = {200, 1907}
+M.drinkList[1907] = {200, 1910} -- nearly full beer mug
+M.drinkList[1910] = {200, 1906} -- half full beer mug
+M.drinkList[1906] = {200, Item.glassMug} -- nearly empty beer mug
+
+M.drinkList[Item.clayBeerMugFull] = {400, Item.clayBeerMugHalf}
+M.drinkList[Item.clayBeerMugHalf] = {400, Item.clayMug}
+
+M.drinkList[Item.bottleOfBlackberryJuice] = {500, Item.emptyJuiceBottle}
+M.drinkList[Item.bottleOfStrawberryJuice] = {500, Item.emptyJuiceBottle}
+M.drinkList[Item.blueberryJuice] = {500, Item.emptyJuiceBottle}
+M.drinkList[Item.cloudberryJuice] = {500, Item.emptyJuiceBottle}
+M.drinkList[Item.raspberryJuice] = {500, Item.emptyJuiceBottle}
+M.drinkList[Item.deerberryJuice] = {500, Item.emptyJuiceBottle}
+M.drinkList[Item.elderberryJuice] = {500, Item.emptyJuiceBottle}
+
+M.drinkList[Item.bottleOfCabbageJuice] = {500, Item.vegetableJuiceBottle}
+M.drinkList[Item.bottleOfCarrotJuice] = {500, Item.vegetableJuiceBottle}
+M.drinkList[Item.bellpepperJuice] = {500, Item.vegetableJuiceBottle}
+M.drinkList[Item.cucumberJuice] = {500, Item.vegetableJuiceBottle}
+M.drinkList[Item.pumpkinJuice] = {500, Item.vegetableJuiceBottle}
+M.drinkList[Item.tomatoJuice] = {500, Item.vegetableJuiceBottle}
+
+M.drinkList[Item.bottleOfGrapeJuice] = {500, Item.fruitJuiceBottle}
+M.drinkList[Item.bottleOfOrangeJuice] =  {500, Item.fruitJuiceBottle}
+M.drinkList[Item.bottleOfTangerineJuice] = {500, Item.fruitJuiceBottle}
+M.drinkList[Item.bottleOfBananaJuice] = {500, Item.fruitJuiceBottle}
+M.drinkList[Item.appleJuice] = {500, Item.fruitJuiceBottle}
+M.drinkList[Item.cherryJuice] = {500, Item.fruitJuiceBottle}
+M.drinkList[Item.pearJuice] = {500, Item.fruitJuiceBottle}
+M.drinkList[Item.mangoJuice] = {500, Item.fruitJuiceBottle}
+M.drinkList[Item.peachJuice] = {500, Item.fruitJuiceBottle}
+M.drinkList[Item.plumJuice] = {500, Item.fruitJuiceBottle}
+M.drinkList[Item.pineappleJuice] = {500, Item.fruitJuiceBottle}
+
+
+M.drinkList[Item.clayShotGlassWithAbsinthe] = {800, Item.clayShotGlass}
+M.drinkList[Item.clayShotGlassWithBearSlayer] = {800, Item.clayShotGlass}
+M.drinkList[Item.clayShotGlassWithBerryBooze] = {800, Item.clayShotGlass}
+M.drinkList[Item.clayShotGlassWithCherrySchnapps] = {800, Item.clayShotGlass}
+M.drinkList[Item.clayShotGlassWithElvenWine] = {800, Item.clayShotGlass}
+M.drinkList[Item.clayShotGlassWithMulledWine] = {800, Item.clayShotGlass}
+M.drinkList[Item.clayShotGlassWithOrangeSchnapps] = {800, Item.clayShotGlass}
+M.drinkList[Item.clayShotGlassWithStoneFace] = {800, Item.clayShotGlass}
+
+M.drinkList[Item.ceramicShotGlassWithAbsinthe] = {800, Item.ceramicShotGlass}
+M.drinkList[Item.ceramicShotGlassWithBearSlayer] = {800, Item.ceramicShotGlass}
+M.drinkList[Item.ceramicShotGlassWithBerryBooze] = {800, Item.ceramicShotGlass}
+M.drinkList[Item.ceramicShotGlassWithCherrySchnapps] = {800, Item.ceramicShotGlass}
+M.drinkList[Item.ceramicShotGlassWithElvenWine] = {800, Item.ceramicShotGlass}
+M.drinkList[Item.ceramicShotGlassWithMulledWine] = {800, Item.ceramicShotGlass}
+M.drinkList[Item.ceramicShotGlassWithOrangeSchnapps] = {800, Item.ceramicShotGlass}
+M.drinkList[Item.ceramicShotGlassWithStoneFace] = {800, Item.ceramicShotGlass}
+
+M.drinkList[Item.ironShotGlassWithAbsinthe] = {800, Item.ironShotGlass}
+M.drinkList[Item.ironShotGlassWithBearSlayer] = {800, Item.ironShotGlass}
+M.drinkList[Item.ironShotGlassWithBerryBooze] = {800, Item.ironShotGlass}
+M.drinkList[Item.ironShotGlassWithCherrySchnapps] = {800, Item.ironShotGlass}
+M.drinkList[Item.ironShotGlassWithElvenWine] = {800, Item.ironShotGlass}
+M.drinkList[Item.ironShotGlassWithMulledWine] = {800, Item.ironShotGlass}
+M.drinkList[Item.ironShotGlassWithOrangeSchnapps] = {800, Item.ironShotGlass}
+M.drinkList[Item.ironShotGlassWithStoneFace] = {800, Item.ironShotGlass}
+
+M.drinkList[Item.copperShotGlassWithAbsinthe] = {800, Item.copperShotGlass}
+M.drinkList[Item.copperShotGlassWithBearSlayer] = {800, Item.copperShotGlass}
+M.drinkList[Item.copperShotGlassWithBerryBooze] = {800, Item.copperShotGlass}
+M.drinkList[Item.copperShotGlassWithCherrySchnapps] = {800, Item.copperShotGlass}
+M.drinkList[Item.copperShotGlassWithElvenWine] = {800, Item.copperShotGlass}
+M.drinkList[Item.copperShotGlassWithMulledWine] = {800, Item.copperShotGlass}
+M.drinkList[Item.copperShotGlassWithOrangeSchnapps] = {800, Item.copperShotGlass}
+M.drinkList[Item.copperShotGlassWithStoneFace] = {800, Item.copperShotGlass}
+
+M.drinkList[Item.silverShotGlassWithAbsinthe] = {800, Item.silverShotGlass}
+M.drinkList[Item.silverShotGlassWithBearSlayer] = {800, Item.silverShotGlass}
+M.drinkList[Item.silverShotGlassWithBerryBooze] = {800, Item.silverShotGlass}
+M.drinkList[Item.silverShotGlassWithCherrySchnapps] = {800, Item.silverShotGlass}
+M.drinkList[Item.silverShotGlassWithElvenWine] = {800, Item.silverShotGlass}
+M.drinkList[Item.silverShotGlassWithMulledWine] = {800, Item.silverShotGlass}
+M.drinkList[Item.silverShotGlassWithOrangeSchnapps] = {800, Item.silverShotGlass}
+M.drinkList[Item.silverShotGlassWithStoneFace] = {800, Item.silverShotGlass}
+
+M.drinkList[Item.goldShotGlassWithAbsinthe] = {800, Item.goldShotGlass}
+M.drinkList[Item.goldShotGlassWithBearSlayer] = {800, Item.goldShotGlass}
+M.drinkList[Item.goldShotGlassWithBerryBooze] = {800, Item.goldShotGlass}
+M.drinkList[Item.goldShotGlassWithCherrySchnapps] = {800, Item.goldShotGlass}
+M.drinkList[Item.goldShotGlassWithElvenWine] = {800, Item.goldShotGlass}
+M.drinkList[Item.goldShotGlassWithMulledWine] = {800, Item.goldShotGlass}
+M.drinkList[Item.goldShotGlassWithOrangeSchnapps] = {800, Item.goldShotGlass}
+M.drinkList[Item.goldShotGlassWithStoneFace] = {800, Item.goldShotGlass}
+
+M.drinkList[Item.shotGlassWithAbsinthe] = {800, Item.shotGlass}
+M.drinkList[Item.shotGlassWithBearSlayer] = {800, Item.shotGlass}
+M.drinkList[Item.shotGlassWithBerryBooze] = {800, Item.shotGlass}
+M.drinkList[Item.shotGlassWithCherrySchnapps] = {800, Item.shotGlass}
+M.drinkList[Item.shotGlassWithElvenWine] = {800, Item.shotGlass}
+M.drinkList[Item.shotGlassWithMulledWine] = {800, Item.shotGlass}
+M.drinkList[Item.shotGlassWithOrangeSchnapps] = {800, Item.shotGlass}
+M.drinkList[Item.shotGlassWithStoneFace] = {800, Item.shotGlass}
+
+M.drinkList[Item.clayTeaCupDruid] = {1000, Item.clayTeaCup}
+M.drinkList[Item.clayTeaCupFirNeedle] = {1000, Item.clayTeaCup}
+M.drinkList[Item.clayTeaCupGreen] = {1000, Item.clayTeaCup}
+M.drinkList[Item.clayTeaCupVirginWeed] = {1000, Item.clayTeaCup}
+
+M.drinkList[Item.ceramicTeaCupDruid] = {1000, Item.ceramicTeaCup}
+M.drinkList[Item.ceramicTeaCupFirNeedle] = {1000, Item.ceramicTeaCup}
+M.drinkList[Item.ceramicTeaCupGreen] = {1000, Item.ceramicTeaCup}
+M.drinkList[Item.ceramicTeaCupVirginWeed] = {1000, Item.ceramicTeaCup}
+
+M.drinkList[Item.ironTeaCupDruid] = {1000, Item.ironTeaCup}
+M.drinkList[Item.ironTeaCupFirNeedle] = {1000, Item.ironTeaCup}
+M.drinkList[Item.ironTeaCupGreen] = {1000, Item.ironTeaCup}
+M.drinkList[Item.ironTeaCupVirginWeed] = {1000, Item.ironTeaCup}
+
+M.drinkList[Item.copperTeaCupDruid] = {1000, Item.copperTeaCup}
+M.drinkList[Item.copperTeaCupFirNeedle] = {1000, Item.copperTeaCup}
+M.drinkList[Item.copperTeaCupGreen] = {1000, Item.copperTeaCup}
+M.drinkList[Item.copperTeaCupVirginWeed] = {1000, Item.copperTeaCup}
+
+M.drinkList[Item.silverTeaCupDruid] = {1000, Item.silverTeaCup}
+M.drinkList[Item.silverTeaCupFirNeedle] = {1000, Item.silverTeaCup}
+M.drinkList[Item.silverTeaCupGreen] = {1000, Item.silverTeaCup}
+M.drinkList[Item.silverTeaCupVirginWeed] = {1000, Item.silverTeaCup}
+
+M.drinkList[Item.goldTeaCupDruid] = {1000, Item.goldTeaCup}
+M.drinkList[Item.goldTeaCupFirNeedle] = {1000, Item.goldTeaCup}
+M.drinkList[Item.goldTeaCupGreen] = {1000, Item.goldTeaCup}
+M.drinkList[Item.goldTeaCupVirginWeed] = {1000, Item.goldTeaCup}
+
+M.drinkList[Item.glassTeaCupDruid] = {1000, Item.glassTeaCup}
+M.drinkList[Item.glassTeaCupFirNeedle] = {1000, Item.glassTeaCup}
+M.drinkList[Item.glassTeaCupGreen] = {1000, Item.glassTeaCup}
+M.drinkList[Item.glassTeaCupVirginWeed] = {1000, Item.glassTeaCup}
+
 
 function M.UseItem(user, SourceItem)
-
 
     if user.attackmode then
         common.InformNLS( user, "Du würdest alles verschütten.", "You'd spill everything.")
         return
     end
-
 
     -- item should not be static
     if SourceItem.wear == 255 then
@@ -96,8 +239,9 @@ function M.UseItem(user, SourceItem)
         return
     end
 
-    local food = M.drinkList[SourceItem.id]
-    if (food == nil) then
+    local drink = M.drinkList[SourceItem.id]
+
+    if not drink then
         user:inform("Unknown drinking Item: ID"..SourceItem.id.." Please Report this to a developer.")
         return
     end
@@ -108,14 +252,14 @@ function M.UseItem(user, SourceItem)
         common.InformNLS( user, customInformDE, customInformEN)
     end
 
-    local foodLevel = user:increaseAttrib("foodlevel", 0) + food[1]
+    local foodLevel = user:increaseAttrib("foodlevel", 0) + drink[1]
     world:makeSound(12, user.pos) -- drink sound
 
     if math.random(50) <= 1 then
         common.InformNLS( user, "Das alte Geschirr ist nicht mehr brauchbar.", "The old dishes are no longer usable.")
     else
         local dataCopy = {descriptionDe=SourceItem:getData("descriptionDe"), descriptionEn=SourceItem:getData("descriptionEn")}
-        common.CreateItem(user, food[2], 1, 333, dataCopy) -- create the remnant item
+        common.CreateItem(user, drink[2], 1, 333, dataCopy) -- create the remnant item
     end
     world:erase(SourceItem, 1)
 
@@ -123,7 +267,7 @@ function M.UseItem(user, SourceItem)
         common.InformNLS( user, "Du hast genug getrunken.", "You have had enough to drink.")
     elseif foodLevel > 40000 then
         common.InformNLS( user, "Du schaffst es nicht noch mehr zu trinken.", "You cannot drink anything else.")
-        foodLevel = foodLevel - food[1]
+        foodLevel = foodLevel - drink[1]
     end
 
     if user:increaseAttrib("foodlevel", 0) ~= foodLevel then
