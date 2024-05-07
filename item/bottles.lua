@@ -43,62 +43,50 @@ local BottleQualDe = {"Randvolle ", "Volle ", "Halbvolle ", "Fast leere "}
 local BottleQualEn = {"Brimfull ", "Full ", "Half full ", "Almost empty "}
 local BottleQualLm = {8, 6, 3, 1}
 
-local function getEvilrockBucket(User)
-    local Radius = 1
-    for  x = -Radius, Radius do
-        for y = -Radius, Radius do
-            local targetPos = position(User.pos.x + x, User.pos.y + y, User.pos.z)
-            if (world:isItemOnField(targetPos)) then
-                local item = world:getItemOnField(targetPos)
-                if (item.id == 51 and item:getData("evilrockBucket") == "true") then
-                    return item
-                end
-            end
-        end
+
+local function evilrockEntrance(user, sourceItem, actionstate)
+
+    local evilrockBucket = common.GetItemInArea(user.pos, Item.bucket, 1, false, {key = "evilrockBucket", value = "true"})
+
+    if evilrockBucket == nil or sourceItem.id ~= 2496 then
+        return false
     end
-    return nil
-end
 
-local function Evilrockentrance(User, SourceItem, ltstate)
-    local evilrockBucket =  getEvilrockBucket(User)
-    if evilrockBucket ~= nil and SourceItem.id == 2496 then
-        common.TurnTo(User, evilrockBucket.pos) -- turn if necessary
+    common.TurnTo(user, evilrockBucket.pos) -- turn if necessary
 
-        if ( ltstate == Action.none ) then
-            User:startAction( 20, 21, 5, 10, 25)
-            User:talk(Character.say, "#me beginnt den Eimer zu befüllen.", "#me starts to fill bucket.")
-            return true
-        end
-
-        if ( ltstate == Action.abort ) then
-            common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
-            return true
-        end
-
-        world:swap(evilrockBucket, 52, 999)
-
-        world:erase(SourceItem, 1)
-        common.CreateItem(User, 2498, 1, 333, nil)
-
-        for xx = 992, 996 do
-            local EntranceTrap = world:getItemOnField(position(xx,195,0))
-            if EntranceTrap.id == 3097 then
-                world:erase(EntranceTrap,EntranceTrap.number)
-                world:makeSound(4,User.pos)
-                world:makeSound(5,User.pos)
-            end
-        end
-        common.InformNLS(User, "Du hörst ein seltsames Geräusch von unten.", "You hear a strange noise from below.")
+    if ( actionstate == Action.none ) then
+        user:startAction( 20, 21, 5, 10, 25)
+        user:talk(Character.say, "#me beginnt den Eimer zu befüllen.", "#me starts to fill the bucket.")
         return true
     end
-    return false
+
+    if ( actionstate == Action.abort ) then
+        common.InformNLS(user, "Du brichst deine Arbeit ab.", "You abort your work.")
+        return true
+    end
+
+    world:swap(evilrockBucket, 52, 999)
+    sourceItem.id = Item.largeEmptyBottle
+    world:changeItem(sourceItem)
+
+    for xx = 992, 996 do
+        local EntranceTrap = world:getItemOnField(position(xx,195,0))
+        if EntranceTrap.id == 3097 then
+            world:erase(EntranceTrap,EntranceTrap.number)
+            world:makeSound(4,user.pos)
+            world:makeSound(5,user.pos)
+        end
+    end
+        common.InformNLS(user, "Du hörst ein seltsames Geräusch von unten.", "You hear a strange noise from below.")
+        return true
+
 end
 
 function M.UseItem(User, SourceItem, ltstate)
 
     local food = drinkList[ SourceItem.id ];
     if (food ~= nil ) then
-        if Evilrockentrance(User, SourceItem, ltstate) == true then
+        if evilrockEntrance(User, SourceItem, ltstate) == true then
             return
         end
 
