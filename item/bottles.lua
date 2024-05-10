@@ -691,6 +691,11 @@ local function fillTea(user, sourceItem, amount, half, quarter, empty, vesselToF
         return false
     end
 
+    if vesselToFill.number > 1 then
+        user:inform("GERMAN TRANSLATION", "You can't pour into multiple items at once! Single one out, then try again.")
+        return false
+    end
+
     local amountToFill = minAmountToFill
 
     if not maxAmountToFill then
@@ -751,6 +756,11 @@ local function fillVessel(user, sourceItem, bottle)
         common.InformNLS(user,
             "Dir fällt auf, dass du gar kein Gefäß hast, welches du füllen könntest.",
             "You notice that you do not have a vessel which you could fill.")
+        return false
+    end
+
+    if vesselToFill.number > 1 then
+        user:inform("GERMAN TRANSLATION", "You can't pour into multiple items at once! Single one out, then try again.")
         return false
     end
 
