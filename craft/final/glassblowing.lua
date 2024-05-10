@@ -38,13 +38,25 @@ catId = glassblowing:addCategory("Bottles", "Flaschen")
 product = glassblowing:addProduct(catId, 2498, 1)
 product:addIngredient(41, 1) -- glass ingot
 
--- empty juice bottle
+-- empty vegetable juice bottle
+product = glassblowing:addProduct(catId, Item.vegetableJuiceBottle, 1)
+product:addIngredient(41, 1) -- glass ingot
+
+-- empty berry juice bottle
 product = glassblowing:addProduct(catId, 790, 1)
+product:addIngredient(41, 1) -- glass ingot
+
+-- empty fruit juice bottle
+product = glassblowing:addProduct(catId, Item.fruitJuiceBottle, 1)
 product:addIngredient(41, 1) -- glass ingot
 
 -- empty rum bottle
 product = glassblowing:addProduct(catId, 518, 1)
 product:addIngredient(41, 1) -- glass ingot
+
+-- empty tea bottle
+product = glassblowing:addProduct(catId, Item.teaBottle, 1)
+product:addIngredient(41, 2) -- glass ingot
 
 -- empty oil bottle
 product = glassblowing:addProduct(catId, 390, 1)
@@ -64,10 +76,17 @@ product:addIngredient(41, 3) -- glass ingot
 
 catId = glassblowing:addCategory("Glasses", "Gläser")
 
+product = glassblowing:addProduct(catId, Item.shotGlass, 1)
+product:addIngredient(41, 3) -- glass ingot
+
 -- glass
 product = glassblowing:addProduct(catId, 2055, 1)
 product:addIngredient(41, 2) -- glass ingot
 product:addIngredient(446, 1) -- sapphire powder
+
+product = glassblowing:addProduct(catId, Item.glassTeaCup, 1)
+product:addIngredient(41, 4) -- glass ingot
+product:addIngredient(449, 1) -- obsidian powder
 
 -- wine glass
 product = glassblowing:addProduct(catId, 2457, 1)
@@ -80,6 +99,22 @@ product:addIngredient(41, 4) -- glass ingot
 product:addIngredient(448, 1) -- emerald powder
 
 catId = glassblowing:addCategory("Other", "Sonstiges")
+
+product = glassblowing:addProduct(catId, Item.glassPlate, 1)
+product:addIngredient(41, 2) -- glass ingot
+product:addIngredient(446, 1) -- sapphire powder
+
+product = glassblowing:addProduct(catId, Item.glassBowl, 1)
+product:addIngredient(41, 2) -- glass ingot
+product:addIngredient(446, 1) -- sapphire powder
+
+product = glassblowing:addProduct(catId, Item.glassServingJug, 1)
+product:addIngredient(41, 4) -- glass ingot
+product:addIngredient(448, 1) -- emerald powder
+
+product = glassblowing:addProduct(catId, Item.glassTeapot, 1)
+product:addIngredient(41, 4) -- glass ingot
+product:addIngredient(448, 1) -- emerald powder
 
 -- empty salve jar
 product = glassblowing:addProduct(catId, 3642, 1)
