@@ -378,11 +378,17 @@ catId = finesmithing:addCategory("Tableware", "Geschirr")
 product = finesmithing:addProduct(catId, 223, 1)
 product:addIngredient(2535, 1) -- iron ingot
 
+product = finesmithing:addProduct(catId, Item.ironShotGlass, 1)
+product:addIngredient(2535, 1) -- iron ingot
+
 -- copper goblet
 product = finesmithing:addProduct(catId, 1840, 1)
 product:addIngredient(2550, 1) -- copper ingot
 
--- green plate
+product = finesmithing:addProduct(catId, Item.copperShotGlass, 1)
+product:addIngredient(2550, 1) -- copper ingot
+
+-- decorative plate
 product = finesmithing:addProduct(catId, 1001, 1)
 product:addIngredient(2550, 1) -- copper ingot
 
@@ -390,13 +396,83 @@ product:addIngredient(2550, 1) -- copper ingot
 product = finesmithing:addProduct(catId, 1858, 1)
 product:addIngredient(104, 1) -- silver ingot
 
+product = finesmithing:addProduct(catId, Item.ironDishPlate, 1)
+product:addIngredient(2535, 2) -- iron ingot
+
+product = finesmithing:addProduct(catId, Item.ironBowl, 1)
+product:addIngredient(2535, 2) -- iron ingot
+
+product = finesmithing:addProduct(catId, Item.silverShotGlass, 1)
+product:addIngredient(104, 2) -- silver ingot
+
+product = finesmithing:addProduct(catId, Item.copperPlate, 1)
+product:addIngredient(2550, 2) -- copper ingot
+
+product = finesmithing:addProduct(catId, Item.copperBowl, 1)
+product:addIngredient(2550, 2) -- copper ingot
+
 -- golden goblet
 product = finesmithing:addProduct(catId, 224, 1)
 product:addIngredient(236, 1) -- gold ingot
 
+product = finesmithing:addProduct(catId, Item.goldShotGlass, 1)
+product:addIngredient(236, 1) -- gold ingot
+
 -- cutlery
-product = finesmithing:addProduct(catId, 2647, 1)
-product:addIngredient(2550, 3) -- copper ingot
+product = finesmithing:addProduct(catId, 2647, 1) --20, 2000
+product:addIngredient(104, 2) -- silver ingot
+
+product = finesmithing:addProduct(catId, Item.silverPlate, 1)
+product:addIngredient(104, 2) -- silver ingot
+
+product = finesmithing:addProduct(catId, Item.silverBowl, 1)
+product:addIngredient(104, 2) -- silver ingot
+
+product = finesmithing:addProduct(catId, Item.ironTeaCup, 1)
+product:addIngredient(2535, 2) -- iron ingot
+product:addIngredient(Item.obsidian, 1)
+
+product = finesmithing:addProduct(catId, Item.goldPlate, 1)
+product:addIngredient(236, 2) -- gold ingot
+
+product = finesmithing:addProduct(catId, Item.goldBowl, 1)
+product:addIngredient(236, 2) -- gold ingot
+
+product = finesmithing:addProduct(catId, Item.ironServingJug, 1)
+product:addIngredient(2535, 10) -- iron ingot
+
+product = finesmithing:addProduct(catId, Item.copperTeaCup, 1)
+product:addIngredient(2550, 2) -- copper ingot
+product:addIngredient(Item.obsidian, 1)
+
+product = finesmithing:addProduct(catId, Item.ironTeapot, 1)
+product:addIngredient(2535, 12) -- iron ingot
+
+product = finesmithing:addProduct(catId, Item.copperServingJug, 1)
+product:addIngredient(2550, 6) -- copper ingot
+
+product = finesmithing:addProduct(catId, Item.silverTeaCup, 1)
+product:addIngredient(104, 3) -- silver ingot
+product:addIngredient(Item.obsidian, 1)
+
+product = finesmithing:addProduct(catId, Item.copperTeapot, 1)
+product:addIngredient(2550, 8) -- copper ingot
+
+product = finesmithing:addProduct(catId, Item.silverServingJug, 1)
+product:addIngredient(104, 6) -- silver ingot
+
+product = finesmithing:addProduct(catId, Item.goldTeaCup, 1)
+product:addIngredient(236, 3) -- gold ingot
+product:addIngredient(Item.sapphire, 1)
+
+product = finesmithing:addProduct(catId, Item.silverTeapot, 1)
+product:addIngredient(104, 7) -- silver ingot
+
+product = finesmithing:addProduct(catId, Item.goldServingJug, 1)
+product:addIngredient(236, 6) -- gold ingot
+
+product = finesmithing:addProduct(catId, Item.goldTeapot, 1)
+product:addIngredient(236, 8) -- gold ingot
 
 catId = finesmithing:addCategory("Tools", "Werkzeuge")
 
