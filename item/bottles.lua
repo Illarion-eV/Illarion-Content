@@ -809,6 +809,11 @@ function M.UseItem(user, sourceItem, actionState)
         return
     end
 
+    if sourceItem.number > 1 then
+        user:inform("GERMAN TRANSLATION", "You can't pour from multiple items at once! Single one out, then try again.")
+        return
+    end
+
     local filled = false
 
     local updatedSourceItem = nil
