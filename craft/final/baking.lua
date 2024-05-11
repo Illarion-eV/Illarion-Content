@@ -71,7 +71,7 @@ product:addRemnant(51, 1) -- bucket
 product = baking:addProduct(catId, 3609, 1)
 product:addIngredient(2, 4) -- flour
 product:addIngredient(785, 1) -- bottle of banana juice
-product:addRemnant(790,1) -- empty juice bottle
+product:addRemnant(Item.fruitJuiceBottle,1) -- empty juice bottle
 
 -- blackberry muffin
 product = baking:addProduct(catId, 454, 1)

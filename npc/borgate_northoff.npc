@@ -65,10 +65,31 @@ itemShoes = 53
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-sellItems = 2186, 2058, 1855, 2189, 2059, 1859, 2188, 2056, 1853, 2187, 2057, 1860, 1841, 1844, 1843, 2496, 1842, 1854, 1861, 1856, 1857, 1909
---cup with water, glass with water, silver goblet with water, cup with cider, glass with cider, silver goblet with cider, cup with mead, glass with mead, silver goblet with mead, cup with wine, glass with wine, silver goblet with wine, copper goblet with water, copper goblet with cider, copper goblet with mead, bottle of water, copper goblet with wine, golden goblet with water, golden goblet with cider, golden goblet with mead, golden goblet with wine, beer mug
-buySecondaryItems = 2186, 2058, 1855, 2189, 2059, 1859, 2188, 2056, 1853, 2187, 2057, 1860, 1841, 1844, 1843, 2496, 1842, 1854, 1861, 1856, 1857, 1909
---cup with water, glass with water, silver goblet with water, cup with cider, glass with cider, silver goblet with cider, cup with mead, glass with mead, silver goblet with mead, cup with wine, glass with wine, silver goblet with wine, copper goblet with water, copper goblet with cider, copper goblet with mead, bottle of water, copper goblet with wine, golden goblet with water, golden goblet with cider, golden goblet with mead, golden goblet with wine, beer mug
+-- Located in Troll's Haven, the hemp necktie inn doesn't have as stable of a source for drinkware as the realms, unable to produce them locally.
+-- You want a ceramic cup for your wine? Well too bad, Borgate can only offer you a golden goblet as he is all out.
+-- Thank your lucky stars that he at least bothered to clean it before pouring your drink... or did he?
+
+sellItems = 1909, 4460, 4425, 4435, 4418, 4455, 4465, 4448, 4476, 4572, 4568, 4584, 4600, 2058, 1860, 4344, 4352, 4411
+-- glass mug with beer, iron shotglass with absinthe, clay shotglass of bear slayer, copper shotglass of berry booze, ceramic shotglass with cherry schnapps
+-- gold shotglass with elven wine, iron shotglass with mulled wine, shotglass with orange schnapps, silver shotglass with stoneface
+-- clay teacup with druids tea, ceramic teacup with firneedle tea, silver teacup with green tea, glass teacup with virgins weed tea
+-- glass with water, silver goblet with wine, clay cup with mead, iron goblet with cider, ceramic cup with milk 
+
+buySecondaryItems = 2186, 2187, 2188, 2189, 4362, 4355, 4354, 4353, 4352, 4363, 1841, 1842, 1843, 1844, 4359, 4345, 4346, 4344, 4347, 4357, 1855, 1860, 1853, 1859, 4361, 1854, 1857, 1856, 1861, 4360, 4412, 4413, 4410, 4408, 4411, 2058, 2057, 2056, 2059, 4358, 4572, 4573, 4574, 4575, 4592, 4593, 4594, 4595, 4577, 4578, 4579, 4580, 4582, 4583, 4584, 4585, 4587, 4588, 4589, 4590, 4597, 4598, 4599, 4600, 4567, 4568, 4569, 4570, 1909, 4351, 4460, 4461, 4462, 4463, 4464, 4465, 4466, 4467, 4433, 4434, 4435, 4436, 4437, 4438, 4439, 4440, 4424, 4425, 4426, 4427, 4428, 4429, 4430, 4431, 4469, 4470, 4471, 4472, 4473, 4474, 4475, 4476, 4451, 4452, 4453, 4454, 4455, 4456, 4457, 4458, 4442, 4443, 4444, 4445, 4446, 4447, 4448, 4449, 4415, 4416, 4417, 4418, 4419, 4420, 4421, 4422
+-- wooden cup with(water, wine, mead, cider, milk), iron  goblet with(water, wine, mead, cider, milk), copper goblet with(water, wine, mead, cider, milk),
+-- clay cup with(water, wine, mead, cider, milk), silver goblet with(water, wine, mead, cider, milk), gold  goblet with(water, wine, mead, cider, milk),
+-- ceramic cup with(water, wine, mead, cider, milk), glass with(water, wine, mead, cider, milk), clay teacup with (druids tea, firneedle tea, green tea, virgins weed tea),
+-- iron teacup with (druids tea, firneedle tea, green tea, virgins weed tea),copper teacup with (druids tea, firneedle tea, green tea, virgins weed tea),
+-- silver teacup with (druids tea, firneedle tea, green tea, virgins weed tea),gold teacup with (druids tea, firneedle tea, green tea, virgins weed tea),
+-- glass teacup with (druids tea, firneedle tea, green tea, virgins weed tea),ceramic teacup with (druids tea, firneedle tea, green tea, virgins weed tea)
+-- glass mug with beer, clay mug with beer, iron shotglass with(absinthe, bear slayer, berry booze, cherry schnapps, elven wine, mulled wine, orange schnapps, stone face),
+-- copper shotglass with(absinthe, bear slayer, berry booze, cherry schnapps, elven wine, mulled wine, orange schnapps, stone face)
+-- clay shotglass with(absinthe, bear slayer, berry booze, cherry schnapps, elven wine, mulled wine, orange schnapps, stone face)
+-- silver shotglass with(absinthe, bear slayer, berry booze, cherry schnapps, elven wine, mulled wine, orange schnapps, stone face)
+-- gold shotglass with(absinthe, bear slayer, berry booze, cherry schnapps, elven wine, mulled wine, orange schnapps, stone face)
+-- shotglass with(absinthe, bear slayer, berry booze, cherry schnapps, elven wine, mulled wine, orange schnapps, stone face)
+-- ceramic shotglass with(absinthe, bear slayer, berry booze, cherry schnapps, elven wine, mulled wine, orange schnapps, stone face)
+
 tradeNotEnoughMoneyMsg "Kein Geld, keine Drinks.", "No money, no drinks."
 tradeFinishedMsg "Arr. Bitteschön.", "Arr. Here you are."
 tradeFinishedWithoutTradingMsg "Nicht gucken sondern schlucken!", "Don't look, swallow!"
