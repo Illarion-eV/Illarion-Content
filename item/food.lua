@@ -140,6 +140,13 @@ M.foodList[Item.carrots] = {foodPoints = valueMedium}
 M.foodList[Item.lambMeat] = {foodPoints = valueMedium}
 M.foodList[Item.rawSteak] = {foodPoints = valueMedium}
 M.foodList[Item.potato] = {foodPoints = valueMedium}
+M.foodList[Item.honeycomb] = {foodPoints = valueSmall}
+M.foodList[Item.pigeonEgg] = {foodPoints = valueSmall}
+M.foodList[Item.seagullEgg] = {foodPoints = valueMedium}
+M.foodList[Item.firewaspHoneycomb] = {foodPoints = valueMedium}
+M.foodList[Item.raptorEgg] = {foodPoints = valueMedium}
+M.foodList[Item.spiderEgg] = {foodPoints = valueMedium}
+M.foodList[Item.dragonEgg] = {foodPoints = valueLarge}
 
 -- get difficulty from the database
 for foodId, foodItem in pairs(M.foodList) do
