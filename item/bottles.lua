@@ -61,16 +61,16 @@ end
 local bottles = {
     {
         full = {
-            Item.bottleOfWater, Item.clayServingJugWithWater, Item.ceramicServingJugWithWater,
+            Item.bottleOfWater, Item.glassServingJugWithWater, Item.clayServingJugWithWater, Item.ceramicServingJugWithWater,
             Item.ironServingJugWithWater, Item.copperServingJugWithWater, Item.silverServingJugWithWater,
-            Item.goldServingJugWithWater, Item.glassServingJugWithWater},
+            Item.goldServingJugWithWater},
         half = {
             Item.bottleOfWaterHalf,Item.glassServingJugWithWaterHalf},
         quarter = {Item.bottleOfWaterQuarter, Item.glassServingJugWithWaterQuarter},
         empty = {
-            Item.largeEmptyBottle, Item.clayServingJug, Item.ceramicServingJug,
+            Item.largeEmptyBottle, Item.glassServingJug, Item.clayServingJug, Item.ceramicServingJug,
             Item.ironServingJug, Item.copperServingJug, Item.silverServingJug,
-            Item.goldServingJug, Item.glassServingJug},
+            Item.goldServingJug},
         vessels = {
             {empty = Item.clayCup, filled = Item.clayCupWithWater, amount = 1},
             {empty = Item.ceramicCup, filled = Item.ceramicCupWithWater, amount = 1},
@@ -93,16 +93,16 @@ local bottles = {
 
     {
         full = {
-            Item.bottleOfWine, Item.clayServingJugWithWine, Item.ceramicServingJugWithWine,
+            Item.bottleOfWine, Item.glassServingJugWithWine, Item.clayServingJugWithWine, Item.ceramicServingJugWithWine,
             Item.ironServingJugWithWine, Item.copperServingJugWithWine, Item.silverServingJugWithWine,
-            Item.goldServingJugWithWine, Item.glassServingJugWithWine},
+            Item.goldServingJugWithWine},
         half = {
             Item.bottleOfWineHalf,Item.glassServingJugWithWineHalf},
         quarter = {Item.bottleOfWineQuarter, Item.glassServingJugWithWineQuarter},
         empty = {
-            Item.largeEmptyBottle, Item.clayServingJug, Item.ceramicServingJug,
+            Item.largeEmptyBottle, Item.glassServingJug, Item.clayServingJug, Item.ceramicServingJug,
             Item.ironServingJug, Item.copperServingJug, Item.silverServingJug,
-            Item.goldServingJug, Item.glassServingJug},
+            Item.goldServingJug},
         vessels = {
             {empty = Item.clayCup, filled = Item.clayCupWithWine, amount = 1},
             {empty = Item.ceramicCup, filled = Item.ceramicCupWithWine, amount = 1},
@@ -125,16 +125,16 @@ local bottles = {
 
     {
         full = {
-            Item.bottleOfCider, Item.clayServingJugWithCider, Item.ceramicServingJugWithCider,
+            Item.bottleOfCider, Item.glassServingJugWithCider, Item.clayServingJugWithCider, Item.ceramicServingJugWithCider,
             Item.ironServingJugWithCider, Item.copperServingJugWithCider, Item.silverServingJugWithCider,
-            Item.goldServingJugWithCider, Item.glassServingJugWithCider},
+            Item.goldServingJugWithCider},
         half = {
             Item.bottleOfCiderHalf,Item.glassServingJugWithCiderHalf},
         quarter = {Item.bottleOfCiderQuarter, Item.glassServingJugWithCiderQuarter},
         empty = {
-            Item.largeEmptyBottle, Item.clayServingJug, Item.ceramicServingJug,
+            Item.largeEmptyBottle, Item.glassServingJug, Item.clayServingJug, Item.ceramicServingJug,
             Item.ironServingJug, Item.copperServingJug, Item.silverServingJug,
-            Item.goldServingJug, Item.glassServingJug},
+            Item.goldServingJug},
         vessels = {
             {empty = Item.clayCup, filled = Item.clayCupWithCider, amount = 1},
             {empty = Item.ceramicCup, filled = Item.ceramicCupWithCider, amount = 1},
@@ -156,16 +156,16 @@ local bottles = {
         type = "jug"},
     {
         full = {
-            Item.bottleOfMead, Item.clayServingJugWithMead, Item.ceramicServingJugWithMead,
+            Item.bottleOfMead, Item.glassServingJugWithMead, Item.clayServingJugWithMead, Item.ceramicServingJugWithMead,
             Item.ironServingJugWithMead, Item.copperServingJugWithMead, Item.silverServingJugWithMead,
-            Item.goldServingJugWithMead, Item.glassServingJugWithMead},
+            Item.goldServingJugWithMead},
         half = {
             Item.bottleOfMeadHalf,Item.glassServingJugWithMeadHalf},
         quarter = {Item.bottleOfMeadQuarter, Item.glassServingJugWithMeadQuarter},
         empty = {
-            Item.largeEmptyBottle, Item.clayServingJug, Item.ceramicServingJug,
+            Item.largeEmptyBottle, Item.glassServingJug, Item.clayServingJug, Item.ceramicServingJug,
             Item.ironServingJug, Item.copperServingJug, Item.silverServingJug,
-            Item.goldServingJug, Item.glassServingJug},
+            Item.goldServingJug},
         vessels = {
             {empty = Item.clayCup, filled = Item.clayCupWithMead, amount = 1},
             {empty = Item.ceramicCup, filled = Item.ceramicCupWithMead, amount = 1},
@@ -187,16 +187,16 @@ local bottles = {
         type = "jug"},
     {
         full = {
-            Item.bottleOfFairyWine, Item.clayServingJugWithFairyWine, Item.ceramicServingJugWithFairyWine,
+            Item.bottleOfFairyWine, Item.glassServingJugWithFairyWine, Item.clayServingJugWithFairyWine, Item.ceramicServingJugWithFairyWine,
             Item.ironServingJugWithFairyWine, Item.copperServingJugWithFairyWine, Item.silverServingJugWithFairyWine,
-            Item.goldServingJugWithFairyWine, Item.glassServingJugWithFairyWine},
+            Item.goldServingJugWithFairyWine},
         half = {
             Item.bottleOfFairyWineHalf,Item.glassServingJugWithFairyWineHalf},
         quarter = {Item.bottleOfFairyWineQuarter, Item.glassServingJugWithFairyWineQuarter},
         empty = {
-            Item.largeEmptyBottle, Item.clayServingJug, Item.ceramicServingJug,
+            Item.largeEmptyBottle, Item.glassServingJug, Item.clayServingJug, Item.ceramicServingJug,
             Item.ironServingJug, Item.copperServingJug, Item.silverServingJug,
-            Item.goldServingJug, Item.glassServingJug},
+            Item.goldServingJug},
         vessels = {
             {empty = Item.clayCup, filled = Item.clayCupWithFairywine, amount = 1},
             {empty = Item.ceramicCup, filled = Item.ceramicCupWithFairyWine, amount = 1},
@@ -218,16 +218,16 @@ local bottles = {
         type = "jug"},
     {
         full = {
-            Item.bottleOfBeer, Item.clayServingJugWithBeer, Item.ceramicServingJugWithBeer,
+            Item.bottleOfBeer, Item.glassServingJugWithBeer, Item.clayServingJugWithBeer, Item.ceramicServingJugWithBeer,
             Item.ironServingJugWithBeer, Item.copperServingJugWithBeer, Item.silverServingJugWithBeer,
-            Item.goldServingJugWithBeer, Item.glassServingJugWithBeer},
+            Item.goldServingJugWithBeer},
         half = {
             Item.bottleOfBeerHalf,Item.glassServingJugWithBeerHalf},
         quarter = {Item.bottleOfBeerQuarter, Item.glassServingJugWithBeerQuarter},
         empty = {
-            Item.largeEmptyBottle, Item.clayServingJug, Item.ceramicServingJug,
+            Item.largeEmptyBottle, Item.glassServingJug, Item.clayServingJug, Item.ceramicServingJug,
             Item.ironServingJug, Item.copperServingJug, Item.silverServingJug,
-            Item.goldServingJug, Item.glassServingJug},
+            Item.goldServingJug},
         vessels = {
             {empty = Item.clayMug, filled = Item.clayBeerMugFull, amount = 1},
             {empty = Item.glassMug, filled = Item.beerMug, amount = 1},
@@ -243,19 +243,19 @@ local bottles = {
         type = "jug"},
     {
         full = {
-            Item.bottleOfMilk, Item.bottleOfSheepMilk, Item.bottleOfDeerMilk,
+            Item.bottleOfMilk, Item.glassServingJugWithMilk, Item.bottleOfSheepMilk, Item.bottleOfDeerMilk,
             Item.clayServingJugWithMilk, Item.ceramicServingJugWithMilk,
             Item.ironServingJugWithMilk, Item.copperServingJugWithMilk, Item.silverServingJugWithMilk,
-            Item.goldServingJugWithMilk, Item.glassServingJugWithMilk},
+            Item.goldServingJugWithMilk},
         half = {
             Item.bottleOfMilkHalf, Item.bottleOfSheepMilkHalf, Item.bottleOfDeerMilkHalf,
             Item.glassServingJugWithMilkHalf},
         quarter = {Item.bottleOfMilkQuarter, Item.bottleOfSheepMilkQuarter,
                     Item.bottleOfDeerMilkQuarter, Item.glassServingJugWithMilkQuarter},
         empty = {
-            Item.largeEmptyBottle, Item.clayServingJug, Item.ceramicServingJug,
+            Item.largeEmptyBottle, Item.glassServingJug, Item.clayServingJug, Item.ceramicServingJug,
             Item.ironServingJug, Item.copperServingJug, Item.silverServingJug,
-            Item.goldServingJug, Item.glassServingJug},
+            Item.goldServingJug},
         vessels = {
             {empty = Item.clayCup, filled = Item.clayCupWithMilk, amount = 1},
             {empty = Item.ceramicCup, filled = Item.ceramicCupWithMilk, amount = 1},

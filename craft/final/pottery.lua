@@ -46,7 +46,7 @@ product:addIngredient(Item.clay, 2)
 product = pottery:addProduct(catId, Item.clayBowl, 1)
 product:addIngredient(Item.clay, 2)
 
-product = pottery:addProduct(catId, Item.shotGlass, 1)
+product = pottery:addProduct(catId, Item.clayShotGlass, 1)
 product:addIngredient(Item.clay, 4)
 
 product = pottery:addProduct(catId, Item.clayCup, 1)
