@@ -181,9 +181,7 @@ function M.StartGathering(user, sourceItem, ltstate)
 
     user:learn( mining.LeadSkill, mining.SavedWorkTime[user.id], mining.LearnLimit)
 
-    if mining:FindRandomItem(user) then
-        return
-    end
+    mining:FindRandomItem(user)
 
     local created
 

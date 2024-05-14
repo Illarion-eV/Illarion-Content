@@ -121,9 +121,7 @@ function M.StartGathering(User, SourceItem, ltstate)
 
     -- since we're here, we're working
 
-    if sowing:FindRandomItem(User) then
-        return
-    end
+    sowing:FindRandomItem(User)
 
     User:learn( sowing.LeadSkill, sowing.SavedWorkTime[User.id], sowing.LearnLimit);
     -- you always get at least one

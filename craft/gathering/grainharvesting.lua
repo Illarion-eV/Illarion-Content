@@ -97,9 +97,7 @@ function M.StartGathering(User, SourceItem, ltstate)
 
     -- since we're here, we're working
 
-    if grainharvesting:FindRandomItem(User) then
-        return
-    end
+    grainharvesting:FindRandomItem(User)
 
     User:learn( grainharvesting.LeadSkill, grainharvesting.SavedWorkTime[User.id], grainharvesting.LearnLimit);
     local amount = SourceItem:getData("amount");

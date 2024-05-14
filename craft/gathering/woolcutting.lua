@@ -97,9 +97,7 @@ function M.StartGathering(User, SourceAnimal, ltstate)
 
     -- since we're here, we're working
 
-    if woolcutting:FindRandomItem(User) then
-        return
-    end
+    woolcutting:FindRandomItem(User)
 
     User:learn( woolcutting.LeadSkill, woolcutting.SavedWorkTime[User.id], woolcutting.LearnLimit);
 

@@ -246,12 +246,7 @@ function M.StartGathering(User, SourceItem, ltstate)
     end
 
     -- since we're here, we're working
-    if theCraft:FindRandomItem(User) then
-        if ( changeItem ) then
-            world:changeItem(SourceItem);
-        end
-        return
-    end
+    theCraft:FindRandomItem(User)
 
     User:learn( theCraft.LeadSkill, theCraft.SavedWorkTime[User.id], theCraft.LearnLimit);
     amount = amount - 1;

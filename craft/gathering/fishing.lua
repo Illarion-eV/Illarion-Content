@@ -135,9 +135,7 @@ function M.StartGathering(user, sourceItem, actionstate)
 
     user:learn( fishing.LeadSkill, fishing.SavedWorkTime[user.id], fishing.LearnLimit)
 
-    if fishing:FindRandomItem(user) then
-        return
-    end
+    fishing:FindRandomItem(user)
 
     local created, newAmount = gathering.FindResource(user, sourceItem, amount, resourceID)
 

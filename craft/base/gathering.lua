@@ -224,7 +224,7 @@ function M.GetAmount(maxAmount, SourceItem)
     local amountStr = SourceItem:getData("amount");
     local amount
     if ( amountStr ~= "" ) then
-        amount = tonumber(amountStr);
+        amount = tonumber(amountStr)
     elseif ( SourceItem.wear == 255 ) then
         amount = maxAmount
     else
@@ -266,15 +266,21 @@ function M.SwapSource(SourceItem, depletedSourceID, restockWear)
 end
 
 -- Collector for recurring functions
-function M.InitGathering(User, SourceItem, toolID, maxAmount, skill)
+function M.InitGathering(user, sourceItem, toolID, maxAmount, skill)
 
-    common.TurnTo(User, SourceItem.pos)
+    common.TurnTo(user, sourceItem.pos)
+
     local success = false
-    local toolItem=shared.getTool(User, toolID)
-    local amount=M.GetAmount(maxAmount, SourceItem)
-    local gatheringBonus=shared.getGatheringBonus(User, toolItem)
+    local toolItem
 
-    if toolItem and common.CheckItem(User, SourceItem) and common.FitForWork(User) and M.SkillCheck(User, SourceItem, skill) then -- security checks
+    if toolID then
+        toolItem = shared.getTool(user, toolID)
+    end
+
+    local amount= M.GetAmount(maxAmount, sourceItem)
+    local gatheringBonus= shared.getGatheringBonus(user, toolItem)
+
+    if ((toolID and toolItem) or not toolID) and common.CheckItem(user, sourceItem) and common.FitForWork(user) and M.SkillCheck(user, sourceItem, skill) then -- security checks
         success = true
     end
 

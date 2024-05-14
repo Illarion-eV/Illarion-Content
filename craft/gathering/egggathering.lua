@@ -18,133 +18,145 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local shared = require("craft.base.shared")
 local gathering = require("craft.base.gathering")
-local gwynt = require("magic.arcane.enchanting.effects.gwynt")
 
 local M = {}
 
-local function preventGathering(User, theNest)
+local function preventGathering(user, theNest)
 
     local effectType = theNest:getData("eggProtectionType")
 
     if effectType == "ssigus" then
-        world:gfx(21,User.pos)
-        world:makeSound(31,User.pos)
-        User:inform("Als du versuchst, seine Eier zu stehlen, dreht sich Ssigus um und schlägt mit einer Klaue nach dir.", "As you attempt to steal his eggs, Ssigus turns and swipes at you with a claw.")
-        User:increaseAttrib("hitpoints",-2000)
+
+        world:gfx(21, user.pos)
+
+        world:makeSound(31, user.pos)
+
+        user:inform(
+            "Als du versuchst, seine Eier zu stehlen, dreht sich Ssigus um und schlägt mit einer Klaue nach dir.",
+            "As you attempt to steal his eggs, Ssigus turns and swipes at you with a claw.")
+
+        user:increaseAttrib("hitpoints",-2000)
     end
 
 end
 
-function M.StartGathering(User, SourceItem, ltstate)
-    local EMPTY_NEST = 1172
-    local EGG = 1150
+M.skill = "husbandry"
 
-    local gatheringBonus=shared.getGatheringBonus(User, nil)
+M.nestList = {
+    {id = Item.chickenNest, depletedId = Item.emptyChickenNest, productId = Item.whiteEgg, maxAmount = 20, monster = 622, monsterName = {english = "chicken", german = "Hühnchen"}},
+    {id = Item.pigeonNest, depletedId = Item.emptyPigeonNest, productId = Item.pigeonEgg, maxAmount = 20, monster = 391, monsterName = {english = "wolf", german = "GERMAN TRANSLATION"}},
+    {id = Item.seagullNest, depletedId = Item.emptySeagullNest, productId = Item.seagullEgg, maxAmount = 10, monster = 1171, monsterName = {english = "ettin", german = "GERMAN TRANSLATION"}},
+    {id = Item.raptorNest, depletedId = Item.emptyRaptorNest, productId = Item.raptorEgg, maxAmount = 5, monster = 521, monsterName = {english = "raptor", german = "Raptor"}},
+    {id = Item.spiderNest, depletedId = Item.emptySpiderNest, productId = Item.spiderEgg, maxAmount = 5, monster = 193, monsterName = {english = "spider", german = "GERMAN TRANSLATION"}},
+    {id = Item.dragonNest, depletedId = Item.emptyDragonNest, productId = Item.dragonEgg, maxAmount = 5, monster = 1121, monsterName = {english = "dragon", german = "GERMAN TRANSLATION"}}
+}
 
-    local egggathering = gathering.GatheringCraft:new{LeadSkill = Character.husbandry, LearnLimit = 100}; -- egg collecting
-    egggathering:AddRandomPureElement(User,gathering.prob_element*gatheringBonus); -- Any pure element
-    egggathering:SetTreasureMap(User,gathering.prob_map*gatheringBonus,"Unter dem Nest findest du eine Karte. Kein gutes Versteck!","Under the nest, you find a map. Not a good hiding place.");
-    egggathering:AddMonster(User,622,gathering.prob_monster/gatheringBonus,"Während du die Eier stiehlst, hüpft ein wütendes Hühnchen aus dem Nest.","While you steal eggs an angry chickens hops out of the nest!",4,7);
-    egggathering:AddRandomItem(249,1,333,{},gathering.prob_occasionally,"Für dieses Nest wurde ein ganzes Bündel Getreide als Nistmaterial verwendet.","A bundle of grain was used as nesting material for this nest."); --bundle of grain
-    egggathering:AddRandomItem(463,1,333,{},gathering.prob_frequently,"Du findest eine besonders große Feder, mit der man sicher auch gut schreiben kann.","You find a big feather that looks suitable for writing."); --Quill
-    egggathering:AddRandomItem(259,1,333,{},gathering.prob_rarely,"Du stibitzt etwas Hühnerfutter aus dem Nest.","You snitch some chicken food from the nest."); --grain
+local nestList = M.nestList
 
-    common.ResetInterruption( User, ltstate );
-    if ( ltstate == Action.abort ) then -- work interrupted
-        User:talk(Character.say, "#me unterbricht "..common.GetGenderText(User, "seine", "ihre").." Arbeit.", "#me interrupts "..common.GetGenderText(User, "his", "her").." work.")
-        return
-    end
+local function getMonster(sourceItem)
 
-    if not common.CheckItem( User, SourceItem ) then -- security check
-        return
-    end
-
-    -- Disabled in order to give a hungry player a chance to strengthen.
-    -- if not common.FitForWork( User ) then -- check minimal food points
-        -- return
-    -- end
-    common.TurnTo( User, SourceItem.pos ); -- turn if necessary
-
-        -- check if it is a special and therefore unharvestable nest
-    if SourceItem:getData("eggProtectionType") ~= "" then
-        preventGathering(User, SourceItem)
-        return
-    end
-
-    if SourceItem.id == EMPTY_NEST  then
-      User:inform("Hier befinden sich keine Eier.","There are no eggs here.",Player.lowPriority)
-      return;
-    end
-    -- check the amount
-    local amountStr = SourceItem:getData("amount");
-    local amount
-    if ( amountStr ~= "" ) then
-        amount = tonumber(amountStr);
-    else
-        -- first time that this item is harvested
-        amount = 10;
-        SourceItem:setData("amount","" .. amount);
-        world:changeItem(SourceItem);
-    User:changeSource(SourceItem);
-    end
-    if ( amount < 0 ) then
-        -- this should never happen...
-        User:inform("[ERROR] Negative amount " .. amount .. " for item id " .. SourceItem.id .. " at (" .. SourceItem.pos.x .. "," .. SourceItem.pos.y .. "," .. SourceItem.pos.z .. "). Please inform a developer.");
-        return;
-    end
-    if ( amount == 0 ) then
-        -- this should never happen...
-        User:inform("[ERROR] Zero amount for item id " .. SourceItem.id .. " at (" .. SourceItem.pos.x .. "," .. SourceItem.pos.y .. "," .. SourceItem.pos.z .. "). Please inform a developer.");
-        return;
-    end
-
-    -- since we're here, there is something we can harvest
-
-    if ( ltstate == Action.none ) then -- currently not working -> let's go
-        egggathering.SavedWorkTime[User.id] = egggathering:GenWorkTime(User);
-        User:startAction( egggathering.SavedWorkTime[User.id], 0, 0, 0, 0);
-        User:talk(Character.say, "#me beginnt Eier zu sammeln.", "#me starts to gather eggs.")
-        return
-    end
-
-    -- since we're here, we're working
-
-    if egggathering:FindRandomItem(User) then
-        return
-    end
-
-    User:learn( egggathering.LeadSkill, egggathering.SavedWorkTime[User.id], egggathering.LearnLimit);
-    amount = amount - 1;
-
-    local productAmount = 1
-
-    -- temp glyph effect until egggathering is streamlined like other gathering skills
-    if gwynt.includeExtraResource(User, 0) then
-        productAmount = 2
-    end
-    -- end of glyph
-
-    local created = common.CreateItem(User, EGG, productAmount, 333, nil) -- create the new produced items
-    if created then -- character can still carry something
-        if (amount>0) then  -- there are still fruits we can gather
-            egggathering.SavedWorkTime[User.id] = egggathering:GenWorkTime(User);
-            User:startAction( egggathering.SavedWorkTime[User.id], 0, 0, 0, 0);
+    for _, nest in pairs(nestList) do
+        if nest.id == sourceItem.id then
+            return nest.monster, nest.monsterName
         end
     end
-    if (amount<=0) then
-      common.TempInformNLS(User,"Dieses Nest ist leer.","This nest is empty." );
-      -- reset amount
-        amount = 10;
-        SourceItem:setData("amount","" .. amount);
-        world:changeItem(SourceItem);
-            -- change item id
-        world:swap(SourceItem, EMPTY_NEST, 333);
-        return;
+
+end
+
+function M.StartGathering(user, sourceItem, actionState)
+
+    if not common.IsNilOrEmpty(sourceItem:getData("eggProtectionType")) then
+        preventGathering(user, sourceItem)
+        return
     end
 
-    SourceItem:setData("amount","" .. amount);
-    world:changeItem(SourceItem);
-    User:changeSource(SourceItem);
+    local egggathering = gathering.GatheringCraft:new{LeadSkill = Character.husbandry, LearnLimit = 100}; -- egg collecting
+    local maxAmount = gathering.getMaxAmountFromResourceList(nestList, sourceItem.id)
+    local resourceID = gathering.getProductId(nestList, sourceItem.id)
+    local depletedResourceID = gathering.getDepletedObject(nestList, sourceItem.id)
+    local restockWear = 4 -- 15 minutes
+
+    local success, toolItem, amount, gatheringBonus = gathering.InitGathering(user, sourceItem, nil, maxAmount, egggathering.LeadSkill)
+
+    if not success then
+        return
+    end
+
+    if not gathering.isDepletableResource(user, sourceItem, nestList) then
+        return
+    end
+
+    local monster, monsterName = getMonster(sourceItem)
+
+    egggathering:AddRandomPureElement(user,gathering.prob_element*gatheringBonus) -- Any pure element
+    egggathering:SetTreasureMap(user,gathering.prob_map*gatheringBonus,"Unter dem Nest findest du eine Karte. Kein gutes Versteck!","Under the nest, you find a map. Not a good hiding place.")
+
+
+    if sourceItem.id ~= Item.spiderNest then -- The spider nest is just a cluster of eggs, unlike the others that are actual nests.
+        egggathering:AddRandomItem(249, 1, 333, {}, gathering.prob_occasionally,
+        "Für dieses Nest wurde ein ganzes Bündel Getreide als Nistmaterial verwendet.",
+        "A bundle of grain was used as nesting material for this nest.") --bundle of grain
+    end
+
+    if sourceItem.id ~= Item.spiderNest and sourceItem.id ~= Item.raptorNest and sourceItem.id ~= Item.dragonNest then -- They do not have feathers
+        egggathering:AddRandomItem(463, 1, 333, {}, gathering.prob_frequently,
+        "Du findest eine besonders große Feder, mit der man sicher auch gut schreiben kann.",
+        "You find a big feather that looks suitable for writing.")
+    end
+
+    if sourceItem.id == Item.chickenNest then
+        egggathering:AddRandomItem(259, 1, 333, {}, gathering.prob_rarely,
+        "Du stibitzt etwas Hühnerfutter aus dem Nest.",
+        "You snatch some chicken food from the nest.") --grain
+    end
+
+    if sourceItem.id == Item.pigeonNest or sourceItem.id == Item.seagullNest then -- No corresponding monster to guard the egg, replaced with a hungry wolf/ettin
+
+        egggathering:AddMonster(user, monster, gathering.prob_monster/gatheringBonus, ""..monsterName.german.."GERMAN TRANSLATION","While you steal eggs a hungry "..monsterName.english.." hops out from the surroundings of the nest to contest you for the eggs!",4,7)
+
+    else
+        egggathering:AddMonster(user, monster, gathering.prob_monster/gatheringBonus, "Während du die Eier stiehlst, hüpft ein wütendes "..monsterName.german.." aus dem Nest GERMAN TRANSLATION","While you steal eggs an angry "..monsterName.english.." hops out from the surroundings of the nest!",4,7)
+    end
+
+    if actionState == Action.abort then -- work interrupted
+        return
+    end
+
+    if not common.CheckItem(user, sourceItem) then -- security check
+        return
+    end
+
+    if not common.FitForWork(user) then -- check minimal food points
+        return
+    end
+
+    common.TurnTo(user, sourceItem.pos) -- turn if necessary
+
+    if (actionState == Action.none ) then -- currently not working -> let's go
+        egggathering.SavedWorkTime[user.id] = egggathering:GenWorkTime(user)
+        user:startAction( egggathering.SavedWorkTime[user.id], 21, 10, 0, 0)
+        return
+    end
+
+    user:learn( egggathering.LeadSkill, egggathering.SavedWorkTime[user.id], egggathering.LearnLimit)
+
+    egggathering:FindRandomItem(user)
+
+    local created, newAmount = gathering.FindResource(user, sourceItem, amount, resourceID)
+
+    if created then
+        user:changeSource(sourceItem)
+        if newAmount > 0 and not shared.toolBreaks( user, toolItem, egggathering:GenWorkTime(user)) then
+            egggathering.SavedWorkTime[user.id] = egggathering:GenWorkTime(user)
+            user:startAction( egggathering.SavedWorkTime[user.id], 21, 10, 0, 0)
+        end
+    end
+
+    if newAmount and newAmount <= 0 then
+        gathering.SwapSource(sourceItem, depletedResourceID, restockWear)
+        common.TempInformNLS(user,"Dieses Nest ist leer.","This nest is empty.")
+        return
+    end
 end
 
 return M

@@ -179,9 +179,7 @@ function M.StartGathering(User, SourceItem, ltstate)
 
     -- since we're here, we're working
 
-    if fruitgathering:FindRandomItem(User) then
-        return
-    end
+    fruitgathering:FindRandomItem(User)
 
     --User:learn( fruitgathering.LeadSkill, fruitgathering.SavedWorkTime[User.id], fruitgathering.LearnLimit)
     amount = amount - 1

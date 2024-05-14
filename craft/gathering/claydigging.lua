@@ -61,9 +61,8 @@ function M.StartGathering(User, SourceItem, ltstate)
     --Case 3: Action executed
     User:learn(claydigging.LeadSkill, claydigging.SavedWorkTime[User.id], claydigging.LearnLimit)
 
-    if claydigging:FindRandomItem(User) then
-        return
-    end
+    claydigging:FindRandomItem(User)
+
 
     local created, newAmount = gathering.FindResource(User, SourceItem, amount, resourceID)
 
