@@ -31,7 +31,7 @@ local dyeing = crafts.Craft:new{
 
 dyeing:addTool(1226) -- dye barrel
 
-local catId = dyeing:addCategory("Clothes", "Stoffe")
+local catId = dyeing:addCategory("Cloths", "Stoffe")
 
 -- White cloth
 local product = dyeing:addProduct(catId, 178, 5)
