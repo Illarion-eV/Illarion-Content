@@ -26,27 +26,33 @@ local M = {}
 -- A list for use in other scripts that access _all_ depots via user:getDepot() to check for items
 M.depots = {100,101,102,103,200,201,202} -- For some reason user:getDepot() uses a number lower than the depotId, hence Runewick depotId 102 is actually 101 in this list and so on
 
-function M.LookAtItem(User, Item)
-    local lookAt = lookat.GenerateLookAt(User, Item)
-    local depotId = tonumber(Item:getData("depot"))
+function M.getDepotDescription(user, depotId)
 
     if depotId == 101 then
-        lookAt.description = "Cadomyr"
+        return "Cadomyr"
     elseif depotId == 102 then
-        lookAt.description = "Runewick"
+        return "Runewick"
     elseif depotId == 103 then
-        lookAt.description = "Galmair"
+        return "Galmair"
     elseif depotId == 104 then
-        lookAt.description = common.GetNLS(User, "Gasthof zur Hanfschlinge", "The Hemp Necktie Inn")
+        return common.GetNLS(user, "Gasthof zur Hanfschlinge", "The Hemp Necktie Inn")
     elseif depotId == 201 then
-        lookAt.description = common.GetNLS(User, "Staatsschatz von Cadomyr", "Cadomyr Treasury")
+        return common.GetNLS(user, "Staatsschatz von Cadomyr", "Cadomyr Treasury")
     elseif depotId == 202 then
-        lookAt.description = common.GetNLS(User, "Staatsschatz von Runewick", "Runewick Treasury")
+        return common.GetNLS(user, "Staatsschatz von Runewick", "Runewick Treasury")
     elseif depotId == 203 then
-        lookAt.description = common.GetNLS(User, "Staatsschatz von Galmair", "Galmair Treasury")
-    else
-        lookAt.description = common.GetNLS(User, "Unbekanntes Depot", "Unknown depot")
+        return common.GetNLS(user, "Staatsschatz von Galmair", "Galmair Treasury")
     end
+
+    return common.GetNLS(user, "Unbekanntes Depot", "Unknown depot")
+
+end
+
+function M.LookAtItem(user, Item)
+    local lookAt = lookat.GenerateLookAt(user, Item)
+    local depotId = tonumber(Item:getData("depot"))
+
+    lookAt.description = M.getDepotDescription(user, depotId)
 
     return lookAt
 end

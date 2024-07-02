@@ -19,26 +19,104 @@ local magicsmith = require("base.magicsmith")
 local common = require("base.common")
 local lookat = require("base.lookat")
 local vision = require("content.vision")
+local depotScript = require("item.id_321_depot")
 
 -- UPDATE items SET itm_script='item.magicgems' WHERE itm_id IN (3520, 3523, 3521, 3524, 3522, 3519, 3525);
 
 local M = {}
 
+local function depotChecker(user, targetContainer)
+
+    if not targetContainer then
+        return false
+    end
+
+    local depots = depotScript.depots
+
+    for _, depot in pairs(depots) do
+        if targetContainer == user:getDepot(depot) then
+            return true, depotScript.getDepotDescription(user, depot+1)
+        end
+    end
+
+    return false
+
+end
+
+local function insideInventory(gem)
+
+    if not gem.inside and gem.itempos > 0 then
+        return true
+    end
+
+    return false
+end
+
 function M.MoveItemBeforeMove(user, source, target)
 
     local amount = tostring(target.number)
-    local id = tostring(target.id)
     local level = tostring(target:getData("gemLevel")) or 1
-    local name = tostring(user.name)
-    local gemPos = tostring(target.pos)
-    local userPos = tostring(user.pos)
 
+    local movedInsideSameContainer = target.inside and source.inside and target.inside == source.inside
 
-    if not target.inside and user.pos == target.pos and source.inside or not target.inside and user.pos ~= target.pos then
-        log(amount.." magic gems of ID "..id.." and rank "..level.." have been moved to a tile by player "..name..". Position of gem: "..gemPos.." Position of player: "..userPos)
-    elseif not source.inside then
-        log(amount.." magic gems of ID "..id.." and rank "..level.." have been picked up by player "..name.." from a tile. Position of gem: "..gemPos.." Position of player: "..userPos)
+    if movedInsideSameContainer then -- No need to report if it's not being moved outside of the container
+        return true
     end
+
+    local itemStats = world:getItemStatsFromId(target.id)
+    local nameEnglish = itemStats.English
+
+    local text = tostring(amount).." of "..nameEnglish.."("..source.id..") of rank "..tostring(level).." was moved by "..user.name.."("..user.id..") at position ("..tostring(user.pos).."). It was moved from "
+
+    local backpack = user:getBackPack()
+
+    local isDepotSource, depotNameSource = depotChecker(user, source.inside)
+    local isDepotTarget, depotNameTarget = depotChecker(user, target.inside)
+
+    local inPlayerPosession = (not source.inside and insideInventory(source)) or (source.inside and (source.inside == backpack or isDepotSource))
+
+    local toPlayerPosession = (not target.inside and insideInventory(target)) or (target.inside and (target.inside == backpack or isDepotTarget))
+
+    if inPlayerPosession and toPlayerPosession then
+        return true -- No point logging since it is going from and to player posession
+    end
+
+    if source.inside and source.inside == backpack then
+        text = text.."their backpack to "
+    elseif source.inside and isDepotSource then
+        text = text.."their "..depotNameSource.." depot to "
+    elseif source.inside then
+        text = text.."a container that is either in their depot or on the ground near the users position to "
+    elseif not source.inside and insideInventory(source) then
+        text = text.."their inventory to "
+    elseif not source.inside then
+        text = text.. "a tile at position("..tostring(source.pos)..") to "
+    end
+
+    if target.inside and target.inside == backpack then
+        text = text.."their backpack."
+    elseif target.inside and isDepotTarget then
+        text = text.."their "..depotNameTarget.." depot."
+    elseif target.inside then
+        text = text.."a container that is either in their depot or on the ground near the users position."
+    elseif not target.inside and insideInventory(target) then
+        text = text.."their inventory."
+    elseif not target.inside then
+        if target.pos == user.pos and not source.inside and not insideInventory(source) then
+            text = text.."their backpack." -- They dragged it onto themself, which puts it into their backpack instead of the tile if the source is another tile.
+        else
+            text = text.."a tile at position("..tostring(target.pos)..")."
+        end
+    end
+
+    if not common.IsNilOrEmpty(user.lastSpokenText) then
+        text = text.." Their last spoken words were: "..user.lastSpokenText
+    else
+        text = text.." They have not spoken a single word this session."
+    end
+
+    log(text)
+
     return true
 end
 
