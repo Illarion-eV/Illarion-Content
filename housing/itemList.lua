@@ -1107,7 +1107,10 @@ table.insert(M.items, {itemId = 3766, typeOf = "Estate", category = "Wall Decora
 table.insert(M.items, {itemId = 3767, typeOf = "Estate", category = "Wall Decorations", skill = "mining", level = 70, ingredient1 = Item.stoneBlock, ingredient1Amount = 30, ingredient2 = Item.coniferWoodBoards, ingredient2Amount = 10, ingredient3 = Item.torch, ingredient3Amount = 2, ingredient4 = Item.whiteDye, ingredient4Amount = 1})
 table.insert(M.items, {itemId = 3768, typeOf = "Estate", category = "Wall Decorations", skill = "mining", level = 70, ingredient1 = Item.stoneBlock, ingredient1Amount = 30, ingredient2 = Item.torch, ingredient2Amount = 2, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
 table.insert(M.items, {itemId = 3769, typeOf = "Estate", category = "Wall Decorations", skill = "mining", level = 70, ingredient1 = Item.stoneBlock, ingredient1Amount = 30, ingredient2 = Item.torch, ingredient2Amount = 2, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
-
+table.insert(M.items, {itemId = 3096, typeOf = "House", category = "Small Decorations", skill = "tailoring", level = 20, ingredient1 = Item.thread, ingredient1Amount = 20, ingredient2 = nil, ingredient2Amount = nil, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
+table.insert(M.items, {itemId = 3095, typeOf = "House", category = "Small Decorations", skill = "tailoring", level = 20, ingredient1 = Item.thread, ingredient1Amount = 20, ingredient2 = nil, ingredient2Amount = nil, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
+table.insert(M.items, {itemId = 3094, typeOf = "House", category = "Small Decorations", skill = "tailoring", level = 20, ingredient1 = Item.thread, ingredient1Amount = 20, ingredient2 = nil, ingredient2Amount = nil, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
+table.insert(M.items, {itemId = 3093, typeOf = "House", category = "Small Decorations", skill = "tailoring", level = 20, ingredient1 = Item.thread, ingredient1Amount = 20, ingredient2 = nil, ingredient2Amount = nil, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
 
 
 M.tiles = {}
