@@ -1089,8 +1089,10 @@ table.insert(M.items, {itemId = 1794, typeOf = "Estate", category = "Wall Remain
 table.insert(M.items, {itemId = 1795, typeOf = "Estate", category = "Wall Remains", skill = "pottery", level = 20, ingredient1 = 2588, ingredient1Amount = 30, ingredient2 = nil, ingredient2Amount = nil, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
 table.insert(M.items, {itemId = 1796, typeOf = "Estate", category = "Wall Remains", skill = "pottery", level = 20, ingredient1 = 2588, ingredient1Amount = 20, ingredient2 = nil, ingredient2Amount = nil, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
 table.insert(M.items, {itemId = 1797, typeOf = "Estate", category = "Wall Remains", skill = "pottery", level = 20, ingredient1 = 2588, ingredient1Amount = 20, ingredient2 = nil, ingredient2Amount = nil, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
-
-
+table.insert(M.items, {itemId = Item.greenSpiderEgg, typeOf = "House", category = "Small Decorations", skill = "misc", level = 0, ingredient1 = Item.spiderEgg, ingredient1Amount = 1, ingredient2 = Item.greenDye, ingredient2Amount = 1, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
+table.insert(M.items, {itemId = Item.redSpiderEgg, typeOf = "House", category = "Small Decorations", skill = "misc", level = 0, ingredient1 = Item.spiderEgg, ingredient1Amount = 1, ingredient2 = Item.redDye, ingredient2Amount = 1, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
+table.insert(M.items, {itemId = 1174, typeOf = "House", category = "Small Decorations", skill = "misc", level = 0, ingredient1 = Item.spiderEgg, ingredient1Amount = 3, ingredient2 = Item.greenDye, ingredient2Amount = 3, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
+table.insert(M.items, {itemId = 1175, typeOf = "House", category = "Small Decorations", skill = "misc", level = 0, ingredient1 = Item.spiderEgg, ingredient1Amount = 3, ingredient2 = Item.redDye, ingredient2Amount = 3, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
 
 M.tiles = {}
 table.insert(M.tiles, {displayId = Item.parquet , tileId = 40, typeOf = "House", category = "Parquet", skill = "carpentry", level = 0, ingredient1 = 2716, ingredient1Amount = 25})

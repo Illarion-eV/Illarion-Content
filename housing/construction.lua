@@ -38,8 +38,13 @@ local function loadIngredients(object)
         local amount = object["ingredient".. i .. "Amount"]
         if ingredient then
             table.insert(ingredients,{id = ingredient, quantity = amount, data = {}})
-            if ingredient == Item.bucketOfWater then
-                table.insert(remnants, {id = Item.bucket, quantity = 1, data = {}})
+
+            local bucketItems = { Item.bucketOfWater, Item.blackDye, Item.greenDye, Item.blueDye, Item.redDye, Item.yellowDye, Item.whiteDye}
+
+            for _, bucketItem in pairs(bucketItems) do
+                if ingredient == bucketItem then
+                    table.insert(remnants, {id = Item.bucket, quantity = amount, data = {}})
+                end
             end
         end
     end
