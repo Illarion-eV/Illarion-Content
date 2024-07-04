@@ -1115,6 +1115,8 @@ table.insert(M.items, {itemId = 3100, typeOf = "Estate", category = "Decorations
 table.insert(M.items, {itemId = 3099, typeOf = "Estate", category = "Decorations", skill = "mining", level = 30, ingredient1 = Item.rawStone, ingredient1Amount = 40, ingredient2 = nil, ingredient2Amount = nil, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
 table.insert(M.items, {itemId = 3098, typeOf = "Estate", category = "Decorations", skill = "mining", level = 30, ingredient1 = Item.rawStone, ingredient1Amount = 40, ingredient2 = nil, ingredient2Amount = nil, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
 table.insert(M.items, {itemId = 3097, typeOf = "Estate", category = "Decorations", skill = "mining", level = 30, ingredient1 = Item.rawStone, ingredient1Amount = 40, ingredient2 = nil, ingredient2Amount = nil, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
+table.insert(M.items, {itemId = 3102, typeOf = "House", category = "Small Decorations", skill = "misc", level = 0, ingredient1 = Item.greenDye, ingredient1Amount = 1, ingredient2 = nil, ingredient2Amount = nil, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
+table.insert(M.items, {itemId = 3101, typeOf = "House", category = "Small Decorations", skill = "misc", level = 0, ingredient1 = Item.redDye, ingredient1Amount = 1, ingredient2 = nil, ingredient2Amount = nil, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
 
 
 M.tiles = {}
