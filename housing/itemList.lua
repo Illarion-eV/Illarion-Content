@@ -1122,6 +1122,11 @@ table.insert(M.items, {itemId = 3762, typeOf = "Estate", category = "Windows", n
 table.insert(M.items, {itemId = 3764, typeOf = "Estate", category = "Windows", nameDe = "Fenster - Osten", nameEn = "Window East", skill = "blacksmithing", level = 50, ingredient1 = Item.stoneBlock, ingredient1Amount = 20, ingredient2 = Item.ironPlate, ingredient2Amount = 10, ingredient3 = Item.clay, ingredient3Amount = 5, ingredient4 = nil, ingredient4Amount = nil})
 table.insert(M.items, {itemId = 3765, typeOf = "Estate", category = "Windows", nameDe = "Fenster - Norden", nameEn = "Window North", skill = "blacksmithing", level = 50, ingredient1 = Item.stoneBlock, ingredient1Amount = 20, ingredient2 = Item.ironPlate, ingredient2Amount = 10, ingredient3 = Item.clay, ingredient3Amount = 5, ingredient4 = nil, ingredient4Amount = nil})
 table.insert(M.items, {itemId = 613, typeOf = "Estate", category = "Walls", skill = "mining", level = 40, ingredient1 = Item.stoneBlock, ingredient1Amount = 60, ingredient2 = Item.clay, ingredient2Amount = 20, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
+table.insert(M.items, {itemId = 3754, typeOf = "Estate", category = "Doors", nameDe = "Tür - Osten", nameEn = "Door East", skill = "blacksmithing", level = 50, ingredient1 = Item.ironPlate, ingredient1Amount = 20, ingredient2 = Item.stoneBlock, ingredient2Amount = 10, ingredient3 = Item.clay, ingredient3Amount = 5, ingredient4 = nil, ingredient4Amount = nil})
+table.insert(M.items, {itemId = 3756, typeOf = "Estate", category = "Doors", nameDe = "Tür - Norden", nameEn = "Door North", skill = "blacksmithing", level = 50, ingredient1 = Item.ironPlate, ingredient1Amount = 20, ingredient2 = Item.stoneBlock, ingredient2Amount = 10, ingredient3 = Item.clay, ingredient3Amount = 5, ingredient4 = nil, ingredient4Amount = nil})
+table.insert(M.items, {itemId = 3758, typeOf = "Estate", category = "Doors", nameDe = "Tür - Osten", nameEn = "Door East", skill = "carpentry", level = 50, ingredient1 = Item.cherryWoodBoards, ingredient1Amount = 20, ingredient2 = Item.stoneBlock, ingredient2Amount = 10, ingredient3 = Item.clay, ingredient3Amount = 5, ingredient4 = nil, ingredient4Amount = nil})
+table.insert(M.items, {itemId = 3760, typeOf = "Estate", category = "Doors", nameDe = "Tür - Norden", nameEn = "Door North", skill = "carpentry", level = 50, ingredient1 = Item.cherryWoodBoards, ingredient1Amount = 20, ingredient2 = Item.stoneBlock, ingredient2Amount = 10, ingredient3 = Item.clay, ingredient3Amount = 5, ingredient4 = nil, ingredient4Amount = nil})
+
 
 M.tiles = {}
 table.insert(M.tiles, {displayId = Item.parquet , tileId = 40, typeOf = "House", category = "Parquet", skill = "carpentry", level = 0, ingredient1 = 2716, ingredient1Amount = 25})
@@ -1295,12 +1300,13 @@ M.excludedFromStatic = {
 3911,3912,3913,3919,3920,3921,3922,3923,3924,3925,3926,3927,3938,3939,3940,3941,3942,3943,3944,
 3945,3946,3947,3948,3949,3950,3951,3952,3953,3954,3955,3956,3957,3958,3959,3960,3961,3962,3963,
 3964,3965,3966,3967,3968,3969,3970,3971,3972,3973,3974,3975,3976,3977,3978,3979,3980,3981,3982,
-3983,3984,3985,3986,3987,3988,4096,4097,4098,4099,4100,4101,4102,4103,2207,2488,2801
+3983,3984,3985,3986,3987,3988,4096,4097,4098,4099,4100,4101,4102,4103,2207,2488,2801,3755,3757,
+3759,3761
 }
 
 M.alternateDoors = {
 3790,3791,3792,3793,3794,3796,3797,3798,3799,3800,3801,3802,3804,3805,3806,3807,3809,3781,3806,3808,476,477,478,479,484,485,499,712,713,714,715,
-865,866,867,868,900,901,902,923,924,927,1112,1113,1114,1115,3168,3169,3170,3171,3202,3203,3228,
+865,866,867,868,900,901,902,923,924,927,1112,1113,1114,1115,3168,3169,3170,3171,3202,3203,3228,3755,3757,3759,3761
 3229,3230,3231,3284,3285,3318,3319,3320,3321,943,944,945,946,947,948,949,950
 }
 M.Stairs = {}
