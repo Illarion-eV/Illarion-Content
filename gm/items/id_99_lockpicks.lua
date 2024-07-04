@@ -29,6 +29,7 @@ local gods = require("content.gods")
 local resurrected = require("lte.resurrected")
 local persistenceTracker = require("gm.persistenceTracker")
 local activityTracker = require("lte.activity_tracker")
+local housing = require("housing.propertyList")
 
 local M = {}
 
@@ -39,7 +40,7 @@ local itemPos = {"Head","Neck","Breast","Hands","Left Tool","Right Tool",
     "Belt 2","Belt 3","Belt 4","Belt 5","Belt 6"}
 itemPos[0] = "Backpack"
 
-local SubLocation={"Cadomyr","Galmair","Runewick","Wilderness","Dungeons"}
+local SubLocation={"Cadomyr","Galmair","Runewick","Wilderness","Dungeons", "Housing"}
 local Location={}
 Location[1]={"Player","","X","Y","Z"}
 Location[2]={"GM Castle","",254,105,0}
@@ -79,6 +80,20 @@ Location[35]={"Salavesh","Dungeons",670,410,0}
 Location[36]={"Spider Dungeon","Dungeons",854,414,0}
 Location[37]={"Viridian Needles lair","Dungeons",522,205,0}
 Location[38]={"Northern Islands","Wilderness",365,50,0}
+
+
+
+for _, house in pairs(housing.propertyTable) do
+
+    if house[1] == "Pauldron Estate" then
+
+        table.insert(Location, {house[1], "Housing", 962, 352, 0})
+
+    else
+        table.insert(Location, {house[1], "Housing", house[3].x, house[3].y, house[3].z})
+    end
+
+end
 
 local maxuserLocation = 6
 local maxActionOnChar = 6
@@ -509,6 +524,7 @@ end
 local function teleporter(user,item)
     local validTarget = {}
     local validCharPos = {}
+    local validSubTarget = {}
 
     local cbChooseLocation = function (dialog)
         if (not dialog:getSuccess()) then
@@ -545,14 +561,14 @@ local function teleporter(user,item)
                     return
                 end
                 local indexSubTarget = subdialog:getSelectedIndex() + 1
-                user:warp(position(validTarget[indexSubTarget][1], validTarget[indexSubTarget][2], validTarget[indexSubTarget][3]))
+                user:warp(position(validSubTarget[indexSubTarget][1], validSubTarget[indexSubTarget][2], validSubTarget[indexSubTarget][3]))
             end
             local sdSubTeleport = SelectionDialog("Teleporter.", "Choose a destination:", cbChooseSubLocation)
             local optionSubId = 1
             for i = 1, #(Location) do
                 if Location[i][2] == SubLocation[validTarget[index][4]] then
                     sdSubTeleport:addOption(0, Location[i][1] .. " (" .. Location[i][3]..", "..Location[i][4]..", "..Location[i][5] .. ")")
-                    validTarget[optionSubId] = {Location[i][3],Location[i][4],Location[i][5],0}
+                    validSubTarget[optionSubId] = {Location[i][3],Location[i][4],Location[i][5],0}
                     optionSubId = optionSubId+1
                 end
             end
@@ -574,17 +590,7 @@ local function teleporter(user,item)
         validTarget[optionId] = {0,0,0,i}
         optionId = optionId+1
     end
-    for i = 1, maxuserLocation do
-        local locationParameter = item:getData("gmLocation" .. tostring(i))
-        if not common.IsNilOrEmpty(locationParameter) then
-            if (string.find(locationParameter,"(%d+),(%d+),([%-]?%d+),(%S+)") ~= nil) then
-                local _, _, xValue, yValue, zValue, targetName = string.find(locationParameter,"(%d+),(%d+),([%-]?%d+),([%S ]+)")
-                sdTeleport:addOption(0, targetName .. " (" .. tostring(xValue)..",".. tostring(yValue)..",".. tostring(zValue)..")")
-                validTarget[optionId] = {tonumber(xValue), tonumber(yValue), tonumber(zValue),0}
-                optionId = optionId+1
-            end
-        end
-    end
+
     user:requestSelectionDialog(sdTeleport)
 end
 
