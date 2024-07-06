@@ -179,12 +179,21 @@ local function isGrass(itemId)
     return false
 end
 
-function M.checkIfPlantOrTree(user, itemId)
+function M.checkIfPlantOrTree(itemId)
     for _, item in pairs(itemList.items) do
         if item.category == "Plants" or item.category == "Trees" then
             if item.itemId == itemId and not isIvy(itemId) and not isGrass(itemId) then
                 return true
             end
+        end
+    end
+    return false
+end
+
+function M.checkIfBasementExclusive(itemId)
+    for _, item in pairs(itemList.items) do
+        if item.category == "Basement Exclusive" then
+            return true
         end
     end
     return false

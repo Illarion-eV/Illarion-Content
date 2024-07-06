@@ -1126,7 +1126,14 @@ table.insert(M.items, {itemId = 3754, typeOf = "Estate", category = "Doors", nam
 table.insert(M.items, {itemId = 3756, typeOf = "Estate", category = "Doors", nameDe = "Tür - Norden", nameEn = "Door North", skill = "blacksmithing", level = 50, ingredient1 = Item.ironPlate, ingredient1Amount = 20, ingredient2 = Item.stoneBlock, ingredient2Amount = 10, ingredient3 = Item.clay, ingredient3Amount = 5, ingredient4 = nil, ingredient4Amount = nil})
 table.insert(M.items, {itemId = 3758, typeOf = "Estate", category = "Doors", nameDe = "Tür - Osten", nameEn = "Door East", skill = "carpentry", level = 50, ingredient1 = Item.cherryWoodBoards, ingredient1Amount = 20, ingredient2 = Item.stoneBlock, ingredient2Amount = 10, ingredient3 = Item.clay, ingredient3Amount = 5, ingredient4 = nil, ingredient4Amount = nil})
 table.insert(M.items, {itemId = 3760, typeOf = "Estate", category = "Doors", nameDe = "Tür - Norden", nameEn = "Door North", skill = "carpentry", level = 50, ingredient1 = Item.cherryWoodBoards, ingredient1Amount = 20, ingredient2 = Item.stoneBlock, ingredient2Amount = 10, ingredient3 = Item.clay, ingredient3Amount = 5, ingredient4 = nil, ingredient4Amount = nil})
-
+table.insert(M.items, {itemId = 3092, typeOf = "Estate", category = "Basement Exclusive", skill = "mining", level = 80, ingredient1 = Item.rawStone, ingredient1Amount = 70, ingredient2 = nil, ingredient2Amount = nil, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
+table.insert(M.items, {itemId = 3091, typeOf = "Estate", category = "Basement Exclusive", skill = "mining", level = 80, ingredient1 = Item.rawStone, ingredient1Amount = 70, ingredient2 = nil, ingredient2Amount = nil, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
+table.insert(M.items, {itemId = 3090, typeOf = "Estate", category = "Basement Exclusive", skill = "mining", level = 80, ingredient1 = Item.rawStone, ingredient1Amount = 70, ingredient2 = nil, ingredient2Amount = nil, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
+table.insert(M.items, {itemId = 3089, typeOf = "Estate", category = "Basement Exclusive", skill = "mining", level = 80, ingredient1 = Item.rawStone, ingredient1Amount = 70, ingredient2 = nil, ingredient2Amount = nil, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
+table.insert(M.items, {itemId = 3088, typeOf = "Estate", category = "Basement Exclusive", skill = "mining", level = 80, ingredient1 = Item.rawStone, ingredient1Amount = 70, ingredient2 = nil, ingredient2Amount = nil, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
+table.insert(M.items, {itemId = 3087, typeOf = "Estate", category = "Basement Exclusive", skill = "mining", level = 80, ingredient1 = Item.rawStone, ingredient1Amount = 70, ingredient2 = nil, ingredient2Amount = nil, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
+table.insert(M.items, {itemId = 3086, typeOf = "Estate", category = "Basement Exclusive", skill = "mining", level = 80, ingredient1 = Item.rawStone, ingredient1Amount = 70, ingredient2 = nil, ingredient2Amount = nil, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
+table.insert(M.items, {itemId = 3085, typeOf = "Estate", category = "Basement Exclusive", skill = "mining", level = 80, ingredient1 = Item.rawStone, ingredient1Amount = 70, ingredient2 = nil, ingredient2Amount = nil, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
 
 M.tiles = {}
 table.insert(M.tiles, {displayId = Item.parquet , tileId = 40, typeOf = "House", category = "Parquet", skill = "carpentry", level = 0, ingredient1 = 2716, ingredient1Amount = 25})
@@ -1195,6 +1202,7 @@ table.insert(M.categories, {categoryEn = "Gates", categoryDe = "Tore", Estate = 
 table.insert(M.categories, {categoryEn = "Decorations", categoryDe = "Dekorationen"})
 table.insert(M.categories, {categoryEn = "Trees", categoryDe = "Bäume", Estate = true})
 table.insert(M.categories, {categoryEn = "Plants", categoryDe = "Pflanzen"})
+table.insert(M.categories, {categoryEn = "Basement Exclusive", categoryDe = "GERMAN TRANSLATION"})
 table.insert(M.categories, {categoryEn = "Altars", categoryDe = "Altäre"})
 table.insert(M.categories, {categoryEn = "Beds", categoryDe = "Betten"})
 table.insert(M.categories, {categoryEn = "Benches", categoryDe = "Bänke"})

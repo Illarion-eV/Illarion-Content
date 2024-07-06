@@ -424,7 +424,7 @@ local function createItem(user, product, trowel, skill)
             else
                 user:inform("Du bist nicht dazu berechtigt, hier zu bauen.","You do not have permission to build there.")
             end
-        elseif utility.checkIfPlantOrTree(user, product.id) then
+        elseif utility.checkIfPlantOrTree(product.id) then
             if utility.checkIfGardeningCriteriaMet(user, product.id) then
                 eraseIngredients(user, product)
                 world:createItemFromId(product.id, product.quantity, target, true, quality, nil)
@@ -562,15 +562,22 @@ function M.showDialog(user, skillName, overloaded)
                 end
             end
 
-            if not utility.wallWindowPermissions(user, frontPos, product.id, product.tile) or not hasMaterials(user, product) or utility.checkIfEntrance(user, frontPos, product.tile) then
-                canWork = false
-            end
-
-            if utility.checkIfPlantOrTree(user, product.id) then
+            if utility.checkIfPlantOrTree(product.id) then
                 if not utility.checkIfGardeningCriteriaMet(user, product.id) then
                     canWork = false
                     user:inform("Das kannst du hier nicht pflanzen.","You can't plant this here.")
                 end
+            end
+
+            if utility.checkIfBasementExclusive(user, product.id) then
+                if not (user.pos.z < 0) then
+                    canWork = false
+                    user:inform("GERMAN TRANSLATION", "You can't build basement exclusive items above ground.")
+                end
+            end
+
+            if not utility.wallWindowPermissions(user, frontPos, product.id, product.tile) or not hasMaterials(user, product) or utility.checkIfEntrance(user, frontPos, product.tile) then
+                canWork = false
             end
 
             return canWork
