@@ -62,7 +62,7 @@ M.ringAndAmuletDefinitions = {
                 {english = "Has the chance to teleport you away from your attacker upon being hit by someones attack.",
                 german = "Erfolgreiche Angriffe gegen dich haben eine Chance, dich von dem Angreifer weg zu teleportieren."},
             ring =
-                {english = "Has the chance to teleport your target away from you upon hitting someone with an attack.",
+                {english = "Has the chance to teleport your target away from you upon hitting it with an attack.",
                 german = "Erfolgreiche Angriffe von dir haben eine Chance, dein Ziel von dir weg zu teleportieren."}}
     },
     {
