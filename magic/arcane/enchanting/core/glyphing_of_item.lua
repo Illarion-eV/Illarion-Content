@@ -18,6 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local shared = require("magic.arcane.enchanting.core.shared")
 local glyphTutorial = require("magic.arcane.enchanting.core.tutorial")
+local globalvar = require("base.globalvar")
 
 local M = {}
 
@@ -66,6 +67,7 @@ function M.addGlyphToItem(user, glyph, actionState)
         return
     elseif actionState == Action.success then
         user:inform("Du hast die Glyphe erfolgreich in das Schmuckstück eingesetzt.", "You successfully attached the glyph to the piece of jewellery.")
+        world:makeSound(globalvar.sfxSNARING, user.pos)
         local quality = common.getItemQuality(glyph)
         local charges = shared.getAmountOfCharges(jewellery, glyph)
         jewellery:setData("glyphQuality", quality)

@@ -28,6 +28,7 @@ local selectedJewellery = {}
 local function glyphedItemIntoShardsAndItem(user, jewellery)
 
     user:performAnimation(globalvar.charAnimationSPELL)
+    world:makeSound(globalvar.sfxSNARING, user.pos)
 
     local glyphName = shared.getJewelleryGlyphName(jewellery)
 
@@ -116,6 +117,7 @@ function M.start(user, actionstate)
         local selected = dialog:getSelectedIndex() + 1
 
         user:performAnimation(globalvar.charAnimationSPELL)
+        world:makeSound(globalvar.sfxSNARING, user.pos)
 
         selectedJewellery[user.id] = jewelleryList[selected]
 

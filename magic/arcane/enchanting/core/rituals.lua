@@ -140,6 +140,7 @@ local function startNewCycle(user)
     pickAndPlayRandomGfx(location)
 
     user:performAnimation(globalvar.charAnimationSPELL)
+    world:makeSound(globalvar.sfxSNARING, user.pos)
 
     user:startAction(60, globalvar.gfxCLAW, 10, 0, 0)
 
@@ -172,6 +173,7 @@ function M.start(user, actionstate, location, candleOrShrine)
     ongoingRitual[user.id].type = candleOrShrine
 
     user:performAnimation(globalvar.charAnimationSPELL)
+    world:makeSound(globalvar.sfxSNARING, user.pos)
 
     if candleOrShrine == "shrine" then
         common.InformNLS(user,"Du beginnst ein Ritual, um einen Glyphenritualschrein zu errichten.",

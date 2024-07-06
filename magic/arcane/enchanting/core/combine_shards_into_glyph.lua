@@ -244,6 +244,7 @@ local function craftGlyph(user, glyph, skill, wand)
         local location = common.GetFrontPosition(user)
         user:performAnimation(globalvar.charAnimationSPELL)
         world:gfx(globalvar.gfxSUN, location)
+        world:makeSound(globalvar.sfxSNARING, user.pos)
         local newSkill = user:getSkill(Character.enchanting)
         skillGain = (newSkill > skill)
     end
