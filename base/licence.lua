@@ -61,15 +61,17 @@ local function getTownManagementTool(town)
         return
     end
 
-    local toolId = {3106, 3104}
+    local toolId = {3106, 3104, 3107}
 
     local field = world:getField(location)
     local itemsOnField = field:countItems()
 
     for i = 0, itemsOnField do
         local chosenItem = field:getStackItem(itemsOnField - i )
-        if chosenItem.id == toolId[1] or chosenItem.id == toolId[2] then
-            return chosenItem
+        for _, tool in pairs(toolId) do
+            if tool == chosenItem.id then
+                return chosenItem
+            end
         end
     end
 
