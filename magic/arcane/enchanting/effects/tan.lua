@@ -22,7 +22,7 @@ local M = {}
 
 function M.reduceCastTime(user)
 
-    local chance = {min = 0.1, bonus = 0.4}
+    local chance = {min = 0.1, bonus = 0.2}
 
     local success = shared.activateGlyph(user, "tan", chance, 1)
 

@@ -95,6 +95,17 @@ local function isMagicAttackLoaded(attackerStruct, defender, neededCastTime)
         return false
     end
 
+    if not mageLoad["tanCheckedThisCycle"] then
+        if tan.reduceCastTime(attackerStruct.Char) then
+            mageLoad["tan"] = true
+        end
+        mageLoad["tanCheckedThisCycle"] = true
+    end
+
+    if mageLoad["tan"] then
+        neededCastTime = neededCastTime/2
+    end
+
     -- Same reasonsing as in aiming time applies:
     -- We cannot check for the end of a fight but need to stop the start aiming, stop aiming, wait, attack immediately mechanic
     if (world:getTime("unix") - mageLoad["started"])*10 > neededCastTime + 20 then
@@ -113,6 +124,8 @@ local function isMagicAttackLoaded(attackerStruct, defender, neededCastTime)
         return false
     end
 
+    mageLoad["tanCheckedThisCycle"] = false
+    mageLoad["tan"] = false
     return true
 end
 
@@ -266,9 +279,7 @@ function M.onMagicAttack(attackerStruct, defenderStruct)
 
     local neededCastTime = calculateCastTime(attackerStruct)
 
-    if tan.reduceCastTime(attackerStruct.Char) then
-        neededCastTime = neededCastTime/2
-    end
+    local manaNeeded = getNeededMana(neededCastTime)
 
     -- Any attack must preload a given time before he can be executed
     if not isMagicAttackLoaded(attackerStruct, defenderStruct.Char, neededCastTime) then
@@ -282,7 +293,7 @@ function M.onMagicAttack(attackerStruct, defenderStruct)
 
     -- Handle mana usage
     attackerStruct["mana"] = attackerStruct.Char:increaseAttrib("mana", 0)
-    local neededMana = magic.getValueWithGemBonus(attackerStruct.Char, getNeededMana(neededCastTime))
+    local neededMana = magic.getValueWithGemBonus(attackerStruct.Char, manaNeeded)
     if (attackerStruct.mana < neededMana) then
         attackerStruct.Char:inform("Dein Mana reicht nicht aus", "Your mana is depleted")
         return
