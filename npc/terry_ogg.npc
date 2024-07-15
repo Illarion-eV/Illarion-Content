@@ -44,8 +44,8 @@ itemShoes = 53
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-"kauf", "waren", "preis", "Handel", "veräußer", "veräusser" -> "Was? Oh, natürlich kannst du meine Forschung finanzieren!", "Kann ich Euch an einer Duftkerze interessieren? Uh.. zumindest glaube ich, dass sie einen Duft haben. Wachs ist ein Duft, richtig?", "Möchtest du einen meiner alten Zauberstäbe haben? Ich kann vielleicht fast sicher garantieren, dass vielleicht nichts explodiert! Hoffentlich...", trade
-"sell", "buy", "wares", "price", "trade", "purchase" -> "What? Oh, sure, I'll let you fund my research.", "Can I interest you in some scented candles? Err.. At least I think they're scented. Wax is a scent, right?", "How about purchasing one of my old wands? Almost certainly assured to maybe not explode on you upon use! Guaranteed, maybe!", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser" -> "Was? Oh, natürlich kannst du meine Forschung finanzieren!", "Kann ich dich an einer Duftkerze interessieren? Uh, zumindest glaube ich, dass sie einen Duft haben. Wachs ist ein Duft, richtig?", "Möchtest du einen meiner alten Zauberstäbe haben? Ich kann vielleicht fast sicher garantieren, dass vielleicht nichts explodiert! Hoffentlich...", trade
+"sell", "buy", "wares", "price", "trade", "purchase" -> "What? Oh, sure, I'll let you fund my research.", "Can I interest you in some scented candles? Err. At least I think they're scented. Wax is a scent, right?", "How about purchasing one of my old wands? Almost certainly assured to maybe not explode on you upon use! Guaranteed, maybe!", trade
 
 -- Grimoires and rune encyclopedia will be for sale when rune magic is released
 -- sellItem = id(2619), de("Grimoire"), en("Grimoire"), price(2000), stack(1), quality(999), data("magicBook" = "true")
@@ -69,16 +69,16 @@ tradeWrongItemMsg "Wenn du deine Waren verkaufen willst, bin ich nicht dein Mann
 -- General speech
 
 english, "Hiho", "Hallo", "Hey", "Greeb", "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Oh, you're back? Or is this our first time meeting?", "Hello! Have you seen my wand? Oh, it's right here.", "Hello there! Welcome to my... Well, welcome, anyhow."
-"Hiho", "Hallo", "Hey", "Greeb", "Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Oh du bist zurück? Oder treffen wir uns zum ersten Mal?", "Hallo! Hast du meinen Zauberstab gesehen? Oh, da ist er ja.", "Guten Tag! Willkommen zu meinem...Also, willkommen halt. "
+"Hiho", "Hallo", "Hey", "Greeb", "Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Oh du bist zurück? Oder treffen wir uns zum ersten Mal?", "Hallo! Hast du meinen Zauberstab gesehen? Oh, da ist er ja.", "Guten Tag! Willkommen zu meinem... Also, willkommen halt. "
 
 "Farewell", "Bye", "Fare well", "See you" -> "Carry on then.", "Good bye.", "Good luck with your... whatever it is.", "Safe journey, see you soon."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Auf Wiedersehen.", "Alles Gute mit.....was auch immer.", "Gute Reise, bis bald."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Auf Wiedersehen.", "Alles Gute mit... was auch immer.", "Gute Reise, bis bald."
 
 "How are you", "How do you feel", "How do you do" -> "I'm doing quite splendid, thank you. I could do with a little more funding though.", "Why? Trying to butter me up so I'll teach you magic, are you?", "Fine. Now spare me your nonsense and get on with it, I have research to perform."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Mir geht es hervorragend, vielen dank. Obwohl etwas bessere Finanzierung nicht schaden wprde.", "Wieso fragst du? Willst du mir etwas schmeicheln, sodass ich dir Magie lehre?", "Gut. Und nun lass mich mit deinem Blödsinn in Ruhe. Ich muss arbeiten!"
+"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Mir geht es hervorragend, vielen Dank. Obwohl eine etwas bessere Finanzierung nicht schaden würde.", "Wieso fragst du? Willst du mir etwa schmeicheln, sodass ich dich Magie lehre?", "Gut. Und nun lass mich mit deinem Blödsinn in Ruhe. Ich muss arbeiten!"
 
-"your name", "who are you", "who art thou" -> "Oh, me? Terry Ogg, and that's Ogg, not Egg!", "Aha, you wish to know this handsome gentlemans name? I am Terry Ogg, the mighty... What was I doing again?", "Who am I? Terry Ogg. Who are you? Wait before you answer that, I don't really care."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Wer? Ich? Ich bin Terry Ogg, und es heißt Ogg, nicht Egg!", "Ah du willst also den Namen dieses gutausehenden Gentelmens wissen? Ich bin Terry Ogg, der mächtige.....was wollte ich noch schnell machen?", "Wer ich bin? Terry Ogg. Und wer bist du? Wobei, bevor du das beantwortest....es ist mir egal."
+"your name", "who are you", "who art thou" -> "Oh, me? Terry Ogg, and that's Ogg, not Egg!", "Aha, you wish to know this handsome gentleman's name? I am Terry Ogg, the mighty... What was I doing again?", "Who am I? Terry Ogg. Who are you? Wait before you answer that, I don't really care."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Wer? Ich? Ich bin Terry Ogg, und es heißt Ogg, nicht Egg!", "Ah du willst also den Namen dieses gutausehenden Gentelmans wissen? Ich bin Terry Ogg, der mächtige... was mache ich noch gerade?", "Wer ich bin? Terry Ogg. Und wer bist du? Wobei, bevor du das beantwortest... ist mir eigentlich egal."
 
 "my name", "I am called", "I'm called" -> "#me nods half-heartedly, clearly not paying your introduction any mind."
 "mein Name", "ich heiße"-> "#me nickt halbherzig und schenkt deiner Vorstellung offensichtlich keine Beachtung. "
@@ -187,11 +187,11 @@ english, "Terry", "Ogg" -> "Yes, what is it? Can't you see I'm busy with my rese
 
 -- Cycle Texts
 -- More cycle texts planned that relate to future content yet to be added to this npc such as sale of grimoires
-cycletext "#me hebt seinen Zauberstab dann wutscht und wedelt er. ", "#me lifts his wand, giving it a swish and flick."
+cycletext "#me hebt seinen Zauberstab dann wutscht und wedelt er.", "#me lifts his wand, giving it a swish and flick."
 cycletext "#me murmelt einige verständliche Worte.", "#me mutters some unintelligible words under his breath."
 cycletext "#me bohrt in der Nase, schaut sich um und wischt seinen Finger dann vorsichtig an der Innenseite seiner Erzmagierrobe ab. ", "#me picks his nose, looking around before subtly wiping it off on the inside of his archmage robes."
 cycletext "#me gibt ein nachdenkliches Brummen von sich, während er leise in einem Buch liest. ", "#me utters a thoughtful hum as he reads silently from a book."
 cycletext "Was? Schon wieder kein Forschungsmaterial mehr!?", "What!? Out of research material again!?"
-cycletext "Huh? Wer...wo war ich?", "Huh? Who... Where was I?"
-cycletext "Forschen, Forschen, Forschen...Wo ist jetzt mein Essen geblieben?", "Resarch, research, research... Now where did my dinner go off to?"
+cycletext "Huh? Wer... wo war ich?", "Huh? Who... Where was I?"
+cycletext "Forschen, Forschen, Forschen... Wo ist jetzt mein Essen geblieben?", "Resarch, research, research... Now where did my dinner go off to?"
 cycletext "Sie werden es noch bereuen, mich aus der Akademie geworfen zu haben...", "They'll regret kicking me out of the academy, you'll see..."
