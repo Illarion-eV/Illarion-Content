@@ -27,7 +27,7 @@ function M.reduceManaCost(user)
     local success = shared.activateGlyph(user, "hydor", chance, 1)
 
     if success then
-        world:gfx( globalvar.gfxSPLASH, user.pos)
+        world:gfx( globalvar.gfxSCOTTY, user.pos)
         return true
     end
 
