@@ -87,11 +87,11 @@ M.ringAndAmuletDefinitions = {
         glyph = { amulet = "ysbryd", ring = "dendron"},
         effect = {
             amulet =
-                {english = "Has the chance to activate upon being hit by an attack, healing you for a small amount.",
-                german = "Erfolgreiche Anrgiffe gegen dich haben eine Chance, dich ein wenig zu heilen."},
+                {english = "Has the chance to activate upon being hit by an attack, healing you for a portion of the damage taken.",
+                german = "Erfolgreiche Anrgiffe gegen dich haben eine Chance, dich ein wenig zu heilen GERMAN TRANSLATION."},
             ring =
-                {english = "Has the chance to activate upon hitting someone with an attack, healing you for a small amount.",
-                german = "Erfolgreiche Angriffe von dir haben die Chance, dich ein wenig zu heilen."}}
+                {english = "Has the chance to activate upon hitting someone with an attack, healing you for a portion of the damage dealt.",
+                german = "Erfolgreiche Angriffe von dir haben die Chance, dich ein wenig zu heilen GERMAN TRANSLATION."}}
     },
     {
         gem = "topaz",
