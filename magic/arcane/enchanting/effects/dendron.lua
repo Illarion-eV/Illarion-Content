@@ -28,12 +28,12 @@ function M.lifesteal(user, damage)
         return false    -- Already at full HP, lets not waste glyph charges
     end
 
-    local chance = {min = 0.05, bonus = 0.25}
+    local chance = {min = 0.05, bonus = 0.20}
 
     local success = shared.activateGlyph(user, "dendron", chance, 1)
 
     if success then
-        local increase = damage/20 -- 5% lifesteal
+        local increase = damage/5 -- 20% lifesteal on proc, procs at most one out of 4 attacks on average, meaning 5% average lifesteal per attack
         user:increaseAttrib("hitpoints", increase)
         world:gfx( globalvar.gfxRAIN, user.pos)
     end
