@@ -61,7 +61,7 @@ function M.StartGathering(user, sourceAnimal, actionState)
     local isMilkAble, milkId, maxAmount, levelReq = isMilkable(sourceAnimal)
 
     if user:getSkill(Character.husbandry) < levelReq then
-        user:inform("Deine Fertigkeit "..user:getSkillName(Character.husbandry).." ist zu niedrig, um hier GERMAN TRANSLATION", "Your skill in "..user:getSkillName(Character.husbandry).." is not high enough to milk this animal.", Character.highPriority)
+        user:inform("Deine Fertigkeit "..user:getSkillName(Character.husbandry).." ist zu niedrig, um das Tier zu melken.", "Your skill in "..user:getSkillName(Character.husbandry).." is not high enough to milk this animal.", Character.highPriority)
         return
     end
 

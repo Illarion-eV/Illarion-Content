@@ -67,7 +67,7 @@ function M.LockDoor(Door, user)
         end
     else
         if user then -- this function is also called by a script where user is not present
-            user:inform("GERMAN TRANSLATION", "The door must be closed for you to lock it.")
+            user:inform("Nur geschlossen Türen können auch abgeschlossen werden.", "The door must be closed for you to lock it.")
         end
         return false
     end
@@ -182,7 +182,7 @@ function M.LockStairs(user, stair)
     end
 
     if not trapDoorPosition and user then
-        user:inform("GERMAN TRANSLATION", "This staircase has no assigned trap door.") --Should only happen if a master key is used or someone fucked up implementation
+        user:inform("Dieser Treppe fehlt die Falltür.", "This staircase has no assigned trap door.") --Should only happen if a master key is used or someone fucked up implementation
     elseif not trapDoorPosition then
         return
     end
@@ -273,7 +273,7 @@ function M.lockTrapDoor(user, trapDoor)
     end
 
     if not stairPosition and user then
-        user:inform("GERMAN TRANSLATION", "This trap door has no assigned staircase.") --Should only happen if a master key is used or someone fucked up implementation
+        user:inform("Dieser Treppe fehlt die Falltür.", "This trap door has no assigned staircase.") --Should only happen if a master key is used or someone fucked up implementation
     elseif not stairPosition then
         return
     end
@@ -281,7 +281,7 @@ function M.lockTrapDoor(user, trapDoor)
     local stair = housingUtility.getStairsTrapDoor(stairPosition, true)
 
     if not stair and user then
-        user:inform("GERMAN TRANSLATION", "Something is obstructing the stairs below.")
+        user:inform("Ein Stockwerk weiter unten blockiert die Treppe.", "Something is obstructing the stairs below.")
         return
     end
 

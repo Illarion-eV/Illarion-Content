@@ -97,7 +97,7 @@ local gatheringLists = {
     {list = mining.oreList, skill = mining.skill, type = {english = "Vein", german = "Ader"}},
     {list = silkcutting.silkList, skill = silkcutting.skill, type = {english = "Butterflies", german = "Schmetterlinge"}},
     {list = fishing.fishList, skill = fishing.skill, type = {english = "Shoal", german = "Schwarm"}},
-    {list = honeygathering.hiveList, skill = honeygathering.skill, type = {english = "Hive", german = "GERMAN TRANSLATION"}},
+    {list = honeygathering.hiveList, skill = honeygathering.skill, type = {english = "Hive", german = "Bienenstock"}},
     {list = egggathering.nestList, skill = egggathering.skill, type = {english = "Nest", german = "Nest"}}
 }
 

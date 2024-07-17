@@ -34,7 +34,7 @@ function M.LookAtItem(user, sourceItem)
 
     if effectType == "ssigus" then
 
-        lookAt.description = common.GetNLS(user, "GERMAN TRANSLATION", "A nest containing lizardman eggs.")
+        lookAt.description = common.GetNLS(user, "Ein Nest mit Eiern der Echsenmenschen.", "A nest containing lizardman eggs.")
     end
 
     return lookAt

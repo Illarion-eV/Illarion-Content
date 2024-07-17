@@ -103,7 +103,7 @@ function M.start(user, actionstate)
     local jewelleryList = shared.listGlyphedJewelleryAtBelt(user)
 
     if #jewelleryList == 0 then
-        user:inform("Du musst mit einer Glyphe versehenen Schmuck GERMAN TRANSLATION an deinem Gürtel haben, wenn du eine Glyphe aus dem Schmuckstück entfernen willst.",
+        user:inform("Du musst mit einer Glyphe versehenen Schmuck in deinem Gürtel haben, wenn du eine Glyphe aus dem Schmuckstück entfernen willst. Deine Fertigkeit im Glyphenschmieden muss ausreichen, um die Glyphe herstellen zu können.",
         "You need to have a glyphed piece of jewellery that you are skilled enough to craft the glyph of in a belt slot if you want to remove a glyph from one.")
         return
     end
