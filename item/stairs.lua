@@ -31,7 +31,7 @@ function M.LookAtItem(user, sourceItem)
     local theLookat = lookat.GenerateLookAt(user, sourceItem)
 
     if sourceItem:getData("doorLock") == "locked" then
-        theLookat.description = common.GetNLS(user, "GERMAN TRANSLATION", "The trapdoor above appears to be locked, making it futile to attempt an ascent.")
+        theLookat.description = common.GetNLS(user, "Die Falltür weiter oben ist abgeschlossen, so dass du hier nicht hochkommst.", "The trapdoor above appears to be locked, making it futile to attempt an ascent.")
     end
 
     return theLookat

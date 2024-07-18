@@ -500,7 +500,7 @@ function M.allowBuilding(user, alternatePosition)
     local deed = M.getPropertyDeed(propertyName)
 
     if deed:getData("demolishmentInProgress") == "true" then
-        user:inform("GERMAN TRANSLATION", "You can not build at an estate that is being demolished.")
+        user:inform("Du kannst nicht auf einem Grundstück bauen, wo alles zum Abriss vorgesehen ist.", "You can not build at an estate that is being demolished.")
         return false, true
     end
 
@@ -768,7 +768,7 @@ local function createLockForStairTrapDoor(user, trapDoor, category, theId, prope
     local stairDoor = M.getStairsTrapDoor(thePosition, trapDoor)
 
     if not stairDoor then
-        user:inform("GERMAN TRANSLATION", "Something is obstructing the stair or trap door. Make sure no items are on top of either, then try again.")
+        user:inform("Irgendetwas versperrt die Treppe oder die Falltür. Versuche es noch mal, nachdem du alle Gegenstände dort entfernt hast.", "Something is obstructing the stair or trap door. Make sure no items are on top of either, then try again.")
         return false
     end
 
@@ -794,7 +794,7 @@ function M.createLock(user)
         local TargetItem, category = M.checkIfLockable(user)
 
         if not common.IsNilOrEmpty(TargetItem:getData("lockId")) then
-            user:inform("GERMAN TRANSLATION", "There's already a lock in place.")
+            user:inform("Hier ist schon ein Schloss.", "There's already a lock in place.")
             return
         end
 
@@ -818,7 +818,7 @@ function M.createLock(user)
             end
         end
     else
-        user:inform("Du kannst nur auf deinem Grundstück Schlösser in Türen und Tore einsetzen. GERMAN TRANSLATION","You can only create locks for doors, gates, stairs or trap doors that are on your property.")
+        user:inform("Du kannst nur auf deinem Grundstück Schlösser in Türen, Tore, Treppen und Falltüren einsetzen.","You can only create locks for doors, gates, stairs or trap doors that are on your property.")
     end
 end
 
@@ -851,13 +851,13 @@ local function scheduleDemolishment(user, propertyName)
 
             world:changeItem(deed)
 
-            user:inform("GERMAN TRANSLATION", "Upon your request of a demolition, a bunch of dwarves appear to demolish the estate. One by one they scurry off with the broken down material as their payment, at this rate they should be done in no time. ")
+            user:inform("Auf deine Bitte um einen Abriss hin tauchen ein Haufen Zwerge auf, um das Anwesen abzureißen. Einer nach dem anderen huschen sie mit dem abgerissenen Material als Bezahlung davon. Bei diesem Tempo sollten sie schnell fertig sein.", "Upon your request of a demolition, a bunch of dwarves appear to demolish the estate. One by one they scurry off with the broken down material as their payment, at this rate they should be done in no time.")
         else
             return
         end
     end
 
-    local dialog = SelectionDialog(common.GetNLS(user,"Bestätigung","Confirmation Check"), common.GetNLS(user,"GERMAN TRANSLATION", "Are you certain that you are absolutely positively sure you want to go through with this? This is the final warning. The demolition can not be stopped or undone after this, and will destroy everything on your property including items you made static or items that are not static!"), callback)
+    local dialog = SelectionDialog(common.GetNLS(user,"Bestätigung","Confirmation Check"), common.GetNLS(user,"Bist du dir absolut sicher, dass du das wirklich durchziehen willst? Das ist die letzte Warnung. Der Abriss kann danach nicht mehr gestoppt oder rückgängig gemacht werden und wird alles auf deinem Grundstück zerstören, einschließlich der Dinge, die du statisch gemacht hast oder die nicht statisch sind!", "Are you certain that you are absolutely positively sure you want to go through with this? This is the final warning. The demolition can not be stopped or undone after this, and will destroy everything on your property including items you made static or items that are not static!"), callback)
     dialog:addOption(0,common.GetNLS(user,"Ja","Yes"))
     dialog:addOption(0,common.GetNLS(user,"Nein, das ist Kunst.","No, I changed my mind."))
     dialog:setCloseOnMove()
@@ -881,7 +881,7 @@ function M.demolishConfirmation(user, propertyName)
         end
     end
 
-    local dialog = SelectionDialog(common.GetNLS(user,"Bestätigung","Confirmation Check"), common.GetNLS(user,"GERMAN TRANSLATION", "Are you certain you want to demolish your estate property? This can not be undone and once initiated, it can not stop."), callback)
+    local dialog = SelectionDialog(common.GetNLS(user,"Bestätigung","Confirmation Check"), common.GetNLS(user,"Bist du sicher, dass du dein Anwesen abreißen willst? Das kann nicht rückgängig gemacht werden, und einmal gestartet, kann es nicht mehr gestoppt werden.", "Are you certain you want to demolish your estate property? This can not be undone and once initiated, it can not stop."), callback)
     dialog:addOption(0,common.GetNLS(user,"Ja","Yes"))
     dialog:addOption(0,common.GetNLS(user,"Nein, das ist Kunst.","No, I changed my mind."))
     dialog:setCloseOnMove()

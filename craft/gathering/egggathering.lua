@@ -44,11 +44,11 @@ M.skill = "husbandry"
 
 M.nestList = {
     {id = Item.chickenNest, depletedId = Item.emptyChickenNest, productId = Item.whiteEgg, maxAmount = 20, monster = 622, monsterName = {english = "chicken", german = "Hühnchen"}},
-    {id = Item.pigeonNest, depletedId = Item.emptyPigeonNest, productId = Item.pigeonEgg, maxAmount = 20, monster = 391, monsterName = {english = "wolf", german = "GERMAN TRANSLATION"}},
-    {id = Item.seagullNest, depletedId = Item.emptySeagullNest, productId = Item.seagullEgg, maxAmount = 10, monster = 1171, monsterName = {english = "ettin", german = "GERMAN TRANSLATION"}},
+    {id = Item.pigeonNest, depletedId = Item.emptyPigeonNest, productId = Item.pigeonEgg, maxAmount = 20, monster = 391, monsterName = {english = "wolf", german = "Wolf"}},
+    {id = Item.seagullNest, depletedId = Item.emptySeagullNest, productId = Item.seagullEgg, maxAmount = 10, monster = 1171, monsterName = {english = "ettin", german = "Ettin"}},
     {id = Item.raptorNest, depletedId = Item.emptyRaptorNest, productId = Item.raptorEgg, maxAmount = 5, monster = 521, monsterName = {english = "raptor", german = "Raptor"}},
-    {id = Item.spiderNest, depletedId = Item.emptySpiderNest, productId = Item.spiderEgg, maxAmount = 5, monster = 193, monsterName = {english = "spider", german = "GERMAN TRANSLATION"}},
-    {id = Item.dragonNest, depletedId = Item.emptyDragonNest, productId = Item.dragonEgg, maxAmount = 5, monster = 1121, monsterName = {english = "dragon", german = "GERMAN TRANSLATION"}}
+    {id = Item.spiderNest, depletedId = Item.emptySpiderNest, productId = Item.spiderEgg, maxAmount = 5, monster = 193, monsterName = {english = "spider", german = "Spinne"}},
+    {id = Item.dragonNest, depletedId = Item.emptyDragonNest, productId = Item.dragonEgg, maxAmount = 5, monster = 1121, monsterName = {english = "dragon", german = "Drache"}}
 }
 
 local nestList = M.nestList
