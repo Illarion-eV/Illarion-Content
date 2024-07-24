@@ -42,8 +42,8 @@ end
 
 local function teachRecipe(user, target, potionIndex)
     common.writeBitwise(target, potionIndex, startQuest)
-    user:inform("GERMAN HERE", "You successfully taught your target the recipe.")
-    target:inform("GERMAN HERE", "Under your mentors wise tutelage, you now feel confident in brewing a new kind of potion.")
+    user:inform("GERMAN TRANSLATION", "You successfully taught your target the recipe.")
+    target:inform("GERMAN TRANSLATION", "Under your mentors wise tutelage, you now feel confident in brewing a new kind of potion.")
 end
 
 local function selectRecipeToTeach(user, target)
