@@ -192,7 +192,7 @@ end
 
 function M.checkIfBasementExclusive(itemId)
     for _, item in pairs(itemList.items) do
-        if item.category == "Basement Exclusive" then
+        if item.itemId == itemId and item.category == "Basement Exclusive" then
             return true
         end
     end
