@@ -709,9 +709,11 @@ function CauseDamage(Attacker, Defender, Globals)
     end
 
     if dwyfol.deflectAttackAsLightning(Defender.Char, Attacker.Char) then -- This glyph if activated deflects the attack, dealing the same amount they would have taken as magic damage to the attacker instead in the form of a lightning strike
-        local storedDefender = Defender.char
-        Defender.char = Attacker.char
-        Attacker.char = storedDefender
+
+        local storedDefender = Defender.Char
+        Defender.Char = Attacker.Char
+        Attacker.Char = storedDefender
+
     end
 
     if character.IsPlayer(Defender.Char) and not Defender.Char:isAdmin()
@@ -743,7 +745,7 @@ function CauseDamage(Attacker, Defender, Globals)
         local newPos = position(Defender.Char.pos.x + CharOffsetX,
             Defender.Char.pos.y + CharOffsetY, Defender.Char.pos.z)
 
-        local targetPos=Defender.Char.pos
+        local targetPos = Defender.Char.pos
 
         local isNotBlocked = function(pos)
             if world:getField(pos):isPassable() then

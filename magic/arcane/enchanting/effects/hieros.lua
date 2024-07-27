@@ -27,7 +27,7 @@ function M.increaseDamage(user, defender, damage)
     local success = shared.activateGlyph(user, "hieros", chance, 1)
 
     if success then
-        world:gfx( globalvar.gfxFIREFIELD, defender.pos)
+        world:gfx( globalvar.gfxFIREBALL, defender.pos)
         --TO DO: When magic resistance is introduced, calculate the added damage based on the defenders magic resist and delete this comment
         return true, (damage + (damage/2))
     end
