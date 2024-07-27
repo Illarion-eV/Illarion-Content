@@ -37,14 +37,21 @@ local function loadIngredients(object)
         local ingredient = object["ingredient" .. i]
         local amount = object["ingredient".. i .. "Amount"]
         if ingredient then
+
+            -- Ingredient gets loaded
             table.insert(ingredients,{id = ingredient, quantity = amount, data = {}})
 
+            -- Now all there's left to do is to handle the remnants
             local bucketItems = { Item.bucketOfWater, Item.blackDye, Item.greenDye, Item.blueDye, Item.redDye, Item.yellowDye, Item.whiteDye}
 
             for _, bucketItem in pairs(bucketItems) do
                 if ingredient == bucketItem then
                     table.insert(remnants, {id = Item.bucket, quantity = amount, data = {}})
                 end
+            end
+
+            if ingredient == Item.bottleOfInk then
+                table.insert(remnants, {id = Item.emptyInkBottle, quantity = amount, data = {}})
             end
         end
     end
