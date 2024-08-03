@@ -170,7 +170,7 @@ local function deleteParchmentsInHands(user, german, english, portable, sourceIt
     local plural = false
 
     if portable and not common.hasItemIdInHand(user, sourceItem.id)  then
-        user:inform("GERMAN TRANSLATION"..german.." ", "The "..english.." must remain in your hands if you want to burn a parchment.")
+        user:inform("Die "..german.." muss sich in deiner Hand befinden, damit du ein Pergament verbrennen kannst.", "The "..english.." must remain in your hands if you want to burn a parchment.")
         return
     end
 
@@ -194,13 +194,13 @@ local function deleteParchmentsInHands(user, german, english, portable, sourceIt
     end
 
     local parchmentsEn = plural and "parchments" or "parchment"
-    local parchmentsDe = plural and "GERMAN TRANSLATION" or "GERMAN TRANSLATION"
+    local parchmentsDe = plural and "Pergamente" or "Pergament"
     local pluralWasWhere = plural and "were" or "was"
 
     if burnt then
         user:inform("GERMAN TRANSLATION"..german.." "..parchmentsDe.."", "You used the "..english.." to burn the "..parchmentsEn.." that "..pluralWasWhere.." in your hands.")
     else
-        user:inform("GERMAN TRANSLATION", "No parchments were found in your hands. Did you lose them somewhere?")
+        user:inform("In deinen Händen sind keine Pergamente. Hast du sie etwa verloren?", "No parchments were found in your hands. Did you lose them somewhere?")
     end
 
 end

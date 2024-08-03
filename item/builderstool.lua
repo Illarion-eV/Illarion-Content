@@ -97,7 +97,7 @@ local function destroySelection(user)
     dialog:addOption(0,common.GetNLS(user,"Schindeln","Tiles"))
     dialog:addOption(0,common.GetNLS(user,"Dachausrüstung","Roof Objects"))
     dialog:addOption(0,common.GetNLS(user,"Dachschindeln","Roof Tiles"))
-    dialog:addOption(0, common.GetNLS(user, "GERMAN TRANSLATION", "Demolish the entire estate"))
+    dialog:addOption(0, common.GetNLS(user, "Alles auf dem Grundstück abreißen", "Demolish the entire estate"))
     dialog:setCloseOnMove()
 
     if utility.checkIfEstate(user) then

@@ -206,9 +206,9 @@ function M.UseItem(user, SourceItem)
     elseif stairItem and keys.CheckKey(SourceItem, stairItem, user) then
 
         if keys.UnlockStairs(stairItem, user) then
-            common.InformNLS(user, "GERMAN TRANSLATION", "You make it possible to climb the stair again by unlocking the trap door above.")
+            common.InformNLS(user, "Nun kann man die Treppe wieder benutzen, da die Falltür weiter oben geöffnet ist.", "You make it possible to climb the stair again by unlocking the trap door above.")
         elseif keys.LockStairs(user, stairItem) then
-            common.InformNLS(user, "GERMAN TRANSLATION", "You lock the trapdoors above the stairs.")
+            common.InformNLS(user, "Du verschließt die Falltür oberhalb der Treppe.", "You lock the trapdoors above the stairs.")
         end
 
     else

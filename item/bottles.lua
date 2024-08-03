@@ -533,15 +533,16 @@ local bottleTexts = {
         "The bottle is filled to the brim."
     },
     german = {
-        "GERMAN TRANSLATION",
-        "GERMAN TRANSLATION",
-        "GERMAN TRANSLATION",
-        "GERMAN TRANSLATION",
-        "GERMAN TRANSLATION",
-        "GERMAN TRANSLATION",
-        "GERMAN TRANSLATION",
-        "GERMAN TRANSLATION"
-    }}
+        "Die Flasche ist fast leer.",
+        "Ein Viertel der Flasche enth‰lt Fl¸ssigkeit.",
+        "Fast die H‰lfte der Flasche ist voll.",
+        "Die Flasche ist halb voll.",
+        "Die Flasche ist etwas ¸ber halb voll.",
+        "Die Flasche ist fast voll.",
+        "Die Flasche ist voll.",
+        "Die Flasche ist bis zum Rand gef¸llt."
+    }
+}
 
 local servingJugTexts = {
     english = {
@@ -555,15 +556,16 @@ local servingJugTexts = {
         "The jug is filled to the brim."
     },
     german = {
-        "GERMAN TRANSLATION",
-        "GERMAN TRANSLATION",
-        "GERMAN TRANSLATION",
-        "GERMAN TRANSLATION",
-        "GERMAN TRANSLATION",
-        "GERMAN TRANSLATION",
-        "GERMAN TRANSLATION",
-        "GERMAN TRANSLATION"
-    }}
+        "Der Krug ist fast leer.",
+        "Ein Viertel des Krugs enth‰lt Fl¸ssigkeit.",
+        "Fast die H‰lfte des Krugs ist voll.",
+        "Der Krug ist halb voll.",
+        "Der Krug ist etwas ¸ber halb voll.",
+        "Der Krug ist fast voll.",
+        "Der Krug ist voll.",
+        "Der Krug ist bis zum Rand gef¸llt."
+    }
+}
 
 local glassTeaPotTexts = {
     english = {
@@ -578,15 +580,17 @@ local glassTeaPotTexts = {
         "The pot is filled to the brim with tea."
     },
     german = {
-        "GERMAN TRANSLATION",
-        "GERMAN TRANSLATION",
-        "GERMAN TRANSLATION",
-        "GERMAN TRANSLATION",
-        "GERMAN TRANSLATION",
-        "GERMAN TRANSLATION",
-        "GERMAN TRANSLATION",
-        "GERMAN TRANSLATION"
-    }}
+        "Die Kanne ist leer.",
+        "Die Kanne enth‰lt kaum noch Tee.",
+        "Ein Viertel der Kanne enth‰lt Tee.",
+        "Fast die H‰lfte der Kanne ist voll mit Tee.",
+        "Die Kanne ist halb voll mit Tee.",
+        "Die Kanne ist etwas ¸ber halb voll mit Tee.",
+        "Die Kanne ist fast voll mit Tee.",
+        "Die Kanne ist voll mit Tee.",
+        "Die Kanne ist bis zum Rand mit Tee gef¸llt."
+    }
+}
 
 local teaPotTexts = {
     english = {
@@ -601,15 +605,17 @@ local teaPotTexts = {
         "The pot is filled to the brim with "
     },
     german = {
-        "GERMAN TRANSLATION",
-        "GERMAN TRANSLATION",
-        "GERMAN TRANSLATION",
-        "GERMAN TRANSLATION",
-        "GERMAN TRANSLATION",
-        "GERMAN TRANSLATION",
-        "GERMAN TRANSLATION",
-        "GERMAN TRANSLATION"
-    }}
+        "Die Kanne ist leer.",
+        "Die Kanne enth‰lt kaum noch ",
+        "Ein Viertel der Kanne enth‰lt ",
+        "Fast die H‰lfte der Kanne ist voll mit ",
+        "Die Kanne ist halb voll mit ",
+        "Die Kanne ist etwas ¸ber halb voll mit ",
+        "Die Kanne ist fast voll mit ",
+        "Die Kanne ist voll mit ",
+        "Die Kanne ist bis zum Rand gef¸llt mit "
+    }
+}
 
 local function getVesselToFill(user, vessels, amount)
 
@@ -692,7 +698,7 @@ local function fillTea(user, sourceItem, amount, half, quarter, empty, vesselToF
     end
 
     if vesselToFill.number > 1 then
-        user:inform("GERMAN TRANSLATION", "You can't pour into multiple items at once! Single one out, then try again.")
+        user:inform("Du kannst nicht in mehrere Gef‰ﬂe auf einmal gieﬂen! W‰hle eins aus und versuche es erneut.", "You can't pour into multiple items at once! Single one out, then try again.")
         return false
     end
 
@@ -760,7 +766,7 @@ local function fillVessel(user, sourceItem, bottle)
     end
 
     if vesselToFill.number > 1 then
-        user:inform("GERMAN TRANSLATION", "You can't pour into multiple items at once! Single one out, then try again.")
+        user:inform("Du kannst nicht in mehrere Gef‰ﬂe auf einmal gieﬂen! W‰hle eins aus und versuche es erneut.", "You can't pour into multiple items at once! Single one out, then try again.")
         return false
     end
 
@@ -820,7 +826,7 @@ function M.UseItem(user, sourceItem, actionState)
     end
 
     if sourceItem.number > 1 then
-        user:inform("GERMAN TRANSLATION", "You can't pour from multiple items at once! Single one out, then try again.")
+        user:inform("Du kannst nicht aus mehreren Gef‰ﬂen auf einmal ausschenken! W‰hle eins aus und versuche es erneut.", "You can't pour from multiple items at once! Single one out, then try again.")
         return
     end
 

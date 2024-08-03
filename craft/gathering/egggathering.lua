@@ -112,10 +112,10 @@ function M.StartGathering(user, sourceItem, actionState)
 
     if sourceItem.id == Item.pigeonNest or sourceItem.id == Item.seagullNest then -- No corresponding monster to guard the egg, replaced with a hungry wolf/ettin
 
-        egggathering:AddMonster(user, monster, gathering.prob_monster/gatheringBonus, ""..monsterName.german.."GERMAN TRANSLATION","While you steal eggs a hungry "..monsterName.english.." hops out from the surroundings of the nest to contest you for the eggs!",4,7)
+        egggathering:AddMonster(user, monster, gathering.prob_monster/gatheringBonus, "Während du die Eier stiehlst, nähert sich ein hungriger "..monsterName.german.." um dir die Eier streitig zu machen.","While you steal eggs a hungry "..monsterName.english.." hops out from the surroundings of the nest to contest you for the eggs!",4,7)
 
     else
-        egggathering:AddMonster(user, monster, gathering.prob_monster/gatheringBonus, "Während du die Eier stiehlst, hüpft ein wütendes "..monsterName.german.." aus dem Nest GERMAN TRANSLATION","While you steal eggs an angry "..monsterName.english.." hops out from the surroundings of the nest!",4,7)
+        egggathering:AddMonster(user, monster, gathering.prob_monster/gatheringBonus, "Während du die Eier stiehlst, hüpft ein wütendes "..monsterName.german.." zurück zum Nest.","While you steal eggs an angry "..monsterName.english.." hops out from the surroundings of the nest!",4,7)
     end
 
     if actionState == Action.abort then -- work interrupted
