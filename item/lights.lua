@@ -196,8 +196,8 @@ local function deleteParchmentsInHands(user, german, english, portable, sourceIt
     local parchmentsEn = plural and "parchments" or "parchment"
     local parchmentsDe = plural and "die Pergamente" or "das Pergament"
     local pluralWasWhere = plural and "were" or "was"
-	local pluralWelcheWelchesDe = plural and "welche" or "welches"
-	local pluralBefandenBefandDe = plural and "befanden" or "befand"
+    local pluralWelcheWelchesDe = plural and "welche" or "welches"
+    local pluralBefandenBefandDe = plural and "befanden" or "befand"
 
     if burnt then
         user:inform("Du hast die "..german.." verwendet, um "..parchmentsDe.." zu verbrennen, "..pluralWelcheWelchesDe.." sich in deiner Hand "..pluralBefandenBefandDe..".", "You used the "..english.." to burn the "..parchmentsEn.." that "..pluralWasWhere.." in your hands.")
