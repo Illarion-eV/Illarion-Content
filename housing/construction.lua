@@ -579,7 +579,7 @@ function M.showDialog(user, skillName, overloaded)
             if utility.checkIfBasementExclusive(product.id) then
                 if not (user.pos.z < 0) then
                     canWork = false
-                    user:inform("GERMAN TRANSLATION", "You can't build basement exclusive items above ground.")
+                    user:inform("Du kannst keine Kellergeschosselemente überirdisch bauen.", "You can't build basement exclusive items above ground.")
                 end
             end
 

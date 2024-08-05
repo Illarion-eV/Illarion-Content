@@ -83,7 +83,7 @@ english, "Hiho", "Hallo", "Hey", "Greeb", "Hello", "Greet", "Hail", "Good day", 
 "my name", "I am called", "I'm called" -> "#me nods half-heartedly, clearly not paying your introduction any mind."
 "mein Name", "ich heiße"-> "#me nickt halbherzig und schenkt deiner Vorstellung offensichtlich keine Beachtung. "
 
-english, "Egg" -> "I told you not to call me that!"
+"Egg" -> "I told you not to call me that!"
 -- This joke does not really work in German and has no translation
 
 -- Magic quest triggers, more to be added on as magic systems are released
@@ -124,7 +124,7 @@ queststatus(241) = 2, "glyph", "verzauber", "quest", "mission", "auftrag", "aufg
 -- Reminder to prepare a ritual shrine
 queststatus(241) = 3, english, "glyph", "quest", "mission" -> "You still need to prepare a ritual at a glyph ritual shrine. Return to me once you have."
 queststatus(241) = 3, "enchant", "task", "adventure", "order", "magic" -> "You still need to prepare a ritual at a glyph ritual shrine. Return to me once you have."
-queststatus(241) = 3, "glyph", "verzauber", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "magie" -> "GERMAN TRANSLATION. Komm wieder, wenn du das erledigt hast."
+queststatus(241) = 3, "glyph", "verzauber", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "magie" -> "Du musst noch ein Ritual an einem Glyphenritualschrein vorbereiten. Komm wieder, wenn du das erledigt hast."
 
 -- How to craft a glyph, shards provided
 queststatus(241) = 4, english, "glyph", "quest", "mission" -> queststatus(241) = 5, item(4184, 1), item(4185, 1), item(4186, 1), item(4187, 1), item(4188, 1), item(4189, 1), item(4190, 1), "Good! Now with the shrine set up, you can use it to combine glyph shards you find around the lands of Illarion into a fully fledged glyph. Since I'm so nice, I will provide you with a full set you can use to give it a try."
@@ -159,7 +159,7 @@ queststatus(241) = 9, "glyph", "verzauber", "quest", "mission", "auftrag", "aufg
 -- Tasked to break the glyph out of the jewellery, with a side mention of some other info about enchanting
 queststatus(241) = 10, english, "glyph", "quest", "mission" -> queststatus(241) = 11, "Good! Now that the glyph has been socketed into the ring, there are two things you can do. You can inspect it, just like you did to the glyph previously. If you're unhappy with it, perhaps having used a low quality metal like copper that is less conductive to magic than silver or gold, you can also use the shrine to break the glyph out of the jewellery. This will however harm the jewellery's durability; you might need repairs and you won't be able to recover all the shards, or even none if the glyph is too frail due to seeing too much use! Go on, give it a go."
 queststatus(241) = 10, "enchant", "task", "adventure", "order", "magic" -> queststatus(241) = 11, "Good! Now that the glyph has been socketed into the ring, there are two things you can do. You can inspect it, just like you did to the glyph previously. If you're unhappy with it, perhaps having used a low quality metal like copper that is less conductive to magic than silver or gold, you can also use the shrine to break the glyph out of the jewellery. This will however harm the jewellery's durability; you might need repairs and you won't be able to recover all the shards, or even none if the glyph is too frail due to seeing too much use! Go on, give it a go."
-queststatus(241) = 10, "glyph", "verzauber", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "magie" -> queststatus(241) = 11, "Großartig! Mit dem verzauberten Ring kannst du jetzt zwei Dinge tun. Du kannst ihn untersuchen, wie auch die Glyphe zuvor. Wenn du mit dem Ergebnis unzufrieden bist, kannst du die Glyphe an einem Schrein wieder aus dem Schmuckstück herausbrechen. GERMAN TRANSLATION Keine Sorge, das beschädigt den Schmuck nicht. Allerdings kannst du lediglich ein paar Scherben wiederverwenden, oder sogar - GERMAN TRANSLATION falls die Glyphe nur noch wenig geladen ist - gar nichts. Na los, versuch es mal!"
+queststatus(241) = 10, "glyph", "verzauber", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "magie" -> queststatus(241) = 11, "Großartig! Mit dem verzauberten Ring kannst du jetzt zwei Dinge tun. Du kannst ihn untersuchen, wie auch die Glyphe zuvor. Wenn du mit dem Ergebnis unzufrieden bist, weil du zum Beispiel ein minderwertiges Metall wie Kupfer genommen hast, welches für Magie nicht so empfänglich ist wie Silber oder Gold, kannst du die Glyphe an einem Schrein wieder aus dem Schmuckstück herausbrechen. Dies beschädigt den Schmuck etwas, so dass du ihn eventuell reparieren musst. Allerdings kannst du lediglich ein paar Scherben wiederverwenden, oder sogar gar keine, falls die Glyphe nur noch wenig geladen ist. Na los, versuch es mal!"
 
 -- Reminder to break glyph out of jewellery
 queststatus(241) = 11, english, "glyph", "quest", "mission" -> "You still need to break out the glyph in the ring you socketed previously. Return to me once you have. If you lost the ring, or used up its charges, then any other ring you've socketed will do."

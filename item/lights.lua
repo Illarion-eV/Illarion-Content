@@ -194,11 +194,13 @@ local function deleteParchmentsInHands(user, german, english, portable, sourceIt
     end
 
     local parchmentsEn = plural and "parchments" or "parchment"
-    local parchmentsDe = plural and "Pergamente" or "Pergament"
+    local parchmentsDe = plural and "die Pergamente" or "das Pergament"
     local pluralWasWhere = plural and "were" or "was"
+	local pluralWelcheWelchesDe = plural and "welche" or "welches"
+	local pluralBefandenBefandDe = plural and "befanden" or "befand"
 
     if burnt then
-        user:inform("GERMAN TRANSLATION"..german.." "..parchmentsDe.."", "You used the "..english.." to burn the "..parchmentsEn.." that "..pluralWasWhere.." in your hands.")
+        user:inform("Du hast die "..german.." verwendet, um "..parchmentsDe.." zu verbrennen, "..pluralWelcheWelchesDe.." sich in deiner Hand "..pluralBefandenBefandDe..".", "You used the "..english.." to burn the "..parchmentsEn.." that "..pluralWasWhere.." in your hands.")
     else
         user:inform("In deinen Händen sind keine Pergamente. Hast du sie etwa verloren?", "No parchments were found in your hands. Did you lose them somewhere?")
     end
@@ -221,7 +223,7 @@ local function burnParchmentConfirmation(user, german, english, portable, source
         end
     end
 
-    local dialog = SelectionDialog(common.GetNLS(user,"Bestätigung","Confirmation Check"), common.GetNLS(user,"GERMAN TRANSLATION", "Are you sure you want to burn the parchment(s) in your hands? This can not be undone and will permanently delete any parchments in your hand slots."), callback)
+    local dialog = SelectionDialog(common.GetNLS(user,"Bestätigung","Confirmation Check"), common.GetNLS(user,"Bist du sicher, dass du die Pergamente in deinen Händen verbrennen willst? Dies kann nicht rückgängig gemacht werden und wird alle Pergamente in deinen Handplätzen dauerhaft zerstören.", "Are you sure you want to burn the parchment(s) in your hands? This can not be undone and will permanently delete any parchments in your hand slots."), callback)
     dialog:addOption(0,common.GetNLS(user,"Ja","Yes"))
     dialog:addOption(0,common.GetNLS(user,"Nein, das ist Kunst.","No, I changed my mind."))
     dialog:setCloseOnMove()
@@ -264,7 +266,7 @@ function M.UseItem(user, sourceItem)
         if common.hasItemIdInHand(user, Item.parchment) then
             local commonItem = world:getItemStatsFromId(sourceItem.id)
             if litItem.portable and not common.IsItemInHands(sourceItem) then
-                user:inform("GERMAN TRANSLATION"..commonItem.German, "To use this "..commonItem.English.." to burn a parchment, you must hold both in your hands.")
+                user:inform("Um diese "..commonItem.German.." zum Verbrennen von Pergamenten zu verwenden, musst du sie in der Hand halten.", "To use this "..commonItem.English.." to burn a parchment, you must hold both in your hands.")
             else
                 burnParchmentConfirmation(user, commonItem.German, commonItem.English, litItem.portable, sourceItem)
             end

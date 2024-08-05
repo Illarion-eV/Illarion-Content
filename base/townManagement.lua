@@ -436,9 +436,9 @@ end
 local function statusCheckAndConfirmation(user, targetId, toolTown, townTool, name)
 
     local statuses = {
-        granted = {english = "granted", german = "german translation"},
-        restricted = {english = "restricted", german = "german translation"},
-        default = {english = "the town default", german = "german translation"}
+        granted = {english = "granted", german = "Erteilt"},
+        restricted = {english = "restricted", german = "Eingeschränkt"},
+        default = {english = "the town default", german = "Standard der Stadt"}
     }
 
     local oldStatus = townTool:getData("licence"..targetId)
@@ -489,23 +489,23 @@ local function statusCheckAndConfirmation(user, targetId, toolTown, townTool, na
         end
 
         if noChange then
-            user:inform(name.."GERMAN TRANSLATION"..chosenText, name.."'s rights to use the town tools are already sete to be "..chosenText)
+            user:inform("Die Rechte von "..name..", die Werkzeuge der Stadt zu verwenden, sind bereit auf '"..chosenText.."' gesetzt.", name.."'s rights to use the town tools are already set to be "..chosenText)
         else
             townTool:setData("licence"..targetId, newStatus)
             world:changeItem(townTool)
-            user:inform(name.."GERMAN TRANSLATION"..chosenText..".", name.."'s rights to use the town tools have been changed to be "..chosenText..".")
+            user:inform("Die Rechte von "..name..", die Werkzeuge der Stadt zu verwenden, wurde zu '"..chosenText.."' geändert.", name.."'s rights to use the town tools have been changed to be "..chosenText..".")
         end
     end
 
     --Check the status of the person, get confirmation for changing the status to the opposite status, save that new status in the townTool as item variable
 
-    local title = common.GetNLS(user, "GERMAN TRANSLATION", "Select new status")
-    local text = common.GetNLS(user, "GERMAN TRANSLATION", "Please select the new status you want to set in regards to licences for "..name..".")
+    local title = common.GetNLS(user, "Wähle den neuen Status", "Select new status")
+    local text = common.GetNLS(user, "Bitte wähle den neuen Status aus, den du bezüglich der Lizenzen für "..name.." festlegen möchtest.", "Please select the new status you want to set in regards to licences for "..name..".")
     local dialog = SelectionDialog(title, text, callback)
 
-    dialog:addOption(0, common.GetNLS(user, "GERMAN TRANSLATION", "Granted"))
-    dialog:addOption(0, common.GetNLS(user, "GERMAN TRANSLATION", "Restricted"))
-    dialog:addOption(0, common.GetNLS(user, "GERMAN TRANSLATION", "The town default"))
+    dialog:addOption(0, common.GetNLS(user, "Erteilt", "Granted"))
+    dialog:addOption(0, common.GetNLS(user, "Eingeschränkt", "Restricted"))
+    dialog:addOption(0, common.GetNLS(user, "Standard der Stadt", "The town default"))
 
     dialog:setCloseOnMove()
 
@@ -524,14 +524,14 @@ local function setIndividualsLicence(user, toolTown, townTool)
         local targetExists, targetId = world:getPlayerIdByName(input)
 
         if not targetExists then
-            user:inform("GERMAN TRANSLATION.", "No one by that name exists, at least not within the realms of Illarion.")
+            user:inform("Niemand in Illarion trägt diesen Namen.", "No one by that name exists, at least not within the realms of Illarion.")
             return
         end
 
         statusCheckAndConfirmation(user, targetId, toolTown, townTool, input)
     end
 
-    local dialog = InputDialog(common.GetNLS(user, "GERMAN TRANSLATION", "Enter The Individuals Name"), common.GetNLS(user, "GERMAN TRANSLATION", "Enter the name of the individual you wish to change the town's tool license status for."), false, 255, callback)
+    local dialog = InputDialog(common.GetNLS(user, "Namenseingabe", "Enter The Individuals Name"), common.GetNLS(user, "Gib den Namen der Person ein, für die du den Lizenzstatus innerhalb der Stadt ändern möchtest.", "Enter the name of the individual you wish to change the town's tool license status for."), false, 255, callback)
 
     user:requestInputDialog(dialog)
 end
@@ -586,7 +586,7 @@ function TownLicence(user,toolTown, townTool)
     for _,f in ipairs(factionIds) do
         sd:addOption(0,factions.getTownNameByID(f) .. ": " .. licenceStrings[licence.GetLicenceByFaction(FirstLicence, f)])
     end
-    sd:addOption(0, common.GetNLS(user,"Setze Lizenz GERMAN TRANSLATION", "Set licence for individual"))
+    sd:addOption(0, common.GetNLS(user,"Setze Lizenz für eine Person", "Set licence for individual"))
 
     sd:setCloseOnMove()
     user:requestSelectionDialog(sd)

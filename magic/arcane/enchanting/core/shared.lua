@@ -88,10 +88,10 @@ M.ringAndAmuletDefinitions = {
         effect = {
             amulet =
                 {english = "Has the chance to activate upon being hit by an attack, healing you for a portion of the damage taken.",
-                german = "Erfolgreiche Anrgiffe gegen dich haben eine Chance, dich ein wenig zu heilen GERMAN TRANSLATION."},
+                german = "Erfolgreiche Anrgiffe gegen dich haben eine Chance, die Glyphe zu aktivieren und dich ein wenig vom erlittenen Schaden zu heilen."},
             ring =
                 {english = "Has the chance to activate upon hitting someone with an attack, healing you for a portion of the damage dealt.",
-                german = "Erfolgreiche Angriffe von dir haben die Chance, dich ein wenig zu heilen GERMAN TRANSLATION."}}
+                german = "Erfolgreiche Angriffe von dir haben die Chance, die Glyphe zu aktivieren und dich ein wenig zu heilen."}}
     },
     {
         gem = "topaz",
