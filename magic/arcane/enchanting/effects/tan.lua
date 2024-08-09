@@ -27,7 +27,7 @@ function M.reduceCastTime(user)
     local success = shared.activateGlyph(user, "tan", chance, 1)
 
     if success then
-        world:gfx( globalvar.gfxSCOTTY, user.pos)
+        world:gfx( globalvar.gfxBlueSplash, user.pos)
         return true
     end
 

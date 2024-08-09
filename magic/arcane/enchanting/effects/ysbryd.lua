@@ -35,7 +35,7 @@ function M.liferegen(defender, damage)
     if success then
         local increase = damage/5 -- 20% lifesteal on proc, procs at most one out of 4 attacks on average, meaning 5% average lifesteal per attack
         defender:increaseAttrib("hitpoints", increase)
-        world:gfx( globalvar.gfxRAIN, defender.pos)
+        world:gfx( globalvar.gfxGreenSplash, defender.pos)
     end
 end
 
