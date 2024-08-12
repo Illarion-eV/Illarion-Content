@@ -80,25 +80,33 @@ end
 local function licenceCheck(char)
 
     local charIsOutlaw = factions.getMembership(char) == 0
-    local charIsAtleastRank2 = factions.getRankpoints(char) >= 100
+    local charIsRank1 = factions.getRankpoints(char) <= 99
+    local charIsNewPlayer = char:isNewPlayer()
+    local charIsNewbieProtected = false
 
-    if charIsOutlaw or charIsAtleastRank2 then
-
-        local townName = factions.getTownNameByID(licencerequired)
-        local townManagementItem = getTownManagementTool(townName)
-
-        local char_has_special_permissions = checkIfCharHasSpecialPermissions(char, townManagementItem)
-        local char_belongs_to_same_faction_as_tool = factions.getMembership(char) == licencerequired
-        local char_has_purchased_license = char:getQuestProgress(licenceQuestID) > 0
-        local town_has_activated_licence_requirement_for_chars_faction = M.GetLicenceByFaction(licencerequired, factions.getFaction(char).tid) == M.PERMISSION_NONE
-
-        if not (char_belongs_to_same_faction_as_tool or char_has_purchased_license or char_has_special_permissions == true) and (town_has_activated_licence_requirement_for_chars_faction and (char_has_special_permissions == nil or char_has_special_permissions == false)) then --check if player is member of the right faction or has licence or his/her faction has permission, and whether individual restrictions or permissions have been set for them
-
-            common.InformNLS(char,"Du besitzt keine Lizenz für die Verwendung der Werkzeuge dieser Stadt. Gehe ins Zensusbüro, um dort eine zu erwerben und damit die Werkzeuge verwenden zu können oder werde Bürger dieser Stadt.","You do not have a licence for the use of static tools in this town. Go to the census office and purchase one in order to be able to use their static tools or become a citizen.") --player gets info to buy licence
-
-            return true --craft-script stops later; set to true as soon as NPCs are ready
-        end
+    if charIsNewPlayer or (not charIsOutlaw and charIsRank1) then
+        -- Newbie protection that is applied to those with new player status or rank 1 of a town.
+        -- Does not protect against tool taxes if someone has applied them onto them specifically
+        charIsNewbieProtected = true
     end
+
+    local townName = factions.getTownNameByID(licencerequired)
+    local townManagementItem = getTownManagementTool(townName)
+
+    local char_has_special_permissions = checkIfCharHasSpecialPermissions(char, townManagementItem)
+    local char_belongs_to_same_faction_as_tool = factions.getMembership(char) == licencerequired
+    local char_has_purchased_license = char:getQuestProgress(licenceQuestID) > 0
+    local town_has_activated_licence_requirement_for_chars_faction = M.GetLicenceByFaction(licencerequired, factions.getFaction(char).tid) == M.PERMISSION_NONE
+
+    if not (char_belongs_to_same_faction_as_tool or char_has_purchased_license or char_has_special_permissions) and ((town_has_activated_licence_requirement_for_chars_faction and not charIsNewbieProtected) or char_has_special_permissions == false) then
+
+        common.InformNLS(char,"Du besitzt keine Lizenz für die Verwendung der Werkzeuge dieser Stadt. Gehe ins Zensusbüro, um dort eine zu erwerben und damit die Werkzeuge verwenden zu können oder werde Bürger dieser Stadt.","You do not have a licence for the use of static tools in this town. Go to the census office and purchase one in order to be able to use their static tools or become a citizen.") --player gets info to buy licence
+
+        return true
+    end
+
+    return false
+
 end
 
 --- initialize the licence for all factions, only the current faction gets access
