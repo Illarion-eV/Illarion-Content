@@ -98,6 +98,11 @@ local valueSmall = 800
 local valueMedium = 1200
 local valueLarge = 3000
 
+-- Processed resource (not free food as the gathered ingredient has been processed once via crafting, but not properly crafted food either as it remains an ingredient albeit edible)
+
+M.foodList[Item.beeHoney] = {foodPoints = valueMedium, leftOver = Item.emptyHoneyJar}
+M.foodList[Item.firewaspHoney] = {foodPoints = valueLarge, leftOver = Item.emptyHoneyJar}
+
 -- FREE FOOD
 M.foodList[Item.apple]   = {foodPoints = valueMedium}
 M.foodList[Item.trout] = {foodPoints = valueMedium}

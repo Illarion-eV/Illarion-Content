@@ -44,9 +44,10 @@ product:addRemnant(51, 1) -- bucket
 -- cookies
 product = baking:addProduct(catId, 453, 2)
 product:addIngredient(2, 3) -- flour
-product:addIngredient(2529, 2) -- honeycomb
+product:addIngredient(Item.beeHoney, 1)
 product:addIngredient(52, 1) -- bucket of water
 product:addRemnant(51, 1) -- bucket
+product:addRemnant(Item.emptyHoneyJar, 1)
 
 -- baked potato
 product = baking:addProduct(catId, 3568, 1)
@@ -76,7 +77,8 @@ product:addRemnant(Item.fruitJuiceBottle,1) -- empty juice bottle
 -- blackberry muffin
 product = baking:addProduct(catId, 454, 1)
 product:addIngredient(2, 3) -- flour
-product:addIngredient(2529, 4) -- honeycomb
+product:addIngredient(Item.beeHoney, 2)
+product:addRemnant(Item.emptyHoneyJar, 2)
 product:addIngredient(147, 15) -- blackberry
 product:addIngredient(52, 1) -- bucket of water
 product:addRemnant(51, 1) -- bucket
@@ -84,7 +86,8 @@ product:addRemnant(51, 1) -- bucket
 -- apple pie
 product = baking:addProduct(catId, 353, 1)
 product:addIngredient(2, 4) -- flour
-product:addIngredient(2529, 4) -- honeycomb
+product:addIngredient(Item.beeHoney, 2)
+product:addRemnant(Item.emptyHoneyJar, 2)
 product:addIngredient(15, 20) -- apple
 product:addIngredient(52, 1) -- bucket of water
 product:addRemnant(51, 1) -- bucket
@@ -92,7 +95,8 @@ product:addRemnant(51, 1) -- bucket
 -- cherry cake
 product = baking:addProduct(catId, 303, 1)
 product:addIngredient(2, 4) -- flour
-product:addIngredient(2529, 4) -- honeycomb
+product:addIngredient(Item.beeHoney, 2)
+product:addRemnant(Item.emptyHoneyJar, 2)
 product:addIngredient(302, 20) -- cherries
 product:addIngredient(759, 5) -- nuts
 product:addIngredient(52, 1) -- bucket of water
@@ -109,7 +113,8 @@ product:addRemnant(2935,1) -- soup bowl
 -- strawberry cake
 product = baking:addProduct(catId, 354, 1)
 product:addIngredient(2, 4) -- flour
-product:addIngredient(2529, 6) -- honeycomb
+product:addIngredient(Item.beeHoney, 3)
+product:addRemnant(Item.emptyHoneyJar, 3)
 product:addIngredient(151, 20) -- strawberry
 product:addIngredient(1150, 2) -- white egg
 product:addIngredient(52, 1) -- bucket of water
@@ -118,7 +123,8 @@ product:addRemnant(51, 1) -- bucket
 -- nut bread
 product = baking:addProduct(catId, 3723, 1)
 product:addIngredient(2, 4) -- flour
-product:addIngredient(2529, 6) -- honeycomb
+product:addIngredient(Item.beeHoney, 3)
+product:addRemnant(Item.emptyHoneyJar, 3)
 product:addIngredient(759, 20) -- nuts
 product:addIngredient(1150, 3) -- white egg
 product:addIngredient(52, 1) -- bucket of water

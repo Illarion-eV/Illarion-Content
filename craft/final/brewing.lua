@@ -53,7 +53,8 @@ product:addRemnant(51, 1) -- bucket
 -- bottle of mead
 product = brewing:addProduct(catId, 2497, 1)
 product:addIngredient(2498, 1) -- large empty bottle
-product:addIngredient(2529, 2) -- honeycomb
+product:addIngredient(Item.beeHoney, 1)
+product:addRemnant(Item.emptyHoneyJar, 1)
 product:addIngredient(52, 1) -- bucket of water
 product:addRemnant(51, 1) -- bucket
 
@@ -180,7 +181,8 @@ product:addRemnant(51, 1) -- bucket
 -- bottle of bear slayer
 product = brewing:addProduct(catId, 1316, 1)
 product:addIngredient(1317, 1) -- empty liquor bottle
-product:addIngredient(2529, 2) -- honeycomb
+product:addIngredient(Item.beeHoney, 1)
+product:addRemnant(Item.emptyHoneyJar, 1)
 product:addIngredient(159, 1) -- toadstool
 product:addIngredient(15, 1) -- apple
 product:addIngredient(52, 1) -- bucket of water

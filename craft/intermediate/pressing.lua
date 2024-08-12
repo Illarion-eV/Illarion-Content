@@ -40,7 +40,17 @@ catId = pressing:addCategory("Wax", "Wachs")
 
 -- Wax
 product = pressing:addProduct(catId, 431, 1)
-product:addIngredient(2529, 2) -- honeycomb
+product:addIngredient(Item.honeycomb, 2)
+
+catId = pressing:addCategory("Honey", "Honig")
+
+product = pressing:addProduct(catId, Item.beeHoney, 1)
+product:addIngredient(Item.honeycomb, 1)
+product:addIngredient(Item.emptyHoneyJar)
+
+product = pressing:addProduct(catId, Item.firewaspHoney, 1)
+product:addIngredient(Item.firewaspHoneycomb, 1)
+product:addIngredient(Item.emptyHoneyJar)
 
 M.pressing = pressing
 return M
