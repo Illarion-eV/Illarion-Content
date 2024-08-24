@@ -1597,8 +1597,9 @@ local function viewActivityForPlayer(user, chosenPlayer)
     local currentMonth = common.getTime("month")
     local activityTrackerID = 84
     local found, tracker = chosenPlayer.effects:find(activityTrackerID)
+    local totalTicks = 0
 
-    for i = 1, 15 do --check each month
+    for i = 1, 16 do --check each month
 
         local monthInString = common.Month_To_String(i)
 
@@ -1613,8 +1614,12 @@ local function viewActivityForPlayer(user, chosenPlayer)
             end
         end
 
+        totalTicks = totalTicks + activeTicks
+
         textToList = textToList.."Month "..monthInString..": "..tostring(activeTicks*5).." minutes.\n"
     end
+
+    textToList = textToList.."\n Total activity over the past IG year: "..tostring(totalTicks*5).." minutes."
 
     local interactionTicks = chosenPlayer:getQuestProgress(activityTracker.reputationTrackerQuestID)
 
