@@ -562,7 +562,7 @@ local servingJugTexts = {
         "The jug is overflowing."
     },
     german = {
-        "Nur ein paar Tropfen sind noch in der Krug.",
+        "Nur ein paar Tropfen sind noch in dem Krug.",
         "Der Krug ist fast leer.",
         "Ein Viertel des Krugs enthält Flüssigkeit.",
         "Fast die Hälfte des Krugs ist voll.",
@@ -591,7 +591,7 @@ local glassTeaPotTexts = {
     },
     german = {
         "Die Kanne ist leer.",
-        "Nur ein paar Tropfen Tee sind noch in die Kanne.",
+        "Nur ein paar Tropfen Tee sind noch in der Kanne.",
         "Die Kanne enthält kaum noch Tee.",
         "Ein Viertel der Kanne enthält Tee.",
         "Fast die Hälfte der Kanne ist voll mit Tee.",
@@ -620,7 +620,7 @@ local teaPotTexts = {
     },
     german = {
         "Die Kanne ist leer.",
-        "Sind noch in die Kanne nur ein paar Tropfen ",
+        "In der Kanne sind noch nur ein paar Tropfen ",
         "Die Kanne enthält kaum noch ",
         "Ein Viertel der Kanne enthält ",
         "Fast die Hälfte der Kanne ist voll mit ",
