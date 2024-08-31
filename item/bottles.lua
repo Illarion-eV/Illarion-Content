@@ -80,15 +80,15 @@ local bottles = {
             {empty = Item.silverGoblet, filled = Item.silverGobletWithWater, amount = 1},
             {empty = Item.goldenGoblet, filled = Item.goldenGobletWithWater, amount = 1},
             {empty = Item.glass, filled = Item.glassWithWater, amount = 1},
-            {empty = Item.clayServingJug, filled = Item.clayServingJugWithWater, amount = 1, max = 8},
-            {empty = Item.ceramicServingJug, filled = Item.ceramicServingJugWithWater, amount = 1, max = 8},
-            {empty = Item.ironServingJug, filled = Item.ironServingJugWithWater, amount = 1, max = 8},
-            {empty = Item.copperServingJug, filled = Item.copperServingJugWithWater, amount = 1, max = 8},
-            {empty = Item.silverServingJug, filled = Item.silverServingJugWithWater, amount = 1, max = 8},
-            {empty = Item.goldServingJug, filled = Item.goldServingJugWithWater, amount = 1, max = 8},
-            {empty = Item.glassServingJug, filled = Item.glassServingJugWithWater, amount = 6, max = 8},
-            {empty = Item.glassServingJug, filled = Item.glassServingJugWithWaterHalf, amount = 3, max = 5},
-            {empty = Item.glassServingJug, filled = Item.glassServingJugWithWaterQuarter, amount = 1, max = 2}},
+            {empty = Item.clayServingJug, filled = Item.clayServingJugWithWater, amount = 1, max = 10},
+            {empty = Item.ceramicServingJug, filled = Item.ceramicServingJugWithWater, amount = 1, max = 10},
+            {empty = Item.ironServingJug, filled = Item.ironServingJugWithWater, amount = 1, max = 10},
+            {empty = Item.copperServingJug, filled = Item.copperServingJugWithWater, amount = 1, max = 10},
+            {empty = Item.silverServingJug, filled = Item.silverServingJugWithWater, amount = 1, max = 10},
+            {empty = Item.goldServingJug, filled = Item.goldServingJugWithWater, amount = 1, max = 10},
+            {empty = Item.glassServingJug, filled = Item.glassServingJugWithWater, amount = 7, max = 10},
+            {empty = Item.glassServingJug, filled = Item.glassServingJugWithWaterHalf, amount = 4, max = 6},
+            {empty = Item.glassServingJug, filled = Item.glassServingJugWithWaterQuarter, amount = 1, max = 3}},
         type = "jug"},
 
     {
@@ -112,15 +112,15 @@ local bottles = {
             {empty = Item.silverGoblet, filled = Item.silverGobletWithWine, amount = 1},
             {empty = Item.goldenGoblet, filled = Item.goldenGobletWithWine, amount = 1},
             {empty = Item.glass, filled = Item.glassWithWine, amount = 1},
-            {empty = Item.clayServingJug, filled = Item.clayServingJugWithWine, amount = 1, max = 8},
-            {empty = Item.ceramicServingJug, filled = Item.ceramicServingJugWithWine, amount = 1, max = 8},
-            {empty = Item.ironServingJug, filled = Item.ironServingJugWithWine, amount = 1, max = 8},
-            {empty = Item.copperServingJug, filled = Item.copperServingJugWithWine, amount = 1, max = 8},
-            {empty = Item.silverServingJug, filled = Item.silverServingJugWithWine, amount = 1, max = 8},
-            {empty = Item.goldServingJug, filled = Item.goldServingJugWithWine, amount = 1, max = 8},
-            {empty = Item.glassServingJug, filled = Item.glassServingJugWithWine, amount = 6, max = 8},
-            {empty = Item.glassServingJug, filled = Item.glassServingJugWithWineHalf, amount = 3, max = 5},
-            {empty = Item.glassServingJug, filled = Item.glassServingJugWithWineQuarter, amount = 1, max = 2}},
+            {empty = Item.clayServingJug, filled = Item.clayServingJugWithWine, amount = 1, max = 10},
+            {empty = Item.ceramicServingJug, filled = Item.ceramicServingJugWithWine, amount = 1, max = 10},
+            {empty = Item.ironServingJug, filled = Item.ironServingJugWithWine, amount = 1, max = 10},
+            {empty = Item.copperServingJug, filled = Item.copperServingJugWithWine, amount = 1, max = 10},
+            {empty = Item.silverServingJug, filled = Item.silverServingJugWithWine, amount = 1, max = 10},
+            {empty = Item.goldServingJug, filled = Item.goldServingJugWithWine, amount = 1, max = 10},
+            {empty = Item.glassServingJug, filled = Item.glassServingJugWithWine, amount = 7, max = 10},
+            {empty = Item.glassServingJug, filled = Item.glassServingJugWithWineHalf, amount = 4, max = 6},
+            {empty = Item.glassServingJug, filled = Item.glassServingJugWithWineQuarter, amount = 1, max = 3}},
         type = "jug"},
 
     {
@@ -144,15 +144,15 @@ local bottles = {
             {empty = Item.silverGoblet, filled = Item.silverGobletWithCider, amount = 1},
             {empty = Item.goldenGoblet, filled = Item.goldenGobletWithCider, amount = 1},
             {empty = Item.glass, filled = Item.glassWithCider, amount = 1},
-            {empty = Item.clayServingJug, filled = Item.clayServingJugWithCider, amount = 1, max = 8},
-            {empty = Item.ceramicServingJug, filled = Item.ceramicServingJugWithCider, amount = 1, max = 8},
-            {empty = Item.ironServingJug, filled = Item.ironServingJugWithCider, amount = 1, max = 8},
-            {empty = Item.copperServingJug, filled = Item.copperServingJugWithCider, amount = 1, max = 8},
-            {empty = Item.silverServingJug, filled = Item.silverServingJugWithCider, amount = 1, max = 8},
-            {empty = Item.goldServingJug, filled = Item.goldServingJugWithCider, amount = 1, max = 8},
-            {empty = Item.glassServingJug, filled = Item.glassServingJugWithCider, amount = 6, max = 8},
-            {empty = Item.glassServingJug, filled = Item.glassServingJugWithCiderHalf, amount = 3, max = 5},
-            {empty = Item.glassServingJug, filled = Item.glassServingJugWithCiderQuarter, amount = 1, max = 2}},
+            {empty = Item.clayServingJug, filled = Item.clayServingJugWithCider, amount = 1, max = 10},
+            {empty = Item.ceramicServingJug, filled = Item.ceramicServingJugWithCider, amount = 1, max = 10},
+            {empty = Item.ironServingJug, filled = Item.ironServingJugWithCider, amount = 1, max = 10},
+            {empty = Item.copperServingJug, filled = Item.copperServingJugWithCider, amount = 1, max = 10},
+            {empty = Item.silverServingJug, filled = Item.silverServingJugWithCider, amount = 1, max = 10},
+            {empty = Item.goldServingJug, filled = Item.goldServingJugWithCider, amount = 1, max = 10},
+            {empty = Item.glassServingJug, filled = Item.glassServingJugWithCider, amount = 7, max = 10},
+            {empty = Item.glassServingJug, filled = Item.glassServingJugWithCiderHalf, amount = 4, max = 6},
+            {empty = Item.glassServingJug, filled = Item.glassServingJugWithCiderQuarter, amount = 1, max = 3}},
         type = "jug"},
     {
         full = {
@@ -175,15 +175,15 @@ local bottles = {
             {empty = Item.silverGoblet, filled = Item.silverGobletWithMead, amount = 1},
             {empty = Item.goldenGoblet, filled = Item.goldenGobletWithMead, amount = 1},
             {empty = Item.glass, filled = Item.glassWithMead, amount = 1},
-            {empty = Item.clayServingJug, filled = Item.clayServingJugWithMead, amount = 1, max = 8},
-            {empty = Item.ceramicServingJug, filled = Item.ceramicServingJugWithMead, amount = 1, max = 8},
-            {empty = Item.ironServingJug, filled = Item.ironServingJugWithMead, amount = 1, max = 8},
-            {empty = Item.copperServingJug, filled = Item.copperServingJugWithMead, amount = 1, max = 8},
-            {empty = Item.silverServingJug, filled = Item.silverServingJugWithMead, amount = 1, max = 8},
-            {empty = Item.goldServingJug, filled = Item.goldServingJugWithMead, amount = 1, max = 8},
-            {empty = Item.glassServingJug, filled = Item.glassServingJugWithMead, amount = 6, max = 8},
-            {empty = Item.glassServingJug, filled = Item.glassServingJugWithMeadHalf, amount = 3, max = 5},
-            {empty = Item.glassServingJug, filled = Item.glassServingJugWithMeadQuarter, amount = 1, max = 2}},
+            {empty = Item.clayServingJug, filled = Item.clayServingJugWithMead, amount = 1, max = 10},
+            {empty = Item.ceramicServingJug, filled = Item.ceramicServingJugWithMead, amount = 1, max = 10},
+            {empty = Item.ironServingJug, filled = Item.ironServingJugWithMead, amount = 1, max = 10},
+            {empty = Item.copperServingJug, filled = Item.copperServingJugWithMead, amount = 1, max = 10},
+            {empty = Item.silverServingJug, filled = Item.silverServingJugWithMead, amount = 1, max = 10},
+            {empty = Item.goldServingJug, filled = Item.goldServingJugWithMead, amount = 1, max = 10},
+            {empty = Item.glassServingJug, filled = Item.glassServingJugWithMead, amount = 7, max = 10},
+            {empty = Item.glassServingJug, filled = Item.glassServingJugWithMeadHalf, amount = 4, max = 6},
+            {empty = Item.glassServingJug, filled = Item.glassServingJugWithMeadQuarter, amount = 1, max = 3}},
         type = "jug"},
     {
         full = {
@@ -206,15 +206,15 @@ local bottles = {
             {empty = Item.silverGoblet, filled = Item.silverGobletWithFairywine, amount = 1},
             {empty = Item.goldenGoblet, filled = Item.goldGobletWithFairywine, amount = 1},
             {empty = Item.glass, filled = Item.glassWithFairywine, amount = 1},
-            {empty = Item.clayServingJug, filled = Item.clayServingJugWithFairyWine, amount = 1, max = 8},
-            {empty = Item.ceramicServingJug, filled = Item.ceramicServingJugWithFairyWine, amount = 1, max = 8},
-            {empty = Item.ironServingJug, filled = Item.ironServingJugWithFairyWine, amount = 1, max = 8},
-            {empty = Item.copperServingJug, filled = Item.copperServingJugWithFairyWine, amount = 1, max = 8},
-            {empty = Item.silverServingJug, filled = Item.silverServingJugWithFairyWine, amount = 1, max = 8},
-            {empty = Item.goldServingJug, filled = Item.goldServingJugWithFairyWine, amount = 1, max = 8},
-            {empty = Item.glassServingJug, filled = Item.glassServingJugWithFairyWine, amount = 6, max = 8},
-            {empty = Item.glassServingJug, filled = Item.glassServingJugWithFairyWineHalf, amount = 3, max = 5},
-            {empty = Item.glassServingJug, filled = Item.glassServingJugWithFairyWineQuarter, amount = 1, max = 2}},
+            {empty = Item.clayServingJug, filled = Item.clayServingJugWithFairyWine, amount = 1, max = 10},
+            {empty = Item.ceramicServingJug, filled = Item.ceramicServingJugWithFairyWine, amount = 1, max = 10},
+            {empty = Item.ironServingJug, filled = Item.ironServingJugWithFairyWine, amount = 1, max = 10},
+            {empty = Item.copperServingJug, filled = Item.copperServingJugWithFairyWine, amount = 1, max = 10},
+            {empty = Item.silverServingJug, filled = Item.silverServingJugWithFairyWine, amount = 1, max = 10},
+            {empty = Item.goldServingJug, filled = Item.goldServingJugWithFairyWine, amount = 1, max = 10},
+            {empty = Item.glassServingJug, filled = Item.glassServingJugWithFairyWine, amount = 7, max = 10},
+            {empty = Item.glassServingJug, filled = Item.glassServingJugWithFairyWineHalf, amount = 4, max = 6},
+            {empty = Item.glassServingJug, filled = Item.glassServingJugWithFairyWineQuarter, amount = 1, max = 3}},
         type = "jug"},
     {
         full = {
@@ -231,15 +231,15 @@ local bottles = {
         vessels = {
             {empty = Item.clayMug, filled = Item.clayBeerMugFull, amount = 1},
             {empty = Item.glassMug, filled = Item.beerMug, amount = 1},
-            {empty = Item.clayServingJug, filled = Item.clayServingJugWithBeer, amount = 1, max = 8},
-            {empty = Item.ceramicServingJug, filled = Item.ceramicServingJugWithBeer, amount = 1, max = 8},
-            {empty = Item.ironServingJug, filled = Item.ironServingJugWithBeer, amount = 1, max = 8},
-            {empty = Item.copperServingJug, filled = Item.copperServingJugWithBeer, amount = 1, max = 8},
-            {empty = Item.silverServingJug, filled = Item.silverServingJugWithBeer, amount = 1, max = 8},
-            {empty = Item.goldServingJug, filled = Item.goldServingJugWithBeer, amount = 1, max = 8},
-            {empty = Item.glassServingJug, filled = Item.glassServingJugWithBeer, amount = 6, max = 8},
-            {empty = Item.glassServingJug, filled = Item.glassServingJugWithBeerHalf, amount = 3, max = 5},
-            {empty = Item.glassServingJug, filled = Item.glassServingJugWithBeerQuarter, amount = 1, max = 2}},
+            {empty = Item.clayServingJug, filled = Item.clayServingJugWithBeer, amount = 1, max = 10},
+            {empty = Item.ceramicServingJug, filled = Item.ceramicServingJugWithBeer, amount = 1, max = 10},
+            {empty = Item.ironServingJug, filled = Item.ironServingJugWithBeer, amount = 1, max = 10},
+            {empty = Item.copperServingJug, filled = Item.copperServingJugWithBeer, amount = 1, max = 10},
+            {empty = Item.silverServingJug, filled = Item.silverServingJugWithBeer, amount = 1, max = 10},
+            {empty = Item.goldServingJug, filled = Item.goldServingJugWithBeer, amount = 1, max = 10},
+            {empty = Item.glassServingJug, filled = Item.glassServingJugWithBeer, amount = 7, max = 10},
+            {empty = Item.glassServingJug, filled = Item.glassServingJugWithBeerHalf, amount = 4, max = 6},
+            {empty = Item.glassServingJug, filled = Item.glassServingJugWithBeerQuarter, amount = 1, max = 3}},
         type = "jug"},
     {
         full = {
@@ -265,15 +265,15 @@ local bottles = {
             {empty = Item.silverGoblet, filled = Item.silverGobletglassWithMilk, amount = 1},
             {empty = Item.goldenGoblet, filled = Item.goldGobletWithMilk, amount = 1},
             {empty = Item.glass, filled = Item.glassWithMilk, amount = 1},
-            {empty = Item.clayServingJug, filled = Item.clayServingJugWithMilk, amount = 1, max = 8},
-            {empty = Item.ceramicServingJug, filled = Item.ceramicServingJugWithMilk, amount = 1, max = 8},
-            {empty = Item.ironServingJug, filled = Item.ironServingJugWithMilk, amount = 1, max = 8},
-            {empty = Item.copperServingJug, filled = Item.copperServingJugWithMilk, amount = 1, max = 8},
-            {empty = Item.silverServingJug, filled = Item.silverServingJugWithMilk, amount = 1, max = 8},
-            {empty = Item.goldServingJug, filled = Item.goldServingJugWithMilk, amount = 1, max = 8},
-            {empty = Item.glassServingJug, filled = Item.glassServingJugWithMilk, amount = 6, max = 8},
-            {empty = Item.glassServingJug, filled = Item.glassServingJugWithMilkHalf, amount = 3, max = 5},
-            {empty = Item.glassServingJug, filled = Item.glassServingJugWithMilkQuarter, amount = 1, max = 2}},
+            {empty = Item.clayServingJug, filled = Item.clayServingJugWithMilk, amount = 1, max = 10},
+            {empty = Item.ceramicServingJug, filled = Item.ceramicServingJugWithMilk, amount = 1, max = 10},
+            {empty = Item.ironServingJug, filled = Item.ironServingJugWithMilk, amount = 1, max = 10},
+            {empty = Item.copperServingJug, filled = Item.copperServingJugWithMilk, amount = 1, max = 10},
+            {empty = Item.silverServingJug, filled = Item.silverServingJugWithMilk, amount = 1, max = 10},
+            {empty = Item.goldServingJug, filled = Item.goldServingJugWithMilk, amount = 1, max = 10},
+            {empty = Item.glassServingJug, filled = Item.glassServingJugWithMilk, amount = 7, max = 10},
+            {empty = Item.glassServingJug, filled = Item.glassServingJugWithMilkHalf, amount = 4, max = 6},
+            {empty = Item.glassServingJug, filled = Item.glassServingJugWithMilkQuarter, amount = 1, max = 3}},
         type = "jug",
         breakPoint = 3},
     {
@@ -457,13 +457,13 @@ local bottles = {
             {empty = Item.silverTeaCup, filled = Item.silverTeaCupVirginWeed, amount = 1},
             {empty = Item.goldTeaCup, filled = Item.goldTeaCupVirginWeed, amount = 1},
             {empty = Item.glassTeaCup, filled = Item.glassTeaCupVirginWeed, amount = 1},
-            {empty = Item.clayTeapot, filled = Item.clayTeapot, amount = 1, max = 8},
-            {empty = Item.ceramicTeapot, filled = Item.ceramicTeapot, amount = 1, max = 8},
-            {empty = Item.ironTeapot, filled = Item.ironTeapot, amount = 1, max = 8},
-            {empty = Item.copperTeapot, filled = Item.copperTeapot, amount = 1, max = 8},
-            {empty = Item.silverTeapot, filled = Item.silverTeapot, amount = 1, max = 8},
-            {empty = Item.goldTeapot, filled = Item.goldTeapot, amount = 1, max = 8},
-            {empty = Item.glassTeapot, filled = Item.glassTeapot, amount = 1, max = 8}
+            {empty = Item.clayTeapot, filled = Item.clayTeapot, amount = 1, max = 10},
+            {empty = Item.ceramicTeapot, filled = Item.ceramicTeapot, amount = 1, max = 10},
+            {empty = Item.ironTeapot, filled = Item.ironTeapot, amount = 1, max = 10},
+            {empty = Item.copperTeapot, filled = Item.copperTeapot, amount = 1, max = 10},
+            {empty = Item.silverTeapot, filled = Item.silverTeapot, amount = 1, max = 10},
+            {empty = Item.goldTeapot, filled = Item.goldTeapot, amount = 1, max = 10},
+            {empty = Item.glassTeapot, filled = Item.glassTeapot, amount = 1, max = 10}
         },
         type = "virginWeed"
     },
@@ -523,6 +523,7 @@ end
 
 local bottleTexts = {
     english = {
+        "There are only a few drops left in the bottle.",
         "The bottle is nearly empty.",
         "A quarter of the bottle contains liquid.",
         "Nearly half of the bottle is full.",
@@ -530,9 +531,11 @@ local bottleTexts = {
         "The bottle is a little above half filled.",
         "The bottle is almost full.",
         "The bottle is full.",
-        "The bottle is filled to the brim."
+        "The bottle is filled to the brim.",
+        "The bottle is overflowing."
     },
     german = {
+        "Nur ein paar Tropfen sind noch in der Flasche.",
         "Die Flasche ist fast leer.",
         "Ein Viertel der Flasche enthält Flüssigkeit.",
         "Fast die Hälfte der Flasche ist voll.",
@@ -540,12 +543,14 @@ local bottleTexts = {
         "Die Flasche ist etwas über halb voll.",
         "Die Flasche ist fast voll.",
         "Die Flasche ist voll.",
-        "Die Flasche ist bis zum Rand gefüllt."
+        "Die Flasche ist bis zum Rand gefüllt.",
+        "Die Flasche schwappt über."
     }
 }
 
 local servingJugTexts = {
     english = {
+        "There are only a few drops left in the jug.",
         "The jug is nearly empty.",
         "A quarter of the jug contains liquid.",
         "Nearly half of the jug is full.",
@@ -553,9 +558,11 @@ local servingJugTexts = {
         "The jug is a little above half filled.",
         "The jug is almost full.",
         "The jug is full.",
-        "The jug is filled to the brim."
+        "The jug is filled to the brim.",
+        "The jug is overflowing."
     },
     german = {
+        "Nur ein paar Tropfen sind noch in der Krug.",
         "Der Krug ist fast leer.",
         "Ein Viertel des Krugs enthält Flüssigkeit.",
         "Fast die Hälfte des Krugs ist voll.",
@@ -563,13 +570,15 @@ local servingJugTexts = {
         "Der Krug ist etwas über halb voll.",
         "Der Krug ist fast voll.",
         "Der Krug ist voll.",
-        "Der Krug ist bis zum Rand gefüllt."
+        "Der Krug ist bis zum Rand gefüllt.",
+        "Der Krug schwappt über."
     }
 }
 
 local glassTeaPotTexts = {
     english = {
         "The pot is empty.",
+        "There are only a few drops of tea left in the pot.",
         "The pot barely has any tea left.",
         "A quarter of the pot contains tea.",
         "Nearly half of the pot is full of tea.",
@@ -577,10 +586,12 @@ local glassTeaPotTexts = {
         "The pot is a little above half filled with tea.",
         "The pot is almost full with tea.",
         "The pot is full of tea.",
-        "The pot is filled to the brim with tea."
+        "The pot is filled to the brim with tea.",
+        "The pot is overflowing with tea."
     },
     german = {
         "Die Kanne ist leer.",
+        "Nur ein paar Tropfen Tee sind noch in die Kanne.",
         "Die Kanne enthält kaum noch Tee.",
         "Ein Viertel der Kanne enthält Tee.",
         "Fast die Hälfte der Kanne ist voll mit Tee.",
@@ -588,13 +599,15 @@ local glassTeaPotTexts = {
         "Die Kanne ist etwas über halb voll mit Tee.",
         "Die Kanne ist fast voll mit Tee.",
         "Die Kanne ist voll mit Tee.",
-        "Die Kanne ist bis zum Rand mit Tee gefüllt."
+        "Die Kanne ist bis zum Rand mit Tee gefüllt.",
+        "Die Kanne schwappt über mit Tee."
     }
 }
 
 local teaPotTexts = {
     english = {
         "The pot is empty.",
+        "The pot only has a few drops left of the ",
         "The pot barely has any ",
         "A quarter of the pot contains ",
         "Nearly half of the pot is full of ",
@@ -602,10 +615,12 @@ local teaPotTexts = {
         "The pot is a little above half filled with ",
         "The pot is almost full with ",
         "The pot is full of ",
-        "The pot is filled to the brim with "
+        "The pot is filled to the brim with ",
+        "The pot is overflowing with "
     },
     german = {
         "Die Kanne ist leer.",
+        "Sind noch in die Kanne nur ein paar Tropfen ",
         "Die Kanne enthält kaum noch ",
         "Ein Viertel der Kanne enthält ",
         "Fast die Hälfte der Kanne ist voll mit ",
@@ -613,7 +628,8 @@ local teaPotTexts = {
         "Die Kanne ist etwas über halb voll mit ",
         "Die Kanne ist fast voll mit ",
         "Die Kanne ist voll mit ",
-        "Die Kanne ist bis zum Rand gefüllt mit "
+        "Die Kanne ist bis zum Rand gefüllt mit ",
+        "Die Kanne schwappt über mit "
     }
 }
 
