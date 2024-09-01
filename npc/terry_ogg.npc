@@ -96,7 +96,7 @@ queststatus(568) = 0, "magie", "verzauber", "zauberstab", "teleport", "rune", "g
 --check if become a mage yet
 queststatus(37) = 0, queststatus(568) = 1, english, "rune", "glyph", "quest", "mission" -> "Didn't I tell you to read more books and attune to your wand before you return to me? Now shoo!"
 queststatus(37) = 0, queststatus(568) = 1, "magic", "enchant", "wand", "spatial", "task", "adventure", "order" -> "Didn't I tell you to read more books and attune to your wand before you return to me? Now shoo!"
-queststatus(37) = 0, queststatus(568) = 1, "magie", "verzauber", "zauberstab", "teleport", "rune", "glyph", "quest", "mission", "auftrag", "aufgabe", "abenteuer" -> "Habe ich dir nicht gesagt, dass du mehr Bücher lesen musst, um ein besseres Verständnis für deinen Zauberstab zu entwickeln? Husch husch!"
+queststatus(37) = 0, queststatus(568) = 1, "magie", "verzauber", "zauberstab", "teleport", "rune", "glyph", "quest", "mission", "auftrag", "aufgabe", "abenteuer" -> "Habe ich dir nicht gesagt, dass du mehr Bücher lesen musst, und ein besseres Verständnis für deinen Zauberstab entwickeln? Husch husch!"
 
 --turn in of magic tutorial
 queststatus(37) = 1, queststatus(568) = 2, english, "rune", "glyph", "quest", "mission" -> queststatus(568) = 3, "Good! I can see you've attuned yourself to a wand! Now what would you like to learn about, enchanting perhaps?"
@@ -114,12 +114,12 @@ queststatus(241) = 0, queststatus(37) = 1, "glyph", "verzauber", "quest", "missi
 -- Reminder to examine glyph ritual shrine
 queststatus(241) = 1, english, "glyph", "quest", "mission" -> "You still need to examine a glyph ritual shrine. Return to me once you have."
 queststatus(241) = 1, "enchant", "task", "adventure", "order", "magic" -> "You still need to examine a glyph ritual shrine. Return to me once you have."
-queststatus(241) = 1, "glyph", "verzauber", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "magie" -> "Du musst noch immer einen Glyphritualschrein untersuchen. Komm wieder, wenn du das erledigt hast."
+queststatus(241) = 1, "glyph", "verzauber", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "magie" -> "Du musst noch immer einen Glyphenritualschrein untersuchen. Komm wieder, wenn du das erledigt hast."
 
 -- Teaching how to prepare a ritual shrine for work
 queststatus(241) = 2, english, "glyph", "quest", "mission" -> queststatus(241) = 3,item(43, 2),item(399, 2), "Good. Now that you've familiarised yourself with where you will be performing the work, we can move on to the next step. Here, take these candles and candlesticks. You'll use them as you channel your mana into the shrine, in a ritual to prepare it for your work. Make sure not to lose them, if you do you'll have to buy your own."
 queststatus(241) = 2, "enchant", "task", "adventure", "order", "magic" -> queststatus(241) = 3,item(43, 2),item(399, 2), "Good. Now that you've familiarised yourself with where you will be performing the work, we can move on to the next step. Here, take these candles and candlesticks. You'll use them as you channel your mana into the shrine, in a ritual to prepare it for your work. Make sure not to lose them, if you do you'll have to buy your own."
-queststatus(241) = 2, "glyph", "verzauber", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "magie" -> queststatus(241) = 3,item(43, 2),item(399, 2), "Sehr gut. Jetzt weißt du, wo du arbeiten kannst und wir können zum nächsten Schritt übergehen. Hier, nimm diese Kerzen und Kerzenhalter. Sie werden dafür verwendet, dein Mana in den Schrein zu kanalisieren, um ihn für deine Arbeit vorzubereiten. Verlier sie nicht, sonst musst du dir deine eigenen kaufen."
+queststatus(241) = 2, "glyph", "verzauber", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "magie" -> queststatus(241) = 3,item(43, 2), item(399, 2), "Sehr gut. Jetzt weißt du, wo du arbeiten kannst und wir können zum nächsten Schritt übergehen. Hier, nimm diese Kerzen und Kerzenhalter. Sie werden dafür verwendet, dein Mana in den Schrein zu kanalisieren, um ihn für deine Arbeit vorzubereiten. Verlier sie nicht, sonst musst du dir deine eigenen kaufen."
 
 -- Reminder to prepare a ritual shrine
 queststatus(241) = 3, english, "glyph", "quest", "mission" -> "You still need to prepare a ritual at a glyph ritual shrine. Return to me once you have."
@@ -149,7 +149,7 @@ queststatus(241) = 7, "glyph", "verzauber", "quest", "mission", "auftrag", "aufg
 -- How to enchant jewellery, piece of jewellery provided
 queststatus(241) = 8, english, "glyph", "quest", "mission" -> queststatus(241) = 9,item(3527, 1), "Now you know more about the glyph, such as the jewellery type it can be used with. In this case, it requires amethyst rings. You can use your own, but I have one for you here that you can use. Simply hold both the ring and glyph in your hands, then press the glyph against the ring for them to merge. It is so simple, even a commoner can do it! The magic happens during the forging after all, so you can feel free to sell glyphs to others without socketing a glyph into a piece of jewellery first."
 queststatus(241) = 8, "enchant", "task", "adventure", "order", "magic" -> queststatus(241) = 9,item(3527, 1), "Now you know more about the glyph, such as the jewellery type it can be used with. In this case, it requires amethyst rings. You can use your own, but I have one for you here that you can use. Simply hold both the ring and glyph in your hands, then press the glyph against the ring for them to merge. It is so simple, even a commoner can do it! The magic happens during the forging after all, so you can feel free to sell glyphs to others without socketing a glyph into a piece of jewellery first."
-queststatus(241) = 8, "glyph", "verzauber", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "magie" -> queststatus(241) = 9, "Jetzt weißt du mehr über die Glyphe - zum Beispiel, in welche Arten von Schmuck es eingesetzt werden kann. In diesem Fall brauchst du einen Amethystring. Du kannst einen eigenen nutzen, aber sonst kannst du auch diesen hier haben. Halt einfach die Glyphe und den Ring in deinen Händen und press sie zusammen, bis sie verschmelzen. Es ist so einfach, dass selbst normale Leute es machen können! Die Magie findet beim Verbinden der Scherben statt. Du kannst Glyphen also auch einzeln verkaufen, ohne sie in Schmuck einzusetzen."
+queststatus(241) = 8, "glyph", "verzauber", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "magie" -> queststatus(241) = 9, "Jetzt weißt du mehr über die Glyphe - zum Beispiel, in welche Arten von Schmuck sie eingesetzt werden kann. In diesem Fall brauchst du einen Amethystring. Du kannst einen eigenen nutzen, aber sonst kannst du auch diesen hier haben. Halt einfach die Glyphe und den Ring in deinen Händen und press sie zusammen, bis sie verschmelzen. Es ist so einfach, dass selbst normale Leute es machen können! Die Magie findet beim Verbinden der Scherben statt. Du kannst Glyphen also auch einzeln verkaufen, ohne sie in Schmuck einzusetzen."
 
 -- Reminder to enchant the jewellery
 queststatus(241) = 9, english, "glyph", "quest", "mission" -> "You still need to socket the glyph into a ring. Return to me once you have."
@@ -188,8 +188,8 @@ english, "Troll's Haven", "Trolls Haven", "Trollshaven" -> "What? Are you saying
 "Troll's Haven", "Trolls Haven", "Trollshaven" -> "Wie bitte? Willst du sagen, dass ich ein Troll bin, weil ich hier Zuflucht suche? Oh. Das ist der Name dieses Ortes?"
 
 -- Faction stuff
-"queen" -> "A queen? You know, I used to serve as the royal archmage in a palace at one point. Then I almost got my head chopped off for sleeping with the...  Eh-hem... Moving on."
-"königin" -> "Eine Königin? Weißt du, ich habe mal als königlicher Erzmagier in einem Palast gedient. Dann wurde mir fast der Kopf abgehackt, weil ich mit der...  Eh-hem... Weiter im Text."
+"queen" -> "A queen? You know, I used to serve as the royal archmage in a palace at one point. Then I almost got my head chopped off for sleeping with the... Eh-hem... Moving on."
+"königin" -> "Eine Königin? Weißt du, ich habe mal als königlicher Erzmagier in einem Palast gedient. Dann wurde mir fast der Kopf abgehackt, weil ich mit der... Eh-hem... Weiter im Text."
 
 english, "Rosaline", "Edwards" -> "Queen Rosaline Edwards! Now that's a looker, I wouldn't mind... Eh-hem-hem... Moving on.", "The queen? Why, did she ask about me?"
 "Rosaline", "Edwards" -> "Königin Rosaline Edwards! Das ist ein Hingucker, ich hätte nichts dagegen... Eh-hem-hem... Weiter geht's.", "Die Königin? Warum, hat sie nach mir gefragt?"
