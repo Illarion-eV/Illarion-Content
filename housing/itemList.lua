@@ -1137,6 +1137,10 @@ table.insert(M.items, {itemId = 3085, typeOf = "Estate", category = "Basement Ex
 table.insert(M.items, {itemId = 1383, typeOf = "House", category = "Small Decorations", skill = "misc", level = 0, ingredient1 = Item.coarseSand, ingredient1Amount = 5, ingredient2 = nil, ingredient2Amount = nil, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
 table.insert(M.items, {itemId = 1384, typeOf = "House", category = "Small Decorations", skill = "misc", level = 0, ingredient1 = Item.coarseSand, ingredient1Amount = 5, ingredient2 = nil, ingredient2Amount = nil, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
 table.insert(M.items, {itemId = 1385, typeOf = "House", category = "Small Decorations", skill = "misc", level = 0, ingredient1 = Item.coarseSand, ingredient1Amount = 5, ingredient2 = nil, ingredient2Amount = nil, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
+table.insert(M.items, {itemId = 914, typeOf = "Estate", category = "Decorative Rocks", skill = "mining", level = 20, ingredient1 = 735, ingredient1Amount = 10, ingredient2 = nil, ingredient2Amount = nil, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
+table.insert(M.items, {itemId = 915, typeOf = "Estate", category = "Decorative Rocks", skill = "mining", level = 20, ingredient1 = 735, ingredient1Amount = 10, ingredient2 = nil, ingredient2Amount = nil, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
+table.insert(M.items, {itemId = 1096, typeOf = "Estate", category = "Decorative Rocks", skill = "mining", level = 20, ingredient1 = 735, ingredient1Amount = 10, ingredient2 = nil, ingredient2Amount = nil, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
+table.insert(M.items, {itemId = 1218, typeOf = "Estate", category = "Decorative Rocks", skill = "mining", level = 20, ingredient1 = 735, ingredient1Amount = 10, ingredient2 = nil, ingredient2Amount = nil, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
 
 
 
