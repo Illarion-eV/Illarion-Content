@@ -382,7 +382,7 @@ end
 function M.checkIfItemIsWallDeco(itemId)
 
     for _, item in pairs(itemList.items) do
-        if item.id == itemId then
+        if item.itemId == itemId then
             if item.category == "Paintings"
             or item.category == "Flags and crests"
             or item.category == "Wall Decorations"
