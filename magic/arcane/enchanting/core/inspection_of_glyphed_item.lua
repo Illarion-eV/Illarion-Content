@@ -45,10 +45,10 @@ end
 
 function M.start(user)
 
-    local jewelleryAtBelt = shared.listGlyphedJewelleryAtBelt(user, true)
+    local jewelleryAtBelt = shared.listGlyphedJewelleryAtBeltAndJewellerySlots(user, true)
 
     if #jewelleryAtBelt == 0 then
-        user:inform("Das Schmuckstück muss an deinem Gürtel sein, um es untersuchen zu können.", "The piece of enchanted jewellery needs to be in a belt slot if you want to inspect it.")
+        user:inform("Das Schmuckstück muss an deinem Gürtel GERMAN TRANSLATION AMENDMENT NEEDED sein, um es untersuchen zu können.", "The piece of enchanted jewellery needs to be in a belt slot or equipped if you want to inspect it.")
         return
     end
 

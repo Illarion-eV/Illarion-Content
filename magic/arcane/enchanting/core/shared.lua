@@ -368,6 +368,8 @@ end
 
 local belt = {Character.belt_pos_1, Character.belt_pos_2, Character.belt_pos_3, Character.belt_pos_4, Character.belt_pos_5, Character.belt_pos_6}
 
+local jewellerySlots = {Character.neck, Character.finger_left_hand, Character.finger_right_hand}
+
 function M.listGlyphsAtBelt(user)
 
     local retList = {}
@@ -386,17 +388,29 @@ function M.listGlyphsAtBelt(user)
 
 end
 
-function M.listGlyphedJewelleryAtBelt(user, inspection)
+local function checkSlotForGlyphedItem(user, theSlot, inspection, retList)
+
+    local theItem = user:getItemAt(theSlot)
+
+    local glyphCharges = theItem:getData("glyphCharges")
+
+    if not common.IsNilOrEmpty(glyphCharges) and (M.userSkillMatchesItem(user, theItem) or inspection) then --The item is glyphed and user is high enough level or just inspecting
+        table.insert(retList, theItem)
+    end
+
+    return retList
+end
+
+function M.listGlyphedJewelleryAtBeltAndJewellerySlots(user, inspection)
 
     local retList = {}
 
     for _, beltSlot in pairs(belt) do
-        local beltItem = user:getItemAt(beltSlot)
-        local glyphCharges = beltItem:getData("glyphCharges")
+        retList = checkSlotForGlyphedItem(user, beltSlot, inspection, retList)
+    end
 
-        if not common.IsNilOrEmpty(glyphCharges) and (M.userSkillMatchesItem(user, beltItem) or inspection) then --The item is glyphed and user is high enough level or just inspecting
-            table.insert(retList, beltItem)
-        end
+    for _, jewellerySlot in pairs(jewellerySlots) do
+        retList = checkSlotForGlyphedItem(user, jewellerySlot, inspection, retList)
     end
 
     return retList
