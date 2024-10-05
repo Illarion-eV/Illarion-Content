@@ -34,8 +34,8 @@ colorSkin = 108, 65, 33
 itemHead = 357
 itemChest = 819
 itemCoat = 558
-itemMainHand = 323
-itemSecondHand = 0
+itemMainHand = 0
+itemSecondHand = 323
 itemHands = 0
 itemTrousers = 461
 itemShoes = 53
@@ -56,7 +56,7 @@ sellItem = id(323), de("Terrys alter Zauberstab"), en("Terry's old wand"), stack
 sellItem = id(43)
 sellItem = id(399)
 
-tradeNotEnoughMoneyMsg "Oh, ich fürchte, das kannst du dir nicht leisten. Wie bedauerlich", "Oh, I'm afraid you can't afford that. How unfortunate."
+tradeNotEnoughMoneyMsg "Oh, ich fürchte, das kannst du dir nicht leisten. Wie bedauerlich.", "Oh, I'm afraid you can't afford that. How unfortunate."
 tradeFinishedMsg "Ah, eine Förderung für meine magische Forschung. Ich danke dir.", "Ah, funding for my magical research. Thank you."
 tradeFinishedWithoutTradingMsg "Oh, hast du deine Meinung geändert?", "Oh, changed your mind?"
 tradeWrongItemMsg "Wenn du deine Waren verkaufen willst, bin ich nicht dein Mann.", "If your intent is to sell your wares, I am not your man."
@@ -110,7 +110,7 @@ queststatus(37) = 1, queststatus(568) = 2, "magie", "verzauber", "zauberstab", "
 --Accepting the tutorial and tasked to examine a glyph ritual shrine
 queststatus(241) = 0, queststatus(37) = 1, english, "glyph", "quest", "mission" ->  queststatus(241) = 1, "So you want to learn about enchanting items through the means of glyphs? Fine, I'll teach you the basics. First of all, you need a shrine to perform the enchantment at. You can use the one I set up over there, or if in the future you find yourself far away, you can use your wand to set up your own based on it. Go have a look at it, then you can return to me for your next task."
 queststatus(241) = 0, queststatus(37) = 1, "enchant", "task", "adventure", "order", "magic" ->  queststatus(241) = 1, "So you want to learn about enchanting items through the means of glyphs? Fine, I'll teach you the basics. First of all, you need a shrine to perform the enchantment at. You can use the one I set up over there, or if in the future you find yourself far away, you can use your wand to set up your own based on it. Go have a look at it, then you can return to me for your next task."
-queststatus(241) = 0, queststatus(37) = 1, "glyph", "verzauber", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "magie" -> queststatus(241) = 1, "Du möchtest also etwas über das Verzaubern von Gegenständen mit Glyphen lernen? Na gut, ich bringe dir die Grundlagen bei. Zu allererst brauchst du einen Schrein, an dem due Verzauberungen durchführen kannst. Du kannst entweder den dort drüben nutzen, oder einen eigenen mit deinem Zauberstab erschaffen. Sieh ihn dir mal an und komm dann zu mir zurück."
+queststatus(241) = 0, queststatus(37) = 1, "glyph", "verzauber", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "magie" -> queststatus(241) = 1, "Du möchtest also etwas über das Verzaubern von Gegenständen mit Glyphen lernen? Na gut, ich bringe dir die Grundlagen bei. Zu allererst brauchst du einen Schrein, an dem du Verzauberungen durchführen kannst. Du kannst entweder den dort drüben nutzen, oder einen eigenen mit deinem Zauberstab erschaffen. Sieh ihn dir mal an und komm dann zu mir zurück."
 
 -- Reminder to examine glyph ritual shrine
 queststatus(241) = 1, english, "glyph", "quest", "mission" -> "You still need to examine a glyph ritual shrine. Return to me once you have."
