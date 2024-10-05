@@ -68,7 +68,8 @@ tradeWrongItemMsg "Wenn du deine Waren verkaufen willst, bin ich nicht dein Mann
 
 -- General speech
 
-english, "Hiho", "Hallo", "Hey", "Greeb", "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Oh, you're back? Or is this our first time meeting?", "Hello! Have you seen my wand? Oh, it's right here.", "Hello there! Welcome to my... Well, welcome, anyhow."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Oh, you're back? Or is this our first time meeting?", "Hello! Have you seen my wand? Oh, it's right here.", "Hello there! Welcome to my... Well, welcome, anyhow."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Oh, you're back? Or is this our first time meeting?", "Hello! Have you seen my wand? Oh, it's right here.", "Hello there! Welcome to my... Well, welcome, anyhow."
 "Hiho", "Hallo", "Hey", "Greeb", "Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Oh du bist zurück? Oder treffen wir uns zum ersten Mal?", "Hallo! Hast du meinen Zauberstab gesehen? Oh, da ist er ja.", "Guten Tag! Willkommen zu meinem... Also, willkommen halt. "
 
 "Farewell", "Bye", "Fare well", "See you" -> "Carry on then.", "Good bye.", "Good luck with your... whatever it is.", "Safe journey, see you soon."
@@ -178,8 +179,10 @@ english, "rune", "glyph", "quest", "mission" -> "There is nothing more I can tea
 
 -- Small talk
 
-english, "job", "profession", "work" -> "What do I do for a living? Isn't it obvious? I'm a proud almighty magician, darn it! See the hat?"
-"job", "beruf" -> "Womit verdiene ich meinen Lebensunterhalt? Ist das nicht offensichtlich? Ich bin ein stolzer, allmächtiger Zauberer, verflixt noch mal! Siehst du den Hut denn nicht?"
+english, "job" -> "What do I do for a living? Isn't it obvious? I'm a proud almighty magician, darn it! See the hat?"
+"job" -> "Womit verdiene ich meinen Lebensunterhalt? Ist das nicht offensichtlich? Ich bin ein stolzer, allmächtiger Zauberer, verflixt noch mal! Siehst du den Hut denn nicht?"
+"profession", "work" -> "What do I do for a living? Isn't it obvious? I'm a proud almighty magician, darn it! See the hat?"
+"beruf" -> "Womit verdiene ich meinen Lebensunterhalt? Ist das nicht offensichtlich? Ich bin ein stolzer, allmächtiger Zauberer, verflixt noch mal! Siehst du den Hut denn nicht?"
 
 english, "Illarion" -> "Illarion. That's what this place is called, isn't it? I go where my research leads me."
 "Illarion" -> "Illarion. So heißt dieser Ort doch, oder? Ich gehe dorthin, wohin mich meine Forschung führt."
@@ -231,9 +234,9 @@ english, "Terry", "Ogg" -> "Yes, what is it? Can't you see I'm busy with my rese
 -- Cycle Texts
 -- More cycle texts planned that relate to future content yet to be added to this npc such as sale of grimoires
 cycletext "#me hebt seinen Zauberstab dann wutscht und wedelt er.", "#me lifts his wand, giving it a swish and flick."
-cycletext "#me murmelt einige verständliche Worte.", "#me mutters some unintelligible words under his breath."
-cycletext "#me bohrt in der Nase, schaut sich um und wischt seinen Finger dann vorsichtig an der Innenseite seiner Erzmagierrobe ab. ", "#me picks his nose, looking around before subtly wiping it off on the inside of his archmage robes."
-cycletext "#me gibt ein nachdenkliches Brummen von sich, während er leise in einem Buch liest. ", "#me utters a thoughtful hum as he reads silently from a book."
+cycletext "#me murmelt einige unverständliche Worte in seinen Bart.", "#me mutters some unintelligible words under his breath."
+cycletext "#me bohrt in der Nase, schaut sich um und wischt seinen Finger dann vorsichtig an der Innenseite seiner Erzmagierrobe ab.", "#me picks his nose, looking around before subtly wiping it off on the inside of his archmage robes."
+cycletext "#me gibt ein nachdenkliches Brummen von sich, während er leise in einem Buch liest.", "#me utters a thoughtful hum as he reads silently from a book."
 cycletext "Was? Schon wieder kein Forschungsmaterial mehr!?", "What!? Out of research material again!?"
 cycletext "Huh? Wer... wo war ich?", "Huh? Who... Where was I?"
 cycletext "Forschen, Forschen, Forschen... Wo ist jetzt mein Essen geblieben?", "Resarch, research, research... Now where did my dinner go off to?"
