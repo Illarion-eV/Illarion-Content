@@ -74,7 +74,7 @@ function M.readMagicBooks(user, bookId)
         end
 
         if readBooks < 3 then
-            user:inform("Das Lesen dieses Buches hat dein Verständnis der Magie vertieft. Wenn du weitere Bücher über Magie findest, kannst du ja vielleicht selbst bald ein Magier werden.", "This book forwards your understanding of magic. If you want more books about magic, you might be able to become a magician yourself as well.", Character.highPriority)
+            user:inform("Das Lesen dieses Buches hat dein Verständnis der Magie vertieft. Wenn du weitere Bücher über Magie findest, kannst du ja vielleicht selbst bald ein Magier werden.", "This book forwards your understanding of magic. If you want more books about magic, you might be able to become a magician yourself as well.")
 
         elseif bit32.extract(questProgress, 30) == 0 then
 
@@ -159,10 +159,10 @@ function M.useMagicWand(user, sourceItem, moved)
                 user:requestMessageDialog(messageDialog)
 
             else
-                user:inform("Du hast dich dagegen entschieden Magier zu werden. Die Möglichkeit bleibt dir aber offen.", "You decided against becoming a mage. The option, however, will remain available to you.", Character.highPriority)
+                user:inform("Du hast dich dagegen entschieden Magier zu werden. Die Möglichkeit bleibt dir aber offen.", "You decided against becoming a mage. The option, however, will remain available to you.")
             end
         else
-            user:inform("Du hast dich dagegen entschieden Magier zu werden. Die Möglichkeit bleibt dir aber offen.", "You decided against becoming a mage. The option, however, will remain available to you.", Character.highPriority)
+            user:inform("Du hast dich dagegen entschieden Magier zu werden. Die Möglichkeit bleibt dir aber offen.", "You decided against becoming a mage. The option, however, will remain available to you.")
         end
     end
     local dialog = SelectionDialog(common.GetNLS(user, "Der Weg der Magie", "The path of magic"), common.GetNLS(user, "Als du den Stab berührst, kannst du seine magische Macht spüren. Dir scheint, dass es dir gelingen könnte, sie dir nutzbar zu machen. Willst du das tun und somit zu einem Magier werden? Bedenke, dass eine weitere hohe Kunst - die Alchemie - dir so dann verschlossen sein wird.", "As you touch the wand, you can feel its magical power. It seems to you that you should be able to use this power. Do you want to do so and, therefore, become a mage? Mind that an other high art - alchemy - will not be accessable for you once you became a mage."), callback)
