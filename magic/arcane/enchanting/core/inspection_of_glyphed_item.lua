@@ -33,7 +33,7 @@ local function showGlyphedItemMessageDialogue(user, jewellery)
 
     local englishEffect, germanEffect = shared.getJewelleryEffectText(jewellery)
 
-    text.german = "Glyphen Qualität: "..shared.qualityTexts.german[glyphQuality].."\n\nVerbleibende Ladungen: "..remaining.."\n\nEffekt:\n\n"..germanEffect
+    text.german = "Glyphenqualität: "..shared.qualityTexts.german[glyphQuality].."\n\nVerbleibende Ladungen: "..remaining.."\n\nEffekt:\n\n"..germanEffect
 
     text.english = "Glyph Quality: "..shared.qualityTexts.english[glyphQuality].."\n\nRemaining charges: "..remaining.."\n\nEffect:\n\n"..englishEffect
 

@@ -71,7 +71,7 @@ local function glyphedItemIntoShardsAndItem(user, jewellery)
 
     local commonItem = world:getItemStatsFromId(jewellery.id)
 
-    local german = "Du entfernst die Glyphe von dem folgenden Item: "..commonItem.German.."." --Because of articles "dem/der", there is no good way to phrase it
+    local german = "Du entfernst die Glyphe aus dem folgenden Gegenstand: "..commonItem.German.."." --Because of articles "dem/der", there is no good way to phrase it
     local english = "You remove the glyph from the "..commonItem.English.."."
 
     if count >= 1 then
@@ -123,7 +123,7 @@ function M.start(user, actionstate)
 
         local commonItem = world:getItemStatsFromId(jewelleryList[selected].id)
 
-        user:inform("Du beginnst die Glyphe von dem folgenden Item zu entfernen: "..commonItem.German..".", "You begin to remove the glyph from the "..commonItem.English..".")
+        user:inform("Du beginnst die Glyphe aus dem folgenden Gegenstand zu entfernen: "..commonItem.German..".", "You begin to remove the glyph from the "..commonItem.English..".")
 
         user:startAction(60, globalvar.gfxCLAW, 20, 0, 0)
 
