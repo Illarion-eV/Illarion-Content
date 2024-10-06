@@ -62,10 +62,13 @@ itemShoes = 369
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-sellItems = 2186, 2058, 1855, 2189, 2059, 1859, 2188, 2056, 1853, 2187, 2057, 1860, 1841, 1844, 1843, 2496, 1842, 1854, 1861, 1856, 1857, 1909
---cup with water, glass with water, silver goblet with water, cup with cider, glass with cider, silver goblet with cider, cup with mead, glass with mead, silver goblet with mead, cup with wine, glass with wine, silver goblet with wine, copper goblet with water, copper goblet with cider, copper goblet with mead, bottle of water, copper goblet with wine, golden goblet with water, golden goblet with cider, golden goblet with mead, golden goblet with wine, beer mug
-buySecondaryItems = 2186, 2058, 1855, 2189, 2059, 1859, 2188, 2056, 1853, 2187, 2057, 1860, 1841, 1844, 1843, 2496, 1842, 1854, 1861, 1856, 1857, 1909
---cup with water, glass with water, silver goblet with water, cup with cider, glass with cider, silver goblet with cider, cup with mead, glass with mead, silver goblet with mead, cup with wine, glass with wine, silver goblet with wine, copper goblet with water, copper goblet with cider, copper goblet with mead, bottle of water, copper goblet with wine, golden goblet with water, golden goblet with cider, golden goblet with mead, golden goblet with wine, beer mug
+-- In Runewick, its people are learned enough to realise that no matter the drinking vessel, its all the same filth they are drinking anyways.
+-- Thus, Rose only offers the cheaper drinking vessels. Locally produced, of course. (wood and clay aka carpentry and pottery)
+
+sellItems = 2186, 2187, 2188, 2189, 4362, 4345, 4346, 4344, 4347, 4357, 4572, 4573, 4574, 4575, 4424, 4425, 4426, 4427, 4428, 4429, 4430, 4431, 4351
+buySecondaryItems = 2186, 2187, 2188, 2189, 4362, 4345, 4346, 4344, 4347, 4357, 4572, 4573, 4574, 4575, 4424, 4425, 4426, 4427, 4428, 4429, 4430, 4431, 4351
+-- For both of the above: wooden and clay cups with water, wine, mead, cider, milk, followed by clay tea cups with druids, firneedle, green and virginsweed tea, followed by clay shotglasses with absinthe, bear slayer, berry booze, cherry schnapps, elven wine, mulled wine, orange schnapps and stone face, and lastly a clay mug of beer
+
 tradeNotEnoughMoneyMsg "Überprüfe bitte deine Geldbörse.", "Please check your purse."
 tradeFinishedMsg "Bis bald!", "See you soon."
 tradeFinishedWithoutTradingMsg "Nicht durstig?", "Aren't you thirsty?"

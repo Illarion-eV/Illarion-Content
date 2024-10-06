@@ -15,15 +15,29 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
+local common = require("base.common")
+local lookat = require("base.lookat")
 local egggathering = require("craft.gathering.egggathering")
 
 local M = {}
 
--- UPDATE items SET itm_script='item.nests' WHERE itm_id IN (1171,1172);
+function M.UseItem(user, sourceItem, actionState)
 
-function M.UseItem(User, SourceItem, ltstate)
+    egggathering.StartGathering(user, sourceItem, actionState)
+end
 
-    egggathering.StartGathering(User, SourceItem, ltstate);
+function M.LookAtItem(user, sourceItem)
+
+    local lookAt = lookat.GenerateLookAt(user, sourceItem)
+
+    local effectType = sourceItem:getData("eggProtectionType")
+
+    if effectType == "ssigus" then
+
+        lookAt.description = common.GetNLS(user, "Ein Nest mit Eiern der Echsenmenschen.", "A nest containing lizardman eggs.")
+    end
+
+    return lookAt
 end
 
 return M

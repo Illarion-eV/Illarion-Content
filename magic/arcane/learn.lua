@@ -39,6 +39,11 @@ function M.readMagicBooks(user, bookId)
         return
     end
 
+    -- Check if visited Terry Ogg yet (The purpose here is to guide new mages to the magic tutorial npc as early as possible)
+    if user:getQuestProgress(568) == 0 then
+        return
+    end
+
     local questProgress = user:getQuestProgress(38)
 
     -- Already did all the reading
@@ -69,7 +74,7 @@ function M.readMagicBooks(user, bookId)
         end
 
         if readBooks < 3 then
-            user:inform("Das Lesen dieses Buches hat dein Verständnis der Magie vertieft. Wenn du weitere Bücher über Magie findest, kannst du ja vielleicht selbst bald ein Magier werden.", "This book forwards your understanding of magic. If you want more books about magic, you might be able to become a magician yourself as well.", Character.highPriority)
+            user:inform("Das Lesen dieses Buches hat dein Verständnis der Magie vertieft. Wenn du weitere Bücher über Magie findest, kannst du ja vielleicht selbst bald ein Magier werden.", "This book forwards your understanding of magic. If you want more books about magic, you might be able to become a magician yourself as well.")
 
         elseif bit32.extract(questProgress, 30) == 0 then
 
@@ -88,19 +93,19 @@ function M.readMagicBooks(user, bookId)
     user:setQuestProgress(38, questProgress)
 end
 
-function M.useMagicWand(user, sourceItem)
+function M.useMagicWand(user, sourceItem, moved)
 
     -- Alchemists cannot become mages.
     if user:getMagicType() == 3 then
-        user:inform("Alchemisten können die Stabmagie nicht erlernen.",
-        "Alchemist are unable to use wand magic.")
+        user:inform("Alchemisten können die Magie nicht erlernen.",
+        "Alchemist are unable to use magic.")
         return
     end
 
     -- Attribute requirements
     if user:increaseAttrib("willpower", 0) + user:increaseAttrib("essence", 0) + user:increaseAttrib("intelligence", 0) < 30 then
-        user:inform("Um Stabmagie zu benutzen muss die Summe der Attribute Intelligenz, Essenz und Willensstärke 30 ergeben. Attribute können bei den Trainer NPC's geändert werden.",
-        "To use wand magic, your combined attributes of intelligence, essence, and willpower must total at least 30. Attributes can be changed at the trainer NPC.")
+        user:inform("Um Magie zu benutzen muss die Summe der Attribute Intelligenz, Essenz und Willensstärke 30 ergeben. Attribute können bei dem Trainer NPC in Troll's Haven geändert werden.",
+        "To use magic, your combined attributes of intelligence, essence, and willpower must total at least 30. Attributes can be changed at the trainer NPC in Troll's Haven.")
         return
     end
 
@@ -113,9 +118,20 @@ function M.useMagicWand(user, sourceItem)
 
     -- Has not read enough books
     if bit32.extract(questProgress, 30) == 0 then
-        user:inform("Um das Handwerk der Stabmagie zu erlernen, musst du drei Bücher über magische Theorie lesen. Sieh dir die Liste der Bücher in den Bibliotheken der Städte.",
-        "To learn the art of wand magic you must read three books of magical theory. Look for the list of books in your town's library.")
-        return
+        -- Check if visited Terry Ogg yet (The purpose here is to guide new mages to the magic tutorial npc as early as possible)
+        if user:getQuestProgress(568) == 0 then
+            user:inform("Um Magie wirken zu können, musst du zunächst etwas darüber lernen. Gerüchten zufolge, hat sich ein wandernder Magier in Troll's Haven niedergelassen, um Interessenten zu unterrichten.",
+            "To wield the art of magic you must first learn more about it. Rumour has it a wandering mage willing to teach others has taken up residence in Troll's Haven.")
+            return
+        else
+            user:inform("Terry Ogg rät dir mehr Bücher über Magie zu lesen, bevor du versuchst dich mit deinem Zauberstab vertraut zu machen. Vielleicht ist es besser, seinem Rat zu folgen.",
+            "Terry Ogg told you to read more books on magic before attempting to attune to your wand. Better listen to him.")
+            return
+        end
+    end
+
+    if moved then
+        return  -- attunement happens via clicking on it, not just moving it
     end
 
     local callback = function(dialog)
@@ -135,15 +151,18 @@ function M.useMagicWand(user, sourceItem)
                 if user:getPlayerLanguage() == Player.german then
                     messageDialog = MessageDialog("Ein neuer Magier", "Du gibst dich der im Stab verborgenen arkanen Kraft hin und lässt sie durch deinen Körper fließen. Ja! Du kannst diese Macht beherrschen. Von nun an bist du in der Lage Magier zu werden. Der Stab wird dir gehorchen.", messageCallback)
                 else
-                    messageDialog = MessageDialog("A new mage", "You induldge in the hidden arcane powers which you found in the wand. You let it run through your body. Yes! You are now able to control this force. From this day on, you are able to use magic. The wand will obey your commands.", messageCallback)
+                    messageDialog = MessageDialog("A new mage", "You indulge in the hidden arcane powers which you found in the wand. You let it run through your body. Yes! You are now able to control this force. From this day on, you are able to use magic. The wand will obey your commands.", messageCallback)
                 end
+
+                user:setQuestProgress(568, 2)
+
                 user:requestMessageDialog(messageDialog)
 
             else
-                user:inform("Du hast dich dagegen entschieden Magier zu werden. Die Möglichkeit bleibt dir aber offen.", "You decided against becoming a mage. The option, however, will remain available to you.", Character.highPriority)
+                user:inform("Du hast dich dagegen entschieden Magier zu werden. Die Möglichkeit bleibt dir aber offen.", "You decided against becoming a mage. The option, however, will remain available to you.")
             end
         else
-            user:inform("Du hast dich dagegen entschieden Magier zu werden. Die Möglichkeit bleibt dir aber offen.", "You decided against becoming a mage. The option, however, will remain available to you.", Character.highPriority)
+            user:inform("Du hast dich dagegen entschieden Magier zu werden. Die Möglichkeit bleibt dir aber offen.", "You decided against becoming a mage. The option, however, will remain available to you.")
         end
     end
     local dialog = SelectionDialog(common.GetNLS(user, "Der Weg der Magie", "The path of magic"), common.GetNLS(user, "Als du den Stab berührst, kannst du seine magische Macht spüren. Dir scheint, dass es dir gelingen könnte, sie dir nutzbar zu machen. Willst du das tun und somit zu einem Magier werden? Bedenke, dass eine weitere hohe Kunst - die Alchemie - dir so dann verschlossen sein wird.", "As you touch the wand, you can feel its magical power. It seems to you that you should be able to use this power. Do you want to do so and, therefore, become a mage? Mind that an other high art - alchemy - will not be accessable for you once you became a mage."), callback)

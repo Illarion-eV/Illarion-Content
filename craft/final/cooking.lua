@@ -241,7 +241,7 @@ product:addIngredient(2, 2) -- flour
 product:addIngredient(788, 1) -- bottle of carrot juice
 product:addIngredient(52, 1) -- bucket of water
 product:addRemnant(51, 1) -- bucket
-product:addRemnant(790,1) -- empty juice bottle
+product:addRemnant(Item.vegetableJuiceBottle,1)
 
 product = cooking:addProduct(catId, Item.rosefishStew, 1)
 product:addIngredient(Item.soupBowl, 1)

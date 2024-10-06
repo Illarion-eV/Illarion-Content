@@ -45,7 +45,6 @@ local treasure = require("item.base.treasure")
 local mining = require("craft.gathering.mining")
 local metal = require("item.general.metal")
 local transformation_dog = require("alchemy.teaching.transformation_dog")
-local glyphmagic = require("magic.glyphmagic")
 local gathering = require("craft.base.gathering")
 
 local M = {}
@@ -82,10 +81,6 @@ function M.UseItem(user, SourceItem, ltstate)
 
     if shared.hasTool(user, 2763) == false then
         common.HighInformNLS(user,"Du musst die Spitzhacke in der Hand halten.","You need to hold the pick-axe in your hand.")
-        return
-    end
-
-    if glyphmagic.removeGlyphForge(user) then
         return
     end
 

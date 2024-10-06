@@ -22,6 +22,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local shared = require("craft.base.shared")
 local gathering = require("craft.base.gathering")
+local gwynt = require("magic.arcane.enchanting.effects.gwynt")
 
 local M = {}
 
@@ -96,16 +97,22 @@ function M.StartGathering(User, SourceAnimal, ltstate)
 
     -- since we're here, we're working
 
-    if woolcutting:FindRandomItem(User) then
-        return
-    end
+    woolcutting:FindRandomItem(User)
 
     User:learn( woolcutting.LeadSkill, woolcutting.SavedWorkTime[User.id], woolcutting.LearnLimit);
 
     gatherAmount = gatherAmount + 1
     shearingEffect:addValue("gatherAmount", gatherAmount);
 
-    local created = common.CreateItem(User, 170, 1, 333, nil) -- create the new produced items
+    local productAmount = 1
+
+    -- temp glyph effect until grainharvesting is streamlined like other gathering skills
+    if gwynt.includeExtraResource(User, 0) then
+        productAmount = 2
+    end
+    -- end of glyph
+
+    local created = common.CreateItem(User, 170, productAmount, 333, nil) -- create the new produced items
     if created then --charcter can still carry something
         if gatherAmount < 20 then -- more wool is available
             woolcutting.SavedWorkTime[User.id] = woolcutting:GenWorkTime(User);

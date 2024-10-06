@@ -16,147 +16,120 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local common = require("base.common")
-local shared = require("craft.base.shared")
 local gathering = require("craft.base.gathering")
 
 local M = {}
 
-function M.StartGathering(User, SourceItem, ltstate)
+M.hiveList = {
+    { id = Item.firewaspHive, productId = Item.firewaspHoneycomb, monster = 278, maxAmount = 10},
+    { id = Item.beeHouse, productId = Item.honeycomb, monster = 271, maxAmount = 20}
+}
 
-    local gatheringBonus=shared.getGatheringBonus(User, nil)
+M.skill = "husbandry"
 
-    local honeygathering = gathering.GatheringCraft:new{LeadSkill = Character.husbandry, LearnLimit = 100}; -- id_1005_beehive
-    honeygathering:AddRandomPureElement(User,gathering.prob_element*gatheringBonus); -- Any pure element
-    honeygathering:SetTreasureMap(User,gathering.prob_map*gatheringBonus,"Oh! Jemand hat eine Schatzkarte in diesem Bienenstock versteckt. Was für eine Überraschung!","Oh! Someone has hidden a treasure map in this hive. What a surprise!");
-    honeygathering:AddMonster(User,271,gathering.prob_monster/gatheringBonus,"Eine über deine Handlungen etwas erboste Wespe scheint sich dazu entschlossen zu haben, deinen Handlungen ein Ende zu setzten.","A wasp, unamused by your deeds, decides to attack!",4,7);
+local hiveList = M.hiveList
+
+local function getBee(sourceItem)
+
+    for _, hive in pairs(hiveList) do
+        if hive.id == sourceItem.id then
+            return hive.monster
+        end
+    end
+
+    return nil
+
+end
+
+local function emptyInform(user)
+    common.TempInformNLS(user,
+        "Dieser Bienenstock ist leer. Gib den Bienen einige Zeit neuen Honig zu machen.",
+        "This beehive is empty. Give the bees some time to make new honey." )
+end
+
+function M.StartGathering(user, sourceItem, actionstate)
+
+    local bee = getBee(sourceItem)
+
+    if not bee then -- should never happen, but who knows
+        log("No bee id was found for a hive at "..tostring(sourceItem.pos)..", please report this incident to a developer if you aren't one.")
+        return
+    end
+
+    local honeygathering = gathering.GatheringCraft:new{LeadSkill = Character.husbandry, LearnLimit = 100}
+    local maxAmount = gathering.getMaxAmountFromResourceList(hiveList, sourceItem.id)
+    local resourceID = gathering.getProductId(hiveList, sourceItem.id)
+    local restockWear = 3 -- 15 minutes, it is one less than the other gathering skills as we don't rely on actual wear and thus do not have to account for when in the cycle it is
+
+    local success, _, amount, gatheringBonus = gathering.InitGathering(user, sourceItem, nil, maxAmount, honeygathering.LeadSkill)
+
+    if not success then
+        return
+    end
+
+    honeygathering:AddRandomPureElement(user,gathering.prob_element*gatheringBonus); -- Any pure element
+    honeygathering:SetTreasureMap(user,gathering.prob_map*gatheringBonus,"Oh! Jemand hat eine Schatzkarte in diesem Bienenstock versteckt. Was für eine Überraschung!","Oh! Someone has hidden a treasure map in this hive. What a surprise!");
+    honeygathering:AddMonster(user, bee, gathering.prob_monster/gatheringBonus,"Eine über deine Handlungen etwas erboste Wespe scheint sich dazu entschlossen zu haben, deinen Handlungen ein Ende zu setzten.","A wasp, unamused by your deeds, decides to attack!",4,7);
     honeygathering:AddRandomItem(2744,1,333,{},gathering.prob_rarely,"Ein Imkerkollege scheint hier seine Pfeife vergessen zu haben. Du nimmst sie an dich.","A beekeeper colleague must have forgotten his pipe for smoking out the bees. You take it with you."); --Pipe
     honeygathering:AddRandomItem(151,1,333,{},gathering.prob_occasionally,"Die Bienen haben offensichtlich Vorräte angelegt. Sogar eine ganze Erdbeere haben sie in ihren Stock geschleppt.","As you carefully pull honey from the hive you notice a sticky strawberry in your grasp!"); --Strawberry
     honeygathering:AddRandomItem(431,1,333,{},gathering.prob_frequently,"An deinen Händen bleibt klebriger Wachs hängen.","Your hands get stuck in sticky wax.", 0); --Wax
 
-    common.ResetInterruption( User, ltstate );
-    if ( ltstate == Action.abort ) then -- work interrupted
-        User:talk(Character.say, "#me unterbricht "..common.GetGenderText(User, "seine", "ihre").." Arbeit.", "#me interrupts "..common.GetGenderText(User, "his", "her").." work.")
+    if ( actionstate == Action.abort ) then -- work interrupted
         return
     end
 
-    if not common.CheckItem( User, SourceItem ) then -- security check
+    if not common.CheckItem(user, sourceItem ) then -- security check
         return
     end
 
-    if not common.FitForWork( User ) then -- check minimal food points
+    if not common.FitForWork(user ) then -- check minimal food points
         return
     end
 
-    common.TurnTo( User, SourceItem.pos ); -- turn if necessary
+    common.TurnTo(user, sourceItem.pos ) -- turn if necessary
 
-    -- check the amount
-    local MaxAmount = 10
-    local changeItem = false;
-    local amountStr = SourceItem:getData("amount");
-    local amount = 0;
-    if ( amountStr ~= "" ) then
-        amount = tonumber(amountStr);
-    elseif ( SourceItem.wear == 255 ) then
-        -- first time that a (static!) herb item is harvested
-        amount = MaxAmount;
-        SourceItem:setData("amount","" .. MaxAmount);
-        changeItem = true;
-    end
-    if ( amount < 0 ) then
-        -- this should never happen...
-        User:inform("[ERROR] Negative amount " .. amount .. " for item id " .. SourceItem.id .. " at (" .. SourceItem.pos.x .. "," .. SourceItem.pos.y .. "," .. SourceItem.pos.z .. "). Please inform a developer.");
-        return;
-    end
-    if ( amount <= 1 ) then
-        -- check for regrow even at amount==1, so a continuous working is guaranteed
-        -- only non farming items regrow
-        local serverTime = world:getTime("unix");
-        for i=1,MaxAmount do
-            local t = SourceItem:getData("next_regrow_" .. i);
-            if ( t ~= "" and tonumber(t) <= serverTime ) then
-                -- regrow
-                amount = amount + 1;
-                SourceItem:setData("next_regrow_" .. i, "");
-                changeItem = true;
-            end
-        end
-        if ( amount == 0 ) then
-            -- not regrown...
-            common.TempInformNLS( User,
-            "Dieser Bienenstock ist leer. Gib den Bienen einige Zeit neuen Honig zu machen.",
-            "This beehive is empty. Give the bees some time to make new honey." );
-            if ( changeItem ) then
-                world:changeItem(SourceItem);
-            end
-            return;
-        elseif ( amount > MaxAmount ) then
-            -- this should never happen
-            User:inform("[ERROR] Too high amount " .. amount .. " for item id " .. SourceItem.id .. " at (" .. SourceItem.pos.x .. "," .. SourceItem.pos.y .. "," .. SourceItem.pos.z .. "). Please inform a developer.");
-            if ( changeItem ) then
-                world:changeItem(SourceItem);
-            end
-            return;
-        else
-            SourceItem:setData("amount", "" .. amount);
+    if amount < maxAmount then -- Since beehives have no depleted graphic, we make our own replenishment functionality in script
+
+        local serverTime = world:getTime("unix")
+
+        local savedTime = sourceItem:getData("lastHarvested")
+
+        if not common.IsNilOrEmpty(savedTime) and serverTime >= tonumber(savedTime) + (restockWear*5*60) then
+            amount = maxAmount
         end
     end
 
-    if ( ltstate == Action.none ) then -- currently not working -> let's go
-        honeygathering.SavedWorkTime[User.id] = honeygathering:GenWorkTime(User);
-        User:startAction( honeygathering.SavedWorkTime[User.id], 0, 0, 0, 0);
-        User:talk(Character.say, "#me beginnt Honigwaben zu sammeln.", "#me starts to collect honeycombs.")
+    if amount == 0 then
+        emptyInform(user)
         return
     end
 
-    -- since we're here, we're working
-
-    if honeygathering:FindRandomItem(User) then
+    if ( actionstate == Action.none ) then -- currently not working -> let's go
+        honeygathering.SavedWorkTime[user.id] = honeygathering:GenWorkTime(user)
+        user:startAction( honeygathering.SavedWorkTime[user.id], 21, 10, 0, 0)
         return
     end
-    amount = amount - 1
-    -- update the amount
-    SourceItem:setData("amount", "" .. amount);
-    changeItem = true;
-    -- and update the next regrow
-    local regrowOk = false;
-    for i=1,MaxAmount do
-        local t = SourceItem:getData("next_regrow_" .. i);
-        -- look for a free slot
-        if ( t == "") then
-            SourceItem:setData("next_regrow_" .. i, "" .. world:getTime("unix") + 300)
-            regrowOk = true;
-            changeItem = true;
-            break;
-        end
-    end
-    if ( not regrowOk ) then
-        -- there was no free slot, this should never happen
-        User:inform("[ERROR] There was no regrow slot for item id " .. SourceItem.id .. " at (" .. SourceItem.pos.x .. "," .. SourceItem.pos.y .. "," .. SourceItem.pos.z .. "). Please inform a developer.");
-        if ( changeItem ) then
-            world:changeItem(SourceItem);
-        end
-        return;
+
+    user:learn( honeygathering.LeadSkill, honeygathering.SavedWorkTime[user.id], honeygathering.LearnLimit);
+
+    honeygathering:FindRandomItem(user)
+
+    local created, newAmount = gathering.FindResource(user, sourceItem, amount, resourceID)
+
+    local serverTime = world:getTime("unix")
+
+    sourceItem:setData("lastHarvested", serverTime)
+
+    if created and newAmount > 0 then
+        user:changeSource(sourceItem)
+        honeygathering.SavedWorkTime[user.id] = honeygathering:GenWorkTime(user)
+        user:startAction( honeygathering.SavedWorkTime[user.id], 21, 10, 0, 0)
     end
 
-    if ( changeItem ) then
-        world:changeItem(SourceItem);
+    if newAmount and newAmount <= 0 then
+        emptyInform(user)
     end
 
-    -- since we're here, everything should be alright
-    User:learn( honeygathering.LeadSkill, honeygathering.SavedWorkTime[User.id], honeygathering.LearnLimit);
-    local created = common.CreateItem(User, 2529, 1, 333, nil) -- create the new produced items
-    if created then -- character can still carry something
-        if amount > 0 then  -- there are still items we can work on
-            honeygathering.SavedWorkTime[User.id] = honeygathering:GenWorkTime(User);
-            User:changeSource(SourceItem)
-            User:startAction( honeygathering.SavedWorkTime[User.id], 0, 0, 0, 0);
-        else -- no items left
-            -- only inform for non farming items. Farming items with amount==0 should already be erased.
-            common.TempInformNLS(User,
-            "Dieser Bienenstock ist leer. Gib den Bienen einige Zeit neuen Honig zu machen.",
-            "This beehive is empty. Give the bees some time to make new honey." );
-        end
-    end
 end
 
 return M

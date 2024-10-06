@@ -85,6 +85,8 @@ M.gfxSUN = 46
 M.gfxVIOLETT = 51
 M.gfxSPRINKLE = 52
 M.gfxSCOTTY = 53
+M.gfxBlueSplash = 54
+M.gfxGreenSplash = 55
 
 -- Graphic effects
 -- Descriptive text of the gfx effect

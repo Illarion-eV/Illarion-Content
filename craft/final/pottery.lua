@@ -37,32 +37,73 @@ local catId
 
 catId = pottery:addCategory("Pottery", "Töpfern")
 
--- bricks
-product = pottery:addProduct(catId, 2588, 1)
-product:addIngredient(26, 2) -- clay
+product = pottery:addProduct(catId, Item.bricks, 1)
+product:addIngredient(Item.clay, 2)
 
--- clay mug
-product = pottery:addProduct(catId, 2183, 1)
-product:addIngredient(26, 4) -- clay
+product = pottery:addProduct(catId, Item.clayPlate, 1)
+product:addIngredient(Item.clay, 2)
 
--- clay cup
-product = pottery:addProduct(catId, 2184, 1)
-product:addIngredient(26, 8) -- clay
+product = pottery:addProduct(catId, Item.clayBowl, 1)
+product:addIngredient(Item.clay, 2)
 
--- mug with lid
-product = pottery:addProduct(catId, 310, 1)
-product:addIngredient(26, 10) -- clay
+product = pottery:addProduct(catId, Item.emptyHoneyJar, 1)
+product:addIngredient(Item.clay, 3)
 
--- empty alchemy bomb
-product = pottery:addProduct(catId, 1223, 2)
-product:addIngredient(26, 10) -- clay
-product:addIngredient(451, 1) -- topaz powder
+product = pottery:addProduct(catId, Item.clayShotGlass, 1)
+product:addIngredient(Item.clay, 4)
 
--- vase
-product = pottery:addProduct(catId, 315, 1)
-product:addIngredient(26, 12) -- clay
-product:addIngredient(452, 2) -- diamond powder
-product:addIngredient(447, 1) -- ruby powder
+product = pottery:addProduct(catId, Item.clayCup, 1)
+product:addIngredient(Item.clay, 4)
+
+product = pottery:addProduct(catId, Item.clayMug, 1)
+product:addIngredient(Item.clay, 5)
+
+product = pottery:addProduct(catId, Item.clayServingJug, 1)
+product:addIngredient(Item.clay, 5)
+
+product = pottery:addProduct(catId, Item.clayTeaCup, 1)
+product:addIngredient(Item.clay, 6)
+
+product = pottery:addProduct(catId, Item.clayTeapot, 1)
+product:addIngredient(Item.clay, 8)
+
+product = pottery:addProduct(catId, Item.mugWithLid, 1)
+product:addIngredient(Item.clay, 8)
+
+product = pottery:addProduct(catId, Item.ceramicPlate, 1)
+product:addIngredient(Item.clay, 8)
+
+product = pottery:addProduct(catId, Item.ceramicBowl, 1)
+product:addIngredient(Item.clay, 8)
+
+product = pottery:addProduct(catId, Item.ceramicShotGlass, 1)
+product:addIngredient(Item.clay, 9)
+
+product = pottery:addProduct(catId, Item.ceramicCup, 1)
+product:addIngredient(Item.clay, 10)
+
+product = pottery:addProduct(catId, Item.ceramicServingJug, 1)
+product:addIngredient(Item.clay, 20)
+
+product = pottery:addProduct(catId, Item.emptyAlchemyBomb, 2)
+product:addIngredient(Item.clay, 10)
+product:addIngredient(Item.emeraldPowder, 1)
+product:addIngredient(Item.amethystPowder, 1)
+
+product = pottery:addProduct(catId, Item.ceramicTeaCup, 1)
+product:addIngredient(Item.clay, 10)
+product:addIngredient(Item.topazPowder, 1)
+product:addIngredient(Item.sapphirePowder, 1)
+
+product = pottery:addProduct(catId, Item.ceramicTeapot, 1)
+product:addIngredient(Item.clay, 20)
+product:addIngredient(Item.topazPowder, 1)
+product:addIngredient(Item.sapphirePowder, 1)
+
+product = pottery:addProduct(catId, Item.vase, 1)
+product:addIngredient(Item.clay, 12)
+product:addIngredient(Item.diamondPowder, 2)
+product:addIngredient(Item.rubyPowder, 1)
 
 M.pottery = pottery
 return M

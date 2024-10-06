@@ -26,6 +26,8 @@ M.cadomyr = 1
 M.runewick = 2
 M.galmair = 3
 
+M.townManagmentItemPos = {position(116, 527, 0), position(951, 786, 1), position(344, 223, 0)}
+
 --Towns--
 local TownList = {}
 

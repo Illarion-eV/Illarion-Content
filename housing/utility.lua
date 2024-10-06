@@ -21,11 +21,12 @@ local common = require("base.common")
 local money = require("base.money")
 local factions = require("base.factions")
 local messenger = require("content.messenger")
+local doors = require("base.doors")
 
 local M = {}
 
  -- Cadomyr, Runewick, Galmair
- M.townManagmentItemPos = {position(116, 527, 0), position(951, 786, 1), position(344, 223, 0)}
+ M.townManagmentItemPos = factions.townMagagmentItemPos
  M.max_guest_number = 20
  M.max_builder_number = 20
  M.depotList={100,101,102,103}
@@ -99,9 +100,20 @@ end
 
 function M.fetchPropertyName(user, pos)
 
-    local direct = user:getFaceTo()
+    local direct
+
+    if user then
+        direct = user:getFaceTo()
+    end
+
     local d = 1
-    local vX, vY = common.GetDirectionVector(direct)
+
+    local vX, vY
+
+    if user then
+        vX, vY = common.GetDirectionVector(direct)
+    end
+
     local x
     local y
     local z
@@ -149,12 +161,39 @@ function M.checkIfGardeningCriteriaMet(user, itemId)
     return false
 end
 
-function M.checkIfPlantOrTree(user, itemId)
+local function isIvy(itemId)
+
+    if itemId == 644 or itemId == 645 or itemId == 646 or itemId == 647 then
+        return true
+    end
+
+    return false
+end
+
+local function isGrass(itemId)
+
+    if itemId == 1782 or itemId == 1783 then
+        return true
+    end
+
+    return false
+end
+
+function M.checkIfPlantOrTree(itemId)
     for _, item in pairs(itemList.items) do
         if item.category == "Plants" or item.category == "Trees" then
-            if item.itemId == itemId then
+            if item.itemId == itemId and not isIvy(itemId) and not isGrass(itemId) then
                 return true
             end
+        end
+    end
+    return false
+end
+
+function M.checkIfBasementExclusive(itemId)
+    for _, item in pairs(itemList.items) do
+        if item.itemId == itemId and item.category == "Basement Exclusive" then
+            return true
         end
     end
     return false
@@ -343,7 +382,7 @@ end
 function M.checkIfItemIsWallDeco(itemId)
 
     for _, item in pairs(itemList.items) do
-        if item.id == itemId then
+        if item.itemId == itemId then
             if item.category == "Paintings"
             or item.category == "Flags and crests"
             or item.category == "Wall Decorations"
@@ -412,6 +451,44 @@ function M.checkIfWallOrWindow(user, suspectedWall)
     return false
 end
 
+function M.isBuilder(user)
+
+    local frontPos = common.GetFrontPosition(user)
+
+    local propertyName = M.fetchPropertyName(user, frontPos)
+
+    local deed = M.getPropertyDeed(propertyName)
+
+    for i = 1, M.max_builder_number do
+
+        local builderID = deed:getData("builderID"..i)
+
+        if builderID ~= "" and tonumber(builderID) == user.id then
+            return true
+        end
+    end
+
+    return false
+end
+
+function M.isTenant(user)
+
+    local frontPos = common.GetFrontPosition(user)
+
+    local propertyName = M.fetchPropertyName(user, frontPos)
+
+    local deed = M.getPropertyDeed(propertyName)
+
+    local tenantID = deed:getData("tenantID")
+
+    if tenantID ~= "" and tonumber(tenantID) == user.id then
+        return true
+    end
+
+    return false
+end
+
+
 
 function M.allowBuilding(user, alternatePosition)
 
@@ -421,6 +498,11 @@ function M.allowBuilding(user, alternatePosition)
         end
     local propertyName = M.fetchPropertyName(user, frontPos)
     local deed = M.getPropertyDeed(propertyName)
+
+    if deed:getData("demolishmentInProgress") == "true" then
+        user:inform("Du kannst nicht auf einem Grundstück bauen, wo alles zum Abriss vorgesehen ist.", "You can not build at an estate that is being demolished.")
+        return false, true
+    end
 
     if M.fetchPropertyName(user, frontPos) then
 
@@ -577,7 +659,6 @@ end
 
 function M.setPersistenceForProperties()
     for _, property in pairs(propertyList.properties) do
-        log("Setting persistence for "..property.name)
         for x = property.lower.x, property.upper.x do
             for y = property.lower.y, property.upper.y do
                 for z = property.lower.z, property.upper.z do
@@ -587,19 +668,14 @@ function M.setPersistenceForProperties()
                 end
             end
         end
-        log("Done setting persistence for "..property.name)
     end
 
-    log("Creating estate basements")
     M.createEstateBasements() -- in case any estates are lacking basement tiles and walls, this function will fix that
-    log("Done creating estate basements")
 
-    log("Now checking that all property deeds are where they should be")
     for i = 1, #propertyList.propertyTable do
         local location = propertyList.propertyTable[i][3]
 
         if not world:isPersistentAt(location) then
-            log("Setting persistence for property deed belonging to "..propertyList.propertyTable[i][1])
             world:makePersistentAt(location)
         end
 
@@ -614,10 +690,93 @@ function M.setPersistenceForProperties()
         end
 
         if not propertyDeedFound then
-            log("Creating missing property deed for property "..propertyList.propertyTable[i][1])
             world:createItemFromId(3772, 1, location, true, 333, nil) --This will lead to some deeds that should be 3773 facing the wrong direction, but this is also only ever called if one is missing to begin with when a GM sets persistence
         end
     end
+end
+
+
+local trapDoors = {start = 3790, stop = 3809}
+local stairs = {319, 1185, 1186, 1403, 1404, 28, 35, 1003}
+
+M.stairs = stairs
+
+function M.doorIsAStair(doorId)
+
+    for _, stair in pairs(stairs) do
+        if stair == doorId then
+            return true
+        end
+    end
+
+    return false
+end
+
+function M.doorIsATrapDoor(doorId)
+
+    if doorId >= trapDoors.start and doorId <= trapDoors.stop then
+        return true
+    end
+
+    return false
+end
+
+-- Check if there is a stair or trap door on the position and return the resulting item, nil for no item or false if not the wanted stair/trap door. Stairswanted is true if you want stairs, false if you want trapdoors.
+function M.getStairsTrapDoor(pos, stairsWanted)
+
+    local potentialStairTrapDoor
+
+    if world:isItemOnField(pos) then
+        potentialStairTrapDoor = world:getItemOnField(pos)
+    end
+
+    if potentialStairTrapDoor then
+
+        if not stairsWanted then
+            for trapID = trapDoors.start, trapDoors.stop do
+                if trapID == potentialStairTrapDoor.id then
+                    return potentialStairTrapDoor
+                end
+            end
+        else
+            for _, stairID in pairs(stairs) do
+                if stairID == potentialStairTrapDoor.id then
+                    return potentialStairTrapDoor
+                end
+            end
+        end
+    else
+        return nil -- No item found
+    end
+
+    return false -- Item was not the wanted stair/trapdoor, stair/trapdoor could exist but something was placed ontop of it
+
+end
+
+
+local function createLockForStairTrapDoor(user, trapDoor, category, theId, propertyName, propertyNameDe)
+
+    local stair
+
+    if category == "Stairs" then
+        stair = trapDoor
+        trapDoor = nil
+    end
+
+    local thePosition =  M.getTrapDoorOrStairPosition(stair, trapDoor)
+
+    local stairDoor = M.getStairsTrapDoor(thePosition, trapDoor)
+
+    if not stairDoor then
+        user:inform("Irgendetwas versperrt die Treppe oder die Falltür. Versuche es noch mal, nachdem du alle Gegenstände dort entfernt hast.", "Something is obstructing the stair or trap door. Make sure no items are on top of either, then try again.")
+        return false
+    end
+
+    stairDoor:setData("lockId", theId)
+    stairDoor:setData("descriptionEn",propertyName)
+    stairDoor:setData("descriptionDe",propertyNameDe)
+    world:changeItem(stairDoor)
+    return true
 end
 
 function M.createLock(user)
@@ -632,22 +791,104 @@ function M.createLock(user)
     end
 
     if M.allowBuilding(user) and M.checkIfLockable(user) then
-        local TargetItem = M.checkIfLockable(user)
+        local TargetItem, category = M.checkIfLockable(user)
+
+        if not common.IsNilOrEmpty(TargetItem:getData("lockId")) then
+            user:inform("Hier ist schon ein Schloss.", "There's already a lock in place.")
+            return
+        end
+
         for i = 1, #propertyList.propertyTable do
             if propertyList.propertyTable[i][1] == propertyName then
                 local doorId = propertyList.propertyTable[i][6]
+
+                if category == "Stairs" or category == "Trap Doors" then
+                    if not createLockForStairTrapDoor(user, TargetItem, category, doorId, propertyName, propertyNameDe) then
+                        return
+                    end
+                end
+
                 TargetItem:setData("lockId",doorId)
-                TargetItem:setData("doorLock","locked")
+                TargetItem:setData("doorLock","unlocked")
                 TargetItem:setData("descriptionEn",propertyName)
                 TargetItem:setData("descriptionDe",propertyNameDe)
                 world:changeItem(TargetItem)
                 user:inform("Schloss eingebaut.","Lock created.")
+
             end
         end
     else
-        user:inform("Du kannst nur auf deinem Grundstück Schlösser in Türen und Tore einsetzen.","You can only create locks for doors or gates that are on your property.")
+        user:inform("Du kannst nur auf deinem Grundstück Schlösser in Türen, Tore, Treppen und Falltüren einsetzen.","You can only create locks for doors, gates, stairs or trap doors that are on your property.")
     end
 end
+
+local function scheduleDemolishment(user, propertyName)
+
+    local callback = function(dialog)
+
+        if not dialog:getSuccess() then
+            return
+        end
+
+        local selected = dialog:getSelectedIndex()+1
+
+        if selected == 1 then
+            local deed = M.getPropertyDeed(propertyName)
+            deed:setData("demolish", "true") --Used to determine which property will be demolished when the scheduled script triggers
+
+            -- Below is a little hack since we do not use global variables, to not have to check every single property each time if there are none scheduled at all
+
+            local pauldronDeed = M.getPropertyDeed("Pauldron Estate") -- refresh in case the deed was changed above as one of the demolished properties
+
+            if deed.pos == pauldronDeed.pos then
+                deed:setData("newDemolishments", "true")
+            else
+                pauldronDeed:setData("newDemolishments", "true")
+                world:changeItem(pauldronDeed)
+            end
+
+            -- end of the hack
+
+            world:changeItem(deed)
+
+            user:inform("Auf deine Bitte um einen Abriss hin tauchen ein Haufen Zwerge auf, um das Anwesen abzureißen. Einer nach dem anderen huschen sie mit dem abgerissenen Material als Bezahlung davon. Bei diesem Tempo sollten sie schnell fertig sein.", "Upon your request of a demolition, a bunch of dwarves appear to demolish the estate. One by one they scurry off with the broken down material as their payment, at this rate they should be done in no time.")
+        else
+            return
+        end
+    end
+
+    local dialog = SelectionDialog(common.GetNLS(user,"Bestätigung","Confirmation Check"), common.GetNLS(user,"Bist du dir absolut sicher, dass du das wirklich durchziehen willst? Das ist die letzte Warnung. Der Abriss kann danach nicht mehr gestoppt oder rückgängig gemacht werden und wird alles auf deinem Grundstück zerstören, einschließlich der Dinge, die du statisch gemacht hast oder die nicht statisch sind!", "Are you certain that you are absolutely positively sure you want to go through with this? This is the final warning. The demolition can not be stopped or undone after this, and will destroy everything on your property including items you made static or items that are not static!"), callback)
+    dialog:addOption(0,common.GetNLS(user,"Ja","Yes"))
+    dialog:addOption(0,common.GetNLS(user,"Nein, das ist Kunst.","No, I changed my mind."))
+    dialog:setCloseOnMove()
+    user:requestSelectionDialog(dialog)
+end
+
+function M.demolishConfirmation(user, propertyName)
+
+    local callback = function(dialog)
+
+        if not dialog:getSuccess() then
+            return
+        end
+
+        local selected = dialog:getSelectedIndex()+1
+
+        if selected == 1 then
+            scheduleDemolishment(user, propertyName)
+        else
+            return
+        end
+    end
+
+    local dialog = SelectionDialog(common.GetNLS(user,"Bestätigung","Confirmation Check"), common.GetNLS(user,"Bist du sicher, dass du dein Anwesen abreißen willst? Das kann nicht rückgängig gemacht werden, und einmal gestartet, kann es nicht mehr gestoppt werden.", "Are you certain you want to demolish your estate property? This can not be undone and once initiated, it can not stop."), callback)
+    dialog:addOption(0,common.GetNLS(user,"Ja","Yes"))
+    dialog:addOption(0,common.GetNLS(user,"Nein, das ist Kunst.","No, I changed my mind."))
+    dialog:setCloseOnMove()
+    user:requestSelectionDialog(dialog)
+
+end
+
 
 function M.createKey(user)
 
@@ -813,6 +1054,85 @@ function M.createWarpsAndExitObject(user, itemId, createOrErase)
     return true
 end
 
+function M.getTrapDoorOrStairPosition(stair, trapDoor)
+
+    local direction
+
+    for _, stairPair in pairs(itemList.Stairs) do
+        if (stair and stairPair.Downstairs == stair.id) or (trapDoor and stairPair.Upstairs == trapDoor.id) then
+            direction = stairPair.Direction
+        end
+    end
+
+    if trapDoor and not direction then -- There is a chance this is a closed trap door, housing needs the open version Id so we check that
+
+        local openId
+
+        if doors.CheckClosedDoor(trapDoor.id) then
+            openId = doors.ClosedDoors[trapDoor.id]
+            log("openId : "..tostring(openId))
+        end
+
+        for _, stairPair in pairs(itemList.Stairs) do
+            if stairPair.Upstairs == openId then
+                direction = stairPair.Direction
+            end
+        end
+
+    end
+
+    if not direction then
+        --illegitimate item for housing that is not in housing catalogue
+        return false
+    end
+
+    local targetPosition
+
+    if stair then
+        targetPosition = stair.pos
+    else
+        targetPosition = trapDoor.pos
+    end
+
+    local v2X = 0
+    local v2Y = 0
+    local v2Z = 0
+
+    if stair then
+
+        if targetPosition.z >= 0 then
+            v2Z = 1
+        elseif targetPosition.z == -21 then
+            v2Z = 21
+        end
+
+        if direction == "north" then
+            v2Y = -1
+        elseif direction == "east" then
+            v2X = 1
+        end
+
+        return position(targetPosition.x + v2X * 1, targetPosition.y + v2Y * 1, targetPosition.z + v2Z)
+
+    elseif trapDoor then
+
+        if targetPosition.z == 0 then
+            v2Z = -21
+        elseif targetPosition.z >= 1 then
+            v2Z = -1
+        end
+
+        if direction == "north" then
+            v2Y = 1
+        elseif direction == "east" then
+            v2X = -1
+        end
+
+        return position(targetPosition.x + v2X * 1, targetPosition.y + v2Y * 1, targetPosition.z + v2Z)
+    end
+
+end
+
 function M.eraseStairTrap(positionOne, positionTwo, targetId, tile1pos)
     local warpOne = world:getField(positionOne)
     local warpTwo = world:getField(positionTwo)
@@ -963,9 +1283,7 @@ function M.createEstateBasements()
     for _, property in pairs(basementProperties) do
         local tileID, wallID = M.getBasementTileWall(property.name)
         if property.lower.z == -21 then --only for basement layers
-            log("Creating basement walls for property "..property.name)
             placeBasementWalls(wallID, property.lower, property.upper)
-            log("Creating basement tiles for property "..property.name)
             placeBasementTiles(tileID, property.lower, property.upper)
         end
     end
@@ -1167,7 +1485,6 @@ function M.deletePreviewItem(propertyName, bypassTTL)
     local propertyDeed = M.getPropertyDeed(propertyName)
 
     if propertyDeed == nil then
-        log("The property deed for "..propertyName.." is missing from the map, causing script errors.")
         return
     end
 
@@ -1244,7 +1561,6 @@ function M.ifNoSurroundingTilesDeleteStairTiles(tile1pos, tile2pos)
             local field = world:getField(thePos)
             local tileID = field:tile()
             if tileID ~= 0 then
-                log("tileID: "..tostring(tileID).." at position: "..tostring(thePos))
                 deleteTiles = false
                 break
             end
@@ -2177,14 +2493,14 @@ function M.getTownManagementTool(town)
         return
     end
 
-    local toolId = 3106
+    local toolId = {3106, 3104}
 
     local field = world:getField(location)
     local itemsOnField = field:countItems()
 
     for i = 0, itemsOnField do
         local chosenItem = field:getStackItem(itemsOnField - i )
-        if chosenItem.id == toolId then
+        if chosenItem.id == toolId[1] or chosenItem.id == toolId[2] then
             return chosenItem
         end
     end
@@ -2855,23 +3171,37 @@ function M.checkIfSignPost(user)
 end
 
 function M.checkIfLockable(user)
-        local targetItem
+
+    local targetItem
+
     if not common.GetFrontItem(user) then
         return false
     else
         targetItem = common.GetFrontItem(user)
     end
+
     for _, item in pairs(itemList.items) do
+
         if item.category == "Doors" then --All doors and gates
+
             if item.itemId == targetItem.id then
-                return targetItem
+                return targetItem, item.category
             end
+
         elseif item.criteria == "Key" then -- Fence gates
+
             if item.itemId == targetItem.id then
-                return targetItem
+                return targetItem, item.category
             end
         end
     end
+
+    if M.doorIsATrapDoor(targetItem.id) then
+        return targetItem, "Trap Doors"
+    elseif M.doorIsAStair(targetItem.id) then
+        return targetItem, "Stairs"
+    end
+
     return false
 end
 

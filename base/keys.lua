@@ -14,7 +14,10 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
+
 local doors = require("base.doors")
+local common = require("base.common")
+local housingUtility = require("housing.utility")
 
 local M = {}
 
@@ -43,17 +46,29 @@ end
     @return boolean - true in case the door got locked, false if anything went
     wrong
 ]]
-function M.LockDoor(Door)
+function M.LockDoor(Door, user)
     if doors.CheckClosedDoor(Door.id) then
         if (Door:getData("doorLock") == "unlocked") then
+
+            if housingUtility.getStairsTrapDoor(Door.pos, false) then
+                if not M.lockTrapDoor(user, Door) then
+                    return false
+                end
+            end
+
+
             Door:setData("doorLock","locked")
             world:changeItem(Door)
             world:makeSound(19, Door.pos)
+
             return true
         else
             return false
         end
     else
+        if user then -- this function is also called by a script where user is not present
+            user:inform("Nur geschlossen Türen können auch abgeschlossen werden.", "The door must be closed for you to lock it.")
+        end
         return false
     end
 end
@@ -67,12 +82,21 @@ end
     @return boolean - true in case the door got locked, false if anything went
     wrong
 ]]
-function M.UnlockDoor(Door)
+function M.UnlockDoor(Door, user)
     if doors.CheckClosedDoor(Door.id) then
         if (Door:getData("doorLock") == "locked" or Door:getData("lockId")~="") then
+
+            if housingUtility.getStairsTrapDoor(Door.pos, false) then
+                if not M.unlockTrapDoor(user, Door) then
+                    return false
+                end
+            end
+
+
             Door:setData("doorLock","unlocked")
             world:changeItem(Door)
             world:makeSound(20, Door.pos)
+
             return true
         else
             return false
@@ -80,6 +104,196 @@ function M.UnlockDoor(Door)
     else
         return false
     end
+end
+
+--To make use of the lock stair/trapdoor function outside of housing, a trapDoor position must be added to the item data of the stairs and vice versa
+
+local function isHousingEstate(pos)
+
+    local propertyName = housingUtility.fetchPropertyName(nil, pos)
+
+    if not propertyName then
+        return false
+    end
+
+    return housingUtility.checkIfEstateViaName(propertyName)
+end
+
+function M.UnlockStairs(Door, user)
+
+    if Door.id ~= 4339 then
+        return false
+    end
+
+    world:erase(Door, 1) -- Erase the invisible blockade that blocks the stairs
+
+    local stair = housingUtility.getStairsTrapDoor(Door.pos, true)
+
+    local trapDoorPosition
+
+    local X = stair:getData("trapdoorX")
+    local Y = stair:getData("trapdoorY")
+    local Z = stair:getData("trapdoorZ")
+
+    if not common.IsNilOrEmpty(X) then -- The position was supplied by the stair item itself, meaning it was put in by GM, map editor or script outside of housing
+        trapDoorPosition = position(tonumber(X), tonumber(Y), tonumber(Z))
+    elseif isHousingEstate(Door.pos) then --It belongs to housing so we can determine where the position is based on how housing places them
+        trapDoorPosition = housingUtility.getTrapDoorOrStairPosition(stair)
+    end
+
+    local trapDoor = housingUtility.getStairsTrapDoor(trapDoorPosition, false)
+
+    if trapDoor:getData("doorLock") == "locked" then
+        trapDoor:setData("doorLock", "unlocked")
+        stair:setData("doorLock", "unlocked")
+        world:changeItem(trapDoor)
+        world:changeItem(stair)
+        world:makeSound(20, trapDoor.pos)
+        world:makeSound(20, stair.pos)
+    end
+
+    return true
+end
+
+function M.LockStairs(user, stair)
+
+    local stairFound = false
+
+    for index , stairId in pairs(housingUtility.stairs) do
+        if stair.id == stairId then
+            stairFound = true
+        end
+    end
+
+    if not stairFound then
+        return
+    end
+
+    local trapDoorPosition
+
+    local X = stair:getData("trapdoorX")
+    local Y = stair:getData("trapdoorY")
+    local Z = stair:getData("trapdoorZ")
+
+    if not common.IsNilOrEmpty(X) then -- The position was supplied by the stair item itself, meaning it was put in by GM, map editor or script outside of housing
+        trapDoorPosition = position(tonumber(X), tonumber(Y), tonumber(Z))
+    elseif isHousingEstate(stair.pos) then --It belongs to housing so we can determine where the position is based on how housing places them
+        trapDoorPosition = housingUtility.getTrapDoorOrStairPosition(stair)
+    end
+
+    if not trapDoorPosition and user then
+        user:inform("Dieser Treppe fehlt die Falltür.", "This staircase has no assigned trap door.") --Should only happen if a master key is used or someone fucked up implementation
+    elseif not trapDoorPosition then
+        return
+    end
+
+    local trapDoor = housingUtility.getStairsTrapDoor(trapDoorPosition, false)
+
+    if not trapDoor and user then
+        user:inform("The trap door above the stairs appears to be obstructed by something.")
+        return false
+    elseif not trapDoor then
+        return false
+    end
+
+    local closed = doors.CheckClosedDoor(trapDoor.id)
+
+    if not closed then
+        doors.CloseDoor(trapDoor)
+        trapDoor = housingUtility.getStairsTrapDoor(trapDoorPosition, false) -- refresh the item since it was changed above
+    end
+
+    if trapDoor:getData("doorLock") == "unlocked" then
+        trapDoor:setData("doorLock", "locked")
+        stair:setData("doorLock", "locked")
+        world:changeItem(trapDoor)
+        world:changeItem(stair)
+        world:makeSound(20, trapDoor.pos)
+        world:makeSound(20, stair.pos)
+    end
+
+    world:createItemFromId(4339, 1, stair.pos, true, 333, {lockId = trapDoor:getData("lockId")})
+
+    return true
+end
+
+function M.unlockTrapDoor(user, trapDoor)
+
+    local stairPosition
+
+    local X = trapDoor:getData("stairX")
+    local Y = trapDoor:getData("stairY")
+    local Z = trapDoor:getData("stairZ")
+
+    if not common.IsNilOrEmpty(X) then -- The position was supplied by the trap door item itself, meaning it was put in by GM, map editor or script outside of housing
+        stairPosition = position(tonumber(X), tonumber(Y), tonumber(Z))
+    elseif isHousingEstate(trapDoor.pos) then --It belongs to housing so we can determine where the position is based on how housing places them
+        stairPosition = housingUtility.getTrapDoorOrStairPosition(nil, trapDoor)
+    end
+
+    local potentialStairBlockade
+
+    if world:isItemOnField(stairPosition) then
+        potentialStairBlockade = world:getItemOnField(stairPosition)
+    end
+
+    if potentialStairBlockade then
+        if potentialStairBlockade.id == 4339 then
+            world:erase(potentialStairBlockade, 1)
+        end
+    end
+
+    local stair = housingUtility.getStairsTrapDoor(stairPosition, true)
+
+    if not stair then
+        return
+    end
+
+    if stair:getData("doorLock") == "locked" then
+        stair:setData("doorLock", "unlocked")
+        world:changeItem(stair)
+        world:makeSound(20, stair.pos)
+    end
+
+    return true
+
+end
+
+function M.lockTrapDoor(user, trapDoor)
+    local stairPosition
+
+    local X = trapDoor:getData("stairX")
+    local Y = trapDoor:getData("stairY")
+    local Z = trapDoor:getData("stairZ")
+
+    if not common.IsNilOrEmpty(X) then -- The position was supplied by the trap door item itself, meaning it was put in by GM, map editor or script outside of housing
+        stairPosition = position(tonumber(X), tonumber(Y), tonumber(Z))
+    elseif isHousingEstate(trapDoor.pos) then --It belongs to housing so we can determine where the position is based on how housing places them
+        stairPosition = housingUtility.getTrapDoorOrStairPosition(nil, trapDoor)
+    end
+
+    if not stairPosition and user then
+        user:inform("Dieser Treppe fehlt die Falltür.", "This trap door has no assigned staircase.") --Should only happen if a master key is used or someone fucked up implementation
+    elseif not stairPosition then
+        return
+    end
+
+    local stair = housingUtility.getStairsTrapDoor(stairPosition, true)
+
+    if not stair and user then
+        user:inform("Ein Stockwerk weiter unten blockiert die Treppe.", "Something is obstructing the stairs below.")
+        return
+    end
+
+    if stair:getData("doorLock") == "unlocked" then
+        stair:setData("doorLock", "locked")
+        world:changeItem(stair)
+        world:makeSound(20, stair.pos)
+    end
+
+    world:createItemFromId(4339, 1, stair.pos, true, 333, {lockId = trapDoor:getData("lockId")})
+
+    return true
 end
 
 --[[
@@ -98,7 +312,7 @@ function M.CheckKey(Key, Door, User)
     if Door == nil then
         return false
     end
-    if doors.CheckClosedDoor(Door.id) or doors.CheckOpenDoor(Door.id) then
+    if doors.CheckClosedDoor(Door.id) or doors.CheckOpenDoor(Door.id) or Door.id == 4339 or housingUtility.doorIsAStair(Door.id) then
         if (Key:getData("lockId") == Door:getData("lockId") and Door:getData("lockId") ~= "") or checkForMasterKey(User, Key) then
             return true
         else

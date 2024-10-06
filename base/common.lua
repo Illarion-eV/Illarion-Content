@@ -2317,8 +2317,7 @@ leadAttribTable[Character.cauldronLore]="essence"
 
 --Intelligence: Magic
 leadAttribTable[Character.wandMagic]="intelligence"
-leadAttribTable[Character.enchantingOfJewels]="intelligence"
-leadAttribTable[Character.enchantingOfAmulets]="intelligence"
+leadAttribTable[Character.enchanting]="intelligence"
 leadAttribTable[Character.fireMagic]="intelligence"
 leadAttribTable[Character.spiritMagic]="intelligence"
 leadAttribTable[Character.windMagic]="intelligence"
@@ -2679,33 +2678,46 @@ end
 
 --[[warp a character back
 @return: real distance (0 if not warped)]]--
-function M.pushBack(user,extDistance,extCenterPos)
-    local distance = extDistance or 1
-    local centerPos = extCenterPos or M.GetFrontPosition(user)
+function M.pushBack(user, distance, centerPos)
 
-    local diffX = 0
-    local diffY = 0
+    local directionX = 0
+    local directionY = 0
+    local xDiff = 0
+    local yDiff = 0
 
-    if (centerPos.x == user.pos.x and centerPos.y == user.pos.y) then -- any direction
-        diffX = math.random(1,5)
-        diffY = math.random(1,5)
-        if math.random() < 0.5 then
-            diffX = - diffX
-        end
-        if math.random() < 0.5 then
-            diffY = - diffY
-        end
+    if user.pos.x > centerPos.x then
+        xDiff = user.pos.x - centerPos.x
+        directionX = 1
+    elseif user.pos.x < centerPos.x then
+        xDiff = centerPos.x - user.pos.x
+        directionX = -1
     end
 
-    local alpha = math.atan2(diffX,diffY)
-    local distX = math.floor(math.sin(alpha)*distance)
-    local distY = math.floor(math.cos(alpha)*distance)
+    if user.pos.y > centerPos.y then
+        yDiff = user.pos.y - centerPos.y
+        directionY = 1
+    elseif user.pos.y < centerPos.y then
+        yDiff = centerPos.y - user.pos.y
+        directionY = -1
+    end
 
-    local posX = user.pos.x - distX
-    local posY = user.pos.y - distY
+    local distY = 0
+    local distX = 0
+
+    if yDiff >= xDiff/2 and xDiff >= yDiff/2 then -- diagonal pushback when they are both more or the same as half of the other
+        distY = directionY*(distance/2)
+        distX = directionX*(distance - (distance/2))
+    elseif yDiff >= xDiff/2 then -- Only pushback on y axis when X is less than half the Y diff
+        distY = directionY*distance
+    elseif xDiff >= yDiff/2 then -- same as above but x/y inverted
+        distX = directionX*distance
+    end
+
+    local posX = user.pos.x + distX
+    local posY = user.pos.y + distY
     local posZ = user.pos.z
 
-    local targetPos = user.pos
+    local targetPos = position(posX, posY, posZ)
 
     local isNotBlocked = function(pos)
         if world:getField(pos):isPassable() then

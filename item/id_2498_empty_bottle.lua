@@ -64,27 +64,27 @@ local function UseItemScooping(User, SourceItem, ltstate)
     common.CreateItem(User, 2496, 1, 999, nil)
 end
 
-local function getAnimal(User)
+local function getAnimal(user)
 
-    -- check for sheep or cow in front
-    local targetCharacter = common.GetFrontCharacter(User);
+    -- check for a sheep, cow or deer in front
+    local targetCharacter = common.GetFrontCharacter(user)
     if (targetCharacter ~= nil and milking.isMilkable(targetCharacter)) then
-        return targetCharacter;
+        return targetCharacter
     end
 
-    -- look for a nearby sheep or cow
+    -- look for a nearby sheep, cow or deer
     for x=-1,1 do
         for y=-1,1 do
-            local pos = position(User.pos.x+x,User.pos.y+y,User.pos.z);
+            local pos = position(user.pos.x+x, user.pos.y+y, user.pos.z)
             if ( world:isCharacterOnField(pos) ) then
-                targetCharacter = world:getCharacterOnField(pos);
+                targetCharacter = world:getCharacterOnField(pos)
                 if (milking.isMilkable(targetCharacter)) then
-                    return targetCharacter;
+                    return targetCharacter
                 end
             end
         end
     end
-    return nil;
+    return nil
 end
 
 function M.UseItem(User, SourceItem, ltstate)

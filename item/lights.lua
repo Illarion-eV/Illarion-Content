@@ -160,6 +160,76 @@ local function handleUsageQuests(user, sourceItem)  -- returns true if the quest
     return false
 end
 
+local function deleteParchmentsInHands(user, german, english, portable, sourceItem)
+
+    local leftHand = user:getItemAt(Character.left_tool)
+    local rightHand = user:getItemAt(Character.right_tool)
+
+    local burnt = false
+
+    local plural = false
+
+    if portable and not common.hasItemIdInHand(user, sourceItem.id)  then
+        user:inform("Die "..german.." muss sich in deiner Hand befinden, damit du ein Pergament verbrennen kannst.", "The "..english.." must remain in your hands if you want to burn a parchment.")
+        return
+    end
+
+
+    if rightHand.id == Item.parchment then
+        world:erase(rightHand, rightHand.number)
+        burnt = true
+        if rightHand.number > 1 then
+            plural = true
+        end
+    end
+
+    if leftHand.id == Item.parchment then
+        world:erase(leftHand, leftHand.number)
+
+        if burnt or leftHand.number > 1 then
+            plural = true
+        end
+
+        burnt = true
+    end
+
+    local parchmentsEn = plural and "parchments" or "parchment"
+    local parchmentsDe = plural and "die Pergamente" or "das Pergament"
+    local pluralWasWhere = plural and "were" or "was"
+    local pluralWelcheWelchesDe = plural and "welche" or "welches"
+    local pluralBefandenBefandDe = plural and "befanden" or "befand"
+
+    if burnt then
+        user:inform("Du hast die "..german.." verwendet, um "..parchmentsDe.." zu verbrennen, "..pluralWelcheWelchesDe.." sich in deiner Hand "..pluralBefandenBefandDe..".", "You used the "..english.." to burn the "..parchmentsEn.." that "..pluralWasWhere.." in your hands.")
+    else
+        user:inform("In deinen Händen sind keine Pergamente. Hast du sie etwa verloren?", "No parchments were found in your hands. Did you lose them somewhere?")
+    end
+
+end
+
+local function burnParchmentConfirmation(user, german, english, portable, sourceItem)
+    local callback = function(dialog)
+
+        if not dialog:getSuccess() then
+            return
+        end
+
+        local selected = dialog:getSelectedIndex()+1
+
+        if selected == 1 then
+            deleteParchmentsInHands(user, german, english, portable, sourceItem)
+        else
+            return
+        end
+    end
+
+    local dialog = SelectionDialog(common.GetNLS(user,"Bestätigung","Confirmation Check"), common.GetNLS(user,"Bist du sicher, dass du die Pergamente in deinen Händen verbrennen willst? Dies kann nicht rückgängig gemacht werden und wird alle Pergamente in deinen Handplätzen dauerhaft zerstören.", "Are you sure you want to burn the parchment(s) in your hands? This can not be undone and will permanently delete any parchments in your hand slots."), callback)
+    dialog:addOption(0,common.GetNLS(user,"Ja","Yes"))
+    dialog:addOption(0,common.GetNLS(user,"Nein, das ist Kunst.","No, I changed my mind."))
+    dialog:setCloseOnMove()
+    user:requestSelectionDialog(dialog)
+end
+
 function M.UseItem(user, sourceItem)
 
     if not passesCheckForStackSizeAndPosition(user, sourceItem) then
@@ -193,7 +263,16 @@ function M.UseItem(user, sourceItem)
                 "You need "..number.. ReqTexts.english[unlitItem.req.id] .. " in your belt or hands to do that.")
         end
     elseif litItem then
-        common.InformNLS(user,"Du verbrennst dir die Finger beim Versuch, das Feuer zu ersticken.","You burn your fingers while trying to extinguish the flames.")
+        if common.hasItemIdInHand(user, Item.parchment) then
+            local commonItem = world:getItemStatsFromId(sourceItem.id)
+            if litItem.portable and not common.IsItemInHands(sourceItem) then
+                user:inform("Um diese "..commonItem.German.." zum Verbrennen von Pergamenten zu verwenden, musst du sie in der Hand halten.", "To use this "..commonItem.English.." to burn a parchment, you must hold both in your hands.")
+            else
+                burnParchmentConfirmation(user, commonItem.German, commonItem.English, litItem.portable, sourceItem)
+            end
+        else
+            common.InformNLS(user,"Du verbrennst dir die Finger beim Versuch, das Feuer zu ersticken.","You burn your fingers while trying to extinguish the flames.")
+        end
     end
 end
 

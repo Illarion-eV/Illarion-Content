@@ -53,7 +53,8 @@ product:addRemnant(51, 1) -- bucket
 -- bottle of mead
 product = brewing:addProduct(catId, 2497, 1)
 product:addIngredient(2498, 1) -- large empty bottle
-product:addIngredient(2529, 1) -- honeycomb
+product:addIngredient(Item.beeHoney, 1)
+product:addRemnant(Item.emptyHoneyJar, 1)
 product:addIngredient(52, 1) -- bucket of water
 product:addRemnant(51, 1) -- bucket
 
@@ -69,7 +70,7 @@ catId = brewing:addCategory("Juices", "Säfte")
 
 -- bottle of banana juice
 product = brewing:addProduct(catId, 785, 1)
-product:addIngredient(790, 1) -- empty juice bottle
+product:addIngredient(Item.fruitJuiceBottle, 1)
 product:addIngredient(80, 3) -- banana
 product:addIngredient(778, 1) -- sugarcane
 product:addIngredient(52, 1) -- bucket of water
@@ -77,7 +78,7 @@ product:addRemnant(51, 1) -- bucket
 
 -- bottle of grape juice
 product = brewing:addProduct(catId, 791, 1)
-product:addIngredient(790, 1) -- empty juice bottle
+product:addIngredient(Item.fruitJuiceBottle, 1)
 product:addIngredient(388, 3) -- grapes
 product:addIngredient(778, 2) -- sugarcane
 product:addIngredient(52, 1) -- bucket of water
@@ -85,7 +86,7 @@ product:addRemnant(51, 1) -- bucket
 
 -- bottle of cabbage juice
 product = brewing:addProduct(catId, 786, 1)
-product:addIngredient(790, 1) -- empty juice bottle
+product:addIngredient(Item.vegetableJuiceBottle, 1)
 product:addIngredient(290, 3) -- cabbage
 product:addIngredient(778, 1) -- sugarcane
 product:addIngredient(52, 1) -- bucket of water
@@ -93,7 +94,7 @@ product:addRemnant(51, 1) -- bucket
 
 -- bottle of carrot juice
 product = brewing:addProduct(catId, 788, 1)
-product:addIngredient(790, 1) -- empty juice bottle
+product:addIngredient(Item.vegetableJuiceBottle, 1)
 product:addIngredient(2493, 3) -- carrots
 product:addIngredient(778, 1) -- sugarcane
 product:addIngredient(52, 1) -- bucket of water
@@ -101,7 +102,7 @@ product:addRemnant(51, 1) -- bucket
 
 -- bottle of blackberry juice
 product = brewing:addProduct(catId, 783, 1)
-product:addIngredient(790, 1) -- empty juice bottle
+product:addIngredient(790, 1) -- berry juice bottle
 product:addIngredient(147, 5) -- blackberry
 product:addIngredient(778, 2) -- sugarcane
 product:addIngredient(52, 1) -- bucket of water
@@ -109,7 +110,7 @@ product:addRemnant(51, 1) -- bucket
 
 -- bottle of tangerine juice
 product = brewing:addProduct(catId, 784, 1)
-product:addIngredient(790, 1) -- empty juice bottle
+product:addIngredient(Item.fruitJuiceBottle, 1)
 product:addIngredient(199, 5) -- tangerine
 product:addIngredient(778, 2) -- sugarcane
 product:addIngredient(52, 1) -- bucket of water
@@ -117,7 +118,7 @@ product:addRemnant(51, 1) -- bucket
 
 -- bottle of strawberry juice
 product = brewing:addProduct(catId, 789, 1)
-product:addIngredient(790, 1) -- empty juice bottle
+product:addIngredient(790, 1) -- berry juice bottle
 product:addIngredient(151, 5) -- strawberry
 product:addIngredient(778, 2) -- sugarcane
 product:addIngredient(52, 1) -- bucket of water
@@ -125,7 +126,7 @@ product:addRemnant(51, 1) -- bucket
 
 -- bottle of orange juice
 product = brewing:addProduct(catId, 3611, 1)
-product:addIngredient(790, 1) -- empty juice bottle
+product:addIngredient(Item.fruitJuiceBottle, 1)
 product:addIngredient(1207, 5) -- orange
 product:addIngredient(778, 3) -- sugarcane
 product:addIngredient(52, 1) -- bucket of water
@@ -135,7 +136,7 @@ catId = brewing:addCategory("Teas", "Tee")
 
 -- bottle of fir needle tea
 product = brewing:addProduct(catId, 3720, 1)
-product:addIngredient(790, 1) -- empty juice bottle
+product:addIngredient(Item.teaBottle, 1)
 product:addIngredient(149, 3) -- fir tree sprout
 product:addIngredient(778, 1) -- sugarcane
 product:addIngredient(52, 1) -- bucket of water
@@ -143,7 +144,7 @@ product:addRemnant(51, 1) -- bucket
 
 -- bottle of virgins weed tea
 product = brewing:addProduct(catId, 787, 1)
-product:addIngredient(790, 1) -- empty juice bottle
+product:addIngredient(Item.teaBottle, 1)
 product:addIngredient(144, 3) -- virgin's weed
 product:addIngredient(778, 1) -- sugarcane
 product:addIngredient(52, 1) -- bucket of water
@@ -151,7 +152,7 @@ product:addRemnant(51, 1) -- bucket
 
 -- bottle of green tea
 product = brewing:addProduct(catId, 3721, 1)
-product:addIngredient(790, 1) -- empty juice bottle
+product:addIngredient(Item.teaBottle, 1)
 product:addIngredient(157, 3) -- rotten tree bark
 product:addIngredient(778, 2) -- sugarcane
 product:addIngredient(199, 2) -- tangerine
@@ -160,7 +161,7 @@ product:addRemnant(51, 1) -- bucket
 
 -- bottle of druids tea
 product = brewing:addProduct(catId, 3722, 1)
-product:addIngredient(790, 1) -- empty juice bottle
+product:addIngredient(Item.teaBottle, 1)
 product:addIngredient(148, 3) -- firnis blossom
 product:addIngredient(778, 1) -- sugarcane
 product:addIngredient(153, 2) -- foot leaf
@@ -180,7 +181,8 @@ product:addRemnant(51, 1) -- bucket
 -- bottle of bear slayer
 product = brewing:addProduct(catId, 1316, 1)
 product:addIngredient(1317, 1) -- empty liquor bottle
-product:addIngredient(2529, 1) -- honeycomb
+product:addIngredient(Item.beeHoney, 1)
+product:addRemnant(Item.emptyHoneyJar, 1)
 product:addIngredient(159, 1) -- toadstool
 product:addIngredient(15, 1) -- apple
 product:addIngredient(52, 1) -- bucket of water

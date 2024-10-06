@@ -22,11 +22,11 @@ Shards per hour: 22 (Sufficient shards per location for one glyph, maximum stock
 
 local common = require("base.common")
 local globalvar = require("base.globalvar")
-local shard = require("item.shard")
+local shared = require("magic.arcane.enchanting.core.shared")
 
 local M = {}
 
-local dropPositions = {
+local locations = {
     position(263,425,0), --Kantabi River source
     position(382,668,0), --Kantabi Desert - Oasis of Stars
     position(651,681,0), --Sentry Forest - Oldra's Corner
@@ -69,16 +69,16 @@ local dropPositions = {
     position(131,808,0), --Lost Harbour
     position(436,640,1) --Shadowland
 }
-local function doDrop(centerPos, radius)
-    local pos = common.getFreePos(centerPos, radius)
-    shard.createShardOnPosition(pos)
-    world:gfx(globalvar.gfxSUN,pos)
-end
+
 
 function M.dropShard()
-    for i = 1, #dropPositions do
-        doDrop(dropPositions[i], 5)
+
+    for _, drop in pairs(locations) do
+        local pos = common.getFreePos(drop, 5)
+        shared.createShardOnPosition(pos)
+        world:gfx(globalvar.gfxSUN, pos)
     end
+
 end
 
 return M

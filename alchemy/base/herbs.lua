@@ -21,6 +21,7 @@ local common = require("base.common")
 local alchemy = require("alchemy.base.alchemy")
 local licence = require("base.licence")
 local shared = require("craft.base.shared")
+local daear = require("magic.arcane.enchanting.effects.daear")
 
 local M = {}
 
@@ -66,8 +67,7 @@ function M.UseItem(user, SourceItem, ltstate)
            return
         end
 
-        M.BeginnBrewing(user,SourceItem.id,cauldron)
-        world:erase(SourceItem,1)
+        M.BeginnBrewing(user,false, SourceItem,cauldron)
         alchemy.lowerFood(user)
         shared.toolBreaks(user, tool, duration)
     else
@@ -139,7 +139,7 @@ local function PlantInStock(user,plantId,cauldron)
     end
 end
 
-local function BrewingPlant(user,plantId,cauldron)
+local function BrewingPlant(user,plantId,cauldron, saved)
     world:makeSound(10,cauldron.pos)
     if cauldron:getData("filledWith") == "potion" then -- potion in cauldron, failure
         alchemy.CauldronDestruction(user,cauldron,1)
@@ -152,10 +152,12 @@ local function BrewingPlant(user,plantId,cauldron)
         PlantInStock(user,plantId,cauldron)
         user:learn(Character.alchemy, 50/2, 100)
 
-    else -- there is nothing in the cauldron to put the herb in, failure
-        common.InformNLS(user, "Die Pflanze vertrocknet auf dem Boden des heiﬂen Kessels und zerf‰llt zu Asche.",
+    elseif not saved then -- empty cauldron
+        common.InformNLS(user, "Die Pflanze vertrocknet auf dem Boden des heiﬂen Kessels und zerf‰llt zu Asche",
                                     "The plant dries up on the hot bottom of the cauldron and falls to ashes.")
-        world:makeSound(7,cauldron.pos)
+    else
+        common.InformNLS(user, "Als du die Pflanze auf den heiﬂen Boden des Kessels fallen l‰sst, aktiviert sich deine Glyphe gl¸cklicherweise und bewahrt sie davor, zu Asche zu zerfallen.",
+                                    "As you drop the plant on to the hot bottom of the cauldron, your glyph luckily activates to save it from turning into ashes.")
     end
 end
 
@@ -180,7 +182,7 @@ local function FilterStock(user,cauldron)
     end
 end
 
-local function BrewingFilter(user,cauldron)
+local function BrewingFilter(user,cauldron, saved)
     world:makeSound(10,cauldron.pos)
     if cauldron:getData("filledWith") == "potion" then -- potion in cauldron, failure
         alchemy.CauldronDestruction(user,cauldron,1)
@@ -195,18 +197,37 @@ local function BrewingFilter(user,cauldron)
         FilterStock(user,cauldron)
         user:learn(Character.alchemy, 50/2, 100)
 
-    else -- empty cauldron
+    elseif not saved then -- empty cauldron
         common.InformNLS(user, "Die Pflanze vertrocknet auf dem Boden des heiﬂen Kessels und zerf‰llt zu Asche",
                                     "The plant dries up on the hot bottom of the cauldron and falls to ashes.")
+    else
+        common.InformNLS(user, "Als du die Pflanze auf den heiﬂen Boden des Kessels fallen l‰sst, aktiviert sich deine Glyphe gl¸cklicherweise und bewahrt sie davor, zu Asche zu zerfallen.",
+                                    "As you drop the plant on to the hot bottom of the cauldron, your glyph luckily activates to save it from turning into ashes.")
     end
 end
 
-function M.BeginnBrewing(user,plantId,cauldron)
+function M.BeginnBrewing(user,plantId, plantItem, cauldron)
+
+    if plantItem then
+        plantId = plantItem.id
+    end
+
     local isPlant = alchemy.getPlantSubstance(plantId, user)
+
+    local saved = daear.saveResource(user, world:getItemStatsFromId(plantId).Level, 1)
+
+    if not saved then
+        if not plantItem then
+            user:eraseItem(plantId, 1, {})
+        else
+            world:erase(plantItem, 1)
+        end
+    end
+
     if isPlant then
-        BrewingPlant(user,plantId,cauldron)
+        BrewingPlant(user,plantId,cauldron, saved)
     elseif plantId == 157 then
-        BrewingFilter(user,cauldron)
+        BrewingFilter(user,cauldron, saved)
     end
 end
 

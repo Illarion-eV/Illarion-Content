@@ -23,6 +23,8 @@ local doors = require("base.doors")
 local factions = require("base.factions")
 local lookat = require("base.lookat")
 local money = require("base.money")
+local housingUtility = require("housing.utility")
+
 
 local M = {}
 
@@ -94,7 +96,7 @@ local function getDoor(user)
 
     local targetItem = common.GetFrontItem(user)
     if targetItem ~= nil and (doors.CheckClosedDoor(targetItem.id) or doors.CheckOpenDoor(targetItem.id)) then
-        return targetItem
+        return targetItem, true
     end
 
     local Radius = 1
@@ -104,6 +106,37 @@ local function getDoor(user)
             if (world:isItemOnField(targetPos)) then
                 targetItem = world:getItemOnField(targetPos)
                 if targetItem ~= nil and (doors.CheckClosedDoor(targetItem.id) or doors.CheckOpenDoor(targetItem.id)) then
+                    return targetItem
+                end
+            end
+        end
+    end
+    return nil
+end
+
+local function getStair(user)
+
+    local targetItem = common.GetFrontItem(user)
+
+    if targetItem ~= nil and targetItem.id == 4339 and not common.IsNilOrEmpty(targetItem:getData("lockId")) then
+        return targetItem, true
+    end
+
+    if targetItem ~= nil and housingUtility.doorIsAStair(targetItem.id) then
+        return targetItem, true
+    end
+
+    local Radius = 1
+    for x = -Radius ,Radius do
+        for y = -Radius, Radius do
+            local targetPos = position(user.pos.x + x, user.pos.y + y, user.pos.z)
+            if (world:isItemOnField(targetPos)) then
+                targetItem = world:getItemOnField(targetPos)
+
+                if targetItem ~= nil and targetItem.id == 4339 and not common.IsNilOrEmpty(targetItem:getData("lockId")) then
+                    return targetItem
+                end
+                if targetItem ~= nil and housingUtility.doorIsAStair(targetItem.id) then
                     return targetItem
                 end
             end
@@ -148,18 +181,36 @@ function M.UseItem(user, SourceItem)
         end
     end
 
-    local doorItem = getDoor(user)
-    if not doorItem then
-        return
+    local doorItem, doorIsFrontItem = getDoor(user)
+
+    local stairItem, stairIsFrontItem = getStair(user)
+
+    if doorItem and doorIsFrontItem then --prioritise the item that is in front of the user
+        common.TurnTo(user, doorItem.pos)
+    elseif stairItem and stairIsFrontItem then  --prioritise the item that is in front of the user
+        common.TurnTo(user, stairItem.pos)
+    elseif doorItem then  -- checks for doors first if none was in front of the user
+        common.TurnTo(user, doorItem.pos)
+    elseif stairItem then -- Then checks for nearby stairs
+        common.TurnTo(user, stairItem.pos)
     end
 
-    common.TurnTo(user, doorItem.pos)
-    if keys.CheckKey(SourceItem, doorItem, user) then
-        if keys.LockDoor(doorItem) then
+    if doorItem and not stairIsFrontItem and keys.CheckKey(SourceItem, doorItem, user) then
+
+        if keys.LockDoor(doorItem, user) then
             common.InformNLS(user,"Du sperrst die Tür ab.","You lock the door.")
-        elseif keys.UnlockDoor(doorItem) then
+        elseif keys.UnlockDoor(doorItem, user) then
             common.InformNLS(user,"Du sperrst die Tür auf.","You unlock the door.")
         end
+
+    elseif stairItem and keys.CheckKey(SourceItem, stairItem, user) then
+
+        if keys.UnlockStairs(stairItem, user) then
+            common.InformNLS(user, "Nun kann man die Treppe wieder benutzen, da die Falltür weiter oben geöffnet ist.", "You make it possible to climb the stair again by unlocking the trap door above.")
+        elseif keys.LockStairs(user, stairItem) then
+            common.InformNLS(user, "Du verschließt die Falltür oberhalb der Treppe.", "You lock the trapdoors above the stairs.")
+        end
+
     else
         common.InformNLS(user,"Der Schlüssel passt hier nicht.","The key doesn't fit here.")
     end

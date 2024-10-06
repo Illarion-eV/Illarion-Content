@@ -19,10 +19,12 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local gems = require("base.gems")
 local money = require("base.money")
-local glyphs = require("base.glyphs")
+local glyphs = require("magic.arcane.enchanting.core.shared")
 local mining = require("craft.gathering.mining")
 local silkcutting = require("craft.gathering.silkcutting")
 local fishing = require("craft.gathering.fishing")
+local egggathering = require("craft.gathering.egggathering")
+local honeygathering = require("craft.gathering.honeygathering")
 
 local M = {}
 
@@ -95,6 +97,8 @@ local gatheringLists = {
     {list = mining.oreList, skill = mining.skill, type = {english = "Vein", german = "Ader"}},
     {list = silkcutting.silkList, skill = silkcutting.skill, type = {english = "Butterflies", german = "Schmetterlinge"}},
     {list = fishing.fishList, skill = fishing.skill, type = {english = "Shoal", german = "Schwarm"}},
+    {list = honeygathering.hiveList, skill = honeygathering.skill, type = {english = "Hive", german = "Bienenstock"}},
+    {list = egggathering.nestList, skill = egggathering.skill, type = {english = "Nest", german = "Nest"}}
 }
 
 for _, gatheringList in pairs(gatheringLists) do
@@ -196,11 +200,11 @@ function M.GenerateLookAt(user, item, material)
     if isGerman then
         defaultDescription = itemCommon.GermanDescription
         usedDescription = item:getData("descriptionDe")
-        addDescription = glyphs.lookatGlyph(item,Player.german)
+        addDescription = glyphs.lookatGlyphedItem(item, Player.german)
     else
         defaultDescription = itemCommon.EnglishDescription
         usedDescription = item:getData("descriptionEn")
-        addDescription = glyphs.lookatGlyph(item,Player.english)
+        addDescription = glyphs.lookatGlyphedItem(item, Player.english)
     end
 
     if common.IsNilOrEmpty(usedDescription) then

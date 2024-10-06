@@ -24,11 +24,12 @@ local factions = require("base.factions")
 local monsterHooks = require("monster.base.hooks")
 local explosion = require("base.explosion")
 local areas = require("content.areas")
-local shard = require("item.shard")
+local shared = require("magic.arcane.enchanting.core.shared")
 local gods = require("content.gods")
 local resurrected = require("lte.resurrected")
 local persistenceTracker = require("gm.persistenceTracker")
 local activityTracker = require("lte.activity_tracker")
+local housing = require("housing.propertyList")
 
 local M = {}
 
@@ -39,7 +40,7 @@ local itemPos = {"Head","Neck","Breast","Hands","Left Tool","Right Tool",
     "Belt 2","Belt 3","Belt 4","Belt 5","Belt 6"}
 itemPos[0] = "Backpack"
 
-local SubLocation={"Cadomyr","Galmair","Runewick","Wilderness","Dungeons"}
+local SubLocation={"Cadomyr","Galmair","Runewick","Wilderness","Dungeons", "Housing"}
 local Location={}
 Location[1]={"Player","","X","Y","Z"}
 Location[2]={"GM Castle","",254,105,0}
@@ -79,6 +80,20 @@ Location[35]={"Salavesh","Dungeons",670,410,0}
 Location[36]={"Spider Dungeon","Dungeons",854,414,0}
 Location[37]={"Viridian Needles lair","Dungeons",522,205,0}
 Location[38]={"Northern Islands","Wilderness",365,50,0}
+
+
+
+for _, house in pairs(housing.propertyTable) do
+
+    if house[1] == "Pauldron Estate" then
+
+        table.insert(Location, {house[1], "Housing", 962, 352, 0})
+
+    else
+        table.insert(Location, {house[1], "Housing", house[3].x, house[3].y, house[3].z})
+    end
+
+end
 
 local maxuserLocation = 6
 local maxActionOnChar = 6
@@ -120,7 +135,7 @@ local skillNames = {
     Character.wandMagic,
     Character.woodcutting,
     Character.wrestling,
-    Character.enchantingOfJewels
+    Character.enchanting
 }
 local attributeNames={
     "agility",
@@ -353,7 +368,7 @@ local function ambientActionShardShower(targetChar)
     local centerPos = targetChar.pos
     for i=1, shardNumber do
         local pos = common.getFreePos(centerPos, radius)
-        shard.createShardOnPosition(pos)
+        shared.createShardOnPosition(pos)
         world:gfx(globalvar.gfxSUN,pos)
     end
 end
@@ -472,9 +487,44 @@ local function setuserTeleporter(user,Item)
     user:requestSelectionDialog(sdTeleport)
 end
 
+local function summon(user, sourceItem)
+
+    local listedPlayers = {}
+
+    local onlinePlayers = world:getPlayersOnline()
+
+    local callback = function (dialog)
+
+        if (not dialog:getSuccess()) then
+            return
+        end
+
+        local playerToSummon = listedPlayers[dialog:getSelectedIndex() + 1]
+
+        if isValidChar(playerToSummon) then
+            playerToSummon:warp(position(user.pos.x, user.pos.y, user.pos.z))
+        else
+            user:inform("This character is not online anymore.")
+        end
+    end
+
+    local dialog = SelectionDialog("Summon", "Choose the player you wish to summon to your present location", callback)
+
+    for _, player in ipairs (onlinePlayers) do
+        if player.id ~= user.id then
+            dialog:addOption(0, player.name)
+            table.insert(listedPlayers, player)
+        end
+    end
+
+    user:requestSelectionDialog(dialog)
+
+end
+
 local function teleporter(user,item)
     local validTarget = {}
     local validCharPos = {}
+    local validSubTarget = {}
 
     local cbChooseLocation = function (dialog)
         if (not dialog:getSuccess()) then
@@ -511,14 +561,14 @@ local function teleporter(user,item)
                     return
                 end
                 local indexSubTarget = subdialog:getSelectedIndex() + 1
-                user:warp(position(validTarget[indexSubTarget][1], validTarget[indexSubTarget][2], validTarget[indexSubTarget][3]))
+                user:warp(position(validSubTarget[indexSubTarget][1], validSubTarget[indexSubTarget][2], validSubTarget[indexSubTarget][3]))
             end
             local sdSubTeleport = SelectionDialog("Teleporter.", "Choose a destination:", cbChooseSubLocation)
             local optionSubId = 1
             for i = 1, #(Location) do
                 if Location[i][2] == SubLocation[validTarget[index][4]] then
                     sdSubTeleport:addOption(0, Location[i][1] .. " (" .. Location[i][3]..", "..Location[i][4]..", "..Location[i][5] .. ")")
-                    validTarget[optionSubId] = {Location[i][3],Location[i][4],Location[i][5],0}
+                    validSubTarget[optionSubId] = {Location[i][3],Location[i][4],Location[i][5],0}
                     optionSubId = optionSubId+1
                 end
             end
@@ -540,17 +590,7 @@ local function teleporter(user,item)
         validTarget[optionId] = {0,0,0,i}
         optionId = optionId+1
     end
-    for i = 1, maxuserLocation do
-        local locationParameter = item:getData("gmLocation" .. tostring(i))
-        if not common.IsNilOrEmpty(locationParameter) then
-            if (string.find(locationParameter,"(%d+),(%d+),([%-]?%d+),(%S+)") ~= nil) then
-                local _, _, xValue, yValue, zValue, targetName = string.find(locationParameter,"(%d+),(%d+),([%-]?%d+),([%S ]+)")
-                sdTeleport:addOption(0, targetName .. " (" .. tostring(xValue)..",".. tostring(yValue)..",".. tostring(zValue)..")")
-                validTarget[optionId] = {tonumber(xValue), tonumber(yValue), tonumber(zValue),0}
-                optionId = optionId+1
-            end
-        end
-    end
+
     user:requestSelectionDialog(sdTeleport)
 end
 
@@ -1557,8 +1597,9 @@ local function viewActivityForPlayer(user, chosenPlayer)
     local currentMonth = common.getTime("month")
     local activityTrackerID = 84
     local found, tracker = chosenPlayer.effects:find(activityTrackerID)
+    local totalTicks = 0
 
-    for i = 1, 15 do --check each month
+    for i = 1, 16 do --check each month
 
         local monthInString = common.Month_To_String(i)
 
@@ -1573,8 +1614,12 @@ local function viewActivityForPlayer(user, chosenPlayer)
             end
         end
 
+        totalTicks = totalTicks + activeTicks
+
         textToList = textToList.."Month "..monthInString..": "..tostring(activeTicks*5).." minutes.\n"
     end
+
+    textToList = textToList.."\n Total activity over the past IG year: "..tostring(totalTicks*5).." minutes."
 
     local interactionTicks = chosenPlayer:getQuestProgress(activityTracker.reputationTrackerQuestID)
 
@@ -1787,7 +1832,7 @@ function M.UseItem(user, SourceItem, ltstate)
     user:increaseAttrib("foodlevel", 100000)
 
     -- First check for mode change
-    local modes = {"Eraser", "Teleport", "Instant kill/ revive", "Char Settings", "Global events", "Events on single char", "Events on groups", "Faction info of chars in radius", "Quest events","Define Teleporter Targets","Define events on single char","Define events on groups","Test area","Reset tutorial","Persistence"}
+    local modes = {"Eraser", "Teleport", "Summon", "Instant kill/ revive", "Char Settings", "Global events", "Events on single char", "Events on groups", "Faction info of chars in radius", "Quest events","Define Teleporter Targets","Define events on single char","Define events on groups","Test area","Reset tutorial","Persistence"}
     local cbSetMode = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -1798,30 +1843,32 @@ function M.UseItem(user, SourceItem, ltstate)
         elseif index == 2 then
             teleporter(user, SourceItem)
         elseif index == 3 then
-            godMode(user, SourceItem, ltstate)
+            summon(user, SourceItem)
         elseif index == 4 then
-            settingsForChar(user)
+            godMode(user, SourceItem, ltstate)
         elseif index == 5 then
-            ambientAction(user)
+            settingsForChar(user)
         elseif index == 6 then
-            actionOnChar(user, SourceItem)
+            ambientAction(user)
         elseif index == 7 then
-            actionOnGroup(user, SourceItem)
+            actionOnChar(user, SourceItem)
         elseif index == 8 then
-            factionInfoOfCharsInRadius(user, SourceItem, ltstate)
+            actionOnGroup(user, SourceItem)
         elseif index == 9 then
-            questEvents(user, SourceItem, ltstate)
+            factionInfoOfCharsInRadius(user, SourceItem, ltstate)
         elseif index == 10 then
-            setuserTeleporter(user, SourceItem)
+            questEvents(user, SourceItem, ltstate)
         elseif index == 11 then
-            setuserActionOnChar(user, SourceItem)
+            setuserTeleporter(user, SourceItem)
         elseif index == 12 then
-            setuserActionOnGroup(user, SourceItem)
+            setuserActionOnChar(user, SourceItem)
         elseif index == 13 then
-            testArea(user)
+            setuserActionOnGroup(user, SourceItem)
         elseif index == 14 then
-            resetTutorial(user)
+            testArea(user)
         elseif index == 15 then
+            resetTutorial(user)
+        elseif index == 16 then
             changePersistence(user)
         end
     end

@@ -490,40 +490,40 @@ catId = tailoring:addCategory("Helmets", "Helme")
 product = tailoring:addProduct(catId, 1416, 1)
 product:addIngredient(50, 2) -- thread
 product:addIngredient(2547, 2) -- leather
-product:addIngredient(333, 2) -- horn
+product:addIngredient(4364, 2) -- horn
 
 -- horned helmet
 product = tailoring:addProduct(catId, 7, 1)
 product:addIngredient(50, 3) -- thread
 product:addIngredient(2547, 2) -- leather
-product:addIngredient(333, 2) -- horn
+product:addIngredient(4364, 2) -- horn
 
 -- coppered horned helmet
 product = tailoring:addProduct(catId, 1417, 1)
 product:addIngredient(50, 3) -- thread
 product:addIngredient(2547, 2) -- leather
-product:addIngredient(333, 2) -- horn
+product:addIngredient(4364, 2) -- horn
 product:addIngredient(2550, 1) -- copper ingot
 
 -- silvered horned helmet
 product = tailoring:addProduct(catId, 1418, 1)
 product:addIngredient(50, 4) -- thread
 product:addIngredient(2547, 3) -- leather
-product:addIngredient(333, 2) -- horn
+product:addIngredient(4364, 2) -- horn
 product:addIngredient(104, 1) -- silver ingot
 
 -- gilded horned helmet
 product = tailoring:addProduct(catId, 1419, 1)
 product:addIngredient(50, 5) -- thread
 product:addIngredient(2547, 4) -- leather
-product:addIngredient(333, 2) -- horn
+product:addIngredient(4364, 2) -- horn
 product:addIngredient(236, 1) -- gold ingot
 
 -- bull horned helmet
 product = tailoring:addProduct(catId, 1420, 1)
 product:addIngredient(50, 5) -- thread
 product:addIngredient(2547, 4) -- leather
-product:addIngredient(333, 2) -- horn
+product:addIngredient(4364, 2) -- horn
 product:addIngredient(2586, 1) -- fur
 product:addIngredient(45, 1) -- emerald
 
@@ -531,7 +531,7 @@ product:addIngredient(45, 1) -- emerald
 product = tailoring:addProduct(catId, 1421, 1)
 product:addIngredient(50, 5) -- thread
 product:addIngredient(2547, 4) -- leather
-product:addIngredient(333, 2) -- horn
+product:addIngredient(4364, 2) -- horn
 product:addIngredient(2586, 1) -- fur
 product:addIngredient(3787, 1) -- silk
 
@@ -539,7 +539,7 @@ product:addIngredient(3787, 1) -- silk
 product = tailoring:addProduct(catId, 1422, 1)
 product:addIngredient(50, 6) -- thread
 product:addIngredient(2547, 5) -- leather
-product:addIngredient(333, 2) -- horn
+product:addIngredient(4364, 2) -- horn
 product:addIngredient(2586, 1) -- fur
 product:addIngredient(3787, 1) -- silk
 
@@ -547,7 +547,7 @@ product:addIngredient(3787, 1) -- silk
 product = tailoring:addProduct(catId, 1423, 1)
 product:addIngredient(50, 7) -- thread
 product:addIngredient(2547, 5) -- leather
-product:addIngredient(333, 2) -- horn
+product:addIngredient(4364, 2) -- horn
 product:addIngredient(2586, 1) -- fur
 product:addIngredient(3787, 1) -- silk
 product:addIngredient(2571, 1) -- merinium ingot
@@ -556,7 +556,7 @@ product:addIngredient(2571, 1) -- merinium ingot
 product = tailoring:addProduct(catId, 1424, 1)
 product:addIngredient(50, 8) -- thread
 product:addIngredient(2547, 6) -- leather
-product:addIngredient(333, 2) -- horn
+product:addIngredient(4364, 2) -- horn
 product:addIngredient(2586, 1) -- fur
 product:addIngredient(3787, 1) -- silk
 product:addIngredient(2553, 1) -- pure fire

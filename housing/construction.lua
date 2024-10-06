@@ -21,6 +21,7 @@ local lookat = require("base.lookat")
 local itemList = require("housing.itemList")
 local gems = require("base.gems")
 local utility = require("housing.utility")
+local daear = require("magic.arcane.enchanting.effects.daear")
 
 local M = {}
 
@@ -36,20 +37,32 @@ local function loadIngredients(object)
         local ingredient = object["ingredient" .. i]
         local amount = object["ingredient".. i .. "Amount"]
         if ingredient then
+
+            -- Ingredient gets loaded
             table.insert(ingredients,{id = ingredient, quantity = amount, data = {}})
-            if ingredient == Item.bucketOfWater then
-                table.insert(remnants, {id = Item.bucket, quantity = 1, data = {}})
+
+            -- Now all there's left to do is to handle the remnants
+            local bucketItems = { Item.bucketOfWater, Item.blackDye, Item.greenDye, Item.blueDye, Item.redDye, Item.yellowDye, Item.whiteDye}
+
+            for _, bucketItem in pairs(bucketItems) do
+                if ingredient == bucketItem then
+                    table.insert(remnants, {id = Item.bucket, quantity = amount, data = {}})
+                end
+            end
+
+            if ingredient == Item.bottleOfInk then
+                table.insert(remnants, {id = Item.emptyInkBottle, quantity = amount, data = {}})
             end
         end
     end
     return ingredients, remnants
 end
 
-local function showObject(user, object, category, skill, carpentryEstateCatalogue)
+local function showObject(user, object, category, skill, overloaded)
 
-    if carpentryEstateCatalogue ~= nil
-        and ((carpentryEstateCatalogue and object.typeOf ~= "Estate")
-        or (not carpentryEstateCatalogue and object.typeOf == "Estate"))
+    if overloaded ~= nil
+        and ((overloaded and object.typeOf ~= "Estate")
+        or (not overloaded and object.typeOf == "Estate"))
         then return false
     end
 
@@ -62,8 +75,8 @@ local function showObject(user, object, category, skill, carpentryEstateCatalogu
     return false
 end
 
-local function loadObjects(user, products, index, object, category, skill, carpentryEstateCatalogue)
-    if showObject(user, object, category, skill, carpentryEstateCatalogue) then
+local function loadObjects(user, products, index, object, category, skill, overloaded)
+    if showObject(user, object, category, skill, overloaded) then
         local ingredients, remnants = loadIngredients(object)
         local id, tile
         if object.itemId then
@@ -80,7 +93,7 @@ local function loadObjects(user, products, index, object, category, skill, carpe
     return false
 end
 
-local function loadProducts(user, categories, skill, carpentryEstateCatalogue)
+local function loadProducts(user, categories, skill, overloaded)
     local products = {}
     for index, category in ipairs(categories) do
         local theList = itemList.items
@@ -89,7 +102,7 @@ local function loadProducts(user, categories, skill, carpentryEstateCatalogue)
         end
 
         for _, object in ipairs(theList) do
-            if loadObjects(user, products, index, object, category, skill, carpentryEstateCatalogue) then
+            if loadObjects(user, products, index, object, category, skill, overloaded) then
                 category.productAmount = category.productAmount + 1
             end
         end
@@ -340,9 +353,38 @@ local function generateQuality(user, trowel, skill)
 
 end
 
+local function getTotalQuantity(product)
+
+    local retval = 0
+
+    for _, ingredient in pairs(product.ingredients) do
+        retval = retval + ingredient.quantity
+    end
+
+    return retval
+end
+
 local function eraseIngredients(user, product)
-    for _, ingredient in ipairs(product.ingredients) do
-        user:eraseItem(ingredient.id, ingredient.quantity, ingredient.data)
+
+    local ingredientSaved = false
+
+    for index, ingredient in ipairs(product.ingredients) do
+
+        local save = 0
+
+        if not ingredientSaved and (math.random() <= 1/#product.ingredients or index == #product.ingredients) then
+            local commonItem = world:getItemStatsFromId(ingredient.id)
+            local saveIngredient = daear.saveResource(user, commonItem.Level, getTotalQuantity(product), ingredient.quantity)
+            if saveIngredient then
+                ingredientSaved = true
+                save = math.ceil(ingredient.quantity/5) --possible to save up to 1 resource per 5 required of it. EG if a recipe requires 46-50 pins, you get 10 instead of just 1 in return.
+            end
+        end
+
+        if save < ingredient.quantity then
+            user:eraseItem(ingredient.id, ingredient.quantity - save, ingredient.data)
+        end
+
     end
 end
 
@@ -389,7 +431,7 @@ local function createItem(user, product, trowel, skill)
             else
                 user:inform("Du bist nicht dazu berechtigt, hier zu bauen.","You do not have permission to build there.")
             end
-        elseif utility.checkIfPlantOrTree(user, product.id) then
+        elseif utility.checkIfPlantOrTree(product.id) then
             if utility.checkIfGardeningCriteriaMet(user, product.id) then
                 eraseIngredients(user, product)
                 world:createItemFromId(product.id, product.quantity, target, true, quality, nil)
@@ -405,7 +447,7 @@ local function createItem(user, product, trowel, skill)
     end
 
     for _, remnant in ipairs(product.remnants) do
-       common.CreateItem(user, remnant.item, remnant.quantity, 333, remnant.data)
+       common.CreateItem(user, remnant.id, remnant.quantity, 333, remnant.data)
     end
 end
 
@@ -479,7 +521,7 @@ local function multiSkillsThatAreCountedAsOne(user, skill, productLevel, hasSkil
 
 end
 
-function M.showDialog(user, skillName, carpentryEstateCatalogue)
+function M.showDialog(user, skillName, overloaded)
 
     local skill = {}
     skill.level = loadSkill(user, skillName)
@@ -487,7 +529,7 @@ function M.showDialog(user, skillName, carpentryEstateCatalogue)
 
     local categories = loadCategories(user, skill)
 
-    local products = loadProducts(user, categories, skill, carpentryEstateCatalogue)
+    local products = loadProducts(user, categories, skill, overloaded)
 
     if not utility.allowBuilding(user) then
         return
@@ -524,6 +566,20 @@ function M.showDialog(user, skillName, carpentryEstateCatalogue)
                 if not hasSkillLevel then
                     common.HighInformNLS(user, "Hierfür benötigst du Level "..product.level.." in "..languageAppropriateSkillName..". Oder du fragst jemanden, der sich damit besser auskennt als du.", "You need level "..product.level.." in "..languageAppropriateSkillName.." to do that. You could always seek out someone else to do it for you.")
                     return false
+                end
+            end
+
+            if utility.checkIfPlantOrTree(product.id) then
+                if not utility.checkIfGardeningCriteriaMet(user, product.id) then
+                    canWork = false
+                    user:inform("Das kannst du hier nicht pflanzen.","You can't plant this here.")
+                end
+            end
+
+            if utility.checkIfBasementExclusive(product.id) then
+                if not (user.pos.z < 0) then
+                    canWork = false
+                    user:inform("Du kannst keine Kellergeschosselemente überirdisch bauen.", "You can't build basement exclusive items above ground.")
                 end
             end
 

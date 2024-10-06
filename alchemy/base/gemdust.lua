@@ -21,6 +21,7 @@ local common = require("base.common")
 local alchemy = require("alchemy.base.alchemy")
 local licence = require("base.licence")
 local shared = require("craft.base.shared")
+local daear = require("magic.arcane.enchanting.effects.daear")
 
 local M = {}
 
@@ -66,8 +67,7 @@ function M.UseItem(user, SourceItem, ltstate)
            return
         end
 
-        M.BrewingGemDust(user,SourceItem.id,cauldron)
-        world:erase(SourceItem,1)
+        M.BrewingGemDust(user,false, SourceItem,cauldron)
         alchemy.lowerFood(user)
         shared.toolBreaks(user, tool, worktime)
     else
@@ -116,7 +116,22 @@ local function GemDustInWater(user,cauldron,gemDustId)
 
 end
 
-function M.BrewingGemDust(user,gemDustId,cauldron)
+function M.BrewingGemDust(user,gemDustId, gemDust, cauldron)
+
+    if gemDust then
+        gemDustId = gemDust.id
+    end
+
+    local saved = daear.saveResource(user, world:getItemStatsFromId(gemDustId).Level, 1)
+
+    if not saved then
+
+        if gemDust then
+            world:erase(gemDust, 1)
+        else
+            user:eraseItem(gemDustId,1,{})
+        end
+    end
 
     if cauldron:getData("filledWith")=="potion" then -- potion in cauldron, failure
         alchemy.CauldronDestruction(user,cauldron,2)
@@ -132,10 +147,15 @@ function M.BrewingGemDust(user,gemDustId,cauldron)
         GemDustInWater(user,cauldron,gemDustId)
         user:learn(Character.alchemy, 50/2, 100)
 
-    else -- nothing in the cauldron
-        common.InformNLS(user, "Der Edelsteinstaub verflüchtigt sich, als du ihn in den leeren Kessel schüttest.",
+    elseif not saved then -- nothing in the cauldron and not saved
+        common.InformNLS(user, "Der Edelsteinstaub verdampft sich, als du ihn in den leeren Kessel schüttest.",
                                     "The gem dust dissipates, as you fill it into the empty cauldron.")
+    else    --nothing in the cauldron but was saved by glyph effect
+        common.InformNLS(user, "Während du den Edelsteinstaub in den leeren Kessel füllst, aktiviert sich deine Glyphe und bewahrt ihn vor dem Verdampfen.",
+                                    "As you fill the gem dust into the empty cauldron, your glyph luckily activates to save it from dissipating.")
     end
+
+
 end
 
 return M

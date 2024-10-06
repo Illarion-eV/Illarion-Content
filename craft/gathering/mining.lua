@@ -46,6 +46,7 @@ Warp position: -469, -490, -40
 local common = require("base.common")
 local shared = require("craft.base.shared")
 local gathering = require("craft.base.gathering")
+local gwynt = require("magic.arcane.enchanting.effects.gwynt")
 
 local M = {}
 
@@ -108,7 +109,11 @@ local function gotGem(user, sourceItem)
                 end
             cumulatedChance = cumulatedChance + chance
             if rand <= cumulatedChance then
-                common.CreateItem(user, gems.id, 1, 333, nil)
+                local amount = 1
+                if gwynt.includeExtraResource(user, gems.level) then
+                    amount = 2
+                end
+                common.CreateItem(user, gems.id, amount, 333, nil)
                 return true
             end
         end
@@ -176,9 +181,7 @@ function M.StartGathering(user, sourceItem, ltstate)
 
     user:learn( mining.LeadSkill, mining.SavedWorkTime[user.id], mining.LearnLimit)
 
-    if mining:FindRandomItem(user) then
-        return
-    end
+    mining:FindRandomItem(user)
 
     local created
 
