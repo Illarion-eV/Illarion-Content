@@ -1,0 +1,224 @@
+-- Illarion Server
+-- 
+-- This program is free software: you can redistribute it and/or modify it under
+-- the terms of the GNU Affero General Public License as published by the Free
+-- Software Foundation, either version 3 of the License, or (at your option) any
+-- later version.
+-- 
+-- This program is distributed in the hope that it will be useful, but WITHOUT
+-- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+-- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+-- details.
+-- 
+-- You should have received a copy of the GNU Affero General Public License
+-- along with this program.  If not, see <http://www.gnu.org/licenses/>.
+------------------------------------------------------------------------------AC
+-- NPC Name: Aelfinn                                                    None  --
+-- NPC Job:  Ranger                                                           --
+--                                                                            --
+-- NPC Race: Elf                        NPC Position:  353, 532, 0            --
+-- NPC Sex:  male                       NPC Direction: south                  --
+--                                                                            --
+-- Author:   Dantagon                                                         --
+--                                                     easyNPC Parser v1.23.1 --
+--------------------------------------------------------------------------------
+
+name = "Aelfinn"
+race = elf
+sex = male
+position = 353,532,0
+direction = south
+affiliation = "None"
+job = "Ranger"
+
+language = common
+language = elf
+defaultLanguage = common
+autointroduce = on
+
+author = "Dantagon"
+
+lookatDE = "Dieser NPC ist Aelfinn der Ranger."
+lookatUS  = "This NPC is Aelfinn the ranger."
+useMsgDE = "Fasst mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut verwirrt."
+wrongLangUS = "#me looks around confused."
+radius = 0
+hairID = 2
+beardID = 5
+colorHair = 123, 62, 9
+colorSkin = 245, 180, 137
+itemHead = 0
+itemChest = 362
+itemCoat = 2416
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 1458
+itemTrousers = 2113
+itemShoes = 1505
+
+------------------------------------------------------------------------------AC
+
+-- Template Version 1.13, 04/02/2015 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Order of triggers: Triggers are checked from top to bottom in the script. Never use very general triggers like "hi" or even ".*" on top of the script unless you know exactly what you are doing.
+-- Style of triggers: Keywords are preferred. Avoid usage of phrases such as "tell me more"
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change anything your NPC will wear a blue shirt, black trousers, leather gloves and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- A helpful list of colours can be found here: http://www.wackerart.de/rgbfarben.html
+-- Equipment: You can find a graphical item list here: http://illarion.org/~martin/itemlist.pdf
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly
+-- After uploading, your NPC needs to be submitted to the database and a developer has to perform a full reload (!fr) of the server
+
+-- MANDATORY TRIGGERS
+-- Quest Number: 515
+
+-- Mandatory: Help
+"Help" -> inform("[Game Help] This NPC is Aelfinn the Ranger. Keywords: hello, quest, Milly, job, cult.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Aelfinn der Ranger. Schlüsselwörter: hallo, quest, Milly, job, kult.")
+
+-- Mandatory: General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Oh thank the gods! I need your help!", "I really don't have time for small talk right now."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Oh danke den Göttern! Ich brauche deine Hilfe!", "Ich habe jetzt wirklich keine Zeit für Small Talk."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Oh thank the gods! I need your help!", "I really don't have time for small talk right now."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Oh danke den Göttern! Ich brauche deine Hilfe!", "Ich habe jetzt wirklich keine Zeit für Small Talk."
+"Farewell", "Bye", "Fare well", "See you" -> "No! Don't go! I need your help!"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Nein! Geh nicht! Ich brauche deine Hilfe!"
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "No! Don't go! I need your help!"
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Nein! Geh nicht! Ich brauche deine Hilfe!"
+"How are you", "How feel", "How do you do" -> "How am I?! They have taken my Milly! How do you think I am?!", "This isn't the time for social niceties. I need your help!"
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Wie es mir geht?! Sie haben meine Milly genommen! Was denkst du, wie es mir geht?!", "Dies ist nicht die Zeit für Mitleid. Ich brauche deine Hilfe!"
+"your name", "who are you", "who art thou" -> "I am Aelfinn! I need your help!", "This really isn't the best time for introductions."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Aelfinn! Ich brauche deine Hilfe!", "Das ist wirklich nicht die beste Zeit unverbindliche Vorstellungen."
+
+-- Mandatory: Trade Hooks, use the trade consequence for traders
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I don't have time for such nonsense.", "If you're so set on finding a merchant, go back to Cadomyr!"
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich habe keine Zeit für solchen Unsinn.", "Wenn du auf der Suche nach einem Händler bist, gehe zurück nach Cadomyr!", "Hier draußen wirst du keine Händler finden. Versuch es in der Stadt."
+
+-- Mandatory: Catching quest triggers. Modify if the NPC does quests
+
+-- Quest 1: Find Entrance to Dungeon
+queststatus(515) = 0, english, "quest", "mission" -> inform("[New Quest] Rescue Milly"), queststatus(515) = 1, "Milly and I were searching for rare desert herbs. We were attacked by orcs who carried her off! I tracked them this far, but I can't find an entrance. It's in the encampment north of here. Go see if you can find it and come back to me."
+queststatus(515) = 0, "quest", "mission" -> inform("[Neuer Quest] Rette Milly!"), queststatus(515) = 1, "Milly und ich suchten nach seltenen Wüstenkräutern. Orks griffen uns an und entführten sie. Ich habe Sie verfolgt, aber ich kann die Höhle nicht finden. Sie müsste beim Lager nördlich von hier sein. Geh, sieh nach ob du ihn findest, komme dann zurück zu mir."
+queststatus(515) = 0, english, "task", "adventure", "order" -> inform("[New Quest] Rescue Milly"), queststatus(515) = 1, "Milly and I were searching for rare desert herbs. We were attacked by orcs who carried her off! I tracked them this far, but I can't find an entrance. It's in the encampment north of here. Go see if you can find it and come back to me."
+queststatus(515) = 0 ,"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neuer Quest] Rette Milly!"), queststatus(515) = 1, "Milly und ich suchten nach seltenen Wüstenkräutern. Orks griffen uns an und entführten sie. Ich habe Sie verfolgt, aber ich kann die Höhle nicht finden. Sie müsste beim Lager nördlich von hier sein. Geh, sieh nach ob du ihn findest, komme dann zurück zu mir."
+
+-- Entrance not found
+queststatus(515) = 1, english, "quest", "mission" -> "Have you found the way in yet? I have seen them going in and out of the cave on the eastern side of the camp. There is a pair of columns. I think one of them is the key to getting in."
+queststatus(515) = 1, "quest", "mission" -> "Hast du schon den Weg hinein gefunden? Ich have gesehen wie sie in eine Höhle auf der östlichen Seite des Lagers verschwinden. Dort gibt es ein paar Säulen. Ich denke eine von ihnen ist der Schlüssel."
+queststatus(515) = 1, english, "task", "adventure", "order" -> "Have you found the way in yet? I have seen them going in and out of the cave on the eastern side of the camp. There is a pair of columns. I think one of them is the key to getting in."
+queststatus(515) = 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Hast du schon den Weg hinein gefunden? Ich have gesehen wie sie in eine Höhle auf der östlichen Seite des Lagers verschwinden. Dort gibt es ein paar Säulen. Ich denke eine von ihnen ist der Schlüssel."
+
+-- Entrance found, reward 30 silver
+queststatus(515) = 2, english, ".+" -> inform("[Quest Solved] You have been awarded 30 Silver Coins."), money + 3000, queststatus(515)=3, "You found the way in? Thank the Five! I've been watching the orcs while you were gone. These are Dragorog cultists. You'll need to prepare for the next part. Take these coins and come back when you are ready."
+queststatus(515) = 2, ".+" -> inform("[Quest gelöst] Du erhältst 30 Silberstücke"), money + 3000, queststatus(515)=3, "Du hast den Eingang gefunden? Den Fünf sei Dank! Ich habe die Orks beobachtet, während du weg warst. Das sind Dragorog-Kultisten. Du musst dich gut für den nächsten Schritt vorbereiten. Nimm diese Münzen und komm zurück, wenn du bereit bist."
+
+-- Quest 2: Kill 10 orcs
+queststatus(515) = 3, english, "quest", "mission" -> inform("[New Quest] Rescue Milly II"), queststatus(515)=4, "Now that you have got in, you need to clear a path so that you can find her. I have been watching the entrance carefully to determine their numbers. Killing 10 orc cultists should do it."
+queststatus(515) = 3, "quest", "mission" -> inform("[Neuer Quest] Rette Milly! II"), queststatus(515)=4, "Jetzt wo du den Weg hinein gefunden hast, solltest du ihn frei machen.  Ich habe den Eingang sorgfältig beobachtet um ihre Stärke herauszubekommen. Töte 10 Orc-Kultisten, das sollte reichen."
+queststatus(515) = 3, english, "task", "adventure", "order" -> inform("[New Quest] Rescue Milly II"), queststatus(515)=4, "Now that you have got in, you need to clear a path so that you can find her. I have been watching the entrance carefully to determine their numbers. Killing 10 orc cultists should do it."
+queststatus(515) = 3, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "bereit" -> inform("[Neuer Quest] Rette Milly! II"), queststatus(515)=4, "Jetzt wo du den Weg hinein gefunden hast, solltest du ihn frei machen.  Ich habe den Eingang sorgfältig beobachtet um ihre Stärke herauszubekommen. Töte 10 Orc-Kultisten, das sollte reichen."
+
+-- 10 not killed, remind player
+queststatus(515) = 4, english, "quest", "mission" -> "Have you taken out 10 orcs yet?"
+queststatus(515) = 4, "quest", "mission" -> "Hast du die 10 Orcs getötet?"
+queststatus(515) = 4, english, "task", "adventure", "order" -> "Have you taken out 10 orcs yet?"
+queststatus(515) = 4, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Hast du die 10 Orcs getötet?"
+
+-- Killed 10, reward 50 silver.
+queststatus(515) = 14, english, ".+" -> inform("[Quest Solved] You have been awarded 50 Silver Coins."), queststatus(515)=15, money + 5000, "Their ranks are looking thin! Nice work! Now that you have cleared a path we can look for Milly. Use these coins to get supplies."
+queststatus(515) = 14, ".+" -> inform("[Quest gelöst] Du erhältst 50 Silberstücke"), queststatus(515)=15, money + 5000, "Ihre Reihen sind gelichtet! Gute Arbeit! Nun da der Weg frei ist, können wir nach Milly suchen. Nimm dieses Münzen um Proviant zu besorgen."
+
+-- Quest 3: Go find Milly!
+queststatus(515) = 15, english, "quest", "mission" -> inform("[New Quest] Rescue Milly III"), queststatus(515)=16, "I need you to search for Milly. She is in there and alive, I am sure of it! Please bring her back to me safe and in one piece."
+queststatus(515) = 15, "quest", "mission" -> inform("[Neuer Quest] Rette Milly! III"), queststatus(515)=16, "Ich brauche dich, um nach Milly zu suchen. Sie ist dort und am Leben, ich bin mir sicher! Bitte bring sie mir sicher und in einem Stück zurück."
+queststatus(515) = 15, english, "task", "adventure", "order" -> inform("[New Quest] Rescue Milly III"), queststatus(515)=16, "I need you to search for Milly. She is in there and alive, I am sure of it! Please bring her back to me safe and in one piece."
+queststatus(515) = 15, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neuer Quest] Rette Milly! III"), queststatus(515)=16, "Ich brauche dich, um nach Milly zu suchen. Sie ist dort und am Leben, ich bin mir sicher! Bitte bring sie mir sicher und in einem Stück zurück."
+
+-- Milly not found, remind player.
+queststatus(515) = 16, english, "quest", "mission" -> "Have you found Milly? You have to find her for me!"
+queststatus(515) = 16, "quest", "mission" -> "Hast du Milly gefunden? Du musst sie für mich finden!"
+queststatus(515) = 16, english, "task", "adventure", "order" -> "Have you found Milly? You have to find her for me!"
+queststatus(515) = 16, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Hast du Milly gefunden? Du musst sie für mich finden!"
+
+-- Milly Found. Reward silver ruby amulet
+queststatus(515) = 17, english, ".+" -> inform("[Quest Solved] You have been given a Silver Ruby Amulet."), queststatus(515) = 18, item(3541, 1, 999), "You found Milly? She... She's dead? By the Five. I... I need some time to think. Here, take this amulet."
+queststatus(515) = 17, ".+" -> inform("[Quest gelöst] Du erhältst ein Silbernes Rubinamulett."), queststatus(515) = 18, item(3541, 1, 999), "Du hast Milly gefunden? Sie... sie ist tot? Bei den Fünf. Ich ... Ich brauche etwas Zeit zum nachdenken. Warte! Hier. Nimm diese Halskette. Ich wollte sie... ich wollte... nur, nimm du sie. Wenn du zurück kommst, haben wir einiges an Arbeit vor uns."
+
+-- Quest 4: Kill the Orc Shaman
+queststatus(515) = 18, english, "quest", "mission" -> inform("[New Quest] Rescue Milly IV"), queststatus(515)=19, "We have to do something. We have to stop them. If not the Dragorog Cult will kill others! There must be an orc shaman leading these unholy rituals. Go kill him!"
+queststatus(515) = 18, "quest", "mission" -> inform("[Neuer Quest] Rette Milly! IV"), queststatus(515)=19, "Wir müssen etwas tun. Wir müssen sie aufhalten. Wenn nicht wird der Dragorog-Kult noch mehr Opfer kosten! Es muss einen Ork-Schamanen geben, der diese unheiligen Rituale durchführt. Töte ihn!"
+queststatus(515) = 18, english, "task", "adventure", "order" -> inform("[New Quest] Rescue Milly IV"), queststatus(515)=19, "We have to do something. We have to stop them. If not the Dragorog Cult will kill others! There must be an orc shaman leading these unholy rituals. Go kill him!"
+queststatus(515) = 18, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neuer Quest] Rette Milly! IV"), queststatus(515)=19, "Wir müssen etwas tun. Wir müssen sie aufhalten. Wenn nicht, wird der Dragorog-Kult noch mehr Opfer kosten! Es muss einen Ork-Schamanen geben, der diese unheiligen Rituale durchführt. Töte ihn!"
+
+-- Orc shaman not dead, remind player
+queststatus(515) = 19, english, "quest", "mission" -> "Is the shaman dead yet?"
+queststatus(515) = 19, "quest", "mission" -> "Ist der Schamane schon tot?"
+queststatus(515) = 19, english, "task", "adventure", "order" -> "Is the shaman dead yet?"
+queststatus(515) = 19, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ist der Schamane schon tot?"
+
+-- Shaman Dead, reward 20 silver
+queststatus(515) = 20, english, ".+" -> inform("[Quest Solved] You have been awarded 20 Silver Coins"), queststatus(515)=21, money + 2000, "You have killed him? Good. This is the last of my coins. Take it and prepare yourself. There is more work to be done."
+queststatus(515) = 20, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), queststatus(515)=21, money + 2000, "Du hast ihn getötet? Gut. Hier sind meine letzten Münzen. Nimm sie und bereite dich vor. Es gibt noch mehr Arbeit zu tun."
+
+--Quest 5: Kill Dark Paladin
+queststatus(515) = 21, english, "quest", "mission" -> inform("[New Quest] Rescue Milly V"), queststatus(515)=22, "I don't think the shaman's death is the end of this madness. There is something darker inside that cave that leads the cult. Go and end whatever dark abomination is inside that cave!"
+queststatus(515) = 21, "quest", "mission" -> inform("[Neuer Quest] Rette Milly! V"), queststatus(515)=22, "Ich glaube nicht, dass der Tod des Schamanen das Ende dieses Wahnsinns ist. Es ist etwas Dunkles in dieser Höhle, das den Kult führt. Geh und beende, was auch immer für ein dunkler Greuel in dieser Höhle haust."
+queststatus(515) = 21, english, "task", "adventure", "order" -> inform("[New Quest] Rescue Milly V"), queststatus(515)=22, "I don't think the shaman's death is the end of this madness. There is something darker inside that cave that leads the cult. Go and end whatever dark abomination is inside that cave!"
+queststatus(515) = 21, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neuer Quest] Rette Milly! V"), queststatus(515)=22, "Ich glaube nicht, dass der Tod des Schamanen das Ende dieses Wahnsinns ist. Es ist etwas Dunkles in dieser Höhle, das den Kult führt. Geh und beende, was auch immer für ein dunkler Greuel in dieser Höhle haust."
+
+-- Dark Paladin not dead, remind player
+queststatus(515) = 22, english, "quest", "mission" -> "Have you destroyed the dark force inside that cave?"
+queststatus(515) = 22, "quest", "mission" -> "Hast du die dunkle Kraft in dieser Höhle zerstört?"
+queststatus(515) = 22, english, "task", "adventure", "order" -> "Have you destroyed the dark force inside that cave?"
+queststatus(515) = 22, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Hast du die dunkle Kraft in dieser Höhle zerstört?"
+
+-- Dark paladin dead, reward Bow (2685) and magic gem
+queststatus(515) = 23, english, ".+" -> inform("[Quest Solved] You have been awarded an elven shortbow and a magic ruby"), queststatus(515)=24, item(3521, 1, 333, "gemLevel" = "1"), item(2685, 1, 666), "It is done? There was a dark paladin inside and you have killed him? Thank the Five, Milly will not have died in vain! Please, take my bow. I have no need for it anymore. And this magical ruby. Thank you for everything."
+queststatus(515) = 23, ".+" -> inform("[Quest gelöst] Du erhältst ein Elfen-Kurzbogen und einer magischen Rubin."), queststatus(515)=24, item(3521, 1, 333, "gemLevel" = "1"), item(2685, 1, 666), "Es ist vollbracht? Da war ein dunker Paladin und du hast ihn getötet? Den Fünf sei Dank, Milly wird nicht umsonst gestorben sein! Bitte, nimm meinen Bogen. Ich brauche ihn nicht mehr. Und dieser magischen Rubin. Vielen Dank für alles."
+
+-- Quests compelete
+queststatus(515) = 24, english, "quest", "mission" -> "No, I don't require anything else from you. Thank you. I am going to go find a monastery to live out the rest of my life without Milly."
+queststatus(515) = 24, "quest", "mission" -> "Nein. Ich brauche nichts  von dir. Vielen Dank. Ich werde ein Kloster finden, indem ich den Rest meines Lebens ohne Milly leben kann."
+queststatus(515) = 24, english, "task", "adventure", "order" -> "No, I don't require anything else from you. Thank you. I am going to go find a monastery to live out the rest of my life without Milly."
+queststatus(515) = 24, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nein. Ich brauche nichts  von dir. Vielen Dank. Ich werde ein Kloster finden, indem ich den Rest meines Lebens ohne Milly leben kann."
+
+-- OPTIONAL TRIGGERS
+
+-- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "If you really must insist on knowing! I am a ranger and spend my time collecting herbs with Milly.", "Is now really the time to ask useless questions?", "My job was to protect Milly! And now they have taken her!"
+"beruf" -> "Wenn du wirklich darauf bestehst es zu wissen! Ich bin ein Ranger und verbringe meine Zeit damit, Kräuter mit Milly zu sammeln.", "Ist nun wirklich die Zeit, unnütze Fragen zu stellen?", "Mein Job war, Milly zu schützen! Und jetzt haben sie sie mitgenommen!"
+english, "job" -> "If you really must insist on knowing! I am a ranger and spend my time collecting herbs with Milly.", "Is now really the time to ask useless questions?", "My job was to protect Milly! And now they have taken her!"
+"job" -> "Wenn du wirklich darauf bestehst es zu wissen! Ich bin ein Ranger und verbringe meine Zeit damit, Kräuter mit Milly zu sammeln.", "Ist nun wirklich die Zeit, unnütze Fragen zu stellen?", "Mein Job war, Milly zu schützen! Und jetzt haben sie sie mitgenommen!"
+
+-- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
+english, "Milly" -> "She has been kidnapped! I need your help to get her back!", "She is my love and my life, and I don't know what I would do without her."
+english, "Dragorog" -> "He is one of the Blood God's dark minions.", "He is master of dark paladins and dark dragons. If I were you, I'd avoid them at all costs."
+english, "Cult" -> "It is a Dragorog cult. They are an evil sect that sacrifices people to their dark demi-god."
+english, "Altar" -> "I don't want to know what horrors lay on their blood soaked altar.", "It is where the members of Dragorog's cult sacrifice people during their unholy rituals. Just thinking about it gives me chills."
+"Milly" -> "Sie wurde gekidnappt! Ich brauche Deine Hilfe, um sie zurück zu bekommen!", "Sie ist meine Liebe und mein Leben, und ich weiß nicht, was ich ohne sie tun würde."
+"Dragorog" -> "Er ist einer der dunklen Diener des Blutgottes.", "Er ist Meister dunkler Paladine und dunkler Drachen. Wenn ich du wäre, würde ich sie um jeden Preis meiden."
+"Kult" -> "Es ist Dragorogs Kult. Sie sind eine böse Sekte, die die Menschen ihrem dunklen Halbgott opfern."
+"Altar" -> "Ich will nicht wissen, welche Schrecken auf ihrem blutgetränkten Altar stattfinden.", "Dor opfern während ihrer unheiligen Rituale die Mitglieder der Dragorog Kult Menschen. Allein darüber nachzudenken, macht mir Kopfschmerzen."
+
+-- Optional: Gods - use the triggers of the god the NPC worships or fights
+english, "Moshran" -> "Shh! Do not say his name so loud.", "He is the god of blood and bones. His followers spread chaos in his name."
+"Moshran" -> "Shh! Sag seinen Namen nicht so laut.", "Er ist der Gott des Blutes und der Knochen. Seine Anhänger verbreiteten Chaos in seinem Namen."
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "Hilfe! Irgendjemand helft!", "Help! Somebody help! "
+cycletext "Hilfe! Sie haben sie genommen! Sie haben meine Milly mitgenommen!", "Help! They've taken her! They've taken my Milly!"
+cycletext "Diese Orks werden dafür bezahlen,und  wenn es das Letzte ist, was ich tue!", "Those orcs are going to pay for this if it's the last thing I do!"
+cycletext "Ich hoffe, sie haben Milly nicht weh getan!", "I hope they haven't hurt Milly!"
+cycletext "Ich wünschte, ich hätte Milly nie aus den Augen gelassen! Dann wäre das nie passiert!", "I wish I never let Milly out of my sight! This never would have happened!"
+cycletext "#me starrt in die Ferne und beobachtet etwas aufmerksam.", "#me stares off into the distance, watching something intently."
+cycletext "#me zieht einen Pfeil aus seinem Köcher und legt auf seine Bogenschnur.", "#me pulls an arrow from his quiver, nocking it on his bow string."
+cycletext "#me murmelt unter seinem Atemzug.", "#me mutters under his breath."
+cycletext "#me späht vorsichtig um die Felsen.", "#me peers round the rocks cautiously."
+cycletext "#me wandert ängstlich hin und her, den  Bogen gezogen.", "#me paces anxiously back and forth, bow drawn."
