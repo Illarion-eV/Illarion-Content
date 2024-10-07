@@ -1070,7 +1070,6 @@ function M.getTrapDoorOrStairPosition(stair, trapDoor)
 
         if doors.CheckClosedDoor(trapDoor.id) then
             openId = doors.ClosedDoors[trapDoor.id]
-            log("openId : "..tostring(openId))
         end
 
         for _, stairPair in pairs(itemList.Stairs) do
