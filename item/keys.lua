@@ -103,7 +103,10 @@ local function getDoor(user)
     for x = -Radius ,Radius do
         for y = -Radius, Radius do
             local targetPos = position(user.pos.x + x, user.pos.y + y, user.pos.z)
-            if (world:isItemOnField(targetPos)) then
+
+            local fieldExists = world:getField(targetPos)
+
+            if fieldExists and world:isItemOnField(targetPos) then
                 targetItem = world:getItemOnField(targetPos)
                 if targetItem ~= nil and (doors.CheckClosedDoor(targetItem.id) or doors.CheckOpenDoor(targetItem.id)) then
                     return targetItem
@@ -129,8 +132,12 @@ local function getStair(user)
     local Radius = 1
     for x = -Radius ,Radius do
         for y = -Radius, Radius do
+
             local targetPos = position(user.pos.x + x, user.pos.y + y, user.pos.z)
-            if (world:isItemOnField(targetPos)) then
+
+            local fieldExists = world:getField(targetPos)
+
+            if fieldExists and world:isItemOnField(targetPos) then
                 targetItem = world:getItemOnField(targetPos)
 
                 if targetItem ~= nil and targetItem.id == 4339 and not common.IsNilOrEmpty(targetItem:getData("lockId")) then
