@@ -265,10 +265,11 @@ local function getLookAt(user, object)
     local item = object.id
     local quantity = object.quantity
     local data = object.data
-    local lookAt = utility.getItemName(user, item)
+    local lookAt = lookat.GenerateItemLookAtFromId(user, item, quantity, data)
+    local customName = utility.getItemName(user, item)
 
-    if not lookAt then
-        lookAt = lookat.GenerateItemLookAtFromId(user, item, quantity, data)
+    if customName then
+        lookAt.name = customName
     end
 
     if object.tile then
