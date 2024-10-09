@@ -386,6 +386,7 @@ function M.checkIfItemIsWallDeco(itemId)
             if item.category == "Paintings"
             or item.category == "Flags and crests"
             or item.category == "Wall Decorations"
+            or item.category == "Chimneys"
             then return true
             end
         end
