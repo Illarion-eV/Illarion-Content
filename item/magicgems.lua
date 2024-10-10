@@ -66,7 +66,7 @@ function M.MoveItemBeforeMove(user, source, target)
     local itemStats = world:getItemStatsFromId(target.id)
     local nameEnglish = itemStats.English
 
-    local text = tostring(amount).." of "..nameEnglish.."("..source.id..") of rank "..tostring(level).." was moved by "..user.name.."("..user.id..") at position ("..tostring(user.pos).."). It was moved from "
+    local text = tostring(amount).." "..nameEnglish.."("..source.id..") of rank "..tostring(level).." was moved by "..user.name.."("..user.id..") at position ("..tostring(user.pos).."). It was moved from "
 
     local backpack = user:getBackPack()
 
