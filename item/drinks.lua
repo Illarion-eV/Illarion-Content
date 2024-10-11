@@ -215,7 +215,7 @@ M.drinkList[Item.glassTeaCupFirNeedle] = {1000, Item.glassTeaCup}
 M.drinkList[Item.glassTeaCupGreen] = {1000, Item.glassTeaCup}
 M.drinkList[Item.glassTeaCupVirginWeed] = {1000, Item.glassTeaCup}
 
-M.drinksList[Item.bottleOfRum] = {1000, Item.emptyRumBottle}
+M.drinkList[Item.bottleOfRum] = {1000, Item.emptyRumBottle}
 
 
 function M.UseItem(user, SourceItem)
