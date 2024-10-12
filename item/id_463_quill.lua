@@ -46,7 +46,7 @@ local function CheckIfContainerPresent(User)
     return nil
 end
 
-local emptyBottleList = {518, 1317, 790, 164, 2498}
+local emptyBottleList = {1317, 790, 164, 2498}
 
 local function CheckIfEmptyBottlePresent(User)
 

@@ -173,7 +173,7 @@ catId = brewing:addCategory("Hard Liquors", "Stark alkoholische Getränke")
 
 -- bottle of rum
 product = brewing:addProduct(catId, 517, 1)
-product:addIngredient(518, 1) -- empty rum bottle
+product:addIngredient(1317, 1) -- empty liquor bottle
 product:addIngredient(778, 3) -- sugarcane
 product:addIngredient(52, 1) -- bucket of water
 product:addRemnant(51, 1) -- bucket

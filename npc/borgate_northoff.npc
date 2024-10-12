@@ -69,9 +69,9 @@ itemShoes = 53
 -- You want a ceramic cup for your wine? Well too bad, Borgate can only offer you a golden goblet as he is all out.
 -- Thank your lucky stars that he at least bothered to clean it before pouring your drink... or did he?
 
-sellItems = 1909, 4460, 4425, 4435, 4418, 4455, 4465, 4448, 4476, 4572, 4568, 4584, 4600, 2058, 1860, 4344, 4352, 4411
+sellItems = 1909, 4460, 4425, 4435, 4418, 4455, 4812, 4465, 4448, 4476, 4572, 4568, 4584, 4600, 2058, 1860, 4344, 4352, 4411
 -- glass mug with beer, iron shotglass with absinthe, clay shotglass of bear slayer, copper shotglass of berry booze, ceramic shotglass with cherry schnapps
--- gold shotglass with elven wine, iron shotglass with mulled wine, shotglass with orange schnapps, silver shotglass with stoneface
+-- gold shotglass with elven wine, shotglass with rum, iron shotglass with mulled wine, shotglass with orange schnapps, silver shotglass with stoneface
 -- clay teacup with druids tea, ceramic teacup with firneedle tea, silver teacup with green tea, glass teacup with virgins weed tea
 -- glass with water, silver goblet with wine, clay cup with mead, iron goblet with cider, ceramic cup with milk 
 

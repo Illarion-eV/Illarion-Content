@@ -50,10 +50,6 @@ product:addIngredient(41, 1) -- glass ingot
 product = glassblowing:addProduct(catId, Item.fruitJuiceBottle, 1)
 product:addIngredient(41, 1) -- glass ingot
 
--- empty rum bottle
-product = glassblowing:addProduct(catId, 518, 1)
-product:addIngredient(41, 1) -- glass ingot
-
 -- empty tea bottle
 product = glassblowing:addProduct(catId, Item.teaBottle, 1)
 product:addIngredient(41, 2) -- glass ingot

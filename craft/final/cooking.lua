@@ -132,7 +132,7 @@ product:addIngredient(3709, 3) -- smoked chicken
 product:addIngredient(290, 2) -- cabbage
 product:addIngredient(2493, 3) -- carrots
 product:addIngredient(517, 1) -- bottle of rum
-product:addRemnant(518, 1) -- empty rum bottle
+product:addRemnant(Item.emptyLiquorBottle, 1)
 
 product = cooking:addProduct(catId, Item.rosefishDish, 1)
 product:addIngredient(Item.woodenPlate, 1)

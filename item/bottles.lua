@@ -382,6 +382,21 @@ local bottles = {
         },
     },
     {
+        full = {Item.bottleOfRum},
+        half = {Item.bottleOfRumHalf},
+        quarter = {Item.bottleOfRumQuarter},
+        empty = {Item.emptyLiquorBottle},
+        vessels = {
+            {empty = Item.clayShotGlass, filled = Item.clayShotGlassWithRum, amount = 1},
+            {empty = Item.ceramicShotGlass, filled = Item.ceramicShotGlassWithRum, amount = 1},
+            {empty = Item.ironShotGlass, filled = Item.ironShotGlassWithRum, amount = 1},
+            {empty = Item.copperShotGlass, filled = Item.copperShotGlassWithRum, amount = 1},
+            {empty = Item.silverShotGlass, filled = Item.silverShotGlassWithRum, amount = 1},
+            {empty = Item.goldShotGlass, filled = Item.goldShotGlassWithRum, amount = 1},
+            {empty = Item.shotGlass, filled = Item.shotGlassWithRum, amount = 1}
+        },
+    },
+    {
         full = {Item.bottleOfStoneFace},
         half = {Item.bottleOfStoneFaceHalf},
         quarter = {Item.bottleOfStoneFaceQuarter},

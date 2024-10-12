@@ -273,7 +273,6 @@ treasureContents[2] = {
 {254,1}, --raw diamond
 {326,1}, --steel boots
 {463,1}, --quill
-{518,1}, --empty rum bottle
 {1057,1}, --robust jackboots
 {1416,1}, --simple horned helmet
 {1429,1}, --reinforced steel cap

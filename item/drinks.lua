@@ -125,6 +125,7 @@ M.drinkList[Item.clayShotGlassWithElvenWine] = {800, Item.clayShotGlass}
 M.drinkList[Item.clayShotGlassWithMulledWine] = {800, Item.clayShotGlass}
 M.drinkList[Item.clayShotGlassWithOrangeSchnapps] = {800, Item.clayShotGlass}
 M.drinkList[Item.clayShotGlassWithStoneFace] = {800, Item.clayShotGlass}
+M.drinkList[Item.clayShotGlassWithRum] = {800, Item.clayShotGlass}
 
 M.drinkList[Item.ceramicShotGlassWithAbsinthe] = {800, Item.ceramicShotGlass}
 M.drinkList[Item.ceramicShotGlassWithBearSlayer] = {800, Item.ceramicShotGlass}
@@ -134,6 +135,7 @@ M.drinkList[Item.ceramicShotGlassWithElvenWine] = {800, Item.ceramicShotGlass}
 M.drinkList[Item.ceramicShotGlassWithMulledWine] = {800, Item.ceramicShotGlass}
 M.drinkList[Item.ceramicShotGlassWithOrangeSchnapps] = {800, Item.ceramicShotGlass}
 M.drinkList[Item.ceramicShotGlassWithStoneFace] = {800, Item.ceramicShotGlass}
+M.drinkList[Item.ceramicShotGlassWithRum] = {800, Item.ceramicShotGlass}
 
 M.drinkList[Item.ironShotGlassWithAbsinthe] = {800, Item.ironShotGlass}
 M.drinkList[Item.ironShotGlassWithBearSlayer] = {800, Item.ironShotGlass}
@@ -143,6 +145,7 @@ M.drinkList[Item.ironShotGlassWithElvenWine] = {800, Item.ironShotGlass}
 M.drinkList[Item.ironShotGlassWithMulledWine] = {800, Item.ironShotGlass}
 M.drinkList[Item.ironShotGlassWithOrangeSchnapps] = {800, Item.ironShotGlass}
 M.drinkList[Item.ironShotGlassWithStoneFace] = {800, Item.ironShotGlass}
+M.drinkList[Item.ironShotGlassWithRum] = {800, Item.ironShotGlass}
 
 M.drinkList[Item.copperShotGlassWithAbsinthe] = {800, Item.copperShotGlass}
 M.drinkList[Item.copperShotGlassWithBearSlayer] = {800, Item.copperShotGlass}
@@ -152,6 +155,8 @@ M.drinkList[Item.copperShotGlassWithElvenWine] = {800, Item.copperShotGlass}
 M.drinkList[Item.copperShotGlassWithMulledWine] = {800, Item.copperShotGlass}
 M.drinkList[Item.copperShotGlassWithOrangeSchnapps] = {800, Item.copperShotGlass}
 M.drinkList[Item.copperShotGlassWithStoneFace] = {800, Item.copperShotGlass}
+M.drinkList[Item.copperShotGlassWithRum] = {800, Item.copperShotGlass}
+
 
 M.drinkList[Item.silverShotGlassWithAbsinthe] = {800, Item.silverShotGlass}
 M.drinkList[Item.silverShotGlassWithBearSlayer] = {800, Item.silverShotGlass}
@@ -161,6 +166,8 @@ M.drinkList[Item.silverShotGlassWithElvenWine] = {800, Item.silverShotGlass}
 M.drinkList[Item.silverShotGlassWithMulledWine] = {800, Item.silverShotGlass}
 M.drinkList[Item.silverShotGlassWithOrangeSchnapps] = {800, Item.silverShotGlass}
 M.drinkList[Item.silverShotGlassWithStoneFace] = {800, Item.silverShotGlass}
+M.drinkList[Item.silverShotGlassWithRum] = {800, Item.silverShotGlass}
+
 
 M.drinkList[Item.goldShotGlassWithAbsinthe] = {800, Item.goldShotGlass}
 M.drinkList[Item.goldShotGlassWithBearSlayer] = {800, Item.goldShotGlass}
@@ -170,6 +177,7 @@ M.drinkList[Item.goldShotGlassWithElvenWine] = {800, Item.goldShotGlass}
 M.drinkList[Item.goldShotGlassWithMulledWine] = {800, Item.goldShotGlass}
 M.drinkList[Item.goldShotGlassWithOrangeSchnapps] = {800, Item.goldShotGlass}
 M.drinkList[Item.goldShotGlassWithStoneFace] = {800, Item.goldShotGlass}
+M.drinkList[Item.goldShotGlassWithRum] = {800, Item.goldShotGlass}
 
 M.drinkList[Item.shotGlassWithAbsinthe] = {800, Item.shotGlass}
 M.drinkList[Item.shotGlassWithBearSlayer] = {800, Item.shotGlass}
@@ -179,6 +187,7 @@ M.drinkList[Item.shotGlassWithElvenWine] = {800, Item.shotGlass}
 M.drinkList[Item.shotGlassWithMulledWine] = {800, Item.shotGlass}
 M.drinkList[Item.shotGlassWithOrangeSchnapps] = {800, Item.shotGlass}
 M.drinkList[Item.shotGlassWithStoneFace] = {800, Item.shotGlass}
+M.drinkList[Item.shotGlassWithRum] = {800, Item.shotGlass}
 
 M.drinkList[Item.clayTeaCupDruid] = {1000, Item.clayTeaCup}
 M.drinkList[Item.clayTeaCupFirNeedle] = {1000, Item.clayTeaCup}
@@ -214,8 +223,6 @@ M.drinkList[Item.glassTeaCupDruid] = {1000, Item.glassTeaCup}
 M.drinkList[Item.glassTeaCupFirNeedle] = {1000, Item.glassTeaCup}
 M.drinkList[Item.glassTeaCupGreen] = {1000, Item.glassTeaCup}
 M.drinkList[Item.glassTeaCupVirginWeed] = {1000, Item.glassTeaCup}
-
-M.drinkList[Item.bottleOfRum] = {1000, Item.emptyRumBottle}
 
 
 function M.UseItem(user, SourceItem)

@@ -649,7 +649,6 @@ local itemList = {
 1050 ,--Schattenranseur shadow ranseur
 835 ,--schwarz-graues Kleid black grey dress
 790 ,--Leere Saftflasche empty juice bottle
-518 ,--leere bauchige Flasche empty round body bottle
 2560 ,--Apfelholz applewood
 1062 ,--Silbererz silver ore
 1059 ,--Würfelbecher dice cup
