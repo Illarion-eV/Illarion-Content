@@ -152,6 +152,10 @@ end
 
 function M.UseItem(user, sourceItem, actionstate)
 
+    if user:getQuestProgress(37) == 1 and user:getQuestProgress(568) == 1 then
+        user:setQuestProgress(568, 2) -- This is just to catch up with a skipped step if someone already did the magic tutorial before Terry was introduced
+    end
+
     if common.IsItemInHands(sourceItem) then
         if actionstate == Action.none then
             if magicWands[sourceItem.id] then
