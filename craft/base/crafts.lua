@@ -28,8 +28,28 @@ local foodScript = require("item.food")
 local pyr = require("magic.arcane.enchanting.effects.pyr")
 local daear = require("magic.arcane.enchanting.effects.daear")
 local ilyn = require("magic.arcane.enchanting.effects.ilyn")
+local magic = require("base.magic")
 
 local M = {}
+
+local function checkRequiredMana(user, craftingTime, isPortalBookCrafting) -- Portal book creation uses the standard craft script to create the books, but requires mana consumption
+
+    if not isPortalBookCrafting then
+        return true, 0
+    end
+
+    local manaConsumption = craftingTime * 5 --One second crafting, 50 mana cost
+
+    manaConsumption = magic.getValueWithGemBonus(user, manaConsumption)
+
+    if magic.hasSufficientMana(user, manaConsumption) then
+        return true, manaConsumption
+    else
+        user:inform("Du hast nicht genug Mana, um das Buch mit der erforderlichen Raum-Magie zu durchdringen.", "You do not have enough mana to imbue the book with the required spatial magic.")
+        return false, 0
+    end
+
+end
 
 local foodRarityTexts = {
     {english = "uncommon", german = "außergewöhnlich gut", identifier = 2,
@@ -173,7 +193,8 @@ function Craft:showDialog(user, source)
             local productId = dialog:getCraftableId()
             local product = self.products[productId]
             local foodOK = self:checkRequiredFood(user, product:getCraftingTime(self:getSkill(user)))
-            local canWork = self:allowCrafting(user, source) and self:checkMaterial(user, productId) and foodOK
+            local manaOk = checkRequiredMana(user, product:getCraftingTime(self:getSkill(user)), self.leadSkill == Character.spatialMagic)
+            local canWork = self:allowCrafting(user, source) and self:checkMaterial(user, productId) and foodOK and manaOk
             return canWork
         elseif result == CraftingDialog.playerLooksAtItem then
             local productId = dialog:getCraftableId()
@@ -665,8 +686,11 @@ function Craft:craftItem(user, productId)
     end
 
     local foodOK, neededFood = self:checkRequiredFood(user, product:getCraftingTime(skill))
+
+    local manaOk, neededMana = checkRequiredMana(user, product:getCraftingTime(skill), self.leadSkill == Character.spatialMagic)
+
     if not self.npcCraft then
-        if not foodOK then
+        if not foodOK or not manaOk then
             return false
         end
     end
@@ -677,6 +701,7 @@ function Craft:craftItem(user, productId)
         if not self.npcCraft then
             shared.toolBreaks(user, toolItem, product:getCraftingTime(skill))
             common.GetHungry(user, neededFood)
+            user:increaseAttrib("mana", -neededMana) -- This defaults to 0 needed mana if not portal book crafting
         end
 
         if type(self.leadSkill) == "number" then

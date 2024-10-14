@@ -1027,6 +1027,9 @@ M.books = { blue = {105, 106, 129, 2609, 2610}, green = {114, 115, 2608, 2615}, 
 
 local books = M.books
 
+product = tailoring:addProduct(catId, 4815, 1) --A blank portal book, used by mages along with ink to create portal books
+product:addIngredient(Item.parchment, 1)
+
 for _, book in ipairs(books.blue) do
     product = tailoring:addProduct(catId, book, 1)
     product:addIngredient(50, 10) -- thread

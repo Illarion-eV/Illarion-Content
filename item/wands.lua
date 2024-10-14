@@ -25,6 +25,8 @@ local breakShards = require("magic.arcane.enchanting.core.glyphed_item_into_shar
 local inspectGlyph = require("magic.arcane.enchanting.core.inspection_of_glyph")
 local inspectGlyphedItem = require("magic.arcane.enchanting.core.inspection_of_glyphed_item")
 local glyphTutorial = require("magic.arcane.enchanting.core.tutorial")
+local spatial = require("magic.arcane.spatial")
+local texts = require("magic.base.texts")
 
 local currentWandUse = {}
 
@@ -122,6 +124,9 @@ local function selectMagicType(user, wand, actionstate)
 
         if index == 1 then
             M.enchantingSelection(user, wand, actionstate)
+        elseif index == 2 then
+            spatial.castSpatialMagic(user, actionstate)
+            currentWandUse[user.id] = "spatial"
         end
     end
 
@@ -129,6 +134,7 @@ local function selectMagicType(user, wand, actionstate)
     local dialog = SelectionDialog(title, "", callback)
 
     dialog:addOption(Item.anemo, common.GetNLS(user, "Verzauberung", "Enchanting"))
+    dialog:addOption(10, common.GetNLS(user, "Teleportationmagie", "Spatial Magic"))
 
     user:requestSelectionDialog(dialog)
 end
@@ -157,6 +163,7 @@ function M.UseItem(user, sourceItem, actionstate)
     end
 
     if common.IsItemInHands(sourceItem) then
+
         if actionstate == Action.none then
             if magicWands[sourceItem.id] then
                 if user:getMagicType() == 0 and (user:getQuestProgress(37) ~= 0 or user:getMagicFlags(0) > 0) then
@@ -173,11 +180,42 @@ function M.UseItem(user, sourceItem, actionstate)
                 enchantingRituals.continue(user, actionstate, forgeItem, "candle")
             elseif currentWandUse[user.id] == "break" then
                 breakShards.continue(user, actionstate)
+            elseif currentWandUse[user.id] == "spatial" then
+                spatial.castSpatialMagic(user, actionstate)
             end
         end
     else
         user:inform("Du solltest lieber den Zauberstab in die Hand nehmen, wenn du ihn benutzen willst.","To use the wand you should hold it in your hands.")
     end
+end
+
+function M.actionDisturbed(player, attacker)
+
+    local health = player:increaseAttrib("hitpoints", 0)
+    local max_chance = 25 --max percentage chance of interrupting a cast
+    local healthRoof = 7500 -- chance to interrupt begin at 7500 health
+    local healthFloor = 2500 -- chance to interrupt reaches max_chance at 2500 health
+    local healthRange = healthRoof-healthFloor
+    local percent = healthRange/100
+    local actual_chance = max_chance - math.floor(((health-healthFloor)/percent)/(100/max_chance))
+
+    if health > healthRoof then
+        return false
+    end
+
+    if health < healthFloor then
+        actual_chance = max_chance
+    end
+
+    local chance = math.random(1,100)
+
+    if chance <= actual_chance then
+        player:inform(texts.wounded.german, texts.wounded.english)
+        return true
+    end
+
+    return false
+
 end
 
 return M

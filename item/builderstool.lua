@@ -18,9 +18,12 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local utility = require("housing.utility")
 local construction = require("housing.construction")
 local common = require("base.common")
+local metal = require("item.general.metal")
 
 
 local M = {}
+
+M.LookAtItem = metal.LookAtItem
 
 local function overloadedSelection(user, skill)
 

@@ -27,6 +27,7 @@ local areas = require("content.areas")
 local shared = require("magic.arcane.enchanting.core.shared")
 local gods = require("content.gods")
 local resurrected = require("lte.resurrected")
+local spatial = require("magic.arcane.spatial")
 local persistenceTracker = require("gm.persistenceTracker")
 local activityTracker = require("lte.activity_tracker")
 local housing = require("housing.propertyList")
@@ -99,7 +100,7 @@ local maxuserLocation = 6
 local maxActionOnChar = 6
 local maxActionOnGroup = 6
 
-local skillNames = {
+M.skillNames = {
     Character.alchemy,
     Character.armourer,
     Character.blacksmithing,
@@ -135,7 +136,14 @@ local skillNames = {
     Character.wandMagic,
     Character.woodcutting,
     Character.wrestling,
-    Character.enchanting
+    Character.enchanting,
+    Character.magicResistance,
+    Character.fireMagic,
+    Character.earthMagic,
+    Character.windMagic,
+    Character.spiritMagic,
+    Character.waterMagic,
+    Character.spatialMagic
 }
 local attributeNames={
     "agility",
@@ -671,7 +679,7 @@ local function settingsForCharSkills(user, chosenPlayer)
         if (not dialog:getSuccess()) then
             return
         end
-        local chosenSkill = skillNames[dialog:getSelectedIndex() + 1]
+        local chosenSkill = M.skillNames[dialog:getSelectedIndex() + 1]
         local changeDialog = function (subdialog)
             if (not subdialog:getSuccess()) then
                 return
@@ -693,7 +701,7 @@ local function settingsForCharSkills(user, chosenPlayer)
         user:requestInputDialog(sdChange)
     end
     local sdSkill = SelectionDialog("Select skill", "What skill do you wish to change for "..chosenPlayer.name.."?", skillDialog)
-    for _, skill in ipairs(skillNames) do
+    for _, skill in ipairs(M.skillNames) do
         sdSkill:addOption(0,user:getSkillName(skill).." value: "..chosenPlayer:getSkill(skill))
     end
     user:requestSelectionDialog(sdSkill)
@@ -1198,7 +1206,7 @@ local function settingsForCharMagicClass(user, chosenPlayer)
             else
                 chosenPlayer:setQuestProgress(37, 0)
             end
-            common.InformNLS(chosenPlayer, "[GM Info] Die magische Klasse wurde auf " .. classNames[targetClass] .. "geändert", "[GM Info] The magic class has been changed to" .. classNames[targetClass].. ".")
+            common.InformNLS(chosenPlayer, "[GM Info] Die magische Klasse wurde auf " .. classNames[targetClass] .. "geändert", "[GM Info] The magic class has been changed to " .. classNames[targetClass].. ".")
         end
     end
     local sdClass = SelectionDialog("Change Magic Class", "What magic class should be set for "..chosenPlayer.name.."?", magicClassDialog)
@@ -1533,6 +1541,71 @@ local function actionOnGroup(user,item)
     user:requestSelectionDialog(sdPlayer)
 end
 
+local function settingsForCharRedPortalPermission(user, chosenPlayer)
+    if chosenPlayer:getQuestProgress(225) ~= 0 then
+        chosenPlayer:setQuestProgress(225, 0)
+        chosenPlayer:setQuestProgress(235, 10) --Change the  stored portal colour back to blue
+        user:inform("Player's access to the creation of red portals has been removed.")
+    else
+        chosenPlayer:setQuestProgress(225, 1)
+        user:inform("Player is now permitted to create red portals instead of blue ones.")
+    end
+end
+
+local function removePortalsRunes(user, target, questID)
+
+    local name
+
+    target:setQuestProgress(questID, 0)
+
+    if questID == 51 then
+        name = "runes"
+    else
+        name = "portals"
+    end
+
+    user:inform("Knowledge of "..name.." has been removed from "..target.name)
+
+    user:logAdmin(user.name.." has removed knowledge of "..name.." from "..target.name)
+
+end
+
+local function settingsForMagic(user, target)
+
+
+    local callback = function (dialog)
+
+        if (not dialog:getSuccess()) then
+            return
+        end
+
+        local index = dialog:getSelectedIndex() + 1
+
+        if index == 1 then
+            spatial.chooseLocationToAttune(user, target)
+        elseif index == 2 then
+            spatial.attuneAllLocations(user, target)
+        elseif index == 3 then
+            removePortalsRunes(user, target, 216)
+        elseif index == 4 then
+            settingsForCharRedPortalPermission(user, target)
+        end
+    end
+    local dialog = SelectionDialog( "Magic", "Select what you want to do", callback)
+
+    dialog:addOption(0, "Attune the character to a portal location")
+    dialog:addOption(0, "Attune the character to all portal locations")
+    dialog:addOption(0, "Remove knowledge of all portal locations")
+
+    if target:getQuestProgress(225) ~= 0 then
+        dialog:addOption(798, "Remove player's access to red portal creation")
+    else
+        dialog:addOption(798, "Allow player to create red portals")
+    end
+
+    user:requestSelectionDialog(dialog)
+end
+
 local function sendGroupMessage(user, chosenPlayer)
 
     local playersInRange = world:getPlayersInRangeOf(chosenPlayer.pos, 25)
@@ -1694,6 +1767,8 @@ local function settingsForChar(user)
                 settingsForCharAttributes(user, chosenPlayer)
             elseif actionToPerform == 13 then
                 settingsForCharReligion(user, chosenPlayer)
+            elseif actionToPerform == 14 then
+                settingsForMagic(user, chosenPlayer)
             end
         end
         local sdAction = SelectionDialog("Character settings", chosenPlayer.name.."\n" .. charInfo(chosenPlayer), charActionDialog)
@@ -1736,6 +1811,10 @@ local function settingsForChar(user)
         sdAction:addOption(93,"Set attributes")
 
         sdAction:addOption(1060, "Religion")
+
+        sdAction:addOption(1060, "Magic")
+
+
 
         user:requestSelectionDialog(sdAction)
     end

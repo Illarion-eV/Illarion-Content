@@ -139,9 +139,20 @@ function M.getGemBonusWand(user)
     local leftTool = user:getItemAt(Character.left_tool)
     local rightTool = user:getItemAt(Character.right_tool)
     if common.isInList(leftTool.id, M.wandIds) then
-        return gems.getGemBonus(leftTool)
+        return gems.getGemBonus(leftTool)/2
     elseif common.isInList(rightTool.id, M.wandIds) then
-        return gems.getGemBonus(rightTool)
+        return gems.getGemBonus(rightTool)/2
+    end
+    return 0
+end
+
+function M.getQualityBonusWand(user)
+    local leftTool = user:getItemAt(Character.left_tool)
+    local rightTool = user:getItemAt(Character.right_tool)
+    if common.isInList(leftTool.id, M.wandIds) then
+        return common.GetQualityBonusStandard(leftTool)
+    elseif common.isInList(rightTool.id, M.wandIds) then
+        return common.GetQualityBonusStandard(rightTool)
     end
     return 0
 end

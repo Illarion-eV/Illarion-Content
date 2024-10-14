@@ -42,6 +42,8 @@ local harborList = {}
     harborList[13] = {nameDe="Nördliche Inseln - Sohl", nameEn="Northern Islands - Sohl", targetDe="zu der nördlichen Insel Sohl", pos=position(424,24,0),pict=1272,start=false}
     harborList[14] = {nameDe="Nördliche Inseln - Pen", nameEn="Northern Islands - Pen", targetDe="zu der nördlichen Insel Pen", pos=position(389,39,0),pict=467,start=false}
 
+M.harborList = harborList
+
 local PRICE_FERRY = 1000 --costs of one trip
 local PRICE_PIRATES = 10000 -- pay the pirates
 local CHANCE_ATTACK = 5
@@ -572,7 +574,7 @@ local function startFerry(user, sourceItem)
             if dialogOption[selected+1][2] then
                 if  money.CharHasMoney(user,priceFerry) then
 
-                    user:talk(Character.say, "#me gibt die Münzen an ein Mannschaftsmitglied weiter und macht anschließend einen Eintrag ins Logbuch.", "#me hands over some coins to a nearby sailor, then begins filling in the required information into the sailors log in front.")
+                    user:inform("Als du das Fahrgeld übergibst, beginnen die nahegelegenen Seeleute, sich auf die bevorstehende Reise vorzubereiten.", "As you hand over the fare, the nearby sailors begin to prepare for the journey ahead.") -- Verification of chatGPT GERMAN TRANSLATION needed
 
                     local potentialTravelers = world:getPlayersInRangeOf(sourceItem.pos, 10)
 

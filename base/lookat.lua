@@ -49,6 +49,8 @@ GenericDuraDe[2] = {"nagelneu", "neu", "fast neu", "gebraucht", "leicht abgenutz
 GenericDuraDe[3] = {"nagelneu", "neu", "fast neu", "gebraucht", "leicht abgenutzt", "abgenutzt", "sehr abgenutzt", "alt", "fadenscheinig", "zerfetzt", "komplett zerfetzt", "kaputt"}
 GenericDuraDe[4] = {"funkelnd", "strahlend", "glänzend", "gebraucht", "angekratzt", "zerkratzt", "matt", "alt", "stumpf", "brüchig", "sehr brüchig", "kaputt"}
 
+M.GenericQualDe = GenericQualDe
+
 -- init english descriptions
 local GenericQualEn = {"perfect", "excellent", "very good", "good", "normal", "average", "bad", "very bad", "awful", "horrible"}
 local GenericDuraEn = {}
@@ -56,6 +58,8 @@ GenericDuraEn[1] = {"brand new", "new", "almost new", "used", "slightly scraped"
 GenericDuraEn[2] = {"brand new", "new", "almost new", "used", "slightly scratched", "scratched", "highly scratched", "old", "rotten", "nearly decayed", "decayed", "broken"}
 GenericDuraEn[3] = {"brand new", "new", "almost new", "used", "slightly frayed", "frayed", "highly frayed", "old", "threadbare", "ragged", "highly ragged", "broken"}
 GenericDuraEn[4] = {"sparkling", "shiny", "glittery", "used", "slightly scraped", "scraped", "highly scraped", "old", "tarnished", "fragile", "highly fragile", "broken"}
+
+M.GenericQualEn = GenericQualEn
 
 local GenericDuraLm = {99, 90, 80, 70, 60, 50, 40, 30, 20, 10, 1, 0}
 

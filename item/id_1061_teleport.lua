@@ -18,8 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local staticteleporter = require("base.static_teleporter")
-
-local bookCastTime = 200 -- When portal magic is implemented, this will be replaced by a calculation based on the cast time mages take to cast a portal and the quality of the book as they will be craftable by mages
+local spatial = require("magic.arcane.spatial")
 
 local M = {}
 
@@ -29,6 +28,11 @@ function M.actionDisturbed(user, attacker)
 end
 
 function M.UseItem(user, sourceItem, actionState)
+
+    if sourceItem.number > 1 then
+        user:inform("Du kannst nicht mehr als ein Portalbuch gleichzeitig verwenden.","You can't use more than one portal book at a time.")
+        return
+    end
 
     if common.isInPrison(user.pos) then
         user:inform("Nichts passiert.", "Nothing happens.")
@@ -54,8 +58,10 @@ function M.UseItem(user, sourceItem, actionState)
     --Time to check whether casting has started
     if actionState == Action.none then
 
+        local castDuration = spatial.getBookCastDuration(sourceItem)
+
         user:talk(Character.say, "#me beginnt, den Zauberspruch eines Portalbuches zu lesen.", "#me begins chanting the incantation written in a portal book.")
-        user:startAction(bookCastTime, 21, 10, 0, 0)
+        user:startAction(castDuration, 21, 10, 0, 0)
 
     elseif actionState == Action.abort then
 

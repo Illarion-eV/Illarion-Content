@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
 local money = require("base.money")
+local spatial = require("magic.arcane.spatial")
 
 local M = {}
 
@@ -158,7 +159,7 @@ local function finishTeleport(user)
     local destinationid = getDestinationId(user)
 
     money.TakeMoneyFromChar(user, priceTeleporter)
-    user:talk(Character.say, "#me und die Münzen auf dem Podest verschwinden in gleißendem Licht.", "#me, having finished chanting, disappears in a bright light along with the coins that were previously placed on the pedestal.")
+
     travelToTarget(user, destinationid)
 end
 
@@ -181,9 +182,11 @@ local function startTeleport(user, sourceItem)
             if dialogOption[selected+1][2] then
                 if  money.CharHasMoney(user,priceTeleporter) then
 
-                    user:talk(Character.say, "#me legt ein paar Münzen auf das Podest und beginnt, die Inschrift zu verlesen.", "#me places some coins onto the teleporter's pedestal, then begins chanting the incantation written on it.")
+                    local castDuration = spatial.getBookCastDuration(false)
+
+                    user:inform("Der Teleporter beginnt zu leuchten, als du deine Hand darauf legst. Solange der Prozess nicht unterbrochen wird, wirst du in kürzester Zeit an deinem gewünschten Ziel sein.", "The teleporter begins to glow as you place your hand on it. As long as the process remains uninterrupted, you'll be at your chosen destination in no time.") -- Verification of chatGPT GERMAN TRANSLATION needed
                     setDestinationId(user, dialogOption[selected+1][1])
-                    user:startAction(200, 21, 10, 0, 0)
+                    user:startAction(castDuration, 21, 10, 0, 0)
 
                 else
                     common.InformNLS(user,"Du hast nicht genug Geld für diese Reise. Die Reise kostet" .. germanMoney .." für eine Überfahrt.",

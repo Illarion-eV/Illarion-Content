@@ -55,6 +55,7 @@ sellItem = id(323), de("Terrys alter Zauberstab"), en("Terry's old wand"), stack
 -- Terry sells the basic candles and candlesticks needed for glyph rituals
 sellItem = id(43)
 sellItem = id(399)
+sellItem = id(4815)
 
 tradeNotEnoughMoneyMsg "Oh, ich fürchte, das kannst du dir nicht leisten. Wie bedauerlich.", "Oh, I'm afraid you can't afford that. How unfortunate."
 tradeFinishedMsg "Ah, eine Förderung für meine magische Forschung. Ich danke dir.", "Ah, funding for my magical research. Thank you."
@@ -90,17 +91,17 @@ english, "Hiho", "Hallo", "Hey", "Greeb" -> "Oh, you're back? Or is this our fir
 -- Magic quest triggers, more to be added on as magic systems are released
 
 --check if magic quest started
-queststatus(568) = 0, english, "rune", "glyph", "quest", "mission" -> "If you want me to teach you about magic, you have to at least attune to a wand first. Learn how to do so by reading books about magic then try to attune to your wand. After that you may return to me.", queststatus(568) = 1
+queststatus(568) = 0, english, "rune", "glyph", "quest", "mission", "teleport" -> "If you want me to teach you about magic, you have to at least attune to a wand first. Learn how to do so by reading books about magic then try to attune to your wand. After that you may return to me.", queststatus(568) = 1
 queststatus(568) = 0, "magic", "enchant", "wand", "spatial", "task", "adventure", "order" -> "If you want me to teach you about magic, you have to at least attune to a wand first. Learn how to do so by reading books about magic then try to attune to your wand. After that you may return to me.", queststatus(568) = 1
 queststatus(568) = 0, "magie", "verzauber", "zauberstab", "teleport", "rune", "glyph", "quest", "mission", "auftrag", "aufgabe", "abenteuer" -> "Wenn du willst, dass ich dir etwas über Magie beibringe, musst du dich zumindest auf einen Zauberstab einstimmen. Lerne, wie man das macht, indem du Bücher über Magie liest, und versuche dann dich auf den Zauberstab einzustimmen. Danach kannst du zu mir zurückkehren.", queststatus(568) = 1
 
 --check if become a mage yet
-queststatus(37) = 0, queststatus(568) = 1, english, "rune", "glyph", "quest", "mission" -> "Didn't I tell you to read more books and attune to your wand before you return to me? Now shoo!"
+queststatus(37) = 0, queststatus(568) = 1, english, "rune", "glyph", "quest", "mission", "teleport" -> "Didn't I tell you to read more books and attune to your wand before you return to me? Now shoo!"
 queststatus(37) = 0, queststatus(568) = 1, "magic", "enchant", "wand", "spatial", "task", "adventure", "order" -> "Didn't I tell you to read more books and attune to your wand before you return to me? Now shoo!"
 queststatus(37) = 0, queststatus(568) = 1, "magie", "verzauber", "zauberstab", "teleport", "rune", "glyph", "quest", "mission", "auftrag", "aufgabe", "abenteuer" -> "Habe ich dir nicht gesagt, dass du mehr Bücher lesen musst, und ein besseres Verständnis für deinen Zauberstab entwickeln? Husch husch!"
 
 --turn in of magic tutorial
-queststatus(37) = 1, queststatus(568) = 2, english, "rune", "glyph", "quest", "mission" -> queststatus(568) = 3, "Good! I can see you've attuned yourself to a wand! Now what would you like to learn about, enchanting perhaps?"
+queststatus(37) = 1, queststatus(568) = 2, english, "rune", "glyph", "quest", "mission", "teleport" -> queststatus(568) = 3, "Good! I can see you've attuned yourself to a wand! Now what would you like to learn about, enchanting perhaps?"
 queststatus(37) = 1, queststatus(568) = 2, "magic", "enchant", "wand", "spatial", "task", "adventure", "order"  -> queststatus(568) = 3, "Good! I can see you've attuned yourself to a wand! Now what would you like to learn about, enchanting perhaps?"
 queststatus(37) = 1, queststatus(568) = 2, "magie", "verzauber", "zauberstab", "teleport", "rune", "glyph", "quest", "mission", "auftrag", "aufgabe", "abenteuer" -> queststatus(568) = 3, "Sehr gut. Du scheinst ein gutes Verständnis für deinen Zauberstab entwickelt zu haben! Was würdest du jetzt gerne lernen? Verzauberungen, vielleicht?"
 
@@ -172,8 +173,57 @@ queststatus(241) = 12, english, "glyph", "quest", "mission" -> queststatus(241) 
 queststatus(241) = 12, "enchant", "task", "adventure", "order", "magic" -> queststatus(241) = 13, item(43, 4), item(399, 4), "That's all I have to teach you about enchanting jewellery through the means of glyph forging. Don't feel too down about destroying the glyph you just made, you'll find plenty more of the mystical shards in the wild as they fall bursting with light, a sign of the mana captured within. Here, have these candles and candlesticks as a reward to get you started on your path as an enchanter!"
 queststatus(241) = 12, "glyph", "verzauber", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "magie" -> queststatus(241) = 13, item(43, 4), item(399, 4), "Das ist alles was, was ich dir über das Verzaubern von Schmuck beibringen kann. Sei nicht zu enttäuscht, dass du die Glyphe, die du gerade hergestellt hast, wieder zerstört hast. Du wirst reichlich magische Scherben in der Wildnis finden, die über Illarion niedergegangen sind. Sie schimmern in einem besonderen Licht, welches vom in ihnen eingefangenen Mana stammt. Nimm diese Kerzen und Kerzenhalter als Belohnung, damit du deinen Pfad in der Magie der Verzauberung beschreiten kannst."
 
+--spatial magic tutorial
+
+-- Tasked to attune to the nearby teleporter
+queststatus(240) = 0, english, "quest", "mission", "teleport" -> inform("[New quest] Spatial Magic"), queststatus(240) = 1, "So you want to learn about spatial magic, eh? Well first go on and head over to the nearby teleporter and use your wand to attune to it, then return to me once you have succeeded."
+queststatus(240) = 0, "portal", "spatial",  "task", "adventure", "order" -> inform("[New quest] Spatial Magic"), queststatus(240) = 1, "So you want to learn about spatial magic, eh? Well first go on and head over to the nearby teleporter and use your wand to attune to it, then return to me once you have succeeded."
+queststatus(240) = 0, "teleport", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "order" -> inform("[Neue Quest] Raummagie"), queststatus(240) = 1, "Also, du willst etwas über Raum-Magie lernen, hm? Geh zuerst zum nahegelegenen Teleporter und benutze deinen Zauberstab, um dich darauf abzustimmen. Kehre dann zu mir zurück, sobald du Erfolg hattest."
+-- Chat GPT german translation above, check needed
+
+-- Reminded to attune yourself
+queststatus(240) = 1, english, "quest", "mission", "teleport" -> "Go on then. Go attune yourself to the teleporter."
+queststatus(240) = 1, "portal", "spatial",  "task", "adventure", "order" -> "Go on then. Go attune yourself to the teleporter."
+queststatus(240) = 1, "teleport", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "order" -> "Na dann los. Geh und stimm dich auf den Teleporter ab."
+
+-- Tasked to teleport
+queststatus(240) = 2, english, "quest", "mission", "teleport" -> queststatus(240) = 3, "Good, you're attuned to the teleporter! Next up, show me how you teleport to it. The incantation is 'Locus Itinerantur'."
+queststatus(240) = 2, "portal", "spatial",  "task", "adventure", "order" -> queststatus(240) = 3, "Good, you're attuned to the teleporter! Next up, show me how you teleport to it. The incantation is 'Locus Itinerantur'."
+queststatus(240) = 2, "teleport", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "order" -> queststatus(240) = 3, "Gut, du hast dich auf den Teleporter abgestimmt! Als Nächstes musst du mir zeigen, wie du dich zu ihm teleportierst. Die Beschwörungsformel lautet 'Locus Itinerantur'."
+
+-- Reminded to teleport
+queststatus(240) = 3, english, "quest", "mission", "teleport" -> "Well go on then. I want to see you teleport to the nearby teleporter."
+queststatus(240) = 3, "portal", "spatial",  "task", "adventure", "order" -> "Well go on then. I want to see you teleport to the nearby teleporter."
+queststatus(240) = 3, "teleport", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "order" -> "Na dann los. Ich möchte sehen, wie du dich zum nahe gelegenen Teleporter teleportierst."
+
+-- Tasked to open a portal
+queststatus(240) = 4, english, "quest", "mission", "teleport" -> queststatus(240) = 5, "Well done! Next up, I want to see you open a portal to it as well. The incantation is 'Locus Ianua'."
+queststatus(240) = 4, "portal", "spatial",  "task", "adventure", "order" -> queststatus(240) = 5, "Well done! Next up, I want to see you open a portal to it as well. The incantation is 'Locus Ianua'."
+queststatus(240) = 4, "teleport", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "order" -> queststatus(240) = 5, "Gut gemacht! Als Nächstes möchte ich sehen, wie du auch ein Portal zu ihm öffnest. Die Beschwörungsformel lautet 'Locus Ianua'."
+
+-- Reminded about the task to open a portal
+queststatus(240) = 5, english, "quest", "mission", "teleport" -> "Well go on then. I want to see you open a portal to the nearby teleporter."
+queststatus(240) = 5, "portal", "spatial",  "task", "adventure", "order" -> "Well go on then. I want to see you open a portal to the nearby teleporter."
+queststatus(240) = 5, "teleport", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "order" -> "Na dann los. Ich möchte sehen, wie du ein Portal zum nahen Teleporter öffnest."
+
+--Tasked to craft a portal book
+queststatus(240) = 6, english, "quest", "mission", "teleport" -> queststatus(240) = 7, item(4815, 1), item(1118, 1), "Alright then, you know your way around spatial magic. For your last task, I want you to go over to the magic desk over there and craft me a portal book. Once created, you can use your wand to inspect the quality of your book. Here, have this empty book and bottle of ink to help you along. You'll need to get your own quill, though."
+queststatus(240) = 6, "portal", "spatial",  "task", "adventure", "order" -> queststatus(240) = 7, item(4815, 1), item(1118, 1), "Alright then, you know your way around spatial magic. For your last task, I want you to go over to the magic desk over there and craft me a portal book. Once created, you can use your wand to inspect the quality of your book. Here, have this empty book and bottle of ink to help you along. You'll need to get your own quill, though."
+queststatus(240) = 6, "teleport", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "order" -> queststatus(240) = 7, item(4815, 1), item(1118, 1), "Also gut, du kennst dich mit Raummagie aus. Für deine letzte Aufgabe möchte ich, dass du zum Zauberpult dort drüben gehst und mir ein Portalbuch anfertigst. Sobald es fertig ist, kannst du mit Hilfe deines Zauberstab die Qualität deines Buches überprüfen. Hier, nimm dieses leere Buch und die Tintenflasche, um dir zu helfen. Eine Feder musst du dir allerdings selbst besorgen."
+
+-- Turn in of portal book to finish the tutorial, player gets to keep the book
+queststatus(240) = 7, item(1061, all) > 0, english, "quest", "mission", "teleport" -> queststatus(240) = 8, "Splendid! You can keep the book. That's all there is that I have to teach you about spatial magic. Though you can always ask me about other types of magic."
+queststatus(240) = 7, item(1061, all) > 0, "portal", "spatial",  "task", "adventure", "order" -> queststatus(240) = 8, "Splendid! You can keep the book. That's all there is that I have to teach you about spatial magic. Though you can always ask me about other types of magic."
+queststatus(240) = 7, item(1061, all) > 0, "teleport", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "order" -> queststatus(240) = 8, "Prächtig! Du kannst das Buch behalten. Das ist alles, was ich dir über Raummagie beibringen kann. Du kannst mich aber jederzeit über andere Arten von Magie befragen."
+
+--Player has no portal book to turn in, reminder to go get one
+queststatus(240) = 7, english, "quest", "mission", "teleport" -> "Where's my portal book?"
+queststatus(240) = 7, "portal", "spatial",  "task", "adventure", "order" -> "Where's my portal book?"
+queststatus(240) = 7, "teleport", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "order" -> "Wo ist mein Portalbuch?"
+
+
 -- Catching quest triggers post magic tutorials
-english, "rune", "glyph", "quest", "mission" -> "There is nothing more I can teach you for now. Once I've had a chance to settle all my things, I may have more for you to learn though."
+english, "rune", "glyph", "quest", "mission", "teleport" -> "There is nothing more I can teach you for now. Once I've had a chance to settle all my things, I may have more for you to learn though."
 "magic", "enchant", "wand", "spatial", "task", "adventure", "order" -> "There is nothing more I can teach you for now. Once I've had a chance to settle all my things, I may have more for you to learn though."
 "magie", "verzauber", "zauberstab", "teleport", "rune", "glyph", "quest", "mission", "auftrag", "aufgabe", "abenteuer" -> "Ich kann dir nichts weiter beibringen. Aber sobald ich mich hier eingelebt habe, kann ich dir vielleicht mehr beibringen."
 
@@ -241,3 +291,5 @@ cycletext "Was? Schon wieder kein Forschungsmaterial mehr!?", "What!? Out of res
 cycletext "Huh? Wer... wo war ich?", "Huh? Who... Where was I?"
 cycletext "Forschen, Forschen, Forschen... Wo ist jetzt mein Essen geblieben?", "Research, research, research... Now where did my dinner go off to?"
 cycletext "Sie werden es noch bereuen, mich aus der Akademie geworfen zu haben...", "They'll regret kicking me out of the academy, you'll see..."
+cycletext "Grimoires zu verkaufen! Unterstützt meine Forschung, kauft heute ein Grimoire!", "Grimoires for sale! Come fund my research, buy a Grimoire today!"
+-- verification of the chatGPT GERMAN TRANSLATION in the line above needed
