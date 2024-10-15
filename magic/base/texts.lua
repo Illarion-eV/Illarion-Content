@@ -539,13 +539,21 @@ local M = {
             english = "Something in the area disrupts your casting. Perhaps this isn't a good spot for spatial magic?",
             german = "Etwas in der Nähe unterbericht deinen Zauber. Möglicherweise ist das kein guter Ort für Raummagie?"
         },
+        locationBlocked = {
+            english = "There is not enough free space in front of you for a portal, try again somewhere there is more room.",
+            german = "Vor dir ist nicht genug Platz für ein Portal. Versuche es erneut an einem Ort, wo mehr Raum zur Verfügung steht."
+        },
         showBookQuality = {
             english = "Portal Book Evaluation",
             german = "Portalbuchbewertung"
         },
         bookQuality = {
-            english = "Portal book quality:\n",
-            german = "Qualität des Portalbuches:\n "
+            english = "Through your inspection you find that this portal book is of ",
+            german = "Durch deine Inspektion stellst du fest, dass dieses Portalbuch von der Qualität "
+        },
+        bookQualityAddendum = {
+            english = " quality. The better the quality, the faster it is to summon a portal through the usage of this book.",
+            german = " ist. Je besser die Qualität, desto schneller lässt sich ein Portal mithilfe dieses Buches beschwören."
         },
         portalBookChant = {
             english = "#me begins chanting the incantation written in a portal book.",

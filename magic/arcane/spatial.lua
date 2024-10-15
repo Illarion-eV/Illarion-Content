@@ -20,7 +20,7 @@ local texts = require("magic.base.texts")
 local magic = require("base.magic")
 local spiritlocation = require("magic.arcane.spirit.location")
 local antiTroll = require("magic.base.antiTroll")
-local lookat = require("base.lookat")
+local shared = require("magic.arcane.enchanting.core.shared")
 local tutorials = require("magic.tutorials")
 
 local M = {}
@@ -270,11 +270,9 @@ end
 
 local function getBookQualityText(portalBook)
 
-    local germanQuals = lookat.GenericQualDe
-    local englishQuals = lookat.GenericQualEn
     local quality = math.floor(portalBook.quality/100)
-    local germanText = germanQuals[10-quality]
-    local englishText = englishQuals[10-quality]
+    local germanText = shared.qualityTexts.german[quality]
+    local englishText = shared.qualityTexts.english[quality]
 
     return germanText, englishText
 end
@@ -323,7 +321,7 @@ function M.showBookQuality(user)
         local callback = function(MsgDialog)
         end
 
-        local MsgDialog = MessageDialog(common.GetNLS(user, germanTitle, englishTitle), common.GetNLS(user, myTexts.bookQuality.german..germanText, myTexts.bookQuality.english..englishText), callback)
+        local MsgDialog = MessageDialog(common.GetNLS(user, germanTitle, englishTitle), common.GetNLS(user, myTexts.bookQuality.german..germanText..myTexts.bookQualityAddendum.german, myTexts.bookQuality.english..englishText..myTexts.bookQualityAddendum.english), callback)
         user:requestMessageDialog(MsgDialog)
 
     end
@@ -449,7 +447,11 @@ local function teleport(user, actionState, portal, destination)
     user:learn(Character.spatialMagic, castDuration, 100)
 
     if portal then
-        if antiTroll.passesAntiTrollCheck(thePos) then
+        if world:getItemOnField(thePos) then
+
+            user:inform(myTexts.locationBlocked.german, myTexts.locationBlocked.english)
+
+        elseif antiTroll.passesAntiTrollCheck(thePos) then
             local thePortal = world:createItemFromId(portalType, 1, thePos, true, 999, {destinationCoordsZ = destination.z, destinationCoordsY = destination.y, destinationCoordsX = destination.x})
             thePortal.wear = wear
             world:changeItem(thePortal)
