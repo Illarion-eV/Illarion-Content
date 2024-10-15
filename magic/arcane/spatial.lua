@@ -447,7 +447,7 @@ local function teleport(user, actionState, portal, destination)
     user:learn(Character.spatialMagic, castDuration, 100)
 
     if portal then
-        if world:getItemOnField(thePos) and world:getItemOnField(thePos).wear == 255 then
+        if world:isItemOnField(thePos) and world:getItemOnField(thePos).wear == 255 then
             --[[
             Only checks for static items here.
             This way if the player turned around to try and cheat the portal placement,
@@ -491,7 +491,7 @@ local function chooseLocation(user, actionState, portal)
         return
     end
 
-    if world:getItemOnField(common.GetFrontPosition(user)) then
+    if world:isItemOnField(common.GetFrontPosition(user)) then
         user:inform(myTexts.locationBlocked.german, myTexts.locationBlocked.english)
         return
     end
