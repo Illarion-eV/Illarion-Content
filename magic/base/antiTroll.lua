@@ -104,8 +104,6 @@ local function checkForNearbyPortals(target)
             for y = -1, 1 do
                 local myItem = world:getItemOnField(position(target.x+x, target.y+y, target.z))
 
-                log("myItem.id: "..tostring(myItem.id))
-
                 if myItem.id == portal then
                     return true
                 end
