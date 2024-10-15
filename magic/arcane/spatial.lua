@@ -447,8 +447,14 @@ local function teleport(user, actionState, portal, destination)
     user:learn(Character.spatialMagic, castDuration, 100)
 
     if portal then
-        if world:getItemOnField(thePos) then
-
+        if world:getItemOnField(thePos) and world:getItemOnField(thePos).wear == 255 then
+            --[[
+            Only checks for static items here.
+            This way if the player turned around to try and cheat the portal placement,
+            it still stops from casting on static. On the other hand, if another player
+            tossed an item before them to troll the mage mid cast, it ignores it and just
+            places it ontop of the item.
+            ]]
             user:inform(myTexts.locationBlocked.german, myTexts.locationBlocked.english)
 
         elseif antiTroll.passesAntiTrollCheck(thePos) then
@@ -482,6 +488,11 @@ local function chooseLocation(user, actionState, portal)
 
     if not antiTroll.passesAntiTrollCheck(common.GetFrontPosition(user)) then
         user:inform(myTexts.badTarget.german, myTexts.badTarget.english)
+        return
+    end
+
+    if world:getItemOnField(common.GetFrontPosition(user)) then
+        user:inform(myTexts.locationBlocked.german, myTexts.locationBlocked.english)
         return
     end
 
