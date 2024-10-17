@@ -80,7 +80,7 @@ local function logThatMessagesWereReceived(recipient, contents)
 
     local numberOfMessages = #contents
 
-    local loggedMessage = "[Messenger]: "..recipient.name.." at "..tostring(recipient.pos).." has received "..numberOfMessages.." messages. They contain the following, garbled for privacy reasons: "
+    local loggedMessage = "[Messenger]: "..tostring(recipient.name).." at "..tostring(recipient.pos).." has received "..tostring(numberOfMessages).." messages. They contain the following, garbled for privacy reasons: "
 
     loggedMessage = loggedMessage..convertContentsIntoString(contents)
 
