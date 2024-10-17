@@ -332,7 +332,7 @@ function M.UseItem(user, sourceItem, ltstate)
     local magicDeskFound = checkIfMagicDeskInFrontOfuser(user)
 
     if magicDeskFound then
-        magicDesk.mainDialog(user, magicDesk)
+        magicDesk.mainDialog(user, magicDeskFound)
         return
     end
 
