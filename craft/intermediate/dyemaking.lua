@@ -65,7 +65,7 @@ catId = dyemaking:addCategory("Other", "Sonstiges")
 
 -- Bottle of Ink
 product = dyemaking:addProduct(catId, 1118, 1)
-product:addIngredient(314, 5) --potash(used by ancient egyptians to make ink along with water)
+product:addIngredient(314, 1) --potash(used by ancient egyptians to make ink along with water)
 product:addIngredient(1117) --empty ink bottle
 product:addIngredient(52) -- Water bucket
 product:addRemnant(51) -- bucket
