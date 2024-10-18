@@ -145,6 +145,13 @@ local function showItemLevel(user, itemId, lookat , itemLevel)
 
 end
 
+local function isPortalBook(item)
+    if item.id == 1061 then
+        return true
+    end
+    return false
+end
+
 function M.GenerateLookAt(user, item, material)
 
     if user == nil then
@@ -223,7 +230,7 @@ function M.GenerateLookAt(user, item, material)
     if itemCommon.AgeingSpeed < 255 and itemCommon.Weight < 30000 then
         local craftedByData = item:getData("craftedBy")
 
-        if not common.IsNilOrEmpty(craftedByData) then
+        if not common.IsNilOrEmpty(craftedByData) and not isPortalBook(item) then
             lookAt.craftedBy = craftedByData
         end
 
