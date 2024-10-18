@@ -66,6 +66,29 @@ local function CheckIfEmptyBottlePresent(user)
     return false
 end
 
+local function checkIfBookInHand(user, sourceItem)
+
+    local bookList = {1061, 105, 106, 129, 2609, 2610, 114, 115, 2608, 2615, 107, 108, 111, 112, 2605, 2617, 109, 110, 117, 128, 130, 2604, 131, 2602, 2620, 116, 2621, 2607, 127, 2598, 2606, 2616, 2619}
+
+    local book = common.GetTargetItem(user, sourceItem)
+
+    if common.IsNilOrEmpty(book) then
+        return false
+    end
+
+    for _, currentBook in pairs(bookList) do
+        if currentBook == book.id then
+            return book
+        end
+    end
+
+    user:inform("Du brauchst ein Buch in der Hand, wenn du eines beschriften möchtest.","You need a book in your hand if you want to label one.")
+
+    return false
+end
+
+
+
 local function CheckIfBottleInHand(user, sourceItem)
 
     local potionBottleList = alchemy.bottleList
@@ -262,6 +285,44 @@ local function WriteContainerLabel(user,sourceItem)
     user:requestInputDialog(dialog)
 end
 
+local function writeBookLabel(user, sourceItem)
+
+    local title = getText(user, "Buchetikketierung", "Book labelling")
+    local infoText = getText(user, "Füge hier den Text ein, mit dem du das Etikett beschriften willst.", "Insert the text you want to write on the label.")
+
+    local callback = function(dialog)
+
+        if not dialog:getSuccess() then
+            return
+        end
+
+        local book = checkIfBookInHand(user, sourceItem)
+
+        if book then
+
+            local labelText = dialog:getInput()
+
+            local prefixDe = ""
+            local prefixEn = ""
+
+            if not common.IsNilOrEmpty(labelText) then
+                prefixDe = "Etikett: "
+                prefixEn = "Label: "
+            end
+
+            lookat.SetSpecialDescription(book, prefixDe..labelText, prefixEn..labelText)
+            world:changeItem(book)
+            user:inform("Du beschriftest die Buch mit '"..labelText.."'.","You label the book as '"..labelText.."'.")
+
+        end
+    end
+
+    local dialog = InputDialog(title, infoText, false, 100, callback)
+
+    user:requestInputDialog(dialog)
+
+end
+
 local function WriteLabel(user,sourceItem)
 
     local title  = getText(user, "Flaschenetikettierung", "Bottle labelling")
@@ -367,6 +428,10 @@ function M.UseItem(user, sourceItem, ltstate)
                 else
                     WriteContainerLabel(user,sourceItem)
                 end
+            elseif selected == 8 then
+                if checkIfBookInHand(user, sourceItem) then
+                    writeBookLabel(user, sourceItem)
+                end
             elseif selected == 4 then
                 if not CheckIfEmptyBottlePresent(user) then
                     user:inform("Du brauchst Flaschen von denen du das Etikett entfernen kannst.","You need bottles to remove labels.",Character.highPriority)
@@ -402,6 +467,7 @@ function M.UseItem(user, sourceItem, ltstate)
     dialog:addOption(0, getText(user,"Pergament beschreiben","Write a parchment"))
     dialog:addOption(0, getText(user,"Pergament unterschreiben","Sign a parchment"))
     dialog:addOption(0, getText(user, "Buch verfassen", "Author a book"))
+    dialog:addOption(0, getText(user,"Buch beschriften","Label a book"))
 
     user:requestSelectionDialog(dialog)
 end
