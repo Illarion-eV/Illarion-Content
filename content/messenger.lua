@@ -80,9 +80,16 @@ local function logThatMessagesWereReceived(recipient, contents)
 
     local numberOfMessages = #contents
 
+    local contentsToString = convertContentsIntoString(contents)
+
+    if not contentsToString then
+        -- Not to be logged
+        return
+    end
+
     local loggedMessage = "[Messenger]: "..tostring(recipient.name).." at "..tostring(recipient.pos).." has received "..tostring(numberOfMessages).." messages. They contain the following, garbled for privacy reasons: "
 
-    loggedMessage = loggedMessage..convertContentsIntoString(contents)
+    loggedMessage = loggedMessage..contentsToString
 
     if loggedMessage then
 
