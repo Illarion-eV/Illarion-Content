@@ -297,6 +297,21 @@ function M.listBooksAtBelt(user)
 
 end
 
+local function getDestinationText(book)
+
+    local destinationEn = book:getData("destinationEn")
+    local destinationDe = book:getData("destinationDe")
+
+    if common.IsNilOrEmpty(destinationDe) then
+        return "" -- No destination info for NPC sold books as it is written on them
+    end
+
+    local prefixEn = "Destination: "
+    local prefixDe = "Ziel: "
+
+    return prefixDe..destinationDe.."\n", prefixEn..destinationEn.."\n"
+end
+
 function M.showBookQuality(user)
 
     local booksAtBelt = M.listBooksAtBelt(user)
@@ -318,10 +333,12 @@ function M.showBookQuality(user)
         local englishTitle = myTexts.showBookQuality.english
         local germanText, englishText = getBookQualityText(booksAtBelt[selected])
 
+        local germanTextDestination, englishTextDestination = getDestinationText(booksAtBelt[selected])
+
         local callback = function(MsgDialog)
         end
 
-        local MsgDialog = MessageDialog(common.GetNLS(user, germanTitle, englishTitle), common.GetNLS(user, myTexts.bookQuality.german..germanText..myTexts.bookQualityAddendum.german, myTexts.bookQuality.english..englishText..myTexts.bookQualityAddendum.english), callback)
+        local MsgDialog = MessageDialog(common.GetNLS(user, germanTitle, englishTitle), common.GetNLS(user, germanTextDestination..myTexts.bookQuality.german..germanText..myTexts.bookQualityAddendum.german, englishTextDestination..myTexts.bookQuality.english..englishText..myTexts.bookQualityAddendum.english), callback)
         user:requestMessageDialog(MsgDialog)
 
     end
@@ -332,9 +349,9 @@ function M.showBookQuality(user)
 
     local dialog = SelectionDialog(title, description, callback)
 
-    for _, glyph in pairs(booksAtBelt) do
-        local commonItem = world:getItemStatsFromId(glyph.id)
-        dialog:addOption(glyph.id, common.GetNLS(user, commonItem.German, commonItem.English))
+    for _, book in pairs(booksAtBelt) do
+        local commonItem = world:getItemStatsFromId(book.id)
+        dialog:addOption(book.id, common.GetNLS(user, commonItem.German, commonItem.English))
     end
 
     dialog:setCloseOnMove()
