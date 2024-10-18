@@ -404,7 +404,7 @@ local M = {
     portalBookTexts = {
         craft = {english = "Portal  Book Creation", german = "Portalbuch Erstellung"},
         category = {english = "Portal Books", german = "Portalbücher"},
-        book = {english = "Portal book: ", german = "Portalbuch: "},
+        book = {english = "Portal book", german = "Portalbuch"},
     },
     --spatial.lua
     --plan is to add one portal location per zone (avoiding "dead mana" areas) once Slightly has finalised the zone name list

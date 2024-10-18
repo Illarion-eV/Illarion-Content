@@ -48,7 +48,16 @@ function M.portalBookCreation(user, sourceItem)
 
         if levelReq <= spatialMagicLevel then
             if spatial.spotAttuned(user, i) then
-                local product = portalBooks:addProduct(catId, 1061, 1, {destinationCoordsZ = spot.location.z, destinationCoordsY = spot.location.y, destinationCoordsX = spot.location.x, descriptionEn = spot.english, descriptionDe = spot.german, nameEn = myTexts.book.english..spot.nameEn, nameDe = myTexts.book.german..spot.nameDe})
+                local product = portalBooks:addProduct(catId, 1061, 1, {
+                    destinationCoordsZ = spot.location.z,
+                    destinationCoordsY = spot.location.y,
+                    destinationCoordsX = spot.location.x,
+                    nameEn = myTexts.book.english,
+                    nameDe = myTexts.book.german,
+                    destinationEn = spot.nameEn,
+                    destinationDe = spot.nameDe
+                    }
+                )
                 product:addIngredient(4815) -- the empty book, obtained from tailors
                 product:addIngredient(1118) -- bottle of ink, obtained from dyemakers
                 product:addRemnant(1117) -- empty bottle of ink
