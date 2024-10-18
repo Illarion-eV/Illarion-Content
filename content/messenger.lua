@@ -62,10 +62,13 @@ local function convertContentsIntoString(contents)
     local retString = ""
 
     for index, message in pairs(contents) do
-        if not message.sender then
-            return false --script message not to be logged to avoid spam in the log
+        if message.sender then
+            retString = retString.." (Sender "..index..": "..message.sender.." Message"..index..": "..garbleTheMessage(message.text)..")"
         end
-        retString = retString.." (Sender "..index..": "..message.sender.." Message"..index..": "..garbleTheMessage(message.text)..")"
+    end
+
+    if retString == "" then
+        return false
     end
 
     return retString
