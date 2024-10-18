@@ -26,7 +26,7 @@ local doors = require("base.doors")
 local M = {}
 
  -- Cadomyr, Runewick, Galmair
- M.townManagmentItemPos = factions.townMagagmentItemPos
+ M.townManagmentItemPos = factions.townManagmentItemPos
  M.max_guest_number = 20
  M.max_builder_number = 20
  M.depotList={100,101,102,103}
