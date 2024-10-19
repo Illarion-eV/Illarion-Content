@@ -69,16 +69,6 @@ function M.findSuitableLocation(user)
     return true, position
 end
 
-local function pickAndPlayRandomGfx(location)
-
-    local gfxList = {globalvar.gfxRAIN, globalvar.gfxSCOTTY, globalvar.gfxSPRINKLE, globalvar.gfxSPRINKLE, globalvar.gfxSPRINKLE}
-
-    local selectedGfx = gfxList[math.random(1,#gfxList)]
-
-    world:gfx(selectedGfx, location)
-
-end
-
 function M.candleRitualExists(forgeItem)
 
     local timeLimit = common.GetCurrentTimestamp() - 3600 -- Glyph crafting sessions are limited to one hour without having to re-do the ritual
@@ -137,7 +127,7 @@ local function startNewCycle(user)
 
     ongoingRitual[user.id].cyclesRemaining = ongoingRitual[user.id].cyclesRemaining - 1
 
-    pickAndPlayRandomGfx(location)
+    magic.pickAndPlayRandomGfx(location)
 
     user:performAnimation(globalvar.charAnimationSPELL)
     world:makeSound(globalvar.sfxSNARING, user.pos)

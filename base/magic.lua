@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local gems = require("base.gems")
+local globalvar = require("base.globalvar")
 
 
 local MAGE_MIN_ATTRIBUTE_SUM = 30
@@ -99,6 +100,17 @@ function M.getBestMageAttribute(user)
         end
     end
     return bestValue
+end
+
+-- play a random magic related GFX at location, with a preference for sprinkle
+function M.pickAndPlayRandomGfx(location)
+
+    local gfxList = {globalvar.gfxRAIN, globalvar.gfxSCOTTY, globalvar.gfxSPRINKLE, globalvar.gfxSPRINKLE, globalvar.gfxSPRINKLE}
+
+    local selectedGfx = gfxList[math.random(1,#gfxList)]
+
+    world:gfx(selectedGfx, location)
+
 end
 
 --[[canBeMage

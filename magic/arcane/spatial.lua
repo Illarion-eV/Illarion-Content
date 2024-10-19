@@ -22,6 +22,7 @@ local spiritlocation = require("magic.arcane.spirit.location")
 local antiTroll = require("magic.base.antiTroll")
 local shared = require("magic.arcane.enchanting.core.shared")
 local tutorials = require("magic.tutorials")
+local globalvar = require("base.globalvar")
 
 local M = {}
 
@@ -443,7 +444,6 @@ end
 
 local function teleport(user, actionState, portal, destination)
 
-    local castDuration = getCastTime(user)
     local wear = getPortalWear(user)
     local thePos = user.pos
 
@@ -456,6 +456,8 @@ local function teleport(user, actionState, portal, destination)
     if portal then
         thePos = common.GetFrontPosition(user)
     end
+
+    local castDuration = getCastTime(user)
 
     world:gfx(41, thePos)
     world:makeSound(13, thePos)
@@ -496,8 +498,43 @@ local function teleport(user, actionState, portal, destination)
     end
 end
 
+local startCycles = 3
+
+function M.startCycle(user, actionState, oralCast)
+
+    if M[user.name.."cycles"] > 0 then
+
+        local castDuration = getCastTime(user)
+
+        M[user.name.."cycles"] = M[user.name.."cycles"] - 1
+
+        local location = user.pos
+
+        local portal = M[user.name.."portal"]
+
+        if portal then
+            location = common.GetFrontPosition(user)
+        end
+
+        magic.pickAndPlayRandomGfx(location)
+
+        user:performAnimation(globalvar.charAnimationSPELL)
+        world:makeSound(globalvar.sfxSNARING, user.pos)
+
+        user:startAction(math.ceil(castDuration/startCycles), 21, 10, 0, 0)
+
+    else
+        local destination = M[user.name.."destination"]
+        local portal = M[user.name.."portal"]
+        teleport(user, actionState, portal, destination, oralCast)
+    end
+
+
+
+end
+
 local function chooseLocation(user, actionState, portal)
-    local castDuration = getCastTime(user)
+
     if not checkIfEnoughMana(user) then
         user:inform(castTexts.mana.german, castTexts.mana.english)
         return
@@ -508,7 +545,7 @@ local function chooseLocation(user, actionState, portal)
         return
     end
 
-    if world:isItemOnField(common.GetFrontPosition(user)) then
+    if portal and world:isItemOnField(common.GetFrontPosition(user)) then
         user:inform(myTexts.locationBlocked.german, myTexts.locationBlocked.english)
         return
     end
@@ -527,7 +564,8 @@ local function chooseLocation(user, actionState, portal)
                 destination = spots[i].location
                 M[user.name.."destination"] = destination
                 M[user.name.."portal"] = portal
-                user:startAction(castDuration, 21, 10, 0, 0)
+                M[user.name.."cycles"] = startCycles
+                M.startCycle(user)
             end
         end
     end
@@ -609,9 +647,7 @@ function M.castSpatialMagic(user, actionState, oralCast)
         user:inform(common.GetNLS(user, myTexts.interruptedCast.german, myTexts.interruptedCast.english))
         return
     elseif actionState == Action.success then
-        local destination = M[user.name.."destination"]
-        local portal = M[user.name.."portal"]
-        teleport(user, actionState, portal, destination, oralCast)
+        M.startCycle(user, actionState, oralCast)
     end
 end
 
