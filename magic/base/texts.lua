@@ -489,7 +489,8 @@ local M = {
         },
         incantation = {
             portal = "Locus Ianua", -- latin for "space door"
-            teleport = "Locus Itinerantur" --latin for "space travel"
+            teleport = "Locus Itinerantur", --latin for "space travel"
+            attune = "Locus Memento" --latin, "space remember"
         },
         teleportation = {
             english = "Teleportation",

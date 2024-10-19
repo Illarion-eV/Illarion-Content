@@ -37,6 +37,12 @@ local function checkForPortalIncantation(spokenWords)
         return incantations.teleport
     end
 
+    local foundAttune = string.find(spokenWords, incantations.attune)
+
+    if foundAttune then
+        return incantations.attune
+    end
+
     return false
 
 end

@@ -182,9 +182,9 @@ queststatus(240) = 0, "teleport", "quest", "mission", "auftrag", "aufgabe", "abe
 -- Chat GPT german translation above, check needed
 
 -- Reminded to attune yourself
-queststatus(240) = 1, english, "quest", "mission", "teleport" -> "Go on then. Go attune yourself to the teleporter."
-queststatus(240) = 1, "portal", "spatial",  "task", "adventure", "order" -> "Go on then. Go attune yourself to the teleporter."
-queststatus(240) = 1, "teleport", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "order" -> "Na dann los. Geh und stimm dich auf den Teleporter ab."
+queststatus(240) = 1, english, "quest", "mission", "teleport" -> "Go on then. Go attune yourself to the teleporter. The incantation is 'Locus Memento'."
+queststatus(240) = 1, "portal", "spatial",  "task", "adventure", "order" -> "Go on then. Go attune yourself to the teleporter. The incantation is 'Locus Memento'."
+queststatus(240) = 1, "teleport", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "order" -> "Na dann los. Geh und stimm dich auf den Teleporter ab. Die Beschwörungsformel lautet 'Locus Memento'."
 
 -- Tasked to teleport
 queststatus(240) = 2, english, "quest", "mission", "teleport" -> queststatus(240) = 3, "Good, you're attuned to the teleporter! Next up, show me how you teleport to it. The incantation is 'Locus Itinerantur'."

@@ -149,7 +149,9 @@ local function getDirectionDistance(user)
     return common.GetNLS(user, distanceTextDe..binderTextDe..directionNameDe, distanceTextEn..binderTextEn..directionNameEn)
 end
 
-function M.checkSpotEligiblity(user)
+local startCycles = 3
+
+function M.checkSpotEligiblity(user, actionState)
 
     for i = 1, #portalSpots do
         if user.pos.x >= portalSpots[i].location.x-5 and user.pos.x <= portalSpots[i].location.x+5 then
@@ -166,8 +168,9 @@ function M.checkSpotEligiblity(user)
                         return
                     else
                         if spatialMagicLevel >= portalSpots[i].level then
-                            M.attuneSpot(user, i)
-                            user:inform(myTexts.doneAttuning.german, myTexts.doneAttuning.english)
+                            M[user.name.."attunement"] = i
+                            M[user.name.."cycles"] = startCycles
+                            M.startCycle(user, actionState)
                             return
                         else
                             user:inform(myTexts.lackingSkill.german, myTexts.lackingSkill.english)
@@ -498,9 +501,9 @@ local function teleport(user, actionState, portal, destination)
     end
 end
 
-local startCycles = 3
-
 function M.startCycle(user, actionState, oralCast)
+
+    local attunement = M[user.name.."attunement"]
 
     if M[user.name.."cycles"] > 0 then
 
@@ -523,6 +526,10 @@ function M.startCycle(user, actionState, oralCast)
 
         user:startAction(math.ceil(castDuration/startCycles), 21, 10, 0, 0)
 
+    elseif attunement then
+        M.attuneSpot(user, attunement)
+        user:inform(myTexts.doneAttuning.german, myTexts.doneAttuning.english)
+        M[user.name.."attunement"] = false
     else
         local destination = M[user.name.."destination"]
         local portal = M[user.name.."portal"]
@@ -562,6 +569,7 @@ local function chooseLocation(user, actionState, portal)
         for i = 1, #spots do
             if index == i then
                 destination = spots[i].location
+                M[user.name.."attunement"] = false -- If a previous attunement attempt was interrupted, it might still be stored, so we overwrite it here
                 M[user.name.."destination"] = destination
                 M[user.name.."portal"] = portal
                 M[user.name.."cycles"] = startCycles
@@ -593,7 +601,8 @@ local function portalMenu(user, ltstate)
         local index = dialog:getSelectedIndex() + 1
 
         if index == 1 then
-            M.checkSpotEligiblity(user)
+            local incantation = myTexts.incantation.attune
+            user:talk(Character.say, incantation)
             return
         elseif index == 2 then
             local incantation = myTexts.incantation.teleport
@@ -633,6 +642,8 @@ local  function skipPortalMenu(user, actionState, incantation)
         chooseLocation(user, actionState)
     elseif incantation == myTexts.incantation.portal then
         chooseLocation(user, actionState, true)
+    elseif incantation == myTexts.incantation.attune then
+        M.checkSpotEligiblity(user)
     end
 end
 
