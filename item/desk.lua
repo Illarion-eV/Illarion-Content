@@ -25,6 +25,12 @@ local M = {}
 -- UPDATE items SET itm_script='item.desk' WHERE itm_id IN (550, 551, 1219, 1220, 1221, 1222);
 
 function M.UseItem(user, sourceItem)
+
+    if not common.IsNilOrEmpty(sourceItem:getData("decorative")) then
+        return
+        --The item is only for decorative purposes and not meant to function as normal
+    end
+
     if sourceItem.pos == position(592, 171, -3) then --then player used the desk and breaks something
         user:inform(
             "Als du etwas auf dem Schreibtisch berührst, kippt eine Flasche um und zerbricht mit einer Explosion, die dich für einen Moment blendet.",
