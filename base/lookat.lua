@@ -368,7 +368,7 @@ local function itemIsRepairKit(user, itemId, lookAt, itemLevel)
         end
 
         if user:getPlayerLanguage() == Player.german then
-            lookAt.type = ""
+            lookAt.type = "Reparatursatz"
         else
             lookAt.type = "Repair Kit"
         end
