@@ -19,10 +19,45 @@ local common = require("base.common")
 
 local M = {}
 
+M.slots = {Character.neck, Character.finger_left_hand, Character.finger_right_hand}
+
 local quests = {}
 quests[Character.neck] = 564
 quests[Character.finger_left_hand] = 565
 quests[Character.finger_right_hand] = 566
+
+local function addValues(myEffect, jewellery)
+
+    myEffect:addValue(tostring(jewellery.itempos), 1)
+
+    return myEffect
+end
+
+local effectId = 403
+
+function M.unequipJewellery(user, jewellery)
+
+    for _, slot in pairs(M.slots) do
+
+        if user:getItemAt(slot).id == 0 then --This slot is empty and might have been emptied out
+
+            local foundEffect, myEffect = user.effects:find(effectId)
+
+            local commonItem = world:getItemStatsFromId(jewellery.id)
+
+            if foundEffect then
+                local foundValue, value = myEffect:findValue(tostring(slot))
+
+                if foundValue and value == 1 then
+                    myEffect:addValue(tostring(jewellery.itempos), 0)
+                    user:inform("Du hast das "..commonItem.German.." abgelegt, bevor die Glyphe darin Zeit hatte, sich vollständig aufzuladen.", "You unequipped the "..commonItem.English.." before the glyph in it had time to finish charging up.")
+                    break
+                end
+            end
+        end
+    end
+
+end
 
 function M.saveTimeOfJewelleryEquipment(user, jewellery)
 
@@ -31,6 +66,25 @@ function M.saveTimeOfJewelleryEquipment(user, jewellery)
     if not hasGlyph then
         return
     end
+
+    local commonItem = world:getItemStatsFromId(jewellery.id)
+
+    local foundEffect, myEffect = user.effects:find(effectId)
+
+    if foundEffect then
+
+        addValues(myEffect, jewellery)
+
+    elseif not foundEffect then
+
+        myEffect = LongTimeEffect(effectId, 100)
+
+        myEffect = addValues(myEffect, jewellery)
+
+        user.effects:addEffect(myEffect)
+    end
+
+    user:inform("Als du das "..commonItem.German.." dass die Glyphe darin sich auflädt und einen Moment benötigt, bevor sie Wirkung zeigen kann.", "As you equip the "..commonItem.English.." you perceive that the glyph in it is charging up, requiring a moment before it can begin to take effect.") --chatGPT german translation that needs a proofread for accuracy
 
     user:setQuestProgress(quests[jewellery.itempos], common.GetCurrentTimestamp())
 

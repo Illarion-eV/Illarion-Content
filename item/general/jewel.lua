@@ -42,7 +42,12 @@ end
 
 function M.MoveItemBeforeMove(user, sourceItem, targetItem)
 
-    if targetItem:getType() == 4 and (targetItem.itempos == Character.neck or targetItem.itempos == Character.finger_right_hand or targetItem.itempos == Character.finger_left_hand) then --inventory, not belt
+    local theJewelleryWillbeEquipped = targetItem:getType() == 4
+    local theTargetSlotIsCorrect = targetItem.itempos == Character.neck or targetItem.itempos == Character.finger_right_hand or targetItem.itempos == Character.finger_left_hand
+
+    glyphEquip.unequipJewellery(user, targetItem)
+
+    if theJewelleryWillbeEquipped and theTargetSlotIsCorrect then
         glyphEquip.saveTimeOfJewelleryEquipment(user, targetItem)
         checks.HaveABreak(user)
         return checks.checkLevel(user, sourceItem, targetItem)
