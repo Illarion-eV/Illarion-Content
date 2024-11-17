@@ -21,18 +21,6 @@ local M = {}
 
 M.slots = {Character.neck, Character.finger_left_hand, Character.finger_right_hand}
 
-local quests = {}
-quests[Character.neck] = 564
-quests[Character.finger_left_hand] = 565
-quests[Character.finger_right_hand] = 566
-
-local function addValues(myEffect, jewellery)
-
-    myEffect:addValue(tostring(jewellery.itempos), 1)
-
-    return myEffect
-end
-
 local effectId = 403
 
 function M.unequipJewellery(user, jewellery)
@@ -46,10 +34,12 @@ function M.unequipJewellery(user, jewellery)
             local commonItem = world:getItemStatsFromId(jewellery.id)
 
             if foundEffect then
+
+                local time = common.GetCurrentTimestamp()
+
                 local foundValue, value = myEffect:findValue(tostring(slot))
 
-                if foundValue and value == 1 then
-                    myEffect:addValue(tostring(jewellery.itempos), 0)
+                if foundValue and (time - value) < 120 and value ~= 0 then --less than the required 2 min have passed
                     user:inform("Du hast das "..commonItem.German.." abgelegt, bevor die Glyphe darin Zeit hatte, sich vollständig aufzuladen.", "You unequipped the "..commonItem.English.." before the glyph in it had time to finish charging up.")
                     break
                 end
@@ -60,6 +50,8 @@ function M.unequipJewellery(user, jewellery)
 end
 
 function M.saveTimeOfJewelleryEquipment(user, jewellery)
+
+    local time = common.GetCurrentTimestamp()
 
     local hasGlyph = not common.IsNilOrEmpty(jewellery:getData("glyphCharges"))
 
@@ -73,32 +65,44 @@ function M.saveTimeOfJewelleryEquipment(user, jewellery)
 
     if foundEffect then
 
-        addValues(myEffect, jewellery)
+        myEffect:addValue(tostring(jewellery.itempos), time)
+
+        myEffect:addValue(tostring(jewellery.itempos).."id", jewellery.id)
 
     elseif not foundEffect then
 
         myEffect = LongTimeEffect(effectId, 100)
 
-        myEffect = addValues(myEffect, jewellery)
+        myEffect:addValue(tostring(jewellery.itempos), time)
+
+        myEffect:addValue(tostring(jewellery.itempos).."id", jewellery.id)
 
         user.effects:addEffect(myEffect)
     end
 
     user:inform("Als du das "..commonItem.German.." dass die Glyphe darin sich auflädt und einen Moment benötigt, bevor sie Wirkung zeigen kann.", "As you equip the "..commonItem.English.." you perceive that the glyph in it is charging up, requiring a moment before it can begin to take effect.") --chatGPT german translation that needs a proofread for accuracy
 
-    user:setQuestProgress(quests[jewellery.itempos], common.GetCurrentTimestamp())
-
 end
 
 function M.checkIfLongEnoughTimePassedSinceEquip(user, itempos)
 
+    local foundEffect, myEffect = user.effects:find(effectId)
+
+    if not foundEffect then -- No effect means no ongoing timer means enough time has passed by default
+        return true
+    end
+
     local time = common.GetCurrentTimestamp()
 
-    local savedTime = user:getQuestProgress(quests[itempos])
+    local foundtime, savedTime = myEffect:findValue(itempos)
+
+    if not foundtime then
+        return true
+    end
 
     local difference = time - savedTime
 
-    if difference >= 120 then
+    if difference >= 120 or savedTime == 0 then -- Checks if 2 minutes has passed since equipping it
         return true
     end
 
