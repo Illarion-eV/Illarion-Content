@@ -23,6 +23,13 @@ local M = {}
 
 function M.portalBookCreation(user, sourceItem)
 
+    local isMage = user:getMagicType() == 0 and user:getMagicFlags(0) > 0 or user:getMagicType() == 0 and user:getQuestProgress(37) ~= 0
+
+    if not isMage then
+        user:inform("Du besitzt nicht die nötige magische Affinität, um an diesem Tisch zu arbeiten.", "You do not have the magical affinity required to work at this desk.")
+        return
+    end
+
     local spatialMagicLevel = user:getSkill(Character.spatialMagic)
 
     local portalBooks = crafts.Craft:new{
@@ -41,6 +48,7 @@ function M.portalBookCreation(user, sourceItem)
 
     local catId = portalBooks:addCategory(myTexts.category.english, myTexts.category.german)
 
+    local attunedSpots = 0
     -- Portal locations
     for i = 1, #texts.portalSpots do
         local spot = texts.portalSpots[i]
@@ -48,6 +56,7 @@ function M.portalBookCreation(user, sourceItem)
 
         if levelReq <= spatialMagicLevel then
             if spatial.spotAttuned(user, i) then
+                attunedSpots = attunedSpots + 1
                 local product = portalBooks:addProduct(catId, 1061, 1, {
                     destinationCoordsZ = spot.location.z,
                     destinationCoordsY = spot.location.y,
@@ -64,7 +73,12 @@ function M.portalBookCreation(user, sourceItem)
             end
         end
     end
-    portalBooks:showDialog(user, sourceItem)
+
+    if attunedSpots > 0 then
+        portalBooks:showDialog(user, sourceItem)
+    else
+        user:inform("Um ein Portalbuch zu erstellen, musst du dich zuerst mit einem Raumknoten abstimmen. Wenn du mehr darüber erfahren möchtest, wie das geht, kannst du Terry Ogg in Troll's Haven aufsuchen, um Anleitungen zu erhalten.", "To create a portal book, you must first attune yourself to a spatial node. If you wish to learn more about how to do so, you can find Terry Ogg in Troll's Haven for guidance.")
+    end
 end
 
 return M
