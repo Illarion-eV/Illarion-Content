@@ -21,7 +21,7 @@ function M.isTutorialNPCnearby(user)
 
     local npc = position(656, 316, 0)
     local location = user.pos
-    local distance = 5
+    local distance = 15
     local layerCheck = location.z == npc.z
     local ycheck = location.y < npc.y + distance and location.y > npc.y - distance
     local xcheck = location.x < npc.x + distance and location.x > npc.x - distance
