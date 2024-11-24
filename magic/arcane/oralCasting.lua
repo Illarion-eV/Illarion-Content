@@ -53,6 +53,7 @@ local function castMagic(user, actionState, spell, portal)
 
     if spell or portal then
         if not magic.hasMageAttributes(user) or user:getQuestProgress(37) == 0 then --checking a quest status every time a character speaks will likely cause more lag than the other checks, hence why its the final check
+            user:inform("Du sprichst den Zauberspruch, aber nichts passiert, da dir die erforderliche magische Fähigkeit fehlt, um Zauber zu wirken.","You speak the incantation, but nothing happens as you do not have the requires magical prowess to cast spells.") --chatgpt german
             return -- user is not a mage
         end
     end

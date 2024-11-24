@@ -27,6 +27,7 @@ local inspectGlyphedItem = require("magic.arcane.enchanting.core.inspection_of_g
 local glyphTutorial = require("magic.arcane.enchanting.core.tutorial")
 local spatial = require("magic.arcane.spatial")
 local texts = require("magic.base.texts")
+local magic = require("base.magic")
 
 local currentWandUse = {}
 
@@ -42,6 +43,11 @@ local magicWands = {}
     magicWands[3608] = true
 
 function M.enchantingSelection(user, wand, actionstate)
+
+    if not magic.hasMageAttributes(user) then
+        user:inform("Mit deinem Mangel an magischen Attributen w¸sstest du nicht einmal, wo du anfangen sollst, einen Schrein wie diesen zu benutzen.", "With your lack of magical attributes, you wouldn't know where to begin using a shrine like this.") --chatGPT german
+        return
+    end
 
     local forgeItem = common.GetItemInArea(user.pos, 3498, 1, true) -- Check if a glyph ritual shrine is in range
 
@@ -167,7 +173,11 @@ function M.UseItem(user, sourceItem, actionstate)
         if actionstate == Action.none then
             if magicWands[sourceItem.id] then
                 if user:getMagicType() == 0 and (user:getQuestProgress(37) ~= 0 or user:getMagicFlags(0) > 0) then
-                    selectMagicType(user, sourceItem, actionstate)
+                    if not magic.hasMageAttributes(user) then
+                        user:inform("Mit deiner magischen F‰higkeit weiﬂt du kaum, wie man einen Zauberstab h‰lt, geschweige denn benutzt.", "With your magical ability, you barely know how to hold a wand, much less use one.") --chatgpt german
+                    else
+                        selectMagicType(user, sourceItem, actionstate)
+                    end
                 else
                     learnMagic.useMagicWand(user, sourceItem)
                 end
