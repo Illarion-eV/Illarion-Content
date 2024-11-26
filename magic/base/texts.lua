@@ -437,7 +437,15 @@ local M = {
           nameEn = "Runewick",
           nameDe = "Runewick"
         },
+        { location = position(-484,-455,-40),
+          english = "Portal to the Prison Mine",
+          german = "Portal nach zur Gefängnismine",
+          level = 0,
+          nameEn = "Prison Mine",
+          nameDe = "Gefängnismine"
+        }
     },
+
     spatialTexts = {
         portalBookNeeded = {english = "You must have the portal book you wish to evaluate in one of your belt slots.", german = "Du musst das Portalbuch, das du bewerten möchtest, in einem deiner Gürtelplätze haben."}, --Verification of chatGPT GERMAN TRANSLATION needed
         distanceTexts = {
