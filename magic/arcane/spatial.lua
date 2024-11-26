@@ -322,7 +322,7 @@ local function getDestinationText(book)
 
         local Z = tonumber(book:getData("destinationCoordsZ"))
         local X = tonumber(book:getData("destinationCoordsX"))
-        local Y = tonumber(book:getData("destinationCoordsZ"))
+        local Y = tonumber(book:getData("destinationCoordsY"))
 
         local coordinates = false
 
