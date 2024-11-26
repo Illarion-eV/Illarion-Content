@@ -442,7 +442,8 @@ local M = {
           german = "Portal nach zur Gefängnismine",
           level = 0,
           nameEn = "Prison Mine",
-          nameDe = "Gefängnismine"
+          nameDe = "Gefängnismine",
+          entrance = position(633, 374, 0)
         }
     },
 

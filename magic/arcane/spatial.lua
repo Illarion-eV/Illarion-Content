@@ -105,6 +105,12 @@ local function getDirectionDistance(user)
     for i = 1, #portalSpots do
         if not M.spotAttuned(user, i) then
             local location = portalSpots[i].location
+
+            if location.z ~= 0 and user.pos.z ~= location.z then
+                --Lead to the entrance instead of the underground coordinate since the coordinates above and below ground sadly do not match
+                location = portalSpots[i].entrance
+            end
+
             local xDiff = getDistance(user.pos.x, location.x)
             local yDiff = getDistance(user.pos.y, location.y)
             local total = xDiff+yDiff
