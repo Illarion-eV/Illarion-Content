@@ -327,7 +327,7 @@ local function getDestinationText(book)
         local coordinates = false
 
         if not common.IsNilOrEmpty(Z) and not common.IsNilOrEmpty(X) and not common.IsNilOrEmpty(Y) then
-            position(X, Y, Z)
+            coordinates = position(X, Y, Z)
         end
 
         if coordinates then
