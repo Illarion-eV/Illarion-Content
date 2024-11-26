@@ -30,6 +30,18 @@ local castTexts = texts.castSpellTexts
 local portalSpots = texts.portalSpots
 local myTexts = texts.spatialTexts
 
+local function findSpotNameBasedOnCoord(coordinates)
+
+    for _, spot in pairs(texts.portalSpots) do
+        if spot.location == coordinates then
+            return spot.nameEn, spot.nameDe
+        end
+    end
+
+    return false
+end
+
+
 function M.attunedSpotsToQuestprogress(attunedSpots)
     if attunedSpots < 2^31 then
         return attunedSpots
@@ -307,7 +319,26 @@ local function getDestinationText(book)
     local destinationDe = book:getData("destinationDe")
 
     if common.IsNilOrEmpty(destinationDe) then
-        return "", "" -- No destination info for NPC sold books as it is written on them
+
+        local Z = tonumber(book:getData("destinationCoordsZ"))
+        local X = tonumber(book:getData("destinationCoordsX"))
+        local Y = tonumber(book:getData("destinationCoordsZ"))
+
+        local coordinates = false
+
+        if not common.IsNilOrEmpty(Z) and not common.IsNilOrEmpty(X) and not common.IsNilOrEmpty(Y) then
+            position(X, Y, Z)
+        end
+
+        if coordinates then
+            destinationEn, destinationDe = findSpotNameBasedOnCoord(coordinates)
+        end
+
+        if common.IsNilOrEmpty(destinationDe) then
+            -- The coordinates do not match any mage attuned location
+            destinationEn = "Unknown"
+            destinationDe = "Unbekannt"
+        end
     end
 
     local prefixEn = "Destination: "
