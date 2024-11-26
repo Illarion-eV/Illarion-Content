@@ -344,7 +344,7 @@ local function getDestinationText(book)
     local prefixEn = "Destination: "
     local prefixDe = "Ziel: "
 
-    return prefixDe..destinationDe.."\n", prefixEn..destinationEn.."\n"
+    return prefixDe..destinationDe.."\n\n", prefixEn..destinationEn.."\n\n"
 end
 
 function M.showBookQuality(user)
