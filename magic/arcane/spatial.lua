@@ -307,7 +307,7 @@ local function getDestinationText(book)
     local destinationDe = book:getData("destinationDe")
 
     if common.IsNilOrEmpty(destinationDe) then
-        return "" -- No destination info for NPC sold books as it is written on them
+        return "", "" -- No destination info for NPC sold books as it is written on them
     end
 
     local prefixEn = "Destination: "
