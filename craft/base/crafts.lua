@@ -29,6 +29,7 @@ local pyr = require("magic.arcane.enchanting.effects.pyr")
 local daear = require("magic.arcane.enchanting.effects.daear")
 local ilyn = require("magic.arcane.enchanting.effects.ilyn")
 local magic = require("base.magic")
+local texts = require("magic.base.texts")
 
 local M = {}
 
@@ -308,9 +309,30 @@ function Craft:allowNpcCrafting(user, source)
     return user:isInRange(source, 2)
 end
 
+local function getPortalBookName(user, product)
+
+    if not common.IsNilOrEmpty(product.data.destinationCoordsZ) then
+        for _, portalSpot in pairs(texts.portalSpots) do
+            if portalSpot.location.z == product.data.destinationCoordsZ and portalSpot.location.x == product.data.destinationCoordsX and portalSpot.location.y == product.data.destinationCoordsY then
+                return common.GetNLS(user,portalSpot.nameDe, portalSpot.nameEn)
+            end
+        end
+    end
+
+    return false
+
+end
+
 function Craft:getProductLookAt(user, productId)
     local product = self.products[productId]
     local lookAt = self:getLookAt(user, product)
+
+    local newName = getPortalBookName(user, product) -- Custom name if portal book
+
+    if newName then
+        lookAt.name = newName
+    end
+
     return lookAt
 end
 
@@ -376,8 +398,13 @@ function Craft:loadDialog(dialog, user)
 
         if productRequirement <= skill then
 
+            local name = getPortalBookName(user, product)
+            if not name then
+                name = self:getLookAt(user, product).name
+            end
+
             local craftingTime = self:getCraftingTime(product, skill)
-            dialog:addCraftable(i, categoryListId[product.category], product.item, self:getLookAt(user, product).name, craftingTime, product.quantity)
+            dialog:addCraftable(i, categoryListId[product.category], product.item, name, craftingTime, product.quantity)
 
             for j = 1, #product.ingredients do
                 local ingredient = product.ingredients[j]
