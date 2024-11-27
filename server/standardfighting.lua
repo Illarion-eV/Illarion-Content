@@ -451,7 +451,7 @@ function ArmourAbsorption(Attacker, Defender, Globals)
     if character.IsPlayer(Defender.Char) then
         if armourfound then
             skillmod = 1-Defender.DefenseSkill/250
-            if (Attacker.AttackKind == 0 or Attacker.AttackKind == 2) then --wrestling/conc
+            if (Attacker.AttackKind == 2) then --conc
                 if (armour.Type==2) then -- Light armour
                     armourValue = itemLevel
                 elseif(armour.Type==3) then -- Medium armour
@@ -463,7 +463,7 @@ function ArmourAbsorption(Attacker, Defender, Globals)
                 else
                     armourValue = 1 -- Default value
                 end
-            elseif (Attacker.AttackKind == 1) then -- Slash
+            elseif (Attacker.AttackKind == 0 or Attacker.AttackKind == 1) then -- Wrestling and Slash
                 if (armour.Type==2) then -- Light armour
                     armourValue = itemLevel/(ArmourDefenseScalingFactor*ArmourDefenseScalingFactor)
                 elseif(armour.Type==3) then -- Medium armour
@@ -475,7 +475,7 @@ function ArmourAbsorption(Attacker, Defender, Globals)
                 else
                     armourValue = 1 -- Default value
                 end
-            elseif (Attacker.AttackKind == 3 or Attacker.AttackKind == 4) then -- Puncture
+            elseif (Attacker.AttackKind == 3 or Attacker.AttackKind == 4) then -- Puncture and ranged
                 if (armour.Type==2) then -- Light armour
                     armourValue = itemLevel/(ArmourDefenseScalingFactor)
                 elseif(armour.Type==3) then -- Medium armour
@@ -525,7 +525,7 @@ function ArmourAbsorption(Attacker, Defender, Globals)
     armourfound, armour = world:getNaturalArmor(Defender.Race)
     if armourfound then
         if (Attacker.AttackKind == 0) then --wrestling
-        armourValue = armourValue + armour.thrustArmor
+        armourValue = armourValue + armour.strokeArmor
         elseif (Attacker.AttackKind == 1) then --slashing
         armourValue = armourValue + armour.strokeArmor
         elseif (Attacker.AttackKind == 2) then --concussion
@@ -649,10 +649,36 @@ function CalculateDamage(Attacker, Globals)
     local CritBonus=1
     local QualityBonus
 
+    local weaponQuality = Attacker.WeaponItem.quality
+
     if Attacker.IsWeapon then
         BaseDamage = Attacker.Weapon.Attack * 40
     else
-        BaseDamage = fighting.GetWrestlingAttack( Attacker.Race ) * 10
+
+        --[[
+        Wrestling will deal 50% of the damage of a corresponding weapon.
+        I am referencing weapons that have the same armour match-ups and the same movepoint demand of 25.
+        I am using two-handed weapons as reference because wrestling is not possible when wielding a shield.
+        A level 0 executioner's axe, a two-handed slashing weapon, deals 720 base damage.
+        A level 100 magical waraxe deals 3560 base damage.
+        The below wrestling calculations result in a 360 base damage with the wrestlingAttack basis of 10
+        at level 0 and 1780 base damage at level 100 wrestling.
+        ]]
+
+        local maxIncreaseWrestling = 1420
+
+        BaseDamage = fighting.GetWrestlingAttack( Attacker.Race ) * 36
+
+        if Attacker.skill > 0 then
+            BaseDamage = BaseDamage + (maxIncreaseWrestling/100*Attacker.skill)
+        end
+
+        weaponQuality = 777
+        --[[Defaulting to "very good" quality for wrestling,
+            which is lower compared to how our players only use excellent/perfect
+            gear normally yet not as terrible as the default 333 that would risk
+            making wrestling useless again]]
+
     end
 
     local messupmalus = 5 -- Amount that damage value is divided by if your skill isn't high enough to use this weapon.
@@ -671,7 +697,7 @@ function CalculateDamage(Attacker, Globals)
     SkillBonus = (Attacker.skill - 20) * 1.5
 
     --Quality Bonus: Multiplies final value by 0.93-1.09
-    QualityBonus = 0.91+0.02*math.floor(Attacker.WeaponItem.quality/100)
+    QualityBonus = 0.91+0.02*math.floor(weaponQuality/100)
 
     --Crit bonus
     if Globals.criticalHit>0 then
@@ -694,8 +720,31 @@ function CauseDamage(Attacker, Defender, Globals)
         AIMING_TIME_LIST[Attacker.Char.id]["started"] = world:getTime("unix")
     end
 
+    local damageCap = 4999  --Damage is capped at 4999 Hitpoints to prevent "one hit kills"
+
+    if Attacker.AttackKind == 0 and not character.IsPlayer(Defender.Char) then -- wrestling against mobs
+        damageCap = 1665
+        --[[To prevent wrestling becoming optimal to farm low level mobs,
+            it takes at least 7 hits to kill something, in an attempt to reflect the below scenario.
+            For reference, with high fighting stats:
+            level 100 perfect two-handed slashing weapon: 1433 damage versus Ripper Tooth
+            Level 100 (very good by default) wrestling: 690 damage versus Ripper Tooth
+            This means it takes a little more than twice the time to kill a mob,
+            as a trade-off for not having to pay repair fees. This comes in addition
+            to the possibility of adding magic gems into your weapon which you can't for wrestling
+            and the fact that you can not parry nor wield a shield when wrestling so you also
+            sacrifice a lot of defenses.
+
+            As this is merely to prevent the farming of low level mobs, the usual 4999 cap is applied
+            when it comes to player versus player combat, so that wrestling remains a viable option there
+            albeit still 50% of what you'd get wielding a two-hander and without the parrying defensive bonus
+            meaning it will never be the optimal choice for PvP; just a choice for those who want to immerse
+            themselves in the role of a bare handed fighter even if at a disadvantage.
+        ]]
+    end
+
     Globals.Damage=Globals.Damage*(Random.uniform(9,10)/10) --Damage is randomised: 90-100%
-    Globals.Damage=math.min(Globals.Damage,4999) --Damage is capped at 4999 Hitpoints to prevent "one hit kills"
+    Globals.Damage=math.min(Globals.Damage,damageCap)
     Globals.Damage=math.floor(Globals.Damage) --Hitpoints are an integer
 
     dendron.lifesteal(Attacker.Char, Globals.Damage) -- chance to heal for a portion of the damage you deal
@@ -1465,7 +1514,9 @@ end
 
 --[[ Calculate the required movepoints
 ---- @param Attacker The table that stores the values of the attacker
----- @return the movepoints needed for the attack]]
+---- @return the movepoints needed for the attack
+]]
+
 function CalculateMovepoints(Attacker)
     local weaponFightpoints
     if Attacker.IsWeapon then
