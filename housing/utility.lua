@@ -498,6 +498,7 @@ function M.allowBuilding(user, alternatePosition)
             frontPos = alternatePosition
         end
     local propertyName = M.fetchPropertyName(user, frontPos)
+
     local deed = M.getPropertyDeed(propertyName)
 
     if deed:getData("demolishmentInProgress") == "true" then
@@ -601,6 +602,16 @@ end
 function M.roofAndRoofTiles(user, itemId, tileBoolean, createOrErase)
     local thePosition = common.GetFrontPosition(user)
     local targetPosition = position(thePosition.x, thePosition.y, thePosition.z + 1)
+    local lowerPosition = position(targetPosition.x, targetPosition.y, targetPosition.z - 1)
+
+    if not world:getField(targetPosition) then -- Check if a field even exists above
+        targetPosition = lowerPosition
+    end
+
+    if not world:getField(lowerPosition) then -- Should never happen, but just in case
+        return
+    end
+
     local targetItem = world:getItemOnField(targetPosition)
     local targetId
     local tileField = world:getField(targetPosition)
@@ -625,16 +636,7 @@ function M.roofAndRoofTiles(user, itemId, tileBoolean, createOrErase)
     end
 
     if not M.allowBuilding(user, targetPosition) then
-        if createOrErase == "create" then
-            local lowerPosition = position(targetPosition.x, targetPosition.y, targetPosition.z - 1)
-            if M.allowBuilding(user, lowerPosition) then
-                targetPosition = lowerPosition -- Build the object/tile in front of you instead, if you want a roof you can access via stairs by building on the topmost floor
-            else
-                return false
-            end
-        else
-            return false
-        end
+        return false
     end
 
     if not tileBoolean then
