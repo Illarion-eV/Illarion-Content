@@ -558,6 +558,11 @@ function M.showDialog(user, skillName, overloaded)
 
             local frontPos = common.GetFrontPosition(user)
 
+            if not getEquippedTrowel(user) then
+                user:inform("Die Baukelle muss noch intakt sein und du musst sie in einer Hand halten, um sie zu benutzen.", "The construction trowel must be intact and in one of your hands for you to use it.")
+                return
+            end
+
             if skill.name ~= "misc" then
 
                 local languageAppropriateSkillName = user:getSkillName(Character[skill.name])
