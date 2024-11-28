@@ -54,6 +54,10 @@ end
 
 local function checkForIllegalItems(myPosition)
 
+    if not world:getField(myPosition) then --Can't cast a portal where there's no field
+        return true
+    end
+
     local myItem = world:getItemOnField(myPosition)
     local myItemId = myItem.id
     local itemStats = world:getItemStatsFromId(myItemId)
@@ -102,10 +106,12 @@ local function checkForNearbyPortals(target)
     for _, portal in pairs(portalsIds) do
         for x = -1, 1 do
             for y = -1, 1 do
-                local myItem = world:getItemOnField(position(target.x+x, target.y+y, target.z))
+                if world:getField(position(target.x+x, target.y+y, target.z)) then
+                    local myItem = world:getItemOnField(position(target.x+x, target.y+y, target.z))
 
-                if myItem.id == portal then
-                    return true
+                    if myItem.id == portal then
+                        return true
+                    end
                 end
             end
         end
