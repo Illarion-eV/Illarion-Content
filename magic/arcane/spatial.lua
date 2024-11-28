@@ -506,7 +506,7 @@ local function teleport(user, actionState, portal, destination)
     user:learn(Character.spatialMagic, castDuration, 100)
 
     if portal then
-        if world:isItemOnField(thePos) and world:getItemOnField(thePos).wear == 255 then
+        if not world:getField(thePos) or (world:isItemOnField(thePos) and world:getItemOnField(thePos).wear == 255) then
             --[[
             Only checks for static items here.
             This way if the player turned around to try and cheat the portal placement,
