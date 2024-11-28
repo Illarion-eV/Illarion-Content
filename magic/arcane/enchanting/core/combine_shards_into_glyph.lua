@@ -139,8 +139,22 @@ end
 
 local function passesChecks(user, wand)
 
+    if not wand then
+        local leftTool = user:getItemAt(Character.left_tool)
+        local rightTool = user:getItemAt(Character.right_tool)
+        if common.isInList(leftTool.id, magic.wandIds) then
+            wand = leftTool
+        elseif common.isInList(rightTool.id, magic.wandIds) then
+            wand = rightTool
+        end
+    end
+
     local isMage = user:getMagicType() == 0 and (user:getQuestProgress(37) ~= 0 or user:getMagicFlags(0) > 0)
-    local wandInHand = common.IsItemInHands(wand)
+    local wandInHand = false
+
+    if wand then
+        wandInHand = common.IsItemInHands(wand)
+    end
 
     if not isMage then
         return false --should never even reach this point but just in case
@@ -284,7 +298,7 @@ function M.start(user, wand)
             local craftingTime = getCraftingTime(skill, glyph)
             local foodOk = checkRequiredFood(user, craftingTime)
             local manaOk = checkRequiredMana(user, craftingTime)
-            local canWork = passesChecks(user, wand) and hasMaterials(user, shards) and foodOk and manaOk
+            local canWork = passesChecks(user) and hasMaterials(user, shards) and foodOk and manaOk
 
             return canWork
 
