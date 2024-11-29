@@ -263,7 +263,7 @@ local function getPortalWear(user)
 
     local increase = math.min((maxWearIncrease/120)*(totalBonus*100), maxWearIncrease)
 
-    local wear = minimumWear - increase
+    local wear = minimumWear + increase
     return math.ceil(wear)
 
 end
