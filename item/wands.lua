@@ -164,8 +164,9 @@ end
 
 function M.UseItem(user, sourceItem, actionstate)
 
-    if user:getQuestProgress(37) == 1 and user:getQuestProgress(568) == 1 then
+    if (user:getQuestProgress(37) == 1 or user:getMagicFlags(0) > 0) and user:getQuestProgress(568) == 1 then
         user:setQuestProgress(568, 2) -- This is just to catch up with a skipped step if someone already did the magic tutorial before Terry was introduced
+        user:setQuestProgress(37, 1) -- Another case was discovered where old mages could not progress as they had magic flags but not the old tutorial completed, so this fixes that
     end
 
     if common.IsItemInHands(sourceItem) then
