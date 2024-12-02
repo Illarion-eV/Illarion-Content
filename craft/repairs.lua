@@ -139,7 +139,7 @@ end
 
 local instruments = {Item.lute, Item.harp, Item.drum, Item.panpipe, Item.flute}
 
-local smithedTools = {Item.scissors, Item.saw, Item.hammer, Item.shovel, Item.needle, Item.hatchet, Item.finesmithingHammer, Item.sickle, Item.scythe, Item.chisel, Item.tongs, Item.pan, Item.mortar, Item.pan, Item.rasp, Item.mould, Item.plane, Item.razorBlade, Item.armourersHammer, Item.pickaxe, Item.carvingTools, Item.cruciblePincers}
+local smithedTools = {Item.scissors, Item.saw, Item.hammer, Item.shovel, Item.needle, Item.hatchet, Item.finesmithingHammer, Item.sickle, Item.scythe, Item.chisel, Item.tongs, Item.pan, Item.mortar, Item.pan, Item.rasp, Item.mould, Item.plane, Item.razorBlade, Item.armourersHammer, Item.pickaxe, Item.carvingTools, Item.cruciblePincers, Item.constructionTrowel}
 
 local woodenTools = {Item.fishingRod, Item.rollingPin, Item.peel, Item.cookingSpoon, Item.flail, Item.candleMould, Item.brickMould, Item.collectionPan, Item.dyeingRod, Item.woodenShovel, Item.quill}
 
