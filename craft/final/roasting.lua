@@ -59,6 +59,22 @@ product:addIngredient(552) -- deer meat
 product = roasting:addProduct(catId, 3606, 1)
 product:addIngredient(2940) -- raw steak
 
+
+product = roasting:addProduct(catId, Item.grilledFox, 1)
+product:addIngredient(Item.foxMeat)
+
+product = roasting:addProduct(catId, Item.grilledWolf, 1)
+product:addIngredient(Item.wolfMeat)
+
+product = roasting:addProduct(catId, Item.grilledBear, 1)
+product:addIngredient(Item.bearMeat)
+
+product = roasting:addProduct(catId, Item.grilledRaptor, 1)
+product:addIngredient(Item.raptorMeat)
+
+product = roasting:addProduct(catId, Item.grilledDragon, 1)
+product:addIngredient(Item.dragonMeat)
+
 catId = roasting:addCategory("Fish", "Fisch")
 
 -- Smoked trout

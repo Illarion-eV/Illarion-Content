@@ -59,11 +59,11 @@ itemShoes = 326
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-sellItems = 258, 312, 126, 271, 72, 4337, 249, 290, 2493, 154, 201, 3567, 778, 772, 200, 2, 15, 80, 81, 302, 388, 1207, 199, 2494, 259, 728, 534, 3566, 779, 773, 2917, 291, 73, 355, 4259, 4263, 1209, 1210, 4282
+sellItems = 258, 312, 126, 271, 72, 4337, 249, 290, 2493, 154, 201, 3567, 778, 772, 200, 2, 15, 80, 81, 302, 388, 1207, 199, 2494, 259, 728, 534, 3566, 779, 773, 2917, 291, 73, 355, 4259, 4263, 1209, 1210, 4282, 4294
 -- flail, wooden shovel, sickle, scythe, fishing rod, fishing net
--- bundle of grain, cabbage, carrots, hop, onion, potato, sugarcane, tobacco, tomato, flour, apple, banana, berries, cherries, grapes, orange, tangerine, carrot seeds, grain, hop seeds, onion seeds, potato seeds, sugarcane seeds, tobacco seeds, tomato seeds, withered cabbage (seeds), trout, salmon, shrimp, floudner, horse mackerel, rose fish, crab, eel, octopus, swordfish, lobster,
-buySecondaryItems = 249, 290, 2493, 154, 201, 3567, 778, 772, 200, 2, 15, 80, 81, 302, 388, 1207, 199, 2494, 259, 728, 534, 3566, 779, 773, 2917, 291, 73, 355, 4259, 4263, 1209, 1210, 4282, 4267, 4261, 4266, 4257
--- bundle of grain, cabbage, carrots, hop, onion, potato, sugarcane, tobacco, tomato, flour, apple, banana, berries, cherries, grapes, orange, tangerine, carrot seeds, grain, hop seeds, onion seeds, potato seeds, sugarcane seeds, tobacco seeds, tomato seeds, withered cabbage (seeds), trout, salmon, shrimp, floudner, horse mackerel, rose fish, crab, eel, octopus, swordfish, lobster,
+-- bundle of grain, cabbage, carrots, hop, onion, potato, sugarcane, tobacco, tomato, flour, apple, banana, berries, cherries, grapes, orange, tangerine, carrot seeds, grain, hop seeds, onion seeds, potato seeds, sugarcane seeds, tobacco seeds, tomato seeds, withered cabbage (seeds), trout, salmon, shrimp, floudner, horse mackerel, rose fish, crab, eel, fox meat
+buySecondaryItems = 249, 290, 2493, 154, 201, 3567, 778, 772, 200, 2, 15, 80, 81, 302, 388, 1207, 199, 2494, 259, 728, 534, 3566, 779, 773, 2917, 291, 73, 355, 4259, 4263, 1209, 1210, 4282, 4267, 4261, 4266, 4257, 4294, 4318, 4320, 4296, 4298
+-- bundle of grain, cabbage, carrots, hop, onion, potato, sugarcane, tobacco, tomato, flour, apple, banana, berries, cherries, grapes, orange, tangerine, carrot seeds, grain, hop seeds, onion seeds, potato seeds, sugarcane seeds, tobacco seeds, tomato seeds, withered cabbage (seeds), trout, salmon, shrimp, floudner, horse mackerel, rose fish, crab, eel, octopus, swordfish, lobster, fox meat, wolf meat, bear meat, raptor meat, dragon meat
 
 tradeNotEnoughMoneyMsg "Eindeutig zu teuer für dich.", "That's clearly too expensive for you."
 tradeFinishedMsg "Und ab dafür.", "And off ye go."
