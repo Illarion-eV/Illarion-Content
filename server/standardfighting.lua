@@ -63,6 +63,7 @@ local ysbryd = require("magic.arcane.enchanting.effects.ysbryd")
 local hieros = require("magic.arcane.enchanting.effects.hieros")
 local dendron = require("magic.arcane.enchanting.effects.dendron")
 local dwyfol = require("magic.arcane.enchanting.effects.dwyfol")
+local magicTargeting = require("magic.arcane.targeting")
 
 local M = {}
 
@@ -335,26 +336,25 @@ function M.onAttack(Attacker, Defender)
         end
     end
 
-    -- Check the range between the both fighting characters
-    if not isInRange then
-        return false
-    end
-
     -- Check if the attack is good to go (possible weapon configuration)
     if not CheckAttackOK(Attacker) then
         return false
     end
 
-    -- Check if a magic attack is invoked
-    if Attacker.AttackKind == 5 then
-        if fightingutil.isMagicUser(Attacker.Char) then -- Only mages can invoke a magic attack
-            -- Magic attacks are calculated in a different manner, outsourced for tidiness
-            local magicAttack = require("magic.magicfighting")
-            magicAttack.onMagicAttack(Attacker, Defender)
-        end
-        return false
+    -- Check for magic spell invoked, has a separate range check than the one below
+    if Attacker.AttackKind == 5 and fightingutil.isMagicUser(Attacker.Char) then -- Only mages can invoke magic
+
+        local name = Attacker.Char.name
+
+        magicTargeting.playerTargets[name] = Defender.Char
+
+        return false -- No need to go further since wands do not use this script beyond setting a target
     end
 
+    -- Check the range between the both fighting characters
+    if not isInRange then
+        return false
+    end
 
     -- Check if ammunition is needed and use it
     if not HandleAmmunition(Attacker) then
@@ -1190,6 +1190,13 @@ function gemBonusEffect(Attacker, Defender, Globals)
     GemBonusAttacker = modifyGemEffect(Attacker, GemBonusAttacker)
     local GemBonusDefender = gems.getGemBonus(Globals.HittedItem)/fightingGemBonusDivisionValue
     GemBonusDefender = modifyGemEffect(Attacker, GemBonusDefender)
+
+    local armorfound, armorItem = world:getArmorStruct(Globals.HittedItem.id)
+    if armorfound then
+        if armorItem.Type == ArmorStruct.clothing then --Clothing objects are gemmable for magic resistance purposes, but does not affect physical defense
+            GemBonusDefender = 0
+        end
+    end
 
     local gemBonus = GemBonusAttacker-GemBonusDefender
 

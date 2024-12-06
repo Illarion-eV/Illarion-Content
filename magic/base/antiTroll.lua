@@ -14,13 +14,53 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-local texts = require("magic.base.texts")
+
 local seafaring = require("base.seafaring")
 
 local M = {}
 
 local harbours = seafaring.harborList
-local portals = texts.portalSpots
+
+M.portals = {
+    { location = position(684, 307, 0),
+        english = "Portal to the Hemp Necktie Inn",
+        german = "Portal zum Gasthof zur Hanfschlinge",
+        level = 0,
+        nameEn = "Hemp Necktie Inn",
+        nameDe = "Gasthof zur Hanfschlinge"
+    },
+    { location = position(126, 647, 0),
+      english = "Portal to Cadomyr",
+      german = "Portal nach Cadomyr",
+      level = 0,
+      nameEn = "Cadomyr",
+      nameDe = "Cadomyr"
+    },
+    { location = position(423, 246, 0),
+      english = "Portal to Galmair",
+      german = "Portal nach Galmair",
+      level = 0,
+      nameEn = "Galmair",
+      nameDe = "Galmair"
+    },
+    { location = position(835, 813, 0),
+      english = "Portal to Runewick",
+      german = "Portal nach Runewick",
+      level = 0,
+      nameEn = "Runewick",
+      nameDe = "Runewick"
+    },
+    { location = position(-484,-455,-40),
+      english = "Portal to the Prison Mine",
+      german = "Portal nach zur Gefängnismine",
+      level = 0,
+      nameEn = "Prison Mine",
+      nameDe = "Gefängnismine",
+      entrance = position(633, 374, 0)
+    }
+}
+
+local portals = M.portals
 
 local teleporters = {
     --Hemptie teleporter

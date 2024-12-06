@@ -17,8 +17,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE items SET itm_script='item.id_360_icefield' where itm_id=360;
 
 local common = require("base.common")
-local monstermagic = require("monster.base.spells.base")
 local character = require("base.character")
+local magicResistance = require("magic.arcane.magicResistance")
 
 local M = {}
 
@@ -79,8 +79,8 @@ function M.CharacterOnField(User)
 
     if (FieldItem.quality > 100) and User.pos.z ~= 100 and User.pos.z ~= 101 and User.pos.z ~= 40 then --no harmful flames on noobia or the working camp
 
-        local resist = monstermagic.getSpellResistence(User) * 10
-        if resist < FieldItem.quality then
+        local resist = magicResistance.getMagicResistance(User)
+        if resist < 101 then --Only mobs can reach this resistance level where they are immune to most magic
             local foundEffect = User.effects:find(111); -- iceflame lte
             if not foundEffect then
                 local myEffect = LongTimeEffect(111, 50) --5sec

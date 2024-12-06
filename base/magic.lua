@@ -26,7 +26,7 @@ local M = {}
 
 M.mageSkills = {
                 Character.enchanting,
-                Character.wandMagic,
+                Character.spatialMagic,
                 Character.earthMagic,
                 Character.windMagic,
                 Character.fireMagic,
@@ -51,7 +51,67 @@ M.priestSkills = {
                 Character.consecrateWeapons,
                 Character.consecrateArmours
                 }
+
 M.wandIds = {323,2782,2783,2784,2785,3608}
+
+local wandList = {
+    {id = 323, element = "Neutral"},
+    {id = 2782, element = "Earth"},
+    {id = 2783, element = "Fire"},
+    {id = 2784, element = "Water"},
+    {id = 2785, element = "Air"},
+    {id = 3608, element = "Spirit"}
+    }
+
+function M.getWand(user)
+
+    local left = user:getItemAt(5)
+    local right = user:getItemAt(6)
+
+    for _, wand in pairs(wandList) do
+        if left.id == wand.id then
+            return left
+        elseif right.id == wand.id then
+            return right
+        end
+    end
+
+    return false
+end
+
+function M.getWandElement(user)
+
+    local left = user:getItemAt(5)
+    local right = user:getItemAt(6)
+
+    for _, wand in pairs(wandList) do
+        if left.id == wand.id then
+            return wand.element
+        elseif right.id == wand.id then
+            return wand.element
+        end
+    end
+
+    return false
+end
+
+function M.checkElementBonus(user, element) --Return a number between 0.025 and 0.1 if there is a wand
+
+    local wandElement = M.getWandElement(user)
+
+    if not wandElement then
+        return 0
+    end
+
+    if wandElement == element then
+        return 0.1
+    elseif wandElement == "Neutral" then
+        return 0.05
+    else
+        return 0.025
+    end
+end
+
 
 -- Best skill values
 local function bestSkillFromSkillList(user, skillList)
@@ -128,6 +188,16 @@ function M.hasMageAttributes(user)
     end
 end
 
+function M.characterIsAMage(user)
+
+    if M.hasMageAttributes(user) and user:getMagicType() == 0 and user:getQuestProgress(37) ~= 0 then
+        return true
+    end
+
+    return false
+
+end
+
 --[[neededFood
 1st try 40 foodpoints / s magic
 return foodpoints]]--
@@ -158,6 +228,17 @@ function M.getGemBonusWand(user)
     return 0
 end
 
+function M.getGemBonusCloak(user) -- Used for magic defense purposes
+
+    local cloak = user:getItemAt(Character.coat)
+
+    if cloak and cloak.id ~= 0 then
+        return gems.getGemBonus(cloak)/2
+    end
+
+    return 0
+end
+
 function M.getQualityBonusWand(user)
     local leftTool = user:getItemAt(Character.left_tool)
     local rightTool = user:getItemAt(Character.right_tool)
@@ -168,6 +249,18 @@ function M.getQualityBonusWand(user)
     end
     return 0
 end
+
+function M.getQualityBonusCloak(user)
+
+    local cloak = user:getItemAt(Character.coat)
+
+    if cloak and cloak.id ~= 0 then
+        return gems.GetQualityBonusStandard(cloak)
+    end
+
+    return 0
+end
+
 
 --[[getValueWithGemBonus
 calculates a mana consumption, damage or time taking the gem bonus into consideration
@@ -231,16 +324,26 @@ end
 
 --Returns the total magic bonus and a list containing the items which add to the magic bonus
 function M.getMagicBonus(character)
+
     local bodyPositions = {Character.head, Character.neck, Character.breast, Character.hands, Character.finger_left_hand, Character.finger_right_hand, Character.legs, Character.feet, Character.coat}
 
     local itemsWithMagicBonus = {}
+
     local magicBonus = 0
+
     local quality = 0
+
     for _, bodyPosition in pairs(bodyPositions) do
+
         local checkItem = character:getItemAt(bodyPosition)
-        if checkItem ~= nil and checkItem.id > 0 then
+
+        local itemExists = checkItem ~= nil and checkItem.id > 0
+
+        if itemExists then
+
             local _, armorStruct =  world:getArmorStruct(checkItem.id)
             local itemBonus = armorStruct.MagicDisturbance
+
             if itemBonus > 0 then
                 magicBonus = magicBonus + itemBonus
                 quality = quality + math.floor(checkItem.quality/100)
@@ -254,7 +357,7 @@ function M.getMagicBonus(character)
         qualityBonus = qualityBonus+(quality/#itemsWithMagicBonus - 5)*2.5/100 -- quality 5 has no influence; above 5, each point grants 2.5%. under 5, each point takes 2.5%
     end
 
-    return magicBonus*qualityBonus, itemsWithMagicBonus
+    return magicBonus*qualityBonus/500, itemsWithMagicBonus
 
 end
 

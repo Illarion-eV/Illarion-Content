@@ -16,10 +16,15 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local crafts = require("craft.base.crafts")
 local spatial = require("magic.arcane.spatial")
-local texts = require("magic.base.texts")
-local myTexts = texts.portalBookTexts
+local antiTroll = require("magic.base.antiTroll")
 
 local M = {}
+
+local myTexts = {
+    craft = {english = "Portal  Book Creation", german = "Portalbuch Erstellung"},
+    category = {english = "Portal Books", german = "Portalbücher"},
+    book = {english = "Portal book", german = "Portalbuch"}
+}
 
 function M.portalBookCreation(user, sourceItem)
 
@@ -50,8 +55,8 @@ function M.portalBookCreation(user, sourceItem)
 
     local attunedSpots = 0
     -- Portal locations
-    for i = 1, #texts.portalSpots do
-        local spot = texts.portalSpots[i]
+    for i = 1, #antiTroll.portals do
+        local spot = antiTroll.portals[i]
         local levelReq = spot.level
 
         if levelReq <= spatialMagicLevel then

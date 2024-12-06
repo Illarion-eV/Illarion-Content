@@ -27,6 +27,7 @@ local areas = require("content.areas")
 local shared = require("magic.arcane.enchanting.core.shared")
 local gods = require("content.gods")
 local resurrected = require("lte.resurrected")
+local runes = require("magic.arcane.runes")
 local spatial = require("magic.arcane.spatial")
 local persistenceTracker = require("gm.persistenceTracker")
 local activityTracker = require("lte.activity_tracker")
@@ -133,7 +134,6 @@ M.skillNames = {
     Character.slashingWeapons,
     Character.tailoring,
     Character.tanningAndWeaving,
-    Character.wandMagic,
     Character.woodcutting,
     Character.wrestling,
     Character.enchanting,
@@ -1582,19 +1582,28 @@ local function settingsForMagic(user, target)
         local index = dialog:getSelectedIndex() + 1
 
         if index == 1 then
-            spatial.chooseLocationToAttune(user, target)
+            runes.chooseRuneToTeach(user, target)
         elseif index == 2 then
-            spatial.attuneAllLocations(user, target)
+            spatial.chooseLocationToAttune(user, target)
         elseif index == 3 then
-            removePortalsRunes(user, target, 216)
+            runes.teachAllRunes(user, target)
         elseif index == 4 then
+            spatial.attuneAllLocations(user, target)
+        elseif index == 5 then
+            removePortalsRunes(user, target, 51)
+        elseif index == 6 then
+            removePortalsRunes(user, target, 216)
+        elseif index == 7 then
             settingsForCharRedPortalPermission(user, target)
         end
     end
     local dialog = SelectionDialog( "Magic", "Select what you want to do", callback)
 
+    dialog:addOption(0, "Teach the character a rune")
     dialog:addOption(0, "Attune the character to a portal location")
+    dialog:addOption(0, "Teach the character all runes")
     dialog:addOption(0, "Attune the character to all portal locations")
+    dialog:addOption(0, "Remove knowledge of all runes")
     dialog:addOption(0, "Remove knowledge of all portal locations")
 
     if target:getQuestProgress(225) ~= 0 then

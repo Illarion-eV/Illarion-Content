@@ -183,21 +183,22 @@ if Char:idleTime() < 300 then -- Absolutely no regeneration effect if the player
     -----------------------MANA BEGIN----------------------------------
     if ( ( ( Char:getMagicType( ) == 0 ) and ( Char:getMagicFlags( 0 ) > 0 ) ) or ( ( Char:getMagicType( ) == 0 ) and ( Char:getQuestProgress(37) ~= 0) ) ) and Char:getType()==Character.player then -- Character is a mage. Please rework this condition once we have a working magic system ~Estralis
 
-        if ( Manapoints < maxManapoints ) then -- Mana not at maximum -> Regeneration
+        if Char:getQuestProgress(246) == 0 then --used in rune magic spell LTE that stops mana regen for a time period
 
-            if ( Foodvalue >= maxFoodvalue/12 ) then -- Quick mana regeneration with food consumption
+            if ( Manapoints < maxManapoints ) then -- Mana not at maximum -> Regeneration
 
-                Manapoints = math.min( maxManapoints, Manapoints + ( ( 2*TimeFactor + 14*TimeFactor * ( Essence / 20 ) ) ) ) -- Full regeneration from 0-10000 in around 19 minutes at ESS 10. That is 1/5 of HP regeneration
-                Foodvalue = Foodvalue - math.min(8*TimeFactor,(10000-Manapoints) * ( 0.4*TimeFactor / Essence ) ) -- A filled foodbar lasts 125 minutes of regeneration
+                if ( Foodvalue >= maxFoodvalue/12 ) then -- Quick mana regeneration with food consumption
 
-            else -- Slow mana regeneration without food consumption
+                    Manapoints = math.min( maxManapoints, Manapoints + ( ( 5*TimeFactor + 35*TimeFactor * ( Essence / 20 ) ) ) ) -- Full regeneration from 0-10000 in around 7.4 minutes at ESS 10. That is about 1/2 of HP regeneration. 4.16 minutes for 20 ESS. 3.18 min for 27 ess.
+                    Foodvalue = Foodvalue - math.min(20*TimeFactor,(10000-Manapoints) * ( 1*TimeFactor / Essence ) ) -- A filled foodbar lasts 50 minutes of regeneration
 
-                Manapoints = math.min( maxManapoints, Manapoints + ( 2 * TimeFactor ) )  -- Full regeneration from 0-10000 in around 83 minutes
+                else -- Slow mana regeneration without food consumption
 
+                    Manapoints = math.min( maxManapoints, Manapoints + ( 2 * TimeFactor ) );  -- Full regeneration from 0-10000 in around 83 minutes
+
+                end
             end
-
         end
-
    else
 
       Manapoints = 0

@@ -17,14 +17,16 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local character = require("base.character")
 local chr_reg = require("lte.chr_reg")
+local arcaneMagicDamage = require("magic.arcane.dealMagicDamage")
 
 local M = {}
 
-function M.dealMagicDamage(target, damange)
-    if damange < 1 then return end
+function M.dealMagicDamage(target, damage, usedMovepoints)
+
+    if damage < 1 then return end
     -- Check for damage + 1 to avoid the case that a regular hit lowers the hitpoints down to 1 and directly sends a
     -- character to the brink of death.
-    if character.IsPlayer(target) and character.WouldDie(target, damange + 1) then
+    if character.IsPlayer(target) and character.WouldDie(target, damage + 1) then
         if character.AtBrinkOfDeath(target) then
             if target:isAdmin() then
                 chr_reg.stallRegeneration(target, 0)
@@ -43,7 +45,8 @@ function M.dealMagicDamage(target, damange)
             chr_reg.stallRegeneration(target, 60 / timeFactor)
         end
     else
-        target:increaseAttrib("hitpoints", -damange)
+        arcaneMagicDamage.learnMagicResistance(target, usedMovepoints/3) -- Since monster magic uses movepoints instead of cast time, we scale the learning based on that similar to how fighting does it by dividing it by three
+        target:increaseAttrib("hitpoints", -damage)
     end
 end
 
@@ -55,15 +58,6 @@ function M.isValidTarget(char)
 
     local hitPoints = char:increaseAttrib("hitpoints", 0)
     return hitPoints > 0
-end
-
-function M.getSpellResistence(char)
-    local willpower = char:increaseAttrib("willpower", 0);
-
-    local minResistence = willpower;
-    local maxResistence = willpower * 2;
-
-    return common.Limit(math.random(minResistence, maxResistence) / 80.0, 0, 1);
 end
 
 -- Check if the line of sight is free from large objects that obstruct the view

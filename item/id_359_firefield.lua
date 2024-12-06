@@ -17,8 +17,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE items SET itm_script='item.id_359_firefield' where itm_id=359;
 
 local common = require("base.common")
-local monstermagic = require("monster.base.spells.base")
 local character = require("base.character")
+local magicResistance = require("magic.arcane.magicResistance")
 
 local M = {}
 
@@ -99,10 +99,11 @@ function M.CharacterOnField(User)
     end
 
 
-    if (FieldItem.quality > 100) and User.pos.z ~= 40 then --no harmful flames in the working camp
+    if (FieldItem.quality > 100) and User.pos.z ~= 40 and FieldItem:getData("illusion") ~= "true" then --no harmful flames in the working camp or if it is a magical illusion
 
-        local resist = monstermagic.getSpellResistence(User) * 10
-        if resist < FieldItem.quality then
+        local resist = magicResistance.getMagicResistance(User)
+
+        if resist < 101 then --Only mobs can reach this resistance level where they are immune to most magic
             local foundEffect = User.effects:find(110); -- firefield lte
             if not foundEffect then
                 local myEffect = LongTimeEffect(110, 50) --5sec

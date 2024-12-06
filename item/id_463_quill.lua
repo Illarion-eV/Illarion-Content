@@ -373,6 +373,7 @@ local function removeLabel(user)
 end
 
 local function checkIfMagicDeskInFrontOfuser(user)
+
     local desks = {3502, 3503}
     local potentialDesk = common.GetFrontItem(user)
 
@@ -385,7 +386,8 @@ local function checkIfMagicDeskInFrontOfuser(user)
             return potentialDesk
         end
     end
-return false
+
+    return false
 end
 
 function M.UseItem(user, sourceItem, ltstate)

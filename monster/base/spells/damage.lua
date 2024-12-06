@@ -17,6 +17,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local base = require("monster.base.spells.base")
 local common = require("base.common")
 local standardfighting = require("server.standardfighting")
+local magicResistance = require("magic.arcane.magicResistance")
+
 
 local function _isNumber(value)
     return type(value) == "number"
@@ -189,10 +191,10 @@ return function(params)
 
     -- Deal damage
     local function castSpellAt(enemy)
-        local spellResistence = base.getSpellResistence(enemy)
-        local damage = math.random(damageRange[1], damageRange[2]) * (1.0 - spellResistence)
+        local spellResistence = magicResistance.getMagicResistance(enemy)
+        local damage = math.random(damageRange[1], damageRange[2]) * (1.0 - (spellResistence/100))
 
-        base.dealMagicDamage(enemy, damage)
+        base.dealMagicDamage(enemy, damage, usedMovepoints)
         if gfxId > 0 then world:gfx(gfxId, enemy.pos) end
         if sfxId > 0 then world:makeSound(sfxId, enemy.pos) end
         if itemId > 0 and not common.isItemIdInFieldStack(itemId, enemy.pos) then

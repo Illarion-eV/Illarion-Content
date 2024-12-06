@@ -26,8 +26,8 @@ local inspectGlyph = require("magic.arcane.enchanting.core.inspection_of_glyph")
 local inspectGlyphedItem = require("magic.arcane.enchanting.core.inspection_of_glyphed_item")
 local glyphTutorial = require("magic.arcane.enchanting.core.tutorial")
 local spatial = require("magic.arcane.spatial")
-local texts = require("magic.base.texts")
 local magic = require("base.magic")
+local castSpell = require("magic.arcane.castSpell")
 
 local currentWandUse = {}
 
@@ -117,7 +117,6 @@ function M.enchantingSelection(user, wand, actionstate)
 
 end
 
-
 local function selectMagicType(user, wand, actionstate)
 
     local callback = function (dialog)
@@ -174,8 +173,13 @@ function M.UseItem(user, sourceItem, actionstate)
         if actionstate == Action.none then
             if magicWands[sourceItem.id] then
                 if user:getMagicType() == 0 and (user:getQuestProgress(37) ~= 0 or user:getMagicFlags(0) > 0) then
+
+                    local spell = sourceItem:getData("spell")
+
                     if not magic.hasMageAttributes(user) then
                         user:inform("Mit deiner magischen Fähigkeit weißt du kaum, wie man einen Zauberstab hält, geschweige denn benutzt.", "With your magical ability, you barely know how to hold a wand, much less use one.") --chatgpt german
+                    elseif not common.IsNilOrEmpty(spell) and tonumber(spell) > 0 then
+                        castSpell.castSpell(user, spell, actionstate, false)
                     else
                         selectMagicType(user, sourceItem, actionstate)
                     end
@@ -206,6 +210,9 @@ function M.actionDisturbed(player, attacker)
     local max_chance = 25 --max percentage chance of interrupting a cast
     local healthRoof = 7500 -- chance to interrupt begin at 7500 health
     local healthFloor = 2500 -- chance to interrupt reaches max_chance at 2500 health
+    local willpower = player:increaseAttrib("willpower", 0)
+    local attribBonus = common.GetAttributeBonusHigh(willpower)
+    max_chance = math.floor(max_chance / (1+attribBonus)) -- At max attrib bonus for willpower, the max chance becomes 12.5%
     local healthRange = healthRoof-healthFloor
     local percent = healthRange/100
     local actual_chance = max_chance - math.floor(((health-healthFloor)/percent)/(100/max_chance))
@@ -221,7 +228,7 @@ function M.actionDisturbed(player, attacker)
     local chance = math.random(1,100)
 
     if chance <= actual_chance then
-        player:inform(texts.wounded.german, texts.wounded.english)
+        player:inform("Deine Verletzungen machen es dir schwer dich zu konzentrieren. Du machst einen Fehler beim Zaubern!", "Your wounds made it hard for you to concentrate, causing you to make a mistake in your casting.")
         return true
     end
 

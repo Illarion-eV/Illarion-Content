@@ -69,6 +69,14 @@ function M.onDeath(monster)
     spiderEgg.wear = 3
     world:changeItem(spiderEgg)
 
+    local nearbyPlayers = world:getCharactersInRangeOf(pos, 10)
+    for _, player in pairs(nearbyPlayers) do
+        if player:getQuestProgress(244) == 17 then
+            player:setQuestProgress(244, 18)
+            player:inform("Du hast es geschafft! Du hast alle Rätsel gelöst, die dich so weit gebracht haben, und jetzt hast du Akaltut getötet! Jetzt musst du nur noch deine Belohnung am nahe gelegenen Runenschrein abholen!", "You did it! You've solved all the riddles to get you this far, and now you've slain Akaltut! All that's left to do is to go reap your reward at the nearby rune shrine!")
+        end
+    end
+
     scheduledFunction.registerFunction(8, function() spawnEnragedAkaltut(pos) end)
 end
 

@@ -17,8 +17,55 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local oralCasting = require("magic.arcane.oralCasting")
 local wands = require("item.wands")
+local magicSphere = require("item.magicSphere")
 
 local M = {}
+
+local function puzzleTriggers(player, text)
+
+    if string.find(text, "feather") or string.find(text, "Feather") or string.find(text, "Feder") or string.find(text, "feder") then
+        if magicSphere.checkPenPosition(player) then
+            magicSphere.penActivate = true
+        end
+    end
+
+    if string.find(text, "beholder") or string.find(text, "Beholder") then
+        if magicSphere.checkIraPosition(player) then
+            magicSphere.iraActivate = true
+        end
+    end
+
+    local raven = {"Raven", "raven", "Rabe", "rabe"}
+
+    for _, variation in pairs(raven) do
+        if string.find(text, variation) then
+            if magicSphere.checkLhorPosition(player) then
+                magicSphere.lhorActivate = true
+            end
+        end
+    end
+
+    local right = {"Right", "right", "Richtig", "richtig"}
+
+    for _, variation in pairs(right) do
+        if string.find(text, variation) then
+            if magicSphere.checkTahPosition(player) then
+                magicSphere.tahActivate = true
+            end
+        end
+    end
+
+    local man = {"man", "Man", "mensch", "Mensch"}
+    for _, variation in pairs(man) do
+        if string.find(text, variation) then
+            if magicSphere.checkTaurPosition(player) then
+                magicSphere.taurActivate = true
+            end
+        end
+    end
+
+end
+
 
 local function checkIfInteracting(player)
     local nearbyPlayers = world:getPlayersInRangeOf(player.pos, 15)
@@ -40,6 +87,8 @@ local function checkIfInteracting(player)
 end
 
 function M.talk(player, talkType, text, actionState)
+
+    puzzleTriggers(player, text)
 
     checkIfInteracting(player)
 

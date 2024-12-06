@@ -42,26 +42,22 @@ local AddTypeAndUsable
 local GetGemLevel
 
 -- init german descriptions
-local GenericQualDe = {"perfekt", "exzellent", "sehr gut", "gut", "normal", "mäßig", "schlecht", "sehr schlecht","schrecklich", "furchtbar"}
-local GenericDuraDe = {}
-GenericDuraDe[1] = {"nagelneu", "neu", "fast neu", "gebraucht", "leicht abgenutzt", "abgenutzt", "sehr abgenutzt", "alt", "rostig", "klapprig", "sehr klapprig", "kaputt"}
-GenericDuraDe[2] = {"nagelneu", "neu", "fast neu", "gebraucht", "leicht abgenutzt", "abgenutzt", "sehr abgenutzt", "alt", "morsch", "zerfallend", "sehr zerfallen", "kaputt"}
-GenericDuraDe[3] = {"nagelneu", "neu", "fast neu", "gebraucht", "leicht abgenutzt", "abgenutzt", "sehr abgenutzt", "alt", "fadenscheinig", "zerfetzt", "komplett zerfetzt", "kaputt"}
-GenericDuraDe[4] = {"funkelnd", "strahlend", "glänzend", "gebraucht", "angekratzt", "zerkratzt", "matt", "alt", "stumpf", "brüchig", "sehr brüchig", "kaputt"}
-
-M.GenericQualDe = GenericQualDe
+M.GenericQualDe = {"perfekt", "exzellent", "sehr gut", "gut", "normal", "mäßig", "schlecht", "sehr schlecht","schrecklich", "furchtbar"}
+M.GenericDuraDe = {}
+M.GenericDuraDe[1] = {"nagelneu", "neu", "fast neu", "gebraucht", "leicht abgenutzt", "abgenutzt", "sehr abgenutzt", "alt", "rostig", "klapprig", "GERMAN TRANSLATION", "kaputt"}
+M.GenericDuraDe[2] = {"nagelneu", "neu", "fast neu", "gebraucht", "leicht abgenutzt", "abgenutzt", "sehr abgenutzt", "alt", "morsch", "zerfallend", "GERMAN TRANSLATION", "kaputt"}
+M.GenericDuraDe[3] = {"nagelneu", "neu", "fast neu", "gebraucht", "leicht abgenutzt", "abgenutzt", "sehr abgenutzt", "alt", "fadenscheinig", "zerfetzt", "GERMAN TRANSLATION", "kaputt"}
+M.GenericDuraDe[4] = {"funkelnd", "strahlend", "glänzend", "gebraucht", "angekratzt", "zerkratzt", "matt", "alt", "stumpf", "brüchig", "GERMAN TRANSLATION", "kaputt"}
 
 -- init english descriptions
-local GenericQualEn = {"perfect", "excellent", "very good", "good", "normal", "average", "bad", "very bad", "awful", "horrible"}
-local GenericDuraEn = {}
-GenericDuraEn[1] = {"brand new", "new", "almost new", "used", "slightly scraped", "scraped", "highly scraped", "old", "rusty", "corroded", "highly corroded", "broken"}
-GenericDuraEn[2] = {"brand new", "new", "almost new", "used", "slightly scratched", "scratched", "highly scratched", "old", "rotten", "nearly decayed", "decayed", "broken"}
-GenericDuraEn[3] = {"brand new", "new", "almost new", "used", "slightly frayed", "frayed", "highly frayed", "old", "threadbare", "ragged", "highly ragged", "broken"}
-GenericDuraEn[4] = {"sparkling", "shiny", "glittery", "used", "slightly scraped", "scraped", "highly scraped", "old", "tarnished", "fragile", "highly fragile", "broken"}
+M.GenericQualEn = {"perfect", "excellent", "very good", "good", "normal", "average", "bad", "very bad", "awful", "horrible"}
+M.GenericDuraEn = {}
+M.GenericDuraEn[1] = {"brand new", "new", "almost new", "used", "slightly scraped", "scraped", "highly scraped", "old", "rusty", "corroded", "highly corroded", "broken"}
+M.GenericDuraEn[2] = {"brand new", "new", "almost new", "used", "slightly scratched", "scratched", "highly scratched", "old", "rotten", "nearly decayed", "decayed", "broken"}
+M.GenericDuraEn[3] = {"brand new", "new", "almost new", "used", "slightly frayed", "frayed", "highly frayed", "old", "threadbare", "ragged", "highly ragged", "broken"}
+M.GenericDuraEn[4] = {"sparkling", "shiny", "glittery", "used", "slightly scraped", "scraped", "highly scraped", "old", "tarnished", "fragile", "highly fragile", "broken"}
 
-M.GenericQualEn = GenericQualEn
-
-local GenericDuraLm = {99, 90, 80, 70, 60, 50, 40, 30, 20, 10, 1, 0}
+M.GenericDuraLm = {99, 90, 80, 70, 60, 50, 40, 30, 20, 10, 1, 0}
 
 M.fightingGemBonusDivisionValue = 2 --Changing this might break the gem lookat due to current server limitations
 
@@ -249,7 +245,7 @@ function M.GenerateLookAt(user, item, material)
             local itemQual = (item.quality - itemDura) / 100
 
             local duraIndex
-            for i, duraLimit in pairs(GenericDuraLm) do
+            for i, duraLimit in pairs(M.GenericDuraLm) do
                 if itemDura >= duraLimit then
                     duraIndex = i
                     break
@@ -260,11 +256,11 @@ function M.GenerateLookAt(user, item, material)
             qualIndex=common.Limit(qualIndex, 1, 10)
 
             if (isGerman) then
-                lookAt.qualityText = GenericQualDe[qualIndex]
-                lookAt.durabilityText = GenericDuraDe[material][duraIndex]
+                lookAt.qualityText = M.GenericQualDe[qualIndex]
+                lookAt.durabilityText = M.GenericDuraDe[material][duraIndex]
             else
-                lookAt.qualityText = GenericQualEn[qualIndex]
-                lookAt.durabilityText = GenericDuraEn[material][duraIndex]
+                lookAt.qualityText = M.GenericQualEn[qualIndex]
+                lookAt.durabilityText = M.GenericDuraEn[material][duraIndex]
             end
 
             lookAt.durabilityValue = itemDura + 1

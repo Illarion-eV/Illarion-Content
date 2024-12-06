@@ -29,8 +29,9 @@ local pyr = require("magic.arcane.enchanting.effects.pyr")
 local daear = require("magic.arcane.enchanting.effects.daear")
 local ilyn = require("magic.arcane.enchanting.effects.ilyn")
 local magic = require("base.magic")
-local texts = require("magic.base.texts")
 local bottles = require("item.bottles")
+local antiTroll = require("magic.base.antiTroll")
+
 
 local M = {}
 
@@ -353,7 +354,7 @@ end
 local function getPortalBookName(user, product)
 
     if not common.IsNilOrEmpty(product.data.destinationCoordsZ) then
-        for _, portalSpot in pairs(texts.portalSpots) do
+        for _, portalSpot in pairs(antiTroll.portals) do
             if portalSpot.location.z == product.data.destinationCoordsZ and portalSpot.location.x == product.data.destinationCoordsX and portalSpot.location.y == product.data.destinationCoordsY then
                 return common.GetNLS(user,portalSpot.nameDe, portalSpot.nameEn)
             end

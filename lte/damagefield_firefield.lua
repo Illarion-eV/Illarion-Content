@@ -15,14 +15,17 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
-local monstermagic = require("monster.base.spells.base")
+local magicResistance = require("magic.arcane.magicResistance")
 
 -- Long time effect (110)
 local M = {}
 
 local function causeDamage(User, quality)
 
-    local resist = monstermagic.getSpellResistence(User) * 10
+    local resist = magicResistance.getMagicResistance(User)
+
+    resist = math.floor(resist/10)
+
     if resist < quality then
         local damageLow = 3 * math.floor((math.max(10, quality - resist)))
         local damageHigh = 5 * math.floor(quality - resist)

@@ -20,6 +20,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local lookat = require("base.lookat")
 local id_266_bookshelf = require("item.id_266_bookshelf")
 local granorsHut = require("content.granorsHut")
+local magicBook = require("magic.arcane.magicBook")
 local common = require("base.common")
 
 local readBook
@@ -117,45 +118,59 @@ function readBook(user, book, atPage)
     end
 end
 
-function M.UseItem(User, SourceItem)
+function M.UseItem(user, sourceItem)
 
     -- alchemy book; DO NOT CHANGE! STARTER PACK RELEVANT!
-    if SourceItem.id == 2622 then
-        User:sendBook(101)
+    if sourceItem.id == 2622 then
+        user:sendBook(101)
         return
     end
     -- alchemy end
-
-    if SourceItem:getData("granorsHut") ~= "" then
-        granorsHut.readingBook(User)
+    -- magic book for casting
+    if sourceItem:getData("magicBook") == "true" then
+        magicBook.mainSelectionDialog(user, sourceItem)
+        return
+    end
+    -- magic book end
+    if sourceItem:getData("granorsHut") ~= "" then
+        granorsHut.readingBook(user)
         return
     end
 
-    local book = SourceItem:getData("book")
+    local book = sourceItem:getData("book")
     if book ~= "" then
         if id_266_bookshelf.bookList[book] ~= nil then
-            User:sendBook(id_266_bookshelf.bookList[book].bookId)
+            user:sendBook(id_266_bookshelf.bookList[book].bookId)
         end
     end
 
-    local isWritten = SourceItem:getData("pageCount")
+    local isWritten = sourceItem:getData("pageCount")
 
     if not common.IsNilOrEmpty(isWritten) and tonumber(isWritten) >= 1 then
-        readBook(User, SourceItem)
+        readBook(user, sourceItem)
     end
 
 end
 
-function M.LookAtItem(User,Item)
-    local book = Item:getData("book")
-    if book ~= "" then
-        if book ~= nil then
+function M.LookAtItem(user, theBook)
+
+    if not common.IsNilOrEmpty(theBook:getData("magicBook")) then
+        lookat.SetSpecialName(theBook, "Grimoire", "Grimoire")
+        if common.IsNilOrEmpty(theBook:getData("descriptionEn")) then -- Do not overwrite custom labels
+            lookat.SetSpecialDescription(theBook, "Ein Grimoire das Magier verwenden.", "A grimoire used by mages.")
+        end
+    else
+
+        local book = theBook:getData("book")
+
+        if not common.IsNilOrEmpty(book) then
             if id_266_bookshelf.bookList[book] ~= nil then
-                lookat.SetSpecialName(Item,id_266_bookshelf.bookList[book].german,id_266_bookshelf.bookList[book].english)
+                lookat.SetSpecialName(theBook, id_266_bookshelf.bookList[book].german, id_266_bookshelf.bookList[book].english)
             end
         end
     end
-    return lookat.GenerateLookAt(User, Item, 0)
+
+    return lookat.GenerateLookAt(user, theBook, 0)
 end
 
 return M

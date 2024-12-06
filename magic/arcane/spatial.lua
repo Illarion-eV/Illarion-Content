@@ -16,7 +16,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local common = require("base.common")
-local texts = require("magic.base.texts")
 local magic = require("base.magic")
 local spiritlocation = require("magic.arcane.spirit.location")
 local antiTroll = require("magic.base.antiTroll")
@@ -26,13 +25,132 @@ local globalvar = require("base.globalvar")
 
 local M = {}
 
-local castTexts = texts.castSpellTexts
-local portalSpots = texts.portalSpots
-local myTexts = texts.spatialTexts
+local portalSpots = antiTroll.portals
+local myTexts = {
+
+    portalBookNeeded = {
+        english = "You must have the portal book you wish to evaluate in one of your belt slots.",
+        german = "Du musst das Portalbuch, das du bewerten möchtest, in einem deiner Gürtelplätze haben."}, --Verification of chatGPT GERMAN TRANSLATION needed
+
+    distanceTexts = {
+        {value = 600, english = " very far ", german = "sehr fern "},
+        {value = 400, english = " far ", german = "fern "},
+        {value = 100, english = " somewhere ", german = "in der Nähe "},
+        {value = 50, english = " close ", german = "nahe "},
+        {value = 0, english = " very close ", german = "sehr nahe "},
+    },
+    binderTexts = {
+        english = "to the ",
+        german = "in Richtung"
+    },
+    alreadyAttuned = {
+        english  = "You've already attuned your spatial magic to this location.",
+        german = "Du hast deine Raummagie bereits auf diesen Ort abgestimmt."
+    },
+    doneAttuning  = {
+        english = "You've attuned to the crossing mana lines in the area. You will now be able to remember the spatial coordinates to teleport, cast portals and even write portal books that lead to this area, should your expertise in spatial magic allow.",
+        german = "Du hast deine Raummagie auf die sich kreuzenden Manalinien dieses Gebiets abgestimmt. Du kannst dir nun die räumlichen Koordinaten merken um dich her zu teleportieren, Portale zu öffnen oder sogar Portalbücher schreiben die dich hier her führen. Natürlich nur wenn es deine Erfahrung in Raummagie erlaubt."
+    },
+    lackingSkill = {
+        english = "You need to attain a higher level of expertise in spatial magic to remember the spatial coordinates for this location.",
+        german = "Um dir die räumlichen Koordinaten für diesen Ort merken zu können, musst du deine Fähigkeiten in der Raummagie verbessern."
+    },
+    noNearby = {
+        english = "There are no crossing mana lines nearby for you to attune your spatial magic to. The nearest one is ",
+        german = "Hier befinden sich keine kreuzenden Manalinien um deine Raummagie abzustimmen. Die Näheste befindet sich "
+    },
+    red = {
+        english = "Portal colour set to red",
+        german = "Die Farbe deiner Portale ist nun rot."
+    },
+    blue = {
+        english = "Portal colour set to blue",
+        german = "Die Farbe deiner Portale ist nun blau."
+    },
+    name = {
+        english = "Spatial Magic",
+        german = "Raummagie"
+    },
+    selectColour = {
+        english = "Select which colour your portals should have.",
+        german = "Wähle welche Farbe deine Portale haben sollen."
+    },
+    colours = {
+        red = { english = "Red", german = "Rot"},
+        blue = { english = "Blue", german = "Blau"}
+    },
+    incantation = {
+        portal = "Locus Ianua", -- latin for "space door"
+        teleport = "Locus Itinerantur", --latin for "space travel"
+        attune = "Locus Memento" --latin, "space remember"
+    },
+    teleportation = {
+        english = "Teleportation",
+        german = "Teleportation"
+    },
+    destination = {
+        english = "Select your destination",
+        german = "Wähle deinen Zielort"
+    },
+    castSelect  = {
+        english = "What kind of spatial magic do you want to cast?",
+        german = "Welche Raummagie möchtest du sprechen?"
+    },
+    attuneTo = {
+        english = "Attune to location",
+        german = "Abstimmung mit einem Ort"
+    },
+    teleport = {
+        english = "Teleport",
+        german = "Teleport"
+    },
+    portal = {
+        english = "Create Portal",
+        german = "Erschaffe ein Portal"
+    },
+    portalColour = {
+        english = "Portal colour",
+        german = "Portalfarbe"
+    },
+    interruptedCast = {
+        english = "Your casting of spatial magic was interrupted.",
+        german = "Das wirken deiner Raummagie wurde unterbrochen."
+    },
+    cantFindMore = {
+        english = "You don't detect any more crossing mana lines to attune to. Perhaps you've found them all?",
+        german = "Du kannst keine sich kreuzenden Manalinien mehr ausmachen. Vielleicht hast du ja schon alle gefunden?"
+    },
+    differentElevation = {
+        english = "You can feel that there are crossed mana lines nearby that you can attune your spatial magic to, however not here. Perhaps you'd had better luck searching at a different elevation?",
+        german = "Du kannst spüren, dass du dich direkt in der Nähe einer sich kreuzenden Manalinie befindest, an der du deine Raummagie abstimmen könntest. Es scheint aber als würde sich dieser auf einer anderen Ebene befinden."
+    },
+    badTarget  = {
+        english = "Something in the area disrupts your casting. Perhaps this isn't a good spot for spatial magic?",
+        german = "Etwas in der Nähe unterbericht deinen Zauber. Möglicherweise ist das kein guter Ort für Raummagie?"
+    },
+    locationBlocked = {
+        english = "There is not enough free space in front of you for a portal, try again somewhere there is more room.",
+        german = "Vor dir ist nicht genug Platz für ein Portal. Versuche es erneut an einem Ort, wo mehr Raum zur Verfügung steht."
+    },
+    showBookQuality = {
+        english = "Portal Book Evaluation",
+        german = "Portalbuchbewertung"
+    },
+    bookQuality = {
+        english = "Through your inspection you find that this portal book is of ",
+        german = "Durch deine Inspektion stellst du fest, dass dieses Portalbuch von der Qualität "
+    },
+    bookQualityAddendum = {
+        english = " quality. The better the quality, the faster it is to summon a portal through the usage of this book.",
+        german = " ist. Je besser die Qualität, desto schneller lässt sich ein Portal mithilfe dieses Buches beschwören."
+    }
+}
+
+M.spatialTexts = myTexts
 
 local function findSpotNameBasedOnCoord(coordinates)
 
-    for _, spot in pairs(texts.portalSpots) do
+    for _, spot in pairs(portalSpots) do
         if spot.location == coordinates then
             return spot.nameEn, spot.nameDe
         end
@@ -240,7 +358,7 @@ local function getPortalWear(user)
 
     local wandGemBonus = magic.getGemBonusWand(user) -- Each tier of a magic set equals 0.06
 
-    local equipmentBonus = magic.getMagicBonus(user)/100
+    local equipmentBonus = magic.getMagicBonus(user)
 
     local totalBonus = statBonus + wandQualityBonus + wandGemBonus/100 + equipmentBonus
 
@@ -415,7 +533,7 @@ local function getManaCost(user)
 
     local wandGemBonus = magic.getGemBonusWand(user) -- Each tier of a magic set equals 0.06
 
-    local equipmentBonus = magic.getMagicBonus(user)/100
+    local equipmentBonus = magic.getMagicBonus(user)
 
     local totalBonus = essenceBonus + wandQualityBonus + wandGemBonus/100 + equipmentBonus
 
@@ -580,7 +698,7 @@ end
 local function chooseLocation(user, actionState, portal)
 
     if not checkIfEnoughMana(user) then
-        user:inform(castTexts.mana.german, castTexts.mana.english)
+        user:inform("Du hast nicht genug Mana.", "You do not have enough mana.")
         return
     end
 
@@ -663,7 +781,7 @@ local function portalMenu(user, ltstate)
     dialog:addOption(0,common.GetNLS(user, myTexts.attuneTo.german, myTexts.attuneTo.english))
     dialog:addOption(0, common.GetNLS(user, myTexts.teleport.german, myTexts.teleport.english))
     dialog:addOption(0, common.GetNLS(user, myTexts.portal.german, myTexts.portal.english))
-    dialog:addOption(0,common.GetNLS(user, texts.spatialTexts.showBookQuality.german, texts.spatialTexts.showBookQuality.english))
+    dialog:addOption(0,common.GetNLS(user, myTexts.showBookQuality.german, myTexts.showBookQuality.english))
     if user:getQuestProgress(225) ~= 0 then
         dialog:addOption(0, common.GetNLS(user, myTexts.portalColour.german, myTexts.portalColour.english))
     end

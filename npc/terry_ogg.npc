@@ -48,8 +48,8 @@ itemShoes = 53
 "sell", "buy", "wares", "price", "trade", "purchase" -> "What? Oh, sure, I'll let you fund my research.", "Can I interest you in some scented candles? Err. At least I think they're scented. Wax is a scent, right?", "How about purchasing one of my old wands? Almost certainly assured to maybe not explode on you upon use! Guaranteed, maybe!", trade
 
 -- Grimoires and rune encyclopedia will be for sale when rune magic is released
--- sellItem = id(2619), de("Grimoire"), en("Grimoire"), price(2000), stack(1), quality(999), data("magicBook" = "true")
--- sellItem = id(105), de("Die Enzyklopädie der arkanen Runen"), en("The arcane runes encyclopedia"), price(2000), stack(1), quality(999), data("book" = "arcane_runes_encyclopedia")
+sellItem = id(2619), de("Grimoire"), en("Grimoire"), price(2000), stack(1), quality(999), data("magicBook" = "true")
+sellItem = id(105), de("Die Enzyklopädie der arkanen Runen"), en("The arcane runes encyclopedia"), price(2000), stack(1), quality(999), data("book" = "arcane_runes_encyclopedia")
 -- Terry sells his old wands to new students, custom name but worse quality and durability than a fresh one from a carpenter merchant
 sellItem = id(323), de("Terrys alter Zauberstab"), en("Terry's old wand"), stack(1), quality(333), data("nameEn" = "Terry's old wand", "nameDe" = "Terrys alter Zauberstab", "descriptionEn" = "An old, worn wand that used to belong to Terry Ogg the wandering mage.", "descriptionDe" = "Ein alter, abgegriffener Zauberstab, der einst dem wandernden Magier Terry Ogg gehörte.")
 -- Terry sells the basic candles and candlesticks needed for glyph rituals
@@ -106,7 +106,52 @@ queststatus(37) = 1, queststatus(568) = 2, "magic", "enchant", "wand", "spatial"
 queststatus(37) = 1, queststatus(568) = 2, "magie", "verzauber", "zauberstab", "teleport", "rune", "glyph", "quest", "mission", "auftrag", "aufgabe", "abenteuer" -> queststatus(568) = 3, "Sehr gut. Du scheinst ein gutes Verständnis für deinen Zauberstab entwickelt zu haben! Was würdest du jetzt gerne lernen? Verzauberungen, vielleicht?"
 
 
--- Glyph tutorial
+
+-- Rune Magic Tutorial
+
+-- Starting the tutorial; introduced to the rune location hints book and told to find and learn the primary rune RA
+queststatus(237) = 0, english, "rune", "quest", "mission" -> inform("[New quest] Rune Magic"), queststatus(237) = 1, "So you want to learn rune magic, eh? First things first, you'll have to learn a rune. My book over there will give you a hint to their whereabouts, but beware that a mortal mind can only learn so much within a short timeframe. You may have to wait a week or so after learning each rune or two. Now for your task: go find the location of the primary rune RA, the rune of fire. Learn it, then return to me."
+queststatus(237) = 0, "task", "adventure", "order", "magic" -> inform("[New quest] Rune Magic"), queststatus(237) = 1, "So you want to learn rune magic, eh? First things first, you'll have to learn a rune. My book over there will give you a hint to their whereabouts, but beware that a mortal mind can only learn so much within a short timeframe. You may have to wait a week or so after learning each rune or two. Now for your task: go find the location of the primary rune RA, the rune of fire. Learn it, then return to me."
+queststatus(237) = 0, "rune", "verzauber", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "magie" -> inform("[Neue Quest] Runenmagie"), queststatus(237) = 1, "Also, du möchtest Runenmagie lernen, ja? Zuerst musst du eine Rune lernen. Mein Buch dort drüben gibt dir einen Hinweis auf ihren Aufenthaltsort, aber sei gewarnt: Ein sterblicher Geist kann nur so viel in kurzer Zeit aufnehmen. Du musst vielleicht eine Woche oder so warten, nachdem du jede Rune oder zwei gelernt hast. Jetzt zu deiner Aufgabe: Finde den Standort der Primärrune RA, der Rune des Feuers. Lerne sie und kehre dann zu mir zurück."
+
+-- Reminder to go find the rune RA
+queststatus(237) = 1, english, "rune", "quest", "mission" -> "You still haven't found the location of the rune RA. Return to me when you have."
+queststatus(237) = 1, "task", "adventure", "order", "magic" -> "You still haven't found the location of the rune RA. Return to me when you have."
+queststatus(237) = 1, "rune", "verzauber", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "magie" -> "Du hast den Ort der Rune RA immer noch nicht gefunden. Kehre zu mir zurück, wenn du sie gefunden hast."
+
+-- Introduced to grimoires
+queststatus(237) = 2, english, "rune", "quest", "mission" -> queststatus(237) = 3, "Now that you have learned how to use the rune RA, you will want a grimoire to more conveniently store the structure of your spells in. You can purchase a blank book from a tailor of your own choosing to enchant into a grimoire, a process which is done at the magic desk, or you can fund my researching by purchasing one from me directly!"
+queststatus(237) = 2, "task", "adventure", "order", "magic" -> queststatus(237) = 3, "Now that you have learned how to use the rune RA, you will want a grimoire to more conveniently store the structure of your spells in. You can purchase a blank book from a tailor of your own choosing to enchant into a grimoire, a process which is done at the magic desk, or you can fund my researching by purchasing one from me directly!"
+queststatus(237) = 2, "rune", "verzauber", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "magie" -> queststatus(237) = 3, "Nun, da du gelernt hast, wie man die Rune RA benutzt, wirst du ein Grimoire haben wollen, um die Struktur deiner Zauber bequemer zu speichern. Du kannst ein leeres Buch von einem Schneider deiner Wahl kaufen, um es in ein Grimoire zu verzaubern ? ein Prozess, der am Magie-Tisch durchgeführt wird ? oder du kannst meine Forschung unterstützen, indem du eines direkt von mir kaufst!"
+
+-- Since we can't check every single book ID for grimoire status, we just assume the mage got one by now
+
+-- Told to go store RA as a spell in your grimoire
+queststatus(237) = 3, english, "rune", "quest", "mission" -> queststatus(237) = 4, "Next up, go store the structure of the rune RA into your new grimoire. Once you have, you will be able to attune a wand of your choice to the spell for more convenient casting of magic! You will need a quill, of course. You can either buy one from half-hung Bryan over by the inn or find a carpenter to make you one."
+queststatus(237) = 3, "task", "adventure", "order", "magic" -> queststatus(237) = 4, "Next up, go store the structure of the rune RA into your new grimoire. Once you have, you will be able to attune a wand of your choice to the spell for more convenient casting of magic! You will need a quill, of course. You can either buy one from half-hung Bryan over by the inn or find a carpenter to make you one."
+queststatus(237) = 3, "rune", "verzauber", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "magie" -> queststatus(237) = 4, "Als Nächstes speichere die Struktur der Rune RA in dein neues Grimoire. Sobald du das getan hast, kannst du einen Zauberstab deiner Wahl auf den Zauber abstimmen, um die Magie bequemer wirken zu können! Du brauchst natürlich eine Feder. Du kannst entweder eine bei Halb-Aufgehängtem Bryan beim Gasthaus kaufen oder einen Tischler finden, der dir eine anfertigt."
+
+-- Reminded to store the rune in the grimoire as a spell
+queststatus(237) = 4, english, "rune", "quest", "mission" -> "You still haven't stored the rune RA as a spell in your grimoire. Return to me when you have."
+queststatus(237) = 4, "task", "adventure", "order", "magic" -> "You still haven't stored the rune RA as a spell in your grimoire. Return to me when you have."
+queststatus(237) = 4, "rune", "verzauber", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "magie" -> "Du hast den Zauber RA noch immer nicht in deinem Grimoire geschrieben. Kehre zu mir zurück, wenn du ihn niedergeschrieben hast."
+
+-- Told to cast the spell
+queststatus(237) = 5, english, "rune", "quest", "mission" -> queststatus(237) = 6, "Getting there! Now all that remains is casting the spell. You can either use your grimoire to attune your wand to the stored spell, or you can just speak the rune out loud while picturing the result you want in your mind. Go on, cast one before me. Show me what you got."
+queststatus(237) = 5, "task", "adventure", "order", "magic" -> queststatus(237) = 6, "Getting there! Now all that remains is casting the spell. You can either use your grimoire to attune your wand to the stored spell, or you can just speak the rune out loud while picturing the result you want in your mind. Go on, cast one before me. Show me what you got."
+queststatus(237) = 5, "rune", "verzauber", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "magie" -> queststatus(237) = 6, "Wir kommen zum Ziel! Jetzt musst du nur noch den Zauberspruch sprechen. Du kannst entweder dein Grimoire benutzen, um deinen Zauberstab auf den hinterlegten Zauberspruch einzustimmen, oder du kannst die Rune laut aussprechen und dir dabei das gewünschte Ergebnis vorstellen. Na los, sprich einen Zauber vor mir. Zeig mir, was du kannst."
+
+-- Reminded  to cast RA
+queststatus(237) = 6, english, "rune", "quest", "mission" -> "Come on, I don't have all day. Cast RA for me!"
+queststatus(237) = 6, "task", "adventure", "order", "magic" -> "Come on, I don't have all day. Cast RA for me!"
+queststatus(237) = 6, "rune", "verzauber", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "magie" -> "Komm schon, ich habe nicht den ganzen Tag Zeit. Nutze den Zauber RA für mich!"
+
+-- Tutorial over
+queststatus(237) = 7, english, "rune", "quest", "mission" -> queststatus(237) = 8, "Well done, that is all I can teach you of rune magic! Though there are other kinds of magic I can also teach you about."
+queststatus(237) = 7, "task", "adventure", "order", "magic" -> queststatus(237) = 8, "Well done, that is all I can teach you of rune magic! Though there are other kinds of magic I can also teach you about."
+queststatus(237) = 7, "rune", "verzauber", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "magie" -> queststatus(237) = 8, "Gut gemacht! Das ist alles, was ich dir über Runenmagie beibringen kann! Es gibt aber auch andere Arten von Magie, die ich dir beibringen kann."
+
+-- Enchanting tutorial
 
 --Accepting the tutorial and tasked to examine a glyph ritual shrine
 queststatus(241) = 0, queststatus(37) = 1, english, "glyph", "quest", "mission" ->  queststatus(241) = 1, "So you want to learn about enchanting items through the means of glyphs? Fine, I'll teach you the basics. First of all, you need a shrine to perform the enchantment at. You can use the one I set up over there, or if in the future you find yourself far away, you can use your wand to set up your own based on that. Go have a look at it, then you can return to me for your next task."
@@ -173,7 +218,7 @@ queststatus(241) = 12, english, "glyph", "quest", "mission" -> queststatus(241) 
 queststatus(241) = 12, "enchant", "task", "adventure", "order", "magic" -> queststatus(241) = 13, item(43, 4), item(399, 4), "That's all I have to teach you about enchanting jewellery through the means of glyph forging. Don't feel too down about destroying the glyph you just made, you'll find plenty more of the mystical shards in the wild as they fall bursting with light, a sign of the mana captured within. Here, have these candles and candlesticks as a reward to get you started on your path as an enchanter!"
 queststatus(241) = 12, "glyph", "verzauber", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "magie" -> queststatus(241) = 13, item(43, 4), item(399, 4), "Das ist alles was, was ich dir über das Verzaubern von Schmuck beibringen kann. Sei nicht zu enttäuscht, dass du die Glyphe, die du gerade hergestellt hast, wieder zerstört hast. Du wirst reichlich magische Scherben in der Wildnis finden, die über Illarion niedergegangen sind. Sie schimmern in einem besonderen Licht, welches vom in ihnen eingefangenen Mana stammt. Nimm diese Kerzen und Kerzenhalter als Belohnung, damit du deinen Pfad in der Magie der Verzauberung beschreiten kannst."
 
---spatial magic tutorial
+-- Spatial magic tutorial
 
 -- Tasked to attune to the nearby teleporter
 queststatus(240) = 0, english, "quest", "mission", "teleport" -> inform("[New quest] Spatial Magic"), queststatus(240) = 1, "So you want to learn about spatial magic, eh? Well first go on and head over to the nearby teleporter and use your wand to attune to it, then return to me once you have succeeded."

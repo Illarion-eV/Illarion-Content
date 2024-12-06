@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local base = require("monster.base.spells.base")
 local common = require("base.common")
+local magicResistance = require("magic.arcane.magicResistance")
 
 local function _isNumber(value)
     return type(value) == "number"
@@ -235,10 +236,10 @@ return function(params)
 
         if world:isCharacterOnField(pos) then
             local victim = world:getCharacterOnField(pos)
-            local spellResistence = base.getSpellResistence(victim)
-            local damage = math.random(damageRange[1], damageRange[2]) * (1.0 - spellResistence)
+            local spellResistence = magicResistance.getMagicResistance(victim)
+            local damage = math.random(damageRange[1], damageRange[2]) * (1.0 - (spellResistence/200))
 
-            base.dealMagicDamage(victim, damage)
+            base.dealMagicDamage(victim, damage, usedMovepoints)
         end
     end
 

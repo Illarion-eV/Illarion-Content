@@ -18,6 +18,7 @@ local base = require("monster.base.spells.base")
 local character = require("base.character")
 local common = require("base.common")
 local standardfighting = require("server.standardfighting")
+local magicResistance = require("magic.arcane.magicResistance")
 
 local function _isNumber(value)
     return type(value) == "number"
@@ -228,9 +229,9 @@ return function(params)
         end)
 
         if hitCharacter ~= nil then
-            local spellResistence = base.getSpellResistence(hitCharacter)
-            local damage = math.random(damageRange[1], damageRange[2]) * (1.0 - spellResistence)
-            base.dealMagicDamage(hitCharacter, damage)
+            local spellResistence = magicResistance.getMagicResistance(hitCharacter)
+            local damage = math.random(damageRange[1], damageRange[2]) * (1.0 - (spellResistence/100))
+            base.dealMagicDamage(hitCharacter, damage, usedMovepoints)
         end
 
         if gfxId > 0 then world:gfx(gfxId, hitPosition) end

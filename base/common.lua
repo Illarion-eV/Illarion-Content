@@ -1889,18 +1889,19 @@ function M.IsItemInHands( item )
 end
 
 --[[Check if a char holds an item from a list in hand
-@return true if item with id is in any hand slot]]--
+@return true if item with id is in any hand slot
+If true, returns the item in question]]--
 function M.hasItemIdInHand(user, itemIds)
     if type(itemIds) ~= "table" then
         itemIds = {itemIds}
     end
     local leftTool = user:getItemAt(Character.left_tool)
     if M.isInList(leftTool.id, itemIds) then
-        return true
+        return true, leftTool
     end
     local rightTool = user:getItemAt(Character.right_tool)
     if M.isInList(rightTool.id, itemIds) then
-        return true
+        return true, rightTool
     end
     return false
 end
@@ -2316,7 +2317,6 @@ leadAttribTable[Character.natureLore]="essence"
 leadAttribTable[Character.cauldronLore]="essence"
 
 --Intelligence: Magic
-leadAttribTable[Character.wandMagic]="intelligence"
 leadAttribTable[Character.enchanting]="intelligence"
 leadAttribTable[Character.fireMagic]="intelligence"
 leadAttribTable[Character.spiritMagic]="intelligence"
@@ -2366,7 +2366,12 @@ end
 -- @return  The value of the bonus
 --                 NOTE: 0 will be returned if something goes wrong
 
-function M.GetAttributeBonus(attributeValue, range)
+function M.GetAttributeBonus(attributeValue, range, skillName, user)
+
+    if skillName then -- In this case, attributeValue is left blank and skillName/user is instead filled in to fetch the lead attribute on its own
+        local leadAttribName = M.GetLeadAttributeName(skillName)
+        attributeValue = user:increaseAttrib(leadAttribName, 0)
+    end
 
     local bonus
     if attributeValue ~= nil and attributeValue ~= 0 and range < 1 and range > 0 then
@@ -2379,16 +2384,16 @@ function M.GetAttributeBonus(attributeValue, range)
 
 end
 
-function M.GetAttributeBonusLow(attributeValue)
-    return M.GetAttributeBonus(attributeValue, 0.1)
+function M.GetAttributeBonusLow(attributeValue, skillName, user)
+    return M.GetAttributeBonus(attributeValue, 0.1, skillName, user)
 end
 
-function M.GetAttributeBonusMedium(attributeValue)
-    return M.GetAttributeBonus(attributeValue, 0.2)
+function M.GetAttributeBonusMedium(attributeValue, skillName, user)
+    return M.GetAttributeBonus(attributeValue, 0.2, skillName, user)
 end
 
-function M.GetAttributeBonusHigh(attributeValue)
-    return M.GetAttributeBonus(attributeValue, 0.5)
+function M.GetAttributeBonusHigh(attributeValue, skillName, user)
+    return M.GetAttributeBonus(attributeValue, 0.5, skillName, user)
 end
 
 --- Calculates an universal quality bonus

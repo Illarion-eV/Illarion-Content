@@ -20,6 +20,7 @@ local hooks = require("monster.base.hooks")
 local treasure = require("item.base.treasure")
 local arena = require("base.arena")
 local mugWithLid = require("item.id_310_mug_with_lid")
+local magicPuzzle = require("item.magicSphere")
 
 local M = {}
 
@@ -147,7 +148,7 @@ local function dropLootCategory(monster, lootData)
 end
 
 local function performDrop(monster)
-    if not arena.isArenaMonster(monster) and not hooks.isNoDrop(monster) then
+    if not arena.isArenaMonster(monster) and not hooks.isNoDrop(monster) and not magicPuzzle.isBunbun(monster) then
         local loot = monster:getLoot()
 
         for _, category in pairs(loot) do

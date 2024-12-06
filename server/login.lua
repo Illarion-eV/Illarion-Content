@@ -236,6 +236,7 @@ local receiveGems
 local PayOutWage
 local payNow
 local checkForNewBulletinMessages
+local convertWandMagicToFire
 
 function M.onLogin( player )
 
@@ -376,6 +377,22 @@ function M.onLogin( player )
 
     --Check for and provide an inform if there are unread messages at the Troll's haven bulletin board or the relevant town boards if a citizen
     checkForNewBulletinMessages(player)
+
+    -- Convert the old relict wand magic to fire magic
+    convertWandMagicToFire(player)
+end
+
+function convertWandMagicToFire(player)
+
+    local fireMagicLevel = player:getSkill(Character.fireMagic)
+    local wandMagicLevel = player:getSkill(Character.wandMagic)
+
+    if fireMagicLevel > wandMagicLevel then --If it has already been converted or
+        return
+    end
+
+    player:increaseSkill(Character.fireMagic, wandMagicLevel-fireMagicLevel)
+    player:increaseSkill(Character.wandMagic, 0-wandMagicLevel)
 end
 
 function showNewbieDialog(player)

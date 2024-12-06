@@ -17,8 +17,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE items SET itm_script='item.id_372_poisonfield' where itm_id=372;
 
 local common = require("base.common")
-local monstermagic = require("monster.base.spells.base")
 local character = require("base.character")
+local traps = require("magic.arcane.traps")
+local magicResistance = require("magic.arcane.magicResistance")
 
 local M = {}
 
@@ -32,69 +33,83 @@ local function checkPoisonImmunity(monsterId)
     return poisonImmuneMonsters[monsterId]
 end
 
-local function DeleteFlame(User, FlameItem)
-    local field = world:getField(User.pos);
-    local count = field:countItems();
-    local currentitem;
-    local items = { };
+local function DeleteFlame(user, flameItem)
+
+    local field = world:getField(user.pos)
+    local count = field:countItems()
+    local currentitem
+    local items = { }
+
     for i=0, count-1 do
-        currentitem = world:getItemOnField(User.pos);
-        world:erase(currentitem, currentitem.number);
-        if(currentitem.id ~= FlameItem.id) then
-            table.insert(items, currentitem);
+        currentitem = world:getItemOnField(user.pos)
+        world:erase(currentitem, currentitem.number)
+        if currentitem.id ~= flameItem.id then
+            table.insert(items, currentitem)
         end
     end
-    for i,item in pairs(items) do
-        world:createItemFromItem(item, User.pos, true);
+
+    for i, item in pairs(items) do
+        world:createItemFromItem(item, user.pos, true)
     end
+
 end
 
-function M.CharacterOnField(User)
+function M.CharacterOnField(user)
+
+    local items = common.GetItemsOnField(user.pos)
+    local fieldItem
+
+    for _, theItem in pairs(items) do
+        if theItem.id == 372 then
+            fieldItem = theItem
+            break
+        end
+    end
+
+    if fieldItem:getData("spell") ~= "" then --It is an earth spell trap from arcane magic and not a poison cloud
+        traps.triggerEarthTrap(fieldItem, user)
+        return
+    end
 
     -- dont harm dead chars anymore
-    if (User:increaseAttrib("hitpoints", 0) == 0) then
+    if (user:increaseAttrib("hitpoints", 0) == 0) then
         return
     end
 
     -- dont harm NPCs
-    if User:getType() == Character.npc then
+    if user:getType() == Character.npc then
         return
     end
 
     -- immune
-    if not character.IsPlayer(User) and checkPoisonImmunity(User:getMonsterType()) then
+    if not character.IsPlayer(user) and checkPoisonImmunity(user:getMonsterType()) then
         return
     end
 
     -- Giftwolke auf dem Feld suchen
     -- !!Eventuell gibt es Probleme, wenn sich mehrere Wolken auf einem Feld befinden!!
-    local Items = common.GetItemsOnField(User.pos)
-    local FieldItem
-    for _, item in pairs(Items) do
-        if(item.id == 372) then
-            FieldItem = item
-            break
-        end
-    end
 
-    if (FieldItem.quality > 100) and User.pos.z ~= 100 and User.pos.z ~= 101 and User.pos.z ~= 40 then --no harmful flames on noobia or the working camp
+    if (fieldItem.quality > 100) and user.pos.z ~= 100 and user.pos.z ~= 101 and user.pos.z ~= 40 then --no harmful flames on noobia or the working camp
 
-        local resist = monstermagic.getSpellResistence(User) * 10
-        if resist < FieldItem.quality then
-            local foundEffect = User.effects:find(112); -- poisoncloud lte
+        local resist = magicResistance.getMagicResistance(user)
+        if resist < 101 then --Only mobs can reach this resistance level where they are immune to most magic
+            local foundEffect = user.effects:find(112) -- poisoncloud lte
             if not foundEffect then
                 local myEffect = LongTimeEffect(112, 50) --5sec
-                myEffect:addValue("quality", FieldItem.quality);
-                User.effects:addEffect(myEffect)
+                myEffect:addValue("quality", fieldItem.quality)
+                user.effects:addEffect(myEffect)
             end
         else
-            DeleteFlame(User, FieldItem);
+            DeleteFlame(user, fieldItem)
         end
     else
-        DeleteFlame(User, FieldItem);
-        User:inform("Die Giftwolke war nur eine Illusion und verpufft.",
+        DeleteFlame(user, fieldItem)
+        user:inform("Die Giftwolke war nur eine Illusion und verpufft.",
                     "The poisoncloud was just an illusion and disappears.")
     end
+end
+
+function M.lookAt(sourceItem)
 end
 
 return M
