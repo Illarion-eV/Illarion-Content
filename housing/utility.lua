@@ -67,11 +67,11 @@ end
     return false
 end
 
-function M.checkIfRoofOrRoofTile(theId, tileBoolean)
+function M.checkIfRoofOrRoofTile(theId, tileBoolean, above)
 
     if not tileBoolean then
         for _, item in pairs (itemList.items) do
-            if item.category == "Roof" and item.itemId == theId then
+            if item.category == "Roof(Above)" and item.itemId == theId and above == true then
                 return true
             end
         end
@@ -79,7 +79,7 @@ function M.checkIfRoofOrRoofTile(theId, tileBoolean)
         for _, tile in pairs (itemList.tiles) do
             if theId == 0 then
                 return false
-            elseif tile.category == "Roof Tiles" and tile.tileId == theId then
+            elseif tile.category == "Roof Tiles(Above)" and tile.tileId == theId and above == true then
                 return true
             end
         end
@@ -599,7 +599,7 @@ function M.checkIfIsInHand(user, sourceItem)
     return false
 end
 
-function M.roofAndRoofTiles(user, itemId, tileBoolean, createOrErase)
+function M.roofAndRoofTiles(user, itemId, tileBoolean, createOrErase, above)
     local thePosition = common.GetFrontPosition(user)
     local targetPosition = position(thePosition.x, thePosition.y, thePosition.z + 1)
     local lowerPosition = position(targetPosition.x, targetPosition.y, targetPosition.z - 1)
@@ -624,14 +624,16 @@ function M.roofAndRoofTiles(user, itemId, tileBoolean, createOrErase)
     if createOrErase == "create" then
         targetId = itemId
     elseif createOrErase == "erase" then
+        above = true --No need to differentiate the types for deletion
         targetId = targetItem.id
     end
 
     if tileBoolean and createOrErase == "erase" then
+        above = true --No need to differentiate the types for deletion
         targetId = tileField:tile()
     end
 
-    if not M.checkIfRoofOrRoofTile(targetId, tileBoolean) then
+    if not M.checkIfRoofOrRoofTile(targetId, tileBoolean, above) then
         return false
     end
 
@@ -1581,7 +1583,7 @@ function M.ifNoTileAddOne(thePosition)
     local tileID = field:tile()
 
     if tileID == 0 then
-        world:changeTile(40, thePosition)
+        world:changeTile(59, thePosition) --has to be a roof tile so roof tile deletion can delete it if you build a roof-item above ground without building a tile first and then want to delete it without needing a staircase up
     end
 end
 

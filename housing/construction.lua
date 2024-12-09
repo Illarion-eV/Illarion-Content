@@ -27,6 +27,7 @@ local M = {}
 
 local previewInformCooldown = {}
 local hintCooldown = {}
+local aboveVsGroundRoofHintGivenThisSession = {}
 
 local function loadIngredients(object)
 
@@ -87,7 +88,13 @@ local function loadObjects(user, products, index, object, category, skill, overl
             tile = true
         end
 
-        table.insert(products, {level = object.level, category = index, id = id, ingredients = ingredients, remnants = remnants, tile = tile, difficulty = object.level, quantity = 1, data = {}})
+        local aboveBoolean = false
+
+        if object.category == "Roof(Above)" or object.category == "Roof Tiles(Above)" then
+            aboveBoolean = true
+        end
+
+        table.insert(products, {level = object.level, category = index, id = id, ingredients = ingredients, remnants = remnants, tile = tile, above = aboveBoolean, difficulty = object.level, quantity = 1, data = {}})
         return true
     end
     return false
@@ -212,7 +219,7 @@ local function loadDialog(user, dialog, skill, categories, products)
     end
 end
 
-local function showTemporaryPreviewOfItem(productId, user, isTile)
+local function showTemporaryPreviewOfItem(productId, user, isTile, above)
     -- For special items like stairs, only the first object will be previewed and not the upper/lower stair
 
     if isTile then
@@ -222,7 +229,7 @@ local function showTemporaryPreviewOfItem(productId, user, isTile)
     local frontPos = common.GetFrontPosition(user)
     local roofPos = position(frontPos.x, frontPos.y, frontPos.z+1)
 
-    if utility.checkIfRoofOrRoofTile(productId, false) and user.pos.z >= 0 and utility.getPropertyLocationIsPartOf(roofPos) then
+    if utility.checkIfRoofOrRoofTile(productId, false, above) and user.pos.z >= 0 and utility.getPropertyLocationIsPartOf(roofPos) then
         frontPos = roofPos
     end
 
@@ -402,8 +409,8 @@ local function createItem(user, product, trowel, skill)
     utility.deletePreviewItem(propertyName, true)
 
     if product.tile then
-        if utility.checkIfRoofOrRoofTile(product.id, true) then
-            if utility.roofAndRoofTiles(user, product.id, true, "create") then
+        if utility.checkIfRoofOrRoofTile(product.id, true, product.above) then
+            if utility.roofAndRoofTiles(user, product.id, true, "create", product.above) then
                 eraseIngredients(user, product)
             else
                 user:inform("Du bist nicht dazu berechtigt, hier zu bauen.","You do not have permission to build there.")
@@ -426,8 +433,8 @@ local function createItem(user, product, trowel, skill)
             else
                 user:inform("Du bist nicht dazu berechtigt, hier zu bauen.","You do not have permission to build there.")
             end
-        elseif utility.checkIfRoofOrRoofTile(product.id, false) then
-            if utility.roofAndRoofTiles(user, product.id, false, "create") then
+        elseif utility.checkIfRoofOrRoofTile(product.id, false, product.above) then
+            if utility.roofAndRoofTiles(user, product.id, false, "create", product.above) then
                 eraseIngredients(user, product)
             else
                 user:inform("Du bist nicht dazu berechtigt, hier zu bauen.","You do not have permission to build there.")
@@ -522,6 +529,19 @@ local function multiSkillsThatAreCountedAsOne(user, skill, productLevel, hasSkil
 
 end
 
+local function roofInform(user, product, tile, accessedViaLookat, above)
+
+    if not aboveVsGroundRoofHintGivenThisSession[user.id] and utility.checkIfRoofOrRoofTile(product.id, tile, above) then
+        if not accessedViaLookat then
+            user:inform("Was du zu bauen versuchst, ist ein Dach(Oben)-Kategoriegegenstand oder -feld, was bedeutet, dass es auf dem Feld vor dir, jedoch eine Ebene darüber, gebaut wird. Wenn du es stattdessen vor dir bauen möchtest, wähle den Gegenstand aus der Dach(Boden)-Kategorie.", "What you are trying to build is a roof(above) category item or tile, which means it will be built on the tile in front of you but one layer above.  If you want to build it in front of you instead, build the one in the roof(ground) category. Lastly, it will be built infront of you regardless if there is no floor above you to build on.")
+        else
+            user:inform("Der Gegenstand/das Feld, über dem sich dein Cursor befindet, gehört zur Dach(Oben)-Kategorie. Das bedeutet, dass es auf dem Feld vor dir, jedoch eine Ebene darüber, gebaut wird. Wenn du es stattdessen vor dir bauen möchtest, wähle den Gegenstand aus der Dach(Boden)-Kategorie.", "The item/tile you are hovering your cursor over is of the roof(above) category. Which means it will be built on the tile in front of you but one layer above. If you want to build it in front of you instead, build the one in the roof(ground) category. Zuletzt wird es vor dir gebaut, unabhängig davon, ob es über dir keinen Boden zum Bauen gibt.")
+        end
+
+        aboveVsGroundRoofHintGivenThisSession[user.id] = true -- prevents spam
+    end
+end
+
 function M.showDialog(user, skillName, overloaded)
 
     local skill = {}
@@ -593,13 +613,17 @@ function M.showDialog(user, skillName, overloaded)
                 canWork = false
             end
 
+            roofInform(user, product, product.tile, false, product.above)
+
             return canWork
 
         elseif result == CraftingDialog.playerLooksAtItem then
+
             local productIndex = dialog:getCraftableId()
             local product = products[productIndex]
+            roofInform(user, product, product.tile, true, product.above)
             if utility.allowBuilding(user) then
-                showTemporaryPreviewOfItem(product.id, user, product.tile)
+                showTemporaryPreviewOfItem(product.id, user, product.tile, product.above)
             end
 
             return getLookAt(user, product)
