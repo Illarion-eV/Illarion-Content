@@ -79,25 +79,42 @@ local function checkMissedAttack(attackerStruct)
     return common.Chance(chance, 100)
 end
 
+local function initiateList(attacker)
+    MAGIC_LOAD_LIST[attacker.id] = {}
+end
+
+local function update(attacker, defender, attackerStruct)
+    MAGIC_LOAD_LIST[attacker.id]["started"] = world:getTime("unix")
+    MAGIC_LOAD_LIST[attacker.id]["weapon"] = attackerStruct.WeaponItem.id
+    MAGIC_LOAD_LIST[attacker.id]["target"] = defender.id
+    MAGIC_LOAD_LIST[attacker.id]["position"] = attacker.pos.x.." "..attacker.pos.y.." "..attacker.pos.z
+end
+
 local function isMagicAttackLoaded(attackerStruct, defender, neededCastTime)
     local attacker = attackerStruct["Char"]
     local mageLoad = MAGIC_LOAD_LIST[attacker.id]
 
     -- Check if the player has changed his target/weapon/position or if he attacks for the first time
-    if mageLoad == nil or (
-    attackerStruct.WeaponItem.id ~= mageLoad["weapon"] or defender.id ~= mageLoad["target"] or
-    attacker.pos.x.." "..attacker.pos.y.." "..attacker.pos.z ~= mageLoad["position"]) then
-        MAGIC_LOAD_LIST[attacker.id] = {}
-        MAGIC_LOAD_LIST[attacker.id]["started"] = world:getTime("unix")
-        MAGIC_LOAD_LIST[attacker.id]["weapon"] = attackerStruct.WeaponItem.id
-        MAGIC_LOAD_LIST[attacker.id]["target"] = defender.id
-        MAGIC_LOAD_LIST[attacker.id]["position"] = attacker.pos.x.." "..attacker.pos.y.." "..attacker.pos.z
+    local firstTime = mageLoad == nil
+
+    if firstTime then -- no list exists
+        initiateList(attacker)
+        update(attacker, defender, attackerStruct)
         return false
     end
 
-    if not mageLoad["tanCheckedThisCycle"] then
+    local weaponChanged = attackerStruct.WeaponItem.id ~= mageLoad["weapon"]
+    local targetChanged = defender.id ~= mageLoad["target"]
+    local positionChanged = attacker.pos.x.." "..attacker.pos.y.." "..attacker.pos.z ~= mageLoad["position"]
+
+    if weaponChanged or targetChanged or positionChanged then --This way we update the timer, target, weapon and position but we keep Tan info
+        update(attacker, defender, attackerStruct)
+        return false
+    end
+
+    if not mageLoad["tanCheckedThisCycle"] then -- We only check once per cast
         if tan.reduceCastTime(attackerStruct.Char) then
-            mageLoad["tan"] = true
+            mageLoad["tan"] = true --The next cast gets reduced cast time, even if it happens far into the future as long as the table data is kept, this because otherwise the glyph will just get drained without ever casting if you dont finish the cast it procced for
         end
         mageLoad["tanCheckedThisCycle"] = true
     end
@@ -124,8 +141,6 @@ local function isMagicAttackLoaded(attackerStruct, defender, neededCastTime)
         return false
     end
 
-    mageLoad["tanCheckedThisCycle"] = false
-    mageLoad["tan"] = false
     return true
 end
 
@@ -342,6 +357,9 @@ function M.onMagicAttack(attackerStruct, defenderStruct)
     attackerStruct.Char:learn(Character.wandMagic, neededCastTime/3, 100)
 
     magic.wandDegrade(attackerStruct.Char, attackerStruct.WeaponItem)
+
+    MAGIC_LOAD_LIST[attackerStruct.Char.id]["tanCheckedThisCycle"] = false -- We finished a cast, so tan can now be checked again next time you cast
+    MAGIC_LOAD_LIST[attackerStruct.Char.id]["tan"] = false
 
     return true
 end
