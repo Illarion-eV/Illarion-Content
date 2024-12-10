@@ -94,7 +94,7 @@ function M.checkIfLongEnoughTimePassedSinceEquip(user, itempos)
 
     local time = common.GetCurrentTimestamp()
 
-    local foundtime, savedTime = myEffect:findValue(itempos)
+    local foundtime, savedTime = myEffect:findValue(tostring(itempos))
 
     if not foundtime then
         return true
