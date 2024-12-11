@@ -498,7 +498,7 @@ end
 
 -- transfer
 local function createMagicGem(gemId, gemAmount, Recipient)
-    local gemData = gems.getMagicGemData(1)
+    local gemData = gems.getMagicGemData(1, Recipient.name)
     common.CreateItem(Recipient, gemId, gemAmount, 333, gemData)
     local basename = world:getItemName(gemId, Recipient:getPlayerLanguage())
     if Recipient:getPlayerLanguage() == 0 then

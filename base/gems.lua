@@ -134,8 +134,11 @@ function M.getMagicGemId(gem, level)
     return M.gemItemId[gem]
 end
 
-function M.getMagicGemData(level)
+function M.getMagicGemData(level, name)
     level = level or 1
+    if name then
+        return {gemLevel = level, owner = name}
+    end
     return {gemLevel = level}
 end
 
@@ -151,8 +154,9 @@ function M.returnGemsToUser(user, item, isMessage)
             local level = tonumber(item:getData(itemKey))
 
             if level and level > 0 then
-                common.CreateItem(user, M.gemItemId[i], 1, 999, {[M.levelDataKey] = level})
+                common.CreateItem(user, M.gemItemId[i], 1, 999, {[M.levelDataKey] = level, ["owner"] = item:getData(itemKey.."owner")})
                 item:setData(itemKey, "")
+                item:setData(itemKey.."owner", "")
             end
         end
         world:changeItem(item)

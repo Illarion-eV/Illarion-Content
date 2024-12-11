@@ -52,21 +52,65 @@ local function insideInventory(gem)
     return false
 end
 
-function M.MoveItemBeforeMove(user, source, target)
+local function getExistingGemNumber(user, gem)
 
+    if gem:getType() == scriptItem.field then
+        if world:isItemOnField(gem.pos) and world:getItemOnField(gem.pos).id == gem.id then
+            return world:getItemOnField(gem.pos).number
+        end
+    elseif gem:getType() == scriptItem.container then
+
+        if user:getBackPack() and gem.inside == user:getBackPack() then
+
+            local found, itemInBackpack = user:getBackPack():viewItemNr(gem.itempos)
+
+            if found and itemInBackpack.id == gem.id then
+                return itemInBackpack.number
+            end
+        else
+            local found, itemInBag = gem.inside:viewItemNr(gem.itempos)
+            if found and itemInBag.id == gem.id then
+                return itemInBag.number
+            end
+        end
+
+    else
+        local theItem = user:getItemAt(gem.itempos)
+        if theItem and theItem.id == gem.id then
+            return theItem.number
+        end
+    end
+
+    return 0
+end
+
+function M.MoveItemAfterMove(user, source, target)
+
+    local preExistingGemsAtTarget = getExistingGemNumber(user, target)
+
+    target:setData("owner", user.name)
+    target.number = preExistingGemsAtTarget --Otherwise gems get deleted when we set the owner name
+    world:changeItem(target)
+
+end
+
+function M.MoveItemBeforeMove(user, source, target)
+    local owner = source:getData("owner")
     local amount = tostring(target.number)
     local level = tostring(target:getData("gemLevel")) or 1
 
-    local movedInsideSameContainer = target.inside and source.inside and target.inside == source.inside
+    if common.IsNilOrEmpty(owner) then
+        owner = "unknown"
+    end
 
-    if movedInsideSameContainer then -- No need to report if it's not being moved outside of the container
+    if owner == user.name then
         return true
     end
 
     local itemStats = world:getItemStatsFromId(target.id)
     local nameEnglish = itemStats.English
 
-    local text = tostring(amount).." "..nameEnglish.."("..source.id..") of rank "..tostring(level).." was moved by "..user.name.."("..user.id..") at position ("..tostring(user.pos).."). It was moved from "
+    local text = tostring(amount).." "..nameEnglish.."s("..source.id..") of rank "..tostring(level)..", previously belonging to "..owner.." was moved by "..user.name.."("..user.id..") at position ("..tostring(user.pos).."). It was moved from "
 
     local backpack = user:getBackPack()
 
@@ -121,6 +165,12 @@ function M.MoveItemBeforeMove(user, source, target)
 end
 
 function M.LookAtItem(user, item)
+
+    if common.IsNilOrEmpty(item:getData("owner")) then
+        item:setData("owner", user.name)
+        world:changeItem(item)
+    end
+
     local lookAt = lookat.GenerateLookAt(user, item)
 
     local data = {}
