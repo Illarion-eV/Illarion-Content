@@ -21,7 +21,7 @@ local wands = require("item.wands")
 local M = {}
 
 local function checkIfInteracting(player)
-    local nearbyPlayers = world:getPlayersInRangeOf(player.pos, 10)
+    local nearbyPlayers = world:getPlayersInRangeOf(player.pos, 15)
 
     for _, nearbyPlayer in pairs(nearbyPlayers) do
         if nearbyPlayer.id ~= player.id and not nearbyPlayer:isAdmin() then --Player is interacting with a player who is not themselves and not a GM
