@@ -215,6 +215,20 @@ function M.activateGlyph(user, glyphName, chances, chargesRequired)
     end
     world:changeItem(jewellery)
 
+
+    --The below are for gathering analytics on glyph popularity and usage rate
+    local foundActivations, totalActivations = ScriptVars:find(glyphName.."TotalActivations")
+
+    if not foundActivations then
+        totalActivations = 0
+    end
+
+    ScriptVars:set(glyphName.."TotalActivations", totalActivations+1)
+
+    ScriptVars:save() -- This may cause lag, though glyph activations should be rare enough that it would be fine
+
+    -- The glyph analytics part ends here
+
     return true
 end
 
