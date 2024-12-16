@@ -637,6 +637,45 @@ local function setCustomInform(user, item, isPotion)
     user:requestSelectionDialog(dialog)
 end
 
+local function setMagicGemSet(user, TargetItem)
+
+    local gemDataKeys = {"magicalEmerald","magicalRuby","magicalObsidian","magicalSapphire","magicalAmethyst","magicalTopaz"}
+
+
+    if TargetItem == nil or TargetItem.id == 0 then
+        return
+    end
+
+    local cbInputDialog = function (dialog)
+
+        if not dialog:getSuccess() then
+            return
+        end
+
+        local input = dialog:getInput()
+
+        if (string.find(input,"(%d+)")~=nil) then
+
+            local _, _, newcharges = string.find(input,"(%d+)")
+
+            for _, gemdata in pairs(gemDataKeys) do
+                TargetItem:setData(gemdata, input)
+            end
+
+            world:changeItem(TargetItem)
+
+            user:logAdmin(" added a level "..input.." magical gem set to: "..world:getItemName(TargetItem.id, Player.english))
+
+            user:inform("Item "..world:getItemName(TargetItem.id, Player.english).." now has a tier "..tostring(newcharges).." gem set.")
+
+        else
+            user:inform("Sorry, I didn't understand you.")
+        end
+        changeItemSelection(user, TargetItem)
+    end
+    user:requestInputDialog(InputDialog("Add a magic gem tier set to the item", "What tier gem set should be added to the "..world:getItemName(TargetItem.id, Player.english).." ? Input should be a number between 1-10." ,false, 255, cbInputDialog))
+end
+
 function changeItemSelection(user, TargetItem)
     local changeItemFunctions = {}
     changeItemFunctions[1] = {"Set Number"}
@@ -646,9 +685,10 @@ function changeItemSelection(user, TargetItem)
     changeItemFunctions[5] = {"Set Wear"}
     changeItemFunctions[6] = {"Set Data"}
     changeItemFunctions[7] = {"Set Glyph charges"}
+    changeItemFunctions[8] = {"Set magic gem tier"}
     local foodDrinkOrPotion = checkIfFoodDrinkPotion(TargetItem)
     if foodDrinkOrPotion then
-        changeItemFunctions[8] = {"Set Custom Inform"}
+        changeItemFunctions[9] = {"Set Custom Inform"}
     end
     local isPotion
     if foodDrinkOrPotion == "potion" then
@@ -675,6 +715,8 @@ function changeItemSelection(user, TargetItem)
         elseif index == 7 then
             changeItemGlyph(user, TargetItem)
         elseif index == 8 then
+            setMagicGemSet(user, TargetItem)
+        elseif index == 9 then
             setCustomInform(user, TargetItem, isPotion)
         end
     end
