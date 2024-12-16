@@ -122,7 +122,7 @@ function M.StartGathering(user, sourceAnimal, actionState)
         return
     end
 
-    milking:FindRandomItem(user)
+    milking:FindRandomItem(user, nil)
 
     user:learn( milking.LeadSkill, milking.SavedWorkTime[user.id], milking.LearnLimit)
 

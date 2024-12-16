@@ -140,7 +140,7 @@ function M.StartGathering(user, sourceItem, actionState)
 
     user:learn( egggathering.LeadSkill, egggathering.SavedWorkTime[user.id], egggathering.LearnLimit)
 
-    egggathering:FindRandomItem(user)
+    egggathering:FindRandomItem(user, toolItem)
 
     local created, newAmount = gathering.FindResource(user, sourceItem, amount, resourceID)
 

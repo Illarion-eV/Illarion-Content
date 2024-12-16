@@ -142,7 +142,7 @@ function M.StartGathering(User, SourceItem, ltstate)
 
     -- since we're here, we're working
 
-    theCraft:FindRandomItem(User)
+    theCraft:FindRandomItem(User, toolItem)
 
     amount = amount - 1;
 

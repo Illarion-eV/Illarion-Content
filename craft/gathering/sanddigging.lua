@@ -61,7 +61,7 @@ function M.StartGathering(User, SourceItem, ltstate)
     --Case 3: Action executed
     User:learn(sanddigging.LeadSkill, sanddigging.SavedWorkTime[User.id], sanddigging.LearnLimit)
 
-    sanddigging:FindRandomItem(User)
+    sanddigging:FindRandomItem(User, toolItem)
 
     local created, newAmount = gathering.FindResource(User, SourceItem, amount, resourceID)
 

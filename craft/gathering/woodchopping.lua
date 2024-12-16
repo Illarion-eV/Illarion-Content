@@ -246,7 +246,7 @@ function M.StartGathering(User, SourceItem, ltstate)
     end
 
     -- since we're here, we're working
-    theCraft:FindRandomItem(User)
+    theCraft:FindRandomItem(User, toolItem)
 
     User:learn( theCraft.LeadSkill, theCraft.SavedWorkTime[User.id], theCraft.LearnLimit);
     amount = amount - 1;

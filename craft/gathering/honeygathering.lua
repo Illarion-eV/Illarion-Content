@@ -112,7 +112,7 @@ function M.StartGathering(user, sourceItem, actionstate)
 
     user:learn( honeygathering.LeadSkill, honeygathering.SavedWorkTime[user.id], honeygathering.LearnLimit);
 
-    honeygathering:FindRandomItem(user)
+    honeygathering:FindRandomItem(user, nil)
 
     local created, newAmount = gathering.FindResource(user, sourceItem, amount, resourceID)
 

@@ -105,7 +105,7 @@ function GatheringCraft:AddRandomPureElement(User,Probability)
     end
 end
 
-function GatheringCraft:FindRandomItem(User)
+function GatheringCraft:FindRandomItem(User, toolItem)
 
   -- FindRandomItem is called when the User is currently working. If there was
   -- a reload, the working time will be nil. Check for this case.
@@ -124,25 +124,36 @@ function GatheringCraft:FindRandomItem(User)
 
     local guaranteeMap = false
 
-    local guaranteeRandomItem = false
+    local guaranteeElement = false
 
-    if nomizo.increaseTreasureChance(User) then
+    local guaranteeRareItem = false
+
+    local guaranteeOccasionalItem = false
+
+    local guaranteeFrequentItem = false
+
+    if nomizo.increaseTreasureChance(User, toolItem) then
         local rand = math.random()
-
-        if rand > 0.5 then
+        -- See nomizo.lua in magic/arcane/enchanting/effects for an explanation of the %s
+        if rand <= 0.05 then -- 5% chance
             guaranteeMap = true
-        else
-            guaranteeRandomItem = true
+        elseif rand <= 0.10 then -- 5% chance
+            guaranteeElement = true
+        elseif rand <= 0.20 then -- 10% chance
+            guaranteeRareItem = true
+        elseif rand <= 0.40 then -- 20% chance
+            guaranteeOccasionalItem = true
+        else -- 60% chance
+            guaranteeFrequentItem = true
         end
     end
-
 
     local skill  = common.Limit(User:getSkill(self.LeadSkill), 0, 100);
     if (self.Treasure > 0) then
         local rand = math.random();
         if ((rand < self.Treasure*self.FastActionFactor) or guaranteeMap) and treasure.createMapFromSkill(User, skill) then
             common.InformNLS(User, self.TreasureMsg[1], self.TreasureMsg[2]);
-            return true;
+            return true
         end
     end
 
@@ -168,31 +179,72 @@ function GatheringCraft:FindRandomItem(User)
         end
     end
 
-    local itemGuaranteedAlready = false
-
     if(#self.RandomItems > 0) then
 
-        -- check all items with same random number and choose any possible item again randomly
+        local elements = {2551, 2553, 2554, 2552, 3607}
 
-        local itemIndexList = {};
+        local itemIndexList = {}
 
-        -- list all items that are possible¨
+        local elementCount = 0
+
+        local rareItemExists = false
+
+        local occasionalItemExists = false
+
+        for _, randomItem in pairs(self.RandomItems) do
+            if randomItem.Probability == M.prob_rarely then
+                rareItemExists = true
+            end
+            if randomItem.Probability == M.prob_occasionally then
+                occasionalItemExists = true
+            end
+        end
+
+        if not rareItemExists and guaranteeRareItem then
+            guaranteeRareItem = false
+            guaranteeOccasionalItem = true
+        end
+
+        if not occasionalItemExists and guaranteeOccasionalItem then
+            guaranteeOccasionalItem = false
+            guaranteeFrequentItem = true -- This way even if no occasional item exists for the gathering skill, you always get something
+        end
 
         for it = 1, #self.RandomItems, 1 do
-            local rand = math.random();
+
             local guaranteeThisItem = false
 
-            if not itemGuaranteedAlready and (guaranteeRandomItem and rand <= 1/(#self.RandomItems-it)) then
-                itemGuaranteedAlready = true
-                guaranteeThisItem = true
+            for _, element in pairs(elements) do
+                if self.RandomItems[it].ID == element and guaranteeElement and elementCount ~= 5 then
+
+                    local randomElement = math.random(1,5-elementCount)
+
+                    if randomElement == 1 then
+                        elementCount = 5
+                        guaranteeThisItem = true
+                    end
+                end
             end
 
-            if (rand <= self.RandomItems[it].Probability*self.FastActionFactor) or guaranteeThisItem then
+            if (self.RandomItems[it].Probability == M.prob_occasionally and guaranteeOccasionalItem) or (self.RandomItems[it].Probability == M.prob_frequently and guaranteeFrequentItem) or (self.RandomItems[it].Probability == M.prob_rarely and guaranteeRareItem) then
+                guaranteeThisItem = true
 
-                table.insert(itemIndexList, it);
+            end
+
+            local rand = math.random()
+
+            local itemObtainedNormally = rand <= self.RandomItems[it].Probability*self.FastActionFactor
+
+            if itemObtainedNormally or guaranteeThisItem then
+
+                table.insert(itemIndexList, it)
+
+                -- since an item was awarded, we reset whichever one it was incase of duplicates in the category
+                guaranteeRareItem, guaranteeOccasionalItem, guaranteeFrequentItem = false, false, false
 
             end
         end
+
         if ( #itemIndexList > 0 ) then -- For the unlikely case that two items were found at once, we just give one to the player
             local ind = itemIndexList[math.random(1,#itemIndexList)];
             common.InformNLS(User, self.RandomItems[ind].MessageDE, self.RandomItems[ind].MessageEN);

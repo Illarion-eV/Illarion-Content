@@ -72,7 +72,7 @@ function M.StartGathering(User, SourceItem, ltstate)
     --Case 3: Action executed
     User:learn(silkcutting.LeadSkill, silkcutting.SavedWorkTime[User.id], silkcutting.LearnLimit)
 
-    silkcutting:FindRandomItem(User)
+    silkcutting:FindRandomItem(User, toolItem)
 
     local created, newAmount = gathering.FindResource(User, SourceItem, amount, resourceID)
 
