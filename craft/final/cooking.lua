@@ -97,14 +97,14 @@ product:addIngredient(2493, 2) -- carrots
 -- steak dish
 product = cooking:addProduct(catId, 557, 1)
 product:addIngredient(2952, 1) -- plate
-product:addIngredient(3606, 2) -- grilled steak
+product:addIngredient(3606, 1) -- grilled steak
 product:addIngredient(200, 3) -- tomato
 product:addIngredient(201, 3) -- onion
 
 -- rabbit dish
 product = cooking:addProduct(catId, 555, 1)
 product:addIngredient(2952, 1) -- plate
-product:addIngredient(3710, 3) -- smoked rabbit
+product:addIngredient(3710, 1) -- smoked rabbit
 product:addIngredient(290, 2) -- cabbage
 product:addIngredient(2493, 3) -- carrots
 product:addIngredient(200, 2) -- tomato
@@ -112,7 +112,7 @@ product:addIngredient(200, 2) -- tomato
 -- lamb dish
 product = cooking:addProduct(catId, 559, 1)
 product:addIngredient(2952, 1) -- plate
-product:addIngredient(3713, 2) -- grilled lamb
+product:addIngredient(3713, 1) -- grilled lamb
 product:addIngredient(200, 3) -- tomato
 product:addIngredient(2493, 3) -- carrots
 product:addIngredient(201, 3) -- onion
@@ -120,7 +120,7 @@ product:addIngredient(201, 3) -- onion
 -- venison dish
 product = cooking:addProduct(catId, 554, 1)
 product:addIngredient(2952, 1) -- plate
-product:addIngredient(3714, 3) -- grilled venison
+product:addIngredient(3714, 1) -- grilled venison
 product:addIngredient(81, 5) -- berries
 product:addIngredient(2493, 3) -- carrots
 product:addIngredient(290, 3) -- cabbage
