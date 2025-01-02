@@ -153,8 +153,21 @@ function M.returnGemsToUser(user, item, isMessage)
             local itemKey = gemDataKey[i]
             local level = tonumber(item:getData(itemKey))
 
+            local owner = item:getData(itemKey.."owner")
+
             if level and level > 0 then
-                common.CreateItem(user, M.gemItemId[i], 1, 999, {[M.levelDataKey] = level, ["owner"] = item:getData(itemKey.."owner")})
+
+                if owner ~= user.name then --For some reason when creating the new gems, it refuses to report the owner even if you add it to the data table when creating it below, and instead merges the gems with existing gems with different owner names. As such we report this incident individually here.
+                    log(user.name..
+                    " unsocketed a "..
+                    world:getItemName(item.id, 1)..
+                    " with a level "..level.." "..
+                    world:getItemName(M.gemItemId[i], 1)..
+                    " that previously belonged to "..owner..
+                    ".")
+                end
+
+                common.CreateItem(user, M.gemItemId[i], 1, 999, {[M.levelDataKey] = level})
                 item:setData(itemKey, "")
                 item:setData(itemKey.."owner", "")
             end
