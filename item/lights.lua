@@ -52,6 +52,14 @@ LightsOff[393] = { on = 394, req = { id = 43, num = 1 } } -- black, portable
 LightsOn[394] = { off = 393, portable = true }
 LightsOff[2856] = { on = 2855, req = { id = 43, num = 1 } } -- grey, static
 LightsOn[2855] = { off = 2856 }
+LightsOff[1127] = { on = 1123, req = {id = 43, num = 1} } -- wall lantern
+LightsOff[1123] = { off = 1127 }
+LightsOff[1129] = { on = 1124, req = {id = 43, num = 1} } -- wall lantern
+LightsOff[1124] = { off = 1129 }
+LightsOff[1128] = { on = 1125, req = {id = 43, num = 1} } -- wall lantern
+LightsOff[1125] = { off = 1128 }
+LightsOff[1130] = { on = 1126, req = {id = 43, num = 1} } -- wall lantern
+LightsOff[1126] = { off = 1130 }
 
 local ReqTexts = {}
 ReqTexts.german = { [392] = "Fackeln", [43] = "Kerzen", [469] = "Lampenöl" }
