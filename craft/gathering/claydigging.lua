@@ -28,7 +28,7 @@ function M.StartGathering(User, SourceItem, ltstate)
     local toolID = 24 --shovel (24)
     local maxAmount = 20
     local GFX = 22
-    local SFX = 0
+    local SFX = 35
     local resourceID = 26 --clay
     local depletedSourceID = 3633
     local restockWear = 4 --15 minutes
