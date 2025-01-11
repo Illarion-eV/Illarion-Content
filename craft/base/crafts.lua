@@ -579,6 +579,13 @@ function Craft:generateRarity(user, productId, toolItem, rareIngredientBonus)
         return 1
     end
 
+    -- if in the future more than cooking gets a rarity, this must be altered as items with a max stack of 1 already get a quality upgrade chance via pyr
+    local guaranteedOneRarity = pyr.upQuality(user)
+
+    -- This gives pyr a purpose in cooking too. Only people already capable of making perfect items will be able to proc it, so no pyr will be wasted and no low dex crafters can bypass the dex requirement for high rarity items.
+
+    -- Proccing pyr in cooking will also be exceedingly rare since it only has a chance to proc when you make a perfect item, ensuring the rarity of... well, rarity.
+
     local retVal = 1
 
     local maxPerfectChance = 0.5967194738 --Maximum probability for quality 9(perfect) items
@@ -593,6 +600,10 @@ function Craft:generateRarity(user, productId, toolItem, rareIngredientBonus)
         if rarity >= rand then
             retVal = retVal+1
         end
+    end
+
+    if retVal < 4 and guaranteedOneRarity then
+        retVal = retVal + 1
     end
 
     return retVal
@@ -630,7 +641,8 @@ function Craft:generateQuality(user, productId, toolItem)
     quality = common.Limit(quality, 1, common.ITEM_MAX_QUALITY)
 
     if quality < common.ITEM_MAX_QUALITY then
-        if pyr.upQuality(user) then
+        local maxStack = world:getItemStatsFromId(productId).MaxStack
+        if maxStack == 1 and pyr.upQuality(user) then -- only items with a max stack of 1 have a quality to increase
             quality = quality + 1
         end
     end
