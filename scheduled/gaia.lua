@@ -91,45 +91,6 @@ AddPlant(766, {gt.forest},true)                        -- con blossom
 AddPlant(768, {gt.forest},true)                        -- wolverine fern
 AddPlant(769, {gt.sand},true)                         -- desert berry
 
-M.droppedPlants = {} --Any plants that were dropped are added here.
-
-local function goThroughPlants()
-
-    for index, plant in pairs(M.droppedPlants) do
-
-        local theField = world:getField(plant.location)
-
-        if not theField or not world:isItemOnField(plant.location) then
-            table.remove(M.droppedPlants, index)
-        end
-
-        local itemsOnField = theField:countItems()
-
-        local plantFound = false
-
-        for i = 0, itemsOnField do
-
-            local itemToCheck = theField:getStackItem(itemsOnField - i)
-
-            if itemToCheck.id == plant.id then
-                if plant.timer == 0 then
-                    common.DeleteItemFromStack(plant.location, {itemId = plant.id})
-                    table.remove(M.droppedPlants, index)
-                else
-                    plant.timer = plant.timer - 1
-                    plantFound = true
-                end
-            end
-
-            if i == itemsOnField and plantFound == false then
-                table.remove(M.droppedPlants, index)
-            end
-        end
-    end
-end
-
-
-
 local function PutPlantOnField(rare)
 
     local myPos = position( math.random(0,1024), math.random(0,1024), 0)
@@ -160,45 +121,21 @@ local function PutPlantOnField(rare)
         end
 
         local myPlant = myList[groundType][math.random(1,#myList[groundType])]
-
-        if groundType == gt.water and not theTile:isPassable() then
-            return
-        end
-
-        if not myPlant or myPlant == 0 then
-            return
-        end
-
-        world:createItemFromId(myPlant,1,myPos,false,333,nil)
-
-        --[[
-        This script has caused a lot of lag in the past, likely due to the excessive use of changeItem as that is known to cause lag.
-        Because of this we do not set the wear here and use an alternate approach, to not have to use changeItem, since the created item can not have the wear set via createItemFromId
-        ]]
-
-        table.insert(M.droppedPlants, {id = myPlant, location = myPos, timer = 10}) -- The wear was set to 10, which equals 30 minutes.
-
+        local createdPlant = world:createItemFromId(myPlant,1,myPos,false,333,nil)
+        createdPlant.wear = 10
+        world:changeItem(createdPlant)
         return true
     end
 end
 
-M.timesCalled = 0
-
 function M.plantdrop()
 
-    if M.timesCalled == 17 then --Equals 180 seconds or 3 minutes
-        goThroughPlants() -- This script is called every 10 seconds, and we want to reduce the "wear" of dropped herbs every 3 minutes (simulated instead of using actual wear to reduce lag and because the default wear value is higher due to how rot timers work when players pick up an item means we can not just set the default wear to 10)
-        M.timesCalled = 0
-    else
-        M.timesCalled = M.timesCalled + 1
-    end
-
     for i = 1,35 do -- normal plants
-        PutPlantOnField(false)
+    PutPlantOnField(false)
     end
 
     for i = 1,5 do -- rare plants
-        PutPlantOnField(true)
+    PutPlantOnField(true)
     end
 end
 
