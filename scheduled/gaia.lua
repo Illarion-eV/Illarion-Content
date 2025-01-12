@@ -121,9 +121,7 @@ local function PutPlantOnField(rare)
         end
 
         local myPlant = myList[groundType][math.random(1,#myList[groundType])]
-        local createdPlant = world:createItemFromId(myPlant,1,myPos,false,333,nil)
-        createdPlant.wear = 10
-        world:changeItem(createdPlant)
+        world:createItemFromId(myPlant,1,myPos,false,333,nil)
         return true
     end
 end
