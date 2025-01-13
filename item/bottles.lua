@@ -484,6 +484,8 @@ local bottles = {
     },
 }
 
+M.bottles = bottles -- the list is referenced in crafts for remnant purposes
+
 local function getTeaVesselBasedOnType(type)
 
     local pot

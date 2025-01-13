@@ -22,6 +22,9 @@ local itemList = require("housing.itemList")
 local gems = require("base.gems")
 local utility = require("housing.utility")
 local daear = require("magic.arcane.enchanting.effects.daear")
+local crafts = require("craft.base.crafts")
+
+local itemsWithRemnants = crafts.itemsWithRemnants
 
 local M = {}
 
@@ -32,7 +35,6 @@ local aboveVsGroundRoofHintGivenThisSession = {}
 local function loadIngredients(object)
 
     local ingredients = {}
-    local remnants = {}
 
     for i = 1, 4 do
         local ingredient = object["ingredient" .. i]
@@ -42,21 +44,9 @@ local function loadIngredients(object)
             -- Ingredient gets loaded
             table.insert(ingredients,{id = ingredient, quantity = amount, data = {}})
 
-            -- Now all there's left to do is to handle the remnants
-            local bucketItems = { Item.bucketOfWater, Item.blackDye, Item.greenDye, Item.blueDye, Item.redDye, Item.yellowDye, Item.whiteDye}
-
-            for _, bucketItem in pairs(bucketItems) do
-                if ingredient == bucketItem then
-                    table.insert(remnants, {id = Item.bucket, quantity = amount, data = {}})
-                end
-            end
-
-            if ingredient == Item.bottleOfInk then
-                table.insert(remnants, {id = Item.emptyInkBottle, quantity = amount, data = {}})
-            end
         end
     end
-    return ingredients, remnants
+    return ingredients
 end
 
 local function showObject(user, object, category, skill, overloaded)
@@ -78,7 +68,7 @@ end
 
 local function loadObjects(user, products, index, object, category, skill, overloaded)
     if showObject(user, object, category, skill, overloaded) then
-        local ingredients, remnants = loadIngredients(object)
+        local ingredients = loadIngredients(object)
         local id, tile
         if object.itemId then
             id = object.itemId
@@ -94,7 +84,7 @@ local function loadObjects(user, products, index, object, category, skill, overl
             aboveBoolean = true
         end
 
-        table.insert(products, {level = object.level, category = index, id = id, ingredients = ingredients, remnants = remnants, tile = tile, above = aboveBoolean, difficulty = object.level, quantity = 1, data = {}})
+        table.insert(products, {level = object.level, category = index, id = id, ingredients = ingredients, tile = tile, above = aboveBoolean, difficulty = object.level, quantity = 1, data = {}})
         return true
     end
     return false
@@ -374,6 +364,8 @@ end
 
 local function eraseIngredients(user, product)
 
+    local remnantItemsToCreate = {}
+
     local ingredientSaved = false
 
     for index, ingredient in ipairs(product.ingredients) do
@@ -393,7 +385,15 @@ local function eraseIngredients(user, product)
             user:eraseItem(ingredient.id, ingredient.quantity - save, ingredient.data)
         end
 
+        for _, remnant in pairs(itemsWithRemnants) do
+            if remnant.id == ingredient.id and (ingredient.quantity-save > 0) then
+                table.insert(remnantItemsToCreate, {id = remnant.remnant, quantity = ingredient.quantity-save})
+            end
+        end
+
     end
+
+    return remnantItemsToCreate
 end
 
 local function createItem(user, product, trowel, skill)
@@ -405,18 +405,20 @@ local function createItem(user, product, trowel, skill)
         return
     end
 
+    local remnantItemsToCreate = {}
+
     local propertyName = utility.getPropertyLocationIsPartOf(target)
     utility.deletePreviewItem(propertyName, true)
 
     if product.tile then
         if utility.checkIfRoofOrRoofTile(product.id, true, product.above) then
             if utility.roofAndRoofTiles(user, product.id, true, "create", product.above) then
-                eraseIngredients(user, product)
+                remnantItemsToCreate = eraseIngredients(user, product)
             else
                 user:inform("Du bist nicht dazu berechtigt, hier zu bauen.","You do not have permission to build there.")
             end
         else
-            eraseIngredients(user, product)
+            remnantItemsToCreate = eraseIngredients(user, product)
             world:changeTile(product.id, target)
         end
     else
@@ -426,7 +428,7 @@ local function createItem(user, product, trowel, skill)
 
         if utility.checkIfStairsOrTrapDoor(product.id) then
             if utility.createWarpsAndExitObject(user, product.id, "create") then
-                eraseIngredients(user, product)
+                remnantItemsToCreate = eraseIngredients(user, product)
                 local targetItem = world:createItemFromId(product.id, product.quantity, target, true, quality, nil)
                 targetItem.wear = 255
                 world:changeItem(targetItem)
@@ -435,28 +437,31 @@ local function createItem(user, product, trowel, skill)
             end
         elseif utility.checkIfRoofOrRoofTile(product.id, false, product.above) then
             if utility.roofAndRoofTiles(user, product.id, false, "create", product.above) then
-                eraseIngredients(user, product)
+                remnantItemsToCreate = eraseIngredients(user, product)
             else
                 user:inform("Du bist nicht dazu berechtigt, hier zu bauen.","You do not have permission to build there.")
             end
         elseif utility.checkIfPlantOrTree(product.id) then
             if utility.checkIfGardeningCriteriaMet(user, product.id) then
-                eraseIngredients(user, product)
+                remnantItemsToCreate = eraseIngredients(user, product)
                 world:createItemFromId(product.id, product.quantity, target, true, quality, nil)
             else
                 user:inform("Das kannst du hier nicht pflanzen.","You can't plant this here.")
             end
         else
-            eraseIngredients(user, product)
+            remnantItemsToCreate = eraseIngredients(user, product)
             local targetItem = world:createItemFromId(product.id, product.quantity, target, true, quality, nil)
             targetItem.wear = 255
             world:changeItem(targetItem)
         end
     end
 
-    for _, remnant in ipairs(product.remnants) do
-       common.CreateItem(user, remnant.id, remnant.quantity, 333, remnant.data)
+    for _, remnant in pairs(remnantItemsToCreate) do
+
+        common.CreateItem(user, remnant.id, remnant.quantity, 333, {})
+
     end
+
 end
 
 local function craftItem(user, product, skill)

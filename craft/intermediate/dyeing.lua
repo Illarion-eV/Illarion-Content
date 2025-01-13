@@ -37,37 +37,31 @@ local catId = dyeing:addCategory("Cloths", "Stoffe")
 local product = dyeing:addProduct(catId, 178, 5)
 product:addIngredient(176, 5) -- grey cloth
 product:addIngredient(2683) -- white dye
-product:addRemnant(51) -- bucket
 
 -- Red cloth
 product = dyeing:addProduct(catId, 174, 5)
 product:addIngredient(176, 5) -- grey cloth
 product:addIngredient(2681) -- red dye
-product:addRemnant(51) -- bucket
 
 -- Green cloth
 product = dyeing:addProduct(catId, 54, 5)
 product:addIngredient(176, 5) -- grey cloth
 product:addIngredient(2679) -- green dye
-product:addRemnant(51) -- bucket
 
 -- Black cloth
 product = dyeing:addProduct(catId, 175, 5)
 product:addIngredient(176, 5) -- grey cloth
 product:addIngredient(2678) -- black dye
-product:addRemnant(51) -- bucket
 
 -- Yellow cloth
 product = dyeing:addProduct(catId, 177, 5)
 product:addIngredient(176, 5) -- grey cloth
 product:addIngredient(2682) -- yellow dye
-product:addRemnant(51) -- bucket
 
 -- Blue cloth
 product = dyeing:addProduct(catId, 179, 5)
 product:addIngredient(176, 5) -- grey cloth
 product:addIngredient(2680) -- blue dye
-product:addRemnant(51) -- bucket
 
 M.dyeing = dyeing
 return M

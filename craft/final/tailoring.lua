@@ -1038,7 +1038,6 @@ for _, book in ipairs(books.blue) do
     product:addIngredient(2745, 10) -- parchment
     product:addIngredient(2547, 2) -- leather
     product:addIngredient(2680) -- blue dye
-    product:addRemnant(51) --empty bucket
 end
 
 for _, book in ipairs(books.green) do
@@ -1047,7 +1046,6 @@ for _, book in ipairs(books.green) do
     product:addIngredient(2745, 10) -- parchment
     product:addIngredient(2547, 2) -- leather
     product:addIngredient(2679) -- green dye
-    product:addRemnant(51) --empty bucket
 end
 
 for _, book in ipairs(books.red) do
@@ -1056,7 +1054,6 @@ for _, book in ipairs(books.red) do
     product:addIngredient(2745, 10) -- parchment
     product:addIngredient(2547, 2) -- leather
     product:addIngredient(2681) -- red dye
-    product:addRemnant(51) --empty bucket
 end
 
 for _, book in ipairs(books.black) do
@@ -1065,7 +1062,6 @@ for _, book in ipairs(books.black) do
     product:addIngredient(2745, 10) -- parchment
     product:addIngredient(2547, 2) -- leather
     product:addIngredient(2678) -- black dye
-    product:addRemnant(51) --empty bucket
 end
 
 for _, book in ipairs(books.yellow) do
@@ -1074,7 +1070,6 @@ for _, book in ipairs(books.yellow) do
     product:addIngredient(2745, 10) -- parchment
     product:addIngredient(2547, 2) -- leather
     product:addIngredient(2682) -- yellow dye
-    product:addRemnant(51) --empty bucket
 end
 
 for _, book in ipairs(books.white) do
@@ -1083,7 +1078,6 @@ for _, book in ipairs(books.white) do
     product:addIngredient(2745, 10) -- parchment
     product:addIngredient(2547, 2) -- leather
     product:addIngredient(2683) -- white dye
-    product:addRemnant(51) --empty bucket
 end
 
 for _, book in ipairs(books.plain) do

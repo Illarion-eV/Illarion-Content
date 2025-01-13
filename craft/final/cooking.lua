@@ -45,7 +45,6 @@ product:addIngredient(307, 1) -- pork
 -- cheese
 product = cooking:addProduct(catId, 3573, 1)
 product:addIngredient(2502, 1) -- bottle of milk
-product:addRemnant(2498, 1) -- large empty bottle
 
 -- cabbage roll
 product = cooking:addProduct(catId, 3715, 1)
@@ -132,7 +131,6 @@ product:addIngredient(3709, 3) -- smoked chicken
 product:addIngredient(290, 2) -- cabbage
 product:addIngredient(2493, 3) -- carrots
 product:addIngredient(517, 1) -- bottle of rum
-product:addRemnant(Item.emptyLiquorBottle, 1)
 
 product = cooking:addProduct(catId, Item.rosefishDish, 1)
 product:addIngredient(Item.woodenPlate, 1)
@@ -141,7 +139,6 @@ product:addIngredient(Item.carrots, 3)
 product:addIngredient(Item.tomato, 3)
 product:addIngredient(Item.cabbage, 3)
 product:addIngredient(Item.bottleOfBearSlayer, 1)
-product:addRemnant(Item.emptyLiquorBottle, 1)
 
 catId = cooking:addCategory("Bowl recipes", "Schüsselgerichte")
 
@@ -150,21 +147,18 @@ product = cooking:addProduct(catId, 2456, 1)
 product:addIngredient(2935, 1) -- soup bowl
 product:addIngredient(163, 10) -- champignon
 product:addIngredient(52, 1) -- bucket of water
-product:addRemnant(51, 1) -- bucket
 
 -- onion soup
 product = cooking:addProduct(catId, 2923, 1)
 product:addIngredient(2935, 1) -- soup bowl
 product:addIngredient(201, 5) -- onion
 product:addIngredient(52, 1) -- bucket of water
-product:addRemnant(51, 1) -- bucket
 
 -- cabbage stew
 product = cooking:addProduct(catId, 2278, 1)
 product:addIngredient(2935, 1) -- soup bowl
 product:addIngredient(290, 10) -- cabbage
 product:addIngredient(52, 1) -- bucket of water
-product:addRemnant(51, 1) -- bucket
 
 -- mulligan
 product = cooking:addProduct(catId, 2276, 1)
@@ -173,7 +167,6 @@ product:addIngredient(201, 3) -- onion
 product:addIngredient(200, 3) -- tomato
 product:addIngredient(2493, 3) -- carrots
 product:addIngredient(52, 1) -- bucket of water
-product:addRemnant(51, 1) -- bucket
 
 -- potato soup
 product = cooking:addProduct(catId, 3569, 1)
@@ -181,7 +174,6 @@ product:addIngredient(2935, 1) -- soup bowl
 product:addIngredient(3567, 8) -- potato
 product:addIngredient(201, 2) -- onion
 product:addIngredient(52, 1) -- bucket of water
-product:addRemnant(51, 1) -- bucket
 
 -- egg salad
 product = cooking:addProduct(catId, 3570, 1)
@@ -199,8 +191,6 @@ product:addIngredient(355, 2) -- salmon
 product:addIngredient(2493, 3) -- carrots
 product:addIngredient(3567, 2) -- potato
 product:addIngredient(52, 1) -- bucket of water
-product:addRemnant(51, 1) -- bucket
-product:addRemnant(2498,1) -- large empty bottle
 
 -- beer soup
 product = cooking:addProduct(catId, 3712, 1)
@@ -209,7 +199,6 @@ product:addIngredient(3567, 2) -- potato
 product:addIngredient(201, 2) -- onion
 product:addIngredient(154, 2) -- hops
 product:addIngredient(2502, 1) -- bottle of milk
-product:addRemnant(2498, 1) -- large empty bottle
 product:addIngredient(3573, 2) -- cheese
 
 product = cooking:addProduct(catId, Item.mackerelSalad, 1)
@@ -220,7 +209,6 @@ product:addIngredient(Item.potato, 3)
 product:addIngredient(Item.onion, 1)
 product:addIngredient(Item.flour, 1)
 product:addIngredient(Item.cabbage, 2)
-product:addRemnant(Item.largeEmptyBottle, 1)
 
 -- goulash
 product = cooking:addProduct(catId, 3711, 1)
@@ -230,7 +218,6 @@ product:addIngredient(2493, 3) -- carrots
 product:addIngredient(200, 3) -- tomato
 product:addIngredient(201, 3) -- onion
 product:addIngredient(52, 1) -- bucket of water
-product:addRemnant(51, 1) -- bucket
 
 -- chicken soup
 product = cooking:addProduct(catId, 1152, 1)
@@ -240,8 +227,6 @@ product:addIngredient(201, 2) -- onion
 product:addIngredient(2, 2) -- flour
 product:addIngredient(788, 1) -- bottle of carrot juice
 product:addIngredient(52, 1) -- bucket of water
-product:addRemnant(51, 1) -- bucket
-product:addRemnant(Item.vegetableJuiceBottle,1)
 
 product = cooking:addProduct(catId, Item.rosefishStew, 1)
 product:addIngredient(Item.soupBowl, 1)
@@ -251,10 +236,6 @@ product:addIngredient(Item.onion, 2)
 product:addIngredient(Item.potato, 2)
 product:addIngredient(Item.bottleOfBerryBooze, 1)
 product:addIngredient(Item.bucketOfWater, 1)
-product:addRemnant(Item.bucket, 1)
-product:addRemnant(Item.emptyLiquorBottle, 1)
-
-
 
 M.cooking = cooking
 return M

@@ -39,15 +39,12 @@ catId = baking:addCategory("Baked goods", "Backwaren")
 product = baking:addProduct(catId, 191, 1)
 product:addIngredient(2, 1) -- flour
 product:addIngredient(52, 1) -- bucket of water
-product:addRemnant(51, 1) -- bucket
 
 -- cookies
 product = baking:addProduct(catId, 453, 2)
 product:addIngredient(2, 3) -- flour
 product:addIngredient(Item.beeHoney, 1)
 product:addIngredient(52, 1) -- bucket of water
-product:addRemnant(51, 1) -- bucket
-product:addRemnant(Item.emptyHoneyJar, 1)
 
 -- baked potato
 product = baking:addProduct(catId, 3568, 1)
@@ -59,76 +56,61 @@ product = baking:addProduct(catId, 49, 1)
 product:addIngredient(2, 4) -- flour
 product:addIngredient(3567, 3) -- potato
 product:addIngredient(52, 1) -- bucket of water
-product:addRemnant(51, 1) -- bucket
 
 -- sausage on bread
 product = baking:addProduct(catId, 3631, 1)
 product:addIngredient(2, 4) -- flour
 product:addIngredient(3051, 2) -- sausage
 product:addIngredient(52, 1) -- bucket of water
-product:addRemnant(51, 1) -- bucket
 
 -- banana bread
 product = baking:addProduct(catId, 3609, 1)
 product:addIngredient(2, 4) -- flour
 product:addIngredient(785, 1) -- bottle of banana juice
-product:addRemnant(Item.fruitJuiceBottle,1) -- empty juice bottle
 
 -- blackberry muffin
 product = baking:addProduct(catId, 454, 1)
 product:addIngredient(2, 3) -- flour
 product:addIngredient(Item.beeHoney, 2)
-product:addRemnant(Item.emptyHoneyJar, 2)
 product:addIngredient(147, 15) -- blackberry
 product:addIngredient(52, 1) -- bucket of water
-product:addRemnant(51, 1) -- bucket
 
 -- apple pie
 product = baking:addProduct(catId, 353, 1)
 product:addIngredient(2, 4) -- flour
 product:addIngredient(Item.beeHoney, 2)
-product:addRemnant(Item.emptyHoneyJar, 2)
 product:addIngredient(15, 20) -- apple
 product:addIngredient(52, 1) -- bucket of water
-product:addRemnant(51, 1) -- bucket
 
 -- cherry cake
 product = baking:addProduct(catId, 303, 1)
 product:addIngredient(2, 4) -- flour
 product:addIngredient(Item.beeHoney, 2)
-product:addRemnant(Item.emptyHoneyJar, 2)
 product:addIngredient(302, 20) -- cherries
 product:addIngredient(759, 5) -- nuts
 product:addIngredient(52, 1) -- bucket of water
-product:addRemnant(51, 1) -- bucket
 
 -- egg salad sandwich
 product = baking:addProduct(catId, 3571, 1)
 product:addIngredient(2, 1) -- flour
 product:addIngredient(3570, 1) -- egg salad
 product:addIngredient(52, 1) -- bucket of water
-product:addRemnant(51, 1) -- bucket
-product:addRemnant(2935,1) -- soup bowl
 
 -- strawberry cake
 product = baking:addProduct(catId, 354, 1)
 product:addIngredient(2, 4) -- flour
 product:addIngredient(Item.beeHoney, 3)
-product:addRemnant(Item.emptyHoneyJar, 3)
 product:addIngredient(151, 20) -- strawberry
 product:addIngredient(1150, 2) -- white egg
 product:addIngredient(52, 1) -- bucket of water
-product:addRemnant(51, 1) -- bucket
 
 -- nut bread
 product = baking:addProduct(catId, 3723, 1)
 product:addIngredient(2, 4) -- flour
 product:addIngredient(Item.beeHoney, 3)
-product:addRemnant(Item.emptyHoneyJar, 3)
 product:addIngredient(759, 20) -- nuts
 product:addIngredient(1150, 3) -- white egg
 product:addIngredient(52, 1) -- bucket of water
-product:addRemnant(51, 1) -- bucket
 
 -- custard pie
 product = baking:addProduct(catId, 1153, 1)
@@ -137,8 +119,6 @@ product:addIngredient(1150, 10) -- white egg
 product:addIngredient(778, 4) -- sugarcane
 product:addIngredient(2502, 1) -- bottle of milk
 product:addIngredient(52, 1) -- bucket of water
-product:addRemnant(51, 1) -- bucket
-product:addRemnant(2498,1) -- large empty bottle
 
 -- elderberry pie
 product = baking:addProduct(catId, 3610, 1)
@@ -148,7 +128,6 @@ product:addIngredient(81, 5) -- berries
 product:addIngredient(1207, 5) -- orange
 product:addIngredient(778, 4) -- sugarcane
 product:addIngredient(52, 1) -- bucket of water
-product:addRemnant(51, 1) -- bucket
 
 M.baking = baking
 return M

@@ -69,7 +69,6 @@ function M.portalBookCreation(user, sourceItem)
                 )
                 product:addIngredient(4815) -- the empty book, obtained from tailors
                 product:addIngredient(1118) -- bottle of ink, obtained from dyemakers
-                product:addRemnant(1117) -- empty bottle of ink
             end
         end
     end

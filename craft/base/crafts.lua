@@ -30,8 +30,57 @@ local daear = require("magic.arcane.enchanting.effects.daear")
 local ilyn = require("magic.arcane.enchanting.effects.ilyn")
 local magic = require("base.magic")
 local texts = require("magic.base.texts")
+local bottles = require("item.bottles")
 
 local M = {}
+
+local itemsWithRemnants = {
+    -- Instead of having to add a remnant each time an item that should have one is in a recipe,
+    -- this list means we only have to put the remnant in once and no one will forget to add the corresponding remnant anymore.
+    -- Also necessary in order for the script to know when a remnant is to not be given due to daear procs..
+        {id = Item.lampOil, remnant = Item.oilBottle},
+        {id = Item.bucketOfWater, remnant = Item.bucket},
+        {id = Item.blackDye, remnant = Item.bucket},
+        {id = Item.greenDye, remnant = Item.bucket},
+        {id = Item.blueDye, remnant = Item.bucket},
+        {id = Item.redDye, remnant = Item.bucket},
+        {id = Item.yellowDye, remnant = Item.bucket},
+        {id = Item.whiteDye, remnant = Item.bucket},
+        {id = Item.bottleOfInk, remnant = Item.emptyInkBottle},
+        {id = Item.beeHoney, remnant = Item.emptyHoneyJar},
+        {id = Item.firewaspHoney, remnant = Item.emptyHoneyJar},
+        {id = Item.eggSalad, remnant = Item.soupBowl},
+        {id = Item.bottleOfBlackberryJuice, remnant = Item.emptyJuiceBottle},
+        {id = Item.bottleOfStrawberryJuice, remnant = Item.emptyJuiceBottle},
+        {id = Item.blueberryJuice, remnant = Item.emptyJuiceBottle},
+        {id = Item.cloudberryJuice, remnant = Item.emptyJuiceBottle},
+        {id = Item.raspberryJuice, remnant = Item.emptyJuiceBottle},
+        {id = Item.deerberryJuice, remnant = Item.emptyJuiceBottle},
+        {id = Item.elderberryJuice, remnant = Item.emptyJuiceBottle},
+        {id = Item.bottleOfCabbageJuice, remnant = Item.vegetableJuiceBottle},
+        {id = Item.bottleOfCarrotJuice, remnant = Item.vegetableJuiceBottle},
+        {id = Item.bellpepperJuice, remnant = Item.vegetableJuiceBottle},
+        {id = Item.cucumberJuice, remnant = Item.vegetableJuiceBottle},
+        {id = Item.pumpkinJuice, remnant = Item.vegetableJuiceBottle},
+        {id = Item.tomatoJuice, remnant = Item.vegetableJuiceBottle},
+        {id = Item.bottleOfGrapeJuice, remnant = Item.fruitJuiceBottle},
+        {id = Item.bottleOfOrangeJuice, remnant = Item.fruitJuiceBottle},
+        {id = Item.bottleOfTangerineJuice, remnant = Item.fruitJuiceBottle},
+        {id = Item.bottleOfBananaJuice, remnant = Item.fruitJuiceBottle},
+        {id = Item.appleJuice, remnant = Item.fruitJuiceBottle},
+        {id = Item.cherryJuice, remnant = Item.fruitJuiceBottle},
+        {id = Item.pearJuice, remnant = Item.fruitJuiceBottle},
+        {id = Item.mangoJuice, remnant = Item.fruitJuiceBottle},
+        {id = Item.peachJuice, remnant = Item.fruitJuiceBottle},
+        {id = Item.plumJuice, remnant = Item.fruitJuiceBottle},
+        {id = Item.pineappleJuice, remnant = Item.fruitJuiceBottle}
+    }
+
+for _, bottle in pairs(bottles.bottles) do -- Since bottles conveniently already have the remnants listed, we just add that to the list using the existing one
+    table.insert(itemsWithRemnants, {id = bottle.full[1], remnant = bottle.empty[1]}) -- The bottle is always listed first, the rest are serving jugs and such that are not used in crafting
+end
+
+M.itemsWithRemnants = itemsWithRemnants -- for use in construction
 
 local function checkRequiredMana(user, craftingTime, isPortalBookCrafting) -- Portal book creation uses the standard craft script to create the books, but requires mana consumption
 
@@ -70,8 +119,7 @@ local foodRarityTexts = {
 local Product = {
             quantity = 1,
             ingredients = {},
-            difficulty = 0,
-            remnants = {},
+            difficulty = 0
 }
 
 function Product:new(p)       -- new: constructor
@@ -140,12 +188,6 @@ function Product:addIngredient(item, quantity, data)
     table.insert(self["ingredients"], {["item"]=item, ["quantity"]=quantity, ["data"]=data})
 end
 
-function Product:addRemnant(item, quantity, data)
-    quantity = quantity or 1
-    data = data or {}
-    table.insert(self["remnants"], {["item"]=item, ["quantity"]=quantity, ["data"]=data})
-end
-
 function Craft:addProduct(categoryId, itemId, quantity, data)
     local difficulty = math.min(world:getItemStatsFromId(itemId).Level, 100)
     local learnLimit = math.min(difficulty + 20, 100)
@@ -160,8 +202,7 @@ function Craft:addProduct(categoryId, itemId, quantity, data)
             ["learnLimit"] = learnLimit,
             ["quantity"] = quantity,
             ["data"] = data,
-            ["ingredients"] = {},
-            ["remnants"] = {},
+            ["ingredients"] = {}
         })
 
         if self.categories[categoryId].minSkill then
@@ -776,6 +817,8 @@ function Craft:createItem(user, productId, toolItem)
     local amountOfIngredients = #product.ingredients
     local ingredientSaved = false
 
+    local itemsToReturnAsRemnants = {}
+
     for i = 1, amountOfIngredients do
 
         local ingredient = product.ingredients[i]
@@ -794,6 +837,12 @@ function Craft:createItem(user, productId, toolItem)
                     toSave = math.ceil(totalToDelete/5) --possible to save up to 1 resource per 5 required of it. EG if a recipe requires 46-50 pins, you get 10 instead of just 1 in return.
                     ingredientSaved = true
                 end
+            end
+        end
+
+        for _, remnant in pairs(itemsWithRemnants) do -- If the item has a corresponding remnant item, it gets added to the list for later
+            if ingredient.item == remnant.id and (totalToDelete - toSave > 0) then
+                table.insert(itemsToReturnAsRemnants, { id = remnant.remnant, amount = totalToDelete - toSave}) -- If the glyph saves any, the -toSave ensures that we dont return extra remnant items
             end
         end
 
@@ -859,10 +908,10 @@ function Craft:createItem(user, productId, toolItem)
         common.CreateItem(user, product.item, product.quantity, quality, product.data)
     end
 
-    for i=1, #product.remnants do
-        local remnant = product.remnants[i]
-       common.CreateItem(user, remnant.item, remnant.quantity, 333, remnant.data)
+    for _, remnant in pairs(itemsToReturnAsRemnants) do
+        common.CreateItem(user, remnant.id, remnant.amount, 333, {})
     end
+
 end
 
 M.Product = Product
