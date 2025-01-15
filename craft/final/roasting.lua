@@ -51,6 +51,10 @@ product:addIngredient(553) -- rabbit meat
 product = roasting:addProduct(catId, 3713, 1)
 product:addIngredient(2934) -- lamb meat
 
+-- Grilled Rat
+product = roasting:addProduct(catId, Item.grilledRat, 1)
+product:addIngredient(Item.ratMeat)
+
 -- Grilled venison
 product = roasting:addProduct(catId, 3714, 1)
 product:addIngredient(552) -- deer meat

@@ -54,6 +54,7 @@ M.foodList[Item.grilledWolf] = {crafted = true, rareBuff = {intelligence = 0}}
 M.foodList[Item.grilledBear] = {crafted = true, rareBuff = {essence = 0}}
 M.foodList[Item.grilledRaptor] = {crafted = true, rareBuff = {perception = 0}}
 M.foodList[Item.grilledDragon] = {crafted = true, rareBuff = {willpower = 0}}
+M.foodList[Item.grilledRat] = {crafted = true, rareBuff = {strength = 0}}
 
 -- Tier 2 Food
 M.foodList[Item.cheese] = {crafted = true, rareBuff = {perception = 1}}
@@ -120,6 +121,7 @@ M.foodList[Item.wolfMeat] = {foodPoints = valueMedium}
 M.foodList[Item.bearMeat] = {foodPoints = valueMedium}
 M.foodList[Item.raptorMeat] = {foodPoints = valueMedium}
 M.foodList[Item.dragonMeat] = {foodPoints = valueMedium}
+M.foodList[Item.ratMeat] = {foodPoints = valueMedium}
 M.foodList[Item.shrimp] = {foodPoints = valueMedium}
 M.foodList[Item.octopus] = {foodPoints = valueMedium}
 M.foodList[Item.eel] = {foodPoints = valueMedium}
