@@ -507,6 +507,8 @@ local function leaveFaction(originator, Faction, thisNPC)
 
     M.setFaction(originator,Faction); --write fv in Questprogress
 
+    originator:setQuestProgress(200, 0) -- Remove leadership special rank in case they were a leader of the town they are leaving
+
     local gText="Du gehört nun keinem Reich mehr an. Das bedeutet, dass du frei, aber auf dich selbst gestellt seid. Viel Glück.";
     local eText="You're now not belonging to any realm. This means you're free but also on your own. Good luck.";
     local outText=common.GetNLS(originator,gText,eText);
