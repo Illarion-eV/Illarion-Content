@@ -112,7 +112,7 @@ monsterQuests.addQuest{
     location = {position = npcPos, radius = 200},
     queststatus = {from = 30, to = 50},
     questTitle = {german = "Das Nest der Gorgophone", english = "Gorgophone's Nest"},
-    monsterName = {german = "Schreckensspinne", english = "Dread Spider, Pit Servant and Fire Spider spiders"},
+    monsterName = {german = "Schreckensspinne, Grubendiener, und Feuerspinne", english = "Dread Spiders, Fire Spiders and Pit Servants."},
     npcName = "Gorgophone",
     monsterIds = {191, 192, 211} -- Dread Spider, Pit Servant, Fire Spider
 }
