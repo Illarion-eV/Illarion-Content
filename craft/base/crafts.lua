@@ -775,7 +775,7 @@ function Craft:createItem(user, productId, toolItem)
 
         local chance = 1/amountOfIngredients -- equal chance for each ingredient involved to be the one saved
 
-        if not ingredientSaved then -- Did the glyph proc and has the proc not already been used by a previous ingredient?
+        if not self.npcCraft and not ingredientSaved then -- Did the glyph proc and has the proc not already been used by a previous ingredient? Does not apply to npc crafts
             if math.random() <= chance or i == amountOfIngredients then -- equal chance that each ingredient is picked to roll for the save, if its the last ingredient and none were picked before it picks that
                 local saveIngredient = daear.saveResource(user, world:getItemStatsFromId(ingredient.item).Level, getTotalQuantity(product), totalToDelete)
                 if saveIngredient then
@@ -843,7 +843,7 @@ function Craft:createItem(user, productId, toolItem)
 
     common.CreateItem(user, product.item, product.quantity, quality, product.data)
 
-    if ilyn.duplicateItem(user, world:getItemStatsFromId(product.item).Level) then
+    if not self.npcCraft  and ilyn.duplicateItem(user, world:getItemStatsFromId(product.item).Level) then --Important to check for npcCraft, we dont want it to proc for magic gem combination
         common.CreateItem(user, product.item, product.quantity, quality, product.data)
     end
 
