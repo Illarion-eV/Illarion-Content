@@ -482,18 +482,29 @@ function M.useNPC(npc, user)
     M.receiveText(npc, nil, "help", user)
 end
 
+local function isUserOnField(user)
+
+    local field = {bottom = {x = 682, y = 330}, top = {x = 698, y = 343}} --The coordinates of the field that the onion ball game is played on
+
+    if user.pos.z == 0 and user.pos.x >= field.bottom.x and user.pos.y >= field.bottom.y and user.pos.x <= field.top.x and user.pos.y <= field.top.y then
+        return true
+    end
+
+    return false
+
+end
+
 function M.receiveText(npc, ttype, text, user)
-    if isRunningGame then
-        if string.match(text, "[Ss]top") and isPlayer(user) then
-            endGame(npc)
-            common.TalkNLS(npc,Character.say,"Aufhören, wir machen eine Pause!","Stop, we have a break!")
-            return
-        end
-    else
-        if string.match(text, "[Ss]tart") then
-            startGame(npc)
-            return
-        end
+
+    local userIsOnField = isUserOnField(user)
+
+    if userIsOnField and isRunningGame and isPlayer(user) and string.match(text, "[Ss]top") then
+        endGame(npc)
+        common.TalkNLS(npc,Character.say,"Aufhören, wir machen eine Pause!","Stop, we have a break!")
+        return
+    elseif userIsOnField and string.match(text, "[Ss]tart") then
+        startGame(npc)
+        return
     end
 
     if not npc:isInRange(user, 2) then
