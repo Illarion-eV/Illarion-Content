@@ -86,7 +86,21 @@ function M.getGemBonus(item)
         if gStrength<gemMin then gemMin=gStrength end
     end
 
-    return gemSum+gemMin*6
+    local diamond = extractNum(item:getData("magicalDiamond"))
+
+    local retVal = gemSum+gemMin*6
+
+    local diamondBonus = 0
+
+    if diamond > 0 then
+        diamondBonus = math.max( 1, math.floor(retVal*(0.1*diamond)))
+    end
+
+    -- Each tier of diamonds add a simple 10% bonus to the existing bonus
+    -- If it is socketed on its own it will return a minimum of 1
+    -- This means a tier 1 set goes from 12 to 13.2 that gets rounded down to 13 and so on.
+
+    return retVal + diamondBonus
 
 end
 

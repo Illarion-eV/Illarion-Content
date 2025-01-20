@@ -26,6 +26,12 @@ M.cadomyr = 1
 M.runewick = 2
 M.galmair = 3
 
+M.ledgers = {
+    {pos = position(947, 785, 1), town = "Runewick", tid = M.runewick},
+    {pos = position(106, 554, 0), town = "Cadomyr", tid = M.cadomyr},
+    {pos = position(404, 264, 1), town = "Galmair", tid = M.galmair},
+}
+
 M.townManagmentItemPos = {position(116, 527, 0), position(951, 786, 1), position(344, 223, 0)}
 
 --Towns--
@@ -113,6 +119,208 @@ local GalmairRankListFemale = {
 local NoneRankList ={};
 NoneRankList[0] = {gRank = "Geächteter", eRank = "Outcast"};
 
+local function addOrOverwriteEntry(user, book, entryNumber)
+
+    local rankNumber = M.getRankAsNumber(user)
+
+    book:setData("entry"..entryNumber.."ID", tostring(user.id))
+    book:setData("entry"..entryNumber.."name", tostring(user.name))
+    book:setData("entry"..entryNumber.."rank", tostring(rankNumber))
+    world:changeItem(book)
+end
+
+function M.deleteEntry(user, tid)
+
+    for _, ledger in pairs(M.ledgers) do
+
+        local bookPosition = ledger.pos
+        local book = world:getItemOnField(bookPosition)
+        if not book or book.id ~= 1060 then
+            debug("Error, failed to find book at "..tostring(bookPosition))
+            return
+        end
+
+        local entries = book:getData("ledgerEntries")
+
+        if not common.IsNilOrEmpty(entries) and tonumber(entries) > 0 then
+            for i = 1, entries do
+                if tonumber(book:getData("entry"..i.."ID")) == user.id and ledger.tid ~= tid then -- Entry for character in a town they dont belong in found
+                    book:setData("entry"..i.."ID", tostring(1))
+                    book:setData("entry"..i.."name", "Gibberish12134134hf") --We set it to gibberish and id of 1 so it wont match and therefore gets cleaned up next time someone accesses the ledger as if it were a deleted character
+                    world:changeItem(book)
+                end
+            end
+        end
+    end
+end
+
+function M.updateEntry(user)
+
+    local tid = user:getQuestProgress(199)
+
+    M.deleteEntry(user, tid) --Deletes entries for character if it is a town they do not belong in
+
+    if tid == M.outlaw then
+        return --No setting new entry if outlawed
+    end
+
+    local bookPosition
+
+    for _, ledger in pairs(M.ledgers) do
+        if ledger.tid == tid then
+            bookPosition = ledger.pos
+        end
+    end
+
+    if not bookPosition then
+        debug("Error: Failed to find book position")
+        return
+    end
+
+    local book = world:getItemOnField(bookPosition)
+
+    if book.id ~= 1060 then
+        debug("Error: Book not found")
+        return
+    end
+
+    local entries = tonumber(book:getData("ledgerEntries"))
+
+    if common.IsNilOrEmpty(entries) then --First time it is ever used it will be empty, so we just add this first entry
+        book:setData("ledgerEntries", tostring(1))
+        addOrOverwriteEntry(user, book, 1)
+        return
+    end
+
+    for i = 1, entries do
+        if tonumber(book:getData("entry"..i.."ID")) == user.id then -- We check if an entry exists already for the person
+            addOrOverwriteEntry(user, book, i)
+            return
+        end
+    end
+
+    book:setData("ledgerEntries", tostring(entries+1)) -- No entry exists for the person so we add a new one
+    addOrOverwriteEntry(user, book, entries+1)
+
+end
+
+local ticksPerRank = {
+    -- The last number in the ticks calculation is what is actually necessary to rank up, the rest is just what you've accumulated from former ranks
+    -- I opted to keep them like this just for easier readability rather than adding them up.
+    {rank = 1, ticks = 0}, -- You start at this rank when joining a town
+    {rank = 2, ticks = 54}, -- 4.5 hours. New player quests in town reward up to 39 ticks, allowing you to get from rank 1 to rank 2.
+    {rank = 3, ticks = 54+108}, -- previous accumulation + 9 hours
+    {rank = 4, ticks = 54+108+216}, -- previous accumulation + 18 hours
+    {rank = 5, ticks = 54+108+216+432}, -- previous accumulation + 36 hours
+    {rank = 6, ticks = 54+108+216+432+864}, -- previous accumulation + 72 hours
+    {rank = 7, ticks = 54+108+216+432+864+1728}, -- previous accumulation + 144 hours
+
+    -- In total you need to RP with other players from your realm for 283.5 hours which is just below the time it takes to get two skills to level 100
+    -- 279 hours if you do the new player quests in the realm.
+}
+
+M.ticksPerRank = ticksPerRank
+
+--[[
+    Uses the accumulated rank ticks to find what rank a character is
+
+    @param rankTicks - The amount of 5 min ticks of accumulated RP with other people of the characters own realm that has been accumulated
+
+    @return - number of the rank
+
+]]
+
+M.rankTrackerQuestID = 394
+
+local transferTrackerQuestID = 395
+
+
+function M.oneTimeConversionOfReputationPointsToRankPoints(player)
+    -- First log in after the update reputation and rank points will be identical, for old players that had reputation points before the social rank points were made a thing.
+    -- After this first log in, these two values will be tracked separately once more with reputation points gained from interacting with any other player and rank points only by interacting with fellow citizen.
+
+    local transferHappened = player:getQuestProgress(transferTrackerQuestID)
+
+    if transferHappened == 1 then
+        return
+    end
+
+    player:setQuestProgress(transferTrackerQuestID, 1)
+
+    local reputationPoints = player:getQuestProgress(393) --393 is the reputation tracking quest ID
+
+    player:setQuestProgress(M.rankTrackerQuestID, reputationPoints)
+
+    if reputationPoints > 0 then
+
+        log("One time conversion of reputation points to rank points took place for player "..player.name.."("..player.id.."). New value for both: "..reputationPoints)
+    end
+
+end
+
+function M.convertTicksToRankNumber(rankTicks)
+
+    local currentRank = 0
+
+    for _, rank in pairs(ticksPerRank) do
+        if rank.ticks <= rankTicks and rank.rank > currentRank then -- the user has qualified for this rank or higher
+            currentRank = rank.rank
+        end
+    end
+
+    return currentRank
+
+end
+
+function M.sendRankUpmessage(user, totalRankTime)
+
+    local faction = M.getMembership(user)
+    local factionLeadersDE = {"Königin Rosaline Edwards", "Erzmagier Elvaine Morgan", "Don Valerio Guilianni"}
+    local factionLeadersEN = {"Queen Rosaline Edwards", "Archmage Elvaine Morgan", "Don Valerio Guilianni"}
+
+    if M.isOutlaw(user) then
+        return
+    end
+
+    local rankNumber = M.convertTicksToRankNumber(totalRankTime)
+
+    local rankNameDe, rankNameEn = M.getRankName(user, rankNumber, true)
+
+    user:inform("Während du dir unter deinen Mitbürgern einen Namen machst, hat "..factionLeadersDE[faction].." Notiz von dir genommen. Du wurdest zum/zur "..rankNameDe.." befördert.", "As you make a name for yourself among your fellow citizen, "..factionLeadersEN[faction].." has taken notice. You have been promoted to "..rankNameEn..".")
+
+    M.updateEntry(user)
+
+    --send a message taht they ranked up to the totalRankTime rank
+end
+
+--[[
+    Returns the special rank for a player
+    @param player - characterStruct
+
+    @return specialRank - special rank of player
+]]
+local function getSpecialRank(player)
+    local specialRank = player:getQuestProgress(200)
+    return specialRank
+end
+
+--[[
+    returns the ranknumber of a players rank
+    @ player - characterStruct
+
+    @return - number of the rank
+]]
+function M.getRankAsNumber(player)
+
+    if getSpecialRank(player) ~= 0 then
+        return getSpecialRank(player)
+    else
+        local rankTicks = player:getQuestProgress(M.rankTrackerQuestID)
+        return M.convertTicksToRankNumber(rankTicks)
+    end
+
+end
+
 M.townRanks = {M.CadomyrRankListMale, M.RunewickRankListMale, M.GalmairRankListMale, CadomyrRankListFemale, RunewickRankListFemale, GalmairRankListFemale}
 M.townRanks[0] = NoneRankList;
 
@@ -123,22 +331,17 @@ M.townRanks[0] = NoneRankList;
     @param TownName        - the Townname
 ]]
 local function AddTown(TownID, TownName)
-    table.insert(TownList,{townID=TownID, townName=TownName});
+    table.insert(TownList,{townID=TownID, townName=TownName})
 end
 
+local citizenRank = 1
+M.highestRank = 7
+local leaderRank = 11
 
-
-
-local citizenRank = 1;
-M.highestRank = 7;
-local leaderRank = 11;
-
-
-AddTown(0,"None");
-AddTown(M.cadomyr,"Cadomyr");
-AddTown(M.runewick,"Runewick");
-AddTown(M.galmair,"Galmair");
-
+AddTown(0,"None")
+AddTown(M.cadomyr,"Cadomyr")
+AddTown(M.runewick,"Runewick")
+AddTown(M.galmair,"Galmair")
 
 --[[
     returns the name of a town
@@ -147,21 +350,25 @@ AddTown(M.galmair,"Galmair");
     @return - name of town
 ]]
 function M.getTownNameByID(TownID)
+
     for i=1, #(TownList) do
         if (TownList[i].townID == TownID) then
             return TownList[i].townName
         end
     end
-  return "";
+
+    return ""
 end
 
 function M.getTownIdByName(name)
+
     for i=1, #(TownList) do
         if (TownList[i].townName == name) then
             return TownList[i].townID
         end
     end
-    return 0;
+
+    return 0
 end
 
 --[[
@@ -242,35 +449,16 @@ function M.getRank(player, bothFlag)
     end
 end
 
---[[
-    Returns the special rank for a player
-    @param player - characterStruct
+function M.getRankNamesWithoutPlayer(tid, ranknumber)
 
-    @return specialRank - special rank of player
-]]
-local function getSpecialRank(player)
-    local specialRank = player:getQuestProgress(200);
-    return specialRank;
-end
-
---[[
-    returns the ranknumber of a players rank
-    @ player - characterStruct
-
-    @return - number of the rank
-]]
-function M.getRankAsNumber(player)
-    local rankTown;
-    local rankpoints;
-
-    if getSpecialRank(player) ~= 0 then
-        rankTown = getSpecialRank(player);
-    else
-        rankpoints = M.getRankpoints(player);
-        rankTown = math.floor(rankpoints/100)+1;
+    if ranknumber > leaderRank then
+        return
     end
-    return rankTown;
+
+    return M.townRanks[tid][ranknumber].gRank, M.townRanks[tid][ranknumber].eRank
+
 end
+
 
 --[[
     returns the name of a specific rank
@@ -279,24 +467,28 @@ end
 
     @return - name of the rank
 ]]
-function M.getRankName(player, ranknumber)
-    local Faction = M.getFaction(player);
+function M.getRankName(player, ranknumber, bothFlag)
+    local Faction = M.getFaction(player)
 
     if ranknumber > leaderRank then
-        return;
+        return
     end
 
     if (player:increaseAttrib("sex",0) == 0) then --male Ranks
-        if player:getPlayerLanguage() == 0 then
-            return M.townRanks[Faction.tid][ranknumber].gRank;
+        if bothFlag then
+            return M.townRanks[Faction.tid][ranknumber].gRank, M.townRanks[Faction.tid][ranknumber].eRank
+        elseif player:getPlayerLanguage() == 0 then
+            return M.townRanks[Faction.tid][ranknumber].gRank
         else
-            return M.townRanks[Faction.tid][ranknumber].eRank;
+            return M.townRanks[Faction.tid][ranknumber].eRank
         end
     else
-        if player:getPlayerLanguage() == 0 then
-            return M.townRanks[tonumber(Faction.tid)+3][ranknumber].gRank;
+        if bothFlag then
+            return M.townRanks[tonumber(Faction.tid)+3][ranknumber].gRank, M.townRanks[tonumber(Faction.tid)+3][ranknumber].eRank
+        elseif player:getPlayerLanguage() == 0 then
+            return M.townRanks[tonumber(Faction.tid)+3][ranknumber].gRank
         else
-            return M.townRanks[tonumber(Faction.tid)+3][ranknumber].eRank;
+            return M.townRanks[tonumber(Faction.tid)+3][ranknumber].eRank
         end
     end
 end
@@ -310,20 +502,20 @@ end
                     3-5 the Ranks/Reputation in the Towns Cadomyr, Runewick and Galmair
 ]]
 function M.getFaction(originator)
-    local rankTown;
+    local rankTown
 
     --check for special rank
     if getSpecialRank(originator) ~= 0 then
-        rankTown = getSpecialRank(originator);
+        rankTown = getSpecialRank(originator)
     else
-        rankTown = M.getRankAsNumber(originator);
+        rankTown = M.getRankAsNumber(originator)
     end
 
-    local factionMembership = originator:getQuestProgress(199);
-    local towncnt = originator:getQuestProgress(201);
-    local rankpoints = M.getRankpoints(originator);
+    local factionMembership = originator:getQuestProgress(199)
+    local towncnt = originator:getQuestProgress(201)
+    local rankpoints = M.getRankpoints(originator)
 
-    return { towncnt = towncnt, tid = factionMembership, rankTown = rankTown, rankpoints = rankpoints};
+    return { towncnt = towncnt, tid = factionMembership, rankTown = rankTown, rankpoints = rankpoints}
 end
 
 --[[
@@ -334,8 +526,8 @@ end
     @return qpg - rankpoints in realm
 ]]
 function M.getRankpoints(originator)
-    local qpg = originator:getQuestProgress(202); -- rankpoints
-    return qpg;
+    local qpg = originator:getQuestProgress(M.rankTrackerQuestID) -- rankpoints
+    return qpg
 end
 
 --[[
@@ -349,7 +541,7 @@ function M.setFaction(originator,Faction)
     -------------write changes------------
     originator:setQuestProgress(199,tonumber(Faction.tid));
     originator:setQuestProgress(201,tonumber(Faction.towncnt));
-    originator:setQuestProgress(202,tonumber(Faction.rankpoints));
+    originator:setQuestProgress(M.rankTrackerQuestID,tonumber(Faction.rankpoints));
 end
 
 --[[
@@ -360,24 +552,22 @@ end
     @return - special rank was set (true|false)
 ]]
 function M.setSpecialRank(player, rank)
-    local Faction = M.getFaction(player);
-    local rankpoints = Faction.rankpoints;
-    local inform;
+
+    local inform
 
     if (rank > M.highestRank and rank < leaderRank) or rank == 0  then
-        if rankpoints >= (M.highestRank-1)*100 then
-            player:setQuestProgress(200, tonumber(rank));
-            if rank == 0 then
-                inform = common.GetNLS(player,"Du wurdest degradiert und hast nun keinen speziellen Rang mehr.","You have been demoted and have no special rank anymore.")
-            else
-                inform = common.GetNLS(player,"Du wurdest befördert und bist nun "..M.getRank(player)..".","You have been promoted and are now "..M.getRank(player)..".");
-            end
-            player:inform(inform)
-            return true;
+        player:setQuestProgress(200, tonumber(rank))
+        if rank == 0 then
+            inform = common.GetNLS(player,"Du wurdest degradiert und hast nun keinen speziellen Rang mehr.","You have been demoted and have no special rank anymore.")
         else
-            return false;
+            inform = common.GetNLS(player,"Du wurdest befördert und bist nun "..M.getRank(player)..".","You have been promoted and are now "..M.getRank(player)..".")
         end
+        player:inform(inform)
+        return true
+    else
+        return false
     end
+
 end
 
 
@@ -430,14 +620,14 @@ end
 ]]
 local function informPlayerAboutRankpointchange(player, modifierTextarray)
     local faction = M.getMembership(player);
-    local factionLeadersDE = {"Königin Rosaline Edwards", "Erzmagier Elvaine Morgan", "Don Valerio Guilianni"};
-    local factionLeadersEN = {"Queen Rosaline Edwards'", "Archmage Elvaine Morgan's", "Don Valerio Guilianni's"};
+    local factionLeadersDE = {"Königin Rosaline Edwards", "Erzmagier Elvaine Morgan", "Don Valerio Guilianni"}
+    local factionLeadersEN = {"Queen Rosaline Edwards'", "Archmage Elvaine Morgan's", "Don Valerio Guilianni's"}
 
     if faction ~= 0 then
         common.InformNLS(player, "Dein Ansehen bei "..factionLeadersDE[faction].." "..modifierTextarray[1], "You "..modifierTextarray[2].." in "..factionLeadersEN[faction].." favour.");
     else
-        return;
-    end;
+        return
+    end
 end
 
 --[[
@@ -491,7 +681,7 @@ function M.setRankpoints(originator, rankpoints)
     end
 
     ------save changes----------------
-    originator:setQuestProgress(202,rankpoints);
+    originator:setQuestProgress(M.rankTrackerQuestID,rankpoints);
 end
 
 --[[
@@ -508,6 +698,8 @@ local function leaveFaction(originator, Faction, thisNPC)
     M.setFaction(originator,Faction); --write fv in Questprogress
 
     originator:setQuestProgress(200, 0) -- Remove leadership special rank in case they were a leader of the town they are leaving
+
+    M.updateEntry(originator)
 
     local gText="Du gehört nun keinem Reich mehr an. Das bedeutet, dass du frei, aber auf dich selbst gestellt seid. Viel Glück.";
     local eText="You're now not belonging to any realm. This means you're free but also on your own. Good luck.";
@@ -554,6 +746,8 @@ function M.makeCharMemberOfTown(originator,thisNPC,fv,theRank,theTown)
 
         if (fv.towncnt<99) then fv.towncnt = fv.towncnt+1; end; -- raise the town counter
         M.setFaction(originator,fv); --write fv in Questprogress
+        originator:setQuestProgress(200, 0) -- Remove leadership special rank in case they were a leader of the town they are leaving
+        M.updateEntry(originator) --set new entry for new town and delete old entry for old town
         money.TakeMoneyFromChar(originator,amountToPay); --take money
     end
     return;

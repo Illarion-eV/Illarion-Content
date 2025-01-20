@@ -123,8 +123,8 @@ queststatus(109) = 1, item(15, all) < 5, "task", "adventure" -> "#me's stomach r
 queststatus(109) = 1, item(15, all) < 5, "Auftrag", "Aufgabe", "Abenteuer" -> "#me' Magen knurrt: 'Mit fünf Äpfeln im Magen würde es mir weit besser gehen, wenn ihr einen Moment Zeit dafür habt.'"
 
 -- Quest 1 solved, reward: 30cp
-queststatus(109) = 1, item(15, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded three silver coins."), money + 300, deleteItem(15, 5), queststatus(109) = 2, "#me quickly grabs the fruit, handing over a small purse of coins: 'Thank you kindly!'. He takes a large bite and stuffs the other apples into his bag as he chews."
-queststatus(109) = 1, item(15, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst drei Silberstücke."), money + 300, deleteItem(15, 5), queststatus(109) = 2, "#me reißt die Äpfel an sich und übergibt beiläufig eine Geldbeutel: 'Vielen Dank!'. Er beißt genüßlich ab und verstaut die Äpfel kauend in einem Beutel."
+queststatus(109) = 1, item(15, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded three silver coins."), money + 300, deleteItem(15, 5), queststatus(109) = 2, rankpoints + 1, "#me quickly grabs the fruit, handing over a small purse of coins: 'Thank you kindly!'. He takes a large bite and stuffs the other apples into his bag as he chews."
+queststatus(109) = 1, item(15, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst drei Silberstücke."), money + 300, deleteItem(15, 5), queststatus(109) = 2, rankpoints + 1, "#me reißt die Äpfel an sich und übergibt beiläufig eine Geldbeutel: 'Vielen Dank!'. Er beißt genüßlich ab und verstaut die Äpfel kauend in einem Beutel."
 
 -- 2nd quest: Bring 10 arrows (64)
 
@@ -141,8 +141,8 @@ queststatus(109) = 3, item(64, all) < 10, "task", "adventure" -> "#me glances at
 queststatus(109) = 3, item(64, all) < 10, "Auftrag", "Aufgabe", "Abenteuer" -> "#me starrt naserümpfend auf seinen leeren Köcher: 'Ich brauche dringend zehn Pfeile, wenn es euch nichts ausmacht."
 
 -- Quest 2 solved, reward: 100cp
-queststatus(109) = 3, item(64, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded five silver coins."), money + 500, deleteItem(64, 10), queststatus(109) = 4, "#me slides the arrows into his quiver, nodding in thanks, 'These shall do perfectly, thank you. I hope that this shall suffice as compensation.'"
-queststatus(109) = 3, item(64, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke."), money + 500, deleteItem(64, 10), queststatus(109) = 4, "#me steckt die Pfeile in seinen Köcher, dankbar nickend: 'Das sollte erstmal genug sein, habt dank. Ich hoffe, dies reicht euch als Entlohnung."
+queststatus(109) = 3, item(64, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded five silver coins."), money + 500, deleteItem(64, 10), queststatus(109) = 4, rankpoints + 2, "#me slides the arrows into his quiver, nodding in thanks, 'These shall do perfectly, thank you. I hope that this shall suffice as compensation.'"
+queststatus(109) = 3, item(64, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke."), money + 500, deleteItem(64, 10), queststatus(109) = 4, rankpoints + 2, "#me steckt die Pfeile in seinen Köcher, dankbar nickend: 'Das sollte erstmal genug sein, habt dank. Ich hoffe, dies reicht euch als Entlohnung."
 
 -- 3rd quest: Bring 10 fur (2586)
 
@@ -159,8 +159,8 @@ queststatus(109) = 5, item(2586, all) < 10, "task", "adventure" -> "I receive ne
 queststatus(109) = 5, item(2586, all) < 10, "Auftrag", "Aufgabe", "Abenteuer" -> "Nahezu täglich hört man von Tierangriffen. Ihr müsst die Bürger von Eibenthal beschützen, indem ihr die Tiere erschlagt. Wenn ihr mir zehn Felle bringt, werde ich sicherstellen, dass man an höchster Stelle von euren Anstrengungen hört."
 
 -- Quest 3 solved, reward: legionaire's tower shield (2448), (10 rank points if Runewick member)
-queststatus(109) = 5, item(2586, all) > 9, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded a legionaire's tower shield."), deleteItem(2586, 10), item(2448, 1, 799), queststatus(109) = 6, rankpoints + 10, "#me bows his head respectfully: 'You have done very well, thank you. Yewdale and its citizens are safe once more. Please, take this shield as thanks for the risk you took."
-queststatus(109) = 5, item(2586, all) > 9, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst einen Legionärsschild."), deleteItem(2586, 10), item(2448, 1, 799), queststatus(109) = 6, rankpoints + 10, "#me verbeugt sich respektvoll: 'Das habt ihr gut gemacht. Eibenthal und seine Bürger sind jetzt wieder sicher. Bitte nehmt diesen Schild als Dank für das Risiko, welches ihr in Kauf nahmt."
+queststatus(109) = 5, item(2586, all) > 9, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded a legionaire's tower shield."), deleteItem(2586, 10), item(2448, 1, 799), queststatus(109) = 6, rankpoints + 2, "#me bows his head respectfully: 'You have done very well, thank you. Yewdale and its citizens are safe once more. Please, take this shield as thanks for the risk you took."
+queststatus(109) = 5, item(2586, all) > 9, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst einen Legionärsschild."), deleteItem(2586, 10), item(2448, 1, 799), queststatus(109) = 6, rankpoints + 2, "#me verbeugt sich respektvoll: 'Das habt ihr gut gemacht. Eibenthal und seine Bürger sind jetzt wieder sicher. Bitte nehmt diesen Schild als Dank für das Risiko, welches ihr in Kauf nahmt."
 queststatus(109) = 5, item(2586, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded a legionaire's tower shield."), deleteItem(2586, 10), item(2448, 1, 799), queststatus(109) = 6, "#me bows his head respectfully: 'You have done very well, thank you. Yewdale and its citizens are safe once more. Please, take this shield as thanks for the risk you took."
 queststatus(109) = 5, item(2586, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst einen Legionärsschild."), deleteItem(2586, 10), item(2448, 1, 799), queststatus(109) = 6, "#me verbeugt sich respektvoll: 'Das habt ihr gut gemacht. Eibenthal und seine Bürger sind jetzt wieder sicher. Bitte nehmt diesen Schild als Dank für das Risiko, welches ihr in Kauf nahmt."
 

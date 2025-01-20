@@ -19,6 +19,7 @@ local runes = require("magic.arcane.runes")
 local teaching = require("magic.arcane.teaching")
 local common = require("base.common")
 local lookat = require("base.lookat")
+local citizenLedger = require("content.citizenLedger")
 
 local M = {}
 
@@ -541,6 +542,10 @@ local bookPosition = position(655, 315, 0)
 
 function M.UseItem(user, sourceItem)
 
+    if citizenLedger.isCitizenLedger(sourceItem) then
+        return citizenLedger.UseItem(user, sourceItem)
+    end
+
     if sourceItem.pos ~= bookPosition then
         return
     end
@@ -566,6 +571,10 @@ function M.UseItem(user, sourceItem)
 end
 
 function M.LookAtItem(user, item)
+
+    if citizenLedger.isCitizenLedger(item) then
+        return citizenLedger.LookAtItem(user, item)
+    end
 
     local lookAt = lookat.GenerateLookAt(user, item)
     if item.pos == bookPosition then

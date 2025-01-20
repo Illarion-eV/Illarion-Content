@@ -33,8 +33,9 @@ categoryId[gems.OBSIDIAN] = magicgemming:addCategory("Obsidian", "Obsidian")
 categoryId[gems.SAPPHIRE] = magicgemming:addCategory("Sapphire", "Saphir")
 categoryId[gems.AMETHYST] = magicgemming:addCategory("Amethyst", "Amethyst")
 categoryId[gems.TOPAZ] = magicgemming:addCategory("Topaz", "Topas")
+categoryId[gems.DIAMOND] = magicgemming:addCategory("Diamond", "Diamant")
 
-for gem = 1, 7 do
+for gem = 1, 8 do
     local catId = categoryId[gem]
     if catId then
         for level = 2, 10 do

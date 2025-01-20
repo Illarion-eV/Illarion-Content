@@ -833,280 +833,18 @@ function weather(user, SourceItem)
     world:setWeather(currWeather)
 end
 
-
-local function String2Number(str)
-    if (string.find(str, "(%d+)") ~= nil) then
-        local _,_,num = string.find(str, "(%d+)")
-        if (num~="") then
-            num = tonumber(num)
-            return num, true
-        end
-    end
-    return 0, false
-end
-
-local function guardInfo(chosenPlayer)
-    local guardModes = {"None","Passive","Hostile","Aggressive","Let always pass"}
-    local myInfoText = "\nIndividual guard mode:"
-
-    local days, setTime = chosenPlayer:getQuestProgress(192)
-    local daysInSec = (days/3)*24*60*60
-    if days ~= 0 then
-        if (world:getTime("unix") - setTime >= daysInSec) then
-            days = nil
-        else
-            days = math.ceil(((((daysInSec - (world:getTime("unix") - setTime))/60)/60)*3)/24)
-        end
-    end
-    if days == 0 then
-        myInfoText = myInfoText.."\nCadomyr: "..guardModes[chosenPlayer:getQuestProgress(191)+1].." (permanent)"
-    elseif days == nil then
-        myInfoText = myInfoText.."\nCadomyr: None (permanent)"
-    else
-        myInfoText = myInfoText.."\nCadomyr: "..guardModes[chosenPlayer:getQuestProgress(191)+1].." ("..days.." days left)"
-    end
-
-    days, setTime = chosenPlayer:getQuestProgress(194)
-    daysInSec = (days/3)*24*60*60
-    if days ~= 0 then
-        if  (world:getTime("unix") - setTime >= daysInSec) then
-            days = nil
-        else
-            days = math.ceil(((((daysInSec - (world:getTime("unix") - setTime))/60)/60)*3)/24)
-        end
-    end
-    if days == 0 then
-        myInfoText = myInfoText.."\nRunewick: "..guardModes[chosenPlayer:getQuestProgress(193)+1].." (permanent)"
-    elseif days == nil then
-        myInfoText = myInfoText.."\nRunewick: None (permanent)"
-    else
-        myInfoText = myInfoText.."\nRunewick: "..guardModes[chosenPlayer:getQuestProgress(193)+1].." ("..days.." days left)"
-    end
-
-    days, setTime = chosenPlayer:getQuestProgress(196)
-    daysInSec = (days/3)*24*60*60
-    if days ~= 0 then
-        if  (world:getTime("unix") - setTime >= daysInSec) then
-            days = nil
-        else
-            days = math.ceil(((((daysInSec - (world:getTime("unix") - setTime))/60)/60)*3)/24)
-        end
-    end
-    if days == 0 then
-        myInfoText = myInfoText.."\nGalmair: "..guardModes[chosenPlayer:getQuestProgress(195)+1].." (permanent)"
-    elseif days == nil then
-        myInfoText = myInfoText.."\nGalmair: None (permanent)"
-    else
-        myInfoText = myInfoText.."\nGalmair: "..guardModes[chosenPlayer:getQuestProgress(195)+1].." ("..days.." days left)"
-    end
-
-    return myInfoText
-end
-
-local function changeRankpoints(user, modifier, value, faction, radius)
-    --check if the points shall be added or removed
-    local text
-
-    if modifier == "add" then
-        text = "added"
-    elseif modifier == "sub" then
-        text = "removed"
-        value = -value
-    else
-        return
-    end
-    if radius == nil then
-        radius = 5
-    end
-    local player_list = world:getPlayersInRangeOf(user.pos, radius)
-    if player_list[1]~=nil then
-        for i=1, #(player_list) do
-            local Factionvalues = factions.getFaction(player_list[i])
-            if faction == nil or faction == 99 then
-                factions.setRankpoints(player_list[i], tonumber(Factionvalues.rankpoints)+value)
-                user:inform("You just "..text.." "..value.." rankpoints to everyone in a radius of ".. radius.." ("..player_list[i].name..").")
-                user:logAdmin(text .. " " .. value .. " rankpoints to character " .. player_list[i].name)
-            elseif tonumber(faction) == tonumber(Factionvalues.tid) then
-                factions.setRankpoints(player_list[i], tonumber(Factionvalues.rankpoints)+value)
-                user:inform("You just "..text.." "..value.." rankpoints to "..player_list[i].name.." of the faction "..factions.getTownNameByID(Factionvalues.tid).." in a radius of ".. radius..".")
-                user:logAdmin(text .. " " ..value.. " rankpoints to character " .. player_list[i].name .. " of the faction " .. factions.getTownNameByID(Factionvalues.tid))
-            end
-        end
-    end
-end
-
-local function changeRankpointsInRadius(user)
-    local cbRadius = function (dialog)
-        if (not dialog:getSuccess()) then
-            return
-        end
-        local inputString = dialog:getInput()
-        if (string.find(inputString,"(%a+) (%d+) (%d+) (%d+)") ~= nil) then
-            local _, _, modifier,value,faction,radius = string.find(inputString,"(%a+) (%d+) (%d+) (%d+)")
-            value=tonumber(value)
-            faction=tonumber(faction)
-            radius=tonumber(radius)
-            changeRankpoints(user,modifier,value,faction,radius)
-        elseif (string.find(inputString,"(%a+) (%d+) (%d+)") ~= nil) then
-            local _, _, modifier,value,faction,radius = string.find(inputString,"(%a+) (%d+) (%d+)")
-            faction=tonumber(faction)
-            value=tonumber(value)
-            changeRankpoints(user,modifier,value,faction,radius)
-        elseif (string.find(inputString,"(%a+) (%d+)") ~= nil) then
-            local _, _, modifier,value,faction,radius = string.find(inputString,"(%a+) (%d+)")
-            value=tonumber(value)
-            changeRankpoints(user,modifier,value,faction,radius)
-        else
-            user:inform("Sorry, I didn't understand you.")
-            changeRankpointsInRadius(user) -- re-call dialog
-        end
-    end
-    local idChange = InputDialog("Add/Subtract rankpoints in radius", "Usage: <modifier> <value> <faction> <radius>\nPossible values:\nmodifier: <add|sub> \nfaction: <1|2|3|99|nil> (= cadomyr|runewick|galmair|all|all)\nradius: <1|2|...|nil> (nil means default: 5)", false, 255, cbRadius)
-    user:requestInputDialog(idChange)
-end
-
 function factionHandling(user, SourceItem)
 
     local cbFaction = function (dialog)
-        if (not dialog:getSuccess()) then
+
+        if not dialog:getSuccess() then
             return
         end
-        local index = dialog:getSelectedIndex()
-        if (index == 0) then -- get/set for specific player
-            local playersTmp = world:getPlayersInRangeOf(user.pos, 25)
-            local players = {user}
-            for _,player in pairs(playersTmp) do
-                if (player.id ~= user.id) then
-                    table.insert(players, player)
-                end
-            end
-            local cbChoosePlayer = function (subdialog)
-                if (not subdialog:getSuccess()) then
-                    return
-                end
-                local chosenPlayer = players[subdialog:getSelectedIndex()+1]
-                local faction = factions.getFaction(chosenPlayer)
-                local cbSetFactionValue = function (subsubdialog)
-                    if (not subsubdialog:getSuccess()) then
-                        return
-                    end
-                    local ind = subsubdialog:getSelectedIndex()
-                    -- change town
-                    if (ind < 4) then
-                        faction.tid = ind
-                        faction.rankpoints = 0
-                        factions.setFaction(chosenPlayer, faction)
-                        user:logAdmin("changes faction of character " .. chosenPlayer.name .. " to " .. factions.getMembershipByName(chosenPlayer))
-                    --change towncount
-                    elseif (ind == 4) then
-                        local cbSetCount = function (subsubsubdialog)
-                            if (not subsubsubdialog:getSuccess()) then
-                                return
-                            end
-                            local countValue, okay = String2Number(subsubsubdialog:getInput())
-                            if (not okay) then
-                                user:inform("no number")
-                                return
-                            end
-                            local oldValue = faction.towncnt
-                            faction.towncnt = countValue
-                            factions.setFaction(chosenPlayer, faction)
-                            user:logAdmin("changes town count of character " .. chosenPlayer.name .. " from " .. oldValue .. " to " .. countValue)
-                        end
-                        user:requestInputDialog(InputDialog("Set town count", "", false, 255, cbSetCount))
-                    --change the rankpoints
-                    elseif (ind == 5) then
-                        local cbSetRank = function (subsubsubdialog)
-                            if (not subsubsubdialog:getSuccess()) then
-                                return
-                            end
-                            local rankpoints, okay = String2Number(subsubsubdialog:getInput())
-                            if (not okay) then
-                                user:inform("no number")
-                                return
-                            end
-                            if factions.getMembership(chosenPlayer) > 0 and factions.getMembership(chosenPlayer) < 4 then
-                                local oldValue = faction.rankpoints
-                                factions.setRankpoints(chosenPlayer, rankpoints)
-                                user:logAdmin("changes rankpoints of character " .. chosenPlayer.name .. " from " .. oldValue .. " to " .. rankpoints)
-                            else
-                                user:inform("Player does not belong to any faction. Rankpoints not changed.")
-                            end
-                        end
-                        user:requestInputDialog(InputDialog("Set rankpoints", "Every 100 points there is a new rank.\nE.g. 300-399 points is rank 4.\nThere are 7 normal and 3 special ranks plus the leader.", false, 255, cbSetRank))
-                    --change special rank
-                    elseif (ind == 6) then
-                        local cbSetSpecialRank = function (subsubsubdialog)
-                            if (not subsubsubdialog:getSuccess()) then
-                                return
-                            end
-                            local _, oldRank = factions.getRank(chosenPlayer, true)
-                            local success
-                            local subindex = subsubsubdialog:getSelectedIndex()
-                            if subindex == 0 then -- demoting
-                                success = factions.setSpecialRank(chosenPlayer, 0)
-                            else -- promoting
-                                success = factions.setSpecialRank(chosenPlayer, factions.highestRank+tonumber(subindex))
-                            end
 
-                            if success == false and factions.getRankpoints(chosenPlayer) < (factions.highestRank-1)*100 then
-                                user:inform("Rangchange failed. Player has not enough rankpoints. Current rankpoints: "..factions.getRankpoints(chosenPlayer))
-                            elseif success == true then
-                                user:inform("Rankchange for "..chosenPlayer.name.." successful.")
-                                local _, newRank = factions.getRank(chosenPlayer, true)
-                                user:logAdmin("changes special rank of character " .. chosenPlayer.name .. " from " .. oldRank .. " to " .. newRank)
-                            else
-                                user:inform("Rangchange failed for unknown reasons. Please inform a developer.")
-                            end
-                    end
-
-                    local infoText = ""
-                    local sd = SelectionDialog("Special rank", infoText, cbSetSpecialRank)
-                    sd:addOption(0, "Demote")
-                    sd:addOption(0, "Promote to "..factions.getRankName(chosenPlayer, 8))
-                    sd:addOption(0, "Promote to "..factions.getRankName(chosenPlayer, 9))
-                    sd:addOption(0, "Promote to "..factions.getRankName(chosenPlayer, 10))
-                    user:requestSelectionDialog(sd)
-                end
-             end
-
-            --general faction part
-            local infoText = "Town: " .. factions.getMembershipByName(chosenPlayer)
-            infoText = infoText .. "\nChanged towns already (town count): " .. faction.towncnt
-            if (factions.townRanks[faction.tid] ~= nil and factions.townRanks[faction.tid][faction.rankTown] ~= nil) then
-                local germanRank, englishRank = factions.getRank(chosenPlayer, true)
-                infoText = infoText .. "\nRank: " .. englishRank .. "/" .. germanRank
-            else
-                infoText = infoText .. "\nRank: no rank " .. faction.rankTown
-            end
-            infoText = infoText .. "\nExact rankpoints: " .. faction.rankpoints
-            infoText = infoText .. guardInfo(chosenPlayer)
-            local sd = SelectionDialog("Set faction value", infoText, cbSetFactionValue)
-            sd:addOption(0, "Change town to None")
-            sd:addOption(0, "Change town to Cadomyr")
-            sd:addOption(0, "Change town to Runewick")
-            sd:addOption(0, "Change town to Galmair")
-            sd:addOption(0, "Change town count")
-            sd:addOption(0, "Change rankpoints")
-            sd:addOption(0, "Change special rank")
-            user:requestSelectionDialog(sd)
-            end
-
-            --general playerchoosing part
-            local sd = SelectionDialog("Get/Set faction values for ...", "First choose a player:", cbChoosePlayer)
-            local raceNames = {"Human", "Dwarf", "Halfling", "Elf", "Orc", "Lizardman", "Other"}
-            for _,player in ipairs(players) do
-                local race = math.min(player:getRace()+1, #raceNames)
-                sd:addOption(0,player.name .. " (" .. raceNames[race] .. ") " .. player.id)
-            end
-            user:requestSelectionDialog(sd)
-
-        -- rankpoints in radius
-        elseif (index == 1) then
-            changeRankpointsInRadius(user)
+        local index = dialog:getSelectedIndex() + 1
 
         -- guard modes
-        elseif (index == 2) then
+        if (index == 1) then
             local factionIds = {0,1,2,3}
             local cbFirstFaction = function (subdialog)
                 if (not subdialog:getSuccess()) then
@@ -1153,7 +891,7 @@ function factionHandling(user, SourceItem)
             user:requestSelectionDialog(sd)
 
         -- licence
-        elseif (index == 3) then
+        elseif (index == 2) then
             local factionIds = {0,1,2,3}
             local cbFirstLicence = function (subdialog)
                 if (not subdialog:getSuccess()) then
@@ -1194,13 +932,11 @@ function factionHandling(user, SourceItem)
                 sd:addOption(0,factions.getTownNameByID(f))
             end
             user:requestSelectionDialog(sd)
-        elseif index == 4 then
+        elseif index == 3 then
             scheduledRankChanges(user)
         end
     end
     local sd = SelectionDialog("What do you want to do about factions?", "", cbFaction)
-    sd:addOption(0,"Get/Set faction values for ...")
-    sd:addOption(0,"Add/Subtract rankpoints in radius")
     sd:addOption(0,"Get/Set guard modes")
     sd:addOption(0,"Get/Set licence")
     sd:addOption(0,"Schedule Rank Change Of Offline Player")

@@ -602,60 +602,26 @@ local function teleporter(user,item)
     user:requestSelectionDialog(sdTeleport)
 end
 
-local function factionInfoOfCharsInRadius(user)
-
-    local players = world:getPlayersInRangeOf(user.pos, 40)
-    local infos = ""
-    local germanRank, englishRank
-
-    for _, player in ipairs(players) do
-        germanRank, englishRank = factions.getRank(player, true)
-        if germanRank == nil or englishRank == nil then
-            germanRank = "Vogelfrei"
-            englishRank = "Outlaw"
-        end
-        infos = infos..player.name.." - "..englishRank.."/"..germanRank.." - "..factions.getRankpoints(player).."\n"
-    end
-    local mDialog = MessageDialog("Factioninformation", infos, nil)
-    user:requestMessageDialog(mDialog)
-end
-
 local function charInfo(chosenPlayer)
-    local faction = factions.getFaction(chosenPlayer)
-    local factionInfo = "Town: " .. factions.getMembershipByName(chosenPlayer)
-    factionInfo = factionInfo .. " - already " .. faction.towncnt .. " x changed"
-    if (factions.townRanks[faction.tid] ~= nil and factions.townRanks[faction.tid][faction.rankTown] ~= nil) then
-        local germanRank, englishRank = factions.getRank(chosenPlayer, true)
-        factionInfo = factionInfo .. "\nRank: " .. englishRank .. "/" .. germanRank
-    else
-        factionInfo = factionInfo .. "\nRank: no rank " .. faction.rankTown
-    end
-    factionInfo = factionInfo .. "  Rankpoints: " .. faction.rankpoints
-    local output = "HP: "..chosenPlayer:increaseAttrib("hitpoints", 0).." MP: "..chosenPlayer:increaseAttrib("mana", 0).." FL: "..chosenPlayer:increaseAttrib("foodlevel", 0).."\nMC: "..chosenPlayer:getMentalCapacity()..
-            "\nSTR: "..chosenPlayer:increaseAttrib("strength", 0).." CON: "..chosenPlayer:increaseAttrib("constitution", 0).." DEX: "..chosenPlayer:increaseAttrib("dexterity", 0).." AGI: "..chosenPlayer:increaseAttrib("agility", 0)..
-            "\nINT: "..chosenPlayer:increaseAttrib("intelligence", 0).." WIL: "..chosenPlayer:increaseAttrib("willpower", 0).." PERC: "..chosenPlayer:increaseAttrib("perception", 0).." ESS: "..chosenPlayer:increaseAttrib("essence", 0)..
-            "\nAge: " ..tostring(chosenPlayer:increaseAttrib("age", 0)) ..
-            "\nIdle for [s]: "..tostring(chosenPlayer:idleTime()) ..
-            "\n" .. factionInfo
 
-    local godInfo = gods.getCharStatusEn(chosenPlayer)
-    output = output .. "\nReligion: " .. godInfo
-
+    local output = "Health Points: "..tostring(chosenPlayer:increaseAttrib("hitpoints", 0)).."\nMana Points: "..tostring(chosenPlayer:increaseAttrib("mana", 0))..
+    "\nFood Points: "..tostring(chosenPlayer:increaseAttrib("foodlevel", 0)).."\nAge: " ..tostring(chosenPlayer:increaseAttrib("age", 0)) ..
+            "\nIdle time: "..tostring(chosenPlayer:idleTime()) .." seconds"
     local specialInfo = ""
     if chosenPlayer:isAdmin() then
-        specialInfo = specialInfo .. "is admin"
+        specialInfo = specialInfo .. "This character is an admin."
     end
     if not chosenPlayer:getClippingActive() then
         if not common.IsNilOrEmpty(specialInfo) then
             specialInfo = specialInfo .. " - "
         end
-        specialInfo = specialInfo .. "can pass walls"
+        specialInfo = specialInfo .. "Clipping is active, this character can pass through solid objects."
     end
     if chosenPlayer:isNewPlayer() then
         if not common.IsNilOrEmpty(specialInfo) then
             specialInfo = specialInfo .. " - "
         end
-        specialInfo = specialInfo .. "is new player"
+        specialInfo = specialInfo .. "The character is a new player"
     end
     if not common.IsNilOrEmpty(specialInfo) then
         output = output .. "\n" .. specialInfo
@@ -1691,6 +1657,233 @@ local function sendTalkToMessage(user, chosenPlayer)
 
 end
 
+local function changeRank(user, player, currentPoints)
+
+    local rankList = "\nRanks:"
+
+    for _, rank in pairs(factions.ticksPerRank) do
+        rankList = rankList.."\nRank "..rank.rank..": "..rank.ticks.." points."
+    end
+
+    local callback = function (dialog)
+
+        if not dialog:getSuccess() then
+            return
+        end
+
+        local input = dialog:getInput()
+
+        if (string.find(input,"(%d+)") ~= nil) then
+
+            local _, _, rankPoints = string.find(input,"(%d+)")
+
+            if common.IsNilOrEmpty(rankPoints) or tonumber(rankPoints) < 0 then
+                user:inform("Input must be a number above 0.")
+                return
+            end
+
+            rankPoints = tonumber(rankPoints)
+
+            local formerRankPoints = player:getQuestProgress(factions.rankTrackerQuestID)
+
+            local formerRank = factions.convertTicksToRankNumber(formerRankPoints)
+
+            local newRank = factions.convertTicksToRankNumber(rankPoints)
+
+            local newRankDe, newRankEn = factions.getRankName(player, newRank, true)
+
+            if newRank == formerRank then
+                if formerRankPoints == rankPoints then
+                    -- no change was made
+                    return
+                elseif formerRankPoints < rankPoints then
+                    --You gained favour but not a rank up
+                    player:inform("Du hast Ansehen in deinem Reich gewonnen.", "You gained favour in your realm.")
+                elseif formerRankPoints > rankPoints then
+                    -- You lost favour!
+                    player:inform("Du hast Ansehen in deinem Reich verloren.", "You lost favour in your realm.")
+                end
+            elseif newRank > formerRank then
+                -- You got promoted!
+                player:inform("Du wurdest befördert! Du bist jetzt ein/e "..newRankDe..".", "You were promoted! You are now a "..newRankEn..".")
+
+            elseif newRank < formerRank then
+                -- You got demoted! :(
+                player:inform("Du wurdest degradiert! Du bist jetzt ein/e "..newRankDe..".", "You were demoted! You are now a "..newRankEn..".")
+            end
+
+            player:setQuestProgress(factions.rankTrackerQuestID, tonumber(rankPoints))
+            user:inform("Rank change for "..player.name.." successful.")
+            user:logAdmin(" changed the rank of character " .. player.name .. "("..player.id..") from " .. currentPoints .. " to " .. rankPoints)
+            factions.updateEntry(player)
+        else
+            user:inform("The input must be a number.")
+        end
+    end
+
+    user:requestInputDialog(InputDialog("Set rank points", "Current rank/points for "..player.name..": "..currentPoints..rankList ,false, 255, callback))
+end
+
+local function setSpecialRank(user, player)
+
+    local isOutlaw = player:getQuestProgress(199) == 0
+
+    local rank = factions.getRankAsNumber(player)
+
+    local ranks = {0, 8, 9, 10}
+
+    local callback = function (dialog)
+
+        if not dialog:getSuccess() then
+            return
+        end
+
+        local index = dialog:getSelectedIndex() + 1
+
+        if factions.setSpecialRank(player, ranks[index]) then
+            if ranks[index] == 0 then
+                user:logAdmin(" removed special rank from ".. player.name .. "("..player.id..")")
+            else
+                user:logAdmin(" changed the special rank of character " .. player.name .. "("..player.id..") to "..factions.getRankName(player, ranks[index]))
+            end
+            factions.updateEntry(player)
+        end
+
+    end
+
+    local belowRank7Warning = ""
+
+    if rank < 7 then
+        belowRank7Warning = "\nWARNING: This player has not achieved rank 7 yet. Are you sure you want to make them a player leader?"
+    end
+
+    local dialog = SelectionDialog("Special Ranks", "The user is currently rank "..rank..", what rank do you want to assign them?"..belowRank7Warning, callback)
+
+
+    dialog:addOption(0, "Remove special rank status")
+
+    if not isOutlaw then
+        for _, theRank in pairs(ranks) do
+            if theRank ~= 0 then
+                dialog:addOption(0,factions.getRankName(player, theRank))
+            end
+        end
+    end
+
+    user:requestSelectionDialog(dialog)
+
+end
+
+local function changeFaction(user, chosenPlayer)
+
+    local faction = factions.getFaction(chosenPlayer)
+
+    local callback = function(dialog)
+        if dialog:getSuccess() then
+            local index = dialog:getSelectedIndex() +1
+            if index == 1 then
+                faction.tid = factions.cadomyr
+            elseif index == 2 then
+                faction.tid = factions.runewick
+            elseif index == 3 then
+                faction.tid = factions.galmair
+            elseif index == 4 then
+                faction.tid = factions.outlaw
+            end
+            faction.rankpoints = 0
+            faction.towncnt = faction.towncnt + 1
+            factions.setFaction(chosenPlayer, faction)
+            factions.setSpecialRank(chosenPlayer, 0)
+            user:logAdmin(" changed faction of character " .. chosenPlayer.name .. "("..chosenPlayer.id..") to " .. factions.getMembershipByName(chosenPlayer))
+            user:inform("You succesfully changed the faction of character "..chosenPlayer.name.." to "..factions.getMembershipByName(chosenPlayer))
+        end
+    end
+
+    local dialog = SelectionDialog("Faction change", "Select which faction you want "..chosenPlayer.name.." to be changed to. This also resets rank points and special rank status.", callback)
+
+    dialog:addOption(0,"Cadomyr")
+    dialog:addOption(0,"Runewick")
+    dialog:addOption(0,"Galmair")
+    dialog:addOption(0,"Outlaw")
+
+    user:requestSelectionDialog(dialog)
+
+end
+
+local function guardInfo(chosenPlayer)
+    local guardModes = {"None","Passive","Hostile","Aggressive","Let always pass"}
+    local myInfoText = "\nIndividual guard mode:"
+
+    local days, setTime = chosenPlayer:getQuestProgress(192)
+    local daysInSec = (days/3)*24*60*60
+    if days ~= 0 then
+        if (world:getTime("unix") - setTime >= daysInSec) then
+            days = nil
+        else
+            days = math.ceil(((((daysInSec - (world:getTime("unix") - setTime))/60)/60)*3)/24)
+        end
+    end
+    if days == 0 then
+        myInfoText = myInfoText.."\nCadomyr: "..guardModes[chosenPlayer:getQuestProgress(191)+1].." (permanent)"
+    elseif days == nil then
+        myInfoText = myInfoText.."\nCadomyr: None (permanent)"
+    else
+        myInfoText = myInfoText.."\nCadomyr: "..guardModes[chosenPlayer:getQuestProgress(191)+1].." ("..days.." days left)"
+    end
+
+    days, setTime = chosenPlayer:getQuestProgress(194)
+    daysInSec = (days/3)*24*60*60
+    if days ~= 0 then
+        if  (world:getTime("unix") - setTime >= daysInSec) then
+            days = nil
+        else
+            days = math.ceil(((((daysInSec - (world:getTime("unix") - setTime))/60)/60)*3)/24)
+        end
+    end
+    if days == 0 then
+        myInfoText = myInfoText.."\nRunewick: "..guardModes[chosenPlayer:getQuestProgress(193)+1].." (permanent)"
+    elseif days == nil then
+        myInfoText = myInfoText.."\nRunewick: None (permanent)"
+    else
+        myInfoText = myInfoText.."\nRunewick: "..guardModes[chosenPlayer:getQuestProgress(193)+1].." ("..days.." days left)"
+    end
+
+    days, setTime = chosenPlayer:getQuestProgress(196)
+    daysInSec = (days/3)*24*60*60
+    if days ~= 0 then
+        if  (world:getTime("unix") - setTime >= daysInSec) then
+            days = nil
+        else
+            days = math.ceil(((((daysInSec - (world:getTime("unix") - setTime))/60)/60)*3)/24)
+        end
+    end
+    if days == 0 then
+        myInfoText = myInfoText.."\nGalmair: "..guardModes[chosenPlayer:getQuestProgress(195)+1].." (permanent)"
+    elseif days == nil then
+        myInfoText = myInfoText.."\nGalmair: None (permanent)"
+    else
+        myInfoText = myInfoText.."\nGalmair: "..guardModes[chosenPlayer:getQuestProgress(195)+1].." ("..days.." days left)"
+    end
+
+    return myInfoText
+end
+
+local function viewGuardInfo(user, chosenPlayer)
+
+    local callback = function(nothing) end --empty callback
+    local dialog = MessageDialog(chosenPlayer.name.."'s guard status", guardInfo(chosenPlayer), callback)
+    user:requestMessageDialog(dialog) --showing the text
+
+end
+
+local function viewActivity(user, chosenPlayer, activityList)
+
+    local callback = function(nothing) end --empty callback
+    local dialog = MessageDialog(chosenPlayer.name.."'s monthly activity", "Active time is any time spent not idle, not limited to RP.\n\n"..activityList, callback)
+    user:requestMessageDialog(dialog) --showing the text
+
+end
+
 local function viewActivityForPlayer(user, chosenPlayer)
 
     local textToList = ""
@@ -1698,6 +1891,7 @@ local function viewActivityForPlayer(user, chosenPlayer)
     local activityTrackerID = 84
     local found, tracker = chosenPlayer.effects:find(activityTrackerID)
     local totalTicks = 0
+    local activityList = ""
 
     for i = 1, 16 do --check each month
 
@@ -1716,12 +1910,14 @@ local function viewActivityForPlayer(user, chosenPlayer)
 
         totalTicks = totalTicks + activeTicks
 
-        textToList = textToList.."Month "..monthInString..": "..tostring(activeTicks*5).." minutes.\n"
+        activityList = activityList.."Month "..monthInString..": "..tostring(activeTicks*5).." minutes.\n"
     end
 
-    textToList = textToList.."\n Total activity over the past IG year: "..tostring(totalTicks*5).." minutes."
+    textToList = textToList.."\n Total activity past IG year: "..tostring(totalTicks*5).." minutes."
 
     local interactionTicks = chosenPlayer:getQuestProgress(activityTracker.reputationTrackerQuestID)
+
+    local rankTicks = chosenPlayer:getQuestProgress(activityTracker.rankTrackerQuestID)
 
     if found then
         local foundInteractionsForSession, interactionsForSession = tracker:findValue("sessionInteractionTime")
@@ -1731,19 +1927,215 @@ local function viewActivityForPlayer(user, chosenPlayer)
         end
     end
 
-    textToList = textToList.."\nReputation points: "..interactionTicks.." \nReputation rank: TBD"
+    if found then
+        local foundRankPointsForSession, rankPointsForSession = tracker:findValue("sessionRankTime")
 
-    if chosenPlayer:isAdmin() then
-        textToList = "Admin activity is not tracked."
+        if foundRankPointsForSession then
+            rankTicks = rankTicks + rankPointsForSession
+        end
     end
 
-    local messageCallback = function(messageDialog)
+    local rankNumber = factions.getRankAsNumber(chosenPlayer)
+
+    local factionName = factions.getMembershipByName(chosenPlayer)
+
+    local rank = factions.getRank(chosenPlayer)
+
+    if factionName == "None" then
+        rank = "Outlaw"
     end
 
-    local messageDialog = MessageDialog(chosenPlayer.name.." activity:", textToList, messageCallback)
+    local faction = factions.getFaction(chosenPlayer)
+    local townChanges = "Town changes: "..faction.towncnt
 
-    user:requestMessageDialog(messageDialog)
+    textToList = textToList.."\nFaction: "..factionName
+    textToList = textToList.."\nRank title: "..rank
+    textToList = textToList.."\nRank number: "..rankNumber
+    textToList = textToList.."\nReputation points: "..interactionTicks
+    textToList = textToList.."\nRank points: "..rankTicks
+    textToList = textToList.."\n"..townChanges
 
+    local callback = function (dialog)
+
+        if not dialog:getSuccess() then
+            return
+        end
+
+        local index = dialog:getSelectedIndex() + 1
+
+        if index == 1 then
+            setSpecialRank(user, chosenPlayer)
+        elseif index == 2 then
+            changeRank(user, chosenPlayer, rankTicks)
+        elseif index == 3 then
+            changeFaction(user, chosenPlayer)
+        elseif index == 4 then
+            viewActivity(user, chosenPlayer, activityList)
+        elseif index == 5 then
+            viewGuardInfo(user, chosenPlayer)
+        end
+    end
+
+    local dialog = SelectionDialog(chosenPlayer.name.." faction and activity overview", textToList, callback)
+
+    dialog:addOption(0, "Set special rank")
+    dialog:addOption(0, "Change regular rank")
+    dialog:addOption(0, "Change faction")
+    dialog:addOption(0, "View Monthly Activity")
+    dialog:addOption(0, "View Guard Status")
+
+    user:requestSelectionDialog(dialog)
+
+end
+
+local function immunities(user, chosenPlayer)
+
+    local callback = function (dialog)
+
+        if (not dialog:getSuccess()) then
+            return
+        end
+
+        local index = dialog:getSelectedIndex() +1
+
+        if index == 1 then
+            settingsForCharAttacableLimited(user, chosenPlayer)
+        elseif index == 2 then
+            settingsForCharAttacableForever(user, chosenPlayer)
+        elseif index == 3 then
+            settingsForCharFireProof(user, chosenPlayer)
+        elseif index == 4 then
+            settingsForCharIceFlameProof(user, chosenPlayer)
+        elseif index == 5 then
+            settingsForCharPoisonCloudProof(user, chosenPlayer)
+        end
+    end
+
+    local dialog = SelectionDialog("Immunities", "Select which immunity you want to alter for "..chosenPlayer.name..".", callback)
+
+    if chosenPlayer:getQuestProgress(236) == 0 then
+        dialog:addOption(20,"Make 15 min attack proof!")
+    else
+        dialog:addOption(1,"Remove time limited  attack proof! (" .. tostring(chosenPlayer:getQuestProgress(236)*5) .. "min)")
+    end
+    if chosenPlayer:getQuestProgress(36) == 0 then
+        dialog:addOption(20,"Make for ever attack proof!")
+    else
+        dialog:addOption(1,"Remove indefinite attack proof!")
+    end
+    if chosenPlayer:getQuestProgress(298) == 0 then
+        dialog:addOption(52,"Make 15 min fire proof!")
+    else
+        dialog:addOption(51,"Remove fire proof!")
+    end
+    if chosenPlayer:getQuestProgress(299) == 0 then
+        dialog:addOption(193,"Make 15 min ice flame proof!")
+    else
+        dialog:addOption(180,"Remove ice flame proof!")
+    end
+    if chosenPlayer:getQuestProgress(300) == 0 then
+        dialog:addOption(167,"Make 15 min poison cloud proof!")
+    else
+        dialog:addOption(164,"Remove poison cloud proof!")
+    end
+
+    user:requestSelectionDialog(dialog)
+end
+
+local function magicOptions(user, chosenPlayer)
+
+    local callback = function (dialog)
+
+        if (not dialog:getSuccess()) then
+            return
+        end
+
+        local index = dialog:getSelectedIndex() +1
+
+        if index == 1 then
+            settingsForCharMagicClass(user, chosenPlayer)
+        elseif index == 2 then
+            settingsForCharReligion(user, chosenPlayer)
+        elseif index == 3 then
+            settingsForMagic(user, chosenPlayer)
+        end
+    end
+
+
+    local godInfo = gods.getCharStatusEn(chosenPlayer)
+    local output = "Religion: " .. godInfo
+
+    local dialog = SelectionDialog("Magic", output, callback)
+
+    dialog:addOption(2784,"Set magic class")
+
+    dialog:addOption(1060, "Religion")
+
+    dialog:addOption(323, "Arcane")
+
+    user:requestSelectionDialog(dialog)
+end
+
+local function attributesAndLearning(user, chosenPlayer)
+
+    local callback = function (dialog)
+
+        if (not dialog:getSuccess()) then
+            return
+        end
+
+        local index = dialog:getSelectedIndex() +1
+
+        if index == 1 then
+            settingsForCharSkills(user, chosenPlayer)
+        elseif index == 2 then
+            settingsForCharAttributes(user, chosenPlayer)
+        elseif index == 3 then
+            settingsForCharMC(user, chosenPlayer)
+        end
+    end
+
+    local output = "MC: "..chosenPlayer:getMentalCapacity()..
+            "\nStrength: "..chosenPlayer:increaseAttrib("strength", 0)..", Constitution: "..chosenPlayer:increaseAttrib("constitution", 0)..
+            "\nDexterity: "..chosenPlayer:increaseAttrib("dexterity", 0)..", Agility: "..chosenPlayer:increaseAttrib("agility", 0)..
+            "\nIntelligence: "..chosenPlayer:increaseAttrib("intelligence", 0)..", Willpower: "..chosenPlayer:increaseAttrib("willpower", 0)..
+            "\nPerception: "..chosenPlayer:increaseAttrib("perception", 0)..", Essence: "..chosenPlayer:increaseAttrib("essence", 0)
+
+    local dialog = SelectionDialog("Attributes and learning", output, callback)
+
+    dialog:addOption(23,"Change skills")
+
+    dialog:addOption(93,"Set attributes")
+
+    dialog:addOption(106,"Set MC")
+
+    user:requestSelectionDialog(dialog)
+end
+
+local function sendMessage(user, chosenPlayer)
+
+    local callback = function (dialog)
+
+        if (not dialog:getSuccess()) then
+            return
+        end
+
+        local index = dialog:getSelectedIndex() +1
+
+        if index == 1 then
+            sendTalkToMessage(user, chosenPlayer)
+        elseif index == 2 then
+            sendGroupMessage(user, chosenPlayer)
+        end
+    end
+
+    local dialog = SelectionDialog("Message", "The message will show up as an inform to the recipient(s):\nExample:\nMessage for you: Hello this is your local GM speaking.", callback)
+
+    dialog:addOption(333, "Send a message to "..chosenPlayer.name)
+
+    dialog:addOption(333, "Send a message to "..chosenPlayer.name.." and anyone in a 25 tile range of "..chosenPlayer.name)
+
+    user:requestSelectionDialog(dialog)
 end
 
 local function settingsForChar(user)
@@ -1765,83 +2157,34 @@ local function settingsForChar(user)
             if (not subdialog:getSuccess()) then
                 return
             end
-            local actionToPerform = subdialog:getSelectedIndex()
-            if actionToPerform == 0 then
-                sendTalkToMessage(user, chosenPlayer)
-            elseif actionToPerform == 1 then
-                sendGroupMessage(user, chosenPlayer)
-            elseif actionToPerform == 2 then
+            local index = subdialog:getSelectedIndex() + 1
+            if index == 1 then
+                sendMessage(user, chosenPlayer)
+            elseif index == 2 then
                 settingsForCharQueststatus(user, chosenPlayer)
-            elseif actionToPerform == 3 then
+            elseif index == 3 then
                 viewActivityForPlayer(user, chosenPlayer)
-            elseif actionToPerform == 4 then
-                settingsForCharAttacableLimited(user, chosenPlayer)
-            elseif actionToPerform == 5 then
-                settingsForCharAttacableForever(user, chosenPlayer)
-            elseif actionToPerform == 6 then
-                settingsForCharSkills(user, chosenPlayer)
-            elseif actionToPerform == 7 then
-                settingsForCharMagicClass(user, chosenPlayer)
-            elseif actionToPerform == 8 then
-                settingsForCharMC(user, chosenPlayer)
-            elseif actionToPerform == 9 then
-                settingsForCharFireProof(user, chosenPlayer)
-            elseif actionToPerform == 10 then
-                settingsForCharIceFlameProof(user, chosenPlayer)
-            elseif actionToPerform == 11 then
-                settingsForCharPoisonCloudProof(user, chosenPlayer)
-            elseif actionToPerform == 12 then
-                settingsForCharAttributes(user, chosenPlayer)
-            elseif actionToPerform == 13 then
-                settingsForCharReligion(user, chosenPlayer)
-            elseif actionToPerform == 14 then
-                settingsForMagic(user, chosenPlayer)
+            elseif index == 4 then
+                attributesAndLearning(user, chosenPlayer)
+            elseif index == 5 then
+                magicOptions(user, chosenPlayer)
+            elseif index == 6 then
+                immunities(user, chosenPlayer)
             end
         end
         local sdAction = SelectionDialog("Character settings", chosenPlayer.name.."\n" .. charInfo(chosenPlayer), charActionDialog)
 
-        sdAction:addOption(333, "Send a message to "..chosenPlayer.name)
+        sdAction:addOption(333, "Send Message")
 
-        sdAction:addOption(333, "Send a message to "..chosenPlayer.name.." and anyone in a 25 tile range of "..chosenPlayer.name)
+        sdAction:addOption(3109,"Quest Status")
 
-        sdAction:addOption(3109,"Get/set Queststatus")
+        sdAction:addOption(1380, "Faction & activity")
 
-        sdAction:addOption(3109, "View Activity/Reputation")
-        if chosenPlayer:getQuestProgress(236) == 0 then
-            sdAction:addOption(20,"Make 15 min attack proof!")
-        else
-            sdAction:addOption(1,"Remove time limited  attack proof! (" .. tostring(chosenPlayer:getQuestProgress(236)*5) .. "min)")
-        end
-        if chosenPlayer:getQuestProgress(36) == 0 then
-            sdAction:addOption(20,"Make for ever attack proof!")
-        else
-            sdAction:addOption(1,"Remove indefinite attack proof!")
-        end
-        sdAction:addOption(23,"Change skills")
-        sdAction:addOption(2784,"Set magic class")
-        sdAction:addOption(106,"Set MC (mental capacity)")
-        if chosenPlayer:getQuestProgress(298) == 0 then
-            sdAction:addOption(52,"Make 15 min fire proof!")
-        else
-            sdAction:addOption(51,"Remove fire proof!")
-        end
-        if chosenPlayer:getQuestProgress(299) == 0 then
-            sdAction:addOption(193,"Make 15 min ice flame proof!")
-        else
-            sdAction:addOption(180,"Remove ice flame proof!")
-        end
-        if chosenPlayer:getQuestProgress(300) == 0 then
-            sdAction:addOption(167,"Make 15 min poison cloud proof!")
-        else
-            sdAction:addOption(164,"Remove poison cloud proof!")
-        end
-        sdAction:addOption(93,"Set attributes")
-
-        sdAction:addOption(1060, "Religion")
+        sdAction:addOption(2622, "Attributes & Learning")
 
         sdAction:addOption(1060, "Magic")
 
-
+        sdAction:addOption(20, "Immunities")
 
         user:requestSelectionDialog(sdAction)
     end
@@ -1961,20 +2304,18 @@ function M.UseItem(user, SourceItem, ltstate)
         elseif index == 8 then
             actionOnGroup(user, SourceItem)
         elseif index == 9 then
-            factionInfoOfCharsInRadius(user, SourceItem, ltstate)
-        elseif index == 10 then
             questEvents(user, SourceItem, ltstate)
-        elseif index == 11 then
+        elseif index == 10 then
             setuserTeleporter(user, SourceItem)
-        elseif index == 12 then
+        elseif index == 11 then
             setuserActionOnChar(user, SourceItem)
-        elseif index == 13 then
+        elseif index == 12 then
             setuserActionOnGroup(user, SourceItem)
-        elseif index == 14 then
+        elseif index == 13 then
             testArea(user)
-        elseif index == 15 then
+        elseif index == 14 then
             resetTutorial(user)
-        elseif index == 16 then
+        elseif index == 15 then
             changePersistence(user)
         end
     end

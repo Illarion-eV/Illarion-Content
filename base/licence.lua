@@ -80,7 +80,7 @@ end
 local function licenceCheck(char)
 
     local charIsOutlaw = factions.getMembership(char) == 0
-    local charIsRank1 = factions.getRankpoints(char) <= 99
+    local charIsRank1 = factions.getRankAsNumber(char) == 1
     local charIsNewPlayer = char:isNewPlayer()
     local charIsNewbieProtected = false
 
