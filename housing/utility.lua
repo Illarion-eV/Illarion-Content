@@ -1784,13 +1784,18 @@ function M.getRentDuration(item)
 end
 
 function M.reduceRentTimer()
+
     for i = 1, #propertyList.propertyTable do
+
         local property = propertyList.propertyTable[i][1]
         local propertyDeed = M.getPropertyDeed(property)
         local rentDuration = propertyDeed:getData("rentDuration")
-        if rentDuration ~= "" and tonumber(rentDuration) > 0 then
+
+        if not common.IsNilOrEmpty(rentDuration) and tonumber(rentDuration) > 0 then
+
             local rentExemption = propertyDeed:getData("indefiniteRent")
-            if rentExemption == "" then
+
+            if common.IsNilOrEmpty(rentExemption) then
                 rentExemption = 0
             end
 
@@ -1802,26 +1807,19 @@ function M.reduceRentTimer()
     end
 end
 
-function M.charOwnedDepotKeys(char, keyData)
+local function charOwnedDepotKeys(char, keyData, depot)
 
-    for i = 1, #M.depotList do
+    if depot and keyData then -- Checking for a specific key in a specific depot
+        return (depot:countItem(2558, keyData))+(depot:countItem(3054, keyData))+(depot:countItem(3055, keyData))+(depot:countItem(3056, keyData))
+    end
+
+    for i = 1, #M.depotList do -- We check all depot if keys exist at all
 
         local depNr = M.depotList[i]
-        local depot = char:getDepot(depNr)
+        depot = char:getDepot(depNr)
 
         if depot then
-            local ownedDepotKeys
-            if keyData then
-                ownedDepotKeys = (depot:countItem(2558, keyData))+(depot:countItem(3054, keyData))+(depot:countItem(3055, keyData))+(depot:countItem(3056, keyData))
-            else
-                ownedDepotKeys = (depot:countItem(2558))+(depot:countItem(3054))+(depot:countItem(3055))+(depot:countItem(3056))
-            end
-
-            if ownedDepotKeys >= 1 then
-                return ownedDepotKeys
-            else
-                return 0
-            end
+            return (depot:countItem(2558))+(depot:countItem(3054))+(depot:countItem(3055))+(depot:countItem(3056))
         end
     end
 end
@@ -1888,7 +1886,6 @@ function M.deleteKeys(char, inform)
                 local keyID = propertyList.propertyTable[i][6] --Fetch what lock the key belongs to
                 local keyType = propertyList.propertyTable[i][5] -- Fetch what type of key item it is
                 local keyAmount = char:countItemAt("all",keyType,{["lockId"]=keyID}) -- Fetch how many keys character has in inventory
-                local depotKeyAmount = M.charOwnedDepotKeys(char, {["lockId"]=keyID}) -- Fetch how many keys character has in depot
                 local keysDeleted = false
 
                 if keyAmount > 0 and deleteKey then
@@ -1902,7 +1899,9 @@ function M.deleteKeys(char, inform)
                     local depNr = M.depotList[depotIndex]
                     local depot = char:getDepot(depNr)
 
-                    if depot and depotKeyAmount ~= nil and deleteKey then
+                    local depotKeyAmount = charOwnedDepotKeys(char, {["lockId"]=keyID}, depot) -- Fetch how many keys character has in depot
+
+                    if depot and depotKeyAmount and deleteKey then
                         for z = 1, depotKeyAmount do
                             depot:eraseItem(keyType,1,{["lockId"]=keyID})
                             removedKeys = true --external check for any keys at all deleted so inform gets sent
@@ -1929,6 +1928,10 @@ function M.deleteKeys(char, inform)
 
     local listedPropertiesEn = convertTableIntoList(listOfPropertyNamesEn)
     local listedPropertiesDe = convertTableIntoList(listOfPropertyNamesDe)
+
+    if removedKeys then
+        log("Keys belonging to "..char.name.."("..char.id..") were confiscated for properties: "..listedPropertiesEn)
+    end
 
     if removedKeys and inform then
         if propertiesRemovedFrom == 1 and not outlaw then
@@ -2062,15 +2065,21 @@ function M.propertyInformation(user, deed)
         local germanText
         local englishText
 
+        local timeLeft = " in "..remainingDuration.." months."
+        local timeLeftDe = "in "..remainingDuration.." Monaten aus."
+
+        if tonumber(remainingDuration) == 1 then
+            timeLeft = " at the start of the next month."
+            timeLeftDe = " zu Beginn des nächsten Monats aus."
+        end
+
         local germanDefault = "An den aktuellen Bewohner von "..propertyDE..",\n die derzeitige Miete beträgt "..rentDE..
-        "\n Ohne zusätzliche Zahlungen, läuft das aktuelle Mietverhältnis in "..remainingDuration..
-        " Monaten aus.\nFür weitere Fragen oder Anmerkungen, wende dich an den Quartiermeister oder melde dich \z
+        "\n Ohne zusätzliche Zahlungen, läuft das aktuelle Mietverhältnis "..timeLeftDe.."\nFür weitere Fragen oder Anmerkungen, wende dich an den Quartiermeister oder melde dich \z
         bei der "..townLeaderTitleDE..
         ".\n~Unterzeichnet, "..signatureDE
         local englishDefault = "To the current inhabitant of "..property..
         ",\nLet it be known that you are expected to pay a rent of "..rent..
-        " Without additional payments, your current lease expires in "..remainingDuration..
-        " months.\nFor additional questions or concerns, please seek out the Quartermaster or one of \z
+        " Without additional payments, your current lease expires"..timeLeft.."\nFor additional questions or concerns, please seek out the Quartermaster or one of \z
         your "..townLeaderTitle..
         "s.\n~Signed, "..signatureEN
 
@@ -2168,11 +2177,19 @@ function M.removeRentalIfDurationIsUp()
         local propertyName = propertyList.propertyTable[i][1]
         local propertyDeed = M.getPropertyDeed(propertyName)
         local duration = propertyDeed:getData("rentDuration")
+        local tenant = propertyDeed:getData("tenant")
+        local tenantID = propertyDeed:getData("tenantID")
+        local rentExemption = propertyDeed:getData("indefiniteRent")
 
-        if duration == "" or tonumber(duration) == 0 then
+        local rentIsExemptedForThisProperty = not common.IsNilOrEmpty(rentExemption) and tonumber(rentExemption) == 1
+
+        local durationIsEmptyOrZero = common.IsNilOrEmpty(duration) or tonumber(duration) == 0
+
+        local tenantExists = not common.IsNilOrEmpty(tenant)
+
+        if not rentIsExemptedForThisProperty and durationIsEmptyOrZero and tenantExists then -- No rent remains but there is a tenant registered
+            log("The lease on "..propertyName.." has expired. The tenant "..tenant.."("..tenantID..") has been evicted along with any guests/builders.")
             M.removeTenantGuestBuilderDuration(propertyDeed)
-        else
-            return
         end
     end
 end
@@ -2271,7 +2288,7 @@ end
 
 function M.keyRetrieval(char, inform)
     -- check if character owns any keys or is admin
-    if (M.charOwnedKeys(char) == 0) and (M.charOwnedDepotKeys(char) == nil) or char:isAdmin() then
+    if (M.charOwnedKeys(char) == 0) and (not charOwnedDepotKeys(char) or charOwnedDepotKeys(char) == 0) or char:isAdmin() then
         return
     else
         M.deleteKeys(char, inform)
