@@ -1800,26 +1800,19 @@ function M.reduceRentTimer()
     end
 end
 
-function M.charOwnedDepotKeys(char, keyData)
+local function charOwnedDepotKeys(char, keyData, depot)
 
-    for i = 1, #M.depotList do
+    if depot and keyData then -- Checking for a specific key in a specific depot
+        return (depot:countItem(2558, keyData))+(depot:countItem(3054, keyData))+(depot:countItem(3055, keyData))+(depot:countItem(3056, keyData))
+    end
+
+    for i = 1, #M.depotList do -- We check all depot if keys exist at all
 
         local depNr = M.depotList[i]
-        local depot = char:getDepot(depNr)
+        depot = char:getDepot(depNr)
 
         if depot then
-            local ownedDepotKeys
-            if keyData then
-                ownedDepotKeys = (depot:countItem(2558, keyData))+(depot:countItem(3054, keyData))+(depot:countItem(3055, keyData))+(depot:countItem(3056, keyData))
-            else
-                ownedDepotKeys = (depot:countItem(2558))+(depot:countItem(3054))+(depot:countItem(3055))+(depot:countItem(3056))
-            end
-
-            if ownedDepotKeys >= 1 then
-                return ownedDepotKeys
-            else
-                return 0
-            end
+            return (depot:countItem(2558))+(depot:countItem(3054))+(depot:countItem(3055))+(depot:countItem(3056))
         end
     end
 end
@@ -1886,7 +1879,6 @@ function M.deleteKeys(char, inform)
                 local keyID = propertyList.propertyTable[i][6] --Fetch what lock the key belongs to
                 local keyType = propertyList.propertyTable[i][5] -- Fetch what type of key item it is
                 local keyAmount = char:countItemAt("all",keyType,{["lockId"]=keyID}) -- Fetch how many keys character has in inventory
-                local depotKeyAmount = M.charOwnedDepotKeys(char, {["lockId"]=keyID}) -- Fetch how many keys character has in depot
                 local keysDeleted = false
 
                 if keyAmount > 0 and deleteKey then
@@ -1900,7 +1892,9 @@ function M.deleteKeys(char, inform)
                     local depNr = M.depotList[depotIndex]
                     local depot = char:getDepot(depNr)
 
-                    if depot and depotKeyAmount ~= nil and deleteKey then
+                    local depotKeyAmount = charOwnedDepotKeys(char, {["lockId"]=keyID}, depot) -- Fetch how many keys character has in depot
+
+                    if depot and depotKeyAmount and deleteKey then
                         for z = 1, depotKeyAmount do
                             depot:eraseItem(keyType,1,{["lockId"]=keyID})
                             removedKeys = true --external check for any keys at all deleted so inform gets sent
@@ -1927,6 +1921,10 @@ function M.deleteKeys(char, inform)
 
     local listedPropertiesEn = convertTableIntoList(listOfPropertyNamesEn)
     local listedPropertiesDe = convertTableIntoList(listOfPropertyNamesDe)
+
+    if removedKeys then
+        log("Keys belonging to "..char.name.."("..char.id..") were confiscated for properties: "..listedPropertiesEn)
+    end
 
     if removedKeys and inform then
         if propertiesRemovedFrom == 1 and not outlaw then
@@ -2269,7 +2267,7 @@ end
 
 function M.keyRetrieval(char, inform)
     -- check if character owns any keys or is admin
-    if (M.charOwnedKeys(char) == 0) and (M.charOwnedDepotKeys(char) == nil) or char:isAdmin() then
+    if (M.charOwnedKeys(char) == 0) and (not charOwnedDepotKeys(char) or charOwnedDepotKeys(char) == 0) or char:isAdmin() then
         return
     else
         M.deleteKeys(char, inform)
