@@ -1782,13 +1782,18 @@ function M.getRentDuration(item)
 end
 
 function M.reduceRentTimer()
+
     for i = 1, #propertyList.propertyTable do
+
         local property = propertyList.propertyTable[i][1]
         local propertyDeed = M.getPropertyDeed(property)
         local rentDuration = propertyDeed:getData("rentDuration")
-        if rentDuration ~= "" and tonumber(rentDuration) > 0 then
+
+        if not common.IsNilOrEmpty(rentDuration) and tonumber(rentDuration) > 0 then
+
             local rentExemption = propertyDeed:getData("indefiniteRent")
-            if rentExemption == "" then
+
+            if common.IsNilOrEmpty(rentExemption) then
                 rentExemption = 0
             end
 
@@ -2058,15 +2063,21 @@ function M.propertyInformation(user, deed)
         local germanText
         local englishText
 
+        local timeLeft = " in "..remainingDuration.." months."
+        local timeLeftDe = "in "..remainingDuration.." Monaten aus."
+
+        if tonumber(remainingDuration) == 1 then
+            timeLeft = " at the start of the next month."
+            timeLeftDe = " zu Beginn des nächsten Monats aus."
+        end
+
         local germanDefault = "An den aktuellen Bewohner von "..propertyDE..",\n die derzeitige Miete beträgt "..rentDE..
-        "\n Ohne zusätzliche Zahlungen, läuft das aktuelle Mietverhältnis in "..remainingDuration..
-        " Monaten aus.\nFür weitere Fragen oder Anmerkungen, wende dich an den Quartiermeister oder melde dich \z
+        "\n Ohne zusätzliche Zahlungen, läuft das aktuelle Mietverhältnis "..timeLeftDe.."\nFür weitere Fragen oder Anmerkungen, wende dich an den Quartiermeister oder melde dich \z
         bei der "..townLeaderTitleDE..
         ".\n~Unterzeichnet, "..signatureDE
         local englishDefault = "To the current inhabitant of "..property..
         ",\nLet it be known that you are expected to pay a rent of "..rent..
-        " Without additional payments, your current lease expires in "..remainingDuration..
-        " months.\nFor additional questions or concerns, please seek out the Quartermaster or one of \z
+        " Without additional payments, your current lease expires"..timeLeft.."\nFor additional questions or concerns, please seek out the Quartermaster or one of \z
         your "..townLeaderTitle..
         "s.\n~Signed, "..signatureEN
 
@@ -2164,11 +2175,19 @@ function M.removeRentalIfDurationIsUp()
         local propertyName = propertyList.propertyTable[i][1]
         local propertyDeed = M.getPropertyDeed(propertyName)
         local duration = propertyDeed:getData("rentDuration")
+        local tenant = propertyDeed:getData("tenant")
+        local tenantID = propertyDeed:getData("tenantID")
+        local rentExemption = propertyDeed:getData("indefiniteRent")
 
-        if duration == "" or tonumber(duration) == 0 then
+        local rentIsExemptedForThisProperty = not common.IsNilOrEmpty(rentExemption) and tonumber(rentExemption) == 1
+
+        local durationIsEmptyOrZero = common.IsNilOrEmpty(duration) or tonumber(duration) == 0
+
+        local tenantExists = not common.IsNilOrEmpty(tenant)
+
+        if not rentIsExemptedForThisProperty and durationIsEmptyOrZero and tenantExists then -- No rent remains but there is a tenant registered
+            log("The lease on "..propertyName.." has expired. The tenant "..tenant.."("..tenantID..") has been evicted along with any guests/builders.")
             M.removeTenantGuestBuilderDuration(propertyDeed)
-        else
-            return
         end
     end
 end

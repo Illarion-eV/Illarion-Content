@@ -37,13 +37,17 @@ function M.rent()
         end
     end
 
-    if not lastCollected or lastCollected ~= month then
-        utility.reduceRentTimer()
-        lastCollected = month
-        ScriptVars:set("lastMonthRentWasCalled", month)
-        ScriptVars:save()
+    if lastCollected and tonumber(lastCollected) == tonumber(month) then
         return
     end
+
+    log("Rents being reduced for the month. Current month: "..tostring(month))
+    utility.reduceRentTimer()
+    utility.removeRentalIfDurationIsUp()
+    lastCollected = month
+    ScriptVars:set("lastMonthRentWasCalled", tostring(month))
+    ScriptVars:save()
+
 end
 
 return M
