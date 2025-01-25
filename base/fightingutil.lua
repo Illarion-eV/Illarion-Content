@@ -42,9 +42,19 @@ local M = {}
 ---- @param attackerStruct The table that stores the data of the attacker
 ---- @param defender The character who is attacked
 ---- @return true in case the range is fine, else false
----- @return distance between attacker and defender]]
+---- @return distance between attacker and defender
+]]
 function M.checkRangeAndView(attackerStruct, defender)
+
+    if not isValidChar(defender) then
+        return false
+    end
+
     local distance = attackerStruct.Char:distanceMetric(defender)
+
+    if not isValidChar(attackerStruct.Char) or not isValidChar(defender) then --For some reason the error only happened below when doing world:LoS, so checking defender again just to be safe
+        return false
+    end
 
     if distance > 1 then
         local blockList = world:LoS(attackerStruct.Char.pos, defender.pos)
