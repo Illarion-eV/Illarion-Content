@@ -212,15 +212,26 @@ end
 local function showTemporaryPreviewOfItem(productId, user, isTile, above)
     -- For special items like stairs, only the first object will be previewed and not the upper/lower stair
 
-    if isTile then
-        productId = utility.getTilePreview(productId)
-    end
+    local informPlus = ""
+    local informPlusDe = ""
 
     local frontPos = common.GetFrontPosition(user)
     local roofPos = position(frontPos.x, frontPos.y, frontPos.z+1)
 
-    if utility.checkIfRoofOrRoofTile(productId, false, above) and user.pos.z >= 0 and utility.getPropertyLocationIsPartOf(roofPos) then
-        frontPos = roofPos
+    if utility.checkIfRoofOrRoofTile(productId, isTile, above) and user.pos.z >= 0 and utility.getPropertyLocationIsPartOf(roofPos) then
+
+        local field = world:getField(roofPos)
+
+        if field and field:tile() ~= 0 then --No points trying to place an item above if there is no field or tile to place it on
+            frontPos = roofPos
+        else
+            informPlus = " There is nowhere above that the preview item can be placed. Defaulting to the tile in front of you instead."
+            informPlusDe = " Es gibt keinen Platz oben, auf dem der Vorschaugegenstand platziert werden kann. Stattdessen wird standardmäßig das Feld vor dir gewählt."
+        end
+    end
+
+    if isTile then
+        productId = utility.getTilePreview(productId) --The display item version of the tile
     end
 
     local field = world:getField(frontPos)
@@ -251,7 +262,7 @@ local function showTemporaryPreviewOfItem(productId, user, isTile, above)
     world:changeItem(previewItem)
 
     if previewInformCooldown[user.id] and  previewInformCooldown[user.id] >= currentTime then
-        user:inform("Vorschau des Gegenstandes.", "Preview item placed.")
+        user:inform("Vorschau des Gegenstandes."..informPlusDe, "Preview item placed."..informPlus)
     else
         user:inform("Indem du den Mauszeiger über den Gegenstand im Menü bewegst, erstellst du einen Gegenstand zur Vorschau an dem Ort, an dem er gebaut wird, wenn du ihn herstellst. Dieser Gegenstand verschwindet nach 30 Sekunden oder immer dann, wenn du oder jemand anderes einen anderen Gegenstand auf demselben Grundstück zur Vorschau erstellt.", "By hovering over the item in the menu, you've created an item for preview in the location it will be built if you craft it. This item will disappear after 30 seconds, or whenever you or someone else preview another item on the same property.")
         previewInformCooldown[user.id] = currentTime + 3600 --This long inform only shows once an hour, so as to not be spammy
