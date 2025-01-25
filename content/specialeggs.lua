@@ -681,6 +681,8 @@ function M.createSpecialEgg(user, amount)
 
     common.CreateItem(user, 1150, amount, 333, {nameDe="Buntes Ei",nameEn="Coloured Egg",descriptionDe="Das Ei ist mir verschiedenen bunten Verzierungen versehen worden.",descriptionEn="There are various colourful decorations on the egg.",rareness=ItemLookAt.uncommonItem,specialEgg="true"})
 
+    user:logAdmin(" spawned in " ..tostring(amount).." special eggs.")
+
 end
 
 local function openSpecialEgg(egg, user)

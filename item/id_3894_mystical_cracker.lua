@@ -680,6 +680,7 @@ local gfxList = {
 
 function M.createMysticalCracker(user, amount)
     common.CreateItem(user, 3894, amount, 333,nil)
+    user:logAdmin(" spawned in " ..tostring(amount).." mystical crackers.")
 end
 
 function M.UseItem(User, SourceItem)

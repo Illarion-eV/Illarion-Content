@@ -1612,6 +1612,7 @@ local _
                     return
                 end
                 local potionName = dialog3:getInput()
+                user:logAdmin(" spawned in " ..tostring(potionAmount).." potions. ID: "..tostring(potionID).." Quality: "..tostring(potionQuality).." Effect: "..tostring(potionEffect))
                 common.CreateItem(user,tonumber(potionID),tonumber(potionAmount),tonumber(potionQuality),{["potionEffectId"]=tonumber(potionEffect),["descriptionEn"]=potionName,["descriptionDe"]=potionName,["creator"]="admin", ["legitimateKnowledgeOfPotionRecipe"]="true"})
             end
             user:requestInputDialog(InputDialog("Potion Creation", "What do you want to label your potions?",false,255,callback3))
@@ -2000,6 +2001,7 @@ local function createPortal(user, portalType)
             if (string.find(input2,"(%d+)")~=nil) then
                 _, _, amount = string.find(input2,"(%d+)")
                 common.CreateItem(user,tonumber(portalType),tonumber(amount),999,{["destinationCoordsX"]=x,["destinationCoordsY"]=y,["destinationCoordsZ"]=z})
+                user:logAdmin(" spawned in " ..tostring(amount).." portals. ID: "..tostring(portalType).." Quality: 999 Coordinates: position("..tostring(x)..", "..tostring(y)..", "..tostring(z)..")")
             end
         end
         user:requestInputDialog(InputDialog("Portal creation", "How many portals with these coordinates do you want to create?",false,255,callback2))
@@ -2081,6 +2083,9 @@ local function specialItemCreationTreasureChest(user)
                 return
             end
             spawntreasures.spawnTreasureChest(position, level, persons)
+
+            user:logAdmin(" spawned in a treasure chest of level "..tostring(level).." at "..tostring(position))
+
         else
             user:inform("The input :'" .. input .. "' is not corret. Please use e.g. '3 2'.")
         end
@@ -2103,6 +2108,8 @@ local function specialItemCreationGlyphShard(user)
 
             shardsToCreate = tonumber(amount)
         end
+
+        user:logAdmin(" spawned in " ..tostring(shardsToCreate).." glyph shards.")
 
         for i = 1, shardsToCreate do
             glyphs.createShardOnUser(user)
@@ -2135,8 +2142,10 @@ local function specialItemCreationCreate(user,indexItem)
                 local _, _, amount = string.find(input,"(%d+)")
                 if SpecialItem[indexItem][4] == MagicGem then
                     common.CreateItem(user, SpecialItem[indexItem][3], tonumber(amount), 333,{gemLevel=1})
+                    user:logAdmin(" spawned in " ..tostring(amount).." magic gems of id "..SpecialItem[indexItem][3].."and of rank 1.")
                 else
                     common.CreateItem(user, SpecialItem[indexItem][3], tonumber(amount), 333,nil)
+                    user:logAdmin(" spawned in " ..tostring(amount).." of an item with id "..SpecialItem[indexItem][3].." of category: "..SpecialItem[indexItem][5])
                 end
             end
         end
