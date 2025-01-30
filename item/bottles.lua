@@ -725,8 +725,8 @@ local function fillTea(user, sourceItem, amount, half, quarter, empty, vesselToF
 
     if not vesselToFill then
         common.InformNLS(user,
-            "Dir fällt auf, dass du gar kein Gefäß hast, welches du füllen könntest.",
-            "You notice that you do not have a vessel which you could fill.")
+            "Dir fällt auf, dass du gar kein Gefäß hast, welches du füllen könntest. Es muss sich in deinen Händen oder vor dir befinden.",
+            "You notice that you do not have a vessel which you could fill. It needs to be in your hands or in front of you.")
         return false
     end
 
@@ -793,8 +793,8 @@ local function fillVessel(user, sourceItem, bottle)
 
     if not vesselToFill then
         common.InformNLS(user,
-            "Dir fällt auf, dass du gar kein Gefäß hast, welches du füllen könntest.",
-            "You notice that you do not have a vessel which you could fill.")
+            "Dir fällt auf, dass du gar kein Gefäß hast, welches du füllen könntest. Es muss sich in deinen Händen oder vor dir befinden.",
+            "You notice that you do not have a vessel which you could fill. It needs to be in your hands or in front of you.")
         return false
     end
 
