@@ -188,6 +188,7 @@ function M.addNewPageToBook(user, sourceItem)
 
     if not pageText then
         user:inform("Auf der Schriftrolle steht nichts.", "The parchment must have been written on.")
+        return
     end
 
     local lastPage = book:getData("pageCount")
