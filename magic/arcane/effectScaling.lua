@@ -51,7 +51,7 @@ function M.getEffectScaling(user, target, spell, earthTrap)
 
     local retVal = 1*bonus*(1+magicPenetration/100-magicResistance/100)
 
-    retVal = M.crit(user, retVal) -- Up to 50% increase if crit, based on perception stat and RNG
+    retVal = magicDamage.crit(user, retVal) -- Up to 50% increase if crit, based on perception stat and RNG
 
     retVal = retVal * (1 + wandGemBonus-cloakGemBonus) -- Gems can increase/decrease the effect up to 60% (more likely 30%(tier 5 set), as tier 10 sets are nigh impossible to get ever)
 
