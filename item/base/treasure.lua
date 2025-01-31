@@ -210,7 +210,7 @@ function M.checkMap(map)
 
     local location = mapLocation(map)
 
-    if checkIfIllegalCoord(location) then
+    if location and checkIfIllegalCoord(location) then -- It is not a child drawing and it has bad coords
         updateMapCoord(map)
     else
         map:setData("checkedVersion", version)
