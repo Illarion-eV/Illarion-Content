@@ -39,6 +39,10 @@ end
 
 function M.setTan(user, activated)
 
+    if not M.tan then
+        M.tan = {}
+    end
+
     M.tan[user.id] = {}
 
     M.tan[user.id].checked = true
@@ -67,12 +71,12 @@ function M.arcaneSpellCastSpeed(user, spell, magicResistance) -- Should return t
         castSpeed = castSpeed/1.3
     end
 
-    if not magicResistance and not M.tan[user.id] or not M.tan[user.id].checked then
+    if not magicResistance and (not M.tan or not M.tan[user.id] or not M.tan[user.id].checked) then
         local activated = tan.reduceCastTime(user)
         M.setTan(user, activated)
     end
 
-    if not magicResistance and M.tan[user.id] and M.tan[user.id].activated then
+    if not magicResistance and M.tan and M.tan[user.id] and M.tan[user.id].activated then
         --Faster cast time, but unreliable whether or not it procs, hence not OP.
         --While this makes learning slower, it is opt in to use glyphs, so I do not consider that an issue.
         castSpeed = castSpeed/2
