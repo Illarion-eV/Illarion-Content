@@ -23,30 +23,27 @@ local runes = require("magic.arcane.runes")
 local M = {}
 
 local damageList = {
-    --The listed damage is what a perfect mage will deal before magic penetration/ magic resistance takes effect
-    -- This means that against a target with no magic resistance, if you have max magic penetration, you will deal double.
-    -- Against a target with full magic resistance when you have full magic penetration, you deal the stated damage
-    -- Against a target with full magic resistance when you have no magic penetration(level 0 of the relevant magic skill) you deal no damage
+    --The listed damage is what a perfect mage will deal before reductions are taken into consideration, maxDamage cap is also 4999 to require 3 shots minimum
 
-    {rune = "RA", damage = 1500, element = "Fire"},
-    {rune = "Pherc", damage = 2250, element = "Water"},
-    {rune = "Pherc", damage = 2250, element = "Air"},
-    {rune = "Pherc", damage = 2250, element = "Earth"},
-    {rune = "Qwan", damage = 3000, element = "Fire"},
-    {rune = "Luk", damage = 2250, element = "Fire"},
-    {rune = "Taur", damage = 2250, element = "Fire"},
-    {rune = "Ura", damage = 2250, element = "Fire"},
-    {rune = "Yeg", damage = 2250, element = "Fire"},
-    {rune = "Sul", damage = 2250, element = "Fire"}
+    {rune = "RA", damage = 3000, element = "Fire"},
+    {rune = "Pherc", damage = 4500, element = "Water"},
+    {rune = "Pherc", damage = 4500, element = "Air"},
+    {rune = "Pherc", damage = 4500, element = "Earth"},
+    {rune = "Qwan", damage = 6000, element = "Fire"},
+    {rune = "Luk", damage = 4500, element = "Fire"},
+    {rune = "Taur", damage = 4500, element = "Fire"},
+    {rune = "Ura", damage = 4500, element = "Fire"},
+    {rune = "Yeg", damage = 4500, element = "Fire"},
+    {rune = "Sul", damage = 4500, element = "Fire"}
 }
 
 local damageOverTimeList = { --This damage is balanced around DoTs having 5 ticks that it is spread out over.
-    {rune = "Pherc", damage = 2250, element = "Fire"},
-    {rune = "CUN", damage = 1500, element = "Water"},
-    {rune = "Qwan", damage = 3000, element = "Water"},
-    {rune = "Taur", damage = 2250, element = "Water"},
-    {rune = "Ura", damage = 2250, element = "Water"},
-    {rune = "Yeg", damage = 2250, element = "Water"}
+    {rune = "Pherc", damage = 4500, element = "Fire"},
+    {rune = "CUN", damage = 3000, element = "Water"},
+    {rune = "Qwan", damage = 6000, element = "Water"},
+    {rune = "Taur", damage = 4500, element = "Water"},
+    {rune = "Ura", damage = 4500, element = "Water"},
+    {rune = "Yeg", damage = 4500, element = "Water"}
 }
 
 M.raceList = {
