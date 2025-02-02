@@ -236,17 +236,10 @@ local function constitutionImpact(target, damage)
 
     local constitution = target:increaseAttrib("constitution", 0)
 
-    local statBonus =  common.GetAttributeBonusHigh(constitution)
+    -- Same math as in fighting for uniformity on how much const impacts the health bar
+    -- That's 466% increase at 3 const and 54.444444% decrease at 30 const
 
-    --Fighting uses Globals.Damage * 14 / Defender.constitution, for reference
-
-    local maximumDamage = 4 -- Up to 400% increase to the damage
-
-    local MaxDecrease = 4.5 -- Up to 50% decrease to the damage
-
-    local increase = 1 + (maximumDamage - statBonus*MaxDecrease) -- at max values this would be 1 + (4 - 1*4.5) aka 1 + -0.5 aka 0.5
-
-    return damage*increase
+    return damage * 14 / constitution
 end
 
 
