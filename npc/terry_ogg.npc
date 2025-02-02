@@ -48,8 +48,8 @@ itemShoes = 53
 "sell", "buy", "wares", "price", "trade", "purchase" -> "What? Oh, sure, I'll let you fund my research.", "Can I interest you in some scented candles? Err. At least I think they're scented. Wax is a scent, right?", "How about purchasing one of my old wands? Almost certainly assured to maybe not explode on you upon use! Guaranteed, maybe!", trade
 
 -- Grimoires and rune encyclopedia will be for sale when rune magic is released
-sellItem = id(2619), de("Grimoire"), en("Grimoire"), price(2000), stack(1), quality(999), data("magicBook" = "true")
-sellItem = id(105), de("Die Enzyklopädie der arkanen Runen"), en("The arcane runes encyclopedia"), price(2000), stack(1), quality(999), data("book" = "arcane_runes_encyclopedia")
+sellItem = id(2619), de("Grimoire"), en("Grimoire"), price(18000), stack(1), quality(999), data("magicBook" = "true")
+sellItem = id(105), de("Die Enzyklopädie der arkanen Runen"), en("The arcane runes encyclopedia"), price(20000), stack(1), quality(999), data("book" = "arcane_runes_encyclopedia")
 -- Terry sells his old wands to new students, custom name but worse quality and durability than a fresh one from a carpenter merchant
 sellItem = id(323), de("Terrys alter Zauberstab"), en("Terry's old wand"), stack(1), quality(333), data("nameEn" = "Terry's old wand", "nameDe" = "Terrys alter Zauberstab", "descriptionEn" = "An old, worn wand that used to belong to Terry Ogg the wandering mage.", "descriptionDe" = "Ein alter, abgegriffener Zauberstab, der einst dem wandernden Magier Terry Ogg gehörte.")
 -- Terry sells the basic candles and candlesticks needed for glyph rituals
