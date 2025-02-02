@@ -59,11 +59,11 @@ local dragonCaveCoffinPos = {
 local CoffinContents
 local letmaCoffin
 
-local function fhanPuzzlePos(user, item)
+local function fhanPuzzlePos(user, theItem)
 
     for _, coffin in pairs(texts.fhanPuzzle.coffins) do
-        if coffin.location == item.pos then
-            local lookAt = lookat.GenerateLookAt(user, item)
+        if coffin.location == theItem.pos then
+            local lookAt = lookat.GenerateLookAt(user, theItem)
             lookAt.description = common.GetNLS(user, coffin.german, coffin.english)
             return lookAt
         end
@@ -72,16 +72,16 @@ local function fhanPuzzlePos(user, item)
     return false
 end
 
-function M.LookAtItem(User, Item)
+function M.LookAtItem(User, theItem)
 
-    local lookAt = lookat.GenerateLookAt(User, Item, lookat.NONE)
+    local lookAt = lookat.GenerateLookAt(User, theItem, lookat.NONE)
 
-    if fhanPuzzlePos(User, Item) then
-        return fhanPuzzlePos(User, Item)
+    if fhanPuzzlePos(User, theItem) then
+        return fhanPuzzlePos(User, theItem)
     end
 
-    if Item:getData("teachDogTransformationPotion") == "true" then
-        return transformation_dog.LookAtGrave(User,Item)
+    if theItem:getData("teachDogTransformationPotion") == "true" then
+        return transformation_dog.LookAtGrave(User,theItem)
     end
 
     return lookAt
@@ -102,7 +102,7 @@ gemsAlreadyFound[3]={45,242,329,526}
 
 function M.UseItem(User, SourceItem)
 
-    if fhanPuzzlePos(User, Item) then
+    if fhanPuzzlePos(User, SourceItem) then
         return
     end
 
