@@ -35,7 +35,68 @@ function M.learnMagicResistance(target, castTime)
 
 end
 
+local function hitItemDegrade(target, degradedItem, damage)
+
+    if not character.IsPlayer(target) then
+        return
+    end
+
+    local degradeChance = 12000
+
+    if target:isNewPlayer() then
+        degradeChance = degradeChance * 2
+    end
+
+    if common.Chance(damage, degradeChance) and degradedItem.id ~= 0 then -- do not damage non existing items
+        local durability = math.fmod(degradedItem.quality, 100)
+        local quality = (degradedItem.quality - durability) / 100
+        local nameText = world:getItemName(degradedItem.id, target:getPlayerLanguage())
+
+        if durability > 0 then
+            durability = durability - 1
+
+            if (durability == 0) then
+                common.HighInformNLS(target,
+                    "Der magische Zauber zerfetzt dein "..nameText..". Vielleicht kann ein geschickter Handwerker es noch reparieren, wenn du die Überreste einsammelst?",
+                    "The magic spell blasts your "..nameText.." apart. Maybe a skilled enough crafter can still repair it if you gather what remains of it, though?")
+            end
+            degradedItem.quality = quality * 100 + durability
+            world:changeItem(degradedItem)
+        end
+    end
+end
+
+local function damageTargetsEquipment(target, damage)
+
+    -- Using the same calculations as in standard fighting and picking a randomly equipped item for the spell to hit, we reduce the durability of it based on damage taken
+
+    local bodyPositions = {Character.head, Character.neck, Character.breast, Character.hands, Character.finger_left_hand, Character.finger_right_hand, Character.legs, Character.feet, Character.coat}
+
+    local equipment = {}
+
+    for _, posit in pairs(bodyPositions) do
+
+        local theItem = target:getItemAt(posit)
+
+        if theItem and theItem.id ~= 0 then
+            table.insert(equipment, theItem)
+        end
+    end
+
+    if #equipment > 0 then --Ensure that the character is not naked
+
+        local rand = math.random(1, #equipment)
+
+        hitItemDegrade(target, equipment[rand], damage)
+    end
+
+
+end
+
 function M.dealMagicDamage(user, target, spell, damage)
+
+    damageTargetsEquipment(target, damage)
+
     local RA = runes.checkSpellForRuneByName("RA", spell)
     local CUN = runes.checkSpellForRuneByName("CUN", spell)
     local Sih = runes.checkSpellForRuneByName("Sih", spell)

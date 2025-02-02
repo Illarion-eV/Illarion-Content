@@ -342,11 +342,13 @@ function M.onAttack(Attacker, Defender)
     end
 
     -- Check for magic spell invoked, has a separate range check than the one below
-    if Attacker.AttackKind == 5 and fightingutil.isMagicUser(Attacker.Char) then -- Only mages can invoke magic
+    if Attacker.AttackKind == 5 then
+        if fightingutil.isMagicUser(Attacker.Char) then -- Only mages can invoke magic
 
-        local name = Attacker.Char.name
+            local name = Attacker.Char.name
 
-        magicTargeting.playerTargets[name] = Defender.Char
+            magicTargeting.playerTargets[name] = Defender.Char
+        end
 
         return false -- No need to go further since wands do not use this script beyond setting a target
     end
