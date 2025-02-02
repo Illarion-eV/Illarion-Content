@@ -349,23 +349,6 @@ function M.getMagicDamage(user, spell, element, target, DoT, Orl, earthTrap)
         maxDamage = 3999
     end
 
-    if DoT then
-        maxDamage = 999 -- Damage if the spell has both medium and large damage runes
-
-        if not hasLargeDamageRune then
-            maxDamage = 599 -- Damage for only medium
-        end
-
-        if hasLargeDamageRune and not hasMediumDamageRune then
-            maxDamage = 799 -- Damage for only large
-        end
-
-        if not hasLargeDamageRune and not hasMediumDamageRune then
-            maxDamage = 399 -- Base damage
-        end
-
-    end
-
     if finalDamage > maxDamage then
         finalDamage = maxDamage
     end
