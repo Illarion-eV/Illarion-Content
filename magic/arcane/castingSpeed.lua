@@ -23,11 +23,11 @@ M.tan = {}
 
 function M.castingSpeedByRuneSize(size)
     if size == "Short" then
-        return 30 -- 3 seconds
+        return 15 -- 1.5 seconds
     elseif size == "Medium" then
-        return 45 -- 4.5 seconds
+        return 20 -- 2 seconds
     elseif size == "Long" then
-        return 60 -- 6 seconds
+        return 25 -- 2.5 seconds
     end
 end
 
