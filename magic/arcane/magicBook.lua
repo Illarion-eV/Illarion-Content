@@ -51,17 +51,17 @@ function M.spellSelection(user, grimoire)
         for i = 1, createSpell.MAX_SPELL_SLOTS do
 
             local spellName = grimoire:getData("spellName"..i)
-
-            if not common.IsNilOrEmpty(spellName) and spellName ~= "Unfinished" and spellName ~= "Unvollendet" and (index == i - emptySpellSlots) then
-
+            if common.IsNilOrEmpty(spellName) -- spell name doesn't exists
+            or spellName == "Unfinished" -- it is an unfinished spell
+            or spellName == "Unvollendet" -- same as above but for german players
+            then
+                emptySpellSlots = emptySpellSlots + 1
+            elseif index == i - emptySpellSlots then --It is the selected spell slot
                 spell = grimoire:getData("spell"..i)
 
                 primeWandToSpell(user, spell, spellName)
 
                 return
-
-            else
-                emptySpellSlots = emptySpellSlots + 1
             end
         end
     end
