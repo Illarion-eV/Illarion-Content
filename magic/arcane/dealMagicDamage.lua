@@ -164,7 +164,7 @@ end
 function M.applyMagicDamage(user, targets, spell, element, Orl, earthTrap, level)
     for _, target in pairs(targets.targets) do
 
-        if (user and target.pos ~= user.pos) or not user then
+        if isValidChar(target) and (user and target.pos ~= user.pos) or not user then
 
             local damage = magicDamage.getMagicDamage(user, spell, element, target, false, Orl, earthTrap)
             M.dealMagicDamage(user, target, spell, damage, level) --This is also used by the DoT effect, and we dont want every DoT tick to trigger teleportation so that is done below

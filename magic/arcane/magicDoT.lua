@@ -29,7 +29,8 @@ local texts = {
 
 function M.dealMagicDoT(user, targets, spell, element, level)
     for _, target in pairs(targets.targets) do
-        if target.position ~= user.pos then
+
+        if isValidChar(target) and target.position ~= user.pos then
             local damage = magicDamage.getMagicDamage(user, spell, element, target, true)
             local manaReduction = 0
             local foodReduction = 0

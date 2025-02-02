@@ -254,6 +254,10 @@ end
 
 function M.getMagicDamage(user, spell, element, target, DoT, Orl, earthTrap)
 
+    if not isValidChar(target) then
+        return false
+    end
+
     local damage = checkForDamageRunes(target, spell, element, DoT)
     local magicResist
     local magicPen

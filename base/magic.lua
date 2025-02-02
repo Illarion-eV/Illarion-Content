@@ -230,6 +230,10 @@ end
 
 function M.getGemBonusCloak(user) -- Used for magic defense purposes
 
+    if not isValidChar(user) then
+        return 0
+    end
+
     local cloak = user:getItemAt(Character.coat)
 
     if cloak and cloak.id ~= 0 then
