@@ -39,6 +39,10 @@ end
 
 function M.getMagicPenetration(user, element, spell)
 
+    if user:getType() == Character.monster then --monster penetration is based on just the skill level
+        return user:getSkill(Character.wandMagic) --wand magic already exists in the database for monsters so easier to just use that
+    end
+
     local skill = skilling.getMagicSkillSpellBelongsTo(spell)
 
     local level = user:getSkill(Character[skill])

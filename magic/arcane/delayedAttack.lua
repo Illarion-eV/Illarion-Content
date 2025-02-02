@@ -62,29 +62,29 @@ local y
     myEffect:addValue("lastY", y)
 return position(x, y, tz)
 end
-function M.spellEffects(user, targets, spell, element, Orl)
+function M.spellEffects(user, targets, spell, element, Orl, level)
     local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
     local OrlRune = runes.checkSpellForRuneByName("Orl", spell)
     if not (SOLH and OrlRune) then
         illuminate.CheckIfIlluminate(user, targets, spell)
-        DoT.dealMagicDoT(user, targets, spell, element)
+        DoT.dealMagicDoT(user, targets, spell, element, level)
         magicGFXSFX.getAdditionalUserGFXSFX(user, spell)
         MSReduction.checkForReduceManaOrStamina(user, targets, spell)
         harvestFruit.checkIfHarvestFruit(user, targets, spell)
         movement.applyMovementSpells(user, targets, spell, Orl)
         lifesteal.instantLifeOrManaSteal(user, targets, spell, Orl)
-        plantRoot.createEntanglingPlant(user, targets, spell)
-        dealDamage.applyMagicDamage(user, targets, spell, element, Orl)
-        snare.applySnare(user, targets, spell, Orl)
+        plantRoot.createEntanglingPlant(user, targets, spell, level)
+        dealDamage.applyMagicDamage(user, targets, spell, element, Orl, false, level)
+        snare.applySnare(user, targets, spell, Orl, false, level)
         stun.checkForStun(spell, targets)
         MSReduction.checkForIncreaseStamina(user, targets, spell)
         plantRoot.applyPlantRoot(user, targets, spell)
-        staticObjects.spawnStaticObjects(user, targets, spell)
+        staticObjects.spawnStaticObjects(user, targets, spell, level)
         stallMana.applyManaStalling(user, targets, spell)
         information.invokeSpiritSpells(user, targets, spell)
         dispel.dispel(spell, targets)
     else --spell effect gets applied to trap instead
-        traps.createEarthTraps(user, targets, spell)
+        traps.createEarthTraps(user, targets, spell, level)
     end
     magicGFXSFX.getTargetGFXSFX(targets, spell, true)
     if spell == 8 then
@@ -96,7 +96,7 @@ function M.spellEffects(user, targets, spell, element, Orl)
     end
 end
 
-function M.applyDelay(user, target, spell, Orl)
+function M.applyDelay(user, target, spell, Orl, level)
     local targetx = target.x
     local targety = target.y
     local targetz = target.z
@@ -113,6 +113,7 @@ function M.applyDelay(user, target, spell, Orl)
         myEffect:addValue("targetY", targety)
         myEffect:addValue("targetZ", targetz)
         myEffect:addValue("spell", spell)
+        myEffect:addValue("level", level)
         if Orl then
             myEffect:addValue("Orl", Orl)
         end
@@ -124,6 +125,7 @@ function M.applyDelay(user, target, spell, Orl)
         myEffect:addValue("targetY", targety)
         myEffect:addValue("targetZ", targetz)
         myEffect:addValue("spell", spell)
+        myEffect:addValue("level", level)
         if Orl then
             myEffect:addValue("Orl", Orl)
         end
@@ -147,6 +149,12 @@ local foundTY, ty = myEffect:findValue("targetY")
 local foundTZ, tz = myEffect:findValue("targetZ")
 local foundOrl, Orl = myEffect:findValue("Orl")
 local foundSpell, spell = myEffect:findValue("spell")
+local foundLevel, level = myEffect:findValue("level")
+
+if not foundLevel then
+    level = 0
+end
+
 local nextPosition
 local castSpell = false
 local positions = {}
@@ -180,7 +188,7 @@ local effectTargets = nextPositionIntoTargets(nextPosition)
         if (RA or CUN) and Sul then
            targets = targeting.refreshTargets(targets)
         end
-        M.spellEffects(user, targets, spell, element, Orl)
+        M.spellEffects(user, targets, spell, element, Orl, level)
         return false
     end
     if foundSpell then

@@ -84,7 +84,7 @@ local raceBonus
 return retVal
 end
 
-function M.applySnare(user, targets, spell, Orl, earthTrap)
+function M.applySnare(user, targets, spell, Orl, earthTrap, level)
 local Sul = runes.checkSpellForRuneByName("Sul", spell)
 local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
 local JUS = runes.checkSpellForRuneByName("JUS", spell)
@@ -126,6 +126,7 @@ local ticks = 10
                 myEffect:addValue("remainingSpeed", getSpeed)
                 myEffect:addValue("ticks", ticks)
                 myEffect:addValue("spell", spell)
+                myEffect:addValue("level", level)
                 target.effects:addEffect(myEffect)
             else
                 local foundRemainingSpeed, remainingSpeed = myEffect:findValue("remainingSpeed")
@@ -136,7 +137,7 @@ local ticks = 10
                     myEffect:addValue("speed", getSpeed - remainingSpeed)
                     myEffect:addValue("remainingSpeed", getSpeed)
                     myEffect:addValue("ticks", ticks)
-                    myEffect:addValue("spell", spell)
+                    myEffect:addValue("level", level)
                     M.addEffect(myEffect, target)
                 end
             end

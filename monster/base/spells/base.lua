@@ -21,7 +21,7 @@ local arcaneMagicDamage = require("magic.arcane.dealMagicDamage")
 
 local M = {}
 
-function M.dealMagicDamage(target, damage, usedMovepoints)
+function M.dealMagicDamage(target, damage, usedMovepoints, level)
 
     if damage < 1 then return end
     -- Check for damage + 1 to avoid the case that a regular hit lowers the hitpoints down to 1 and directly sends a
@@ -45,7 +45,7 @@ function M.dealMagicDamage(target, damage, usedMovepoints)
             chr_reg.stallRegeneration(target, 60 / timeFactor)
         end
     else
-        arcaneMagicDamage.learnMagicResistance(target, usedMovepoints/3) -- Since monster magic uses movepoints instead of cast time, we scale the learning based on that similar to how fighting does it by dividing it by three
+        arcaneMagicDamage.learnMagicResistance(target, usedMovepoints/3, level) -- Since monster magic uses movepoints instead of cast time, we scale the learning based on that similar to how fighting does it by dividing it by three
         target:increaseAttrib("hitpoints", -damage)
     end
 end

@@ -21,7 +21,7 @@ local targeting = require("magic.arcane.targeting")
 
 local M = {}
 
-function M.applyOrl(user, target, spell)
+function M.applyOrl(user, target, spell, level)
     local targetx = target.x
     local targety = target.y
     local targetz = target.z
@@ -31,6 +31,7 @@ function M.applyOrl(user, target, spell)
     myEffect:addValue("y", targety)
     myEffect:addValue("z", targetz)
     myEffect:addValue("spell", spell)
+    myEffect:addValue("level", level)
 end
 
 function M.addEffect(myEffect, user)
@@ -41,6 +42,10 @@ function M.callEffect(myEffect, user)
     local foundY, y = myEffect:findValue("y")
     local foundZ, z = myEffect:findValue("z")
     local foundSpell, spell = myEffect:findValue("spell")
+    local foundLevel, level = myEffect:findValue("level")
+    if not foundLevel then
+        level = 0
+    end
     local element
     local myPosition
     local targets
@@ -55,9 +60,9 @@ function M.callEffect(myEffect, user)
     targets = targeting.refreshTargets(targets)
 local Mes = runes.checkSpellForRuneByName("Mes", spell)
     if Mes then
-        delayedAttack.applyDelay(user, myPosition, spell, true)
+        delayedAttack.applyDelay(user, myPosition, spell, true, level)
     else
-        delayedAttack.spellEffects(user, targets, spell, element, true)
+        delayedAttack.spellEffects(user, targets, spell, element, true, level)
     end
 
 return false

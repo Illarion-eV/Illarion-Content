@@ -108,7 +108,7 @@ function M.getPosition(target)
     return positionToCheck
 end
 
-local function plantCreation(user, target, spell, item)
+local function plantCreation(user, target, spell, item, level)
     local Lhor = runes.checkSpellForRuneByName("Lhor", spell)
     local plantID = 3644
     local wear = staticObjects.getWearBasedOnDuration(user, target, spell)
@@ -126,14 +126,14 @@ local function plantCreation(user, target, spell, item)
             return
         end
         local myPosition = M.getPosition(target)
-        local plant = world:createItemFromId(plantID, 1, myPosition, true, 999, {["illusion"] = tostring(Lhor), ["scaling"] = scaling, ["spell"] = spell})
+        local plant = world:createItemFromId(plantID, 1, myPosition, true, 999, {["illusion"] = tostring(Lhor), ["scaling"] = scaling, ["spell"] = spell, ["level"] = level})
         plant.wear = wear
         lookat.SetSpecialName(plant, M.plantRootTexts.name.german, M.plantRootTexts.name.english)
         lookat.SetSpecialDescription(plant, M.plantRootTexts.description.german, M.plantRootTexts.description.english)
         world:changeItem(plant)
 end
 
-function M.createEntanglingPlant(user, targets, spell)
+function M.createEntanglingPlant(user, targets, spell, level)
     local Orl = runes.checkSpellForRuneByName("Orl", spell)
     local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
     local Luk = runes.checkSpellForRuneByName("Luk", spell)
@@ -147,15 +147,15 @@ function M.createEntanglingPlant(user, targets, spell)
     end
 
     for _, target in pairs(targets.targets) do
-        plantCreation(user, target, spell)
+        plantCreation(user, target, spell, false, level)
     end
 
     for _, item in pairs(targets.items) do
-        plantCreation(user, item, spell, true)
+        plantCreation(user, item, spell, true, level)
     end
 
     for _, pos in pairs(targets.positions) do
-        plantCreation(user, pos, spell)
+        plantCreation(user, pos, spell, false, level)
     end
 end
 

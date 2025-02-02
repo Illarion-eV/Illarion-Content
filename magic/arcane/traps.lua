@@ -31,6 +31,7 @@ local targeting = require("magic.arcane.targeting")
 local lookat = require("base.lookat")
 local antiTroll = require("magic.base.antiTroll")
 local magic = require("base.magic")
+local common = require("base.common")
 
 local M = {}
 
@@ -42,7 +43,7 @@ local earthTrapTexts = {
     illusion = {english = "As you step into the cloud of earth magic, nothing happens to you. Was it just an illusion?", german = "Als du die Wolke aus Erdmagieberührst pasiert....nichts. War es etwa nur eine Illusion?"}
 }
 
-local function trapCreation(user, target, spell, item)
+local function trapCreation(user, target, spell, item, level)
     local graphicID = 372
     local Lhor = runes.checkSpellForRuneByName("Lhor", spell)
     local Luk = runes.checkSpellForRuneByName("Luk", spell)
@@ -77,7 +78,7 @@ local function trapCreation(user, target, spell, item)
         return
     end
     local gemBonus = magic.getGemBonusWand(user)/100
-    local trap = world:createItemFromId(graphicID, 1, myPosition, true, 999, {["illusion"] = tostring(Lhor), ["spell"] = spell, ["illuminateWear"] = wear, ["scaling"] = scaling, ["magicPenetration"] = magicPenetration, ["elementBonus"] = elementBonus, ["gemBonus"] = gemBonus})
+    local trap = world:createItemFromId(graphicID, 1, myPosition, true, 999, {["illusion"] = tostring(Lhor), ["spell"] = spell, ["illuminateWear"] = wear, ["scaling"] = scaling, ["magicPenetration"] = magicPenetration, ["elementBonus"] = elementBonus, ["gemBonus"] = gemBonus, ["level"] = level})
     trap.wear = wear
     if graphicID == 372 then
         lookat.SetSpecialName(trap, earthTrapTexts.name.german, earthTrapTexts.name.english)
@@ -89,7 +90,7 @@ local function trapCreation(user, target, spell, item)
     world:changeItem(trap)
 end
 
-function M.createEarthTraps(user, targets, spell)
+function M.createEarthTraps(user, targets, spell, level)
 local Orl = runes.checkSpellForRuneByName("Orl", spell)
 local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
 
@@ -99,7 +100,7 @@ local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
 
     for _, item in pairs(targets.items) do
         if Orl then
-            trapCreation(user, item, spell, true)
+            trapCreation(user, item, spell, true, level)
         end
     end
 
@@ -107,14 +108,14 @@ local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
         if not Orl then
             return
         end
-        trapCreation(user, target, spell)
+        trapCreation(user, target, spell, false, level)
     end
 
     for _, pos in pairs(targets.positions) do
         if not Orl then
             return
         end
-        trapCreation(user, pos, spell)
+        trapCreation(user, pos, spell, false, level)
     end
 end
 
@@ -143,12 +144,18 @@ local spell = tonumber(sourceItem:getData("spell"))
 local targets = targeting.getPositionsAndTargets(false, spell, myPosition, true)
 local element = runes.fetchElement(spell)
 local illusion = sourceItem:getData("illusion")
+local level = sourceItem:getData("level")
+
+if common.IsNilOrEmpty(level) then
+    level = 0
+end
+
 local wear = sourceItem.wear
 local earthCloud = sourceItem:getData("earthCloud")
     if earthCloud ~= "true" then
-        dealDamage.applyMagicDamage(false, targets, spell, element, false, sourceItem)
+        dealDamage.applyMagicDamage(false, targets, spell, element, false, sourceItem, level)
         illuminate.CheckIfIlluminate(false, targets, spell, sourceItem)
-        snare.applySnare(false, targets, spell, false, sourceItem)
+        snare.applySnare(false, targets, spell, false, sourceItem, level)
         stun.checkForStun(spell, targets)
         MSReduction.checkForIncreaseStamina(false, targets, spell, sourceItem)
         stallMana.applyManaStalling(false, targets, spell, sourceItem)
@@ -156,7 +163,7 @@ local earthCloud = sourceItem:getData("earthCloud")
     plantRoot.applyPlantRoot(false, targets, spell, sourceItem)
     magicGFXSFX.getTargetGFXSFX(targets, spell, true)
     if sourceItem.id == 3644 then
-        local newPlant = world:createItemFromId(3644, 1, myPosition, true, 999, {["illusion"] = illusion})
+        local newPlant = world:createItemFromId(3644, 1, myPosition, true, 999, {["illusion"] = illusion, ["level"] = level})
         newPlant.wear = wear
         world:changeItem(newPlant)
         if illusion == "false" then

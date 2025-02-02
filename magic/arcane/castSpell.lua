@@ -92,6 +92,10 @@ function M.castSpell(user, spell, actionState, oralCast)
         M[user.id] = {}
     end
 
+    local skill = skilling.getMagicSkillSpellBelongsTo(spell)
+
+    local level = user:getSkill(Character[skill])
+
     local element = runes.fetchElement(spell)
     local CUN = runes.checkSpellForRuneByName("CUN", spell)
     local RA = runes.checkSpellForRuneByName("RA", spell)
@@ -141,12 +145,12 @@ function M.castSpell(user, spell, actionState, oralCast)
             skilling.increaseExperience(user, spell, M[user.id].storedDuration)
             castTime.resetTan(user)
             if JUS and Orl then
-                diminishingReturns.applyOrl(user, M[user.id].thePosition, spell)
+                diminishingReturns.applyOrl(user, M[user.id].thePosition, spell, level)
             end
             if (Sul and (RA or CUN)) or (JUS and Mes) then
-                delayedAttack.applyDelay(user, M[user.id].thePosition, spell)
+                delayedAttack.applyDelay(user, M[user.id].thePosition, spell, level)
             else
-                delayedAttack.spellEffects(user, M[user.id].positionsAndTargets, spell, element)
+                delayedAttack.spellEffects(user, M[user.id].positionsAndTargets, spell, element, false, level)
             end
 
             if user.attackmode and runes.isSpellAutoCast(spell) and checksPassed(user, spell, element, M[user.id].thePosition) then

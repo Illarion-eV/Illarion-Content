@@ -91,15 +91,15 @@ local wear = duration/wearInSeconds
 return math.floor(wear)
 end
 
-function M.spawnStaticObjects(user, targets, spell)
+function M.spawnStaticObjects(user, targets, spell, level)
     for _, item in pairs(targets.items) do
-        M.spawnStaticObject(user, item, "item", spell, item.pos)
+        M.spawnStaticObject(user, item, "item", spell, item.pos, level)
     end
     for _, position in pairs(targets.positions) do
-        M.spawnStaticObject(user, position, "position", spell, position)
+        M.spawnStaticObject(user, position, "position", spell, position, level)
     end
     for _, character in pairs(targets.targets) do
-        M.spawnStaticObject(user, character, "character", spell, character.pos)
+        M.spawnStaticObject(user, character, "character", spell, character.pos, level)
     end
 end
 
@@ -133,7 +133,7 @@ function M.checkForPreExistingTraps(myPosition)
 return false
 end
 
-function M.spawnStaticObject(user, target, targetType, spell, targetPos)
+function M.spawnStaticObject(user, target, targetType, spell, targetPos, level)
 local relevantRunes = checkForRelevantRunes(spell)
     if not relevantRunes then
         return
@@ -169,7 +169,7 @@ local scaling = effectScaling.getEffectScaling(user, target, spell)
     if M.checkForPreExistingTraps(targetPos) then
         return
     end
-world:createItemFromId(objectID, 1, targetPos, true, 999, {["illusion"] = illusion,["spell"] = spell,["earthCloud"] = earthCloud, ["scaling"] = scaling})
+world:createItemFromId(objectID, 1, targetPos, true, 999, {["illusion"] = illusion,["spell"] = spell,["earthCloud"] = earthCloud, ["scaling"] = scaling, ["level"] = level})
 local item = world:getItemOnField(targetPos)
 item.wear = wear
 world:changeItem(item)

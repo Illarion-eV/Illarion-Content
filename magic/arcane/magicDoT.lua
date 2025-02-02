@@ -27,7 +27,7 @@ local texts = {
     frostburn = {english = "You've been inflicted with a magical frostburn, causing you to suffer frost damage over time.", german = "Du wurdest mit einem magischen Frostbrand belegt, der dir über Zeit Frostschaden zufügt."},
     }
 
-function M.dealMagicDoT(user, targets, spell, element)
+function M.dealMagicDoT(user, targets, spell, element, level)
     for _, target in pairs(targets.targets) do
         if target.position ~= user.pos then
             local damage = magicDamage.getMagicDamage(user, spell, element, target, true)
@@ -49,6 +49,7 @@ function M.dealMagicDoT(user, targets, spell, element)
                 DoT:addValue("remainingDamage", damage)
                 DoT:addValue("remainingTicks", 5)
                 DoT:addValue("spell", spell)
+                DoT:addValue("level", level)
                 if not foundEffect then
                     target.effects:addEffect(DoT)
                 end
@@ -69,6 +70,7 @@ function M.dealMagicDoT(user, targets, spell, element)
                 MoT:addValue("remainingManaReduction", manaReduction)
                 MoT:addValue("remainingTicks", 5)
                 MoT:addValue("spell", spell)
+                MoT:addValue("level", level)
                 if not foundEffect3 then
                     target.effects:addEffect(MoT)
                 end
@@ -79,6 +81,7 @@ function M.dealMagicDoT(user, targets, spell, element)
                 SoT:addValue("remainingStaminaReduction", foodReduction)
                 SoT:addValue("remainingTicks", 5)
                 SoT:addValue("spell", spell)
+                SoT:addValue("level", level)
                 if not foundEffect4 then
                     target.effects:addEffect(SoT)
                 end
@@ -106,6 +109,10 @@ function M.callEffect(myEffect, target)
     local foundSpell, spell = myEffect:findValue("spell")
     local foundDamage, remainingDamage =  myEffect:findValue("remainingDamage")
     local foundTicks, remainingTicks =  myEffect:findValue("remainingTicks")
+    local foundLevel, level =  myEffect:findValue("level")
+    if not foundLevel then
+        level = 0
+    end
     local Luk = runes.checkSpellForRuneByName("Luk", spell)
     local CUN = runes.checkSpellForRuneByName("CUN", spell)
     if foundDamage and foundTicks and foundSpell then
@@ -114,7 +121,7 @@ function M.callEffect(myEffect, target)
             if Luk and CUN then
                 damage = math.floor(remainingDamage/2)
             end
-            mdamage.dealMagicDamage(nil, target, spell, damage)
+            mdamage.dealMagicDamage(nil, target, spell, damage, level, true)
             myEffect:addValue("remainingDamage", remainingDamage - damage)
             myEffect:addValue("remainingTicks", remainingTicks - 1)
             myEffect.nextCalled=30
