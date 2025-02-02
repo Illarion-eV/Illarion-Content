@@ -34,8 +34,8 @@ local plateText = {
         english = "The plate seems to contain something.",
         german = "Der Teller scheint etwas zu enthalten."},
     use = {
-        english = "Upon closer examination, you find a piece of paper on the plate.",
-        german = "Bei näherer Betrachtung findest du ein Stück Papier am Teller."}
+        english = "Upon closer examination, you find a piece of paper on the plate that contains a message.",
+        german = "ei näherer Betrachtung findest du ein Stück Papier auf dem Teller, das eine Nachricht enthält."}
     }
 
 
