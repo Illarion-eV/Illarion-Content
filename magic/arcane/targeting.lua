@@ -436,7 +436,7 @@ local function getPosition(user, spell, positionsAndTargets, delayed, trap)
 
     if foundItems >= 1 then
         local item = field:getStackItem(foundItems - 1)
-        if item.id ~= 0 and item.id ~= 3518 then
+        if item.id ~= 0 and item.id ~= 3518 and setPos then --last check is so it doesnt double cast on item and target character
             positionsAndTargets.items[#positionsAndTargets.items+1] = item
             setPos = false
         end
