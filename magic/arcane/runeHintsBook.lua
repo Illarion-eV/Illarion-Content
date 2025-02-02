@@ -58,8 +58,8 @@ M.runeHintsBookTexts = {
         location = position(786,128,0)},
     RA = {rune = "RA",
         hint = {
-            english = "A lone man betwixt the desert dry and forest lush guards the secret of the flame.",
-            german = "Ein einsamer Mann zwischen der trockenen Wüste und dem üppigen Wald hütet das Gehemnis des Feuers."},
+            english = "A lone man betwixt the desert dry and forest lush guards the secret of the flame. Tis not the man you seek, but the hidden entrance to the rune itself.",
+            german = "Ein einsamer Mann zwischen der trockenen Wüste und dem üppigen Wald hütet das Gehemnis des Feuers. Dies ist nicht der Mann, den du suchst, sondern der verborgene Eingang zur Rune selbst."},
         name = {
             english = "Fiery Mysterious Sphere",
             german = "Mysteriöse feurige Sphäre"},
