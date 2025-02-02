@@ -42,7 +42,7 @@ local function manaCostByRuneSize(user, size, spell)
 
     local maxMana = 10000
 
-    local minimumCost = { Small = maxMana/9, Medium = maxMana/6, Large = maxMana/3}
+    local minimumCost = { Small = maxMana/21, Medium = maxMana/14, Large = maxMana/9}
 
     local skillName = skilling.getMagicSkillSpellBelongsTo(spell)
 
