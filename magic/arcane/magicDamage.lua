@@ -328,18 +328,18 @@ function M.getMagicDamage(user, spell, element, target, DoT, Orl, earthTrap)
     finalDamage = finalDamage * (1 + wandGemBonus-cloakGemBonus)
 
 
-    local maxDamage = 1999
+    local maxDamage = 3334 -- This ensures that you can still 3-shot a sheep with just RA
 
     local hasMediumDamageRune = hasDamageRuneOfSize(spell, "Medium", element, DoT)
 
     local hasLargeDamageRune = hasDamageRuneOfSize(spell, "Large", element, DoT)
 
-    if hasMediumDamageRune and hasLargeDamageRune then
+    if hasMediumDamageRune and hasLargeDamageRune then -- The below ensures that higher level damage runes will still always have an advantage
         maxDamage = 4999
     elseif hasMediumDamageRune then
-        maxDamage = 2999
+        maxDamage = 3888
     elseif hasLargeDamageRune then
-        maxDamage = 3999
+        maxDamage = 4444
     end
 
     if finalDamage > maxDamage then
