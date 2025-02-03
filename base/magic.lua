@@ -361,7 +361,7 @@ function M.getMagicBonus(character)
         qualityBonus = qualityBonus+(quality/#itemsWithMagicBonus - 5)*2.5/100 -- quality 5 has no influence; above 5, each point grants 2.5%. under 5, each point takes 2.5%
     end
 
-    return magicBonus*qualityBonus/500, itemsWithMagicBonus
+    return math.min(0.2, magicBonus*qualityBonus/500), itemsWithMagicBonus --technically caps out at 0.2596, but lowering that to 0.2 allows more flexibility in fashion choices
 
 end
 

@@ -27,9 +27,9 @@ local function getBonus(user, spell)
 
     local willpower = user:increaseAttrib("willpower", 0) -- Magic penetration and magic resistance, a fight of whose willpower is the greatest!
 
-    local statBonus =  common.GetAttributeBonusHigh(willpower) -- 22 willpower would give about 0.6, while 15 willpower about 0.23/0.24
+    local statBonus =  common.GetAttributeBonusHigh(willpower) -- 22 willpower would give about 0.6, while 15 willpower about 0.23/0.24, 30 willpower gives 1.0
 
-    local equipmentBonus = magic.getMagicBonus(user) -- about 0.22 if you wear full clothing and archmage stuff
+    local equipmentBonus = magic.getMagicBonus(user) -- caps out at 0.2. Best possible jewellery and clothing caps out at 0.2596, so this gives some leeway in terms of fashion by capping it at 0.2
 
     local totalBonus = statBonus + equipmentBonus
 
