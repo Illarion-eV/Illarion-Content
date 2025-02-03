@@ -110,7 +110,7 @@ function M.dealMagicDamage(user, target, spell, damage, level, DoT, castTime)
 
     local dwyfolTriggered = false
 
-    if user then
+    if user and damage ~= 0 then --It still gets here on DoTs that have 0 damage to deal
         local hierosApplied, newDamage = hieros.increaseDamage(user, target, damage)
 
         if hierosApplied then   -- chance to apply extra damage on hit in the form of fire

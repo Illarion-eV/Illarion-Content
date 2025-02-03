@@ -35,7 +35,7 @@ function M.lifesteal(user, damage)
     if success then
         local increase = damage/5 -- 20% lifesteal on proc, procs at most one out of 4 attacks on average, meaning 5% average lifesteal per attack
         user:increaseAttrib("hitpoints", increase)
-        world:gfx( globalvar.gfxSplashGreen, user.pos)
+        world:gfx(globalvar.gfxGreenSplash, user.pos)
     end
 end
 

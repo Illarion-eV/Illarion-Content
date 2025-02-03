@@ -82,8 +82,6 @@ function M.arcaneSpellCastSpeed(user, spell, skipTan) -- Should return total cas
         castSpeed = castSpeed/2
     end
 
-    log("cast speed: "..tostring(castSpeed))
-
     return castSpeed
 end
 
