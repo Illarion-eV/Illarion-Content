@@ -106,7 +106,7 @@ function M.dealMagicDamage(user, target, spell, damage, level, DoT)
     local Sih = runes.checkSpellForRuneByName("Sih", spell)
     local castTime = castingSpeed.arcaneSpellCastSpeed(user, spell, true)
 
-    if DoT then castTime = castTime/5 end -- DoTs have 5 ticks, so this prevents them from giving 5 times the MR
+    if DoT then castTime = castTime/15 end -- DoTs have 15 ticks, so this prevents them from giving 15 times the MR
 
     M.learnMagicResistance(target, castTime, level)
 

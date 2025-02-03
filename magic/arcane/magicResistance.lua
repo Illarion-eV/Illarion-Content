@@ -29,15 +29,23 @@ local function getBonus(target)
 
     local willpower = target:increaseAttrib("willpower", 0)
 
-    local statBonus =  common.GetAttributeBonusHigh(willpower) -- 22 willpower would give about 0.6, while 15 willpower about 0.23/0.24
+    local baseBonus = 0.3 -- A level 100 magic resistance will have at least 30% resistance, up to 50% due to clothes and then the remaining 50% is obtainable from the willpower stat
 
-    local equipmentBonus = magic.getMagicBonus(target) -- about 0.22 if you wear full clothing and archmage stuff
+    local statBonus =  common.GetAttributeBonusHigh(willpower)/2 -- 22 willpower(potion) would give about 0.3, 25 willpower(potion and unique food) 0.38,  while 15 willpower about 0.12, 30 willpower gives 0.5
 
-    local totalBonus = statBonus + equipmentBonus
+    local equipmentBonus = magic.getMagicBonus(target) -- caps out at 0.2. Best possible jewellery and clothing caps out at 0.2596, so this gives some leeway in terms of fashion by capping it at 0.2
+
+    local totalBonus = statBonus + equipmentBonus + baseBonus
 
     return math.min(totalBonus, 1)
 
+    --Realistically the cap with unique food (very rare to get) and +4 potion buff to willpower, you can get up to 88% resistance, which can be cancelled out by a mage with similar buffs and a level 100 monster will deal 12% extra damage regardless as their penetration would be 100%
+
 end
+
+
+
+
 
 
 function M.getMagicResistance(target, spell) --Returns a percentage of how much magic damage to reduce

@@ -27,13 +27,15 @@ local function getBonus(user, spell)
 
     local willpower = user:increaseAttrib("willpower", 0) -- Magic penetration and magic resistance, a fight of whose willpower is the greatest!
 
-    local statBonus =  common.GetAttributeBonusHigh(willpower) -- 22 willpower would give about 0.6, while 15 willpower about 0.23/0.24, 30 willpower gives 1.0
+    local baseBonus = 0.3 -- A level 100 mage will have at least 30% penetration, up to 50% due to clothes and then the remaining 50% is obtainable from the willpower stat
+
+    local statBonus =  common.GetAttributeBonusHigh(willpower)/2 -- 22 willpower(potion) would give about 0.3, 25 willpower(potion and unique food) 0.38,  while 15 willpower about 0.12, 30 willpower gives 0.5
 
     local equipmentBonus = magic.getMagicBonus(user) -- caps out at 0.2. Best possible jewellery and clothing caps out at 0.2596, so this gives some leeway in terms of fashion by capping it at 0.2
 
-    local totalBonus = statBonus + equipmentBonus
+    local totalBonus = statBonus + equipmentBonus + baseBonus
 
-    return math.min(totalBonus, 1)
+    return math.min(totalBonus, 1) --Realistically the cap with unique food (very rare to get) and +4 potion buff to willpower, you can get up to 88% penetration meaning a level 50(100) monster will take 12% reduced damage and a level 94(188) monster is immune to damage unless the damage pen rune is used
 
 end
 

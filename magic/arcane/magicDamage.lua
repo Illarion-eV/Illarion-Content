@@ -25,25 +25,25 @@ local M = {}
 local damageList = {
     --The listed damage is what a perfect mage will deal before reductions are taken into consideration, maxDamage cap is also 4999 to require 3 shots minimum
 
-    {rune = "RA", damage = 3000, element = "Fire"},
-    {rune = "Pherc", damage = 4500, element = "Water"},
-    {rune = "Pherc", damage = 4500, element = "Air"},
-    {rune = "Pherc", damage = 4500, element = "Earth"},
-    {rune = "Qwan", damage = 6000, element = "Fire"},
-    {rune = "Luk", damage = 4500, element = "Fire"},
-    {rune = "Taur", damage = 4500, element = "Fire"},
-    {rune = "Ura", damage = 4500, element = "Fire"},
-    {rune = "Yeg", damage = 4500, element = "Fire"},
-    {rune = "Sul", damage = 4500, element = "Fire"}
+    {rune = "RA", damage = 1500, element = "Fire"},
+    {rune = "Pherc", damage = 2250, element = "Water"},
+    {rune = "Pherc", damage = 2250, element = "Air"},
+    {rune = "Pherc", damage = 2250, element = "Earth"},
+    {rune = "Qwan", damage = 3000, element = "Fire"},
+    {rune = "Luk", damage = 2250, element = "Fire"},
+    {rune = "Taur", damage = 2250, element = "Fire"},
+    {rune = "Ura", damage = 2250, element = "Fire"},
+    {rune = "Yeg", damage = 2250, element = "Fire"},
+    {rune = "Sul", damage = 2250, element = "Fire"}
 }
 
-local damageOverTimeList = { --This damage is balanced around DoTs having 5 ticks that it is spread out over.
-    {rune = "Pherc", damage = 4500, element = "Fire"},
-    {rune = "CUN", damage = 3000, element = "Water"},
-    {rune = "Qwan", damage = 6000, element = "Water"},
-    {rune = "Taur", damage = 4500, element = "Water"},
-    {rune = "Ura", damage = 4500, element = "Water"},
-    {rune = "Yeg", damage = 4500, element = "Water"}
+local damageOverTimeList = { --This damage is balanced around DoTs having 15 ticks that it is spread out over. So you would want to start with a DoT before moving onto direct damage spells when fighting high level opponents
+    {rune = "Pherc", damage = 3375, element = "Fire"},
+    {rune = "CUN", damage = 2750, element = "Water"},
+    {rune = "Qwan", damage = 4500, element = "Water"},
+    {rune = "Taur", damage = 3375, element = "Water"},
+    {rune = "Ura", damage = 3375, element = "Water"},
+    {rune = "Yeg", damage = 3375, element = "Water"}
 }
 
 M.raceList = {
@@ -201,15 +201,17 @@ function M.getBonus(user, elementBonus)
 
     local intelligence = user:increaseAttrib("intelligence", 0) -- Intelligence scales damage directly, while essence scales how often you can cast and willpower how much magic defense you can ignore
 
-    local statBonus =  common.GetAttributeBonusHigh(intelligence)
+    local baseBonus = 0.3 -- The scaling of damage ended up a bit too top heavy, this counteracts that
+
+    local statBonus =  common.GetAttributeBonusHigh(intelligence)/2  -- 22 int(18 int + potion) would give about 0.3, 25 int(18 int + potion and unique food) 0.38,  while 15 int about 0.12, 30 int gives 0.5
 
     local wandQualityBonus = magic.getQualityBonusWand(user) -- A perfect wand equals a bonus of 0.1
 
-    local totalBonus = statBonus + wandQualityBonus + elementBonus -- Best element bonus is 0.1
+    local totalBonus =baseBonus + statBonus + wandQualityBonus + elementBonus -- Best element bonus is 0.1
 
     --There is no gem bonus for wands here or equipment bonus because that is handled by magic penetration, allowing magic gems in cloaks to cancel out magic gems in wands similar to how fighting works.
 
-    return math.min(totalBonus, 1) -- With 22 int, a perfect and correct element wand, you'd reach 0.8 leaving 0.2 for stat potions and food to achieve
+    return math.min(totalBonus, 1)
 
 end
 

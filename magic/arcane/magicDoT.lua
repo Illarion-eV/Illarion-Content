@@ -48,7 +48,7 @@ function M.dealMagicDoT(user, targets, spell, element, level)
                 local foundEffect2 = target.effects:find(3)
                 local DoT = LongTimeEffect(1,10)
                 DoT:addValue("remainingDamage", damage)
-                DoT:addValue("remainingTicks", 5)
+                DoT:addValue("remainingTicks", 15)
                 DoT:addValue("spell", spell)
                 DoT:addValue("level", level)
                 if not foundEffect then
@@ -58,7 +58,7 @@ function M.dealMagicDoT(user, targets, spell, element, level)
                 if runes.checkSpellForRuneByName("Sih", spell) and CUN then
                     local lifesteal = LongTimeEffect(3, 10)
                     lifesteal:addValue("remainingDamage", damage)
-                    lifesteal:addValue("remaininingTicks", 5)
+                    lifesteal:addValue("remaininingTicks", 15)
                     lifesteal:addValue("spell", spell)
                     if not foundEffect2 then
                         user.effects:addEffect(lifesteal)
@@ -69,7 +69,7 @@ function M.dealMagicDoT(user, targets, spell, element, level)
                 local foundEffect3 = target.effects:find(9)
                 local MoT = LongTimeEffect(9,10)
                 MoT:addValue("remainingManaReduction", manaReduction)
-                MoT:addValue("remainingTicks", 5)
+                MoT:addValue("remainingTicks", 15)
                 MoT:addValue("spell", spell)
                 MoT:addValue("level", level)
                 if not foundEffect3 then
@@ -80,7 +80,7 @@ function M.dealMagicDoT(user, targets, spell, element, level)
                 local foundEffect4 = target.effects:find(10)
                 local SoT = LongTimeEffect(10,10)
                 SoT:addValue("remainingStaminaReduction", foodReduction)
-                SoT:addValue("remainingTicks", 5)
+                SoT:addValue("remainingTicks", 15)
                 SoT:addValue("spell", spell)
                 SoT:addValue("level", level)
                 if not foundEffect4 then
@@ -120,7 +120,11 @@ function M.callEffect(myEffect, target)
         if remainingTicks > 0 then
             local damage = math.floor(remainingDamage/remainingTicks)
             if Luk and CUN then
-                damage = math.floor(remainingDamage/2)
+                if remainingTicks == 1 then
+                    damage = remainingDamage --ensure the last bit is dealt in one go when one tick is left
+                else
+                    damage = math.floor(remainingDamage/5) -- 20, 36, 48.8, 59.04, etc of the total damage done with each tick instead of the usual 6.66% per tick
+                end
             end
             mdamage.dealMagicDamage(nil, target, spell, damage, level, true)
             myEffect:addValue("remainingDamage", remainingDamage - damage)
