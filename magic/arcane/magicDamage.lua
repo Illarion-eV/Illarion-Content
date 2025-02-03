@@ -19,6 +19,7 @@ local magic = require("base.magic")
 local MR = require("magic.arcane.magicResistance")
 local MP = require("magic.arcane.magicPenetration")
 local runes = require("magic.arcane.runes")
+local castingSpeed = require("magic.arcane.castingSpeed")
 
 local M = {}
 
@@ -339,6 +340,16 @@ function M.getMagicDamage(user, spell, element, target, DoT, Orl, earthTrap)
         maxDamage = 3888
     elseif hasLargeDamageRune then
         maxDamage = 4444
+    end
+
+    local castTime = castingSpeed.arcaneSpellCastSpeed(user, spell, true)
+
+    if user and user:getType() == Character.player and target and target:getType() == Character.player then
+        -- both user and target exist and both are players, this is a pvp battle
+        local secondsToKillInPvP = 7 -- in testing: 5 attacks with RA(7.5 seconds cast time), 4 to make them fall down then a last to finish them off
+        local maxHealth = 10000
+        local maxDamagePerSecond = maxHealth/secondsToKillInPvP
+        maxDamage = math.min(maxDamage, (castTime/10*maxDamagePerSecond)) --This only impacts cases where there is an extreme power difference in pvp
     end
 
     if finalDamage > maxDamage then

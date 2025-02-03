@@ -724,6 +724,13 @@ function CauseDamage(Attacker, Defender, Globals)
 
     local damageCap = 4999  --Damage is capped at 4999 Hitpoints to prevent "one hit kills"
 
+    if character.IsPlayer(Defender.Char) and character.IsPlayer(Attacker.Char) then -- It is pvp
+        local secondsToKillInPvP = 7
+        local maxHealth = 10000
+        local maxDamagePerSecond = maxHealth/secondsToKillInPvP
+        damageCap = math.min(damageCap, CalculateMovepoints(Attacker)/10 * maxDamagePerSecond)
+    end
+
     if Attacker.AttackKind == 0 and not character.IsPlayer(Defender.Char) then -- wrestling against mobs
         damageCap = 1665
         --[[To prevent wrestling becoming optimal to farm low level mobs,
