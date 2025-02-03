@@ -326,10 +326,7 @@ function M.wandDegrade(user, wand, chance)
 
 end
 
---Returns the total magic bonus and a list containing the items which add to the magic bonus
-function M.getMagicBonus(character)
-
-    local bodyPositions = {Character.head, Character.neck, Character.breast, Character.hands, Character.finger_left_hand, Character.finger_right_hand, Character.legs, Character.feet, Character.coat}
+local function getBonus(character, max, bodyPositions)
 
     local itemsWithMagicBonus = {}
 
@@ -361,7 +358,31 @@ function M.getMagicBonus(character)
         qualityBonus = qualityBonus+(quality/#itemsWithMagicBonus - 5)*2.5/100 -- quality 5 has no influence; above 5, each point grants 2.5%. under 5, each point takes 2.5%
     end
 
-    return math.min(0.2, magicBonus*qualityBonus/500), itemsWithMagicBonus --technically caps out at 0.2596, but lowering that to 0.2 allows more flexibility in fashion choices
+    return math.min(max, magicBonus*qualityBonus/500)
+
+end
+
+
+
+--Returns the total magic bonus and a list containing the items which add to the magic bonus
+function M.getMagicBonus(character)
+
+    -- Best jewellery of perfect archmage rings + icebird amulet provide a bonus of 0.1386
+    local jewelleryBonus = getBonus(character, 0.1386, {Character.neck, Character.finger_left_hand, Character.finger_right_hand})
+
+    -- Best clothing combination is a bonus of 0.121
+    local clothingBonus = getBonus(character, 0.0614, {Character.head, Character.breast, Character.hands, Character.legs, Character.feet, Character.coat})
+    -- We set it to 0.0614. This way clothing is more about wearing clothes instead of armour, and you are able to more freely mix how your paperdolling looks
+    -- There is still a small impact, wearing low quality clothes or wearing only low level clothing will not reach the max sum
+    -- Technically caps out at 0.2596, but lowering that to 0.2 allows more flexibility in fashion choices
+    -- As jewellery and clothing are calculated separately, we avoid a scenario where someone minmaxes to get the best glyphed jewellery and wears the same brown cloak blue clothes "best" gear all the time as a mage
+    -- As the purpose of this leeway is to allow more expression in paperdolling without feeling punished, NOT to allow you to ignore the choice between best jewellery (archmage, icebird) and glyph bonuses
+
+    return math.min(0.2, (jewelleryBonus+clothingBonus))
+    -- All in all, jewellery has a 13.86% max magic resistance/penetration impact and clothing 6.14%.
+    -- not counting how gems in your cloak/wand increase magic damage reduced/dealt
+    -- You have 30% by default, which was needed to balance out numbers and not be too top heavy
+    -- Meanwhile the remaining 50% is all willpower as the biggest impact
 
 end
 
