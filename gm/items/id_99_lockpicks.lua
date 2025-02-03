@@ -723,10 +723,6 @@ local function settingsForCharAttributesTemp(user, chosenPlayer)
                 user:inform("The input must be a number.")
                 return
             end
-            if not chosenPlayer:isBaseAttributeValid(chosenAttribute,attributeValue) and not chosenPlayer:isAdmin() then
-                user:inform("The value you input is outside of the permitted range for this characters race.")
-                return
-            end
             user:logAdmin(" changed attribute of character " .. chosenPlayer.name .. ". " .. chosenAttribute .. " from " .. chosenPlayer:increaseAttrib(chosenAttribute, 0).. " to " .. tostring(attributeValue)..".")
             user:inform(chosenAttribute .. " was changed from " .. chosenPlayer:increaseAttrib(chosenAttribute, 0).. " to " .. tostring(attributeValue)..".")
             chosenPlayer:setAttrib(chosenAttribute,attributeValue)
