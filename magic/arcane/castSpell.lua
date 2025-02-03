@@ -142,7 +142,8 @@ function M.castSpell(user, spell, actionState, oralCast)
         end
         if not runes.checkSpellForRuneByName("BHONA", spell) then
             mana.removedUsedMana(user, spell)
-            skilling.increaseExperience(user, spell, M[user.id].storedDuration)
+            local castDuration = M[user.id].storedDuration
+            skilling.increaseExperience(user, spell, castDuration)
             castTime.resetTan(user)
             if JUS and Orl then
                 diminishingReturns.applyOrl(user, M[user.id].thePosition, spell, level)
@@ -150,13 +151,13 @@ function M.castSpell(user, spell, actionState, oralCast)
             if (Sul and (RA or CUN)) or (JUS and Mes) then
                 delayedAttack.applyDelay(user, M[user.id].thePosition, spell, level)
             else
-                delayedAttack.spellEffects(user, M[user.id].positionsAndTargets, spell, element, false, level)
+                delayedAttack.spellEffects(user, M[user.id].positionsAndTargets, spell, element, false, level, castDuration)
             end
 
             if user.attackmode and runes.isSpellAutoCast(spell) and checksPassed(user, spell, element, M[user.id].thePosition) then
                 -- To mimic wand magic so that the fire magic replacement does not feel like a downgrade, we allow auto casting of some spells
 
-                local castDuration = castTime.arcaneSpellCastSpeed(user, spell)
+                castDuration = castTime.arcaneSpellCastSpeed(user, spell)
                 M[user.id].storedDuration = castDuration
 
                 user:startAction(castDuration, castGFX, castGFXDuration, castSFX, castSFXDuration)

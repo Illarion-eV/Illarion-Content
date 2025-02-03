@@ -21,7 +21,6 @@ local common = require("base.common")
 local character = require("base.character")
 local chr_reg = require("lte.chr_reg")
 local magicDamage = require("magic.arcane.magicDamage")
-local castingSpeed = require("magic.arcane.castingSpeed")
 local chous = require("magic.arcane.enchanting.effects.chous")
 local coeden = require("magic.arcane.enchanting.effects.coeden")
 local hieros = require("magic.arcane.enchanting.effects.hieros")
@@ -97,14 +96,13 @@ local function damageTargetsEquipment(target, damage)
 
 end
 
-function M.dealMagicDamage(user, target, spell, damage, level, DoT)
+function M.dealMagicDamage(user, target, spell, damage, level, DoT, castTime)
 
     damageTargetsEquipment(target, damage)
 
     local RA = runes.checkSpellForRuneByName("RA", spell)
     local CUN = runes.checkSpellForRuneByName("CUN", spell)
     local Sih = runes.checkSpellForRuneByName("Sih", spell)
-    local castTime = castingSpeed.arcaneSpellCastSpeed(user, spell, true)
 
     if DoT then castTime = castTime/15 end -- DoTs have 15 ticks, so this prevents them from giving 15 times the MR
 
@@ -162,13 +160,13 @@ function M.dealMagicDamage(user, target, spell, damage, level, DoT)
 
 end
 
-function M.applyMagicDamage(user, targets, spell, element, Orl, earthTrap, level)
+function M.applyMagicDamage(user, targets, spell, element, Orl, earthTrap, level, castDuration)
     for _, target in pairs(targets.targets) do
 
         if isValidChar(target) and (user and target.pos ~= user.pos) or not user then
 
-            local damage = magicDamage.getMagicDamage(user, spell, element, target, false, Orl, earthTrap)
-            M.dealMagicDamage(user, target, spell, damage, level) --This is also used by the DoT effect, and we dont want every DoT tick to trigger teleportation so that is done below
+            local damage = magicDamage.getMagicDamage(user, spell, element, target, false, Orl, earthTrap, castDuration)
+            M.dealMagicDamage(user, target, spell, damage, level, false, castDuration) --This is also used by the DoT effect, and we dont want every DoT tick to trigger teleportation so that is done below
             chous.apply(user, target) --After being hit, this glyph has a chance to activate to teleport the attacker away from the defender
             coeden.apply(target, user) --After being hit, this glyph has a chance to activate to teleport the defender away from the attacker
 

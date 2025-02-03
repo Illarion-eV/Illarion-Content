@@ -54,12 +54,12 @@ function M.setTan(user, activated)
 
 end
 
-function M.arcaneSpellCastSpeed(user, spell, magicResistance) -- Should return total cast time required to cast a spell
+function M.arcaneSpellCastSpeed(user, spell, skipTan) -- Should return total cast time required to cast a spell
 
     local castSpeed = 0
 
     for _, rune in pairs(runes.runes) do
-        if runes.checkIfLearnedRune(user, nil, rune.id, nil, nil, spell) then
+        if runes.checkIfLearnedRune(nil, nil, rune.id, nil, nil, spell) then
             castSpeed = castSpeed+M.castingSpeedByRuneSize(runes.runeNumberToTime(rune.id))
         end
     end
@@ -68,19 +68,21 @@ function M.arcaneSpellCastSpeed(user, spell, magicResistance) -- Should return t
         --While the spell is cast one third faster, it also means you expend mana faster
         --and can do less total damage by the time you empty out your mana bar.
         --Which should make this a fair trade and a situational rune.
-        castSpeed = castSpeed/1.3
+        castSpeed = castSpeed - castSpeed/3
     end
 
-    if not magicResistance and (not M.tan or not M.tan[user.id] or not M.tan[user.id].checked) then
+    if not skipTan and (not M.tan or not M.tan[user.id] or not M.tan[user.id].checked) then
         local activated = tan.reduceCastTime(user)
         M.setTan(user, activated)
     end
 
-    if not magicResistance and M.tan and M.tan[user.id] and M.tan[user.id].activated then
-        --Faster cast time, but unreliable whether or not it procs, hence not OP.
+    if not skipTan and M.tan and M.tan[user.id] and M.tan[user.id].activated then
+        --Faster cast time, but unreliable whether or not it procs, hence not OP?
         --While this makes learning slower, it is opt in to use glyphs, so I do not consider that an issue.
         castSpeed = castSpeed/2
     end
+
+    log("cast speed: "..tostring(castSpeed))
 
     return castSpeed
 end

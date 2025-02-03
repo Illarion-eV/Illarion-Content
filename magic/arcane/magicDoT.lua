@@ -19,6 +19,7 @@ local mdamage = require("magic.arcane.dealMagicDamage")
 local magicDamage = require("magic.arcane.magicDamage")
 local runes = require("magic.arcane.runes")
 local manaStaminaReduction = require("magic.arcane.manaStaminaReduction")
+local castingSpeed = require("magic.arcane.castingSpeed")
 
 local M = {}
 
@@ -27,11 +28,11 @@ local texts = {
     frostburn = {english = "You've been inflicted with a magical frostburn, causing you to suffer frost damage over time.", german = "Du wurdest mit einem magischen Frostbrand belegt, der dir über Zeit Frostschaden zufügt."},
     }
 
-function M.dealMagicDoT(user, targets, spell, element, level)
+function M.dealMagicDoT(user, targets, spell, element, level, castDuration)
     for _, target in pairs(targets.targets) do
 
         if isValidChar(target) and target.position ~= user.pos then
-            local damage = magicDamage.getMagicDamage(user, spell, element, target, true)
+            local damage = magicDamage.getMagicDamage(user, spell, element, target, true, false, false, castDuration)
             local manaReduction = 0
             local foodReduction = 0
             local CUN = runes.checkSpellForRuneByName("CUN", spell)
@@ -126,7 +127,8 @@ function M.callEffect(myEffect, target)
                     damage = math.floor(remainingDamage/5) -- 20, 36, 48.8, 59.04, etc of the total damage done with each tick instead of the usual 6.66% per tick
                 end
             end
-            mdamage.dealMagicDamage(nil, target, spell, damage, level, true)
+            local castDuration = castingSpeed.arcaneSpellCastSpeed(nil, spell, true)
+            mdamage.dealMagicDamage(nil, target, spell, damage, level, true, castDuration)
             myEffect:addValue("remainingDamage", remainingDamage - damage)
             myEffect:addValue("remainingTicks", remainingTicks - 1)
             myEffect.nextCalled=30

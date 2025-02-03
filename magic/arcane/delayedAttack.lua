@@ -34,6 +34,7 @@ local traps = require("magic.arcane.traps")
 local information = require("magic.arcane.spirit.information")
 local tutorials = require("magic.tutorials")
 local dispel = require("magic.arcane.dispel")
+local castingSpeed = require("magic.arcane.castingSpeed")
 
 local M = {}
 
@@ -62,19 +63,19 @@ local y
     myEffect:addValue("lastY", y)
 return position(x, y, tz)
 end
-function M.spellEffects(user, targets, spell, element, Orl, level)
+function M.spellEffects(user, targets, spell, element, Orl, level, castDuration)
     local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
     local OrlRune = runes.checkSpellForRuneByName("Orl", spell)
     if not (SOLH and OrlRune) then
         illuminate.CheckIfIlluminate(user, targets, spell)
-        DoT.dealMagicDoT(user, targets, spell, element, level)
+        DoT.dealMagicDoT(user, targets, spell, element, level, castDuration)
         magicGFXSFX.getAdditionalUserGFXSFX(user, spell)
         MSReduction.checkForReduceManaOrStamina(user, targets, spell)
         harvestFruit.checkIfHarvestFruit(user, targets, spell)
         movement.applyMovementSpells(user, targets, spell, Orl)
         lifesteal.instantLifeOrManaSteal(user, targets, spell, Orl)
         plantRoot.createEntanglingPlant(user, targets, spell, level)
-        dealDamage.applyMagicDamage(user, targets, spell, element, Orl, false, level)
+        dealDamage.applyMagicDamage(user, targets, spell, element, Orl, false, level, castDuration)
         snare.applySnare(user, targets, spell, Orl, false, level)
         stun.checkForStun(spell, targets)
         MSReduction.checkForIncreaseStamina(user, targets, spell)
@@ -188,7 +189,8 @@ local effectTargets = nextPositionIntoTargets(nextPosition)
         if (RA or CUN) and Sul then
            targets = targeting.refreshTargets(targets)
         end
-        M.spellEffects(user, targets, spell, element, Orl, level)
+        local castDuration = castingSpeed.arcaneSpellCastSpeed(nil, spell, true)
+        M.spellEffects(user, targets, spell, element, Orl, level, castDuration)
         return false
     end
     if foundSpell then

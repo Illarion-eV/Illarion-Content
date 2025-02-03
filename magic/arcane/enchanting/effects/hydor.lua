@@ -22,7 +22,7 @@ local M = {}
 
 function M.reduceManaCost(user)
 
-    local chance = {min = 0.1, bonus = 0.4}
+    local chance = {min = 0.1, bonus = 0.4} --allows you to cast 25% more spells on average but you cant wear an archmage ring then so you lose some magic penetration as a trade
 
     local success = shared.activateGlyph(user, "hydor", chance, 1)
 

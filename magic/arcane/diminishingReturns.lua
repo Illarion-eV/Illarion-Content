@@ -18,6 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local delayedAttack = require("magic.arcane.delayedAttack")
 local runes = require("magic.arcane.runes")
 local targeting = require("magic.arcane.targeting")
+local castingSpeed = require("magic.arcane.castingSpeed")
 
 local M = {}
 
@@ -62,7 +63,8 @@ local Mes = runes.checkSpellForRuneByName("Mes", spell)
     if Mes then
         delayedAttack.applyDelay(user, myPosition, spell, true, level)
     else
-        delayedAttack.spellEffects(user, targets, spell, element, true, level)
+        local castDuration = castingSpeed.arcaneSpellCastSpeed(nil, spell, true)
+        delayedAttack.spellEffects(user, targets, spell, element, true, level, castDuration)
     end
 
 return false

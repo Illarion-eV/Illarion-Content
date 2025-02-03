@@ -32,6 +32,7 @@ local lookat = require("base.lookat")
 local antiTroll = require("magic.base.antiTroll")
 local magic = require("base.magic")
 local common = require("base.common")
+local castingSpeed = require("magic.arcane.castingSpeed")
 
 local M = {}
 
@@ -153,7 +154,8 @@ end
 local wear = sourceItem.wear
 local earthCloud = sourceItem:getData("earthCloud")
     if earthCloud ~= "true" then
-        dealDamage.applyMagicDamage(false, targets, spell, element, false, sourceItem, level)
+        local castDuration = castingSpeed.arcaneSpellCastSpeed(nil, spell, true)
+        dealDamage.applyMagicDamage(false, targets, spell, element, false, sourceItem, level, castDuration)
         illuminate.CheckIfIlluminate(false, targets, spell, sourceItem)
         snare.applySnare(false, targets, spell, false, sourceItem, level)
         stun.checkForStun(spell, targets)

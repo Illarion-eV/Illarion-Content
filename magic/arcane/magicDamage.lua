@@ -19,7 +19,6 @@ local magic = require("base.magic")
 local MR = require("magic.arcane.magicResistance")
 local MP = require("magic.arcane.magicPenetration")
 local runes = require("magic.arcane.runes")
-local castingSpeed = require("magic.arcane.castingSpeed")
 
 local M = {}
 
@@ -245,7 +244,7 @@ end
 
 
 
-function M.getMagicDamage(user, spell, element, target, DoT, Orl, earthTrap)
+function M.getMagicDamage(user, spell, element, target, DoT, Orl, earthTrap, castDuration)
 
     if not isValidChar(target) then
         return false
@@ -342,7 +341,7 @@ function M.getMagicDamage(user, spell, element, target, DoT, Orl, earthTrap)
         maxDamage = 4444
     end
 
-    local castTime = castingSpeed.arcaneSpellCastSpeed(user, spell, true)
+    local castTime = castDuration
 
     if user and user:getType() == Character.player and target and target:getType() == Character.player then
         -- both user and target exist and both are players, this is a pvp battle
