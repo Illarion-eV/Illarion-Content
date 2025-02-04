@@ -92,7 +92,7 @@ function M.CharacterOnField(user)
     if (fieldItem.quality > 100) and user.pos.z ~= 100 and user.pos.z ~= 101 and user.pos.z ~= 40 then --no harmful flames on noobia or the working camp
 
         local resist = magicResistance.getMagicResistance(user)
-        if resist < 101 then --Only mobs can reach this resistance level where they are immune to most magic
+        if resist < 100 then -- It is unrealistic for players to reach this as it'd take 30 willpower
             local foundEffect = user.effects:find(112) -- poisoncloud lte
             if not foundEffect then
                 local myEffect = LongTimeEffect(112, 50) --5sec

@@ -103,7 +103,7 @@ function M.CharacterOnField(User)
 
         local resist = magicResistance.getMagicResistance(User)
 
-        if resist < 101 then --Only mobs can reach this resistance level where they are immune to most magic
+        if resist < 100 then -- It is unrealistic for players to reach this as it'd take 30 willpower
             local foundEffect = User.effects:find(110); -- firefield lte
             if not foundEffect then
                 local myEffect = LongTimeEffect(110, 50) --5sec

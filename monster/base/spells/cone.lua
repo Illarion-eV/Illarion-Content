@@ -239,10 +239,12 @@ return function(params)
 
         if world:isCharacterOnField(pos) then
             local victim = world:getCharacterOnField(pos)
-            local spellResistence = magicResistance.getMagicResistance(victim)
-            local damage = math.random(damageRange[1], damageRange[2]) * (1.0 - ((spellResistence-penetration)/100))
+            if victim:getType() ~= Character.npc then
+                local spellResistence = magicResistance.getMagicResistance(victim)
+                local damage = math.random(damageRange[1], damageRange[2]) * (1.0 - ((spellResistence-penetration)/100))
 
-            base.dealMagicDamage(victim, damage, usedMovepoints, level)
+                base.dealMagicDamage(victim, damage, usedMovepoints, level)
+            end
         end
     end
 

@@ -47,6 +47,7 @@ function M.callEffect( effect, target )
                 effect:addValue("damagePerCycle", 0)
             end
             target:increaseAttrib("hitpoints", - currentDamage)
+            target:talk(Character.say,"#me takes "..currentDamage.." damage.", "#me takes "..currentDamage.." damage.")
         end
         effect.nextCalled = 5
         return true
