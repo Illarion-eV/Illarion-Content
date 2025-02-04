@@ -81,10 +81,47 @@ local function checksPassed(user, spell, element, thePosition)
     return true
 end
 
+local function interrupted(player)
+    local health = player:increaseAttrib("hitpoints", 0)
+    local max_chance = 25 --max percentage chance of interrupting a cast
+    local healthRoof = 7500 -- chance to interrupt begin at 7500 health
+    local healthFloor = 2500 -- chance to interrupt reaches max_chance at 2500 health
+    local willpower = player:increaseAttrib("willpower", 0)
+    local attribBonus = common.GetAttributeBonusHigh(willpower)
+    max_chance = math.floor(max_chance / (1+attribBonus)) -- At max attrib bonus for willpower, the max chance becomes 12.5%
+    local healthRange = healthRoof-healthFloor
+    local percent = healthRange/100
+    local actual_chance = max_chance - math.floor(((health-healthFloor)/percent)/(100/max_chance))
+
+    if health > healthRoof then
+        return false
+    end
+
+    if health < healthFloor then
+        actual_chance = max_chance
+    end
+
+    actual_chance = actual_chance/100
+
+    local chance = math.random()
+
+    if chance <= actual_chance then
+        player:inform("Deine Verletzungen machen es dir schwer dich zu konzentrieren. Du machst einen Fehler beim Zaubern!", "Your wounds made it hard for you to concentrate, causing you to make a mistake in your casting.")
+        return true
+    end
+
+    return false
+end
+
+
 function M.castSpell(user, spell, actionState, oralCast)
 
     if not oralCast then
         incantation.speakIncantation(user, spell)
+        return
+    end
+
+    if interrupted(user) then
         return
     end
 
@@ -159,6 +196,10 @@ function M.castSpell(user, spell, actionState, oralCast)
 
                 castDuration = castTime.arcaneSpellCastSpeed(user, spell)
                 M[user.id].storedDuration = castDuration
+
+                if interrupted(user) then
+                    return
+                end
 
                 user:startAction(castDuration, castGFX, castGFXDuration, castSFX, castSFXDuration)
             end
