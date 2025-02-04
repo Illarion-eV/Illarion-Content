@@ -122,6 +122,7 @@ function M.dealMagicDamage(user, target, spell, damage, level, DoT, castTime)
             target = user
             user = storedDefender
             dwyfolTriggered = true
+            damage = math.min(damage, 1000) -- It shouldn't be possible to luck into killing off a max skill chara with a no skill character!
         end
     end
 

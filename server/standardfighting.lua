@@ -771,7 +771,7 @@ function CauseDamage(Attacker, Defender, Globals)
         local storedDefender = Defender.Char
         Defender.Char = Attacker.Char
         Attacker.Char = storedDefender
-
+        Globals.Damage = math.min(Globals.Damage, 1000) -- It shouldn't be possible to luck into killing off a max skill chara with a no skill character!
     end
 
     if character.IsPlayer(Defender.Char) and not Defender.Char:isAdmin()

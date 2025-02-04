@@ -59,8 +59,8 @@ function M.dealMagicDoT(user, targets, spell, element, level, castDuration)
             end
 
             if user and (damage > 0) and dwyfol.deflectAttackAsLightning(target, user) then -- This glyph if activated deflects the attack, dealing the same amount they would have taken as magic damage to the attacker instead in the form of a lightning strike
-
-                mdamage.dealMagicDamage(nil, user, spell, damage/1.5, level, false, castDuration) --Remove DoT damage bonus and reflect as single time attack
+                damage = math.min(damage/1.5, 1000) -- It shouldn't be possible to luck into killing off a max skill chara with a no skill character!
+                mdamage.dealMagicDamage(nil, user, spell, damage, level, false, castDuration) --Remove DoT damage bonus and reflect as single time attack
                 return
             end
 
