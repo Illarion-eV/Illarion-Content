@@ -22,7 +22,7 @@ local M = {}
 
 function M.increaseDamage(user, defender, damage)
 
-    local chance = {min = 0.05, bonus = 0.25}
+    local chance = {min = 0.025, bonus = 0.075}
 
     local success = shared.activateGlyph(user, "hieros", chance, 1)
 

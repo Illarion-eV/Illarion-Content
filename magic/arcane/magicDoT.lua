@@ -20,6 +20,9 @@ local magicDamage = require("magic.arcane.magicDamage")
 local runes = require("magic.arcane.runes")
 local manaStaminaReduction = require("magic.arcane.manaStaminaReduction")
 local castingSpeed = require("magic.arcane.castingSpeed")
+local hieros = require("magic.arcane.enchanting.effects.hieros")
+local dendron = require("magic.arcane.enchanting.effects.dendron")
+local dwyfol = require("magic.arcane.enchanting.effects.dwyfol")
 
 local M = {}
 
@@ -32,19 +35,37 @@ function M.dealMagicDoT(user, targets, spell, element, level, castDuration)
     for _, target in pairs(targets.targets) do
 
         if isValidChar(target) and target.position ~= user.pos then
+
             local damage = magicDamage.getMagicDamage(user, spell, element, target, true, false, false, castDuration)
             local manaReduction = 0
             local foodReduction = 0
             local CUN = runes.checkSpellForRuneByName("CUN", spell)
             local Ira = runes.checkSpellForRuneByName("Ira", spell)
             local Kah = runes.checkSpellForRuneByName("Kah", spell)
+
             if Ira then
                 manaReduction = manaStaminaReduction.getManaToReduce(user, target, spell)
             end
             if Kah then
                 foodReduction = manaStaminaReduction.getStaminaToReduce(user, target, spell)
             end
+
+            if damage > 0 and user then
+                local hierosApplied, newDamage = hieros.increaseDamage(user, target, damage)
+
+                if hierosApplied then   -- chance to apply extra damage on hit in the form of fire
+                    damage = newDamage
+                end
+            end
+
+            if user and (damage > 0) and dwyfol.deflectAttackAsLightning(target, user) then -- This glyph if activated deflects the attack, dealing the same amount they would have taken as magic damage to the attacker instead in the form of a lightning strike
+
+                mdamage.dealMagicDamage(nil, user, spell, damage/1.5, level, false, castDuration) --Remove DoT damage bonus and reflect as single time attack
+                return
+            end
+
             if damage > 0 then
+
                 local foundEffect = target.effects:find(1)
                 local foundEffect2 = target.effects:find(3)
                 local DoT = LongTimeEffect(1,10)
@@ -65,6 +86,8 @@ function M.dealMagicDoT(user, targets, spell, element, level, castDuration)
                         user.effects:addEffect(lifesteal)
                     end
                 end
+
+                dendron.lifesteal(user, damage/1.5) -- chance to heal for a portion of the damage you deal, but as it is instant the damage is scaled down by 1.5 to match fire spells instead for instant damage values
             end
             if manaReduction > 0 and CUN then
                 local foundEffect3 = target.effects:find(9)

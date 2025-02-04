@@ -34,7 +34,7 @@ function M.lifesteal(user, damage)
 
     if success then
         local increase = damage/5 -- 20% lifesteal on proc, procs at most one out of 4 attacks on average, meaning 5% average lifesteal per attack
-        user:increaseAttrib("hitpoints", increase)
+        user:increaseAttrib("hitpoints", increase) -- The increase is not very noticable when evenly matched, but in the end you will have 5% more health than an evenly matched opponent when using this, and when combined with the defensive one it is 10%
         world:gfx(globalvar.gfxGreenSplash, user.pos)
     end
 end
