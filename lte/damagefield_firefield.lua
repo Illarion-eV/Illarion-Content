@@ -22,9 +22,11 @@ local M = {}
 
 local function causeDamage(User, quality)
 
+    quality = math.floor(quality/10)
+
     local resist = magicResistance.getMagicResistance(User) -- up to 100 for players, up to 200 for monsters
 
-    resist = math.floor(resist/100)
+    resist = math.floor(resist/10)
 
     if resist < quality+1 then --Immune at level 100, which players will realistically never reach as it requires stat bonuses you cant get high enough
         local damageLow = 3 * math.floor((math.max(10, quality+1 - resist))) --Anywhere between 3 and 30
