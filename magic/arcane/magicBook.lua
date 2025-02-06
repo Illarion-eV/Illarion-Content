@@ -18,6 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local createSpell = require("magic.arcane.createSpell")
 local magic = require("base.magic")
+local runes = require("magic.arcane.runes")
 
 local M = {}
 
@@ -121,6 +122,89 @@ local function setDefaultRange(user)
 
 end
 
+local function showInfoForSpell(user, spell, spellName)
+
+    local runeListEnglish = "The spell "..spellName.." contains the following runes:\n"
+    local runeListGerman = "Der Zauber "..spellName.." enthält die folgenden Runen:\n"
+
+    local runeList = common.GetNLS(user, runeListGerman, runeListEnglish)
+
+    local first = true
+
+    for _, rune in pairs(runes.runes) do
+        if runes.checkSpellForRuneByName(rune.name, tonumber(spell)) then
+            if first then
+                first = false
+                runeList = runeList..rune.name
+            else
+                runeList = runeList..", "..rune.name
+            end
+        end
+    end
+
+    runeList = runeList.."."
+
+    local callback = function(dialog) end
+    local dialog = MessageDialog(spellName, runeList, callback)
+    user:requestMessageDialog(dialog)
+
+end
+
+local function runeDetailsList(user, grimoire)
+
+    local spell
+
+    local emptySpellSlots = 0
+
+    local callback = function(dialog)
+
+        if not dialog:getSuccess() then
+            return
+        end
+
+        local index = dialog:getSelectedIndex() +1
+
+        for i = 1, createSpell.MAX_SPELL_SLOTS do
+
+            local spellName = grimoire:getData("spellName"..i)
+            if common.IsNilOrEmpty(spellName) -- spell name doesn't exists
+            or spellName == "Unfinished" -- it is an unfinished spell
+            or spellName == "Unvollendet" -- same as above but for german players
+            then
+                emptySpellSlots = emptySpellSlots + 1
+            elseif index == i - emptySpellSlots then --It is the selected spell slot
+                spell = grimoire:getData("spell"..i)
+
+                showInfoForSpell(user, spell, spellName)
+
+                return
+            end
+        end
+    end
+
+    local dialog = SelectionDialog(common.GetNLS(user, "Zauberauswahl", "Spell Selection"), common.GetNLS(user, "Wählen Sie den Zauber aus, dessen Details Sie anzeigen möchten.","Select which spell you want to view the details of."), callback)
+
+    local count = 0
+
+    for i = 1, createSpell.MAX_SPELL_SLOTS do
+
+        local spellName = grimoire:getData("spellName"..i)
+
+        if not common.IsNilOrEmpty(spellName) and spellName ~= "Unfinished" and spellName ~= "Unvollendet" then
+            dialog:addOption(0, spellName)
+        else
+            count = count + 1
+        end
+    end
+
+    if count == createSpell.MAX_SPELL_SLOTS then -- no spells found
+        user:inform("Dieses Grimoire enthält keine abgeschlossenen Zauber, die du auswählen könntest.", "This grimoire has no completed spells for you to select from.")
+    else
+        user:requestSelectionDialog(dialog)
+    end
+
+end
+
 function M.mainSelectionDialog(user, grimoire)
 
 
@@ -158,6 +242,10 @@ function M.mainSelectionDialog(user, grimoire)
 
             setDefaultRange(user)
 
+        elseif index == 4 then
+
+            runeDetailsList(user, grimoire)
+
         end
     end
 
@@ -166,6 +254,7 @@ function M.mainSelectionDialog(user, grimoire)
     dialog:addOption(0,common.GetNLS(user, "Stimme den Zauberstab auf einen Zauber ab.", "Attune the wand to a spell"))
     dialog:addOption(0,common.GetNLS(user, "Zauberabstimmung aufheben", "Undo spell attunement"))
     dialog:addOption(0,common.GetNLS(user, "Standardreichweite festlegen", "Set default range"))
+    dialog:addOption(0,common.GetNLS(user, "Detaillierte Zauberinformationen anzeigen", "View detailed spell info"))
 
     user:requestSelectionDialog(dialog)
 end
