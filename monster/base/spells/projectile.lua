@@ -233,7 +233,7 @@ return function(params)
 
         if hitCharacter ~= nil then
             local spellResistence = magicResistance.getMagicResistance(hitCharacter)
-            local damage = math.random(damageRange[1], damageRange[2]) * (1.0 - ((spellResistence-penetration)/100))
+            local damage = math.random(damageRange[1], damageRange[2]) * (1.0 - ((spellResistence-penetration)))
             base.dealMagicDamage(hitCharacter, damage, usedMovepoints, level)
         end
 

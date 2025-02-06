@@ -2375,7 +2375,7 @@ function M.GetAttributeBonus(attributeValue, range, skillName, user)
 
     local bonus
     if attributeValue ~= nil and attributeValue ~= 0 and range < 1 and range > 0 then
-        bonus=math.min(2*range, range * ((attributeValue-1) / 9.5) - range) -- +/- range for attributes 1-20. Bonus capped at attribute 30. Neutral attribute (bonus = 0) at 10.5
+        bonus=range * ((attributeValue-1) / 9.5) - range -- +/- range for attributes 1-20. Bonus capped at attribute 30. Neutral attribute (bonus = 0) at 10.5
     else
         bonus=0 --default
     end

@@ -23,27 +23,26 @@ local runes = require("magic.arcane.runes")
 local M = {}
 
 local damageList = {
-    --The listed damage is what a perfect mage will deal before reductions are taken into consideration, maxDamage cap is also 4999 to require 3 shots minimum
 
-    {rune = "RA", damage = 1500, element = "Fire"},
-    {rune = "Pherc", damage = 2250, element = "Water"},
-    {rune = "Pherc", damage = 2250, element = "Air"},
-    {rune = "Pherc", damage = 2250, element = "Earth"},
-    {rune = "Qwan", damage = 3000, element = "Fire"},
-    {rune = "Luk", damage = 2250, element = "Fire"},
-    {rune = "Taur", damage = 2250, element = "Fire"},
-    {rune = "Ura", damage = 2250, element = "Fire"},
-    {rune = "Yeg", damage = 2250, element = "Fire"},
-    {rune = "Sul", damage = 2250, element = "Fire"}
+    {rune = "RA", damage = 500, element = "Fire"},
+    {rune = "Pherc", damage = 750, element = "Water"},
+    {rune = "Pherc", damage = 750, element = "Air"},
+    {rune = "Pherc", damage = 750, element = "Earth"},
+    {rune = "Qwan", damage = 1000, element = "Fire"},
+    {rune = "Luk", damage = 750, element = "Fire"},
+    {rune = "Taur", damage = 750, element = "Fire"},
+    {rune = "Ura", damage = 750, element = "Fire"},
+    {rune = "Yeg", damage = 750, element = "Fire"},
+    {rune = "Sul", damage = 750, element = "Fire"}
 }
 
 local damageOverTimeList = { --This damage is balanced around DoTs having 15 ticks that it is spread out over. So you would want to start with a DoT before moving onto direct damage spells when fighting high level opponents
-    {rune = "Pherc", damage = 3375, element = "Fire"},
-    {rune = "CUN", damage = 2750, element = "Water"},
-    {rune = "Qwan", damage = 4500, element = "Water"},
-    {rune = "Taur", damage = 3375, element = "Water"},
-    {rune = "Ura", damage = 3375, element = "Water"},
-    {rune = "Yeg", damage = 3375, element = "Water"}
+    {rune = "Pherc", damage = 1125, element = "Fire"},
+    {rune = "CUN", damage = 1125, element = "Water"},
+    {rune = "Qwan", damage = 1500, element = "Water"},
+    {rune = "Taur", damage = 1125, element = "Water"},
+    {rune = "Ura", damage = 1125, element = "Water"},
+    {rune = "Yeg", damage = 1125, element = "Water"}
 }
 
 M.raceList = {
@@ -197,21 +196,18 @@ local function hasDamageRuneOfSize(spell, cost, element, DoT)
 
 end
 
-function M.getBonus(user, elementBonus)
+function M.getEquipmentImpact(user, elementBonus)
 
-    local intelligence = user:increaseAttrib("intelligence", 0) -- Intelligence scales damage directly, while essence scales how often you can cast and willpower how much magic defense you can ignore
+    return magic.getQualityBonusWand(user) + elementBonus
+end
 
-    local baseBonus = 0.3 -- The scaling of damage ended up a bit too top heavy, this counteracts that
+function M.intImpact(user)
 
-    local statBonus =  common.GetAttributeBonusHigh(intelligence)/2  -- 22 int(18 int + potion) would give about 0.3, 25 int(18 int + potion and unique food) 0.38,  while 15 int about 0.12, 30 int gives 0.5
+    local intelligence = user:increaseAttrib("intelligence", 0)
 
-    local wandQualityBonus = magic.getQualityBonusWand(user) -- A perfect wand equals a bonus of 0.1
+    local statBonus =  common.GetAttributeBonusHigh(intelligence)
 
-    local totalBonus =baseBonus + statBonus + wandQualityBonus + elementBonus -- Best element bonus is 0.1
-
-    --There is no gem bonus for wands here or equipment bonus because that is handled by magic penetration, allowing magic gems in cloaks to cancel out magic gems in wands similar to how fighting works.
-
-    return math.min(totalBonus, 1)
+    return statBonus
 
 end
 
@@ -235,10 +231,7 @@ local function constitutionImpact(target, damage)
 
     local constitution = target:increaseAttrib("constitution", 0)
 
-    -- Same math as in fighting for uniformity on how much const impacts the health bar
-    -- That's 466% increase at 3 const and 54.444444% decrease at 30 const
-
-    return damage * 14 / constitution
+    return damage* (1- common.GetAttributeBonusLow(constitution))
 end
 
 
@@ -250,7 +243,7 @@ function M.getMagicDamage(user, spell, element, target, DoT, Orl, earthTrap, cas
         return false
     end
 
-    local damage = checkForDamageRunes(target, spell, element, DoT)
+    local baseDamage = checkForDamageRunes(target, spell, element, DoT)
     local magicResist
     local magicPen
     local elementBonus
@@ -267,9 +260,7 @@ function M.getMagicDamage(user, spell, element, target, DoT, Orl, earthTrap, cas
         wandGemBonus = earthTrap:getData("gemBonus")
     end
 
-    local bonus = M.getBonus(user, elementBonus) --Max bonus is 1
-
-    damage = damage*bonus
+    local damage = baseDamage*(1+M.intImpact(user)+M.getEquipmentImpact(user, elementBonus))
 
     damage = M.crit(user, damage) -- Critical strike chance based on perception stat and rng, 50% increase in damage if crit
 
@@ -279,13 +270,7 @@ function M.getMagicDamage(user, spell, element, target, DoT, Orl, earthTrap, cas
 
     if playerOrMonster ~= Character.npc and not illusion then
         magicResist = MR.getMagicResistance(target, spell)
-        local diff = math.max(-1, magicPen/100-magicResist/100) -- We don't want magic spells to heal the opponent if the magic resist is too high.
-
-        if diff == -1 and user then
-            user:inform("Der magische Widerstand deines Ziels ist so hoch, dass dein Zauber einfach verschwand, als er damit in Berührung kam!", "Your target's magic resistance is so high that your spell simply disappeared upon coming into contact with it!")
-        end
-
-        finalDamage = damage*(1+diff)
+        finalDamage = damage*(1- magicResist + magicPen)
     end
 
     if runes.checkSpellForRuneByName("Sul",spell) then
@@ -321,7 +306,6 @@ function M.getMagicDamage(user, spell, element, target, DoT, Orl, earthTrap, cas
     end
 
     finalDamage = constitutionImpact(target, finalDamage) -- From -50% to +400% damage based on target constitution
-
     -- Lastly we check magic gems that, just like in fighting, increase/decrease the final damage by a % after cancelling each other out
 
     finalDamage = finalDamage * (1 + wandGemBonus-cloakGemBonus)
@@ -356,6 +340,8 @@ function M.getMagicDamage(user, spell, element, target, DoT, Orl, earthTrap, cas
     end
 
     finalDamage = math.floor(finalDamage)
+
+    finalDamage = math.max(0, finalDamage) -- just in case it ends up healing someone because the damage went into the negatives
 
     return finalDamage
 end

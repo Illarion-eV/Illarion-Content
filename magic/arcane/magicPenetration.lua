@@ -18,24 +18,17 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local magic = require("base.magic")
 local skilling = require("magic.arcane.skilling")
+local runes = require("magic.arcane.runes")
 
 local M = {}
 
 
 
-local function getBonus(user, spell)
+local function willImpact(user)
 
     local willpower = user:increaseAttrib("willpower", 0) -- Magic penetration and magic resistance, a fight of whose willpower is the greatest!
 
-    local baseBonus = 0.3 -- A level 100 mage will have at least 30% penetration, up to 50% due to clothes and then the remaining 50% is obtainable from the willpower stat
-
-    local statBonus =  common.GetAttributeBonusHigh(willpower)/2 -- 22 willpower(potion) would give about 0.3, 25 willpower(potion and unique food) 0.38,  while 15 willpower about 0.12, 30 willpower gives 0.5
-
-    local equipmentBonus = magic.getMagicBonus(user) -- caps out at 0.2. Best possible jewellery and clothing caps out at 0.2596, so this gives some leeway in terms of fashion by capping it at 0.2
-
-    local totalBonus = statBonus + equipmentBonus + baseBonus
-
-    return math.min(totalBonus, 1) --Realistically the cap with unique food (very rare to get) and +4 potion buff to willpower, you can get up to 88% penetration meaning a level 50(100) monster will take 12% reduced damage and a level 94(188) monster is immune to damage unless the damage pen rune is used
+    return common.GetAttributeBonusHigh(willpower)
 
 end
 
@@ -45,13 +38,22 @@ function M.getMagicPenetration(user, element, spell)
         return user:getSkill(Character.wandMagic) --wand magic already exists in the database for monsters so easier to just use that
     end
 
+    local equipmentBonus = magic.getMagicBonus(user) -- caps out at 0.2. Best possible jewellery and clothing caps out at 0.2596, so this gives some leeway in terms of fashion by capping it at 0.2
+
+
     local skill = skilling.getMagicSkillSpellBelongsTo(spell)
 
     local level = user:getSkill(Character[skill])
 
-    local bonus = getBonus(user, spell)
+    local statBonus = willImpact(user)
 
-    local magicPenetration = level*bonus
+    local skillImpact = 0.01*level
+
+    local magicPenetration = statBonus+equipmentBonus+skillImpact
+
+    if spell and runes.checkSpellForRuneByName("Sav", spell) and not runes.checkSpellForRuneByName("JUS", spell) and not runes.checkSpellForRuneByName("PEN", spell) then --magic penetration
+        magicPenetration = math.floor(magicPenetration*1.1) --up to 10% magic penetration when Sav is applied to fire, water or earth spells
+    end
 
     return magicPenetration
 
