@@ -220,6 +220,13 @@ end
 
 local function nameSpell(user, targetItem, slot)
 
+    local theSpell = targetItem:getData("spell"..slot)
+
+    if common.IsNilOrEmpty(theSpell) or tonumber(theSpell) == 0 then
+        user:inform("Der Zauberspruch muss Runen enthalten, damit du ihn benennen kannst.", "The spell must contain runes for you to name it.")
+        return
+    end
+
     local callback = function(dialog)
         if not dialog:getSuccess() then
             return
