@@ -1591,6 +1591,25 @@ local function settingsForMagic(user, target)
             removePortalsRunes(user, target, 216)
         elseif index == 7 then
             settingsForCharRedPortalPermission(user, target)
+        elseif index == 8 then
+
+            local questIds = {37, 38, 568, 240, 241, 237}
+
+            for _, questId in pairs(questIds) do
+
+                target:setQuestProgress(questId, 0)
+            end
+
+
+            user:inform("You reset the magic tutorial quest progresses and magic status of "..target.name)
+            user:logAdmin(user.name.." has reset the magic tutorial quest progresses and magic status of "..target.name)
+        elseif index == 9 then
+
+            target:setQuestProgress(7002, 0)
+            target:setQuestProgress(7003, 0)
+
+            user:inform("You reset the weekly rune learning cooldown for "..target.name)
+            user:logAdmin(user.name.." has reset the weekly rune learning cooldown for "..target.name)
         end
     end
     local dialog = SelectionDialog( "Magic", "Select what you want to do", callback)
@@ -1607,6 +1626,9 @@ local function settingsForMagic(user, target)
     else
         dialog:addOption(798, "Allow player to create red portals")
     end
+
+    dialog:addOption(0, "Reset all magic tutorials and mage status for the character")
+    dialog:addOption(0, "Reset rune learning cooldown for the character")
 
     user:requestSelectionDialog(dialog)
 end
