@@ -240,12 +240,8 @@ function removePage(user, book)
 
     local theParchment = world:createItemFromId(Item.parchment, 1, user.pos, true, 333, {})
 
-    if not common.IsNilOrEmpty(theSignature) then
-        theParchment:setData("signatureText", theSignature)
-        lookat.SetSpecialDescription(theParchment,"Das Pergament ist unterschrieben.","The parchment is signed.")
-    end
 
-    M.convertStringToMultipleParchmentDataValues(theParchment, theText)
+    M.convertStringToMultipleParchmentDataValues(theParchment, theText, theSignature)
 
     local usersBag = user:getBackPack()
 
@@ -308,7 +304,7 @@ M.germanParchmentDescription = "Das Pergament ist beschrieben."
 M.englishParchmentDescription = "The parchment has been written on."
 
 
-function M.convertStringToMultipleParchmentDataValues(theParchment, writtenText)
+function M.convertStringToMultipleParchmentDataValues(theParchment, writtenText, theSignature)
     local texts = {
         string.sub(writtenText, 1, 250),
         string.sub(writtenText, 251, 500),
@@ -323,6 +319,12 @@ function M.convertStringToMultipleParchmentDataValues(theParchment, writtenText)
     end
 
     lookat.SetSpecialDescription(theParchment,M.germanParchmentDescription,M.englishParchmentDescription)
+
+    if not common.IsNilOrEmpty(theSignature) then
+        theParchment:setData("signatureText", theSignature)
+        lookat.SetSpecialDescription(theParchment,"Das Pergament ist unterschrieben.","The parchment is signed.")
+        world:changeItem(theParchment)
+    end
 
     theParchment.wear = 254 -- Written parchments should have maximum rot time to allow message exchange
 
