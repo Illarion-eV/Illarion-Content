@@ -24,21 +24,8 @@ local M = {}
 
 local function manaCostByRuneSize(user, size, spell)
 
-    --[[
-        Scaled based on users skill in relevant spell category.
-        Between 3-9 "rune slots".
-        Small runes use 1 "rune slot", medium runes use 1.5 "rune slots", large runes use 3 "rune slots"
-        At level 0 user has 3 rune slots, at level 100 they have 9.
-        EG:
-        At level 0 they can cast 1 large rune or 2 medium rune or 3 small runes or a combination such as 1 medium 1 small
-        At level 50 they can cast 1 large rune or 3 medium runes or 4.5 small runes or a combination.
-        At level 100 they can cast 3 large, 6 medium or 9 small or a combination of the three such as 1 large, 2 medium, 3 small or 4 medium 3 small and so on
+    -- Scaled based on users skill in relevant spell category.
 
-        Reducing the cost means increasing the amount of possible rune combinations.
-        If our goal is to allow mages to cast more spells - increase mana regen instead.
-        If our goal is to allow mages to cast more advanced spells (adding runes ontop of the biggest spells possible now ) - reduce the costs here.
-        )
-    ]]
 
     local maxMana = 10000
 
@@ -50,15 +37,12 @@ local function manaCostByRuneSize(user, size, spell)
 
     local cost = minimumCost[size]
 
-    cost = cost * (1 + (2 - ((skillLevel*2)/100)))
+    cost = cost * (2 - (skillLevel)/100)
     --[[
         EG:
-        At level 100, the cost remains at the minimum cost.
-        At level 50, it would be double the cost.
-        At level 0 it would be three times as much.
-        So for a small rune that'd be 1111 mana at level 100 vs 2222 mana at level 50 and 3333 mana at level 0, allowing for 9 vs 4.5 vs 3 small runes in a spell.
-        For medium: 1666 vs 3333 vs 5000 cost for 6 vs 3 vs 2 rune casts at level 100, 50, 0.
-        For large: 3333 vs 6666 vs 9999 cost for 3 vs 1 vs 1 rune casts at level 100, 50, 0.
+        At level 100, the cost is at its lowest
+        At level 50, it is 50% more costly
+        At level 0 it is double the cost
     ]]
 
     return cost
