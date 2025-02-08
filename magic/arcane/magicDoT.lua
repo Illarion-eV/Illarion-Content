@@ -66,19 +66,36 @@ function M.dealMagicDoT(user, targets, spell, element, level, castDuration)
 
             if damage > 0 then
 
-                local foundEffect = target.effects:find(1)
-                local foundEffect2 = target.effects:find(3)
-                local DoT = LongTimeEffect(1,10)
-                DoT:addValue("remainingDamage", damage)
-                DoT:addValue("remainingTicks", 15)
-                DoT:addValue("spell", spell)
-                DoT:addValue("level", level)
+                local addValue = true
+
+                local foundEffect, DoT = target.effects:find(1)
+                local foundEffect2, lifesteal = target.effects:find(3)
+                if not foundEffect then
+                    DoT = LongTimeEffect(1,10)
+                else
+                    local foundRemaining, remaining = DoT:findValue("remainingDamage")
+                    if foundRemaining then
+                        if remaining >= damage then --the DoT refresh wouldnt add value
+                            addValue = false
+                        end
+                    end
+                end
+
+                if addValue then
+                    DoT:addValue("remainingDamage", damage)
+                    DoT:addValue("remainingTicks", 15)
+                    DoT:addValue("spell", spell)
+                    DoT:addValue("level", level)
+                end
+
                 if not foundEffect then
                     target.effects:addEffect(DoT)
                 end
 
-                if runes.checkSpellForRuneByName("Sih", spell) and CUN then
-                    local lifesteal = LongTimeEffect(3, 10)
+                if addValue and runes.checkSpellForRuneByName("Sih", spell) and CUN then
+                    if not foundEffect2 then
+                        lifesteal = LongTimeEffect(3, 10)
+                    end
                     lifesteal:addValue("remainingDamage", damage)
                     lifesteal:addValue("remaininingTicks", 15)
                     lifesteal:addValue("spell", spell)
@@ -90,23 +107,52 @@ function M.dealMagicDoT(user, targets, spell, element, level, castDuration)
                 dendron.lifesteal(user, damage/1.5) -- chance to heal for a portion of the damage you deal, but as it is instant the damage is scaled down by 1.5 to match fire spells instead for instant damage values
             end
             if manaReduction > 0 and CUN then
-                local foundEffect3 = target.effects:find(9)
-                local MoT = LongTimeEffect(9,10)
-                MoT:addValue("remainingManaReduction", manaReduction)
-                MoT:addValue("remainingTicks", 15)
-                MoT:addValue("spell", spell)
-                MoT:addValue("level", level)
+
+                local addValue = true
+
+                local foundEffect3, MoT = target.effects:find(9)
+                if not foundEffect3 then
+                    MoT = LongTimeEffect(9,10)
+                else
+                    local foundRemaining, remaining = MoT:findValue("remainingManaReduction")
+                    if foundRemaining then
+                        if remaining >= manaReduction then --the DoT refresh wouldnt add value
+                            addValue = false
+                        end
+                    end
+                end
+                if addValue then
+                    MoT:addValue("remainingManaReduction", manaReduction)
+                    MoT:addValue("remainingTicks", 15)
+                    MoT:addValue("spell", spell)
+                    MoT:addValue("level", level)
+                end
                 if not foundEffect3 then
                     target.effects:addEffect(MoT)
                 end
             end
             if foodReduction > 0 and CUN then
-                local foundEffect4 = target.effects:find(10)
-                local SoT = LongTimeEffect(10,10)
-                SoT:addValue("remainingStaminaReduction", foodReduction)
-                SoT:addValue("remainingTicks", 15)
-                SoT:addValue("spell", spell)
-                SoT:addValue("level", level)
+
+                local addValue = true
+
+                local foundEffect4, SoT = target.effects:find(10)
+                if not foundEffect4 then
+                    SoT = LongTimeEffect(10,10)
+                else
+                    local foundRemaining, remaining = SoT:findValue("remainingStaminaReduction")
+                    if foundRemaining then
+                        if remaining >= damage then --the DoT refresh wouldnt add value
+                            addValue = false
+                        end
+                    end
+                end
+
+                if addValue then
+                    SoT:addValue("remainingStaminaReduction", foodReduction)
+                    SoT:addValue("remainingTicks", 15)
+                    SoT:addValue("spell", spell)
+                    SoT:addValue("level", level)
+                end
                 if not foundEffect4 then
                     target.effects:addEffect(SoT)
                 end
