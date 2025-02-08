@@ -74,16 +74,16 @@ function M.readMagicBooks(user, bookId)
         end
 
         if readBooks < 3 then
-            user:inform("Das Lesen dieses Buches hat dein Verständnis der Magie vertieft. Wenn du weitere Bücher über Magie findest, kannst du ja vielleicht selbst bald ein Magier werden.", "This book forwards your understanding of magic. If you want more books about magic, you might be able to become a magician yourself as well.")
+            user:inform("Das Lesen dieses Buches hat dein Verständnis der Magie vertieft. Wenn du weitere Bücher über Magie findest, kannst du ja vielleicht selbst bald ein Magier werden.", "This book advances your understanding of magic. If you continue reading, you may yet uncover the talents needed to become a true mage.")
 
         elseif bit32.extract(questProgress, 30) == 0 then
 
             local callback = function(dialog)end;
             local dialog
             if user:getPlayerLanguage() == Player.german then
-                dialog = MessageDialog("Magische Lektüre", "Durch das Lesen der verschiedenen Bücher über Magie hast du ein tiefes Verständnis für die arkanen Künste erlangt. Um den Pfad der Magie zu betreten, ergreife einen Zauberstab und konzentriere dich auf deine innere Stärke.", callback)
+                dialog = MessageDialog("Magische Lektüre", "Das Lesen der verschiedenen Bücher über Magie hat Ihnen ein umfassendes Verständnis der arkanen Künste vermittelt. Sie erinnern sich daran, was Terry Ihnen zuvor gesagt hat: dass Sie versuchen sollten, Ihren Zauberstab abzustimmen, sobald Sie genügend Bücher über Magie gelesen haben, bevor Sie zu ihm zurückkehren. Sie fühlen sich bereit, also warum halten Sie ihn nicht in Ihrer Hand und probieren es aus?", callback)
             else
-                dialog = MessageDialog("Magical reading", "Reading the various books about magic gave you a vast understanding of the arcane arts. To follow the path of magic, you should acquire a magical wand, hold it firmly and concentrate on your inner strength.", callback)
+                dialog = MessageDialog("Magical reading", "Reading the various books about magic gave you a vast understanding of the arcane arts. You recall what Terry told you previously, about how you should attempt to attune to your wand once you had read sufficient books about magic, before returning to him. You feel ready, so why not hold it in your hand and give it a try?", callback)
             end
             user:requestMessageDialog(dialog)
             questProgress = bit32.replace(questProgress, 1, 30)
@@ -165,7 +165,7 @@ function M.useMagicWand(user, sourceItem, moved)
             user:inform("Du hast dich dagegen entschieden Magier zu werden. Die Möglichkeit bleibt dir aber offen.", "You decided against becoming a mage. The option, however, will remain available to you.")
         end
     end
-    local dialog = SelectionDialog(common.GetNLS(user, "Der Weg der Magie", "The path of magic"), common.GetNLS(user, "Als du den Stab berührst, kannst du seine magische Macht spüren. Dir scheint, dass es dir gelingen könnte, sie dir nutzbar zu machen. Willst du das tun und somit zu einem Magier werden? Bedenke, dass eine weitere hohe Kunst - die Alchemie - dir so dann verschlossen sein wird.", "As you touch the wand, you can feel its magical power. It seems to you that you should be able to use this power. Do you want to do so and, therefore, become a mage? Mind that an other high art - alchemy - will not be accessable for you once you became a mage."), callback)
+    local dialog = SelectionDialog(common.GetNLS(user, "Der Weg der Magie", "The path of magic"), common.GetNLS(user, "Als du den Stab berührst, kannst du seine magische Macht spüren. Dir scheint, dass es dir gelingen könnte, sie dir nutzbar zu machen. Willst du das tun und somit zu einem Magier werden? Bedenke, dass eine weitere hohe Kunst - die Alchemie - dir so dann verschlossen sein wird.", "As you grasp the wand, you feel a surge of magical energy coursing through it. The power seems within your reach, waiting to be harnessed. Will you claim it and embrace the path of the mage? Be warned?once you do, the other high arts, such as alchemy, will be beyond your grasp."), callback)
     dialog:addOption(0, common.GetNLS(user, "Werde Magier", "Become a mage"))
     dialog:addOption(0, common.GetNLS(user, "Nein. Vielleicht später.", "No. Maybe later."))
     user:requestSelectionDialog(dialog)
