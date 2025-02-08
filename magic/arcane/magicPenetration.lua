@@ -34,16 +34,17 @@ end
 
 function M.getMagicPenetration(user, element, spell)
 
-    if user:getType() == Character.monster then --monster penetration is based on just the skill level
-        return user:getSkill(Character.wandMagic) --wand magic already exists in the database for monsters so easier to just use that
-    end
-
     local equipmentBonus = magic.getMagicBonus(user) -- caps out at 0.2. Best possible jewellery and clothing caps out at 0.2596, so this gives some leeway in terms of fashion by capping it at 0.2
 
+    local level = 0
 
-    local skill = skilling.getMagicSkillSpellBelongsTo(spell)
+    if user:getType() == Character.player then
+        local skill = skilling.getMagicSkillSpellBelongsTo(spell)
 
-    local level = user:getSkill(Character[skill])
+        level = user:getSkill(Character[skill])
+    elseif user:getType() == Character.monster then
+        level =  user:getSkill(Character.wrestling) -- a little hack to avoid having to add magic skills to monsters since they use the same level for everything anyways
+    end
 
     local statBonus = willImpact(user)
 

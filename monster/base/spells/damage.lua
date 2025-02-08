@@ -17,9 +17,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local base = require("monster.base.spells.base")
 local common = require("base.common")
 local standardfighting = require("server.standardfighting")
-local magicResistance = require("magic.arcane.magicResistance")
-local magicPenetration = require("magic.arcane.magicPenetration")
-
 
 local function _isNumber(value)
     return type(value) == "number"
@@ -42,7 +39,7 @@ return function(params)
     local itemDurabilityRange = {11, 88}
     local usedMovepoints = 20
     local level = 0
-    local penetration = 0
+    local attacker = false
 
     if _isTable(params) then
         if params.probability ~= nil then
@@ -194,10 +191,9 @@ return function(params)
 
     -- Deal damage
     local function castSpellAt(enemy)
-        local spellResistence = magicResistance.getMagicResistance(enemy)
-        local damage = math.random(damageRange[1], damageRange[2]) * (1.0 - ((spellResistence-penetration)))
+        local damage = math.random(damageRange[1], damageRange[2])
 
-        base.dealMagicDamage(enemy, damage, usedMovepoints, level)
+        base.dealMagicDamage(enemy, damage, usedMovepoints, level, attacker)
         if gfxId > 0 then world:gfx(gfxId, enemy.pos) end
         if sfxId > 0 then world:makeSound(sfxId, enemy.pos) end
         if itemId > 0 and not common.isItemIdInFieldStack(itemId, enemy.pos) then
@@ -226,7 +222,7 @@ return function(params)
     function self.cast(monster, enemy)
         if math.random() <= probability then
             level = monster:getSkill(Character.wandMagic)
-            penetration = magicPenetration.getMagicPenetration(monster)
+            attacker = monster
             local castedAtLeastOnce = false
             local remainingAttacks = targets
             local firstAttackDone = false

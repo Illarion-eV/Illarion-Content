@@ -16,8 +16,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local base = require("monster.base.spells.base")
 local common = require("base.common")
-local magicResistance = require("magic.arcane.magicResistance")
-local magicPenetration = require("magic.arcane.magicPenetration")
 
 local function _isNumber(value)
     return type(value) == "number"
@@ -65,7 +63,7 @@ return function(params)
     local itemProbability = 0.08
     local usedMovepoints = 20
     local level = 0
-    local penetration = 0
+    local attacker = nil
 
     if _isTable(params) then
         if params.probability ~= nil then
@@ -240,10 +238,10 @@ return function(params)
         if world:isCharacterOnField(pos) then
             local victim = world:getCharacterOnField(pos)
             if victim:getType() ~= Character.npc then
-                local spellResistence = magicResistance.getMagicResistance(victim)
-                local damage = math.random(damageRange[1], damageRange[2]) * (1.0 - ((spellResistence-penetration)))
 
-                base.dealMagicDamage(victim, damage, usedMovepoints, level)
+                local damage = math.random(damageRange[1], damageRange[2])
+
+                base.dealMagicDamage(victim, damage, usedMovepoints, level, attacker)
             end
         end
     end
@@ -258,7 +256,8 @@ return function(params)
             --Best was to calculate it, is use calculate half of the triangle as right triangle and mirror it.
 
             level = monster:getSkill(Character.wandMagic)
-            penetration = magicPenetration.getMagicPenetration(monster)
+            attacker = monster
+
 
             --Turn to the target
             common.TurnTo(monster, enemy.pos)

@@ -18,10 +18,29 @@ local common = require("base.common")
 local character = require("base.character")
 local chr_reg = require("lte.chr_reg")
 local arcaneMagicDamage = require("magic.arcane.dealMagicDamage")
+local magicResistance = require("magic.arcane.magicResistance")
+local magicPenetration = require("magic.arcane.magicPenetration")
+local magicDamage = require("magic.arcane.magicDamage")
+local magic = require("base.magic")
 
 local M = {}
 
-function M.dealMagicDamage(target, damage, usedMovepoints, level)
+function M.dealMagicDamage(target, damage, usedMovepoints, level, monster)
+
+    local penetration = 0
+
+    if monster and isValidChar(monster) then
+        penetration = magicPenetration.getMagicPenetration(monster)
+    end
+
+    local resistance = magicResistance.getMagicResistance(target)
+
+    damage = damage * (1.0 - resistance + penetration)
+
+    damage = magicDamage.constitutionImpact(target, damage)
+
+    damage = damage * (1 - magic.getGemBonusCloak(target)/100) -- tier 5 set is 30%, tier 10 60%
+
 
     if damage < 1 then return end
     -- Check for damage + 1 to avoid the case that a regular hit lowers the hitpoints down to 1 and directly sends a

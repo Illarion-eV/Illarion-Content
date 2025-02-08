@@ -18,6 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local character = require("base.character")
+local magicResistance = require("magic.arcane.magicResistance")
 
 local M = {}
 
@@ -100,13 +101,18 @@ function M.CharacterOnField(User)
 
     if (FieldItem.quality > 100) and User.pos.z ~= 40 and FieldItem:getData("illusion") ~= "true" then --no harmful flames in the working camp or if it is a magical illusion
 
-        local foundEffect = User.effects:find(110); -- firefield lte
+        local resist = magicResistance.getMagicResistance(User)
 
-        if not foundEffect then
-            local myEffect = LongTimeEffect(110, 50) --5sec
-            myEffect:addValue("quality", FieldItem.quality);
-            User.effects:addEffect(myEffect)
-         end
+        if resist >= 1 then --Youd take no damage if you can resist 100% of it
+            local foundEffect = User.effects:find(110); -- firefield lte
+            if not foundEffect then
+                local myEffect = LongTimeEffect(110, 50) --5sec
+                myEffect:addValue("quality", FieldItem.quality);
+                User.effects:addEffect(myEffect)
+            end
+        else
+            DeleteFlame(User, FieldItem)
+        end
     else
         DeleteFlame(User, FieldItem);
         User:inform("Die Feuerflamme war nur eine Illusion und verpufft.",
@@ -115,4 +121,3 @@ function M.CharacterOnField(User)
 end
 
 return M
-

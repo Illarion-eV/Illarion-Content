@@ -18,6 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local character = require("base.character")
+local magicResistance = require("magic.arcane.magicResistance")
 
 local M = {}
 
@@ -78,13 +79,17 @@ function M.CharacterOnField(User)
 
     if (FieldItem.quality > 100) and User.pos.z ~= 100 and User.pos.z ~= 101 and User.pos.z ~= 40 then --no harmful flames on noobia or the working camp
 
-        local foundEffect = User.effects:find(111); -- iceflame lte
-        if not foundEffect then
-            local myEffect = LongTimeEffect(111, 50) --5sec
-            myEffect:addValue("quality", FieldItem.quality);
-            User.effects:addEffect(myEffect)
+        local resist = magicResistance.getMagicResistance(User)
+        if resist >= 1 then  --Youd take no damage if you can resist 100% of it
+            local foundEffect = User.effects:find(111); -- iceflame lte
+            if not foundEffect then
+                local myEffect = LongTimeEffect(111, 50) --5sec
+                myEffect:addValue("quality", FieldItem.quality);
+                User.effects:addEffect(myEffect)
+            end
+        else
+            DeleteFlame(User, FieldItem)
         end
-
     else
         DeleteFlame(User, FieldItem);
         User:inform("Die Eisflamme war nur eine Illusion und verpufft.",
@@ -93,4 +98,5 @@ function M.CharacterOnField(User)
 end
 
 return M
+
 

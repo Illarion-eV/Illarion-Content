@@ -18,8 +18,6 @@ local base = require("monster.base.spells.base")
 local character = require("base.character")
 local common = require("base.common")
 local standardfighting = require("server.standardfighting")
-local magicResistance = require("magic.arcane.magicResistance")
-local magicPenetration = require("magic.arcane.magicPenetration")
 
 local function _isNumber(value)
     return type(value) == "number"
@@ -43,7 +41,7 @@ return function(params)
     local trailGfxId = 0
     local usedMovepoints = 20
     local level = 0
-    local penetration = 0
+    local attacker = false
 
     if _isTable(params) then
         if params.probability ~= nil then
@@ -232,9 +230,8 @@ return function(params)
         end)
 
         if hitCharacter ~= nil then
-            local spellResistence = magicResistance.getMagicResistance(hitCharacter)
-            local damage = math.random(damageRange[1], damageRange[2]) * (1.0 - ((spellResistence-penetration)))
-            base.dealMagicDamage(hitCharacter, damage, usedMovepoints, level)
+            local damage = math.random(damageRange[1], damageRange[2])
+            base.dealMagicDamage(hitCharacter, damage, usedMovepoints, level, attacker)
         end
 
         if gfxId > 0 then world:gfx(gfxId, hitPosition) end
@@ -261,7 +258,7 @@ return function(params)
         if math.random() <= probability then
 
             level = monster:getSkill(Character.wandMagic)
-            penetration = magicPenetration.getMagicPenetration(monster)
+            attacker = monster
             local castedAtLeastOnce = false
             local remainingAttacks = targets
             local firstAttackDone = false

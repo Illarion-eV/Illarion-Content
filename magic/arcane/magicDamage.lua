@@ -227,7 +227,7 @@ function M.crit(user, value)
 
 end
 
-local function constitutionImpact(target, damage)
+function M.constitutionImpact(target, damage)
 
     local constitution = target:increaseAttrib("constitution", 0)
 
@@ -305,7 +305,7 @@ function M.getMagicDamage(user, spell, element, target, DoT, Orl, earthTrap, cas
         finalDamage = finalDamage/2
     end
 
-    finalDamage = constitutionImpact(target, finalDamage) -- From -50% to +400% damage based on target constitution
+    finalDamage = M.constitutionImpact(target, finalDamage)
     -- Lastly we check magic gems that, just like in fighting, increase/decrease the final damage by a % after cancelling each other out
 
     finalDamage = finalDamage * (1 + wandGemBonus-cloakGemBonus)

@@ -19,6 +19,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local character = require("base.character")
 local traps = require("magic.arcane.traps")
+local magicResistance = require("magic.arcane.magicResistance")
 
 local M = {}
 
@@ -90,13 +91,17 @@ function M.CharacterOnField(user)
 
     if (fieldItem.quality > 100) and user.pos.z ~= 100 and user.pos.z ~= 101 and user.pos.z ~= 40 then --no harmful flames on noobia or the working camp
 
-        local foundEffect = user.effects:find(112) -- poisoncloud lte
-        if not foundEffect then
-            local myEffect = LongTimeEffect(112, 50) --5sec
-            myEffect:addValue("quality", fieldItem.quality)
-            user.effects:addEffect(myEffect)
+        local resist = magicResistance.getMagicResistance(user)
+        if resist >= 1 then  --Youd take no damage if you can resist 100% of it
+            local foundEffect = user.effects:find(112) -- poisoncloud lte
+            if not foundEffect then
+                local myEffect = LongTimeEffect(112, 50) --5sec
+                myEffect:addValue("quality", fieldItem.quality)
+                user.effects:addEffect(myEffect)
+            end
+        else
+            DeleteFlame(user, fieldItem)
         end
-
     else
         DeleteFlame(user, fieldItem)
         user:inform("Die Giftwolke war nur eine Illusion und verpufft.",
@@ -108,4 +113,3 @@ function M.lookAt(sourceItem)
 end
 
 return M
-
