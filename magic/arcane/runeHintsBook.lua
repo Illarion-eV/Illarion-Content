@@ -412,7 +412,7 @@ end
 local function checkIfKnowAllRunes(user)
 
     for _, rune in pairs(runes.runes) do
-        if not runes.checkIfLearnedRune(user, false, rune.id, "isQuest") then
+        if not runes.checkIfLearnedRune(user, false, rune.id, "isQuest") and rune.active then
             return false
         end
     end
