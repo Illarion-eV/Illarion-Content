@@ -30,7 +30,7 @@ end
 return function(params)
     local self = {}
     local targets = 1
-    local damageRange = {1000, 2000}
+    local damageRange = {500, 1000}
     local attackRange = 8
     local probability = 0.03
     local gfxId = 0

@@ -51,7 +51,7 @@ end
 
 return function(params)
     local self = {}
-    local damageRange = {1000, 2000}
+    local damageRange = {500, 1000}
     local attackRange = 5
     local angularAperture = 45
     local probability = 0.03
