@@ -1335,7 +1335,7 @@ local circleCache = {}
     @param integer - Radius of the circle
     @param function(PositionStruct) - Event function that is triggered for every position
 ]]
-function M.CreateCircle(CenterPos, Radius, Event)
+function M.CreateCircle(CenterPos, Radius, Event, monster)
     if not Event then
         return
     end
@@ -1362,7 +1362,7 @@ function M.CreateCircle(CenterPos, Radius, Event)
     end
     local go_on
     for _, posi in pairs(circleCache[Radius]) do
-        go_on = Event(position(CenterPos.x + posi.x, CenterPos.y + posi.y, CenterPos.z))
+        go_on = Event(position(CenterPos.x + posi.x, CenterPos.y + posi.y, CenterPos.z), monster)
         if (go_on == false and go_on ~= nil) then
             return true
         end

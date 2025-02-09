@@ -20,7 +20,7 @@ local magicResistance = require("magic.arcane.magicResistance")
 -- Long time effect (112)
 local M = {}
 
-local function causeDamage(User, quality)
+local function causeDamage(User, quality, penetration)
 
     quality = math.floor(quality/10)
 
@@ -30,7 +30,8 @@ local function causeDamage(User, quality)
     if resist < quality+1 then
         local damageLow = 3 * math.floor(math.max(10, quality+1)) --Anywhere between 30 and 300
         local damageHigh = 5 * math.floor(quality+1) -- between 50 and 500
-        local damageDealt = math.random(math.min(damageLow, damageHigh), math.max(damageLow, damageHigh)) * (1 - resist)
+        local damageDealt = math.random(math.min(damageLow, damageHigh), math.max(damageLow, damageHigh)) * (1 - resist + penetration)
+        damageDealt = math.max(damageDealt, 30)
         User:increaseAttrib("hitpoints", -damageDealt)
         User:talk(Character.say,"#me takes "..damageDealt.." damage.", "#me takes "..damageDealt.." damage.")
     end
@@ -41,7 +42,16 @@ function M.addEffect(theEffect, User)
         User:inform("Du fühlst wie dein Körper schwächer wird.",
                     "You feel your body becoming weaker.")
         local _, quality = theEffect:findValue("quality")
-        causeDamage(User, quality)
+
+        local foundpenetration, penetration = theEffect:findValue("magicPenetration")
+
+        if not foundpenetration then
+            penetration = 0
+        else
+            penetration = penetration/100
+        end
+
+        causeDamage(User, quality, penetration)
     end
 end
 
@@ -64,7 +74,15 @@ function M.callEffect(theEffect, User)
     end
 
     if User:getQuestProgress(300) == 0 then
-        causeDamage(User, FieldItem.quality)
+        local foundpenetration, penetration = theEffect:findValue("magicPenetration")
+
+        if not foundpenetration then
+            penetration = 0
+        else
+            penetration = penetration/100
+        end
+
+        causeDamage(User, FieldItem.quality, penetration)
     end
     -- repeat in 5sec
     theEffect.nextCalled = 50

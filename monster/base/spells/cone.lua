@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local base = require("monster.base.spells.base")
 local common = require("base.common")
+local magicPenetration = require("magic.arcane.magicPenetration")
 
 local function _isNumber(value)
     return type(value) == "number"
@@ -203,12 +204,13 @@ return function(params)
         error("The cone spells require parameters.")
     end
 
-    local function attackField(pos)
+    local function attackField(pos, monster)
         if gfxId > 0 then world:gfx(gfxId, pos) end
         if itemId > 0 and not common.isItemIdInFieldStack(itemId, pos) and math.random() < itemProbability then
             local qual = math.random(itemQualityRange[1], itemQualityRange[2]) * 100 +
                     math.random(itemDurabilityRange[1], itemDurabilityRange[2])
-            local item = world:createItemFromId(itemId, 1, pos, true, qual, nil)
+            local magicPen = magicPenetration.getMagicPenetration(monster)
+            local item = world:createItemFromId(itemId, 1, pos, true, qual,  {["magicPenetration"] = magicPen})
             item.wear = 2
             world:changeItem(item)
         end
@@ -301,7 +303,7 @@ return function(params)
             end
 
             for pos, _ in pairs(coneFields) do
-                attackField(pos)
+                attackField(pos, monster)
             end
 
             if sfxId > 0 then world:makeSound(sfxId, originPos) end

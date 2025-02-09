@@ -103,11 +103,18 @@ function M.CharacterOnField(User)
 
         local resist = magicResistance.getMagicResistance(User)
 
-        if resist >= 1 then --Youd take no damage if you can resist 100% of it
+        if resist < 1.9 then -- high rolled level 80 mobs and 90+ mobs delete flames. Players would need a very high willpower to reach this value if at all.
             local foundEffect = User.effects:find(110); -- firefield lte
             if not foundEffect then
                 local myEffect = LongTimeEffect(110, 50) --5sec
                 myEffect:addValue("quality", FieldItem.quality);
+
+                local magicPen = FieldItem:getData("magicPenetration")
+                if not common.IsNilOrEmpty(magicPen) then
+                    magicPen = math.floor(tonumber(magicPen)*100)
+                    myEffect:addValue("magicPenetration", magicPen)
+                end
+
                 User.effects:addEffect(myEffect)
             end
         else

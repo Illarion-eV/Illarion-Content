@@ -92,11 +92,18 @@ function M.CharacterOnField(user)
     if (fieldItem.quality > 100) and user.pos.z ~= 100 and user.pos.z ~= 101 and user.pos.z ~= 40 then --no harmful flames on noobia or the working camp
 
         local resist = magicResistance.getMagicResistance(user)
-        if resist >= 1 then  --Youd take no damage if you can resist 100% of it
+        if resist < 1.9 then -- high rolled level 80 mobs and 90+ mobs delete flames. Players would need a very high willpower to reach this value if at all.
             local foundEffect = user.effects:find(112) -- poisoncloud lte
             if not foundEffect then
                 local myEffect = LongTimeEffect(112, 50) --5sec
                 myEffect:addValue("quality", fieldItem.quality)
+
+                local magicPen = fieldItem:getData("magicPenetration")
+                if not common.IsNilOrEmpty(magicPen) then
+                    magicPen = math.floor(tonumber(magicPen)*100)
+                    myEffect:addValue("magicPenetration", magicPen)
+                end
+
                 user.effects:addEffect(myEffect)
             end
         else

@@ -60,7 +60,7 @@ function M.getMagicResistance(target, spell) --Returns a percentage of how much 
 
     magicResistance = statBonus+equipmentBonus+skillImpact
 
-    return magicResistance
+    return tonumber(magicResistance)
 
 end
 

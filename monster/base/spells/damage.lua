@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local base = require("monster.base.spells.base")
 local common = require("base.common")
 local standardfighting = require("server.standardfighting")
+local magicPenetration = require("magic.arcane.magicPenetration")
 
 local function _isNumber(value)
     return type(value) == "number"
@@ -168,7 +169,7 @@ return function(params)
     end
 
     -- Deal damage
-    local function castSpellAt(enemy)
+    local function castSpellAt(enemy, monster)
         local damage = math.random(damageRange[1], damageRange[2])
 
         base.dealMagicDamage(enemy, damage, usedMovepoints, level, attacker)
@@ -177,7 +178,8 @@ return function(params)
         if itemId > 0 and not common.isItemIdInFieldStack(itemId, enemy.pos) then
             local qual = math.random(itemQualityRange[1], itemQualityRange[2]) * 100 +
                     math.random(itemDurabilityRange[1], itemDurabilityRange[2])
-            local item = world:createItemFromId(itemId, 1, enemy.pos, true, qual, nil)
+            local magicPen = magicPenetration.getMagicPenetration(monster)
+            local item = world:createItemFromId(itemId, 1, enemy.pos, true, qual,  {["magicPenetration"] = magicPen})
             item.wear = 2
             world:changeItem(item)
         end
@@ -209,7 +211,7 @@ return function(params)
                     common.TurnTo(monster, enemy.pos)
                     firstAttackDone = true
                 end
-                castSpellAt(enemy)
+                castSpellAt(enemy, monster)
                 remainingAttacks = remainingAttacks - 1
                 castedAtLeastOnce = true
             end
@@ -236,7 +238,7 @@ return function(params)
                         common.TurnTo(monster, selectedTarget.pos)
                         firstAttackDone = true
                     end
-                    castSpellAt(selectedTarget)
+                    castSpellAt(selectedTarget, monster)
                     remainingAttacks = remainingAttacks - 1
                     castedAtLeastOnce = true
                 end
