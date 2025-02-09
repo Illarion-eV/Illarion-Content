@@ -38,9 +38,10 @@ local M = {}
 local itemsWithRemnants = {
     -- Instead of having to add a remnant each time an item that should have one is in a recipe,
     -- this list means we only have to put the remnant in once and no one will forget to add the corresponding remnant anymore.
-    -- Also necessary in order for the script to know when a remnant is to not be given due to daear procs..
+    -- Also necessary in order for the script to know when a remnant is to not be given due to daear procs.
+    -- Exceptions: A list of final product IDs that use an ingredient with a remnant but shouldn't, such as bucket of water having both the bucket and water used in dye-making.
         {id = Item.lampOil, remnant = Item.oilBottle},
-        {id = Item.bucketOfWater, remnant = Item.bucket},
+        {id = Item.bucketOfWater, remnant = Item.bucket, exceptions = {Item.blackDye, Item.greenDye, Item.blueDye, Item.redDye, Item.yellowDye, Item.whiteDye}},
         {id = Item.blackDye, remnant = Item.bucket},
         {id = Item.greenDye, remnant = Item.bucket},
         {id = Item.blueDye, remnant = Item.bucket},
@@ -807,6 +808,18 @@ local function getTotalQuantity(product)
     return retval
 end
 
+local function checkForRemnantException(product, exceptions)
+
+    for _, exception in pairs(exceptions) do
+        if exception == product then
+            return true
+        end
+    end
+
+    return false
+
+end
+
 
 function Craft:createItem(user, productId, toolItem)
     local product = self.products[productId]
@@ -842,7 +855,7 @@ function Craft:createItem(user, productId, toolItem)
         end
 
         for _, remnant in pairs(itemsWithRemnants) do -- If the item has a corresponding remnant item, it gets added to the list for later
-            if ingredient.item == remnant.id and (totalToDelete - toSave > 0) then
+            if ingredient.item == remnant.id and (totalToDelete - toSave > 0) and (not remnant.exceptions or not checkForRemnantException(product.item, remnant.exceptions)) then
                 table.insert(itemsToReturnAsRemnants, { id = remnant.remnant, amount = totalToDelete - toSave}) -- If the glyph saves any, the -toSave ensures that we dont return extra remnant items
             end
         end
