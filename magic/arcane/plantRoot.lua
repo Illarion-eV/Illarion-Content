@@ -73,7 +73,7 @@ function M.getSpeed(user, target, spell, earthTrap)
         retVal = math.floor(retVal*scaling)
 
         if retVal <= 0 then
-            retVal = false
+            retVal = 0.1 -- A minimum of 0.1 no matter how high the enemies magic resist is, so it at least has some impact
         end
 
         if Lhor then
