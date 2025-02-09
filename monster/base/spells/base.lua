@@ -41,8 +41,9 @@ function M.dealMagicDamage(target, damage, usedMovepoints, level, monster)
 
     damage = damage * (1 - magic.getGemBonusCloak(target)/100) -- tier 5 set is 30%, tier 10 60%
 
-
-    if damage < 1 then return end
+    if damage < 100 then
+        damage = 100 --At least deal some symbolic damage even if the player fully resists the attack
+    end
     -- Check for damage + 1 to avoid the case that a regular hit lowers the hitpoints down to 1 and directly sends a
     -- character to the brink of death.
     if character.IsPlayer(target) and character.WouldDie(target, damage + 1) then
@@ -64,7 +65,7 @@ function M.dealMagicDamage(target, damage, usedMovepoints, level, monster)
             chr_reg.stallRegeneration(target, 60 / timeFactor)
         end
     else
-        arcaneMagicDamage.learnMagicResistance(target, usedMovepoints/3, level) -- Since monster magic uses movepoints instead of cast time, we scale the learning based on that similar to how fighting does it by dividing it by three
+        arcaneMagicDamage.learnMagicResistance(target, usedMovepoints/3, level+20) -- Since monster magic uses movepoints instead of cast time, we scale the learning based on that similar to how fighting does it by dividing it by three
         target:increaseAttrib("hitpoints", -damage)
         target:talk(Character.say,"#me takes "..damage.." damage.", "#me takes "..damage.." damage.")
     end

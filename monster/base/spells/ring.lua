@@ -27,7 +27,7 @@ end
 
 return function(params)
     local self = {}
-    local damageRange = {500, 1000}
+    local damageRange = {900, 1200}
     local attackRange = 5
     local radius = 4
     local probability = 0.03
@@ -50,28 +50,6 @@ return function(params)
                 end
             else
                 error("The probability for the spell was set to something, but not to a number.")
-            end
-        end
-
-        if params.damage ~= nil then
-            if _isNumber(params.damage) then
-                local damage = tonumber(params.damage)
-                damageRange = {damage, damage}
-            elseif _isTable(params.damage) then
-                local fromValue = params.damage.from or params.damage[1]
-                local toValue = params.damage.to or params.damage[2]
-                if _isNumber(fromValue) and _isNumber(toValue) then
-                    damageRange = {tonumber(fromValue), tonumber(toValue) }
-                    if damageRange[1] > damageRange[2] then
-                        error("Range for damaged hitpoint was set but the from value is greater than the to value.")
-                    end
-                else
-                    error("The damaged hitpoints value was detected as table. How ever the from and to value for the " +
-                          "range is missing.")
-                end
-            else
-                error("The damage hitpoints was set to something. How ever it was not possible to detect what the " +
-                      "input means.")
             end
         end
 
