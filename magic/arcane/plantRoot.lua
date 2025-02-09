@@ -72,9 +72,14 @@ function M.getSpeed(user, target, spell, earthTrap)
         retVal = retVal*100
         retVal = math.floor(retVal*scaling)
 
+        if retVal <= 0 then
+            retVal = false
+        end
+
         if Lhor then
             retVal = false
         end
+
     return retVal
 end
 
