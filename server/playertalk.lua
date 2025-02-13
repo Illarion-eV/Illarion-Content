@@ -21,17 +21,23 @@ local magicSphere = require("item.magicSphere")
 
 local M = {}
 
+local function correctAnswerInform(player)
+    player:inform("Als du die Antwort sprichst, spürst du, wie sich etwas Magisches in der Luft verändert. Vielleicht hätte das Berühren der Glaskugel jetzt andere Ergebnisse?", "As you speak the answer, you feel something magical in the air shift. Perhaps touching the glass sphere would have different results now?")
+end
+
 local function puzzleTriggers(player, text)
 
     if string.find(text, "feather") or string.find(text, "Feather") or string.find(text, "Feder") or string.find(text, "feder") then
         if magicSphere.checkPenPosition(player) then
             magicSphere.penActivate = true
+            correctAnswerInform(player)
         end
     end
 
     if string.find(text, "beholder") or string.find(text, "Beholder") then
         if magicSphere.checkIraPosition(player) then
             magicSphere.iraActivate = true
+            correctAnswerInform(player)
         end
     end
 
@@ -41,6 +47,7 @@ local function puzzleTriggers(player, text)
         if string.find(text, variation) then
             if magicSphere.checkLhorPosition(player) then
                 magicSphere.lhorActivate = true
+                correctAnswerInform(player)
             end
         end
     end
@@ -51,6 +58,7 @@ local function puzzleTriggers(player, text)
         if string.find(text, variation) then
             if magicSphere.checkTahPosition(player) then
                 magicSphere.tahActivate = true
+                correctAnswerInform(player)
             end
         end
     end
@@ -60,6 +68,7 @@ local function puzzleTriggers(player, text)
         if string.find(text, variation) then
             if magicSphere.checkTaurPosition(player) then
                 magicSphere.taurActivate = true
+                correctAnswerInform(player)
             end
         end
     end
