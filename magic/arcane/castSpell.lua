@@ -68,7 +68,9 @@ local function checksPassed(user, spell, element, thePosition)
         return false
     end
 
-    if range.checkForObstacles(user, spell, element, thePosition) then
+    local PEN = runes.checkSpellForRuneByName("PEN", spell)
+
+    if not PEN and range.checkForObstacles(user, spell, element, thePosition) then
         user:inform(myTexts.sight.german, myTexts.sight.english)
         return false
     end
