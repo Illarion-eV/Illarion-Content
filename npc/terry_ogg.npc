@@ -62,10 +62,9 @@ tradeFinishedMsg "Ah, eine Förderung für meine magische Forschung. Ich danke dir
 tradeFinishedWithoutTradingMsg "Oh, hast du deine Meinung geändert?", "Oh, changed your mind?"
 tradeWrongItemMsg "Wenn du deine Waren verkaufen willst, bin ich nicht dein Mann.", "If your intent is to sell your wares, I am not your man."
 
-
 -- Help, more keywords to be added as magical systems are introduced
-"Help" -> inform("[Game Help] This NPC is Terry Ogg, a wandering mage visiting Troll's Haven. Keywords: Magic")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Terry Ogg, ein umherziehender Magier der Trolls's Haven besucht. Stichworte: Magie")
+"Help" -> inform("[Game Help] This NPC is Terry Ogg, a wandering mage visiting Troll's Haven. Keywords: Magic, Sell, Rune, Glyph, Enchant, Teleport, Spatial")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Terry Ogg, ein umherziehender Magier der Trolls's Haven besucht. Stichworte: Magie, Kauf, Rune, Glyph, Verzauber, Teleport")
 
 -- General speech
 
