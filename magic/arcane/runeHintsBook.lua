@@ -61,7 +61,7 @@ M.runeHintsBookTexts = {
             english = "A lone man betwixt the desert dry and forest lush guards the secret of the flame. Tis not the man you seek, but the hidden entrance to the rune itself.",
             german = "Ein einsamer Mann zwischen der trockenen Wüste und dem üppigen Wald hütet das Gehemnis des Feuers. Dies ist nicht der Mann, den du suchst, sondern der verborgene Eingang zur Rune selbst."},
         name = {
-            english = "Fiery Mysterious Sphere",
+            english = "Mysterious Fiery Sphere",
             german = "Mysteriöse feurige Sphäre"},
         description = {
             english = "A mysterious glass sphere that appears to be full of flickering flames. It doesn't appear to give off any heat, though.",
@@ -71,7 +71,7 @@ M.runeHintsBookTexts = {
         hint = {english = "Deep below and long forgotten, a garden lush with guards that are rotten.",
             german = "Tief unten und längst vergessen, ein Garten voller Wächter die schon längst zerfressen."},
         name = {
-            english = "Myserious Earthy Sphere",
+            english = "Mysterious Earthy Sphere",
             german = "Mysteriöse erdige Sphäre"},
         description = {
             english = "A mysterious sphere that appears to contain a deep, dark soil",
