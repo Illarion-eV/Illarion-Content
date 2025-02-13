@@ -39,11 +39,29 @@ function M.getMagicSkillSpellBelongsTo(spell)
 
 end
 
-function M.increaseExperience(user, spell, castTime)
+function M.increaseExperience(user, spell, castTime, targets)
+
+    local targetLevel = 0
+
+    for _, target in pairs(targets.targets) do --Find the target with the highest magic resistance if any
+
+        if isValidChar(target) then
+
+            local checkLevel = target:getSkill(Character.magicResistance)
+
+            if checkLevel > targetLevel then
+                targetLevel = checkLevel
+            end
+        end
+    end
+
+    local PEN = runes.checkSpellForRuneByName("PEN", spell)
+
+    if PEN then targetLevel = 100 end --PEN doesnt need a target to level
 
     local skillName = M.getMagicSkillSpellBelongsTo(spell)
     local theSkill = Character[skillName]
-    user:learn(theSkill, castTime, 100)
+    user:learn(theSkill, castTime, targetLevel+20)
 
 end
 

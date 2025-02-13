@@ -180,7 +180,7 @@ function M.castSpell(user, spell, actionState, oralCast)
         if not runes.checkSpellForRuneByName("BHONA", spell) then
             mana.removedUsedMana(user, spell)
             local castDuration = M[user.id].storedDuration
-            skilling.increaseExperience(user, spell, castDuration)
+            skilling.increaseExperience(user, spell, castDuration, M[user.id].positionsAndTargets)
             castTime.resetTan(user)
             if JUS and Orl then
                 diminishingReturns.applyOrl(user, M[user.id].thePosition, spell, level)
