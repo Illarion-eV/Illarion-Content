@@ -1605,8 +1605,8 @@ local function settingsForMagic(user, target)
             user:logAdmin(user.name.." has reset the magic tutorial quest progresses and magic status of "..target.name)
         elseif index == 9 then
 
-            target:setQuestProgress(7002, 0)
-            target:setQuestProgress(7003, 0)
+            target:setQuestProgress(174, 0)
+            target:setQuestProgress(175, 0)
 
             user:inform("You reset the weekly rune learning cooldown for "..target.name)
             user:logAdmin(user.name.." has reset the weekly rune learning cooldown for "..target.name)
