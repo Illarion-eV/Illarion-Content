@@ -204,7 +204,10 @@ function M.callEffect(myEffect, target)
             return true
         end
     end
-return false
+
+    world:gfx(12, target.pos) -- The DoT is over and it "fizzles out" to give a graphical clue to the caster that they might want to re-apply the DoT
+
+    return false
 end
 
 function M.loadEffect(myEffect, target)
