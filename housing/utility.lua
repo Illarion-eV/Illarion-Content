@@ -501,6 +501,10 @@ function M.allowBuilding(user, alternatePosition)
 
     local deed = M.getPropertyDeed(propertyName)
 
+    if not deed then
+        return false
+    end
+
     if deed:getData("demolishmentInProgress") == "true" then
         user:inform("Du kannst nicht auf einem Grundstück bauen, wo alles zum Abriss vorgesehen ist.", "You can not build at an estate that is being demolished.")
         return false, true
