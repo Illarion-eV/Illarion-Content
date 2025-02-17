@@ -181,6 +181,11 @@ return function(params)
     end
 
     local function attackField(pos, monster)
+
+        if not world:getField(pos) then
+            return
+        end
+
         if gfxId > 0 then world:gfx(gfxId, pos) end
         if itemId > 0 and not common.isItemIdInFieldStack(itemId, pos) and math.random() < itemProbability then
             local qual = math.random(itemQualityRange[1], itemQualityRange[2]) * 100 +
