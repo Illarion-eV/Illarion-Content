@@ -78,11 +78,6 @@ tradeWrongItemMsg "Ich glaub, das werde ich nicht kaufen.", "I guess I do not bu
 -- Occupation: Baker
 -- Race: Human
 -- Height: Short
--- Age: 16 (human year)
--- Weight: skinny
--- Boobs: Big
--- Hair: Ankle length
--- Skin: Fair
 
 -- Background:
 -- "I want to be a fairy." Alysa was born to a mother who was renowned for her aesthetic and detailed weapons.
@@ -91,7 +86,7 @@ tradeWrongItemMsg "Ich glaub, das werde ich nicht kaufen.", "I guess I do not bu
 -- time as a father who takes care of the house chores. Alysa's parent's loved her?. Kind of. Alysa's family is more
 -- focused on their work, and the 2 year old, Alysa's sister. Aylsa' became a baker after an old man offered her the job.
 -- She does it more for something to do than for the money. Alysa routinely looks in the mirror and despairs over how fat
--- she thinks she is. She is constantly watching her weight. She thinks the only good thing about her is the size of her boobs.
+-- she thinks she is. She is constantly watching her weight.
 -- Alysa wishes more than anything that should could be a fairy of legend because unlike dwarves like her Faries are pretty.
 
 -- Help
@@ -136,8 +131,6 @@ english, "Gobaith", "Gobiath" -> "There were fairies somewhere in that world.", 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "Cook", "Food", "Bake" -> "I didn't think I'd love cooking so much. I was born to become fat. That's why now I never eat anything I make."
 "Kochen", "Essen", "backen" -> "Ich denke nicht, dass Kochen Spaß macht. Ich kam schon fett auf die Welt. Daher esse ich nichts was ich koche."
-"Boob", "Breast" -> "Last person who tried that on with me died of syphilis. Not that I had anything to do with it!"
-"Busen", "Brust" -> "Ich sehe, dass Ihr meinen Busen anstarrt, aber das stört mich nicht. Ich fühle mich hübsch, wenn Ihr starrt. Aber wagt es nicht meinen Bauch anzustarren."
 "Fat", "Weight", "Heavy" -> "I met Ce, the cook there. She's so talented. We're going to have a bake off soon."
 "Fett", "Gewicht", "Schwer" -> "Ich traft Ce, die Köchin hier. sie ist so hübsch und talentiert. Wir machen bald einen Kochwettbewerb."
 "glass mirror", "Ce", english -> "I met Ce, the cook there. She's so talented. We're going to have a bake off soon."
