@@ -301,6 +301,57 @@ local function getEquippedTrowel(user)
     return nil
 end
 
+--[[
+Because the usual eraseItem functionality only allows you to delete items with no data, all data or specific data, it is not
+possible to use it to delete items with craftedBy data without deleting items with custom description/name.
+So the below function does that for us instead.
+]]
+local function eraseOrCheckForIngredient(user, amount, ingredient, erase)
+
+    local items = {}
+
+    local backpack = user:getBackPack()
+
+    local belt = {Character.belt_pos_1, Character.belt_pos_2, Character.belt_pos_3, Character.belt_pos_4, Character.belt_pos_5, Character.belt_pos_6}
+
+    for _, slot in pairs(belt) do
+        table.insert(items, user:getItemAt(slot))
+    end
+
+    for i = 0, 99 do
+        local success, theItem = backpack:viewItemNr(i)
+
+        if success then
+            table.insert(items, theItem)
+        end
+    end
+
+    local itemsFound = 0
+
+    for _, theItem in pairs(items) do
+
+        if erase and amount == 0 then
+            return
+        end
+        if theItem.id == ingredient then
+            if common.IsNilOrEmpty(theItem:getData("descriptionEn")) and common.IsNilOrEmpty(theItem:getData("nameEn")) then --Shouldnt be a custom item of any value
+                if erase then
+                    world:erase(theItem, math.min(theItem.number, amount))
+                    amount = amount - math.min(theItem.number, amount)
+                else
+                    itemsFound = itemsFound + theItem.number
+                end
+            end
+        end
+    end
+
+    if erase then
+        return amount
+    else
+        return itemsFound
+    end
+end
+
 local function hasMaterials(user, product)
 
     local materialsAvailable = true
@@ -309,7 +360,7 @@ local function hasMaterials(user, product)
 
     for i = 1, #product.ingredients do
         local ingredient = product.ingredients[i]
-        local available = user:countItemAt("all", ingredient.id, ingredient.data)
+        local available = eraseOrCheckForIngredient(user, false, ingredient.id)
 
         if available < ingredient.quantity then
             materialsAvailable = false
@@ -373,6 +424,8 @@ local function getTotalQuantity(product)
     return retval
 end
 
+
+
 local function eraseIngredients(user, product)
 
     local remnantItemsToCreate = {}
@@ -393,7 +446,11 @@ local function eraseIngredients(user, product)
         end
 
         if save < ingredient.quantity then
-            user:eraseItem(ingredient.id, ingredient.quantity - save, ingredient.data)
+            local erased = user:eraseItem(ingredient.id, ingredient.quantity - save, ingredient.data)
+
+            if erased < ingredient.quantity - save then
+                eraseOrCheckForIngredient(user, ingredient.quantity-save-erased, ingredient.id, true)
+            end
         end
 
         for _, remnant in pairs(itemsWithRemnants) do
