@@ -19,14 +19,14 @@ local magic = require("base.magic")
 
 local M = {}
 
-local books = {105,106,129,2609,2610,114,115,2608,2615,107,108,111,112,2605,2617,109,110,117,128,130,2604,131,2602,2620,116,2621,2607,127,2598,2606,2616,2619}
+M.books = {105,106,129,2609,2610,114,115,2608,2615,107,108,111,112,2605,2617,109,110,117,128,130,2604,131,2602,2620,116,2621,2607,127,2598,2606,2616,2619}
 
 function M.enchantGrimoire(user)
     local leftItem = user:getItemAt(5)
     local rightItem = user:getItemAt(6)
     local theBook = false
 
-    for _, id in pairs(books) do
+    for _, id in pairs(M.books) do
         if id == rightItem.id then
             theBook = rightItem
         elseif id == leftItem.id then

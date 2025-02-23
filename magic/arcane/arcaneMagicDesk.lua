@@ -43,6 +43,17 @@ local function quillIsInHand(user)
     return true
 end
 
+local function bookFound(user)
+
+    for _, book in pairs(grimoireCreation.books) do
+        if user:countItemAt("body",2619,{["magicBook"]="true"}) ~= 0 then
+            return true
+        end
+    end
+
+    return false
+end
+
 function M.mainDialog(user, sourceItem)
 
     if not quillIsInHand(user) then
@@ -61,7 +72,7 @@ function M.mainDialog(user, sourceItem)
 
             if createSpell.checkForDialogOptions2(user) then
 
-                if user:countItemAt("body",2619,{["magicBook"]="true"}) ~= 0 and user:countItemAt("body",463) ~= 0 then
+                if bookFound(user) and user:countItemAt("body",463) ~= 0 then
                     createSpell.slotSelection(user)
                 else
                     user:inform("Du musst ein magisches Buch und eine Schreibfeder in deinen Händen halten.", "You must hold a magic book and quill in your hands.")
