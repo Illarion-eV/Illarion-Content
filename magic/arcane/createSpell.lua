@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local runes = require("magic.arcane.runes")
 local magic = require("base.magic")
+local grimoireCreation = require("magic.arcane.grimoireCreation")
 
 local M = {}
 
@@ -28,10 +29,13 @@ local function getMagicBook(user)
     local leftItem = user:getItemAt(5)
     local rightItem = user:getItemAt(6)
 
-    if leftItem.id == 2619 then
-        return leftItem
-    elseif rightItem.id == 2619 then
-        return rightItem
+    for _, book in pairs(grimoireCreation.books) do
+
+        if leftItem.id == book then
+            return leftItem
+        elseif rightItem.id == book then
+            return rightItem
+        end
     end
 
     debug("Error: We are now past the check for the grimoire but there is no grimoire.")
