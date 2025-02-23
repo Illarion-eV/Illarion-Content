@@ -31,9 +31,9 @@ local function getMagicBook(user)
 
     for _, book in pairs(grimoireCreation.books) do
 
-        if leftItem.id == book then
+        if leftItem.id == book and leftItem:getData("magicBook") == "true" then
             return leftItem
-        elseif rightItem.id == book then
+        elseif rightItem.id == book and leftItem:getData("magicBook") == "true" then
             return rightItem
         end
     end
