@@ -29,16 +29,18 @@ local function getMagicBook(user)
     local leftItem = user:getItemAt(5)
     local rightItem = user:getItemAt(6)
 
-    for _, book in pairs(grimoireCreation.books) do
+    if leftItem:getData("magicBook") ~= "true" and rightItem:getData("magicBook") ~= "true" then --check for magic book data
+        return nil
+    end
 
-        if leftItem.id == book and leftItem:getData("magicBook") == "true" then
+    for _, book in pairs(grimoireCreation.books) do --Check all valid book ids
+
+        if leftItem.id == book then
             return leftItem
-        elseif rightItem.id == book and leftItem:getData("magicBook") == "true" then
+        elseif rightItem.id == book then
             return rightItem
         end
     end
-
-    debug("Error: We are now past the check for the grimoire but there is no grimoire.")
 
     return nil
 

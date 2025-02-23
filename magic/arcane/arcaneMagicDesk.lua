@@ -46,7 +46,7 @@ end
 local function bookFound(user)
 
     for _, book in pairs(grimoireCreation.books) do
-        if user:countItemAt("body",2619,{["magicBook"]="true"}) ~= 0 then
+        if user:countItemAt("body",book,{["magicBook"]="true"}) ~= 0 then
             return true
         end
     end
