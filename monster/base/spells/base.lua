@@ -35,7 +35,7 @@ function M.dealMagicDamage(target, damage, usedMovepoints, level, monster)
 
     local resistance = magicResistance.getMagicResistance(target)
 
-    damage = damage * (1.0 - resistance + penetration)
+    damage = magicDamage.resistanceAndPenetrationImpact(resistance, penetration, damage)
 
     damage = magicDamage.constitutionImpact(target, damage)
 

@@ -229,13 +229,23 @@ end
 
 function M.constitutionImpact(target, damage)
 
+    if damage < 0 then
+        return 0
+    end
+
     local constitution = target:increaseAttrib("constitution", 0)
 
     return damage* (1- common.GetAttributeBonusLow(constitution))
 end
 
+function M.resistanceAndPenetrationImpact(resist, penetration, damage)
 
+    if damage < 0 then
+        return 0
+    end
 
+    return math.max(0, damage*(1- resist + penetration)) -- never return negative values
+end
 
 function M.getMagicDamage(user, spell, element, target, DoT, Orl, earthTrap, castDuration)
 
@@ -270,7 +280,7 @@ function M.getMagicDamage(user, spell, element, target, DoT, Orl, earthTrap, cas
 
     if playerOrMonster ~= Character.npc and not illusion then
         magicResist = MR.getMagicResistance(target, spell)
-        finalDamage = damage*(1- magicResist + magicPen)
+        finalDamage = M.resistanceAndPenetrationImpact(magicResist, magicPen, damage)
     end
 
     if runes.checkSpellForRuneByName("Sul",spell) then

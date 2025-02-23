@@ -47,7 +47,9 @@ function M.getEffectScaling(user, target, spell, earthTrap)
         wandGemBonus = earthTrap:getData("gemBonus")
     end
 
-    local retVal = 1*(1+magicDamage.intImpact(user)+magicDamage.getEquipmentImpact(user, elementBonus))*(1+magicPenetration-magicResistance)
+    local retVal = 1*(1+magicDamage.intImpact(user)+magicDamage.getEquipmentImpact(user, elementBonus))
+
+    retVal = magicDamage.resistanceAndPenetrationImpact(magicResistance, magicPenetration, retVal)
 
     retVal = magicDamage.crit(user, retVal) -- Up to 50% increase if crit, based on perception stat and RNG
 
