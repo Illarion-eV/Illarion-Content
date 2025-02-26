@@ -52,7 +52,7 @@ M.priestSkills = {
                 Character.consecrateArmours
                 }
 
-M.wandIds = {323,2782,2783,2784,2785,3608}
+M.wandIds = {323,2782,2783,2784,2785,3608,4820}
 
 local wandList = {
     {id = 323, element = "Neutral"},
@@ -60,7 +60,8 @@ local wandList = {
     {id = 2783, element = "Fire"},
     {id = 2784, element = "Water"},
     {id = 2785, element = "Air"},
-    {id = 3608, element = "Spirit"}
+    {id = 3608, element = "Spirit"},
+    {id = 4820, element = "Novice"}
     }
 
 function M.getWand(user)
@@ -107,6 +108,8 @@ function M.checkElementBonus(user, element) --Return a number between 0.025 and 
         return 0.1
     elseif wandElement == "Neutral" then
         return 0.05
+    elseif wandElement == "Novice" then
+        return 0
     else
         return 0.025
     end

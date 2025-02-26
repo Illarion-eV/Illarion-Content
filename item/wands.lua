@@ -41,6 +41,7 @@ local magicWands = {}
     magicWands[2784] = true
     magicWands[2785] = true
     magicWands[3608] = true
+    magicWands[4820] = true
 
 function M.enchantingSelection(user, wand, actionstate)
 
