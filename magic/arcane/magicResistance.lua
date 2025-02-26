@@ -44,19 +44,11 @@ function M.getMagicResistance(target, spell) --Returns a percentage of how much 
 
     local magicResistance
 
-    local playerOrMonster = target:getType()
-
     local skillImpact = 0.01*getSkillValue(target)
 
     local statBonus = willImpact(target)
 
     local equipmentBonus = magic.getMagicBonus(target) -- caps out at 0.2. Best possible jewellery and clothing caps out at 0.2596, so this gives some leeway in terms of fashion by capping it at 0.2
-
-    if playerOrMonster == Character.monster then
-
-        skillImpact = skillImpact*2 --Monsters can artificially have 200 levels of magic resistance to create tougher foes if we want to
-
-    end
 
     magicResistance = statBonus+equipmentBonus+skillImpact
 
