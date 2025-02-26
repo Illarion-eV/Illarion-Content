@@ -33,7 +33,6 @@ local function causeDamage(User, quality, penetration)
         local damageDealt = math.random(math.min(damageLow, damageHigh), math.max(damageLow, damageHigh)) * (1 - resist + penetration)
         damageDealt = math.max(damageDealt, 30)
         User:increaseAttrib("hitpoints", -damageDealt)
-        User:talk(Character.say,"#me takes "..damageDealt.." damage.", "#me takes "..damageDealt.." damage.")
     end
 end
 

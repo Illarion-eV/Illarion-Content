@@ -67,7 +67,6 @@ function M.dealMagicDamage(target, damage, usedMovepoints, level, monster)
     else
         arcaneMagicDamage.learnMagicResistance(target, usedMovepoints/3, level+20) -- Since monster magic uses movepoints instead of cast time, we scale the learning based on that similar to how fighting does it by dividing it by three
         target:increaseAttrib("hitpoints", -damage)
-        target:talk(Character.say,"#me takes "..damage.." damage.", "#me takes "..damage.." damage.")
     end
 end
 

@@ -287,7 +287,6 @@ function M.applyPlantRoot(user, targets, spell, earthTrap)
 end
 
 function M.addEffect(myEffect, target)
-    log("Magic testing: "..tostring(target.name).."'s speed before application of plant root: "..tostring(target.speed))
     local Tah
     local SOLH
     local Sih
@@ -315,7 +314,6 @@ function M.addEffect(myEffect, target)
         target:inform("Als du von dem Zauber getroffen wirst, fühlst du dich langsamer, als wären deine Füße von Schlamm bedeckt, der dich hinabzieht.", "As you're hit by the spell, you feel yourself slow down as if your feet are covered in mud that's dragging you down.")
         target.speed = target.speed - speedChange
     end
-    log("Magic testing: "..tostring(target.name).."'s speed after application of plant root: "..tostring(target.speed))
 end
 
 function M.callEffect(myEffect, target)
@@ -371,7 +369,6 @@ function M.callEffect(myEffect, target)
             end
         end
         target:inform("Deine Füße fühlen sich wieder leichter an, als die Wirkung des Zaubers, von dem du zuvor getroffen wurdest, nachlässt.", "Your feet feel lighter once more as the effect of the spell you were previously hit by wears off.")
-        log("Magic testing: "..tostring(target.name).."'s speed after last call of snare: "..tostring(target.speed))
     return false
 end
 
@@ -427,7 +424,6 @@ function M.callEffect(myEffect, target)
             end
         end
     end
-    log("Magic testing: "..tostring(target.name).."'s speed after last call of plant root: "..tostring(target.speed))
     return false
 end
 
