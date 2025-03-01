@@ -106,8 +106,6 @@ function M.dealMagicDamage(user, target, spell, damage, level, DoT, castTime)
 
     if DoT then castTime = castTime/15 end -- DoTs have 15 ticks, so this prevents them from giving 15 times the MR
 
-    M.learnMagicResistance(target, castTime, level)
-
     local dwyfolTriggered = false
 
     if user and damage ~= 0 then --It still gets here on DoTs that have 0 damage to deal
@@ -124,6 +122,10 @@ function M.dealMagicDamage(user, target, spell, damage, level, DoT, castTime)
             dwyfolTriggered = true
             damage = math.min(damage, 1000) -- It shouldn't be possible to luck into killing off a max skill chara with a no skill character!
         end
+    end
+
+    if not dwyfolTriggered and character.IsPlayer(target) then
+        M.learnMagicResistance(target, castTime, level)
     end
 
     if character.IsPlayer(target) and character.WouldDie(target, damage + 1) then

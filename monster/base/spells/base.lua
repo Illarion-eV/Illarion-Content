@@ -22,6 +22,7 @@ local magicResistance = require("magic.arcane.magicResistance")
 local magicPenetration = require("magic.arcane.magicPenetration")
 local magicDamage = require("magic.arcane.magicDamage")
 local magic = require("base.magic")
+local dwyfol = require("magic.arcane.enchanting.effects.dwyfol")
 
 local M = {}
 
@@ -44,6 +45,16 @@ function M.dealMagicDamage(target, damage, usedMovepoints, level, monster)
     if damage < 100 then
         damage = 100 --At least deal some symbolic damage even if the player fully resists the attack
     end
+
+
+    if dwyfol.deflectAttackAsLightning(target, monster) then -- This glyph if activated deflects the attack, dealing the same amount they would have taken as magic damage to the attacker instead in the form of a lightning strike
+        target = monster --The monster becomes the new target as the spell damage is deflected
+        damage = math.min(damage, 1000) -- It shouldn't be possible to luck into killing off a max skill chara with a no skill character!
+    elseif character.IsPlayer(target) then
+        arcaneMagicDamage.learnMagicResistance(target, usedMovepoints/3, level+20) -- Since monster magic uses movepoints instead of cast time, we scale the learning based on that similar to how fighting does it by dividing it by three
+    end
+
+
     -- Check for damage + 1 to avoid the case that a regular hit lowers the hitpoints down to 1 and directly sends a
     -- character to the brink of death.
     if character.IsPlayer(target) and character.WouldDie(target, damage + 1) then
@@ -65,7 +76,6 @@ function M.dealMagicDamage(target, damage, usedMovepoints, level, monster)
             chr_reg.stallRegeneration(target, 60 / timeFactor)
         end
     else
-        arcaneMagicDamage.learnMagicResistance(target, usedMovepoints/3, level+20) -- Since monster magic uses movepoints instead of cast time, we scale the learning based on that similar to how fighting does it by dividing it by three
         target:increaseAttrib("hitpoints", -damage)
     end
 end
