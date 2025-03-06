@@ -774,7 +774,7 @@ function M.calculateItemQualityDurability (quality, durability)
     else
         durabilityNumber= tonumber(durability)
     end
-    if durabilityNumber < 1 or durabilityNumber > M.ITEM_MAX_DURABILITY then
+    if durabilityNumber < 0 or durabilityNumber > M.ITEM_MAX_DURABILITY then --We allow 0 now for broken items
         durabilityNumber = M.ITEM_DEFAULT_DURABILITY
     end
 

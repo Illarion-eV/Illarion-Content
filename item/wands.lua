@@ -42,7 +42,23 @@ local magicWands = {}
     magicWands[2785] = true
     magicWands[3608] = true
 
+local function checkForWand(user)
+
+    local wand = common.getItemInHand(user, magic.wandIds)
+
+    if not wand then return false end --You need a wand to do any enchanting
+
+    if common.isBroken(wand) then
+        user:inform("Dein Zauberstab ist zerbrochen. Du solltest ihn reparieren lassen, bevor du versuchst, ihn zu benutzen.", "Your wand is broken. You should see to its repairs before trying to use it.")
+        return false
+    end
+
+    return true
+end
+
 function M.enchantingSelection(user, wand, actionstate)
+
+    if not checkForWand(user) then return end
 
     if not magic.hasMageAttributes(user) then
         user:inform("Mit deinem Mangel an magischen Attributen wüsstest du nicht einmal, wo du anfangen sollst, einen Schrein wie diesen zu benutzen.", "With your lack of magical attributes, you wouldn't know where to begin using a shrine like this.") --chatGPT german
@@ -119,6 +135,11 @@ end
 
 
 local function selectMagicType(user, wand, actionstate)
+
+    if common.isBroken(wand) then
+        user:inform("Dein Zauberstab ist zerbrochen. Du solltest ihn reparieren lassen, bevor du versuchst, ihn zu benutzen.", "Your wand is broken. You should see to its repairs before trying to use it.")
+        return
+    end
 
     local callback = function (dialog)
 
