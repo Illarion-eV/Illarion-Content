@@ -314,8 +314,6 @@ function M.wandDegrade(user, wand, chance)
             common.InformNLS(user,
                 "Deine Waffe '"..nameText.."' zerbricht.",
                 "Your weapon '"..nameText.."' shatters.")
-
-            return
         end
 
         common.setItemDurability(wand, durability)

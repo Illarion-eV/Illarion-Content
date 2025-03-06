@@ -691,9 +691,22 @@ function M.startCycle(user, actionState, oralCast)
         teleport(user, actionState, portal, destination, oralCast)
     end
 
-
-
 end
+
+local function checkForWand(user)
+
+    local wand = common.getItemInHand(user, magic.wandIds)
+
+    if not wand then return true end --You can cast spatial magic without a wand just without the boni of wielding one
+
+    if common.isBroken(wand) then
+        user:inform("Dein Zauberstab ist zerbrochen. Du solltest ihn reparieren lassen, bevor du versuchst, ihn zu benutzen.", "Your wand is broken. You should see to its repairs before trying to use it.")
+        return false
+    end
+
+    return true
+end
+
 
 local function chooseLocation(user, actionState, portal)
 
@@ -803,6 +816,9 @@ local  function skipPortalMenu(user, actionState, incantation)
 end
 
 function M.castSpatialMagic(user, actionState, oralCast)
+
+    if not checkForWand(user) then return end
+
     if actionState == Action.none then
         if not oralCast then
             portalMenu(user, actionState)
