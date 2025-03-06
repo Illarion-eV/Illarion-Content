@@ -26,6 +26,7 @@ local incantation = require("magic.arcane.incantation")
 local diminishingReturns = require("magic.arcane.diminishingReturns")
 local skilling = require("magic.arcane.skilling")
 local common = require("base.common")
+local magic = require("base.magic")
 
 local M = {}
 
@@ -55,7 +56,25 @@ local myTexts = {
     stats = {english = "As you attempt to cast the spell, you feel an abrupt headache prevent you from proceeding. Did something happen to your ability to cast magic?", german = "Als du versuchst den Zauber zu Sprechen, verspürst du plötzlich heftige Kopfschmerzen die dich daran hindern. Ist etwas mit deiner Fähigkeit zu Zaubern passiert? "}
 }
 
+local function checkForWand(user)
+
+    local wand = common.getItemInHand(user, magic.wandIds)
+
+    if not wand then return true end -- Even without a wand you can cast rune spells, but they won't get the multiple advantages using a wand brings to your spells such a targeting, more power and more range
+
+    if common.isBroken(wand) then --You dont get the wand bonuses without an intact wand so a warning instead
+        user:inform("Dein Zauberstab ist zerbrochen. Du solltest ihn reparieren lassen, bevor du versuchst, ihn zu benutzen.", "Your wand is broken. You should see to its repairs before trying to use it.")
+        return false
+    end
+
+    return true
+end
+
 local function checksPassed(user, spell, element, thePosition)
+
+    if not checkForWand(user) then
+        return false
+    end
 
     if not statReqMet(user, spell) then
         --If stats are lowered below the threshhold to learn a rune, whether through a trainer, a potion or something else
