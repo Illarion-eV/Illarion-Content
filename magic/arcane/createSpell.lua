@@ -46,9 +46,9 @@ local function getMagicBook(user)
 
 end
 
-local function primaryElementCheck(user, targetItem, slot)
+local function primaryElementCheck(user, mBook, slot)
     for i = 1,6 do
-        if runes.checkIfLearnedRune(user, targetItem, i, "isSpell", "spell"..slot) then
+        if runes.checkIfLearnedRune(user, mBook, i, "isSpell", "spell"..slot) then
             return false
         elseif i == 6 then
             return true
@@ -56,9 +56,9 @@ local function primaryElementCheck(user, targetItem, slot)
     end
 end
 
-local function bhonaCheck(user, targetItem, slot)
+local function bhonaCheck(user, mBook, slot)
 
-    local BHONA = runes.checkIfLearnedRune(user, targetItem, 6, "isSpell", "spell"..slot)
+    local BHONA = runes.checkIfLearnedRune(user, mBook, 6, "isSpell", "spell"..slot)
 
     if not BHONA then
         return false
@@ -67,7 +67,7 @@ local function bhonaCheck(user, targetItem, slot)
     local count = 0
 
     for i = 1, #runes.runes do
-        if runes.checkIfLearnedRune(user, targetItem, i, "isSpell", "spell"..slot) then
+        if runes.checkIfLearnedRune(user, mBook, i, "isSpell", "spell"..slot) then
             count = count+1
         end
     end
@@ -91,9 +91,9 @@ local function checkIfKnowsAnyMinorRune(user)
     end
 end
 
-local function checkForDialogOptions(user, targetItem, slot) -- Check if there are any minor runes that can be selected
+local function checkForDialogOptions(user, mBook, slot) -- Check if there are any minor runes that can be selected
     for i = 6, #runes.runes do -- For every minor rune
-        if runes.checkIfLearnedRune(user,"", i, "isQuest") and (not runes.checkIfLearnedRune(user, targetItem, i, "isSpell", "spell"..slot)) and runes.runeNumberToName(i) ~= "Bhona" then -- check if user knows rune and if rune is already part of spell being created
+        if runes.checkIfLearnedRune(user,"", i, "isQuest") and (not runes.checkIfLearnedRune(user, mBook, i, "isSpell", "spell"..slot)) and runes.runeNumberToName(i) ~= "Bhona" then -- check if user knows rune and if rune is already part of spell being created
             return true
         elseif i == #runes.runes then
             return false
@@ -137,11 +137,11 @@ local function createSpell(user, targetItem, slot)
                         world:gfx(41,user.pos)
                         world:makeSound(13,user.pos)
                         runes.learnRune(user, targetItem, i, "isSpell", "spell"..slot) -- Add rune to spell
-                        M.spellCreationSelectionMenu(user, targetItem, slot)
+                        M.spellCreationSelectionMenu(user, slot)
                         user:inform("Die Rune "..runes.runeNumberToName(i).." wurde dem Zauberspruch hinzugefügt.", "The rune "..runes.runeNumberToName(i).." has been added to the spell.")
                     else
                         user:inform("Nicht genug Mana." ,"Not enough mana.")
-                        M.spellCreationSelectionMenu(user, targetItem, slot)
+                        M.spellCreationSelectionMenu(user, slot)
                     end
                 end
             else
@@ -164,11 +164,11 @@ local function createSpell(user, targetItem, slot)
     end
 
     if not checkIfKnowsAnyMinorRune(user) then -- If you do not know any runes
-        M.spellCreationSelectionMenu(user, targetItem, slot)
+        M.spellCreationSelectionMenu(user, slot)
         user:inform("Du musst zuerst lernen wie man eine geringe Rune nutzt bevor du sie zu deinem Zauberspruch hinzufügst. ", "You must first learn how to use any minor rune before you can add it to your spell.")
 
     elseif not checkForDialogOptions(user, targetItem, slot) then
-        M.spellCreationSelectionMenu(user, targetItem, slot)
+        M.spellCreationSelectionMenu(user, slot)
         user:inform("Du kennst keine weiteren Runen die zum Zauberspruch hinzugefügt werden können." , "You do not know any more runes that can be added to the spell.")
 
     else
@@ -176,7 +176,7 @@ local function createSpell(user, targetItem, slot)
     end
 end
 
-local function elementSelection(user, targetItem, slot)
+local function elementSelection(user, slot)
 
     local unknownrunes = 0
 
@@ -195,13 +195,19 @@ local function elementSelection(user, targetItem, slot)
                         user:increaseAttrib("mana", -3000)
                         world:gfx(41,user.pos)
                         world:makeSound(13,user.pos)
-                        runes.learnRune(user, targetItem, i, "isSpell", "spell"..slot)
-                        M.spellCreationSelectionMenu(user, targetItem, slot)
+                        local mBook = getMagicBook(user)
+
+                        if not mBook then
+                            return
+                        end
+
+                        runes.learnRune(user, mBook, i, "isSpell", "spell"..slot)
+                        M.spellCreationSelectionMenu(user, slot)
 
                         user:inform("Die Rune "..runes.runeNumberToName(i).." wurde als primäre Rune dem Zauberspruch hinzugefügt.", "The rune "..runes.runeNumberToName(i).." has been added as the primary rune of the spell.")
                     else
                         user:inform("Nicht genug Mana." ,"Not enough mana.")
-                        M.spellCreationSelectionMenu(user, targetItem, slot)
+                        M.spellCreationSelectionMenu(user, slot)
                     end
                     return
                 end
@@ -224,9 +230,15 @@ local function elementSelection(user, targetItem, slot)
     user:requestSelectionDialog(dialog)
 end
 
-local function nameSpell(user, targetItem, slot)
+local function nameSpell(user, slot)
 
-    local theSpell = targetItem:getData("spell"..slot)
+    local mBook = getMagicBook(user)
+
+    if not mBook then
+        return
+    end
+
+    local theSpell = mBook:getData("spell"..slot)
 
     if common.IsNilOrEmpty(theSpell) or tonumber(theSpell) == 0 then
         user:inform("Der Zauberspruch muss Runen enthalten, damit du ihn benennen kannst.", "The spell must contain runes for you to name it.")
@@ -238,8 +250,9 @@ local function nameSpell(user, targetItem, slot)
             return
         end
         local input = dialog:getInput()
-        targetItem:setData("spellName"..slot,input) -- Set name for spell
-        world:changeItem(targetItem) -- save name for spell
+        mBook = getMagicBook(user)
+        mBook:setData("spellName"..slot,input) -- Set name for spell
+        world:changeItem(mBook) -- save name for spell
         user:inform("Du benennst den Zauberspruch auf Seite  "..slot.. ": "..input..".","You name the spell on page "..slot.. ": "..input..".")
         if user:getQuestProgress(237) == 4 then
             user:setQuestProgress(237, 5)
@@ -249,7 +262,7 @@ local function nameSpell(user, targetItem, slot)
     user:requestInputDialog(InputDialog(common.GetNLS(user,"Zauberspruch Erstellung", "Spell Creation"), common.GetNLS(user, "Benenne den Zauberspruch.", "Name the spell"),false,255,callback))
 end
 
-function M.spellCreationSelectionMenu(user, targetItem, slot)
+function M.spellCreationSelectionMenu(user, slot)
 
     local callback = function(dialog)
 
@@ -259,12 +272,18 @@ function M.spellCreationSelectionMenu(user, targetItem, slot)
 
         local index = dialog:getSelectedIndex() +1
 
-        if index == 1 and primaryElementCheck(user, targetItem, slot) then
-            elementSelection(user,targetItem, slot)
-        elseif index == 1 and not bhonaCheck(user, targetItem, slot) then
-            createSpell(user, targetItem, slot)
+        local mBook = getMagicBook(user)
+
+        if not mBook then
+            return
+        end
+
+        if index == 1 and primaryElementCheck(user, mBook, slot) then
+            elementSelection(user, slot)
+        elseif index == 1 and not bhonaCheck(user, mBook, slot) then
+            createSpell(user, mBook, slot)
         elseif index == 2 then
-            nameSpell(user, targetItem, slot)
+            nameSpell(user, mBook, slot)
         end
     end
     local dialog = SelectionDialog(common.GetNLS(user,"Zauberspruch Erstellung", "Spell Creation"), common.GetNLS(user, "Wähle eine Möglichkeit.", "Pick an option."), callback)
@@ -275,7 +294,7 @@ function M.spellCreationSelectionMenu(user, targetItem, slot)
     user:requestSelectionDialog(dialog)
 end
 
-local function overWriteConfirmation(user, targetItem, slot)
+local function overWriteConfirmation(user, slot)
 
     local callback = function(dialog)
 
@@ -286,10 +305,14 @@ local function overWriteConfirmation(user, targetItem, slot)
         local index = dialog:getSelectedIndex() +1
 
         if index == 1 then
-            targetItem:setData("spell"..slot,"0") -- Reset the spell slot
-            targetItem:setData("spellName"..slot, common.GetNLS(user, "Unvollendet", "Unfinished")) -- Remove old spell name
-            world:changeItem(targetItem) -- Save the changes above
-            M.spellCreationSelectionMenu(user, targetItem, slot)
+            local mBook = getMagicBook(user)
+            if not mBook then
+                return
+            end
+            mBook:setData("spell"..slot,"0") -- Reset the spell slot
+            mBook:setData("spellName"..slot, common.GetNLS(user, "Unvollendet", "Unfinished")) -- Remove old spell name
+            world:changeItem(mBook) -- Save the changes above
+            M.spellCreationSelectionMenu(user, slot)
         elseif index == 2 then
             M.slotSelection(user)
         end
@@ -325,17 +348,17 @@ function M.slotSelection(user)
             local englishUnfinished = "Unfinished"
 
             if index == i and spellName ~= englishUnfinished and spellName ~= germanUnfinished and spellName ~= "" then
-                overWriteConfirmation(user, mBook, i)
+                overWriteConfirmation(user, i)
                 return
 
             elseif index == i and (spellName == englishUnfinished or spellName == germanUnfinished) then
-                M.spellCreationSelectionMenu(user, mBook, i)
+                M.spellCreationSelectionMenu(user, i)
 
             elseif index == i then
                 mBook:setData("spellName"..i, common.GetNLS(user, germanUnfinished, englishUnfinished)) -- Remove old spell name
                 mBook:setData("spell"..i,"0") -- Set a blank value for spell so it doesn't end up being NIL
                 world:changeItem(mBook) -- Save the changes above
-                M.spellCreationSelectionMenu(user, mBook, i)
+                M.spellCreationSelectionMenu(user, i)
             end
         end
     end

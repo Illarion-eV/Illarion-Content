@@ -345,8 +345,6 @@ function M.onLogin( player )
         "[Login] Welcome to Illarion! It is "..hourStringE.." on the "..datum..""..extensionString.." of "..monthString..varTextEn
         )
 
-    local notEnoughRP, bonus = notRPedEnough(player)
-
     --Taxes
     if not player:isAdmin() then --Admins don't pay taxes or get gems.
         if not (player.name == "Valerio Guilianni" or player.name == "Rosaline Edwards" or player.name ==  "Elvaine Morgan") then --Leader don't pay taxes or get gems
@@ -354,7 +352,7 @@ function M.onLogin( player )
             local month = common.getTime("month")
             local timeStmp = year * 1000 + month
 
-            local taxText = payTaxes(player, notEnoughRP, timeStmp)
+            local taxText, notEnoughRP, bonus = payTaxes(player, timeStmp)
             local gemText = receiveGems(player, bonus, notEnoughRP, timeStmp)
             if gemText ~= nil or taxText ~= nil then
                 informPlayeraboutTaxandGems(player, gemText, taxText)
@@ -521,20 +519,22 @@ function welcomeNewPlayer(player)
     end
 end
 
-function payTaxes(taxPayer, notEnoughRP, timeStmp)
+function payTaxes(taxPayer, timeStmp)
 
     local lastTax = taxPayer:getQuestProgress(123)
 
     if (lastTax ~= 0) then
         -- Character didnt pay taxes for this month yet
         if lastTax < timeStmp then
+            local notEnoughRP, bonus = notRPedEnough(taxPayer) --This should only be ran once per month per character so it gets put behind the first timestamp like this
             taxPayer:setQuestProgress(123, timeStmp)
-            return payNow(taxPayer, notEnoughRP)
+            return payNow(taxPayer, notEnoughRP), notEnoughRP, bonus
         end
     else
-        -- Character never payed taxes before
+        -- Character never paid taxes before
+        local notEnoughRP, bonus = notRPedEnough(taxPayer) --This should only be ran once per month per character so it gets put behind the first timestamp like this
         taxPayer:setQuestProgress(123, timeStmp)
-        return payNow(taxPayer, notEnoughRP)
+        return payNow(taxPayer, notEnoughRP), notEnoughRP, bonus
     end
 end
 
@@ -610,12 +610,14 @@ function PayOutWage(Recipient, town, bonus, notEnoughRP)
     local totalPayers = townTreasure.GetTaxpayerNumber(town)
     local RecipientRk=factions.getRankAsNumber(Recipient)
 
-    if tonumber(totalPayers)>0 and tonumber(totalTaxes)>0 then
-    -- Instead of skipping magic gem rewards for this months taxes, we give the bare minimum of 1 gem
-    -- This also ensures they always get an inform.
+    if tonumber(totalPayers) <= 0 then
         totalPayers = 1
+    end
+    if  tonumber(totalTaxes) <= 0 then
         totalTaxes = 1
     end
+    -- Instead of skipping magic gem rewards for this months taxes, we give the bare minimum of 1 gem
+    -- This also ensures they always get an inform.
 
     totalTaxes = totalTaxes/2
 
