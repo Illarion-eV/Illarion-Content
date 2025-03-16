@@ -447,7 +447,10 @@ function convertWandMagicToFire(player)
     local fireMagicLevel = player:getSkill(Character.fireMagic)
     local wandMagicLevel = player:getSkill(Character.wandMagic)
 
-    if fireMagicLevel > wandMagicLevel then --If it has already been converted or
+    if fireMagicLevel >= wandMagicLevel then --If it has already been converted or the old magic skill was transferred and is higher
+        if wandMagicLevel > 0 then --This gets rid of wand magic skill in the case of old magic skill transfers having taken place
+            player:increaseSkill(Character.wandMagic, 0-wandMagicLevel)
+        end
         return
     end
 
