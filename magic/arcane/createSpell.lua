@@ -111,9 +111,10 @@ function M.checkForDialogOptions2(user) -- Check if there are any primary runes 
     end
 end
 
-local function createSpell(user, targetItem, slot)
+local function createSpell(user, slot)
 
-    local BHONA = runes.checkIfLearnedRune(user, targetItem, 6, "isSpell", "spell"..slot)
+    local mBook = getMagicBook(user)
+    local BHONA = runes.checkIfLearnedRune(user, mBook, 6, "isSpell", "spell"..slot)
     local runeStart = 7
 
     if BHONA then
@@ -127,7 +128,8 @@ local function createSpell(user, targetItem, slot)
         local index = dialog:getSelectedIndex() +1
         local unknownrunes = runeStart-1 --Counter for runes that are unknown or already in use, starting at the first rune after elemental ones
         for i = runeStart, #runes.runes do -- For every rune
-            if runes.checkIfLearnedRune(user,"", i, "isQuest") and (not runes.checkIfLearnedRune(user, targetItem, i, "isSpell", "spell"..slot)) then -- check if user knows rune and if rune is already part of spell being created
+            mBook = getMagicBook(user)
+            if runes.checkIfLearnedRune(user,"", i, "isQuest") and (not runes.checkIfLearnedRune(user, mBook, i, "isSpell", "spell"..slot)) then -- check if user knows rune and if rune is already part of spell being created
                 if i == 6 then -- skip BHONA
                     unknownrunes = unknownrunes+1
                 end
@@ -136,7 +138,7 @@ local function createSpell(user, targetItem, slot)
                         user:increaseAttrib("mana", -3000)
                         world:gfx(41,user.pos)
                         world:makeSound(13,user.pos)
-                        runes.learnRune(user, targetItem, i, "isSpell", "spell"..slot) -- Add rune to spell
+                        runes.learnRune(user, mBook, i, "isSpell", "spell"..slot) -- Add rune to spell
                         M.spellCreationSelectionMenu(user, slot)
                         user:inform("Die Rune "..runes.runeNumberToName(i).." wurde dem Zauberspruch hinzugefügt.", "The rune "..runes.runeNumberToName(i).." has been added to the spell.")
                     else
@@ -155,7 +157,7 @@ local function createSpell(user, targetItem, slot)
 
     for i = runeStart, #runes.runes do -- For every rune
         if i ~= 6 then
-            if runes.checkIfLearnedRune(user,"", i, "isQuest") and (not runes.checkIfLearnedRune(user, targetItem, i, "isSpell", "spell"..slot)) then -- check if user knows rune and if rune is already part of spell being created
+            if runes.checkIfLearnedRune(user,"", i, "isQuest") and (not runes.checkIfLearnedRune(user, mBook, i, "isSpell", "spell"..slot)) then -- check if user knows rune and if rune is already part of spell being created
                 local runeName = runes.runeNumberToName(i)
                 local lowerCaseName = string.lower(runeName)
                 dialog:addOption(Item[lowerCaseName], runeName)
@@ -167,7 +169,7 @@ local function createSpell(user, targetItem, slot)
         M.spellCreationSelectionMenu(user, slot)
         user:inform("Du musst zuerst lernen wie man eine geringe Rune nutzt bevor du sie zu deinem Zauberspruch hinzufügst. ", "You must first learn how to use any minor rune before you can add it to your spell.")
 
-    elseif not checkForDialogOptions(user, targetItem, slot) then
+    elseif not checkForDialogOptions(user, mBook, slot) then
         M.spellCreationSelectionMenu(user, slot)
         user:inform("Du kennst keine weiteren Runen die zum Zauberspruch hinzugefügt werden können." , "You do not know any more runes that can be added to the spell.")
 
@@ -281,9 +283,9 @@ function M.spellCreationSelectionMenu(user, slot)
         if index == 1 and primaryElementCheck(user, mBook, slot) then
             elementSelection(user, slot)
         elseif index == 1 and not bhonaCheck(user, mBook, slot) then
-            createSpell(user, mBook, slot)
+            createSpell(user, slot)
         elseif index == 2 then
-            nameSpell(user, mBook, slot)
+            nameSpell(user, slot)
         end
     end
     local dialog = SelectionDialog(common.GetNLS(user,"Zauberspruch Erstellung", "Spell Creation"), common.GetNLS(user, "Wähle eine Möglichkeit.", "Pick an option."), callback)
