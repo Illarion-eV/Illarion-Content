@@ -345,6 +345,8 @@ function M.onLogin( player )
         "[Login] Welcome to Illarion! It is "..hourStringE.." on the "..datum..""..extensionString.." of "..monthString..varTextEn
         )
 
+    factions.oneTimeConversionOfReputationPointsToRankPoints(player) --This must take place before taxes to avoid defaulting to rank 1 for those
+
     --Taxes
     if not player:isAdmin() then --Admins don't pay taxes or get gems.
         if not (player.name == "Valerio Guilianni" or player.name == "Rosaline Edwards" or player.name ==  "Elvaine Morgan") then --Leader don't pay taxes or get gems
@@ -436,8 +438,6 @@ function M.onLogin( player )
 
     -- Convert the old relict wand magic to fire magic
     convertWandMagicToFire(player)
-
-    factions.oneTimeConversionOfReputationPointsToRankPoints(player)
 
     factions.updateEntry(player) --Updates the citizen ledger status of the player on login as a failsafe
 end
