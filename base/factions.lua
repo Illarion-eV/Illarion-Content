@@ -334,7 +334,6 @@ local function AddTown(TownID, TownName)
     table.insert(TownList,{townID=TownID, townName=TownName})
 end
 
-local citizenRank = 1
 M.highestRank = 7
 local leaderRank = 11
 
@@ -571,21 +570,7 @@ function M.setSpecialRank(player, rank)
 end
 
 
---[[
-    Checks if the rank of a player has changed
-    @param rankpoints - the new rankpoints
-    @param rank - the current rank
-]]
-local function checkForRankChange(rankpoints,rank)
-    local newRank = math.floor(rankpoints/100)+1
-    if newRank > rank and newRank <= M.highestRank then
-        return newRank;
-    elseif newRank < rank and newRank >= citizenRank then
-        return newRank;
-    else
-        return rank;
-    end
-end
+
 --[[
     inform the player about a rankchange
     @param rankHigher - true|false (true = player advanced a rank)
@@ -638,50 +623,37 @@ end
 
 ]]
 function M.setRankpoints(originator, rankpoints)
-    local Faction = M.getFaction(originator);
-    local rank = Faction.rankTown;
+
+    local Faction = M.getFaction(originator)
+    local oldRank = M.getRankAsNumber(originator)
+    local newRank = M.convertTicksToRankNumber(rankpoints)
 
     if Faction.tid == 0 then --outlaw
-        return;
-    end
-
-    if rankpoints < 0 then
-        rankpoints = 0;
-    elseif rankpoints > ((M.highestRank-1)*100)+99 then
-        rankpoints = ((M.highestRank-1)*100)+99;
-    end
-
-    -- determine if player got a new rank
-    if rank <= M.highestRank then
-        Faction.rankTown = checkForRankChange(rankpoints,rank);
-    end
-
-    -- Factionleaders always have the leader rank 11 and 1000 rankpoints (just to keep it consistent)
-    if originator.name == "Valerio Guilianni" or originator.name == "Rosaline Edwards" or originator.name == "Elvaine Morgan" then
-        rankpoints = (leaderRank-1)*100;
-        Faction.rankTown = leaderRank;
+        return
     end
 
     if rankpoints < M.getRankpoints(originator) then
-        local playerText = {"sinkt.","decline"};
-        informPlayerAboutRankpointchange(originator, playerText);
-        if getSpecialRank(originator) ~= 0 then
-            M.setSpecialRank(originator, 0);
+        local playerText = {"sinkt.","decline"}
+        informPlayerAboutRankpointchange(originator, playerText)
+        if rankpoints == 0 and getSpecialRank(originator) ~= 0 then -- It is a citizenship change so we remove the special rank, if not 0 then it would be a negative rank point quest
+            M.setSpecialRank(originator, 0)
         end
     elseif rankpoints > M.getRankpoints(originator) then
-        local playerText = {"steigt.","advance"};
-        informPlayerAboutRankpointchange(originator, playerText);
-    end
-
-    -- Inform about rankchange
-    if Faction.rankTown>rank then
-        informPlayerAboutRankchange(originator, Faction, true)
-    elseif Faction.rankTown<rank then
-        informPlayerAboutRankchange(originator, Faction, false)
+        local playerText = {"steigt.","advance"}
+        informPlayerAboutRankpointchange(originator, playerText)
     end
 
     ------save changes----------------
-    originator:setQuestProgress(M.rankTrackerQuestID,rankpoints);
+    originator:setQuestProgress(M.rankTrackerQuestID,rankpoints)
+
+    Faction = M.getFaction(originator)
+
+    -- Inform about rankchange
+    if newRank>oldRank then
+        informPlayerAboutRankchange(originator, Faction, true)
+    elseif newRank<oldRank then
+        informPlayerAboutRankchange(originator, Faction, false)
+    end
 end
 
 --[[
