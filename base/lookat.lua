@@ -44,10 +44,11 @@ local GetGemLevel
 -- init german descriptions
 M.GenericQualDe = {"perfekt", "exzellent", "sehr gut", "gut", "normal", "mäßig", "schlecht", "sehr schlecht","schrecklich", "furchtbar"}
 M.GenericDuraDe = {}
-M.GenericDuraDe[1] = {"nagelneu", "neu", "fast neu", "gebraucht", "leicht abgenutzt", "abgenutzt", "sehr abgenutzt", "alt", "rostig", "klapprig", "GERMAN TRANSLATION", "kaputt"}
-M.GenericDuraDe[2] = {"nagelneu", "neu", "fast neu", "gebraucht", "leicht abgenutzt", "abgenutzt", "sehr abgenutzt", "alt", "morsch", "zerfallend", "GERMAN TRANSLATION", "kaputt"}
-M.GenericDuraDe[3] = {"nagelneu", "neu", "fast neu", "gebraucht", "leicht abgenutzt", "abgenutzt", "sehr abgenutzt", "alt", "fadenscheinig", "zerfetzt", "GERMAN TRANSLATION", "kaputt"}
-M.GenericDuraDe[4] = {"funkelnd", "strahlend", "glänzend", "gebraucht", "angekratzt", "zerkratzt", "matt", "alt", "stumpf", "brüchig", "GERMAN TRANSLATION", "kaputt"}
+
+M.GenericDuraDe[1] = {"nagelneu", "neu", "fast neu", "gebraucht", "leicht abgenutzt", "abgenutzt", "sehr abgenutzt", "alt", "rostig", "klapprig", "sehr klapprig", "kaputt"}
+M.GenericDuraDe[2] = {"nagelneu", "neu", "fast neu", "gebraucht", "leicht abgenutzt", "abgenutzt", "sehr abgenutzt", "alt", "morsch", "zerfallend", "sehr zerfallen", "kaputt"}
+M.GenericDuraDe[3] = {"nagelneu", "neu", "fast neu", "gebraucht", "leicht abgenutzt", "abgenutzt", "sehr abgenutzt", "alt", "fadenscheinig", "zerfetzt", "komplett zerfetzt", "kaputt"}
+M.GenericDuraDe[4] = {"funkelnd", "strahlend", "glänzend", "gebraucht", "angekratzt", "zerkratzt", "matt", "alt", "stumpf", "brüchig", "sehr brüchig", "kaputt"}
 
 -- init english descriptions
 M.GenericQualEn = {"perfect", "excellent", "very good", "good", "normal", "average", "bad", "very bad", "awful", "horrible"}
