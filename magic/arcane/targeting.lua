@@ -178,9 +178,9 @@ local function FhenGetTarget(user, position, rangeNum, originalTarget)
 
     for _, target in pairs(targets) do
         if target ~= user and target:getType() ~= Character.npc and target.pos.z == position.z and (not originalTarget or originalTarget ~= target) then
-            if not finalTarget then
+            if not finalTarget and isValidChar(target) then
                 finalTarget = target
-            elseif isCloser(finalTarget.pos, target.pos, position) then
+            elseif isCloser(finalTarget.pos, target.pos, position) and isValidChar(target) then
                 finalTarget = target
             end
         end
@@ -447,7 +447,7 @@ local function getPosition(user, spell, positionsAndTargets, delayed, trap)
 
     if Fhen and (RA or CUN or SOLH) and not earthTrap then
         local fhenTarget = FhenGetTarget(user, thePosition, rangeNum, M.playerTargets[user.name])
-        if fhenTarget then
+        if fhenTarget and isValidChar(fhenTarget) then
             if fhenTarget:getType() == Character.player or fhenTarget:getType() == Character.monster then
                 if not dodgable then
                     M[user.name.."FhenPos"] = fhenTarget.pos
