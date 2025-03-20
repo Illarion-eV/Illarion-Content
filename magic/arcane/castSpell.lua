@@ -207,7 +207,7 @@ function M.castSpell(user, spell, actionState, oralCast)
                 diminishingReturns.applyOrl(user, M[user.id].thePosition, spell, level)
             end
             if (Sul and (RA or CUN)) or (JUS and Mes) then
-                delayedAttack.applyDelay(user, M[user.id].thePosition, spell, level)
+                delayedAttack.applyDelay(user, M[user.id].thePosition, spell, false, level)
             else
                 delayedAttack.spellEffects(user, M[user.id].positionsAndTargets, spell, element, false, level, castDuration)
             end
