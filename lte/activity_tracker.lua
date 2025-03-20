@@ -196,11 +196,11 @@ local function updateRank(effect, user)
     if totalInteractionTime >= 1200 + 1200*M[user.id].questDiamondStatus then -- 100 hours of RP for each diamond
         local gemData = gems.getMagicGemData(1, user.name)
         common.CreateItem(user, 3520, 1, 333, gemData)
+        log("[Gems] "..user.name.."("..user.id..") just received a magical diamond gem for accumulating "..(100 + 100*M[user.id].questDiamondStatus).." hours of roleplayed time.")
         local newStatus = M[user.id].questDiamondStatus + 1
         user:setQuestProgress(M.diamondQuestID, newStatus)
         M[user.id].questDiamondStatus = newStatus
         user:inform("Wie neugierig! Du hast gerade einen magischen Diamanten in deiner Tasche gefunden! Könnte es das Werk der Götter sein, vielleicht Zhambra oder Adron, die dich für deine sozialen Errungenschaften preisen?", "How curious! You just found a magical diamond in your pocket! Could it be the works of the gods, perhaps Zhambra or Adron praising you for your social feats?")
-        log("[Gems] "..user.name.."("..user.id..") just received a magical diamond gem for accumulating 100 hours of roleplayed time. This is the "..newStatus.."th/nd time they have been awarded one for this feat.")
     end
 end
 

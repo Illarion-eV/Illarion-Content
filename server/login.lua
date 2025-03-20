@@ -613,6 +613,8 @@ function PayOutWage(Recipient, town, bonus, notEnoughRP)
     local totalPayers = townTreasure.GetTaxpayerNumber(town)
     local RecipientRk=factions.getRankAsNumber(Recipient)
 
+    local addendum = " With a basis of "..totalPayers.." payers and "..totalTaxes.." taxes last month."
+
     if tonumber(totalPayers) <= 0 then
         totalPayers = 1
     end
@@ -673,7 +675,7 @@ function PayOutWage(Recipient, town, bonus, notEnoughRP)
         local firstGemId = gems.getMagicGemId(gemsByTown[town][1])
         local secondGemId = gems.getMagicGemId(gemsByTown[town][2])
 
-        log(string.format("[gems] %s got %d (%d,%d) magic gems from %s. Character's rank: %d",
+        log(string.format("[gems] %s got %d (%d,%d) magic gems from %s. Character's rank: %d"..addendum,
             character.LogText(Recipient), RankedWage, firstGem, secondGem, town, RecipientRk))
 
         if firstGem > 0 then
