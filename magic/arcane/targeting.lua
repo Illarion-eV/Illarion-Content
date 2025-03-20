@@ -181,7 +181,13 @@ local function FhenGetTarget(user, position, rangeNum, originalTarget)
     local finalTarget = false
 
     for _, target in pairs(targets) do
-        if target ~= user and target:getType() ~= Character.npc and target.pos.z == position.z and (not originalTarget or originalTarget ~= target) then
+
+        local targetIsMonster = target:getType() == Character.monster
+        local finalTargetIsMonster = finalTarget and finalTarget:getType() == Character.monster
+
+        --Monster targets take prio to allow group play without friendly fire; player targets second to enable the pvp option
+
+        if (not finalTargetIsMonster or targetIsMonster) and target ~= user and target:getType() ~= Character.npc and target.pos.z == position.z and (not originalTarget or originalTarget ~= target) then
             if not finalTarget and isValidChar(target) then
                 finalTarget = target
             elseif isCloser(finalTarget.pos, target.pos, position) and isValidChar(target) then
