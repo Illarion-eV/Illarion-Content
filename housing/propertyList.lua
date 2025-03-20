@@ -23,9 +23,9 @@ M.propertyTable = {
     -- 1property name, 2DE name, 3position, 4default rent, 5keyID, 6doorID, 7town, 8required rank, 9required rank name, 10DE rank name, 11 estate(boolean)
     -- Some of the information is not used and was there for a fully automated version of housing. It is kept in case of future need.
     --Cadomyr
-    {"Villa Annabeth", "Villa Annabeth",position(93,617,0),40000,3054,340, "Cadomyr","7",factions.CadomyrRankListMale[7]["eRank"],factions.CadomyrRankListMale[7]["gRank"]},
-    {"Villa Edward", "Villa Edward",position(89,606,0),40000,3054,341, "Cadomyr","7",factions.CadomyrRankListMale[7]["eRank"],factions.CadomyrRankListMale[7]["gRank"]},
-    {"Villa Reginald", "Villa Reginald",position(94,561,0),30000,3054,342, "Cadomyr","6",factions.CadomyrRankListMale[6]["eRank"],factions.CadomyrRankListMale[6]["gRank"]},
+    {"Villa Annabeth", "Villa Annabeth",position(87,611,0),40000,3054,340, "Cadomyr","7",factions.CadomyrRankListMale[7]["eRank"],factions.CadomyrRankListMale[7]["gRank"], true},
+    {"Villa Edward", "Villa Edward",position(88,611,0),40000,3054,341, "Cadomyr","7",factions.CadomyrRankListMale[7]["eRank"],factions.CadomyrRankListMale[7]["gRank"], true},
+    {"Villa Reginald", "Villa Reginald",position(97,566,0),30000,3054,342, "Cadomyr","6",factions.CadomyrRankListMale[6]["eRank"],factions.CadomyrRankListMale[6]["gRank"], true},
     {"Flat Faith and Obedience", "Wohnung Glaube und Gehorsam",position(137,605,0),5000,2558,361, "Cadomyr","4",factions.CadomyrRankListMale[4]["eRank"],factions.CadomyrRankListMale[4]["gRank"]},
     {"Flat Truth and Justice", "Wohnung Ehrlichkeit und Gerechtigkeit",position(136,609,0),10000,2558,363, "Cadomyr","5",factions.CadomyrRankListMale[5]["eRank"],factions.CadomyrRankListMale[5]["gRank"]},
     {"Flat Patriarchy", "Wohnung Patriarchat",position(135,614,0),15000,2558,365, "Cadomyr","5",factions.CadomyrRankListMale[5]["eRank"],factions.CadomyrRankListMale[5]["gRank"]},
@@ -42,11 +42,11 @@ M.propertyTable = {
     {"Fourth Earth Apartment", "Viertes Erdapartment",position(899,769,-3),20000,2558,234, "Runewick","3",factions.RunewickRankListMale[3]["eRank"],factions.RunewickRankListMale[3]["gRank"]},
     {"Fifth Earth Apartment", "Fünftes Erdapartment",position(902,755,-3),20000,2558,235, "Runewick","3",factions.RunewickRankListMale[3]["eRank"],factions.RunewickRankListMale[3]["gRank"]},
     {"Sixth Earth Apartment", "Sechstes Erdapartment",position(900,755,-3),20000,2558,236, "Runewick","3",factions.RunewickRankListMale[3]["eRank"],factions.RunewickRankListMale[3]["gRank"]},
-    {"Cottage", "Landhaus",position(791,795,0),30000,2558,251, "Runewick","5",factions.RunewickRankListMale[5]["eRank"],factions.RunewickRankListMale[5]["gRank"]},
-    {"Quadruped Red Bird","Vierbeiniger Roter Vogel",position(745,803,0),100000,2558,250, "Runewick","7",factions.RunewickRankListMale[7]["eRank"],factions.RunewickRankListMale[7]["gRank"]},
+    {"Cottage", "Landhaus",position(782,795,0),30000,2558,251, "Runewick","5",factions.RunewickRankListMale[5]["eRank"],factions.RunewickRankListMale[5]["gRank"]},
+    {"Quadruped Red Bird","Vierbeiniger Roter Vogel",position(758,802,0),100000,2558,250, "Runewick","7",factions.RunewickRankListMale[7]["eRank"],factions.RunewickRankListMale[7]["gRank"]},
     --Galmair
-    {"House of Malachite","Malachithaus",position(372,323,0), 100000, 3056, 110, "Galmair", "7",factions.GalmairRankListMale[7]["eRank"],factions.GalmairRankListMale[7]["gRank"]},
-    {"Villa Goldvein","Villa Goldader", position(300, 281, 0), 80000, 3055, 111, "Galmair", "7",factions.GalmairRankListMale[7]["eRank"],factions.GalmairRankListMale[7]["gRank"]},
+    {"House of Malachite","Malachithaus",position(369,326,0), 100000, 3056, 110, "Galmair", "7",factions.GalmairRankListMale[7]["eRank"],factions.GalmairRankListMale[7]["gRank"]},
+    {"Villa Goldvein","Villa Goldader", position(307, 284, 0), 80000, 3055, 111, "Galmair", "7",factions.GalmairRankListMale[7]["eRank"],factions.GalmairRankListMale[7]["gRank"]},
     {"Flat Irmorom","Wohnung Irmorom",position(373,216,-6), 30000,2558,120, "Galmair","4",factions.GalmairRankListMale[4]["eRank"],factions.GalmairRankListMale[4]["gRank"]},
     {"Flat Elara","Wohnung Elara",position(384,219,-6), 30000,2558,121, "Galmair","4",factions.GalmairRankListMale[4]["eRank"],factions.GalmairRankListMale[4]["gRank"]},
     {"Flat Adron","Wohnung Adron",position(383,230,-6), 20000,2558,122, "Galmair","3",factions.GalmairRankListMale[3]["eRank"],factions.GalmairRankListMale[3]["gRank"]},
@@ -79,18 +79,15 @@ M.propertyTable = {
     }
 
 M.properties = {}
---Cadomyr houses
-table.insert(M.properties, {name = "Villa Annabeth", lower = position(93,610,0), upper = position(104,619,1)})
-table.insert(M.properties, {name = "Villa Annabeth", lower = position(119, 625, -7), upper = position(131, 643, -7)})
-table.insert(M.properties, {name = "Villa Edward", lower = position(85,597,0), upper = position(97,606,1)})
-table.insert(M.properties, {name = "Villa Reginald", lower = position(89,552,0), upper = position(97,561,0)})
+--Cadomyr flats
 table.insert(M.properties, {name = "Flat Faith and Obedience", lower = position(138,602,0), upper = position(144,605,0)})
 table.insert(M.properties, {name = "Flat Faith and Obedience", lower = position(139,601,1), upper = position(145,605,1)})
 table.insert(M.properties, {name = "Flat Truth and Justice", lower = position(137,606,0), upper = position(144,611,0)})
 table.insert(M.properties, {name = "Flat Truth and Justice", lower = position(139,606,1), upper = position(145,611,1)})
 table.insert(M.properties, {name = "Flat Patriarchy", lower = position(136,612,0), upper = position(146,617,0)})
 table.insert(M.properties, {name = "Flat Patriarchy", lower = position(137,613,1), upper = position(147,618,1)})
---Runewick houses
+
+--Runewick apartments
 table.insert(M.properties, {name = "First Fire Apartment", lower = position(946,748,0), upper = position(950,754,0)})
 table.insert(M.properties, {name = "Second Fire Apartment", lower = position(951,748,0), upper = position(955,754,0)})
 table.insert(M.properties, {name = "Third Fire Apartment", lower = position(960,748,0), upper = position(965,758,0)})
@@ -107,13 +104,8 @@ table.insert(M.properties, {name = "Third Earth Apartment", lower = position(903
 table.insert(M.properties, {name = "Fourth Earth Apartment", lower = position(901,767,-3), upper = position(907,770,-3)})
 table.insert(M.properties, {name = "Fifth Earth Apartment", lower = position(893,766,-3), upper = position(897,773,-3)})
 table.insert(M.properties, {name = "Sixth Earth Apartment", lower = position(893,758,-3), upper = position(897,765,-3)})
-table.insert(M.properties, {name = "Cottage", "Landhaus", lower = position(785,795,0), upper = position(792,789,0)})
-table.insert(M.properties, {name = "Quadruped Red Bird", lower = position(740,795,0), upper = position(755,803,0)})
-table.insert(M.properties, {name = "Quadruped Red Bird", lower = position(740,795,1), upper = position(745,800,1)})
-table.insert(M.properties, {name = "Quadruped Red Bird", lower = position(740,795,2), upper = position(745,800,2)})
---Galmair houses
-table.insert(M.properties, {name = "House of Malachite", lower = position(367,309,0), upper = position(377,323,0)})
-table.insert(M.properties, {name = "Villa Goldvein", lower = position(294,269,0), upper = position(309,281,0)})
+
+--Galmair flats
 table.insert(M.properties, {name = "Flat Irmorom", lower = position(372,207,-6), upper = position(384,214,-6)})
 table.insert(M.properties, {name = "Flat Elara", lower = position(386,217,-6), upper = position(396,223,-6)})
 table.insert(M.properties, {name = "Flat Adron", lower = position(384,224,-6), upper = position(395,233,-6)})
@@ -130,7 +122,14 @@ table.insert(M.properties, {name = "Golden Deal", lower = position(420,286,2), u
 table.insert(M.properties, {name = "Flat Sapphire", lower = position(394,212,1), upper = position(404,222,1)})
 table.insert(M.properties, {name = "Flat Diamond", lower = position(405,206,1), upper = position(415,222,1)})
 table.insert(M.properties, {name = "Flat Obsidian", lower = position(420,206,1), upper = position(432,220,1)})
---Estates, Galmair
+
+--Galmair estates within the walls
+table.insert(M.properties, {name = "House of Malachite", lower = position(367,309,0), upper = position(377,323,2)})
+table.insert(M.properties, {name = "House of Malachite", lower = position(367,309,-21), upper = position(377,323,-21)})
+table.insert(M.properties, {name = "Villa Goldvein", lower = position(294,269,0), upper = position(309,281,2)})
+table.insert(M.properties, {name = "Villa Goldvein", lower = position(294,269,-21), upper = position(309,281,-21)})
+
+--Estates outside Galmair walls
 table.insert(M.properties, {name = "Syrita Estate", lower = position(449,124,0), upper = position(459,139,2), estate = true})
 table.insert(M.properties, {name = "Syrita Estate", lower = position(449,124,-21), upper = position(459,139,-21), estate = true})
 table.insert(M.properties, {name = "Nargun Estate", lower = position(529,256,0), upper = position(543,265,2), estate = true})
@@ -140,20 +139,34 @@ table.insert(M.properties, {name = "Rumil Estate", lower = position(384,351,-21)
 table.insert(M.properties, {name = "Rumil Estate", lower = position(378,359,0), upper = position(384,364,2), estate = true})
 table.insert(M.properties, {name = "Rumil Estate", lower = position(378,359,-21), upper = position(384,364,-21), estate = true})
 
---Cadomyr
+--Cadomyr estates inside the walls
+table.insert(M.properties, {name = "Villa Annabeth", lower = position(93,610,0), upper = position(105,620,1), estate = true})
+table.insert(M.properties, {name = "Villa Annabeth", lower = position(93, 610, -21), upper = position(105, 620, -21), estate = true})
+table.insert(M.properties, {name = "Villa Edward", lower = position(85,597,0), upper = position(97,606,1), estate = true})
+table.insert(M.properties, {name = "Villa Edward", lower = position(85,597,-21), upper = position(97,606,-21), estate = true})
+table.insert(M.properties, {name = "Villa Reginald", lower = position(89,552,0), upper = position(98,561,0), estate = true})
+table.insert(M.properties, {name = "Villa Reginald", lower = position(89,552,-21), upper = position(98,561,-21), estate = true})
+--Estates outside Cadomyr walls
 table.insert(M.properties, {name = "Cadomyr Harbour Estate", lower = position(77,772,0), upper = position(92,782,2), estate = true})
 table.insert(M.properties, {name = "Cadomyr Harbour Estate", lower = position(77,772,-21), upper = position(92,782,-21), estate = true})
 table.insert(M.properties, {name = "Kantabi Estate", lower = position(175,673,0), upper = position(185,688,2), estate = true})
 table.insert(M.properties, {name = "Kantabi Estate", lower = position(175,673,-21), upper = position(185,688,-21), estate = true})
 table.insert(M.properties, {name = "Siba Estate", lower = position(79,672,0), upper = position(94,682,2), estate = true})
 table.insert(M.properties, {name = "Siba Estate", lower = position(79,672,-21), upper = position(94,682,-21), estate = true})
---Runewick
+
+--Runewick estates
+table.insert(M.properties, {name = "Cottage", "Landhaus", lower = position(785,789,0), upper = position(793,795,2)})
+table.insert(M.properties, {name = "Cottage", "Landhaus", lower = position(785,789,-21), upper = position(793,795,-21)})
+table.insert(M.properties, {name = "Quadruped Red Bird", lower = position(740,795,0), upper = position(755,803,2)})
+table.insert(M.properties, {name = "Quadruped Red Bird", lower = position(740,795,-21), upper = position(755,803,-21)})
+
 table.insert(M.properties, {name = "Anthil Estate", lower = position(767,728,0), upper = position(781,737,2), estate = true})
 table.insert(M.properties, {name = "Anthil Estate", lower = position(767,728,-21), upper = position(781,737,-21), estate = true})
 table.insert(M.properties, {name = "Oldra Estate", lower = position(844,871,0), upper = position(853,885,2), estate = true})
 table.insert(M.properties, {name = "Oldra Estate", lower = position(844,871,-21), upper = position(853,885,-21), estate = true})
 table.insert(M.properties, {name = "Merryglade Estate", lower = position(828,716,0), upper = position(834,726,2), estate = true})
 table.insert(M.properties, {name = "Merryglade Estate", lower = position(821,716,-21), upper = position(836,726,-21), estate = true})
+
 --Outlaw
 table.insert(M.properties, {name = "Pauldron Estate", lower = position(967,343,0), upper = position(983,362,2), estate = true, outlaw = true})
 table.insert(M.properties, {name = "Pauldron Estate", lower = position(967,343,-21), upper = position(983,362,-21), estate = true, outlaw = true})
