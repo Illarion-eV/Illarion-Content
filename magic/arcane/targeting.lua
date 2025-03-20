@@ -172,6 +172,10 @@ end
 
 local function FhenGetTarget(user, position, rangeNum, originalTarget)
 
+    if originalTarget and not isValidChar(originalTarget) then
+        originalTarget = false
+    end
+
     local targets = world:getCharactersInRangeOf(position, rangeNum)
 
     local finalTarget = false
@@ -184,10 +188,6 @@ local function FhenGetTarget(user, position, rangeNum, originalTarget)
                 finalTarget = target
             end
         end
-    end
-
-    if not finalTarget and originalTarget then
-        finalTarget = originalTarget
     end
 
     return finalTarget
@@ -345,9 +345,7 @@ local function getPosition(user, spell, positionsAndTargets, delayed, trap)
             end
             thePosition = targeted.pos
             if not dodgable and not (PEN and Lev) then
-                if not (Fhen and (RA or CUN or SOLH)) then
-                    table.insert(positionsAndTargets.targets, targeted)
-                end
+                table.insert(positionsAndTargets.targets, targeted)
                 positionsAndTargets.targetToTeach = targeted
                 setPos = false
             end
@@ -357,9 +355,7 @@ local function getPosition(user, spell, positionsAndTargets, delayed, trap)
             if foundCharacter and not dodgable and not (PEN and Lev) then
                 local target = world:getCharacterOnField(thePosition)
                 if target:getType() == Character.player or target:getType() == Character.monster then
-                    if not (Fhen and (RA or CUN or SOLH)) then
-                        table.insert(positionsAndTargets.targets, target)
-                    end
+                    table.insert(positionsAndTargets.targets, target)
                     positionsAndTargets.targetToTeach = target
                     setPos = false
                 end
@@ -371,9 +367,7 @@ local function getPosition(user, spell, positionsAndTargets, delayed, trap)
         if foundCharacter and not dodgable then
             local target = world:getCharacterOnField(thePosition)
             if target:getType() == Character.player or target:getType() == Character.monster then
-                if not (Fhen and (RA or CUN or SOLH)) then
-                    positionsAndTargets.targets[#positionsAndTargets.targets+1] = target
-                end
+                positionsAndTargets.targets[#positionsAndTargets.targets+1] = target
                 setPos = false
             end
         end
