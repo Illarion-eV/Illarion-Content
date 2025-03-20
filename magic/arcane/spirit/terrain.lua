@@ -27,7 +27,7 @@ M.tileDescriptions = {
     {id = 6, english = "Water", german = "Wasser"},
     {id = 7, english = "Rocky terrain", german = "Bearbeiteter Stein"},
     {id = 8, english = "Muddy terrain", german = "Schlamm"},
-    {id = 9, english = "Muddy terrain", german = "Schlamm"},
+    {id = 9, english = "Forest Ground", german = "Waldboden"},
     {id = 10, english = "Snowy terrain", german = "Schnee"},
     {id = 11, english = "Grassy terrain", german = "Wiese"},
     {id = 12, english = "Sandy terrain", german = "Grober Sand"},
