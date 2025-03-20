@@ -139,27 +139,58 @@ local function addPENLukDunTargets(user, targetsPositions)
     return targetsPositions
 end
 
-local function FhenGetTarget(user, position, rangeNum)
+local function convertNegative(diff)
+
+    if diff < 0 then
+        diff = diff*-1
+    end
+
+    return diff
+end
+
+local function isCloser(finalTarget, target, position)
+
+    local XDiff1 = position.x - finalTarget.x
+    local YDiff1 = position.y - finalTarget.y
+    local XDiff2 = position.x - target.x
+    local YDiff2 = position.y - target.y
+
+    XDiff1 = convertNegative(XDiff1)
+    YDiff1 = convertNegative(YDiff1)
+    XDiff2 = convertNegative(XDiff2)
+    YDiff2 = convertNegative(YDiff2)
+
+    local diff1 = XDiff1+YDiff1
+    local diff2 = XDiff2+YDiff2
+
+    if diff2 < diff1 then
+        return true
+    end
+
+    return false
+end
+
+local function FhenGetTarget(user, position, rangeNum, originalTarget)
 
     local targets = world:getCharactersInRangeOf(position, rangeNum)
 
-    local returnTarget = false
+    local finalTarget = false
 
-        for i = 1, #targets do
-            local target = targets[i]
-            local userPosCheck = true
-                if user then
-                    if user.pos == target.pos then
-                        userPosCheck = false
-                    end
-                end
-            if userPosCheck and target:getType() ~= Character.npc then
-                returnTarget = target
+    for _, target in pairs(targets) do
+        if target ~= user and target:getType() ~= Character.npc and target.pos.z == position.z and (not originalTarget or originalTarget ~= target) then
+            if not finalTarget then
+                finalTarget = target
+            elseif isCloser(finalTarget.pos, target.pos, position) then
+                finalTarget = target
             end
         end
+    end
 
-    return returnTarget
+    if not finalTarget and originalTarget then
+        finalTarget = originalTarget
+    end
 
+    return finalTarget
 end
 
 local function  positionHasNPC(thePosition)
@@ -315,7 +346,7 @@ local function getPosition(user, spell, positionsAndTargets, delayed, trap)
             thePosition = targeted.pos
             if not dodgable and not (PEN and Lev) then
                 if not (Fhen and (RA or CUN or SOLH)) then
-                    positionsAndTargets.targets[#positionsAndTargets.targets+1] = targeted
+                    table.insert(positionsAndTargets.targets, targeted)
                 end
                 positionsAndTargets.targetToTeach = targeted
                 setPos = false
@@ -327,7 +358,7 @@ local function getPosition(user, spell, positionsAndTargets, delayed, trap)
                 local target = world:getCharacterOnField(thePosition)
                 if target:getType() == Character.player or target:getType() == Character.monster then
                     if not (Fhen and (RA or CUN or SOLH)) then
-                        positionsAndTargets.targets[#positionsAndTargets.targets+1] = target
+                        table.insert(positionsAndTargets.targets, target)
                     end
                     positionsAndTargets.targetToTeach = target
                     setPos = false
@@ -415,15 +446,15 @@ local function getPosition(user, spell, positionsAndTargets, delayed, trap)
     end
 
     if Fhen and (RA or CUN or SOLH) and not earthTrap then
-        local fhenTarget = FhenGetTarget(user, thePosition, rangeNum)
+        local fhenTarget = FhenGetTarget(user, thePosition, rangeNum, M.playerTargets[user.name])
         if fhenTarget then
             if fhenTarget:getType() == Character.player or fhenTarget:getType() == Character.monster then
                 if not dodgable then
                     M[user.name.."FhenPos"] = fhenTarget.pos
-                    positionsAndTargets.targets[#positionsAndTargets.targets+1] = fhenTarget
+                    table.insert(positionsAndTargets.targets, fhenTarget)
                     setPos = false
                 else
-                    positionsAndTargets.positions[#positionsAndTargets.positions+1] = fhenTarget.pos
+                    table.insert(positionsAndTargets.positions, fhenTarget.pos)
                 end
             end
         end
