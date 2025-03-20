@@ -27,7 +27,7 @@ local scaling
     else
         scaling = earthTrap:getData("scaling")
     end
-local baseManaToReduce = 2000
+local baseManaToReduce = 200
 return baseManaToReduce*scaling
 end
 
@@ -38,7 +38,7 @@ local scaling
     else
         scaling = earthTrap:getData("scaling")
     end
-local baseStaminaToReduce = 10000
+local baseStaminaToReduce = 1000
 return baseStaminaToReduce*scaling
 end
 

@@ -28,7 +28,7 @@ local scaling
     else
         scaling = effectScaling.getEffectScaling(user, target, spell)
     end
-local numberOfSeconds = 10
+local numberOfSeconds = 2
 local Qwan = runes.checkSpellForRuneByName("Qwan", spell)
 local Taur = runes.checkSpellForRuneByName("Taur", spell)
 local Ura = runes.checkSpellForRuneByName("Ura", spell)
@@ -46,10 +46,10 @@ local rune
         raceBonus = magicDamage.checkIfRaceBonus(target, rune)
     end
     if Qwan then
-        numberOfSeconds = numberOfSeconds + 5
+        numberOfSeconds = numberOfSeconds + 2
     end
     if raceBonus then
-        numberOfSeconds = numberOfSeconds + 5
+        numberOfSeconds = numberOfSeconds + 1
     end
 return numberOfSeconds*scaling
 end

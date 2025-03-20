@@ -43,7 +43,7 @@ local rune
     elseif Ura then
         rune = "Ura"
     end
-local amountStolen = 500
+local amountStolen = 50
 
     for _, target in pairs(targets.targets) do
         local scaling = effectScaling.getEffectScaling(user, target, spell)

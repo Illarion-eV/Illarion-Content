@@ -44,10 +44,10 @@ function M.dealMagicDoT(user, targets, spell, element, level, castDuration)
             local Kah = runes.checkSpellForRuneByName("Kah", spell)
 
             if Ira then
-                manaReduction = manaStaminaReduction.getManaToReduce(user, target, spell)
+                manaReduction = manaStaminaReduction.getManaToReduce(user, target, spell)*1.5
             end
             if Kah then
-                foodReduction = manaStaminaReduction.getStaminaToReduce(user, target, spell)
+                foodReduction = manaStaminaReduction.getStaminaToReduce(user, target, spell)*1.5
             end
 
             if damage > 0 and user then
