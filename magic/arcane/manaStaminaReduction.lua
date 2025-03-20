@@ -48,6 +48,7 @@ local staminaToReduce = M.getStaminaToReduce(user, target, spell, earthTrap)
     if mana then
         if target:increaseAttrib("mana", 0) > manaToReduce then
             target:increaseAttrib("mana", -manaToReduce)
+            target:talk(Character.say, "#me loses "..manaToReduce.." mana.")
         else
             target:setAttrib("mana", 0)
         end
@@ -56,8 +57,10 @@ local staminaToReduce = M.getStaminaToReduce(user, target, spell, earthTrap)
     if stamina then
         if increase then
             target:increaseAttrib("foodlevel", staminaToReduce)
+            target:talk(Character.say, "#me gains "..staminaToReduce.." stamina.")
         elseif target:increaseAttrib("foodlevel", 0) > staminaToReduce then
             target:increaseAttrib("foodlevel", -staminaToReduce)
+            target:talk(Character.say, "#me loses "..staminaToReduce.." stamina.")
         else
             target:setAttrib("foodlevel", 0)
         end

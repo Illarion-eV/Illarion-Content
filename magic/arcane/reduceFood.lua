@@ -28,6 +28,7 @@ function M.callEffect(myEffect, target)
             local staminaToReduce = math.floor(remainingStaminaReduction/remainingTicks)
             if target:increaseAttrib("foodlevel", 0) > staminaToReduce then
                 target:increaseAttrib("foodlevel", -staminaToReduce)
+                target:talk(Character.say, "#me loses "..staminaToReduce.." stamina.")
             else
                 target:setAttrib("foodlevel", 0)
             end

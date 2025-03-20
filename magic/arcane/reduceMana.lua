@@ -29,6 +29,7 @@ function M.callEffect(myEffect, target)
             local manaReduction = math.floor(remainingManaReduction/remainingTicks)
             if target:increaseAttrib("mana", 0) > manaReduction then
                 target:increaseAttrib("mana", -manaReduction)
+                target:talk(Character.say, "#me loses "..manaReduction.." mana.")
             else
                 target:setAttrib("mana", 0)
             end
