@@ -212,8 +212,8 @@ M.runeHintsBookTexts = {
         location = position(564, 542 , -6)},
     Mes = {rune = "Mes",
         hint = {
-            english = "I light up the path for beings made of wood that have lost their way.",
-            german = "Ich erleuchte den Weg für Wesen aus Holz, die den Weg verloren haben."},
+            english = "I light the way for those of wood adrift, seeking the glow that marks safe passage.",
+            german = "Ich erhelle den Weg für jene aus Holz, die treiben, auf der Suche nach dem Leuchten, das sichere Passage weist."},
         name = {
             english = "Mysterious Sphere",
             german = "Mysteriöse Sphäre"},
