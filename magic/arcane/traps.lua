@@ -46,8 +46,8 @@ local earthTrapTexts = {
 
 local function trapCreation(user, target, spell, item, level)
     local graphicID = 372
-    local Lhor = runes.checkSpellForRuneByName("Lhor", spell)
-    local Luk = runes.checkSpellForRuneByName("Luk", spell)
+    local LHOR = runes.checkSpellForRuneByName("LHOR", spell)
+    local LUK = runes.checkSpellForRuneByName("LUK", spell)
     local element = runes.fetchElement(spell)
     local wear = staticObjects.getWearBasedOnDuration(user, target, spell)
     local scaling = effectScaling.getEffectScaling(user, target, spell)
@@ -58,7 +58,7 @@ local function trapCreation(user, target, spell, item, level)
     if not field or not antiTroll.passesAntiTrollCheck(target) then
         return
     end
-    if Luk then
+    if LUK then
         if plantRoot.checkForSuitableSoil(field) then
             graphicID = 3644
         end
@@ -79,7 +79,7 @@ local function trapCreation(user, target, spell, item, level)
         return
     end
     local gemBonus = magic.getGemBonusWand(user)/100
-    local trap = world:createItemFromId(graphicID, 1, myPosition, true, 999, {["illusion"] = tostring(Lhor), ["spell"] = spell, ["illuminateWear"] = wear, ["scaling"] = scaling, ["magicPenetration"] = magicPenetration, ["elementBonus"] = elementBonus, ["gemBonus"] = gemBonus, ["level"] = level})
+    local trap = world:createItemFromId(graphicID, 1, myPosition, true, 999, {["illusion"] = tostring(LHOR), ["spell"] = spell, ["illuminateWear"] = wear, ["scaling"] = scaling, ["magicPenetration"] = magicPenetration, ["elementBonus"] = elementBonus, ["gemBonus"] = gemBonus, ["level"] = level})
     trap.wear = wear
     if graphicID == 372 then
         lookat.SetSpecialName(trap, earthTrapTexts.name.german, earthTrapTexts.name.english)
@@ -92,28 +92,28 @@ local function trapCreation(user, target, spell, item, level)
 end
 
 function M.createEarthTraps(user, targets, spell, level)
-local Orl = runes.checkSpellForRuneByName("Orl", spell)
+local ORL = runes.checkSpellForRuneByName("ORL", spell)
 local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
 
-    if not SOLH or not Orl then
+    if not SOLH or not ORL then
         return
     end
 
     for _, item in pairs(targets.items) do
-        if Orl then
+        if ORL then
             trapCreation(user, item, spell, true, level)
         end
     end
 
     for _, target in pairs(targets.targets) do
-        if not Orl then
+        if not ORL then
             return
         end
         trapCreation(user, target, spell, false, level)
     end
 
     for _, pos in pairs(targets.positions) do
-        if not Orl then
+        if not ORL then
             return
         end
         trapCreation(user, pos, spell, false, level)

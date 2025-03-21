@@ -29,9 +29,9 @@ M.healthTexts = {
     }
 
 function M.getHealthText(information, spell)
-    local Sih = runes.checkSpellForRuneByName("Sih", spell)
+    local SIH = runes.checkSpellForRuneByName("SIH", spell)
 
-    if not Sih then
+    if not SIH then
         return information
     end
 

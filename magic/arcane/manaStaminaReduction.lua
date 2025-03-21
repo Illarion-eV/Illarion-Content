@@ -69,7 +69,7 @@ end
 
 function M.checkForIncreaseStamina(user, targets, spell, earthTrap)
 local stamina = false
-    if runes.checkSpellForRuneByName("SOLH", spell) and runes.checkSpellForRuneByName("Kah", spell) then
+    if runes.checkSpellForRuneByName("SOLH", spell) and runes.checkSpellForRuneByName("KAH", spell) then
         stamina = true
     end
 
@@ -81,15 +81,15 @@ end
 
 function M.checkForReduceManaOrStamina(user, targets, spell)
 local RA = runes.checkSpellForRuneByName("RA", spell)
-local Kah = runes.checkSpellForRuneByName("Kah", spell)
-local Ira = runes.checkSpellForRuneByName("Ira", spell)
+local KAH = runes.checkSpellForRuneByName("KAH", spell)
+local IRA = runes.checkSpellForRuneByName("IRA", spell)
 local mana = false
 local stamina = false
 
-    if Kah then
+    if KAH then
         stamina = true
     end
-    if Ira then
+    if IRA then
         mana = true
     end
     if RA then

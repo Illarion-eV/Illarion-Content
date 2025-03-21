@@ -64,7 +64,7 @@ function M.arcaneSpellCastSpeed(user, spell, skipTan) -- Should return total cas
         end
     end
 
-    if runes.checkSpellForRuneByName("Pera", spell) then
+    if runes.checkSpellForRuneByName("PERA", spell) then
         --While the spell is cast one third faster, it also means you expend mana faster
         --and can do less total damage by the time you empty out your mana bar.
         --Which should make this a fair trade and a situational rune.

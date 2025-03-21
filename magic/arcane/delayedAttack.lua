@@ -63,20 +63,20 @@ local y
     myEffect:addValue("lastY", y)
 return position(x, y, tz)
 end
-function M.spellEffects(user, targets, spell, element, Orl, level, castDuration)
+function M.spellEffects(user, targets, spell, element, ORL, level, castDuration)
     local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
-    local OrlRune = runes.checkSpellForRuneByName("Orl", spell)
+    local OrlRune = runes.checkSpellForRuneByName("ORL", spell)
     if not (SOLH and OrlRune) then
         illuminate.CheckIfIlluminate(user, targets, spell)
         DoT.dealMagicDoT(user, targets, spell, element, level, castDuration)
         magicGFXSFX.getAdditionalUserGFXSFX(user, spell)
         MSReduction.checkForReduceManaOrStamina(user, targets, spell)
         harvestFruit.checkIfHarvestFruit(user, targets, spell)
-        movement.applyMovementSpells(user, targets, spell, Orl)
-        lifesteal.instantLifeOrManaSteal(user, targets, spell, Orl)
+        movement.applyMovementSpells(user, targets, spell, ORL)
+        lifesteal.instantLifeOrManaSteal(user, targets, spell, ORL)
         plantRoot.createEntanglingPlant(user, targets, spell, level)
-        dealDamage.applyMagicDamage(user, targets, spell, element, Orl, false, level, castDuration)
-        snare.applySnare(user, targets, spell, Orl, false, level)
+        dealDamage.applyMagicDamage(user, targets, spell, element, ORL, false, level, castDuration)
+        snare.applySnare(user, targets, spell, ORL, false, level)
         stun.checkForStun(spell, targets)
         MSReduction.checkForIncreaseStamina(user, targets, spell)
         plantRoot.applyPlantRoot(user, targets, spell)
@@ -97,7 +97,7 @@ function M.spellEffects(user, targets, spell, element, Orl, level, castDuration)
     end
 end
 
-function M.applyDelay(user, target, spell, Orl, level)
+function M.applyDelay(user, target, spell, ORL, level)
     local targetx = target.x
     local targety = target.y
     local targetz = target.z
@@ -115,8 +115,8 @@ function M.applyDelay(user, target, spell, Orl, level)
         myEffect:addValue("targetZ", targetz)
         myEffect:addValue("spell", spell)
         myEffect:addValue("level", level)
-        if Orl then
-            myEffect:addValue("Orl", Orl)
+        if ORL then
+            myEffect:addValue("ORL", ORL)
         end
         user.effects:addEffect(myEffect)
     else
@@ -127,8 +127,8 @@ function M.applyDelay(user, target, spell, Orl, level)
         myEffect:addValue("targetZ", targetz)
         myEffect:addValue("spell", spell)
         myEffect:addValue("level", level)
-        if Orl then
-            myEffect:addValue("Orl", Orl)
+        if ORL then
+            myEffect:addValue("ORL", ORL)
         end
         M.addEffect(myEffect, user)
     end
@@ -148,7 +148,7 @@ local foundLY, ly = myEffect:findValue("lastY")
 local foundTX, tx = myEffect:findValue("targetX")
 local foundTY, ty = myEffect:findValue("targetY")
 local foundTZ, tz = myEffect:findValue("targetZ")
-local foundOrl, Orl = myEffect:findValue("Orl")
+local foundOrl, ORL = myEffect:findValue("ORL")
 local foundSpell, spell = myEffect:findValue("spell")
 local foundLevel, level = myEffect:findValue("level")
 
@@ -166,9 +166,9 @@ local targets
     end
 local RA = runes.checkSpellForRuneByName("RA", spell)
 local CUN = runes.checkSpellForRuneByName("CUN", spell)
-local Sul = runes.checkSpellForRuneByName("Sul", spell)
+local SUL = runes.checkSpellForRuneByName("SUL", spell)
     if not foundOrl then
-        Orl = false
+        ORL = false
     end
     if foundLX and foundLY and foundTX and foundTY and foundTZ then
         targetPosition = position(tonumber(tx), tonumber(ty), tonumber(tz))
@@ -186,11 +186,11 @@ local element
 local effectTargets = nextPositionIntoTargets(nextPosition)
     if castSpell then
         targets = targeting.getPositionsAndTargets(user, spell, targetPosition)
-        if (RA or CUN) and Sul then
+        if (RA or CUN) and SUL then
            targets = targeting.refreshTargets(targets)
         end
         local castDuration = castingSpeed.arcaneSpellCastSpeed(nil, spell, true)
-        M.spellEffects(user, targets, spell, element, Orl, level, castDuration)
+        M.spellEffects(user, targets, spell, element, ORL, level, castDuration)
         return false
     end
     if foundSpell then

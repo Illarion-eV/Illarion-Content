@@ -102,7 +102,7 @@ function M.dealMagicDamage(user, target, spell, damage, level, DoT, castTime)
 
     local RA = runes.checkSpellForRuneByName("RA", spell)
     local CUN = runes.checkSpellForRuneByName("CUN", spell)
-    local Sih = runes.checkSpellForRuneByName("Sih", spell)
+    local SIH = runes.checkSpellForRuneByName("SIH", spell)
 
     if DoT then castTime = castTime/15 end -- DoTs have 15 ticks, so this prevents them from giving 15 times the MR
 
@@ -150,7 +150,7 @@ function M.dealMagicDamage(user, target, spell, damage, level, DoT, castTime)
     end
 
     if not dwyfolTriggered and user then
-        if Sih and (RA or CUN) then
+        if SIH and (RA or CUN) then
             character.ChangeHP(user, math.floor(damage/20)) -- 5% lifesteal
             log("Magic testing: Leech tracking. Caster healed by "..tostring(damage/20))
         end
@@ -162,12 +162,12 @@ function M.dealMagicDamage(user, target, spell, damage, level, DoT, castTime)
 
 end
 
-function M.applyMagicDamage(user, targets, spell, element, Orl, earthTrap, level, castDuration)
+function M.applyMagicDamage(user, targets, spell, element, ORL, earthTrap, level, castDuration)
     for _, target in pairs(targets.targets) do
 
         if isValidChar(target) and (user and target.pos ~= user.pos) or not user then
 
-            local damage = magicDamage.getMagicDamage(user, spell, element, target, false, Orl, earthTrap, castDuration)
+            local damage = magicDamage.getMagicDamage(user, spell, element, target, false, ORL, earthTrap, castDuration)
             M.dealMagicDamage(user, target, spell, damage, level, false, castDuration) --This is also used by the DoT effect, and we dont want every DoT tick to trigger teleportation so that is done below
             chous.apply(user, target) --After being hit, this glyph has a chance to activate to teleport the attacker away from the defender
             coeden.apply(target, user) --After being hit, this glyph has a chance to activate to teleport the defender away from the attacker

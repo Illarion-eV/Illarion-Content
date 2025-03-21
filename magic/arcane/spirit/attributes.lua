@@ -39,9 +39,9 @@ M.statValuesText = {
 
 
 function M.getAttributeText(information, spell)
-    local Qwan = runes.checkSpellForRuneByName("Qwan", spell)
+    local QWAN = runes.checkSpellForRuneByName("QWAN", spell)
 
-    if not Qwan then
+    if not QWAN then
         return information
     end
 

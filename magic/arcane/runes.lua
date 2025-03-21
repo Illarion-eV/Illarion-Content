@@ -28,29 +28,29 @@ M.runes = {
     {id = 4, name = "RA", cost = "Small", time = "Short", level = 0, active = true, auto = true},
     {id = 5, name = "SOLH", cost = "Small", time = "Short", level = 0, active = true},
     {id = 6, name = "BHONA", cost = "Small", time = "Short", level = 80, active = false}, --While the others check for highest level skill, BHONA requires an _average_ of 80 between all five element skills
-    {id = 7, name = "Anth", cost = "Small", time = "Short", level = 10, active = false},
-    {id = 8, name = "Dun", cost = "Large", time = "Long", level = 90, active = false},
-    {id = 9, name = "Fhan", cost = "Large", time = "Long", level = 90, active = false},
-    {id = 10, name = "Fhen", cost = "Small", time = "Short", level = 20, active = true},
-    {id = 11, name = "Hept", cost = "Medium", time = "Medium", level = 30, active = false},
-    {id = 12, name = "Ira", cost = "Medium", time = "Medium", level = 40, active = true},
-    {id = 13, name = "Kah", cost = "Small", time = "Short", level = 20, active = true},
-    {id = 14, name = "Kel", cost = "Large", time = "Long", level = 100, active = false},
-    {id = 15, name = "Lev", cost = "Small", time = "Short", level = 10, active = false},
-    {id = 16, name = "Lhor", cost = "Small", time = "Short", level = 30, active = false},
-    {id = 17, name = "Luk", cost = "Medium", time = "Medium", level = 70, active = false},
-    {id = 18, name = "Mes", cost = "Small", time = "Short", level = 20, active = true},
-    {id = 19, name = "Orl", cost = "Large", time = "Long", level = 80, active = false},
-    {id = 20, name = "Pherc", cost = "Medium", time = "Medium", level = 60, active = false},
-    {id = 21, name = "Qwan", cost = "Large", time = "Long", level = 100, active = false},
-    {id = 22, name = "Sav", cost = "Medium", time = "Medium", level = 40, active = false},
-    {id = 23, name = "Sih", cost = "Large", time = "Long", level = 80, active = false},
-    {id = 24, name = "Sul", cost = "Medium", time = "Medium", level = 50, active = false},
-    {id = 25, name = "Tah", cost = "Medium", time = "Medium", level = 50, active = false},
-    {id = 26, name = "Taur", cost = "Medium", time = "Medium", level = 60, active = false},
-    {id = 27, name = "Ura", cost = "Medium", time = "Medium", level = 70, active = false},
-    {id = 28, name = "Yeg", cost = "Medium", time = "Medium", level = 70, active = false},
-    {id = 29, name = "Pera", cost = "Small", time = "Short", level = 10, active = false}
+    {id = 7, name = "ANTH", cost = "Small", time = "Short", level = 10, active = false},
+    {id = 8, name = "DUN", cost = "Large", time = "Long", level = 90, active = false},
+    {id = 9, name = "FHAN", cost = "Large", time = "Long", level = 90, active = false},
+    {id = 10, name = "FHEN", cost = "Small", time = "Short", level = 20, active = true},
+    {id = 11, name = "HEPT", cost = "Medium", time = "Medium", level = 30, active = false},
+    {id = 12, name = "IRA", cost = "Medium", time = "Medium", level = 40, active = true},
+    {id = 13, name = "KAH", cost = "Small", time = "Short", level = 20, active = true},
+    {id = 14, name = "KEL", cost = "Large", time = "Long", level = 100, active = false},
+    {id = 15, name = "LEV", cost = "Small", time = "Short", level = 10, active = false},
+    {id = 16, name = "LHOR", cost = "Small", time = "Short", level = 30, active = false},
+    {id = 17, name = "LUK", cost = "Medium", time = "Medium", level = 70, active = false},
+    {id = 18, name = "MES", cost = "Small", time = "Short", level = 20, active = true},
+    {id = 19, name = "ORL", cost = "Large", time = "Long", level = 80, active = false},
+    {id = 20, name = "PHERC", cost = "Medium", time = "Medium", level = 60, active = false},
+    {id = 21, name = "QWAN", cost = "Large", time = "Long", level = 100, active = false},
+    {id = 22, name = "SAV", cost = "Medium", time = "Medium", level = 40, active = false},
+    {id = 23, name = "SIH", cost = "Large", time = "Long", level = 80, active = false},
+    {id = 24, name = "SUL", cost = "Medium", time = "Medium", level = 50, active = false},
+    {id = 25, name = "TAH", cost = "Medium", time = "Medium", level = 50, active = false},
+    {id = 26, name = "TAUR", cost = "Medium", time = "Medium", level = 60, active = false},
+    {id = 27, name = "URA", cost = "Medium", time = "Medium", level = 70, active = false},
+    {id = 28, name = "YEG", cost = "Medium", time = "Medium", level = 70, active = false},
+    {id = 29, name = "PERA", cost = "Small", time = "Short", level = 10, active = false}
 }
 
 function M.isSpellAutoCast(spell)
@@ -240,9 +240,9 @@ end
 
 function M.checkSpellForLightning(spell)
 
-    local okrunes = {"JUS", "Pherc", "Orl", "Hept", "Ira", "Lhor", "Orl", "Sih", "Taur", "Ura", "Yeg", "Pera", "Dun", "Mes", "Sul"}
+    local okrunes = {"JUS", "PHERC", "ORL", "HEPT", "IRA", "LHOR", "ORL", "SIH", "TAUR", "URA", "YEG", "PERA", "DUN", "MES", "SUL"}
 
-    if not M.checkSpellForRuneByName("Pherc", spell) or not M.checkSpellForRuneByName("JUS", spell) then
+    if not M.checkSpellForRuneByName("PHERC", spell) or not M.checkSpellForRuneByName("JUS", spell) then
         return false --It's not a lightning spell
     end
 
@@ -275,7 +275,7 @@ function M.checkSpellForMoreThanJUSMes(spell)
 
     for _, rune in pairs(M.runes) do
 
-        if rune.name ~= "JUS" and rune.name ~= "Mes" and rune.name ~= "Orl" then -- Orl is also accepted as it just repeats the given runes, in this case JUS Mes
+        if rune.name ~= "JUS" and rune.name ~= "MES" and rune.name ~= "ORL" then -- ORL is also accepted as it just repeats the given runes, in this case JUS MES
 
             if M.checkSpellForRuneByName(rune.name, spell) then
 
@@ -292,22 +292,22 @@ function M.checkSpellForMoreThanJUSSav(spell)
 
     -- Prevents GFX and SFX being played if there's nothing happening
 
-    local Sav = M.checkSpellForRuneByName("Sav", spell)
+    local SAV = M.checkSpellForRuneByName("SAV", spell)
 
-    if not Sav then
-        return true -- Sav not applied, so GFX and SFX should take place
+    if not SAV then
+        return true -- SAV not applied, so GFX and SFX should take place
     end
 
     for _, rune in pairs(M.runes) do
 
-        if rune.name ~= "Sav" and rune.name ~= "JUS" and rune.name ~= "Orl" then
+        if rune.name ~= "SAV" and rune.name ~= "JUS" and rune.name ~= "ORL" then
             if M.checkSpellForRuneByName(rune.name, spell) then
-                return true -- The spell contains more than Sav, JUS and Orl, so GFX and SFX should take place
+                return true -- The spell contains more than SAV, JUS and ORL, so GFX and SFX should take place
             end
         end
     end
 
-    return false -- The spell only contains a combination of JUS, Sav and Orl. No GFX or SFX is to take place.
+    return false -- The spell only contains a combination of JUS, SAV and ORL. No GFX or SFX is to take place.
 end
 
 function M.checkSpellForRuneByName(runeName, spell)

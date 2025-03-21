@@ -29,23 +29,23 @@ local scaling
         scaling = effectScaling.getEffectScaling(user, target, spell)
     end
 local numberOfSeconds = 2
-local Qwan = runes.checkSpellForRuneByName("Qwan", spell)
-local Taur = runes.checkSpellForRuneByName("Taur", spell)
-local Ura = runes.checkSpellForRuneByName("Ura", spell)
-local Yeg = runes.checkSpellForRuneByName("Yeg", spell)
+local QWAN = runes.checkSpellForRuneByName("QWAN", spell)
+local TAUR = runes.checkSpellForRuneByName("TAUR", spell)
+local URA = runes.checkSpellForRuneByName("URA", spell)
+local YEG = runes.checkSpellForRuneByName("YEG", spell)
 local rune
-    if Taur then
-        rune = "Taur"
-    elseif Ura then
-        rune = "Ura"
-    elseif Yeg then
-        rune = "Yeg"
+    if TAUR then
+        rune = "TAUR"
+    elseif URA then
+        rune = "URA"
+    elseif YEG then
+        rune = "YEG"
     end
     local raceBonus
     if rune then
         raceBonus = magicDamage.checkIfRaceBonus(target, rune)
     end
-    if Qwan then
+    if QWAN then
         numberOfSeconds = numberOfSeconds + 2
     end
     if raceBonus then
@@ -55,13 +55,13 @@ return numberOfSeconds*scaling
 end
 
 function M.applyManaStalling(user, targets, spell, earthTrap)
-local Ira = runes.checkSpellForRuneByName("Ira", spell)
+local IRA = runes.checkSpellForRuneByName("IRA", spell)
 local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
-local Lhor = runes.checkSpellForRuneByName("Lhor", spell)
-    if Lhor then
+local LHOR = runes.checkSpellForRuneByName("LHOR", spell)
+    if LHOR then
         return
     end
-    if Ira and SOLH then
+    if IRA and SOLH then
         for _, target in pairs(targets.targets) do
             local duration = getDuration(user, spell, target, earthTrap)
             local foundEffect, myEffect = target.effects:find(17)

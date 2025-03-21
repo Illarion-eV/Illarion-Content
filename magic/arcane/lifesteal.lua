@@ -28,20 +28,20 @@ local texts = {
     overTime = {english = "You siphon health from your target, recovering your own over time.", german = "Du entziehst deinem Ziel Lebensenergie, während sich deine mit der Zeit erholt."}
 }
 
-function M.instantLifeOrManaSteal(user, targets, spell, Orl)
+function M.instantLifeOrManaSteal(user, targets, spell, ORL)
 local JUS = runes.checkSpellForRuneByName("JUS", spell)
-local Ira = runes.checkSpellForRuneByName("Ira", spell)
-local Sih = runes.checkSpellForRuneByName("Sih", spell)
-local Yeg = runes.checkSpellForRuneByName("Yeg", spell)
-local Ura = runes.checkSpellForRuneByName("Ura", spell)
-local Taur = runes.checkSpellForRuneByName("Taur", spell)
+local IRA = runes.checkSpellForRuneByName("IRA", spell)
+local SIH = runes.checkSpellForRuneByName("SIH", spell)
+local YEG = runes.checkSpellForRuneByName("YEG", spell)
+local URA = runes.checkSpellForRuneByName("URA", spell)
+local TAUR = runes.checkSpellForRuneByName("TAUR", spell)
 local rune
-    if Yeg then
-        rune = "Yeg"
-    elseif Taur then
-        rune = "Taur"
-    elseif Ura then
-        rune = "Ura"
+    if YEG then
+        rune = "YEG"
+    elseif TAUR then
+        rune = "TAUR"
+    elseif URA then
+        rune = "URA"
     end
 local amountStolen = 50
 
@@ -54,15 +54,15 @@ local amountStolen = 50
                     amountStolen = amountStolen + (amountStolen/2)
                 end
             end
-            if Orl then
+            if ORL then
                 amountStolen = amountStolen/2
             end
-            if Sih then
+            if SIH then
                 character.ChangeHP(user, amountStolen)
                 character.ChangeHP(target, -amountStolen)
                 user:inform(texts.health.german, texts.health.english)
             end
-            if Ira then
+            if IRA then
                 if target:increaseAttrib("mana", 0) > amountStolen then
                     target:increaseAttrib("mana", -amountStolen)
                 else

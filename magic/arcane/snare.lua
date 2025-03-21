@@ -21,15 +21,15 @@ local effectScaling = require("magic.arcane.effectScaling")
 
 local M = {}
 
-function M.getSpeed(user, target, spell, JUS, SOLH, Orl, earthTrap)
+function M.getSpeed(user, target, spell, JUS, SOLH, ORL, earthTrap)
 local retVal = 0
 local scaling
-local Taur = runes.checkSpellForRuneByName("Taur", spell)
-local Ura = runes.checkSpellForRuneByName("Ura", spell)
-local Yeg = runes.checkSpellForRuneByName("Yeg", spell)
-local Lhor = runes.checkSpellForRuneByName("Lhor", spell)
-local Qwan = runes.checkSpellForRuneByName("Qwan", spell)
-local Sul = runes.checkSpellForRuneByName("Sul", spell)
+local TAUR = runes.checkSpellForRuneByName("TAUR", spell)
+local URA = runes.checkSpellForRuneByName("URA", spell)
+local YEG = runes.checkSpellForRuneByName("YEG", spell)
+local LHOR = runes.checkSpellForRuneByName("LHOR", spell)
+local QWAN = runes.checkSpellForRuneByName("QWAN", spell)
+local SUL = runes.checkSpellForRuneByName("SUL", spell)
 local rune
 
     if earthTrap then
@@ -38,12 +38,12 @@ local rune
         scaling = effectScaling.getEffectScaling(user, target, spell)
     end
 
-    if Taur then
-        rune = "Taur"
-    elseif Ura then
-        rune = "Ura"
-    elseif Yeg then
-        rune = "Yeg"
+    if TAUR then
+        rune = "TAUR"
+    elseif URA then
+        rune = "URA"
+    elseif YEG then
+        rune = "YEG"
     end
 
 local raceBonus
@@ -62,15 +62,15 @@ local raceBonus
         retVal = retVal + 0.1
     end
 
-    if Orl and JUS then
+    if ORL and JUS then
         retVal = retVal - 0.2
     end
 
-    if SOLH and Qwan then
+    if SOLH and QWAN then
         retVal = retVal + 0.1
     end
 
-    if SOLH and Sul then
+    if SOLH and SUL then
         retVal = retVal + 0.2
     end
 
@@ -78,34 +78,34 @@ local raceBonus
 
     retVal = math.floor(retVal*scaling)
 
-    if Lhor and SOLH then
+    if LHOR and SOLH then
         retVal = false
     end
 return retVal
 end
 
-function M.applySnare(user, targets, spell, Orl, earthTrap, level)
-local Sul = runes.checkSpellForRuneByName("Sul", spell)
+function M.applySnare(user, targets, spell, ORL, earthTrap, level)
+local SUL = runes.checkSpellForRuneByName("SUL", spell)
 local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
 local JUS = runes.checkSpellForRuneByName("JUS", spell)
-local Sih = runes.checkSpellForRuneByName("Sih", spell)
-local Qwan = runes.checkSpellForRuneByName("Qwan", spell)
-local Taur = runes.checkSpellForRuneByName("Taur", spell)
-local Ura = runes.checkSpellForRuneByName("Ura", spell)
-local Yeg = runes.checkSpellForRuneByName("Yeg", spell)
-local Tah = runes.checkSpellForRuneByName("Tah", spell)
+local SIH = runes.checkSpellForRuneByName("SIH", spell)
+local QWAN = runes.checkSpellForRuneByName("QWAN", spell)
+local TAUR = runes.checkSpellForRuneByName("TAUR", spell)
+local URA = runes.checkSpellForRuneByName("URA", spell)
+local YEG = runes.checkSpellForRuneByName("YEG", spell)
+local TAH = runes.checkSpellForRuneByName("TAH", spell)
 local rune
-    if Taur then
-        rune = "Taur"
-    elseif Ura then
-        rune = "Ura"
-    elseif Yeg then
-        rune = "Yeg"
+    if TAUR then
+        rune = "TAUR"
+    elseif URA then
+        rune = "URA"
+    elseif YEG then
+        rune = "YEG"
     end
 local ticks = 10
     for _, target in pairs(targets.targets) do
-        if Sul and (SOLH or JUS) then
-            local getSpeed = M.getSpeed(user, target, spell, JUS, SOLH, Orl, earthTrap)
+        if SUL and (SOLH or JUS) then
+            local getSpeed = M.getSpeed(user, target, spell, JUS, SOLH, ORL, earthTrap)
             if not getSpeed then
                 return
             end
@@ -113,7 +113,7 @@ local ticks = 10
             local myEffectNumber = 15
             local TahEffectNumber = 27
             local userEffectNumber = 30
-            if Tah then
+            if TAH then
                 myEffectNumber = TahEffectNumber
             end
             if rune then
@@ -141,9 +141,9 @@ local ticks = 10
                     M.addEffect(myEffect, target)
                 end
             end
-            if Sih and not Tah and SOLH then
+            if SIH and not TAH and SOLH then
                 local amountStolen = 20  -- 20% stolen of speed taken from target
-                    if Qwan then
+                    if QWAN then
                         amountStolen = amountStolen + 5
                     end
                     if raceBonus then
@@ -180,28 +180,28 @@ end
 
 function M.addEffect(myEffect, target)
     log("Magic testing: "..tostring(target.name).."'s speed before application of snare: "..tostring(target.speed))
-local Tah
+local TAH
 local SOLH
-local Sih
+local SIH
 local foundUser, isUser = myEffect:findValue("user")
 local foundSpell, spell = myEffect:findValue("spell")
     if foundUser then
         if 1 == isUser then
-            Sih = true
+            SIH = true
         end
     end
     if foundSpell then
-        Tah = runes.checkSpellForRuneByName("Tah", spell)
+        TAH = runes.checkSpellForRuneByName("TAH", spell)
         SOLH = runes.checkSpellForRuneByName("SOLH", spell)
     end
 
 local foundSpeed, speed = myEffect:findValue("speed")
     if foundSpeed then
         local speedChange = speed/100 --Divided by 100 because speed is a percentage value due to it being stored as integers.
-        if Tah and SOLH then
+        if TAH and SOLH then
             speedChange = -speedChange/5 --20% speed given
         end
-        if Sih then
+        if SIH then
             speedChange = -speedChange
         end
         target.speed = target.speed - speedChange
@@ -210,18 +210,18 @@ local foundSpeed, speed = myEffect:findValue("speed")
 end
 
 function M.callEffect(myEffect, target)
-local Tah
+local TAH
 local SOLH
-local Sih
+local SIH
 local foundUser, isUser = myEffect:findValue("user")
 local foundSpell, spell = myEffect:findValue("spell")
     if foundSpell then
-        Tah = runes.checkSpellForRuneByName("Tah", spell)
+        TAH = runes.checkSpellForRuneByName("TAH", spell)
         SOLH = runes.checkSpellForRuneByName("SOLH", spell)
     end
     if foundUser then
         if 1 == isUser then
-            Sih = true
+            SIH = true
         end
     end
     local foundRemainingSpeed, remainingSpeed = myEffect:findValue("remainingSpeed")
@@ -233,20 +233,20 @@ local foundSpell, spell = myEffect:findValue("spell")
             local newRemainingSpeed
                 if remainingSpeed/ticks < 1 and ticks == 1 then
                     local speedChange = remainingSpeed/100
-                    if Tah and SOLH then
+                    if TAH and SOLH then
                         speedChange = -speedChange/5 --20% speed given
                     end
-                    if Sih then
+                    if SIH then
                         speedChange = -speedChange
                     end
                     target.speed = target.speed + speedChange
                     newRemainingSpeed = 0
                 elseif remainingSpeed/ticks > 1 then
                     local speedChange = speedIncrease/100
-                    if Tah and SOLH then
+                    if TAH and SOLH then
                         speedChange = -speedChange/5 --20% speed given
                     end
-                    if Sih then
+                    if SIH then
                         speedChange = -speedChange
                     end
                     target.speed = target.speed + speedChange
@@ -266,28 +266,28 @@ return false
 end
 
 function M.loadEffect(myEffect, target)
-local Tah
+local TAH
 local SOLH
-local Sih
+local SIH
 local foundUser, isUser = myEffect:findValue("user")
 local foundSpell, spell = myEffect:findValue("spell")
     if foundSpell then
-        Tah = runes.checkSpellForRuneByName("Tah", spell)
+        TAH = runes.checkSpellForRuneByName("TAH", spell)
         SOLH = runes.checkSpellForRuneByName("SOLH", spell)
     end
     if foundUser then
         if 1 == isUser then
-            Sih = true
+            SIH = true
         end
     end
     local foundRemainingSpeed, remainingSpeed = myEffect:findValue("remainingSpeed")
     if foundRemainingSpeed then
         if remainingSpeed > 0 then
             local speedChange = remainingSpeed/100
-            if Tah and SOLH then
+            if TAH and SOLH then
                 speedChange = -speedChange/5 --20% speed given
             end
-            if Sih then
+            if SIH then
                 speedChange = -speedChange
             end
             target.speed = target.speed - speedChange

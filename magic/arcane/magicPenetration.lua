@@ -52,8 +52,8 @@ function M.getMagicPenetration(user, element, spell)
 
     local magicPenetration = statBonus+equipmentBonus+skillImpact
 
-    if spell and runes.checkSpellForRuneByName("Sav", spell) and not runes.checkSpellForRuneByName("JUS", spell) and not runes.checkSpellForRuneByName("PEN", spell) then --magic penetration
-        magicPenetration = math.floor(magicPenetration*1.1) --up to 10% magic penetration when Sav is applied to fire, water or earth spells
+    if spell and runes.checkSpellForRuneByName("SAV", spell) and not runes.checkSpellForRuneByName("JUS", spell) and not runes.checkSpellForRuneByName("PEN", spell) then --magic penetration
+        magicPenetration = math.floor(magicPenetration*1.1) --up to 10% magic penetration when SAV is applied to fire, water or earth spells
     end
 
     return magicPenetration

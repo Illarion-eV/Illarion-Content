@@ -89,7 +89,7 @@ M.runeHintsBookTexts = {
             english = "Within the sphere you spot two vague figures. One stands before the other, appearing to be preaching. The latter appears to be kowtowing in a show of piety towards the former.",
             german = "Im Inneren der Sphäre erkennen Sie zwei vage Gestalten. Die eine steht vor der anderen und scheint zu predigen. Letztere scheint sich vor der ersteren in einem Anflug von Frömmigkeit zu verneigen."},
         location = position(469, 869 , -9)},
-    Anth = {rune = "Anth",
+    ANTH = {rune = "ANTH",
         hint = {
             english = "An enormous structure, static as can be. Were it not, a flood you would see.",
             german = "Ein gigantisches Bauwerk so unbeweglich. Wäre es nicht, die Flut würdest du sehen. "},
@@ -100,7 +100,7 @@ M.runeHintsBookTexts = {
             english = "Within the sphere various objects can be seen, but what they all have in common is that they stand perfectly still. One could even call them static.",
             german = "Innerhalb der Sphäre kannst du die unterschiedlichsten Objekte erkennen. Eines haben sie alle gemeinsam, sie stehen vollkommen still. Man könnte sie auch statisch nennen. "},
         location = position(843, 216 , -3)},
-    Dun = {rune = "Dun",
+    DUN = {rune = "DUN",
         hint = {
             english = "In an area vast and empty, where white hands rule.",
             german = "In einem weiten und leeren Gebiet, in dem die weiße Hand regiert."},
@@ -111,7 +111,7 @@ M.runeHintsBookTexts = {
             english = "The sphere reveals the scene of a vast empty land.",
             german = "Die Kugel zeigt das Bild eines weiten, leeren Landes."},
         location = position(354, 454, 0)},
-    Fhan = {rune = "Fhan",
+    FHAN = {rune = "FHAN",
         hint = {
             english = "Among a castle of bones, you'll find what you desire.",
             german = "In einem Schloss aus Knochen wirst du findet was du suchst."},
@@ -122,7 +122,7 @@ M.runeHintsBookTexts = {
             english = "The sphere contains an eerie magical fog that seems to attempt to get away from you.",
             german = "Die Sphäre enthält einen unheimlichen magischen Nebel, der zu versuchen scheint, von dir wegzukommen."},
         location = position(595, 319, 3)},
-    Fhen = {rune = "Fhen",
+    FHEN = {rune = "FHEN",
         hint = {
             english = "Where trolls seek haven and drink fine wine, out in the garden do we dine.",
             german = "Wo Trolle Zuflucht suchen und besten Wein versuchen, dort im Garten speisen wir."},
@@ -133,7 +133,7 @@ M.runeHintsBookTexts = {
             english = "The sphere contains an eerie magical fog that seems to attempt to get closer to you.",
             german = "Die Sphäre enthält einen unheimlichen magischen Nebel, der zu versuchen scheint, sich dir zu nähern."},
         location = position(736,317,0)},
-    Hept = {rune = "Hept",
+    HEPT = {rune = "HEPT",
         hint = {
             english = "In a cold place oh so high. Watch out, or you'll freeze.",
             german = "Ein Ort so kalt und hoch. Pass auf, dort erfrierst du noch!"},
@@ -144,7 +144,7 @@ M.runeHintsBookTexts = {
             english = "Inside the sphere you see what resembles as snowstorm swirling about with the occasional hail",
             german = "Im Inneren der Sphäre sieht man etwas, das wie ein Schneesturm aussieht, der mit gelegentlichem Hagel umherwirbelt"},
         location = position(266,375,1)},
-    Ira = {rune = "Ira",
+    IRA = {rune = "IRA",
         hint = {
             english = "Creatures not of nature, how many eyes does this one have?",
             german = "Wieviele Augen hat diese Kreatur, entspringt sicher nicht der Natur!"},
@@ -155,7 +155,7 @@ M.runeHintsBookTexts = {
             english = "As you peer into the sphere you feel like you can see a pupil peering right back at you.",
             german = "Als du in die Sphäre starrst, fühlt es sich so an als würde eine Pupille direkt zurückstarren."},
         location = position(475, 746, -3)},
-    Kah = {rune = "Kah",
+    KAH = {rune = "KAH",
         hint = {
             english = "If a mortal were to require sustenance, much could be found here.",
             german = "Dort wo sterbliche Stärkung suchen, dort findet man viel."},
@@ -166,7 +166,7 @@ M.runeHintsBookTexts = {
             english = "As you peer into the sphere you see a steaming hot pie, so life-like you can almost smell it.",
             german = "Beim Blick in die Sphäre siehst du einen heiß dampfenden Kuchen, so lebensecht, das du ihn fast riechen kannst."},
         location = position(794 , 804, 0)},
-    Kel = {rune = "Kel",
+    KEL = {rune = "KEL",
         hint = {
             english = "Where dark creatures of flight reside.",
             german = "Dort wo dunkle geschöpfe des Himmels hausen."},
@@ -177,7 +177,7 @@ M.runeHintsBookTexts = {
             english = "As you peer into the sphere you see a feather, though before you can determine what kind of feather it is, you witness it change into a dragon wing.",
             german = "Als du in die Sphäre blickst, siehst du eine Feder. Doch bevor du feststellen kannst, um was für eine Feder es sich handelt, wirst du Zeuge, wie sie sich in einen Drachenflügel verwandelt"},
         location = position(711,619,-6)},
-    Lev = {rune = "Lev",
+    LEV = {rune = "LEV",
         hint = {
             english = "Once a glorious combat academy, now left in ruins. Oh the changes of time.",
             german = "Einst eine stolze Kampfakademie, nun nur mehr Ruinen. Wie die Zeit sich ändert."},
@@ -188,7 +188,7 @@ M.runeHintsBookTexts = {
             english = "If you peer into the sphere, you would witness an ever-changing scenery. A desert in one moment, the next a tundra, it constantly shows you new, unique sights.",
             german = "Wenn du in die Sphäre blickst wirst du Zeuge einer sich ständig verändernden Landschaft. In einem Moment ist es eine Wüste, im nächsten eine Tundra, sie zeigt dir ständig neue, einzigartige Anblicke."},
         location = position(188, 809, -3)},
-    Lhor = {rune = "Lhor",
+    LHOR = {rune = "LHOR",
         hint = {
             english = "Trick you, fool you, lead you astray. Who am I?",
             german = "Ich betrüge, ich täusche ich führe dich in die Irre. Wer bin ich?"},
@@ -199,7 +199,7 @@ M.runeHintsBookTexts = {
             english = "An illusory raven is sat inside the sphere, cleaning its wings with its beak.",
             german = "Im Innern der Sphäre sitzt ein fiktiver Rabe, der sich mit seinem Schnabel die Flügel putzt."},
         location = position(781, 438, 0)},
-    Luk = {rune = "Luk",
+    LUK = {rune = "LUK",
         hint = {
             english = "Among hostile elves, down down we go.",
             german = "Unter feindesligen Elfen, tief tief runter müssen wir."},
@@ -210,7 +210,7 @@ M.runeHintsBookTexts = {
             english = "A bloodshot eye appears to be peering back out at you from inside the sphere.",
             german = "Ein blutunterlaufenes Auge scheint dich aus dem Inneren der Kugel heraus anzustarren."},
         location = position(564, 542 , -6)},
-    Mes = {rune = "Mes",
+    MES = {rune = "MES",
         hint = {
             english = "I light the way for those of wood adrift, seeking the glow that marks safe passage.",
             german = "Ich erhelle den Weg für jene aus Holz, die treiben, auf der Suche nach dem Leuchten, das sichere Passage weist."},
@@ -221,7 +221,7 @@ M.runeHintsBookTexts = {
             english = "The sphere gives off a warm, radiant light.",
             german = "Die Sphäre gibt ein warmes, strahlendes Licht ab."},
         location = position(537, 612, 1)},
-    Orl = {rune = "Orl",
+    ORL = {rune = "ORL",
         hint = {
             english = "Created from an egg. Creepy, crawly, eight legged friends.",
             german = "Zuerst ein Ei. Gruselige, krabbelnde, achtbeinige....."},
@@ -232,7 +232,7 @@ M.runeHintsBookTexts = {
             english = "The sphere appears as if full of tiny little spiders, desperately trying to make their way out to get to you.",
             german = "Die Sphäre sieht aus, als wäre sie voller winziger kleiner Spinnen. Sie versuchen verzweifelt sich einen Weg nach draußen zu bahnen um dich zu erwischen."},
         location = position(907, 487, -6)},
-    Pherc = {rune = "Pherc",
+    PHERC = {rune = "PHERC",
         hint = {
             english = "The pain of the desert heat is nigh as high as the pain of their axes.",
             german = "Der Schmerz der Wüstenhitze ist fast so groß wie der Schmerz der Axt!"},
@@ -243,7 +243,7 @@ M.runeHintsBookTexts = {
             english = "A grotesque scene full of blood and gore meet you as you peer into the sphere.",
             german = "Beim Blick in die Sphäre bietet sich dem Betrachter eine groteske Szene voller Blut und Qualen."},
         location = position(80, 431, -6)},
-    Qwan = {rune = "Qwan",
+    QWAN = {rune = "QWAN",
         hint = {
             english = "On a mountain up high, where creatures of stone reside.",
             german = "Hoch in den Bergen, bei Kreaturen aus Stein."},
@@ -254,7 +254,7 @@ M.runeHintsBookTexts = {
             english = "Within the sphere lies a lone, huge-looking boulder... or is it a pebble?",
             german = "In der Sphäre liegt ein einsamer, riesig wirkender Felsbrocken... oder ist es ein Kieselstein?"},
         location = position(241, 776, 1)},
-    Sav = {rune = "Sav",
+    SAV = {rune = "SAV",
         hint = {
             english = "In a firey castle where dragons reside below.",
             german = "Ein brennendes Schloss in dem die Drachen hausen."},
@@ -265,7 +265,7 @@ M.runeHintsBookTexts = {
             english = "Within the sphere you can see a majestic looking shield.",
             german = "Im Inneren der Sphäre ist ein majestätisch aussehender Schild zu sehen."},
         location = position(111 , 887, -3)},
-    Sih = {rune = "Sih",
+    SIH = {rune = "SIH",
         hint = {
             english = "Near water claimed by some to be capable of healing your very soul.",
             german = "In der Nähe des Wasser so rein, es könne die Seele heilen."},
@@ -276,7 +276,7 @@ M.runeHintsBookTexts = {
             english = "The sphere gives off a feeling of warmth and wellness.",
             german = "Die Sphäre strahlt ein Gefühl von Wärme und Wohlbefinden aus."},
         location = position(783 , 262, -8)},
-    Sul = {rune = "Sul",
+    SUL = {rune = "SUL",
         hint = {
             english = "Rotten, smelly and cursed to be slow. Such is the fate of a civilization that met its demise.",
             german = "Stinkend, verrottet zum Stillstand verflucht. Das Schicksal einer Zivilisation die ihren Untergang fand. "},
@@ -287,7 +287,7 @@ M.runeHintsBookTexts = {
             english = "Peering into the sphere, you'd see the shadow of figures passing by ever so slowly.",
             german = "Wenn man in die Sphäre hineinschaut, sieht man die Schatten von Gestalten, die ganz langsam vorüberziehen."},
         location = position(937, 391, -3)},
-    Tah = {rune = "Tah",
+    TAH = {rune = "TAH",
         hint = {
             english = "Steal from the rich, give to the poor... as long as the poor are they themselves.",
             german = "Ich stehle von den Reichen und gebe den Armen...bin doch ich der Ärmste."},
@@ -298,7 +298,7 @@ M.runeHintsBookTexts = {
             english = "Peering into the sphere, you see yourself but upside down.",
             german = "Wenn du in die Kugel schaust, siehst du dich selbst, aber auf dem Kopf stehend."},
         location = position(14, 522, 0)},
-    Taur = {rune = "Taur",
+    TAUR = {rune = "TAUR",
         hint = {
             english = "This secret is guarded by creatures that dwell in a cave. What do they look like, you ask? Do they have one head? Two? Are they ugly and deranged?",
             german = "Dieses Geheimnis wird von Kreaturen bewacht die tief in Höhlen leben. Wie sehen sie aus fragst du? Haben sie einen Kopf? Zwei? Sind sie hässlich und verstört?"},
@@ -309,7 +309,7 @@ M.runeHintsBookTexts = {
             english = "Within the sphere you see the silhouette of a humanoid being, though it quickly changes form into that of various other creatures one by one.",
             german = "In der Sphäre sieht man die Silhouette eines humanoiden Wesens, das jedoch schnell die Form verschiedener anderer Kreaturen annimmt."},
         location = position(179, 550, 0)},
-    Ura = {rune = "Ura",
+    URA = {rune = "URA",
         hint = {
             english = "Where the guardians of nature reside",
             german = "Dort wo die Hüter der Natur wohnen."},
@@ -320,7 +320,7 @@ M.runeHintsBookTexts = {
             english = "Within the sphere you can see the picturesque image of nature in its barest, most untouched form.",
             german = "In der Sphäre kann man das malerische Bild der Natur in ihrer ursprünglichsten, unberührten Form sehen."},
         location = position(827 , 156, 0)},
-    Yeg = {rune = "Yeg",
+    YEG = {rune = "YEG",
         hint = {
             english = "Muddy, grimey and full of despair. This place is not natural, of death beware.",
             german = "Schlammig, schmutzig und voller Verzweiflung. Dieser Ort ist nicht natürlich. Hüte dich vor dem Tod."},
@@ -331,7 +331,7 @@ M.runeHintsBookTexts = {
             english = "Peering into the sphere, a vision of death and decay meet you. Are you just imagining it, or can you also hear the terrifying wails of the tortured dead?",
             german = "Wenn du in die Sphäre blickst, bietet sich dir eine Vision von Tod und Verwesung. Bildest du dir das nur ein, oder hörst du auch die schrecklichen Schreie der gequälten Toten?"},
         location = position(793, 576, 0)},
-    Pera = {rune = "Pera",
+    PERA = {rune = "PERA",
         hint = {
             english = "Found in a place where a competition of speed is famously held.",
             german = "Dort an jenem Ort wo die Wettkämpfe der Schnellsten ausgetragen werden."},

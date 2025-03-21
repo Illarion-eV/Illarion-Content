@@ -48,13 +48,13 @@ function M.invoke(user, targets, spell)
         if target:getType() ~= Character.player then
             return
         end
-        if runes.checkSpellForRuneByName("Kel", spell) or runes.checkSpellForRuneByName("Tah", spell) then
+        if runes.checkSpellForRuneByName("KEL", spell) or runes.checkSpellForRuneByName("TAH", spell) then
             target:inform(M.telepathyTexts.established.german, M.telepathyTexts.established.english)
         end
-        if runes.checkSpellForRuneByName("Kel", spell) then
+        if runes.checkSpellForRuneByName("KEL", spell) then
             getInputFromAndSendTo(user, target)
         end
-        if runes.checkSpellForRuneByName("Tah", spell) then
+        if runes.checkSpellForRuneByName("TAH", spell) then
             getInputFromAndSendTo(target, user)
         end
     end

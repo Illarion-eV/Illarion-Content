@@ -20,7 +20,7 @@ local runes = require("magic.arcane.runes")
 local M = {}
 
 -- Set a wear of 4 for trees that are harvested
--- When spell has JUS and Kah, and a gatherable tree is targeted, turn it into an ungathered tree with a wear of 4 while dropping the fruit around it
+-- When spell has JUS and KAH, and a gatherable tree is targeted, turn it into an ungathered tree with a wear of 4 while dropping the fruit around it
 local fruitList = {
 {fruit  = Item.apple , harvestable = 14, harvested = 11},
 {fruit = Item.cherries, harvestable = 300, harvested = 299},
@@ -100,8 +100,8 @@ end
 
 function M.checkIfHarvestFruit(user, targets, spell)
 local JUS = runes.checkSpellForRuneByName("JUS", spell)
-local Kah = runes.checkSpellForRuneByName("Kah", spell)
-    if JUS and Kah then
+local KAH = runes.checkSpellForRuneByName("KAH", spell)
+    if JUS and KAH then
         harvestFruit(user, targets)
     end
 end

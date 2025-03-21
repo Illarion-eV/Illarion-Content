@@ -35,7 +35,7 @@ function M.getCastingRange(user, spell, element)
         range = range + 1
     end
 
-    if runes.checkSpellForRuneByName("Kel", spell) then
+    if runes.checkSpellForRuneByName("KEL", spell) then
         range = range + 1
     end
 
@@ -52,7 +52,7 @@ function M.isTargetInRange(user, spell, element, target, newTarget, wandAim)
         pos2 = target.pos
     end
 
-    if runes.checkSpellForRuneByName("Fhen", spell) then
+    if runes.checkSpellForRuneByName("FHEN", spell) then
         if wandAim then
             pos1 = target.pos
         else
@@ -77,10 +77,10 @@ end
 function M.checkForObstacles(user, spell, element, pos)
 
     local startingpos = user.pos
-    local Fhan = runes.checkSpellForRuneByName("Fhan", spell)
+    local FHAN = runes.checkSpellForRuneByName("FHAN", spell)
     local PEN = runes.checkSpellForRuneByName("PEN", spell)
     local JUS = runes.checkSpellForRuneByName("JUS", spell)
-    local obstacleBypass = Fhan and not PEN and not JUS
+    local obstacleBypass = FHAN and not PEN and not JUS
     local blockList = world:LoS(startingpos, pos)
     local next = next
 

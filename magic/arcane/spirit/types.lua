@@ -34,10 +34,10 @@ return false
 end
 
 function M.sortTargetsIntoTypes(targets, spell)
-local Anth = runes.checkSpellForRuneByName("Anth", spell)
+local ANTH = runes.checkSpellForRuneByName("ANTH", spell)
 local information = {}
     for _, item in ipairs(targets.items) do
-        if Anth then
+        if ANTH then
             local insertTable = {
             target = item,
             type = "item"
@@ -46,20 +46,20 @@ local information = {}
         end
     end
     for _, tar in ipairs(targets.targets) do
-        local Yeg = runes.checkSpellForRuneByName("Yeg", spell)
-        local Ura = runes.checkSpellForRuneByName("Ura", spell)
-        local Fhen = runes.checkSpellForRuneByName("Fhen", spell)
-        local Taur = runes.checkSpellForRuneByName("Taur", spell)
+        local YEG = runes.checkSpellForRuneByName("YEG", spell)
+        local URA = runes.checkSpellForRuneByName("URA", spell)
+        local FHEN = runes.checkSpellForRuneByName("FHEN", spell)
+        local TAUR = runes.checkSpellForRuneByName("TAUR", spell)
         local undead = checkIfTypeOf(tar, "undead")
         local sentient = checkIfTypeOf(tar, "sentient")
         local animal = checkIfTypeOf(tar, "animal")
         local foundType = ""
         if tar:getType() == Character.player then
-            if Fhen then
+            if FHEN then
                 foundType = "player"
             end
         elseif tar:getType() == Character.monster then
-            if (Yeg and undead) or (Taur and sentient) or (Ura and animal) then
+            if (YEG and undead) or (TAUR and sentient) or (URA and animal) then
                 foundType = "creature"
             end
         end

@@ -28,8 +28,8 @@ M.MRtexts = {
 
 function M.getMRText(information, spell)
 local MRtexts = M.MRtexts
-    local Pherc = runes.checkSpellForRuneByName("Pherc", spell)
-    if not Pherc then
+    local PHERC = runes.checkSpellForRuneByName("PHERC", spell)
+    if not PHERC then
         return information
     end
     for _, target in pairs(information) do

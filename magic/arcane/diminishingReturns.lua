@@ -59,8 +59,8 @@ function M.callEffect(myEffect, user)
     end
     targets = targeting.getPositionsAndTargets(user, spell, myPosition)
     targets = targeting.refreshTargets(targets)
-local Mes = runes.checkSpellForRuneByName("Mes", spell)
-    if Mes then
+local MES = runes.checkSpellForRuneByName("MES", spell)
+    if MES then
         delayedAttack.applyDelay(user, myPosition, spell, true, level)
     else
         local castDuration = castingSpeed.arcaneSpellCastSpeed(nil, spell, true)

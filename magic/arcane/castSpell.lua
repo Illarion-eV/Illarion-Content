@@ -157,10 +157,10 @@ function M.castSpell(user, spell, actionState, oralCast)
     local element = runes.fetchElement(spell)
     local CUN = runes.checkSpellForRuneByName("CUN", spell)
     local RA = runes.checkSpellForRuneByName("RA", spell)
-    local Sul = runes.checkSpellForRuneByName("Sul", spell)
+    local SUL = runes.checkSpellForRuneByName("SUL", spell)
     local JUS = runes.checkSpellForRuneByName("JUS", spell)
-    local Mes = runes.checkSpellForRuneByName("Mes", spell)
-    local Orl = runes.checkSpellForRuneByName("Orl", spell)
+    local MES = runes.checkSpellForRuneByName("MES", spell)
+    local ORL = runes.checkSpellForRuneByName("ORL", spell)
     local castSFX = 0
     local castSFXDuration = 10
     local castGFXDuration = 10
@@ -170,7 +170,7 @@ function M.castSpell(user, spell, actionState, oralCast)
 
         M[user.id].positionsAndTargets = targeting.getPositionsAndTargets(user, spell)
 
-        if not M[user.id].positionsAndTargets then --rarely happens if you try to cast immediately after an !fr, also happens if you cast a PEN Lev spell after expiry
+        if not M[user.id].positionsAndTargets then --rarely happens if you try to cast immediately after an !fr, also happens if you cast a PEN LEV spell after expiry
             return
         end
 
@@ -203,10 +203,10 @@ function M.castSpell(user, spell, actionState, oralCast)
             local castDuration = M[user.id].storedDuration
             skilling.increaseExperience(user, spell, castDuration, M[user.id].positionsAndTargets)
             castTime.resetTan(user)
-            if JUS and Orl then
+            if JUS and ORL then
                 diminishingReturns.applyOrl(user, M[user.id].thePosition, spell, level)
             end
-            if (Sul and (RA or CUN)) or (JUS and Mes) then
+            if (SUL and (RA or CUN)) or (JUS and MES) then
                 delayedAttack.applyDelay(user, M[user.id].thePosition, spell, false, level)
             else
                 delayedAttack.spellEffects(user, M[user.id].positionsAndTargets, spell, element, false, level, castDuration)

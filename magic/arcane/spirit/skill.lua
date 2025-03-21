@@ -40,9 +40,9 @@ local function getTotalSkillValue(target)
 end
 
 function M.skillValueIntoText(information, spell)
-    local Orl = runes.checkSpellForRuneByName("Orl", spell)
+    local ORL = runes.checkSpellForRuneByName("ORL", spell)
 
-    if not Orl then
+    if not ORL then
         return information
     end
 

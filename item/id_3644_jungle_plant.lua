@@ -33,7 +33,7 @@ function M.CharacterOnField(user)
     end
     local spell = sourceItem:getData("spell")
     if spell ~= "" then
-        if runes.checkSpellForRuneByName("Orl", spell) then
+        if runes.checkSpellForRuneByName("ORL", spell) then
             traps.triggerEarthTrap(sourceItem, user)
         else
             plantRoot.applyPlantRootForEntanglingPlant(sourceItem, user)

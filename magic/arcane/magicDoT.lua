@@ -40,13 +40,13 @@ function M.dealMagicDoT(user, targets, spell, element, level, castDuration)
             local manaReduction = 0
             local foodReduction = 0
             local CUN = runes.checkSpellForRuneByName("CUN", spell)
-            local Ira = runes.checkSpellForRuneByName("Ira", spell)
-            local Kah = runes.checkSpellForRuneByName("Kah", spell)
+            local IRA = runes.checkSpellForRuneByName("IRA", spell)
+            local KAH = runes.checkSpellForRuneByName("KAH", spell)
 
-            if Ira then
+            if IRA then
                 manaReduction = manaStaminaReduction.getManaToReduce(user, target, spell)*1.5
             end
-            if Kah then
+            if KAH then
                 foodReduction = manaStaminaReduction.getStaminaToReduce(user, target, spell)*1.5
             end
 
@@ -92,7 +92,7 @@ function M.dealMagicDoT(user, targets, spell, element, level, castDuration)
                     target.effects:addEffect(DoT)
                 end
 
-                if addValue and runes.checkSpellForRuneByName("Sih", spell) and CUN then
+                if addValue and runes.checkSpellForRuneByName("SIH", spell) and CUN then
                     if not foundEffect2 then
                         lifesteal = LongTimeEffect(3, 10)
                     end
@@ -184,12 +184,12 @@ function M.callEffect(myEffect, target)
     if not foundLevel then
         level = 0
     end
-    local Luk = runes.checkSpellForRuneByName("Luk", spell)
+    local LUK = runes.checkSpellForRuneByName("LUK", spell)
     local CUN = runes.checkSpellForRuneByName("CUN", spell)
     if foundDamage and foundTicks and foundSpell then
         if remainingTicks > 0 then
             local damage = math.floor(remainingDamage/remainingTicks)
-            if Luk and CUN then
+            if LUK and CUN then
                 if remainingTicks == 1 then
                     damage = remainingDamage --ensure the last bit is dealt in one go when one tick is left
                 else

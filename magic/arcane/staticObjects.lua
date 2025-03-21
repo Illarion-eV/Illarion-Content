@@ -24,7 +24,7 @@ local M = {}
 function M.durationInfluence(user, target, spell)
 local retVal = 0
 local scaling = effectScaling.getEffectScaling(user, target, spell)
-    if runes.checkSpellForRuneByName("Sul",spell) then
+    if runes.checkSpellForRuneByName("SUL",spell) then
         retVal = retVal + 120 -- 2 minutes
     end
 return retVal*scaling
@@ -49,12 +49,12 @@ local needAnth = checkIfNeedAnth(targetType)
 local needOrl = checkIfNeedOrl(targetType)
 local retVal = false
     if needAnth then
-        if runes.checkSpellForRuneByName("Anth", spell) or runes.checkSpellForRuneByName("Orl", spell) then
+        if runes.checkSpellForRuneByName("ANTH", spell) or runes.checkSpellForRuneByName("ORL", spell) then
             retVal = true
         end
     end
     if needOrl then
-        if runes.checkSpellForRuneByName("Orl", spell) then
+        if runes.checkSpellForRuneByName("ORL", spell) then
             retVal = true
         end
     end
@@ -104,16 +104,16 @@ function M.spawnStaticObjects(user, targets, spell, level)
 end
 
 local function checkForRelevantRunes(spell)
-local Anth = runes.checkSpellForRuneByName("Anth", spell)
-local Orl = runes.checkSpellForRuneByName("Orl", spell)
+local ANTH = runes.checkSpellForRuneByName("ANTH", spell)
+local ORL = runes.checkSpellForRuneByName("ORL", spell)
 local RA = runes.checkSpellForRuneByName("RA", spell)
 local CUN = runes.checkSpellForRuneByName("CUN", spell)
-local Luk = runes.checkSpellForRuneByName("Luk", spell)
+local LUK = runes.checkSpellForRuneByName("LUK", spell)
 local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
 
-    if (RA or CUN) and (Anth or Orl) then
+    if (RA or CUN) and (ANTH or ORL) then
         return true
-    elseif SOLH and Anth and not (Luk or Orl) then
+    elseif SOLH and ANTH and not (LUK or ORL) then
         return true
     end
 return false
@@ -149,7 +149,7 @@ local scaling = effectScaling.getEffectScaling(user, target, spell)
         return
     end
 
-    if runes.checkSpellForRuneByName("Lhor", spell) then
+    if runes.checkSpellForRuneByName("LHOR", spell) then
         illusion = "true"
     end
 

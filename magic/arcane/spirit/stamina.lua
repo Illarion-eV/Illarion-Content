@@ -29,9 +29,9 @@ M.staminaTexts = {
     }
 
 function M.getStaminaText(information, spell)
-    local Kah = runes.checkSpellForRuneByName("Kah", spell)
+    local KAH = runes.checkSpellForRuneByName("KAH", spell)
 
-    if not Kah then
+    if not KAH then
         return information
     end
 

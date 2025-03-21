@@ -22,22 +22,22 @@ local fakeInfo = require("magic.arcane.spirit.fakeInfo")
 local M = {}
 
 function M.invokeSpiritSpells(user, targets, spell)
-local Lhor = runes.checkSpellForRuneByName("Lhor", spell)
+local LHOR = runes.checkSpellForRuneByName("LHOR", spell)
 local PEN = runes.checkSpellForRuneByName("PEN", spell)
-local Fhan = runes.checkSpellForRuneByName("Fhan", spell)
+local FHAN = runes.checkSpellForRuneByName("FHAN", spell)
 
     if not PEN then
         return
     end
 
 telepathy.invoke(user, targets, spell)
-    if not Lhor then
+    if not LHOR then
         convertInfoToDialogue.getDialogue(user, targets, spell)
     end
 
-    if Lhor then
+    if LHOR then
         fakeInfo.fakeDialogue(user, targets, spell)
-    elseif Fhan then
+    elseif FHAN then
         convertInfoToDialogue.getDialogue(false, targets, spell)
     end
 end

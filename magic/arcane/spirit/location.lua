@@ -111,9 +111,9 @@ end
 function M.getLocationText(user, information, spell)
 
     local locationTexts = M.locationTexts
-    local Mes = runes.checkSpellForRuneByName("Mes", spell)
+    local MES = runes.checkSpellForRuneByName("MES", spell)
 
-    if not Mes then
+    if not MES then
         return information
     end
 

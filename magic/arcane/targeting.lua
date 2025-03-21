@@ -27,7 +27,7 @@ local function addDunTargets(user, targetsPositions, spell)
 
     local RA = runes.checkSpellForRuneByName("RA", spell)
     local CUN = runes.checkSpellForRuneByName("CUN", spell)
-    local Sul = runes.checkSpellForRuneByName("Sul", spell)
+    local SUL = runes.checkSpellForRuneByName("SUL", spell)
     local targetPosition = targetsPositions.thePosition
 
     if user then
@@ -51,7 +51,7 @@ local function addDunTargets(user, targetsPositions, spell)
         local foundItems = field:countItems()
         local foundChar = world:isCharacterOnField(possiblePosition)
 
-        if (RA or CUN) and Sul then
+        if (RA or CUN) and SUL then
             foundChar = false
         end
 
@@ -249,9 +249,9 @@ local function getSlowestNearTarget(user, target, rangeNum)
 
 end
 
-local function getWeakestNearTarget(user, position, rangeNum, Lev)
+local function getWeakestNearTarget(user, position, rangeNum, LEV)
 
-    if Lev and not world:isCharacterOnField(position) then
+    if LEV and not world:isCharacterOnField(position) then
         return
     end
 
@@ -323,18 +323,18 @@ local function getPosition(user, spell, positionsAndTargets, delayed, trap)
 
     local element = runes.fetchElement(spell)
     local rangeNum = range.getCastingRange(user, spell, element)
-    local Tah = runes.checkSpellForRuneByName("Tah", spell)
+    local TAH = runes.checkSpellForRuneByName("TAH", spell)
     local RA = runes.checkSpellForRuneByName("RA", spell)
     local CUN = runes.checkSpellForRuneByName("CUN", spell)
-    local Hept = runes.checkSpellForRuneByName("Hept", spell)
-    local Lev = runes.checkSpellForRuneByName("Lev", spell)
+    local HEPT = runes.checkSpellForRuneByName("HEPT", spell)
+    local LEV = runes.checkSpellForRuneByName("LEV", spell)
     local PEN = runes.checkSpellForRuneByName("PEN", spell)
-    local Fhen = runes.checkSpellForRuneByName("Fhen", spell)
+    local FHEN = runes.checkSpellForRuneByName("FHEN", spell)
     local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
-    local Sul = runes.checkSpellForRuneByName("Sul", spell)
-    local Orl = runes.checkSpellForRuneByName("Orl", spell)
-    local earthTrap = SOLH and Orl and not trap
-    local dodgable = (CUN or RA) and Sul
+    local SUL = runes.checkSpellForRuneByName("SUL", spell)
+    local ORL = runes.checkSpellForRuneByName("ORL", spell)
+    local earthTrap = SOLH and ORL and not trap
+    local dodgable = (CUN or RA) and SUL
     local thePosition
     local setPos = true
 
@@ -350,7 +350,7 @@ local function getPosition(user, spell, positionsAndTargets, delayed, trap)
                 return
             end
             thePosition = targeted.pos
-            if not dodgable and not (PEN and Lev) then
+            if not dodgable and not (PEN and LEV) then
                 table.insert(positionsAndTargets.targets, targeted)
                 positionsAndTargets.targetToTeach = targeted
                 setPos = false
@@ -358,7 +358,7 @@ local function getPosition(user, spell, positionsAndTargets, delayed, trap)
         else
             thePosition = getPositionWhenNotTargetingACharacter(user) -- To be replaced with a proper targeting entry point when we have someone who can write the server and client support for point-and-click targeting :)
             local foundCharacter = world:isCharacterOnField(thePosition)
-            if foundCharacter and not dodgable and not (PEN and Lev) then
+            if foundCharacter and not dodgable and not (PEN and LEV) then
                 local target = world:getCharacterOnField(thePosition)
                 if target:getType() == Character.player or target:getType() == Character.monster then
                     table.insert(positionsAndTargets.targets, target)
@@ -379,11 +379,11 @@ local function getPosition(user, spell, positionsAndTargets, delayed, trap)
         end
     end
 
-    if (Tah or Lev) and (RA or CUN) then
-        local target = getWeakestNearTarget(user, thePosition, rangeNum, Lev)
+    if (TAH or LEV) and (RA or CUN) then
+        local target = getWeakestNearTarget(user, thePosition, rangeNum, LEV)
         local proceed = true
 
-        if Lev and not world:isCharacterOnField(thePosition) then --Lev only targets the weakest nearby character to a targeted character. Tah doesn't care.
+        if LEV and not world:isCharacterOnField(thePosition) then --LEV only targets the weakest nearby character to a targeted character. TAH doesn't care.
             proceed = false
         end
 
@@ -399,7 +399,7 @@ local function getPosition(user, spell, positionsAndTargets, delayed, trap)
         end
     end
 
-    if Lev and SOLH and not earthTrap then
+    if LEV and SOLH and not earthTrap then
         local target = getSlowestNearTarget(user, thePosition, rangeNum)
         if target then
             if target:getType() == Character.player or target:getType() == Character.monster then
@@ -409,18 +409,18 @@ local function getPosition(user, spell, positionsAndTargets, delayed, trap)
         end
     end
 
-    if PEN and Hept then
+    if PEN and HEPT then
         local name = user.name
-        M.playerTargets["Hept"..name] = thePosition
-        M.playerTargets["Hept"..name.."time"] = tonumber(world:getTime("unix"))
+        M.playerTargets["HEPT"..name] = thePosition
+        M.playerTargets["HEPT"..name.."time"] = tonumber(world:getTime("unix"))
     end
 
-    if PEN and Lev then
+    if PEN and LEV then
         local timeLimit = 1800
         local currentTime = world:getTime("unix")
         local name = user.name
-        local heptPosition = M.playerTargets["Hept"..name]
-        local heptTime = M.playerTargets["Hept"..name.."time"]
+        local heptPosition = M.playerTargets["HEPT"..name]
+        local heptTime = M.playerTargets["HEPT"..name.."time"]
 
         if heptTime then
             if currentTime-heptTime > timeLimit then
@@ -445,7 +445,7 @@ local function getPosition(user, spell, positionsAndTargets, delayed, trap)
         end
     end
 
-    if Fhen and (RA or CUN or SOLH) and not earthTrap then
+    if FHEN and (RA or CUN or SOLH) and not earthTrap then
         local fhenTarget = FhenGetTarget(user, rangeNum, M.playerTargets[user.name])
         if fhenTarget and isValidChar(fhenTarget) then
             if fhenTarget:getType() == Character.player or fhenTarget:getType() == Character.monster then
@@ -488,13 +488,13 @@ end
 
 local function addTargets(user, spell, positionsAndTargets)
 
-    local Dun = runes.checkSpellForRuneByName("Dun", spell)
+    local DUN = runes.checkSpellForRuneByName("DUN", spell)
     local PEN = runes.checkSpellForRuneByName("PEN", spell)
-    local Luk = runes.checkSpellForRuneByName("Luk", spell)
+    local LUK = runes.checkSpellForRuneByName("LUK", spell)
 
-    if Dun and PEN and Luk then
+    if DUN and PEN and LUK then
         positionsAndTargets = addPENLukDunTargets(user, positionsAndTargets)
-    elseif (PEN and Luk) or Dun then
+    elseif (PEN and LUK) or DUN then
         positionsAndTargets = addDunTargets(user, positionsAndTargets, spell)
     end
 

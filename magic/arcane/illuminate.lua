@@ -64,11 +64,11 @@ local item = world:createItemFromId(3518, 1, myPosition, true, 999, {})
 end
 
 function M.CheckIfIlluminate(user, targets, spell, earthTrap)
-local Mes = runes.checkSpellForRuneByName("Mes", spell)
+local MES = runes.checkSpellForRuneByName("MES", spell)
 local JUS = runes.checkSpellForRuneByName("JUS", spell)
 local PEN = runes.checkSpellForRuneByName("PEN", spell)
 
-    if not Mes or (JUS or PEN) then
+    if not MES or (JUS or PEN) then
         return
     end
 

@@ -36,7 +36,7 @@ local equipmentNames = {
     {english = "Back", german = "Rücken", slot = 11}
 }
 
--- For some reason the below was unused and I cant remember what it was for, keeping it as a comment for now until I implement Sav at a later date
+-- For some reason the below was unused and I cant remember what it was for, keeping it as a comment for now until I implement SAV at a later date
 --[[ local equipmentPrefix = {
     quality = {english = "Equipment quality: ", german = "Qualität der Ausrüstung: "},
     durability = {english = "Equipment state: ", german = "Zustand der Ausrüstung: "}
@@ -44,10 +44,10 @@ local equipmentNames = {
 
 function M.getEquipmentText(information, spell)
 
-    local Anth = runes.checkSpellForRuneByName("Anth", spell)
-    local Sav = runes.checkSpellForRuneByName("Sav", spell)
+    local ANTH = runes.checkSpellForRuneByName("ANTH", spell)
+    local SAV = runes.checkSpellForRuneByName("SAV", spell)
 
-    if not Sav then
+    if not SAV then
         return information
     end
 
@@ -60,7 +60,7 @@ function M.getEquipmentText(information, spell)
             target.equipment = {}
             target.equipment.english = englishText
             target.equipment.german = germanText
-            if Anth then
+            if ANTH then
                 target.equipment.items = {}
                 for _, slot in pairs(equipmentNames) do
                     local targetItem = target.target:getItemAt(slot.slot)

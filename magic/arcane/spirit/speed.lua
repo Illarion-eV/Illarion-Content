@@ -27,8 +27,8 @@ M.speedTexts = {
 
 function M.getSpeedText(information, spell)
     local speedTexts = M.speedTexts
-    local Sul = runes.checkSpellForRuneByName("Sul", spell)
-    if not Sul then
+    local SUL = runes.checkSpellForRuneByName("SUL", spell)
+    if not SUL then
         return information
     end
     for _, target in pairs(information) do

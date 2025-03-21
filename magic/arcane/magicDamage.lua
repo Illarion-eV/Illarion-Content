@@ -25,24 +25,24 @@ local M = {}
 local damageList = {
 
     {rune = "RA", damage = 500, element = "Fire"},
-    {rune = "Pherc", damage = 750, element = "Water"},
-    {rune = "Pherc", damage = 750, element = "Air"},
-    {rune = "Pherc", damage = 750, element = "Earth"},
-    {rune = "Qwan", damage = 1000, element = "Fire"},
-    {rune = "Luk", damage = 750, element = "Fire"},
-    {rune = "Taur", damage = 750, element = "Fire"},
-    {rune = "Ura", damage = 750, element = "Fire"},
-    {rune = "Yeg", damage = 750, element = "Fire"},
-    {rune = "Sul", damage = 750, element = "Fire"}
+    {rune = "PHERC", damage = 750, element = "Water"},
+    {rune = "PHERC", damage = 750, element = "Air"},
+    {rune = "PHERC", damage = 750, element = "Earth"},
+    {rune = "QWAN", damage = 1000, element = "Fire"},
+    {rune = "LUK", damage = 750, element = "Fire"},
+    {rune = "TAUR", damage = 750, element = "Fire"},
+    {rune = "URA", damage = 750, element = "Fire"},
+    {rune = "YEG", damage = 750, element = "Fire"},
+    {rune = "SUL", damage = 750, element = "Fire"}
 }
 
 local damageOverTimeList = { --This damage is balanced around DoTs having 15 ticks that it is spread out over. So you would want to start with a DoT before moving onto direct damage spells when fighting high level opponents
-    {rune = "Pherc", damage = 1125, element = "Fire"},
+    {rune = "PHERC", damage = 1125, element = "Fire"},
     {rune = "CUN", damage = 1125, element = "Water"},
-    {rune = "Qwan", damage = 1500, element = "Water"},
-    {rune = "Taur", damage = 1125, element = "Water"},
-    {rune = "Ura", damage = 1125, element = "Water"},
-    {rune = "Yeg", damage = 1125, element = "Water"}
+    {rune = "QWAN", damage = 1500, element = "Water"},
+    {rune = "TAUR", damage = 1125, element = "Water"},
+    {rune = "URA", damage = 1125, element = "Water"},
+    {rune = "YEG", damage = 1125, element = "Water"}
 }
 
 M.raceList = {
@@ -119,11 +119,11 @@ function M.checkIfRaceBonus(target, rune)
 
     local targetType
 
-    if rune == "Taur" then
+    if rune == "TAUR" then
         targetType = "sentient"
-    elseif rune == "Ura" then
+    elseif rune == "URA" then
         targetType = "animal"
-    elseif rune == "Yeg" then
+    elseif rune == "YEG" then
         targetType = "undead"
     end
 
@@ -146,19 +146,19 @@ local function checkForDamageRunes(target, spell, element, DoT, earthTrap)
 
     for _, rune in pairs(list) do
         if rune.element == element and runes.checkSpellForRuneByName(rune.rune, spell) then
-            if rune.rune == "Luk" and RA then
+            if rune.rune == "LUK" and RA then
                 if CheckIftargetPriest(target) then
                     damage = damage + rune.damage
                 end
-            elseif rune.rune == "Taur" then
+            elseif rune.rune == "TAUR" then
                 if CheckIftargetType(target, "sentient") then
                     damage = damage + rune.damage
                 end
-            elseif rune.rune == "Ura" then
+            elseif rune.rune == "URA" then
                 if CheckIftargetType(target, "animal") then
                     damage = damage + rune.damage
                 end
-            elseif rune.rune == "Yeg" then
+            elseif rune.rune == "YEG" then
                 if CheckIftargetType(target, "undead") then
                     damage = damage + rune.damage
                 end
@@ -247,7 +247,7 @@ function M.resistanceAndPenetrationImpact(resist, penetration, damage)
     return math.max(0, damage*(1- resist + penetration)) -- never return negative values
 end
 
-function M.getMagicDamage(user, spell, element, target, DoT, Orl, earthTrap, castDuration)
+function M.getMagicDamage(user, spell, element, target, DoT, ORL, earthTrap, castDuration)
 
     if not isValidChar(target) then
         return false
@@ -275,7 +275,7 @@ function M.getMagicDamage(user, spell, element, target, DoT, Orl, earthTrap, cas
     damage = M.crit(user, damage) -- Critical strike chance based on perception stat and rng, 50% increase in damage if crit
 
     local finalDamage = 0
-    local illusion = runes.checkSpellForRuneByName("Lhor", spell)
+    local illusion = runes.checkSpellForRuneByName("LHOR", spell)
     local playerOrMonster = target:getType()
 
     if playerOrMonster ~= Character.npc and not illusion then
@@ -283,22 +283,22 @@ function M.getMagicDamage(user, spell, element, target, DoT, Orl, earthTrap, cas
         finalDamage = M.resistanceAndPenetrationImpact(magicResist, magicPen, damage)
     end
 
-    if runes.checkSpellForRuneByName("Sul",spell) then
+    if runes.checkSpellForRuneByName("SUL",spell) then
         finalDamage = finalDamage*1.5 -- 50% damage increase
     end
 
-    local Taur = runes.checkSpellForRuneByName("Taur", spell)
-    local Ura = runes.checkSpellForRuneByName("Ura", spell)
-    local Yeg = runes.checkSpellForRuneByName("Yeg", spell)
+    local TAUR = runes.checkSpellForRuneByName("TAUR", spell)
+    local URA = runes.checkSpellForRuneByName("URA", spell)
+    local YEG = runes.checkSpellForRuneByName("YEG", spell)
     local JUS = runes.checkSpellForRuneByName("JUS", spell)
     local rune
 
-    if Taur then
-        rune = "Taur"
-    elseif Ura then
-        rune = "Ura"
-    elseif Yeg then
-        rune = "Yeg"
+    if TAUR then
+        rune = "TAUR"
+    elseif URA then
+        rune = "URA"
+    elseif YEG then
+        rune = "YEG"
     end
 
     local raceBonus
@@ -311,7 +311,7 @@ function M.getMagicDamage(user, spell, element, target, DoT, Orl, earthTrap, cas
         finalDamage = finalDamage*2
     end
 
-    if Orl and JUS then
+    if ORL and JUS then
         finalDamage = finalDamage/2
     end
 

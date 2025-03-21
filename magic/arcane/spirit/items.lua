@@ -128,8 +128,8 @@ function M.individualItemText(theItem, dIndex, qIndex, fakeWeight)
 end
 
 function M.getItemText(information, spell)
-local Anth = runes.checkSpellForRuneByName("Anth", spell)
-    if not Anth then
+local ANTH = runes.checkSpellForRuneByName("ANTH", spell)
+    if not ANTH then
         return information
     end
     for _, target in pairs(information) do

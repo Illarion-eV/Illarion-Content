@@ -19,18 +19,18 @@ local common = require("base.common")
 local runes = require("magic.arcane.runes")
 
 local infoOptionsText = {
-    {english = "Gender/race", german = "Geschlecht/Rasse", identifier = "genderRace", rune = "Fhen"},
-    {english = "Mana", german = "Mana", identifier = "MP", rune = "Ira"},
-    {english = "Stamina", german = "Ausdauer", identifier = "FP", rune = "Kah"},
-    {english = "Location", german = "Standort", identifier = "location", rune = "Mes"},
-    {english = "Skill", german = "Fähigkeiten", identifier = "skill", rune = "Orl"},
-    {english = "Magic Resistance", german = "Magieresistenz", identifier = "MR", rune = "Pherc"},
-    {english = "Attributes", german = "Attribute", identifier = "intelligence", rune = "Qwan"},
+    {english = "Gender/race", german = "Geschlecht/Rasse", identifier = "genderRace", rune = "FHEN"},
+    {english = "Mana", german = "Mana", identifier = "MP", rune = "IRA"},
+    {english = "Stamina", german = "Ausdauer", identifier = "FP", rune = "KAH"},
+    {english = "Location", german = "Standort", identifier = "location", rune = "MES"},
+    {english = "Skill", german = "Fähigkeiten", identifier = "skill", rune = "ORL"},
+    {english = "Magic Resistance", german = "Magieresistenz", identifier = "MR", rune = "PHERC"},
+    {english = "Attributes", german = "Attribute", identifier = "intelligence", rune = "QWAN"},
     {english = "Terrain type", german = "Geländetyp", identifier = "terrain", rune = "PEN"},
-    {english = "Health", german = "Gesundheit", identifier = "HP", rune = "Sih"},
-    {english = "Speed", german = "Geschwindigkeit", identifier = "spd", rune = "Sul"},
-    {english = "Item properties", german = "Gegenstandseigenschaften", identifier = "item", rune = "Anth"},
-    {english = "Equipment", german = "Ausrüstung", identifier = "equipment", rune = "Sav"}
+    {english = "Health", german = "Gesundheit", identifier = "HP", rune = "SIH"},
+    {english = "Speed", german = "Geschwindigkeit", identifier = "spd", rune = "SUL"},
+    {english = "Item properties", german = "Gegenstandseigenschaften", identifier = "item", rune = "ANTH"},
+    {english = "Equipment", german = "Ausrüstung", identifier = "equipment", rune = "SAV"}
     }
 
 local chooseInfoTexts = {
@@ -165,14 +165,14 @@ end
 
 local function viewMessageDialogue(informedTarget, information, selectedTarget, identifier, spell)
 
-    local Anth = runes.checkSpellForRuneByName("Anth", spell)
+    local ANTH = runes.checkSpellForRuneByName("ANTH", spell)
     local englishTitle
     local germanTitle
     local englishText
     local germanText
 
     if identifier == "equipment" then
-        if Anth then
+        if ANTH then
             viewEquipmentSelectionDialogue(informedTarget, information, selectedTarget, spell)
             return
         end

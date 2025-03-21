@@ -29,9 +29,9 @@ M.manaTexts = {
     }
 
 function M.getManaText(information, spell)
-    local Ira = runes.checkSpellForRuneByName("Ira", spell)
+    local IRA = runes.checkSpellForRuneByName("IRA", spell)
 
-    if not Ira then
+    if not IRA then
         return information
     end
 

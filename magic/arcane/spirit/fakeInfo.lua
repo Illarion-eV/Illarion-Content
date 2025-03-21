@@ -809,19 +809,19 @@ end
 
 local function createFakeInfo(user, targets, myTarget, spell)
     local fakeInfoOptionsText = {
-    {english = "Gender/race", german = "", identifier = "genderRace", rune = "Fhen"},
-    {english = "Mana", german = "", identifier = "MP", rune = "Ira"},
-    {english = "Stamina", german = "", identifier = "FP", rune = "Kah"},
-    {english = "Location", german = "", identifier = "location", rune = "Mes"},
-    {english = "Skill", german = "", identifier = "skill", rune = "Orl"},
-    {english = "Magic Resistance", german = "", identifier = "MR", rune = "Pherc"},
-    {english = "Attributes", german = "", identifier = "intelligence", rune = "Qwan"},
+    {english = "Gender/race", german = "", identifier = "genderRace", rune = "FHEN"},
+    {english = "Mana", german = "", identifier = "MP", rune = "IRA"},
+    {english = "Stamina", german = "", identifier = "FP", rune = "KAH"},
+    {english = "Location", german = "", identifier = "location", rune = "MES"},
+    {english = "Skill", german = "", identifier = "skill", rune = "ORL"},
+    {english = "Magic Resistance", german = "", identifier = "MR", rune = "PHERC"},
+    {english = "Attributes", german = "", identifier = "intelligence", rune = "QWAN"},
     {english = "Terrain type", german = "", identifier = "terrain", rune = "PEN"},
-    {english = "Health", german = "", identifier = "HP", rune = "Sih"},
-    {english = "Speed", german = "", identifier = "spd", rune = "Sul"},
-    {english = "Item properties", german = "", identifier = "item", rune = "Anth"},
-    {english = "Equipment", german = "", identifier = "equipment", rune = "Sav"},
-    {english = "Equipped items", german = "", identifier = "equipment", rune = "Sav", rune2 = "Anth"}
+    {english = "Health", german = "", identifier = "HP", rune = "SIH"},
+    {english = "Speed", german = "", identifier = "spd", rune = "SUL"},
+    {english = "Item properties", german = "", identifier = "item", rune = "ANTH"},
+    {english = "Equipment", german = "", identifier = "equipment", rune = "SAV"},
+    {english = "Equipped items", german = "", identifier = "equipment", rune = "SAV", rune2 = "ANTH"}
     }
 
     local callback = function(dialog)
@@ -946,7 +946,7 @@ local function resetFakeInfo(user, targets, spell)
 end
 
 function M.fakeDialogue(user, targets, spell)
-    local Fhan = runes.checkSpellForRuneByName("Fhan", spell)
+    local FHAN = runes.checkSpellForRuneByName("FHAN", spell)
     local realInfo = gatherInfo.invoke(user, targets, spell)
     if not information[user.name] then
         information[user.name] = realInfo
@@ -962,9 +962,9 @@ function M.fakeDialogue(user, targets, spell)
             resetFakeInfo(user, targets, spell)
         elseif index == 3 then
             convertInfoToDialogue.getDialogue(user, targets, spell, information[user.name])
-        elseif index == 4 and Fhan then
+        elseif index == 4 and FHAN then
             convertInfoToDialogue.getDialogue(false, targets, spell)
-        elseif index == 5 and Fhan then
+        elseif index == 5 and FHAN then
             convertInfoToDialogue.getDialogue(false, targets, spell, information[user.name])
         end
     end
@@ -973,7 +973,7 @@ function M.fakeDialogue(user, targets, spell)
     dialog:addOption(0,common.GetNLS(user, "german", "Create fake info"))
     dialog:addOption(0,common.GetNLS(user, "german", "Reset fake info"))
     dialog:addOption(0,common.GetNLS(user, "german", "View fake info"))
-    if Fhan then
+    if FHAN then
         dialog:addOption(0,common.GetNLS(user, "german", "Send real info"))
         dialog:addOption(0,common.GetNLS(user, "german", "Send fake info"))
     end

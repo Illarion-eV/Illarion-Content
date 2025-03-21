@@ -39,31 +39,31 @@ local sfxNumber = 13
     if runes.checkSpellForRuneByName("RA", spell) then
         gfxNumber = 9
         sfxNumber = 5
-        if runes.checkSpellForRuneByName("Qwan", spell) then
+        if runes.checkSpellForRuneByName("QWAN", spell) then
             gfxNumber = 36
         end
     end
     if runes.checkSpellForRuneByName("CUN", spell) then
         gfxNumber = 4
         sfxNumber = 9
-        if runes.checkSpellForRuneByName("Qwan", spell) then
+        if runes.checkSpellForRuneByName("QWAN", spell) then
             gfxNumber = 3
         end
     end
     if runes.checkSpellForRuneByName("SOLH", spell) then
         gfxNumber = 8
-        if runes.checkSpellForRuneByName("Qwan", spell) then
+        if runes.checkSpellForRuneByName("QWAN", spell) then
             gfxNumber = 5
         end
     end
     if runes.checkSpellForRuneByName("JUS", spell) then
         gfxNumber = 7
-        if runes.checkSpellForRuneByName("Mes", spell) then
+        if runes.checkSpellForRuneByName("MES", spell) then
             if not fancyLights or not runes.checkSpellForMoreThanJUSMes(spell) then
                 gfxNumber = 46
             end
         end
-        if runes.checkSpellForRuneByName("Pherc", spell) then
+        if runes.checkSpellForRuneByName("PHERC", spell) then
             if runes.checkSpellForLightning(spell) and fancyLights then
                 gfxNumber = 2
                 sfxNumber = 4
@@ -92,9 +92,9 @@ local sfxNumber = 13
 end
 
 function M.getUserGFXSFX(spell)
-local Lhor = runes.checkSpellForRuneByName("Lhor", spell)
+local LHOR = runes.checkSpellForRuneByName("LHOR", spell)
 local JUS = runes.checkSpellForRuneByName("JUS", spell)
-    if Lhor and JUS then
+    if LHOR and JUS then
         return 0
     else
         return 21
@@ -103,8 +103,8 @@ end
 
 function M.getAdditionalUserGFXSFX(user, spell)
 local JUS = runes.checkSpellForRuneByName("JUS", spell)
-local Sav = runes.checkSpellForRuneByName("Sav", spell)
-    if JUS and Sav then
+local SAV = runes.checkSpellForRuneByName("SAV", spell)
+    if JUS and SAV then
         local gfx = 7
         local sfx = 0
         world:gfx(gfx, user.pos)

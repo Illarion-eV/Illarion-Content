@@ -44,9 +44,9 @@ target.movepoints = target.movepoints - stunDuration
 end
 
 function M.checkForStun(spell, targets)
-local Hept = runes.checkSpellForRuneByName("Hept", spell)
+local HEPT = runes.checkSpellForRuneByName("HEPT", spell)
 local PEN = runes.checkSpellForRuneByName("PEN", spell)
-    if not Hept or PEN then
+    if not HEPT or PEN then
         return
     end
     for _, target in pairs(targets.targets) do

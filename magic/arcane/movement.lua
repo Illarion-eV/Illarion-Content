@@ -103,22 +103,22 @@ local field = world:getField(positionToCheck)
 return false, positionToCheck
 end
 
-local function getRangeOfMovement(user, spell, target, character, Orl, targetAmount, currentTarget)
+local function getRangeOfMovement(user, spell, target, character, ORL, targetAmount, currentTarget)
 local range = 4
 local scaling = effectScaling.getEffectScaling(user, target, spell)
-local Qwan = runes.checkSpellForRuneByName("Qwan", spell)
-local Kel = runes.checkSpellForRuneByName("Kel", spell)
-local Taur = runes.checkSpellForRuneByName("Taur", spell)
-local Ura = runes.checkSpellForRuneByName("Ura", spell)
-local Yeg = runes.checkSpellForRuneByName("Yeg", spell)
+local QWAN = runes.checkSpellForRuneByName("QWAN", spell)
+local KEL = runes.checkSpellForRuneByName("KEL", spell)
+local TAUR = runes.checkSpellForRuneByName("TAUR", spell)
+local URA = runes.checkSpellForRuneByName("URA", spell)
+local YEG = runes.checkSpellForRuneByName("YEG", spell)
 local JUS = runes.checkSpellForRuneByName("JUS", spell)
 local rune
-    if Taur then
-        rune = "Taur"
-    elseif Ura then
-        rune = "Ura"
-    elseif Yeg then
-        rune = "Yeg"
+    if TAUR then
+        rune = "TAUR"
+    elseif URA then
+        rune = "URA"
+    elseif YEG then
+        rune = "YEG"
     end
 local raceBonus
     if rune and character then
@@ -127,10 +127,10 @@ local raceBonus
     if raceBonus and JUS then
         range = range + 1
     end
-    if Qwan then
+    if QWAN then
         range = range + 2
     end
-    if Kel then
+    if KEL then
         if not M.KelVars.applied then
             local rand = math.random(tonumber(currentTarget), tonumber(targetAmount))
             if rand == tonumber(currentTarget) then
@@ -139,7 +139,7 @@ local raceBonus
             end
         end
     end
-    if Orl and JUS then
+    if ORL and JUS then
         range = range/2
     end
 return range*scaling
@@ -196,13 +196,13 @@ table.insert(directionCorrection, {away = "southeast", toward = "northwest", X =
 table.insert(directionCorrection, {away = "northwest", toward = "southeast", X = 1, Y = 1})
 table.insert(directionCorrection, {away = "northeast", toward = "southwest", X = -1, Y = 1})
 
-local function moveTargets(user, target, spell, Orl, items, targetAmount, currentTarget)
-local Fhen = runes.checkSpellForRuneByName("Fhen", spell)
-local Fhan = runes.checkSpellForRuneByName("Fhan", spell)
-local Sav = runes.checkSpellForRuneByName("Sav", spell)
+local function moveTargets(user, target, spell, ORL, items, targetAmount, currentTarget)
+local FHEN = runes.checkSpellForRuneByName("FHEN", spell)
+local FHAN = runes.checkSpellForRuneByName("FHAN", spell)
+local SAV = runes.checkSpellForRuneByName("SAV", spell)
 local characters = not items
 
-    if not Fhan and not Fhen and not Sav then
+    if not FHAN and not FHEN and not SAV then
         return
     end
 
@@ -214,8 +214,8 @@ local characters = not items
 
 local myTarget = target.pos
 local direction = getDirection(user, myTarget)
-local directionReverse = getDirection(user, myTarget, Sav)
-local range = getRangeOfMovement(user, spell, target, characters, Orl, targetAmount, currentTarget)
+local directionReverse = getDirection(user, myTarget, SAV)
+local range = getRangeOfMovement(user, spell, target, characters, ORL, targetAmount, currentTarget)
 local Z = myTarget.z
 local landingX
 local landingY
@@ -226,10 +226,10 @@ local targetPosition
 local landingXReverse
 local landingYReverse
 local targetPositionReverse
-    if Fhan and not Fhen then
+    if FHAN and not FHEN then
         directionToMove = "toward"
     end
-    if Fhen and not Fhan  then
+    if FHEN and not FHAN  then
         directionToMove = "away"
     end
     for _, directions in pairs(directionCorrection) do
@@ -249,7 +249,7 @@ local lastX = myTarget.x
 local lastY = myTarget.y
 local lastXReverse = user.pos.x
 local lastYReverse = user.pos.y
-    if Fhan or Fhen then
+    if FHAN or FHEN then
         for i = 1, range+1 do
             local positionCleared, thePosition = checkForCollisionAndFreeSpace(lastX, lastY, landingX, landingY, Z)
 
@@ -261,7 +261,7 @@ local lastYReverse = user.pos.y
             end
         end
     end
-    if Sav then
+    if SAV then
         for i = 1, range+1 do
             local positionCleared, thePosition = checkForCollisionAndFreeSpace(lastXReverse, lastYReverse, landingXReverse, landingYReverse, Z)
 
@@ -274,7 +274,7 @@ local lastYReverse = user.pos.y
         end
     end
     if items then
-        if Fhan or Fhen then
+        if FHAN or FHEN then
             local field = world:getField(myTarget)
             local foundItems = field:countItems()
             local targetItem = field:getStackItem(foundItems - 1)
@@ -282,13 +282,13 @@ local lastYReverse = user.pos.y
             world:createItemFromItem(targetItem, targetPosition, true)
         end
     elseif characters then
-        if Fhan or Fhen then
+        if FHAN or FHEN then
             local targetedChar = world:getCharacterOnField(myTarget)
             targetedChar:forceWarp(targetPosition)
             targetedChar:inform(informDE, informEN)
         end
     end
-    if Sav then
+    if SAV then
         user:forceWarp(targetPositionReverse)
         user:inform(informDE, informEN)
     end
@@ -297,8 +297,8 @@ end
 local function forceWalkTarget(target, spell)
 local possibleDirections = {"North", "North-east", "East", "South-east", "South", "South-west", "West", "North-west"}
 local direction = math.random(#possibleDirections)
-local Lev = runes.checkSpellForRuneByName("Lev", spell)
-    if Lev then
+local LEV = runes.checkSpellForRuneByName("LEV", spell)
+    if LEV then
         target:move(direction, true)
         target:inform(texts.walk.german, texts.walk.english)
     end
@@ -317,46 +317,46 @@ local turningTargetsDirections = {
 }
 
 local function turnTarget(user, target, spell)
-local Luk = runes.checkSpellForRuneByName("Luk", spell)
-local Tah = runes.checkSpellForRuneByName("Tah", spell)
+local LUK = runes.checkSpellForRuneByName("LUK", spell)
+local TAH = runes.checkSpellForRuneByName("TAH", spell)
 local direction = getDirection(user, target.pos)
-    if Luk and Tah then
+    if LUK and TAH then
         return
     end
-    if Tah then
+    if TAH then
         target:turn(user.pos)
     end
-    if Luk then
+    if LUK then
         for _, turning in pairs(turningTargetsDirections) do
             if direction == turning.direction then
                 target:turn(turning.to)
             end
         end
     end
-    if Luk or Tah then
+    if LUK or TAH then
         target:inform(texts.turn.german, texts.turn.english)
     end
 end
 
-function M.applyMovementSpells(user, targets, spell, Orl)
+function M.applyMovementSpells(user, targets, spell, ORL)
     if not checkIfWindSpell(spell) then
         return
     end
 M.KelVars = {applied = false}
 local targetAmount = #targets.targets + #targets.items
 local currentTarget = 0
-local Anth = runes.checkSpellForRuneByName("Anth", spell)
+local ANTH = runes.checkSpellForRuneByName("ANTH", spell)
 
     for _, target in pairs(targets.targets) do
         currentTarget = currentTarget + 1
-        moveTargets(user, target, spell, Orl, false, targetAmount, currentTarget)
+        moveTargets(user, target, spell, ORL, false, targetAmount, currentTarget)
         forceWalkTarget(target, spell)
         turnTarget(user, target, spell)
     end
     for _, item in pairs(targets.items) do
         currentTarget = currentTarget + 1
-        if Anth then
-            moveTargets(user, item, spell, Orl, true, targetAmount, currentTarget)
+        if ANTH then
+            moveTargets(user, item, spell, ORL, true, targetAmount, currentTarget)
         end
     end
 end

@@ -1650,7 +1650,7 @@ local function checkIfCriteriaMet(user, rune)
             M.penActivate = false
             retVal = true
         end
-    elseif rune == "Anth" then
+    elseif rune == "ANTH" then
         local success, anthActivate = ScriptVars:find("anthActivate")
         if success then
             if tonumber(anthActivate) == 1 then
@@ -1659,50 +1659,50 @@ local function checkIfCriteriaMet(user, rune)
                 retVal = true
             end
         end
-    elseif rune == "Dun" then
+    elseif rune == "DUN" then
         if dunRequirementCheck(user) then
             retVal = true
         end
-    elseif rune == "Fhan" then
+    elseif rune == "FHAN" then
         if fhanPuzzleSolved() then
             retVal = true
         end
-    elseif rune == "Fhen" then
+    elseif rune == "FHEN" then
         if fhenPuzzleSolved() then
             retVal = true
         end
-    elseif rune == "Hept" then
+    elseif rune == "HEPT" then
         if heptPuzzleSolved() then
             retVal = true
         end
-    elseif rune == "Ira" then
+    elseif rune == "IRA" then
         if M.iraActivate then
             M.iraActivate = false
             retVal = true
         end
-    elseif rune == "Kah" then
+    elseif rune == "KAH" then
         if kahPuzzleSolved() then
             retVal = true
         end
-    elseif rune == "Kel" then
+    elseif rune == "KEL" then
         if user:getQuestProgress(242) == 1 then
             retVal = true
             user:setQuestProgress(242, 0)
         end
-    elseif rune == "Lev" then
+    elseif rune == "LEV" then
         if passesLevPuzzle() then
             resetLevPuzzle()
             retVal = true
         end
-    elseif rune == "Mes" then
+    elseif rune == "MES" then
         if checkMesPuzzle() then
             retVal = true
         end
-    elseif rune == "Orl" then
+    elseif rune == "ORL" then
         if passesOrlPuzzle(user) then
             retVal = true
         end
-    elseif rune == "Pera" then
+    elseif rune == "PERA" then
         if passedPeraPuzzle(user) then
             retVal = true
         end
@@ -1710,12 +1710,12 @@ local function checkIfCriteriaMet(user, rune)
         if user:getQuestProgress(244) == 18 then
             retVal = true
         end
-    elseif rune == "Lhor" then
+    elseif rune == "LHOR" then
         if M.lhorActivate then
             M.lhorActivate = false
             retVal = true
         end
-    elseif rune == "Luk" then
+    elseif rune == "LUK" then
         local progress = user:getQuestProgress(245)
         if progress == 1 then
             user:inform(puzzles.lukPuzzle.denounced.german, puzzles.lukPuzzle.denounced.english)
@@ -1724,11 +1724,11 @@ local function checkIfCriteriaMet(user, rune)
             user:inform(puzzles.lukPuzzle.praised.german, puzzles.lukPuzzle.praised.english)
             return true
         end
-    elseif rune == "Pherc" then
+    elseif rune == "PHERC" then
         if passesPhercPuzzle() then
             retVal = true
         end
-    elseif rune == "Qwan" then
+    elseif rune == "QWAN" then
         local success, qwanActivate = ScriptVars:find("qwanActivate")
         if success then
             if tonumber(qwanActivate) == 1 then
@@ -1737,32 +1737,32 @@ local function checkIfCriteriaMet(user, rune)
                 retVal = true
             end
         end
-    elseif rune == "Sav" then
+    elseif rune == "SAV" then
         if savPuzzleSolved() then
             retVal = true
         end
-    elseif rune == "Sih" then
+    elseif rune == "SIH" then
         if passesSihPuzzle() then
             retVal = true
         end
-    elseif rune == "Yeg" then
+    elseif rune == "YEG" then
         if passesYegPuzzle(user) then
             retVal = true
         end
-    elseif rune == "Tah" then
+    elseif rune == "TAH" then
         if M.tahActivate then
             M.tahActivate = false
             retVal = true
         end
-    elseif rune == "Sul" then
+    elseif rune == "SUL" then
         if passesSulPuzzle(user) then
             retVal = true
         end
-    elseif rune == "Ura" then
+    elseif rune == "URA" then
         if uraPuzzleSolved() then
             retVal = true
         end
-    elseif rune == "Taur" then
+    elseif rune == "TAUR" then
         if M.taurActivate then
             M.taurActivate = false
             retVal = true

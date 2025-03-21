@@ -21,11 +21,11 @@ local M = {}
 
 function M.getIncantationText(user, spell)
 
-    local Lhor = runes.checkSpellForRuneByName("Lhor", spell)
+    local LHOR = runes.checkSpellForRuneByName("LHOR", spell)
     local JUS = runes.checkSpellForRuneByName("JUS", spell)
     local PEN = runes.checkSpellForRuneByName("PEN", spell)
 
-    if Lhor and JUS then
+    if LHOR and JUS then
         return
     end
     local theText = ""
@@ -39,7 +39,7 @@ function M.getIncantationText(user, spell)
         local rune = runes.runeNumberToName(i)
 
         if runes.checkSpellForRuneByName(rune, spell) then
-            if not (PEN and rune == "Lhor") then
+            if not (PEN and rune == "LHOR") then
                 if theText == "" then
                     theText = rune
                 else
@@ -54,7 +54,7 @@ function M.getIncantationText(user, spell)
         local rune = runes.runeNumberToName(i)
 
         if runes.checkSpellForRuneByName(rune, spell) then
-            if not(PEN and (rune == "Lhor")) then
+            if not(PEN and (rune == "LHOR")) then
                 if theText == "" then
                     theText = rune
                 else

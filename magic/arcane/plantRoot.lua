@@ -46,18 +46,18 @@ function M.getSpeed(user, target, spell, earthTrap)
         scaling = effectScaling.getEffectScaling(user, target, spell)
     end
     local retVal = 0.5
-    local Taur = runes.checkSpellForRuneByName("Taur", spell)
-    local Ura = runes.checkSpellForRuneByName("Ura", spell)
-    local Yeg = runes.checkSpellForRuneByName("Yeg", spell)
-    local Lhor = runes.checkSpellForRuneByName("Lhor", spell)
-    local Qwan = runes.checkSpellForRuneByName("Qwan", spell)
+    local TAUR = runes.checkSpellForRuneByName("TAUR", spell)
+    local URA = runes.checkSpellForRuneByName("URA", spell)
+    local YEG = runes.checkSpellForRuneByName("YEG", spell)
+    local LHOR = runes.checkSpellForRuneByName("LHOR", spell)
+    local QWAN = runes.checkSpellForRuneByName("QWAN", spell)
     local rune
-        if Taur then
-            rune = "Taur"
-        elseif Ura then
-            rune = "Ura"
-        elseif Yeg then
-            rune = "Yeg"
+        if TAUR then
+            rune = "TAUR"
+        elseif URA then
+            rune = "URA"
+        elseif YEG then
+            rune = "YEG"
         end
     local raceBonus
         if rune then
@@ -66,7 +66,7 @@ function M.getSpeed(user, target, spell, earthTrap)
         if raceBonus then
             retVal = retVal + 0.1
         end
-        if Qwan then
+        if QWAN then
             retVal = retVal + 0.2
         end
         retVal = retVal*100
@@ -76,7 +76,7 @@ function M.getSpeed(user, target, spell, earthTrap)
             retVal = 0.1 -- A minimum of 0.1 no matter how high the enemies magic resist is, so it at least has some impact
         end
 
-        if Lhor then
+        if LHOR then
             retVal = false
         end
 
@@ -114,7 +114,7 @@ function M.getPosition(target)
 end
 
 local function plantCreation(user, target, spell, item, level)
-    local Lhor = runes.checkSpellForRuneByName("Lhor", spell)
+    local LHOR = runes.checkSpellForRuneByName("LHOR", spell)
     local plantID = 3644
     local wear = staticObjects.getWearBasedOnDuration(user, target, spell)
     local scaling = effectScaling.getEffectScaling(user, target, spell)
@@ -131,7 +131,7 @@ local function plantCreation(user, target, spell, item, level)
             return
         end
         local myPosition = M.getPosition(target)
-        local plant = world:createItemFromId(plantID, 1, myPosition, true, 999, {["illusion"] = tostring(Lhor), ["scaling"] = scaling, ["spell"] = spell, ["level"] = level})
+        local plant = world:createItemFromId(plantID, 1, myPosition, true, 999, {["illusion"] = tostring(LHOR), ["scaling"] = scaling, ["spell"] = spell, ["level"] = level})
         plant.wear = wear
         lookat.SetSpecialName(plant, M.plantRootTexts.name.german, M.plantRootTexts.name.english)
         lookat.SetSpecialDescription(plant, M.plantRootTexts.description.german, M.plantRootTexts.description.english)
@@ -139,15 +139,15 @@ local function plantCreation(user, target, spell, item, level)
 end
 
 function M.createEntanglingPlant(user, targets, spell, level)
-    local Orl = runes.checkSpellForRuneByName("Orl", spell)
+    local ORL = runes.checkSpellForRuneByName("ORL", spell)
     local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
-    local Luk = runes.checkSpellForRuneByName("Luk", spell)
+    local LUK = runes.checkSpellForRuneByName("LUK", spell)
 
-    if Orl then --To prevent overlap of plant and trap, trap as the stronger one takes priority. Trap will instead get plant graphic if this rune is used.
+    if ORL then --To prevent overlap of plant and trap, trap as the stronger one takes priority. Trap will instead get plant graphic if this rune is used.
         return
     end
 
-    if not (SOLH and Luk) then
+    if not (SOLH and LUK) then
         return
     end
 
@@ -196,27 +196,27 @@ end
 
 function M.applyPlantRoot(user, targets, spell, earthTrap)
     local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
-    local Qwan = runes.checkSpellForRuneByName("Qwan", spell)
-    local Sih = runes.checkSpellForRuneByName("Sih", spell)
-    local Tah = runes.checkSpellForRuneByName("Tah", spell)
-    local Taur = runes.checkSpellForRuneByName("Taur", spell)
-    local Ura = runes.checkSpellForRuneByName("Ura", spell)
-    local Yeg = runes.checkSpellForRuneByName("Yeg", spell)
+    local QWAN = runes.checkSpellForRuneByName("QWAN", spell)
+    local SIH = runes.checkSpellForRuneByName("SIH", spell)
+    local TAH = runes.checkSpellForRuneByName("TAH", spell)
+    local TAUR = runes.checkSpellForRuneByName("TAUR", spell)
+    local URA = runes.checkSpellForRuneByName("URA", spell)
+    local YEG = runes.checkSpellForRuneByName("YEG", spell)
     local rune
 
-    if Taur then
-        rune = "Taur"
-    elseif Ura then
-        rune = "Ura"
-    elseif Yeg then
-        rune = "Yeg"
+    if TAUR then
+        rune = "TAUR"
+    elseif URA then
+        rune = "URA"
+    elseif YEG then
+        rune = "YEG"
     end
 
     for _, target in pairs(targets.targets) do
         local myEffectNumber = 16
         local TahEffectNumber = 28
         local userEffectNumber = 31
-        if Tah then
+        if TAH then
             myEffectNumber = TahEffectNumber
         end
         local raceBonus
@@ -250,9 +250,9 @@ function M.applyPlantRoot(user, targets, spell, earthTrap)
                 end
             end
         end
-        if Sih and not Tah and SOLH then
+        if SIH and not TAH and SOLH then
             local amountStolen = 20  -- 20% stolen of speed taken from target
-                if Qwan then
+                if QWAN then
                     amountStolen = amountStolen + 5
                 end
                 if raceBonus then
@@ -287,28 +287,28 @@ function M.applyPlantRoot(user, targets, spell, earthTrap)
 end
 
 function M.addEffect(myEffect, target)
-    local Tah
+    local TAH
     local SOLH
-    local Sih
+    local SIH
     local foundUser, isUser = myEffect:findValue("user")
     local foundSpell, spell = myEffect:findValue("spell")
     if foundUser then
         if 1 == isUser then
-            Sih = true
+            SIH = true
         end
     end
     if foundSpell then
-        Tah = runes.checkSpellForRuneByName("Tah", spell)
+        TAH = runes.checkSpellForRuneByName("TAH", spell)
         SOLH = runes.checkSpellForRuneByName("SOLH", spell)
     end
 
     local foundSpeed, speed = myEffect:findValue("speed")
     if foundSpeed then
         local speedChange = speed/100 --Divided by 100 because speed is a percentage value due to it being stored as integers.
-        if Tah and SOLH then
+        if TAH and SOLH then
             speedChange = -speedChange/5 --20% speed given
         end
-        if Sih then
+        if SIH then
             speedChange = -speedChange
         end
         target:inform("Als du von dem Zauber getroffen wirst, fühlst du dich langsamer, als wären deine Füße von Schlamm bedeckt, der dich hinabzieht.", "As you're hit by the spell, you feel yourself slow down as if your feet are covered in mud that's dragging you down.")
@@ -317,18 +317,18 @@ function M.addEffect(myEffect, target)
 end
 
 function M.callEffect(myEffect, target)
-    local Tah
+    local TAH
     local SOLH
-    local Sih
+    local SIH
     local foundUser, isUser = myEffect:findValue("user")
     local foundSpell, spell = myEffect:findValue("spell")
         if foundSpell then
-            Tah = runes.checkSpellForRuneByName("Tah", spell)
+            TAH = runes.checkSpellForRuneByName("TAH", spell)
             SOLH = runes.checkSpellForRuneByName("SOLH", spell)
         end
         if foundUser then
             if 1 == isUser then
-                Sih = true
+                SIH = true
             end
         end
         local foundRemainingSpeed, remainingSpeed = myEffect:findValue("remainingSpeed")
@@ -340,20 +340,20 @@ function M.callEffect(myEffect, target)
                 local newRemainingSpeed
                     if remainingSpeed/ticks < 1 and ticks == 1 then
                         local speedChange = remainingSpeed/100
-                        if Tah and SOLH then
+                        if TAH and SOLH then
                             speedChange = -speedChange/5 --20% speed given
                         end
-                        if Sih then
+                        if SIH then
                             speedChange = -speedChange
                         end
                         target.speed = target.speed + speedChange
                         newRemainingSpeed = 0
                     elseif remainingSpeed/ticks > 1 then
                         local speedChange = speedIncrease/100
-                        if Tah and SOLH then
+                        if TAH and SOLH then
                             speedChange = -speedChange/5 --20% speed given
                         end
-                        if Sih then
+                        if SIH then
                             speedChange = -speedChange
                         end
                         target.speed = target.speed + speedChange
@@ -373,18 +373,18 @@ function M.callEffect(myEffect, target)
 end
 
 function M.callEffect(myEffect, target)
-    local Tah
+    local TAH
     local SOLH
-    local Sih
+    local SIH
     local foundUser, isUser = myEffect:findValue("user")
     local foundSpell, spell = myEffect:findValue("spell")
     if foundSpell then
-        Tah = runes.checkSpellForRuneByName("Tah", spell)
+        TAH = runes.checkSpellForRuneByName("TAH", spell)
         SOLH = runes.checkSpellForRuneByName("SOLH", spell)
     end
     if foundUser then
         if 1 == isUser then
-            Sih = true
+            SIH = true
         end
     end
     local foundRemainingSpeed, remainingSpeed = myEffect:findValue("remainingSpeed")
@@ -396,20 +396,20 @@ function M.callEffect(myEffect, target)
             local newRemainingSpeed
                 if remainingSpeed/ticks < 1 and ticks == 1 then
                     local speedChange = remainingSpeed/100
-                    if Tah and SOLH then
+                    if TAH and SOLH then
                         speedChange = -speedChange/5 --20% speed given
                     end
-                    if Sih then
+                    if SIH then
                         speedChange = -speedChange
                     end
                     target.speed = target.speed + speedChange
                     newRemainingSpeed = 0
                 elseif remainingSpeed/ticks > 1 then
                     local speedChange = speedIncrease/100
-                    if Tah and SOLH then
+                    if TAH and SOLH then
                         speedChange = -speedChange/5 --20% speed given
                     end
-                    if Sih then
+                    if SIH then
                         speedChange = -speedChange
                     end
                     target.speed = target.speed + speedChange
@@ -428,28 +428,28 @@ function M.callEffect(myEffect, target)
 end
 
 function M.loadEffect(myEffect, target)
-    local Tah
+    local TAH
     local SOLH
-    local Sih
+    local SIH
     local foundUser, isUser = myEffect:findValue("user")
     local foundSpell, spell = myEffect:findValue("spell")
         if foundSpell then
-            Tah = runes.checkSpellForRuneByName("Tah", spell)
+            TAH = runes.checkSpellForRuneByName("TAH", spell)
             SOLH = runes.checkSpellForRuneByName("SOLH", spell)
         end
         if foundUser then
             if 1 == isUser then
-                Sih = true
+                SIH = true
             end
         end
         local foundRemainingSpeed, remainingSpeed = myEffect:findValue("remainingSpeed")
         if foundRemainingSpeed then
             if remainingSpeed > 0 then
                 local speedChange = remainingSpeed/100
-                if Tah and SOLH then
+                if TAH and SOLH then
                     speedChange = -speedChange/5 --20% speed given
                 end
-                if Sih then
+                if SIH then
                     speedChange = -speedChange
                 end
                 target.speed = target.speed - speedChange
