@@ -132,7 +132,7 @@ function GatheringCraft:FindRandomItem(User, toolItem)
 
     local guaranteeFrequentItem = false
 
-    if nomizo.increaseTreasureChance(User, toolItem) then
+    if nomizo.increaseTreasureChance(User, toolItem, self.LeadSkill) then
         local rand = math.random()
         -- See nomizo.lua in magic/arcane/enchanting/effects for an explanation of the %s
         if rand <= 0.05 then -- 5% chance
@@ -330,7 +330,7 @@ function M.InitGathering(user, sourceItem, toolID, maxAmount, skill)
     end
 
     local amount= M.GetAmount(maxAmount, sourceItem)
-    local gatheringBonus= shared.getGatheringBonus(user, toolItem)
+    local gatheringBonus= shared.getGatheringBonus(user, toolItem, skill)
 
     if ((toolID and toolItem) or not toolID) and common.CheckItem(user, sourceItem) and common.FitForWork(user) and M.SkillCheck(user, sourceItem, skill) then -- security checks
         success = true

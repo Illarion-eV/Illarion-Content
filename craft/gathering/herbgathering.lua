@@ -238,7 +238,7 @@ function M.StartGathering(User, SourceItem, ltstate)
         return
     end
 
-    local gatheringBonus=shared.getGatheringBonus(User, toolItem)
+    local gatheringBonus=shared.getGatheringBonus(User, toolItem, Character.herblore)
 
     local theCraft = gathering.GatheringCraft:new{LeadSkill = Character.herblore, LearnLimit = 100}; -- id_126_sickle
     theCraft:AddRandomPureElement(User,gathering.prob_element*gatheringBonus); -- Any pure element

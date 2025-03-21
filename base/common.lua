@@ -2266,16 +2266,16 @@ end
 --                 NOTE: in case there is no lead attribute, nil will be returned.
 local leadAttribTable = {}
 --Dexterity: All crafting skills for final products
-leadAttribTable[Character.tailoring]="dexterity"
-leadAttribTable[Character.blacksmithing]="dexterity"
-leadAttribTable[Character.gemcutting]="dexterity"
-leadAttribTable[Character.carpentry]="dexterity"
-leadAttribTable[Character.cookingAndBaking]="dexterity"
-leadAttribTable[Character.finesmithing]="dexterity"
-leadAttribTable[Character.glassBlowing]="dexterity"
-leadAttribTable[Character.pottery]="dexterity"
-leadAttribTable[Character.armourer]="dexterity"
-leadAttribTable[Character.brewing]="dexterity"
+leadAttribTable[Character.tailoring]= {first = "intelligence", second = "dexterity"}
+leadAttribTable[Character.blacksmithing]= {first = "constitution", second = "dexterity"}
+leadAttribTable[Character.gemcutting]= {first = "essence", second = "dexterity"}
+leadAttribTable[Character.carpentry]= {first = "willpower", second = "dexterity"}
+leadAttribTable[Character.cookingAndBaking]= {first = "perception", second = "dexterity"}
+leadAttribTable[Character.finesmithing]= {first = "essence", second = "dexterity"}
+leadAttribTable[Character.glassBlowing]= {first = "willpower", second = "dexterity"}
+leadAttribTable[Character.pottery]= {first = "agility", second = "dexterity"}
+leadAttribTable[Character.armourer]= {first = "strength", second = "dexterity"}
+leadAttribTable[Character.brewing]= {first = "perception", second = "dexterity"}
 
 --Dexterity: Instruments (please remove these skills in future)
 leadAttribTable[Character.harp]="dexterity"
@@ -2283,15 +2283,15 @@ leadAttribTable[Character.horn]="dexterity"
 leadAttribTable[Character.flute]="dexterity"
 leadAttribTable[Character.lute]="dexterity"
 
---Constitution: All gathering skills
-leadAttribTable[Character.herblore]="constitution"
-leadAttribTable[Character.mining]="constitution"
-leadAttribTable[Character.fishing]="constitution"
-leadAttribTable[Character.farming]="constitution"
-leadAttribTable[Character.woodcutting]="constitution"
-leadAttribTable[Character.tanningAndWeaving]="constitution"
-leadAttribTable[Character.husbandry]="constitution"
-leadAttribTable[Character.digging]="constitution"
+--Constitution: All gathering skills have it as their second attrib, with varying first attribs
+leadAttribTable[Character.herblore]= {first = "perception", second = "constitution"}
+leadAttribTable[Character.mining]= {first = "strength", second = "constitution"}
+leadAttribTable[Character.fishing]= {first = "intelligence", second = "constitution"}
+leadAttribTable[Character.farming]= {first = "dexterity", second = "constitution"}
+leadAttribTable[Character.woodcutting]= {first = "agility", second = "constitution"}
+leadAttribTable[Character.tanningAndWeaving]= {first = "willpower", second = "constitution"}
+leadAttribTable[Character.husbandry]= {first = "essence", second = "constitution"}
+leadAttribTable[Character.digging]= {first = "strength", second = "constitution"}
 
 --Agility: Defensive fighting skills
 leadAttribTable[Character.parry]="agility"
@@ -2349,9 +2349,16 @@ function M.GetLeadAttrib(user, Skill)
 
   local leadAttribName = M.GetLeadAttributeName(Skill)
 
+
   if leadAttribName ~= nil then
 
-    return user:increaseAttrib(leadAttribName, 0)
+    if type(leadAttribName) == "table" then --Currently only crafts/gathering have two attribs instead of one
+        local leadAttribValue1 = user:increaseAttrib(leadAttribName.first, 0) * 0.6 -- 60% of the impact dex had on its own in the past
+        local leadAttribValue2 = user:increaseAttrib(leadAttribName.second, 0) * 0.4 -- 40% of the impact dex had on its own in the past
+        return leadAttribValue1 + leadAttribValue2
+    else
+        return user:increaseAttrib(leadAttribName, 0)
+    end
 
   end
 
@@ -2370,7 +2377,13 @@ function M.GetAttributeBonus(attributeValue, range, skillName, user)
 
     if skillName then -- In this case, attributeValue is left blank and skillName/user is instead filled in to fetch the lead attribute on its own
         local leadAttribName = M.GetLeadAttributeName(skillName)
-        attributeValue = user:increaseAttrib(leadAttribName, 0)
+        if type(leadAttribName) == "table" then --Currently only crafts/gathering have two attribs instead of one
+            local leadAttribValue1 = user:increaseAttrib(leadAttribName.first, 0) * 0.6 -- 60% of the impact dex had on its own in the past
+            local leadAttribValue2 = user:increaseAttrib(leadAttribName.second, 0) * 0.4 -- 40% of the impact dex had on its own in the past
+            attributeValue = leadAttribValue1 + leadAttribValue2
+        else
+            attributeValue = user:increaseAttrib(leadAttribName, 0)
+        end
     end
 
     local bonus

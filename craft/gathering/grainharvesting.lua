@@ -57,7 +57,7 @@ function M.StartGathering(User, SourceItem, ltstate)
         return
     end
 
-    local gatheringBonus=shared.getGatheringBonus(User, toolItem)
+    local gatheringBonus=shared.getGatheringBonus(User, toolItem, Character.farming)
 
     local grainharvesting = gathering.GatheringCraft:new{LeadSkill = Character.farming, LearnLimit = 100}; -- id_271_scythe;
     grainharvesting:AddRandomPureElement(User,gathering.prob_element*gatheringBonus); -- Any pure element

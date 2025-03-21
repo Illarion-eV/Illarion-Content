@@ -391,12 +391,13 @@ local function generateQuality(user, trowel, skill)
 
     local gemBonus = gems.getGemBonus(trowel)
     local skillID
-    local leadAttribName
     local leadAttribValue
     if skill.name ~= "misc" then
         skillID = Character[skill.name]
-        leadAttribName = common.GetLeadAttributeName(skillID)
-        leadAttribValue = user:increaseAttrib(leadAttribName, 0)
+        local leadAttribNames = common.GetLeadAttributeName(skillID)
+        local leadAttribValue1 = user:increaseAttrib(leadAttribNames.first, 0) * 0.6
+        local leadAttribValue2 = user:increaseAttrib(leadAttribNames.second, 0) * 0.4
+        leadAttribValue = leadAttribValue1 + leadAttribValue2
     else
         leadAttribValue = user:increaseAttrib("dexterity", 0)
     end

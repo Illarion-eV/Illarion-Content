@@ -54,7 +54,7 @@ end
 
 function M.StartGathering(user, sourceAnimal, actionState)
 
-    local gatheringBonus = shared.getGatheringBonus(user, nil)
+    local gatheringBonus = shared.getGatheringBonus(user, nil, Character.husbandry)
 
     local milking = gathering.GatheringCraft:new{LeadSkill = Character.husbandry, LearnLimit = 100}
 

@@ -21,9 +21,9 @@ local globalvar = require("base.globalvar")
 
 local M = {}
 
-function M.increaseTreasureChance(user, toolItem)
+function M.increaseTreasureChance(user, toolItem, skill)
 
-    local gatheringBonus = sharedCraft.getGatheringBonus(user, toolItem) * 4.5
+    local gatheringBonus = sharedCraft.getGatheringBonus(user, toolItem, skill) * 4.5
 
     local chance = {min = 0.00025*(1 + gatheringBonus), bonus = 0.00075*(1 + gatheringBonus)}
 

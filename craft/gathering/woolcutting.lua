@@ -34,7 +34,7 @@ function M.StartGathering(User, SourceAnimal, ltstate)
         return
     end
 
-    local gatheringBonus=shared.getGatheringBonus(User, toolItem)
+    local gatheringBonus=shared.getGatheringBonus(User, toolItem, Character.tanningAndWeaving)
 
     local woolcutting = gathering.GatheringCraft:new{LeadSkill = Character.tanningAndWeaving, LearnLimit = 100}; -- id_6_scissors
     woolcutting:AddRandomPureElement(User,gathering.prob_element*gatheringBonus); -- Any pure element
