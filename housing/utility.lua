@@ -2049,21 +2049,26 @@ function M.propertyInformation(user, deed)
 
         local rankText = {english = "", german = ""}
 
-        if rank then
+        if rank and town ~= "Troll's Haven" then
             rankText.english = " Renting this property requires at minimum the rank of "..rank.."."
             rankText.german = " Um dieses Grundstück mieten zu können, müsst ihr zumindest "..rankDE.." sein."
+        end
+
+        local shouldYouWish = { english = " Should you wish to rent this property, please seek out the Quartermaster or one of your "
+        ..townLeaderTitle.."s.\n~Signed, "..signatureEN , german = " Solltest du dieses Grundstück mieten wollen, wende dich an den Quartiermeister oder melde \z
+        dich bei der "..townLeaderTitleDE.."\n~Unterzeichnet, "..signatureDE }
+
+        if town == "Troll's Haven" then
+            shouldYouWish.english = " If you want to rent this room, I'll take payment up front. \n ~Signed, Half-hung Bryan"
+            shouldYouWish.german = " Wenn du dieses Zimmer mieten willst, nehme ich die Bezahlung im Voraus. /n ~Gezeichnet, Halbgehängter Bryan"
         end
 
         retText = M.getText(user,
         "Ihr könnt nun die "..propertyDE..
         " zum Preis von "..rentDE..
-        " mieten."..rankText.german.." Solltest du dieses Grundstück mieten wollen, wende dich an den Quartiermeister oder melde \z
-        dich bei der "..townLeaderTitleDE..
-        "~Unterzeichnet, "..signatureDE,
+        " mieten."..rankText.german..shouldYouWish.german,
         "It is now possible to rent the "..property..
-        " at a price of "..rent..rankText.english..
-        " Should you wish to rent this property, please seek out the Quartermaster or one of your "
-        ..townLeaderTitle.."s.\n~Signed, "..signatureEN)
+        " at a price of "..rent..rankText.english..shouldYouWish.english)
     elseif M.checkOwner(deed) == user.id then -- Shows info specific for when property is owned by user
 
         local germanText
@@ -2077,15 +2082,24 @@ function M.propertyInformation(user, deed)
             timeLeftDe = " zu Beginn des nächsten Monats aus."
         end
 
+        local additionalConcerns = { english =
+        "\nFor additional questions or concerns, please seek out the Quartermaster or one of \z
+        your "..townLeaderTitle..
+        "s.\n~Signed, "..signatureEN,
+        german = "\nFür weitere Fragen oder Anmerkungen, wende dich an den Quartiermeister oder melde dich \z
+        bei der "..townLeaderTitleDE..".\n~Unterzeichnet, "..signatureDE}
+
+        if town == "Troll's Haven" then
+            additionalConcerns = {english = " ", german = " "} --Bryan doesnt care if you have concerns, he got paid up front anyways
+        end
+
         local germanDefault = "An den aktuellen Bewohner von "..propertyDE..",\n die derzeitige Miete beträgt "..rentDE..
-        "\n Ohne zusätzliche Zahlungen, läuft das aktuelle Mietverhältnis "..timeLeftDe.."\nFür weitere Fragen oder Anmerkungen, wende dich an den Quartiermeister oder melde dich \z
-        bei der "..townLeaderTitleDE..
-        ".\n~Unterzeichnet, "..signatureDE
+        "\n Ohne zusätzliche Zahlungen, läuft das aktuelle Mietverhältnis "..timeLeftDe..additionalConcerns.german
+
         local englishDefault = "To the current inhabitant of "..property..
         ",\nLet it be known that you are expected to pay a rent of "..rent..
-        " Without additional payments, your current lease expires"..timeLeft.."\nFor additional questions or concerns, please seek out the Quartermaster or one of \z
-        your "..townLeaderTitle..
-        "s.\n~Signed, "..signatureEN
+        " Without additional payments, your current lease expires"..timeLeft..additionalConcerns.english
+
 
         local indefiniteRent = deed:getData("indefiniteRent")
         local freeRent = false
@@ -2094,12 +2108,8 @@ function M.propertyInformation(user, deed)
             freeRent = true
         end
 
-        local englishFreeRent = "To the current inhabitant of "..property..",\n Let it be known that you are currently not expected to pay rent.\nFor additional questions or concerns, please seek out the Quartermaster or one of \z
-        your "..townLeaderTitle..
-        "s.\n~Signed, "..signatureEN
-        local germanFreeRent = "An den aktuellen Bewohner von"..propertyDE..",\n ihr wohnt von nun an mietfrei.\nFür weitere Fragen oder Anmerkungen, wende dich an den Quartiermeister oder melde dich \z
-        bei der "..townLeaderTitleDE..
-        ".\n~Unterzeichnet, "..signatureDE
+        local englishFreeRent = "To the current inhabitant of "..property..",\n Let it be known that you are currently not expected to pay rent."..additionalConcerns.english
+        local germanFreeRent = "An den aktuellen Bewohner von"..propertyDE..",\n ihr wohnt von nun an mietfrei."..additionalConcerns.german
 
         if not freeRent then
             germanText = germanDefault
@@ -2111,15 +2121,23 @@ function M.propertyInformation(user, deed)
 
         retText = M.getText(user, germanText, englishText)
     else -- Shows info specific for when property is owned but not by user.
-        retText = M.getText(user,
-        "Dieses Grundstück wird aktuell gemietet von "..tenant..
-        ". Solltest du irgendwelche Bedenken haben oder ein freies Grundstück mieten wollen, wende dich bitte an \z
-        den Quartiermeister oder melde dich bei der "..townLeaderTitleDE..
-        ".\nUnterzeichnet, "..signatureDE,
-        "This property is currently being leased to "..tenant..
-        ". Should you have any concerns, or wish to rent a property that is currently available, please \z
-        seek out the Quartermaster or one of your "..townLeaderTitle..
-        "s.\n~Signed, "..signatureEN)
+        if town ~= "Troll's Haven" then
+            retText = M.getText(user,
+            "Dieses Grundstück wird aktuell gemietet von "..tenant..
+            ". Solltest du irgendwelche Bedenken haben oder ein freies Grundstück mieten wollen, wende dich bitte an \z
+            den Quartiermeister oder melde dich bei der "..townLeaderTitleDE..
+            ".\nUnterzeichnet, "..signatureDE,
+            "This property is currently being leased to "..tenant..
+            ". Should you have any concerns, or wish to rent a property that is currently available, please \z
+            seek out the Quartermaster or one of your "..townLeaderTitle..
+            "s.\n~Signed, "..signatureEN)
+        elseif town == "Troll's Haven" then
+
+            local germanText = "Dieses Zimmer ist derzeit an "..tenant.." vermietet. Sprich mit Halbgehängtem Bryan, wenn du anbieten möchtest, eine höhere Miete als er zu zahlen."
+            local englishText = "This room is currently being leased to "..tenant..". Talk to half-hung Bryan if you want to offer to pay a higher rent than they do for the room."
+
+            retText = M.getText(user, germanText, englishText)
+        end
     end
 
     return retText

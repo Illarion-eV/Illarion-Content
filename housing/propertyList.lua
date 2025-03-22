@@ -75,7 +75,12 @@ M.propertyTable = {
     {"Oldra Estate", "Grundstück Oldra",position(841,884,0),200000, 2558,253, "Runewick","7",factions.RunewickRankListMale[7]["eRank"],factions.RunewickRankListMale[7]["gRank"], true},
     {"Merryglade Estate", "Grundstück Merryglade",position(834,728,0),200000, 2558,254, "Runewick","7",factions.RunewickRankListMale[7]["eRank"],factions.RunewickRankListMale[7]["gRank"], true},
     --Outlaw
-    {"Pauldron Estate", "Grundstück Schulterplatte",position(213,97,0),200000,2558,504,"Outlaw","0","None","None", true}
+    {"Pauldron Estate", "Grundstück Schulterplatte",position(213,97,0),200000,2558,504,"Outlaw","0","None","None", true},
+    -- Hemptie
+    {"Troll's Bane", "Troll's Bane", position(698, 312, 1), 100000, 2558, 401, "Troll's Haven", "0", "None", "None", false},
+    {"Silverbrand", "Silverbrand", position(698, 322, 1), 100000, 2558, 402, "Troll's Haven", "0", "None", "None", false},
+    {"Greenbriar", "Greenbriar", position(708, 316, 1), 100000, 2558, 405, "Troll's Haven", "0", "None", "None", false},
+    {"Varshikar", "Varshikar", position(704, 316, 1), 100000, 2558, 404, "Troll's Haven", "0", "None", "None", false}
     }
 
 M.properties = {}
@@ -170,5 +175,11 @@ table.insert(M.properties, {name = "Merryglade Estate", lower = position(821,716
 --Outlaw
 table.insert(M.properties, {name = "Pauldron Estate", lower = position(967,343,0), upper = position(983,362,2), estate = true, outlaw = true})
 table.insert(M.properties, {name = "Pauldron Estate", lower = position(967,343,-21), upper = position(983,362,-21), estate = true, outlaw = true})
+
+-- Troll's Haven Hemp Necktie Inn rooms
+table.insert(M.properties, {name = "Troll's Bane", lower = position(699, 307, 1), upper = position(705 ,315, 1), estate = false, outlaw = false})
+table.insert(M.properties, {name = "Silverbrand", lower = position(699, 319, 1), upper = position(705, 327, 1), estate = false, outlaw = false})
+table.insert(M.properties, {name = "Greenbriar", lower = position(706, 306, 1), upper = position(711, 315, 1), estate = false, outlaw = false})
+table.insert(M.properties, {name = "Varshikar", lower = position(706, 319, 1), upper = position(711,327,1), estate = false, outlaw = false})
 
 return M
