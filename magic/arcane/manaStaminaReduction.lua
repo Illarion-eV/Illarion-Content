@@ -27,7 +27,7 @@ local scaling
     else
         scaling = earthTrap:getData("scaling")
     end
-local baseManaToReduce = 200
+local baseManaToReduce = 400
 return baseManaToReduce*scaling
 end
 
