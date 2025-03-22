@@ -38,7 +38,7 @@ local function checkForPrimaryRunes(user, spokenWords)
 
     for i = 1, 5 do
 
-        found = string.find(spokenWords, "(^|[%s%p])"..runes.runeNumberToName(i).."(^|[%s%p])")
+        found = string.find(spokenWords, "%f[%a]"..runes.runeNumberToName(i).."%f[%A]")
 
         if found then
             local knowsRune = runes.checkIfLearnedRune(user, false, i, "isQuest", false, false)
