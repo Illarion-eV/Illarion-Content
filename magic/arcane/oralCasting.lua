@@ -26,9 +26,7 @@ local function checkForPrimaryRunes(user, spokenWords)
 
     local BHONA = 6
 
-    local pattern = "(^%s*" .. runes.runeNumberToName(BHONA) .. "%s*$)|(%s" .. runes.runeNumberToName(BHONA) .. "%s)|(%s" .. runes.runeNumberToName(BHONA) .. "%p)|(^" .. runes.runeNumberToName(BHONA) .. "%s)|(%s" .. runes.runeNumberToName(BHONA) .. "$)"
-
-    local found = string.find(spokenWords, pattern)
+    local found = string.find(spokenWords, runes.runeNumberToName(BHONA))
 
         if found then
             local knowsRune = runes.checkIfLearnedRune(user, false, BHONA, "isQuest", false, false)
@@ -40,10 +38,7 @@ local function checkForPrimaryRunes(user, spokenWords)
 
     for i = 1, 5 do
 
-        pattern = "(^%s*" .. runes.runeNumberToName(i) .. "%s*$)|(%s" .. runes.runeNumberToName(i) .. "%s)|(%s" .. runes.runeNumberToName(i) .. "%p)|(^" .. runes.runeNumberToName(i) .. "%s)|(%s" .. runes.runeNumberToName(i) .. "$)"
-
-
-        found = string.find(spokenWords, pattern)
+        found = string.find(spokenWords, "(^|[%s%p])"..runes.runeNumberToName(i).."(^|[%s%p])")
 
         if found then
             local knowsRune = runes.checkIfLearnedRune(user, false, i, "isQuest", false, false)
