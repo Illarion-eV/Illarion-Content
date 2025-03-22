@@ -43,7 +43,7 @@ local rune
     elseif URA then
         rune = "URA"
     end
-local amountStolen = 50
+local amountStolen = 300
 
     for _, target in pairs(targets.targets) do
         local scaling = effectScaling.getEffectScaling(user, target, spell)
@@ -51,7 +51,7 @@ local amountStolen = 50
         if JUS then
             if rune then
                 if magicDamage.checkIfRaceBonus(target, rune) then
-                    amountStolen = amountStolen + (amountStolen/2)
+                    amountStolen = amountStolen*1.5
                 end
             end
             if ORL then

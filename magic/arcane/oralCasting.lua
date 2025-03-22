@@ -26,7 +26,7 @@ local function checkForPrimaryRunes(user, spokenWords)
 
     local BHONA = 6
 
-    local found = string.find(spokenWords, runes.runeNumberToName(BHONA))
+    local found = string.find(spokenWords, "%f[%a]" ..runes.runeNumberToName(BHONA).. "%f[%A]")
 
         if found then
             local knowsRune = runes.checkIfLearnedRune(user, false, BHONA, "isQuest", false, false)
@@ -38,7 +38,7 @@ local function checkForPrimaryRunes(user, spokenWords)
 
     for i = 1, 5 do
 
-        found = string.find(spokenWords, runes.runeNumberToName(i))
+        found = string.find(spokenWords, "%f[%a]"..runes.runeNumberToName(i).."%f[%a]")
 
         if found then
             local knowsRune = runes.checkIfLearnedRune(user, false, i, "isQuest", false, false)
