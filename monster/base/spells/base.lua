@@ -51,7 +51,7 @@ function M.dealMagicDamage(target, damage, usedMovepoints, level, monster)
         target = monster --The monster becomes the new target as the spell damage is deflected
         damage = math.min(damage, 1000) -- It shouldn't be possible to luck into killing off a max skill chara with a no skill character!
     elseif character.IsPlayer(target) then
-        arcaneMagicDamage.learnMagicResistance(target, usedMovepoints/3, level+20) -- Since monster magic uses movepoints instead of cast time, we scale the learning based on that similar to how fighting does it by dividing it by three
+        arcaneMagicDamage.learnMagicResistance(target, usedMovepoints, level+20) -- Since monster magic uses movepoints instead of cast time, we scale the learning based on that similar to how fighting does it by dividing it by three
     end
 
 
