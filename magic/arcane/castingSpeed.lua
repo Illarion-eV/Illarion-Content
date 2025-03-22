@@ -21,13 +21,13 @@ local M = {}
 
 M.tan = {}
 
-function M.castingSpeedByRuneSize(size)
+function M.castingSpeedByRuneSize(size) --The below are added to a base of 1 second which is in reality 1.5 second as a short cast primary rune is always required
     if size == "Short" then
-        return 15 -- 1.5 seconds
+        return 5 -- 0.5 seconds
     elseif size == "Medium" then
-        return 20 -- 2 seconds
+        return 10 -- 1 seconds
     elseif size == "Long" then
-        return 25 -- 2.5 seconds
+        return 15 -- 1.5 seconds
     end
 end
 
@@ -56,7 +56,7 @@ end
 
 function M.arcaneSpellCastSpeed(user, spell, skipTan) -- Should return total cast time required to cast a spell
 
-    local castSpeed = 0
+    local castSpeed = 10
 
     for _, rune in pairs(runes.runes) do
         if runes.checkIfLearnedRune(nil, nil, rune.id, nil, nil, spell) then
