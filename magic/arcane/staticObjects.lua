@@ -21,13 +21,17 @@ local antiTroll = require("magic.base.antiTroll")
 
 local M = {}
 
-function M.durationInfluence(user, target, spell)
-local retVal = 0
-local scaling = effectScaling.getEffectScaling(user, target, spell)
+function M.durationInfluence(user, target, spell, baseWear)
+
+    local scaling = effectScaling.getEffectScaling(user, target, spell)
+
+    local wear = baseWear * scaling
+
     if runes.checkSpellForRuneByName("SUL",spell) then
-        retVal = retVal + 120 -- 2 minutes
+        wear = wear + 1 -- 3 minutes added by SUL
     end
-return retVal*scaling
+
+    return wear
 end
 
 local function checkIfNeedAnth(targetType)
@@ -76,19 +80,12 @@ return objectID
 end
 
 function M.getWearBasedOnDuration(user, target, spell)
-local wearInSeconds = 180
-local baseDuration = wearInSeconds*2 --A flame at base duration will last between 3-6 minutes
-local durationInf = M.durationInfluence(user, target, spell)
-local maxDuration = wearInSeconds*10 --A flame will at most last between 27-30 minutes
-local duration = baseDuration+durationInf
-    if duration > maxDuration then
-        duration = maxDuration
-    end
-local wear = duration/wearInSeconds
-    if wear >= 255 then
-        wear = 254
-    end
-return math.floor(wear)
+
+    local baseWear = 2 -- 3-6 min, base cant be 1 as with bad luck it could be 0-3 min
+    local wear = M.durationInfluence(user, target, spell, baseWear)
+    local maxWear = 10 --A flame will at most last between 27-30 minutes
+
+    return math.min(maxWear, math.max(baseWear, wear))
 end
 
 function M.spawnStaticObjects(user, targets, spell, level)
