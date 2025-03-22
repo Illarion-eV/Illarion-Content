@@ -1376,19 +1376,13 @@ function M.getPropertyLocationIsPartOf(location)
     return false
 end
 
-function M.clearStakePosition(selectedPosition)
+function M.placeStakeOnPosition(selectedPosition)
     local field = world:getField(selectedPosition)
     local itemsOnField = field:countItems()
-    while itemsOnField >= 1 do
-        local chosenItem = field:getStackItem(itemsOnField - 1 )
-        world:erase(chosenItem, chosenItem.number)
-        itemsOnField = field:countItems()
+    if itemsOnField >= 1 then -- only place on empty tiles, this way we avoid ruining what someone built if their lease expires
+        return
     end
-end
-
-function M.placeStakeOnPosition(selectedPosition)
     local handrail = 3601
-    M.clearStakePosition(selectedPosition)
     local name = {english = "Property Lot Stake", german = "Grenzstein"}
     local description = {english = "A stake marking the corner of the boundary for a property lot.", german = "Ein Grenzstein, der ein Grundstück absteckt."}
     local theStake = world:createItemFromId(handrail, 1, selectedPosition, true, 999, {nameEn = name.english, nameDe = name.german, descriptionEn = description.english, descriptionDe = description.german})
