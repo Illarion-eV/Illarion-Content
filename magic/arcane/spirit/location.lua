@@ -32,7 +32,7 @@ M.directionsList = {
 
 M.locationTexts = {
     {english = "Target's position is ", german = "Die Position deines Ziels ist "},
-    {english = " steps to the ", german = "Schritte in Richtung"},
+    {english = " steps to the ", german = " Schritte in Richtung "},
     }
 
 function M.getDirectionRelativeToUser(user, target)
