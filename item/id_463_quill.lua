@@ -22,11 +22,14 @@ local magicDesk = require("magic.arcane.arcaneMagicDesk")
 local lookat = require("base.lookat")
 local parchmentScript = require("item.id_2745_parchment")
 local bookWriting = require("item.base.bookWriting")
+local grimoire = require("magic.arcane.grimoireCreation")
 
 local wood = require("item.general.wood")
 
 
 local M = {}
+
+local copyBookOrParchment
 
 M.LookAtItem = wood.LookAtItem
 
@@ -78,11 +81,15 @@ local function checkIfBookInHand(user, sourceItem)
 
     for _, currentBook in pairs(bookList) do
         if currentBook == book.id then
+            if book.number > 1 then
+                user:inform("Du kannst nur in einem Buch gleichzeitig schreiben.", "You can only write in one book at a time.")
+                return false
+            end
             return book
         end
     end
 
-    user:inform("Du brauchst ein Buch in der Hand, wenn du eines beschriften möchtest.","You need a book in your hand if you want to label one.")
+    user:inform("Du brauchst ein Buch in der Hand, wenn du es beschriften oder darin schreiben möchtest.","You need a book in your hand if you want to label or write in one.")
 
     return false
 end
@@ -390,6 +397,131 @@ local function checkIfMagicDeskInFrontOfuser(user)
     return false
 end
 
+local function getLeftgetRight(user)
+
+    local leftHand = user:getItemAt(Character.left_tool)
+    local rightHand = user:getItemAt(Character.right_tool)
+
+    return leftHand, rightHand
+end
+
+local function checkForRequiredItem(user, parchmentOrBook)
+
+    if parchmentOrBook.id == Item.parchment and (common.IsNilOrEmpty(parchmentOrBook:getData("writtenText")) and parchmentOrBook:getData("alchemyRecipe") ~= "true") then
+        user:inform("Das Pergament muss beschrieben sein.", "The parchment must be written on.")
+        return
+    end
+
+    if parchmentOrBook.id ~= Item.parchment and common.IsNilOrEmpty(parchmentOrBook:getData("pageCount")) and common.IsNilOrEmpty(parchmentOrBook:getData("book")) then
+        user:inform("Das Buch muss beschrieben sein.", "The book must have been written in.")
+        return
+    end
+
+    local availableParchmentBooks = user:countItemAt("all", parchmentOrBook.id, {})
+
+    if availableParchmentBooks <= 0 then
+        local commonItem = world:getItemStatsFromId(parchmentOrBook.id)
+        user:inform("Du benötigst ein leeres "..commonItem.German..", um den geschriebenen Inhalt zu kopieren.", "You need an empty "..commonItem.English.." to copy the written content over to.")
+        return
+    end
+
+    if parchmentOrBook.id == Item.parchment then
+
+        user:eraseItem(parchmentOrBook.id, 1, {})
+        parchmentOrBook.number = parchmentOrBook.number + 1
+        world:changeItem(parchmentOrBook)
+        user:inform("Du machst eine Kopie des Geschriebenen auf dem Pergament und überträgst es auf ein neues.", "You make a copy of what is written on the parchment onto a new one.")
+        copyBookOrParchment(user)
+        return
+    end
+
+    local parchments = user:countItemAt("all", Item.parchment, {})
+
+    local needed = 10 -- Just a base number for non-player-books to be copied as we cant access the number of pages there
+
+    local pageCount = parchmentOrBook:getData("pageCount")
+
+    if not common.IsNilOrEmpty(pageCount) then
+        needed = tonumber(pageCount)
+    end
+
+    if parchments < needed then
+        user:inform("Du benötigst "..needed.." leere Pergamente, um das Buch zu kopieren." ,"You need "..needed.." empty parchments to copy the book.")
+        return
+    end
+
+    user:eraseItem(parchmentOrBook.id, 1, {})
+    user:eraseItem(Item.parchment, needed, {})
+    parchmentOrBook.number = parchmentOrBook.number + 1
+    world:changeItem(parchmentOrBook)
+    user:inform("Du machst eine Kopie des Inhalts des Buches.", "You make a copy of the books content.")
+    copyBookOrParchment(user)
+end
+
+local function copyBook(user)
+
+    local books = grimoire.books
+
+    local leftHand, rightHand = getLeftgetRight(user)
+
+    local theBook = false
+
+    for _, book in pairs(books) do
+        if leftHand.id == book then
+            theBook = leftHand
+        elseif rightHand.id == book then
+            theBook = rightHand
+        end
+    end
+
+    if not theBook or not (leftHand.id == Item.quill or rightHand.id == Item.quill) then
+        user:inform("Du musst das Buch, das du kopieren möchtest, in einer Hand und eine Feder in der anderen halten.", "You must hold the book you wish to copy in one hand, and a quill in the other.")
+    else
+        checkForRequiredItem(user, theBook)
+    end
+
+end
+
+local function copyParchment(user)
+
+    local leftHand, rightHand = getLeftgetRight(user)
+
+    if leftHand.id == Item.quill and rightHand.id == Item.parchment then
+        checkForRequiredItem(user, rightHand)
+    elseif leftHand.id == Item.parchment and rightHand.id == Item.quill then
+        checkForRequiredItem(user, leftHand)
+    else
+        user:inform("Du musst das zu kopierende Pergament in einer Hand und eine Feder in der anderen halten.", "You must hold the parchment to be copied in one hand and a quill in the other.")
+    end
+
+end
+
+function copyBookOrParchment(user)
+
+    local callback = function(dialog)
+        local success = dialog:getSuccess()
+
+        if not success then
+            return
+        end
+
+        local selected = dialog:getSelectedIndex()+1
+
+        if selected == 1 then
+            copyBook(user)
+        elseif selected == 2 then
+            copyParchment(user)
+        end
+    end
+
+    local dialog = SelectionDialog(getText(user,"Schreibfeder","Quill") , getText(user,"Wähle aus, was du machen willst.","Select what you want to do.") , callback)
+
+    dialog:addOption(0, getText(user, "Buch kopieren", "Copy a book"))
+    dialog:addOption(0, getText(user, "Pergament kopieren", "Copy a parchment"))
+
+    user:requestSelectionDialog(dialog)
+end
+
 function M.UseItem(user, sourceItem, ltstate)
 
     local magicDeskFound = checkIfMagicDeskInFrontOfuser(user)
@@ -456,7 +588,11 @@ function M.UseItem(user, sourceItem, ltstate)
                     SignParchment(user,sourceItem)
                 end
             elseif selected == 7 then
-                bookWriting.writeBook(user, sourceItem)
+                if checkIfBookInHand(user, sourceItem) then
+                    bookWriting.writeBook(user, sourceItem)
+                end
+            elseif selected == 9 then
+                copyBookOrParchment(user)
             end
         end
     end
@@ -470,7 +606,7 @@ function M.UseItem(user, sourceItem, ltstate)
     dialog:addOption(0, getText(user,"Pergament unterschreiben","Sign a parchment"))
     dialog:addOption(0, getText(user, "Buch verfassen", "Author a book"))
     dialog:addOption(0, getText(user,"Buch beschriften","Label a book"))
-
+    dialog:addOption(0, getText(user, "Buch oder Pergament kopieren", "Copy a book or parchment"))
     user:requestSelectionDialog(dialog)
 end
 
