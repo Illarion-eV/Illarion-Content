@@ -268,6 +268,11 @@ function signBook(user, book)
 
     book:setData("bookPermissions", user.id)
     book:setData("bookAuthor", user.name)
+    local creator =  book:getData("craftedBy")
+
+    if not common.IsNilOrEmpty(creator) and creator ~= user.name then
+        lookat.UnsetItemCraftedBy(book)
+    end
 
     world:changeItem(book)
 
