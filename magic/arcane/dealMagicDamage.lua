@@ -162,7 +162,7 @@ function M.dealMagicDamage(user, target, spell, damage, level, DoT, castTime)
         foodReduction = foodReduction*6 --There's 10k mana/health but 60k food
         target:increaseAttrib("foodlevel", -foodReduction)
         target:talk(Character.say, "#me loses "..foodReduction.." stamina.")
-
+    else
         character.ChangeHP(target, -damage)
     end
 
