@@ -240,6 +240,10 @@ local function showTemporaryPreviewOfItem(productId, user, isTile, above)
         return
     end
 
+    if field:tile() == 0 then --Putting an item on tile 0 will cause a buggy ? to pop up and not go away
+        return
+    end
+
     if not utility.wallWindowPermissions(user, frontPos, productId, isTile) or utility.checkIfEntrance(user, frontPos, isTile) then
         return
     end
@@ -519,6 +523,10 @@ local function createItem(user, product, trowel, skill)
             end
         else
             remnantItemsToCreate = eraseIngredients(user, product)
+            local field = world:getField(target)
+            if field:tile() == 0 then
+                world:changeTile(34, target) --To prevent buggy ? tiles if you want to have something like a floating handrail at the edge of the nearby tile.
+            end
             local targetItem = world:createItemFromId(product.id, product.quantity, target, true, quality, nil)
             targetItem.wear = 255
             world:changeItem(targetItem)
