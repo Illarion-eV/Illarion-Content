@@ -47,7 +47,7 @@ function M.instantLifeOrManaSteal(user, targets, spell, ORL)
         rune = "URA"
     end
 
-    local amountStolen = 350 -- RA IRA is 700, so for RA IRA to not be useless this needs to be lower as it has a second effect of giving you mana
+    local amountStolen = 525 -- RA IRA is 700, so for RA IRA to not be useless this needs to be lower as it has a second effect of giving you mana
 
     for _, target in pairs(targets.targets) do
         local scaling = effectScaling.getEffectScaling(user, target, spell)
