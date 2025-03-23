@@ -19,6 +19,7 @@ local character = require("base.character")
 local runes = require("magic.arcane.runes")
 local magicDamage = require("magic.arcane.magicDamage")
 local effectScaling = require("magic.arcane.effectScaling")
+local mana = require("magic.arcane.mana")
 
 local M = {}
 
@@ -29,13 +30,15 @@ local texts = {
 }
 
 function M.instantLifeOrManaSteal(user, targets, spell, ORL)
-local JUS = runes.checkSpellForRuneByName("JUS", spell)
-local IRA = runes.checkSpellForRuneByName("IRA", spell)
-local SIH = runes.checkSpellForRuneByName("SIH", spell)
-local YEG = runes.checkSpellForRuneByName("YEG", spell)
-local URA = runes.checkSpellForRuneByName("URA", spell)
-local TAUR = runes.checkSpellForRuneByName("TAUR", spell)
-local rune
+
+    local JUS = runes.checkSpellForRuneByName("JUS", spell)
+    local IRA = runes.checkSpellForRuneByName("IRA", spell)
+    local SIH = runes.checkSpellForRuneByName("SIH", spell)
+    local YEG = runes.checkSpellForRuneByName("YEG", spell)
+    local URA = runes.checkSpellForRuneByName("URA", spell)
+    local TAUR = runes.checkSpellForRuneByName("TAUR", spell)
+    local rune
+
     if YEG then
         rune = "YEG"
     elseif TAUR then
@@ -43,7 +46,8 @@ local rune
     elseif URA then
         rune = "URA"
     end
-local amountStolen = 300
+
+    local amountStolen = 350 -- RA IRA is 700, so for RA IRA to not be useless this needs to be lower as it has a second effect of giving you mana
 
     for _, target in pairs(targets.targets) do
         local scaling = effectScaling.getEffectScaling(user, target, spell)
@@ -63,12 +67,43 @@ local amountStolen = 300
                 user:inform(texts.health.german, texts.health.english)
             end
             if IRA then
+
+                local increase = amountStolen -- For PvP it is the same value
+
+                if target:getType() == Character.monster then --Monsters have no mana to steal, so you only get half the effect. To compensate we double the mana regen.
+                    increase = increase*2
+                    --[[
+                    This poses a dilemma, however. We could end up with a situation where you want to drag around a low level mob as a
+                    "mana battery". So the returned mana must always be lower than or equal to the spells cost in PvE.
+                    As such, a maximum cap of the spells mana cost must be in place. After all, mana potions need to still be useful
+                    and there shouldnt be a way to speed up mana regen without them. All JUS IRA spells will do is increase your
+                    up time in PvE scenarios. That does mean it is pointless to cast only JUS IRA, but it will be useful to weave into
+                    other spells. Instead, in PvE the purpose of JUS IRA becomes to reduce the cost of the total spell in exchange for
+                    a longer cast time and thus increasing your active time.
+                    ]]
+                    local manaCost = mana.arcaneSpellCost(user, spell)
+
+                    if manaCost < increase then
+                        increase = manaCost
+                    end
+
+                end
+
+                if target:getType() == Character.player then
+                    if target:increaseAttrib("mana", 0) < increase then -- This way a friend can not be used as an infinite mana battery
+                        increase = target:increaseAttrib("mana", 0)
+                    end
+                end
+
                 if target:increaseAttrib("mana", 0) > amountStolen then
                     target:increaseAttrib("mana", -amountStolen)
+                    target:talk(Character.say, "#me loses "..amountStolen.." mana.")
                 else
+                    target:talk(Character.say, "#me loses "..target:increaseAttrib("mana", 0).." mana.")
                     target:increaseAttrib("mana", 0)
                 end
-                user:increaseAttrib("mana", amountStolen)
+                user:increaseAttrib("mana", increase)
+                user:talk(Character.say, "#me gains "..increase.." mana.")
                 user:inform(texts.mana.german, texts.mana.english)
             end
         end
