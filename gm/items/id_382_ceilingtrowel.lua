@@ -90,30 +90,15 @@ function M.changeRankOnLogin(user)
             if foundAdmin and foundName and foundRankName then
                 if name == user.name then
                     local rankNumber = tonumber(rank)
-                    local points
                     if rankNumber == 1 then
-                        points = 0
+                        factions.setSpecialRank(user, 0)
                     elseif rankNumber == 2 then
-                        points = 100
+                        factions.setSpecialRank(user, 8)
                     elseif rankNumber == 3 then
-                        points = 200
+                        factions.setSpecialRank(user, 9)
                     elseif rankNumber == 4 then
-                        points = 300
-                    elseif rankNumber == 5 then
-                        points = 400
-                    elseif rankNumber == 6 then
-                        points = 500
-                    elseif rankNumber == 7 then
-                        points = 600
-                    elseif rankNumber == 8 then
-                        points = 700
-                    elseif rankNumber == 9 then
-                        points = 800
-                    elseif rankNumber == 10 then
-                        points = 900
+                        factions.setSpecialRank(user, 10)
                     end
-                    factions.setRankpoints(user, points)
-                    factions.setSpecialRank(user, tonumber(rank))
                     ScriptVars:remove("SRCnumber"..i)
                     ScriptVars:remove("SRCplayerName"..i)
                     ScriptVars:remove("SRCadminName"..i)
@@ -143,8 +128,7 @@ local function scheduledChangeOfRank(targetName, rankNumber, rankName, adminName
 end
 
 local function scheduledRankSelection(user, input)
-    local rankNames = {"Tramp/Novice/Serf","Assistant/Apprentice/Bondsman","Pedlar/Student/Servant","Grocer/Scholar/Yeoman","Merchant/Master/Page",
-                    "Financier/Doctor/Squire","Patrician/Docent/Knight","Mogul/Professor/Baron", "Magnate/Dean/Count", "Tycoon/Rector/Duke"}
+    local rankNames = {"Remove special rank", "Mogul/Professor/Baron", "Magnate/Dean/Count", "Tycoon/Rector/Duke"}
     local callback = function (dialog)
         if not dialog:getSuccess() then
             return
