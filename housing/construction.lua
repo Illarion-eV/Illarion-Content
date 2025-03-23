@@ -36,7 +36,7 @@ local function loadIngredients(object)
 
     local ingredients = {}
 
-    for i = 1, 4 do
+    for i = 1, 5 do
         local ingredient = object["ingredient" .. i]
         local amount = object["ingredient".. i .. "Amount"]
         if ingredient then
