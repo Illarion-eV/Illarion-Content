@@ -1183,6 +1183,7 @@ table.insert(M.items, {itemId = 3280, typeOf = "Estate", category = "Sign Posts"
 table.insert(M.items, {itemId = 3281, typeOf = "Estate", category = "Sign Posts", skill = "blacksmithing", level = 60, ingredient1 = Item.ironIngot, ingredient1Amount = 20, ingredient2 = nil, ingredient2Amount = nil, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
 table.insert(M.items, {itemId = 3327, typeOf = "Estate", category = "Sign Posts", skill = "blacksmithing", level = 60, ingredient1 = Item.ironIngot, ingredient1Amount = 20, ingredient2 = nil, ingredient2Amount = nil, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
 table.insert(M.items, {itemId = 2831, typeOf = "House", category = "Containers", skill = "carpentry", level = 20, ingredient1 = 2716, ingredient1Amount = 20, ingredient2 = 2560, ingredient2Amount = 10, ingredient3 = 2738, ingredient3Amount = 40, ingredient4 = Item.goldCoins, ingredient4Amount = 50, ingredient5 = Item.diamond, ingredient5Amount = 10})
+table.insert(M.items, {itemId = 1392, typeOf = "House", category = "Containers", skill = "carpentry", level = 50, ingredient1 = 543, ingredient1Amount = 10, ingredient2 = 2738, ingredient2Amount = 50, ingredient3 = Item.candles, ingredient3Amount = 3, ingredient4 = Item.pureFire, ingredient4Amount = 1})
 
 
 
