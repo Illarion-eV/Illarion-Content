@@ -145,11 +145,11 @@ table.insert(M.properties, {name = "Rumil Estate", lower = position(378,359,0), 
 table.insert(M.properties, {name = "Rumil Estate", lower = position(378,359,-21), upper = position(384,364,-21), estate = true})
 
 --Cadomyr estates inside the walls
-table.insert(M.properties, {name = "Villa Annabeth", lower = position(93,610,0), upper = position(105,620,1), estate = true})
+table.insert(M.properties, {name = "Villa Annabeth", lower = position(93,610,0), upper = position(105,620,2), estate = true})
 table.insert(M.properties, {name = "Villa Annabeth", lower = position(93, 610, -21), upper = position(105, 620, -21), estate = true})
-table.insert(M.properties, {name = "Villa Edward", lower = position(85,597,0), upper = position(97,606,1), estate = true})
+table.insert(M.properties, {name = "Villa Edward", lower = position(85,597,0), upper = position(97,606,2), estate = true})
 table.insert(M.properties, {name = "Villa Edward", lower = position(85,597,-21), upper = position(97,606,-21), estate = true})
-table.insert(M.properties, {name = "Villa Reginald", lower = position(89,552,0), upper = position(98,561,0), estate = true})
+table.insert(M.properties, {name = "Villa Reginald", lower = position(89,552,0), upper = position(98,561,2), estate = true})
 table.insert(M.properties, {name = "Villa Reginald", lower = position(89,552,-21), upper = position(98,561,-21), estate = true})
 --Estates outside Cadomyr walls
 table.insert(M.properties, {name = "Cadomyr Harbour Estate", lower = position(77,772,0), upper = position(92,782,2), estate = true})
