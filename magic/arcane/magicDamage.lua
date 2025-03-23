@@ -25,6 +25,7 @@ local M = {}
 local damageList = {
 
     {rune = "RA", damage = 500, element = "Fire"},
+    {rune = "IRA", damage = 200, element = "Fire"}, --With IRA the damage is converted to mana damage instead of health
     {rune = "PHERC", damage = 750, element = "Water"},
     {rune = "PHERC", damage = 750, element = "Air"},
     {rune = "PHERC", damage = 750, element = "Earth"},
@@ -38,6 +39,7 @@ local damageList = {
 
 local damageOverTimeList = { --This damage is balanced around DoTs having 15 ticks that it is spread out over. So you would want to start with a DoT before moving onto direct damage spells when fighting high level opponents
     {rune = "PHERC", damage = 1125, element = "Fire"},
+    {rune = "IRA", damage = 375, element = "Water"}, --Damage gets converted to mana damage
     {rune = "CUN", damage = 1125, element = "Water"},
     {rune = "QWAN", damage = 1500, element = "Water"},
     {rune = "TAUR", damage = 1125, element = "Water"},

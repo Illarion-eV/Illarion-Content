@@ -103,6 +103,7 @@ function M.dealMagicDamage(user, target, spell, damage, level, DoT, castTime)
     local RA = runes.checkSpellForRuneByName("RA", spell)
     local CUN = runes.checkSpellForRuneByName("CUN", spell)
     local SIH = runes.checkSpellForRuneByName("SIH", spell)
+    local IRA = runes.checkSpellForRuneByName("IRA", spell)
 
     if DoT then castTime = castTime/15 end -- DoTs have 15 ticks, so this prevents them from giving 15 times the MR
 
@@ -128,7 +129,7 @@ function M.dealMagicDamage(user, target, spell, damage, level, DoT, castTime)
         M.learnMagicResistance(target, castTime, level)
     end
 
-    if character.IsPlayer(target) and character.WouldDie(target, damage + 1) then
+    if not IRA and character.IsPlayer(target) and character.WouldDie(target, damage + 1) then
         if character.AtBrinkOfDeath(target) then
             if target:isAdmin() then
                 chr_reg.stallRegeneration(target, 0)
@@ -145,6 +146,9 @@ function M.dealMagicDamage(user, target, spell, damage, level, DoT, castTime)
             local timeFactor = 1 -- See lte.chr_reg
             chr_reg.stallRegeneration(target, 60 / timeFactor)
         end
+    elseif (RA or CUN) and IRA then --Ira converts the damage of the spell to mana instead, allowing for high values of mana drain to compensate for the lost damage
+        target:increaseAttrib("mana", -damage)
+        target:talk(Character.say, "#me loses "..damage.." mana.")
     else
         character.ChangeHP(target, -damage)
     end

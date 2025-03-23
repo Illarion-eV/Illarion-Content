@@ -20,17 +20,6 @@ local effectScaling = require("magic.arcane.effectScaling")
 
 local M = {}
 
-function M.getManaToReduce(user, target, spell, earthTrap)
-local scaling
-    if not earthTrap then
-        scaling = effectScaling.getEffectScaling(user, target, spell)
-    else
-        scaling = earthTrap:getData("scaling")
-    end
-local baseManaToReduce = 400
-return baseManaToReduce*scaling
-end
-
 function M.getStaminaToReduce(user, target, spell, earthTrap)
 local scaling
     if not earthTrap then
@@ -42,17 +31,10 @@ local baseStaminaToReduce = 1000
 return baseStaminaToReduce*scaling
 end
 
-local function applyReduceManaOrStamina(user, target, mana, stamina, increase, spell, earthTrap)
-local manaToReduce = M.getManaToReduce(user, target, spell, earthTrap)
+local function applyReduceManaOrStamina(user, target, stamina, increase, spell, earthTrap)
+
 local staminaToReduce = M.getStaminaToReduce(user, target, spell, earthTrap)
-    if mana then
-        if target:increaseAttrib("mana", 0) > manaToReduce then
-            target:increaseAttrib("mana", -manaToReduce)
-            target:talk(Character.say, "#me loses "..manaToReduce.." mana.")
-        else
-            target:setAttrib("mana", 0)
-        end
-    end
+
 
     if stamina then
         if increase then
@@ -74,7 +56,7 @@ local stamina = false
     end
 
     for _, target in pairs(targets.targets) do
-        applyReduceManaOrStamina(user, target, false, stamina, true, spell, earthTrap)
+        applyReduceManaOrStamina(user, target, stamina, true, spell, earthTrap)
     end
 
 end
@@ -82,19 +64,15 @@ end
 function M.checkForReduceManaOrStamina(user, targets, spell)
 local RA = runes.checkSpellForRuneByName("RA", spell)
 local KAH = runes.checkSpellForRuneByName("KAH", spell)
-local IRA = runes.checkSpellForRuneByName("IRA", spell)
-local mana = false
 local stamina = false
 
     if KAH then
         stamina = true
     end
-    if IRA then
-        mana = true
-    end
+
     if RA then
         for _, target in pairs(targets.targets) do
-            applyReduceManaOrStamina(user, target, mana, stamina, false, spell)
+            applyReduceManaOrStamina(user, target, stamina, false, spell)
         end
     end
 end

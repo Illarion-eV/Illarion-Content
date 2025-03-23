@@ -31,6 +31,7 @@ function M.callEffect(myEffect, target)
                 target:increaseAttrib("mana", -manaReduction)
                 target:talk(Character.say, "#me loses "..manaReduction.." mana.")
             else
+                target:talk(Character.say, "#me loses "..target:increaseAttrib("mana", 0).." mana.")
                 target:setAttrib("mana", 0)
             end
             myEffect:addValue("remainingManaReduction", remainingManaReduction - manaReduction)

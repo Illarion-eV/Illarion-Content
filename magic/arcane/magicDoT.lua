@@ -43,9 +43,6 @@ function M.dealMagicDoT(user, targets, spell, element, level, castDuration)
             local IRA = runes.checkSpellForRuneByName("IRA", spell)
             local KAH = runes.checkSpellForRuneByName("KAH", spell)
 
-            if IRA then
-                manaReduction = manaStaminaReduction.getManaToReduce(user, target, spell)*1.5
-            end
             if KAH then
                 foodReduction = manaStaminaReduction.getStaminaToReduce(user, target, spell)*1.5
             end
@@ -58,13 +55,17 @@ function M.dealMagicDoT(user, targets, spell, element, level, castDuration)
                 end
             end
 
-            if user and (damage > 0) and dwyfol.deflectAttackAsLightning(target, user) then -- This glyph if activated deflects the attack, dealing the same amount they would have taken as magic damage to the attacker instead in the form of a lightning strike
+            if IRA then
+                manaReduction = damage
+            end
+
+            if user and not IRA and (damage > 0) and dwyfol.deflectAttackAsLightning(target, user) then -- This glyph if activated deflects the attack, dealing the same amount they would have taken as magic damage to the attacker instead in the form of a lightning strike
                 damage = math.min(damage/1.5, 1000) -- It shouldn't be possible to luck into killing off a max skill chara with a no skill character!
                 mdamage.dealMagicDamage(nil, user, spell, damage, level, false, castDuration) --Remove DoT damage bonus and reflect as single time attack
                 return
             end
 
-            if damage > 0 then
+            if damage > 0 and not IRA then
 
                 local addValue = true
 
@@ -106,7 +107,7 @@ function M.dealMagicDoT(user, targets, spell, element, level, castDuration)
 
                 dendron.lifesteal(user, damage/1.5) -- chance to heal for a portion of the damage you deal, but as it is instant the damage is scaled down by 1.5 to match fire spells instead for instant damage values
             end
-            if manaReduction > 0 and CUN then
+            if IRA and CUN then
 
                 local addValue = true
 
