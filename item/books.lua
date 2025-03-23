@@ -46,6 +46,38 @@ local function getPageTextFromBook(book, pageNumber)
     return writtenText
 end
 
+local function getPageInput(user, book, oldPage, maxPage)
+
+    local callback = function (dialog)
+
+        if (not dialog:getSuccess()) then
+            return
+        end
+
+        local input = tonumber(dialog:getInput())
+
+        if type(input) ~= "number" then
+            user:inform("Die anzuzeigende Seite muss eine Zahl sein.", "The page to view must be a number.")
+            readBook(user, book, oldPage)
+            return
+        end
+
+        if input > maxPage then
+            readBook(user, book, maxPage)
+        elseif input <= 0 then
+            readBook(user, book, 1)
+        else
+            readBook(user, book, input)
+        end
+    end
+
+    user:requestInputDialog(
+        InputDialog(
+            common.GetNLS(user, "Seitenauswahl", "Page Select"),
+            common.GetNLS(user, "Gib die Nummer der Seite ein, die du lesen möchtest, zwischen 1 und "..maxPage..".", "Enter the number of the page you want to read, between 1 and "..maxPage.."."),
+            false, 255, callback))
+end
+
 function readBook(user, book, atPage)
 
     local bookStats = world:getItemStats(book)
@@ -89,8 +121,10 @@ function readBook(user, book, atPage)
             readBook(user, book, page-1)
         elseif page == 1 and maxPage > 1 and index == 1 then
             readBook(user, book, page+1)
-        elseif index == 2 and maxPage > page then
+        elseif index == 2 and maxPage > page and page ~= 1 then
             readBook(user, book, page+1)
+        elseif index == 2 or index == 3 then
+            getPageInput(user, book, page, maxPage)
         end
     end
 
@@ -110,6 +144,8 @@ function readBook(user, book, atPage)
     if maxPage > page then
         dialog:addOption(0, artificalWidener..common.GetNLS(user, "Nächste Seite"..artificalWidener, "Next page"..artificalWidener))
     end
+
+    dialog:addOption(0, artificalWidener..common.GetNLS(user, "Seitenauswahl"..artificalWidener, "Select page"..artificalWidener))
 
     if page == 1 and maxPage == page then
         user:requestMessageDialog(dialog2)
