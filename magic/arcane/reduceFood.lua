@@ -30,6 +30,7 @@ function M.callEffect(myEffect, target)
                 target:increaseAttrib("foodlevel", -staminaToReduce)
                 target:talk(Character.say, "#me loses "..staminaToReduce.." stamina.")
             else
+                target:talk(Character.say, "#me loses "..target:increaseAttrib("foodlevel", 0).." stamina.")
                 target:setAttrib("foodlevel", 0)
             end
             myEffect:addValue("remainingStaminaReduction", remainingStaminaReduction - staminaToReduce)

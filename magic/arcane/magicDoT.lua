@@ -18,7 +18,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local mdamage = require("magic.arcane.dealMagicDamage")
 local magicDamage = require("magic.arcane.magicDamage")
 local runes = require("magic.arcane.runes")
-local manaStaminaReduction = require("magic.arcane.manaStaminaReduction")
 local castingSpeed = require("magic.arcane.castingSpeed")
 local hieros = require("magic.arcane.enchanting.effects.hieros")
 local dendron = require("magic.arcane.enchanting.effects.dendron")
@@ -43,10 +42,6 @@ function M.dealMagicDoT(user, targets, spell, element, level, castDuration)
             local IRA = runes.checkSpellForRuneByName("IRA", spell)
             local KAH = runes.checkSpellForRuneByName("KAH", spell)
 
-            if KAH then
-                foodReduction = manaStaminaReduction.getStaminaToReduce(user, target, spell)*1.5
-            end
-
             if damage > 0 and user then
                 local hierosApplied, newDamage = hieros.increaseDamage(user, target, damage)
 
@@ -59,13 +54,23 @@ function M.dealMagicDoT(user, targets, spell, element, level, castDuration)
                 manaReduction = damage
             end
 
+            if KAH then
+                manaReduction = manaReduction/2
+                foodReduction = damage
+                if IRA then
+                    foodReduction = foodReduction/2
+                end
+
+                foodReduction = foodReduction*6 --There's 10k mana/health but 60k food
+            end
+
             if user and not IRA and (damage > 0) and dwyfol.deflectAttackAsLightning(target, user) then -- This glyph if activated deflects the attack, dealing the same amount they would have taken as magic damage to the attacker instead in the form of a lightning strike
                 damage = math.min(damage/1.5, 1000) -- It shouldn't be possible to luck into killing off a max skill chara with a no skill character!
                 mdamage.dealMagicDamage(nil, user, spell, damage, level, false, castDuration) --Remove DoT damage bonus and reflect as single time attack
                 return
             end
 
-            if damage > 0 and not IRA then
+            if damage > 0 and not IRA and not KAH then
 
                 local addValue = true
 
@@ -107,7 +112,7 @@ function M.dealMagicDoT(user, targets, spell, element, level, castDuration)
 
                 dendron.lifesteal(user, damage/1.5) -- chance to heal for a portion of the damage you deal, but as it is instant the damage is scaled down by 1.5 to match fire spells instead for instant damage values
             end
-            if IRA and CUN then
+            if manaReduction > 0 and CUN then
 
                 local addValue = true
 

@@ -40,11 +40,6 @@ local staminaToReduce = M.getStaminaToReduce(user, target, spell, earthTrap)
         if increase then
             target:increaseAttrib("foodlevel", staminaToReduce)
             target:talk(Character.say, "#me gains "..staminaToReduce.." stamina.")
-        elseif target:increaseAttrib("foodlevel", 0) > staminaToReduce then
-            target:increaseAttrib("foodlevel", -staminaToReduce)
-            target:talk(Character.say, "#me loses "..staminaToReduce.." stamina.")
-        else
-            target:setAttrib("foodlevel", 0)
         end
     end
 end
@@ -59,22 +54,6 @@ local stamina = false
         applyReduceManaOrStamina(user, target, stamina, true, spell, earthTrap)
     end
 
-end
-
-function M.checkForReduceManaOrStamina(user, targets, spell)
-local RA = runes.checkSpellForRuneByName("RA", spell)
-local KAH = runes.checkSpellForRuneByName("KAH", spell)
-local stamina = false
-
-    if KAH then
-        stamina = true
-    end
-
-    if RA then
-        for _, target in pairs(targets.targets) do
-            applyReduceManaOrStamina(user, target, stamina, false, spell)
-        end
-    end
 end
 
 return M
