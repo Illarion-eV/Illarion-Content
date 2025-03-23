@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local money = require("base.money")
+local activityTracker = require("lte.activity_tracker")
 
 local M = {}
 
@@ -26,6 +27,12 @@ function M.train(user)
         return
     end
 
+    local reputationPoints = user:getQuestProgress(activityTracker.reputationTrackerQuestID)
+
+    local pointsPerReduction = 600 -- Every 50 hours RPed reduces the cost one tier, to a minimum of 16 gold.
+
+    local RPReductions = math.floor(reputationPoints/pointsPerReduction)
+
     local questId = 35
     local attributes = {"agility", "constitution", "dexterity", "essence", "intelligence", "perception", "strength", "willpower"}
     local attributesText, attributesKey, reduceText, increaseText
@@ -33,6 +40,11 @@ function M.train(user)
     local increaseOptions = {}
 
     local questProgress = user:getQuestProgress(questId)
+
+    if questProgress >= 4 then --Ensures that you still get the cheaper attrib changes before the below calc kicks in with 4 being the new floor
+        questProgress = math.max(4, questProgress - RPReductions) -- If youve saved up enough reductions to go lower than 4, it sets it to 4 anyways to keep the 16 gold minimum
+    end
+
     local costInGold = 2 ^ math.min(questProgress, 7)
     local cost = costInGold * 10000
 
@@ -60,12 +72,6 @@ function M.train(user)
                     local selectedIncrease = increaseOptions[subdialog:getSelectedIndex() + 1]
                     local increaseAttribute = attributes[attributesKey[selectedIncrease]]
 
-                    if questProgress ~= user:getQuestProgress(questId) then
-                        user:inform("Der Trainer verflucht dich als dein Betrug auffliegt! Du hast ein mulmiges Gefühl.",
-                                "The trainer curses you as your fraud is detected! You have a queasy feeling.", Character.highPriority)
-                        return
-                    end
-
                     if not money.CharHasMoney(user, cost) then
                         user:inform("Du hast nicht genug Geld!",
                                 "You do not have enough money!", Character.highPriority)
@@ -76,7 +82,7 @@ function M.train(user)
                         if user:increaseBaseAttribute(increaseAttribute, 1) then
                             if user:saveBaseAttributes() then
                                 money.TakeMoneyFromChar(user, cost)
-                                user:setQuestProgress(questId, questProgress + 1)
+                                user:setQuestProgress(questId, user:getQuestProgress(questId) + 1)
 
                                 local reduced = user:getBaseAttribute(reduceAttribute)
                                 local increased = user:getBaseAttribute(increaseAttribute)
