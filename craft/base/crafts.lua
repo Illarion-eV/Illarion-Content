@@ -103,19 +103,6 @@ local function checkRequiredMana(user, craftingTime, isPortalBookCrafting) -- Po
 
 end
 
-local foodRarityTexts = {
-    {english = "uncommon", german = "außergewöhnlich gut", identifier = 2,
-    foodDescription = {
-        english = "An uncommonly well made dish. Sure to be more filling than its common counterparts.",
-        german = "Ein außergewöhnlich gut gelungenes Gericht. Ein wahrer Schmauß, der besser sättigt als ein normales Gericht."}},
-    {english = "rare", german = "exzellent", identifier = 3,
-    foodDescription = {
-        english = "A dish so well-made it's a rarity among dishes. Not only more filling than its lesser counterparts, but also somewhat beneficial to the longevity and strength of the boons of your good diet.",
-        german = "Ein wahres Schlemmergericht. Wohlbekömmlich und eine kleine Wohltat für die Länge und Auswirkung deiner guten Ernährung."}},
-    {english = "unique", german = "einzigartig gut", identifier = 4,
-    foodDescription = {
-        english = "A dish made by such refined culinary arts, you might even say it's unique. Not only more filling than its lesser counterparts, but also very beneficial to both the longevity and strength of the boons of your good diet.",
-        german = "Eine kulinarisches Köstlichkeit, die ihres Gleichen sucht. Äußerst wohlbekömmlich und eine wahre Wohltat für die Länge und Auswirkung deiner guten Ernährung."}}}
 
 
 local Product = {
@@ -511,15 +498,12 @@ function Craft:getSkill(user)
     end
 end
 
-local function checkForRareFoodIngredient(user, ingredient)
+local function checkForRareIngredient(user, ingredient)
 
     local available = 0
 
-    for _, foodRarity in pairs(foodRarityTexts) do
-        local descriptionEn = foodRarity.foodDescription.english
-        local descriptionDe = foodRarity.foodDescription.german
-        local identifier = foodRarity.identifier
-        available = available + user:countItemAt("all", ingredient.item, {["descriptionDe"] = descriptionDe, ["descriptionEn"] = descriptionEn, ["rareness"] = identifier})
+    for rarity = 2, 4 do
+        available = available + user:countItemAt("all", ingredient.item, {["craftedRare"] = "true", ["rareness"] = rarity})
     end
 
     return available
@@ -531,12 +515,9 @@ local function deleteRareItems(user, ingredient, rareItemsToDelete, amountOfIngr
 
     local rareIngredientBonus = 0
 
-    for _, foodRarity in ipairs(foodRarityTexts) do
+    for rarity = 1, 3 do
 
-        local descriptionEn = foodRarity.foodDescription.english
-        local descriptionDe = foodRarity.foodDescription.german
-        local identifier = foodRarity.identifier
-        local data = {["descriptionDe"] = descriptionDe, ["descriptionEn"] = descriptionEn, ["rareness"] = identifier}
+        local data = {["craftedRare"] = "true", ["rareness"] = rarity}
         local available = user:countItemAt("all", ingredient.item, data)
         local deleteAmount
 
@@ -558,7 +539,7 @@ local function deleteRareItems(user, ingredient, rareItemsToDelete, amountOfIngr
 
         end
 
-        rareIngredientBonus = rareIngredientBonus + deleteAmount-1*identifier
+        rareIngredientBonus = rareIngredientBonus + deleteAmount*(rarity-1) -- 1, 2, 3% per rare ingredient
 
         deletedSoFar = deletedSoFar + deleteAmount
 
@@ -584,7 +565,7 @@ function Craft:checkMaterial(user, productId)
     for i = 1, #product.ingredients do
         local ingredient = product.ingredients[i]
         local available = user:countItemAt("all", ingredient.item, ingredient.data)
-        local rareFoodIngredients = checkForRareFoodIngredient(user, ingredient)
+        local rareFoodIngredients = checkForRareIngredient(user, ingredient)
 
         available = available + rareFoodIngredients
 
@@ -653,13 +634,34 @@ function Craft:generateRarity(user, productId, toolItem, rareIngredientBonus)
 
 end
 
-function Craft:checkIfFoodItem(productId)
+function Craft:checkIfItemShouldHaveRarity(productId)
 
     local product = self.products[productId]
 
-    if foodScript.foodList[product.item] and foodScript.foodList[product.item].crafted then
+    if foodScript.foodList[product.item] and foodScript.foodList[product.item].crafted then --Food can be rare
         return true
     end
+
+    for _, bottle in pairs(bottles.bottles) do
+
+        if bottle.full[1] == productId then -- Brewed drinks can be rare
+            return true
+        end
+
+        for _, emptyVessel in pairs(bottle.empty) do -- Serving jugs and similar items can be rare
+            if emptyVessel == productId then
+                return true
+            end
+        end
+
+        for _, vessel in pairs(bottle.vessels) do -- All sorts of drinking cups can be rare
+            if vessel.empty == productId then
+                return true
+            end
+        end
+    end
+
+
 
     return false
 
@@ -900,28 +902,13 @@ function Craft:createItem(user, productId, toolItem)
         product.data.craftedBy = nil
     end
 
-    local rarity = 0
+    local shouldHaveRarity = self:checkIfItemShouldHaveRarity(productId)
 
-    local foodItem = self:checkIfFoodItem(productId)
-
-    if foodItem and quality >= 900 then
-        rarity = self:generateRarity(user, productId, toolItem, rareIngredientBonus)
+    if shouldHaveRarity and quality >= 900 then
+        local rarity = self:generateRarity(user, productId, toolItem, rareIngredientBonus)
 
         if rarity > 1 then
             product.data.rareness = rarity
-        end
-    end
-
-    for _, selectedRarity in pairs(foodRarityTexts) do
-        if rarity == selectedRarity.identifier then
-            local nameEnglish = itemStats.English
-            local nameGerman = itemStats.German
-            common.TempInformNLS(user, "Die Speise '"..nameGerman.."' ist dir "..nameGerman.." gelungen.", "Through your masterful skill, your "..nameEnglish.." ended up being of "..selectedRarity.english.." quality.")
-            if foodItem then
-                product.data.descriptionDe = selectedRarity.foodDescription.german
-                product.data.descriptionEn = selectedRarity.foodDescription.english
-            end
-            break
         end
     end
 

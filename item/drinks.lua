@@ -18,7 +18,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE items SET itm_script='item.drinks' WHERE itm_id IN (2189, 2188, 2187, 2186, 2059, 2058, 2057, 2056, 1910, 1909, 1907, 1906, 1861, 2502, 1841, 1842, 1843, 1844, 1853, 1854, 1855, 1856, 1857, 1859, 1860, 517, 1315, 1316, 1318,1319,1320,1321,1322,1323,3720,3721,3722);
 
 local common = require("base.common")
-local lookat = require("base.lookat")
+local emptyDrinkingVessels = require("item.emptyDrinkingVessels")
+
+local drink_LTE_Id = 404 -- Error 404, drink_LTE not found! :^)
 
 local M = {}
 
@@ -224,6 +226,7 @@ M.drinkList[Item.glassTeaCupFirNeedle] = {1000, Item.glassTeaCup}
 M.drinkList[Item.glassTeaCupGreen] = {1000, Item.glassTeaCup}
 M.drinkList[Item.glassTeaCupVirginWeed] = {1000, Item.glassTeaCup}
 
+local applyDrinkEffect
 
 function M.UseItem(user, SourceItem)
 
@@ -267,33 +270,167 @@ function M.UseItem(user, SourceItem)
     if math.random(50) <= 1 then
         common.InformNLS( user, "Das alte Geschirr ist nicht mehr brauchbar.", "The old dishes are no longer usable.")
     else
-        local dataCopy = {descriptionDe=SourceItem:getData("descriptionDe"), descriptionEn=SourceItem:getData("descriptionEn")}
+        local dataCopy = {descriptionDe=SourceItem:getData("descriptionDe"), descriptionEn=SourceItem:getData("descriptionEn"), rareness = SourceItem:getData("rareness")}
         common.CreateItem(user, drink[2], 1, 333, dataCopy) -- create the remnant item
     end
     world:erase(SourceItem, 1)
 
-    if foodLevel > 40000 then
-        common.InformNLS( user, "Du hast genug getrunken.", "You have had enough to drink.")
-    elseif foodLevel > 40000 then
-        common.InformNLS( user, "Du schaffst es nicht noch mehr zu trinken.", "You cannot drink anything else.")
-        foodLevel = foodLevel - drink[1]
-    end
-
     if user:increaseAttrib("foodlevel", 0) ~= foodLevel then
         user:increaseAttrib("foodlevel",-(user:increaseAttrib("foodlevel",0) - foodLevel))
     end
+
+    applyDrinkEffect(user, SourceItem)
+end
+
+local function verifyInput(input)
+
+    if common.IsNilOrEmpty(input) then
+        return 0
+    end
+
+    return tonumber(input)
+end
+
+local function getRarities(drink)
+
+    local rarity = verifyInput(drink:getData("rareness")) -- The rarity of the drinking vessel, not the liquid
+
+    local drinkRarity = verifyInput(drink:getData("drinkRarity")) -- The original rarity of the bottle of liquid, if it had one
+
+    local vesselRarity = verifyInput(drink:getData("vesselRarity")) -- The original rarity of the vessel, such a tea pot or serving jug, if one was used and had rarity
+
+    return rarity, drinkRarity, vesselRarity
+end
+
+local function alterDurationForJuicesAndBeers(theDrink, duration) --While the rest have 10 drinks in one item, juices have 1. Meanwhile a filled beer glass has 2-4 uses after the 10. Of course the prices of making the juices will have to reflect that, but it also calls for a bit of an adjustment
+
+    local commonItem = world:getItemStatsFromId(theDrink.id)
+
+    if string.find(commonItem.English, "beer") or string.find(commonItem.English, "Beer") then
+
+        return math.max(5, duration/4) --Glass mugs are therefore more lucrative for beer
+
+    end
+
+    if string.find(commonItem.English, "juice") or string.find(commonItem.English, "Juice") then
+
+        return duration*3
+        -- This way juices last as long as 3 cups of whatever else at their level
+        -- Juices will have to be three times cheaper to make in the food and brewing rework, since a juice lasting as long as a full bottle of cider for instance makes no sense
+    end
+
+    return duration
+end
+
+local function alterImpactOfWater(theDrink, impact)
+
+    local commonItem = world:getItemStatsFromId(theDrink.id)
+
+    if string.find(commonItem.English, "water") or string.find(commonItem.English, "Water") then
+
+        return math.floor(impact/2)
+    end
+
+    return impact
+end
+
+function applyDrinkEffect(user, drink)
+
+    local level = world:getItemStatsFromId(drink.id).Level
+
+    local rarity, drinkRarity, vesselRarity = getRarities(drink)
+
+    local baseInfluence = 5 -- How many % to increase the RP gains by
+
+    local baseDuration = 5 + level*0.25 --How many minutes it should last, with 5 at minimum or else it wont have any impact at all as the RP script checks every 5 min
+
+    baseDuration = math.floor(baseDuration) -- We need to keep the number a whole integer
+
+    local durationBonus = rarity+drinkRarity+vesselRarity --up to 12 points of bonus. Drinkrarity also impacts the influence, but serving vessel and drinking vessel rarity only impacts duration since they are reusable
+
+    local duration = baseDuration + durationBonus*1 --Up to 30 min extra, for a total of 60 min max duration for a level 100 drink and 35 for a level 0
+
+    duration = alterDurationForJuicesAndBeers(drink, duration) --decreased duration for beer, increased for juice, as the differ from the norm
+
+    local influence = baseInfluence + (math.max(0, drinkRarity-2)*2.5) -- 2.5% for rare drinks and 5% for unique drinks, uncommon only increases duration
+
+    influence = alterImpactOfWater(drink, influence)
+
+    local foundEffect, myEffect = user.effects:find(drink_LTE_Id)
+
+    if foundEffect then
+
+        local foundCurrentDuration, currentDuration = myEffect:findValue("remainingDuration")
+        local foundCurrentInfluence, currentInfluence = myEffect:findValue("influence")
+
+        currentDuration = verifyInput(currentDuration)
+        currentInfluence = verifyInput(currentInfluence)
+
+        if not foundCurrentDuration or not foundCurrentInfluence then
+            myEffect:addValue("influence", influence)
+            myEffect:addValue("remainingDuration", duration)
+        end
+
+        if currentDuration < duration and currentInfluence <= influence then --We only update the duration if it will prolong the existing one and the influence isnt higher
+            myEffect:addValue("remainingDuration", duration)
+        end
+
+        if currentInfluence < influence then --We swap out the duration and influence if the influence of the new drink is higher
+            myEffect:addValue("influence", influence)
+            myEffect:addValue("remainingDuration", duration)
+        end
+        user:inform("[Trinkt] Bevor die Trockenheit zurückkehren kann, nimmst du einen weiteren Schluck. Die wohltuende Frische bleibt erhalten, deine Kehle fühlt sich weiterhin angenehm an und das Gespräch fällt dir leicht.", "[Drinks] Before the dryness can return, you take another drink. The soothing freshness lingers, keeping your throat comfortable and conversation effortless.")
+    else
+        myEffect = LongTimeEffect(drink_LTE_Id, 10)
+        myEffect:addValue("influence", influence)
+        myEffect:addValue("remainingDuration", duration)
+        user.effects:addEffect(myEffect)
+    end
+
 end
 
 
-function M.LookAtItem(user, Item)
+function M.LookAtItem(user, theDrink)
 
-    local food = M.drinkList[Item.id]
+    local drink = M.drinkList[theDrink.id]
+    local commonItem = world:getItemStatsFromId(theDrink.id)
 
-    if food == nil then
-        user:inform("unknown drink item ID"..Item.id)
+    if drink == nil then
+        user:inform("unknown drink item ID"..theDrink.id)
     end
 
-    return lookat.GenerateLookAt(user, Item, lookat.NONE)
+    local _, drinkRarity, vesselRarity = getRarities(theDrink)
+
+    local lookAt = emptyDrinkingVessels.LookAtItem(user, theDrink)
+
+    local drinkRarities = {}
+    drinkRarities[2] = {english = "The "..commonItem.English.." has an uncommonly good scent to it.", german = "Das "..commonItem.German.." hat einen ungewöhnlich guten Duft."}
+    drinkRarities[3] = {english = "It is rare for a "..commonItem.English.." to have such a good odour.", german = "Es ist selten, dass ein "..commonItem.German.." einen so guten Geruch hat."}
+    drinkRarities[4] = {english = "The "..commonItem.English.." has a uniquely good scent to it, promising of a taste even better.", german = "Das "..commonItem.German.." hat einen einzigartig guten Duft, der einen noch besseren Geschmack verspricht."}
+
+    local description = ""
+
+    if lookAt.description then
+        description = lookAt.description.."\n"
+    end
+
+    if drinkRarity > 1 then
+        description = description..common.GetNLS(user, drinkRarities[drinkRarity].german, drinkRarities[drinkRarity].english).."\n"
+    end
+
+    local vesselRarities = {}
+    vesselRarities[2] = {english = "The scent of the "..commonItem.English.." is uncommonly fragrant, clearly having rested in a good vessel beforehand.", german = "Der Duft des "..commonItem.German.." ist ungewöhnlich aromatisch - es hat eindeutig zuvor in einem guten Gefäß geruht."}
+    vesselRarities[3] = {english = "The scent of a "..commonItem.English.." is rarely as fragrant as this one, clearly it has rested in a superior vessel beforehand.", german = "Der Duft eines "..commonItem.German.." ist selten so aromatisch wie dieser - es hat eindeutig zuvor in einem überlegenen Gefäß geruht."}
+    vesselRarities[4] = {english = "The scent of the "..commonItem.English.." is incredibly well preserved and fragrant, clearly having rested in a uniquely suited vessel beforehand.", german = "Der Duft des "..commonItem.German.." ist außergewöhnlich gut erhalten und aromatisch - es hat eindeutig zuvor in einem einzigartig geeigneten Gefäß geruht."}
+    if vesselRarity > 1 then
+        description = description..common.GetNLS(user, vesselRarities[vesselRarity].german, vesselRarities[vesselRarity].english)
+    end
+
+
+
+    lookAt.description = description
+
+    return lookAt
 end
 
 return M

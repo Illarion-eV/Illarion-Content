@@ -24,6 +24,22 @@ local herbs = require("alchemy.base.herbs")
 local specialeggs = require("content.specialeggs")
 local ratCistern = require("content.ratCistern")
 local onionball = require("npc.sepp_leaf")
+local lookat = require("base.lookat")
+
+local foodRarityTexts = {
+    {english = "uncommon", german = "außergewöhnlich gut", identifier = 2,
+    foodDescription = {
+        english = "An uncommonly well made dish. Sure to be more filling than its common counterparts.",
+        german = "Ein außergewöhnlich gut gelungenes Gericht. Ein wahrer Schmauß, der besser sättigt als ein normales Gericht."}},
+    {english = "rare", german = "exzellent", identifier = 3,
+    foodDescription = {
+        english = "A dish so well-made it's a rarity among dishes. Not only more filling than its lesser counterparts, but also somewhat beneficial to the longevity and strength of the boons of your good diet.",
+        german = "Ein wahres Schlemmergericht. Wohlbekömmlich und eine kleine Wohltat für die Länge und Auswirkung deiner guten Ernährung."}},
+    {english = "unique", german = "einzigartig gut", identifier = 4,
+    foodDescription = {
+        english = "A dish made by such refined culinary arts, you might even say it's unique. Not only more filling than its lesser counterparts, but also very beneficial to both the longevity and strength of the boons of your good diet.",
+        german = "Eine kulinarisches Köstlichkeit, die ihres Gleichen sucht. Äußerst wohlbekömmlich und eine wahre Wohltat für die Länge und Auswirkung deiner guten Ernährung."}}}
+
 
 M.foodList = {}
 
@@ -477,6 +493,37 @@ function M.UseItem(user, sourceItem, ltstate)
     world:erase(sourceItem, 1)
 
     leftOverCreation(user, M.foodList[sourceItem.id].leftOver)
+end
+
+function M.LookAtItem(user, food)
+
+    local baseLookat = lookat.GenerateLookAt(user, food)
+
+    local descriptionEn
+    local descriptionDe
+
+    local rarity = tonumber(food:getData("rareness"))
+
+    if common.IsNilOrEmpty(rarity) then
+        rarity = 1
+    end
+
+    for _, description in pairs(foodRarityTexts) do
+        if rarity == description.identifier then
+            descriptionEn = description.foodDescription.english
+            descriptionDe = description.foodDescription.german
+        end
+    end
+
+    if descriptionEn then
+        if baseLookat.description ~= "" then
+            baseLookat.description = baseLookat.description.."\n\n"
+        end
+        baseLookat.description = baseLookat.description..common.GetNLS(user, descriptionDe, descriptionEn)
+    end
+
+    return baseLookat
+
 end
 
 return M

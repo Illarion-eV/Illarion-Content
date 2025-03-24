@@ -19,6 +19,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local milking = require("craft.gathering.milking")
+local genericRarenessLookat = require("item.base.genericRarenessLookat")
 
 local M = {}
 
@@ -36,32 +37,39 @@ local function GetWaterTilePosition(User)
   return nil;
 end
 
-local function UseItemScooping(User, SourceItem, ltstate)
+local function UseItemScooping(user, sourceItem, ltstate)
 
-    common.ResetInterruption( User, ltstate );
+    common.ResetInterruption( user, ltstate )
     if ( ltstate == Action.abort ) then -- work interrupted
-      User:talk(Character.say, "#me unterbricht "..common.GetGenderText(User, "seine", "ihre").." Arbeit.", "#me interrupts "..common.GetGenderText(User, "his", "her").." work.")
       return
     end
 
-    if not common.CheckItem( User, SourceItem ) then -- security check
+    if not common.CheckItem( user, sourceItem ) then -- security check
         return
     end
 
-    if not common.FitForWork( User ) then -- check minimal food points
+    if not common.FitForWork( user ) then -- check minimal food points
         return
     end
 
     -- currently not working, let's go
     if ( ltstate == Action.none ) then
-        User:startAction( 20, 21, 5, 10, 25);
-        User:talk(Character.say, "#me beginnt eine Flasche zu befüllen.", "#me starts to fill a bottle.")
+        user:startAction( 20, 21, 5, 10, 25)
         return
     end
 
     -- actually do the work, but only once because nobody wants to fill multiple bottles
-    world:erase(SourceItem, 1);
-    common.CreateItem(User, 2496, 1, 999, nil)
+
+    local rareness = sourceItem:getData("rareness")
+
+    world:erase(sourceItem, 1)
+
+    if not common.IsNilOrEmpty(rareness) then
+        common.CreateItem(user, 2496, 1, 999, {["rareness"] = rareness})
+    else
+        common.CreateItem(user, 2496, 1, 999, nil)
+    end
+
 end
 
 local function getAnimal(user)
@@ -87,47 +95,53 @@ local function getAnimal(user)
     return nil
 end
 
-function M.UseItem(User, SourceItem, ltstate)
+function M.UseItem(user, sourceItem, ltstate)
 
+    local rareness = sourceItem:getData("rareness")
     -- milking
-    local animal = getAnimal(User);
+    local animal = getAnimal(user)
     if animal ~= nil then
-        milking.StartGathering(User, animal, ltstate);
+        milking.StartGathering(user, animal, ltstate, rareness)
         return
     end
 
     -- water scooping
 
     -- check for well or fountain
-    local TargetItem = common.GetItemInArea(User.pos, 2207);
-    if (TargetItem == nil) then
-        TargetItem = common.GetItemInArea(User.pos, 631);
-        if (TargetItem == nil) then
-            TargetItem = common.GetItemInArea(User.pos, 2079);
+    local targetItem = common.GetItemInArea(user.pos, 2207);
+    if (targetItem == nil) then
+        targetItem = common.GetItemInArea(user.pos, 631);
+        if (targetItem == nil) then
+            targetItem = common.GetItemInArea(user.pos, 2079);
         end
-        if (TargetItem == nil) then
-            TargetItem = common.GetItemInArea(User.pos, 1097);
+        if (targetItem == nil) then
+            targetItem = common.GetItemInArea(user.pos, 1097);
         end
     end
-    if (TargetItem ~= nil) then
-        common.TurnTo( User, TargetItem.pos ); -- turn if necessary
-        UseItemScooping(User, SourceItem, ltstate);
+    if (targetItem ~= nil) then
+        common.TurnTo( user, targetItem.pos ); -- turn if necessary
+        UseItemScooping(user, sourceItem, ltstate);
         return;
     end
 
     -- check for water tile
-    local targetPos = GetWaterTilePosition(User);
+    local targetPos = GetWaterTilePosition(user)
     if (targetPos ~= nil) then
-        common.TurnTo( User, targetPos ); -- turn if necessary
-        UseItemScooping(User, SourceItem, ltstate);
-        return;
+        common.TurnTo( user, targetPos ) -- turn if necessary
+        UseItemScooping(user, sourceItem, ltstate)
+        return
     end
 
     -- nothing found to fill the bottle
-    common.InformNLS(User,
+    common.InformNLS(user,
       "Du kannst Flaschen an einem Brunnen oder an einem Gewässer füllen, oder ein geeignetes Tier melken. Lämmer und Bullen können aus naheliegenden Gründen nicht gemolken werden.",
       "You can fill bottles at a well or at some waters, or milk an adequate domestic animal. Lambs and bulls cannot be milked, obviously.");
 
+end
+
+function M.LookAtItem(user, sourceItem)
+
+    return genericRarenessLookat.LookAtItem(user, sourceItem)
 end
 
 return M

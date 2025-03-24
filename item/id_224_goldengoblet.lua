@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local common = require("base.common")
+local emptyDrinkingVessels = require("item.emptyDrinkingVessels")
 
 local M = {}
 
@@ -63,5 +64,11 @@ function M.putCoinsInGoblet(user, sourceItem)
     user:inform("Du tust die Münzen in den Kelch und sie verschwinden.", "You put the coins in the goblet and the disappear.")
     return true
 end
+
+function M.LookAtItem(user, sourceItem)
+
+    return emptyDrinkingVessels.LookAtItem(user, sourceItem)
+end
+
 
 return M

@@ -52,7 +52,7 @@ local function hasExtraBottle(user, bottleId)
 end
 
 
-function M.StartGathering(user, sourceAnimal, actionState)
+function M.StartGathering(user, sourceAnimal, actionState, rareness)
 
     local gatheringBonus = shared.getGatheringBonus(user, nil, Character.husbandry)
 
@@ -129,20 +129,26 @@ function M.StartGathering(user, sourceAnimal, actionState)
     gatherAmount = gatherAmount + 1
     milkingEffect:addValue("gatherAmount", gatherAmount)
 
-    user:eraseItem(Item.largeEmptyBottle, 1)
-
     -- glyph effect since milking can not be streamlined like the crafts that use a sourceItem instead of an animal
 
     local productAmount = 1
 
     if hasExtraBottle(user, Item.largeEmptyBottle) and gwynt.includeExtraResource(user, 0) then
-        productAmount = 2
         user:eraseItem(2498, 1)
+        common.CreateItem(user, milkId, 1, 333, nil)
     end
 
     -- end of glyph
 
-    local created = common.CreateItem(user, milkId, productAmount, 333, nil) -- create the new produced items
+    local created
+
+    if not common.IsNilOrEmpty(rareness) then
+        user:eraseItem(Item.largeEmptyBottle, 1, {["rareness"] = rareness})
+        common.CreateItem(user, milkId, productAmount, 333, {["rareness"] = rareness}) --keeps rarity of bottle when milking
+    else
+        user:eraseItem(Item.largeEmptyBottle, 1)
+        created = common.CreateItem(user, milkId, productAmount, 333, nil) -- create the new produced items
+    end
 
     if created then -- character can still carry something
         if gatherAmount < maxAmount then -- more milk is available

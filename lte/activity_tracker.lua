@@ -204,6 +204,27 @@ local function updateRank(effect, user)
     end
 end
 
+local function drinkEffectProcced(user)
+
+    local foundEffect, myEffect = user.effects:find(404)
+
+    if not foundEffect then
+        return false
+    end
+
+    local foundCurrentInfluence, currentInfluence = myEffect:findValue("influence")
+
+    if not foundCurrentInfluence then
+        return false
+    end
+
+    if math.random() <= currentInfluence/100 then --Divided by 100 because it is stored at an integer representing the percentage chance, between 5-10% based on drink rarity
+        return true
+    end
+
+    return false
+end
+
 function M.callEffect(effect, user)
 
     local foundCalls, sessionCalls = effect:findValue("sessionCalls")
@@ -259,10 +280,15 @@ function M.callEffect(effect, user)
 
         local interacting, withFellowCitizen = isInteracting(effect)
 
+        local increase = 1
+        if drinkEffectProcced(user) then
+            increase = 2
+        end
+
         if interacting then
-            effect:addValue("sessionInteractionTime", sessionInteractionTime + 1)
+            effect:addValue("sessionInteractionTime", sessionInteractionTime + increase)
             if withFellowCitizen then
-                effect:addValue("sessionRankTime", sessionRankTime + 1)
+                effect:addValue("sessionRankTime", sessionRankTime + increase)
             end
         end
     end

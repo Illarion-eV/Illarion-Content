@@ -424,6 +424,13 @@ local bottles = {
             {empty = Item.silverTeaCup, filled = Item.silverTeaCupDruid, amount = 1},
             {empty = Item.goldTeaCup, filled = Item.goldTeaCupDruid, amount = 1},
             {empty = Item.glassTeaCup, filled = Item.glassTeaCupDruid, amount = 1},
+            {empty = Item.clayTeapot, filled = Item.clayTeapot, amount = 1, max = 10},
+            {empty = Item.ceramicTeapot, filled = Item.ceramicTeapot, amount = 1, max = 10},
+            {empty = Item.ironTeapot, filled = Item.ironTeapot, amount = 1, max = 10},
+            {empty = Item.copperTeapot, filled = Item.copperTeapot, amount = 1, max = 10},
+            {empty = Item.silverTeapot, filled = Item.silverTeapot, amount = 1, max = 10},
+            {empty = Item.goldTeapot, filled = Item.goldTeapot, amount = 1, max = 10},
+            {empty = Item.glassTeapot, filled = Item.glassTeapot, amount = 1, max = 10}
         },
         type = "druid"
     },
@@ -440,6 +447,13 @@ local bottles = {
             {empty = Item.silverTeaCup, filled = Item.silverTeaCupGreen, amount = 1},
             {empty = Item.goldTeaCup, filled = Item.goldTeaCupGreen, amount = 1},
             {empty = Item.glassTeaCup, filled = Item.glassTeaCupGreen, amount = 1},
+            {empty = Item.clayTeapot, filled = Item.clayTeapot, amount = 1, max = 10},
+            {empty = Item.ceramicTeapot, filled = Item.ceramicTeapot, amount = 1, max = 10},
+            {empty = Item.ironTeapot, filled = Item.ironTeapot, amount = 1, max = 10},
+            {empty = Item.copperTeapot, filled = Item.copperTeapot, amount = 1, max = 10},
+            {empty = Item.silverTeapot, filled = Item.silverTeapot, amount = 1, max = 10},
+            {empty = Item.goldTeapot, filled = Item.goldTeapot, amount = 1, max = 10},
+            {empty = Item.glassTeapot, filled = Item.glassTeapot, amount = 1, max = 10}
         },
         type = "green"
     },
@@ -456,6 +470,13 @@ local bottles = {
             {empty = Item.silverTeaCup, filled = Item.silverTeaCupFirNeedle, amount = 1},
             {empty = Item.goldTeaCup, filled = Item.goldTeaCupFirNeedle, amount = 1},
             {empty = Item.glassTeaCup, filled = Item.glassTeaCupFirNeedle, amount = 1},
+            {empty = Item.clayTeapot, filled = Item.clayTeapot, amount = 1, max = 10},
+            {empty = Item.ceramicTeapot, filled = Item.ceramicTeapot, amount = 1, max = 10},
+            {empty = Item.ironTeapot, filled = Item.ironTeapot, amount = 1, max = 10},
+            {empty = Item.copperTeapot, filled = Item.copperTeapot, amount = 1, max = 10},
+            {empty = Item.silverTeapot, filled = Item.silverTeapot, amount = 1, max = 10},
+            {empty = Item.goldTeapot, filled = Item.goldTeapot, amount = 1, max = 10},
+            {empty = Item.glassTeapot, filled = Item.glassTeapot, amount = 1, max = 10}
         },
         type = "firNeedle"
     },
@@ -515,22 +536,24 @@ local function getBottleInfo(sourceItem)
 
     for _, bottle in pairs(bottles) do
 
+        local vessels = bottle.vessels
+
         for index, fullBottle in pairs(bottle.full) do
             if fullBottle == sourceItem.id then
-                return true, bottle.half[index], bottle.quarter[index], bottle.empty[index], bottle.vessels, 8, index, bottle.type, bottle.breakPoint
+                return true, bottle.half[index], bottle.quarter[index], bottle.empty[index], vessels, 8, index, bottle.type, bottle.breakPoint
             end
         end
 
         for index, halfBottle in pairs(bottle.half) do
             if halfBottle == sourceItem.id then
-                return true, bottle.half[index], bottle.quarter[index], bottle.empty[index], bottle.vessels,  5, index, bottle.type, bottle.breakPoint
+                return true, bottle.half[index], bottle.quarter[index], bottle.empty[index], vessels,  5, index, bottle.type, bottle.breakPoint
 
             end
         end
 
         for index, quarterBottle in pairs(bottle.quarter) do
             if quarterBottle == sourceItem.id then
-                return true, bottle.half[index], bottle.quarter[index], bottle.empty[index], bottle.vessels,  2, index, bottle.type, bottle.breakPoint
+                return true, bottle.half[index], bottle.quarter[index], bottle.empty[index], vessels,  2, index, bottle.type, bottle.breakPoint
             end
         end
     end
@@ -653,7 +676,6 @@ local teaPotTexts = {
 local function getVesselToFill(user, vessels, amount)
 
     for _, vessel in pairs(vessels) do
-
         if amount >= vessel.amount then -- Checks amount so that it skips to the half/quarter serving jugs if there is not enough liquid for full/half
 
             if common.hasItemIdInHand(user, vessel.empty) then
@@ -668,6 +690,9 @@ local function getVesselToFill(user, vessels, amount)
         end
     end
 
+    common.InformNLS(user,
+            "Dir fällt auf, dass du gar kein Gefäß hast, welches du füllen könntest. Es muss sich in deinen Händen oder vor dir befinden.",
+            "You notice that you do not have a vessel which you could fill. It needs to be in your hands or in front of you.")
     return false
 
 end
@@ -724,9 +749,6 @@ local function fillTea(user, sourceItem, amount, half, quarter, empty, vesselToF
     vesselToFill, filledVessel, minAmountToFill, maxAmountToFill = getVesselToFill(user, suitableVessels, amount)
 
     if not vesselToFill then
-        common.InformNLS(user,
-            "Dir fällt auf, dass du gar kein Gefäß hast, welches du füllen könntest. Es muss sich in deinen Händen oder vor dir befinden.",
-            "You notice that you do not have a vessel which you could fill. It needs to be in your hands or in front of you.")
         return false
     end
 
@@ -751,9 +773,21 @@ local function fillTea(user, sourceItem, amount, half, quarter, empty, vesselToF
 
     vesselToFill.id = filledVessel
 
-    if maxAmountToFill > 1 then
+    if maxAmountToFill > 1 then --Its a pot not a cup being filled
+        if isTeaPot(sourceItem) then
+            vesselToFill:setData("drinkRarity", sourceItem:getData("drinkRarity"))
+        elseif sourceItem:getData("craftedRare") == "true" then
+            vesselToFill:setData("drinkRarity", sourceItem:getData("rareness"))
+        end
         vesselToFill:setData("teaType", type)
         vesselToFill:setData("drinksRemaining", amountToFill)
+    else --Tea cup
+        if isTeaPot(sourceItem) then
+            vesselToFill:setData("drinkRarity", sourceItem:getData("drinkRarity"))
+            vesselToFill:setData("vesselRarity", sourceItem:getData("rareness"))
+        else
+            vesselToFill:setData("drinkRarity", sourceItem:getData("rareness"))
+        end
     end
 
     world:changeItem(vesselToFill)
@@ -762,7 +796,12 @@ local function fillTea(user, sourceItem, amount, half, quarter, empty, vesselToF
 
     if newAmount == 0 then
         sourceItem:setData("drinksRemaining", "")
-        vesselToFill:setData("teaType", "")
+        sourceItem:setData("teaType", "")
+        if isTeaPot(sourceItem) then
+            sourceItem:setData("drinkRarity", "")
+        else
+            sourceItem:setData("rareness", "")
+        end
         if empty then
             sourceItem.id = empty
         end
@@ -775,6 +814,15 @@ local function fillTea(user, sourceItem, amount, half, quarter, empty, vesselToF
     world:changeItem(sourceItem)
 
     return true, sourceItem
+end
+
+local function isBaseBottle(sourceItem)
+
+    for _, bottle in pairs(bottles) do
+        if bottle.quarter[1] == sourceItem.id or bottle.half[1] == sourceItem.id or bottle.full[1] == sourceItem.id then
+            return true
+        end
+    end
 end
 
 local function fillVessel(user, sourceItem, bottle)
@@ -792,9 +840,6 @@ local function fillVessel(user, sourceItem, bottle)
     local vesselToFill, filledVessel, minAmountToFill, maxAmountToFill = getVesselToFill(user, vessels, amount)
 
     if not vesselToFill then
-        common.InformNLS(user,
-            "Dir fällt auf, dass du gar kein Gefäß hast, welches du füllen könntest. Es muss sich in deinen Händen oder vor dir befinden.",
-            "You notice that you do not have a vessel which you could fill. It needs to be in your hands or in front of you.")
         return false
     end
 
@@ -823,8 +868,21 @@ local function fillVessel(user, sourceItem, bottle)
 
     vesselToFill.id = filledVessel
 
-    if maxAmountToFill > 1 then
+    if maxAmountToFill > 1 then --Its a bottle or serving vessel that isnt a tea pot
+        if not isBaseBottle(sourceItem) then
+            vesselToFill:setData("drinkRarity", sourceItem:getData("drinkRarity"))
+        elseif sourceItem:getData("craftedRare") == "true" then
+            vesselToFill:setData("drinkRarity", sourceItem:getData("rareness"))
+        end
+
         vesselToFill:setData("drinksRemaining", amountToFill)
+    else --Its a cup,glass or similar
+        if not isBaseBottle(sourceItem) then
+            vesselToFill:setData("drinkRarity", sourceItem:getData("drinkRarity"))
+            vesselToFill:setData("vesselRarity", sourceItem:getData("rareness"))
+        else
+            vesselToFill:setData("drinkRarity", sourceItem:getData("rareness"))
+        end
     end
 
     world:changeItem(vesselToFill)
@@ -834,6 +892,12 @@ local function fillVessel(user, sourceItem, bottle)
     if newAmount == 0 then
         sourceItem:setData("drinksRemaining", "")
         sourceItem.id = empty
+        if not isBaseBottle(sourceItem) then
+            sourceItem:setData("vesselRarity", "")
+            sourceItem:setData("drinkRarity", "")
+        else
+            sourceItem:setData("rareness", "")
+        end
     elseif newAmount <= 2 then
         sourceItem.id = quarter
     elseif newAmount <= 5 then
@@ -925,6 +989,102 @@ local teaNames = {
     virginWeed = {german = "Jungfernkrauttee", english = "virgin weed tea"},
     green = {german = "grüner Tee", english = "green tea"}}
 
+local function getEmptyVersionOfVessel(sourceItem)
+
+    for _, bottle in pairs(bottles) do
+
+        if bottle.full[1] == sourceItem.id or bottle.half[1] == sourceItem.id or bottle.quarter[1] == sourceItem.id then
+            return bottle.empty[1]
+        elseif bottle.full[2] == sourceItem.id or bottle.half[2] == sourceItem.id or bottle.quarter[2] == sourceItem.id then
+            return bottle.empty[2]
+        end
+
+        for _, vessel in pairs(bottle.vessels) do
+            if vessel.filled == sourceItem.id then
+                return vessel.empty
+            end
+        end
+    end
+end
+
+local function getRarenessDescriptors(user, sourceItem)
+
+    local vesselRarity
+
+    local drinkRarity
+
+    local emptyVesselId = getEmptyVersionOfVessel(sourceItem)
+
+    local vesselDescriptions = {english = "", german = ""}
+
+    local drinkDescriptions = {english = "", german = ""}
+
+    local crafted = sourceItem:getData("craftedRare")
+
+    if isBaseBottle(sourceItem) then
+        if crafted == "true" then
+            drinkRarity = sourceItem:getData("rareness")
+        end
+        vesselRarity = 1
+    else
+        drinkRarity = sourceItem:getData("drinkRarity") --drinkRarity does the crafted check when drinkRarity is added
+        if crafted == "true" then
+            vesselRarity = sourceItem:getData("rareness")
+        end
+    end
+
+    local commonItem = world:getItemStatsFromId(sourceItem.id)
+    local commonItemEmpty = commonItem
+
+    if emptyVesselId then
+        commonItemEmpty = world:getItemStatsFromId(emptyVesselId)
+    end
+
+    local vesselDescriptors = {
+        {rarity = 2, descriptions = {english = "A uncommonly well made "..commonItemEmpty.English..", sure to enhance the flavour of any drink it holds.", german = "Ein ungewöhnlich gut gefertigtes "..commonItem.German..", das sicher den Geschmack jedes Getränks verbessert, das es enthält."}},
+        {rarity = 3, descriptions = {english = "A rarity among "..commonItemEmpty.English.."s, any drink placed in it is sure to taste better.", german = "Eine Seltenheit unter den "..commonItem.German.."n - jedes Getränk, das darin serviert wird, schmeckt mit Sicherheit besser."}},
+        {rarity = 4, descriptions = {english = "So unique you could call it a masterpiece, this "..commonItemEmpty.English.." is certain to improve upon any drink it holds.", german = "So einzigartig, dass man es als Meisterwerk bezeichnen könnte - dieses "..commonItem.German.." verbessert mit Sicherheit jedes Getränk, das es enthält."}},
+    }
+
+    local drinkDescriptors = {
+        {rarity = 2, descriptions = {english = "The contents of the "..commonItem.English.." has an uncommonly good smell to it, sure to taste equally so.", german = "Der Inhalt des "..commonItem.German.."s hat einen ungewöhnlich guten Duft, der sicher ebenso gut schmeckt."}},
+        {rarity = 3, descriptions = {english = "It is rare that the contents of a "..commonItem.English.." smells so good, surely the taste is even better.", german = "Es ist selten, dass der Inhalt eines "..commonItem.German.."s so gut duftet - der Geschmack ist bestimmt noch besser."}},
+        {rarity = 4, descriptions = {english = "Seldom do you ever come across a "..commonItem.English.." with contents that have such a uniquely good scent. Just the idea of tasting it is enough to cause one to drool.", german = "Selten findet man ein "..commonItem.German.." mit einem Inhalt, der einen so einzigartig guten Duft verströmt. Allein die Vorstellung, es zu kosten, lässt einem das Wasser im Mund zusammenlaufen."}},
+    }
+
+    if common.IsNilOrEmpty(drinkRarity) then
+        drinkRarity = 1
+    end
+
+    if common.IsNilOrEmpty(vesselRarity) then
+        vesselRarity = 1
+    end
+
+    vesselRarity = tonumber(vesselRarity)
+    drinkRarity = tonumber(drinkRarity)
+
+    for _, vesselDescriptor in pairs(vesselDescriptors) do
+        if vesselDescriptor.rarity == vesselRarity then
+            vesselDescriptions = vesselDescriptor.descriptions
+        end
+    end
+
+    for _, drinkDescriptor in pairs(drinkDescriptors) do
+        if drinkDescriptor.rarity == drinkRarity then
+            drinkDescriptions = drinkDescriptor.descriptions
+        end
+    end
+
+    local skipline = ""
+
+    if vesselRarity > 1 and drinkRarity > 1 then
+        skipline = "\n"
+    end
+
+    return common.GetNLS(user, vesselDescriptions.german, vesselDescriptions.english)..skipline..common.GetNLS(user, drinkDescriptions.german, drinkDescriptions.english)
+
+end
+
 function M.LookAtItem(user, sourceItem)
 
     local typeOfTea = sourceItem:getData("teaType")
@@ -975,6 +1135,15 @@ function M.LookAtItem(user, sourceItem)
             textsToUse = teaPotTexts
         end
     else
+        --It's an empty vessel
+        local rarenessDescript = getRarenessDescriptors(user, sourceItem)
+
+        if lookAt.description ~= nil and rarenessDescript ~= "" then
+            lookAt.description = lookAt.description.."\n"..rarenessDescript
+        else
+            lookAt.description = rarenessDescript
+        end
+
         return lookAt -- item is not in any of the lists for texts to add
     end
 
@@ -988,7 +1157,12 @@ function M.LookAtItem(user, sourceItem)
         description = description.."\n"..lookAt.description;
     end
 
-    lookAt.description = description
+    local rarenessDescript = getRarenessDescriptors(user, sourceItem)
+
+    if rarenessDescript ~= "" then
+        description = "\n"..description
+    end
+    lookAt.description = rarenessDescript..description
 
     return lookAt
 end
