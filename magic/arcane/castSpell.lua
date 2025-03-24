@@ -56,6 +56,36 @@ local myTexts = {
     stats = {english = "As you attempt to cast the spell, you feel an abrupt headache prevent you from proceeding. Did something happen to your ability to cast magic?", german = "Als du versuchst den Zauber zu Sprechen, verspürst du plötzlich heftige Kopfschmerzen die dich daran hindern. Ist etwas mit deiner Fähigkeit zu Zaubern passiert? "}
 }
 
+local function skillCheckPassed(user, spell)
+
+    local name = skilling.getMagicSkillSpellBelongsTo(spell)
+    local skillName = user:getSkillName(Character[name])
+    local skillLevel = user:getSkill(Character[name])
+
+    local listOfRunesInSpell = {}
+
+    for runeNumber = 1, #runes.runes do
+
+        local rune = runes.runeNumberToName(runeNumber)
+
+        if runes.checkSpellForRuneByName(rune, spell) then
+            table.insert(listOfRunesInSpell, runeNumber)
+        end
+    end
+
+
+    for _, rune in pairs(listOfRunesInSpell) do
+        local runeName = runes.runeNumberToName(rune)
+        local requiredLevel = runes.getLevelRequirementOfRune(rune)
+
+        if requiredLevel > skillLevel then
+            return false, requiredLevel, skillName, runeName
+        end
+    end
+
+    return true
+end
+
 local function checkForWand(user)
 
     local wand = common.getItemInHand(user, magic.wandIds)
@@ -87,6 +117,12 @@ local function checksPassed(user, spell, element, thePosition)
         return false
     end
 
+    local passed, level, skillName, runeName = skillCheckPassed(user, spell)
+
+    if not passed then
+        user:inform("Du erfüllst nicht die Stufenanforderung, um "..runeName.." mit "..skillName.." zu wirken. Du benötigst mindestens Stufe "..level..".", "You do not meet the level requirement for casting "..runeName.." using "..skillName..". You need a minimum level of "..level..".")
+        return false
+    end
     local PEN = runes.checkSpellForRuneByName("PEN", spell)
 
     if not PEN and range.checkForObstacles(user, spell, element, thePosition) then
