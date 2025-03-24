@@ -666,6 +666,29 @@ function M.roofAndRoofTiles(user, itemId, tileBoolean, createOrErase, above)
     return true
 end
 
+function M.getRealmPropertyBelongsTo(propertyName)
+
+    for _, property in pairs(propertyList.propertyTable) do
+        if property[1] == propertyName then
+            return property[7]
+        end
+    end
+
+end
+
+function M.realmAllowsFarming(pos)
+
+    local propertyName = M.getPropertyLocationIsPartOf(pos)
+    local realm = M.getRealmPropertyBelongsTo(propertyName)
+
+    if realm == "Cadomyr" then
+        return false
+    end
+
+    return true
+
+end
+
 function M.setPersistenceForProperties()
     for _, property in pairs(propertyList.properties) do
         for x = property.lower.x, property.upper.x do

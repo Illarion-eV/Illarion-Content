@@ -665,6 +665,11 @@ function M.showDialog(user, skillName, overloaded)
                 return
             end
 
+            if not utility.realmAllowsFarming(frontPos) and product.tile and product.id == 4 then
+                user:inform("Leider ist das Klima in Cadomyr zu rau, Ackerland würde in kürzester Zeit austrocknen.", "Sadly the Cadomyr climate is too harsh, farmland would dry up in no time.")
+                return
+            end
+
             if skill.name ~= "misc" then
 
                 local languageAppropriateSkillName = user:getSkillName(Character[skill.name])
