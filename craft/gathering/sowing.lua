@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local gathering = require("craft.base.gathering")
+local moreUtility = require("housing.moreUtility")
 
 local M = {}
 
@@ -58,6 +59,20 @@ local function getFreeFieldPosition(User)
 end
 
 function M.StartGathering(User, SourceItem, ltstate)
+
+    local propertyName = moreUtility.fetchPropertyName(User)
+
+    if propertyName then --It is on a housing property! To avoid players renting it once then making use of its fields for free after, we disable fields on unrented properties.
+
+        local propertyDeed = moreUtility.getPropertyDeed(propertyName)
+
+        if moreUtility.checkOwner(propertyDeed) == "Unowned" then
+            common.HighInformNLS(User,
+            "Leider hat diese Immobilie keinen Mieter, der ihr Feld pflegt, wodurch es austrocknet und nicht mehr fruchtbar für die Aussaat ist.",
+            "Sadly this property has no tenant to maintain its field, causing them to dry up and no longer be fertile for seeds to be planted in.")
+            return false, false
+        end
+    end
 
     local sowing = gathering.GatheringCraft:new{LeadSkill = Character.farming, LearnLimit = 100 }
 

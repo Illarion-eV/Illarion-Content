@@ -32,6 +32,7 @@ local ceilingtrowel = require("gm.items.id_382_ceilingtrowel")
 local utility = require("housing.utility")
 local messenger = require("content.messenger")
 local bookrests = require("item.bookrests")
+local depotScript = require("item.id_321_depot")
 
 -- Called after every player login
 
@@ -440,6 +441,7 @@ function M.onLogin( player )
     convertWandMagicToFire(player)
 
     factions.updateEntry(player) --Updates the citizen ledger status of the player on login as a failsafe
+
 end
 
 function convertWandMagicToFire(player)
@@ -719,14 +721,13 @@ function payNow(User, notEnoughRP)
     end
 
     local taxHeight=0.01  -- 1% taxes
-
-    local depNr={100,101,102,103}
-    local valDepot={0,0,0,0}
+    local moneyInEachDepot = {}
     local val = 0
 
-    for i=1, #(depNr) do
-        valDepot[i]=money.DepotCoinsToMoney(User,depNr[i])
-        val = val + valDepot[i]     --how much money is in the depots combined
+    for _, depot in pairs(depotScript.depots) do
+        local depotMoney = money.DepotCoinsToMoney(User, depot.id)
+        table.insert(moneyInEachDepot, {id = depot.id, money = depotMoney})
+        val = val + depotMoney     --how much money is in the depots combined
     end
 
     val = val + money.CharCoinsToMoney(User) -- total wealth
@@ -742,14 +743,17 @@ function payNow(User, notEnoughRP)
     end
 
     -- try to get the payable tax from the depots first
-    for i = 1, #(depNr) do
-        if tax<=valDepot[i] then -- if you fild all you need in the first/ next depot, take it.
-            money.TakeMoneyFromDepot(User,tax,depNr[i])
-            tax = 0
-            break
-        elseif tax ~= 0 and valDepot[i] > 0 then -- if not, take as much as you can from the following depots
-            money.TakeMoneyFromDepot(User,valDepot[i],depNr[i])
-            tax = tax - valDepot[i]
+    for _, depot in pairs(depotScript.depots) do
+        for _, selectedDepot in pairs(moneyInEachDepot) do
+            if selectedDepot.id == depot.id then
+                if tax <= selectedDepot.money then
+                    money.TakeMoneyFromDepot(User, tax, depot.id)
+                    tax = 0
+                elseif tax ~= 0 and selectedDepot.money > 0 then
+                    money.TakeMoneyFromDepot(User, selectedDepot.money, depot.id)
+                    tax = tax - selectedDepot.money
+                end
+            end
         end
     end
 

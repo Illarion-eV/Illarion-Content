@@ -22,6 +22,8 @@ local money = require("base.money")
 local factions = require("base.factions")
 local messenger = require("content.messenger")
 local doors = require("base.doors")
+local depotScript = require("item.id_321_depot")
+local moreUtility = require("housing.moreUtility")
 
 local M = {}
 
@@ -29,7 +31,6 @@ local M = {}
  M.townManagmentItemPos = factions.townManagmentItemPos
  M.max_guest_number = 20
  M.max_builder_number = 20
- M.depotList={100,101,102,103}
 
  local function informDoesntExist(user)
     user:inform("Dieser Name ist unbekannt. Hast du den Namen vielleicht falsch geschrieben?", "Nobody of that name is recognised here. Did you perhaps misspell the name?")
@@ -44,17 +45,9 @@ local M = {}
     end
 end
 
- function M.checkOwner(item)
+M.checkOwner = moreUtility.checkOwner
 
-    local tenant = item:getData("tenantID")
 
-    if tenant ~= "" then
-        return tonumber(tenant)
-    else
-        return "Unowned"
-    end
-
-end
 
  function M.checkIfStairsOrTrapDoor(itemId)
     for _, item in pairs (itemList.items) do
@@ -98,47 +91,8 @@ function M.getTilePreview(tileId)
     return false
 end
 
-function M.fetchPropertyName(user, pos)
+M.fetchPropertyName = moreUtility.fetchPropertyName
 
-    local direct
-
-    if user then
-        direct = user:getFaceTo()
-    end
-
-    local d = 1
-
-    local vX, vY
-
-    if user then
-        vX, vY = common.GetDirectionVector(direct)
-    end
-
-    local x
-    local y
-    local z
-
-    if pos == nil then
-        x = user.pos.x + vX * d
-        y = user.pos.y + vY * d
-        z = user.pos.z
-    else
-        x = pos.x
-        y = pos.y
-        z = pos.z
-    end
-    for _, property in ipairs(propertyList.properties) do
-        if x >= property.lower.x
-        and x <= property.upper.x
-        and y >= property.lower.y
-        and y <= property.upper.y
-        and z >= property.lower.z
-        and z <= property.upper.z then
-            return property.name
-        end
-    end
-    return nil
-end
 
 function M.checkIfGardeningCriteriaMet(user, itemId)
     local targetPosition = common.GetFrontPosition(user)
@@ -364,20 +318,7 @@ function M.checkIfPropertyHasTenant(propertyName)
     end
 end
 
-function M.getPropertyDeed(propertyName)
-    for i = 1, #propertyList.propertyTable do
-        if propertyName == propertyList.propertyTable[i][1] then
-            local field = world:getField(propertyList.propertyTable[i][3])
-            local itemsOnField = field:countItems()
-            for i2 = 0, itemsOnField do
-                local currentItem = field:getStackItem(itemsOnField-i2)
-                if currentItem.id == 3772 or currentItem.id == 3773 then
-                    return currentItem
-                end
-            end
-        end
-    end
-end
+M.getPropertyDeed = moreUtility.getPropertyDeed
 
 function M.checkIfItemIsWallDeco(itemId)
 
@@ -686,6 +627,320 @@ function M.realmAllowsFarming(pos)
     end
 
     return true
+
+end
+
+local staticTools = {
+    {id = 119, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"pottery", "cookingAndBaking"}}, --baking oven
+    {id = 120, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"pottery", "cookingAndBaking"}}, --baking oven
+    {id = 305, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair", "Cadomyr"}, builderSkills = {"pottery", "cookingAndBaking"}}, --smoking oven
+    {id = 304, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair", "Cadomyr"}, builderSkills = {"pottery", "cookingAndBaking"}}, --smoking oven
+    {id = 3581, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"smithing", "cookingAndBaking"}}, --kettle
+    {id = 250, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"mining", "farming"}}, --millstone
+    {id = 339, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"carpentry", "brewing"}}, --wine barrel
+    {id = 1410, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"carpentry", "brewing"}}, --wine barrel
+    {id = 1411, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"carpentry", "brewing"}}, --wine barrel
+    {id = 321, value = 0, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair", "Cadomyr"}, builderSkills = {"carpentry", "smithing", "spatialMagic"}}, --depot
+    {id = 4817, value = 0, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair", "Cadomyr"}, builderSkills = {"carpentry", "smithing", "spatialMagic"}}, --depot
+    {id = 1008, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair", "Cadomyr"}, builderSkills = {"smithing", "alchemy"}}, --cauldron
+    {id = 428, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"carpentry", "husbandry"}}, --chandler table
+    {id = 3830, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Galmair"}, builderSkills = {"carpentry", "mining"}}, --stoneworking table
+    {id = 3831, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Galmair"}, builderSkills = {"carpentry", "mining"}}, --stoneworking table
+    {id = 44, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"carpentry", "mining"}}, --press
+    {id = 724, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"carpentry", "woodcutting"}}, --carpentry workbench
+    {id = 725, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"carpentry", "woodcutting"}}, --carpentry workbench
+    {id = 1204, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"carpentry", "woodcutting"}}, --sawing trestle
+    {id = 1205, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"carpentry", "woodcutting"}}, --sawing trestle
+    {id = 3869, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Galmair"}, builderSkills = {"pottery", "smithing"}}, --bloomery
+    {id = 3870, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Galmair"}, builderSkills = {"pottery", "smithing"}}, --bloomery
+    {id = 270, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Galmair"}, builderSkills = {"carpentry", "gemcutting"}}, --gem grinder
+    {id = 172, value = 3, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Galmair"}, builderSkills = {"smithing", "mining"}}, --anvil, value of 3 as it supports 3 crafts unlike the others that support 1
+    {id = 3502, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair", "Cadomyr"}, builderSkills = {"carpentry", "magic"}}, --magic desk
+    {id = 3503, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair", "Cadomyr"}, builderSkills = {"carpentry", "magic"}}, --magic desk
+    {id = 2052, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"carpentry", "tanningAndWeaving"}}, --stretcher
+    {id = 468, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"carpentry", "tanningAndWeaving"}}, --stretcher
+    {id = 1226, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"carpentry", "tanningAndWeaving"}}, --dyeing barrel
+    {id = 171, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"carpentry", "tanningAndWeaving"}}, --spinning wheel
+    {id = 169, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"carpentry", "tanningAndWeaving"}}, --loom
+    {id = 103, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"carpentry", "tailoring"}}, --tailoring table
+    {id = 102, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"carpentry", "tailoring"}}, --tailoring table
+    {id = 1240, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"pottery", "digging"}}, --kiln
+    {id = 1241, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"pottery", "digging"}}, --kiln
+    {id = 1242, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"pottery", "digging"}}, --kiln
+    {id = 1243, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"pottery", "digging"}}, --kiln
+    {id = 313, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"pottery", "glassblowing"}}, --glass melting oven
+    {id = 727, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"smithing", "digging"}}, --sieve
+    {id = 3879, value = 1, realms = {"Outlaw", "Galmair", "Troll's Haven", "Runewick"}, builderSkills = {"digging", "farming"}} --threshing floor
+}
+
+local function isStaticTool(productId)
+
+    for _, staticTool in pairs(staticTools) do
+        if staticTool.id == productId then
+            return staticTool
+        end
+    end
+
+    return false
+end
+
+local function getPlayersReadyToBuild(user, pos)
+
+    local players = world:getPlayersInRangeOf(pos, 2)
+
+    local playersReadyToBuild = {}
+
+    local propertyName = M.getPropertyLocationIsPartOf(pos)
+
+    local deed = M.getPropertyDeed(propertyName)
+
+    local helperAmount = deed:getData("helperAmount")
+
+    for i = 1, helperAmount do
+        local helperFound = false
+        local helper = deed:getData("helper"..i)
+        if not common.IsNilOrEmpty(helper) then
+            for _, player in pairs(players) do
+                if player.id == tonumber(helper) then
+                    table.insert(playersReadyToBuild, player)
+                    helperFound = true
+                end
+            end
+        end
+
+        if not helperFound and not common.IsNilOrEmpty(helper)  then
+            M.removeHelper(nil, deed, tonumber(helper)) --Clean up the helper in case they somehow managed to leave the area without the dialog closing properly, possibly via log out
+        end
+    end
+
+    local playerIsInList = false
+
+    for _, player in pairs(playersReadyToBuild) do --Just checking in case of cheats before adding the user
+        if player == user then
+            playerIsInList = true
+        end
+    end
+
+    if not playerIsInList then
+        table.insert(playersReadyToBuild, user)
+    end
+
+    --check and add to list if these players are waiting to build
+
+    return playersReadyToBuild
+
+end
+
+local function getPlayerLevel(player, skill)
+
+    local level = 0
+
+    local magicSkills = {"fireMagic", "spiritMagic", "windMagic","earthMagic","waterMagic", "enchanting", "spatialMagic"}
+
+    local smithingSkills = {"finesmithing", "blacksmithing", "armourer"}
+
+    if skill == "magic" then
+        for _, magicSkill in pairs(magicSkills) do
+            local newLevel = player:getSkill(Character[magicSkill])
+            if newLevel > level then
+                level = newLevel
+            end
+        end
+
+    elseif skill == "smithing" then
+        for _, smithingSkill in pairs(smithingSkills) do
+            local newLevel = player:getSkill(Character[smithingSkill])
+            if newLevel > level then
+                level = newLevel
+            end
+        end
+    else
+        level = player:getSkill(Character[skill])
+    end
+
+    return level
+
+end
+
+
+local function canAssignSkills(skills, skillList, assigned, skillIndex)
+    if skillIndex > #skillList then
+        return true -- All skills successfully assigned
+    end
+
+    local skill = skillList[skillIndex]
+
+    for _, player in ipairs(skills[skill]) do
+        if not assigned[player] then
+            assigned[player] = true -- Assign player
+            if canAssignSkills(skills, skillList, assigned, skillIndex + 1) then
+                return true -- Found valid assignment
+            end
+            assigned[player] = nil -- Backtrack
+        end
+    end
+
+    return false -- No valid assignment found
+end
+
+function M.buildersReady(user, productId, pos)
+
+    local staticTool = isStaticTool(productId)
+
+    if not staticTool then
+        return true
+    end
+
+    local lackingExpertise = common.GetNLS(user,
+        "Du benötigst die Expertise eines Großmeisters der ",
+        "You need the expertise of a grandmaster of ")
+
+    for index, skill in ipairs(staticTool.builderSkills) do
+        if index ~= 1 then
+            lackingExpertise = lackingExpertise ..
+                (index == #staticTool.builderSkills and common.GetNLS(user, " und ", " and ") or ", ")
+        end
+        lackingExpertise = lackingExpertise ..
+            common.GetNLS(user, " eines Großmeisters der ", " a grandmaster of ")
+        lackingExpertise = lackingExpertise ..
+            (skill == "magic" and common.GetNLS(user, "Magie", "magic") or skill == "smithing" and
+            common.GetNLS(user, "Schmiedekunst", "smithing") or user:getSkillName(Character[skill]))
+    end
+
+    lackingExpertise = lackingExpertise .. "."
+
+    local readyPlayersNearPos = getPlayersReadyToBuild(user, pos)
+    local skills = {}
+
+    -- Collect players for each skill
+    for _, skill in ipairs(staticTool.builderSkills) do
+        skills[skill] = {}
+        for _, player in ipairs(readyPlayersNearPos) do
+            if getPlayerLevel(player, skill) == 100 then
+                table.insert(skills[skill], player)
+            end
+        end
+    end
+
+    -- Backtracking to find a valid assignment
+    if canAssignSkills(skills, staticTool.builderSkills, {}, 1) then
+        return true
+    end
+
+    user:inform(lackingExpertise)
+    return false
+end
+
+
+function M.supportedTool(productId, pos)
+
+    if not isStaticTool(productId) then
+        return true
+    end
+
+    local propertyName = M.getPropertyLocationIsPartOf(pos)
+    local realm = M.getRealmPropertyBelongsTo(propertyName)
+
+    for _, staticTool in pairs(staticTools) do
+        if staticTool.id == productId then
+            for _, realmName in pairs(staticTool.realms) do
+                if realm == realmName then
+                    return true
+                end
+            end
+            break
+        end
+    end
+    return false
+end
+
+local function checkFieldForStatictool(thePosition, staticToolsOnProperty)
+
+    local field = world:getField(thePosition)
+    local itemsOnField = field:countItems()
+    for i = 0, itemsOnField do
+        local chosenItem = field:getStackItem(itemsOnField - i )
+        for _, staticTool in pairs(staticTools) do
+            if chosenItem.id == staticTool.id and chosenItem:getData("preview") ~= "true" then
+                table.insert(staticToolsOnProperty, chosenItem.id)
+            end
+        end
+    end
+
+    return staticToolsOnProperty
+end
+
+function M.checkPropertyForStaticTools(frontPos)
+
+    local staticToolsOnProperty = {}
+
+    local propertyName = M.getPropertyLocationIsPartOf(frontPos)
+
+    for _, property in pairs(propertyList.properties) do
+        if property.name == propertyName then
+            for x = property.lower.x, property.upper.x do
+                for y = property.lower.y, property.upper.y do
+                    for z = property.lower.z, property.upper.z do
+                        local thePosition = position(x, y, z)
+                        staticToolsOnProperty = checkFieldForStatictool(thePosition, staticToolsOnProperty)
+                    end
+                end
+            end
+        end
+    end
+
+    return staticToolsOnProperty
+end
+
+function M.tooManyTools(user, productId, frontPos)
+
+    local productIsStaticTool = isStaticTool(productId)
+
+    if not productIsStaticTool then
+        return false
+    end
+
+    local listOfExistingTools = M.checkPropertyForStaticTools(frontPos)
+
+    local totalValue = 0
+
+    local productValue
+
+    for _, existingTool in pairs(listOfExistingTools) do
+        for _, staticTool in pairs(staticTools) do
+            if existingTool == staticTool.id then
+                totalValue = totalValue + staticTool.value
+            end
+        end
+    end
+
+    for _, staticTool in pairs(staticTools) do
+        if staticTool.id == productId then
+            productValue = staticTool.value
+        end
+    end
+
+    if productValue == 0 then
+        return false
+    end
+
+    if totalValue == 0 then
+        return false
+    end
+
+    local maxValue = 4
+
+    if totalValue >= maxValue then
+        user:inform("Du hast bereits so viele statische Werkzeuge auf diesem Grundstück gebaut, wie es erlaubt ist.", "You've already built as many static tools on this property as is allowed.")
+        return true
+    end
+
+    if totalValue < maxValue and totalValue+productValue > maxValue then
+        user:inform("Während noch Platz für statische Werkzeuge für diese Eigenschaft vorhanden ist, nimmt dieses Werkzeug zu viel Platz ein. Du musst einige andere Werkzeuge löschen, wenn du dieses bauen möchtest.", "While there is allowance left for static tools for this property, this tool takes up too much. You will have to delete some other tools if you want to build this one.")
+        return true
+    end
+
+    return false
 
 end
 
@@ -1363,6 +1618,28 @@ function M.destroyItem(user)
                         user:inform("Du bist nicht berechtigt dies abzureißen.","You aren't allowed to destroy that.")
                     end
                 else
+                    local parts = {
+                        {id = 3871, pos = position(thePosition.x-2, thePosition.y, thePosition.z)},
+                        {id = 3872, pos = position(thePosition.x-1, thePosition.y-1, thePosition.z)},
+                        {id = 3873, pos = position(thePosition.x, thePosition.y-1, thePosition.z)},
+                        {id = 3874, pos = position(thePosition.x+1, thePosition.y, thePosition.z)},
+                        {id = 3875, pos = position(thePosition.x+1, thePosition.y+1, thePosition.z)},
+                        {id = 3876, pos = position(thePosition.x, thePosition.y+2, thePosition.z)},
+                        {id = 3877, pos = position(thePosition.x-1, thePosition.y+2, thePosition.z)},
+                        {id = 3878, pos = position(thePosition.x-2, thePosition.y+1, thePosition.z)}
+                    }
+                    for _, part in pairs(parts) do
+                        if targetItem.id == part.id then
+                            user:inform("Wenn du eine Tenne löschen möchtest, visiere die Tenne selbst an.","If you want to delete a threshing floor, target the threshing floor itself.")
+                            return
+                        end
+                    end
+                    if targetItem.id == 3879 then --threshing floor
+                        for _, part in pairs(parts) do
+                            common.DeleteItemFromStack(part.pos, {itemId = part.id})
+                        end
+                    end
+
                     itemDeleted = common.DeleteItemFromStack(thePosition, {itemId = targetItem.id})
                 end
                 if itemDeleted then
@@ -1834,13 +2111,12 @@ local function charOwnedDepotKeys(char, keyData, depot)
         return (depot:countItem(2558, keyData))+(depot:countItem(3054, keyData))+(depot:countItem(3055, keyData))+(depot:countItem(3056, keyData))
     end
 
-    for i = 1, #M.depotList do -- We check all depot if keys exist at all
+    for _, selectDepot in pairs(depotScript.depots) do -- We check all depot if keys exist at all
 
-        local depNr = M.depotList[i]
-        depot = char:getDepot(depNr)
+        local depotFound = char:getDepot(selectDepot.id)
 
-        if depot then
-            return (depot:countItem(2558))+(depot:countItem(3054))+(depot:countItem(3055))+(depot:countItem(3056))
+        if depotFound then
+            return (depotFound:countItem(2558))+(depotFound:countItem(3054))+(depotFound:countItem(3055))+(depotFound:countItem(3056))
         end
     end
 end
@@ -1915,16 +2191,15 @@ function M.deleteKeys(char, inform)
                     keysDeleted = true --internal key for adding this specific key to the inform
                 end
 
-                for depotIndex = 1, #M.depotList do
+                for _, depot in pairs(depotScript.depots) do
 
-                    local depNr = M.depotList[depotIndex]
-                    local depot = char:getDepot(depNr)
+                    local foundDepot = char:getDepot(depot.id)
 
-                    local depotKeyAmount = charOwnedDepotKeys(char, {["lockId"]=keyID}, depot) -- Fetch how many keys character has in depot
+                    local depotKeyAmount = charOwnedDepotKeys(char, {["lockId"]=keyID}, foundDepot) -- Fetch how many keys character has in depot
 
-                    if depot and depotKeyAmount and deleteKey then
+                    if foundDepot and depotKeyAmount and deleteKey then
                         for z = 1, depotKeyAmount do
-                            depot:eraseItem(keyType,1,{["lockId"]=keyID})
+                            foundDepot:eraseItem(keyType,1,{["lockId"]=keyID})
                             removedKeys = true --external check for any keys at all deleted so inform gets sent
                             keysDeleted = true --internal key for adding this specific key to the inform
                         end
@@ -3345,6 +3620,63 @@ function M.getSkillsToShow(user)
     end
 
     return skills
+end
+
+function M.removeHelper(user, deed, id) --Closing the dialog triggers this
+
+    local helperAmount = deed:getData("helperAmount")
+
+    if user then id = user.id end
+
+    if common.IsNilOrEmpty(helperAmount) then
+        return -- no helpers to find
+    else
+        helperAmount = tonumber(helperAmount)
+    end
+
+    local erased = false
+
+    for i = 1, helperAmount do
+        local helper = deed:getData("helper"..i)
+        if not common.IsNilOrEmpty(helper) and tonumber(helper) == id then
+            deed:setData("helper"..i, "") --erasing the helper
+            erased = true
+        end
+
+        if erased then
+            deed:setData("helper"..i-1, deed:getData("helper"..i)) --overwrite the previous one for the remaining ones after a deletion
+        end
+
+        if i == helperAmount and erased then
+            deed:setData("helperAmount", helperAmount-1) -- Reducing the amount accordingly
+        end
+    end
+
+    if erased then
+        world:changeItem(deed)
+    end
+end
+
+function M.addHelper(user, deed) --Triggered upon opening the dialog
+
+    local helperAmount = deed:getData("helperAmount")
+
+    if common.IsNilOrEmpty(helperAmount) then
+        helperAmount = 0
+    else
+        helperAmount = tonumber(helperAmount)
+    end
+
+    for i = 1, helperAmount do
+        local helper = deed:getData("helper"..i)
+        if not common.IsNilOrEmpty and tonumber(helper) == user.id then
+            return --Already listed as helper, possibly opened multiple menus with the tool
+        end
+    end
+
+    deed:setData("helperAmount", helperAmount+1)
+    deed:setData("helper"..helperAmount+1, user.id)
+    world:changeItem(deed)
 end
 
 

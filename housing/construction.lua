@@ -23,6 +23,7 @@ local gems = require("base.gems")
 local utility = require("housing.utility")
 local daear = require("magic.arcane.enchanting.effects.daear")
 local crafts = require("craft.base.crafts")
+local depotScript = require("item.id_321_depot")
 
 local itemsWithRemnants = crafts.itemsWithRemnants
 
@@ -36,7 +37,7 @@ local function loadIngredients(object)
 
     local ingredients = {}
 
-    for i = 1, 5 do
+    for i = 1, 7 do --Change the 7 to something higher if we need a recipe with more ingredients than 7
         local ingredient = object["ingredient" .. i]
         local amount = object["ingredient".. i .. "Amount"]
         if ingredient then
@@ -49,7 +50,9 @@ local function loadIngredients(object)
     return ingredients
 end
 
-local function showObject(user, object, category, skill, overloaded)
+local count = {}
+
+local function showObject(user, object, category, skill, overloaded, secondOverload)
 
     if overloaded ~= nil
         and ((overloaded and object.typeOf ~= "Estate")
@@ -57,17 +60,38 @@ local function showObject(user, object, category, skill, overloaded)
         then return false
     end
 
-    if category.nameEN == object.category
-        and object.skill == skill.name
-        and (object.typeOf ~= "Estate" or utility.checkIfEstate(user))
-        then return true
+    local categoryFits = category.nameEN == object.category
+    local skillChecksOut = object.skill == skill.name
+    local estateChecked = object.typeOf ~= "Estate" or utility.checkIfEstate(user)
+
+    if categoryFits and skillChecksOut and estateChecked then
+
+        if not secondOverload and count[user.id] > 200 then --to prevent overload we dont allow any past 250
+            return false
+        end
+
+        if overloaded == true and object.typeOf ~= "Estate" then
+            return false --if overloaded is true it should list estate items
+        end
+
+        if overloaded == false and object.typeOf == "Estate" then
+            return false
+        end
+
+        if secondOverload and count[user.id] <= 200 then --we skip the first 250 entries
+            count[user.id] = count[user.id] + 1
+            return false
+        end
+
+        count[user.id] = count[user.id] + 1
+        return true -- either overloaded is nil or it is the correct overloaded type for object type and secondoverload is either false or has passed 250 entries
     end
 
     return false
 end
 
-local function loadObjects(user, products, index, object, category, skill, overloaded)
-    if showObject(user, object, category, skill, overloaded) then
+local function loadObjects(user, products, index, object, category, skill, overloaded, secondOverload)
+    if showObject(user, object, category, skill, overloaded, secondOverload) then
         local ingredients = loadIngredients(object)
         local id, tile
         if object.itemId then
@@ -90,8 +114,9 @@ local function loadObjects(user, products, index, object, category, skill, overl
     return false
 end
 
-local function loadProducts(user, categories, skill, overloaded)
+local function loadProducts(user, categories, skill, overloaded, secondOverload)
     local products = {}
+    count[user.id] = 0
     for index, category in ipairs(categories) do
         local theList = itemList.items
         if category.tile then
@@ -99,7 +124,7 @@ local function loadProducts(user, categories, skill, overloaded)
         end
 
         for _, object in ipairs(theList) do
-            if loadObjects(user, products, index, object, category, skill, overloaded) then
+            if loadObjects(user, products, index, object, category, skill, overloaded, secondOverload) then
                 category.productAmount = category.productAmount + 1
             end
         end
@@ -469,6 +494,54 @@ local function eraseIngredients(user, product)
     return remnantItemsToCreate
 end
 
+
+
+local function enoughSpaceForThreshingFloor(user, target)
+
+    local parts = {
+        {id = 3871, pos = position(target.x-2, target.y, target.z)},
+        {id = 3872, pos = position(target.x-1, target.y-1, target.z)},
+        {id = 3873, pos = position(target.x, target.y-1, target.z)},
+        {id = 3874, pos = position(target.x+1, target.y, target.z)},
+        {id = 3875, pos = position(target.x+1, target.y+1, target.z)},
+        {id = 3876, pos = position(target.x, target.y+2, target.z)},
+        {id = 3877, pos = position(target.x-1, target.y+2, target.z)},
+        {id = 3878, pos = position(target.x-2, target.y+1, target.z)}
+    }
+
+    for _, part in pairs(parts) do
+        if world:isItemOnField(part.pos) or not utility.allowBuilding(user, part.pos) then
+            user:inform("Es gibt nicht genug Platz um dein Zielgebiet, um eine Tenne zu bauen. Eine Tenne benötigt eine freie Fläche von 4x4 Feldern.","There's not enough space surrounding your target tile to build a threshing floor. A threshing floor requires a 4x4 area to be empty.")
+            return false
+        end
+    end
+
+    return true
+
+end
+
+local function buildThreshingFloor(target)
+
+    local parts = {
+        {id = 3871, pos = position(target.x-2, target.y, target.z)},
+        {id = 3872, pos = position(target.x-1, target.y-1, target.z)},
+        {id = 3873, pos = position(target.x, target.y-1, target.z)},
+        {id = 3874, pos = position(target.x+1, target.y, target.z)},
+        {id = 3875, pos = position(target.x+1, target.y+1, target.z)},
+        {id = 3876, pos = position(target.x, target.y+2, target.z)},
+        {id = 3877, pos = position(target.x-1, target.y+2, target.z)},
+        {id = 3878, pos = position(target.x-2, target.y+1, target.z)}
+    }
+
+    for _, part in pairs(parts) do
+
+        local targetItem = world:createItemFromId(part.id, 1, part.pos, true, 333, nil)
+        targetItem.wear = 255
+        world:changeItem(targetItem)
+    end
+
+end
+
 local function createItem(user, product, trowel, skill)
 
     local quality = generateQuality(user, trowel, skill)
@@ -522,12 +595,38 @@ local function createItem(user, product, trowel, skill)
                 user:inform("Das kannst du hier nicht pflanzen.","You can't plant this here.")
             end
         else
+            if product.id == 3879 and not enoughSpaceForThreshingFloor(user, target) then
+                return
+            end
+
+            if not utility.buildersReady(user, product.id, target) then
+                return
+            end
+
+            if utility.tooManyTools(user, product.id, target) then
+                return
+            end
             remnantItemsToCreate = eraseIngredients(user, product)
             local field = world:getField(target)
             if field:tile() == 0 then
                 world:changeTile(34, target) --To prevent buggy ? tiles if you want to have something like a floating handrail at the edge of the nearby tile.
             end
-            local targetItem = world:createItemFromId(product.id, product.quantity, target, true, quality, nil)
+
+            if product.id == 3879 then -- threshing floor
+                buildThreshingFloor(target)
+            end
+
+            local data = {}
+
+            if product.id == 321 or product.id == 4817 then
+                for _, depot in pairs(depotScript.depots) do
+                    if depot.realm.english == propertyName then
+                        data = {["depot"] = depot.itemData}
+                    end
+                end
+            end
+
+            local targetItem = world:createItemFromId(product.id, product.quantity, target, true, quality, data)
             targetItem.wear = 255
             world:changeItem(targetItem)
         end
@@ -624,7 +723,7 @@ local function roofInform(user, product, tile, accessedViaLookat, above)
     end
 end
 
-function M.showDialog(user, skillName, overloaded)
+function M.showDialog(user, skillName, overloaded, secondOverload)
 
     local skill = {}
     skill.level = loadSkill(user, skillName)
@@ -632,7 +731,7 @@ function M.showDialog(user, skillName, overloaded)
 
     local categories = loadCategories(user, skill)
 
-    local products = loadProducts(user, categories, skill, overloaded)
+    local products = loadProducts(user, categories, skill, overloaded, secondOverload)
 
     if not utility.allowBuilding(user) then
         return
@@ -662,12 +761,29 @@ function M.showDialog(user, skillName, overloaded)
 
             if not getEquippedTrowel(user) then
                 user:inform("Die Baukelle muss noch intakt sein und du musst sie in einer Hand halten, um sie zu benutzen.", "The construction trowel must be intact and in one of your hands for you to use it.")
-                return
+                return false
             end
 
             if not utility.realmAllowsFarming(frontPos) and product.tile and product.id == 4 then
                 user:inform("Leider ist das Klima in Cadomyr zu rau, Ackerland würde in kürzester Zeit austrocknen.", "Sadly the Cadomyr climate is too harsh, farmland would dry up in no time.")
-                return
+                return false
+            end
+
+            if not utility.supportedTool(product.id, frontPos) then
+                user:inform("Leider unterstützt dein Reich dieses statische Werkzeug nicht.", "Unfortunately your realm does not support this static tool.")
+                return false
+            end
+
+            if not utility.buildersReady(user, product.id, frontPos) then
+                return false
+            end
+
+            if utility.tooManyTools(user, product.id, frontPos) then
+                return false
+            end
+
+            if product.id == 3879 and not enoughSpaceForThreshingFloor(user, frontPos) then
+                return false
             end
 
             if skill.name ~= "misc" then

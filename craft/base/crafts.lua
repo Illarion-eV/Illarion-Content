@@ -31,6 +31,7 @@ local ilyn = require("magic.arcane.enchanting.effects.ilyn")
 local magic = require("base.magic")
 local bottles = require("item.bottles")
 local antiTroll = require("magic.base.antiTroll")
+local moreUtility = require("housing.moreUtility")
 
 
 local M = {}
@@ -262,6 +263,27 @@ function Craft:allowUserCrafting(user, source)
 
         if not self:userHasLicense(user) then
             return false, false
+        end
+
+        if source:getData("preview") == "true" then
+            common.HighInformNLS(user,
+                "Du kannst mit einem Vorschau-Werkzeug nicht herstellen",
+                "You can't craft using a preview-tool.")
+            return false, false
+        end
+
+        local propertyName = moreUtility.fetchPropertyName(user)
+
+        if propertyName then --It is on a housing property! To avoid players renting it once then making use of its tools for free after, we disable tools on unrented properties.
+
+            local propertyDeed = moreUtility.getPropertyDeed(propertyName)
+
+            if moreUtility.checkOwner(propertyDeed) == "Unowned" then
+                common.HighInformNLS(user,
+                "Leider hat diese Immobilie keinen Mieter, der sie instand hält und das Werkzeug funktionsfähig hält.",
+                "Sadly this property has no tenant to maintain and keep the tool in a working order.")
+                return false, false
+            end
         end
 
         if not self:isHandToolEquipped(user) then
@@ -727,6 +749,25 @@ function Craft:locationFine(user)
             "For some reason the flame does not provide the required heat.")
         end
         return false
+    elseif common.GetFrontItem(user):getData("preview") == "true" then
+        common.HighInformNLS(user,
+            "Du kannst mit einem Vorschau-Werkzeug nicht herstellen",
+            "You can't craft using a preview-tool.")
+        return false
+    end
+
+    local propertyName = moreUtility.fetchPropertyName(user)
+
+    if propertyName then --It is on a housing property! To avoid players renting it once then making use of its tools for free after, we disable tools on unrented properties.
+
+        local propertyDeed = moreUtility.getPropertyDeed(propertyName)
+
+        if moreUtility.checkOwner(propertyDeed) == "Unowned" then
+            common.HighInformNLS(user,
+            "Leider hat diese Immobilie keinen Mieter, der sie instand hält und das Werkzeug funktionsfähig hält.",
+            "Sadly this property has no tenant to maintain and keep the tool in a working order.")
+            return false
+        end
     end
 
     return true

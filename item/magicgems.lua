@@ -34,8 +34,8 @@ local function depotChecker(user, targetContainer)
     local depots = depotScript.depots
 
     for _, depot in pairs(depots) do
-        if targetContainer == user:getDepot(depot) then
-            return true, depotScript.getDepotDescription(user, depot+1)
+        if targetContainer == user:getDepot(depot.id) then
+            return true, depotScript.getDepotDescription(user, depot.itemData)
         end
     end
 
