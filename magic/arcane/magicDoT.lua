@@ -50,18 +50,16 @@ function M.dealMagicDoT(user, targets, spell, element, level, castDuration)
                 end
             end
 
+            if KAH and IRA then
+                damage = damage/2
+            end
+
             if IRA then
                 manaReduction = damage
             end
 
             if KAH then
-                manaReduction = manaReduction/2
-                foodReduction = damage
-                if IRA then
-                    foodReduction = foodReduction/2
-                end
-
-                foodReduction = foodReduction*6 --There's 10k mana/health but 60k food
+                foodReduction = damage*6 --There's 10k mana/health but 60k food
             end
 
             if user and not IRA and (damage > 0) and dwyfol.deflectAttackAsLightning(target, user) then -- This glyph if activated deflects the attack, dealing the same amount they would have taken as magic damage to the attacker instead in the form of a lightning strike
@@ -147,7 +145,7 @@ function M.dealMagicDoT(user, targets, spell, element, level, castDuration)
                 else
                     local foundRemaining, remaining = SoT:findValue("remainingStaminaReduction")
                     if foundRemaining then
-                        if remaining >= damage then --the DoT refresh wouldnt add value
+                        if remaining >= foodReduction then --the DoT refresh wouldnt add value
                             addValue = false
                         end
                     end

@@ -130,6 +130,10 @@ function M.dealMagicDamage(user, target, spell, damage, level, DoT, castTime)
         M.learnMagicResistance(target, castTime, level)
     end
 
+    if KAH and IRA then
+        damage = damage/2
+    end
+
     if not IRA and not KAH and character.IsPlayer(target) and character.WouldDie(target, damage + 1) then
         if character.AtBrinkOfDeath(target) then
             if target:isAdmin() then
@@ -152,20 +156,12 @@ function M.dealMagicDamage(user, target, spell, damage, level, DoT, castTime)
 
             local manareduction = damage
 
-            if KAH then
-                manareduction = manareduction/2
-            end
-
             target:increaseAttrib("mana", -manareduction)
             target:talk(Character.say, "#me loses "..manareduction.." mana.")
         end
         if KAH then
 
             local foodReduction = damage
-
-            if IRA then
-                foodReduction = foodReduction/2
-            end
 
             foodReduction = foodReduction*6 --There's 10k mana/health but 60k food
             target:increaseAttrib("foodlevel", -foodReduction)
