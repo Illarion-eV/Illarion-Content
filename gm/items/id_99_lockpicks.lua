@@ -2281,7 +2281,7 @@ function M.UseItem(user, SourceItem, ltstate)
     user:increaseAttrib("foodlevel", 100000)
 
     -- First check for mode change
-    local modes = {"Eraser", "Teleport", "Summon", "Instant kill/ revive", "Char Settings", "Global events", "Events on single char", "Events on groups", "Faction info of chars in radius", "Quest events","Define Teleporter Targets","Define events on single char","Define events on groups","Test area","Reset tutorial","Persistence"}
+    local modes = {"Eraser", "Teleport", "Summon", "Instant kill/ revive", "Char Settings", "Global events", "Events on single char", "Events on groups", "Quest events","Define Teleporter Targets","Define events on single char","Define events on groups","Test area","Reset tutorial","Persistence"}
     local cbSetMode = function (dialog)
         if (not dialog:getSuccess()) then
             return
