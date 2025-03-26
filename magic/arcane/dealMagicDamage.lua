@@ -147,24 +147,34 @@ function M.dealMagicDamage(user, target, spell, damage, level, DoT, castTime)
             local timeFactor = 1 -- See lte.chr_reg
             chr_reg.stallRegeneration(target, 60 / timeFactor)
         end
-    elseif (RA or CUN) and IRA then --Ira converts the damage of the spell to mana instead, allowing for high values of mana drain to compensate for the lost damage
-        local manareduction = damage
+    elseif (RA or CUN) and (IRA or KAH) then
+        if IRA then --Ira converts the damage of the spell to mana instead, allowing for high values of mana drain to compensate for the lost damage
+
+            local manareduction = damage
+
+            if KAH then
+                manareduction = manareduction/2
+            end
+
+            target:increaseAttrib("mana", -manareduction)
+            target:talk(Character.say, "#me loses "..manareduction.." mana.")
+        end
         if KAH then
-            manareduction = manareduction/2
+
+            local foodReduction = damage
+
+            if IRA then
+                foodReduction = foodReduction/2
+            end
+
+            foodReduction = foodReduction*6 --There's 10k mana/health but 60k food
+            target:increaseAttrib("foodlevel", -foodReduction)
+            target:talk(Character.say, "#me loses "..foodReduction.." stamina.")
         end
-        target:increaseAttrib("mana", -manareduction)
-        target:talk(Character.say, "#me loses "..manareduction.." mana.")
-    elseif (RA or CUN) and KAH then
-        local foodReduction = damage
-        if IRA then
-            foodReduction = foodReduction/2
-        end
-        foodReduction = foodReduction*6 --There's 10k mana/health but 60k food
-        target:increaseAttrib("foodlevel", -foodReduction)
-        target:talk(Character.say, "#me loses "..foodReduction.." stamina.")
     else
         character.ChangeHP(target, -damage)
     end
+
 
     if not dwyfolTriggered and user then
         if SIH and (RA or CUN) then
