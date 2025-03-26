@@ -124,7 +124,7 @@ local valueLarge = 3000
 -- Processed resource (not free food as the gathered ingredient has been processed once via crafting, but not properly crafted food either as it remains an ingredient albeit edible)
 
 M.foodList[Item.beeHoney] = {foodPoints = valueMedium, leftOver = Item.emptyHoneyJar}
-M.foodList[Item.firewaspHoney] = {foodPoints = valueLarge, leftOver = Item.emptyHoneyJar}
+M.foodList[Item.firewaspHoney] = {foodPoints = valueMedium, leftOver = Item.emptyHoneyJar}
 
 -- FREE FOOD
 M.foodList[Item.apple]   = {foodPoints = valueMedium}
@@ -136,7 +136,7 @@ M.foodList[Item.foxMeat] = {foodPoints = valueMedium}
 M.foodList[Item.wolfMeat] = {foodPoints = valueMedium}
 M.foodList[Item.bearMeat] = {foodPoints = valueMedium}
 M.foodList[Item.raptorMeat] = {foodPoints = valueMedium}
-M.foodList[Item.dragonMeat] = {foodPoints = valueMedium}
+M.foodList[Item.dragonMeat] = {foodPoints = valueLarge}
 M.foodList[Item.ratMeat] = {foodPoints = valueMedium}
 M.foodList[Item.shrimp] = {foodPoints = valueMedium}
 M.foodList[Item.octopus] = {foodPoints = valueMedium}
@@ -169,7 +169,7 @@ M.foodList[Item.whiteEgg] = {foodPoints = valueSmall}
 M.foodList[Item.chickenMeat] = {foodPoints = valueMedium}
 M.foodList[Item.orange] = {foodPoints = valueMedium}
 M.foodList[Item.horseMackerel] = {foodPoints = valueMedium}
-M.foodList[Item.roseFish] = {foodPoints = valueLarge}
+M.foodList[Item.roseFish] = {foodPoints = valueMedium}
 M.foodList[Item.carrots] = {foodPoints = valueMedium}
 M.foodList[Item.lambMeat] = {foodPoints = valueMedium}
 M.foodList[Item.rawSteak] = {foodPoints = valueMedium}

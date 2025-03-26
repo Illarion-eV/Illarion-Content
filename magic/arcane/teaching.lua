@@ -20,7 +20,7 @@ local magic = require("base.magic")
 
 local M = {}
 
-local cooldown =  604800 --604800 is one week in seconds
+local cooldown =  604800*2 --604800 is one week in seconds
 
 local function getRuneToTeach(spell)
 

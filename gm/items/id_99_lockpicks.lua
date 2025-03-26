@@ -1574,8 +1574,8 @@ local function settingsForMagic(user, target)
             target:setQuestProgress(174, 0)
             target:setQuestProgress(175, 0)
 
-            user:inform("You reset the weekly rune learning cooldown for "..target.name)
-            user:logAdmin(user.name.." has reset the weekly rune learning cooldown for "..target.name)
+            user:inform("You reset the bi-weekly rune learning cooldown for "..target.name)
+            user:logAdmin(user.name.." has reset the bi-weekly rune learning cooldown for "..target.name)
         end
     end
     local dialog = SelectionDialog( "Magic", "Select what you want to do", callback)
