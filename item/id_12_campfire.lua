@@ -19,11 +19,13 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 
+local roasting = require("craft.final.roasting")
+
 local M = {}
 
 function M.UseItem(User, SourceItem, ltstate)
 
-    common.InformNLS( User,"Autsch! Das ist heiﬂ.","Ouch! That's hot." );
+    roasting.roasting:showDialog(User, SourceItem)
 
 end
 
