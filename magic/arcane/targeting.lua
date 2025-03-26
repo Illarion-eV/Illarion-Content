@@ -170,29 +170,67 @@ local function isCloser(finalTarget, target, position)
     return false
 end
 
+local function getValidTargets(user, originalTarget, targets)
+
+    local validTargets = {}
+
+    for _, target in pairs(targets) do
+        --Check that it isnt the user themself, it is not the original target and it is on the same layer
+        if target ~= user and (not originalTarget or originalTarget ~= target) and target.pos.z == user.pos.z then
+            table.insert(validTargets, target)
+        end
+    end
+
+    if #validTargets == 0 then
+        return false
+    end
+
+    return validTargets
+
+end
+
 local function FhenGetTarget(user, rangeNum, originalTarget)
 
     if originalTarget and not isValidChar(originalTarget) then
         originalTarget = false
     end
 
-    local targets = world:getCharactersInRangeOf(user.pos, rangeNum)
+    local monsterTargets = world:getMonstersInRangeOf(user.pos, rangeNum)
+
+    local playerTargets = world:getPlayersInRangeOf(user.pos, rangeNum)
+
+    local validPlayerTargets = getValidTargets(user, originalTarget, playerTargets)
+
+    local validMonsterTargets = getValidTargets(user, originalTarget, monsterTargets)
+
+    if not validMonsterTargets and not validPlayerTargets then
+        return false
+    end
+
+    local targets = {}
+
+    if not originalTarget or originalTarget:getType() == Character.monster then
+        if validMonsterTargets then
+            targets = validMonsterTargets
+        else
+            return false
+        end
+    elseif originalTarget:getType() == Character.player then
+        if validPlayerTargets then
+            targets = validPlayerTargets
+        else
+            targets = validMonsterTargets
+        end
+    end
 
     local finalTarget = false
 
     for _, target in pairs(targets) do
 
-        local targetIsMonster = target:getType() == Character.monster
-        local finalTargetIsMonster = finalTarget and finalTarget:getType() == Character.monster
-
-        --Monster targets take prio to allow group play without friendly fire; player targets second to enable the pvp option
-
-        if (not finalTargetIsMonster or targetIsMonster) and target ~= user and target:getType() ~= Character.npc and target.pos.z == user.pos.z and (not originalTarget or originalTarget ~= target) then
-            if not finalTarget and isValidChar(target) then
-                finalTarget = target
-            elseif isCloser(finalTarget.pos, target.pos, user.pos) and isValidChar(target) then
-                finalTarget = target
-            end
+         if not finalTarget and isValidChar(target) then
+            finalTarget = target
+        elseif isCloser(finalTarget.pos, target.pos, user.pos) and isValidChar(target) then
+            finalTarget = target
         end
     end
 
