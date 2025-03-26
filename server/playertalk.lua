@@ -30,14 +30,12 @@ local function puzzleTriggers(player, text)
 
     if string.find(text, "feather") or string.find(text, "Feather") or string.find(text, "Feder") or string.find(text, "feder") then
         if magicSphere.checkPenPosition(player) then
-            magicSphere.penActivate = true
             correctAnswerInform(player)
         end
     end
 
     if string.find(text, "beholder") or string.find(text, "Beholder") then
         if magicSphere.checkIraPosition(player) then
-            magicSphere.iraActivate = true
             correctAnswerInform(player)
         end
     end
@@ -47,7 +45,6 @@ local function puzzleTriggers(player, text)
     for _, variation in pairs(raven) do
         if string.find(text, variation) then
             if magicSphere.checkLhorPosition(player) then
-                magicSphere.lhorActivate = true
                 correctAnswerInform(player)
             end
         end
@@ -58,7 +55,6 @@ local function puzzleTriggers(player, text)
     for _, variation in pairs(right) do
         if string.find(text, variation) then
             if magicSphere.checkTahPosition(player) then
-                magicSphere.tahActivate = true
                 correctAnswerInform(player)
             end
         end
@@ -68,7 +64,6 @@ local function puzzleTriggers(player, text)
     for _, variation in pairs(man) do
         if string.find(text, variation) then
             if magicSphere.checkTaurPosition(player) then
-                magicSphere.taurActivate = true
                 correctAnswerInform(player)
             end
         end

@@ -26,6 +26,8 @@ local hints = require("magic.arcane.runeHintsBook")
 
 local runeHints = hints.runeHintsBookTexts
 
+local lightSphere
+
 local puzzles = {
     phercPuzzle = {
         english = "If knowledge you seek, blood you must spill. Come on; give it a try, it might just be an unexpected thrill.",
@@ -292,9 +294,27 @@ local puzzles = {
 
 local M = {}
 
+local function getSphere(thePos)
+
+    local field = world:getField(thePos)
+    local itemsOnField = field:countItems()
+
+    for i = 0, itemsOnField-1 do
+        local currentItem = field:getStackItem(itemsOnField-i)
+        if currentItem.id == 3499 then --sphere found
+            return currentItem
+        end
+    end
+
+    debug("should never get here")
+
+end
+
 function M.checkTaurPosition(user)
 
     local taurPosition = position(179, 551, 0)
+
+    local sphere =  getSphere(taurPosition)
 
     local distance = 10
 
@@ -310,6 +330,8 @@ function M.checkTaurPosition(user)
     if biggerX or smallerX or biggerY or smallerY then
         return false
     end
+
+    lightSphere(user, sphere, true)
 
     return true
 
@@ -431,6 +453,8 @@ function M.checkTahPosition(user)
 
     local tahPosition = position(14, 522, 0)
 
+    local sphere =  getSphere(tahPosition)
+
     local distance = 10
 
     local biggerX =  user.pos.x > tahPosition.x + distance
@@ -445,6 +469,8 @@ function M.checkTahPosition(user)
     if biggerX or smallerX or biggerY or smallerY then
         return false
     end
+
+    lightSphere(user, sphere, true)
 
     return true
 
@@ -791,6 +817,8 @@ function M.checkLhorPosition(user)
 
     local lhorPosition = position(781, 438, 0)
 
+    local sphere =  getSphere(lhorPosition)
+
     local distance = 10
 
     local biggerX =  user.pos.x > lhorPosition.x + distance
@@ -805,6 +833,8 @@ function M.checkLhorPosition(user)
     if biggerX or smallerX or biggerY or smallerY then
         return false
     end
+
+    lightSphere(user, sphere, true)
 
     return true
 
@@ -1189,6 +1219,8 @@ function M.checkIraPosition(user)
 
     local iraPosition = position(473, 746, -3)
 
+    local sphere =  getSphere(iraPosition)
+
     local distance = 10
 
     local biggerX =  user.pos.x > iraPosition.x + distance
@@ -1203,6 +1235,8 @@ function M.checkIraPosition(user)
     if biggerX or smallerX or biggerY or smallerY then
         return false
     end
+
+    lightSphere(user, sphere, true)
 
     return true
 
@@ -1451,7 +1485,9 @@ end
 
 function M.checkPenPosition(user)
 
-    local penPosition = position(794, 128, 0)
+    local penPosition = position(786, 128, 0)
+
+    local sphere =  getSphere(penPosition)
 
     local distance = 15
 
@@ -1463,6 +1499,8 @@ function M.checkPenPosition(user)
     if biggerX or smallerX or biggerY or smallerY then
         return false
     end
+
+    lightSphere(user, sphere, true)
 
     return true
 
@@ -1524,7 +1562,7 @@ local function learnRune(user, rune)
     return true
 end
 
-local function lightSphere(user, item, lit)
+function lightSphere(user, item, lit)
     local newItemId
 
     if lit then
@@ -1645,11 +1683,6 @@ local function checkIfCriteriaMet(user, rune)
         if cunPuzzleSolved() then
             retVal = true
         end
-    elseif rune == "PEN" then
-        if M.penActivate then
-            M.penActivate = false
-            retVal = true
-        end
     elseif rune == "ANTH" then
         local success, anthActivate = ScriptVars:find("anthActivate")
         if success then
@@ -1673,11 +1706,6 @@ local function checkIfCriteriaMet(user, rune)
         end
     elseif rune == "HEPT" then
         if heptPuzzleSolved() then
-            retVal = true
-        end
-    elseif rune == "IRA" then
-        if M.iraActivate then
-            M.iraActivate = false
             retVal = true
         end
     elseif rune == "KAH" then
@@ -1708,11 +1736,6 @@ local function checkIfCriteriaMet(user, rune)
         end
     elseif rune == "BHONA" then
         if user:getQuestProgress(244) == 18 then
-            retVal = true
-        end
-    elseif rune == "LHOR" then
-        if M.lhorActivate then
-            M.lhorActivate = false
             retVal = true
         end
     elseif rune == "LUK" then
@@ -1749,11 +1772,6 @@ local function checkIfCriteriaMet(user, rune)
         if passesYegPuzzle(user) then
             retVal = true
         end
-    elseif rune == "TAH" then
-        if M.tahActivate then
-            M.tahActivate = false
-            retVal = true
-        end
     elseif rune == "SUL" then
         if passesSulPuzzle(user) then
             retVal = true
@@ -1762,11 +1780,8 @@ local function checkIfCriteriaMet(user, rune)
         if uraPuzzleSolved() then
             retVal = true
         end
-    elseif rune == "TAUR" then
-        if M.taurActivate then
-            M.taurActivate = false
-            retVal = true
-        end
+    elseif rune == "TAUR" or rune == "PEN" or rune == "IRA" or rune == "TAH" or rune == "LHOR" then --they are solved elsewhere
+        retVal = false
     else --Any remaining puzzles will only require you to find, get to and use the sphere to activate it
         retVal = true
     end
