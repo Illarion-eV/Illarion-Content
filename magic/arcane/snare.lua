@@ -22,15 +22,16 @@ local effectScaling = require("magic.arcane.effectScaling")
 local M = {}
 
 function M.getSpeed(user, target, spell, JUS, SOLH, ORL, earthTrap)
-local retVal = 0
-local scaling
-local TAUR = runes.checkSpellForRuneByName("TAUR", spell)
-local URA = runes.checkSpellForRuneByName("URA", spell)
-local YEG = runes.checkSpellForRuneByName("YEG", spell)
-local LHOR = runes.checkSpellForRuneByName("LHOR", spell)
-local QWAN = runes.checkSpellForRuneByName("QWAN", spell)
-local SUL = runes.checkSpellForRuneByName("SUL", spell)
-local rune
+
+    local retVal = 0
+    local scaling
+    local TAUR = runes.checkSpellForRuneByName("TAUR", spell)
+    local URA = runes.checkSpellForRuneByName("URA", spell)
+    local YEG = runes.checkSpellForRuneByName("YEG", spell)
+    local LHOR = runes.checkSpellForRuneByName("LHOR", spell)
+    local QWAN = runes.checkSpellForRuneByName("QWAN", spell)
+    local SUL = runes.checkSpellForRuneByName("SUL", spell)
+    local rune
 
     if earthTrap then
         scaling = earthTrap:getData("scaling")
@@ -85,16 +86,24 @@ return retVal
 end
 
 function M.applySnare(user, targets, spell, ORL, earthTrap, level)
-local SUL = runes.checkSpellForRuneByName("SUL", spell)
-local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
-local JUS = runes.checkSpellForRuneByName("JUS", spell)
-local SIH = runes.checkSpellForRuneByName("SIH", spell)
-local QWAN = runes.checkSpellForRuneByName("QWAN", spell)
-local TAUR = runes.checkSpellForRuneByName("TAUR", spell)
-local URA = runes.checkSpellForRuneByName("URA", spell)
-local YEG = runes.checkSpellForRuneByName("YEG", spell)
-local TAH = runes.checkSpellForRuneByName("TAH", spell)
-local rune
+
+    local KAH = runes.checkSpellForRuneByName("KAH", spell)
+    local SUL = runes.checkSpellForRuneByName("SUL", spell)
+    local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
+    local JUS = runes.checkSpellForRuneByName("JUS", spell)
+    local SIH = runes.checkSpellForRuneByName("SIH", spell)
+    local QWAN = runes.checkSpellForRuneByName("QWAN", spell)
+    local TAUR = runes.checkSpellForRuneByName("TAUR", spell)
+    local URA = runes.checkSpellForRuneByName("URA", spell)
+    local YEG = runes.checkSpellForRuneByName("YEG", spell)
+    local TAH = runes.checkSpellForRuneByName("TAH", spell)
+
+    if KAH and SOLH then
+        return --KAH makes it a friendly feeding spell so no slow applied
+    end
+
+    local rune
+
     if TAUR then
         rune = "TAUR"
     elseif URA then
@@ -102,7 +111,9 @@ local rune
     elseif YEG then
         rune = "YEG"
     end
-local ticks = 10
+
+    local ticks = 10
+
     for _, target in pairs(targets.targets) do
         if SUL and (SOLH or JUS) then
             local getSpeed = M.getSpeed(user, target, spell, JUS, SOLH, ORL, earthTrap)
@@ -179,7 +190,7 @@ local ticks = 10
 end
 
 function M.addEffect(myEffect, target)
-    log("Magic testing: "..tostring(target.name).."'s speed before application of snare: "..tostring(target.speed))
+
 local TAH
 local SOLH
 local SIH
@@ -206,7 +217,7 @@ local foundSpeed, speed = myEffect:findValue("speed")
         end
         target.speed = target.speed - speedChange
     end
-    log("Magic testing: "..tostring(target.name).."'s speed after application of snare: "..tostring(target.speed))
+
 end
 
 function M.callEffect(myEffect, target)
@@ -261,7 +272,7 @@ local foundSpell, spell = myEffect:findValue("spell")
             end
         end
     end
-    log("Magic testing: "..tostring(target.name).."'s speed after last call of snare: "..tostring(target.speed))
+
 return false
 end
 

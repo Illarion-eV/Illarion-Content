@@ -23,7 +23,7 @@ local M = {}
 function M.getStaminaToReduce(user, target, spell, earthTrap)
 local scaling
     if not earthTrap then
-        scaling = effectScaling.getEffectScaling(user, target, spell)
+        scaling = effectScaling.getEffectScaling(user, target, spell, false, true)
     else
         scaling = earthTrap:getData("scaling")
     end

@@ -23,7 +23,7 @@ local magic = require("base.magic")
 
 local M = {}
 
-function M.getEffectScaling(user, target, spell, earthTrap)
+function M.getEffectScaling(user, target, spell, earthTrap, ignoreMR) --For positive spells like feeding, we ignore MR
 
     local element = runes.fetchElement(spell)
     local magicPenetration
@@ -45,6 +45,10 @@ function M.getEffectScaling(user, target, spell, earthTrap)
         magicPenetration = earthTrap:getData("magicPenetration")
         elementBonus = earthTrap:getData("elementBonus")
         wandGemBonus = earthTrap:getData("gemBonus")
+    end
+
+    if ignoreMR then
+        magicResistance = 0
     end
 
     local retVal = 1*(1+magicDamage.intImpact(user)+magicDamage.getEquipmentImpact(user, elementBonus))
