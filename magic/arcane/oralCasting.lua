@@ -79,29 +79,18 @@ local function checkForPortalIncantation(spokenWords)
 
 end
 
-local function additionalPrimalRuneCheck(runeName)
-    local number = runes.runeNameToNumber(runeName)
-    for i = 1, 6 do --The first six runes in the runes list are the primal runes
-        if number == i then
-            return true
-        end
-    end
-    return false
-
-end
-
 local function addRunesToSpell(user, spokenWords, primaryRune)
 
     local primaryRuneNumber = runes.runeNameToNumber(primaryRune)
     local BHONA = primaryRune == "BHONA"
     local spell = 0
-    local incantation = primaryRune
+    local incantation = "%f[%a]"..primaryRune.."%f[%A]"
     spell = runes.learnRune(user, false, primaryRuneNumber, "neither", spell)
 
     local knownRunes = {}
 
     for _, rune in pairs(runes.runes) do
-        if rune.id > 6 then
+        if rune.id > 6 then -- we already covered the primary rune
 
             local knowsRune = runes.checkIfLearnedRune(user, false, rune.id, "isQuest", false, false)
 
@@ -120,8 +109,8 @@ local function addRunesToSpell(user, spokenWords, primaryRune)
             local found = string.find(spokenWords, incantation.." "..rune.name)
 
             if found then
-                --a rune being repeated or an additional primal rune being spoken ends the incantation and returns the spell said up to that point
-                if  runes.checkSpellForRuneByName(rune.name, spell) or (additionalPrimalRuneCheck(rune.name) and not BHONA )then
+                --a rune being repeated ends the incantation and returns the spell said up to that point
+                if  runes.checkSpellForRuneByName(rune.name, spell)then
                     return spell
                 end
 
