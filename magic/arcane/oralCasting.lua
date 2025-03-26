@@ -101,11 +101,13 @@ local function addRunesToSpell(user, spokenWords, primaryRune)
     local knownRunes = {}
 
     for _, rune in pairs(runes.runes) do
+        if rune.id > 6 then
 
-        local knowsRune = runes.checkIfLearnedRune(user, false, rune.id, "isQuest", false, false)
+            local knowsRune = runes.checkIfLearnedRune(user, false, rune.id, "isQuest", false, false)
 
-        if knowsRune then
-            table.insert(knownRunes, { number = rune.id, name = rune.name })
+            if knowsRune then
+                table.insert(knownRunes, { number = rune.id, name = rune.name })
+            end
         end
     end
 
