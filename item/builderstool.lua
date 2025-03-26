@@ -160,9 +160,11 @@ local function miscDialog(user)
                         utility.writeOnSignPost(user)
                     elseif selected == 3 then
                         utility.makeWaterWalkable(user)
-                    elseif selected == 4 and utility.checkIfEstate(user) then
-                        utility.createLock(user)
+                    elseif selected == 4 then
+                        utility.setElevation(user)
                     elseif selected == 5 and utility.checkIfEstate(user) then
+                        utility.createLock(user)
+                    elseif selected == 6 and utility.checkIfEstate(user) then
                         utility.createKey(user)
                     end
                 else
@@ -176,6 +178,7 @@ local function miscDialog(user)
     dialog:addOption(0,common.GetNLS(user,"Gegenstände haltbar machen","(Un)Make item static"))
     dialog:addOption(0,common.GetNLS(user,"Ein Hinweisschild beschriften","Write on Sign Post"))
     dialog:addOption(0,common.GetNLS(user,"Übers Wasser gehen","Make water walkable"))
+    dialog:addOption(0,common.GetNLS(user,"Höhe einstellen","Set elevation"))
     if utility.checkIfEstate(user) then
         dialog:addOption(0,common.GetNLS(user,"Schloss setzen","Create a lock"))
         dialog:addOption(0,common.GetNLS(user,"Schlüssel herstellen","Create a key"))

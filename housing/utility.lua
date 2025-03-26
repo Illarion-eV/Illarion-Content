@@ -592,6 +592,7 @@ function M.roofAndRoofTiles(user, itemId, tileBoolean, createOrErase, above)
             world:createItemFromId(itemId, 1, targetPosition, true, 999, nil)
         elseif createOrErase == "erase" then
             local itemDeleted = common.DeleteItemFromStack(targetPosition, {itemId = targetItem.id})
+            M.removeElevation(targetPosition)
             if itemDeleted then
                 user:inform(common.GetNLS(user,"Du zerstörst den Gegenstand auf dem Dach.","You destroy the roof object."))
             end
@@ -1426,6 +1427,7 @@ function M.eraseStairTrap(positionOne, positionTwo, targetId, tile1pos)
     M.ifNoSurroundingTilesDeleteStairTiles(tile1pos, positionTwo)
 
     common.DeleteItemFromStack(positionTwo, {itemId = targetId})
+    M.removeElevation(positionTwo)
 
     if warpOne:isWarp() then
         warpOne:removeWarp()
@@ -1614,6 +1616,7 @@ function M.destroyItem(user)
 
                     if M.createWarpsAndExitObject(user, targetItem.id, "erase") then
                         itemDeleted = common.DeleteItemFromStack(thePosition, {itemId = targetItem.id})
+                        M.removeElevation(thePosition)
                     else
                         user:inform("Du bist nicht berechtigt dies abzureißen.","You aren't allowed to destroy that.")
                     end
@@ -1637,10 +1640,12 @@ function M.destroyItem(user)
                     if targetItem.id == 3879 then --threshing floor
                         for _, part in pairs(parts) do
                             common.DeleteItemFromStack(part.pos, {itemId = part.id})
+                            M.removeElevation(part.pos)
                         end
                     end
 
                     itemDeleted = common.DeleteItemFromStack(thePosition, {itemId = targetItem.id})
+                    M.removeElevation(thePosition)
                 end
                 if itemDeleted then
                     user:inform(common.GetNLS(user,"Du reißt ab: "..itemName,"You destroy the "..itemName))
@@ -3679,6 +3684,86 @@ function M.addHelper(user, deed) --Triggered upon opening the dialog
     world:changeItem(deed)
 end
 
+local elevationItemId = 4348 --An invisible item that elevates items placed on top, also elevates players that walk on it.
+local maxElevation = 4 --the max amount of allowed elevation items for a tile
 
+
+function M.removeElevation(pos) --called anytime a new elevation is set or anytime you delete an item, to prevent random floaty blocks with no item
+
+    for i = 1, maxElevation do --the below function returns false if it doesnt find the item, so it is safe to run even if there is none meaning there is no need to check if the item exists
+        common.DeleteItemFromStack(pos, {itemId = elevationItemId})
+    end
+end
+
+
+local function addElevationItems(user, frontPos, i)
+
+    local field = world:getField(frontPos)
+    local itemsOnField = field:countItems()
+
+    if itemsOnField == 0 then
+        user:inform("Es muss ein Objekt vor dir sein, wenn du etwas anheben möchtest.", "There needs to be an item in front of you if you wish to elevate something.")
+        return
+    end
+
+    local item = field:getStackItem(itemsOnField-1)
+
+    if not M.checkIfItemIsWallDeco(item.id) then
+        user:inform("Du kannst nur Wanddekorationen anheben." , "You may only elevate wall decorations.")
+        return
+    end
+
+    world:erase(item, item.number)
+
+    for y = 1, i do
+        world:createItemFromId(elevationItemId, 1, item.pos, true, 333, nil)
+    end
+
+    world:createItemFromItem(item, item.pos, true)
+
+
+end
+
+function M.setElevation(user)
+
+    local callback = function(dialog)
+
+        local success = dialog:getSuccess()
+
+        if not success then
+            return
+        end
+
+        local index = dialog:getSelectedIndex()
+
+        local frontPos = common.GetFrontPosition(user)
+
+        if index == 0 then
+            M.removeElevation(frontPos)
+        end
+
+        for i = 1, maxElevation do
+            if index == i and M.allowBuilding(user) then
+                M.removeElevation(frontPos)
+                addElevationItems(user, frontPos, i)
+            end
+        end
+    end
+
+    local germanText = "Hier kannst du die Höhe einer Wanddekoration auf der Kachel vor dir einstellen oder anpassen, falls du sie höher platzieren möchtest."
+    local englishText = "Here you can set or adjust the elevation of a wall decoration on the tile you are facing, in case you want it to be higher up."
+
+    local dialog = SelectionDialog(common.GetNLS(user,"Höhe einstellen","Set elevation"),
+                                    common.GetNLS(user, germanText, englishText), callback)
+
+    dialog:addOption(0,common.GetNLS(user,"Höhe 0","Elevation 0"))
+    for i = 1, maxElevation do
+        dialog:addOption(0,common.GetNLS(user,"Höhe "..i,"Elevation "..i))
+    end
+
+    dialog:setCloseOnMove()
+
+    user:requestSelectionDialog(dialog)
+end
 
 return M
