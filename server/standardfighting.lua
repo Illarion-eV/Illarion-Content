@@ -345,9 +345,9 @@ function M.onAttack(Attacker, Defender)
     if Attacker.AttackKind == 5 then
         if fightingutil.isMagicUser(Attacker.Char) then -- Only mages can invoke magic
 
-            local name = Attacker.Char.name
+            local id = Attacker.Char.id
 
-            magicTargeting.playerTargets[name] = Defender.Char
+            magicTargeting.playerTargets[id] = Defender.Char
         end
 
         return false -- No need to go further since wands do not use this script beyond setting a target

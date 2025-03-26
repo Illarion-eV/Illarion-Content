@@ -31,11 +31,11 @@ local function addDunTargets(user, targetsPositions, spell)
     local targetPosition = targetsPositions.thePosition
 
     if user then
-        if M[user.name.."LevDunPos"] then
-            targetPosition = M[user.name.."LevDunPos"]
+        if M[user.id.."LevDunPos"] then
+            targetPosition = M[user.id.."LevDunPos"]
         end
-        if M[user.name.."FhenPos"] then
-            targetPosition = M[user.name.."FhenPos"]
+        if M[user.id.."FhenPos"] then
+            targetPosition = M[user.id.."FhenPos"]
         end
     end
 
@@ -78,8 +78,8 @@ local function addDunTargets(user, targetsPositions, spell)
     end
 
     if user then
-        M[user.name.."FhenPos"] = false
-        M[user.name.."LevDunPos"] = false
+        M[user.id.."FhenPos"] = false
+        M[user.id.."LevDunPos"] = false
     end
 
     return targetsPositions
@@ -89,8 +89,8 @@ local function addPENLukDunTargets(user, targetsPositions)
 
     local targetPosition = targetsPositions.thePosition
 
-    if M[user.name.."LevDunPos"] then
-        targetPosition = M[user.name.."LevDunPos"]
+    if M[user.id.."LevDunPos"] then
+        targetPosition = M[user.id.."LevDunPos"]
     end
 
     local possiblePositions = --This is terrible code and should have used a for loop or something, but I am too lazy to redo it at the moment as it is functional anyways. I had just started learning to code back when I wrote this.
@@ -134,7 +134,7 @@ local function addPENLukDunTargets(user, targetsPositions)
         end
     end
 
-    M[user.name.."LevDunPos"] = false
+    M[user.id.."LevDunPos"] = false
 
     return targetsPositions
 end
@@ -191,7 +191,7 @@ end
 
 local function FhenGetTarget(user, rangeNum, originalTarget)
 
-    if originalTarget and not isValidChar(originalTarget) then
+    if not user.attackmode or (originalTarget and not isValidChar(originalTarget)) then
         originalTarget = false
     end
 
@@ -212,8 +212,8 @@ local function FhenGetTarget(user, rangeNum, originalTarget)
     if not originalTarget or originalTarget:getType() == Character.monster then
         if validMonsterTargets then
             targets = validMonsterTargets
-        else
-            return false
+        elseif not originalTarget then
+            targets = validPlayerTargets
         end
     elseif originalTarget:getType() == Character.player then
         if validPlayerTargets then
@@ -379,8 +379,8 @@ local function getPosition(user, spell, positionsAndTargets, delayed, trap)
 
     if not delayed then
         if user.attackmode then
-            local name = user.name
-            local targeted = M.playerTargets[name]
+            local id = user.id
+            local targeted = M.playerTargets[id]
             if not targeted then --onAttack did not load the target yet, very rarely happens
                 return
             end
@@ -448,17 +448,17 @@ local function getPosition(user, spell, positionsAndTargets, delayed, trap)
     end
 
     if PEN and HEPT then
-        local name = user.name
-        M.playerTargets["HEPT"..name] = thePosition
-        M.playerTargets["HEPT"..name.."time"] = tonumber(world:getTime("unix"))
+        local id = user.id
+        M.playerTargets["HEPT"..id] = thePosition
+        M.playerTargets["HEPT"..id.."time"] = tonumber(world:getTime("unix"))
     end
 
     if PEN and LEV then
         local timeLimit = 1800
         local currentTime = world:getTime("unix")
-        local name = user.name
-        local heptPosition = M.playerTargets["HEPT"..name]
-        local heptTime = M.playerTargets["HEPT"..name.."time"]
+        local id = user.id
+        local heptPosition = M.playerTargets["HEPT"..id]
+        local heptTime = M.playerTargets["HEPT"..id.."time"]
 
         if heptTime then
             if currentTime-heptTime > timeLimit then
@@ -468,7 +468,7 @@ local function getPosition(user, spell, positionsAndTargets, delayed, trap)
                 setPos = false
                 local targetExists = world:isCharacterOnField(heptPosition)
                 local setLevPos = true
-                M[name.."LevDunPos"] = heptPosition
+                M[id.."LevDunPos"] = heptPosition
                 if targetExists then
                     local LevTarget = world:getCharacterOnField(heptPosition)
                     if LevTarget:getType() == Character.player or LevTarget:getType() == Character.monster then
@@ -484,11 +484,11 @@ local function getPosition(user, spell, positionsAndTargets, delayed, trap)
     end
 
     if FHEN and (RA or CUN or SOLH) and not earthTrap then
-        local fhenTarget = FhenGetTarget(user, rangeNum, M.playerTargets[user.name])
+        local fhenTarget = FhenGetTarget(user, rangeNum, M.playerTargets[user.id])
         if fhenTarget and isValidChar(fhenTarget) then
             if fhenTarget:getType() == Character.player or fhenTarget:getType() == Character.monster then
                 if not dodgable then
-                    M[user.name.."FhenPos"] = fhenTarget.pos
+                    M[user.id.."FhenPos"] = fhenTarget.pos
                     table.insert(positionsAndTargets.targets, fhenTarget)
                     setPos = false
                 else
