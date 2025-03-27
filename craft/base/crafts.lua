@@ -616,7 +616,7 @@ function Craft:checkMaterial(user, productId)
     return materialsAvailable
 end
 
-function Craft:generateRarity(user, productId, toolItem, rareIngredientBonus)
+function Craft:generateRarity(user, rareIngredientBonus)
 
     -- 1 = common, 2 = uncommon, 3 = rare, 4 = unique
     -- Max chances: 0.4% unique, 2% rare, 10% uncommon, 87.6% common (includes the chance to get perfect items to even get here)
@@ -658,15 +658,13 @@ end
 
 function Craft:checkIfItemShouldHaveRarity(productId)
 
-    local product = self.products[productId]
-
-    if foodScript.foodList[product.item] and foodScript.foodList[product.item].crafted then --Food can be rare
+    if foodScript.foodList[productId] and foodScript.foodList[productId].crafted then --Food can be rare
         return true
     end
 
     for _, bottle in pairs(bottles.bottles) do
-
         if bottle.full[1] == productId then -- Brewed drinks can be rare
+
             return true
         end
 
@@ -943,10 +941,9 @@ function Craft:createItem(user, productId, toolItem)
         product.data.craftedBy = nil
     end
 
-    local shouldHaveRarity = self:checkIfItemShouldHaveRarity(productId)
-
+    local shouldHaveRarity = self:checkIfItemShouldHaveRarity(product.item)
     if shouldHaveRarity and quality >= 900 then
-        local rarity = self:generateRarity(user, productId, toolItem, rareIngredientBonus)
+        local rarity = self:generateRarity(user, rareIngredientBonus)
 
         if rarity > 1 then
             product.data.rareness = rarity
