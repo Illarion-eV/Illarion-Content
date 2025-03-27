@@ -28,7 +28,7 @@ local scaling
     else
         scaling = effectScaling.getEffectScaling(user, target, spell)
     end
-local numberOfSeconds = 2
+local numberOfSeconds = 4
 local QWAN = runes.checkSpellForRuneByName("QWAN", spell)
 local TAUR = runes.checkSpellForRuneByName("TAUR", spell)
 local URA = runes.checkSpellForRuneByName("URA", spell)
@@ -51,7 +51,7 @@ local rune
     if raceBonus then
         numberOfSeconds = numberOfSeconds + 1
     end
-return numberOfSeconds*scaling
+return math.floor(numberOfSeconds*scaling)
 end
 
 function M.applyManaStalling(user, targets, spell, earthTrap)
