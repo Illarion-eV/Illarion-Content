@@ -477,9 +477,8 @@ local function eraseIngredients(user, product)
 
         if save < ingredient.quantity then
             local erased = user:eraseItem(ingredient.id, ingredient.quantity - save, ingredient.data)
-
-            if erased < ingredient.quantity - save then
-                eraseOrCheckForIngredient(user, ingredient.quantity-save-erased, ingredient.id, true)
+            if erased > 0 then --erased returns how many you fialed to erase
+                eraseOrCheckForIngredient(user, erased, ingredient.id, true)
             end
         end
 
