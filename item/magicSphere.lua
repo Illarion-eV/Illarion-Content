@@ -23,6 +23,7 @@ local increaseArea = require("magic.arcane.harvestFruit")
 local monsterHooks = require("monster.base.hooks")
 local characterLoad = require("triggerfield.zelphiasStream")
 local hints = require("magic.arcane.runeHintsBook")
+local bottles = require("item.bottles")
 
 local runeHints = hints.runeHintsBookTexts
 
@@ -1285,19 +1286,45 @@ local function fhenPuzzleSolved()
     local currentItem
     local beerFound = false
     local wineFound = false
-    local beer = Item.beerMug
-    local wine = Item.bottleOfElvenWine
-    local beerBottle  = Item.bottleOfBeer
+
+    local beers = {}
+
+    local wineList = {}
+
+    table.insert(wineList, Item.bottleOfElvenWine)
+
+    for _, bottle in pairs(bottles.bottles) do
+        if bottle.full[1] == Item.bottleOfElvenWine then
+            for _, vessel in pairs(bottle.vessels) do
+                table.insert(wineList, vessel.filled)
+            end
+        end
+        if bottle.full[1] == Item.bottleOfBeer then
+            for _, vessel in pairs(bottle.vessels) do
+                table.insert(beers, vessel.filled)
+            end
+            for _, vessel in pairs(bottle.full) do
+                table.insert(beers, vessel)
+            end
+        end
+    end
 
     for i = 0, itemsOnField-1 do
         currentItem = field:getStackItem(i)
-        if currentItem.id == wine then
-            wineFound = true
-        elseif currentItem.id == beer then
-            beerFound = true
-        elseif currentItem.id == beerBottle then
-            beerFound = true
+        for _, wine in pairs(wineList) do
+
+            if currentItem.id == wine then
+                wineFound = true
+            end
         end
+
+        for _, beer in pairs(beers) do
+
+            if currentItem.id == beer then
+                beerFound = true
+            end
+        end
+
         if beerFound and wineFound then
             return true
         end
