@@ -38,8 +38,6 @@ function M.dealMagicDamage(target, damage, usedMovepoints, level, monster)
 
     damage = magicDamage.resistanceAndPenetrationImpact(resistance, penetration, damage)
 
-    damage = magicDamage.constitutionImpact(target, damage)
-
     damage = damage * (1 - magic.getGemBonusCloak(target)/100) -- tier 5 set is 30%, tier 10 60%
 
     if damage < 100 then
