@@ -290,8 +290,10 @@ function M.addEffect(myEffect, target)
     local TAH
     local SOLH
     local SIH
+    local KAH
     local foundUser, isUser = myEffect:findValue("user")
     local foundSpell, spell = myEffect:findValue("spell")
+
     if foundUser then
         if 1 == isUser then
             SIH = true
@@ -300,6 +302,11 @@ function M.addEffect(myEffect, target)
     if foundSpell then
         TAH = runes.checkSpellForRuneByName("TAH", spell)
         SOLH = runes.checkSpellForRuneByName("SOLH", spell)
+        KAH = runes.checkSpellForRuneByName("KAH", spell)
+    end
+
+    if KAH and SOLH then
+        return --KAH makes it a friendly feeding spell so no slow applied
     end
 
     local foundSpeed, speed = myEffect:findValue("speed")
