@@ -205,6 +205,31 @@ local function runeDetailsList(user, grimoire)
 
 end
 
+local function learnedRunesList(user)
+
+    local knownRunes = {}
+
+    for _, rune in pairs(runes.runes) do
+
+        local knowsRune = runes.checkIfLearnedRune(user, false, rune.id, "isQuest", false, false)
+
+        if knowsRune then
+            table.insert(knownRunes, rune.name)
+        end
+    end
+
+    local text = ""
+
+    for _, knownRune in pairs(knownRunes) do
+        text = text..knownRune
+    end
+
+    local callback = function(dialog) end
+    local dialog = MessageDialog(common.GetNLS(user, "Gelernten Runen", "Learned runes"), text, callback)
+    user:requestMessageDialog(dialog)
+
+end
+
 function M.mainSelectionDialog(user, grimoire)
 
 
@@ -246,6 +271,10 @@ function M.mainSelectionDialog(user, grimoire)
 
             runeDetailsList(user, grimoire)
 
+        elseif index == 5 then
+
+            learnedRunesList(user)
+
         end
     end
 
@@ -255,6 +284,7 @@ function M.mainSelectionDialog(user, grimoire)
     dialog:addOption(0,common.GetNLS(user, "Zauberabstimmung aufheben", "Undo spell attunement"))
     dialog:addOption(0,common.GetNLS(user, "Standardreichweite festlegen", "Set default range"))
     dialog:addOption(0,common.GetNLS(user, "Detaillierte Zauberinformationen anzeigen", "View detailed spell info"))
+    dialog:addOption(0,common.GetNLS(user, "Gelernten Runen anzeigen", "View learned runes"))
 
     user:requestSelectionDialog(dialog)
 end
