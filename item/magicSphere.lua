@@ -314,8 +314,6 @@ function M.checkTaurPosition(user)
 
     local taurPosition = position(179, 551, 0)
 
-    local sphere =  getSphere(taurPosition)
-
     local distance = 10
 
     local biggerX =  user.pos.x > taurPosition.x + distance
@@ -330,6 +328,8 @@ function M.checkTaurPosition(user)
     if biggerX or smallerX or biggerY or smallerY then
         return false
     end
+
+    local sphere =  getSphere(taurPosition)
 
     lightSphere(user, sphere, true)
 
@@ -453,8 +453,6 @@ function M.checkTahPosition(user)
 
     local tahPosition = position(14, 522, 0)
 
-    local sphere =  getSphere(tahPosition)
-
     local distance = 10
 
     local biggerX =  user.pos.x > tahPosition.x + distance
@@ -469,6 +467,8 @@ function M.checkTahPosition(user)
     if biggerX or smallerX or biggerY or smallerY then
         return false
     end
+
+    local sphere =  getSphere(tahPosition)
 
     lightSphere(user, sphere, true)
 
@@ -817,8 +817,6 @@ function M.checkLhorPosition(user)
 
     local lhorPosition = position(781, 438, 0)
 
-    local sphere =  getSphere(lhorPosition)
-
     local distance = 10
 
     local biggerX =  user.pos.x > lhorPosition.x + distance
@@ -833,6 +831,8 @@ function M.checkLhorPosition(user)
     if biggerX or smallerX or biggerY or smallerY then
         return false
     end
+
+    local sphere =  getSphere(lhorPosition)
 
     lightSphere(user, sphere, true)
 
@@ -1219,8 +1219,6 @@ function M.checkIraPosition(user)
 
     local iraPosition = position(473, 746, -3)
 
-    local sphere =  getSphere(iraPosition)
-
     local distance = 10
 
     local biggerX =  user.pos.x > iraPosition.x + distance
@@ -1235,6 +1233,8 @@ function M.checkIraPosition(user)
     if biggerX or smallerX or biggerY or smallerY then
         return false
     end
+
+    local sphere =  getSphere(iraPosition)
 
     lightSphere(user, sphere, true)
 
@@ -1487,8 +1487,6 @@ function M.checkPenPosition(user)
 
     local penPosition = position(786, 128, 0)
 
-    local sphere =  getSphere(penPosition)
-
     local distance = 15
 
     local biggerX =  user.pos.x > penPosition.x + distance
@@ -1499,6 +1497,8 @@ function M.checkPenPosition(user)
     if biggerX or smallerX or biggerY or smallerY then
         return false
     end
+
+    local sphere =  getSphere(penPosition)
 
     lightSphere(user, sphere, true)
 
