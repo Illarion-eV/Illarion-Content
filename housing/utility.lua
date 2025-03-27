@@ -328,6 +328,7 @@ function M.checkIfItemIsWallDeco(itemId)
             or item.category == "Flags and crests"
             or item.category == "Wall Decorations"
             or item.category == "Chimneys"
+            or (item.category == "Sign Posts" and item.skill == "blacksmithing")
             then return true
             end
         end
