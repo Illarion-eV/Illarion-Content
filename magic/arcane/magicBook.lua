@@ -221,7 +221,11 @@ local function learnedRunesList(user)
     local text = ""
 
     for _, knownRune in pairs(knownRunes) do
-        text = text..knownRune
+        if not text then
+            text = knownRune
+        else
+            text = text..", "..knownRune
+        end
     end
 
     local callback = function(dialog) end
