@@ -20,10 +20,10 @@ local runes = require("magic.arcane.runes")
 local M = {}
 
 M.staminaTexts = {
-    {english = "Target is brimming with energy.", german = "Dein Ziel ist voller Ausdauer.", food = 10000},
-    {english = "Target is almost full of energy.", german = "Dein Ziel ist nahezu voller Ausdauer", food = 8000},
-    {english = "Target is starting to get tired.", german = "Dein Ziel wird langsam müde.", food = 5000},
-    {english = "Target is tired.", german = "Dein Ziel ist Müde.", food = 2000},
+    {english = "Target is brimming with energy.", german = "Dein Ziel ist voller Ausdauer.", food = 10000*6},
+    {english = "Target is almost full of energy.", german = "Dein Ziel ist nahezu voller Ausdauer", food = 8000*6},
+    {english = "Target is starting to get tired.", german = "Dein Ziel wird langsam müde.", food = 5000*6},
+    {english = "Target is tired.", german = "Dein Ziel ist Müde.", food = 2000*6},
     {english = "Target is nearly exhausted.", german = "Dein Ziel ist der Erschöpfung nahe.", food = 1},
     {english = "Target is exhausted and starving.", german = "Dein Ziel ist erschöpft und hungrig.", food = 0},
     }
