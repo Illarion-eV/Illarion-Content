@@ -218,7 +218,7 @@ local function learnedRunesList(user)
         end
     end
 
-    local text = ""
+    local text
 
     for _, knownRune in pairs(knownRunes) do
         if not text then
