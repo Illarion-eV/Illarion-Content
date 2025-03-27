@@ -195,6 +195,8 @@ function M.applyPlantRootForEntanglingPlant(sourceItem, target)
 end
 
 function M.applyPlantRoot(user, targets, spell, earthTrap)
+
+    local KAH = runes.checkSpellForRuneByName("KAH", spell)
     local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
     local QWAN = runes.checkSpellForRuneByName("QWAN", spell)
     local SIH = runes.checkSpellForRuneByName("SIH", spell)
@@ -203,6 +205,10 @@ function M.applyPlantRoot(user, targets, spell, earthTrap)
     local URA = runes.checkSpellForRuneByName("URA", spell)
     local YEG = runes.checkSpellForRuneByName("YEG", spell)
     local rune
+
+    if KAH and SOLH then
+        return --KAH makes it a friendly feeding spell so no slow applied
+    end
 
     if TAUR then
         rune = "TAUR"
@@ -290,7 +296,6 @@ function M.addEffect(myEffect, target)
     local TAH
     local SOLH
     local SIH
-    local KAH
     local foundUser, isUser = myEffect:findValue("user")
     local foundSpell, spell = myEffect:findValue("spell")
 
@@ -302,11 +307,6 @@ function M.addEffect(myEffect, target)
     if foundSpell then
         TAH = runes.checkSpellForRuneByName("TAH", spell)
         SOLH = runes.checkSpellForRuneByName("SOLH", spell)
-        KAH = runes.checkSpellForRuneByName("KAH", spell)
-    end
-
-    if KAH and SOLH then
-        return --KAH makes it a friendly feeding spell so no slow applied
     end
 
     local foundSpeed, speed = myEffect:findValue("speed")
