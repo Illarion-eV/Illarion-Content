@@ -44,8 +44,6 @@ function M.onOpenDepot(User, Depot)
                 return true
             elseif town == depot.town and rank > depot.rank then
                 return true
-            else
-                return false
             end
         end
     end
