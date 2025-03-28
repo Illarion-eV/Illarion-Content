@@ -67,14 +67,22 @@ function M.ToBrinkOfDeath(User)
     M.ChangeHP(User, 1 - M.GetHP(User));
 end;
 
+local overTimeLTEs = {1, 9, 10} -- health, mana and stamina drains over time need to be removed on death, no matter what the killing blow is
+
 --- Kill a character.
 -- @param User The character to kill
 -- @return true in case the player was killed successfully
-function M.Kill(User)
-    common.TalkNLS(User, Character.say,"#me geht tödlich getroffen zu Boden.","#me goes down, fatally injured.")
-    M.ChangeHP(User, -10000);
-    return true;
-end;
+function M.Kill(user)
+    for _, lte in pairs(overTimeLTEs) do
+        local foundEffect = user.effects:find(lte)
+        if foundEffect then
+            user.effects:removeEffect(lte)
+        end
+    end
+    common.TalkNLS(user, Character.say,"#me geht tödlich getroffen zu Boden.","#me goes down, fatally injured.")
+    M.ChangeHP(user, -10000)
+    return true
+end
 
 --- Change the movepoints of a character by the value handed over.
 -- @param User The character thats movepoints are supposed to change
