@@ -170,14 +170,16 @@ local function isCloser(finalTarget, target, position)
     return false
 end
 
-local function getValidTargets(user, originalTarget, targets)
+local function getValidTargets(user, originalTarget, targets, spell)
 
     local validTargets = {}
 
     for _, target in pairs(targets) do
         --Check that it isnt the user themself, it is not the original target and it is on the same layer
         if target ~= user and (not originalTarget or originalTarget ~= target) and target.pos.z == user.pos.z then
-            table.insert(validTargets, target)
+            if not range.checkForObstacles(user, spell, target.pos) then -- checking obstacles to avoid shooting through a wall
+                table.insert(validTargets, target)
+            end
         end
     end
 
@@ -189,7 +191,7 @@ local function getValidTargets(user, originalTarget, targets)
 
 end
 
-local function FhenGetTarget(user, rangeNum, originalTarget)
+local function FhenGetTarget(user, rangeNum, originalTarget, spell)
 
     if not user.attackmode or (originalTarget and not isValidChar(originalTarget)) then
         originalTarget = false
@@ -199,9 +201,9 @@ local function FhenGetTarget(user, rangeNum, originalTarget)
 
     local playerTargets = world:getPlayersInRangeOf(user.pos, rangeNum)
 
-    local validPlayerTargets = getValidTargets(user, originalTarget, playerTargets)
+    local validPlayerTargets = getValidTargets(user, originalTarget, playerTargets, spell)
 
-    local validMonsterTargets = getValidTargets(user, originalTarget, monsterTargets)
+    local validMonsterTargets = getValidTargets(user, originalTarget, monsterTargets, spell)
 
     if not validMonsterTargets and not validPlayerTargets then
         return false
@@ -484,7 +486,7 @@ local function getPosition(user, spell, positionsAndTargets, delayed, trap)
     end
 
     if FHEN and (RA or CUN or SOLH) and not earthTrap then
-        local fhenTarget = FhenGetTarget(user, rangeNum, M.playerTargets[user.id])
+        local fhenTarget = FhenGetTarget(user, rangeNum, M.playerTargets[user.id], spell)
         if fhenTarget and isValidChar(fhenTarget) then
             if fhenTarget:getType() == Character.player or fhenTarget:getType() == Character.monster then
                 if not dodgable then

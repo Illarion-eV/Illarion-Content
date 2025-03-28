@@ -74,7 +74,7 @@ function M.isTargetInRange(user, spell, element, target, newTarget, wandAim)
 
 end
 
-function M.checkForObstacles(user, spell, element, pos)
+function M.checkForObstacles(user, spell, pos)
 
     local startingpos = user.pos
     local FHAN = runes.checkSpellForRuneByName("FHAN", spell)
