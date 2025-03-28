@@ -3564,16 +3564,26 @@ function M.getTileName(user, tileIdentifier)
 
     return "Unknown" --Catch-all. Should not reach this point to begin with.
 end
-function M.getItemName(user, itemIdentifier)
-    for _, item in pairs(itemList.items) do
-        if item.itemId == itemIdentifier then
+
+function M.getItemName(user, itemIdentifier, tile)
+
+    local list = itemList.items
+
+    if tile then
+        list = itemList.tiles
+    end
+    
+    for _, item in pairs(list) do
+        if (item.itemId and item.itemId == itemIdentifier) or (item.tileId and item.tileId == itemIdentifier)  then
             if item.nameDe then
                 return common.GetNLS(user, item.nameDe, item.nameEn)
             end
         end
     end
-return false
+
+    return false
 end
+
 function M.getLevelReq(identifier, isTile)
     if isTile then
         for _, tile in pairs(itemList.tiles) do

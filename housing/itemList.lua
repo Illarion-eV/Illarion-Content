@@ -1280,7 +1280,7 @@ table.insert(M.tiles, {displayId = Item.stoneroof , tileId = 56, typeOf = "House
 table.insert(M.tiles, {displayId = Item.greybrickroof , tileId = 41, typeOf = "Estate", category = "Roof Tiles(Ground)", skill = "pottery", level = 25, ingredient1 = 2588, ingredient1Amount = 25})
 table.insert(M.tiles, {displayId = Item.brickroof , tileId = 60, typeOf = "Estate", category = "Roof Tiles(Ground)", skill = "pottery", level = 0, ingredient1 = 2588, ingredient1Amount = 25})
 table.insert(M.tiles, {displayId = Item.lightbrickroof , tileId = 61, typeOf = "Estate", category = "Roof Tiles(Ground)", skill = "pottery", level = 50, ingredient1 = 2588, ingredient1Amount = 25})
-table.insert(M.tiles, {displayId = 4115 , tileId = 4, typeOf = "Estate", category = "Terraforming", skill = "digging", level = 100,ingredient1 = Item.clay, ingredient1Amount = 50, ingredient2 = Item.pureEarth, ingredient2Amount = 3, ingredient3 = Item.pureWater, ingredient3Amount = 1})
+table.insert(M.tiles, {displayId = 4115 , tileId = 4, typeOf = "Estate", category = "Terraforming", nameDe = "Ackerboden", nameEn = "Farming Soil", skill = "digging", level = 100,ingredient1 = Item.clay, ingredient1Amount = 50, ingredient2 = Item.pureEarth, ingredient2Amount = 3, ingredient3 = Item.pureWater, ingredient3Amount = 1})
 
 M.categories = {}
 table.insert(M.categories, {categoryEn = "Logs", categoryDe = "Baumstämme", Estate = true})

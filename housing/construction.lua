@@ -188,9 +188,9 @@ end
 
 local function loadProductName(user, itemId, tile)
 
-    local name = utility.getItemName(user, itemId)
+    local name = utility.getItemName(user, itemId, tile)
 
-    if tile then
+    if tile and not name then
         name = utility.getTileName(user, itemId)
     elseif not name then
         name = lookat.GenerateItemLookAtFromId(user, itemId, 1, {}).name
@@ -715,7 +715,7 @@ local function roofInform(user, product, tile, accessedViaLookat, above)
         if not accessedViaLookat then
             user:inform("Was du zu bauen versuchst, ist ein Dach(Oben)-Kategoriegegenstand oder -feld, was bedeutet, dass es auf dem Feld vor dir, jedoch eine Ebene darüber, gebaut wird. Wenn du es stattdessen vor dir bauen möchtest, wähle den Gegenstand aus der Dach(Boden)-Kategorie.", "What you are trying to build is a roof(above) category item or tile, which means it will be built on the tile in front of you but one layer above.  If you want to build it in front of you instead, build the one in the roof(ground) category. Lastly, it will be built infront of you regardless if there is no floor above you to build on.")
         else
-            user:inform("Der Gegenstand/das Feld, über dem sich dein Cursor befindet, gehört zur Dach(Oben)-Kategorie. Das bedeutet, dass es auf dem Feld vor dir, jedoch eine Ebene darüber, gebaut wird. Wenn du es stattdessen vor dir bauen möchtest, wähle den Gegenstand aus der Dach(Boden)-Kategorie.", "The item/tile you are hovering your cursor over is of the roof(above) category. Which means it will be built on the tile in front of you but one layer above. If you want to build it in front of you instead, build the one in the roof(ground) category. Zuletzt wird es vor dir gebaut, unabhängig davon, ob es über dir keinen Boden zum Bauen gibt.")
+            user:inform("Der Gegenstand/das Feld, über dem sich dein Cursor befindet, gehört zur Dach(Oben)-Kategorie. Das bedeutet, dass es auf dem Feld vor dir, jedoch eine Ebene darüber, gebaut wird. Wenn du es stattdessen vor dir bauen möchtest, wähle den Gegenstand aus der Dach(Boden)-Kategorie.", "The item/tile you are hovering your cursor over is of the roof(above) category. Which means it will be built on the tile in front of you but one layer above. If you want to build it in front of you instead, build the one in the roof(ground) category. If there is no place to build above, it will default to the tile infront of you instead.")
         end
 
         aboveVsGroundRoofHintGivenThisSession[user.id] = true -- prevents spam
