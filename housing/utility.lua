@@ -3719,7 +3719,7 @@ local function addElevationItems(user, frontPos, i)
 
     local item = field:getStackItem(itemsOnField-1)
 
-    if not M.checkIfItemIsWallDeco(item.id) then
+    if not M.checkIfItemIsWallDeco(item.id) and item.id ~= 268 and item.id ~= 269 then -- 268/269 are chimneys which are listed as wall decorations but wont count as such in this particular context
         user:inform("Du kannst nur Wanddekorationen anheben." , "You may only elevate wall decorations.")
         return
     end
