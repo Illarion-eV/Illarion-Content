@@ -30,9 +30,9 @@ M.depots = {
     {id = 101, itemData = 102, realm = {english = "Runewick", german = "Runewick"}, taxEvasion = false},
     {id = 102, itemData = 103, realm = {english = "Galmair", german = "Galmair"}, taxEvasion = false},
     {id = 103, itemData = 104, realm = {english = "Troll's Haven", german = "Trollshaven"}, taxEvasion = false},
-    {id = 200, itemData = 201, realm = {english = "Cadomyr Treasury", german = "Staatsschatz von Cadomyr"}, taxEvasion = true}, -- The treasuries are used by town leaders
-    {id = 201, itemData = 202, realm = {english = "Runewick Treasury", german = "Staatsschatz von Runewick"}, taxEvasion = true}, -- to keep public funds from being taxed
-    {id = 202, itemData = 203, realm = {english = "Galmair Treasury", german = "Staatsschatz von Galmair"}, taxEvasion = true}, -- as if the were private funds.
+    {id = 200, itemData = 201, realm = {english = "Cadomyr Treasury", german = "Staatsschatz von Cadomyr"}, taxEvasion = true, rank = 7, town = "Cadomyr"}, -- The treasuries are used by town leaders
+    {id = 201, itemData = 202, realm = {english = "Runewick Treasury", german = "Staatsschatz von Runewick"}, taxEvasion = true, rank = 7, town = "Runewick"}, -- to keep public funds from being taxed
+    {id = 202, itemData = 203, realm = {english = "Galmair Treasury", german = "Staatsschatz von Galmair"}, taxEvasion = true, rank = 7, town = "Galmair"}, -- as if the were private funds.
     {id = 300, itemData = 301, realm = {english = "Villa Annabeth", german = "Villa Annabeth"}, taxEvasion = false},
     {id = 301, itemData = 302, realm = {english = "Villa Edward", german = "Villa Edward"}, taxEvasion = false},
     {id = 302, itemData = 303, realm = {english = "Villa Reginald", german = "Villa Reginald"}, taxEvasion = false},
