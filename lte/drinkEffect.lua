@@ -27,16 +27,23 @@ function M.callEffect(effect, user)
     local foundCurrentDuration, currentDuration = effect:findValue("remainingDuration")
 
     if not foundCurrentDuration then
-        return true
+        return false
+    end
+
+    if currentDuration > 60 or currentDuration < 0 then
+        log("An abnormal drink effect duration of "..currentDuration.." was found for "..user.name.."("..user.id..").")
+        effect:addValue("remainingDuration", 1)
+        currentDuration = 1
     end
 
     effect:addValue("remainingDuration", currentDuration-1) --Reduces by 1 min every min
 
     if currentDuration-1 > 0 then --We call it again as long as there are minutes left on the duration
         effect.nextCalled = 600 --Called every minute
+        return true
     end
 
-    return true
+    return false
 
 end
 
