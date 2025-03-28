@@ -3572,7 +3572,7 @@ function M.getItemName(user, itemIdentifier, tile)
     if tile then
         list = itemList.tiles
     end
-    
+
     for _, item in pairs(list) do
         if (item.itemId and item.itemId == itemIdentifier) or (item.tileId and item.tileId == itemIdentifier)  then
             if item.nameDe then
