@@ -380,7 +380,7 @@ local function getPosition(user, spell, positionsAndTargets, delayed, trap)
 
 
     if not delayed then
-        if user.attackmode then
+        if user.attackmode and magic.getWand(user) then --wand required to aim
             local id = user.id
             local targeted = M.playerTargets[id]
             if not targeted then --onAttack did not load the target yet, very rarely happens
