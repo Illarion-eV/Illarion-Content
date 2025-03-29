@@ -72,13 +72,19 @@ end
 
 function M.notEnoughTimeHasPassed(target)
     local quests = {174, 175}
+    local time
     for _, quest in pairs(quests) do
-        local time = target:getQuestProgress(quest)
-        if time == 0 then
+        local questTime = target:getQuestProgress(quest)
+
+        if not time or questTime < time then
+            time = questTime -- We get the one that will expire sooner
+        end
+
+        if questTime == 0 then
             return false
         end
     end
-    return true
+    return true, time
 end
 
 function M.statRequirementNotMet(target, runeToTeach)

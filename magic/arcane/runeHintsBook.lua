@@ -364,8 +364,8 @@ M.runeHintsBookTexts = {
         english = "The sphere has no reaction to your touch. Perhaps there is something in the area that can change this?",
         german = "Als du die Sphäre berührst passiert...nichts. Möglicherweise befindet sich etwas in der Nähe, dass dies ändern könnte."},
     unwise = {
-        english = "It hasn't been long enough since you last learned a rune, making it unwise to go searching for a new one. You may only learn two runes every other week.",
-        german = "Es ist noch nicht lange her, dass du nach einer Rune gesucht hast. Es wäre nicht klug jetzt schon wieder eine Neue zu suchen. Du kannst alle zwei Wochen nur zwei Runen erlernen."},
+        english = "It hasn't been long enough since you last learned a rune, making it unwise to go searching for a new one. You may only learn two runes every other week. ",
+        german = "Es ist noch nicht lange her, dass du nach einer Rune gesucht hast. Es wäre nicht klug jetzt schon wieder eine Neue zu suchen. Du kannst alle zwei Wochen nur zwei Runen erlernen. "},
     activated = {
         english = "With a sudden glow the sphere lights up, revealing to you the sights within.",
         german = "Mit einem plötzlichen Erstrahlen leichtet die Sphäre auf und enhüllt ihre Gehemnisse."},
@@ -485,19 +485,86 @@ local function runeHint(user, runeName)
 
 end
 
+local function convertUnixTime(unixTime) -- Unixtime is the stored date of when it is possible to learn runes again
+
+    local currentTime = tonumber(world:getTime("unix"))
+
+    local timeRemaining = unixTime - currentTime
+
+    local weeks = math.floor(timeRemaining / 604800)
+    timeRemaining = timeRemaining % 604800
+    local days = math.floor(timeRemaining / 86400)
+    timeRemaining = timeRemaining % 86400
+    local hours = math.floor(timeRemaining / 3600)
+    timeRemaining = timeRemaining % 3600
+    local minutes = math.floor(timeRemaining / 60)
+    local seconds = timeRemaining % 60
+    return weeks, days, hours, minutes, seconds
+end
+
+-- Example usage
+
+
 local function cooldownMessage(user)
 
     local message = false
 
     teaching.checkForExpiredCooldowns(user)
 
-    if teaching.notEnoughTimeHasPassed(user) then
+    local notEnoughTime, time = teaching.notEnoughTimeHasPassed(user)
+
+    if notEnoughTime then
         message = true
     end
 
+    local weeks, days, hours, minutes, seconds = convertUnixTime(time)
 
+    local remainingTime = {}
+
+    local english = "There's"
+    local german = "Es gibt"
+
+    if weeks > 0 then
+        english = english.." "..weeks.." week"
+        german = german.." "..weeks.." Woche"
+    end
+
+    if days > 0 then
+        if weeks > 0 then
+            english = english..","
+            german = german..","
+        end
+        english = english.." "..days.." days"
+        german = german.." "..days.." Tage"
+    end
+
+    if hours > 0 then
+        if weeks > 0 then
+            english = english..","
+            german = german..","
+        end
+        english = english.." "..hours.." hours"
+        german = german.." "..hours.." Stunden"
+    end
+
+    if minutes > 0 then
+        if weeks > 0 or days > 0 or hours > 0 then
+            english = english..","
+            german = german..","
+        end
+        english = english.." "..minutes.." minutes"
+        german = german.." "..minutes.." Minuten"
+    end
+
+    if weeks > 0 or days > 0 or hours > 0 or minutes > 0 then
+        english = english.." and"
+        german = german.." und"
+    end
+
+    remainingTime.english = english.." "..seconds.." seconds remaining until you can learn another rune."
+    remainingTime.german = german.." "..seconds.." Sekunden verbleiben, bis du eine weitere Rune lernen kannst."
     if message then
-        user:inform(myTexts.unwise.german, myTexts.unwise.english)
+        user:inform(myTexts.unwise.german..remainingTime.german, myTexts.unwise.english..remainingTime.english)
     end
 
 end
