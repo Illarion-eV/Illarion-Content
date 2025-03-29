@@ -520,7 +520,7 @@ local function cooldownMessage(user)
     local remainingTime = {}
 
     local english = "There's"
-    local german = "Es gibt"
+    local german = "Es verbleiben"
 
     if weeks > 0 then
         english = english.." "..weeks.." week"
@@ -560,7 +560,7 @@ local function cooldownMessage(user)
     end
 
     remainingTime.english = english.." "..seconds.." seconds remaining until you can learn another rune."
-    remainingTime.german = german.." "..seconds.." Sekunden verbleiben, bis du eine weitere Rune lernen kannst."
+    remainingTime.german = german.." "..seconds.." Sekunden, bis du eine weitere Rune lernen kannst."
 
     user:inform(myTexts.unwise.german..remainingTime.german, myTexts.unwise.english..remainingTime.english)
 
