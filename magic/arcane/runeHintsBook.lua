@@ -511,7 +511,7 @@ local function cooldownMessage(user)
 
     local notEnoughTime, time = teaching.notEnoughTimeHasPassed(user)
 
-    if notEnoughTime then
+    if not notEnoughTime then
         return
     end
 
