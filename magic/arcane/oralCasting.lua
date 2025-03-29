@@ -86,7 +86,6 @@ local function addRunesToSpell(user, spokenWords, primaryRune)
     local spell = 0
     local incantation = "%f[%a]"..primaryRune.."%f[%A]"
     spell = runes.learnRune(user, false, primaryRuneNumber, "neither", spell)
-
     local knownRunes = {}
 
     for _, rune in pairs(runes.runes) do
@@ -132,6 +131,7 @@ local function addRunesToSpell(user, spokenWords, primaryRune)
         end
     end
 
+    return spell
 end
 
 local function castMagic(user, actionState, spell, portal)
