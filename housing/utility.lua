@@ -698,6 +698,10 @@ local function getPlayersReadyToBuild(user, pos)
 
     local helperAmount = deed:getData("helperAmount")
 
+    if common.IsNilOrEmpty(helperAmount) then
+        helperAmount = 0
+    end
+
     for i = 1, helperAmount do
         local helperFound = false
         local helper = deed:getData("helper"..i)
@@ -801,9 +805,10 @@ function M.buildersReady(user, productId, pos)
         if index ~= 1 then
             lackingExpertise = lackingExpertise ..
                 (index == #staticTool.builderSkills and common.GetNLS(user, " und ", " and ") or ", ")
+            lackingExpertise = lackingExpertise ..
+                common.GetNLS(user, " eines Groﬂmeisters der ", " a grandmaster of ")
         end
-        lackingExpertise = lackingExpertise ..
-            common.GetNLS(user, " eines Groﬂmeisters der ", " a grandmaster of ")
+
         lackingExpertise = lackingExpertise ..
             (skill == "magic" and common.GetNLS(user, "Magie", "magic") or skill == "smithing" and
             common.GetNLS(user, "Schmiedekunst", "smithing") or user:getSkillName(Character[skill]))
