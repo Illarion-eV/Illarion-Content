@@ -342,15 +342,23 @@ function M.onAttack(Attacker, Defender)
     end
 
     -- Check for magic spell invoked, has a separate range check than the one below
+
     if Attacker.AttackKind == 5 then
+
         if fightingutil.isMagicUser(Attacker.Char) then -- Only mages can invoke magic
 
-            local id = Attacker.Char.id
-
-            magicTargeting.playerTargets[id] = Defender.Char
+            magicTargeting.playerTargets[Attacker.Char.id] = Defender.Char
         end
 
         return false -- No need to go further since wands do not use this script beyond setting a target
+    else
+        magicTargeting.playerTargets[Attacker.Char.id] = nil
+        --[[ If you change to another weapon, it didn't update the target so if you then cast a spell
+            while targeting someone else, it would recognise you as in combat targeting someone but cast
+            on your previous target with unfortunate consequences.
+            This is no longer an issue because a wand is now required to aim at a target, or else it will
+            default to the tile in front of you. However, I am leaving this here to overwrite it anyways
+            just in case something changes in the future in regards to the requirements of aiming.]]
     end
 
     -- Check the range between the both fighting characters
