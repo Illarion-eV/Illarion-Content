@@ -73,9 +73,17 @@ local function assistBuilding(user)
         if not success then
             utility.removeHelper(user, deed)
         end
+
+        local index = dialog:getSelectedIndex()+1
+
+        if index == 1 then
+            utility.removeHelper(user, deed)
+        end
     end
 
     local dialog = SelectionDialog(common.GetNLS(user,"Beim Bauen helfen","Assist building"), common.GetNLS(user,"Solange dieses Dialogfenster geöffnet ist, stehst du nahegelegenen Spielern zur Verfügung, um ihnen beim Bau größerer Projekte wie statischen Werkzeugen und Depots zu helfen.","While this dialog is open you will be available to nearby players to assist them in the building of larger projects such as static tools and depots."), callback)
+
+    dialog:addOption(0, common.GetNLS(user, "Fertig mit Bauen", "Done building"))
 
     dialog:setCloseOnMove()
     user:requestSelectionDialog(dialog)
