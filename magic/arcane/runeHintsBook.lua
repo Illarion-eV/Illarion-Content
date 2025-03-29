@@ -507,14 +507,12 @@ end
 
 local function cooldownMessage(user)
 
-    local message = false
-
     teaching.checkForExpiredCooldowns(user)
 
     local notEnoughTime, time = teaching.notEnoughTimeHasPassed(user)
 
     if notEnoughTime then
-        message = true
+        return
     end
 
     local weeks, days, hours, minutes, seconds = convertUnixTime(time)
@@ -563,9 +561,8 @@ local function cooldownMessage(user)
 
     remainingTime.english = english.." "..seconds.." seconds remaining until you can learn another rune."
     remainingTime.german = german.." "..seconds.." Sekunden verbleiben, bis du eine weitere Rune lernen kannst."
-    if message then
-        user:inform(myTexts.unwise.german..remainingTime.german, myTexts.unwise.english..remainingTime.english)
-    end
+
+    user:inform(myTexts.unwise.german..remainingTime.german, myTexts.unwise.english..remainingTime.english)
 
 end
 
