@@ -138,6 +138,19 @@ function M.talk(player, talkType, text, actionState)
     checkIfInteracting(player)
 
     if talkType == Character.say then
+        --[[As there was some confusion as to why spells can only be cast in normal speech mode,
+            not shouting/whispered, I am leaving this comment here for future developers who might
+            look into it upon player complaint.
+            Whisper mode: It should not be possible to hide the incantation from those in range of being
+            hit by the spell without using the runes JUS LHOR, as the target should be able to know how to react
+            unless the mage pays the extra price of LHOR to disallow them that.
+            It should also not be possible to cast using #o.(Yes a check for (()) could be used instead there.)
+            As such, whispering does not trigger incantations.
+            Shout mode: For consistency, and so that you can more immersively explain away why you can't
+            just whisper a spell by claiming a spell incantation needs a specific volume/intonation you
+            can't achieve while whispering/shouting, I also disallowed shouting.
+            Shouting incantation could be allowed if deemed better, but whispering should never be allowed.
+        ]]
         oralCasting.checkForMagicIncantations(player, actionState, text)
     end
 

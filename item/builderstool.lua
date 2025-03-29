@@ -42,9 +42,9 @@ local function overloadedSelection(user, skill)
             construction.showDialog(user, skill, false, false)
         elseif index == 2 and skill ~= "mining" then
             construction.showDialog(user, skill, false, true)
-        elseif (index == 3 or (index == 2 and skill == "mining")) and isEstate then
+        elseif (index == 3 and skill ~= "mining" or (index == 2 and skill == "mining")) and isEstate then
             construction.showDialog(user, skill, true, false)
-        elseif (index == 4 or (index == 3 and skill == "mining")) and isEstate then
+        elseif (index == 4 and skill ~= "mining" or (index == 3 and skill == "mining")) and isEstate then
             construction.showDialog(user, skill, true, true)
         end
     end

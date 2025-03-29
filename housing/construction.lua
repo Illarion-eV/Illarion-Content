@@ -66,7 +66,7 @@ local function showObject(user, object, category, skill, overloaded, secondOverl
 
     if categoryFits and skillChecksOut and estateChecked then
 
-        if not secondOverload and count[user.id] > 200 then --to prevent overload we dont allow any past 250
+        if not secondOverload and count[user.id] > 200 then --to prevent overload we dont allow any past 200
             return false
         end
 
@@ -78,7 +78,7 @@ local function showObject(user, object, category, skill, overloaded, secondOverl
             return false
         end
 
-        if secondOverload and count[user.id] <= 200 then --we skip the first 250 entries
+        if secondOverload and count[user.id] <= 200 then --we skip the first 200 entries
             count[user.id] = count[user.id] + 1
             return false
         end
