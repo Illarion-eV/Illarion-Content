@@ -816,6 +816,8 @@ function M.buildersReady(user, productId, pos)
 
     lackingExpertise = lackingExpertise .. "."
 
+    lackingExpertise = lackingExpertise..common.GetNLS(user, " Jeder Großmeister muss neben dem Ort stehen, an dem du das Objekt bauen möchtest, und kein Großmeister kann zwei Fertigkeiten gleichzeitig ausführen.", " Each grandmaster must stand next to where you want to build the object, and no grandmaster can handle two skills at once.")
+
     local readyPlayersNearPos = getPlayersReadyToBuild(user, pos)
     local skills = {}
 
