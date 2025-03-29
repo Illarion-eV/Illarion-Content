@@ -794,7 +794,7 @@ function M.buildersReady(user, productId, pos)
     end
 
     local lackingExpertise = common.GetNLS(user,
-        "Du benötigst die Expertise eines Großmeisters der ",
+        "Du benötigst die Expertise eines Großmeisters des ",
         "You need the expertise of a grandmaster of ")
 
     for index, skill in ipairs(staticTool.builderSkills) do
