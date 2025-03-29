@@ -672,7 +672,12 @@ local staticTools = {
     {id = 1243, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"pottery", "digging"}}, --kiln
     {id = 313, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"pottery", "glassblowing"}}, --glass melting oven
     {id = 727, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"smithing", "digging"}}, --sieve
-    {id = 3879, value = 1, realms = {"Outlaw", "Galmair", "Troll's Haven", "Runewick"}, builderSkills = {"digging", "farming"}} --threshing floor
+    {id = 3879, value = 1, realms = {"Outlaw", "Galmair", "Troll's Haven", "Runewick"}, builderSkills = {"digging", "farming"}}, --threshing floor
+    {id = 1387, value = 1, realms = {"Outlaw", "Galmair", "Troll's Haven", "Runewick", "Cadomyr"}, builderSkills = {"mining", "cookingAndBaking"}}, --grill
+    {id = 1388, value = 1, realms = {"Outlaw", "Galmair", "Troll's Haven", "Runewick", "Cadomyr"}, builderSkills = {"mining", "cookingAndBaking"}}, --grill
+    {id = 1389, value = 1, realms = {"Outlaw", "Galmair", "Troll's Haven", "Runewick", "Cadomyr"}, builderSkills = {"mining", "cookingAndBaking"}}, --grill
+    {id = 1390, value = 1, realms = {"Outlaw", "Galmair", "Troll's Haven", "Runewick", "Cadomyr"}, builderSkills = {"mining", "cookingAndBaking"}}, --grill
+    {id = 1386, value = 1, realms = {"Outlaw", "Galmair", "Troll's Haven", "Runewick"}, builderSkills = {"mining", "cookingAndBaking"}}, -- oven, kettle alternative
 }
 
 local function isStaticTool(productId)

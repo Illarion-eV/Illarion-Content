@@ -31,6 +31,7 @@ local cooking = crafts.Craft:new{
 
 
 cooking:addTool(3581) -- kettle w/fire
+cooking:addTool(1386) -- oven graphic with kettle and fire
 
 local product
 local catId

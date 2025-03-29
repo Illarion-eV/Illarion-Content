@@ -30,6 +30,10 @@ local roasting = crafts.Craft:new{
 roasting:addTool(304) -- smoke oven
 roasting:addTool(305) -- smoke oven
 roasting:addTool(12) -- campfire
+roasting:addTool(1387) -- grill
+roasting:addTool(1388) -- grill
+roasting:addTool(1389) -- grill
+roasting:addTool(1390) -- grill
 
 local product
 local catId
