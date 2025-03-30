@@ -346,7 +346,7 @@ local function piratesFight(user)
     end
     local countParty, bestFighter = mob.getPartyFightCapability(partyMember)
     local monsterMob
-    if bestFighter < fighterCapabilityLow then
+    if not bestFighter or bestFighter < fighterCapabilityLow then
         monsterMob = pirateMobsLow[math.random(1,#pirateMobsLow)]
     elseif bestFighter < fighterCapabilityMedium then
         monsterMob = pirateMobsMedium[math.random(1,#pirateMobsMedium)]
