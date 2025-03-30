@@ -605,6 +605,9 @@ local function createItem(user, product, trowel, skill)
             if utility.tooManyTools(user, product.id, target) then
                 return
             end
+            if utility.staticToolAlreadyOnField(user, product.id, target) then
+                return
+            end
             remnantItemsToCreate = eraseIngredients(user, product)
             local field = world:getField(target)
             if field:tile() == 0 then
@@ -778,6 +781,10 @@ function M.showDialog(user, skillName, overloaded, secondOverload)
             end
 
             if utility.tooManyTools(user, product.id, frontPos) then
+                return false
+            end
+
+            if utility.staticToolAlreadyOnField(user, product.id, frontPos) then
                 return false
             end
 

@@ -27,7 +27,6 @@ local tanning = crafts.Craft:new{
                     sfxDuration = 27,
                   }
 
-tanning:addTool(468) -- stretcher
 tanning:addTool(2052) -- stretcher
 
 local catId = tanning:addCategory("Leather", "Leder")

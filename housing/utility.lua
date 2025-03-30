@@ -660,7 +660,6 @@ local staticTools = {
     {id = 3502, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair", "Cadomyr"}, builderSkills = {"carpentry", "magic"}}, --magic desk
     {id = 3503, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair", "Cadomyr"}, builderSkills = {"carpentry", "magic"}}, --magic desk
     {id = 2052, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"carpentry", "tanningAndWeaving"}}, --stretcher
-    {id = 468, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"carpentry", "tanningAndWeaving"}}, --stretcher
     {id = 1226, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"carpentry", "tanningAndWeaving"}}, --dyeing barrel
     {id = 171, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"carpentry", "tanningAndWeaving"}}, --spinning wheel
     {id = 169, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"carpentry", "tanningAndWeaving"}}, --loom
@@ -670,7 +669,7 @@ local staticTools = {
     {id = 1241, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"pottery", "digging"}}, --kiln
     {id = 1242, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"pottery", "digging"}}, --kiln
     {id = 1243, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"pottery", "digging"}}, --kiln
-    {id = 313, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"pottery", "glassblowing"}}, --glass melting oven
+    {id = 313, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"pottery", "glassBlowing"}}, --glass melting oven
     {id = 727, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"smithing", "digging"}}, --sieve
     {id = 3879, value = 1, realms = {"Outlaw", "Galmair", "Troll's Haven", "Runewick"}, builderSkills = {"digging", "farming"}}, --threshing floor
     {id = 1387, value = 1, realms = {"Outlaw", "Galmair", "Troll's Haven", "Runewick", "Cadomyr"}, builderSkills = {"mining", "cookingAndBaking"}}, --grill
@@ -870,6 +869,10 @@ end
 
 local function checkFieldForStatictool(thePosition, staticToolsOnProperty)
 
+    if not staticToolsOnProperty then
+        staticToolsOnProperty = {}
+    end
+
     local field = world:getField(thePosition)
     local itemsOnField = field:countItems()
     for i = 0, itemsOnField do
@@ -882,6 +885,23 @@ local function checkFieldForStatictool(thePosition, staticToolsOnProperty)
     end
 
     return staticToolsOnProperty
+end
+
+function M.staticToolAlreadyOnField(user, productId, pos)
+
+    if not isStaticTool(productId) then
+        return false
+    end
+
+    local tools = checkFieldForStatictool(pos)
+
+    if #tools > 0 then
+        user:inform("Du kannst kein statisches Werkzeug auf einem Feld bauen, das bereits eines hat.", "You can't build a static tool on a field that already has one.")
+        --We reuse a function that returns as a table, even though we only need to check for one tool
+        return true
+    end
+
+    return false
 end
 
 function M.checkPropertyForStaticTools(frontPos)
