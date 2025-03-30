@@ -23,6 +23,7 @@ local magicPenetration = require("magic.arcane.magicPenetration")
 local magicDamage = require("magic.arcane.magicDamage")
 local magic = require("base.magic")
 local dwyfol = require("magic.arcane.enchanting.effects.dwyfol")
+local testing = require("base.testing")
 
 local M = {}
 
@@ -56,6 +57,9 @@ function M.dealMagicDamage(target, damage, usedMovepoints, level, monster)
     -- Check for damage + 1 to avoid the case that a regular hit lowers the hitpoints down to 1 and directly sends a
     -- character to the brink of death.
     if character.IsPlayer(target) and character.WouldDie(target, damage + 1) then
+        if testing.active then
+            target:talk(Character.say,"#me takes "..damage.." damage.", "#me takes "..damage.." damage.")
+        end
         if character.AtBrinkOfDeath(target) then
             if target:isAdmin() then
                 chr_reg.stallRegeneration(target, 0)
@@ -75,6 +79,9 @@ function M.dealMagicDamage(target, damage, usedMovepoints, level, monster)
         end
     else
         target:increaseAttrib("hitpoints", -damage)
+        if testing.active then
+            target:talk(Character.say,"#me takes "..damage.." damage.", "#me takes "..damage.." damage.")
+        end
     end
 end
 

@@ -15,6 +15,8 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
+local testing = require("base.testing")
+
 local M = {}
 
 function M.addEffect(myEffect, target)
@@ -29,10 +31,14 @@ function M.callEffect(myEffect, target)
             local manaReduction = math.floor(remainingManaReduction/remainingTicks)
             if target:increaseAttrib("mana", 0) > manaReduction then
                 target:increaseAttrib("mana", -manaReduction)
-                target:talk(Character.say, "#me loses "..manaReduction.." mana.")
+                if testing.active then
+                    target:talk(Character.say, "#me loses "..manaReduction.." mana.")
+                end
             else
-                target:talk(Character.say, "#me loses "..target:increaseAttrib("mana", 0).." mana.")
                 target:setAttrib("mana", 0)
+                if testing.active then
+                    target:talk(Character.say, "#me loses "..target:increaseAttrib("mana", 0).." mana.")
+                end
             end
             myEffect:addValue("remainingManaReduction", remainingManaReduction - manaReduction)
             myEffect:addValue("remainingTicks", remainingTicks - 1)

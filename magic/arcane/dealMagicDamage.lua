@@ -27,6 +27,7 @@ local hieros = require("magic.arcane.enchanting.effects.hieros")
 local dendron = require("magic.arcane.enchanting.effects.dendron")
 local ysbryd = require("magic.arcane.enchanting.effects.ysbryd")
 local dwyfol = require("magic.arcane.enchanting.effects.dwyfol")
+local testing = require("base.testing")
 
 function M.learnMagicResistance(target, castTime, level)
 
@@ -157,7 +158,9 @@ function M.dealMagicDamage(user, target, spell, damage, level, DoT, castTime)
             local manareduction = damage
 
             target:increaseAttrib("mana", -manareduction)
-            target:talk(Character.say, "#me loses "..manareduction.." mana.")
+            if testing.active then
+                target:talk(Character.say, "#me loses "..manareduction.." mana.")
+            end
         end
         if KAH then
 
@@ -165,10 +168,15 @@ function M.dealMagicDamage(user, target, spell, damage, level, DoT, castTime)
 
             foodReduction = foodReduction*6 --There's 10k mana/health but 60k food
             target:increaseAttrib("foodlevel", -foodReduction)
-            target:talk(Character.say, "#me loses "..foodReduction.." stamina.")
+            if testing.active then
+                target:talk(Character.say, "#me loses "..foodReduction.." stamina.")
+            end
         end
     else
         character.ChangeHP(target, -damage)
+        if testing.active then
+            target:talk(Character.say,"#me takes "..damage.." damage.", "#me takes "..damage.." damage.") --temp logging of damage for testers
+        end
     end
 
 

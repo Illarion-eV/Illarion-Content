@@ -20,6 +20,7 @@ local runes = require("magic.arcane.runes")
 local magicDamage = require("magic.arcane.magicDamage")
 local effectScaling = require("magic.arcane.effectScaling")
 local mana = require("magic.arcane.mana")
+local testing = require("base.testing")
 
 local M = {}
 
@@ -97,13 +98,19 @@ function M.instantLifeOrManaSteal(user, targets, spell, ORL)
 
                 if target:increaseAttrib("mana", 0) > amountStolen then
                     target:increaseAttrib("mana", -amountStolen)
-                    target:talk(Character.say, "#me loses "..amountStolen.." mana.")
+                    if testing.active then
+                        target:talk(Character.say, "#me loses "..amountStolen.." mana.")
+                    end
                 else
-                    target:talk(Character.say, "#me loses "..target:increaseAttrib("mana", 0).." mana.")
                     target:increaseAttrib("mana", 0)
+                    if testing.active then
+                        target:talk(Character.say, "#me loses "..target:increaseAttrib("mana", 0).." mana.")
+                    end
                 end
                 user:increaseAttrib("mana", increase)
-                user:talk(Character.say, "#me gains "..increase.." mana.")
+                if testing.active then
+                    user:talk(Character.say, "#me gains "..increase.." mana.")
+                end
                 user:inform(texts.mana.german, texts.mana.english)
             end
         end

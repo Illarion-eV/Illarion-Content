@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
 local magicResistance = require("magic.arcane.magicResistance")
+local testing = require("base.testing")
 
 -- Long time effect (112)
 local M = {}
@@ -33,6 +34,9 @@ local function causeDamage(User, quality, penetration)
         local damageDealt = math.random(math.min(damageLow, damageHigh), math.max(damageLow, damageHigh)) * (1 - resist + penetration)
         damageDealt = math.max(damageDealt, 30)
         User:increaseAttrib("hitpoints", -damageDealt)
+        if testing.active then
+            User:talk(Character.say,"#me takes "..damageDealt.." damage.", "#me takes "..damageDealt.." damage.")
+        end
     end
 end
 

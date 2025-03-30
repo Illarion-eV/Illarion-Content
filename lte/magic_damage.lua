@@ -14,6 +14,9 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
+
+local testing = require("base.testing")
+
 local M = {}
 -- Long time effect script for damage
 -- this can't kill but hold the player at 1 HP
@@ -47,6 +50,9 @@ function M.callEffect( effect, target )
                 effect:addValue("damagePerCycle", 0)
             end
             target:increaseAttrib("hitpoints", - currentDamage)
+            if testing.active then
+                target:talk(Character.say,"#me takes "..currentDamage.." damage.", "#me takes "..currentDamage.." damage.")
+            end
         end
         effect.nextCalled = 5
         return true

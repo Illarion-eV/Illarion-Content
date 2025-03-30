@@ -64,6 +64,7 @@ local hieros = require("magic.arcane.enchanting.effects.hieros")
 local dendron = require("magic.arcane.enchanting.effects.dendron")
 local dwyfol = require("magic.arcane.enchanting.effects.dwyfol")
 local magicTargeting = require("magic.arcane.targeting")
+local testing = require("base.testing")
 
 local M = {}
 
@@ -852,6 +853,9 @@ function CauseDamage(Attacker, Defender, Globals)
         -- Add check here for whether Dwyfol has activated to reduce the damage based on magic resistance when magic resistance is applied
 
         character.ChangeHP(Defender.Char,-Globals.Damage) -- Finally dealing the damage.
+        if testing.active then
+            Defender.Char:talk(Character.say,"#me takes "..Globals.Damage.." damage.", "#me takes "..Globals.Damage.." damage.") --temp logging of damage for testers
+        end
         chous.apply(Attacker.Char, Defender.Char) --After being hit, this glyph has a chance to activate to teleport the attacker away from the defender
         coeden.apply(Defender.Char, Attacker.Char) --After being hit, this glyph has a chance to activate to teleport the defender away from the attacker
     end

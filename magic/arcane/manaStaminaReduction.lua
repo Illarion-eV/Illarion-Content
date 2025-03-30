@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local runes = require("magic.arcane.runes")
 local effectScaling = require("magic.arcane.effectScaling")
+local testing = require("base.testing")
 
 local M = {}
 
@@ -39,7 +40,9 @@ local staminaToReduce = M.getStaminaToReduce(user, target, spell, earthTrap)
     if stamina then
         if increase then
             target:increaseAttrib("foodlevel", staminaToReduce)
-            target:talk(Character.say, "#me gains "..staminaToReduce.." stamina.")
+            if testing.active then
+                target:talk(Character.say, "#me gains "..staminaToReduce.." stamina.")
+            end
         end
     end
 end

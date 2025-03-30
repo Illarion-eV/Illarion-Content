@@ -15,6 +15,8 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
+local testing = require("base.testing")
+
 local M = {}
 function M.addEffect(myEffect, target)
     target:inform("Du spürst wie etwas Ausdauer deinen Körper verlässt.", "You can feel some of your stamina being drained out of your body.")
@@ -28,10 +30,15 @@ function M.callEffect(myEffect, target)
             local staminaToReduce = math.floor(remainingStaminaReduction/remainingTicks)
             if target:increaseAttrib("foodlevel", 0) > staminaToReduce then
                 target:increaseAttrib("foodlevel", -staminaToReduce)
-                target:talk(Character.say, "#me loses "..staminaToReduce.." stamina.")
+                if testing.active then
+                    target:talk(Character.say, "#me loses "..staminaToReduce.." stamina.")
+                end
             else
-                target:talk(Character.say, "#me loses "..target:increaseAttrib("foodlevel", 0).." stamina.")
                 target:setAttrib("foodlevel", 0)
+                if testing.active then
+                    target:talk(Character.say, "#me loses "..target:increaseAttrib("foodlevel", 0).." stamina.")
+                end
+
             end
             myEffect:addValue("remainingStaminaReduction", remainingStaminaReduction - staminaToReduce)
             myEffect:addValue("remainingTicks", remainingTicks - 1)
