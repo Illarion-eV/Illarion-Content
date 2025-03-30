@@ -16,7 +16,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local factionLeader = require("scheduled.factionLeader")
-local common = require("base.common")
 
 local M = {}
 
@@ -33,21 +32,6 @@ end
 function M.onLogout( theChar )
 
     world:gfx(31,theChar.pos); --A nice GFX that announces clearly: A player logged out.
-
-    -- begin tying
-    local foundEffect, Tying = theChar.effects:find(24);
-    if foundEffect then -- Char is a captive, save logout time
-        Tying:addValue("logout",1);
-        Tying:addValue("logyears", common.getTime("year"));
-        Tying:addValue("logmonths", common.getTime("month"));
-        Tying:addValue("logdays", common.getTime("day"));
-        Tying:addValue("loghours", common.getTime("hour"));
-        Tying:addValue("logminutes", common.getTime("minute")+3);
-        Tying:addValue("logseconds", common.getTime("second"));
-        local foundCapturer, Capturer = Tying:findValue("Capturer");
-        log("[Rope]: Tied up character "..theChar.name.." has logged out."..(foundCapturer and " Capturer: "..Capturer or ""))
-    end
-    -- end tying
 
     if theChar.name == "Valerio Guilianni" or theChar.name == "Rosaline Edwards" or theChar.name == "Elvaine Morgan" then
         exchangeFactionLeader( theChar.name )

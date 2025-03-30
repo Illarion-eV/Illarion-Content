@@ -993,10 +993,8 @@ end
 -- @param CharStruct The table of the attacker that holds all values load
 -- @return true in case the attack is fine
 function CheckAttackOK(CharStruct)
+
     if CharStruct["AttackKind"] == nil or CharStruct["Skillname"] == nil then -- finding the attack type or skill failed
-        return false
-    end
-    if (CharStruct.Char.effects:find(24)) then -- Attacker is tied up
         return false
     end
 
