@@ -633,50 +633,50 @@ function M.realmAllowsFarming(pos)
 end
 
 local staticTools = {
-    {id = 119, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"pottery", "cookingAndBaking"}}, --baking oven
-    {id = 120, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"pottery", "cookingAndBaking"}}, --baking oven
-    {id = 305, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair", "Cadomyr"}, builderSkills = {"pottery", "cookingAndBaking"}}, --smoking oven
-    {id = 304, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair", "Cadomyr"}, builderSkills = {"pottery", "cookingAndBaking"}}, --smoking oven
-    {id = 3581, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"smithing", "cookingAndBaking"}}, --kettle
-    {id = 250, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"mining", "farming"}}, --millstone
-    {id = 339, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"carpentry", "brewing"}}, --wine barrel
-    {id = 1410, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"carpentry", "brewing"}}, --wine barrel
-    {id = 1411, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"carpentry", "brewing"}}, --wine barrel
-    {id = 321, value = 0, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair", "Cadomyr"}, builderSkills = {"carpentry", "smithing", "spatialMagic"}}, --depot
-    {id = 4817, value = 0, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair", "Cadomyr"}, builderSkills = {"carpentry", "smithing", "spatialMagic"}}, --depot
-    {id = 1008, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair", "Cadomyr"}, builderSkills = {"smithing", "alchemy"}}, --cauldron
-    {id = 428, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"carpentry", "husbandry"}}, --chandler table
-    {id = 3830, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Galmair"}, builderSkills = {"carpentry", "mining"}}, --stoneworking table
-    {id = 3831, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Galmair"}, builderSkills = {"carpentry", "mining"}}, --stoneworking table
-    {id = 44, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"carpentry", "mining"}}, --press
-    {id = 724, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"carpentry", "woodcutting"}}, --carpentry workbench
-    {id = 725, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"carpentry", "woodcutting"}}, --carpentry workbench
-    {id = 1204, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"carpentry", "woodcutting"}}, --sawing trestle
-    {id = 1205, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"carpentry", "woodcutting"}}, --sawing trestle
-    {id = 3869, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Galmair"}, builderSkills = {"pottery", "smithing"}}, --bloomery
-    {id = 3870, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Galmair"}, builderSkills = {"pottery", "smithing"}}, --bloomery
-    {id = 270, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Galmair"}, builderSkills = {"carpentry", "gemcutting"}}, --gem grinder
-    {id = 172, value = 3, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Galmair"}, builderSkills = {"smithing", "mining"}}, --anvil, value of 3 as it supports 3 crafts unlike the others that support 1
-    {id = 3502, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair", "Cadomyr"}, builderSkills = {"carpentry", "magic"}}, --magic desk
-    {id = 3503, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair", "Cadomyr"}, builderSkills = {"carpentry", "magic"}}, --magic desk
-    {id = 2052, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"carpentry", "tanningAndWeaving"}}, --stretcher
-    {id = 1226, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"carpentry", "tanningAndWeaving"}}, --dyeing barrel
-    {id = 171, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"carpentry", "tanningAndWeaving"}}, --spinning wheel
-    {id = 169, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"carpentry", "tanningAndWeaving"}}, --loom
-    {id = 103, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"carpentry", "tailoring"}}, --tailoring table
-    {id = 102, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"carpentry", "tailoring"}}, --tailoring table
-    {id = 1240, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"pottery", "digging"}}, --kiln
-    {id = 1241, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"pottery", "digging"}}, --kiln
-    {id = 1242, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"pottery", "digging"}}, --kiln
-    {id = 1243, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"pottery", "digging"}}, --kiln
-    {id = 313, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"pottery", "glassBlowing"}}, --glass melting oven
-    {id = 727, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"smithing", "digging"}}, --sieve
-    {id = 3879, value = 1, realms = {"Outlaw", "Galmair", "Troll's Haven", "Runewick"}, builderSkills = {"digging", "farming"}}, --threshing floor
-    {id = 1387, value = 1, realms = {"Outlaw", "Galmair", "Troll's Haven", "Runewick", "Cadomyr"}, builderSkills = {"mining", "cookingAndBaking"}}, --grill
-    {id = 1388, value = 1, realms = {"Outlaw", "Galmair", "Troll's Haven", "Runewick", "Cadomyr"}, builderSkills = {"mining", "cookingAndBaking"}}, --grill
-    {id = 1389, value = 1, realms = {"Outlaw", "Galmair", "Troll's Haven", "Runewick", "Cadomyr"}, builderSkills = {"mining", "cookingAndBaking"}}, --grill
-    {id = 1390, value = 1, realms = {"Outlaw", "Galmair", "Troll's Haven", "Runewick", "Cadomyr"}, builderSkills = {"mining", "cookingAndBaking"}}, --grill
-    {id = 1386, value = 1, realms = {"Outlaw", "Galmair", "Troll's Haven", "Runewick"}, builderSkills = {"mining", "cookingAndBaking"}}, -- oven, kettle alternative
+    {id = 119, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"pottery", "cookingAndBaking"}, purpose = "baking"}, --baking oven
+    {id = 120, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"pottery", "cookingAndBaking"}, purpose = "baking"}, --baking oven
+    {id = 305, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair", "Cadomyr"}, builderSkills = {"pottery", "cookingAndBaking"}, purpose = "grilling"}, --smoking oven
+    {id = 304, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair", "Cadomyr"}, builderSkills = {"pottery", "cookingAndBaking"}, purpose = "grilling"}, --smoking oven
+    {id = 3581, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"smithing", "cookingAndBaking"}, purpose = "cooking"}, --kettle
+    {id = 250, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"mining", "farming"}, purpose = "milling"}, --millstone
+    {id = 339, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"carpentry", "brewing"}, purpose = "brewing"}, --wine barrel
+    {id = 1410, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"carpentry", "brewing"}, purpose = "brewing"}, --wine barrel
+    {id = 1411, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"carpentry", "brewing"}, purpose = "brewing"}, --wine barrel
+    {id = 321, value = 0, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair", "Cadomyr"}, builderSkills = {"carpentry", "smithing", "spatialMagic"}, purpose = "storage"}, --depot
+    {id = 4817, value = 0, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair", "Cadomyr"}, builderSkills = {"carpentry", "smithing", "spatialMagic"}, purpose = "storage"}, --depot
+    {id = 1008, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair", "Cadomyr"}, builderSkills = {"smithing", "alchemy"}, purpose = "alchemy"}, --cauldron
+    {id = 428, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"carpentry", "husbandry"}, purpose = "candlemaking"}, --chandler table
+    {id = 3830, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Galmair"}, builderSkills = {"carpentry", "mining"}, purpose = "stonecutting"}, --stoneworking table
+    {id = 3831, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Galmair"}, builderSkills = {"carpentry", "mining"}, purpose = "stonecutting"}, --stoneworking table
+    {id = 44, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"carpentry", "mining"}, purpose = "pressing"}, --press
+    {id = 724, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"carpentry", "woodcutting"}, purpose = "carpentry"}, --carpentry workbench
+    {id = 725, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"carpentry", "woodcutting"}, purpose = "carpentry"}, --carpentry workbench
+    {id = 1204, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"carpentry", "woodcutting"}, purpose = "sawing"}, --sawing trestle
+    {id = 1205, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"carpentry", "woodcutting"}, purpose = "sawing"}, --sawing trestle
+    {id = 3869, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Galmair"}, builderSkills = {"pottery", "smithing"}, purpose = "smelting"}, --bloomery
+    {id = 3870, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Galmair"}, builderSkills = {"pottery", "smithing"}, purpose = "smelting"}, --bloomery
+    {id = 270, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Galmair"}, builderSkills = {"carpentry", "gemcutting"}, purpose = "gemcutting"}, --gem grinder
+    {id = 172, value = 3, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Galmair"}, builderSkills = {"smithing", "mining"}, purpose = "smithing"}, --anvil, value of 3 as it supports 3 crafts unlike the others that support 1
+    {id = 3502, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair", "Cadomyr"}, builderSkills = {"carpentry", "magic"}, purpose = "magic"}, --magic desk
+    {id = 3503, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair", "Cadomyr"}, builderSkills = {"carpentry", "magic"}, purpose = "magic"}, --magic desk
+    {id = 2052, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"carpentry", "tanningAndWeaving"}, purpose = "tanning"}, --stretcher
+    {id = 1226, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"carpentry", "tanningAndWeaving"}, purpose = "dyeing"}, --dyeing barrel
+    {id = 171, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"carpentry", "tanningAndWeaving"}, purpose = "spinning"}, --spinning wheel
+    {id = 169, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"carpentry", "tanningAndWeaving"}, purpose = "weaving"}, --loom
+    {id = 103, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"carpentry", "tailoring"}, purpose = "tailoring"}, --tailoring table
+    {id = 102, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"carpentry", "tailoring"}, purpose = "tailoring"}, --tailoring table
+    {id = 1240, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"pottery", "digging"}, purpose = "pottery"}, --kiln
+    {id = 1241, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"pottery", "digging"}, purpose = "pottery"}, --kiln
+    {id = 1242, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"pottery", "digging"}, purpose = "pottery"}, --kiln
+    {id = 1243, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"pottery", "digging"}, purpose = "pottery"}, --kiln
+    {id = 313, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"pottery", "glassBlowing"}, purpose = "glassblowing"}, --glass melting oven
+    {id = 727, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"smithing", "digging"}, purpose = "sifting"}, --sieve
+    {id = 3879, value = 1, realms = {"Outlaw", "Galmair", "Troll's Haven", "Runewick"}, builderSkills = {"digging", "farming"}, purpose = "threshing"}, --threshing floor
+    {id = 1387, value = 1, realms = {"Outlaw", "Galmair", "Troll's Haven", "Runewick", "Cadomyr"}, builderSkills = {"mining", "cookingAndBaking"}, purpose = "grilling"}, --grill
+    {id = 1388, value = 1, realms = {"Outlaw", "Galmair", "Troll's Haven", "Runewick", "Cadomyr"}, builderSkills = {"mining", "cookingAndBaking"}, purpose = "grilling"}, --grill
+    {id = 1389, value = 1, realms = {"Outlaw", "Galmair", "Troll's Haven", "Runewick", "Cadomyr"}, builderSkills = {"mining", "cookingAndBaking"}, purpose = "grilling"}, --grill
+    {id = 1390, value = 1, realms = {"Outlaw", "Galmair", "Troll's Haven", "Runewick", "Cadomyr"}, builderSkills = {"mining", "cookingAndBaking"}, purpose = "grilling"}, --grill
+    {id = 1386, value = 1, realms = {"Outlaw", "Galmair", "Troll's Haven", "Runewick"}, builderSkills = {"mining", "cookingAndBaking"}, purpose = "cooking"}, -- oven, kettle alternative
 }
 
 local function isStaticTool(productId)
@@ -772,7 +772,6 @@ local function getPlayerLevel(player, skill)
 
 end
 
-
 local function canAssignSkills(skills, skillList, assigned, skillIndex)
     if skillIndex > #skillList then
         return true -- All skills successfully assigned
@@ -843,7 +842,6 @@ function M.buildersReady(user, productId, pos)
     user:inform(lackingExpertise)
     return false
 end
-
 
 function M.supportedTool(productId, pos)
 
@@ -926,6 +924,17 @@ function M.checkPropertyForStaticTools(frontPos)
     return staticToolsOnProperty
 end
 
+local function categoryAlreadyChecked(checkedCategories, purpose)
+
+    for _, checkedCategory in pairs(checkedCategories) do
+        if checkedCategory == purpose then
+            return true
+        end
+    end
+
+    return false
+end
+
 function M.tooManyTools(user, productId, frontPos)
 
     local productIsStaticTool = isStaticTool(productId)
@@ -940,10 +949,23 @@ function M.tooManyTools(user, productId, frontPos)
 
     local productValue
 
+    local checkedCategories = {}
+
     for _, existingTool in pairs(listOfExistingTools) do
         for _, staticTool in pairs(staticTools) do
-            if existingTool == staticTool.id then
+            if existingTool == staticTool.id and not categoryAlreadyChecked(checkedCategories, staticTool.purpose) then
+                table.insert(checkedCategories, staticTool.purpose)
                 totalValue = totalValue + staticTool.value
+            end
+        end
+    end
+
+    for _, checkedCategory in pairs(checkedCategories) do
+        for _, staticTool in pairs(staticTools) do
+            if staticTool.purpose == checkedCategory then
+                if staticTool.id == productId then
+                    return false --You can build as many as you want of static tools that do the same as one you already have on the property, for aesthetic freedom
+                end
             end
         end
     end
@@ -962,7 +984,7 @@ function M.tooManyTools(user, productId, frontPos)
         return false
     end
 
-    local maxValue = 4
+    local maxValue = 5 --This allows a full set, for instance, Tailoring: Tailoring table, loom, spinning wheel, empty dyeing barrel and stretcher.
 
     if totalValue >= maxValue then
         user:inform("Du hast bereits so viele statische Werkzeuge auf diesem Grundstück gebaut, wie es erlaubt ist.", "You've already built as many static tools on this property as is allowed.")
