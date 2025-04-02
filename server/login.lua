@@ -294,6 +294,19 @@ end
 
 function M.onLogin( player )
 
+    local leaderNames = {"Elvaine Morgan", "Valerio Guilianni", "Rosaline Edwards"}
+
+    for _, leaderName in pairs(leaderNames) do
+        if leaderName == player.name then
+            local specialRankStatus = 200
+            if player:getQuestProgress(specialRankStatus) ~= 11 then
+                player:setQuestProgress(specialRankStatus, 11)
+                -- Ensures the player leader characters are the correct rank, for the citizen ledger
+                -- and any future aspects of the game they may impact
+            end
+        end
+    end
+
     --Temporary: Warp players from old Noobia to new newbie spawn
     if player.pos.z == 100 then --Old Noobia
         player:turn(4) --south
