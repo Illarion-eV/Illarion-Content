@@ -771,6 +771,11 @@ function M.showDialog(user, skillName, overloaded, secondOverload)
                 return false
             end
 
+            if product.tile and product.id == 4 and frontPos.z ~= 0 then
+                user:inform("Du kannst hier die Erde nicht bearbeiten.", "You can't till the earth here.")
+                return false
+            end
+
             if not utility.supportedTool(product.id, frontPos) then
                 user:inform("Leider unterstützt dein Reich dieses statische Werkzeug nicht.", "Unfortunately your realm does not support this static tool.")
                 return false
