@@ -270,7 +270,16 @@ function M.UseItem(user, SourceItem)
     if math.random(50) <= 1 then
         common.InformNLS( user, "Das alte Geschirr ist nicht mehr brauchbar.", "The old dishes are no longer usable.")
     else
-        local dataCopy = {descriptionDe=SourceItem:getData("descriptionDe"), descriptionEn=SourceItem:getData("descriptionEn"), rareness = SourceItem:getData("rareness")}
+        local dataCopy = {descriptionDe = SourceItem:getData("descriptionDe"), descriptionEn=SourceItem:getData("descriptionEn"), rareness = SourceItem:getData("rareness")}
+
+        local beersThatDontEndUpAsEmpty = {Item.clayBeerMugFull, Item.beerMug, 1907, 1910}
+
+        for _, beer in pairs(beersThatDontEndUpAsEmpty) do
+            if SourceItem.id == beer then
+                dataCopy = {descriptionDe = SourceItem:getData("descriptionDe"), descriptionEn=SourceItem:getData("descriptionEn"), rareness = SourceItem:getData("rareness"), drinkRarity = SourceItem:getData("drinkRarity"), vesselRarity = SourceItem:getData("vesselRarity")}
+                break
+            end
+        end
         common.CreateItem(user, drink[2], 1, 333, dataCopy) -- create the remnant item
     end
     world:erase(SourceItem, 1)
