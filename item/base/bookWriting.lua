@@ -48,6 +48,11 @@ local function isBookInHand(user)
                         return false
                     end
 
+                    if book.number > 1 then
+                        user:inform("Du kannst nur in einem Buch gleichzeitig schreiben.", "You can only write in one book at a time.")
+                        return false
+                    end
+
                     return book
                 end
             end
