@@ -250,7 +250,11 @@ function removePage(user, book)
         usersBag:insertItem(theParchment, true)
     end
 
-    book:setData("pageCount", pageNumber-1)
+    if pageNumber-1 == 0 then
+        book:setData("pageCount", "")
+    else
+        book:setData("pageCount", pageNumber-1)
+    end
 
     for i = 1, 4 do
         book:setData("page"..pageNumber.."part"..i, "")
