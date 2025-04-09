@@ -946,6 +946,7 @@ function Craft:createItem(user, productId, toolItem)
         local rarity = self:generateRarity(user, rareIngredientBonus)
 
         if rarity > 1 then
+            common.TempInformNLS(user, "Seltenes Produkt hergestellt!", "Rare product crafted!")
             product.data.rareness = rarity
         end
     end
