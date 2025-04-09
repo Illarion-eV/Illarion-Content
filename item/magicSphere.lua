@@ -1218,7 +1218,7 @@ end
 
 function M.checkIraPosition(user)
 
-    local iraPosition = position(473, 746, -3)
+    local iraPosition = position(475, 746, -3)
 
     local distance = 10
 
