@@ -267,7 +267,7 @@ function M.UseItem(user, SourceItem)
     local foodLevel = user:increaseAttrib("foodlevel", 0) + drink[1]
     world:makeSound(12, user.pos) -- drink sound
 
-    if math.random(50) <= 1 then
+    if math.random(50) <= 1 and common.IsNilOrEmpty(SourceItem:getData("descriptionEn")) then
         common.InformNLS( user, "Das alte Geschirr ist nicht mehr brauchbar.", "The old dishes are no longer usable.")
     else
         local dataCopy = {descriptionDe = SourceItem:getData("descriptionDe"), descriptionEn=SourceItem:getData("descriptionEn"), rareness = SourceItem:getData("rareness")}
