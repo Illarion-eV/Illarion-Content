@@ -2274,6 +2274,190 @@ local function changePersistence(user)
     user:requestSelectionDialog(dialog)
 end
 
+local whatToDoWithSelectedNPC
+
+local originalNpcPosAndDirection = {}
+
+local function bindNPC(user, selectedNPC)
+
+    local callback = function(dialog)
+
+        if not dialog:getSuccess() then
+            return
+        end
+
+        local index = dialog:getSelectedIndex() +1
+
+        local bindNPC_LTE_Id = 405
+
+        local foundEffect = user.effects:find(bindNPC_LTE_Id)
+
+        if index == 1 then
+
+            if foundEffect then
+                user.effects:removeEffect(bindNPC_LTE_Id)
+            end
+
+            local myEffect = LongTimeEffect(bindNPC_LTE_Id, 10)
+            myEffect:addValue("x", selectedNPC.pos.x)
+            myEffect:addValue("y", selectedNPC.pos.y)
+            myEffect:addValue("z", selectedNPC.pos.z)
+            user.effects:addEffect(myEffect)
+        elseif index == 2 and foundEffect then
+            user.effects:removeEffect(bindNPC_LTE_Id)
+        end
+    end
+
+    local dialog = SelectionDialog("Move NPC", "If you bond with an NPC it will move as you do.", callback)
+
+    dialog:addOption(0, "Bond with NPC")
+    dialog:addOption(0, "Remove existing bond with NPC")
+
+    user:requestSelectionDialog(dialog)
+
+
+end
+
+local function moveNPC(user, selectedNPC)
+
+    local callback = function(dialog)
+        if not dialog:getSuccess() then
+            return
+        end
+        local input = dialog:getInput()
+        if (string.find(input,"(%d+) (%d+) (%d+)")~=nil) then
+            local _, _, x, y, z = string.find(input,"(%d+) (%d+) (%d+)")
+            selectedNPC:forceWarp(position(tonumber(x), tonumber(y), tonumber(z)))
+            whatToDoWithSelectedNPC(user, selectedNPC)
+        end
+    end
+
+    user:requestInputDialog(InputDialog("Move NPC", "Set the new coordinates for the npc by entering the X Y Z coordinates.\nEG:131 609 0",false,255,callback))
+
+end
+
+local function turnNPC(user, selectedNPC)
+
+    local directions = {
+        { dir = Character.north, name = "North"},
+        { dir = Character.northwest, name = "Northwest"},
+        { dir = Character.northeast, name = "Northeast"},
+        { dir = Character.east, name = "East"},
+        { dir = Character.west, name = "West"},
+        { dir = Character.south, name = "South"},
+        { dir = Character.southwest, name = "Southwest"},
+        { dir = Character.southeast, name = "Southeast"},
+    }
+
+    local callback = function(dialog)
+
+        if not dialog:getSuccess() then
+            return
+        end
+
+        local index = dialog:getSelectedIndex() +1
+
+        for i, direction in pairs(directions) do
+            if index == i then
+                selectedNPC:turn(direction.dir)
+                whatToDoWithSelectedNPC(user, selectedNPC)
+            end
+        end
+    end
+
+    local dialog = SelectionDialog("Move NPC", "Select the direction the NPC should face.", callback)
+
+    for _, direction in ipairs(directions) do
+        dialog:addOption(0, direction.name)
+    end
+
+    user:requestSelectionDialog(dialog)
+end
+
+local function resetNPC(user, selectedNPC)
+
+    local originalPos = originalNpcPosAndDirection[selectedNPC.name.."originalPosition"]
+    local originalDirection = originalNpcPosAndDirection[selectedNPC.name.."originalDirection"]
+
+    if originalPos then
+        selectedNPC:forceWarp(originalPos)
+    end
+
+    if originalDirection then
+        selectedNPC:turn(originalDirection)
+    end
+
+end
+
+function whatToDoWithSelectedNPC(user, selectedNPC)
+
+    if not originalNpcPosAndDirection[selectedNPC.name.."originalDirection"] then
+        originalNpcPosAndDirection[selectedNPC.name.."originalDirection"] = selectedNPC:getFaceTo()
+    end
+    if not originalNpcPosAndDirection[selectedNPC.name.."originalPosition"] then
+        originalNpcPosAndDirection[selectedNPC.name.."originalPosition"] = position( selectedNPC.pos.x, selectedNPC.pos.y, selectedNPC.pos.z)
+    end
+
+    local callback = function(dialog)
+
+        if not dialog:getSuccess() then
+            return
+        end
+
+        local index = dialog:getSelectedIndex() +1
+
+        if index == 1 then
+            moveNPC(user, selectedNPC)
+        elseif index == 2 then
+            turnNPC(user, selectedNPC)
+        elseif index == 3 then
+            resetNPC(user, selectedNPC)
+        elseif index == 4 then
+            bindNPC(user, selectedNPC)
+        end
+    end
+
+    local dialog = SelectionDialog("Move NPC", "Choose what to do with the NPC.", callback)
+
+
+    dialog:addOption(0, "Change NPC Coordinates")
+    dialog:addOption(0, "Change NPC Direction")
+    dialog:addOption(0, "Reset NPC to default")
+    dialog:addOption(0, "Bind NPC movements to your own")
+
+    user:requestSelectionDialog(dialog)
+
+end
+
+local function selectNpcFromList(user)
+
+    local npcList = world:getNPCSInRangeOf(user.pos, 20)
+
+    local callback = function(dialog)
+
+        if not dialog:getSuccess() then
+            return
+        end
+
+        local index = dialog:getSelectedIndex() +1
+
+        for i, selectedNPC in pairs(npcList) do
+            if i == index then
+                whatToDoWithSelectedNPC(user, selectedNPC)
+            end
+        end
+    end
+
+    local dialog = SelectionDialog("Move NPC", "Choose an NPC", callback)
+
+    for _, npc in ipairs(npcList) do
+        dialog:addOption(0, npc.name.."("..tostring(npc.pos)..")")
+    end
+
+    user:requestSelectionDialog(dialog)
+
+end
+
 function M.UseItem(user, SourceItem, ltstate)
     --if injured, heal!
     user:increaseAttrib("hitpoints", 10000)
@@ -2281,7 +2465,7 @@ function M.UseItem(user, SourceItem, ltstate)
     user:increaseAttrib("foodlevel", 100000)
 
     -- First check for mode change
-    local modes = {"Eraser", "Teleport", "Summon", "Instant kill/ revive", "Char Settings", "Global events", "Events on single char", "Events on groups", "Quest events","Define Teleporter Targets","Define events on single char","Define events on groups","Test area","Reset tutorial","Persistence"}
+    local modes = {"Eraser", "Teleport", "Summon", "Instant kill/ revive", "Char Settings","Move NPC", "Global events", "Events on single char", "Events on groups", "Quest events","Define Teleporter Targets","Define events on single char","Define events on groups","Test area","Reset tutorial","Persistence"}
     local cbSetMode = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -2298,24 +2482,26 @@ function M.UseItem(user, SourceItem, ltstate)
         elseif index == 5 then
             settingsForChar(user)
         elseif index == 6 then
-            ambientAction(user)
+            selectNpcFromList(user)
         elseif index == 7 then
-            actionOnChar(user, SourceItem)
+            ambientAction(user)
         elseif index == 8 then
-            actionOnGroup(user, SourceItem)
+            actionOnChar(user, SourceItem)
         elseif index == 9 then
-            questEvents(user, SourceItem, ltstate)
+            actionOnGroup(user, SourceItem)
         elseif index == 10 then
-            setuserTeleporter(user, SourceItem)
+            questEvents(user, SourceItem, ltstate)
         elseif index == 11 then
-            setuserActionOnChar(user, SourceItem)
+            setuserTeleporter(user, SourceItem)
         elseif index == 12 then
-            setuserActionOnGroup(user, SourceItem)
+            setuserActionOnChar(user, SourceItem)
         elseif index == 13 then
-            testArea(user)
+            setuserActionOnGroup(user, SourceItem)
         elseif index == 14 then
-            resetTutorial(user)
+            testArea(user)
         elseif index == 15 then
+            resetTutorial(user)
+        elseif index == 16 then
             changePersistence(user)
         end
     end
