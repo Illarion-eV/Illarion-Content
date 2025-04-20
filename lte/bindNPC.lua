@@ -59,7 +59,9 @@ function M.callEffect(effect, user)
         npc:forceWarp(user.pos)
     elseif user.pos ~= npc.pos then  --The npc walks normally to the direction of the GM character
         local direction = common.GetDirection(npc.pos, user.pos)
-        npc:move(direction, true)
+        if direction then
+            npc:move(direction, true)
+        end
     end
 
     effect.nextCalled = 1 --Called every decisecond
