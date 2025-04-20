@@ -347,11 +347,13 @@ local function eraseOrCheckForIngredient(user, amount, ingredient, erase)
         table.insert(items, user:getItemAt(slot))
     end
 
-    for i = 0, 99 do
-        local success, theItem = backpack:viewItemNr(i)
+    if backpack then
+        for i = 0, 99 do
+            local success, theItem = backpack:viewItemNr(i)
 
-        if success then
-            table.insert(items, theItem)
+            if success then
+                table.insert(items, theItem)
+            end
         end
     end
 
