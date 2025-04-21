@@ -43,6 +43,8 @@ function M.dealMagicDamage(target, damage, usedMovepoints, level, monster)
 
     if damage < 100 then
         damage = 100 --At least deal some symbolic damage even if the player fully resists the attack
+    elseif damage > 4999 then -- Monsters should at least follow the same damage cap as they do in physical fighting
+        damage = 4999
     end
 
 
