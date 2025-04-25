@@ -293,7 +293,7 @@ end
 
 local function georgeBackstabRocks()
     informAllOnShip("George Backstab stürmt die Stufen hinauf und schmeißt alle, Piraten und Reisende über Bord. Du erreichst eine Küste. Sei vorsichtig, auch die Piraten haben die Küste erreicht.",
-                    "George Backstab storms up the stairs and throws all the pirates and passengers over the ship's rail. You reach a shore. Be carefully, the pirates might be nearby.")
+                    "George Backstab storms up the stairs and throws all the pirates and passengers over the ship's rail. You reach a shore. Be careful, the pirates might be nearby.")
     local targetShore = common.getOneOutOfList(someShores)
     local players = world:getPlayersInRangeOf(shipCenterPos, 30); --get all player on ship
     for i, player in pairs (players) do
