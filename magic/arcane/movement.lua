@@ -104,7 +104,7 @@ return false, positionToCheck
 end
 
 local function getRangeOfMovement(user, spell, target, character, ORL, targetAmount, currentTarget)
-local range = 4
+local range = 1
 local scaling = effectScaling.getEffectScaling(user, target, spell)
 local QWAN = runes.checkSpellForRuneByName("QWAN", spell)
 local KEL = runes.checkSpellForRuneByName("KEL", spell)
@@ -142,7 +142,14 @@ local raceBonus
     if ORL and JUS then
         range = range/2
     end
-return range*scaling
+
+    range = range*scaling
+
+    if range < 1 then
+        range = 1
+    end
+
+return range
 end
 
 local function checkIfWindSpell(spell)
