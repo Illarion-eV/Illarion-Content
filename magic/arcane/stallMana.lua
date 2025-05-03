@@ -22,18 +22,22 @@ local effectScaling = require("magic.arcane.effectScaling")
 local M = {}
 
 local function getDuration(user, spell, target, earthTrap)
-local scaling
+
+    local scaling
+
     if earthTrap then
         scaling = earthTrap:getData("scaling")
     else
         scaling = effectScaling.getEffectScaling(user, target, spell)
     end
-local numberOfSeconds = 4
-local QWAN = runes.checkSpellForRuneByName("QWAN", spell)
-local TAUR = runes.checkSpellForRuneByName("TAUR", spell)
-local URA = runes.checkSpellForRuneByName("URA", spell)
-local YEG = runes.checkSpellForRuneByName("YEG", spell)
-local rune
+
+    local numberOfSeconds = 30
+    local QWAN = runes.checkSpellForRuneByName("QWAN", spell)
+    local TAUR = runes.checkSpellForRuneByName("TAUR", spell)
+    local URA = runes.checkSpellForRuneByName("URA", spell)
+    local YEG = runes.checkSpellForRuneByName("YEG", spell)
+    local rune
+
     if TAUR then
         rune = "TAUR"
     elseif URA then
@@ -41,17 +45,22 @@ local rune
     elseif YEG then
         rune = "YEG"
     end
+
     local raceBonus
+
     if rune then
         raceBonus = magicDamage.checkIfRaceBonus(target, rune)
     end
+
     if QWAN then
-        numberOfSeconds = numberOfSeconds + 2
+        numberOfSeconds = numberOfSeconds + 20
     end
+
     if raceBonus then
-        numberOfSeconds = numberOfSeconds + 1
+        numberOfSeconds = numberOfSeconds + 10
     end
-return math.floor(numberOfSeconds*scaling)
+
+    return math.floor(numberOfSeconds*scaling)
 end
 
 function M.applyManaStalling(user, targets, spell, earthTrap)
