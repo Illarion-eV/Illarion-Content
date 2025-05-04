@@ -61,9 +61,11 @@ function M.isSpellAutoCast(spell)
 
     for _, rune in pairs(M.runes) do
 
-        runeCount = runeCount + 1
-
         local runeIsInSpell = M.checkSpellForRune(rune.id, spell)
+
+        if runeIsInSpell then
+            runeCount = runeCount + 1
+        end
 
         if runeIsInSpell and not notFire then
             notFire = rune.name == "PEN" or rune.name == "SOLH" or rune.name == "JUS" or rune.name == "CUN"
