@@ -137,7 +137,7 @@ local function checkSkillLevel(user, skillName, repairKit)
 
 end
 
-local instruments = {Item.lute, Item.harp, Item.drum, Item.panpipe, Item.flute}
+local instruments = {Item.lute, Item.harp, Item.drum, Item.panpipe, Item.flute, Item.horn}
 
 local smithedTools = {Item.scissors, Item.saw, Item.hammer, Item.shovel, Item.needle, Item.hatchet, Item.finesmithingHammer, Item.sickle, Item.scythe, Item.chisel, Item.tongs, Item.pan, Item.mortar, Item.pan, Item.rasp, Item.mould, Item.plane, Item.razorBlade, Item.armourersHammer, Item.pickaxe, Item.carvingTools, Item.cruciblePincers, Item.constructionTrowel}
 
