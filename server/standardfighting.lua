@@ -952,7 +952,7 @@ function HitChance(Attacker, Defender, Globals)
 
     local parryWeapon, parryItem = GetParryWeaponAndItem(Defender)
 
-    if not parryWeapon then
+    if not parryWeapon or not parryItem then
         return true
     end
 
