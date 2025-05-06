@@ -28,6 +28,7 @@ local dendron = require("magic.arcane.enchanting.effects.dendron")
 local ysbryd = require("magic.arcane.enchanting.effects.ysbryd")
 local dwyfol = require("magic.arcane.enchanting.effects.dwyfol")
 local testing = require("base.testing")
+local magic = require("base.magic")
 
 function M.learnMagicResistance(target, castTime, level)
 
@@ -140,6 +141,7 @@ function M.dealMagicDamage(user, target, spell, damage, level, DoT, castTime)
             if target:isAdmin() then
                 chr_reg.stallRegeneration(target, 0)
             end
+
             character.Kill(target)
         else
             -- Character would die.
@@ -151,6 +153,17 @@ function M.dealMagicDamage(user, target, spell, damage, level, DoT, castTime)
             end
             local timeFactor = 1 -- See lte.chr_reg
             chr_reg.stallRegeneration(target, 60 / timeFactor)
+
+            if user then
+                local wand = magic.getWand(user)
+
+                if wand and wand.id == Item.noviceWand and target:getType() == Character.player then
+                    --We cancel the users autocasting
+                    if not _G.stopAutoCast then _G.stopAutoCast = {} end
+
+                    _G.stopAutoCast[user.id] = true
+                end
+            end
         end
     elseif (RA or CUN) and (IRA or KAH) then
         if IRA then --Ira converts the damage of the spell to mana instead, allowing for high values of mana drain to compensate for the lost damage

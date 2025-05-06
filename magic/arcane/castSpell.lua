@@ -204,6 +204,10 @@ function M.castSpell(user, spell, actionState, oralCast)
 
     if actionState == Action.none then
 
+        if _G.stopAutoCast and _G.stopAutoCast[user.id] then
+            _G.stopAutoCast[user.id] = false
+        end
+
         M[user.id].positionsAndTargets = targeting.getPositionsAndTargets(user, spell)
 
         if not M[user.id].positionsAndTargets then --rarely happens if you try to cast immediately after an !fr, also happens if you cast a PEN LEV spell after expiry
@@ -250,6 +254,12 @@ function M.castSpell(user, spell, actionState, oralCast)
 
             if user.attackmode and runes.isSpellAutoCast(spell) and checksPassed(user, spell, element, M[user.id].thePosition) then
                 -- To mimic wand magic so that the fire magic replacement does not feel like a downgrade, we allow auto casting of some spells
+
+                if _G.stopAutoCast and _G.stopAutoCast[user.id] then
+                    _G.stopAutoCast[user.id] = false
+                    return
+                end
+
 
                 castDuration = castTime.arcaneSpellCastSpeed(user, spell)
                 M[user.id].storedDuration = castDuration
