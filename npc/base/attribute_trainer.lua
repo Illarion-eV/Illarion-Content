@@ -41,9 +41,8 @@ function M.train(user)
 
     local questProgress = user:getQuestProgress(questId)
 
-    if questProgress >= 4 then --Ensures that you still get the cheaper attrib changes before the below calc kicks in with 4 being the new floor
-        questProgress = math.max(4, questProgress - RPReductions) -- If youve saved up enough reductions to go lower than 4, it sets it to 4 anyways to keep the 16 gold minimum
-    end
+    questProgress = math.max(0, questProgress - RPReductions) -- at 0 it is 1 gold
+
 
     local costInGold = 2 ^ math.min(questProgress, 7)
     local cost = costInGold * 10000
