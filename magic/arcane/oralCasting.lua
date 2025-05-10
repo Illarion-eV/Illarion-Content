@@ -160,11 +160,13 @@ function M.checkForMagicIncantations(user, actionState, spokenWords)
         local primaryRune = checkForPrimaryRunes(user, spokenWords)
 
         if primaryRune then
+            user:changeSource(spokenWords, 0)
             local spell = addRunesToSpell(user, spokenWords, primaryRune)
             M[user.name.."spell"] = spell
             M[user.name.."portal"] = false
             castMagic(user, actionState, spell, false)
         elseif checkForPortalIncantation(spokenWords) then
+            user:changeSource(spokenWords, 0)
             M[user.name.."portal"] = checkForPortalIncantation(spokenWords)
             M[user.name.."spell"] = false
             castMagic(user, actionState, false, checkForPortalIncantation(spokenWords))
