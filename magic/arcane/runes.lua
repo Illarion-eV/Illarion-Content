@@ -74,6 +74,10 @@ function M.isSpellAutoCast(spell)
         if runeIsInSpell and not rune.auto and not (notFire and runeCount == 1) then
             return false
         end
+
+        if runeCount > 1 and notFire then
+            return false
+        end
     end
 
     return true
