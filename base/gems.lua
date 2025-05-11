@@ -171,7 +171,7 @@ function M.returnGemsToUser(user, item, isMessage)
 
             if level and level > 0 then
 
-                if owner ~= user.name then --For some reason when creating the new gems, it refuses to report the owner even if you add it to the data table when creating it below, and instead merges the gems with existing gems with different owner names. As such we report this incident individually here.
+                if owner ~= user.name and owner ~= "" then --For some reason when creating the new gems, it refuses to report the owner even if you add it to the data table when creating it below, and instead merges the gems with existing gems with different owner names. As such we report this incident individually here.
                     log(user.name..
                     " unsocketed a "..
                     world:getItemName(item.id, 1)..

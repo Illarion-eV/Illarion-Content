@@ -100,7 +100,7 @@ function M.MoveItemBeforeMove(user, source, target)
     local level = tostring(target:getData("gemLevel")) or 1
 
     if common.IsNilOrEmpty(owner) then
-        owner = "unknown"
+        owner = "Treasure Map or unknown"
     end
 
     if owner == user.name then
