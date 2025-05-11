@@ -29,11 +29,13 @@ function M.UseItem(user, SourceItem)
 
     if (user:getQuestProgress(539) == 1) and SourceItem:getData("ratmanCauldron") ~= "" then--OK, the player does the quest 1
         cauldronContents(user, SourceItem)
+        return
     end
     if (user:getQuestProgress(539) == 1) and SourceItem.pos == position(598, 177, -3) then -- player tries to get coins from green cauldron
         user:inform(
             "Bis auf eine Flüssigkeit, vermutlich die Reste eines Trankes, ist der Kessel leer.",
             "You find nothing in this cauldron but a liquid, most likely residuals of an unknown potion.")
+        return
     end
     if (user:getQuestProgress(539) == 3) and (user:getQuestProgress(542) == 0) and SourceItem.pos == position(594, 172, -3) then --OK, the player does the quest 2 yellow
         user:inform(
