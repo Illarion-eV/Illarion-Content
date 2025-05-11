@@ -42,11 +42,11 @@ M.propertyTable = {
     {"Fourth Earth Apartment", "Viertes Erdapartment",position(899,769,-3),20000,2558,234, "Runewick","3",factions.RunewickRankListMale[3]["eRank"],factions.RunewickRankListMale[3]["gRank"]},
     {"Fifth Earth Apartment", "Fünftes Erdapartment",position(902,755,-3),20000,2558,235, "Runewick","3",factions.RunewickRankListMale[3]["eRank"],factions.RunewickRankListMale[3]["gRank"]},
     {"Sixth Earth Apartment", "Sechstes Erdapartment",position(900,755,-3),20000,2558,236, "Runewick","3",factions.RunewickRankListMale[3]["eRank"],factions.RunewickRankListMale[3]["gRank"]},
-    {"Cottage", "Landhaus",position(782,795,0),30000,2558,251, "Runewick","5",factions.RunewickRankListMale[5]["eRank"],factions.RunewickRankListMale[5]["gRank"]},
-    {"Quadruped Red Bird","Vierbeiniger Roter Vogel",position(758,802,0),100000,2558,250, "Runewick","7",factions.RunewickRankListMale[7]["eRank"],factions.RunewickRankListMale[7]["gRank"]},
+    {"Cottage", "Landhaus",position(782,795,0),30000,2558,251, "Runewick","5",factions.RunewickRankListMale[5]["eRank"],factions.RunewickRankListMale[5]["gRank"], true},
+    {"Quadruped Red Bird","Vierbeiniger Roter Vogel",position(758,802,0),100000,2558,250, "Runewick","7",factions.RunewickRankListMale[7]["eRank"],factions.RunewickRankListMale[7]["gRank"], true},
     --Galmair
-    {"House of Malachite","Malachithaus",position(369,326,0), 100000, 3056, 110, "Galmair", "7",factions.GalmairRankListMale[7]["eRank"],factions.GalmairRankListMale[7]["gRank"]},
-    {"Villa Goldvein","Villa Goldader", position(307, 284, 0), 80000, 3055, 111, "Galmair", "7",factions.GalmairRankListMale[7]["eRank"],factions.GalmairRankListMale[7]["gRank"]},
+    {"House of Malachite","Malachithaus",position(369,326,0), 100000, 3056, 110, "Galmair", "7",factions.GalmairRankListMale[7]["eRank"],factions.GalmairRankListMale[7]["gRank"], true},
+    {"Villa Goldvein","Villa Goldader", position(307, 284, 0), 80000, 3055, 111, "Galmair", "7",factions.GalmairRankListMale[7]["eRank"],factions.GalmairRankListMale[7]["gRank"], true},
     {"Flat Irmorom","Wohnung Irmorom",position(373,216,-6), 30000,2558,120, "Galmair","4",factions.GalmairRankListMale[4]["eRank"],factions.GalmairRankListMale[4]["gRank"]},
     {"Flat Elara","Wohnung Elara",position(384,219,-6), 30000,2558,121, "Galmair","4",factions.GalmairRankListMale[4]["eRank"],factions.GalmairRankListMale[4]["gRank"]},
     {"Flat Adron","Wohnung Adron",position(383,230,-6), 20000,2558,122, "Galmair","3",factions.GalmairRankListMale[3]["eRank"],factions.GalmairRankListMale[3]["gRank"]},
@@ -129,10 +129,10 @@ table.insert(M.properties, {name = "Flat Diamond", lower = position(405,206,1), 
 table.insert(M.properties, {name = "Flat Obsidian", lower = position(420,206,1), upper = position(432,220,1)})
 
 --Galmair estates within the walls
-table.insert(M.properties, {name = "House of Malachite", lower = position(367,309,0), upper = position(377,323,2)})
-table.insert(M.properties, {name = "House of Malachite", lower = position(367,309,-21), upper = position(377,323,-21)})
-table.insert(M.properties, {name = "Villa Goldvein", lower = position(294,269,0), upper = position(309,281,2)})
-table.insert(M.properties, {name = "Villa Goldvein", lower = position(294,269,-21), upper = position(309,281,-21)})
+table.insert(M.properties, {name = "House of Malachite", lower = position(367,309,0), upper = position(377,323,2), estate = true})
+table.insert(M.properties, {name = "House of Malachite", lower = position(367,309,-21), upper = position(377,323,-21), estate = true})
+table.insert(M.properties, {name = "Villa Goldvein", lower = position(294,269,0), upper = position(309,281,2), estate = true})
+table.insert(M.properties, {name = "Villa Goldvein", lower = position(294,269,-21), upper = position(309,281,-21), estate = true})
 
 --Estates outside Galmair walls
 table.insert(M.properties, {name = "Syrita Estate", lower = position(449,124,0), upper = position(459,139,2), estate = true})
@@ -160,10 +160,10 @@ table.insert(M.properties, {name = "Siba Estate", lower = position(79,672,0), up
 table.insert(M.properties, {name = "Siba Estate", lower = position(79,672,-21), upper = position(94,682,-21), estate = true})
 
 --Runewick estates
-table.insert(M.properties, {name = "Cottage", "Landhaus", lower = position(785,789,0), upper = position(793,795,2)})
-table.insert(M.properties, {name = "Cottage", "Landhaus", lower = position(785,789,-21), upper = position(793,795,-21)})
-table.insert(M.properties, {name = "Quadruped Red Bird", lower = position(740,795,0), upper = position(755,803,2)})
-table.insert(M.properties, {name = "Quadruped Red Bird", lower = position(740,795,-21), upper = position(755,803,-21)})
+table.insert(M.properties, {name = "Cottage", "Landhaus", lower = position(785,789,0), upper = position(793,795,2), estate = true})
+table.insert(M.properties, {name = "Cottage", "Landhaus", lower = position(785,789,-21), upper = position(793,795,-21), estate = true})
+table.insert(M.properties, {name = "Quadruped Red Bird", lower = position(740,795,0), upper = position(755,803,2), estate = true})
+table.insert(M.properties, {name = "Quadruped Red Bird", lower = position(740,795,-21), upper = position(755,803,-21), estate = true})
 
 table.insert(M.properties, {name = "Anthil Estate", lower = position(767,728,0), upper = position(781,737,2), estate = true})
 table.insert(M.properties, {name = "Anthil Estate", lower = position(767,728,-21), upper = position(781,737,-21), estate = true})
