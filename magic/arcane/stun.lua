@@ -16,41 +16,29 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local runes = require("magic.arcane.runes")
-local castingSpeed = require("magic.arcane.castingSpeed")
+local effectScaling = require("magic.arcane.effectScaling")
+local common = require("base.common")
+
 
 local M = {}
 
-function M.getBaseStunDuration()
-local duration = castingSpeed.castingSpeedByRuneSize("Short") + castingSpeed.castingSpeedByRuneSize("Medium")*3 -- May need tweaking to prevent permastun
 
-return duration
+function M.applyStun(user, target, spell)
+    local baseStunDuration = 1
+    local scaling = effectScaling.getEffectScaling(user, target, spell)
+    local stunDuration = baseStunDuration * scaling
+
+    common.ParalyseCharacter(target, stunDuration, false, true)
 end
 
-local function getTargetsResistance(target)
-local maxReduction = M.getBaseStunDuration()
-local retVal = 0
-    if retVal > maxReduction then
-        retVal = maxReduction
-    end
-return retVal
-end
-
-function M.applyStun(target)
-local baseStunDuration = M.getBaseStunDuration()
-local reduceStun = getTargetsResistance(target)
-local stunDuration = baseStunDuration - reduceStun
-
-target.movepoints = target.movepoints - stunDuration
-end
-
-function M.checkForStun(spell, targets)
+function M.checkForStun(user, spell, targets)
 local HEPT = runes.checkSpellForRuneByName("HEPT", spell)
 local PEN = runes.checkSpellForRuneByName("PEN", spell)
     if not HEPT or PEN then
         return
     end
     for _, target in pairs(targets.targets) do
-        M.applyStun(target)
+        M.applyStun(user, target, spell)
     end
 end
 

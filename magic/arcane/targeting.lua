@@ -18,6 +18,7 @@ local common = require("base.common")
 local runes = require("magic.arcane.runes")
 local range = require("magic.arcane.castingRange")
 local magic = require("base.magic")
+local effectScaling = require("magic.arcane.effectScaling")
 
 local M = {}
 
@@ -359,6 +360,18 @@ local function getPositionWhenNotTargetingACharacter(user)
 
 end
 
+local function getTimeLimit(user, spell)
+
+    --based on spirit spell level and scaling up to approx 60 min time limit
+
+    local scaling = effectScaling.getEffectScaling(user, nil, spell)
+
+    local base = 300
+
+    return base*(scaling*6)
+
+end
+
 local function getPosition(user, spell, positionsAndTargets, delayed, trap)
 
     local element = runes.fetchElement(spell)
@@ -452,11 +465,17 @@ local function getPosition(user, spell, positionsAndTargets, delayed, trap)
     if PEN and HEPT then
         local id = user.id
         M.playerTargets["HEPT"..id] = thePosition
+
+        if user.attackmode and magic.getWand(user) then --wand required to aim
+            local targeted = M.playerTargets[id]
+            M.playerTargets["HEPT"..id] = targeted
+        end
+
         M.playerTargets["HEPT"..id.."time"] = tonumber(world:getTime("unix"))
     end
 
     if PEN and LEV then
-        local timeLimit = 1800
+        local timeLimit = getTimeLimit(user, spell)
         local currentTime = world:getTime("unix")
         local id = user.id
         local heptPosition = M.playerTargets["HEPT"..id]
@@ -467,6 +486,11 @@ local function getPosition(user, spell, positionsAndTargets, delayed, trap)
                 user:inform("Du bemerkst, dass es zu lange her ist, das du das letzte Mal einen Zauberspruch mit HEPT genutzt hast, denn du spürst wie das Mana aus deinem Körper fließt und kein Ziel findet.", "You realise it's been too long since you last cast this spell with HEPT, as you feel the mana draining from your body finds no target.")
                     -- targeting.lua
             elseif heptPosition then
+
+                if heptPosition.pos then
+                    heptPosition = heptPosition.pos
+                end
+
                 setPos = false
                 local targetExists = world:isCharacterOnField(heptPosition)
                 local setLevPos = true

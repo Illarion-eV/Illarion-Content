@@ -158,7 +158,7 @@ local earthCloud = sourceItem:getData("earthCloud")
         dealDamage.applyMagicDamage(false, targets, spell, element, false, sourceItem, level, castDuration)
         illuminate.CheckIfIlluminate(false, targets, spell, sourceItem)
         snare.applySnare(false, targets, spell, false, sourceItem, level)
-        stun.checkForStun(spell, targets)
+        stun.checkForStun(false, spell, targets)
         MSReduction.checkForIncreaseStamina(false, targets, spell, sourceItem)
         stallMana.applyManaStalling(false, targets, spell, sourceItem)
     end
