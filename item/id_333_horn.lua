@@ -23,7 +23,7 @@ local shared = require("craft.base.shared")
 
 local M = {}
 
-local spamPreventionTime = 120 --2 min between each
+local spamPreventionTime = 30 --30 seconds between each
 
 local spamPrevention = {}
 
