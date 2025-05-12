@@ -18,6 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local runes = require("magic.arcane.runes")
 local effectScaling = require("magic.arcane.effectScaling")
 local common = require("base.common")
+local testing = require("base.testing")
 
 
 local M = {}
@@ -27,6 +28,10 @@ function M.applyStun(user, target, spell)
     local baseStunDuration = 1
     local scaling = effectScaling.getEffectScaling(user, target, spell)
     local stunDuration = baseStunDuration * scaling
+
+    if testing.active then
+        target:talk(Character.say, "#me is stunned for "..tostring(stunDuration))
+    end
 
     common.ParalyseCharacter(target, stunDuration, false, true)
 end
