@@ -42,7 +42,7 @@ function M.UseItem(user, SourceItem, actionState)
     local timeStamp = world:getTime("unix")
 
     if spamPrevention[user.id] and timeStamp < (spamPrevention[user.id] + spamPreventionTime) then
-        user:inform("Du musst deine Lungen etwas ausruhen, bevor du das Horn erneut bläst.", "You need to rest your longs for a little before blowing the horn again.")
+        user:inform("Du musst deine Lungen etwas ausruhen, bevor du das Horn erneut bläst.", "You need to rest your lungs for a little before blowing the horn again.")
         return
     end
 
