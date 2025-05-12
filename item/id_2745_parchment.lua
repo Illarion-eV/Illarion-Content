@@ -30,6 +30,8 @@ local shipmasterParchments = require("content.shipmasterParchments")
 local shared = require("craft.base.shared")
 local messenger = require("content.messenger")
 local bookWriting = require("item.base.bookWriting")
+local music = require("item.base.music")
+local drum = require("item.id_533_drum")
 
 local M = {}
 
@@ -78,6 +80,90 @@ function M.getWrittenTextFromParchment(theParchment)
     return false
 end
 
+local function viewListOfNotes(user, SourceItem)
+
+    local amount = SourceItem:getData("noteAmount")
+
+    if common.IsNilOrEmpty(amount) then
+        return
+    end
+
+    local list = ""
+
+    for i = 1, tonumber(amount) do
+        local note = SourceItem:getData("note"..i)
+        local duration = SourceItem:getData("noteDuration"..i)
+
+        if SourceItem:getData("instrument") == "drum" then
+            for _, sound in pairs(music.drumSounds) do
+                if sound.id == tonumber(note) then
+                    note = common.GetNLS(user, sound.name.german, sound.name.english)
+                    break
+                end
+            end
+        end
+
+        list = list.."\n"..note..", "..duration..common.GetNLS(user, " Dezisekunden.", " deciseconds.")
+    end
+
+    local title = common.GetNLS(user, "Unbenanntes Notenblatt", "Unnamed sheet")
+    local name = SourceItem:getData("sheetName")
+
+    if not common.IsNilOrEmpty(name) then
+        title = name
+    end
+
+    local callback = function(dialog) end
+
+    local dialog = MessageDialog( title, list, callback)
+    user:requestMessageDialog(dialog)
+end
+
+local function noteListView(user, ltstate, SourceItem, instrument)
+
+    local callback = function(dialog)
+
+        if not dialog:getSuccess() then
+            return
+        end
+
+        local selected = dialog:getSelectedIndex() + 1
+
+        if selected == 1 then
+            if instrument == "drum" then
+                drum.playTheDrum(user, ltstate, false, SourceItem)
+            else
+                music.playTheInstrument(user, ltstate, false, SourceItem, instrument)
+            end
+        elseif selected == 2 then
+            viewListOfNotes(user, SourceItem)
+        end
+    end
+
+    local instruments = {"drum", "harp", "lute", "panpipe", "flute"}
+    local instrumentsGerman = {"Trommel", "Harfe", "Laute", "Panflöte", "Flöte"}
+
+    local germanName = instrument
+
+    for index, inst in pairs(instruments) do
+        if instrument == inst then
+            germanName = instrumentsGerman[index]
+        end
+    end
+
+    local text = common.GetNLS(user, "Das Notenblatt enthält Noten für das "..germanName..".", "The sheet contains notes for the "..instrument..".")
+
+    local dialog = SelectionDialog(common.GetNLS(user, "Notenblatt", "Music sheet"), text, callback)
+
+    dialog:addOption(0, common.GetNLS(user, "Lied abspielen", "Play song"))
+    dialog:addOption(0, common.GetNLS(user, "Noten anzeigen", "View notes"))
+
+    dialog:setCloseOnMove()
+
+    user:requestSelectionDialog(dialog)
+
+end
+
 function M.UseItem(user, SourceItem,ltstate,checkVar)
 
     -- Check if the messenger has requested a parchment
@@ -100,6 +186,27 @@ function M.UseItem(user, SourceItem,ltstate,checkVar)
         bookWriting.addNewPageToBook(user, SourceItem)
         return
     end
+
+    if music.getParchmentSelectionStatus(user) then
+        music.addNewSheetToBook(user, SourceItem)
+        return
+    end
+
+    local instrument = SourceItem:getData("instrument")
+
+    if not common.IsNilOrEmpty(instrument) then
+        if ltstate == Action.none then
+            noteListView(user, ltstate, SourceItem, instrument)
+        else
+            if instrument == "drum" then
+                drum.playTheDrum(user, ltstate, false, SourceItem)
+            else
+                music.playTheInstrument(user, ltstate, false, SourceItem, instrument)
+            end
+        end
+        return
+    end
+
 
 
 
@@ -544,13 +651,26 @@ end
 
 
 
-function M.LookAtItem(user, Item)
+function M.LookAtItem(user, parchment)
 
-    if Item:getData("bookList") == "true" then
-        return bookListLookAt(user, Item)
+    if parchment:getData("bookList") == "true" then
+        return bookListLookAt(user, parchment)
     end
 
-    return lookat.GenerateLookAt(user, Item)
+    local lookAt = lookat.GenerateLookAt(user, parchment)
+
+    if not common.IsNilOrEmpty(parchment:getData("instrument")) then
+        lookAt.name = common.GetNLS(user, "Notenblatt", "Music Sheet")
+        lookAt.description = common.GetNLS(user, "Das Pergament enthält Noten.","The parchment contains musical notes.")
+    end
+
+    local sheetName = parchment:getData("sheetName")
+
+    if not common.IsNilOrEmpty(sheetName) then
+        lookAt.description = common.GetNLS(user, "Namen: "..sheetName, "Name: "..sheetName)
+    end
+
+    return lookAt
 end
 
 function M.MoveItemAfterMove(user, sourceItem, targetItem)

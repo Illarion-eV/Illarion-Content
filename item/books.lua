@@ -22,6 +22,8 @@ local id_266_bookshelf = require("item.id_266_bookshelf")
 local granorsHut = require("content.granorsHut")
 local magicBook = require("magic.arcane.magicBook")
 local common = require("base.common")
+local music = require("item.base.music")
+local drum = require("item.id_533_drum")
 
 local readBook
 
@@ -154,7 +156,132 @@ function readBook(user, book, atPage)
     end
 end
 
-function M.UseItem(user, sourceItem)
+local selectedBookIndex = {}
+
+local function viewListOfNotes(user, book, index)
+
+    local amount = book:getData("sheet"..index.."noteAmount")
+
+    if common.IsNilOrEmpty(amount) then
+        return
+    end
+
+    local list = ""
+
+    for i = 1, tonumber(amount) do
+        local note = book:getData("sheet"..index.."note"..i)
+        local duration = book:getData("sheet"..index.."noteDuration"..i)
+
+        if book:getData("sheet"..index.."instrument") == "drum" then
+            for _, sound in pairs(music.drumSounds) do
+                if sound.id == tonumber(note) then
+                    note = common.GetNLS(user, sound.name.german, sound.name.english)
+                    break
+                end
+            end
+        end
+
+        list = list.."\n"..note..", "..duration..common.GetNLS(user, " Dezisekunden.", " deciseconds.")
+    end
+
+    local title = common.GetNLS(user, "Unbenanntes Notenblatt", "Unnamed sheet")
+    local name = book:getData("sheet"..index.."sheetName")
+
+    if not common.IsNilOrEmpty(name) then
+        title = name
+    end
+
+    local callback = function(dialog) end
+
+    local dialog = MessageDialog( title, list, callback)
+    user:requestMessageDialog(dialog)
+end
+
+local function noteListView(user, actionState, book, instrument, index)
+
+    local callback = function(dialog)
+
+        if not dialog:getSuccess() then
+            return
+        end
+
+        local selected = dialog:getSelectedIndex() + 1
+
+        if selected == 1 and music.instrumentIsInHandOrInFrontOfUser(user, book:getData("sheet"..index.."instrument")) then
+
+            if instrument == "drum" then
+                drum.playTheDrum(user, actionState, false, false, book, index)
+            else
+                music.playTheInstrument(user, actionState, false, false, instrument, book, index)
+            end
+
+        elseif selected == 2 then
+            viewListOfNotes(user, book, index)
+        end
+    end
+
+    local instruments = {"drum", "harp", "lute", "panpipe", "flute"}
+    local instrumentsGerman = {"Trommel", "Harfe", "Laute", "Panflöte", "Flöte"}
+
+    local germanName = instrument
+
+    for i, inst in pairs(instruments) do
+        if instrument == inst then
+            germanName = instrumentsGerman[i]
+        end
+    end
+
+    local text = common.GetNLS(user, "Das Notenblatt enthält Noten für das "..germanName..".", "The sheet contains notes for the "..instrument..".")
+
+    local dialog = SelectionDialog(common.GetNLS(user, "Notenblatt", "Music sheet"), text, callback)
+
+    dialog:addOption(0, common.GetNLS(user, "Lied abspielen", "Play song"))
+    dialog:addOption(0, common.GetNLS(user, "Noten anzeigen", "View notes"))
+
+    dialog:setCloseOnMove()
+
+    user:requestSelectionDialog(dialog)
+
+end
+
+local function selectSheetToPlay(user, book, sheetAmount, actionState)
+
+
+    local callback = function(dialog)
+
+        if not dialog:getSuccess() then
+            return
+        end
+
+        local selected = dialog:getSelectedIndex() + 1
+
+        for index = 1, tonumber(sheetAmount) do
+            if selected == index then
+                local instrument = book:getData("sheet"..index.."instrument")
+                selectedBookIndex = index
+                noteListView(user, actionState, book, instrument, selectedBookIndex)
+            end
+        end
+    end
+
+    local text = common.GetNLS(user, "Wähle ein Notenblatt zum Abspielen oder Anzeigen aus.", "Select a sheet to play or view.")
+
+    local dialog = SelectionDialog(common.GetNLS(user, "Musikbuch", "Music book"), text, callback)
+
+    for i = 1, tonumber(sheetAmount) do
+        local name = book:getData("sheet"..i.."sheetName")
+        if common.IsNilOrEmpty(name) then
+            name = common.GetNLS(user, "Unbenanntes Notenblatt", "Unnamed Sheet")
+        end
+        dialog:addOption(0, name)
+    end
+
+    dialog:setCloseOnMove()
+
+    user:requestSelectionDialog(dialog)
+end
+
+function M.UseItem(user, sourceItem, actionState)
 
     -- alchemy book; DO NOT CHANGE! STARTER PACK RELEVANT!
     if sourceItem.id == 2622 then
@@ -186,6 +313,24 @@ function M.UseItem(user, sourceItem)
         readBook(user, sourceItem)
     end
 
+    local sheetAmount = sourceItem:getData("sheetAmount")
+
+    if not common.IsNilOrEmpty(sheetAmount) and tonumber(sheetAmount) > 0 then
+        if actionState == Action.none then
+            selectSheetToPlay(user, sourceItem, sheetAmount, actionState)
+        elseif actionState == Action.success then
+
+            local instrument = sourceItem:getData("sheet"..selectedBookIndex.."instrument")
+
+            if instrument == "drum" then
+                drum.playTheDrum(user, actionState, false, false, sourceItem, selectedBookIndex)
+            else
+                music.playTheInstrument(user, actionState, false, false, instrument, sourceItem, selectedBookIndex)
+            end
+        end
+
+    end
+
 end
 
 function M.LookAtItem(user, theBook)
@@ -195,6 +340,9 @@ function M.LookAtItem(user, theBook)
         if common.IsNilOrEmpty(theBook:getData("descriptionEn")) then -- Do not overwrite custom labels
             lookat.SetSpecialDescription(theBook, "Ein Grimoire das Magier verwenden.", "A grimoire used by mages.")
         end
+    elseif not common.IsNilOrEmpty(theBook:getData("sheetAmount")) then
+        lookat.SetSpecialName(theBook, "Musikbuch", "Music Book")
+        lookat.SetSpecialDescription(theBook, "Ein Musikbuch, das Notenblätter speichert, die für das Spielen verschiedener Instrumente verwendet werden.", "A music book that stores music sheets used for playing different instruments.")
     else
 
         local book = theBook:getData("book")

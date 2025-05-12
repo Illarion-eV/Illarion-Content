@@ -14,25 +14,84 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- I_333 Horn spielen
 
--- UPDATE items SET itm_script='item.id_333_horn' WHERE itm_id=333;
-
-local music = require("item.base.music")
 local wood = require("item.general.wood")
+local common = require("base.common")
+local music = require("item.base.music")
+local shared = require("craft.base.shared")
+
 
 local M = {}
 
+local spamPreventionTime = 120 --2 min between each
+
+local spamPrevention = {}
+
 local skill = Character.horn
 
-music.addTalkText("#me's cheeks turn red while blowing into a horn, but no sound is audible.","#me's Wangen werden beim Blasen in das Horn rot, aber kein Ton ist zu hören.", skill);
-music.addTalkText("#me blows into a horn, producing a buzzing sound.","#me bläst in das Horn und erzeugt ein summendes Geräusch.", skill);
-music.addTalkText("#me blows into a horn, producing a sound akin to that of a dying animal.","#me bläst in das Horn und macht ein Geräusch das wie ein sterbendes Tier klingt.", skill);
-music.addTalkText("#me blows into a horn, producing a great sound.","#me bläst in das Horn und erzeugt so einen guten Klang.", skill);
-music.addTalkText("#me blows into a horn, producing an awesome sound.","#me bläst in das Horn und erzeugt einen beeindruckenden Klang.", skill);
+local sounds = {
+    {level = 0, id = 118, name = {english = "Weak Sound", german = "Schwacher Klang"}},
+    {level = 25, id = 119, name = {english = "Short Sound", german = "Kurzer Klang"}},
+    {level = 50, id = 120, name = {english = "Medium Sound", german = "Mittlerer Klang"}},
+    {level = 75, id = 121, name = {english = "Long Sound", german = "Langer Klang"}},
+    {level = 100, id = 122, name = {english = "Deep Sound", german = "Tiefer Klang"}}
+}
 
-function M.UseItem(User, SourceItem)
-    music.PlayInstrument(User,SourceItem, skill);
+function M.UseItem(user, SourceItem, actionState)
+
+    local timeStamp = world:getTime("unix")
+
+    if spamPrevention[user.id] and timeStamp < (spamPrevention[user.id] + spamPreventionTime) then
+        user:inform("Du musst deine Lungen etwas ausruhen, bevor du das Horn erneut bläst.", "You need to rest your longs for a little before blowing the horn again.")
+        return
+    end
+
+    local knownSounds = {}
+
+    local callback = function(dialog)
+
+        if not dialog:getSuccess() then
+            return
+        end
+
+        local selected = dialog:getSelectedIndex() + 1
+
+        for index, sound in pairs(knownSounds) do
+            if selected == index then
+                local instrument = music.instrumentIsInHandOrInFrontOfUser(user, "horn")
+                if instrument then
+                    -- Since we dont want people to spam the instrument while also not wanting it
+                    -- to take years to level, half of the cooldown is attributed to both
+                    -- learning and durability reduction
+
+                    shared.toolBreaks(user, instrument, spamPreventionTime/2)
+                    user:learn(skill, spamPreventionTime/2, 100)
+                    world:makeSound(sound.id, user.pos)
+                    spamPrevention[user.id] = world:getTime("unix")
+                else
+                    return
+                end
+            end
+        end
+    end
+
+    local text = common.GetNLS(user, "Wähle den Klang aus, den du spielen möchtest.", "Select the sound you wish to play")
+
+    local dialog = SelectionDialog(common.GetNLS(user, "Klangauswahl", "Sound selection"), text, callback)
+
+    local level = user:getSkill(skill)
+
+    for _ , sound in ipairs(sounds) do
+        if level >= sound.level then
+            dialog:addOption(0, common.GetNLS(user, sound.name.german, sound.name.english))
+            table.insert(knownSounds, sound)
+        end
+    end
+
+    dialog:setCloseOnMove()
+
+    user:requestSelectionDialog(dialog)
+
 end
 
 M.LookAtItem = wood.LookAtItem
