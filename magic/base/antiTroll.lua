@@ -171,7 +171,7 @@ function M.passesAntiTrollCheck(target)
         myPosition = target
     end
 
-    if checkForIllegalItems(myPosition) or  checkForIllegalLocations(myPosition) or checkForNearbyPortals(target) then
+    if checkForIllegalItems(myPosition) or  checkForIllegalLocations(myPosition) or checkForNearbyPortals(myPosition) then
         return false
     end
 
