@@ -351,13 +351,13 @@ function applyDrinkEffect(user, drink)
 
     local baseInfluence = 5 -- How many % to increase the RP gains by
 
-    local baseDuration = 5 + level*0.25 --How many minutes it should last, with 5 at minimum or else it wont have any impact at all as the RP script checks every 5 min
+    local baseDuration = 20 + level*0.25 --How many minutes it should last, with 20 at minimum so people wont have to chug cider like mad if thats their preferred drink
 
     baseDuration = math.floor(baseDuration) -- We need to keep the number a whole integer
 
     local durationBonus = rarity+drinkRarity+vesselRarity --up to 12 points of bonus. Drinkrarity also impacts the influence, but serving vessel and drinking vessel rarity only impacts duration since they are reusable
 
-    local duration = baseDuration + durationBonus*1 --Up to 30 min extra, for a total of 60 min max duration for a level 100 drink and 35 for a level 0
+    local duration = baseDuration + durationBonus*1 --Up to 30 min extra, for a total of 75 min max duration for a level 100 drink and 35 for a level 0
 
     duration = alterDurationForJuicesAndBeers(drink, duration) --decreased duration for beer, increased for juice, as the differ from the norm
 
