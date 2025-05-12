@@ -52,14 +52,22 @@ local function getBarrel(User)
 
 end
 
-local function getKettle(User)
+local function getKettleOrOven(User)
 
     local KETTLE = 3581
+    local OVEN = 1386
     local item = common.GetFrontItem(User)
-    if (item ~= nil and item.id == KETTLE) then
+    if (item ~= nil and (item.id == KETTLE or item.id == OVEN)) then
         return item
     end
     item = common.GetItemInArea(User.pos, KETTLE)
+
+    if item.id == KETTLE then
+        return item
+    else
+        item = common.GetItemInArea(User.pos, OVEN)
+    end
+
     return item
 end
 
@@ -89,7 +97,7 @@ function M.UseItem(User, SourceItem, ltstate)
     end
 
     -- check for kettle
-    target = getKettle(User)
+    target = getKettleOrOven(User)
     if (target ~= nil) then
         cooking.cooking:showDialog(User, SourceItem)
         return
@@ -97,8 +105,8 @@ function M.UseItem(User, SourceItem, ltstate)
 
     -- there is nothing to work with
     common.HighInformNLS( User,
-    "Du stehst nicht neben dem benötigten Werkzeug: Weinfass oder Kessel",
-    "There is no wine barrel or kettle close by to work with." )
+    "Du stehst nicht neben dem benötigten Werkzeug: Weinfass, Ofen oder Kessel",
+    "There is no wine barrel, oven or kettle close by to work with." )
 
  end
 
