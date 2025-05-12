@@ -51,9 +51,12 @@ function M.instantLifeOrManaSteal(user, targets, spell, ORL)
     local amountStolen = 525 -- RA IRA is 700, so for RA IRA to not be useless this needs to be lower as it has a second effect of giving you mana
 
     for _, target in pairs(targets.targets) do
-        local scaling = effectScaling.getEffectScaling(user, target, spell)
-        amountStolen = amountStolen*scaling
-        if JUS then
+
+        if JUS and isValidChar(target) then
+
+            local scaling = effectScaling.getEffectScaling(user, target, spell)
+            amountStolen = amountStolen*scaling
+
             if rune then
                 if magicDamage.checkIfRaceBonus(target, rune) then
                     amountStolen = amountStolen*1.5
