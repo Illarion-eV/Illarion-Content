@@ -87,7 +87,7 @@ product:addIngredient(52, 1) -- bucket of water
 -- bottle of carrot juice
 product = brewing:addProduct(catId, 788, 1)
 product:addIngredient(Item.vegetableJuiceBottle, 1)
-product:addIngredient(2493, 3) -- carrots
+product:addIngredient(2493, 2) -- carrots
 product:addIngredient(778, 1) -- sugarcane
 product:addIngredient(52, 1) -- bucket of water
 

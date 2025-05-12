@@ -21,6 +21,8 @@ local gems = require("base.gems")
 local money = require("base.money")
 local glyphs = require("magic.arcane.enchanting.core.shared")
 local mining = require("craft.gathering.mining")
+local farming = require("craft.gathering.farming")
+local sowing = require("craft.gathering.sowing")
 local silkcutting = require("craft.gathering.silkcutting")
 local fishing = require("craft.gathering.fishing")
 local egggathering = require("craft.gathering.egggathering")
@@ -99,12 +101,16 @@ local gatheringLists = {
     {list = silkcutting.silkList, skill = silkcutting.skill, type = {english = "Butterflies", german = "Schmetterlinge"}},
     {list = fishing.fishList, skill = fishing.skill, type = {english = "Shoal", german = "Schwarm"}},
     {list = honeygathering.hiveList, skill = honeygathering.skill, type = {english = "Hive", german = "Bienenstock"}},
-    {list = egggathering.nestList, skill = egggathering.skill, type = {english = "Nest", german = "Nest"}}
+    {list = egggathering.nestList, skill = egggathering.skill, type = {english = "Nest", german = "Nest"}},
+    {list = farming.crops, skill = farming.skill, type = {english = "Crop", german = "Feldfrucht"}},
+    {list = sowing.seeds, skill = farming.skill, type = {english = "Seed", german = "Samen"}}
 }
 
 for _, gatheringList in pairs(gatheringLists) do
     for _, gatheringNode in pairs(gatheringList.list) do
-        table.insert(listOfItemsThatShouldShowLevel, {id = gatheringNode.depletedId, skill = gatheringList.skill, type = gatheringList.type})
+        if gatheringNode.depletedId then
+            table.insert(listOfItemsThatShouldShowLevel, {id = gatheringNode.depletedId, skill = gatheringList.skill, type = gatheringList.type})
+        end
         table.insert(listOfItemsThatShouldShowLevel, {id = gatheringNode.id, skill = gatheringList.skill, type = gatheringList.type})
     end
 end

@@ -181,6 +181,12 @@ M.foodList[Item.firewaspHoneycomb] = {foodPoints = valueMedium}
 M.foodList[Item.raptorEgg] = {foodPoints = valueMedium}
 M.foodList[Item.spiderEgg] = {foodPoints = valueMedium}
 M.foodList[Item.dragonEgg] = {foodPoints = valueLarge}
+M.foodList[Item.pumpkin] = {foodPoints = valueLarge}
+M.foodList[Item.bellpepper] = {foodPoints = valueMedium}
+M.foodList[Item.corn] = {foodPoints = valueMedium}
+M.foodList[Item.lettuce] = {foodPoints = valueSmall}
+M.foodList[Item.cucumber] = {foodPoints = valueSmall}
+
 
 -- get difficulty from the database
 for foodId, foodItem in pairs(M.foodList) do

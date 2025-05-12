@@ -26,169 +26,292 @@ local gwynt = require("magic.arcane.enchanting.effects.gwynt")
 
 local M = {}
 
-local FarmingItems = {}
+local function getLevel(itemId)
 
--- field crops
-FarmingItems[3890] = 290 -- cabbage -> cabbage
-FarmingItems[537] = 201 -- onion plant -> onion
-FarmingItems[540] = 200 -- tomato plant -> tomato
-FarmingItems[731] = 154 -- hop plant -> hop
-FarmingItems[732] = 728 -- old hops -> hop seeds
-FarmingItems[2492] = 2493 -- greens -> carrots
-FarmingItems[782] = 778 -- sugarcane plant -> sugarcane
-FarmingItems[777] = 772 -- withered tobacco plant -> tabacco
-FarmingItems[3565] = 3567                               -- Final stage potato plant -> Potatoes
+    local itemCommon = world:getItemStatsFromId(itemId)
 
--- TODO when bug in MoveItem functions is resolved, remove these
-FarmingItems[779] = 779 -- sugarcane seeds
-FarmingItems[773] = 773 -- tobacco seeds
-FarmingItems[2917] = 2917 -- tomato seeds
-FarmingItems[2494] = 2494 -- carrot seeds ("seeds")
-FarmingItems[534] = 534 -- onion seeds
-FarmingItems[291] = 291 -- withered cabbage (seeds)
-FarmingItems[3566] = 3566                               -- Potato seeds
-
-local function isFarmingItem(Plant)
-    if (Plant ~= nil and FarmingItems[Plant.id] ~= nil and ((Plant:getData("amount") ~= "0" and Plant:getData("amount") ~= "") or Plant.wear == 255)) then
-        return true;
-    end
-    return false;
+    return itemCommon.Level
 end
 
-local function getFarmingItem(User)
+M.skill = "farming"
 
-    local targetItem = common.GetFrontItem(User);
-    if (isFarmingItem(targetItem)) then
-        return targetItem;
+local crops = {
+
+    -- Vegetables
+
+    {id = 248, produce = Item.bundleOfGrain, level = getLevel(248), tool = Item.scythe},
+    {id = 540, produce = Item.tomato, level = getLevel(540), tool = Item.sickle},
+    {id = 4333, produce = Item.cucumber, level = getLevel(4333), tool = Item.sickle},
+    {id = 4828, produce = Item.lettuce, level = getLevel(4828), tool = Item.sickle},
+    {id = 731, produce = Item.hop, level = getLevel(731), tool = Item.sickle},
+    {id = 537, produce = Item.onion, level = getLevel(537), tool = Item.sickle},
+    {id = 2492, produce = Item.carrots, level = getLevel(2492), tool = Item.sickle},
+    {id = 3565, produce = Item.potato, level = getLevel(3565), tool = Item.sickle},
+    {id = 3890, produce = Item.cabbage, level = getLevel(3890), tool = Item.sickle},
+    {id = 4336, produce = Item.corn, level = getLevel(4336), tool = Item.scythe},
+    {id = 782, produce = Item.sugarcane, level = getLevel(782), tool = Item.scythe},
+    {id = 777, produce = Item.tobacco, level = getLevel(777), tool = Item.sickle},
+    {id = 4330, produce = Item.bellpepper, level = getLevel(4336), tool = Item.sickle},
+    {id = 4833, produce = Item.pumpkin, level = getLevel(4336), tool = Item.sickle},
+
+    -- Seeds
+
+    {id = Item.tomatoSeeds, produce = Item.tomatoSeeds, level = getLevel(Item.tomatoSeeds), tool = Item.sickle, seed = true},
+    {id = Item.cucumberSeeds, produce = Item.cucumberSeeds, level = getLevel(Item.cucumberSeeds), tool = Item.sickle, seed = true},
+    {id = Item.lettuceSeeds, produce = Item.lettuceSeeds, level = getLevel(Item.lettuceSeeds), tool = Item.sickle, seed = true},
+    {id = 732, produce = Item.hopSeeds, level = getLevel(732), tool = Item.sickle, seed = true},
+    {id = Item.onionSeeds, produce = Item.onionSeeds, level = getLevel(Item.onionSeeds), tool = Item.sickle, seed = true},
+    {id = Item.carrotSeeds, produce = Item.carrotSeeds, level = getLevel(Item.carrotSeeds), tool = Item.sickle, seed = true},
+    {id = Item.potatoSeeds, produce = Item.potatoSeeds, level = getLevel(Item.potatoSeeds), tool = Item.sickle, seed = true},
+    {id = Item.witheredCabbage, produce = Item.witheredCabbage, level = getLevel(Item.witheredCabbage), tool = Item.sickle, seed = true},
+    {id = Item.cornSeeds, produce = Item.cornSeeds, level = getLevel(Item.cornSeeds), tool = Item.sickle, seed = true},
+    {id = Item.sugarcaneSeeds, produce = Item.sugarcaneSeeds, level = getLevel(Item.sugarcaneSeeds), tool = Item.sickle, seed = true},
+    {id = Item.tobaccoSeeds, produce = Item.tobaccoSeeds, level = getLevel(Item.tobaccoSeeds), tool = Item.sickle, seed = true},
+    {id = Item.bellpepperSeeds, produce = Item.bellpepperSeeds, level = getLevel(Item.bellpepperSeeds), tool = Item.sickle, seed = true},
+    {id = Item.pumpkinSeeds, produce = Item.pumpkinSeeds, level = getLevel(Item.pumpkinSeeds), tool = Item.sickle, seed = true}
+}
+
+M.crops = crops
+
+local function isFarmingItem(plant)
+
+    if not plant or plant.wear == 255 then
+        return false
     end
 
-    local Radius = 1;
-    for x=-Radius,Radius do
-        for y=-Radius,Radius do
-            local targetPos = position(User.pos.x + x, User.pos.y + y, User.pos.z);
-            if (world:isItemOnField(targetPos)) then
-                targetItem = world:getItemOnField(targetPos);
-                if (isFarmingItem(targetItem)) then
-                    return targetItem;
+    for _, crop in pairs(crops) do
+        if plant.id == crop.id then
+            return true
+        end
+    end
+
+    return false
+end
+
+local function getFarmingItem(user)
+
+    local targetItem = common.GetFrontItem(user)
+
+    if isFarmingItem(targetItem) then
+        return targetItem
+    end
+
+    local radius = 1
+
+    for x = -radius, radius do
+        for y = -radius, radius do
+            local targetPos = position(user.pos.x + x, user.pos.y + y, user.pos.z)
+
+            if world:isItemOnField(targetPos) then
+
+                targetItem = world:getItemOnField(targetPos)
+
+                if isFarmingItem(targetItem) then
+                    return targetItem
                 end
             end
         end
     end
-    return nil;
+    return nil
 end
 
-function M.StartGathering(User, SourceItem, ltstate)
+local function getToolId(theCrop)
 
-    local toolItem=shared.getTool(User, 126) --sickle (126)
+    for _, crop in pairs(crops) do
+        if theCrop.id == crop.id then
+            return crop.tool
+        end
+    end
+end
+
+local function getProductId(theCrop)
+
+    for _, crop in pairs(crops) do
+        if theCrop.id == crop.id then
+            return crop.produce
+        end
+    end
+end
+
+local function isSeed(theCrop)
+
+    for _, crop in pairs(crops) do
+        if theCrop.id == crop.id then
+            return crop.seed
+        end
+    end
+end
+
+
+local function passesLevelReq(user, theCrop)
+
+    local farmingLevel = user:getSkill(Character.farming)
+
+    local level = getLevel(theCrop.id)
+
+    if farmingLevel < level then
+        user:inform("Dein Landwirtschaftslevel ist nicht hoch genug, um das zu ernten." , "Your level of farming is not high enough to harvest this.")
+        return false
+    end
+
+    return true
+end
+
+function M.StartGathering(user, theCrop, actionState)
+
+    local toolId = getToolId(theCrop)
+
+    if not toolId then
+        return
+    end
+
+    local toolItem = shared.getTool(user, toolId)
 
     if not toolItem then
         return
     end
 
-    local gatheringBonus=shared.getGatheringBonus(User, toolItem, Character.farming)
+    local gatheringBonus = shared.getGatheringBonus(user, toolItem, Character.farming)
 
-    local theCraft = gathering.GatheringCraft:new{LeadSkill = Character.farming, LearnLimit = 100}; -- seeds, id_126_sickle
-    theCraft:AddRandomPureElement(User,gathering.prob_element*gatheringBonus); -- Any pure element
-    theCraft:SetTreasureMap(User,gathering.prob_map*gatheringBonus,"In einer Ackerfurche findest du ein altes Pergament mit einem Kreuz darauf. Ob sie dich zu einem vergrabenen Schatz weisen wird?","In a furrow you find an old parchment with a cross on it. Will it show you the way to a buried treasure?");
-    theCraft:AddMonster(User,114,gathering.prob_monster/gatheringBonus,"Du stößt bei der Erdarbeit auf alte Knochen. Leider hat sie kein Hund hier vergraben und die Störung der Totenruhe bleibt nicht ungesühnt.","While ploughing, you find some old bones. Unfortunately, no dog has buried them here, and the disturbance of the dead unleashes Cherga's wrath.",4,7);
+    local itemCommon = world:getItemStatsFromId(theCrop.id)
+
+    local level = itemCommon.Level
+
+    local theCraft = gathering.GatheringCraft:new{LeadSkill = Character.farming, LearnLimit = level+20}
+    theCraft:AddRandomPureElement(user,gathering.prob_element*gatheringBonus); -- Any pure element
+    theCraft:SetTreasureMap(user,gathering.prob_map*gatheringBonus,"In einer Ackerfurche findest du ein altes Pergament mit einem Kreuz darauf. Ob sie dich zu einem vergrabenen Schatz weisen wird?","In a furrow you find an old parchment with a cross on it. Will it show you the way to a buried treasure?");
+    theCraft:AddMonster(user,114,gathering.prob_monster/gatheringBonus,"Du stößt bei der Erdarbeit auf alte Knochen. Leider hat sie kein Hund hier vergraben und die Störung der Totenruhe bleibt nicht ungesühnt.","While ploughing, you find some old bones. Unfortunately, no dog has buried them here, and the disturbance of the dead unleashes Cherga's wrath.",4,7);
     theCraft:AddRandomItem(1840,1,333,{},gathering.prob_rarely,"Im Ackerboden ist ein angelaufender Kupferkelch zu finden.","In the arable soil you find a tarnished copper goblet."); --copper goblet
     theCraft:AddRandomItem(2935,1,333,{},gathering.prob_occasionally,"Da hat wohl jemand eine Schüssel verloren, mit der er Saatgut augestreut hat.","Someone lost an old bowl for sowing here."); --soup bowl
     theCraft:AddRandomItem(51,1,333,{},gathering.prob_frequently,"Da hat wohl jemand einen Eimer verloren. Nun gehört er dir.","You dig up an old bucket. Now it belongs to you."); --bucket
 
-    common.ResetInterruption( User, ltstate );
-    if ( ltstate == Action.abort ) then -- work interrupted
-        User:talk(Character.say, "#me unterbricht "..common.GetGenderText(User, "seine", "ihre").." Arbeit.", "#me interrupts "..common.GetGenderText(User, "his", "her").." work.")
+    common.ResetInterruption(user, actionState)
+    if actionState == Action.abort then -- work interrupted
         return
     end
 
-    if not common.CheckItem( User, SourceItem ) then -- security check
+    if not common.CheckItem(user, theCrop) then -- security check
         return
     end
 
-    if not common.FitForWork( User ) then -- check minimal food points
+    if not common.FitForWork(user) then -- check minimal food points
         return
     end
 
-    common.TurnTo( User, SourceItem.pos ); -- turn if necessary
+    if not passesLevelReq(user, theCrop) then
+        return
+    end
+
+    common.TurnTo(user, theCrop.pos ) -- turn if necessary
 
     -- check the amount
-    local amountStr = SourceItem:getData("amount");
-    local amount = 0;
+    local amountStr = theCrop:getData("amount")
+    local amount = 0
     if ( amountStr ~= "" ) then
-        amount = tonumber(amountStr);
+        amount = tonumber(amountStr)
     end
 
-    if ( amount < 0 ) then
-        -- this should never happen...
-        User:inform("[ERROR] Negative amount " .. amount .. " for item id " .. SourceItem.id .. " at (" .. SourceItem.pos.x .. "," .. SourceItem.pos.y .. "," .. SourceItem.pos.z .. "). Please inform a developer.");
-        return;
+    if isSeed(theCrop) and theCrop:getData("seedBonusApplied") ~= "true" then --Ensure you always get more seeds than you planted
+        amount = amount + 1
+        theCrop:setData("seedBonusApplied", "true")
+        world:changeItem(theCrop)
     end
+
 
     if ( amount == 0 ) then
         -- this is a farming item, it can't regrow
-        common.TempInformNLS( User,
+        common.TempInformNLS( user,
         "Hier kannst du nichts ernten.",
-        "There is nothing you can harvest." );
-        return;
+        "There is nothing you can harvest." )
+        return
     end
 
+    local GFX = 21
+
     -- currently not working -> let's go
-    if ( ltstate == Action.none ) then
-        theCraft.SavedWorkTime[User.id] = theCraft:GenWorkTime(User);
-        User:startAction( theCraft.SavedWorkTime[User.id], 0, 0, 0, 0);
-        User:talk(Character.say, "#me beginnt mit der Sichel zu ernten.", "#me starts to harvest with the sickle.")
+    if ( actionState == Action.none ) then
+        theCraft.SavedWorkTime[user.id] = theCraft:GenWorkTime(user)
+        user:startAction( theCraft.SavedWorkTime[user.id], GFX, theCraft.SavedWorkTime[user.id], 0, 0)
         return;
     end
 
     -- since we're here, we're working
 
-    theCraft:FindRandomItem(User, toolItem)
+    theCraft:FindRandomItem(user, toolItem)
 
-    amount = amount - 1;
+    amount = amount - 1
 
     if ( amount == 0 ) then
         -- nothing left, remove the farming item
-        world:erase(SourceItem, SourceItem.number);
+        world:erase(theCrop, theCrop.number)
     else
         -- just update the amount
-        SourceItem:setData("amount", "" .. amount);
-        world:changeItem(SourceItem);
+        theCrop:setData("amount", tostring(amount))
+        world:changeItem(theCrop)
     end
 
     -- since we're here, everything should be alright
-    User:learn( theCraft.LeadSkill, theCraft.SavedWorkTime[User.id], theCraft.LearnLimit);
+    user:learn( theCraft.LeadSkill, theCraft.SavedWorkTime[user.id], theCraft.LearnLimit)
 
     local productAmount = 1
 
     -- temp glyph effect until farming is streamlined like other gathering skills
-    if gwynt.includeExtraResource(User, 0) then
+    if gwynt.includeExtraResource(user, 0) then
         productAmount = 2
     end
     -- end of glyph
 
-    local created = common.CreateItem(User, FarmingItems[SourceItem.id], productAmount, 333, nil) -- create the new produced items
+    local productId = getProductId(theCrop)
+
+    if not productId then
+        return
+    end
+
+    local created = common.CreateItem(user, productId, productAmount, 333, nil) -- create the new produced items
+
     if created then -- character can still carry something
         -- try to find a next item of the same farming type
-        local nextItem = getFarmingItem(User);
+        local nextItem = getFarmingItem(user)
         if ( amount > 0 or nextItem~=nil) then  -- there are still items we can work on
             if (amount < 1) then
-                common.TurnTo( User, nextItem.pos ); -- turn, so we find this item in next call as first item
-                SourceItem = nextItem;
+                common.TurnTo( user, nextItem.pos ) -- turn, so we find this item in next call as first item
+                theCrop = nextItem
+
+                if not passesLevelReq(user, theCrop) then
+                    return
+                end
+
+                toolId = getToolId(theCrop)
+
+                if not toolId then
+                    return
+                end
+
+                local newToolItem = shared.getTool(user, toolId)
+
+                if not newToolItem then
+                    return
+                end
+
+                if toolItem ~= newToolItem then
+                    --We start again, to redo checks and gatheringbonuses
+                    M.StartGathering(user, theCrop, actionState)
+                    return
+                end
             end
-            theCraft.SavedWorkTime[User.id] = theCraft:GenWorkTime(User);
-            User:changeSource(SourceItem);
-            if not shared.toolBreaks( User, toolItem, theCraft:GenWorkTime(User) ) then -- damage and possibly break the tool
-                User:startAction( theCraft.SavedWorkTime[User.id], 0, 0, 0, 0);
+            theCraft.SavedWorkTime[user.id] = theCraft:GenWorkTime(user);
+            user:changeSource(theCrop)
+            if not shared.toolBreaks( user, toolItem, theCraft:GenWorkTime(user) ) then -- damage and possibly break the tool
+                user:startAction( theCraft.SavedWorkTime[user.id], 0, 0, 0, 0)
             end
         else
-            common.TempInformNLS( User,
-            "Hier ist nichts mehr, was du mit der Sichel ernten kannst.",
-            "There is nothing anymore which you can harvest with the sickle." );
+            common.TempInformNLS( user,
+            "Hier ist nichts mehr, was du ernten kannst.",
+            "There is nothing anymore which you can harvest." )
         end
     end
 end
 
--- Used by item.id_126_sickle
 M.getFarmingItem = getFarmingItem
 
 return M
