@@ -30,7 +30,7 @@ function M.callEffect(effect, user)
         return false
     end
 
-    if currentDuration > 60 or currentDuration < 0 then
+    if currentDuration > 300 or currentDuration < 0 then
         log("An abnormal drink effect duration of "..currentDuration.." was found for "..user.name.."("..user.id..").")
         effect:addValue("remainingDuration", 1)
         currentDuration = 1
