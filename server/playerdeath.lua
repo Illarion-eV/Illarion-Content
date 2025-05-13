@@ -128,6 +128,8 @@ function M.playerDeath(deadPlayer)
 
     local max_drops = 3
 
+    local inform = common.GetNLS(deadPlayer, "Du stellst fest, dass du nach deinem Tod die folgenden Dinge verloren hast:", "You find you've lost the following items upon your death:")
+
     max_drops = math.random(math.floor(max_drops * ( 1 + deaths*0.1)), math.ceil(max_drops * ( 1 + deaths*0.1)))
 
     local itemsToDrop = math.min(#candidates + #lowerValCandidates, max_drops)
@@ -139,6 +141,10 @@ function M.playerDeath(deadPlayer)
             if workedView then
                 local worked = bag:takeItemNr(candidates[index], theItemView.number)
                 if worked then
+                    local itemCommon = world:getItemStatsFromId(theItemView.id)
+
+                    inform = inform.."\n "..tostring(theItemView.number).." "..common.GetNLS(deadPlayer, itemCommon.German, itemCommon.English)
+
                     world:createItemFromItem(theItemView, deadPlayer.pos, true)
                     counter = counter + 1
                 end
@@ -147,6 +153,7 @@ function M.playerDeath(deadPlayer)
     end
 
     if counter == itemsToDrop then
+        deadPlayer:inform(inform)
         return
     end
 
@@ -156,11 +163,17 @@ function M.playerDeath(deadPlayer)
         if workedView then
             local worked = bag:takeItemNr(lowerValCandidates[index], theItemView.number)
             if worked then
+                local itemCommon = world:getItemStatsFromId(theItemView.id)
+
+                inform = inform.."\n "..tostring(theItemView.number).." "..common.GetNLS(deadPlayer, itemCommon.German, itemCommon.English)
+
                 world:createItemFromItem(theItemView, deadPlayer.pos, true)
                 counter = counter + 1
             end
         end
     until counter == itemsToDrop
+
+    deadPlayer:inform(inform)
 end
 
 return M
