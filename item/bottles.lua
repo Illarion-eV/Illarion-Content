@@ -733,6 +733,15 @@ local function getTypeOfTea(sourceItem)
     end
 end
 
+local function isBaseBottle(sourceItem)
+
+    for _, bottle in pairs(bottles) do
+        if bottle.quarter[1] == sourceItem.id or bottle.half[1] == sourceItem.id or bottle.full[1] == sourceItem.id then
+            return true
+        end
+    end
+end
+
 local function fillTea(user, sourceItem, amount, half, quarter, empty, vesselToFill)
 
     local type = sourceItem:getData("teaType")
@@ -802,7 +811,13 @@ local function fillTea(user, sourceItem, amount, half, quarter, empty, vesselToF
             sourceItem:setData("rareness", "")
         end
         if empty then
+
+            if isBaseBottle(sourceItem) then
+                sourceItem:setData("craftedBy", "")
+            end
+
             sourceItem.id = empty
+
         end
     elseif quarter and newAmount <= 2 then
         sourceItem.id = quarter
@@ -813,15 +828,6 @@ local function fillTea(user, sourceItem, amount, half, quarter, empty, vesselToF
     world:changeItem(sourceItem)
 
     return true, sourceItem
-end
-
-local function isBaseBottle(sourceItem)
-
-    for _, bottle in pairs(bottles) do
-        if bottle.quarter[1] == sourceItem.id or bottle.half[1] == sourceItem.id or bottle.full[1] == sourceItem.id then
-            return true
-        end
-    end
 end
 
 local function fillVessel(user, sourceItem, bottle)
@@ -890,7 +896,13 @@ local function fillVessel(user, sourceItem, bottle)
 
     if newAmount == 0 then
         sourceItem:setData("drinksRemaining", "")
+
+        if isBaseBottle(sourceItem) then
+            sourceItem:setData("craftedBy", "")
+        end
+
         sourceItem.id = empty
+
         if not isBaseBottle(sourceItem) then
             sourceItem:setData("vesselRarity", "")
             sourceItem:setData("drinkRarity", "")
