@@ -317,8 +317,8 @@ local function alterDurationForJuicesAndBeers(theDrink, duration) --While the re
 
     if string.find(commonItem.English, "beer") or string.find(commonItem.English, "Beer") then
 
-        return math.max(5, duration/4) --Glass mugs are therefore more lucrative for beer
-
+        return 10 + math.max(5, duration/4) --Glass mugs are therefore more lucrative for beer
+        --5 minutes is way too little, so I changed it to a minimum of 15 which means beer will have to be a bit more expensive to make to make up for how much you get out of just one bottle
     end
 
     if string.find(commonItem.English, "juice") or string.find(commonItem.English, "Juice") then
