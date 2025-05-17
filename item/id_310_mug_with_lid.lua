@@ -15,7 +15,6 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
-local common = require("base.common")
 local lookat = require("base.lookat")
 
 local M = {}
@@ -46,7 +45,7 @@ end
 function M.LookAtItem(User, Item)
     -- NPC Borgate uses a different mug each day
     if Item.pos == BORGATES_MUG_POS and Item.wear == 255 then
-        local today = common.getTime("day")
+        local today = world:getTime("day")
         if tonumber(Item:getData("day")) ~= today then
             Item:setData("day", today)
             Item:setData("mugId", M.getRandomMugId())

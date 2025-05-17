@@ -325,9 +325,9 @@ function M.onLogin( player )
     local players = world:getPlayersOnline() --Reading all players online so we can count them
 
     --Reading current date
-    local datum = common.getTime("day")
-    local monthString = common.Month_To_String(common.getTime("month"))
-    local hourStringG, hourStringE = common.Hour_To_String(common.getTime("hour"))
+    local datum = world:getTime("day")
+    local monthString = common.Month_To_String(world:getTime("month"))
+    local hourStringG, hourStringE = common.Hour_To_String(world:getTime("hour"))
 
     local lastDigit = datum % 10 --Is it st, nd or rd?
 
@@ -364,8 +364,8 @@ function M.onLogin( player )
     --Taxes
     if not player:isAdmin() then --Admins don't pay taxes or get gems.
         if not (player.name == "Valerio Guilianni" or player.name == "Rosaline Edwards" or player.name ==  "Elvaine Morgan") then --Leader don't pay taxes or get gems
-            local year = common.getTime("year")
-            local month = common.getTime("month")
+            local year = world:getTime("year")
+            local month = world:getTime("month")
             local timeStmp = year * 1000 + month
 
             local taxText, notEnoughRP, bonus = payTaxes(player, timeStmp)

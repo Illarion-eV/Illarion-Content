@@ -93,7 +93,7 @@ end
 
 local function saveAndResetValues(effect, user, lastSessionMonth, lastSessionYear)
 
-    local currentYear = common.getTime("year")
+    local currentYear = world:getTime("year")
 
     local foundActiveTime, sessionActiveTime = effect:findValue("sessionActiveTime")
 
@@ -119,7 +119,7 @@ local function saveAndResetValues(effect, user, lastSessionMonth, lastSessionYea
 
     local preExistingValue = 0
 
-    local currentMonth = common.getTime("month")
+    local currentMonth = world:getTime("month")
 
     if currentYear == lastSessionYear or (currentYear > lastSessionYear and lastSessionMonth > currentMonth) then  -- Checks if the data is too outdated (if a player has not logged in for 4+ IRL months)
         preExistingValue = user:getQuestProgress(questIDtoUse)
@@ -255,9 +255,9 @@ function M.callEffect(effect, user)
 
     local foundYear, sessionYear = effect:findValue("sessionYear")
 
-    local currentMonth = common.getTime("month")
+    local currentMonth = world:getTime("month")
 
-    local currentYear = common.getTime("year")
+    local currentYear = world:getTime("year")
 
     if not foundYear then
         sessionYear = currentYear
