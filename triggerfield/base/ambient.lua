@@ -15,8 +15,6 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
-local common = require("base.common")
-
 return function()
     local self = {}
 
@@ -51,13 +49,13 @@ return function()
             for _, ambient in pairs(this) do
                 local timeOk, monthOk, dirOk = false, false, false
                 for _, that in pairs(ambient.hours) do
-                    if that == common.getTime("hour") then
+                    if that == world:getTime("hour") then
                         timeOk = true
                         break
                     end
                 end
                 for _, that in pairs(ambient.months) do
-                    if that == common.getTime("month") then
+                    if that == world:getTime("month") then
                         monthOk = true
                         break
                     end

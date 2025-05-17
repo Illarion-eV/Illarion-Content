@@ -1887,7 +1887,7 @@ end
 local function viewActivityForPlayer(user, chosenPlayer)
 
     local textToList = ""
-    local currentMonth = common.getTime("month")
+    local currentMonth = world:getTime("month")
     local activityTrackerID = 84
     local found, tracker = chosenPlayer.effects:find(activityTrackerID)
     local totalTicks = 0
