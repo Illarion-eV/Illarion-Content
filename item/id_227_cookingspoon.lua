@@ -56,19 +56,19 @@ local function getKettleOrOven(User)
 
     local KETTLE = 3581
     local OVEN = 1386
-    local item = common.GetFrontItem(User)
-    if (item ~= nil and (item.id == KETTLE or item.id == OVEN)) then
-        return item
+    local theItem = common.GetFrontItem(User)
+    if (theItem ~= nil and (theItem.id == KETTLE or theItem.id == OVEN)) then
+        return theItem
     end
-    item = common.GetItemInArea(User.pos, KETTLE)
+    theItem = common.GetItemInArea(User.pos, KETTLE)
 
-    if item.id == KETTLE then
-        return item
+    if theItem and theItem.id == KETTLE then
+        return theItem
     else
-        item = common.GetItemInArea(User.pos, OVEN)
+        theItem = common.GetItemInArea(User.pos, OVEN)
     end
 
-    return item
+    return theItem
 end
 
 function M.UseItem(User, SourceItem, ltstate)
