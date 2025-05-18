@@ -1207,21 +1207,16 @@ end
 
 function gemBonusEffect(Attacker, Defender, Globals)
 
+    local chestPiece = Defender.Char:getItemAt(Character.breast)
+
     if (Globals.Damage == 0) then
         return
     end
 
     local GemBonusAttacker = gems.getGemBonus(Attacker.WeaponItem)/fightingGemBonusDivisionValue
     GemBonusAttacker = modifyGemEffect(Attacker, GemBonusAttacker)
-    local GemBonusDefender = gems.getGemBonus(Globals.HittedItem)/fightingGemBonusDivisionValue
+    local GemBonusDefender = gems.getGemBonus(chestPiece)/fightingGemBonusDivisionValue
     GemBonusDefender = modifyGemEffect(Attacker, GemBonusDefender)
-
-    local armorfound, armorItem = world:getArmorStruct(Globals.HittedItem.id)
-    if armorfound then
-        if armorItem.Type == ArmorStruct.clothing then --Clothing objects are gemmable for magic resistance purposes, but does not affect physical defense
-            GemBonusDefender = 0
-        end
-    end
 
     local gemBonus = GemBonusAttacker-GemBonusDefender
 

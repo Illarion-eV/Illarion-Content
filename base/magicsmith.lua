@@ -38,7 +38,7 @@ local slots = {}
     table.insert(slots, Character.coat)
 
 
-local function isSocketable(itemId)
+local function isSocketable(itemId, unsocketing)
     if itemId == 0 then
         return false
     end
@@ -59,7 +59,7 @@ local function isSocketable(itemId)
     local armorfound, armorItem = world:getArmorStruct(itemId)
     if armorfound then
         local armortype = armorItem.Type
-        if armortype == ArmorStruct.general or armortype == ArmorStruct.juwellery then
+        if armortype == ArmorStruct.general or armortype == ArmorStruct.juwellery or (not unsocketing and not (armorItem.BodyParts == 4 or armorItem.BodyParts == 16)) then --only cloaks and chest pieces defensively gemmable
             return false
         else
             return true
@@ -104,7 +104,7 @@ local function getUnsocketablePositions(user)
         local item = user:getItemAt(slot)
         if gems.itemHasGems(item) then
             local itemId = item.id
-            if isSocketable(itemId) then
+            if isSocketable(itemId, true) then
                 table.insert(socketableTable, slot)
             end
         end
@@ -189,7 +189,7 @@ local function unsocketGems(user)
             local slot = unsocketPositions[selected]
             local item = user:getItemAt(slot)
             local price = world:getItemStats(item).Worth
-            if isSocketable(item.id) and gems.itemHasGems(item) then
+            if isSocketable(item.id, true) and gems.itemHasGems(item) then
                 if money.CharHasMoney(user, price) then
                     gems.returnGemsToUser(user, item)
                     money.TakeMoneyFromChar(user, price, false)

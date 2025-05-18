@@ -182,12 +182,15 @@ function M.LookAtItem(user, item)
 end
 
 function M.UseItem(User, SourceItem, ltstate)
-    local TargetItemEvilRock = common.GetItemInArea(User.pos, 2805);
+
+    local TargetItemEvilRock = common.GetItemInArea(User.pos, 2805)
+
     local AmountDarkColumnEvilrock = #vision.darkColumnEvilrock
+
     if TargetItemEvilRock ~= nil then
         for i = 1,AmountDarkColumnEvilrock do
             if TargetItemEvilRock.pos == vision.darkColumnEvilrock[i] then
-                common.TurnTo(User,TargetItemEvilRock.pos); -- turn if necessary
+                common.TurnTo(User,TargetItemEvilRock.pos) -- turn if necessary
                 vision.UseDarkColumns(User,TargetItemEvilRock,ltstate)
                 return
             end
