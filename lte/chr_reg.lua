@@ -97,8 +97,8 @@ if Char:idleTime() < 300 then -- Absolutely no regeneration effect if the player
 
         if ( Foodvalue >= maxFoodvalue/12 ) and Char:getType()==Character.player then -- Quick regeneration, using foodpoints
 
-            Hitpoints = math.min( maxHitpoints, Hitpoints + 10*TimeFactor + ( 70*TimeFactor * ( Const / 20 ) ) )  -- Full regeneration from 0-10000 in around four minutes at CON 10
-            Foodvalue = Foodvalue - math.min(40*TimeFactor,(10000-Hitpoints) * ( 2*TimeFactor / Const ) )         -- A filled foodbar lasts 25 minutes of regeneration
+            Hitpoints = math.min( maxHitpoints, Hitpoints + 10*TimeFactor + ( 70*TimeFactor * ( 14 / 20 ) ) ) --Due to the double dipping of const giving it way too much impact, this has been changed to be what 14 const used to give before, for all.
+            Foodvalue = Foodvalue - math.min(40*TimeFactor,(10000-Hitpoints) * ( 2*TimeFactor / 14 ) )
 
         elseif (Foodvalue ~= 0) and Char:getType()==Character.player then  -- Slow regeneration for hungry characters
 
