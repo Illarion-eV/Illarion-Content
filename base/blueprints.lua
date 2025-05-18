@@ -72,7 +72,7 @@ M.blueprints = {
         {id = Item.obsidianPowder, amount = 1}
     }},
 
-    {id = 5, name = {english = "blue-green stained glass tray", german = "Blau-grünes Bleiglastablett"}, creator = "NA", craft = "glassblowing", --60
+    {id = 5, name = {english = "blue-green stained glass tray", german = "Blau-grünes Bleiglastablett"}, creator = "NA", craft = "glassBlowing", --60
     level = getLevel(Item.stainedGlassTrayBlueGreen), item = Item.stainedGlassTrayBlueGreen, treasure = "big", rareness = 2,
     ingredients = {
         {id = Item.glassIngot, amount = 5},
@@ -80,7 +80,7 @@ M.blueprints = {
         {id = Item.sapphirePowder, amount = 1}
     }},
 
-    {id = 6, name = {english = "green-yellow stained glass tray", german = "Grün-gelbes Bleiglastablett"}, creator = "NA", craft = "glassblowing", --80
+    {id = 6, name = {english = "green-yellow stained glass tray", german = "Grün-gelbes Bleiglastablett"}, creator = "NA", craft = "glassBlowing", --80
     level = getLevel(Item.stainedGlassTrayGreenYellow), item = Item.stainedGlassTrayGreenYellow, treasure = "giant", rareness = 2,
     ingredients = {
         {id = Item.glassIngot, amount = 10},
@@ -88,7 +88,7 @@ M.blueprints = {
         {id = Item.topazPowder, amount = 1}
     }},
 
-    {id = 7, name = {english = "red-black stained glass tray", german = "Rot-schwarzes Bleiglastablett"}, creator = "NA", craft = "glassblowing", --40
+    {id = 7, name = {english = "red-black stained glass tray", german = "Rot-schwarzes Bleiglastablett"}, creator = "NA", craft = "glassBlowing", --40
     level = getLevel(Item.stainedGlassTrayRedBlack), item = Item.stainedGlassTrayRedBlack, treasure = "average", rareness = 2,
     ingredients = {
         {id = Item.glassIngot, amount = 1},
@@ -96,7 +96,7 @@ M.blueprints = {
         {id = Item.obsidianPowder, amount = 1}
     }},
 
-    {id = 8, name = {english = "violet-red stained glass tray", german = "Violett-rotes Bleiglastablett"}, creator = "NA", craft = "glassblowing", --20
+    {id = 8, name = {english = "violet-red stained glass tray", german = "Violett-rotes Bleiglastablett"}, creator = "NA", craft = "glassBlowing", --20
     level = getLevel(Item.stainedGlassTrayVioletRed), item = Item.stainedGlassTrayVioletRed, treasure = "small", rareness = 2,
     ingredients = {
         {id = Item.glassIngot, amount = 1},
