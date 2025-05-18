@@ -29,7 +29,7 @@ local weaving = crafts.Craft:new{
 
 weaving:addTool(169) -- loom
 
-local catId = weaving:addCategory("Clothes", "Stoffe")
+local catId = weaving:addCategory("Cloths", "Stoffe")
 
 -- Grey cloth
 local product = weaving:addProduct(catId, 176, 1)
