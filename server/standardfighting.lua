@@ -404,7 +404,7 @@ function M.onAttack(Attacker, Defender)
     end
 
     -- Calculate the damage caused by the attack
-    CalculateDamage(Attacker, Globals)
+    CalculateDamage(Attacker, Globals, Defender.Char)
 
     -- Reduce the damage due the absorbtion of the armour
     ArmourAbsorption(Attacker, Defender, Globals)
@@ -651,7 +651,7 @@ end
 -- character.
 -- @param Attacker The table of the character who is attacking
 -- @param Globals The global data table
-function CalculateDamage(Attacker, Globals)
+function CalculateDamage(Attacker, Globals, defenderChar)
     local BaseDamage
     local StrengthBonus
     local PerceptionBonus
@@ -708,7 +708,14 @@ function CalculateDamage(Attacker, Globals)
     SkillBonus = (Attacker.skill - 20) * 1.5
 
     --Quality Bonus: Multiplies final value by 0.93-1.09
-    QualityBonus = 0.91+0.02*math.floor(weaponQuality/100)
+
+    weaponQuality = math.floor(weaponQuality/100)
+
+    if fighting.IsTrainingWeapon(Attacker.WeaponItem.id) and isValidChar(defenderChar) and defenderChar:getType() == Character.player then
+        weaponQuality = 9 - weaponQuality --Damage from training weapons reversed so that you actually want quality there, only against players
+    end
+
+    QualityBonus = 0.91+0.02*weaponQuality
 
     --Crit bonus
     if Globals.criticalHit>0 then
