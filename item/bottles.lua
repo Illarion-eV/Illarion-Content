@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local lookat = require("base.lookat")
+local teasets = require("item.teasets")
 
 local M = {}
 
@@ -924,6 +925,10 @@ end
 
 
 function M.UseItem(user, sourceItem, actionState)
+
+    if teasets.putPotCupsOnTray(user, sourceItem) then
+        return
+    end
 
     if evilrockEntrance(user, sourceItem, actionState) == true then
         return

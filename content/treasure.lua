@@ -850,7 +850,7 @@ treasureContents[11] = {
 -- @return the minimal amount and the maximal amount of money in the treasure
 function M.getMoneyInTreasure(level)
     local sqrLevel = level * level
-    return 500 * sqrLevel, 1500 * sqrLevel
+    return 750 * sqrLevel, 2000 * sqrLevel
 end
 
 -- Postprocessing

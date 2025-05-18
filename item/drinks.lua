@@ -19,6 +19,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local emptyDrinkingVessels = require("item.emptyDrinkingVessels")
+local teasets = require("item.teasets")
 
 local drink_LTE_Id = 404 -- Error 404, drink_LTE not found! :^)
 
@@ -229,6 +230,10 @@ M.drinkList[Item.glassTeaCupVirginWeed] = {1000, Item.glassTeaCup}
 local applyDrinkEffect
 
 function M.UseItem(user, SourceItem)
+
+    if teasets.putPotCupsOnTray(user, SourceItem) then
+        return
+    end
 
     if user.attackmode then
         common.InformNLS( user, "Du würdest alles verschütten.", "You'd spill everything.")

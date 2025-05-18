@@ -115,7 +115,7 @@ for _, gatheringList in pairs(gatheringLists) do
     end
 end
 
-local function showItemLevel(user, itemId, lookat , itemLevel)
+local function showItemLevel(user, itemId, lookat , itemLevel, levelreq, skillDisplay, types)
     local showLevel = false
     local skillName
     local theTypes
@@ -126,6 +126,14 @@ local function showItemLevel(user, itemId, lookat , itemLevel)
             skillName = theItem.skill
             theTypes = theItem.type
         end
+    end
+
+    if levelreq and skillDisplay and types then
+        showLevel = true
+        itemLevel = levelreq
+        skillName = skillDisplay
+        theTypes = types
+        lookat.level = levelreq
     end
 
     if showLevel then
@@ -155,7 +163,7 @@ local function isPortalBook(item)
     return false
 end
 
-function M.GenerateLookAt(user, item, material)
+function M.GenerateLookAt(user, item, material, levelreq, skillDisplay, types)
 
     if user == nil then
         debug("Sanity check failed, no valid character supplied.")
@@ -285,7 +293,7 @@ function M.GenerateLookAt(user, item, material)
         lookAt = AddWeaponOrArmourType(lookAt, user, item.id, level, item)
     end
 
-    local otherItemFound, newLookAt = showItemLevel(user, item.id, lookAt , level)
+    local otherItemFound, newLookAt = showItemLevel(user, item.id, lookAt , level, levelreq, skillDisplay, types)
 
     if otherItemFound then
         lookAt = newLookAt
