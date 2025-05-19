@@ -1603,7 +1603,7 @@ function LearnSuccess(Attacker, Defender, AP, Globals)
     if Attacker.Weapon and not common.isBroken(Attacker.WeaponItem) then
         -- Attacker learns weapon skill
         if Attacker.Skillname then
-            Attacker.Char:learn(Attacker.Skillname, AP/3, math.max(Defender.DefenseSkill, Defender.parry) + 20)
+            Attacker.Char:learn(Attacker.Skillname, AP, math.max(Defender.DefenseSkill, Defender.parry) + 20)
         end
     end
 
@@ -1611,7 +1611,7 @@ function LearnSuccess(Attacker, Defender, AP, Globals)
     if Defender.DefenseSkillName then
         local armourfound, _ = world:getArmorStruct(Globals.HittedItem.id)
         if armourfound and not common.isBroken(Globals.HittedItem) then
-            Defender.Char:learn(Defender.DefenseSkillName,(AP)/3,Attacker.skill + 20)
+            Defender.Char:learn(Defender.DefenseSkillName,(AP),Attacker.skill + 20)
         end
     end
 
@@ -1619,7 +1619,7 @@ function LearnSuccess(Attacker, Defender, AP, Globals)
 
     -- Defender learns only with a valid non-broken parry weapon
     if parryWeapon ~= nil then
-        Defender.Char:learn(Character.parry, AP/3, Attacker.skill + 20)
+        Defender.Char:learn(Character.parry, AP, Attacker.skill + 20)
     end
 end
 
