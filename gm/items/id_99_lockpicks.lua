@@ -2090,7 +2090,7 @@ local function setSpeed(user, chosenPlayer)
 
         if found then
 
-            chosenPlayer.speed = speedValue
+            chosenPlayer.speed = tonumber(speedValue)
             user:inform("Set "..chosenPlayer.name.."'s speed to "..tostring(speedValue))
         else
             user:inform("The input must be a number.")
