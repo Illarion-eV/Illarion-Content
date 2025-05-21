@@ -503,13 +503,16 @@ local function getPosition(user, spell, positionsAndTargets, delayed, trap)
     positionsAndTargets.thePosition = thePosition
 
     local field = world:getField(thePosition)
-    local foundItems = field:countItems()
 
-    if foundItems >= 1 then
-        local item = field:getStackItem(foundItems - 1)
-        if item.id ~= 0 and item.id ~= 3518 and setPos then --last check is so it doesnt double cast on item and target character
-            positionsAndTargets.items[#positionsAndTargets.items+1] = item
-            setPos = false
+    if field then
+        local foundItems = field:countItems()
+
+        if foundItems >= 1 then
+            local item = field:getStackItem(foundItems - 1)
+            if item.id ~= 0 and item.id ~= 3518 and setPos then --last check is so it doesnt double cast on item and target character
+                positionsAndTargets.items[#positionsAndTargets.items+1] = item
+                setPos = false
+            end
         end
     end
 
