@@ -53,7 +53,11 @@ M.runes = {
     {id = 29, name = "PERA", cost = "Small", time = "Short", level = 10, active = true, auto = true}
 }
 
-function M.isSpellAutoCast(spell)
+function M.isSpellAutoCast(spell, wand)
+
+    if wand:getData("autoCast") == "false" then
+        return false
+    end
 
     local notFire = false
 

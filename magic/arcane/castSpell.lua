@@ -97,7 +97,7 @@ local function checkForWand(user)
         return false
     end
 
-    return true
+    return wand
 end
 
 local function checksPassed(user, spell, element, thePosition)
@@ -252,7 +252,7 @@ function M.castSpell(user, spell, actionState, oralCast)
                 delayedAttack.spellEffects(user, M[user.id].positionsAndTargets, spell, element, false, level, castDuration)
             end
 
-            if user.attackmode and runes.isSpellAutoCast(spell) and checksPassed(user, spell, element, M[user.id].thePosition) then
+            if user.attackmode and runes.isSpellAutoCast(spell, checkForWand(user)) and checksPassed(user, spell, element, M[user.id].thePosition) then
                 -- To mimic wand magic so that the fire magic replacement does not feel like a downgrade, we allow auto casting of some spells
 
                 if _G.stopAutoCast and _G.stopAutoCast[user.id] then

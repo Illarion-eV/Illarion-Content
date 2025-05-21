@@ -234,6 +234,26 @@ local function learnedRunesList(user)
 
 end
 
+local function toggleAutoCast(user, wand)
+
+    if not wand then
+        return
+    end
+
+    local autoCastToggled = wand:getData("autoCast")
+
+    if common.IsNilOrEmpty(autoCastToggled) or autoCastToggled == "true" then --Autocast on by default
+        wand:setData("autoCast", "false")
+        user:inform("Dein aktueller Zauberstab wurde so eingestellt, dass er keine Zauber mehr automatisch wirkt, wenn dies normalerweise der Fall wäre.", "Your current wand has been set to no longer auto cast, when a spell normally would be.")
+    elseif autoCastToggled == "false" then
+        wand:setData("autoCast", "true")
+        user:inform("Dein aktueller Zauberstab wurde wieder so eingestellt, dass er automatisch zaubert, wenn dies bei einem Zauber möglich ist.", "Your current wand has once more been set to auto cast, when it is applicable to a spell.")
+    end
+
+    world:changeItem(wand)
+
+end
+
 function M.mainSelectionDialog(user, grimoire)
 
 
@@ -273,9 +293,13 @@ function M.mainSelectionDialog(user, grimoire)
 
         elseif index == 4 then
 
-            runeDetailsList(user, grimoire)
+            toggleAutoCast(user, magic.getWand(user))
 
         elseif index == 5 then
+
+            runeDetailsList(user, grimoire)
+
+        elseif index == 6 then
 
             learnedRunesList(user)
 
@@ -287,6 +311,7 @@ function M.mainSelectionDialog(user, grimoire)
     dialog:addOption(0,common.GetNLS(user, "Stimme den Zauberstab auf einen Zauber ab.", "Attune the wand to a spell"))
     dialog:addOption(0,common.GetNLS(user, "Zauberabstimmung aufheben", "Undo spell attunement"))
     dialog:addOption(0,common.GetNLS(user, "Standardreichweite festlegen", "Set default range"))
+    dialog:addOption(0,common.GetNLS(user, "Autocast umschalten", "Toggle Autocast"))
     dialog:addOption(0,common.GetNLS(user, "Detaillierte Zauberinformationen anzeigen", "View detailed spell info"))
     dialog:addOption(0,common.GetNLS(user, "Gelernten Runen anzeigen", "View learned runes"))
 
