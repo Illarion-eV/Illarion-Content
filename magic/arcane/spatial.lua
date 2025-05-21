@@ -41,7 +41,7 @@ local myTexts = {
     },
     binderTexts = {
         english = "to the ",
-        german = "in Richtung"
+        german = "in Richtung "
     },
     alreadyAttuned = {
         english  = "You've already attuned your spatial magic to this location.",
