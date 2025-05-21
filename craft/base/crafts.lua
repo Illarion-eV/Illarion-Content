@@ -179,8 +179,10 @@ function Product:addIngredient(item, quantity, data)
     table.insert(self["ingredients"], {["item"]=item, ["quantity"]=quantity, ["data"]=data})
 end
 
-function Craft:addProduct(categoryId, itemId, quantity, data)
-    local difficulty = math.min(world:getItemStatsFromId(itemId).Level, 100)
+function Craft:addProduct(categoryId, itemId, quantity, data, difficulty)
+    if not difficulty then
+        difficulty = math.min(world:getItemStatsFromId(itemId).Level, 100)
+    end
     local learnLimit = math.min(difficulty + 20, 100)
     quantity = quantity or 1
     data = data or {}
@@ -208,8 +210,10 @@ function Craft:addProduct(categoryId, itemId, quantity, data)
     return nil
 end
 
-function Craft:addExtraProduct(user, categoryId, itemId, quantity, data)
-    local difficulty = math.min(world:getItemStatsFromId(itemId).Level, 100)
+function Craft:addExtraProduct(user, categoryId, itemId, quantity, data, difficulty)
+    if not difficulty then
+        difficulty = math.min(world:getItemStatsFromId(itemId).Level, 100)
+    end
     local learnLimit = math.min(difficulty + 20, 100)
     quantity = quantity or 1
     data = data or {}
@@ -591,6 +595,11 @@ function Product:getCraftingTime(skill)
     local theItem = world:getItemStatsFromId(self.item)
     local minimum = math.max (((30+((self.quantity * theItem.Worth)-200)*(1500-30)/(133300-200))),30) --30: Minimum time; 200: Minimum price; 1500: maximum time; 133300: maximum price
     local craftingTime = common.Scale(minimum * 2, minimum, learnProgress)
+
+    if self.item == 1061 then --Portal books all have the default value and work using data values, so crafting time has to be increased differently
+        craftingTime = craftingTime * (1 + 1*self.difficulty/10) -- 8.3 seconds per 10 levels, starting at 8.3 at level 0
+    end
+
 
     if craftingTime > 99 then
         craftingTime = 10 * math.floor(craftingTime/10 + 0.5) -- Round correctly to whole seconds

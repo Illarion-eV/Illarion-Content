@@ -70,8 +70,14 @@ function M.UseItem(user, sourceItem, actionState)
 
     elseif actionState == Action.success then
 
-        local radius = 4;
-        local targetPos = common.getFreePos(user.pos, radius)
+        local radius = 4
+        local targetPos = common.GetFrontPosition(user)
+
+        local field = world:getField(targetPos)
+
+        if not field:isPassable() or world:isCharacterOnField(targetPos) or world:isItemOnField(targetPos) then
+            targetPos = common.getFreePos(user.pos, radius)
+        end
 
         if targetPos ~= user.Pos then
 

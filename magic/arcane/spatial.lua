@@ -55,6 +55,10 @@ local myTexts = {
         english = "You need to attain a higher level of expertise in spatial magic to remember the spatial coordinates for this location.",
         german = "Um dir die räumlichen Koordinaten für diesen Ort merken zu können, musst du deine Fähigkeiten in der Raummagie verbessern."
     },
+    lackingAttribs = {
+        english = "You do not have the required magical prowess to attune to this particular spatial node.",
+        german = "Du besitzt nicht die nötige magische Begabung, um dich mit diesem speziellen räumlichen Knotenpunkt zu verbinden."
+    },
     noNearby = {
         english = "There are no crossing mana lines nearby for you to attune your spatial magic to. The nearest one is ",
         german = "Hier befinden sich keine kreuzenden Manalinien um deine Raummagie abzustimmen. Die Näheste befindet sich "
@@ -176,6 +180,20 @@ function M.QuestprogressToAttunedSpots(questprogress)
     end
 end
 
+local function userMeetsAttribReq(user, statReq)
+    local baseReq, sum = magic.hasMageAttributes(user)
+
+    if not statReq and baseReq then
+        return true
+    end
+
+    if sum >= statReq then
+        return true
+    end
+
+    return false
+end
+
 function M.spotAttuned(user, spotNumber)
     local attunedSpots = M.QuestprogressToAttunedSpots(user:getQuestProgress(216))
     local retVal = false
@@ -183,6 +201,10 @@ function M.spotAttuned(user, spotNumber)
 
     if bit32.btest(bit32.lshift(1, offset), attunedSpots) then
         retVal=true
+    end
+
+    if not userMeetsAttribReq(user, portalSpots[spotNumber].statReq) then --To prevent people temporarily changing attribs or using pots to learn this and then  cast it with lower than attrib req, we check it here
+        return false
     end
 
     return retVal
@@ -221,7 +243,7 @@ local function getDirectionDistance(user)
     local distanceWithinLevelRange
     local levelRangeTargetPos
     for i = 1, #portalSpots do
-        if not M.spotAttuned(user, i) then
+        if not M.spotAttuned(user, i) and userMeetsAttribReq(user, portalSpots[i].statReq) then
             local location = portalSpots[i].location
 
             if location.z ~= 0 and user.pos.z ~= location.z then
@@ -303,11 +325,13 @@ function M.checkSpotEligiblity(user, actionState)
                         user:inform(myTexts.alreadyAttuned.german, myTexts.alreadyAttuned.english)
                         return
                     else
-                        if spatialMagicLevel >= portalSpots[i].level then
+                        if spatialMagicLevel >= portalSpots[i].level and userMeetsAttribReq(user, portalSpots[i].statReq) then
                             M[user.name.."attunement"] = i
                             M[user.name.."cycles"] = startCycles
                             M.startCycle(user, actionState)
                             return
+                        elseif not userMeetsAttribReq(user, portalSpots[i].statReq) then
+                            user:inform(myTexts.lackingAttribs.german, myTexts.lackingAttribs.english)
                         else
                             user:inform(myTexts.lackingSkill.german, myTexts.lackingSkill.english)
                             return
@@ -317,6 +341,7 @@ function M.checkSpotEligiblity(user, actionState)
             end
         end
     end
+
     if not getDirectionDistance(user) then
         return
     end

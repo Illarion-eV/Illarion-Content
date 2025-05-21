@@ -21,7 +21,8 @@ local M = {}
 
 local harbours = seafaring.harborList
 
-M.portals = {
+M.portals = { -- Don't change the order of these, the index is used to know whether or not a portal spot has been attuned to.
+-- If you do want to rearrange them in spite of this, change the code to add an id to each of them accordingly based on their current oreder.
     { location = position(684, 307, 0),
         english = "Portal to the Hemp Necktie Inn",
         german = "Portal zum Gasthof zur Hanfschlinge",
@@ -57,8 +58,137 @@ M.portals = {
       nameEn = "Prison Mine",
       nameDe = "Gefängnismine",
       entrance = position(633, 374, 0)
-    }
+    },
+    { location = position(914,657,0),
+      english = "Portal to the Dewy Swamps",
+      german = "Portal nach zur Morgentausümpfe",
+      level = 10,
+      nameEn = "Dewy Swamps",
+      nameDe = "Morgentausümpfe",
+      extraIngredients = {}
+    },
+    { location = position(522,129,0),
+      english = "Portal to the Temple of the Five",
+      german = "Portal nach zur Tempel der Fünf",
+      level = 20,
+      nameEn = "Temple of the Five",
+      nameDe = "Tempel der Fünf",
+      extraIngredients = {{id = Item.amethystPowder, amount = 1}}
+    },
+    { location = position(205,760,0),
+      english = "Portal to the Mount Letma",
+      german = "Portal nach zur Mount Letma",
+      level = 30,
+      nameEn = "Mount Letma",
+      nameDe = "Mount Letma",
+      extraIngredients = {{id = Item.amethystPowder, amount = 1}}
+    },
+    { location = position(802,439,0),
+      english = "Portal to the Elstree Forest",
+      german = "Portal nach zur Elsbaumwald",
+      level = 40,
+      nameEn = "Elstree Forest",
+      nameDe = "Elsbaumwald",
+      extraIngredients = {{id = Item.rubyPowder, amount = 1}}
+    },
+    { location = position(706,115,0),
+      english = "Portal to the northern woods",
+      german = "Portal nach zur Nördlichen Wäldern",
+      level = 50,
+      nameEn = "Northern Woods",
+      nameDe = "Nördlichen Wäldern",
+      extraIngredients = {{id = Item.obsidianPowder, amount = 1}}
+    },
+    { location = position(262,681,0),
+      english = "Portal to the Blood Circle Arena",
+      german = "Portal nach zur Blutkreisarena",
+      level = 60,
+      nameEn = "Blood Circle Arena",
+      nameDe = "Blutkreisarena",
+      statReq = 40,
+      extraIngredients = {{id = Item.sapphirePowder, amount = 1}}
+    },
+    { location = position(281,491,0),
+      english = "Portal to the Weary Inn",
+      german = "Portal nach zur Matter Gasthof",
+      level = 60,
+      nameEn = "Weary Inn",
+      nameDe = "Matter Gasthof",
+      statReq = 40,
+      extraIngredients = {{id = Item.sapphirePowder, amount = 1}}
+    },
+    { location = position(597,470,0),
+      english = "Portal to the Snakehead Coast",
+      german = "Portal nach zur Schlangenkopfküste",
+      level = 70,
+      nameEn = "Mount Snakehead",
+      nameDe = "Schlangenkopfküste",
+      statReq = 40,
+      extraIngredients = {{id = Item.emeraldPowder, amount = 1}}
+    },
+    { location = position(811,110,0),
+      english = "Portal to Raban's Grove",
+      german = "Portal nach zur Rabans Hain",
+      level = 70,
+      nameEn = "Raban's Grove",
+      nameDe = "Rabans Hain",
+      extraIngredients = {{id = Item.emeraldPowder, amount = 1}}
+    },
+    { location = position(663,690,0),
+      english = "Portal to the Sentry Forest",
+      german = "Portal nach zur Wachtwald",
+      level = 80,
+      nameEn = "Sentry Forest",
+      nameDe = "Wachtwald",
+      statReq = 40,
+      extraIngredients = {{id = Item.topazPowder, amount = 1}}
+    },
+    { location = position(469,796,0),
+      english = "Portal to the Chapel of the Five",
+      german = "Portal nach zur Kapelle der Fünf",
+      level = 80,
+      nameEn = "Chapel of the Five",
+      nameDe = "Kapelle der Fünf",
+      extraIngredients = {{id = Item.topazPowder, amount = 1}}
+    },
+    { location = position(495,523,0),
+      english = "Portal to the Firelimes",
+      german = "Portal nach zur Feuerlimes",
+      level = 90,
+      nameEn = "Firelimes",
+      nameDe = "Feuerlimes",
+      extraIngredients = {{id = Item.diamondPowder, amount = 1}}
+    },
+    { location = position(747,653,0),
+      english = "Portal to the Dragon's Lair",
+      german = "Portal nach zur Drachenhöhle",
+      level = 90,
+      nameEn = "Dragon's Lair",
+      nameDe = "Drachenhöhle",
+      statReq = 40,
+      extraIngredients = {{id = Item.diamondPowder, amount = 1}}
+    },
+    { location = position(792,260,0),
+      english = "Portal to the plains of silence",
+      german = "Portal nach zur Ebene der Stille",
+      level = 100,
+      nameEn = "Plains of silence",
+      nameDe = "Ebene der Stille",
+      extraIngredients = {{id = Item.diamondPowder, amount = 2}}
+    },
+    { location = position(934,447,2),
+      english = "Portal to the pauldron",
+      german = "Portal nach zur Pauldron Insel",
+      level = 100,
+      nameEn = "The Pauldron",
+      nameDe = "Pauldron Insel",
+      statReq = 40,
+      entrance = position(945, 454, 0),
+      extraIngredients = {{id = Item.diamondPowder, amount = 2}}
+    },
 }
+
+
 
 local portals = M.portals
 
