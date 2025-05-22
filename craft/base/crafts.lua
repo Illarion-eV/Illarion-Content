@@ -258,9 +258,14 @@ function Craft:showDialog(user, source)
         if result == CraftingDialog.playerCrafts then
             local productId = dialog:getCraftableId()
             local product = self.products[productId]
+            if not product then
+                product = self[user.id].extraproducts[productId - #self.products]
+            end
+
             local foodOK = self:checkRequiredFood(user, product:getCraftingTime(self:getSkill(user)))
             local manaOk = checkRequiredMana(user, product:getCraftingTime(self:getSkill(user)), self.leadSkill == Character.spatialMagic)
             local canWork = self:allowCrafting(user, source) and self:checkMaterial(user, productId) and foodOK and manaOk
+
             return canWork
         elseif result == CraftingDialog.playerLooksAtItem then
             local productId = dialog:getCraftableId()
@@ -478,15 +483,19 @@ function Craft:loadDialog(dialog, user)
     self[user.id].extracategories = {}
     self[user.id].extraproducts = {}
 
+    local categoriesInserted = {}
+    categoriesInserted[self.leadSkill] = false
+
     for _, blueprint in pairs(blueprints.blueprints) do
 
         if Character[blueprint.craft] == self.leadSkill and blueprints.playerKnowsBlueprint(user, blueprint.item) and (not blueprints.tool or blueprints.tool == self.handTool) then
 
-            table.insert(self[user.id].extracategories, {nameEN = "Lost knowledge", nameDE = "Verlorenes Wissen"})
+            if not categoriesInserted[self.leadSkill] then
+                table.insert(self[user.id].extracategories, {nameEN = "Lost knowledge", nameDE = "Verlorenes Wissen"})
+                categoriesInserted[self.leadSkill] = #self.categories + #self[user.id].extracategories
+            end
 
-            local catId = #self.categories + #self[user.id].extracategories
-
-            local product = self:addExtraProduct(user, catId, blueprint.item, 1)
+            local product = self:addExtraProduct(user, categoriesInserted[self.leadSkill], blueprint.item, 1)
 
             for _, ingredient in pairs(blueprint.ingredients) do
                 product:addIngredient(ingredient.id, ingredient.amount)
@@ -684,6 +693,10 @@ end
 
 function Craft:checkMaterial(user, productId)
     local product = self.products[productId]
+
+    if not product then
+        product = self[user.id].extraproducts[productId - #self.products]
+    end
 
     if product == nil then
         return false
@@ -914,6 +927,11 @@ end
 
 function Craft:craftItem(user, productId)
     local product = self.products[productId]
+
+    if not product then
+        product = self[user.id].extraproducts[productId - #self.products]
+    end
+
     local skill = self:getSkill(user)
     local skillGain = false
 
@@ -982,6 +1000,11 @@ end
 
 function Craft:createItem(user, productId, toolItem)
     local product = self.products[productId]
+
+    if not product then
+        product = self[user.id].extraproducts[productId - #self.products]
+    end
+
     product.data.descriptionDe = ""
     product.data.descriptionEn = "" -- reset descriptions, same reasoning as below
     product.data.rareness = "" -- reset rarity or else it creates the most recent result of the rarity calculation even if not a perfect item
