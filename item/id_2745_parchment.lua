@@ -347,10 +347,13 @@ function StartBrewing(user,SourceItem,ltstate,checkVar)
 
     end
 
-    CallBrewFunctionAndDeleteItem(user,deleteItem, deleteId,cauldron)
+    local brewResult = CallBrewFunctionAndDeleteItem(user,deleteItem, deleteId,cauldron)
     local toolbroken = shared.toolBreaks(user, tool, duration)
 
-    USER_POSITION_LIST[user.id] = USER_POSITION_LIST[user.id]+1
+    -- repeat step if ilyn applied when bottling the cauldron content
+    if not brewResult.repeatStep then
+        USER_POSITION_LIST[user.id] = USER_POSITION_LIST[user.id]+1
+    end
 
     if toolbroken and USER_POSITION_LIST[user.id] < #listOfTheIngredients then
         user:inform("Du brichst deine Arbeit vor dem "..USER_POSITION_LIST[user.id]..". Arbeitsschritt ab.", "You abort your work before the "..USER_POSITION_LIST[user.id]..". work step.")
@@ -375,6 +378,8 @@ end
 
 function CallBrewFunctionAndDeleteItem(user,deleteItem, deleteId,cauldron)
 
+    local result = {}
+    result.repeatStep = false
     if deleteId then
         if deleteId == 52 then -- water
             local buckets = user:getItemList(deleteId)
@@ -390,7 +395,10 @@ function CallBrewFunctionAndDeleteItem(user,deleteItem, deleteId,cauldron)
 
     else
         if deleteItem.id == 164 then -- empty bottle
-            id_164_emptybottle.FillIntoBottle(user, deleteItem, cauldron)
+            fillBottleResult = id_164_emptybottle.FillIntoBottle(user, deleteItem, cauldron)
+            if fillBottleResult.ilynApplied then
+                result.repeatStep = true
+            end
 
         elseif deleteItem.id == 3642 then
             id_3642_empty_salve_jar.FillIntoJar(user, deleteItem, cauldron)
@@ -404,6 +412,7 @@ function CallBrewFunctionAndDeleteItem(user,deleteItem, deleteId,cauldron)
         end
     end
 
+    return result
 end
 
 function GetStartAction(user, listOfTheIngredients, cauldron)
