@@ -395,7 +395,7 @@ function CallBrewFunctionAndDeleteItem(user,deleteItem, deleteId,cauldron)
 
     else
         if deleteItem.id == 164 then -- empty bottle
-            fillBottleResult = id_164_emptybottle.FillIntoBottle(user, deleteItem, cauldron)
+            local fillBottleResult = id_164_emptybottle.FillIntoBottle(user, deleteItem, cauldron)
             if fillBottleResult.ilynApplied then
                 result.repeatStep = true
             end
