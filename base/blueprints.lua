@@ -57,7 +57,7 @@ M.blueprints = {
     }},
 
     {id = 3, name = {english = "fancy silver tray", german = "Verziertes Silbertablett"}, creator = "NA", craft = "finesmithing", --55
-    level = getLevel(Item.fancySilverTray), item = Item.fancySilverTray, treasure = "big", rareness = 2,
+    level = getLevel(Item.fancySilverTray), item = Item.fancySilverTray, treasure = "big", rareness = 3,
     ingredients = {
         {id = Item.silverIngot, amount = 3},
         {id = Item.sapphire, amount = 2},
@@ -65,7 +65,7 @@ M.blueprints = {
     }},
 
     {id = 4, name = {english = "fancy gold tray", german = "Verziertes Goldtablett"}, creator = "NA", craft = "finesmithing",--60
-    level = getLevel(Item.fancyGoldTray), item = Item.fancyGoldTray, treasure = "big", rareness = 2,
+    level = getLevel(Item.fancyGoldTray), item = Item.fancyGoldTray, treasure = "big", rareness = 3,
     ingredients = {
         {id = Item.goldIngot, amount = 2},
         {id = Item.emerald, amount = 2},
@@ -73,7 +73,7 @@ M.blueprints = {
     }},
 
     {id = 5, name = {english = "blue-green stained glass tray", german = "Blau-grünes Bleiglastablett"}, creator = "NA", craft = "glassBlowing", --60
-    level = getLevel(Item.stainedGlassTrayBlueGreen), item = Item.stainedGlassTrayBlueGreen, treasure = "big", rareness = 2,
+    level = getLevel(Item.stainedGlassTrayBlueGreen), item = Item.stainedGlassTrayBlueGreen, treasure = "big", rareness = 3,
     ingredients = {
         {id = Item.glassIngot, amount = 5},
         {id = Item.emeraldPowder, amount = 1},
@@ -81,7 +81,7 @@ M.blueprints = {
     }},
 
     {id = 6, name = {english = "green-yellow stained glass tray", german = "Grün-gelbes Bleiglastablett"}, creator = "NA", craft = "glassBlowing", --80
-    level = getLevel(Item.stainedGlassTrayGreenYellow), item = Item.stainedGlassTrayGreenYellow, treasure = "giant", rareness = 2,
+    level = getLevel(Item.stainedGlassTrayGreenYellow), item = Item.stainedGlassTrayGreenYellow, treasure = "giant", rareness = 4,
     ingredients = {
         {id = Item.glassIngot, amount = 10},
         {id = Item.emeraldPowder, amount = 1},
@@ -97,7 +97,7 @@ M.blueprints = {
     }},
 
     {id = 8, name = {english = "violet-red stained glass tray", german = "Violett-rotes Bleiglastablett"}, creator = "NA", craft = "glassBlowing", --20
-    level = getLevel(Item.stainedGlassTrayVioletRed), item = Item.stainedGlassTrayVioletRed, treasure = "small", rareness = 2,
+    level = getLevel(Item.stainedGlassTrayVioletRed), item = Item.stainedGlassTrayVioletRed, treasure = "small", rareness = 1,
     ingredients = {
         {id = Item.glassIngot, amount = 1},
         {id = Item.ruby, amount = 1},
@@ -129,7 +129,7 @@ M.blueprints = {
     }},
 
     {id = 13, name = {english = "naldor tray", german = "Naldortablett"}, creator = "NA", craft = "carpentry", --20
-    level = getLevel(Item.naldorTraySouth), item = Item.naldorTraySouth, treasure = "small", rareness = 2,
+    level = getLevel(Item.naldorTraySouth), item = Item.naldorTraySouth, treasure = "small", rareness = 1,
     ingredients = {
         {id = Item.naldorWoodBoards, amount = 4},
         {id = Item.wax, amount = 2}
@@ -140,7 +140,20 @@ M.blueprints = {
     ingredients = {
         {id = Item.coniferWoodBoards, amount = 10},
         {id = Item.wax, amount = 5}
-    }, tool = Item.plane}
+    }, tool = Item.plane},
+    {id = 15, name = {english = "prismatic lens", german = "Prismatische Linse"}, creator = "NA", craft = "glassBlowing", --100
+    level = getLevel(Item.prismaticLens), item = Item.prismaticLens, treasure = "giant", rareness = 4,
+    ingredients = {
+        {id = Item.glassIngot, amount = 2},
+        {id = Item.goldIngot, amount = 1},
+        {id = Item.amethystPowder, amount = 1},
+        {id = Item.rubyPowder, amount = 1},
+        {id = Item.obsidianPowder, amount = 1},
+        {id = Item.sapphirePowder, amount = 1},
+        {id = Item.emeraldPowder, amount = 1},
+        {id = Item.topazPowder, amount = 1},
+        {id = Item.diamondPowder, amount = 1},
+    }},
 }
 
 return M
