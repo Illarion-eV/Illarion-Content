@@ -111,9 +111,11 @@ end
 
 function M.FillIntoBottle(user, SourceItem, cauldron)
 
+   local result = {}
+   result.ilynApplied = false
     if cauldron:getData("filledWith") == "salve" then
         user:inform("Die Flüssigkeit im Kessel ist viel zu dick. Du brauchst einen leeren Salbentiegel, keine Zaubertrankflasche", "The liquid in the cauldron is way too thick. You'll need an empty salve jar here, not a potion bottle.")
-        return
+        return result
     end
 
     -- stock, essence brew or potion; fill it up
@@ -160,6 +162,7 @@ function M.FillIntoBottle(user, SourceItem, cauldron)
             world:changeItem(SourceItem)
         end
         if cauldron:getData("ilyn") == "true" then -- In order to duplicate the potion, we have there be enough liquid in the cauldron for two potions
+            result.ilynApplied = true
             cauldron:setData("ilyn", "false")
         else
             alchemy.RemoveAll(cauldron)
@@ -167,6 +170,7 @@ function M.FillIntoBottle(user, SourceItem, cauldron)
     end
     world:changeItem(cauldron)
     world:makeSound(10,cauldron.pos)
+    return result
 end
 
 return M
