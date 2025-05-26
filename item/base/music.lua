@@ -58,23 +58,34 @@ local function getNameBasedOnId(theId)
         return "panpipe"
     elseif theId == Item.flute then
         return "flute"
+    elseif theId == 4837 or theId == 4838 then
+        return "clavichord"
     end
 
 end
 
 function M.instrumentIsInHandOrInFrontOfUser(user, instrumentName)
 
-    local id = {Item[instrumentName]}
+    local id
+
+    if instrumentName ~= "clavichord" then
+        id = {Item[instrumentName]}
+    end
 
     local overWriteInstrument = false
 
-    local sharesMusic = {"harp", "flute", "lute", "panpipe"}
+    local sharesMusic = {"harp", "flute", "lute", "panpipe", "clavichord"}
 
     for _, instrument in pairs(sharesMusic) do
         if instrumentName == instrument then
             id = {}
             for _, instName in pairs(sharesMusic) do
-                table.insert(id, Item[instName])
+                if instName == "clavichord" then
+                    table.insert(id, 4837)
+                    table.insert(id, 4838)
+                else
+                    table.insert(id, Item[instName])
+                end
             end
         end
     end
@@ -96,12 +107,20 @@ function M.instrumentIsInHandOrInFrontOfUser(user, instrumentName)
         end
     elseif frontItem and common.isInList(frontItem.id, id) and not common.isBroken(frontItem) then
         theInstrument = frontItem
-        if frontItem.id ~= Item[instrumentName] then
+        if instrumentName ~= "clavichord" and frontItem.id ~= Item[instrumentName] then
+            overWriteInstrument = getNameBasedOnId(frontItem.id)
+        elseif instrumentName == "clavichord" and frontItem.id ~= 4837 and frontItem.id ~= 4838 then
             overWriteInstrument = getNameBasedOnId(frontItem.id)
         end
     end
 
-    local commonItem = world:getItemStatsFromId(Item[instrumentName])
+    local commonItem
+
+    if instrumentName ~= "clavichord" then
+        commonItem = world:getItemStatsFromId(Item[instrumentName])
+    else
+        commonItem = world:getItemStatsFromId(4837)
+    end
 
     if not theInstrument then
         user:inform("Wenn du ein(e) "..commonItem.German.." spielen möchtest, musst du es in der Hand halten oder vor dir liegen haben.", "If you want to play a "..commonItem.English..", you will need to hold it in your hand or have it in front of you.")
@@ -117,57 +136,58 @@ skills["harp"] = Character.harp
 skills["lute"] = Character.lute
 skills["panpipe"] = Character.panpipe
 skills["flute"] = Character.flute
+skills["clavichord"] = Character.clavichord
 
 local notes = { --All instruments that use the standard A-G, 1-7 note/pitch range go here
-    { note = "A1", lute = 123, harp = 45, panpipe = 172, flute = 221 },
-    { note = "A2", lute = 124, harp = 46, panpipe = 173, flute = 222 },
-    { note = "A3", lute = 125, harp = 47, panpipe = 174, flute = 223 },
-    { note = "A4", lute = 126, harp = 48, panpipe = 175, flute = 224 },
-    { note = "A5", lute = 127, harp = 49, panpipe = 176, flute = 225 },
-    { note = "A6", lute = 128, harp = 50, panpipe = 177, flute = 226 },
-    { note = "A7", lute = 129, harp = 51, panpipe = 178, flute = 227 },
-    { note = "B1", lute = 130, harp = 52, panpipe = 179, flute = 228 },
-    { note = "B2", lute = 131, harp = 53, panpipe = 180, flute = 229 },
-    { note = "B3", lute = 132, harp = 54, panpipe = 181, flute = 230 },
-    { note = "B4", lute = 133, harp = 55, panpipe = 182, flute = 231 },
-    { note = "B5", lute = 134, harp = 56, panpipe = 183, flute = 232 },
-    { note = "B6", lute = 135, harp = 57, panpipe = 184, flute = 233 },
-    { note = "B7", lute = 136, harp = 58, panpipe = 185, flute = 234 },
-    { note = "C1", lute = 137, harp = 59, panpipe = 186, flute = 235 },
-    { note = "C2", lute = 138, harp = 60, panpipe = 187, flute = 236 },
-    { note = "C3", lute = 139, harp = 61, panpipe = 188, flute = 237 },
-    { note = "C4", lute = 140, harp = 62, panpipe = 189, flute = 238 },
-    { note = "C5", lute = 141, harp = 63, panpipe = 190, flute = 239 },
-    { note = "C6", lute = 142, harp = 64, panpipe = 191, flute = 240 },
-    { note = "C7", lute = 143, harp = 65, panpipe = 192, flute = 241 },
-    { note = "D1", lute = 144, harp = 66, panpipe = 193, flute = 242 },
-    { note = "D2", lute = 145, harp = 67, panpipe = 194, flute = 243 },
-    { note = "D3", lute = 146, harp = 68, panpipe = 195, flute = 244 },
-    { note = "D4", lute = 147, harp = 69, panpipe = 196, flute = 245 },
-    { note = "D5", lute = 148, harp = 70, panpipe = 197, flute = 246 },
-    { note = "D6", lute = 149, harp = 71, panpipe = 198, flute = 247 },
-    { note = "D7", lute = 150, harp = 72, panpipe = 199, flute = 248 },
-    { note = "E1", lute = 151, harp = 73, panpipe = 200, flute = 249 },
-    { note = "E2", lute = 152, harp = 74, panpipe = 201, flute = 250 },
-    { note = "E3", lute = 153, harp = 75, panpipe = 202, flute = 251 },
-    { note = "E4", lute = 154, harp = 76, panpipe = 203, flute = 252 },
-    { note = "E5", lute = 155, harp = 77, panpipe = 204, flute = 253 },
-    { note = "E6", lute = 156, harp = 78, panpipe = 205, flute = 254 },
-    { note = "E7", lute = 157, harp = 79, panpipe = 206, flute = 255 },
-    { note = "F1", lute = 158, harp = 80, panpipe = 207, flute = 256 },
-    { note = "F2", lute = 159, harp = 81, panpipe = 208, flute = 257 },
-    { note = "F3", lute = 160, harp = 82, panpipe = 209, flute = 258 },
-    { note = "F4", lute = 161, harp = 83, panpipe = 210, flute = 259 },
-    { note = "F5", lute = 162, harp = 84, panpipe = 211, flute = 260 },
-    { note = "F6", lute = 163, harp = 85, panpipe = 212, flute = 261 },
-    { note = "F7", lute = 164, harp = 86, panpipe = 213, flute = 262 },
-    { note = "G1", lute = 165, harp = 87, panpipe = 214, flute = 263 },
-    { note = "G2", lute = 166, harp = 88, panpipe = 215, flute = 264 },
-    { note = "G3", lute = 167, harp = 89, panpipe = 216, flute = 265 },
-    { note = "G4", lute = 168, harp = 90, panpipe = 217, flute = 266 },
-    { note = "G5", lute = 169, harp = 91, panpipe = 218, flute = 267 },
-    { note = "G6", lute = 170, harp = 92, panpipe = 219, flute = 268 },
-    { note = "G7", lute = 171, harp = 93, panpipe = 220, flute = 269 }
+    { note = "A1", lute = 123, harp = 45, panpipe = 172, flute = 221, clavichord = 270 },
+    { note = "A2", lute = 124, harp = 46, panpipe = 173, flute = 222, clavichord = 271 },
+    { note = "A3", lute = 125, harp = 47, panpipe = 174, flute = 223, clavichord = 272 },
+    { note = "A4", lute = 126, harp = 48, panpipe = 175, flute = 224, clavichord = 273 },
+    { note = "A5", lute = 127, harp = 49, panpipe = 176, flute = 225, clavichord = 274 },
+    { note = "A6", lute = 128, harp = 50, panpipe = 177, flute = 226, clavichord = 275 },
+    { note = "A7", lute = 129, harp = 51, panpipe = 178, flute = 227, clavichord = 276 },
+    { note = "B1", lute = 130, harp = 52, panpipe = 179, flute = 228, clavichord = 277 },
+    { note = "B2", lute = 131, harp = 53, panpipe = 180, flute = 229, clavichord = 278 },
+    { note = "B3", lute = 132, harp = 54, panpipe = 181, flute = 230, clavichord = 279 },
+    { note = "B4", lute = 133, harp = 55, panpipe = 182, flute = 231, clavichord = 280 },
+    { note = "B5", lute = 134, harp = 56, panpipe = 183, flute = 232, clavichord = 281 },
+    { note = "B6", lute = 135, harp = 57, panpipe = 184, flute = 233, clavichord = 282 },
+    { note = "B7", lute = 136, harp = 58, panpipe = 185, flute = 234, clavichord = 283 },
+    { note = "C1", lute = 137, harp = 59, panpipe = 186, flute = 235, clavichord = 284 },
+    { note = "C2", lute = 138, harp = 60, panpipe = 187, flute = 236, clavichord = 285 },
+    { note = "C3", lute = 139, harp = 61, panpipe = 188, flute = 237, clavichord = 286 },
+    { note = "C4", lute = 140, harp = 62, panpipe = 189, flute = 238, clavichord = 287 },
+    { note = "C5", lute = 141, harp = 63, panpipe = 190, flute = 239, clavichord = 288 },
+    { note = "C6", lute = 142, harp = 64, panpipe = 191, flute = 240, clavichord = 289 },
+    { note = "C7", lute = 143, harp = 65, panpipe = 192, flute = 241, clavichord = 290 },
+    { note = "D1", lute = 144, harp = 66, panpipe = 193, flute = 242, clavichord = 291 },
+    { note = "D2", lute = 145, harp = 67, panpipe = 194, flute = 243, clavichord = 292 },
+    { note = "D3", lute = 146, harp = 68, panpipe = 195, flute = 244, clavichord = 293 },
+    { note = "D4", lute = 147, harp = 69, panpipe = 196, flute = 245, clavichord = 294 },
+    { note = "D5", lute = 148, harp = 70, panpipe = 197, flute = 246, clavichord = 295 },
+    { note = "D6", lute = 149, harp = 71, panpipe = 198, flute = 247, clavichord = 296 },
+    { note = "D7", lute = 150, harp = 72, panpipe = 199, flute = 248, clavichord = 297 },
+    { note = "E1", lute = 151, harp = 73, panpipe = 200, flute = 249, clavichord = 298 },
+    { note = "E2", lute = 152, harp = 74, panpipe = 201, flute = 250, clavichord = 299 },
+    { note = "E3", lute = 153, harp = 75, panpipe = 202, flute = 251, clavichord = 300 },
+    { note = "E4", lute = 154, harp = 76, panpipe = 203, flute = 252, clavichord = 301 },
+    { note = "E5", lute = 155, harp = 77, panpipe = 204, flute = 253, clavichord = 302 },
+    { note = "E6", lute = 156, harp = 78, panpipe = 205, flute = 254, clavichord = 303 },
+    { note = "E7", lute = 157, harp = 79, panpipe = 206, flute = 255, clavichord = 304 },
+    { note = "F1", lute = 158, harp = 80, panpipe = 207, flute = 256, clavichord = 305 },
+    { note = "F2", lute = 159, harp = 81, panpipe = 208, flute = 257, clavichord = 306 },
+    { note = "F3", lute = 160, harp = 82, panpipe = 209, flute = 258, clavichord = 307 },
+    { note = "F4", lute = 161, harp = 83, panpipe = 210, flute = 259, clavichord = 308 },
+    { note = "F5", lute = 162, harp = 84, panpipe = 211, flute = 260, clavichord = 309 },
+    { note = "F6", lute = 163, harp = 85, panpipe = 212, flute = 261, clavichord = 310 },
+    { note = "F7", lute = 164, harp = 86, panpipe = 213, flute = 262, clavichord = 311 },
+    { note = "G1", lute = 165, harp = 87, panpipe = 214, flute = 263, clavichord = 312 },
+    { note = "G2", lute = 166, harp = 88, panpipe = 215, flute = 264, clavichord = 313 },
+    { note = "G3", lute = 167, harp = 89, panpipe = 216, flute = 265, clavichord = 314 },
+    { note = "G4", lute = 168, harp = 90, panpipe = 217, flute = 266, clavichord = 315 },
+    { note = "G5", lute = 169, harp = 91, panpipe = 218, flute = 267, clavichord = 316 },
+    { note = "G6", lute = 170, harp = 92, panpipe = 219, flute = 268, clavichord = 317 },
+    { note = "G7", lute = 171, harp = 93, panpipe = 220, flute = 269, clavichord = 318 }
 }
 
 M.step = {}
@@ -552,8 +572,8 @@ end
 
 function writeMusicToSheet(user, checkDone, entryToReplace, instrumentTypeOverride, quill)
 
-    local instruments = {"drum", "harp", "lute", "panpipe", "flute"}
-    local instrumentsGerman = {"Trommel", "Harfe", "Laute", "Panflöte", "Flöte"}
+    local instruments = {"drum", "harp", "lute", "panpipe", "flute", "clavichord"}
+    local instrumentsGerman = {"Trommel", "Harfe", "Laute", "Panflöte", "Flöte", "Klavichord"}
     local sheet = getParchmentForSheet(user)
 
     if not sheet then

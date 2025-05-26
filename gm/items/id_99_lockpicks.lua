@@ -107,6 +107,7 @@ M.skillNames = {
     Character.blacksmithing,
     Character.brewing,
     Character.carpentry,
+    Character.clavichord,
     Character.concussionWeapons,
     Character.cookingAndBaking,
     Character.digging,
