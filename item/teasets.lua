@@ -250,7 +250,7 @@ function M.UseItem(user, sourceItem)
     for _, teaset in pairs(teasets) do
 
         if sourceItem.id == teaset.tray then
-            user:inform("Mit drei passenden Teetassen und einer Teekanne könnten Sie ein Teeservice auf diesem Tablett arrangieren.", "With three matching tea cups and a tea pot, you could arrange a tea set on this tray.")
+            user:inform("Mit vier passenden Teetassen und einer Teekanne könnten Sie ein Teeservice auf diesem Tablett arrangieren.", "With four matching tea cups and a tea pot, you could arrange a tea set on this tray.")
             if teaset.alternate then
                 sourceItem.id = teaset.alternate
                 world:changeItem(sourceItem)
