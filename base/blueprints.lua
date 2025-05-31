@@ -158,7 +158,7 @@ M.blueprints = {
     level = getLevel(Item.cupriteIngot), item = Item.cupriteIngot, treasure = "giant", rareness = 4,
     ingredients = {
         {id = Item.cupriteOre, amount = 1},
-        {id = Item.ironore, amount = 1},
+        {id = Item.ironOre, amount = 1},
         {id = Item.coal, amount = 1}
     }, tool = Item.cruciblePincers},
     {id = 17, name = {english = "drow helmet", german = "Drowhelm"}, creator = "NA", craft = "armourer", --85
