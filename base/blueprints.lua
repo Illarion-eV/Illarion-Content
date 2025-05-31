@@ -154,6 +154,60 @@ M.blueprints = {
         {id = Item.topazPowder, amount = 1},
         {id = Item.diamondPowder, amount = 1},
     }},
+    {id = 16, name = {english = "cuprite ingot", german = "Cupritbarren"}, creator = "NA", craft = "mining", --100
+    level = getLevel(Item.cupriteIngot), item = Item.cupriteIngot, treasure = "giant", rareness = 4,
+    ingredients = {
+        {id = Item.cupriteOre, amount = 1},
+        {id = Item.ironore, amount = 1},
+        {id = Item.coal, amount = 1}
+    }, tool = Item.cruciblePincers},
+    {id = 17, name = {english = "drow helmet", german = "Drowhelm"}, creator = "NA", craft = "armourer", --85
+    level = getLevel(Item.drowHelmet), item = Item.drowHelmet, treasure = "giant", rareness = 4,
+    ingredients = {
+        {id = Item.ironIngot, amount = 7},
+        {id = Item.ironPlate, amount = 3},
+        {id = Item.cupriteIngot, amount = 1},
+        {id = Item.topaz, amount = 1},
+        {id = Item.silverIngot, amount = 1},
+    }},
+    {id = 18, name = {english = "drow armour", german = "Drowrüstung"}, creator = "NA", craft = "armourer", --85
+    level = getLevel(Item.drowArmour), item = Item.drowArmour, treasure = "giant", rareness = 4,
+    ingredients = {
+        {id = Item.ironIngot, amount = 18},
+        {id = Item.ironPlate, amount = 6},
+        {id = Item.cupriteIngot, amount = 2},
+        {id = Item.topaz, amount = 1},
+        {id = Item.silverIngot, amount = 5},
+    }},
+        {id = 19, name = {english = "drow bow", german = "Drowbogen"}, creator = "NA", craft = "carpentry", --100
+    level = getLevel(Item.drowArmour), item = Item.drowArmour, treasure = "giant", rareness = 4,
+    ingredients = {
+        {id = Item.coniferWoodBoards, amount = 5},
+        {id = Item.entrails, amount = 2},
+        {id = Item.cupriteIngot, amount = 2},
+        {id = Item.heartwood, amount = 1},
+        {id = Item.pureAir, amount = 1},
+    }, tool = Item.plane},
+    {id = 20, name = {english = "drow blade", german = "Drow-Klinge"}, creator = "NA", craft = "blacksmithing", --100
+    level = getLevel(Item.drowBlade), item = Item.drowBlade, treasure = "giant", rareness = 4,
+    ingredients = {
+        {id = Item.ironIngot, amount = 7},
+        {id = Item.swordHandle, amount = 1},
+        {id = Item.cupriteIngot, amount = 2},
+        {id = Item.meriniumIngot, amount = 1},
+        {id = Item.pureEarth, amount = 1},
+        {id = Item.goldIngot, amount = 2},
+    }},
+    {id = 21, name = {english = "drow sword", german = "Drowschwert"}, creator = "NA", craft = "blacksmithing", --100
+    level = getLevel(Item.drowSword), item = Item.drowSword, treasure = "giant", rareness = 4,
+    ingredients = {
+        {id = Item.ironIngot, amount = 12},
+        {id = Item.bigSwordHandle, amount = 1},
+        {id = Item.cupriteIngot, amount = 3},
+        {id = Item.meriniumIngot, amount = 1},
+        {id = Item.pureEarth, amount = 1},
+        {id = Item.goldIngot, amount = 3},
+    }},
 }
 
 return M
