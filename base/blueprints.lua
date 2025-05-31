@@ -180,7 +180,7 @@ M.blueprints = {
         {id = Item.silverIngot, amount = 5},
     }},
         {id = 19, name = {english = "drow bow", german = "Drowbogen"}, creator = "NA", craft = "carpentry", --100
-    level = getLevel(Item.drowArmour), item = Item.drowArmour, treasure = "giant", rareness = 4,
+    level = getLevel(Item.drowBow), item = Item.drowBow, treasure = "giant", rareness = 4,
     ingredients = {
         {id = Item.coniferWoodBoards, amount = 5},
         {id = Item.entrails, amount = 2},
