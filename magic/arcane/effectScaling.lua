@@ -32,7 +32,7 @@ function M.getEffectScaling(user, target, spell, earthTrap, ignoreMR) --For posi
     local cloakGemBonus = 0
     local magicResistance = 0
 
-    if target and not target.itempos and isValidChar(target) and target.pos  then -- It is a character, not an item, so it has magic resistance and possibly a gemmed cloak
+    if target and not target.x and not target.itempos and isValidChar(target) and target.pos  then -- It is a character, not an item, so it has magic resistance and possibly a gemmed cloak
         magicResistance = MR.getMagicResistance(target, spell)
         cloakGemBonus = magic.getGemBonusCloak(target)/100
     end
