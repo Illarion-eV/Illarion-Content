@@ -101,10 +101,14 @@ end
     one time each time we change the list of locations.
 ]]
 
-local version = 1 --Update this to one number higher each time something is added to the list.
+local version = 2 --Update this to one number higher each time something is added to the list.
 
 local bannedLocations = {
-    {x = {from = 213, to = 300}, y = {from = 756, to = 830}, z = 0} --Mount letma, inaccessible
+    {x = {from = 213, to = 300}, y = {from = 756, to = 830}, z = 0}, --Mount letma, inaccessible
+    {x = {from = 656, to = 708}, y = {from = 277, to = 329}, z = 0}, --Troll's Haven, safe zone script interfers with treasure.
+    {x = {from = 641, to = 661}, y = {from = 312, to = 332}, z = 0}, --Troll's Haven.
+    {x = {from = 685, to = 739}, y = {from = 276, to = 330}, z = 0}, --Troll's Haven.
+    {x = {from = 656, to = 700}, y = {from = 302, to = 336}, z = 0} --Troll's Haven.
 }
 
 function M.fetchPropertyName(user, pos)
