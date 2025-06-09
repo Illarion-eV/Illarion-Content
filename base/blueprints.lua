@@ -208,6 +208,24 @@ M.blueprints = {
         {id = Item.pureEarth, amount = 1},
         {id = Item.goldIngot, amount = 3},
     }},
+    {id = 22, name = {english = "halberd of nature", german = "Hellebarde der Natur"}, creator = "NA", craft = "carpentry", --100
+    level = getLevel(Item.halberdOfNature), item = Item.halberdOfNature, treasure = "giant", rareness = 4,
+    ingredients = {
+        {id = Item.coniferWoodBoards, amount = 10},
+        {id = Item.longStaffHandle, amount = 1},
+        {id = Item.heartwood, amount = 2},
+        {id = Item.cupriteIngot, amount = 2},
+        {id = Item.pureEarth, amount = 1},
+    }, tool = Item.carvingTools},
+    {id = 23, name = {english = "fire mace", german = "Feuerstreitkolben"}, creator = "NA", craft = "carpentry", --100
+    level = getLevel(Item.fireMace), item = Item.fireMace, treasure = "giant", rareness = 4,
+    ingredients = {
+        {id = Item.naldorWoodBoards, amount = 7},
+        {id = Item.maceHandle, amount = 1},
+        {id = Item.heartwood, amount = 2},
+        {id = Item.cupriteIngot, amount = 1},
+        {id = Item.pureFire, amount = 1},
+    }, tool = Item.carvingTools},
 }
 
 return M
