@@ -488,7 +488,7 @@ function Craft:loadDialog(dialog, user)
 
     for _, blueprint in pairs(blueprints.blueprints) do
 
-        if Character[blueprint.craft] == self.leadSkill and blueprints.playerKnowsBlueprint(user, blueprint.item) and (not blueprints.tool or blueprints.tool == self.handTool) then
+        if Character[blueprint.craft] == self.leadSkill and blueprints.playerKnowsBlueprint(user, blueprint.item) and (not blueprint.tool or blueprint.tool == self.handTool) then
 
             if not categoriesInserted[self.leadSkill] then
                 table.insert(self[user.id].extracategories, {nameEN = "Lost knowledge", nameDE = "Verlorenes Wissen"})
