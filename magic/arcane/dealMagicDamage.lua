@@ -143,6 +143,14 @@ function M.dealMagicDamage(user, target, spell, damage, level, DoT, castTime)
             end
 
             character.Kill(target)
+
+            local killerName = "N/A(Indirect magic)"
+
+            if user then
+                killerName = user.name.."("..tostring(user.id)..")"
+            end
+
+            logPlayer("Player "..killerName.." killed Player "..target.name.."("..tostring(target.id)..")")
         else
             -- Character would die.
             character.ToBrinkOfDeath(target)
