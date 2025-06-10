@@ -55,7 +55,7 @@ M.runes = {
 
 function M.isSpellAutoCast(spell, wand)
 
-    if wand:getData("autoCast") == "false" then
+    if not wand or wand:getData("autoCast") == "false" then
         return false
     end
 
