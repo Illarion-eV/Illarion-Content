@@ -33,7 +33,7 @@ local function DrinkIt(user, SourceItem)
     user.movepoints=user.movepoints - 20
 end
 
-local function FillStockIn(user,SourceItem, cauldron)
+function M.FillStockIn(user,SourceItem, cauldron)
     -- water, stock or potion is in the cauldron; leads to a failure
     if cauldron:getData("filledWith") == "water" then
         alchemy.CauldronDestruction(user,cauldron,1)
@@ -43,7 +43,7 @@ local function FillStockIn(user,SourceItem, cauldron)
 
     elseif cauldron:getData("filledWith") == "potion" then
         if cauldron.id == 1013 then -- support potion
-        id_165_blue_bottle.SupportStock(user,cauldron,SourceItem)
+            id_165_blue_bottle.SupportStock(user,cauldron,SourceItem)
         else
             alchemy.CauldronExplosion(user,cauldron,2)
         end
@@ -54,8 +54,8 @@ local function FillStockIn(user,SourceItem, cauldron)
             return
         end
     elseif cauldron.id == 1008 then -- nothing in the cauldron, we just fill in the stock
-    alchemy.FillFromTo(SourceItem,cauldron)
-    world:changeItem(cauldron)
+        alchemy.FillFromTo(SourceItem,cauldron)
+        world:changeItem(cauldron)
     end
 end
 
@@ -99,7 +99,7 @@ function M.UseItem(user, SourceItem, ltstate)
                 return
             end
 
-            FillStockIn(user,SourceItem,cauldron)
+            M.FillStockIn(user,SourceItem,cauldron)
             alchemy.EmptyBottle(user,SourceItem)
             alchemy.lowerFood(user)
         else
