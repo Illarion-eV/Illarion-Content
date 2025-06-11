@@ -66,24 +66,24 @@ local function SupportPotion(user,support,potion)
         potionQuality = tonumber(potion:getData("potionQuality"))
     end
     if (supportEffectId >= 400) and (supportEffectId <= 406) then -- quality raiser
-    -- list with potions in cauldron and bottle
-    local cauldronPotion = {1011,1016,1013,1009,1015,1018,1017}
-    local bottlePotion   = {327 ,59  ,165 ,329 ,166 ,167 ,330}
+        -- list with potions in cauldron and bottle
+        local cauldronPotion = {1013,1016,1011,1009,1015,1018,1017}
+        local bottlePotion   = {165 ,59  ,327 ,329 ,166 ,167 ,330}
 
-    if (potion.id == cauldronPotion[supportEffectId-399]) or (potion.id == bottlePotion[supportEffectId-399]) then -- support and potion belong together
+        if (potion.id == cauldronPotion[supportEffectId-399]) or (potion.id == bottlePotion[supportEffectId-399]) then -- support and potion belong together
 
-    supportQuality = common.Limit(math.floor(supportQuality/100), 1, 9)
-    local chance = supportQuality*9  -- support quality * 9 = chance that potion's quality is increased
-    if common.Chance(chance, 100)==true then
-        potionQuality = common.Limit(potionQuality+100, 100, 999) -- new quality
-        world:gfx(53,cauldron.pos)
-    else -- no success, quality stays the same
-    world:gfx(1,cauldron.pos)
-    end
+            supportQuality = common.Limit(math.floor(supportQuality/100), 1, 9)
+            local chance = supportQuality*9  -- support quality * 9 = chance that potion's quality is increased
+            if common.Chance(chance, 100)==true then
+                potionQuality = common.Limit(potionQuality+100, 100, 999) -- new quality
+                world:gfx(53,cauldron.pos)
+            else -- no success, quality stays the same
+                world:gfx(1,cauldron.pos)
+            end
 
-    else
-        world:gfx(1,cauldron.pos)
-    end
+        else
+            world:gfx(1,cauldron.pos)
+        end
 
     else
         world:gfx(1,cauldron.pos)
@@ -97,30 +97,30 @@ end
 local function FillIn(user, SourceItem, cauldron)
 
     if (SourceItem:getData("filledWith")=="potion") then -- potion should be filled into the cauldron
-    -- water leads to a failure
-    if cauldron:getData("cauldronFilledWith") == "water" then
-        world:gfx(1,cauldron.pos)
+        -- water leads to a failure
+        if cauldron:getData("cauldronFilledWith") == "water" then
+            world:gfx(1,cauldron.pos)
 
-    elseif cauldron:getData("filledWith") == "essenceBrew" then
-        SupportEssenceBrew(user,SourceItem,cauldron)
+        elseif cauldron:getData("filledWith") == "essenceBrew" then
+            SupportEssenceBrew(user,SourceItem,cauldron)
 
-    elseif cauldron:getData("filledWith") == "potion" then
-        SupportPotion(user,SourceItem,cauldron)
+        elseif cauldron:getData("filledWith") == "potion" then
+            SupportPotion(user,SourceItem,cauldron)
 
-    elseif cauldron:getData("filledWith") == "stock" then
-        SupportStock(user,SourceItem,cauldron)
+        elseif cauldron:getData("filledWith") == "stock" then
+            SupportStock(user,SourceItem,cauldron)
 
-    else
-        alchemy.FillFromTo(SourceItem,cauldron)
-        world:changeItem(cauldron)
-    end
-    alchemy.EmptyBottle(user,SourceItem)
+        else
+            alchemy.FillFromTo(SourceItem,cauldron)
+            world:changeItem(cauldron)
+        end
+        alchemy.EmptyBottle(user,SourceItem)
 
     elseif (SourceItem:getData("filledWith") =="essenceBrew") then -- essence brew should be filled into the cauldron
-    -- unlike the support potion itself, the essence brew of it has no specail effects when filled in
-    -- therefore we call the ordinary fill-function; note that we call it after checking for potion in this script
-    -- and we do not set ltstate as a parameter, since we did the abort stuff already here
-    alchemy.FillIntoCauldron(user,SourceItem,cauldron)
+        -- unlike the support potion itself, the essence brew of it has no specail effects when filled in
+        -- therefore we call the ordinary fill-function; note that we call it after checking for potion in this script
+        -- and we do not set ltstate as a parameter, since we did the abort stuff already here
+        alchemy.FillIntoCauldron(user,SourceItem,cauldron)
     end
 end
 
