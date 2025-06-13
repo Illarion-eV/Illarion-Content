@@ -30,7 +30,6 @@ local townEntrances = {
 
 local texts = {
     flying = {english = "A blast of air magic sends you flying.", german = "Ein Stoß von Luftmagie lässt dich fliegen."},
-    walk = {english = "A strong wind forces you to step aside.", german = "Ein starker Wind zwingt dich zur Seite zu gehen."},
     turn = {english = "A sudden burst of wind turns you around.", german = "Ein plötzlicher Windstoß wirbelt dich herum."}
     }
 
@@ -301,16 +300,6 @@ local lastYReverse = user.pos.y
     end
 end
 
-local function forceWalkTarget(target, spell)
-local possibleDirections = {"North", "North-east", "East", "South-east", "South", "South-west", "West", "North-west"}
-local direction = math.random(#possibleDirections)
-local LEV = runes.checkSpellForRuneByName("LEV", spell)
-    if LEV then
-        target:move(direction, true)
-        target:inform(texts.walk.german, texts.walk.english)
-    end
-end
-
 local turningTargetsDirections = {
 
 {direction = "west", to = 6},
@@ -357,7 +346,6 @@ local ANTH = runes.checkSpellForRuneByName("ANTH", spell)
     for _, target in pairs(targets.targets) do
         currentTarget = currentTarget + 1
         moveTargets(user, target, spell, ORL, false, targetAmount, currentTarget)
-        forceWalkTarget(target, spell)
         turnTarget(user, target, spell)
     end
     for _, item in pairs(targets.items) do

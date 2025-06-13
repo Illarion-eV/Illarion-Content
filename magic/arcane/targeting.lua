@@ -382,6 +382,7 @@ local function getPosition(user, spell, positionsAndTargets, delayed, trap)
     local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
     local SUL = runes.checkSpellForRuneByName("SUL", spell)
     local ORL = runes.checkSpellForRuneByName("ORL", spell)
+    local JUS = runes.checkSpellForRuneByName("JUS", spell)
     local earthTrap = SOLH and ORL and not trap
     local dodgable = (CUN or RA) and SUL
     local thePosition
@@ -428,7 +429,7 @@ local function getPosition(user, spell, positionsAndTargets, delayed, trap)
         end
     end
 
-    if (TAH or LEV) and (RA or CUN) then
+    if ((TAH or LEV) and (RA or CUN )) or (LEV and JUS) then
         local target = getWeakestNearTarget(user, thePosition, rangeNum, LEV)
 
         if target then
