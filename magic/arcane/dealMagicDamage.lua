@@ -136,7 +136,7 @@ function M.dealMagicDamage(user, target, spell, damage, level, DoT, castTime)
         damage = damage/2
     end
 
-    if not IRA and not KAH and character.IsPlayer(target) and character.WouldDie(target, damage + 1) then
+    if not IRA and not KAH and character.IsPlayer(target) and character.WouldDie(target, damage + 1) and not character.IsDead(target) then
         if character.AtBrinkOfDeath(target) then
             if target:isAdmin() then
                 chr_reg.stallRegeneration(target, 0)
