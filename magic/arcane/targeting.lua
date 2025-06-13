@@ -261,7 +261,7 @@ local function getSlowestNearTarget(user, target, rangeNum)
         position = target.pos
     end
 
-    local targets = world:getCharactersInRangeOf(position, rangeNum)
+    local targets = world:getCharactersInRangeOf(user.pos, rangeNum)
 
     local returnTarget = false
 
@@ -292,11 +292,7 @@ end
 
 local function getWeakestNearTarget(user, position, rangeNum, LEV)
 
-    if LEV and not world:isCharacterOnField(position) then
-        return
-    end
-
-    local targets = world:getCharactersInRangeOf(position, rangeNum)
+    local targets = world:getCharactersInRangeOf(user.pos, rangeNum)
     local returnTarget = false
     local lowestHealth
 
@@ -306,7 +302,7 @@ local function getWeakestNearTarget(user, position, rangeNum, LEV)
 
         if position ~= newTarget.pos and user.pos ~= newTarget.pos and newTarget:getType() ~= Character.npc then
 
-            if returnTarget == false then
+            if not returnTarget then
 
                 returnTarget = newTarget
                 lowestHealth = newTarget:increaseAttrib("hitpoints", 0)
@@ -434,13 +430,8 @@ local function getPosition(user, spell, positionsAndTargets, delayed, trap)
 
     if (TAH or LEV) and (RA or CUN) then
         local target = getWeakestNearTarget(user, thePosition, rangeNum, LEV)
-        local proceed = true
 
-        if LEV and not world:isCharacterOnField(thePosition) then --LEV only targets the weakest nearby character to a targeted character. TAH doesn't care.
-            proceed = false
-        end
-
-        if target and proceed then
+        if target then
             if target:getType() == Character.player or target:getType() == Character.monster then
                 if not dodgable then
                     positionsAndTargets.targets[#positionsAndTargets.targets+1] = target
