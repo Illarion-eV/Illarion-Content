@@ -42,7 +42,7 @@ function M.getCastingRange(user, spell, element)
     return range
 end
 
-function M.isTargetInRange(user, spell, element, target, newTarget, wandAim)
+function M.isTargetInRange(user, spell, element, target)
 
     local range = M.getCastingRange(user, spell, element)
     local pos1 = user.pos
@@ -50,17 +50,6 @@ function M.isTargetInRange(user, spell, element, target, newTarget, wandAim)
 
     if target.pos then
         pos2 = target.pos
-    end
-
-    if runes.checkSpellForRuneByName("FHEN", spell) then
-        if wandAim then
-            pos1 = target.pos
-        else
-            pos1 = target
-        end
-        if newTarget then
-            pos2 = newTarget.pos
-        end
     end
 
     local xdif = pos1.x - pos2.x
