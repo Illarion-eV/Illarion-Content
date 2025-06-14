@@ -658,9 +658,11 @@ local function deleteRareItems(user, ingredient, rareItemsToDelete, amountOfIngr
 
     local rareIngredientBonus = 0
 
-    for rarity = 1, 3 do
+    for rarity = 2, 4 do
 
-        local data = {["craftedRare"] = "true", ["rareness"] = rarity}
+        local data = {}
+        data.craftedRare = "true"
+        data.rareness = rarity
         local available = user:countItemAt("all", ingredient.item, data)
         local deleteAmount
 
@@ -676,7 +678,7 @@ local function deleteRareItems(user, ingredient, rareItemsToDelete, amountOfIngr
                 toSave = 0
             end
 
-            if toSave >= deleteAmount then --Check that not all ingredients are saved here
+            if toSave < deleteAmount then --Check that not all ingredients are saved here
                 user:eraseItem(ingredient.item, deleteAmount - toSave, data)
             end
 
@@ -1011,6 +1013,7 @@ function Craft:createItem(user, productId, toolItem)
     product.data.descriptionDe = ""
     product.data.descriptionEn = "" -- reset descriptions, same reasoning as below
     product.data.rareness = "" -- reset rarity or else it creates the most recent result of the rarity calculation even if not a perfect item
+    product.data.craftedRare = ""
 
     local rareIngredientBonus = 0
     local amountOfIngredients = #product.ingredients
@@ -1083,6 +1086,7 @@ function Craft:createItem(user, productId, toolItem)
         if rarity > 1 then
             common.TempInformNLS(user, "Seltenes Produkt hergestellt!", "Rare product crafted!")
             product.data.rareness = rarity
+            product.data.craftedRare = "true"
         end
     end
 

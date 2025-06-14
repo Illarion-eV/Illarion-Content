@@ -900,6 +900,7 @@ local function fillVessel(user, sourceItem, bottle)
 
         if isBaseBottle(sourceItem) then
             sourceItem:setData("craftedBy", "")
+            sourceItem:setData("rareness", "")
         end
 
         sourceItem.id = empty
@@ -907,12 +908,10 @@ local function fillVessel(user, sourceItem, bottle)
         if not isBaseBottle(sourceItem) then
             sourceItem:setData("vesselRarity", "")
             sourceItem:setData("drinkRarity", "")
-        else
-            sourceItem:setData("rareness", "")
         end
-    elseif newAmount <= 2 then
+    elseif newAmount <= 2 and quarter then
         sourceItem.id = quarter
-    elseif newAmount <= 5 then
+    elseif newAmount <= 5 and half then
         sourceItem.id = half
     end
 
