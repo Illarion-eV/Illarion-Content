@@ -284,6 +284,7 @@ end
 -- @param Defender The character who is attacked
 -- @return true in case a attack was performed, else false
 function M.onAttack(Attacker, Defender)
+
     if Attacker.fightpoints < 0 then
         -- This happens only if the player cheats.
         -- Let's don't attack now.
@@ -310,6 +311,10 @@ function M.onAttack(Attacker, Defender)
 
     -- Load the weapons of the attacker
     Attacker = fightingutil.loadWeapons(Attacker)
+
+    if fighting.IsTrainingWeapon(Attacker.WeaponItem.id) and character.AtBrinkOfDeath(Defender.Char) and Defender.Char:getType() == Character.player then
+        return --in pvp a training weapon will realistically never be used to kill, only to spar, so this prevents accidental sparring deaths as it is lame to punish players for being a little inattentive to their health bars during something like that
+    end
 
     -- Find out the attack type and the required combat skill
     GetAttackType(Attacker)
