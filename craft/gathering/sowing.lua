@@ -98,7 +98,7 @@ local function passesLevelReq(user, theSeed)
     local level = itemCommon.Level
 
     if farmingLevel < level then
-        user:inform("Dein Landwirtschaftslevel ist nicht hoch genug, um diese Samen zu säen." , "Your level of farming is not high enough to sow these seeds.")
+        user:inform("Dein Ackerbaulevel ist nicht hoch genug, um diese Samen zu säen." , "Your level of farming is not high enough to sow these seeds.")
         return false
     end
 

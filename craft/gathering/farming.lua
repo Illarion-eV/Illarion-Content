@@ -150,7 +150,7 @@ local function passesLevelReq(user, theCrop)
     local level = getLevel(theCrop.id)
 
     if farmingLevel < level then
-        user:inform("Dein Landwirtschaftslevel ist nicht hoch genug, um das zu ernten." , "Your level of farming is not high enough to harvest this.")
+        user:inform("Dein Ackerbaulevel ist nicht hoch genug, um das zu ernten." , "Your level of farming is not high enough to harvest this.")
         return false
     end
 
