@@ -484,21 +484,24 @@ function Craft:loadDialog(dialog, user)
     self[user.id].extraproducts = {}
 
     local categoriesInserted = {}
-    categoriesInserted[self.leadSkill] = false
 
-    for _, blueprint in pairs(blueprints.blueprints) do
+    if self.leadSkill then
+        categoriesInserted[self.leadSkill] = false
 
-        if Character[blueprint.craft] == self.leadSkill and blueprints.playerKnowsBlueprint(user, blueprint.item) and (not blueprint.tool or blueprint.tool == self.handTool) then
+        for _, blueprint in pairs(blueprints.blueprints) do
 
-            if not categoriesInserted[self.leadSkill] then
+            if Character[blueprint.craft] == self.leadSkill and blueprints.playerKnowsBlueprint(user, blueprint.item) and (not blueprint.tool or blueprint.tool == self.handTool) then
+
+                if not categoriesInserted[self.leadSkill] then
                 table.insert(self[user.id].extracategories, {nameEN = "Lost knowledge", nameDE = "Verlorenes Wissen"})
                 categoriesInserted[self.leadSkill] = #self.categories + #self[user.id].extracategories
-            end
+                end
 
-            local product = self:addExtraProduct(user, categoriesInserted[self.leadSkill], blueprint.item, 1)
+                local product = self:addExtraProduct(user, categoriesInserted[self.leadSkill], blueprint.item, 1)
 
-            for _, ingredient in pairs(blueprint.ingredients) do
+                for _, ingredient in pairs(blueprint.ingredients) do
                 product:addIngredient(ingredient.id, ingredient.amount)
+                end
             end
         end
     end
