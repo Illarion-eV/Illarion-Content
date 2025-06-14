@@ -21,18 +21,15 @@ local testing = require("base.testing")
 -- Long time effect (111)
 local M = {}
 
-local function causeDamage(User, quality, penetration)
-
-    quality = math.floor(quality/10)
+function M.causeDamage(User, quality, penetration)
 
     local resist = magicResistance.getMagicResistance(User)
 
-
-    if resist < quality+1 then
-        local damageLow = 3 * math.floor(math.max(10, quality+1)) --Anywhere between 30 and 300
-        local damageHigh = 5 * math.floor(quality+1) -- between 50 and 500
+    if resist < quality then
+        local damageLow = 100 + 40 * (quality) --Anywhere between 140 and 500
+        local damageHigh = 100 + 80 * (quality) -- between 180 and 900
         local damageDealt = math.random(math.min(damageLow, damageHigh), math.max(damageLow, damageHigh)) * (1 - resist + penetration)
-        damageDealt = math.max(damageDealt, 30)
+        damageDealt = math.max(damageDealt, 100)
         User:increaseAttrib("hitpoints", -damageDealt)
         if testing.active then
             User:talk(Character.say,"#me takes "..damageDealt.." damage.", "#me takes "..damageDealt.." damage.")
@@ -53,7 +50,7 @@ function M.addEffect(theEffect, User)
             penetration = penetration/100
         end
 
-        causeDamage(User, quality, penetration)
+        M.causeDamage(User, quality, penetration)
     end
 end
 
@@ -84,7 +81,14 @@ function M.callEffect(theEffect, User)
             penetration = penetration/100
         end
 
-        causeDamage(User, FieldItem.quality, penetration)
+        local scaling = FieldItem:getData("scaling")
+
+        if common.IsNilOrEmpty(scaling) then
+            scaling = math.floor(FieldItem.quality/100)+1
+        end
+
+        M.causeDamage(User, tonumber(scaling), penetration)
+
     end
     -- repeat in 5sec
     theEffect.nextCalled = 50

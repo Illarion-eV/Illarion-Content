@@ -15,30 +15,10 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
-local magicResistance = require("magic.arcane.magicResistance")
-local testing = require("base.testing")
+local icefield = require("lte.damagefield_icefield")
 
 -- Long time effect (110)
 local M = {}
-
-local function causeDamage(User, quality, penetration)
-
-    quality = math.floor(quality/10)
-
-    local resist = magicResistance.getMagicResistance(User)
-
-
-    if resist < quality+1 then
-        local damageLow = 3 * math.floor(math.max(10, quality+1)) --Anywhere between 30 and 300
-        local damageHigh = 5 * math.floor(quality+1) -- between 50 and 500
-        local damageDealt = math.random(math.min(damageLow, damageHigh), math.max(damageLow, damageHigh)) * (1 - resist + penetration)
-        damageDealt = math.max(damageDealt, 30)
-        User:increaseAttrib("hitpoints", -damageDealt)
-        if testing.active then
-            User:talk(Character.say,"#me takes "..damageDealt.." damage.", "#me takes "..damageDealt.." damage.")
-        end
-    end
-end
 
 function M.addEffect(theEffect, User)
 
@@ -51,10 +31,10 @@ function M.addEffect(theEffect, User)
         if not foundpenetration then
             penetration = 0
         else
-            penetration = penetration/100
+            penetration = tonumber(penetration)/100
         end
 
-        causeDamage(User, quality, penetration)
+        icefield.causeDamage(User, quality, penetration)
     end
 end
 
@@ -84,7 +64,13 @@ function M.callEffect(theEffect, User)
             penetration = penetration/100
         end
 
-        causeDamage(User, FieldItem.quality, penetration)
+        local scaling = FieldItem:getData("scaling")
+
+        if common.IsNilOrEmpty(scaling) then
+            scaling = math.floor(FieldItem.quality/100)+1
+        end
+
+        icefield.causeDamage(User, tonumber(scaling), penetration)
     end
     -- repeat in 5sec
     theEffect.nextCalled = 50
