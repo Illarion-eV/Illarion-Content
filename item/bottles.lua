@@ -810,6 +810,7 @@ local function fillTea(user, sourceItem, amount, half, quarter, empty, vesselToF
             sourceItem:setData("drinkRarity", "")
         else
             sourceItem:setData("rareness", "")
+            sourceItem:setData("craftedRare", "")
         end
         if empty then
 
@@ -901,6 +902,7 @@ local function fillVessel(user, sourceItem, bottle)
         if isBaseBottle(sourceItem) then
             sourceItem:setData("craftedBy", "")
             sourceItem:setData("rareness", "")
+            sourceItem:setData("craftedRare", "")
         end
 
         sourceItem.id = empty
