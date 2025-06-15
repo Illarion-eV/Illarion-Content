@@ -408,7 +408,7 @@ end
 
 local function checkForRequiredItem(user, parchmentOrBook)
 
-    if parchmentOrBook.id == Item.parchment and (common.IsNilOrEmpty(parchmentOrBook:getData("writtenText")) and parchmentOrBook:getData("alchemyRecipe") ~= "true") then
+    if parchmentOrBook.id == Item.parchment and (common.IsNilOrEmpty(parchmentOrBook:getData("writtenText")) and parchmentOrBook:getData("alchemyRecipe") ~= "true") and common.IsNilOrEmpty(parchmentOrBook:getData("instrument"))then
         user:inform("Das Pergament muss beschrieben sein.", "The parchment must be written on.")
         return
     end
