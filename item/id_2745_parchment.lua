@@ -137,6 +137,8 @@ local function noteListView(user, ltstate, SourceItem, instrument)
             end
         elseif selected == 2 then
             viewListOfNotes(user, SourceItem)
+        elseif selected == 3 then
+            music.playMusicTogether(user, ltstate)
         end
     end
 
@@ -157,6 +159,7 @@ local function noteListView(user, ltstate, SourceItem, instrument)
 
     dialog:addOption(0, common.GetNLS(user, "Lied abspielen", "Play song"))
     dialog:addOption(0, common.GetNLS(user, "Noten anzeigen", "View notes"))
+    dialog:addOption(0, common.GetNLS(user, "Mit anderen Musik machen", "Play Music With Others"))
 
     dialog:setCloseOnMove()
 
@@ -198,6 +201,15 @@ function M.UseItem(user, SourceItem,ltstate,checkVar)
         if ltstate == Action.none then
             noteListView(user, ltstate, SourceItem, instrument)
         else
+
+            if _G.playtogether[user.id] and not _G.playtogether[user.id].signalGiven and _G.playtogether[user.id].waiting then
+                _G.playtogether[user.id].count = _G.playtogether[user.id] + 1
+                if _G.playtogether[user.id].count < 3000 then --If it's been more than 5 minutes without anyone starting to play we break the loop
+                    user:startAction( 1, 0, 0, 0, 0)
+                end
+                return
+            end
+
             if instrument == "drum" then
                 drum.playTheDrum(user, ltstate, false, SourceItem)
             else

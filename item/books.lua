@@ -217,6 +217,8 @@ local function noteListView(user, actionState, book, instrument, index)
 
         elseif selected == 2 then
             viewListOfNotes(user, book, index)
+        elseif selected == 3 then
+            music.playMusicTogether(user, actionState)
         end
     end
 
@@ -237,6 +239,7 @@ local function noteListView(user, actionState, book, instrument, index)
 
     dialog:addOption(0, common.GetNLS(user, "Lied abspielen", "Play song"))
     dialog:addOption(0, common.GetNLS(user, "Noten anzeigen", "View notes"))
+    dialog:addOption(0, common.GetNLS(user, "Mit anderen Musik machen", "Play Music With Others"))
 
     dialog:setCloseOnMove()
 
@@ -319,6 +322,11 @@ function M.UseItem(user, sourceItem, actionState)
         if actionState == Action.none then
             selectSheetToPlay(user, sourceItem, sheetAmount, actionState)
         elseif actionState == Action.success then
+
+            if _G.playtogether[user.id] and not _G.playtogether[user.id].signalGiven and _G.playtogether[user.id].waiting then
+                user:startAction( 1, 0, 0, 0, 0)
+                return
+            end
 
             local instrument = sourceItem:getData("sheet"..selectedBookIndex.."instrument")
 

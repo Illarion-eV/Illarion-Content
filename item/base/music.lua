@@ -330,6 +330,74 @@ local function playNote(user, note, sheet, instrumentName, book, bookIndex)
 
 end
 
+local function giveSignal(user, actionState)
+
+    local potentialBards = world:getPlayersInRangeOf(user.pos, 10)
+
+    for _, potentialBard in pairs(potentialBards) do
+        if _G.playtogether[potentialBard.id] and _G.playtogether[potentialBard.id].waiting then
+            _G.playtogether[potentialBard.id].waiting = false
+            _G.playtogether[potentialBard.id].signalGiven = true
+        end
+    end
+
+    _G.playtogether[user.id].signalGiven = true
+
+    user:startAction( 1, 0, 0, 0, 0)
+
+end
+
+local function waitForSignal(user, actionState)
+
+    user:startAction( 1, 0, 0, 0, 0)
+
+    user:inform("Du wartest jetzt auf das Signal, um mit dem Spielen zu beginnen. Wenn du dich bewegst oder eine andere Aktion ausführst - außer zu sprechen - bist du nicht mehr bereit.", "You are now waiting for the signal to start playing. If you move or perform another action, other than speaking, you will no longer be ready.")
+end
+
+function M.playMusicTogether(user, actionState)
+
+    if not _G.playtogether then
+        _G.playtogether = {}
+    end
+
+    if not _G.playtogether[user.id] then
+        _G.playtogether[user.id] = {}
+    end
+
+    _G.playtogether[user.id].signalGiven = false
+    _G.playtogether[user.id].waiting = true
+    _G.playtogether[user.id].count = 0
+
+    local callback = function(dialog)
+
+        if not dialog:getSuccess() then
+            _G.playtogether[user.id].waiting = false
+            return
+        end
+
+        local selected = dialog:getSelectedIndex() + 1
+
+        if selected == 1 then
+            giveSignal(user, actionState)
+        elseif selected == 2 then
+            waitForSignal(user, actionState)
+        end
+
+    end
+
+    local text = common.GetNLS(user, "Gib das Signal oder entscheide dich, zu warten, bis es jemand anderes tut.", "Give the signal or choose to wait for some else to do so.")
+
+    local dialog = SelectionDialog(common.GetNLS(user, "Mit anderen Musik machen", "Play Music With Others"), text, callback)
+
+    dialog:addOption(0, common.GetNLS(user, "Das Startsignal geben", "Give the signal to start"))
+    dialog:addOption(0, common.GetNLS(user, "Das Startsignal geben", "Wait for the signal"))
+
+    dialog:setCloseOnMove()
+
+    user:requestSelectionDialog(dialog)
+
+end
+
 function M.playTheInstrument(user, actionState, note, musicSheet, instrumentName, musicBook, bookIndex)
 
     if note then
