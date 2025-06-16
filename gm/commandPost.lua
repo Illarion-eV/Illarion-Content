@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local scheduledFunction = require("scheduled.scheduledFunction")
+local checkPos = require("gm.items.distanceCheckAndLog")
 
 local M = {}
 
@@ -51,6 +52,11 @@ local setNumberOfMonsters
 -- Present in Item scripts of:
 -- Item: id_3109_open_pell
 function M.UseItem(User, SourceItem)
+
+    if not checkPos.passesCheck(User, SourceItem) then
+        return
+    end
+
     local commandPostPos = SourceItem.pos
     if SourceItem:getData("commandPost") == "true" then
         if SourceItem.itempos ~= 255 then

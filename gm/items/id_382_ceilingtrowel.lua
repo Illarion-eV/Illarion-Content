@@ -31,6 +31,7 @@ local propertyList = require("housing.propertyList")
 local drinks = require("item.drinks")
 local food = require("item.food")
 local customPotion = require("alchemy.base.customPotion")
+local check = require("gm.items.distanceCheckAndLog")
 
 
 local M = {}
@@ -2068,6 +2069,12 @@ local selectedProperty
 end
 
 function M.UseItem(user, SourceItem)
+
+    if not check.passesCheck(user, SourceItem) then
+        return
+    end
+
+
     -- First check for mode change
     local modes = {"Items", "Weather", "Factions", "Spawnpoint", "Special Item Creation", "Script Variables","Teleporter","Harbours", "Portals", "Potions","Property Management","Apply Persistence For Properties[Warning: Server-lag]"}
     local cbSetMode = function (dialog)
