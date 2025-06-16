@@ -32,6 +32,7 @@ local spatial = require("magic.arcane.spatial")
 local persistenceTracker = require("gm.persistenceTracker")
 local activityTracker = require("lte.activity_tracker")
 local housing = require("housing.propertyList")
+local check = require("gm.items.distanceCheckAndLog")
 
 local M = {}
 
@@ -2490,6 +2491,11 @@ local function selectNpcFromList(user)
 end
 
 function M.UseItem(user, SourceItem, ltstate)
+
+    if not check.passesCheck(user, SourceItem) then
+        return
+    end
+
     --if injured, heal!
     user:increaseAttrib("hitpoints", 10000)
     user:increaseAttrib("mana", 10000)

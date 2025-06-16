@@ -17,9 +17,16 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE common SET com_script='gm.items.id_100_trowel' WHERE com_itemid = 100;
 local lookat = require("base.lookat")
 local common = require("base.common")
+local check = require("gm.items.distanceCheckAndLog")
 local M = {}
 
 function M.UseItem(User, SourceItem)
+
+    if not check.passesCheck(User, SourceItem) then
+        return
+    end
+
+
     local TargetItem = common.GetTargetItem(User, SourceItem)
     if not TargetItem then
         TargetItem = common.GetFrontItem(User)
