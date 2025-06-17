@@ -31,7 +31,9 @@ end
 
 function M.onLogout( theChar )
 
-    world:gfx(31,theChar.pos); --A nice GFX that announces clearly: A player logged out.
+    if not theChar:isAdmin() then
+        world:gfx(31,theChar.pos) --A nice GFX that announces clearly: A player logged out.
+    end
 
     if theChar.name == "Valerio Guilianni" or theChar.name == "Rosaline Edwards" or theChar.name == "Elvaine Morgan" then
         exchangeFactionLeader( theChar.name )
