@@ -21,6 +21,8 @@ local grimoireCreation = require("magic.arcane.grimoireCreation")
 
 local M = {}
 
+local manaCost = 500
+
 M.MAX_SPELL_SLOTS = 20
 
 
@@ -134,8 +136,8 @@ local function createSpell(user, slot)
                     unknownrunes = unknownrunes+1
                 end
                 if index == i-unknownrunes then -- Check if selected index is the rune in question
-                    if  magic.hasSufficientMana(user,3000) then
-                        user:increaseAttrib("mana", -3000)
+                    if  magic.hasSufficientMana(user,manaCost) then
+                        user:increaseAttrib("mana", -manaCost)
                         world:gfx(41,user.pos)
                         world:makeSound(13,user.pos)
                         runes.learnRune(user, mBook, i, "isSpell", "spell"..slot) -- Add rune to spell
@@ -193,8 +195,8 @@ local function elementSelection(user, slot)
         for i = 1,6 do
             if runes.checkIfLearnedRune(user,"", i, "isQuest") then
                 if index == i-unknownrunes then
-                    if  magic.hasSufficientMana(user,3000) then
-                        user:increaseAttrib("mana", -3000)
+                    if  magic.hasSufficientMana(user,manaCost) then
+                        user:increaseAttrib("mana", -manaCost)
                         world:gfx(41,user.pos)
                         world:makeSound(13,user.pos)
                         local mBook = getMagicBook(user)
