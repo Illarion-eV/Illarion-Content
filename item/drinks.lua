@@ -235,11 +235,6 @@ function M.UseItem(user, SourceItem)
         return
     end
 
-    if user.attackmode then
-        common.InformNLS( user, "Du würdest alles verschütten.", "You'd spill everything.")
-        return
-    end
-
     -- item should not be static
     if SourceItem.wear == 255 then
         common.HighInformNLS(user,
