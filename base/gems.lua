@@ -15,6 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
+local depotList = require("base.depotList")
 
 local M = {}
 
@@ -60,6 +61,50 @@ gemLevelRareness[7] = ItemLookAt.epicItem
 gemLevelRareness[8] = ItemLookAt.epicItem
 gemLevelRareness[9] = ItemLookAt.epicItem
 gemLevelRareness[10] = ItemLookAt.epicItem
+
+function M.updateOwnership(user, theItem)
+
+    local isInDepot = false
+    local isInBackpack = false
+    local isInInventory = theItem:getType() == 4 or theItem:getType() == 5
+
+    local depots = depotList.depots
+
+    for _, depot in pairs(depots) do
+        if theItem.inside and theItem.inside == user:getDepot(depot.id) then
+            isInDepot = true
+        end
+    end
+
+    local backpack = user:getBackPack()
+
+    if theItem.inside and theItem.inside == backpack then
+        isInBackpack = true
+    end
+
+    if not isInDepot and not isInBackpack and not isInInventory then
+        return -- No checking items on the floor or in unknown bags that could be on the floor
+    end
+
+    -- check if theItem is in equipment slot, depot, backpack or belt
+
+    for gem = 1, 7 do
+
+        local key = gemDataKey[gem]
+
+        local owner = theItem:getData(key.."owner")
+
+        local gemRank = theItem:getData(key)
+
+        if (common.IsNilOrEmpty(owner) or owner ~= user.name) and not common.IsNilOrEmpty(gemRank) then
+            theItem:setData(key.."owner", user.name)
+            world:changeItem(theItem)
+            if not common.IsNilOrEmpty(owner) then
+                log("A piece of equipment with "..owner.." as its former owner was found in "..user.name.."("..user.id..")'s inventory with a rank "..gemRank.." "..key..".")
+            end
+        end
+    end
+end
 
 local function extractNum(text)
     if text=="" then
