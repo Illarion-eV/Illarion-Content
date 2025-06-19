@@ -524,6 +524,41 @@ local function notifyTreasureFoundStatistic(player)
     player:setQuestProgress(60, lastValue + 1)
 end
 
+local function logTreasureDig(treasureHunter, treasureMap)
+
+    local foundBy = treasureMap:getData("foundBy")
+
+    local finderIsHere = false
+
+    if common.IsNilOrEmpty(foundBy) then -- It is an old map with no finder registered
+        return
+    end
+
+    local playersNearby = world:getPlayersInRangeOf(treasureHunter.pos, 30)
+
+    local text = "A treasure of tier "..math.floor(treasureMap.quality/100).." at pos "..tostring(treasureHunter.pos).." was dug by the following group, with the origin of the map("..foundBy..") not present: "
+
+    for index, playerNearby in ipairs(playersNearby) do
+
+        text = text..playerNearby.name.."("..playerNearby.id..")"
+
+        if index < #playersNearby then
+            text = text..", "
+        else
+            text = text.."."
+        end
+
+        if playerNearby.name == foundBy then
+            finderIsHere = true
+        end
+    end
+
+    if not finderIsHere then
+        log(text)
+    end
+
+end
+
 function M.performDiggingForTreasure(treasureHunter, diggingLocation, additionalParams)
     -- Find a matching map in the inventory of the treasure hunter
     local treasureMapItemId = 505
@@ -618,6 +653,8 @@ function M.performDiggingForTreasure(treasureHunter, diggingLocation, additional
     end
 
     treasureHunter:inform(msgFoundTreasureDe, msgFoundTreasureEn)
+
+    logTreasureDig(treasureHunter, treasureMap)
 
     local monsterList = spawnMonsters(diggingLocation, treasureLevel)
     if monsterList == nil then

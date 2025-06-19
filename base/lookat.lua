@@ -276,6 +276,8 @@ function M.GenerateLookAt(user, item, material)
         lookAt.topazLevel = GetGemLevel(item, "magicalTopaz")
         lookAt.bonus = gems.getGemBonusLookAtValue(item)
 
+        gems.updateOwnership(user, item)
+
         lookAt = AddWeaponOrArmourType(lookAt, user, item.id, level, item)
     end
 

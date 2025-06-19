@@ -53,12 +53,11 @@ local setNumberOfMonsters
 -- Item: id_3109_open_pell
 function M.UseItem(User, SourceItem)
 
-    if not checkPos.passesCheck(User, SourceItem) then
-        return
-    end
-
     local commandPostPos = SourceItem.pos
     if SourceItem:getData("commandPost") == "true" then
+        if not checkPos.passesCheck(User, SourceItem) then
+            return
+        end
         if SourceItem.itempos ~= 255 then
             User:inform("Place the command Post on the ground to use it.")
             --User:inform(tostring(SourceItem.itempos))

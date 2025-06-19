@@ -22,12 +22,12 @@ local M = {}
 function M.passesCheck(user, tool)
 
     if not common.isInRect(user.pos, tool.pos, 1) then
-        log("Player "..user.name.." just tried to use a GM tool that was not in range.")
+        log("Player "..user.name.." just tried to use a GM tool that was not in range. They were at "..tostring(user.pos).." and the tool at "..tostring(tool.pos)..".")
         return false
     end
 
     if not user:isAdmin() then
-        log("Player "..user.name.."("..user.id..") just used a GM tool despite not being a GM.")
+        log("Player "..user.name.."("..user.id..") just used a GM tool despite not being a GM. They were at "..tostring(user.pos).." and the tool at "..tostring(tool.pos)..".")
     end
 
     return true
