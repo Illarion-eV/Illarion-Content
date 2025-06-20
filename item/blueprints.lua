@@ -76,7 +76,7 @@ local function playerMeetsLevelReq(user, craft, level)
 
 end
 
-local function learnBlueprint(user, blueprint)
+local function learnBlueprint(user, blueprint, actionState)
 
     local blueprintId, blueprintName, craft, level = getBlueprintInfo(blueprint)
 
@@ -91,20 +91,25 @@ local function learnBlueprint(user, blueprint)
         return
     end
 
-    world:erase(blueprint, 1)
+    if actionState == Action.none then
+        user:startAction(50, 21, 10, 0, 0)
+    elseif actionState == Action.success then
+        world:erase(blueprint, 1)
 
-    common.writeBitwise(user, blueprintId, M.startQuest)
+        common.writeBitwise(user, blueprintId, M.startQuest)
 
-    user:inform("Durch die Magie der Schriftrolle spürst du, wie ein Strom von Wissen über den Herstellungsprozess von "..blueprintName.german.." in deinen Geist eindringt. Leider scheint die Magie der Schriftrolle dadurch aufgebraucht zu sein, denn sie zerfällt zu Staub in deinen Händen.", "By the magic of the scroll, you feel an influx of knowledge enter your mind pertaining to the process of making "..blueprintName.english..". However, unfortunately the magic of the scroll appears to be used up by this, as it dissolves into dust in your hands.")
+        user:inform("Durch die Magie der Schriftrolle spürst du, wie ein Strom von Wissen über den Herstellungsprozess von "..blueprintName.german.." in deinen Geist eindringt. Leider scheint die Magie der Schriftrolle dadurch aufgebraucht zu sein, denn sie zerfällt zu Staub in deinen Händen.", "By the magic of the scroll, you feel an influx of knowledge enter your mind pertaining to the process of making "..blueprintName.english..". However, unfortunately the magic of the scroll appears to be used up by this, as it dissolves into dust in your hands.")
+    end
+
 end
 
-function M.UseItem(user, blueprint)
+function M.UseItem(user, blueprint, actionState)
 
     if common.IsNilOrEmpty(blueprint:getData("blueprint")) then
         return
     end
 
-    learnBlueprint(user, blueprint)
+    learnBlueprint(user, blueprint, actionState)
 
 end
 
