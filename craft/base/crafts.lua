@@ -814,7 +814,7 @@ function Craft:checkIfItemShouldHaveRarity(productId)
 
 end
 
-function Craft:generateQuality(user, productId, toolItem)
+function Craft:generateQuality(user, product, toolItem)
 
     if self.npcCraft then
         return 999
@@ -842,7 +842,7 @@ function Craft:generateQuality(user, productId, toolItem)
     quality = common.Limit(quality, 1, common.ITEM_MAX_QUALITY)
 
     if quality < common.ITEM_MAX_QUALITY then
-        local maxStack = world:getItemStatsFromId(productId).MaxStack
+        local maxStack = world:getItemStatsFromId(product.item).MaxStack
         if maxStack == 1 and pyr.upQuality(user) then -- only items with a max stack of 1 have a quality to increase
             quality = quality + 1
         end
@@ -1070,7 +1070,7 @@ function Craft:createItem(user, productId, toolItem)
         end
     end
 
-    local quality = self:generateQuality(user, productId, toolItem)
+    local quality = self:generateQuality(user, product, toolItem)
 
     local itemStats = world:getItemStatsFromId(product.item)
     if itemStats.MaxStack == 1 then
