@@ -21,7 +21,7 @@ local M = {}
 
 function M.passesCheck(user, tool)
 
-    if not common.isInRect(user.pos, tool.pos, 1) then
+    if not common.isInRect(user.pos, tool.pos, 1) and tool.pos ~= position(0,0,0) then
         log("Player "..user.name.." just tried to use a GM tool that was not in range. They were at "..tostring(user.pos).." and the tool at "..tostring(tool.pos)..".")
         return false
     end
