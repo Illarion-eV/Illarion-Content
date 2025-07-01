@@ -21,6 +21,8 @@ local staticObjects = require("magic.arcane.staticObjects")
 local effectScaling = require("magic.arcane.effectScaling")
 local lookat = require("base.lookat")
 local antiTroll = require("magic.base.antiTroll")
+local magic = require("base.magic")
+
 local M = {}
 
 local howManySecondsUntilFullSpeed = 90
@@ -131,7 +133,8 @@ local function plantCreation(user, target, spell, item, level)
             return
         end
         local myPosition = M.getPosition(target)
-        local plant = world:createItemFromId(plantID, 1, myPosition, true, 999, {["illusion"] = tostring(LHOR), ["scaling"] = scaling, ["spell"] = spell, ["level"] = level})
+        local wandGemBonus = magic.getGemBonusWand(user)/100
+        local plant = world:createItemFromId(plantID, 1, myPosition, true, 999, {["illusion"] = tostring(LHOR), ["scaling"] = scaling, ["spell"] = spell, ["level"] = level, ["wandGemBonus"] = wandGemBonus})
         plant.wear = wear
         lookat.SetSpecialName(plant, M.plantRootTexts.name.german, M.plantRootTexts.name.english)
         lookat.SetSpecialDescription(plant, M.plantRootTexts.description.german, M.plantRootTexts.description.english)

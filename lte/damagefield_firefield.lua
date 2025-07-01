@@ -28,13 +28,19 @@ function M.addEffect(theEffect, User)
         local _, quality = theEffect:findValue("quality")
         local foundpenetration, penetration = theEffect:findValue("magicPenetration")
 
+        local foundwandGemBonus, wandGemBonus = theEffect:findValue("wandGemBonus")
+
         if not foundpenetration then
             penetration = 0
         else
             penetration = tonumber(penetration)/100
         end
 
-        icefield.causeDamage(User, quality, penetration)
+        if not foundwandGemBonus then
+            wandGemBonus = 0
+        end
+
+        icefield.causeDamage(User, quality, penetration, wandGemBonus)
     end
 end
 
@@ -58,6 +64,8 @@ function M.callEffect(theEffect, User)
     if User:getQuestProgress(298) == 0 then
         local foundpenetration, penetration = theEffect:findValue("magicPenetration")
 
+        local foundwandGemBonus, wandGemBonus = theEffect:findValue("wandGemBonus")
+
         if not foundpenetration then
             penetration = 0
         else
@@ -70,7 +78,11 @@ function M.callEffect(theEffect, User)
             scaling = math.floor(FieldItem.quality/100)+1
         end
 
-        icefield.causeDamage(User, tonumber(scaling), penetration)
+        if not foundwandGemBonus then
+            wandGemBonus = 0
+        end
+
+        icefield.causeDamage(User, tonumber(scaling), penetration, wandGemBonus)
     end
     -- repeat in 5sec
     theEffect.nextCalled = 50

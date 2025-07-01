@@ -70,7 +70,11 @@ local function trapCreation(user, target, spell, item, level)
     end
 
     local myPosition = plantRoot.getPosition(target)
+
+    local wandGemBonus = 0
+
     if user then
+        wandGemBonus = magic.getGemBonusWand(user)/100
         if user.pos == myPosition then
             return
         end
@@ -79,7 +83,7 @@ local function trapCreation(user, target, spell, item, level)
         return
     end
     local gemBonus = magic.getGemBonusWand(user)/100
-    local trap = world:createItemFromId(graphicID, 1, myPosition, true, 999, {["illusion"] = tostring(LHOR), ["spell"] = spell, ["illuminateWear"] = wear, ["scaling"] = scaling, ["magicPenetration"] = magicPenetration, ["elementBonus"] = elementBonus, ["gemBonus"] = gemBonus, ["level"] = level})
+    local trap = world:createItemFromId(graphicID, 1, myPosition, true, 999, {["illusion"] = tostring(LHOR), ["spell"] = spell, ["illuminateWear"] = wear, ["scaling"] = scaling, ["magicPenetration"] = magicPenetration, ["elementBonus"] = elementBonus, ["gemBonus"] = gemBonus, ["level"] = level, ["wandGemBonus"] = wandGemBonus})
     trap.wear = wear
     if graphicID == 372 then
         lookat.SetSpecialName(trap, earthTrapTexts.name.german, earthTrapTexts.name.english)
@@ -146,6 +150,7 @@ local targets = targeting.getPositionsAndTargets(false, spell, myPosition, true)
 local element = runes.fetchElement(spell)
 local illusion = sourceItem:getData("illusion")
 local level = sourceItem:getData("level")
+local wandGemBonus = sourceItem:getData("wandGemBonus")
 
 if common.IsNilOrEmpty(level) then
     level = 0
@@ -165,7 +170,7 @@ local earthCloud = sourceItem:getData("earthCloud")
     plantRoot.applyPlantRoot(false, targets, spell, sourceItem)
     magicGFXSFX.getTargetGFXSFX(targets, spell, true)
     if sourceItem.id == 3644 then
-        local newPlant = world:createItemFromId(3644, 1, myPosition, true, 999, {["illusion"] = illusion, ["level"] = level})
+        local newPlant = world:createItemFromId(3644, 1, myPosition, true, 999, {["illusion"] = illusion, ["level"] = level, ["wandGemBonus"] = wandGemBonus})
         newPlant.wear = wear
         world:changeItem(newPlant)
         if illusion == "false" then

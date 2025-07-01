@@ -19,6 +19,7 @@ local runes = require("magic.arcane.runes")
 local effectScaling = require("magic.arcane.effectScaling")
 local antiTroll = require("magic.base.antiTroll")
 local MP = require("magic.arcane.magicPenetration")
+local magic = require("base.magic")
 
 local M = {}
 
@@ -163,7 +164,10 @@ local scaling = effectScaling.getEffectScaling(user, target, spell)
 
     local element = runes.fetchElement(spell)
 
+    local wandGemBonus = 0
+
     if user then
+        wandGemBonus = magic.getGemBonusWand(user)/100
         penetration = tostring(MP.getMagicPenetration(user, element, spell))
         if user.pos == targetPos then
             return
@@ -172,7 +176,8 @@ local scaling = effectScaling.getEffectScaling(user, target, spell)
     if M.checkForPreExistingTraps(targetPos) then
         return
     end
-world:createItemFromId(objectID, 1, targetPos, true, 999, {["illusion"] = illusion,["spell"] = spell,["earthCloud"] = earthCloud, ["scaling"] = scaling, ["level"] = level, ["magicPenetration"] = penetration})
+
+world:createItemFromId(objectID, 1, targetPos, true, 999, {["illusion"] = illusion,["spell"] = spell,["earthCloud"] = earthCloud, ["scaling"] = scaling, ["level"] = level, ["magicPenetration"] = penetration, ["wandGemBonus"] = wandGemBonus})
 local item = world:getItemOnField(targetPos)
 item.wear = wear
 world:changeItem(item)
