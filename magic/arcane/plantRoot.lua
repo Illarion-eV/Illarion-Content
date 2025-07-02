@@ -133,7 +133,7 @@ local function plantCreation(user, target, spell, item, level)
             return
         end
         local myPosition = M.getPosition(target)
-        local wandGemBonus = magic.getGemBonusWand(user)/100
+        local wandGemBonus = magic.getGemBonusWand(user)
         local plant = world:createItemFromId(plantID, 1, myPosition, true, 999, {["illusion"] = tostring(LHOR), ["scaling"] = scaling, ["spell"] = spell, ["level"] = level, ["wandGemBonus"] = wandGemBonus})
         plant.wear = wear
         lookat.SetSpecialName(plant, M.plantRootTexts.name.german, M.plantRootTexts.name.english)

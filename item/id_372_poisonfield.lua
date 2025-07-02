@@ -107,7 +107,7 @@ function M.CharacterOnField(user)
                 local wandGemBonus = fieldItem:getData("wandGemBonus")
 
                 if not common.IsNilOrEmpty(wandGemBonus) then
-                    myEffect:addValue("wandGemBonus", wandGemBonus)
+                    myEffect:addValue("wandGemBonus", tonumber(wandGemBonus))
                 end
 
                 user.effects:addEffect(myEffect)

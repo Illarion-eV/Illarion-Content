@@ -94,14 +94,14 @@ function M.CharacterOnField(User)
 
                 local magicPen = FieldItem:getData("magicPenetration")
                 if not common.IsNilOrEmpty(magicPen) then
-                    magicPen = math.floor(tonumber(magicPen*100))
+                    magicPen = math.floor(tonumber(magicPen)*100)
                     myEffect:addValue("magicPenetration", magicPen)
                 end
 
                 local wandGemBonus = FieldItem:getData("wandGemBonus")
 
                 if not common.IsNilOrEmpty(wandGemBonus) then
-                    myEffect:addValue("wandGemBonus", wandGemBonus)
+                    myEffect:addValue("wandGemBonus", tonumber(wandGemBonus))
                 end
 
                 User.effects:addEffect(myEffect)

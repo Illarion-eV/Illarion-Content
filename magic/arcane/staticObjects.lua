@@ -167,7 +167,7 @@ local scaling = effectScaling.getEffectScaling(user, target, spell)
     local wandGemBonus = 0
 
     if user then
-        wandGemBonus = magic.getGemBonusWand(user)/100
+        wandGemBonus = magic.getGemBonusWand(user)
         penetration = tostring(MP.getMagicPenetration(user, element, spell))
         if user.pos == targetPos then
             return

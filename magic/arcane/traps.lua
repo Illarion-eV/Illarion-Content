@@ -74,7 +74,7 @@ local function trapCreation(user, target, spell, item, level)
     local wandGemBonus = 0
 
     if user then
-        wandGemBonus = magic.getGemBonusWand(user)/100
+        wandGemBonus = magic.getGemBonusWand(user)
         if user.pos == myPosition then
             return
         end

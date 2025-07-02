@@ -28,6 +28,8 @@ function M.causeDamage(User, quality, penetration, wandGemBonus)
 
     local cloakGemBonus = magic.getGemBonusCloak(User)/100
 
+    wandGemBonus = wandGemBonus/100
+
     if resist < quality then
         local damageLow = 100 + 40 * (quality) --Anywhere between 140 and 500
         local damageHigh = 100 + 80 * (quality) -- between 180 and 900
