@@ -27,7 +27,16 @@ local M = {}
 function M.applyStun(user, target, spell)
     local baseStunDuration = 1
     local scaling = effectScaling.getEffectScaling(user, target, spell)
+
+    if target:getType() == Character.player then
+        scaling = scaling - 0.5
+    end
+
     local stunDuration = baseStunDuration * scaling
+
+    if target:getType() == Character.player then --limits in PvP, mana cost and higher will/resistances for monsters should be enough in PvE
+        stunDuration = math.max(1.2, math.min(2, stunDuration))
+    end
 
     if testing.active then
         target:talk(Character.say, "#me is stunned for "..tostring(stunDuration))
