@@ -208,7 +208,7 @@ function M.LookAtDonfbladeMap(User, Item)
 
     if not targetData then
         lookat.SetSpecialDescription(Item,
-        "Das Donfblatt scheint so etwas eine Karte zu sein. Eine Pfotenabdruck markiert eine Stelle, die sich scheinbar ganz in deiner Nähe befindet.",
+        "Das Donfblatt scheint so etwas wie eine Karte zu sein. Eine Pfotenabdruck markiert eine Stelle, die sich scheinbar ganz in deiner Nähe befindet.",
         "The donblade seems to be some kind of a map. A paw print shows a mark that is somewhere very close to you.")
     else
         lookat.SetSpecialDescription(Item,
