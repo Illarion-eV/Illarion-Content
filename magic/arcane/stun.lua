@@ -35,7 +35,7 @@ function M.applyStun(user, target, spell)
     local stunDuration = baseStunDuration * scaling
 
     if target:getType() == Character.player then --limits in PvP, mana cost and higher will/resistances for monsters should be enough in PvE
-        stunDuration = math.max(1.2, math.min(2, stunDuration))
+        stunDuration = math.max(0.1, math.min(2, stunDuration))
     end
 
     if testing.active then
