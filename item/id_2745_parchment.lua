@@ -201,9 +201,13 @@ function M.UseItem(user, SourceItem,ltstate,checkVar)
         if ltstate == Action.none then
             noteListView(user, ltstate, SourceItem, instrument)
         else
-
             if _G.playtogether[user.id] and not _G.playtogether[user.id].signalGiven and _G.playtogether[user.id].waiting then
-                _G.playtogether[user.id].count = _G.playtogether[user.id] + 1
+
+                if not _G.playtogether[user.id].count then
+                    _G.playtogether[user.id].count = 0
+                end
+
+                _G.playtogether[user.id].count = _G.playtogether[user.id].count + 1
                 if _G.playtogether[user.id].count < 3000 then --If it's been more than 5 minutes without anyone starting to play we break the loop
                     user:startAction( 1, 0, 0, 0, 0)
                 end

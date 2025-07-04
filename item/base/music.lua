@@ -390,7 +390,7 @@ function M.playMusicTogether(user, actionState)
     local dialog = SelectionDialog(common.GetNLS(user, "Mit anderen Musik machen", "Play Music With Others"), text, callback)
 
     dialog:addOption(0, common.GetNLS(user, "Das Startsignal geben", "Give the signal to start"))
-    dialog:addOption(0, common.GetNLS(user, "Das Startsignal geben", "Wait for the signal"))
+    dialog:addOption(0, common.GetNLS(user, "Auf das Startsignal warten", "Wait for the signal"))
 
     dialog:setCloseOnMove()
 
