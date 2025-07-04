@@ -291,6 +291,15 @@ function M.onAttack(Attacker, Defender)
         return
     end
 
+    local foundEffect, Paralysis = Attacker.effects:find(23)
+
+    if foundEffect then
+        local foundTime, timeLeft = Paralysis:findValue("timeLeft")
+        if foundTime and timeLeft >= 1 then
+            return -- No attacking while paralysed
+        end
+    end
+
     -- Store the enemey as the current target of this player
     if character.IsPlayer(Attacker) then
        fightingutil.setSelectedEnemyId(Attacker.id, Defender.id)
@@ -845,7 +854,7 @@ function CauseDamage(Attacker, Defender, Globals)
             "#me stumbles back.")
 
         if not Defender.Char:isAdmin() then --Admins don't want to get paralysed!
-            common.ParalyseCharacter(Defender.Char, 2, false, true)
+            common.ParalyseCharacter(Defender.Char, 20, false, true)
             local TimeFactor=1 -- See lte.chr_reg
             chr_reg.stallRegeneration(Defender.Char, 60/TimeFactor)
             -- Stall regeneration for one minute.
@@ -1430,11 +1439,11 @@ function Specials(Attacker, Defender, Globals)
 
         if targetPos ~= nil then
             Defender.Char:warp(targetPos)
-            common.ParalyseCharacter(Defender.Char, 2, false, true)
+            common.ParalyseCharacter(Defender.Char, 20, false, true)
         end
     elseif(Globals.criticalHit==5) then
         --Stun
-        common.ParalyseCharacter(Defender.Char, 2, false, true)
+        common.ParalyseCharacter(Defender.Char, 20, false, true)
     end
 end
 

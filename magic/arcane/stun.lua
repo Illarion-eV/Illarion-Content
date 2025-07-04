@@ -39,10 +39,10 @@ function M.applyStun(user, target, spell)
     end
 
     if testing.active then
-        target:talk(Character.say, "#me is stunned for "..tostring(stunDuration))
+        target:talk(Character.say, "#me is stunned for "..tostring(math.floor(stunDuration*10)/10).." seconds.")
     end
 
-    common.ParalyseCharacter(target, stunDuration, false, true)
+    common.ParalyseCharacter(target, math.floor(stunDuration*10), false, true)
 end
 
 function M.checkForStun(user, spell, targets)

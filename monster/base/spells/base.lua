@@ -73,7 +73,7 @@ function M.dealMagicDamage(target, damage, usedMovepoints, level, monster)
             common.TalkNLS(target, Character.say, "#me geht zu Boden.", "#me falls to the ground.")
 
             if not target:isAdmin() then --Admins don't want to get paralysed!
-                common.ParalyseCharacter(target, 2, false, true)
+                common.ParalyseCharacter(target, 20, false, true)
             end
 
             local timeFactor = 1 -- See lte.chr_reg

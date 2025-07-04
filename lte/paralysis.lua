@@ -34,7 +34,7 @@ function M.callEffect( Paralysis, Target )
 
     if timeLeft>0 then
         Target.movepoints = -500
-        Paralysis.nextCalled = 10
+        Paralysis.nextCalled = 1
         Paralysis:addValue("timeLeft", math.max(0, timeLeft-1))
         return true
     end
@@ -45,7 +45,7 @@ end
 function M.loadEffect( Paralysis, Target )
 
     Target.movepoints = -500
-    Paralysis.nextCalled = 10
+    Paralysis.nextCalled = 1
 end
 
 function M.removeEffect( Paralysis, Target )
