@@ -1223,6 +1223,12 @@ function M.ParalyseCharacter(Target, Time, Cumulative, forced)
         Time = math.max(Time, timeLeft)
     end
 
+    if not _G.extendedCastingTimeForParalysis then
+        _G.extendedCastingTimeForParalysis = {}
+    end
+
+    _G.extendedCastingTimeForParalysis[Target.id] = math.max(0,Time)
+
     if (Time ~= timeLeft) then
         Paralysis:addValue("timeLeft", math.max(0,Time))
         return true

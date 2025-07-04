@@ -27,6 +27,7 @@ local diminishingReturns = require("magic.arcane.diminishingReturns")
 local skilling = require("magic.arcane.skilling")
 local common = require("base.common")
 local magic = require("base.magic")
+local testing = require("base.testing")
 
 local M = {}
 
@@ -230,10 +231,57 @@ function M.castSpell(user, spell, actionState, oralCast)
 
         M[user.id].storedDuration = castDuration
 
+        local foundEffect, paralysis = user.effects:find(23)
+
+        if foundEffect then
+            local foundTime, timeLeft = paralysis:findValue("timeLeft")
+            if foundTime and timeLeft >= 1 then
+                M[user.id].extendBy = timeLeft
+            else
+                M[user.id].extendBy = 0
+            end
+        else
+            M[user.id].extendBy = 0
+        end
+
+        if not _G.extendedCastingTimeForParalysis then
+            _G.extendedCastingTimeForParalysis = {}
+        end
+
+        _G.extendedCastingTimeForParalysis[user.id] = 0
+
         user:startAction(castDuration, castGFX, castGFXDuration, castSFX, castSFXDuration)
     elseif actionState == Action.abort then
         return
     elseif actionState == Action.success then
+
+        --if paralysed then we extend the cast timer by the time paralysed
+
+        if not _G.extendedCastingTimeForParalysis then
+            _G.extendedCastingTimeForParalysis = {}
+        end
+
+        if M[user.id].extendBy > 0 then
+
+            if testing.active then
+                user:talk(Character.say, "#me's cast is extended by "..(M[user.id].extendBy/10).." seconds.")
+            end
+
+            user:startAction(M[user.id].extendBy, castGFX, castGFXDuration, castSFX, castSFXDuration)
+            return
+
+        elseif _G.extendedCastingTimeForParalysis[user.id] and _G.extendedCastingTimeForParalysis[user.id] > 0 then
+
+            if testing.active then
+                user:talk(Character.say, "#me's cast is extended by "..(_G.extendedCastingTimeForParalysis[user.id]/10).." seconds.")
+            end
+
+            user:startAction(_G.extendedCastingTimeForParalysis[user.id], castGFX, castGFXDuration, castSFX, castSFXDuration)
+            _G.extendedCastingTimeForParalysis[user.id] = 0
+
+            return
+        end
+
         if not range.isTargetInRange(user, spell, element, M[user.id].thePosition) then
             user:inform(myTexts.range.german, myTexts.range.english)
             return
