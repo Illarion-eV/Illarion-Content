@@ -15,7 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
-return {active = true}
+return {active = false}
 --[[
 Set this to true if testing and false if releasing.
 This way we don't have to remove useful testing logging before release and can instead just set it behind
