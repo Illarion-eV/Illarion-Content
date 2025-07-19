@@ -47,6 +47,17 @@ end
 
 M.checkOwner = moreUtility.checkOwner
 
+function M.checkForCoTenants(deed, user)
+
+    for i = 1, 10 do
+        local cotenant = deed:getData("coTenantID"..i)
+
+        if not common.IsNilOrEmpty(cotenant) and tonumber(cotenant) == user.id then
+            return true
+        end
+    end
+end
+
 
 
  function M.checkIfStairsOrTrapDoor(itemId)
@@ -424,7 +435,7 @@ function M.isTenant(user)
 
     local tenantID = deed:getData("tenantID")
 
-    if tenantID ~= "" and tonumber(tenantID) == user.id then
+    if (tenantID ~= "" and tonumber(tenantID) == user.id) or M.checkForCoTenants(deed, user) then
         return true
     end
 
@@ -457,6 +468,10 @@ function M.allowBuilding(user, alternatePosition)
         local tenantID = deed:getData("tenantID")
 
         if tenantID ~= "" and tonumber(tenantID) == user.id then
+            return true
+        end
+
+        if M.checkForCoTenants(deed, user) then
             return true
         end
 
@@ -1827,6 +1842,11 @@ function M.removeTenantGuestBuilderDuration(propertyDeed)
     propertyDeed:setData("tenant", "")
     propertyDeed:setData("tenantID", "")
 
+    for number = 1, 10 do
+        propertyDeed:setData("coTenant"..number, "")
+        propertyDeed:setData("coTenantID"..number, "")
+    end
+
     for number = 1, M.max_builder_number do
         propertyDeed:setData("builder"..number, "")
         propertyDeed:setData("builderID"..number, "")
@@ -2054,6 +2074,87 @@ function M.removeOwner(user, item, property)
     end
 end
 
+function M.setRemoveCoTenant(user, deed, propertyName)
+
+    if not deed then
+        deed = M.getPropertyDeed(propertyName)
+    end
+
+    if not propertyName then
+        propertyName = M.getPropertyName(deed)
+    end
+
+
+    local callback = function(dialog)
+
+        local success = dialog:getSuccess()
+
+        if not success then
+            return
+        end
+
+        local selected = dialog:getSelectedIndex()+1
+
+        for i = 1, 10 do
+            if selected == i then
+                local callback2 = function (dialog2)
+
+                    if not dialog2:getSuccess() then
+                        return
+                    end
+
+                    local input = dialog2:getInput()
+
+                    if (input == nil or input == '') then
+                        deed:setData("coTenantID"..selected, "")
+                        deed:setData("coTenant"..selected, "")
+                        world:changeItem(deed)
+                    else
+                        local tenantExists, tenantID = world:getPlayerIdByName(input)
+
+                        if not tenantExists then
+                            informDoesntExist(user)
+                        elseif M.checkIfOwnsProperty(input) and not M.checkIfEstateViaName(propertyName) then
+                            user:inform(M.getText(user,"Der Charakter mietet bereits ein Grundstück.","Character already rents a property."))
+                        else
+                            deed:setData("coTenantID"..selected, tenantID)
+                            deed:setData("coTenant"..selected, input)
+                            world:changeItem(deed)
+                            user:inform(M.getText(user,input.." wurde als neuer Mitmieterin eingetragen.",input.." set as new co tenant."))
+                        end
+                    end
+                end
+
+            user:requestInputDialog(InputDialog(M.getText(user,"Mieter eintragen","Set Tenant"),
+            M.getText(user,"Schreiben Sie den Namen der Person, die Sie als neuen Mitmieterin einsetzen möchten, oder lassen Sie das Feld leer, um einfach die bisherige Person aus dem gewählten Slot zu entfernen.",
+            "Write in the name of who you want to set as the new co tenant, or leave it empty to just delete the old one of the selected slot."), false, 255, callback2))
+            end
+        end
+    end
+
+    local dialog = SelectionDialog(
+    M.getText(user, "Mitbewalterverwaltung", "Co-tenant management"),
+    M.getText(user, "Wähle einen Slot, um ihn mit einem neuen Mitbewohner zu überschreiben oder den alten Mitbewohner zu löschen.", "Select a slot to overwrite with a new co-tenant, or delete the old co-tenant of."),
+    callback)
+
+    for i = 1, 10 do
+
+        local coTenant = deed:getData("coTenant"..i)
+
+        if not common.IsNilOrEmpty(coTenant) then
+            dialog:addOption(0, coTenant)
+        else
+            dialog:addOption(0, M.getText(user, "Leerer Platz", "Empty slot"))
+        end
+    end
+
+
+    user:requestSelectionDialog(dialog)
+
+end
+
+
+
 function M.setOwner(user, item, propertyName)
     local property
 
@@ -2109,6 +2210,13 @@ function M.checkIfOwnsProperty(Input)
 
         if tenant ~= "" and tenant == Input and not M.checkIfEstateViaName(propertyName) then
             return true
+        end
+
+        for y = 1, 10 do
+            local coTenant = propertyDeed:getData("coTenant"..y)
+            if not common.IsNilOrEmpty(coTenant) and coTenant == Input and not M.checkIfEstateViaName(propertyName) then
+                return true
+            end
         end
     end
 
@@ -2232,7 +2340,7 @@ function M.deleteKeys(char, inform)
                 local deleteKey = false
 
                 if not noTenant then
-                    characterIsTenant = char.id == tonumber(tenantID)
+                    characterIsTenant = char.id == tonumber(tenantID) or M.checkForCoTenants(propertyDeed, char)
                     characterIsGuest = M.checkIfPlayerIsGuest(char, propertyName)
                 end
 
@@ -2395,6 +2503,30 @@ function M.propertyInformation(user, deed)
     local townLeaderTitle = M.getTownLeaderTitle(town, "EN")
     local townLeaderTitleDE = M.getTownLeaderTitle(town, "DE")
 
+
+    local tenantDe = tenant
+    local tenantEn = tenant
+
+    local additionalTenants = {}
+
+    for i = 1, 10 do
+        local name = deed:getData("coTenant"..i)
+        if not common.IsNilOrEmpty(name) then
+            table.insert(additionalTenants, name)
+        end
+    end
+
+    for index, additionalTenant in ipairs(additionalTenants) do
+
+        if index == #additionalTenants then
+            tenantDe = tenantDe.." und"
+            tenantEn = tenantEn.." and"
+        end
+
+        tenantDe = tenantDe.." "..additionalTenant
+        tenantEn = tenantEn.." "..additionalTenant
+    end
+
     local retText
 
     if M.checkOwner(deed) == "Unowned" then -- Shows info specific for when property is unowned
@@ -2421,7 +2553,7 @@ function M.propertyInformation(user, deed)
         " mieten."..rankText.german..shouldYouWish.german,
         "It is now possible to rent the "..property..
         " at a price of "..rent..rankText.english..shouldYouWish.english)
-    elseif M.checkOwner(deed) == user.id then -- Shows info specific for when property is owned by user
+    elseif M.checkOwner(deed) == user.id or M.checkForCoTenants(deed, user) then -- Shows info specific for when property is owned by user
 
         local germanText
         local englishText
@@ -2475,18 +2607,18 @@ function M.propertyInformation(user, deed)
     else -- Shows info specific for when property is owned but not by user.
         if town ~= "Troll's Haven" then
             retText = M.getText(user,
-            "Dieses Grundstück wird aktuell gemietet von "..tenant..
+            "Dieses Grundstück wird aktuell gemietet von "..tenantDe..
             ". Solltest du irgendwelche Bedenken haben oder ein freies Grundstück mieten wollen, wende dich bitte an \z
             den Quartiermeister oder melde dich bei der "..townLeaderTitleDE..
             ".\nUnterzeichnet, "..signatureDE,
-            "This property is currently being leased to "..tenant..
+            "This property is currently being leased to "..tenantEn..
             ". Should you have any concerns, or wish to rent a property that is currently available, please \z
             seek out the Quartermaster or one of your "..townLeaderTitle..
             "s.\n~Signed, "..signatureEN)
         elseif town == "Troll's Haven" then
 
-            local germanText = "Dieses Zimmer ist derzeit an "..tenant.." vermietet. Sprich mit Halbgehängtem Bryan, wenn du anbieten möchtest, eine höhere Miete als er zu zahlen."
-            local englishText = "This room is currently being leased to "..tenant..". Talk to half-hung Bryan if you want to offer to pay a higher rent than they do for the room."
+            local germanText = "Dieses Zimmer ist derzeit an "..tenantDe.." vermietet. Sprich mit Halbgehängtem Bryan, wenn du anbieten möchtest, eine höhere Miete als er zu zahlen."
+            local englishText = "This room is currently being leased to "..tenantEn..". Talk to half-hung Bryan if you want to offer to pay a higher rent than they do for the room."
 
             retText = M.getText(user, germanText, englishText)
         end
@@ -2514,9 +2646,37 @@ function M.abandonPropertyDialog(user, item)
     user:requestSelectionDialog(dialog)
 end
 
-function M.abandonProperty(user, item)
+function M.abandonProperty(user, deed)
 
-    M.removeTenantGuestBuilderDuration(item)
+    if M.checkForCoTenants(deed, user) then --only remove co tenant status if a co tenant abandons property
+        for i = 1, 10 do
+            local coTenantId = deed:getData("coTenantID"..i)
+            if not common.IsNilOrEmpty(coTenantId) and tonumber(coTenantId) == user.id then
+                deed:setData("coTenantID"..i, "")
+                deed:setData("coTenant"..i, "")
+                world:changeItem(deed)
+            end
+        end
+    else
+
+        local replacedTenantWithCoTenant = false
+
+        for i = 1, 10 do
+            local coTenantId = deed:getData("coTenantID"..i)
+            if not common.IsNilOrEmpty(coTenantId) then
+                replacedTenantWithCoTenant = true
+                deed:setData("tenantID", coTenantId)
+                deed:setData("tenant", deed:getData("coTenant"..i))
+                deed:setData("coTenantID"..i, "")
+                deed:setData("coTenant"..i, "")
+                world:changeItem(deed)
+            end
+        end
+
+        if not replacedTenantWithCoTenant then
+            M.removeTenantGuestBuilderDuration(deed)
+        end
+    end
 
     M.keyRetrieval(user)
 
@@ -2953,8 +3113,11 @@ function M.payRent(user, item)
                     money.TakeMoneyFromChar(user, rent_cost)
                     M.addRent(town, rent_cost)
                     item:setData("rentDuration", (tonumber(input) + tonumber(rentDuration)))
-                    item:setData("tenant", user.name)
-                    item:setData("tenantID", user.id)
+
+                    if not M.checkForCoTenants(item, user) and not tonumber(item:getData("tenantID")) == user.id then
+                        item:setData("tenant", user.name)
+                        item:setData("tenantID", user.id)
+                    end
                     world:changeItem(item)
                     user:inform(M.getText(user,"Auch wenn sich dein Geldbeutel nun deutlich leichter anfühlt, erfüllt dich das gute Gefühl, dass dein Grundstück dir für weitere "..input.." Monate gehört.","Your purse may feel lighter, but you rest comfortably in the knowledge that the residence before you is now yours for an additional "..input.." months."))
                 end
@@ -2963,7 +3126,7 @@ function M.payRent(user, item)
         end
     end
 
-    if M.checkOwner(item) == user.id then
+    if M.checkOwner(item) == user.id or M.checkForCoTenants(item, user) then
 
         local rentDuration = item:getData("rentDuration")
 
@@ -3246,6 +3409,15 @@ function M.setIndefiniteRent(user, item, propertyName)
 
             local tenant = propertyDeed:getData("tenantID")
             messenger.sendMessageViaScript(tenantEnglish, tenantGerman, tenant)
+
+            for i = 1, 10 do
+                local coTenant = propertyDeed:getData("coTenantID"..i)
+
+                if not common.IsNilOrEmpty(coTenant) then
+                    messenger.sendMessageViaScript(tenantEnglish, tenantGerman, coTenant)
+                end
+            end
+
         end
     end
 
@@ -3430,6 +3602,14 @@ function M.setRent(user, item, property)
                 if not common.IsNilOrEmpty(tenant) then
                     tenant = tonumber(tenant)
                     messenger.sendMessageViaScript(textToImpactedPlayer.english, textToImpactedPlayer.german, tenant)
+                end
+
+                for i = 1, 10 do
+                    local coTenant = propertyDeed:getData("coTenantID"..i)
+
+                    if not common.IsNilOrEmpty(coTenant) then
+                        messenger.sendMessageViaScript(textToImpactedPlayer.english, textToImpactedPlayer.german, coTenant)
+                    end
                 end
             end
         else

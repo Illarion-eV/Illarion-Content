@@ -16,41 +16,43 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local runes = require("magic.arcane.runes")
-local castingSpeed = require("magic.arcane.castingSpeed")
+local effectScaling = require("magic.arcane.effectScaling")
+local common = require("base.common")
+local testing = require("base.testing")
+
 
 local M = {}
 
-function M.getBaseStunDuration()
-local duration = castingSpeed.castingSpeedByRuneSize("Short") + castingSpeed.castingSpeedByRuneSize("Medium")*3 -- May need tweaking to prevent permastun
 
-return duration
-end
+function M.applyStun(user, target, spell)
+    local baseStunDuration = 1
+    local scaling = effectScaling.getEffectScaling(user, target, spell)
 
-local function getTargetsResistance(target)
-local maxReduction = M.getBaseStunDuration()
-local retVal = 0
-    if retVal > maxReduction then
-        retVal = maxReduction
+    if target:getType() == Character.player then
+        scaling = scaling - 0.5
     end
-return retVal
+
+    local stunDuration = baseStunDuration * scaling
+
+    if target:getType() == Character.player then --limits in PvP, mana cost and higher will/resistances for monsters should be enough in PvE
+        stunDuration = math.max(0.1, math.min(2, stunDuration))
+    end
+
+    if testing.active then
+        target:talk(Character.say, "#me is stunned for "..tostring(math.floor(stunDuration*10)/10).." seconds.")
+    end
+
+    common.ParalyseCharacter(target, math.floor(stunDuration*10), false, true)
 end
 
-function M.applyStun(target)
-local baseStunDuration = M.getBaseStunDuration()
-local reduceStun = getTargetsResistance(target)
-local stunDuration = baseStunDuration - reduceStun
-
-target.movepoints = target.movepoints - stunDuration
-end
-
-function M.checkForStun(spell, targets)
+function M.checkForStun(user, spell, targets)
 local HEPT = runes.checkSpellForRuneByName("HEPT", spell)
 local PEN = runes.checkSpellForRuneByName("PEN", spell)
     if not HEPT or PEN then
         return
     end
     for _, target in pairs(targets.targets) do
-        M.applyStun(target)
+        M.applyStun(user, target, spell)
     end
 end
 

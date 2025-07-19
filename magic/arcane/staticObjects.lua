@@ -18,6 +18,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local runes = require("magic.arcane.runes")
 local effectScaling = require("magic.arcane.effectScaling")
 local antiTroll = require("magic.base.antiTroll")
+local MP = require("magic.arcane.magicPenetration")
+local magic = require("base.magic")
 
 local M = {}
 
@@ -158,7 +160,15 @@ local scaling = effectScaling.getEffectScaling(user, target, spell)
         return
     end
 
+    local penetration = "0"
+
+    local element = runes.fetchElement(spell)
+
+    local wandGemBonus = 0
+
     if user then
+        wandGemBonus = magic.getGemBonusWand(user)
+        penetration = tostring(MP.getMagicPenetration(user, element, spell))
         if user.pos == targetPos then
             return
         end
@@ -166,7 +176,8 @@ local scaling = effectScaling.getEffectScaling(user, target, spell)
     if M.checkForPreExistingTraps(targetPos) then
         return
     end
-world:createItemFromId(objectID, 1, targetPos, true, 999, {["illusion"] = illusion,["spell"] = spell,["earthCloud"] = earthCloud, ["scaling"] = scaling, ["level"] = level})
+
+world:createItemFromId(objectID, 1, targetPos, true, 999, {["illusion"] = illusion,["spell"] = spell,["earthCloud"] = earthCloud, ["scaling"] = scaling, ["level"] = level, ["magicPenetration"] = penetration, ["wandGemBonus"] = wandGemBonus})
 local item = world:getItemOnField(targetPos)
 item.wear = wear
 world:changeItem(item)

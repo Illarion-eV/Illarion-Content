@@ -1223,6 +1223,12 @@ function M.ParalyseCharacter(Target, Time, Cumulative, forced)
         Time = math.max(Time, timeLeft)
     end
 
+    if not _G.extendedCastingTimeForParalysis then
+        _G.extendedCastingTimeForParalysis = {}
+    end
+
+    _G.extendedCastingTimeForParalysis[Target.id] = math.max(0,Time)
+
     if (Time ~= timeLeft) then
         Paralysis:addValue("timeLeft", math.max(0,Time))
         return true
@@ -2202,11 +2208,13 @@ leadAttribTable[Character.pottery]= {first = "agility", second = "dexterity"}
 leadAttribTable[Character.armourer]= {first = "strength", second = "dexterity"}
 leadAttribTable[Character.brewing]= {first = "perception", second = "dexterity"}
 
---Dexterity: Instruments (please remove these skills in future)
+--Dexterity: Instruments
 leadAttribTable[Character.harp]="dexterity"
 leadAttribTable[Character.horn]="dexterity"
 leadAttribTable[Character.flute]="dexterity"
 leadAttribTable[Character.lute]="dexterity"
+leadAttribTable[Character.panpipe]="dexterity"
+leadAttribTable[Character.clavichord]="dexterity"
 
 --Constitution: All gathering skills have it as their second attrib, with varying first attribs
 leadAttribTable[Character.herblore]= {first = "perception", second = "constitution"}

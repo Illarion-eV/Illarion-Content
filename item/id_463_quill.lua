@@ -23,6 +23,7 @@ local lookat = require("base.lookat")
 local parchmentScript = require("item.id_2745_parchment")
 local bookWriting = require("item.base.bookWriting")
 local grimoire = require("magic.arcane.grimoireCreation")
+local music = require("item.base.music")
 
 local wood = require("item.general.wood")
 
@@ -407,7 +408,7 @@ end
 
 local function checkForRequiredItem(user, parchmentOrBook)
 
-    if parchmentOrBook.id == Item.parchment and (common.IsNilOrEmpty(parchmentOrBook:getData("writtenText")) and parchmentOrBook:getData("alchemyRecipe") ~= "true") then
+    if parchmentOrBook.id == Item.parchment and (common.IsNilOrEmpty(parchmentOrBook:getData("writtenText")) and parchmentOrBook:getData("alchemyRecipe") ~= "true") and common.IsNilOrEmpty(parchmentOrBook:getData("instrument"))then
         user:inform("Das Pergament muss beschrieben sein.", "The parchment must be written on.")
         return
     end
@@ -593,6 +594,8 @@ function M.UseItem(user, sourceItem, ltstate)
                 end
             elseif selected == 9 then
                 copyBookOrParchment(user)
+            elseif selected == 10 then
+                music.composeMusic(user, sourceItem)
             end
         end
     end
@@ -607,6 +610,7 @@ function M.UseItem(user, sourceItem, ltstate)
     dialog:addOption(0, getText(user, "Buch verfassen", "Author a book"))
     dialog:addOption(0, getText(user,"Buch beschriften","Label a book"))
     dialog:addOption(0, getText(user, "Buch oder Pergament kopieren", "Copy a book or parchment"))
+    dialog:addOption(0, getText(user, "Musik komponieren", "Music Composing"))
     user:requestSelectionDialog(dialog)
 end
 

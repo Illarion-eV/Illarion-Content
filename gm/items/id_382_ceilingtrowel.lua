@@ -1992,8 +1992,10 @@ function M.decideWhatToDoWithProperty(User, property)
                 utility.setReqRank(User, nil, property)
             elseif index == 10 then
                 utility.setIndefiniteRent(User, nil, property)
-            else
+            elseif index == 11 then
                 utility.allowAutomaticRentExtension(User, nil, property)
+            elseif index == 12 then
+                utility.setRemoveCoTenant(User, nil, property)
             end
         end
     end
@@ -2009,6 +2011,7 @@ function M.decideWhatToDoWithProperty(User, property)
     dialog:addOption(0,"Set Required Rank")
     dialog:addOption(0,"Indefinite Rent Settings")
     dialog:addOption(0,"Automatic Rent Settings")
+    dialog:addOption(0,"Set co-tenant")
     User:requestSelectionDialog(dialog)
 end
 

@@ -1254,10 +1254,11 @@ local function heptPuzzleSolved()
         local itemsOnField = field:countItems()
         local currentItem
         local campfire = Item.campFire
+        local magicFire = 359
 
         for i = 0, itemsOnField-1 do
             currentItem = field:getStackItem(i)
-            if currentItem.id == campfire then
+            if currentItem.id == campfire or currentItem.id == magicFire then
                 fireFound = true
                 break
             end

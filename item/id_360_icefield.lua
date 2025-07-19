@@ -84,12 +84,24 @@ function M.CharacterOnField(User)
             local foundEffect = User.effects:find(111); -- iceflame lte
             if not foundEffect then
                 local myEffect = LongTimeEffect(111, 50) --5sec
-                myEffect:addValue("quality", FieldItem.quality);
+                local scaling = FieldItem:getData("scaling")
+
+                if common.IsNilOrEmpty(scaling) then
+                    scaling = math.floor(FieldItem.quality/100)+1
+                end
+
+                myEffect:addValue("quality", tonumber(scaling))
 
                 local magicPen = FieldItem:getData("magicPenetration")
                 if not common.IsNilOrEmpty(magicPen) then
                     magicPen = math.floor(tonumber(magicPen)*100)
                     myEffect:addValue("magicPenetration", magicPen)
+                end
+
+                local wandGemBonus = FieldItem:getData("wandGemBonus")
+
+                if not common.IsNilOrEmpty(wandGemBonus) then
+                    myEffect:addValue("wandGemBonus", tonumber(wandGemBonus))
                 end
 
                 User.effects:addEffect(myEffect)

@@ -48,13 +48,13 @@ product:addIngredient(52, 1) -- bucket of water
 
 -- baked potato
 product = baking:addProduct(catId, 3568, 1)
-product:addIngredient(3567, 3) -- potato
+product:addIngredient(3567, 1) -- potato
 product:addIngredient(3573, 1) -- cheese
 
 -- potato bread
 product = baking:addProduct(catId, 49, 1)
 product:addIngredient(2, 4) -- flour
-product:addIngredient(3567, 3) -- potato
+product:addIngredient(3567, 1) -- potato
 product:addIngredient(52, 1) -- bucket of water
 
 -- sausage on bread
@@ -116,7 +116,7 @@ product:addIngredient(52, 1) -- bucket of water
 product = baking:addProduct(catId, 1153, 1)
 product:addIngredient(2, 2) -- flour
 product:addIngredient(1150, 10) -- white egg
-product:addIngredient(778, 4) -- sugarcane
+product:addIngredient(778, 1) -- sugarcane
 product:addIngredient(2502, 1) -- bottle of milk
 product:addIngredient(52, 1) -- bucket of water
 
@@ -126,7 +126,7 @@ product:addIngredient(2, 6) -- flour
 product:addIngredient(143, 20) -- red elder
 product:addIngredient(81, 5) -- berries
 product:addIngredient(1207, 5) -- orange
-product:addIngredient(778, 4) -- sugarcane
+product:addIngredient(778, 1) -- sugarcane
 product:addIngredient(52, 1) -- bucket of water
 
 M.baking = baking

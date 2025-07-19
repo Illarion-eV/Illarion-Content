@@ -18,6 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- deadPlayer - The player (character) whose hitpoints have just been set to zero
 
 local common = require("base.common")
+local resurrected = require("lte.resurrected")
 
 local M = {}
 
@@ -51,12 +52,27 @@ function M.playerDeath(deadPlayer)
         return --bailing out!
     end
 
+    local deaths = deadPlayer:getQuestProgress(resurrected.deathsTracker) + 1
+
+    deadPlayer:setQuestProgress(resurrected.deathsTracker, deaths)
+
+    if deaths == 100 then --Just some for fun logging down the line ^^
+        log("Wow! "..deadPlayer.name.." has died a 100 times! They must really suck at this game.")
+    elseif deaths == 1000 then
+        log("How is it even possible? "..deadPlayer.name.." has died a 1000 times! What a masochist!")
+    end
+
     -- Valid death.
     world:makeSound(25, deadPlayer.pos)
     showDeathDialog(deadPlayer)
 
+    deaths = resurrected.getRPvsDeaths(deadPlayer)
+
     -- Death consequence #1: Durability loss of equipped items.
     local DURABILITY_LOSS = 10
+
+    DURABILITY_LOSS = math.min(99, math.floor(DURABILITY_LOSS * (1 + 0.2*deaths)))
+
     if deadPlayer:isNewPlayer() then
         DURABILITY_LOSS = 5
     end
@@ -89,31 +105,75 @@ function M.playerDeath(deadPlayer)
     end
 
     local candidates = {}
+    local lowerValCandidates = {}
+
     for i = 0, 99 do
         local worked, theItem = bag:viewItemNr(i)
         local theItemStats = world:getItemStats(theItem)
-        if theItem and worked and common.IsNilOrEmpty(theItem:getData("descriptionEn")) and common.IsNilOrEmpty(theItem:getData("descriptionDe")) and common.IsNilOrEmpty(theItem:getData("rareness")) and (theItem.number * theItemStats.Worth) > 200 then
-            table.insert(candidates, i)
+        if theItem and worked and common.IsNilOrEmpty(theItem:getData("descriptionEn")) and common.IsNilOrEmpty(theItem:getData("descriptionDe")) and (common.IsNilOrEmpty(theItem:getData("rareness")) or not common.IsNilOrEmpty(theItem:getData("craftedRare"))) then
+            if (theItem.number * theItemStats.Worth) > 200 then
+                table.insert(candidates, i)
+            else
+                table.insert(lowerValCandidates, i)
+            end
         end
     end
 
-    if #candidates == 0 then
+    if #candidates + #lowerValCandidates == 0 then
         -- No item found that we can responsibly take away.
         return
     end
 
     local counter = 0
+
+    local max_drops = 3
+
+    local inform = common.GetNLS(deadPlayer, "Du stellst fest, dass du nach deinem Tod die folgenden Dinge verloren hast:", "You find you've lost the following items upon your death:")
+
+    max_drops = math.random(math.floor(max_drops * ( 1 + deaths*0.1)), math.ceil(max_drops * ( 1 + deaths*0.1)))
+
+    local itemsToDrop = math.min(#candidates + #lowerValCandidates, max_drops)
+
+    if #candidates > 0 then
+        repeat
+            local index = math.random(1, #candidates)
+            local workedView, theItemView = bag:viewItemNr(candidates[index])
+            if workedView then
+                local worked = bag:takeItemNr(candidates[index], theItemView.number)
+                if worked then
+                    local itemCommon = world:getItemStatsFromId(theItemView.id)
+
+                    inform = inform.."\n "..tostring(theItemView.number).." "..common.GetNLS(deadPlayer, itemCommon.German, itemCommon.English)
+
+                    world:createItemFromItem(theItemView, deadPlayer.pos, true)
+                    counter = counter + 1
+                end
+            end
+        until counter == math.min(#candidates, max_drops)
+    end
+
+    if counter == itemsToDrop then
+        deadPlayer:inform(inform)
+        return
+    end
+
     repeat
-        local index = math.random(1, #candidates)
-        local workedView, theItemView = bag:viewItemNr(candidates[index])
+        local index = math.random(1, #lowerValCandidates)
+        local workedView, theItemView = bag:viewItemNr(lowerValCandidates[index])
         if workedView then
-            local worked = bag:takeItemNr(candidates[index], theItemView.number)
+            local worked = bag:takeItemNr(lowerValCandidates[index], theItemView.number)
             if worked then
+                local itemCommon = world:getItemStatsFromId(theItemView.id)
+
+                inform = inform.."\n "..tostring(theItemView.number).." "..common.GetNLS(deadPlayer, itemCommon.German, itemCommon.English)
+
                 world:createItemFromItem(theItemView, deadPlayer.pos, true)
                 counter = counter + 1
             end
         end
-    until counter == math.min(#candidates, 3)
+    until counter == itemsToDrop
+
+    deadPlayer:inform(inform)
 end
 
 return M

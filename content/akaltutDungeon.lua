@@ -25,6 +25,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local treasureBase = require("item.base.treasure")
 local globalvar = require("base.globalvar")
+local scheduledSpawn = require("scheduled.spawn_treasure")
 
 local posChar = {
 position(471, 775, -9),
@@ -66,6 +67,7 @@ function M.openChest(user, sourceItem, level)
     end
     -- all buttons occupied, open chest
     world:erase(sourceItem, sourceItem.number)
+    scheduledSpawn.setTimer(sourceItem)
     if (level ~= nil) and (level~=0) and (level < 10) then
         world:gfx(globalvar.gfxRAIN,posi)
         world:makeSound(globalvar.sfxSNARING,posi)

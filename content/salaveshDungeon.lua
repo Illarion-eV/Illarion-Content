@@ -23,6 +23,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local treasureBase = require("item.base.treasure")
 local globalvar = require("base.globalvar")
+local scheduledSpawn = require("scheduled.spawn_treasure")
 
 local pos1stChar = position(691,388,-3)
 local pos2ndChar = position(693,394,-3)
@@ -53,6 +54,7 @@ function M.openChest(user, sourceItem, level)
 
     if world:isCharacterOnField(pos1stChar) and world:isCharacterOnField(pos2ndChar) then
         world:erase(sourceItem, sourceItem.number)
+        scheduledSpawn.setTimer(sourceItem)
         if (level ~= nil) and (level~=0) and (level < 10) then
             world:gfx(globalvar.gfxRAIN,posi)
             world:makeSound(globalvar.sfxSNARING,posi)

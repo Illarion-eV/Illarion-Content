@@ -32,6 +32,7 @@ local magic = require("base.magic")
 local bottles = require("item.bottles")
 local antiTroll = require("magic.base.antiTroll")
 local moreUtility = require("housing.moreUtility")
+local blueprints = require("item.blueprints")
 
 
 local M = {}
@@ -178,8 +179,10 @@ function Product:addIngredient(item, quantity, data)
     table.insert(self["ingredients"], {["item"]=item, ["quantity"]=quantity, ["data"]=data})
 end
 
-function Craft:addProduct(categoryId, itemId, quantity, data)
-    local difficulty = math.min(world:getItemStatsFromId(itemId).Level, 100)
+function Craft:addProduct(categoryId, itemId, quantity, data, difficulty)
+    if not difficulty then
+        difficulty = math.min(world:getItemStatsFromId(itemId).Level, 100)
+    end
     local learnLimit = math.min(difficulty + 20, 100)
     quantity = quantity or 1
     data = data or {}
@@ -207,6 +210,37 @@ function Craft:addProduct(categoryId, itemId, quantity, data)
     return nil
 end
 
+function Craft:addExtraProduct(user, categoryId, itemId, quantity, data, difficulty)
+    if not difficulty then
+        difficulty = math.min(world:getItemStatsFromId(itemId).Level, 100)
+    end
+    local learnLimit = math.min(difficulty + 20, 100)
+    quantity = quantity or 1
+    data = data or {}
+
+    if categoryId > 0 and categoryId <= (#self.categories + #self[user.id].extracategories) then
+        table.insert(self[user.id].extraproducts, self.defaultProduct:new{
+            ["category"] = categoryId,
+            ["item"] = itemId,
+            ["difficulty"] = difficulty,
+            ["learnLimit"] = learnLimit,
+            ["quantity"] = quantity,
+            ["data"] = data,
+            ["ingredients"] = {}
+        })
+
+        if self[user.id].extracategories[categoryId-#self.categories].minSkill then
+            self[user.id].extracategories[categoryId-#self.categories].minSkill = math.min(self[user.id].extracategories[categoryId-#self.categories].minSkill, difficulty)
+        else
+            self[user.id].extracategories[categoryId-#self.categories].minSkill = difficulty
+        end
+
+        return self[user.id].extraproducts[#self[user.id].extraproducts]
+    end
+
+    return nil
+end
+
 function Craft:showDialog(user, source)
 
     local allowCraft, checkForFallbackCraft = self:allowCrafting(user, source)
@@ -224,9 +258,14 @@ function Craft:showDialog(user, source)
         if result == CraftingDialog.playerCrafts then
             local productId = dialog:getCraftableId()
             local product = self.products[productId]
+            if not product then
+                product = self[user.id].extraproducts[productId - #self.products]
+            end
+
             local foodOK = self:checkRequiredFood(user, product:getCraftingTime(self:getSkill(user)))
             local manaOk = checkRequiredMana(user, product:getCraftingTime(self:getSkill(user)), self.leadSkill == Character.spatialMagic)
             local canWork = self:allowCrafting(user, source) and self:checkMaterial(user, productId) and foodOK and manaOk
+
             return canWork
         elseif result == CraftingDialog.playerLooksAtItem then
             local productId = dialog:getCraftableId()
@@ -377,6 +416,11 @@ end
 
 function Craft:getProductLookAt(user, productId)
     local product = self.products[productId]
+
+    if not product then
+        product = self[user.id].extraproducts[productId - #self.products]
+    end
+
     local lookAt = self:getLookAt(user, product)
 
     local newName = getPortalBookName(user, product) -- Custom name if portal book
@@ -389,7 +433,15 @@ function Craft:getProductLookAt(user, productId)
 end
 
 function Craft:getIngredientLookAt(user, productId, ingredientId)
-    local ingredient = self.products[productId].ingredients[ingredientId]
+
+    local product = self.products[productId]
+
+    if not product then
+        product = self[user.id].extraproducts[productId - #self.products]
+    end
+
+    local ingredient = product.ingredients[ingredientId]
+
     local lookAt = self:getLookAt(user, ingredient)
     return lookAt
 end
@@ -426,6 +478,33 @@ function Craft:loadDialog(dialog, user)
     local skill = self:getSkill(user)
     local categoryListId = {}
     local listId = 0
+
+    self[user.id] = {}
+    self[user.id].extracategories = {}
+    self[user.id].extraproducts = {}
+
+    local categoriesInserted = {}
+
+    if self.leadSkill then
+        categoriesInserted[self.leadSkill] = false
+
+        for _, blueprint in pairs(blueprints.blueprints) do
+
+            if Character[blueprint.craft] == self.leadSkill and blueprints.playerKnowsBlueprint(user, blueprint.item) and (not blueprint.tool or blueprint.tool == self.handTool) then
+
+                if not categoriesInserted[self.leadSkill] then
+                table.insert(self[user.id].extracategories, {nameEN = "Lost knowledge", nameDE = "Verlorenes Wissen"})
+                categoriesInserted[self.leadSkill] = #self.categories + #self[user.id].extracategories
+                end
+
+                local product = self:addExtraProduct(user, categoriesInserted[self.leadSkill], blueprint.item, 1)
+
+                for _, ingredient in pairs(blueprint.ingredients) do
+                product:addIngredient(ingredient.id, ingredient.amount)
+                end
+            end
+        end
+    end
 
     for i = 1,#self.categories do
         local category = self.categories[i]
@@ -464,6 +543,43 @@ function Craft:loadDialog(dialog, user)
             end
         end
     end
+
+        for i = 1, #self[user.id].extracategories do
+        local category = self[user.id].extracategories[i]
+        local categoryRequirement = category.minSkill
+        if categoryRequirement and categoryRequirement <= skill then
+            if(category.nameEN~="Rare Items") then
+                if user:getPlayerLanguage() == Player.german then
+                    dialog:addGroup(category.nameDE)
+                else
+                    dialog:addGroup(category.nameEN)
+                end
+                categoryListId[i+#self.categories] = listId
+                listId = listId + 1
+            end
+        end
+    end
+
+    for i = 1, #self[user.id].extraproducts do
+        local product = self[user.id].extraproducts[i]
+        local productRequirement = product.difficulty
+
+        if productRequirement <= skill then
+
+            local name = getPortalBookName(user, product)
+            if not name then
+                name = self:getLookAt(user, product).name
+            end
+
+            local craftingTime = self:getCraftingTime(product, skill)
+            dialog:addCraftable(i + #self.products, categoryListId[product.category], product.item, name, craftingTime, product.quantity)
+
+            for j = 1, #product.ingredients do
+                local ingredient = product.ingredients[j]
+                dialog:addCraftableIngredient(ingredient.item, ingredient.quantity)
+            end
+        end
+    end
 end
 
 function Craft:refreshDialog(dialog, user)
@@ -491,6 +607,11 @@ function Product:getCraftingTime(skill)
     local theItem = world:getItemStatsFromId(self.item)
     local minimum = math.max (((30+((self.quantity * theItem.Worth)-200)*(1500-30)/(133300-200))),30) --30: Minimum time; 200: Minimum price; 1500: maximum time; 133300: maximum price
     local craftingTime = common.Scale(minimum * 2, minimum, learnProgress)
+
+    if self.item == 1061 then --Portal books all have the default value and work using data values, so crafting time has to be increased differently
+        craftingTime = craftingTime * (1 + 1*self.difficulty/10) -- 8.3 seconds per 10 levels, starting at 8.3 at level 0
+    end
+
 
     if craftingTime > 99 then
         craftingTime = 10 * math.floor(craftingTime/10 + 0.5) -- Round correctly to whole seconds
@@ -577,6 +698,10 @@ end
 
 function Craft:checkMaterial(user, productId)
     local product = self.products[productId]
+
+    if not product then
+        product = self[user.id].extraproducts[productId - #self.products]
+    end
 
     if product == nil then
         return false
@@ -689,7 +814,7 @@ function Craft:checkIfItemShouldHaveRarity(productId)
 
 end
 
-function Craft:generateQuality(user, productId, toolItem)
+function Craft:generateQuality(user, product, toolItem)
 
     if self.npcCraft then
         return 999
@@ -717,7 +842,7 @@ function Craft:generateQuality(user, productId, toolItem)
     quality = common.Limit(quality, 1, common.ITEM_MAX_QUALITY)
 
     if quality < common.ITEM_MAX_QUALITY then
-        local maxStack = world:getItemStatsFromId(productId).MaxStack
+        local maxStack = world:getItemStatsFromId(product.item).MaxStack
         if maxStack == 1 and pyr.upQuality(user) then -- only items with a max stack of 1 have a quality to increase
             quality = quality + 1
         end
@@ -807,6 +932,11 @@ end
 
 function Craft:craftItem(user, productId)
     local product = self.products[productId]
+
+    if not product then
+        product = self[user.id].extraproducts[productId - #self.products]
+    end
+
     local skill = self:getSkill(user)
     local skillGain = false
 
@@ -875,6 +1005,11 @@ end
 
 function Craft:createItem(user, productId, toolItem)
     local product = self.products[productId]
+
+    if not product then
+        product = self[user.id].extraproducts[productId - #self.products]
+    end
+
     product.data.descriptionDe = ""
     product.data.descriptionEn = "" -- reset descriptions, same reasoning as below
     product.data.rareness = "" -- reset rarity or else it creates the most recent result of the rarity calculation even if not a perfect item
@@ -935,7 +1070,7 @@ function Craft:createItem(user, productId, toolItem)
         end
     end
 
-    local quality = self:generateQuality(user, productId, toolItem)
+    local quality = self:generateQuality(user, product, toolItem)
 
     local itemStats = world:getItemStatsFromId(product.item)
     if itemStats.MaxStack == 1 then

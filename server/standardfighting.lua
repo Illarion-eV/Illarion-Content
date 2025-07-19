@@ -284,10 +284,20 @@ end
 -- @param Defender The character who is attacked
 -- @return true in case a attack was performed, else false
 function M.onAttack(Attacker, Defender)
+
     if Attacker.fightpoints < 0 then
         -- This happens only if the player cheats.
         -- Let's don't attack now.
         return
+    end
+
+    local foundEffect, Paralysis = Attacker.effects:find(23)
+
+    if foundEffect then
+        local foundTime, timeLeft = Paralysis:findValue("timeLeft")
+        if foundTime and timeLeft >= 1 then
+            return -- No attacking while paralysed
+        end
     end
 
     -- Store the enemey as the current target of this player
@@ -310,6 +320,10 @@ function M.onAttack(Attacker, Defender)
 
     -- Load the weapons of the attacker
     Attacker = fightingutil.loadWeapons(Attacker)
+
+    if fighting.IsTrainingWeapon(Attacker.WeaponItem.id) and character.AtBrinkOfDeath(Defender.Char) and Defender.Char:getType() == Character.player then
+        return --in pvp a training weapon will realistically never be used to kill, only to spar, so this prevents accidental sparring deaths as it is lame to punish players for being a little inattentive to their health bars during something like that
+    end
 
     -- Find out the attack type and the required combat skill
     GetAttackType(Attacker)
@@ -404,7 +418,7 @@ function M.onAttack(Attacker, Defender)
     end
 
     -- Calculate the damage caused by the attack
-    CalculateDamage(Attacker, Globals)
+    CalculateDamage(Attacker, Globals, Defender.Char)
 
     -- Reduce the damage due the absorbtion of the armour
     ArmourAbsorption(Attacker, Defender, Globals)
@@ -651,7 +665,7 @@ end
 -- character.
 -- @param Attacker The table of the character who is attacking
 -- @param Globals The global data table
-function CalculateDamage(Attacker, Globals)
+function CalculateDamage(Attacker, Globals, defenderChar)
     local BaseDamage
     local StrengthBonus
     local PerceptionBonus
@@ -708,7 +722,14 @@ function CalculateDamage(Attacker, Globals)
     SkillBonus = (Attacker.skill - 20) * 1.5
 
     --Quality Bonus: Multiplies final value by 0.93-1.09
-    QualityBonus = 0.91+0.02*math.floor(weaponQuality/100)
+
+    weaponQuality = math.floor(weaponQuality/100)
+
+    if fighting.IsTrainingWeapon(Attacker.WeaponItem.id) and isValidChar(defenderChar) and defenderChar:getType() == Character.player then
+        weaponQuality = 9 - weaponQuality --Damage from training weapons reversed so that you actually want quality there, only against players
+    end
+
+    QualityBonus = 0.91+0.02*weaponQuality
 
     --Crit bonus
     if Globals.criticalHit>0 then
@@ -833,7 +854,7 @@ function CauseDamage(Attacker, Defender, Globals)
             "#me stumbles back.")
 
         if not Defender.Char:isAdmin() then --Admins don't want to get paralysed!
-            common.ParalyseCharacter(Defender.Char, 2, false, true)
+            common.ParalyseCharacter(Defender.Char, 20, false, true)
             local TimeFactor=1 -- See lte.chr_reg
             chr_reg.stallRegeneration(Defender.Char, 60/TimeFactor)
             -- Stall regeneration for one minute.
@@ -1200,21 +1221,16 @@ end
 
 function gemBonusEffect(Attacker, Defender, Globals)
 
+    local chestPiece = Defender.Char:getItemAt(Character.breast)
+
     if (Globals.Damage == 0) then
         return
     end
 
     local GemBonusAttacker = gems.getGemBonus(Attacker.WeaponItem)/fightingGemBonusDivisionValue
     GemBonusAttacker = modifyGemEffect(Attacker, GemBonusAttacker)
-    local GemBonusDefender = gems.getGemBonus(Globals.HittedItem)/fightingGemBonusDivisionValue
+    local GemBonusDefender = gems.getGemBonus(chestPiece)/fightingGemBonusDivisionValue
     GemBonusDefender = modifyGemEffect(Attacker, GemBonusDefender)
-
-    local armorfound, armorItem = world:getArmorStruct(Globals.HittedItem.id)
-    if armorfound then
-        if armorItem.Type == ArmorStruct.clothing then --Clothing objects are gemmable for magic resistance purposes, but does not affect physical defense
-            GemBonusDefender = 0
-        end
-    end
 
     local gemBonus = GemBonusAttacker-GemBonusDefender
 
@@ -1423,11 +1439,11 @@ function Specials(Attacker, Defender, Globals)
 
         if targetPos ~= nil then
             Defender.Char:warp(targetPos)
-            common.ParalyseCharacter(Defender.Char, 2, false, true)
+            common.ParalyseCharacter(Defender.Char, 20, false, true)
         end
     elseif(Globals.criticalHit==5) then
         --Stun
-        common.ParalyseCharacter(Defender.Char, 2, false, true)
+        common.ParalyseCharacter(Defender.Char, 20, false, true)
     end
 end
 
@@ -1601,7 +1617,7 @@ function LearnSuccess(Attacker, Defender, AP, Globals)
     if Attacker.Weapon and not common.isBroken(Attacker.WeaponItem) then
         -- Attacker learns weapon skill
         if Attacker.Skillname then
-            Attacker.Char:learn(Attacker.Skillname, AP/3, math.max(Defender.DefenseSkill, Defender.parry) + 20)
+            Attacker.Char:learn(Attacker.Skillname, AP, math.max(Defender.DefenseSkill, Defender.parry) + 20)
         end
     end
 
@@ -1609,7 +1625,7 @@ function LearnSuccess(Attacker, Defender, AP, Globals)
     if Defender.DefenseSkillName then
         local armourfound, _ = world:getArmorStruct(Globals.HittedItem.id)
         if armourfound and not common.isBroken(Globals.HittedItem) then
-            Defender.Char:learn(Defender.DefenseSkillName,(AP)/3,Attacker.skill + 20)
+            Defender.Char:learn(Defender.DefenseSkillName,(AP),Attacker.skill + 20)
         end
     end
 
@@ -1617,7 +1633,7 @@ function LearnSuccess(Attacker, Defender, AP, Globals)
 
     -- Defender learns only with a valid non-broken parry weapon
     if parryWeapon ~= nil then
-        Defender.Char:learn(Character.parry, AP/3, Attacker.skill + 20)
+        Defender.Char:learn(Character.parry, AP, Attacker.skill + 20)
     end
 end
 

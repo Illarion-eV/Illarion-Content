@@ -254,20 +254,19 @@ local function getGermanType(type)
     end
 end
 
-function M.startDialogue(informedTarget, information, spell)
+M.alreadyOpenDialogue = {}
 
-    if #information == 1 then
-        chooseWhatInfoToView(informedTarget, information, information[1].target, spell)
-        return
-    end
+function M.startDialogue(informedTarget, information, spell)
 
     local callback = function(dialog)
         if not dialog:getSuccess() then
+            M.alreadyOpenDialogue[informedTarget.id] = false
             return
         end
         local index = dialog:getSelectedIndex() +1
         for i = 1, #information do
             if index == i then
+                M.alreadyOpenDialogue[informedTarget.id] = false
                 chooseWhatInfoToView(informedTarget, information, information[i].target, spell)
                 return
             end
@@ -282,8 +281,10 @@ function M.startDialogue(informedTarget, information, spell)
         dialog:addOption(0, common.GetNLS(informedTarget,targetSelectionList.target.german..i..": "..germanType, targetSelectionList.target.english..i..": "..englishType ))
     end
 
-    informedTarget:requestSelectionDialog(dialog)
-
+    if not M.alreadyOpenDialogue[informedTarget.id] then
+        informedTarget:requestSelectionDialog(dialog)
+        M.alreadyOpenDialogue[informedTarget.id] = true
+    end
 end
 
 local function getTargetFromList(user, information, spell)

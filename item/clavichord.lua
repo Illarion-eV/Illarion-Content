@@ -15,22 +15,23 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
-local common = require("base.common")
+local wood = require("item.general.wood")
+local music = require("item.base.music")
 
 local M = {}
 
-function M.passesCheck(user, tool)
+function M.UseItem(user, SourceItem, actionState)
 
-    if not common.isInRect(user.pos, tool.pos, 1) and tool.pos ~= position(0,0,0) then
-        log("Player "..user.name.." just tried to use a GM tool that was not in range. They were at "..tostring(user.pos).." and the tool at "..tostring(tool.pos)..".")
-        return false
+    if actionState == Action.none then
+        music.selectNote(user)
+    elseif actionState == Action.success then
+        music.playTheInstrument(user, actionState, true, false, "clavichord")
+    elseif actionState == Action.abort then
+        music.playTheInstrument(user, actionState, true, false, "clavichord")
     end
 
-    if not user:isAdmin() then
-        log("Player "..user.name.."("..user.id..") just used a GM tool despite not being a GM. They were at "..tostring(user.pos).." and the tool at "..tostring(tool.pos)..".")
-    end
-
-    return true
 end
+
+M.LookAtItem = wood.LookAtItem
 
 return M

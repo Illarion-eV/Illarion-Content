@@ -70,10 +70,16 @@ function M.portalBookCreation(user, sourceItem)
                     nameDe = myTexts.book.german,
                     destinationEn = spot.nameEn,
                     destinationDe = spot.nameDe
-                    }
+                    },
+                    levelReq
                 )
                 product:addIngredient(4815) -- the empty book, obtained from tailors
                 product:addIngredient(1118) -- bottle of ink, obtained from dyemakers
+                if spot.extraIngredients then --for more advanced books
+                    for _, extraIngredient in pairs(spot.extraIngredients) do
+                        product:addIngredient(extraIngredient.id, extraIngredient.amount)
+                    end
+                end
             end
         end
     end

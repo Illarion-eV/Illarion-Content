@@ -120,7 +120,7 @@ function viewDialog(user, ledgerInfo, page, tid, entries)
     if entries <= maxEntriesPerPage then
         local callback = function(dialog) end
 
-        local dialog = MessageDialog(common.GetNLS(user, "Bï¿½rgerbuch","Citizen Ledger"), text, callback)
+        local dialog = MessageDialog(common.GetNLS(user, "Bürgerbuch","Citizen Ledger"), text, callback)
         user:requestMessageDialog(dialog)
     else
 
@@ -141,7 +141,7 @@ function viewDialog(user, ledgerInfo, page, tid, entries)
             end
         end
 
-        local dialog = SelectionDialog(common.GetNLS(user, "Bï¿½rgerbuch", "Citizen Ledger"), text, callback)
+        local dialog = SelectionDialog(common.GetNLS(user, "Bürgerbuch", "Citizen Ledger"), text, callback)
 
         if page > 0 then
             dialog:addOption(2745, "Previous Page")
@@ -202,7 +202,7 @@ function M.LookAtItem(user, book)
         end
     end
 
-    lookAt.name = common.GetNLS(user, "Bï¿½rgerbuch", "Citizen Ledger")
+    lookAt.name = common.GetNLS(user, "Bürgerbuch", "Citizen Ledger")
     lookAt.description = common.GetNLS(user, ""..town, "The citizen ledger of "..town)
 
     return lookAt

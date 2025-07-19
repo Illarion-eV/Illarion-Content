@@ -18,6 +18,7 @@ local common = require("base.common")
 local runes = require("magic.arcane.runes")
 local range = require("magic.arcane.castingRange")
 local magic = require("base.magic")
+local effectScaling = require("magic.arcane.effectScaling")
 
 local M = {}
 
@@ -260,7 +261,7 @@ local function getSlowestNearTarget(user, target, rangeNum)
         position = target.pos
     end
 
-    local targets = world:getCharactersInRangeOf(position, rangeNum)
+    local targets = world:getCharactersInRangeOf(user.pos, rangeNum)
 
     local returnTarget = false
 
@@ -291,11 +292,7 @@ end
 
 local function getWeakestNearTarget(user, position, rangeNum, LEV)
 
-    if LEV and not world:isCharacterOnField(position) then
-        return
-    end
-
-    local targets = world:getCharactersInRangeOf(position, rangeNum)
+    local targets = world:getCharactersInRangeOf(user.pos, rangeNum)
     local returnTarget = false
     local lowestHealth
 
@@ -305,7 +302,7 @@ local function getWeakestNearTarget(user, position, rangeNum, LEV)
 
         if position ~= newTarget.pos and user.pos ~= newTarget.pos and newTarget:getType() ~= Character.npc then
 
-            if returnTarget == false then
+            if not returnTarget then
 
                 returnTarget = newTarget
                 lowestHealth = newTarget:increaseAttrib("hitpoints", 0)
@@ -359,6 +356,18 @@ local function getPositionWhenNotTargetingACharacter(user)
 
 end
 
+local function getTimeLimit(user, spell)
+
+    --based on spirit spell level and scaling up to approx 60 min time limit
+
+    local scaling = effectScaling.getEffectScaling(user, nil, spell)
+
+    local base = 300
+
+    return base*(scaling*6)
+
+end
+
 local function getPosition(user, spell, positionsAndTargets, delayed, trap)
 
     local element = runes.fetchElement(spell)
@@ -373,6 +382,7 @@ local function getPosition(user, spell, positionsAndTargets, delayed, trap)
     local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
     local SUL = runes.checkSpellForRuneByName("SUL", spell)
     local ORL = runes.checkSpellForRuneByName("ORL", spell)
+    local JUS = runes.checkSpellForRuneByName("JUS", spell)
     local earthTrap = SOLH and ORL and not trap
     local dodgable = (CUN or RA) and SUL
     local thePosition
@@ -419,15 +429,10 @@ local function getPosition(user, spell, positionsAndTargets, delayed, trap)
         end
     end
 
-    if (TAH or LEV) and (RA or CUN) then
+    if ((TAH or LEV) and (RA or CUN )) or (LEV and JUS) then
         local target = getWeakestNearTarget(user, thePosition, rangeNum, LEV)
-        local proceed = true
 
-        if LEV and not world:isCharacterOnField(thePosition) then --LEV only targets the weakest nearby character to a targeted character. TAH doesn't care.
-            proceed = false
-        end
-
-        if target and proceed then
+        if target then
             if target:getType() == Character.player or target:getType() == Character.monster then
                 if not dodgable then
                     positionsAndTargets.targets[#positionsAndTargets.targets+1] = target
@@ -452,11 +457,17 @@ local function getPosition(user, spell, positionsAndTargets, delayed, trap)
     if PEN and HEPT then
         local id = user.id
         M.playerTargets["HEPT"..id] = thePosition
+
+        if user.attackmode and magic.getWand(user) then --wand required to aim
+            local targeted = M.playerTargets[id]
+            M.playerTargets["HEPT"..id] = targeted
+        end
+
         M.playerTargets["HEPT"..id.."time"] = tonumber(world:getTime("unix"))
     end
 
     if PEN and LEV then
-        local timeLimit = 1800
+        local timeLimit = getTimeLimit(user, spell)
         local currentTime = world:getTime("unix")
         local id = user.id
         local heptPosition = M.playerTargets["HEPT"..id]
@@ -467,6 +478,11 @@ local function getPosition(user, spell, positionsAndTargets, delayed, trap)
                 user:inform("Du bemerkst, dass es zu lange her ist, das du das letzte Mal einen Zauberspruch mit HEPT genutzt hast, denn du spürst wie das Mana aus deinem Körper fließt und kein Ziel findet.", "You realise it's been too long since you last cast this spell with HEPT, as you feel the mana draining from your body finds no target.")
                     -- targeting.lua
             elseif heptPosition then
+
+                if heptPosition.pos then
+                    heptPosition = heptPosition.pos
+                end
+
                 setPos = false
                 local targetExists = world:isCharacterOnField(heptPosition)
                 local setLevPos = true

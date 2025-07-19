@@ -399,17 +399,6 @@ local function knowAllRunes(user)
 
 end
 
-local function tooAdvanced(user)
-
-    local callback = function(dialog)
-    end
-
-    local dialog = MessageDialog(common.GetNLS(user, myTexts.bookName.german, myTexts.bookName.english), common.GetNLS(user, myTexts.requirementNotMet.german, myTexts.requirementNotMet.english), callback)
-
-    user:requestMessageDialog(dialog)
-
-end
-
 local function checkIfKnowAllRunes(user)
 
     for _, rune in pairs(runes.runes) do
@@ -448,8 +437,8 @@ local function listOfRunes(user)
             notLearned = true
         end
 
-        if notLearned and skillOk and statsOk and rune.active then
-            list[#list+1] = rune.name
+        if notLearned and rune.active then
+            list[#list+1] = {name = rune.name, stats = statsOk, skill = skillOk}
         end
     end
 
@@ -457,24 +446,24 @@ local function listOfRunes(user)
 
 end
 
-local function checkIfTooAdvanced(user)
-
-    local runeList = listOfRunes(user)
-
-    if #runeList > 0 then
-        return false
-    else
-        return true
-    end
-
-end
-
-local function runeHint(user, runeName)
+local function runeHint(user, runeName, stats, skill)
 
     local callback = function(dialog)
     end
 
-    local dialog = MessageDialog(common.GetNLS(user, myTexts.bookName.german, myTexts.bookName.english), common.GetNLS(user, myTexts[runeName].hint.german, myTexts[runeName].hint.english), callback)
+    local theText = common.GetNLS(user, myTexts[runeName].hint.german, myTexts[runeName].hint.english)
+
+    if not stats and not skill then
+        theText = theText..common.GetNLS(user, "\n\nSei gewarnt, du hast weder das nötige Fachwissen noch die magischen Fähigkeiten, um diese Rune zu erlernen. Mehr Übung und ein Besuch beim Trainer wären ratsam, wenn du sie lernen möchtest.", "\n\n Be warned you have neither the expertise nor magical prowess to learn this rune. More practice and a visit to the trainer would do, if you want to learn it.")
+    elseif not stats then
+        theText = theText..common.GetNLS(user, "\n\nSei gewarnt, du hast nicht die nötigen magischen Fähigkeiten, um diese Rune zu erlernen. Vielleicht solltest du den Trainer aufsuchen, wenn du sie eines Tages lernen möchtest.", "\n\n Be warned you do not have the required magical prowess to learn this rune, perhaps you should see the trainer if you want to learn it one day.")
+    elseif not skill then
+        theText = theText..common.GetNLS(user, "\n\nSei gewarnt, du hast nicht das nötige Fachwissen, um diese Rune zu erlernen. Du solltest vorher mehr üben.", "\n\n Be warned you do not have the required expertise to learn this rune, you should practice more first.")
+    end
+
+
+    local dialog = MessageDialog(common.GetNLS(user, myTexts.bookName.german, myTexts.bookName.english),
+    theText, callback)
 
     if runeName == "BHONA" then
         if user:getQuestProgress(244) == 0 then
@@ -580,7 +569,7 @@ local function selectRune(user)
 
         for i = 1, #runeList do
             if index == i then
-                runeHint(user, runeList[i])
+                runeHint(user, runeList[i].name, runeList[i].stats, runeList[i].skill)
                 return
             end
         end
@@ -595,7 +584,7 @@ local function selectRune(user)
         callback)
 
     for i = 1, #runeList do
-        dialog:addOption(0, runeList[i])
+        dialog:addOption(0, runeList[i].name)
     end
 
     user:requestSelectionDialog(dialog)
@@ -620,11 +609,6 @@ function M.UseItem(user, sourceItem)
 
     if checkIfKnowAllRunes(user) then
         knowAllRunes(user)
-        return
-    end
-
-    if checkIfTooAdvanced(user) then
-        tooAdvanced(user)
         return
     end
 

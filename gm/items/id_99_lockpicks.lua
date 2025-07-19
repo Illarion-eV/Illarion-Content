@@ -108,6 +108,7 @@ M.skillNames = {
     Character.blacksmithing,
     Character.brewing,
     Character.carpentry,
+    Character.clavichord,
     Character.concussionWeapons,
     Character.cookingAndBaking,
     Character.digging,
@@ -2077,6 +2078,32 @@ local function magicOptions(user, chosenPlayer)
     user:requestSelectionDialog(dialog)
 end
 
+local function setSpeed(user, chosenPlayer)
+
+    local callback = function (dialog)
+
+        if (not dialog:getSuccess()) then
+            return
+        end
+
+        local input = dialog:getInput()
+
+        local found, _, speedValue = string.find(input,"(%d+)")
+
+        if found then
+
+            chosenPlayer.speed = tonumber(speedValue)
+            user:inform("Set "..chosenPlayer.name.."'s speed to "..tostring(speedValue))
+        else
+            user:inform("The input must be a number.")
+        end
+
+    end
+
+    user:requestInputDialog(InputDialog("Set Speed", "Set the speed of the character, with 1 being the default 100% speed. Reset on relog.\n Current speed: "..tostring(chosenPlayer.speed) ,false, 255, callback))
+
+end
+
 local function attributesAndLearning(user, chosenPlayer)
 
     local callback = function (dialog)
@@ -2093,6 +2120,8 @@ local function attributesAndLearning(user, chosenPlayer)
             settingsForCharAttributes(user, chosenPlayer)
         elseif index == 3 then
             settingsForCharMC(user, chosenPlayer)
+        elseif index == 4 then
+            setSpeed(user, chosenPlayer)
         end
     end
 
@@ -2109,6 +2138,8 @@ local function attributesAndLearning(user, chosenPlayer)
     dialog:addOption(93,"Set attributes")
 
     dialog:addOption(106,"Set MC")
+
+    dialog:addOption(Item.feathers, "Set speed")
 
     user:requestSelectionDialog(dialog)
 end

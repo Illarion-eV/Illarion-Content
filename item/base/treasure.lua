@@ -26,6 +26,7 @@ local monsterHooks = require("monster.base.hooks")
 local scheduledFunction = require("scheduled.scheduledFunction")
 local safeZones = require("scheduled.safe_zones")
 local propertyList = require("housing.propertyList")
+local blueprints = require("base.blueprints")
 
 local M = {}
 
@@ -100,10 +101,14 @@ end
     one time each time we change the list of locations.
 ]]
 
-local version = 1 --Update this to one number higher each time something is added to the list.
+local version = 2 --Update this to one number higher each time something is added to the list.
 
 local bannedLocations = {
-    {x = {from = 213, to = 300}, y = {from = 756, to = 830}, z = 0} --Mount letma, inaccessible
+    {x = {from = 213, to = 300}, y = {from = 756, to = 830}, z = 0}, --Mount letma, inaccessible
+    {x = {from = 656, to = 708}, y = {from = 277, to = 329}, z = 0}, --Troll's Haven, safe zone script interfers with treasure.
+    {x = {from = 641, to = 661}, y = {from = 312, to = 332}, z = 0}, --Troll's Haven.
+    {x = {from = 685, to = 739}, y = {from = 276, to = 330}, z = 0}, --Troll's Haven.
+    {x = {from = 656, to = 700}, y = {from = 302, to = 336}, z = 0} --Troll's Haven.
 }
 
 function M.fetchPropertyName(user, pos)
@@ -393,7 +398,7 @@ local function getRandomItem(level)
 end
 
 local function dropTreasureItem(treasureLocation, level)
-    local quality = math.random(6,9) * 100 + math.random(50,99);
+    local quality = math.random(5,7) * 100 + math.random(50,99);
     while true do
         local itemData = getRandomItem(level)
         if itemData == nil then
@@ -458,6 +463,43 @@ function M.createMapFromSkill(player, skill)
     return M.createMap(player, level)
 end
 
+local function dropBluePrints(treasureLocation, level)
+
+    local chance = 0.05 -- 5% chance a blueprint drops from a treasure
+
+    local rand = math.random()
+
+    if rand > chance then
+        return
+    end
+
+    local eligibleBlueprints = {}
+
+    for _, blueprint in pairs(blueprints.blueprints) do
+
+        if (level <= 2 and blueprint.treasure == "small")
+        or (level > 2 and level <= 4 and blueprint.treasure == "average")
+        or (level > 4 and level <= 7 and blueprint.treasure == "big")
+        or (level > 7 and level <= 9 and blueprint.treasure == "giant") then
+            table.insert(eligibleBlueprints, {id = blueprint.id, rareness = blueprint.rareness})
+        end
+
+    end
+
+    if #eligibleBlueprints == 0 then
+        return
+    end
+
+    local randomlySelectedBlueprint = eligibleBlueprints[math.random(1, #eligibleBlueprints)]
+
+    local blueprint = world:createItemFromId(blueprints.itemIdBlueprint, 1, treasureLocation, true, 333, {["rareness"] = randomlySelectedBlueprint.rareness, ["blueprint"] = randomlySelectedBlueprint.id})
+
+    if not blueprint then
+        debug("Failed to spawn a blueprint when tasked to.")
+    end
+
+end
+
 function M.dropTreasureItems(treasureLocation, level)
     local itemSpawnResults = {}
     table.insert(itemSpawnResults, dropTreasureItem(treasureLocation, level))
@@ -466,6 +508,8 @@ function M.dropTreasureItems(treasureLocation, level)
     table.insert(itemSpawnResults, dropTreasureItem(treasureLocation, level + 1))
     table.insert(itemSpawnResults, dropTreasureItem(treasureLocation, level + 2))
     table.insert(itemSpawnResults, dropTreasureItem(treasureLocation, level + 2))
+
+    dropBluePrints(treasureLocation, level)
 
     local minMoney, maxMoney = content.getMoneyInTreasure(level)
     money.GiveMoneyToPosition(treasureLocation, math.random(minMoney, maxMoney))
