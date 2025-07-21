@@ -98,7 +98,9 @@ function M.spawnStaticObjects(user, targets, spell, level)
         M.spawnStaticObject(user, position, "position", spell, position, level)
     end
     for _, character in pairs(targets.targets) do
-        M.spawnStaticObject(user, character, "character", spell, character.pos, level)
+        if isValidChar(character) then
+            M.spawnStaticObject(user, character, "character", spell, character.pos, level)
+        end
     end
 end
 
