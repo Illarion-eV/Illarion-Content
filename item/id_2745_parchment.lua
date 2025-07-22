@@ -197,6 +197,10 @@ function M.UseItem(user, SourceItem,ltstate,checkVar)
 
     local instrument = SourceItem:getData("instrument")
 
+    if not _G.playtogether then
+        _G.playtogether = {}
+    end
+
     if not common.IsNilOrEmpty(instrument) then
         if ltstate == Action.none then
             noteListView(user, ltstate, SourceItem, instrument)
