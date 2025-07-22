@@ -287,22 +287,15 @@ function M.StartGathering(user, theCrop, actionState)
                     return
                 end
 
-                local newToolItem = shared.getTool(user, toolId)
-
-                if not newToolItem then
-                    return
-                end
-
-                if toolItem ~= newToolItem then
-                    --We start again, to redo checks and gatheringbonuses
-                    M.StartGathering(user, theCrop, actionState)
+                if toolId ~= toolItem.id then
+                    common.TempInformNLS(user, "Du hast das falsche Werkzeug für diese Pflanze.", "You have the wrong tool for this crop.")
                     return
                 end
             end
             theCraft.SavedWorkTime[user.id] = theCraft:GenWorkTime(user);
             user:changeSource(theCrop)
             if not shared.toolBreaks( user, toolItem, theCraft:GenWorkTime(user) ) then -- damage and possibly break the tool
-                user:startAction( theCraft.SavedWorkTime[user.id], 0, 0, 0, 0)
+                user:startAction( theCraft.SavedWorkTime[user.id], GFX, theCraft.SavedWorkTime[user.id], 0, 0)
             end
         else
             common.TempInformNLS( user,
