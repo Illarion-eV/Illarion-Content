@@ -76,7 +76,13 @@ function M.callEffect(theEffect, User)
             wandGemBonus = 0
         end
 
-        icefield.causeDamage(User, FieldItem.quality, penetration, wandGemBonus)
+        local scaling = FieldItem:getData("scaling")
+
+        if common.IsNilOrEmpty(scaling) then
+            scaling = math.floor(FieldItem.quality/100)+1
+        end
+
+        icefield.causeDamage(User, tonumber(scaling), penetration, wandGemBonus)
     end
     -- repeat in 5sec
     theEffect.nextCalled = 50

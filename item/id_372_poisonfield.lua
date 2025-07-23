@@ -96,7 +96,13 @@ function M.CharacterOnField(user)
             local foundEffect = user.effects:find(112) -- poisoncloud lte
             if not foundEffect then
                 local myEffect = LongTimeEffect(112, 50) --5sec
-                myEffect:addValue("quality", fieldItem.quality)
+                local scaling = fieldItem:getData("scaling")
+
+                if common.IsNilOrEmpty(scaling) then
+                    scaling = math.floor(fieldItem.quality/100)+1
+                end
+
+                myEffect:addValue("quality", tonumber(scaling))
 
                 local magicPen = fieldItem:getData("magicPenetration")
                 if not common.IsNilOrEmpty(magicPen) then

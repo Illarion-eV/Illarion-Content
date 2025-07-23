@@ -257,12 +257,17 @@ local function getDirectionDistance(user)
             if not distance then
                 distance = total
                 targetPos = location
+                if portalSpots[i].level <= usersLevel then
+                    distanceWithinLevelRange = total
+                    levelRangeTargetPos = location
+                end
             elseif total < distance then
                 distance = total
                 targetPos = location
                 if portalSpots[i].level <= usersLevel then
                     if not distanceWithinLevelRange then
                         distanceWithinLevelRange = total
+                        levelRangeTargetPos = location
                     elseif total < distanceWithinLevelRange then
                         distanceWithinLevelRange = total
                         levelRangeTargetPos = location

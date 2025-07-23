@@ -21,7 +21,9 @@ local M = {}
 function M.getTargetGFXSFX(targets, spell, fancyLights)
 
     for _, target in pairs(targets.targets) do
-        M.castTargetGFXSFX(target.pos, spell, fancyLights)
+        if isValidChar(target) then
+            M.castTargetGFXSFX(target.pos, spell, fancyLights)
+        end
     end
 
     for _, item in pairs (targets.items) do

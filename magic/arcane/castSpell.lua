@@ -91,19 +91,21 @@ local function checkForWand(user)
 
     local wand = common.getItemInHand(user, magic.wandIds)
 
-    if not wand then return true end -- Even without a wand you can cast rune spells, but they won't get the multiple advantages using a wand brings to your spells such a targeting, more power and more range
+    if not wand then return true, false end -- Even without a wand you can cast rune spells, but they won't get the multiple advantages using a wand brings to your spells such a targeting, more power and more range
 
     if common.isBroken(wand) then --You dont get the wand bonuses without an intact wand so a warning instead
         user:inform("Dein Zauberstab ist zerbrochen. Du solltest ihn reparieren lassen, bevor du versuchst, ihn zu benutzen.", "Your wand is broken. You should see to its repairs before trying to use it.")
-        return false
+        return false, false
     end
 
-    return wand
+    return true, wand
 end
 
 local function checksPassed(user, spell, element, thePosition)
 
-    if not checkForWand(user) then
+    local wandCheckPassed = checkForWand(user)
+
+    if not wandCheckPassed then
         return false
     end
 
@@ -300,7 +302,9 @@ function M.castSpell(user, spell, actionState, oralCast)
                 delayedAttack.spellEffects(user, M[user.id].positionsAndTargets, spell, element, false, level, castDuration)
             end
 
-            if user.attackmode and runes.isSpellAutoCast(spell, checkForWand(user)) and checksPassed(user, spell, element, M[user.id].thePosition) then
+            local _, wand = checkForWand(user)
+
+            if user.attackmode and runes.isSpellAutoCast(spell, wand) and checksPassed(user, spell, element, M[user.id].thePosition) then
                 -- To mimic wand magic so that the fire magic replacement does not feel like a downgrade, we allow auto casting of some spells
 
                 if _G.stopAutoCast and _G.stopAutoCast[user.id] then
