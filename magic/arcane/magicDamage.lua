@@ -27,26 +27,25 @@ local damageList = {
     {rune = "RA", damage = 500, element = "Fire"},
     {rune = "IRA", damage = 200, element = "Fire"}, --With IRA the damage is converted to mana damage instead of health
     {rune = "KAH", damage = 200, element = "Fire"}, --With IRA the damage is converted to mana damage instead of health
-    {rune = "PHERC", damage = 750, element = "Water"},
-    {rune = "PHERC", damage = 750, element = "Air"},
-    {rune = "PHERC", damage = 750, element = "Earth"},
-    {rune = "QWAN", damage = 1000, element = "Fire"},
-    {rune = "LUK", damage = 750, element = "Fire"},
-    {rune = "TAUR", damage = 750, element = "Fire"},
-    {rune = "URA", damage = 750, element = "Fire"},
-    {rune = "YEG", damage = 750, element = "Fire"},
-    {rune = "SUL", damage = 750, element = "Fire"}
+    {rune = "PHERC", damage = 400, element = "Water"},
+    {rune = "PHERC", damage = 400, element = "Air"},
+    {rune = "PHERC", damage = 400, element = "Earth"},
+    {rune = "QWAN", damage = 600, element = "Fire"},
+    {rune = "LUK", damage = 400, element = "Fire"},
+    {rune = "TAUR", damage = 400, element = "Fire"},
+    {rune = "URA", damage = 400, element = "Fire"},
+    {rune = "YEG", damage = 400, element = "Fire"}
 }
 
 local damageOverTimeList = { --This damage is balanced around DoTs having 15 ticks that it is spread out over. So you would want to start with a DoT before moving onto direct damage spells when fighting high level opponents
-    {rune = "PHERC", damage = 1125, element = "Fire"},
+    {rune = "PHERC", damage = 600, element = "Fire"},
     {rune = "IRA", damage = 375, element = "Water"}, --Damage gets converted to mana damage
     {rune = "KAH", damage = 375, element = "Water"}, --Damage gets converted to stamina damage
-    {rune = "CUN", damage = 1125, element = "Water"},
-    {rune = "QWAN", damage = 1500, element = "Water"},
-    {rune = "TAUR", damage = 1125, element = "Water"},
-    {rune = "URA", damage = 1125, element = "Water"},
-    {rune = "YEG", damage = 1125, element = "Water"}
+    {rune = "CUN", damage = 600, element = "Water"},
+    {rune = "QWAN", damage = 900, element = "Water"},
+    {rune = "TAUR", damage = 600, element = "Water"},
+    {rune = "URA", damage = 600, element = "Water"},
+    {rune = "YEG", damage = 600, element = "Water"}
 }
 
 M.raceList = {

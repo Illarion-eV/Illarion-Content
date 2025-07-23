@@ -27,14 +27,17 @@ M.telepathyTexts = {
     established = {english = "You feel a telepathic connection establish between you and someone else.", german = "Du spürst wie sich eine telephatische Verbindung zwischen dir und jemand anderem aufbaut."}
     }
 
-local function getInputFromAndSendTo(user, target)
+local getInputFromAndSendTo
+
+function getInputFromAndSendTo(user, target)
     local callback = function(dialog)
         if not dialog:getSuccess() then
             user:inform(M.telepathyTexts.failure.german, M.telepathyTexts.failure.english)
         else
             local input = dialog:getInput()
             target:inform(M.telepathyTexts.success.german..input,M.telepathyTexts.success.english..input)
-            log(user.name.." sent telepathy message to "..target.name.." containing the following: "..input)
+            logPlayer(user.name.." sent a telepathy message to "..target.name.." containing the following: "..input)
+            getInputFromAndSendTo(user, target)
             -- Telepathy happens via message dialogs, so in order to leave a paper trail of what players are saying in game as with regular speech, we log it
         end
     end

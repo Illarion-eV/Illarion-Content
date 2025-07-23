@@ -38,7 +38,9 @@ function M.getSpeedText(information, spell)
             local germanText
             local englishText
             local speed = target.target.speed
-            if speed == 1 then
+            local EPSILON = 0.0001
+
+            if math.abs(speed - 1) < EPSILON then
                 germanText = speedTexts.normal.german
                 englishText = speedTexts.normal.english
             elseif speed > 1 then

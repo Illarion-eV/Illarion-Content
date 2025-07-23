@@ -22,10 +22,11 @@ local effectScaling = require("magic.arcane.effectScaling")
 local lookat = require("base.lookat")
 local antiTroll = require("magic.base.antiTroll")
 local magic = require("base.magic")
+local testing = require("base.testing")
 
 local M = {}
 
-local howManySecondsUntilFullSpeed = 90
+local howManySecondsUntilFullSpeed = 60
 
 M.plantRootTexts = {
     name = {
@@ -47,29 +48,30 @@ function M.getSpeed(user, target, spell, earthTrap)
     else
         scaling = effectScaling.getEffectScaling(user, target, spell)
     end
-    local retVal = 0.5
+    local retVal = 0.3
     local TAUR = runes.checkSpellForRuneByName("TAUR", spell)
     local URA = runes.checkSpellForRuneByName("URA", spell)
     local YEG = runes.checkSpellForRuneByName("YEG", spell)
     local LHOR = runes.checkSpellForRuneByName("LHOR", spell)
     local QWAN = runes.checkSpellForRuneByName("QWAN", spell)
-    local rune
-        if TAUR then
-            rune = "TAUR"
-        elseif URA then
-            rune = "URA"
-        elseif YEG then
-            rune = "YEG"
-        end
+    local SUL = runes.checkSpellForRuneByName("SUL", spell)
+    local racialBonuses = {{name = "TAUR", present = TAUR}, {name = "URA", present = URA}, {name = "YEG", present = YEG}}
+
     local raceBonus
-        if rune then
-            raceBonus = magicDamage.checkIfRaceBonus(target, rune)
+        for _, racialBonus in pairs(racialBonuses) do
+            local check = magicDamage.checkIfRaceBonus(target, racialBonus.name)
+            if racialBonus.present and magicDamage.checkIfRaceBonus(target, racialBonus.name) then
+                raceBonus = check
+            end
         end
         if raceBonus then
             retVal = retVal + 0.1
         end
         if QWAN then
             retVal = retVal + 0.2
+        end
+        if SUL then
+            retVal = retVal + 0.1
         end
         retVal = retVal*100
         retVal = math.floor(retVal*scaling)
@@ -177,7 +179,6 @@ function M.applyPlantRootForEntanglingPlant(sourceItem, target)
     if not foundEffect then
         myEffect = LongTimeEffect(16, 10)
         myEffect:addValue("speed", getSpeed)
-        myEffect:addValue("remainingSpeed", getSpeed)
         myEffect:addValue("ticks", howManySecondsUntilFullSpeed)
         myEffect:addValue("spell", spell)
         target.effects:addEffect(myEffect)
@@ -188,7 +189,6 @@ function M.applyPlantRootForEntanglingPlant(sourceItem, target)
                 return -- existing slow is already greater than the one that would be applied.
             end
             myEffect:addValue("speed", getSpeed - remainingSpeed)
-            myEffect:addValue("remainingSpeed", getSpeed)
             myEffect:addValue("ticks", howManySecondsUntilFullSpeed)
             myEffect:addValue("spell", spell)
             M.addEffect(myEffect, target)
@@ -241,7 +241,6 @@ function M.applyPlantRoot(user, targets, spell, earthTrap)
             if not foundEffect then
                 myEffect = LongTimeEffect(myEffectNumber, 10)
                 myEffect:addValue("speed", getSpeed)
-                myEffect:addValue("remainingSpeed", getSpeed)
                 myEffect:addValue("ticks", howManySecondsUntilFullSpeed)
                 myEffect:addValue("spell", spell)
                 target.effects:addEffect(myEffect)
@@ -252,7 +251,6 @@ function M.applyPlantRoot(user, targets, spell, earthTrap)
                             return -- existing slow is already greater than the one that would be applied.
                         end
                     myEffect:addValue("speed", getSpeed - remainingSpeed)
-                    myEffect:addValue("remainingSpeed", getSpeed)
                     myEffect:addValue("ticks", howManySecondsUntilFullSpeed)
                     myEffect:addValue("spell", spell)
                     M.addEffect(myEffect, target)
@@ -272,7 +270,6 @@ function M.applyPlantRoot(user, targets, spell, earthTrap)
             if not foundUserEffect then
                 userEffect = LongTimeEffect(userEffectNumber, 10)
                 userEffect:addValue("speed", mySpeed)
-                userEffect:addValue("remainingSpeed", mySpeed)
                 userEffect:addValue("ticks", howManySecondsUntilFullSpeed)
                 userEffect:addValue("spell", spell)
                 userEffect:addValue("user", 1)
@@ -284,7 +281,6 @@ function M.applyPlantRoot(user, targets, spell, earthTrap)
                         return -- existing slow is already greater than the one that would be applied.
                     end
                     userEffect:addValue("speed", mySpeed - remainingSpeed)
-                    userEffect:addValue("remainingSpeed", mySpeed)
                     userEffect:addValue("ticks", howManySecondsUntilFullSpeed)
                     userEffect:addValue("spell", spell)
                     userEffect:addValue("user", 1)
@@ -322,7 +318,27 @@ function M.addEffect(myEffect, target)
             speedChange = -speedChange
         end
         target:inform("Als du von dem Zauber getroffen wirst, fühlst du dich langsamer, als wären deine Füße von Schlamm bedeckt, der dich hinabzieht.", "As you're hit by the spell, you feel yourself slow down as if your feet are covered in mud that's dragging you down.")
-        target.speed = target.speed - speedChange
+        local formerSpeed = target.speed
+        local newSpeed = math.max(0, formerSpeed - speedChange)
+        local actualReduction = formerSpeed - newSpeed
+        target.speed = newSpeed
+
+        -- Get existing remainingSpeed, assuming it's stored as int percentage
+        local _, existingRemainingRaw = myEffect:findValue("remainingSpeed")
+        local existingRemaining = (existingRemainingRaw or 0) / 100
+
+        local totalRemaining = existingRemaining + actualReduction
+
+        -- Store as integer percentage again
+        myEffect:addValue("remainingSpeed", math.floor(totalRemaining * 100 + 0.5))
+
+        if testing.active then
+            target:talk(Character.say,
+                "#me was snared. Speed changed from " .. formerSpeed ..
+                " to " .. target.speed ..
+                ". Actual reduction: " .. actualReduction ..
+                ", Total to recover: " .. totalRemaining)
+        end
     end
 end
 
@@ -356,7 +372,11 @@ function M.callEffect(myEffect, target)
                         if SIH then
                             speedChange = -speedChange
                         end
+                        local formerSpeed = target.speed
                         target.speed = target.speed + speedChange
+                        if testing.active then
+                            target:talk(Character.say,"#me's speed was changed from "..formerSpeed.." to "..target.speed)
+                        end
                         newRemainingSpeed = 0
                     elseif remainingSpeed/ticks > 1 then
                         local speedChange = speedIncrease/100
@@ -366,7 +386,11 @@ function M.callEffect(myEffect, target)
                         if SIH then
                             speedChange = -speedChange
                         end
+                        local formerSpeed = target.speed
                         target.speed = target.speed + speedChange
+                        if testing.active then
+                            target:talk(Character.say,"#me's speed was changed from "..formerSpeed.." to "..target.speed)
+                        end
                         newRemainingSpeed = remainingSpeed - speedIncrease
                     else
                         newRemainingSpeed = remainingSpeed
@@ -378,62 +402,11 @@ function M.callEffect(myEffect, target)
                 end
             end
         end
-        target:inform("Deine Füße fühlen sich wieder leichter an, als die Wirkung des Zaubers, von dem du zuvor getroffen wurdest, nachlässt.", "Your feet feel lighter once more as the effect of the spell you were previously hit by wears off.")
-    return false
-end
 
-function M.callEffect(myEffect, target)
-    local TAH
-    local SOLH
-    local SIH
-    local foundUser, isUser = myEffect:findValue("user")
-    local foundSpell, spell = myEffect:findValue("spell")
-    if foundSpell then
-        TAH = runes.checkSpellForRuneByName("TAH", spell)
-        SOLH = runes.checkSpellForRuneByName("SOLH", spell)
+    if target.speed == 1 then
+        target:inform("Deine Füße fühlen sich wieder normal an, während die Wirkung des Zaubers, von dem du zuvor getroffen wurdest, nachlässt.", "Your feet feel normal again as the effect of the spell you were previously hit by wears off.")
     end
-    if foundUser then
-        if 1 == isUser then
-            SIH = true
-        end
-    end
-    local foundRemainingSpeed, remainingSpeed = myEffect:findValue("remainingSpeed")
-    local foundTicks, ticks = myEffect:findValue("ticks")
-    if foundRemainingSpeed and foundTicks  then
-        if ticks >= 1 then
-            local speedIncrease = math.floor(remainingSpeed/ticks)
-            if remainingSpeed > 0 then
-            local newRemainingSpeed
-                if remainingSpeed/ticks < 1 and ticks == 1 then
-                    local speedChange = remainingSpeed/100
-                    if TAH and SOLH then
-                        speedChange = -speedChange/5 --20% speed given
-                    end
-                    if SIH then
-                        speedChange = -speedChange
-                    end
-                    target.speed = target.speed + speedChange
-                    newRemainingSpeed = 0
-                elseif remainingSpeed/ticks > 1 then
-                    local speedChange = speedIncrease/100
-                    if TAH and SOLH then
-                        speedChange = -speedChange/5 --20% speed given
-                    end
-                    if SIH then
-                        speedChange = -speedChange
-                    end
-                    target.speed = target.speed + speedChange
-                    newRemainingSpeed = remainingSpeed - speedIncrease
-                else
-                    newRemainingSpeed = remainingSpeed
-                end
-                myEffect:addValue("remainingSpeed", newRemainingSpeed)
-                myEffect:addValue("ticks", ticks-1)
-                myEffect.nextCalled = 10
-                return true
-            end
-        end
-    end
+
     return false
 end
 
@@ -462,7 +435,12 @@ function M.loadEffect(myEffect, target)
                 if SIH then
                     speedChange = -speedChange
                 end
+                local formerSpeed = target.speed
+
                 target.speed = target.speed - speedChange
+                if testing.active then
+                    target:talk(Character.say,"#me's speed was changed from "..formerSpeed.." to "..target.speed)
+                end
                 myEffect.nextCalled = 10
             end
         end
