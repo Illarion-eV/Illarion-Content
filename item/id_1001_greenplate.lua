@@ -105,7 +105,7 @@ function M.LookAtItem(user, item)
 
     local lookAt = lookat.GenerateLookAt(user, item)
 
-    if offeringPlate2 then
+    if offeringPlate2 or offeringPlate then
         lookAt.name = common.GetNLS(user, plateText.name.german, plateText.name.english)
         if offeringPlate then
             lookAt.description = common.GetNLS(user, plateText.description.german, plateText.description.english)
