@@ -41,7 +41,7 @@ M.runes = {
     {id = 17, name = "LUK", cost = "Medium", time = "Medium", level = 70, active = false, auto = true},
     {id = 18, name = "MES", cost = "Small", time = "Short", level = 20, active = true},
     {id = 19, name = "ORL", cost = "Large", time = "Long", level = 80, active = false, auto = true},
-    {id = 20, name = "PHERC", cost = "Medium", time = "Medium", level = 60, active = false, auto = true},
+    {id = 20, name = "PHERC", cost = "Medium", time = "Medium", level = 60, active = true, auto = true},
     {id = 21, name = "QWAN", cost = "Large", time = "Long", level = 100, active = false, auto = true},
     {id = 22, name = "SAV", cost = "Medium", time = "Medium", level = 40, active = false, auto = true},
     {id = 23, name = "SIH", cost = "Large", time = "Long", level = 80, active = false, auto = true},

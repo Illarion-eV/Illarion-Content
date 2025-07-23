@@ -40,13 +40,13 @@ local MRtexts = M.MRtexts
             local germanText
             local englishText
             if MR then
-                if MR < 33 then
+                if MR < 0.5 then
                     germanText = MRtexts.low.german
                     englishText = MRtexts.low.english
-                elseif MR < 66 then
+                elseif MR < 1 then
                     germanText = MRtexts.average.german
                     englishText = MRtexts.average.english
-                elseif MR >= 66 then
+                elseif MR >= 1 then
                     germanText = MRtexts.high.german
                     englishText = MRtexts.high.english
                 end
