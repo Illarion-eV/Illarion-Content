@@ -235,7 +235,7 @@ M.runeHintsBookTexts = {
     PHERC = {rune = "PHERC",
         hint = {
             english = "The pain of the desert heat is nigh as high as the pain of their axes.",
-            german = "Der Schmerz der Wüstenhitze ist fast so groß wie der Schmerz der Axt!"},
+            german = "Der Schmerz der Wüstenhitze ist fast so groß wie der Schmerz ihrer Äxte!"},
         name = {
             english = "Mysterious Bloody Sphere",
             german = "Mysteriöse blutverschmierte Sphäre"},
