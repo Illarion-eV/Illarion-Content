@@ -38,7 +38,7 @@ function M.getCharacterLoad(user)
     for i = 1, 17 do
         local currentItem = user:getItemAt(i)
         if currentItem then
-            totalLoad = totalLoad +  world:getItemStats(currentItem).Weight
+            totalLoad = totalLoad +  (world:getItemStats(currentItem).Weight * currentItem.number)
         end
     end
 
