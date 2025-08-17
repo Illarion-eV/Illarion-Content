@@ -63,6 +63,33 @@ function M.isSpellAutoCast(spell, wand)
 
     local runeCount = 0
 
+    local spirit = false
+
+    for _, rune in pairs(M.runes) do
+
+        local runeIsInSpell = M.checkSpellForRune(rune.id, spell)
+
+        if rune.name == "PEN" and runeIsInSpell then
+            spirit = true
+            break
+        end
+    end
+
+    local pherc = false
+
+    for index, rune in ipairs(M.runes) do
+
+        if spirit then
+            break
+        end
+
+        local runeIsInSpell = M.checkSpellForRune(rune.id, spell)
+
+        if rune.name == "PHERC" and runeIsInSpell then
+            pherc = true
+        end
+    end
+
     for _, rune in pairs(M.runes) do
 
         local runeIsInSpell = M.checkSpellForRune(rune.id, spell)
@@ -75,11 +102,11 @@ function M.isSpellAutoCast(spell, wand)
             notFire = rune.name == "PEN" or rune.name == "SOLH" or rune.name == "JUS" or rune.name == "CUN"
         end
 
-        if runeIsInSpell and not rune.auto and not (notFire and runeCount == 1) then
+        if runeIsInSpell and not rune.auto and not (notFire and (runeCount == 1 or pherc)) then
             return false
         end
 
-        if runeCount > 1 and notFire then
+        if runeCount > 1 and notFire and not pherc then
             return false
         end
     end
