@@ -142,47 +142,65 @@ return targets
 end
 
 function M.callEffect(myEffect, user)
-local foundLX, lx = myEffect:findValue("lastX")
-local foundLY, ly = myEffect:findValue("lastY")
-local foundTX, tx = myEffect:findValue("targetX")
-local foundTY, ty = myEffect:findValue("targetY")
-local foundTZ, tz = myEffect:findValue("targetZ")
-local foundOrl, ORL = myEffect:findValue("ORL")
-local foundSpell, spell = myEffect:findValue("spell")
-local foundLevel, level = myEffect:findValue("level")
 
-if not foundLevel then
-    level = 0
-end
+    local foundSpell, spell = myEffect:findValue("spell")
 
-local nextPosition
-local castSpell = false
-local positions = {}
-local targetPosition
-local targets
     if not foundSpell then
         return
     end
-local RA = runes.checkSpellForRuneByName("RA", spell)
-local CUN = runes.checkSpellForRuneByName("CUN", spell)
-local SUL = runes.checkSpellForRuneByName("SUL", spell)
+
+
+    local foundLX, lx = myEffect:findValue("lastX")
+    local foundLY, ly = myEffect:findValue("lastY")
+    local foundTX, tx = myEffect:findValue("targetX")
+    local foundTY, ty = myEffect:findValue("targetY")
+    local foundTZ, tz = myEffect:findValue("targetZ")
+    local foundOrl, ORL = myEffect:findValue("ORL")
+
+    local foundLevel, level = myEffect:findValue("level")
+
+    if not foundLevel then
+        level = 0
+    end
+
+    local nextPosition
+    local castSpell = false
+    local positions = {}
+    local targetPosition
+    local targets
+
+    local RA = runes.checkSpellForRuneByName("RA", spell)
+    local CUN = runes.checkSpellForRuneByName("CUN", spell)
+    local SUL = runes.checkSpellForRuneByName("SUL", spell)
+
     if not foundOrl then
         ORL = false
     end
+
     if foundLX and foundLY and foundTX and foundTY and foundTZ then
         targetPosition = position(tonumber(tx), tonumber(ty), tonumber(tz))
         nextPosition = M.getTarget(user, myEffect, lx, ly, tx, ty, tz)
+
+        if nextPosition and world:isCharacterOnField(nextPosition) then
+            targetPosition = nextPosition
+            castSpell = true
+        end
+
         if not nextPosition then
             nextPosition = position(tx, ty, tz)
             castSpell = true
         end
         table.insert(positions, {position = nextPosition})
     end
-local element
+
+    local element
+
     if foundSpell then
         element = runes.fetchElement(spell)
     end
-local effectTargets = nextPositionIntoTargets(nextPosition)
+
+    local effectTargets = nextPositionIntoTargets(nextPosition)
+
     if castSpell then
         targets = targeting.getPositionsAndTargets(user, spell, targetPosition)
         if (RA or CUN) and SUL then
@@ -192,10 +210,13 @@ local effectTargets = nextPositionIntoTargets(nextPosition)
         M.spellEffects(user, targets, spell, element, ORL, level, castDuration)
         return false
     end
+
     if foundSpell then
         magicGFXSFX.getTargetGFXSFX(effectTargets, spell)
         myEffect.nextCalled=5
     end
-return true
+
+    return true
 end
+
 return M
