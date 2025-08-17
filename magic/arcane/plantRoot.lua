@@ -244,6 +244,7 @@ function M.applyPlantRoot(user, targets, spell, earthTrap)
                 myEffect:addValue("ticks", howManySecondsUntilFullSpeed)
                 myEffect:addValue("spell", spell)
                 target.effects:addEffect(myEffect)
+                target:inform("Als du von dem Zauber getroffen wirst, fühlst du dich langsamer, als wären deine Füße von Schlamm bedeckt, der dich hinabzieht.", "As you're hit by the spell, you feel yourself slow down as if your feet are covered in mud that's dragging you down.")
             else
                 local foundRemainingSpeed, remainingSpeed = myEffect:findValue("remainingSpeed")
                 if foundRemainingSpeed then
@@ -317,7 +318,6 @@ function M.addEffect(myEffect, target)
         if SIH then
             speedChange = -speedChange
         end
-        target:inform("Als du von dem Zauber getroffen wirst, fühlst du dich langsamer, als wären deine Füße von Schlamm bedeckt, der dich hinabzieht.", "As you're hit by the spell, you feel yourself slow down as if your feet are covered in mud that's dragging you down.")
         local formerSpeed = target.speed
         local newSpeed = math.max(0, formerSpeed - speedChange)
         local actualReduction = formerSpeed - newSpeed
