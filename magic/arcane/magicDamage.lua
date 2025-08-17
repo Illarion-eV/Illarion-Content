@@ -312,23 +312,28 @@ function M.getMagicDamage(user, spell, element, target, DoT, ORL, earthTrap, cas
     finalDamage = finalDamage * (1 + wandGemBonus-cloakGemBonus)
 
 
-    local maxDamage = 3334 -- This ensures that you can still 3-shot a sheep with just RA
+    local maxDamage = 10000 -- A full health bar, no damage cap in PvE
 
-    local hasMediumDamageRune = hasDamageRuneOfSize(spell, "Medium", element, DoT)
 
-    local hasLargeDamageRune = hasDamageRuneOfSize(spell, "Large", element, DoT)
-
-    if hasMediumDamageRune and hasLargeDamageRune then -- The below ensures that higher level damage runes will still always have an advantage
-        maxDamage = 4999
-    elseif hasMediumDamageRune then
-        maxDamage = 3888
-    elseif hasLargeDamageRune then
-        maxDamage = 4444
-    end
 
     local castTime = castDuration
 
     if user and user:getType() == Character.player and target and target:getType() == Character.player then
+
+        local hasMediumDamageRune = hasDamageRuneOfSize(spell, "Medium", element, DoT)
+
+        local hasLargeDamageRune = hasDamageRuneOfSize(spell, "Large", element, DoT)
+
+        maxDamage  = 3000
+
+        if hasMediumDamageRune and hasLargeDamageRune then -- The below ensures that higher level damage runes will still always have an advantage while also no chance of oneshotting players with a 7-second duration spell cast
+            maxDamage = 4999
+        elseif hasMediumDamageRune then
+            maxDamage = 3888
+        elseif hasLargeDamageRune then
+            maxDamage = 4444
+        end
+
         -- both user and target exist and both are players, this is a pvp battle
         local secondsToKillInPvP = 7 -- in testing: 5 attacks with RA(7.5 seconds cast time), 4 to make them fall down then a last to finish them off
         local maxHealth = 10000
