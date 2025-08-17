@@ -28,8 +28,8 @@ local damageList = {
     {rune = "IRA", damage = 200, element = "Fire"}, --With IRA the damage is converted to mana damage instead of health
     {rune = "KAH", damage = 200, element = "Fire"}, --With IRA the damage is converted to mana damage instead of health
     {rune = "PHERC", damage = 400, element = "Water"},
-    {rune = "PHERC", damage = 400, element = "Air"},
-    {rune = "PHERC", damage = 400, element = "Earth"},
+    {rune = "PHERC", damage = 800, element = "Air"}, -- As the only damaging rune for wind spells, 800 puts the damage right below RA in terms of DPS as fire spells are still meant to be the primary source of direct damage
+    {rune = "PHERC", damage = 800, element = "Earth"}, -- As the only damaging rune for earth spells, 800 puts the damage right below RA in terms of DPS as fire spells are still meant to be the primary source of direct damage
     {rune = "QWAN", damage = 600, element = "Fire"},
     {rune = "LUK", damage = 400, element = "Fire"},
     {rune = "TAUR", damage = 400, element = "Fire"},
