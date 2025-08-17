@@ -69,6 +69,9 @@ local sfxNumber = 13
             if runes.checkSpellForLightning(spell) and fancyLights then
                 gfxNumber = 2
                 sfxNumber = 4
+            else
+                world:gfx(2, pos)
+                world:makeSound(4, pos)
             end
         else
             sfxNumber = 27
