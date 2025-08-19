@@ -33,6 +33,7 @@ local utility = require("housing.utility")
 local messenger = require("content.messenger")
 local bookrests = require("item.bookrests")
 local depotScript = require("item.id_321_depot")
+local penInfo = require("magic.arcane.spirit.convertInfoToDialogue")
 
 -- Called after every player login
 
@@ -412,6 +413,11 @@ function M.onLogin( player )
 
     --on ferry
     seafaring.login(player)
+
+
+    if penInfo.alreadyOpenDialogue[player.id] then
+        penInfo.alreadyOpenDialogue[player.id] = false
+    end
 
     --Check regeneration script
     local found = player.effects:find(2)
