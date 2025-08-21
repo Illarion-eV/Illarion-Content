@@ -181,6 +181,14 @@ function M.addEffect(myEffect, target)
     end
 end
 
+function M.removeEffect(myEffect, target)
+
+    myEffect:addValue("remainingDamage", 0)
+    myEffect:addValue("remainingTicks", 0)
+
+end
+
+
 function M.callEffect(myEffect, target)
     local foundSpell, spell = myEffect:findValue("spell")
     local foundDamage, remainingDamage =  myEffect:findValue("remainingDamage")
