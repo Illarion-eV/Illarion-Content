@@ -108,8 +108,6 @@ function M.dealMagicDamage(user, target, spell, damage, level, DoT, castTime)
     local IRA = runes.checkSpellForRuneByName("IRA", spell)
     local KAH = runes.checkSpellForRuneByName("KAH", spell)
 
-    if DoT then castTime = castTime/15 end -- DoTs have 15 ticks, so this prevents them from giving 15 times the MR
-
     local dwyfolTriggered = false
 
     if user and damage ~= 0 then --It still gets here on DoTs that have 0 damage to deal
@@ -128,7 +126,7 @@ function M.dealMagicDamage(user, target, spell, damage, level, DoT, castTime)
         end
     end
 
-    if not dwyfolTriggered and character.IsPlayer(target) then
+    if not dwyfolTriggered and character.IsPlayer(target) and not DoT then --DoT's already get MR on the non-DoT check of the spell, so anything else is double dipping
         M.learnMagicResistance(target, castTime, level)
     end
 
