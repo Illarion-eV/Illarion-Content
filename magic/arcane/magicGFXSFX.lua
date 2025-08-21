@@ -63,6 +63,9 @@ local sfxNumber = 13
         if runes.checkSpellForRuneByName("MES", spell) then
             if not fancyLights or not runes.checkSpellForMoreThanJUSMes(spell) then
                 gfxNumber = 46
+                if runes.checkSpellForRuneByName("PHERC", spell) then
+                    gfxNumber = 0
+                end
             end
         end
         if runes.checkSpellForRuneByName("PHERC", spell) then
