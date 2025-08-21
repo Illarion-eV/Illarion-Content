@@ -134,6 +134,14 @@ function M.addEffect(myEffect, target)
     target:inform(texts.overTime.german, texts.overTime.english)
 end
 
+function M.removeEffect(myEffect, target)
+
+    myEffect:addValue("remainingDamage", 0)
+    myEffect:addValue("remainingTicks", 0)
+
+end
+
+
 function M.callEffect(myEffect, target)
     local foundDamage, remainingDamage =  myEffect:findValue("remainingDamage")
     local foundTicks, remainingTicks =  myEffect:findValue("remainingTicks")
