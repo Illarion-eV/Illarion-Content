@@ -94,7 +94,9 @@ local sfxNumber = 13
         sfxNumber = 0
     end
 
-    world:gfx(gfxNumber, pos)
+    if gfxNumber ~= 0 then
+        world:gfx(gfxNumber, pos)
+    end
 
     if sfxNumber ~= 0 then
         world:makeSound(sfxNumber, pos)
