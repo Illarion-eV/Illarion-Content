@@ -39,6 +39,7 @@ function M.dealMagicDoT(user, targets, spell, element, level, castDuration)
             local manaReduction = 0
             local foodReduction = 0
             local CUN = runes.checkSpellForRuneByName("CUN", spell)
+            local RA = runes.checkSpellForRuneByName("RA", spell)
             local IRA = runes.checkSpellForRuneByName("IRA", spell)
             local KAH = runes.checkSpellForRuneByName("KAH", spell)
 
@@ -110,7 +111,7 @@ function M.dealMagicDoT(user, targets, spell, element, level, castDuration)
 
                 dendron.lifesteal(user, damage/1.5) -- chance to heal for a portion of the damage you deal, but as it is instant the damage is scaled down by 1.5 to match fire spells instead for instant damage values
             end
-            if manaReduction > 0 and CUN then
+            if manaReduction > 0 and (CUN or RA) then
 
                 local addValue = true
 
@@ -135,7 +136,7 @@ function M.dealMagicDoT(user, targets, spell, element, level, castDuration)
                     target.effects:addEffect(MoT)
                 end
             end
-            if foodReduction > 0 and CUN then
+            if foodReduction > 0 and (CUN or RA) then
 
                 local addValue = true
 
