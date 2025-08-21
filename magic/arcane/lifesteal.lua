@@ -148,6 +148,11 @@ function M.callEffect(myEffect, target)
     local foundDamage, remainingDamage =  myEffect:findValue("remainingDamage")
     local foundTicks, remainingTicks =  myEffect:findValue("remainingTicks")
     if foundDamage and foundTicks then
+
+        if remainingDamage == 0 then
+            return false
+        end
+
         if remainingTicks > 0 then
             local damage = math.floor(remainingDamage/remainingTicks)
             local lifesteal = damage/20 -- 5%

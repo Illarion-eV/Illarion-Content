@@ -200,6 +200,11 @@ function M.callEffect(myEffect, target)
     local LUK = runes.checkSpellForRuneByName("LUK", spell)
     local CUN = runes.checkSpellForRuneByName("CUN", spell)
     if foundDamage and foundTicks and foundSpell then
+
+        if remainingDamage == 0 then
+            return false
+        end
+
         if remainingTicks > 0 then
             local damage = math.floor(remainingDamage/remainingTicks)
             if LUK and CUN then
