@@ -50,6 +50,8 @@ function M.instantLifeOrManaSteal(user, targets, spell, ORL)
 
     local amountStolen = 525 -- RA IRA is 700, so for RA IRA to not be useless this needs to be lower as it has a second effect of giving you mana
 
+    local appliedJUSIRA = false
+
     for _, target in pairs(targets.targets) do
 
         if JUS and isValidChar(target) then
@@ -110,7 +112,14 @@ function M.instantLifeOrManaSteal(user, targets, spell, ORL)
                         target:talk(Character.say, "#me loses "..target:increaseAttrib("mana", 0).." mana.")
                     end
                 end
-                user:increaseAttrib("mana", increase)
+
+                if target:getType() == Character.monster and not appliedJUSIRA or target:getType() == Character.player then
+                    user:increaseAttrib("mana", increase)
+                    if target:getType() == Character.monster then
+                        appliedJUSIRA = true
+                    end
+                end
+
                 if testing.active then
                     user:talk(Character.say, "#me gains "..increase.." mana.")
                 end
