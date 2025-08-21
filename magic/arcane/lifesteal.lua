@@ -89,6 +89,8 @@ function M.instantLifeOrManaSteal(user, targets, spell, ORL)
                     ]]
                     local manaCost = mana.arcaneSpellCost(user, spell)
 
+                    manaCost = manaCost*0.7 -- Cap at 70% of the cost
+
                     if manaCost < increase then
                         increase = manaCost
                     end
