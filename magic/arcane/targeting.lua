@@ -290,34 +290,66 @@ local function getSlowestNearTarget(user, target, rangeNum)
 
 end
 
-local function getWeakestNearTarget(user, position, rangeNum, LEV)
+local function isWeaker(finalTarget, target)
 
-    local targets = world:getCharactersInRangeOf(user.pos, rangeNum)
-    local returnTarget = false
-    local lowestHealth
+    local targetHealth = target:increaseAttrib("hitpoints", 0)
 
-    for i = 1, #targets do
+    local finalTargetHealth = finalTarget:increaseAttrib("hitpoints", 0)
 
-        local newTarget = targets[i]
+    if targetHealth < finalTargetHealth then
+        return true
+    end
 
-        if position ~= newTarget.pos and user.pos ~= newTarget.pos and newTarget:getType() ~= Character.npc then
+    return false
 
-            if not returnTarget then
+end
 
-                returnTarget = newTarget
-                lowestHealth = newTarget:increaseAttrib("hitpoints", 0)
+local function getWeakestNearTarget(user, rangeNum, originalTarget, spell)
 
-            elseif newTarget:increaseAttrib("hitpoints", 0) < lowestHealth then
+    if not user.attackmode or (originalTarget and not isValidChar(originalTarget)) then
+        originalTarget = false
+    end
 
-                returnTarget = newTarget
-                lowestHealth = newTarget:increaseAttrib("hitpoints", 0)
+    local monsterTargets = world:getMonstersInRangeOf(user.pos, rangeNum)
 
-            end
+    local playerTargets = world:getPlayersInRangeOf(user.pos, rangeNum)
+
+    local validPlayerTargets = getValidTargets(user, originalTarget, playerTargets, spell)
+
+    local validMonsterTargets = getValidTargets(user, originalTarget, monsterTargets, spell)
+
+    if not validMonsterTargets and not validPlayerTargets then
+        return false
+    end
+
+    local targets = {}
+
+    if not originalTarget or originalTarget:getType() == Character.monster then
+        if validMonsterTargets then
+            targets = validMonsterTargets
+        elseif not originalTarget then
+            targets = validPlayerTargets
+        end
+    elseif originalTarget:getType() == Character.player then
+        if validPlayerTargets then
+            targets = validPlayerTargets
+        else
+            targets = validMonsterTargets
         end
     end
 
-    return returnTarget
+    local finalTarget = false
 
+    for _, target in pairs(targets) do
+
+         if not finalTarget and isValidChar(target) then
+            finalTarget = target
+        elseif isWeaker(finalTarget, target) and isValidChar(target) then
+            finalTarget = target
+        end
+    end
+
+    return finalTarget
 end
 
 local function getPositionWhenNotTargetingACharacter(user)
@@ -430,7 +462,7 @@ local function getPosition(user, spell, positionsAndTargets, delayed, trap)
     end
 
     if ((TAH or LEV) and (RA or CUN )) or (LEV and JUS) then
-        local target = getWeakestNearTarget(user, thePosition, rangeNum, LEV)
+        local target = getWeakestNearTarget(user, rangeNum, M.playerTargets[user.id], spell)
 
         if target then
             if target:getType() == Character.player or target:getType() == Character.monster then
