@@ -98,7 +98,7 @@ local function damageTargetsEquipment(target, damage)
 
 end
 
-function M.dealMagicDamage(user, target, spell, damage, level, DoT, castTime)
+function M.dealMagicDamage(user, target, spell, damage, level, DoT, castTime, userId)
 
     damageTargetsEquipment(target, damage)
 
@@ -146,6 +146,10 @@ function M.dealMagicDamage(user, target, spell, damage, level, DoT, castTime)
 
             if user then
                 killerName = user.name.."("..tostring(user.id)..")"
+            end
+
+            if userId and userId ~= 0 then
+                killerName = "unknown("..tostring(userId)..")"
             end
 
             logPlayer("Player "..killerName.." killed Player "..target.name.."("..tostring(target.id)..")")
