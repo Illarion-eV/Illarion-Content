@@ -74,7 +74,12 @@ function M.dealMagicDoT(user, targets, spell, element, level, castDuration)
                 local addValue = true
 
                 local foundEffect, DoT = target.effects:find(1)
-                local foundEffect2, lifesteal = target.effects:find(3)
+                local foundEffect2, lifesteal
+
+                if user then
+                    foundEffect2, lifesteal = user.effects:find(3)
+                end
+
                 if not foundEffect then
                     DoT = LongTimeEffect(1,10)
                 else
@@ -91,6 +96,10 @@ function M.dealMagicDoT(user, targets, spell, element, level, castDuration)
                     DoT:addValue("remainingTicks", 15)
                     DoT:addValue("spell", spell)
                     DoT:addValue("level", level)
+
+                    if user then
+                        DoT:addValue("caster", user.id)
+                    end
                 end
 
                 if not foundEffect then
@@ -194,9 +203,16 @@ function M.callEffect(myEffect, target)
     local foundDamage, remainingDamage =  myEffect:findValue("remainingDamage")
     local foundTicks, remainingTicks =  myEffect:findValue("remainingTicks")
     local foundLevel, level =  myEffect:findValue("level")
+    local foundCaster, caster =  myEffect:findValue("caster")
+
     if not foundLevel then
         level = 0
     end
+
+    if not foundCaster then
+        caster = 0
+    end
+
     local LUK = runes.checkSpellForRuneByName("LUK", spell)
     local CUN = runes.checkSpellForRuneByName("CUN", spell)
     if foundDamage and foundTicks and foundSpell then
@@ -215,7 +231,7 @@ function M.callEffect(myEffect, target)
                 end
             end
             local castDuration = castingSpeed.arcaneSpellCastSpeed(nil, spell, true)
-            mdamage.dealMagicDamage(nil, target, spell, damage, level, true, castDuration)
+            mdamage.dealMagicDamage(nil, target, spell, damage, level, true, castDuration, caster)
             myEffect:addValue("remainingDamage", remainingDamage - damage)
             myEffect:addValue("remainingTicks", remainingTicks - 1)
             myEffect.nextCalled=30
