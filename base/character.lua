@@ -89,12 +89,21 @@ function M.Kill(user)
         return --ensures that if a DoT was applied right after or in the same blow as a killing blow, it wont reskill you
     end
 
-
-
     common.TalkNLS(user, Character.say,"#me geht tödlich getroffen zu Boden.","#me goes down, fatally injured.")
     M.ChangeHP(user, -10000)
     recentlyKilled[user.id] = timeStamp
     return true
+end
+
+function M.WasKilledRecently(user)
+
+    local timeStamp = world:getTime("unix")
+
+    if recentlyKilled[user.id] and recentlyKilled[user.id]+5 >= timeStamp then
+        return true
+    end
+
+    return false
 end
 
 --- Change the movepoints of a character by the value handed over.
