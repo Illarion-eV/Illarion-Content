@@ -22,6 +22,7 @@ local castingSpeed = require("magic.arcane.castingSpeed")
 local hieros = require("magic.arcane.enchanting.effects.hieros")
 local dendron = require("magic.arcane.enchanting.effects.dendron")
 local dwyfol = require("magic.arcane.enchanting.effects.dwyfol")
+local character = require("base.character")
 
 local M = {}
 
@@ -211,6 +212,10 @@ function M.callEffect(myEffect, target)
 
     if not foundCaster then
         caster = 0
+    end
+
+    if character.WasKilledRecently(target) then
+        return false
     end
 
     local LUK = runes.checkSpellForRuneByName("LUK", spell)
