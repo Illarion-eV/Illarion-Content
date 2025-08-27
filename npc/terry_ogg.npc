@@ -241,9 +241,9 @@ queststatus(240) = 3, "portal", "spatial",  "task", "adventure", "order" -> "Wel
 queststatus(240) = 3, "teleport", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "order" -> "Na dann los. Ich möchte sehen, wie du dich zum nahe gelegenen Teleporter teleportierst."
 
 -- Tasked to open a portal
-queststatus(240) = 4, english, "quest", "mission", "teleport" -> queststatus(240) = 5, "Well done! Next up, I want to see you open a portal to it as well. The incantation is 'Locus Ianua'."
-queststatus(240) = 4, "portal", "spatial",  "task", "adventure", "order" -> queststatus(240) = 5, "Well done! Next up, I want to see you open a portal to it as well. The incantation is 'Locus Ianua'."
-queststatus(240) = 4, "teleport", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "order" -> queststatus(240) = 5, "Gut gemacht! Als Nächstes möchte ich sehen, wie du auch ein Portal zu ihm öffnest. Die Beschwörungsformel lautet 'Locus Ianua'."
+queststatus(240) = 4, english, "quest", "mission", "teleport" -> queststatus(240) = 5, "Well done! Next up, I want to see you open a portal to it as well. The incantation is 'Locus Ianua'. You can speak the location aloud if you wish, 'Locus Ianua Cadomyr' for example. Afterwards, you can also close it with the incantation 'Locus Claudere'."
+queststatus(240) = 4, "portal", "spatial",  "task", "adventure", "order" -> queststatus(240) = 5, "Well done! Next up, I want to see you open a portal to it as well. You can speak the location aloud if you wish, 'Locus Ianua Cadomyr' for example. The incantation is 'Locus Ianua'. Afterwards, you can also close it with the incantation 'Locus Claudere'."
+queststatus(240) = 4, "teleport", "quest", "mission", "auftrag", "aufgabe", "abenteuer", "order" -> queststatus(240) = 5, "Gut gemacht! Als Nächstes möchte ich sehen, wie du auch ein Portal zu ihm öffnest. Die Beschwörungsformel lautet 'Locus Ianua'. Du kannst den Ort laut aussprechen, wenn du möchtest, zum Beispiel 'Locus Ianua Cadomyr'. Danach kannst du es auch mit der Beschwörungsformel 'Locus Claudere' schließen."
 
 -- Reminded about the task to open a portal
 queststatus(240) = 5, english, "quest", "mission", "teleport" -> "Well go on then. I want to see you open a portal to the nearby teleporter."

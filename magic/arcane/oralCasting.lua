@@ -75,6 +75,12 @@ local function checkForPortalIncantation(spokenWords)
         return incantations.attune
     end
 
+    local foundClose = string.find(spokenWords, incantations.close)
+
+    if foundClose then
+        return incantations.close
+    end
+
     return false
 
 end
@@ -134,7 +140,7 @@ local function addRunesToSpell(user, spokenWords, primaryRune)
     return spell
 end
 
-local function castMagic(user, actionState, spell, portal)
+local function castMagic(user, actionState, spell, portal, spokenWords)
 
     local oralCast = {spatial = portal, spell = spell}
 
@@ -148,7 +154,7 @@ local function castMagic(user, actionState, spell, portal)
     if spell then
         castSpell.castSpell(user, spell, actionState, oralCast)
     elseif portal then
-        spatialMagic.castSpatialMagic(user, actionState, oralCast)
+        spatialMagic.castSpatialMagic(user, actionState, oralCast, spokenWords)
     end
 
 end
@@ -169,13 +175,13 @@ function M.checkForMagicIncantations(user, actionState, spokenWords)
             user:changeSource(spokenWords, 0)
             M[user.name.."portal"] = checkForPortalIncantation(spokenWords)
             M[user.name.."spell"] = false
-            castMagic(user, actionState, false, checkForPortalIncantation(spokenWords))
+            castMagic(user, actionState, false, checkForPortalIncantation(spokenWords), spokenWords)
         end
 
     elseif actionState ==  Action.abort or actionState == Action.success then
         local portal = M[user.name.."portal"]
         local spell = M[user.name.."spell"]
-        castMagic(user, actionState, spell, portal)
+        castMagic(user, actionState, spell, portal, spokenWords)
     end
 end
 

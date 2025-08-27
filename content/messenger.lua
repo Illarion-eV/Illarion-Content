@@ -48,22 +48,13 @@ local function spawnParchment(user, texts, signature, descriptionEn, description
     end
 end
 
-local function garbleTheMessage(message) -- Make it recognisable for those with database access to check if it matches, but unrecognisable for others for privacy reasons
-    --[[sends the first 21 characters in the letter.
-    EG: "I need to talk to you. Find me in Galmair when you read this." becomes "I****d****t****t****."
-    Undecipherable for those without database access to match it to the variables there,
-    or the foreknowledge of what the message is meant to hold
-    ]]
-    return string.sub(message, 1, 1).."****"..string.sub(message, 6, 6).."****"..string.sub(message, 11, 11).."****"..string.sub(message, 16, 16).."****"..string.sub(message, 21, 21)
-end
-
 local function convertContentsIntoString(contents)
 
     local retString = ""
 
     for index, message in pairs(contents) do
         if message.sender then
-            retString = retString.." (Sender "..index..": "..message.sender.." Message"..index..": "..garbleTheMessage(message.text)..")"
+            retString = retString.." (Sender "..index..": "..message.sender.." Message"..index..": "..message.text[1]..message.text[2]..message.text[3]..message.text[4]..")"
         end
     end
 
@@ -90,13 +81,13 @@ local function logThatMessagesWereReceived(recipient, contents)
         return
     end
 
-    local loggedMessage = "[Messenger]: "..tostring(recipient.name).." at "..tostring(recipient.pos).." has received "..tostring(numberOfMessages).." messages. They contain the following, garbled for privacy reasons: "
+    local loggedMessage = "[Messenger]: "..tostring(recipient.name).." at "..tostring(recipient.pos).." has received "..tostring(numberOfMessages).." messages. They contain the following: "
 
     loggedMessage = loggedMessage..contentsToString
 
     if loggedMessage then
 
-        log(loggedMessage)
+        logPlayer(loggedMessage)
 
     end
 end
@@ -128,7 +119,7 @@ local function sendPlayerMessages(numberOfMessages, recipient)
 
             if foundText1 and foundSignature and foundDescriptionEn and foundDescriptionDe then
                 local texts = {text1, text2, text3, text4}
-                table.insert(contents, {text = text1, sender = signature})
+                table.insert(contents, {text = texts, sender = signature})
                 spawnParchment(recipient, texts, signature, descriptionEn, descriptionDe)
             else
                 local sender = "unknown"
@@ -197,7 +188,7 @@ local function sendScriptMessages(numberOfScriptMessages, recipient, contents)
             if foundGermanText1 and foundEnglishText1 then
                 local texts = common.GetNLS(recipient, {germanText1, germanText2, germanText3, germanText4}, {englishText1, englishText2, englishText3, englishText4})
                 spawnParchment(recipient, texts, "", descriptionEnglish, descriptionGerman)
-                table.insert(contents, {text = englishText1})
+                table.insert(contents, {text = texts})
             else
                 local startOfTextGerman = "German text was not found."
                 local startOfTextEnglish = "English text was not found."

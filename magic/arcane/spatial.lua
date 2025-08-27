@@ -47,6 +47,10 @@ local myTexts = {
         english  = "You've already attuned your spatial magic to this location.",
         german = "Du hast deine Raummagie bereits auf diesen Ort abgestimmt."
     },
+    closePortal = {
+        english = "Close a portal",
+        german = "Schließe ein Portal."
+    },
     doneAttuning  = {
         english = "You've attuned to the crossing mana lines in the area. You will now be able to remember the spatial coordinates to teleport, cast portals and even write portal books that lead to this area, should your expertise in spatial magic allow.",
         german = "Du hast deine Raummagie auf die sich kreuzenden Manalinien dieses Gebiets abgestimmt. Du kannst dir nun die räumlichen Koordinaten merken um dich her zu teleportieren, Portale zu öffnen oder sogar Portalbücher schreiben die dich hier her führen. Natürlich nur wenn es deine Erfahrung in Raummagie erlaubt."
@@ -86,7 +90,8 @@ local myTexts = {
     incantation = {
         portal = "Locus Ianua", -- latin for "space door"
         teleport = "Locus Itinerantur", --latin for "space travel"
-        attune = "Locus Memento" --latin, "space remember"
+        attune = "Locus Memento", --latin, "space remember"
+        close = "Locus Claudere" -- "space shut"
     },
     teleportation = {
         english = "Teleportation",
@@ -668,6 +673,7 @@ local function teleport(user, actionState, portal, destination)
             local thePortal = world:createItemFromId(portalType, 1, thePos, true, 999, {destinationCoordsZ = destination.z, destinationCoordsY = destination.y, destinationCoordsX = destination.x})
             thePortal.wear = wear
             world:changeItem(thePortal)
+            logPlayer(user.name.."("..user.id..")".." creates portal to "..tostring(destination))
             if tutorials.isTutorialNPCnearby(user) then
                 if user:getQuestProgress(240) == 5 then
                     user:setQuestProgress(240, 6)
@@ -682,6 +688,7 @@ local function teleport(user, actionState, portal, destination)
                 user:setQuestProgress(240, 4)
             end
         end
+        logPlayer(user.name.."("..user.id..")".." teleporting to "..tostring(destination))
         user:warp(destination)
     end
 end
@@ -737,8 +744,40 @@ local function checkForWand(user)
     return true
 end
 
+local function closePortal(user, actionState)
 
-local function chooseLocation(user, actionState, portal)
+    if not magic.hasSufficientMana(user, 1000) then
+        user:inform("Du hast nicht genug Mana.", "You do not have enough mana.")
+        return
+    end
+
+    local front = common.GetFrontPosition(user)
+
+    local portal = false
+
+    if world:isItemOnField(front) then
+        local possiblePortal = world:getItemOnField(front)
+        if possiblePortal.id == 10 and possiblePortal.wear ~= 255 then
+            portal = possiblePortal
+        end
+    end
+
+    if not portal then
+        user:inform("Es gibt kein Portal, das du schließen kannst. Es muss vor dir sein.", "There's no portal for you to close. It needs to be in front of you.")
+        return
+    end
+
+    if actionState == Action.none then
+        user:startAction(30, 21, 10, 0, 0)
+    elseif actionState == Action.success then
+        user:increaseAttrib("mana", -1000)
+        world:erase(portal,1)
+        world:gfx(45,portal.pos)
+    end
+end
+
+
+local function chooseLocation(user, actionState, portal, spokenWords)
 
     if not checkIfEnoughMana(user) then
         user:inform("Du hast nicht genug Mana.", "You do not have enough mana.")
@@ -757,6 +796,21 @@ local function chooseLocation(user, actionState, portal)
 
     local destination
     local spots = getListOfAttunedSpots(user, portal)
+
+    for _, spot in pairs(spots) do
+
+        if spokenWords and (string.find(spokenWords, spot.nameEn) or string.find(spokenWords, spot.nameDe)) then
+            M[user.name.."attunement"] = false -- If a previous attunement attempt was interrupted, it might still be stored, so we overwrite it here
+            M[user.name.."destination"] = spot.location
+            M[user.name.."portal"] = portal
+            M[user.name.."cycles"] = startCycles
+            M.startCycle(user)
+            return
+        end
+
+    end
+
+
     local callback = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -813,6 +867,9 @@ local function portalMenu(user, ltstate)
         elseif index == 4 then
             M.showBookQuality(user)
         elseif index == 5 then
+            local incantation = myTexts.incantation.close
+            user:talk(Character.say, incantation)
+        elseif index == 6 then
             M.selectPortalColor(user)
             return
         end
@@ -825,6 +882,7 @@ local function portalMenu(user, ltstate)
     dialog:addOption(0, common.GetNLS(user, myTexts.teleport.german, myTexts.teleport.english))
     dialog:addOption(0, common.GetNLS(user, myTexts.portal.german, myTexts.portal.english))
     dialog:addOption(0,common.GetNLS(user, myTexts.showBookQuality.german, myTexts.showBookQuality.english))
+    dialog:addOption(0,common.GetNLS(user, myTexts.closePortal.german, myTexts.closePortal.english))
     if user:getQuestProgress(225) ~= 0 then
         dialog:addOption(0, common.GetNLS(user, myTexts.portalColour.german, myTexts.portalColour.english))
     end
@@ -834,18 +892,19 @@ local function portalMenu(user, ltstate)
     user:requestSelectionDialog(dialog)
 end
 
-local  function skipPortalMenu(user, actionState, incantation)
-
+local  function skipPortalMenu(user, actionState, incantation, spokenWords)
     if incantation == myTexts.incantation.teleport then
-        chooseLocation(user, actionState)
+        chooseLocation(user, actionState, false, spokenWords)
     elseif incantation == myTexts.incantation.portal then
-        chooseLocation(user, actionState, true)
+        chooseLocation(user, actionState, true, spokenWords)
     elseif incantation == myTexts.incantation.attune then
         M.checkSpotEligiblity(user)
+    elseif incantation == myTexts.incantation.close then
+        closePortal(user, actionState)
     end
 end
 
-function M.castSpatialMagic(user, actionState, oralCast)
+function M.castSpatialMagic(user, actionState, oralCast, spokenWords)
 
     if not checkForWand(user) then return end
 
@@ -853,13 +912,18 @@ function M.castSpatialMagic(user, actionState, oralCast)
         if not oralCast then
             portalMenu(user, actionState)
         else
-            skipPortalMenu(user, actionState, oralCast.spatial)
+            skipPortalMenu(user, actionState, oralCast.spatial, spokenWords)
         end
     elseif actionState == Action.abort then
         user:inform(common.GetNLS(user, myTexts.interruptedCast.german, myTexts.interruptedCast.english))
         return
     elseif actionState == Action.success then
-        M.startCycle(user, actionState, oralCast)
+
+        if oralCast.spatial == myTexts.incantation.close then
+            closePortal(user, actionState)
+        else
+            M.startCycle(user, actionState, oralCast)
+        end
     end
 end
 
