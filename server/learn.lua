@@ -65,27 +65,29 @@ local function accountForMultiSkills(user, skill, actionPoints)
 
     local correctSkill = false
 
+    local resetTimer = 5
+
     for _, armourSkill in pairs(armour) do
         if skill == armourSkill then
             correctSkill = true
-            multiSkilling[user.id]["armour"] = world:getTime("unix") + 60
+            multiSkilling[user.id]["armour"] = world:getTime("unix") + resetTimer
         end
     end
 
     if skill == parry then
         correctSkill = true
-        multiSkilling[user.id]["parry"] = world:getTime("unix") + 60
+        multiSkilling[user.id]["parry"] = world:getTime("unix") + resetTimer
     end
 
     if skill == magicResist then
         correctSkill = true
-        multiSkilling[user.id]["magicResist"] = world:getTime("unix") + 60
+        multiSkilling[user.id]["magicResist"] = world:getTime("unix") + resetTimer
     end
 
     for _, offensiveSkill in pairs(offensive) do
         if skill == offensiveSkill then
             correctSkill = true
-            multiSkilling[user.id]["offensive"] = world:getTime("unix") + 60
+            multiSkilling[user.id]["offensive"] = world:getTime("unix") + resetTimer
         end
     end
 
@@ -101,7 +103,7 @@ local function accountForMultiSkills(user, skill, actionPoints)
         local time = multiSkilling[user.id][timeCheck]
 
         if not common.IsNilOrEmpty(time) then
-            if time > world:getTime("unix") then --This skill category was learnt within that last minute
+            if time > world:getTime("unix") then --This skill category was learnt within that last 5 seconds
                 divideBy = divideBy + 1
             end
         end
