@@ -166,7 +166,7 @@ local function itemIsSameCategoryAsRepairKit(currentItem, skillName)
         end
     end
 
-    if currentItem.id == Item.crown or currentItem.id == Item.diadem or currentItem.id == 3556 or currentItem.id == 3557 then -- crowns are added as an exception as they are clothing but do not belong to tailoring
+    if currentItem.id == Item.mirror or currentItem.id == Item.crown or currentItem.id == Item.diadem or currentItem.id == 3556 or currentItem.id == 3557 then -- crowns are added as an exception as they are clothing but do not belong to tailoring
         if skillName == "finesmithing" then
             return true
         else
