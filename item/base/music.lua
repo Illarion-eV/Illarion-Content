@@ -204,8 +204,8 @@ local function levelImpact(user, instrumentName, note, noteDuration, amount)
         return note
     end
 
-    if amount <= level/1.5 then --allows for shorter melodies to be played without fail at lower levels to make it less harsh
-        return note
+    if amount <= level/1.5 and noteDuration >= 3 then --allows for shorter melodies to be played without fail at lower levels to make it less harsh
+        return note --No insanely fast low level freebies though so chance to fail the faster than 0.3 second notes
     end
 
     local chance = 2 - level/100 -- From 2% base chance to miss per note at level 0 to 0.2% at 99
