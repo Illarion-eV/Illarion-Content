@@ -70,6 +70,8 @@ function M.donate(donatedItem, User, FactionName, LeaderName, Treasury)
 
         local gstring, estring = money.MoneyToString(payToFaction) --converting money to a string
 
+        logPlayer("[Donation] Player "..User.name.."("..User.id..") has donated "..estring.." to "..FactionName.." in the form of "..donatedItem.number.." of item "..donatedItem.id)
+
         common.InformNLS(User,
             "[Spende] Du spendest Gegenstände im Gegenwert von"..gstring.." in die Schatzkammer von "..FactionName..".",
             "[Donation] You donate items valued at"..estring.." to the treasury of "..FactionName..".") -- Feedback!

@@ -1629,6 +1629,7 @@ local function sendGroupMessage(user, chosenPlayer)
             end
         end
 
+        user:logAdmin(" sent message ("..input..")".." to the following players: "..nameList..".")
         user:inform("Sent message ("..input..")".." to the following players: "..nameList..".")
 
     end
@@ -1652,6 +1653,7 @@ local function sendTalkToMessage(user, chosenPlayer)
 
         chosenPlayer:inform(common.GetNLS(user, german, english)..input)
         user:inform("To "..chosenPlayer.name.."("..chosenPlayer.id.."): "..input)
+        user:logAdmin(" message sent to "..chosenPlayer.name.."("..chosenPlayer.id.."): "..input)
 
     end
 
