@@ -295,7 +295,7 @@ local function playNote(user, note, sheet, instrumentName, book, bookIndex)
 
     if not instrument then
         return
-    else
+    elseif instrumentName ~= "clavichord" then --Clavichord as a static tool shouldnt break
         shared.toolBreaks(user, instrument, lastDuration)
     end
 
