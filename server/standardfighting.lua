@@ -1216,11 +1216,11 @@ function ConstitutionEffect(Defender, Globals)
         return
     end
 
-    Globals.Damage = Globals.Damage * 14 / Defender.constitution
-
     if Defender.constitution <= 15 and Defender.Char:getType() == Character.player then
         local attribBonus = common.GetAttributeBonusMedium(Defender.constitution)
-        Globals.Damage = math.max(0, Globals.Damage * (1- attribBonus))
+        Globals.Damage = math.max(0, Globals.Damage * (1 - attribBonus))
+    else
+        Globals.Damage = Globals.Damage * 14 / Defender.constitution
     end
 
 end
