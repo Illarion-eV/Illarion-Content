@@ -1217,6 +1217,12 @@ function ConstitutionEffect(Defender, Globals)
     end
 
     Globals.Damage = Globals.Damage * 14 / Defender.constitution
+
+    if Defender.constitution <= 15 and Defender.Char:getType() == Character.player then
+        local attribBonus = common.GetAttributeBonusMedium(Defender.constitution)
+        Globals.Damage = math.max(0, Globals.Damage * (1- attribBonus))
+    end
+
 end
 
 function gemBonusEffect(Attacker, Defender, Globals)
