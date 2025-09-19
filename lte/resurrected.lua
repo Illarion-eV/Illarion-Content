@@ -44,9 +44,22 @@ local baseEffectCallVal = 600 -- 1 min
 
 local function applyDeathImpact(callValue, user)
 
-    local deathImpact = getRPvsDeaths(user) * 300 --Each death count adds half a minute to the base timer
+    --[[
+        This is applied every tick of the effect and helps determine how long until the next tick is called.
+        Since the time it takes to recover is based on your highest attribute, it varies a bit from character to character.
+        Basing it off having at least one maxed out attribute, and the range of the human race, we will assume 18 of one attrib as the average.
+        Which means an average of 17 ticks to recover.
+        That's 17 * whatever the value we get here on top of the base value of 17 * 30-90 seconds.
+        Luckiest possible then becomes 8.5 minutes to recover for the base value, 25.5 minutes for the worst luck.
+        So assuming the worst possible roll, at 60+ death counter, that's 25.5 min + 102 minutes (17 * 6) so a little
+        over 2 hours to recover as opposed to half an hour in the worst case scenario, if you die too frequently without
+        taking enough pauses to RP.
 
-    local maxImpact = 30*600 --max 30 min at 60ish death counter
+    ]]
+
+    local deathImpact = getRPvsDeaths(user) * 60 --Each death count adds 6 seconds to the base timer
+
+    local maxImpact = 60*60 --At 60+ death counter, the max possible value is 360 seconds aka 6 minutes per tick
 
     local retVal = math.min(maxImpact, callValue + deathImpact)
 
