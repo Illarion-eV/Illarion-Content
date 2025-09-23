@@ -356,7 +356,7 @@ product:addIngredient(236, 2) -- gold ingot
 catId = blacksmithing:addCategory("Other", "Sonstiges")
 
 -- pins
-product = blacksmithing:addProduct(catId, 2738, 1)
+product = blacksmithing:addProduct(catId, 2738, 2)
 product:addIngredient(2535, 1) -- iron ingot
 
 -- iron plate
