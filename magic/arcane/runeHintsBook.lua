@@ -32,7 +32,7 @@ M.runeHintsBookTexts = {
             english = "Mysterious Blue Sphere",
             german = "Mysteriöse blaue Sphäre"},
         description = {
-            english = "A mysterious glass sphere that appears to contain it's own ocean of water.",
+            english = "A mysterious glass sphere that appears to contain its own ocean of water.",
             german = "Eine mysteriöse, gläserne Sphäre. Es scheint als würde sie ein ganzes Meer beinhalten."},
         location = position(630,599,0)},
     JUS = {rune = "JUS",
@@ -141,7 +141,7 @@ M.runeHintsBookTexts = {
             english = "Mysterious Frosty Sphere",
             german = "Mysteriöse vereiste Sphäre"},
         description = {
-            english = "Inside the sphere you see what resembles as snowstorm swirling about with the occasional hail",
+            english = "Inside the sphere you see what resembles a snowstorm swirling about with occasional hail",
             german = "Im Inneren der Sphäre sieht man etwas, das wie ein Schneesturm aussieht, der mit gelegentlichem Hagel umherwirbelt"},
         location = position(266,375,1)},
     IRA = {rune = "IRA",
@@ -185,7 +185,7 @@ M.runeHintsBookTexts = {
             english = "Mysterious Sphere",
             german = "Mysteriöse Sphäre"},
         description = {
-            english = "If you peer into the sphere, you would witness an ever-changing scenery. A desert in one moment, the next a tundra, it constantly shows you new, unique sights.",
+            english = "If you peer into the sphere, you would witness ever-changing scenery. A desert in one moment, tundra the next, it constantly shows you new, unique sights.",
             german = "Wenn du in die Sphäre blickst wirst du Zeuge einer sich ständig verändernden Landschaft. In einem Moment ist es eine Wüste, im nächsten eine Tundra, sie zeigt dir ständig neue, einzigartige Anblicke."},
         location = position(188, 809, -3)},
     LHOR = {rune = "LHOR",
@@ -196,7 +196,7 @@ M.runeHintsBookTexts = {
             english = "Mysterious Sphere",
             german = "Mysteriöse Sphäre"},
         description = {
-            english = "An illusory raven is sat inside the sphere, cleaning its wings with its beak.",
+            english = "An illusory raven is sat inside the sphere, preening its wings with its beak.",
             german = "Im Innern der Sphäre sitzt ein fiktiver Rabe, der sich mit seinem Schnabel die Flügel putzt."},
         location = position(781, 438, 0)},
     LUK = {rune = "LUK",
@@ -256,7 +256,7 @@ M.runeHintsBookTexts = {
         location = position(241, 776, 1)},
     SAV = {rune = "SAV",
         hint = {
-            english = "In a firey castle where dragons reside below.",
+            english = "In a fiery castle where dragons reside below.",
             german = "Ein brennendes Schloss in dem die Drachen hausen."},
         name = {
             english = "Mysterious Sphere",
@@ -278,13 +278,13 @@ M.runeHintsBookTexts = {
         location = position(783 , 262, -8)},
     SUL = {rune = "SUL",
         hint = {
-            english = "Rotten, smelly and cursed to be slow. Such is the fate of a civilization that met its demise.",
+            english = "Rotten, smelly and cursed to be slow. Such is the fate of a civilisation that met its demise.",
             german = "Stinkend, verrottet zum Stillstand verflucht. Das Schicksal einer Zivilisation die ihren Untergang fand. "},
         name = {
             english = "Mysterious Sphere",
             german = "Mysteriöse Sphäre"},
         description = {
-            english = "Peering into the sphere, you'd see the shadow of figures passing by ever so slowly.",
+            english = "Peering into the sphere, you see the shadow of figures passing by ever so slowly.",
             german = "Wenn man in die Sphäre hineinschaut, sieht man die Schatten von Gestalten, die ganz langsam vorüberziehen."},
         location = position(937, 391, -3)},
     TAH = {rune = "TAH",
@@ -311,7 +311,7 @@ M.runeHintsBookTexts = {
         location = position(179, 550, 0)},
     URA = {rune = "URA",
         hint = {
-            english = "Where the guardians of nature reside",
+            english = "Where the guardians of nature reside.",
             german = "Dort wo die Hüter der Natur wohnen."},
         name = {
             english = "Mysterious Mossy Sphere",
@@ -322,7 +322,7 @@ M.runeHintsBookTexts = {
         location = position(827 , 156, 0)},
     YEG = {rune = "YEG",
         hint = {
-            english = "Muddy, grimey and full of despair. This place is not natural, of death beware.",
+            english = "Muddy, grimy and full of despair. This place is not natural, of death beware.",
             german = "Schlammig, schmutzig und voller Verzweiflung. Dieser Ort ist nicht natürlich. Hüte dich vor dem Tod."},
         name = {
             english = "Mysterious Sphere",
