@@ -104,6 +104,10 @@ end
 
 local function CheckIftargetType(target, targetType)
 
+    if not isValidChar(target) then
+        return false
+    end
+
     local targetRace = target:getRace()
 
     for _, race in pairs(M.raceList) do
