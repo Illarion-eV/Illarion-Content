@@ -323,6 +323,10 @@ function M.UseItem(user, sourceItem, actionState)
             selectSheetToPlay(user, sourceItem, sheetAmount, actionState)
         elseif actionState == Action.success then
 
+            if not _G.playtogether then
+                _G.playtogether = {}
+            end
+
             if _G.playtogether[user.id] and not _G.playtogether[user.id].signalGiven and _G.playtogether[user.id].waiting then
                 user:startAction( 1, 0, 0, 0, 0)
                 return
