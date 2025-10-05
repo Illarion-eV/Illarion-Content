@@ -1292,8 +1292,8 @@ function DropAmmo(Attacker, Defender, GroundOnly)
     end
 
     local chanceForDrop
-    if Attacker.Weapon.AmmunitionType == 255 then --Recover throwing weapons at 100 %, arrows etc. at 50 %
-        chanceForDrop = 1
+    if Attacker.Weapon.AmmunitionType == 255 then --Recover throwing weapons at 98 %, arrows etc. at 50 %
+        chanceForDrop = 0.98 --based on a throwing axe being valued 2500% of a regular arrow, resulting in the same monetary loss on average
     else
         chanceForDrop = 0.5
     end
