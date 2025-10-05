@@ -1779,6 +1779,10 @@ function M.makeStatic(user)
     if not targetItem then
         user:inform("Hier ist nichts, was dauerhaft haltbar gemacht werden könnte.","There is no item to be made/unmade static.")
     elseif M.isStaticPermitted(user, targetItem) then
+        if targetItem.number > 5 and targetItem.wear ~= 255 then
+            user:inform("Du kannst Objekte nur dann haltbar machen, wenn sie in einem Stapel von fünf oder weniger sind.", "You can only make items static if they are in a stack of 5 or less.")
+            return
+        end
         if targetItem.wear ~= 255 then
             targetItem.wear = 255
             world:changeItem(targetItem)
