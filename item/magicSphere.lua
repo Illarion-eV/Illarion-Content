@@ -313,7 +313,7 @@ end
 
 function M.checkTaurPosition(user)
 
-    local taurPosition = position(179, 551, 0)
+    local taurPosition = position(179, 550, 0)
 
     local distance = 10
 
