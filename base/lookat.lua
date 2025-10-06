@@ -163,6 +163,18 @@ local function isPortalBook(item)
     return false
 end
 
+local function tagHidden(theItem)
+
+    local hideTag = theItem:getData("hideTag")
+
+    if hideTag == "true" then
+        return true
+    end
+
+    return false
+
+end
+
 function M.GenerateLookAt(user, item, material, levelreq, skillDisplay, types)
 
     if user == nil then
@@ -241,7 +253,7 @@ function M.GenerateLookAt(user, item, material, levelreq, skillDisplay, types)
     if itemCommon.AgeingSpeed < 255 and itemCommon.Weight < 30000 then
         local craftedByData = item:getData("craftedBy")
 
-        if not common.IsNilOrEmpty(craftedByData) and not isPortalBook(item) then
+        if not common.IsNilOrEmpty(craftedByData) and not isPortalBook(item) and not tagHidden(item) then
             lookAt.craftedBy = craftedByData
         end
 
