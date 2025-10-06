@@ -30,7 +30,38 @@ local gods = require("content.gods")
 local M = {}
 local MODE_MIRROR = 2
 
+local function selectWhetherToStare(user, target, output)
 
+    local callback = function(dialog)
+
+        if not dialog:getSuccess() then
+            return
+        end
+
+        local index = dialog:getSelectedIndex() +1
+
+        if not isValidChar(target) then
+            return
+        end
+
+
+        if index == 1 then
+            common.InformNLS(target, "Du fühlst dich beobachtet.", "You feel watched.")
+            user:sendCharDescription( target.id , output )
+        else
+            user:sendCharDescription( target.id , " " )
+        end
+    end
+
+    local dialog = SelectionDialog(
+    common.GetNLS(user, "Ansehen", "Look At"),
+    common.GetNLS(user, "Wähle, ob du starren möchtest - was dir eine Beschreibung des Ziels gibt, aber sie auch wissen lässt, dass sie beobachtet werden - oder ob du ihnen einfach einen Spitznamen geben willst.", "Choose whether to stare, giving you a description of the target but also letting them know they feel watched, or just to nickname them."), callback)
+
+    dialog:addOption(0, common.GetNLS(user, "Starren", "Stare"))
+    dialog:addOption(0, common.GetNLS(user, "Nur Spitzname", "Nickname only"))
+
+    user:requestSelectionDialog(dialog)
+end
 
 function M.lookAtPlayer( SourceCharacter, TargetCharacter, mode)
     local output = ""
@@ -41,10 +72,10 @@ function M.lookAtPlayer( SourceCharacter, TargetCharacter, mode)
 
     output = output .. M.getCharDescription( SourceCharacter, TargetCharacter, mode)
 
-    SourceCharacter:sendCharDescription( TargetCharacter.id , output )
-
     if (mode == Player.stare) then
-        common.InformNLS(TargetCharacter, "Du fühlst dich beobachtet.", "You feel watched.")
+        selectWhetherToStare(SourceCharacter, TargetCharacter, output)
+    else
+        SourceCharacter:sendCharDescription( TargetCharacter.id , output )
     end
 end
 
