@@ -21,7 +21,7 @@ local tutorial = require("content.tutorial")
 
 local M = {}
 
-local DEFAULT_WEAR = 20 -- default duration of one hour (57-60 min depending on when in the rot cycle it is lit)
+local DEFAULT_WEAR = 60 -- default duration of 3 hours, 177-180 minutes based on when in the current cycle it was lit.
 
 local LightsOff = {}
 local LightsOn = {}
