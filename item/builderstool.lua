@@ -165,7 +165,7 @@ local function miscDialog(user)
                     if selected == 1 then
                         utility.makeStatic(user)
                     elseif selected == 2 then
-                        utility.writeOnSignPost(user)
+                        utility.writeOnSignPostOrPainting(user)
                     elseif selected == 3 then
                         utility.makeWaterWalkable(user)
                     elseif selected == 4 then
@@ -184,7 +184,7 @@ local function miscDialog(user)
 
     local dialog = SelectionDialog(common.GetNLS(user,"Sonstiges","Misc Menu"), common.GetNLS(user,"Was würdest du gerne tun?","Choose what to do."), callback)
     dialog:addOption(0,common.GetNLS(user,"Gegenstände haltbar machen","(Un)Make item static"))
-    dialog:addOption(0,common.GetNLS(user,"Ein Hinweisschild beschriften","Write on Sign Post"))
+    dialog:addOption(0,common.GetNLS(user,"Ein Hinweisschild beschriften","Write on Sign Post/Painting"))
     dialog:addOption(0,common.GetNLS(user,"Übers Wasser gehen","Make water walkable"))
     dialog:addOption(0,common.GetNLS(user,"Höhe einstellen","Set elevation"))
     if utility.checkIfEstate(user) then

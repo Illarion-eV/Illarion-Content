@@ -1274,7 +1274,29 @@ function M.createKey(user)
     end
 end
 
-function M.writeOnSignPost(user)
+local function includeGermanPart(user, painting)
+
+    local callback = function(dialog)
+        local success = dialog:getSuccess()
+        if not success then
+            return
+        end
+        local input = dialog:getInput()
+
+        if not common.IsNilOrEmpty(input) then
+            painting:setData("descriptionDe",input)
+        end
+
+        world:changeItem(painting)
+    end
+
+    local dialog = InputDialog(common.GetNLS(user,"Hinweisschild|Gemälde","Sign Post|Painting"),common.GetNLS(user,"Was soll auf dem Schild | dem Gemälde auf Deutsch stehen? Lass es leer, damit es dasselbe wie auf Englisch angezeigt wird.","Write in what you want the sign post | painting to say in German. Leave it empty for it to display the same as in English."), false, 255, callback)
+
+    user:requestInputDialog(dialog)
+end
+
+
+function M.writeOnSignPostOrPainting(user)
     local callback = function(dialog)
         local success = dialog:getSuccess()
         if not success then
@@ -1283,24 +1305,25 @@ function M.writeOnSignPost(user)
         local input = dialog:getInput()
         if M.allowBuilding(user) then
 
-            local TargetItem = M.checkIfSignPost(user)
+            local TargetItem = M.checkIfSignPostOrPainting(user)
 
             if TargetItem then
                 TargetItem:setData("descriptionDe",input)
                 TargetItem:setData("descriptionEn",input)
-                world:changeItem(TargetItem)
+                includeGermanPart(user, TargetItem)
+
             else
-                user:inform("Du musst vor einem Hinweisschild stehen um darauf zu schreiben.","You need a sign post in front of you if you want to write on it.")
+                user:inform("Du musst vor einem Hinweisschild oder Gemälde stehen um darauf zu schreiben.","You need a sign post or painting in front of you if you want to write on it.")
             end
         else
-            user:inform("Das Hinweisschild muss sich auf deinem Grundstück befinden wenn du darauf schreiben möchtest.","The sign has to be on your property for you to write on it.")
+            user:inform("Das Hinweisschild oder Gemälde muss sich auf deinem Grundstück befinden wenn du darauf schreiben möchtest.","The sign or painting has to be on your property for you to write on it.")
         end
     end
-    local dialog = InputDialog(common.GetNLS(user,"Hinweisschild","Sign Post"),common.GetNLS(user,"Was soll auf dem Schild stehen?","Write in what you want the sign post to say."), false, 255, callback)
-    if M.checkIfSignPost(user) then
+    local dialog = InputDialog(common.GetNLS(user,"Hinweisschild|Gemälde","Sign Post|Painting"),common.GetNLS(user,"Was soll auf dem Schild | dem Gemälde stehen (auf Englisch)??","Write in what you want the sign post|painting to say in English."), false, 255, callback)
+    if M.checkIfSignPostOrPainting(user) then
         user:requestInputDialog(dialog)
     else
-        user:inform("Du musst vor einem Hinweisschild stehen um darauf zu schreiben.","You need a sign post in front of you if you want to write on it.")
+        user:inform("Du musst vor einem Hinweisschild oder Gemälde stehen, um darauf zu schreiben.","You need a sign post or painting in front of you if you want to write on it.")
     end
 end
 
@@ -3728,7 +3751,7 @@ function M.getRentDE(item, property)
     end
 end
 
-function M.checkIfSignPost(user)
+function M.checkIfSignPostOrPainting(user)
     local targetItem
     if not common.GetFrontItem(user) then
         return false
@@ -3736,7 +3759,7 @@ function M.checkIfSignPost(user)
         targetItem = common.GetFrontItem(user)
     end
     for _, item in pairs(itemList.items) do
-        if item.category == "Sign Posts" and item.itemId == targetItem.id  then
+        if (item.category == "Sign Posts" or item.category == "Paintings") and item.itemId == targetItem.id  then
             local previewItem = targetItem:getData("preview") == "true"
 
             if previewItem then
