@@ -641,6 +641,10 @@ product = tailoring:addProduct(catId, 89, 1)
 product:addIngredient(50, 4) -- thread
 product:addIngredient(2547, 3) -- leather
 
+product = tailoring:addProduct(catId, Item.wickerBasket, 1)
+product:addIngredient(Item.bundleOfGrain, 10)
+product:addIngredient(Item.thread, 2)
+
 -- leather bag
 product = tailoring:addProduct(catId, 97, 1)
 product:addIngredient(50, 2) -- thread
