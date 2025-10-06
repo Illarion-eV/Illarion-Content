@@ -59,7 +59,7 @@ function M.StartGathering(user, sourceItem, actionstate)
     local depletedResourceID = gathering.getDepletedObject(fishList, sourceItem.id)
     local restockWear = 4 -- 15 minutes
 
-    local success, toolItem, amount, gatheringBonus = gathering.InitGathering(user, sourceItem, toolID, maxAmount, fishing.LeadSkill)
+    local success, toolItem, amount, gatheringBonus = gathering.InitGathering(user, sourceItem, toolID, maxAmount, fishing.LeadSkill, depletedResourceID)
 
     if not success then
         return

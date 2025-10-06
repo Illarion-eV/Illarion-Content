@@ -133,7 +133,7 @@ function M.StartGathering(user, sourceItem, ltstate)
     local depletedResourceID = gathering.getDepletedObject(oreList, sourceItem.id)
     local restockWear = 4 -- 15 minutes
 
-    local success, toolItem, amount, gatheringBonus = gathering.InitGathering(user, sourceItem, toolID, maxAmount, mining.LeadSkill)
+    local success, toolItem, amount, gatheringBonus = gathering.InitGathering(user, sourceItem, toolID, maxAmount, mining.LeadSkill, depletedResourceID)
 
     if not success then
         return

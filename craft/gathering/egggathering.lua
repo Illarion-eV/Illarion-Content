@@ -76,7 +76,7 @@ function M.StartGathering(user, sourceItem, actionState)
     local depletedResourceID = gathering.getDepletedObject(nestList, sourceItem.id)
     local restockWear = 4 -- 15 minutes
 
-    local success, toolItem, amount, gatheringBonus = gathering.InitGathering(user, sourceItem, nil, maxAmount, egggathering.LeadSkill)
+    local success, toolItem, amount, gatheringBonus = gathering.InitGathering(user, sourceItem, nil, maxAmount, egggathering.LeadSkill, depletedResourceID)
 
     if not success then
         return

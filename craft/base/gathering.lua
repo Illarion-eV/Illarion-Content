@@ -271,16 +271,34 @@ function GatheringCraft:GenWorkTime(User)
 end
 
 -- Check the amount
-function M.GetAmount(maxAmount, SourceItem)
+function M.GetAmount(maxAmount, SourceItem, depleted)
 
-    local amountStr = SourceItem:getData("amount");
-    local amount
-    if ( amountStr ~= "" ) then
+    local amountStr = SourceItem:getData("amount")
+    local amount = 0
+
+    local timestamp = SourceItem:getData("timestamp")
+
+    local respawnShouldveHappened = false
+
+    if depleted then
+
+        local itemStats = world:getItemStatsFromId(depleted)
+
+        local ageingSpeed = itemStats.AgeingSpeed*3*60 --Amount of seconds it takes for the resource to recover normally
+
+        local time = world:getTime("unix")
+
+        if not common.IsNilOrEmpty(timestamp) then
+            if time >= timestamp + ageingSpeed then
+                respawnShouldveHappened = true
+            end
+        end
+    end
+
+    if not common.IsNilOrEmpty(amountStr) and not respawnShouldveHappened then
         amount = tonumber(amountStr)
-    elseif ( SourceItem.wear == 255 ) then
+    elseif SourceItem.wear == 255 then
         amount = maxAmount
-    else
-        amount = 0
     end
 
     return amount
@@ -292,6 +310,7 @@ function M.FindResource(user, SourceItem, amount, resourceID)
 
     amount = amount - 1
     SourceItem:setData("amount", "" .. amount)
+    SourceItem:setData("timestamp", tostring(world:getTime("unix")))
     world:changeItem(SourceItem)
 
     local resourceAmount = 1
@@ -318,7 +337,7 @@ function M.SwapSource(SourceItem, depletedSourceID, restockWear)
 end
 
 -- Collector for recurring functions
-function M.InitGathering(user, sourceItem, toolID, maxAmount, skill)
+function M.InitGathering(user, sourceItem, toolID, maxAmount, skill, depletedItemId)
 
     common.TurnTo(user, sourceItem.pos)
 
@@ -329,7 +348,7 @@ function M.InitGathering(user, sourceItem, toolID, maxAmount, skill)
         toolItem = shared.getTool(user, toolID)
     end
 
-    local amount= M.GetAmount(maxAmount, sourceItem)
+    local amount= M.GetAmount(maxAmount, sourceItem, depletedItemId)
     local gatheringBonus= shared.getGatheringBonus(user, toolItem, skill)
 
     if ((toolID and toolItem) or not toolID) and common.CheckItem(user, sourceItem) and common.FitForWork(user) and M.SkillCheck(user, sourceItem, skill) then -- security checks
