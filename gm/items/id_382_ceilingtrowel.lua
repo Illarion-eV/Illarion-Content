@@ -661,6 +661,55 @@ local function setMagicGemSet(user, TargetItem)
     user:requestInputDialog(InputDialog("Add a magic gem tier set to the item", "What tier gem set should be added to the "..world:getItemName(TargetItem.id, Player.english).." ? Input should be a number between 1-10." ,false, 255, cbInputDialog))
 end
 
+M.storedDescription = {}
+
+local function copyPaste(user, theItem)
+
+    if not M.storedDescription[user.id] then
+        M.storedDescription[user.id] = {name = {English = "", German = ""}, description = {English = "", German = ""}}
+    end
+
+    local callback = function(dialog)
+
+        if not dialog:getSuccess() then
+            return
+        end
+
+        local index = dialog:getSelectedIndex() +1
+
+        if index == 1 then
+            M.storedDescription[user.id].description.English = theItem:getData("descriptionEn")
+            M.storedDescription[user.id].description.German = theItem:getData("descriptionDe")
+        elseif index == 2 then
+            M.storedDescription[user.id].name.English = theItem:getData("nameEn")
+            M.storedDescription[user.id].name.German = theItem:getData("nameDe")
+        elseif index == 3 then
+            theItem:setData("descriptionEn", M.storedDescription[user.id].description.English)
+            theItem:setData("descriptionDe", M.storedDescription[user.id].description.German)
+            world:changeItem(theItem)
+        elseif index == 4 then
+            theItem:setData("nameEn", M.storedDescription[user.id].name.English)
+            theItem:setData("nameDe", M.storedDescription[user.id].name.German)
+            world:changeItem(theItem)
+        end
+        changeItemSelection(user, theItem)
+    end
+
+    local dialog = SelectionDialog("Copy Paste", "Copy or paste a description.\n Currently stored:\nEnglish name: "..
+        M.storedDescription[user.id].name.English.."\nGerman name: "..
+        M.storedDescription[user.id].name.German.."\nEnglish description: "..
+        M.storedDescription[user.id].description.English.."\nGerman description: "..
+        M.storedDescription[user.id].description.German, callback)
+
+    dialog:addOption(0, "Copy Description")
+    dialog:addOption(0, "Copy Name")
+    dialog:addOption(0, "Paste Description")
+    dialog:addOption(0, "Paste Name")
+
+    user:requestSelectionDialog(dialog)
+
+end
+
 function changeItemSelection(user, TargetItem)
     local changeItemFunctions = {}
     changeItemFunctions[1] = {"Set Number"}
@@ -671,9 +720,10 @@ function changeItemSelection(user, TargetItem)
     changeItemFunctions[6] = {"Set Data"}
     changeItemFunctions[7] = {"Set Glyph charges"}
     changeItemFunctions[8] = {"Set magic gem tier"}
+    changeItemFunctions[9] = {"Copy|paste name|description"}
     local foodDrinkOrPotion = checkIfFoodDrinkPotion(TargetItem)
     if foodDrinkOrPotion then
-        changeItemFunctions[9] = {"Set Custom Inform"}
+        changeItemFunctions[10] = {"Set Custom Inform"}
     end
     local isPotion
     if foodDrinkOrPotion == "potion" then
@@ -702,6 +752,8 @@ function changeItemSelection(user, TargetItem)
         elseif index == 8 then
             setMagicGemSet(user, TargetItem)
         elseif index == 9 then
+            copyPaste(user, TargetItem)
+        elseif index == 10 then
             setCustomInform(user, TargetItem, isPotion)
         end
     end
