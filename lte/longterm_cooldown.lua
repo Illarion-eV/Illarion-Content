@@ -295,7 +295,7 @@ function M.callEffect( Effect, Char ) -- Effect is called
 
     local protectionDuration = 8*24*60*60
 
-    if protectionStatus+protectionDuration < time then
+    if protectionStatus > 1 and protectionStatus+protectionDuration < time then
         Char:setQuestProgress(453, 0)
         common.InformNLS(Char, "Dein monatliches Abonnement für den Schutz durch die Wachen des Don ist abgelaufen. Um weiterhin sicher vor Überfällen auf der Brücke bei Galmair zu sein, erneuere es noch heute bei Frederik!", "Your monthly subscription to being protected by the Don's Guards has expired. To remain safe from bridge ambushes near Galmair, go renew it at Frederik's today!")
     end
