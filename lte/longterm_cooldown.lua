@@ -283,6 +283,24 @@ function M.callEffect( Effect, Char ) -- Effect is called
 
     end --all above is only conducted for players that aren't afk for more than five minutes
 
+    --Protection by the Don, supposed to last 1 IG month, a bit of a hack to put it in here
+
+    local protectionStatus = Char:getQuestProgress(453)
+
+    if protectionStatus == 1 then --It was just bought within the last 5 min of play, set unix timeStamp
+        Char:setQuestProgress(453, world:getTime("unix"))
+    end
+
+    local time = world:getTime("unix")
+
+    local protectionDuration = 8*24*60*60
+
+    if protectionStatus+protectionDuration < time then
+        Char:setQuestProgress(453, 0)
+        common.InformNLS(Char, "Dein monatliches Abonnement für den Schutz durch die Wachen des Don ist abgelaufen. Um weiterhin sicher vor Überfällen auf der Brücke bei Galmair zu sein, erneuere es noch heute bei Frederik!", "Your monthly subscription to being protected by the Don's Guards has expired. To remain safe from bridge ambushes near Galmair, go renew it at Frederik's today!")
+    end
+
+
     --Addition by Estralis: Quest 127/128/129 Caravan of Honour (Phillip Molitor) Countdown
     local theQuestStatus=Char:getQuestProgress(128)
 

@@ -67,8 +67,8 @@ itemShoes = 326
 -- When you are done, please hit the "Rebuild Script" button.
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Frederik Silvereye the notary. Keywords: 'become citizen','leave','give up citizenship', 'rank', 'licence', 'building'.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Frederik Silvereye der Notar. Schlüsselwörter: Bürger werden,'verlassen','beende Bürgerstatus','Rang', 'Lizenz', 'Gebäude'.")
+"Help" -> inform("[Game Help] This NPC is Frederik Silvereye the notary. Keywords: 'become citizen','leave','give up citizenship', 'rank', 'licence', 'building', 'protection'.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Frederik Silvereye der Notar. Schlüsselwörter: Bürger werden,'verlassen','beende Bürgerstatus','Rang', 'Lizenz', 'Gebäude', 'schutz'.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted.", "Greetings.", "Good day."
@@ -187,6 +187,16 @@ rank > 0, town = Galmair, sex = female, "rang" -> "Du bist noch ganz neu hier. D
 "rang" -> "Ich weiß nichts über Ränge in anderen Städten.", "Ich interessiere mich nur für das galmairanische Statussystem."
 
 -- licence
+"buy protection", queststatus(453) > 0 -> "You already paid for protection from the Don." 
+"schutz kaufen", queststatus(453) > 0 -> "Du hast bereits für den Schutz vom Don bezahlt."
+"buy protection", money < 5000 -> "You can't afford that. It costs 50 silver to buy protection from the Don. The protection will last one month." 
+"schutz kaufen", money < 5000 -> "Das kannst du dir nicht leisten. Es kostet 50 Silber, um beim Don Schutz zu kaufen. Der Schutz hält einen Monat lang."
+"buy protection" -> money - 5000, queststatus(453) = 1, "Good. For the next month, also known as 8 dwarven days, you will be protected by the guards as if one of our own."
+"schutz kaufen" -> money - 5000, queststatus(453) = 1, "Gut. Für den nächsten Monat, auch bekannt als acht Zwergentage, wirst du von den Wachen beschützt, als wärst du einer von uns."
+"protection", town = Galmair -> "There is no need for you to buy protection, since you are a citizen."
+"schutz", town = Galmair -> "Es ist nicht nötig, dass du Schutz kaufst, da du Bürger bist."
+"protection" -> "The Don offers a special service where his guards will keep you safe from bridge ambushes for just 50 silver a month. Just tell me you want to 'buy protection' if you want to be safe for the next month"
+"schuts" -> "Der Don bietet einen besonderen Dienst an, bei dem seine Wachen dich vor Überfällen auf der Brücke schützen - für nur 50 Silber im Monat. Sag mir einfach, dass du 'Schutz kaufen' willst, wenn du im nächsten Monat sicher sein möchtest."
 "licence","license", town = Galmair -> "There is no need for you to buy a licence, since you are a citizen."
 "lizenz", town = Galmair, sex = male -> "Ihr benötigt keine Lizenz, da ihr Bürger dieser Stadt seid."
 "lizenz", town = Galmair, sex = female -> "Ihr benötigt keine Lizenz, da ihr Bürgerin dieser Stadt seid."
