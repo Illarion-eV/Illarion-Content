@@ -520,7 +520,7 @@ function M.LookAtItem(user, food)
     end
 
     for _, description in pairs(foodRarityTexts) do
-        if rarity == description.identifier then
+        if rarity == description.identifier and M.foodList[food.id].crafted then
             descriptionEn = description.foodDescription.english
             descriptionDe = description.foodDescription.german
         end
