@@ -90,7 +90,7 @@ local function addPENLukDunTargets(user, targetsPositions)
 
     local targetPosition = targetsPositions.thePosition
 
-    if M[user.id.."LevDunPos"] then
+    if user and M[user.id.."LevDunPos"] then
         targetPosition = M[user.id.."LevDunPos"]
     end
 
@@ -577,7 +577,7 @@ end
 
 
 
-local function addTargets(user, spell, positionsAndTargets)
+function M.addTargets(user, spell, positionsAndTargets)
 
     local DUN = runes.checkSpellForRuneByName("DUN", spell)
     local PEN = runes.checkSpellForRuneByName("PEN", spell)
@@ -596,7 +596,6 @@ function M.getPositionsAndTargets(user, spell, delayed, trap)
 
     local positionsAndTargets = {positions = {}, targets = {}, items = {}}
     positionsAndTargets = getPosition(user, spell, positionsAndTargets, delayed, trap)
-    positionsAndTargets = addTargets(user, spell, positionsAndTargets)
 
     return positionsAndTargets
 end

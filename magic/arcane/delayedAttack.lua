@@ -203,6 +203,7 @@ function M.callEffect(myEffect, user)
 
     if castSpell then
         targets = targeting.getPositionsAndTargets(user, spell, targetPosition)
+        targets = targeting.addTargets(user, spell, targets)
         if (RA or CUN) and SUL then
            targets = targeting.refreshTargets(targets)
         end

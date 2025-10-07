@@ -146,6 +146,7 @@ deleteTrap(trapTarget, sourceItem)
 local myPosition = trapTarget.pos
 local spell = tonumber(sourceItem:getData("spell"))
 local targets = targeting.getPositionsAndTargets(false, spell, myPosition, true)
+targets = targeting.addTargets(nil, spell, targets)
 local element = runes.fetchElement(spell)
 local illusion = sourceItem:getData("illusion")
 local level = sourceItem:getData("level")

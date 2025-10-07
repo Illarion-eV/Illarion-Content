@@ -58,6 +58,7 @@ function M.callEffect(myEffect, user)
         return
     end
     targets = targeting.getPositionsAndTargets(user, spell, myPosition)
+    targets = targeting.addTargets(user, spell, targets)
     targets = targeting.refreshTargets(targets)
 local MES = runes.checkSpellForRuneByName("MES", spell)
     if MES then

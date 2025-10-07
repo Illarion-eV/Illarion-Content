@@ -288,6 +288,9 @@ function M.castSpell(user, spell, actionState, oralCast)
             user:inform(myTexts.range.german, myTexts.range.english)
             return
         end
+
+        M[user.id].positionsAndTargets = targeting.addTargets(user, spell, M[user.id].positionsAndTargets)
+
         if not runes.checkSpellForRuneByName("BHONA", spell) then
             mana.removedUsedMana(user, spell)
             local castDuration = M[user.id].storedDuration
