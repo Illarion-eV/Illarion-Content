@@ -24,9 +24,23 @@ local tree = require("item.tree")
 
 local M = {}
 
+local fruitSources = {4246, 4255, 4238, 4245, 4341, 4253, 14, 300, 387, 1195, 3613, 3743, 3867, 3892}
+
+local function isFruitSource(sourceId)
+
+    for _, source in pairs(fruitSources) do
+        if source == sourceId then
+            return true
+        end
+    end
+
+    return false
+
+end
+
 function M.UseItem(User, SourceItem, ltstate)
 
-    if SourceItem.id == 14 or SourceItem.id == 300 or SourceItem.id == 387 or SourceItem.id == 1195 or SourceItem.id == 3613 or SourceItem.id == 3743 or SourceItem.id ==3867 or SourceItem.id == 3892 then
+    if isFruitSource(SourceItem.id) then
         fruitgathering.StartGathering(User, SourceItem, ltstate);
     elseif SourceItem.id == 386 or SourceItem.id == 3612 or SourceItem.id == 3742 or SourceItem.id == 3866 or SourceItem.id == 3893 then
         common.HighInformNLS( User,"Diese Pflanze trägt keine Früchte.","This plant bears no fruits." );
