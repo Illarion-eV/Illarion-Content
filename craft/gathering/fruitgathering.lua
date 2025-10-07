@@ -192,7 +192,9 @@ function M.StartGathering(User, SourceItem, ltstate)
     end
     -- end of glyph
 
-    local created = common.CreateItem(User, harvestProduct.productId, productAmount, 333, nil) -- create the new produced items
+    local data = gathering.rollsAsRare(User, false, false)
+
+    local created = common.CreateItem(User, harvestProduct.productId, productAmount, 333, data) -- create the new produced items
     if created then -- character can still carry something
         if (amount>0) then  -- there are still fruits we can gather
             fruitgathering.SavedWorkTime[User.id] = fruitgathering:GenWorkTime(User)

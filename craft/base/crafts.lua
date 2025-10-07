@@ -24,7 +24,6 @@ local shared = require("craft.base.shared")
 local lookat = require("base.lookat")
 local licence = require("base.licence")
 local gems = require("base.gems")
-local foodScript = require("item.food")
 local pyr = require("magic.arcane.enchanting.effects.pyr")
 local daear = require("magic.arcane.enchanting.effects.daear")
 local ilyn = require("magic.arcane.enchanting.effects.ilyn")
@@ -33,7 +32,7 @@ local bottles = require("item.bottles")
 local antiTroll = require("magic.base.antiTroll")
 local moreUtility = require("housing.moreUtility")
 local blueprints = require("item.blueprints")
-
+local foodScript = require("item.food")
 
 local M = {}
 
@@ -133,6 +132,8 @@ local Craft = {
     sfxDuration = 0,
 
     fallbackCraft = nil,
+
+    intermediate = false
 }
 
 -- constructor
@@ -652,11 +653,9 @@ local function checkForRareIngredient(user, ingredient)
     return available
 end
 
-local function deleteRareItems(user, ingredient, rareItemsToDelete, amountOfIngredients, index, toSave)
+local function deleteRareItems(user, ingredient, rareItemsToDelete, amountOfIngredients, index, toSave, rareIngredientBonus)
 
     local deletedSoFar = 0
-
-    local rareIngredientBonus = 0
 
     for rarity = 2, 4 do
 
@@ -684,8 +683,7 @@ local function deleteRareItems(user, ingredient, rareItemsToDelete, amountOfIngr
 
         end
 
-        rareIngredientBonus = rareIngredientBonus + deleteAmount*(rarity-1) -- 1, 2, 3% per rare ingredient
-
+        rareIngredientBonus = rareIngredientBonus + deleteAmount*(rarity)
         deletedSoFar = deletedSoFar + deleteAmount
 
         if deletedSoFar == rareItemsToDelete then
@@ -743,12 +741,69 @@ function Craft:checkMaterial(user, productId)
     return materialsAvailable
 end
 
-function Craft:generateRarity(user, rareIngredientBonus)
+local function roundTheBonus(rareIngredientBonus)
+
+    local lower = math.floor(rareIngredientBonus)
+    local upper = math.ceil(rareIngredientBonus)
+    local fraction = rareIngredientBonus - lower
+
+    if math.random() < fraction then
+        return upper
+    else
+        return lower
+    end
+end
+
+local function itemShouldBeRare(productId)
+
+    if foodScript.foodList[productId] and foodScript.foodList[productId].crafted then
+        return true
+    end
+
+    for _, bottle in pairs(bottles.bottles) do
+        if bottle.full[1] == productId then
+            return true
+        end
+
+        for _, emptyVessel in pairs(bottle.empty) do
+            if emptyVessel == productId then
+                return true
+            end
+        end
+
+        for _, vessel in pairs(bottle.vessels) do
+            if vessel.empty == productId then
+                return true
+            end
+        end
+    end
+
+    return false
+end
+
+function Craft:generateRarity(user, rareIngredientBonus, quality, maxStack, itemId)
+
+    local roundedBonus = roundTheBonus(rareIngredientBonus)
+
+    --rareIngredientBonus is the average rareness of all ingredients used to make the item
 
     -- 1 = common, 2 = uncommon, 3 = rare, 4 = unique
     -- Max chances: 0.4% unique, 2% rare, 10% uncommon, 87.6% common (includes the chance to get perfect items to even get here)
 
     if self.npcCraft then
+        return 1
+    end
+
+    local isIntermediate = self.intermediate or itemId == Item.pins or itemId == Item.ironPlate
+
+    if not isIntermediate or not itemShouldBeRare(itemId) then
+        return 1
+    end
+
+    if quality < 900 then --Unless it is an intermediate item, only perfects can roll rareness
+        if (isIntermediate) and roundedBonus > 1 then --To keep the value of rare raw resources, some rareness is guaranteed
+            return roundedBonus
+        end
         return 1
     end
 
@@ -763,7 +818,11 @@ function Craft:generateRarity(user, rareIngredientBonus)
 
     local maxPerfectChance = 0.5967194738 --Maximum probability for quality 9(perfect) items
 
-    local rareIngredientInfluence = 1 + rareIngredientBonus/100 -- increase the final chance by an additional 1%/2%/3% per uncommon/rare/unique item used, eg a chance of 10% uncommon when you use an uncommon ingredient becomes 10.1%
+    local rareIngredientInfluence = 1
+
+    if maxStack > 1 then --Items that do not stack have quality and the rare bonus influences that instead
+        rareIngredientInfluence = rareIngredientInfluence + (2.5/4*rareIngredientBonus) --All unique materials pentuple the odds, so a 2% chance to get uniques etc
+    end
 
     local rarities = {(0.004*rareIngredientInfluence)/maxPerfectChance, (0.02*rareIngredientInfluence)/maxPerfectChance, (0.1*rareIngredientInfluence)/maxPerfectChance} --unique, rare, uncommon
 
@@ -779,42 +838,15 @@ function Craft:generateRarity(user, rareIngredientBonus)
         retVal = retVal + 1
     end
 
+    if (isIntermediate) and rareIngredientBonus > retVal then --Intermediate crafts get at least what they put in
+        return roundedBonus
+    end
+
     return retVal
 
 end
 
-function Craft:checkIfItemShouldHaveRarity(productId)
-
-    if foodScript.foodList[productId] and foodScript.foodList[productId].crafted then --Food can be rare
-        return true
-    end
-
-    for _, bottle in pairs(bottles.bottles) do
-        if bottle.full[1] == productId then -- Brewed drinks can be rare
-
-            return true
-        end
-
-        for _, emptyVessel in pairs(bottle.empty) do -- Serving jugs and similar items can be rare
-            if emptyVessel == productId then
-                return true
-            end
-        end
-
-        for _, vessel in pairs(bottle.vessels) do -- All sorts of drinking cups can be rare
-            if vessel.empty == productId then
-                return true
-            end
-        end
-    end
-
-
-
-    return false
-
-end
-
-function Craft:generateQuality(user, product, toolItem)
+function Craft:generateQuality(user, product, toolItem, rareIngredientBonus)
 
     if self.npcCraft then
         return 999
@@ -837,6 +869,8 @@ function Craft:generateQuality(user, product, toolItem)
     local meanQuality = 5
     meanQuality = meanQuality*(1+common.GetAttributeBonusHigh(leadAttribValue)+common.GetQualityBonusStandard(toolItem))+gemBonus/100 --Apply boni of dexterity, tool quality and gems.
     meanQuality = common.Limit(meanQuality, 1, 8.5) --Limit to a reasonable maximum to avoid overflow ("everything quality 9"). The value here needs unnatural attributes.
+    local rarityBonus = (rareIngredientBonus - 1) * (0.5 / 3)
+    meanQuality = meanQuality + rarityBonus -- Rare ingredients allow you to surpass the maximum to get a mean of 9 if all ingredients are unique
     local rolls = 8 --There are eight chances to increase the quality by one. This results in a quality distribution 1-9.
     local quality = 1 + common.BinomialByMean((meanQuality-1), rolls)
     quality = common.Limit(quality, 1, common.ITEM_MAX_QUALITY)
@@ -1021,6 +1055,8 @@ function Craft:createItem(user, productId, toolItem)
 
     local itemsToReturnAsRemnants = {}
 
+    local totalIngredients = 0
+
     for i = 1, amountOfIngredients do
 
         local ingredient = product.ingredients[i]
@@ -1029,6 +1065,8 @@ function Craft:createItem(user, productId, toolItem)
         local regularItemsToDelete
         local rareItemsToDelete = 0
         local toSave = 0
+
+        totalIngredients = totalIngredients + totalToDelete
 
         local chance = 1/amountOfIngredients -- equal chance for each ingredient involved to be the one saved
 
@@ -1066,11 +1104,14 @@ function Craft:createItem(user, productId, toolItem)
         end
 
         if rareItemsToDelete > 0 then
-            rareIngredientBonus = deleteRareItems(user, ingredient, rareItemsToDelete, amountOfIngredients, i, toSave)
+            rareIngredientBonus = deleteRareItems(user, ingredient, rareItemsToDelete, amountOfIngredients, i, toSave, rareIngredientBonus)
+            rareIngredientBonus = rareIngredientBonus + regularItemsToDelete --Regular items count as 1 rarity
         end
     end
 
-    local quality = self:generateQuality(user, product, toolItem)
+    rareIngredientBonus = rareIngredientBonus/totalIngredients --Now we have the average rareness of all ingredients used
+
+    local quality = self:generateQuality(user, product, toolItem, rareIngredientBonus)
 
     local itemStats = world:getItemStatsFromId(product.item)
     if itemStats.MaxStack == 1 then
@@ -1079,15 +1120,14 @@ function Craft:createItem(user, productId, toolItem)
         product.data.craftedBy = nil
     end
 
-    local shouldHaveRarity = self:checkIfItemShouldHaveRarity(product.item)
-    if shouldHaveRarity and quality >= 900 then
-        local rarity = self:generateRarity(user, rareIngredientBonus)
+    local maxStack = world:getItemStatsFromId(product.item).MaxStack
 
-        if rarity > 1 then
-            common.TempInformNLS(user, "Seltenes Produkt hergestellt!", "Rare product crafted!")
-            product.data.rareness = rarity
-            product.data.craftedRare = "true"
-        end
+    local rarity = self:generateRarity(user, rareIngredientBonus, quality, maxStack, product.item)
+
+    if rarity > 1 then
+        common.TempInformNLS(user, "Seltenes Produkt hergestellt!", "Rare product crafted!")
+        product.data.rareness = rarity
+        product.data.craftedRare = "true"
     end
 
     common.CreateItem(user, product.item, product.quantity, quality, product.data)

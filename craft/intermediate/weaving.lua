@@ -25,6 +25,7 @@ local weaving = crafts.Craft:new{
                     handTool = 6,
                     leadSkill = Character.tanningAndWeaving,
                     fallbackCraft = spinning.spinning,
+                    intermediate = true
                   }
 
 weaving:addTool(169) -- loom

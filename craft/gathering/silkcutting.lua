@@ -74,7 +74,7 @@ function M.StartGathering(User, SourceItem, ltstate)
 
     silkcutting:FindRandomItem(User, toolItem)
 
-    local created, newAmount = gathering.FindResource(User, SourceItem, amount, resourceID)
+    local created, newAmount = gathering.FindResource(User, SourceItem, amount, resourceID, silkcutting.LeadSkill, toolItem)
 
     if created then
         User:changeSource(SourceItem)

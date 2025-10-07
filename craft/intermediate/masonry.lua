@@ -25,6 +25,7 @@ local masonry = crafts.Craft:new{
                     leadSkill = Character.mining,
                     sfx = 8,
                     sfxDuration = 27,
+                    intermediate = true
                   }
 
 masonry:addTool(3830) -- stone working table

@@ -25,6 +25,7 @@ local casting = crafts.Craft:new{
                     leadSkill = Character.mining,
                     sfx = 7,
                     sfxDuration = 80,
+                    intermediate = true
                   }
 
 casting:addTool(3869) -- bloomery

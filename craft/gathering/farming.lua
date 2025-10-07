@@ -266,8 +266,8 @@ function M.StartGathering(user, theCrop, actionState)
     if not productId then
         return
     end
-
-    local created = common.CreateItem(user, productId, productAmount, 333, nil) -- create the new produced items
+    local data = gathering.rollsAsRare(user, theCraft.LeadSkill, toolItem)
+    local created = common.CreateItem(user, productId, productAmount, 333, data) -- create the new produced items
 
     if created then -- character can still carry something
         -- try to find a next item of the same farming type

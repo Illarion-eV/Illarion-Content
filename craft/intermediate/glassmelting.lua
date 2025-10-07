@@ -25,6 +25,7 @@ local glassmelting = crafts.Craft:new{
                     leadSkill = Character.digging,
                     sfx = 7,
                     sfxDuration = 27,
+                    intermediate = true
                   }
 
 glassmelting:addTool(313) -- glass melting oven

@@ -640,8 +640,8 @@ function GetItem(user, listOfTheIngredients)
             end
         end
     else
-        local data = {}
-        if (user:countItemAt("all",listOfTheIngredients[USER_POSITION_LIST[user.id]],data) > 0) then
+
+        if (user:countItemAt("all",listOfTheIngredients[USER_POSITION_LIST[user.id]], nil) > 0) then
             deleteId = listOfTheIngredients[USER_POSITION_LIST[user.id]]
         end
         if not deleteId then

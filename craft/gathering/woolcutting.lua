@@ -111,8 +111,8 @@ function M.StartGathering(User, SourceAnimal, ltstate)
         productAmount = 2
     end
     -- end of glyph
-
-    local created = common.CreateItem(User, 170, productAmount, 333, nil) -- create the new produced items
+    local data = gathering.rollsAsRare(User, woolcutting.LeadSkill, toolItem)
+    local created = common.CreateItem(User, 170, productAmount, 333, data) -- create the new produced items
     if created then --charcter can still carry something
         if gatherAmount < 20 then -- more wool is available
             woolcutting.SavedWorkTime[User.id] = woolcutting:GenWorkTime(User);

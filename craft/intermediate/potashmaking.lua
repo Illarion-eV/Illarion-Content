@@ -26,7 +26,8 @@ local potashmaking = crafts.Craft:new{
                     leadSkill = Character.woodcutting,
                     sfx = 7,
                     sfxDuration = 27,
-                    fallbackCraft = milling.milling
+                    fallbackCraft = milling.milling,
+                    intermediate = true
                   }
 
 potashmaking:addTool(313) -- oven

@@ -385,8 +385,8 @@ function M.StartGathering(User, SourceItem, ltstate)
         productAmount = 2
     end
     -- end of glyph
-
-    local created = common.CreateItem(User, harvestProduct.productId, productAmount, 333, nil) -- create the new produced items
+    local data = gathering.rollsAsRare(User, theCraft.LeadSkill, toolItem)
+    local created = common.CreateItem(User, harvestProduct.productId, productAmount, 333, data) -- create the new produced items
     if created then -- character can still carry something
         -- try to find a next item of the same farming type
         local nextItem = getHerbItem(User, true);

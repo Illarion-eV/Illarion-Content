@@ -20,6 +20,7 @@ local treasure = require("item.base.treasure")
 local gwynt = require("magic.arcane.enchanting.effects.gwynt")
 local anemo = require("magic.arcane.enchanting.effects.anemo")
 local nomizo = require("magic.arcane.enchanting.effects.nomizo")
+local gems = require("base.gems")
 
 local M = {}
 
@@ -305,8 +306,70 @@ function M.GetAmount(maxAmount, SourceItem, depleted)
 
  end
 
+ function M.rollsAsRare(user, leadSkill, toolItem)
+
+    local leadAttribValue
+
+    if leadSkill then
+        local leadAttribNames = common.GetLeadAttributeName(leadSkill)
+        local leadAttribValue1 = user:increaseAttrib(leadAttribNames.first, 0) * 0.6 -- 60% of the impact dex had on its own in the past
+        local leadAttribValue2 = user:increaseAttrib(leadAttribNames.second, 0) * 0.4 -- 40% of the impact dex had on its own in the past
+        leadAttribValue = leadAttribValue1 + leadAttribValue2
+    else --It's foraging
+        leadAttribValue = user:increaseAttrib("constitution", 0)
+    end
+
+    local attributeBonus = 0
+    local toolBonus = 0
+    local gemBonus = 0
+
+    if leadAttribValue then
+        attributeBonus = common.GetAttributeBonusHigh(leadAttribValue)
+    end
+
+    if toolItem then
+        toolBonus = common.GetQualityBonusStandard(toolItem)
+        gemBonus = gems.getGemBonus(toolItem)
+    end
+
+    local meanQuality = 5
+
+    meanQuality = meanQuality*(1+attributeBonus+toolBonus)+gemBonus/100 --Apply boni of attribs, tool quality and gems.
+    meanQuality = common.Limit(meanQuality, 1, 8.5) --Limit to a reasonable maximum to avoid overflow ("everything quality 9"). The value here needs unnatural attributes.
+    local rolls = 8 --There are eight chances to increase the quality by one. This results in a quality distribution 1-9.
+    local quality = 1 + common.BinomialByMean((meanQuality-1), rolls)
+    quality = common.Limit(quality, 1, common.ITEM_MAX_QUALITY)
+
+    if quality ~= 9 then
+        return
+    end
+
+    -- 1 = common, 2 = uncommon, 3 = rare, 4 = unique
+    -- Max chances: 0.4% unique, 2% rare, 10% uncommon, 87.6% common (includes the chance to get perfect items to even get here)
+
+    local retVal = 1
+
+    local maxPerfectChance = 0.5967194738 --Maximum probability for quality 9(perfect) items
+
+    local rarities = {(0.004)/maxPerfectChance, (0.02)/maxPerfectChance, (0.1)/maxPerfectChance} --unique, rare, uncommon
+
+    local rand = math.random()
+
+    for _, rarity in ipairs(rarities) do
+        if rarity >= rand then
+            retVal = retVal+1
+        end
+    end
+
+    if retVal <= 1 then
+        return
+    end
+
+    return {rareness = retVal, craftedRare = "true"}
+ end
+
 -- Find a resource from a source
-function M.FindResource(user, SourceItem, amount, resourceID)
+function M.FindResource(user, SourceItem, amount, resourceID, leadSkill, toolItem)
 
     amount = amount - 1
     SourceItem:setData("amount", "" .. amount)
@@ -320,7 +383,9 @@ function M.FindResource(user, SourceItem, amount, resourceID)
         resourceAmount = 2
     end
 
-    local created = common.CreateItem(user, resourceID, resourceAmount, 333, nil)
+    local data = M.rollsAsRare(user, leadSkill, toolItem)
+
+    local created = common.CreateItem(user, resourceID, resourceAmount, 333, data)
 
     return created, amount
 

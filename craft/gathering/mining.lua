@@ -95,7 +95,7 @@ local function checkIfGemMine(orePosition)
 
 end
 
-local function gotGem(user, sourceItem)
+local function gotGem(user, sourceItem, toolItem, leadSkill)
     local gemMine = checkIfGemMine(sourceItem.pos)
     local rand = math.random()
     local cumulatedChance = 0
@@ -113,7 +113,8 @@ local function gotGem(user, sourceItem)
                 if gwynt.includeExtraResource(user, gems.level) then
                     amount = 2
                 end
-                common.CreateItem(user, gems.id, amount, 333, nil)
+                local data = gathering.rollsAsRare(user, leadSkill, toolItem)
+                common.CreateItem(user, gems.id, amount, 333, data)
                 return true
             end
         end
@@ -188,13 +189,13 @@ function M.StartGathering(user, sourceItem, ltstate)
     local newAmount
 
 
-    if gotGem(user, sourceItem) then
+    if gotGem(user, sourceItem, toolItem, mining.LeadSkill) then
         if not shared.toolBreaks( user, toolItem, mining:GenWorkTime(user)) then
             user:changeSource(sourceItem)
             user:startAction( mining.SavedWorkTime[user.id], 0, 0, 18, 15)
         end
     else
-        created, newAmount = gathering.FindResource(user, sourceItem, amount, resourceID) -- create the new produced items
+        created, newAmount = gathering.FindResource(user, sourceItem, amount, resourceID, mining.LeadSkill, toolItem) -- create the new produced items
     end
 
     if created then

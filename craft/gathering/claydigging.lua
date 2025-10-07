@@ -64,7 +64,7 @@ function M.StartGathering(User, SourceItem, ltstate)
     claydigging:FindRandomItem(User, toolItem)
 
 
-    local created, newAmount = gathering.FindResource(User, SourceItem, amount, resourceID)
+    local created, newAmount = gathering.FindResource(User, SourceItem, amount, resourceID, claydigging.LeadSkill, toolItem)
 
     if created then
         User:changeSource(SourceItem)

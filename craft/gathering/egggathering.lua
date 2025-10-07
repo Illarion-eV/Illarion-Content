@@ -142,7 +142,7 @@ function M.StartGathering(user, sourceItem, actionState)
 
     egggathering:FindRandomItem(user, toolItem)
 
-    local created, newAmount = gathering.FindResource(user, sourceItem, amount, resourceID)
+    local created, newAmount = gathering.FindResource(user, sourceItem, amount, resourceID, egggathering.LeadSkill, toolItem)
 
     if created then
         user:changeSource(sourceItem)

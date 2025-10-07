@@ -114,7 +114,7 @@ function M.StartGathering(user, sourceItem, actionstate)
 
     honeygathering:FindRandomItem(user, nil)
 
-    local created, newAmount = gathering.FindResource(user, sourceItem, amount, resourceID)
+    local created, newAmount = gathering.FindResource(user, sourceItem, amount, resourceID, honeygathering.LeadSkill)
 
     local serverTime = world:getTime("unix")
 

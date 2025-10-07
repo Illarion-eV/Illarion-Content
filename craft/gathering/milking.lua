@@ -142,12 +142,17 @@ function M.StartGathering(user, sourceAnimal, actionState, rareness)
 
     local created
 
+    local data = gathering.rollsAsRare(user, milking.LeadSkill)
+
     if not common.IsNilOrEmpty(rareness) then
+        if data.rareness > tonumber(rareness) then
+            rareness = data.rareness
+        end
         user:eraseItem(Item.largeEmptyBottle, 1, {["rareness"] = rareness})
         common.CreateItem(user, milkId, productAmount, 333, {["rareness"] = rareness}) --keeps rarity of bottle when milking
     else
         user:eraseItem(Item.largeEmptyBottle, 1)
-        created = common.CreateItem(user, milkId, productAmount, 333, nil) -- create the new produced items
+        created = common.CreateItem(user, milkId, productAmount, 333, data) -- create the new produced items
     end
 
     if created then -- character can still carry something

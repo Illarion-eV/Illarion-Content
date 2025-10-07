@@ -26,7 +26,8 @@ local dyeing = crafts.Craft:new{
                     leadSkill = Character.tanningAndWeaving,
                     sfx = 10,
                     sfxDuration = 27,
-                    fallbackCraft = dyemaking.dyemaking
+                    fallbackCraft = dyemaking.dyemaking,
+                    intermediate = true
                   }
 
 dyeing:addTool(1226) -- dye barrel

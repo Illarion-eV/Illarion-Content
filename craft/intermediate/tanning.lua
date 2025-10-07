@@ -25,6 +25,7 @@ local tanning = crafts.Craft:new{
                     leadSkill = Character.tanningAndWeaving,
                     sfx = 16,
                     sfxDuration = 27,
+                    intermediate = true
                   }
 
 tanning:addTool(2052) -- stretcher

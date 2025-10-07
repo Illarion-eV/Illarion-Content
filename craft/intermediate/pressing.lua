@@ -25,6 +25,7 @@ local pressing = crafts.Craft:new{
                     leadSkill = Character.husbandry,
                     sfx = 10,
                     sfxDuration = 27,
+                    intermediate = true
                   }
 
 pressing:addTool(44) -- press

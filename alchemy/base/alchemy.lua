@@ -640,6 +640,8 @@ function M.RemoveAll(Item)
     Item:setData("potionQuality","")
     Item:setData("filledWith","")
     Item:setData("legitimateKnowledgeOfPotionRecipe", "")
+    Item:setData("herbsUsed","")
+    Item:setData("totalRareCount","")
     if (Item.id >= 1008) or (Item.id <= 1018) then
         Item.id = 1008
     else
@@ -710,6 +712,8 @@ function M.FillFromTo(fromItem,toItem)
     toItem:setData("creator",fromItem:getData("creator"))
     toItem:setData("filledWith",fromItem:getData("filledWith"))
     toItem:setData("potionEffectId",fromItem:getData("potionEffectId"))
+    toItem:setData("herbsUsed",fromItem:getData("herbsUsed"))
+    toItem:setData("totalRareCount",fromItem:getData("totalRareCount"))
     toItem:setData("legitimateKnowledgeOfPotionRecipe", fromItem:getData("legitimateKnowledgeOfPotionRecipe"))
     local quality = tonumber(fromItem:getData("potionQuality"))
     if quality == nil then
@@ -793,7 +797,7 @@ function M.informAlchemyToolNeeded(user)
     user:inform(common.GetNLS(user, "Du brauchst einen Mörser, um Zutaten fürs Brauen vorzubereiten.", "You must wield a mortar in order to process the ingredients for your brewing."))
 end
 
-function M.SetQuality(user, item)
+function M.SetQuality(user, cauldron)
 
     local alchemyLevel = user:getSkill(Character.alchemy)
     local gemBonus = tonumber(getGemBonus(user))
@@ -804,6 +808,15 @@ function M.SetQuality(user, item)
     meanQuality = meanQuality*(1+common.GetAttributeBonusHigh(leadAttribValue)+common.GetQualityBonusStandard(toolItem))+gemBonus/100 --Apply boni of lead attrib, tool quality and gems.
     meanQuality = meanQuality*(0.5+(alchemyLevel/200)) -- The level of your alchemy skill has a 50% influence on the average quality
     meanQuality = common.Limit(meanQuality, 1, 8.5) --Limit to a reasonable maximum to avoid overflow ("everything quality 9"). The value here needs unnatural attributes.
+    log("meanQuality: "..tostring(meanQuality))
+    local herbsUsed = cauldron:getData("herbsUsed")
+    local totalRareCount = cauldron:getData("totalRareCount")
+    local rareIngredientBonus = totalRareCount/herbsUsed
+    local rarityBonus = (rareIngredientBonus - 1) * (0.5 / 3)
+    log("bonus: "..tostring(rarityBonus))
+    meanQuality = meanQuality + rarityBonus
+    log("meanQuality: "..tostring(meanQuality))
+
     local quality = 1 --Minimum quality value.
     local rolls = 8 --There are eight chances to increase the quality by one. This results in a quality distribution 1-9.
     local probability = (meanQuality-1)/rolls --This will result in a binominal distribution of quality with meanQuality as average value.
@@ -826,9 +839,9 @@ function M.SetQuality(user, item)
 
     local durability = common.ITEM_MAX_DURABILITY
     local qualityDurability = common.calculateItemQualityDurability(quality, durability)
-    item:setData("potionQuality", qualityDurability)
-    item:setData("ilyn", tostring(ilynProcced))
-    world:changeItem(item)
+    cauldron:setData("potionQuality", qualityDurability)
+    cauldron:setData("ilyn", tostring(ilynProcced))
+    world:changeItem(cauldron)
 end
 
 function M.GemDustBottleCauldron(gemId, gemdustId, cauldronId, bottleId)

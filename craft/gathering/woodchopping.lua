@@ -275,8 +275,8 @@ function M.StartGathering(User, SourceItem, ltstate)
         resourceAmount = 2
     end
     -- End of glyph bonus
-
-    local created = common.CreateItem(User, producedItemId, resourceAmount, 333, nil) -- create the new produced items
+    local data = gathering.rollsAsRare(User, theCraft.LeadSkill, toolItem)
+    local created = common.CreateItem(User, producedItemId, resourceAmount, 333, data) -- create the new produced items
     if created then -- character can still carry something
         if (amount > 0) then  -- there are still items we can work on
             theCraft.SavedWorkTime[User.id] = theCraft:GenWorkTime(User);

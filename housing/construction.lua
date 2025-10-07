@@ -108,7 +108,7 @@ local function loadObjects(user, products, index, object, category, skill, overl
             aboveBoolean = true
         end
 
-        table.insert(products, {level = object.level, category = index, id = id, ingredients = ingredients, tile = tile, above = aboveBoolean, difficulty = object.level, quantity = 1, data = {}})
+        table.insert(products, {level = object.level, category = index, id = id, ingredients = ingredients, tile = tile, above = aboveBoolean, difficulty = object.level, quantity = 1, data = nil})
         return true
     end
     return false

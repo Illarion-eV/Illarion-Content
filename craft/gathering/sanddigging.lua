@@ -63,7 +63,7 @@ function M.StartGathering(User, SourceItem, ltstate)
 
     sanddigging:FindRandomItem(User, toolItem)
 
-    local created, newAmount = gathering.FindResource(User, SourceItem, amount, resourceID)
+    local created, newAmount = gathering.FindResource(User, SourceItem, amount, resourceID, sanddigging.LeadSkill, toolItem)
 
     if created then
         User:changeSource(SourceItem)

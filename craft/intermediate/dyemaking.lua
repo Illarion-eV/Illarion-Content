@@ -25,6 +25,7 @@ local dyemaking = crafts.Craft:new{
                     leadSkill = Character.tanningAndWeaving,
                     sfx = 10,
                     sfxDuration = 27,
+                    intermediate = true
                   }
 
 dyemaking:addTool(1226) -- dye barrel
