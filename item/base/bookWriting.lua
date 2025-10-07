@@ -216,9 +216,11 @@ function M.addNewPageToBook(user, sourceItem)
     end
 
     local signature = sourceItem:getData("signatureText")
+    local finalized = sourceItem:getData("finalized")
 
     if not common.IsNilOrEmpty(signature) then
         book:setData("page"..nextPage.."signature", signature)
+        book:setData("page"..nextPage.."finalized", finalized)
     end
 
     book:setData("pageCount", nextPage)
@@ -241,12 +243,12 @@ function removePage(user, book)
     end
 
 
-    local theText, theSignature = getWrittenTextAndSignatureFromBook(book, pageNumber)
+    local theText, theSignature, finalized = getWrittenTextAndSignatureFromBook(book, pageNumber)
 
     local theParchment = world:createItemFromId(Item.parchment, 1, user.pos, true, 333, {})
 
 
-    M.convertStringToMultipleParchmentDataValues(theParchment, theText, theSignature)
+    M.convertStringToMultipleParchmentDataValues(theParchment, theText, theSignature, finalized)
 
     local usersBag = user:getBackPack()
 
@@ -299,7 +301,9 @@ function getWrittenTextAndSignatureFromBook(book, pageNumber)
 
     local signature = book:getData("page"..pageNumber.."signature")
 
-    return writtenText, signature
+    local finalized = book:getData("page"..pageNumber.."finalized")
+
+    return writtenText, signature, finalized
 end
 
 function M.getParchmentSelectionStatus(user)
@@ -318,7 +322,7 @@ M.germanParchmentDescription = "Das Pergament ist beschrieben."
 M.englishParchmentDescription = "The parchment has been written on."
 
 
-function M.convertStringToMultipleParchmentDataValues(theParchment, writtenText, theSignature)
+function M.convertStringToMultipleParchmentDataValues(theParchment, writtenText, theSignature, finalized)
     local texts = {
         string.sub(writtenText, 1, 250),
         string.sub(writtenText, 251, 500),
@@ -336,6 +340,9 @@ function M.convertStringToMultipleParchmentDataValues(theParchment, writtenText,
 
     if not common.IsNilOrEmpty(theSignature) then
         theParchment:setData("signatureText", theSignature)
+        if not common.IsNilOrEmpty(finalized) then
+            theParchment:setData("finalized", finalized)
+        end
         lookat.SetSpecialDescription(theParchment,"Das Pergament ist unterschrieben.","The parchment is signed.")
         world:changeItem(theParchment)
     end

@@ -158,6 +158,54 @@ local function CheckIfParchmentIsSigned(parchmentItem)
     end
 end
 
+local function notFinalized(parchmentItem)
+
+    if not parchmentItem or common.IsNilOrEmpty(parchmentItem:getData("finalized")) then
+        return false
+    end
+
+    return true
+end
+
+local function userHasNotSigned(user, parchmentItem)
+
+    local signature = parchmentItem:getData("signatureText")
+
+    if not parchmentItem or common.IsNilOrEmpty(signature) or not string.find(signature, user.name) then
+        return true
+    end
+
+    return false
+
+end
+
+local function finalizeParchment(user, parchmentItem) --if you already signed it, did not hit finalize and regret it
+
+    local callback = function(dialog)
+        local success = dialog:getSuccess()
+
+        if not success then
+            return
+        end
+
+        local selected = dialog:getSelectedIndex()+1
+
+        if selected == 1 then
+            parchmentItem:setData("finalized", "")
+            world:changeItem(parchmentItem)
+        else
+            return
+        end
+    end
+
+    local dialog = SelectionDialog(getText(user,"Schreibfeder","Quill") , getText(user,"Möchtest du das Pergament abschließen, damit niemand mehr seine Unterschrift hinzufügen kann?","Do you want to finalize the parchment so that no one can add their signature anymore?") , callback)
+
+    dialog:addOption(0, getText(user, "Ja", "Yes"))
+    dialog:addOption(0, getText(user, "Nein", "No"))
+
+    user:requestSelectionDialog(dialog)
+end
+
 local function CheckIfParchmentCanSigned(user, sourceItem)
     local parchmentItem = common.GetTargetItem(user, sourceItem)
     if parchmentItem == nil then
@@ -165,8 +213,16 @@ local function CheckIfParchmentCanSigned(user, sourceItem)
     end
 
     for i=1, #parchmentList do
-        if ((parchmentItem.id == parchmentList[i]) and not (common.IsNilOrEmpty(parchmentItem:getData("writtenText"))) and (not CheckIfParchmentIsSigned(parchmentItem)) )then
+        local itIsAParchmentItem = parchmentItem.id == parchmentList[i]
+        local itHasText = not common.IsNilOrEmpty(parchmentItem:getData("writtenText"))
+        local itIsNotSigned = not CheckIfParchmentIsSigned(parchmentItem)
+        local itIsSignedButCanHaveMore = CheckIfParchmentIsSigned(parchmentItem) and notFinalized(parchmentItem)
+        local usersSignatureIsNotPresent = userHasNotSigned(user, parchmentItem)
+        if itIsAParchmentItem and itHasText  and (itIsNotSigned or (itIsSignedButCanHaveMore and usersSignatureIsNotPresent)) then
             return parchmentItem
+        elseif itIsAParchmentItem and itHasText and not usersSignatureIsNotPresent and itIsSignedButCanHaveMore then
+            finalizeParchment(user, parchmentItem)
+            return false
         end
     end
 
@@ -252,16 +308,64 @@ local function WriteParchment(user, sourceItem)
     end
 end
 
+local function sign(user, parchment, finalized)
+
+    lookat.SetSpecialDescription(parchment,"Das Pergament ist unterschrieben.","The parchment is signed.")
+
+    local alreadySigned = parchment:getData("finalized")
+
+    local signature = parchment:getData("signatureText")
+
+    if not common.IsNilOrEmpty(alreadySigned) and not common.IsNilOrEmpty(signature) then
+        parchment:setData("signatureText", signature..", "..user.name)
+    else
+        parchment:setData("signatureText", user.name)
+    end
+
+    if not finalized then
+        parchment:setData("finalized", "false")
+    else
+        parchment:setData("finalized", "")
+    end
+    parchment.wear = 254 -- Written parchments should have maximum rot time to allow message exchange
+    world:changeItem(parchment)
+    user:inform("Du unterschreibst das Pergament.","You sign the parchment.")
+end
+
 local function SignParchment(user,sourceItem)
 
     local parchment = CheckIfParchmentCanSigned(user,sourceItem) -- check for the parchment again
 
+    local callback = function(dialog)
+
+        local success = dialog:getSuccess()
+
+        if not success then
+            return
+        end
+
+        local index = dialog:getSelectedIndex() + 1
+
+        parchment = CheckIfParchmentCanSigned(user,sourceItem)
+
+        if not parchment then
+            return
+        end
+
+        if index == 1 then
+            sign(user, parchment, true)
+        elseif index == 2 then
+            sign(user, parchment, false)
+        end
+    end
+
+    local dialog = SelectionDialog(common.GetNLS(user, "Pergament unterschreiben","Sign a parchment"), common.GetNLS(user, "Hier hast du die Wahl, ob du das Pergament abschließen möchtest. Wenn du es nicht abschließt, können andere weiterhin ihre Unterschriften hinzufügen, bis es jemand tut.","Here you have the choice of whether to finalize the parchment. If you do not finalize it, others can still add their signatures until someone does."), callback)
+
+    dialog:addOption(0, common.GetNLS(user, "Unterschreiben und abschließen", "Sign and finalize"))
+    dialog:addOption(0, common.GetNLS(user, "Unterschreiben, ohne abzuschließen", "Sign without finalizing"))
+
     if parchment then
-        parchment:setData("signatureText",user.name)
-        lookat.SetSpecialDescription(parchment,"Das Pergament ist unterschrieben.","The parchment is signed.")
-        parchment.wear = 254 -- Written parchments should have maximum rot time to allow message exchange
-        world:changeItem(parchment)
-        user:inform("Du unterschreibst das Pergament.","You sign the parchment.")
+        user:requestSelectionDialog(dialog)
     else
         user:inform("Du brauchst ein beschriebes in deiner Hand Pergament, um zu unterschreiben.","You need a written parchment in your hand to sign.",Character.highPriority)
     end
@@ -582,8 +686,11 @@ function M.UseItem(user, sourceItem, ltstate)
                     WriteParchment(user,sourceItem)
                 end
             elseif selected == 6 then
-                if not CheckIfParchmentCanSigned(user,sourceItem) then
-                    user:inform("Du brauchst ein beschriebenes Pergament in deiner Hand auf dem du unterschreiben kannst.","You need a written parchment in your hand to sign.",Character.highPriority)
+                local canBeSigned = CheckIfParchmentCanSigned(user,sourceItem)
+                if not canBeSigned then
+                    if canBeSigned == nil then
+                        user:inform("Du brauchst ein beschriebenes Pergament in deiner Hand auf dem du unterschreiben kannst.","You need a written parchment in your hand to sign.",Character.highPriority)
+                    end
                     return
                 else
                     SignParchment(user,sourceItem)
