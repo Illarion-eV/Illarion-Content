@@ -163,9 +163,6 @@ HerbItems[1159] = {                                    -- old log
 HerbItems[308] = {                                    -- fir tree
     CreateHarvestProduct(149, nil)                                -- fir tree sprout
 }
-HerbItems[ 1809 ] = {                                -- eldan oak
-    CreateHarvestProduct(759, nil, {0.5,0.5,0.5,0.5})            -- nuts (was actually in harvest.lua with 20 MaxAmount, so just let it regrow twice as fast)
-}
 
 local function IsRegrown(Item)
     local serverTime = world:getTime("unix");

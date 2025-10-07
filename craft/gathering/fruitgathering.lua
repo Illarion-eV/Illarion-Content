@@ -92,6 +92,9 @@ HarvestItems[ 4238 ] = {                              -- Peach Tree
 HarvestItems[ 4255 ] = {                              -- Mango Tree
     CreateHarvestProduct(Item.mango, nil, nil, 4256)            -- Banana
 }
+HarvestItems[ 4246 ] = {                              -- Nut Tree
+    CreateHarvestProduct(Item.nuts, nil, nil, 1809)            -- Nuts
+}
 
 local IsTree = {}
 IsTree[14] = true
