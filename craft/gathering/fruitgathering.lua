@@ -36,7 +36,7 @@ local function gatherFromHolyVine(user)
 end
 
 -- GrowCycles define how fast the plants regrow in the 4 seasons. 1 cycle takes 3 minutes
-local function CreateHarvestProduct(ProductId, GroundType, GrowCycles, NextItemId)
+local function CreateHarvestProduct(ProductId, GroundType, GrowCycles, NextItemId, amount)
     local retValue = {}
     retValue.productId = ProductId
     retValue.groundType = GroundType
@@ -47,6 +47,8 @@ local function CreateHarvestProduct(ProductId, GroundType, GrowCycles, NextItemI
     end
 
     retValue.nextItemId = NextItemId
+
+    retValue.amount = amount
 
     return retValue
 end
@@ -78,7 +80,7 @@ HarvestItems[ 3892 ] = {                              -- blackberry bush
     CreateHarvestProduct(Item.blackberry, nil, nil, 3893, 10)            -- blackberry bush
 }
 HarvestItems[ 4253 ] = {                              -- Pear Tree
-    CreateHarvestProduct(Item.pear, nil, nil, 4254, 20)            -- Banana
+    CreateHarvestProduct(Item.pear, nil, nil, 4254, 20)            -- Pear
 }
 HarvestItems[ 4341 ] = {                              -- Plum Tree
     CreateHarvestProduct(Item.plum, nil, nil, 4342, 10)            -- Plum
@@ -169,7 +171,7 @@ function M.StartGathering(User, SourceItem, ltstate)
         if isPlayerPlanted then
             amount = 4
         else
-            amount = HarvestItems[SourceItem.id][5]
+            amount = harvestProduct.amount
         end
         SourceItem:setData("amount","" .. amount)
         world:changeItem(SourceItem)
@@ -233,7 +235,7 @@ function M.StartGathering(User, SourceItem, ltstate)
         if isPlayerPlanted then
             amount = 4
         else
-            amount = 10
+            amount = harvestProduct.amount
         end
         SourceItem:setData("amount","" .. amount)
         world:changeItem(SourceItem)
