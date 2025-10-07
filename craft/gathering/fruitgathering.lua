@@ -54,46 +54,46 @@ end
 local HarvestItems = {}
 
 HarvestItems[ 14 ] = {                                    -- apple tree
-    CreateHarvestProduct(Item.apple, nil, nil, 11)                    -- apple
+    CreateHarvestProduct(Item.apple, nil, nil, 11, 20)                    -- apple
 }
 HarvestItems[ 300 ] = {                                    -- cherry tree
-    CreateHarvestProduct(Item.cherries, nil, nil, 299)                -- cherry
+    CreateHarvestProduct(Item.cherries, nil, nil, 299, 20)                -- cherry
 }
 HarvestItems[ 1195 ] = {                                    -- orange tree
-    CreateHarvestProduct(Item.orange, nil, nil, 1193)                    -- orange
+    CreateHarvestProduct(Item.orange, nil, nil, 1193, 5)                    -- orange
 }
 HarvestItems[ 387 ] = {                                    -- bush
-    CreateHarvestProduct(Item.grapes, nil, nil, 386)            -- grapes
+    CreateHarvestProduct(Item.grapes, nil, nil, 386, 5)            -- grapes
 }
 HarvestItems[ 3613 ] = {
-    CreateHarvestProduct(Item.tangerine, nil, nil, 3612)            -- tangerine
+    CreateHarvestProduct(Item.tangerine, nil, nil, 3612, 20)            -- tangerine
 }
 HarvestItems[ 3743 ] = {
-    CreateHarvestProduct(Item.berries, nil, nil, 3742)            -- berries
+    CreateHarvestProduct(Item.berries, nil, nil, 3742, 10)            -- berries
 }
 HarvestItems[ 3867 ] = {                              -- Banana Tree
-    CreateHarvestProduct(Item.banana, nil, nil, 3866)            -- Banana
+    CreateHarvestProduct(Item.banana, nil, nil, 3866, 20)            -- Banana
 }
 HarvestItems[ 3892 ] = {                              -- blackberry bush
-    CreateHarvestProduct(Item.blackberry, nil, nil, 3893)            -- blackberry bush
+    CreateHarvestProduct(Item.blackberry, nil, nil, 3893, 10)            -- blackberry bush
 }
 HarvestItems[ 4253 ] = {                              -- Pear Tree
-    CreateHarvestProduct(Item.pear, nil, nil, 4254)            -- Banana
+    CreateHarvestProduct(Item.pear, nil, nil, 4254, 20)            -- Banana
 }
 HarvestItems[ 4341 ] = {                              -- Plum Tree
-    CreateHarvestProduct(Item.plum, nil, nil, 4342)            -- Plum
+    CreateHarvestProduct(Item.plum, nil, nil, 4342, 10)            -- Plum
 }
 HarvestItems[ 4245 ] = {                              -- Pineapple Plant
-    CreateHarvestProduct(Item.pineapple, nil, nil, 4244)            -- Pineapple
+    CreateHarvestProduct(Item.pineapple, nil, nil, 4244, 5)            -- Pineapple
 }
 HarvestItems[ 4238 ] = {                              -- Peach Tree
-    CreateHarvestProduct(Item.peach, nil, nil, 4239)            -- Peach
+    CreateHarvestProduct(Item.peach, nil, nil, 4239, 20)            -- Peach
 }
 HarvestItems[ 4255 ] = {                              -- Mango Tree
-    CreateHarvestProduct(Item.mango, nil, nil, 4256)            -- Banana
+    CreateHarvestProduct(Item.mango, nil, nil, 4256, 10)            -- Banana
 }
 HarvestItems[ 4246 ] = {                              -- Nut Tree
-    CreateHarvestProduct(Item.nuts, nil, nil, 1809)            -- Nuts
+    CreateHarvestProduct(Item.nuts, nil, nil, 1809, 10)            -- Nuts
 }
 
 local IsTree = {}
@@ -169,7 +169,7 @@ function M.StartGathering(User, SourceItem, ltstate)
         if isPlayerPlanted then
             amount = 4
         else
-            amount = 10
+            amount = HarvestItems[SourceItem.id][5]
         end
         SourceItem:setData("amount","" .. amount)
         world:changeItem(SourceItem)
