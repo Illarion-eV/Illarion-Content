@@ -127,7 +127,18 @@ M.foodList[Item.beeHoney] = {foodPoints = valueMedium, leftOver = Item.emptyHone
 M.foodList[Item.firewaspHoney] = {foodPoints = valueMedium, leftOver = Item.emptyHoneyJar}
 
 -- FREE FOOD
-M.foodList[Item.apple]   = {foodPoints = valueMedium}
+M.foodList[Item.apple]   = {foodPoints = valueSmall}
+M.foodList[Item.cherries]  = {foodPoints = valueSmall}
+M.foodList[Item.peach]  = {foodPoints = valueSmall}
+M.foodList[Item.pear]  = {foodPoints = valueSmall}
+M.foodList[Item.tangerine]  = {foodPoints = valueSmall}
+M.foodList[Item.banana]   = {foodPoints = valueSmall}
+M.foodList[Item.plum]  = {foodPoints = valueMedium}
+M.foodList[Item.nuts]  = {foodPoints = valueMedium}
+M.foodList[Item.mango]  = {foodPoints = valueMedium}
+M.foodList[Item.orange] = {foodPoints = valueLarge}
+M.foodList[Item.grapes]  = {foodPoints = valueLarge}
+M.foodList[Item.pineapple]  = {foodPoints = valueLarge}
 M.foodList[Item.trout] = {foodPoints = valueMedium}
 M.foodList[Item.swordfish] = {foodPoints = valueMedium}
 M.foodList[Item.crab] = {foodPoints = valueMedium}
@@ -142,7 +153,6 @@ M.foodList[Item.shrimp] = {foodPoints = valueMedium}
 M.foodList[Item.octopus] = {foodPoints = valueMedium}
 M.foodList[Item.eel] = {foodPoints = valueMedium}
 M.foodList[Item.flounder] = {foodPoints = valueMedium}
-M.foodList[Item.banana]   = {foodPoints = valueMedium}
 M.foodList[Item.berries]   = {foodPoints = valueMedium}
 M.foodList[Item.sandberry]  = {foodPoints = valueSmall}
 M.foodList[Item.redElder]  = {foodPoints = valueSmall}
@@ -154,20 +164,15 @@ M.foodList[Item.redHead]  = {foodPoints = valueSmall}
 M.foodList[Item.herdersMushroom]  = {foodPoints = valueSmall}
 M.foodList[Item.birthMushroom]  = {foodPoints = valueSmall, poisonPoints = 1000}
 M.foodList[Item.champignon]  = {foodPoints = valueSmall}
-M.foodList[Item.tangerine]  = {foodPoints = valueMedium}
 M.foodList[Item.tomato]  = {foodPoints = valueMedium}
 M.foodList[Item.onion]  = {foodPoints = valueMedium}
 M.foodList[Item.cabbage]  = {foodPoints = valueMedium}
-M.foodList[Item.cherries]  = {foodPoints = valueMedium}
 M.foodList[Item.pork] = {foodPoints = valueMedium}
 M.foodList[Item.salmon] = {foodPoints = valueMedium}
-M.foodList[Item.grapes]  = {foodPoints = valueMedium}
 M.foodList[Item.deerMeat] = {foodPoints = valueMedium}
 M.foodList[Item.rabbitMeat] = {foodPoints = valueMedium}
-M.foodList[Item.nuts]  = {foodPoints = valueMedium}
 M.foodList[Item.whiteEgg] = {foodPoints = valueSmall}
 M.foodList[Item.chickenMeat] = {foodPoints = valueMedium}
-M.foodList[Item.orange] = {foodPoints = valueMedium}
 M.foodList[Item.horseMackerel] = {foodPoints = valueMedium}
 M.foodList[Item.roseFish] = {foodPoints = valueMedium}
 M.foodList[Item.carrots] = {foodPoints = valueMedium}

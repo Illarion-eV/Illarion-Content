@@ -39,13 +39,13 @@ catId = brewing:addCategory("Soft Liquors", "Leichter Alkohol")
 -- bottle of cider
 product = brewing:addProduct(catId, 2499, 1)
 product:addIngredient(2498, 1) -- large empty bottle
-product:addIngredient(15, 6) -- apple
+product:addIngredient(15, 2) -- apple
 product:addIngredient(52, 1) -- bucket of water
 
 -- bottle of wine
 product = brewing:addProduct(catId, 2500, 1)
 product:addIngredient(2498, 1) -- large empty bottle
-product:addIngredient(388, 5) -- grapes
+product:addIngredient(388, 1) -- grapes
 product:addIngredient(52, 1) -- bucket of water
 
 -- bottle of mead
@@ -66,14 +66,14 @@ catId = brewing:addCategory("Juices", "Säfte")
 -- bottle of banana juice
 product = brewing:addProduct(catId, 785, 1)
 product:addIngredient(Item.fruitJuiceBottle, 1)
-product:addIngredient(80, 3) -- banana
+product:addIngredient(80, 1) -- banana
 product:addIngredient(778, 1) -- sugarcane
 product:addIngredient(52, 1) -- bucket of water
 
 -- bottle of grape juice
 product = brewing:addProduct(catId, 791, 1)
 product:addIngredient(Item.fruitJuiceBottle, 1)
-product:addIngredient(388, 3) -- grapes
+product:addIngredient(388, 1) -- grapes
 product:addIngredient(778, 2) -- sugarcane
 product:addIngredient(52, 1) -- bucket of water
 
@@ -101,7 +101,7 @@ product:addIngredient(52, 1) -- bucket of water
 -- bottle of tangerine juice
 product = brewing:addProduct(catId, 784, 1)
 product:addIngredient(Item.fruitJuiceBottle, 1)
-product:addIngredient(199, 5) -- tangerine
+product:addIngredient(199, 2) -- tangerine
 product:addIngredient(778, 2) -- sugarcane
 product:addIngredient(52, 1) -- bucket of water
 
@@ -115,7 +115,7 @@ product:addIngredient(52, 1) -- bucket of water
 -- bottle of orange juice
 product = brewing:addProduct(catId, 3611, 1)
 product:addIngredient(Item.fruitJuiceBottle, 1)
-product:addIngredient(1207, 5) -- orange
+product:addIngredient(1207, 1) -- orange
 product:addIngredient(778, 3) -- sugarcane
 product:addIngredient(52, 1) -- bucket of water
 
@@ -140,7 +140,7 @@ product = brewing:addProduct(catId, 3721, 1)
 product:addIngredient(Item.teaBottle, 1)
 product:addIngredient(157, 3) -- rotten tree bark
 product:addIngredient(778, 2) -- sugarcane
-product:addIngredient(199, 2) -- tangerine
+product:addIngredient(199, 1) -- tangerine
 product:addIngredient(52, 1) -- bucket of water
 
 -- bottle of druids tea
@@ -178,8 +178,8 @@ product:addIngredient(52, 1) -- bucket of water
 -- bottle of stone face
 product = brewing:addProduct(catId, 1320, 1)
 product:addIngredient(1317, 1) -- empty liquor bottle
-product:addIngredient(388, 3) -- grapes
-product:addIngredient(15, 2) -- apple
+product:addIngredient(388, 1) -- grapes
+product:addIngredient(15, 1) -- apple
 product:addIngredient(778, 2) -- sugarcane
 product:addIngredient(52, 1) -- bucket of water
 
@@ -194,30 +194,30 @@ product:addIngredient(52, 1) -- bucket of water
 -- bottle of orange schnapps
 product = brewing:addProduct(catId, 1322, 1)
 product:addIngredient(1317, 1) -- empty liquor bottle
-product:addIngredient(1207, 3) -- orange
+product:addIngredient(1207, 1) -- orange
 product:addIngredient(778, 3) -- sugarcane
 product:addIngredient(52, 1) -- bucket of water
 
 -- bottle of cherry schnapps
 product = brewing:addProduct(catId, 1319, 1)
 product:addIngredient(1317, 1) -- empty liquor bottle
-product:addIngredient(302, 5) -- cherries
+product:addIngredient(302, 2) -- cherries
 product:addIngredient(778, 3) -- sugarcane
 product:addIngredient(52, 1) -- bucket of water
 
 -- bottle of mulled wine
 product = brewing:addProduct(catId, 1323, 1)
 product:addIngredient(1317, 1) -- empty liquor bottle
-product:addIngredient(388, 5) -- grapes
+product:addIngredient(388, 1) -- grapes
 product:addIngredient(778, 3) -- sugarcane
 product:addIngredient(52, 1) -- bucket of water
 
 -- bottle of elven wine
 product = brewing:addProduct(catId, 1318, 1)
 product:addIngredient(1317, 1) -- empty liquor bottle
-product:addIngredient(80, 5) -- banana
+product:addIngredient(80, 2) -- banana
 product:addIngredient(778, 1) -- sugarcane
-product:addIngredient(759, 3) -- nuts
+product:addIngredient(759, 1) -- nuts
 product:addIngredient(52, 1) -- bucket of water
 
 M.brewing = brewing

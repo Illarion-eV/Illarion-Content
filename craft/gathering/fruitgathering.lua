@@ -54,28 +54,43 @@ end
 local HarvestItems = {}
 
 HarvestItems[ 14 ] = {                                    -- apple tree
-    CreateHarvestProduct(15, nil, nil, 11)                    -- apple
+    CreateHarvestProduct(Item.apple, nil, nil, 11)                    -- apple
 }
 HarvestItems[ 300 ] = {                                    -- cherry tree
-    CreateHarvestProduct(302, nil, nil, 299)                -- cherry
+    CreateHarvestProduct(Item.cherries, nil, nil, 299)                -- cherry
 }
 HarvestItems[ 1195 ] = {                                    -- orange tree
-    CreateHarvestProduct(1207, nil, nil, 1193)                    -- orange
+    CreateHarvestProduct(Item.orange, nil, nil, 1193)                    -- orange
 }
 HarvestItems[ 387 ] = {                                    -- bush
-    CreateHarvestProduct(388, nil, nil, 386)            -- grapes
+    CreateHarvestProduct(Item.grapes, nil, nil, 386)            -- grapes
 }
 HarvestItems[ 3613 ] = {
-    CreateHarvestProduct(199, nil, nil, 3612)            -- tangerine
+    CreateHarvestProduct(Item.tangerine, nil, nil, 3612)            -- tangerine
 }
 HarvestItems[ 3743 ] = {
-    CreateHarvestProduct(81, nil, nil, 3742)            -- berries
+    CreateHarvestProduct(Item.berries, nil, nil, 3742)            -- berries
 }
 HarvestItems[ 3867 ] = {                              -- Banana Tree
-    CreateHarvestProduct(80, nil, nil, 3866)            -- Banana
+    CreateHarvestProduct(Item.banana, nil, nil, 3866)            -- Banana
 }
 HarvestItems[ 3892 ] = {                              -- blackberry bush
-    CreateHarvestProduct(147, nil, nil, 3893)            -- blackberry bush
+    CreateHarvestProduct(Item.blackberry, nil, nil, 3893)            -- blackberry bush
+}
+HarvestItems[ 4253 ] = {                              -- Pear Tree
+    CreateHarvestProduct(Item.pear, nil, nil, 4254)            -- Banana
+}
+HarvestItems[ 4341 ] = {                              -- Plum Tree
+    CreateHarvestProduct(Item.plum, nil, nil, 4342)            -- Plum
+}
+HarvestItems[ 4245 ] = {                              -- Pineapple Plant
+    CreateHarvestProduct(Item.pineapple, nil, nil, 4244)            -- Pineapple
+}
+HarvestItems[ 4238 ] = {                              -- Peach Tree
+    CreateHarvestProduct(Item.peach, nil, nil, 4239)            -- Peach
+}
+HarvestItems[ 4255 ] = {                              -- Mango Tree
+    CreateHarvestProduct(Item.mango, nil, nil, 4256)            -- Banana
 }
 
 local IsTree = {}

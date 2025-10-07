@@ -79,15 +79,15 @@ product:addIngredient(52, 1) -- bucket of water
 product = baking:addProduct(catId, 353, 1)
 product:addIngredient(2, 4) -- flour
 product:addIngredient(Item.beeHoney, 2)
-product:addIngredient(15, 20) -- apple
+product:addIngredient(15, 8) -- apple
 product:addIngredient(52, 1) -- bucket of water
 
 -- cherry cake
 product = baking:addProduct(catId, 303, 1)
 product:addIngredient(2, 4) -- flour
 product:addIngredient(Item.beeHoney, 2)
-product:addIngredient(302, 20) -- cherries
-product:addIngredient(759, 5) -- nuts
+product:addIngredient(302, 8) -- cherries
+product:addIngredient(759, 1) -- nuts
 product:addIngredient(52, 1) -- bucket of water
 
 -- egg salad sandwich
@@ -108,7 +108,7 @@ product:addIngredient(52, 1) -- bucket of water
 product = baking:addProduct(catId, 3723, 1)
 product:addIngredient(2, 4) -- flour
 product:addIngredient(Item.beeHoney, 3)
-product:addIngredient(759, 20) -- nuts
+product:addIngredient(759, 4) -- nuts
 product:addIngredient(1150, 3) -- white egg
 product:addIngredient(52, 1) -- bucket of water
 
@@ -125,7 +125,7 @@ product = baking:addProduct(catId, 3610, 1)
 product:addIngredient(2, 6) -- flour
 product:addIngredient(143, 20) -- red elder
 product:addIngredient(81, 5) -- berries
-product:addIngredient(1207, 5) -- orange
+product:addIngredient(1207, 1) -- orange
 product:addIngredient(778, 1) -- sugarcane
 product:addIngredient(52, 1) -- bucket of water
 
