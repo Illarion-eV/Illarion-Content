@@ -85,7 +85,7 @@ end
 local coordinates = {
     Galmair = {position(339, 217, 0), position(339, 216, 0), position(340, 217, 0), position(340, 216, 0)},
     Cadomyr = {position(116, 520, 0), position(115, 520, 0), position(116, 521, 0), position(115, 521, 0)},
-    Runewick = {position(943, 785, 1), position(942, 784, 1), position(942, 785, 1), position(942, 785, 1)}
+    Runewick = {position(943, 785, 1), position(942, 784, 1), position(942, 785, 1), position(943, 784, 1)}
 }
 
 local realms = {"Galmair", "Cadomyr", "Runewick"}
