@@ -109,7 +109,7 @@ function M.instrumentIsInHandOrInFrontOfUser(user, instrumentName)
         elseif frontItem and common.isInList(frontItem.id, id) and not common.isBroken(frontItem) and instrumentName == "clavichord" and frontItem.id ~= 4837 and frontItem.id ~= 4838 then
             overWriteInstrument = getNameBasedOnId(frontItem.id)
         end
-    elseif frontItem and common.isInList(frontItem.id, id) and not common.isBroken(frontItem) then
+    elseif frontItem and common.isInList(frontItem.id, id) and (not common.isBroken(frontItem) or instrumentName == "clavichord") then
         theInstrument = frontItem
         if instrumentName ~= "clavichord" and frontItem.id ~= Item[instrumentName] then
             overWriteInstrument = getNameBasedOnId(frontItem.id)
