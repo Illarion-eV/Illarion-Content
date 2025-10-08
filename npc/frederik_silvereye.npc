@@ -196,7 +196,7 @@ rank > 0, town = Galmair, sex = female, "rang" -> "Du bist noch ganz neu hier. D
 "protection", town = Galmair -> "There is no need for you to buy protection, since you are a citizen."
 "schutz", town = Galmair -> "Es ist nicht nötig, dass du Schutz kaufst, da du Bürger bist."
 "protection" -> "The Don offers a special service where his guards will keep you safe from bridge ambushes for just 50 silver a month. Just tell me you want to 'buy protection' if you want to be safe for the next month"
-"schuts" -> "Der Don bietet einen besonderen Dienst an, bei dem seine Wachen dich vor Überfällen auf der Brücke schützen - für nur 50 Silber im Monat. Sag mir einfach, dass du 'Schutz kaufen' willst, wenn du im nächsten Monat sicher sein möchtest."
+"schutz" -> "Der Don bietet einen besonderen Dienst an, bei dem seine Wachen dich vor Überfällen auf der Brücke schützen - für nur 50 Silber im Monat. Sag mir einfach, dass du 'Schutz kaufen' willst, wenn du im nächsten Monat sicher sein möchtest."
 "licence","license", town = Galmair -> "There is no need for you to buy a licence, since you are a citizen."
 "lizenz", town = Galmair, sex = male -> "Ihr benötigt keine Lizenz, da ihr Bürger dieser Stadt seid."
 "lizenz", town = Galmair, sex = female -> "Ihr benötigt keine Lizenz, da ihr Bürgerin dieser Stadt seid."
