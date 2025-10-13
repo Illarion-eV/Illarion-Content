@@ -796,7 +796,7 @@ function Craft:generateRarity(user, rareIngredientBonus, quality, maxStack, item
 
     local isIntermediate = self.intermediate or itemId == Item.pins or itemId == Item.ironPlate
 
-    if not isIntermediate or not itemShouldBeRare(itemId) then
+    if not isIntermediate and not itemShouldBeRare(itemId) then
         return 1
     end
 
@@ -838,7 +838,7 @@ function Craft:generateRarity(user, rareIngredientBonus, quality, maxStack, item
         retVal = retVal + 1
     end
 
-    if (isIntermediate) and rareIngredientBonus > retVal then --Intermediate crafts get at least what they put in
+    if isIntermediate and rareIngredientBonus > retVal then --Intermediate crafts get at least what they put in
         return roundedBonus
     end
 

@@ -140,7 +140,7 @@ function M.donate(donatedItem, user, FactionName, LeaderName, Treasury, containe
 
         donated = false -- donation delayed
 
-    elseif gems.itemIsMagicGem (donatedItem) == true then --magic gems cannot be donated as the content of containers cannot be evaluated.
+    elseif gems.itemIsMagicGem (donatedItem) == true or gems.getGemBonus(donatedItem) > 0 then --magic gems cannot be donated as the content of containers cannot be evaluated.
 
         if user then
             common.InformNLS(user, "[Spende] magische Edelsteine können nicht gespendet werden.", "[Donation] magic gems cannot be donated.") -- Feedback!

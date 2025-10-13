@@ -18,6 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local lookat = require("base.lookat")
 local blueprintsBase = require("base.blueprints")
+local depotScript = require("item.id_321_depot")
 
 local M = {}
 
@@ -103,6 +104,142 @@ local function learnBlueprint(user, blueprint, actionState)
 
 end
 
+local function insideInventory(blueprint)
+
+    if not blueprint.inside and blueprint.itempos > 0 then
+        return true
+    end
+
+    return false
+end
+
+local function depotChecker(user, targetContainer)
+
+    if not targetContainer then
+        return false
+    end
+
+    local depots = depotScript.depots
+
+    for _, depot in pairs(depots) do
+        if targetContainer == user:getDepot(depot.id) then
+            return true, depotScript.getDepotDescription(user, depot.itemData)
+        end
+    end
+
+    return false
+
+end
+
+local function getExistingBlueprintNumber(user, blueprint)
+
+    if blueprint:getType() == scriptItem.field then
+        if world:isItemOnField(blueprint.pos) and world:getItemOnField(blueprint.pos).id == blueprint.id then
+            return world:getItemOnField(blueprint.pos).number
+        end
+    elseif blueprint:getType() == scriptItem.container then
+
+        if user:getBackPack() and blueprint.inside == user:getBackPack() then
+
+            local found, itemInBackpack = user:getBackPack():viewItemNr(blueprint.itempos)
+
+            if found and itemInBackpack.id == blueprint.id then
+                return itemInBackpack.number
+            end
+        else
+            local found, itemInBag = blueprint.inside:viewItemNr(blueprint.itempos)
+            if found and itemInBag.id == blueprint.id then
+                return itemInBag.number
+            end
+        end
+
+    else
+        local theItem = user:getItemAt(blueprint.itempos)
+        if theItem and theItem.id == blueprint.id then
+            return theItem.number
+        end
+    end
+
+    return 0
+end
+
+function M.MoveItemAfterMove(user, source, target)
+
+    local preExistingBlueprintsAtTarget = getExistingBlueprintNumber(user, target)
+
+    target:setData("owner", user.name)
+    target.number = preExistingBlueprintsAtTarget --Otherwise stacked blueprints get deleted when we set the owner name. Currently not possible as blueprints do not stack, this is just future-proofing it if that changes.
+    world:changeItem(target)
+
+end
+
+function M.MoveItemBeforeMove(user, source, target)
+
+    if common.IsNilOrEmpty(source:getData("blueprint")) then
+        return true
+    end
+
+    local owner = source:getData("owner")
+    local amount = tostring(target.number)
+    local _, name = getBlueprintInfo(source)
+
+
+    if common.IsNilOrEmpty(owner) then
+        owner = "Treasure Map or unknown"
+    end
+
+    if owner == user.name then
+        return true
+    end
+
+    local text = tostring(amount).." blueprints for "..tostring(name.english)..", previously belonging to "..owner.." was moved by "..user.name.."("..user.id..") at position ("..tostring(user.pos).."). It was moved from "
+
+    local backpack = user:getBackPack()
+
+    local isDepotSource, depotNameSource = depotChecker(user, source.inside)
+    local isDepotTarget, depotNameTarget = depotChecker(user, target.inside)
+
+    local inPlayerPosession = (not source.inside and insideInventory(source)) or (source.inside and (source.inside == backpack or isDepotSource))
+
+    local toPlayerPosession = (not target.inside and insideInventory(target)) or (target.inside and (target.inside == backpack or isDepotTarget))
+
+    if inPlayerPosession and toPlayerPosession then
+        return true -- No point logging since it is going from and to player posession
+    end
+
+    if source.inside and source.inside == backpack then
+        text = text.."their backpack to "
+    elseif source.inside and isDepotSource then
+        text = text.."their "..depotNameSource.." depot to "
+    elseif source.inside then
+        text = text.."a container that is either in their depot or on the ground near the users position to "
+    elseif not source.inside and insideInventory(source) then
+        text = text.."their inventory to "
+    elseif not source.inside then
+        text = text.. "a tile at position("..tostring(source.pos)..") to "
+    end
+
+    if target.inside and target.inside == backpack then
+        text = text.."their backpack."
+    elseif target.inside and isDepotTarget then
+        text = text.."their "..depotNameTarget.." depot."
+    elseif target.inside then
+        text = text.."a container that is either in their depot or on the ground near the users position."
+    elseif not target.inside and insideInventory(target) then
+        text = text.."their inventory."
+    elseif not target.inside then
+        if target.pos == user.pos and not source.inside and not insideInventory(source) then
+            text = text.."their backpack." -- They dragged it onto themself, which puts it into their backpack instead of the tile if the source is another tile.
+        else
+            text = text.."a tile at position("..tostring(target.pos)..")."
+        end
+    end
+
+    log(text)
+
+    return true
+end
+
 function M.UseItem(user, blueprint, actionState)
 
     if common.IsNilOrEmpty(blueprint:getData("blueprint")) then
@@ -114,6 +251,11 @@ function M.UseItem(user, blueprint, actionState)
 end
 
 function M.LookAtItem(user, blueprint)
+
+    if common.IsNilOrEmpty(blueprint:getData("owner")) then
+        blueprint:setData("owner", user.name)
+        world:changeItem(blueprint)
+    end
 
     if common.IsNilOrEmpty(blueprint:getData("blueprint")) then
         return lookat.GenerateLookAt(user, blueprint, lookat.NONE)

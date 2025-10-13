@@ -126,7 +126,7 @@ local suffix = {
     restore = {English = "restored", German = "wiederhergestellt"}
 }
 
-local function singleTag(user, eraseOrRestore, theItem)
+local function singleTag(user, eraseOrRestore, theItem, multi)
 
     if not theItem then
         theItem = getNonRaspHandItem(user)
@@ -137,10 +137,20 @@ local function singleTag(user, eraseOrRestore, theItem)
         end
     end
 
+    local itemCommon = world:getItemStatsFromId(theItem.id)
+    local english = itemCommon.English
+    local german = itemCommon.German
+
     if eraseOrRestore == "erase" then
         eraseTag(theItem)
+        if not multi then
+            log("Du hast das Etikett des "..german.." gelöscht.", "You've erased the tag of the "..english..".")
+        end
     elseif eraseOrRestore == "restore" then
         restoreTag(theItem)
+        if not multi then
+            log("Du hast das Etikett des "..german.." wiederhergestellt.", "You've restored the tag of the "..english..".")
+        end
     end
 
 end
@@ -156,7 +166,13 @@ local function allBagTags(user, eraseOrRestore)
     end
 
     for _, theItem in pairs(items) do
-        singleTag(user, eraseOrRestore, theItem)
+        singleTag(user, eraseOrRestore, theItem, true)
+    end
+
+    if eraseOrRestore == "erase" then
+        log("Du hast das Etikett von "..#items.." Gegenständen entfernt.", "You removed the tag of "..#items.." items.")
+    elseif eraseOrRestore == "restore" then
+        log("Du hast das Etikett von "..#items.." Gegenständen wiederhergestellt.", "You restored the tag of "..#items.." items.")
     end
 
 end
