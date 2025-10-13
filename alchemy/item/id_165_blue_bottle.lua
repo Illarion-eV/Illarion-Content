@@ -131,6 +131,15 @@ local function DrinkPotion(user,SourceItem)
 end
 
 function M.UseItem(user, SourceItem, ltstate)
+
+    -- item should not be static
+    if SourceItem.wear == 255 then
+        common.HighInformNLS(user,
+            "Das kannst du nicht trinken.",
+            "You can't drink that.")
+        return
+    end
+
     if SourceItem:getData("customPotion") ~= "" then
         customPotion.drinkInform(user, SourceItem)
     end

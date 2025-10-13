@@ -38,6 +38,14 @@ end
 
 function M.UseItem(user, sourceItem, actionState)
 
+        -- item should not be static
+    if sourceItem.wear == 255 then
+        common.HighInformNLS(user,
+            "Das kannst du nicht benutzen.",
+            "You can't use that.")
+        return
+    end
+
     if not sourceItem:getData("filledWith") == "salve" then
         return
     end
