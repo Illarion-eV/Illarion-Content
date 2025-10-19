@@ -651,6 +651,8 @@ function PayOutWage(Recipient, town, bonus, notEnoughRP)
     -- in the calculation script further down it is based on 5 gold, hence we double it by halving the money
     -- here. Why? Because I found that simpler and it makes no real difference.
 
+    totalPayers = math.min(10, totalPayers)
+
     totalTaxes = totalTaxes + ((totalPayers-1)*(totalTaxes/9))
     -- Every tax payer after the first makes it 11.11~% cheaper up to 10 payers,
     -- to encourage players into doing their best to create a thriving community in their realm
@@ -744,9 +746,11 @@ function payNow(User, notEnoughRP)
     local val = 0
 
     for _, depot in pairs(depotScript.depots) do
-        local depotMoney = money.DepotCoinsToMoney(User, depot.id)
-        table.insert(moneyInEachDepot, {id = depot.id, money = depotMoney})
-        val = val + depotMoney     --how much money is in the depots combined
+        if not depot.taxEvasion then
+            local depotMoney = money.DepotCoinsToMoney(User, depot.id)
+            table.insert(moneyInEachDepot, {id = depot.id, money = depotMoney})
+            val = val + depotMoney     --how much money is in the depots combined
+        end
     end
 
     val = val + money.CharCoinsToMoney(User) -- total wealth
@@ -763,14 +767,16 @@ function payNow(User, notEnoughRP)
 
     -- try to get the payable tax from the depots first
     for _, depot in pairs(depotScript.depots) do
-        for _, selectedDepot in pairs(moneyInEachDepot) do
-            if selectedDepot.id == depot.id then
-                if tax <= selectedDepot.money then
-                    money.TakeMoneyFromDepot(User, tax, depot.id)
-                    tax = 0
-                elseif tax ~= 0 and selectedDepot.money > 0 then
-                    money.TakeMoneyFromDepot(User, selectedDepot.money, depot.id)
-                    tax = tax - selectedDepot.money
+        if not depot.taxEvasion then
+            for _, selectedDepot in pairs(moneyInEachDepot) do
+                if selectedDepot.id == depot.id then
+                    if tax <= selectedDepot.money then
+                        money.TakeMoneyFromDepot(User, tax, depot.id)
+                        tax = 0
+                    elseif tax ~= 0 and selectedDepot.money > 0 then
+                        money.TakeMoneyFromDepot(User, selectedDepot.money, depot.id)
+                        tax = tax - selectedDepot.money
+                    end
                 end
             end
         end
