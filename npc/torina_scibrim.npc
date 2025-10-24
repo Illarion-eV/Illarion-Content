@@ -90,15 +90,17 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Zhambra with you.", "Farewe
 english, town = Runewick, "become citizen", "gain citizenship" -> "Ehm... you are already a citizen of Runewick. Didn't you know?"
 town = Runewick, "Bürger werden", "Bürgerschaft beantragen" -> "Ehm... Ihr seid schon Bürger in Runewick. Wusstet Ihr das nicht?"
 
--- Becoming citizen in Runewick
-english, town = Cadomyr, "become citizen", "gain citizenship" -> town = Runewick, "Let me prepare the documents... Welcome to Runewick! You are now a citizen."
-town = Cadomyr, "Bürger werden", "Bürgerschaft beantragen" -> town = Runewick, "Lasst mich die Urkunde vorbereiten... Willkommen in Runewick! Ihr seid jetzt ein Mitbürger."
-english, town = Galmair, "become citizen", "gain citizenship" -> town = Runewick, "Let me prepare the documents... Welcome to Runewick! You are now a citizen."
-town = Galmair, "Bürger werden", "Bürgerschaft beantragen" -> town = Runewick, "Lasst mich die Urkunde vorbereiten... Willkommen in Runewick! Ihr seid jetzt ein Mitbürger."
-english, town = None, "become citizen", "gain citizenship" -> town = Runewick, "Let me prepare the documents... Welcome to Runewick! You are now a citizen."
-town = None, "Bürger werden", "Bürgerschaft beantragen" -> town = Runewick, "Lasst mich die Urkunde vorbereiten... Willkommen in Runewick! Ihr seid jetzt ein Mitbürger."
-english, "become citizen", "gain citizenship" -> town = Runewick, "Let me prepare the documents... Welcome to Runewick! You are now a citizen."
-"Bürger werden", "Bürgerschaft beantragen" -> town = Runewick, "Lasst mich die Urkunde vorbereiten... Willkommen in Runewick! Ihr seid jetzt ein Mitbürger."
+-- Becoming citizen in Runewick (454)
+english, "become citizen", "gain citizenship" -> queststatus(454) = 1, "Are you sure you want to become a citizen? A simple yes or no will do."
+"Bürger werden", "Bürgerschaft beantragen" -> queststatus(454) = 1, "Bist du sicher, dass du Bürger werden willst? Ein einfaches Ja oder Nein genügt."
+
+-- answer yes
+queststatus(454) = 1, english, "yes" -> town = Runewick, "Let me prepare the documents... Welcome to Runewick! You are now a citizen."
+queststatus(454) = 1, "ja" -> town = Runewick, "Lasst mich die Urkunde vorbereiten... Willkommen in Runewick! Ihr seid jetzt ein Mitbürger."
+
+-- answer no
+queststatus(454) = 1, english, ".*" -> queststatus(454) = 0, "Ah, really? That's a shame. Ironically, there is no place like Runewick to obtain the wisdom to change your mind."
+queststatus(454) = 1, ".*" -> queststatus(454) = 0, "Ach, wirklich? Schade. Ironischerweise gibt es keinen besseren Ort als Runewick, um die Weisheit zu finden, seine Meinung zu ändern."
 
 -- leaving Runewick (207)
 english, town = Runewick, "give up citizenship", "terminate", "leave", "leaving" -> queststatus(207) = 1, "So, you realy want to leave Runewick and live elsewhere? Are you sure?"

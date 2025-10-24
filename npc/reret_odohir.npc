@@ -103,13 +103,18 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Fare well!", "#me smiles at
 english, town = Cadomyr, "join Cadomyr", "become citizen", "gain citizenship" -> town = Cadomyr, "Oh! You are already a citizen of Cadomyr."
 town = Cadomyr, "Cadomyr beitreten", "Bürger werden", "Bürgerschaft beantragen" -> town = Cadomyr, "Oh! Ihr seid bereits Bürger von Cadomyr."
 
--- Becoming citizen in Cadomyr
-english, town = Galmair, "join Cadomyr", "become citizen", "gain citizenship" -> town = Cadomyr, "Let me prepare the documents... Welcome to Cadomyr! You are now a subject of Her Majesty."
-town = Galmair, "Cadomyr beitreten", "Bürger werden", "Bürgerschaft beantragen" -> town = Cadomyr, "Lasst mich die Urkunde vorbereiten... Willkommen in Cadomyr! Ihr seid jetzt ein Untertan Ihrer Majestät."
-english, town = Runewick, "join Cadomyr", "become citizen", "gain citizenship" -> town = Cadomyr, "Let me prepare the documents... Welcome to Cadomyr! You are now a subject of Her Majesty."
-town = Runewick, "Cadomyr beitreten", "Bürger werden", "Bürgerschaft beantragen" -> town = Cadomyr, "Lasst mich die Urkunde vorbereiten... Willkommen in Cadomyr! Ihr seid jetzt ein Untertan Ihrer Majestät."
-english, town = None, "join Cadomyr", "become citizen", "gain citizenship" -> town = Cadomyr, "Let me prepare the documents... Welcome to Cadomyr! You are now a subject of Her Majesty."
-town = None, "Cadomyr beitreten", "Bürger werden", "Bürgerschaft beantragen" -> town = Cadomyr, "Lasst mich die Urkunde vorbereiten... Willkommen in Cadomyr! Ihr seid jetzt ein Untertan Ihrer Majestät."
+-- Becoming citizen in Cadomyr (456)
+
+english, "join Cadomyr", "become citizen", "gain citizenship" -> queststatus(456) = 1, "Are you sure you want to become a citizen? A simple yes or no will do."
+"Cadomyr beitreten", "Bürger werden", "Bürgerschaft beantragen" -> queststatus(456) = 1, "Bist du sicher, dass du Bürger werden willst? Ein einfaches Ja oder Nein genügt."
+
+-- answer yes
+queststatus(456) = 1, english, "yes" -> town = Cadomyr, "Let me prepare the documents... Welcome to Cadomyr! You are now a subject of Her Majesty."
+queststatus(456) = 1, "ja" -> town = Cadomyr, "Lasst mich die Urkunde vorbereiten... Willkommen in Cadomyr! Ihr seid jetzt ein Untertan Ihrer Majestät."
+
+-- answer no
+queststatus(456) = 1, english, ".*" -> queststatus(456) = 0, "Pity. I suppose not everyone has the honour it takes to be part of our realm."
+queststatus(456) = 1, ".*" -> queststatus(456) = 0, "Schade. Ich nehme an, nicht jeder hat die Ehre, die es braucht, um Teil unseres Reiches zu sein."
 
 -- terminating citizenship, leaving Cadomyr (209)
 english, town = Cadomyr, "give up citizenship", "terminate", "leave", "leaving" -> queststatus(209) = 1, "You want to give up citizenship in Cadomyr. Are you sure?"
