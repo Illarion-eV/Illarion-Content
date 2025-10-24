@@ -374,20 +374,10 @@ local maxWearIncrease = 5
 
 local function getPortalWear(user)
 
-    local intelligence = user:increaseAttrib("intelligence", 0)
-
-    local willpower = user:increaseAttrib("willpower", 0)
-
-    local intelligenceBonus = common.GetAttributeBonusHigh(intelligence)/3*2 --Primary attribute for magic
-
-    local willpowerBonus =  common.GetAttributeBonusHigh(willpower)/3
-    --[[Willpower needs to have _some_ impact too, so that it does not end up
-        a dumpstat for those that do not care for magic resistance. Hence
-        intelligence ends up sharing a bit of the power impact with it.
-        Not that I would consider portals that last longer all that impactful,
-        but there is little else to impact in spatial magic. ]]
-
-    local statBonus = willpowerBonus + intelligenceBonus -- A stat total of 40 equals a bonus of 0.5, 48 = 0.71, 52 = 0.81
+    local leadAttribNames = common.GetLeadAttributeName(Character.spatialMagic)
+    local leadAttribValue1 = user:increaseAttrib(leadAttribNames.first, 0) * 0.6
+    local leadAttribValue2 = user:increaseAttrib(leadAttribNames.second, 0) * 0.4
+    local statBonus = leadAttribValue1 + leadAttribValue2
 
     local wandQualityBonus = magic.getQualityBonusWand(user) -- A perfect wand equals a bonus of 0.1
 

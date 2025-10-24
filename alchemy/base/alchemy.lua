@@ -801,21 +801,20 @@ function M.SetQuality(user, cauldron)
 
     local alchemyLevel = user:getSkill(Character.alchemy)
     local gemBonus = tonumber(getGemBonus(user))
-    local leadAttribName = common.GetLeadAttributeName(Character.alchemy)
-    local leadAttribValue = user:increaseAttrib(leadAttribName, 0)
+    local leadAttribNames = common.GetLeadAttributeName(Character.alchemy)
+    local leadAttribValue1 = user:increaseAttrib(leadAttribNames.first, 0) * 0.6
+    local leadAttribValue2 = user:increaseAttrib(leadAttribNames.second, 0) * 0.4
+    local leadAttribValue = leadAttribValue1 + leadAttribValue2
     local toolItem = M.getAlchemyTool(user)
     local meanQuality = 5
     meanQuality = meanQuality*(1+common.GetAttributeBonusHigh(leadAttribValue)+common.GetQualityBonusStandard(toolItem))+gemBonus/100 --Apply boni of lead attrib, tool quality and gems.
     meanQuality = meanQuality*(0.5+(alchemyLevel/200)) -- The level of your alchemy skill has a 50% influence on the average quality
     meanQuality = common.Limit(meanQuality, 1, 8.5) --Limit to a reasonable maximum to avoid overflow ("everything quality 9"). The value here needs unnatural attributes.
-    log("meanQuality: "..tostring(meanQuality))
     local herbsUsed = cauldron:getData("herbsUsed")
     local totalRareCount = cauldron:getData("totalRareCount")
     local rareIngredientBonus = totalRareCount/herbsUsed
     local rarityBonus = (rareIngredientBonus - 1) * (0.5 / 3)
-    log("bonus: "..tostring(rarityBonus))
     meanQuality = meanQuality + rarityBonus
-    log("meanQuality: "..tostring(meanQuality))
 
     local quality = 1 --Minimum quality value.
     local rolls = 8 --There are eight chances to increase the quality by one. This results in a quality distribution 1-9.

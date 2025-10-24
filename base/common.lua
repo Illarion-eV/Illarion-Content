@@ -2242,7 +2242,7 @@ leadAttribTable[Character.concussionWeapons]="strength"
 leadAttribTable[Character.punctureWeapons]="strength"
 
 --Essence: Druids
-leadAttribTable[Character.alchemy]="essence"
+leadAttribTable[Character.alchemy]= {first = "essence", second = "perception"}
 leadAttribTable[Character.potionLore]="essence"
 leadAttribTable[Character.animalTaming]="essence"
 leadAttribTable[Character.summoning]="essence"
@@ -2250,13 +2250,13 @@ leadAttribTable[Character.natureLore]="essence"
 leadAttribTable[Character.cauldronLore]="essence"
 
 --Intelligence: Magic
-leadAttribTable[Character.enchanting]="intelligence"
+leadAttribTable[Character.enchanting]= {first = "intelligence", second = "essence"}
 leadAttribTable[Character.fireMagic]="intelligence"
 leadAttribTable[Character.spiritMagic]="intelligence"
 leadAttribTable[Character.windMagic]="intelligence"
 leadAttribTable[Character.earthMagic]="intelligence"
 leadAttribTable[Character.waterMagic]="intelligence"
-leadAttribTable[Character.spatialMagic]="intelligence"
+leadAttribTable[Character.spatialMagic]= {first = "intelligence", second = "willpower"}
 
 --Willpower: Priests and magic resistance
 leadAttribTable[Character.blessing]="willpower"

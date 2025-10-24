@@ -855,16 +855,10 @@ function Craft:generateQuality(user, product, toolItem, rareIngredientBonus)
     local gemBonus = tonumber(self:getCurrentGemBonus(user))
     local skill = self.leadSkill
     local leadAttribNames = common.GetLeadAttributeName(skill)
-    local leadAttribValue
+    local leadAttribValue1 = user:increaseAttrib(leadAttribNames.first, 0) * 0.6 -- 60% of the impact dex had on its own in the past
+    local leadAttribValue2 = user:increaseAttrib(leadAttribNames.second, 0) * 0.4 -- 40% of the impact dex had on its own in the past
+    local leadAttribValue = leadAttribValue1 + leadAttribValue2
 
-    if self.leadSkill == Character.spatialMagic then
-        --one attrib only
-        leadAttribValue = user:increaseAttrib(leadAttribNames, 0)
-    else
-        local leadAttribValue1 = user:increaseAttrib(leadAttribNames.first, 0) * 0.6 -- 60% of the impact dex had on its own in the past
-        local leadAttribValue2 = user:increaseAttrib(leadAttribNames.second, 0) * 0.4 -- 40% of the impact dex had on its own in the past
-        leadAttribValue = leadAttribValue1 + leadAttribValue2
-    end
 
     local meanQuality = 5
     meanQuality = meanQuality*(1+common.GetAttributeBonusHigh(leadAttribValue)+common.GetQualityBonusStandard(toolItem))+gemBonus/100 --Apply boni of dexterity, tool quality and gems.
