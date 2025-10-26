@@ -23,7 +23,6 @@ local granorsHut = require("content.granorsHut")
 local magicBook = require("magic.arcane.magicBook")
 local common = require("base.common")
 local music = require("item.base.music")
-local drum = require("item.id_533_drum")
 
 local readBook
 
@@ -156,96 +155,7 @@ function readBook(user, book, atPage)
     end
 end
 
-local selectedBookIndex = {}
-
-local function viewListOfNotes(user, book, index)
-
-    local amount = book:getData("sheet"..index.."noteAmount")
-
-    if common.IsNilOrEmpty(amount) then
-        return
-    end
-
-    local list = ""
-
-    for i = 1, tonumber(amount) do
-        local note = book:getData("sheet"..index.."note"..i)
-        local duration = book:getData("sheet"..index.."noteDuration"..i)
-
-        if book:getData("sheet"..index.."instrument") == "drum" then
-            for _, sound in pairs(music.drumSounds) do
-                if sound.id == tonumber(note) then
-                    note = common.GetNLS(user, sound.name.german, sound.name.english)
-                    break
-                end
-            end
-        end
-
-        list = list.."\n"..note..", "..duration..common.GetNLS(user, " Dezisekunden.", " deciseconds.")
-    end
-
-    local title = common.GetNLS(user, "Unbenanntes Notenblatt", "Unnamed sheet")
-    local name = book:getData("sheet"..index.."sheetName")
-
-    if not common.IsNilOrEmpty(name) then
-        title = name
-    end
-
-    local callback = function(dialog) end
-
-    local dialog = MessageDialog( title, list, callback)
-    user:requestMessageDialog(dialog)
-end
-
-local function noteListView(user, actionState, book, instrument, index)
-
-    local callback = function(dialog)
-
-        if not dialog:getSuccess() then
-            return
-        end
-
-        local selected = dialog:getSelectedIndex() + 1
-
-        if selected == 1 and music.instrumentIsInHandOrInFrontOfUser(user, book:getData("sheet"..index.."instrument")) then
-
-            if instrument == "drum" then
-                drum.playTheDrum(user, actionState, false, false, book, index)
-            else
-                music.playTheInstrument(user, actionState, false, false, instrument, book, index)
-            end
-
-        elseif selected == 2 then
-            viewListOfNotes(user, book, index)
-        elseif selected == 3 then
-            music.playMusicTogether(user, actionState)
-        end
-    end
-
-    local instruments = {"drum", "harp", "lute", "panpipe", "flute"}
-    local instrumentsGerman = {"Trommel", "Harfe", "Laute", "Panflöte", "Flöte"}
-
-    local germanName = instrument
-
-    for i, inst in pairs(instruments) do
-        if instrument == inst then
-            germanName = instrumentsGerman[i]
-        end
-    end
-
-    local text = common.GetNLS(user, "Das Notenblatt enthält Noten für das "..germanName..".", "The sheet contains notes for the "..instrument..".")
-
-    local dialog = SelectionDialog(common.GetNLS(user, "Notenblatt", "Music sheet"), text, callback)
-
-    dialog:addOption(0, common.GetNLS(user, "Lied abspielen", "Play song"))
-    dialog:addOption(0, common.GetNLS(user, "Noten anzeigen", "View notes"))
-    dialog:addOption(0, common.GetNLS(user, "Mit anderen Musik machen", "Play Music With Others"))
-
-    dialog:setCloseOnMove()
-
-    user:requestSelectionDialog(dialog)
-
-end
+local selectedBookSheet = {}
 
 local function selectSheetToPlay(user, book, sheetAmount, actionState)
 
@@ -258,11 +168,20 @@ local function selectSheetToPlay(user, book, sheetAmount, actionState)
 
         local selected = dialog:getSelectedIndex() + 1
 
-        for index = 1, tonumber(sheetAmount) do
-            if selected == index then
-                local instrument = book:getData("sheet"..index.."instrument")
-                selectedBookIndex = index
-                noteListView(user, actionState, book, instrument, selectedBookIndex)
+        for i = 1, tonumber(sheetAmount) do
+            if selected == i then
+
+                local name = book:getData("sheet"..i.."sheetName")
+                local theNotes = book:getData("sheet"..i.."notes")
+                local instrument = book:getData("sheet"..i.."instrument")
+
+                selectedBookSheet[user.id] = {name = name, notes = theNotes, instrument = instrument}
+
+                for segment = 2, 10 do
+                    local addNotes = book:getData("sheet"..i.."notes"..segment)
+                    selectedBookSheet[user.id]["notes"..segment] = addNotes
+                end
+                music.noteListView(user, actionState, selectedBookSheet[user.id])
             end
         end
     end
@@ -332,20 +251,58 @@ function M.UseItem(user, sourceItem, actionState)
                 return
             end
 
-            local instrument = sourceItem:getData("sheet"..selectedBookIndex.."instrument")
-
-            if instrument == "drum" then
-                drum.playTheDrum(user, actionState, false, false, sourceItem, selectedBookIndex)
-            else
-                music.playTheInstrument(user, actionState, false, false, instrument, sourceItem, selectedBookIndex)
-            end
+            music.playTheInstrument(user, actionState, selectedBookSheet[user.id])
         end
 
     end
 
 end
 
+local function convertOldBook(oldBook)
+
+    local sheets = oldBook:getData("sheetAmount")
+
+    for sheetNumber = 1, tonumber(sheets) do
+
+        local amount = oldBook:getData("sheet"..sheetNumber.."noteAmount")
+
+        local newNotes = ""
+
+        for i = 1, tonumber(amount) do
+            local duration = oldBook:getData("sheet"..sheetNumber.."noteDuration"..i)
+            local note = oldBook:getData("sheet"..sheetNumber.."note"..i)
+
+            oldBook:setData("sheet"..sheetNumber.."note"..i, "")
+            oldBook:setData("sheet"..sheetNumber.."noteDuration"..i, "")
+
+            if newNotes ~= "" then
+                newNotes = newNotes.."|"
+            end
+
+            newNotes = newNotes..note.."|"..duration
+
+        end
+
+        oldBook:setData("sheet"..sheetNumber.."noteAmount", "")
+        oldBook:setData("sheet"..sheetNumber.."notes", string.sub(newNotes, 1, 250))
+
+        for i = 2, 10 do
+            oldBook:setData("sheet"..sheetNumber.."notes"..i, string.sub(newNotes, 1+(250*i-1), 250*i))
+        end
+
+        if oldBook:getData("sheet"..sheetNumber.."instrument") ~= "drum" then
+            oldBook:setData("sheet"..sheetNumber.."instrument", "notes")
+        end
+
+        world:changeItem(oldBook)
+    end
+end
+
 function M.LookAtItem(user, theBook)
+
+    if not common.IsNilOrEmpty(theBook:getData("sheet1note1")) then
+        convertOldBook(theBook)
+    end
 
     if not common.IsNilOrEmpty(theBook:getData("magicBook")) then
         lookat.SetSpecialName(theBook, "Grimoire", "Grimoire")

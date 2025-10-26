@@ -31,7 +31,6 @@ local shared = require("craft.base.shared")
 local messenger = require("content.messenger")
 local bookWriting = require("item.base.bookWriting")
 local music = require("item.base.music")
-local drum = require("item.id_533_drum")
 
 local M = {}
 
@@ -80,93 +79,6 @@ function M.getWrittenTextFromParchment(theParchment)
     return false
 end
 
-local function viewListOfNotes(user, SourceItem)
-
-    local amount = SourceItem:getData("noteAmount")
-
-    if common.IsNilOrEmpty(amount) then
-        return
-    end
-
-    local list = ""
-
-    for i = 1, tonumber(amount) do
-        local note = SourceItem:getData("note"..i)
-        local duration = SourceItem:getData("noteDuration"..i)
-
-        if SourceItem:getData("instrument") == "drum" then
-            for _, sound in pairs(music.drumSounds) do
-                if sound.id == tonumber(note) then
-                    note = common.GetNLS(user, sound.name.german, sound.name.english)
-                    break
-                end
-            end
-        end
-
-        list = list.."\n"..note..", "..duration..common.GetNLS(user, " Dezisekunden.", " deciseconds.")
-    end
-
-    local title = common.GetNLS(user, "Unbenanntes Notenblatt", "Unnamed sheet")
-    local name = SourceItem:getData("sheetName")
-
-    if not common.IsNilOrEmpty(name) then
-        title = name
-    end
-
-    local callback = function(dialog) end
-
-    local dialog = MessageDialog( title, list, callback)
-    user:requestMessageDialog(dialog)
-end
-
-local function noteListView(user, ltstate, SourceItem, instrument)
-
-    local callback = function(dialog)
-
-        if not dialog:getSuccess() then
-            return
-        end
-
-        local selected = dialog:getSelectedIndex() + 1
-
-        if selected == 1 then
-            if instrument == "drum" then
-                drum.playTheDrum(user, ltstate, false, SourceItem)
-            else
-                music.playTheInstrument(user, ltstate, false, SourceItem, instrument)
-            end
-        elseif selected == 2 then
-            viewListOfNotes(user, SourceItem)
-        elseif selected == 3 then
-            music.playMusicTogether(user, ltstate)
-        end
-    end
-
-    local instruments = {"drum", "harp", "lute", "panpipe", "flute"}
-    local instrumentsGerman = {"Trommel", "Harfe", "Laute", "Panflöte", "Flöte"}
-
-    local germanName = instrument
-
-    for index, inst in pairs(instruments) do
-        if instrument == inst then
-            germanName = instrumentsGerman[index]
-        end
-    end
-
-    local text = common.GetNLS(user, "Das Notenblatt enthält Noten für das "..germanName..".", "The sheet contains notes for the "..instrument..".")
-
-    local dialog = SelectionDialog(common.GetNLS(user, "Notenblatt", "Music sheet"), text, callback)
-
-    dialog:addOption(0, common.GetNLS(user, "Lied abspielen", "Play song"))
-    dialog:addOption(0, common.GetNLS(user, "Noten anzeigen", "View notes"))
-    dialog:addOption(0, common.GetNLS(user, "Mit anderen Musik machen", "Play Music With Others"))
-
-    dialog:setCloseOnMove()
-
-    user:requestSelectionDialog(dialog)
-
-end
-
 function M.UseItem(user, SourceItem,ltstate,checkVar)
 
     -- Check if the messenger has requested a parchment
@@ -195,15 +107,22 @@ function M.UseItem(user, SourceItem,ltstate,checkVar)
         return
     end
 
-    local instrument = SourceItem:getData("instrument")
+    local notes = SourceItem:getData("notes")
 
     if not _G.playtogether then
         _G.playtogether = {}
     end
 
-    if not common.IsNilOrEmpty(instrument) then
+    if not common.IsNilOrEmpty(notes) then
+
+        local sheetTable = {notes = notes, name = SourceItem:getData("sheetName"), instrument = SourceItem:getData("instrument")}
+
+        for i = 2, 10 do
+            sheetTable["notes"..i] = SourceItem:getData("notes"..i)
+        end
+
         if ltstate == Action.none then
-            noteListView(user, ltstate, SourceItem, instrument)
+            music.noteListView(user, ltstate, sheetTable)
         else
             if _G.playtogether[user.id] and not _G.playtogether[user.id].signalGiven and _G.playtogether[user.id].waiting then
 
@@ -218,11 +137,8 @@ function M.UseItem(user, SourceItem,ltstate,checkVar)
                 return
             end
 
-            if instrument == "drum" then
-                drum.playTheDrum(user, ltstate, false, SourceItem)
-            else
-                music.playTheInstrument(user, ltstate, false, SourceItem, instrument)
-            end
+            music.playTheInstrument(user, ltstate, sheetTable)
+
         end
         return
     end
@@ -677,10 +593,49 @@ end
 
 ---------------- ALCHEMY END ---------------------------
 --------------------------------------------------------
+local function convertOldSheet(oldSheet)
 
+
+
+    local amount = oldSheet:getData("noteAmount")
+
+    local newNotes = ""
+
+    for i = 1, tonumber(amount) do
+        local duration = oldSheet:getData("noteDuration"..i)
+        local note = oldSheet:getData("note"..i)
+
+        oldSheet:setData("note"..i, "")
+        oldSheet:setData("noteDuration"..i, "")
+
+        if newNotes ~= "" then
+            newNotes = newNotes.."|"
+        end
+
+        newNotes = newNotes..note.."|"..duration
+
+    end
+
+    oldSheet:setData("noteAmount", "")
+    oldSheet:setData("notes", string.sub(newNotes, 1, 250))
+
+    for i = 2, 10 do
+        oldSheet:setData("notes"..i, string.sub(newNotes, 1+(250*i-1), 250*i))
+    end
+
+    if oldSheet:getData("instrument") ~= "drum" then
+        oldSheet:setData("instrument", "notes")
+    end
+
+    world:changeItem(oldSheet)
+end
 
 
 function M.LookAtItem(user, parchment)
+
+    if not common.IsNilOrEmpty(parchment:getData("note1")) then
+        convertOldSheet(parchment)
+    end
 
     if parchment:getData("bookList") == "true" then
         return bookListLookAt(user, parchment)

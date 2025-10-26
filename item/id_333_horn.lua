@@ -17,7 +17,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local wood = require("item.general.wood")
 local common = require("base.common")
-local music = require("item.base.music")
 local shared = require("craft.base.shared")
 
 
@@ -36,6 +35,32 @@ local sounds = {
     {level = 75, id = 121, name = {english = "Long Sound", german = "Langer Klang"}},
     {level = 100, id = 122, name = {english = "Deep Sound", german = "Tiefer Klang"}}
 }
+
+local function instrumentIsInHandOrInFrontOfUser(user)
+
+    local id = Item.horn
+    local leftTool = user:getItemAt(Character.left_tool)
+    local rightTool = user:getItemAt(Character.right_tool)
+    local theInstrument = false
+    local frontItem = common.GetFrontItem(user)
+
+    local itemsToCheck = {leftTool, rightTool, frontItem}
+
+    for _, checkItem in pairs(itemsToCheck) do
+        if checkItem and common.isInList(checkItem.id, id) and not common.isBroken(checkItem) then
+            theInstrument = checkItem
+        end
+    end
+
+    local commonItem = world:getItemStatsFromId(id)
+
+    if not theInstrument then
+        user:inform("Wenn du ein(e) "..commonItem.German.." spielen möchtest, musst du es in der Hand halten oder vor dir liegen haben.", "If you want to play a "..commonItem.English..", you will need to hold it in your hand or have it in front of you.")
+        return false
+    end
+
+    return theInstrument
+end
 
 function M.UseItem(user, SourceItem, actionState)
 
@@ -58,7 +83,7 @@ function M.UseItem(user, SourceItem, actionState)
 
         for index, sound in pairs(knownSounds) do
             if selected == index then
-                local instrument = music.instrumentIsInHandOrInFrontOfUser(user, "horn")
+                local instrument = instrumentIsInHandOrInFrontOfUser(user)
                 if instrument then
                     -- Since we dont want people to spam the instrument while also not wanting it
                     -- to take years to level, half of the cooldown is attributed to both

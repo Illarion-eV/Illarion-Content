@@ -39,14 +39,12 @@ local music = require("item.base.music")
 
 local M = {}
 
-function M.UseItem(user, SourceItem, actionState)
+function M.UseItem(user, sourceItem, actionState)
 
     if actionState == Action.none then
         music.selectNote(user)
-    elseif actionState == Action.success then
-        music.playTheInstrument(user, actionState, true, false, "lute")
-    elseif actionState == Action.abort then
-        music.playTheInstrument(user, actionState, true, false, "lute")
+    else
+        music.playTheInstrument(user, actionState)
     end
 
 end
