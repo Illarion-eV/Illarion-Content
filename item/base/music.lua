@@ -111,59 +111,88 @@ local drumSounds = { --Since drums dont use the A1-G7 tones it needs its own lis
 
 local drumLookup = {}
 
+local function convertToTableOfNotes(sheetTable)
+
+    local noteString = sheetTable.notes
+
+    for i = 2, 10 do
+        if sheetTable["notes"..i] then
+            noteString = noteString..sheetTable["notes"..i]
+        end
+    end
+
+    local retTable = {}
+    local parts = {}
+
+    for part in string.gmatch(noteString, "([^|]+)") do
+        table.insert(parts, part)
+    end
+
+    local step = 1
+    for i = 1, #parts, 2 do
+        local note = parts[i]
+        local duration = tonumber(parts[i + 1])
+        if note and duration then
+            table.insert(retTable, { step = step, note = note, duration = duration })
+            step = step + 1
+        end
+    end
+
+    return retTable
+end
+
+
 for _, drum in ipairs(drumSounds) do
     drumLookup[drum.id] = drum.name
 end
 
-local function drumIdToNames(user, drumIds)
+local function viewListOfNotes(user, sheetTable)
 
-    local text = ""
-    local parts = {}
+    local notesList = convertToTableOfNotes(sheetTable)
 
-
-    for part in string.gmatch(drumIds, "[^|]+") do
-        table.insert(parts, tonumber(part))
-    end
-
-    for i = 1, #parts, 2 do
-        local id = parts[i]
-        local duration = parts[i + 1]
-        local name = drumLookup[id]
-        if name then
-            if text ~= "" then
-                text = text..", "
-            end
-            text = text..common.GetNLS(user, name.german.." "..duration, name.english.." "..duration)
+    for _, note in pairs(notesList) do
+        if sheetTable.instrument == "drum" then
+            note.name = drumLookup[note.note]
+        else
+            note.name = {}
+            note.name.english = note.note
+            note.name.german = note.note
         end
     end
 
-    return text
-end
-
-local function viewListOfNotes(user, sheetTable)
-
-
-    local text = sheetTable.notes
-
-    for i = 2, 10 do
-        text = text..sheetTable["notes"..i]
-    end
-
-    if sheetTable.instrument == "drum" then
-        text = drumIdToNames(user, text)
-    end
-
-    local title = common.GetNLS(user, "Unbenanntes Notenblatt", "Unnamed sheet")
     local name = sheetTable.name
+    local title = not common.IsNilOrEmpty(name) and name or common.GetNLS(user, "Unbenanntes Notenblatt", "Unnamed sheet")
 
-    if not common.IsNilOrEmpty(name) then
-        title = name
+    local callback = function(dialog)
+
+        if not dialog:getSuccess() then
+            return
+        end
+
+        local selected = dialog:getSelectedIndex() + 1
+
+        for index, note in pairs(notesList) do
+            if index == selected then
+                if sheetTable.instrument == "drum" then
+                    M.selectSound(user, false, notesList, index)
+                else
+                    M.selectNote(user, notesList, index)
+                end
+            end
+        end
     end
 
-    local callback = function(dialog) end
+    local text = common.GetNLS(user, "", "Here you can not only view a list of the notes your sheet contains, but also select one if you wish to edit it.")
 
-    local dialog = MessageDialog( title, text, callback)
-    user:requestMessageDialog(dialog)
+    local dialog = SelectionDialog(title, text, callback)
+
+    for _, note in ipairs(notesList) do
+        dialog:addOption(0, common.GetNLS(user, note.name.german.." "..note.duration.." Dezisekunden", note.name.english.." "..note.duration.." deciseconds."))
+    end
+
+    dialog:setCloseOnMove()
+
+    user:requestSelectionDialog(dialog)
 end
 
 function M.noteListView(user, ltstate, sheetTable)
@@ -238,36 +267,6 @@ function M.instrumentIsInHandOrInFrontOfUser(user, sheetTable)
     end
 
     return theInstrument, instrumentName, theSkill
-end
-
-local function convertToTableOfNotes(sheetTable)
-
-    local noteString = sheetTable.notes
-
-    for i = 2, 10 do
-        if sheetTable["notes"..i] then
-            noteString = noteString..sheetTable["notes"..i]
-        end
-    end
-
-    local retTable = {}
-    local parts = {}
-
-    for part in string.gmatch(noteString, "([^|]+)") do
-        table.insert(parts, part)
-    end
-
-    local step = 1
-    for i = 1, #parts, 2 do
-        local note = parts[i]
-        local duration = tonumber(parts[i + 1])
-        if note and duration then
-            table.insert(retTable, { step = step, note = note, duration = duration })
-            step = step + 1
-        end
-    end
-
-    return retTable
 end
 
 local function getAmountOfNotesInSheet(sheetTable)
@@ -506,7 +505,100 @@ end
 
 M.selectedNote = {}
 
-local function selectPitch(user, note)
+local function convertToNotesAndSave(user, sheet, notesList)
+
+    local convertedNotes = ""
+
+    for _, note in ipairs(notesList) do
+
+        if convertedNotes ~= "" then
+            convertedNotes = convertedNotes.."|"
+        end
+
+        convertedNotes = convertedNotes..note.note.."|"..note.duration
+    end
+
+    sheet:setData("notes", string.sub(convertedNotes, 1, 250))
+
+    for i = 2, 10 do
+        sheet:setData("notes"..i, string.sub(convertedNotes, 1+(250*i-1), 250*i))
+    end
+
+    user:inform("Du änderst die Note.", "You change the note.")
+
+    world:changeItem(sheet)
+
+end
+
+local function checkIfSheetInHand(user, quill, notesList)
+
+    if quill then
+
+        local parchment = common.GetTargetItem(user, quill)
+
+        if parchment and parchment.id == Item.parchment and common.IsNilOrEmpty(parchment:getData("writtenText")) and common.IsNilOrEmpty(parchment:getData("alchemyRecipe")) then
+            return parchment
+        end
+    elseif notesList then
+
+        local id = Item.parchment
+        local leftTool = user:getItemAt(Character.left_tool)
+        local rightTool = user:getItemAt(Character.right_tool)
+        local sheet = false
+
+        if common.isInList(leftTool.id, {id}) and leftTool:getData("instrument") ~= "" then
+            sheet = leftTool
+        elseif common.isInList(rightTool.id, {id}) and rightTool:getData("instrument") ~= ""  then
+            sheet = rightTool
+        end
+
+        if sheet then
+            return sheet
+        end
+    end
+
+    return nil
+
+end
+
+local function selectDuration(user, noteId, notesList, index)
+
+    local callback = function(dialog)
+
+        if not dialog:getSuccess() then
+            return
+        end
+
+        local sheet = checkIfSheetInHand(user, false, notesList)
+
+        if not sheet then
+            return
+        end
+
+        local input = dialog:getInput()
+
+        local num = tonumber(input)
+
+        if not num or num < 1 or num > 100 then
+            user:inform("Die eingegebene Dauer muss eine Zahl zwischen 1 und 100 sein.", "The input duration must be a number between 1 and 100.")
+            return
+        end
+
+        notesList[index].note = noteId
+        notesList[index].duration = input
+
+        convertToNotesAndSave(user, sheet, notesList)
+    end
+
+    local instructions = common.GetNLS(user, "Wählen Sie die Dauer zwischen 1 und 100 Dezisekunden, die vergehen soll, bevor die nächste Note nach dieser gespielt wird.", "Select the duration, between 1 and 100 deciseconds, it should take before the next note is played after this one.")
+
+    local dialog = InputDialog(common.GetNLS(user, "Musik komponieren", "Music Composing"), instructions, false, 255, callback)
+
+    user:requestInputDialog(dialog)
+
+end
+
+local function selectPitch(user, note, notesList, index)
 
     local callback = function(dialog)
 
@@ -516,17 +608,23 @@ local function selectPitch(user, note)
 
         local selected = dialog:getSelectedIndex() + 1
 
-        for index = 1, 7 do
-            if selected == index then
-                M.selectedNote[user.id] = {notes = note..tostring(index).."|1", instrument = "notes"}
+        for i = 1, 7 do
+            if selected == i then
 
-                local instrument = M.instrumentIsInHandOrInFrontOfUser(user, M.selectedNote[user.id])
+                if notesList then
+                    selectDuration(user, note..tostring(i), notesList, index)
+                else
 
-            if not instrument then
-                return
-            end
+                    M.selectedNote[user.id] = {notes = note..tostring(i).."|1", instrument = "notes"}
 
-                user:startAction(1, 65, 1, 0, 0)
+                    local instrument = M.instrumentIsInHandOrInFrontOfUser(user, M.selectedNote[user.id])
+
+                    if not instrument then
+                        return
+                    end
+
+                    user:startAction(1, 65, 1, 0, 0)
+                end
             end
         end
     end
@@ -545,7 +643,7 @@ local function selectPitch(user, note)
 
 end
 
-function M.selectNote(user)
+function M.selectNote(user, notesList, index)
 
     local noteLetters = {"A", "B", "C", "D", "E", "F", "G"}
 
@@ -557,14 +655,18 @@ function M.selectNote(user)
 
         local selected = dialog:getSelectedIndex() + 1
 
-        for index, note in pairs(noteLetters) do
-            if selected == index then
-                selectPitch(user, note)
+        for i, note in pairs(noteLetters) do
+            if selected == i then
+                selectPitch(user, note, notesList, index)
             end
         end
     end
 
     local text = common.GetNLS(user, "Wähle aus, welche Note du spielen möchtest.", "Select the note you wish to play")
+
+    if notesList then
+        text = common.GetNLS(user, "Wähle die Note aus, mit der du die vorherige ersetzen möchtest.", "Select the note you wish to replace the previous one with.")
+    end
 
     local dialog = SelectionDialog(common.GetNLS(user, "Notenauswahl", "Note selection"), text, callback)
 
@@ -578,19 +680,7 @@ function M.selectNote(user)
 
 end
 
-local function checkIfSheetInHand(user, quill)
-
-    local parchment = common.GetTargetItem(user, quill)
-
-    if parchment and parchment.id == Item.parchment and common.IsNilOrEmpty(parchment:getData("writtenText")) and common.IsNilOrEmpty(parchment:getData("alchemyRecipe")) then
-        return parchment
-    end
-
-    return nil
-
-end
-
-local function addSound(user, quill, soundId)
+local function addSound(user, quill, soundId, notesList, index)
 
     local callback = function(dialog)
 
@@ -598,7 +688,7 @@ local function addSound(user, quill, soundId)
             return
         end
 
-        local sheet = checkIfSheetInHand(user, quill)
+        local sheet = checkIfSheetInHand(user, quill, notesList)
 
         if not sheet then
             return
@@ -613,37 +703,44 @@ local function addSound(user, quill, soundId)
             return
         end
 
-        local existingNotes = sheet:getData("notes")
+        if quill then
 
-        for i = 2, 10 do
-            existingNotes = existingNotes..sheet:getData("notes"..i)
+            local existingNotes = sheet:getData("notes")
+
+            for i = 2, 10 do
+                existingNotes = existingNotes..sheet:getData("notes"..i)
+            end
+
+            if existingNotes ~= "" then
+                existingNotes = existingNotes.."|"
+            end
+
+            existingNotes = existingNotes..tostring(soundId).."|"..input
+
+            if string.len(existingNotes) > 2500 then
+                user:inform("Das Notenblatt kann nicht so viele Noten aufnehmen.", "The music sheet can not hold that many notes.")
+                return
+            end
+
+            sheet:setData("notes", string.sub(existingNotes, 1, 250))
+
+            for i = 2, 10 do
+                sheet:setData("notes"..i, string.sub(existingNotes, 1+(250*i-1), 250*i))
+            end
+
+            sheet:setData("instrument", "drum")
+
+            world:changeItem(sheet)
+
+            user:inform("Sie fügen die neuen Klänge dem Notenblatt hinzu.", "You add the new sounds to the sheet.")
+
+            M.selectSound(user, quill)
+        else
+            notesList[index].note = soundId
+            notesList[index].duration = input
+
+            convertToNotesAndSave(user, sheet, notesList)
         end
-
-        if existingNotes ~= "" then
-            existingNotes = existingNotes.."|"
-        end
-
-        existingNotes = existingNotes..tostring(soundId).."|"..input
-
-        if string.len(existingNotes) > 2500 then
-            user:inform("Das Notenblatt kann nicht so viele Noten aufnehmen.", "The music sheet can not hold that many notes.")
-            return
-        end
-
-        sheet:setData("notes", string.sub(existingNotes, 1, 250))
-
-        for i = 2, 10 do
-            sheet:setData("notes"..i, string.sub(existingNotes, 1+(250*i-1), 250*i))
-        end
-
-        sheet:setData("instrument", "drum")
-
-        world:changeItem(sheet)
-
-        user:inform("Sie fügen die neuen Klänge dem Notenblatt hinzu.", "You add the new sounds to the sheet.")
-
-        M.selectSound(user, quill)
-
     end
 
     local instructions = common.GetNLS(user, "Wählen Sie die Dauer zwischen 1 und 100 Dezisekunden, die vergehen soll, bevor die nächste Note nach dieser gespielt wird.", "Select the duration, between 1 and 100 deciseconds, it should take before the next note is played after this one.")
@@ -653,7 +750,7 @@ local function addSound(user, quill, soundId)
     user:requestInputDialog(dialog)
 end
 
-function M.selectSound(user, quill)
+function M.selectSound(user, quill, notesList, index)
 
     local callback = function(dialog)
 
@@ -663,10 +760,10 @@ function M.selectSound(user, quill)
 
         local selected = dialog:getSelectedIndex() + 1
 
-        for index, sound in ipairs(drumSounds) do
-            if selected == index then
-                if quill then
-                    addSound(user, quill, sound.id)
+        for i, sound in ipairs(drumSounds) do
+            if selected == i then
+                if quill or notesList then
+                    addSound(user, quill, sound.id, notesList, index)
                 else
                     M.selectedNote[user.id] = {notes = sound.id.."|1", instrument = "drum"}
 
@@ -686,6 +783,10 @@ function M.selectSound(user, quill)
 
     if quill then
         text = common.GetNLS(user, "Wählen Sie einen Klang aus, der dem Notenblatt hinzugefügt werden soll.", "Select a sound to add to the sheet.")
+    end
+
+    if notesList then
+        text = common.GetNLS(user, "Wähle einen Klang aus, um den ausgewählten zu ersetzen.", "Select a sound to replace the selected one with.")
     end
 
     local dialog = SelectionDialog(common.GetNLS(user, "Notenauswahl", "Sound selection"), text, callback)
