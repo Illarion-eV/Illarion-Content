@@ -21,7 +21,7 @@ local tailoring = require("craft.final.tailoring")
 
 local M = {}
 
-local notes = { --All instruments that use the standard A-G, 1-7 note/pitch range go here
+local notes = { --All instruments that use the standard A-G, 1-7 note/pitch range go here. B/H are duplicate sounds as it is just a matter of translation.
     { note = "A1", lute = 123, harp = 45, panpipe = 172, flute = 221, clavichord = 270 },
     { note = "A2", lute = 124, harp = 46, panpipe = 173, flute = 222, clavichord = 271 },
     { note = "A3", lute = 125, harp = 47, panpipe = 174, flute = 223, clavichord = 272 },
@@ -36,6 +36,13 @@ local notes = { --All instruments that use the standard A-G, 1-7 note/pitch rang
     { note = "B5", lute = 134, harp = 56, panpipe = 183, flute = 232, clavichord = 281 },
     { note = "B6", lute = 135, harp = 57, panpipe = 184, flute = 233, clavichord = 282 },
     { note = "B7", lute = 136, harp = 58, panpipe = 185, flute = 234, clavichord = 283 },
+    { note = "H1", lute = 130, harp = 52, panpipe = 179, flute = 228, clavichord = 277 },
+    { note = "H2", lute = 131, harp = 53, panpipe = 180, flute = 229, clavichord = 278 },
+    { note = "H3", lute = 132, harp = 54, panpipe = 181, flute = 230, clavichord = 279 },
+    { note = "H4", lute = 133, harp = 55, panpipe = 182, flute = 231, clavichord = 280 },
+    { note = "H5", lute = 134, harp = 56, panpipe = 183, flute = 232, clavichord = 281 },
+    { note = "H6", lute = 135, harp = 57, panpipe = 184, flute = 233, clavichord = 282 },
+    { note = "H7", lute = 136, harp = 58, panpipe = 185, flute = 234, clavichord = 283 },
     { note = "C1", lute = 137, harp = 59, panpipe = 186, flute = 235, clavichord = 284 },
     { note = "C2", lute = 138, harp = 60, panpipe = 187, flute = 236, clavichord = 285 },
     { note = "C3", lute = 139, harp = 61, panpipe = 188, flute = 237, clavichord = 286 },
