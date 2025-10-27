@@ -611,6 +611,8 @@ local function selectPitch(user, note, notesList, index)
         for i = 1, 7 do
             if selected == i then
 
+                i = 7-(i-1)
+
                 if notesList then
                     selectDuration(user, note..tostring(i), notesList, index)
                 else
@@ -634,7 +636,7 @@ local function selectPitch(user, note, notesList, index)
     local dialog = SelectionDialog(common.GetNLS(user, "Tonhöhenauswahl", "Pitch selection"), text, callback)
 
     for i = 1, 7 do
-        dialog:addOption(0, note..tostring(i))
+        dialog:addOption(0, note..tostring(7-(i-1)))
     end
 
     dialog:setCloseOnMove()
@@ -645,7 +647,7 @@ end
 
 function M.selectNote(user, notesList, index)
 
-    local noteLetters = {"A", "B", "C", "D", "E", "F", "G"}
+    local noteLetters = common.GetNLS(user,{"H", "A", "G", "F", "E", "D", "C"} , {"B", "A", "G", "F", "E", "D", "C"})
 
     local callback = function(dialog)
 
