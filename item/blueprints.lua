@@ -242,6 +242,10 @@ end
 
 function M.UseItem(user, blueprint, actionState)
 
+    if blueprint.wear == 255 then
+        return
+    end
+
     if common.IsNilOrEmpty(blueprint:getData("blueprint")) then
         return
     end
