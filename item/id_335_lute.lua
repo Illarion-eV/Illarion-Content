@@ -39,7 +39,22 @@ local music = require("item.base.music")
 
 local M = {}
 
+local function obsidimineQuest(user, lute)
+
+    local questPos = position(701, 614, -6)
+
+    local questProgress = user:getQuestProgress(510)
+
+    if lute.pos == questPos and questProgress == 27 then
+        user:setQuestProgress(510, 28)
+        user:inform("Du greifst nach vorn, um vorsichtig eine goldene Saite von der Laute zu zupfen, um sie zu Obsidimine zurückzubringen.", "You reach forward to carefully pluck a golden string from the lute, to bring back to Obsidimine.")
+    end
+
+end
+
 function M.UseItem(user, sourceItem, actionState)
+
+    obsidimineQuest(user, sourceItem) --Dragon lair quest
 
     if actionState == Action.none then
         music.selectNote(user)
