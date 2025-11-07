@@ -68,7 +68,7 @@ function M.arcaneSpellCost(user, spell, thePosition) -- Should return a total ma
     local dx, dy = tx - px, ty - py
     local distance = math.sqrt(dx*dx + dy*dy)
 
-    if DUN and distance > 2 then -- DUN mana cost scaled by how big of a circle you spawn
+    if DUN and distance > 2 and not user.attackmode then -- DUN mana cost scaled by how big of a circle you spawn
 
         distance = distance - 1 -- We dont count the first one as you cant go to 0 so 1 becomes 0 aka the basis
 
