@@ -49,32 +49,34 @@ local function addDunTargets(user, targetsPositions, spell)
     for _, possiblePosition in pairs(possiblePositions) do
 
         local field = world:getField(possiblePosition)
-        local foundItems = field:countItems()
-        local foundChar = world:isCharacterOnField(possiblePosition)
+        if field then
+            local foundItems = field:countItems()
+            local foundChar = world:isCharacterOnField(possiblePosition)
 
-        if (RA or CUN) and SUL then
-            foundChar = false
-        end
-
-        if foundChar then
-            local char =  world:getCharacterOnField(possiblePosition)
-            if char:getType() ~= Character.npc then
-                targetsPositions.targets[#targetsPositions.targets+1] = char
+            if (RA or CUN) and SUL then
+                foundChar = false
             end
-        end
 
-        local foundItem = false
-
-        if foundItems >= 1 then
-            local item = field:getStackItem(foundItems - 1)
-            if item.id ~= 0 and item.id ~= 3518 then
-                foundItem = true
-                targetsPositions.items[#targetsPositions.items+1] = item
+            if foundChar then
+                local char =  world:getCharacterOnField(possiblePosition)
+                if char:getType() ~= Character.npc then
+                    targetsPositions.targets[#targetsPositions.targets+1] = char
+                end
             end
-        end
 
-        if not foundItem and not foundChar then
-            targetsPositions.positions[#targetsPositions.positions+1] = possiblePosition
+            local foundItem = false
+
+            if foundItems >= 1 then
+                local item = field:getStackItem(foundItems - 1)
+                if item.id ~= 0 and item.id ~= 3518 then
+                    foundItem = true
+                    targetsPositions.items[#targetsPositions.items+1] = item
+                end
+            end
+
+            if not foundItem and not foundChar then
+                targetsPositions.positions[#targetsPositions.positions+1] = possiblePosition
+            end
         end
     end
 
