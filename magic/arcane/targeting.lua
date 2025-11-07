@@ -24,6 +24,165 @@ local M = {}
 
 M.playerTargets = {}
 
+local function circlePoints(px, py, radius)
+    local points = {}
+    local x = radius
+    local y = 0
+    local err = 0
+
+    for _ = 1, radius do
+        if x < y then
+            break
+        end
+
+        table.insert(points, {px + x, py + y})
+        table.insert(points, {px + y, py + x})
+        table.insert(points, {px - y, py + x})
+        table.insert(points, {px - x, py + y})
+        table.insert(points, {px - x, py - y})
+        table.insert(points, {px - y, py - x})
+        table.insert(points, {px + y, py - x})
+        table.insert(points, {px + x, py - y})
+
+        y = y + 1
+        if err <= 0 then
+            err = err + 2 * y + 1
+        else
+            x = x - 1
+            err = err + 2 * (y - x) + 1
+        end
+    end
+
+    return points
+end
+
+local function getDirection(user, target)
+
+    local ux, uy = user.pos.x, user.pos.y
+    local tx, ty = target.x, target.y
+
+    local direction
+
+    if ux > tx then
+        direction = "west"
+        if uy > ty then
+            direction = "northwest"
+        elseif uy < ty then
+            direction = "southwest"
+        end
+    elseif ux < tx then
+        direction = "east"
+        if uy > ty then
+            direction = "northeast"
+        elseif uy < ty then
+            direction = "southeast"
+        end
+    elseif uy > ty then
+        direction = "north"
+    else
+        direction = "south"
+    end
+    return direction
+end
+
+local directionCorrection = {
+    {dir = "east", X = 1, Y = 0},
+    {dir = "west", X = -1, Y = 0},
+    {dir = "south", X = 0, Y = 1},
+    {dir = "north", X = 0, Y = -1},
+    {dir = "northeast", X = 1, Y = -1},
+    {dir = "northwest", X = -1, Y = -1},
+    {dir = "southeast", X = 1, Y = 1},
+    {dir = "southwest", X = -1, Y = 1}
+}
+
+local function getNewCenterPos(targetPosition, direction)
+
+    for _, correction in pairs(directionCorrection) do
+        if direction == correction.dir then
+            return position(targetPosition.x+correction.X, targetPosition.y+correction.Y, targetPosition.z)
+        end
+    end
+
+    return targetPosition
+end
+
+local function getDunClusterPositions(player, targetPosition)
+
+    local positions = {}
+
+    local direction = getDirection(player, targetPosition)
+
+    local newCenterPos = getNewCenterPos(targetPosition, direction)
+
+    for x = 0, 1 do
+        for y = 0, 1 do
+
+            local newPositions = {
+                position(newCenterPos.x + x, newCenterPos.y + y, newCenterPos.z),
+                position(newCenterPos.x + x, newCenterPos.y - y, newCenterPos.z),
+                position(newCenterPos.x - x, newCenterPos.y + y, newCenterPos.z),
+                position(newCenterPos.x - x, newCenterPos.y - y, newCenterPos.z)
+            }
+
+            for _, newPos in pairs(newPositions) do
+                if newPos ~= targetPosition and newPos ~= newCenterPos then
+                    table.insert(positions, newPos)
+                end
+            end
+        end
+    end
+
+    local newPositions = {
+        position(newCenterPos.x + 2, newCenterPos.y, newCenterPos.z),
+        position(newCenterPos.x - 2, newCenterPos.y, newCenterPos.z),
+        position(newCenterPos.x, newCenterPos.y + 2, newCenterPos.z),
+        position(newCenterPos.x, newCenterPos.y - 2, newCenterPos.z)
+    }
+
+    for _, newPos in pairs(newPositions) do
+        if newPos ~= player.pos then
+            table.insert(positions, newPos)
+        end
+    end
+
+    table.insert(positions, newCenterPos)
+
+    return positions
+
+end
+
+local function getDunPositions(player, targetPosition, spell)
+
+    local positions = {}
+    local px, py, pz = player.pos.x, player.pos.y, player.pos.z
+    local tx, ty = targetPosition.x, targetPosition.y
+    local seen = {}
+    local dx, dy = tx - px, ty - py
+
+    local distance = math.sqrt(dx*dx + dy*dy)
+
+    if distance < 3 or player.attackmode then
+        return getDunClusterPositions(player, targetPosition)
+    end
+
+    local radius = math.floor(distance + 0.5)
+
+    local circle = circlePoints(px, py, radius)
+    for _, c in ipairs(circle) do
+        local gx, gy = c[1], c[2]
+        if not (gx == px and gy == py) then
+            local key = gx .. "," .. gy
+            if not seen[key] then
+                seen[key] = true
+                table.insert(positions, position(gx, gy, pz))
+            end
+        end
+    end
+
+    return positions
+end
+
 local function addDunTargets(user, targetsPositions, spell)
 
     local RA = runes.checkSpellForRuneByName("RA", spell)
@@ -40,11 +199,7 @@ local function addDunTargets(user, targetsPositions, spell)
         end
     end
 
-    local possiblePositions =  --This is terrible code and should have used a for loop or something, but I am too lazy to redo it at the moment as it is functional anyways. I had just started learning to code back when I wrote this.
-    {position(targetPosition.x+1,targetPosition.y,targetPosition.z), position(targetPosition.x,targetPosition.y+1,targetPosition.z),
-    position(targetPosition.x-1,targetPosition.y,targetPosition.z), position(targetPosition.x,targetPosition.y-1,targetPosition.z),
-    position(targetPosition.x+1,targetPosition.y-1,targetPosition.z), position(targetPosition.x-1,targetPosition.y+1,targetPosition.z),
-    position(targetPosition.x+1,targetPosition.y+1,targetPosition.z), position(targetPosition.x-1,targetPosition.y-1,targetPosition.z)}
+    local possiblePositions =  getDunPositions(user, targetPosition, spell)
 
     for _, possiblePosition in pairs(possiblePositions) do
 

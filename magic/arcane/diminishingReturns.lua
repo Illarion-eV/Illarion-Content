@@ -65,7 +65,7 @@ local MES = runes.checkSpellForRuneByName("MES", spell)
         delayedAttack.applyDelay(user, myPosition, spell, true, level)
     else
         local castDuration = castingSpeed.arcaneSpellCastSpeed(nil, spell, true)
-        delayedAttack.spellEffects(user, targets, spell, element, true, level, castDuration)
+        delayedAttack.spellEffects(user, targets, spell, element, true, level, castDuration, targets.thePosition)
     end
 
 return false

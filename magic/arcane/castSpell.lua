@@ -133,7 +133,7 @@ local function checksPassed(user, spell, element, thePosition)
         return false
     end
 
-    if not mana.checkIfEnoughMana(user, spell) then
+    if not mana.checkIfEnoughMana(user, spell, thePosition) then
         user:inform(myTexts.mana.german, myTexts.mana.english)
         return false
     end
@@ -292,7 +292,7 @@ function M.castSpell(user, spell, actionState, oralCast)
         M[user.id].positionsAndTargets = targeting.addTargets(user, spell, M[user.id].positionsAndTargets)
 
         if not runes.checkSpellForRuneByName("BHONA", spell) then
-            mana.removedUsedMana(user, spell)
+            mana.removedUsedMana(user, spell, M[user.id].thePosition)
             local castDuration = M[user.id].storedDuration
             skilling.increaseExperience(user, spell, castDuration, M[user.id].positionsAndTargets)
             castTime.resetTan(user)
@@ -302,7 +302,7 @@ function M.castSpell(user, spell, actionState, oralCast)
             if (SUL and (RA or CUN)) or (JUS and MES) then
                 delayedAttack.applyDelay(user, M[user.id].thePosition, spell, false, level)
             else
-                delayedAttack.spellEffects(user, M[user.id].positionsAndTargets, spell, element, false, level, castDuration)
+                delayedAttack.spellEffects(user, M[user.id].positionsAndTargets, spell, element, false, level, castDuration, M[user.id].thePosition)
             end
 
             local _, wand = checkForWand(user)

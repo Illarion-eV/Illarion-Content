@@ -30,7 +30,7 @@ local texts = {
     overTime = {english = "You siphon health from your target, recovering your own over time.", german = "Du entziehst deinem Ziel Lebensenergie, während sich deine mit der Zeit erholt."}
 }
 
-function M.instantLifeOrManaSteal(user, targets, spell, ORL)
+function M.instantLifeOrManaSteal(user, targets, spell, ORL, thePosition)
 
     local JUS = runes.checkSpellForRuneByName("JUS", spell)
     local IRA = runes.checkSpellForRuneByName("IRA", spell)
@@ -87,7 +87,7 @@ function M.instantLifeOrManaSteal(user, targets, spell, ORL)
                     other spells. Instead, in PvE the purpose of JUS IRA becomes to reduce the cost of the total spell in exchange for
                     a longer cast time and thus increasing your active time.
                     ]]
-                    local manaCost = mana.arcaneSpellCost(user, spell)
+                    local manaCost = mana.arcaneSpellCost(user, spell, thePosition)
 
                     manaCost = manaCost*0.7 -- Cap at 70% of the cost
 

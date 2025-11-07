@@ -63,7 +63,7 @@ local y
     myEffect:addValue("lastY", y)
 return position(x, y, tz)
 end
-function M.spellEffects(user, targets, spell, element, ORL, level, castDuration)
+function M.spellEffects(user, targets, spell, element, ORL, level, castDuration, thePosition)
     local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
     local OrlRune = runes.checkSpellForRuneByName("ORL", spell)
     if not (SOLH and OrlRune) then
@@ -72,7 +72,7 @@ function M.spellEffects(user, targets, spell, element, ORL, level, castDuration)
         magicGFXSFX.getAdditionalUserGFXSFX(user, spell)
         harvestFruit.checkIfHarvestFruit(user, targets, spell)
         movement.applyMovementSpells(user, targets, spell, ORL)
-        lifesteal.instantLifeOrManaSteal(user, targets, spell, ORL)
+        lifesteal.instantLifeOrManaSteal(user, targets, spell, ORL, thePosition)
         plantRoot.createEntanglingPlant(user, targets, spell, level)
         dealDamage.applyMagicDamage(user, targets, spell, element, ORL, false, level, castDuration)
         snare.applySnare(user, targets, spell, ORL, level)
@@ -208,7 +208,7 @@ function M.callEffect(myEffect, user)
            targets = targeting.refreshTargets(targets)
         end
         local castDuration = castingSpeed.arcaneSpellCastSpeed(nil, spell, true)
-        M.spellEffects(user, targets, spell, element, ORL, level, castDuration)
+        M.spellEffects(user, targets, spell, element, ORL, level, castDuration, targetPosition)
         return false
     end
 
