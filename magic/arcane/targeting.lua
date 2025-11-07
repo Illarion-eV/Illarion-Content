@@ -162,7 +162,11 @@ local function getDunPositions(player, targetPosition, spell)
 
     local distance = math.sqrt(dx*dx + dy*dy)
 
-    if distance < 3 or player.attackmode then
+    local PEN = runes.checkSpellForRuneByName("PEN", spell)
+
+    local LEV = runes.checkSpellForRuneByName("LEV", spell)
+
+    if distance < 3 or player.attackmode or (PEN and LEV) then
         return getDunClusterPositions(player, targetPosition)
     end
 
