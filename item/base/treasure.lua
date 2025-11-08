@@ -479,9 +479,9 @@ local function dropBluePrints(treasureLocation, level)
     for _, blueprint in pairs(blueprints.blueprints) do
 
         if (level <= 2 and blueprint.treasure == "small")
-        or (level > 2 and level <= 4 and blueprint.treasure == "average")
-        or (level > 4 and level <= 7 and blueprint.treasure == "big")
-        or (level > 7 and level <= 9 and blueprint.treasure == "giant") then
+        or (level > 2 and level <= 4 and (blueprint.treasure == "average" or blueprint.treasure == "averageAndBig"))
+        or (level > 4 and level <= 7 and (blueprint.treasure == "big" or blueprint.treasure == "averageAndBig" or blueprint.treasure == "bigAndGiant"))
+        or (level > 7 and level <= 9 and (blueprint.treasure == "giant"  or blueprint.treasure == "bigAndGiant")) then
             table.insert(eligibleBlueprints, {id = blueprint.id, rareness = blueprint.rareness})
         end
 

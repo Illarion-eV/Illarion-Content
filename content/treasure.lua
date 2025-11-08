@@ -310,7 +310,8 @@ treasureContents[2] = {
 {3553,1}, --copper ring
 {3554,1}, --silver amulet
 {3555,1}, --silver ring
-{3558,1} --copper amulet
+{3558,1}, --copper amulet
+{Item.baleOfDuskwool, 1}
 }
 treasureContents[3] = {
 
@@ -466,7 +467,8 @@ treasureContents[3] = {
 {39,1}, --skull staff
 {88,1}, --longaxe
 {1038,1}, --snake spear
-{293,1} --javelin
+{293,1}, --javelin
+{Item.baleOfDuskwool, 1}
 
 }
 treasureContents[4] = {
@@ -542,7 +544,8 @@ treasureContents[4] = {
 {2420,1}, --black priest robe
 {1456,1}, --silver studded leather gloves
 {1465,1}, --gilded chain gloves
-{1475,1} --squire's gloves
+{1475,1}, --squire's gloves
+{Item.baleOfDuskwool, 2}
 
 }
 treasureContents[5] = {
@@ -605,7 +608,8 @@ treasureContents[5] = {
 {1432,1}, --albarian mercenary's helmet
 {2302,1}, --gynkese mercenary's helmet
 {3546,1}, --copper emerald amulet
-{3547,1} --copper emerald ring
+{3547,1}, --copper emerald ring
+{Item.baleOfDuskwool, 2}
 
 }
 treasureContents[6] = {
@@ -661,7 +665,8 @@ treasureContents[6] = {
 {698,1}, --serinjah leather boots
 {699,1}, --salkamaerian steel shoes
 {770,1}, --knight boots
-{Item.cupriteOre, 1}
+{Item.cupriteOre, 1},
+{Item.baleOfDuskwool, 3}
 
 }
 treasureContents[7] = {
@@ -727,7 +732,8 @@ treasureContents[7] = {
 {2553,1}, --pure fire
 {2554,1}, --pure water
 {3607,1}, --pure spirit
-{Item.cupriteOre, 1}
+{Item.cupriteOre, 1},
+{Item.baleOfDuskwool, 3}
 }
 
 treasureContents[8] = {

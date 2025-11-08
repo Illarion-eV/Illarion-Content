@@ -26,6 +26,13 @@ local function getLevel(itemId)
     return itemCommon.Level
 end
 
+local function getName(itemId)
+
+    local itemCommon = world:getItemStatsFromId(itemId)
+
+    return {english = itemCommon.English, german = itemCommon.German}
+end
+
 --[[
 
     id: Used to identify and store whether someone knows the recipe.
@@ -155,7 +162,7 @@ M.blueprints = {
         {id = Item.diamondPowder, amount = 1},
     }},
     {id = 16, name = {english = "cuprite ingot", german = "Cupritbarren"}, creator = "NA", craft = "mining", --100
-    level = getLevel(Item.cupriteIngot), item = Item.cupriteIngot, treasure = "giant", rareness = 4,
+    level = getLevel(Item.cupriteIngot), item = Item.cupriteIngot, treasure = "bigAndGiant", rareness = 4,
     ingredients = {
         {id = Item.cupriteOre, amount = 1},
         {id = Item.ironOre, amount = 1},
@@ -226,6 +233,334 @@ M.blueprints = {
         {id = Item.cupriteIngot, amount = 1},
         {id = Item.pureFire, amount = 1},
     }, tool = Item.carvingTools},
+    {id = 24, name = getName(Item.duskcloth), creator = "NA", craft = "tanningAndWeaving", --70
+    level = getLevel(Item.duskcloth), item = Item.duskcloth, treasure = "averageAndBig", rareness = 3,
+    ingredients = {
+        {id = Item.baleOfDuskwool, amount = 1}
+    }, tool = Item.scissors},
+    {id = 25, name = getName(Item.scoundrelshood), creator = "NA", craft = "tailoring",
+    level = getLevel(Item.scoundrelshood), item = Item.scoundrelshood, treasure = "average", rareness = 2,
+    ingredients = {
+        {id = Item.duskcloth, amount = 2},
+        {id = Item.blackCloth, amount = 5},
+        {id = Item.thread, amount = 6}}
+    },
+    {id = 26, name = getName(Item.fishermanshood), creator = "NA", craft = "tailoring",
+    level = getLevel(Item.fishermanshood), item = Item.fishermanshood, treasure = "average", rareness = 2,
+    ingredients = {
+        {id = Item.duskcloth, amount = 2},
+        {id = Item.blueCloth, amount = 5},
+        {id = Item.thread, amount = 6}}
+    },
+    {id = 27, name = getName(Item.scholarshood), creator = "NA", craft = "tailoring",
+    level = getLevel(Item.scholarshood), item = Item.scholarshood, treasure = "average", rareness = 2,
+    ingredients = {
+        {id = Item.duskcloth, amount = 2},
+        {id = Item.blueCloth, amount = 5},
+        {id = Item.thread, amount = 6}}
+    },
+    {id = 28, name = getName(Item.squireshood), creator = "NA", craft = "tailoring",
+    level = getLevel(Item.squireshood), item = Item.squireshood, treasure = "average", rareness = 2,
+    ingredients = {
+        {id = Item.duskcloth, amount = 2},
+        {id = Item.redCloth, amount = 5},
+        {id = Item.thread, amount = 6}}
+    },
+    {id = 29, name = getName(Item.brawlershood), creator = "NA", craft = "tailoring",
+    level = getLevel(Item.brawlershood), item = Item.brawlershood, treasure = "average", rareness = 2,
+    ingredients = {
+        {id = Item.duskcloth, amount = 2},
+        {id = Item.redCloth, amount = 5},
+        {id = Item.thread, amount = 6}}
+    },
+    {id = 30, name = getName(Item.tradershood), creator = "NA", craft = "tailoring",
+    level = getLevel(Item.tradershood), item = Item.tradershood, treasure = "average", rareness = 2,
+    ingredients = {
+        {id = Item.duskcloth, amount = 2},
+        {id = Item.yellowCloth, amount = 5},
+        {id = Item.thread, amount = 6}}
+    },
+    {id = 31, name = getName(Item.skaldshood), creator = "NA", craft = "tailoring",
+    level = getLevel(Item.skaldshood), item = Item.skaldshood, treasure = "average", rareness = 2,
+    ingredients = {
+        {id = Item.duskcloth, amount = 2},
+        {id = Item.yellowCloth, amount = 5},
+        {id = Item.thread, amount = 6}}
+    },
+    {id = 32, name = getName(Item.herbalistshood), creator = "NA", craft = "tailoring",
+    level = getLevel(Item.herbalistshood), item = Item.herbalistshood, treasure = "average", rareness = 2,
+    ingredients = {
+        {id = Item.duskcloth, amount = 2},
+        {id = Item.greenCloth, amount = 5},
+        {id = Item.thread, amount = 6}}
+    },
+    {id = 33, name = getName(Item.forestershood), creator = "NA", craft = "tailoring",
+    level = getLevel(Item.forestershood), item = Item.forestershood, treasure = "average", rareness = 2,
+    ingredients = {
+        {id = Item.duskcloth, amount = 2},
+        {id = Item.greenCloth, amount = 5},
+        {id = Item.thread, amount = 6}}
+    },
+    {id = 34, name = getName(Item.deserthood), creator = "NA", craft = "tailoring",
+    level = getLevel(Item.deserthood), item = Item.deserthood, treasure = "average", rareness = 2,
+    ingredients = {
+        {id = Item.duskcloth, amount = 2},
+        {id = Item.yellowCloth, amount = 5},
+        {id = Item.thread, amount = 6}}
+    },
+    {id = 35, name = getName(Item.travellershood), creator = "NA", craft = "tailoring",
+    level = getLevel(Item.travellershood), item = Item.travellershood, treasure = "average", rareness = 2,
+    ingredients = {
+        {id = Item.duskcloth, amount = 2},
+        {id = Item.yellowCloth, amount = 5},
+        {id = Item.thread, amount = 6}}
+    },
+    {id = 36, name = getName(Item.chemistshood), creator = "NA", craft = "tailoring",
+    level = getLevel(Item.chemistshood), item = Item.chemistshood, treasure = "average", rareness = 2,
+    ingredients = {
+        {id = Item.duskcloth, amount = 2},
+        {id = Item.blueCloth, amount = 3},
+        {id = Item.redCloth, amount = 2},
+        {id = Item.thread, amount = 6}}
+    },
+    {id = 37, name = getName(Item.seershood), creator = "NA", craft = "tailoring",
+    level = getLevel(Item.seershood), item = Item.seershood, treasure = "average", rareness = 2,
+    ingredients = {
+        {id = Item.duskcloth, amount = 2},
+        {id = Item.blueCloth, amount = 3},
+        {id = Item.redCloth, amount = 2},
+        {id = Item.thread, amount = 6}}
+    },
+    {id = 38, name = getName(Item.acolytehood), creator = "NA", craft = "tailoring",
+    level = getLevel(Item.acolytehood), item = Item.acolytehood, treasure = "average", rareness = 2,
+    ingredients = {
+        {id = Item.duskcloth, amount = 2},
+        {id = Item.whiteCloth, amount = 5},
+        {id = Item.thread, amount = 6}}
+    },
+    {id = 39, name = getName(Item.fadedhood), creator = "NA", craft = "tailoring",
+    level = getLevel(Item.fadedhood), item = Item.fadedhood, treasure = "average", rareness = 2,
+    ingredients = {
+        {id = Item.duskcloth, amount = 2},
+        {id = Item.greyCloth, amount = 5},
+        {id = Item.thread, amount = 7}}
+    },
+    {id = 40, name = getName(Item.roguescloak), creator = "NA", craft = "tailoring",
+    level = getLevel(Item.roguescloak), item = Item.roguescloak, treasure = "big", rareness = 3,
+    ingredients = {
+        {id = Item.duskcloth, amount = 2},
+        {id = Item.blackCloth, amount = 5},
+        {id = Item.thread, amount = 8},
+        {id = Item.silk, amount = 1}}
+    },
+    {id = 41, name = getName(Item.seafarercloak), creator = "NA", craft = "tailoring",
+    level = getLevel(Item.seafarercloak), item = Item.seafarercloak, treasure = "big", rareness = 3,
+    ingredients = {
+        {id = Item.duskcloth, amount = 2},
+        {id = Item.blueCloth, amount = 5},
+        {id = Item.thread, amount = 8},
+        {id = Item.silk, amount = 1}}
+    },
+    {id = 42, name = getName(Item.sagecloak), creator = "NA", craft = "tailoring", level = getLevel(Item.sagecloak), item = Item.sagecloak, treasure = "big", rareness = 3,
+    ingredients = {
+        {id = Item.duskcloth, amount = 2},
+        {id = Item.blueCloth, amount = 5},
+        {id = Item.thread, amount = 8},
+        {id = Item.silk, amount = 1}}
+    },
+    {id = 43, name = getName(Item.knightscloak), creator = "NA", craft = "tailoring", level = getLevel(Item.knightscloak), item = Item.knightscloak, treasure = "big", rareness = 3,
+    ingredients = {
+        {id = Item.duskcloth, amount = 2},
+        {id = Item.redCloth, amount = 5},
+        {id = Item.thread, amount = 8},
+        {id = Item.silk, amount = 1}}
+    },
+    {id = 44, name = getName(Item.gladiatorscloak), creator = "NA", craft = "tailoring", level = getLevel(Item.gladiatorscloak), item = Item.gladiatorscloak, treasure = "big", rareness = 3,
+    ingredients = {
+        {id = Item.duskcloth, amount = 2},
+        {id = Item.redCloth, amount = 5},
+        {id = Item.thread, amount = 8},
+        {id = Item.silk, amount = 1}}
+    },
+    {id = 45, name = getName(Item.merchantscloak), creator = "NA", craft = "tailoring", level = getLevel(Item.merchantscloak), item = Item.merchantscloak, treasure = "big", rareness = 3,
+    ingredients = {
+        {id = Item.duskcloth, amount = 2},
+        {id = Item.yellowCloth, amount = 5},
+        {id = Item.thread, amount = 8},
+        {id = Item.silk, amount = 1}}
+    },
+    {id = 46, name = getName(Item.bardscloak), creator = "NA", craft = "tailoring", level = getLevel(Item.bardscloak), item = Item.bardscloak, treasure = "big", rareness = 3,
+    ingredients = {
+        {id = Item.duskcloth, amount = 2},
+        {id = Item.yellowCloth, amount = 5},
+        {id = Item.thread, amount = 8},
+        {id = Item.silk, amount = 1}}
+    },
+    {id = 47, name = getName(Item.shepherdscloak), creator = "NA", craft = "tailoring", level = getLevel(Item.shepherdscloak), item = Item.shepherdscloak, treasure = "big", rareness = 3,
+    ingredients = {
+        {id = Item.duskcloth, amount = 2},
+        {id = Item.greenCloth, amount = 5},
+        {id = Item.thread, amount = 8},
+        {id = Item.silk, amount = 1}}
+    },
+    {id = 48, name = getName(Item.rangercloak), creator = "NA", craft = "tailoring", level = getLevel(Item.rangercloak), item = Item.rangercloak, treasure = "big", rareness = 3,
+    ingredients = {
+        {id = Item.duskcloth, amount = 2},
+        {id = Item.greenCloth, amount = 5},
+        {id = Item.thread, amount = 8},
+        {id = Item.silk, amount = 1}}
+    },
+    {id = 49, name = getName(Item.scorchedcloak), creator = "NA", craft = "tailoring", level = getLevel(Item.scorchedcloak), item = Item.scorchedcloak, treasure = "big", rareness = 3,
+    ingredients = {
+        {id = Item.duskcloth, amount = 2},
+        {id = Item.yellowCloth, amount = 5},
+        {id = Item.thread, amount = 8},
+        {id = Item.silk, amount = 1}}
+    },
+    {id = 50, name = getName(Item.wayfarerscloak), creator = "NA", craft = "tailoring", level = getLevel(Item.wayfarerscloak), item = Item.wayfarerscloak, treasure = "big", rareness = 3,
+    ingredients = {
+        {id = Item.duskcloth, amount = 2},
+        {id = Item.yellowCloth, amount = 5},
+        {id = Item.thread, amount = 8},
+        {id = Item.silk, amount = 1}}
+    },
+    {id = 51, name = getName(Item.distillerscloak), creator = "NA", craft = "tailoring", level = getLevel(Item.distillerscloak), item = Item.distillerscloak, treasure = "big", rareness = 3,
+    ingredients = {
+        {id = Item.duskcloth, amount = 2},
+        {id = Item.blueCloth, amount = 3},
+        {id = Item.redCloth, amount = 2},
+        {id = Item.thread, amount = 8},
+        {id = Item.silk, amount = 1}}
+    },
+    {id = 52, name = getName(Item.occultistcloak), creator = "NA", craft = "tailoring", level = getLevel(Item.occultistcloak), item = Item.occultistcloak, treasure = "big", rareness = 3,
+    ingredients = {
+        {id = Item.duskcloth, amount = 2},
+        {id = Item.blueCloth, amount = 4},
+        {id = Item.redCloth, amount = 3},
+        {id = Item.thread, amount = 8},
+        {id = Item.silk, amount = 1}}
+    },
+    {id = 53, name = getName(Item.paladincloak), creator = "NA", craft = "tailoring", level = getLevel(Item.paladincloak), item = Item.paladincloak, treasure = "big", rareness = 3,
+    ingredients = {
+        {id = Item.duskcloth, amount = 2},
+        {id = Item.whiteCloth, amount = 7},
+        {id = Item.thread, amount = 8},
+        {id = Item.silk, amount = 1}}
+    },
+    {id = 54, name = getName(Item.dustedcloak), creator = "NA", craft = "tailoring", level = getLevel(Item.dustedcloak), item = Item.dustedcloak, treasure = "big", rareness = 3,
+    ingredients = {
+        {id = Item.duskcloth, amount = 2},
+        {id = Item.greyCloth, amount = 7},
+        {id = Item.thread, amount = 9},
+        {id = Item.silk, amount = 1}}
+    },
+    {id = 55, name = getName(Item.assassinsrobes), creator = "NA", craft = "tailoring", level = getLevel(Item.assassinsrobes), item = Item.assassinsrobes, treasure = "giant", rareness = 4,
+    ingredients = {
+        {id = Item.duskcloth, amount = 2},
+        {id = Item.blackCloth, amount = 8},
+        {id = Item.thread, amount = 9},
+        {id = Item.pureSpirit, amount = 1}}
+    },
+    {id = 56, name = getName(Item.privateersrobe), creator = "NA", craft = "tailoring", level = getLevel(Item.privateersrobe), item = Item.privateersrobe, treasure = "giant", rareness = 4,
+    ingredients = {
+        {id = Item.duskcloth, amount = 2},
+        {id = Item.blueCloth, amount = 8},
+        {id = Item.thread, amount = 9},
+        {id = Item.pureSpirit, amount = 1}}
+    },
+    {id = 57, name = getName(Item.docentsrobes), creator = "NA", craft = "tailoring", level = getLevel(Item.docentsrobes), item = Item.docentsrobes, treasure = "giant", rareness = 4,
+    ingredients = {
+        {id = Item.duskcloth, amount = 2},
+        {id = Item.blueCloth, amount = 8},
+        {id = Item.thread, amount = 9},
+        {id = Item.pureSpirit, amount = 1}}
+    },
+    {id = 58, name = getName(Item.lordsrobes), creator = "NA", craft = "tailoring", level = getLevel(Item.lordsrobes), item = Item.lordsrobes, treasure = "giant", rareness = 4,
+    ingredients = {
+        {id = Item.duskcloth, amount = 2},
+        {id = Item.redCloth, amount = 8},
+        {id = Item.thread, amount = 9},
+        {id = Item.pureSpirit, amount = 1}}
+    },
+    {id = 59, name = getName(Item.championsrobes), creator = "NA", craft = "tailoring", level = getLevel(Item.championsrobes), item = Item.championsrobes, treasure = "giant", rareness = 4,
+    ingredients = {
+        {id = Item.duskcloth, amount = 2},
+        {id = Item.redCloth, amount = 8},
+        {id = Item.thread, amount = 9},
+        {id = Item.pureSpirit, amount = 1}}
+    },
+    {id = 60, name = getName(Item.magnatesrobes), creator = "NA", craft = "tailoring", level = getLevel(Item.magnatesrobes), item = Item.magnatesrobes, treasure = "giant", rareness = 4,
+    ingredients = {
+        {id = Item.duskcloth, amount = 2},
+        {id = Item.yellowCloth, amount = 8},
+        {id = Item.thread, amount = 9},
+        {id = Item.pureSpirit, amount = 1}}
+    },
+    {id = 61, name = getName(Item.minstrelsrobes), creator = "NA", craft = "tailoring", level = getLevel(Item.minstrelsrobes), item = Item.minstrelsrobes, treasure = "giant", rareness = 4,
+    ingredients = {
+        {id = Item.duskcloth, amount = 2},
+        {id = Item.yellowCloth, amount = 8},
+        {id = Item.thread, amount = 9},
+        {id = Item.pureSpirit, amount = 1}}
+    },
+    {id = 62, name = getName(Item.farmersrobes), creator = "NA", craft = "tailoring", level = getLevel(Item.farmersrobes), item = Item.farmersrobes, treasure = "giant", rareness = 4,
+    ingredients = {
+        {id = Item.duskcloth, amount = 2},
+        {id = Item.greenCloth, amount = 8},
+        {id = Item.thread, amount = 9},
+        {id = Item.pureSpirit, amount = 1}}
+    },
+    {id = 63, name = getName(Item.druidrobes), creator = "NA", craft = "tailoring", level = getLevel(Item.druidrobes), item = Item.druidrobes, treasure = "giant", rareness = 4,
+    ingredients = {
+        {id = Item.duskcloth, amount = 2},
+        {id = Item.greenCloth, amount = 8},
+        {id = Item.thread, amount = 9},
+        {id = Item.pureSpirit, amount = 1}}
+    },
+    {id = 64, name = getName(Item.dunestriderrobes), creator = "NA", craft = "tailoring", level = getLevel(Item.dunestriderrobes), item = Item.dunestriderrobes, treasure = "giant", rareness = 4,
+    ingredients = {
+        {id = Item.duskcloth, amount = 2},
+        {id = Item.yellowCloth, amount = 8},
+        {id = Item.thread, amount = 9},
+        {id = Item.pureSpirit, amount = 1}}
+    },
+    {id = 65, name = getName(Item.adventurersrobes), creator = "NA", craft = "tailoring", level = getLevel(Item.adventurersrobes), item = Item.adventurersrobes, treasure = "giant", rareness = 4,
+    ingredients = {
+        {id = Item.duskcloth, amount = 2},
+        {id = Item.yellowCloth, amount = 8},
+        {id = Item.thread, amount = 9},
+        {id = Item.pureSpirit, amount = 1}}
+    },
+    {id = 66, name = getName(Item.alchemistsrobes), creator = "NA", craft = "tailoring", level = getLevel(Item.alchemistsrobes), item = Item.alchemistsrobes, treasure = "giant", rareness = 4,
+    ingredients = {
+        {id = Item.duskcloth, amount = 2},
+        {id = Item.redCloth, amount = 4},
+        {id = Item.blueCloth, amount = 4},
+        {id = Item.thread, amount = 9},
+        {id = Item.pureSpirit, amount = 1}}
+    },
+    {id = 67, name = getName(Item.mysticrobes), creator = "NA", craft = "tailoring", level = getLevel(Item.mysticrobes), item = Item.mysticrobes, treasure = "giant", rareness = 4,
+    ingredients = {
+        {id = Item.duskcloth, amount = 2},
+        {id = Item.redCloth, amount = 4},
+        {id = Item.blueCloth, amount = 4},
+        {id = Item.thread, amount = 9},
+        {id = Item.pureSpirit, amount = 1}}
+    },
+    {id = 68, name = getName(Item.clericrobes), creator = "NA", craft = "tailoring", level = getLevel(Item.clericrobes), item = Item.clericrobes, treasure = "giant", rareness = 4,
+    ingredients = {
+        {id = Item.duskcloth, amount = 2},
+        {id = Item.whiteCloth, amount = 8},
+        {id = Item.thread, amount = 9},
+        {id = Item.pureSpirit, amount = 1}}
+    },
+    {id = 69, name = getName(Item.ashenrobes), creator = "NA", craft = "tailoring", level = getLevel(Item.ashenrobes), item = Item.ashenrobes, treasure = "giant", rareness = 4,
+    ingredients = {
+        {id = Item.duskcloth, amount = 2},
+        {id = Item.greyCloth, amount = 8},
+        {id = Item.thread, amount = 10},
+        {id = Item.pureSpirit, amount = 1}}
+    }
 }
 
 return M
