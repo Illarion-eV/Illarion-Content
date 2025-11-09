@@ -188,7 +188,7 @@ local function getGenericRarenessText(user, theItem) --Presently only used for m
         texts[i] = {}
     end
 
-    texts[2][Player.german] = "Dieses Material ist außergewöhnlich makellos."
+    texts[2][Player.german] = "Dieses Material ist ungewöhnlich makellos."
     texts[2][Player.english] = "This material is uncommonly pristine."
     texts[3][Player.german] = "Es ist selten, ein so makelloses Material zu sehen."
     texts[3][Player.english] = "It is rare to see such a pristine material."
