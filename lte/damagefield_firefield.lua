@@ -97,7 +97,9 @@ end
 
 function M.removeEffect (theEffect, User)
 
-    if User:getQuestProgress(298) == 0 then
+    local ignoreDamage = M.ignoreDamageDueToRace(User, theEffect)
+
+    if not ignoreDamage and User:getQuestProgress(298) == 0 then
         User:inform("Du fühlst wie das Brennen auf deiner Haut nachlässt.",
                     "You feel the burning of your skin fade.")
     end

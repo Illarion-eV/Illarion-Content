@@ -188,7 +188,9 @@ end
 
 function M.removeEffect (theEffect, User)
 
-    if User:getQuestProgress(299) == 0 then
+    local ignoreDamage = M.ignoreDamageDueToRace(User, theEffect)
+
+    if not ignoreDamage and User:getQuestProgress(299) == 0 then
         User:inform("Du fühlst wie die Kälte auf deiner Haut nachlässt.",
                     "You feel the cold of your skin fade.")
     end
