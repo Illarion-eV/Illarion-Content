@@ -45,19 +45,33 @@ local function getPlayerLevel(player)
 
     --A simplistic approach of just taking the highest combat skill and using that to determine level. Could be improved on.
 
-    local combatSkills = {Character.magicResistance, Character.heavyArmour, Character.mediumArmour, Character.lightArmour, Character.parry, Character.distanceWeapons, Character.slashingWeapons, Character.wrestling, Character.concussionWeapons, Character.punctureWeapons, Character.fireMagic, Character.spiritMagic, Character.windMagic, Character.earthMagic, Character.waterMagic}
+    local defensiveCombatSkills = {Character.magicResistance, Character.heavyArmour, Character.mediumArmour, Character.lightArmour, Character.parry}
 
-    local highestValue = 10 --Defaulting at 10 as we have no stage below novice for monsters
+    local offensiveCombatSkills = {Character.distanceWeapons, Character.slashingWeapons, Character.wrestling, Character.concussionWeapons, Character.punctureWeapons, Character.fireMagic, Character.windMagic, Character.earthMagic, Character.waterMagic}
+
+    local highestValueOffense = 10
+    local highestValueDefense = 10 --Defaulting at 10 as we have no stage below novice for monsters
 
 
-    for _, skill in pairs(combatSkills) do
+    for _, skill in pairs(defensiveCombatSkills) do
 
         local skillValue = player:getSkill(skill)
 
-        if skillValue > highestValue then
-            highestValue = skillValue
+        if skillValue > highestValueDefense then
+            highestValueDefense = skillValue
         end
     end
+
+    for _, skill in pairs(offensiveCombatSkills) do
+
+        local skillValue = player:getSkill(skill)
+
+        if skillValue > highestValueOffense then
+            highestValueOffense = skillValue
+        end
+    end
+
+    local highestValue = (highestValueOffense + highestValueDefense) / 2
 
     return math.floor(highestValue/10)-1 --This way we get a result between 0 and 9
 
