@@ -116,8 +116,6 @@ end
 
 function M.learn(user, skill, actionPoints, learnLimit)
 
-    actionPoints = accountForMultiSkills(user, skill, actionPoints)
-
     local leadAttrib = common.GetLeadAttrib(user, skill) --reading the lead attribute.
     local skillValue = user:getSkill(skill) --reading the skill points.
     local minorSkill = user:getMinorSkill(skill) --reading the minor skill points; 10000=1 skill point.
@@ -127,6 +125,7 @@ function M.learn(user, skill, actionPoints, learnLimit)
     M.resetRestTime(user)
 
     if skillValue < learnLimit and skillValue < 100 then
+        actionPoints = accountForMultiSkills(user, skill, actionPoints) --After the check to ensure level 100 skills dont add to it
     --you only learn when your skill is lower than the skill of the learnLimit and your skill is <100.
 
             local skillFactor = (100 - skillValue)/100

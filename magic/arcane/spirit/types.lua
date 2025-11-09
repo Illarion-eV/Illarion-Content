@@ -48,20 +48,15 @@ local information = {}
     for _, tar in ipairs(targets.targets) do
         local YEG = runes.checkSpellForRuneByName("YEG", spell)
         local URA = runes.checkSpellForRuneByName("URA", spell)
-        local FHEN = runes.checkSpellForRuneByName("FHEN", spell)
         local TAUR = runes.checkSpellForRuneByName("TAUR", spell)
         local undead = checkIfTypeOf(tar, "undead")
         local sentient = checkIfTypeOf(tar, "sentient")
         local animal = checkIfTypeOf(tar, "animal")
         local foundType = ""
-        if tar:getType() == Character.player then
-            if FHEN then
-                foundType = "player"
-            end
-        elseif tar:getType() == Character.monster then
-            if (YEG and undead) or (TAUR and sentient) or (URA and animal) then
-                foundType = "creature"
-            end
+        if tar:getType() == Character.player and TAUR then
+            foundType = "player"
+        elseif tar:getType() == Character.monster and ((YEG and undead) or (TAUR and sentient) or (URA and animal)) then
+            foundType = "creature"
         end
 
         if foundType == "creature" or foundType == "player" then

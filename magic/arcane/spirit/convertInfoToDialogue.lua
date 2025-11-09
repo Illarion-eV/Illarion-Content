@@ -19,7 +19,7 @@ local common = require("base.common")
 local runes = require("magic.arcane.runes")
 
 local infoOptionsText = {
-    {english = "Gender/race", german = "Geschlecht/Rasse", identifier = "genderRace", rune = "FHEN"},
+    {english = "Gender/race", german = "Geschlecht/Rasse", identifier = "genderRace", rune = "TAUR"},
     {english = "Mana", german = "Mana", identifier = "MP", rune = "IRA"},
     {english = "Stamina", german = "Ausdauer", identifier = "FP", rune = "KAH"},
     {english = "Location", german = "Standort", identifier = "location", rune = "MES"},
@@ -30,7 +30,8 @@ local infoOptionsText = {
     {english = "Health", german = "Gesundheit", identifier = "HP", rune = "SIH"},
     {english = "Speed", german = "Geschwindigkeit", identifier = "spd", rune = "SUL"},
     {english = "Item properties", german = "Gegenstandseigenschaften", identifier = "item", rune = "ANTH"},
-    {english = "Equipment", german = "Ausrüstung", identifier = "equipment", rune = "SAV"}
+    {english = "Equipment", german = "Ausrüstung", identifier = "equipment", rune = "SAV"},
+    {english = "Threat", german = "Bedrohung", identifier = "threat", rune = "FHEN"}
     }
 
 local chooseInfoTexts = {

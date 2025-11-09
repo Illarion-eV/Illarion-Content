@@ -47,9 +47,9 @@ M.runes = {
     {id = 23, name = "SIH", cost = "Large", time = "Long", level = 80, active = false, auto = true},
     {id = 24, name = "SUL", cost = "Medium", time = "Medium", level = 50, active = true, auto = true},
     {id = 25, name = "TAH", cost = "Medium", time = "Medium", level = 50, active = false, auto = true},
-    {id = 26, name = "TAUR", cost = "Medium", time = "Medium", level = 60, active = true, auto = true},
-    {id = 27, name = "URA", cost = "Medium", time = "Medium", level = 70, active = true, auto = true},
-    {id = 28, name = "YEG", cost = "Medium", time = "Medium", level = 70, active = true, auto = true},
+    {id = 26, name = "TAUR", cost = "Small", time = "Long", level = 10, active = true, auto = true},
+    {id = 27, name = "URA", cost = "Small", time = "Long", level = 30, active = true, auto = true},
+    {id = 28, name = "YEG", cost = "Small", time = "Long", level = 30, active = true, auto = true},
     {id = 29, name = "PERA", cost = "Small", time = "Short", level = 10, active = true, auto = true}
 }
 

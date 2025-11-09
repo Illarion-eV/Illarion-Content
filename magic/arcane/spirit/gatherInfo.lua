@@ -28,6 +28,7 @@ local types = require("magic.arcane.spirit.types")
 local magicResistance = require("magic.arcane.spirit.magicResistance")
 local attributes = require("magic.arcane.spirit.attributes")
 local skill = require("magic.arcane.spirit.skill")
+local threat = require("magic.arcane.spirit.threat")
 
 local M = {}
 
@@ -45,6 +46,7 @@ function M.invoke(user, targets, spell)
     information = attributes.getAttributeText(information, spell)
     information = magicResistance.getMRText(information, spell)
     information = skill.skillValueIntoText(information, spell)
+    information = threat.threatIntoText(information, spell)
     return information
 end
 
