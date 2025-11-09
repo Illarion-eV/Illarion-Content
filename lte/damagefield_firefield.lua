@@ -40,7 +40,7 @@ function M.addEffect(theEffect, User)
             wandGemBonus = 0
         end
 
-        icefield.causeDamage(User, quality, penetration, wandGemBonus)
+        icefield.causeDamage(User, quality, penetration, wandGemBonus, theEffect)
     end
 end
 
@@ -82,7 +82,7 @@ function M.callEffect(theEffect, User)
             wandGemBonus = 0
         end
 
-        icefield.causeDamage(User, tonumber(scaling), penetration, wandGemBonus)
+        icefield.causeDamage(User, tonumber(scaling), penetration, wandGemBonus, nil, FieldItem)
     end
     -- repeat in 5sec
     theEffect.nextCalled = 50

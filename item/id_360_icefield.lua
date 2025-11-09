@@ -98,6 +98,12 @@ function M.CharacterOnField(User)
                     myEffect:addValue("magicPenetration", magicPen)
                 end
 
+                local spell = FieldItem:getData("spell")
+                if not common.IsNilOrEmpty(spell) then
+                    spell = tonumber(spell)
+                    myEffect:addValue("spell", spell)
+                end
+
                 local wandGemBonus = FieldItem:getData("wandGemBonus")
 
                 if not common.IsNilOrEmpty(wandGemBonus) then

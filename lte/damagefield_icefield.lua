@@ -18,11 +18,57 @@ local common = require("base.common")
 local magicResistance = require("magic.arcane.magicResistance")
 local testing = require("base.testing")
 local magic = require("base.magic")
+local runes = require("magic.arcane.runes")
+local magicDamage = require("magic.arcane.magicDamage")
 
 -- Long time effect (111)
 local M = {}
 
-function M.causeDamage(User, quality, penetration, wandGemBonus)
+local function checkIfTypeOf(target, typeOf)
+
+    local monsterType = magicDamage.raceList
+
+    for _, monster in pairs(monsterType) do
+        if target:getRace() == monster.race then
+            if monster.typeOf == typeOf then
+                return true
+            end
+        end
+    end
+    return false
+end
+
+function M.causeDamage(User, quality, penetration, wandGemBonus, effect, fieldItem)
+
+    local spell = 0
+
+    if effect then
+        local foundSpell, newSpell = effect:findValue("spell")
+
+        if foundSpell then
+            spell = newSpell
+        end
+    elseif fieldItem then
+        local newSpell = fieldItem:getData("spell")
+        if not common.IsNilOrEmpty(newSpell) then
+            spell = tonumber(newSpell)
+        end
+    end
+
+    local damageDealtToOnlyRace = false
+    local isTheCorrectRace = false
+
+    local YEG, URA, TAUR = runes.checkSpellForRuneByName("YEG", spell), runes.checkSpellForRuneByName("URA", spell), runes.checkSpellForRuneByName("TAUR", spell)
+
+    if YEG or URA or TAUR then
+        damageDealtToOnlyRace = true
+    end
+
+    local undead, sentient, animal = checkIfTypeOf(User, "undead"), checkIfTypeOf(User, "sentient"), checkIfTypeOf(User, "animal")
+
+    if (YEG and undead) or (URA and animal) or (TAUR and sentient) then
+        isTheCorrectRace = true
+    end
 
     local resist = magicResistance.getMagicResistance(User)
 
@@ -37,6 +83,11 @@ function M.causeDamage(User, quality, penetration, wandGemBonus)
 
         damageDealt = damageDealt * (1 + wandGemBonus-cloakGemBonus)
         damageDealt = math.max(damageDealt, 100)
+
+        if damageDealtToOnlyRace and not isTheCorrectRace then --No damage dealt if targeted at a specific race that isnt the targets
+            damageDealt = 0
+        end
+
         User:increaseAttrib("hitpoints", -damageDealt)
         if testing.active then
             User:talk(Character.say,"#me takes "..damageDealt.." damage.", "#me takes "..damageDealt.." damage.")
@@ -63,7 +114,7 @@ function M.addEffect(theEffect, User)
             wandGemBonus = 0
         end
 
-        M.causeDamage(User, quality, penetration, wandGemBonus)
+        M.causeDamage(User, quality, penetration, wandGemBonus, theEffect)
     end
 end
 
@@ -106,7 +157,7 @@ function M.callEffect(theEffect, User)
             wandGemBonus = 0
         end
 
-        M.causeDamage(User, tonumber(scaling), penetration, wandGemBonus)
+        M.causeDamage(User, tonumber(scaling), penetration, wandGemBonus, nil, FieldItem)
 
     end
     -- repeat in 5sec
