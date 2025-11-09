@@ -22,7 +22,9 @@ local M = {}
 
 function M.addEffect(theEffect, User)
 
-    if User:getQuestProgress(298) == 0 then
+    local ignoreDamage = M.ignoreDamageDueToRace(User, theEffect)
+
+    if not ignoreDamage and User:getQuestProgress(298) == 0 then
         User:inform("Du fühlst wie das glühend heiße Feuer allmählich deine Haut verbrennt.",
                     "You feel the scorching fire gradually burn your skin.")
         local _, quality = theEffect:findValue("quality")

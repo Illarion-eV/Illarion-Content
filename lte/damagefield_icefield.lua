@@ -38,7 +38,7 @@ local function checkIfTypeOf(target, typeOf)
     return false
 end
 
-function M.causeDamage(User, quality, penetration, wandGemBonus, effect, fieldItem)
+function M.ignoreDamageDueToRace(user, effect, fieldItem)
 
     local spell = 0
 
@@ -64,11 +64,23 @@ function M.causeDamage(User, quality, penetration, wandGemBonus, effect, fieldIt
         damageDealtToOnlyRace = true
     end
 
-    local undead, sentient, animal = checkIfTypeOf(User, "undead"), checkIfTypeOf(User, "sentient"), checkIfTypeOf(User, "animal")
+    local undead, sentient, animal = checkIfTypeOf(user, "undead"), checkIfTypeOf(user, "sentient"), checkIfTypeOf(user, "animal")
 
     if (YEG and undead) or (URA and animal) or (TAUR and sentient) then
         isTheCorrectRace = true
     end
+
+    if not damageDealtToOnlyRace or isTheCorrectRace then
+        return false
+    end
+
+    return true
+
+end
+
+function M.causeDamage(User, quality, penetration, wandGemBonus, effect, fieldItem)
+
+    local ignoreDamage = M.ignoreDamageDueToRace(User, effect, fieldItem)
 
     local resist = magicResistance.getMagicResistance(User)
 
@@ -84,7 +96,7 @@ function M.causeDamage(User, quality, penetration, wandGemBonus, effect, fieldIt
         damageDealt = damageDealt * (1 + wandGemBonus-cloakGemBonus)
         damageDealt = math.max(damageDealt, 100)
 
-        if damageDealtToOnlyRace and not isTheCorrectRace then --No damage dealt if targeted at a specific race that isnt the targets
+        if ignoreDamage then --No damage dealt if targeted at a specific race that isnt the targets
             damageDealt = 0
         end
 
@@ -95,8 +107,13 @@ function M.causeDamage(User, quality, penetration, wandGemBonus, effect, fieldIt
     end
 end
 
+
+
 function M.addEffect(theEffect, User)
-    if User:getQuestProgress(299) == 0 then
+
+    local ignoreDamage = M.ignoreDamageDueToRace(User, theEffect)
+
+    if not ignoreDamage and User:getQuestProgress(299) == 0 then
         User:inform("Du fühlst, wie das eiskalte Feuer allmählich deine Haut verbrennt.",
                     "You feel the icecold fire gradually burn your skin.")
         local _, quality = theEffect:findValue("quality")
