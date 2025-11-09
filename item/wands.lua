@@ -97,7 +97,7 @@ function M.enchantingSelection(user, wand, actionstate)
         elseif forgeItem and enchantingRituals.candleRitualExists(forgeItem) then
             last = 2
             if selected == 1 then
-                combineShards.start(user, wand)
+                combineShards.start(user)
             elseif selected == 2 then
                 breakShards.start(user, actionstate)
                 currentWandUse[user.id] = "break"
