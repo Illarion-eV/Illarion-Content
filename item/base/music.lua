@@ -902,7 +902,9 @@ local function inputNotes(user, quill)
 
     end
 
-    local instructions = common.GetNLS(user, "Um ein Notenblatt zu komponieren, geben Sie die Noten und die Dauer bis zur nächsten Note in Dezisekunden ein, getrennt durch ein Komma.\nBeispiel: A1,3,A4,10,D4,7\n\nWenn Ihr Notenblatt bereits Noten enthält und Ihr Eingabeformat gültig ist, werden die neuen Noten daran angehängt.", "To compose a sheet of music notes, you enter the notes and the duration until the next one is played in deciseconds, separated by a comma.\n Example: A1,3,A4,10,D4,7\n\nIf your sheet already contains notes, your input if a valid format will be added onto them.")
+    local instructions = common.GetNLS(user,
+    "Um ein Notenblatt zu komponieren, geben Sie die Noten und die Dauer bis zur nächsten Note in Dezisekunden ein, getrennt durch ein Komma. \nBeispiel: A1,3,A4,10,D4,7\n\nWenn Ihr Notenblatt bereits Noten enthält und Ihr Eingabeformat gültig ist, werden die neuen Noten daran angehängt.\nVerfügbare Noten: A, H, C, D, E, F, G mit den Tonhöhen 1-7.",
+    "To compose a sheet of music notes, you enter the notes and the duration until the next one is played in deciseconds, separated by a comma.\n Example: A1,3,A4,10,D4,7\n\nIf your sheet already contains notes, your input if a valid format will be added onto them.\nAvailable notes: A,B,C,D,E,F,G of pitches 1-7.")
 
     local dialog = InputDialog(common.GetNLS(user, "Musik komponieren", "Music Composing"), instructions, false, 255, callback)
 
