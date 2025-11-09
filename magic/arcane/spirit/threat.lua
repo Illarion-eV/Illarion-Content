@@ -20,16 +20,16 @@ local monsterLevels = require("monster.base.levels")
 local M = {}
 
 M.threatTexts = {
-    {value = 0, english = "Novice", german = "Anf‰ngers"},
-    {value = 1, english = "Apprentice", german = "Lehrlings"},
-    {value = 2, english = "Initiate", german = "Initiaten"},
-    {value = 3, english = "Journeyman", german = "Gesellens"},
-    {value = 4, english = "Specialist", german = "Spezialisten"},
-    {value = 5, english = "Expert", german = "Experten"},
-    {value = 6, english = "Adept", german = "Adepten"},
-    {value = 7, english = "Artisan", german = "Artisanens"},
-    {value = 8, english = "Master", german = "Meisters"},
-    {value = 9, english = "Grandmaster", german = "Groﬂmeisters"},
+    {value = 0, english = "Novice", german = "Anf‰nger"},
+    {value = 1, english = "Apprentice", german = "Lehrling"},
+    {value = 2, english = "Initiate", german = "Initiat"},
+    {value = 3, english = "Journeyman", german = "Geselle"},
+    {value = 4, english = "Specialist", german = "Spezialist"},
+    {value = 5, english = "Expert", german = "Experte"},
+    {value = 6, english = "Adept", german = "Adept"},
+    {value = 7, english = "Artisan", german = "Artisane"},
+    {value = 8, english = "Master", german = "Meister"},
+    {value = 9, english = "Grandmaster", german = "Groﬂmeister"}
   }
 
 local function getLevelText(level)
