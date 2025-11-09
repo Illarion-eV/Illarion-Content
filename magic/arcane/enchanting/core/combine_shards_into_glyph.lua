@@ -180,8 +180,10 @@ end
 local function generateQuality(user, glyph, wand)
 
     local gemBonus = tonumber(gems.getGemBonus(wand))
-    local leadAttribName = common.GetLeadAttributeName(Character.enchanting)
-    local leadAttribValue = user:increaseAttrib(leadAttribName, 0)
+    local leadAttribNames = common.GetLeadAttributeName(Character.enchanting)
+    local leadAttribValue1 = user:increaseAttrib(leadAttribNames.first, 0) * 0.6 -- 60% of the impact dex had on its own in the past
+    local leadAttribValue2 = user:increaseAttrib(leadAttribNames.second, 0) * 0.4 -- 40% of the impact dex had on its own in the past
+    local leadAttribValue = leadAttribValue1 + leadAttribValue2
 
     local meanQuality = 5
     meanQuality = meanQuality*(1+common.GetAttributeBonusHigh(leadAttribValue)+common.GetQualityBonusStandard(wand))+gemBonus/100 --Apply boni of lead attribute, tool quality and gems.
