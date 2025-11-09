@@ -28,6 +28,7 @@ local skilling = require("magic.arcane.skilling")
 local common = require("base.common")
 local magic = require("base.magic")
 local testing = require("base.testing")
+local shared = require("craft.base.shared")
 
 local M = {}
 
@@ -306,6 +307,10 @@ function M.castSpell(user, spell, actionState, oralCast)
             end
 
             local _, wand = checkForWand(user)
+
+            if wand then
+                shared.toolBreaks(user, wand, castDuration)
+            end
 
             if user.attackmode and runes.isSpellAutoCast(spell, wand) and checksPassed(user, spell, element, M[user.id].thePosition) then
                 -- To mimic wand magic so that the fire magic replacement does not feel like a downgrade, we allow auto casting of some spells
