@@ -63,7 +63,40 @@ local y
     myEffect:addValue("lastY", y)
 return position(x, y, tz)
 end
+
+local function refreshAndVerifyTargets(targets)
+
+    local verifiedTargets = {}
+
+    for index, target in pairs(targets.targets) do
+
+        local add = true
+
+        if isValidChar(target) then
+            for _, verifiedTarget in pairs(verifiedTargets) do
+                if target == verifiedTarget then --Target already exists in list, no duplicates
+                    add = false
+                end
+            end
+        else
+            add = false
+        end
+
+        if add then
+            table.insert(verifiedTargets, target)
+        end
+    end
+
+    targets.targets = verifiedTargets
+
+    return targets
+end
+
+
 function M.spellEffects(user, targets, spell, element, ORL, level, castDuration, thePosition)
+
+    targets = refreshAndVerifyTargets(targets)
+
     local SOLH = runes.checkSpellForRuneByName("SOLH", spell)
     local OrlRune = runes.checkSpellForRuneByName("ORL", spell)
     if not (SOLH and OrlRune) then

@@ -217,8 +217,8 @@ function M.dealMagicDamage(user, target, spell, damage, level, DoT, castTime, us
 end
 
 function M.applyMagicDamage(user, targets, spell, element, ORL, earthTrap, level, castDuration)
-    for _, target in pairs(targets.targets) do
 
+    for _, target in pairs(targets.targets) do
         if isValidChar(target) and (user and target.pos ~= user.pos) or not user then
 
             local damage = magicDamage.getMagicDamage(user, spell, element, target, false, ORL, earthTrap, castDuration)
