@@ -1112,7 +1112,7 @@ function M.LookAtItem(user, sourceItem)
         teaName = teaNames[typeOfTea]
     end
 
-    local lookAt = lookat.GenerateLookAt(user, sourceItem)
+    local lookAt = lookat.GenerateLookAt(user, sourceItem, 0, nil, nil, nil, true)
 
     local amount = sourceItem:getData("drinksRemaining")
 

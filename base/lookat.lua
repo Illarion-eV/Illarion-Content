@@ -175,7 +175,30 @@ local function tagHidden(theItem)
 
 end
 
-function M.GenerateLookAt(user, item, material, levelreq, skillDisplay, types)
+local function getGenericRarenessText(user, theItem) --Presently only used for materials
+    local rareness = theItem:getData("rareness")
+
+    local texts = {}
+    local addendum = {}
+
+    addendum[Player.german] = " Es wird gewiss zur endgültigen Qualität dessen beitragen, wofür Irmorom es bestimmt hat."
+    addendum[Player.english] = " It is sure to be of aid for the final quality of whatever Irmorom may have it fated for."
+
+    for i = 2, 4 do
+        texts[i] = {}
+    end
+
+    texts[2][Player.german] = "Dieses Material ist außergewöhnlich makellos."
+    texts[2][Player.english] = "This material is uncommonly pristine."
+    texts[3][Player.german] = "Es ist selten, ein so makelloses Material zu sehen."
+    texts[3][Player.english] = "It is rare to see such a pristine material."
+    texts[4][Player.german] = "Dieses Material ist einzigartig makellos, eine Seltenheit unter Seltenheiten."
+    texts[4][Player.english] = "This material is uniquely pristine, a rarity among rarities."
+
+    return texts[tonumber(rareness)][user:getPlayerLanguage()]..addendum[user:getPlayerLanguage()]
+end
+
+function M.GenerateLookAt(user, item, material, levelreq, skillDisplay, types, rarenessDescriptor)
 
     if user == nil then
         debug("Sanity check failed, no valid character supplied.")
@@ -245,6 +268,10 @@ function M.GenerateLookAt(user, item, material, levelreq, skillDisplay, types)
         lookAt.description = defaultDescription .. addDescription
     else
         lookAt.description = usedDescription .. addDescription
+    end
+
+    if not rarenessDescriptor and item:getData("craftedRare") == "true" and tonumber(item:getData("rareness")) > 1 then
+        lookAt.description = getGenericRarenessText(user, item).."\n\n"..lookAt.description
     end
 
     local level = itemCommon.Level

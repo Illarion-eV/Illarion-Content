@@ -508,7 +508,7 @@ end
 
 function M.LookAtItem(user, food)
 
-    local baseLookat = lookat.GenerateLookAt(user, food)
+    local baseLookat = lookat.GenerateLookAt(user, food, 0, nil, nil, nil, true)
 
     local descriptionEn
     local descriptionDe

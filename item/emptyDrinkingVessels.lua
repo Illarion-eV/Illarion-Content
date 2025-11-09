@@ -23,7 +23,7 @@ local M = {}
 
 function M.LookAtItem(user, sourceItem)
 
-    local lookAt = lookat.GenerateLookAt(user, sourceItem)
+    local lookAt = lookat.GenerateLookAt(user, sourceItem, 0, nil, nil, nil, true)
     local rareness = sourceItem:getData("rareness")
     local crafted = sourceItem:getData("craftedRare")
     if not common.IsNilOrEmpty(rareness) and tonumber(rareness) >= 2 and crafted == "true" then

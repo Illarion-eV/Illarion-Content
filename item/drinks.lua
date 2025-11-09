@@ -410,7 +410,7 @@ function M.LookAtItem(user, theDrink)
 
     local _, drinkRarity, vesselRarity = getRarities(theDrink)
 
-    local lookAt = emptyDrinkingVessels.LookAtItem(user, theDrink)
+    local lookAt = emptyDrinkingVessels.LookAtItem(user, theDrink, 0, nil, nil, nil, true)
 
     local drinkRarities = {}
     drinkRarities[2] = {english = "The "..commonItem.English.." has an uncommonly good scent to it.", german = "Das "..commonItem.German.." hat einen ungewöhnlich guten Duft."}
