@@ -213,8 +213,9 @@ local function chooseWhatInfoToView(informedTarget, information, selectedTarget,
             return
         end
         local index = dialog:getSelectedIndex() +1
-        for _, target in pairs(information) do
-            if tostring(target.target) == tostring(selectedTarget) then
+        local found = false
+        for targetIndex, target in ipairs(information) do
+            if isValidChar(target.target) and tostring(target.target) == tostring(selectedTarget) then
                 local skippedTargets = 0
                 for i = 1, #infoOptionsText do
                     if target[infoOptionsText[i].identifier] then
@@ -225,14 +226,20 @@ local function chooseWhatInfoToView(informedTarget, information, selectedTarget,
                         skippedTargets = skippedTargets+1
                     end
                 end
+                found = true
                 break
             end
+        end
+
+        if not found then
+            informedTarget:inform("Der Geist Ihres ausgewählten Ziels existiert nicht mehr.", "The spirit of your selected target no longer exists.")
+            M.startDialogue(informedTarget, information, spell)
         end
     end
 
     local dialog = SelectionDialog(common.GetNLS(informedTarget, chooseInfoTexts.title.german, chooseInfoTexts.title.english), common.GetNLS(informedTarget, chooseInfoTexts.text.german, chooseInfoTexts.text.english), callback)
     for _, target in pairs(information) do
-        if tostring(target.target) == tostring(selectedTarget) then
+        if isValidChar(target.target) and tostring(target.target) == tostring(selectedTarget) then
             for _, infoText in pairs(infoOptionsText) do
                 if target[infoText.identifier] then
                     dialog:addOption(0,common.GetNLS(informedTarget, infoText.german, infoText.english))
@@ -267,7 +274,12 @@ function M.startDialogue(informedTarget, information, spell)
         for i = 1, #information do
             if index == i then
                 M.alreadyOpenDialogue[informedTarget.id] = false
-                chooseWhatInfoToView(informedTarget, information, information[i].target, spell)
+                if isValidChar(information[i].target) then
+                    chooseWhatInfoToView(informedTarget, information, information[i].target, spell)
+                else
+                    M.startDialogue(informedTarget, information, spell)
+                    informedTarget:inform("Der Geist Ihres ausgewählten Ziels existiert nicht mehr.", "The spirit of your selected target no longer exists.")
+                end
                 return
             end
         end
