@@ -86,6 +86,26 @@ local function getNonRaspHandItem(user, restore)
 
 end
 
+local function getAllBeltItems(user, restore)
+
+    local equipmentSlotsToCheck = {}
+
+    for i = 1, 6 do
+        table.insert(equipmentSlotsToCheck, user:getItemAt(Character["belt_pos_"..i]))
+    end
+
+    local items = {}
+
+    for _, slot in pairs(equipmentSlotsToCheck) do
+        if itemIsValid(user, slot, restore) then
+            table.insert(items, slot)
+        end
+    end
+
+    return items
+
+end
+
 local function getAllBagItems(user, restore)
 
     local items = {}
@@ -177,6 +197,28 @@ local function allBagTags(user, eraseOrRestore)
 
 end
 
+local function allBeltTags(user, eraseOrRestore)
+
+    local items = getAllBeltItems(user, eraseOrRestore == "restore")
+
+    if #items == 0 then
+        user:inform("Keine Gegenstände wurden " .. suffix[eraseOrRestore].German .. ".",
+                    "None of the items in your belt had your tag on them to be " .. suffix[eraseOrRestore].English .. ".")
+        return
+    end
+
+    for _, theItem in pairs(items) do
+        singleTag(user, eraseOrRestore, theItem, true)
+    end
+
+    if eraseOrRestore == "erase" then
+        user:inform("Du hast das Etikett von "..#items.." Gegenständen entfernt.", "You removed the tag of "..#items.." items.")
+    elseif eraseOrRestore == "restore" then
+        user:inform("Du hast das Etikett von "..#items.." Gegenständen wiederhergestellt.", "You restored the tag of "..#items.." items.")
+    end
+
+end
+
 function M.UseItem(user, sourceItem, actionState)
 
     if not raspInHand(user, sourceItem) then
@@ -200,10 +242,14 @@ function M.UseItem(user, sourceItem, actionState)
         if index == 1 then
             singleTag(user, "erase")
         elseif index == 2 then
-            allBagTags(user, "erase")
+            allBeltTags(user, "erase")
         elseif index == 3 then
-            singleTag(user, "restore")
+            allBagTags(user, "erase")
         elseif index == 4 then
+            singleTag(user, "restore")
+        elseif index == 5 then
+            allBeltTags(user, "restore")
+        elseif index == 6 then
             allBagTags(user, "restore")
         end
     end
@@ -211,8 +257,10 @@ function M.UseItem(user, sourceItem, actionState)
     local dialog = SelectionDialog(common.GetNLS(user, "Feile", "Rasp"), common.GetNLS(user, "Hier kannst du entscheiden, ob du das Herstellungs-Tag eines Gegenstands in deiner Hand oder in deiner Tasche entfernen oder wiederherstellen möchtest, solange du die Person bist, die den Gegenstand ursprünglich hergestellt hat.","Here you can decide whether to get rid of or restore the crafted tag of any item in your hand or your bag, so long as you are the person who crafted the item to begin with."), callback)
 
     dialog:addOption(0, common.GetNLS(user, "Tag in Hand entfernen", "Remove tag of item in hand"))
+    dialog:addOption(0, common.GetNLS(user, "Tags in Gürtel entfernen", "Remove tag of items in belt"))
     dialog:addOption(0, common.GetNLS(user, "Tags in Tasche entfernen", "Remove tag of items in bag"))
     dialog:addOption(0, common.GetNLS(user, "Tag in Hand wiederherstellen", "Restore tag of item in hand"))
+    dialog:addOption(0, common.GetNLS(user, "Tags in Gürtel wiederherstellen", "Restore tag of items in belt"))
     dialog:addOption(0, common.GetNLS(user, "Tags in Tasche wiederherstellen", "Restore tag of items in bag"))
 
     user:requestSelectionDialog(dialog)
