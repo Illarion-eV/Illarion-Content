@@ -51,11 +51,11 @@ local function userIsTheCrafter(user, crafterTag)
 
 end
 
-local function itemIsValid(user, theItem)
+local function itemIsValid(user, theItem, restore)
 
     local crafterTag = itemHasCrafterTag(theItem)
 
-    if crafterTag and userIsTheCrafter(user, crafterTag) then
+    if crafterTag and userIsTheCrafter(user, crafterTag) and ((not restore and theItem:getData("hideTag") ~= "true") or (restore and theItem:getData("hideTag") == "true")) then
         return true
     end
 
@@ -63,7 +63,7 @@ local function itemIsValid(user, theItem)
 
 end
 
-local function getNonRaspHandItem(user)
+local function getNonRaspHandItem(user, restore)
 
     local leftHand = user:getItemAt(Character.left_tool)
     local rightHand = user:getItemAt(Character.right_tool)
@@ -78,7 +78,7 @@ local function getNonRaspHandItem(user)
         return false
     end
 
-    if itemIsValid(user, itemToCheck) then
+    if itemIsValid(user, itemToCheck, restore) then
         return itemToCheck
     end
 
@@ -86,7 +86,7 @@ local function getNonRaspHandItem(user)
 
 end
 
-local function getAllBagItems(user)
+local function getAllBagItems(user, restore)
 
     local items = {}
 
@@ -98,7 +98,7 @@ local function getAllBagItems(user)
 
         local success, theItem = bag:viewItemNr(i)
 
-        if success and itemIsValid(user, theItem) then
+        if success and itemIsValid(user, theItem, restore) then
             table.insert(items, theItem)
         end
     end
@@ -129,7 +129,7 @@ local suffix = {
 local function singleTag(user, eraseOrRestore, theItem, multi)
 
     if not theItem then
-        theItem = getNonRaspHandItem(user)
+        theItem = getNonRaspHandItem(user, eraseOrRestore == "restore")
         if not theItem then
             user:inform("Das Objekt in deiner Hand muss eines sein, das du hergestellt hast, um sein Etikett zu haben "..suffix[eraseOrRestore].German..".",
                         "The item in your hand must be one you made to have its tag "..suffix[eraseOrRestore].English..".")
@@ -144,12 +144,12 @@ local function singleTag(user, eraseOrRestore, theItem, multi)
     if eraseOrRestore == "erase" then
         eraseTag(theItem)
         if not multi then
-            log("Du hast das Etikett des "..german.." gelöscht.", "You've erased the tag of the "..english..".")
+            user:inform("Du hast das Etikett des "..german.." gelöscht.", "You've erased the tag of the "..english..".")
         end
     elseif eraseOrRestore == "restore" then
         restoreTag(theItem)
         if not multi then
-            log("Du hast das Etikett des "..german.." wiederhergestellt.", "You've restored the tag of the "..english..".")
+            user:inform("Du hast das Etikett des "..german.." wiederhergestellt.", "You've restored the tag of the "..english..".")
         end
     end
 
@@ -157,7 +157,7 @@ end
 
 local function allBagTags(user, eraseOrRestore)
 
-    local items = getAllBagItems(user)
+    local items = getAllBagItems(user, eraseOrRestore == "restore")
 
     if #items == 0 then
         user:inform("Keine Gegenstände wurden " .. suffix[eraseOrRestore].German .. ".",
@@ -170,9 +170,9 @@ local function allBagTags(user, eraseOrRestore)
     end
 
     if eraseOrRestore == "erase" then
-        log("Du hast das Etikett von "..#items.." Gegenständen entfernt.", "You removed the tag of "..#items.." items.")
+        user:inform("Du hast das Etikett von "..#items.." Gegenständen entfernt.", "You removed the tag of "..#items.." items.")
     elseif eraseOrRestore == "restore" then
-        log("Du hast das Etikett von "..#items.." Gegenständen wiederhergestellt.", "You restored the tag of "..#items.." items.")
+        user:inform("Du hast das Etikett von "..#items.." Gegenständen wiederhergestellt.", "You restored the tag of "..#items.." items.")
     end
 
 end
