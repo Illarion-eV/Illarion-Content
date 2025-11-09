@@ -135,6 +135,31 @@ function M.addEffect(theEffect, User)
     end
 end
 
+function M.walkOnDamage(theEffect, User, FieldItem)
+    local foundpenetration, penetration = theEffect:findValue("magicPenetration")
+
+    local foundwandGemBonus, wandGemBonus = theEffect:findValue("wandGemBonus")
+
+    if not foundpenetration then
+        penetration = 0
+    else
+        penetration = penetration/100
+    end
+
+    local scaling = FieldItem:getData("scaling")
+
+    if common.IsNilOrEmpty(scaling) then
+        scaling = math.floor(FieldItem.quality/100)+1
+    end
+
+    if not foundwandGemBonus then
+        wandGemBonus = 0
+    end
+
+    M.causeDamage(User, tonumber(scaling), penetration, wandGemBonus, nil, FieldItem)
+
+end
+
 function M.callEffect(theEffect, User)
 
     -- check if still on a damaging field

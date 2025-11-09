@@ -22,7 +22,7 @@ local M = {}
 
 function M.addEffect(theEffect, User)
 
-    local ignoreDamage = M.ignoreDamageDueToRace(User, theEffect)
+    local ignoreDamage = icefield.ignoreDamageDueToRace(User, theEffect)
 
     if not ignoreDamage and User:getQuestProgress(298) == 0 then
         User:inform("Du fühlst wie das glühend heiße Feuer allmählich deine Haut verbrennt.",
@@ -97,7 +97,7 @@ end
 
 function M.removeEffect (theEffect, User)
 
-    local ignoreDamage = M.ignoreDamageDueToRace(User, theEffect)
+    local ignoreDamage = icefield.ignoreDamageDueToRace(User, theEffect)
 
     if not ignoreDamage and User:getQuestProgress(298) == 0 then
         User:inform("Du fühlst wie das Brennen auf deiner Haut nachlässt.",
