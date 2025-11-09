@@ -83,7 +83,7 @@ local puzzles = {
     },
     uraPuzzle = {
         english = "These noble creatures stand TOWERING as they SHIELD the EARTH on which you stand. Bring them an offering with a PURE mind and they might just impart the knowledge of nature of which you seek.",
-        german = "Diese edlen Kreaturen stehen TÜRMEND da und SCHILDEN die ERDE, auf der du stehst. Bringe ihnen ein Opfer mit einem REINEN Geist und sie könnten dir das Wissen über die Natur vermitteln, das du suchst."
+        german = "Diese edlen Kreaturen stehen TÜRMEND da und SCHILDEN die ERDE, auf der du stehst. Bringe ihnen ein Opfer mit einem REINEN Gedanken und sie könnten dir das Wissen über die Natur vermitteln, das du suchst."
     },
     lhorPuzzle = {
         english = "My coat is dark as the night, my home shines like the sun. When Nargun is playing tricks, I'll be there. What am I? Speak my name out loud, and knowledge shall be granted to you.",
