@@ -46,26 +46,28 @@ local information = {}
         end
     end
     for _, tar in ipairs(targets.targets) do
-        local YEG = runes.checkSpellForRuneByName("YEG", spell)
-        local URA = runes.checkSpellForRuneByName("URA", spell)
-        local TAUR = runes.checkSpellForRuneByName("TAUR", spell)
-        local undead = checkIfTypeOf(tar, "undead")
-        local sentient = checkIfTypeOf(tar, "sentient")
-        local animal = checkIfTypeOf(tar, "animal")
-        local foundType = ""
-        if tar:getType() == Character.player and TAUR then
-            foundType = "player"
-        elseif tar:getType() == Character.monster and ((YEG and undead) or (TAUR and sentient) or (URA and animal)) then
-            foundType = "creature"
-        end
+        if isValidChar(tar) then
+            local YEG = runes.checkSpellForRuneByName("YEG", spell)
+            local URA = runes.checkSpellForRuneByName("URA", spell)
+            local TAUR = runes.checkSpellForRuneByName("TAUR", spell)
+            local undead = checkIfTypeOf(tar, "undead")
+            local sentient = checkIfTypeOf(tar, "sentient")
+            local animal = checkIfTypeOf(tar, "animal")
+            local foundType = ""
+            if tar:getType() == Character.player and TAUR then
+                foundType = "player"
+            elseif tar:getType() == Character.monster and ((YEG and undead) or (TAUR and sentient) or (URA and animal)) then
+                foundType = "creature"
+            end
 
-        if foundType == "creature" or foundType == "player" then
-            local insertTable = {
-            target = tar,
-            type = foundType,
-            gender = tar:increaseAttrib("sex", 0)
-            }
-            information[#information+1] = insertTable
+            if foundType == "creature" or foundType == "player" then
+                local insertTable = {
+                target = tar,
+                type = foundType,
+                gender = tar:increaseAttrib("sex", 0)
+                }
+                information[#information+1] = insertTable
+            end
         end
     end
     for _, pos in ipairs(targets.positions) do
