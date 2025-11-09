@@ -276,10 +276,10 @@ local function convertOldBook(oldBook)
             oldBook:setData("sheet"..sheetNumber.."noteDuration"..i, "")
 
             if newNotes ~= "" then
-                newNotes = newNotes.."|"
+                newNotes = newNotes..","
             end
 
-            newNotes = newNotes..note.."|"..duration
+            newNotes = newNotes..note..","..duration
 
         end
 

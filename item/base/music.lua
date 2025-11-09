@@ -124,7 +124,7 @@ local function convertToTableOfNotes(sheetTable)
     local retTable = {}
     local parts = {}
 
-    for part in string.gmatch(noteString, "([^|]+)") do
+    for part in string.gmatch(noteString, "([^,]+)") do
         table.insert(parts, part)
     end
 
@@ -512,10 +512,10 @@ local function convertToNotesAndSave(user, sheet, notesList)
     for _, note in ipairs(notesList) do
 
         if convertedNotes ~= "" then
-            convertedNotes = convertedNotes.."|"
+            convertedNotes = convertedNotes..","
         end
 
-        convertedNotes = convertedNotes..note.note.."|"..note.duration
+        convertedNotes = convertedNotes..note.note..","..note.duration
     end
 
     sheet:setData("notes", string.sub(convertedNotes, 1, 250))
@@ -617,7 +617,7 @@ local function selectPitch(user, note, notesList, index)
                     selectDuration(user, note..tostring(i), notesList, index)
                 else
 
-                    M.selectedNote[user.id] = {notes = note..tostring(i).."|1", instrument = "notes"}
+                    M.selectedNote[user.id] = {notes = note..tostring(i)..",1", instrument = "notes"}
 
                     local instrument = M.instrumentIsInHandOrInFrontOfUser(user, M.selectedNote[user.id])
 
@@ -714,10 +714,10 @@ local function addSound(user, quill, soundId, notesList, index)
             end
 
             if existingNotes ~= "" then
-                existingNotes = existingNotes.."|"
+                existingNotes = existingNotes..","
             end
 
-            existingNotes = existingNotes..tostring(soundId).."|"..input
+            existingNotes = existingNotes..tostring(soundId)..","..input
 
             if string.len(existingNotes) > 2500 then
                 user:inform("Das Notenblatt kann nicht so viele Noten aufnehmen.", "The music sheet can not hold that many notes.")
@@ -767,7 +767,7 @@ function M.selectSound(user, quill, notesList, index)
                 if quill or notesList then
                     addSound(user, quill, sound.id, notesList, index)
                 else
-                    M.selectedNote[user.id] = {notes = sound.id.."|1", instrument = "drum"}
+                    M.selectedNote[user.id] = {notes = sound.id..",1", instrument = "drum"}
 
                     local instrument = M.instrumentIsInHandOrInFrontOfUser(user, M.selectedNote[user.id])
 
@@ -810,11 +810,11 @@ local function verifyInput(user, input)
     end
 
     local parts = {}
-    for part in string.gmatch(input, "([^|]+)") do
+    for part in string.gmatch(input, "([^,]+)") do
         table.insert(parts, part)
     end
 
-    -- Must be pairs of note|duration
+    -- Must be pairs of note,duration
     if #parts % 2 ~= 0 then
         user:inform("Noten und Dauern müssen paarweise eingegeben werden.", "Notes and durations must be entered in pairs.")
         return false
@@ -878,7 +878,7 @@ local function inputNotes(user, quill)
         end
 
         if existingNotes ~= "" then
-            existingNotes = existingNotes.."|"
+            existingNotes = existingNotes..","
         end
 
         existingNotes = existingNotes..input
@@ -902,7 +902,7 @@ local function inputNotes(user, quill)
 
     end
 
-    local instructions = common.GetNLS(user, "Um ein Notenblatt zu komponieren, geben Sie die Noten und die Dauer bis zur nächsten Note in Dezisekunden ein, getrennt durch ein |.\nBeispiel: A1|3|A4|10|D4|7\n\nWenn Ihr Notenblatt bereits Noten enthält und Ihr Eingabeformat gültig ist, werden die neuen Noten daran angehängt.", "To compose a sheet of music notes, you enter the notes and the duration until the next one is played in deciseconds, separated by a |.\n Example: A1|3|A4|10|D4|7\n\nIf your sheet already contains notes, your input if a valid format will be added onto them.")
+    local instructions = common.GetNLS(user, "Um ein Notenblatt zu komponieren, geben Sie die Noten und die Dauer bis zur nächsten Note in Dezisekunden ein, getrennt durch ein Komma.\nBeispiel: A1,3,A4,10,D4,7\n\nWenn Ihr Notenblatt bereits Noten enthält und Ihr Eingabeformat gültig ist, werden die neuen Noten daran angehängt.", "To compose a sheet of music notes, you enter the notes and the duration until the next one is played in deciseconds, separated by a comma.\n Example: A1,3,A4,10,D4,7\n\nIf your sheet already contains notes, your input if a valid format will be added onto them.")
 
     local dialog = InputDialog(common.GetNLS(user, "Musik komponieren", "Music Composing"), instructions, false, 255, callback)
 

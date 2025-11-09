@@ -609,10 +609,10 @@ local function convertOldSheet(oldSheet)
         oldSheet:setData("noteDuration"..i, "")
 
         if newNotes ~= "" then
-            newNotes = newNotes.."|"
+            newNotes = newNotes..","
         end
 
-        newNotes = newNotes..note.."|"..duration
+        newNotes = newNotes..note..","..duration
 
     end
 
