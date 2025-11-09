@@ -76,6 +76,15 @@ unchoppableTrees[1535] = true
 unchoppableTrees[1536] = true
 unchoppableTrees[1807] = true
 unchoppableTrees[1808] = true
+unchoppableTrees[4253] = true
+unchoppableTrees[4254] = true
+unchoppableTrees[4255] = true
+unchoppableTrees[4256] = true
+unchoppableTrees[4238] = true
+unchoppableTrees[4239] = true
+unchoppableTrees[4341] = true
+unchoppableTrees[4342] = true
+unchoppableTrees[4343] = true
 
 
 local function preventCutting(User, theAxe, theTree)
