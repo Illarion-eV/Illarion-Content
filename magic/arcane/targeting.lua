@@ -107,6 +107,18 @@ local function getNewCenterPos(targetPosition, direction)
     return targetPosition
 end
 
+local function alreadyExistsInList(newPos, positions)
+
+    for _, posit in pairs(positions) do
+        if newPos == posit then
+            return true
+        end
+    end
+
+    return false
+
+end
+
 local function getDunClusterPositions(player, targetPosition)
 
     local positions = {}
@@ -127,7 +139,9 @@ local function getDunClusterPositions(player, targetPosition)
 
             for _, newPos in pairs(newPositions) do
                 if newPos ~= targetPosition and newPos ~= newCenterPos then
-                    table.insert(positions, newPos)
+                    if not alreadyExistsInList(newPos, positions) then
+                        table.insert(positions, newPos)
+                    end
                 end
             end
         end
@@ -142,11 +156,15 @@ local function getDunClusterPositions(player, targetPosition)
 
     for _, newPos in pairs(newPositions) do
         if newPos ~= player.pos then
-            table.insert(positions, newPos)
+            if not alreadyExistsInList(newPos, positions) then
+                table.insert(positions, newPos)
+            end
         end
     end
 
-    table.insert(positions, newCenterPos)
+    if not alreadyExistsInList(newCenterPos, positions) then
+        table.insert(positions, newCenterPos)
+    end
 
     return positions
 
