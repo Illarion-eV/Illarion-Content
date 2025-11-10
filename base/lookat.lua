@@ -389,6 +389,12 @@ function M.GenerateItemLookAtFromId(user, itemId, stackSize, data)
 
     lookAt = AddWeaponOrArmourType(lookAt, user, itemId, level)
 
+    local otherItemFound, newLookAt = showItemLevel(user, itemId, lookAt , level)
+
+    if otherItemFound then
+        lookAt = newLookAt
+    end
+
     return lookAt
 end
 
