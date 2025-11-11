@@ -29,6 +29,16 @@ local notes = { --All instruments that use the standard A-G, 1-7 note/pitch rang
     { note = "A5", lute = 127, harp = 49, panpipe = 176, flute = 225, clavichord = 274 },
     { note = "A6", lute = 128, harp = 50, panpipe = 177, flute = 226, clavichord = 275 },
     { note = "A7", lute = 129, harp = 51, panpipe = 178, flute = 227, clavichord = 276 },
+
+    -- A# (Sharp)
+    { note = "A#1", lute = 354, harp = 319, panpipe = 389, flute = 424, clavichord = 459 },
+    { note = "A#2", lute = 355, harp = 320, panpipe = 390, flute = 425, clavichord = 460 },
+    { note = "A#3", lute = 356, harp = 321, panpipe = 391, flute = 426, clavichord = 461 },
+    { note = "A#4", lute = 357, harp = 322, panpipe = 392, flute = 427, clavichord = 462 },
+    { note = "A#5", lute = 358, harp = 323, panpipe = 393, flute = 428, clavichord = 463 },
+    { note = "A#6", lute = 359, harp = 324, panpipe = 394, flute = 429, clavichord = 464 },
+    { note = "A#7", lute = 360, harp = 325, panpipe = 395, flute = 430, clavichord = 465 },
+
     { note = "B1", lute = 130, harp = 52, panpipe = 179, flute = 228, clavichord = 277 },
     { note = "B2", lute = 131, harp = 53, panpipe = 180, flute = 229, clavichord = 278 },
     { note = "B3", lute = 132, harp = 54, panpipe = 181, flute = 230, clavichord = 279 },
@@ -36,6 +46,7 @@ local notes = { --All instruments that use the standard A-G, 1-7 note/pitch rang
     { note = "B5", lute = 134, harp = 56, panpipe = 183, flute = 232, clavichord = 281 },
     { note = "B6", lute = 135, harp = 57, panpipe = 184, flute = 233, clavichord = 282 },
     { note = "B7", lute = 136, harp = 58, panpipe = 185, flute = 234, clavichord = 283 },
+
     { note = "H1", lute = 130, harp = 52, panpipe = 179, flute = 228, clavichord = 277 },
     { note = "H2", lute = 131, harp = 53, panpipe = 180, flute = 229, clavichord = 278 },
     { note = "H3", lute = 132, harp = 54, panpipe = 181, flute = 230, clavichord = 279 },
@@ -43,6 +54,7 @@ local notes = { --All instruments that use the standard A-G, 1-7 note/pitch rang
     { note = "H5", lute = 134, harp = 56, panpipe = 183, flute = 232, clavichord = 281 },
     { note = "H6", lute = 135, harp = 57, panpipe = 184, flute = 233, clavichord = 282 },
     { note = "H7", lute = 136, harp = 58, panpipe = 185, flute = 234, clavichord = 283 },
+
     { note = "C1", lute = 137, harp = 59, panpipe = 186, flute = 235, clavichord = 284 },
     { note = "C2", lute = 138, harp = 60, panpipe = 187, flute = 236, clavichord = 285 },
     { note = "C3", lute = 139, harp = 61, panpipe = 188, flute = 237, clavichord = 286 },
@@ -50,6 +62,16 @@ local notes = { --All instruments that use the standard A-G, 1-7 note/pitch rang
     { note = "C5", lute = 141, harp = 63, panpipe = 190, flute = 239, clavichord = 288 },
     { note = "C6", lute = 142, harp = 64, panpipe = 191, flute = 240, clavichord = 289 },
     { note = "C7", lute = 143, harp = 65, panpipe = 192, flute = 241, clavichord = 290 },
+
+    -- C# (Sharp)
+    { note = "C#1", lute = 361, harp = 326, panpipe = 396, flute = 431, clavichord = 466 },
+    { note = "C#2", lute = 362, harp = 327, panpipe = 397, flute = 432, clavichord = 467 },
+    { note = "C#3", lute = 363, harp = 328, panpipe = 398, flute = 433, clavichord = 468 },
+    { note = "C#4", lute = 364, harp = 329, panpipe = 399, flute = 434, clavichord = 469 },
+    { note = "C#5", lute = 365, harp = 330, panpipe = 400, flute = 435, clavichord = 470 },
+    { note = "C#6", lute = 366, harp = 331, panpipe = 401, flute = 436, clavichord = 471 },
+    { note = "C#7", lute = 367, harp = 332, panpipe = 402, flute = 437, clavichord = 472 },
+
     { note = "D1", lute = 144, harp = 66, panpipe = 193, flute = 242, clavichord = 291 },
     { note = "D2", lute = 145, harp = 67, panpipe = 194, flute = 243, clavichord = 292 },
     { note = "D3", lute = 146, harp = 68, panpipe = 195, flute = 244, clavichord = 293 },
@@ -57,6 +79,16 @@ local notes = { --All instruments that use the standard A-G, 1-7 note/pitch rang
     { note = "D5", lute = 148, harp = 70, panpipe = 197, flute = 246, clavichord = 295 },
     { note = "D6", lute = 149, harp = 71, panpipe = 198, flute = 247, clavichord = 296 },
     { note = "D7", lute = 150, harp = 72, panpipe = 199, flute = 248, clavichord = 297 },
+
+    -- D# (Sharp)
+    { note = "D#1", lute = 368, harp = 333, panpipe = 403, flute = 438, clavichord = 473 },
+    { note = "D#2", lute = 369, harp = 334, panpipe = 404, flute = 439, clavichord = 474 },
+    { note = "D#3", lute = 370, harp = 335, panpipe = 405, flute = 440, clavichord = 475 },
+    { note = "D#4", lute = 371, harp = 336, panpipe = 406, flute = 441, clavichord = 476 },
+    { note = "D#5", lute = 372, harp = 337, panpipe = 407, flute = 442, clavichord = 477 },
+    { note = "D#6", lute = 373, harp = 338, panpipe = 408, flute = 443, clavichord = 478 },
+    { note = "D#7", lute = 374, harp = 339, panpipe = 409, flute = 444, clavichord = 479 },
+
     { note = "E1", lute = 151, harp = 73, panpipe = 200, flute = 249, clavichord = 298 },
     { note = "E2", lute = 152, harp = 74, panpipe = 201, flute = 250, clavichord = 299 },
     { note = "E3", lute = 153, harp = 75, panpipe = 202, flute = 251, clavichord = 300 },
@@ -64,6 +96,7 @@ local notes = { --All instruments that use the standard A-G, 1-7 note/pitch rang
     { note = "E5", lute = 155, harp = 77, panpipe = 204, flute = 253, clavichord = 302 },
     { note = "E6", lute = 156, harp = 78, panpipe = 205, flute = 254, clavichord = 303 },
     { note = "E7", lute = 157, harp = 79, panpipe = 206, flute = 255, clavichord = 304 },
+
     { note = "F1", lute = 158, harp = 80, panpipe = 207, flute = 256, clavichord = 305 },
     { note = "F2", lute = 159, harp = 81, panpipe = 208, flute = 257, clavichord = 306 },
     { note = "F3", lute = 160, harp = 82, panpipe = 209, flute = 258, clavichord = 307 },
@@ -71,14 +104,36 @@ local notes = { --All instruments that use the standard A-G, 1-7 note/pitch rang
     { note = "F5", lute = 162, harp = 84, panpipe = 211, flute = 260, clavichord = 309 },
     { note = "F6", lute = 163, harp = 85, panpipe = 212, flute = 261, clavichord = 310 },
     { note = "F7", lute = 164, harp = 86, panpipe = 213, flute = 262, clavichord = 311 },
+
+    -- F# (Sharp)
+    { note = "F#1", lute = 375, harp = 340, panpipe = 410, flute = 445, clavichord = 480 },
+    { note = "F#2", lute = 376, harp = 341, panpipe = 411, flute = 446, clavichord = 481 },
+    { note = "F#3", lute = 377, harp = 342, panpipe = 412, flute = 447, clavichord = 482 },
+    { note = "F#4", lute = 378, harp = 343, panpipe = 413, flute = 448, clavichord = 483 },
+    { note = "F#5", lute = 379, harp = 344, panpipe = 414, flute = 449, clavichord = 484 },
+    { note = "F#6", lute = 380, harp = 345, panpipe = 415, flute = 450, clavichord = 485 },
+    { note = "F#7", lute = 381, harp = 346, panpipe = 416, flute = 451, clavichord = 486 },
+
     { note = "G1", lute = 165, harp = 87, panpipe = 214, flute = 263, clavichord = 312 },
     { note = "G2", lute = 166, harp = 88, panpipe = 215, flute = 264, clavichord = 313 },
     { note = "G3", lute = 167, harp = 89, panpipe = 216, flute = 265, clavichord = 314 },
     { note = "G4", lute = 168, harp = 90, panpipe = 217, flute = 266, clavichord = 315 },
     { note = "G5", lute = 169, harp = 91, panpipe = 218, flute = 267, clavichord = 316 },
     { note = "G6", lute = 170, harp = 92, panpipe = 219, flute = 268, clavichord = 317 },
-    { note = "G7", lute = 171, harp = 93, panpipe = 220, flute = 269, clavichord = 318 }
+    { note = "G7", lute = 171, harp = 93, panpipe = 220, flute = 269, clavichord = 318 },
+
+    -- G# (Sharp)
+    { note = "G#1", lute = 382, harp = 347, panpipe = 417, flute = 452, clavichord = 487 },
+    { note = "G#2", lute = 383, harp = 348, panpipe = 418, flute = 453, clavichord = 488 },
+    { note = "G#3", lute = 384, harp = 349, panpipe = 419, flute = 454, clavichord = 489 },
+    { note = "G#4", lute = 385, harp = 350, panpipe = 420, flute = 455, clavichord = 490 },
+    { note = "G#5", lute = 386, harp = 351, panpipe = 421, flute = 456, clavichord = 491 },
+    { note = "G#6", lute = 387, harp = 352, panpipe = 422, flute = 457, clavichord = 492 },
+    { note = "G#7", lute = 388, harp = 353, panpipe = 423, flute = 458, clavichord = 493 }
 }
+
+
+
 
 M.step = {}
 
@@ -647,7 +702,7 @@ end
 
 function M.selectNote(user, notesList, index)
 
-    local noteLetters = common.GetNLS(user,{"H", "A", "G", "F", "E", "D", "C"} , {"B", "A", "G", "F", "E", "D", "C"})
+    local noteLetters = common.GetNLS(user,{"H", "A#","A", "G#","G", "F#","F", "E", "D#", "D", "C#", "C"} , {"B", "A#","A", "G#","G", "F#","F", "E", "D#", "D", "C#", "C"})
 
     local callback = function(dialog)
 
@@ -903,8 +958,8 @@ local function inputNotes(user, quill)
     end
 
     local instructions = common.GetNLS(user,
-    "Um ein Notenblatt zu komponieren, geben Sie die Noten und die Dauer bis zur nächsten Note in Dezisekunden ein, getrennt durch ein Komma. \nBeispiel: A1,3,A4,10,D4,7\n\nWenn Ihr Notenblatt bereits Noten enthält und Ihr Eingabeformat gültig ist, werden die neuen Noten daran angehängt.\nVerfügbare Noten: A, H, C, D, E, F, G mit den Tonhöhen 1-7.",
-    "To compose a sheet of music notes, you enter the notes and the duration until the next one is played in deciseconds, separated by a comma.\n Example: A1,3,A4,10,D4,7\n\nIf your sheet already contains notes, your input if a valid format will be added onto them.\nAvailable notes: A,B,C,D,E,F,G of pitches 1-7.")
+    "Um ein Notenblatt zu komponieren, geben Sie die Noten und die Dauer bis zur nächsten Note in Dezisekunden ein, getrennt durch ein Komma. \nBeispiel: A1,3,A4,10,D4,7\n\nWenn Ihr Notenblatt bereits Noten enthält und Ihr Eingabeformat gültig ist, werden die neuen Noten daran angehängt.\nVerfügbare Noten: H,A#,A,G#,G,F#,F,E,D#,D,C#,C mit den Tonhöhen 1-7.",
+    "To compose a sheet of music notes, you enter the notes and the duration until the next one is played in deciseconds, separated by a comma.\n Example: A1,3,A4,10,D4,7\n\nIf your sheet already contains notes, your input if a valid format will be added onto them.\nAvailable notes: B,A#,A,G#,G,F#,F,E,D#,D,C#,C of pitches 1-7.")
 
     local dialog = InputDialog(common.GetNLS(user, "Musik komponieren", "Music Composing"), instructions, false, 255, callback)
 
