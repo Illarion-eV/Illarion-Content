@@ -932,8 +932,8 @@ local function inputNotes(user, quill)
             existingNotes = existingNotes..sheet:getData("notes"..i)
         end
 
-        if existingNotes ~= "" then
-            existingNotes = existingNotes..","
+        if existingNotes ~= "" and existingNotes:sub(-1) ~= "," then
+            existingNotes = existingNotes .. ","
         end
 
         existingNotes = existingNotes..input
@@ -946,7 +946,7 @@ local function inputNotes(user, quill)
         sheet:setData("notes", string.sub(existingNotes, 1, 250))
 
         for i = 2, 10 do
-            sheet:setData("notes"..i, string.sub(existingNotes, 1+(250*i-1), 250*i))
+            sheet:setData("notes"..i, string.sub(existingNotes, 1+(250*(i-1)), 250*i))
         end
 
         sheet:setData("instrument", "notes")
