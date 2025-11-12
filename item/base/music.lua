@@ -201,9 +201,17 @@ for _, drum in ipairs(drumSounds) do
     drumLookup[drum.id] = drum.name
 end
 
-local function viewListOfNotes(user, sheetTable)
+local viewListOfNotes
+
+function viewListOfNotes(user, sheetTable, page)
+
+    if not page then
+        page = 1
+    end
 
     local notesList = convertToTableOfNotes(sheetTable)
+
+    local totalPages = math.ceil(#notesList/50)
 
     for _, note in pairs(notesList) do
         if sheetTable.instrument == "drum" then
@@ -226,23 +234,46 @@ local function viewListOfNotes(user, sheetTable)
 
         local selected = dialog:getSelectedIndex() + 1
 
-        for index, note in pairs(notesList) do
-            if index == selected then
-                if sheetTable.instrument == "drum" then
-                    M.selectSound(user, false, notesList, index)
-                else
-                    M.selectNote(user, notesList, index)
-                end
+        if selected == 1 and page > 1 then
+            viewListOfNotes(user, sheetTable, page-1)
+        elseif selected == 1 and page == 1 and totalPages > page then
+            viewListOfNotes(user, sheetTable, page+1)
+        elseif selected == 2 and page > 1 and totalPages > page then
+            viewListOfNotes(user, sheetTable, page+1)
+        else
+            local modifiedSelected = selected
+            if page > 1 then
+                modifiedSelected = modifiedSelected-1
+            end
+
+            if totalPages > 1 and page ~= totalPages then
+                modifiedSelected = modifiedSelected-1
+            end
+
+            if sheetTable.instrument == "drum" then
+                M.selectSound(user, false, notesList, modifiedSelected+((page-1)*50))
+            else
+                M.selectNote(user, notesList, modifiedSelected+((page-1)*50))
             end
         end
     end
 
-    local text = common.GetNLS(user, "", "Here you can not only view a list of the notes your sheet contains, but also select one if you wish to edit it.")
+    local text = common.GetNLS(user, "Hier kannst du nicht nur eine Liste der Notizen anzeigen, die dein Blatt enthält, sondern auch eine auswählen, wenn du sie bearbeiten möchtest.", "Here you can not only view a list of the notes your sheet contains, but also select one if you wish to edit it.")
 
     local dialog = SelectionDialog(title, text, callback)
 
-    for _, note in ipairs(notesList) do
-        dialog:addOption(0, common.GetNLS(user, note.name.german.." "..note.duration.." Dezisekunden", note.name.english.." "..note.duration.." deciseconds."))
+    if page > 1 then
+        dialog:addOption(0, common.GetNLS(user, "Vorherige Seite", "Previous Page"))
+    end
+
+    if totalPages > page then
+        dialog:addOption(0, common.GetNLS(user, "Nächste Seite", "Next Page"))
+    end
+
+    for index, note in ipairs(notesList) do
+        if index >= 1+((page-1)*50) and index <= (page*50) then
+            dialog:addOption(0, common.GetNLS(user, note.name.german.." "..note.duration.." Dezisekunden", note.name.english.." "..note.duration.." deciseconds."))
+        end
     end
 
     dialog:setCloseOnMove()
@@ -576,7 +607,7 @@ local function convertToNotesAndSave(user, sheet, notesList)
     sheet:setData("notes", string.sub(convertedNotes, 1, 250))
 
     for i = 2, 10 do
-        sheet:setData("notes"..i, string.sub(convertedNotes, 1+(250*i-1), 250*i))
+        sheet:setData("notes"..i, string.sub(convertedNotes, 1+(250*(i-1)), 250*i))
     end
 
     user:inform("Du änderst die Note.", "You change the note.")
@@ -782,7 +813,7 @@ local function addSound(user, quill, soundId, notesList, index)
             sheet:setData("notes", string.sub(existingNotes, 1, 250))
 
             for i = 2, 10 do
-                sheet:setData("notes"..i, string.sub(existingNotes, 1+(250*i-1), 250*i))
+                sheet:setData("notes"..i, string.sub(existingNotes, 1+(250*(i-1)), 250*i))
             end
 
             sheet:setData("instrument", "drum")
