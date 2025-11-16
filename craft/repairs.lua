@@ -150,7 +150,7 @@ local function itemIsSameCategoryAsRepairKit(currentItem, skillName)
     local armourFound, armour = world:getArmorStruct(currentItem.id)
     local weaponFound, weapon = world:getWeaponStruct(currentItem.id)
 
-    if currentItem.id == Item.sling then --Exception for sling as the only distance weapon that isnt carpentry
+    if currentItem.id == Item.sling or currentItem.id == Item.fishingNet then --Exception for sling as the only distance weapon that isnt carpentry, fishing net as a tailored tool
         if skillName == "tailoring" then
             return true
         else
