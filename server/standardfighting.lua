@@ -321,7 +321,7 @@ function M.onAttack(Attacker, Defender)
     -- Load the weapons of the attacker
     Attacker = fightingutil.loadWeapons(Attacker)
 
-    if fighting.IsTrainingWeapon(Attacker.WeaponItem.id) and character.AtBrinkOfDeath(Defender.Char) and Defender.Char:getType() == Character.player then
+    if Attacker.IsWeapon and fighting.IsTrainingWeapon(Attacker.WeaponItem.id) and character.AtBrinkOfDeath(Defender.Char) and Defender.Char:getType() == Character.player then
         return --in pvp a training weapon will realistically never be used to kill, only to spar, so this prevents accidental sparring deaths as it is lame to punish players for being a little inattentive to their health bars during something like that
     end
 
@@ -612,7 +612,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
     if Attacker.Char:isNewPlayer() then
         degradeChance = degradeChance * 2
     end
-    if (common.Chance(1, degradeChance)) and (Attacker.WeaponItem.id ~= 0) and character.IsPlayer(Attacker.Char)
+    if Attacker.IsWeapon and (common.Chance(1, degradeChance)) and (Attacker.WeaponItem.id ~= 0) and character.IsPlayer(Attacker.Char)
             and commonAttackerWeapon.MaxStack == 1 then
         local durability = math.fmod(Attacker.WeaponItem.quality, 100)
         local quality = (Attacker.WeaponItem.quality - durability) / 100
@@ -708,11 +708,11 @@ function CalculateDamage(Attacker, Globals, defenderChar)
 
     local messupmalus = 5 -- Amount that damage value is divided by if your skill isn't high enough to use this weapon.
 
-    if character.IsPlayer(Attacker.Char) and world:getItemStatsFromId(Attacker.WeaponItem.id).Level>Attacker.skill then
+    if Attacker.IsWeapon and character.IsPlayer(Attacker.Char) and world:getItemStatsFromId(Attacker.WeaponItem.id).Level>Attacker.skill then
         BaseDamage = BaseDamage/messupmalus
     end
 
-    if character.IsPlayer(Attacker.Char) and common.isBroken(Attacker.WeaponItem) then
+    if Attacker.IsWeapon and character.IsPlayer(Attacker.Char) and common.isBroken(Attacker.WeaponItem) then
         BaseDamage = 0
     end
 
@@ -725,7 +725,7 @@ function CalculateDamage(Attacker, Globals, defenderChar)
 
     weaponQuality = math.floor(weaponQuality/100)
 
-    if fighting.IsTrainingWeapon(Attacker.WeaponItem.id) and isValidChar(defenderChar) and defenderChar:getType() == Character.player then
+    if Attacker.IsWeapon and fighting.IsTrainingWeapon(Attacker.WeaponItem.id) and isValidChar(defenderChar) and defenderChar:getType() == Character.player then
         weaponQuality = 9 - weaponQuality --Damage from training weapons reversed so that you actually want quality there, only against players
     end
 
@@ -1235,6 +1235,11 @@ function gemBonusEffect(Attacker, Defender, Globals)
 
     local GemBonusAttacker = gems.getGemBonus(Attacker.WeaponItem)/fightingGemBonusDivisionValue
     GemBonusAttacker = modifyGemEffect(Attacker, GemBonusAttacker)
+
+    if not Attacker.IsWeapon then
+        GemBonusAttacker = 0
+    end
+
     local GemBonusDefender = gems.getGemBonus(chestPiece)/fightingGemBonusDivisionValue
     GemBonusDefender = modifyGemEffect(Attacker, GemBonusDefender)
 
@@ -1258,7 +1263,7 @@ function CoupDeGrace(Attacker, Defender)
         return false
     end
 
-    if fighting.IsTrainingWeapon(Attacker.WeaponItem.id) then
+    if Attacker.IsWeapon and fighting.IsTrainingWeapon(Attacker.WeaponItem.id) then
         -- not done for training weapons
         return false
     end
