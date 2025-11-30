@@ -22,7 +22,7 @@ local common = require("base.common")
 local doors = require("base.doors")
 local factions = require("base.factions")
 local lookat = require("base.lookat")
-local money = require("base.money")
+local ronaganDungeon = require("content.ronaganDungeon")
 local housingUtility = require("housing.utility")
 
 
@@ -152,27 +152,21 @@ local function getStair(user)
     return nil
 end
 
-function M.UseItem(user, SourceItem)
+function M.UseItem(user, sourceItem)
 
-    if SourceItem:getData("townKeyOf") ~= "" then
+    if sourceItem:getData("townKeyOf") ~= "" then
         -- sentence char to forced labour
-        SentenceCharacter(user,SourceItem)
+        SentenceCharacter(user, sourceItem)
         return
     end
 
-    local isRonaganTrap = (SourceItem:getData("ronaganTrap") == "true")
-    if (isRonaganTrap == true) then
-        user:inform("Ein Dieb hat dich in eine Falle gelockt. Er springt aus einem der Schatten und stielt dir ein paar Münzen.", "A thief has lured you into a trap, jumping out from a shadow, he steals some coins from you.")
-
-        -- steal 1% - 5% of characters money in inventroy
-        local wealth = money.CharCoinsToMoney(user)
-        money.TakeMoneyFromChar(user, math.random(math.floor(wealth / 100), math.floor(wealth / 20)))
+    if ronaganDungeon.ronaganTrap(user, sourceItem) then
         return
-   end
+    end
 
     local frontItem = common.GetFrontItem(user)
     if frontItem ~= nil and frontItem.id == 2830 then
-        if not frontItem:getData("treasureLockId") == SourceItem:getData("treasureLockId") then
+        if not frontItem:getData("treasureLockId") == sourceItem:getData("treasureLockId") then
             common.InformNLS(user, "Der Schlüssel passt hier nicht.","The key doesn't fit here.")
             return
         else
@@ -202,7 +196,7 @@ function M.UseItem(user, SourceItem)
         common.TurnTo(user, stairItem.pos)
     end
 
-    if doorItem and not stairIsFrontItem and keys.CheckKey(SourceItem, doorItem, user) then
+    if doorItem and not stairIsFrontItem and keys.CheckKey(sourceItem, doorItem, user) then
 
         if keys.LockDoor(doorItem, user) then
             common.InformNLS(user,"Du sperrst die Tür ab.","You lock the door.")
@@ -210,7 +204,7 @@ function M.UseItem(user, SourceItem)
             common.InformNLS(user,"Du sperrst die Tür auf.","You unlock the door.")
         end
 
-    elseif stairItem and keys.CheckKey(SourceItem, stairItem, user) then
+    elseif stairItem and keys.CheckKey(sourceItem, stairItem, user) then
 
         if keys.UnlockStairs(stairItem, user) then
             common.InformNLS(user, "Nun kann man die Treppe wieder benutzen, da die Falltür weiter oben geöffnet ist.", "You make it possible to climb the stair again by unlocking the trap door above.")
