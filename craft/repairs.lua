@@ -370,6 +370,8 @@ local function getRepairAmount(user, theItem, staticTool, repairCount, theRepair
     local itemCommon = world:getItemStatsFromId(theItem.id)
     local possibleRepairs = getPossibleRepairs(theItem, theRepairKit)
     local maxRepairs = maxRepairsInField
+    local skillName = getSkillName(theRepairKit.id)
+    local hasRequiredSkill = checkSkillLevel(user, skillName, theRepairKit)
 
     if staticTool then
         maxRepairs = maxRepairsAtStaticTool
@@ -392,7 +394,6 @@ local function getRepairAmount(user, theItem, staticTool, repairCount, theRepair
         durabilityReduction = math.ceil(durabilityReduction/staticToolCountMultiplier)
     end
 
-
     local maxDurability = 99 - (durabilityReduction)
 
     local durabilityIncreasedBy = maxDurability-durability
@@ -406,6 +407,11 @@ local function getRepairAmount(user, theItem, staticTool, repairCount, theRepair
     end
 
     local increasedCount = durabilityIncreasedBy
+
+    if maxDurability == 98 and durability == 98 and staticTool and hasRequiredSkill then --It would get stuck here at times.
+        maxDurability = 99
+        increasedCount = 1
+    end
 
     if maxDurability <= durability then
         local germanText = itemCommon.German.." wurde zu oft außerhalb einer Werkstatt repariert und kann nicht weiter instand gesetzt werden."
