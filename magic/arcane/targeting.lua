@@ -210,10 +210,12 @@ local function addDunTargets(user, targetsPositions, spell)
     local RA = runes.checkSpellForRuneByName("RA", spell)
     local CUN = runes.checkSpellForRuneByName("CUN", spell)
     local SUL = runes.checkSpellForRuneByName("SUL", spell)
+    local LEV = runes.checkSpellForRuneByName("LEV", spell)
+    local PEN = runes.checkSpellForRuneByName("PEN", spell)
     local targetPosition = targetsPositions.thePosition
 
     if user then
-        if M[user.id.."LevDunPos"] then
+        if M[user.id.."LevDunPos"] and LEV and PEN then
             targetPosition = M[user.id.."LevDunPos"]
         end
         if M[user.id.."FhenPos"] then
