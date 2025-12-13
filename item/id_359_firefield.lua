@@ -20,6 +20,7 @@ local common = require("base.common")
 local character = require("base.character")
 local magicResistance = require("magic.arcane.magicResistance")
 local icefield = require("lte.damagefield_icefield")
+local poisonfield = require("item.id_372_poisonfield")
 
 local M = {}
 
@@ -63,6 +64,11 @@ golems[563]=true --Merinium Golem/Fighter/Plate/Blunt
 golems[564]=true --Gold Golem/Fighter/Plate/Blunt
 
 function M.CharacterOnField(User)
+
+    if poisonfield.GMexclusion(User) then
+        return
+    end
+
 
     -- dont harm dead chars anymore
     if (User:increaseAttrib("hitpoints", 0) == 0) then

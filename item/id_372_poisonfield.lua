@@ -54,7 +54,28 @@ local function DeleteFlame(user, flameItem)
 
 end
 
+function M.GMexclusion(user) -- For the purpose of both avoiding accidental deletion of traps with GM chara and easy clean up
+
+    local questStatus = user:getQuestProgress(247)
+
+    if user:isAdmin() and questStatus == 0 then
+        return true
+    end
+
+    if not user:isAdmin() and questStatus == 1 then -- if for some reason a non admin should be immune to traps
+        return true
+    end
+
+
+    return false
+
+end
+
 function M.CharacterOnField(user)
+
+    if M.GMexclusion(user) then
+        return
+    end
 
     local items = common.GetItemsOnField(user.pos)
     local fieldItem

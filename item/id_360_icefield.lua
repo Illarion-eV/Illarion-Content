@@ -20,6 +20,7 @@ local common = require("base.common")
 local character = require("base.character")
 local magicResistance = require("magic.arcane.magicResistance")
 local icefield = require("lte.damagefield_icefield")
+local poisonfield = require("item.id_372_poisonfield")
 
 local M = {}
 
@@ -51,6 +52,10 @@ local function DeleteFlame(User, FlameItem)
 end
 
 function M.CharacterOnField(User)
+
+    if poisonfield.GMexclusion(User) then
+        return
+    end
 
     -- dont harm dead chars anymore
     if (User:increaseAttrib("hitpoints", 0) == 0) then

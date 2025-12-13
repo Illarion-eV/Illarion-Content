@@ -2012,6 +2012,31 @@ local function immunities(user, chosenPlayer)
             settingsForCharIceFlameProof(user, chosenPlayer)
         elseif index == 5 then
             settingsForCharPoisonCloudProof(user, chosenPlayer)
+        elseif index == 6 then
+            local off = false
+            if chosenPlayer:getQuestProgress(247) == 1 then
+                chosenPlayer:setQuestProgress(247, 0)
+                off = true
+            else
+                chosenPlayer:setQuestProgress(247, 1)
+            end
+
+            if chosenPlayer:isAdmin() then
+                if off then
+                    off = false
+                else
+                    off = true
+                end
+            end
+
+            if off then
+                user:inform("Trap immunity toggled off.")
+                chosenPlayer:inform("Du bist nicht länger immun gegen Eis-, Flammen- und Giftwolken.", "You are no longer immune to ice, flame and poison clouds.")
+            else
+                user:inform("Trap immunity toggled on.")
+                chosenPlayer:inform("Du bist wieder immun gegen Eis-, Flammen- und Giftwolken.", "You are now immune to ice, flame and poison clouds.")
+            end
+
         end
     end
 
@@ -2042,6 +2067,8 @@ local function immunities(user, chosenPlayer)
     else
         dialog:addOption(164,"Remove poison cloud proof!")
     end
+
+    dialog:addOption(374, "Toggle trap immunity")
 
     user:requestSelectionDialog(dialog)
 end
