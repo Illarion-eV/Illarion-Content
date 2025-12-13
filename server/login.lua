@@ -370,6 +370,9 @@ function M.onLogin( player )
             local timeStmp = year * 1000 + month
 
             local taxText, notEnoughRP, bonus = payTaxes(player, timeStmp)
+            if not bonus then
+                bonus = 0
+            end
             local gemText = receiveGems(player, bonus, notEnoughRP, timeStmp)
             if gemText ~= nil or taxText ~= nil then
                 informPlayeraboutTaxandGems(player, gemText, taxText)
