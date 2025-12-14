@@ -40,6 +40,20 @@ local foodRarityTexts = {
         english = "A dish made by such refined culinary arts, you might even say it's unique. Not only more filling than its lesser counterparts, but also very beneficial to both the longevity and strength of the boons of your good diet.",
         german = "Eine kulinarisches Köstlichkeit, die ihres Gleichen sucht. Äußerst wohlbekömmlich und eine wahre Wohltat für die Länge und Auswirkung deiner guten Ernährung."}}}
 
+local ingredientRarityTexts = {
+    {english = "uncommon", german = "außergewöhnlich gut", identifier = 2,
+    foodDescription = {
+        english = "Uncommonly tasty, sure to make for even better tasting meals if used in cooking.",
+        german = "Ungewöhnlich schmackhaft, und bei der Verwendung zum Kochen sorgt es mit Sicherheit für noch besser schmeckende Gerichte."}},
+    {english = "rare", german = "exzellent", identifier = 3,
+    foodDescription = {
+        english = "Rarely pristine and sure to be tasty, any meal using this will certainly be elevated.",
+        german = "Selten makellos und garantiert schmackhaft - jedes Gericht, in dem dies verwendet wird, wird ganz sicher aufgewertet."}},
+    {english = "unique", german = "einzigartig gut", identifier = 4,
+    foodDescription = {
+        english = "Uniquely pristine and tasty, sure to make any meal it is used for taste all the better.",
+        german = "Einzigartig makellos und schmackhaft - garantiert wird jedes Gericht, in dem es verwendet wird, dadurch noch besser schmecken."}}}
+
 
 M.foodList = {}
 
@@ -521,6 +535,13 @@ function M.LookAtItem(user, food)
 
     for _, description in pairs(foodRarityTexts) do
         if rarity == description.identifier and M.foodList[food.id].crafted then
+            descriptionEn = description.foodDescription.english
+            descriptionDe = description.foodDescription.german
+        end
+    end
+
+    for _, description in pairs(ingredientRarityTexts) do
+        if rarity == description.identifier and not M.foodList[food.id].crafted then
             descriptionEn = description.foodDescription.english
             descriptionDe = description.foodDescription.german
         end
