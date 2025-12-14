@@ -22,42 +22,47 @@ local M = {}
 
 M.telepathyTexts = {
     failure = {english = "You decided against responding to the telepathic connection.", german = "Du hast dich gegen eine telephatische Verbindung entschieden."},
-    success = {english = "You hear the voice of your telepathic partner in your mind: ", german = "Du hörst die Stimme der Person mit der du eine telephatische Verbindung eingegangen bist: "},
-    request = {english = "What do you want to tell your telepathic partner?", german = "Was willst du deinem Telepathiepartner sagen?"},
+    request = {english = "What do you want to tell your telepathic partner? This message will be broadcast to them and anyone near them via magical spirit waves.", german = "Was möchtest du deinem telepathischen Partner mitteilen? Diese Nachricht wird über magische Geisterwellen an ihn und alle in seiner Nähe gesendet."},
     established = {english = "You feel a telepathic connection establish between you and someone else.", german = "Du spürst wie sich eine telephatische Verbindung zwischen dir und jemand anderem aufbaut."}
     }
 
 local getInputFromAndSendTo
 
 function getInputFromAndSendTo(user, target)
+
     local callback = function(dialog)
         if not dialog:getSuccess() then
             user:inform(M.telepathyTexts.failure.german, M.telepathyTexts.failure.english)
         else
+            local players = world:getPlayersInRangeOf(target.pos, 5)
             local input = dialog:getInput()
-            target:inform(M.telepathyTexts.success.german..input,M.telepathyTexts.success.english..input)
-            logPlayer(user.name.." sent a telepathy message to "..target.name.." containing the following: "..input)
-            getInputFromAndSendTo(user, target)
-            -- Telepathy happens via message dialogs, so in order to leave a paper trail of what players are saying in game as with regular speech, we log it
+            local nameList = ""
+
+            for _, player in pairs(players) do
+                player:inform("Spirituelle magische Wellen erklingen durch die Luft und lassen dich die folgende Nachricht hören: "..input, "Spiritual magical waves resound through the air, allowing you to hear the following message: "..input)
+                nameList = nameList..", "..player.name
+            end
+            logPlayer(user.name.." sent a telepathy message to "..nameList.." containing the following: "..input)
+            -- Telepathy happens via informs, so in order to leave a paper trail of what players are saying in game as with regular speech, we log it
         end
     end
 
-    local dialog = InputDialog(common.GetNLS(user, M.telepathyTexts.request.german, M.telepathyTexts.request.english),"", false, 255, callback)
+    local dialog = InputDialog(common.GetNLS(user, "Telepathi", "Telepathy"),common.GetNLS(user, M.telepathyTexts.request.german, M.telepathyTexts.request.english), false, 255, callback)
     user:requestInputDialog(dialog)
 end
 
 function M.invoke(user, targets, spell)
+
     for _, target in pairs(targets.targets) do
-        if target:getType() ~= Character.player then
-            return
-        end
-        if runes.checkSpellForRuneByName("KEL", spell) or runes.checkSpellForRuneByName("TAH", spell) then
+        local isPlayer = target:getType() == Character.player
+
+        if isPlayer and runes.checkSpellForRuneByName("KEL", spell) or runes.checkSpellForRuneByName("TAH", spell) then
             target:inform(M.telepathyTexts.established.german, M.telepathyTexts.established.english)
         end
-        if runes.checkSpellForRuneByName("KEL", spell) then
+        if isPlayer and runes.checkSpellForRuneByName("KEL", spell) then
             getInputFromAndSendTo(user, target)
         end
-        if runes.checkSpellForRuneByName("TAH", spell) then
+        if isPlayer and runes.checkSpellForRuneByName("TAH", spell) then
             getInputFromAndSendTo(target, user)
         end
     end
