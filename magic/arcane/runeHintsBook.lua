@@ -289,8 +289,8 @@ M.runeHintsBookTexts = {
         location = position(937, 391, -3)},
     TAH = {rune = "TAH",
         hint = {
-            english = "Steal from the rich, give to the poor... as long as the poor are they themselves.",
-            german = "Ich stehle von den Reichen und gebe den Armen...bin doch ich der Ärmste."},
+            english = "Steal from the rich, give to the poor... arrguably as long as the poor are they themselves, that is.",
+            german = "Stehle von den Reichen, gib den Arrmen? na ja, zumindest solange die Arrmen noch sie selbst sind."},
         name = {
             english = "Mysterious Sphere",
             german = "Mysteriöse Sphäre"},

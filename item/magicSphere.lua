@@ -70,8 +70,8 @@ local puzzles = {
         german = "Wenn es mein Wissen ist das du suchst, dann stelle dich mir während du eine Waffe schwingst, die viele als unehrenhaft verachten würden. Nur ein langsamer, qualvoller Tod kann meine Begierde stillen."
     },
     tahPuzzle = {
-        english = "What word is always pronounced wrong? Though before you answer this riddle, bear in mind that sometimes things are the opposite of what they might seem.",
-        german = "Welches Wort wird immer falsch ausgesprochen? Bevor du dieses Rätsel beantwortest, solltest du bedenken, dass die Dinge manchmal das Gegenteil von dem sind, was sie zu sein scheinen."
+        english = "I face my twin yet stand apart, I guide the hand and guard the heart. I am not wrong, though not alone. What am I?",
+        german = "Ich stehe meinem Zwilling gegenüber und doch allein, Ich leite die Hand und schütze das Herz. Ich bin nicht falsch, obwohl ich nicht allein bin. Was bin ich?"
     },
     sulPuzzle = {
         english = "Look at you! Only skin and bones, no meat! You know those of the family Epphurd buried in these tombs were not buried with just their heavy possessions, but their heavy bodies too! Go put on some weight, one way or the other!",
