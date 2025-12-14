@@ -594,6 +594,21 @@ local function getTimeLimit(user, spell)
 
 end
 
+local function getStoredTarget(user, id)
+
+    local playerList = world:getPlayersOnline()
+
+    for _, player in pairs(playerList) do
+        if player.id == id then
+            return player
+        end
+    end
+
+    user:inform("Die spirituellen Wellen des Ziels können nicht erreicht werden. Vielleicht ist es über die Grenzen Illarions hinausgereist oder schläft einfach.", "The targets spiritual waves can not be reached. Perhaps they have travelled beyond the borders of Illarion, or are simply asleep.")
+
+    return false
+end
+
 local function getPosition(user, spell, positionsAndTargets, delayed, trap)
 
     local element = runes.fetchElement(spell)
@@ -693,35 +708,50 @@ local function getPosition(user, spell, positionsAndTargets, delayed, trap)
     end
 
     if PEN and LEV then
-        local timeLimit = getTimeLimit(user, spell)
-        local currentTime = world:getTime("unix")
-        local id = user.id
-        local heptPosition = M.playerTargets["HEPT"..id]
-        local heptTime = M.playerTargets["HEPT"..id.."time"]
 
-        if heptTime then
-            if currentTime-heptTime > timeLimit then
-                user:inform("Du bemerkst, dass es zu lange her ist, das du das letzte Mal einen Zauberspruch mit HEPT genutzt hast, denn du spürst wie das Mana aus deinem Körper fließt und kein Ziel findet.", "You realise it's been too long since you last cast this spell with HEPT, as you feel the mana draining from your body finds no target.")
-                    -- targeting.lua
-            elseif heptPosition then
+        if _G.storedPenLevTargets[user.id] then
+            setPos = false
+            local storedTarget = getStoredTarget(user, _G.storedPenLevTargets[user.id])
 
-                if heptPosition.pos then
-                    heptPosition = heptPosition.pos
-                end
+            if storedTarget then
+                positionsAndTargets.targets[#positionsAndTargets.targets+1] = storedTarget
+                M[user.id.."LevDunPos"] = storedTarget.pos
+            else
+                _G.storedPenLevTargets[user.id] = nil
+                return
+            end
+        else
 
-                setPos = false
-                local targetExists = world:isCharacterOnField(heptPosition)
-                local setLevPos = true
-                M[id.."LevDunPos"] = heptPosition
-                if targetExists then
-                    local LevTarget = world:getCharacterOnField(heptPosition)
-                    if LevTarget:getType() == Character.player or LevTarget:getType() == Character.monster then
-                        positionsAndTargets.targets[#positionsAndTargets.targets+1] = LevTarget
-                        setLevPos = false
+
+            local timeLimit = getTimeLimit(user, spell)
+            local currentTime = world:getTime("unix")
+            local id = user.id
+            local heptPosition = M.playerTargets["HEPT"..id]
+            local heptTime = M.playerTargets["HEPT"..id.."time"]
+
+            if heptTime then
+                if currentTime-heptTime > timeLimit then
+                    user:inform("Du bemerkst, dass es zu lange her ist, das du das letzte Mal einen Zauberspruch mit HEPT genutzt hast, denn du spürst wie das Mana aus deinem Körper fließt und kein Ziel findet.", "You realise it's been too long since you last cast this spell with HEPT, as you feel the mana draining from your body finds no target.")
+                elseif heptPosition then
+
+                    if heptPosition.pos then
+                        heptPosition = heptPosition.pos
                     end
-                end
-                if setLevPos then
-                    positionsAndTargets.positions[#positionsAndTargets.positions+1] = heptPosition
+
+                    setPos = false
+                    local targetExists = world:isCharacterOnField(heptPosition)
+                    local setLevPos = true
+                    M[id.."LevDunPos"] = heptPosition
+                    if targetExists then
+                        local LevTarget = world:getCharacterOnField(heptPosition)
+                        if LevTarget:getType() == Character.player or LevTarget:getType() == Character.monster then
+                            positionsAndTargets.targets[#positionsAndTargets.targets+1] = LevTarget
+                            setLevPos = false
+                        end
+                    end
+                    if setLevPos then
+                        positionsAndTargets.positions[#positionsAndTargets.positions+1] = heptPosition
+                    end
                 end
             end
         end

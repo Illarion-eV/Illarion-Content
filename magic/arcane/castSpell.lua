@@ -29,6 +29,7 @@ local common = require("base.common")
 local magic = require("base.magic")
 local testing = require("base.testing")
 local shared = require("craft.base.shared")
+local effectScaling = require("magic.arcane.effectScaling")
 
 local M = {}
 
@@ -174,6 +175,156 @@ local function interrupted(player)
     return false
 end
 
+local function overWriteSlot(user, savedTargets, index, newTarget, slotLimit)
+
+    local callback = function(dialog)
+
+        if not dialog:getSuccess() then
+            return
+        end
+
+        local input = dialog:getInput()
+
+        if not common.IsNilOrEmpty(input) then
+            local newString = ""
+
+            for i = 1, slotLimit do
+                if i ~= 1 then
+                    newString = newString..","
+                end
+
+                for ti, target in ipairs(savedTargets) do
+                    if ti ~= index and ti == i then
+                        newString = newString..target.name..","..target.id
+                    end
+                end
+
+                if i == index then
+                    newString = newString..input..","..newTarget.id
+                end
+            end
+
+            ScriptVars:set("heptTargets"..tostring(user.id), newString)
+            ScriptVars:save()
+        end
+    end
+
+    local dialog = InputDialog(common.GetNLS(user, "Ziel benennen", "Name Target"), common.GetNLS(user, "Gib den Namen ein, den der Slot für das aktuelle Ziel haben soll.", "Write in what name you want the slot for the current target to have."), false, 255, callback)
+
+    user:requestInputDialog(dialog)
+
+end
+
+local function getTargets(user)
+
+    local savedTargetsFound, savedTargets = ScriptVars:find("heptTargets"..tostring(user.id))
+
+    local retTable = {}
+
+    if not savedTargetsFound then
+        return retTable
+    end
+
+    local parts = {}
+
+    for part in string.gmatch(savedTargets, "([^,]+)") do
+        table.insert(parts, part)
+    end
+
+    for i = 1, #parts, 2 do
+        local name = parts[i]
+        local id = tonumber(parts[i + 1])
+        if name and id then
+            table.insert(retTable, { name = name, id = id })
+        end
+    end
+
+    return retTable
+end
+
+M.getTargets = getTargets
+
+local function getSlotLimit(user, spell)
+
+    local baseSlot = 1
+
+    local scaling = effectScaling.getEffectScaling(user, nil, spell)/2
+
+    local level = user:getSkill(Character["spiritMagic"])
+
+    local levelBonus = math.floor(level/25) --max 4 bonus slots from level
+
+    local slots = baseSlot + levelBonus
+
+    slots = math.min(10, slots*scaling) --At most 10 slots
+
+    slots = math.max(baseSlot, slots) --In case of terrible scaling, at least 1 slot always
+
+    return slots
+
+end
+
+M.getSlotLimit = getSlotLimit
+
+local function storeHeptTaurTarget(user, spell, positionsAndTargets)
+
+    local PEN = runes.checkSpellForRuneByName("PEN", spell)
+    local HEPT = runes.checkSpellForRuneByName("HEPT", spell)
+    local TAUR = runes.checkSpellForRuneByName("TAUR", spell)
+
+    if PEN and HEPT then
+        if not _G.storedPenLevTargets then
+            _G.storedPenLevTargets = {}
+        end
+        _G.storedPenLevTargets[user.id] = nil
+    end
+
+    local newTarget = positionsAndTargets.targets[1]
+
+    if not newTarget or not isValidChar(newTarget) or newTarget:getType() ~= Character.player then
+        return
+    end
+
+    if not (PEN and HEPT and TAUR) then
+        return
+    end
+
+    local savedTargets = getTargets(user) --The list of any targets already saved
+
+    local slotLimit = getSlotLimit(user, spell)
+
+    local callback = function(dialog)
+
+        local success = dialog:getSuccess()
+
+        if not success then
+            return
+        end
+
+        local index = dialog:getSelectedIndex()+1
+
+        if index <= slotLimit then
+            overWriteSlot(user, savedTargets, index, newTarget, slotLimit)
+        end
+    end
+
+    local dialog = SelectionDialog(common.GetNLS(user,"Gespeicherte Ziele","Stored Targets") , common.GetNLS(user,"Wähle einen Slot zum Überschreiben aus, um dein aktuelles Ziel für die zukünftige Verwendung von PEN-LEV-Magie zu speichern. Die gespeicherte Liste kann über dein Grimoire aufgerufen werden.","Select a slot to overwrite to store your current target in for future PEN LEV magic use. The stored list can be accessed via your grimoire.") , callback)
+
+    for index, target in ipairs(savedTargets) do
+        if index <= slotLimit then
+            dialog:addOption(0, target.name)
+        end
+    end
+
+    if #savedTargets < slotLimit then
+        for i = 1,  slotLimit-#savedTargets do
+            dialog:addOption(0, common.GetNLS(user, "Leerer Platz", "Empty Slot"))
+        end
+    end
+
+    user:requestSelectionDialog(dialog)
+
+end
 
 function M.castSpell(user, spell, actionState, oralCast)
 
@@ -297,6 +448,7 @@ function M.castSpell(user, spell, actionState, oralCast)
             local castDuration = M[user.id].storedDuration
             skilling.increaseExperience(user, spell, castDuration, M[user.id].positionsAndTargets)
             castTime.resetTan(user)
+            storeHeptTaurTarget(user, spell, M[user.id].positionsAndTargets)
             if JUS and ORL then
                 diminishingReturns.applyOrl(user, M[user.id].thePosition, spell, level)
             end
@@ -311,6 +463,11 @@ function M.castSpell(user, spell, actionState, oralCast)
             if wand then
                 shared.toolBreaks(user, wand, castDuration)
             end
+
+            if not _G.storedPenLevTargets then
+                _G.storedPenLevTargets = {}
+            end
+            _G.storedPenLevTargets[user.id] = nil
 
             if user.attackmode and runes.isSpellAutoCast(spell, wand) and checksPassed(user, spell, element, M[user.id].thePosition) then
                 -- To mimic wand magic so that the fire magic replacement does not feel like a downgrade, we allow auto casting of some spells
