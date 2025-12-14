@@ -50,7 +50,7 @@ local function puzzleTriggers(player, text)
         end
     end
 
-    local right = {"Right", "right", "Richtig", "richtig"}
+    local right = {"Right", "right", "Rechts", "rechts"}
 
     for _, variation in pairs(right) do
         if string.find(text, variation) then
