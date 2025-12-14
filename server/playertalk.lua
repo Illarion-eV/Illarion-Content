@@ -69,6 +69,15 @@ local function puzzleTriggers(player, text)
         end
     end
 
+    local hoard = {"hoard", "Hoard", "hort", "Hort"}
+    for _, variation in pairs(hoard) do
+        if string.find(text, variation) then
+            if magicSphere.checkKelPosition(player) then
+                correctAnswerInform(player)
+            end
+        end
+    end
+
 end
 
 

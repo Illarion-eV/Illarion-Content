@@ -15,18 +15,9 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
-local magicSphere = require("item.magicSphere")
-
-local texts = magicSphere.puzzles
-
 local M = {}
 
 function M.UseItem(user, sourceItem, actionState)
-
-    if sourceItem.pos == position(708, 625, -6) then
-        user:inform(texts.kelPuzzle.feather.german..texts.kelPuzzle.suffix.german, texts.kelPuzzle.feather.english..texts.kelPuzzle.suffix.english)
-        user:setQuestProgress(242, 0)
-    end
 
 end
 

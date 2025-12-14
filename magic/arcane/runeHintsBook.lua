@@ -176,7 +176,7 @@ M.runeHintsBookTexts = {
         description = {
             english = "As you peer into the sphere you see a feather, though before you can determine what kind of feather it is, you witness it change into a dragon wing.",
             german = "Als du in die Sphäre blickst, siehst du eine Feder. Doch bevor du feststellen kannst, um was für eine Feder es sich handelt, wirst du Zeuge, wie sie sich in einen Drachenflügel verwandelt"},
-        location = position(711,619,-6)},
+        location = position(691,649,-3)},
     LEV = {rune = "LEV",
         hint = {
             english = "Once a glorious combat academy, now left in ruins. Oh the changes of time.",

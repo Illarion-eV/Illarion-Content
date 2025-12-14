@@ -16,18 +16,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE items SET itm_script='item.id_738_dragonegg' WHERE itm_id IN (738);
 
-local magicSphere = require("item.magicSphere")
-
-local texts = magicSphere.puzzles
-
 local M = {}
 
 function M.UseItem(user, sourceItem, actionState)
-
-    if sourceItem.pos == position(697, 627, -6) then
-        user:inform(texts.kelPuzzle.air.german..texts.kelPuzzle.suffix.german, texts.kelPuzzle.air.english..texts.kelPuzzle.suffix.english)
-        user:setQuestProgress(242, 0)
-    end
 
 end
 

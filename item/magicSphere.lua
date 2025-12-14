@@ -248,24 +248,8 @@ local puzzles = {
         german = "Zum Frühstück will ich Eiersalatsandwich! \n Zum Mittagessen will ich ein Wildgericht mit Beilage! \n Zum Abendessen...Pilzsuppe! "
     },
     kelPuzzle = {
-        english = "Together, we can fly up high and soar the skies. However, it is not possible in my current state. Find me, and you shall have the knowledge you seek.",
-        german = "Gemeinsam können wir hoch fliegen und die Lüfte erklimmen. Doch in meinem derzeitigen Zustand ist das nicht möglich. Finde mich und du wirst das Wissen bekommen das du suchst.",
-        egg = {
-            english = "A dragon egg. Could this be the answer?",
-            german = "Ein Drachenei. Könnte das die Antwort sein?"
-        },
-        feather = {
-            english = "A feather... of the chicken variety. Surely it can't be this, right?",
-            german = "Eine Feder....von einem Hähnchen. Also das kann es nicht sein, oder?"
-        },
-        air = {
-            english = "A swirling mass of pure air. You could probably fly with this?",
-            german = "Eine wirbelnde Masse reiner Luft. Damit könntest du wahrscheinlich davonfliegen?"
-        },
-        suffix = {
-            english = "\nIf you believe this to be the answer, go back to the sphere and find out.",
-            german = "\nWenn du glaubst, dass das die Antwort ist, geh zurück zur Kugel und finde es heraus."
-        },
+        english = "I am a crown no king can wear, I sit on gold beyond compare. What am I?",
+        german = "Ich bin eine Krone, die kein König trägt, Ich sitze auf Gold, das man kaum bewegt. Was bin ich?",
     },
     mesPuzzle = {
         english = "You call this a lighthouse? Lights! We need more lights! Go get the oil, now!",
@@ -310,6 +294,34 @@ local function getSphere(thePos)
     debug("should never get here")
 
 end
+
+function M.checkKelPosition(user)
+
+    local KelPosition = position(691, 649, -3)
+
+    local distance = 10
+
+    local biggerX =  user.pos.x > KelPosition.x + distance
+    local smallerX = user.pos.x < KelPosition.x - distance
+    local biggerY =  user.pos.y > KelPosition.y + distance
+    local smallerY = user.pos.y < KelPosition.y - distance
+
+    if user.pos.z ~= KelPosition.z then
+        return false
+    end
+
+    if biggerX or smallerX or biggerY or smallerY then
+        return false
+    end
+
+    local sphere =  getSphere(KelPosition)
+
+    lightSphere(user, sphere, true)
+
+    return true
+
+end
+
 
 function M.checkTaurPosition(user)
 

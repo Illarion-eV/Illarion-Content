@@ -78,7 +78,7 @@ local function magicInfo(user, sourceItem)
         return true
     end
 
-    if sourceItem.pos == position(709, 617, -6) then
+    if sourceItem.pos == position(693, 654, -3) then
         magicSphere.kelInfo(user)
         return true
     end
