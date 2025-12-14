@@ -670,16 +670,28 @@ local function getPosition(user, spell, positionsAndTargets, delayed, trap)
         end
     end
 
-    if ((TAH or LEV) and (RA or CUN )) or (LEV and JUS) then
-        local target = getWeakestNearTarget(user, rangeNum, M.playerTargets[user.id], spell, positionsAndTargets.targets)
+    local amount = 0
 
-        if target then
-            if target:getType() == Character.player or target:getType() == Character.monster then
-                if not dodgable then
-                    positionsAndTargets.targets[#positionsAndTargets.targets+1] = target
-                    setPos = false
-                else
-                    positionsAndTargets.positions[#positionsAndTargets.positions+1] = target.pos
+    if (RA or CUN) and TAH then
+        amount = amount + 1
+    end
+
+    if (RA or CUN or JUS) and LEV then
+        amount = amount + 1
+    end
+
+    if amount >= 1 then
+        for i = 1, amount do
+            local target = getWeakestNearTarget(user, rangeNum, M.playerTargets[user.id], spell, positionsAndTargets.targets)
+
+            if target then
+                if target:getType() == Character.player or target:getType() == Character.monster then
+                    if not dodgable then
+                        positionsAndTargets.targets[#positionsAndTargets.targets+1] = target
+                        setPos = false
+                    else
+                        positionsAndTargets.positions[#positionsAndTargets.positions+1] = target.pos
+                    end
                 end
             end
         end
