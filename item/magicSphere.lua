@@ -249,7 +249,7 @@ local puzzles = {
     },
     kelPuzzle = {
         english = "I am a crown no king can wear, I sit on gold beyond compare. What am I?",
-        german = "Ich bin eine Krone, die kein König trägt, Ich sitze auf Gold, das man kaum bewegt. Was bin ich?",
+        german = "Ich kröne keinen König und sitze auf Gold und wer mich findet ist reicher als einer. Was bin ich?",
     },
     mesPuzzle = {
         english = "You call this a lighthouse? Lights! We need more lights! Go get the oil, now!",
