@@ -198,7 +198,7 @@ local function finalizeParchment(user, parchmentItem) --if you already signed it
         end
     end
 
-    local dialog = SelectionDialog(getText(user,"Schreibfeder","Quill") , getText(user,"Möchtest du das Pergament abschließen, damit niemand mehr seine Unterschrift hinzufügen kann?","Do you want to finalize the parchment so that no one can add their signature anymore?") , callback)
+    local dialog = SelectionDialog(getText(user,"Schreibfeder","Quill") , getText(user,"Möchtest du das Pergament abschließen, damit niemand mehr seine Unterschrift hinzufügen kann?","Do you want to finalise the parchment so that no one can add their signature anymore?") , callback)
 
     dialog:addOption(0, getText(user, "Ja", "Yes"))
     dialog:addOption(0, getText(user, "Nein", "No"))
@@ -359,10 +359,10 @@ local function SignParchment(user,sourceItem)
         end
     end
 
-    local dialog = SelectionDialog(common.GetNLS(user, "Pergament unterschreiben","Sign a parchment"), common.GetNLS(user, "Hier hast du die Wahl, ob du das Pergament abschließen möchtest. Wenn du es nicht abschließt, können andere weiterhin ihre Unterschriften hinzufügen, bis es jemand tut.","Here you have the choice of whether to finalize the parchment. If you do not finalize it, others can still add their signatures until someone does."), callback)
+    local dialog = SelectionDialog(common.GetNLS(user, "Pergament unterschreiben","Sign a parchment"), common.GetNLS(user, "Hier hast du die Wahl, ob du das Pergament abschließen möchtest. Wenn du es nicht abschließt, können andere weiterhin ihre Unterschriften hinzufügen, bis es jemand tut.","Here you have the choice of whether to finalise the parchment. If you do not finalise it, others can still add their signatures until someone does."), callback)
 
-    dialog:addOption(0, common.GetNLS(user, "Unterschreiben und abschließen", "Sign and finalize"))
-    dialog:addOption(0, common.GetNLS(user, "Unterschreiben, ohne abzuschließen", "Sign without finalizing"))
+    dialog:addOption(0, common.GetNLS(user, "Unterschreiben und abschließen", "Sign and finalise"))
+    dialog:addOption(0, common.GetNLS(user, "Unterschreiben, ohne abzuschließen", "Sign without finalising"))
 
     if parchment then
         user:requestSelectionDialog(dialog)
