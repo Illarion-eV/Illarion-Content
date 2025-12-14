@@ -16,21 +16,17 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local runes = require("magic.arcane.runes")
+local fruitgathering = require("craft.gathering.fruitgathering")
 
 local M = {}
 
 -- Set a wear of 4 for trees that are harvested
 -- When spell has JUS and KAH, and a gatherable tree is targeted, turn it into an ungathered tree with a wear of 4 while dropping the fruit around it
-local fruitList = {
-{fruit  = Item.apple , harvestable = 14, harvested = 11},
-{fruit = Item.cherries, harvestable = 300, harvested = 299},
-{fruit = Item.banana, harvestable = 3867, harvested = 3866},
-{fruit = Item.orange, harvestable = 1195, harvested = 1193},
-{fruit = Item.tangerine, harvestable = 3613, harvested = 3612},
-{fruit = Item.berries, harvestable = 3743, harvested = 3742},
-{fruit = Item.grapes, harvestable = 387, harvested = 386},
-{fruit = Item.blackberry, harvestable = 3892, harvested = 3893}
-}
+local fruitList = {}
+
+for _, harvestItem in pairs(fruitgathering.HarvestItems) do
+    table.insert(fruitList, {fruit = harvestItem.productId, harvestable = harvestItem.origin, harvested = harvestItem.nextItemId, amount = harvestItem.amount})
+end
 
 function M.increaseArea(targetPosition)
     local positionTable = {}
@@ -47,6 +43,7 @@ function M.increaseArea(targetPosition)
 end
 
 local function harvestFruit(user, targets)
+
     for _, item in pairs(targets.items) do
         local itemToHarvest = item
         if itemToHarvest:getData("nameEn") == "Holy Vine" then
@@ -54,20 +51,20 @@ local function harvestFruit(user, targets)
         end
         local isPlayerPlanted = itemToHarvest:getData("playerPlanted") ~= ""
         local amount = tonumber(itemToHarvest:getData("amount"))
-            if not amount then
-                amount = 10
-                if isPlayerPlanted then
-                    amount = 4
-                end
-                itemToHarvest:setData("amount",""..amount)
-                world:changeItem(itemToHarvest)
-            end
         local fruit
         local harvested
         for _, fruitType in pairs(fruitList) do
             if fruitType.harvestable == itemToHarvest.id then
                 fruit = fruitType.fruit
                 harvested = fruitType.harvested
+                if not amount then
+                    amount = fruitType.amount
+                    if isPlayerPlanted then
+                        amount = math.max(1, math.floor(amount/2.5))
+                    end
+                    itemToHarvest:setData("amount",""..amount)
+                    world:changeItem(itemToHarvest)
+                end
             end
         end
         if not fruit then

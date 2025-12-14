@@ -36,7 +36,7 @@ local function gatherFromHolyVine(user)
 end
 
 -- GrowCycles define how fast the plants regrow in the 4 seasons. 1 cycle takes 3 minutes
-local function CreateHarvestProduct(ProductId, GroundType, GrowCycles, NextItemId, amount)
+local function CreateHarvestProduct(ProductId, GroundType, GrowCycles, NextItemId, amount, originId)
     local retValue = {}
     retValue.productId = ProductId
     retValue.groundType = GroundType
@@ -50,53 +50,28 @@ local function CreateHarvestProduct(ProductId, GroundType, GrowCycles, NextItemI
 
     retValue.amount = amount
 
+    retValue.origin = originId
+
     return retValue
 end
 
 local HarvestItems = {}
+table.insert(HarvestItems, CreateHarvestProduct(Item.apple, nil, nil, 11, 20, 14)) -- apple tree
+table.insert(HarvestItems, CreateHarvestProduct(Item.cherries, nil, nil, 299, 20, 300))-- cherry tree
+table.insert(HarvestItems, CreateHarvestProduct(Item.orange, nil, nil, 1193, 5, 1195)) -- orange tree
+table.insert(HarvestItems, CreateHarvestProduct(Item.grapes, nil, nil, 386, 5, 387))-- bush
+table.insert(HarvestItems, CreateHarvestProduct(Item.tangerine,nil, nil, 3612, 20, 3613)) -- tangerine
+table.insert(HarvestItems, CreateHarvestProduct(Item.berries,nil, nil, 3742, 10, 3743)) -- berries
+table.insert(HarvestItems, CreateHarvestProduct(Item.banana, nil, nil, 3866, 20, 3867)) -- banana tree
+table.insert(HarvestItems, CreateHarvestProduct(Item.blackberry, nil, nil, 3893, 10, 3892)) -- blackberry bush
+table.insert(HarvestItems, CreateHarvestProduct(Item.pear, nil, nil, 4254, 20, 4253)) -- pear tree
+table.insert(HarvestItems, CreateHarvestProduct(Item.plum, nil, nil, 4342, 10, 4341)) -- plum tree
+table.insert(HarvestItems, CreateHarvestProduct(Item.pineapple,nil, nil, 4244, 5,4245)) -- pineapple plant
+table.insert(HarvestItems, CreateHarvestProduct(Item.peach,nil, nil, 4239, 20, 4238)) -- peach tree
+table.insert(HarvestItems, CreateHarvestProduct(Item.mango,nil, nil, 4256, 10, 4255)) -- mango tree
+table.insert(HarvestItems, CreateHarvestProduct(Item.nuts, nil, nil, 1809, 10, 4246)) -- nut tree
 
-HarvestItems[ 14 ] = {                                    -- apple tree
-    CreateHarvestProduct(Item.apple, nil, nil, 11, 20)                    -- apple
-}
-HarvestItems[ 300 ] = {                                    -- cherry tree
-    CreateHarvestProduct(Item.cherries, nil, nil, 299, 20)                -- cherry
-}
-HarvestItems[ 1195 ] = {                                    -- orange tree
-    CreateHarvestProduct(Item.orange, nil, nil, 1193, 5)                    -- orange
-}
-HarvestItems[ 387 ] = {                                    -- bush
-    CreateHarvestProduct(Item.grapes, nil, nil, 386, 5)            -- grapes
-}
-HarvestItems[ 3613 ] = {
-    CreateHarvestProduct(Item.tangerine, nil, nil, 3612, 20)            -- tangerine
-}
-HarvestItems[ 3743 ] = {
-    CreateHarvestProduct(Item.berries, nil, nil, 3742, 10)            -- berries
-}
-HarvestItems[ 3867 ] = {                              -- Banana Tree
-    CreateHarvestProduct(Item.banana, nil, nil, 3866, 20)            -- Banana
-}
-HarvestItems[ 3892 ] = {                              -- blackberry bush
-    CreateHarvestProduct(Item.blackberry, nil, nil, 3893, 10)            -- blackberry bush
-}
-HarvestItems[ 4253 ] = {                              -- Pear Tree
-    CreateHarvestProduct(Item.pear, nil, nil, 4254, 20)            -- Pear
-}
-HarvestItems[ 4341 ] = {                              -- Plum Tree
-    CreateHarvestProduct(Item.plum, nil, nil, 4342, 10)            -- Plum
-}
-HarvestItems[ 4245 ] = {                              -- Pineapple Plant
-    CreateHarvestProduct(Item.pineapple, nil, nil, 4244, 5)            -- Pineapple
-}
-HarvestItems[ 4238 ] = {                              -- Peach Tree
-    CreateHarvestProduct(Item.peach, nil, nil, 4239, 20)            -- Peach
-}
-HarvestItems[ 4255 ] = {                              -- Mango Tree
-    CreateHarvestProduct(Item.mango, nil, nil, 4256, 10)            -- Banana
-}
-HarvestItems[ 4246 ] = {                              -- Nut Tree
-    CreateHarvestProduct(Item.nuts, nil, nil, 1809, 10)            -- Nuts
-}
+M.HarvestItems = HarvestItems
 
 local IsTree = {}
 IsTree[14] = true
@@ -134,7 +109,15 @@ function M.StartGathering(User, SourceItem, ltstate)
 
     -- any other checks?
     -- check if there is a harvestable item or any item at all
-    local harvestItem = HarvestItems[SourceItem.id]
+
+    local harvestItem
+
+    for _, selectedHarvestItem in pairs(HarvestItems) do
+        if SourceItem.id == selectedHarvestItem.origin then
+            harvestItem = selectedHarvestItem
+        end
+    end
+
     if ( harvestItem == nil) then
         User:inform("[ERROR] Unknown harvest item, id: " .. SourceItem.id .. ". Please inform a developer.")
         return
@@ -142,12 +125,11 @@ function M.StartGathering(User, SourceItem, ltstate)
     -- there is a harvestable item, but does the ground fit?
     local GroundType = common.GetGroundType(world:getField(SourceItem.pos):tile())
     local harvestProduct
-    for _,hp in pairs(harvestItem) do
-        if (hp.groundType == nil or GroundType == hp.groundType) then
-            harvestProduct = hp
-            break
-        end
+
+    if (harvestItem.groundType == nil or GroundType == harvestItem.groundType) then
+        harvestProduct = harvestItem
     end
+
     if ( harvestProduct == nil ) then
         if (IsTree[SourceItem.id] == true) then
           common.TempInformNLS( User,
