@@ -173,6 +173,7 @@ function M.applyPlantRootForEntanglingPlant(sourceItem, target)
     local spell = tonumber(sourceItem:getData("spell"))
     local getSpeed = M.getSpeed(false, target, spell, sourceItem)
     local foundEffect, myEffect = target.effects:find(16)
+    local TAH = runes.checkSpellForRuneByName("TAH", spell)
     if not getSpeed then
         return
     end
@@ -180,7 +181,9 @@ function M.applyPlantRootForEntanglingPlant(sourceItem, target)
         myEffect = LongTimeEffect(16, 10)
         myEffect:addValue("speed", getSpeed)
         myEffect:addValue("ticks", howManySecondsUntilFullSpeed)
-        myEffect:addValue("spell", spell)
+        if TAH then
+            myEffect:addValue("TAH", 1)
+        end
         target.effects:addEffect(myEffect)
     else
         local foundRemainingSpeed, remainingSpeed = myEffect:findValue("remainingSpeed")
@@ -190,7 +193,9 @@ function M.applyPlantRootForEntanglingPlant(sourceItem, target)
             end
             myEffect:addValue("speed", getSpeed - remainingSpeed)
             myEffect:addValue("ticks", howManySecondsUntilFullSpeed)
-            myEffect:addValue("spell", spell)
+            if TAH then
+                myEffect:addValue("TAH", 1)
+            end
             M.addEffect(myEffect, target)
         end
     end
@@ -233,18 +238,30 @@ function M.applyPlantRoot(user, targets, spell, earthTrap)
             raceBonus = magicDamage.checkIfRaceBonus(target, rune)
         end
         local getSpeed = M.getSpeed(user, target, spell, earthTrap)
+
         if SOLH then
             if not getSpeed then
                 return
             end
+
+            if TAH then
+                getSpeed = math.floor(getSpeed/3)
+            end
+
             local foundEffect, myEffect = target.effects:find(myEffectNumber)
             if not foundEffect then
                 myEffect = LongTimeEffect(myEffectNumber, 10)
                 myEffect:addValue("speed", getSpeed)
                 myEffect:addValue("ticks", howManySecondsUntilFullSpeed)
-                myEffect:addValue("spell", spell)
+                if TAH then
+                    myEffect:addValue("TAH", 1)
+                end
                 target.effects:addEffect(myEffect)
-                target:inform("Als du von dem Zauber getroffen wirst, fühlst du dich langsamer, als wären deine Füße von Schlamm bedeckt, der dich hinabzieht.", "As you're hit by the spell, you feel yourself slow down as if your feet are covered in mud that's dragging you down.")
+                if TAH then
+                    target:inform("Als du von dem Zauber getroffen wirst, fühlst du dich schneller, als würde die Erde unter deinen Füßen mit jedem Schritt mitschwingen und dich vorantreiben.", "As you're hit by the spell, you feel your pace quicken, as if the earth beneath you is resonating with your steps and pushing you forward.")
+                else
+                    target:inform("Als du von dem Zauber getroffen wirst, fühlst du dich langsamer, als wären deine Füße von Schlamm bedeckt, der dich hinabzieht.", "As you're hit by the spell, you feel yourself slow down as if your feet are covered in mud that's dragging you down.")
+                end
             else
                 local foundRemainingSpeed, remainingSpeed = myEffect:findValue("remainingSpeed")
                 if foundRemainingSpeed then
@@ -253,7 +270,9 @@ function M.applyPlantRoot(user, targets, spell, earthTrap)
                         end
                     myEffect:addValue("speed", getSpeed - remainingSpeed)
                     myEffect:addValue("ticks", howManySecondsUntilFullSpeed)
-                    myEffect:addValue("spell", spell)
+                    if TAH then
+                        myEffect:addValue("TAH", 1)
+                    end
                     M.addEffect(myEffect, target)
                 end
             end
@@ -272,7 +291,6 @@ function M.applyPlantRoot(user, targets, spell, earthTrap)
                 userEffect = LongTimeEffect(userEffectNumber, 10)
                 userEffect:addValue("speed", mySpeed)
                 userEffect:addValue("ticks", howManySecondsUntilFullSpeed)
-                userEffect:addValue("spell", spell)
                 userEffect:addValue("user", 1)
                 user.effects:addEffect(userEffect)
             else
@@ -283,7 +301,6 @@ function M.applyPlantRoot(user, targets, spell, earthTrap)
                     end
                     userEffect:addValue("speed", mySpeed - remainingSpeed)
                     userEffect:addValue("ticks", howManySecondsUntilFullSpeed)
-                    userEffect:addValue("spell", spell)
                     userEffect:addValue("user", 1)
                     M.addEffect(userEffect, user)
                 end
@@ -293,157 +310,143 @@ function M.applyPlantRoot(user, targets, spell, earthTrap)
 end
 
 function M.addEffect(myEffect, target)
-    local TAH
-    local SOLH
-    local SIH
-    local foundUser, isUser = myEffect:findValue("user")
-    local foundSpell, spell = myEffect:findValue("spell")
 
-    if foundUser then
-        if 1 == isUser then
-            SIH = true
-        end
-    end
-    if foundSpell then
-        TAH = runes.checkSpellForRuneByName("TAH", spell)
-        SOLH = runes.checkSpellForRuneByName("SOLH", spell)
-    end
-
+    local SIHFound, SIHValue = myEffect:findValue("user")
+    local TAHFound, TAHValue = myEffect:findValue("TAH")
+    local SIH = SIHFound and SIHValue == 1
+    local TAH = TAHFound and TAHValue == 1
     local foundSpeed, speed = myEffect:findValue("speed")
-    if foundSpeed then
-        local speedChange = speed/100 --Divided by 100 because speed is a percentage value due to it being stored as integers.
-        if TAH and SOLH then
-            speedChange = -speedChange/5 --20% speed given
-        end
-        if SIH then
-            speedChange = -speedChange
-        end
-        local formerSpeed = target.speed
-        local newSpeed = math.max(0, formerSpeed - speedChange)
-        local actualReduction = formerSpeed - newSpeed
-        target.speed = newSpeed
 
-        -- Get existing remainingSpeed, assuming it's stored as int percentage
-        local _, existingRemainingRaw = myEffect:findValue("remainingSpeed")
-        local existingRemaining = (existingRemainingRaw or 0) / 100
-
-        local totalRemaining = existingRemaining + actualReduction
-
-        -- Store as integer percentage again
-        myEffect:addValue("remainingSpeed", math.floor(totalRemaining * 100 + 0.5))
-
-        if testing.active then
-            target:talk(Character.say,
-                "#me was snared. Speed changed from " .. formerSpeed ..
-                " to " .. target.speed ..
-                ". Actual reduction: " .. actualReduction ..
-                ", Total to recover: " .. totalRemaining)
-        end
+    if not foundSpeed then
+        return
     end
+
+    local speedChange = speed/100 --Divided by 100 because speed is a percentage value due to it being stored as integers.
+
+    if TAH or SIH then
+        speedChange = -speedChange
+    end
+
+    local formerSpeed = target.speed
+    local newSpeed = math.min(math.max(0, formerSpeed - speedChange), 2)
+    local actualReduction = formerSpeed - newSpeed
+
+    if TAH or SIH then
+        actualReduction = newSpeed - formerSpeed
+    end
+
+    target.speed = newSpeed
+
+    -- Get existing remainingSpeed, assuming it's stored as int percentage
+    local _, existingRemainingRaw = myEffect:findValue("remainingSpeed")
+    local existingRemaining = (existingRemainingRaw or 0) / 100
+
+    local totalRemaining = existingRemaining + actualReduction
+
+    -- Store as integer percentage again
+    myEffect:addValue("remainingSpeed", math.floor(totalRemaining * 100 + 0.5))
+
+    if testing.active then
+        target:talk(Character.say,"#me was snared. Speed changed from "..formerSpeed.." to "..target.speed..". Actual reduction: "..actualReduction..", Total to recover: "..totalRemaining)
+    end
+
 end
 
 function M.callEffect(myEffect, target)
-    local TAH
-    local SOLH
-    local SIH
-    local foundUser, isUser = myEffect:findValue("user")
-    local foundSpell, spell = myEffect:findValue("spell")
-        if foundSpell then
-            TAH = runes.checkSpellForRuneByName("TAH", spell)
-            SOLH = runes.checkSpellForRuneByName("SOLH", spell)
-        end
-        if foundUser then
-            if 1 == isUser then
-                SIH = true
-            end
-        end
-        local foundRemainingSpeed, remainingSpeed = myEffect:findValue("remainingSpeed")
-        local foundTicks, ticks = myEffect:findValue("ticks")
-        if foundRemainingSpeed and foundTicks  then
-            if ticks >= 1 then
-                local speedIncrease = math.floor(remainingSpeed/ticks)
-                if remainingSpeed > 0 then
-                local newRemainingSpeed
-                    if remainingSpeed/ticks < 1 and ticks == 1 then
-                        local speedChange = remainingSpeed/100
-                        if TAH and SOLH then
-                            speedChange = -speedChange/5 --20% speed given
-                        end
-                        if SIH then
-                            speedChange = -speedChange
-                        end
-                        local formerSpeed = target.speed
-                        target.speed = target.speed + speedChange
-                        if testing.active then
-                            target:talk(Character.say,"#me's speed was changed from "..formerSpeed.." to "..target.speed)
-                        end
-                        newRemainingSpeed = 0
-                    elseif remainingSpeed/ticks > 1 then
-                        local speedChange = speedIncrease/100
-                        if TAH and SOLH then
-                            speedChange = -speedChange/5 --20% speed given
-                        end
-                        if SIH then
-                            speedChange = -speedChange
-                        end
-                        local formerSpeed = target.speed
-                        target.speed = target.speed + speedChange
-                        if testing.active then
-                            target:talk(Character.say,"#me's speed was changed from "..formerSpeed.." to "..target.speed)
-                        end
-                        newRemainingSpeed = remainingSpeed - speedIncrease
-                    else
-                        newRemainingSpeed = remainingSpeed
-                    end
-                    myEffect:addValue("remainingSpeed", newRemainingSpeed)
-                    myEffect:addValue("ticks", ticks-1)
-                    myEffect.nextCalled = 10
-                    return true
-                end
-            end
-        end
 
     if target.speed == 1 then
         target:inform("Deine Füße fühlen sich wieder normal an, während die Wirkung des Zaubers, von dem du zuvor getroffen wurdest, nachlässt.", "Your feet feel normal again as the effect of the spell you were previously hit by wears off.")
     end
 
-    return false
+    local SIHFound, SIHValue = myEffect:findValue("user")
+    local TAHFound, TAHValue = myEffect:findValue("TAH")
+    local SIH = SIHFound and SIHValue == 1
+    local TAH = TAHFound and TAHValue == 1
+
+    local foundRemainingSpeed, remainingSpeed = myEffect:findValue("remainingSpeed")
+    local foundTicks, ticks = myEffect:findValue("ticks")
+
+    if not foundRemainingSpeed or not foundTicks or ticks <= 0 or remainingSpeed <= 0 then
+        return false
+    end
+
+    local formerSpeed = target.speed
+
+    local newRemainingSpeed = 0
+
+    if remainingSpeed/ticks < 1 and ticks == 1 then
+
+        local change = remainingSpeed/100
+
+        if TAH or SIH then
+            change = -change
+        end
+
+        target.speed = target.speed + change
+
+        if testing.active then
+            target:talk(Character.say,"#me's speed was changed one last time from "..formerSpeed.." to "..target.speed)
+        end
+
+    elseif remainingSpeed/ticks > 1 then
+
+        local speedIncrease = math.floor(remainingSpeed/ticks)
+
+        if TAH or SIH then
+            speedIncrease = -speedIncrease
+        end
+
+        target.speed = target.speed + speedIncrease/100
+
+        if testing.active then
+            target:talk(Character.say,"#me's speed was changed from "..formerSpeed.." to "..target.speed)
+        end
+
+        if TAH or SIH then
+            speedIncrease = -speedIncrease
+        end
+
+        newRemainingSpeed = remainingSpeed - speedIncrease
+    else
+        newRemainingSpeed = remainingSpeed
+    end
+
+    myEffect:addValue("remainingSpeed", newRemainingSpeed)
+    myEffect:addValue("ticks", ticks-1)
+    myEffect.nextCalled = 10
+    return true
+
 end
 
 function M.loadEffect(myEffect, target)
-    local TAH
-    local SOLH
-    local SIH
-    local foundUser, isUser = myEffect:findValue("user")
-    local foundSpell, spell = myEffect:findValue("spell")
-        if foundSpell then
-            TAH = runes.checkSpellForRuneByName("TAH", spell)
-            SOLH = runes.checkSpellForRuneByName("SOLH", spell)
-        end
-        if foundUser then
-            if 1 == isUser then
-                SIH = true
-            end
-        end
-        local foundRemainingSpeed, remainingSpeed = myEffect:findValue("remainingSpeed")
-        if foundRemainingSpeed then
-            if remainingSpeed > 0 then
-                local speedChange = remainingSpeed/100
-                if TAH and SOLH then
-                    speedChange = -speedChange/5 --20% speed given
-                end
-                if SIH then
-                    speedChange = -speedChange
-                end
-                local formerSpeed = target.speed
 
-                target.speed = target.speed - speedChange
-                if testing.active then
-                    target:talk(Character.say,"#me's speed was changed from "..formerSpeed.." to "..target.speed)
-                end
-                myEffect.nextCalled = 10
-            end
-        end
+    local SIHFound, SIHValue = myEffect:findValue("user")
+    local TAHFound, TAHValue = myEffect:findValue("TAH")
+    local SIH = SIHFound and SIHValue == 1
+    local TAH = TAHFound and TAHValue == 1
+
+    local foundRemainingSpeed, remainingSpeed = myEffect:findValue("remainingSpeed")
+
+    if not foundRemainingSpeed or remainingSpeed <= 0 then
+        return
     end
+
+    local speedChange = remainingSpeed/100
+
+    local formerSpeed = target.speed
+
+    if TAH or SIH then --Positive instead of negative speed change
+        speedChange = -speedChange
+    end
+
+    target.speed = target.speed - speedChange
+
+    if testing.active then
+        target:talk(Character.say,"#me's speed was changed from "..formerSpeed.." to "..target.speed)
+    end
+
+    myEffect.nextCalled = 10
+
+end
 
 return M
