@@ -151,9 +151,12 @@ function tradeNPC:buyItemFromPlayer(npcChar, player, boughtItem)
     -- Buying at special price
     local item
 
+    local primary = false
+
     for _, listItem in pairs(self._buyPrimaryItems) do
         if isFittingItem(listItem, boughtItem) then
             item = listItem
+            primary = true
             break
         end
     end
@@ -164,6 +167,16 @@ function tradeNPC:buyItemFromPlayer(npcChar, player, boughtItem)
                 item = listItem
                 break
             end
+        end
+    end
+
+    local customWorth = boughtItem:getData("remainingValue")
+
+    if not common.IsNilOrEmpty(customWorth) then
+        if primary then
+            item._price = customWorth*0.1
+        else
+            item._price = customWorth*0.05
         end
     end
 
