@@ -151,7 +151,7 @@ function M.StartGathering(User, SourceItem, ltstate)
     else
         -- first time that this item is harvested
         if isPlayerPlanted then
-            amount = 4
+            amount = math.max(1, math.floor(harvestProduct.amount/2.5)) --Used to be 4, now it will be 2, 4, 8 (5, 10, 20)
         else
             amount = harvestProduct.amount
         end
@@ -215,7 +215,7 @@ function M.StartGathering(User, SourceItem, ltstate)
         end
         -- reset amount
         if isPlayerPlanted then
-            amount = 4
+            amount = math.max(1, math.floor(harvestProduct.amount/2.5)) --Used to be 4, now it will be 2, 4, 8 (5, 10, 20)
         else
             amount = harvestProduct.amount
         end

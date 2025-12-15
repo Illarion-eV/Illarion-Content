@@ -44,6 +44,8 @@ end
 
 local function harvestFruit(user, targets)
 
+    local resetAmount = 0
+
     for _, item in pairs(targets.items) do
         local itemToHarvest = item
         if itemToHarvest:getData("nameEn") == "Holy Vine" then
@@ -55,6 +57,7 @@ local function harvestFruit(user, targets)
         local harvested
         for _, fruitType in pairs(fruitList) do
             if fruitType.harvestable == itemToHarvest.id then
+                resetAmount = fruitType.amount
                 fruit = fruitType.fruit
                 harvested = fruitType.harvested
                 if not amount then
@@ -85,9 +88,9 @@ local function harvestFruit(user, targets)
             end
         end
 
-        local resetAmount = 10
+
         if isPlayerPlanted then
-            resetAmount = 4
+            resetAmount = math.max(1, math.floor(resetAmount/2.5))
         end
         itemToHarvest:setData("amount",""..resetAmount)
         world:changeItem(itemToHarvest)
