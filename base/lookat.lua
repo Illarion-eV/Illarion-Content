@@ -21,6 +21,7 @@ local gems = require("base.gems")
 local money = require("base.money")
 local glyphs = require("magic.arcane.enchanting.core.shared")
 local mining = require("craft.gathering.mining")
+local herbgathering = require("craft.gathering.herbgathering")
 local farming = require("craft.gathering.farming")
 local sowing = require("craft.gathering.sowing")
 local silkcutting = require("craft.gathering.silkcutting")
@@ -103,7 +104,8 @@ local gatheringLists = {
     {list = honeygathering.hiveList, skill = honeygathering.skill, type = {english = "Hive", german = "Bienenstock"}},
     {list = egggathering.nestList, skill = egggathering.skill, type = {english = "Nest", german = "Nest"}},
     {list = farming.crops, skill = farming.skill, type = {english = "Crop", german = "Feldfrucht"}},
-    {list = sowing.seeds, skill = farming.skill, type = {english = "Seed", german = "Samen"}}
+    {list = sowing.seeds, skill = farming.skill, type = {english = "Seed", german = "Samen"}},
+    {list = herbgathering.herbList, skill = herbgathering.skill, type = {english = "Plant", german = "Pflanze"}}
 }
 
 for _, gatheringList in pairs(gatheringLists) do

@@ -167,17 +167,10 @@ M.foodList[Item.shrimp] = {foodPoints = valueMedium}
 M.foodList[Item.octopus] = {foodPoints = valueMedium}
 M.foodList[Item.eel] = {foodPoints = valueMedium}
 M.foodList[Item.flounder] = {foodPoints = valueMedium}
-M.foodList[Item.berries]   = {foodPoints = valueMedium}
 M.foodList[Item.sandberry]  = {foodPoints = valueSmall}
-M.foodList[Item.redElder]  = {foodPoints = valueSmall}
-M.foodList[Item.blackberry]  = {foodPoints = valueSmall}
-M.foodList[Item.strawberry]  = {foodPoints = valueMedium}
 M.foodList[Item.bulbspongeMushroom]  = {foodPoints = valueSmall, poisonPoints = 1000}
 M.foodList[Item.toadstool]  = {foodPoints = valueSmall, poisonPoints = 1000}
-M.foodList[Item.redHead]  = {foodPoints = valueSmall}
 M.foodList[Item.herdersMushroom]  = {foodPoints = valueSmall}
-M.foodList[Item.birthMushroom]  = {foodPoints = valueSmall, poisonPoints = 1000}
-M.foodList[Item.champignon]  = {foodPoints = valueSmall}
 M.foodList[Item.tomato]  = {foodPoints = valueMedium}
 M.foodList[Item.onion]  = {foodPoints = valueMedium}
 M.foodList[Item.cabbage]  = {foodPoints = valueMedium}
@@ -206,6 +199,17 @@ M.foodList[Item.corn] = {foodPoints = valueMedium}
 M.foodList[Item.lettuce] = {foodPoints = valueSmall}
 M.foodList[Item.cucumber] = {foodPoints = valueSmall}
 
+M.foodList[Item.blueberry]  = {foodPoints = valueSmall}
+M.foodList[Item.strawberry]  = {foodPoints = valueSmall}
+M.foodList[Item.blackberry]  = {foodPoints = valueSmall}
+M.foodList[Item.redElder]  = {foodPoints = valueSmall}
+M.foodList[Item.champignon]  = {foodPoints = valueSmall}
+M.foodList[Item.raspberry]  = {foodPoints = valueMedium}
+M.foodList[Item.birthMushroom]  = {foodPoints = valueMedium}
+M.foodList[Item.cloudberry]  = {foodPoints = valueMedium}
+M.foodList[Item.redHead]  = {foodPoints = valueLarge}
+M.foodList[Item.berries]   = {foodPoints = valueLarge}
+M.foodList[Item.chanterelle]   = {foodPoints = valueLarge}
 
 -- get difficulty from the database
 for foodId, foodItem in pairs(M.foodList) do
