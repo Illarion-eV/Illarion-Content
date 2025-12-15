@@ -290,9 +290,16 @@ function M.GenerateLookAt(user, item, material, levelreq, skillDisplay, types, r
             lookAt.weight = item.number * itemCommon.Weight
         end
 
+        local customWorth = item:getData("remainingValue")
+
         if item:getData("lookatNoPrice") ~= "1" then
             if not money.IsCurrency(item.id) then
-                lookAt.worth = 20*item.number * itemCommon.Worth
+                local worth = itemCommon.Worth
+                if not common.IsNilOrEmpty(customWorth) then
+                    worth = tonumber(customWorth)
+                end
+
+                lookAt.worth = 20*item.number * worth
             end
         end
 
@@ -382,9 +389,17 @@ function M.GenerateItemLookAtFromId(user, itemId, stackSize, data)
         lookAt.description = usedDescription
     end
 
+    local customWorth = data["remainingValue"]
+
     local itemCommon = world:getItemStatsFromId(itemId)
+    local worth = itemCommon.Worth
+
+    if not common.IsNilOrEmpty(customWorth) then
+        worth = tonumber(customWorth)
+    end
+
     lookAt.weight = stackSize * itemCommon.Weight
-    lookAt.worth = 20*stackSize * itemCommon.Worth
+    lookAt.worth = 20*stackSize * worth
 
     local level = itemCommon.Level
     lookAt.level = level
