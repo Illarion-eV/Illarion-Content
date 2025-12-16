@@ -177,7 +177,7 @@ local function selectSheetToPlay(user, book, sheetAmount, actionState)
 
                 selectedBookSheet[user.id] = {name = name, notes = theNotes, instrument = instrument}
 
-                for segment = 2, 10 do
+                for segment = 2, 20 do
                     local addNotes = book:getData("sheet"..i.."notes"..segment)
                     selectedBookSheet[user.id]["notes"..segment] = addNotes
                 end
@@ -286,7 +286,7 @@ local function convertOldBook(oldBook)
         oldBook:setData("sheet"..sheetNumber.."noteAmount", "")
         oldBook:setData("sheet"..sheetNumber.."notes", string.sub(newNotes, 1, 250))
 
-        for i = 2, 10 do
+        for i = 2, 20 do
             oldBook:setData("sheet"..sheetNumber.."notes"..i, string.sub(newNotes, 1+(250*i-1), 250*i))
         end
 

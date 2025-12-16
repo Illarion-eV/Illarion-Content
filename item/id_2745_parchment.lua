@@ -117,7 +117,7 @@ function M.UseItem(user, SourceItem,ltstate,checkVar)
 
         local sheetTable = {notes = notes, name = SourceItem:getData("sheetName"), instrument = SourceItem:getData("instrument")}
 
-        for i = 2, 10 do
+        for i = 2, 20 do
             sheetTable["notes"..i] = SourceItem:getData("notes"..i)
         end
 
@@ -619,7 +619,7 @@ local function convertOldSheet(oldSheet)
     oldSheet:setData("noteAmount", "")
     oldSheet:setData("notes", string.sub(newNotes, 1, 250))
 
-    for i = 2, 10 do
+    for i = 2, 20 do
         oldSheet:setData("notes"..i, string.sub(newNotes, 1+(250*i-1), 250*i))
     end
 
