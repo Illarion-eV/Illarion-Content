@@ -153,16 +153,16 @@ local berries = {
 local fruit = {
     { id = Item.apple, amount = 5, attribute = "willpower" },
     { id = Item.cherries, amount = 5, attribute = "constitution" },
-    { id = Item.grapes, attribute = "agility" },
-    { id = Item.nuts, amount = 3, attribute = "agility" },
+    { id = Item.grapes, attribute = "agility", level = 50 },
+    { id = Item.nuts, amount = 3, attribute = "agility", level = 30 },
     { id = Item.peach, amount = 5, attribute = "perception" },
-    { id = Item.pear, amount = 5, attribute = "perception" },
-    { id = Item.plum, amount = 3, attribute = "willpower" },
-    { id = Item.orange, attribute = "constitution" },
+    { id = Item.pear, amount = 5, attribute = "strength" },
+    { id = Item.plum, amount = 3, attribute = "willpower", level = 30 },
+    { id = Item.orange, attribute = "constitution", level = 50 },
     { id = Item.tangerine, amount = 5, attribute = "agility" },
-    { id = Item.banana, amount = 5, attribute = "perception" },
-    { id = Item.mango, amount = 3, attribute = "constitution" },
-    { id = Item.pineapple, attribute = "willpower" }
+    { id = Item.banana, amount = 5, attribute = "intelligence" },
+    { id = Item.mango, amount = 3, attribute = "constitution", level = 30 },
+    { id = Item.pineapple, attribute = "willpower", level = 50 }
 }
 
 local vegetables = {
@@ -862,11 +862,11 @@ local function getDishAttributes(ingredients)
 
                     local attribBonus = 0.5
 
-                    if level > 30 then
+                    if level >= 30 then
                         attribBonus = 1
                     end
 
-                    if level > 50 then
+                    if level >= 50 then
                         attribBonus = 1.5
                     end
 
