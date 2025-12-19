@@ -170,7 +170,7 @@ local function convertToTableOfNotes(sheetTable)
 
     local noteString = sheetTable.notes
 
-    for i = 2, 10 do
+    for i = 2, 20 do
         if sheetTable["notes"..i] then
             noteString = noteString..sheetTable["notes"..i]
         end
@@ -606,7 +606,7 @@ local function convertToNotesAndSave(user, sheet, notesList)
 
     sheet:setData("notes", string.sub(convertedNotes, 1, 250))
 
-    for i = 2, 10 do
+    for i = 2, 20 do
         sheet:setData("notes"..i, string.sub(convertedNotes, 1+(250*(i-1)), 250*i))
     end
 
@@ -795,7 +795,7 @@ local function addSound(user, quill, soundId, notesList, index)
 
             local existingNotes = sheet:getData("notes")
 
-            for i = 2, 10 do
+            for i = 2, 20 do
                 existingNotes = existingNotes..sheet:getData("notes"..i)
             end
 
@@ -805,14 +805,14 @@ local function addSound(user, quill, soundId, notesList, index)
 
             existingNotes = existingNotes..tostring(soundId)..","..input
 
-            if string.len(existingNotes) > 2500 then
+            if string.len(existingNotes) > 5000 then
                 user:inform("Das Notenblatt kann nicht so viele Noten aufnehmen.", "The music sheet can not hold that many notes.")
                 return
             end
 
             sheet:setData("notes", string.sub(existingNotes, 1, 250))
 
-            for i = 2, 10 do
+            for i = 2, 20 do
                 sheet:setData("notes"..i, string.sub(existingNotes, 1+(250*(i-1)), 250*i))
             end
 
@@ -959,7 +959,7 @@ local function inputNotes(user, quill)
 
         local existingNotes = sheet:getData("notes")
 
-        for i = 2, 10 do
+        for i = 2, 20 do
             existingNotes = existingNotes..sheet:getData("notes"..i)
         end
 
@@ -969,14 +969,14 @@ local function inputNotes(user, quill)
 
         existingNotes = existingNotes..input
 
-        if string.len(existingNotes) > 2500 then
+        if string.len(existingNotes) > 5000 then
             user:inform("Das Notenblatt kann nicht so viele Noten aufnehmen.", "The music sheet can not hold that many notes.")
             return
         end
 
         sheet:setData("notes", string.sub(existingNotes, 1, 250))
 
-        for i = 2, 10 do
+        for i = 2, 20 do
             sheet:setData("notes"..i, string.sub(existingNotes, 1+(250*(i-1)), 250*i))
         end
 
@@ -1108,8 +1108,8 @@ function M.addNewSheetToBook(user, sheet)
         sheetAmount = tonumber(sheetAmount)
     end
 
-    if sheetAmount > 20 then -- item data storage is limited to one byte of entries, each sheet has 12 entries. That's 240 entries.
-            user:inform("Ein einzelnes Buch hat nur Platz für 20 Notenblätter.", "A single book only has enough space for 20 sheets of sheet music.")
+    if sheetAmount > 10 then -- item data storage is limited to one byte of entries, each sheet has 22 entries. That's 220 entries.
+            user:inform("Ein einzelnes Buch hat nur Platz für 10 Notenblätter.", "A single book only has enough space for 10 sheets of sheet music.")
         return
     end
 
@@ -1124,7 +1124,7 @@ function M.addNewSheetToBook(user, sheet)
     book:setData("sheet"..nextSheet.."instrument", sheet:getData("instrument"))
     book:setData("sheet"..nextSheet.."sheetName", sheet:getData("sheetName"))
 
-    for i = 2, 10 do
+    for i = 2, 20 do
         local notesToAdd = sheet:getData("notes"..i)
         book:setData("sheet"..nextSheet.."notes"..i, notesToAdd)
     end
@@ -1189,7 +1189,7 @@ local function removeSheetFromBook(user)
     sheetData["notes"] = theNotes
     sheetData["sheetName"] = sheetName
 
-    for i = 2, 10 do
+    for i = 2, 20 do
         sheetData["notes"..i] = book:getData("sheet"..sheetAmount.."notes"..i)
         book:setData("sheet"..sheetAmount.."notes"..i, "")
     end
