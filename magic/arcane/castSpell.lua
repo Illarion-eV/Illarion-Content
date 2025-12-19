@@ -436,6 +436,10 @@ function M.castSpell(user, spell, actionState, oralCast)
             return
         end
 
+        if not checksPassed(user, spell, element, M[user.id].thePosition) then
+            return
+        end
+
         if not range.isTargetInRange(user, spell, element, M[user.id].thePosition) then
             user:inform(myTexts.range.german, myTexts.range.english)
             return
