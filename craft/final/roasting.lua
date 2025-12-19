@@ -25,6 +25,7 @@ local roasting = crafts.Craft:new{
                     leadSkill = Character.cookingAndBaking,
                     sfx = 7,
                     sfxDuration = 27,
+                    intermediate = true
                   }
 
 roasting:addTool(304) -- smoke oven

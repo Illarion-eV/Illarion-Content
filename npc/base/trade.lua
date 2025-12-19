@@ -172,7 +172,7 @@ function tradeNPC:buyItemFromPlayer(npcChar, player, boughtItem)
 
     local customWorth = boughtItem:getData("remainingValue")
 
-    if not common.IsNilOrEmpty(customWorth) then
+    if not common.IsNilOrEmpty(customWorth) and item then
         if primary then
             item._price = customWorth*0.1
         else

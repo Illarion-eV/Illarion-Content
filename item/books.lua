@@ -23,6 +23,7 @@ local granorsHut = require("content.granorsHut")
 local magicBook = require("magic.arcane.magicBook")
 local common = require("base.common")
 local music = require("item.base.music")
+local cookingRecipeCreation = require("craft.cookingRecipeCreation")
 
 local readBook
 
@@ -211,6 +212,14 @@ function M.UseItem(user, sourceItem, actionState)
         return
     end
     -- alchemy end
+
+    local isCookBook = not common.IsNilOrEmpty(sourceItem:getData("cookBook"))
+
+    if isCookBook then
+        cookingRecipeCreation.viewCookBook(user, sourceItem)
+        return
+    end
+
     -- magic book for casting
     if sourceItem:getData("magicBook") == "true" then
         magicBook.mainSelectionDialog(user, sourceItem)
@@ -321,6 +330,12 @@ function M.LookAtItem(user, theBook)
                 lookat.SetSpecialName(theBook, id_266_bookshelf.bookList[book].german, id_266_bookshelf.bookList[book].english)
             end
         end
+    end
+
+    local isCookBook = not common.IsNilOrEmpty(theBook:getData("cookBook"))
+
+    if isCookBook then
+        lookat.SetSpecialName(theBook, "Kulinarisches Rezeptbuch", "Culinary Recipe Book")
     end
 
     return lookat.GenerateLookAt(user, theBook, 0)

@@ -144,11 +144,11 @@ function viewDialog(user, ledgerInfo, page, tid, entries)
         local dialog = SelectionDialog(common.GetNLS(user, "Bürgerbuch", "Citizen Ledger"), text, callback)
 
         if page > 0 then
-            dialog:addOption(2745, "Previous Page")
+            dialog:addOption(2745, common.GetNLS(user, "Vorherige Seite", "Previous Page"))
         end
 
         if page < maxNumberOfPages then
-            dialog:addOption(2745, "Next Page")
+            dialog:addOption(2745, common.GetNLS(user, "Nächste Seite","Next Page"))
         end
 
         dialog:setCloseOnMove()

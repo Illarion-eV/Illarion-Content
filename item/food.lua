@@ -25,6 +25,7 @@ local specialeggs = require("content.specialeggs")
 local ratCistern = require("content.ratCistern")
 local onionball = require("npc.sepp_leaf")
 local lookat = require("base.lookat")
+local cookingRecipeCreation = require("craft.cookingRecipeCreation")
 
 local foodRarityTexts = {
     {english = "uncommon", german = "außergewöhnlich gut", identifier = 2,
@@ -38,7 +39,8 @@ local foodRarityTexts = {
     {english = "unique", german = "einzigartig gut", identifier = 4,
     foodDescription = {
         english = "A dish made by such refined culinary arts, you might even say it's unique. Not only more filling than its lesser counterparts, but also very beneficial to both the longevity and strength of the boons of your good diet.",
-        german = "Eine kulinarisches Köstlichkeit, die ihres Gleichen sucht. Äußerst wohlbekömmlich und eine wahre Wohltat für die Länge und Auswirkung deiner guten Ernährung."}}}
+        german = "Eine kulinarisches Köstlichkeit, die ihres Gleichen sucht. Äußerst wohlbekömmlich und eine wahre Wohltat für die Länge und Auswirkung deiner guten Ernährung."}}
+    }
 
 local ingredientRarityTexts = {
     {english = "uncommon", german = "außergewöhnlich gut", identifier = 2,
@@ -52,83 +54,320 @@ local ingredientRarityTexts = {
     {english = "unique", german = "einzigartig gut", identifier = 4,
     foodDescription = {
         english = "Uniquely pristine and tasty, sure to make any meal it is used for taste all the better.",
-        german = "Einzigartig makellos und schmackhaft - garantiert wird jedes Gericht, in dem es verwendet wird, dadurch noch besser schmecken."}}}
+        german = "Einzigartig makellos und schmackhaft - garantiert wird jedes Gericht, in dem es verwendet wird, dadurch noch besser schmecken."}}
+    }
 
+M.cookedFood = {
+    --[[
+        Listed ingredients are just for attribute, worth and level calculations if the item gets
+        spawned in and for old relic dishes. They do not have to make perfect sense. They are
+        mainly balanced around having similar monetary values as in the past.
+    ]]
+    -- Grilled/smoked
+    [Item.ham] = {ingredients = {Item.pork}, intermediate = true},
+    [Item.smokedFish] = {ingredients = {Item.trout}, intermediate = true},
+    [Item.smokedSalmon] = {ingredients = {Item.salmon}, intermediate = true},
+    [Item.smokedRosefish] = {ingredients = {Item.roseFish}, intermediate = true},
+    [Item.smokedHorsemackerel] = {ingredients = {Item.horseMackerel}, intermediate = true},
+    [Item.smokedRabbit] = {ingredients = {Item.rabbitMeat}, intermediate = true},
+    [Item.smokedChicken] = {ingredients = {Item.chickenMeat}, intermediate = true},
+    [Item.grilledSteak] = {ingredients = {Item.rawSteak}, intermediate = true},
+    [Item.grilledLamb] = {ingredients = {Item.lambMeat}, intermediate = true},
+    [Item.grilledVenison] = {ingredients = {Item.deerMeat}, intermediate = true},
+    [Item.cookedShrimp] = {ingredients = {Item.shrimp}, intermediate = true},
+    [Item.cookedCrab] = {ingredients = {Item.crab}, intermediate = true},
+    [Item.cookedLobster] = {ingredients = {Item.lobster}, intermediate = true},
+    [Item.grilledOctopus] = {ingredients = {Item.octopus}, intermediate = true},
+    [Item.grilledFlounder] = {ingredients = {Item.flounder}, intermediate = true},
+    [Item.grilledFox] = {ingredients = {Item.foxMeat}, intermediate = true},
+    [Item.grilledWolf] = {ingredients = {Item.wolfMeat}, intermediate = true},
+    [Item.grilledBear] = {ingredients = {Item.bearMeat}, intermediate = true},
+    [Item.grilledRaptor] = {ingredients = {Item.raptorMeat}, intermediate = true},
+    [Item.grilledDragon] = {ingredients = {Item.dragonMeat}, intermediate = true},
+    [Item.grilledRat] = {ingredients = {Item.ratMeat}, intermediate = true},
 
-M.foodList = {}
+    -- Other intermediate ingredients
+    [Item.plainDough] = {ingredients = {}, intermediate = true},
+    [Item.cookieDough] = {ingredients = {Item.whiteEgg, Item.beeHoney, Item.bottleOfMilk}, intermediate = true},
+    [Item.pastryDough] = {ingredients = {Item.pigeonEgg, Item.sugarcane, Item.bottleOfSheepMilk}, intermediate = true},
+    [Item.spicyDough] = {ingredients = {Item.seagullEgg, Item.firewaspHoney, Item.bottleOfDeerMilk}, intermediate = true},
+    [Item.sausage] = {ingredients = {Item.pork}, intermediate = true},
+    [Item.cheese] = {ingredients = {Item.bottleOfMilk}, intermediate = true},
+    [Item.bakedPotato] = {ingredients = {Item.potato}, intermediate = true},
 
--- COOKED FOOD --
--- Tier 1 Food
-M.foodList[Item.breadRoll] = {crafted = true, rareBuff = {constitution = 0}}
-M.foodList[Item.sausage] = {crafted = true, rareBuff = {agility = 0}}
-M.foodList[Item.ham] = {crafted = true, rareBuff = {dexterity = 0}}
---smoked trout
-M.foodList[Item.smokedFish] = {crafted = true, rareBuff = {intelligence = 0}}
---smoked salmon
-M.foodList[3916] = {crafted = true, rareBuff = {essence = 0}}
-M.foodList[Item.smokedRosefish] = {crafted = true, rareBuff = {perception = 0}}
-M.foodList[Item.smokedHorsemackerel] = {crafted = true, rareBuff = {willpower = 0}}
-M.foodList[Item.smokedRabbit] = {crafted = true, rareBuff = {strength = 0}}
-M.foodList[Item.smokedChicken] = {crafted = true, rareBuff = {constitution = 0}}
-M.foodList[Item.grilledSteak] = {crafted = true, rareBuff = {agility = 0}}
-M.foodList[Item.grilledLamb] = {crafted = true, rareBuff = {dexterity = 0}}
-M.foodList[Item.grilledVenison] = {crafted = true, rareBuff = {intelligence = 0}}
-M.foodList[Item.cookies] = {crafted = true, rareBuff = {essence = 0}}
-M.foodList[Item.cookedShrimp] = {crafted = true, rareBuff = {perception = 0}}
-M.foodList[Item.cookedCrab] = {crafted = true, rareBuff = {willpower = 0}}
-M.foodList[Item.cookedLobster] = {crafted = true, rareBuff = {strength = 0}}
-M.foodList[Item.grilledOctopus] = {crafted = true, rareBuff = {constitution = 0}}
-M.foodList[Item.grilledFlounder] = {crafted = true, rareBuff = {agility = 0}}
-M.foodList[Item.grilledFox] = {crafted = true, rareBuff = {dexterity = 0}}
-M.foodList[Item.grilledWolf] = {crafted = true, rareBuff = {intelligence = 0}}
-M.foodList[Item.grilledBear] = {crafted = true, rareBuff = {essence = 0}}
-M.foodList[Item.grilledRaptor] = {crafted = true, rareBuff = {perception = 0}}
-M.foodList[Item.grilledDragon] = {crafted = true, rareBuff = {willpower = 0}}
-M.foodList[Item.grilledRat] = {crafted = true, rareBuff = {strength = 0}}
+    -- Baked goods
+    [Item.breadRoll] = {ingredients = {Item.plainDough, Item.bottleOfMilk}},
+    [Item.cookies] = {ingredients = {Item.cookieDough, Item.beeHoney}},
+    [Item.potatoBread] = {ingredients = {Item.plainDough, Item.bakedPotato}},
+    [Item.sausageOnBread] = {ingredients = {Item.plainDough, Item.sausage, Item.sausage, Item.sausage}},
+    [Item.bananaBread] = {ingredients = {Item.banana, Item.plainDough, Item.pigeonEgg}},
+    [Item.blackberryMuffin] = {ingredients = {Item.pastryDough, Item.blackberry}},
+    [Item.applePie] = {ingredients = {Item.pastryDough, Item.apple, Item.pear, Item.nuts}},
+    [Item.cherryCake] = {ingredients = {Item.pastryDough, Item.cherries, Item.beeHoney}},
+    [Item.eggSaladSandwich] = {ingredients = {Item.plainDough, Item.pigeonEgg, Item.bottleOfMilk}},
+    [Item.nutbread] = {ingredients = {Item.plainDough, Item.nuts, Item.pigeonEgg}},
+    [Item.strawberryCake] = {ingredients = {Item.pastryDough, Item.strawberry, Item.beeHoney}},
+    [Item.custardPie] = {ingredients = {Item.pastryDough, Item.whiteEgg, Item.bottleOfMilk}},
+    [Item.elderberryPie] = {ingredients = {Item.pastryDough, Item.redElder, Item.beeHoney}},
 
--- Tier 2 Food
-M.foodList[Item.cheese] = {crafted = true, rareBuff = {perception = 1}}
-M.foodList[Item.mushroomSoup] = {crafted = true, leftOver = 2935, buffs = {agility = 1}}
-M.foodList[Item.bakedPotato] = {crafted = true, buffs = {dexterity = 1}}
-M.foodList[Item.veggieHash] = {crafted = true, leftOver = 2952, buffs = {essence = 1}}
-M.foodList[Item.potatoBread] = {crafted = true, buffs = {strength = 1}}
-M.foodList[Item.onionSoup] = {crafted = true, leftOver = 2935, buffs = {intelligence = 1}}
-M.foodList[Item.cabbageRoll] = {crafted = true, leftOver = 2952, buffs = {perception = 1}}
-M.foodList[Item.troutFilletDish] = {crafted = true, leftOver = 2952, buffs = {willpower = 1}}
-M.foodList[Item.sausageOnBread] = {crafted = true, buffs = {constitution = 1}}
--- Tier 3 Food
-M.foodList[Item.bananaBread] = {crafted = true, buffs = {willpower = 1, intelligence = 1}}
-M.foodList[Item.cabbageStew] = {crafted = true, leftOver = 2935, buffs = {dexterity = 1, agility = 1}}
-M.foodList[Item.salmonDish] = {crafted = true, leftOver = 2952, buffs = {strength = 1, constitution = 1}}
-M.foodList[Item.blackberryMuffin] = {crafted = true, buffs = {essence = 1, perception = 1}}
-M.foodList[Item.mulligan] = {crafted = true, leftOver = 2935, buffs = {willpower = 1, intelligence = 1}}
-M.foodList[Item.eggDish] = {crafted = true, leftOver = 2952, buffs = {strength = 1, constitution = 1}}
-M.foodList[Item.potatoSoup] = {crafted = true, leftOver = 2935, buffs = {essence = 1, perception = 1}}
-M.foodList[Item.meatDish] = {crafted = true, leftOver = 2952, buffs = {dexterity = 1, agility = 1}}
-M.foodList[Item.applePie] = {crafted = true, buffs = {willpower = 1, intelligence = 1}}
--- Tier 4 Food
-M.foodList[Item.cherryCake] = {crafted = true, buffs = {dexterity = 1, agility = 2}}
-M.foodList[Item.eggSalad] = {crafted = true, leftOver = 2935, buffs = {strength = 2, constitution = 1}}
-M.foodList[Item.sausagesDish] = {crafted = true, leftOver = 2952, buffs = {essence = 2, perception = 1}}
-M.foodList[Item.steakDish] = {crafted = true, leftOver = 2952, buffs = {willpower = 2, intelligence = 1}}
-M.foodList[Item.fishSoup] = {crafted = true, leftOver = 2935, buffs = {strength = 1, constitution = 2}}
-M.foodList[Item.eggSaladSandwich] = {crafted = true, buffs = {dexterity = 2, agility = 1}}
--- Tier 5 Food
-M.foodList[Item.mackerelSalad] = {crafted = true, leftOver = Item.soupBowl, buffs = {essence = 1, willpower = 2, intelligence = 1}}
-M.foodList[Item.rosefishDish] = {crafted = true, leftOver = Item.woodenPlate, buffs = {essence = 2, intelligence = 2}}
-M.foodList[Item.rosefishStew] = {crafted = true, leftOver = Item.soupBowl, buffs = {perception = 2, agility = 2}}
-M.foodList[Item.rabbitDish] = {crafted = true, leftOver = 2952, buffs = {strength = 2, constitution = 2}}
-M.foodList[Item.beerSoup] = {crafted = true, leftOver = 2935, buffs = {essence = 1, perception = 2, intelligence = 1}}
-M.foodList[Item.strawberryCake] = {crafted = true, buffs = {dexterity = 2, agility = 2}}
-M.foodList[Item.lambDish] = {crafted = true, leftOver = 2952, buffs = {essence = 2, perception = 2}}
-M.foodList[Item.nutbread] = {crafted = true, buffs = {essence = 1, perception = 1,willpower = 1, intelligence = 1}}
-M.foodList[Item.custardPie] = {crafted = true, buffs = {dexterity = 2, agility = 2}}
-M.foodList[Item.venisonDish] = {crafted = true, leftOver = 2952, buffs = {strength = 2, constitution = 2}}
-M.foodList[Item.goulash] = {crafted = true, leftOver = 2935, buffs = {strength = 1, constitution = 1, agility = 1, dexterity = 1}}
-M.foodList[Item.elderberryPie] = {crafted = true, buffs = {willpower = 2, intelligence = 2}}
-M.foodList[Item.chickenDish] = {crafted = true, leftOver = 2952, buffs = {essence = 2, perception = 2}}
-M.foodList[Item.chickenSoup] = {crafted = true, leftOver = 2935, buffs = {willpower = 2, intelligence = 2}}
--- COOKED FOOD END --
+    -- Bowl dishes
+    [Item.salad] = {ingredients = {Item.soupBowl, Item.lettuce, Item.tomato, Item.cucumber}, leftOver = Item.soupBowl},
+    [Item.saladClay] = {ingredients = {Item.clayBowl, Item.lettuce, Item.tomato, Item.cucumber}, leftOver = Item.clayBowl},
+    [Item.saladPorcelain] = {ingredients = {Item.ceramicBowl, Item.lettuce, Item.tomato, Item.cucumber}, leftOver = Item.ceramicBowl},
+    [Item.saladIron] = {ingredients = {Item.ironBowl, Item.lettuce, Item.tomato, Item.cucumber}, leftOver = Item.ironBowl},
+    [Item.saladCopper] = {ingredients = {Item.copperBowl, Item.lettuce, Item.tomato, Item.cucumber}, leftOver = Item.copperBowl},
+    [Item.saladSilver] = {ingredients = {Item.silverBowl, Item.lettuce, Item.tomato, Item.cucumber}, leftOver = Item.silverBowl},
+    [Item.saladGold] = {ingredients = {Item.goldBowl, Item.lettuce, Item.tomato, Item.cucumber}, leftOver = Item.goldBowl},
+    [Item.saladGlass] = {ingredients = {Item.glassBowl, Item.lettuce, Item.tomato, Item.cucumber}, leftOver = Item.glassBowl},
+
+    [Item.fruitSalad] = {ingredients = {Item.soupBowl, Item.pineapple, Item.mango, Item.apple}, leftOver = Item.soupBowl},
+    [Item.fruitSaladClay] = {ingredients = {Item.clayBowl, Item.pineapple, Item.mango, Item.apple}, leftOver = Item.clayBowl},
+    [Item.fruitSaladPorcelain] = {ingredients = {Item.ceramicBowl, Item.pineapple, Item.mango, Item.apple}, leftOver = Item.ceramicBowl},
+    [Item.fruitSaladIron] = {ingredients = {Item.ironBowl, Item.pineapple, Item.mango, Item.apple}, leftOver = Item.ironBowl},
+    [Item.fruitSaladCopper] = {ingredients = {Item.copperBowl, Item.pineapple, Item.mango, Item.apple}, leftOver = Item.copperBowl},
+    [Item.fruitSaladSilver] = {ingredients = {Item.silverBowl, Item.pineapple, Item.mango, Item.apple}, leftOver = Item.silverBowl},
+    [Item.fruitSaladGold] = {ingredients = {Item.goldBowl, Item.pineapple, Item.mango, Item.apple}, leftOver = Item.goldBowl},
+    [Item.fruitSaladGlass] = {ingredients = {Item.glassBowl, Item.pineapple, Item.mango, Item.apple}, leftOver = Item.glassBowl},
+
+    [Item.mushroomSoup] = {ingredients = {Item.soupBowl, Item.champignon}, leftOver = Item.soupBowl},
+    [Item.mushroomSoupClay] = {ingredients = {Item.clayBowl, Item.champignon}, leftOver = Item.clayBowl},
+    [Item.mushroomSoupPorcelain] = {ingredients = {Item.ceramicBowl, Item.champignon}, leftOver = Item.ceramicBowl},
+    [Item.mushroomSoupIron] = {ingredients = {Item.ironBowl, Item.champignon}, leftOver = Item.ironBowl},
+    [Item.mushroomSoupCopper] = {ingredients = {Item.copperBowl, Item.champignon}, leftOver = Item.copperBowl},
+    [Item.mushroomSoupSilver] = {ingredients = {Item.silverBowl, Item.champignon}, leftOver = Item.silverBowl},
+    [Item.mushroomSoupGold] = {ingredients = {Item.goldBowl, Item.champignon}, leftOver = Item.goldBowl},
+    [Item.mushroomSoupGlass] = {ingredients = {Item.glassBowl, Item.champignon}, leftOver = Item.glassBowl},
+
+    [Item.onionSoup] = {ingredients = {Item.soupBowl, Item.onion}, leftOver = Item.soupBowl},
+    [Item.onionSoupClay] = {ingredients = {Item.clayBowl, Item.onion}, leftOver = Item.clayBowl},
+    [Item.onionSoupPorcelain] = {ingredients = {Item.ceramicBowl, Item.onion}, leftOver = Item.ceramicBowl},
+    [Item.onionSoupIron] = {ingredients = {Item.ironBowl, Item.onion}, leftOver = Item.ironBowl},
+    [Item.onionSoupCopper] = {ingredients = {Item.copperBowl, Item.onion}, leftOver = Item.copperBowl},
+    [Item.onionSoupSilver] = {ingredients = {Item.silverBowl, Item.onion}, leftOver = Item.silverBowl},
+    [Item.onionSoupGold] = {ingredients = {Item.goldBowl, Item.onion}, leftOver = Item.goldBowl},
+    [Item.onionSoupGlass] = {ingredients = {Item.glassBowl, Item.onion}, leftOver = Item.glassBowl},
+
+    [Item.cabbageStew] = {ingredients = {Item.soupBowl, Item.cabbage, Item.cabbage, Item.cabbage}, leftOver = Item.soupBowl},
+    [Item.cabbageStewClay] = {ingredients = {Item.clayBowl, Item.cabbage, Item.cabbage, Item.cabbage}, leftOver = Item.clayBowl},
+    [Item.cabbageStewPorcelain] = {ingredients = {Item.ceramicBowl, Item.cabbage, Item.cabbage, Item.cabbage}, leftOver = Item.ceramicBowl},
+    [Item.cabbageStewIron] = {ingredients = {Item.ironBowl, Item.cabbage, Item.cabbage, Item.cabbage}, leftOver = Item.ironBowl},
+    [Item.cabbageStewCopper] = {ingredients = {Item.copperBowl, Item.cabbage, Item.cabbage, Item.cabbage}, leftOver = Item.copperBowl},
+    [Item.cabbageStewSilver] = {ingredients = {Item.silverBowl, Item.cabbage, Item.cabbage, Item.cabbage}, leftOver = Item.silverBowl},
+    [Item.cabbageStewGold] = {ingredients = {Item.goldBowl, Item.cabbage, Item.cabbage, Item.cabbage}, leftOver = Item.goldBowl},
+    [Item.cabbageStewGlass] = {ingredients = {Item.glassBowl, Item.cabbage, Item.cabbage, Item.cabbage}, leftOver = Item.glassBowl},
+
+    [Item.mulligan] = {ingredients = {Item.soupBowl, Item.cabbage, Item.carrots, Item.onion}, leftOver = Item.soupBowl},
+    [Item.mulliganClay] = {ingredients = {Item.clayBowl, Item.cabbage, Item.carrots, Item.onion}, leftOver = Item.clayBowl},
+    [Item.mulliganPorcelain] = {ingredients = {Item.ceramicBowl, Item.cabbage, Item.carrots, Item.onion}, leftOver = Item.ceramicBowl},
+    [Item.mulliganIron] = {ingredients = {Item.ironBowl, Item.cabbage, Item.carrots, Item.onion}, leftOver = Item.ironBowl},
+    [Item.mulliganCopper] = {ingredients = {Item.copperBowl, Item.cabbage, Item.carrots, Item.onion}, leftOver = Item.copperBowl},
+    [Item.mulliganSilver] = {ingredients = {Item.silverBowl, Item.cabbage, Item.carrots, Item.onion}, leftOver = Item.silverBowl},
+    [Item.mulliganGold] = {ingredients = {Item.goldBowl, Item.cabbage, Item.carrots, Item.onion}, leftOver = Item.goldBowl},
+    [Item.mulliganGlass] = {ingredients = {Item.glassBowl, Item.cabbage, Item.carrots, Item.onion}, leftOver = Item.glassBowl},
+
+    [Item.potatoSoup] = {ingredients = {Item.soupBowl, Item.potato, Item.bottleOfMilk}, leftOver = Item.soupBowl},
+    [Item.potatoSoupClay] = {ingredients = {Item.clayBowl, Item.potato, Item.bottleOfMilk}, leftOver = Item.clayBowl},
+    [Item.potatoSoupPorcelain] = {ingredients = {Item.ceramicBowl, Item.potato, Item.bottleOfMilk}, leftOver = Item.ceramicBowl},
+    [Item.potatoSoupIron] = {ingredients = {Item.ironBowl, Item.potato, Item.bottleOfMilk}, leftOver = Item.ironBowl},
+    [Item.potatoSoupCopper] = {ingredients = {Item.copperBowl, Item.potato, Item.bottleOfMilk}, leftOver = Item.copperBowl},
+    [Item.potatoSoupSilver] = {ingredients = {Item.silverBowl, Item.potato, Item.bottleOfMilk}, leftOver = Item.silverBowl},
+    [Item.potatoSoupGold] = {ingredients = {Item.goldBowl, Item.potato, Item.bottleOfMilk}, leftOver = Item.goldBowl},
+    [Item.potatoSoupGlass] = {ingredients = {Item.glassBowl, Item.potato, Item.bottleOfMilk}, leftOver = Item.glassBowl},
+
+    [Item.eggSalad] = {ingredients = {Item.soupBowl, Item.pigeonEgg, Item.bottleOfMilk}, leftOver = Item.soupBowl},
+    [Item.eggSaladClay] = {ingredients = {Item.clayBowl, Item.pigeonEgg, Item.bottleOfMilk}, leftOver = Item.clayBowl},
+    [Item.eggSaladPorcelain] = {ingredients = {Item.ceramicBowl, Item.pigeonEgg, Item.bottleOfMilk}, leftOver = Item.ceramicBowl},
+    [Item.eggSaladIron] = {ingredients = {Item.ironBowl, Item.pigeonEgg, Item.bottleOfMilk}, leftOver = Item.ironBowl},
+    [Item.eggSaladCopper] = {ingredients = {Item.copperBowl, Item.pigeonEgg, Item.bottleOfMilk}, leftOver = Item.copperBowl},
+    [Item.eggSaladSilver] = {ingredients = {Item.silverBowl, Item.pigeonEgg, Item.bottleOfMilk}, leftOver = Item.silverBowl},
+    [Item.eggSaladGold] = {ingredients = {Item.goldBowl, Item.pigeonEgg, Item.bottleOfMilk}, leftOver = Item.goldBowl},
+    [Item.eggSaladGlass] = {ingredients = {Item.glassBowl, Item.pigeonEgg, Item.bottleOfMilk}, leftOver = Item.glassBowl},
+
+    [Item.fishSoup] = {ingredients = {Item.soupBowl, Item.trout, Item.cabbage, Item.onion, Item.cabbage}, leftOver = Item.soupBowl},
+    [Item.fishSoupClay] = {ingredients = {Item.clayBowl, Item.trout, Item.cabbage, Item.onion}, leftOver = Item.clayBowl},
+    [Item.fishSoupPorcelain] = {ingredients = {Item.ceramicBowl, Item.trout, Item.cabbage, Item.onion}, leftOver = Item.ceramicBowl},
+    [Item.fishSoupIron] = {ingredients = {Item.ironBowl, Item.trout, Item.cabbage, Item.onion}, leftOver = Item.ironBowl},
+    [Item.fishSoupCopper] = {ingredients = {Item.copperBowl, Item.trout, Item.cabbage, Item.onion}, leftOver = Item.copperBowl},
+    [Item.fishSoupSilver] = {ingredients = {Item.silverBowl, Item.trout, Item.cabbage, Item.onion}, leftOver = Item.silverBowl},
+    [Item.fishSoupGold] = {ingredients = {Item.goldBowl, Item.trout, Item.cabbage, Item.onion}, leftOver = Item.goldBowl},
+    [Item.fishSoupGlass] = {ingredients = {Item.glassBowl, Item.trout, Item.cabbage, Item.onion}, leftOver = Item.glassBowl},
+
+    [Item.mackerelSalad] = {ingredients = {Item.soupBowl, Item.horseMackerel, Item.pigeonEgg, Item.bottleOfMilk}, leftOver = Item.soupBowl},
+    [Item.mackerelSaladClay] = {ingredients = {Item.clayBowl, Item.horseMackerel, Item.pigeonEgg, Item.bottleOfMilk}, leftOver = Item.clayBowl},
+    [Item.mackerelSaladPorcelain] = {ingredients = {Item.ceramicBowl, Item.horseMackerel, Item.pigeonEgg, Item.bottleOfMilk}, leftOver = Item.ceramicBowl},
+    [Item.mackerelSaladIron] = {ingredients = {Item.ironBowl, Item.horseMackerel, Item.pigeonEgg, Item.bottleOfMilk}, leftOver = Item.ironBowl},
+    [Item.mackerelSaladCopper] = {ingredients = {Item.copperBowl, Item.horseMackerel, Item.pigeonEgg, Item.bottleOfMilk}, leftOver = Item.copperBowl},
+    [Item.mackerelSaladSilver] = {ingredients = {Item.silverBowl, Item.horseMackerel, Item.pigeonEgg, Item.bottleOfMilk}, leftOver = Item.silverBowl},
+    [Item.mackerelSaladGold] = {ingredients = {Item.goldBowl, Item.horseMackerel, Item.pigeonEgg, Item.bottleOfMilk}, leftOver = Item.goldBowl},
+    [Item.mackerelSaladGlass] = {ingredients = {Item.glassBowl, Item.horseMackerel, Item.pigeonEgg, Item.bottleOfMilk}, leftOver = Item.glassBowl},
+
+    [Item.beerSoup] = {ingredients = {Item.soupBowl, Item.bottleOfBeer, Item.onion, Item.hop}, leftOver = Item.soupBowl},
+    [Item.beerSoupClay] = {ingredients = {Item.clayBowl, Item.bottleOfBeer, Item.onion, Item.hop}, leftOver = Item.clayBowl},
+    [Item.beerSoupPorcelain] = {ingredients = {Item.ceramicBowl, Item.bottleOfBeer, Item.onion, Item.hop}, leftOver = Item.ceramicBowl},
+    [Item.beerSoupIron] = {ingredients = {Item.ironBowl, Item.bottleOfBeer, Item.onion, Item.hop}, leftOver = Item.ironBowl},
+    [Item.beerSoupCopper] = {ingredients = {Item.copperBowl, Item.bottleOfBeer, Item.onion, Item.hop}, leftOver = Item.copperBowl},
+    [Item.beerSoupSilver] = {ingredients = {Item.silverBowl, Item.bottleOfBeer, Item.onion, Item.hop}, leftOver = Item.silverBowl},
+    [Item.beerSoupGold] = {ingredients = {Item.goldBowl, Item.bottleOfBeer, Item.onion, Item.hop}, leftOver = Item.goldBowl},
+    [Item.beerSoupGlass] = {ingredients = {Item.glassBowl, Item.bottleOfBeer, Item.onion, Item.hop}, leftOver = Item.glassBowl},
+
+    [Item.goulash] = {ingredients = {Item.soupBowl, Item.deerMeat, Item.tomato, Item.carrots, Item.potato}, leftOver = Item.soupBowl},
+    [Item.goulashClay] = {ingredients = {Item.clayBowl, Item.deerMeat, Item.tomato, Item.carrots, Item.potato}, leftOver = Item.clayBowl},
+    [Item.goulashPorcelain] = {ingredients = {Item.ceramicBowl, Item.deerMeat, Item.tomato, Item.carrots, Item.potato}, leftOver = Item.ceramicBowl},
+    [Item.goulashIron] = {ingredients = {Item.ironBowl, Item.deerMeat, Item.tomato, Item.carrots, Item.potato}, leftOver = Item.ironBowl},
+    [Item.goulashCopper] = {ingredients = {Item.copperBowl, Item.deerMeat, Item.tomato, Item.carrots, Item.potato}, leftOver = Item.copperBowl},
+    [Item.goulashSilver] = {ingredients = {Item.silverBowl, Item.deerMeat, Item.tomato, Item.carrots, Item.potato}, leftOver = Item.silverBowl},
+    [Item.goulashGold] = {ingredients = {Item.goldBowl, Item.deerMeat, Item.tomato, Item.carrots, Item.potato}, leftOver = Item.goldBowl},
+    [Item.goulashGlass] = {ingredients = {Item.glassBowl, Item.deerMeat, Item.tomato, Item.carrots, Item.potato}, leftOver = Item.glassBowl},
+
+    [Item.chickenSoup] = {ingredients = {Item.soupBowl, Item.chickenMeat, Item.pumpkin, Item.pumpkin, Item.pumpkin}, leftOver = Item.soupBowl},
+    [Item.chickenSoupClay] = {ingredients = {Item.clayBowl, Item.chickenMeat, Item.pumpkin, Item.pumpkin, Item.pumpkin}, leftOver = Item.clayBowl},
+    [Item.chickenSoupPorcelain] = {ingredients = {Item.ceramicBowl, Item.chickenMeat, Item.pumpkin, Item.pumpkin, Item.pumpkin}, leftOver = Item.ceramicBowl},
+    [Item.chickenSoupIron] = {ingredients = {Item.ironBowl, Item.chickenMeat, Item.pumpkin, Item.pumpkin, Item.pumpkin}, leftOver = Item.ironBowl},
+    [Item.chickenSoupCopper] = {ingredients = {Item.copperBowl, Item.chickenMeat, Item.pumpkin, Item.pumpkin, Item.pumpkin}, leftOver = Item.copperBowl},
+    [Item.chickenSoupSilver] = {ingredients = {Item.silverBowl, Item.chickenMeat, Item.pumpkin, Item.pumpkin, Item.pumpkin}, leftOver = Item.silverBowl},
+    [Item.chickenSoupGold] = {ingredients = {Item.goldBowl, Item.chickenMeat, Item.pumpkin, Item.pumpkin, Item.pumpkin}, leftOver = Item.goldBowl},
+    [Item.chickenSoupGlass] = {ingredients = {Item.glassBowl, Item.chickenMeat, Item.pumpkin, Item.pumpkin, Item.pumpkin}, leftOver = Item.glassBowl},
+
+    [Item.rosefishStew] = {ingredients = {Item.soupBowl, Item.roseFish, Item.potato, Item.cabbage, Item.cabbage, Item.cabbage}, leftOver = Item.soupBowl},
+    [Item.rosefishStewClay] = {ingredients = {Item.clayBowl, Item.roseFish, Item.carrots, Item.cabbage, Item.cabbage, Item.cabbage}, leftOver = Item.clayBowl},
+    [Item.rosefishStewPorcelain] = {ingredients = {Item.ceramicBowl, Item.roseFish, Item.carrots, Item.cabbage, Item.cabbage, Item.cabbage}, leftOver = Item.ceramicBowl},
+    [Item.rosefishStewIron] = {ingredients = {Item.ironBowl, Item.roseFish, Item.carrots, Item.cabbage, Item.cabbage, Item.cabbage}, leftOver = Item.ironBowl},
+    [Item.rosefishStewCopper] = {ingredients = {Item.copperBowl, Item.roseFish, Item.carrots, Item.cabbage, Item.cabbage, Item.cabbage}, leftOver = Item.copperBowl},
+    [Item.rosefishStewSilver] = {ingredients = {Item.silverBowl, Item.roseFish, Item.carrots, Item.cabbage, Item.cabbage, Item.cabbage}, leftOver = Item.silverBowl},
+    [Item.rosefishStewGold] = {ingredients = {Item.goldBowl, Item.roseFish, Item.carrots, Item.cabbage, Item.cabbage, Item.cabbage}, leftOver = Item.goldBowl},
+    [Item.rosefishStewGlass] = {ingredients = {Item.glassBowl, Item.roseFish, Item.carrots, Item.cabbage, Item.cabbage, Item.cabbage}, leftOver = Item.glassBowl},
+
+    --Plate dishes
+    [Item.veggieHash] = {ingredients = {Item.woodenPlate, Item.carrots, Item.potato, Item.cabbage}, leftOver = Item.woodenPlate},
+    [Item.veggieHashClay] = {ingredients = {Item.clayPlate, Item.carrots, Item.potato, Item.cabbage}, leftOver = Item.clayPlate},
+    [Item.veggieHashPorcelain] = {ingredients = {Item.ceramicPlate, Item.carrots, Item.potato, Item.cabbage}, leftOver = Item.ceramicPlate},
+    [Item.veggieHashIron] = {ingredients = {Item.ironDishPlate, Item.carrots, Item.potato, Item.cabbage}, leftOver = Item.ironDishPlate},
+    [Item.veggieHashCopper] = {ingredients = {Item.copperPlate, Item.carrots, Item.potato, Item.cabbage}, leftOver = Item.copperPlate},
+    [Item.veggieHashSilver] = {ingredients = {Item.silverPlate, Item.carrots, Item.potato, Item.cabbage}, leftOver = Item.silverPlate},
+    [Item.veggieHashGold] = {ingredients = {Item.goldPlate, Item.carrots, Item.potato, Item.cabbage}, leftOver = Item.goldPlate},
+    [Item.veggieHashGlass] = {ingredients = {Item.glassPlate, Item.carrots, Item.potato, Item.cabbage}, leftOver = Item.glassPlate},
+
+    [Item.cabbageRoll] = {ingredients = {Item.woodenPlate, Item.cabbage, Item.cabbage}, leftOver = Item.woodenPlate},
+    [Item.cabbageRollClay] = {ingredients = {Item.clayPlate, Item.cabbage, Item.cabbage}, leftOver = Item.clayPlate},
+    [Item.cabbageRollPorcelain] = {ingredients = {Item.ceramicPlate, Item.cabbage, Item.cabbage}, leftOver = Item.ceramicPlate},
+    [Item.cabbageRollIron] = {ingredients = {Item.ironDishPlate, Item.cabbage, Item.cabbage}, leftOver = Item.ironDishPlate},
+    [Item.cabbageRollCopper] = {ingredients = {Item.copperPlate, Item.cabbage, Item.cabbage}, leftOver = Item.copperPlate},
+    [Item.cabbageRollSilver] = {ingredients = {Item.silverPlate, Item.cabbage, Item.cabbage}, leftOver = Item.silverPlate},
+    [Item.cabbageRollGold] = {ingredients = {Item.goldPlate, Item.cabbage, Item.cabbage}, leftOver = Item.goldPlate},
+    [Item.cabbageRollGlass] = {ingredients = {Item.glassPlate, Item.cabbage, Item.cabbage}, leftOver = Item.glassPlate},
+
+    [Item.troutFilletDish] = {ingredients = {Item.woodenPlate, Item.smokedFish, Item.carrots, Item.tomato}, leftOver = Item.woodenPlate},
+    [Item.troutFilletDishClay] = {ingredients = {Item.clayPlate, Item.smokedFish, Item.carrots, Item.tomato}, leftOver = Item.clayPlate},
+    [Item.troutFilletDishPorcelain] = {ingredients = {Item.ceramicPlate, Item.smokedFish, Item.carrots, Item.tomato}, leftOver = Item.ceramicPlate},
+    [Item.troutFilletDishIron] = {ingredients = {Item.ironDishPlate, Item.smokedFish, Item.carrots, Item.tomato}, leftOver = Item.ironDishPlate},
+    [Item.troutFilletDishCopper] = {ingredients = {Item.copperPlate, Item.smokedFish, Item.carrots, Item.tomato}, leftOver = Item.copperPlate},
+    [Item.troutFilletDishSilver] = {ingredients = {Item.silverPlate, Item.smokedFish, Item.carrots, Item.tomato}, leftOver = Item.silverPlate},
+    [Item.troutFilletDishGold] = {ingredients = {Item.goldPlate, Item.smokedFish, Item.carrots, Item.tomato}, leftOver = Item.goldPlate},
+    [Item.troutFilletDishGlass] = {ingredients = {Item.glassPlate, Item.smokedFish, Item.carrots, Item.tomato}, leftOver = Item.glassPlate},
+
+    [Item.salmonDish] = {ingredients = {Item.woodenPlate, Item.smokedSalmon, Item.potato, Item.cucumber}, leftOver = Item.woodenPlate},
+    [Item.salmonDishClay] = {ingredients = {Item.clayPlate, Item.smokedSalmon, Item.potato, Item.cucumber}, leftOver = Item.clayPlate},
+    [Item.salmonDishPorcelain] = {ingredients = {Item.ceramicPlate, Item.smokedSalmon, Item.potato, Item.cucumber}, leftOver = Item.ceramicPlate},
+    [Item.salmonDishIron] = {ingredients = {Item.ironDishPlate, Item.smokedSalmon, Item.potato, Item.cucumber}, leftOver = Item.ironDishPlate},
+    [Item.salmonDishCopper] = {ingredients = {Item.copperPlate, Item.smokedSalmon, Item.potato, Item.cucumber}, leftOver = Item.copperPlate},
+    [Item.salmonDishSilver] = {ingredients = {Item.silverPlate, Item.smokedSalmon, Item.potato, Item.cucumber}, leftOver = Item.silverPlate},
+    [Item.salmonDishGold] = {ingredients = {Item.goldPlate, Item.smokedSalmon, Item.potato, Item.cucumber}, leftOver = Item.goldPlate},
+    [Item.salmonDishGlass] = {ingredients = {Item.glassPlate, Item.smokedSalmon, Item.potato, Item.cucumber}, leftOver = Item.glassPlate},
+
+    [Item.eggDish] = {ingredients = {Item.woodenPlate, Item.pigeonEgg, Item.sausage, Item.tomato}, leftOver = Item.woodenPlate},
+    [Item.eggDishClay] = {ingredients = {Item.clayPlate, Item.pigeonEgg, Item.sausage, Item.tomato}, leftOver = Item.clayPlate},
+    [Item.eggDishPorcelain] = {ingredients = {Item.ceramicPlate, Item.pigeonEgg, Item.sausage, Item.tomato}, leftOver = Item.ceramicPlate},
+    [Item.eggDishIron] = {ingredients = {Item.ironDishPlate, Item.pigeonEgg, Item.sausage, Item.tomato}, leftOver = Item.ironDishPlate},
+    [Item.eggDishCopper] = {ingredients = {Item.copperPlate, Item.pigeonEgg, Item.sausage, Item.tomato}, leftOver = Item.copperPlate},
+    [Item.eggDishSilver] = {ingredients = {Item.silverPlate, Item.pigeonEgg, Item.sausage, Item.tomato}, leftOver = Item.silverPlate},
+    [Item.eggDishGold] = {ingredients = {Item.goldPlate, Item.pigeonEgg, Item.sausage, Item.tomato}, leftOver = Item.goldPlate},
+    [Item.eggDishGlass] = {ingredients = {Item.glassPlate, Item.pigeonEgg, Item.sausage, Item.tomato}, leftOver = Item.glassPlate},
+
+    [Item.meatDish] = {ingredients = {Item.woodenPlate, Item.ham, Item.potato, Item.cabbage}, leftOver = Item.woodenPlate},
+    [Item.hamDishClay] = {ingredients = {Item.clayPlate, Item.ham, Item.potato, Item.cabbage}, leftOver = Item.clayPlate},
+    [Item.hamDishPorcelain] = {ingredients = {Item.ceramicPlate, Item.ham, Item.potato, Item.cabbage}, leftOver = Item.ceramicPlate},
+    [Item.hamDishIron] = {ingredients = {Item.ironDishPlate, Item.ham, Item.potato, Item.cabbage}, leftOver = Item.ironDishPlate},
+    [Item.hamDishCopper] = {ingredients = {Item.copperPlate, Item.ham, Item.potato, Item.cabbage}, leftOver = Item.copperPlate},
+    [Item.hamDishSilver] = {ingredients = {Item.silverPlate, Item.ham, Item.potato, Item.cabbage}, leftOver = Item.silverPlate},
+    [Item.hamDishGold] = {ingredients = {Item.goldPlate, Item.ham, Item.potato, Item.cabbage}, leftOver = Item.goldPlate},
+    [Item.hamDishGlass] = {ingredients = {Item.glassPlate, Item.ham, Item.potato, Item.cabbage}, leftOver = Item.glassPlate},
+
+    [Item.sausagesDish] = {ingredients = {Item.woodenPlate, Item.sausage, Item.potato, Item.cabbage}, leftOver = Item.woodenPlate},
+    [Item.sausagesDishClay] = {ingredients = {Item.clayPlate, Item.sausage, Item.potato, Item.cabbage}, leftOver = Item.clayPlate},
+    [Item.sausagesDishPorcelain] = {ingredients = {Item.ceramicPlate, Item.sausage, Item.potato, Item.cabbage}, leftOver = Item.ceramicPlate},
+    [Item.sausagesDishIron] = {ingredients = {Item.ironDishPlate, Item.sausage, Item.potato, Item.cabbage}, leftOver = Item.ironDishPlate},
+    [Item.sausagesDishCopper] = {ingredients = {Item.copperPlate, Item.sausage, Item.potato, Item.cabbage}, leftOver = Item.copperPlate},
+    [Item.sausagesDishSilver] = {ingredients = {Item.silverPlate, Item.sausage, Item.potato, Item.cabbage}, leftOver = Item.silverPlate},
+    [Item.sausagesDishGold] = {ingredients = {Item.goldPlate, Item.sausage, Item.potato, Item.cabbage}, leftOver = Item.goldPlate},
+    [Item.sausagesDishGlass] = {ingredients = {Item.glassPlate, Item.sausage, Item.potato, Item.cabbage}, leftOver = Item.glassPlate},
+
+    [Item.steakDish] = {ingredients = {Item.woodenPlate, Item.grilledSteak, Item.potato, Item.cucumber}, leftOver = Item.woodenPlate},
+    [Item.steakDishClay] = {ingredients = {Item.clayPlate, Item.grilledSteak, Item.potato, Item.cucumber}, leftOver = Item.clayPlate},
+    [Item.steakDishPorcelain] = {ingredients = {Item.ceramicPlate, Item.grilledSteak, Item.potato, Item.cucumber}, leftOver = Item.ceramicPlate},
+    [Item.steakDishIron] = {ingredients = {Item.ironDishPlate, Item.grilledSteak, Item.potato, Item.cucumber}, leftOver = Item.ironDishPlate},
+    [Item.steakDishCopper] = {ingredients = {Item.copperPlate, Item.grilledSteak, Item.potato, Item.cucumber}, leftOver = Item.copperPlate},
+    [Item.steakDishSilver] = {ingredients = {Item.silverPlate, Item.grilledSteak, Item.potato, Item.cucumber}, leftOver = Item.silverPlate},
+    [Item.steakDishGold] = {ingredients = {Item.goldPlate, Item.grilledSteak, Item.potato, Item.cucumber}, leftOver = Item.goldPlate},
+    [Item.steakDishGlass] = {ingredients = {Item.glassPlate, Item.grilledSteak, Item.potato, Item.cucumber}, leftOver = Item.glassPlate},
+
+    [Item.rosefishDish] = {ingredients = {Item.woodenPlate, Item.smokedRosefish, Item.potato, Item.cabbage}, leftOver = Item.woodenPlate},
+    [Item.rosefishDishClay] = {ingredients = {Item.clayPlate, Item.smokedRosefish, Item.potato, Item.cabbage}, leftOver = Item.clayPlate},
+    [Item.rosefishDishPorcelain] = {ingredients = {Item.ceramicPlate, Item.smokedRosefish, Item.potato, Item.cabbage}, leftOver = Item.ceramicPlate},
+    [Item.rosefishDishIron] = {ingredients = {Item.ironDishPlate, Item.smokedRosefish, Item.potato, Item.cabbage}, leftOver = Item.ironDishPlate},
+    [Item.rosefishDishCopper] = {ingredients = {Item.copperPlate, Item.smokedRosefish, Item.potato, Item.cabbage}, leftOver = Item.copperPlate},
+    [Item.rosefishDishSilver] = {ingredients = {Item.silverPlate, Item.smokedRosefish, Item.potato, Item.cabbage}, leftOver = Item.silverPlate},
+    [Item.rosefishDishGold] = {ingredients = {Item.goldPlate, Item.smokedRosefish, Item.potato, Item.cabbage}, leftOver = Item.goldPlate},
+    [Item.rosefishDishGlass] = {ingredients = {Item.glassPlate, Item.smokedRosefish, Item.potato, Item.cabbage}, leftOver = Item.glassPlate},
+
+    [Item.rabbitDish] = {ingredients = {Item.woodenPlate, Item.smokedRabbit, Item.onion, Item.cabbage}, leftOver = Item.woodenPlate},
+    [Item.rabbitDishClay] = {ingredients = {Item.clayPlate, Item.smokedRabbit, Item.onion, Item.cabbage}, leftOver = Item.clayPlate},
+    [Item.rabbitDishPorcelain] = {ingredients = {Item.ceramicPlate, Item.smokedRabbit, Item.onion, Item.cabbage}, leftOver = Item.ceramicPlate},
+    [Item.rabbitDishIron] = {ingredients = {Item.ironDishPlate, Item.smokedRabbit, Item.onion, Item.cabbage}, leftOver = Item.ironDishPlate},
+    [Item.rabbitDishCopper] = {ingredients = {Item.copperPlate, Item.smokedRabbit, Item.onion, Item.cabbage}, leftOver = Item.copperPlate},
+    [Item.rabbitDishSilver] = {ingredients = {Item.silverPlate, Item.smokedRabbit, Item.onion, Item.cabbage}, leftOver = Item.silverPlate},
+    [Item.rabbitDishGold] = {ingredients = {Item.goldPlate, Item.smokedRabbit, Item.onion, Item.cabbage}, leftOver = Item.goldPlate},
+    [Item.rabbitDishGlass] = {ingredients = {Item.glassPlate, Item.smokedRabbit, Item.onion, Item.cabbage}, leftOver = Item.glassPlate},
+
+    [Item.chickenDish] = {ingredients = {Item.woodenPlate, Item.smokedChicken, Item.potato, Item.cabbage, Item.pumpkin}, leftOver = Item.woodenPlate},
+    [Item.chickenDishClay] = {ingredients = {Item.clayPlate, Item.smokedChicken, Item.potato, Item.cabbage, Item.pumpkin}, leftOver = Item.clayPlate},
+    [Item.chickenDishPorcelain] = {ingredients = {Item.ceramicPlate, Item.smokedChicken, Item.potato, Item.cabbage, Item.pumpkin}, leftOver = Item.ceramicPlate},
+    [Item.chickenDishIron] = {ingredients = {Item.ironDishPlate, Item.smokedChicken, Item.potato, Item.cabbage, Item.pumpkin}, leftOver = Item.ironDishPlate},
+    [Item.chickenDishCopper] = {ingredients = {Item.copperPlate, Item.smokedChicken, Item.potato, Item.cabbage, Item.pumpkin}, leftOver = Item.copperPlate},
+    [Item.chickenDishSilver] = {ingredients = {Item.silverPlate, Item.smokedChicken, Item.potato, Item.cabbage, Item.pumpkin}, leftOver = Item.silverPlate},
+    [Item.chickenDishGold] = {ingredients = {Item.goldPlate, Item.smokedChicken, Item.potato, Item.cabbage, Item.pumpkin}, leftOver = Item.goldPlate},
+    [Item.chickenDishGlass] = {ingredients = {Item.glassPlate, Item.smokedChicken, Item.potato, Item.cabbage, Item.pumpkin}, leftOver = Item.glassPlate},
+
+    [Item.lambDish] = {ingredients = {Item.woodenPlate, Item.grilledLamb, Item.onion, Item.bellpepper}, leftOver = Item.woodenPlate},
+    [Item.lambDishClay] = {ingredients = {Item.clayPlate, Item.grilledLamb, Item.onion, Item.bellpepper}, leftOver = Item.clayPlate},
+    [Item.lambDishPorcelain] = {ingredients = {Item.ceramicPlate, Item.grilledLamb, Item.onion, Item.bellpepper}, leftOver = Item.ceramicPlate},
+    [Item.lambDishIron] = {ingredients = {Item.ironDishPlate, Item.grilledLamb, Item.onion, Item.bellpepper}, leftOver = Item.ironDishPlate},
+    [Item.lambDishCopper] = {ingredients = {Item.copperPlate, Item.grilledLamb, Item.onion, Item.bellpepper}, leftOver = Item.copperPlate},
+    [Item.lambDishSilver] = {ingredients = {Item.silverPlate, Item.grilledLamb, Item.onion, Item.bellpepper}, leftOver = Item.silverPlate},
+    [Item.lambDishGold] = {ingredients = {Item.goldPlate, Item.grilledLamb, Item.onion, Item.bellpepper}, leftOver = Item.goldPlate},
+    [Item.lambDishGlass] = {ingredients = {Item.glassPlate, Item.grilledLamb, Item.onion, Item.bellpepper}, leftOver = Item.glassPlate},
+
+    [Item.venisonDish] = {ingredients = {Item.woodenPlate, Item.grilledVenison, Item.tomato, Item.cabbage}, leftOver = Item.woodenPlate},
+    [Item.venisonDishClay] = {ingredients = {Item.clayPlate, Item.grilledVenison, Item.tomato, Item.cabbage}, leftOver = Item.clayPlate},
+    [Item.venisonDishPorcelain] = {ingredients = {Item.ceramicPlate, Item.grilledVenison, Item.tomato, Item.cabbage}, leftOver = Item.ceramicPlate},
+    [Item.venisonDishIron] = {ingredients = {Item.ironDishPlate, Item.grilledVenison, Item.tomato, Item.cabbage}, leftOver = Item.ironDishPlate},
+    [Item.venisonDishCopper] = {ingredients = {Item.copperPlate, Item.grilledVenison, Item.tomato, Item.cabbage}, leftOver = Item.copperPlate},
+    [Item.venisonDishSilver] = {ingredients = {Item.silverPlate, Item.grilledVenison, Item.tomato, Item.cabbage}, leftOver = Item.silverPlate},
+    [Item.venisonDishGold] = {ingredients = {Item.goldPlate, Item.grilledVenison, Item.tomato, Item.cabbage}, leftOver = Item.goldPlate},
+    [Item.venisonDishGlass] = {ingredients = {Item.glassPlate, Item.grilledVenison, Item.tomato, Item.cabbage}, leftOver = Item.glassPlate},
+
+    }
+
+function M.isFood(potentialFoodItemId)
+    if M.cookedFood[potentialFoodItemId] then
+        return true, true
+    end
+
+    if M.foragedFood[potentialFoodItemId] then
+        return true, false
+    end
+
+    return false
+end
 
 -- constants for free food (everything uncooked); use only those
 local valueSmall = 800
@@ -136,116 +375,81 @@ local valueMedium = 1200
 local valueLarge = 3000
 
 -- Processed resource (not free food as the gathered ingredient has been processed once via crafting, but not properly crafted food either as it remains an ingredient albeit edible)
+M.foragedFood = {
+    [Item.beeHoney] = {foodPoints = valueMedium, leftOver = Item.emptyHoneyJar},
+    [Item.firewaspHoney] = {foodPoints = valueMedium, leftOver = Item.emptyHoneyJar},
+    [Item.apple]   = {foodPoints = valueSmall},
+    [Item.cherries]  = {foodPoints = valueSmall},
+    [Item.peach]  = {foodPoints = valueSmall},
+    [Item.pear]  = {foodPoints = valueSmall},
+    [Item.tangerine]  = {foodPoints = valueSmall},
+    [Item.banana]   = {foodPoints = valueSmall},
+    [Item.plum]  = {foodPoints = valueMedium},
+    [Item.nuts]  = {foodPoints = valueMedium},
+    [Item.mango]  = {foodPoints = valueMedium},
+    [Item.orange] = {foodPoints = valueLarge},
+    [Item.grapes]  = {foodPoints = valueLarge},
+    [Item.pineapple]  = {foodPoints = valueLarge},
+    [Item.trout] = {foodPoints = valueMedium},
+    [Item.swordfish] = {foodPoints = valueMedium},
+    [Item.crab] = {foodPoints = valueMedium},
+    [Item.lobster] = {foodPoints = valueMedium},
+    [Item.foxMeat] = {foodPoints = valueMedium},
+    [Item.wolfMeat] = {foodPoints = valueMedium},
+    [Item.bearMeat] = {foodPoints = valueMedium},
+    [Item.raptorMeat] = {foodPoints = valueMedium},
+    [Item.dragonMeat] = {foodPoints = valueLarge},
+    [Item.ratMeat] = {foodPoints = valueMedium},
+    [Item.shrimp] = {foodPoints = valueMedium},
+    [Item.octopus] = {foodPoints = valueMedium},
+    [Item.eel] = {foodPoints = valueMedium},
+    [Item.flounder] = {foodPoints = valueMedium},
+    [Item.sandberry]  = {foodPoints = valueSmall},
+    [Item.bulbspongeMushroom]  = {foodPoints = valueSmall, poisonPoints = 1000},
+    [Item.toadstool]  = {foodPoints = valueSmall, poisonPoints = 1000},
+    [Item.herdersMushroom]  = {foodPoints = valueSmall},
+    [Item.tomato]  = {foodPoints = valueMedium},
+    [Item.onion]  = {foodPoints = valueMedium},
+    [Item.cabbage]  = {foodPoints = valueMedium},
+    [Item.pork] = {foodPoints = valueMedium},
+    [Item.salmon] = {foodPoints = valueMedium},
+    [Item.deerMeat] = {foodPoints = valueMedium},
+    [Item.rabbitMeat] = {foodPoints = valueMedium},
+    [Item.whiteEgg] = {foodPoints = valueSmall},
+    [Item.chickenMeat] = {foodPoints = valueMedium},
+    [Item.horseMackerel] = {foodPoints = valueMedium},
+    [Item.roseFish] = {foodPoints = valueMedium},
+    [Item.carrots] = {foodPoints = valueMedium},
+    [Item.lambMeat] = {foodPoints = valueMedium},
+    [Item.rawSteak] = {foodPoints = valueMedium},
+    [Item.potato] = {foodPoints = valueMedium},
+    [Item.honeycomb] = {foodPoints = valueSmall},
+    [Item.pigeonEgg] = {foodPoints = valueSmall},
+    [Item.seagullEgg] = {foodPoints = valueMedium},
+    [Item.firewaspHoneycomb] = {foodPoints = valueMedium},
+    [Item.raptorEgg] = {foodPoints = valueMedium},
+    [Item.spiderEgg] = {foodPoints = valueMedium},
+    [Item.dragonEgg] = {foodPoints = valueLarge},
+    [Item.pumpkin] = {foodPoints = valueLarge},
+    [Item.bellpepper] = {foodPoints = valueMedium},
+    [Item.corn] = {foodPoints = valueMedium},
+    [Item.lettuce] = {foodPoints = valueSmall},
+    [Item.cucumber] = {foodPoints = valueSmall},
+    [Item.blueberry]  = {foodPoints = valueSmall},
+    [Item.strawberry]  = {foodPoints = valueSmall},
+    [Item.blackberry]  = {foodPoints = valueSmall},
+    [Item.redElder]  = {foodPoints = valueSmall},
+    [Item.champignon]  = {foodPoints = valueSmall},
+    [Item.raspberry]  = {foodPoints = valueMedium},
+    [Item.birthMushroom]  = {foodPoints = valueMedium},
+    [Item.cloudberry]  = {foodPoints = valueMedium},
+    [Item.redHead]  = {foodPoints = valueLarge},
+    [Item.berries]   = {foodPoints = valueLarge},
+    [Item.chanterelle]   = {foodPoints = valueLarge}
+    }
 
-M.foodList[Item.beeHoney] = {foodPoints = valueMedium, leftOver = Item.emptyHoneyJar}
-M.foodList[Item.firewaspHoney] = {foodPoints = valueMedium, leftOver = Item.emptyHoneyJar}
 
--- FREE FOOD
-M.foodList[Item.apple]   = {foodPoints = valueSmall}
-M.foodList[Item.cherries]  = {foodPoints = valueSmall}
-M.foodList[Item.peach]  = {foodPoints = valueSmall}
-M.foodList[Item.pear]  = {foodPoints = valueSmall}
-M.foodList[Item.tangerine]  = {foodPoints = valueSmall}
-M.foodList[Item.banana]   = {foodPoints = valueSmall}
-M.foodList[Item.plum]  = {foodPoints = valueMedium}
-M.foodList[Item.nuts]  = {foodPoints = valueMedium}
-M.foodList[Item.mango]  = {foodPoints = valueMedium}
-M.foodList[Item.orange] = {foodPoints = valueLarge}
-M.foodList[Item.grapes]  = {foodPoints = valueLarge}
-M.foodList[Item.pineapple]  = {foodPoints = valueLarge}
-M.foodList[Item.trout] = {foodPoints = valueMedium}
-M.foodList[Item.swordfish] = {foodPoints = valueMedium}
-M.foodList[Item.crab] = {foodPoints = valueMedium}
-M.foodList[Item.lobster] = {foodPoints = valueMedium}
-M.foodList[Item.foxMeat] = {foodPoints = valueMedium}
-M.foodList[Item.wolfMeat] = {foodPoints = valueMedium}
-M.foodList[Item.bearMeat] = {foodPoints = valueMedium}
-M.foodList[Item.raptorMeat] = {foodPoints = valueMedium}
-M.foodList[Item.dragonMeat] = {foodPoints = valueLarge}
-M.foodList[Item.ratMeat] = {foodPoints = valueMedium}
-M.foodList[Item.shrimp] = {foodPoints = valueMedium}
-M.foodList[Item.octopus] = {foodPoints = valueMedium}
-M.foodList[Item.eel] = {foodPoints = valueMedium}
-M.foodList[Item.flounder] = {foodPoints = valueMedium}
-M.foodList[Item.sandberry]  = {foodPoints = valueSmall}
-M.foodList[Item.bulbspongeMushroom]  = {foodPoints = valueSmall, poisonPoints = 1000}
-M.foodList[Item.toadstool]  = {foodPoints = valueSmall, poisonPoints = 1000}
-M.foodList[Item.herdersMushroom]  = {foodPoints = valueSmall}
-M.foodList[Item.tomato]  = {foodPoints = valueMedium}
-M.foodList[Item.onion]  = {foodPoints = valueMedium}
-M.foodList[Item.cabbage]  = {foodPoints = valueMedium}
-M.foodList[Item.pork] = {foodPoints = valueMedium}
-M.foodList[Item.salmon] = {foodPoints = valueMedium}
-M.foodList[Item.deerMeat] = {foodPoints = valueMedium}
-M.foodList[Item.rabbitMeat] = {foodPoints = valueMedium}
-M.foodList[Item.whiteEgg] = {foodPoints = valueSmall}
-M.foodList[Item.chickenMeat] = {foodPoints = valueMedium}
-M.foodList[Item.horseMackerel] = {foodPoints = valueMedium}
-M.foodList[Item.roseFish] = {foodPoints = valueMedium}
-M.foodList[Item.carrots] = {foodPoints = valueMedium}
-M.foodList[Item.lambMeat] = {foodPoints = valueMedium}
-M.foodList[Item.rawSteak] = {foodPoints = valueMedium}
-M.foodList[Item.potato] = {foodPoints = valueMedium}
-M.foodList[Item.honeycomb] = {foodPoints = valueSmall}
-M.foodList[Item.pigeonEgg] = {foodPoints = valueSmall}
-M.foodList[Item.seagullEgg] = {foodPoints = valueMedium}
-M.foodList[Item.firewaspHoneycomb] = {foodPoints = valueMedium}
-M.foodList[Item.raptorEgg] = {foodPoints = valueMedium}
-M.foodList[Item.spiderEgg] = {foodPoints = valueMedium}
-M.foodList[Item.dragonEgg] = {foodPoints = valueLarge}
-M.foodList[Item.pumpkin] = {foodPoints = valueLarge}
-M.foodList[Item.bellpepper] = {foodPoints = valueMedium}
-M.foodList[Item.corn] = {foodPoints = valueMedium}
-M.foodList[Item.lettuce] = {foodPoints = valueSmall}
-M.foodList[Item.cucumber] = {foodPoints = valueSmall}
 
-M.foodList[Item.blueberry]  = {foodPoints = valueSmall}
-M.foodList[Item.strawberry]  = {foodPoints = valueSmall}
-M.foodList[Item.blackberry]  = {foodPoints = valueSmall}
-M.foodList[Item.redElder]  = {foodPoints = valueSmall}
-M.foodList[Item.champignon]  = {foodPoints = valueSmall}
-M.foodList[Item.raspberry]  = {foodPoints = valueMedium}
-M.foodList[Item.birthMushroom]  = {foodPoints = valueMedium}
-M.foodList[Item.cloudberry]  = {foodPoints = valueMedium}
-M.foodList[Item.redHead]  = {foodPoints = valueLarge}
-M.foodList[Item.berries]   = {foodPoints = valueLarge}
-M.foodList[Item.chanterelle]   = {foodPoints = valueLarge}
-
--- get difficulty from the database
-for foodId, foodItem in pairs(M.foodList) do
-    if foodItem.crafted then
-        foodItem.difficulty = world:getItemStatsFromId(foodId).Level
-    end
-end
-
-local maxDifficulty = 100
-
-local minCraftedFoodvalue = 6000
-local maxCraftedFoodvalue = 55000
-local difference = maxCraftedFoodvalue - minCraftedFoodvalue
--- calculate food points for crafted food
-for _, foodItem in pairs(M.foodList) do
-    if foodItem.difficulty ~= nil and foodItem.foodPoints == nil then
-      foodItem.foodPoints = minCraftedFoodvalue + difference*(foodItem.difficulty/maxDifficulty)
-    end
-end
-
-local minCraftedBuffDuration = 1800 -- 1/10 seconds
-local maxCraftedBuffDuration = 12000 -- 1/10 seconds
-difference = maxCraftedBuffDuration - minCraftedBuffDuration
--- calculate buff duration for crafted food
-for _, foodItem in pairs(M.foodList) do
-    if foodItem.difficulty ~= nil and foodItem.duration == nil then
-        foodItem.duration = math.ceil(minCraftedBuffDuration + difference*(foodItem.difficulty/maxDifficulty))
-    end
-end
-
-local function poisonedFood(user, sourceItem)
-    local poisonPoints = M.foodList[sourceItem.id]["poisonPoints"]
-    if poisonPoints then
-        user:increaseAttrib("poisonlevel", poisonPoints)
-    end
-end
 
 local attributesGerman = {}
 attributesGerman.strength     = "Stärke"
@@ -257,32 +461,25 @@ attributesGerman.essence      = "Essenz"
 attributesGerman.perception   = "Wahrnehmung"
 attributesGerman.willpower    = "Willensstärke"
 
-local function getAmountOfBuffs(buffs)
-    local count = 0
-    for _ in pairs(buffs) do
-        count = count + 1
-    end
-    return count
-end
-
 local function buffsAdding(user, sourceItem)
 
-    local buffs = M.foodList[sourceItem.id].buffs
+    local dishInfo
+
+    if not common.IsNilOrEmpty(sourceItem:getData("ingredient1")) then
+        dishInfo = cookingRecipeCreation.getDishInfo(sourceItem)
+    else
+        local ingredients = M.cookedFood[sourceItem.id].ingredients
+        dishInfo = cookingRecipeCreation.getDishInfo(nil, ingredients)
+    end
+
+    local buffs = dishInfo.attributes
+
     local rarity = sourceItem:getData("rareness")
 
     if not common.IsNilOrEmpty(rarity) then
         rarity = tonumber(rarity)
     else
         rarity = 0
-    end
-
-    if not buffs then
-        local rareBuff = M.foodList[sourceItem.id].rareBuff
-        if rareBuff and rarity >= 3 then
-            buffs = rareBuff
-        else
-            return
-        end
     end
 
     local messageDe = "Durch das Essen erfährst du folgende Veränderungen: "
@@ -295,67 +492,46 @@ local function buffsAdding(user, sourceItem)
         messageEn = "The former diet effect is replaced. " .. messageEn
     end
 
-    local duration = M.foodList[sourceItem.id].duration
-
+    local duration = cookingRecipeCreation.getDuration(dishInfo)
 
     if rarity >= 3 then
         duration = duration*(1 + (rarity-2)/10) -- 10,20% increase of duration based on rarity
     end
 
-    local dietEffect=LongTimeEffect(12, duration)
+    local dietEffect = LongTimeEffect(12, duration)
     local addComma = false
 
     local rarityBuff = 0
-    local attribsRaised = getAmountOfBuffs(buffs)
-
-    local attribsChecked = 0
 
     local numberOfBuffedStats = 0
+
     for _, value in pairs(buffs) do
         numberOfBuffedStats = numberOfBuffedStats+1
     end
 
-    for attribute, value in pairs(buffs) do
+    for _, buff in pairs(buffs) do
 
-        if rarity == 3 and rarityBuff == 0 then -- The buff is applied to one stat for rare items
+        if buff.value > 0 then
 
-            local rand = math.random(1, attribsRaised-attribsChecked)
-
-            if rand == 1 then
-                    value = value + 1
-                    rarityBuff = rarityBuff + 1
+            if rarityBuff < rarity-1 then --Each rarity adds one increase, max one per attribute
+                buff.value = buff.value+1
+                rarityBuff = rarityBuff + 1
             end
 
-            attribsChecked = attribsChecked + 1
-        end
-
-        if rarity == 4 and rarityBuff < 2 then -- The buff is applied to two stats for unique items or twice for one if there's only one
-
-            local increment = 1
-
-            if numberOfBuffedStats == 1 then
-                increment = 2
+            if addComma then
+                messageDe = messageDe .. ", "
+                messageEn = messageEn .. ", "
             end
 
-            value = value + increment
-            rarityBuff = rarityBuff + increment
+            messageDe = messageDe .. attributesGerman[buff.attribute] .. " +" .. buff.value
+            messageEn = messageEn .. buff.attribute .. " +" .. buff.value
+            addComma = true
 
+            local oldValue = user:increaseAttrib(buff.attribute, 0)
+            local newValue = user:increaseAttrib(buff.attribute, buff.value)
+
+            dietEffect:addValue(buff.attribute, newValue - oldValue)
         end
-
-        if addComma then
-            messageDe = messageDe .. ", "
-            messageEn = messageEn .. ", "
-        end
-
-        messageDe = messageDe .. attributesGerman[attribute] .. " +" .. value
-        messageEn = messageEn .. attribute .. " +" .. value
-        addComma = true
-
-        local oldValue = user:increaseAttrib(attribute, 0)
-        local newValue = user:increaseAttrib(attribute, value)
-
-        dietEffect:addValue(attribute, newValue - oldValue)
-
     end
 
     user.effects:addEffect(dietEffect)
@@ -470,13 +646,13 @@ local function customInform(sourceItem, user)
         common.InformNLS( user, customInformDE, customInformEN)
     end
 end
+
 function M.MoveItemAfterMove( user, SourceItem, TargetItem )
     if onionball.moveOnion(user, SourceItem, TargetItem) then
         return false
     end
     return true
 end
-
 
 function M.UseItem(user, sourceItem, ltstate)
     if onionball.useOnion(user, sourceItem) then
@@ -500,7 +676,22 @@ function M.UseItem(user, sourceItem, ltstate)
 
     local oldFoodLevel = user:increaseAttrib("foodlevel", 0)
 
-    local foodIncrease = M.foodList[sourceItem.id].foodPoints
+    local dishInfo
+
+    if not common.IsNilOrEmpty(sourceItem:getData("ingredient1")) then
+        dishInfo = cookingRecipeCreation.getDishInfo(sourceItem)
+    elseif M.cookedFood[sourceItem.id] then
+        local ingredients = M.cookedFood[sourceItem.id].ingredients
+        dishInfo = cookingRecipeCreation.getDishInfo(nil, ingredients)
+    end
+
+    local foodIncrease
+
+    if M.cookedFood[sourceItem.id] then
+        foodIncrease = cookingRecipeCreation.getFoodIncrease(dishInfo)
+    else
+        foodIncrease = M.foragedFood[sourceItem.id].foodPoints
+    end
 
     local rarity = sourceItem:getData("rareness")
 
@@ -513,18 +704,41 @@ function M.UseItem(user, sourceItem, ltstate)
 
     foodLevelInform(user, newFoodLevel, oldFoodLevel)
 
-    poisonedFood(user, sourceItem)
-
-    buffsAdding(user, sourceItem)
+    if M.cookedFood[sourceItem.id] then
+        buffsAdding(user, sourceItem)
+    end
 
     customInform(sourceItem, user)
 
     world:erase(sourceItem, 1)
 
-    leftOverCreation(user, M.foodList[sourceItem.id].leftOver)
+    local leftOver
+
+    if M.cookedFood[sourceItem.id] then
+        leftOver = M.cookedFood[sourceItem.id].leftOver
+    else
+        leftOver = M.foragedFood[sourceItem.id].leftOver
+    end
+
+    leftOverCreation(user, leftOver)
 end
 
 function M.LookAtItem(user, food)
+
+
+    if M.cookedFood[food.id] and common.IsNilOrEmpty(food:getData("remainingValue")) and not M.cookedFood[food.id].intermediate then
+        local dishInfo
+        if not common.IsNilOrEmpty(food:getData("ingredient1")) then
+            dishInfo = cookingRecipeCreation.getDishInfo(food)
+        else
+            local ingredients = M.cookedFood[food.id].ingredients
+            dishInfo = cookingRecipeCreation.getDishInfo(nil, ingredients)
+        end
+        if dishInfo.worth and tonumber(dishInfo.worth) ~= 0 then
+            food:setData("remainingValue", math.floor(dishInfo.worth/100)*100)
+            world:changeItem(food)
+        end
+    end
 
     local baseLookat = lookat.GenerateLookAt(user, food, 0, nil, nil, nil, true)
 
@@ -538,14 +752,14 @@ function M.LookAtItem(user, food)
     end
 
     for _, description in pairs(foodRarityTexts) do
-        if rarity == description.identifier and M.foodList[food.id].crafted then
+        if rarity == description.identifier and M.cookedFood[food.id] then
             descriptionEn = description.foodDescription.english
             descriptionDe = description.foodDescription.german
         end
     end
 
     for _, description in pairs(ingredientRarityTexts) do
-        if rarity == description.identifier and not M.foodList[food.id].crafted then
+        if rarity == description.identifier and not M.cookedFood[food.id] then
             descriptionEn = description.foodDescription.english
             descriptionDe = description.foodDescription.german
         end

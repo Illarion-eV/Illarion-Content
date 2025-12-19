@@ -545,11 +545,11 @@ end
 
 local function checkIfFoodDrinkPotion(item)
 local drinkIDs = drinks.drinkList
-local foodIDs = food.foodList
+local isFood = food.isFood(item.id)
 local potionIDs = customPotion.potionList
     if potionIDs[item.id] then
         return "potion"
-    elseif foodIDs[item.id] or drinkIDs[item.id] then
+    elseif isFood or drinkIDs[item.id] then
         return true
     else
         return false

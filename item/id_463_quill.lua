@@ -24,6 +24,7 @@ local parchmentScript = require("item.id_2745_parchment")
 local bookWriting = require("item.base.bookWriting")
 local grimoire = require("magic.arcane.grimoireCreation")
 local music = require("item.base.music")
+local cookingRecipeCreation = require("craft.cookingRecipeCreation")
 
 local wood = require("item.general.wood")
 
@@ -667,25 +668,25 @@ function M.UseItem(user, sourceItem, ltstate)
                 else
                     WriteContainerLabel(user,sourceItem)
                 end
-            elseif selected == 8 then
+            elseif selected == 9 then
                 if checkIfBookInHand(user, sourceItem) then
                     writeBookLabel(user, sourceItem)
                 end
-            elseif selected == 4 then
+            elseif selected == 5 then
                 if not CheckIfEmptyBottlePresent(user) then
                     user:inform("Du brauchst Flaschen von denen du das Etikett entfernen kannst.","You need bottles to remove labels.",Character.highPriority)
                     return
                 else
                     removeLabel(user)
                 end
-            elseif selected == 5 then
+            elseif selected == 6 then
                 if not CheckIfParchmentInHand(user, sourceItem) then
                     user:inform("Du brauchst ein einzelnes leeres oder teilweise beschriebenes Pergament in deiner Hand auf dem du schreiben kannst.","You need a single empty or half filled parchment in your hand to write on.",Character.highPriority)
                     return
                 else
                     WriteParchment(user,sourceItem)
                 end
-            elseif selected == 6 then
+            elseif selected == 7 then
                 local canBeSigned = CheckIfParchmentCanSigned(user,sourceItem)
                 if not canBeSigned then
                     if canBeSigned == nil then
@@ -695,14 +696,16 @@ function M.UseItem(user, sourceItem, ltstate)
                 else
                     SignParchment(user,sourceItem)
                 end
-            elseif selected == 7 then
+            elseif selected == 8 then
                 if checkIfBookInHand(user, sourceItem) then
                     bookWriting.writeBook(user, sourceItem)
                 end
-            elseif selected == 9 then
-                copyBookOrParchment(user)
             elseif selected == 10 then
+                copyBookOrParchment(user)
+            elseif selected == 11 then
                 music.composeMusic(user, sourceItem)
+            elseif selected == 4 then
+                cookingRecipeCreation.createCookingRecipe(user)
             end
         end
     end
@@ -711,6 +714,7 @@ function M.UseItem(user, sourceItem, ltstate)
     dialog:addOption(0, getText(user,"Tasche beschriften","Label bag"))
     dialog:addOption(0, getText(user,"Flasche beschriften","Label a bottle"))
     dialog:addOption(0, getText(user,"Alchemierezept schreiben","Write an alchemy recipe"))
+    dialog:addOption(0, getText(user,"Kochrezept schreiben","Write a cooking recipe"))
     dialog:addOption(0, getText(user,"Flaschenetikett entfernen","Remove label of a bottle"))
     dialog:addOption(0, getText(user,"Pergament beschreiben","Write a parchment"))
     dialog:addOption(0, getText(user,"Pergament unterschreiben","Sign a parchment"))
@@ -718,6 +722,7 @@ function M.UseItem(user, sourceItem, ltstate)
     dialog:addOption(0, getText(user,"Buch beschriften","Label a book"))
     dialog:addOption(0, getText(user, "Buch oder Pergament kopieren", "Copy a book or parchment"))
     dialog:addOption(0, getText(user, "Musik komponieren", "Music Composing"))
+
     user:requestSelectionDialog(dialog)
 end
 

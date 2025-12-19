@@ -31,6 +31,7 @@ local shared = require("craft.base.shared")
 local messenger = require("content.messenger")
 local bookWriting = require("item.base.bookWriting")
 local music = require("item.base.music")
+local cookingRecipeCreation = require("craft.cookingRecipeCreation")
 
 local M = {}
 
@@ -80,6 +81,15 @@ function M.getWrittenTextFromParchment(theParchment)
 end
 
 function M.UseItem(user, SourceItem,ltstate,checkVar)
+
+    if cookingRecipeCreation.selectParchment(user, SourceItem) then
+        return
+    end
+
+    if cookingRecipeCreation.isRecipe(SourceItem) then
+        cookingRecipeCreation.showRecipe(user, SourceItem)
+        return
+    end
 
     -- Check if the messenger has requested a parchment
     if messenger.getParchmentSelectionStatus(user, SourceItem) then
@@ -633,6 +643,18 @@ end
 
 function M.LookAtItem(user, parchment)
 
+    local lookAt = lookat.GenerateLookAt(user, parchment)
+
+    if cookingRecipeCreation.isRecipe(parchment) then
+        local ingredients = cookingRecipeCreation.getDishIngredients(parchment)
+        local _, level = cookingRecipeCreation.getDishWorthLevel(ingredients)
+        local skillName = user:getSkillName(Character["cookingAndBaking"])
+        lookAt = lookat.GenerateLookAt(user, parchment, lookat.NONE, level, "cookingAndBaking", {english = skillName, german = skillName})
+        lookAt.name = common.GetNLS(user, "Kulinarisches Rezept: "..parchment:getData("name"), "Culinary recipe: "..parchment:getData("name"))
+        lookAt.description = common.GetNLS(user, "Ein kulinarisches Rezept mit Anweisungen für Köche und Bäcker, wie man ein bestimmtes Gericht zubereitet.", "A culinary recipe with instructions for cooks and bakers on how to make a specific dish. ")
+        return lookAt
+    end
+
     if not common.IsNilOrEmpty(parchment:getData("note1")) then
         convertOldSheet(parchment)
     end
@@ -640,8 +662,6 @@ function M.LookAtItem(user, parchment)
     if parchment:getData("bookList") == "true" then
         return bookListLookAt(user, parchment)
     end
-
-    local lookAt = lookat.GenerateLookAt(user, parchment)
 
     if not common.IsNilOrEmpty(parchment:getData("instrument")) then
         lookAt.name = common.GetNLS(user, "Notenblatt", "Music Sheet")

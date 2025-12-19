@@ -33,6 +33,7 @@ local antiTroll = require("magic.base.antiTroll")
 local moreUtility = require("housing.moreUtility")
 local blueprints = require("item.blueprints")
 local foodScript = require("item.food")
+local cookingRecipeCreation = require("craft.cookingRecipeCreation")
 
 local M = {}
 
@@ -475,6 +476,30 @@ function Craft:getName(user)
     return craft
 end
 
+local function getRecipe(user)
+
+    local leftTool = user:getItemAt(Character.left_tool)
+    local rightTool = user:getItemAt(Character.right_tool)
+
+    if not common.IsNilOrEmpty(leftTool:getData("cookBook")) then
+        return nil, leftTool
+    end
+
+    if not common.IsNilOrEmpty(rightTool:getData("cookBook")) then
+        return nil, rightTool
+    end
+
+    if not common.IsNilOrEmpty(leftTool:getData("cookingRecipe")) then
+        return leftTool
+    end
+
+    if not common.IsNilOrEmpty(rightTool:getData("cookingRecipe")) then
+        return rightTool
+    end
+
+    return nil, nil
+end
+
 function Craft:loadDialog(dialog, user)
     local skill = self:getSkill(user)
     local categoryListId = {}
@@ -494,14 +519,107 @@ function Craft:loadDialog(dialog, user)
             if Character[blueprint.craft] == self.leadSkill and blueprints.playerKnowsBlueprint(user, blueprint.item) and (not blueprint.tool or blueprint.tool == self.handTool) then
 
                 if not categoriesInserted[self.leadSkill] then
-                table.insert(self[user.id].extracategories, {nameEN = "Lost knowledge", nameDE = "Verlorenes Wissen"})
-                categoriesInserted[self.leadSkill] = #self.categories + #self[user.id].extracategories
+                    table.insert(self[user.id].extracategories, {nameEN = "Lost knowledge", nameDE = "Verlorenes Wissen"})
+                    categoriesInserted[self.leadSkill] = #self.categories + #self[user.id].extracategories
                 end
 
                 local product = self:addExtraProduct(user, categoriesInserted[self.leadSkill], blueprint.item, 1)
 
                 for _, ingredient in pairs(blueprint.ingredients) do
                 product:addIngredient(ingredient.id, ingredient.amount)
+                end
+            end
+        end
+
+        local recipe, book = getRecipe(user)
+
+        if self.leadSkill == Character.cookingAndBaking and (recipe or book) then
+
+            if not categoriesInserted[self.leadSkill] then
+                table.insert(self[user.id].extracategories, {nameEN = "Recipes", nameDE = "Gerichte"})
+                categoriesInserted[self.leadSkill] = #self.categories + #self[user.id].extracategories
+            end
+
+            if recipe then
+
+                local ingredients = {}
+
+                for i = 1, 7 do
+                    local ingredient = recipe:getData("ingredient"..i)
+
+                    if not common.IsNilOrEmpty(ingredient) then
+                        table.insert(ingredients, tonumber(ingredient))
+                    end
+                end
+
+                local dishInfo = cookingRecipeCreation.getDishInfo(false, ingredients)
+
+                local theType = recipe:getData("type")
+                local mainIngredient = recipe:getData("ingredient2")
+                local base = recipe:getData("ingredient1")
+
+                local dishGraphic = cookingRecipeCreation.getDishGraphic(false, theType, mainIngredient, base)
+
+                local data = {}
+
+                data.level = dishInfo.level
+                data.remainingValue = dishInfo.worth
+                data.nameEn = recipe:getData("name")
+                data.nameDe = recipe:getData("name")
+
+                for index, ingredient in ipairs(ingredients) do
+                    data["ingredient"..index] = ingredient
+                end
+
+                if (self.handTool == Item.cookingSpoon and (theType == "bowl" or theType == "plate")) or (self.handTool == Item.peel and theType == "dough") then
+
+                    local dishAmount = dishInfo.dishAmount
+
+                    local product = self:addExtraProduct(user, categoriesInserted[self.leadSkill], tonumber(dishGraphic), dishAmount, data, dishInfo.level)
+
+                    for _, ingredient in ipairs(ingredients) do
+                        local amount = cookingRecipeCreation.getIngredientAmount(ingredient)
+                        product:addIngredient(ingredient, amount)
+                    end
+                end
+            end
+
+            if book then
+
+                for i = 1, 100 do
+
+                    if common.IsNilOrEmpty(book:getData("recipe"..i)) then
+                        break
+                    end
+
+                    local theType, base, mainIngredient, dishName, ingredients = cookingRecipeCreation.getRecipeDataFromBook(book, i)
+
+                    local dishInfo = cookingRecipeCreation.getDishInfo(false, ingredients)
+
+                    local dishGraphic = cookingRecipeCreation.getDishGraphic(false, theType, mainIngredient, base)
+
+                    local data = {}
+
+                    data.level = dishInfo.level
+                    data.remainingValue = dishInfo.worth
+                    data.nameEn = dishName
+                    data.nameDe = dishName
+
+                    for index, ingredient in ipairs(ingredients) do
+                        data["ingredient"..index] = ingredient
+                    end
+
+                    if (self.handTool == Item.cookingSpoon and (theType == "bowl" or theType == "plate")) or (self.handTool == Item.peel and theType == "dough") then
+
+                        local dishAmount = dishInfo.dishAmount
+
+                        local product = self:addExtraProduct(user, categoriesInserted[self.leadSkill], tonumber(dishGraphic), dishAmount, data, dishInfo.level)
+
+                        for _, ingredient in ipairs(ingredients) do
+                            local amount = cookingRecipeCreation.getIngredientAmount(ingredient)
+                            product:addIngredient(ingredient, amount)
+                        end
+                    end
                 end
             end
         end
@@ -577,7 +695,7 @@ function Craft:loadDialog(dialog, user)
 
             for j = 1, #product.ingredients do
                 local ingredient = product.ingredients[j]
-                dialog:addCraftableIngredient(ingredient.item, ingredient.quantity)
+                dialog:addCraftableIngredient(tonumber(ingredient.item), tonumber(ingredient.quantity))
             end
         end
     end
@@ -756,7 +874,9 @@ end
 
 local function itemShouldBeRare(productId)
 
-    if foodScript.foodList[productId] and foodScript.foodList[productId].crafted then
+    local isFood, isCooked = foodScript.isFood(productId)
+
+    if isFood and isCooked then
         return true
     end
 
