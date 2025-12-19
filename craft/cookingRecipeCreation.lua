@@ -154,14 +154,14 @@ local fruit = {
     { id = Item.apple, amount = 5, attribute = "willpower" },
     { id = Item.cherries, amount = 5, attribute = "constitution" },
     { id = Item.grapes, attribute = "agility", level = 50 },
-    { id = Item.nuts, amount = 3, attribute = "agility", level = 30 },
+    { id = Item.nuts, amount = 3, attribute = "essence", level = 30 },
     { id = Item.peach, amount = 5, attribute = "perception" },
     { id = Item.pear, amount = 5, attribute = "strength" },
-    { id = Item.plum, amount = 3, attribute = "willpower", level = 30 },
+    { id = Item.plum, amount = 3, attribute = "dexterity", level = 30 },
     { id = Item.orange, attribute = "constitution", level = 50 },
     { id = Item.tangerine, amount = 5, attribute = "agility" },
     { id = Item.banana, amount = 5, attribute = "intelligence" },
-    { id = Item.mango, amount = 3, attribute = "constitution", level = 30 },
+    { id = Item.mango, amount = 3, attribute = "intelligence", level = 30 },
     { id = Item.pineapple, attribute = "willpower", level = 50 }
 }
 
