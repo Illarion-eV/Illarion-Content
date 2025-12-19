@@ -1271,6 +1271,9 @@ local function selectSecondaryIngredients(user, data, list)
                 end
             end
         end
+        if selected == #list+1 then
+            M.selectIngredientCategory(user, data, true)
+        end
     end
 
     local dialog = SelectionDialog(common.GetNLS(user,"Rezepterstellung","Recipe creation") , common.GetNLS(user,"Wähle eine zusätzliche Zutat für dein Rezept, du kannst insgesamt bis zu 6 haben.\nAktuelle Zutaten:\n"..currentIngredients.german,"Select an additional ingredient for your recipe, you can have up to 6 total.\n Current ingredients:\n"..currentIngredients.english) , callback)
@@ -1283,6 +1286,8 @@ local function selectSecondaryIngredients(user, data, list)
         end
         dialog:addOption(object.id, common.GetNLS(user,commonItem.German.."(Lvl. "..level..")",commonItem.English.."(Lvl. "..level..")"))
     end
+
+    dialog:addOption(0, common.GetNLS(user, "Zurück zur Kategorieauswahl", "Back to category selection"))
 
     user:requestSelectionDialog(dialog)
 
@@ -1304,6 +1309,10 @@ local function selectMainIngredient(user, data, list)
                 M.selectIngredientCategory(user, data, true)
             end
         end
+
+        if selected == #list+1 then
+            M.selectIngredientCategory(user, data)
+        end
     end
 
     local dialog = SelectionDialog(common.GetNLS(user,"Rezepterstellung","Recipe creation") , common.GetNLS(user,"Wählen Sie die Hauptzutat Ihres Rezepts.","Select the main ingredient of your recipe.") , callback)
@@ -1316,6 +1325,8 @@ local function selectMainIngredient(user, data, list)
         end
         dialog:addOption(object.id, common.GetNLS(user,commonItem.German.."(Lvl. "..level..")",commonItem.English.."(Lvl. "..level..")"))
     end
+
+    dialog:addOption(0, common.GetNLS(user, "Zurück zur Kategorieauswahl", "Back to category selection"))
 
     user:requestSelectionDialog(dialog)
 end
