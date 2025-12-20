@@ -560,7 +560,17 @@ M.blueprints = {
         {id = Item.greyCloth, amount = 8},
         {id = Item.thread, amount = 10},
         {id = Item.pureSpirit, amount = 1}}
+    },
+    {id = 70, name = getName(Item.bottleOfFairyWine), creator = "NA", craft = "brewing", level = getLevel(Item.bottleOfFairyWine), item = Item.bottleOfFairyWine, treasure = "giant", rareness = 4,
+    ingredients = {
+        {id = Item.peach, amount = 6},
+        {id = Item.sugarcane, amount = 2},
+        {id = Item.fairyRingMushroom, amount = 1},
+        {id = Item.waterBlossom, amount = 1},
+        {id = Item.bucketOfWater, amount = 1}}
     }
 }
+
+
 
 return M

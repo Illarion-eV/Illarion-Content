@@ -36,189 +36,248 @@ local catId
 
 catId = brewing:addCategory("Soft Liquors", "Leichter Alkohol")
 
--- bottle of cider
-product = brewing:addProduct(catId, 2499, 1)
-product:addIngredient(2498, 1) -- large empty bottle
-product:addIngredient(15, 2) -- apple
-product:addIngredient(52, 1) -- bucket of water
+product = brewing:addProduct(catId, Item.bottleOfCider, 1)
+product:addIngredient(Item.largeEmptyBottle, 1)
+product:addIngredient(Item.apple, 5)
+product:addIngredient(Item.bucketOfWater, 1)
 
--- bottle of wine
-product = brewing:addProduct(catId, 2500, 1)
-product:addIngredient(2498, 1) -- large empty bottle
-product:addIngredient(388, 1) -- grapes
-product:addIngredient(52, 1) -- bucket of water
+product = brewing:addProduct(catId, Item.bottleOfMead, 1)
+product:addIngredient(Item.largeEmptyBottle, 1)
+product:addIngredient(Item.beeHoney, 6)
+product:addIngredient(Item.bucketOfWater, 1)
 
--- bottle of mead
-product = brewing:addProduct(catId, 2497, 1)
-product:addIngredient(2498, 1) -- large empty bottle
-product:addIngredient(Item.beeHoney, 1)
-product:addIngredient(52, 1) -- bucket of water
+product = brewing:addProduct(catId, Item.bottleOfBeer, 1)
+product:addIngredient(Item.largeEmptyBottle, 1)
+product:addIngredient(Item.hop, 6)
+product:addIngredient(Item.grain, 7)
+product:addIngredient(Item.bucketOfWater, 1)
 
--- bottle of beer
-product = brewing:addProduct(catId, 2501, 1)
-product:addIngredient(2498, 1) -- large empty bottle
-product:addIngredient(154, 2) -- hop
-product:addIngredient(259, 1) -- grain
-product:addIngredient(52, 1) -- bucket of water
+product = brewing:addProduct(catId, Item.bottleOfWine, 1)
+product:addIngredient(Item.largeEmptyBottle, 1)
+product:addIngredient(Item.grapes, 5)
+product:addIngredient(Item.bucketOfWater, 1)
 
-catId = brewing:addCategory("Juices", "Säfte")
+catId = brewing:addCategory("Fruit Juices", "Fruchtsäfte")
 
--- bottle of banana juice
-product = brewing:addProduct(catId, 785, 1)
+product = brewing:addProduct(catId, Item.bottleOfTangerineJuice, 1)
 product:addIngredient(Item.fruitJuiceBottle, 1)
-product:addIngredient(80, 1) -- banana
-product:addIngredient(778, 1) -- sugarcane
-product:addIngredient(52, 1) -- bucket of water
+product:addIngredient(Item.tangerine, 5)
 
--- bottle of grape juice
-product = brewing:addProduct(catId, 791, 1)
+product = brewing:addProduct(catId, Item.appleJuice, 1)
 product:addIngredient(Item.fruitJuiceBottle, 1)
-product:addIngredient(388, 1) -- grapes
-product:addIngredient(778, 2) -- sugarcane
-product:addIngredient(52, 1) -- bucket of water
+product:addIngredient(Item.apple, 5)
+product:addIngredient(Item.beeHoney, 2)
 
--- bottle of cabbage juice
-product = brewing:addProduct(catId, 786, 1)
+product = brewing:addProduct(catId, Item.bottleOfBananaJuice, 1)
+product:addIngredient(Item.fruitJuiceBottle, 1)
+product:addIngredient(Item.banana, 9)
+product:addIngredient(Item.bottleOfMilk, 1)
+
+product = brewing:addProduct(catId, Item.cherryJuice, 1)
+product:addIngredient(Item.fruitJuiceBottle, 1)
+product:addIngredient(Item.cherries, 10)
+product:addIngredient(Item.beeHoney, 3)
+
+product = brewing:addProduct(catId, Item.pearJuice, 1)
+product:addIngredient(Item.fruitJuiceBottle, 1)
+product:addIngredient(Item.pear, 11)
+product:addIngredient(Item.beeHoney, 4)
+
+product = brewing:addProduct(catId, Item.peachJuice, 1)
+product:addIngredient(Item.fruitJuiceBottle, 1)
+product:addIngredient(Item.peach, 11)
+product:addIngredient(Item.beeHoney, 5)
+
+product = brewing:addProduct(catId, Item.mangoJuice, 1)
+product:addIngredient(Item.fruitJuiceBottle, 1)
+product:addIngredient(Item.mango, 8)
+product:addIngredient(Item.beeHoney, 3)
+
+product = brewing:addProduct(catId, Item.plumJuice, 1)
+product:addIngredient(Item.fruitJuiceBottle, 1)
+product:addIngredient(Item.plum, 8)
+product:addIngredient(Item.beeHoney, 4)
+
+product = brewing:addProduct(catId, Item.bottleOfOrangeJuice, 1)
+product:addIngredient(Item.fruitJuiceBottle, 1)
+product:addIngredient(Item.orange, 4)
+product:addIngredient(Item.sugarcane, 2)
+
+product = brewing:addProduct(catId, Item.bottleOfGrapeJuice, 1)
+product:addIngredient(Item.fruitJuiceBottle, 1)
+product:addIngredient(Item.grapes, 5)
+product:addIngredient(Item.sugarcane, 2)
+
+product = brewing:addProduct(catId, Item.pineappleJuice, 1)
+product:addIngredient(Item.fruitJuiceBottle, 1)
+product:addIngredient(Item.pineapple, 5)
+product:addIngredient(Item.sugarcane, 2)
+
+catId = brewing:addCategory("Berry Juices", "Beerensäfte")
+
+product = brewing:addProduct(catId, Item.blueberryJuice, 1)
+product:addIngredient(Item.emptyJuiceBottle, 1)
+product:addIngredient(Item.blueberry, 3)
+
+product = brewing:addProduct(catId, Item.bottleOfStrawberryJuice, 1)
+product:addIngredient(Item.emptyJuiceBottle, 1)
+product:addIngredient(Item.strawberry, 3)
+product:addIngredient(Item.beeHoney, 2)
+
+product = brewing:addProduct(catId, Item.bottleOfBlackberryJuice, 1)
+product:addIngredient(Item.emptyJuiceBottle, 1)
+product:addIngredient(Item.blackberry, 4)
+product:addIngredient(Item.beeHoney, 3)
+
+product = brewing:addProduct(catId, Item.elderberryJuice, 1)
+product:addIngredient(Item.emptyJuiceBottle, 1)
+product:addIngredient(Item.redElder, 3)
+product:addIngredient(Item.beeHoney, 2)
+
+product = brewing:addProduct(catId, Item.raspberryJuice, 1)
+product:addIngredient(Item.emptyJuiceBottle, 1)
+product:addIngredient(Item.raspberry, 3)
+product:addIngredient(Item.beeHoney, 3)
+
+product = brewing:addProduct(catId, Item.cloudberryJuice, 1)
+product:addIngredient(Item.emptyJuiceBottle, 1)
+product:addIngredient(Item.cloudberry, 3)
+product:addIngredient(Item.beeHoney, 4)
+
+product = brewing:addProduct(catId, Item.deerberryJuice, 1)
+product:addIngredient(Item.emptyJuiceBottle, 1)
+product:addIngredient(Item.berries, 3)
+product:addIngredient(Item.sugarcane, 1)
+
+catId = brewing:addCategory("Vegetable Juices", "Gemüsesäfte")
+
+product = brewing:addProduct(catId, Item.tomatoJuice, 1)
 product:addIngredient(Item.vegetableJuiceBottle, 1)
-product:addIngredient(290, 3) -- cabbage
-product:addIngredient(778, 1) -- sugarcane
-product:addIngredient(52, 1) -- bucket of water
+product:addIngredient(Item.tomato, 5)
+product:addIngredient(Item.beeHoney, 2)
 
--- bottle of carrot juice
-product = brewing:addProduct(catId, 788, 1)
+product = brewing:addProduct(catId, Item.cucumberJuice, 1)
 product:addIngredient(Item.vegetableJuiceBottle, 1)
-product:addIngredient(2493, 2) -- carrots
-product:addIngredient(778, 1) -- sugarcane
-product:addIngredient(52, 1) -- bucket of water
+product:addIngredient(Item.cucumber, 5)
+product:addIngredient(Item.apple, 3)
+product:addIngredient(Item.tangerine, 3)
 
--- bottle of blackberry juice
-product = brewing:addProduct(catId, 783, 1)
-product:addIngredient(790, 1) -- berry juice bottle
-product:addIngredient(147, 5) -- blackberry
-product:addIngredient(778, 2) -- sugarcane
-product:addIngredient(52, 1) -- bucket of water
+product = brewing:addProduct(catId, Item.bottleOfCarrotJuice, 1)
+product:addIngredient(Item.vegetableJuiceBottle, 1)
+product:addIngredient(Item.carrots, 4)
+product:addIngredient(Item.orange, 2)
+product:addIngredient(Item.bucketOfWater, 1)
 
--- bottle of tangerine juice
-product = brewing:addProduct(catId, 784, 1)
-product:addIngredient(Item.fruitJuiceBottle, 1)
-product:addIngredient(199, 2) -- tangerine
-product:addIngredient(778, 2) -- sugarcane
-product:addIngredient(52, 1) -- bucket of water
+product = brewing:addProduct(catId, Item.bottleOfCabbageJuice, 1)
+product:addIngredient(Item.vegetableJuiceBottle, 1)
+product:addIngredient(Item.cabbage, 3)
+product:addIngredient(Item.apple, 3)
+product:addIngredient(Item.cucumber, 2)
+product:addIngredient(Item.orange, 2)
 
--- bottle of strawberry juice
-product = brewing:addProduct(catId, 789, 1)
-product:addIngredient(790, 1) -- berry juice bottle
-product:addIngredient(151, 5) -- strawberry
-product:addIngredient(778, 2) -- sugarcane
-product:addIngredient(52, 1) -- bucket of water
+product = brewing:addProduct(catId, Item.bellpepperJuice, 1)
+product:addIngredient(Item.vegetableJuiceBottle, 1)
+product:addIngredient(Item.bellpepper, 4)
+product:addIngredient(Item.carrots, 2)
+product:addIngredient(Item.orange, 1)
+product:addIngredient(Item.bucketOfWater, 1)
 
--- bottle of orange juice
-product = brewing:addProduct(catId, 3611, 1)
-product:addIngredient(Item.fruitJuiceBottle, 1)
-product:addIngredient(1207, 1) -- orange
-product:addIngredient(778, 3) -- sugarcane
-product:addIngredient(52, 1) -- bucket of water
+product = brewing:addProduct(catId, Item.pumpkinJuice, 1)
+product:addIngredient(Item.vegetableJuiceBottle, 1)
+product:addIngredient(Item.pumpkin, 2)
+product:addIngredient(Item.sugarcane, 3)
+product:addIngredient(Item.apple, 10)
+product:addIngredient(Item.bucketOfWater, 1)
 
 catId = brewing:addCategory("Teas", "Tee")
 
--- bottle of fir needle tea
-product = brewing:addProduct(catId, 3720, 1)
+product = brewing:addProduct(catId, Item.bottleOfFirNeedleTea, 1)
 product:addIngredient(Item.teaBottle, 1)
-product:addIngredient(149, 3) -- fir tree sprout
-product:addIngredient(778, 1) -- sugarcane
-product:addIngredient(52, 1) -- bucket of water
+product:addIngredient(Item.firTreeSprout, 3)
+product:addIngredient(Item.bucketOfWater, 1)
 
--- bottle of virgins weed tea
-product = brewing:addProduct(catId, 787, 1)
+product = brewing:addProduct(catId, Item.bottleOfGreenTea, 1)
 product:addIngredient(Item.teaBottle, 1)
-product:addIngredient(144, 3) -- virgin's weed
-product:addIngredient(778, 1) -- sugarcane
-product:addIngredient(52, 1) -- bucket of water
+product:addIngredient(Item.heathFlower, 2)
+product:addIngredient(Item.yellowWeed, 2)
+product:addIngredient(Item.tangerine, 1)
+product:addIngredient(Item.bucketOfWater, 1)
 
--- bottle of green tea
-product = brewing:addProduct(catId, 3721, 1)
+product = brewing:addProduct(catId, Item.bottleOfVirginsWeedTea, 1)
 product:addIngredient(Item.teaBottle, 1)
-product:addIngredient(157, 3) -- rotten tree bark
-product:addIngredient(778, 2) -- sugarcane
-product:addIngredient(199, 1) -- tangerine
-product:addIngredient(52, 1) -- bucket of water
+product:addIngredient(Item.virginsWeed, 3)
+product:addIngredient(Item.sugarcane, 1)
+product:addIngredient(Item.bucketOfWater, 1)
 
--- bottle of druids tea
-product = brewing:addProduct(catId, 3722, 1)
+product = brewing:addProduct(catId, Item.bottleOfDruidsTea, 1)
 product:addIngredient(Item.teaBottle, 1)
-product:addIngredient(148, 3) -- firnis blossom
-product:addIngredient(778, 1) -- sugarcane
-product:addIngredient(153, 2) -- foot leaf
-product:addIngredient(145, 3) -- heath flower
-product:addIngredient(52, 1) -- bucket of water
+product:addIngredient(Item.waterBlossom, 1)
+product:addIngredient(Item.steppeFern, 1)
+product:addIngredient(Item.footLeaf, 1)
+product:addIngredient(Item.sugarcane, 1)
+product:addIngredient(Item.bucketOfWater, 1)
 
 catId = brewing:addCategory("Hard Liquors", "Stark alkoholische Getränke")
 
--- bottle of rum
-product = brewing:addProduct(catId, 517, 1)
-product:addIngredient(1317, 1) -- empty liquor bottle
-product:addIngredient(778, 3) -- sugarcane
-product:addIngredient(52, 1) -- bucket of water
+product = brewing:addProduct(catId, Item.bottleOfCherrySchnapps, 1)
+product:addIngredient(Item.emptyLiquorBottle, 1)
+product:addIngredient(Item.cherries, 7)
+product:addIngredient(Item.beeHoney, 3)
+product:addIngredient(Item.bucketOfWater, 1)
 
--- bottle of bear slayer
-product = brewing:addProduct(catId, 1316, 1)
-product:addIngredient(1317, 1) -- empty liquor bottle
+product = brewing:addProduct(catId, Item.bottleOfStoneFace, 1)
+product:addIngredient(Item.emptyLiquorBottle, 1)
+product:addIngredient(Item.plum, 3)
+product:addIngredient(Item.apple, 5)
+product:addIngredient(Item.beeHoney, 3)
+product:addIngredient(Item.bucketOfWater, 1)
+
+product = brewing:addProduct(catId, Item.bottleOfBerryBooze, 1)
+product:addIngredient(Item.emptyLiquorBottle, 1)
+product:addIngredient(Item.blueberry, 3)
+product:addIngredient(Item.strawberry, 3)
+product:addIngredient(Item.blackberry, 3)
 product:addIngredient(Item.beeHoney, 1)
-product:addIngredient(159, 1) -- toadstool
-product:addIngredient(15, 1) -- apple
-product:addIngredient(52, 1) -- bucket of water
+product:addIngredient(Item.bucketOfWater, 1)
 
--- bottle of berry booze
-product = brewing:addProduct(catId, 1315, 1)
-product:addIngredient(1317, 1) -- empty liquor bottle
-product:addIngredient(81, 4) -- berries
-product:addIngredient(147, 3) -- blackberry
-product:addIngredient(52, 1) -- bucket of water
+product = brewing:addProduct(catId, Item.bottleOfOrangeSchnapps, 1)
+product:addIngredient(Item.emptyLiquorBottle, 1)
+product:addIngredient(Item.orange, 3)
+product:addIngredient(Item.beeHoney, 4)
+product:addIngredient(Item.bucketOfWater, 1)
 
--- bottle of stone face
-product = brewing:addProduct(catId, 1320, 1)
-product:addIngredient(1317, 1) -- empty liquor bottle
-product:addIngredient(388, 1) -- grapes
-product:addIngredient(15, 1) -- apple
-product:addIngredient(778, 2) -- sugarcane
-product:addIngredient(52, 1) -- bucket of water
+product = brewing:addProduct(catId, Item.bottleOfMulledWine, 1)
+product:addIngredient(Item.emptyLiquorBottle, 1)
+product:addIngredient(Item.grapes, 4)
+product:addIngredient(Item.beeHoney, 4)
+product:addIngredient(Item.bucketOfWater, 1)
 
--- bottle of absinthe
-product = brewing:addProduct(catId, 1321, 1)
-product:addIngredient(1317, 1) -- empty liquor bottle
-product:addIngredient(778, 1) -- sugarcane
-product:addIngredient(145, 3) -- heath flower
-product:addIngredient(142, 3) -- sandberry
-product:addIngredient(52, 1) -- bucket of water
+product = brewing:addProduct(catId, Item.bottleOfBearSlayer, 1)
+product:addIngredient(Item.emptyLiquorBottle, 1)
+product:addIngredient(Item.toadstool, 3)
+product:addIngredient(Item.apple, 5)
+product:addIngredient(Item.beeHoney, 4)
+product:addIngredient(Item.bucketOfWater, 1)
 
--- bottle of orange schnapps
-product = brewing:addProduct(catId, 1322, 1)
-product:addIngredient(1317, 1) -- empty liquor bottle
-product:addIngredient(1207, 1) -- orange
-product:addIngredient(778, 3) -- sugarcane
-product:addIngredient(52, 1) -- bucket of water
+product = brewing:addProduct(catId, Item.bottleOfRum, 1)
+product:addIngredient(Item.emptyLiquorBottle, 1)
+product:addIngredient(Item.sugarcane, 6)
+product:addIngredient(Item.bucketOfWater, 1)
 
--- bottle of cherry schnapps
-product = brewing:addProduct(catId, 1319, 1)
-product:addIngredient(1317, 1) -- empty liquor bottle
-product:addIngredient(302, 2) -- cherries
-product:addIngredient(778, 3) -- sugarcane
-product:addIngredient(52, 1) -- bucket of water
+product = brewing:addProduct(catId, Item.bottleOfAbsinthe, 1)
+product:addIngredient(Item.emptyLiquorBottle, 1)
+product:addIngredient(Item.sandberry, 2)
+product:addIngredient(Item.heathFlower, 2)
+product:addIngredient(Item.sugarcane, 1)
+product:addIngredient(Item.bucketOfWater, 1)
 
--- bottle of mulled wine
-product = brewing:addProduct(catId, 1323, 1)
-product:addIngredient(1317, 1) -- empty liquor bottle
-product:addIngredient(388, 1) -- grapes
-product:addIngredient(778, 3) -- sugarcane
-product:addIngredient(52, 1) -- bucket of water
-
--- bottle of elven wine
-product = brewing:addProduct(catId, 1318, 1)
-product:addIngredient(1317, 1) -- empty liquor bottle
-product:addIngredient(80, 2) -- banana
-product:addIngredient(778, 1) -- sugarcane
-product:addIngredient(759, 1) -- nuts
-product:addIngredient(52, 1) -- bucket of water
+product = brewing:addProduct(catId, Item.bottleOfElvenWine, 1)
+product:addIngredient(Item.emptyLiquorBottle, 1)
+product:addIngredient(Item.elfCaps, 1)
+product:addIngredient(Item.pineapple, 1)
+product:addIngredient(Item.nuts, 4)
+product:addIngredient(Item.sugarcane, 2)
+product:addIngredient(Item.bucketOfWater, 1)
 
 M.brewing = brewing
 return M

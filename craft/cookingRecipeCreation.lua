@@ -181,11 +181,11 @@ local vegetables = {
 }
 
 local alcohol = {
-    { id = Item.bottleOfWine, attribute = "willpower" },
-    { id = Item.bottleOfFairyWine, attribute = "willpower" },
     { id = Item.bottleOfBeer, attribute = "willpower" },
-    { id = Item.bottleOfElvenWine, attribute = "willpower" },
+    { id = Item.bottleOfWine, attribute = "willpower" },
     { id = Item.bottleOfRum, attribute = "willpower" },
+    { id = Item.bottleOfElvenWine, attribute = "willpower" },
+    { id = Item.bottleOfFairyWine, attribute = "willpower" },
 }
 
 local other = {
