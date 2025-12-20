@@ -212,7 +212,7 @@ function Craft:addProduct(categoryId, itemId, quantity, data, difficulty)
     return nil
 end
 
-function Craft:addExtraProduct(user, categoryId, itemId, quantity, data, difficulty)
+function Craft:addExtraProduct(user, categoryId, itemId, quantity, data, difficulty, worth)
     if not difficulty then
         difficulty = math.min(world:getItemStatsFromId(itemId).Level, 100)
     end
@@ -228,7 +228,8 @@ function Craft:addExtraProduct(user, categoryId, itemId, quantity, data, difficu
             ["learnLimit"] = learnLimit,
             ["quantity"] = quantity,
             ["data"] = data,
-            ["ingredients"] = {}
+            ["ingredients"] = {},
+            ["worth"] = worth
         })
 
         if self[user.id].extracategories[categoryId-#self.categories].minSkill then
@@ -575,7 +576,7 @@ function Craft:loadDialog(dialog, user)
 
                     local dishAmount = dishInfo.dishAmount
 
-                    local product = self:addExtraProduct(user, categoriesInserted[self.leadSkill], tonumber(dishGraphic), dishAmount, data, dishInfo.level)
+                    local product = self:addExtraProduct(user, categoriesInserted[self.leadSkill], tonumber(dishGraphic), dishAmount, data, dishInfo.level, dishInfo.worth)
 
                     for _, ingredient in ipairs(ingredients) do
                         local amount = cookingRecipeCreation.getIngredientAmount(ingredient)
@@ -613,7 +614,7 @@ function Craft:loadDialog(dialog, user)
 
                         local dishAmount = dishInfo.dishAmount
 
-                        local product = self:addExtraProduct(user, categoriesInserted[self.leadSkill], tonumber(dishGraphic), dishAmount, data, dishInfo.level)
+                        local product = self:addExtraProduct(user, categoriesInserted[self.leadSkill], tonumber(dishGraphic), dishAmount, data, dishInfo.level, dishInfo.worth)
 
                         for _, ingredient in ipairs(ingredients) do
                             local amount = cookingRecipeCreation.getIngredientAmount(ingredient)
@@ -724,7 +725,11 @@ function Product:getCraftingTime(skill)
         learnProgress = (skill - self.difficulty) / (self.learnLimit - self.difficulty) * 100
     end
     local theItem = world:getItemStatsFromId(self.item)
-    local minimum = math.max (((30+((self.quantity * theItem.Worth)-200)*(1500-30)/(133300-200))),30) --30: Minimum time; 200: Minimum price; 1500: maximum time; 133300: maximum price
+    local worth = theItem.Worth
+    if self.worth then
+        worth = self.worth
+    end
+    local minimum = math.max (((30+((self.quantity * worth)-200)*(1500-30)/(133300-200))),30) --30: Minimum time; 200: Minimum price; 1500: maximum time; 133300: maximum price
     local craftingTime = common.Scale(minimum * 2, minimum, learnProgress)
 
     if self.item == 1061 then --Portal books all have the default value and work using data values, so crafting time has to be increased differently
