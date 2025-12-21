@@ -29,20 +29,16 @@ function M.getSpeed(user, target, spell, ORL)
     local TAUR = runes.checkSpellForRuneByName("TAUR", spell)
     local URA = runes.checkSpellForRuneByName("URA", spell)
     local YEG = runes.checkSpellForRuneByName("YEG", spell)
-    local rune
-
-    if TAUR then
-        rune = "TAUR"
-    elseif URA then
-        rune = "URA"
-    elseif YEG then
-        rune = "YEG"
-    end
-
+    local QWAN = runes.checkSpellForRuneByName("QWAN", spell)
     local raceBonus
 
-    if rune then
-        raceBonus = magicDamage.checkIfRaceBonus(target, rune)
+    local racialBonuses = {{name = "TAUR", present = TAUR}, {name = "URA", present = URA}, {name = "YEG", present = YEG}}
+
+    for _, racialBonus in pairs(racialBonuses) do
+        local check = magicDamage.checkIfRaceBonus(target, racialBonus.name)
+        if racialBonus.present and magicDamage.checkIfRaceBonus(target, racialBonus.name) then
+            raceBonus = check
+        end
     end
 
     if raceBonus then
@@ -51,6 +47,10 @@ function M.getSpeed(user, target, spell, ORL)
 
     if ORL then
         retVal = retVal - 0.2
+    end
+
+    if QWAN then
+        retVal = retVal + 0.1
     end
 
     if retVal <= 0 then
@@ -68,16 +68,11 @@ function M.applySnare(user, targets, spell, ORL, level)
 
     local SUL = runes.checkSpellForRuneByName("SUL", spell)
     local JUS = runes.checkSpellForRuneByName("JUS", spell)
-    local QWAN = runes.checkSpellForRuneByName("QWAN", spell)
-    local TAUR = runes.checkSpellForRuneByName("TAUR", spell)
-    local URA = runes.checkSpellForRuneByName("URA", spell)
-    local YEG = runes.checkSpellForRuneByName("YEG", spell)
 
     if not JUS or not SUL then
         return
     end
 
-    local racialBonuses = {{name = "TAUR", present = TAUR}, {name = "URA", present = URA}, {name = "YEG", present = YEG}}
 
     local ticks = 60
 
@@ -89,17 +84,7 @@ function M.applySnare(user, targets, spell, ORL, level)
             return
         end
 
-        local raceBonus
         local myEffectNumber = 15
-        local userEffectNumber = 30
-
-
-        for _, racialBonus in pairs(racialBonuses) do
-            local check = magicDamage.checkIfRaceBonus(target, racialBonus.name)
-            if racialBonus.present and magicDamage.checkIfRaceBonus(target, racialBonus.name) then
-                raceBonus = check
-            end
-        end
 
         local foundEffect, myEffect = target.effects:find(myEffectNumber)
 
