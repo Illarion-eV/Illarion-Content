@@ -173,16 +173,16 @@ end
 
 local function isHerbItem(Plant)
     if (Plant ~= nil and HerbItems[Plant.id] ~= nil and Plant.wear == 255) then
-        return true;
+        return true
     end
 
     for _, herb in pairs(M.herbList) do
-        if herb.id == Plant.id or Plant.id == herb.depletedId then
+        if Plant ~= nil and (herb.id == Plant.id or Plant.id == herb.depletedId) then
             return true
         end
     end
 
-    return false;
+    return false
 end
 
 local function isDepletedHerb(plant)
