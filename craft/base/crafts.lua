@@ -905,7 +905,7 @@ local function itemShouldBeRare(productId)
         end
 
         for _, otherRare in pairs(otherRares) do
-            if otherRare.id == productId then
+            if otherRare == productId then
                 return true
             end
         end
