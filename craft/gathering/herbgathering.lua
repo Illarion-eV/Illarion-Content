@@ -98,10 +98,6 @@ HerbItems[1791] = {                                   -- sunflower
     CreateHarvestProduct(133, nil)                         -- sun herb
 }
 
-HerbItems[1807] = {                                   -- blooming ceridern
-    CreateHarvestProduct(753, nil)                             -- blue bird's berry
-}
-
 -- mushrooms
 HerbItems[159] = {                                    -- toadstool
     CreateHarvestProduct(159, nil)                                -- toadstool
@@ -142,11 +138,6 @@ HerbItems[1158] = {                                    -- old log
 
 HerbItems[1159] = {                                    -- old log
     CreateHarvestProduct(157, nil)                              -- rotten tree bark
-}
-
--- anything else
-HerbItems[308] = {                                    -- fir tree
-    CreateHarvestProduct(149, nil)                                -- fir tree sprout
 }
 
 local function IsRegrown(Item)
@@ -231,6 +222,9 @@ end
 M.skill = "herblore"
 
 M.herbList = {
+
+    -- Berries and mushrooms
+
     {id = Item.blueberryBush, depletedId = Item.blueberryBushEmpty, productId = Item.blueberry, maxAmount = 20},
     {id = Item.strawberryPlant, depletedId = Item.strawberryPlantEmpty, productId = Item.strawberry, maxAmount = 20},
     {id = Item.blackberryBush, depletedId = Item.blackberryBushEmpty, productId = Item.blackberry, maxAmount = 20},
@@ -241,7 +235,12 @@ M.herbList = {
     {id = Item.cloudberryPlant, depletedId = Item.cloudberryPlantEmpty, productId = Item.cloudberry, maxAmount = 10},
     {id = Item.redheadCluster, depletedId = Item.redheadClusterEmpty, productId = Item.redHead, maxAmount = 5},
     {id = Item.deerberryBush, depletedId = Item.deerberryBushEmpty, productId = Item.berries, maxAmount = 5},
-    {id = Item.chanterelleCluster, depletedId = Item.chanterelleClusterEmpty, productId = Item.chanterelle, maxAmount = 5}
+    {id = Item.chanterelleCluster, depletedId = Item.chanterelleClusterEmpty, productId = Item.chanterelle, maxAmount = 5},
+
+    --Herbs
+
+    {id = Item.firTree, depletedId = Item.prunedFirTree, productId = Item.firTreeSprout, maxAmount = 20},
+    {id = Item.bloomingCeridern, depletedId = Item.ceridernTree, productId = Item.blueBirdsberry, maxAmount = 10},
 }
 
 local herbList = M.herbList
@@ -293,7 +292,7 @@ local function newGathering(user, sourceItem, actionState)
     --Case 2: Initialise action
     if ( actionState == Action.none ) then -- currently not working -> let's go
         herblore.SavedWorkTime[user.id] = herblore:GenWorkTime(user)
-        user:startAction( herblore.SavedWorkTime[user.id], GFX, herblore.SavedWorkTime[user.id], 18, 15)
+        user:startAction( herblore.SavedWorkTime[user.id], GFX, herblore.SavedWorkTime[user.id], 0, 0)
         return
     end
 
@@ -319,7 +318,7 @@ local function newGathering(user, sourceItem, actionState)
             herblore.SavedWorkTime[user.id] = herblore:GenWorkTime(user)
             user:changeSource(sourceItem)
 
-            user:startAction( herblore.SavedWorkTime[user.id], GFX, herblore.SavedWorkTime[user.id], 18, 15)
+            user:startAction( herblore.SavedWorkTime[user.id], GFX, herblore.SavedWorkTime[user.id], 0, 0)
         else
             common.TempInformNLS( user,
             "Diese Pflanze ist schon komplett abgeerntet. Gib ihr Zeit um nachzuwachsen.",
