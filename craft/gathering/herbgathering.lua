@@ -241,6 +241,7 @@ M.herbList = {
 
     {id = Item.firTree, depletedId = Item.prunedFirTree, productId = Item.firTreeSprout, maxAmount = 20},
     {id = Item.bloomingCeridern, depletedId = Item.ceridernTree, productId = Item.blueBirdsberry, maxAmount = 10},
+    {id = Item.sunflowers, depletedId = Item.sunflowersEmpty, productId = Item.sunHerb, maxAmount = 20},
 }
 
 local herbList = M.herbList
