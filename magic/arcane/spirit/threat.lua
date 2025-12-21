@@ -90,6 +90,10 @@ function M.threatIntoText(information, spell)
         local creature = target.type == "creature"
         local level = 0
 
+        if not player and not creature then
+            return information
+        end
+
         if creature then
             level = monsterLevels.getLevel(target.target)
         end

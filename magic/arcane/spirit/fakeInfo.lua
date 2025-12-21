@@ -902,10 +902,10 @@ local function createFakeInfo(user, targets, myTarget, spell)
 end
 
 M.types = {
-    {english = "creature", german = ""},
-    {english = "item", german = ""},
-    {english = "position", german = ""},
-    {english = "player", german = ""}
+    {english = "creature", german = "Kreatur"},
+    {english = "item", german = "Gegenstand"},
+    {english = "position", german = "Position"},
+    {english = "player", german = "Spieler"}
 }
 
 local function getGermanType(type)

@@ -112,7 +112,7 @@ function M.dealMagicDoT(user, targets, spell, element, level, castDuration)
                         lifesteal = LongTimeEffect(3, 10)
                     end
                     lifesteal:addValue("remainingDamage", damage)
-                    lifesteal:addValue("remaininingTicks", 15)
+                    lifesteal:addValue("remainingTicks", 15)
                     lifesteal:addValue("spell", spell)
                     if not foundEffect2 then
                         user.effects:addEffect(lifesteal)

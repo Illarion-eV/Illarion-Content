@@ -256,8 +256,8 @@ M.runeHintsBookTexts = {
         location = position(241, 776, 1)},
     SAV = {rune = "SAV",
         hint = {
-            english = "In a fiery castle where dragons reside below.",
-            german = "Ein brennendes Schloss in dem die Drachen hausen."},
+            english = "Near a fiery castle where dragons reside below.",
+            german = "Nahe ein brennendes Schloss in dem die Drachen hausen."},
         name = {
             english = "Mysterious Sphere",
             german = "Mysteriöse Sphäre"},

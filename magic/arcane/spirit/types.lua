@@ -34,8 +34,9 @@ return false
 end
 
 function M.sortTargetsIntoTypes(targets, spell)
-local ANTH = runes.checkSpellForRuneByName("ANTH", spell)
-local information = {}
+
+    local ANTH = runes.checkSpellForRuneByName("ANTH", spell)
+    local information = {}
     for _, item in ipairs(targets.items) do
         if ANTH then
             local insertTable = {

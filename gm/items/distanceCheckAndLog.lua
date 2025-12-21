@@ -15,6 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
+local testing = require("base.testing")
 local common = require("base.common")
 
 local M = {}
@@ -26,7 +27,7 @@ function M.passesCheck(user, tool)
         return false
     end
 
-    if not user:isAdmin() then
+    if not user:isAdmin() and not testing.active then
         log("Player "..user.name.."("..user.id..") just used a GM tool despite not being a GM. They were at "..tostring(user.pos).." and the tool at "..tostring(tool.pos)..".")
     end
 

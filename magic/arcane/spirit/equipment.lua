@@ -18,6 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local runes = require("magic.arcane.runes")
 local playerlookat = require("server.playerlookat")
 local items = require("magic.arcane.spirit.items")
+local common = require("base.common")
 
 local M = {}
 
@@ -33,7 +34,8 @@ local equipmentNames = {
     {english = "Right ring finger", german = "Rechter Ringfinger", slot = 8},
     {english = "Legs", german = "Beine", slot = 9},
     {english = "Feet", german = "Füße", slot = 10},
-    {english = "Back", german = "Rücken", slot = 11}
+    {english = "Back", german = "Rücken", slot = 11},
+    {english = "Belt", german = "Gürtel", slot = {Character.belt_pos_1, Character.belt_pos_2, Character.belt_pos_3, Character.belt_pos_4, Character.belt_pos_5, Character.belt_pos_6}}
 }
 
 -- For some reason the below was unused and I cant remember what it was for, keeping it as a comment for now until I implement SAV at a later date
@@ -63,10 +65,33 @@ function M.getEquipmentText(information, spell)
             if ANTH then
                 target.equipment.items = {}
                 for _, slot in pairs(equipmentNames) do
-                    local targetItem = target.target:getItemAt(slot.slot)
-                    if targetItem.id ~= 0 and targetItem.id ~= 228 then
-                        local itemEnglishText, itemGermanText = items.individualItemText(targetItem)
-                        target.equipment.items[#target.equipment.items+1] = {target = targetItem, type = "item", text = {english = itemEnglishText, german = itemGermanText}, name = {english = slot.english, german = slot.german}}
+                    local english = ""
+                    local german = ""
+                    if type(slot.slot) == "table" then
+                        for _, beltSlot in pairs(slot.slot) do
+                            local targetItem = target.target:getItemAt(beltSlot)
+                            if targetItem.id ~= 0 and targetItem.id ~= 228 then
+                                local itemEnglishText, itemGermanText = items.individualItemText(targetItem)
+                                if not common.IsNilOrEmpty(english) then
+                                    english = english.."\n"
+                                    german = german.."\n"
+                                end
+                                english = english..itemEnglishText
+                                german = german..itemGermanText
+                            end
+                        end
+
+                        local targetItem = target.target:getItemAt(Character.belt_pos_1)
+
+                        target.equipment.items[#target.equipment.items+1] = {target = targetItem, type = "item", text = {english = english, german = german}, name = {english = slot.english, german = slot.german}}
+
+                    else
+
+                        local targetItem = target.target:getItemAt(slot.slot)
+                        if targetItem.id ~= 0 and targetItem.id ~= 228 then
+                            local itemEnglishText, itemGermanText = items.individualItemText(targetItem)
+                            target.equipment.items[#target.equipment.items+1] = {target = targetItem, type = "item", text = {english = itemEnglishText, german = itemGermanText}, name = {english = slot.english, german = slot.german}}
+                        end
                     end
                 end
             end

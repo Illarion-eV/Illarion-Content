@@ -78,13 +78,13 @@ function M.ignoreDamageDueToRace(user, effect, fieldItem)
 
 end
 
-function M.causeDamage(User, quality, penetration, wandGemBonus, effect, fieldItem)
+function M.causeDamage(user, quality, penetration, wandGemBonus, effect, fieldItem)
 
-    local ignoreDamage = M.ignoreDamageDueToRace(User, effect, fieldItem)
+    local ignoreDamage = M.ignoreDamageDueToRace(user, effect, fieldItem)
 
-    local resist = magicResistance.getMagicResistance(User)
+    local resist = magicResistance.getMagicResistance(user)
 
-    local cloakGemBonus = magic.getGemBonusCloak(User)/100
+    local cloakGemBonus = magic.getGemBonusCloak(user)/100
 
     wandGemBonus = wandGemBonus/100
 
@@ -100,9 +100,17 @@ function M.causeDamage(User, quality, penetration, wandGemBonus, effect, fieldIt
             damageDealt = 0
         end
 
-        User:increaseAttrib("hitpoints", -damageDealt)
+        if user.name == "Small Spider" and common.isInRect(user.pos, position(112, 874, -3), 25) then
+            local players = world:getPlayersInRangeOf(user.pos, 25)
+            for _, player in pairs(players) do
+                player:inform("Die Spinne stößt einen gellenden Schrei aus, als sie von den Flammen verschlungen wird, ohne eine Spur zu hinterlassen, während sie vollständig verzehrt wird. In der Ferne hörst du einen Schrei: 'Nooo, nicht mein Bunbun! Du Monster!'", "The spider lets out a shrill shriek as it is engulfed by the flames, leaving not a trace behind as it is devoured. In the distance, you hear a shout: 'Nooo, not my Bunbun! You monster!'")
+            end
+            damageDealt = 10000
+        end
+
+        user:increaseAttrib("hitpoints", -damageDealt)
         if testing.active then
-            User:talk(Character.say,"#me takes "..damageDealt.." damage.", "#me takes "..damageDealt.." damage.")
+            user:talk(Character.say,"#me takes "..damageDealt.." damage.", "#me takes "..damageDealt.." damage.")
         end
     end
 end

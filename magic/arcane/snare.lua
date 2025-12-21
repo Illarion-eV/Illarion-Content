@@ -68,7 +68,6 @@ function M.applySnare(user, targets, spell, ORL, level)
 
     local SUL = runes.checkSpellForRuneByName("SUL", spell)
     local JUS = runes.checkSpellForRuneByName("JUS", spell)
-    local SIH = runes.checkSpellForRuneByName("SIH", spell)
     local QWAN = runes.checkSpellForRuneByName("QWAN", spell)
     local TAUR = runes.checkSpellForRuneByName("TAUR", spell)
     local URA = runes.checkSpellForRuneByName("URA", spell)
@@ -123,55 +122,14 @@ function M.applySnare(user, targets, spell, ORL, level)
                 M.addEffect(myEffect, target)
             end
         end
-
-        if SIH then
-            local amountStolen = 20  -- 20% stolen of speed taken from target
-
-            if QWAN then
-                amountStolen = amountStolen + 5
-            end
-
-            if raceBonus then
-                amountStolen = amountStolen + 5
-            end
-
-            local mySpeed = (getSpeed/100)*amountStolen
-            local foundUserEffect, userEffect = user.effects:find(userEffectNumber)
-
-            if not foundUserEffect then
-                userEffect = LongTimeEffect(userEffectNumber, 10)
-                userEffect:addValue("speed", mySpeed)
-                userEffect:addValue("ticks", ticks)
-                userEffect:addValue("spell", spell)
-                userEffect:addValue("user", 1)
-                user.effects:addEffect(userEffect)
-            else
-                local foundRemainingSpeed, remainingSpeed = userEffect:findValue("remainingSpeed")
-                if foundRemainingSpeed then
-                    if mySpeed < remainingSpeed then
-                        return -- existing slow is already greater than the one that would be applied.
-                    end
-                    userEffect:addValue("speed", mySpeed - remainingSpeed)
-                    userEffect:addValue("ticks", ticks)
-                    userEffect:addValue("spell", spell)
-                    userEffect:addValue("user", 1)
-                    M.addEffect(userEffect, user)
-                end
-            end
-        end
     end
 end
 
 function M.addEffect(myEffect, target)
-    local foundUser, isUser = myEffect:findValue("user")
-    local SIH = foundUser and isUser == 1
 
     local foundSpeed, speed = myEffect:findValue("speed")
     if foundSpeed then
         local speedChange = speed / 100 -- Convert from int % to float
-        if SIH then
-            speedChange = -speedChange
-        end
 
         local formerSpeed = target.speed
         local newSpeed = math.max(0, formerSpeed - speedChange)
@@ -199,10 +157,6 @@ end
 
 function M.callEffect(myEffect, target)
 
-    local foundUser, isUser = myEffect:findValue("user")
-    local SIH = foundUser and isUser == 1
-
-
     local foundRemainingSpeed, remainingSpeed = myEffect:findValue("remainingSpeed")
     local foundTicks, ticks = myEffect:findValue("ticks")
 
@@ -219,10 +173,6 @@ function M.callEffect(myEffect, target)
                 local formerSpeed = target.speed
                 local speedChange = remainingSpeed/100
 
-                if SIH then
-                    speedChange = -speedChange
-                end
-
                 target.speed = target.speed + speedChange
 
                 if testing.active then
@@ -233,10 +183,6 @@ function M.callEffect(myEffect, target)
 
                 local formerSpeed = target.speed
                 local speedChange = speedIncrease/100
-
-                if SIH then
-                    speedChange = -speedChange
-                end
 
                 target.speed = target.speed + speedChange
 
@@ -264,24 +210,12 @@ end
 
 function M.loadEffect(myEffect, target)
 
-local SIH
-local foundUser, isUser = myEffect:findValue("user")
-
-    if foundUser then
-        if 1 == isUser then
-            SIH = true
-        end
-    end
     local foundRemainingSpeed, remainingSpeed = myEffect:findValue("remainingSpeed")
     if foundRemainingSpeed then
         if remainingSpeed > 0 then
             local speedChange = remainingSpeed/100
 
             local formerSpeed = target.speed
-
-            if SIH then
-                speedChange = -speedChange
-            end
 
             target.speed = target.speed - speedChange
 

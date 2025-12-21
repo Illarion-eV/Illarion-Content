@@ -641,6 +641,7 @@ local function getPosition(user, spell, positionsAndTargets, delayed, trap)
                 return
             end
             thePosition = targeted.pos
+
             if not dodgable and not (PEN and LEV) then
                 table.insert(positionsAndTargets.targets, targeted)
                 positionsAndTargets.targetToTeach = targeted

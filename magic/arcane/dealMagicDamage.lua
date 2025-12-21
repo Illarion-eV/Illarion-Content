@@ -107,6 +107,7 @@ function M.dealMagicDamage(user, target, spell, damage, level, DoT, castTime, us
     local SIH = runes.checkSpellForRuneByName("SIH", spell)
     local IRA = runes.checkSpellForRuneByName("IRA", spell)
     local KAH = runes.checkSpellForRuneByName("KAH", spell)
+    local JUS = runes.checkSpellForRuneByName("JUS", spell)
 
     local dwyfolTriggered = false
 
@@ -198,15 +199,16 @@ function M.dealMagicDamage(user, target, spell, damage, level, DoT, castTime, us
     else
         character.ChangeHP(target, -damage)
         if testing.active then
-            target:talk(Character.say,"#me takes "..damage.." damage.", "#me takes "..damage.." damage.") --temp logging of damage for testers
+            target:talk(Character.say,"#me takes "..damage.." damage.", "#me takes "..damage.." damage.")
         end
     end
 
-
     if not dwyfolTriggered and user then
-        if SIH and (RA or CUN) then
-            character.ChangeHP(user, math.floor(damage/20)) -- 5% lifesteal
-            log("Magic testing: Leech tracking. Caster healed by "..tostring(damage/20))
+        if SIH and (RA or CUN or JUS) then
+            character.ChangeHP(user, math.floor(damage/10)) -- 10% lifesteal
+            if testing.active then
+                user:talk(Character.say,"#me heals "..(damage/10).." health.", "#me heals "..(damage/10).." health.")
+            end
         end
 
         dendron.lifesteal(user, damage) -- chance to heal for a portion of the damage you deal

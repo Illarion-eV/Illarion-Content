@@ -19,6 +19,7 @@ local common = require("base.common")
 local magic = require("base.magic")
 local skilling = require("magic.arcane.skilling")
 local runes = require("magic.arcane.runes")
+local testing = require("base.testing")
 
 local M = {}
 
@@ -52,8 +53,16 @@ function M.getMagicPenetration(user, element, spell)
 
     local magicPenetration = statBonus+equipmentBonus+skillImpact
 
-    if spell and runes.checkSpellForRuneByName("SAV", spell) and not runes.checkSpellForRuneByName("JUS", spell) and not runes.checkSpellForRuneByName("PEN", spell) then --magic penetration
-        magicPenetration = math.floor(magicPenetration*1.1) --up to 10% magic penetration when SAV is applied to fire, water or earth spells
+    local SAV = runes.checkSpellForRuneByName("SAV", spell)
+    local JUS = runes.checkSpellForRuneByName("JUS", spell)
+    local PEN = runes.checkSpellForRuneByName("PEN", spell)
+
+    if spell and SAV and not JUS and not PEN then --magic penetration
+        local oldMagicPen = magicPenetration
+        magicPenetration = magicPenetration*1.1 -- 10% increased magic penetration when SAV is applied to fire, water or earth spells
+        if testing.active then
+            user:talk(Character.say, "#me's magic penetration went from "..oldMagicPen.." to "..magicPenetration.." due to SAV.")
+        end
     end
 
     return magicPenetration

@@ -34,7 +34,6 @@ function M.instantLifeOrManaSteal(user, targets, spell, ORL, thePosition)
 
     local JUS = runes.checkSpellForRuneByName("JUS", spell)
     local IRA = runes.checkSpellForRuneByName("IRA", spell)
-    local SIH = runes.checkSpellForRuneByName("SIH", spell)
     local YEG = runes.checkSpellForRuneByName("YEG", spell)
     local URA = runes.checkSpellForRuneByName("URA", spell)
     local TAUR = runes.checkSpellForRuneByName("TAUR", spell)
@@ -66,11 +65,6 @@ function M.instantLifeOrManaSteal(user, targets, spell, ORL, thePosition)
             end
             if ORL then
                 amountStolen = amountStolen/2
-            end
-            if SIH then
-                character.ChangeHP(user, amountStolen)
-                character.ChangeHP(target, -amountStolen)
-                user:inform(texts.health.german, texts.health.english)
             end
             if IRA then
 
@@ -145,18 +139,21 @@ end
 
 
 function M.callEffect(myEffect, target)
+
     local foundDamage, remainingDamage =  myEffect:findValue("remainingDamage")
     local foundTicks, remainingTicks =  myEffect:findValue("remainingTicks")
     if foundDamage and foundTicks then
-
         if remainingDamage == 0 then
             return false
         end
 
         if remainingTicks > 0 then
             local damage = math.floor(remainingDamage/remainingTicks)
-            local lifesteal = damage/20 -- 5%
+            local lifesteal = damage/10 -- 10%
             character.ChangeHP(target, lifesteal)
+            if testing.active then
+                target:talk(Character.say,"#me heals "..(damage/10).." health.", "#me heals "..(damage/10).." health.")
+            end
             myEffect:addValue("remainingDamage", remainingDamage - damage)
             myEffect:addValue("remainingTicks", remainingTicks - 1)
             myEffect.nextCalled = 30
