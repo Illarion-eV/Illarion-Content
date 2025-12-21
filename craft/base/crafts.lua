@@ -877,6 +877,8 @@ local function roundTheBonus(rareIngredientBonus)
     end
 end
 
+local otherRares = {Item.candles, Item.torch, Item.lampOil}
+
 local function itemShouldBeRare(productId)
 
     local isFood, isCooked = foodScript.isFood(productId)
@@ -898,6 +900,12 @@ local function itemShouldBeRare(productId)
 
         for _, vessel in pairs(bottle.vessels) do
             if vessel.empty == productId then
+                return true
+            end
+        end
+
+        for _, otherRare in pairs(otherRares) do
+            if otherRare.id == productId then
                 return true
             end
         end

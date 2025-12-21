@@ -26,44 +26,44 @@ local DEFAULT_WEAR = 60 -- default duration of 3 hours, 177-180 minutes based on
 local LightsOff = {}
 local LightsOn = {}
 -- torch
-LightsOff[391] = { on = 392 }
-LightsOn[392] = { off = 391, portable = true }
+LightsOff[Item.torch] = { on = 392 }
+LightsOn[392] = { off = Item.torch, portable = true }
 -- torch holder
-LightsOff[401] = { on = 402, req = { id = 392, alternative = 391, num = 1 } } -- facing south
+LightsOff[401] = { on = 402, req = { id = 392, alternative = Item.torch, num = 1 } } -- facing south
 LightsOn[402] = { off = 401}
-LightsOff[403] = { on = 404, req = { id = 392, alternative = 391, num = 1 } } -- facing west
+LightsOff[403] = { on = 404, req = { id = 392, alternative = Item.torch, num = 1 } } -- facing west
 LightsOn[404] = { off = 403}
 -- candles
-LightsOff[2853] = { on = 2851, req = { id = 43, num = 3 } } -- facing south
+LightsOff[2853] = { on = 2851, req = { id = Item.candles, num = 3 } } -- facing south
 LightsOn[2851] = { off = 2853 }
-LightsOff[2854] = { on = 2852, req = { id = 43, num = 3 } } -- facing west
+LightsOff[2854] = { on = 2852, req = { id = Item.candles, num = 3 } } -- facing west
 LightsOn[2852] = { off = 2854 }
 -- candle
-LightsOff[399] = { on = 400, req = { id = 43, num = 1 } }
+LightsOff[399] = { on = 400, req = { id = Item.candles, num = 1 } }
 LightsOn[400] = { off = 399, portable = true }
 -- oil lamp
-LightsOff[92] = { on = 397, req = { id = 469, num = 1, remnant = 390} }
+LightsOff[92] = { on = 397, req = { id = Item.lampOil, num = 1, remnant = 390} }
 LightsOn[397] = { off = 92, portable = true }
 -- oil lamp holder
-LightsOff[395] = { on = 396, req = { id = 469, num = 1, remnant = 390 } }
+LightsOff[395] = { on = 396, req = { id = Item.lampOil, num = 1, remnant = 390 } }
 LightsOn[396] = { off = 395 }
 -- lantern
-LightsOff[393] = { on = 394, req = { id = 43, num = 1 } } -- black, portable
+LightsOff[393] = { on = 394, req = { id = Item.candles, num = 1 } } -- black, portable
 LightsOn[394] = { off = 393, portable = true }
-LightsOff[2856] = { on = 2855, req = { id = 43, num = 1 } } -- grey, static
+LightsOff[2856] = { on = 2855, req = { id = Item.candles, num = 1 } } -- grey, static
 LightsOn[2855] = { off = 2856 }
-LightsOff[1127] = { on = 1123, req = {id = 43, num = 1} } -- wall lantern
+LightsOff[1127] = { on = 1123, req = {id = Item.candles, num = 1} } -- wall lantern
 LightsOff[1123] = { off = 1127 }
-LightsOff[1129] = { on = 1124, req = {id = 43, num = 1} } -- wall lantern
+LightsOff[1129] = { on = 1124, req = {id = Item.candles, num = 1} } -- wall lantern
 LightsOff[1124] = { off = 1129 }
-LightsOff[1128] = { on = 1125, req = {id = 43, num = 1} } -- wall lantern
+LightsOff[1128] = { on = 1125, req = {id = Item.candles, num = 1} } -- wall lantern
 LightsOff[1125] = { off = 1128 }
-LightsOff[1130] = { on = 1126, req = {id = 43, num = 1} } -- wall lantern
+LightsOff[1130] = { on = 1126, req = {id = Item.candles, num = 1} } -- wall lantern
 LightsOff[1126] = { off = 1130 }
 
 local ReqTexts = {}
-ReqTexts.german = { [392] = "Fackeln", [43] = "Kerzen", [469] = "Lampenöl" }
-ReqTexts.english = { [392] = "torches", [43] = "candles", [469] = "lamp oil" }
+ReqTexts.german = { [392] = "Fackeln", [Item.candles] = "Kerzen", [Item.lampOil] = "Lampenöl" }
+ReqTexts.english = { [392] = "torches", [Item.candles] = "candles", [Item.lampOil] = "lamp oil" }
 
 
 local function lightTheItem(theItem, newWear)
@@ -97,9 +97,10 @@ local function passesCheckForStackSizeAndPosition(user, sourceItem)
     return true
 end
 
-local function checkIfRequirementsAreMetAndConsumeUnlitItem(user, unlitItem)
+local function checkIfRequirementsAreMetAndConsumeUnlitItem(user, unlitItem, sourceItem)
 
     local litTorch = false
+    local rareness
 
     if unlitItem.req then
         -- there's a requirement, check on body and belt
@@ -114,6 +115,20 @@ local function checkIfRequirementsAreMetAndConsumeUnlitItem(user, unlitItem)
 
         local hasEnoughOfRequiredItem = user:countItemAt("body", unlitItem.req.id) + user:countItemAt("belt", unlitItem.req.id) >= unlitItem.req.num
 
+        for i = 1, 3 do
+            local alternateCheck = user:countItemAt("body", alternative, {["rareness"] = i+1}) + user:countItemAt("belt", alternative, {["rareness"] = i+1}) >= unlitItem.req.num
+            local requiredCheck = user:countItemAt("body", unlitItem.req.id, {["rareness"] = i+1}) + user:countItemAt("belt", unlitItem.req.id, {["rareness"] = i+1}) >= unlitItem.req.num
+            if alternateCheck then
+                rareness = i+1
+                hasEnoughAlternativeItem = true
+            end
+
+            if requiredCheck then
+                hasEnoughOfRequiredItem = true
+                rareness = i+1
+            end
+        end
+
         local itemToTake = unlitItem.req.id
 
         if not hasEnoughOfRequiredItem and hasEnoughAlternativeItem then
@@ -125,8 +140,10 @@ local function checkIfRequirementsAreMetAndConsumeUnlitItem(user, unlitItem)
             local itemRest = unlitItem.req.num
             for i=1,17 do
                 myItem = user:getItemAt( i )
-                if ( myItem.id == itemToTake ) then
+                if ( myItem.id == itemToTake ) and ((rareness and myItem:getData("rareness") == tostring(rareness)) or not rareness) then
+
                     world:erase( myItem, math.min( itemRest, myItem.number ) )
+
                     if itemToTake == 392 then
                         litTorch = myItem.wear
                     end
@@ -140,16 +157,18 @@ local function checkIfRequirementsAreMetAndConsumeUnlitItem(user, unlitItem)
                 common.CreateItem(user, unlitItem.req.remnant, unlitItem.req.num, 333, nil)
             end
         else
-            return false, litTorch
+            return false, litTorch, rareness
         end
+    elseif not common.IsNilOrEmpty(sourceItem:getData("rareness")) then
+        rareness = tonumber(sourceItem:getData("rareness"))
     end
 
-    return true, litTorch
+    return true, litTorch, rareness
 end
 
 local function handleUsageQuests(user, sourceItem)  -- returns true if the quest handles the lighting process
     --Tutorial Quest 330: Lighting a torch with NPC Henry Cunnigan
-    if user:getQuestProgress(330) == 2 and sourceItem.id == 391 and user:isInRangeToPosition((position (703,290,0)),20) then -- Only invoked if the user has the quest, has a torch and is in range of the NPC
+    if user:getQuestProgress(330) == 2 and sourceItem.id == Item.torch and user:isInRangeToPosition((position (703,290,0)),20) then -- Only invoked if the user has the quest, has a torch and is in range of the NPC
         user:setQuestProgress(330,3) -- Quest advanced when torch lit
         common.InformNLS(user, tutorial.getTutorialInformDE("lights"), tutorial.getTutorialInformEN("lights"))
         local Henry = common.getNpc(position(703,290,0),1,"Henry Cunnigan")
@@ -248,13 +267,17 @@ function M.UseItem(user, sourceItem)
     local litItem = LightsOn[sourceItem.id]
 
     if unlitItem then
-        local requirementsMet, litTorch = checkIfRequirementsAreMetAndConsumeUnlitItem(user, unlitItem)
+        local requirementsMet, litTorch, rareness = checkIfRequirementsAreMetAndConsumeUnlitItem(user, unlitItem, sourceItem)
         if requirementsMet then
             if not handleUsageQuests(user, sourceItem) then
                 -- no quests that already lit the item, proceeding with default
                 local wear = DEFAULT_WEAR
 
-                if litTorch then
+                if rareness then
+                    wear = wear + (rareness-1)*20 -- an hour extra wear per rarity
+                end
+
+                if litTorch then -- A lit torch will already have accounted for rareness and may have less wear remaining
                     wear = litTorch
                 end
 
@@ -306,7 +329,7 @@ function M.MoveItemAfterMove(user, itemBefore, itemAfter)
     end
 
     --Tutorial Quest 330: Equipping a torch with NPC Henry Cunnigan
-    if user:getQuestProgress(330)==1 and itemAfter.id==391 and user:isInRangeToPosition((position (703,290,0)),20) and itemAfter:getType() == 4 then -- Only invoked if the user has the quest, has a torch and is in range of the NPC
+    if user:getQuestProgress(330)==1 and itemAfter.id==Item.torch and user:isInRangeToPosition((position (703,290,0)),20) and itemAfter:getType() == 4 then -- Only invoked if the user has the quest, has a torch and is in range of the NPC
         user:setQuestProgress(330,2) --Quest advancement when torch equipped
         local NPCList=world:getNPCSInRangeOf(position(703,290,0),1) --Let's be tolerant, the NPC might move a tile.
         common.InformNLS(user, tutorial.getTutorialInformDE("lightsStart"), tutorial.getTutorialInformEN("lightsStart"))
