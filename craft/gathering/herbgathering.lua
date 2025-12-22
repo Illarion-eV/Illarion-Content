@@ -111,35 +111,6 @@ HerbItems[421] = {                                    -- bulbsponge mushroom
     CreateHarvestProduct(158, nil)                                -- bulbsponge mushroom
 }
 
-HerbItems[158] = {                                    -- bulbsponge mushroom
-    CreateHarvestProduct(158, nil)                                -- bulbsponge mushroom
-}
-
--- helper herb
-HerbItems[2169] = {                                    -- old log
-    CreateHarvestProduct(157, nil)                                -- rotten tree bark
-}
-
-HerbItems[2170] = {                                    -- old log
-    CreateHarvestProduct(157, nil)                              -- rotten tree bark
-}
-
-HerbItems[1156] = {                                    -- old log
-    CreateHarvestProduct(157, nil)                                -- rotten tree bark
-}
-
-HerbItems[1157] = {                                    -- old log
-    CreateHarvestProduct(157, nil)                              -- rotten tree bark
-}
-
-HerbItems[1158] = {                                    -- old log
-    CreateHarvestProduct(157, nil)                                -- rotten tree bark
-}
-
-HerbItems[1159] = {                                    -- old log
-    CreateHarvestProduct(157, nil)                              -- rotten tree bark
-}
-
 local function IsRegrown(Item)
     local serverTime = world:getTime("unix");
     for i=1,10 do
@@ -242,6 +213,9 @@ M.herbList = {
     {id = Item.firTree, depletedId = Item.prunedFirTree, productId = Item.firTreeSprout, maxAmount = 20},
     {id = Item.bloomingCeridern, depletedId = Item.ceridernTree, productId = Item.blueBirdsberry, maxAmount = 10},
     {id = Item.sunflowers, depletedId = Item.sunflowersEmpty, productId = Item.sunHerb, maxAmount = 20},
+    {id = Item.oldLogSouth, depletedId = Item.oldLogSouthEmpty, productId = Item.rottenTreeBark, maxAmount = 20},
+    {id = Item.oldLogWest, depletedId = Item.oldLogWestEmpty, productId = Item.rottenTreeBark, maxAmount = 20},
+
 }
 
 local herbList = M.herbList
