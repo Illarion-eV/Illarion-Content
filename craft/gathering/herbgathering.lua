@@ -94,23 +94,6 @@ HerbItems[1783] = {                                   -- grass
     CreateHarvestProduct(145, gt.grass)                         -- heath flower
 }
 
-HerbItems[1791] = {                                   -- sunflower
-    CreateHarvestProduct(133, nil)                         -- sun herb
-}
-
--- mushrooms
-HerbItems[159] = {                                    -- toadstool
-    CreateHarvestProduct(159, nil)                                -- toadstool
-}
-
-HerbItems[161] = {                                    -- herder's mushroom
-    CreateHarvestProduct(161, nil)                                -- herder's mushroom
-}
-
-HerbItems[421] = {                                    -- bulbsponge mushroom
-    CreateHarvestProduct(158, nil)                                -- bulbsponge mushroom
-}
-
 local function IsRegrown(Item)
     local serverTime = world:getTime("unix");
     for i=1,10 do
@@ -215,6 +198,14 @@ M.herbList = {
     {id = Item.sunflowers, depletedId = Item.sunflowersEmpty, productId = Item.sunHerb, maxAmount = 20},
     {id = Item.oldLogSouth, depletedId = Item.oldLogSouthEmpty, productId = Item.rottenTreeBark, maxAmount = 20},
     {id = Item.oldLogWest, depletedId = Item.oldLogWestEmpty, productId = Item.rottenTreeBark, maxAmount = 20},
+    {id = Item.toadstoolCluster, depletedId = Item.toadstoolClusterEmpty, productId = Item.toadstool, maxAmount = 20},
+    {id = Item.herdersMushroomCluster, depletedId = Item.herdersMushroomClusterEmpty, productId = Item.herdersMushroom, maxAmount = 20},
+    {id = Item.bulbspongeMushroomCluster, depletedId = Item.bulbspongeMushroomClusterEmpty, productId = Item.bulbspongeMushroom, maxAmount = 20},
+    {id = Item.fairyRingMushroomCluster, depletedId = Item.fairyRingMushroomClusterEmpty, productId = Item.fairyRingMushroom, maxAmount = 10},
+    {id = Item.elfCapClusterSouth, depletedId = Item.elfCapClusterSouthEmpty, productId = Item.elfCaps, maxAmount = 5},
+    {id = Item.elfCapClusterWest, depletedId = Item.elfCapClusterWestEmpty, productId = Item.elfCaps, maxAmount = 5},
+    {id = Item.stinkhornClusterWest, depletedId = Item.stinkhornClusterWestEmpty, productId = Item.stinkhorn, maxAmount = 5},
+    {id = Item.stinkhornClusterSouth, depletedId = Item.stinkhornClusterSouthEmpty, productId = Item.stinkhorn, maxAmount = 5},
 
 }
 
