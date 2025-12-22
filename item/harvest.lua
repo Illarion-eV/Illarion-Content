@@ -26,7 +26,7 @@ local M = {}
 
 local fruitSources = {4246, 4255, 4238, 4245, 4341, 4253, 14, 300, 387, 1195, 3613, 3743, 3867, 3892}
 
-local emptyFruitSources = {4256, 4239, 4244, 4342, 4254, 1193, 1194}
+local emptyFruitSources = {4256, 4239, 4244, 4342, 4254, 1193, 1194, 4343}
 
 local function isFruitSource(sourceId)
 
@@ -63,7 +63,7 @@ function M.UseItem(User, SourceItem, ltstate)
     elseif SourceItem.id == 11 or SourceItem.id == 299 then
         woodchopping.StartGathering(User, SourceItem, ltstate);
     else
-        common.HighInformNLS( User,"[FEHLER] Unbekannter Baum/Strauch, bitte informiere einen Entwickler.","[ERROR] Unknown bush/tree, please inform a developer." );
+        common.HighInformNLS( User,"[FEHLER] Unbekannter Baum/Strauch( ID: "..SourceItem.id..")"..", bitte informiere einen Entwickler.","[ERROR] Unknown bush/tree( ID: "..SourceItem.id..")"..", please inform a developer." );
     end
 
 end
