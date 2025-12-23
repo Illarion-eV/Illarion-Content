@@ -74,10 +74,6 @@ HerbItems[301] = {                                   -- hedge
     CreateHarvestProduct(136, gt.dirt)                          -- anger berry
 }
 
-HerbItems[338] = {                                   -- reed
-    CreateHarvestProduct(134, gt.grass),                         -- fourleafed oneberry
-}
-
 HerbItems[1782] = {                                   -- grass
     CreateHarvestProduct(141, gt.rocks),                         -- black thistle
     CreateHarvestProduct(145, gt.grass)                         -- heath flower
@@ -202,6 +198,7 @@ M.herbList = {
     {id = Item.stinkhornClusterSouth, depletedId = Item.stinkhornClusterSouthEmpty, productId = Item.stinkhorn, maxAmount = 5},
     {id = Item.fanleafWest, depletedId = Item.fanleafWestEmpty, productId = Item.sibanacLeaf, maxAmount = 10},
     {id = Item.fanleafEast, depletedId = Item.fanleafEastEmpty, productId = Item.sibanacLeaf, maxAmount = 10},
+    {id = Item.fourleafedOneberryPlant, depletedId = Item.fourleafedOneberryEmpty, productId = Item.fourleafedOneberry, maxAmount = 20},
 
 }
 
