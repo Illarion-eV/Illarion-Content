@@ -66,11 +66,11 @@ itemShoes = 53
 sellItems = 227, 126, 799, 133, 134, 135, 136, 137, 140, 141, 142, 143, 144, 145, 147, 148, 149, 151, 153, 155, 156, 157, 158, 159, 160, 161, 162, 163, 405, 406, 407, 752, 753, 759, 763, 767, 4284, 4285
 -- cooking spoon, sickle
 -- wicker basket
--- sun herb, fourleafed oneberry, yellow weed, anger berry, flamegoblet blossom, donf blade, black thistle, sandberry, red elder, virgin's weed, heath flower, blackberry, firnis blossom, fir tree sprout, strawberry, foot leaf, sibanac leaf, steppe fern, rotten tree bark, bulbsponge mushroom, toadstool, red head, herder's mushroom, birth mushroom, champignon, fairy ring mushroom, stinkhorn, elf caps, mandrake, blue birdsberry, nuts, marsh flower, water blossom, silk
+-- sun herb, fourleafed oneberry, yellow weed, anger berry, flamegoblet blossom, donf blade, black thistle, sandberry, red elder, virgin's weed, heath flower, blackberry, firnis blossom, fir tree sprout, strawberry, foot leaf, fanleaf, steppe fern, rotten tree bark, bulbsponge mushroom, toadstool, red head, herder's mushroom, birth mushroom, champignon, fairy ring mushroom, stinkhorn, elf caps, mandrake, blue birdsberry, nuts, marsh flower, water blossom, silk
 sellItems = 2499, 2497, 2501, 2500, 784, 4627, 785, 4628, 4631, 4630, 4629, 4621, 789, 783, 4625, 4623, 4638, 4636, 788, 3720, 3721, 787, 1319, 1320, 1315, 1322, 1323
 -- all brewed drinks below level 70
 buyPrimaryItems = 133, 134, 135, 136, 137, 140, 141, 142, 143, 144, 145, 147, 148, 149, 151, 153, 155, 156, 157, 158, 159, 160, 161, 162, 163, 405, 406, 407, 752, 753, 759, 763, 767, 3787, 4286, 4283, 4284, 4285
--- sun herb, fourleafed oneberry, yellow weed, anger berry, flamegoblet blossom, donf blade, black thistle, sandberry, red elder, virgin's weed, heath flower, blackberry, firnis blossom, fir tree sprout, strawberry, foot leaf, sibanac leaf, steppe fern, rotten tree bark, bulbsponge mushroom, toadstool, red head, herder's mushroom, birth mushroom, champignon, fairy ring mushroom, stinkhorn, elf caps, mandrake, blue birdsberry, nuts, marsh flower, water blossom, silk
+-- sun herb, fourleafed oneberry, yellow weed, anger berry, flamegoblet blossom, donf blade, black thistle, sandberry, red elder, virgin's weed, heath flower, blackberry, firnis blossom, fir tree sprout, strawberry, foot leaf, fanleaf, steppe fern, rotten tree bark, bulbsponge mushroom, toadstool, red head, herder's mushroom, birth mushroom, champignon, fairy ring mushroom, stinkhorn, elf caps, mandrake, blue birdsberry, nuts, marsh flower, water blossom, silk
 buyPrimaryItems = 2499, 2497, 2501, 2500, 4404, 784, 4627, 785, 4628, 4631, 4630, 4629, 4633, 3611, 791, 4632, 4621, 789, 783, 4625, 4623, 4622, 4624, 4638, 4636, 788, 786, 4635, 4637, 3720, 3721, 787, 3722, 1319, 1320, 1315, 1322, 1323, 1316, 517, 1321, 1318
 -- all brewed drinks
 tradeNotEnoughMoneyMsg "Das könnt ihr euch nicht leisten.", "You can not afford that."
@@ -97,8 +97,8 @@ english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetings.", "Be greeted."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Lebt wohl! Möge Oldra über Euch wachen!", "Lebt wohl! Und schaut mal wieder vorbei."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Adé!", "A bientôt!", "May Oldra be with you."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Adé!", "A bientôt!", "Möge Oldra über Euch wachen!"
-"How are you", "How feel", "How do you do" -> "Thank you for asking. Since I stopped smoking Sibanac I feel great!", "I drank some herbal tea for my headache, now I feel better."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Danke der Nachfrage. Seitdem ich kein Sibanac mehr rauche geht es mir ausgezeichnet!", "I trank Tee gegen meine Kopfschmerzen und nun geht es mir wieder gut."
+"How are you", "How feel", "How do you do" -> "Thank you for asking. Since I stopped smoking fanleaf I feel great!", "I drank some herbal tea for my headache, now I feel better."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Danke der Nachfrage. Seitdem ich kein Fächerblatt mehr rauche geht es mir ausgezeichnet!", "I trank Tee gegen meine Kopfschmerzen und nun geht es mir wieder gut."
 "your name", "who are you", "who art thou" -> "I'm a merchant, I sell fresh herbs. I am called William Daloire.", "I'm William Daloire, at you service."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin ein Händler der frische Kräuter verkauft. Ich werde William Daloire genannt.", "Ich heiße William Daloire, was kann ich für Euch tun?"
 
@@ -119,8 +119,8 @@ queststatus(317) = 9, "Brief", "Nachricht" -> queststatus(317) = 10, "Oh? Ein Br
 "beruf" -> "Ich bin ein Kräuterhändler, das heißt ich handle mit Kräutern. Möchtet Ihr das Angebot sehen?", "I verkaufe nicht nur Kräuter, sondern auch sehr nützliche Werkzeuge. Möchtet Ihr das Angebot sehen?", "Ich verkaufe Kräuter und einige Werkzeuge. Möchtet Ihr das Angebot sehen?"
 english, "job" -> "I'm a herbalist, so as you might expect: I sell herbs. Want to take a look?", "I don't just sell herbs: I also sell useful tools. Come have a look.", "I sell herbs and tools too. Want to see?"
 "job" -> "Ich bin ein Kräuterhändler, das heißt ich handle mit Kräutern. Möchtet Ihr das Angebot sehen?", "I verkaufe nicht nur Kräuter, sondern auch sehr nützliche Werkzeuge. Möchtet Ihr das Angebot sehen?", "Ich verkaufe Kräuter und einige Werkzeuge.Möchtet Ihr das Angebot sehen?"
-"tell something" -> "Smoking sibanac isn't good for your health.", "There are some herbs which you can only find in the desert.", "Herbs can have very different qualities. Druids can tell you more that."
-"erzähl was", "erzähl etwas" -> "Sibanac zu rauchen ist nicht gesund.", "Einige Käuter findet man nur in der Wüste.", "Kräuter können sehr unterschiedliche Eigenschaften haben, ein Druide kann euch dazu sicher mehr erzählen."
+"tell something" -> "Smoking fanleaf isn't good for your health.", "There are some herbs which you can only find in the desert.", "Herbs can have very different qualities. Druids can tell you more that."
+"erzähl was", "erzähl etwas" -> "Fächerblatt zu rauchen ist nicht gesund.", "Einige Käuter findet man nur in der Wüste.", "Kräuter können sehr unterschiedliche Eigenschaften haben, ein Druide kann euch dazu sicher mehr erzählen."
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 "god" -> "The elder gods gave their power to the new ones before they left this world.", "The old gods aren't worshipped often nowadays."

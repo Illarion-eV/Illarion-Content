@@ -28,8 +28,8 @@ function M.UseItem(User, SourceItem)
     --local amountTob = User:countItemAt("belt",772);
     if (User:countItemAt("belt",155) == 0 and User:countItemAt("belt",772) == 0) then
         common.InformNLS( User,
-        "Du benötigst Sibanac-Blätter oder Tabak, um Pfeife rauchen zu können.",
-        "You need sibanac-leaves or tobacco to smoke a pipe." );
+        "Du benötigst Fächerblatt oder Tabak, um Pfeife rauchen zu können.",
+        "You need fanleaf or tobacco to smoke a pipe." );
 
 
     elseif (User:countItemAt("belt",155) ~= 0) then

@@ -76,12 +76,6 @@ HerbItems[301] = {                                   -- hedge
 
 HerbItems[338] = {                                   -- reed
     CreateHarvestProduct(134, gt.grass),                         -- fourleafed oneberry
-    CreateHarvestProduct(155, gt.water)                         -- sibanac leaf
-}
-
-HerbItems[1177] = {                                   -- reed
-    CreateHarvestProduct(134, gt.grass),                         -- fourleafed oneberry
-    CreateHarvestProduct(155, gt.water)                         -- sibanac leaf
 }
 
 HerbItems[1782] = {                                   -- grass
@@ -206,6 +200,8 @@ M.herbList = {
     {id = Item.elfCapClusterWest, depletedId = Item.elfCapClusterWestEmpty, productId = Item.elfCaps, maxAmount = 5},
     {id = Item.stinkhornClusterWest, depletedId = Item.stinkhornClusterWestEmpty, productId = Item.stinkhorn, maxAmount = 5},
     {id = Item.stinkhornClusterSouth, depletedId = Item.stinkhornClusterSouthEmpty, productId = Item.stinkhorn, maxAmount = 5},
+    {id = Item.fanleafWest, depletedId = Item.fanleafWestEmpty, productId = Item.sibanacLeaf, maxAmount = 10},
+    {id = Item.fanleafEast, depletedId = Item.fanleafEastEmpty, productId = Item.sibanacLeaf, maxAmount = 10},
 
 }
 

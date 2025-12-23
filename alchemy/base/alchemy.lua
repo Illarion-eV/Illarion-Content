@@ -115,7 +115,7 @@ setPlantSubstance(148,"Echolon","Caprazin") --firnis blossom
 setPlantSubstance(149,"Hyperborelium","Echolon") --fir tree sprout
 setPlantSubstance(151,"Caprazin","Dracolin") --strawberry
 setPlantSubstance(153,"Fenolin","Caprazin") --foot leaf
-setPlantSubstance(155,"Illidrium","Echolon") --sibanac leaf
+setPlantSubstance(Item.sibanacLeaf,"Illidrium","Echolon")
 setPlantSubstance(156,"Orcanol","Adrazin") --steppe fern
 setPlantSubstance(158,"Illidrium","Fenolin") --bulbsponge mushroom
 setPlantSubstance(159,"Dracolin","Hyperborelium") --toadstool

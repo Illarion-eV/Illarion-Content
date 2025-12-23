@@ -155,8 +155,8 @@ english, "Cadomyr" -> "Who is on this side? Who is on the other side? Half-hung 
 -- Main land factions
 english, "albar" -> "Albar - My homeland. Sometimes I miss the hard work in the fields... A man who has his hands deep in the dirt knows that he is doing honest work."
 "albar" -> "Albar - Meine Heimat. Es gibt Tage an denen vermisse ich es mir den Rücken krumm zu schuften, die harte Erde des Ackers zu Pflügen... Wenn ein Mann seine Finger tief im Dreck hat, weiß er, dass er eine gute Arbeit tut."
-english, "gynk", "gync" -> "What shall I tell you about Gynk? Snakes everywhere, the farmers grow sibanac instead of vegetables and the weather is bad."
-"gync", "gynk" -> "Was soll man über Gynk schon sagen? Die Erde dort ist voller Schlangen, die Bauern ernten Sibanac anstelle von ordentlichem Gemüse und das Wetter ist schrecklich."
+english, "gynk", "gync" -> "What shall I tell you about Gynk? Snakes everywhere, the farmers grow fanleaf instead of vegetables and the weather is bad."
+"gync", "gynk" -> "Was soll man über Gynk schon sagen? Die Erde dort ist voller Schlangen, die Bauern ernten Fächerblatt anstelle von ordentlichem Gemüse und das Wetter ist schrecklich."
 english, "salkama" -> "Once my old feudal lord told Bryan to fight in the war against Salkamar. I tried to run away - that's why I got hanged, twice. Once for treason against the king, once again for desertion."
 "salkama" -> "Als mein alter Lehnsherr in den Krieg gegen Salkamar zog, befahl er auch den tapferen Bryan zum Soldaten. Aber ich versuchte zu fliehen, darauf hin ließ er mich hängen, zwei Mal. Je einmal für Fahnenflucht und für Verrat am König."
 

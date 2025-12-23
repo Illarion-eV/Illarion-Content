@@ -115,7 +115,7 @@ function M.Oldra:_init(ordinal, youngerOrdinal)
                 143, --red elder
                 136, --anger berry
                 134, --fourleafed oneberry
-                155, --sibanac
+                Item.sibanacLeaf,
                 151, --strawberry
                 141, --black thistle
                 145, --heath flower

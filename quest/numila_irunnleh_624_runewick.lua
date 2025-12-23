@@ -24,16 +24,16 @@ local ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
 local Title = {}
-Title[GERMAN] = "Sibanac für Numila Irunnleh in Runewick"
-Title[ENGLISH] = "Sibanac for Numila Irunnleh in Runewick"
+Title[GERMAN] = "Fächerblatt für Numila Irunnleh in Runewick"
+Title[ENGLISH] = "Fanleaves for Numila Irunnleh in Runewick"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
 local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "Finde Numila Irunnleh in Runewick und bringe ihr die Sibanacblätter, um deine Belohnung zur erhalten."
-Description[ENGLISH][1] = "Try to find Numila Irunnleh in Runewick and take her the sibanac leaves to get your reward."
+Description[GERMAN][1] = "Finde Numila Irunnleh in Runewick und bringe ihr die Fächerblätter, um deine Belohnung zur erhalten."
+Description[ENGLISH][1] = "Try to find Numila Irunnleh in Runewick and take her the fanleaves to get your reward."
 Description[GERMAN][2] = "Du hast Numila gefunden. Wenn du möchtest, kannst du nun mit ihr sprechen. Frage sie nach 'Hilfe' wenn du nicht weißt, wonach du fragen sollst!\nSie kann dir einiges über die südöstliche Karte von Illarion verraten."
 Description[ENGLISH][2] = "You have found Numila. If you like, you can talk with her now. Ask for 'help' if you do not know what to say!\nShe can provide you with information about the south-eastern part of Illarion."
 
