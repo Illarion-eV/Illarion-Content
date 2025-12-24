@@ -51,7 +51,6 @@ HerbItems[273] = {                                   -- flower
     CreateHarvestProduct(137, gt.sand),                          -- flamegoblet blossom
     CreateHarvestProduct(135, gt.grass),                         -- yellow weed
     CreateHarvestProduct(148, gt.forest),                        -- firnis blossom
-    CreateHarvestProduct(763, gt.dirt),                          -- mash flower
     CreateHarvestProduct(767, gt.water)                          -- water blossom
 }
 
@@ -199,6 +198,7 @@ M.herbList = {
     {id = Item.fanleafWest, depletedId = Item.fanleafWestEmpty, productId = Item.sibanacLeaf, maxAmount = 10},
     {id = Item.fanleafEast, depletedId = Item.fanleafEastEmpty, productId = Item.sibanacLeaf, maxAmount = 10},
     {id = Item.fourleafedOneberryPlant, depletedId = Item.fourleafedOneberryEmpty, productId = Item.fourleafedOneberry, maxAmount = 20},
+    {id = Item.marshFlowerPlant, depletedId = Item.marshFlowerPlantEmpty, productId = Item.marshFlower, maxAmount = 20},
 
 }
 
