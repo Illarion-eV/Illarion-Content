@@ -543,8 +543,13 @@ local function buffsAdding(user, sourceItem)
         if buff.value > 0 then
 
             if rarityBuff < rarity-1 then
-                buff.value = buff.value+1
-                rarityBuff = rarityBuff + 1
+                local toAdd = 1
+                if emptyBuffs > #attributes-(rarity-1) and buff.value == 1 then -- allow +3 out of a +1 if the dish has less attribs than rarity
+                    toAdd = 2
+                end
+
+                buff.value = buff.value+ toAdd
+                rarityBuff = rarityBuff + toAdd
             end
 
             if addComma then
