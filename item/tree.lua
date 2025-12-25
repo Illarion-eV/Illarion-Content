@@ -33,11 +33,9 @@ function M.UseItem(User, SourceItem, ltstate)
     -- alchemy end
 
     -- Try to harvest herbs first
-    if herbgathering.isHerbItem(SourceItem) and
-            herbgathering.GetValidProduct(SourceItem) and
-            User:countItemAt("body",126) > 0 then
-        herbgathering.StartGathering(User, SourceItem, ltstate);
-        return;
+    if herbgathering.isHerbItem(SourceItem) and User:countItemAt("body", Item.sickle) > 0 then
+        herbgathering.StartGathering(User, SourceItem, ltstate)
+        return
     end
 
     if User:getRace() == 3 and User:increaseAttrib("sex", 0) == Character.male and world:getTime("month") == 5 and SourceItem.id == 962 then --Male elves using a Mevrannon tree during month Siros
