@@ -521,11 +521,28 @@ local function buffsAdding(user, sourceItem)
         numberOfBuffedStats = numberOfBuffedStats+1
     end
 
+    local attributes = {"strength", "agility", "essence", "dexterity", "perception", "willpower", "intelligence", "constitution"}
+
+    local emptyBuffs = #attributes - #buffs
+
+    for _, attrib in pairs(attributes) do
+        local add = true
+        for _, buff in pairs(buffs) do
+            if buff.attribute == attrib then
+                add = false
+            end
+        end
+
+        if add then
+            table.insert(buffs, {attribute = attrib, value = 0})
+        end
+    end
+
     for _, buff in pairs(buffs) do
 
         if buff.value > 0 then
 
-            if rarityBuff < rarity-1 then --Each rarity adds one increase, max one per attribute
+            if rarityBuff < rarity-1 then
                 buff.value = buff.value+1
                 rarityBuff = rarityBuff + 1
             end
@@ -543,6 +560,33 @@ local function buffsAdding(user, sourceItem)
             local newValue = user:increaseAttrib(buff.attribute, buff.value)
 
             dietEffect:addValue(buff.attribute, newValue - oldValue)
+        end
+    end
+
+    if rarityBuff < rarity-1 then -- We still got more buffs to add, now assigning to random attribs since not enough were in the dish
+
+        local buffToAdd = math.random(1, emptyBuffs)
+        local count = 1
+
+        for _, buff in pairs(buffs) do
+            if buff.value == 0 then
+                if count == buffToAdd then
+
+                    local toAdd = rarity - rarityBuff - 1
+                    buff.value = buff.value + toAdd
+
+                    messageDe = messageDe .. ", " .. attributesGerman[buff.attribute] .. " +" .. buff.value
+                    messageEn = messageEn .. ", " .. buff.attribute .. " +" .. buff.value
+
+                    local oldValue = user:increaseAttrib(buff.attribute, 0)
+                    local newValue = user:increaseAttrib(buff.attribute, buff.value)
+
+                    dietEffect:addValue(buff.attribute, newValue - oldValue)
+                    break
+                else
+                    count = count + 1
+                end
+            end
         end
     end
 
