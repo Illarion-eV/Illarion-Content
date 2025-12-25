@@ -117,7 +117,7 @@ function M.addEffect(myEffect, target)
         local speedChange = speed / 100 -- Convert from int % to float
 
         local formerSpeed = target.speed
-        local newSpeed = math.max(0, formerSpeed - speedChange)
+        local newSpeed = math.max(0.01, formerSpeed - speedChange)
         local actualReduction = formerSpeed - newSpeed
         target.speed = newSpeed
 

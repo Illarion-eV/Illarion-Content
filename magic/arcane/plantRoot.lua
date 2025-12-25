@@ -328,7 +328,7 @@ function M.addEffect(myEffect, target)
     end
 
     local formerSpeed = target.speed
-    local newSpeed = math.min(math.max(0, formerSpeed - speedChange), 2)
+    local newSpeed = math.min(math.max(0.01, formerSpeed - speedChange), 2)
     local actualReduction = formerSpeed - newSpeed
 
     if TAH or SIH then
