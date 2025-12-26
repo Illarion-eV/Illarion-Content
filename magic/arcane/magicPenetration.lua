@@ -53,15 +53,18 @@ function M.getMagicPenetration(user, element, spell)
 
     local magicPenetration = statBonus+equipmentBonus+skillImpact
 
-    local SAV = runes.checkSpellForRuneByName("SAV", spell)
-    local JUS = runes.checkSpellForRuneByName("JUS", spell)
-    local PEN = runes.checkSpellForRuneByName("PEN", spell)
+    if spell then --magic penetration
 
-    if spell and SAV and not JUS and not PEN then --magic penetration
-        local oldMagicPen = magicPenetration
-        magicPenetration = magicPenetration*1.1 -- 10% increased magic penetration when SAV is applied to fire, water or earth spells
-        if testing.active then
-            user:talk(Character.say, "#me's magic penetration went from "..oldMagicPen.." to "..magicPenetration.." due to SAV.")
+        local SAV = runes.checkSpellForRuneByName("SAV", spell)
+        local JUS = runes.checkSpellForRuneByName("JUS", spell)
+        local PEN = runes.checkSpellForRuneByName("PEN", spell)
+
+        if SAV and not JUS and not PEN then
+            local oldMagicPen = magicPenetration
+            magicPenetration = magicPenetration*1.1 -- 10% increased magic penetration when SAV is applied to fire, water or earth spells
+            if testing.active then
+                user:talk(Character.say, "#me's magic penetration went from "..oldMagicPen.." to "..magicPenetration.." due to SAV.")
+            end
         end
     end
 
