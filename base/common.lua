@@ -110,6 +110,55 @@ function M.selectionDialogWrapper(User, title, description, buttons, onclose, cl
     User:requestSelectionDialog(sd)
 end
 
+function M.convertTableToItemData(user, theItem, theTable, dataKey, maxData)
+
+    local theString = ""
+
+    for _, tableEntry in ipairs(theTable) do
+
+        if theString ~= "" then
+            theString = theString..","
+        end
+
+        theString = theString..theTable.key..","..theTable.value
+    end
+
+    for i = 1, maxData do
+        theItem:setData(dataKey..i, string.sub(theString, 1+(250*(i-1)), 250*i))
+    end
+
+    world:changeItem(theItem)
+
+end
+
+function M.convertItemDataToTable(user, theItem, dataKey, maxData)
+
+    local theString = ""
+
+    for i = 1, maxData do
+        theString = theString..theItem:getData(dataKey..i)
+    end
+
+    local retTable = {}
+    local parts = {}
+
+    for part in string.gmatch(theString, "([^,]+)") do
+        table.insert(parts, part)
+    end
+
+    for i = 1, #parts, 2 do
+
+        local foundKey = parts[i]
+        local foundValue = parts[i+1]
+
+        if foundKey and foundValue then
+            table.insert(retTable, {key = foundKey, value = foundValue })
+        end
+    end
+
+    return retTable
+end
+
 
 --- Get a text based on the gender of the character.
 -- @param User The character used to choose the text
