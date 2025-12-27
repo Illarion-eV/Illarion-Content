@@ -202,6 +202,12 @@ function tradeNPC:buyItemFromPlayer(npcChar, player, boughtItem)
         price = price * boughtItem.number
         local priceStringGerman, priceStringEnglish = money.MoneyToString(price)
         local itemName = common.GetNLS(player, world:getItemName(boughtItem.id,0), world:getItemName(boughtItem.id,1))
+        local customName = common.GetNLS(player, boughtItem:getData("nameDe"), boughtItem:getData("nameEn"))
+
+        if not common.IsNilOrEmpty(customName) then
+            itemName = customName
+        end
+
         if world:erase(boughtItem, boughtItem.number) then
             if (money.GiveMoneyToChar(player, price) == false) then
                 money.GiveMoneyToPosition(player.pos, price)
