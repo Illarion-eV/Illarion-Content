@@ -29,7 +29,7 @@ M.runes = {
     {id = 5, name = "SOLH", cost = "Small", time = "Short", level = 0, active = true},
     {id = 6, name = "BHONA", cost = "Small", time = "Short", level = 80, active = false, auto = true}, --While the others check for highest level skill, BHONA requires an _average_ of 80 between all five element skills
     {id = 7, name = "ANTH", cost = "Small", time = "Short", level = 10, active = true, auto = true},
-    {id = 8, name = "DUN", cost = "Large", time = "Long", level = 90, active = true, auto = true},
+    {id = 8, name = "DUN", cost = "Large", time = "Long", level = 90, active = false, auto = true},
     {id = 9, name = "FHAN", cost = "Large", time = "Long", level = 90, active = false, auto = true},
     {id = 10, name = "FHEN", cost = "Small", time = "Short", level = 20, active = true, auto = true},
     {id = 11, name = "HEPT", cost = "Medium", time = "Medium", level = 30, active = true, auto = true},
