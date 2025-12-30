@@ -229,7 +229,6 @@ local function addDunTargets(user, targetsPositions, spell)
 
         local field = world:getField(possiblePosition)
         if field then
-            local foundItems = field:countItems()
             local foundChar = world:isCharacterOnField(possiblePosition)
 
             if (RA or CUN) and SUL then
@@ -238,23 +237,23 @@ local function addDunTargets(user, targetsPositions, spell)
 
             if foundChar then
                 local char =  world:getCharacterOnField(possiblePosition)
-                if char:getType() ~= Character.npc then
-                    targetsPositions.targets[#targetsPositions.targets+1] = char
+                if isValidChar(char) and char:getType() ~= Character.npc then --foundChar remains true because we dont want spells cast under npcs
+                    table.insert(targetsPositions.targets, char)
                 end
             end
 
             local foundItem = false
 
-            if foundItems >= 1 then
-                local item = field:getStackItem(foundItems - 1)
+            if world:isItemOnField(possiblePosition) then
+                local item = world:getItemOnField(possiblePosition)
                 if item.id ~= 0 and item.id ~= 3518 then
                     foundItem = true
-                    targetsPositions.items[#targetsPositions.items+1] = item
+                    table.insert(targetsPositions.items, item)
                 end
             end
 
             if not foundItem and not foundChar then
-                targetsPositions.positions[#targetsPositions.positions+1] = possiblePosition
+                table.insert(targetsPositions.positions, possiblePosition)
             end
         end
     end
