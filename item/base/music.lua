@@ -18,6 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local shared = require("craft.base.shared")
 local tailoring = require("craft.final.tailoring")
+local housingUtility = require("housing.moreUtility")
 
 local M = {}
 
@@ -351,6 +352,20 @@ function M.instrumentIsInHandOrInFrontOfUser(user, sheetTable)
         user:inform(notFound)
         return false
     end
+
+    local propertyName = housingUtility.fetchPropertyName(user)
+
+    if (theInstrument.id == 4837 or theInstrument.id == 4838) and propertyName then --It is on a housing property! To avoid players renting it once then making use of its tools for free after, we disable tools on unrented properties.
+
+            local propertyDeed = housingUtility.getPropertyDeed(propertyName)
+
+            if housingUtility.checkOwner(propertyDeed) == "Unowned" then
+                common.HighInformNLS(user,
+                "Leider hat diese Immobilie keinen Mieter, der sie instand hält und das Werkzeug funktionsfähig hält.",
+                "Sadly this property has no tenant to maintain and keep the tool in a working order.")
+                return false, false
+            end
+        end
 
     return theInstrument, instrumentName, theSkill
 end
