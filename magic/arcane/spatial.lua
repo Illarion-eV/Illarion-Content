@@ -326,7 +326,7 @@ function M.checkSpotEligiblity(user, actionState)
             if user.pos.y >= portalSpots[i].location.y-5 and user.pos.y <= portalSpots[i].location.y+5 then
                 if user.pos.z == portalSpots[i].location.z then
                     local spatialMagicLevel = user:getSkill(Character.spatialMagic)
-                    if portalSpots[i].nameEn == "Hemp Necktie Inn" then
+                    if portalSpots[i].nameEn == "Troll's Haven" then
                         if user:getQuestProgress(240) == 1 then
                             user:setQuestProgress(240, 2)
                         end

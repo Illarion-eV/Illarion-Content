@@ -24,11 +24,11 @@ local harbours = seafaring.harborList
 M.portals = { -- Don't change the order of these, the index is used to know whether or not a portal spot has been attuned to.
 -- If you do want to rearrange them in spite of this, change the code to add an id to each of them accordingly based on their current oreder.
     { location = position(684, 307, 0),
-        english = "Portal to the Hemp Necktie Inn",
-        german = "Portal zum Gasthof zur Hanfschlinge",
+        english = "Portal to Troll's Haven",
+        german = "Portal zum Trollshaven",
         level = 0,
-        nameEn = "Hemp Necktie Inn",
-        nameDe = "Gasthof zur Hanfschlinge"
+        nameEn = "Troll's Haven",
+        nameDe = "Trollshaven"
     },
     { location = position(126, 647, 0),
       english = "Portal to Cadomyr",

@@ -30,7 +30,7 @@ local harborList = {}
     harborList[1] = {nameDe="Cadomyr Hafen", nameEn="Cadomyr Harbour", targetDe="zum Hafen Cadomyr" ,pos=position(101,790,0),pict=2701,start=true}
     harborList[2] = {nameDe="Galmair Hafen", nameEn="Galmair Harbour", targetDe="zum Hafen Galmair", pos=position(451,95,0),pict=61,start=true}
     harborList[3] = {nameDe="Runewick Hafen", nameEn="Runewick Harbour", targetDe="zum Hafen Runewick", pos=position(727,809,0),pict=105,start=true}
-    harborList[4] = {nameDe="Gasthof zur Hanfschlinge", nameEn="Hemp Necktie Inn", targetDe="zum Gasthof zur Hanfschlinge", pos=position(683,284,0),pict=155,start=true}
+    harborList[4] = {nameDe="Trollshaven", nameEn="Troll's Haven", targetDe="zum Trollshaven", pos=position(683,284,0),pict=155,start=true}
     harborList[5] = {nameDe="Cadomyr - Verlorener Hafen", nameEn="Cadomyr - Lost Harbour", targetDe="zum verlorenen Hafen Cadomyr", pos=position(105,833,0),pict=272,start=true}
     harborList[6] = {nameDe="Leuchtturm", nameEn="Lighthouse", targetDe="zum Leuchtturm", pos=position(554,658,0),pict=509,start=true}
     harborList[7] = {nameDe="Ostland Hafen", nameEn="Eastland Harbour", targetDe="zum Ostlandg Hafen", pos=position(888,485,0),pict=2760,start=true}
