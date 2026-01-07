@@ -388,9 +388,7 @@ local function failureCalc(user, skill, noteDuration, note, notClavichord)
 
     local rate = 100 - skill
 
-    local reductionPerDeci = rate/(slowest-1)
-
-    rate = rate - reductionPerDeci*(noteDuration-1)
+    rate = math.max(0, rate * (1 - math.exp(-0.20 * (noteDuration - 1))) / (1 - math.exp(-(slowest-1) * 0.20)))
 
     local qualityBonus = 0.1
 
@@ -423,7 +421,7 @@ local function failureCalc(user, skill, noteDuration, note, notClavichord)
         return note, noteDuration
     end
 
-    local maxDurationImpact = 64
+    local maxDurationImpact = 14
 
     local maxNoteImpact = 32
 
