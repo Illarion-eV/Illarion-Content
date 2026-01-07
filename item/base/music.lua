@@ -427,9 +427,9 @@ local function failureCalc(user, skill, noteDuration, note, notClavichord)
 
     local maxNoteImpact = 32
 
-    local durationImpact = math.random(1, math.max(1, math.floor(maxDurationImpact/100*rate)))
+    local durationImpact = math.min(maxDurationImpact, math.random(1, math.max(1, math.floor(maxDurationImpact/100*rate))))
 
-    local noteImpact = math.max(1, math.floor(maxNoteImpact/100*rate))
+    local noteImpact = math.min(maxNoteImpact, math.max(1, math.floor(maxNoteImpact/100*rate)))
 
     noteImpact = math.random(1, noteImpact)
 
