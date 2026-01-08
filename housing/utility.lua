@@ -113,6 +113,11 @@ function M.checkIfGardeningCriteriaMet(user, itemId)
         if item.category == "Plants" or item.category == "Trees" then
             if item.itemId == itemId then
                 local requiredSoil = item.criteria
+
+                if not requiredSoil then --If criteria was removed for some reason
+                    return true
+                end
+
                 for _, gardenTile in pairs(itemList.gardening) do
                     if gardenTile.criteria == requiredSoil then
                         if gardenTile.tileId == targetTileId then
