@@ -166,11 +166,13 @@ local function addToxins(user, quality)
 
     local qualityAddition = (9 - quality) *2
 
+    local newValue = math.min(300,user:getQuestProgress(690)+qualityAddition+defaultAddition)
+
     if testing.active then
-        user:inform("Increased toxins by "..(defaultAddition+qualityAddition).." to a new value of "..(existingValue+defaultAddition+qualityAddition))
+        user:inform("Increased toxins by "..(defaultAddition+qualityAddition).." to a new value of "..newValue)
     end
 
-    user:setQuestProgress(690, existingValue + defaultAddition + qualityAddition)
+    user:setQuestProgress(690, newValue)
 end
 
 local function toxinInform(user, toxins)
@@ -334,6 +336,8 @@ local function amethystPotion(user, SourceItem)
 
     local isMage = user:getMagicType() == 0 and user:getMagicFlags(0) > 0 or user:getMagicType() == 0 and user:getQuestProgress(37) ~= 0
 
+    local isDruid = user:getMagicType() == 3
+
     local potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
 
     if potionEffectId == 0 or potionEffectId == nil  then -- no effect
@@ -373,16 +377,29 @@ local function amethystPotion(user, SourceItem)
                    poisonvalueOT = (Val * 1.25) / 5;
             elseif ( attribList[i] == "manaOT" ) then
                    manaOT = (Val * 1.25) / 5;
+                   if not isMage and not isDruid and manaOT < 0 then --decrease and not mage so we add toxins
+                        user:setQuestProgress(690, math.min(300,user:getQuestProgress(690)+10))
+                        if testing.active then
+                            user:inform("Increased toxins by 10 for drinking an over time mana decreaser as a non mage/druid.")
+                        end
+                    end
             elseif ( attribList[i] == "foodlevelOT" ) then
                    foodlevelOT = (Val * 1.25) / 5;
             elseif ( attribList[i] == "poisonvalue" ) then
                 Val = common.Limit( (user:getPoisonValue() - Val) , 0, 10000 );
                 user:setPoisonValue( Val );
-            elseif not (attribList[i] == "mana" ) or isMage then
+            elseif not (attribList[i] == "mana" ) or (isMage or isDruid) then
                 if testing.active then
                     user:inform("Increased "..attribList[i].." by "..tostring(Val))
                 end
                 user:increaseAttrib(attribList[i],Val);
+            elseif attribList[i] == "mana" then --not mage or druid but its mana
+                if Val < 0 then -- its a decrease
+                    user:setQuestProgress(690, math.min(300,user:getQuestProgress(690)+10))
+                    if testing.active then
+                        user:inform("Increased toxins by 10 for drinking a mana decreaser as a non mage/druid.")
+                    end
+                end
             end
         end
         -- LTE
@@ -393,9 +410,9 @@ local function amethystPotion(user, SourceItem)
         else
             myEffect:addValue("hitpointsIncrease",hitpointsOT)
         end
-        if manaOT < 0 and isMage then
+        if manaOT < 0 and (isMage or isDruid) then
             myEffect:addValue("manaDecrease",manaOT*-1)
-        elseif isMage then
+        elseif isMage or isDruid then
             myEffect:addValue("manaIncrease",manaOT)
         end
         if foodlevelOT < 0 then
