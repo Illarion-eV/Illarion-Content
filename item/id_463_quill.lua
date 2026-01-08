@@ -71,33 +71,6 @@ local function CheckIfEmptyBottlePresent(user)
     return false
 end
 
-local function checkIfBookInHand(user, sourceItem)
-
-    local bookList = {1061, 105, 106, 129, 2609, 2610, 114, 115, 2608, 2615, 107, 108, 111, 112, 2605, 2617, 109, 110, 117, 128, 130, 2604, 131, 2602, 2620, 116, 2621, 2607, 127, 2598, 2606, 2616, 2619}
-
-    local book = common.GetTargetItem(user, sourceItem)
-
-    if common.IsNilOrEmpty(book) then
-        return false
-    end
-
-    for _, currentBook in pairs(bookList) do
-        if currentBook == book.id then
-            if book.number > 1 then
-                user:inform("Du kannst nur in einem Buch gleichzeitig schreiben.", "You can only write in one book at a time.")
-                return false
-            end
-            return book
-        end
-    end
-
-    user:inform("Du brauchst ein Buch in der Hand, wenn du es beschriften oder darin schreiben möchtest.","You need a book in your hand if you want to label or write in one.")
-
-    return false
-end
-
-
-
 local function CheckIfBottleInHand(user, sourceItem)
 
     local potionBottleList = alchemy.getListOfBottles()
@@ -409,7 +382,7 @@ local function writeBookLabel(user, sourceItem)
             return
         end
 
-        local book = checkIfBookInHand(user, sourceItem)
+        local book = common.checkIfBookInHand(user)
 
         if book then
 
@@ -628,6 +601,134 @@ function copyBookOrParchment(user)
     user:requestSelectionDialog(dialog)
 end
 
+local function alchemyDialog(user)
+
+    local callback = function(dialog)
+        local success = dialog:getSuccess()
+
+        if not success then
+            return
+        end
+
+        local selected = dialog:getSelectedIndex() + 1
+
+        if selected == 1 then
+            local parchment = recipe_creation.GetParchmentQuill(user)
+            parchment = recipe_creation.IsParchmentOK(user, parchment)
+            if not parchment then
+                return
+            else
+                recipe_creation.FirstMenu(user)
+            end
+        elseif selected == 2 then
+            recipe_creation.placeInBook(user)
+        end
+    end
+
+    local dialog = SelectionDialog(getText(user,"Schreibfeder","Quill") , getText(user,"Wähle aus, was du machen willst.","Select what you want to do.") , callback)
+
+    dialog:addOption(0, getText(user,"Alchemierezept schreiben","Write an alchemy recipe"))
+    dialog:addOption(0, getText(user,"Lege das Rezept in ein Buch.","Place recipe in a book"))
+
+    user:requestSelectionDialog(dialog)
+end
+
+local function writing(user, sourceItem)
+
+    local callback = function(dialog)
+        local success = dialog:getSuccess()
+
+        if not success then
+            return
+        end
+
+        local selected = dialog:getSelectedIndex() + 1
+
+        if selected == 1 then
+            if not CheckIfParchmentInHand(user, sourceItem) then
+                user:inform("Du brauchst ein einzelnes leeres oder teilweise beschriebenes Pergament in deiner Hand auf dem du schreiben kannst.","You need a single empty or half filled parchment in your hand to write on.",Character.highPriority)
+                return
+            else
+                WriteParchment(user,sourceItem)
+            end
+        elseif selected == 2 then
+            local canBeSigned = CheckIfParchmentCanSigned(user,sourceItem)
+            if not canBeSigned then
+                if canBeSigned == nil then
+                    user:inform("Du brauchst ein beschriebenes Pergament in deiner Hand auf dem du unterschreiben kannst.","You need a written parchment in your hand to sign.",Character.highPriority)
+                end
+                return
+            else
+                SignParchment(user,sourceItem)
+            end
+        elseif selected == 3 then
+            if common.checkIfBookInHand(user) then
+                bookWriting.writeBook(user, sourceItem)
+            end
+        elseif selected == 4 then
+            copyBookOrParchment(user)
+        end
+    end
+
+
+    local dialog = SelectionDialog(getText(user,"Schreibfeder","Quill") , getText(user,"Wähle aus, was du machen willst.","Select what you want to do.") , callback)
+
+    dialog:addOption(0, getText(user,"Pergament beschreiben","Write a parchment"))
+    dialog:addOption(0, getText(user,"Pergament unterschreiben","Sign a parchment"))
+    dialog:addOption(0, getText(user, "Buch verfassen", "Author a book"))
+    dialog:addOption(0, getText(user, "Buch oder Pergament kopieren", "Copy a book or parchment"))
+
+    user:requestSelectionDialog(dialog)
+end
+
+local function labelling(user, sourceItem)
+
+    local callback = function(dialog)
+        local success = dialog:getSuccess()
+
+        if not success then
+            return
+        end
+
+        local selected = dialog:getSelectedIndex() + 1
+
+        if selected == 1 then
+            if not CheckIfContainerPresent(user) then
+                user:inform("Du brauchst eine Tasche, um diese zu beschriften.","You need a bag if you want to label one.",Character.highPriority)
+                return
+            else
+                WriteContainerLabel(user, sourceItem)
+            end
+        elseif selected == 2 then
+            if common.checkIfBookInHand(user) then
+                writeBookLabel(user, sourceItem)
+            end
+        elseif selected == 3 then
+            if not CheckIfBottleInHand(user, sourceItem) then
+                user:inform("Du brauchst eine Flasche in deiner Hand, um diese zu beschriften.","You need a bottle in your hand if you want to label one.",Character.highPriority)
+                return
+            else
+                WriteLabel(user,sourceItem)
+            end
+        elseif selected == 4 then
+            if not CheckIfEmptyBottlePresent(user) then
+                user:inform("Du brauchst Flaschen von denen du das Etikett entfernen kannst.","You need bottles to remove labels.",Character.highPriority)
+                return
+            else
+                removeLabel(user)
+            end
+        end
+    end
+
+    local dialog = SelectionDialog(getText(user,"Schreibfeder","Quill") , getText(user,"Wähle aus, was du machen willst.","Select what you want to do.") , callback)
+
+    dialog:addOption(0, getText(user,"Tasche beschriften","Label bag"))
+    dialog:addOption(0, getText(user,"Buch beschriften","Label a book"))
+    dialog:addOption(0, getText(user,"Flasche beschriften","Label a bottle"))
+    dialog:addOption(0, getText(user,"Flaschenetikett entfernen","Remove label of a bottle"))
+    user:requestSelectionDialog(dialog)
+end
+
 function M.UseItem(user, sourceItem, ltstate)
 
     local magicDeskFound = checkIfMagicDeskInFrontOfuser(user)
@@ -646,82 +747,28 @@ function M.UseItem(user, sourceItem, ltstate)
         local success = dialog:getSuccess()
         if success then
             local selected = dialog:getSelectedIndex()+1
-            if selected == 2 then
-                if not CheckIfBottleInHand(user, sourceItem) then
-                    user:inform("Du brauchst eine Flasche in deiner Hand, um diese zu beschriften.","You need a bottle in your hand if you want to label one.",Character.highPriority)
-                    return
-                else
-                    WriteLabel(user,sourceItem)
-                end
+
+            if selected == 1 then
+                labelling(user, sourceItem)
+            elseif selected == 2 then
+                writing(user, sourceItem)
             elseif selected == 3 then
-                local parchment = recipe_creation.GetParchmentQuill(user)
-                parchment = recipe_creation.IsParchmentOK(user,parchment)
-                if not parchment then
-                    return
-                else
-                    recipe_creation.FirstMenu(user)
-                end
-            elseif selected == 1 then
-                if not CheckIfContainerPresent(user) then
-                    user:inform("Du brauchst eine Tasche, um diese zu beschriften.","You need a bag if you want to label one.",Character.highPriority)
-                    return
-                else
-                    WriteContainerLabel(user,sourceItem)
-                end
-            elseif selected == 9 then
-                if checkIfBookInHand(user, sourceItem) then
-                    writeBookLabel(user, sourceItem)
-                end
-            elseif selected == 5 then
-                if not CheckIfEmptyBottlePresent(user) then
-                    user:inform("Du brauchst Flaschen von denen du das Etikett entfernen kannst.","You need bottles to remove labels.",Character.highPriority)
-                    return
-                else
-                    removeLabel(user)
-                end
-            elseif selected == 6 then
-                if not CheckIfParchmentInHand(user, sourceItem) then
-                    user:inform("Du brauchst ein einzelnes leeres oder teilweise beschriebenes Pergament in deiner Hand auf dem du schreiben kannst.","You need a single empty or half filled parchment in your hand to write on.",Character.highPriority)
-                    return
-                else
-                    WriteParchment(user,sourceItem)
-                end
-            elseif selected == 7 then
-                local canBeSigned = CheckIfParchmentCanSigned(user,sourceItem)
-                if not canBeSigned then
-                    if canBeSigned == nil then
-                        user:inform("Du brauchst ein beschriebenes Pergament in deiner Hand auf dem du unterschreiben kannst.","You need a written parchment in your hand to sign.",Character.highPriority)
-                    end
-                    return
-                else
-                    SignParchment(user,sourceItem)
-                end
-            elseif selected == 8 then
-                if checkIfBookInHand(user, sourceItem) then
-                    bookWriting.writeBook(user, sourceItem)
-                end
-            elseif selected == 10 then
-                copyBookOrParchment(user)
-            elseif selected == 11 then
-                music.composeMusic(user, sourceItem)
+                alchemyDialog(user)
             elseif selected == 4 then
+                music.composeMusic(user, sourceItem)
+            elseif selected == 5 then
                 cookingRecipeCreation.createCookingRecipe(user)
             end
         end
     end
 
     local dialog = SelectionDialog(getText(user,"Schreibfeder","Quill") , getText(user,"Wähle aus, was du machen willst.","Select what you want to do.") , callback)
-    dialog:addOption(0, getText(user,"Tasche beschriften","Label bag"))
-    dialog:addOption(0, getText(user,"Flasche beschriften","Label a bottle"))
-    dialog:addOption(0, getText(user,"Alchemierezept schreiben","Write an alchemy recipe"))
-    dialog:addOption(0, getText(user,"Kochrezept schreiben","Write a cooking recipe"))
-    dialog:addOption(0, getText(user,"Flaschenetikett entfernen","Remove label of a bottle"))
-    dialog:addOption(0, getText(user,"Pergament beschreiben","Write a parchment"))
-    dialog:addOption(0, getText(user,"Pergament unterschreiben","Sign a parchment"))
-    dialog:addOption(0, getText(user, "Buch verfassen", "Author a book"))
-    dialog:addOption(0, getText(user,"Buch beschriften","Label a book"))
-    dialog:addOption(0, getText(user, "Buch oder Pergament kopieren", "Copy a book or parchment"))
+
+    dialog:addOption(0, getText(user,"Beschriften","Label"))
+    dialog:addOption(0, getText(user, "Schreiben", "Writing"))
+    dialog:addOption(0, getText(user, "Alchemie", "Alchemy"))
     dialog:addOption(0, getText(user, "Musik komponieren", "Music Composing"))
+    dialog:addOption(0, getText(user,"Kochrezept schreiben","Write a cooking recipe"))
 
     user:requestSelectionDialog(dialog)
 end

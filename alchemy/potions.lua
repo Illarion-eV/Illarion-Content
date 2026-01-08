@@ -20,7 +20,7 @@ local common = require("base.common")
 local alchemy = require("alchemy.base.alchemy")
 local granorsHut = require("content.granorsHut")
 local customPotion = require("alchemy.base.customPotion")
-local parchment = require("item.id_2745_parchment")
+local recipe_creation = require("alchemy.base.recipe_creation")
 local scheduledFunction = require("scheduled.scheduledFunction")
 local missile = require("alchemy.base.missile")
 
@@ -904,7 +904,7 @@ function M.UseItem(user, sourceItem, actionState)
             {key = theKey, value = theValue}
         }
 
-        parchment.useRecipe(user, recipeTable, actionState)
+        recipe_creation.useRecipe(user, recipeTable, actionState)
 
     else -- not infront of a cauldron, therefore use the potion/salve/bomb!
         for _, potionType in pairs(potionTypes) do

@@ -16,9 +16,16 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
 local alchemy = require("alchemy.base.alchemy")
-
+local shared = require("craft.base.shared")
+local herbs = require("alchemy.base.herbs")
+local id_52_filledbucket = require("item.id_52_filledbucket")
+local gemdust = require("alchemy.base.gemdust")
+local bottling = require("alchemy.bottling")
+local licence = require("base.licence")
 
 local M = {}
+
+local USER_POSITION_LIST = {}
 
 local SelectPlantCategory
 local selectPlant
@@ -664,6 +671,470 @@ function WantToAbort(user, menuFunction, parameterList)
 
     user:requestSelectionDialog(dialog)
 
+end
+
+local parchmentSelectionStatus = {}
+
+function M.getParchmentSelectionStatus(user)
+
+    return parchmentSelectionStatus[user.id]
+
+end
+
+function M.addRecipeToBook(user, parchment)
+
+    parchmentSelectionStatus[user.id] = false
+
+    local book = common.checkIfBookInHand(user, true)
+
+    if not book then
+        return
+    end
+
+    if common.IsNilOrEmpty(book:getData("alchemyBook")) then
+        book:setData("alchemyBook", "true")
+    end
+
+    local indexToUse = 1
+
+    for i = 1, 40 do --check for the first available index
+        if common.IsNilOrEmpty(book:getData("alchemyRecipe"..i)) then
+            indexToUse = i
+            break
+        elseif i == 40 then
+            indexToUse = false
+        end
+    end
+
+    if not indexToUse then
+        user:inform("Dieses Buch hat keinen Platz mehr für Rezepte.","This book has no more space for recipes.")
+    end
+
+    book:setData("alchemyRecipe"..indexToUse, parchment:getData("descriptionEn"))
+
+    for i = 1, 5 do
+        local ingredients = parchment:getData("alchemyIngredients"..i)
+        if not common.IsNilOrEmpty(ingredients) then
+            book:setData("alchemyRecipe"..indexToUse.."page"..i, ingredients)
+        end
+    end
+
+    world:changeItem(book)
+    world:erase(parchment, 1)
+
+end
+
+function M.placeInBook(user)
+
+    parchmentSelectionStatus[user.id] = true
+    user:inform("Halte ein leeres Buch oder ein Alchemie-Rezeptbuch mit weniger als 40 Rezepten in der Hand und doppelklicke dann auf ein Alchemie-Rezept, um es in das Buch zu legen.", "Hold an empty book or an alchemy recipe book with less than 40 recipes in your hand, then double click an alchemy recipe to place it into the book.")
+
+end
+
+local function removeARecipePage(user, book)
+
+    local index
+
+    for i = 1, 100 do
+        if not common.IsNilOrEmpty(book:getData("alchemyRecipe"..i)) then
+            index = i
+        end
+    end
+
+    if not index then
+        return
+    end
+
+    local data = { descriptionEn = book:getData("alchemyRecipe"..index), descriptionDe = book:getData("alchemyRecipe"..index)}
+
+    data.alchemyRecipe = "true"
+
+    for i = 1, 5 do
+        data["alchemyIngredients"..i] = book:getData("alchemyRecipe"..index.."page"..i)
+    end
+
+    user:createItem(Item.parchment, 1, 333, data)
+
+    if index == 1 then
+        book:setData("alchemyBook", "")
+    end
+
+    book:setData("alchemyRecipe"..index, "")
+
+    for i = 1, 5 do
+        book:setData("alchemyRecipe"..index.."page"..i, "")
+    end
+
+    world:changeItem(book)
+
+    user:inform("Letztes Rezept aus dem Buch abrufen.", "You retrieve the last recipe from the book.")
+
+end
+
+local function GetItem(user, listOfTheIngredients)
+
+    local deleteItem, deleteId, missingDe, missingEn
+
+    local key = listOfTheIngredients[USER_POSITION_LIST[user.id]].key
+    local value = listOfTheIngredients[USER_POSITION_LIST[user.id]].value
+
+    if key == "bottling" then
+        local bottleId = listOfTheIngredients[USER_POSITION_LIST[user.id]].value
+        local bottleList = user:getItemList(bottleId)
+        if #bottleList > 0 then
+            deleteItem = bottleList[1] -- here, we take the first bottle we get
+            for i=1, #bottleList do
+                if not string.find(bottleList[i]:getData("descriptionEn"),"Bottle label:") then -- now, we check if there is an empty bottle; we prefer those
+                    deleteItem = bottleList[i] -- in case there is a empty, unlabeled bottle
+                    break
+                end
+            end
+        end
+
+        if not (deleteItem) then
+            missingDe = "Dir fehlt: "..common.getItemName(bottleId, user:getPlayerLanguage() )
+            missingEn = "You don't have: "..common.getItemName(bottleId, user:getPlayerLanguage() )
+        end
+    elseif key == "stock" or key == "essence" then
+        local neededList = M.StockEssenceSplit(value)
+
+        if key == "stock" then
+            local stockList = user:getItemList(331)
+            for i=1,#stockList do
+                local currentList = alchemy.SubstanceDatasToList(stockList[i])
+                if alchemy.CheckListsIfEqual(neededList,currentList) then
+                    deleteItem = stockList[i]
+                end
+            end
+            if not (deleteItem) then
+                missingDe = "Dir fehlt der entsprechende Sud."
+                missingEn = "Your don't have the proper stock."
+            end
+        elseif key == "essence brew" then
+            local neededId = table.remove(neededList,1)
+            local bottleList = user:getItemList(neededId)
+            local currentList
+            for i=1,#bottleList do
+                currentList = {}
+                if bottleList[i]:getData("filledWith")=="essenceBrew" then
+                    for j=1,8 do
+                        if bottleList[i]:getData("essenceHerb"..j) ~= "" then
+                            table.insert(currentList,tonumber(bottleList[i]:getData("essenceHerb"..j)))
+                        end
+                    end
+                end
+                if alchemy.CheckListsIfEqual(neededList,currentList) then
+                    deleteItem = bottleList[i]
+                end
+            end
+            if not (deleteItem) then
+                    missingDe = "Dir fehlt das entsprechende Essenzgebräu."
+                    missingEn = "Your don't have the proper essence brew."
+                end
+            end
+        elseif key == "ingredient" then
+
+        local ingredientId = listOfTheIngredients[USER_POSITION_LIST[user.id]].value
+
+        if user:countItemAt("all",ingredientId) > 0 then
+            deleteId = ingredientId
+        end
+        if not deleteId then
+            missingDe = "Dir fehlt: "..world:getItemName(ingredientId,Player.german)
+            missingEn = "You don't have: "..world:getItemName(ingredientId,Player.english)
+        end
+    end
+
+    return deleteItem, deleteId, missingDe, missingEn
+end
+
+local function GetStartAction(user, listOfTheIngredients, cauldron)
+
+    local ingredient = listOfTheIngredients[USER_POSITION_LIST[user.id]]
+    local canUseHerb = true
+
+    if ingredient.key == "ingredient" and alchemy.getPlantSubstance(ingredient) or ingredient == 157 then
+        canUseHerb = alchemy.canUseHerb(user, ingredient)
+    end
+
+    local duration,gfxId,gfxIntervall,sfxId,sfxIntervall = alchemy.GetStartAction(user, ingredient, cauldron)
+    return duration,gfxId,gfxIntervall,sfxId,sfxIntervall, canUseHerb
+end
+
+local function CallBrewFunctionAndDeleteItem(user,deleteItem, deleteId,cauldron)
+
+    local result = {}
+    result.repeatStep = false
+    if deleteId then
+        if deleteId == 52 then -- water
+            local buckets = user:getItemList(deleteId)
+            -- here, we could need a check if the bucket has no datas
+            id_52_filledbucket.FillIn(user, buckets[1], cauldron, true)
+
+        elseif alchemy.CheckIfGemDust(deleteId) then    --gemdust
+            gemdust.BrewingGemDust(user, deleteId, false, cauldron)
+
+        elseif alchemy.getPlantSubstance(deleteId) or deleteId == 157 then -- plant/rotten tree bark
+            herbs.BeginnBrewing(user, deleteId, false, cauldron)
+        end
+
+    else
+        if deleteItem.id == Item.emptypotion or deleteItem.id == Item.emptyAlchemyBomb or deleteItem.id == Item.emptySalveJar then
+            local fillBottleResult = bottling.FillIntoBottle(user, deleteItem, cauldron)
+            if fillBottleResult.ilynApplied then
+                result.repeatStep = true
+            end
+
+            if fillBottleResult.wrongBottle then
+                result.wrongBottle = fillBottleResult.wrongBottle
+            end
+        elseif alchemy.CheckIfPotionBottle(deleteItem) then
+            alchemy.FillIntoCauldron(user,deleteItem,cauldron)
+        end
+    end
+
+    return result
+end
+
+local function StartBrewing(user,recipeTable,ltstate,checkVar)
+
+    local cauldron = alchemy.GetCauldronInfront(user)
+    local tool = alchemy.getAlchemyTool(user)
+
+    if not tool then
+        alchemy.informAlchemyToolNeeded(user)
+        return
+    end
+
+    if not cauldron then -- security check
+        return
+    end
+
+    if licence.licence(user) then --checks if user is citizen or has a licence
+        return -- avoids crafting if user is neither citizen nor has a licence
+    end
+
+    if ( ltstate == Action.abort ) then
+        user:inform("Du brichst deine Arbeit vor dem "..USER_POSITION_LIST[user.id]..". Arbeitsschritt ab.", "You abort your work before the "..USER_POSITION_LIST[user.id].." work step.")
+        return
+    end
+
+    if not checkVar and ltstate==Action.none then
+        local callback = function(dialog)
+            local success = dialog:getSuccess()
+            if success then
+                local selected = dialog:getSelectedIndex()+1
+                USER_POSITION_LIST[user.id] = selected
+                StartBrewing(user, recipeTable,ltstate,true)
+            end
+        end
+
+        local dialog = SelectionDialog(common.GetNLS(user,"Rezept","Recipe"), common.GetNLS(user,"Wähle die Zutat aus, ab welcher das Rezept abgearbeitet werden soll.","Select the ingredient which you want to start to brew from."), callback)
+
+        dialog:setCloseOnMove()
+
+        local counter = 0
+
+        for _, ingredient in ipairs(recipeTable) do
+            counter = counter + 1
+
+            if ingredient.key == "bottling" then
+                local emptyBottle = alchemy.getPotionBottleIds(recipeTable)
+                dialog:addOption(emptyBottle, common.GetNLS(user,counter..". Abfüllen", counter..". Bottling"))
+            elseif ingredient.key == "stock" then
+                dialog:addOption(331, common.GetNLS(user,counter..". Sud", counter..". Stock"))
+            elseif ingredient.key == "essence" then
+                local _, essenceBrewGraphic = alchemy.getEssenceBrewGraphics(ingredient.value)
+                dialog:addOption(essenceBrewGraphic, common.GetNLS(user,counter..". Essenzgebräu",counter..". Essence brew"))
+            else
+                dialog:addOption(ingredient.value, common.GetNLS(user,counter..". "..world:getItemName(ingredient.value,Player.german),counter..". "..world:getItemName(ingredient.value,Player.english)))
+            end
+        end
+        user:requestSelectionDialog(dialog)
+        return
+    end
+
+    local deleteItem, deleteId, missingDe, missingEn = GetItem(user, recipeTable)
+
+    if missingDe then
+        user:inform("Du brichst deine Arbeit vor dem "..USER_POSITION_LIST[user.id]..". Arbeitsschritt ab. "..missingDe, "You abort your work before the "..USER_POSITION_LIST[user.id]..". work step. "..missingEn)
+        return
+    end
+
+    local duration,gfxId,gfxIntervall,sfxId,sfxIntervall, canUseHerb = GetStartAction(user, recipeTable, cauldron)
+
+    if (ltstate == Action.none) then
+        if canUseHerb then
+            user:startAction(duration,gfxId,gfxIntervall,sfxId,sfxIntervall);
+        end
+        return
+
+    end
+
+    local brewResult = CallBrewFunctionAndDeleteItem(user,deleteItem, deleteId,cauldron)
+    local toolbroken = shared.toolBreaks(user, tool, duration)
+
+    -- repeat step if ilyn applied when bottling the cauldron content
+    if not brewResult.repeatStep then
+        USER_POSITION_LIST[user.id] = USER_POSITION_LIST[user.id]+1
+    end
+
+    if brewResult.wrongBottle then
+        user:inform("Das ist die falsche Art von Flasche für diese Art von Flüssigkeit. Du brauchst eine Flasche vom Typ "..brewResult.wrongBottle.german..". Du brichst deine Arbeit vor dem "..USER_POSITION_LIST[user.id]..". Arbeitsschritt ab.", "That's the wrong type of bottle for this kind of liquid. You need a "..brewResult.wrongBottle.english..". You abort your work before the "..USER_POSITION_LIST[user.id]..". work step.")
+        return
+    end
+
+    if toolbroken and USER_POSITION_LIST[user.id] < #recipeTable then
+        user:inform("Du brichst deine Arbeit vor dem "..USER_POSITION_LIST[user.id]..". Arbeitsschritt ab.", "You abort your work before the "..USER_POSITION_LIST[user.id]..". work step.")
+        return
+    end
+
+    if alchemy.CheckExplosionAndCleanList(user) then
+        if USER_POSITION_LIST[user.id] < #recipeTable then
+            user:inform("Du brichst deine Arbeit vor dem "..USER_POSITION_LIST[user.id]..". Arbeitsschritt ab.", "You abort your work before the "..USER_POSITION_LIST[user.id]..". work step.")
+        end
+        return
+    end
+
+    if USER_POSITION_LIST[user.id] > #recipeTable then
+        return
+    else
+        duration,gfxId,gfxIntervall,sfxId,sfxIntervall, canUseHerb = GetStartAction(user, recipeTable, cauldron)
+        if canUseHerb then
+            user:startAction(duration,gfxId,gfxIntervall,sfxId,sfxIntervall);
+        else
+            user:inform("Du brichst deine Arbeit vor dem "..USER_POSITION_LIST[user.id]..". Arbeitsschritt ab.", "You abort your work before the "..USER_POSITION_LIST[user.id]..". work step.")
+        end
+    end
+
+end
+
+function M.useRecipe(user, recipeTable,ltstate,checkVar)
+
+
+    -- is the char an alchemist?
+    local anAlchemist = alchemy.CheckIfAlchemist(user)
+    if not anAlchemist then
+        user:inform("Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.","Only those who have been introduced to the art of alchemy are able to work here.")
+        return
+    end
+
+    -- proper attriutes?
+    if ( user:increaseAttrib("perception",0) + user:increaseAttrib("essence",0) + user:increaseAttrib("intelligence",0) ) < 30 then
+        user:inform("Verstand, ein gutes Auge und ein Gespür für die feinstofflichen Dinge - dir fehlt es daran, als dass du hier arbeiten könntest.",
+                    "Mind, good eyes and a feeling for the world of fine matter - with your lack of those, you are unable to work here."
+                    )
+        return
+    end
+
+    -- let's start!
+    StartBrewing(user, recipeTable,ltstate,checkVar)
+end
+
+local function showBookRecipe(user, book, index, actionState)
+
+    local data = {}
+
+    for i = 1, alchemy.maxEntriesPerRecipe do
+        data["alchemyIngredients"..i] = book:getData("alchemyRecipe"..index.."page"..i)
+    end
+
+    local ingredientList = common.convertItemDataToTable(user, false, "alchemyIngredients", alchemy.maxEntriesPerRecipe, data)
+
+    if alchemy.GetCauldronInfront(user) then
+        -- The char wants to use the recipe infront of a cauldron.
+        M.useRecipe(user, ingredientList, actionState)
+    else
+        -- Not infront of a cauldron.
+        M.ShowRecipe(user, ingredientList)
+    end
+end
+
+local currentPage = {}
+
+function M.viewRecipeBook(user, book, page, actionState)
+
+    if actionState == Action.success then
+        showBookRecipe(user, book, currentPage[user.id], actionState)
+        return
+    elseif actionState ~= Action.none then
+        return
+    end
+
+    if not page then
+        page = 0
+    end
+
+    local timeStamp = world:getTime("unix")
+
+    book:setData("timeStamp", tostring(timeStamp)) --to prevent dupes we timestamp the book to find it again later
+
+    world:changeItem(book)
+
+    local firstRecipeOfNextPage = (page+1)*10+1
+
+    local nextPageExists = not common.IsNilOrEmpty(book:getData("alchemyRecipe"..firstRecipeOfNextPage))
+
+    local callback = function(dialog)
+
+        local success = dialog:getSuccess()
+
+        if not success then
+            return
+        end
+
+        local selected = dialog:getSelectedIndex()+1
+
+        book = common.GetItemInInventory(user, book.id, {{"timeStamp", tostring(timeStamp)}})
+
+        if not book then return end
+
+        local previousOptions = 1
+
+        if nextPageExists then
+            previousOptions = 2
+        end
+
+        if page and page > 0 then
+            previousOptions = 3
+        end
+
+        if selected == 1 then
+            removeARecipePage(user, book)
+        elseif ((selected == 2 and previousOptions == 2) or (selected == 3 and previousOptions == 3)) and nextPageExists then
+            M.viewRecipeBook(user, book, page+1)
+        elseif (selected == 2 and previousOptions == 3 and nextPageExists) or (selected == 2 and previousOptions == 2) then
+            M.viewRecipeBook(user, book, page-1)
+        else
+
+            for i = 1, 10 do
+                if selected == i+previousOptions then
+                    currentPage[user.id] = page*10+i
+                    showBookRecipe(user, book, page*10+i, actionState)
+                end
+            end
+        end
+    end
+
+    local dialog = SelectionDialog(common.GetNLS(user,"Rezeptübersicht","Recipe overview") , common.GetNLS(user, "Verwende diese Rezepte zusammen mit einem Mörser an einem Kessel, um Tränke zu brauen.", "Use these recipes at a cauldron along with a mortar to brew potions.") , callback)
+
+    dialog:addOption(228, common.GetNLS(user, "Letztes Rezept entfernen","Remove last recipe"))
+
+    if page and page > 0 then
+        dialog:addOption(Item.parchment, common.GetNLS(user, "Vorherige Seite", "Previous Page"))
+    end
+
+    if nextPageExists then
+        dialog:addOption(Item.parchment, common.GetNLS(user, "Nächste Seite","Next Page"))
+    end
+
+    for i = page*10+1, page*10+10 do --Up to 10 recipes shown per page
+        if not common.IsNilOrEmpty(book:getData("alchemyRecipe"..i)) then
+            dialog:addOption(Item.parchment, book:getData("alchemyRecipe"..i))
+        end
+    end
+
+    user:requestSelectionDialog(dialog)
 end
 
 return M

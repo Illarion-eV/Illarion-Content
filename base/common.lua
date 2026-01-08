@@ -138,12 +138,18 @@ function M.convertTableToItemData(user, theItem, theTable, dataKey, maxData)
 
 end
 
-function M.convertItemDataToTable(user, theItem, dataKey, maxData)
+function M.convertItemDataToTable(user, theItem, dataKey, maxData, data)
 
     local theString = ""
 
-    for i = 1, maxData do
-        theString = theString..theItem:getData(dataKey..i)
+    if theItem then
+        for i = 1, maxData do
+            theString = theString..theItem:getData(dataKey..i)
+        end
+    elseif data then
+        for i = 1, maxData do
+            theString = theString..data[dataKey..i]
+        end
     end
 
     local retTable = {}
@@ -188,6 +194,39 @@ function M.firstToUpper(text)
     end
     text = tostring(text)
     return (text:gsub("^%l", string.upper))
+end
+
+function M.checkIfBookInHand(user, alchemy, cooking)
+
+    local bookList = {1061, 105, 106, 129, 2609, 2610, 114, 115, 2608, 2615, 107, 108, 111, 112, 2605, 2617, 109, 110, 117, 128, 130, 2604, 131, 2602, 2620, 116, 2621, 2607, 127, 2598, 2606, 2616, 2619}
+
+    local leftTool = user:getItemAt(Character.left_tool)
+    local rightTool = user:getItemAt(Character.right_tool)
+
+    local potentialBooks = {leftTool, rightTool}
+
+    for _, book in pairs(potentialBooks) do
+
+        local isBook = M.isInList(book.id, bookList)
+        local isCookBook = not M.IsNilOrEmpty(book:getData("cookBook"))
+        local isAlchemyBook = not M.IsNilOrEmpty(book:getData("alchemyBook"))
+        local availableSlots = M.IsNilOrEmpty(book:getData("recipe100"))
+        local isEmpty = M.IsNilOrEmpty(book:getData("sheet1")) and M.IsNilOrEmpty(book:getData("page1")) and M.IsNilOrEmpty(book:getData("magicBook")) and M.IsNilOrEmpty(book:getData("book")) and M.IsNilOrEmpty(book:getData("alchemyBook"))
+
+        if isBook and ((isAlchemyBook and alchemy) or (isCookBook and cooking) or isEmpty) and availableSlots then -- it is a book
+
+            if book.number > 1 then
+                user:inform("Du kannst nur in einem Buch gleichzeitig schreiben.", "You can only write in one book at a time.")
+                return false
+            end
+            return book
+        end
+
+    end
+
+    user:inform("Du brauchst ein Buch in der Hand, wenn du es beschriften oder darin schreiben möchtest.","You need a book in your hand if you want to label or write in one.")
+
+    return false
 end
 
 --[[ Replace Umlaute by possible character.

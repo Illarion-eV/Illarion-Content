@@ -1443,43 +1443,9 @@ end
 
 local parchmentSelectionStatus = {}
 
-local function checkIfBookInHand(user)
-
-    local bookList = {1061, 105, 106, 129, 2609, 2610, 114, 115, 2608, 2615, 107, 108, 111, 112, 2605, 2617, 109, 110, 117, 128, 130, 2604, 131, 2602, 2620, 116, 2621, 2607, 127, 2598, 2606, 2616, 2619}
-
-    local leftTool = user:getItemAt(Character.left_tool)
-    local rightTool = user:getItemAt(Character.right_tool)
-
-    local potentialBooks = {leftTool, rightTool}
-
-    for _, book in pairs(potentialBooks) do
-
-        local isBook = common.isInList(book.id, bookList)
-        local isCookBook = not common.IsNilOrEmpty(book:getData("cookBook"))
-        local availableSlots = common.IsNilOrEmpty(book:getData("recipe100"))
-        local isEmpty = common.IsNilOrEmpty(book:getData("sheet1")) and common.IsNilOrEmpty(book:getData("page1")) and common.IsNilOrEmpty(book:getData("magicBook")) and common.IsNilOrEmpty(book:getData("book"))
-
-        if isBook and (isCookBook or isEmpty) and availableSlots then -- it is a book
-
-            if book.number > 1 then
-                user:inform("Du kannst nur in einem Buch gleichzeitig schreiben.", "You can only write in one book at a time.")
-                return false
-            end
-            return book
-        end
-
-    end
-
-
-
-    user:inform("Du brauchst ein Buch in der Hand, wenn du es beschriften oder darin schreiben möchtest.","You need a book in your hand if you want to label or write in one.")
-
-    return false
-end
-
 local function addToCookBook(user, parchment)
 
-    local book = checkIfBookInHand(user)
+    local book = common.checkIfBookInHand(user, false, true)
 
     if not book then
         return
@@ -1510,6 +1476,9 @@ local function addToCookBook(user, parchment)
         if common.IsNilOrEmpty(book:getData("recipe"..i)) then
             book:setData("recipe"..i, string)
             break
+        elseif i == 100 then
+            user:inform("Dieses Buch hat keinen Platz mehr für Rezepte.","This book has no more space for recipes.")
+            return
         end
     end
 
@@ -1704,11 +1673,18 @@ local function removeARecipePage(user, book)
 
 end
 
+
 function M.viewCookBook(user, book, page)
 
     if not page then
         page = 0
     end
+
+    local timeStamp = world:getTime("unix")
+
+    book:setData("timeStamp", tostring(timeStamp)) --to prevent dupes we timestamp the book to find it again later
+
+    world:changeItem(book)
 
     local firstRecipeOfNextPage = (page+1)*10+1
 
@@ -1723,6 +1699,10 @@ function M.viewCookBook(user, book, page)
         end
 
         local selected = dialog:getSelectedIndex()+1
+
+        book = common.GetItemInInventory(user, book.id, {{"timeStamp", tostring(timeStamp)}})
+
+        if not book then return end
 
         local previousOptions = 1
 
