@@ -1152,12 +1152,12 @@ end
 -- this function will be called whenever seomething is done to a potion and set the proper data
 function M.repairPotion(potion)
 
-    if tonumber(potion:getData("potionEffectId"))then
+    if tonumber(potion:getData("potionEffectId")) and common.IsNilOrEmpty(potion:getData("filledWith")) then
 
         local effectId = tonumber(potion:getData("potionEffectId"))
 
         for _, selectedPotion in pairs(potions) do
-            if selectedPotion.effect == effectId then
+            if selectedPotion.effect == effectId or (effectId >= 11111111 and effectId <= 99999999) then
 
                 potion:setData("filledWith", "potion")
                 world:changeItem(potion)

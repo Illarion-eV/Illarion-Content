@@ -20,6 +20,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local factions = require("base.factions")
 local gems = require("base.gems")
+local testing = require("base.testing")
 
 local M = {}
 
@@ -227,6 +228,8 @@ end
 
 function M.callEffect(effect, user)
 
+    local potionToxinReduction = 0
+
     local foundCalls, sessionCalls = effect:findValue("sessionCalls")
 
     if not foundCalls then
@@ -275,6 +278,7 @@ function M.callEffect(effect, user)
 
     if sessionCalls >= 1 then
         if isActive(effect) then
+            potionToxinReduction = potionToxinReduction + 1
             effect:addValue("sessionActiveTime", sessionActiveTime + 1)
         end
 
@@ -286,10 +290,21 @@ function M.callEffect(effect, user)
         end
 
         if interacting then
+            potionToxinReduction = potionToxinReduction + 1
             effect:addValue("sessionInteractionTime", sessionInteractionTime + increase)
             if withFellowCitizen then
                 effect:addValue("sessionRankTime", sessionRankTime + increase)
             end
+        end
+    end
+
+    local oldValue = user:getQuestProgress(690)
+
+    if potionToxinReduction > 0 then
+        user:setQuestProgress(690, user:getQuestProgress(690)+potionToxinReduction)
+
+        if testing.active then
+            user:inform("Poison toxins reduced from "..oldValue.." to "..user:getQuestProgress(690))
         end
     end
 

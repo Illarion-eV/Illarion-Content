@@ -23,6 +23,7 @@ local customPotion = require("alchemy.base.customPotion")
 local recipe_creation = require("alchemy.base.recipe_creation")
 local scheduledFunction = require("scheduled.scheduledFunction")
 local missile = require("alchemy.base.missile")
+local testing = require("base.testing")
 
 local M = {}
 
@@ -76,6 +77,31 @@ ListHairFemale[3] = {1,7,8}
 ListHairFemale[4] = {1,7,8}
 ListHairFemale[5] = {1,2,3,4,5,6}
 
+local function getToxinAmount(user)
+    local toxins = user:getQuestProgress(690)
+
+    return toxins
+end
+
+local function scaleAttribValueByToxins(user, value)
+
+    local toxins = getToxinAmount(user)
+
+    local values = {
+        {toxin = 200, cap = 1},
+        {toxin = 150, cap = 2},
+        {toxin = 100, cap = 3},
+    }
+
+    for _, val in ipairs(values) do
+        if toxins >= val.toxin then
+            return math.min(value, val.cap)
+        end
+    end
+
+    return value
+end
+
 local function rubyGenerateEffectMessage(user,dataZList)
     local effectMessagesDe = ""
     local effectMessagesEn = ""
@@ -85,17 +111,23 @@ local function rubyGenerateEffectMessage(user,dataZList)
     for i=1,8 do
         if dataZList[i] ~= 5 then
 
+            local value = dataZList[i]
+
+            if value > 5 then
+                value = scaleAttribValueByToxins(user, value-5)+5
+            end
+
             attribEn = M.attribList[i] -- attribute
             attribDe = M.attribListDe[i]
-            if dataZList[i] > 5 then
+            if value > 5 then
                 nPTagEn = "in" -- increasing
                 nPTagDe = "zu"
             else
                 nPTagEn = "de" -- decreasing
                 nPTagDe = "ab"
             end
-            attribIntensityEn = M.intensityListEn[dataZList[i]] -- how strong it is in/decreased
-            attribIntensityDe = M.intensityListDe[dataZList[i]]
+            attribIntensityEn = M.intensityListEn[value] -- how strong it is in/decreased
+            attribIntensityDe = M.intensityListDe[value]
             anyEffect = true
             -- we put everything together
             effectMessagesDe = effectMessagesDe.."Deine "..attribDe.." nimmt".." "..attribIntensityDe.." "..nPTagDe..". "
@@ -109,7 +141,77 @@ local function rubyGenerateEffectMessage(user,dataZList)
     end
 end
 
+
+
+local function addToxins(user, quality)
+
+    if user:isAdmin() then  --admins neither gain nor decrease toxins
+        return
+    end
+
+    local existingValue = user:getQuestProgress(690)
+
+    if existingValue >= 300 then --capped
+        if testing.active then
+            user:inform("Capped out at 300 toxins")
+        end
+        return
+    end
+
+    local defaultAddition = 10
+
+    if quality > 9 then -- includes durability
+        quality = math.floor(quality/100)
+    end
+
+    local qualityAddition = (9 - quality) *2
+
+    if testing.active then
+        user:inform("Increased toxins by "..(defaultAddition+qualityAddition).." to a new value of "..(existingValue+defaultAddition+qualityAddition))
+    end
+
+    user:setQuestProgress(690, existingValue + defaultAddition + qualityAddition)
+end
+
+local function toxinInform(user, toxins)
+
+    local informs = {
+        {value = 200, text = {english = "Your recent excessive use of potions has lead to a very strong decrease in your ability to benefit from their boons.", german = "Dein kürzlich exzessiver Gebrauch von Tränken hat zu einer sehr starken Verringerung deiner Fähigkeit geführt, von ihren Wirkungen zu profitieren."}},
+        {value = 150, text = {english = "Your recent overuse of potions has lead to a strong decrease in your ability to benefit from their boons.", german = "Dein kürzlicher übermäßiger Gebrauch von Tränken hat zu einer starken Verringerung deiner Fähigkeit geführt, von ihren Wirkungen zu profitieren."}},
+        {value = 100, text = {english = "Your recent abundant use of potions has lead to a moderate decrease in your ability to benefit from their boons.", german = "Dein kürzlich reichlicher Gebrauch von Tränken hat zu einer moderaten Verringerung deiner Fähigkeit geführt, von ihren Wirkungen zu profitieren."}},
+        {value = 50, text = {english = "Your recent use of potions has lead to a slight decrease in your ability to benefit from their boons.", german = "Dein kürzlicher Gebrauch von Tränken hat zu einer leichten Verringerung deiner Fähigkeit geführt, von ihren Wirkungen zu profitieren."}}
+    }
+
+    for _, inform in ipairs(informs) do
+        if toxins >= inform.value then
+            user:inform(inform.text.german, inform.text.english)
+            break
+        end
+    end
+end
+
+local function scaleValueByToxins(user, value)
+    local toxins = getToxinAmount(user)
+
+    toxinInform(user, toxins)
+
+    toxins = math.min(toxins, 200) --actual impact caps out at 200
+
+    local impact = math.max(0, (toxins/2)-10)
+
+    local percent = value/100
+
+    value = (100-impact)*percent
+
+    return math.floor(value) -- between 100% and 10% of the original value based on toxins, as a whole integer
+end
+
+
+
 local function rubyPotion(user,SourceItem)
+
+    addToxins(user, SourceItem.quality)
+
     local potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
 
     if potionEffectId == 0 or potionEffectId == nil  then -- no effect
@@ -132,6 +234,12 @@ local function rubyPotion(user,SourceItem)
             user.effects:removeEffect(59)
         end
         local myEffectDuration = math.floor(SourceItem.quality/100)*600*4 -- quality 1 = 4 minutes duration, quality 9 = 36 minutes duration
+        local oldDuration = myEffectDuration
+        myEffectDuration = scaleValueByToxins(user, myEffectDuration)
+
+        if testing.active then
+            user:inform("Duration reduced from "..oldDuration.." to "..myEffectDuration.." due to toxins")
+        end
         myEffect = LongTimeEffect(59,myEffectDuration) -- new effect
 
         local dataZList = alchemy.splitStock(potionEffectId)
@@ -151,7 +259,11 @@ local function rubyPotion(user,SourceItem)
             end
 
             if dataZList[i] ~= 5 then
-                user:increaseAttrib(M.attribList[i],dataZList[i]-5)
+                local value = dataZList[i]-5
+                if value > 1 then
+                    value = scaleAttribValueByToxins(user, value)
+                end
+                user:increaseAttrib(M.attribList[i],value)
                 myEffect:addValue("".. M.attribList[i],dataZList[i])
             end
 
@@ -169,6 +281,7 @@ local function rubyPotion(user,SourceItem)
             "You feel that the old potion loses its effect. You eyes start to feel strange.")
         end
         local myEffectDuration = math.floor(SourceItem.quality/100)*600*4 -- quality 1 = 4 minutes duration, quality 9 = 36 minutes duration
+
         local myEffect = LongTimeEffect(59,myEffectDuration) -- new effect
 
         myEffect:addValue("sightpotion",potionEffectId-5900000000)
@@ -217,6 +330,8 @@ end
 
 local function amethystPotion(user, SourceItem)
 
+    addToxins(user, SourceItem.quality)
+
     local isMage = user:getMagicType() == 0 and user:getMagicFlags(0) > 0 or user:getMagicType() == 0 and user:getQuestProgress(37) ~= 0
 
     local potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
@@ -244,7 +359,13 @@ local function amethystPotion(user, SourceItem)
         local hitpointsOT, poisonvalueOT, manaOT, foodlevelOT
         for i=1,8 do
 
-            local Val = (dataZList[i]-5) * (topBorder[i]/5) * common.Scale( 0.5, 1, math.floor(SourceItem.quality/100) * 11 );
+            local value = topBorder[i]
+
+            if dataZList[i]-5 > 0 then --Only positive effects get downscaled
+                value = scaleValueByToxins(user, value)
+            end
+
+            local Val = (dataZList[i]-5) * (value/5) * common.Scale( 0.5, 1, math.floor(SourceItem.quality/100) * 11 );
 
             if ( attribList[i] == "hitpointsOT" ) then
                 hitpointsOT = (Val * 1.25) / 5;
@@ -258,6 +379,9 @@ local function amethystPotion(user, SourceItem)
                 Val = common.Limit( (user:getPoisonValue() - Val) , 0, 10000 );
                 user:setPoisonValue( Val );
             elseif not (attribList[i] == "mana" ) or isMage then
+                if testing.active then
+                    user:inform("Increased "..attribList[i].." by "..tostring(Val))
+                end
                 user:increaseAttrib(attribList[i],Val);
             end
         end
@@ -817,6 +941,8 @@ local potionTypes = {
 
 function M.UseItem(user, sourceItem, actionState)
 
+    alchemy.repairPotion(sourceItem)
+
     -- item should not be static
     if sourceItem.wear == 255 then
         common.HighInformNLS(user,
@@ -834,8 +960,6 @@ function M.UseItem(user, sourceItem, actionState)
     if sourceItem:getData("customPotion") ~= "" then
         customPotion.drinkInform(user, sourceItem)
     end
-
-    alchemy.repairPotion(sourceItem)
 
     local filledWith = sourceItem:getData("filledWith")
 
@@ -932,7 +1056,7 @@ function M.LookAtItem(user, potion)
 
     local potionEffectId = tonumber(potion:getData("potionEffectId"))
 
-    if potionEffectId and potion.id ~= Item.unlitAlchemyBomb and potion.id ~= Item.litAlchemyBomb and (potionEffectId > 300 or potionEffectId < 399) then --bomb
+    if potionEffectId and potion.id ~= Item.unlitAlchemyBomb and potion.id ~= Item.litAlchemyBomb and (potionEffectId > 300 and potionEffectId < 399) then --bomb
         potion.id = Item.unlitAlchemyBomb
         world:changeItem(potion)
     end
