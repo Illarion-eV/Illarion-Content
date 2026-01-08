@@ -300,8 +300,8 @@ function M.callEffect(effect, user)
 
     local oldValue = user:getQuestProgress(690)
 
-    if potionToxinReduction > 0 then
-        user:setQuestProgress(690, user:getQuestProgress(690)+potionToxinReduction)
+    if potionToxinReduction > 0 and oldValue > 0 then
+        user:setQuestProgress(690, math.max(user:getQuestProgress(690)-1, user:getQuestProgress(690)+potionToxinReduction))
 
         if testing.active then
             user:inform("Poison toxins reduced from "..oldValue.." to "..user:getQuestProgress(690))
