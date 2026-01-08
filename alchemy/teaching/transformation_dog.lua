@@ -158,7 +158,7 @@ function M.GetStockFromQueststatus(User)
         stockList = M.GenerateStockConcentration()
         User:setQuestProgress(861,alchemy.DataListToNumber(stockList))
     end
-    return alchemy.SplitData(User,User:getQuestProgress(861))
+    return alchemy.splitStock(User:getQuestProgress(861))
 end
 
 function M.GenerateStockDescription(User)
@@ -167,8 +167,9 @@ function M.GenerateStockDescription(User)
     local de = ""
     local en = ""
     for i=1,#stockList do
-        de = de .. alchemy.wirkung_de[stockList[i]] .. " "..alchemy.wirkstoff[i]
-        en = en .. alchemy.wirkung_en[stockList[i]] .. " "..alchemy.wirkstoff[i]
+
+        de = de .. alchemy.concentrations[Player.german][stockList[i]] .. " "..alchemy.substances[i]
+        en = en .. alchemy.concentrations[Player.english][stockList[i]] .. " "..alchemy.substances[i]
         if i ~= 8 then
             de = de .. ", "
             en = en .. ", "

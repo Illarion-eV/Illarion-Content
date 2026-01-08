@@ -52,12 +52,13 @@ end
 
 function M.TellRecipe(User, effectId)
     local ingredientList = alchemy.getIngredients(effectId)
-    local recipeEN = "Potion: "..alchemy.potionName[effectId][1].."\n\nComponents:\nStock:\n"
-    local recipeDE = "Trank: "..alchemy.potionName[effectId][2].."\n\nKomponenten:\nSud:\n"
-    local dataZList = alchemy.SplitData(User,ingredientList[2])
+    local englishName, germanName = alchemy.getPotionName(effectId)
+    local recipeEN = "Potion: "..englishName.."\n\nComponents:\nStock:\n"
+    local recipeDE = "Trank: "..germanName.."\n\nKomponenten:\nSud:\n"
+    local dataZList = alchemy.splitStock(ingredientList[2])
     for i = 1, 8 do
-        recipeEN = recipeEN..alchemy.wirkung_en[dataZList[i]].." "..alchemy.wirkstoff[i].."\n"
-        recipeDE = recipeDE..alchemy.wirkung_de[dataZList[i]].." "..alchemy.wirkstoff[i].."\n"
+        recipeEN = recipeEN..alchemy.concentrations[Player.english][dataZList[i]].." "..alchemy.substances[i].."\n"
+        recipeDE = recipeDE..alchemy.concentrations[Player.german][dataZList[i]].." "..alchemy.substances[i].."\n"
     end
     recipeEN = recipeEN.."\nEssence brew based on "..world:getItemName(ingredientList[1],Player.english)..":\n"
     recipeDE = recipeDE.."\nEssenzgebräu auf "..world:getItemName(ingredientList[1],Player.german).."basis:\n"

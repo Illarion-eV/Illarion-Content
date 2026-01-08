@@ -60,11 +60,13 @@ function M.UseItem(user, SourceItem, ltstate)
             return
         end
 
-        local duration,gfxId,gfxIntervall,sfxId,sfxIntervall = alchemy.GetStartAction(user, "plant", cauldron)
+        local duration,gfxId,gfxIntervall,sfxId,sfxIntervall = alchemy.GetStartAction(user, SourceItem.id, "plant", cauldron)
 
         if (ltstate == Action.none) then
-           user:startAction(duration,gfxId,gfxIntervall,sfxId,sfxIntervall)
-           return
+            if alchemy.canUseHerb(user, SourceItem.id) then
+                user:startAction(duration,gfxId,gfxIntervall,sfxId,sfxIntervall)
+            end
+            return
         end
 
         M.BeginnBrewing(user,false, SourceItem,cauldron)
@@ -94,10 +96,10 @@ local function PlantInEssenceBrew(user,plantId,cauldron)
 end
 
 local function PlantInStock(user,plantId,cauldron)
-    local substance = alchemy.wirkstoff
+
         for i=1,8 do
-            if cauldron:getData(substance[i].."Concentration") == "" then
-                cauldron:setData(substance[i].."Concentration","5")
+            if cauldron:getData(alchemy.substances[i].."Concentration") == "" then
+                cauldron:setData(alchemy.substances[i].."Concentration","5")
             end
         end
     local plusSubstance, minusSubstance = alchemy.getPlantSubstance(plantId, user)
@@ -163,15 +165,15 @@ end
 
 local function FilterStock(user,cauldron)
     local success = false
-    local mySubstance = alchemy.wirkstoff
+
     for i=1,8 do
-        local oldConcentration = tonumber(cauldron:getData(mySubstance[i].."Concentration"))
+        local oldConcentration = tonumber(cauldron:getData(alchemy.substances[i].."Concentration"))
         if oldConcentration ~= nil then
             if oldConcentration > 5 then
-                cauldron:setData(mySubstance[i].."Concentration",oldConcentration-1)
+                cauldron:setData(alchemy.substances[i].."Concentration",oldConcentration-1)
                 success = true
             elseif oldConcentration < 5 then
-                cauldron:setData(mySubstance[i].."Concentration",oldConcentration+1)
+                cauldron:setData(alchemy.substances[i].."Concentration",oldConcentration+1)
                 success = true
             end
         end

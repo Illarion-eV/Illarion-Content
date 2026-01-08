@@ -98,7 +98,12 @@ function M.UseItem(user, SourceItem, ltstate)
            return
         end
 
-        M.FillIntoBottle(user, SourceItem, cauldron)
+        local brewResult = M.FillIntoBottle(user, SourceItem, cauldron)
+
+        if brewResult.wrongBottle then
+            user:inform("Das ist die falsche Art von Flasche für diese Art von Flüssigkeit. Du brauchst eine Flasche vom Typ "..brewResult.wrongBottle.german..".", "That's the wrong type of bottle for this kind of liquid. You need a "..brewResult.wrongBottle.english..".")
+        end
+
         alchemy.lowerFood(user)
     end
 
@@ -109,19 +114,32 @@ function M.UseItem(user, SourceItem, ltstate)
     end
 end
 
-function M.FillIntoBottle(user, SourceItem, cauldron)
+function M.FillIntoBottle(user, sourceItem, cauldron)
 
-   local result = {}
-   result.ilynApplied = false
-    if cauldron:getData("filledWith") == "salve" then
-        user:inform("Die Flüssigkeit im Kessel ist viel zu dick. Du brauchst einen leeren Salbentiegel, keine Zaubertrankflasche", "The liquid in the cauldron is way too thick. You'll need an empty salve jar here, not a potion bottle.")
+    local result = {}
+    result.ilynApplied = false
+
+    local commonItem = world:getItemStatsFromId(Item.emptyPotion)
+
+    if cauldron:getData("filledWith") == "potion" then
+
+        local requiredBottle = alchemy.getRequiredBottle(tonumber(cauldron:getData("potionEffectId")))
+
+        if sourceItem.id ~= requiredBottle then
+            commonItem = world:getItemStatsFromId(requiredBottle)
+            result.wrongBottle = {english = commonItem.English, german = commonItem.German}
+            return result
+        end
+
+    elseif sourceItem.id ~= Item.emptyPotion then --stocks and essence need empty potions
+        result.wrongBottle = {english = commonItem.English, german = commonItem.German}
         return result
     end
 
     -- stock, essence brew or potion; fill it up
-   if (cauldron:getData("filledWith") == "stock") or (cauldron:getData("filledWith") == "essenceBrew") or (cauldron:getData("filledWith") == "potion") then
-        local _, _, _, reBottle = alchemy.GemDustBottleCauldron(nil, nil, cauldron.id, nil, user)
-        if SourceItem.number > 1 then -- stack!
+    if (cauldron:getData("filledWith") == "stock") or (cauldron:getData("filledWith") == "essenceBrew") or (cauldron:getData("filledWith") == "potion") then
+        local _, _, _, reBottle = alchemy.GemDustBottleCauldron(cauldron.id)
+        if sourceItem.number > 1 then -- stack!
             if cauldron:getData("filledWith") == "stock" then
                 local data = {}
                 data.AdrazinConcentration=cauldron:getData("AdrazinConcentration")
@@ -155,11 +173,11 @@ function M.FillIntoBottle(user, SourceItem, cauldron)
                     data.creator=user.name
                     common.CreateItem(user, reBottle, 1, tonumber(cauldron:getData("potionQuality")), data)
             end
-            world:erase(SourceItem,1)
+            world:erase(sourceItem,1)
         else
-            SourceItem.id = reBottle
-            alchemy.FillFromTo(cauldron,SourceItem)
-            world:changeItem(SourceItem)
+            sourceItem.id = reBottle
+            alchemy.FillFromTo(cauldron,sourceItem)
+            world:changeItem(sourceItem)
         end
         if cauldron:getData("ilyn") == "true" then -- In order to duplicate the potion, we have there be enough liquid in the cauldron for two potions
             result.ilynApplied = true

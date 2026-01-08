@@ -18,10 +18,8 @@ local common = require("base.common")
 local alchemy = require("alchemy.base.alchemy")
 local herbs = require("alchemy.base.herbs")
 local id_52_filledbucket = require("item.id_52_filledbucket")
-local id_331_green_bottle = require("alchemy.item.id_331_green_bottle")
 local gemdust = require("alchemy.base.gemdust")
-local id_164_emptybottle = require("item.id_164_emptybottle")
-local id_3642_empty_salve_jar = require("alchemy.item.id_3642_empty_salve_jar")
+local bottling = require("alchemy.bottling")
 local potionToTeacher = require("triggerfield.potionToTeacher")
 local recipe_creation = require("alchemy.base.recipe_creation")
 local lookat = require("base.lookat")
@@ -42,13 +40,10 @@ local TeachLenniersDream
 local GenerateStockDescription
 local TaskToLearn
 local AlchemyRecipe
-local UseRecipe
 local StartBrewing
 local CallBrewFunctionAndDeleteItem
 local GetStartAction
 local GetItem
-local ViewRecipe
-local getIngredients
 
 local function bookListLookAt(user,Item)
     local itemLookat = lookat.GenerateLookAt(user, Item, lookat.NONE)
@@ -251,7 +246,7 @@ function M.GetStockFromQueststatus(user)
         stockList = M.GenerateStockConcentration()
         user:setQuestProgress(860,alchemy.DataListToNumber(stockList))
     end
-    return alchemy.SplitData(user,user:getQuestProgress(860))
+    return alchemy.splitStock(user:getQuestProgress(860))
 end
 
 function GenerateStockDescription(user)
@@ -260,8 +255,8 @@ function GenerateStockDescription(user)
     local de = ""
     local en = ""
     for i=1,#stockList do
-        de = de .. alchemy.wirkung_de[stockList[i]] .. " "..alchemy.wirkstoff[i]
-        en = en .. alchemy.wirkung_en[stockList[i]] .. " "..alchemy.wirkstoff[i]
+        de = de .. alchemy.concentrations[Player.german][stockList[i]] .. " "..alchemy.substances[i]
+        en = en .. alchemy.concentrations[Player.english][stockList[i]] .. " "..alchemy.substances[i]
         if i ~= 8 then
             de = de .. ", "
             en = en .. ", "
@@ -291,18 +286,19 @@ end
 
 function AlchemyRecipe(user, SourceItem,ltstate,checkVar)
 
+    local recipeTable = common.convertItemDataToTable(user, SourceItem, "alchemyIngredients", alchemy.maxEntriesPerRecipe)
 
     if alchemy.GetCauldronInfront(user) then
         -- The char wants to use the recipe infront of a cauldron.
-        UseRecipe(user, SourceItem,ltstate,checkVar)
+        M.useRecipe(user, recipeTable,ltstate,checkVar)
     else
         -- Not infront of a cauldron.
-        ViewRecipe(user, SourceItem)
+        recipe_creation.ShowRecipe(user, recipeTable)
     end
 
 end
 
-function UseRecipe(user, SourceItem,ltstate,checkVar)
+function M.useRecipe(user, recipeTable,ltstate,checkVar)
 
 
     -- is the char an alchemist?
@@ -321,11 +317,11 @@ function UseRecipe(user, SourceItem,ltstate,checkVar)
     end
 
     -- let's start!
-    StartBrewing(user, SourceItem,ltstate,checkVar)
+    StartBrewing(user, recipeTable,ltstate,checkVar)
 end
 
-function StartBrewing(user,SourceItem,ltstate,checkVar)
-    local listOfTheIngredients = getIngredients(SourceItem)
+function StartBrewing(user,recipeTable,ltstate,checkVar)
+
     local cauldron = alchemy.GetCauldronInfront(user)
     local tool = alchemy.getAlchemyTool(user)
 
@@ -353,49 +349,48 @@ function StartBrewing(user,SourceItem,ltstate,checkVar)
             if success then
                 local selected = dialog:getSelectedIndex()+1
                 USER_POSITION_LIST[user.id] = selected
-                StartBrewing(user, SourceItem,ltstate,true)
+                StartBrewing(user, recipeTable,ltstate,true)
             end
         end
+
         local dialog = SelectionDialog(getText(user,"Rezept","Recipe"), getText(user,"Wähle die Zutat aus, ab welcher das Rezept abgearbeitet werden soll.","Select the ingredient which you want to start to brew from."), callback)
+
         dialog:setCloseOnMove()
-        if #listOfTheIngredients > 0 then
-            local counter = 0
-            for i=1,#listOfTheIngredients do
-                counter = counter + 1
-                if type(listOfTheIngredients[i])=="string" then
-                    if string.find(listOfTheIngredients[i],"bottle") then
-                        dialog:addOption(164, getText(user,counter..". Abfüllen",counter..". Bottling"))
-                    elseif string.find(listOfTheIngredients[i],"jar") then
-                        dialog:addOption(3642, getText(user, counter..". In einen Tiegel füllen",counter..". Fill into jar"))
-                    else
-                        local liquid, liquidList = recipe_creation.StockEssenceList(listOfTheIngredients[i])
-                        if liquid == "stock" then
-                            dialog:addOption(331, getText(user,counter..". Sud",counter..". Stock"))
-                        elseif liquid == "essence brew" then
-                            dialog:addOption(liquidList[1], getText(user,counter..". Essenzgebräu",counter..". Essence brew"))
-                        end
-                    end
-                else
-                    dialog:addOption(listOfTheIngredients[i], getText(user,counter..". "..world:getItemName(listOfTheIngredients[i],Player.german),counter..". "..world:getItemName(listOfTheIngredients[i],Player.english)))
-                end
+
+        local counter = 0
+
+        for _, ingredient in ipairs(recipeTable) do
+            counter = counter + 1
+
+            if ingredient.key == "bottling" then
+                local emptyBottle = alchemy.getPotionBottleIds(recipeTable)
+                dialog:addOption(emptyBottle, common.GetNLS(user,counter..". Abfüllen", counter..". Bottling"))
+            elseif ingredient.key == "stock" then
+                dialog:addOption(331, common.GetNLS(user,counter..". Sud", counter..". Stock"))
+            elseif ingredient.key == "essence" then
+                local _, essenceBrewGraphic = alchemy.getEssenceBrewGraphics(ingredient.value)
+                dialog:addOption(essenceBrewGraphic, common.GetNLS(user,counter..". Essenzgebräu",counter..". Essence brew"))
+            else
+                dialog:addOption(ingredient.value, common.GetNLS(user,counter..". "..world:getItemName(ingredient.value,Player.german),counter..". "..world:getItemName(ingredient.value,Player.english)))
             end
-            user:requestSelectionDialog(dialog)
-            return
         end
+        user:requestSelectionDialog(dialog)
+        return
     end
 
-    local deleteItem, deleteId, missingDe, missingEn = GetItem(user, listOfTheIngredients)
+    local deleteItem, deleteId, missingDe, missingEn = GetItem(user, recipeTable)
 
     if missingDe then
         user:inform("Du brichst deine Arbeit vor dem "..USER_POSITION_LIST[user.id]..". Arbeitsschritt ab. "..missingDe, "You abort your work before the "..USER_POSITION_LIST[user.id]..". work step. "..missingEn)
         return
     end
 
-    local duration,gfxId,gfxIntervall,sfxId,sfxIntervall = GetStartAction(user, listOfTheIngredients, cauldron)
+    local duration,gfxId,gfxIntervall,sfxId,sfxIntervall, canUseHerb = GetStartAction(user, recipeTable, cauldron)
 
     if (ltstate == Action.none) then
-
-        user:startAction(duration,gfxId,gfxIntervall,sfxId,sfxIntervall);
+        if canUseHerb then
+            user:startAction(duration,gfxId,gfxIntervall,sfxId,sfxIntervall);
+        end
         return
 
     end
@@ -408,23 +403,32 @@ function StartBrewing(user,SourceItem,ltstate,checkVar)
         USER_POSITION_LIST[user.id] = USER_POSITION_LIST[user.id]+1
     end
 
-    if toolbroken and USER_POSITION_LIST[user.id] < #listOfTheIngredients then
+    if brewResult.wrongBottle then
+        user:inform("Das ist die falsche Art von Flasche für diese Art von Flüssigkeit. Du brauchst eine Flasche vom Typ "..brewResult.wrongBottle.german..". Du brichst deine Arbeit vor dem "..USER_POSITION_LIST[user.id]..". Arbeitsschritt ab.", "That's the wrong type of bottle for this kind of liquid. You need a "..brewResult.wrongBottle.english..". You abort your work before the "..USER_POSITION_LIST[user.id]..". work step.")
+        return
+    end
+
+    if toolbroken and USER_POSITION_LIST[user.id] < #recipeTable then
         user:inform("Du brichst deine Arbeit vor dem "..USER_POSITION_LIST[user.id]..". Arbeitsschritt ab.", "You abort your work before the "..USER_POSITION_LIST[user.id]..". work step.")
         return
     end
 
     if alchemy.CheckExplosionAndCleanList(user) then
-        if USER_POSITION_LIST[user.id] < #listOfTheIngredients then
+        if USER_POSITION_LIST[user.id] < #recipeTable then
             user:inform("Du brichst deine Arbeit vor dem "..USER_POSITION_LIST[user.id]..". Arbeitsschritt ab.", "You abort your work before the "..USER_POSITION_LIST[user.id]..". work step.")
         end
         return
     end
 
-    if USER_POSITION_LIST[user.id] > #listOfTheIngredients then
+    if USER_POSITION_LIST[user.id] > #recipeTable then
         return
     else
-        duration,gfxId,gfxIntervall,sfxId,sfxIntervall = GetStartAction(user, listOfTheIngredients, cauldron)
-        user:startAction(duration,gfxId,gfxIntervall,sfxId,sfxIntervall);
+        duration,gfxId,gfxIntervall,sfxId,sfxIntervall, canUseHerb = GetStartAction(user, recipeTable, cauldron)
+        if canUseHerb then
+            user:startAction(duration,gfxId,gfxIntervall,sfxId,sfxIntervall);
+        else
+            user:inform("Du brichst deine Arbeit vor dem "..USER_POSITION_LIST[user.id]..". Arbeitsschritt ab.", "You abort your work before the "..USER_POSITION_LIST[user.id]..". work step.")
+        end
     end
 
 end
@@ -447,19 +451,15 @@ function CallBrewFunctionAndDeleteItem(user,deleteItem, deleteId,cauldron)
         end
 
     else
-        if deleteItem.id == 164 then -- empty bottle
-            local fillBottleResult = id_164_emptybottle.FillIntoBottle(user, deleteItem, cauldron)
+        if deleteItem.id == Item.emptypotion or deleteItem.id == Item.emptyAlchemyBomb or deleteItem.id == Item.emptySalveJar then
+            local fillBottleResult = bottling.FillIntoBottle(user, deleteItem, cauldron)
             if fillBottleResult.ilynApplied then
                 result.repeatStep = true
             end
 
-        elseif deleteItem.id == 3642 then
-            id_3642_empty_salve_jar.FillIntoJar(user, deleteItem, cauldron)
-
-        elseif deleteItem.id == 331 then -- stock
-            id_331_green_bottle.FillStockIn(user,deleteItem, cauldron)
-            alchemy.EmptyBottle(user,deleteItem)
-
+            if fillBottleResult.wrongBottle then
+                result.wrongBottle = fillBottleResult.wrongBottle
+            end
         elseif alchemy.CheckIfPotionBottle(deleteItem) then
             alchemy.FillIntoCauldron(user,deleteItem,cauldron)
         end
@@ -471,134 +471,91 @@ end
 function GetStartAction(user, listOfTheIngredients, cauldron)
 
     local ingredient = listOfTheIngredients[USER_POSITION_LIST[user.id]]
-    local theString
+    local canUseHerb = true
 
-    if type(ingredient) == "number" then
-        if ingredient == 52 then
-            theString = "water"
-        elseif alchemy.CheckIfGemDust(ingredient) then
-            theString = "gemPowder"
-        elseif alchemy.getPlantSubstance(ingredient) or ingredient == 157 then
-            theString = "plant"
-        end
-    else
-        if string.find(ingredient,"bottle") then
-            theString = "bottle"
-        elseif string.find(ingredient,"stock") then
-            theString = "stock"
-        elseif string.find(ingredient,"essence") then
-            theString = "essenceBrew"
-        end
+    if ingredient.key == "ingredient" and alchemy.getPlantSubstance(ingredient) or ingredient == 157 then
+        canUseHerb = alchemy.canUseHerb(user, ingredient)
     end
 
-    local duration,gfxId,gfxIntervall,sfxId,sfxIntervall = alchemy.GetStartAction(user, theString, cauldron)
-    return duration,gfxId,gfxIntervall,sfxId,sfxIntervall
+    local duration,gfxId,gfxIntervall,sfxId,sfxIntervall = alchemy.GetStartAction(user, ingredient, cauldron)
+    return duration,gfxId,gfxIntervall,sfxId,sfxIntervall, canUseHerb
 end
 
 function GetItem(user, listOfTheIngredients)
+
     local deleteItem, deleteId, missingDe, missingEn
-    if type(listOfTheIngredients[USER_POSITION_LIST[user.id]])=="string" then
-        if string.find(listOfTheIngredients[USER_POSITION_LIST[user.id]],"bottle") then
-            local bottleList = user:getItemList(164)
-            if #bottleList > 0 then
-                deleteItem = bottleList[1] -- here, we take the first bottle we get
-                for i=1,#bottleList do
-                    if not string.find(bottleList[i]:getData("descriptionEn"),"Bottle label:") then -- now, we check if there is an empty bottle; we prefer those
-                        deleteItem = bottleList[i] -- in case there is a empty, unlabeled bottle
-                        break
-                    end
+
+    local key = listOfTheIngredients[USER_POSITION_LIST[user.id]].key
+    local value = listOfTheIngredients[USER_POSITION_LIST[user.id]].value
+
+    if key == "bottling" then
+        local bottleId = listOfTheIngredients[USER_POSITION_LIST[user.id]].value
+        local bottleList = user:getItemList(bottleId)
+        if #bottleList > 0 then
+            deleteItem = bottleList[1] -- here, we take the first bottle we get
+            for i=1, #bottleList do
+                if not string.find(bottleList[i]:getData("descriptionEn"),"Bottle label:") then -- now, we check if there is an empty bottle; we prefer those
+                    deleteItem = bottleList[i] -- in case there is a empty, unlabeled bottle
+                    break
+                end
+            end
+        end
+
+        if not (deleteItem) then
+            missingDe = "Dir fehlt: "..common.getItemName(bottleId, user:getPlayerLanguage() )
+            missingEn = "You don't have: "..common.getItemName(bottleId, user:getPlayerLanguage() )
+        end
+    elseif key == "stock" or key == "essence" then
+        local neededList = recipe_creation.StockEssenceSplit(value)
+
+        if key == "stock" then
+            local stockList = user:getItemList(331)
+            for i=1,#stockList do
+                local currentList = alchemy.SubstanceDatasToList(stockList[i])
+                if alchemy.CheckListsIfEqual(neededList,currentList) then
+                    deleteItem = stockList[i]
                 end
             end
             if not (deleteItem) then
-                missingDe = "Dir fehlt: leere Flasche"
-                missingEn = "You don't have: empty bottle"
+                missingDe = "Dir fehlt der entsprechende Sud."
+                missingEn = "Your don't have the proper stock."
             end
-        elseif string.find(listOfTheIngredients[USER_POSITION_LIST[user.id]],"jar") then
-            local jarList = user:getItemList(3642)
-            if #jarList > 0 then
-                deleteItem = jarList[1]
-                for i = 1, #jarList do
-                    if not string.find(jarList[i]:getData("descriptionEn"), "Bottle label:") then
-                        deleteItem = jarList[i]
-                        break
-                    end
-                end
-            end
-            if not (deleteItem) then
-                missingDe = "Dir fehlt: leerer Salbentiegel"
-                missingEn = "You don't have: empty salve jar"
-            end
-        else
-            local liquid, neededList = recipe_creation.StockEssenceList(listOfTheIngredients[USER_POSITION_LIST[user.id]])
-            if liquid == "stock" then
-                local stockList = user:getItemList(331)
-                for i=1,#stockList do
-                    local currentList = alchemy.SubstanceDatasToList(stockList[i])
-                    if alchemy.CheckListsIfEqual(neededList,currentList) then
-                        deleteItem = stockList[i]
-                    end
-                end
-                if not (deleteItem) then
-                    missingDe = "Dir fehlt der entsprechende Sud."
-                    missingEn = "Your don't have the proper stock."
-                end
-            elseif liquid == "essence brew" then
-                local neededId = table.remove(neededList,1)
-                local bottleList = user:getItemList(neededId)
-                local currentList
-                for i=1,#bottleList do
-                    currentList = {}
-                    if bottleList[i]:getData("filledWith")=="essenceBrew" then
-                        for j=1,8 do
-                            if bottleList[i]:getData("essenceHerb"..j) ~= "" then
-                                table.insert(currentList,tonumber(bottleList[i]:getData("essenceHerb"..j)))
-                            end
+        elseif key == "essence brew" then
+            local neededId = table.remove(neededList,1)
+            local bottleList = user:getItemList(neededId)
+            local currentList
+            for i=1,#bottleList do
+                currentList = {}
+                if bottleList[i]:getData("filledWith")=="essenceBrew" then
+                    for j=1,8 do
+                        if bottleList[i]:getData("essenceHerb"..j) ~= "" then
+                            table.insert(currentList,tonumber(bottleList[i]:getData("essenceHerb"..j)))
                         end
                     end
-                    if alchemy.CheckListsIfEqual(neededList,currentList) then
-                        deleteItem = bottleList[i]
-                    end
                 end
-                if not (deleteItem) then
+                if alchemy.CheckListsIfEqual(neededList,currentList) then
+                    deleteItem = bottleList[i]
+                end
+            end
+            if not (deleteItem) then
                     missingDe = "Dir fehlt das entsprechende Essenzgebräu."
                     missingEn = "Your don't have the proper essence brew."
                 end
             end
-        end
-    else
+        elseif key == "ingredient" then
 
-        if (user:countItemAt("all",listOfTheIngredients[USER_POSITION_LIST[user.id]], nil) > 0) then
-            deleteId = listOfTheIngredients[USER_POSITION_LIST[user.id]]
+        local ingredientId = listOfTheIngredients[USER_POSITION_LIST[user.id]].value
+
+        if user:countItemAt("all",ingredientId) > 0 then
+            deleteId = ingredientId
         end
         if not deleteId then
-            missingDe = "Dir fehlt: "..world:getItemName(listOfTheIngredients[USER_POSITION_LIST[user.id]],Player.german)
-            missingEn = "You don't have: "..world:getItemName(listOfTheIngredients[USER_POSITION_LIST[user.id]],Player.english)
+            missingDe = "Dir fehlt: "..world:getItemName(ingredientId,Player.german)
+            missingEn = "You don't have: "..world:getItemName(ingredientId,Player.english)
         end
     end
 
     return deleteItem, deleteId, missingDe, missingEn
-end
-
-function ViewRecipe(user, SourceItem)
-    local listOfTheIngredients = getIngredients(SourceItem)
-    recipe_creation.ShowRecipe(user, listOfTheIngredients, true)
-end
-
-function getIngredients(SourceItem)
-
-    local listOfTheIngredients = {}
-    for i=1,60 do
-        if SourceItem:getData("ingredient"..i) ~= "" then
-            if tonumber(SourceItem:getData("ingredient"..i)) ~= nil then
-                table.insert(listOfTheIngredients,tonumber(SourceItem:getData("ingredient"..i)))
-            else
-                table.insert(listOfTheIngredients,SourceItem:getData("ingredient"..i))
-            end
-        else
-            break
-        end
-    end
-    return listOfTheIngredients
 end
 
 ---------------- ALCHEMY END ---------------------------
@@ -642,6 +599,10 @@ end
 
 
 function M.LookAtItem(user, parchment)
+
+    if not common.IsNilOrEmpty(parchment:getData("alchemyRecipe")) and common.IsNilOrEmpty(parchment:getData("alchemyIngredients1")) then
+        alchemy.convertOldRecipeToNew(user, parchment)
+    end
 
     local lookAt = lookat.GenerateLookAt(user, parchment)
 

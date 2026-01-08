@@ -18,7 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local alchemy = require("alchemy.base.alchemy")
 local common = require("base.common")
-local redBottle = require("alchemy.item.id_59_red_bottle")
+local potions = require("alchemy.potions")
 local granorsHut = require("content.granorsHut")
 
 local M = {}
@@ -54,8 +54,8 @@ local function CharacterAnalysis(User,theGem)
         analysisResult = common.GetNLS(User, "Die Gestalt der Person scheint sich im Edelstein aufzulösen und du erkennst, dass sie scheinbar keinen Stärkungstrank intus hat.", "The figure seems to dissolve within the ruby and you recognize that the person haven't drunk a strengthening potion")
     else
         analysisResult = common.GetNLS(User, "Die Gestalt der Person scheint sich im Edelstein aufzulösen und du erkennst, dass sie einen Stärkungstrank intus hat:\n", "The figure seems to dissolve within the ruby and you recognize that the person has drunk a strengthening potion:\n")
-        for i=1,#redBottle.attribList do
-            local findAttribute, attributeChanger = attributeEffect:findValue(redBottle.attribList[i])
+        for i=1,#potions.attribList do
+            local findAttribute, attributeChanger = attributeEffect:findValue(potions.attribList[i])
             if findAttribute and attributeChanger ~= 5 then
                 local increaseOrDecrease
                 if attributeChanger < 5 then
@@ -63,7 +63,7 @@ local function CharacterAnalysis(User,theGem)
                 else
                     increaseOrDecrease = common.GetNLS(User, "gehobene", "increased")
                 end
-                analysisResult = analysisResult .. common.GetNLS(User, "\n" .. redBottle.intensityListDe[attributeChanger] .. " " .. increaseOrDecrease .. " " .. redBottle.attribListDe[i], "\n" .. redBottle.intensityListEn[attributeChanger] .. " " .. increaseOrDecrease .. " " .. redBottle.attribList[i])
+                analysisResult = analysisResult .. common.GetNLS(User, "\n" .. potions.intensityListDe[attributeChanger] .. " " .. increaseOrDecrease .. " " .. potions.attribListDe[i], "\n" .. potions.intensityListEn[attributeChanger] .. " " .. increaseOrDecrease .. " " .. potions.attribList[i])
             end
         end
     end
@@ -103,26 +103,20 @@ local function StockAnalysis(User, gem, brew)
     local analysisResultDE = "Substanz:\nKräutersud\n\nWirkstoffkonzentrationen:\n"
     local analysisResultEN = "Substance:\nHerbal Stock\n\nActive substance concentrations:\n"
     for i=1,8 do -- loop to get the concentration of the eight active substances
-        local wirkstoff = alchemy.wirkstoff
-        local myCon = tonumber(brew:getData(""..wirkstoff[i].."Concentration"))
+
+        local myCon = tonumber(brew:getData(""..alchemy.substances[i].."Concentration"))
         if myCon == nil then
             myCon = 5
         end
-        local conListDE = alchemy.wirkung_de
-        local conListEN = alchemy.wirkung_en
-        analysisResultDE = analysisResultDE..""..conListDE[myCon].." "..wirkstoff[i].."\n"
-        analysisResultEN = analysisResultEN..""..conListEN[myCon].." "..wirkstoff[i].."\n"
+
+        analysisResultDE = analysisResultDE..""..alchemy.concentrations[Player.german][myCon].." "..alchemy.substances[i].."\n"
+        analysisResultEN = analysisResultEN..""..alchemy.concentrations[Player.english][myCon].." "..alchemy.substances[i].."\n"
     end
     return analysisResultDE, analysisResultEN
 end
 
 local function EssenceBrewAnalysis(User, gem, brew)
-    local reGem, reGemdust
-    if brew.id >= 1008 and brew.id <= 1018 then -- brew is a cauldron
-        reGem, reGemdust = alchemy.GemDustBottleCauldron(nil, nil, brew.id, nil)
-    else -- brew is a bottle
-        reGem, reGemdust = alchemy.GemDustBottleCauldron(nil, nil, nil, brew.id)
-    end
+    local reGem, reGemdust = alchemy.GemDustBottleCauldron(brew.id)
     local analysisResultDE
     local analysisResultEN
     if gem.id ~= reGem then -- the gem used does not match the substance
@@ -150,13 +144,11 @@ local function EssenceBrewAnalysis(User, gem, brew)
 end
 
 local function PotionAnalysis(User, theGem, brew)
-    local potionQuality, potionQualityDE, potionQualityEN
-    local reGem, reGemdust
+    local potionQuality
+    local reGem, reGemdust = alchemy.GemDustBottleCauldron(brew.id)
     if brew.id >= 1008 and brew.id <= 1018 then -- brew is a cauldron
-        reGem, reGemdust = alchemy.GemDustBottleCauldron(nil, nil, brew.id, nil)
         potionQuality = tonumber(brew:getData("potionQuality"))
     else -- brew is a bottle
-        reGem, reGemdust = alchemy.GemDustBottleCauldron(nil, nil, nil, brew.id)
         potionQuality = brew.quality
     end
     local analysisResultDE
@@ -165,81 +157,35 @@ local function PotionAnalysis(User, theGem, brew)
         analysisResultDE = "Die Analyse führt zu keinen schlüssigen Ergebnissen."
         analysisResultEN = "The analysis does not provide any decent results."
     else
-        potionQualityEN = alchemy.qListEn[math.floor(potionQuality/100)]
-        potionQualityDE = alchemy.qListDe[math.floor(potionQuality/100)]
-        analysisResultDE = "Substanz:\nTrank auf "..world:getItemName(reGemdust,Player.german).."basis\n\nTrankgüte:\n"..potionQualityDE.." Qualität\n\nWirkung:\n"
-        analysisResultEN = "Substance:\nPotion based on "..world:getItemName(reGemdust,Player.english).."\n\nPotion quality:\n"..potionQualityEN.." quality\n\nEffect:"
+
+        potionQuality = alchemy.getQualityText(User, math.floor(potionQuality/100))
+
+        analysisResultDE = "Substanz:\nTrank auf "..world:getItemName(reGemdust,Player.german).."basis\n\nTrankgüte:\n"..potionQuality.." Qualität\n\nWirkung:\n"
+        analysisResultEN = "Substance:\nPotion based on "..world:getItemName(reGemdust,Player.english).."\n\nPotion quality:\n"..potionQuality.." quality\n\nEffect:"
         local potionEffectId = tonumber(brew:getData("potionEffectId"))
         if (potionEffectId == 0) or (potionEffectId == nil) then
             analysisResultDE = analysisResultDE.."Keine Wirkung"
             analysisResultEN = analysisResultEN.."No effect"
         elseif (potionEffectId >= 11111111) and (potionEffectId <= 99999999) then
             if (reGemdust == 447) or (reGemdust == 450) then
-                local dataZList = alchemy.SplitData(User,brew:getData("potionEffectId"))
+                local dataZList = alchemy.splitStock(brew:getData("potionEffectId"))
                 for i=1,8 do
-                    local wirkstoff = alchemy.wirkstoff
                     local myCon = dataZList[i]
                     if myCon == nil then
                         myCon = 5
                     end
-                    local conListDE = alchemy.wirkung_de
-                    local conListEN = alchemy.wirkung_en
-                    analysisResultDE = analysisResultDE..""..conListDE[myCon].." "..wirkstoff[i].."\n"
-                    analysisResultEN = analysisResultEN..""..conListEN[myCon].." "..wirkstoff[i].."\n"
+
+                    analysisResultDE = analysisResultDE..""..alchemy.concentrations[Player.german][myCon].." "..alchemy.substances[i].."\n"
+                    analysisResultEN = analysisResultEN..""..alchemy.concentrations[Player.english][myCon].." "..alchemy.substances[i].."\n"
                 end
             end
         elseif potionEffectId >= 5911111111 and potionEffectId <= 5999999999 then
             analysisResultDE = analysisResultDE.."Sichtungstrank"
             analysisResultEN = analysisResultEN.."Sighting potion"
         else
-            local effectList = alchemy.potionName
-            local potionEffectEN = effectList[potionEffectId][1]
-            local potionEffectDE = effectList[potionEffectId][2]
+            local potionEffectEN, potionEffectDE = alchemy.getPotionName(potionEffectId)
             if (potionEffectEN == nil) or (potionEffectDE == nil) then -- potion has an effect id, but the effect id has no entry in the name list
                 potionEffectEN = "Unknow effect"; potionEffectDE = "Unbekannte Wirkung"
-            end
-            analysisResultDE = analysisResultDE..potionEffectDE
-            analysisResultEN = analysisResultEN..potionEffectEN
-        end
-    end
-    return analysisResultDE, analysisResultEN
-end
-
-local function salveAnalysis(user, theGem, brew)
-
-    local quality, qualityDE, qualityEN
-
-    local gem = Item.topaz
-
-    local dust = Item.topazPowder
-
-    if brew.id >= 1008 and brew.id <= 1018 then -- brew is a cauldron
-        quality = tonumber(brew:getData("potionQuality"))
-    else -- brew is a salve jar
-        quality = brew.quality
-    end
-
-    local analysisResultDE
-    local analysisResultEN
-
-    if theGem.id ~= gem then -- the gem used does not match the substance
-        analysisResultDE = "Die Analyse führt zu keinen schlüssigen Ergebnissen."
-        analysisResultEN = "The analysis does not provide any decent results."
-    else
-        qualityEN = alchemy.qListEn[math.floor(quality/100)]
-        qualityDE = alchemy.qListDe[math.floor(quality/100)]
-        analysisResultDE = "Substanz:\nSalbe auf "..world:getItemName(dust,Player.german).."basis\n\nSalbegüte:\n"..qualityDE.." Qualität\n\nWirkung:\n"
-        analysisResultEN = "Substance:\nSalve based on "..world:getItemName(dust,Player.english).."\n\nSalve quality:\n"..qualityEN.." quality\n\nEffect:"
-        local potionEffectId = tonumber(brew:getData("potionEffectId"))
-        if (potionEffectId == 0) or (potionEffectId == nil) then
-            analysisResultDE = analysisResultDE.."Keine Wirkung"
-            analysisResultEN = analysisResultEN.."No effect"
-        else
-            local effectList = alchemy.potionName
-            local potionEffectEN = effectList[potionEffectId][1]
-            local potionEffectDE = effectList[potionEffectId][2]
-            if (potionEffectEN == nil) or (potionEffectDE == nil) then -- potion has an effect id, but the effect id has no entry in the name list
-                potionEffectEN = "Unknown effect"; potionEffectDE = "Unbekannte Wirkung"
             end
             analysisResultDE = analysisResultDE..potionEffectDE
             analysisResultEN = analysisResultEN..potionEffectEN
@@ -283,9 +229,6 @@ local function AnalysisOfBrew(user, theGem, brew)
     elseif brew:getData("filledWith") == "potion" then
         analysisResultDE, analysisResultEN = PotionAnalysis(user, theGem, brew)
 
-    elseif brew:getData("filledWith") == "salve" then
-        analysisResultDE, analysisResultEN = salveAnalysis(user, theGem, brew)
-
     elseif brew:getData("granorsHut") ~= "" then
         analysisResultDE, analysisResultEN = granorsHut.granorsPotion()
     end
@@ -312,14 +255,14 @@ local function CauldronPotionCheck(User, SourceItem)
         -- repair potion in case it's broken
         alchemy.repairPotion(brew)
         -- repair end
-        if (brew:getData("filledWith") == "stock") or (brew:getData("filledWith") == "essenceBrew") or (brew:getData("filledWith") == "potion") or brew:getData("filledWith")=="meraldilised slime" or brew:getData("filledWith") == "salve" then
+        if (brew:getData("filledWith") == "stock") or (brew:getData("filledWith") == "essenceBrew") or (brew:getData("filledWith") == "potion") or brew:getData("filledWith")=="meraldilised slime" then
             AnalysisOfBrew(User, SourceItem, brew)
         else
             brew = User:getItemAt(Character.right_tool)
             -- repair potion in case it's broken
             alchemy.repairPotion(brew)
             -- repair end
-            if (brew:getData("filledWith") == "stock") or (brew:getData("filledWith") == "essenceBrew") or (brew:getData("filledWith") == "potion") or brew:getData("filledWith")=="meraldilised slime" or brew:getData("filledWith") == "salve" then
+            if (brew:getData("filledWith") == "stock") or (brew:getData("filledWith") == "essenceBrew") or (brew:getData("filledWith") == "potion") or brew:getData("filledWith")=="meraldilised slime" then
                 AnalysisOfBrew(User, SourceItem, brew)
             end
         end

@@ -110,8 +110,7 @@ function M.selectionDialogWrapper(User, title, description, buttons, onclose, cl
     User:requestSelectionDialog(sd)
 end
 
-function M.convertTableToItemData(user, theItem, theTable, dataKey, maxData)
-
+function M.tableToString(user, theTable)
     local theString = ""
 
     for _, tableEntry in ipairs(theTable) do
@@ -120,8 +119,16 @@ function M.convertTableToItemData(user, theItem, theTable, dataKey, maxData)
             theString = theString..","
         end
 
-        theString = theString..theTable.key..","..theTable.value
+        theString = theString..tableEntry.key..","..tableEntry.value
     end
+
+    return theString
+end
+
+
+function M.convertTableToItemData(user, theItem, theTable, dataKey, maxData)
+
+    local theString = M.tableToString(user, theTable)
 
     for i = 1, maxData do
         theItem:setData(dataKey..i, string.sub(theString, 1+(250*(i-1)), 250*i))
@@ -152,6 +159,9 @@ function M.convertItemDataToTable(user, theItem, dataKey, maxData)
         local foundValue = parts[i+1]
 
         if foundKey and foundValue then
+            if tonumber(foundValue) then
+                foundValue = tonumber(foundValue)
+            end
             table.insert(retTable, {key = foundKey, value = foundValue })
         end
     end
