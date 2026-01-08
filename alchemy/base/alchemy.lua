@@ -19,6 +19,7 @@ local licence = require("base.licence")
 local gems = require("base.gems")
 local pyr = require("magic.arcane.enchanting.effects.pyr")
 local ilyn = require("magic.arcane.enchanting.effects.ilyn")
+local magic = require("base.magic")
 
 local M = {}
 
@@ -911,6 +912,27 @@ local function getEffectFromIngredients(powder, stock, essence)
     return 0
 end
 
+function M.useMana(user)
+
+    local skill = user:getSkill(Character.alchemy)
+
+    local manaCost = 3000
+
+    local decrease = 1500/100*skill
+
+    manaCost = manaCost -decrease
+
+    if not magic.hasSufficientMana(user, manaCost) then
+        user:inform("Du hast nicht genug Mana.", "You do not have enough mana.")
+        return false
+    end
+
+    user:increaseAttrib("mana", -manaCost)
+
+    return true
+
+end
+
 ----------------------------------------------------
 -- combine of stock and essence brew to create a potion
 -- function is only called when item 331 is a stock or when a potion-bottle is an essence brew
@@ -918,6 +940,10 @@ function M.CombineStockEssence( user, stock, essenceBrew)
 
     local cauldron = M.GetCauldronInfront(user)
     if cauldron then
+
+        if not M.useMana(user) then
+            return
+        end
 
         -- we get the gem dust used as an ingredient; and the new cauldron id we need later
         local _, ingredientGemdust, newCauldron = M.GemDustBottleCauldron(essenceBrew.id)

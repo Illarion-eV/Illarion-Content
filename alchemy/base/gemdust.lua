@@ -79,6 +79,10 @@ end
 local function GemDustInStock(user,cauldron,gemDustId)
     -- stock + gemdust = potion
 
+    if not alchemy.useMana(user) then
+        return
+    end
+
     local potionEffectId = ""
     local addCon
     if (gemDustId == 447) or (gemDustId == 450) then  -- secondary and primary attribute potions

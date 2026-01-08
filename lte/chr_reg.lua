@@ -181,7 +181,9 @@ if Char:idleTime() < 300 then -- Absolutely no regeneration effect if the player
     -----------------------HITPOINTS DONE-----------------------------------
 
     -----------------------MANA BEGIN----------------------------------
-    if ( ( ( Char:getMagicType( ) == 0 ) and ( Char:getMagicFlags( 0 ) > 0 ) ) or ( ( Char:getMagicType( ) == 0 ) and ( Char:getQuestProgress(37) ~= 0) ) ) and Char:getType()==Character.player then -- Character is a mage. Please rework this condition once we have a working magic system ~Estralis
+    local isMage = (Char:getMagicType() == 0 and Char:getMagicFlags( 0 ) > 0 ) or ( Char:getMagicType( ) == 0 and Char:getQuestProgress(37) ~= 0)
+    local isAlchemist = Char:getMagicType() == 3
+    if (isMage or isAlchemist) and Char:getType() == Character.player  then -- Character is a mage. Please rework this condition once we have a working magic system ~Estralis
 
         if Char:getQuestProgress(246) == 0 then --used in rune magic spell LTE that stops mana regen for a time period
 
