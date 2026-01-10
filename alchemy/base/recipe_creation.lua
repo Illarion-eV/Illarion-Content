@@ -853,7 +853,10 @@ local function GetStartAction(user, listOfTheIngredients, cauldron)
     local ingredient = listOfTheIngredients[USER_POSITION_LIST[user.id]]
     local canUseHerb = true
 
-    if ingredient.key == "ingredient" and alchemy.getPlantSubstance(ingredient) or ingredient == 157 then
+    local plus, minus = alchemy.getPlantSubstance(ingredient.value)
+    local isPlant = plus or minus
+
+    if ingredient.key == "ingredient" and isPlant or ingredient == 157 then
         canUseHerb = alchemy.canUseHerb(user, ingredient)
     end
 
@@ -866,6 +869,8 @@ local function CallBrewFunctionAndDeleteItem(user,deleteItem, deleteId,cauldron)
     local result = {}
     result.repeatStep = false
     if deleteId then
+        local plus, minus = alchemy.getPlantSubstance(deleteId)
+        local isPlant = plus or minus
         if deleteId == 52 then -- water
             local buckets = user:getItemList(deleteId)
             -- here, we could need a check if the bucket has no datas
@@ -874,7 +879,7 @@ local function CallBrewFunctionAndDeleteItem(user,deleteItem, deleteId,cauldron)
         elseif alchemy.CheckIfGemDust(deleteId) then    --gemdust
             gemdust.BrewingGemDust(user, deleteId, false, cauldron)
 
-        elseif alchemy.getPlantSubstance(deleteId) or deleteId == 157 then -- plant/rotten tree bark
+        elseif isPlant or deleteId == 157 then -- plant/rotten tree bark
             herbs.BeginnBrewing(user, deleteId, false, cauldron)
         end
 

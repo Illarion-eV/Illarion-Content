@@ -46,8 +46,11 @@ function M.UseItem(user, sourceItem, ltstate)
         alchemy.informAlchemyToolNeeded(user)
         return
     end
-    local isPlant = alchemy.getPlantSubstance(sourceItem.id, user)
+
+    local plus, minus = alchemy.getPlantSubstance(sourceItem.id)
+    local isPlant = plus or minus
     local isGemDust = alchemy.CheckIfGemDust(sourceItem.id, user)
+
     if isPlant  or sourceItem.id == 157 then
         herbs.UseItem(user, sourceItem, ltstate)
     elseif isGemDust then

@@ -648,7 +648,8 @@ local function mapItem(user, sourceItem)
 end
 
 local function alchemyCheck(user, sourceItem, ltstate)
-    local isPlant = alchemy.getPlantSubstance(sourceItem.id, user)
+    local plus, minus = alchemy.getPlantSubstance(sourceItem.id)
+    local isPlant = plus or minus
     local cauldron = alchemy.GetCauldronInfront(user, sourceItem)
     if (cauldron ~= nil) and isPlant then
         herbs.UseItem(user, sourceItem, ltstate)
