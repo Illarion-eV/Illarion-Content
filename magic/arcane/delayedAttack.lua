@@ -129,12 +129,17 @@ function M.spellEffects(user, targets, spell, element, ORL, level, castDuration,
     end
 end
 
-function M.applyDelay(user, target, spell, ORL, level)
+function M.applyDelay(user, target, spell, ORL, level, startedInAttackMode)
     local targetx = target.x
     local targety = target.y
     local targetz = target.z
     local casterx = user.pos.x
     local castery = user.pos.y
+    local startedInAttackModeValue = 0
+
+    if startedInAttackMode then
+        startedInAttackModeValue = 1
+    end
 
     local foundEffect, myEffect = user.effects:find(7)
 
@@ -147,6 +152,7 @@ function M.applyDelay(user, target, spell, ORL, level)
         myEffect:addValue("targetZ", targetz)
         myEffect:addValue("spell", spell)
         myEffect:addValue("level", level)
+        myEffect:addValue("startedInAttackMode", startedInAttackModeValue)
         if ORL then
             myEffect:addValue("ORL", ORL)
         end
@@ -159,6 +165,7 @@ function M.applyDelay(user, target, spell, ORL, level)
         myEffect:addValue("targetZ", targetz)
         myEffect:addValue("spell", spell)
         myEffect:addValue("level", level)
+        myEffect:addValue("startedInAttackMode", startedInAttackModeValue)
         if ORL then
             myEffect:addValue("ORL", ORL)
         end
@@ -170,8 +177,8 @@ function M.addEffect(myEffect, user)
 end
 
 local function nextPositionIntoTargets(nextPosition)
-local targets = {positions = {nextPosition}, items = {}, targets = {}}
-return targets
+    local targets = {positions = {nextPosition}, items = {}, targets = {}}
+    return targets
 end
 
 function M.callEffect(myEffect, user)
@@ -189,6 +196,13 @@ function M.callEffect(myEffect, user)
     local foundTY, ty = myEffect:findValue("targetY")
     local foundTZ, tz = myEffect:findValue("targetZ")
     local foundOrl, ORL = myEffect:findValue("ORL")
+    local foundStartedInAttackMode, startedInAttackMode = myEffect:findValue("startedInAttackMode")
+
+    if foundStartedInAttackMode and startedInAttackMode == 1 then
+        startedInAttackMode = true
+    else
+        startedInAttackMode = false
+    end
 
     local foundLevel, level = myEffect:findValue("level")
 
@@ -236,7 +250,7 @@ function M.callEffect(myEffect, user)
 
     if castSpell then
         targets = targeting.getPositionsAndTargets(user, spell, targetPosition)
-        targets = targeting.addTargets(user, spell, targets)
+        targets = targeting.addTargets(user, spell, targets, startedInAttackMode)
         if (RA or CUN) and SUL then
            targets = targeting.refreshTargets(targets)
         end

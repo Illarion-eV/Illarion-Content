@@ -170,7 +170,7 @@ local function getDunClusterPositions(player, targetPosition)
 
 end
 
-local function getDunPositions(player, targetPosition, spell, targetsPositions)
+local function getDunPositions(player, targetPosition, spell, startedInAttackMode)
 
     local positions = {}
     local px, py, pz = player.pos.x, player.pos.y, player.pos.z
@@ -184,7 +184,7 @@ local function getDunPositions(player, targetPosition, spell, targetsPositions)
 
     local LEV = runes.checkSpellForRuneByName("LEV", spell)
 
-    if distance < 3 or player.attackmode or (PEN and LEV) or targetsPositions.startedInAttackMode then
+    if distance < 3 or player.attackmode or (PEN and LEV) or startedInAttackMode then
         log("DUN spell getting cluster positions")
         return getDunClusterPositions(player, targetPosition)
     end
@@ -208,7 +208,7 @@ local function getDunPositions(player, targetPosition, spell, targetsPositions)
     return positions
 end
 
-local function addDunTargets(user, targetsPositions, spell)
+local function addDunTargets(user, targetsPositions, spell, startedInAttackMode)
 
     log("DUN spell adding targets")
 
@@ -228,7 +228,7 @@ local function addDunTargets(user, targetsPositions, spell)
         end
     end
 
-    local possiblePositions =  getDunPositions(user, targetPosition, spell, targetsPositions)
+    local possiblePositions =  getDunPositions(user, targetPosition, spell, startedInAttackMode)
 
     log("DUN spell finished getting possiblePositions")
 
@@ -624,7 +624,7 @@ local function getStoredTarget(user, id)
     return false
 end
 
-local function getPosition(user, spell, positionsAndTargets, delayed, trap)
+local function getPosition(user, spell, positionsAndTargets, delayed, trap, startedInAttackMode)
 
     local element = runes.fetchElement(spell)
     local rangeNum = range.getCastingRange(user, spell, element)
@@ -643,6 +643,8 @@ local function getPosition(user, spell, positionsAndTargets, delayed, trap)
     local dodgable = (CUN or RA) and SUL
     local thePosition
     local setPos = true
+
+    positionsAndTargets.startedInAttackMode = startedInAttackMode
 
 
     if not delayed then
@@ -677,9 +679,6 @@ local function getPosition(user, spell, positionsAndTargets, delayed, trap)
         end
     else
         thePosition = delayed
-        if user.attackmode then
-            positionsAndTargets.startedInAttackMode = true
-        end
         local foundCharacter = world:isCharacterOnField(thePosition)
         if foundCharacter and not dodgable then
             local target = world:getCharacterOnField(thePosition)
@@ -833,7 +832,7 @@ end
 
 
 
-function M.addTargets(user, spell, positionsAndTargets)
+function M.addTargets(user, spell, positionsAndTargets, startedInAttackMode)
 
     local DUN = runes.checkSpellForRuneByName("DUN", spell)
     local PEN = runes.checkSpellForRuneByName("PEN", spell)
@@ -842,16 +841,16 @@ function M.addTargets(user, spell, positionsAndTargets)
     if DUN and PEN and LUK then
         positionsAndTargets = addPENLukDunTargets(user, positionsAndTargets)
     elseif (PEN and LUK) or DUN then
-        positionsAndTargets = addDunTargets(user, positionsAndTargets, spell)
+        positionsAndTargets = addDunTargets(user, positionsAndTargets, spell, startedInAttackMode)
     end
 
     return positionsAndTargets
 end
 
-function M.getPositionsAndTargets(user, spell, delayed, trap)
+function M.getPositionsAndTargets(user, spell, delayed, trap, startedInAttackMode)
 
     local positionsAndTargets = {positions = {}, targets = {}, items = {}}
-    positionsAndTargets = getPosition(user, spell, positionsAndTargets, delayed, trap)
+    positionsAndTargets = getPosition(user, spell, positionsAndTargets, delayed, trap, startedInAttackMode)
 
     return positionsAndTargets
 end
