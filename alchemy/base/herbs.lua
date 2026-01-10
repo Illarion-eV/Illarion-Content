@@ -60,7 +60,7 @@ function M.UseItem(user, SourceItem, ltstate)
             return
         end
 
-        local duration,gfxId,gfxIntervall,sfxId,sfxIntervall = alchemy.GetStartAction(user, SourceItem.id, "plant", cauldron)
+        local duration,gfxId,gfxIntervall,sfxId,sfxIntervall = alchemy.GetStartAction(user, {key = "ingredient", value = SourceItem.id}, cauldron)
 
         if (ltstate == Action.none) then
             if alchemy.canUseHerb(user, SourceItem.id) then
