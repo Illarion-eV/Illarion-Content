@@ -103,7 +103,7 @@ local function checkForWand(user)
     return true, wand
 end
 
-local function checksPassed(user, spell, element, thePosition)
+local function checksPassed(user, spell, element, thePosition, positions)
 
     local wandCheckPassed = checkForWand(user)
 
@@ -135,7 +135,7 @@ local function checksPassed(user, spell, element, thePosition)
         return false
     end
 
-    if not mana.checkIfEnoughMana(user, spell, thePosition) then
+    if not mana.checkIfEnoughMana(user, spell, thePosition, positions) then
         user:inform(myTexts.mana.german, myTexts.mana.english)
         return false
     end
@@ -373,7 +373,7 @@ function M.castSpell(user, spell, actionState, oralCast)
 
         common.TurnTo(user, M[user.id].thePosition)
 
-        if not checksPassed(user, spell, element, M[user.id].thePosition) then
+        if not checksPassed(user, spell, element, M[user.id].thePosition, M[user.id].positionsAndTargets) then
             return
         end
 
@@ -436,7 +436,7 @@ function M.castSpell(user, spell, actionState, oralCast)
             return
         end
 
-        if not checksPassed(user, spell, element, M[user.id].thePosition) then
+        if not checksPassed(user, spell, element, M[user.id].thePosition, M[user.id].positionsAndTargets) then
             return
         end
 
@@ -448,7 +448,7 @@ function M.castSpell(user, spell, actionState, oralCast)
         M[user.id].positionsAndTargets = targeting.addTargets(user, spell, M[user.id].positionsAndTargets)
 
         if not runes.checkSpellForRuneByName("BHONA", spell) then
-            mana.removedUsedMana(user, spell, M[user.id].thePosition)
+            mana.removedUsedMana(user, spell, M[user.id].thePosition, M[user.id].positionsAndTargets)
             local castDuration = M[user.id].storedDuration
             skilling.increaseExperience(user, spell, castDuration, M[user.id].positionsAndTargets)
             castTime.resetTan(user)
@@ -473,7 +473,7 @@ function M.castSpell(user, spell, actionState, oralCast)
             end
             _G.storedPenLevTargets[user.id] = nil
 
-            if user.attackmode and runes.isSpellAutoCast(spell, wand) and checksPassed(user, spell, element, M[user.id].thePosition) then
+            if user.attackmode and runes.isSpellAutoCast(spell, wand) and checksPassed(user, spell, element, M[user.id].thePosition, M[user.id].positionsAndTargets) then
                 -- To mimic wand magic so that the fire magic replacement does not feel like a downgrade, we allow auto casting of some spells
 
                 if _G.stopAutoCast and _G.stopAutoCast[user.id] then

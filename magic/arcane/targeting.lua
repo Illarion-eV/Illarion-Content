@@ -170,7 +170,7 @@ local function getDunClusterPositions(player, targetPosition)
 
 end
 
-local function getDunPositions(player, targetPosition, spell)
+local function getDunPositions(player, targetPosition, spell, targetsPositions)
 
     local positions = {}
     local px, py, pz = player.pos.x, player.pos.y, player.pos.z
@@ -184,7 +184,7 @@ local function getDunPositions(player, targetPosition, spell)
 
     local LEV = runes.checkSpellForRuneByName("LEV", spell)
 
-    if distance < 3 or player.attackmode or (PEN and LEV) then
+    if distance < 3 or player.attackmode or (PEN and LEV) or targetsPositions.startedInAttackMode then
         log("DUN spell getting cluster positions")
         return getDunClusterPositions(player, targetPosition)
     end
@@ -228,7 +228,7 @@ local function addDunTargets(user, targetsPositions, spell)
         end
     end
 
-    local possiblePositions =  getDunPositions(user, targetPosition, spell)
+    local possiblePositions =  getDunPositions(user, targetPosition, spell, targetsPositions)
 
     log("DUN spell finished getting possiblePositions")
 
@@ -647,6 +647,7 @@ local function getPosition(user, spell, positionsAndTargets, delayed, trap)
 
     if not delayed then
         if user.attackmode and magic.getWand(user) then --wand required to aim
+            positionsAndTargets.startedInAttackMode = true
             local id = user.id
             local targeted = M.playerTargets[id]
             if not targeted then --onAttack did not load the target yet, very rarely happens
@@ -676,6 +677,9 @@ local function getPosition(user, spell, positionsAndTargets, delayed, trap)
         end
     else
         thePosition = delayed
+        if user.attackmode then
+            positionsAndTargets.startedInAttackMode = true
+        end
         local foundCharacter = world:isCharacterOnField(thePosition)
         if foundCharacter and not dodgable then
             local target = world:getCharacterOnField(thePosition)

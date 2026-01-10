@@ -49,7 +49,7 @@ local function manaCostByRuneSize(user, size, spell)
 
 end
 
-function M.arcaneSpellCost(user, spell, thePosition) -- Should return a total mana cost for a spell by checking every rune present in the spell and returning the additive mana value
+function M.arcaneSpellCost(user, spell, thePosition, targets) -- Should return a total mana cost for a spell by checking every rune present in the spell and returning the additive mana value
 
     local manaCost = 0
 
@@ -72,7 +72,7 @@ function M.arcaneSpellCost(user, spell, thePosition) -- Should return a total ma
 
     local LEV = runes.checkSpellForRuneByName("LEV", spell)
 
-    if DUN and distance > 2 and not user.attackmode and not (PEN and LEV) then -- DUN mana cost scaled by how big of a circle you spawn
+    if DUN and distance > 2 and not user.attackmode and not (PEN and LEV) and (not targets or not targets.startedInAttackMode) then -- DUN mana cost scaled by how big of a circle you spawn
 
         distance = distance - 1 -- We dont count the first one as you cant go to 0 so 1 becomes 0 aka the basis
 
@@ -87,9 +87,9 @@ function M.arcaneSpellCost(user, spell, thePosition) -- Should return a total ma
     return manaCost
 end
 
-function M.checkIfEnoughMana(user, spell, thePosition)
+function M.checkIfEnoughMana(user, spell, thePosition, targets)
 
-    local mana = M.arcaneSpellCost(user, spell, thePosition)
+    local mana = M.arcaneSpellCost(user, spell, thePosition, targets)
 
     if magic.hasSufficientMana(user, mana) then
         return true
@@ -98,9 +98,9 @@ function M.checkIfEnoughMana(user, spell, thePosition)
     return false
 end
 
-function M.removedUsedMana(user, spell, thePosition)
+function M.removedUsedMana(user, spell, thePosition, targets)
 
-    local mana = M.arcaneSpellCost(user, spell, thePosition)
+    local mana = M.arcaneSpellCost(user, spell, thePosition, targets)
 
     if hydor.reduceManaCost(user) then
         mana = mana/2
