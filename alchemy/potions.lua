@@ -998,7 +998,7 @@ function M.UseItem(user, sourceItem, actionState)
         if filledWith == "essenceBrew"  or filledWith == "essence" then
             theKey = "essence"
 
-            local essence = ""
+            local essence = sourceItem.id
 
             for i = 1, 8 do
 
@@ -1008,9 +1008,7 @@ function M.UseItem(user, sourceItem, actionState)
                     break
                 end
 
-                if i > 1 then
-                    essence = essence..";"
-                end
+                essence = essence..";"
 
                 essence = essence..essenceIngredient
             end
@@ -1022,7 +1020,7 @@ function M.UseItem(user, sourceItem, actionState)
             theValue = sourceItem:getData("potionEffectId")
         elseif filledWith == "stock" then
 
-            local substances = ""
+            local substances = sourceItem.id
 
             for i=1,8 do
                 local substance = sourceItem:getData(substances[i].."Concentration")
@@ -1031,9 +1029,7 @@ function M.UseItem(user, sourceItem, actionState)
                     substance = 5 --Neutral value
                 end
 
-                if i > 1 then
-                    substances = substances..";"
-                end
+                substances = substances..";"
 
                 substances = substances..substance
             end

@@ -810,7 +810,7 @@ local function GetItem(user, listOfTheIngredients)
                 missingDe = "Dir fehlt der entsprechende Sud."
                 missingEn = "Your don't have the proper stock."
             end
-        elseif key == "essence brew" then
+        elseif key == "essence" then
             local neededId = table.remove(neededList,1)
             local bottleList = user:getItemList(neededId)
             local currentList

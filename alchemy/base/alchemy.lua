@@ -581,16 +581,12 @@ function M.lowerFood(User)
     common.GetHungry(User, FOOD_NEEDED)
 end
 
-function M.CheckIfPotionBottle(SourceItem, User)
-    local retVal
-    for i,checkId in pairs(M.bottleList) do
-        local theItem = SourceItem
-        if theItem.id == checkId then
-            retVal = theItem
-            break
+function M.CheckIfPotionBottle(sourceItem)
+    for _, bottle in pairs(cauldronsAndBottles) do
+        if (bottle.bottle and sourceItem.id == bottle.bottle) or (bottle.essence and sourceItem.id == bottle.essence.full) then
+            return sourceItem
         end
     end
-    return retVal
 end
 
 function M.GetCauldronInfront(User, Item)

@@ -102,7 +102,7 @@ local function PlantInStock(user,plantId,cauldron)
                 cauldron:setData(alchemy.substances[i].."Concentration","5")
             end
         end
-    local plusSubstance, minusSubstance = alchemy.getPlantSubstance(plantId, user)
+    local plusSubstance, minusSubstance = alchemy.getPlantSubstance(plantId)
     if plusSubstance == "" and minusSubstance == "" then
         alchemy.CauldronDestruction(user,cauldron,1)
     else
@@ -214,7 +214,7 @@ function M.BeginnBrewing(user,plantId, plantItem, cauldron)
         plantId = plantItem.id
     end
 
-    local plus, minus = alchemy.getPlantSubstance(plantId, user)
+    local plus, minus = alchemy.getPlantSubstance(plantId)
 
     local isPlant = plus or minus
 
