@@ -147,7 +147,7 @@ end
 local cauldronsAndBottles = {
 
     {cauldron = 1012, bottle = 331, empty = {cauldron = Item.cauldronEmpty, bottle = Item.emptyPotion}},
-    {powder = Item.sapphirePowder, gem = Item.sapphire, cauldron = 1011, bottle = 1224, empty = {cauldron = Item.cauldronEmpty, bottle = Item.emptyAlchemyBomb}, essence = { full = 327 , empty = Item.emptyPotion}},
+    {powder = Item.sapphirePowder, gem = Item.sapphire, cauldron = 1011, bottle = Item.unlitAlchemyBomb, empty = {cauldron = Item.cauldronEmpty, bottle = Item.emptyAlchemyBomb}, essence = { full = 327 , empty = Item.emptyPotion}},
     {powder = Item.rubyPowder, gem = Item.ruby, cauldron = 1016, bottle = 59, empty = {cauldron = Item.cauldronEmpty, bottle = Item.emptyPotion}},
     {powder = Item.emeraldPowder, gem = Item.emerald, cauldron = 1013, bottle = 165, empty = {cauldron = Item.cauldronEmpty, bottle = Item.emptyPotion}},
     {powder = Item.obsidianPowder, gem = Item.obsidian, cauldron = 1009, bottle = 329, empty = {cauldron = Item.cauldronEmpty, bottle = Item.emptyPotion}},
@@ -850,11 +850,12 @@ function M.SetQuality(user, cauldron)
     world:changeItem(cauldron)
 end
 
-function M.GemDustBottleCauldron(id)
+function M.GemDustBottleCauldron(id, essenceBrew)
+
     for _, selected in pairs(cauldronsAndBottles) do
-        if selected.powder == id or selected.gem == id or selected.cauldron == id or selected.bottle == id then
+        if not essenceBrew and (selected.powder == id or selected.gem == id or selected.cauldron == id or selected.bottle == id) then
             return selected.gem, selected.powder, selected.cauldron, selected.bottle
-        elseif selected.essence and selected.essence.full == id then
+        elseif selected.essence and (selected.essence.full == id or essenceBrew and (selected.powder == id or selected.gem == id or selected.cauldron == id or selected.bottle == id)) then
             return selected.gem, selected.powder, selected.cauldron, selected.essence.full
         end
     end
