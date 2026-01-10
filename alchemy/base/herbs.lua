@@ -106,7 +106,7 @@ local function PlantInStock(user,plantId,cauldron)
     if plusSubstance == "" and minusSubstance == "" then
         alchemy.CauldronDestruction(user,cauldron,1)
     else
-        if plusSubstance ~= "" then
+        if not common.IsNilOrEmpty(plusSubstance) then
             local oldConcentration = tonumber(cauldron:getData(plusSubstance.."Concentration"))
             if oldConcentration == nil then
                 oldConcentration = 5
@@ -121,7 +121,7 @@ local function PlantInStock(user,plantId,cauldron)
                 cauldron:setData("filledWith","stock")
             end
         end
-        if minusSubstance ~= "" then
+        if not common.IsNilOrEmpty(minusSubstance) then
             local oldConcentration = tonumber(cauldron:getData(minusSubstance.."Concentration"))
             if oldConcentration == nil then
                 oldConcentration = 5
