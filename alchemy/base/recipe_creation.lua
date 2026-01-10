@@ -879,7 +879,7 @@ local function CallBrewFunctionAndDeleteItem(user,deleteItem, deleteId,cauldron)
         end
 
     else
-        if deleteItem.id == Item.emptypotion or deleteItem.id == Item.emptyAlchemyBomb or deleteItem.id == Item.emptySalveJar then
+        if deleteItem.id == Item.emptyPotion or deleteItem.id == Item.emptyAlchemyBomb or deleteItem.id == Item.emptySalveJar then
             local fillBottleResult = bottling.FillIntoBottle(user, deleteItem, cauldron)
             if fillBottleResult.ilynApplied then
                 result.repeatStep = true
