@@ -585,7 +585,7 @@ local dishes = {
             { id = Item.cookieDough, graphic = Item.cookies, amount = 5},
             { id = Item.spicyDough, graphic = Item.nutbread}
         },
-        [Item.redelder] = {
+        [Item.redElder] = {
             { id = Item.pastryDough, graphic = Item.deerberryMedallion, amount = 2, secondary = {ids = milk, graphic = Item.elderberryPie}},
             { id = Item.plainDough, graphic = Item.nutbread},
             { id = Item.cookieDough, graphic = Item.cookies, amount = 5},
