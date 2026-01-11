@@ -115,8 +115,8 @@ M.cookedFood = {
     [Item.blackberryMedallion] = {ingredients = {Item.pastryDough, Item.blackberry}},
     [Item.blueberryMedallion] = {ingredients = {Item.pastryDough, Item.blueberry}},
     [Item.raspberryMedallion] = {ingredients = {Item.pastryDough, Item.raspberry}},
-    [Item.deerberryMedallion] = {ingredients = {Item.pastryDough, Item.deerberry}},
-    [Item.elderberryMedallion] = {ingredients = {Item.pastryDough, Item.elderberry}},
+    [Item.deerberryMedallion] = {ingredients = {Item.pastryDough, Item.berries}},
+    [Item.elderberryMedallion] = {ingredients = {Item.pastryDough, Item.redElder}},
     [Item.cloudberryMedallion] = {ingredients = {Item.pastryDough, Item.cloudberry}},
 
 
