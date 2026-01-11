@@ -111,6 +111,13 @@ M.cookedFood = {
     [Item.strawberryCake] = {ingredients = {Item.pastryDough, Item.strawberry, Item.beeHoney}, buffs = {{attribute="dexterity", value = 1}, {attribute="agility", value = 1}}},
     [Item.custardPie] = {ingredients = {Item.pastryDough, Item.whiteEgg, Item.bottleOfMilk}, buffs = {{attribute="dexterity", value = 1}, {attribute="agility", value = 1}}},
     [Item.elderberryPie] = {ingredients = {Item.pastryDough, Item.redElder, Item.beeHoney}, buffs = {{attribute="willpower", value = 1}, {attribute="intelligence", value = 1}}},
+    [Item.strawberryMedallion] = {ingredients = {Item.pastryDough, Item.strawberry}},
+    [Item.blackberryMedallion] = {ingredients = {Item.pastryDough, Item.blackberry}},
+    [Item.blueberryMedallion] = {ingredients = {Item.pastryDough, Item.blueberry}},
+    [Item.raspberryMedallion] = {ingredients = {Item.pastryDough, Item.raspberry}},
+    [Item.deerberryMedallion] = {ingredients = {Item.pastryDough, Item.deerberry}},
+    [Item.elderberryMedallion] = {ingredients = {Item.pastryDough, Item.elderberry}},
+    [Item.cloudberryMedallion] = {ingredients = {Item.pastryDough, Item.cloudberry}},
 
 
     -- Bowl dishes

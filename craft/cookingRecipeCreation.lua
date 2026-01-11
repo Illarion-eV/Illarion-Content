@@ -550,13 +550,43 @@ local dishes = {
             { id = Item.spicyDough, graphic = Item.bananaBread}
         },
         [Item.blackberry] = {
-            { id = Item.pastryDough, graphic = Item.blackberryMuffin, amount = 2},
+            { id = Item.pastryDough, graphic = Item.blackberryMedallion, amount = 2, secondary = {ids = milk , graphic = Item.blackberryMuffin, amount = 2}},
             { id = Item.plainDough, graphic = Item.nutbread},
             { id = Item.cookieDough, graphic = Item.cookies, amount = 5},
             { id = Item.spicyDough, graphic = Item.nutbread}
         },
         [Item.strawberry] = {
-            { id = Item.pastryDough, graphic = Item.strawberryCake},
+            { id = Item.pastryDough, graphic = Item.strawberryMedallion, amount = 2, secondary = {ids = eggs , graphic = Item.strawberryCake}},
+            { id = Item.plainDough, graphic = Item.nutbread},
+            { id = Item.cookieDough, graphic = Item.cookies, amount = 5},
+            { id = Item.spicyDough, graphic = Item.nutbread}
+        },
+        [Item.cloudberry] = {
+            { id = Item.pastryDough, graphic = Item.cloudberryMedallion, amount = 2},
+            { id = Item.plainDough, graphic = Item.nutbread},
+            { id = Item.cookieDough, graphic = Item.cookies, amount = 5},
+            { id = Item.spicyDough, graphic = Item.nutbread}
+        },
+        [Item.blueberry] = {
+            { id = Item.pastryDough, graphic = Item.blueberryMedallion, amount = 2},
+            { id = Item.plainDough, graphic = Item.nutbread},
+            { id = Item.cookieDough, graphic = Item.cookies, amount = 5},
+            { id = Item.spicyDough, graphic = Item.nutbread}
+        },
+        [Item.raspberry] = {
+            { id = Item.pastryDough, graphic = Item.raspberryMedallion, amount = 2},
+            { id = Item.plainDough, graphic = Item.nutbread},
+            { id = Item.cookieDough, graphic = Item.cookies, amount = 5},
+            { id = Item.spicyDough, graphic = Item.nutbread}
+        },
+        [Item.berries] = {
+            { id = Item.pastryDough, graphic = Item.deerberryMedallion, amount = 2},
+            { id = Item.plainDough, graphic = Item.nutbread},
+            { id = Item.cookieDough, graphic = Item.cookies, amount = 5},
+            { id = Item.spicyDough, graphic = Item.nutbread}
+        },
+        [Item.redelder] = {
+            { id = Item.pastryDough, graphic = Item.deerberryMedallion, amount = 2, secondary = {ids = milk, graphic = Item.elderberryPie}},
             { id = Item.plainDough, graphic = Item.nutbread},
             { id = Item.cookieDough, graphic = Item.cookies, amount = 5},
             { id = Item.spicyDough, graphic = Item.nutbread}
@@ -573,12 +603,6 @@ local dishes = {
             { id = Item.spicyDough, graphic = Item.bananaBread}
         },
         [Item.nuts] = {
-            { id = Item.pastryDough, graphic = Item.elderberryPie},
-            { id = Item.plainDough, graphic = Item.nutbread},
-            { id = Item.cookieDough, graphic = Item.cookies, amount = 5},
-            { id = Item.spicyDough, graphic = Item.nutbread}
-        },
-        berries = {
             { id = Item.pastryDough, graphic = Item.elderberryPie},
             { id = Item.plainDough, graphic = Item.nutbread},
             { id = Item.cookieDough, graphic = Item.cookies, amount = 5},
@@ -969,12 +993,28 @@ local function getCategoryOfIngredient(ingredientId)
     return false
 end
 
-local function getDishGraphic(parchment, theType, mainIngredient, base)
+local function isInList(list, id)
+
+    if not list or not id then
+        return false
+    end
+
+    for _, listEntry in pairs(list) do
+        if list.id == id then
+            return true
+        end
+    end
+
+    return false
+end
+
+local function getDishGraphic(parchment, theType, mainIngredient, base, secondIngredient)
 
     if parchment then
         theType = parchment:getData("type")
         mainIngredient = parchment:getData("ingredient2")
         base = parchment:getData("ingredient1")
+        secondIngredient = parchment:getData("ingredient3")
     end
 
     if common.IsNilOrEmpty(theType) or common.IsNilOrEmpty(mainIngredient) or common.IsNilOrEmpty(base) then
@@ -1002,9 +1042,16 @@ local function getDishGraphic(parchment, theType, mainIngredient, base)
 
     for _, dish in pairs(dishList) do
         if dish.id == tonumber(base) then
-            retVal = dish.graphic
-            if dish.amount then
-                retAmount = dish.amount
+            if dish.secondary and tonumber(secondIngredient) and ((dish.secondary.id and dish.secondary.id == tonumber(secondIngredient)) or isInList(dish.secondary.ids, tonumber(secondIngredient))) then
+                retVal = dish.secondary.graphic
+                if dish.secondary.amount then
+                    retAmount = dish.secondary.amount
+                end
+            else
+                retVal = dish.graphic
+                if dish.amount then
+                    retAmount = dish.amount
+                end
             end
         end
     end
@@ -1042,7 +1089,7 @@ function M.getDishInfo(dish, ingredients)
         theType = "bowl"
     end
 
-    local dishGraphic, dishAmount = getDishGraphic(false, theType, ingredients[2], ingredients[1])
+    local dishGraphic, dishAmount = getDishGraphic(false, theType, ingredients[2], ingredients[1], ingredients[3])
 
     worth = math.floor(worth/dishAmount)
 
@@ -1616,7 +1663,7 @@ function M.showBookRecipe(user, book, index)
 
     local dialog = SelectionDialog(common.GetNLS(user,"Rezeptübersicht","Recipe overview") , text , callback)
 
-    local dishGraphic = getDishGraphic(false, theType, mainIngredient, base)
+    local dishGraphic = getDishGraphic(false, theType, mainIngredient, base, ingredients[3])
 
     dialog:addOption(dishGraphic, dishName)
 
@@ -1747,8 +1794,8 @@ function M.viewCookBook(user, book, page)
 
     for i = page*10+1, page*10+10 do --Up to 10 recipes shown per page
         if not common.IsNilOrEmpty(book:getData("recipe"..i)) then
-            local theType, base, mainIngredient, dishName = getRecipeDataFromBook(book, i)
-            local dishGraphic = getDishGraphic(false, theType, mainIngredient, base)
+            local theType, base, mainIngredient, dishName, ingredients = getRecipeDataFromBook(book, i)
+            local dishGraphic = getDishGraphic(false, theType, mainIngredient, base, ingredients[3])
             dialog:addOption(dishGraphic, dishName)
         end
     end
