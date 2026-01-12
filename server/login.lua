@@ -295,6 +295,10 @@ end
 
 function M.onLogin( player )
 
+    if player:getQuestStatus(691) < 2 and player:getMagicType() == 3 then
+        player:setQuestStatus(691, 2) --For old druid players who already did the activation of nature magic
+    end
+
     local leaderNames = {"Elvaine Morgan", "Valerio Guilianni", "Rosaline Edwards"}
 
     for _, leaderName in pairs(leaderNames) do
