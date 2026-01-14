@@ -41,18 +41,18 @@ useMsgUS = "Gentle now! Every touch leaves an imprint, even upon the oldest bran
 wrongLangDE = "#me blickt umher und lauscht leise dem Wind."
 wrongLangUS = "#me looks around, quietly listening to the wind."
 radius = 2
-hairID = 1
+hairID = 7
 beardID = 0
-colorHair = 188, 91, 13
-colorSkin = 253, 227, 205
+colorHair = 180, 180, 180
+colorSkin = 210, 180, 140
 itemHead = 0
-itemChest = 182
-itemCoat = 2421
+itemChest = 803
+itemCoat = 0
 itemMainHand = 0
 itemSecondHand = 0
-itemHands = 2295
-itemTrousers = 34
-itemShoes = 53
+itemHands = 1448
+itemTrousers = 0
+itemShoes = 369
 -------------------------------------------------------------------------------
 -- MANDATORY TRIGGERS
 -------------------------------------------------------------------------------
