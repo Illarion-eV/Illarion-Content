@@ -145,6 +145,15 @@ AddToDoorList(4887, 4883)
 AddToDoorList(4888, 4884)
 AddToDoorList(4889, 4885)
 AddToDoorList(4890, 4886)
+AddToDoorList(5230, 5216)
+AddToDoorList(5231, 5217)
+AddToDoorList(5224, 5218)
+AddToDoorList(5225, 5219)
+AddToDoorList(5226, 5220)
+AddToDoorList(5227, 5221)
+AddToDoorList(5228, 5222)
+AddToDoorList(5229, 5223)
+
 
 M.ClosedDoors = ClosedDoors --For use in housing
 
