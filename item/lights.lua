@@ -38,6 +38,8 @@ LightsOff[2853] = { on = 2851, req = { id = Item.candles, num = 3 } } -- facing 
 LightsOn[2851] = { off = 2853 }
 LightsOff[2854] = { on = 2852, req = { id = Item.candles, num = 3 } } -- facing west
 LightsOn[2852] = { off = 2854 }
+LightsOff[5232] = { on = 5233, req = { id = Item.candles, num = 3 } }
+LightsOn[5233] = { off = 5232 }
 -- candle
 LightsOff[399] = { on = 400, req = { id = Item.candles, num = 1 } }
 LightsOn[400] = { off = 399, portable = true }
