@@ -35,14 +35,17 @@ local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 
-Description[GERMAN][1] =  "Suche einen von Fiannas Kontakten auf, um weitere Hinweise zu erhalten, wie du ein Druide werden kannst, und kehre anschließend zu ihr zurück, sobald du einer geworden bist. Du findest Joseph Quatrilla in Cadomyr, Grator Bottlebreak in Galmair oder Vallaria Medrota in Runewick."
-Description[ENGLISH][1] = "Seek out one of Fianna's contacts for more hints on how to become a druid, then return to her once you have become one. You can find Joseph Quatrilla in Cadomyr, Grator Bottlebreak in Galmair, or Vallaria Medrota in Runewick."
-Description[GERMAN][2] =  "Congratulations, you are now a druid capable of harnessing the powers of nature. Return to Fianna in Troll's Haven to learn more."
-Description[ENGLISH][2] = "Glückwunsch, du bist nun ein Druide, der die Kräfte der Natur nutzen kann. Kehre zu Fianna in Troll's Haven zurück, um mehr zu erfahren."
-Description[GERMAN][3] =  "Nun, da du ein Druide bist, der die Kräfte der Natur nutzen kann, kannst du Fianna sowohl nach Alchemie als auch nach den Geflechten der Naturmagie fragen, um mehr darüber zu erfahren und zu lernen, wie du deine neu gewonnenen Kräfte einsetzen kannst."
-Description[ENGLISH][3] = "Now that you are a druid capable of harnessing the powers of nature, you can ask Fianna about both alchemy or the weaves of nature magic to learn more about them and how to make use of your newfound powers."
-Description[GERMAN][4] =  "Du hast die Einführung in den alten Pfad der Naturmagie erfolgreich abgeschlossen und bist bereit, zum nächsten Schritt überzugehen. In diesem Schritt hast du dich auf die Kräfte der Natur eingestimmt und bist zu einem Druiden geworden, der ihre Macht nutzen kann."
-Description[ENGLISH][4] = "You successfully completed the introduction to the old path of nature magic, and are ready to move onto the next step. In this step you attuned to the powers of nature and became a druid capable of harnessing its power."
+
+Description[GERMAN][1] =  "DETRANSLATE"
+Description[ENGLISH][1] = "By talking to Fianna you have taken your first step into the world of nature magic. To continue, ask Fianna more about the Old Weaves."
+Description[GERMAN][2] =  "DETRANSLATE"
+Description[ENGLISH][2] = "You're in the process of learning from Fianna how to become a druid. Talk to her about the old path of nature magic to learn more."
+Description[GERMAN][3] =  "Suche einen von Fiannas Kontakten auf, um weitere Hinweise zu erhalten, wie du ein Druide werden kannst, und kehre anschließend zu ihr zurück, sobald du einer geworden bist. Du findest Joseph Quatrilla in Cadomyr, Grator Bottlebreak in Galmair oder Vallaria Medrota in Runewick."
+Description[ENGLISH][3] = "Seek out one of Fianna's contacts for more hints on how to become a druid, then return to her once you have become one. You can find Joseph Quatrilla in Cadomyr, Grator Bottlebreak in Galmair, or Vallaria Medrota in Runewick."
+Description[GERMAN][4] =  "Congratulations, you are now a druid capable of harnessing the powers of nature. Return to Fianna in Troll's Haven to learn more."
+Description[ENGLISH][4] = "Glückwunsch, du bist nun ein Druide, der die Kräfte der Natur nutzen kann. Kehre zu Fianna in Troll's Haven zurück, um mehr zu erfahren."
+Description[GERMAN][5] =  "Du hast die Einführung in den alten Pfad der Naturmagie erfolgreich abgeschlossen und bist bereit, zum nächsten Schritt überzugehen. In diesem Schritt hast du dich auf die Kräfte der Natur eingestimmt und bist zu einem Druiden geworden, der ihre Macht nutzen kann."
+Description[ENGLISH][5] = "You successfully completed the introduction to the old path of nature magic, and are ready to move onto the next step. In this step you attuned to the powers of nature and became a druid capable of harnessing its power."
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
 local Start = {661, 301, 0}
