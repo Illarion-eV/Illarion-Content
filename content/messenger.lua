@@ -37,7 +37,7 @@ end
 
 local function spawnParchment(user, texts, signature, descriptionEn, descriptionDe, finalized)
 
-    local theDataTable = {["writtenText"] = texts[1],["writtenText2"] = texts[2],["writtenText3"] = texts[3],["writtenText4"] = texts[4], ["signatureText"]  = signature, ["descriptionEn"] = descriptionEn, ["descriptionDe"] = descriptionDe, ["finalized"] = finalized}
+    local theDataTable = {["writtenText"] = tostring(texts[1]),["writtenText2"] = tostring(texts[2]),["writtenText3"] = tostring(texts[3]),["writtenText4"] = tostring(texts[4]), ["signatureText"]  = tostring(signature), ["descriptionEn"] = tostring(descriptionEn), ["descriptionDe"] = tostring(descriptionDe), ["finalized"] = tostring(finalized)}
 
     local itemCreated = user:createItem(Item.parchment, 1, 999, theDataTable)
 
