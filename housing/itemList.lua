@@ -1271,6 +1271,16 @@ table.insert(M.items, {itemId = 3435, typeOf = "Estate", category = "Windows", n
 table.insert(M.items, {itemId = 3436, typeOf = "Estate", category = "Windows", nameDe = "Fenster - Westen", nameEn = "Window West", skill = "glassBlowing", level = 50, ingredient1 = Item.appleWoodBoards, ingredient1Amount = 20, ingredient2 = Item.bundleOfGrain, ingredient2Amount = 5, ingredient3 = Item.clay, ingredient3Amount = 20, ingredient4 = Item.rawStone, ingredient4Amount = 5})
 table.insert(M.items, {itemId = 3437, typeOf = "Estate", category = "Windows", nameDe = "Fenster - Norden", nameEn = "Window North", skill = "glassBlowing", level = 50, ingredient1 = Item.appleWoodBoards, ingredient1Amount = 20, ingredient2 = Item.bundleOfGrain, ingredient2Amount = 5, ingredient3 = Item.clay, ingredient3Amount = 20, ingredient4 = Item.rawStone, ingredient4Amount = 5})
 table.insert(M.items, {itemId = 3438, typeOf = "Estate", category = "Windows", nameDe = "Fenster - Osten", nameEn = "Window East", skill = "glassBlowing", level = 50, ingredient1 = Item.appleWoodBoards, ingredient1Amount = 20, ingredient2 = Item.bundleOfGrain, ingredient2Amount = 5, ingredient3 = Item.clay, ingredient3Amount = 20, ingredient4 = Item.rawStone, ingredient4Amount = 5})
+table.insert(M.items, {itemId = 976, typeOf = "Estate", category = "Bridges", skill = "pottery", level = 40, ingredient1 = 2588, ingredient1Amount = 40, ingredient2 = 26, ingredient2Amount = 10, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
+table.insert(M.items, {itemId = 977, typeOf = "Estate", category = "Bridges", skill = "pottery", level = 40, ingredient1 = 2588, ingredient1Amount = 40, ingredient2 = 26, ingredient2Amount = 10, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
+table.insert(M.items, {itemId = 978, typeOf = "Estate", category = "Bridges", skill = "pottery", level = 40, ingredient1 = 2588, ingredient1Amount = 40, ingredient2 = 26, ingredient2Amount = 10, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
+table.insert(M.items, {itemId = 979, typeOf = "Estate", category = "Bridges", skill = "pottery", level = 40, ingredient1 = 2588, ingredient1Amount = 40, ingredient2 = 26, ingredient2Amount = 10, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
+table.insert(M.items, {itemId = 980, typeOf = "Estate", category = "Bridges", skill = "pottery", level = 40, ingredient1 = 2588, ingredient1Amount = 40, ingredient2 = 26, ingredient2Amount = 10, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
+table.insert(M.items, {itemId = 981, typeOf = "Estate", category = "Bridges", skill = "pottery", level = 40, ingredient1 = 2588, ingredient1Amount = 40, ingredient2 = 26, ingredient2Amount = 10, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
+table.insert(M.items, {itemId = 982, typeOf = "Estate", category = "Bridges", skill = "pottery", level = 40, ingredient1 = 2588, ingredient1Amount = 40, ingredient2 = 26, ingredient2Amount = 10, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
+table.insert(M.items, {itemId = 983, typeOf = "Estate", category = "Bridges", skill = "pottery", level = 40, ingredient1 = 2588, ingredient1Amount = 40, ingredient2 = 26, ingredient2Amount = 10, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
+table.insert(M.items, {itemId = 984, typeOf = "Estate", category = "Bridges", skill = "pottery", level = 40, ingredient1 = 2588, ingredient1Amount = 40, ingredient2 = 26, ingredient2Amount = 10, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
+
 
 M.tiles = {}
 table.insert(M.tiles, {displayId = Item.parquet , tileId = 40, typeOf = "House", category = "Parquet", skill = "carpentry", level = 0, ingredient1 = 2716, ingredient1Amount = 25})
@@ -1345,6 +1355,7 @@ table.insert(M.categories, {categoryEn = "Walls", categoryDe = "Mauern", Estate 
 table.insert(M.categories, {categoryEn = "Decorative Rocks", categoryDe = "Ziersteine", Estate = true})
 table.insert(M.categories, {categoryEn = "Wall Remains", categoryDe = "Mauerreste", Estate = true})
 table.insert(M.categories, {categoryEn = "Windows", categoryDe = "Fenster", Estate = true})
+table.insert(M.categories, {categoryEn = "Bridges", categoryDe = "Brücken", Estate = true})
 table.insert(M.categories, {categoryEn = "Fences", categoryDe = "Zäune", Estate = true})
 table.insert(M.categories, {categoryEn = "Gates", categoryDe = "Tore", Estate = true})
 table.insert(M.categories, {categoryEn = "Decorations", categoryDe = "Dekorationen"})
