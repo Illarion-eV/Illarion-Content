@@ -1347,9 +1347,7 @@ table.insert(M.items, {itemId = 3155, typeOf = "Estate", category = "Bridges", s
 table.insert(M.items, {itemId = 3156, typeOf = "Estate", category = "Bridges", skill = "blacksmithing", level = 70, ingredient1 = Item.stoneBlock, ingredient1Amount = 30, ingredient2 = Item.goldIngot, ingredient2Amount = 10, ingredient3 = Item.clay, ingredient3Amount = 10, ingredient4 = nil, ingredient4Amount = nil})
 table.insert(M.items, {itemId = 3157, typeOf = "Estate", category = "Bridges", skill = "blacksmithing", level = 70, ingredient1 = Item.stoneBlock, ingredient1Amount = 30, ingredient2 = Item.goldIngot, ingredient2Amount = 10, ingredient3 = Item.clay, ingredient3Amount = 10, ingredient4 = nil, ingredient4Amount = nil})
 table.insert(M.items, {itemId = 3158, typeOf = "Estate", category = "Bridges", skill = "blacksmithing", level = 70, ingredient1 = Item.stoneBlock, ingredient1Amount = 30, ingredient2 = Item.goldIngot, ingredient2Amount = 10, ingredient3 = Item.clay, ingredient3Amount = 10, ingredient4 = nil, ingredient4Amount = nil})
-
-
-
+table.insert(M.items, {itemId = Item.chandelierUnlit, typeOf = "House", category = "Lights", skill = "blacksmithing", level = 100, ingredient1 = Item.meriniumIngot, ingredient1Amount = 10, ingredient2 = Item.ironIngot, ingredient2Amount = 40, ingredient3 = Item.copperIngot, ingredient3Amount = 10, ingredient4 = nil, ingredient4Amount = nil})
 
 
 M.tiles = {}

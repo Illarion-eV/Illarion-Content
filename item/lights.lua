@@ -62,6 +62,9 @@ LightsOff[1128] = { on = 1125, req = {id = Item.candles, num = 1} } -- wall lant
 LightsOff[1125] = { off = 1128 }
 LightsOff[1130] = { on = 1126, req = {id = Item.candles, num = 1} } -- wall lantern
 LightsOff[1126] = { off = 1130 }
+-- chandelier
+LightsOff[Item.chandelierUnlit] = { on = Item.chandelier, req = {id = Item.candles, num = 10}}
+LightsOn[Item.chandelier] = {off = Item.chandelierUnlit}
 
 local ReqTexts = {}
 ReqTexts.german = { [392] = "Fackeln", [Item.candles] = "Kerzen", [Item.lampOil] = "Lampenöl" }
@@ -118,7 +121,10 @@ local function checkIfRequirementsAreMetAndConsumeUnlitItem(user, unlitItem, sou
         local hasEnoughOfRequiredItem = user:countItemAt("body", unlitItem.req.id) + user:countItemAt("belt", unlitItem.req.id) >= unlitItem.req.num
 
         for i = 1, 3 do
-            local alternateCheck = user:countItemAt("body", alternative, {["rareness"] = i+1}) + user:countItemAt("belt", alternative, {["rareness"] = i+1}) >= unlitItem.req.num
+            local alternateCheck
+            if alternative then
+                alternateCheck = user:countItemAt("body", alternative, {["rareness"] = i+1}) + user:countItemAt("belt", alternative, {["rareness"] = i+1}) >= unlitItem.req.num
+            end
             local requiredCheck = user:countItemAt("body", unlitItem.req.id, {["rareness"] = i+1}) + user:countItemAt("belt", unlitItem.req.id, {["rareness"] = i+1}) >= unlitItem.req.num
             if alternateCheck then
                 rareness = i+1
