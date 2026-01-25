@@ -408,8 +408,28 @@ local function failureCalc(user, skill, noteDuration, note, notClavichord)
         user:talk(Character.say,"#me plays a note with failure rate "..rate.." %.")
     end
 
+    local note2
+
+    for index, selectedNote in pairs(notes) do
+        if selectedNote.note == note then
+            break
+        end
+        for index2, selectedNote2 in pairs(notes) do
+            if selectedNote.note.."/"..selectedNote2.note == note then
+                note = selectedNote.note
+                note2 = selectedNote2.note
+                break
+            end
+        end
+
+        if note2 then
+            break
+        end
+    end
+
+
     if rate <= 0 then --can't fail
-        return note, noteDuration
+        return note, noteDuration, note2
     end
 
     local random = math.random()
@@ -418,7 +438,7 @@ local function failureCalc(user, skill, noteDuration, note, notClavichord)
         if testing.active then
             user:talk(Character.say,"#me successfully plays a note with failure rate "..rate.." %.")
         end
-        return note, noteDuration
+        return note, noteDuration, note2
     end
 
     local maxDurationImpact = 14
@@ -439,14 +459,26 @@ local function failureCalc(user, skill, noteDuration, note, notClavichord)
 
     local newNote = note
 
+    local newNote2 = note2
+
     if rate > 5 then --notes can fail
 
         local foundIndex
+        local foundIndex2
 
         for index, selectedNote in pairs(notes) do
             if selectedNote.note == note then
                 foundIndex = index
                 break
+            end
+        end
+
+        if note2 then
+            for index, selectedNote in pairs(notes) do
+                if selectedNote.note == note2 then
+                    foundIndex2 = index
+                    break
+                end
             end
         end
 
@@ -459,6 +491,7 @@ local function failureCalc(user, skill, noteDuration, note, notClavichord)
         end
 
         local bImpact, hImpact = 0, 0
+        local bImpact2, hImpact2 = 0, 0
 
         if string.find(note, "B") then
             bImpact = 1
@@ -468,10 +501,24 @@ local function failureCalc(user, skill, noteDuration, note, notClavichord)
             hImpact = 1
         end
 
+        if note2 and string.find(note2, "B") then
+            bImpact2 = 1
+        end
+
+        if note2 and string.find(note2, "H") then
+            hImpact2 = 1
+        end
+
         if foundIndex and higher and notes[foundIndex+noteImpact+bImpact] then
             newNote = notes[foundIndex+noteImpact+bImpact].note
         elseif foundIndex and notes[foundIndex-noteImpact-hImpact] then
             newNote = notes[foundIndex-noteImpact-hImpact].note
+        end
+
+        if foundIndex2 and higher and notes[foundIndex2+noteImpact+bImpact2] then
+            newNote2 = notes[foundIndex+noteImpact+bImpact2].note
+        elseif foundIndex2 and notes[foundIndex2-noteImpact-hImpact2] then
+            newNote2 = notes[foundIndex2-noteImpact-hImpact2].note
         end
     end
 
@@ -479,7 +526,7 @@ local function failureCalc(user, skill, noteDuration, note, notClavichord)
         user:talk(Character.say,"#me plays a note("..note..", "..noteDuration..") with failure rate "..rate.." %. New value: "..newNote..", "..newDuration)
     end
 
-    return newNote, newDuration
+    return newNote, newDuration, newNote2
 end
 
 local function levelImpact(user, skillId, note, noteDuration, amount, instrumentName, sheetTable)
@@ -494,9 +541,9 @@ local function levelImpact(user, skillId, note, noteDuration, amount, instrument
             notClavichord = M.instrumentIsInHandOrInFrontOfUser(user, sheetTable)
         end
 
-        local newNote, newNoteDuration = failureCalc(user, level, noteDuration, note, notClavichord)
+        local newNote, newNoteDuration, newNote2 = failureCalc(user, level, noteDuration, note, notClavichord)
 
-        return newNote, newNoteDuration
+        return newNote, newNoteDuration, newNote2
     end
 
     --else we carry on with the old calcs for drum
@@ -555,9 +602,9 @@ local function playNote(user, sheetTable)
         return
     end
 
-    local newNoteDuration
+    local newNoteDuration, note2
 
-    note, newNoteDuration = levelImpact(user, skillId, note, noteDuration, amount, instrumentName, sheetTable)
+    note, newNoteDuration, note2 = levelImpact(user, skillId, note, noteDuration, amount, instrumentName, sheetTable)
 
     if newNoteDuration then
         noteDuration = newNoteDuration
@@ -567,10 +614,17 @@ local function playNote(user, sheetTable)
     --At level 100 you no longer play wrong notes.
 
     local sfx = false
+    local sfx2 = false
 
     for _, selectedNote in pairs(notes) do
         if selectedNote.note == note then
             sfx = selectedNote[instrumentName]
+        end
+    end
+
+    for _, selectedNote in pairs(notes) do
+        if selectedNote.note == note2 then
+            sfx2 = tonumber(selectedNote[instrumentName])
         end
     end
 
@@ -594,6 +648,10 @@ local function playNote(user, sheetTable)
 
     if sfx then
         world:makeSound(sfx, user.pos)
+    end
+
+    if sfx2 then
+        world:makeSound(sfx2, user.pos)
     end
 
     if not M.step["gfxTracker"..tostring(user.id)] then
@@ -739,7 +797,7 @@ local function convertToNotesAndSave(user, sheet, notesList)
 
 end
 
-local function checkIfSheetInHand(user, quill, notesList)
+local function checkIfSheetInHand(user, quill, notesList, bypass)
 
     if quill then
 
@@ -748,7 +806,7 @@ local function checkIfSheetInHand(user, quill, notesList)
         if parchment and parchment.id == Item.parchment and common.IsNilOrEmpty(parchment:getData("writtenText")) and common.IsNilOrEmpty(parchment:getData("alchemyRecipe")) then
             return parchment
         end
-    elseif notesList then
+    elseif notesList or bypass then
 
         local id = Item.parchment
         local leftTool = user:getItemAt(Character.left_tool)
@@ -854,6 +912,74 @@ local function selectPitch(user, note, notesList, index)
 
 end
 
+local function inputDoubleNote(user, notesList, index)
+
+    local callback = function(dialog)
+
+        if not dialog:getSuccess() then
+            return
+        end
+
+        local sheet = checkIfSheetInHand(user, false, notesList, true)
+
+        if not sheet then
+            return
+        end
+
+        local input = dialog:getInput()
+
+        local noteIsValid
+        local noteIsDouble
+
+        for _, selectedNote in pairs(notes) do
+
+            if selectedNote.note == input then
+                noteIsValid = true
+                break
+            end
+
+            for _, selectedNote2 in pairs(notes) do
+                if selectedNote.note.."/"..selectedNote2.note == input then
+                    noteIsValid = true
+                    noteIsDouble = true
+                    break
+                end
+            end
+
+            if noteIsDouble then
+                break
+            end
+        end
+
+        if not noteIsValid then
+            return
+        end
+
+        if notesList then
+            selectDuration(user, input, notesList, index)
+        else
+
+            M.selectedNote[user.id] = {notes = input..",1", instrument = "notes"}
+
+            local instrument = M.instrumentIsInHandOrInFrontOfUser(user, M.selectedNote[user.id])
+
+            if not instrument then
+                return
+            end
+
+            user:startAction(1, 65, 1, 0, 0)
+        end
+
+    end
+
+    local instructions = common.GetNLS(user, "Bitte gib dein gewünschtes Notenpaar ein. Z. B.: \"B4/A3\".", "Input your desired pair of notes. EG: \"B4/A3\".")
+
+    local dialog = InputDialog(common.GetNLS(user, "Musik komponieren", "Music Composing"), instructions, false, 255, callback)
+
+    user:requestInputDialog(dialog)
+
+end
+
 function M.selectNote(user, notesList, index)
 
     local noteLetters = common.GetNLS(user,{"H", "A#","A", "G#","G", "F#","F", "E", "D#", "D", "C#", "C"} , {"B", "A#","A", "G#","G", "F#","F", "E", "D#", "D", "C#", "C"})
@@ -866,9 +992,14 @@ function M.selectNote(user, notesList, index)
 
         local selected = dialog:getSelectedIndex() + 1
 
-        for i, note in pairs(noteLetters) do
-            if selected == i then
-                selectPitch(user, note, notesList, index)
+        if selected == #noteLetters+1 then
+            inputDoubleNote(user, notesList, index)
+        else
+
+            for i, note in pairs(noteLetters) do
+                if selected == i then
+                    selectPitch(user, note, notesList, index)
+                end
             end
         end
     end
@@ -884,6 +1015,7 @@ function M.selectNote(user, notesList, index)
     for _ , note in ipairs(noteLetters) do
         dialog:addOption(0, note)
     end
+    dialog:addOption(0, common.GetNLS(user, "Doppelte Notiz eingeben", "Input double note"))
 
     dialog:setCloseOnMove()
 
@@ -1037,10 +1169,22 @@ local function verifyInput(user, input)
 
         local noteIsValid = false
 
+        local noteIsDouble = false
+
         -- Check note validity
         for _, selectedNote in pairs(notes) do
             if selectedNote.note == note then
                 noteIsValid = true
+                break
+            end
+            for _, selectedNote2 in pairs(notes) do
+                if selectedNote.note.."/"..selectedNote2.note == note then
+                    noteIsValid = true
+                    noteIsDouble = true
+                    break
+                end
+            end
+            if noteIsDouble then
                 break
             end
         end
@@ -1112,8 +1256,8 @@ local function inputNotes(user, quill)
     end
 
     local instructions = common.GetNLS(user,
-    "Um ein Notenblatt zu komponieren, geben Sie die Noten und die Dauer bis zur nächsten Note in Dezisekunden ein, getrennt durch ein Komma. \nBeispiel: A1,3,A4,10,D4,7\n\nWenn Ihr Notenblatt bereits Noten enthält und Ihr Eingabeformat gültig ist, werden die neuen Noten daran angehängt.\nVerfügbare Noten: H,A#,A,G#,G,F#,F,E,D#,D,C#,C mit den Tonhöhen 1-7.",
-    "To compose a sheet of music notes, you enter the notes and the duration until the next one is played in deciseconds, separated by a comma.\n Example: A1,3,A4,10,D4,7\n\nIf your sheet already contains notes, your input if a valid format will be added onto them.\nAvailable notes: B,A#,A,G#,G,F#,F,E,D#,D,C#,C of pitches 1-7.")
+    "Um ein Notenblatt zu komponieren, geben Sie die Noten und die Dauer bis zur nächsten Note in Dezisekunden ein, getrennt durch ein Komma. \nBeispiel: A1,3,A4,10,D4,7\n\nWenn Ihr Notenblatt bereits Noten enthält und Ihr Eingabeformat gültig ist, werden die neuen Noten daran angehängt.\nVerfügbare Noten: H,A#,A,G#,G,F#,F,E,D#,D,C#,C mit den Tonhöhen 1-7.\n Noten können auch paarweise gleichzeitig gespielt werden mit /. Beispiel: A3/D4,1",
+    "To compose a sheet of music notes, you enter the notes and the duration until the next one is played in deciseconds, separated by a comma.\n Example: A1,3,A4,10,D4,7\n\nIf your sheet already contains notes, your input if a valid format will be added onto them.\nAvailable notes: B,A#,A,G#,G,F#,F,E,D#,D,C#,C of pitches 1-7.\n Notes can also be played two at a time using / Example: A3/D4,1")
 
     local dialog = InputDialog(common.GetNLS(user, "Musik komponieren", "Music Composing"), instructions, false, 255, callback)
 
