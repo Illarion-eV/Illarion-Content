@@ -1172,7 +1172,7 @@ local function settingsForCharMagicClass(user, chosenPlayer)
             end
 
             if targetClass == 3 then -- Druid
-                chosenPlayer:setQuestStatus(691, 4)
+                chosenPlayer:setQuestProgress(691, 4)
             end
             common.InformNLS(chosenPlayer, "[GM Info] Die magische Klasse wurde auf " .. classNames[targetClass] .. "geändert", "[GM Info] The magic class has been changed to " .. classNames[targetClass].. ".")
         end
