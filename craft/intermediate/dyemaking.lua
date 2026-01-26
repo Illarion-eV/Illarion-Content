@@ -49,17 +49,17 @@ product:addIngredient(52) -- Water bucket
 
 -- Black Dye
 product = dyemaking:addProduct(catId, 2678, 1)
-product:addIngredient(136, 2) -- Anger berry
+product:addIngredient(136, 1) -- Anger berry
 product:addIngredient(52) -- Water bucket
 
 -- Yellow Dye
 product = dyemaking:addProduct(catId, 2682, 1)
-product:addIngredient(135, 2) -- Yellow Weed
+product:addIngredient(135, 1) -- Yellow Weed
 product:addIngredient(52) -- Water bucket
 
 -- Blue Dye
 product = dyemaking:addProduct(catId, 2680, 1)
-product:addIngredient(753, 2) -- Blue Bird's Berry
+product:addIngredient(753, 1) -- Blue Bird's Berry
 product:addIngredient(52) -- Water bucket
 
 catId = dyemaking:addCategory("Other", "Sonstiges")
