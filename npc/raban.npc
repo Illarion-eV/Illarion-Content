@@ -123,40 +123,40 @@ queststatus(66) = 1, "task", "adventure", "order" -> "So, how is your progress i
 queststatus(66) = 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Und, wie kommt ihr voran mit dem Finden von zehn Tannensprösslinge?"
 
 -- 2nd quest: Gather 20 different raw materials for 1000cp.
-queststatus(66) = 2, english, "quest", "mission" -> inform("[New quest] Raban's Grove II"), queststatus(66) = 3, "How kind of you that you want to assist me one more time. Could you gather twenty blackberries, sweet gifts of Oldra?"
-queststatus(66) = 2, "quest", "mission" -> inform("[Neues Quest] Rabans Hain II"), queststatus(66) = 3, "Wie aufmerksam, dass ihr mir ein weiteres mal helfen wollt. Könntet ihr so nett sein und zwanzig Brombeeren sammeln, süße Geschenke der Oldra?"
-queststatus(66) = 2, "task", "adventure", "order" -> inform("[New quest] Raban's Grove II"), queststatus(66) = 3, "How kind of you that you want to assist me one more time. Could you gather twenty blackberries, sweet gifts of Oldra?"
-queststatus(66) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Rabans Hain II"), queststatus(66) = 3, "Wie aufmerksam, dass ihr mir ein weiteres mal helfen wollt. Könntet ihr so nett sein und zwanzig Brombeeren sammeln, süße Geschenke der Oldra?"
+queststatus(66) = 2, english, "quest", "mission" -> inform("[New quest] Raban's Grove II"), queststatus(66) = 3, "How kind of you that you want to assist me one more time. Could you gather twenty fanleaves from the nearby plants growing around the lake?"
+queststatus(66) = 2, "quest", "mission" -> inform("[Neues Quest] Rabans Hain II"), queststatus(66) = 3, "Wie aufmerksam, dass ihr mir ein weiteres mal helfen wollt. Könntest du zwanzig Fächerblätter von den nahe am See wachsenden Pflanzen sammeln?"
+queststatus(66) = 2, "task", "adventure", "order" -> inform("[New quest] Raban's Grove II"), queststatus(66) = 3, "How kind of you that you want to assist me one more time. Could you gather twenty fanleaves from the nearby plants growing around the lake?"
+queststatus(66) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Rabans Hain II"), queststatus(66) = 3, "Wie aufmerksam, dass ihr mir ein weiteres mal helfen wollt. Könntest du zwanzig Fächerblätter von den nahe am See wachsenden Pflanzen sammeln?"
 
 -- Quest 2 solved
-skill(herblore) < 90, queststatus(66) = 3, item(147, all) > 19, english, ".+" -> inform("[Quest solved] You are awarded ten silver coins and your herb lore skill increases."), skill(herblore) + 1, money + 1000, deleteItem(147, 20), queststatus(66) = 4, "I am grateful for the twenty blackberries you brought me. Have this small reward."
-queststatus(66) = 3, item(147, all) > 19, english, ".+" -> inform("[Quest solved] You are awarded ten silver coins."), money + 1000, deleteItem(147, 20), queststatus(66) = 4, "I am grateful for the twenty blackberries you brought me. Have this small reward."
-skill(herblore) < 90, queststatus(66) = 3, item(147, all) > 19, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke und deine Kräuterkundefertigkeit steigt."), skill(herblore) + 1, money + 1000, deleteItem(147, 20), queststatus(66) = 4, "Ich bin dankbar für die zwanzig Brombeeren, die ihr dargebracht habt. Nehmt diese kleine Belohnung."
-queststatus(66) = 3, item(147, all) > 19, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke."), money + 1000, deleteItem(147, 20), queststatus(66) = 4, "Ich bin dankbar für die zwanzig Brombeeren, die ihr dargebracht habt. Nehmt diese kleine Belohnung."
+skill(herblore) < 90, queststatus(66) = 3, item(155, all) > 19, english, ".+" -> inform("[Quest solved] You are awarded ten silver coins and your herb lore skill increases."), skill(herblore) + 1, money + 1000, deleteItem(147, 20), queststatus(66) = 4, "I am grateful for the twenty fanleaves you brought me. Have this small reward."
+queststatus(66) = 3, item(155, all) > 19, english, ".+" -> inform("[Quest solved] You are awarded ten silver coins."), money + 1000, deleteItem(147, 20), queststatus(66) = 4, "I am grateful for the twenty fanleaves you brought me. Have this small reward."
+skill(herblore) < 90, queststatus(66) = 3, item(155, all) > 19, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke und deine Kräuterkundefertigkeit steigt."), skill(herblore) + 1, money + 1000, deleteItem(147, 20), queststatus(66) = 4, "Ich bin dankbar für die zwanzig Fächerblätter, die ihr dargebracht habt. Nehmt diese kleine Belohnung."
+queststatus(66) = 3, item(155, all) > 19, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke."), money + 1000, deleteItem(147, 20), queststatus(66) = 4, "Ich bin dankbar für die zwanzig Fächerblätter, die ihr dargebracht habt. Nehmt diese kleine Belohnung."
 
 -- Quest 2 not solved, repeat the instructions
-queststatus(66) = 3, english, "quest", "mission" -> "You can find the twenty blackberries I asked for in the hedge over there."
-queststatus(66) = 3, "quest", "mission" -> "Ihr könnt die zwanzig Brombeeren, die ich erbat, an der Hecke dort drüben finden."
-queststatus(66) = 3, "task", "adventure", "order" -> "You can find the twenty blackberries I asked for in the hedge over there."
-queststatus(66) = 3, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ihr könnt die zwanzig Brombeeren, die ich erbat, an der Hecke dort drüben finden."
+queststatus(66) = 3, english, "quest", "mission" -> "You can find the twenty fanleaves I asked for surrounding the grove's lake."
+queststatus(66) = 3, "quest", "mission" -> "Du kannst die zwanzig Fächerblätter, um die ich gebeten habe, rund um den See im Hain finden."
+queststatus(66) = 3, "task", "adventure", "order" -> "You can find the twenty fanleaves I asked for surrounding the grove's lake."
+queststatus(66) = 3, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du kannst die zwanzig Fächerblätter, um die ich gebeten habe, rund um den See im Hain finden."
 
 -- 3rd quest: Gather 5 rare raw materials for 1000cp.
-queststatus(66) = 4, english, "quest", "mission" -> inform("[New quest] Raban's Grove III"), queststatus(66) = 5, "It is honourable that you help me and the Goddess. For now, I desire five champignons to spread life on the soil."
-queststatus(66) = 4, "quest", "mission" -> inform("[Neues Quest] Rabans Hain III"), queststatus(66) = 5, "Es ehrt euch, dass ihr mir und der Göttin erneut helfen wollt. Nun benötige ich fünf Champignons, um Leben auf dem Erdboden zu sähen."
-queststatus(66) = 4, "task", "adventure", "order" -> inform("[New quest] Raban's Grove III"), queststatus(66) = 5, "It is honourable that you help me and the Goddess. For now, I desire five champignons to spread life on the soil."
-queststatus(66) = 4, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Rabans Hain III"), queststatus(66) = 5, "Es ehrt euch, dass ihr mir und der Göttin erneut helfen wollt. Nun benötige ich fünf Champignons, um Leben auf dem Erdboden zu sähen."
+queststatus(66) = 4, english, "quest", "mission" -> inform("[New quest] Raban's Grove III"), queststatus(66) = 5, "It is honourable that you help me and the Goddess. For now, I desire five firnis blossoms to spread life on the soil."
+queststatus(66) = 4, "quest", "mission" -> inform("[Neues Quest] Rabans Hain III"), queststatus(66) = 5, "Es ehrt euch, dass ihr mir und der Göttin erneut helfen wollt. Nun benötige ich fünf Firnisblüte, um Leben auf dem Erdboden zu sähen."
+queststatus(66) = 4, "task", "adventure", "order" -> inform("[New quest] Raban's Grove III"), queststatus(66) = 5, "It is honourable that you help me and the Goddess. For now, I desire five firnis blossoms to spread life on the soil."
+queststatus(66) = 4, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Rabans Hain III"), queststatus(66) = 5, "Es ehrt euch, dass ihr mir und der Göttin erneut helfen wollt. Nun benötige ich fünf Firnisblüte, um Leben auf dem Erdboden zu sähen."
 
 -- Quest 3 solved
-skill(herblore) < 90, queststatus(66) = 5, item(163, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded ten silver coins and your herb lore skill increases."), skill(herblore) + 1, money + 1000, deleteItem(163, 5), queststatus(66) = 6, "Ah, you brought the five champignons. Long did I store this reward, now it is yours."
-queststatus(66) = 5, item(163, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded ten silver coins."), money + 1000, deleteItem(163, 5), queststatus(66) = 6, "Ah, you brought the five champignons. Long did I store this reward, now it is yours."
-skill(herblore) < 90, queststatus(66) = 5, item(163, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke und deine Kräuterkundefertigkeit steigt."), skill(herblore) + 1, money + 1000, deleteItem(163, 5), queststatus(66) = 6, "Ah, ihr habt die fünf Champignons mitgebracht. Lange habe ich diese Belohnung aufbewahrt, nun ist sie euer."
-queststatus(66) = 5, item(163, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke."), money + 1000, deleteItem(163, 5), queststatus(66) = 6, "Ah, ihr habt die fünf Champignons mitgebracht. Lange habe ich diese Belohnung aufbewahrt, nun ist sie euer."
+skill(herblore) < 90, queststatus(66) = 5, item(148, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded ten silver coins and your herb lore skill increases."), skill(herblore) + 1, money + 1000, deleteItem(163, 5), queststatus(66) = 6, "Ah, you brought the five firnis blossoms. Long did I store this reward, now it is yours."
+queststatus(66) = 5, item(148, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded ten silver coins."), money + 1000, deleteItem(163, 5), queststatus(66) = 6, "Ah, you brought the five firnis blossoms. Long did I store this reward, now it is yours."
+skill(herblore) < 90, queststatus(66) = 5, item(148, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke und deine Kräuterkundefertigkeit steigt."), skill(herblore) + 1, money + 1000, deleteItem(163, 5), queststatus(66) = 6, "Ah, ihr habt die fünf Firnisblüte mitgebracht. Lange habe ich diese Belohnung aufbewahrt, nun ist sie euer."
+queststatus(66) = 5, item(148, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke."), money + 1000, deleteItem(163, 5), queststatus(66) = 6, "Ah, ihr habt die fünf Firnisblüte mitgebracht. Lange habe ich diese Belohnung aufbewahrt, nun ist sie euer."
 
 -- Quest 3 not solved, repeat the instructions
-queststatus(66) = 5, english, "quest", "mission" -> "Search for the five champignons at the mushroom circles you may find close to the trees."
-queststatus(66) = 5, "quest", "mission" -> "Sucht nach den fünf Champignons in den Pilzkreisen, die ihr nahe der Bäume findet."
-queststatus(66) = 5, "task", "adventure", "order" -> "Search for the five champignons at the mushroom circles you may find close to the trees."
-queststatus(66) = 5, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Sucht nach den fünf Champignons in den Pilzkreisen, die ihr nahe der Bäume findet."
+queststatus(66) = 5, english, "quest", "mission" -> "Search for the five firnis blossoms. You can find them by the pond in the far southwest of the northern woods we are currently in."
+queststatus(66) = 5, "quest", "mission" -> "Suche nach den fünf Firnis-Blüten. Du kannst sie am Teich im äußersten Südwesten des nördlichen Waldes finden, in dem wir uns gerade befinden."
+queststatus(66) = 5, "task", "adventure", "order" -> "Search for the five firnis blossoms. You can find them by the pond in the far southwest of the northern woods we are currently in."
+queststatus(66) = 5, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Suche nach den fünf Firnis-Blüten. Du kannst sie am Teich im äußersten Südwesten des nördlichen Waldes finden, in dem wir uns gerade befinden."
 
 -- 4th quest: Gather 10 raw materials from a totally different location for 2000cp. Link to other quest. Hint how to get there.
 queststatus(66) = 6, english, "quest", "mission" -> inform("[New quest] Raban's Grove IV"), queststatus(66) = 7, "Now I need something special. The soil here is too wet for some plants to grow. I need ten shovels of coarse sand. Please go to my old friend Rutrus at the Oasis of Stars and fetch some, will you?"
