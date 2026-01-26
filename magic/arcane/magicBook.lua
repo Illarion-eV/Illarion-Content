@@ -105,8 +105,8 @@ local function setDefaultRange(user)
 
         local wand = magic.getWand(user)
 
-        if not theNumber or tonumber(theNumber) > 7 or tonumber(theNumber) < 1  then
-            user:inform("Die eingegebene Zahl muss zwischen 1 und 7 liegen.", "The input number must be a number between 1 and 7.")
+        if not theNumber or tonumber(theNumber) > 9 or tonumber(theNumber) < 1  then
+            user:inform("Die eingegebene Zahl muss zwischen 1 und 9 liegen.", "The input number must be a number between 1 and 9.")
             return
         elseif wand then
             wand:setData("range", tostring(theNumber))
@@ -117,7 +117,7 @@ local function setDefaultRange(user)
     end
 
     local dialogTitle = common.GetNLS(user, "Zauberstab-Wirkungsreichweite", "Wand Cast Range")
-    local dialogText = common.GetNLS(user,"Dies ermöglicht es dir, festzulegen, wie viele Felder entfernt von der Richtung, in die dein Charakter blickt, du Runenmagie wirken möchtest, wenn kein Ziel ausgewählt ist. Der Standardwert ist 1, und er kann bis zu 7 betragen. Die Reichweite ist spezifisch für den Zauberstab, für den du die Reichweite einstellst, und dieser muss in deiner Hand gehalten werden. Dies ist ein Platzhaltersystem, bis wir jemanden haben, der die nötige Server- und Client-seitige Unterstützung für eine richtige Point-and-Click-Zielauswahl programmieren kann.", "This allows you to set how many tiles away from where your character is facing that you want to cast rune magic at when you do not have a target selected. The default is 1, and it can go up to 7. The range is specific to the wand you set the range for, which must be held in your hand. This is a placeholder system until we have someone that can code the proper server and client side support necessary for point-and-click targeting.")
+    local dialogText = common.GetNLS(user,"Dies ermöglicht es dir, festzulegen, wie viele Felder entfernt von der Richtung, in die dein Charakter blickt, du Runenmagie wirken möchtest, wenn kein Ziel ausgewählt ist. Der Standardwert ist 1, und er kann bis zu 9 betragen. Die Reichweite ist spezifisch für den Zauberstab, für den du die Reichweite einstellst, und dieser muss in deiner Hand gehalten werden. Dies ist ein Platzhaltersystem, bis wir jemanden haben, der die nötige Server- und Client-seitige Unterstützung für eine richtige Point-and-Click-Zielauswahl programmieren kann.", "This allows you to set how many tiles away from where your character is facing that you want to cast rune magic at when you do not have a target selected. The default is 1, and it can go up to 9. The range is specific to the wand you set the range for, which must be held in your hand. This is a placeholder system until we have someone that can code the proper server and client side support necessary for point-and-click targeting.")
 
     user:requestInputDialog(InputDialog(dialogTitle, dialogText ,false, 255, callback))
 
