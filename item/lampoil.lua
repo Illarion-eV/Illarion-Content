@@ -67,4 +67,8 @@ function M.UseItem(user, sourceItem)
     end
 end
 
+function M.LookAtItem(user, item)
+    return lights.LookAtItem(user, item)
+end
+
 return M

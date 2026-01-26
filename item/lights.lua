@@ -267,6 +267,10 @@ end
 
 function M.UseItem(user, sourceItem)
 
+    if sourceItem.id == Item.candles then
+        return
+    end
+
     if not passesCheckForStackSizeAndPosition(user, sourceItem) then
         return
     end
@@ -351,28 +355,55 @@ end
 
 function M.LookAtItem(user, sourceItem)
 
+    local rareTexts = {
+        {value = 2, text = {english = "So uncommonly pristine, it is sure to burn longer than normal.", german = "So ungewöhnlich makellos, dass es sicher länger als gewöhnlich brennt."}},
+        {value = 3, text = {english = "Of such rarely seen pristinity, it is sure to burn longer than normal.", german = "Von einer derart selten gesehenen Makellosigkeit, dass es sicher länger als gewöhnlich brennt."}},
+        {value = 4, text = {english = "So uniquely pristine, it is sure to burn longer than normal, as if blessed by Brágon himself.", german = "So einzigartig makellos, dass es sicher länger als gewöhnlich brennt, als wäre es von Brágon selbst gesegnet."}}
+    }
+
+
+    local rareness, craftedRare = tonumber(sourceItem:getData("rareness")), sourceItem:getData("craftedRare")
+
+    local preText = {english = "", german = ""}
+
+    if craftedRare == "true" and rareness then
+        for _, rareText in pairs(rareTexts) do
+            if rareText.value == rareness then
+                preText.english = rareText.text.english
+                preText.german = rareText.text.german
+                if not sourceItem.id == Item.candles and not sourceItem.id == Item.lampOil then
+                    preText.english = preText.english.."\n\n"
+                    preText.german = preText.german.."\n\n"
+                end
+            end
+        end
+    end
+
+
     if(LightsOn[sourceItem.id]) then
         local TimeLeftI = sourceItem.wear
         if(TimeLeftI == 255) then
-            lookat.SetSpecialDescription(sourceItem, "Sie wird nie ausbrennen.", "It will never burn down.")
+            lookat.SetSpecialDescription(sourceItem, preText.german.."Sie wird nie ausbrennen.", preText.english.."It will never burn down.")
         elseif (TimeLeftI == 0) then
-            lookat.SetSpecialDescription(sourceItem, "Sie wird sofort ausbrennen.", "It will burn down immediately.")
+            lookat.SetSpecialDescription(sourceItem, preText.german.."Sie wird sofort ausbrennen.", preText.english.."It will burn down immediately.")
         elseif (TimeLeftI == 1) then
-            lookat.SetSpecialDescription(sourceItem, "Sie wird demnächst ausbrennen.", "It will burn down anytime soon.")
+            lookat.SetSpecialDescription(sourceItem, preText.german.."Sie wird demnächst ausbrennen.", preText.english.."It will burn down anytime soon.")
         elseif (TimeLeftI == 2) then
-            lookat.SetSpecialDescription(sourceItem, "Sie wird bald ausbrennen.", "It will burn down soon.")
+            lookat.SetSpecialDescription(sourceItem, preText.german.."Sie wird bald ausbrennen.", preText.english.."It will burn down soon.")
         elseif (TimeLeftI <= 4) then
-            lookat.SetSpecialDescription(sourceItem, "Sie wird nach einer Weile ausbrennen.", "It will burn down in a while.")
+            lookat.SetSpecialDescription(sourceItem, preText.german.."Sie wird nach einer Weile ausbrennen.", preText.english.."It will burn down in a while.")
         elseif (TimeLeftI <= DEFAULT_WEAR) then
-            lookat.SetSpecialDescription(sourceItem, "Sie wird nicht allzu bald ausbrennen.", "It will not burn down anytime soon.")
+            lookat.SetSpecialDescription(sourceItem, preText.german.."Sie wird nicht allzu bald ausbrennen.", preText.english.."It will not burn down anytime soon.")
         elseif (TimeLeftI > DEFAULT_WEAR) then
-            lookat.SetSpecialDescription(sourceItem, "Sie wird nach langer Zeit ausbrennen.", "It will burn down in a long time.")
+            lookat.SetSpecialDescription(sourceItem, preText.german.."Sie wird nach langer Zeit ausbrennen.", preText.english.."It will burn down in a long time.")
         end
     elseif (LightsOff[sourceItem.id]) then
-        lookat.SetSpecialDescription(sourceItem, "Sie ist nicht angezündet.", "It is not lit, yet.")
+        lookat.SetSpecialDescription(sourceItem, preText.german.."Sie ist nicht angezündet.", preText.english.."It is not lit, yet.")
+    else
+        lookat.SetSpecialDescription(sourceItem, preText.german, preText.english)
     end
 
-    return lookat.GenerateLookAt(user, sourceItem, lookat.NONE)
+    return lookat.GenerateLookAt(user, sourceItem, lookat.NONE, nil, nil, nil, true)
 end
 
 return M
