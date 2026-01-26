@@ -86,7 +86,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "May the roots beneath keep 
 -- TRADE
 -------------------------------------------------------------------------------
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I don't offer common trade, but will ensure you have everything you need to explore Ushara's secrets at a fair price."
-"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich biete keinen gewöhnlichen Handel an, aber ich sorge dafür, dass du alles hast, was du brauchst, um Usharas Geheimnisse zu ergründen ? zu einem ehrlichen Preis."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich biete keinen gewöhnlichen Handel an, aber ich sorge dafür, dass du alles hast, was du brauchst, um Usharas Geheimnisse zu ergründen - zu einem ehrlichen Preis."
 -------------------------------------------------------------------------------
 -- INITIAL QUESTING: THE OLD PATH / DRUID MAGIC / NATURE MAGIC
 -------------------------------------------------------------------------------
@@ -110,11 +110,11 @@ queststatus(691) < 2, "weaves" -> queststatus(691) = 2, "What many call Nature M
 queststatus(691) < 2, "gewebe" -> queststatus(691) = 2, "Was viele Naturmagie nennen, sind für uns die Alten Gewebe: Alchemie, Transmutation, Welkengewebe, Blütengewebe, Wildgewebe, Steingewebe, Tiefengewebe und die Resonanz des Widerstands. Es sind keine Zauber, sondern lebendige Fäden, die Ushara der Erde selbst eingewoben hat, verwoben durch Mergel und Jahreszeiten. Wenn du die Geduld hast, kann ich dich weiter auf dem Alten Pfad führen.", inform("[Hinweis] Dein Verständnis der Naturmagie wächst - frage nach dem Alten Pfad, um mehr zu erfahren.")
 --Repeat instructions if player asks about Weaves again QS2
 queststatus(691) = 2, english, "weaves", "nature magic" -> "Do not be afraid to ask me about Alchemy, Transmutation, Witherweave, Bloomweave, Wildweave, Stoneweave, Deepweave, or your own resonance to resist but heed me, knowledge isn't enough. When your ready, ask me how to walk the Old Path.", inform("[Hint] Ask about the Old Path to learn more.")
-queststatus(691) = 2, "gewebe" -> "naturmagie", "Fürchte dich nicht, mich nach Alchemie, Transmutation, Welkengewebe, Blütengewebe, Wildgewebe, Steingewebe, Tiefengewebe oder nach deiner eigenen Resonanz des Widerstands zu fragen ? doch höre mich gut: Wissen allein genügt nicht. Wenn du bereit bist, frage mich, wie man den Alten Pfad beschreitet.", inform("[Hinweis] Frage nach dem Alten Pfad, um mehr zu erfahren.")
+queststatus(691) = 2, "gewebe" -> "naturmagie", "Fürchte dich nicht, mich nach Alchemie, Transmutation, Welkengewebe, Blütengewebe, Wildgewebe, Steingewebe, Tiefengewebe oder nach deiner eigenen Resonanz des Widerstands zu fragen - doch höre mich gut: Wissen allein genügt nicht. Wenn du bereit bist, frage mich, wie man den Alten Pfad beschreitet.", inform("[Hinweis] Frage nach dem Alten Pfad, um mehr zu erfahren.")
 --Advance Questing once old path or standard triggers are used again
 queststatus(691) = 2, english, "quest", "mission" -> queststatus(691) = 3, "The Old Path is both a rite of passage and an unending road. No teacher alone may grant you entry. Ushara has her own ways, seek my fellow weavers to explore further: Joseph Quatrilla in Cadomyr, Grator Bottlebreak in Galmair, or Vallaria Medrota in Runewick.", inform("[Hint] To further your understanding of Nature Magic head to Cadomyr, Galmair, or Runewick and seek one of Fianna's local druid contacts.")
 queststatus(691) = 2, "task", "adventure", "old path" -> queststatus(691) = 3, "The Old Path is both a rite of passage and an unending road. No teacher alone may grant you entry. Ushara has her own ways, seek my fellow weavers to explore further: Joseph Quatrilla in Cadomyr, Grator Bottlebreak in Galmair, or Vallaria Medrota in Runewick.", inform("[Hint] To further your understanding of Nature Magic head to Cadomyr, Galmair, or Runewick and seek one of Fianna's local druid contacts.")
-queststatus(691) = 2, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission", "alten pfad"-> queststatus(691) = 3, "Der Alte Pfad ist zugleich ein Initiationsritus und ein niemals endender Weg. Kein einzelner Lehrer kann dir allein den Eintritt gewähren. Ushara hat ihre eigenen Wege ? suche meine Mitweber auf, um weiter zu forschen: Joseph Quatrilla in Cadomyr, Grator Bottlebreak in Galmair oder Vallaria Medrota in Runewick.", inform("[Hinweis] Um dein Verständnis der Naturmagie weiter zu vertiefen, begib dich nach Cadomyr, Galmair oder Runewick und suche einen von Fiannas örtlichen Druidenkontakten auf.")
+queststatus(691) = 2, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission", "alten pfad"-> queststatus(691) = 3, "Der Alte Pfad ist zugleich ein Initiationsritus und ein niemals endender Weg. Kein einzelner Lehrer kann dir allein den Eintritt gewähren. Ushara hat ihre eigenen Wege - suche meine Mitweber auf, um weiter zu forschen: Joseph Quatrilla in Cadomyr, Grator Bottlebreak in Galmair oder Vallaria Medrota in Runewick.", inform("[Hinweis] Um dein Verständnis der Naturmagie weiter zu vertiefen, begib dich nach Cadomyr, Galmair oder Runewick und suche einen von Fiannas örtlichen Druidenkontakten auf.")
 --Loop if Player hasn't accepted being a Druid QS3
 queststatus(691) = 3, english, "quest", "mission" -> "I see you are still a child lost in the wilderness. I cannot guide you further until you have taken your first step along the Old Path. Seek Joseph Quatrilla in Cadomyr, Grator Bottlebreak in Galmair, or Vallaria Medrota in Runewick to further guide you.", inform("[Hint] To further your understanding of Nature Magic head to Cadomyr, Galmair, or Runewick and seek one of Fianna's local druid contacts.")
 queststatus(691) = 3, "task", "adventure" -> "I see you are still a child lost in the wilderness. I cannot guide you further until you have taken your first step along the Old Path. Seek Joseph Quatrilla in Cadomyr, Grator Bottlebreak in Galmair, or Vallaria Medrota in Runewick to further guide you.", inform("[Hint] To further your understanding of Nature Magic head to Cadomyr, Galmair, or Runewick and seek one of Fianna's local druid contacts.")
@@ -143,7 +143,7 @@ queststatus(691) < 4, "Stone" -> "Stoneweave is winter's enduring patience, memo
 queststatus(691) < 4, "Stein" -> "Steingewebe ist die beständige Geduld des Winters, Erinnerung und die Stärke der Wurzeln, die bestehen. Der Weg des Steins lehrt Geschichte und Harmonie und verankert jene, die den Winden folgen."
 --Deep Teaser
 queststatus(691) < 4, "Deep" -> "The Deepweave is the shadow beneath all roots - a current unseen, older than memory. Only those who understand how endings feed renewal, how wildness and stone hold life together, may seek the Deep with my guidance."
-queststatus(691) < 4, "Tiefen"-> "Das Tiefengewebe ist der Schatten unter allen Wurzeln ? ein unsichtbarer Strom, älter als die Erinnerung. Nur jene, die verstehen, wie das Ende Erneuerung nährt und wie Wildnis und Stein das Leben zusammenhalten, dürfen mit meiner Führung die Tiefen suchen."
+queststatus(691) < 4, "Tiefen"-> "Das Tiefengewebe ist der Schatten unter allen Wurzeln - ein unsichtbarer Strom, älter als die Erinnerung. Nur jene, die verstehen, wie das Ende Erneuerung nährt und wie Wildnis und Stein das Leben zusammenhalten, dürfen mit meiner Führung die Tiefen suchen."
 --Nature Magic Resistance Teaser
 queststatus(691) < 4, "resist" -> "Nature Magic is not always gentle. Those who walk in balance learn, over time, to endure wither's grasp, the press of stone, the choking grasp of vines. This attunement does not block the Weaves, but teaches the body and spirit how to bend without breaking."
 queststatus(691) < 4, "Widerstand" -> "Naturmagie ist nicht immer sanft. Wer im Gleichgewicht wandelt, lernt mit der Zeit, den Griff des Welkens, den Druck des Steins und das würgende Umklammern der Ranken zu ertragen. Diese Einstimmung blockiert die Gewebe nicht, sondern lehrt Körper und Geist, sich zu beugen, ohne zu brechen."
@@ -290,13 +290,13 @@ queststatus(698) = 1, "how does transmutation work", "explain transmutation", "t
 queststatus(698) = 1, "wie funktioniert Transmutation", "Transmutation erklären", "Transmutation Übersicht" -> queststatus(698) = 2, "Transmutation hat drei Kernteile: Cor-Siegel, Sigil-Gewebe und Talismane. Jeder Schritt baut auf dem vorherigen auf, frage mich in der richtigen Reihenfolge, um bessere Anleitung zu erhalten.", inform("[Hinweis] Versuche: zuerst Cor-Siegel, dann Sigil-Gewebe, zuletzt Talismane.")
 
 queststatus(698) = 2, "how does transmutation work", "explain transmutation", "transmutation overview" -> queststatus(698) = 3, "I've shared all I know about transmutation- keep asking and learning about weaves and don't neglect your Cor Valis! Perhaps one day my research will bear fruit too.", inform("[Hint] Ask Fianna about her research.")
-queststatus(698) = 2, "wie funktioniert Transmutation", "Transmutation erklären", "Transmutation Übersicht" -> queststatus(698) = 3, "Ich habe alles geteilt, was ich über Transmutation weiß ? frage weiter, lerne über Gewebe und vernachlässige dein Cor Valis nicht! Vielleicht wird meine Forschung eines Tages Früchte tragen.", inform("[Hinweis] Frage Fianna nach ihrer Forschung.")
+queststatus(698) = 2, "wie funktioniert Transmutation", "Transmutation erklären", "Transmutation Übersicht" -> queststatus(698) = 3, "Ich habe alles geteilt, was ich über Transmutation weiß - frage weiter, lerne über Gewebe und vernachlässige dein Cor Valis nicht! Vielleicht wird meine Forschung eines Tages Früchte tragen.", inform("[Hinweis] Frage Fianna nach ihrer Forschung.")
 
 "research"  -> "Ah, my research? I believe that in time, it may become possible for skilled druids to call forth their own Weaver Stumps or Stones, given a place that welcomes such weaves. I have not finished my work yet, but if you remain curious, return to me another season - I'll gladly share any progress."
-"Forschung" -> "Ah, meine Forschung? Ich glaube, dass es mit der Zeit möglich werden könnte, dass erfahrene Druiden ihre eigenen Weberstümpfe oder -steine herbeirufen, wenn es einen Ort gibt, der solche Gewebe willkommen heißt. Meine Arbeit ist noch nicht abgeschlossen, aber wenn du neugierig bleibst, kehre in einer anderen Saison zu mir zurück ? ich teile gerne jeden Fortschritt."
+"Forschung" -> "Ah, meine Forschung? Ich glaube, dass es mit der Zeit möglich werden könnte, dass erfahrene Druiden ihre eigenen Weberstümpfe oder -steine herbeirufen, wenn es einen Ort gibt, der solche Gewebe willkommen heißt. Meine Arbeit ist noch nicht abgeschlossen, aber wenn du neugierig bleibst, kehre in einer anderen Saison zu mir zurück - ich teile gerne jeden Fortschritt."
 
 "cor sigil" -> "A Cor Sigil is the foundation of Nature  Magic - a vessel made to hold the essence of nature. Carpenters can dormant sigils, then study about Cor Weaves with me, I'll ask you to gather special reagents, and visit a weaver stump or stone. There, you must use your bond with nature to infuse the sigil with purpose and power.", inform("[Hint] Be sure to ask about Sigil Weaves and Talismans too.")
-"Cor-Siegel" -> "Ein Cor-Siegel ist die Grundlage der Naturmagie ? ein Gefäß, geschaffen, um die Essenz der Natur zu halten. Handwerker können ruhende Siegel herstellen, dann mit mir über Cor-Gewebe lernen. Ich werde dich bitten, spezielle Zutaten zu sammeln und einen Weberstumpf oder -stein zu besuchen. Dort musst du deine Verbindung zur Natur nutzen, um das Siegel mit Zweck und Kraft zu erfüllen.", inform("[Hinweis] Frage auch unbedingt nach Sigil-Geweben und Talismanen.")
+"Cor-Siegel" -> "Ein Cor-Siegel ist die Grundlage der Naturmagie - ein Gefäß, geschaffen, um die Essenz der Natur zu halten. Handwerker können ruhende Siegel herstellen, dann mit mir über Cor-Gewebe lernen. Ich werde dich bitten, spezielle Zutaten zu sammeln und einen Weberstumpf oder -stein zu besuchen. Dort musst du deine Verbindung zur Natur nutzen, um das Siegel mit Zweck und Kraft zu erfüllen.", inform("[Hinweis] Frage auch unbedingt nach Sigil-Geweben und Talismanen.")
 
 "sigil weave" -> "Weaves are spells or patterns of energy that can be learned and stored within your Cor Sigil. Druids learn new weaves from the Seer's Cauldron, gather unique reagents for each, and then bring both to a weaver site to weave nature's power into their Cor Sigil. Each weave has its own unique effect and purpose.", inform("[Hint] Be sure to ask about Talismans and Cor Sigils - if you haven't already!")
 "Sigil-Gewebe" -> "Gewebe sind Zauber oder Energiemuster, die erlernt und in deinem Cor-Siegel gespeichert werden können. Druiden lernen neue Gewebe aus dem Kessel des Sehers, sammeln für jedes einzigartige Zutaten und bringen beides zu einer Weberstelle, um die Kraft der Natur in ihr Cor-Siegel zu verweben. Jedes Gewebe hat seine eigene Wirkung und seinen eigenen Zweck.", inform("[Hinweis] Frage unbedingt auch nach Talismane und Cor-Siegel, falls noch nicht geschehen!")
@@ -314,22 +314,22 @@ english, "talisman" -> "Talismans are wards of great power, created by experienc
 english, "Quatrilla", "Joseph" -> "My dear friend, Joseph Quatrilla, can be found in the town square of Cadomyr."
 "Quatrilla", "Joseph" -> "Mein lieber Freund, Joseph Quatrilla, ist auf dem Marktplatz von Cadomyr zu finden."
 
-queststatus(691) = 1, english, "Cadomyr" -> "The contact in Cadomyr is Joseph Quatrilla, usually found in the town square."
-queststatus(691) = 1, "Cadomyr" -> "Der Kontakt in Cadomyr ist Joseph Quatrilla; normalerweise auf dem Marktplatz zu finden."
+queststatus(691) = 1, "Cadomyr contact", "Cadomyr druid", "Cadomyr weaver"-> "The contact in Cadomyr is Joseph Quatrilla, usually found in the town square."
+queststatus(691) = 1, "Cadomyr-Kontakt", "Cadomyr-Druide", "Cadomyr-Weber", "Cadomyr Kontakt", "Cadomyr Druide", "Cadomyr Weber" -> "Der Kontakt in Cadomyr ist Joseph Quatrilla; normalerweise auf dem Marktplatz zu finden."
 
 -- Galmair (shared triggers)
 english, "Bottlebreak", "Grator" -> "Ole Grator, have a look outside the alchemy hall of Galmair, near the main gate."
 "Bottlebreak", "Grator" -> "Ole Grator, sieh außerhalb der Alchemiehalle von Galmair nach, in der Nähe des Haupttors."
 
-english, "Galmair" -> "The contact in Galmair is Grator Bottlebreak; look outside the alchemy hall near the main gate."
-"Galmair" -> "Der Kontakt in Galmair ist Grator Bottlebreak; sieh außerhalb der Alchemiehalle in der Nähe des Haupttors nach."
+queststatus(691) = 1, "Galmair contact", "Galmair druid", "Galmair weaver" -> "The contact in Galmair is Grator Bottlebreak; look outside the alchemy hall near the main gate."
+queststatus(691) = 1, "Galmair-Kontakt", "Galmair-Druide", "Galmair-Weber", "Galmair Kontakt", "Galmair Druide", "Galmair Weber" -> "Der Kontakt in Galmair ist Grator Bottlebreak; sieh außerhalb der Alchemiehalle in der Nähe des Haupttors nach."
 
 -- Runewick (shared triggers)
 english, "Medrota", "Vallaria" -> "Vallaria can be found near the Runewick hospital."
 "Medrota", "Vallaria" -> "Vallaria ist in der Nähe des Krankenhauses von Runewick zu finden."
 
-english, "Runewick" -> "The contact in Runewick is Vallaria Medrota; she can be found by the hospital."
-"Runewick" -> "Der Kontakt in Runewick ist Vallaria Medrota; sie ist beim Krankenhaus zu finden."
+queststatus(691) = 1, "Runewick contact", "Runewick druid", "Runewick weaver" -> "The contact in Runewick is Vallaria Medrota; she can be found by the hospital."
+queststatus(691) = 1, "Runewick-Kontakt", "Runewick-Druide", "Runewick-Weber", "Runewick Kontakt", "Runewick Druide", "Runewick Weber" -> "Der Kontakt in Runewick ist Vallaria Medrota; sie ist beim Krankenhaus zu finden."
 
 -------------------------------------------------------------------------------
 -- ITEM SHOP DETAILS
@@ -356,14 +356,15 @@ english, "Fijanna" -> "My sister, Fijanna, is the reason I am here. She saw Stra
 "past", "history" -> "When I was young, harmony came easy; my Coven flourished on the mainland, near the Emerald Forest.","Well, there is a season for everything. Perhaps one day we will speak at length. For now, know I teach the Old Weaves and to find my Sister, Fijanna."
 "Vergangenheit", "Geschichte" -> "Als ich jung war, kam Harmonie leicht; mein Zirkel blühte auf dem Festland nahe dem Smaragdwald.","Nun, für alles gibt es seine Zeit. Vielleicht werden wir eines Tages ausführlich sprechen. Für jetzt wisse, dass ich die Alten Gewebe lehre und meine Schwester Fijanna finde."
 
-"coven" -> "Once, my coven sought to restore an Ailing Village, only to endure our own trials and loss. In the end, the Deep Path tore us apart. I prefer not to talk any further about my cove- my sister is my only personal priority, anymore."
-"Zirkel" -> "Einst versuchte mein Zirkel, ein Krankes Dorf wiederherzustellen, nur um unsere eigenen Prüfungen und Verluste zu ertragen. Am Ende zerriss uns der Tiefe Pfad. Ich spreche lieber nicht weiter über meinen Zirkel ? meine Schwester ist nun meine einzige persönliche Priorität."
+"coven" -> "Once, my coven sought to restore an Ailing Village, only to endure our own trials and loss. In the end, they tore us apart. I prefer not to talk any further about my coven- my sister is my only personal priority, anymore."
+"Zirkel" -> "Einst versuchte mein Zirkel, ein siechendes Dorf wiederherzustellen, nur um unsere eigenen Prüfungen und Verluste zu erleiden. Am Ende riss es uns auseinander. Ich spreche lieber nicht weiter über meinen Zirkel - meine Schwester ist inzwischen meine einzige persönliche Priorität."
+
 
 "emerald forest" -> "Far away on the mainland, the radiant Emerald Forest enriched more than my coven in both beauty and amity. But long ago were those days."
 "Smaragdwald" -> "Weit entfernt auf dem Festland bereicherte der strahlende Smaragdwald mehr als meinen Zirkel, sowohl in Schönheit als auch in Freundschaft. Doch jene Tage sind längst vergangen."
 
-"deep path", "trials", "loss" -> "A cautionary tale, remember, darkness from a twisted Deepweave can prove your undoing. Memory teaches: all weaves must serve balance, never hunger or pride."
-"Tiefer Pfad", "Prüfungen", "Verlust" -> "Eine warnende Geschichte, erinnere dich: Dunkelheit aus einem verdrehten Tiefengewebe kann dein Verderben sein. Die Erinnerung lehrt: Alle Gewebe müssen dem Gleichgewicht dienen, niemals Hunger oder Stolz."
+"trials", "loss", "tore", "apart" -> "A cautionary tale, remember, darkness from a twisted Deepweave can prove your undoing. Memory teaches: all weaves must serve balance, never hunger or pride."
+"Prüfungen", "Verlust", "zerriss", "auseinander" -> "Eine warnende Geschichte, erinnere dich: Dunkelheit aus einem verdrehten Tiefengewebe kann dein Verderben sein. Die Erinnerung lehrt: Alle Gewebe müssen dem Gleichgewicht dienen, niemals Hunger oder Stolz."
 
 "ailing village", "restore village" -> "Aye, no village of great consequence, some hamlet near the Shadow Forest. I still mourn all the losses and pray harmony will return one day. Say no more on this please."
 "Krankes Dorf", "Dorf wiederherstellen" -> "Ja, kein Dorf von großer Bedeutung, nur ein Weiler nahe dem Schattenwald. Ich trauere immer noch über alle Verluste und bete, dass die Harmonie eines Tages zurückkehrt. Sprich bitte nichts weiter darüber."
@@ -373,48 +374,52 @@ english, "Fijanna" -> "My sister, Fijanna, is the reason I am here. She saw Stra
 -------------------------------------------------------------------------------
 -- CADOMYR ------------------------
 english, "cadomyr" -> "Cadomyr... a realm that has known ruin and rebirth, yet endures, steadfast and proud. Guided by their Queen, history regards her as a reformer who breathes new life into the virtues of honor - though I pray pride will not be their downfall, as it was for my coven."
-"Cadomyr" -> "Cadomyr... ein Reich, das Zerstörung und Wiedergeburt erlebt hat, und doch besteht, standhaft und stolz. Geleitet von seiner Königin gilt sie in der Geschichte als Reformer, der neues Leben in die Tugenden der Ehre haucht ? doch ich bete, dass Stolz nicht ihr Untergang wird, wie es für meinen Zirkel war."
+"Cadomyr" -> "Cadomyr... ein Reich, das Zerstörung und Wiedergeburt erlebt hat, und doch besteht, standhaft und stolz. Geleitet von seiner Königin gilt sie in der Geschichte als Reformer, der neues Leben in die Tugenden der Ehre haucht - doch ich bete, dass Stolz nicht ihr Untergang wird, wie es für meinen Zirkel war."
 
-english, "rosaline" -> "Queen Rosaline of Cadomyr... stern, yet tempered by compassion, even while bearing the divine might of the Cadomyr Stones of Power. I was told she once lost a noble friend during unrest with Runewick - perhaps grief shaped her wisdom, as storms shape the cliffs."
-"queen" -> "Queen Rosaline of Cadomyr... stern, yet tempered by compassion, even while bearing the divine might of the Cadomyr Stones of Power. I was told she once lost a noble friend during unrest with Runewick - perhaps grief shaped her wisdom, as storms shape the cliffs."
-"Rosaline", "Königin" -> "Königin Rosaline von Cadomyr... streng, doch von Mitgefühl gemildert, selbst während sie die göttliche Macht der Cadomyr-Steine der Macht trägt. Man sagte mir, sie habe einst einen edlen Freund während der Unruhen mit Runewick verloren ? vielleicht formte Trauer ihre Weisheit, wie Stürme die Klippen formen."
+english, "rosaline" -> "Queen Rosaline of Cadomyr... stern, yet tempered by compassion, even while bearing the divine might of the Cadomyr Gems of Power. I was told she once lost a noble friend during unrest with Runewick - perhaps grief shaped her wisdom, as storms shape the cliffs."
+"queen" -> "Queen Rosaline of Cadomyr... stern, yet tempered by compassion, even while bearing the divine might of the Cadomyr Gems of Power. I was told she once lost a noble friend during unrest with Runewick - perhaps grief shaped her wisdom, as storms shape the cliffs."
+"Rosaline", "Königin" -> "Königin Rosaline von Cadomyr ? streng, doch durch Mitgefühl gemildert, selbst während sie die göttliche Macht der Cadomyr-Edelsteine der Kraft trug. Man erzählte mir, sie habe einst während der Unruhen mit Runewick einen adligen Freund verloren ? vielleicht formte die Trauer ihre Weisheit, so wie Stürme die Klippen formen."
 
 english, "amethyst" -> "Cadomyr guards two gems of power: the topaz, an heirloom from the Queen's Albarian line, and the amethyst, taken in victory over the Sorcerer's defeated generals. Such power asks for wisdom - even in sunlight, a long shadow follows behind."
-"Cadomyr gem", "Cadomyr stones of power", "topaz" -> "Cadomyr guards two gems of power: the topaz, an heirloom from the Queen's Albarian line, and the amethyst, taken in victory over the Sorcerer's defeated generals. Such power asks for wisdom - even in sunlight, a long shadow follows behind."
-"Cadomyr-Stein", "Cadomyr-Steine der Macht", "Amethyst", "topas" -> "Cadomyr bewacht zwei Machtsteine: den Topas, ein Erbstück aus der Albarischen Linie der Königin, und den Amethyst, errungen im Sieg über die besiegten Generäle des Zauberers. Solche Macht verlangt Weisheit ? selbst im Sonnenlicht folgt ein langer Schatten."
+"Cadomyr gem", "topaz" -> "Cadomyr guards two gems of power: the topaz, an heirloom from the Queen's Albarian line, and the amethyst, taken in victory over the Sorcerer's defeated generals. Such power asks for wisdom - even in sunlight, a long shadow follows behind."
+"Cadomyr-Edelstein", "Cadomyr Edelstein", "Amethyst", "topas" -> "Cadomyr bewacht zwei Machtsteine: den Topas, ein Erbstück aus der Albarischen Linie der Königin, und den Amethyst, errungen im Sieg über die besiegten Generäle des Zauberers. Solche Macht verlangt Weisheit - selbst im Sonnenlicht folgt ein langer Schatten."
 
 english, "reformer", "reform" -> "She dares to mend what others would leave untouched from pride. Reform is never easy, whether in forests or on thrones. The soil must be stirred for new roots to take hold."
 "Reformer", "Reform" -> "Sie wagt es, zu reparieren, was andere aus Stolz unberührt lassen würden. Reform ist niemals einfach, ob in Wäldern oder auf Thronen. Der Boden muss gelockert werden, damit neue Wurzeln greifen können."
 
 "lost noble", "lost friend", "grief", "unrest" -> "They whisper of a young noble once dear to the Queen, taken by tragedy. Some say her spirit lingers amongst the dunes, watching over Cadomyr - or perhaps mourning it. The truth drifts like sand in the wind, reshaped with every telling."
-"Verlorener Adeliger", "Verlorener Freund", "Trauer", "Unruhen" -> "Man flüstert von einem jungen Adeligen, einst der Königin lieb, der durch eine Tragödie genommen wurde. Manche sagen, ihr Geist verweilt zwischen den Dünen, wacht über Cadomyr ? oder trauert vielleicht. Die Wahrheit treibt wie Sand im Wind, bei jedem Erzählen neu geformt."
+"Verlorener Adeliger", "Verlorener Freund", "Trauer", "Unruhen" -> "Man flüstert von einem jungen Adeligen, einst der Königin lieb, der durch eine Tragödie genommen wurde. Manche sagen, ihr Geist verweilt zwischen den Dünen, wacht über Cadomyr - oder trauert vielleicht. Die Wahrheit treibt wie Sand im Wind, bei jedem Erzählen neu geformt."
 
 -- GALMAIR ------------------------
-english, "galmair" -> "In Galmair, fortunes sprout like wild herbs, vigorous but not always sweet. Grator once said surviving there means growing thick skin, though I wonder if the old feud will ever let his heart rest easy."
-"Galmair" -> "In Galmair sprießen Reichtümer wie wilde Kräuter, kräftig, aber nicht immer süß. Grator sagte einst, überleben dort bedeute, eine dicke Haut zu entwickeln, doch ich frage mich, ob die alte Fehde jemals sein Herz zur Ruhe kommen lässt."
+english, "galmair" -> "In Galmair, fortunes sprout like wild herbs, vigorous but not always sweet. Grator once said surviving there means growing thick skin, though I wonder if the Don's  old feud will ever let his heart rest easy."
+"Galmair" -> "In Galmair sprießen Vermögen wie wilde Kräuter, kräftig, doch nicht immer süß. Grator sagte einst, dort zu überleben bedeute, sich ein dickes Fell zuzulegen, doch ich frage mich, ob die alte Fehde des Don seinem Herzen jemals Ruhe lassen wird."
 
-english, "don", "valerio"-> "Don Valerio is like old roots, rarely seen but shaping all that grows. Galmair finds its own rhythm these days, yet Grator and I sometimes wonder if legacy weighs heavier on him - family feud or Halfling Wars - old sagas live on."
-"Don", "Valerio" -> "Don Valerio ist wie alte Wurzeln, selten gesehen, aber formt alles, was wächst. Galmair findet heutzutage seinen eigenen Rhythmus, doch Grator und ich fragen uns manchmal, ob das Erbe schwerer auf ihm lastet ? Familienfehde oder Halblingkriege ? alte Sagen leben weiter."
+"halfling" -> "I was not here when the Halfling Wars ravaged the lands near Runewick. What I know comes from Grator- and he chooses his words carefully. He says the Don acted swiftly, believing strength would shorten the struggle. Perhaps it did. But in the wild, haste often leaves scars the soil remembers long after victory fades."
+"Halbling" -> "Ich war nicht hier, als die Halblingskriege die Lande nahe Runewick verwüsteten. Was ich weiß, stammt von Grator ? und er wählt seine Worte mit Bedacht. Er sagt, der Don habe rasch gehandelt, im Glauben, Stärke würde den Kampf verkürzen. Vielleicht tat sie es. Doch in der Wildnis hinterlässt Eile oft Narben, an die sich der Boden noch lange erinnert, nachdem der Sieg verblasst ist."
+
+english, "don", "valerio"-> "The Don is like old roots, rarely seen yet shaping all that grows with his fabled Obsidian and Sapphire. Most days, the city has its own rhythm, yet Grator wonders whether legacy weighs heavier upon him- family feuds, the Halfling Wars, old sagas tend to linger."
+"Don", "Valerio" -> "Der Don ist wie alte Wurzeln, selten zu sehen, doch prägt alles, was mit seinem sagenumwobenen Obsidian und Saphir wächst. An den meisten Tagen folgt die Stadt ihrem eigenen Rhythmus, doch Grator fragt sich, ob das Erbe schwerer auf ihm lastet ? Familienfehden, die Halblingskriege, alte Sagen neigen dazu, nachzuhängen."
 
 english, "obsidian" -> "Galmair's obsidian kept the peace for Galmair to blossom, and the sapphire came after a hard-won struggle over Dark Sorcerer's generals. Both stones now rest with the Don; reminders, I think, that gain and loss often travel together."
-"Galmair gem", "Galmair stones of power", "sapphire" -> "Galmair's obsidian kept the peace for Galmair to blossom, and the sapphire came after a hard-won struggle over Dark Sorcerer's generals. Both stones now rest with the Don; reminders, I think, that gain and loss often travel together."
-"Galmair-Stein", "Galmair-Steine der Macht", "Obsidian", "Saphir" -> "Galmairs Obsidian hielt den Frieden, damit Galmair erblühen konnte, und der Saphir kam nach einem hart erkämpften Streit über die Generäle des Dunklen Zauberers. Beide Steine ruhen nun beim Don; Erinnerungen, denke ich, dass Gewinn und Verlust oft Hand in Hand gehen."
+"Galmair gem", "sapphire" -> "Galmair's obsidian kept the peace for Galmair to blossom, and the sapphire came after a hard-won struggle over Dark Sorcerer's generals. Both stones now rest with the Don; reminders, I think, that gain and loss often travel together."
+"Galmair-Edelstein", "Galmair Edelstein", "Obsidian", "Saphir" -> "Galmairs Obsidian hielt den Frieden, damit Galmair erblühen konnte, und der Saphir kam nach einem hart erkämpften Streit über die Generäle des Dunklen Zauberers. Beide Steine ruhen nun beim Don; Erinnerungen, denke ich, dass Gewinn und Verlust oft Hand in Hand gehen."
 
 english, "tommaso" -> "According to Grator, Tommaso's passing left more than an empty chair. Inheritance sometimes means carrying what went unsaid, and Valerio's path was set by both shadow and hope. Some stories end... but the mountains never forget."
-"Tommaso" -> "Laut Grator hinterließ Tommasos Tod mehr als einen leeren Stuhl. Erbe bedeutet manchmal, das zu tragen, was unausgesprochen blieb, und Valerios Weg wurde von Schatten und Hoffnung bestimmt. Manche Geschichten enden... aber die Berge vergessen nie."
+"feud" -> "According to Grator, Tommaso's passing left more than an empty chair. Inheritance sometimes means carrying what went unsaid, and Valerio's path was set by both shadow and hope. Some stories end... but the mountains never forget."
+"Tommaso", "Fehde" -> "Laut Grator hinterließ Tommasos Tod mehr als einen leeren Stuhl. Erbe bedeutet manchmal, das zu tragen, was unausgesprochen blieb, und Valerios Weg wurde von Schatten und Hoffnung bestimmt. Manche Geschichten enden... aber die Berge vergessen nie."
 
 -- RUNEWICK ------------------------
 english, "runewick" -> "To me, Runewick is a place where questions bloom and answers take their time. Archmage Elvaine tends the city with quiet patience now, yet old scars linger in stone and story - enough to leave minds searching and sometimes defiant."
-"Runewick" -> "Für mich ist Runewick ein Ort, an dem Fragen blühen und Antworten sich Zeit lassen. Erzmagier Elvaine pflegt die Stadt nun mit stiller Geduld, doch alte Narben verweilen in Stein und Geschichte ? genug, um die Gedanken suchend und manchmal trotzig zurückzulassen."
+"Runewick" -> "Für mich ist Runewick ein Ort, an dem Fragen blühen und Antworten sich Zeit lassen. Erzmagier Elvaine pflegt die Stadt nun mit stiller Geduld, doch alte Narben verweilen in Stein und Geschichte - genug, um die Gedanken suchend und manchmal trotzig zurückzulassen."
 
 english, "elvaine", "elvaine morgan" -> "Most days, you'll find Elvaine on his island, the Runewick stones of power never far from reach. Some say he seeks peace and private study, but those stones carry memories of how change first took root there."
 "Elvaine", "Elvaine Morgan" -> "Die meisten Tage findest du Elvaine auf seiner Insel, die Runewick-Steine der Macht nie weit entfernt. Manche sagen, er sucht Frieden und private Studien, doch jene Steine tragen Erinnerungen daran, wie Veränderung dort zuerst Wurzeln schlug."
 
-"runewick gem", "runewick stones of power", "emerald", "ruby" -> "Runewick's emerald was carried here by Elvaine from distant Lor-Angur, and the ruby was claimed after the Sorcerer's generals were defeated. Vallaria - bless her - says even with such treasures, she hopes the restless days and renegade tendencies of the city's past can finally find peace."
-"Runewick-Stein", "Runewick-Steine der Macht", "Smaragd", "Rubin" -> "Runewicks Smaragd wurde hierher von Elvaine aus dem fernen Lor-Angur gebracht, und der Rubin wurde nach der Niederlage der Generäle des Zauberers erlangt. Vallaria ? segne sie ? sagt, selbst mit solchen Schätzen hofft sie, dass die unruhigen Tage und abtrünnigen Neigungen der Vergangenheit der Stadt endlich Frieden finden."
+"runewick gem", "emerald", "ruby" -> "Runewick's emerald was carried here by Elvaine from distant Lor-Angur, and the ruby was claimed after the Sorcerer's generals were defeated. Vallaria - bless her - says even with such treasures, she hopes the restless days and renegade tendencies of the city's past can finally find peace."
+"Runewick-Edelstein", "Runewick Edelstein", "Smaragd", "Rubin" -> "Runewicks Smaragd wurde hierher von Elvaine aus dem fernen Lor-Angur gebracht, und der Rubin wurde nach der Niederlage der Generäle des Zauberers erlangt. Vallaria - segne sie - sagt, selbst mit solchen Schätzen hofft sie, dass die unruhigen Tage und abtrünnigen Neigungen der Vergangenheit der Stadt endlich Frieden finden."
 
 "scars", "mind searching" -> "Once, towers raised Runewick high as Lor-Angur, only to tumble and leave so much to rebuild. After one war, Elvaine even summoned the dead to walk - some say to warn against pride, but more than questions have risen from a choice like that."
-"Narben", "suchender Geist" -> "Einst hoben Türme Runewick hoch wie Lor-Angur, nur um einzustürzen und so vieles wiederaufzubauen zu hinterlassen. Nach einem Krieg ließ Elvaine sogar die Toten wandeln ? manche sagen, um vor Stolz zu warnen, doch mehr als Fragen entstanden aus einer solchen Entscheidung."
+"Narben", "suchender Geist" -> "Einst hoben Türme Runewick hoch wie Lor-Angur, nur um einzustürzen und so vieles wiederaufzubauen zu hinterlassen. Nach einem Krieg ließ Elvaine sogar die Toten wandeln - manche sagen, um vor Stolz zu warnen, doch mehr als Fragen entstanden aus einer solchen Entscheidung."
 
 "renegade", "restless day", "defiant" -> "Perhaps Runewick's greatest lesson is knowing when to strive forward and when to wait. Vallaria says even the wildest root learns to bend or risk breaking. I wonder, sometimes, what shape Runewick's curiosity will take when another challenge arises."
 "Abtrünnig", "unruhiger Tag", "trotzig" -> "Vielleicht ist Runewicks größte Lektion zu wissen, wann man vorwärts streben und wann man warten sollte. Vallaria sagt, selbst die wildeste Wurzel lernt, sich zu biegen oder zu brechen. Ich frage mich manchmal, welche Gestalt Runewicks Neugier annehmen wird, wenn eine weitere Herausforderung auftaucht."
@@ -436,7 +441,7 @@ english, "Ushara" -> "Ushara is the root of all life, the breath beneath soil an
 english, "Bragon" -> "Bragon's fire warms and devours alike. The wise druid respects his flame, never covets it."
 "Bragon" -> "Bragons Feuer wärmt und verschlingt gleichermaßen. Der weise Druide respektiert seine Flamme, begehrt sie nie."
 english, "Eldan" -> "Eldan teaches awareness- yet awareness without compassion leads only to pride. Even thought must bend to harmony."
-"Eldan" -> "Eldan lehrt Bewusstsein ? doch Bewusstsein ohne Mitgefühl führt nur zu Stolz. Selbst der Gedanke muss sich der Harmonie fügen."
+"Eldan" -> "Eldan lehrt Bewusstsein - doch Bewusstsein ohne Mitgefühl führt nur zu Stolz. Selbst der Gedanke muss sich der Harmonie fügen."
 english, "Adron" -> "Adron's laughter still drifts through the groves. He reminds us that joy shared is its own kind of prayer."
 "Adron" -> "Adrions Lachen weht noch immer durch die Hain. Er erinnert uns, dass geteilte Freude eine eigene Art von Gebet ist."
 english, "Cherga" -> "Cherga keeps the still places where roots sleep. Death is but another turning of the wheel to her."
@@ -444,9 +449,9 @@ english, "Cherga" -> "Cherga keeps the still places where roots sleep. Death is 
 english, "Elara" -> "Elara once guided my coven's debates. She reminds us that wisdom often blooms after folly, not before it."
 "Elara" -> "Elara leitete einst die Debatten meines Zirkels. Sie erinnert uns daran, dass Weisheit oft nach der Torheit blüht, nicht vorher."
 english, "Irmorom" -> "Irmorom forges purpose from will, yet the earth reminds us- no creation stands forever."
-"Irmorom" -> "Irmorom schmiedet Zweck aus Willen, doch die Erde erinnert uns ? keine Schöpfung besteht ewig."
+"Irmorom" -> "Irmorom schmiedet Zweck aus Willen, doch die Erde erinnert uns - keine Schöpfung besteht ewig."
 english, "Malachin" -> "Malachin's hunt teaches balance - strength guided by restraint. To take life without need is to stray from his path."
-"Malachin" -> "Malachins Jagd lehrt Gleichgewicht ? Stärke, geleitet durch Zurückhaltung. Leben ohne Not zu nehmen heißt, von seinem Pfad abzuweichen."
+"Malachin" -> "Malachins Jagd lehrt Gleichgewicht - Stärke, geleitet durch Zurückhaltung. Leben ohne Not zu nehmen heißt, von seinem Pfad abzuweichen."
 english, "Moshran", "unspoken" -> "In the shadows where light refuses to tread, the Unspoken's anguish festers still. The land itself avoids his memory."
 "Moshran", "unausgesprochen", "ungenannte" -> "In den Schatten, wo Licht nicht tritt, gärte das Leid des Unausgesprochenen noch immer. Das Land selbst meidet seine Erinnerung."
 english, "Nargun" -> "Nargun dances where chaos blooms. I leave his lessons to those who mistake noise for freedom."
