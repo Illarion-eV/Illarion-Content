@@ -215,34 +215,9 @@ local function overWriteSlot(user, savedTargets, index, newTarget, slotLimit)
 
 end
 
-local function getTargets(user)
 
-    local savedTargetsFound, savedTargets = ScriptVars:find("heptTargets"..tostring(user.id))
 
-    local retTable = {}
-
-    if not savedTargetsFound then
-        return retTable
-    end
-
-    local parts = {}
-
-    for part in string.gmatch(savedTargets, "([^,]+)") do
-        table.insert(parts, part)
-    end
-
-    for i = 1, #parts, 2 do
-        local name = parts[i]
-        local id = tonumber(parts[i + 1])
-        if name and id then
-            table.insert(retTable, { name = name, id = id })
-        end
-    end
-
-    return retTable
-end
-
-M.getTargets = getTargets
+M.getTargets = targeting.getFriendlistTargets
 
 local function getSlotLimit(user, spell)
 
@@ -289,7 +264,7 @@ local function storeHeptTaurTarget(user, spell, positionsAndTargets)
         return
     end
 
-    local savedTargets = getTargets(user) --The list of any targets already saved
+    local savedTargets = M.getTargets(user) --The list of any targets already saved
 
     local slotLimit = getSlotLimit(user, spell)
 

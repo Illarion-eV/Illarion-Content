@@ -624,6 +624,33 @@ local function getStoredTarget(user, id)
     return false
 end
 
+function M.getFriendlistTargets(user)
+
+    local savedTargetsFound, savedTargets = ScriptVars:find("heptTargets"..tostring(user.id))
+
+    local retTable = {}
+
+    if not savedTargetsFound then
+        return retTable
+    end
+
+    local parts = {}
+
+    for part in string.gmatch(savedTargets, "([^,]+)") do
+        table.insert(parts, part)
+    end
+
+    for i = 1, #parts, 2 do
+        local name = parts[i]
+        local id = tonumber(parts[i + 1])
+        if name and id then
+            table.insert(retTable, { name = name, id = id })
+        end
+    end
+
+    return retTable
+end
+
 local function getPosition(user, spell, positionsAndTargets, delayed, trap, startedInAttackMode)
 
     local element = runes.fetchElement(spell)
@@ -639,6 +666,7 @@ local function getPosition(user, spell, positionsAndTargets, delayed, trap, star
     local SUL = runes.checkSpellForRuneByName("SUL", spell)
     local ORL = runes.checkSpellForRuneByName("ORL", spell)
     local JUS = runes.checkSpellForRuneByName("JUS", spell)
+    local DUN = runes.checkSpellForRuneByName("DUN", spell)
     local earthTrap = SOLH and ORL and not trap
     local dodgable = (CUN or RA) and SUL
     local thePosition
@@ -741,13 +769,33 @@ local function getPosition(user, spell, positionsAndTargets, delayed, trap, star
     if PEN and LEV then
 
         if _G.storedPenLevTargets[user.id] then
-            setPos = false
-            local storedTarget = getStoredTarget(user, _G.storedPenLevTargets[user.id])
 
-            if storedTarget then
-                positionsAndTargets.targets[#positionsAndTargets.targets+1] = storedTarget
-                M[user.id.."LevDunPos"] = storedTarget.pos
+            setPos = false
+            local found
+
+            if DUN then
+                local friendIds = M.getFriendlistTargets(user)
+
+                for _, friend in pairs(friendIds) do
+                    local storedTarget = getStoredTarget(user, friend.id)
+                    if storedTarget then
+                        table.insert(positionsAndTargets.targets, storedTarget)
+                        M[user.id.."LevDunPos"] = storedTarget.pos
+                        found = true
+                    end
+                end
+
             else
+                local storedTarget = getStoredTarget(user, _G.storedPenLevTargets[user.id])
+
+                if storedTarget then
+                    table.insert(positionsAndTargets.targets, storedTarget)
+                    M[user.id.."LevDunPos"] = storedTarget.pos
+                    found = true
+                end
+            end
+
+            if not found then
                 _G.storedPenLevTargets[user.id] = nil
                 return
             end
