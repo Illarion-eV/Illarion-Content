@@ -103,7 +103,7 @@ local function checkForWand(user)
     return true, wand
 end
 
-local function checksPassed(user, spell, element, thePosition, positions)
+local function checksPassed(user, spell, element, thePosition, startedInAttackMode)
 
     local wandCheckPassed = checkForWand(user)
 
@@ -135,7 +135,7 @@ local function checksPassed(user, spell, element, thePosition, positions)
         return false
     end
 
-    if not mana.checkIfEnoughMana(user, spell, thePosition, positions) then
+    if not mana.checkIfEnoughMana(user, spell, thePosition, startedInAttackMode) then
         user:inform(myTexts.mana.german, myTexts.mana.english)
         return false
     end
@@ -338,17 +338,20 @@ function M.castSpell(user, spell, actionState, oralCast)
             _G.stopAutoCast[user.id] = false
         end
 
-        M[user.id].positionsAndTargets = targeting.getPositionsAndTargets(user, spell)
+        local thePosition, targetToTeach, startedInAttackMode = targeting.initPosition(user, spell)
 
-        if not M[user.id].positionsAndTargets then --rarely happens if you try to cast immediately after an !fr, also happens if you cast a PEN LEV spell after expiry
+
+        if not thePosition then --rarely happens if you try to cast immediately after an !fr, also happens if you cast a PEN LEV spell after expiry
             return
         end
 
-        M[user.id].thePosition = M[user.id].positionsAndTargets.thePosition
+        M[user.id].thePosition = thePosition
+        M[user.id].targetToTeach = targetToTeach
+        M[user.id].startedInAttackMode = startedInAttackMode
 
         common.TurnTo(user, M[user.id].thePosition)
 
-        if not checksPassed(user, spell, element, M[user.id].thePosition, M[user.id].positionsAndTargets) then
+        if not checksPassed(user, spell, element, M[user.id].thePosition, startedInAttackMode) then
             return
         end
 
@@ -411,7 +414,9 @@ function M.castSpell(user, spell, actionState, oralCast)
             return
         end
 
-        if not checksPassed(user, spell, element, M[user.id].thePosition, M[user.id].positionsAndTargets) then
+        M[user.id].positionsAndTargets = targeting.getPositionsAndTargets(user, spell, false, false, M[user.id].startedInAttackMode, M[user.id].targetToTeach, M[user.id].thePosition)
+
+        if not checksPassed(user, spell, element, M[user.id].thePosition, M[user.id].startedInAttackMode) then
             return
         end
 
@@ -423,7 +428,7 @@ function M.castSpell(user, spell, actionState, oralCast)
         M[user.id].positionsAndTargets = targeting.addTargets(user, spell, M[user.id].positionsAndTargets)
 
         if not runes.checkSpellForRuneByName("BHONA", spell) then
-            mana.removedUsedMana(user, spell, M[user.id].thePosition, M[user.id].positionsAndTargets)
+            mana.removedUsedMana(user, spell, M[user.id].thePosition, M[user.id].startedInAttackMode)
             local castDuration = M[user.id].storedDuration
             skilling.increaseExperience(user, spell, castDuration, M[user.id].positionsAndTargets)
             castTime.resetTan(user)
@@ -448,7 +453,7 @@ function M.castSpell(user, spell, actionState, oralCast)
             end
             _G.storedPenLevTargets[user.id] = nil
 
-            if user.attackmode and runes.isSpellAutoCast(spell, wand) and checksPassed(user, spell, element, M[user.id].thePosition, M[user.id].positionsAndTargets) then
+            if user.attackmode and runes.isSpellAutoCast(spell, wand) and checksPassed(user, spell, element, M[user.id].thePosition, M[user.id].startedInAttackMode) then
                 -- To mimic wand magic so that the fire magic replacement does not feel like a downgrade, we allow auto casting of some spells
 
                 if _G.stopAutoCast and _G.stopAutoCast[user.id] then

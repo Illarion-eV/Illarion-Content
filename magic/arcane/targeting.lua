@@ -651,7 +651,63 @@ function M.getFriendlistTargets(user)
     return retTable
 end
 
-local function getPosition(user, spell, positionsAndTargets, delayed, trap, startedInAttackMode)
+function M.initPosition(user, spell, delayed, startedInAttackMode)
+
+    local thePosition, targetToTeach
+
+    local RA = runes.checkSpellForRuneByName("RA", spell)
+    local CUN = runes.checkSpellForRuneByName("CUN", spell)
+    local LEV = runes.checkSpellForRuneByName("LEV", spell)
+    local PEN = runes.checkSpellForRuneByName("PEN", spell)
+    local SUL = runes.checkSpellForRuneByName("SUL", spell)
+
+    local dodgable = (CUN or RA) and SUL
+
+    if not delayed then
+        if user.attackmode and magic.getWand(user) then --wand required to aim
+            startedInAttackMode = true
+            local id = user.id
+            local targeted = M.playerTargets[id]
+            if not targeted then --onAttack did not load the target yet, very rarely happens
+                return
+            end
+            if not isValidChar(targeted) then
+                return
+            end
+            thePosition = targeted.pos
+
+            if not dodgable and not (PEN and LEV) then
+                targetToTeach = targeted
+            end
+        else
+            thePosition = getPositionWhenNotTargetingACharacter(user) -- To be replaced with a proper targeting entry point when we have someone who can write the server and client support for point-and-click targeting :)
+            local foundCharacter = world:isCharacterOnField(thePosition)
+            if foundCharacter and not dodgable and not (PEN and LEV) then
+                local target = world:getCharacterOnField(thePosition)
+                if target:getType() == Character.player or target:getType() == Character.monster then
+                    targetToTeach = target
+                end
+            end
+        end
+    else
+        thePosition = delayed
+        local foundCharacter = world:isCharacterOnField(thePosition)
+        if foundCharacter and not dodgable then
+            local target = world:getCharacterOnField(thePosition)
+            if target:getType() == Character.player or target:getType() == Character.monster then
+                targetToTeach = target
+            end
+        end
+    end
+
+    return thePosition, targetToTeach, startedInAttackMode
+end
+
+local function getPosition(user, spell, positionsAndTargets, delayed, trap, startedInAttackMode, targetToTeach, thePosition)
+
+    if not thePosition then
+        thePosition, targetToTeach, startedInAttackMode = M.initPosition(user, spell, delayed, startedInAttackMode)
+    end
 
     local element = runes.fetchElement(spell)
     local rangeNum = range.getCastingRange(user, spell, element)
@@ -669,53 +725,18 @@ local function getPosition(user, spell, positionsAndTargets, delayed, trap, star
     local DUN = runes.checkSpellForRuneByName("DUN", spell)
     local earthTrap = SOLH and ORL and not trap
     local dodgable = (CUN or RA) and SUL
-    local thePosition
     local setPos = true
 
-    positionsAndTargets.startedInAttackMode = startedInAttackMode
-
-
-    if not delayed then
-        if user.attackmode and magic.getWand(user) then --wand required to aim
-            positionsAndTargets.startedInAttackMode = true
-            local id = user.id
-            local targeted = M.playerTargets[id]
-            if not targeted then --onAttack did not load the target yet, very rarely happens
-                return
-            end
-            if not isValidChar(targeted) then
-                return
-            end
-            thePosition = targeted.pos
-
-            if not dodgable and not (PEN and LEV) then
-                table.insert(positionsAndTargets.targets, targeted)
-                positionsAndTargets.targetToTeach = targeted
-                setPos = false
-            end
-        else
-            thePosition = getPositionWhenNotTargetingACharacter(user) -- To be replaced with a proper targeting entry point when we have someone who can write the server and client support for point-and-click targeting :)
-            local foundCharacter = world:isCharacterOnField(thePosition)
-            if foundCharacter and not dodgable and not (PEN and LEV) then
-                local target = world:getCharacterOnField(thePosition)
-                if target:getType() == Character.player or target:getType() == Character.monster then
-                    table.insert(positionsAndTargets.targets, target)
-                    positionsAndTargets.targetToTeach = target
-                    setPos = false
-                end
-            end
-        end
-    else
-        thePosition = delayed
-        local foundCharacter = world:isCharacterOnField(thePosition)
-        if foundCharacter and not dodgable then
-            local target = world:getCharacterOnField(thePosition)
-            if target:getType() == Character.player or target:getType() == Character.monster then
-                positionsAndTargets.targets[#positionsAndTargets.targets+1] = target
-                setPos = false
-            end
-        end
+    if targetToTeach then
+        table.insert(positionsAndTargets.targets, targetToTeach)
+        positionsAndTargets.targetToTeach = targetToTeach
     end
+
+    if #positionsAndTargets.targets > 0 then
+        setPos = false
+    end
+
+    positionsAndTargets.startedInAttackMode = startedInAttackMode
 
     local amount = 0
 
@@ -895,10 +916,10 @@ function M.addTargets(user, spell, positionsAndTargets, startedInAttackMode)
     return positionsAndTargets
 end
 
-function M.getPositionsAndTargets(user, spell, delayed, trap, startedInAttackMode)
+function M.getPositionsAndTargets(user, spell, delayed, trap, startedInAttackMode, targetToTeach, thePosition)
 
     local positionsAndTargets = {positions = {}, targets = {}, items = {}}
-    positionsAndTargets = getPosition(user, spell, positionsAndTargets, delayed, trap, startedInAttackMode)
+    positionsAndTargets = getPosition(user, spell, positionsAndTargets, delayed, trap, startedInAttackMode, targetToTeach, thePosition)
 
     return positionsAndTargets
 end
