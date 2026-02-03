@@ -52,9 +52,9 @@ local function hasExtraBottle(user, bottleId)
 end
 
 
-function M.StartGathering(user, sourceAnimal, actionState)
+function M.StartGathering(user, sourceAnimal, actionState, rareness)
 
-    local gatheringBonus = shared.getGatheringBonus(user, nil)
+    local gatheringBonus = shared.getGatheringBonus(user, nil, Character.husbandry)
 
     local milking = gathering.GatheringCraft:new{LeadSkill = Character.husbandry, LearnLimit = 100}
 
@@ -122,27 +122,38 @@ function M.StartGathering(user, sourceAnimal, actionState)
         return
     end
 
-    milking:FindRandomItem(user)
+    milking:FindRandomItem(user, nil)
 
     user:learn( milking.LeadSkill, milking.SavedWorkTime[user.id], milking.LearnLimit)
 
     gatherAmount = gatherAmount + 1
     milkingEffect:addValue("gatherAmount", gatherAmount)
 
-    user:eraseItem(Item.largeEmptyBottle, 1)
-
     -- glyph effect since milking can not be streamlined like the crafts that use a sourceItem instead of an animal
 
     local productAmount = 1
 
     if hasExtraBottle(user, Item.largeEmptyBottle) and gwynt.includeExtraResource(user, 0) then
-        productAmount = 2
         user:eraseItem(2498, 1)
+        common.CreateItem(user, milkId, 1, 333, nil)
     end
 
     -- end of glyph
 
-    local created = common.CreateItem(user, milkId, productAmount, 333, nil) -- create the new produced items
+    local created
+
+    local data = gathering.rollsAsRare(user, milking.LeadSkill)
+
+    if not common.IsNilOrEmpty(rareness) then
+        if data.rareness > tonumber(rareness) then
+            rareness = data.rareness
+        end
+        user:eraseItem(Item.largeEmptyBottle, 1, {["rareness"] = rareness})
+        common.CreateItem(user, milkId, productAmount, 333, {["rareness"] = rareness}) --keeps rarity of bottle when milking
+    else
+        user:eraseItem(Item.largeEmptyBottle, 1)
+        created = common.CreateItem(user, milkId, productAmount, 333, data) -- create the new produced items
+    end
 
     if created then -- character can still carry something
         if gatherAmount < maxAmount then -- more milk is available

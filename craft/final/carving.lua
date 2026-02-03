@@ -447,6 +447,11 @@ product:addIngredient(2528, 1) -- small handle
 
 catId = carving:addCategory("Wands", "Zauberstäbe")
 
+-- novice wand
+product = carving:addProduct(catId, 4820, 1)
+product:addIngredient(546, 2) -- naldor wood boards
+product:addIngredient(2527, 1) -- large ornamented handle
+
 -- wand
 product = carving:addProduct(catId, 323, 1)
 product:addIngredient(546, 7) -- naldor wood boards

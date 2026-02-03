@@ -24,14 +24,67 @@ local shared = require("craft.base.shared")
 local lookat = require("base.lookat")
 local licence = require("base.licence")
 local gems = require("base.gems")
-local foodScript = require("item.food")
 local pyr = require("magic.arcane.enchanting.effects.pyr")
 local daear = require("magic.arcane.enchanting.effects.daear")
 local ilyn = require("magic.arcane.enchanting.effects.ilyn")
 local magic = require("base.magic")
-local texts = require("magic.base.texts")
+local bottles = require("item.bottles")
+local antiTroll = require("magic.base.antiTroll")
+local moreUtility = require("housing.moreUtility")
+local blueprints = require("item.blueprints")
+local foodScript = require("item.food")
+local cookingRecipeCreation = require("craft.cookingRecipeCreation")
 
 local M = {}
+
+local itemsWithRemnants = {
+    -- Instead of having to add a remnant each time an item that should have one is in a recipe,
+    -- this list means we only have to put the remnant in once and no one will forget to add the corresponding remnant anymore.
+    -- Also necessary in order for the script to know when a remnant is to not be given due to daear procs.
+    -- Exceptions: A list of final product IDs that use an ingredient with a remnant but shouldn't, such as bucket of water having both the bucket and water used in dye-making.
+        {id = Item.lampOil, remnant = Item.oilBottle},
+        {id = Item.bucketOfWater, remnant = Item.bucket, exceptions = {Item.blackDye, Item.greenDye, Item.blueDye, Item.redDye, Item.yellowDye, Item.whiteDye}},
+        {id = Item.blackDye, remnant = Item.bucket},
+        {id = Item.greenDye, remnant = Item.bucket},
+        {id = Item.blueDye, remnant = Item.bucket},
+        {id = Item.redDye, remnant = Item.bucket},
+        {id = Item.yellowDye, remnant = Item.bucket},
+        {id = Item.whiteDye, remnant = Item.bucket},
+        {id = Item.bottleOfInk, remnant = Item.emptyInkBottle},
+        {id = Item.beeHoney, remnant = Item.emptyHoneyJar},
+        {id = Item.firewaspHoney, remnant = Item.emptyHoneyJar},
+        {id = Item.eggSalad, remnant = Item.soupBowl},
+        {id = Item.bottleOfBlackberryJuice, remnant = Item.emptyJuiceBottle},
+        {id = Item.bottleOfStrawberryJuice, remnant = Item.emptyJuiceBottle},
+        {id = Item.blueberryJuice, remnant = Item.emptyJuiceBottle},
+        {id = Item.cloudberryJuice, remnant = Item.emptyJuiceBottle},
+        {id = Item.raspberryJuice, remnant = Item.emptyJuiceBottle},
+        {id = Item.deerberryJuice, remnant = Item.emptyJuiceBottle},
+        {id = Item.elderberryJuice, remnant = Item.emptyJuiceBottle},
+        {id = Item.bottleOfCabbageJuice, remnant = Item.vegetableJuiceBottle},
+        {id = Item.bottleOfCarrotJuice, remnant = Item.vegetableJuiceBottle},
+        {id = Item.bellpepperJuice, remnant = Item.vegetableJuiceBottle},
+        {id = Item.cucumberJuice, remnant = Item.vegetableJuiceBottle},
+        {id = Item.pumpkinJuice, remnant = Item.vegetableJuiceBottle},
+        {id = Item.tomatoJuice, remnant = Item.vegetableJuiceBottle},
+        {id = Item.bottleOfGrapeJuice, remnant = Item.fruitJuiceBottle},
+        {id = Item.bottleOfOrangeJuice, remnant = Item.fruitJuiceBottle},
+        {id = Item.bottleOfTangerineJuice, remnant = Item.fruitJuiceBottle},
+        {id = Item.bottleOfBananaJuice, remnant = Item.fruitJuiceBottle},
+        {id = Item.appleJuice, remnant = Item.fruitJuiceBottle},
+        {id = Item.cherryJuice, remnant = Item.fruitJuiceBottle},
+        {id = Item.pearJuice, remnant = Item.fruitJuiceBottle},
+        {id = Item.mangoJuice, remnant = Item.fruitJuiceBottle},
+        {id = Item.peachJuice, remnant = Item.fruitJuiceBottle},
+        {id = Item.plumJuice, remnant = Item.fruitJuiceBottle},
+        {id = Item.pineappleJuice, remnant = Item.fruitJuiceBottle}
+    }
+
+for _, bottle in pairs(bottles.bottles) do -- Since bottles conveniently already have the remnants listed, we just add that to the list using the existing one
+    table.insert(itemsWithRemnants, {id = bottle.full[1], remnant = bottle.empty[1]}) -- The bottle is always listed first, the rest are serving jugs and such that are not used in crafting
+end
+
+M.itemsWithRemnants = itemsWithRemnants -- for use in construction
 
 local function checkRequiredMana(user, craftingTime, isPortalBookCrafting) -- Portal book creation uses the standard craft script to create the books, but requires mana consumption
 
@@ -52,26 +105,12 @@ local function checkRequiredMana(user, craftingTime, isPortalBookCrafting) -- Po
 
 end
 
-local foodRarityTexts = {
-    {english = "uncommon", german = "außergewöhnlich gut", identifier = 2,
-    foodDescription = {
-        english = "An uncommonly well made dish. Sure to be more filling than its common counterparts.",
-        german = "Ein außergewöhnlich gut gelungenes Gericht. Ein wahrer Schmauß, der besser sättigt als ein normales Gericht."}},
-    {english = "rare", german = "exzellent", identifier = 3,
-    foodDescription = {
-        english = "A dish so well-made it's a rarity among dishes. Not only more filling than its lesser counterparts, but also somewhat beneficial to the longevity and strength of the boons of your good diet.",
-        german = "Ein wahres Schlemmergericht. Wohlbekömmlich und eine kleine Wohltat für die Länge und Auswirkung deiner guten Ernährung."}},
-    {english = "unique", german = "einzigartig gut", identifier = 4,
-    foodDescription = {
-        english = "A dish made by such refined culinary arts, you might even say it's unique. Not only more filling than its lesser counterparts, but also very beneficial to both the longevity and strength of the boons of your good diet.",
-        german = "Eine kulinarisches Köstlichkeit, die ihres Gleichen sucht. Äußerst wohlbekömmlich und eine wahre Wohltat für die Länge und Auswirkung deiner guten Ernährung."}}}
 
 
 local Product = {
             quantity = 1,
             ingredients = {},
-            difficulty = 0,
-            remnants = {},
+            difficulty = 0
 }
 
 function Product:new(p)       -- new: constructor
@@ -94,6 +133,8 @@ local Craft = {
     sfxDuration = 0,
 
     fallbackCraft = nil,
+
+    intermediate = false
 }
 
 -- constructor
@@ -140,14 +181,10 @@ function Product:addIngredient(item, quantity, data)
     table.insert(self["ingredients"], {["item"]=item, ["quantity"]=quantity, ["data"]=data})
 end
 
-function Product:addRemnant(item, quantity, data)
-    quantity = quantity or 1
-    data = data or {}
-    table.insert(self["remnants"], {["item"]=item, ["quantity"]=quantity, ["data"]=data})
-end
-
-function Craft:addProduct(categoryId, itemId, quantity, data)
-    local difficulty = math.min(world:getItemStatsFromId(itemId).Level, 100)
+function Craft:addProduct(categoryId, itemId, quantity, data, difficulty)
+    if not difficulty then
+        difficulty = math.min(world:getItemStatsFromId(itemId).Level, 100)
+    end
     local learnLimit = math.min(difficulty + 20, 100)
     quantity = quantity or 1
     data = data or {}
@@ -160,8 +197,7 @@ function Craft:addProduct(categoryId, itemId, quantity, data)
             ["learnLimit"] = learnLimit,
             ["quantity"] = quantity,
             ["data"] = data,
-            ["ingredients"] = {},
-            ["remnants"] = {},
+            ["ingredients"] = {}
         })
 
         if self.categories[categoryId].minSkill then
@@ -171,6 +207,38 @@ function Craft:addProduct(categoryId, itemId, quantity, data)
         end
 
         return self.products[#self.products]
+    end
+
+    return nil
+end
+
+function Craft:addExtraProduct(user, categoryId, itemId, quantity, data, difficulty, worth)
+    if not difficulty then
+        difficulty = math.min(world:getItemStatsFromId(itemId).Level, 100)
+    end
+    local learnLimit = math.min(difficulty + 20, 100)
+    quantity = quantity or 1
+    data = data or {}
+
+    if categoryId > 0 and categoryId <= (#self.categories + #self[user.id].extracategories) then
+        table.insert(self[user.id].extraproducts, self.defaultProduct:new{
+            ["category"] = categoryId,
+            ["item"] = itemId,
+            ["difficulty"] = difficulty,
+            ["learnLimit"] = learnLimit,
+            ["quantity"] = quantity,
+            ["data"] = data,
+            ["ingredients"] = {},
+            ["worth"] = worth
+        })
+
+        if self[user.id].extracategories[categoryId-#self.categories].minSkill then
+            self[user.id].extracategories[categoryId-#self.categories].minSkill = math.min(self[user.id].extracategories[categoryId-#self.categories].minSkill, difficulty)
+        else
+            self[user.id].extracategories[categoryId-#self.categories].minSkill = difficulty
+        end
+
+        return self[user.id].extraproducts[#self[user.id].extraproducts]
     end
 
     return nil
@@ -193,9 +261,14 @@ function Craft:showDialog(user, source)
         if result == CraftingDialog.playerCrafts then
             local productId = dialog:getCraftableId()
             local product = self.products[productId]
+            if not product then
+                product = self[user.id].extraproducts[productId - #self.products]
+            end
+
             local foodOK = self:checkRequiredFood(user, product:getCraftingTime(self:getSkill(user)))
             local manaOk = checkRequiredMana(user, product:getCraftingTime(self:getSkill(user)), self.leadSkill == Character.spatialMagic)
             local canWork = self:allowCrafting(user, source) and self:checkMaterial(user, productId) and foodOK and manaOk
+
             return canWork
         elseif result == CraftingDialog.playerLooksAtItem then
             local productId = dialog:getCraftableId()
@@ -232,6 +305,27 @@ function Craft:allowUserCrafting(user, source)
 
         if not self:userHasLicense(user) then
             return false, false
+        end
+
+        if source:getData("preview") == "true" then
+            common.HighInformNLS(user,
+                "Du kannst mit einem Vorschau-Werkzeug nicht herstellen",
+                "You can't craft using a preview-tool.")
+            return false, false
+        end
+
+        local propertyName = moreUtility.fetchPropertyName(user)
+
+        if propertyName then --It is on a housing property! To avoid players renting it once then making use of its tools for free after, we disable tools on unrented properties.
+
+            local propertyDeed = moreUtility.getPropertyDeed(propertyName)
+
+            if moreUtility.checkOwner(propertyDeed) == "Unowned" then
+                common.HighInformNLS(user,
+                "Leider hat diese Immobilie keinen Mieter, der sie instand hält und das Werkzeug funktionsfähig hält.",
+                "Sadly this property has no tenant to maintain and keep the tool in a working order.")
+                return false, false
+            end
         end
 
         if not self:isHandToolEquipped(user) then
@@ -312,7 +406,7 @@ end
 local function getPortalBookName(user, product)
 
     if not common.IsNilOrEmpty(product.data.destinationCoordsZ) then
-        for _, portalSpot in pairs(texts.portalSpots) do
+        for _, portalSpot in pairs(antiTroll.portals) do
             if portalSpot.location.z == product.data.destinationCoordsZ and portalSpot.location.x == product.data.destinationCoordsX and portalSpot.location.y == product.data.destinationCoordsY then
                 return common.GetNLS(user,portalSpot.nameDe, portalSpot.nameEn)
             end
@@ -325,6 +419,11 @@ end
 
 function Craft:getProductLookAt(user, productId)
     local product = self.products[productId]
+
+    if not product then
+        product = self[user.id].extraproducts[productId - #self.products]
+    end
+
     local lookAt = self:getLookAt(user, product)
 
     local newName = getPortalBookName(user, product) -- Custom name if portal book
@@ -337,7 +436,15 @@ function Craft:getProductLookAt(user, productId)
 end
 
 function Craft:getIngredientLookAt(user, productId, ingredientId)
-    local ingredient = self.products[productId].ingredients[ingredientId]
+
+    local product = self.products[productId]
+
+    if not product then
+        product = self[user.id].extraproducts[productId - #self.products]
+    end
+
+    local ingredient = product.ingredients[ingredientId]
+
     local lookAt = self:getLookAt(user, ingredient)
     return lookAt
 end
@@ -370,10 +477,154 @@ function Craft:getName(user)
     return craft
 end
 
+local function getRecipe(user)
+
+    local leftTool = user:getItemAt(Character.left_tool)
+    local rightTool = user:getItemAt(Character.right_tool)
+
+    if not common.IsNilOrEmpty(leftTool:getData("cookBook")) then
+        return nil, leftTool
+    end
+
+    if not common.IsNilOrEmpty(rightTool:getData("cookBook")) then
+        return nil, rightTool
+    end
+
+    if not common.IsNilOrEmpty(leftTool:getData("cookingRecipe")) then
+        return leftTool
+    end
+
+    if not common.IsNilOrEmpty(rightTool:getData("cookingRecipe")) then
+        return rightTool
+    end
+
+    return nil, nil
+end
+
 function Craft:loadDialog(dialog, user)
     local skill = self:getSkill(user)
     local categoryListId = {}
     local listId = 0
+
+    self[user.id] = {}
+    self[user.id].extracategories = {}
+    self[user.id].extraproducts = {}
+
+    local categoriesInserted = {}
+
+    if self.leadSkill then
+        categoriesInserted[self.leadSkill] = false
+
+        for _, blueprint in pairs(blueprints.blueprints) do
+
+            if Character[blueprint.craft] == self.leadSkill and blueprints.playerKnowsBlueprint(user, blueprint.item) and (not blueprint.tool or blueprint.tool == self.handTool) then
+
+                if not categoriesInserted[self.leadSkill] then
+                    table.insert(self[user.id].extracategories, {nameEN = "Lost knowledge", nameDE = "Verlorenes Wissen"})
+                    categoriesInserted[self.leadSkill] = #self.categories + #self[user.id].extracategories
+                end
+
+                local product = self:addExtraProduct(user, categoriesInserted[self.leadSkill], blueprint.item, 1)
+
+                for _, ingredient in pairs(blueprint.ingredients) do
+                product:addIngredient(ingredient.id, ingredient.amount)
+                end
+            end
+        end
+
+        local recipe, book = getRecipe(user)
+
+        if self.leadSkill == Character.cookingAndBaking and (recipe or book) then
+
+            if not categoriesInserted[self.leadSkill] then
+                table.insert(self[user.id].extracategories, {nameEN = "Recipes", nameDE = "Gerichte"})
+                categoriesInserted[self.leadSkill] = #self.categories + #self[user.id].extracategories
+            end
+
+            if recipe then
+
+                local ingredients = {}
+
+                for i = 1, 7 do
+                    local ingredient = recipe:getData("ingredient"..i)
+
+                    if not common.IsNilOrEmpty(ingredient) then
+                        table.insert(ingredients, tonumber(ingredient))
+                    end
+                end
+
+                local dishInfo = cookingRecipeCreation.getDishInfo(false, ingredients)
+
+                local theType = recipe:getData("type")
+                local mainIngredient = recipe:getData("ingredient2")
+                local base = recipe:getData("ingredient1")
+
+                local dishGraphic = cookingRecipeCreation.getDishGraphic(false, theType, mainIngredient, base)
+
+                local data = {}
+
+                data.level = dishInfo.level
+                data.remainingValue = dishInfo.worth
+                data.nameEn = recipe:getData("name")
+                data.nameDe = recipe:getData("name")
+
+                for index, ingredient in ipairs(ingredients) do
+                    data["ingredient"..index] = ingredient
+                end
+
+                if (self.handTool == Item.cookingSpoon and (theType == "bowl" or theType == "plate")) or (self.handTool == Item.peel and theType == "dough") then
+
+                    local dishAmount = dishInfo.dishAmount
+
+                    local product = self:addExtraProduct(user, categoriesInserted[self.leadSkill], tonumber(dishGraphic), dishAmount, data, dishInfo.level, dishInfo.worth)
+
+                    for _, ingredient in ipairs(ingredients) do
+                        local amount = cookingRecipeCreation.getIngredientAmount(ingredient)
+                        product:addIngredient(ingredient, amount)
+                    end
+                end
+            end
+
+            if book then
+
+                for i = 1, 100 do
+
+                    if common.IsNilOrEmpty(book:getData("recipe"..i)) then
+                        break
+                    end
+
+                    local theType, base, mainIngredient, dishName, ingredients = cookingRecipeCreation.getRecipeDataFromBook(book, i)
+
+                    local dishInfo = cookingRecipeCreation.getDishInfo(false, ingredients)
+
+                    local dishGraphic = cookingRecipeCreation.getDishGraphic(false, theType, mainIngredient, base)
+
+                    local data = {}
+
+                    data.level = dishInfo.level
+                    data.remainingValue = dishInfo.worth
+                    data.nameEn = dishName
+                    data.nameDe = dishName
+
+                    for index, ingredient in ipairs(ingredients) do
+                        data["ingredient"..index] = ingredient
+                    end
+
+                    if (self.handTool == Item.cookingSpoon and (theType == "bowl" or theType == "plate")) or (self.handTool == Item.peel and theType == "dough") then
+
+                        local dishAmount = dishInfo.dishAmount
+
+                        local product = self:addExtraProduct(user, categoriesInserted[self.leadSkill], tonumber(dishGraphic), dishAmount, data, dishInfo.level, dishInfo.worth)
+
+                        for _, ingredient in ipairs(ingredients) do
+                            local amount = cookingRecipeCreation.getIngredientAmount(ingredient)
+                            product:addIngredient(ingredient, amount)
+                        end
+                    end
+                end
+            end
+        end
+    end
 
     for i = 1,#self.categories do
         local category = self.categories[i]
@@ -412,6 +663,43 @@ function Craft:loadDialog(dialog, user)
             end
         end
     end
+
+        for i = 1, #self[user.id].extracategories do
+        local category = self[user.id].extracategories[i]
+        local categoryRequirement = category.minSkill
+        if categoryRequirement and categoryRequirement <= skill then
+            if(category.nameEN~="Rare Items") then
+                if user:getPlayerLanguage() == Player.german then
+                    dialog:addGroup(category.nameDE)
+                else
+                    dialog:addGroup(category.nameEN)
+                end
+                categoryListId[i+#self.categories] = listId
+                listId = listId + 1
+            end
+        end
+    end
+
+    for i = 1, #self[user.id].extraproducts do
+        local product = self[user.id].extraproducts[i]
+        local productRequirement = product.difficulty
+
+        if productRequirement <= skill then
+
+            local name = getPortalBookName(user, product)
+            if not name then
+                name = self:getLookAt(user, product).name
+            end
+
+            local craftingTime = self:getCraftingTime(product, skill)
+            dialog:addCraftable(i + #self.products, categoryListId[product.category], product.item, name, craftingTime, product.quantity)
+
+            for j = 1, #product.ingredients do
+                local ingredient = product.ingredients[j]
+                dialog:addCraftableIngredient(tonumber(ingredient.item), tonumber(ingredient.quantity))
+            end
+        end
+    end
 end
 
 function Craft:refreshDialog(dialog, user)
@@ -437,8 +725,17 @@ function Product:getCraftingTime(skill)
         learnProgress = (skill - self.difficulty) / (self.learnLimit - self.difficulty) * 100
     end
     local theItem = world:getItemStatsFromId(self.item)
-    local minimum = math.max (((30+((self.quantity * theItem.Worth)-200)*(1500-30)/(133300-200))),30) --30: Minimum time; 200: Minimum price; 1500: maximum time; 133300: maximum price
+    local worth = theItem.Worth
+    if self.worth then
+        worth = self.worth
+    end
+    local minimum = math.max (((30+((self.quantity * worth)-200)*(1500-30)/(133300-200))),30) --30: Minimum time; 200: Minimum price; 1500: maximum time; 133300: maximum price
     local craftingTime = common.Scale(minimum * 2, minimum, learnProgress)
+
+    if self.item == 1061 then --Portal books all have the default value and work using data values, so crafting time has to be increased differently
+        craftingTime = craftingTime * (1 + 1*self.difficulty/10) -- 8.3 seconds per 10 levels, starting at 8.3 at level 0
+    end
+
 
     if craftingTime > 99 then
         craftingTime = 10 * math.floor(craftingTime/10 + 0.5) -- Round correctly to whole seconds
@@ -468,32 +765,26 @@ function Craft:getSkill(user)
     end
 end
 
-local function checkForRareFoodIngredient(user, ingredient)
+local function checkForRareIngredient(user, ingredient)
 
     local available = 0
 
-    for _, foodRarity in pairs(foodRarityTexts) do
-        local descriptionEn = foodRarity.foodDescription.english
-        local descriptionDe = foodRarity.foodDescription.german
-        local identifier = foodRarity.identifier
-        available = available + user:countItemAt("all", ingredient.item, {["descriptionDe"] = descriptionDe, ["descriptionEn"] = descriptionEn, ["rareness"] = identifier})
+    for rarity = 2, 4 do
+        available = available + user:countItemAt("all", ingredient.item, {["craftedRare"] = "true", ["rareness"] = rarity})
     end
 
     return available
 end
 
-local function deleteRareItems(user, ingredient, rareItemsToDelete, amountOfIngredients, index, toSave)
+local function deleteRareItems(user, ingredient, rareItemsToDelete, amountOfIngredients, index, toSave, rareIngredientBonus)
 
     local deletedSoFar = 0
 
-    local rareIngredientBonus = 0
+    for rarity = 2, 4 do
 
-    for _, foodRarity in ipairs(foodRarityTexts) do
-
-        local descriptionEn = foodRarity.foodDescription.english
-        local descriptionDe = foodRarity.foodDescription.german
-        local identifier = foodRarity.identifier
-        local data = {["descriptionDe"] = descriptionDe, ["descriptionEn"] = descriptionEn, ["rareness"] = identifier}
+        local data = {}
+        data.craftedRare = "true"
+        data.rareness = rarity
         local available = user:countItemAt("all", ingredient.item, data)
         local deleteAmount
 
@@ -509,14 +800,13 @@ local function deleteRareItems(user, ingredient, rareItemsToDelete, amountOfIngr
                 toSave = 0
             end
 
-            if toSave >= deleteAmount then --Check that not all ingredients are saved here
+            if toSave < deleteAmount then --Check that not all ingredients are saved here
                 user:eraseItem(ingredient.item, deleteAmount - toSave, data)
             end
 
         end
 
-        rareIngredientBonus = rareIngredientBonus + deleteAmount-1*identifier
-
+        rareIngredientBonus = rareIngredientBonus + deleteAmount*(rarity)
         deletedSoFar = deletedSoFar + deleteAmount
 
         if deletedSoFar == rareItemsToDelete then
@@ -530,6 +820,10 @@ end
 function Craft:checkMaterial(user, productId)
     local product = self.products[productId]
 
+    if not product then
+        product = self[user.id].extraproducts[productId - #self.products]
+    end
+
     if product == nil then
         return false
     end
@@ -541,7 +835,7 @@ function Craft:checkMaterial(user, productId)
     for i = 1, #product.ingredients do
         local ingredient = product.ingredients[i]
         local available = user:countItemAt("all", ingredient.item, ingredient.data)
-        local rareFoodIngredients = checkForRareFoodIngredient(user, ingredient)
+        local rareFoodIngredients = checkForRareIngredient(user, ingredient)
 
         available = available + rareFoodIngredients
 
@@ -570,7 +864,61 @@ function Craft:checkMaterial(user, productId)
     return materialsAvailable
 end
 
-function Craft:generateRarity(user, productId, toolItem, rareIngredientBonus)
+local function roundTheBonus(rareIngredientBonus)
+
+    local lower = math.floor(rareIngredientBonus)
+    local upper = math.ceil(rareIngredientBonus)
+    local fraction = rareIngredientBonus - lower
+
+    if math.random() < fraction then
+        return upper
+    else
+        return lower
+    end
+end
+
+local otherRares = {Item.candles, Item.torch, Item.lampOil}
+
+local function itemShouldBeRare(productId)
+
+    local isFood, isCooked = foodScript.isFood(productId)
+
+    if isFood and isCooked then
+        return true
+    end
+
+    for _, bottle in pairs(bottles.bottles) do
+        if bottle.full[1] == productId then
+            return true
+        end
+
+        for _, emptyVessel in pairs(bottle.empty) do
+            if emptyVessel == productId then
+                return true
+            end
+        end
+
+        for _, vessel in pairs(bottle.vessels) do
+            if vessel.empty == productId then
+                return true
+            end
+        end
+
+        for _, otherRare in pairs(otherRares) do
+            if otherRare == productId then
+                return true
+            end
+        end
+    end
+
+    return false
+end
+
+function Craft:generateRarity(user, rareIngredientBonus, quality, maxStack, itemId)
+
+    local roundedBonus = roundTheBonus(rareIngredientBonus)
+
+    --rareIngredientBonus is the average rareness of all ingredients used to make the item
 
     -- 1 = common, 2 = uncommon, 3 = rare, 4 = unique
     -- Max chances: 0.4% unique, 2% rare, 10% uncommon, 87.6% common (includes the chance to get perfect items to even get here)
@@ -579,11 +927,35 @@ function Craft:generateRarity(user, productId, toolItem, rareIngredientBonus)
         return 1
     end
 
+    local isIntermediate = self.intermediate or itemId == Item.pins or itemId == Item.ironPlate
+
+    if not isIntermediate and not itemShouldBeRare(itemId) then
+        return 1
+    end
+
+    if quality < 900 then --Unless it is an intermediate item, only perfects can roll rareness
+        if (isIntermediate) and roundedBonus > 1 then --To keep the value of rare raw resources, some rareness is guaranteed
+            return roundedBonus
+        end
+        return 1
+    end
+
+    -- if in the future more than cooking gets a rarity, this must be altered as items with a max stack of 1 already get a quality upgrade chance via pyr
+    local guaranteedOneRarity = pyr.upQuality(user)
+
+    -- This gives pyr a purpose in cooking too. Only people already capable of making perfect items will be able to proc it, so no pyr will be wasted and no low dex crafters can bypass the dex requirement for high rarity items.
+
+    -- Proccing pyr in cooking will also be exceedingly rare since it only has a chance to proc when you make a perfect item, ensuring the rarity of... well, rarity.
+
     local retVal = 1
 
     local maxPerfectChance = 0.5967194738 --Maximum probability for quality 9(perfect) items
 
-    local rareIngredientInfluence = 1 + rareIngredientBonus/100 -- increase the final chance by an additional 1%/2%/3% per uncommon/rare/unique item used, eg a chance of 10% uncommon when you use an uncommon ingredient becomes 10.1%
+    local rareIngredientInfluence = 1
+
+    if maxStack > 1 then --Items that do not stack have quality and the rare bonus influences that instead
+        rareIngredientInfluence = rareIngredientInfluence + (2.5/4*rareIngredientBonus) --All unique materials pentuple the odds, so a 2% chance to get uniques etc
+    end
 
     local rarities = {(0.004*rareIngredientInfluence)/maxPerfectChance, (0.02*rareIngredientInfluence)/maxPerfectChance, (0.1*rareIngredientInfluence)/maxPerfectChance} --unique, rare, uncommon
 
@@ -595,23 +967,19 @@ function Craft:generateRarity(user, productId, toolItem, rareIngredientBonus)
         end
     end
 
+    if retVal < 4 and guaranteedOneRarity then
+        retVal = retVal + 1
+    end
+
+    if isIntermediate and rareIngredientBonus > retVal then --Intermediate crafts get at least what they put in
+        return roundedBonus
+    end
+
     return retVal
 
 end
 
-function Craft:checkIfFoodItem(productId)
-
-    local product = self.products[productId]
-
-    if foodScript.foodList[product.item] and foodScript.foodList[product.item].crafted then
-        return true
-    end
-
-    return false
-
-end
-
-function Craft:generateQuality(user, productId, toolItem)
+function Craft:generateQuality(user, product, toolItem, rareIngredientBonus)
 
     if self.npcCraft then
         return 999
@@ -619,18 +987,24 @@ function Craft:generateQuality(user, productId, toolItem)
 
     local gemBonus = tonumber(self:getCurrentGemBonus(user))
     local skill = self.leadSkill
-    local leadAttribName = common.GetLeadAttributeName(skill)
-    local leadAttribValue = user:increaseAttrib(leadAttribName, 0)
+    local leadAttribNames = common.GetLeadAttributeName(skill)
+    local leadAttribValue1 = user:increaseAttrib(leadAttribNames.first, 0) * 0.6 -- 60% of the impact dex had on its own in the past
+    local leadAttribValue2 = user:increaseAttrib(leadAttribNames.second, 0) * 0.4 -- 40% of the impact dex had on its own in the past
+    local leadAttribValue = leadAttribValue1 + leadAttribValue2
+
 
     local meanQuality = 5
     meanQuality = meanQuality*(1+common.GetAttributeBonusHigh(leadAttribValue)+common.GetQualityBonusStandard(toolItem))+gemBonus/100 --Apply boni of dexterity, tool quality and gems.
     meanQuality = common.Limit(meanQuality, 1, 8.5) --Limit to a reasonable maximum to avoid overflow ("everything quality 9"). The value here needs unnatural attributes.
+    local rarityBonus = (rareIngredientBonus - 1) * (0.5 / 3)
+    meanQuality = meanQuality + rarityBonus -- Rare ingredients allow you to surpass the maximum to get a mean of 9 if all ingredients are unique
     local rolls = 8 --There are eight chances to increase the quality by one. This results in a quality distribution 1-9.
     local quality = 1 + common.BinomialByMean((meanQuality-1), rolls)
     quality = common.Limit(quality, 1, common.ITEM_MAX_QUALITY)
 
     if quality < common.ITEM_MAX_QUALITY then
-        if pyr.upQuality(user) then
+        local maxStack = world:getItemStatsFromId(product.item).MaxStack
+        if maxStack == 1 and pyr.upQuality(user) then -- only items with a max stack of 1 have a quality to increase
             quality = quality + 1
         end
     end
@@ -661,6 +1035,25 @@ function Craft:locationFine(user)
             "For some reason the flame does not provide the required heat.")
         end
         return false
+    elseif common.GetFrontItem(user):getData("preview") == "true" then
+        common.HighInformNLS(user,
+            "Du kannst mit einem Vorschau-Werkzeug nicht herstellen",
+            "You can't craft using a preview-tool.")
+        return false
+    end
+
+    local propertyName = moreUtility.fetchPropertyName(user)
+
+    if propertyName then --It is on a housing property! To avoid players renting it once then making use of its tools for free after, we disable tools on unrented properties.
+
+        local propertyDeed = moreUtility.getPropertyDeed(propertyName)
+
+        if moreUtility.checkOwner(propertyDeed) == "Unowned" then
+            common.HighInformNLS(user,
+            "Leider hat diese Immobilie keinen Mieter, der sie instand hält und das Werkzeug funktionsfähig hält.",
+            "Sadly this property has no tenant to maintain and keep the tool in a working order.")
+            return false
+        end
     end
 
     return true
@@ -700,6 +1093,11 @@ end
 
 function Craft:craftItem(user, productId)
     local product = self.products[productId]
+
+    if not product then
+        product = self[user.id].extraproducts[productId - #self.products]
+    end
+
     local skill = self:getSkill(user)
     local skillGain = false
 
@@ -753,16 +1151,38 @@ local function getTotalQuantity(product)
     return retval
 end
 
+local function checkForRemnantException(product, exceptions)
+
+    for _, exception in pairs(exceptions) do
+        if exception == product then
+            return true
+        end
+    end
+
+    return false
+
+end
+
 
 function Craft:createItem(user, productId, toolItem)
     local product = self.products[productId]
+
+    if not product then
+        product = self[user.id].extraproducts[productId - #self.products]
+    end
+
     product.data.descriptionDe = ""
     product.data.descriptionEn = "" -- reset descriptions, same reasoning as below
     product.data.rareness = "" -- reset rarity or else it creates the most recent result of the rarity calculation even if not a perfect item
+    product.data.craftedRare = ""
 
     local rareIngredientBonus = 0
     local amountOfIngredients = #product.ingredients
     local ingredientSaved = false
+
+    local itemsToReturnAsRemnants = {}
+
+    local totalIngredients = 0
 
     for i = 1, amountOfIngredients do
 
@@ -773,15 +1193,23 @@ function Craft:createItem(user, productId, toolItem)
         local rareItemsToDelete = 0
         local toSave = 0
 
+        totalIngredients = totalIngredients + totalToDelete
+
         local chance = 1/amountOfIngredients -- equal chance for each ingredient involved to be the one saved
 
-        if not ingredientSaved then -- Did the glyph proc and has the proc not already been used by a previous ingredient?
+        if not self.npcCraft and not ingredientSaved then -- Did the glyph proc and has the proc not already been used by a previous ingredient? Does not apply to npc crafts
             if math.random() <= chance or i == amountOfIngredients then -- equal chance that each ingredient is picked to roll for the save, if its the last ingredient and none were picked before it picks that
                 local saveIngredient = daear.saveResource(user, world:getItemStatsFromId(ingredient.item).Level, getTotalQuantity(product), totalToDelete)
                 if saveIngredient then
                     toSave = math.ceil(totalToDelete/5) --possible to save up to 1 resource per 5 required of it. EG if a recipe requires 46-50 pins, you get 10 instead of just 1 in return.
                     ingredientSaved = true
                 end
+            end
+        end
+
+        for _, remnant in pairs(itemsWithRemnants) do -- If the item has a corresponding remnant item, it gets added to the list for later
+            if ingredient.item == remnant.id and (totalToDelete - toSave > 0) and (not remnant.exceptions or not checkForRemnantException(product.item, remnant.exceptions)) then
+                table.insert(itemsToReturnAsRemnants, { id = remnant.remnant, amount = totalToDelete - toSave}) -- If the glyph saves any, the -toSave ensures that we dont return extra remnant items
             end
         end
 
@@ -803,11 +1231,14 @@ function Craft:createItem(user, productId, toolItem)
         end
 
         if rareItemsToDelete > 0 then
-            rareIngredientBonus = deleteRareItems(user, ingredient, rareItemsToDelete, amountOfIngredients, i, toSave)
+            rareIngredientBonus = deleteRareItems(user, ingredient, rareItemsToDelete, amountOfIngredients, i, toSave, rareIngredientBonus)
+            rareIngredientBonus = rareIngredientBonus + regularItemsToDelete --Regular items count as 1 rarity
         end
     end
 
-    local quality = self:generateQuality(user, productId, toolItem)
+    rareIngredientBonus = rareIngredientBonus/totalIngredients --Now we have the average rareness of all ingredients used
+
+    local quality = self:generateQuality(user, product, toolItem, rareIngredientBonus)
 
     local itemStats = world:getItemStatsFromId(product.item)
     if itemStats.MaxStack == 1 then
@@ -816,41 +1247,26 @@ function Craft:createItem(user, productId, toolItem)
         product.data.craftedBy = nil
     end
 
-    local rarity = 0
+    local maxStack = world:getItemStatsFromId(product.item).MaxStack
 
-    local foodItem = self:checkIfFoodItem(productId)
+    local rarity = self:generateRarity(user, rareIngredientBonus, quality, maxStack, product.item)
 
-    if foodItem and quality >= 900 then
-        rarity = self:generateRarity(user, productId, toolItem, rareIngredientBonus)
-
-        if rarity > 1 then
-            product.data.rareness = rarity
-        end
-    end
-
-    for _, selectedRarity in pairs(foodRarityTexts) do
-        if rarity == selectedRarity.identifier then
-            local nameEnglish = itemStats.English
-            local nameGerman = itemStats.German
-            common.TempInformNLS(user, "Die Speise '"..nameGerman.."' ist dir "..nameGerman.." gelungen.", "Through your masterful skill, your "..nameEnglish.." ended up being of "..selectedRarity.english.." quality.")
-            if foodItem then
-                product.data.descriptionDe = selectedRarity.foodDescription.german
-                product.data.descriptionEn = selectedRarity.foodDescription.english
-            end
-            break
-        end
+    if rarity > 1 then
+        common.TempInformNLS(user, "Seltenes Produkt hergestellt!", "Rare product crafted!")
+        product.data.rareness = rarity
+        product.data.craftedRare = "true"
     end
 
     common.CreateItem(user, product.item, product.quantity, quality, product.data)
 
-    if ilyn.duplicateItem(user, world:getItemStatsFromId(product.item).Level) then
+    if not self.npcCraft  and ilyn.duplicateItem(user, world:getItemStatsFromId(product.item).Level) then --Important to check for npcCraft, we dont want it to proc for magic gem combination
         common.CreateItem(user, product.item, product.quantity, quality, product.data)
     end
 
-    for i=1, #product.remnants do
-        local remnant = product.remnants[i]
-       common.CreateItem(user, remnant.item, remnant.quantity, 333, remnant.data)
+    for _, remnant in pairs(itemsToReturnAsRemnants) do
+        common.CreateItem(user, remnant.id, remnant.amount, 333, {})
     end
+
 end
 
 M.Product = Product

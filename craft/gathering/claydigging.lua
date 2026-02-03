@@ -28,12 +28,12 @@ function M.StartGathering(User, SourceItem, ltstate)
     local toolID = 24 --shovel (24)
     local maxAmount = 20
     local GFX = 22
-    local SFX = 0
+    local SFX = 35
     local resourceID = 26 --clay
     local depletedSourceID = 3633
     local restockWear = 4 --15 minutes
 
-    local success, toolItem, amount, gatheringBonus = gathering.InitGathering(User, SourceItem, toolID, maxAmount, claydigging.LeadSkill)
+    local success, toolItem, amount, gatheringBonus = gathering.InitGathering(User, SourceItem, toolID, maxAmount, claydigging.LeadSkill, depletedSourceID)
 
     if not success then
         return
@@ -61,10 +61,10 @@ function M.StartGathering(User, SourceItem, ltstate)
     --Case 3: Action executed
     User:learn(claydigging.LeadSkill, claydigging.SavedWorkTime[User.id], claydigging.LearnLimit)
 
-    claydigging:FindRandomItem(User)
+    claydigging:FindRandomItem(User, toolItem)
 
 
-    local created, newAmount = gathering.FindResource(User, SourceItem, amount, resourceID)
+    local created, newAmount = gathering.FindResource(User, SourceItem, amount, resourceID, claydigging.LeadSkill, toolItem)
 
     if created then
         User:changeSource(SourceItem)

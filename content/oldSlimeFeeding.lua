@@ -17,10 +17,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- This handles everything needed to control the quest of feeding the Old Slime in Runewick.
 
-local factions = require("base.factions")
 local scheduledFunction = require("scheduled.scheduledFunction")
 local lookat = require("base.lookat")
-local common = require("base.common")
 
 local M = {}
 
@@ -85,7 +83,7 @@ local rewardList = {
 
 function M.setSignText(signSlimeFeeding)
 
-    local day = common.getTime("day")
+    local day = world:getTime("day")
     local itemId = slimeDietItems[day]["itemId"]
     local amount = slimeDietItems[day]["amount"]
     lookat.SetSpecialName(signSlimeFeeding, "Regeln für das Füttern des alten Schleims", "Rules for feeding the old slime")
@@ -100,7 +98,7 @@ local function newMonth(user)
     local year = math.floor(questStatus/100)
     local month = questStatus - (year*100)
 
-    if questStatus == 0 or month < common.getTime("month") or year < common.getTime("year") then
+    if questStatus == 0 or month < world:getTime("month") or year < world:getTime("year") then
         return true
     end
     return false
@@ -118,7 +116,7 @@ local function checkFeeding(user)
         return false, nil
     end
 
-    local day = common.getTime("day")
+    local day = world:getTime("day")
     local neededId = slimeDietItems[day]["itemId"]
     local neededAmount = slimeDietItems[day]["amount"]
 
@@ -157,10 +155,9 @@ function M.useLever(user, sourceItem)
         world:gfx(46, acceptFeedingField)
         world:createItemFromItem(feedingItem, acceptFeedingField,true)
         world:erase(feedingItem, feedingItem.number)
-        if factions.isRunewickCitizen(user) then
-            factions.setRankpoints(user, factions.getRankpoints(user)+3)
-        end
-        user:setQuestProgress(450, common.getTime("year")*100 + common.getTime("month"))
+
+        user:setQuestProgress(450, world:getTime("year")*100 + world:getTime("month"))
+
         feedingInProgress = true
         local oldSlime = world:createMonster(oldSlimeId, position(1,1,0), 0)
         oldSlime:warp(caveEntrance) -- hack to show model, to work around a client issue

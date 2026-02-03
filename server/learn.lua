@@ -43,6 +43,77 @@ local normalMC = 4 * lowerBorder --A 'normal' player invests 4x the time (=10 %)
 local normalAP = 50 --How many actionPoints does a 'normal' action take? Default=50.
 --Constants - end
 
+local multiSkilling = {}
+
+local function accountForMultiSkills(user, skill, actionPoints)
+
+    if not multiSkilling[user.id] then
+        multiSkilling[user.id] = {}
+    end
+
+    -- The purpose of this script is to replace the former division of actionPoints by 3 in fighting that accounted for how you
+    -- might be skilling parry ,armour and weapon at the same time, with a dynamic scaling and to include how you can now also
+    -- be skilling magicResist at the same time
+
+    local armour = {Character.heavyArmour, Character.mediumArmour, Character.lightArmour}
+
+    local parry = Character.parry
+
+    local offensive = {Character.distanceWeapons, Character.slashingWeapons, Character.wrestling, Character.concussionWeapons, Character.punctureWeapons, Character.fireMagic, Character.spiritMagic, Character.windMagic, Character.earthMagic, Character.waterMagic}
+
+    local magicResist = Character.magicResistance
+
+    local correctSkill = false
+
+    local resetTimer = 5
+
+    for _, armourSkill in pairs(armour) do
+        if skill == armourSkill then
+            correctSkill = true
+            multiSkilling[user.id]["armour"] = world:getTime("unix") + resetTimer
+        end
+    end
+
+    if skill == parry then
+        correctSkill = true
+        multiSkilling[user.id]["parry"] = world:getTime("unix") + resetTimer
+    end
+
+    if skill == magicResist then
+        correctSkill = true
+        multiSkilling[user.id]["magicResist"] = world:getTime("unix") + resetTimer
+    end
+
+    for _, offensiveSkill in pairs(offensive) do
+        if skill == offensiveSkill then
+            correctSkill = true
+            multiSkilling[user.id]["offensive"] = world:getTime("unix") + resetTimer
+        end
+    end
+
+    if not correctSkill then
+        return actionPoints
+    end
+
+    local divideBy = 0
+
+    local timesToCheck = {"offensive", "magicResist", "parry", "armour"}
+
+    for _, timeCheck in pairs(timesToCheck) do
+        local time = multiSkilling[user.id][timeCheck]
+
+        if not common.IsNilOrEmpty(time) then
+            if time > world:getTime("unix") then --This skill category was learnt within that last 5 seconds
+                divideBy = divideBy + 1
+            end
+        end
+    end
+
+    return actionPoints/divideBy
+
+end
+
+
 function M.learn(user, skill, actionPoints, learnLimit)
 
     local leadAttrib = common.GetLeadAttrib(user, skill) --reading the lead attribute.
@@ -54,6 +125,7 @@ function M.learn(user, skill, actionPoints, learnLimit)
     M.resetRestTime(user)
 
     if skillValue < learnLimit and skillValue < 100 then
+        actionPoints = accountForMultiSkills(user, skill, actionPoints) --After the check to ensure level 100 skills dont add to it
     --you only learn when your skill is lower than the skill of the learnLimit and your skill is <100.
 
             local skillFactor = (100 - skillValue)/100

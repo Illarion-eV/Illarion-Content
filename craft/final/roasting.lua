@@ -25,10 +25,16 @@ local roasting = crafts.Craft:new{
                     leadSkill = Character.cookingAndBaking,
                     sfx = 7,
                     sfxDuration = 27,
+                    intermediate = true
                   }
 
 roasting:addTool(304) -- smoke oven
 roasting:addTool(305) -- smoke oven
+roasting:addTool(12) -- campfire
+roasting:addTool(1387) -- grill
+roasting:addTool(1388) -- grill
+roasting:addTool(1389) -- grill
+roasting:addTool(1390) -- grill
 
 local product
 local catId
@@ -50,6 +56,10 @@ product:addIngredient(553) -- rabbit meat
 -- Grilled lamb
 product = roasting:addProduct(catId, 3713, 1)
 product:addIngredient(2934) -- lamb meat
+
+-- Grilled Rat
+product = roasting:addProduct(catId, Item.grilledRat, 1)
+product:addIngredient(Item.ratMeat)
 
 -- Grilled venison
 product = roasting:addProduct(catId, 3714, 1)

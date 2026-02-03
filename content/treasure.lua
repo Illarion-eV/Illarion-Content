@@ -310,7 +310,8 @@ treasureContents[2] = {
 {3553,1}, --copper ring
 {3554,1}, --silver amulet
 {3555,1}, --silver ring
-{3558,1} --copper amulet
+{3558,1}, --copper amulet
+{Item.baleOfDuskwool, 1}
 }
 treasureContents[3] = {
 
@@ -466,7 +467,8 @@ treasureContents[3] = {
 {39,1}, --skull staff
 {88,1}, --longaxe
 {1038,1}, --snake spear
-{293,1} --javelin
+{293,1}, --javelin
+{Item.baleOfDuskwool, 1}
 
 }
 treasureContents[4] = {
@@ -542,7 +544,8 @@ treasureContents[4] = {
 {2420,1}, --black priest robe
 {1456,1}, --silver studded leather gloves
 {1465,1}, --gilded chain gloves
-{1475,1} --squire's gloves
+{1475,1}, --squire's gloves
+{Item.baleOfDuskwool, 2}
 
 }
 treasureContents[5] = {
@@ -605,7 +608,8 @@ treasureContents[5] = {
 {1432,1}, --albarian mercenary's helmet
 {2302,1}, --gynkese mercenary's helmet
 {3546,1}, --copper emerald amulet
-{3547,1} --copper emerald ring
+{3547,1}, --copper emerald ring
+{Item.baleOfDuskwool, 2}
 
 }
 treasureContents[6] = {
@@ -660,7 +664,9 @@ treasureContents[6] = {
 {368,1}, --yellow priest robe
 {698,1}, --serinjah leather boots
 {699,1}, --salkamaerian steel shoes
-{770,1} --knight boots
+{770,1}, --knight boots
+{Item.cupriteOre, 1},
+{Item.baleOfDuskwool, 3}
 
 }
 treasureContents[7] = {
@@ -725,7 +731,9 @@ treasureContents[7] = {
 {2552,1}, --pure earth
 {2553,1}, --pure fire
 {2554,1}, --pure water
-{3607,1} --pure spirit
+{3607,1}, --pure spirit
+{Item.cupriteOre, 1},
+{Item.baleOfDuskwool, 3}
 }
 
 treasureContents[8] = {
@@ -762,7 +770,8 @@ treasureContents[8] = {
 {558,1}, --archmage robe
 {1484,1}, --fur trousers of dawn
 {1491,1}, --holy chain pants
-{1499,1} --steel greaves of eternal night
+{1499,1}, --steel greaves of eternal night
+{Item.cupriteOre, 2}
 
 }
 treasureContents[9] = {
@@ -789,7 +798,8 @@ treasureContents[9] = {
 {207,1}, --battle staff
 {1039,1}, --twinblade ranseur
 {2636,1}, --poisoned double axe
-{2731,1} --two-handed sword
+{2731,1}, --two-handed sword
+{Item.cupriteOre, 2}
 
 }
 treasureContents[10] = {
@@ -816,6 +826,7 @@ treasureContents[10] = {
 {208,1}, --ornate mage's staff
 {1050,1}, --shadow ranseur
 {2627,1}, --fire waraxe
+{Item.cupriteOre, 3},
 
     -- Magical emerald Level 1, Magical ruby Level 1, Magical amethyst Level 1, Magical topaz Level 1, Magical obsidian Level 1, Magical sapphire Level 1
     magicGem(gems.EMERALD, 1), magicGem(gems.RUBY, 1), magicGem(gems.AMETHYST, 1), magicGem(gems.TOPAZ, 1), magicGem(gems.OBSIDIAN, 1), magicGem(gems.SAPPHIRE, 1)
@@ -840,6 +851,7 @@ treasureContents[11] = {
 {1530,1}, --master's staff
 {2626,1}, --magical waraxe
 {3035,1}, --drow sword
+{Item.cupriteOre, 5},
 
     -- Magical emerald Level 2, Magical ruby Level 2, Magical amethyst Level 2, Magical topaz Level 2, Magical obsidian Level 2, Magical sapphire Level 2
     magicGem(gems.EMERALD, 2), magicGem(gems.RUBY, 2), magicGem(gems.AMETHYST, 2), magicGem(gems.TOPAZ, 2), magicGem(gems.OBSIDIAN, 2), magicGem(gems.SAPPHIRE, 2)
@@ -850,7 +862,7 @@ treasureContents[11] = {
 -- @return the minimal amount and the maximal amount of money in the treasure
 function M.getMoneyInTreasure(level)
     local sqrLevel = level * level
-    return 500 * sqrLevel, 1500 * sqrLevel
+    return 750 * sqrLevel, 2000 * sqrLevel
 end
 
 -- Postprocessing

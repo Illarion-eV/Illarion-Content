@@ -15,29 +15,34 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
-local monstermagic = require("monster.base.spells.base")
+local icefield = require("lte.damagefield_icefield")
 
 -- Long time effect (110)
 local M = {}
 
-local function causeDamage(User, quality)
-
-    local resist = monstermagic.getSpellResistence(User) * 10
-    if resist < quality then
-        local damageLow = 3 * math.floor((math.max(10, quality - resist)))
-        local damageHigh = 5 * math.floor(quality - resist)
-        local damageDealt = math.random(math.min(damageLow, damageHigh), math.max(damageLow, damageHigh))
-        User:increaseAttrib("hitpoints", -damageDealt);
-    end
-end
-
 function M.addEffect(theEffect, User)
 
-    if User:getQuestProgress(298) == 0 then
+    local ignoreDamage = icefield.ignoreDamageDueToRace(User, theEffect)
+
+    if not ignoreDamage and User:getQuestProgress(298) == 0 then
         User:inform("Du fühlst wie das glühend heiße Feuer allmählich deine Haut verbrennt.",
                     "You feel the scorching fire gradually burn your skin.")
         local _, quality = theEffect:findValue("quality")
-        causeDamage(User, quality)
+        local foundpenetration, penetration = theEffect:findValue("magicPenetration")
+
+        local foundwandGemBonus, wandGemBonus = theEffect:findValue("wandGemBonus")
+
+        if not foundpenetration then
+            penetration = 0
+        else
+            penetration = tonumber(penetration)/100
+        end
+
+        if not foundwandGemBonus then
+            wandGemBonus = 0
+        end
+
+        icefield.causeDamage(User, quality, penetration, wandGemBonus, theEffect)
     end
 end
 
@@ -59,7 +64,27 @@ function M.callEffect(theEffect, User)
         return false
     end
     if User:getQuestProgress(298) == 0 then
-        causeDamage(User, FieldItem.quality)
+        local foundpenetration, penetration = theEffect:findValue("magicPenetration")
+
+        local foundwandGemBonus, wandGemBonus = theEffect:findValue("wandGemBonus")
+
+        if not foundpenetration then
+            penetration = 0
+        else
+            penetration = penetration/100
+        end
+
+        local scaling = FieldItem:getData("scaling")
+
+        if common.IsNilOrEmpty(scaling) then
+            scaling = math.floor(FieldItem.quality/100)+1
+        end
+
+        if not foundwandGemBonus then
+            wandGemBonus = 0
+        end
+
+        icefield.causeDamage(User, tonumber(scaling), penetration, wandGemBonus, nil, FieldItem)
     end
     -- repeat in 5sec
     theEffect.nextCalled = 50
@@ -72,7 +97,9 @@ end
 
 function M.removeEffect (theEffect, User)
 
-    if User:getQuestProgress(298) == 0 then
+    local ignoreDamage = icefield.ignoreDamageDueToRace(User, theEffect)
+
+    if not ignoreDamage and User:getQuestProgress(298) == 0 then
         User:inform("Du fühlst wie das Brennen auf deiner Haut nachlässt.",
                     "You feel the burning of your skin fade.")
     end

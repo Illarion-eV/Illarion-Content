@@ -122,11 +122,26 @@ function M.triggerAmbush(char, monsterPositions)
     end
 end
 
+local function paidForProtection(player) --Check if a player paid for the Don's protection
+
+    local questStatus = player:getQuestProgress(453)
+
+    if common.IsNilOrEmpty(questStatus) then
+        return false
+    end
+
+    if tonumber(questStatus) > 0 then -- protection is in place
+        return true
+    end
+
+    return false
+end
+
 function M.fightAmbush(char)
     local luckybunch = false
     local hero = world:getPlayersInRangeOf(char.pos, 20); --lets see if there is a player around
     for i,player in ipairs(hero) do
-        if factions.getMembership(player) == 3 then --check if galmairians are there
+        if factions.getMembership(player) == 3 or paidForProtection(player) then --check if galmairians are there
             luckybunch = true --if non-galmairians are together with galmairians
         end
     end
@@ -139,7 +154,7 @@ function M.fightAmbush(char)
     end
 
     for i,player in ipairs(hero) do
-        if factions.getMembership(player) == 3 then --check if galmairians are there
+        if factions.getMembership(player) == 3 or paidForProtection(player) then --check if galmairians are there
             player:inform("Bevor du auch noch reagieren kannst, schießen Pfeile an dir vorbei und töten deine Widersacher. Du blickst in die Richtung von wo die Pfeile kamen und siehst die Wachen von Galmair dir mit ihren Armbrüsten zuwinken. Gut, dass du dem Don deine Steuern zahlst und er dich beschützt!","Even before you are able to react, arrows shoot around you and take down your enemies. You look to the direction the arrows originated from and see guards of Galmair waving to you with their crossbows. Good, you have paid your taxes to the Don and he protects you!")    --praise the don message for the player
         elseif luckybunch then -- glamairians are here...lucky you
             player:inform("Bevor du auch noch reagieren kannst, schießen Pfeile an dir vorbei und töten deine Widersacher. Du blickst in die Richtung von wo die Pfeile kamen und siehst die Wachen von Galmair euch mit ihren Armbrüsten zuwinken. Gut, dass du jemanden dabei hattest, der dem Don Steuern zahlst und daher beschützt wird vom Don!", "Even before you are able to react, arrows shoot around you and take down your enemies. You look to the direction the arrows originated from and see guards of Galmair waving to you with their crossbows. Good, you have someone with you who has paid taxes to the Don and is thus protected by the Don!")    --wäähh wrong faction but together with friends message for the player

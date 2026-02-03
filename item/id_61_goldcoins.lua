@@ -19,7 +19,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local lookat = require("base.lookat")
-local money = require("base.money")
+local ronaganDungeon = require("content.ronaganDungeon")
 local goldenGoblet = require("item.id_224_goldengoblet")
 
 local M = {}
@@ -33,30 +33,24 @@ function M.LookAtItem(User, Item)
     return lookat.GenerateLookAt(User, Item, lookat.NONE)
 end
 
-function M.UseItem(User, SourceItem)
+function M.UseItem(user, sourceItem)
 
-    if goldenGoblet.putCoinsInGoblet(User, SourceItem) then
+    if goldenGoblet.putCoinsInGoblet(user, sourceItem) then
         return
     end
 
-    local isRonaganTrap = (SourceItem:getData("ronaganTrap") == "true")
-    if (isRonaganTrap == true) then
-        User:inform("Ein Dieb hat dich in eine Falle gelockt. Er springt aus einem der Schatten und stielt dir ein paar Münzen.", "A thief has lured you into a trap, jumping out from a shadow, he steals some coins from you.")
-
-        -- steal 1% - 5% of characters money in inventroy
-        local wealth = money.CharCoinsToMoney(User)
-        money.TakeMoneyFromChar(User, math.random(math.floor(wealth / 100), math.floor(wealth / 20)))
+    if ronaganDungeon.ronaganTrap(user, sourceItem) then
         return
-   end
+    end
 
-    if common.spamProtect(User, 5) then
+    if common.spamProtect(user, 5) then
         return
     end
 
     if math.random(2) == 1 then
-        User:talk(Character.say, "#me wirft eine Münze in die Luft und fängt sie wieder auf. Sie zeigt Kopf.", "#me throws a coin in the air and catches it again. It shows head.")
+        user:talk(Character.say, "#me wirft eine Münze in die Luft und fängt sie wieder auf. Sie zeigt Kopf.", "#me throws a coin in the air and catches it again. It shows head.")
     else
-        User:talk(Character.say, "#me wirft eine Münze in die Luft und fängt sie wieder auf. Sie zeigt Zahl.", "#me throws a coin in the air and catches it again. It shows tail.")
+        user:talk(Character.say, "#me wirft eine Münze in die Luft und fängt sie wieder auf. Sie zeigt Zahl.", "#me throws a coin in the air and catches it again. It shows tail.")
     end
 end
 

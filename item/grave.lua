@@ -20,6 +20,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local transformation_dog = require("alchemy.teaching.transformation_dog")
 local lookat = require("base.lookat")
+local magicSphere = require("item.magicSphere")
+
+local texts = magicSphere.puzzles
 
 local M = {}
 
@@ -56,13 +59,32 @@ local dragonCaveCoffinPos = {
 local CoffinContents
 local letmaCoffin
 
-function M.LookAtItem(User, Item)
+local function fhanPuzzlePos(user, theItem)
 
-    if Item:getData("teachDogTransformationPotion") == "true" then
-        return transformation_dog.LookAtGrave(User,Item)
+    for _, coffin in pairs(texts.fhanPuzzle.coffins) do
+        if coffin.location == theItem.pos then
+            local lookAt = lookat.GenerateLookAt(user, theItem)
+            lookAt.description = common.GetNLS(user, coffin.german, coffin.english)
+            return lookAt
+        end
     end
 
-    return lookat.GenerateLookAt(User, Item, lookat.NONE)
+    return false
+end
+
+function M.LookAtItem(User, theItem)
+
+    local lookAt = lookat.GenerateLookAt(User, theItem, lookat.NONE)
+
+    if fhanPuzzlePos(User, theItem) then
+        return fhanPuzzlePos(User, theItem)
+    end
+
+    if theItem:getData("teachDogTransformationPotion") == "true" then
+        return transformation_dog.LookAtGrave(User,theItem)
+    end
+
+    return lookAt
 end
 
 local findPlayersForGems={}
@@ -79,6 +101,10 @@ gemsAlreadyFound[2]={284,329,481,526}
 gemsAlreadyFound[3]={45,242,329,526}
 
 function M.UseItem(User, SourceItem)
+
+    if fhanPuzzlePos(User, SourceItem) then
+        return
+    end
 
     if SourceItem:getData("teachDogTransformationPotion") == "true" then
         transformation_dog.UseGrave(User, SourceItem)

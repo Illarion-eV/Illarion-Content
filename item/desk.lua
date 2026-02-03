@@ -18,7 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local magicDesk = require("magic.arcane.arcaneMagicDesk")
 local common = require("base.common")
 local lookat = require("base.lookat")
-local texts = require("magic.base.texts")
+
 
 local M = {}
 
@@ -55,8 +55,8 @@ function M.LookAtItem(user, item)
     local lookAt = lookat.GenerateLookAt(user, item)
 
     if item.id == 3502 or item.id == 3503 then
-        lookAt.name= common.GetNLS(user, texts.magicDesk.name.german , texts.magicDesk.name.english )
-        lookAt.description = common.GetNLS(user, texts.magicDesk.description.german, texts.magicDesk.description.english)
+        lookAt.name= common.GetNLS(user, "Magischer Schreibtisch" , "Magical Desk" )
+        lookAt.description = common.GetNLS(user, "Ein Schreibtisch welcher von Magiern benutzt wird um Zaubersprüche zu schreiben, Portalbücher zu erstellen und Grimoires zu verzaubern.", "A desk where mages can create spells, craft portal books and enchant grimoires")
     end
 
     return lookAt

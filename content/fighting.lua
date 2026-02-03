@@ -371,11 +371,19 @@ end
     @param  int ID of the Item
     @return boolean training weapon or not
 ]]
-function M.IsTrainingWeapon( ItemID )
-    local woodenSword = 445;
-    local woodenDagger = 1045;
-    return ( ItemID == woodenSword or ItemID == woodenDagger );
-end;
+function M.IsTrainingWeapon( itemId )
+
+    local trainingWeapons = {Item.woodenSword, Item.woodenDagger, Item.club, Item.sling, Item.walkingStick, Item.simpleSpear}
+
+    for _, trainingWeapon in pairs(trainingWeapons) do
+        if trainingWeapon == itemId then
+            return true
+        end
+    end
+
+    return false
+
+end
 
 --- Get a area that is hit during a attack. Depending on the race the areas that
 -- can be hit can alter.

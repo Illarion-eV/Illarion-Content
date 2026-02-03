@@ -47,7 +47,7 @@ function M.townManagmentUseItem(User, SourceItem)
     end
 
     local requiredRank = {8, 8, 8}
-    local allowed = User:getQuestProgress(199) == toolTown and User:getQuestProgress(200) >= requiredRank[toolTown] and User:getQuestProgress(202) >= 600 or User:isAdmin() == true
+    local allowed = User:getQuestProgress(199) == toolTown and User:getQuestProgress(200) >= requiredRank[toolTown] or User:isAdmin() == true
     if not allowed then
         -- common.InformNLS(User, "Du hast keine Befugnis hierzu.", "You are not supposed to use this.")
         TownAnnouncementShow(User,toolTown)

@@ -38,6 +38,16 @@ function M.MoveItemAfterMove(user, sourceItem, targetItem)
         common.InformNLS(user, "Der Kerzenhalter zerbröselt in deinen Fingern.",
                                "The small candlestick crumbles in your hands.")
         world:erase(targetItem,targetItem.number)
+
+        --If you use P or drag an item to your character (which is what P does), it gets transferred to your
+        -- bag before you can delete it, so this is a workaround:
+
+        local data = {belongsTo = "ritual"}
+
+        local available = user:countItemAt("all", Item.smallCandlestick, data)
+
+        user:eraseItem(Item.smallCandlestick, available, data)
+
         return false
     end
     return lights.MoveItemAfterMove(user, sourceItem, targetItem)

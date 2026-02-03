@@ -58,15 +58,17 @@ itemShoes = 369
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-sellItems = 227, 126, 799, 133, 134, 135, 136, 137, 140, 141, 142, 143, 144, 145, 147, 148, 149, 151, 153, 155, 156, 157, 158, 159, 160, 161, 162, 163, 405, 406, 407, 752, 753, 759, 763, 767, 2499, 2500, 2497, 2501, 785, 3720, 787, 791, 786, 788, 517, 783, 3721, 784, 789, 3722, 3611, 1316
--- cooking spoon, sickle
--- wicker basket
--- sun herb, fourleafed oneberry, yellow weed, anger berry, flamegoblet blossom, donf blade, black thistle, sandberry, red elder, virgin's weed, heath flower, blackberry, firnis blossom, fir tree sprout, strawberry, foot leaf, sibanac leaf, steppe fern, rotten tree bark, bulbsponge mushroom, toadstool, red head, herder's mushroom, birth mushroom, champignon, fairy ring mushroom, stinkhorn, elf caps, mandrake, blue birdsberry, nuts, marsh flower, water blossom, silk
--- bottle of cider, bottle of wine, bottle of mead, bottle of beer, bottle of banana juice, bottle of fir needle tea, bottle of virgins weed tea, bottle of grape juice, bottle of cabbage juice, bottle of carrot juice, bottle of rum, bottle of blackberry juice, bottle of green tea, bottle of tangerine juice, bottle of strawberry juice, bottle of druids tea, bottle of orange juice, bottle of bear slayer, bottle of berry booze, bottle of stone face, bottle of absinthe, bottle of orange schnapps, bottle of cherry schnapps, bottle of mulled wine, bottle of elven wine, 
-buyPrimaryItems = 133, 134, 135, 136, 137, 140, 141, 142, 143, 144, 145, 147, 148, 149, 151, 153, 155, 156, 157, 158, 159, 160, 161, 162, 163, 405, 406, 407, 752, 753, 759, 763, 767, 3787
--- sun herb, fourleafed oneberry, yellow weed, anger berry, flamegoblet blossom, donf blade, black thistle, sandberry, red elder, virgin's weed, heath flower, blackberry, firnis blossom, fir tree sprout, strawberry, foot leaf, sibanac leaf, steppe fern, rotten tree bark, bulbsponge mushroom, toadstool, red head, herder's mushroom, birth mushroom, champignon, fairy ring mushroom, stinkhorn, elf caps, mandrake, blue birdsberry, nuts, marsh flower, water blossom, silk
-buySecondaryItems = 2499, 2500, 2497, 2501, 785, 3720, 787, 791, 786, 788, 517, 783, 3721, 784, 789, 3722, 3611, 1316, 1315, 1320, 1321, 1322, 1319, 1323, 1318
--- bottle of cider, bottle of wine, bottle of mead, bottle of beer, bottle of banana juice, bottle of fir needle tea, bottle of virgins weed tea, bottle of grape juice, bottle of cabbage juice, bottle of carrot juice, bottle of rum, bottle of blackberry juice, bottle of green tea, bottle of tangerine juice, bottle of strawberry juice, bottle of druids tea, bottle of orange juice, bottle of bear slayer, bottle of berry booze, bottle of stone face, bottle of absinthe, bottle of orange schnapps, bottle of cherry schnapps, bottle of mulled wine, bottle of elven wine, 
+sellItems = 227, 126, 799
+-- cooking spoon, sickle, wicker basket
+sellItems = 4285, 151, 147, 143, 163, 4284
+-- blueberry, strawberry, blackberry, red elder, champignon, raspberry
+sellItems = 157, 149, 134, 763, 133, 161, 158, 135, 141, 145, 136, 148, 159
+-- rotten tree bark, fir-tree sprout, fourleafed oneberry, marsh flower, sun herb, herder mushroom, bulbsponge mushroom, yellow weed, black thsitle, heath flower, anger berry, firnis blossom, toadstool
+-- all brewed drinks below level 70
+buyPrimaryItems = 133, 134, 135, 136, 137, 140, 141, 142, 143, 144, 145, 147, 148, 149, 151, 153, 155, 156, 157, 158, 159, 160, 161, 162, 163, 405, 406, 407, 752, 753, 759, 763, 767, 3787, 4286, 4283, 4284, 4285
+-- sun herb, fourleafed oneberry, yellow weed, anger berry, flamegoblet blossom, donf blade, black thistle, sandberry, red elder, virgin's weed, heath flower, blackberry, firnis blossom, fir tree sprout, strawberry, foot leaf, fanleaf, steppe fern, rotten tree bark, bulbsponge mushroom, toadstool, red head, herder's mushroom, birth mushroom, champignon, fairy ring mushroom, stinkhorn, elf caps, mandrake, blue birdsberry, nuts, marsh flower, water blossom, silk
+buySecondaryItems = 2499, 2497, 2501, 2500, 4404, 784, 4627, 785, 4628, 4631, 4630, 4629, 4633, 3611, 791, 4632, 4621, 789, 783, 4625, 4623, 4622, 4624, 4638, 4636, 788, 786, 4635, 4637, 3720, 3721, 787, 3722, 1319, 1320, 1315, 1322, 1323, 1316, 517, 1321, 1318
+-- all brewed drinks
 tradeNotEnoughMoneyMsg "Zu teuer!", "Too expensive!"
 tradeFinishedMsg "Whubeva.", "Whubeva."
 tradeFinishedWithoutTradingMsg "Fareba!", "Fareba!"
@@ -146,8 +148,8 @@ english, "Cadomyr" -> "In Cadomyr, they may have good-looking warriors, but for 
 -- Main land factions
 english, "albar" -> "I donno care about them."
 "albar" -> "Wasch k¸mmern sche misch? Eh?"
-english, "gynk", "gync" -> "Hurr-hurr! There's the besht Sibanac there."
-"gync", "gynk" -> "He-he! Dort gibtsch da' beschte Sibanac."
+english, "gynk", "gync" -> "Hurr-hurr! There's the besht fanleaf there."
+"gync", "gynk" -> "He-he! Dort gibtsch da' beschte F‰cherblatt."
 english, "salkama" -> "I heard in Salkamar the people piss into their beer to make it taste better. *laughs*"
 "salkama" -> "Isch hab gehˆrt, in Salkamar, pissen schie ins Bier, damits bescher schmeckt. *gluckst lachend*"
 "wo .* her" -> "Kroch'Gurak! Ist, wo meiﬂte Orks von uns komme her von."

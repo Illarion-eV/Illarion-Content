@@ -44,7 +44,7 @@ function M.StartGathering(User, SourceItem, ltstate)
     local restockWear = 4 --15 minutes
     local depletedSourceID = gathering.getDepletedObject(silkList, SourceItem.id)
 
-    local success, toolItem, amount, gatheringBonus = gathering.InitGathering(User, SourceItem, toolID, maxAmount, silkcutting.LeadSkill)
+    local success, toolItem, amount, gatheringBonus = gathering.InitGathering(User, SourceItem, toolID, maxAmount, silkcutting.LeadSkill, depletedSourceID)
 
     if not success then
         return
@@ -72,9 +72,9 @@ function M.StartGathering(User, SourceItem, ltstate)
     --Case 3: Action executed
     User:learn(silkcutting.LeadSkill, silkcutting.SavedWorkTime[User.id], silkcutting.LearnLimit)
 
-    silkcutting:FindRandomItem(User)
+    silkcutting:FindRandomItem(User, toolItem)
 
-    local created, newAmount = gathering.FindResource(User, SourceItem, amount, resourceID)
+    local created, newAmount = gathering.FindResource(User, SourceItem, amount, resourceID, silkcutting.LeadSkill, toolItem)
 
     if created then
         User:changeSource(SourceItem)

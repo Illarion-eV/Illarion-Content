@@ -46,11 +46,11 @@ function M.UseItem(user, SourceItem)
                 local success = dialogUnowned:getSuccess()
                 if success then
                     local selected = dialogUnowned:getSelectedIndex()+1
-                    if selected == 1 then
+                    if selected == 1 and (utility.checkIfLeaderOfTown(user, town) or user:isAdmin()) then
                         utility.setOwner(user, SourceItem)
-                    elseif selected == 2 then
+                    elseif selected == 2 and (utility.checkIfLeaderOfTown(user, town) or user:isAdmin()) then
                         utility.setRent(user, SourceItem)
-                    else
+                    elseif selected == 3 and (utility.checkIfLeaderOfTown(user, town) or user:isAdmin()) then
                         utility.setReqRank(user, SourceItem)
                     end
                 end
@@ -78,20 +78,22 @@ function M.UseItem(user, SourceItem)
                         utility.setBuilderOrGuest(user, SourceItem, "guest")
                     elseif selected == 5+count then
                         utility.removeBuilderOrGuest(user, SourceItem, "guest")
-                    elseif selected == 6+count then
+                    elseif selected == 6+count and (utility.checkIfLeaderOfTown(user, town) or user:isAdmin()) then
                         utility.setOwner(user, SourceItem)
-                    elseif selected == 7+count then
+                    elseif selected == 7+count and (utility.checkIfLeaderOfTown(user, town) or user:isAdmin()) then
                         utility.removeOwner(user, SourceItem)
-                    elseif selected == 8+count then
+                    elseif selected == 8+count and (utility.checkIfLeaderOfTown(user, town) or user:isAdmin()) then
                         utility.setRent(user, SourceItem)
-                    elseif selected == 9+count then
+                    elseif selected == 9+count and (utility.checkIfLeaderOfTown(user, town) or user:isAdmin()) then
                         utility.extendRent(user, SourceItem)
-                    elseif selected == 10+count then
+                    elseif selected == 10+count and (utility.checkIfLeaderOfTown(user, town) or user:isAdmin()) then
                         utility.setReqRank(user, SourceItem)
-                    elseif selected == 11+count then
+                    elseif selected == 11+count and (utility.checkIfLeaderOfTown(user, town) or user:isAdmin()) then
                         utility.setIndefiniteRent(user, SourceItem, property)
-                    elseif selected == 12+count then
+                    elseif selected == 12+count and (utility.checkIfLeaderOfTown(user, town) or user:isAdmin()) then
                         utility.allowAutomaticRentExtension(user, SourceItem)
+                    elseif utility.checkIfLeaderOfTown(user, town) or user:isAdmin() then
+                        utility.setRemoveCoTenant(user, SourceItem)
                     end
                 end
             end
@@ -103,20 +105,22 @@ function M.UseItem(user, SourceItem)
                         utility.setBuilderOrGuest(user, SourceItem, "guest")
                     elseif selected == 2 then
                         utility.removeBuilderOrGuest(user, SourceItem, "guest")
-                    elseif selected == 3 then
+                    elseif selected == 3 and (utility.checkIfLeaderOfTown(user, town) or user:isAdmin()) then
                         utility.setOwner(user, SourceItem)
-                    elseif selected == 4 then
+                    elseif selected == 4 and (utility.checkIfLeaderOfTown(user, town) or user:isAdmin()) then
                         utility.removeOwner(user, SourceItem)
-                    elseif selected == 5 then
+                    elseif selected == 5 and (utility.checkIfLeaderOfTown(user, town) or user:isAdmin()) then
                         utility.setRent(user, SourceItem)
-                    elseif selected == 6 then
+                    elseif selected == 6 and (utility.checkIfLeaderOfTown(user, town) or user:isAdmin()) then
                         utility.extendRent(user, SourceItem)
-                    elseif selected == 7 then
+                    elseif selected == 7 and (utility.checkIfLeaderOfTown(user, town) or user:isAdmin()) then
                         utility.setReqRank(user, SourceItem)
-                    elseif selected == 8 then
+                    elseif selected == 8 and (utility.checkIfLeaderOfTown(user, town) or user:isAdmin()) then
                         utility.setIndefiniteRent(user, SourceItem, property)
-                    else
+                    elseif selected == 9 and (utility.checkIfLeaderOfTown(user, town) or user:isAdmin()) then
                         utility.allowAutomaticRentExtension(user, SourceItem)
+                    elseif utility.checkIfLeaderOfTown(user, town) or user:isAdmin() then
+                        utility.setRemoveCoTenant(user, SourceItem)
                     end
                 end
             end
@@ -142,6 +146,7 @@ function M.UseItem(user, SourceItem)
                 dialogOwnedByuser:addOption(0, utility.getText(user,"Erforderlichen Rang anpassen","Change Required Rank"))
                 dialogOwnedByuser:addOption(0, utility.getText(user,"Verwalte mietfreies Wohnen","Manage rent-free living"))
                 dialogOwnedByuser:addOption(0, utility.getText(user,"Verwalte unbeaufsichtigte Mietverlängerung","(Dis)Allow Unsupervised Rent Extension"))
+                dialogOwnedByuser:addOption(0, utility.getText(user,"Mitmieterschaft verwalten","Manage co-tenancy"))
                 dialogOwnedNotByuser:addOption(0, utility.getText(user,"Gast hinzufügen","Add Guest"))
                 dialogOwnedNotByuser:addOption(0, utility.getText(user,"Gast entfernen","Remove Guest"))
                 dialogOwnedNotByuser:addOption(0, utility.getText(user,"Mieter eintragen","Set Tenant"))
@@ -151,10 +156,11 @@ function M.UseItem(user, SourceItem)
                 dialogOwnedNotByuser:addOption(0, utility.getText(user,"Miete anpassen","Change Required Rank"))
                 dialogOwnedNotByuser:addOption(0, utility.getText(user,"Verwalte mietfreies Wohnen","Manage rent-free living"))
                 dialogOwnedNotByuser:addOption(0, utility.getText(user,"Verwalte unbeaufsichtigte Mietverlängerung","(Dis)Allow Unsupervised Rent Extension"))
+                dialogOwnedNotByuser:addOption(0, utility.getText(user,"Mitmieterschaft verwalten","Manage co-tenancy"))
             end
             if utility.checkOwner(SourceItem) == "Unowned" then
                 user:requestSelectionDialog(dialogUnowned)
-            elseif utility.checkOwner(SourceItem) == user.id then
+            elseif utility.checkOwner(SourceItem) == user.id or utility.checkForCoTenants(SourceItem, user) then
                 user:requestSelectionDialog(dialogOwnedByuser)
             else
                 user:requestSelectionDialog(dialogOwnedNotByuser)

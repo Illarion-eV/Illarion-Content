@@ -181,7 +181,7 @@ local function getCapability(user)
     local skillDefense = math.max (user:getSkill(Character.heavyArmour),
                                    user:getSkill(Character.lightArmour),
                                    user:getSkill(Character.mediumArmour))
-    local skillMage = user:getSkill(Character.wandMagic)
+    local skillMage = user:getSkill(Character.fireMagic)
     local skillParry = user:getSkill(Character.parry)
     local attAgility = user:getBaseAttribute("agility")
     local attConstitution = user:getBaseAttribute("constitution")

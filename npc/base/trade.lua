@@ -27,6 +27,7 @@ local messages = require("base.messages")
 local money = require("base.money")
 local baseNPC = require("npc.base.basic")
 local gems = require("base.gems")
+local food = require("item.food")
 
 local isFittingItem
 local tradeNPCItem
@@ -151,9 +152,12 @@ function tradeNPC:buyItemFromPlayer(npcChar, player, boughtItem)
     -- Buying at special price
     local item
 
+    local primary = false
+
     for _, listItem in pairs(self._buyPrimaryItems) do
         if isFittingItem(listItem, boughtItem) then
             item = listItem
+            primary = true
             break
         end
     end
@@ -167,10 +171,43 @@ function tradeNPC:buyItemFromPlayer(npcChar, player, boughtItem)
         end
     end
 
+    local price
+
     if item then
-        local price = item._price * boughtItem.number
+        price = item._price
+    end
+
+    if food.cookedFood[boughtItem.id] and not food.cookedFood[boughtItem.id].intermediate then
+        if npcChar.name == "Alysa Lorthelia" then
+            primary = true
+            item = true
+        elseif npcChar.name == "Morri" then
+            item = true
+        end
+    end
+
+    local customWorth = boughtItem:getData("remainingValue")
+
+
+
+    if not common.IsNilOrEmpty(customWorth) and item then
+        if primary then
+            price = customWorth*0.1
+        else
+            price = customWorth*0.05
+        end
+    end
+
+    if item then
+        price = price * boughtItem.number
         local priceStringGerman, priceStringEnglish = money.MoneyToString(price)
         local itemName = common.GetNLS(player, world:getItemName(boughtItem.id,0), world:getItemName(boughtItem.id,1))
+        local customName = common.GetNLS(player, boughtItem:getData("nameDe"), boughtItem:getData("nameEn"))
+
+        if not common.IsNilOrEmpty(customName) then
+            itemName = customName
+        end
+
         if world:erase(boughtItem, boughtItem.number) then
             if (money.GiveMoneyToChar(player, price) == false) then
                 money.GiveMoneyToPosition(player.pos, price)

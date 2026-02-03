@@ -26,7 +26,7 @@ local M = {}
 
 M.mageSkills = {
                 Character.enchanting,
-                Character.wandMagic,
+                Character.spatialMagic,
                 Character.earthMagic,
                 Character.windMagic,
                 Character.fireMagic,
@@ -51,7 +51,70 @@ M.priestSkills = {
                 Character.consecrateWeapons,
                 Character.consecrateArmours
                 }
-M.wandIds = {323,2782,2783,2784,2785,3608}
+
+M.wandIds = {323,2782,2783,2784,2785,3608,4820}
+
+local wandList = {
+    {id = 323, element = "Neutral"},
+    {id = 2782, element = "Earth"},
+    {id = 2783, element = "Fire"},
+    {id = 2784, element = "Water"},
+    {id = 2785, element = "Air"},
+    {id = 3608, element = "Spirit"},
+    {id = 4820, element = "Novice"}
+    }
+
+function M.getWand(user)
+
+    local left = user:getItemAt(5)
+    local right = user:getItemAt(6)
+
+    for _, wand in pairs(wandList) do
+        if left.id == wand.id then
+            return left
+        elseif right.id == wand.id then
+            return right
+        end
+    end
+
+    return false
+end
+
+function M.getWandElement(user)
+
+    local left = user:getItemAt(5)
+    local right = user:getItemAt(6)
+
+    for _, wand in pairs(wandList) do
+        if left.id == wand.id then
+            return wand.element
+        elseif right.id == wand.id then
+            return wand.element
+        end
+    end
+
+    return false
+end
+
+function M.checkElementBonus(user, element) --Return a number between 0.025 and 0.1 if there is a wand
+
+    local wandElement = M.getWandElement(user)
+
+    if not wandElement then
+        return 0
+    end
+
+    if wandElement == element then
+        return 0.1
+    elseif wandElement == "Neutral" then
+        return 0.05
+    elseif wandElement == "Novice" then
+        return 0
+    else
+        return 0.025
+    end
+end
+
 
 -- Best skill values
 local function bestSkillFromSkillList(user, skillList)
@@ -128,6 +191,16 @@ function M.hasMageAttributes(user)
     end
 end
 
+function M.characterIsAMage(user)
+
+    if M.hasMageAttributes(user) and user:getMagicType() == 0 and user:getQuestProgress(37) ~= 0 then
+        return true
+    end
+
+    return false
+
+end
+
 --[[neededFood
 1st try 40 foodpoints / s magic
 return foodpoints]]--
@@ -158,6 +231,21 @@ function M.getGemBonusWand(user)
     return 0
 end
 
+function M.getGemBonusCloak(user) -- Used for magic defense purposes
+
+    if not isValidChar(user) then
+        return 0
+    end
+
+    local cloak = user:getItemAt(Character.coat)
+
+    if cloak and cloak.id ~= 0 then
+        return gems.getGemBonus(cloak)/2
+    end
+
+    return 0
+end
+
 function M.getQualityBonusWand(user)
     local leftTool = user:getItemAt(Character.left_tool)
     local rightTool = user:getItemAt(Character.right_tool)
@@ -168,6 +256,18 @@ function M.getQualityBonusWand(user)
     end
     return 0
 end
+
+function M.getQualityBonusCloak(user)
+
+    local cloak = user:getItemAt(Character.coat)
+
+    if cloak and cloak.id ~= 0 then
+        return gems.GetQualityBonusStandard(cloak)
+    end
+
+    return 0
+end
+
 
 --[[getValueWithGemBonus
 calculates a mana consumption, damage or time taking the gem bonus into consideration
@@ -214,8 +314,6 @@ function M.wandDegrade(user, wand, chance)
             common.InformNLS(user,
                 "Deine Waffe '"..nameText.."' zerbricht.",
                 "Your weapon '"..nameText.."' shatters.")
-
-            return
         end
 
         common.setItemDurability(wand, durability)
@@ -229,18 +327,25 @@ function M.wandDegrade(user, wand, chance)
 
 end
 
---Returns the total magic bonus and a list containing the items which add to the magic bonus
-function M.getMagicBonus(character)
-    local bodyPositions = {Character.head, Character.neck, Character.breast, Character.hands, Character.finger_left_hand, Character.finger_right_hand, Character.legs, Character.feet, Character.coat}
+local function getBonus(character, max, bodyPositions)
 
     local itemsWithMagicBonus = {}
+
     local magicBonus = 0
+
     local quality = 0
+
     for _, bodyPosition in pairs(bodyPositions) do
+
         local checkItem = character:getItemAt(bodyPosition)
-        if checkItem ~= nil and checkItem.id > 0 then
+
+        local itemExists = checkItem ~= nil and checkItem.id > 0
+
+        if itemExists then
+
             local _, armorStruct =  world:getArmorStruct(checkItem.id)
             local itemBonus = armorStruct.MagicDisturbance
+
             if itemBonus > 0 then
                 magicBonus = magicBonus + itemBonus
                 quality = quality + math.floor(checkItem.quality/100)
@@ -254,7 +359,31 @@ function M.getMagicBonus(character)
         qualityBonus = qualityBonus+(quality/#itemsWithMagicBonus - 5)*2.5/100 -- quality 5 has no influence; above 5, each point grants 2.5%. under 5, each point takes 2.5%
     end
 
-    return magicBonus*qualityBonus, itemsWithMagicBonus
+    return math.min(max, magicBonus*qualityBonus/500)
+
+end
+
+
+
+--Returns the total magic bonus and a list containing the items which add to the magic bonus
+function M.getMagicBonus(character)
+
+    -- Best jewellery of perfect archmage rings + icebird amulet provide a bonus of 0.1386
+    local jewelleryBonus = getBonus(character, 0.1386, {Character.neck, Character.finger_left_hand, Character.finger_right_hand})
+
+    -- Best clothing combination is a bonus of 0.121
+    local clothingBonus = getBonus(character, 0.0614, {Character.head, Character.breast, Character.hands, Character.legs, Character.feet, Character.coat})
+    -- We set it to 0.0614. This way clothing is more about wearing clothes instead of armour, and you are able to more freely mix how your paperdolling looks
+    -- There is still a small impact, wearing low quality clothes or wearing only low level clothing will not reach the max sum
+    -- Technically caps out at 0.2596, but lowering that to 0.2 allows more flexibility in fashion choices
+    -- As jewellery and clothing are calculated separately, we avoid a scenario where someone minmaxes to get the best glyphed jewellery and wears the same brown cloak blue clothes "best" gear all the time as a mage
+    -- As the purpose of this leeway is to allow more expression in paperdolling without feeling punished, NOT to allow you to ignore the choice between best jewellery (archmage, icebird) and glyph bonuses
+
+    return math.min(0.2, (jewelleryBonus+clothingBonus))
+    -- All in all, jewellery has a 13.86% max magic resistance/penetration impact and clothing 6.14%.
+    -- not counting how gems in your cloak/wand increase magic damage reduced/dealt
+    -- You have 30% by default, which was needed to balance out numbers and not be too top heavy
+    -- Meanwhile the remaining 50% is all willpower as the biggest impact
 
 end
 

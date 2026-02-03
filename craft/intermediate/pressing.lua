@@ -25,24 +25,19 @@ local pressing = crafts.Craft:new{
                     leadSkill = Character.husbandry,
                     sfx = 10,
                     sfxDuration = 27,
+                    intermediate = true
                   }
 
 pressing:addTool(44) -- press
 
-local catId = pressing:addCategory("Lamp oil", "Lampenöl")
+local catId = pressing:addCategory("Pressing", "Pressen")
 
--- Lamp oil
-local product = pressing:addProduct(catId, 469, 1)
-product:addIngredient(141 , 2) -- black thistle
-product:addIngredient(390) -- empty oil bottle
+local product = pressing:addProduct(catId, Item.lampOil, 1)
+product:addIngredient(Item.blackThistle , 1) -- black thistle
+product:addIngredient(Item.oilBottle) -- empty oil bottle
 
-catId = pressing:addCategory("Wax", "Wachs")
-
--- Wax
-product = pressing:addProduct(catId, 431, 1)
+product = pressing:addProduct(catId, Item.wax, 1)
 product:addIngredient(Item.honeycomb, 2)
-
-catId = pressing:addCategory("Honey", "Honig")
 
 product = pressing:addProduct(catId, Item.beeHoney, 1)
 product:addIngredient(Item.honeycomb, 1)

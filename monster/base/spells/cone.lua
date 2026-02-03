@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local base = require("monster.base.spells.base")
 local common = require("base.common")
+local magicPenetration = require("magic.arcane.magicPenetration")
 
 local function _isNumber(value)
     return type(value) == "number"
@@ -51,7 +52,7 @@ end
 
 return function(params)
     local self = {}
-    local damageRange = {1000, 2000}
+    local damageRange = {900, 1200}
     local attackRange = 5
     local angularAperture = 45
     local probability = 0.03
@@ -62,6 +63,8 @@ return function(params)
     local itemDurabilityRange = {11, 88}
     local itemProbability = 0.08
     local usedMovepoints = 20
+    local level = 0
+    local attacker = nil
 
     if _isTable(params) then
         if params.probability ~= nil then
@@ -72,28 +75,6 @@ return function(params)
                 end
             else
                 error("The probability for the spell was set to something, but not to a number.")
-            end
-        end
-
-        if params.damage ~= nil then
-            if _isNumber(params.damage) then
-                local damage = tonumber(params.damage)
-                damageRange = {damage, damage}
-            elseif _isTable(params.damage) then
-                local fromValue = params.damage.from or params.damage[1]
-                local toValue = params.damage.to or params.damage[2]
-                if _isNumber(fromValue) and _isNumber(toValue) then
-                    damageRange = {tonumber(fromValue), tonumber(toValue) }
-                    if damageRange[1] > damageRange[2] then
-                        error("Range for damaged hitpoint was set but the from value is greater than the to value.")
-                    end
-                else
-                    error("The damaged hitpoints value was detected as table. How ever the from and to value for the " +
-                          "range is missing.")
-                end
-            else
-                error("The damage hitpoints was set to something. How ever it was not possible to detect what the " +
-                      "input means.")
             end
         end
 
@@ -223,22 +204,25 @@ return function(params)
         error("The cone spells require parameters.")
     end
 
-    local function attackField(pos)
+    local function attackField(pos, monster)
         if gfxId > 0 then world:gfx(gfxId, pos) end
         if itemId > 0 and not common.isItemIdInFieldStack(itemId, pos) and math.random() < itemProbability then
             local qual = math.random(itemQualityRange[1], itemQualityRange[2]) * 100 +
                     math.random(itemDurabilityRange[1], itemDurabilityRange[2])
-            local item = world:createItemFromId(itemId, 1, pos, true, qual, nil)
+            local magicPen = magicPenetration.getMagicPenetration(monster)
+            local item = world:createItemFromId(itemId, 1, pos, true, qual,  {["magicPenetration"] = magicPen})
             item.wear = 2
             world:changeItem(item)
         end
 
         if world:isCharacterOnField(pos) then
             local victim = world:getCharacterOnField(pos)
-            local spellResistence = base.getSpellResistence(victim)
-            local damage = math.random(damageRange[1], damageRange[2]) * (1.0 - spellResistence)
+            if victim:getType() ~= Character.npc then
 
-            base.dealMagicDamage(victim, damage)
+                local damage = math.random(damageRange[1], damageRange[2])
+
+                base.dealMagicDamage(victim, damage, usedMovepoints, level, attacker)
+            end
         end
     end
 
@@ -250,6 +234,10 @@ return function(params)
         if math.random() <= probability then
             --So the cone is always a isosceles triangle. We take the attack range as the height of the triangle.
             --Best was to calculate it, is use calculate half of the triangle as right triangle and mirror it.
+
+            level = monster:getSkill(Character.wandMagic)
+            attacker = monster
+
 
             --Turn to the target
             common.TurnTo(monster, enemy.pos)
@@ -315,7 +303,7 @@ return function(params)
             end
 
             for pos, _ in pairs(coneFields) do
-                attackField(pos)
+                attackField(pos, monster)
             end
 
             if sfxId > 0 then world:makeSound(sfxId, originPos) end

@@ -137,7 +137,7 @@ local function checkSkillLevel(user, skillName, repairKit)
 
 end
 
-local instruments = {Item.lute, Item.harp, Item.drum, Item.panpipe, Item.flute}
+local instruments = {Item.lute, Item.harp, Item.drum, Item.panpipe, Item.flute, Item.horn}
 
 local smithedTools = {Item.scissors, Item.saw, Item.hammer, Item.shovel, Item.needle, Item.hatchet, Item.finesmithingHammer, Item.sickle, Item.scythe, Item.chisel, Item.tongs, Item.pan, Item.mortar, Item.pan, Item.rasp, Item.mould, Item.plane, Item.razorBlade, Item.armourersHammer, Item.pickaxe, Item.carvingTools, Item.cruciblePincers, Item.constructionTrowel}
 
@@ -150,7 +150,7 @@ local function itemIsSameCategoryAsRepairKit(currentItem, skillName)
     local armourFound, armour = world:getArmorStruct(currentItem.id)
     local weaponFound, weapon = world:getWeaponStruct(currentItem.id)
 
-    if currentItem.id == Item.sling then --Exception for sling as the only distance weapon that isnt carpentry
+    if currentItem.id == Item.sling or currentItem.id == Item.fishingNet then --Exception for sling as the only distance weapon that isnt carpentry, fishing net as a tailored tool
         if skillName == "tailoring" then
             return true
         else
@@ -166,7 +166,7 @@ local function itemIsSameCategoryAsRepairKit(currentItem, skillName)
         end
     end
 
-    if currentItem.id == Item.crown or currentItem.id == Item.diadem or currentItem.id == 3556 or currentItem.id == 3557 then -- crowns are added as an exception as they are clothing but do not belong to tailoring
+    if currentItem.id == Item.mirror or currentItem.id == Item.crown or currentItem.id == Item.diadem or currentItem.id == 3556 or currentItem.id == 3557 then -- crowns are added as an exception as they are clothing but do not belong to tailoring
         if skillName == "finesmithing" then
             return true
         else
@@ -370,6 +370,8 @@ local function getRepairAmount(user, theItem, staticTool, repairCount, theRepair
     local itemCommon = world:getItemStatsFromId(theItem.id)
     local possibleRepairs = getPossibleRepairs(theItem, theRepairKit)
     local maxRepairs = maxRepairsInField
+    local skillName = getSkillName(theRepairKit.id)
+    local hasRequiredSkill = checkSkillLevel(user, skillName, theRepairKit)
 
     if staticTool then
         maxRepairs = maxRepairsAtStaticTool
@@ -392,7 +394,6 @@ local function getRepairAmount(user, theItem, staticTool, repairCount, theRepair
         durabilityReduction = math.ceil(durabilityReduction/staticToolCountMultiplier)
     end
 
-
     local maxDurability = 99 - (durabilityReduction)
 
     local durabilityIncreasedBy = maxDurability-durability
@@ -406,6 +407,11 @@ local function getRepairAmount(user, theItem, staticTool, repairCount, theRepair
     end
 
     local increasedCount = durabilityIncreasedBy
+
+    if maxDurability == 98 and durability == 98 and staticTool and hasRequiredSkill then --It would get stuck here at times.
+        maxDurability = 99
+        increasedCount = 1
+    end
 
     if maxDurability <= durability then
         local germanText = itemCommon.German.." wurde zu oft außerhalb einer Werkstatt repariert und kann nicht weiter instand gesetzt werden."

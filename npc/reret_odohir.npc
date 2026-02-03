@@ -103,13 +103,18 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Fare well!", "#me smiles at
 english, town = Cadomyr, "join Cadomyr", "become citizen", "gain citizenship" -> town = Cadomyr, "Oh! You are already a citizen of Cadomyr."
 town = Cadomyr, "Cadomyr beitreten", "Bürger werden", "Bürgerschaft beantragen" -> town = Cadomyr, "Oh! Ihr seid bereits Bürger von Cadomyr."
 
--- Becoming citizen in Cadomyr
-english, town = Galmair, "join Cadomyr", "become citizen", "gain citizenship" -> town = Cadomyr, "Let me prepare the documents... Welcome to Cadomyr! You are now a subject of Her Majesty."
-town = Galmair, "Cadomyr beitreten", "Bürger werden", "Bürgerschaft beantragen" -> town = Cadomyr, "Lasst mich die Urkunde vorbereiten... Willkommen in Cadomyr! Ihr seid jetzt ein Untertan Ihrer Majestät."
-english, town = Runewick, "join Cadomyr", "become citizen", "gain citizenship" -> town = Cadomyr, "Let me prepare the documents... Welcome to Cadomyr! You are now a subject of Her Majesty."
-town = Runewick, "Cadomyr beitreten", "Bürger werden", "Bürgerschaft beantragen" -> town = Cadomyr, "Lasst mich die Urkunde vorbereiten... Willkommen in Cadomyr! Ihr seid jetzt ein Untertan Ihrer Majestät."
-english, town = None, "join Cadomyr", "become citizen", "gain citizenship" -> town = Cadomyr, "Let me prepare the documents... Welcome to Cadomyr! You are now a subject of Her Majesty."
-town = None, "Cadomyr beitreten", "Bürger werden", "Bürgerschaft beantragen" -> town = Cadomyr, "Lasst mich die Urkunde vorbereiten... Willkommen in Cadomyr! Ihr seid jetzt ein Untertan Ihrer Majestät."
+-- Becoming citizen in Cadomyr (456)
+
+english, "join Cadomyr", "become citizen", "gain citizenship" -> queststatus(456) = 1, "Are you sure you want to become a citizen? A simple yes or no will do."
+"Cadomyr beitreten", "Bürger werden", "Bürgerschaft beantragen" -> queststatus(456) = 1, "Bist du sicher, dass du Bürger werden willst? Ein einfaches Ja oder Nein genügt."
+
+-- answer yes
+queststatus(456) = 1, english, "yes" -> town = Cadomyr, "Let me prepare the documents... Welcome to Cadomyr! You are now a subject of Her Majesty."
+queststatus(456) = 1, "ja" -> town = Cadomyr, "Lasst mich die Urkunde vorbereiten... Willkommen in Cadomyr! Ihr seid jetzt ein Untertan Ihrer Majestät."
+
+-- answer no
+queststatus(456) = 1, english, ".*" -> queststatus(456) = 0, "Pity. I suppose not everyone has the honour it takes to be part of our realm."
+queststatus(456) = 1, ".*" -> queststatus(456) = 0, "Schade. Ich nehme an, nicht jeder hat die Ehre, die es braucht, um Teil unseres Reiches zu sein."
 
 -- terminating citizenship, leaving Cadomyr (209)
 english, town = Cadomyr, "give up citizenship", "terminate", "leave", "leaving" -> queststatus(209) = 1, "You want to give up citizenship in Cadomyr. Are you sure?"
@@ -240,8 +245,8 @@ queststatus(150) = 0, town = Cadomyr, "task", "adventure", "order" -> inform("[N
 queststatus(150) = 0, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Geschenk aus Cadomyr"), queststatus(150) = 1, "Ich möchte meinen Großeltern in Salkamar ein Geschenk aus Cadomyr schicken. Sie mögen beiden Gartenarbeit, daher dachte ich daran ihnen fünf Wüstenhimmelskapseln zu schicken. Ich bin mit der Arbeit sehr beschäftigt, könnte ich Euch bitten einige Wüstenhimmelskapseln für mich zu finden?"
 
 -- 1st quest solved, Reward: dagger (27)
-queststatus(150) = 1, item(146, all) > 4, english, town = Cadomyr, "quest", "mission", "task", "adventure", "order" -> inform("[Quest solved] You are awarded a dagger."), deleteItem(146, 5), item(27, 1, 466), queststatus(150) = 2, rankpoints + 5, "Oh, you found the desert sky capsules? Thank you, that is very kind of you. Here, please take this, it shall be your reward for your troubles."
-queststatus(150) = 1, item(146, all) > 4, town = Cadomyr, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Quest gelöst] Du erhältst als Belohnung einen Dolch."), deleteItem(146, 5), item(27, 1, 466), queststatus(150) = 2, rankpoints + 5, "Oh, ihr habt die Wüstenhimmelskapseln gefunden? Danke, das ist sehr freundlich von Euch. Hier, bitte nehmt dies, betrachtet es als Belohung für eure Mühen."
+queststatus(150) = 1, item(146, all) > 4, english, town = Cadomyr, "quest", "mission", "task", "adventure", "order" -> inform("[Quest solved] You are awarded a dagger."), deleteItem(146, 5), item(27, 1, 466), queststatus(150) = 2, "Oh, you found the desert sky capsules? Thank you, that is very kind of you. Here, please take this, it shall be your reward for your troubles."
+queststatus(150) = 1, item(146, all) > 4, town = Cadomyr, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Quest gelöst] Du erhältst als Belohnung einen Dolch."), deleteItem(146, 5), item(27, 1, 466), queststatus(150) = 2, "Oh, ihr habt die Wüstenhimmelskapseln gefunden? Danke, das ist sehr freundlich von Euch. Hier, bitte nehmt dies, betrachtet es als Belohung für eure Mühen."
 
 -- 1st quest not solved, repeat the instructions
 queststatus(150) = 1, english, town = Cadomyr, "quest", "mission" -> "I'm still busy working, so could I ask you to go and find five desert sky capsule for me, please?"

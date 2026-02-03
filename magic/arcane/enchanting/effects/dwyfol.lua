@@ -22,7 +22,7 @@ local M = {}
 
 function M.deflectAttackAsLightning(defender, attacker)
 
-    local chance = {min = 0.05, bonus = 0.25}
+    local chance = {min = 0.025, bonus = 0.075}
 
     local success = shared.activateGlyph(defender, "dwyfol", chance, 1)
 

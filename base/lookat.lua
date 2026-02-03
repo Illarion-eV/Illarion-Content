@@ -21,6 +21,9 @@ local gems = require("base.gems")
 local money = require("base.money")
 local glyphs = require("magic.arcane.enchanting.core.shared")
 local mining = require("craft.gathering.mining")
+local herbgathering = require("craft.gathering.herbgathering")
+local farming = require("craft.gathering.farming")
+local sowing = require("craft.gathering.sowing")
 local silkcutting = require("craft.gathering.silkcutting")
 local fishing = require("craft.gathering.fishing")
 local egggathering = require("craft.gathering.egggathering")
@@ -42,26 +45,23 @@ local AddTypeAndUsable
 local GetGemLevel
 
 -- init german descriptions
-local GenericQualDe = {"perfekt", "exzellent", "sehr gut", "gut", "normal", "mäßig", "schlecht", "sehr schlecht","schrecklich", "furchtbar"}
-local GenericDuraDe = {}
-GenericDuraDe[1] = {"nagelneu", "neu", "fast neu", "gebraucht", "leicht abgenutzt", "abgenutzt", "sehr abgenutzt", "alt", "rostig", "klapprig", "sehr klapprig", "kaputt"}
-GenericDuraDe[2] = {"nagelneu", "neu", "fast neu", "gebraucht", "leicht abgenutzt", "abgenutzt", "sehr abgenutzt", "alt", "morsch", "zerfallend", "sehr zerfallen", "kaputt"}
-GenericDuraDe[3] = {"nagelneu", "neu", "fast neu", "gebraucht", "leicht abgenutzt", "abgenutzt", "sehr abgenutzt", "alt", "fadenscheinig", "zerfetzt", "komplett zerfetzt", "kaputt"}
-GenericDuraDe[4] = {"funkelnd", "strahlend", "glänzend", "gebraucht", "angekratzt", "zerkratzt", "matt", "alt", "stumpf", "brüchig", "sehr brüchig", "kaputt"}
+M.GenericQualDe = {"perfekt", "exzellent", "sehr gut", "gut", "normal", "mäßig", "schlecht", "sehr schlecht","schrecklich", "furchtbar"}
+M.GenericDuraDe = {}
 
-M.GenericQualDe = GenericQualDe
+M.GenericDuraDe[1] = {"nagelneu", "neu", "fast neu", "gebraucht", "leicht abgenutzt", "abgenutzt", "sehr abgenutzt", "alt", "rostig", "klapprig", "sehr klapprig", "kaputt"}
+M.GenericDuraDe[2] = {"nagelneu", "neu", "fast neu", "gebraucht", "leicht abgenutzt", "abgenutzt", "sehr abgenutzt", "alt", "morsch", "zerfallend", "sehr zerfallen", "kaputt"}
+M.GenericDuraDe[3] = {"nagelneu", "neu", "fast neu", "gebraucht", "leicht abgenutzt", "abgenutzt", "sehr abgenutzt", "alt", "fadenscheinig", "zerfetzt", "komplett zerfetzt", "kaputt"}
+M.GenericDuraDe[4] = {"funkelnd", "strahlend", "glänzend", "gebraucht", "angekratzt", "zerkratzt", "matt", "alt", "stumpf", "brüchig", "sehr brüchig", "kaputt"}
 
 -- init english descriptions
-local GenericQualEn = {"perfect", "excellent", "very good", "good", "normal", "average", "bad", "very bad", "awful", "horrible"}
-local GenericDuraEn = {}
-GenericDuraEn[1] = {"brand new", "new", "almost new", "used", "slightly scraped", "scraped", "highly scraped", "old", "rusty", "corroded", "highly corroded", "broken"}
-GenericDuraEn[2] = {"brand new", "new", "almost new", "used", "slightly scratched", "scratched", "highly scratched", "old", "rotten", "nearly decayed", "decayed", "broken"}
-GenericDuraEn[3] = {"brand new", "new", "almost new", "used", "slightly frayed", "frayed", "highly frayed", "old", "threadbare", "ragged", "highly ragged", "broken"}
-GenericDuraEn[4] = {"sparkling", "shiny", "glittery", "used", "slightly scraped", "scraped", "highly scraped", "old", "tarnished", "fragile", "highly fragile", "broken"}
+M.GenericQualEn = {"perfect", "excellent", "very good", "good", "normal", "average", "bad", "very bad", "awful", "horrible"}
+M.GenericDuraEn = {}
+M.GenericDuraEn[1] = {"brand new", "new", "almost new", "used", "slightly scraped", "scraped", "highly scraped", "old", "rusty", "corroded", "highly corroded", "broken"}
+M.GenericDuraEn[2] = {"brand new", "new", "almost new", "used", "slightly scratched", "scratched", "highly scratched", "old", "rotten", "nearly decayed", "decayed", "broken"}
+M.GenericDuraEn[3] = {"brand new", "new", "almost new", "used", "slightly frayed", "frayed", "highly frayed", "old", "threadbare", "ragged", "highly ragged", "broken"}
+M.GenericDuraEn[4] = {"sparkling", "shiny", "glittery", "used", "slightly scraped", "scraped", "highly scraped", "old", "tarnished", "fragile", "highly fragile", "broken"}
 
-M.GenericQualEn = GenericQualEn
-
-local GenericDuraLm = {99, 90, 80, 70, 60, 50, 40, 30, 20, 10, 1, 0}
+M.GenericDuraLm = {99, 90, 80, 70, 60, 50, 40, 30, 20, 10, 1, 0}
 
 M.fightingGemBonusDivisionValue = 2 --Changing this might break the gem lookat due to current server limitations
 
@@ -102,17 +102,22 @@ local gatheringLists = {
     {list = silkcutting.silkList, skill = silkcutting.skill, type = {english = "Butterflies", german = "Schmetterlinge"}},
     {list = fishing.fishList, skill = fishing.skill, type = {english = "Shoal", german = "Schwarm"}},
     {list = honeygathering.hiveList, skill = honeygathering.skill, type = {english = "Hive", german = "Bienenstock"}},
-    {list = egggathering.nestList, skill = egggathering.skill, type = {english = "Nest", german = "Nest"}}
+    {list = egggathering.nestList, skill = egggathering.skill, type = {english = "Nest", german = "Nest"}},
+    {list = farming.crops, skill = farming.skill, type = {english = "Crop", german = "Feldfrucht"}},
+    {list = sowing.seeds, skill = farming.skill, type = {english = "Seed", german = "Samen"}},
+    {list = herbgathering.herbList, skill = herbgathering.skill, type = {english = "Plant", german = "Pflanze"}}
 }
 
 for _, gatheringList in pairs(gatheringLists) do
     for _, gatheringNode in pairs(gatheringList.list) do
-        table.insert(listOfItemsThatShouldShowLevel, {id = gatheringNode.depletedId, skill = gatheringList.skill, type = gatheringList.type})
+        if gatheringNode.depletedId then
+            table.insert(listOfItemsThatShouldShowLevel, {id = gatheringNode.depletedId, skill = gatheringList.skill, type = gatheringList.type})
+        end
         table.insert(listOfItemsThatShouldShowLevel, {id = gatheringNode.id, skill = gatheringList.skill, type = gatheringList.type})
     end
 end
 
-local function showItemLevel(user, itemId, lookat , itemLevel)
+local function showItemLevel(user, itemId, lookat , itemLevel, levelreq, skillDisplay, types)
     local showLevel = false
     local skillName
     local theTypes
@@ -123,6 +128,14 @@ local function showItemLevel(user, itemId, lookat , itemLevel)
             skillName = theItem.skill
             theTypes = theItem.type
         end
+    end
+
+    if levelreq and skillDisplay and types then
+        showLevel = true
+        itemLevel = levelreq
+        skillName = skillDisplay
+        theTypes = types
+        lookat.level = levelreq
     end
 
     if showLevel then
@@ -152,7 +165,42 @@ local function isPortalBook(item)
     return false
 end
 
-function M.GenerateLookAt(user, item, material)
+local function tagHidden(theItem)
+
+    local hideTag = theItem:getData("hideTag")
+
+    if hideTag == "true" then
+        return true
+    end
+
+    return false
+
+end
+
+local function getGenericRarenessText(user, theItem) --Presently only used for materials
+    local rareness = theItem:getData("rareness")
+
+    local texts = {}
+    local addendum = {}
+
+    addendum[Player.german] = " Es wird gewiss zur endgültigen Qualität dessen beitragen, wofür Irmorom es bestimmt hat."
+    addendum[Player.english] = " It is sure to be of aid for the final quality of whatever Irmorom may have it fated for."
+
+    for i = 2, 4 do
+        texts[i] = {}
+    end
+
+    texts[2][Player.german] = "Dieses Material ist ungewöhnlich makellos."
+    texts[2][Player.english] = "This material is uncommonly pristine."
+    texts[3][Player.german] = "Es ist selten, ein so makelloses Material zu sehen."
+    texts[3][Player.english] = "It is rare to see such a pristine material."
+    texts[4][Player.german] = "Dieses Material ist einzigartig makellos, eine Seltenheit unter Seltenheiten."
+    texts[4][Player.english] = "This material is uniquely pristine, a rarity among rarities."
+
+    return texts[tonumber(rareness)][user:getPlayerLanguage()]..addendum[user:getPlayerLanguage()]
+end
+
+function M.GenerateLookAt(user, item, material, levelreq, skillDisplay, types, rarenessDescriptor)
 
     if user == nil then
         debug("Sanity check failed, no valid character supplied.")
@@ -224,13 +272,17 @@ function M.GenerateLookAt(user, item, material)
         lookAt.description = usedDescription .. addDescription
     end
 
+    if not rarenessDescriptor and item:getData("craftedRare") == "true" and tonumber(item:getData("rareness")) > 1 then
+        lookAt.description = getGenericRarenessText(user, item).."\n\n"..lookAt.description
+    end
+
     local level = itemCommon.Level
     lookAt.level = level
 
     if itemCommon.AgeingSpeed < 255 and itemCommon.Weight < 30000 then
         local craftedByData = item:getData("craftedBy")
 
-        if not common.IsNilOrEmpty(craftedByData) and not isPortalBook(item) then
+        if not common.IsNilOrEmpty(craftedByData) and not isPortalBook(item) and not tagHidden(item) then
             lookAt.craftedBy = craftedByData
         end
 
@@ -238,9 +290,16 @@ function M.GenerateLookAt(user, item, material)
             lookAt.weight = item.number * itemCommon.Weight
         end
 
+        local customWorth = item:getData("remainingValue")
+
         if item:getData("lookatNoPrice") ~= "1" then
             if not money.IsCurrency(item.id) then
-                lookAt.worth = 20*item.number * itemCommon.Worth
+                local worth = itemCommon.Worth
+                if not common.IsNilOrEmpty(customWorth) then
+                    worth = tonumber(customWorth)
+                end
+
+                lookAt.worth = 20*item.number * worth
             end
         end
 
@@ -249,7 +308,7 @@ function M.GenerateLookAt(user, item, material)
             local itemQual = (item.quality - itemDura) / 100
 
             local duraIndex
-            for i, duraLimit in pairs(GenericDuraLm) do
+            for i, duraLimit in pairs(M.GenericDuraLm) do
                 if itemDura >= duraLimit then
                     duraIndex = i
                     break
@@ -260,11 +319,11 @@ function M.GenerateLookAt(user, item, material)
             qualIndex=common.Limit(qualIndex, 1, 10)
 
             if (isGerman) then
-                lookAt.qualityText = GenericQualDe[qualIndex]
-                lookAt.durabilityText = GenericDuraDe[material][duraIndex]
+                lookAt.qualityText = M.GenericQualDe[qualIndex]
+                lookAt.durabilityText = M.GenericDuraDe[material][duraIndex]
             else
-                lookAt.qualityText = GenericQualEn[qualIndex]
-                lookAt.durabilityText = GenericDuraEn[material][duraIndex]
+                lookAt.qualityText = M.GenericQualEn[qualIndex]
+                lookAt.durabilityText = M.GenericDuraEn[material][duraIndex]
             end
 
             lookAt.durabilityValue = itemDura + 1
@@ -279,10 +338,12 @@ function M.GenerateLookAt(user, item, material)
         lookAt.topazLevel = GetGemLevel(item, "magicalTopaz")
         lookAt.bonus = gems.getGemBonusLookAtValue(item)
 
+        gems.updateOwnership(user, item)
+
         lookAt = AddWeaponOrArmourType(lookAt, user, item.id, level, item)
     end
 
-    local otherItemFound, newLookAt = showItemLevel(user, item.id, lookAt , level)
+    local otherItemFound, newLookAt = showItemLevel(user, item.id, lookAt , level, levelreq, skillDisplay, types)
 
     if otherItemFound then
         lookAt = newLookAt
@@ -328,14 +389,28 @@ function M.GenerateItemLookAtFromId(user, itemId, stackSize, data)
         lookAt.description = usedDescription
     end
 
+    local customWorth = data["remainingValue"]
+
     local itemCommon = world:getItemStatsFromId(itemId)
+    local worth = itemCommon.Worth
+
+    if not common.IsNilOrEmpty(customWorth) then
+        worth = tonumber(customWorth)
+    end
+
     lookAt.weight = stackSize * itemCommon.Weight
-    lookAt.worth = 20*stackSize * itemCommon.Worth
+    lookAt.worth = 20*stackSize * worth
 
     local level = itemCommon.Level
     lookAt.level = level
 
     lookAt = AddWeaponOrArmourType(lookAt, user, itemId, level)
+
+    local otherItemFound, newLookAt = showItemLevel(user, itemId, lookAt , level)
+
+    if otherItemFound then
+        lookAt = newLookAt
+    end
 
     return lookAt
 end

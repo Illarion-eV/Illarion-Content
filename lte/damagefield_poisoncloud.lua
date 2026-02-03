@@ -15,28 +15,32 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
-local monstermagic = require("monster.base.spells.base")
+local icefield = require("lte.damagefield_icefield")
 
 -- Long time effect (112)
 local M = {}
-
-local function causeDamage(User, quality)
-
-    local resist = monstermagic.getSpellResistence(User) * 10
-    if resist < quality then
-        local damageLow = 3 * math.floor((math.max(10, quality - resist)))
-        local damageHigh = 5 * math.floor(quality - resist)
-        local damageDealt = math.random(math.min(damageLow, damageHigh), math.max(damageLow, damageHigh))
-        User:increaseAttrib("hitpoints", -damageDealt);
-    end
-end
 
 function M.addEffect(theEffect, User)
     if User:getQuestProgress(300) == 0 then
         User:inform("Du fühlst wie dein Körper schwächer wird.",
                     "You feel your body becoming weaker.")
         local _, quality = theEffect:findValue("quality")
-        causeDamage(User, quality)
+
+        local foundpenetration, penetration = theEffect:findValue("magicPenetration")
+
+        local foundwandGemBonus, wandGemBonus = theEffect:findValue("wandGemBonus")
+
+        if not foundpenetration then
+            penetration = 0
+        else
+            penetration = penetration/100
+        end
+
+        if not foundwandGemBonus then
+            wandGemBonus = 0
+        end
+
+        icefield.causeDamage(User, quality, penetration, wandGemBonus, theEffect)
     end
 end
 
@@ -59,7 +63,26 @@ function M.callEffect(theEffect, User)
     end
 
     if User:getQuestProgress(300) == 0 then
-        causeDamage(User, FieldItem.quality)
+        local foundpenetration, penetration = theEffect:findValue("magicPenetration")
+        local foundwandGemBonus, wandGemBonus = theEffect:findValue("wandGemBonus")
+
+        if not foundpenetration then
+            penetration = 0
+        else
+            penetration = penetration/100
+        end
+
+        if not foundwandGemBonus then
+            wandGemBonus = 0
+        end
+
+        local scaling = FieldItem:getData("scaling")
+
+        if common.IsNilOrEmpty(scaling) then
+            scaling = math.floor(FieldItem.quality/100)+1
+        end
+
+        icefield.causeDamage(User, tonumber(scaling), penetration, wandGemBonus, nil, FieldItem)
     end
     -- repeat in 5sec
     theEffect.nextCalled = 50

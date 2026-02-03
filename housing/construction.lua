@@ -22,6 +22,10 @@ local itemList = require("housing.itemList")
 local gems = require("base.gems")
 local utility = require("housing.utility")
 local daear = require("magic.arcane.enchanting.effects.daear")
+local crafts = require("craft.base.crafts")
+local depotScript = require("item.id_321_depot")
+
+local itemsWithRemnants = crafts.itemsWithRemnants
 
 local M = {}
 
@@ -32,9 +36,8 @@ local aboveVsGroundRoofHintGivenThisSession = {}
 local function loadIngredients(object)
 
     local ingredients = {}
-    local remnants = {}
 
-    for i = 1, 4 do
+    for i = 1, 7 do --Change the 7 to something higher if we need a recipe with more ingredients than 7
         local ingredient = object["ingredient" .. i]
         local amount = object["ingredient".. i .. "Amount"]
         if ingredient then
@@ -42,24 +45,14 @@ local function loadIngredients(object)
             -- Ingredient gets loaded
             table.insert(ingredients,{id = ingredient, quantity = amount, data = {}})
 
-            -- Now all there's left to do is to handle the remnants
-            local bucketItems = { Item.bucketOfWater, Item.blackDye, Item.greenDye, Item.blueDye, Item.redDye, Item.yellowDye, Item.whiteDye}
-
-            for _, bucketItem in pairs(bucketItems) do
-                if ingredient == bucketItem then
-                    table.insert(remnants, {id = Item.bucket, quantity = amount, data = {}})
-                end
-            end
-
-            if ingredient == Item.bottleOfInk then
-                table.insert(remnants, {id = Item.emptyInkBottle, quantity = amount, data = {}})
-            end
         end
     end
-    return ingredients, remnants
+    return ingredients
 end
 
-local function showObject(user, object, category, skill, overloaded)
+local count = {}
+
+local function showObject(user, object, category, skill, overloaded, secondOverload)
 
     if overloaded ~= nil
         and ((overloaded and object.typeOf ~= "Estate")
@@ -67,18 +60,39 @@ local function showObject(user, object, category, skill, overloaded)
         then return false
     end
 
-    if category.nameEN == object.category
-        and object.skill == skill.name
-        and (object.typeOf ~= "Estate" or utility.checkIfEstate(user))
-        then return true
+    local categoryFits = category.nameEN == object.category
+    local skillChecksOut = object.skill == skill.name
+    local estateChecked = object.typeOf ~= "Estate" or utility.checkIfEstate(user)
+
+    if categoryFits and skillChecksOut and estateChecked then
+
+        if not secondOverload and count[user.id] > 200 then --to prevent overload we dont allow any past 200
+            return false
+        end
+
+        if overloaded == true and object.typeOf ~= "Estate" then
+            return false --if overloaded is true it should list estate items
+        end
+
+        if overloaded == false and object.typeOf == "Estate" then
+            return false
+        end
+
+        if secondOverload and count[user.id] <= 200 then --we skip the first 200 entries
+            count[user.id] = count[user.id] + 1
+            return false
+        end
+
+        count[user.id] = count[user.id] + 1
+        return true -- either overloaded is nil or it is the correct overloaded type for object type and secondoverload is either false or has passed 250 entries
     end
 
     return false
 end
 
-local function loadObjects(user, products, index, object, category, skill, overloaded)
-    if showObject(user, object, category, skill, overloaded) then
-        local ingredients, remnants = loadIngredients(object)
+local function loadObjects(user, products, index, object, category, skill, overloaded, secondOverload)
+    if showObject(user, object, category, skill, overloaded, secondOverload) then
+        local ingredients = loadIngredients(object)
         local id, tile
         if object.itemId then
             id = object.itemId
@@ -94,14 +108,15 @@ local function loadObjects(user, products, index, object, category, skill, overl
             aboveBoolean = true
         end
 
-        table.insert(products, {level = object.level, category = index, id = id, ingredients = ingredients, remnants = remnants, tile = tile, above = aboveBoolean, difficulty = object.level, quantity = 1, data = {}})
+        table.insert(products, {level = object.level, category = index, id = id, ingredients = ingredients, tile = tile, above = aboveBoolean, difficulty = object.level, quantity = 1, data = {}})
         return true
     end
     return false
 end
 
-local function loadProducts(user, categories, skill, overloaded)
+local function loadProducts(user, categories, skill, overloaded, secondOverload)
     local products = {}
+    count[user.id] = 0
     for index, category in ipairs(categories) do
         local theList = itemList.items
         if category.tile then
@@ -109,7 +124,7 @@ local function loadProducts(user, categories, skill, overloaded)
         end
 
         for _, object in ipairs(theList) do
-            if loadObjects(user, products, index, object, category, skill, overloaded) then
+            if loadObjects(user, products, index, object, category, skill, overloaded, secondOverload) then
                 category.productAmount = category.productAmount + 1
             end
         end
@@ -173,9 +188,9 @@ end
 
 local function loadProductName(user, itemId, tile)
 
-    local name = utility.getItemName(user, itemId)
+    local name = utility.getItemName(user, itemId, tile)
 
-    if tile then
+    if tile and not name then
         name = utility.getTileName(user, itemId)
     elseif not name then
         name = lookat.GenerateItemLookAtFromId(user, itemId, 1, {}).name
@@ -222,20 +237,35 @@ end
 local function showTemporaryPreviewOfItem(productId, user, isTile, above)
     -- For special items like stairs, only the first object will be previewed and not the upper/lower stair
 
-    if isTile then
-        productId = utility.getTilePreview(productId)
-    end
+    local informPlus = ""
+    local informPlusDe = ""
 
     local frontPos = common.GetFrontPosition(user)
     local roofPos = position(frontPos.x, frontPos.y, frontPos.z+1)
 
-    if utility.checkIfRoofOrRoofTile(productId, false, above) and user.pos.z >= 0 and utility.getPropertyLocationIsPartOf(roofPos) then
-        frontPos = roofPos
+    if utility.checkIfRoofOrRoofTile(productId, isTile, above) and user.pos.z >= 0 and utility.getPropertyLocationIsPartOf(roofPos) then
+
+        local field = world:getField(roofPos)
+
+        if field and field:tile() ~= 0 then --No points trying to place an item above if there is no field or tile to place it on
+            frontPos = roofPos
+        else
+            informPlus = " There is nowhere above that the preview item can be placed. Defaulting to the tile in front of you instead."
+            informPlusDe = " Es gibt keinen Platz oben, auf dem der Vorschaugegenstand platziert werden kann. Stattdessen wird standardmäßig das Feld vor dir gewählt."
+        end
+    end
+
+    if isTile then
+        productId = utility.getTilePreview(productId) --The display item version of the tile
     end
 
     local field = world:getField(frontPos)
 
     if not field then
+        return
+    end
+
+    if field:tile() == 0 then --Putting an item on tile 0 will cause a buggy ? to pop up and not go away
         return
     end
 
@@ -261,7 +291,7 @@ local function showTemporaryPreviewOfItem(productId, user, isTile, above)
     world:changeItem(previewItem)
 
     if previewInformCooldown[user.id] and  previewInformCooldown[user.id] >= currentTime then
-        user:inform("Vorschau des Gegenstandes.", "Preview item placed.")
+        user:inform("Vorschau des Gegenstandes."..informPlusDe, "Preview item placed."..informPlus)
     else
         user:inform("Indem du den Mauszeiger über den Gegenstand im Menü bewegst, erstellst du einen Gegenstand zur Vorschau an dem Ort, an dem er gebaut wird, wenn du ihn herstellst. Dieser Gegenstand verschwindet nach 30 Sekunden oder immer dann, wenn du oder jemand anderes einen anderen Gegenstand auf demselben Grundstück zur Vorschau erstellt.", "By hovering over the item in the menu, you've created an item for preview in the location it will be built if you craft it. This item will disappear after 30 seconds, or whenever you or someone else preview another item on the same property.")
         previewInformCooldown[user.id] = currentTime + 3600 --This long inform only shows once an hour, so as to not be spammy
@@ -300,6 +330,59 @@ local function getEquippedTrowel(user)
     return nil
 end
 
+--[[
+Because the usual eraseItem functionality only allows you to delete items with no data, all data or specific data, it is not
+possible to use it to delete items with craftedBy data without deleting items with custom description/name.
+So the below function does that for us instead.
+]]
+local function eraseOrCheckForIngredient(user, amount, ingredient, erase)
+
+    local items = {}
+
+    local backpack = user:getBackPack()
+
+    local belt = {Character.belt_pos_1, Character.belt_pos_2, Character.belt_pos_3, Character.belt_pos_4, Character.belt_pos_5, Character.belt_pos_6}
+
+    for _, slot in pairs(belt) do
+        table.insert(items, user:getItemAt(slot))
+    end
+
+    if backpack then
+        for i = 0, 99 do
+            local success, theItem = backpack:viewItemNr(i)
+
+            if success then
+                table.insert(items, theItem)
+            end
+        end
+    end
+
+    local itemsFound = 0
+
+    for _, theItem in pairs(items) do
+
+        if erase and amount == 0 then
+            return
+        end
+        if theItem.id == ingredient then
+            if common.IsNilOrEmpty(theItem:getData("descriptionEn")) and common.IsNilOrEmpty(theItem:getData("nameEn")) then --Shouldnt be a custom item of any value
+                if erase then
+                    world:erase(theItem, math.min(theItem.number, amount))
+                    amount = amount - math.min(theItem.number, amount)
+                else
+                    itemsFound = itemsFound + theItem.number
+                end
+            end
+        end
+    end
+
+    if erase then
+        return amount
+    else
+        return itemsFound
+    end
+end
+
 local function hasMaterials(user, product)
 
     local materialsAvailable = true
@@ -308,7 +391,7 @@ local function hasMaterials(user, product)
 
     for i = 1, #product.ingredients do
         local ingredient = product.ingredients[i]
-        local available = user:countItemAt("all", ingredient.id, ingredient.data)
+        local available = eraseOrCheckForIngredient(user, false, ingredient.id)
 
         if available < ingredient.quantity then
             materialsAvailable = false
@@ -339,12 +422,13 @@ local function generateQuality(user, trowel, skill)
 
     local gemBonus = gems.getGemBonus(trowel)
     local skillID
-    local leadAttribName
     local leadAttribValue
     if skill.name ~= "misc" then
         skillID = Character[skill.name]
-        leadAttribName = common.GetLeadAttributeName(skillID)
-        leadAttribValue = user:increaseAttrib(leadAttribName, 0)
+        local leadAttribNames = common.GetLeadAttributeName(skillID)
+        local leadAttribValue1 = user:increaseAttrib(leadAttribNames.first, 0) * 0.6
+        local leadAttribValue2 = user:increaseAttrib(leadAttribNames.second, 0) * 0.4
+        leadAttribValue = leadAttribValue1 + leadAttribValue2
     else
         leadAttribValue = user:increaseAttrib("dexterity", 0)
     end
@@ -372,7 +456,11 @@ local function getTotalQuantity(product)
     return retval
 end
 
+
+
 local function eraseIngredients(user, product)
+
+    local remnantItemsToCreate = {}
 
     local ingredientSaved = false
 
@@ -390,10 +478,69 @@ local function eraseIngredients(user, product)
         end
 
         if save < ingredient.quantity then
-            user:eraseItem(ingredient.id, ingredient.quantity - save, ingredient.data)
+            local erased = user:eraseItem(ingredient.id, ingredient.quantity - save, ingredient.data)
+            if erased > 0 then --erased returns how many you fialed to erase
+                eraseOrCheckForIngredient(user, erased, ingredient.id, true)
+            end
+        end
+
+        for _, remnant in pairs(itemsWithRemnants) do
+            if remnant.id == ingredient.id and (ingredient.quantity-save > 0) then
+                table.insert(remnantItemsToCreate, {id = remnant.remnant, quantity = ingredient.quantity-save})
+            end
         end
 
     end
+
+    return remnantItemsToCreate
+end
+
+
+
+local function enoughSpaceForThreshingFloor(user, target)
+
+    local parts = {
+        {id = 3871, pos = position(target.x-2, target.y, target.z)},
+        {id = 3872, pos = position(target.x-1, target.y-1, target.z)},
+        {id = 3873, pos = position(target.x, target.y-1, target.z)},
+        {id = 3874, pos = position(target.x+1, target.y, target.z)},
+        {id = 3875, pos = position(target.x+1, target.y+1, target.z)},
+        {id = 3876, pos = position(target.x, target.y+2, target.z)},
+        {id = 3877, pos = position(target.x-1, target.y+2, target.z)},
+        {id = 3878, pos = position(target.x-2, target.y+1, target.z)}
+    }
+
+    for _, part in pairs(parts) do
+        if world:isItemOnField(part.pos) or not utility.allowBuilding(user, part.pos) then
+            user:inform("Es gibt nicht genug Platz um dein Zielgebiet, um eine Tenne zu bauen. Eine Tenne benötigt eine freie Fläche von 4x4 Feldern.","There's not enough space surrounding your target tile to build a threshing floor. A threshing floor requires a 4x4 area to be empty.")
+            return false
+        end
+    end
+
+    return true
+
+end
+
+local function buildThreshingFloor(target)
+
+    local parts = {
+        {id = 3871, pos = position(target.x-2, target.y, target.z)},
+        {id = 3872, pos = position(target.x-1, target.y-1, target.z)},
+        {id = 3873, pos = position(target.x, target.y-1, target.z)},
+        {id = 3874, pos = position(target.x+1, target.y, target.z)},
+        {id = 3875, pos = position(target.x+1, target.y+1, target.z)},
+        {id = 3876, pos = position(target.x, target.y+2, target.z)},
+        {id = 3877, pos = position(target.x-1, target.y+2, target.z)},
+        {id = 3878, pos = position(target.x-2, target.y+1, target.z)}
+    }
+
+    for _, part in pairs(parts) do
+
+        local targetItem = world:createItemFromId(part.id, 1, part.pos, true, 333, nil)
+        targetItem.wear = 255
+        world:changeItem(targetItem)
+    end
+
 end
 
 local function createItem(user, product, trowel, skill)
@@ -405,18 +552,20 @@ local function createItem(user, product, trowel, skill)
         return
     end
 
+    local remnantItemsToCreate = {}
+
     local propertyName = utility.getPropertyLocationIsPartOf(target)
     utility.deletePreviewItem(propertyName, true)
 
     if product.tile then
         if utility.checkIfRoofOrRoofTile(product.id, true, product.above) then
             if utility.roofAndRoofTiles(user, product.id, true, "create", product.above) then
-                eraseIngredients(user, product)
+                remnantItemsToCreate = eraseIngredients(user, product)
             else
                 user:inform("Du bist nicht dazu berechtigt, hier zu bauen.","You do not have permission to build there.")
             end
         else
-            eraseIngredients(user, product)
+            remnantItemsToCreate = eraseIngredients(user, product)
             world:changeTile(product.id, target)
         end
     else
@@ -426,7 +575,7 @@ local function createItem(user, product, trowel, skill)
 
         if utility.checkIfStairsOrTrapDoor(product.id) then
             if utility.createWarpsAndExitObject(user, product.id, "create") then
-                eraseIngredients(user, product)
+                remnantItemsToCreate = eraseIngredients(user, product)
                 local targetItem = world:createItemFromId(product.id, product.quantity, target, true, quality, nil)
                 targetItem.wear = 255
                 world:changeItem(targetItem)
@@ -435,28 +584,64 @@ local function createItem(user, product, trowel, skill)
             end
         elseif utility.checkIfRoofOrRoofTile(product.id, false, product.above) then
             if utility.roofAndRoofTiles(user, product.id, false, "create", product.above) then
-                eraseIngredients(user, product)
+                remnantItemsToCreate = eraseIngredients(user, product)
             else
                 user:inform("Du bist nicht dazu berechtigt, hier zu bauen.","You do not have permission to build there.")
             end
         elseif utility.checkIfPlantOrTree(product.id) then
             if utility.checkIfGardeningCriteriaMet(user, product.id) then
-                eraseIngredients(user, product)
+                remnantItemsToCreate = eraseIngredients(user, product)
                 world:createItemFromId(product.id, product.quantity, target, true, quality, nil)
             else
                 user:inform("Das kannst du hier nicht pflanzen.","You can't plant this here.")
             end
         else
-            eraseIngredients(user, product)
-            local targetItem = world:createItemFromId(product.id, product.quantity, target, true, quality, nil)
+            if product.id == 3879 and not enoughSpaceForThreshingFloor(user, target) then
+                return
+            end
+
+            if not utility.buildersReady(user, product.id, target) then
+                return
+            end
+
+            if utility.tooManyTools(user, product.id, target) then
+                return
+            end
+            if utility.staticToolAlreadyOnField(user, product.id, target) then
+                return
+            end
+            remnantItemsToCreate = eraseIngredients(user, product)
+            local field = world:getField(target)
+            if field:tile() == 0 then
+                world:changeTile(34, target) --To prevent buggy ? tiles if you want to have something like a floating handrail at the edge of the nearby tile.
+            end
+
+            if product.id == 3879 then -- threshing floor
+                buildThreshingFloor(target)
+            end
+
+            local data = {}
+
+            if product.id == 321 or product.id == 4817 then
+                for _, depot in pairs(depotScript.depots) do
+                    if depot.realm.english == propertyName then
+                        data = {["depot"] = depot.itemData}
+                    end
+                end
+            end
+
+            local targetItem = world:createItemFromId(product.id, product.quantity, target, true, quality, data)
             targetItem.wear = 255
             world:changeItem(targetItem)
         end
     end
 
-    for _, remnant in ipairs(product.remnants) do
-       common.CreateItem(user, remnant.id, remnant.quantity, 333, remnant.data)
+    for _, remnant in pairs(remnantItemsToCreate) do
+
+        common.CreateItem(user, remnant.id, remnant.quantity, 333, {})
+
     end
+
 end
 
 local function craftItem(user, product, skill)
@@ -535,14 +720,14 @@ local function roofInform(user, product, tile, accessedViaLookat, above)
         if not accessedViaLookat then
             user:inform("Was du zu bauen versuchst, ist ein Dach(Oben)-Kategoriegegenstand oder -feld, was bedeutet, dass es auf dem Feld vor dir, jedoch eine Ebene darüber, gebaut wird. Wenn du es stattdessen vor dir bauen möchtest, wähle den Gegenstand aus der Dach(Boden)-Kategorie.", "What you are trying to build is a roof(above) category item or tile, which means it will be built on the tile in front of you but one layer above.  If you want to build it in front of you instead, build the one in the roof(ground) category. Lastly, it will be built infront of you regardless if there is no floor above you to build on.")
         else
-            user:inform("Der Gegenstand/das Feld, über dem sich dein Cursor befindet, gehört zur Dach(Oben)-Kategorie. Das bedeutet, dass es auf dem Feld vor dir, jedoch eine Ebene darüber, gebaut wird. Wenn du es stattdessen vor dir bauen möchtest, wähle den Gegenstand aus der Dach(Boden)-Kategorie.", "The item/tile you are hovering your cursor over is of the roof(above) category. Which means it will be built on the tile in front of you but one layer above. If you want to build it in front of you instead, build the one in the roof(ground) category. Zuletzt wird es vor dir gebaut, unabhängig davon, ob es über dir keinen Boden zum Bauen gibt.")
+            user:inform("Der Gegenstand/das Feld, über dem sich dein Cursor befindet, gehört zur Dach(Oben)-Kategorie. Das bedeutet, dass es auf dem Feld vor dir, jedoch eine Ebene darüber, gebaut wird. Wenn du es stattdessen vor dir bauen möchtest, wähle den Gegenstand aus der Dach(Boden)-Kategorie.", "The item/tile you are hovering your cursor over is of the roof(above) category. Which means it will be built on the tile in front of you but one layer above. If you want to build it in front of you instead, build the one in the roof(ground) category. If there is no place to build above, it will default to the tile infront of you instead.")
         end
 
         aboveVsGroundRoofHintGivenThisSession[user.id] = true -- prevents spam
     end
 end
 
-function M.showDialog(user, skillName, overloaded)
+function M.showDialog(user, skillName, overloaded, secondOverload)
 
     local skill = {}
     skill.level = loadSkill(user, skillName)
@@ -550,7 +735,7 @@ function M.showDialog(user, skillName, overloaded)
 
     local categories = loadCategories(user, skill)
 
-    local products = loadProducts(user, categories, skill, overloaded)
+    local products = loadProducts(user, categories, skill, overloaded, secondOverload)
 
     if not utility.allowBuilding(user) then
         return
@@ -580,7 +765,38 @@ function M.showDialog(user, skillName, overloaded)
 
             if not getEquippedTrowel(user) then
                 user:inform("Die Baukelle muss noch intakt sein und du musst sie in einer Hand halten, um sie zu benutzen.", "The construction trowel must be intact and in one of your hands for you to use it.")
-                return
+                return false
+            end
+
+            if not utility.realmAllowsFarming(frontPos) and product.tile and product.id == 4 then
+                user:inform("Leider ist das Klima in Cadomyr zu rau, Ackerland würde in kürzester Zeit austrocknen.", "Sadly the Cadomyr climate is too harsh, farmland would dry up in no time.")
+                return false
+            end
+
+            if product.tile and product.id == 4 and frontPos.z ~= 0 then
+                user:inform("Du kannst hier die Erde nicht bearbeiten.", "You can't till the earth here.")
+                return false
+            end
+
+            if not utility.supportedTool(product.id, frontPos) then
+                user:inform("Leider unterstützt dein Reich dieses statische Werkzeug nicht.", "Unfortunately your realm does not support this static tool.")
+                return false
+            end
+
+            if not utility.buildersReady(user, product.id, frontPos) then
+                return false
+            end
+
+            if utility.tooManyTools(user, product.id, frontPos) then
+                return false
+            end
+
+            if utility.staticToolAlreadyOnField(user, product.id, frontPos) then
+                return false
+            end
+
+            if product.id == 3879 and not enoughSpaceForThreshingFloor(user, frontPos) then
+                return false
             end
 
             if skill.name ~= "misc" then

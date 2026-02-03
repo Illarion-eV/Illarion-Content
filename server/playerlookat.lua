@@ -30,7 +30,38 @@ local gods = require("content.gods")
 local M = {}
 local MODE_MIRROR = 2
 
+local function selectWhetherToStare(user, target, output)
 
+    local callback = function(dialog)
+
+        if not dialog:getSuccess() then
+            return
+        end
+
+        local index = dialog:getSelectedIndex() +1
+
+        if not isValidChar(target) then
+            return
+        end
+
+
+        if index == 1 then
+            common.InformNLS(target, "Du fühlst dich beobachtet.", "You feel watched.")
+            user:sendCharDescription( target.id , output )
+        else
+            user:sendCharDescription( target.id , " " )
+        end
+    end
+
+    local dialog = SelectionDialog(
+    common.GetNLS(user, "Ansehen", "Look At"),
+    common.GetNLS(user, "Wähle, ob du starren möchtest - was dir eine Beschreibung des Ziels gibt, aber sie auch wissen lässt, dass sie beobachtet werden - oder ob du ihnen einfach einen Spitznamen geben willst.", "Choose whether to stare, giving you a description of the target but also letting them know they feel watched, or just to nickname them."), callback)
+
+    dialog:addOption(0, common.GetNLS(user, "Starren", "Stare"))
+    dialog:addOption(0, common.GetNLS(user, "Nur Spitzname", "Nickname only"))
+
+    user:requestSelectionDialog(dialog)
+end
 
 function M.lookAtPlayer( SourceCharacter, TargetCharacter, mode)
     local output = ""
@@ -41,10 +72,10 @@ function M.lookAtPlayer( SourceCharacter, TargetCharacter, mode)
 
     output = output .. M.getCharDescription( SourceCharacter, TargetCharacter, mode)
 
-    SourceCharacter:sendCharDescription( TargetCharacter.id , output )
-
     if (mode == Player.stare) then
-        common.InformNLS(TargetCharacter, "Du fühlst dich beobachtet.", "You feel watched.")
+        selectWhetherToStare(SourceCharacter, TargetCharacter, output)
+    else
+        SourceCharacter:sendCharDescription( TargetCharacter.id , output )
     end
 end
 
@@ -190,7 +221,7 @@ local function getCharHairdresserState( Char, lang, currentLookingAt)
     return text
 end
 
-local function getClothesFactor(Char)
+function M.getClothesFactor(Char)
     local itCount=0
     local sumQual=0
     local sumDura=0
@@ -225,38 +256,37 @@ local function getClothesFactor(Char)
     end
 end
 
-local function getClothesText(qual, dura, lang, sex,char)
-    local ClQualText={}
-    local ClDuraText={}
-    local sexText={}
-    local clText={}
-    ClQualText[0]={"adelige", "noble", "sehr feine", "feine", "sehr gute", "gute", "normale", "billige","schäbige","lumpige"}
-    ClQualText[1]={"aristocratic","noble", "very fine", "fine", "very good", "good", "normal", "cheap", "shabby", "lousy"}
+M.ClQualText={}
+M.ClDuraText={}
+M.sexText={}
+M.clText={}
+M.ClQualText[0]={"adelige","noble", "sehr feine", "feine", "sehr gute", "gute", "normale", "billige","schäbige","lumpige"}
+M.ClQualText[1]={"aristocratic","noble", "very fine",  "fine",  "very good", "good", "normal",  "cheap",  "shabby",  "lousy"}
+M.ClDuraText[0]={"nagelneu" ,"neu", "leicht abgenutzt","gebraucht","abgenutzt","sehr abgenutzt","alt","dreckig", "kaputt", "zerschlissen"  }
+M.ClDuraText[1]={"brand new", "new",  "slightly torn",    "used",      "torn",      "highly torn",    "old","dirty",  "tattered","threadbare"}
+M.sexText[0]={}
+M.sexText[1]={}
+M.sexText[0][0]="Seine " --Kleidung wirkt "
+M.sexText[0][1]="Ihre " --trägt "
+M.sexText[1][0]="His "
+M.sexText[1][1]="Her "
+M.clText[0]=" Kleidung wirkt "
+M.clText[1]=" clothes look "
 
-    ClDuraText[0]={"nagelneu" ,"neu", "leicht abgenutzt","gebraucht","abgenutzt","sehr abgenutzt","alt","dreckig", "kaputt", "zerschlissen"}
-    ClDuraText[1]={"brand new", "new", "slightly torn", "used", "torn", "highly torn", "old","dirty", "tattered","threadbare"}
-
-    sexText[0]={}
-    sexText[1]={}
-    sexText[0][0]="Seine " --Kleidung wirkt "
-    sexText[0][1]="Ihre " --trägt "
-    sexText[1][0]="His "
-    sexText[1][1]="Her "
-
-    clText[0]=" Kleidung wirkt "
-    clText[1]=" clothes look "
-    return sexText[lang][sex]..ClQualText[lang][10-qual]..clText[lang]..ClDuraText[lang][10-math.floor(dura/10)].."."
+function M.getClothesText(qual, dura, lang, sex)
+    return M.sexText[lang][sex]..M.ClQualText[lang][10-qual]..M.clText[lang]..M.ClDuraText[lang][10-math.floor(dura/10)].."."
 end
 
-local function getClothesQualText(qual, lang)
-    local ClQQualText={}
-    local clQText={}
-    ClQQualText[0]={"adelig", "nobel", "sehr fein", "fein", "sehr gut", "gut", "normal", "billig","schäbig","lumpig"}
-    ClQQualText[1]={"aristocratically","nobly", "very finely", "finely", "very well", "well", "normally", "cheaply", "shabbily", "lousily"}
+M.ClQQualText={}
+M.clQText={}
+M.ClQQualText[0]={"adelig", "nobel", "sehr fein", "fein", "sehr gut", "gut", "normal", "billig","schäbig","lumpig"}
+M.ClQQualText[1]={"aristocratically", "nobly", "very finely", "finely", "very well", "well", "normally", "cheaply", "shabbily", "lousily"}
+M.clQText[0]=" gekleidet"
+M.clQText[1]=" dressed"
 
-    clQText[0]=" gekleidet"
-    clQText[1]=" dressed"
-    return ClQQualText[lang][10-qual]..clQText[lang]
+function M.getClothesQualText(qual, lang)
+
+    return M.ClQQualText[lang][10-qual]..M.clQText[lang]
 end
 
 local function getAgeDescriptor(race,age,sex, language)
@@ -323,7 +353,7 @@ function M.getCharDescription( SourceCharacter, TargetCharacter, mode)
 
     local lang = SourceCharacter:getPlayerLanguage()
     -- inform about stats
-    local qual,dura=getClothesFactor(TargetCharacter)
+    local qual,dura= M.getClothesFactor(TargetCharacter)
     local output = ""
 
     if ( mode == MODE_MIRROR) then
@@ -350,7 +380,7 @@ function M.getCharDescription( SourceCharacter, TargetCharacter, mode)
         end
         output = string.sub ( output, 1, string.len(output) - 2) .. " " .. getCharRace( TargetCharacter, lang)
         if ( limitToSeeGeneral >= 0 ) then
-            output = output .. ( lang == 0 and " und ist " or " and is " ) .. getClothesQualText(qual, lang) .. ". "
+            output = output .. ( lang == 0 and " und ist " or " and is " ) .. M.getClothesQualText(qual, lang) .. ". "
         else
             output = output .. "."
         end
@@ -379,7 +409,7 @@ function M.getCharDescription( SourceCharacter, TargetCharacter, mode)
     end
 
     if ( limitToSeeGeneral >= 0 ) then
-        output = output .. getClothesText(qual, dura, lang, TargetCharacter:increaseAttrib( "sex", 0 ),SourceCharacter)
+        output = output .. M.getClothesText(qual, dura, lang, TargetCharacter:increaseAttrib( "sex", 0 ))
     end
 
     -- what is in the belt?

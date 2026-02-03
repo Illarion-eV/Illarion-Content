@@ -641,6 +641,10 @@ product = tailoring:addProduct(catId, 89, 1)
 product:addIngredient(50, 4) -- thread
 product:addIngredient(2547, 3) -- leather
 
+product = tailoring:addProduct(catId, Item.wickerBasket, 1)
+product:addIngredient(Item.bundleOfGrain, 10)
+product:addIngredient(Item.thread, 2)
+
 -- leather bag
 product = tailoring:addProduct(catId, 97, 1)
 product:addIngredient(50, 2) -- thread
@@ -1034,63 +1038,64 @@ product:addIngredient(Item.leather, 1)
 
 for _, book in ipairs(books.blue) do
     product = tailoring:addProduct(catId, book, 1)
-    product:addIngredient(50, 10) -- thread
-    product:addIngredient(2745, 10) -- parchment
+    product:addIngredient(50, 12) -- thread
+    product:addIngredient(2745, 4) -- parchment
     product:addIngredient(2547, 2) -- leather
+    product:addIngredient(Item.silk, 1)
     product:addIngredient(2680) -- blue dye
-    product:addRemnant(51) --empty bucket
 end
 
 for _, book in ipairs(books.green) do
     product = tailoring:addProduct(catId, book, 1)
-    product:addIngredient(50, 10) -- thread
-    product:addIngredient(2745, 10) -- parchment
+    product:addIngredient(50, 12) -- thread
+    product:addIngredient(2745, 4) -- parchment
     product:addIngredient(2547, 2) -- leather
+    product:addIngredient(Item.silk, 1)
     product:addIngredient(2679) -- green dye
-    product:addRemnant(51) --empty bucket
 end
 
 for _, book in ipairs(books.red) do
     product = tailoring:addProduct(catId, book, 1)
-    product:addIngredient(50, 10) -- thread
-    product:addIngredient(2745, 10) -- parchment
+    product:addIngredient(50, 12) -- thread
+    product:addIngredient(2745, 4) -- parchment
     product:addIngredient(2547, 2) -- leather
+    product:addIngredient(Item.silk, 1)
     product:addIngredient(2681) -- red dye
-    product:addRemnant(51) --empty bucket
 end
 
 for _, book in ipairs(books.black) do
     product = tailoring:addProduct(catId, book, 1)
-    product:addIngredient(50, 10) -- thread
-    product:addIngredient(2745, 10) -- parchment
+    product:addIngredient(50, 12) -- thread
+    product:addIngredient(2745, 4) -- parchment
     product:addIngredient(2547, 2) -- leather
+    product:addIngredient(Item.silk, 1)
     product:addIngredient(2678) -- black dye
-    product:addRemnant(51) --empty bucket
 end
 
 for _, book in ipairs(books.yellow) do
     product = tailoring:addProduct(catId, book, 1)
-    product:addIngredient(50, 10) -- thread
-    product:addIngredient(2745, 10) -- parchment
+    product:addIngredient(50, 12) -- thread
+    product:addIngredient(2745, 4) -- parchment
     product:addIngredient(2547, 2) -- leather
+    product:addIngredient(Item.silk, 1)
     product:addIngredient(2682) -- yellow dye
-    product:addRemnant(51) --empty bucket
 end
 
 for _, book in ipairs(books.white) do
     product = tailoring:addProduct(catId, book, 1)
-    product:addIngredient(50, 10) -- thread
-    product:addIngredient(2745, 10) -- parchment
+    product:addIngredient(50, 12) -- thread
+    product:addIngredient(2745, 4) -- parchment
     product:addIngredient(2547, 2) -- leather
+    product:addIngredient(Item.silk, 1)
     product:addIngredient(2683) -- white dye
-    product:addRemnant(51) --empty bucket
 end
 
 for _, book in ipairs(books.plain) do
     product = tailoring:addProduct(catId, book, 1)
-    product:addIngredient(50, 10) -- thread
-    product:addIngredient(2745, 10) -- parchment
+    product:addIngredient(50, 12) -- thread
+    product:addIngredient(2745, 4) -- parchment
     product:addIngredient(2547, 2) -- leather
+    product:addIngredient(Item.silk, 1)
 end
 
 catId = tailoring:addCategory("Sewing Kits", "Flickzeug")

@@ -25,6 +25,7 @@ local milling = crafts.Craft:new{
                     leadSkill = Character.farming,
                     sfx = 16,
                     sfxDuration = 27,
+                    intermediate = true
                   }
 
 milling:addTool(250) -- millstone

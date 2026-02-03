@@ -32,6 +32,8 @@ local ceilingtrowel = require("gm.items.id_382_ceilingtrowel")
 local utility = require("housing.utility")
 local messenger = require("content.messenger")
 local bookrests = require("item.bookrests")
+local depotScript = require("item.id_321_depot")
+local penInfo = require("magic.arcane.spirit.convertInfoToDialogue")
 
 -- Called after every player login
 
@@ -236,8 +238,79 @@ local receiveGems
 local PayOutWage
 local payNow
 local checkForNewBulletinMessages
+local convertWandMagicToFire
+
+local function notRPedEnough(player)
+
+    local questIds = {396, 397, 398, 399, 400}
+    local upNext
+    local monthBeforeLast
+
+    for _, questId in pairs(questIds) do -- First we find the one from 6 months ago to turn into this month
+
+        local progress = player:getQuestProgress(questId)
+
+        if not upNext then
+            upNext = questId
+
+        elseif progress <= player:getQuestProgress(upNext) then -- We want the one that is lowest or at worst equal to another
+
+            upNext = questId
+        end
+
+        if not monthBeforeLast then
+            monthBeforeLast = questId
+        elseif progress > player:getQuestProgress(monthBeforeLast) then
+            monthBeforeLast = questId -- we want the highest as that would be the month before last, since we did not save the last one yet that gets saved to upNext
+        end
+    end
+
+    local comparison = player:getQuestProgress(upNext) -- Take the sixth month to see the difference since then
+
+    local newProgress = player:getQuestProgress(393)
+
+    player:setQuestProgress(upNext, newProgress) --Storing the progress at the start of this month aka accumulated over the past month played
+
+    --Now we have the last 5 months tracked with the latest one replacing the one six months ago and are ready to check activity
+
+    local progress = player:getQuestProgress(393)
+
+    local roleplayedLastMonthOnly = progress - player:getQuestProgress(monthBeforeLast)
+
+    local totalRoleplayed =  progress - comparison
+    -- We get how much was roleplayed over the last five months by comparing the latest value to the value of six months ago
+
+    local averageRoleplayed = totalRoleplayed/5
+
+    if averageRoleplayed*5/60 < 1 and roleplayedLastMonthOnly*5/60 < 1 then --stored in ticks of 5 min, divided by 60 for hours. At least 1 hour on average needed
+        return true
+    end
+
+    local bonus = math.min(math.max(0, roleplayedLastMonthOnly*5/60-1), 23) -- Up to 24 hours bonus, but not counting the first used to unlock gem gain
+
+    bonus = 1/23*bonus -- up to 100% bonus
+
+    return false, bonus --The person has put in at least 1 hour of RP the previous week
+end
 
 function M.onLogin( player )
+
+    if player:getQuestProgress(691) < 4 and player:getMagicType() == 3 then
+        player:setQuestProgress(691, 4) --For old druid players who already did the activation of nature magic
+    end
+
+    local leaderNames = {"Elvaine Morgan", "Valerio Guilianni", "Rosaline Edwards"}
+
+    for _, leaderName in pairs(leaderNames) do
+        if leaderName == player.name then
+            local specialRankStatus = 200
+            if player:getQuestProgress(specialRankStatus) ~= 11 then
+                player:setQuestProgress(specialRankStatus, 11)
+                -- Ensures the player leader characters are the correct rank, for the citizen ledger
+                -- and any future aspects of the game they may impact
+            end
+        end
+    end
 
     --Temporary: Warp players from old Noobia to new newbie spawn
     if player.pos.z == 100 then --Old Noobia
@@ -257,9 +330,9 @@ function M.onLogin( player )
     local players = world:getPlayersOnline() --Reading all players online so we can count them
 
     --Reading current date
-    local datum = common.getTime("day")
-    local monthString = common.Month_To_String(common.getTime("month"))
-    local hourStringG, hourStringE = common.Hour_To_String(common.getTime("hour"))
+    local datum = world:getTime("day")
+    local monthString = common.Month_To_String(world:getTime("month"))
+    local hourStringG, hourStringE = common.Hour_To_String(world:getTime("hour"))
 
     local lastDigit = datum % 10 --Is it st, nd or rd?
 
@@ -291,12 +364,20 @@ function M.onLogin( player )
         "[Login] Welcome to Illarion! It is "..hourStringE.." on the "..datum..""..extensionString.." of "..monthString..varTextEn
         )
 
+    factions.oneTimeConversionOfReputationPointsToRankPoints(player) --This must take place before taxes to avoid defaulting to rank 1 for those
+
     --Taxes
     if not player:isAdmin() then --Admins don't pay taxes or get gems.
         if not (player.name == "Valerio Guilianni" or player.name == "Rosaline Edwards" or player.name ==  "Elvaine Morgan") then --Leader don't pay taxes or get gems
+            local year = world:getTime("year")
+            local month = world:getTime("month")
+            local timeStmp = year * 1000 + month
 
-            local taxText = payTaxes(player)
-            local gemText = receiveGems(player)
+            local taxText, notEnoughRP, bonus = payTaxes(player, timeStmp)
+            if not bonus then
+                bonus = 0
+            end
+            local gemText = receiveGems(player, bonus, notEnoughRP, timeStmp)
             if gemText ~= nil or taxText ~= nil then
                 informPlayeraboutTaxandGems(player, gemText, taxText)
             end
@@ -340,6 +421,11 @@ function M.onLogin( player )
     --on ferry
     seafaring.login(player)
 
+
+    if penInfo.alreadyOpenDialogue[player.id] then
+        penInfo.alreadyOpenDialogue[player.id] = false
+    end
+
     --Check regeneration script
     local found = player.effects:find(2)
     if not found then
@@ -376,6 +462,28 @@ function M.onLogin( player )
 
     --Check for and provide an inform if there are unread messages at the Troll's haven bulletin board or the relevant town boards if a citizen
     checkForNewBulletinMessages(player)
+
+    -- Convert the old relict wand magic to fire magic
+    convertWandMagicToFire(player)
+
+    factions.updateEntry(player) --Updates the citizen ledger status of the player on login as a failsafe
+
+end
+
+function convertWandMagicToFire(player)
+
+    local fireMagicLevel = player:getSkill(Character.fireMagic)
+    local wandMagicLevel = player:getSkill(Character.wandMagic)
+
+    if fireMagicLevel >= wandMagicLevel then --If it has already been converted or the old magic skill was transferred and is higher
+        if wandMagicLevel > 0 then --This gets rid of wand magic skill in the case of old magic skill transfers having taken place
+            player:increaseSkill(Character.wandMagic, 0-wandMagicLevel)
+        end
+        return
+    end
+
+    player:increaseSkill(Character.fireMagic, wandMagicLevel-fireMagicLevel)
+    player:increaseSkill(Character.wandMagic, 0-wandMagicLevel)
 end
 
 function showNewbieDialog(player)
@@ -442,29 +550,27 @@ function welcomeNewPlayer(player)
     end
 end
 
-function payTaxes(taxPayer)
-    local yr = common.getTime("year")
-    local mon = common.getTime("month")
-    local timeStmp = yr * 1000 + mon
+function payTaxes(taxPayer, timeStmp)
+
     local lastTax = taxPayer:getQuestProgress(123)
 
     if (lastTax ~= 0) then
         -- Character didnt pay taxes for this month yet
         if lastTax < timeStmp then
+            local notEnoughRP, bonus = notRPedEnough(taxPayer) --This should only be ran once per month per character so it gets put behind the first timestamp like this
             taxPayer:setQuestProgress(123, timeStmp)
-            return payNow(taxPayer)
+            return payNow(taxPayer, notEnoughRP), notEnoughRP, bonus
         end
     else
-        -- Character never payed taxes before
+        -- Character never paid taxes before
+        local notEnoughRP, bonus = notRPedEnough(taxPayer) --This should only be ran once per month per character so it gets put behind the first timestamp like this
         taxPayer:setQuestProgress(123, timeStmp)
-        return payNow(taxPayer)
+        return payNow(taxPayer, notEnoughRP), notEnoughRP, bonus
     end
 end
 
-function receiveGems(gemRecipient)
-    local yr = common.getTime("year")
-    local mon = common.getTime("month")
-    local timeStmp = yr * 1000 + mon
+function receiveGems(gemRecipient, bonus, notEnoughRP, timeStmp)
+
     local town = factions.getMembershipByName(gemRecipient)
     if town == "None" then
         return
@@ -488,17 +594,17 @@ function receiveGems(gemRecipient)
     if (lastGem ~= 0) then
         if timeStmp >= tonumber(lastSwitch) and tonumber(lastGem) < timeStmp then
             gemRecipient:setQuestProgress(124, timeStmp)
-            return PayOutWage(gemRecipient,town)
+            return PayOutWage(gemRecipient,town, bonus, notEnoughRP)
         end
     else
         gemRecipient:setQuestProgress(124, timeStmp)
-        return PayOutWage(gemRecipient,town)
+        return PayOutWage(gemRecipient,town, bonus, notEnoughRP)
     end
 end
 
 -- transfer
 local function createMagicGem(gemId, gemAmount, Recipient)
-    local gemData = gems.getMagicGemData(1)
+    local gemData = gems.getMagicGemData(1, Recipient.name)
     common.CreateItem(Recipient, gemId, gemAmount, 333, gemData)
     local basename = world:getItemName(gemId, Recipient:getPlayerLanguage())
     if Recipient:getPlayerLanguage() == 0 then
@@ -510,57 +616,116 @@ local function createMagicGem(gemId, gemAmount, Recipient)
     return basename
 end
 
-function PayOutWage(Recipient, town)
-    local totalTaxes = townTreasure.GetPaymentAmount(town)
-    local totalPayers = townTreasure.GetTaxpayerNumber(town)
+local function calculateBaseWageForTaxMoney(taxMoney)
 
-    if tonumber(totalPayers)>0 then
-        if tonumber(totalTaxes)>0 then
-            local baseWageUnit=totalTaxes/(totalPayers*10000)        -- 10000: "base unit" change accordingly if necessary.
-            local RecipientRk=factions.getRankAsNumber(Recipient)
-            local infText
+    local wage
 
-            --If the recipient is level 1 they don't get anything.
-            if RecipientRk <2 then
-                infText = common.GetNLS(Recipient,
-                    "Du solltest dich bemühen, dein Ansehen in "..town.." zu steigern, damit du einen Lohn für deine Abgaben erhältst.",
-                    "You should earn favour in "..town.." in order to receive rewards for your tribute.")
+    -- before we get here the total collected taxes/donations for this calculation is reduced based on amount of payers
 
-                log(string.format("[gems] %s got 0 magic gems from %s. Character's rank: %d",
-                    character.LogText(Recipient), town, RecipientRk))
-            else
-                local RankedWage=math.ceil(RecipientRk*baseWageUnit*0.5)
-                local endname=""
+    if taxMoney >= 10000000 then --we use logarithmic math after 1000 gold to even it out
 
-                local firstGem = Random.uniform(0,RankedWage)
-                local secondGem = RankedWage - firstGem
-                local gemsByTown={}
-                      gemsByTown["Cadomyr"]={gems.TOPAZ, gems.AMETHYST}
-                      gemsByTown["Runewick"]={gems.EMERALD, gems.RUBY}
-                      gemsByTown["Galmair"]={gems.SAPPHIRE, gems.OBSIDIAN}
-                local firstGemId = gems.getMagicGemId(gemsByTown[town][1])
-                local secondGemId = gems.getMagicGemId(gemsByTown[town][2])
+        wage = -396.8 + 86.4 * math.log(taxMoney/10000) --Those numbers might look random but they are a perfect match for the linear math where 1000 gold lands on 200 gems
+        -- This creates a soft cap of 200 gems, where it is harder to increase the amount via donations only after
+        -- The rank calculation increases/decreases the amount after this function has done its calculation
+        -- The bonus for having spent up to 24 hours Rping the past IG month(8 IRL days) adds on after that
 
-                log(string.format("[gems] %s got %d (%d,%d) magic gems from %s. Character's rank: %d",
-                    character.LogText(Recipient), RankedWage, firstGem, secondGem, town, RecipientRk))
-
-                if firstGem > 0 then
-                    endname = endname .. createMagicGem(firstGemId, firstGem, Recipient)
-                end
-                if secondGem > 0 then
-                    endname = endname .. createMagicGem(secondGemId, secondGem, Recipient)
-                end
-
-                infText = common.GetNLS(Recipient,
-                    "Deine loyalen Dienste für "..town.." werden mit den folgenden magischen Edelsteinen belohnt:"..endname,
-                    "Your loyal service to "..town.." is awarded with the following magical gems:"..endname)
-            end
-            return infText
-        end
+    else --we use linear math up to 1000 gold, with 5 gold per gem at 10 taxpayers
+        wage = taxMoney/50000
     end
+
+    return wage
 end
 
-function payNow(User)
+function PayOutWage(Recipient, town, bonus, notEnoughRP)
+    local totalTaxes = townTreasure.GetPaymentAmount(town)
+    local totalPayers = townTreasure.GetTaxpayerNumber(town)
+    local RecipientRk=factions.getRankAsNumber(Recipient)
+
+    local addendum = " With a basis of "..totalPayers.." payers and "..totalTaxes.." taxes last month."
+
+    if tonumber(totalPayers) <= 0 then
+        totalPayers = 1
+    end
+    if  tonumber(totalTaxes) <= 0 then
+        totalTaxes = 1
+    end
+    -- Instead of skipping magic gem rewards for this months taxes, we give the bare minimum of 1 gem
+    -- This also ensures they always get an inform.
+
+    totalTaxes = totalTaxes/2
+
+    -- this equals 10 gold per gem at rank 7 if there was only 1 tax payer last month
+    -- in the calculation script further down it is based on 5 gold, hence we double it by halving the money
+    -- here. Why? Because I found that simpler and it makes no real difference.
+
+    totalPayers = math.min(10, totalPayers)
+
+    totalTaxes = totalTaxes + ((totalPayers-1)*(totalTaxes/9))
+    -- Every tax payer after the first makes it 11.11~% cheaper up to 10 payers,
+    -- to encourage players into doing their best to create a thriving community in their realm
+    -- and make it so "leeches" that dont donate and pay little in tax are no longer an issue
+    -- The logarithmic returns at a certain point make it so there is little concern if the
+    -- community gets "too thriving" and reach a high passive tax income
+
+    local baseWage = calculateBaseWageForTaxMoney(totalTaxes)
+
+    local infText
+
+    --If the recipient is level 1 they don't get anything.
+    if RecipientRk <2 then
+        infText = common.GetNLS(Recipient,
+            "Du solltest dich bemühen, dein Ansehen in "..town.." zu steigern, damit du einen Lohn für deine Abgaben erhältst.",
+            "You should earn favour in "..town.." in order to receive rewards for your tribute.")
+
+        log(string.format("[gems] %s got 0 magic gems from %s. Character's rank: %d",
+            character.LogText(Recipient), town, RecipientRk))
+    elseif notEnoughRP then
+
+        log(string.format("[gems] %s got 0 magic gems from %s as they did not meet the RP activity criteria. Character's rank: %d.",
+            character.LogText(Recipient), town, RecipientRk))
+
+        infText = common.GetNLS(Recipient,
+            "Deine Präsenz im Reich war in letzter Zeit mangelhaft, sodass sogar der Steuereintreiber dich vergessen hat. Leider bedeutet das auch, dass du diesen Monat keine Edelsteine erhalten wirst.",
+            "Your presence in the realm has been lacking as of late, to the point where even the taxman forgot about you. Unfortunately that also means you will not receive any gems this month."
+        )
+    else
+
+        local RankedWage=math.ceil(baseWage*( 0.3 + 0.1*RecipientRk)) -- -10% or +10% per rank, 100% base value at rank 7
+            RankedWage = math.ceil(RankedWage*(1+bonus)) -- up to 100% increased gains if they RPed for a whole 24 hours those 8 days
+
+        local endname=""
+
+        local firstGem = Random.uniform(0,RankedWage)
+        local secondGem = RankedWage - firstGem
+        local gemsByTown={}
+            gemsByTown["Cadomyr"]={gems.TOPAZ, gems.AMETHYST}
+            gemsByTown["Runewick"]={gems.EMERALD, gems.RUBY}
+            gemsByTown["Galmair"]={gems.SAPPHIRE, gems.OBSIDIAN}
+
+        local firstGemId = gems.getMagicGemId(gemsByTown[town][1])
+        local secondGemId = gems.getMagicGemId(gemsByTown[town][2])
+
+        log(string.format("[gems] %s got %d (%d,%d) magic gems from %s. Character's rank: %d"..addendum.." Also an RP bonus of "..tostring(bonus)..".",
+            character.LogText(Recipient), RankedWage, firstGem, secondGem, town, RecipientRk))
+
+        if firstGem > 0 then
+            endname = endname .. createMagicGem(firstGemId, firstGem, Recipient)
+        end
+
+        if secondGem > 0 then
+            endname = endname .. createMagicGem(secondGemId, secondGem, Recipient)
+        end
+
+        infText = common.GetNLS(Recipient,
+            "Deine loyalen Dienste für "..town.." werden mit den folgenden magischen Edelsteinen belohnt:"..endname,
+            "Your loyal service to "..town.." is awarded with the following magical gems:"..endname)
+    end
+
+    return infText
+
+end
+
+function payNow(User, notEnoughRP)
 --Cadomyr = 100
 --Runewick = 101
 --Galmair = 102
@@ -579,15 +744,20 @@ function payNow(User)
         return
     end
 
-    local taxHeight=0.01  -- 1% taxes
+    if notEnoughRP then --The taxman forgot you, not taxes paid but also no rewards
+        return
+    end
 
-    local depNr={100,101,102,103}
-    local valDepot={0,0,0,0}
+    local taxHeight=0.01  -- 1% taxes
+    local moneyInEachDepot = {}
     local val = 0
 
-    for i=1, #(depNr) do
-        valDepot[i]=money.DepotCoinsToMoney(User,depNr[i])
-        val = val + valDepot[i]     --how much money is in the depots combined
+    for _, depot in pairs(depotScript.depots) do
+        if not depot.taxEvasion then
+            local depotMoney = money.DepotCoinsToMoney(User, depot.id)
+            table.insert(moneyInEachDepot, {id = depot.id, money = depotMoney})
+            val = val + depotMoney     --how much money is in the depots combined
+        end
     end
 
     val = val + money.CharCoinsToMoney(User) -- total wealth
@@ -603,14 +773,19 @@ function payNow(User)
     end
 
     -- try to get the payable tax from the depots first
-    for i = 1, #(depNr) do
-        if tax<=valDepot[i] then -- if you fild all you need in the first/ next depot, take it.
-            money.TakeMoneyFromDepot(User,tax,depNr[i])
-            tax = 0
-            break
-        elseif tax ~= 0 and valDepot[i] > 0 then -- if not, take as much as you can from the following depots
-            money.TakeMoneyFromDepot(User,valDepot[i],depNr[i])
-            tax = tax - valDepot[i]
+    for _, depot in pairs(depotScript.depots) do
+        if not depot.taxEvasion then
+            for _, selectedDepot in pairs(moneyInEachDepot) do
+                if selectedDepot.id == depot.id then
+                    if tax <= selectedDepot.money then
+                        money.TakeMoneyFromDepot(User, tax, depot.id)
+                        tax = 0
+                    elseif tax ~= 0 and selectedDepot.money > 0 then
+                        money.TakeMoneyFromDepot(User, selectedDepot.money, depot.id)
+                        tax = tax - selectedDepot.money
+                    end
+                end
+            end
         end
     end
 
@@ -624,10 +799,8 @@ function payNow(User)
         "Du hast deine monatliche Abgabe an "..town.." gezahlt. Diesen Monat waren es "..gstring..". Die Abgabenhöhe betrug "..(taxHeight*100).."%",
         "You have paid your monthly tribute to "..town..". This month, it was "..estring..", resulting from a tribute rate of "..(taxHeight*100).."%")
 
-    local userRank = factions.getRankAsNumber(User)
     townTreasure.ChangeTownTreasure(town,totTax)
     townTreasure.IncreaseTaxpayerNumber(town)
-    townTreasure.IncreasePayerRanks(town,userRank)
 
     log(string.format("[taxes] %s paid %d. Faction wealth of %s increased to %d copper.",
                 character.LogText(User), totTax, town, townTreasure.GetTownTreasure(town)))

@@ -89,7 +89,7 @@ local itemList = {
 178 ,--weiﬂer Stoff white cloth
 179 ,--blauer Stoff blue cloth
 180 ,--rotes Hemd red shirt
-155 ,--Sibanacblatt sibanac leaf
+Item.sibanacLeaf,
 156 ,--Steppenfarn steppe fern
 158 ,--Knollenschwammpilz bulbsponge mushroom
 159 ,--Fliegenpilz toadstool
@@ -680,6 +680,7 @@ local gfxList = {
 
 function M.createMysticalCracker(user, amount)
     common.CreateItem(user, 3894, amount, 333,nil)
+    user:logAdmin(" spawned in " ..tostring(amount).." mystical crackers.")
 end
 
 function M.UseItem(User, SourceItem)

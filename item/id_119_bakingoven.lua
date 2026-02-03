@@ -15,11 +15,18 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local baking = require("craft.final.baking")
+local kneading = require("craft.intermediate.doughmaking")
 
 local M = {}
 
 function M.UseItem(User, SourceItem, ltstate)
-    baking.baking:showDialog(User, SourceItem)
+
+    if baking.baking:isHandToolEquipped(User) then
+        baking.baking:showDialog(User, SourceItem)
+    else
+        kneading.kneading:showDialog(User, SourceItem)
+    end
+
 end
 
 return M

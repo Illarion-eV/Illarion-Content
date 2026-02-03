@@ -4,6 +4,8 @@ How to add new properties to the housing system:
 
 New properties need to be added to two tables, namely the "M.properties" and "M.propertyTable" tables in propertyList.lua
 
+A new depot ID must also be assigned to the property in the depots table for item.id_321_depot.lua
+
 When entering the coordinates in M.properties, you enter the corner-spots of the property to form a square area. If the property is not square, you simply put in the same estate name multiple times to add multiple squares to form the shape you want. An example where this might be useful could be instances such as one of the estates being next to a bent river, where you do not want the player to be able to terraform the river.
 
 For ground level properties, the lower z level is 0 while the upper z level is 2 to form a ground level, upper level and roof level. The basement is put in separately with z level -21 dedicated to housing. It is important for it to be -21, as that's the layer stairs are created on if you build stairs to go down below ground level.

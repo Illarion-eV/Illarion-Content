@@ -27,6 +27,7 @@ local gemcutting = crafts.Craft:new{
                           fallbackCraft = pottery.pottery,
                           sfx = 16,
                           sfxDuration = 27,
+                          intermediate = true
                         }
 
 gemcutting:addTool(270)  -- cutting stone

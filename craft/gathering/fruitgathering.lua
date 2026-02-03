@@ -24,19 +24,19 @@ local M = {}
 local function gatherFromHolyVine(user)
     local questStatus, lastSet = user:getQuestProgress(451)
 
-    if questStatus == 0 or questStatus < common.getTime("day") or world:getTime("unix") - lastSet > 30000 then
+    if questStatus == 0 or questStatus < world:getTime("day") or world:getTime("unix") - lastSet > 30000 then
 
         local datas = {nameDe = "Heilige Trauben", nameEn = "Holy Grapes", descriptionDe = "Die Weintrauben geben einen sehr angenehmen süßlichen Geruch von sich.", descriptionEn = "The grapes have a very pleasant, sweet scent."}
         common.CreateItem(user, 388, 1, 333, datas)
         user:inform("Du sammelst ein einzelne Rebe von dem Weinstock.","You collect a single vine from the plant.")
-        user:setQuestProgress(451, common.getTime("day"))
+        user:setQuestProgress(451, world:getTime("day"))
     else
         user:inform("Jedes mal, als du eine Rebe zu greifen versuchts, greifst du daneben. So sehr du dich auch anstrengst, deine Hand geht vorbei.", "Everytime you try to get hold of a vine, you miss. No matter how hard you try, your hand seems always to be to far to the left of to the right of the vine.")
     end
 end
 
 -- GrowCycles define how fast the plants regrow in the 4 seasons. 1 cycle takes 3 minutes
-local function CreateHarvestProduct(ProductId, GroundType, GrowCycles, NextItemId)
+local function CreateHarvestProduct(ProductId, GroundType, GrowCycles, NextItemId, amount, originId)
     local retValue = {}
     retValue.productId = ProductId
     retValue.groundType = GroundType
@@ -48,35 +48,30 @@ local function CreateHarvestProduct(ProductId, GroundType, GrowCycles, NextItemI
 
     retValue.nextItemId = NextItemId
 
+    retValue.amount = amount
+
+    retValue.origin = originId
+
     return retValue
 end
 
 local HarvestItems = {}
+table.insert(HarvestItems, CreateHarvestProduct(Item.apple, nil, nil, 11, 20, 14)) -- apple tree
+table.insert(HarvestItems, CreateHarvestProduct(Item.cherries, nil, nil, 299, 20, 300))-- cherry tree
+table.insert(HarvestItems, CreateHarvestProduct(Item.orange, nil, nil, 1193, 5, 1195)) -- orange tree
+table.insert(HarvestItems, CreateHarvestProduct(Item.grapes, nil, nil, 386, 5, 387))-- bush
+table.insert(HarvestItems, CreateHarvestProduct(Item.tangerine,nil, nil, 3612, 20, 3613)) -- tangerine
+table.insert(HarvestItems, CreateHarvestProduct(Item.berries,nil, nil, 3742, 10, 3743)) -- berries
+table.insert(HarvestItems, CreateHarvestProduct(Item.banana, nil, nil, 3866, 20, 3867)) -- banana tree
+table.insert(HarvestItems, CreateHarvestProduct(Item.blackberry, nil, nil, 3893, 10, 3892)) -- blackberry bush
+table.insert(HarvestItems, CreateHarvestProduct(Item.pear, nil, nil, 4254, 20, 4253)) -- pear tree
+table.insert(HarvestItems, CreateHarvestProduct(Item.plum, nil, nil, 4342, 10, 4341)) -- plum tree
+table.insert(HarvestItems, CreateHarvestProduct(Item.pineapple,nil, nil, 4244, 5,4245)) -- pineapple plant
+table.insert(HarvestItems, CreateHarvestProduct(Item.peach,nil, nil, 4239, 20, 4238)) -- peach tree
+table.insert(HarvestItems, CreateHarvestProduct(Item.mango,nil, nil, 4256, 10, 4255)) -- mango tree
+table.insert(HarvestItems, CreateHarvestProduct(Item.nuts, nil, nil, 1809, 10, 4246)) -- nut tree
 
-HarvestItems[ 14 ] = {                                    -- apple tree
-    CreateHarvestProduct(15, nil, nil, 11)                    -- apple
-}
-HarvestItems[ 300 ] = {                                    -- cherry tree
-    CreateHarvestProduct(302, nil, nil, 299)                -- cherry
-}
-HarvestItems[ 1195 ] = {                                    -- orange tree
-    CreateHarvestProduct(1207, nil, nil, 1193)                    -- orange
-}
-HarvestItems[ 387 ] = {                                    -- bush
-    CreateHarvestProduct(388, nil, nil, 386)            -- grapes
-}
-HarvestItems[ 3613 ] = {
-    CreateHarvestProduct(199, nil, nil, 3612)            -- tangerine
-}
-HarvestItems[ 3743 ] = {
-    CreateHarvestProduct(81, nil, nil, 3742)            -- berries
-}
-HarvestItems[ 3867 ] = {                              -- Banana Tree
-    CreateHarvestProduct(80, nil, nil, 3866)            -- Banana
-}
-HarvestItems[ 3892 ] = {                              -- blackberry bush
-    CreateHarvestProduct(147, nil, nil, 3893)            -- blackberry bush
-}
+M.HarvestItems = HarvestItems
 
 local IsTree = {}
 IsTree[14] = true
@@ -114,7 +109,15 @@ function M.StartGathering(User, SourceItem, ltstate)
 
     -- any other checks?
     -- check if there is a harvestable item or any item at all
-    local harvestItem = HarvestItems[SourceItem.id]
+
+    local harvestItem
+
+    for _, selectedHarvestItem in pairs(HarvestItems) do
+        if SourceItem.id == selectedHarvestItem.origin then
+            harvestItem = selectedHarvestItem
+        end
+    end
+
     if ( harvestItem == nil) then
         User:inform("[ERROR] Unknown harvest item, id: " .. SourceItem.id .. ". Please inform a developer.")
         return
@@ -122,12 +125,11 @@ function M.StartGathering(User, SourceItem, ltstate)
     -- there is a harvestable item, but does the ground fit?
     local GroundType = common.GetGroundType(world:getField(SourceItem.pos):tile())
     local harvestProduct
-    for _,hp in pairs(harvestItem) do
-        if (hp.groundType == nil or GroundType == hp.groundType) then
-            harvestProduct = hp
-            break
-        end
+
+    if (harvestItem.groundType == nil or GroundType == harvestItem.groundType) then
+        harvestProduct = harvestItem
     end
+
     if ( harvestProduct == nil ) then
         if (IsTree[SourceItem.id] == true) then
           common.TempInformNLS( User,
@@ -149,9 +151,9 @@ function M.StartGathering(User, SourceItem, ltstate)
     else
         -- first time that this item is harvested
         if isPlayerPlanted then
-            amount = 4
+            amount = math.max(1, math.floor(harvestProduct.amount/2.5)) --Used to be 4, now it will be 2, 4, 8 (5, 10, 20)
         else
-            amount = 10
+            amount = harvestProduct.amount
         end
         SourceItem:setData("amount","" .. amount)
         world:changeItem(SourceItem)
@@ -172,14 +174,13 @@ function M.StartGathering(User, SourceItem, ltstate)
 
     if ( ltstate == Action.none ) then -- currently not working -> let's go
         fruitgathering.SavedWorkTime[User.id] = fruitgathering:GenWorkTime(User)
-        User:startAction( fruitgathering.SavedWorkTime[User.id], 0, 0, 0, 0)
-        User:talk(Character.say, "#me beginnt Früchte zu sammeln.", "#me starts to gather fruits.")
+        User:startAction( fruitgathering.SavedWorkTime[User.id], 21, fruitgathering.SavedWorkTime[User.id], 0, 0)
         return
     end
 
     -- since we're here, we're working
 
-    fruitgathering:FindRandomItem(User)
+    fruitgathering:FindRandomItem(User, nil)
 
     --User:learn( fruitgathering.LeadSkill, fruitgathering.SavedWorkTime[User.id], fruitgathering.LearnLimit)
     amount = amount - 1
@@ -192,11 +193,13 @@ function M.StartGathering(User, SourceItem, ltstate)
     end
     -- end of glyph
 
-    local created = common.CreateItem(User, harvestProduct.productId, productAmount, 333, nil) -- create the new produced items
+    local data = gathering.rollsAsRare(User, false, false)
+
+    local created = common.CreateItem(User, harvestProduct.productId, productAmount, 333, data) -- create the new produced items
     if created then -- character can still carry something
         if (amount>0) then  -- there are still fruits we can gather
             fruitgathering.SavedWorkTime[User.id] = fruitgathering:GenWorkTime(User)
-            User:startAction( fruitgathering.SavedWorkTime[User.id], 0, 0, 0, 0)
+            User:startAction( fruitgathering.SavedWorkTime[User.id], 21, fruitgathering.SavedWorkTime[User.id], 0, 0)
         end
     end
     if (amount<=0) then
@@ -211,9 +214,9 @@ function M.StartGathering(User, SourceItem, ltstate)
         end
         -- reset amount
         if isPlayerPlanted then
-            amount = 4
+            amount = math.max(1, math.floor(harvestProduct.amount/2.5)) --Used to be 4, now it will be 2, 4, 8 (5, 10, 20)
         else
-            amount = 10
+            amount = harvestProduct.amount
         end
         SourceItem:setData("amount","" .. amount)
         world:changeItem(SourceItem)
@@ -221,7 +224,7 @@ function M.StartGathering(User, SourceItem, ltstate)
         world:swap(SourceItem, harvestProduct.nextItemId, 333)
         return
         -- regrow according to season: currently deactivated
-            -- local season = math.ceil(common.getTime("month")/4);
+            -- local season = math.ceil(world:getTime("month")/4);
             -- SourceItem.wear = SourceItem.wear + harvestProduct.growCycles[season];
     end
     SourceItem:setData("amount","" .. amount)

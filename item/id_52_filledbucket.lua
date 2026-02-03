@@ -180,7 +180,7 @@ function WaterIntoCauldron(User,SourceItem,TargetItem,ltstate)
     end
 
     if ( ltstate == Action.none ) then
-        local duration,gfxId,gfxIntervall,sfxId,sfxIntervall = alchemy.GetStartAction(User, "water", cauldron)
+        local duration,gfxId,gfxIntervall,sfxId,sfxIntervall = alchemy.GetStartAction(User,  {key = "ingredient", value = SourceItem.id}, cauldron)
         User:startAction( duration,gfxId,gfxIntervall,sfxId,sfxIntervall)
         return
     end

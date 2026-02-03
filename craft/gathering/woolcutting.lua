@@ -34,7 +34,7 @@ function M.StartGathering(User, SourceAnimal, ltstate)
         return
     end
 
-    local gatheringBonus=shared.getGatheringBonus(User, toolItem)
+    local gatheringBonus=shared.getGatheringBonus(User, toolItem, Character.tanningAndWeaving)
 
     local woolcutting = gathering.GatheringCraft:new{LeadSkill = Character.tanningAndWeaving, LearnLimit = 100}; -- id_6_scissors
     woolcutting:AddRandomPureElement(User,gathering.prob_element*gatheringBonus); -- Any pure element
@@ -97,7 +97,7 @@ function M.StartGathering(User, SourceAnimal, ltstate)
 
     -- since we're here, we're working
 
-    woolcutting:FindRandomItem(User)
+    woolcutting:FindRandomItem(User, toolItem)
 
     User:learn( woolcutting.LeadSkill, woolcutting.SavedWorkTime[User.id], woolcutting.LearnLimit);
 
@@ -111,8 +111,8 @@ function M.StartGathering(User, SourceAnimal, ltstate)
         productAmount = 2
     end
     -- end of glyph
-
-    local created = common.CreateItem(User, 170, productAmount, 333, nil) -- create the new produced items
+    local data = gathering.rollsAsRare(User, woolcutting.LeadSkill, toolItem)
+    local created = common.CreateItem(User, 170, productAmount, 333, data) -- create the new produced items
     if created then --charcter can still carry something
         if gatherAmount < 20 then -- more wool is available
             woolcutting.SavedWorkTime[User.id] = woolcutting:GenWorkTime(User);

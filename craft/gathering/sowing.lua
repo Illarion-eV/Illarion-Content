@@ -17,127 +17,201 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local gathering = require("craft.base.gathering")
+local moreUtility = require("housing.moreUtility")
 
 local M = {}
 
-local seedPlantList = {};
-seedPlantList[259] = 246; -- grain
-seedPlantList[291] = 288; --cabbage
-seedPlantList[534] = 535; --onions
-seedPlantList[2494] = 2490; --carrots
-seedPlantList[2917] = 538; --tomatoes
-seedPlantList[728] = 729; --hop
-seedPlantList[773] = 774; --tobacco
-seedPlantList[779] = 780; --sugarcane
-seedPlantList[3566] = 3562; -- potatoes
+local seeds = {
+
+    {id = Item.grain, plant = 246, yield = 3},
+    {id = Item.tomatoSeeds, plant = 538, yield = 3},
+    {id = Item.cucumberSeeds, plant = 4331, yield = 2.5},
+    {id = Item.lettuceSeeds, plant = 4826, yield = 2.5},
+    {id = Item.hopSeeds, plant = 729, yield = 2.5},
+    {id = Item.onionSeeds, plant = 535, yield = 2.5},
+    {id = Item.carrotSeeds, plant = 2490, yield = 2.1},
+    {id = Item.potatoSeeds, plant = 3562, yield = 2.1},
+    {id = Item.witheredCabbage, plant = 288, yield = 2},
+    {id = Item.cornSeeds, plant = 4334, yield = 1.9},
+    {id = Item.sugarcaneSeeds, plant = 780, yield = 1.7},
+    {id = Item.tobaccoSeeds, plant = 774, yield = 1.65},
+    {id = Item.bellpepperSeeds, plant = 4328, yield = 1.6},
+    {id = Item.pumpkinSeeds, plant = 4831, yield = 1.5},
+}
+
+
+M.seeds = seeds
+
+local function getAmountAndPlant(theSeed)
+
+    for _, seed in pairs(seeds) do
+        if seed.id == theSeed.id then
+
+            local amount = math.floor(seed.yield)
+
+            local random = math.random()
+
+            if random <= seed.yield-amount then
+                amount = amount + 1
+            end
+
+            return amount, seed.plant
+        end
+    end
+
+end
 
 -- gets the free position for seeds
-local function getFreeFieldPosition(User)
-    local frontField = common.GetFrontPosition(User);
-    local field = world:getField(frontField);
-    local groundType = common.GetGroundType(field:tile());
-    local itemOnField = world:isItemOnField(frontField);
+local function getFreeFieldPosition(user)
+
+    local frontField = common.GetFrontPosition(user)
+    local field = world:getField(frontField)
+    local groundType = common.GetGroundType(field:tile())
+    local itemOnField = world:isItemOnField(frontField)
 
     if not itemOnField and groundType == 1 then
         return frontField;
     end
-    local Radius = 1;
+
+    local Radius = 1
+
     for x=-Radius,Radius do
         for y=-Radius,Radius do
-            local checkPos = position(User.pos.x + x, User.pos.y + y, User.pos.z);
+            local checkPos = position(user.pos.x + x, user.pos.y + y, user.pos.z)
             if not world:isItemOnField(checkPos) then
                 field = world:getField(checkPos);
                 groundType = common.GetGroundType(field:tile())
                 if groundType == 1 then
-                    return checkPos;
+                    return checkPos
                 end
             end
         end
     end
-    return nil;
 end
 
-function M.StartGathering(User, SourceItem, ltstate)
+local function passesLevelReq(user, theSeed)
 
-    local sowing = gathering.GatheringCraft:new{LeadSkill = Character.farming, LearnLimit = 100 }
+    local farmingLevel = user:getSkill(Character.farming)
 
-    local seed = SourceItem
-    if seed.number < 1 then
-        User:inform("Du hast das Saatgut aufgebraucht.","You used all the seeds.", Character.lowPriority)
+    local itemCommon = world:getItemStatsFromId(theSeed.id)
+
+    local level = itemCommon.Level
+
+    if farmingLevel < level then
+        user:inform("Dein Ackerbaulevel ist nicht hoch genug, um diese Samen zu säen." , "Your level of farming is not high enough to sow these seeds.")
+        return false
+    end
+
+    return true
+end
+
+function M.StartGathering(user, theSeed, actionState)
+
+    local propertyName = moreUtility.fetchPropertyName(user)
+
+    if propertyName then --It is on a housing property! To avoid players renting it once then making use of its fields for free after, we disable fields on unrented properties.
+
+        local propertyDeed = moreUtility.getPropertyDeed(propertyName)
+
+        if moreUtility.checkOwner(propertyDeed) == "Unowned" then
+            common.HighInformNLS(user,
+            "Leider hat diese Immobilie keinen Mieter, der ihr Feld pflegt, wodurch es austrocknet und nicht mehr fruchtbar für die Aussaat ist.",
+            "Sadly this property has no tenant to maintain its field, causing them to dry up and no longer be fertile for seeds to be planted in.")
+            return false, false
+        end
+    end
+
+    local itemCommon = world:getItemStatsFromId(theSeed.id)
+
+    local level = itemCommon.Level
+
+    local sowing = gathering.GatheringCraft:new{LeadSkill = Character.farming, LearnLimit = level+20 }
+
+    if theSeed.number < 1 then
+        user:inform("Du hast das Saatgut aufgebraucht.","You used all the seeds.", Character.lowPriority)
         return
     end
 
-    local TargetPos = getFreeFieldPosition(User);
-    if TargetPos == nil then
-        TargetPos = common.GetFrontPosition(User);
+    local targetPos = getFreeFieldPosition(user)
+
+    if targetPos == nil then
+        targetPos = common.GetFrontPosition(user)
     end
 
-    common.ResetInterruption( User, ltstate );
-    if ( ltstate == Action.abort ) then -- work interrupted
-        User:talk(Character.say, "#me unterbricht "..common.GetGenderText(User, "seine", "ihre").." Arbeit.", "#me interrupts "..common.GetGenderText(User, "his", "her").." work.")
+    common.ResetInterruption( user, actionState)
+
+    if actionState == Action.abort then -- work interrupted
         return
     end
 
-    if not common.FitForWork( User ) then -- check minimal food points
+    if not common.FitForWork(user) then -- check minimal food points
         return
     end
 
-    common.TurnTo( User, TargetPos ); -- turn if necessary
+    if not passesLevelReq(user, theSeed) then
+        return
+    end
+
+    common.TurnTo(user, targetPos) -- turn if necessary
 
     -- should not stack plants on top of anything
-    if (world:isItemOnField(TargetPos)) then
-        common.TempInformNLS(User,
+
+    if world:isItemOnField(targetPos) then
+        common.TempInformNLS(user,
         "Du kannst nur auf einem freien Feld Saatgut aussäen.",
-        "Sowing seeds is only possible at a free spot.");
-        return;
+        "Sowing seeds is only possible at a free spot.")
+        return
     end
 
   -- only on farm land
-    local Field = world:getField( TargetPos )
-    local groundType = common.GetGroundType( Field:tile() );
+
+    local Field = world:getField(targetPos)
+    local groundType = common.GetGroundType( Field:tile() )
+
     if ( groundType ~= 1 ) then
-        common.TempInformNLS(User,
-            "Du kannst nur auf Ackerboden Saatgut aussäen.",
-        "Sowing seeds is only possible on farm land.");
+        common.TempInformNLS(user,
+        "Du kannst nur auf Ackerboden Saatgut aussäen.",
+        "Sowing seeds is only possible on farm land.")
         return
     end
 
-    if ( ltstate == Action.none ) then -- currently not working -> let's go
-        sowing.SavedWorkTime[User.id] = sowing:GenWorkTime(User);
-        User:startAction( sowing.SavedWorkTime[User.id], 0, 0, 0, 0);
+    local GFX = 21
+
+    if actionState == Action.none then -- currently not working -> let's go
+
+        sowing.SavedWorkTime[user.id] = sowing:GenWorkTime(user)
+
+        user:startAction( sowing.SavedWorkTime[user.id], GFX, sowing.SavedWorkTime[user.id], 0, 0)
+
     -- this is no batch action => no emote message, only inform player
-        if sowing.SavedWorkTime[User.id] > 15 then
-            common.TempInformNLS(User, "Du säst Saatgut aus.","You sow seeds.");
+
+        if sowing.SavedWorkTime[user.id] > 15 then
+            common.TempInformNLS(user, "Du säst Saatgut aus.","You sow seeds.")
         end
+
         return
     end
 
-    local nextField = getFreeFieldPosition(User);
+    local nextField = getFreeFieldPosition(user)
     if (nextField~=nil) then  -- there are still free fields
-        common.TurnTo( User, nextField); -- turn
-        sowing.SavedWorkTime[User.id] = sowing:GenWorkTime(User);
-        User:startAction( sowing.SavedWorkTime[User.id], 0, 0, 0, 0);
+        common.TurnTo( user, nextField) -- turn
+        sowing.SavedWorkTime[user.id] = sowing:GenWorkTime(user)
+        user:startAction( sowing.SavedWorkTime[user.id], GFX, sowing.SavedWorkTime[user.id], 0, 0)
     end
 
     -- since we're here, we're working
 
-    sowing:FindRandomItem(User)
+    user:learn( sowing.LeadSkill, sowing.SavedWorkTime[user.id], sowing.LearnLimit)
 
-    User:learn( sowing.LeadSkill, sowing.SavedWorkTime[User.id], sowing.LearnLimit);
     -- you always get at least one
-  local amount = 1;
-  -- in 50% of all cases one more
-  if (math.random(1,2) == 1) then
-    amount = amount + 1;
-  end
-  -- and another one depending on the skill
-  if (User:getSkill(sowing.LeadSkill) > math.random(1,100)) then
-    amount = amount + 1;
-  end
-    world:createItemFromId( seedPlantList[seed.id], 1, TargetPos, true, 333 ,{["amount"] = "" .. amount});
-    world:erase( seed, 1 ); -- erase the seed
-    seed.number = seed.number - 1
-    User:changeSource(seed)
+
+    local amount, plantId = getAmountAndPlant(theSeed)
+
+
+    world:createItemFromId( plantId, 1, targetPos, true, 333 , {["amount"] = tostring(amount)})
+    world:erase( theSeed, 1 ) -- erase the seed
+    theSeed.number = theSeed.number - 1
+    user:changeSource(theSeed)
 end
 
 return M

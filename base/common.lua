@@ -17,82 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Generic Routine Collection
 local M = {}
 
-function M.getTime(timeType)
 
-    local unixTime = world:getTime("unix")
-
-    if timeType == "unix" then
-        return unixTime
-    end
-
-    local startOfIllarion = 950742000
-
-    local illarionTimeInSeconds = (unixTime - startOfIllarion) * 3
-
-    local secondsInYear = 60 * 60 * 24 * 365
-
-    local year = math.floor(illarionTimeInSeconds / secondsInYear)
-
-    illarionTimeInSeconds = illarionTimeInSeconds - (year * secondsInYear)
-
-    local secondsInDay = 60 * 60 * 24
-
-    local day = math.floor(illarionTimeInSeconds / secondsInDay)
-
-    illarionTimeInSeconds = illarionTimeInSeconds - (day * secondsInDay)
-
-    day = day + 1
-
-    local daysInIllarionMonth = 24
-    local daysInMas = 5
-    local monthsInAYear = 16
-    local month = math.floor(day / daysInIllarionMonth)
-
-    day = day - (month * daysInIllarionMonth)
-
-    if day == 0 then
-        if month > 0 and month < monthsInAYear then
-            day = daysInIllarionMonth
-        else
-            day = daysInMas
-        end
-    else
-        month = month + 1
-    end
-
-    if month == 0 then
-        month = monthsInAYear
-        year = year - 1
-    end
-
-    local secondsInHour = 60*60
-
-    local hour = math.floor(illarionTimeInSeconds / secondsInHour)
-
-    illarionTimeInSeconds = illarionTimeInSeconds - (hour*secondsInHour)
-
-    local secondsInMinute = 60
-
-    local minute = math.floor(illarionTimeInSeconds / secondsInMinute)
-
-    local second = illarionTimeInSeconds - (minute * secondsInMinute)
-
-    if timeType == "year" then
-        return year
-    elseif timeType == "month" then
-        return month
-    elseif timeType == "day" then
-        return day
-    elseif timeType == "hour" then
-        return hour
-    elseif timeType == "minute" then
-        return minute
-    elseif timeType == "second" then
-        return second
-    else
-        return year, month, day, hour, minute, second
-    end
-end
 --- Select the proper text upon the language flag of the character
 -- @param User The character who's language flag matters
 -- @param textInDe german text
@@ -185,6 +110,71 @@ function M.selectionDialogWrapper(User, title, description, buttons, onclose, cl
     User:requestSelectionDialog(sd)
 end
 
+function M.tableToString(user, theTable)
+    local theString = ""
+
+    for _, tableEntry in ipairs(theTable) do
+
+        if theString ~= "" then
+            theString = theString..","
+        end
+
+        theString = theString..tableEntry.key..","..tableEntry.value
+    end
+
+    return theString
+end
+
+
+function M.convertTableToItemData(user, theItem, theTable, dataKey, maxData)
+
+    local theString = M.tableToString(user, theTable)
+
+    for i = 1, maxData do
+        theItem:setData(dataKey..i, string.sub(theString, 1+(250*(i-1)), 250*i))
+    end
+
+    world:changeItem(theItem)
+
+end
+
+function M.convertItemDataToTable(user, theItem, dataKey, maxData, data)
+
+    local theString = ""
+
+    if theItem then
+        for i = 1, maxData do
+            theString = theString..theItem:getData(dataKey..i)
+        end
+    elseif data then
+        for i = 1, maxData do
+            theString = theString..data[dataKey..i]
+        end
+    end
+
+    local retTable = {}
+    local parts = {}
+
+    for part in string.gmatch(theString, "([^,]+)") do
+        table.insert(parts, part)
+    end
+
+    for i = 1, #parts, 2 do
+
+        local foundKey = parts[i]
+        local foundValue = parts[i+1]
+
+        if foundKey and foundValue then
+            if tonumber(foundValue) then
+                foundValue = tonumber(foundValue)
+            end
+            table.insert(retTable, {key = foundKey, value = foundValue })
+        end
+    end
+
+    return retTable
+end
+
 
 --- Get a text based on the gender of the character.
 -- @param User The character used to choose the text
@@ -204,6 +194,39 @@ function M.firstToUpper(text)
     end
     text = tostring(text)
     return (text:gsub("^%l", string.upper))
+end
+
+function M.checkIfBookInHand(user, alchemy, cooking)
+
+    local bookList = {1061, 105, 106, 129, 2609, 2610, 114, 115, 2608, 2615, 107, 108, 111, 112, 2605, 2617, 109, 110, 117, 128, 130, 2604, 131, 2602, 2620, 116, 2621, 2607, 127, 2598, 2606, 2616, 2619}
+
+    local leftTool = user:getItemAt(Character.left_tool)
+    local rightTool = user:getItemAt(Character.right_tool)
+
+    local potentialBooks = {leftTool, rightTool}
+
+    for _, book in pairs(potentialBooks) do
+
+        local isBook = M.isInList(book.id, bookList)
+        local isCookBook = not M.IsNilOrEmpty(book:getData("cookBook"))
+        local isAlchemyBook = not M.IsNilOrEmpty(book:getData("alchemyBook"))
+        local availableSlots = M.IsNilOrEmpty(book:getData("recipe100"))
+        local isEmpty = M.IsNilOrEmpty(book:getData("sheet1")) and M.IsNilOrEmpty(book:getData("page1")) and M.IsNilOrEmpty(book:getData("magicBook")) and M.IsNilOrEmpty(book:getData("book")) and M.IsNilOrEmpty(book:getData("alchemyBook"))
+
+        if isBook and ((isAlchemyBook and alchemy) or (isCookBook and cooking) or isEmpty) and availableSlots then -- it is a book
+
+            if book.number > 1 then
+                user:inform("Du kannst nur in einem Buch gleichzeitig schreiben.", "You can only write in one book at a time.")
+                return false
+            end
+            return book
+        end
+
+    end
+
+    user:inform("Du brauchst ein Buch in der Hand, wenn du es beschriften oder darin schreiben möchtest.","You need a book in your hand if you want to label or write in one.")
+
+    return false
 end
 
 --[[ Replace Umlaute by possible character.
@@ -774,7 +797,7 @@ function M.calculateItemQualityDurability (quality, durability)
     else
         durabilityNumber= tonumber(durability)
     end
-    if durabilityNumber < 1 or durabilityNumber > M.ITEM_MAX_DURABILITY then
+    if durabilityNumber < 0 or durabilityNumber > M.ITEM_MAX_DURABILITY then --We allow 0 now for broken items
         durabilityNumber = M.ITEM_DEFAULT_DURABILITY
     end
 
@@ -804,12 +827,12 @@ end
 --- Get a timestamp based on the current server time. Resolution in RL seconds.
 -- @return The current timestamp
 function M.GetCurrentTimestamp()
-    return M.GetCurrentTimestampForDate(M.getTime("year"),
-        M.getTime("month"),
-        M.getTime("day"),
-        M.getTime("hour"),
-        M.getTime("minute"),
-        M.getTime("second"))
+    return M.GetCurrentTimestampForDate(world:getTime("year"),
+        world:getTime("month"),
+        world:getTime("day"),
+        world:getTime("hour"),
+        world:getTime("minute"),
+        world:getTime("second"))
 end
 
 --- Converts a date into a timestamp in with the resolution in RL seconds.
@@ -1298,6 +1321,12 @@ function M.ParalyseCharacter(Target, Time, Cumulative, forced)
         Time = math.max(Time, timeLeft)
     end
 
+    if not _G.extendedCastingTimeForParalysis then
+        _G.extendedCastingTimeForParalysis = {}
+    end
+
+    _G.extendedCastingTimeForParalysis[Target.id] = math.max(0,Time)
+
     if (Time ~= timeLeft) then
         Paralysis:addValue("timeLeft", math.max(0,Time))
         return true
@@ -1335,7 +1364,7 @@ local circleCache = {}
     @param integer - Radius of the circle
     @param function(PositionStruct) - Event function that is triggered for every position
 ]]
-function M.CreateCircle(CenterPos, Radius, Event)
+function M.CreateCircle(CenterPos, Radius, Event, monster)
     if not Event then
         return
     end
@@ -1362,7 +1391,7 @@ function M.CreateCircle(CenterPos, Radius, Event)
     end
     local go_on
     for _, posi in pairs(circleCache[Radius]) do
-        go_on = Event(position(CenterPos.x + posi.x, CenterPos.y + posi.y, CenterPos.z))
+        go_on = Event(position(CenterPos.x + posi.x, CenterPos.y + posi.y, CenterPos.z), monster)
         if (go_on == false and go_on ~= nil) then
             return true
         end
@@ -1889,18 +1918,19 @@ function M.IsItemInHands( item )
 end
 
 --[[Check if a char holds an item from a list in hand
-@return true if item with id is in any hand slot]]--
+@return true if item with id is in any hand slot
+If true, returns the item in question]]--
 function M.hasItemIdInHand(user, itemIds)
     if type(itemIds) ~= "table" then
         itemIds = {itemIds}
     end
     local leftTool = user:getItemAt(Character.left_tool)
     if M.isInList(leftTool.id, itemIds) then
-        return true
+        return true, leftTool
     end
     local rightTool = user:getItemAt(Character.right_tool)
     if M.isInList(rightTool.id, itemIds) then
-        return true
+        return true, rightTool
     end
     return false
 end
@@ -2265,32 +2295,34 @@ end
 --                 NOTE: in case there is no lead attribute, nil will be returned.
 local leadAttribTable = {}
 --Dexterity: All crafting skills for final products
-leadAttribTable[Character.tailoring]="dexterity"
-leadAttribTable[Character.blacksmithing]="dexterity"
-leadAttribTable[Character.gemcutting]="dexterity"
-leadAttribTable[Character.carpentry]="dexterity"
-leadAttribTable[Character.cookingAndBaking]="dexterity"
-leadAttribTable[Character.finesmithing]="dexterity"
-leadAttribTable[Character.glassBlowing]="dexterity"
-leadAttribTable[Character.pottery]="dexterity"
-leadAttribTable[Character.armourer]="dexterity"
-leadAttribTable[Character.brewing]="dexterity"
+leadAttribTable[Character.tailoring]= {first = "intelligence", second = "dexterity"}
+leadAttribTable[Character.blacksmithing]= {first = "constitution", second = "dexterity"}
+leadAttribTable[Character.gemcutting]= {first = "essence", second = "dexterity"}
+leadAttribTable[Character.carpentry]= {first = "willpower", second = "dexterity"}
+leadAttribTable[Character.cookingAndBaking]= {first = "perception", second = "dexterity"}
+leadAttribTable[Character.finesmithing]= {first = "essence", second = "dexterity"}
+leadAttribTable[Character.glassBlowing]= {first = "willpower", second = "dexterity"}
+leadAttribTable[Character.pottery]= {first = "agility", second = "dexterity"}
+leadAttribTable[Character.armourer]= {first = "strength", second = "dexterity"}
+leadAttribTable[Character.brewing]= {first = "perception", second = "dexterity"}
 
---Dexterity: Instruments (please remove these skills in future)
+--Dexterity: Instruments
 leadAttribTable[Character.harp]="dexterity"
 leadAttribTable[Character.horn]="dexterity"
 leadAttribTable[Character.flute]="dexterity"
 leadAttribTable[Character.lute]="dexterity"
+leadAttribTable[Character.panpipe]="dexterity"
+leadAttribTable[Character.clavichord]="dexterity"
 
---Constitution: All gathering skills
-leadAttribTable[Character.herblore]="constitution"
-leadAttribTable[Character.mining]="constitution"
-leadAttribTable[Character.fishing]="constitution"
-leadAttribTable[Character.farming]="constitution"
-leadAttribTable[Character.woodcutting]="constitution"
-leadAttribTable[Character.tanningAndWeaving]="constitution"
-leadAttribTable[Character.husbandry]="constitution"
-leadAttribTable[Character.digging]="constitution"
+--Constitution: All gathering skills have it as their second attrib, with varying first attribs
+leadAttribTable[Character.herblore]= {first = "perception", second = "constitution"}
+leadAttribTable[Character.mining]= {first = "strength", second = "constitution"}
+leadAttribTable[Character.fishing]= {first = "intelligence", second = "constitution"}
+leadAttribTable[Character.farming]= {first = "dexterity", second = "constitution"}
+leadAttribTable[Character.woodcutting]= {first = "agility", second = "constitution"}
+leadAttribTable[Character.tanningAndWeaving]= {first = "willpower", second = "constitution"}
+leadAttribTable[Character.husbandry]= {first = "essence", second = "constitution"}
+leadAttribTable[Character.digging]= {first = "strength", second = "constitution"}
 
 --Agility: Defensive fighting skills
 leadAttribTable[Character.parry]="agility"
@@ -2308,7 +2340,7 @@ leadAttribTable[Character.concussionWeapons]="strength"
 leadAttribTable[Character.punctureWeapons]="strength"
 
 --Essence: Druids
-leadAttribTable[Character.alchemy]="essence"
+leadAttribTable[Character.alchemy]= {first = "essence", second = "perception"}
 leadAttribTable[Character.potionLore]="essence"
 leadAttribTable[Character.animalTaming]="essence"
 leadAttribTable[Character.summoning]="essence"
@@ -2316,14 +2348,13 @@ leadAttribTable[Character.natureLore]="essence"
 leadAttribTable[Character.cauldronLore]="essence"
 
 --Intelligence: Magic
-leadAttribTable[Character.wandMagic]="intelligence"
-leadAttribTable[Character.enchanting]="intelligence"
+leadAttribTable[Character.enchanting]= {first = "intelligence", second = "essence"}
 leadAttribTable[Character.fireMagic]="intelligence"
 leadAttribTable[Character.spiritMagic]="intelligence"
 leadAttribTable[Character.windMagic]="intelligence"
 leadAttribTable[Character.earthMagic]="intelligence"
 leadAttribTable[Character.waterMagic]="intelligence"
-leadAttribTable[Character.spatialMagic]="intelligence"
+leadAttribTable[Character.spatialMagic]= {first = "intelligence", second = "willpower"}
 
 --Willpower: Priests and magic resistance
 leadAttribTable[Character.blessing]="willpower"
@@ -2349,9 +2380,16 @@ function M.GetLeadAttrib(user, Skill)
 
   local leadAttribName = M.GetLeadAttributeName(Skill)
 
+
   if leadAttribName ~= nil then
 
-    return user:increaseAttrib(leadAttribName, 0)
+    if type(leadAttribName) == "table" then --Currently only crafts/gathering have two attribs instead of one
+        local leadAttribValue1 = user:increaseAttrib(leadAttribName.first, 0) * 0.6 -- 60% of the impact dex had on its own in the past
+        local leadAttribValue2 = user:increaseAttrib(leadAttribName.second, 0) * 0.4 -- 40% of the impact dex had on its own in the past
+        return leadAttribValue1 + leadAttribValue2
+    else
+        return user:increaseAttrib(leadAttribName, 0)
+    end
 
   end
 
@@ -2366,11 +2404,22 @@ end
 -- @return  The value of the bonus
 --                 NOTE: 0 will be returned if something goes wrong
 
-function M.GetAttributeBonus(attributeValue, range)
+function M.GetAttributeBonus(attributeValue, range, skillName, user)
+
+    if skillName then -- In this case, attributeValue is left blank and skillName/user is instead filled in to fetch the lead attribute on its own
+        local leadAttribName = M.GetLeadAttributeName(skillName)
+        if type(leadAttribName) == "table" then --Currently only crafts/gathering have two attribs instead of one
+            local leadAttribValue1 = user:increaseAttrib(leadAttribName.first, 0) * 0.6 -- 60% of the impact dex had on its own in the past
+            local leadAttribValue2 = user:increaseAttrib(leadAttribName.second, 0) * 0.4 -- 40% of the impact dex had on its own in the past
+            attributeValue = leadAttribValue1 + leadAttribValue2
+        else
+            attributeValue = user:increaseAttrib(leadAttribName, 0)
+        end
+    end
 
     local bonus
     if attributeValue ~= nil and attributeValue ~= 0 and range < 1 and range > 0 then
-        bonus=math.min(2*range, range * ((attributeValue-1) / 9.5) - range) -- +/- range for attributes 1-20. Bonus capped at attribute 30. Neutral attribute (bonus = 0) at 10.5
+        bonus=range * ((attributeValue-1) / 9.5) - range -- +/- range for attributes 1-20. Bonus capped at attribute 30. Neutral attribute (bonus = 0) at 10.5
     else
         bonus=0 --default
     end
@@ -2379,16 +2428,16 @@ function M.GetAttributeBonus(attributeValue, range)
 
 end
 
-function M.GetAttributeBonusLow(attributeValue)
-    return M.GetAttributeBonus(attributeValue, 0.1)
+function M.GetAttributeBonusLow(attributeValue, skillName, user)
+    return M.GetAttributeBonus(attributeValue, 0.1, skillName, user)
 end
 
-function M.GetAttributeBonusMedium(attributeValue)
-    return M.GetAttributeBonus(attributeValue, 0.2)
+function M.GetAttributeBonusMedium(attributeValue, skillName, user)
+    return M.GetAttributeBonus(attributeValue, 0.2, skillName, user)
 end
 
-function M.GetAttributeBonusHigh(attributeValue)
-    return M.GetAttributeBonus(attributeValue, 0.5)
+function M.GetAttributeBonusHigh(attributeValue, skillName, user)
+    return M.GetAttributeBonus(attributeValue, 0.5, skillName, user)
 end
 
 --- Calculates an universal quality bonus

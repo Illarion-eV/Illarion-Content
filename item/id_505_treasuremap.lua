@@ -68,6 +68,8 @@ end
 
 function M.LookAtItem(User, Item)
 
+    treasureBase.checkMap(Item)
+
     local book = Item:getData("book")
     if book ~= "" then
         if book ~= nil then

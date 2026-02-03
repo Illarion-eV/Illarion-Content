@@ -223,11 +223,12 @@ ID,Title,NPCs,Status,Responsible Author,Description
 239, wand magic tutorial,,,Brightrim, magic tutorials
 240, spatial magic tutorial,,,Brightrim, magic tutorials
 241, glyph magic tutorial,,,Brightrim, magic tutorials
-242, Kel puzzle,,,Brightrim, magic puzzles
-243, Pera puzzle,,,Brightrim, magic puzzles
+242, KEL puzzle,,,Brightrim, magic puzzles
+243, PERA puzzle,,,Brightrim, magic puzzles
 244, BHONA puzzle,,,Brightrim, magic puzzles
-245, Luk puzzle,,,Brightrim, magic puzzles
+245, LUK puzzle,,,Brightrim, magic puzzles
 246, mana stalling,,,Brightrim, rune magic functionality
+247, trap immunity toggle,,,Brightrim, GM tools
 252,Stock up Galmairs Storage,,,Evie,Galmair daily mission - Cooldown
 253,Replace poisoned carrots,,,Banduk,Subquest for rat den
 254, Druid's Escape,,,Brightrim, custom player potion
@@ -309,12 +310,20 @@ ID,Title,NPCs,Status,Responsible Author,Description
 376,Pet system: death protection,,,merung,Flag if the pet is proctected from death
 377-392, activity tracker,,,brightrim,track activity of players
 393, reputation tracker,,,brightrim,track reputation of players
+394, rank tracker,,,brightrim, track the rank of players (new RP based rank)
+395, reputationToRankTransfer,,,brightrim, tracks whether the one time transfer of reputation to rank has taken place
+396-400, activityForMonthlyGemsTracker,,,brightrim, Tracks over the past 5 months you _logged in_ for whether or not you RPed sufficiently
 401,,,,Estralis/pharse,Priest system: Devotion
 402,,,,Estralis/pharse,Priest system: Priesthood
 403-418,,,,snus-mumrik,Priest system: Gods favour
 419-434,,,,snus-mumrik,Priest system: sacrificed cumulative values
 450,,,,merung,slime feeding quest runewick
 451,,,,merung,holy grapes eollection
+452,,,,brightrim, magical diamond reward tracker
+453,,,,brightrim, Don's protection
+454,,,,brightrim, become citizen Runewick
+455,,,,brightrim, become citizen Galmair
+456,,,,brightrim, become citizen Cadomyr
 500,,,,Caldarion,Elstree ranger
 501,Zzarn'K'Ska of Zelphia,,,Evie,Main quest for Dungeon Lake of Life
 502,Praise Zelphia,,,Evie,Side quest for Lake of Life Dungeon
@@ -434,6 +443,16 @@ ID,Title,NPCs,Status,Responsible Author,Description
 687,Fairy Tales,,,banduk,cooldown
 688,Pan in water,,,banduk,Find a a pan in water while fishing
 689,Evil rock duplicate,,,formerly envi,duplicate for double used status 683
+690,alchemy toxins,,,brightrim,toxin tracking in alchemy
+691,druid magic,,,brightrim,the old path - introduction to druid magic
+692,druid magic,,,brightrim,the nature path - introduction to druid magic continues
+693,druid magic,,,brightrim, bloomweave tutorial
+694,druid magic,,,brightrim, witherweave tutorial
+695,druid magic,,,brightrim, deepweave tutorial
+696,druid magic,,,brightrim, wildweave tutorial
+697,druid magic,,,brightrim, stoneweave tutorial
+698,druid magic,,,brightrim, transmutation tutorial
+699,druid magic,,,brightrim, alchemy tutorial
 700,Geld_in_Hecke,,,Miriam,Player finds info about money in the hedge on a barrel
 701,Ask for me (Runewick message giver quest),,,Miriam,Zarissa asks player to talk to different NPCs
 702,Galmair message giver quest,,,Lillian,Charwis Irongate asks player to talk to different NPCs
@@ -468,10 +487,12 @@ ID,Title,NPCs,Status,Responsible Author,Description
 850,new player help counter,,,Merung/Vilarion,counts how often the char warped to new players to assist them
 851,[Obsolete] new player help preferences,,,Merung/Vilarion,"0 == available to help new players, 1 == not available for this session"
 852,[Obsolete] already played,,,Banduk,"to get how long new player played already. starts with 0, new player only"
+853, death tracker,,,Brightrim, how many times a player was sent to the cross
 860,LearnLenniersDream,,,,
 861,CorrectSightingPotion,,,,
 862,ApperanceOfDog,,,,
 870-900, Alchemy Player Inventions,,,,
+901-930, crafting blueprints,,,Brightrim, Used to tell if a person knows a blueprint of not
 999,An ursurper to the Throne (Cadomyr),,,Mr.Cromwell/Faladron,"Baron Hastings & his henchman Victor Tolenor try to harm Cadomyr and its ""unrightful"" Queen"
 1000-1999,Recipes learning (alchemy),,,merung,used to remember if a char has learned a certain recipe
 2000,factionpoints,,,envi,used to distribute faction points

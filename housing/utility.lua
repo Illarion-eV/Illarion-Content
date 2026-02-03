@@ -22,6 +22,8 @@ local money = require("base.money")
 local factions = require("base.factions")
 local messenger = require("content.messenger")
 local doors = require("base.doors")
+local depotScript = require("item.id_321_depot")
+local moreUtility = require("housing.moreUtility")
 
 local M = {}
 
@@ -29,7 +31,6 @@ local M = {}
  M.townManagmentItemPos = factions.townManagmentItemPos
  M.max_guest_number = 20
  M.max_builder_number = 20
- M.depotList={100,101,102,103}
 
  local function informDoesntExist(user)
     user:inform("Dieser Name ist unbekannt. Hast du den Namen vielleicht falsch geschrieben?", "Nobody of that name is recognised here. Did you perhaps misspell the name?")
@@ -44,17 +45,20 @@ local M = {}
     end
 end
 
- function M.checkOwner(item)
+M.checkOwner = moreUtility.checkOwner
 
-    local tenant = item:getData("tenantID")
+function M.checkForCoTenants(deed, user)
 
-    if tenant ~= "" then
-        return tonumber(tenant)
-    else
-        return "Unowned"
+    for i = 1, 10 do
+        local cotenant = deed:getData("coTenantID"..i)
+
+        if not common.IsNilOrEmpty(cotenant) and tonumber(cotenant) == user.id then
+            return true
+        end
     end
-
 end
+
+
 
  function M.checkIfStairsOrTrapDoor(itemId)
     for _, item in pairs (itemList.items) do
@@ -98,47 +102,8 @@ function M.getTilePreview(tileId)
     return false
 end
 
-function M.fetchPropertyName(user, pos)
+M.fetchPropertyName = moreUtility.fetchPropertyName
 
-    local direct
-
-    if user then
-        direct = user:getFaceTo()
-    end
-
-    local d = 1
-
-    local vX, vY
-
-    if user then
-        vX, vY = common.GetDirectionVector(direct)
-    end
-
-    local x
-    local y
-    local z
-
-    if pos == nil then
-        x = user.pos.x + vX * d
-        y = user.pos.y + vY * d
-        z = user.pos.z
-    else
-        x = pos.x
-        y = pos.y
-        z = pos.z
-    end
-    for _, property in ipairs(propertyList.properties) do
-        if x >= property.lower.x
-        and x <= property.upper.x
-        and y >= property.lower.y
-        and y <= property.upper.y
-        and z >= property.lower.z
-        and z <= property.upper.z then
-            return property.name
-        end
-    end
-    return nil
-end
 
 function M.checkIfGardeningCriteriaMet(user, itemId)
     local targetPosition = common.GetFrontPosition(user)
@@ -148,6 +113,11 @@ function M.checkIfGardeningCriteriaMet(user, itemId)
         if item.category == "Plants" or item.category == "Trees" then
             if item.itemId == itemId then
                 local requiredSoil = item.criteria
+
+                if not requiredSoil then --If criteria was removed for some reason
+                    return true
+                end
+
                 for _, gardenTile in pairs(itemList.gardening) do
                     if gardenTile.criteria == requiredSoil then
                         if gardenTile.tileId == targetTileId then
@@ -364,20 +334,7 @@ function M.checkIfPropertyHasTenant(propertyName)
     end
 end
 
-function M.getPropertyDeed(propertyName)
-    for i = 1, #propertyList.propertyTable do
-        if propertyName == propertyList.propertyTable[i][1] then
-            local field = world:getField(propertyList.propertyTable[i][3])
-            local itemsOnField = field:countItems()
-            for i2 = 0, itemsOnField do
-                local currentItem = field:getStackItem(itemsOnField-i2)
-                if currentItem.id == 3772 or currentItem.id == 3773 then
-                    return currentItem
-                end
-            end
-        end
-    end
-end
+M.getPropertyDeed = moreUtility.getPropertyDeed
 
 function M.checkIfItemIsWallDeco(itemId)
 
@@ -387,6 +344,7 @@ function M.checkIfItemIsWallDeco(itemId)
             or item.category == "Flags and crests"
             or item.category == "Wall Decorations"
             or item.category == "Chimneys"
+            or (item.category == "Sign Posts" and item.skill == "blacksmithing")
             then return true
             end
         end
@@ -482,7 +440,7 @@ function M.isTenant(user)
 
     local tenantID = deed:getData("tenantID")
 
-    if tenantID ~= "" and tonumber(tenantID) == user.id then
+    if (tenantID ~= "" and tonumber(tenantID) == user.id) or M.checkForCoTenants(deed, user) then
         return true
     end
 
@@ -501,6 +459,10 @@ function M.allowBuilding(user, alternatePosition)
 
     local deed = M.getPropertyDeed(propertyName)
 
+    if not deed then
+        return false
+    end
+
     if deed:getData("demolishmentInProgress") == "true" then
         user:inform("Du kannst nicht auf einem Grundstück bauen, wo alles zum Abriss vorgesehen ist.", "You can not build at an estate that is being demolished.")
         return false, true
@@ -511,6 +473,10 @@ function M.allowBuilding(user, alternatePosition)
         local tenantID = deed:getData("tenantID")
 
         if tenantID ~= "" and tonumber(tenantID) == user.id then
+            return true
+        end
+
+        if M.checkForCoTenants(deed, user) then
             return true
         end
 
@@ -647,6 +613,7 @@ function M.roofAndRoofTiles(user, itemId, tileBoolean, createOrErase, above)
             world:createItemFromId(itemId, 1, targetPosition, true, 999, nil)
         elseif createOrErase == "erase" then
             local itemDeleted = common.DeleteItemFromStack(targetPosition, {itemId = targetItem.id})
+            M.removeElevation(targetPosition)
             if itemDeleted then
                 user:inform(common.GetNLS(user,"Du zerstörst den Gegenstand auf dem Dach.","You destroy the roof object."))
             end
@@ -660,6 +627,397 @@ function M.roofAndRoofTiles(user, itemId, tileBoolean, createOrErase, above)
         end
     end
     return true
+end
+
+function M.getRealmPropertyBelongsTo(propertyName)
+
+    for _, property in pairs(propertyList.propertyTable) do
+        if property[1] == propertyName then
+            return property[7]
+        end
+    end
+
+end
+
+function M.realmAllowsFarming(pos)
+
+    local propertyName = M.getPropertyLocationIsPartOf(pos)
+    local realm = M.getRealmPropertyBelongsTo(propertyName)
+
+    if realm == "Cadomyr" then
+        return false
+    end
+
+    return true
+
+end
+
+local staticTools = {
+    {id = 119, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"pottery", "cookingAndBaking"}, purpose = "baking"}, --baking oven
+    {id = 120, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"pottery", "cookingAndBaking"}, purpose = "baking"}, --baking oven
+    {id = 305, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair", "Cadomyr"}, builderSkills = {"pottery", "cookingAndBaking"}, purpose = "grilling"}, --smoking oven
+    {id = 304, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair", "Cadomyr"}, builderSkills = {"pottery", "cookingAndBaking"}, purpose = "grilling"}, --smoking oven
+    {id = 3581, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"smithing", "cookingAndBaking"}, purpose = "cooking"}, --kettle
+    {id = 250, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"mining", "farming"}, purpose = "milling"}, --millstone
+    {id = 339, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"carpentry", "brewing"}, purpose = "brewing"}, --wine barrel
+    {id = 1410, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"carpentry", "brewing"}, purpose = "brewing"}, --wine barrel
+    {id = 1411, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"carpentry", "brewing"}, purpose = "brewing"}, --wine barrel
+    {id = 321, value = 0, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair", "Cadomyr"}, builderSkills = {"carpentry", "smithing", "spatialMagic"}, purpose = "storage"}, --depot
+    {id = 4817, value = 0, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair", "Cadomyr"}, builderSkills = {"carpentry", "smithing", "spatialMagic"}, purpose = "storage"}, --depot
+    {id = 1008, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair", "Cadomyr"}, builderSkills = {"smithing", "alchemy"}, purpose = "alchemy"}, --cauldron
+    {id = 428, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"carpentry", "husbandry"}, purpose = "candlemaking"}, --chandler table
+    {id = 3830, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Galmair"}, builderSkills = {"carpentry", "mining"}, purpose = "stonecutting"}, --stoneworking table
+    {id = 3831, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Galmair"}, builderSkills = {"carpentry", "mining"}, purpose = "stonecutting"}, --stoneworking table
+    {id = 44, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"carpentry", "mining"}, purpose = "pressing"}, --press
+    {id = 724, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"carpentry", "woodcutting"}, purpose = "carpentry"}, --carpentry workbench
+    {id = 725, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"carpentry", "woodcutting"}, purpose = "carpentry"}, --carpentry workbench
+    {id = 1204, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"carpentry", "woodcutting"}, purpose = "sawing"}, --sawing trestle
+    {id = 1205, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair"}, builderSkills = {"carpentry", "woodcutting"}, purpose = "sawing"}, --sawing trestle
+    {id = 3869, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Galmair"}, builderSkills = {"pottery", "smithing"}, purpose = "smelting"}, --bloomery
+    {id = 3870, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Galmair"}, builderSkills = {"pottery", "smithing"}, purpose = "smelting"}, --bloomery
+    {id = 270, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Galmair"}, builderSkills = {"carpentry", "gemcutting"}, purpose = "gemcutting"}, --gem grinder
+    {id = 172, value = 3, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Galmair"}, builderSkills = {"smithing", "mining"}, purpose = "smithing"}, --anvil, value of 3 as it supports 3 crafts unlike the others that support 1
+    {id = 3502, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair", "Cadomyr"}, builderSkills = {"carpentry", "magic"}, purpose = "magic"}, --magic desk
+    {id = 3503, value = 1, realms = {"Outlaw", "Runewick", "Troll's Haven", "Galmair", "Cadomyr"}, builderSkills = {"carpentry", "magic"}, purpose = "magic"}, --magic desk
+    {id = 2052, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"carpentry", "tanningAndWeaving"}, purpose = "tanning"}, --stretcher
+    {id = 1226, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"carpentry", "tanningAndWeaving"}, purpose = "dyeing"}, --dyeing barrel
+    {id = 171, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"carpentry", "tanningAndWeaving"}, purpose = "spinning"}, --spinning wheel
+    {id = 169, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"carpentry", "tanningAndWeaving"}, purpose = "weaving"}, --loom
+    {id = 103, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"carpentry", "tailoring"}, purpose = "tailoring"}, --tailoring table
+    {id = 102, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"carpentry", "tailoring"}, purpose = "tailoring"}, --tailoring table
+    {id = 1240, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"pottery", "digging"}, purpose = "pottery"}, --kiln
+    {id = 1241, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"pottery", "digging"}, purpose = "pottery"}, --kiln
+    {id = 1242, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"pottery", "digging"}, purpose = "pottery"}, --kiln
+    {id = 1243, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"pottery", "digging"}, purpose = "pottery"}, --kiln
+    {id = 313, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"pottery", "glassBlowing"}, purpose = "glassblowing"}, --glass melting oven
+    {id = 727, value = 1, realms = {"Outlaw", "Cadomyr", "Troll's Haven", "Runewick"}, builderSkills = {"smithing", "digging"}, purpose = "sifting"}, --sieve
+    {id = 3879, value = 1, realms = {"Outlaw", "Galmair", "Troll's Haven", "Runewick"}, builderSkills = {"digging", "farming"}, purpose = "threshing"}, --threshing floor
+    {id = 1387, value = 1, realms = {"Outlaw", "Galmair", "Troll's Haven", "Runewick", "Cadomyr"}, builderSkills = {"mining", "cookingAndBaking"}, purpose = "grilling"}, --grill
+    {id = 1388, value = 1, realms = {"Outlaw", "Galmair", "Troll's Haven", "Runewick", "Cadomyr"}, builderSkills = {"mining", "cookingAndBaking"}, purpose = "grilling"}, --grill
+    {id = 1389, value = 1, realms = {"Outlaw", "Galmair", "Troll's Haven", "Runewick", "Cadomyr"}, builderSkills = {"mining", "cookingAndBaking"}, purpose = "grilling"}, --grill
+    {id = 1390, value = 1, realms = {"Outlaw", "Galmair", "Troll's Haven", "Runewick", "Cadomyr"}, builderSkills = {"mining", "cookingAndBaking"}, purpose = "grilling"}, --grill
+    {id = 1386, value = 1, realms = {"Outlaw", "Galmair", "Troll's Haven", "Runewick"}, builderSkills = {"mining", "cookingAndBaking"}, purpose = "cooking"}, -- oven, kettle alternative
+}
+
+local function isStaticTool(productId)
+
+    for _, staticTool in pairs(staticTools) do
+        if staticTool.id == productId then
+            return staticTool
+        end
+    end
+
+    return false
+end
+
+local function getPlayersReadyToBuild(user, pos)
+
+    local players = world:getPlayersInRangeOf(pos, 2)
+
+    local playersReadyToBuild = {}
+
+    local propertyName = M.getPropertyLocationIsPartOf(pos)
+
+    local deed = M.getPropertyDeed(propertyName)
+
+    local helperAmount = deed:getData("helperAmount")
+
+    if common.IsNilOrEmpty(helperAmount) then
+        helperAmount = 0
+    end
+
+    for i = 1, helperAmount do
+        local helperFound = false
+        local helper = deed:getData("helper"..i)
+        if not common.IsNilOrEmpty(helper) then
+            for _, player in pairs(players) do
+                if player.id == tonumber(helper) then
+                    table.insert(playersReadyToBuild, player)
+                    helperFound = true
+                end
+            end
+        end
+
+        if not helperFound and not common.IsNilOrEmpty(helper)  then
+            M.removeHelper(nil, deed, tonumber(helper)) --Clean up the helper in case they somehow managed to leave the area without the dialog closing properly, possibly via log out
+        end
+    end
+
+    local playerIsInList = false
+
+    for _, player in pairs(playersReadyToBuild) do --Just checking in case of cheats before adding the user
+        if player == user then
+            playerIsInList = true
+        end
+    end
+
+    if not playerIsInList then
+        table.insert(playersReadyToBuild, user)
+    end
+
+    --check and add to list if these players are waiting to build
+
+    return playersReadyToBuild
+
+end
+
+local function getPlayerLevel(player, skill)
+
+    local level = 0
+
+    local magicSkills = {"fireMagic", "spiritMagic", "windMagic","earthMagic","waterMagic", "enchanting", "spatialMagic"}
+
+    local smithingSkills = {"finesmithing", "blacksmithing", "armourer"}
+
+    if skill == "magic" then
+        for _, magicSkill in pairs(magicSkills) do
+            local newLevel = player:getSkill(Character[magicSkill])
+            if newLevel > level then
+                level = newLevel
+            end
+        end
+
+    elseif skill == "smithing" then
+        for _, smithingSkill in pairs(smithingSkills) do
+            local newLevel = player:getSkill(Character[smithingSkill])
+            if newLevel > level then
+                level = newLevel
+            end
+        end
+    else
+        level = player:getSkill(Character[skill])
+    end
+
+    return level
+
+end
+
+local function canAssignSkills(skills, skillList, assigned, skillIndex)
+    if skillIndex > #skillList then
+        return true -- All skills successfully assigned
+    end
+
+    local skill = skillList[skillIndex]
+
+    for _, player in ipairs(skills[skill]) do
+        if not assigned[player] then
+            assigned[player] = true -- Assign player
+            if canAssignSkills(skills, skillList, assigned, skillIndex + 1) then
+                return true -- Found valid assignment
+            end
+            assigned[player] = nil -- Backtrack
+        end
+    end
+
+    return false -- No valid assignment found
+end
+
+function M.buildersReady(user, productId, pos)
+
+    local staticTool = isStaticTool(productId)
+
+    if not staticTool then
+        return true
+    end
+
+    local lackingExpertise = common.GetNLS(user,
+        "Du benötigst die Expertise, einschließlich deiner eigenen, falls vorhanden, eines Großmeisters des ",
+        "You need the expertise, your own included should you have it, of a grandmaster of ")
+
+    for index, skill in ipairs(staticTool.builderSkills) do
+        if index ~= 1 then
+            lackingExpertise = lackingExpertise ..
+                (index == #staticTool.builderSkills and common.GetNLS(user, " und ", " and ") or ", ")
+            lackingExpertise = lackingExpertise ..
+                common.GetNLS(user, " eines Großmeisters der ", " a grandmaster of ")
+        end
+
+        lackingExpertise = lackingExpertise ..
+            (skill == "magic" and common.GetNLS(user, "Magie", "magic") or skill == "smithing" and
+            common.GetNLS(user, "Schmiedekunst", "smithing") or user:getSkillName(Character[skill]))
+    end
+
+    lackingExpertise = lackingExpertise .. "."
+
+    lackingExpertise = lackingExpertise..common.GetNLS(user, " Jeder Großmeister muss neben dem Ort stehen, an dem du das Objekt bauen möchtest, und kein Großmeister kann zwei Fertigkeiten gleichzeitig ausführen.", " Each grandmaster must stand next to where you want to build the object, and no grandmaster can handle two skills at once.")
+
+    local readyPlayersNearPos = getPlayersReadyToBuild(user, pos)
+    local skills = {}
+
+    -- Collect players for each skill
+    for _, skill in ipairs(staticTool.builderSkills) do
+        skills[skill] = {}
+        for _, player in ipairs(readyPlayersNearPos) do
+            if getPlayerLevel(player, skill) == 100 then
+                table.insert(skills[skill], player)
+            end
+        end
+    end
+
+    -- Backtracking to find a valid assignment
+    if canAssignSkills(skills, staticTool.builderSkills, {}, 1) then
+        return true
+    end
+
+    user:inform(lackingExpertise)
+    return false
+end
+
+function M.supportedTool(productId, pos)
+
+    if not isStaticTool(productId) then
+        return true
+    end
+
+    local propertyName = M.getPropertyLocationIsPartOf(pos)
+    local realm = M.getRealmPropertyBelongsTo(propertyName)
+
+    for _, staticTool in pairs(staticTools) do
+        if staticTool.id == productId then
+            for _, realmName in pairs(staticTool.realms) do
+                if realm == realmName then
+                    return true
+                end
+            end
+            break
+        end
+    end
+    return false
+end
+
+local function checkFieldForStatictool(thePosition, staticToolsOnProperty)
+
+    if not staticToolsOnProperty then
+        staticToolsOnProperty = {}
+    end
+
+    local field = world:getField(thePosition)
+    local itemsOnField = field:countItems()
+    for i = 0, itemsOnField do
+        local chosenItem = field:getStackItem(itemsOnField - i )
+        for _, staticTool in pairs(staticTools) do
+            if chosenItem.id == staticTool.id and chosenItem:getData("preview") ~= "true" then
+                table.insert(staticToolsOnProperty, chosenItem.id)
+            end
+        end
+    end
+
+    return staticToolsOnProperty
+end
+
+function M.staticToolAlreadyOnField(user, productId, pos)
+
+    if not isStaticTool(productId) then
+        return false
+    end
+
+    local tools = checkFieldForStatictool(pos)
+
+    if #tools > 0 then
+        user:inform("Du kannst kein statisches Werkzeug auf einem Feld bauen, das bereits eines hat.", "You can't build a static tool on a field that already has one.")
+        --We reuse a function that returns as a table, even though we only need to check for one tool
+        return true
+    end
+
+    return false
+end
+
+function M.checkPropertyForStaticTools(frontPos)
+
+    local staticToolsOnProperty = {}
+
+    local propertyName = M.getPropertyLocationIsPartOf(frontPos)
+
+    for _, property in pairs(propertyList.properties) do
+        if property.name == propertyName then
+            for x = property.lower.x, property.upper.x do
+                for y = property.lower.y, property.upper.y do
+                    for z = property.lower.z, property.upper.z do
+                        local thePosition = position(x, y, z)
+                        staticToolsOnProperty = checkFieldForStatictool(thePosition, staticToolsOnProperty)
+                    end
+                end
+            end
+        end
+    end
+
+    return staticToolsOnProperty
+end
+
+local function categoryAlreadyChecked(checkedCategories, purpose)
+
+    for _, checkedCategory in pairs(checkedCategories) do
+        if checkedCategory == purpose then
+            return true
+        end
+    end
+
+    return false
+end
+
+function M.tooManyTools(user, productId, frontPos)
+
+    local productIsStaticTool = isStaticTool(productId)
+
+    if not productIsStaticTool then
+        return false
+    end
+
+    local listOfExistingTools = M.checkPropertyForStaticTools(frontPos)
+
+    local totalValue = 0
+
+    local productValue
+
+    local checkedCategories = {}
+
+    for _, existingTool in pairs(listOfExistingTools) do
+        for _, staticTool in pairs(staticTools) do
+            if existingTool == staticTool.id and not categoryAlreadyChecked(checkedCategories, staticTool.purpose) then
+                table.insert(checkedCategories, staticTool.purpose)
+                totalValue = totalValue + staticTool.value
+            end
+        end
+    end
+
+    for _, checkedCategory in pairs(checkedCategories) do
+        for _, staticTool in pairs(staticTools) do
+            if staticTool.purpose == checkedCategory then
+                if staticTool.id == productId then
+                    return false --You can build as many as you want of static tools that do the same as one you already have on the property, for aesthetic freedom
+                end
+            end
+        end
+    end
+
+    for _, staticTool in pairs(staticTools) do
+        if staticTool.id == productId then
+            productValue = staticTool.value
+        end
+    end
+
+    if productValue == 0 then
+        return false
+    end
+
+    if totalValue == 0 then
+        return false
+    end
+
+    local maxValue = 5 --This allows a full set, for instance, Tailoring: Tailoring table, loom, spinning wheel, empty dyeing barrel and stretcher.
+
+    if totalValue >= maxValue then
+        user:inform("Du hast bereits so viele statische Werkzeuge auf diesem Grundstück gebaut, wie es erlaubt ist.", "You've already built as many static tools on this property as is allowed.")
+        return true
+    end
+
+    if totalValue < maxValue and totalValue+productValue > maxValue then
+        user:inform("Während noch Platz für statische Werkzeuge für diese Eigenschaft vorhanden ist, nimmt dieses Werkzeug zu viel Platz ein. Du musst einige andere Werkzeuge löschen, wenn du dieses bauen möchtest.", "While there is allowance left for static tools for this property, this tool takes up too much. You will have to delete some other tools if you want to build this one.")
+        return true
+    end
+
+    return false
+
 end
 
 function M.setPersistenceForProperties()
@@ -921,7 +1279,29 @@ function M.createKey(user)
     end
 end
 
-function M.writeOnSignPost(user)
+local function includeGermanPart(user, painting)
+
+    local callback = function(dialog)
+        local success = dialog:getSuccess()
+        if not success then
+            return
+        end
+        local input = dialog:getInput()
+
+        if not common.IsNilOrEmpty(input) then
+            painting:setData("descriptionDe",input)
+        end
+
+        world:changeItem(painting)
+    end
+
+    local dialog = InputDialog(common.GetNLS(user,"Hinweisschild|Gemälde","Sign Post|Painting"),common.GetNLS(user,"Was soll auf dem Schild | dem Gemälde auf Deutsch stehen? Lass es leer, damit es dasselbe wie auf Englisch angezeigt wird.","Write in what you want the sign post | painting to say in German. Leave it empty for it to display the same as in English."), false, 255, callback)
+
+    user:requestInputDialog(dialog)
+end
+
+
+function M.writeOnSignPostOrPainting(user)
     local callback = function(dialog)
         local success = dialog:getSuccess()
         if not success then
@@ -930,24 +1310,25 @@ function M.writeOnSignPost(user)
         local input = dialog:getInput()
         if M.allowBuilding(user) then
 
-            local TargetItem = M.checkIfSignPost(user)
+            local TargetItem = M.checkIfSignPostOrPainting(user)
 
             if TargetItem then
                 TargetItem:setData("descriptionDe",input)
                 TargetItem:setData("descriptionEn",input)
-                world:changeItem(TargetItem)
+                includeGermanPart(user, TargetItem)
+
             else
-                user:inform("Du musst vor einem Hinweisschild stehen um darauf zu schreiben.","You need a sign post in front of you if you want to write on it.")
+                user:inform("Du musst vor einem Hinweisschild oder Gemälde stehen um darauf zu schreiben.","You need a sign post or painting in front of you if you want to write on it.")
             end
         else
-            user:inform("Das Hinweisschild muss sich auf deinem Grundstück befinden wenn du darauf schreiben möchtest.","The sign has to be on your property for you to write on it.")
+            user:inform("Das Hinweisschild oder Gemälde muss sich auf deinem Grundstück befinden wenn du darauf schreiben möchtest.","The sign or painting has to be on your property for you to write on it.")
         end
     end
-    local dialog = InputDialog(common.GetNLS(user,"Hinweisschild","Sign Post"),common.GetNLS(user,"Was soll auf dem Schild stehen?","Write in what you want the sign post to say."), false, 255, callback)
-    if M.checkIfSignPost(user) then
+    local dialog = InputDialog(common.GetNLS(user,"Hinweisschild|Gemälde","Sign Post|Painting"),common.GetNLS(user,"Was soll auf dem Schild | dem Gemälde stehen (auf Englisch)??","Write in what you want the sign post|painting to say in English."), false, 255, callback)
+    if M.checkIfSignPostOrPainting(user) then
         user:requestInputDialog(dialog)
     else
-        user:inform("Du musst vor einem Hinweisschild stehen um darauf zu schreiben.","You need a sign post in front of you if you want to write on it.")
+        user:inform("Du musst vor einem Hinweisschild oder Gemälde stehen, um darauf zu schreiben.","You need a sign post or painting in front of you if you want to write on it.")
     end
 end
 
@@ -1144,6 +1525,7 @@ function M.eraseStairTrap(positionOne, positionTwo, targetId, tile1pos)
     M.ifNoSurroundingTilesDeleteStairTiles(tile1pos, positionTwo)
 
     common.DeleteItemFromStack(positionTwo, {itemId = targetId})
+    M.removeElevation(positionTwo)
 
     if warpOne:isWarp() then
         warpOne:removeWarp()
@@ -1332,11 +1714,36 @@ function M.destroyItem(user)
 
                     if M.createWarpsAndExitObject(user, targetItem.id, "erase") then
                         itemDeleted = common.DeleteItemFromStack(thePosition, {itemId = targetItem.id})
+                        M.removeElevation(thePosition)
                     else
                         user:inform("Du bist nicht berechtigt dies abzureißen.","You aren't allowed to destroy that.")
                     end
                 else
+                    local parts = {
+                        {id = 3871, pos = position(thePosition.x-2, thePosition.y, thePosition.z)},
+                        {id = 3872, pos = position(thePosition.x-1, thePosition.y-1, thePosition.z)},
+                        {id = 3873, pos = position(thePosition.x, thePosition.y-1, thePosition.z)},
+                        {id = 3874, pos = position(thePosition.x+1, thePosition.y, thePosition.z)},
+                        {id = 3875, pos = position(thePosition.x+1, thePosition.y+1, thePosition.z)},
+                        {id = 3876, pos = position(thePosition.x, thePosition.y+2, thePosition.z)},
+                        {id = 3877, pos = position(thePosition.x-1, thePosition.y+2, thePosition.z)},
+                        {id = 3878, pos = position(thePosition.x-2, thePosition.y+1, thePosition.z)}
+                    }
+                    for _, part in pairs(parts) do
+                        if targetItem.id == part.id then
+                            user:inform("Wenn du eine Tenne löschen möchtest, visiere die Tenne selbst an.","If you want to delete a threshing floor, target the threshing floor itself.")
+                            return
+                        end
+                    end
+                    if targetItem.id == 3879 then --threshing floor
+                        for _, part in pairs(parts) do
+                            common.DeleteItemFromStack(part.pos, {itemId = part.id})
+                            M.removeElevation(part.pos)
+                        end
+                    end
+
                     itemDeleted = common.DeleteItemFromStack(thePosition, {itemId = targetItem.id})
+                    M.removeElevation(thePosition)
                 end
                 if itemDeleted then
                     user:inform(common.GetNLS(user,"Du reißt ab: "..itemName,"You destroy the "..itemName))
@@ -1372,19 +1779,13 @@ function M.getPropertyLocationIsPartOf(location)
     return false
 end
 
-function M.clearStakePosition(selectedPosition)
+function M.placeStakeOnPosition(selectedPosition)
     local field = world:getField(selectedPosition)
     local itemsOnField = field:countItems()
-    while itemsOnField >= 1 do
-        local chosenItem = field:getStackItem(itemsOnField - 1 )
-        world:erase(chosenItem, chosenItem.number)
-        itemsOnField = field:countItems()
+    if itemsOnField >= 1 then -- only place on empty tiles, this way we avoid ruining what someone built if their lease expires
+        return
     end
-end
-
-function M.placeStakeOnPosition(selectedPosition)
     local handrail = 3601
-    M.clearStakePosition(selectedPosition)
     local name = {english = "Property Lot Stake", german = "Grenzstein"}
     local description = {english = "A stake marking the corner of the boundary for a property lot.", german = "Ein Grenzstein, der ein Grundstück absteckt."}
     local theStake = world:createItemFromId(handrail, 1, selectedPosition, true, 999, {nameEn = name.english, nameDe = name.german, descriptionEn = description.english, descriptionDe = description.german})
@@ -1406,6 +1807,10 @@ function M.makeStatic(user)
     if not targetItem then
         user:inform("Hier ist nichts, was dauerhaft haltbar gemacht werden könnte.","There is no item to be made/unmade static.")
     elseif M.isStaticPermitted(user, targetItem) then
+        if targetItem.number > 5 and targetItem.wear ~= 255 then
+            user:inform("Du kannst Objekte nur dann haltbar machen, wenn sie in einem Stapel von fünf oder weniger sind.", "You can only make items static if they are in a stack of 5 or less.")
+            return
+        end
         if targetItem.wear ~= 255 then
             targetItem.wear = 255
             world:changeItem(targetItem)
@@ -1468,6 +1873,11 @@ end
 function M.removeTenantGuestBuilderDuration(propertyDeed)
     propertyDeed:setData("tenant", "")
     propertyDeed:setData("tenantID", "")
+
+    for number = 1, 10 do
+        propertyDeed:setData("coTenant"..number, "")
+        propertyDeed:setData("coTenantID"..number, "")
+    end
 
     for number = 1, M.max_builder_number do
         propertyDeed:setData("builder"..number, "")
@@ -1696,6 +2106,87 @@ function M.removeOwner(user, item, property)
     end
 end
 
+function M.setRemoveCoTenant(user, deed, propertyName)
+
+    if not deed then
+        deed = M.getPropertyDeed(propertyName)
+    end
+
+    if not propertyName then
+        propertyName = M.getPropertyName(deed)
+    end
+
+
+    local callback = function(dialog)
+
+        local success = dialog:getSuccess()
+
+        if not success then
+            return
+        end
+
+        local selected = dialog:getSelectedIndex()+1
+
+        for i = 1, 10 do
+            if selected == i then
+                local callback2 = function (dialog2)
+
+                    if not dialog2:getSuccess() then
+                        return
+                    end
+
+                    local input = dialog2:getInput()
+
+                    if (input == nil or input == '') then
+                        deed:setData("coTenantID"..selected, "")
+                        deed:setData("coTenant"..selected, "")
+                        world:changeItem(deed)
+                    else
+                        local tenantExists, tenantID = world:getPlayerIdByName(input)
+
+                        if not tenantExists then
+                            informDoesntExist(user)
+                        elseif M.checkIfOwnsProperty(input) and not M.checkIfEstateViaName(propertyName) then
+                            user:inform(M.getText(user,"Der Charakter mietet bereits ein Grundstück.","Character already rents a property."))
+                        else
+                            deed:setData("coTenantID"..selected, tenantID)
+                            deed:setData("coTenant"..selected, input)
+                            world:changeItem(deed)
+                            user:inform(M.getText(user,input.." wurde als neuer Mitmieterin eingetragen.",input.." set as new co tenant."))
+                        end
+                    end
+                end
+
+            user:requestInputDialog(InputDialog(M.getText(user,"Mieter eintragen","Set Tenant"),
+            M.getText(user,"Schreiben Sie den Namen der Person, die Sie als neuen Mitmieterin einsetzen möchten, oder lassen Sie das Feld leer, um einfach die bisherige Person aus dem gewählten Slot zu entfernen.",
+            "Write in the name of who you want to set as the new co tenant, or leave it empty to just delete the old one of the selected slot."), false, 255, callback2))
+            end
+        end
+    end
+
+    local dialog = SelectionDialog(
+    M.getText(user, "Mitbewalterverwaltung", "Co-tenant management"),
+    M.getText(user, "Wähle einen Slot, um ihn mit einem neuen Mitbewohner zu überschreiben oder den alten Mitbewohner zu löschen.", "Select a slot to overwrite with a new co-tenant, or delete the old co-tenant of."),
+    callback)
+
+    for i = 1, 10 do
+
+        local coTenant = deed:getData("coTenant"..i)
+
+        if not common.IsNilOrEmpty(coTenant) then
+            dialog:addOption(0, coTenant)
+        else
+            dialog:addOption(0, M.getText(user, "Leerer Platz", "Empty slot"))
+        end
+    end
+
+
+    user:requestSelectionDialog(dialog)
+
+end
+
+
+
 function M.setOwner(user, item, propertyName)
     local property
 
@@ -1752,6 +2243,13 @@ function M.checkIfOwnsProperty(Input)
         if tenant ~= "" and tenant == Input and not M.checkIfEstateViaName(propertyName) then
             return true
         end
+
+        for y = 1, 10 do
+            local coTenant = propertyDeed:getData("coTenant"..y)
+            if not common.IsNilOrEmpty(coTenant) and coTenant == Input and not M.checkIfEstateViaName(propertyName) then
+                return true
+            end
+        end
     end
 
     return false
@@ -1784,13 +2282,18 @@ function M.getRentDuration(item)
 end
 
 function M.reduceRentTimer()
+
     for i = 1, #propertyList.propertyTable do
+
         local property = propertyList.propertyTable[i][1]
         local propertyDeed = M.getPropertyDeed(property)
         local rentDuration = propertyDeed:getData("rentDuration")
-        if rentDuration ~= "" and tonumber(rentDuration) > 0 then
+
+        if not common.IsNilOrEmpty(rentDuration) and tonumber(rentDuration) > 0 then
+
             local rentExemption = propertyDeed:getData("indefiniteRent")
-            if rentExemption == "" then
+
+            if common.IsNilOrEmpty(rentExemption) then
                 rentExemption = 0
             end
 
@@ -1802,26 +2305,18 @@ function M.reduceRentTimer()
     end
 end
 
-function M.charOwnedDepotKeys(char, keyData)
+local function charOwnedDepotKeys(char, keyData, depot)
 
-    for i = 1, #M.depotList do
+    if depot and keyData then -- Checking for a specific key in a specific depot
+        return (depot:countItem(2558, keyData))+(depot:countItem(3054, keyData))+(depot:countItem(3055, keyData))+(depot:countItem(3056, keyData))
+    end
 
-        local depNr = M.depotList[i]
-        local depot = char:getDepot(depNr)
+    for _, selectDepot in pairs(depotScript.depots) do -- We check all depot if keys exist at all
 
-        if depot then
-            local ownedDepotKeys
-            if keyData then
-                ownedDepotKeys = (depot:countItem(2558, keyData))+(depot:countItem(3054, keyData))+(depot:countItem(3055, keyData))+(depot:countItem(3056, keyData))
-            else
-                ownedDepotKeys = (depot:countItem(2558))+(depot:countItem(3054))+(depot:countItem(3055))+(depot:countItem(3056))
-            end
+        local depotFound = char:getDepot(selectDepot.id)
 
-            if ownedDepotKeys >= 1 then
-                return ownedDepotKeys
-            else
-                return 0
-            end
+        if depotFound then
+            return (depotFound:countItem(2558))+(depotFound:countItem(3054))+(depotFound:countItem(3055))+(depotFound:countItem(3056))
         end
     end
 end
@@ -1877,7 +2372,7 @@ function M.deleteKeys(char, inform)
                 local deleteKey = false
 
                 if not noTenant then
-                    characterIsTenant = char.id == tonumber(tenantID)
+                    characterIsTenant = char.id == tonumber(tenantID) or M.checkForCoTenants(propertyDeed, char)
                     characterIsGuest = M.checkIfPlayerIsGuest(char, propertyName)
                 end
 
@@ -1888,7 +2383,6 @@ function M.deleteKeys(char, inform)
                 local keyID = propertyList.propertyTable[i][6] --Fetch what lock the key belongs to
                 local keyType = propertyList.propertyTable[i][5] -- Fetch what type of key item it is
                 local keyAmount = char:countItemAt("all",keyType,{["lockId"]=keyID}) -- Fetch how many keys character has in inventory
-                local depotKeyAmount = M.charOwnedDepotKeys(char, {["lockId"]=keyID}) -- Fetch how many keys character has in depot
                 local keysDeleted = false
 
                 if keyAmount > 0 and deleteKey then
@@ -1897,14 +2391,15 @@ function M.deleteKeys(char, inform)
                     keysDeleted = true --internal key for adding this specific key to the inform
                 end
 
-                for depotIndex = 1, #M.depotList do
+                for _, depot in pairs(depotScript.depots) do
 
-                    local depNr = M.depotList[depotIndex]
-                    local depot = char:getDepot(depNr)
+                    local foundDepot = char:getDepot(depot.id)
 
-                    if depot and depotKeyAmount ~= nil and deleteKey then
+                    local depotKeyAmount = charOwnedDepotKeys(char, {["lockId"]=keyID}, foundDepot) -- Fetch how many keys character has in depot
+
+                    if foundDepot and depotKeyAmount and deleteKey then
                         for z = 1, depotKeyAmount do
-                            depot:eraseItem(keyType,1,{["lockId"]=keyID})
+                            foundDepot:eraseItem(keyType,1,{["lockId"]=keyID})
                             removedKeys = true --external check for any keys at all deleted so inform gets sent
                             keysDeleted = true --internal key for adding this specific key to the inform
                         end
@@ -1929,6 +2424,10 @@ function M.deleteKeys(char, inform)
 
     local listedPropertiesEn = convertTableIntoList(listOfPropertyNamesEn)
     local listedPropertiesDe = convertTableIntoList(listOfPropertyNamesDe)
+
+    if removedKeys then
+        log("Keys belonging to "..char.name.."("..char.id..") were confiscated for properties: "..listedPropertiesEn)
+    end
 
     if removedKeys and inform then
         if propertiesRemovedFrom == 1 and not outlaw then
@@ -2036,43 +2535,87 @@ function M.propertyInformation(user, deed)
     local townLeaderTitle = M.getTownLeaderTitle(town, "EN")
     local townLeaderTitleDE = M.getTownLeaderTitle(town, "DE")
 
+
+    local tenantDe = tenant
+    local tenantEn = tenant
+
+    local additionalTenants = {}
+
+    for i = 1, 10 do
+        local name = deed:getData("coTenant"..i)
+        if not common.IsNilOrEmpty(name) then
+            table.insert(additionalTenants, name)
+        end
+    end
+
+    for index, additionalTenant in ipairs(additionalTenants) do
+
+        if index == #additionalTenants then
+            tenantDe = tenantDe.." und"
+            tenantEn = tenantEn.." and"
+        end
+
+        tenantDe = tenantDe.." "..additionalTenant
+        tenantEn = tenantEn.." "..additionalTenant
+    end
+
     local retText
 
     if M.checkOwner(deed) == "Unowned" then -- Shows info specific for when property is unowned
 
         local rankText = {english = "", german = ""}
 
-        if rank then
+        if rank and town ~= "Troll's Haven" then
             rankText.english = " Renting this property requires at minimum the rank of "..rank.."."
             rankText.german = " Um dieses Grundstück mieten zu können, müsst ihr zumindest "..rankDE.." sein."
+        end
+
+        local shouldYouWish = { english = " Should you wish to rent this property, please seek out the Quartermaster or one of your "
+        ..townLeaderTitle.."s.\n~Signed, "..signatureEN , german = " Solltest du dieses Grundstück mieten wollen, wende dich an den Quartiermeister oder melde \z
+        dich bei der "..townLeaderTitleDE.."\n~Unterzeichnet, "..signatureDE }
+
+        if town == "Troll's Haven" then
+            shouldYouWish.english = " If you want to rent this room, I'll take payment up front. \n ~Signed, Half-hung Bryan"
+            shouldYouWish.german = " Wenn du dieses Zimmer mieten willst, nehme ich die Bezahlung im Voraus. /n ~Gezeichnet, Halbgehängter Bryan"
         end
 
         retText = M.getText(user,
         "Ihr könnt nun die "..propertyDE..
         " zum Preis von "..rentDE..
-        " mieten."..rankText.german.." Solltest du dieses Grundstück mieten wollen, wende dich an den Quartiermeister oder melde \z
-        dich bei der "..townLeaderTitleDE..
-        "~Unterzeichnet, "..signatureDE,
+        " mieten."..rankText.german..shouldYouWish.german,
         "It is now possible to rent the "..property..
-        " at a price of "..rent..rankText.english..
-        " Should you wish to rent this property, please seek out the Quartermaster or one of your "
-        ..townLeaderTitle.."s.\n~Signed, "..signatureEN)
-    elseif M.checkOwner(deed) == user.id then -- Shows info specific for when property is owned by user
+        " at a price of "..rent..rankText.english..shouldYouWish.english)
+    elseif M.checkOwner(deed) == user.id or M.checkForCoTenants(deed, user) then -- Shows info specific for when property is owned by user
 
         local germanText
         local englishText
 
+        local timeLeft = " in "..remainingDuration.." months."
+        local timeLeftDe = "in "..remainingDuration.." Monaten aus."
+
+        if tonumber(remainingDuration) == 1 then
+            timeLeft = " at the start of the next month."
+            timeLeftDe = " zu Beginn des nächsten Monats aus."
+        end
+
+        local additionalConcerns = { english =
+        "\nFor additional questions or concerns, please seek out the Quartermaster or one of \z
+        your "..townLeaderTitle..
+        "s.\n~Signed, "..signatureEN,
+        german = "\nFür weitere Fragen oder Anmerkungen, wende dich an den Quartiermeister oder melde dich \z
+        bei der "..townLeaderTitleDE..".\n~Unterzeichnet, "..signatureDE}
+
+        if town == "Troll's Haven" then
+            additionalConcerns = {english = " ", german = " "} --Bryan doesnt care if you have concerns, he got paid up front anyways
+        end
+
         local germanDefault = "An den aktuellen Bewohner von "..propertyDE..",\n die derzeitige Miete beträgt "..rentDE..
-        "\n Ohne zusätzliche Zahlungen, läuft das aktuelle Mietverhältnis in "..remainingDuration..
-        " Monaten aus.\nFür weitere Fragen oder Anmerkungen, wende dich an den Quartiermeister oder melde dich \z
-        bei der "..townLeaderTitleDE..
-        ".\n~Unterzeichnet, "..signatureDE
+        "\n Ohne zusätzliche Zahlungen, läuft das aktuelle Mietverhältnis "..timeLeftDe..additionalConcerns.german
+
         local englishDefault = "To the current inhabitant of "..property..
         ",\nLet it be known that you are expected to pay a rent of "..rent..
-        " Without additional payments, your current lease expires in "..remainingDuration..
-        " months.\nFor additional questions or concerns, please seek out the Quartermaster or one of \z
-        your "..townLeaderTitle..
-        "s.\n~Signed, "..signatureEN
+        " Without additional payments, your current lease expires"..timeLeft..additionalConcerns.english
+
 
         local indefiniteRent = deed:getData("indefiniteRent")
         local freeRent = false
@@ -2081,12 +2624,8 @@ function M.propertyInformation(user, deed)
             freeRent = true
         end
 
-        local englishFreeRent = "To the current inhabitant of "..property..",\n Let it be known that you are currently not expected to pay rent.\nFor additional questions or concerns, please seek out the Quartermaster or one of \z
-        your "..townLeaderTitle..
-        "s.\n~Signed, "..signatureEN
-        local germanFreeRent = "An den aktuellen Bewohner von"..propertyDE..",\n ihr wohnt von nun an mietfrei.\nFür weitere Fragen oder Anmerkungen, wende dich an den Quartiermeister oder melde dich \z
-        bei der "..townLeaderTitleDE..
-        ".\n~Unterzeichnet, "..signatureDE
+        local englishFreeRent = "To the current inhabitant of "..property..",\n Let it be known that you are currently not expected to pay rent."..additionalConcerns.english
+        local germanFreeRent = "An den aktuellen Bewohner von"..propertyDE..",\n ihr wohnt von nun an mietfrei."..additionalConcerns.german
 
         if not freeRent then
             germanText = germanDefault
@@ -2098,15 +2637,23 @@ function M.propertyInformation(user, deed)
 
         retText = M.getText(user, germanText, englishText)
     else -- Shows info specific for when property is owned but not by user.
-        retText = M.getText(user,
-        "Dieses Grundstück wird aktuell gemietet von "..tenant..
-        ". Solltest du irgendwelche Bedenken haben oder ein freies Grundstück mieten wollen, wende dich bitte an \z
-        den Quartiermeister oder melde dich bei der "..townLeaderTitleDE..
-        ".\nUnterzeichnet, "..signatureDE,
-        "This property is currently being leased to "..tenant..
-        ". Should you have any concerns, or wish to rent a property that is currently available, please \z
-        seek out the Quartermaster or one of your "..townLeaderTitle..
-        "s.\n~Signed, "..signatureEN)
+        if town ~= "Troll's Haven" then
+            retText = M.getText(user,
+            "Dieses Grundstück wird aktuell gemietet von "..tenantDe..
+            ". Solltest du irgendwelche Bedenken haben oder ein freies Grundstück mieten wollen, wende dich bitte an \z
+            den Quartiermeister oder melde dich bei der "..townLeaderTitleDE..
+            ".\nUnterzeichnet, "..signatureDE,
+            "This property is currently being leased to "..tenantEn..
+            ". Should you have any concerns, or wish to rent a property that is currently available, please \z
+            seek out the Quartermaster or one of your "..townLeaderTitle..
+            "s.\n~Signed, "..signatureEN)
+        elseif town == "Troll's Haven" then
+
+            local germanText = "Dieses Zimmer ist derzeit an "..tenantDe.." vermietet. Sprich mit Halbgehängtem Bryan, wenn du anbieten möchtest, eine höhere Miete als er zu zahlen."
+            local englishText = "This room is currently being leased to "..tenantEn..". Talk to half-hung Bryan if you want to offer to pay a higher rent than they do for the room."
+
+            retText = M.getText(user, germanText, englishText)
+        end
     end
 
     return retText
@@ -2131,9 +2678,37 @@ function M.abandonPropertyDialog(user, item)
     user:requestSelectionDialog(dialog)
 end
 
-function M.abandonProperty(user, item)
+function M.abandonProperty(user, deed)
 
-    M.removeTenantGuestBuilderDuration(item)
+    if M.checkForCoTenants(deed, user) then --only remove co tenant status if a co tenant abandons property
+        for i = 1, 10 do
+            local coTenantId = deed:getData("coTenantID"..i)
+            if not common.IsNilOrEmpty(coTenantId) and tonumber(coTenantId) == user.id then
+                deed:setData("coTenantID"..i, "")
+                deed:setData("coTenant"..i, "")
+                world:changeItem(deed)
+            end
+        end
+    else
+
+        local replacedTenantWithCoTenant = false
+
+        for i = 1, 10 do
+            local coTenantId = deed:getData("coTenantID"..i)
+            if not common.IsNilOrEmpty(coTenantId) then
+                replacedTenantWithCoTenant = true
+                deed:setData("tenantID", coTenantId)
+                deed:setData("tenant", deed:getData("coTenant"..i))
+                deed:setData("coTenantID"..i, "")
+                deed:setData("coTenant"..i, "")
+                world:changeItem(deed)
+            end
+        end
+
+        if not replacedTenantWithCoTenant then
+            M.removeTenantGuestBuilderDuration(deed)
+        end
+    end
 
     M.keyRetrieval(user)
 
@@ -2168,11 +2743,19 @@ function M.removeRentalIfDurationIsUp()
         local propertyName = propertyList.propertyTable[i][1]
         local propertyDeed = M.getPropertyDeed(propertyName)
         local duration = propertyDeed:getData("rentDuration")
+        local tenant = propertyDeed:getData("tenant")
+        local tenantID = propertyDeed:getData("tenantID")
+        local rentExemption = propertyDeed:getData("indefiniteRent")
 
-        if duration == "" or tonumber(duration) == 0 then
+        local rentIsExemptedForThisProperty = not common.IsNilOrEmpty(rentExemption) and tonumber(rentExemption) == 1
+
+        local durationIsEmptyOrZero = common.IsNilOrEmpty(duration) or tonumber(duration) == 0
+
+        local tenantExists = not common.IsNilOrEmpty(tenant)
+
+        if not rentIsExemptedForThisProperty and durationIsEmptyOrZero and tenantExists then -- No rent remains but there is a tenant registered
+            log("The lease on "..propertyName.." has expired. The tenant "..tenant.."("..tenantID..") has been evicted along with any guests/builders.")
             M.removeTenantGuestBuilderDuration(propertyDeed)
-        else
-            return
         end
     end
 end
@@ -2271,7 +2854,7 @@ end
 
 function M.keyRetrieval(char, inform)
     -- check if character owns any keys or is admin
-    if (M.charOwnedKeys(char) == 0) and (M.charOwnedDepotKeys(char) == nil) or char:isAdmin() then
+    if (M.charOwnedKeys(char) == 0) and (not charOwnedDepotKeys(char) or charOwnedDepotKeys(char) == 0) or char:isAdmin() then
         return
     else
         M.deleteKeys(char, inform)
@@ -2562,8 +3145,11 @@ function M.payRent(user, item)
                     money.TakeMoneyFromChar(user, rent_cost)
                     M.addRent(town, rent_cost)
                     item:setData("rentDuration", (tonumber(input) + tonumber(rentDuration)))
-                    item:setData("tenant", user.name)
-                    item:setData("tenantID", user.id)
+
+                    if not M.checkForCoTenants(item, user) and not tonumber(item:getData("tenantID")) == user.id then
+                        item:setData("tenant", user.name)
+                        item:setData("tenantID", user.id)
+                    end
                     world:changeItem(item)
                     user:inform(M.getText(user,"Auch wenn sich dein Geldbeutel nun deutlich leichter anfühlt, erfüllt dich das gute Gefühl, dass dein Grundstück dir für weitere "..input.." Monate gehört.","Your purse may feel lighter, but you rest comfortably in the knowledge that the residence before you is now yours for an additional "..input.." months."))
                 end
@@ -2572,7 +3158,7 @@ function M.payRent(user, item)
         end
     end
 
-    if M.checkOwner(item) == user.id then
+    if M.checkOwner(item) == user.id or M.checkForCoTenants(item, user) then
 
         local rentDuration = item:getData("rentDuration")
 
@@ -2855,6 +3441,15 @@ function M.setIndefiniteRent(user, item, propertyName)
 
             local tenant = propertyDeed:getData("tenantID")
             messenger.sendMessageViaScript(tenantEnglish, tenantGerman, tenant)
+
+            for i = 1, 10 do
+                local coTenant = propertyDeed:getData("coTenantID"..i)
+
+                if not common.IsNilOrEmpty(coTenant) then
+                    messenger.sendMessageViaScript(tenantEnglish, tenantGerman, coTenant)
+                end
+            end
+
         end
     end
 
@@ -3040,6 +3635,14 @@ function M.setRent(user, item, property)
                     tenant = tonumber(tenant)
                     messenger.sendMessageViaScript(textToImpactedPlayer.english, textToImpactedPlayer.german, tenant)
                 end
+
+                for i = 1, 10 do
+                    local coTenant = propertyDeed:getData("coTenantID"..i)
+
+                    if not common.IsNilOrEmpty(coTenant) then
+                        messenger.sendMessageViaScript(textToImpactedPlayer.english, textToImpactedPlayer.german, coTenant)
+                    end
+                end
             end
         else
             user:inform(M.getText(user,"Hier muss eine Zahl eingetragen werden.","Input must be a number."))
@@ -3153,7 +3756,7 @@ function M.getRentDE(item, property)
     end
 end
 
-function M.checkIfSignPost(user)
+function M.checkIfSignPostOrPainting(user)
     local targetItem
     if not common.GetFrontItem(user) then
         return false
@@ -3161,7 +3764,7 @@ function M.checkIfSignPost(user)
         targetItem = common.GetFrontItem(user)
     end
     for _, item in pairs(itemList.items) do
-        if item.category == "Sign Posts" and item.itemId == targetItem.id  then
+        if (item.category == "Sign Posts" or item.category == "Paintings") and item.itemId == targetItem.id  then
             local previewItem = targetItem:getData("preview") == "true"
 
             if previewItem then
@@ -3227,16 +3830,26 @@ function M.getTileName(user, tileIdentifier)
 
     return "Unknown" --Catch-all. Should not reach this point to begin with.
 end
-function M.getItemName(user, itemIdentifier)
-    for _, item in pairs(itemList.items) do
-        if item.itemId == itemIdentifier then
+
+function M.getItemName(user, itemIdentifier, tile)
+
+    local list = itemList.items
+
+    if tile then
+        list = itemList.tiles
+    end
+
+    for _, item in pairs(list) do
+        if (item.itemId and item.itemId == itemIdentifier) or (item.tileId and item.tileId == itemIdentifier)  then
             if item.nameDe then
                 return common.GetNLS(user, item.nameDe, item.nameEn)
             end
         end
     end
-return false
+
+    return false
 end
+
 function M.getLevelReq(identifier, isTile)
     if isTile then
         for _, tile in pairs(itemList.tiles) do
@@ -3291,6 +3904,143 @@ function M.getSkillsToShow(user)
     return skills
 end
 
+function M.removeHelper(user, deed, id) --Closing the dialog triggers this
 
+    local helperAmount = deed:getData("helperAmount")
+
+    if user then id = user.id end
+
+    if common.IsNilOrEmpty(helperAmount) then
+        return -- no helpers to find
+    else
+        helperAmount = tonumber(helperAmount)
+    end
+
+    local erased = false
+
+    for i = 1, helperAmount do
+        local helper = deed:getData("helper"..i)
+        if not common.IsNilOrEmpty(helper) and tonumber(helper) == id then
+            deed:setData("helper"..i, "") --erasing the helper
+            erased = true
+        end
+
+        if erased then
+            deed:setData("helper"..i-1, deed:getData("helper"..i)) --overwrite the previous one for the remaining ones after a deletion
+        end
+
+        if i == helperAmount and erased then
+            deed:setData("helperAmount", helperAmount-1) -- Reducing the amount accordingly
+        end
+    end
+
+    if erased then
+        world:changeItem(deed)
+    end
+end
+
+function M.addHelper(user, deed) --Triggered upon opening the dialog
+
+    local helperAmount = deed:getData("helperAmount")
+
+    if common.IsNilOrEmpty(helperAmount) then
+        helperAmount = 0
+    else
+        helperAmount = tonumber(helperAmount)
+    end
+
+    for i = 1, helperAmount do
+        local helper = deed:getData("helper"..i)
+        if not common.IsNilOrEmpty and tonumber(helper) == user.id then
+            return --Already listed as helper, possibly opened multiple menus with the tool
+        end
+    end
+
+    deed:setData("helperAmount", helperAmount+1)
+    deed:setData("helper"..helperAmount+1, user.id)
+    world:changeItem(deed)
+end
+
+local elevationItemId = 4348 --An invisible item that elevates items placed on top, also elevates players that walk on it.
+local maxElevation = 4 --the max amount of allowed elevation items for a tile
+
+
+function M.removeElevation(pos) --called anytime a new elevation is set or anytime you delete an item, to prevent random floaty blocks with no item
+
+    for i = 1, maxElevation do --the below function returns false if it doesnt find the item, so it is safe to run even if there is none meaning there is no need to check if the item exists
+        common.DeleteItemFromStack(pos, {itemId = elevationItemId})
+    end
+end
+
+
+local function addElevationItems(user, frontPos, i)
+
+    local field = world:getField(frontPos)
+    local itemsOnField = field:countItems()
+
+    if itemsOnField == 0 then
+        user:inform("Es muss ein Objekt vor dir sein, wenn du etwas anheben möchtest.", "There needs to be an item in front of you if you wish to elevate something.")
+        return
+    end
+
+    local item = field:getStackItem(itemsOnField-1)
+
+    if not M.checkIfItemIsWallDeco(item.id) and item.id ~= 268 and item.id ~= 269 then -- 268/269 are chimneys which are listed as wall decorations but wont count as such in this particular context
+        user:inform("Du kannst nur Wanddekorationen anheben." , "You may only elevate wall decorations.")
+        return
+    end
+
+    world:erase(item, item.number)
+
+    for y = 1, i do
+        world:createItemFromId(elevationItemId, 1, item.pos, true, 333, nil)
+    end
+
+    world:createItemFromItem(item, item.pos, true)
+
+
+end
+
+function M.setElevation(user)
+
+    local callback = function(dialog)
+
+        local success = dialog:getSuccess()
+
+        if not success then
+            return
+        end
+
+        local index = dialog:getSelectedIndex()
+
+        local frontPos = common.GetFrontPosition(user)
+
+        if index == 0 then
+            M.removeElevation(frontPos)
+        end
+
+        for i = 1, maxElevation do
+            if index == i and M.allowBuilding(user) then
+                M.removeElevation(frontPos)
+                addElevationItems(user, frontPos, i)
+            end
+        end
+    end
+
+    local germanText = "Hier kannst du die Höhe einer Wanddekoration auf der Kachel vor dir einstellen oder anpassen, falls du sie höher platzieren möchtest."
+    local englishText = "Here you can set or adjust the elevation of a wall decoration on the tile you are facing, in case you want it to be higher up."
+
+    local dialog = SelectionDialog(common.GetNLS(user,"Höhe einstellen","Set elevation"),
+                                    common.GetNLS(user, germanText, englishText), callback)
+
+    dialog:addOption(0,common.GetNLS(user,"Höhe 0","Elevation 0"))
+    for i = 1, maxElevation do
+        dialog:addOption(0,common.GetNLS(user,"Höhe "..i,"Elevation "..i))
+    end
+
+    dialog:setCloseOnMove()
+
+    user:requestSelectionDialog(dialog)
+end
 
 return M

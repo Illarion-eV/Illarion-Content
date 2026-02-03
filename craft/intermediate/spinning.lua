@@ -23,6 +23,7 @@ local spinning = crafts.Craft:new{
                     craftDE = "Spinnen",
                     handTool = 6,
                     leadSkill = Character.tanningAndWeaving,
+                    intermediate = true
                   }
 
 spinning:addTool(171) -- spinning wheel

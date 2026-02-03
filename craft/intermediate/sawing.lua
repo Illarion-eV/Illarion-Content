@@ -25,6 +25,7 @@ local sawing = crafts.Craft:new{
                     leadSkill = Character.woodcutting,
                     sfx = 11,
                     sfxDuration = 27,
+                    intermediate = true
                   }
 
 sawing:addTool(1204) -- sawing trestle

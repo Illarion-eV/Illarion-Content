@@ -27,6 +27,7 @@ local sieving = crafts.Craft:new{
                     sfx = 16,
                     sfxDuration = 27,
                     fallbackCraft = potashmaking.potashmaking,
+                    intermediate = true
                   }
 
 sieving:addTool(727) -- sieve

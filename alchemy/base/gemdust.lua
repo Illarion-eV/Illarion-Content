@@ -79,12 +79,16 @@ end
 local function GemDustInStock(user,cauldron,gemDustId)
     -- stock + gemdust = potion
 
+    if not alchemy.useMana(user) then
+        return
+    end
+
     local potionEffectId = ""
     local addCon
     if (gemDustId == 447) or (gemDustId == 450) then  -- secondary and primary attribute potions
-        local mySubstances = alchemy.wirkstoff
+
         for i=1,8 do
-            addCon = (cauldron:getData(mySubstances[i].."Concentration")) -- stock conncentration determines the effect
+            addCon = (cauldron:getData(alchemy.substances[i].."Concentration")) -- stock conncentration determines the effect
             if addCon == "" then
                 addCon = 5
             end
@@ -93,7 +97,7 @@ local function GemDustInStock(user,cauldron,gemDustId)
     else
         potionEffectId = 0 -- every other potion kind has NO effect
     end
-    local _, _, reCauldron = alchemy.GemDustBottleCauldron(nil, gemDustId, nil, nil)
+    local _, _, reCauldron = alchemy.GemDustBottleCauldron(gemDustId)
     cauldron.id = reCauldron
     alchemy.SetQuality(user, cauldron)
     cauldron:setData("creator",user.name)
@@ -108,7 +112,7 @@ local function GemDustInWater(user,cauldron,gemDustId)
     -- water + gemdust = essence brew
 
     cauldron:setData("filledWith","essenceBrew")
-    local _, _, reCauldron = alchemy.GemDustBottleCauldron(nil, gemDustId, nil, nil)
+    local _, _, reCauldron = alchemy.GemDustBottleCauldron(gemDustId)
     cauldron.id = reCauldron
     world:changeItem(cauldron)
     world:makeSound(13,cauldron.pos)
@@ -124,14 +128,57 @@ function M.BrewingGemDust(user,gemDustId, gemDust, cauldron)
 
     local saved = daear.saveResource(user, world:getItemStatsFromId(gemDustId).Level, 1)
 
+    local rareness = 1
+
     if not saved then
 
         if gemDust then
+            rareness = 1
+            local rarity = gemDust:getData("rareness")
+            if not common.IsNilOrEmpty(rarity) and gemDust:getData("craftedRare") == "true" then
+                rareness = tonumber(rarity)
+            end
             world:erase(gemDust, 1)
         else
-            user:eraseItem(gemDustId,1,{})
+            local erased = user:eraseItem(gemDustId,1,{craftedRare = "true", rareness = 4})
+
+            if erased > 0 then
+                erased = user:eraseItem(gemDustId,1,{craftedRare = "true", rareness = 3})
+                if erased > 0 then
+                    erased = user:eraseItem(gemDustId,1,{craftedRare = "true", rareness = 2})
+                    if erased > 0 then
+                        user:eraseItem(gemDustId,1,{})
+                    else
+                        rareness = 2
+                    end
+                else
+                    rareness = 3
+                end
+            else
+                rareness = 4
+            end
+
         end
     end
+
+    local herbsUsed = cauldron:getData("herbsUsed")
+    local totalRareCount = cauldron:getData("totalRareCount")
+
+    if common.IsNilOrEmpty(herbsUsed) then
+        herbsUsed = 0
+    else
+        herbsUsed = tonumber(herbsUsed)
+    end
+
+    if common.IsNilOrEmpty(totalRareCount) then
+        totalRareCount = 0
+    else
+        totalRareCount = tonumber(totalRareCount)
+    end
+
+    cauldron:setData("herbsUsed", herbsUsed+1)
+    cauldron:setData("totalRareCount", totalRareCount + rareness)
+    world:changeItem(cauldron)
 
     if cauldron:getData("filledWith")=="potion" then -- potion in cauldron, failure
         alchemy.CauldronDestruction(user,cauldron,2)

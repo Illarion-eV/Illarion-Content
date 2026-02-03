@@ -63,11 +63,10 @@ itemShoes = 53
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-sellItems = 121, 227, 72, 4337, 126, 429, 51, 2495, 2031, 191, 453, 3568, 49, 3631, 3609, 454, 353, 303, 2499, 2500, 2497, 2501, 785, 3720, 787, 791, 786, 788, 517, 783, 3721, 784, 789, 3722, 3611, 1316, 3051, 3573, 3715, 3716, 2459, 556, 1154, 2277, 2922, 3570, 2456, 2923, 2278, 2276, 3569, 73, 355, 4259, 4263, 1209, 1210, 4282, 307, 1150, 69, 2586, 2502, 469, 552, 553, 1151, 2934, 2940, 63, 2696, 4364, 306, 455, 3916, 4260, 4264, 3914, 3915, 4265, 3606, 3709, 3710, 3713, 3714, 2529, 4804, 431, 43, 4303, 4304, 4316, 4317, 4294, 4295
--- peel, cooking spoon, fishing rod, fishing net, sickle, candle mould, bucket, pan, collection pan
--- bread roll, cookies, baked potato, bread, sausage on bread, banana bread, blackberry muffin, apple pie, cherry cake, egg salad sandwich, strawberry cake, nutbread, custard pie, elderberry pie, bottle of cider, bottle of wine, bottle of mead, bottle of beer, bottle of banana juice, bottle of fir needle tea, bottle of virgins weed tea, bottle of grape juice, bottle of cabbage juice, bottle of carrot juice, bottle of rum, bottle of blackberry juice, bottle of green tea, bottle of tangerine juice, bottle of strawberry juice, bottle of druids tea, bottle of orange juice, bottle of bear slayer, bottle of berry booze, bottle of stone face, bottle of absinthe, bottle of orange schnapps, bottle of cherry schnapps, bottle of mulled wine, bottle of elven wine, sausage, cheese, veggie hash, mystery meat, trout fillet dish, salmon dish, egg dish, meat dish, sausages dish, egg salad, steak dish, rabbit dish, lamb dish, venison dish, chicken dish, mushroom soup, onion soup, cabbage stew, mulligan, potato soup, fish soup, beer soup, goulash, chicken soup, trout, salmon, shrimp, floudner, horse mackerel, rose fish, crab, eel, octopus, swordfish, lobster, pork, brown egg, white egg, raw leather, fur, bottle of milk, lamp oil, deer meat, rabbit meat, chicken meat, lamb meat, raw steak, entrails, feathers, horn, ham, , smoked trout, smoked salmon, cooked shrimp, grilled flounder, smoked horse mackerel, smoked rose fish, cooked crab, grilled octopus, cooked lobster, grilled steak, smoked chicken, smoked rabbit, grilled lamb, grilled venison,mackerel salad, rosefish stew, rosefish dish, honeycomb, wax, candles, firewasp honeycomb, pigeon egg, seagull egg, raptor egg, spider egg, dragon egg, bottle of sheep milk, bottle of deer milk, fox meat, grilled fox
-buyPrimaryItems = 191, 453, 3568, 49, 3631, 3609, 454, 353, 303, 3571, 354, 3723, 1153, 3610, 2499, 2500, 2497, 2501, 785, 3720, 787, 791, 786, 788, 517, 783, 3721, 784, 789, 3722, 3611, 1316, 1315, 1320, 1321, 1322, 1319, 1323, 1318, 3051, 3573, 3715, 3716, 2459, 556, 1154, 2277, 2922, 3570, 557, 555, 559, 554, 1155, 2456, 2923, 2278, 2276, 3569, 3572, 3712, 3711, 1152, 73, 355, 4259, 4263, 1209, 1210, 4282, 4267, 4261, 4266, 4257, 307, 1150, 69, 2586, 2502, 469, 552, 553, 1151, 2934, 2940, 63, 2696, 4364, 306, 455, 3916, 4260, 4264, 3914, 3915, 4265, 4262, 4258, 3606, 3709, 3710, 3713, 3714, 4205, 4206, 4207, 2529, 4804, 431, 43, 4314, 4805, 4303, 4304, 4305, 4300, 738, 4316, 4317, 4294, 4318, 4320, 4296, 4298, 4295, 4319, 4321, 4297, 4299
--- bread roll, cookies, baked potato, bread, sausage on bread, banana bread, blackberry muffin, apple pie, cherry cake, egg salad sandwich, strawberry cake, nutbread, custard pie, elderberry pie, bottle of cider, bottle of wine, bottle of mead, bottle of beer, bottle of banana juice, bottle of fir needle tea, bottle of virgins weed tea, bottle of grape juice, bottle of cabbage juice, bottle of carrot juice, bottle of rum, bottle of blackberry juice, bottle of green tea, bottle of tangerine juice, bottle of strawberry juice, bottle of druids tea, bottle of orange juice, bottle of bear slayer, bottle of berry booze, bottle of stone face, bottle of absinthe, bottle of orange schnapps, bottle of cherry schnapps, bottle of mulled wine, bottle of elven wine, sausage, cheese, veggie hash, mystery meat, trout fillet dish, salmon dish, egg dish, meat dish, sausages dish, egg salad, steak dish, rabbit dish, lamb dish, venison dish, chicken dish, mushroom soup, onion soup, cabbage stew, mulligan, potato soup, fish soup, beer soup, goulash, chicken soup, trout, salmon, shrimp, floudner, horse mackerel, rose fish, crab, eel, octopus, swordfish, lobster, pork, brown egg, white egg, raw leather, fur, bottle of milk, lamp oil, deer meat, rabbit meat, chicken meat, lamb meat, raw steak, entrails, feathers, horn, ham, smoked trout, smoked salmon, cooked shrimp, grilled flounder, smoked horse mackerel, smoked rose fish, cooked crab, grilled octopus, cooked lobster, grilled steak, smoked chicken, smoked rabbit, grilled lamb, grilled venison,mackerel salad, rosefish stew, rosefish dish, honeycomb, wax, candles, firewasp honeycomb, pigeon egg, seagull egg, raptor egg, spider egg, dragon egg, bottle of sheep milk, bottle of deer milk, fox meat, wolf meat, bear meat, raptor meat, dragon meat, grilled fox, grilled wolf, grilled bear, grilled raptor, grilled dragon
+sellItems = 121, 227, 72, 4337, 126, 429, 51, 2495, 2031, 463, 2745, 4951, 4952, 4953, 307, 306, 1151, 3709, 2940, 3606, 2934, 3713, 4818, 4819, 553, 3710, 552, 3714, 4294, 4295, 73, 455, 355, 3916, 4259, 4260, 4263, 4264, 1209, 3914, 1210, 3915, 4282, 4265,2529, 4804, 1150, 2502, 4316, 4303, 4317, 4304
+-- cooking and husbandry tools, dough, meat, fish, honey, eggs and milk 
+buyPrimaryItems = 5188, 4951, 4952, 4953, 4954, 307, 306, 1151, 3709, 2940, 3606, 2934, 3713, 4818, 4819, 553, 3710, 552, 3714, 4294, 4295, 4318, 4319, 4320, 4321, 4296, 4297, 4298, 4299, 73, 455, 355, 3916, 4259, 4260, 4263, 4264, 1209, 3914, 1210, 3915, 4282, 4265, 4267, 4261, 4262, 4266, 4257, 4258, 2529, 4804, 1150, 2502, 4316, 4303, 4317, 4304, 4314, 4805, 4305, 4300, 738
+-- dough, meat, fish, honey, eggs and milk 
 tradeNotEnoughMoneyMsg "Bist du sicher, dass du dir das leisten kannst?", "Are you sure you can afford this?"
 tradeFinishedMsg "Danke sehr!", "Thank you very much."
 tradeFinishedWithoutTradingMsg "Nichts gefunden was dir gefällt?", "Don't you like my wares?"
@@ -78,11 +77,6 @@ tradeWrongItemMsg "Ich glaub, das werde ich nicht kaufen.", "I guess I do not bu
 -- Occupation: Baker
 -- Race: Human
 -- Height: Short
--- Age: 16 (human year)
--- Weight: skinny
--- Boobs: Big
--- Hair: Ankle length
--- Skin: Fair
 
 -- Background:
 -- "I want to be a fairy." Alysa was born to a mother who was renowned for her aesthetic and detailed weapons.
@@ -91,7 +85,7 @@ tradeWrongItemMsg "Ich glaub, das werde ich nicht kaufen.", "I guess I do not bu
 -- time as a father who takes care of the house chores. Alysa's parent's loved her?. Kind of. Alysa's family is more
 -- focused on their work, and the 2 year old, Alysa's sister. Aylsa' became a baker after an old man offered her the job.
 -- She does it more for something to do than for the money. Alysa routinely looks in the mirror and despairs over how fat
--- she thinks she is. She is constantly watching her weight. She thinks the only good thing about her is the size of her boobs.
+-- she thinks she is. She is constantly watching her weight.
 -- Alysa wishes more than anything that should could be a fairy of legend because unlike dwarves like her Faries are pretty.
 
 -- Help
@@ -136,8 +130,6 @@ english, "Gobaith", "Gobiath" -> "There were fairies somewhere in that world.", 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "Cook", "Food", "Bake" -> "I didn't think I'd love cooking so much. I was born to become fat. That's why now I never eat anything I make."
 "Kochen", "Essen", "backen" -> "Ich denke nicht, dass Kochen Spaß macht. Ich kam schon fett auf die Welt. Daher esse ich nichts was ich koche."
-"Boob", "Breast" -> "Last person who tried that on with me died of syphilis. Not that I had anything to do with it!"
-"Busen", "Brust" -> "Ich sehe, dass Ihr meinen Busen anstarrt, aber das stört mich nicht. Ich fühle mich hübsch, wenn Ihr starrt. Aber wagt es nicht meinen Bauch anzustarren."
 "Fat", "Weight", "Heavy" -> "I met Ce, the cook there. She's so talented. We're going to have a bake off soon."
 "Fett", "Gewicht", "Schwer" -> "Ich traft Ce, die Köchin hier. sie ist so hübsch und talentiert. Wir machen bald einen Kochwettbewerb."
 "glass mirror", "Ce", english -> "I met Ce, the cook there. She's so talented. We're going to have a bake off soon."

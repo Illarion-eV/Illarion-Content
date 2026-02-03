@@ -59,7 +59,7 @@ function M.StartGathering(user, sourceItem, actionstate)
     local depletedResourceID = gathering.getDepletedObject(fishList, sourceItem.id)
     local restockWear = 4 -- 15 minutes
 
-    local success, toolItem, amount, gatheringBonus = gathering.InitGathering(user, sourceItem, toolID, maxAmount, fishing.LeadSkill)
+    local success, toolItem, amount, gatheringBonus = gathering.InitGathering(user, sourceItem, toolID, maxAmount, fishing.LeadSkill, depletedResourceID)
 
     if not success then
         return
@@ -135,9 +135,9 @@ function M.StartGathering(user, sourceItem, actionstate)
 
     user:learn( fishing.LeadSkill, fishing.SavedWorkTime[user.id], fishing.LearnLimit)
 
-    fishing:FindRandomItem(user)
+    fishing:FindRandomItem(user, toolItem)
 
-    local created, newAmount = gathering.FindResource(user, sourceItem, amount, resourceID)
+    local created, newAmount = gathering.FindResource(user, sourceItem, amount, resourceID, fishing.LeadSkill, toolItem)
 
     if created then
         user:changeSource(sourceItem)

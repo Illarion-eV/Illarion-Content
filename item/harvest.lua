@@ -24,18 +24,46 @@ local tree = require("item.tree")
 
 local M = {}
 
+local fruitSources = {4246, 4255, 4238, 4245, 4341, 4253, 14, 300, 387, 1195, 3613, 3743, 3867, 3892}
+
+local emptyFruitSources = {4256, 4239, 4244, 4342, 4254, 1193, 1194, 4343}
+
+local function isFruitSource(sourceId)
+
+    for _, source in pairs(fruitSources) do
+        if source == sourceId then
+            return true
+        end
+    end
+
+    return false
+
+end
+
+local function isEmptyFruitSource(sourceId)
+
+    for _, source in pairs(emptyFruitSources) do
+        if source == sourceId then
+            return true
+        end
+    end
+
+    return false
+
+end
+
 function M.UseItem(User, SourceItem, ltstate)
 
-    if SourceItem.id == 14 or SourceItem.id == 300 or SourceItem.id == 387 or SourceItem.id == 1195 or SourceItem.id == 3613 or SourceItem.id == 3743 or SourceItem.id ==3867 or SourceItem.id == 3892 then
+    if isFruitSource(SourceItem.id) then
         fruitgathering.StartGathering(User, SourceItem, ltstate);
     elseif SourceItem.id == 386 or SourceItem.id == 3612 or SourceItem.id == 3742 or SourceItem.id == 3866 or SourceItem.id == 3893 then
         common.HighInformNLS( User,"Diese Pflanze trägt keine Früchte.","This plant bears no fruits." );
-    elseif SourceItem.id == 1193 or SourceItem.id == 1194 then
+    elseif isEmptyFruitSource(SourceItem.id) then
         common.HighInformNLS( User,"Dieser Baum trägt keine Früchte.","This tree bears no fruits." );
     elseif SourceItem.id == 11 or SourceItem.id == 299 then
         woodchopping.StartGathering(User, SourceItem, ltstate);
     else
-        common.HighInformNLS( User,"[FEHLER] Unbekannter Baum/Strauch, bitte informiere einen Entwickler.","[ERROR] Unknown bush/tree, please inform a developer." );
+        common.HighInformNLS( User,"[FEHLER] Unbekannter Baum/Strauch( ID: "..SourceItem.id..")"..", bitte informiere einen Entwickler.","[ERROR] Unknown bush/tree( ID: "..SourceItem.id..")"..", please inform a developer." );
     end
 
 end

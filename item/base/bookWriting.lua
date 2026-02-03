@@ -48,6 +48,11 @@ local function isBookInHand(user)
                         return false
                     end
 
+                    if book.number > 1 then
+                        user:inform("Du kannst nur in einem Buch gleichzeitig schreiben.", "You can only write in one book at a time.")
+                        return false
+                    end
+
                     return book
                 end
             end
@@ -188,6 +193,7 @@ function M.addNewPageToBook(user, sourceItem)
 
     if not pageText then
         user:inform("Auf der Schriftrolle steht nichts.", "The parchment must have been written on.")
+        return
     end
 
     local lastPage = book:getData("pageCount")
@@ -210,9 +216,11 @@ function M.addNewPageToBook(user, sourceItem)
     end
 
     local signature = sourceItem:getData("signatureText")
+    local finalized = sourceItem:getData("finalized")
 
     if not common.IsNilOrEmpty(signature) then
         book:setData("page"..nextPage.."signature", signature)
+        book:setData("page"..nextPage.."finalized", finalized)
     end
 
     book:setData("pageCount", nextPage)
@@ -235,16 +243,12 @@ function removePage(user, book)
     end
 
 
-    local theText, theSignature = getWrittenTextAndSignatureFromBook(book, pageNumber)
+    local theText, theSignature, finalized = getWrittenTextAndSignatureFromBook(book, pageNumber)
 
     local theParchment = world:createItemFromId(Item.parchment, 1, user.pos, true, 333, {})
 
-    if not common.IsNilOrEmpty(theSignature) then
-        theParchment:setData("signatureText", theSignature)
-        lookat.SetSpecialDescription(theParchment,"Das Pergament ist unterschrieben.","The parchment is signed.")
-    end
 
-    M.convertStringToMultipleParchmentDataValues(theParchment, theText)
+    M.convertStringToMultipleParchmentDataValues(theParchment, theText, theSignature, finalized)
 
     local usersBag = user:getBackPack()
 
@@ -253,7 +257,11 @@ function removePage(user, book)
         usersBag:insertItem(theParchment, true)
     end
 
-    book:setData("pageCount", pageNumber-1)
+    if pageNumber-1 == 0 then
+        book:setData("pageCount", "")
+    else
+        book:setData("pageCount", pageNumber-1)
+    end
 
     for i = 1, 4 do
         book:setData("page"..pageNumber.."part"..i, "")
@@ -271,6 +279,11 @@ function signBook(user, book)
 
     book:setData("bookPermissions", user.id)
     book:setData("bookAuthor", user.name)
+    local creator =  book:getData("craftedBy")
+
+    if not common.IsNilOrEmpty(creator) and creator ~= user.name then
+        lookat.UnsetItemCraftedBy(book)
+    end
 
     world:changeItem(book)
 
@@ -288,7 +301,9 @@ function getWrittenTextAndSignatureFromBook(book, pageNumber)
 
     local signature = book:getData("page"..pageNumber.."signature")
 
-    return writtenText, signature
+    local finalized = book:getData("page"..pageNumber.."finalized")
+
+    return writtenText, signature, finalized
 end
 
 function M.getParchmentSelectionStatus(user)
@@ -307,7 +322,7 @@ M.germanParchmentDescription = "Das Pergament ist beschrieben."
 M.englishParchmentDescription = "The parchment has been written on."
 
 
-function M.convertStringToMultipleParchmentDataValues(theParchment, writtenText)
+function M.convertStringToMultipleParchmentDataValues(theParchment, writtenText, theSignature, finalized)
     local texts = {
         string.sub(writtenText, 1, 250),
         string.sub(writtenText, 251, 500),
@@ -322,6 +337,15 @@ function M.convertStringToMultipleParchmentDataValues(theParchment, writtenText)
     end
 
     lookat.SetSpecialDescription(theParchment,M.germanParchmentDescription,M.englishParchmentDescription)
+
+    if not common.IsNilOrEmpty(theSignature) then
+        theParchment:setData("signatureText", theSignature)
+        if not common.IsNilOrEmpty(finalized) then
+            theParchment:setData("finalized", finalized)
+        end
+        lookat.SetSpecialDescription(theParchment,"Das Pergament ist unterschrieben.","The parchment is signed.")
+        world:changeItem(theParchment)
+    end
 
     theParchment.wear = 254 -- Written parchments should have maximum rot time to allow message exchange
 

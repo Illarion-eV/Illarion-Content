@@ -16,15 +16,13 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local common = require("base.common")
-local texts = require("magic.base.texts")
+local createSpell = require("magic.arcane.createSpell")
 local portalCrafting = require("craft.final.portals")
+local grimoireCreation = require("magic.arcane.grimoireCreation")
 
 local M = {}
 
-local createSpellTexts = texts.createSpellTexts
-
-
-function M.mainDialog(user, sourceItem)
+local function quillIsInHand(user)
 
     local leftTool = user:getItemAt(Character.left_tool)
     local rightTool = user:getItemAt(Character.right_tool)
@@ -38,12 +36,71 @@ function M.mainDialog(user, sourceItem)
 
 
     if not quill then
-        user:inform(createSpellTexts.quill.german, createSpellTexts.quill.english)
+        user:inform("Du brauchst eine Schreibfeder um an diesem Tisch arbeiten zu können.", "You need a quill to do any work at a desk.")
+        return false
+    end
+
+    return true
+end
+
+local function bookFound(user)
+
+    for _, book in pairs(grimoireCreation.books) do
+        if user:countItemAt("body",book,{["magicBook"]="true"}) ~= 0 then
+            return true
+        end
+    end
+
+    return false
+end
+
+function M.mainDialog(user, sourceItem)
+
+    if not quillIsInHand(user) then
         return
     end
 
-    portalCrafting.portalBookCreation(user, sourceItem)
+    local callback = function(dialog)
 
+        if not dialog:getSuccess() then
+            return
+        end
+
+        local index = dialog:getSelectedIndex() +1
+
+        if index == 1 then
+
+            if createSpell.checkForDialogOptions2(user) then
+
+                if bookFound(user) and user:countItemAt("body",463) ~= 0 then
+                    createSpell.slotSelection(user)
+                else
+                    user:inform("Du musst ein magisches Buch und eine Schreibfeder in deinen Händen halten.", "You must hold a magic book and quill in your hands.")
+                end
+
+            else
+
+                user:inform("Du musst zuerst lernen wie man eine primäre Rune nutzt bevor du einen Zauberspruch erstellen kannst.", "You must first learn how to use a primary rune before you can create a spell.")
+
+            end
+
+        elseif index == 2 then
+
+            portalCrafting.portalBookCreation(user, sourceItem)
+
+        elseif index == 3 then
+
+            grimoireCreation.enchantGrimoire(user)
+
+        end
+    end
+
+    local dialog = SelectionDialog(common.GetNLS(user, "Zauberspruch Erstellung", "Spell Creation"), common.GetNLS(user, "Wähle eine Möglichkeit.", "Pick an option."), callback)
+    dialog:addOption(0, common.GetNLS(user, "Erschaffe einen Zauberspruch.", "Create a spell"))
+    dialog:addOption(0, common.GetNLS(user, "Erschaffung von Portalbüchern", "Portal Book Creation"))
+    dialog:addOption(0, common.GetNLS(user, "Verzaubere ein Buch in ein Grimoire", "Enchant a book into a Grimoire"))
+
+    user:requestSelectionDialog(dialog)
 end
 
 return M

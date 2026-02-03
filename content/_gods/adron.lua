@@ -75,7 +75,7 @@ function M.Adron:_init(ordinal, youngerOrdinal)
                 1318, -- bottle of elven wine
                 -- ## manual
                 -- category: smoking
-                155, -- sibanac leaves
+                Item.sibanacLeaf,
                 772, -- tobacco
                 2744, -- pipe
                 -- category: some alcohol ingredients

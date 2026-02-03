@@ -17,8 +17,10 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE items SET itm_script='item.id_360_icefield' where itm_id=360;
 
 local common = require("base.common")
-local monstermagic = require("monster.base.spells.base")
 local character = require("base.character")
+local magicResistance = require("magic.arcane.magicResistance")
+local icefield = require("lte.damagefield_icefield")
+local poisonfield = require("item.id_372_poisonfield")
 
 local M = {}
 
@@ -51,6 +53,10 @@ end
 
 function M.CharacterOnField(User)
 
+    if poisonfield.GMexclusion(User) then
+        return
+    end
+
     -- dont harm dead chars anymore
     if (User:increaseAttrib("hitpoints", 0) == 0) then
         return
@@ -77,15 +83,53 @@ function M.CharacterOnField(User)
         end
     end
 
+    if not FieldItem then   -- the flame doesn't exist anymore
+        return
+    end
+
+    local ignoreDamage = icefield.ignoreDamageDueToRace(User, nil, FieldItem)
+
+    if ignoreDamage then
+        return
+    end
+
+
     if (FieldItem.quality > 100) and User.pos.z ~= 100 and User.pos.z ~= 101 and User.pos.z ~= 40 then --no harmful flames on noobia or the working camp
 
-        local resist = monstermagic.getSpellResistence(User) * 10
-        if resist < FieldItem.quality then
-            local foundEffect = User.effects:find(111); -- iceflame lte
+        local resist = magicResistance.getMagicResistance(User)
+        if resist < 1.9 then -- high rolled level 80 mobs and 90+ mobs delete flames. Players would need a very high willpower to reach this value if at all.
+            local foundEffect, theEffect = User.effects:find(111); -- iceflame lte
             if not foundEffect then
                 local myEffect = LongTimeEffect(111, 50) --5sec
-                myEffect:addValue("quality", FieldItem.quality);
+                local scaling = FieldItem:getData("scaling")
+
+                if common.IsNilOrEmpty(scaling) then
+                    scaling = math.floor(FieldItem.quality/100)+1
+                end
+
+                myEffect:addValue("quality", tonumber(scaling))
+
+                local magicPen = FieldItem:getData("magicPenetration")
+                if not common.IsNilOrEmpty(magicPen) then
+                    magicPen = math.floor(tonumber(magicPen)*100)
+                    myEffect:addValue("magicPenetration", magicPen)
+                end
+
+                local spell = FieldItem:getData("spell")
+                if not common.IsNilOrEmpty(spell) then
+                    spell = tonumber(spell)
+                    myEffect:addValue("spell", spell)
+                end
+
+                local wandGemBonus = FieldItem:getData("wandGemBonus")
+
+                if not common.IsNilOrEmpty(wandGemBonus) then
+                    myEffect:addValue("wandGemBonus", tonumber(wandGemBonus))
+                end
+
                 User.effects:addEffect(myEffect)
+            else
+                icefield.walkOnDamage(theEffect, User, FieldItem)
             end
         else
             DeleteFlame(User, FieldItem)
@@ -98,4 +142,5 @@ function M.CharacterOnField(User)
 end
 
 return M
+
 

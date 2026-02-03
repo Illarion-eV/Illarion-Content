@@ -26,7 +26,7 @@ local teleporterList = {}
     teleporterList[1] = {nameDe="Cadomyr", nameEn="Cadomyr", targetDe="nach Cadomyr" ,posItem=position(127,647,0), posWarp=position(126,647,0), pict=2701}
     teleporterList[2] = {nameDe="Galmair", nameEn="Galmair", targetDe="nach Galmair", posItem=position(424,246,0), posWarp=position(423,246,0), pict=61}
     teleporterList[3] = {nameDe="Runewick", nameEn="Runewick", targetDe="nach Runewick", posItem=position(836,813,0), posWarp=position(835,813,0), pict=105}
-    teleporterList[4] = {nameDe="Gasthof zur Hanfschlinge", nameEn="Hemp Necktie Inn", targetDe="zum Gasthof zur Hanfschlinge", posItem=position(685,307,0), posWarp=position(684,307,0), pict=1909}
+    teleporterList[4] = {nameDe="Trollshaven", nameEn="Troll's Haven", targetDe="zum Trollshaven", posItem=position(685,307,0), posWarp=position(684,307,0), pict=1909}
     teleporterList[5] = {nameDe="Gefängnismine", nameEn="Prison Mine", targetDe="zur Gefängnismine", posItem=position(-474,-455,-40), posWarp=position(-484,-455,-40), pict=466}
 
 local PRICE_TELEPORT = 500

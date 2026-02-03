@@ -30,7 +30,7 @@ function M.isInDepot(user, bagContainer)
     local depots = depotScript.depots
 
     for _, depot in pairs(depots) do
-        local theDepot = user:getDepot(depot)
+        local theDepot = user:getDepot(depot.id)
         if theDepot then
             if theDepot == bagContainer then
                 return true

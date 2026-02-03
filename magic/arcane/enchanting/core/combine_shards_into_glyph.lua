@@ -137,30 +137,17 @@ local function hasMaterials(user, shards)
 
 end
 
-local function passesChecks(user, wand)
+local function passesChecks(user)
 
-    if not wand then
-        local leftTool = user:getItemAt(Character.left_tool)
-        local rightTool = user:getItemAt(Character.right_tool)
-        if common.isInList(leftTool.id, magic.wandIds) then
-            wand = leftTool
-        elseif common.isInList(rightTool.id, magic.wandIds) then
-            wand = rightTool
-        end
-    end
+    local wand = magic.getWand(user)
 
     local isMage = user:getMagicType() == 0 and (user:getQuestProgress(37) ~= 0 or user:getMagicFlags(0) > 0)
-    local wandInHand = false
-
-    if wand then
-        wandInHand = common.IsItemInHands(wand)
-    end
 
     if not isMage then
         return false --should never even reach this point but just in case
     end
 
-    if not wandInHand then
+    if not wand then
         user:inform("Dein Zauberstab muss intakt und in deiner Hand bleiben, um hier zu arbeiten.", "Your wand must remain intact and in your hands for you to work here.")
         return false
     end
@@ -180,8 +167,10 @@ end
 local function generateQuality(user, glyph, wand)
 
     local gemBonus = tonumber(gems.getGemBonus(wand))
-    local leadAttribName = common.GetLeadAttributeName(Character.enchanting)
-    local leadAttribValue = user:increaseAttrib(leadAttribName, 0)
+    local leadAttribNames = common.GetLeadAttributeName(Character.enchanting)
+    local leadAttribValue1 = user:increaseAttrib(leadAttribNames.first, 0) * 0.6 -- 60% of the impact dex had on its own in the past
+    local leadAttribValue2 = user:increaseAttrib(leadAttribNames.second, 0) * 0.4 -- 40% of the impact dex had on its own in the past
+    local leadAttribValue = leadAttribValue1 + leadAttribValue2
 
     local meanQuality = 5
     meanQuality = meanQuality*(1+common.GetAttributeBonusHigh(leadAttribValue)+common.GetQualityBonusStandard(wand))+gemBonus/100 --Apply boni of lead attribute, tool quality and gems.
@@ -228,7 +217,7 @@ local function createGlyph(user, glyph, wand)
 
 end
 
-local function craftGlyph(user, glyph, skill, wand)
+local function craftGlyph(user, glyph, skill)
 
     local skillGain = false
 
@@ -248,6 +237,12 @@ local function craftGlyph(user, glyph, skill, wand)
     end
 
     if hasMaterials(user, glyph.shards) then
+
+        local wand = magic.getWand(user)
+
+        if not wand then
+            return
+        end
 
         createGlyph(user, glyph, wand)
 
@@ -279,9 +274,9 @@ local function refreshDialog(user, dialog, listOfGlyphs, skill)
 
 end
 
-function M.start(user, wand)
+function M.start(user)
 
-    if not passesChecks(user, wand) then
+    if not passesChecks(user) then
         return
     end
 
@@ -321,7 +316,7 @@ function M.start(user, wand)
         elseif result == CraftingDialog.playerCraftingComplete then
             local glyphIndex = dialog:getCraftableId()
             local glyph = listOfGlyphs[glyphIndex]
-            local skillGain = craftGlyph(user, glyph, skill, wand)
+            local skillGain = craftGlyph(user, glyph, skill)
             if skillGain then
                 refreshDialog(user, dialog, listOfGlyphs, skill)
             end

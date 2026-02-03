@@ -77,7 +77,18 @@ function talkNPC:addTalkingEntry(newEntry)
     table.insert(self._entry, newEntry)
 end
 
+_G.positions = {}
+
 function talkNPC:receiveText(npcChar, texttype, player, text)
+
+    if not _G.positions[npcChar.name] then
+        _G.positions[npcChar.name] = position(npcChar.pos.x, npcChar.pos.y, npcChar.pos.z)
+    end
+
+    if _G.positions[npcChar.name] ~= npcChar.pos then
+        return
+    end
+
     for _, entry in pairs(self._entry) do
         if entry:checkEntry(npcChar, texttype, player, text) then
             entry:execute(npcChar, player)
@@ -89,6 +100,15 @@ function talkNPC:receiveText(npcChar, texttype, player, text)
 end
 
 function talkNPC:nextCycle(npcChar, counter)
+
+    if not _G.positions[npcChar.name] then
+        _G.positions[npcChar.name] = position(npcChar.pos.x, npcChar.pos.y, npcChar.pos.z)
+    end
+
+    if _G.positions[npcChar.name] ~= npcChar.pos then
+        return
+    end
+
     local seenNPCs = world:getNPCSInRangeOf(npcChar.pos,15)
     local seenPlayers =  world:getPlayersInRangeOf(npcChar.pos,15)
     if (counter >= self._nextCycleText) then
@@ -165,6 +185,15 @@ function talkNPCEntry:addConsequence(c)
 end
 
 function talkNPCEntry:checkEntry(npcChar, texttype, player, text)
+
+    if not _G.positions[npcChar.name] then
+        _G.positions[npcChar.name] = position(npcChar.pos.x, npcChar.pos.y, npcChar.pos.z)
+    end
+
+    if _G.positions[npcChar.name] ~= npcChar.pos then
+        return
+    end
+
     for _, pattern in pairs(self._trigger) do
         local a, _, number = string.find(text, pattern)
         self._saidNumber = number
@@ -185,6 +214,15 @@ function talkNPCEntry:checkEntry(npcChar, texttype, player, text)
 end
 
 function talkNPCEntry:execute(npcChar, player)
+
+    if not _G.positions[npcChar.name] then
+        _G.positions[npcChar.name] = position(npcChar.pos.x, npcChar.pos.y, npcChar.pos.z)
+    end
+
+    if _G.positions[npcChar.name] ~= npcChar.pos then
+        return
+    end
+
     if (self._responsesCount > 0) then
         local selectedResponse = math.random(1, self._responsesCount)
 

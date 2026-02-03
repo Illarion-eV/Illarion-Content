@@ -26,8 +26,8 @@ local inspectGlyph = require("magic.arcane.enchanting.core.inspection_of_glyph")
 local inspectGlyphedItem = require("magic.arcane.enchanting.core.inspection_of_glyphed_item")
 local glyphTutorial = require("magic.arcane.enchanting.core.tutorial")
 local spatial = require("magic.arcane.spatial")
-local texts = require("magic.base.texts")
 local magic = require("base.magic")
+local castSpell = require("magic.arcane.castSpell")
 
 local currentWandUse = {}
 
@@ -41,8 +41,25 @@ local magicWands = {}
     magicWands[2784] = true
     magicWands[2785] = true
     magicWands[3608] = true
+    magicWands[4820] = true
+
+local function checkForWand(user)
+
+    local wand = common.getItemInHand(user, magic.wandIds)
+
+    if not wand then return false end --You need a wand to do any enchanting
+
+    if common.isBroken(wand) then
+        user:inform("Dein Zauberstab ist zerbrochen. Du solltest ihn reparieren lassen, bevor du versuchst, ihn zu benutzen.", "Your wand is broken. You should see to its repairs before trying to use it.")
+        return false
+    end
+
+    return true
+end
 
 function M.enchantingSelection(user, wand, actionstate)
+
+    if not checkForWand(user) then return end
 
     if not magic.hasMageAttributes(user) then
         user:inform("Mit deinem Mangel an magischen Attributen wüsstest du nicht einmal, wo du anfangen sollst, einen Schrein wie diesen zu benutzen.", "With your lack of magical attributes, you wouldn't know where to begin using a shrine like this.") --chatGPT german
@@ -80,7 +97,7 @@ function M.enchantingSelection(user, wand, actionstate)
         elseif forgeItem and enchantingRituals.candleRitualExists(forgeItem) then
             last = 2
             if selected == 1 then
-                combineShards.start(user, wand)
+                combineShards.start(user)
             elseif selected == 2 then
                 breakShards.start(user, actionstate)
                 currentWandUse[user.id] = "break"
@@ -117,8 +134,12 @@ function M.enchantingSelection(user, wand, actionstate)
 
 end
 
-
 local function selectMagicType(user, wand, actionstate)
+
+    if common.isBroken(wand) then
+        user:inform("Dein Zauberstab ist zerbrochen. Du solltest ihn reparieren lassen, bevor du versuchst, ihn zu benutzen.", "Your wand is broken. You should see to its repairs before trying to use it.")
+        return
+    end
 
     local callback = function (dialog)
 
@@ -174,8 +195,13 @@ function M.UseItem(user, sourceItem, actionstate)
         if actionstate == Action.none then
             if magicWands[sourceItem.id] then
                 if user:getMagicType() == 0 and (user:getQuestProgress(37) ~= 0 or user:getMagicFlags(0) > 0) then
+
+                    local spell = sourceItem:getData("spell")
+
                     if not magic.hasMageAttributes(user) then
                         user:inform("Mit deiner magischen Fähigkeit weißt du kaum, wie man einen Zauberstab hält, geschweige denn benutzt.", "With your magical ability, you barely know how to hold a wand, much less use one.") --chatgpt german
+                    elseif not common.IsNilOrEmpty(spell) and tonumber(spell) > 0 then
+                        castSpell.castSpell(user, spell, actionstate, false)
                     else
                         selectMagicType(user, sourceItem, actionstate)
                     end
@@ -201,29 +227,6 @@ function M.UseItem(user, sourceItem, actionstate)
 end
 
 function M.actionDisturbed(player, attacker)
-
-    local health = player:increaseAttrib("hitpoints", 0)
-    local max_chance = 25 --max percentage chance of interrupting a cast
-    local healthRoof = 7500 -- chance to interrupt begin at 7500 health
-    local healthFloor = 2500 -- chance to interrupt reaches max_chance at 2500 health
-    local healthRange = healthRoof-healthFloor
-    local percent = healthRange/100
-    local actual_chance = max_chance - math.floor(((health-healthFloor)/percent)/(100/max_chance))
-
-    if health > healthRoof then
-        return false
-    end
-
-    if health < healthFloor then
-        actual_chance = max_chance
-    end
-
-    local chance = math.random(1,100)
-
-    if chance <= actual_chance then
-        player:inform(texts.wounded.german, texts.wounded.english)
-        return true
-    end
 
     return false
 

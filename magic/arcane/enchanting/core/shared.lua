@@ -141,7 +141,15 @@ function M.procGlyph(chance)
 end
 
 local function getQuality(glyphedItem)
-    return common.getItemQuality(glyphedItem) + tonumber(glyphedItem:getData("glyphQuality"))
+
+    local glyphQuality = glyphedItem:getData("glyphQuality")
+
+    if common.IsNilOrEmpty(glyphQuality) then
+        glyphQuality = 5 --for cases like the GM tool where quality might not have been set, or bugged ones, we just default to average
+    end
+
+
+    return common.getItemQuality(glyphedItem) + tonumber(glyphQuality)
 end
 
 function M.getGlyphedJewellery(user, glyphName, requiredCharges)
@@ -214,6 +222,20 @@ function M.activateGlyph(user, glyphName, chances, chargesRequired)
         jewellery:setData("glyphCharges", newCharges)
     end
     world:changeItem(jewellery)
+
+
+    --The below are for gathering analytics on glyph popularity and usage rate
+    local foundActivations, totalActivations = ScriptVars:find(glyphName.."TotalActivations")
+
+    if not foundActivations then
+        totalActivations = 0
+    end
+
+    ScriptVars:set(glyphName.."TotalActivations", totalActivations+1)
+
+    ScriptVars:save() -- This may cause lag, though glyph activations should be rare enough that it would be fine
+
+    -- The glyph analytics part ends here
 
     return true
 end

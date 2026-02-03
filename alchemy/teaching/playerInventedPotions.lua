@@ -25,13 +25,9 @@ local M = {}
 
 local startQuest = alchemy.playerPotionStartQuest
 
-local function getPotionNameById(user, id)
-    return common.GetNLS(user, alchemy.potionName[id][2], alchemy.potionName[id][1])
-end
-
 function M.hasPlayerInventedAnyPotions(user)
 
-    for _, potion in pairs(alchemy.playerInventedPotionList) do
+    for _, potion in pairs(alchemy.potions) do
         if potion.creator == user.name then
             return true
         end
@@ -50,9 +46,9 @@ local function selectRecipeToTeach(user, target)
 
     local potionsToTeach = {}
 
-    for _, potion in pairs(alchemy.playerInventedPotionList) do
+    for _, potion in pairs(alchemy.potions) do
         if user.name == potion.creator then
-            local potionName = getPotionNameById(user, potion.id)
+            local potionName = common.GetNLS(user, potion.name.german, potion.name.english)
             table.insert(potionsToTeach, {name = potionName, index = potion.index})
         end
     end

@@ -30,7 +30,7 @@ local harborList = {}
     harborList[1] = {nameDe="Cadomyr Hafen", nameEn="Cadomyr Harbour", targetDe="zum Hafen Cadomyr" ,pos=position(101,790,0),pict=2701,start=true}
     harborList[2] = {nameDe="Galmair Hafen", nameEn="Galmair Harbour", targetDe="zum Hafen Galmair", pos=position(451,95,0),pict=61,start=true}
     harborList[3] = {nameDe="Runewick Hafen", nameEn="Runewick Harbour", targetDe="zum Hafen Runewick", pos=position(727,809,0),pict=105,start=true}
-    harborList[4] = {nameDe="Gasthof zur Hanfschlinge", nameEn="Hemp Necktie Inn", targetDe="zum Gasthof zur Hanfschlinge", pos=position(683,284,0),pict=155,start=true}
+    harborList[4] = {nameDe="Trollshaven", nameEn="Troll's Haven", targetDe="zum Trollshaven", pos=position(683,284,0),pict=155,start=true}
     harborList[5] = {nameDe="Cadomyr - Verlorener Hafen", nameEn="Cadomyr - Lost Harbour", targetDe="zum verlorenen Hafen Cadomyr", pos=position(105,833,0),pict=272,start=true}
     harborList[6] = {nameDe="Leuchtturm", nameEn="Lighthouse", targetDe="zum Leuchtturm", pos=position(554,658,0),pict=509,start=true}
     harborList[7] = {nameDe="Ostland Hafen", nameEn="Eastland Harbour", targetDe="zum Ostlandg Hafen", pos=position(888,485,0),pict=2760,start=true}
@@ -293,7 +293,7 @@ end
 
 local function georgeBackstabRocks()
     informAllOnShip("George Backstab stürmt die Stufen hinauf und schmeißt alle, Piraten und Reisende über Bord. Du erreichst eine Küste. Sei vorsichtig, auch die Piraten haben die Küste erreicht.",
-                    "George Backstab storms up the stairs and throws all the pirates and passengers over the ship's rail. You reach a shore. Be carefully, the pirates might be nearby.")
+                    "George Backstab storms up the stairs and throws all the pirates and passengers over the ship's rail. You reach a shore. Be careful, the pirates might be nearby.")
     local targetShore = common.getOneOutOfList(someShores)
     local players = world:getPlayersInRangeOf(shipCenterPos, 30); --get all player on ship
     for i, player in pairs (players) do
@@ -346,7 +346,7 @@ local function piratesFight(user)
     end
     local countParty, bestFighter = mob.getPartyFightCapability(partyMember)
     local monsterMob
-    if bestFighter < fighterCapabilityLow then
+    if not bestFighter or bestFighter < fighterCapabilityLow then
         monsterMob = pirateMobsLow[math.random(1,#pirateMobsLow)]
     elseif bestFighter < fighterCapabilityMedium then
         monsterMob = pirateMobsMedium[math.random(1,#pirateMobsMedium)]

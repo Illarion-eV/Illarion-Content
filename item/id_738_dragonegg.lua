@@ -14,7 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- UPDATE items SET itm_script='item.id_738_dragonegg' WHERE itm_id IN (738);
 
 local M = {}
 
@@ -29,5 +28,10 @@ function M.MoveItemBeforeMove(User, SourceItem, TargetItem)
     return true
 
 end
+
+function M.UseItem(user, sourceItem, actionState)
+
+end
+
 return M
 

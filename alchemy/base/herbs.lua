@@ -60,11 +60,13 @@ function M.UseItem(user, SourceItem, ltstate)
             return
         end
 
-        local duration,gfxId,gfxIntervall,sfxId,sfxIntervall = alchemy.GetStartAction(user, "plant", cauldron)
+        local duration,gfxId,gfxIntervall,sfxId,sfxIntervall = alchemy.GetStartAction(user, {key = "ingredient", value = SourceItem.id}, cauldron)
 
         if (ltstate == Action.none) then
-           user:startAction(duration,gfxId,gfxIntervall,sfxId,sfxIntervall)
-           return
+            if alchemy.canUseHerb(user, SourceItem.id) then
+                user:startAction(duration,gfxId,gfxIntervall,sfxId,sfxIntervall)
+            end
+            return
         end
 
         M.BeginnBrewing(user,false, SourceItem,cauldron)
@@ -94,17 +96,17 @@ local function PlantInEssenceBrew(user,plantId,cauldron)
 end
 
 local function PlantInStock(user,plantId,cauldron)
-    local substance = alchemy.wirkstoff
+
         for i=1,8 do
-            if cauldron:getData(substance[i].."Concentration") == "" then
-                cauldron:setData(substance[i].."Concentration","5")
+            if cauldron:getData(alchemy.substances[i].."Concentration") == "" then
+                cauldron:setData(alchemy.substances[i].."Concentration","5")
             end
         end
-    local plusSubstance, minusSubstance = alchemy.getPlantSubstance(plantId, user)
+    local plusSubstance, minusSubstance = alchemy.getPlantSubstance(plantId)
     if plusSubstance == "" and minusSubstance == "" then
         alchemy.CauldronDestruction(user,cauldron,1)
     else
-        if plusSubstance ~= "" then
+        if not common.IsNilOrEmpty(plusSubstance) then
             local oldConcentration = tonumber(cauldron:getData(plusSubstance.."Concentration"))
             if oldConcentration == nil then
                 oldConcentration = 5
@@ -119,7 +121,7 @@ local function PlantInStock(user,plantId,cauldron)
                 cauldron:setData("filledWith","stock")
             end
         end
-        if minusSubstance ~= "" then
+        if not common.IsNilOrEmpty(minusSubstance) then
             local oldConcentration = tonumber(cauldron:getData(minusSubstance.."Concentration"))
             if oldConcentration == nil then
                 oldConcentration = 5
@@ -163,15 +165,15 @@ end
 
 local function FilterStock(user,cauldron)
     local success = false
-    local mySubstance = alchemy.wirkstoff
+
     for i=1,8 do
-        local oldConcentration = tonumber(cauldron:getData(mySubstance[i].."Concentration"))
+        local oldConcentration = tonumber(cauldron:getData(alchemy.substances[i].."Concentration"))
         if oldConcentration ~= nil then
             if oldConcentration > 5 then
-                cauldron:setData(mySubstance[i].."Concentration",oldConcentration-1)
+                cauldron:setData(alchemy.substances[i].."Concentration",oldConcentration-1)
                 success = true
             elseif oldConcentration < 5 then
-                cauldron:setData(mySubstance[i].."Concentration",oldConcentration+1)
+                cauldron:setData(alchemy.substances[i].."Concentration",oldConcentration+1)
                 success = true
             end
         end
@@ -212,17 +214,63 @@ function M.BeginnBrewing(user,plantId, plantItem, cauldron)
         plantId = plantItem.id
     end
 
-    local isPlant = alchemy.getPlantSubstance(plantId, user)
+    local plus, minus = alchemy.getPlantSubstance(plantId)
+
+    local isPlant = plus or minus
 
     local saved = daear.saveResource(user, world:getItemStatsFromId(plantId).Level, 1)
 
+    local rareness = 1
+
     if not saved then
-        if not plantItem then
-            user:eraseItem(plantId, 1, {})
-        else
+
+        if plantItem then
+            rareness = 1
+            local rarity = plantItem:getData("rareness")
+            if not common.IsNilOrEmpty(rarity) and plantItem:getData("craftedRare") == "true" then
+                rareness = tonumber(rarity)
+            end
             world:erase(plantItem, 1)
+        else
+            local erased = user:eraseItem(plantId,1,{craftedRare = "true", rareness = 4})
+
+            if erased > 0 then
+                erased = user:eraseItem(plantId,1,{craftedRare = "true", rareness = 3})
+                if erased > 0 then
+                    erased = user:eraseItem(plantId,1,{craftedRare = "true", rareness = 2})
+                    if erased > 0 then
+                        user:eraseItem(plantId,1,{})
+                    else
+                        rareness = 2
+                    end
+                else
+                    rareness = 3
+                end
+            else
+                rareness = 4
+            end
+
         end
     end
+
+    local herbsUsed = cauldron:getData("herbsUsed")
+    local totalRareCount = cauldron:getData("totalRareCount")
+
+    if common.IsNilOrEmpty(herbsUsed) then
+        herbsUsed = 0
+    else
+        herbsUsed = tonumber(herbsUsed)
+    end
+
+    if common.IsNilOrEmpty(totalRareCount) then
+        totalRareCount = 0
+    else
+        totalRareCount = tonumber(totalRareCount)
+    end
+
+    cauldron:setData("herbsUsed", herbsUsed+1)
+    cauldron:setData("totalRareCount", totalRareCount + rareness)
+    world:changeItem(cauldron)
 
     if isPlant then
         BrewingPlant(user,plantId,cauldron, saved)

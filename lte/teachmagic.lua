@@ -15,23 +15,21 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
-local common = require("base.common")
-
 local M = {}
 
 function M.addEffect(teachEffect, Character)
 
-    local year= common.getTime("year")
+    local year=world:getTime("year")
     year=(year-1)*31536000                    -- (year-1)*((15*24) + 5)*24*60*60
-    local month= common.getTime("month")
+    local month=world:getTime("month")
     month=(month-1)*2073600                    -- (month-1)*24*24*60*60
-    local day= common.getTime("day")
+    local day=world:getTime("day")
     day=(day-1)*86400                            -- (day-1)*24*60*60
-    local hour= common.getTime("hour")
+    local hour=world:getTime("hour")
     hour=hour*3600                                -- hour*60*60
-    local minute= common.getTime("minute")
+    local minute=world:getTime("minute")
     minute=minute*60
-    local second= common.getTime("second")
+    local second=world:getTime("second")
     second=second
 
     local waittime=1814400

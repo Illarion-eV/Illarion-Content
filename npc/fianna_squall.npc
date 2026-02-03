@@ -1,0 +1,484 @@
+-- Illarion Server
+-- 
+-- This program is free software: you can redistribute it and/or modify it under
+-- the terms of the GNU Affero General Public License as published by the Free
+-- Software Foundation, either version 3 of the License, or (at your option) any
+-- later version.
+-- 
+-- This program is distributed in the hope that it will be useful, but WITHOUT
+-- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+-- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+-- details.
+-- 
+-- You should have received a copy of the GNU Affero General Public License
+-- along with this program.  If not, see <http://www.gnu.org/licenses/>.
+------------------------------------------------------------------------------AC
+-- NPC Name: Fianna Squall                                              None --
+-- NPC Job:  Druid Teacher                                                   --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  661, 301, 0            --
+-- NPC Sex:  female                     NPC Direction: south                  --
+--                                                                            --
+-- Author:   Nala / 10-20-25                                                  --
+--                                                     easyNPC Parser v1.23.1 --
+--------------------------------------------------------------------------------
+name = "Fianna Squall"
+race = human
+sex = female
+position = 661, 301, 0
+direction = south
+affiliation = "None"
+job = "Druid teacher"
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
+author = "Nala"
+lookatDE = "Das ist Fianna Squall, eine Druidenlehrerin für Naturmagie und Alchemie."
+lookatUS = "This is Fianna Squall, a druid teacher of Nature Magic and Alchemy."
+useMsgDE = "Vorsicht, bitte! Jede Berührung hinterlässt Spuren, selbst am ältesten Ast."
+useMsgUS = "Gentle now! Every touch leaves an imprint, even upon the oldest branch."
+wrongLangDE = "#me blickt umher und lauscht leise dem Wind."
+wrongLangUS = "#me looks around, quietly listening to the wind."
+radius = 2
+hairID = 7
+beardID = 0
+colorHair = 180, 180, 180
+colorSkin = 210, 180, 140
+itemHead = 0
+itemChest = 803
+itemCoat = 0
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 1448
+itemTrousers = 0
+itemShoes = 369
+-------------------------------------------------------------------------------
+-- MANDATORY TRIGGERS
+-------------------------------------------------------------------------------
+"Help" -> inform("[Game Help] Fianna Squall is a druid teacher of Nature Magic and Alchemy. Keywords: weave, nature magic, teach, druid, alchemy, potion.")
+"Hilfe" -> inform("[Spielhilfe] Fianna Squall ist eine Lehrerin für Naturmagie und Alchemie. Stichworte: Gewebe, Naturmagie, Lernen, Druide, Alchemie, Trank.")
+-------------------------------------------------------------------------------
+-- GENERAL GREETING / INTRODUCTION
+-------------------------------------------------------------------------------
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Welcome, child of the wilds. Rest by our fire. The Old Weaves stir again in Illarion, and all who seek balance are welcome by my side."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Willkommen, Kind der Wildnis. Ruht euch am Feuer aus. Die alten Gewebe regen sich erneut in Illarion, und alle, die das Gleichgewicht suchen, sind an meiner Seite willkommen."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Welcome, child of the wilds. Rest by our fire. The Old Weaves stir again in Illarion, and all who seek balance are welcome by my side."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Willkommen, Kind der Wildnis. Ruht euch am Feuer aus. Die alten Gewebe regen sich erneut in Illarion, und alle, die das Gleichgewicht suchen, sind an meiner Seite willkommen."
+-------------------------------------------------------------------------------
+-- FAREWELLS
+-------------------------------------------------------------------------------
+"Farewell", "Bye", "Fare well", "See you" -> "May the roots beneath keep you steady, and every wind bring you back to harmony."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl"  -> "Mögen die Wurzeln unter dir dich tragen und jeder Wind dich zur Harmonie zurückbringen."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "May the roots beneath keep you steady, and every wind bring you back to harmony."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Mögen die Wurzeln unter dir dich tragen und jeder Wind dich zur Harmonie zurückbringen."
+-------------------------------------------------------------------------------
+-- GENERAL INFO
+-------------------------------------------------------------------------------
+"How are you", "How feel", "How do you do" -> "Old branches may creak but still reach for sunlight. I wake each day with gratitude.","Oh, thank you for asking. Well I feel my sister's presence stronger today, if you must know."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie befind" -> "Alte Äste mögen knarren, doch sie streben weiterhin nach Licht. Für jeden Tag bin ich dankbar.","Danke der Nachfrage. Heute spüre ich die Nähe meiner Schwester besonders stark."
+-------------------------------------------------------------------------------
+-- NAME/BACKGROUND
+-------------------------------------------------------------------------------
+"your name", "who are you", "who art thou" -> "I am Fianna Squall, keeper of the Seer's cauldron and witness to the Old Path and Weaves returning."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Fianna Squall, Hüterin des Seherkessels und Zeugin der Rückkehr der alten Gewebe."
+-------------------------------------------------------------------------------
+-- TRADE
+-------------------------------------------------------------------------------
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I don't offer common trade, but will ensure you have everything you need to explore Ushara's secrets at a fair price."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich biete keinen gewöhnlichen Handel an, aber ich sorge dafür, dass du alles hast, was du brauchst, um Usharas Geheimnisse zu ergründen - zu einem ehrlichen Preis."
+-------------------------------------------------------------------------------
+-- INITIAL QUESTING: THE OLD PATH / DRUID MAGIC / NATURE MAGIC
+-------------------------------------------------------------------------------
+-- Player hasn't started the Old Path yet
+queststatus(691) = 0, english, "quest", "mission" -> queststatus(691) = 1, "So adventurous and curious! Before you can walk with Ushara, however, one must first listen. The Old Weaves stir quietly beneath root and stone, and only those who feel their pull may answer her call.", inform("[Hint] Ask Fianna more about the Old Weaves.")
+queststatus(691) = 0, "task", "adventure" -> queststatus(691) = 1, "So adventurous and curious! Before you can walk with Ushara, however, one must first listen. The Old Weaves stir quietly beneath root and stone, and only those who feel their pull may answer her call.", inform("[Hint] Ask Fianna more about the Old Weaves.")
+queststatus(691) = 0, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission" -> queststatus(691) = 1, "So abenteuerlustig und neugierig! Bevor du jedoch mit Ushara gehen kannst, muss man zuerst zuhören. Die Alten Gewebe regen sich leise unter Wurzel und Stein, und nur jene, die ihren Sog spüren, dürfen ihrem Ruf folgen.", inform("[Hinweis] Frage Fianna nach mehr über die Alten Gewebe.")
+--Repeat instructions if reasking QS1
+queststatus(691) = 1, english, "quest", "mission" -> "You have not inquired about the Old Weaves importance, child of the wild. Ask first, then seek.", inform("[Hint] Ask Fianna more about the Old Weaves.")
+queststatus(691) = 1, "task", "adventure" -> "You have not inquired about the Old Weaves importance, child of the wild. Ask first, then seek.", inform("[Hint] Ask Fianna more about the Old Weaves.")
+queststatus(691) = 1, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission" -> "Du hast nicht nach der Bedeutung der Alten Gewebe gefragt, Kind der Wildnis. Frage zuerst, dann suche.", inform("[Hinweis] Frage Fianna nach mehr über die Alten Gewebe.")
+-- Look to NOVICE INFO Section to progress quest based on lore specific keywords
+-- Loopback for nature magic/alchemy (after local city object commitment)
+queststatus(691) = 4, english, "quest", "mission" -> queststatus(691) = 5, "Well done seeker. I sense your connection to Ushara growing stronger. Would you like to hear about the Old Weaves of Nature Magic or practical lessons on Alchemy?"
+queststatus(691) = 4, "task", "adventure" -> queststatus(691) = 5, "Well done seeker. I sense your connection to Ushara growing stronger. Would you like to hear about the Old Weaves of Nature Magic or practical lessons on Alchemy?"
+queststatus(691) = 4, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission" -> queststatus(691) = 5, "Gut gemacht, Suchender. Ich spüre, wie deine Verbindung zu Ushara stärker wird. Möchtest du mehr über die alten Gewebe der Naturmagie hören oder über praktische Lektionen in der Alchemie?"
+-------------------------------------------------------------------------------
+-- NOVICE INFO ABOUT NATURE MAGIC & ALCHEMY (before path chosen)
+-------------------------------------------------------------------------------
+queststatus(691) < 2, "weaves" -> queststatus(691) = 2, "What many call Nature Magic is, to us, the Old Weaves: Alchemy, Transmutation, Witherweave, Bloomweave, Wildweave, Stoneweave, Deepweave, and the resonance to resist. They are not spells, but living threads endowed within the earth by Ushara, woven through marl and seasons. If you have the patience, I can guide you further along the Old Path.", inform("[Hint] Your understanding of Nature Magic expands, ask about the Old Path to learn more.")
+queststatus(691) < 2, "gewebe" -> queststatus(691) = 2, "Was viele Naturmagie nennen, sind für uns die Alten Gewebe: Alchemie, Transmutation, Welkengewebe, Blütengewebe, Wildgewebe, Steingewebe, Tiefengewebe und die Resonanz des Widerstands. Es sind keine Zauber, sondern lebendige Fäden, die Ushara der Erde selbst eingewoben hat, verwoben durch Mergel und Jahreszeiten. Wenn du die Geduld hast, kann ich dich weiter auf dem Alten Pfad führen.", inform("[Hinweis] Dein Verständnis der Naturmagie wächst - frage nach dem Alten Pfad, um mehr zu erfahren.")
+--Repeat instructions if player asks about Weaves again QS2
+queststatus(691) = 2, english, "weaves", "nature magic" -> "Do not be afraid to ask me about Alchemy, Transmutation, Witherweave, Bloomweave, Wildweave, Stoneweave, Deepweave, or your own resonance to resist but heed me, knowledge isn't enough. When your ready, ask me how to walk the Old Path.", inform("[Hint] Ask about the Old Path to learn more.")
+queststatus(691) = 2, "gewebe" -> "naturmagie", "Fürchte dich nicht, mich nach Alchemie, Transmutation, Welkengewebe, Blütengewebe, Wildgewebe, Steingewebe, Tiefengewebe oder nach deiner eigenen Resonanz des Widerstands zu fragen - doch höre mich gut: Wissen allein genügt nicht. Wenn du bereit bist, frage mich, wie man den Alten Pfad beschreitet.", inform("[Hinweis] Frage nach dem Alten Pfad, um mehr zu erfahren.")
+--Advance Questing once old path or standard triggers are used again
+queststatus(691) = 2, english, "quest", "mission" -> queststatus(691) = 3, "The Old Path is both a rite of passage and an unending road. No teacher alone may grant you entry. Ushara has her own ways, seek my fellow weavers to explore further: Joseph Quatrilla in Cadomyr, Grator Bottlebreak in Galmair, or Vallaria Medrota in Runewick.", inform("[Hint] To further your understanding of Nature Magic head to Cadomyr, Galmair, or Runewick and seek one of Fianna's local druid contacts.")
+queststatus(691) = 2, "task", "adventure", "old path" -> queststatus(691) = 3, "The Old Path is both a rite of passage and an unending road. No teacher alone may grant you entry. Ushara has her own ways, seek my fellow weavers to explore further: Joseph Quatrilla in Cadomyr, Grator Bottlebreak in Galmair, or Vallaria Medrota in Runewick.", inform("[Hint] To further your understanding of Nature Magic head to Cadomyr, Galmair, or Runewick and seek one of Fianna's local druid contacts.")
+queststatus(691) = 2, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission", "alten pfad"-> queststatus(691) = 3, "Der Alte Pfad ist zugleich ein Initiationsritus und ein niemals endender Weg. Kein einzelner Lehrer kann dir allein den Eintritt gewähren. Ushara hat ihre eigenen Wege - suche meine Mitweber auf, um weiter zu forschen: Joseph Quatrilla in Cadomyr, Grator Bottlebreak in Galmair oder Vallaria Medrota in Runewick.", inform("[Hinweis] Um dein Verständnis der Naturmagie weiter zu vertiefen, begib dich nach Cadomyr, Galmair oder Runewick und suche einen von Fiannas örtlichen Druidenkontakten auf.")
+--Loop if Player hasn't accepted being a Druid QS3
+queststatus(691) = 3, english, "quest", "mission" -> "I see you are still a child lost in the wilderness. I cannot guide you further until you have taken your first step along the Old Path. Seek Joseph Quatrilla in Cadomyr, Grator Bottlebreak in Galmair, or Vallaria Medrota in Runewick to further guide you.", inform("[Hint] To further your understanding of Nature Magic head to Cadomyr, Galmair, or Runewick and seek one of Fianna's local druid contacts.")
+queststatus(691) = 3, "task", "adventure" -> "I see you are still a child lost in the wilderness. I cannot guide you further until you have taken your first step along the Old Path. Seek Joseph Quatrilla in Cadomyr, Grator Bottlebreak in Galmair, or Vallaria Medrota in Runewick to further guide you.", inform("[Hint] To further your understanding of Nature Magic head to Cadomyr, Galmair, or Runewick and seek one of Fianna's local druid contacts.")
+queststatus(691) = 3, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission" -> "Ich sehe, du bist noch immer ein Kind, verloren in der Wildnis. Ich kann dich nicht weiter führen, bevor du nicht deinen ersten Schritt auf dem Alten Pfad getan hast. Suche Joseph Quatrilla in Cadomyr, Grator Bottlebreak in Galmair oder Vallaria Medrota in Runewick auf, um weitergeleitet zu werden.", inform("[Hinweis] Um dein Verständnis der Naturmagie weiter zu vertiefen, begib dich nach Cadomyr, Galmair oder Runewick und suche einen von Fiannas örtlichen Druidenkontakten auf.")
+-------------------------------------------------------------------------------
+-- Old Weaves teasers for novices: Alchemy, Transmutation, Wither, Bloom, Wild, Stone, Deep, and Resistance
+-------------------------------------------------------------------------------
+--Alchemy Teaser
+queststatus(691) < 4, english, "alchemist" -> "Alchemy is the tradition of drawing nature's essence into potions. It is a helpful path, and often walked alongside the other Weaves. If you wish to know the art in depth, return to me after speaking to one of the city's druids and confirming your commitment.", inform("[Hint] Once you've accepted the Old Path or Nature Magic Fianna has agreed to teach you more about Alchemy.")
+queststatus(691) < 4, "alchemy", "potion" -> "Alchemy is the tradition of drawing nature's essence into potions. It is a helpful path, and often walked alongside the other Weaves. If you wish to know the art in depth, return to me after speaking to one of the city's druids and confirming your commitment.", inform("[Hint] Once you've accepted the Old Path or Nature Magic Fianna has agreed to teach you more about Alchemy.")
+queststatus(691) < 4, "alchemie", "alchemist", "trank" -> "Alchemie ist die Tradition, die Essenz der Natur in Tränke zu ziehen. Sie ist ein hilfreicher Pfad und wird oft neben den anderen Geweben beschritten. Wenn du diese Kunst in ihrer Tiefe erlernen möchtest, kehre zu mir zurück, nachdem du mit einem der Druiden deiner Stadt gesprochen und dein Bekenntnis bestätigt hast.", inform("[Hinweis] Sobald du den Alten Pfad oder die Naturmagie angenommen hast, hat Fianna zugestimmt, dich weiter in Alchemie zu unterrichten.")
+--Transmutation Teaser
+queststatus(691) < 4, english, "transmutation", "transmute" -> "Transmutation is the craft of channeling and weaving nature's essence into a receptive medium capable of harnessing the Old Weaves resonance. If you are accepted along the Path, I'll share and teach you more."
+queststatus(691) < 4, "transmutation", "transmute" -> "Transmutation ist die Kunst, die Essenz der Natur zu kanalisieren und in ein aufnehmendes Medium zu weben, das die Resonanz der Alten Gewebe nutzen kann. Wenn du auf dem Pfad angenommen wirst, werde ich mehr mit dir teilen und dich lehren."
+--Wither Teaser
+queststatus(691) < 4, "Wither" -> "Witherweave is the dance of endings, of autumn's wisdom: decay that feeds renewal, and poison that saves land from blight. The path of withering is not cruelty, but careful keeping of balance."
+queststatus(691) < 4, "Welken" -> "Welkengewebe ist der Tanz des Endes, der Weisheit des Herbstes: Verfall, der Erneuerung nährt, und Gift, das das Land vor Seuchen bewahrt. Der Weg des Welkens ist keine Grausamkeit, sondern das sorgfältige Bewahren des Gleichgewichts."
+--Bloom Teaser
+queststatus(691) < 4, "Bloom" -> "Bloomweave is the uncoiling of roots, spring's promise: a flourish of growth, renewal, and gentle tending. Those who walk among petals and new leaves learn the strength of nurture. Continue learning."
+queststatus(691) < 4, "Blüten" -> "Blütengewebe ist das Entrollen der Wurzeln, das Versprechen des Frühlings: ein Aufblühen von Wachstum, Erneuerung und sanfter Pflege. Wer unter Blütenblättern und neuen Blättern wandelt, lernt die Kraft der Fürsorge. Lerne weiter."
+--Wild Teaser
+queststatus(691) < 4, english, "Wild" -> "Wildweave is the song of beast and summer's vitality: an untamed, eternal dance of all living things. To those who follow it, the wild is mentor, both fierce and kin."
+queststatus(691) < 4, "Wild" -> "Wildgewebe ist der Gesang der Bestien und die Vitalität des Sommers: ein ungezähmter, ewiger Tanz aller Lebewesen. Für jene, die ihm folgen, ist die Wildnis Lehrmeisterin, zugleich wild und vertraut."
+--Stone Teaser
+queststatus(691) < 4, "Stone" -> "Stoneweave is winter's enduring patience, memory, and the strength of roots that endure. The path of stone teaches history and harmony, grounding those who wander the winds."
+queststatus(691) < 4, "Stein" -> "Steingewebe ist die beständige Geduld des Winters, Erinnerung und die Stärke der Wurzeln, die bestehen. Der Weg des Steins lehrt Geschichte und Harmonie und verankert jene, die den Winden folgen."
+--Deep Teaser
+queststatus(691) < 4, "Deep" -> "The Deepweave is the shadow beneath all roots - a current unseen, older than memory. Only those who understand how endings feed renewal, how wildness and stone hold life together, may seek the Deep with my guidance."
+queststatus(691) < 4, "Tiefen"-> "Das Tiefengewebe ist der Schatten unter allen Wurzeln - ein unsichtbarer Strom, älter als die Erinnerung. Nur jene, die verstehen, wie das Ende Erneuerung nährt und wie Wildnis und Stein das Leben zusammenhalten, dürfen mit meiner Führung die Tiefen suchen."
+--Nature Magic Resistance Teaser
+queststatus(691) < 4, "resist" -> "Nature Magic is not always gentle. Those who walk in balance learn, over time, to endure wither's grasp, the press of stone, the choking grasp of vines. This attunement does not block the Weaves, but teaches the body and spirit how to bend without breaking."
+queststatus(691) < 4, "Widerstand" -> "Naturmagie ist nicht immer sanft. Wer im Gleichgewicht wandelt, lernt mit der Zeit, den Griff des Welkens, den Druck des Steins und das würgende Umklammern der Ranken zu ertragen. Diese Einstimmung blockiert die Gewebe nicht, sondern lehrt Körper und Geist, sich zu beugen, ohne zu brechen."
+-------------------------------------------------------------------------------
+-- NATURE MAGIC QUESTING STARTS (after accepting Druid Magic)
+-------------------------------------------------------------------------------
+queststatus(691) = 5, queststatus(692) = 0, "nature magic", "druid", "weaves", "old path" -> queststatus(692) = 1, "Nature Magic begins with listening and attunement. Seek the Twin Eyes Islands, south of Runewick. I find the farther you wander, the easier it is to truly hear. Sit quietly there and let the island's spirit touch you. Return and tell me what you heard."
+queststatus(691) = 5, queststatus(692) = 0, "naturmagie", "druide", "gewebe", "alter Pfad" -> queststatus(692) = 1, "Naturmagie beginnt mit Zuhören und Einstimmung. Suche die Inseln der Zwillingsaugen südlich von Runewick auf. Ich finde, je weiter du wanderst, desto leichter ist es, wirklich zu hören. Setze dich dort still nieder und lass den Geist der Insel dich berühren. Kehre zurück und erzähle mir, was du gehört hast."
+-------------------------------------------------------------------------------
+-- POST DRUID NATURE MAGIC INTRODUCTION & INITIATION
+-------------------------------------------------------------------------------
+-- Repeating instructions of where to go
+queststatus(691) = 5, queststatus(692) = 1, english, "nature magic", "druid path", "weave", "learn nature", "old path" -> "Give yourself more time to listen on Twin Eyes Islands. Remember, the deeper you go, the more likely you are to hear. Return to me only once you feel the land has spoken clearly to you."
+-- TODO NM1 set QuestID (692) queststatus to 2 when player meditates on Twin Eyes Islands and give inform to ask Fianna about Cor Valis
+-- Telling player to craft a sigil
+queststatus(692) = 2, english, "Cor Valis" -> queststatus(692) = 3, "The wood's silence wraps around you, ancient and deep. I see by your eyes, Cor Valis calls to you, as so many have since the dawn of time. Now claim or craft a plain wooden sigil. When you have one, say: 'I have my sigil.'", inform("[Hint] Find or craft a blank wooden sigil (carpentry or Fianna's shop). You need this to start your ritual journey.")
+-- Repeating sigil information
+queststatus(692) = 3, english, "Cor Valis" -> "You must first find or craft a plain wooden sigil, unmarked and simple. When you have it, return and say: 'I have my sigil.'", inform("[Hint] Seek out a blank wooden sigil (carpentry or Fianna's shop) to begin your ritual journey.")
+-- TODO NM2 Need logic for Fianna to check player's inventory for a blank wooden sigil
+-- Setting all Cor Weave statuses to 1 to start Druid Sub-Class Branching upon showing you have a sigil
+queststatus(692) = 4, english, "I have my sigil" -> queststatus(692) = 5, queststatus(694) = 1, queststatus(693) = 1, queststatus(696) = 1, queststatus(697) = 1, queststatus(695) = 1, "This sigil in your hands is possibility itself. Now, the Old Path opens in five Cor Weaves: Wither, Bloom, Wild, Stone, and Deep. When you know your way, say: 'Cor Valis Sindeim.'", inform("[Hint] Ask about Wither, Bloom, Wild, Stone, and Deep. Say 'Cor Valis Sindeim.' only after you have learned more about all five.")
+-- Repeating previous inform
+queststatus(692) = 5, english, "I have my sigil", "sigil" -> "Hold onto your sigil. Now your task is to ask about the Wither, Bloom, Wild, Stone, and Deep Weaves. When you have learned about each, say: 'Cor Valis Sindeim.'", inform("[Hint] Ask about every Cor Weave: Witherweave, Bloomweave, Wildweave, Stoneweave, and Deepweave. Say 'Cor Valis Sindeim.' to move forward.")
+-------------------------------------------------------------------------------
+-- COR WEAVE ADVANCEMENT I
+-------------------------------------------------------------------------------
+-- WITHERWEAVE ADVANCEMENT I
+queststatus(694) = 1, english, "Wither", "Witherweave" -> queststatus(694) = 2, "Witherweave is the dance of endings, of autumn's wisdom: decay that feeds renewal, and poison that saves land from blight. The path of withering is not cruelty, but careful keeping of balance.", inform("[Hint] You have learned the lesson of Witherweave. Continue learning about the other weaves before you proceed.")
+-- Reinforcing knowledge learned and next steps for Cor Valis advancement
+queststatus(694) = 2, english, "Wither", "Witherweave" -> "You now hold a novice understanding of Witherweave, but true knowledge comes with practice. Learn the basics of Bloom, Wild, Stone, and Deep, and return to me once you are ready to walk Cor Valis in truth.", inform("[Hint] Study each Cor Weave in turn. You must understand all before continuing.")
+-- BLOOMWEAVE ADVANCEMENT I
+queststatus(693) = 1, english, "Bloom", "Bloomweave" -> queststatus(693) = 2, "Bloomweave is the uncoiling of roots, spring's promise: a flourish of growth, renewal, and gentle tending. Those who walk among petals and new leaves learn the strength of nurture. Continue learning.", inform("[Hint] You have learned the lesson of Bloomweave. Continue learning about the other weaves before you proceed.")
+-- Reinforcing knowledge learned and next steps for Cor Valis advancement
+queststatus(693) = 2, english, "Bloom", "Bloomweave" -> "You now hold a novice understanding of Bloomweave, but true mastery comes through tending and patience. Explore Wither, Wild, Stone, and Deep before returning to walk Cor Valis further.", inform("[Hint] Study each Cor Weave in turn. You must understand all before continuing.")
+-- WILDWEAVE ADVANCEMENT I
+queststatus(696) = 1, english, "Wild", "Wildweave" -> queststatus(696) = 2, "Wildweave is the song of beast and summer's vitality: an untamed, eternal dance of all living things. To those who follow it, the wild is mentor, both fierce and kin.", inform("[Hint] You have learned the lesson of Wildweave. Continue learning about the other weaves before you proceed.")
+-- Reinforcing knowledge learned and next steps for Cor Valis advancement
+queststatus(696) = 2, english, "Wild", "Wildweave" -> "You now understand the wild's call, but living the truth of Wildweave demands experience. Learn Wither, Bloom, Stone, and Deep before you continue the Cor Valis.", inform("[Hint] Study each Cor Weave in turn. You must understand all before continuing.")
+-- STONEWEAVE ADVANCEMENT I
+queststatus(697) = 1, english, "Stone", "Stoneweave" -> queststatus(697) = 2, "Stoneweave is winter's enduring patience, memory, and the strength of roots that endure. The path of stone teaches history and harmony, grounding those who wander the winds.", inform("[Hint] You have learned the lesson of Stoneweave. Continue learning about the other weaves before you proceed.")
+-- Reinforcing knowledge learned and next steps for Cor Valis advancement
+queststatus(697) = 2, english, "Stone", "Stoneweave" -> "You now have a novice understanding of Stoneweave, but the roots of wisdom run deep. Study Wither, Bloom, Wild, and Deep, then return to me for the true Cor Valis path.", inform("[Hint] Study each Cor Weave in turn. You must understand all before continuing.")
+-- DEEPWEAVE ADVANCEMENT I
+queststatus(695) = 1, english, "Deep", "Deepweave" -> queststatus(695) = 2, "The Deepweave is the shadow beneath all roots - a current unseen, older than memory. Only those who understand how endings feed renewal, how wildness and stone hold life together, may seek the Deep with my guidance.", inform("[Hint] The Deepweave may only be pursued when you have completed knowledge of all other Cor Weaves.")
+-- Reinforcing novice status and gating deeper Deepweave truths
+queststatus(695) = 2, english, "Deep", "Deepweave" -> "I have seen too many drift too far, too fast, into the Deepweave's shadows. I ask you to trust me. Learn to ground yourself in the knowledge I share, and prove you seek balance and harmony among Wither, Bloom, Wild, and Stone. Then we can speak more about the Deep.", inform("[Hint] Show a proven grasp of each Cor Weave before seeking more of the Deep.")
+-- Gate: Only allow 'Cor Valis Sindeim' when all Cor Weave paths are 2
+queststatus(694) = 2, queststatus(693) = 2, queststatus(696) = 2, queststatus(697) = 2, queststatus(695) = 2, english, "Cor Valis Sindeim" -> queststatus(692) = 6, "The roots of understanding take hold. You are ready to choose a branch and delve deeper, aspirant. Sit with me, speak the invocation 'Cor Valis Contendiem', and listen to what the winds will tell you about Transmutation.", inform("[Hint] Sit on the log near Fianna and say 'Cor Valis Contendiem' to continue or ask about Transmutation.")
+-- If not all at 2
+queststatus(692) = 5, english, "Cor Valis Sindeim" -> "You still have more to learn. Make sure you ask about each Cor Weave: Wither, Bloom, Wild, Stone, and Deep. Only when you have learned something of them all can you take the next step.", inform("[Hint] Ask about every Cor Weave: Wither, Bloom, Wild, Stone, and Deep before you continue.")
+-- NATURE MAGIC CONTINUED: Player ready to select a Cor Weave location and learn their next step
+queststatus(692) = 6, english, "Cor Valis Contendiem" -> "You are ready, aspirant. Choose a place where the weave speaks loudest. Listen closely, for Wither: seek Dewy Swamp, Bloom: north of Runewick, Wild: roam Nargun's Plain, Stoneweave: go into the Malachite Mine. As for the Deep, now is not the time...", inform("[Hint] Try: asking about Dewy Swamp, North of Runewick, Nargun's Plain, Malachite Mine, or 'why is it not the time'.")
+-------------------------------------------------------------------------------
+-- COR WEAVE ADVANCEMENT II
+-------------------------------------------------------------------------------
+-- WITHERWEAVE ADVANCEMENT II
+queststatus(692) = 4, queststatus(694) = 1, english, "Witherweave", "Wither", "Dewy Swamp" -> queststatus(694) = 2, "To walk the path of endings, go to Dewy Swamp. Find where shadowed mushrooms cluster near a stale stream and sit quietly among them. Listen for the lesson of Witherweave.", inform("[Hint] Go to Dewy Swamp and sit near the glowing mushrooms.")
+---------
+-- TODO: 
+-- NMW1 questID (694) queststatus to 3 when the player sits around the mushroom cluster itemID 421 & 422 and is told which reagents to collect.
+-- NMW2 Add logic for Fianna to check for Night Angels Blossom, a Bulbsponge mushroom, and a blank sigil in player inventory when player returns
+---------
+queststatus(694) = 3, english, "Witherweave Sigil", "wither sigil" -> queststatus(694) = 4, "You've listened well aspirant. Now cross the bridge into Deadmarsh. There you will find an old Weaver's Stump suitable for weaving those reagents into a Cor Wither Sigil.", inform("[Hint] Bring a Night Angels Blossom, a Bulbsponge mushroom, and a blank sigil to the Weaver's Stump in Deadmarsh.")
+---------
+-- TODO: 
+-- NMW3 Add itemID 1182 to Deadmarsh as the Weaver's Stump, just across the bridge with a lookat
+-- NMW4 Make stump clickable with a lore-based inform to help player use the stump. As if sensing what to do.
+-- NMW5 A helpful inform to have the player return to Fianna when the sigil is made
+-- NMW6 Set questID (694) queststatus to 5 once the item is created and give inform to tell Fianna to 'continue Witherweave path'.
+---------
+queststatus(694) = 5, english, "continue Witherweave path",  "continue wither path"-> queststatus(694) = 6, "Your understanding of endings and decay deepens, well done aspirant. From here on out, you may use this Seer's Cauldron to scry for new Wither weaves.", inform("[Hint] Ask about the 'seer's cauldron' to learn more.")
+-- TODO: 
+-- NMW7 Need to make sure the Seer's Cauldron only allows you to look for new weaves once you learn the appropriate Cor Weave (eg Wither, Bloom, etc...)
+-- BLOOMWEAVE ADVANCEMENT II
+queststatus(692) = 4, queststatus(693) = 1, english, "Bloomweave", "Bloom", "north of Runewick" -> queststatus(693) = 2, "Go north of Runewick, into the deep woods in search a tree with golden blooms. Sit quietly beneath the Gilded Mevrannon Tree and let yourself listen for the lesson of renewal.", inform("[Hint] Sit beneath the golden-blossomed tree and listen to the woods north of Runewick.")
+-- TODO: 
+-- NMB1 questID (693) queststatus to 3 when the player sits under the Gilded Mevrannon Tree itemID 961 with a lookat.
+-- NMB2 Add logic for Fianna to check for Daydream, a Donf Blade, and a blank sigil in player inventory when player returns
+queststatus(693) = 3, english, "Bloomweave Sigil", "bloom sigil" -> "Your spirit rests in the promise of new growth. For the Bloomweave, you must take your Daydream, a Donf Blade, and a blank sigil to the ancient Weaver's Stump nestled in quiet woods of Yewdale and let the blossoms guide your hands.", inform("[Hint] Bring a Daydream, a Donf Blade, and a blank sigil to the Weaver's Stump somewhere in Yewdale's forest.")
+-- TODO: 
+-- NMB3 Add itemID 1182 for the altar/Weaver site, make it interactive.
+-- NMB4 Add lookat and make it sense the ritual action.
+-- NMB5 Inform player to return to Fianna with the finished Cor Bloom Sigil after crafting.
+-- NMB6 Advance queststatus(693) = 5 once sigil is created, inform to proceed.
+queststatus(693) = 5, english, "continue Bloomweave path", "continue bloom path" -> queststatus(693) = 6, "Your understanding of gentle growth blossoms. With this sigil, you may scry for new Bloomweave paths using the Seer's Cauldron.", inform("[Hint] Ask about the 'seer's cauldron' if you would learn more of this ritual.")
+-- TODO: Make sure Seer's Cauldron only shows players weaves from Cor Weave sigils they have created.
+-- WILDWEAVE ADVANCEMENT II
+queststatus(692) = 4, queststatus(696) = 1, english, "Wildweave", "Wild", "Nargun's Plain" -> queststatus(696) = 2, "Journey to Nargun's Plain, where the hounds dig and the wild runs free. Find the hollow marked by claw and bone, and sit quietly to listen for Wildweave's call.", inform("[Hint] Sit among the hounds' hollow and listen to the wild at Nargun's Plain.")
+-- TODO: 
+--  NMW1 questID (696) queststatus to 3 when the player sits at the hounds' hollow (object/area, like itemID 498) and is told which reagents to collect.
+--  NMW2 Add logic for Fianna to check for Wolverine Fern, Flamegoblet Blossom, and a blank sigil when player returns.
+queststatus(696) = 3, english, "Wildweave Sigil", "wild sigil" -> queststatus(696) = 4, "You've listened well, aspirant, and felt the untamed heart of the wild. Carry Wolverine Fern and Flamegoblet Blossom, with your blank sigil, across the bridge to Galmair and look for a worn Weaver's Stump where hogs run wild. There, let your hands shape the Cor Wild Sigil.", inform("[Hint] Bring Wolverine Fern, Flamegoblet Blossom, and a blank sigil where hogs run wild between Trolls Haven and Galmair, in search of the Weaver's Stump.")
+-- TODO: 
+--  NMW3 Add itemID 1182 near the pigs between Trolls Haven and Galmair, make it interactive with a lookat. 
+--  NMW4 Make the stone circle usable for creating the sigil, with lore-based inform.
+--  NMW5 After the sigil is made (object/interaction), set questID (696) queststatus to 5 and prompt player to return to Fianna.
+queststatus(696) = 5, english, "continue Wildweave path", "continue wild path" -> queststatus(696) = 6, "The wild's rhythm beats in your step. Now you may use the Seer's Cauldron to seek new Wildweave patterns when ready.", inform("[Hint] The 'seer's cauldron' will help you uncover more Wild weaves now.")
+-- STONEWEAVE ADVANCEMENT II
+queststatus(692) = 4, queststatus(697) = 1, english, "Stoneweave", "Stone", "Malachite Mine" -> queststatus(697) = 2, "Descend into the Malachite Mine, where the stones remember every hand. Find a silent place in the mine and sit among the ancient rocks to listen for Stoneweave's echoes.", inform("[Hint] Find a calm place in the Malachite Mine and listen by sitting among the stones.")
+-- TODO: 
+--  NMS1 questID (697) queststatus to 3 when the player sits in the correct mining spot and is told which reagents to collect.
+--  NMS2 Add logic for Fianna to check for Gold Crack Herb, Steppe Fern, and a blank sigil when player returns.
+queststatus(697) = 3, english, "Stoneweave Sigil", "stone sigil" -> queststatus(697) = 4, "I see stone has whispered to you. Carry the Gold Crack Herb and Steppe Fern, along with your blank sigil, into the coldest, most distant caves beneath the earth. There, amongst the listless, seek the Icewold Weaver's stone to craft your Cor Stone Sigil.", inform("[Hint] Bring Gold Crack Herb, Steppe Fern, and a blank sigil to the frozen depths below, among the harmless undead and find the Icewold Weaver's Stone to craft your Cor Stone Sigil.")
+-- TODO:
+--  NMS3 Add itemID 914, 1218, 1245, or 1278 for the Icewold Weaver's Stonel, make it interactive, add lore-based inform/text at anvil.
+--  NMS4 After sigil creation, set questID (697) queststatus = 5; prompt player to return to Fianna to complete the path.
+queststatus(697) = 5, english, "continue Stoneweave path", "continue stone path" -> queststatus(697) = 6, "Stone's memory and patience are now your strength. Look to the Seer's Cauldron when you seek further wisdom in Stoneweave.", inform("[Hint] Ask about the 'seer's cauldron' to discover further Stoneweave.")
+-------------------------------------------------------------------------------
+-- DEEPWEAVE ADVANCEMENT II (GATED/PENDING DEV)
+-------------------------------------------------------------------------------
+queststatus(692) = 4, queststatus(695) = 1, english, "Deepweave", "Deep", "Ushara's Paradise" -> "You sense the Deepweave stirring, but its path is not yet ready. Establish yourself in Wither, Bloom, Wild, and Stone before seeking the deep mystery.", inform("[Hint] Advance your understanding in the other Cor Weaves before you walk the Deep.")
+-------------------------------------------------------------------------------
+-- [GATED: REMOVE THESE COMMENTS AND XXX WHEN READY TO IMPLEMENT DEEPWEAVE ADVANCEMENT]
+-------------------------------------------------------------------------------
+-- queststatus(692) = XX, queststatus(694) = XX, queststatus(693) = XX, queststatus(696) = XX, queststatus(697) = XX, queststatus(695) = XX, english, "Deepweave", "Deep" -> queststatus(695) = XX, "Descend into Ushara's paradise, where roots knot in living darkness. Sit within those silent groves and listen for the oldest song.", inform("[Hint] Find Ushara's hidden underground grove and listen to the earth's deepest root.")
+-- TODO:
+-- NMD1 questID (695) queststatus to XX when the player sits in the correct location and is told which reagents to collect. Determine where the player needs to sit.
+-- NMD2 Add logic for Fianna to check for Heart Blood, Mandrake, and a blank sigil when player returns.
+-- queststatus(695) = XX, english, "Deepweave Sigil", "deep sigil" -> queststatus(695) = XX, "I see the Deep spoke to you. Now, take your Heart Blood, Mandrake, and a blank sigil to the Forgotten Weaver's Stump. Search north of Elstree, look for an abandoned underground shaft. There you will find solace and the relic to craft your Cor Deep Sigil.", inform("[Hint] Bring Heart Blood, Toadstool, and a blank sigil to the secluded underground you'll find north of the Elstree Forest.")
+-- NMD3 Add appropriate itemID 1182 for Forgotten Weaver's Stump, make it interactive, add lookat text.
+-- NMD4 On sigil creation, set questID (695) queststatus = XX; tell player to return to Fianna.
+-- queststatus(695) = XX, english, "continue Deepweave path", "continue deep path" -> queststatus(695) = XX, "You walk with the shadow beneath roots. In time, the Seer's Cauldron may reveal more secrets of Deepweave, now you are trusted with its mysteries.", inform("[Hint] Ask about the 'seer's cauldron' to seek the Deep's further wisdom.")
+-------------------------------------------------------------------------------
+-- COR WEAVE ADVANCEMENT III / WIP
+-------------------------------------------------------------------------------
+-- TODO
+-- Options to progress Cor Weave Quests in order to learn Deepweave and use the Seer's Cauldron. Need to work on what options Fianna or the Cauldron has to monitor progress
+-- A Once player learns 2-3 weaves from each Cor Weave?
+-- B Once player reach a certain skill level?
+-------------------------------------------------------------------------------
+-- POST DRUID ALCHEMY PATH (699)
+-------------------------------------------------------------------------------
+--TODO Create branching for teaching Alchemy - TBD
+queststatus(699) = 0, english, "alchemy", "alchemist", "potion", "brew", "learn alchemy" -> "ALCPLACEHOLDER"
+queststatus(699) = 1, english, "alchemy", "alchemist", "potion", "brew", "learn alchemy" -> "ALCPLACEHOLDER"
+-------------------------------------------------------------------------------
+-- TRANSMUTATION PATH (698)
+-------------------------------------------------------------------------------
+queststatus(698) = 0, english, "transmutation", "transmute" -> queststatus(698) = 1, "Transmutation is the craft of channeling and weaving nature's essence. To truly master it, every druid should understand Cor Sigils, Sigil Weaves, and Talismans. Ask about them by name, or ask more about transmutation.", inform("[Hint] Try: how does transmutation work, Cor Sigil, Sigil Weaves, Talismans.")
+queststatus(698) = 0, "transmute" -> queststatus(698) = 1, "Transmutation is the craft of channeling and weaving nature's essence. To truly master it, every druid should understand Cor Sigils, Sigil Weaves, and Talismans. Ask about them by name, or ask more about transmutation.", inform("[Hint] Try: how does transmutation work, Cor Sigil, Sigil Weaves, Talismans.")
+queststatus(698) = 0, "Transmutation", "Transmutieren" -> queststatus(698) = 1, "Transmutation ist die Kunst, die Essenz der Natur zu kanalisieren und zu verweben. Um sie wirklich zu meistern, sollte jeder Druide Cor-Siegel, Sigil-Gewebe und Talismane verstehen. Frage nach ihnen beim Namen oder frage mehr über Transmutation.", inform("[Hinweis] Versuche: wie funktioniert Transmutation, Cor-Siegel, Sigil-Gewebe, Talismane.")
+
+queststatus(698) = 1, "how does transmutation work", "explain transmutation", "transmutation overview" -> queststatus(698) = 2, "Transmutation has three core parts: Cor Sigils, Sigil Weaves, and Talismans. Each step builds upon the last, ask me in order to help guide you better.", inform("[Hint] Try: Cor Sigil first, then Sigil Weaves, and lastly Talismans.")
+queststatus(698) = 1, "wie funktioniert Transmutation", "Transmutation erklären", "Transmutation Übersicht" -> queststatus(698) = 2, "Transmutation hat drei Kernteile: Cor-Siegel, Sigil-Gewebe und Talismane. Jeder Schritt baut auf dem vorherigen auf, frage mich in der richtigen Reihenfolge, um bessere Anleitung zu erhalten.", inform("[Hinweis] Versuche: zuerst Cor-Siegel, dann Sigil-Gewebe, zuletzt Talismane.")
+
+queststatus(698) = 2, "how does transmutation work", "explain transmutation", "transmutation overview" -> queststatus(698) = 3, "I've shared all I know about transmutation- keep asking and learning about weaves and don't neglect your Cor Valis! Perhaps one day my research will bear fruit too.", inform("[Hint] Ask Fianna about her research.")
+queststatus(698) = 2, "wie funktioniert Transmutation", "Transmutation erklären", "Transmutation Übersicht" -> queststatus(698) = 3, "Ich habe alles geteilt, was ich über Transmutation weiß - frage weiter, lerne über Gewebe und vernachlässige dein Cor Valis nicht! Vielleicht wird meine Forschung eines Tages Früchte tragen.", inform("[Hinweis] Frage Fianna nach ihrer Forschung.")
+
+"research"  -> "Ah, my research? I believe that in time, it may become possible for skilled druids to call forth their own Weaver Stumps or Stones, given a place that welcomes such weaves. I have not finished my work yet, but if you remain curious, return to me another season - I'll gladly share any progress."
+"Forschung" -> "Ah, meine Forschung? Ich glaube, dass es mit der Zeit möglich werden könnte, dass erfahrene Druiden ihre eigenen Weberstümpfe oder -steine herbeirufen, wenn es einen Ort gibt, der solche Gewebe willkommen heißt. Meine Arbeit ist noch nicht abgeschlossen, aber wenn du neugierig bleibst, kehre in einer anderen Saison zu mir zurück - ich teile gerne jeden Fortschritt."
+
+"cor sigil" -> "A Cor Sigil is the foundation of Nature  Magic - a vessel made to hold the essence of nature. Carpenters can dormant sigils, then study about Cor Weaves with me, I'll ask you to gather special reagents, and visit a weaver stump or stone. There, you must use your bond with nature to infuse the sigil with purpose and power.", inform("[Hint] Be sure to ask about Sigil Weaves and Talismans too.")
+"Cor-Siegel" -> "Ein Cor-Siegel ist die Grundlage der Naturmagie - ein Gefäß, geschaffen, um die Essenz der Natur zu halten. Handwerker können ruhende Siegel herstellen, dann mit mir über Cor-Gewebe lernen. Ich werde dich bitten, spezielle Zutaten zu sammeln und einen Weberstumpf oder -stein zu besuchen. Dort musst du deine Verbindung zur Natur nutzen, um das Siegel mit Zweck und Kraft zu erfüllen.", inform("[Hinweis] Frage auch unbedingt nach Sigil-Geweben und Talismanen.")
+
+"sigil weave" -> "Weaves are spells or patterns of energy that can be learned and stored within your Cor Sigil. Druids learn new weaves from the Seer's Cauldron, gather unique reagents for each, and then bring both to a weaver site to weave nature's power into their Cor Sigil. Each weave has its own unique effect and purpose.", inform("[Hint] Be sure to ask about Talismans and Cor Sigils - if you haven't already!")
+"Sigil-Gewebe" -> "Gewebe sind Zauber oder Energiemuster, die erlernt und in deinem Cor-Siegel gespeichert werden können. Druiden lernen neue Gewebe aus dem Kessel des Sehers, sammeln für jedes einzigartige Zutaten und bringen beides zu einer Weberstelle, um die Kraft der Natur in ihr Cor-Siegel zu verweben. Jedes Gewebe hat seine eigene Wirkung und seinen eigenen Zweck.", inform("[Hinweis] Frage unbedingt auch nach Talismane und Cor-Siegel, falls noch nicht geschehen!")
+
+english, "talisman" -> "Talismans are wards of great power, created by experienced druids. A talisman, once prepared, can be given to companions. Anyone holding your talisman can receive a released weave. This makes talismans invaluable for protecting allies on their journeys.", inform("[Hint] If you've asked about Cor Sigils, Sigil Weaves, and Talismans, perhaps Fianna will tell you more about Transmutation.")
+"Talismane" -> "Talismane sind mächtige Schutzamulette, erschaffen von erfahrenen Druiden. Ein Talisman, einmal vorbereitet, kann Gefährten gegeben werden. Jeder, der deinen Talisman hält, kann ein freigegebenes Gewebe empfangen. Dies macht Talismane unverzichtbar, um Verbündete auf ihren Reisen zu schützen.", inform("[Hinweis] Wenn du bereits nach Cor-Siegeln, Sigil-Geweben und Talismanen gefragt hast, wird dir Fianna vielleicht mehr über Transmutation erzählen.")
+
+-------------------------------------------------------------------------------
+-- CITY DRUID INFO
+-------------------------------------------------------------------------------
+"town", "commit", "path", "learn", "contact" -> "In each faction I have friendly contacts to assist you: Cadomyr, speak with Joseph Quatrilla; Galmair, look for Grator Bottlebreak; Runewick, find Vallaria Medrota to set you on Ushara's path."
+"Stadt", "Verpflichtung", "Pfad", "lernen", "Kontakt" -> "In jeder Fraktion habe ich freundliche Kontakte, die dir helfen können: Cadomyr, sprich mit Joseph Quatrilla; Galmair, suche Grator Bottlebreak; Runewick, finde Vallaria Medrota, um dich auf Usharas Pfad zu führen."
+
+-- Cadomyr (shared triggers)
+english, "Quatrilla", "Joseph" -> "My dear friend, Joseph Quatrilla, can be found in the town square of Cadomyr."
+"Quatrilla", "Joseph" -> "Mein lieber Freund, Joseph Quatrilla, ist auf dem Marktplatz von Cadomyr zu finden."
+
+queststatus(691) = 1, "Cadomyr contact", "Cadomyr druid", "Cadomyr weaver"-> "The contact in Cadomyr is Joseph Quatrilla, usually found in the town square."
+queststatus(691) = 1, "Cadomyr-Kontakt", "Cadomyr-Druide", "Cadomyr-Weber", "Cadomyr Kontakt", "Cadomyr Druide", "Cadomyr Weber" -> "Der Kontakt in Cadomyr ist Joseph Quatrilla; normalerweise auf dem Marktplatz zu finden."
+
+-- Galmair (shared triggers)
+english, "Bottlebreak", "Grator" -> "Ole Grator, have a look outside the alchemy hall of Galmair, near the main gate."
+"Bottlebreak", "Grator" -> "Ole Grator, sieh außerhalb der Alchemiehalle von Galmair nach, in der Nähe des Haupttors."
+
+queststatus(691) = 1, "Galmair contact", "Galmair druid", "Galmair weaver" -> "The contact in Galmair is Grator Bottlebreak; look outside the alchemy hall near the main gate."
+queststatus(691) = 1, "Galmair-Kontakt", "Galmair-Druide", "Galmair-Weber", "Galmair Kontakt", "Galmair Druide", "Galmair Weber" -> "Der Kontakt in Galmair ist Grator Bottlebreak; sieh außerhalb der Alchemiehalle in der Nähe des Haupttors nach."
+
+-- Runewick (shared triggers)
+english, "Medrota", "Vallaria" -> "Vallaria can be found near the Runewick hospital."
+"Medrota", "Vallaria" -> "Vallaria ist in der Nähe des Krankenhauses von Runewick zu finden."
+
+queststatus(691) = 1, "Runewick contact", "Runewick druid", "Runewick weaver" -> "The contact in Runewick is Vallaria Medrota; she can be found by the hospital."
+queststatus(691) = 1, "Runewick-Kontakt", "Runewick-Druide", "Runewick-Weber", "Runewick Kontakt", "Runewick Druide", "Runewick Weber" -> "Der Kontakt in Runewick ist Vallaria Medrota; sie ist beim Krankenhaus zu finden."
+
+-------------------------------------------------------------------------------
+-- ITEM SHOP DETAILS
+-------------------------------------------------------------------------------
+"staff", "Cor Staff" -> "The Cor Staff is the conduit by which a druid connects with the earth. Hold it with respect, and remember: it binds as much as it frees."
+"Stab", "Cor-Stab" -> "Der Cor-Stab ist das Medium, durch das ein Druide sich mit der Erde verbindet. Halte ihn mit Respekt und erinnere dich: Er bindet ebenso viel, wie er freigibt."
+
+"pouch", "weave pouch" -> "Our Weave Pouch can safely hold your crafted Sigils, each a unique thread in the greater Weave."
+"Tasche", "Gewebetasche" -> "Unsere Gewebetasche kann deine gefertigten Siegel sicher aufbewahren, jedes ein einzigartiger Faden im größeren Gewebe."
+
+-------------------------------------------------------------------------------
+-- PERSONAL HISTORY / FIJANNA HOOK
+-------------------------------------------------------------------------------
+english, "Fijanna" -> "My sister, Fijanna, is the reason I am here. She saw Strange Visions and asked for my help. Sadly, by the time I got here she vanished."
+"sister", "your sister" -> "My sister, Fijanna, is the reason I am here. She saw Strange Visions and asked for my help. Sadly, by the time I got here she vanished."
+"Fijanna", "Schwester", "deine Schwester" -> "Meine Schwester, Fijanna, ist der Grund, warum ich hier bin. Sie sah seltsame Visionen und bat um meine Hilfe. Leider war sie verschwunden, als ich ankam."
+
+"visions", "strange visions" -> "Aye, Fijanna saw swamps drowning in poisonous fog, beasts running mad, roots swallowing stone, mountains roaring. She's always been something of a Fortune Teller but never this."
+"Visionen", "seltsame Visionen" -> "Ja, Fijanna sah Sümpfe, die im giftigen Nebel versanken, wilde Bestien, die verrückt wurden, Wurzeln, die Steine verschlangen, Berge, die brüllten. Sie war schon immer eine Art Wahrsagerin, aber niemals so."
+
+"vanish", "missing" -> "I do not know where she is, only that the land itself begs for harmony. If ever you find word of her, return to me- please."
+"Verschwinden", "vermisst" -> "Ich weiß nicht, wo sie ist, nur dass das Land selbst um Harmonie bittet. Wenn du jemals von ihr hörst, kehre bitte zu mir zurück."
+
+"past", "history" -> "When I was young, harmony came easy; my Coven flourished on the mainland, near the Emerald Forest.","Well, there is a season for everything. Perhaps one day we will speak at length. For now, know I teach the Old Weaves and to find my Sister, Fijanna."
+"Vergangenheit", "Geschichte" -> "Als ich jung war, kam Harmonie leicht; mein Zirkel blühte auf dem Festland nahe dem Smaragdwald.","Nun, für alles gibt es seine Zeit. Vielleicht werden wir eines Tages ausführlich sprechen. Für jetzt wisse, dass ich die Alten Gewebe lehre und meine Schwester Fijanna finde."
+
+"coven" -> "Once, my coven sought to restore an Ailing Village, only to endure our own trials and loss. In the end, they tore us apart. I prefer not to talk any further about my coven- my sister is my only personal priority, anymore."
+"Zirkel" -> "Einst versuchte mein Zirkel, ein siechendes Dorf wiederherzustellen, nur um unsere eigenen Prüfungen und Verluste zu erleiden. Am Ende riss es uns auseinander. Ich spreche lieber nicht weiter über meinen Zirkel - meine Schwester ist inzwischen meine einzige persönliche Priorität."
+
+
+"emerald forest" -> "Far away on the mainland, the radiant Emerald Forest enriched more than my coven in both beauty and amity. But long ago were those days."
+"Smaragdwald" -> "Weit entfernt auf dem Festland bereicherte der strahlende Smaragdwald mehr als meinen Zirkel, sowohl in Schönheit als auch in Freundschaft. Doch jene Tage sind längst vergangen."
+
+"trials", "loss", "tore", "apart" -> "A cautionary tale, remember, darkness from a twisted Deepweave can prove your undoing. Memory teaches: all weaves must serve balance, never hunger or pride."
+"Prüfungen", "Verlust", "zerriss", "auseinander" -> "Eine warnende Geschichte, erinnere dich: Dunkelheit aus einem verdrehten Tiefengewebe kann dein Verderben sein. Die Erinnerung lehrt: Alle Gewebe müssen dem Gleichgewicht dienen, niemals Hunger oder Stolz."
+
+"ailing village", "restore village" -> "Aye, no village of great consequence, some hamlet near the Shadow Forest. I still mourn all the losses and pray harmony will return one day. Say no more on this please."
+"Krankes Dorf", "Dorf wiederherstellen" -> "Ja, kein Dorf von großer Bedeutung, nur ein Weiler nahe dem Schattenwald. Ich trauere immer noch über alle Verluste und bete, dass die Harmonie eines Tages zurückkehrt. Sprich bitte nichts weiter darüber."
+
+-------------------------------------------------------------------------------
+-- REALMS / LEADERS / HISTORICAL HOOKS
+-------------------------------------------------------------------------------
+-- CADOMYR ------------------------
+english, "cadomyr" -> "Cadomyr... a realm that has known ruin and rebirth, yet endures, steadfast and proud. Guided by their Queen, history regards her as a reformer who breathes new life into the virtues of honor - though I pray pride will not be their downfall, as it was for my coven."
+"Cadomyr" -> "Cadomyr... ein Reich, das Zerstörung und Wiedergeburt erlebt hat, und doch besteht, standhaft und stolz. Geleitet von seiner Königin gilt sie in der Geschichte als Reformer, der neues Leben in die Tugenden der Ehre haucht - doch ich bete, dass Stolz nicht ihr Untergang wird, wie es für meinen Zirkel war."
+
+english, "rosaline" -> "Queen Rosaline of Cadomyr... stern, yet tempered by compassion, even while bearing the divine might of the Cadomyr Gems of Power. I was told she once lost a noble friend during unrest with Runewick - perhaps grief shaped her wisdom, as storms shape the cliffs."
+"queen" -> "Queen Rosaline of Cadomyr... stern, yet tempered by compassion, even while bearing the divine might of the Cadomyr Gems of Power. I was told she once lost a noble friend during unrest with Runewick - perhaps grief shaped her wisdom, as storms shape the cliffs."
+"Rosaline", "Königin" -> "Königin Rosaline von Cadomyr ? streng, doch durch Mitgefühl gemildert, selbst während sie die göttliche Macht der Cadomyr-Edelsteine der Kraft trug. Man erzählte mir, sie habe einst während der Unruhen mit Runewick einen adligen Freund verloren ? vielleicht formte die Trauer ihre Weisheit, so wie Stürme die Klippen formen."
+
+english, "amethyst" -> "Cadomyr guards two gems of power: the topaz, an heirloom from the Queen's Albarian line, and the amethyst, taken in victory over the Sorcerer's defeated generals. Such power asks for wisdom - even in sunlight, a long shadow follows behind."
+"Cadomyr gem", "topaz" -> "Cadomyr guards two gems of power: the topaz, an heirloom from the Queen's Albarian line, and the amethyst, taken in victory over the Sorcerer's defeated generals. Such power asks for wisdom - even in sunlight, a long shadow follows behind."
+"Cadomyr-Edelstein", "Cadomyr Edelstein", "Amethyst", "topas" -> "Cadomyr bewacht zwei Machtsteine: den Topas, ein Erbstück aus der Albarischen Linie der Königin, und den Amethyst, errungen im Sieg über die besiegten Generäle des Zauberers. Solche Macht verlangt Weisheit - selbst im Sonnenlicht folgt ein langer Schatten."
+
+english, "reformer", "reform" -> "She dares to mend what others would leave untouched from pride. Reform is never easy, whether in forests or on thrones. The soil must be stirred for new roots to take hold."
+"Reformer", "Reform" -> "Sie wagt es, zu reparieren, was andere aus Stolz unberührt lassen würden. Reform ist niemals einfach, ob in Wäldern oder auf Thronen. Der Boden muss gelockert werden, damit neue Wurzeln greifen können."
+
+"lost noble", "lost friend", "grief", "unrest" -> "They whisper of a young noble once dear to the Queen, taken by tragedy. Some say her spirit lingers amongst the dunes, watching over Cadomyr - or perhaps mourning it. The truth drifts like sand in the wind, reshaped with every telling."
+"Verlorener Adeliger", "Verlorener Freund", "Trauer", "Unruhen" -> "Man flüstert von einem jungen Adeligen, einst der Königin lieb, der durch eine Tragödie genommen wurde. Manche sagen, ihr Geist verweilt zwischen den Dünen, wacht über Cadomyr - oder trauert vielleicht. Die Wahrheit treibt wie Sand im Wind, bei jedem Erzählen neu geformt."
+
+-- GALMAIR ------------------------
+english, "galmair" -> "In Galmair, fortunes sprout like wild herbs, vigorous but not always sweet. Grator once said surviving there means growing thick skin, though I wonder if the Don's  old feud will ever let his heart rest easy."
+"Galmair" -> "In Galmair sprießen Vermögen wie wilde Kräuter, kräftig, doch nicht immer süß. Grator sagte einst, dort zu überleben bedeute, sich ein dickes Fell zuzulegen, doch ich frage mich, ob die alte Fehde des Don seinem Herzen jemals Ruhe lassen wird."
+
+"halfling" -> "I was not here when the Halfling Wars ravaged the lands near Runewick. What I know comes from Grator- and he chooses his words carefully. He says the Don acted swiftly, believing strength would shorten the struggle. Perhaps it did. But in the wild, haste often leaves scars the soil remembers long after victory fades."
+"Halbling" -> "Ich war nicht hier, als die Halblingskriege die Lande nahe Runewick verwüsteten. Was ich weiß, stammt von Grator ? und er wählt seine Worte mit Bedacht. Er sagt, der Don habe rasch gehandelt, im Glauben, Stärke würde den Kampf verkürzen. Vielleicht tat sie es. Doch in der Wildnis hinterlässt Eile oft Narben, an die sich der Boden noch lange erinnert, nachdem der Sieg verblasst ist."
+
+english, "don", "valerio"-> "The Don is like old roots, rarely seen yet shaping all that grows with his fabled Obsidian and Sapphire. Most days, the city has its own rhythm, yet Grator wonders whether legacy weighs heavier upon him- family feuds, the Halfling Wars, old sagas tend to linger."
+"Don", "Valerio" -> "Der Don ist wie alte Wurzeln, selten zu sehen, doch prägt alles, was mit seinem sagenumwobenen Obsidian und Saphir wächst. An den meisten Tagen folgt die Stadt ihrem eigenen Rhythmus, doch Grator fragt sich, ob das Erbe schwerer auf ihm lastet ? Familienfehden, die Halblingskriege, alte Sagen neigen dazu, nachzuhängen."
+
+english, "obsidian" -> "Galmair's obsidian kept the peace for Galmair to blossom, and the sapphire came after a hard-won struggle over Dark Sorcerer's generals. Both stones now rest with the Don; reminders, I think, that gain and loss often travel together."
+"Galmair gem", "sapphire" -> "Galmair's obsidian kept the peace for Galmair to blossom, and the sapphire came after a hard-won struggle over Dark Sorcerer's generals. Both stones now rest with the Don; reminders, I think, that gain and loss often travel together."
+"Galmair-Edelstein", "Galmair Edelstein", "Obsidian", "Saphir" -> "Galmairs Obsidian hielt den Frieden, damit Galmair erblühen konnte, und der Saphir kam nach einem hart erkämpften Streit über die Generäle des Dunklen Zauberers. Beide Steine ruhen nun beim Don; Erinnerungen, denke ich, dass Gewinn und Verlust oft Hand in Hand gehen."
+
+english, "tommaso" -> "According to Grator, Tommaso's passing left more than an empty chair. Inheritance sometimes means carrying what went unsaid, and Valerio's path was set by both shadow and hope. Some stories end... but the mountains never forget."
+"feud" -> "According to Grator, Tommaso's passing left more than an empty chair. Inheritance sometimes means carrying what went unsaid, and Valerio's path was set by both shadow and hope. Some stories end... but the mountains never forget."
+"Tommaso", "Fehde" -> "Laut Grator hinterließ Tommasos Tod mehr als einen leeren Stuhl. Erbe bedeutet manchmal, das zu tragen, was unausgesprochen blieb, und Valerios Weg wurde von Schatten und Hoffnung bestimmt. Manche Geschichten enden... aber die Berge vergessen nie."
+
+-- RUNEWICK ------------------------
+english, "runewick" -> "To me, Runewick is a place where questions bloom and answers take their time. Archmage Elvaine tends the city with quiet patience now, yet old scars linger in stone and story - enough to leave minds searching and sometimes defiant."
+"Runewick" -> "Für mich ist Runewick ein Ort, an dem Fragen blühen und Antworten sich Zeit lassen. Erzmagier Elvaine pflegt die Stadt nun mit stiller Geduld, doch alte Narben verweilen in Stein und Geschichte - genug, um die Gedanken suchend und manchmal trotzig zurückzulassen."
+
+english, "elvaine", "elvaine morgan" -> "Most days, you'll find Elvaine on his island, the Runewick stones of power never far from reach. Some say he seeks peace and private study, but those stones carry memories of how change first took root there."
+"Elvaine", "Elvaine Morgan" -> "Die meisten Tage findest du Elvaine auf seiner Insel, die Runewick-Steine der Macht nie weit entfernt. Manche sagen, er sucht Frieden und private Studien, doch jene Steine tragen Erinnerungen daran, wie Veränderung dort zuerst Wurzeln schlug."
+
+"runewick gem", "emerald", "ruby" -> "Runewick's emerald was carried here by Elvaine from distant Lor-Angur, and the ruby was claimed after the Sorcerer's generals were defeated. Vallaria - bless her - says even with such treasures, she hopes the restless days and renegade tendencies of the city's past can finally find peace."
+"Runewick-Edelstein", "Runewick Edelstein", "Smaragd", "Rubin" -> "Runewicks Smaragd wurde hierher von Elvaine aus dem fernen Lor-Angur gebracht, und der Rubin wurde nach der Niederlage der Generäle des Zauberers erlangt. Vallaria - segne sie - sagt, selbst mit solchen Schätzen hofft sie, dass die unruhigen Tage und abtrünnigen Neigungen der Vergangenheit der Stadt endlich Frieden finden."
+
+"scars", "mind searching" -> "Once, towers raised Runewick high as Lor-Angur, only to tumble and leave so much to rebuild. After one war, Elvaine even summoned the dead to walk - some say to warn against pride, but more than questions have risen from a choice like that."
+"Narben", "suchender Geist" -> "Einst hoben Türme Runewick hoch wie Lor-Angur, nur um einzustürzen und so vieles wiederaufzubauen zu hinterlassen. Nach einem Krieg ließ Elvaine sogar die Toten wandeln - manche sagen, um vor Stolz zu warnen, doch mehr als Fragen entstanden aus einer solchen Entscheidung."
+
+"renegade", "restless day", "defiant" -> "Perhaps Runewick's greatest lesson is knowing when to strive forward and when to wait. Vallaria says even the wildest root learns to bend or risk breaking. I wonder, sometimes, what shape Runewick's curiosity will take when another challenge arises."
+"Abtrünnig", "unruhiger Tag", "trotzig" -> "Vielleicht ist Runewicks größte Lektion zu wissen, wann man vorwärts streben und wann man warten sollte. Vallaria sagt, selbst die wildeste Wurzel lernt, sich zu biegen oder zu brechen. Ich frage mich manchmal, welche Gestalt Runewicks Neugier annehmen wird, wenn eine weitere Herausforderung auftaucht."
+
+-------------------------------------------------------------------------------
+-- MISC TALK
+-------------------------------------------------------------------------------
+english, "job" -> "I am a teacher of Nature Magic - one who listens, shows, and learns in turn. The land is alive with answers if you are patient."
+"profession" -> "I am a teacher of Nature Magic - one who listens, shows, and learns in turn. The land is alive with answers if you are patient."
+"beruf", "job" -> "Ich bin ein Lehrer der Naturmagie - jemand, der zuhört, zeigt und im Gegenzug selbst lernt. Das Land ist voller Antworten, wenn du Geduld hast."
+"tell something", "wisdom" -> "Did you know, seeds speak to each other in ways few can hear?","There is a patience in all things living.","In all things seek balance.","The wilderness is neither good nor evil, listen and open your mind to attune yourself.","Do not confuse neutrality with passiveness. Balance requires thoughtful action."
+"erzähl was", "erzähl etwas", "Weisheit" -> "Wusstest du, dass Samen miteinander auf eine Weise sprechen, die nur wenige hören können?", "Alles Lebendige erfordert Geduld.", "In allem strebe nach Gleichgewicht.", "Die Wildnis ist weder gut noch böse, höre zu und öffne deinen Geist, um dich einzustimmen.", "Verwechsle Neutralität nicht mit Passivität. Gleichgewicht erfordert überlegtes Handeln."
+english, "Findari" -> "I know well the teachings of Findari, but Nature's call is my truest prayer. A song for balance, not just blessing."
+"Findari" -> "Ich kenne die Lehren Findaris gut, doch der Ruf der Natur ist mein wahrhaftiges Gebet. Ein Lied für Gleichgewicht, nicht nur für Segen."
+english, "Tanora" -> "Tanora's tides cleanse and renew. Her waters remind us that even sorrow must flow to heal."
+"Tanora" -> "Tanoras Gezeiten reinigen und erneuern. Ihre Wasser erinnern uns daran, dass selbst Trauer fließen muss, um zu heilen."
+english, "Ushara" -> "Ushara is the root of all life, the breath beneath soil and stone. Her patience is the measure of my own."
+"Ushara" -> "Ushara ist die Wurzel allen Lebens, der Atem unter Erde und Stein. Ihre Geduld ist das Maß meiner eigenen."
+english, "Bragon" -> "Bragon's fire warms and devours alike. The wise druid respects his flame, never covets it."
+"Bragon" -> "Bragons Feuer wärmt und verschlingt gleichermaßen. Der weise Druide respektiert seine Flamme, begehrt sie nie."
+english, "Eldan" -> "Eldan teaches awareness- yet awareness without compassion leads only to pride. Even thought must bend to harmony."
+"Eldan" -> "Eldan lehrt Bewusstsein - doch Bewusstsein ohne Mitgefühl führt nur zu Stolz. Selbst der Gedanke muss sich der Harmonie fügen."
+english, "Adron" -> "Adron's laughter still drifts through the groves. He reminds us that joy shared is its own kind of prayer."
+"Adron" -> "Adrions Lachen weht noch immer durch die Hain. Er erinnert uns, dass geteilte Freude eine eigene Art von Gebet ist."
+english, "Cherga" -> "Cherga keeps the still places where roots sleep. Death is but another turning of the wheel to her."
+"Cherga" -> "Cherga bewahrt die stillen Orte, an denen Wurzeln ruhen. Der Tod ist für sie nur eine weitere Wendung des Rades."
+english, "Elara" -> "Elara once guided my coven's debates. She reminds us that wisdom often blooms after folly, not before it."
+"Elara" -> "Elara leitete einst die Debatten meines Zirkels. Sie erinnert uns daran, dass Weisheit oft nach der Torheit blüht, nicht vorher."
+english, "Irmorom" -> "Irmorom forges purpose from will, yet the earth reminds us- no creation stands forever."
+"Irmorom" -> "Irmorom schmiedet Zweck aus Willen, doch die Erde erinnert uns - keine Schöpfung besteht ewig."
+english, "Malachin" -> "Malachin's hunt teaches balance - strength guided by restraint. To take life without need is to stray from his path."
+"Malachin" -> "Malachins Jagd lehrt Gleichgewicht - Stärke, geleitet durch Zurückhaltung. Leben ohne Not zu nehmen heißt, von seinem Pfad abzuweichen."
+english, "Moshran", "unspoken" -> "In the shadows where light refuses to tread, the Unspoken's anguish festers still. The land itself avoids his memory."
+"Moshran", "unausgesprochen", "ungenannte" -> "In den Schatten, wo Licht nicht tritt, gärte das Leid des Unausgesprochenen noch immer. Das Land selbst meidet seine Erinnerung."
+english, "Nargun" -> "Nargun dances where chaos blooms. I leave his lessons to those who mistake noise for freedom."
+"Nargun" -> "Nargun tanzt, wo das Chaos blüht. Seine Lektionen überlasse ich denen, die Lärm mit Freiheit verwechseln."
+english, "Oldra" -> "Oldra's touch is soft as moss after rain. She reminds us that healing begins where pride ends."
+"Oldra" -> "Oldras Berührung ist weich wie Moos nach dem Regen. Sie erinnert uns daran, dass Heilung dort beginnt, wo Stolz endet."
+english, "Ronagan" -> "Ronagan walks in shadow, yet even thieves have tales worth hearing. Trickery often reveals what truth conceals."
+"Ronagan" -> "Ronagan wandelt im Schatten, doch selbst Diebe haben Geschichten, die es wert sind, gehört zu werden. List enthüllt oft, was die Wahrheit verbirgt."
+english, "Sirani" -> "Sirani's beauty teaches us to cherish fleeting joys but not to mistake them for lasting peace."
+"Sirani" -> "Siranis Schönheit lehrt uns, flüchtige Freuden zu schätzen, sie jedoch nicht mit dauerhaftem Frieden zu verwechseln."
+english, "Zhambra" -> "Zhambra binds hearts in compassion. His love endures like a vine, steady and unyielding through all seasons."
+"Zhambra" -> "Zhambra verbindet Herzen in Mitgefühl. Seine Liebe hält wie eine Rebe, beständig und unbeugsam durch alle Jahreszeiten."
+-------------------------------------------------------------------------------
+-- CYCLETEXT
+-------------------------------------------------------------------------------
+cycletext "#me starrt in ihren Kessel mit einem seltsamen Blick, die Augen zusammengekniffen auf der Suche nach etwas in der Tiefe.", "#me stares into her cauldron with a strange lens, eyes squinted in search of something in the depths."
+cycletext "#me bürstet Erde von ihren Händen und hinterlässt kleine grüne Triebe, wo die Erde fällt.", "#me brushes soil from her hands, leaving small green shoots where the soil falls."
+cycletext "Geduld, wie Sonne und Regen, bringt alle Dinge zur Frucht.", "Patience, like sun and rain, brings all things to fruition."
+cycletext "Die Brise erzählt Geschichten, wenn man lange genug zuhört.", "The breeze tells stories, if you listen long enough."
+cycletext "Nicht alles Lernen kommt aus Antworten. Manche kommen sanft, wie Tau auf Stein.", "Not all learning comes from answers.Some arrive softly, like dew on stone."
+cycletext "#me summt eine alte Melodie aus dem Smaragdwald.", "#me hums an ancient melody from the Emerald Forest."
+cycletext "Wurzeln reichen tiefer als jede Karte zeigen kann.", "Roots touch deeper than any map will show."
+cycletext "Stein erinnert sich an jeden Schritt und jede Geschichte, die im Moos eingraviert ist.", "Stone remembers every footstep, and every story carved in moss."
+cycletext "#me wärmt ihre Hände am Feuer und murmelt über das Finden ihrer Schwester.", "#me warms her hands over the fire, mumbling about finding her sister."
+cycletext "Wenn du dich verloren fühlst, schließe die Augen und höre, was die Erde unter deinen Füßen seufzt.", "When you feel lost, close your eyes, listen to what the earth sighs beneath your feet."
+
+-------------------------------------------------------------------------------
+-- END/DEV NOTES
+-------------------------------------------------------------------------------
+-- Modular design should allow easy edits, gatekeeping, or expansion

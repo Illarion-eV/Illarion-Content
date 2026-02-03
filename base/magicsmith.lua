@@ -35,9 +35,13 @@ local slots = {}
     table.insert(slots, Character.belt_pos_4)
     table.insert(slots, Character.belt_pos_5)
     table.insert(slots, Character.belt_pos_6)
+    table.insert(slots, Character.coat)
 
 
-local function isSocketable(itemId)
+local function isSocketable(itemId, unsocketing)
+    if itemId == 0 then
+        return false
+    end
     -- weapons can be socketed
     local weaponfound, weaponitem = world:getWeaponStruct(itemId)
     if weaponfound then
@@ -55,7 +59,7 @@ local function isSocketable(itemId)
     local armorfound, armorItem = world:getArmorStruct(itemId)
     if armorfound then
         local armortype = armorItem.Type
-        if armortype ==  ArmorStruct.clothing or armortype == ArmorStruct.general or armortype == ArmorStruct.juwellery then
+        if armortype == ArmorStruct.general or armortype == ArmorStruct.juwellery or (not unsocketing and not (armorItem.BodyParts == 4 or armorItem.BodyParts == 16)) then --only cloaks and chest pieces defensively gemmable
             return false
         else
             return true
@@ -100,7 +104,7 @@ local function getUnsocketablePositions(user)
         local item = user:getItemAt(slot)
         if gems.itemHasGems(item) then
             local itemId = item.id
-            if isSocketable(itemId) then
+            if isSocketable(itemId, true) then
                 table.insert(socketableTable, slot)
             end
         end
@@ -134,10 +138,12 @@ function M.handleSocketing(user, gem)
             if isSocketable(item.id) then
                 local key = gems.getDataKey(gem.id)
                 local level = item:getData(key)
+                local gemOwner = gem:getData("owner")
 
                 if level == "" then
                     local newLevel = tonumber(gem:getData(gems.levelDataKey)) or 1 --If the gem has no level set, it's 1 by default.
                     item:setData(key, newLevel)
+                    item:setData(key.."owner", gemOwner)
                     world:erase(gem, 1)
                     world:changeItem(item)
                     user:inform("Der gewählte Gegenstand wurde gesockelt.",
@@ -183,7 +189,7 @@ local function unsocketGems(user)
             local slot = unsocketPositions[selected]
             local item = user:getItemAt(slot)
             local price = world:getItemStats(item).Worth
-            if isSocketable(item.id) and gems.itemHasGems(item) then
+            if isSocketable(item.id, true) and gems.itemHasGems(item) then
                 if money.CharHasMoney(user, price) then
                     gems.returnGemsToUser(user, item)
                     money.TakeMoneyFromChar(user, price, false)

@@ -24,16 +24,16 @@ local ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
 local Title = {}
-Title[GERMAN] = "Sibanac für Lotta Medborgar in Galmair"
-Title[ENGLISH] = "Sibanac for Lotta Medborgar in Galmair"
+Title[GERMAN] = "Fächerblatt für Lotta Medborgar in Galmair"
+Title[ENGLISH] = "Fanleaf for Lotta Medborgar in Galmair"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
 local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "Finde Lotta Medborgar in Galmair und bringe ihr die Sibanacblätter, um deine Belohnung zur erhalten."
-Description[ENGLISH][1] = "Try to find Lotta Medborgar in Galmair and take her the sibanac leaves to get your reward."
+Description[GERMAN][1] = "Finde Lotta Medborgar in Galmair und bringe ihr die Fächerblätter, um deine Belohnung zur erhalten."
+Description[ENGLISH][1] = "Try to find Lotta Medborgar in Galmair and take her the fanleaves to get your reward."
 Description[GERMAN][2] = "Du hast Lotta gefunden. Wenn du möchtest, kannst du nun mit ihr sprechen. Frage sie nach 'Hilfe' wenn du nicht weißt, wonach du fragen sollst!\nSie kann dir einiges über die nordwestliche Karte von Illarion verraten."
 Description[ENGLISH][2] = "You have found Lotta. If you like, you can talk with her now. Ask for 'help' if you do not know what to say!\nShe can provide you with information about the north-western part of Illarion."
 

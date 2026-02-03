@@ -16,7 +16,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local common = require("base.common")
-local texts = require("magic.base.texts")
 local magic = require("base.magic")
 local spiritlocation = require("magic.arcane.spirit.location")
 local antiTroll = require("magic.base.antiTroll")
@@ -26,13 +25,141 @@ local globalvar = require("base.globalvar")
 
 local M = {}
 
-local castTexts = texts.castSpellTexts
-local portalSpots = texts.portalSpots
-local myTexts = texts.spatialTexts
+local portalSpots = antiTroll.portals
+local myTexts = {
+
+    portalBookNeeded = {
+        english = "You must have the portal book you wish to evaluate in one of your belt slots.",
+        german = "Du musst das Portalbuch, das du bewerten mˆchtest, in einem deiner G¸rtelpl‰tze haben."}, --Verification of chatGPT GERMAN TRANSLATION needed
+
+    distanceTexts = {
+        {value = 600, english = " very far ", german = "sehr fern "},
+        {value = 400, english = " far ", german = "fern "},
+        {value = 100, english = " somewhere ", german = "in der N‰he "},
+        {value = 50, english = " close ", german = "nahe "},
+        {value = 0, english = " very close ", german = "sehr nahe "},
+    },
+    binderTexts = {
+        english = "to the ",
+        german = "in Richtung "
+    },
+    alreadyAttuned = {
+        english  = "You've already attuned your spatial magic to this location.",
+        german = "Du hast deine Raummagie bereits auf diesen Ort abgestimmt."
+    },
+    closePortal = {
+        english = "Close a portal",
+        german = "Schlieﬂe ein Portal."
+    },
+    doneAttuning  = {
+        english = "You've attuned to the crossing mana lines in the area. You will now be able to remember the spatial coordinates to teleport, cast portals and even write portal books that lead to this area, should your expertise in spatial magic allow.",
+        german = "Du hast deine Raummagie auf die sich kreuzenden Manalinien dieses Gebiets abgestimmt. Du kannst dir nun die r‰umlichen Koordinaten merken um dich her zu teleportieren, Portale zu ˆffnen oder sogar Portalb¸cher schreiben die dich hier her f¸hren. Nat¸rlich nur wenn es deine Erfahrung in Raummagie erlaubt."
+    },
+    lackingSkill = {
+        english = "You need to attain a higher level of expertise in spatial magic to remember the spatial coordinates for this location.",
+        german = "Um dir die r‰umlichen Koordinaten f¸r diesen Ort merken zu kˆnnen, musst du deine F‰higkeiten in der Raummagie verbessern."
+    },
+    lackingAttribs = {
+        english = "You do not have the required magical prowess to attune to this particular spatial node.",
+        german = "Du besitzt nicht die nˆtige magische Begabung, um dich mit diesem speziellen r‰umlichen Knotenpunkt zu verbinden."
+    },
+    noNearby = {
+        english = "There are no crossing mana lines nearby for you to attune your spatial magic to. The nearest one is ",
+        german = "Hier befinden sich keine kreuzenden Manalinien um deine Raummagie abzustimmen. Die N‰heste befindet sich "
+    },
+    red = {
+        english = "Portal colour set to red",
+        german = "Die Farbe deiner Portale ist nun rot."
+    },
+    blue = {
+        english = "Portal colour set to blue",
+        german = "Die Farbe deiner Portale ist nun blau."
+    },
+    name = {
+        english = "Spatial Magic",
+        german = "Raummagie"
+    },
+    selectColour = {
+        english = "Select which colour your portals should have.",
+        german = "W‰hle welche Farbe deine Portale haben sollen."
+    },
+    colours = {
+        red = { english = "Red", german = "Rot"},
+        blue = { english = "Blue", german = "Blau"}
+    },
+    incantation = {
+        portal = "Locus Ianua", -- latin for "space door"
+        teleport = "Locus Itinerantur", --latin for "space travel"
+        attune = "Locus Memento", --latin, "space remember"
+        close = "Locus Claudere" -- "space shut"
+    },
+    teleportation = {
+        english = "Teleportation",
+        german = "Teleportation"
+    },
+    destination = {
+        english = "Select your destination",
+        german = "W‰hle deinen Zielort"
+    },
+    castSelect  = {
+        english = "What kind of spatial magic do you want to cast?",
+        german = "Welche Raummagie mˆchtest du sprechen?"
+    },
+    attuneTo = {
+        english = "Attune to location",
+        german = "Abstimmung mit einem Ort"
+    },
+    teleport = {
+        english = "Teleport",
+        german = "Teleport"
+    },
+    portal = {
+        english = "Create Portal",
+        german = "Erschaffe ein Portal"
+    },
+    portalColour = {
+        english = "Portal colour",
+        german = "Portalfarbe"
+    },
+    interruptedCast = {
+        english = "Your casting of spatial magic was interrupted.",
+        german = "Das wirken deiner Raummagie wurde unterbrochen."
+    },
+    cantFindMore = {
+        english = "You don't detect any more crossing mana lines to attune to. Perhaps you've found them all?",
+        german = "Du kannst keine sich kreuzenden Manalinien mehr ausmachen. Vielleicht hast du ja schon alle gefunden?"
+    },
+    differentElevation = {
+        english = "You can feel that there are crossed mana lines nearby that you can attune your spatial magic to, however not here. Perhaps you'd had better luck searching at a different elevation?",
+        german = "Du kannst sp¸ren, dass du dich direkt in der N‰he einer sich kreuzenden Manalinie befindest, an der du deine Raummagie abstimmen kˆnntest. Es scheint aber als w¸rde sich dieser auf einer anderen Ebene befinden."
+    },
+    badTarget  = {
+        english = "Something in the area disrupts your casting. Perhaps this isn't a good spot for spatial magic?",
+        german = "Etwas in der N‰he unterbericht deinen Zauber. Mˆglicherweise ist das kein guter Ort f¸r Raummagie?"
+    },
+    locationBlocked = {
+        english = "There is not enough free space in front of you for a portal, try again somewhere there is more room.",
+        german = "Vor dir ist nicht genug Platz f¸r ein Portal. Versuche es erneut an einem Ort, wo mehr Raum zur Verf¸gung steht."
+    },
+    showBookQuality = {
+        english = "Portal Book Evaluation",
+        german = "Portalbuchbewertung"
+    },
+    bookQuality = {
+        english = "Through your inspection you find that this portal book is of ",
+        german = "Durch deine Inspektion stellst du fest, dass dieses Portalbuch von der Qualit‰t "
+    },
+    bookQualityAddendum = {
+        english = " quality. The better the quality, the faster it is to summon a portal through the usage of this book.",
+        german = " ist. Je besser die Qualit‰t, desto schneller l‰sst sich ein Portal mithilfe dieses Buches beschwˆren."
+    }
+}
+
+M.spatialTexts = myTexts
 
 local function findSpotNameBasedOnCoord(coordinates)
 
-    for _, spot in pairs(texts.portalSpots) do
+    for _, spot in pairs(portalSpots) do
         if spot.location == coordinates then
             return spot.nameEn, spot.nameDe
         end
@@ -58,6 +185,20 @@ function M.QuestprogressToAttunedSpots(questprogress)
     end
 end
 
+local function userMeetsAttribReq(user, statReq)
+    local baseReq, sum = magic.hasMageAttributes(user)
+
+    if not statReq and baseReq then
+        return true
+    end
+
+    if sum >= statReq then
+        return true
+    end
+
+    return false
+end
+
 function M.spotAttuned(user, spotNumber)
     local attunedSpots = M.QuestprogressToAttunedSpots(user:getQuestProgress(216))
     local retVal = false
@@ -65,6 +206,10 @@ function M.spotAttuned(user, spotNumber)
 
     if bit32.btest(bit32.lshift(1, offset), attunedSpots) then
         retVal=true
+    end
+
+    if not userMeetsAttribReq(user, portalSpots[spotNumber].statReq) then --To prevent people temporarily changing attribs or using pots to learn this and then  cast it with lower than attrib req, we check it here
+        return false
     end
 
     return retVal
@@ -103,7 +248,7 @@ local function getDirectionDistance(user)
     local distanceWithinLevelRange
     local levelRangeTargetPos
     for i = 1, #portalSpots do
-        if not M.spotAttuned(user, i) then
+        if not M.spotAttuned(user, i) and userMeetsAttribReq(user, portalSpots[i].statReq) then
             local location = portalSpots[i].location
 
             if location.z ~= 0 and user.pos.z ~= location.z then
@@ -117,12 +262,17 @@ local function getDirectionDistance(user)
             if not distance then
                 distance = total
                 targetPos = location
+                if portalSpots[i].level <= usersLevel then
+                    distanceWithinLevelRange = total
+                    levelRangeTargetPos = location
+                end
             elseif total < distance then
                 distance = total
                 targetPos = location
                 if portalSpots[i].level <= usersLevel then
                     if not distanceWithinLevelRange then
                         distanceWithinLevelRange = total
+                        levelRangeTargetPos = location
                     elseif total < distanceWithinLevelRange then
                         distanceWithinLevelRange = total
                         levelRangeTargetPos = location
@@ -176,7 +326,7 @@ function M.checkSpotEligiblity(user, actionState)
             if user.pos.y >= portalSpots[i].location.y-5 and user.pos.y <= portalSpots[i].location.y+5 then
                 if user.pos.z == portalSpots[i].location.z then
                     local spatialMagicLevel = user:getSkill(Character.spatialMagic)
-                    if portalSpots[i].nameEn == "Hemp Necktie Inn" then
+                    if portalSpots[i].nameEn == "Troll's Haven" then
                         if user:getQuestProgress(240) == 1 then
                             user:setQuestProgress(240, 2)
                         end
@@ -185,11 +335,13 @@ function M.checkSpotEligiblity(user, actionState)
                         user:inform(myTexts.alreadyAttuned.german, myTexts.alreadyAttuned.english)
                         return
                     else
-                        if spatialMagicLevel >= portalSpots[i].level then
+                        if spatialMagicLevel >= portalSpots[i].level and userMeetsAttribReq(user, portalSpots[i].statReq) then
                             M[user.name.."attunement"] = i
                             M[user.name.."cycles"] = startCycles
                             M.startCycle(user, actionState)
                             return
+                        elseif not userMeetsAttribReq(user, portalSpots[i].statReq) then
+                            user:inform(myTexts.lackingAttribs.german, myTexts.lackingAttribs.english)
                         else
                             user:inform(myTexts.lackingSkill.german, myTexts.lackingSkill.english)
                             return
@@ -199,6 +351,7 @@ function M.checkSpotEligiblity(user, actionState)
             end
         end
     end
+
     if not getDirectionDistance(user) then
         return
     end
@@ -221,26 +374,16 @@ local maxWearIncrease = 5
 
 local function getPortalWear(user)
 
-    local intelligence = user:increaseAttrib("intelligence", 0)
-
-    local willpower = user:increaseAttrib("willpower", 0)
-
-    local intelligenceBonus = common.GetAttributeBonusHigh(intelligence)/3*2 --Primary attribute for magic
-
-    local willpowerBonus =  common.GetAttributeBonusHigh(willpower)/3
-    --[[Willpower needs to have _some_ impact too, so that it does not end up
-        a dumpstat for those that do not care for magic resistance. Hence
-        intelligence ends up sharing a bit of the power impact with it.
-        Not that I would consider portals that last longer all that impactful,
-        but there is little else to impact in spatial magic. ]]
-
-    local statBonus = willpowerBonus + intelligenceBonus -- A stat total of 40 equals a bonus of 0.5, 48 = 0.71, 52 = 0.81
+    local leadAttribNames = common.GetLeadAttributeName(Character.spatialMagic)
+    local leadAttribValue1 = user:increaseAttrib(leadAttribNames.first, 0) * 0.6
+    local leadAttribValue2 = user:increaseAttrib(leadAttribNames.second, 0) * 0.4
+    local statBonus = leadAttribValue1 + leadAttribValue2
 
     local wandQualityBonus = magic.getQualityBonusWand(user) -- A perfect wand equals a bonus of 0.1
 
     local wandGemBonus = magic.getGemBonusWand(user) -- Each tier of a magic set equals 0.06
 
-    local equipmentBonus = magic.getMagicBonus(user)/100
+    local equipmentBonus = magic.getMagicBonus(user)
 
     local totalBonus = statBonus + wandQualityBonus + wandGemBonus/100 + equipmentBonus
 
@@ -415,7 +558,7 @@ local function getManaCost(user)
 
     local wandGemBonus = magic.getGemBonusWand(user) -- Each tier of a magic set equals 0.06
 
-    local equipmentBonus = magic.getMagicBonus(user)/100
+    local equipmentBonus = magic.getMagicBonus(user)
 
     local totalBonus = essenceBonus + wandQualityBonus + wandGemBonus/100 + equipmentBonus
 
@@ -520,6 +663,7 @@ local function teleport(user, actionState, portal, destination)
             local thePortal = world:createItemFromId(portalType, 1, thePos, true, 999, {destinationCoordsZ = destination.z, destinationCoordsY = destination.y, destinationCoordsX = destination.x})
             thePortal.wear = wear
             world:changeItem(thePortal)
+            logPlayer(user.name.."("..user.id..")".." creates portal to "..tostring(destination))
             if tutorials.isTutorialNPCnearby(user) then
                 if user:getQuestProgress(240) == 5 then
                     user:setQuestProgress(240, 6)
@@ -534,6 +678,7 @@ local function teleport(user, actionState, portal, destination)
                 user:setQuestProgress(240, 4)
             end
         end
+        logPlayer(user.name.."("..user.id..")".." teleporting to "..tostring(destination))
         user:warp(destination)
     end
 end
@@ -573,14 +718,59 @@ function M.startCycle(user, actionState, oralCast)
         teleport(user, actionState, portal, destination, oralCast)
     end
 
-
-
 end
 
-local function chooseLocation(user, actionState, portal)
+local function checkForWand(user)
+
+    local wand = common.getItemInHand(user, magic.wandIds)
+
+    if not wand then return true end --You can cast spatial magic without a wand just without the boni of wielding one
+
+    if common.isBroken(wand) then
+        user:inform("Dein Zauberstab ist zerbrochen. Du solltest ihn reparieren lassen, bevor du versuchst, ihn zu benutzen.", "Your wand is broken. You should see to its repairs before trying to use it.")
+        return false
+    end
+
+    return true
+end
+
+local function closePortal(user, actionState)
+
+    if not magic.hasSufficientMana(user, 1000) then
+        user:inform("Du hast nicht genug Mana.", "You do not have enough mana.")
+        return
+    end
+
+    local front = common.GetFrontPosition(user)
+
+    local portal = false
+
+    if world:isItemOnField(front) then
+        local possiblePortal = world:getItemOnField(front)
+        if possiblePortal.id == 10 and possiblePortal.wear ~= 255 then
+            portal = possiblePortal
+        end
+    end
+
+    if not portal then
+        user:inform("Es gibt kein Portal, das du schlieﬂen kannst. Es muss vor dir sein.", "There's no portal for you to close. It needs to be in front of you.")
+        return
+    end
+
+    if actionState == Action.none then
+        user:startAction(30, 21, 10, 0, 0)
+    elseif actionState == Action.success then
+        user:increaseAttrib("mana", -1000)
+        world:erase(portal,1)
+        world:gfx(45,portal.pos)
+    end
+end
+
+
+local function chooseLocation(user, actionState, portal, spokenWords)
 
     if not checkIfEnoughMana(user) then
-        user:inform(castTexts.mana.german, castTexts.mana.english)
+        user:inform("Du hast nicht genug Mana.", "You do not have enough mana.")
         return
     end
 
@@ -596,6 +786,21 @@ local function chooseLocation(user, actionState, portal)
 
     local destination
     local spots = getListOfAttunedSpots(user, portal)
+
+    for _, spot in pairs(spots) do
+
+        if spokenWords and (string.find(spokenWords, spot.nameEn) or string.find(spokenWords, spot.nameDe)) then
+            M[user.name.."attunement"] = false -- If a previous attunement attempt was interrupted, it might still be stored, so we overwrite it here
+            M[user.name.."destination"] = spot.location
+            M[user.name.."portal"] = portal
+            M[user.name.."cycles"] = startCycles
+            M.startCycle(user)
+            return
+        end
+
+    end
+
+
     local callback = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -652,6 +857,9 @@ local function portalMenu(user, ltstate)
         elseif index == 4 then
             M.showBookQuality(user)
         elseif index == 5 then
+            local incantation = myTexts.incantation.close
+            user:talk(Character.say, incantation)
+        elseif index == 6 then
             M.selectPortalColor(user)
             return
         end
@@ -663,7 +871,8 @@ local function portalMenu(user, ltstate)
     dialog:addOption(0,common.GetNLS(user, myTexts.attuneTo.german, myTexts.attuneTo.english))
     dialog:addOption(0, common.GetNLS(user, myTexts.teleport.german, myTexts.teleport.english))
     dialog:addOption(0, common.GetNLS(user, myTexts.portal.german, myTexts.portal.english))
-    dialog:addOption(0,common.GetNLS(user, texts.spatialTexts.showBookQuality.german, texts.spatialTexts.showBookQuality.english))
+    dialog:addOption(0,common.GetNLS(user, myTexts.showBookQuality.german, myTexts.showBookQuality.english))
+    dialog:addOption(0,common.GetNLS(user, myTexts.closePortal.german, myTexts.closePortal.english))
     if user:getQuestProgress(225) ~= 0 then
         dialog:addOption(0, common.GetNLS(user, myTexts.portalColour.german, myTexts.portalColour.english))
     end
@@ -673,29 +882,38 @@ local function portalMenu(user, ltstate)
     user:requestSelectionDialog(dialog)
 end
 
-local  function skipPortalMenu(user, actionState, incantation)
-
+local  function skipPortalMenu(user, actionState, incantation, spokenWords)
     if incantation == myTexts.incantation.teleport then
-        chooseLocation(user, actionState)
+        chooseLocation(user, actionState, false, spokenWords)
     elseif incantation == myTexts.incantation.portal then
-        chooseLocation(user, actionState, true)
+        chooseLocation(user, actionState, true, spokenWords)
     elseif incantation == myTexts.incantation.attune then
         M.checkSpotEligiblity(user)
+    elseif incantation == myTexts.incantation.close then
+        closePortal(user, actionState)
     end
 end
 
-function M.castSpatialMagic(user, actionState, oralCast)
+function M.castSpatialMagic(user, actionState, oralCast, spokenWords)
+
+    if not checkForWand(user) then return end
+
     if actionState == Action.none then
         if not oralCast then
             portalMenu(user, actionState)
         else
-            skipPortalMenu(user, actionState, oralCast.spatial)
+            skipPortalMenu(user, actionState, oralCast.spatial, spokenWords)
         end
     elseif actionState == Action.abort then
         user:inform(common.GetNLS(user, myTexts.interruptedCast.german, myTexts.interruptedCast.english))
         return
     elseif actionState == Action.success then
-        M.startCycle(user, actionState, oralCast)
+
+        if oralCast.spatial == myTexts.incantation.close then
+            closePortal(user, actionState)
+        else
+            M.startCycle(user, actionState, oralCast)
+        end
     end
 end
 

@@ -22,7 +22,7 @@ local M = {}
 
 function M.reduceCastTime(user)
 
-    local chance = {min = 0.1, bonus = 0.2}
+    local chance = {min = 0.05, bonus = 0.1} -- 7.5% average faster casting with 15% proc rate to halve the cast time
 
     local success = shared.activateGlyph(user, "tan", chance, 1)
 

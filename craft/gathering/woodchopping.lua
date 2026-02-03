@@ -45,9 +45,11 @@ AddTree(  14,125,2560,3786,  56,10,0,0); -- apple tree
 AddTree( 299,541, 543,3786,  56,10,0,0); -- cherry tree
 AddTree( 300,541, 543,3786,  56,10,0,0); -- cherry tree
 AddTree( 308,309,   3,3786,  56,13,0.23,0); -- fir tree
+AddTree( 5146, 309,   3,3786,  56,13,0.23,0); -- pruned fir tree
 AddTree( 586,587, 544,3786,  56,10,0,0.06); -- cachdern tree
 AddTree(1804,542, 544,3786,  56,11,0,0.06); -- naldor tree
 AddTree(1809,584, 544,3786,  56,11,0,0); -- eldan oak
+AddTree(4246,584, 544,3786,  56,11,0,0); -- eldan oak
 AddTree(1817,585,   3,3786,  56,13,0.23,0); -- scandrel pine
 
 local unchoppableTrees = {}
@@ -75,6 +77,15 @@ unchoppableTrees[1535] = true
 unchoppableTrees[1536] = true
 unchoppableTrees[1807] = true
 unchoppableTrees[1808] = true
+unchoppableTrees[4253] = true
+unchoppableTrees[4254] = true
+unchoppableTrees[4255] = true
+unchoppableTrees[4256] = true
+unchoppableTrees[4238] = true
+unchoppableTrees[4239] = true
+unchoppableTrees[4341] = true
+unchoppableTrees[4342] = true
+unchoppableTrees[4343] = true
 
 
 local function preventCutting(User, theAxe, theTree)
@@ -169,7 +180,7 @@ function M.StartGathering(User, SourceItem, ltstate)
         return
     end
 
-    local gatheringBonus=shared.getGatheringBonus(User, toolItem)
+    local gatheringBonus=shared.getGatheringBonus(User, toolItem, Character.woodcutting)
 
     local theCraft = gathering.GatheringCraft:new{LeadSkill = Character.woodcutting, LearnLimit = 100}; -- id_74_axe
     theCraft:AddRandomPureElement(User,gathering.prob_element*gatheringBonus); -- Any pure element
@@ -246,7 +257,7 @@ function M.StartGathering(User, SourceItem, ltstate)
     end
 
     -- since we're here, we're working
-    theCraft:FindRandomItem(User)
+    theCraft:FindRandomItem(User, toolItem)
 
     User:learn( theCraft.LeadSkill, theCraft.SavedWorkTime[User.id], theCraft.LearnLimit);
     amount = amount - 1;
@@ -275,8 +286,8 @@ function M.StartGathering(User, SourceItem, ltstate)
         resourceAmount = 2
     end
     -- End of glyph bonus
-
-    local created = common.CreateItem(User, producedItemId, resourceAmount, 333, nil) -- create the new produced items
+    local data = gathering.rollsAsRare(User, theCraft.LeadSkill, toolItem)
+    local created = common.CreateItem(User, producedItemId, resourceAmount, 333, data) -- create the new produced items
     if created then -- character can still carry something
         if (amount > 0) then  -- there are still items we can work on
             theCraft.SavedWorkTime[User.id] = theCraft:GenWorkTime(User);

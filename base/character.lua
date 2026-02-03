@@ -67,14 +67,44 @@ function M.ToBrinkOfDeath(User)
     M.ChangeHP(User, 1 - M.GetHP(User));
 end;
 
+local overTimeLTEs = {1, 3, 9, 10} -- health, mana and stamina drains over time need to be removed on death, no matter what the killing blow is
+
+local recentlyKilled = {}
+
 --- Kill a character.
 -- @param User The character to kill
 -- @return true in case the player was killed successfully
-function M.Kill(User)
-    common.TalkNLS(User, Character.say,"#me geht tödlich getroffen zu Boden.","#me goes down, fatally injured.")
-    M.ChangeHP(User, -10000);
-    return true;
-end;
+function M.Kill(user)
+
+    local timeStamp = world:getTime("unix")
+
+    for _, lte in pairs(overTimeLTEs) do
+        local foundEffect = user.effects:find(lte)
+        if foundEffect then
+            user.effects:removeEffect(lte)
+        end
+    end
+
+    if recentlyKilled[user.id] and recentlyKilled[user.id]+5 >= timeStamp then --It's been 5 or less seconds since this character was killed
+        return --ensures that if a DoT was applied right after or in the same blow as a killing blow, it wont reskill you
+    end
+
+    common.TalkNLS(user, Character.say,"#me geht tödlich getroffen zu Boden.","#me goes down, fatally injured.")
+    M.ChangeHP(user, -10000)
+    recentlyKilled[user.id] = timeStamp
+    return true
+end
+
+function M.WasKilledRecently(user)
+
+    local timeStamp = world:getTime("unix")
+
+    if recentlyKilled[user.id] and recentlyKilled[user.id]+5 >= timeStamp then
+        return true
+    end
+
+    return false
+end
 
 --- Change the movepoints of a character by the value handed over.
 -- @param User The character thats movepoints are supposed to change

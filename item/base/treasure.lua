@@ -25,6 +25,8 @@ local money = require("base.money")
 local monsterHooks = require("monster.base.hooks")
 local scheduledFunction = require("scheduled.scheduledFunction")
 local safeZones = require("scheduled.safe_zones")
+local propertyList = require("housing.propertyList")
+local blueprints = require("base.blueprints")
 
 local M = {}
 
@@ -85,6 +87,141 @@ local function findPosition()
         end
     end
     return nil
+end
+
+--[[
+    Some locations end up with treasures spawned in inaccessible areas, but have areas surrounding them in all
+    directions which makes it inconvenient to just shorten the treasure location above.
+    There are also a lot of existing maps players already obtained that lead to such locations.
+    As such the list below, along with the list of estate coordinates in housing, is added to a script that
+    checks the location when hovering over a treasure map for the first time and replaces it with new coordinates
+    if they are on an illegitimate tile, which means no more having to throw away bad treasure maps
+    (or having a GM fix it each time) and also future proofs it in regards to new housing estate locations we
+    might add on later. To avoid lag, a version number is added to the item data so it only checks the treasure maps
+    one time each time we change the list of locations.
+]]
+
+local version = 3 --Update this to one number higher each time something is added to the list.
+
+local bannedLocations = {
+    {x = {from = 213, to = 300}, y = {from = 756, to = 830}, z = 0}, --Mount letma, inaccessible
+    {x = {from = 656, to = 708}, y = {from = 277, to = 329}, z = 0}, --Troll's Haven, safe zone script interfers with treasure.
+    {x = {from = 641, to = 661}, y = {from = 312, to = 332}, z = 0}, --Troll's Haven.
+    {x = {from = 685, to = 739}, y = {from = 276, to = 330}, z = 0}, --Troll's Haven.
+    {x = {from = 656, to = 700}, y = {from = 302, to = 336}, z = 0}, --Troll's Haven.
+    {x = {from = 398, to = 459}, y = {from = 602, to = 666}, z = 0} -- shadowlands south
+}
+
+function M.fetchPropertyName(user, pos)
+
+    local direct
+
+    if user then
+        direct = user:getFaceTo()
+    end
+
+    local d = 1
+
+    local vX, vY
+
+    if user then
+        vX, vY = common.GetDirectionVector(direct)
+    end
+
+    local x
+    local y
+    local z
+
+    if pos == nil then
+        x = user.pos.x + vX * d
+        y = user.pos.y + vY * d
+        z = user.pos.z
+    else
+        x = pos.x
+        y = pos.y
+        z = pos.z
+    end
+    for _, property in ipairs(propertyList.properties) do
+        if x >= property.lower.x
+        and x <= property.upper.x
+        and y >= property.lower.y
+        and y <= property.upper.y
+        and z >= property.lower.z
+        and z <= property.upper.z then
+            return property.name
+        end
+    end
+    return nil
+end
+
+local function checkIfIllegalCoord(location)
+
+    local propertyName = M.fetchPropertyName(nil, location)
+
+    if propertyName then
+        return true
+    end
+
+    for _, bannedLocation in pairs(bannedLocations) do
+        if location.x >= bannedLocation.x.from and location.x <= bannedLocation.x.to
+        and location.y >= bannedLocation.y.from and location.y <= bannedLocation.y.to
+        and location.z == bannedLocation.z then
+            return true
+        end
+    end
+end
+
+local function mapLocation(map)
+
+    local x = tonumber(map:getData("MapPosX"))
+    local y = tonumber(map:getData("MapPosY"))
+    local z = tonumber(map:getData("MapPosZ"))
+
+    if common.IsNilOrEmpty(x) or common.IsNilOrEmpty(y) or common.IsNilOrEmpty(z) then
+        return false
+    end
+
+    return position(x, y, z)
+
+end
+
+local function updateMapCoord(map)
+
+
+    local preventInfiniteLoop = 0
+
+    repeat
+        local newPos = findPosition()
+        if not newPos or checkIfIllegalCoord(newPos) then
+            preventInfiniteLoop = preventInfiniteLoop + 1
+        else
+            map:setData("MapPosX", newPos.x)
+            map:setData("MapPosY", newPos.y)
+            map:setData("MapPosZ", newPos.z)
+            map:setData("checkedVersion", version)
+            world:changeItem(map)
+            break
+        end
+    until( preventInfiniteLoop > 10)
+    -- If it takes more than 10 attempts we break the loop to prevent the server crashing due to getting stuck in a loop
+    -- Realistically just one attempt should be plenty, but accounting for bad luck..
+
+end
+
+function M.checkMap(map)
+
+    if tonumber(map:getData("checkedVersion")) == version then
+        return
+    end
+
+    local location = mapLocation(map)
+
+    if location and checkIfIllegalCoord(location) then -- It is not a child drawing and it has bad coords
+        updateMapCoord(map)
+    else
+        map:setData("checkedVersion", version)
+        world:changeItem(map)
+    end
 end
 
 local function getRandomMapLevel()
@@ -262,7 +399,7 @@ local function getRandomItem(level)
 end
 
 local function dropTreasureItem(treasureLocation, level)
-    local quality = math.random(6,9) * 100 + math.random(50,99);
+    local quality = math.random(5,7) * 100 + math.random(50,99);
     while true do
         local itemData = getRandomItem(level)
         if itemData == nil then
@@ -327,6 +464,43 @@ function M.createMapFromSkill(player, skill)
     return M.createMap(player, level)
 end
 
+local function dropBluePrints(treasureLocation, level)
+
+    local chance = 0.05 -- 5% chance a blueprint drops from a treasure
+
+    local rand = math.random()
+
+    if rand > chance then
+        return
+    end
+
+    local eligibleBlueprints = {}
+
+    for _, blueprint in pairs(blueprints.blueprints) do
+
+        if (level <= 2 and blueprint.treasure == "small")
+        or (level > 2 and level <= 4 and (blueprint.treasure == "average" or blueprint.treasure == "averageAndBig"))
+        or (level > 4 and level <= 7 and (blueprint.treasure == "big" or blueprint.treasure == "averageAndBig" or blueprint.treasure == "bigAndGiant"))
+        or (level > 7 and level <= 9 and (blueprint.treasure == "giant"  or blueprint.treasure == "bigAndGiant")) then
+            table.insert(eligibleBlueprints, {id = blueprint.id, rareness = blueprint.rareness})
+        end
+
+    end
+
+    if #eligibleBlueprints == 0 then
+        return
+    end
+
+    local randomlySelectedBlueprint = eligibleBlueprints[math.random(1, #eligibleBlueprints)]
+
+    local blueprint = world:createItemFromId(blueprints.itemIdBlueprint, 1, treasureLocation, true, 333, {["rareness"] = randomlySelectedBlueprint.rareness, ["blueprint"] = randomlySelectedBlueprint.id})
+
+    if not blueprint then
+        debug("Failed to spawn a blueprint when tasked to.")
+    end
+
+end
+
 function M.dropTreasureItems(treasureLocation, level)
     local itemSpawnResults = {}
     table.insert(itemSpawnResults, dropTreasureItem(treasureLocation, level))
@@ -335,6 +509,8 @@ function M.dropTreasureItems(treasureLocation, level)
     table.insert(itemSpawnResults, dropTreasureItem(treasureLocation, level + 1))
     table.insert(itemSpawnResults, dropTreasureItem(treasureLocation, level + 2))
     table.insert(itemSpawnResults, dropTreasureItem(treasureLocation, level + 2))
+
+    dropBluePrints(treasureLocation, level)
 
     local minMoney, maxMoney = content.getMoneyInTreasure(level)
     money.GiveMoneyToPosition(treasureLocation, math.random(minMoney, maxMoney))
@@ -391,6 +567,41 @@ end
 local function notifyTreasureFoundStatistic(player)
     local lastValue = player:getQuestProgress(60)
     player:setQuestProgress(60, lastValue + 1)
+end
+
+local function logTreasureDig(treasureHunter, treasureMap)
+
+    local foundBy = treasureMap:getData("foundBy")
+
+    local finderIsHere = false
+
+    if common.IsNilOrEmpty(foundBy) then -- It is an old map with no finder registered
+        return
+    end
+
+    local playersNearby = world:getPlayersInRangeOf(treasureHunter.pos, 30)
+
+    local text = "A treasure of tier "..math.floor(treasureMap.quality/100).." at pos "..tostring(treasureHunter.pos).." was dug by the following group, with the origin of the map("..foundBy..") not present: "
+
+    for index, playerNearby in ipairs(playersNearby) do
+
+        text = text..playerNearby.name.."("..playerNearby.id..")"
+
+        if index < #playersNearby then
+            text = text..", "
+        else
+            text = text.."."
+        end
+
+        if playerNearby.name == foundBy then
+            finderIsHere = true
+        end
+    end
+
+    if not finderIsHere then
+        log(text)
+    end
+
 end
 
 function M.performDiggingForTreasure(treasureHunter, diggingLocation, additionalParams)
@@ -487,6 +698,8 @@ function M.performDiggingForTreasure(treasureHunter, diggingLocation, additional
     end
 
     treasureHunter:inform(msgFoundTreasureDe, msgFoundTreasureEn)
+
+    logTreasureDig(treasureHunter, treasureMap)
 
     local monsterList = spawnMonsters(diggingLocation, treasureLevel)
     if monsterList == nil then

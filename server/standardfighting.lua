@@ -63,6 +63,8 @@ local ysbryd = require("magic.arcane.enchanting.effects.ysbryd")
 local hieros = require("magic.arcane.enchanting.effects.hieros")
 local dendron = require("magic.arcane.enchanting.effects.dendron")
 local dwyfol = require("magic.arcane.enchanting.effects.dwyfol")
+local magicTargeting = require("magic.arcane.targeting")
+local testing = require("base.testing")
 
 local M = {}
 
@@ -282,10 +284,20 @@ end
 -- @param Defender The character who is attacked
 -- @return true in case a attack was performed, else false
 function M.onAttack(Attacker, Defender)
+
     if Attacker.fightpoints < 0 then
         -- This happens only if the player cheats.
         -- Let's don't attack now.
         return
+    end
+
+    local foundEffect, Paralysis = Attacker.effects:find(23)
+
+    if foundEffect then
+        local foundTime, timeLeft = Paralysis:findValue("timeLeft")
+        if foundTime and timeLeft >= 1 then
+            return -- No attacking while paralysed
+        end
     end
 
     -- Store the enemey as the current target of this player
@@ -308,6 +320,10 @@ function M.onAttack(Attacker, Defender)
 
     -- Load the weapons of the attacker
     Attacker = fightingutil.loadWeapons(Attacker)
+
+    if Attacker.IsWeapon and fighting.IsTrainingWeapon(Attacker.WeaponItem.id) and character.AtBrinkOfDeath(Defender.Char) and Defender.Char:getType() == Character.player then
+        return --in pvp a training weapon will realistically never be used to kill, only to spar, so this prevents accidental sparring deaths as it is lame to punish players for being a little inattentive to their health bars during something like that
+    end
 
     -- Find out the attack type and the required combat skill
     GetAttackType(Attacker)
@@ -335,26 +351,35 @@ function M.onAttack(Attacker, Defender)
         end
     end
 
-    -- Check the range between the both fighting characters
-    if not isInRange then
-        return false
-    end
-
     -- Check if the attack is good to go (possible weapon configuration)
     if not CheckAttackOK(Attacker) then
         return false
     end
 
-    -- Check if a magic attack is invoked
+    -- Check for magic spell invoked, has a separate range check than the one below
+
     if Attacker.AttackKind == 5 then
-        if fightingutil.isMagicUser(Attacker.Char) then -- Only mages can invoke a magic attack
-            -- Magic attacks are calculated in a different manner, outsourced for tidiness
-            local magicAttack = require("magic.magicfighting")
-            magicAttack.onMagicAttack(Attacker, Defender)
+
+        if fightingutil.isMagicUser(Attacker.Char) then -- Only mages can invoke magic
+
+            magicTargeting.playerTargets[Attacker.Char.id] = Defender.Char
         end
-        return false
+
+        return false -- No need to go further since wands do not use this script beyond setting a target
+    else
+        magicTargeting.playerTargets[Attacker.Char.id] = nil
+        --[[ If you change to another weapon, it didn't update the target so if you then cast a spell
+            while targeting someone else, it would recognise you as in combat targeting someone but cast
+            on your previous target with unfortunate consequences.
+            This is no longer an issue because a wand is now required to aim at a target, or else it will
+            default to the tile in front of you. However, I am leaving this here to overwrite it anyways
+            just in case something changes in the future in regards to the requirements of aiming.]]
     end
 
+    -- Check the range between the both fighting characters
+    if not isInRange then
+        return false
+    end
 
     -- Check if ammunition is needed and use it
     if not HandleAmmunition(Attacker) then
@@ -393,7 +418,7 @@ function M.onAttack(Attacker, Defender)
     end
 
     -- Calculate the damage caused by the attack
-    CalculateDamage(Attacker, Globals)
+    CalculateDamage(Attacker, Globals, Defender.Char)
 
     -- Reduce the damage due the absorbtion of the armour
     ArmourAbsorption(Attacker, Defender, Globals)
@@ -587,7 +612,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
     if Attacker.Char:isNewPlayer() then
         degradeChance = degradeChance * 2
     end
-    if (common.Chance(1, degradeChance)) and (Attacker.WeaponItem.id ~= 0) and character.IsPlayer(Attacker.Char)
+    if Attacker.IsWeapon and (common.Chance(1, degradeChance)) and (Attacker.WeaponItem.id ~= 0) and character.IsPlayer(Attacker.Char)
             and commonAttackerWeapon.MaxStack == 1 then
         local durability = math.fmod(Attacker.WeaponItem.quality, 100)
         local quality = (Attacker.WeaponItem.quality - durability) / 100
@@ -640,7 +665,7 @@ end
 -- character.
 -- @param Attacker The table of the character who is attacking
 -- @param Globals The global data table
-function CalculateDamage(Attacker, Globals)
+function CalculateDamage(Attacker, Globals, defenderChar)
     local BaseDamage
     local StrengthBonus
     local PerceptionBonus
@@ -683,11 +708,11 @@ function CalculateDamage(Attacker, Globals)
 
     local messupmalus = 5 -- Amount that damage value is divided by if your skill isn't high enough to use this weapon.
 
-    if character.IsPlayer(Attacker.Char) and world:getItemStatsFromId(Attacker.WeaponItem.id).Level>Attacker.skill then
+    if Attacker.IsWeapon and character.IsPlayer(Attacker.Char) and world:getItemStatsFromId(Attacker.WeaponItem.id).Level>Attacker.skill then
         BaseDamage = BaseDamage/messupmalus
     end
 
-    if character.IsPlayer(Attacker.Char) and common.isBroken(Attacker.WeaponItem) then
+    if Attacker.IsWeapon and character.IsPlayer(Attacker.Char) and common.isBroken(Attacker.WeaponItem) then
         BaseDamage = 0
     end
 
@@ -697,7 +722,14 @@ function CalculateDamage(Attacker, Globals)
     SkillBonus = (Attacker.skill - 20) * 1.5
 
     --Quality Bonus: Multiplies final value by 0.93-1.09
-    QualityBonus = 0.91+0.02*math.floor(weaponQuality/100)
+
+    weaponQuality = math.floor(weaponQuality/100)
+
+    if Attacker.IsWeapon and fighting.IsTrainingWeapon(Attacker.WeaponItem.id) and isValidChar(defenderChar) and defenderChar:getType() == Character.player then
+        weaponQuality = 9 - weaponQuality --Damage from training weapons reversed so that you actually want quality there, only against players
+    end
+
+    QualityBonus = 0.91+0.02*weaponQuality
 
     --Crit bonus
     if Globals.criticalHit>0 then
@@ -721,6 +753,13 @@ function CauseDamage(Attacker, Defender, Globals)
     end
 
     local damageCap = 4999  --Damage is capped at 4999 Hitpoints to prevent "one hit kills"
+
+    if character.IsPlayer(Defender.Char) and character.IsPlayer(Attacker.Char) then -- It is pvp
+        local secondsToKillInPvP = 7
+        local maxHealth = 10000
+        local maxDamagePerSecond = maxHealth/secondsToKillInPvP
+        damageCap = math.min(damageCap, CalculateMovepoints(Attacker)/10 * maxDamagePerSecond)
+    end
 
     if Attacker.AttackKind == 0 and not character.IsPlayer(Defender.Char) then -- wrestling against mobs
         damageCap = 1665
@@ -762,7 +801,7 @@ function CauseDamage(Attacker, Defender, Globals)
         local storedDefender = Defender.Char
         Defender.Char = Attacker.Char
         Attacker.Char = storedDefender
-
+        Globals.Damage = math.min(Globals.Damage, 1000) -- It shouldn't be possible to luck into killing off a max skill chara with a no skill character!
     end
 
     if character.IsPlayer(Defender.Char) and not Defender.Char:isAdmin()
@@ -815,7 +854,7 @@ function CauseDamage(Attacker, Defender, Globals)
             "#me stumbles back.")
 
         if not Defender.Char:isAdmin() then --Admins don't want to get paralysed!
-            common.ParalyseCharacter(Defender.Char, 2, false, true)
+            common.ParalyseCharacter(Defender.Char, 20, false, true)
             local TimeFactor=1 -- See lte.chr_reg
             chr_reg.stallRegeneration(Defender.Char, 60/TimeFactor)
             -- Stall regeneration for one minute.
@@ -835,7 +874,9 @@ function CauseDamage(Attacker, Defender, Globals)
         -- Add check here for whether Dwyfol has activated to reduce the damage based on magic resistance when magic resistance is applied
 
         character.ChangeHP(Defender.Char,-Globals.Damage) -- Finally dealing the damage.
-
+        if testing.active then
+            Defender.Char:talk(Character.say,"#me takes "..Globals.Damage.." damage.", "#me takes "..Globals.Damage.." damage.") --temp logging of damage for testers
+        end
         chous.apply(Attacker.Char, Defender.Char) --After being hit, this glyph has a chance to activate to teleport the attacker away from the defender
         coeden.apply(Defender.Char, Attacker.Char) --After being hit, this glyph has a chance to activate to teleport the defender away from the attacker
     end
@@ -932,7 +973,7 @@ function HitChance(Attacker, Defender, Globals)
 
     local parryWeapon, parryItem = GetParryWeaponAndItem(Defender)
 
-    if not parryWeapon then
+    if not parryWeapon or not parryItem then
         return true
     end
 
@@ -977,10 +1018,8 @@ end
 -- @param CharStruct The table of the attacker that holds all values load
 -- @return true in case the attack is fine
 function CheckAttackOK(CharStruct)
+
     if CharStruct["AttackKind"] == nil or CharStruct["Skillname"] == nil then -- finding the attack type or skill failed
-        return false
-    end
-    if (CharStruct.Char.effects:find(24)) then -- Attacker is tied up
         return false
     end
 
@@ -1177,10 +1216,18 @@ function ConstitutionEffect(Defender, Globals)
         return
     end
 
-    Globals.Damage = Globals.Damage * 14 / Defender.constitution
+    if Defender.constitution <= 15 and Defender.Char:getType() == Character.player then
+        local attribBonus = common.GetAttributeBonusMedium(Defender.constitution)
+        Globals.Damage = math.max(0, Globals.Damage * (1 - attribBonus))
+    else
+        Globals.Damage = Globals.Damage * 14 / Defender.constitution
+    end
+
 end
 
 function gemBonusEffect(Attacker, Defender, Globals)
+
+    local chestPiece = Defender.Char:getItemAt(Character.breast)
 
     if (Globals.Damage == 0) then
         return
@@ -1188,7 +1235,12 @@ function gemBonusEffect(Attacker, Defender, Globals)
 
     local GemBonusAttacker = gems.getGemBonus(Attacker.WeaponItem)/fightingGemBonusDivisionValue
     GemBonusAttacker = modifyGemEffect(Attacker, GemBonusAttacker)
-    local GemBonusDefender = gems.getGemBonus(Globals.HittedItem)/fightingGemBonusDivisionValue
+
+    if not Attacker.IsWeapon then
+        GemBonusAttacker = 0
+    end
+
+    local GemBonusDefender = gems.getGemBonus(chestPiece)/fightingGemBonusDivisionValue
     GemBonusDefender = modifyGemEffect(Attacker, GemBonusDefender)
 
     local gemBonus = GemBonusAttacker-GemBonusDefender
@@ -1211,7 +1263,7 @@ function CoupDeGrace(Attacker, Defender)
         return false
     end
 
-    if fighting.IsTrainingWeapon(Attacker.WeaponItem.id) then
+    if Attacker.IsWeapon and fighting.IsTrainingWeapon(Attacker.WeaponItem.id) then
         -- not done for training weapons
         return false
     end
@@ -1245,8 +1297,8 @@ function DropAmmo(Attacker, Defender, GroundOnly)
     end
 
     local chanceForDrop
-    if Attacker.Weapon.AmmunitionType == 255 then --Recover throwing weapons at 100 %, arrows etc. at 50 %
-        chanceForDrop = 1
+    if Attacker.Weapon.AmmunitionType == 255 then --Recover throwing weapons at 98 %, arrows etc. at 50 %
+        chanceForDrop = 0.98 --based on a throwing axe being valued 2500% of a regular arrow, resulting in the same monetary loss on average
     else
         chanceForDrop = 0.5
     end
@@ -1398,11 +1450,11 @@ function Specials(Attacker, Defender, Globals)
 
         if targetPos ~= nil then
             Defender.Char:warp(targetPos)
-            common.ParalyseCharacter(Defender.Char, 2, false, true)
+            common.ParalyseCharacter(Defender.Char, 20, false, true)
         end
     elseif(Globals.criticalHit==5) then
         --Stun
-        common.ParalyseCharacter(Defender.Char, 2, false, true)
+        common.ParalyseCharacter(Defender.Char, 20, false, true)
     end
 end
 
@@ -1576,7 +1628,7 @@ function LearnSuccess(Attacker, Defender, AP, Globals)
     if Attacker.Weapon and not common.isBroken(Attacker.WeaponItem) then
         -- Attacker learns weapon skill
         if Attacker.Skillname then
-            Attacker.Char:learn(Attacker.Skillname, AP/3, math.max(Defender.DefenseSkill, Defender.parry) + 20)
+            Attacker.Char:learn(Attacker.Skillname, AP, math.max(Defender.DefenseSkill, Defender.parry) + 20)
         end
     end
 
@@ -1584,7 +1636,7 @@ function LearnSuccess(Attacker, Defender, AP, Globals)
     if Defender.DefenseSkillName then
         local armourfound, _ = world:getArmorStruct(Globals.HittedItem.id)
         if armourfound and not common.isBroken(Globals.HittedItem) then
-            Defender.Char:learn(Defender.DefenseSkillName,(AP)/3,Attacker.skill + 20)
+            Defender.Char:learn(Defender.DefenseSkillName,(AP),Attacker.skill + 20)
         end
     end
 
@@ -1592,7 +1644,7 @@ function LearnSuccess(Attacker, Defender, AP, Globals)
 
     -- Defender learns only with a valid non-broken parry weapon
     if parryWeapon ~= nil then
-        Defender.Char:learn(Character.parry, AP/3, Attacker.skill + 20)
+        Defender.Char:learn(Character.parry, AP, Attacker.skill + 20)
     end
 end
 

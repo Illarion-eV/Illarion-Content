@@ -15,49 +15,22 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
-
--- UPDATE items SET itm_script='item.id_271_scythe' WHERE itm_id IN (271);
-
-local common = require("base.common")
-local grainharvesting = require("craft.gathering.grainharvesting")
+local farming = require("craft.gathering.farming")
 local metal = require("item.general.metal")
 
 local M = {}
 
 M.LookAtItem = metal.LookAtItem
 
-local function getGrain(User)
+function M.UseItem(user, SourceItem, ltstate)
 
-    -- first check front position for grain
-    local TargetItem = common.GetFrontItem(User);
-    if ( TargetItem ~= nil and TargetItem.id == 248 ) then
-        return TargetItem;
+    local plant = farming.getFarmingItem(user)
+
+    if plant then
+        farming.StartGathering(user, plant, ltstate)
+        return
     end
 
-    local foundYoungGrain -- check if we only find not fully grown grain
-    TargetItem, foundYoungGrain = grainharvesting.GetNearbyGrain(User);
-    if ( TargetItem == nil ) then
-        -- since we're here, there is no fully grown grain
-        if ( foundYoungGrain ) then
-            common.HighInformNLS( User,
-            "Das Getreide ist noch nicht reif für den Schnitt.",
-            "The grain is not ready for harvest yet." );
-        else
-            common.HighInformNLS( User,
-            "Du brauchst Getriede um es mit der Sense zu schneiden.",
-            "You need grain for harvesting it with the scythe." );
-        end
-        return nil;
-    end
-
-    return TargetItem;
-end
-
-function M.UseItem(User, SourceItem, ltstate)
-    local grain = getGrain(User);
-    if grain ~= nil then
-        grainharvesting.StartGathering(User, grain, ltstate);
-    end
 end
 
 return M

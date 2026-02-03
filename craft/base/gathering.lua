@@ -20,6 +20,7 @@ local treasure = require("item.base.treasure")
 local gwynt = require("magic.arcane.enchanting.effects.gwynt")
 local anemo = require("magic.arcane.enchanting.effects.anemo")
 local nomizo = require("magic.arcane.enchanting.effects.nomizo")
+local gems = require("base.gems")
 
 local M = {}
 
@@ -105,7 +106,7 @@ function GatheringCraft:AddRandomPureElement(User,Probability)
     end
 end
 
-function GatheringCraft:FindRandomItem(User)
+function GatheringCraft:FindRandomItem(User, toolItem)
 
   -- FindRandomItem is called when the User is currently working. If there was
   -- a reload, the working time will be nil. Check for this case.
@@ -124,25 +125,36 @@ function GatheringCraft:FindRandomItem(User)
 
     local guaranteeMap = false
 
-    local guaranteeRandomItem = false
+    local guaranteeElement = false
 
-    if nomizo.increaseTreasureChance(User) then
+    local guaranteeRareItem = false
+
+    local guaranteeOccasionalItem = false
+
+    local guaranteeFrequentItem = false
+
+    if nomizo.increaseTreasureChance(User, toolItem, self.LeadSkill) then
         local rand = math.random()
-
-        if rand > 0.5 then
+        -- See nomizo.lua in magic/arcane/enchanting/effects for an explanation of the %s
+        if rand <= 0.05 then -- 5% chance
             guaranteeMap = true
-        else
-            guaranteeRandomItem = true
+        elseif rand <= 0.10 then -- 5% chance
+            guaranteeElement = true
+        elseif rand <= 0.20 then -- 10% chance
+            guaranteeRareItem = true
+        elseif rand <= 0.40 then -- 20% chance
+            guaranteeOccasionalItem = true
+        else -- 60% chance
+            guaranteeFrequentItem = true
         end
     end
-
 
     local skill  = common.Limit(User:getSkill(self.LeadSkill), 0, 100);
     if (self.Treasure > 0) then
         local rand = math.random();
         if ((rand < self.Treasure*self.FastActionFactor) or guaranteeMap) and treasure.createMapFromSkill(User, skill) then
             common.InformNLS(User, self.TreasureMsg[1], self.TreasureMsg[2]);
-            return true;
+            return true
         end
     end
 
@@ -168,31 +180,72 @@ function GatheringCraft:FindRandomItem(User)
         end
     end
 
-    local itemGuaranteedAlready = false
-
     if(#self.RandomItems > 0) then
 
-        -- check all items with same random number and choose any possible item again randomly
+        local elements = {2551, 2553, 2554, 2552, 3607}
 
-        local itemIndexList = {};
+        local itemIndexList = {}
 
-        -- list all items that are possible¨
+        local elementCount = 0
+
+        local rareItemExists = false
+
+        local occasionalItemExists = false
+
+        for _, randomItem in pairs(self.RandomItems) do
+            if randomItem.Probability == M.prob_rarely then
+                rareItemExists = true
+            end
+            if randomItem.Probability == M.prob_occasionally then
+                occasionalItemExists = true
+            end
+        end
+
+        if not rareItemExists and guaranteeRareItem then
+            guaranteeRareItem = false
+            guaranteeOccasionalItem = true
+        end
+
+        if not occasionalItemExists and guaranteeOccasionalItem then
+            guaranteeOccasionalItem = false
+            guaranteeFrequentItem = true -- This way even if no occasional item exists for the gathering skill, you always get something
+        end
 
         for it = 1, #self.RandomItems, 1 do
-            local rand = math.random();
+
             local guaranteeThisItem = false
 
-            if not itemGuaranteedAlready and (guaranteeRandomItem and rand <= 1/(#self.RandomItems-it)) then
-                itemGuaranteedAlready = true
-                guaranteeThisItem = true
+            for _, element in pairs(elements) do
+                if self.RandomItems[it].ID == element and guaranteeElement and elementCount ~= 5 then
+
+                    local randomElement = math.random(1,5-elementCount)
+
+                    if randomElement == 1 then
+                        elementCount = 5
+                        guaranteeThisItem = true
+                    end
+                end
             end
 
-            if (rand <= self.RandomItems[it].Probability*self.FastActionFactor) or guaranteeThisItem then
+            if (self.RandomItems[it].Probability == M.prob_occasionally and guaranteeOccasionalItem) or (self.RandomItems[it].Probability == M.prob_frequently and guaranteeFrequentItem) or (self.RandomItems[it].Probability == M.prob_rarely and guaranteeRareItem) then
+                guaranteeThisItem = true
 
-                table.insert(itemIndexList, it);
+            end
+
+            local rand = math.random()
+
+            local itemObtainedNormally = rand <= self.RandomItems[it].Probability*self.FastActionFactor
+
+            if itemObtainedNormally or guaranteeThisItem then
+
+                table.insert(itemIndexList, it)
+
+                -- since an item was awarded, we reset whichever one it was incase of duplicates in the category
+                guaranteeRareItem, guaranteeOccasionalItem, guaranteeFrequentItem = false, false, false
 
             end
         end
+
         if ( #itemIndexList > 0 ) then -- For the unlikely case that two items were found at once, we just give one to the player
             local ind = itemIndexList[math.random(1,#itemIndexList)];
             common.InformNLS(User, self.RandomItems[ind].MessageDE, self.RandomItems[ind].MessageEN);
@@ -219,27 +272,108 @@ function GatheringCraft:GenWorkTime(User)
 end
 
 -- Check the amount
-function M.GetAmount(maxAmount, SourceItem)
+function M.GetAmount(maxAmount, SourceItem, depleted)
 
-    local amountStr = SourceItem:getData("amount");
-    local amount
-    if ( amountStr ~= "" ) then
+    local amountStr = SourceItem:getData("amount")
+    local amount = 0
+
+    local timestamp = SourceItem:getData("timestamp")
+
+    local respawnShouldveHappened = false
+
+    if depleted then
+
+        local itemStats = world:getItemStatsFromId(depleted)
+
+        local ageingSpeed = itemStats.AgeingSpeed*3*60 --Amount of seconds it takes for the resource to recover normally
+
+        local time = world:getTime("unix")
+
+        if not common.IsNilOrEmpty(timestamp) then
+            if time >= timestamp + ageingSpeed then
+                respawnShouldveHappened = true
+            end
+        end
+    end
+
+    if not common.IsNilOrEmpty(amountStr) and not respawnShouldveHappened then
         amount = tonumber(amountStr)
-    elseif ( SourceItem.wear == 255 ) then
+    elseif SourceItem.wear == 255 then
         amount = maxAmount
-    else
-        amount = 0
     end
 
     return amount
 
  end
 
+ function M.rollsAsRare(user, leadSkill, toolItem)
+
+    local leadAttribValue
+
+    if leadSkill then
+        local leadAttribNames = common.GetLeadAttributeName(leadSkill)
+        local leadAttribValue1 = user:increaseAttrib(leadAttribNames.first, 0) * 0.6 -- 60% of the impact dex had on its own in the past
+        local leadAttribValue2 = user:increaseAttrib(leadAttribNames.second, 0) * 0.4 -- 40% of the impact dex had on its own in the past
+        leadAttribValue = leadAttribValue1 + leadAttribValue2
+    else --It's foraging
+        leadAttribValue = user:increaseAttrib("constitution", 0)
+    end
+
+    local attributeBonus = 0
+    local toolBonus = 0
+    local gemBonus = 0
+
+    if leadAttribValue then
+        attributeBonus = common.GetAttributeBonusHigh(leadAttribValue)
+    end
+
+    if toolItem then
+        toolBonus = common.GetQualityBonusStandard(toolItem)
+        gemBonus = gems.getGemBonus(toolItem)
+    end
+
+    local meanQuality = 5
+
+    meanQuality = meanQuality*(1+attributeBonus+toolBonus)+gemBonus/100 --Apply boni of attribs, tool quality and gems.
+    meanQuality = common.Limit(meanQuality, 1, 8.5) --Limit to a reasonable maximum to avoid overflow ("everything quality 9"). The value here needs unnatural attributes.
+    local rolls = 8 --There are eight chances to increase the quality by one. This results in a quality distribution 1-9.
+    local quality = 1 + common.BinomialByMean((meanQuality-1), rolls)
+    quality = common.Limit(quality, 1, common.ITEM_MAX_QUALITY)
+
+    if quality ~= 9 then
+        return
+    end
+
+    -- 1 = common, 2 = uncommon, 3 = rare, 4 = unique
+    -- Max chances: 0.4% unique, 2% rare, 10% uncommon, 87.6% common (includes the chance to get perfect items to even get here)
+
+    local retVal = 1
+
+    local maxPerfectChance = 0.5967194738 --Maximum probability for quality 9(perfect) items
+
+    local rarities = {(0.004)/maxPerfectChance, (0.02)/maxPerfectChance, (0.1)/maxPerfectChance} --unique, rare, uncommon
+
+    local rand = math.random()
+
+    for _, rarity in ipairs(rarities) do
+        if rarity >= rand then
+            retVal = retVal+1
+        end
+    end
+
+    if retVal <= 1 then
+        return
+    end
+
+    return {rareness = retVal, craftedRare = "true"}
+ end
+
 -- Find a resource from a source
-function M.FindResource(user, SourceItem, amount, resourceID)
+function M.FindResource(user, SourceItem, amount, resourceID, leadSkill, toolItem)
 
     amount = amount - 1
     SourceItem:setData("amount", "" .. amount)
+    SourceItem:setData("timestamp", tostring(world:getTime("unix")))
     world:changeItem(SourceItem)
 
     local resourceAmount = 1
@@ -249,7 +383,9 @@ function M.FindResource(user, SourceItem, amount, resourceID)
         resourceAmount = 2
     end
 
-    local created = common.CreateItem(user, resourceID, resourceAmount, 333, nil)
+    local data = M.rollsAsRare(user, leadSkill, toolItem)
+
+    local created = common.CreateItem(user, resourceID, resourceAmount, 333, data)
 
     return created, amount
 
@@ -266,7 +402,7 @@ function M.SwapSource(SourceItem, depletedSourceID, restockWear)
 end
 
 -- Collector for recurring functions
-function M.InitGathering(user, sourceItem, toolID, maxAmount, skill)
+function M.InitGathering(user, sourceItem, toolID, maxAmount, skill, depletedItemId)
 
     common.TurnTo(user, sourceItem.pos)
 
@@ -277,8 +413,8 @@ function M.InitGathering(user, sourceItem, toolID, maxAmount, skill)
         toolItem = shared.getTool(user, toolID)
     end
 
-    local amount= M.GetAmount(maxAmount, sourceItem)
-    local gatheringBonus= shared.getGatheringBonus(user, toolItem)
+    local amount= M.GetAmount(maxAmount, sourceItem, depletedItemId)
+    local gatheringBonus= shared.getGatheringBonus(user, toolItem, skill)
 
     if ((toolID and toolItem) or not toolID) and common.CheckItem(user, sourceItem) and common.FitForWork(user) and M.SkillCheck(user, sourceItem, skill) then -- security checks
         success = true

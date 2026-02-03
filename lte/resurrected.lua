@@ -14,14 +14,61 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
+
 local common = require("base.common")
+local activityTracker = require("lte.activity_tracker")
+
 local M = {}
 
 local attribs = {"strength","dexterity","constitution","agility","intelligence","perception","willpower","essence"}
 
+M.deathsTracker = 853
+
+local function getRPvsDeaths(user)
+
+    local deaths = user:getQuestProgress(M.deathsTracker)
+
+    local reputation = user:getQuestProgress(activityTracker.reputationTrackerQuestID)
+
+    local reputationPerReduction = 144 -- 12 hours of RP per death
+
+    local deathsReducedByReputation = math.floor(reputation/reputationPerReduction)
+
+    return math.max(0, deaths - deathsReducedByReputation)
+
+end
+
+M.getRPvsDeaths = getRPvsDeaths
+
+local baseEffectCallVal = 600 -- 1 min
+
+local function applyDeathImpact(callValue, user)
+
+    --[[
+        This is applied every tick of the effect and helps determine how long until the next tick is called.
+        Since the time it takes to recover is based on your highest attribute, it varies a bit from character to character.
+        Basing it off having at least one maxed out attribute, and the range of the human race, we will assume 18 of one attrib as the average.
+        Which means an average of 17 ticks to recover.
+        That's 17 * whatever the value we get here on top of the base value of 17 * 30-90 seconds.
+        Luckiest possible then becomes 8.5 minutes to recover for the base value, 25.5 minutes for the worst luck.
+        So assuming the worst possible roll, at 60+ death counter, that's 25.5 min + 102 minutes (17 * 6) so a little
+        over 2 hours to recover as opposed to half an hour in the worst case scenario, if you die too frequently without
+        taking enough pauses to RP.
+
+    ]]
+
+    local deathImpact = getRPvsDeaths(user) * 60 --Each death count adds 6 seconds to the base timer
+
+    local maxImpact = 60*60 --At 60+ death counter, the max possible value is 360 seconds aka 6 minutes per tick
+
+    local retVal = math.min(maxImpact, callValue + deathImpact)
+
+    return retVal
+end
+
 function M.addEffect( rebirthEffect, Reborn )
     if Reborn:isAdmin() then
-      return false;
+      return false
     end
 
         common.InformNLS( Reborn,
@@ -51,14 +98,18 @@ function M.addEffect( rebirthEffect, Reborn )
     if Reborn:isNewPlayer() then
         multi = 0.5
     end
-    local callValue = 600 * multi;
-    rebirthEffect.nextCalled=math.random(callValue-300,callValue+300);
-    return true;
+
+    local callValue = applyDeathImpact(baseEffectCallVal, Reborn) * multi
+
+    rebirthEffect.nextCalled=math.random(callValue-(baseEffectCallVal/2),callValue+(baseEffectCallVal/2))
+    return true
+
 end;
 
 function M.loadEffect( rebirthEffect, Reborn )
+
     if Reborn:isAdmin() then
-      return;
+      return
     end
     local inform = false
 
@@ -97,6 +148,7 @@ function M.loadEffect( rebirthEffect, Reborn )
 end;
 
 function M.callEffect( rebirthEffect, Reborn )
+
     if Reborn:isAdmin() then
       return false;
     end
@@ -106,8 +158,10 @@ function M.callEffect( rebirthEffect, Reborn )
         multi = 1;
         rebirthEffect:addValue("multiRes",1);
     end
-    local callValue = 600 * multi;
-    rebirthEffect.nextCalled=math.random(callValue-300,callValue+300);
+
+    local callValue = applyDeathImpact(baseEffectCallVal, Reborn) * multi
+
+    rebirthEffect.nextCalled=math.random(callValue-(baseEffectCallVal/2),callValue+(baseEffectCallVal/2))
 
     --Addition by Estralis: AFK chars do not regenerate!
     if Reborn:idleTime() > 300 then --absolutely no regeneration effect if the player is afk for more than five minutes
@@ -146,30 +200,33 @@ function M.callEffect( rebirthEffect, Reborn )
 end;
 
 function M.removeEffect( rebirthEffect, Reborn )
+
     if Reborn:isAdmin() then
-    Reborn:inform("Admins do not suffer from resurrection.");
-      return;
+        Reborn:inform("Admins do not suffer from resurrection.")
+        return
     end
 
     common.InformNLS( Reborn,
         "[Wiederbelebung] Du hast dich vollständig erholt.",
-        "[Respawn] You have fully recovered." );
+        "[Respawn] You have fully recovered." )
 
     for _,attrib in pairs(attribs) do
-        local foundChange, changeBy = rebirthEffect:findValue( attrib );
+        local foundChange, changeBy = rebirthEffect:findValue( attrib )
         if foundChange and changeBy > 0 then
-            Reborn:increaseAttrib( attrib, changeBy );
-        end;
-    end;
+            Reborn:increaseAttrib( attrib, changeBy )
+        end
+    end
 
-    local foundRegen, regEffect = Reborn.effects:find(2);
+    local foundRegen, regEffect = Reborn.effects:find(2)
+
     if foundRegen then
-        regEffect:removeValue( "maxHP" );
-    end;
-end;
+        regEffect:removeValue( "maxHP" )
+    end
+end
 
 -- NOTE: function is saved locally in npc_yellowcross.lua; Workaround for Mantis issue #451
 function M.doubleEffect( rebirthEffect, Reborn )
+
     if Reborn:isAdmin() then
       return false;
     end

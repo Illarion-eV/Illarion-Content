@@ -18,12 +18,21 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Activity Tracker, effect id 84
 
 local common = require("base.common")
+local factions = require("base.factions")
+local gems = require("base.gems")
+local testing = require("base.testing")
 
 local M = {}
 
 M.reputationTrackerQuestID = 393
 
+M.rankTrackerQuestID = factions.rankTrackerQuestID
+
+M.diamondQuestID = 452
+
 local reputationTrackerQuestID = M.reputationTrackerQuestID
+
+local rankTrackerQuestID = M.rankTrackerQuestID
 
 M.monthQuestIDs = {
     Elos = 377,
@@ -59,24 +68,39 @@ local function isActive(effect)
 end
 
 local function isInteracting(effect)
+
     local foundLastInteractionTime, lastInteractionTime = effect:findValue("lastInteractionTime")
+    local foundLastInteractionSkip, lastInteractionSkip = effect:findValue("firstInteractionSkip")
+    local foundLastRealmInteractionTime, lastRealmInteractionTime = effect:findValue("lastRealmInteractionTime")
     local currentTime = world:getTime("unix")
     local difference = currentTime - lastInteractionTime
+    local differenceRealm = currentTime - lastRealmInteractionTime
 
     if not foundLastInteractionTime or difference > 300 then --checks if player was speaking/emoting near other players within the last 5 minutes
-        return false
+        return false, false
     end
 
-    return true
+    if foundLastInteractionSkip and lastInteractionSkip == 1 then
+        effect:addValue("firstInteractionSkip", 0) -- First interaction gets skipped for both parties in an attempt to help ensure actual dialogue is happening
+        return false, false
+    end
+
+    if foundLastRealmInteractionTime and differenceRealm <= 300 then
+        return true, true
+    end
+
+    return true, false
 end
 
 local function saveAndResetValues(effect, user, lastSessionMonth, lastSessionYear)
 
-    local currentYear = common.getTime("year")
+    local currentYear = world:getTime("year")
 
     local foundActiveTime, sessionActiveTime = effect:findValue("sessionActiveTime")
 
     local foundInteractionTime, sessionInteractionTime = effect:findValue("sessionInteractionTime")
+
+    local foundRankTime, sessionRankTime = effect:findValue("sessionRankTime")
 
     if not foundInteractionTime then
         sessionInteractionTime = 0
@@ -86,13 +110,17 @@ local function saveAndResetValues(effect, user, lastSessionMonth, lastSessionYea
         sessionActiveTime = 0
     end
 
+    if not foundRankTime then
+        sessionRankTime = 0
+    end
+
     local monthName = common.Month_To_String(lastSessionMonth)
 
     local questIDtoUse = monthQuestIDs[monthName]   -- The activity is tracked over an in game year, this checks what month to use based on when the data was recorded
 
     local preExistingValue = 0
 
-    local currentMonth = common.getTime("month")
+    local currentMonth = world:getTime("month")
 
     if currentYear == lastSessionYear or (currentYear > lastSessionYear and lastSessionMonth > currentMonth) then  -- Checks if the data is too outdated (if a player has not logged in for 4+ IRL months)
         preExistingValue = user:getQuestProgress(questIDtoUse)
@@ -102,20 +130,105 @@ local function saveAndResetValues(effect, user, lastSessionMonth, lastSessionYea
 
     preExistingValue = user:getQuestProgress(reputationTrackerQuestID)
 
+    local preExistingRankValue = user:getQuestProgress(rankTrackerQuestID)
+
     user:setQuestProgress(reputationTrackerQuestID, preExistingValue + sessionInteractionTime)
+
+    user:setQuestProgress(rankTrackerQuestID, preExistingRankValue + sessionRankTime)
 
     effect:addValue("sessionActiveTime", 0)
     effect:addValue("sessionInteractionTime", 0)
+    effect:addValue("sessionRankTime", 0)
     effect:addValue("sessionMonth", currentMonth)
     effect:addValue("sessionYear", currentYear)
     effect:addValue("sessionCalls", 0)
+    M[user.id] = {}
 end
 
 function M.addEffect(effect, user)
     M.callEffect(effect, user)
 end
 
+local function updateRank(effect, user)
+
+    if not M[user.id] then
+        M[user.id] = {}
+    end
+
+    if not M[user.id].questRankStatus then -- We save it here as checking the quest progress each time would result in some lag
+        M[user.id].questRankStatus = user:getQuestProgress(M.rankTrackerQuestID) -- pre existing rank points
+    end
+
+    local foundRankTime, sessionRankTime = effect:findValue("sessionRankTime") --Current sessions rank points
+
+    if not foundRankTime then
+        return
+    end
+
+    local totalRankTime = sessionRankTime + M[user.id].questRankStatus
+
+    if factions.convertTicksToRankNumber(M[user.id].questRankStatus) < factions.convertTicksToRankNumber(totalRankTime) then
+
+        factions.sendRankUpmessage(user, totalRankTime)
+
+        M[user.id].questRankStatus = totalRankTime
+
+        user:setQuestProgress(M.rankTrackerQuestID, totalRankTime)
+
+        effect:addValue("sessionRankTime", 0)
+    end
+
+    local foundInteractionTime, sessionInteractionTime = effect:findValue("sessionInteractionTime") --Current sessions interaction points
+
+    if not foundInteractionTime then
+        return
+    end
+
+    if not M[user.id].questDiamondStatus then -- We save it here as checking the quest progress each time would result in some lag
+        M[user.id].questDiamondStatus = user:getQuestProgress(M.diamondQuestID) -- pre existing diamong quest status
+    end
+
+    if not M[user.id].questInteractionStatus then -- We save it here as checking the quest progress each time would result in some lag
+        M[user.id].questInteractionStatus = user:getQuestProgress(M.reputationTrackerQuestID) -- pre existing interaction points
+    end
+
+    local totalInteractionTime = M[user.id].questInteractionStatus + sessionInteractionTime
+
+    if totalInteractionTime >= 1200 + 1200*M[user.id].questDiamondStatus then -- 100 hours of RP for each diamond
+        local gemData = gems.getMagicGemData(1, user.name)
+        common.CreateItem(user, 3520, 1, 333, gemData)
+        log("[Gems] "..user.name.."("..user.id..") just received a magical diamond gem for accumulating "..(100 + 100*M[user.id].questDiamondStatus).." hours of roleplayed time.")
+        local newStatus = M[user.id].questDiamondStatus + 1
+        user:setQuestProgress(M.diamondQuestID, newStatus)
+        M[user.id].questDiamondStatus = newStatus
+        user:inform("Wie neugierig! Du hast gerade einen magischen Diamanten in deiner Tasche gefunden! Könnte es das Werk der Götter sein, vielleicht Zhambra oder Adron, die dich für deine sozialen Errungenschaften preisen?", "How curious! You just found a magical diamond in your pocket! Could it be the works of the gods, perhaps Zhambra or Adron praising you for your social feats?")
+    end
+end
+
+local function drinkEffectProcced(user)
+
+    local foundEffect, myEffect = user.effects:find(404)
+
+    if not foundEffect then
+        return false
+    end
+
+    local foundCurrentInfluence, currentInfluence = myEffect:findValue("influence")
+
+    if not foundCurrentInfluence then
+        return false
+    end
+
+    if math.random() <= currentInfluence/100 then --Divided by 100 because it is stored at an integer representing the percentage chance, between 5-10% based on drink rarity
+        return true
+    end
+
+    return false
+end
+
 function M.callEffect(effect, user)
+
+    local potionToxinReduction = 0
 
     local foundCalls, sessionCalls = effect:findValue("sessionCalls")
 
@@ -127,6 +240,8 @@ function M.callEffect(effect, user)
 
     local foundInteractionTime, sessionInteractionTime = effect:findValue("sessionInteractionTime")
 
+    local foundRankTime, sessionRankTime = effect:findValue("sessionRankTime")
+
     if not foundActiveTime then
         sessionActiveTime = 0
     end
@@ -135,13 +250,17 @@ function M.callEffect(effect, user)
         sessionInteractionTime = 0
     end
 
+    if not foundRankTime then
+        sessionRankTime = 0
+    end
+
     local foundMonth, sessionMonth = effect:findValue("sessionMonth")
 
     local foundYear, sessionYear = effect:findValue("sessionYear")
 
-    local currentMonth = common.getTime("month")
+    local currentMonth = world:getTime("month")
 
-    local currentYear = common.getTime("year")
+    local currentYear = world:getTime("year")
 
     if not foundYear then
         sessionYear = currentYear
@@ -159,13 +278,37 @@ function M.callEffect(effect, user)
 
     if sessionCalls >= 1 then
         if isActive(effect) then
+            potionToxinReduction = potionToxinReduction + 1
             effect:addValue("sessionActiveTime", sessionActiveTime + 1)
         end
 
-        if isInteracting(effect) then
-            effect:addValue("sessionInteractionTime", sessionInteractionTime + 1)
+        local interacting, withFellowCitizen = isInteracting(effect)
+
+        local increase = 1
+        if drinkEffectProcced(user) then
+            increase = 2
+        end
+
+        if interacting then
+            potionToxinReduction = potionToxinReduction + 1
+            effect:addValue("sessionInteractionTime", sessionInteractionTime + increase)
+            if withFellowCitizen then
+                effect:addValue("sessionRankTime", sessionRankTime + increase)
+            end
         end
     end
+
+    local oldValue = user:getQuestProgress(690)
+
+    if potionToxinReduction > 0 and oldValue > 0 then
+        user:setQuestProgress(690, math.max(user:getQuestProgress(690)-1, user:getQuestProgress(690)-potionToxinReduction))
+
+        if testing.active then
+            user:inform("Poison toxins reduced from "..oldValue.." to "..user:getQuestProgress(690))
+        end
+    end
+
+    updateRank(effect, user) --If the last sessionRankTime addition ranked you up, this gives an inform and updates the quest status early to save it while reseting sessionRankTime
 
     effect:addValue("sessionCalls", sessionCalls + 1)
 

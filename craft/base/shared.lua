@@ -137,15 +137,21 @@ function M.getGermanExtension(id)
 
 end
 
-function M.getGatheringBonus(user, toolItem)
+function M.getGatheringBonus(user, toolItem, skillName)
 
     local gemScaling = 500 --Percentage divided by 100 (100 % = 1) and by 5 to match crafting quality calculation
     local gatheringBonus = 1 --Default
 
+    local attribBonus = 0
+
+    if skillName and skillName ~= 0 then
+        attribBonus = common.GetAttributeBonusHigh(nil, skillName, user)
+    end
+
     if toolItem then
-        gatheringBonus=gatheringBonus+common.GetAttributeBonusHigh(user:increaseAttrib("constitution", 0))+common.GetAttributeBonusLow(user:increaseAttrib("perception", 0))+common.GetQualityBonusStandard(toolItem)+gems.getGemBonus(toolItem)/gemScaling
+        gatheringBonus=gatheringBonus+attribBonus+common.GetAttributeBonusLow(user:increaseAttrib("perception", 0))+common.GetQualityBonusStandard(toolItem)+gems.getGemBonus(toolItem)/gemScaling
     else
-        gatheringBonus=gatheringBonus+common.GetAttributeBonusHigh(user:increaseAttrib("constitution", 0))+common.GetAttributeBonusLow(user:increaseAttrib("perception", 0))
+        gatheringBonus=gatheringBonus+attribBonus+common.GetAttributeBonusLow(user:increaseAttrib("perception", 0))
     end
 
     return gatheringBonus

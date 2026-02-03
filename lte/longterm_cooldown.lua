@@ -27,7 +27,7 @@ local monthlyQuestsIds = {504}
 -- Check quests that can be done once in every ingame month
 local function checkMonthlyQuests(char)
     local currentTimeUnix = world:getTime("unix")
-    local secondsOfCurrentMonth = common.getTime("day")*24*60*60 + common.getTime("hour")*60*60 + common.getTime("seconds")
+    local secondsOfCurrentMonth = world:getTime("day")*24*60*60 + world:getTime("hour")*60*60 + world:getTime("seconds")
 
     for i = 1, #monthlyQuestsIds do
         local questId = monthlyQuestsIds[i]
@@ -282,6 +282,24 @@ function M.callEffect( Effect, Char ) -- Effect is called
         --Addition end
 
     end --all above is only conducted for players that aren't afk for more than five minutes
+
+    --Protection by the Don, supposed to last 1 IG month, a bit of a hack to put it in here
+
+    local protectionStatus = Char:getQuestProgress(453)
+
+    if protectionStatus == 1 then --It was just bought within the last 5 min of play, set unix timeStamp
+        Char:setQuestProgress(453, world:getTime("unix"))
+    end
+
+    local time = world:getTime("unix")
+
+    local protectionDuration = 8*24*60*60
+
+    if protectionStatus > 1 and protectionStatus+protectionDuration < time then
+        Char:setQuestProgress(453, 0)
+        common.InformNLS(Char, "Dein monatliches Abonnement für den Schutz durch die Wachen des Don ist abgelaufen. Um weiterhin sicher vor Überfällen auf der Brücke bei Galmair zu sein, erneuere es noch heute bei Frederik!", "Your monthly subscription to being protected by the Don's Guards has expired. To remain safe from bridge ambushes near Galmair, go renew it at Frederik's today!")
+    end
+
 
     --Addition by Estralis: Quest 127/128/129 Caravan of Honour (Phillip Molitor) Countdown
     local theQuestStatus=Char:getQuestProgress(128)

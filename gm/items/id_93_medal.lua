@@ -19,6 +19,7 @@ local lookat = require("base.lookat")
 local common = require("base.common")
 local globalvar = require("base.globalvar")
 local mob = require("base.mob")
+local check = require("gm.items.distanceCheckAndLog")
 
 local M = {}
 
@@ -472,6 +473,11 @@ function changeAvatar(User)
 end
 
 function M.UseItem(User, SourceItem)
+
+    if not check.passesCheck(User, SourceItem) then
+        return
+    end
+
     UseItemWithField(User, common.GetFrontPosition(User), SourceItem)
 end
 

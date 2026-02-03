@@ -35,9 +35,9 @@ local function checkPosition(user)
     return true
 end
 
-local function spawnParchment(user, texts, signature, descriptionEn, descriptionDe)
+local function spawnParchment(user, texts, signature, descriptionEn, descriptionDe, finalized)
 
-    local theDataTable = {["writtenText"] = texts[1],["writtenText2"] = texts[2],["writtenText3"] = texts[3],["writtenText4"] = texts[4], ["signatureText"]  = signature, ["descriptionEn"] = descriptionEn, ["descriptionDe"] = descriptionDe}
+    local theDataTable = {["writtenText"] = tostring(texts[1]),["writtenText2"] = tostring(texts[2]),["writtenText3"] = tostring(texts[3]),["writtenText4"] = tostring(texts[4]), ["signatureText"]  = tostring(signature), ["descriptionEn"] = tostring(descriptionEn), ["descriptionDe"] = tostring(descriptionDe), ["finalized"] = tostring(finalized)}
 
     local itemCreated = user:createItem(Item.parchment, 1, 999, theDataTable)
 
@@ -48,22 +48,13 @@ local function spawnParchment(user, texts, signature, descriptionEn, description
     end
 end
 
-local function garbleTheMessage(message) -- Make it recognisable for those with database access to check if it matches, but unrecognisable for others for privacy reasons
-    --[[sends the first 21 characters in the letter.
-    EG: "I need to talk to you. Find me in Galmair when you read this." becomes "I****d****t****t****."
-    Undecipherable for those without database access to match it to the variables there,
-    or the foreknowledge of what the message is meant to hold
-    ]]
-    return string.sub(message, 1, 1).."****"..string.sub(message, 6, 6).."****"..string.sub(message, 11, 11).."****"..string.sub(message, 16, 16).."****"..string.sub(message, 21, 21)
-end
-
 local function convertContentsIntoString(contents)
 
     local retString = ""
 
     for index, message in pairs(contents) do
         if message.sender then
-            retString = retString.." (Sender "..index..": "..message.sender.." Message"..index..": "..garbleTheMessage(message.text)..")"
+            retString = retString.." (Sender "..index..": "..message.sender.." Message"..index..": "..message.text[1]..message.text[2]..message.text[3]..message.text[4]..")"
         end
     end
 
@@ -90,13 +81,13 @@ local function logThatMessagesWereReceived(recipient, contents)
         return
     end
 
-    local loggedMessage = "[Messenger]: "..tostring(recipient.name).." at "..tostring(recipient.pos).." has received "..tostring(numberOfMessages).." messages. They contain the following, garbled for privacy reasons: "
+    local loggedMessage = "[Messenger]: "..tostring(recipient.name).." at "..tostring(recipient.pos).." has received "..tostring(numberOfMessages).." messages. They contain the following: "
 
     loggedMessage = loggedMessage..contentsToString
 
     if loggedMessage then
 
-        log(loggedMessage)
+        logPlayer(loggedMessage)
 
     end
 end
@@ -113,6 +104,7 @@ local function sendPlayerMessages(numberOfMessages, recipient)
             local foundSignature, signature = ScriptVars:find(recipient.id.."storedMessageSignature"..i)
             local foundDescriptionEn, descriptionEn = ScriptVars:find(recipient.id.."storedMessageDescriptionEn"..i)
             local foundDescriptionDe, descriptionDe = ScriptVars:find(recipient.id.."storedMessageDescriptionDe"..i)
+            local foundFinalized, finalized = ScriptVars:find(recipient.id.."storedMessageFinalized"..i)
 
             if not foundText2 then
                 text2 = ""
@@ -126,10 +118,14 @@ local function sendPlayerMessages(numberOfMessages, recipient)
                 text4 = ""
             end
 
+            if not foundFinalized then
+                finalized = false
+            end
+
             if foundText1 and foundSignature and foundDescriptionEn and foundDescriptionDe then
                 local texts = {text1, text2, text3, text4}
-                table.insert(contents, {text = text1, sender = signature})
-                spawnParchment(recipient, texts, signature, descriptionEn, descriptionDe)
+                table.insert(contents, {text = texts, sender = signature})
+                spawnParchment(recipient, texts, signature, descriptionEn, descriptionDe, finalized)
             else
                 local sender = "unknown"
                 local startOfText = "unknown"
@@ -197,7 +193,7 @@ local function sendScriptMessages(numberOfScriptMessages, recipient, contents)
             if foundGermanText1 and foundEnglishText1 then
                 local texts = common.GetNLS(recipient, {germanText1, germanText2, germanText3, germanText4}, {englishText1, englishText2, englishText3, englishText4})
                 spawnParchment(recipient, texts, "", descriptionEnglish, descriptionGerman)
-                table.insert(contents, {text = englishText1})
+                table.insert(contents, {text = texts})
             else
                 local startOfTextGerman = "German text was not found."
                 local startOfTextEnglish = "English text was not found."
@@ -370,7 +366,7 @@ local function isRecipientCharacterOnline(recipient)
 
 end
 
-local function storeMessageInDatabase(user, writtenTexts, signatureText, descriptionDe, descriptionEn, recipient)
+local function storeMessageInDatabase(user, writtenTexts, signatureText, descriptionDe, descriptionEn, recipient, finalized)
 
     local foundStoredMessages, numberOfAlreadyStoredMessages = ScriptVars:find(recipient.."storedMessages")
 
@@ -389,6 +385,7 @@ local function storeMessageInDatabase(user, writtenTexts, signatureText, descrip
     ScriptVars:set(recipient.."storedMessageDescriptionEn"..messageNumber, descriptionEn)
     ScriptVars:set(recipient.."storedMessageDescriptionDe"..messageNumber, descriptionDe)
     ScriptVars:set(recipient.."sender"..messageNumber, user.id)
+    ScriptVars:set(recipient.."storedMessageFinalized"..messageNumber, finalized)
     ScriptVars:save()
 
     isRecipientCharacterOnline(recipient)
@@ -425,7 +422,7 @@ local function isParchmentStillViable(user, signatureText, writtenTexts)
 
 end
 
-local function payMoney(user, writtenTexts, signatureText, descriptionDe, descriptionEn, recipient)
+local function payMoney(user, writtenTexts, signatureText, descriptionDe, descriptionEn, recipient, finalized)
 
     local hasMoney = money.CharHasMoney(user, price)
 
@@ -448,7 +445,7 @@ local function payMoney(user, writtenTexts, signatureText, descriptionDe, descri
 
     world:erase(parchment, 1)
 
-    storeMessageInDatabase(user, writtenTexts, signatureText, descriptionDe, descriptionEn, recipient)
+    storeMessageInDatabase(user, writtenTexts, signatureText, descriptionDe, descriptionEn, recipient, finalized)
 
     user:inform("Du zahlst "..(price/100).." Silberstücke und ein Bote macht sich mit deiner Nachricht auf den Weg.", "Having paid the "..(price/100).." silver fee, a messenger is dispatched with your letter.")
 end
@@ -463,7 +460,7 @@ function M.getParchmentSelectionStatus(user, parchment)
     return false
 end
 
-local function writeRecipientName(user, writtenTexts, signatureText, descriptionDe, descriptionEn)
+local function writeRecipientName(user, writtenTexts, signatureText, descriptionDe, descriptionEn, finalized)
 
     local callback = function(dialog)
         if not dialog:getSuccess() then
@@ -483,7 +480,7 @@ local function writeRecipientName(user, writtenTexts, signatureText, description
             return
         end
 
-        payMoney(user, writtenTexts, signatureText, descriptionDe, descriptionEn, recipientId)
+        payMoney(user, writtenTexts, signatureText, descriptionDe, descriptionEn, recipientId, finalized)
     end
 
     local dialog = InputDialog(common.GetNLS(user, "Empfänger", "Enter Recipient"), common.GetNLS(user, "An wen soll der Bote die Nachricht liefern?", "The messenger needs the name of the intended recipient."), false, 255, callback)
@@ -504,11 +501,12 @@ function M.verifyParchment(user, parchment)
     local signatureText = parchment:getData("signatureText")
     local descriptionDe = parchment:getData("descriptionDe")
     local descriptionEn = parchment:getData("descriptionEn")
+    local finalized = parchment:getData("finalized")
 
     parchmentSelectionStatus[user.id].status = false
 
     if writtenText1 ~= "" and signatureText ~= "" then
-        writeRecipientName(user, writtenTexts, signatureText, descriptionDe, descriptionEn)
+        writeRecipientName(user, writtenTexts, signatureText, descriptionDe, descriptionEn, finalized)
     else
         user:inform("Der Bote weist deine Nachricht zurück. Sie muss beschriftet und unterschrieben sein.", "The messenger won't accept this parchment. It has to be both written and signed using a quill.")
     end

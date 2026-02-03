@@ -59,7 +59,7 @@ AddPlant(142, {gt.sand},false)                         -- sandberry
 AddPlant(143, {gt.grass},false)                         -- red elder
 AddPlant(136, {gt.dirt},false)                          -- anger berry
 AddPlant(134, {gt.grass},false)                         -- fourleafed oneberry
-AddPlant(155, {gt.water},false)                         -- sibanac leaf
+AddPlant(Item.sibanacLeaf, {gt.water},false)
 AddPlant(151, {gt.forest},false)                        -- strawberry
 AddPlant(141, {gt.rocks},false)                         -- black thistle
 AddPlant(145, {gt.grass},false)                         -- heath flower

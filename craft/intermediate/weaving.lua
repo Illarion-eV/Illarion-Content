@@ -25,11 +25,12 @@ local weaving = crafts.Craft:new{
                     handTool = 6,
                     leadSkill = Character.tanningAndWeaving,
                     fallbackCraft = spinning.spinning,
+                    intermediate = true
                   }
 
 weaving:addTool(169) -- loom
 
-local catId = weaving:addCategory("Clothes", "Stoffe")
+local catId = weaving:addCategory("Cloths", "Stoffe")
 
 -- Grey cloth
 local product = weaving:addProduct(catId, 176, 1)

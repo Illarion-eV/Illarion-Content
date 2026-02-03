@@ -201,7 +201,7 @@ queststatus(504) = 4, item(58, all) < 1, ".*" -> "Quassel mich nicht voll! Ich w
 
 cycletext "Gift, Heilung. Alles das selbe für mich. Alles nur ein Trank.","Poison, healing. All the same to me. Just an other potion."
 cycletext "#s Bei den Göttern! Sei 30 Jahren habe ich kein Rotwolkenextrakt mehr gesehen.","#s By the gods! I haven't seen red cloud extract in 30 years."
-cycletext "Druiden! Pah! Benebeln sich mit Sibanac und quatschen mit Bäumen.","Druids! Pah! Numbing themselves with sibanac and babble with trees."
+cycletext "Druiden! Pah! Benebeln sich mit Fächerblatt und quatschen mit Bäumen.","Druids! Pah! Numbing themselves with fanleaf and babble with trees."
 cycletext "Sumpfblume, Firnisblüte, Eisblatt, Feuerwurzel und... ja, und was?","Mash flower, firnis blossom, ice leaf, fire root and... and what?"
 cycletext "Egon! Du bist so dumm wie du häßlich bist.","Egon! You are as stupid as you are ugly."
 cycletext "#me murmelt: 'Valerio, du elender Haufen Müll...'","#me mutters: 'Valerio, you filthy piece of trash.'"

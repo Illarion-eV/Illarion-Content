@@ -27,6 +27,8 @@ M.LookAtItem = metal.LookAtItem
 
 local function overloadedSelection(user, skill)
 
+    local isEstate = utility.checkIfEstate(user)
+
     local callback = function(dialog)
         local success = dialog:getSuccess()
 
@@ -37,18 +39,55 @@ local function overloadedSelection(user, skill)
         local index = dialog:getSelectedIndex()+1
 
         if index == 1 then
-            construction.showDialog(user, skill, false)
-        else
-            construction.showDialog(user, skill, true)
+            construction.showDialog(user, skill, false, false)
+        elseif index == 2 and skill ~= "mining" then
+            construction.showDialog(user, skill, false, true)
+        elseif (index == 3 and skill ~= "mining" or (index == 2 and skill == "mining")) and isEstate then
+            construction.showDialog(user, skill, true, false)
+        elseif (index == 4 and skill ~= "mining" or (index == 3 and skill == "mining")) and isEstate then
+            construction.showDialog(user, skill, true, true)
         end
     end
 
     local dialog = SelectionDialog(common.GetNLS(user, "Auswahl", "Catalogue selection"), common.GetNLS(user, "Welche Schreinergegenstände möchtest du auswählen?", "Select which category of carpented items you want to access."), callback)
 
     dialog:addOption(0, common.GetNLS(user, "Normale Gegenstände", "Regular catalogue"))
+    if skill ~= "mining" then
+        dialog:addOption(0, common.GetNLS(user, "Normale Gegenstände 2", "Regular catalogue 2"))
+    end
     dialog:addOption(0, common.GetNLS(user, "Grundstücksgegenstände", "Estate catalogue"))
+    dialog:addOption(0, common.GetNLS(user, "Grundstücksgegenstände 2", "Estate catalogue 2"))
 
     user:requestSelectionDialog(dialog)
+end
+
+local function assistBuilding(user)
+
+    local propertyName = utility.fetchPropertyName(user)
+    local deed = utility.getPropertyDeed(propertyName)
+
+    local callback = function(dialog)
+
+        local success = dialog:getSuccess()
+
+        if not success then
+            utility.removeHelper(user, deed)
+        end
+
+        local index = dialog:getSelectedIndex()+1
+
+        if index == 1 then
+            utility.removeHelper(user, deed)
+        end
+    end
+
+    local dialog = SelectionDialog(common.GetNLS(user,"Beim Bauen helfen","Assist building"), common.GetNLS(user,"Solange dieses Dialogfenster geöffnet ist, stehst du nahegelegenen Spielern zur Verfügung, um ihnen beim Bau größerer Projekte wie statischen Werkzeugen und Depots zu helfen.","While this dialog is open you will be available to nearby players to assist them in the building of larger projects such as static tools and depots."), callback)
+
+    dialog:addOption(0, common.GetNLS(user, "Fertig mit Bauen", "Done building"))
+
+    dialog:setCloseOnMove()
+    user:requestSelectionDialog(dialog)
+    utility.addHelper(user, deed)
 end
 
 local function craftSelection(user)
@@ -58,8 +97,10 @@ local function craftSelection(user)
     local callback = function(dialog)
         local success = dialog:getSuccess()
         if success then
-            local index = dialog:getSelectedIndex()+1
-            if (skills[index].name == "carpentry" or skills[index].name == "mining") and utility.checkIfEstate(user) then --Carpentry and mining have too many items to display in one crafting menu alone, so they are separated into estate and shell housing categories
+            local index = dialog:getSelectedIndex()
+            if index == 0 then
+                assistBuilding(user)
+            elseif (skills[index].name == "carpentry" or skills[index].name == "mining") then --Carpentry and mining have too many items to display in one crafting menu alone, so they are separated into estate and shell housing categories
                 overloadedSelection(user, skills[index].name)
             else
                 construction.showDialog(user, skills[index].name, nil)
@@ -67,6 +108,7 @@ local function craftSelection(user)
         end
     end
     local dialog = SelectionDialog(common.GetNLS(user,"Handwerksauswahl","Skill Selection"), common.GetNLS(user,"Mit welchem Handwerk möchtest du Gegenstände herstellen?","Choose which skill you want to use to create items with."), callback)
+    dialog:addOption(0,common.GetNLS(user,"Beim Bauen helfen","Assist building"))
     for _, skill in pairs(skills) do
         dialog:addOption(0,common.GetNLS(user,skill.displayDe,skill.displayEn))
     end
@@ -123,12 +165,14 @@ local function miscDialog(user)
                     if selected == 1 then
                         utility.makeStatic(user)
                     elseif selected == 2 then
-                        utility.writeOnSignPost(user)
+                        utility.writeOnSignPostOrPainting(user)
                     elseif selected == 3 then
                         utility.makeWaterWalkable(user)
-                    elseif selected == 4 and utility.checkIfEstate(user) then
-                        utility.createLock(user)
+                    elseif selected == 4 then
+                        utility.setElevation(user)
                     elseif selected == 5 and utility.checkIfEstate(user) then
+                        utility.createLock(user)
+                    elseif selected == 6 and utility.checkIfEstate(user) then
                         utility.createKey(user)
                     end
                 else
@@ -140,8 +184,9 @@ local function miscDialog(user)
 
     local dialog = SelectionDialog(common.GetNLS(user,"Sonstiges","Misc Menu"), common.GetNLS(user,"Was würdest du gerne tun?","Choose what to do."), callback)
     dialog:addOption(0,common.GetNLS(user,"Gegenstände haltbar machen","(Un)Make item static"))
-    dialog:addOption(0,common.GetNLS(user,"Ein Hinweisschild beschriften","Write on Sign Post"))
+    dialog:addOption(0,common.GetNLS(user,"Ein Hinweisschild beschriften","Write on Sign Post/Painting"))
     dialog:addOption(0,common.GetNLS(user,"Übers Wasser gehen","Make water walkable"))
+    dialog:addOption(0,common.GetNLS(user,"Höhe einstellen","Set elevation"))
     if utility.checkIfEstate(user) then
         dialog:addOption(0,common.GetNLS(user,"Schloss setzen","Create a lock"))
         dialog:addOption(0,common.GetNLS(user,"Schlüssel herstellen","Create a key"))

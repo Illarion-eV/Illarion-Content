@@ -25,6 +25,7 @@ local dyemaking = crafts.Craft:new{
                     leadSkill = Character.tanningAndWeaving,
                     sfx = 10,
                     sfxDuration = 27,
+                    intermediate = true
                   }
 
 dyemaking:addTool(1226) -- dye barrel
@@ -48,17 +49,17 @@ product:addIngredient(52) -- Water bucket
 
 -- Black Dye
 product = dyemaking:addProduct(catId, 2678, 1)
-product:addIngredient(136, 2) -- Anger berry
+product:addIngredient(136, 1) -- Anger berry
 product:addIngredient(52) -- Water bucket
 
 -- Yellow Dye
 product = dyemaking:addProduct(catId, 2682, 1)
-product:addIngredient(135, 2) -- Yellow Weed
+product:addIngredient(135, 1) -- Yellow Weed
 product:addIngredient(52) -- Water bucket
 
 -- Blue Dye
 product = dyemaking:addProduct(catId, 2680, 1)
-product:addIngredient(753, 2) -- Blue Bird's Berry
+product:addIngredient(753, 1) -- Blue Bird's Berry
 product:addIngredient(52) -- Water bucket
 
 catId = dyemaking:addCategory("Other", "Sonstiges")
@@ -68,8 +69,6 @@ product = dyemaking:addProduct(catId, 1118, 1)
 product:addIngredient(314, 1) --potash(used by ancient egyptians to make ink along with water)
 product:addIngredient(1117) --empty ink bottle
 product:addIngredient(52) -- Water bucket
-product:addRemnant(51) -- bucket
-
 
 M.dyemaking = dyemaking
 return M
