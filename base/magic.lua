@@ -35,12 +35,12 @@ M.mageSkills = {
                 }
 M.druidSkills = {
                 Character.alchemy,
-                Character.potionLore,
-                Character.summoning,
-                Character.natureLore,
-                Character.poisoning,
-                Character.cauldronLore,
-                Character.animalTaming
+                Character.transmutation,
+                Character.deepweave,
+                Character.bloomweave,
+                Character.wildweave,
+                Character.stoneweave,
+                Character.witherweave
                 }
 M.priestSkills = {
                 Character.blessing,

@@ -2323,6 +2323,7 @@ leadAttribTable[Character.woodcutting]= {first = "agility", second = "constituti
 leadAttribTable[Character.tanningAndWeaving]= {first = "willpower", second = "constitution"}
 leadAttribTable[Character.husbandry]= {first = "essence", second = "constitution"}
 leadAttribTable[Character.digging]= {first = "strength", second = "constitution"}
+leadAttribTable[Character.natureResistance]= {first = "constitution", second = "willpower"}
 
 --Agility: Defensive fighting skills
 leadAttribTable[Character.parry]="agility"
@@ -2330,8 +2331,14 @@ leadAttribTable[Character.heavyArmour]="agility"
 leadAttribTable[Character.mediumArmour]="agility"
 leadAttribTable[Character.lightArmour]="agility"
 
---Perception: Archery
+--Perception: Archery, poison weapons and druids
 leadAttribTable[Character.distanceWeapons]="perception"
+leadAttribTable[Character.poisoning]="perception"
+leadAttribTable[Character.witherweave]="perception"
+leadAttribTable[Character.bloomweave]="perception"
+leadAttribTable[Character.deepweave]="perception"
+leadAttribTable[Character.stoneweave]="perception"
+leadAttribTable[Character.wildweave]="perception"
 
 --Strength: Offensive fighting skills
 leadAttribTable[Character.slashingWeapons]="strength"
@@ -2339,22 +2346,19 @@ leadAttribTable[Character.wrestling]="strength"
 leadAttribTable[Character.concussionWeapons]="strength"
 leadAttribTable[Character.punctureWeapons]="strength"
 
---Essence: Druids
+--Essence: alchemy and enchanting
 leadAttribTable[Character.alchemy]= {first = "essence", second = "perception"}
-leadAttribTable[Character.potionLore]="essence"
-leadAttribTable[Character.animalTaming]="essence"
-leadAttribTable[Character.summoning]="essence"
-leadAttribTable[Character.natureLore]="essence"
-leadAttribTable[Character.cauldronLore]="essence"
+leadAttribTable[Character.enchanting]= {first = "essence", second = "intelligence"}
 
---Intelligence: Magic
-leadAttribTable[Character.enchanting]= {first = "intelligence", second = "essence"}
+--Intelligence: Magic and transmutation
+
+leadAttribTable[Character.transmutation]= {first = "intelligence", second = "perception"}
 leadAttribTable[Character.fireMagic]="intelligence"
 leadAttribTable[Character.spiritMagic]="intelligence"
 leadAttribTable[Character.windMagic]="intelligence"
 leadAttribTable[Character.earthMagic]="intelligence"
 leadAttribTable[Character.waterMagic]="intelligence"
-leadAttribTable[Character.spatialMagic]= {first = "intelligence", second = "willpower"}
+leadAttribTable[Character.spatialMagic]= {first = "willpower", second = "intelligence"}
 
 --Willpower: Priests and magic resistance
 leadAttribTable[Character.blessing]="willpower"
