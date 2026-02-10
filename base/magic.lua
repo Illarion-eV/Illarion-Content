@@ -134,10 +134,10 @@ function M.getBestMageSkill(user)
 end
 
 function M.getBestDruidSkill(user)
-    return bestSkillFromSkillList(user, M.mageSkills)
+    return bestSkillFromSkillList(user, M.druidSkills)
 end
 function M.getBestPriestSkill(user)
-    return bestSkillFromSkillList(user, M.mageSkills)
+    return bestSkillFromSkillList(user, M.priestSkills)
 end
 
 function M.getBestSkill(user)
