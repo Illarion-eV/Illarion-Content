@@ -29,7 +29,7 @@ function M.train(user)
 
     local reputationPoints = user:getQuestProgress(activityTracker.reputationTrackerQuestID)
 
-    local pointsPerReduction = 600 -- Every 50 hours RPed reduces the cost one tier, to a minimum of 16 gold.
+    local pointsPerReduction = 600 -- Every 50 hours RPed reduces the cost one tier, to a minimum of 1 gold.
 
     local RPReductions = math.floor(reputationPoints/pointsPerReduction)
 
