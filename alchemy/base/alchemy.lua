@@ -813,7 +813,10 @@ function M.SetQuality(user, cauldron)
     local herbsUsed = tonumber(cauldron:getData("herbsUsed")) or 0
     local totalRareCount = tonumber(cauldron:getData("totalRareCount")) or 0
     local rareIngredientBonus = totalRareCount/herbsUsed
-    local rarityBonus = (rareIngredientBonus - 1) * (0.5 / 3)
+    local rarityBonus = 0
+    if rareIngredientBonus > 0 then
+        rarityBonus = (rareIngredientBonus - 1) * (0.5 / 3)
+    end
     meanQuality = meanQuality + rarityBonus
 
     local quality = 1 --Minimum quality value.
