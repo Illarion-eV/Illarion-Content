@@ -813,10 +813,13 @@ function M.SetQuality(user, cauldron)
     local meanQuality = 5
     meanQuality = meanQuality*(1+common.GetAttributeBonusHigh(leadAttribValue)+common.GetQualityBonusStandard(toolItem))+gemBonus/100 --Apply boni of lead attrib, tool quality and gems.
     meanQuality = common.Limit(meanQuality, 1, 8.5) --Limit to a reasonable maximum to avoid overflow ("everything quality 9"). The value here needs unnatural attributes.
-    local herbsUsed = cauldron:getData("herbsUsed")
-    local totalRareCount = cauldron:getData("totalRareCount")
+    local herbsUsed = tonumber(cauldron:getData("herbsUsed")) or 0
+    local totalRareCount = tonumber(cauldron:getData("totalRareCount")) or 0
     local rareIngredientBonus = totalRareCount/herbsUsed
-    local rarityBonus = (rareIngredientBonus - 1) * (0.5 / 3)
+    local rarityBonus = 0
+    if rareIngredientBonus > 0 then
+        rarityBonus = (rareIngredientBonus - 1) * (0.5 / 3)
+    end
     meanQuality = meanQuality + rarityBonus
 
     local quality = 1 --Minimum quality value.
