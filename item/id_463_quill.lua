@@ -260,7 +260,7 @@ local function WriteParchment(user, sourceItem)
                     writtenText = existingText .. writtenText
                 end
 
-                local textLength = string.len (writtenText) + (10 * existingNewLines) --the latter part ensures that texts do not get too long with lineskips
+                local textLength = string.len (writtenText)
 
                 if CheckIfParchmentIsSigned(parchment) then
                     user:inform("Du kannst ein unterschriebenes Pergament nicht verändern.","You cannot change an already signed parchment.",Character.highPriority)
