@@ -1442,6 +1442,12 @@ end
 
 function M.getTrapDoorOrStairPosition(stair, trapDoor)
 
+    if stair and not common.IsNilOrEmpty(stair:getData("trapdoorX")) then
+        return position(tonumber(trapDoor:getData("trapdoorX")), tonumber(trapDoor:getData("trapdoorY")), tonumber(trapDoor:getData("trapdoorZ")))
+    elseif trapDoor and not common.IsNilOrEmpty(trapDoor:getData("stairX")) then
+        return position(tonumber(trapDoor:getData("stairX")), tonumber(trapDoor:getData("stairY")), tonumber(trapDoor:getData("stairZ")))
+    end
+
     local direction
 
     for _, stairPair in pairs(itemList.Stairs) do
