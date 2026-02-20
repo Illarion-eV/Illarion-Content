@@ -106,10 +106,21 @@ local function triggerHospitalBell(user, sourceItem)
     return true
 end
 
-
+local cooldown = {}
 
 local function ringTheBell(user, sourceItem)
-    user:talk(Character.say,"#me läutet eine Glocke, die ein klingelndes Geräusch macht.", "#me shakes the bell, producing a light ringing sound.")
+
+    local time = world:getTime("unix")
+
+    if not cooldown[user.id] or cooldown[user.id] <= time then
+        user:inform("Du klingelst.", "You ring the bell.")
+        world:gfx(65, user.pos)
+        world:makeSound(29, user.pos)
+        cooldown[user.id] = time + 30 -- 30 seconds between each use to prevent annoying spam of the sfx
+    else
+        user:inform("Du machst das zu oft.", "You are doing that too often.")
+        return
+    end
 end
 
 function M.UseItem(user, sourceItem)
