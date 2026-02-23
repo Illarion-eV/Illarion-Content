@@ -402,11 +402,11 @@ local function levelImpact(user, skillId, note, noteDuration, amount, instrument
         return note --No insanely fast low level freebies though so chance to fail the faster than 0.3 second notes
     end
 
-    local chance = 2 - level/100 -- From 2% base chance to miss per note at level 0 to 0.2% at 99
+    local chance = 2 - level/50 -- From 2% base chance to miss per note at level 0 to 0.2% at 99
 
     local highestDuration = 30 --at 3 seconds youre guaranteed to hit the right note even at level 0 no matter how many
 
-    local chanceReduction = 1/highestDuration*noteDuration
+    local chanceReduction = 2/highestDuration*noteDuration
 
     --so at 3 seconds there is 0 chance to miss, at 1 decisecond it is 1.94% chance per note at level 0
 
