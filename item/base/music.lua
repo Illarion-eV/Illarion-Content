@@ -388,7 +388,7 @@ local function failureCalc(user, skill, noteDuration, note, notClavichord)
 
     local rate = 100 - skill
 
-    rate = math.max(0, rate * (1 - math.exp(-0.20 * (noteDuration - 1))) / (1 - math.exp(-(slowest-1) * 0.20)))
+    rate = math.max(0, rate * (math.exp(-0.20 * (noteDuration - 1)) - math.exp(-0.20 * (slowest - 1))) / (1 - math.exp(-0.20 * (slowest - 1))))
 
     local qualityBonus = 0.1
 
