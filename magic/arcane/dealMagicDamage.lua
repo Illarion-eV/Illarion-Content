@@ -205,9 +205,9 @@ function M.dealMagicDamage(user, target, spell, damage, level, DoT, castTime, us
 
     if not dwyfolTriggered and user then
         if SIH and (RA or CUN or JUS) then
-            character.ChangeHP(user, math.floor(damage/10)) -- 10% lifesteal
+            character.ChangeHP(user, math.floor(damage/5)) -- 20% lifesteal
             if testing.active then
-                user:talk(Character.say,"#me heals "..(damage/10).." health.", "#me heals "..(damage/10).." health.")
+                user:talk(Character.say,"#me heals "..(damage/5).." health.", "#me heals "..(damage/5).." health.")
             end
         end
 
