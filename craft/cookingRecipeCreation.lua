@@ -690,12 +690,11 @@ end
 
 function M.getFoodIncrease(dishInfo)
 
-    local maxDifficulty = 100
     local minCraftedFoodvalue = 6000
-    local maxCraftedFoodvalue = 55000
-    local difference = maxCraftedFoodvalue - minCraftedFoodvalue
+    local foodPointsPerCopper = 2
 
-    local foodIncrease = minCraftedFoodvalue + difference*(dishInfo.level/maxDifficulty)
+    local foodIncrease = minCraftedFoodvalue + dishInfo.worth*foodPointsPerCopper
+    --Scaled by value instead of level as in the past, thus ensuring higher level and higher amounts of ingredients will be more filling as is logical
 
     foodIncrease = math.floor(foodIncrease/dishInfo.dishAmount)
 

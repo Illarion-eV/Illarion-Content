@@ -244,8 +244,8 @@ local puzzles = {
         german = "Ein Auge zum Aufstehen und eines zum Schlafen. \nEines zum Bezaubern und eines für die Bestien.\nEin Auge zum Verwunden und ein Auge zum Verlangsamen.\nEines um Angst zu verbreiten und eines um Stein zu machen. \nEin Auge macht Staub und ein Auge bringt den Tod.\nSprich meinen Namen und du wirst es wissen."
     },
     kahPuzzle = {
-        english = "For breakfast, I want an egg salad sandwich!\nFor dinner, I want a venison dish!\nFor supper... Mushroom soup!",
-        german = "Zum Frühstück will ich Eiersalatsandwich! \n Zum Mittagessen will ich ein Wildgericht mit Beilage! \n Zum Abendessen...Pilzsuppe! "
+        english = "For breakfast, I want a sandwich!\nFor dinner, I want a venison dish!\nFor supper... Mushroom soup!",
+        german = "Zum Frühstück will ich Sandwich! \n Zum Mittagessen will ich ein Wildgericht mit Beilage! \n Zum Abendessen...Pilzsuppe! "
     },
     kelPuzzle = {
         english = "I am a crown no king can wear, I sit on gold beyond compare. What am I?",
@@ -1147,6 +1147,92 @@ function M.kahInfo(user)
 
 end
 
+
+
+local function isVenison(ingredient)
+
+
+    if ingredient == Item.deerMeat or ingredient == Item.grilledVenison then
+        return true
+    end
+
+    return false
+
+end
+
+local function isMushroom(ingredient)
+
+    local mushrooms = {Item.champignon, Item.chanterelle, Item.birthMushroom, Item.redHead}
+
+    for _, mushroom in pairs(mushrooms) do
+        if ingredient == mushroom then
+            return true
+        end
+    end
+
+    return false
+
+end
+
+local function isBowl(ingredient)
+
+    local commonItem = world:getItemStatsFromId(ingredient)
+
+    if string.find(commonItem.English, "bowl") or string.find(commonItem.English, "Bowl") then
+        return true
+    end
+
+    return false
+
+end
+
+local function isVenisonDish(theItem)
+
+    if common.IsNilOrEmpty(theItem:getData("ingredient1")) then
+        if theItem.id == Item.venisonDish then
+            return true
+        else
+            return false
+        end
+    end
+
+    for i = 1, 4 do
+        if isVenison(tonumber(theItem:getData("ingredient"..i))) then
+            return true
+        end
+    end
+
+    return false
+end
+
+local function isMushroomSoup(theItem)
+
+    if common.IsNilOrEmpty(theItem:getData("ingredient1")) then
+        if theItem.id == Item.mushroomSoup then
+            return true
+        else
+            return false
+        end
+    end
+
+    local bowl, mushroom
+
+    for i = 1, 4 do
+        if isBowl(tonumber(theItem:getData("ingredient"..i))) then
+            bowl = true
+        elseif isMushroom(tonumber(theItem:getData("ingredient"..i))) then
+            mushroom = true
+        end
+    end
+
+    if bowl and mushroom then
+        return true
+    end
+
+    return false
+end
+
+
 local function kahPuzzleSolved()
 
     local platePos1 = position(793, 803, 0)
@@ -1162,16 +1248,14 @@ local function kahPuzzleSolved()
     local supper = false
     local dinner = false
     local breakfast = false
-    local soup = Item.mushroomSoup
-    local dish = Item.venisonDish
     local sandwich = Item.eggSaladSandwich
 
     for i = 0, itemsOnField1 - 1 do
         currentItem = field1:getStackItem(i)
-        if currentItem.id == soup then
+        if isMushroomSoup(currentItem) then
             supper = true
             break
-        elseif currentItem.id == dish then
+        elseif isVenisonDish(currentItem) then
             dinner = true
             break
         elseif currentItem.id == sandwich then
@@ -1182,10 +1266,10 @@ local function kahPuzzleSolved()
 
     for i = 0, itemsOnField2 - 1 do
         currentItem = field2:getStackItem(i)
-        if currentItem.id == soup then
+        if isMushroomSoup(currentItem) then
             supper = true
             break
-        elseif currentItem.id == dish then
+        elseif isVenisonDish(currentItem) then
             dinner = true
             break
         elseif currentItem.id == sandwich then
@@ -1196,10 +1280,10 @@ local function kahPuzzleSolved()
 
     for i = 0, itemsOnField3 - 1 do
         currentItem = field3:getStackItem(i)
-        if currentItem.id == soup then
+        if isMushroomSoup(currentItem) then
             supper = true
             break
-        elseif currentItem.id == dish then
+        elseif isVenisonDish(currentItem) then
             dinner = true
             break
         elseif currentItem.id == sandwich then

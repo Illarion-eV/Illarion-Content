@@ -482,7 +482,12 @@ local function buffsAdding(user, sourceItem)
     else --It is an old or spawned in item
         local ingredients = M.cookedFood[sourceItem.id].ingredients
         dishInfo = cookingRecipeCreation.getDishInfo(nil, ingredients)
-        buffs = M.cookedFood[sourceItem.id].buffs
+        buffs = {}
+
+        for _, buffEntry in pairs(M.cookedFood[sourceItem.id].buffs) do
+            table.insert(buffs, buffEntry)
+        end
+
         -- To avoid upsetting players too much, we use custom buffs that impact the same attributes as the old dishes only slightly weaker
         if not buffs then
             buffs = dishInfo.attributes
@@ -549,13 +554,15 @@ local function buffsAdding(user, sourceItem)
 
         if buff.value > 0 then
 
+            local appliedValue = buff.value
+
             if rarityBuff < rarity-1 then
                 local toAdd = 1
                 if emptyBuffs > #attributes-(rarity-1) and buff.value == 1 then -- allow +3 out of a +1 if the dish has less attribs than rarity
                     toAdd = 2
                 end
 
-                buff.value = buff.value+ toAdd
+                appliedValue = appliedValue + toAdd
                 rarityBuff = rarityBuff + toAdd
             end
 
@@ -564,12 +571,12 @@ local function buffsAdding(user, sourceItem)
                 messageEn = messageEn .. ", "
             end
 
-            messageDe = messageDe .. attributesGerman[buff.attribute] .. " +" .. buff.value
-            messageEn = messageEn .. buff.attribute .. " +" .. buff.value
+            messageDe = messageDe .. attributesGerman[buff.attribute] .. " +" .. appliedValue
+            messageEn = messageEn .. buff.attribute .. " +" .. appliedValue
             addComma = true
 
             local oldValue = user:increaseAttrib(buff.attribute, 0)
-            local newValue = user:increaseAttrib(buff.attribute, buff.value)
+            local newValue = user:increaseAttrib(buff.attribute, appliedValue)
 
             dietEffect:addValue(buff.attribute, newValue - oldValue)
         end
@@ -585,13 +592,14 @@ local function buffsAdding(user, sourceItem)
                 if count == buffToAdd then
 
                     local toAdd = rarity - rarityBuff - 1
-                    buff.value = buff.value + toAdd
+                    local appliedValue = buff.value
+                    appliedValue = appliedValue + toAdd
 
-                    messageDe = messageDe .. ", " .. attributesGerman[buff.attribute] .. " +" .. buff.value
-                    messageEn = messageEn .. ", " .. buff.attribute .. " +" .. buff.value
+                    messageDe = messageDe .. ", " .. attributesGerman[buff.attribute] .. " +" .. appliedValue
+                    messageEn = messageEn .. ", " .. buff.attribute .. " +" .. appliedValue
 
                     local oldValue = user:increaseAttrib(buff.attribute, 0)
-                    local newValue = user:increaseAttrib(buff.attribute, buff.value)
+                    local newValue = user:increaseAttrib(buff.attribute, appliedValue)
 
                     dietEffect:addValue(buff.attribute, newValue - oldValue)
                     break
