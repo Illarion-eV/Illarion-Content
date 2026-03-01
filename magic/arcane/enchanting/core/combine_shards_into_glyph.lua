@@ -147,7 +147,7 @@ local function passesChecks(user)
         return false --should never even reach this point but just in case
     end
 
-    if not wand then
+    if not wand or common.isBroken(wand) then
         user:inform("Dein Zauberstab muss intakt und in deiner Hand bleiben, um hier zu arbeiten.", "Your wand must remain intact and in your hands for you to work here.")
         return false
     end
