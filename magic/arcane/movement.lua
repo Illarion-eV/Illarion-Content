@@ -208,9 +208,10 @@ local function moveTargets(user, target, spell, ORL, items, targetAmount, curren
     local FHEN = runes.checkSpellForRuneByName("FHEN", spell)
     local FHAN = runes.checkSpellForRuneByName("FHAN", spell)
     local SAV = runes.checkSpellForRuneByName("SAV", spell)
+    local PHERC = runes.checkSpellForRuneByName("PHERC", spell)
     local characters = not items
 
-    if not FHAN and not FHEN and not SAV then
+    if not FHAN and not FHEN and not (SAV and not PHERC) then
         return
     end
 
