@@ -87,7 +87,7 @@ english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello, what do you need?", "Good da
 "Tschüß", "Tschüss", "Wiedersehen" -> "#me lacht: 'Wir werden uns wiedersehen, da bin ich mir sicher.'", "Ja, bis zum nächsten mal."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "#me chuckles, 'I'll be seeing you again I hope.'", "Aye... another time."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "#me lacht: 'Wir werden uns wiedersehen, da bin ich mir sicher.'", "Ja, bis zum nächsten mal."
-"How are you", "How feel", "How do you do" -> "I feel fine, I'm a finemsmith. Funny, eh?"
+"How are you", "How feel", "How do you do" -> "I feel fine, I'm a finesmith. Funny, eh?"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es fein, denn ich bin ein Feinschmied. Lustig, oder?"
 "your name", "who are you", "who art thou" -> "I'm Tony Spirotelli, who are you?"
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Tony Spirotelli, wer bist du?"
@@ -105,8 +105,8 @@ english, "job" -> "I am an important member of the Finesmithing Syndicate."
 "schmied", "Handwerk" -> "Zum Feinschmieden wirst du Edelmetallbarren und einen Feinschmiedehammer brauchen. Benutz bloß nicht den Hammer eines ordinären Schmiedes oder eines Rüstschmiedes."
 
 -- Quest 1: Gathering. Player gets a gathering tool. Player gathers materials for 10 intermediate products. 
-queststatus(710) = 0, english, town = Galmair, "quest", "mission" -> item(2763, 1, 333), queststatus(710) = 1, "So you fancy a career with the Finemsmithing Syndicate? Let's have a deal, you get this rusty pick-axe and you show me you are worth my time. Get ten lumps of coal and ten pieces of copper ore from the local mines and I'll teach you the ropes.", inform("[Guild Quest] The Finesmithing Syndicate of Galmair I. For more information see the quest log (Q).")
-queststatus(710) = 0, town = Galmair, "task", "adventure", "order" -> item(2763, 1, 333), queststatus(710) = 1, "So you fancy a career with the Finemsmithing Syndicate? Let's have a deal, you get this rusty pick-axe and you show me you are worth my time. Get ten lumps of coal and ten pieces of copper ore from the local mines and I'll teach you the ropes.", inform("[Guild Quest] The Finesmithing Syndicate of Galmair I. For more information see the quest log (Q).")
+queststatus(710) = 0, english, town = Galmair, "quest", "mission" -> item(2763, 1, 333), queststatus(710) = 1, "So you fancy a career with the Finesmithing Syndicate? Let's have a deal, you get this rusty pick-axe and you show me you are worth my time. Get ten lumps of coal and ten pieces of copper ore from the local mines and I'll teach you the ropes.", inform("[Guild Quest] The Finesmithing Syndicate of Galmair I. For more information see the quest log (Q).")
+queststatus(710) = 0, town = Galmair, "task", "adventure", "order" -> item(2763, 1, 333), queststatus(710) = 1, "So you fancy a career with the Finesmithing Syndicate? Let's have a deal, you get this rusty pick-axe and you show me you are worth my time. Get ten lumps of coal and ten pieces of copper ore from the local mines and I'll teach you the ropes.", inform("[Guild Quest] The Finesmithing Syndicate of Galmair I. For more information see the quest log (Q).")
 queststatus(710) = 0, town = Galmair, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(2763, 1, 333), queststatus(710) = 1, "So, du denkst also, du kannst eine große Nummer im Feinschmiedesyndikat werden? Hier ist der Deal: Du kriegst diese rostige Spitzhacke und zeigst mir, dass du meine Zeit wert bist. Besorge zehn Klumpen Kohle und zehn Stück Eisenerz aus den nahegelegenen Minen und ich zeig dir, wo der Hase langläuft.", inform("[Gildenquest] Das Feinschmiedesyndikat von Galmair I. Detaillierte Informationen findest du im Questlog (Q).")
 
 -- Quest 1: Solved
