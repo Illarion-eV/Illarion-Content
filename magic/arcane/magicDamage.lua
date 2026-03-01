@@ -234,10 +234,17 @@ function M.crit(user, value)
 
 end
 
-function M.resistanceAndPenetrationImpact(resist, penetration, damage)
+function M.resistanceAndPenetrationImpact(resist, penetration, damage, spell)
 
     if damage < 0 then
         return 0
+    end
+
+    if resist > 0 and spell then
+        local SAV = runes.checkSpellForRuneByName("SAV", spell)
+        if SAV then
+            resist = resist*0.9
+        end
     end
 
     return math.max(0, damage*(1- resist + penetration)) -- never return negative values
@@ -276,7 +283,7 @@ function M.getMagicDamage(user, spell, element, target, DoT, ORL, earthTrap, cas
 
     if playerOrMonster ~= Character.npc and not illusion then
         magicResist = MR.getMagicResistance(target, spell)
-        finalDamage = M.resistanceAndPenetrationImpact(magicResist, magicPen, damage)
+        finalDamage = M.resistanceAndPenetrationImpact(magicResist, magicPen, damage, spell)
     end
 
     if runes.checkSpellForRuneByName("SUL",spell) then

@@ -119,9 +119,7 @@ local JUS = runes.checkSpellForRuneByName("JUS", spell)
 local SAV = runes.checkSpellForRuneByName("SAV", spell)
     if JUS and SAV then
         local gfx = 7
-        local sfx = 0
         world:gfx(gfx, user.pos)
-        world:makeSound(sfx, user.pos)
     end
 end
 

@@ -53,7 +53,7 @@ function M.getEffectScaling(user, target, spell, earthTrap, ignoreMR) --For posi
 
     local retVal = 1*(1+magicDamage.intImpact(user)+magicDamage.getEquipmentImpact(user, elementBonus))
 
-    retVal = magicDamage.resistanceAndPenetrationImpact(magicResistance, magicPenetration, retVal)
+    retVal = magicDamage.resistanceAndPenetrationImpact(magicResistance, magicPenetration, retVal, spell)
 
     retVal = magicDamage.crit(user, retVal) -- Up to 50% increase if crit, based on perception stat and RNG
 

@@ -18,6 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local runes = require("magic.arcane.runes")
 local magicDamage = require("magic.arcane.magicDamage")
 local effectScaling = require("magic.arcane.effectScaling")
+local common = require("base.common")
 
 local M = {}
 
@@ -203,35 +204,44 @@ table.insert(directionCorrection, {away = "northwest", toward = "southeast", X =
 table.insert(directionCorrection, {away = "northeast", toward = "southwest", X = -1, Y = 1})
 
 local function moveTargets(user, target, spell, ORL, items, targetAmount, currentTarget)
-local FHEN = runes.checkSpellForRuneByName("FHEN", spell)
-local FHAN = runes.checkSpellForRuneByName("FHAN", spell)
-local SAV = runes.checkSpellForRuneByName("SAV", spell)
-local characters = not items
+
+    local FHEN = runes.checkSpellForRuneByName("FHEN", spell)
+    local FHAN = runes.checkSpellForRuneByName("FHAN", spell)
+    local SAV = runes.checkSpellForRuneByName("SAV", spell)
+    local characters = not items
 
     if not FHAN and not FHEN and not SAV then
         return
     end
 
     if items then
-        if not checkIfItemMovable(target) then
+        if target and not checkIfItemMovable(target) then
             return
         end
     end
 
-local myTarget = target.pos
-local direction = getDirection(user, myTarget)
-local directionReverse = getDirection(user, myTarget, SAV)
-local range = getRangeOfMovement(user, spell, target, characters, ORL, targetAmount, currentTarget)
-local Z = myTarget.z
-local landingX
-local landingY
-local directionToMove
-local informEN = texts.flying.english
-local informDE = texts.flying.german
-local targetPosition
-local landingXReverse
-local landingYReverse
-local targetPositionReverse
+    local myTarget
+
+    if target then
+        myTarget = target.pos
+    else
+        myTarget = common.GetFrontPosition(user)
+    end
+
+    local direction = getDirection(user, myTarget)
+    local directionReverse = getDirection(user, myTarget, SAV)
+    local range = getRangeOfMovement(user, spell, target, characters, ORL, targetAmount, currentTarget)
+    local Z = myTarget.z
+    local landingX
+    local landingY
+    local directionToMove
+    local informEN = texts.flying.english
+    local informDE = texts.flying.german
+    local targetPosition
+    local landingXReverse
+    local landingYReverse
+    local targetPositionReverse
+
     if FHAN and not FHEN then
         directionToMove = "toward"
     end
@@ -251,10 +261,10 @@ local targetPositionReverse
         end
 
     end
-local lastX = myTarget.x
-local lastY = myTarget.y
-local lastXReverse = user.pos.x
-local lastYReverse = user.pos.y
+    local lastX = myTarget.x
+    local lastY = myTarget.y
+    local lastXReverse = user.pos.x
+    local lastYReverse = user.pos.y
     if FHAN or FHEN then
         for i = 1, range+1 do
             local positionCleared, thePosition = checkForCollisionAndFreeSpace(lastX, lastY, landingX, landingY, Z)
@@ -335,25 +345,35 @@ local direction = getDirection(user, target.pos)
 end
 
 function M.applyMovementSpells(user, targets, spell, ORL)
+
     if not checkIfWindSpell(spell) then
         return
     end
-M.KelVars = {applied = false}
-local targetAmount = #targets.targets + #targets.items
-local currentTarget = 0
-local ANTH = runes.checkSpellForRuneByName("ANTH", spell)
+
+    M.KelVars = {applied = false}
+    local targetAmount = #targets.targets + #targets.items
+    local currentTarget = 0
+    local ANTH = runes.checkSpellForRuneByName("ANTH", spell)
+    local SAV = runes.checkSpellForRuneByName("SAV", spell)
 
     for _, target in pairs(targets.targets) do
         currentTarget = currentTarget + 1
         moveTargets(user, target, spell, ORL, false, targetAmount, currentTarget)
+        SAV = false
         turnTarget(user, target, spell)
     end
     for _, item in pairs(targets.items) do
         currentTarget = currentTarget + 1
         if ANTH then
             moveTargets(user, item, spell, ORL, true, targetAmount, currentTarget)
+            SAV = false
         end
     end
+
+    if SAV then -- if there has been no target to activate SAV but SAV exists
+        moveTargets(user, false, spell, ORL, false, 1, 1)
+    end
+
 end
 
 return M

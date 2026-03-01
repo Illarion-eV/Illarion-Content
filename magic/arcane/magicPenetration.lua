@@ -18,8 +18,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local magic = require("base.magic")
 local skilling = require("magic.arcane.skilling")
-local runes = require("magic.arcane.runes")
-local testing = require("base.testing")
 
 local M = {}
 
@@ -52,21 +50,6 @@ function M.getMagicPenetration(user, element, spell)
     local skillImpact = 0.01*level
 
     local magicPenetration = statBonus+equipmentBonus+skillImpact
-
-    if spell then --magic penetration
-
-        local SAV = runes.checkSpellForRuneByName("SAV", spell)
-        local JUS = runes.checkSpellForRuneByName("JUS", spell)
-        local PEN = runes.checkSpellForRuneByName("PEN", spell)
-
-        if SAV and not JUS and not PEN then
-            local oldMagicPen = magicPenetration
-            magicPenetration = magicPenetration*1.1 -- 10% increased magic penetration when SAV is applied to fire, water or earth spells
-            if testing.active then
-                user:talk(Character.say, "#me's magic penetration went from "..oldMagicPen.." to "..magicPenetration.." due to SAV.")
-            end
-        end
-    end
 
     return magicPenetration
 
