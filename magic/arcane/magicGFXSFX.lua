@@ -117,7 +117,8 @@ end
 function M.getAdditionalUserGFXSFX(user, spell)
 local JUS = runes.checkSpellForRuneByName("JUS", spell)
 local SAV = runes.checkSpellForRuneByName("SAV", spell)
-    if JUS and SAV then
+local PHERC = runes.checkSpellForRuneByName("PHERC", spell)
+    if JUS and SAV and not PHERC then
         local gfx = 7
         world:gfx(gfx, user.pos)
     end
