@@ -185,11 +185,11 @@ local function getDunPositions(player, targetPosition, spell, startedInAttackMod
     local LEV = runes.checkSpellForRuneByName("LEV", spell)
 
     if distance < 3 or player.attackmode or (PEN and LEV) or startedInAttackMode then
-        log("DUN spell getting cluster positions")
+        logPlayer("DUN spell getting cluster positions")
         return getDunClusterPositions(player, targetPosition)
     end
 
-    log("DUN spell getting circle positions")
+    logPlayer("DUN spell getting circle positions")
 
     local radius = math.floor(distance + 0.5)
 
@@ -210,7 +210,7 @@ end
 
 local function addDunTargets(user, targetsPositions, spell, startedInAttackMode)
 
-    log("DUN spell adding targets")
+    logPlayer("DUN spell adding targets")
 
     local RA = runes.checkSpellForRuneByName("RA", spell)
     local CUN = runes.checkSpellForRuneByName("CUN", spell)
@@ -230,16 +230,16 @@ local function addDunTargets(user, targetsPositions, spell, startedInAttackMode)
 
     local possiblePositions =  getDunPositions(user, targetPosition, spell, startedInAttackMode)
 
-    log("DUN spell finished getting possiblePositions")
+    logPlayer("DUN spell finished getting possiblePositions")
 
 
     for _, possiblePosition in pairs(possiblePositions) do
 
-        log("DUN spell checking position: "..tostring(possiblePosition))
+        logPlayer("DUN spell checking position: "..tostring(possiblePosition))
 
         local field = world:getField(possiblePosition)
         if field then
-            log("DUN spell found field at position: "..tostring(possiblePosition))
+            logPlayer("DUN spell found field at position: "..tostring(possiblePosition))
             local foundChar = world:isCharacterOnField(possiblePosition)
 
             if (RA or CUN) and SUL then
@@ -247,10 +247,10 @@ local function addDunTargets(user, targetsPositions, spell, startedInAttackMode)
             end
 
             if foundChar then
-                log("DUN spell found char at position: "..tostring(possiblePosition))
+                logPlayer("DUN spell found char at position: "..tostring(possiblePosition))
                 local char =  world:getCharacterOnField(possiblePosition)
                 if isValidChar(char) and char:getType() ~= Character.npc then --foundChar remains true because we dont want spells cast under npcs
-                    log("DUN spell found valid char "..char.name.." at position: "..tostring(possiblePosition))
+                    logPlayer("DUN spell found valid char "..char.name.." at position: "..tostring(possiblePosition))
                     table.insert(targetsPositions.targets, char)
                 end
             end
@@ -259,7 +259,7 @@ local function addDunTargets(user, targetsPositions, spell, startedInAttackMode)
 
             if world:isItemOnField(possiblePosition) then
                 local item = world:getItemOnField(possiblePosition)
-                log("DUN spell found item "..item.id.." at position: "..tostring(possiblePosition))
+                logPlayer("DUN spell found item "..item.id.." at position: "..tostring(possiblePosition))
                 if item.id ~= 0 and item.id ~= 3518 then
                     foundItem = true
                     table.insert(targetsPositions.items, item)
@@ -267,7 +267,7 @@ local function addDunTargets(user, targetsPositions, spell, startedInAttackMode)
             end
 
             if not foundItem and not foundChar then
-                log("DUN spell found no item or char at position: "..tostring(possiblePosition))
+                logPlayer("DUN spell found no item or char at position: "..tostring(possiblePosition))
                 table.insert(targetsPositions.positions, possiblePosition)
             end
         end
@@ -278,7 +278,7 @@ local function addDunTargets(user, targetsPositions, spell, startedInAttackMode)
         M[user.id.."LevDunPos"] = false
     end
 
-    log("DUN spell succeess")
+    logPlayer("DUN spell succeess")
     return targetsPositions
 end
 

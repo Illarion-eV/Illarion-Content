@@ -2304,8 +2304,12 @@ function M.reduceRentTimer()
             end
 
             if tonumber(rentExemption) ~= 1 then
-                propertyDeed:setData("rentDuration", (tonumber(rentDuration)-1))
+                local newDuration = tonumber(rentDuration)-1
+                propertyDeed:setData("rentDuration", newDuration)
                 world:changeItem(propertyDeed)
+                if newDuration <= 3 then
+                    log("Property "..tostring(property).." only has "..newDuration.." months left on the lease.")
+                end
             end
         end
     end

@@ -88,6 +88,9 @@ function M.updateOwnership(user, theItem)
 
     -- check if theItem is in equipment slot, depot, backpack or belt
 
+    local text = ""
+    local theOwner
+
     for gem = 1, 7 do
 
         local key = gemDataKey[gem]
@@ -100,9 +103,19 @@ function M.updateOwnership(user, theItem)
             theItem:setData(key.."owner", user.name)
             world:changeItem(theItem)
             if not common.IsNilOrEmpty(owner) then
-                log("A piece of equipment with "..owner.." as its former owner was found in "..user.name.."("..user.id..")'s inventory with a rank "..gemRank.." "..key..".")
+                theOwner = owner
+                text = text.." a rank "..gemRank.." "..key
+                if gem == 7 then
+                    text = text.."."
+                else
+                    text = text..","
+                end
             end
         end
+    end
+
+    if not common.IsNilOrEmpty(text) and theOwner then
+        log("A piece of equipment with "..theOwner.." as its former owner was found in "..user.name.."("..user.id..")'s inventory with: "..text)
     end
 end
 

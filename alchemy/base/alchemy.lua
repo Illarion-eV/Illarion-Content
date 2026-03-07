@@ -281,7 +281,7 @@ end
 
 function M.logConsumption(user, potion)
     local creator, effect, typeOf = getPotionInfo(potion)
-    log("Player "..user.name.."("..user.id..") used a potion("..typeOf..", "..effect..") created by "..creator)
+    logPlayer("Player "..user.name.."("..user.id..") used a potion("..typeOf..", "..effect..") created by "..creator)
 end
 
 function M.getAlchemyTool(user)
