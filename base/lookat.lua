@@ -28,6 +28,7 @@ local silkcutting = require("craft.gathering.silkcutting")
 local fishing = require("craft.gathering.fishing")
 local egggathering = require("craft.gathering.egggathering")
 local honeygathering = require("craft.gathering.honeygathering")
+local alchemy = require("alchemy.base.alchemy")
 
 local M = {}
 
@@ -105,7 +106,8 @@ local gatheringLists = {
     {list = egggathering.nestList, skill = egggathering.skill, type = {english = "Nest", german = "Nest"}},
     {list = farming.crops, skill = farming.skill, type = {english = "Crop", german = "Feldfrucht"}},
     {list = sowing.seeds, skill = farming.skill, type = {english = "Seed", german = "Samen"}},
-    {list = herbgathering.herbList, skill = herbgathering.skill, type = {english = "Plant", german = "Pflanze"}}
+    {list = herbgathering.herbList, skill = herbgathering.skill, type = {english = "Plant", german = "Pflanze"}},
+    {list = alchemy.herbs, skill = "alchemy", type = {english = "Alchemy", german = "Alchemie"}}
 }
 
 for _, gatheringList in pairs(gatheringLists) do

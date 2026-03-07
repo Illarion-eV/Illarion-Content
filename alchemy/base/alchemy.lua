@@ -80,6 +80,8 @@ local herbs = {
     {id = Item.waterBlossom, positive = "Echolon", negative = "Hyperborelium"}
 }
 
+M.herbs = herbs
+
 local potions = {
     {effect = 10, name = {english = "Dragon Breath", german = "Drachenatem"}, powder = Item.amethystPowder, stock = 58325631, essence = {Item.fireRoot, Item.fireRoot, Item.blackThistle, Item.blackThistle, Item.blackThistle, Item.desertSkyCapsule}},
 
