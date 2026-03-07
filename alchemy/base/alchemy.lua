@@ -147,12 +147,12 @@ end
 local cauldronsAndBottles = {
 
     {cauldron = 1012, bottle = 331, empty = {cauldron = Item.cauldronEmpty, bottle = Item.emptyPotion}},
-    {powder = Item.sapphirePowder, gem = Item.sapphire, cauldron = 1011, bottle = Item.unlitAlchemyBomb, empty = {cauldron = Item.cauldronEmpty, bottle = Item.emptyAlchemyBomb}, essence = { full = 327 , empty = Item.emptyPotion}},
+    {powder = Item.sapphirePowder, gem = Item.sapphire, cauldron = 1011, bottle = 327, empty = {cauldron = Item.cauldronEmpty, bottle = Item.emptyPotion}, bombSalve = { full = Item.unlitAlchemyBomb , empty = Item.emptyAlchemyBomb}},
     {powder = Item.rubyPowder, gem = Item.ruby, cauldron = 1016, bottle = 59, empty = {cauldron = Item.cauldronEmpty, bottle = Item.emptyPotion}},
     {powder = Item.emeraldPowder, gem = Item.emerald, cauldron = 1013, bottle = 165, empty = {cauldron = Item.cauldronEmpty, bottle = Item.emptyPotion}},
     {powder = Item.obsidianPowder, gem = Item.obsidian, cauldron = 1009, bottle = 329, empty = {cauldron = Item.cauldronEmpty, bottle = Item.emptyPotion}},
     {powder = Item.amethystPowder, gem = Item.amethyst, cauldron = 1015, bottle = 166, empty = {cauldron = Item.cauldronEmpty, bottle = Item.emptyPotion}},
-    {powder = Item.topazPowder, gem = Item.topaz, cauldron = 1018, bottle = Item.salveJar, empty = {cauldron = Item.cauldronEmpty, bottle = Item.emptySalveJar, essence = {full = 167, empty = Item.emptyPotion}}},
+    {powder = Item.topazPowder, gem = Item.topaz, cauldron = 1018, bottle = 167, empty = {cauldron = Item.cauldronEmpty, bottle = Item.emptyPotion, bombSalve = {full = Item.salveJar, empty = Item.emptySalveJar}}},
     {powder = Item.diamondPowder, gem = Item.diamond, cauldron = 1017, bottle = 330, empty = {cauldron = Item.cauldronEmpty, bottle = Item.emptyPotion}},
 }
 
@@ -202,12 +202,8 @@ function M.getEssenceBrewGraphics(essenceBrew)
 
     for _, bottle in pairs(cauldronsAndBottles) do
         for _, ingredient in pairs(list) do
-            if ingredient == bottle.bottle or bottle.essence and bottle.essence.full == ingredient then
-                if bottle.essence and bottle.essence.full and bottle.essence.empty then
-                    return bottle.essence.empty, bottle.essence.full
-                else
-                    return bottle.empty.bottle, bottle.bottle
-                end
+            if ingredient == bottle.bottle then
+                return bottle.empty.bottle, bottle.bottle
             end
         end
     end
@@ -231,6 +227,22 @@ function M.StockEssenceSplit(stockEssence)
     return returnList
 end
 
+function M.isBombOrSalve(effectId)
+
+    for _, potion in pairs(potions) do
+        if effectId == potion.effect then
+            if potion.bomb then
+                return Item.emptyAlchemyBomb
+            end
+            if potion.salve then
+                return Item.emptySalveJar
+            end
+        end
+    end
+
+    return false
+end
+
 function M.getPotionBottleIds(ingredientList)
 
     for _, bottle in pairs(cauldronsAndBottles) do
@@ -239,11 +251,11 @@ function M.getPotionBottleIds(ingredientList)
 
             if ingredient.key == "essence" then
                 local _, full = M.getEssenceBrewGraphics(ingredient.value)
-                gemPowderFound = bottle.bottle == full or (bottle.essence and bottle.essence.full == full)
+                gemPowderFound = bottle.bottle == full
             end
 
             if gemPowderFound then
-                return bottle.empty.bottle, bottle.bottle, bottle.essence
+                return bottle.empty.bottle, bottle.bottle, bottle.bombSalve
             end
         end
     end
@@ -583,7 +595,7 @@ end
 
 function M.CheckIfPotionBottle(sourceItem)
     for _, bottle in pairs(cauldronsAndBottles) do
-        if (bottle.bottle and sourceItem.id == bottle.bottle) or (bottle.essence and sourceItem.id == bottle.essence.full) then
+        if (bottle.bottle and sourceItem.id == bottle.bottle) or (bottle.bombSalve and sourceItem.id == bottle.bombSalve.full) then
             return sourceItem
         end
     end
@@ -849,13 +861,15 @@ function M.SetQuality(user, cauldron)
     world:changeItem(cauldron)
 end
 
-function M.GemDustBottleCauldron(id, essenceBrew)
+function M.GemDustBottleCauldron(id, emptyBottle)
 
     for _, selected in pairs(cauldronsAndBottles) do
-        if not essenceBrew and (selected.powder == id or selected.gem == id or selected.cauldron == id or selected.bottle == id) then
-            return selected.gem, selected.powder, selected.cauldron, selected.bottle
-        elseif selected.essence and (selected.essence.full == id or essenceBrew and (selected.powder == id or selected.gem == id or selected.cauldron == id or selected.bottle == id)) then
-            return selected.gem, selected.powder, selected.cauldron, selected.essence.full
+        if selected.powder == id or selected.gem == id or selected.cauldron == id or selected.bottle == id then
+            if emptyBottle and selected.bombSalve and selected.bombSalve.empty == emptyBottle then
+                return selected.gem, selected.powder, selected.cauldron, selected.bombSalve.full
+            else
+                return selected.gem, selected.powder, selected.cauldron, selected.bottle
+            end
         end
     end
 end

@@ -1,0 +1,10 @@
+diff a/alchemy/base/alchemy.lua b/alchemy/base/alchemy.lua	(rejected hunks)
+@@ -83,7 +83,7 @@
+ local potions = {
+     {effect = 10, name = {english = "Dragon Breath", german = "Drachenatem"}, powder = Item.amethystPowder, stock = 58325631, essence = {Item.fireRoot, Item.fireRoot, Item.blackThistle, Item.blackThistle, Item.blackThistle, Item.desertSkyCapsule}},
+ 
+-    {effect = 301, name = {english = "Small Explosion", german = "Kleine Explosion"}, powder = Item.sapphirePowder, stock = 34374416, essence = {Item.fireRoot, Item.fireRoot, Item.fireRoot, Item.desertSkyCapsule, Item.blackThistle, Item.blackThistle, Item.blackThistle, Item.sunHerb}, bomb = true},
++    {effect = 301, name = {english = "Small Explosion", german = "Kleine Explosion"}, powder = Item.sapphirePowder, stock = 65555555, essence = {Item.fireRoot}, bomb = true},
+     {effect = 302, name = {english = "Medium Explosion", german = "Mittlere Explosion"}, powder = Item.sapphirePowder, stock = 44156426, essence = {Item.fireRoot, Item.fireRoot, Item.desertSkyCapsule, Item.desertSkyCapsule, Item.blackThistle, Item.blackThistle, Item.blackThistle, Item.sunHerb}, bomb = true},
+     {effect = 304, name = {english = "Big Explosion", german = "Große Explosion"}, powder = Item.sapphirePowder, stock = 22446419, essence = {Item.fireRoot, Item.desertSkyCapsule, Item.desertSkyCapsule, Item.desertSkyCapsule, Item.blackThistle, Item.blackThistle, Item.blackThistle, Item.sunHerb}, bomb = true},
+     {effect = 306, name = {english = "Small Mana Annihilator", german = "Kleiner Manaannihilator"}, powder = Item.sapphirePowder, stock = 22856451, essence = {Item.nightAngelsBlossom, Item.nightAngelsBlossom, Item.nightAngelsBlossom, Item.desertSkyCapsule, Item.fourleafedOneberry, Item.fourleafedOneberry, Item.fourleafedOneberry, Item.sunHerb}, bomb = true},

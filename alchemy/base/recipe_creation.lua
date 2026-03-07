@@ -46,7 +46,8 @@ local WantToAbort
 function M.FirstMenu(user, ingredientList)
 
     if ingredientList == nil then
-        ingredientList = {}
+        local parchment = M.IsParchmentOK(user,M.GetParchmentQuill(user),ingredientList)
+        ingredientList = common.convertItemDataToTable(user, parchment, "alchemyIngredients", alchemy.maxEntriesPerRecipe)
     end
 
     local callback = function(dialog)
@@ -497,8 +498,7 @@ function M.ShowRecipe(user, ingredientList, writingRecipe)
         counter = counter + 1
 
         if ingredient.key == "bottling" then
-            local emptyBottle = alchemy.getPotionBottleIds(ingredientList)
-            dialog:addOption(emptyBottle, common.GetNLS(user,counter..". Abfüllen", counter..". Bottling"))
+            dialog:addOption(ingredient.value, common.GetNLS(user,counter..". Abfüllen", counter..". Bottling"))
         elseif ingredient.key == "stock" then
             dialog:addOption(331, common.GetNLS(user,counter..". Sud", counter..". Stock"))
         elseif ingredient.key == "essence" then
@@ -601,11 +601,6 @@ function M.IsParchmentOK(user,parchment,ingredientList)
         return nil
     end
 
-    if parchment:getData("descriptionDe") ~= "" and parchment:getData("descriptionEn") ~= "" then
-        user:inform("Du braucht ein leeres Pergament.","You need an empty parchment.")
-        return nil
-    end
-
     if parchment.number > 1 then
         user:inform("Du kannst immer nur auf einem Pergament gleichzeitig schreiben.", "You can only write on one parchment at a time.")
     end
@@ -624,7 +619,7 @@ function M.GetParchmentQuill(user)
         theItem = itemB
     end
     if theItem then
-        if user:countItemAt("body",Item.parchment,{}) > 0 then
+        if user:countItemAt("body",Item.parchment) > 0 then
             return theItem
         end
     end
@@ -779,7 +774,7 @@ local function GetItem(user, listOfTheIngredients)
     local value = listOfTheIngredients[USER_POSITION_LIST[user.id]].value
 
     if key == "bottling" then
-        local bottleId = listOfTheIngredients[USER_POSITION_LIST[user.id]].value
+        local bottleId = value
         local bottleList = user:getItemList(bottleId)
         if #bottleList > 0 then
             deleteItem = bottleList[1] -- here, we take the first bottle we get
@@ -856,8 +851,8 @@ local function GetStartAction(user, listOfTheIngredients, cauldron)
     local plus, minus = alchemy.getPlantSubstance(ingredient.value)
     local isPlant = plus or minus
 
-    if ingredient.key == "ingredient" and isPlant or ingredient == 157 then
-        canUseHerb = alchemy.canUseHerb(user, ingredient)
+    if ingredient.key == "ingredient" and isPlant or ingredient.value == 157 then
+        canUseHerb = alchemy.canUseHerb(user, ingredient.value)
     end
 
     local duration,gfxId,gfxIntervall,sfxId,sfxIntervall = alchemy.GetStartAction(user, ingredient, cauldron)
@@ -944,8 +939,7 @@ local function StartBrewing(user,recipeTable,ltstate,checkVar)
             counter = counter + 1
 
             if ingredient.key == "bottling" then
-                local emptyBottle = alchemy.getPotionBottleIds(recipeTable)
-                dialog:addOption(emptyBottle, common.GetNLS(user,counter..". Abfüllen", counter..". Bottling"))
+                dialog:addOption(ingredient.value, common.GetNLS(user,counter..". Abfüllen", counter..". Bottling"))
             elseif ingredient.key == "stock" then
                 dialog:addOption(331, common.GetNLS(user,counter..". Sud", counter..". Stock"))
             elseif ingredient.key == "essence" then

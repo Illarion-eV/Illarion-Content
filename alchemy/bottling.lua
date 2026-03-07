@@ -119,73 +119,56 @@ function M.FillIntoBottle(user, sourceItem, cauldron)
     local result = {}
     result.ilynApplied = false
 
-    local commonItem = world:getItemStatsFromId(Item.emptyPotion)
+    local _, _, _, reBottle = alchemy.GemDustBottleCauldron(cauldron.id, sourceItem.id)
 
-    if cauldron:getData("filledWith") == "potion" then
+    local filledWith = cauldron:getData("filledWith")
 
-        local requiredBottle = alchemy.getRequiredBottle(tonumber(cauldron:getData("potionEffectId")))
-
-        if sourceItem.id ~= requiredBottle then
-            commonItem = world:getItemStatsFromId(requiredBottle)
-            result.wrongBottle = {english = commonItem.English, german = commonItem.German}
-            return result
-        end
-
-    elseif sourceItem.id ~= Item.emptyPotion then --stocks and essence need empty potions
+    if filledWith == "stock" or filledWith == "essenceBrew" and sourceItem.id ~= Item.emptyPotion then
+        local commonItem =  world:getItemStatsFromId(Item.emptyPotion)
         result.wrongBottle = {english = commonItem.English, german = commonItem.German}
         return result
     end
 
-    -- stock, essence brew or potion; fill it up
-    if (cauldron:getData("filledWith") == "stock") or (cauldron:getData("filledWith") == "essenceBrew") or (cauldron:getData("filledWith") == "potion") then
-        local _, _, _, reBottle = alchemy.GemDustBottleCauldron(cauldron.id, cauldron:getData("filledWith") == "essenceBrew")
-        if sourceItem.number > 1 then -- stack!
-            if cauldron:getData("filledWith") == "stock" then
-                local data = {}
-                data.AdrazinConcentration=cauldron:getData("AdrazinConcentration")
-                data.IllidriumConcentration=cauldron:getData("IllidriumConcentration")
-                data.CaprazinConcentration=cauldron:getData("CaprazinConcentration")
-                data.HyperboreliumConcentration=cauldron:getData("HyperboreliumConcentration")
-                data.EcholonConcentration=cauldron:getData("EcholonConcentration")
-                data.DracolinConcentration=cauldron:getData("DracolinConcentration")
-                data.OrcanolConcentration=cauldron:getData("OrcanolConcentration")
-                data.FenolinConcentration=cauldron:getData("FenolinConcentration")
-                data.filledWith="stock"
-                common.CreateItem(user, reBottle, 1, 333, data)
-
-            elseif cauldron:getData("filledWith") == "essenceBrew" then
-                local data = {}
-                data.essenceHerb1=cauldron:getData("essenceHerb1")
-                data.essenceHerb2=cauldron:getData("essenceHerb2")
-                data.essenceHerb3=cauldron:getData("essenceHerb3")
-                data.essenceHerb4=cauldron:getData("essenceHerb4")
-                data.essenceHerb5=cauldron:getData("essenceHerb5")
-                data.essenceHerb6=cauldron:getData("essenceHerb6")
-                data.essenceHerb7=cauldron:getData("essenceHerb7")
-                data.essenceHerb8=cauldron:getData("essenceHerb8")
-                data.filledWith="essenceBrew"
-                common.CreateItem(user, reBottle, 1, 333, data)
-
-            elseif cauldron:getData("filledWith") == "potion" then
-                    local data = {}
-                    data.potionEffectId=cauldron:getData("potionEffectId")
-                    data.filledWith="potion"
-                    data.creator=user.name
-                    common.CreateItem(user, reBottle, 1, tonumber(cauldron:getData("potionQuality")), data)
-            end
-            world:erase(sourceItem,1)
-        else
-            sourceItem.id = reBottle
-            alchemy.FillFromTo(cauldron,sourceItem)
-            world:changeItem(sourceItem)
+    local data = {}
+    if filledWith == "stock" then
+        local substances = {"Adrazin", "Illidrium", "Caprazin", "Hyperborelium", "Echolon", "Dracolin", "Orcanol", "Fenolin"}
+        for _, substance in pairs(substances) do
+            data[substance.."Concentration"] = cauldron:getData(substance.."Concentration")
         end
-        if cauldron:getData("ilyn") == "true" then -- In order to duplicate the potion, we have there be enough liquid in the cauldron for two potions
-            result.ilynApplied = true
-            cauldron:setData("ilyn", "false")
-        else
-            alchemy.RemoveAll(cauldron)
+        data.filledWith="stock"
+    elseif filledWith == "essenceBrew" then
+        for i = 1, 8 do
+            data["essenceHerb"..i] = cauldron:getData("essenceHerb"..i)
         end
+        data.filledWith="essenceBrew"
+    elseif filledWith == "potion" then
+        data.potionEffectId = cauldron:getData("potionEffectId")
+        local requiredId = alchemy.isBombOrSalve(tonumber(data.potionEffectId))
+        if requiredId and sourceItem.id ~= requiredId then
+            local commonItem =  world:getItemStatsFromId(requiredId)
+            result.wrongBottle = {english = commonItem.English, german = commonItem.German}
+            return result
+        end
+        data.filledWith="potion"
+        data.creator=user.name
     end
+
+    if sourceItem.number > 1 then
+        common.CreateItem(user, reBottle, 1, tonumber(cauldron:getData("potionQuality")) or 333, data)
+        world:erase(sourceItem,1)
+    else
+        sourceItem.id = reBottle
+        alchemy.FillFromTo(cauldron,sourceItem)
+        world:changeItem(sourceItem)
+    end
+
+    if cauldron:getData("ilyn") == "true" then -- In order to duplicate the potion, we have there be enough liquid in the cauldron for two potions
+        result.ilynApplied = true
+        cauldron:setData("ilyn", "false")
+    else
+        alchemy.RemoveAll(cauldron)
+    end
+
     world:changeItem(cauldron)
     world:makeSound(10,cauldron.pos)
     return result
