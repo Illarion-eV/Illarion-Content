@@ -20,33 +20,29 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local M = {}
 
-local LOW_LOW = 0
-local LOW_HIGH = 1
-local MEDIUM_LOW = 1
-local MEDIUM_HIGH = 4
-
 local treasureParameter = {
     --{position, lowest (0-9), highest (1-9), people needed}
-    {position(161,666,-4),LOW_LOW,LOW_HIGH,1}, --Sir Reginald's tomb
-    {position(769,705,0),LOW_LOW,LOW_HIGH,1}, --A cave in the woods
-    {position(336,326,-6),LOW_LOW,LOW_HIGH,1}, --Galmair sewers
-    {position(907,574,0),LOW_LOW,LOW_HIGH,1}, --Wonderland
-    {position(841,524,-12),LOW_LOW,LOW_HIGH,1}, --Bandit Hideout
-    {position(702,420,-3),MEDIUM_LOW,MEDIUM_HIGH,1}, --Salavesh dungeon
-    {position(531,804,-6),MEDIUM_LOW,MEDIUM_HIGH,1}, --Akaltuts level 2
-    {position(202,415,-3),MEDIUM_LOW,MEDIUM_HIGH,1}, --Fortress Hammerfall
-    {position(847,503,-6),MEDIUM_LOW,MEDIUM_HIGH,1}, --Spider Nest
-    {position(785,273,-9),MEDIUM_LOW,MEDIUM_HIGH,1}, --Lake of life
-    {position(701,626,-3),MEDIUM_LOW,MEDIUM_HIGH,1}, --Volcano
-    {position(230,794,-6),MEDIUM_LOW,MEDIUM_HIGH,1}, --Letma
-    {position(393,440,2),MEDIUM_LOW,MEDIUM_HIGH,1}, --Dragorog Cult
-    {position(571,191,-3),MEDIUM_LOW,MEDIUM_HIGH,1}, --Viridian Needles
-    {position(310,355,1),MEDIUM_LOW,MEDIUM_HIGH,1}, --Fort Schnellbeil
-    {position(554,536,-6),MEDIUM_LOW,MEDIUM_HIGH,1}, --Necro Hideout
-    {position(895,577,-9),MEDIUM_LOW,MEDIUM_HIGH,1}, --Ronagan Dungeon
-    {position(693,390,-3),5,8,3}, --Salavesh dungeon - Dragon lair
-    {position(471,776,-9),6,9,4}, --Akaltut dungeon - end of dungeon
-    {position(703,616,-6),6,9,4} --Volcano dungeon - end of dungeon
+    -- Opting not to use level 0 as it never feels good to find an empty chest
+    {position(161,666,-4),1,2,1}, --Sir Reginald's tomb, guarded by level 1-3 mobs one being a mage, easily accessible
+    {position(769,705,0),1,2,1}, --The wolf cave north of yewdale, mostly 1-3 mobs with 1 level 5 lamb slaughterer, easily accessible
+    {position(336,326,-6),1,2,1}, --Galmair sewers, level 1-3 mobs, easily accessible
+    {position(907,574,0),2,3,1}, --Wonderland, level 1-3 mobs aside from a nearby level 6 orc warrior + a puzzle, medium accessibility
+    {position(571,191,-3),2,3,1}, --Viridian Needles, level 2-4 mobs, medium accessibility
+    {position(841,524,-12),2,4,1}, --Bandit Hideout, level 4-6 mobs, medium accessible with easily bypassable mobs
+    {position(310,355,1),3,4,1}, --Fort Schnellbeil, level 4-6 mobs, medium accessibility
+    {position(702,420,-3),3,5,1}, --Salavesh dungeon, long way to access, level 1-5 mobs beyond avoidable dragon and demon skeleton that are level 6
+    {position(202,415,-3),4,5,1}, --Fortress Hammerfall, level 4-6 mobs, long way to access
+    {position(554,536,-6),4,5,1}, --Necro Hideout, level 4-6 mobs, long way to access
+    {position(895,577,-9),4,5,1}, --Ronagan Dungeon, level 4-6 mobs, long way to access
+    {position(785,273,-9),4,5,1}, --Lake of life, level 4-6 mobs, long way to access
+    {position(230,794,-6),5,6,1}, --Letma, level 4-6 mobs, very long way to access
+    {position(531,804,-6),5,6,1}, --Akaltuts level 2, level 4-7 mobs, long way to access
+    {position(393,440,2),5,6,1}, --Dragorog Cult, level 4-7 mobs, long way to access
+    {position(847,503,-6),6,7,1}, --Spider Nest, level 6-7 mobs, long way to access
+    {position(701,626,-3),6,7,1}, --Volcano Dragon lair, level 6-7 mobs, long way to access
+    {position(693,390,-3),6,8,3}, --Salavesh dungeon - Dragon lair, very long way to access, level 6 mob guards it, needs 3 people
+    {position(471,776,-9),7,9,4}, --Akaltut dungeon - end of dungeon, very long way to access, level 6-7 mobs, and needs 4 people
+    {position(703,616,-6),7,9,4} --Volcano dungeon - end of dungeon, very long way to access, level 6-8 mobs, and needs 4 people
 }
 
 M.pos = position(206, 105, 0)
