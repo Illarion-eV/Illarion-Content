@@ -113,6 +113,7 @@ local function accountForMultiSkills(user, skill, actionPoints)
 
 end
 
+local accumulatedExperience = {}
 
 function M.learn(user, skill, actionPoints, learnLimit)
 
@@ -140,11 +141,19 @@ function M.learn(user, skill, actionPoints, learnLimit)
 
             local minorIncrease = scalingFactor * skillFactor * MCfactor * actionpointFactor * (1 + attributeBonus + intelligenceBonus)
 
-            if common.Chance(minorIncrease-math.floor(minorIncrease)) then
-                minorIncrease=math.floor(minorIncrease)+1
-            else
-                minorIncrease=math.floor(minorIncrease)
+            if not accumulatedExperience[user.id] then
+                accumulatedExperience[user.id] = {}
             end
+
+            if accumulatedExperience[user.id][skill] then
+                minorIncrease = minorIncrease + accumulatedExperience[user.id][skill]
+            end
+
+            local excess = minorIncrease-math.floor(minorIncrease)
+            -- Skill points only work in whole integers, so we store the decimal for later instead of relying on RNG
+            accumulatedExperience[user.id][skill] = excess
+
+            minorIncrease = math.floor(minorIncrease) --The whole integer we will increase by
 
             --For debugging, use the following line.
             --[[user:inform("Skill="..user:getSkillName(skill)..", actionPoints="..actionPoints..", skillFactor="
