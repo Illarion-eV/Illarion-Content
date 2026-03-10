@@ -36,7 +36,7 @@ local function gatherFromHolyVine(user)
 end
 
 -- GrowCycles define how fast the plants regrow in the 4 seasons. 1 cycle takes 3 minutes
-local function CreateHarvestProduct(ProductId, GroundType, GrowCycles, NextItemId, amount, originId)
+local function CreateHarvestProduct(ProductId, GroundType, GrowCycles, NextItemId, amount, originId, timeMultiplier)
     local retValue = {}
     retValue.productId = ProductId
     retValue.groundType = GroundType
@@ -52,24 +52,24 @@ local function CreateHarvestProduct(ProductId, GroundType, GrowCycles, NextItemI
 
     retValue.origin = originId
 
+    retValue.timeMultiplier = timeMultiplier --Allows us to scale the default harvest time to be longer for the more expensive fruits
+
     return retValue
 end
 
 local HarvestItems = {}
-table.insert(HarvestItems, CreateHarvestProduct(Item.apple, nil, nil, 11, 20, 14)) -- apple tree
-table.insert(HarvestItems, CreateHarvestProduct(Item.cherries, nil, nil, 299, 20, 300))-- cherry tree
-table.insert(HarvestItems, CreateHarvestProduct(Item.orange, nil, nil, 1193, 5, 1195)) -- orange tree
-table.insert(HarvestItems, CreateHarvestProduct(Item.grapes, nil, nil, 386, 5, 387))-- bush
-table.insert(HarvestItems, CreateHarvestProduct(Item.tangerine,nil, nil, 3612, 20, 3613)) -- tangerine
-table.insert(HarvestItems, CreateHarvestProduct(Item.berries,nil, nil, 3742, 10, 3743)) -- berries
-table.insert(HarvestItems, CreateHarvestProduct(Item.banana, nil, nil, 3866, 20, 3867)) -- banana tree
-table.insert(HarvestItems, CreateHarvestProduct(Item.blackberry, nil, nil, 3893, 10, 3892)) -- blackberry bush
-table.insert(HarvestItems, CreateHarvestProduct(Item.pear, nil, nil, 4254, 20, 4253)) -- pear tree
-table.insert(HarvestItems, CreateHarvestProduct(Item.plum, nil, nil, 4342, 10, 4341)) -- plum tree
-table.insert(HarvestItems, CreateHarvestProduct(Item.pineapple,nil, nil, 4244, 5,4245)) -- pineapple plant
-table.insert(HarvestItems, CreateHarvestProduct(Item.peach,nil, nil, 4239, 20, 4238)) -- peach tree
-table.insert(HarvestItems, CreateHarvestProduct(Item.mango,nil, nil, 4256, 10, 4255)) -- mango tree
-table.insert(HarvestItems, CreateHarvestProduct(Item.nuts, nil, nil, 1809, 10, 4246)) -- nut tree
+table.insert(HarvestItems, CreateHarvestProduct(Item.apple, nil, nil, 11, 20, 14, 1)) -- apple tree
+table.insert(HarvestItems, CreateHarvestProduct(Item.cherries, nil, nil, 299, 20, 300, 1))-- cherry tree
+table.insert(HarvestItems, CreateHarvestProduct(Item.orange, nil, nil, 1193, 5, 1195, 4)) -- orange tree
+table.insert(HarvestItems, CreateHarvestProduct(Item.grapes, nil, nil, 386, 5, 387, 4))-- bush
+table.insert(HarvestItems, CreateHarvestProduct(Item.tangerine,nil, nil, 3612, 20, 3613, 1)) -- tangerine
+table.insert(HarvestItems, CreateHarvestProduct(Item.banana, nil, nil, 3866, 20, 3867, 1)) -- banana tree
+table.insert(HarvestItems, CreateHarvestProduct(Item.pear, nil, nil, 4254, 20, 4253, 1)) -- pear tree
+table.insert(HarvestItems, CreateHarvestProduct(Item.plum, nil, nil, 4342, 10, 4341, 2)) -- plum tree
+table.insert(HarvestItems, CreateHarvestProduct(Item.pineapple,nil, nil, 4244, 5,4245, 4)) -- pineapple plant
+table.insert(HarvestItems, CreateHarvestProduct(Item.peach,nil, nil, 4239, 20, 4238, 1)) -- peach tree
+table.insert(HarvestItems, CreateHarvestProduct(Item.mango,nil, nil, 4256, 10, 4255, 2)) -- mango tree
+table.insert(HarvestItems, CreateHarvestProduct(Item.nuts, nil, nil, 1809, 10, 4246, 2)) -- nut tree
 
 M.HarvestItems = HarvestItems
 
@@ -93,7 +93,6 @@ function M.StartGathering(User, SourceItem, ltstate)
 
     common.ResetInterruption( User, ltstate )
     if ( ltstate == Action.abort ) then -- work interrupted
-        User:talk(Character.say, "#me unterbricht "..common.GetGenderText(User, "seine", "ihre").." Arbeit.", "#me interrupts "..common.GetGenderText(User, "his", "her").." work.")
         return
     end
 
@@ -173,7 +172,7 @@ function M.StartGathering(User, SourceItem, ltstate)
     -- since we're here, there is something we can harvest
 
     if ( ltstate == Action.none ) then -- currently not working -> let's go
-        fruitgathering.SavedWorkTime[User.id] = fruitgathering:GenWorkTime(User)
+        fruitgathering.SavedWorkTime[User.id] = fruitgathering:GenWorkTime(User) * harvestProduct.timeMultiplier
         User:startAction( fruitgathering.SavedWorkTime[User.id], 21, fruitgathering.SavedWorkTime[User.id], 0, 0)
         return
     end
@@ -198,7 +197,7 @@ function M.StartGathering(User, SourceItem, ltstate)
     local created = common.CreateItem(User, harvestProduct.productId, productAmount, 333, data) -- create the new produced items
     if created then -- character can still carry something
         if (amount>0) then  -- there are still fruits we can gather
-            fruitgathering.SavedWorkTime[User.id] = fruitgathering:GenWorkTime(User)
+            fruitgathering.SavedWorkTime[User.id] = fruitgathering:GenWorkTime(User)  * harvestProduct.timeMultiplier
             User:startAction( fruitgathering.SavedWorkTime[User.id], 21, fruitgathering.SavedWorkTime[User.id], 0, 0)
         end
     end
@@ -218,6 +217,7 @@ function M.StartGathering(User, SourceItem, ltstate)
         else
             amount = harvestProduct.amount
         end
+
         SourceItem:setData("amount","" .. amount)
         world:changeItem(SourceItem)
             -- change item id
