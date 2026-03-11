@@ -416,14 +416,16 @@ function M.canUseHerb(user, id)
     local alchemyLevel = user:getSkill(Character.alchemy)
 
     for _, herb in pairs(herbs) do
-        if herb.id == id then
+        if herb.id == id then -- We found the herb the user is trying to add to their brew
             local commonHerb = world:getItemStatsFromId(herb.id)
             local level = commonHerb.Level
 
-            local breakPoints = {75, 50, 25, 0} -- to ensure fairness for all substances, other level impact is speed of adding the herbs
+            local breakPoints = {75, 50, 25, 0}
+            -- to ensure fairness for all substances, we have four breakpoints with one of each substance positive and negative in each
+            -- level also impacts speed of adding the herbs, which is why you still want to go beyond level 75
 
             for _, breakPoint in ipairs(breakPoints) do
-                if level > breakPoint then
+                if level > breakPoint then --We lower the level to the nearest breakpoint. If exactly at the breakpoint, it is actually part of the lower group to allow the numbers to add up for 8 in each category.
                     level = breakPoint
                     break
                 end
