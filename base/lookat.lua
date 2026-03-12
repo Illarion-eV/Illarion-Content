@@ -151,6 +151,17 @@ local function showItemLevel(user, itemId, lookat , itemLevel, levelreq, skillDi
 
         lookat.type = theType
 
+        if theTypes.english == "Alchemy" and skillName == "alchemy" then --An exception for alchemy
+            local breakPoints = {75, 50, 25, 0}
+            for _, breakPoint in ipairs(breakPoints) do
+                if itemLevel > breakPoint then --We lower the level to the nearest breakpoint. If exactly at the breakpoint, it is actually part of the lower group to allow the numbers to add up for 8 in each category.
+                    itemLevel = breakPoint
+                    break
+                end
+            end
+        end
+
+
         lookat.usable = skill >= itemLevel
 
         return true, lookat
