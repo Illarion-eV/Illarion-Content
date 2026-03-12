@@ -21,24 +21,68 @@ local fakeInfo = require("magic.arcane.spirit.fakeInfo")
 
 local M = {}
 
+local function onlyTelepathyRunes(spell)
+
+    local PEN = runes.checkSpellForRuneByName("PEN", spell)
+
+    if not PEN then
+        return false
+    end
+
+    local TAH = runes.checkSpellForRuneByName("TAH", spell)
+    local KEL = runes.checkSpellForRuneByName("KEL", spell)
+
+    if not (TAH or KEL) then --not a telepathy spell
+        return false
+    end
+
+    local totalNumberOfRunes = 0
+
+    for _, rune in pairs(runes.runes) do
+        if runes.checkSpellForRuneByName(rune.name, spell) then
+            totalNumberOfRunes = totalNumberOfRunes + 1
+        end
+    end
+
+    local numberOfRunes = 1
+
+    local exceptions = {"TAH", "KEL", "DUN", "LEV", "TAUR"}
+
+    for _, exception in pairs(exceptions) do
+        if runes.checkSpellForRuneByName(exception, spell) then
+            numberOfRunes = numberOfRunes + 1
+        end
+    end
+
+    if numberOfRunes < totalNumberOfRunes then --Theres more than the telepathy runes in the spell
+        return false
+    end
+
+    return true
+end
+
 function M.invokeSpiritSpells(user, targets, spell)
-local LHOR = runes.checkSpellForRuneByName("LHOR", spell)
-local PEN = runes.checkSpellForRuneByName("PEN", spell)
-local FHAN = runes.checkSpellForRuneByName("FHAN", spell)
+    local LHOR = runes.checkSpellForRuneByName("LHOR", spell)
+    local PEN = runes.checkSpellForRuneByName("PEN", spell)
+    local FHAN = runes.checkSpellForRuneByName("FHAN", spell)
 
     if not PEN then
         return
     end
 
-telepathy.invoke(user, targets, spell)
-    if not LHOR then
-        convertInfoToDialogue.getDialogue(user, targets, spell)
-    end
+    telepathy.invoke(user, targets, spell)
 
-    if LHOR then
-        fakeInfo.fakeDialogue(user, targets, spell)
-    elseif FHAN then
-        convertInfoToDialogue.getDialogue(false, targets, spell)
+    if not onlyTelepathyRunes(spell) then
+
+        if not LHOR then
+            convertInfoToDialogue.getDialogue(user, targets, spell)
+        end
+
+        if LHOR then
+            fakeInfo.fakeDialogue(user, targets, spell)
+        elseif FHAN then
+            convertInfoToDialogue.getDialogue(false, targets, spell)
+        end
     end
 end
 

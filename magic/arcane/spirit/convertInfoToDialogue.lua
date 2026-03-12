@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local gatherInfo = require("magic.arcane.spirit.gatherInfo")
 local common = require("base.common")
 local runes = require("magic.arcane.runes")
+local targeting = require("magic.arcane.targeting")
 
 local infoOptionsText = {
     {english = "Gender/race", german = "Geschlecht/Rasse", identifier = "genderRace", rune = "TAUR"},
@@ -291,6 +292,18 @@ function M.startDialogue(informedTarget, information, spell)
     for i = 1, #information do
         local englishType = information[i].type
         local germanType = getGermanType(englishType)
+
+        if englishType == "player" then
+            local friendList = targeting.getFriendlistTargets(informedTarget)
+            for _, friend in pairs(friendList) do
+                local potentialFriend = information[i].target.target
+                if isValidChar(potentialFriend) and potentialFriend.id == friend.id then
+                    englishType = friend.name
+                    germanType = friend.name
+                end
+            end
+        end
+
         dialog:addOption(0, common.GetNLS(informedTarget,targetSelectionList.target.german..i..": "..germanType, targetSelectionList.target.english..i..": "..englishType ))
     end
 
