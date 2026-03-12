@@ -296,7 +296,7 @@ function M.startDialogue(informedTarget, information, spell)
         if englishType == "player" then
             local friendList = targeting.getFriendlistTargets(informedTarget)
             for _, friend in pairs(friendList) do
-                local potentialFriend = information[i].target.target
+                local potentialFriend = information[i].target
                 if isValidChar(potentialFriend) and potentialFriend.id == friend.id then
                     englishType = friend.name
                     germanType = friend.name
