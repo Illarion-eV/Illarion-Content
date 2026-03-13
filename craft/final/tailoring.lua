@@ -1128,9 +1128,10 @@ product:addIngredient(2547, 4) -- leather
 -- Journeyman Sewing Kit
 product = tailoring:addProduct(catId, 4015 ,1)
 product:addIngredient(50, 7) -- thread
-product:addIngredient(177, 8) -- yellow cloth
+product:addIngredient(177, 4) -- yellow cloth
 product:addIngredient(2586, 1) -- fur
-product:addIngredient(2547, 8) -- leather
+product:addIngredient(2547, 4) -- leather
+product:addIngredient(45, 1) -- emerald
 
 -- Specialist Sewing Kit
 product = tailoring:addProduct(catId, 4016 ,1)
