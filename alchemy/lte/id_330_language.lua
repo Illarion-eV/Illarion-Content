@@ -24,28 +24,32 @@ local M = {}
 
 -- INSERT INTO longtimeeffects VALUES (330, 'alchemy_language', 'alchemy.lte.id_330_language');
 
-function M.addEffect(Effect, User)
+function M.addEffect(effect, user)
 --Nur beim ersten Aufruf
---User:inform("debug func addEffect")
+--user:inform("debug func addEffect")
 end
 
-function M.callEffect(Effect,User)
-    common.InformNLS( User, "Du fühlst, dass der Sprachtrank seine Wirkung verliert.", "You feel that the language potion loses its effect.")
+function M.callEffect(effect,user)
+    M.removeEffect(effect,user)
+    common.InformNLS( user, "Du fühlst, dass der Sprachtrank seine Wirkung verliert.", "You feel that the language potion loses its effect.")
     return false
 end
 
-function M.removeEffect(Effect,User)
-    --[[
-    local find,languageId = Effect:findValue("languageId")
-    local skillName = ListLanguages[languageId]
-    local find,oldSkill = Effect:findValue( "oldSkill")
-    local find,newSkill = Effect:findValue( "newSkill")
+function M.removeEffect(effect,user)
 
-    --original skill level
-    User:increaseSkill(skillName,(-(newSkill-oldSkill))) ]]
+    local listLanguages= {Character.commonLanguage,Character.humanLanguage,Character.dwarfLanguage,Character.elfLanguage,Character.lizardLanguage,Character.orcLanguage,Character.halflingLanguage,Character.ancientLanguage}
+
+    local foundId,languageId = effect:findValue("languageId")
+    local skillName = listLanguages[languageId]
+    local foundOld,oldSkill = effect:findValue( "oldSkill")
+    local foundNew,newSkill = effect:findValue( "newSkill")
+
+    if foundId and foundOld and foundNew then
+        user:increaseSkill(skillName,(-(newSkill-oldSkill)))
+    end
 end
 
-function M.loadEffect(Effect,User)
+function M.loadEffect(effect, user)
 
 end
 
