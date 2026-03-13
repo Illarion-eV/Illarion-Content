@@ -20,7 +20,6 @@ local common = require("base.common")
 local alchemy = require("alchemy.base.alchemy")
 local granorsHut = require("content.granorsHut")
 local customPotion = require("alchemy.base.customPotion")
-local recipe_creation = require("alchemy.base.recipe_creation")
 local scheduledFunction = require("scheduled.scheduledFunction")
 local missile = require("alchemy.base.missile")
 local testing = require("base.testing")
@@ -992,56 +991,7 @@ function M.UseItem(user, sourceItem, actionState)
             return
         end
 
-        local theKey = filledWith
-        local theValue = sourceItem.id
-
-        if filledWith == "essenceBrew"  or filledWith == "essence" then
-            theKey = "essence"
-
-            local essence = sourceItem.id
-
-            for i = 1, 8 do
-
-                local essenceIngredient = sourceItem:getData("essenceHerb"..i)
-
-                if common.IsNilOrEmpty(essenceIngredient) then
-                    break
-                end
-
-                essence = essence..";"
-
-                essence = essence..essenceIngredient
-            end
-
-            theValue = essence
-
-        elseif filledWith == "potion" then
-            theKey = "potion"
-            theValue = sourceItem:getData("potionEffectId")
-        elseif filledWith == "stock" then
-
-            local substances = sourceItem.id
-
-            for i=1,8 do
-                local substance = sourceItem:getData(substances[i].."Concentration")
-
-                if common.IsNilOrEmpty(substance) then
-                    substance = 5 --Neutral value
-                end
-
-                substances = substances..";"
-
-                substances = substances..substance
-            end
-
-            theValue = substances
-        end
-
-        local recipeTable = {
-            {key = theKey, value = theValue}
-        }
-
-        recipe_creation.useRecipe(user, recipeTable, actionState)
+        alchemy.FillIntoCauldron(user, sourceItem, cauldron, actionState)
 
     else -- not infront of a cauldron, therefore use the potion/salve/bomb!
         for _, potionType in pairs(potionTypes) do

@@ -251,7 +251,7 @@ function M.getPotionBottleIds(ingredientList)
         for _, ingredient in pairs(ingredientList) do
             local gemPowderFound = ingredient.key == "ingredient" and ingredient.value == bottle.powder
 
-            if ingredient.key == "essence" then
+            if ingredient.key == "essenceBrew" then
                 local _, full = M.getEssenceBrewGraphics(ingredient.value)
                 gemPowderFound = bottle.bottle == full
             end
@@ -364,8 +364,8 @@ function M.convertOldRecipeToNew(user, parchment)
         if string.find(ingredient, "stock") then
             category = "stock"
             _, value = M.StockEssenceList(ingredient)
-        elseif string.find(ingredient, "essence") then
-            category = "essence"
+        elseif string.find(ingredient, "essenceBrew") then
+            category = "essenceBrew"
             _, value = M.StockEssenceList(ingredient)
         elseif string.find(ingredient, "bottle") then
             category = "bottling"
@@ -375,7 +375,7 @@ function M.convertOldRecipeToNew(user, parchment)
             value = Item.emptySalveJar
         end
 
-        if category == "stock" or category == "essence" then
+        if category == "stock" or category == "essenceBrew" then
 
             local newValue = ""
 
@@ -384,7 +384,7 @@ function M.convertOldRecipeToNew(user, parchment)
                     newValue = newValue..";"
                 end
 
-                if category == "essence" then
+                if category == "essenceBrew" then
                     for _, replace in pairs(toReplace) do
                         if tostring(replace.old) == tostring(val) then
                             val = replace.new
@@ -866,7 +866,8 @@ function M.SetQuality(user, cauldron)
 end
 
 function M.GemDustBottleCauldron(id, emptyBottle)
-
+    log("id: "..tostring(id))
+    log("emptyBottle: "..tostring(emptyBottle))
     for _, selected in pairs(cauldronsAndBottles) do
         if selected.powder == id or selected.gem == id or selected.cauldron == id or selected.bottle == id then
             if emptyBottle and selected.bombSalve and selected.bombSalve.empty == emptyBottle then
@@ -1008,11 +1009,7 @@ function M.CombineStockEssence( user, stock, essenceBrew)
             cauldron:setData("legitimateKnowledgeOfPotionRecipe", tostring(checkIfPlayerKnowsPotion(user, effectID)))
         end
 
-         for _, selectedPotion in pairs(potions) do
-            if selectedPotion.effect == effectID then
-                cauldron:setData("filledWith", "potion")
-            end
-        end
+        cauldron:setData("filledWith", "potion")
 
         world:changeItem(cauldron)
         world:makeSound(13,cauldron.pos)
@@ -1119,13 +1116,25 @@ function M.FillIntoCauldron(user, sourceItem, cauldron, ltstate)
 
     if ltstate == Action.none then
         local actionDuration
-        if bottleContents =="essenceBrew" and cauldronContents == "stock" then
+        if bottleContents =="essenceBrew" and cauldronContents == "stock" or cauldronContents =="essenceBrew" and bottleContents == "stock" then
             actionDuration = 80 -- when we combine a stock and an essence brew, it takes longer
         else
             actionDuration = 20
         end
         user:startAction( actionDuration, 21, 5, 10, 45)
         return
+    end
+
+    if bottleContents == "stock" then
+        if cauldronContents == "water" or cauldronContents == "stock" or cauldronContents == "potion" or cauldronContents == "salve" then
+            M.CauldronDestruction(user,cauldron,1)
+        end
+
+        if cauldronContents == "essenceBrew" then
+            M.CombineStockEssence(user, cauldron, sourceItem)
+        else
+            M.FillFromTo(sourceItem, cauldron)
+        end
     end
 
     if bottleContents == "essenceBrew" or bottleContents == "potion" or bottleContents == "salve" then -- essence brew should be filled into the cauldron
@@ -1200,7 +1209,7 @@ function M.GetStartAction(User, ingredient, cauldron)
         sfxId = 15
         sfxIntervall = 25
 
-    elseif (ingredient.key == "stock" and cauldron:getData("filledWith")=="essenceBrew") or (ingredient.key =="essence" and cauldron:getData("filledWith")=="stock") or (ingredient.key == "stock" or ingredient.key == "essence" or ingredient.key == "potion") then
+    elseif (ingredient.key == "stock" and cauldron:getData("filledWith")=="essenceBrew") or (ingredient.key =="essenceBrew" and cauldron:getData("filledWith")=="stock") or (ingredient.key == "stock" or ingredient.key == "essenceBrew" or ingredient.key == "potion") then
         sfxId = 10
         sfxIntervall = 45
     end

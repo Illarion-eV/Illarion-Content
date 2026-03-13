@@ -322,7 +322,7 @@ function SelectEssenceBrewOption(user, ingredientList, currentEssenceList)
                 end
                 SelectEssenceBrewOption(user, ingredientList, currentEssenceList)
             else
-                addToRecipe(ingredientList, "essence", table.concat(currentEssenceList,";"))
+                addToRecipe(ingredientList, "essenceBrew", table.concat(currentEssenceList,";"))
                 user:inform("Wurde dem Rezept hinzugefügt: Essenzgebräu","Added to the recipe: Essence brew",Character.lowPriority)
                 M.FirstMenu(user, ingredientList)
             end
@@ -474,7 +474,7 @@ function M.ShowRecipe(user, ingredientList, writingRecipe)
             end
             if selected == 1 and writingRecipe then
                 M.FirstMenu(user, ingredientList)
-            elseif ingredientList[selected-minus].key == "stock" or ingredientList[selected-minus].key == "essence" then
+            elseif ingredientList[selected-minus].key == "stock" or ingredientList[selected-minus].key == "essenceBrew" then
                 ShowStockEssence(user, ingredientList[selected-minus], ingredientList, writingRecipe)
             else
                 M.ShowRecipe(user, ingredientList, writingRecipe)
@@ -501,7 +501,7 @@ function M.ShowRecipe(user, ingredientList, writingRecipe)
             dialog:addOption(ingredient.value, common.GetNLS(user,counter..". Abfüllen", counter..". Bottling"))
         elseif ingredient.key == "stock" then
             dialog:addOption(331, common.GetNLS(user,counter..". Sud", counter..". Stock"))
-        elseif ingredient.key == "essence" then
+        elseif ingredient.key == "essenceBrew" then
             local _, essenceBrewGraphic = alchemy.getEssenceBrewGraphics(ingredient.value)
 
             dialog:addOption(essenceBrewGraphic, common.GetNLS(user,counter..". Essenzgebräu",counter..". Essence brew"))
@@ -518,7 +518,7 @@ function ShowStockEssence(user, stockOrEssence, ingredientList, writingRecipe)
     local liquidList = M.StockEssenceSplit(stockOrEssence.value)
 
     local de, en, titleDe, titleEn
-    if stockOrEssence.key == "essence" then
+    if stockOrEssence.key == "essenceBrew" then
         titleDe = "Essenzgebräu"
         titleEn = "Essence brew"
         de = ESSENCE_BREWS[liquidList[1]]["de"]..":"
@@ -790,7 +790,7 @@ local function GetItem(user, listOfTheIngredients)
             missingDe = "Dir fehlt: "..common.getItemName(bottleId, user:getPlayerLanguage() )
             missingEn = "You don't have: "..common.getItemName(bottleId, user:getPlayerLanguage() )
         end
-    elseif key == "stock" or key == "essence" then
+    elseif key == "stock" or key == "essenceBrew" then
         local neededList = M.StockEssenceSplit(value)
 
         if key == "stock" then
@@ -805,7 +805,7 @@ local function GetItem(user, listOfTheIngredients)
                 missingDe = "Dir fehlt der entsprechende Sud."
                 missingEn = "Your don't have the proper stock."
             end
-        elseif key == "essence" then
+        elseif key == "essenceBrew" then
             local neededId = table.remove(neededList,1)
             local bottleList = user:getItemList(neededId)
             local currentList
@@ -897,7 +897,7 @@ local function CallBrewFunctionAndDeleteItem(user,deleteItem, deleteId,cauldron)
 end
 
 local function StartBrewing(user,recipeTable,ltstate,checkVar)
-
+    log("1")
     local cauldron = alchemy.GetCauldronInfront(user)
     local tool = alchemy.getAlchemyTool(user)
 
@@ -909,7 +909,7 @@ local function StartBrewing(user,recipeTable,ltstate,checkVar)
     if not cauldron then -- security check
         return
     end
-
+    log("2")
     if licence.licence(user) then --checks if user is citizen or has a licence
         return -- avoids crafting if user is neither citizen nor has a licence
     end
@@ -918,31 +918,33 @@ local function StartBrewing(user,recipeTable,ltstate,checkVar)
         user:inform("Du brichst deine Arbeit vor dem "..USER_POSITION_LIST[user.id]..". Arbeitsschritt ab.", "You abort your work before the "..USER_POSITION_LIST[user.id].." work step.")
         return
     end
-
+log("3")
     if not checkVar and ltstate==Action.none then
         local callback = function(dialog)
             local success = dialog:getSuccess()
             if success then
                 local selected = dialog:getSelectedIndex()+1
                 USER_POSITION_LIST[user.id] = selected
+                log("7")
                 StartBrewing(user, recipeTable,ltstate,true)
             end
         end
 
         local dialog = SelectionDialog(common.GetNLS(user,"Rezept","Recipe"), common.GetNLS(user,"Wähle die Zutat aus, ab welcher das Rezept abgearbeitet werden soll.","Select the ingredient which you want to start to brew from."), callback)
-
+log("4")
         dialog:setCloseOnMove()
 
         local counter = 0
 
         for _, ingredient in ipairs(recipeTable) do
             counter = counter + 1
-
+            log("5")
             if ingredient.key == "bottling" then
                 dialog:addOption(ingredient.value, common.GetNLS(user,counter..". Abfüllen", counter..". Bottling"))
             elseif ingredient.key == "stock" then
+                log("6")
                 dialog:addOption(331, common.GetNLS(user,counter..". Sud", counter..". Stock"))
-            elseif ingredient.key == "essence" then
+            elseif ingredient.key == "essenceBrew" then
                 local _, essenceBrewGraphic = alchemy.getEssenceBrewGraphics(ingredient.value)
                 dialog:addOption(essenceBrewGraphic, common.GetNLS(user,counter..". Essenzgebräu",counter..". Essence brew"))
             else
