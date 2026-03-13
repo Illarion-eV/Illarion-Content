@@ -94,8 +94,8 @@ tradeFinishedMsg "Ein Vergnügen. Nutze, was ich dir gegeben habe, weise - Ushara
 tradeFinishedWithoutTradingMsg "Mmh - vielleicht ein anderes Mal.", "Mmh- another time, perhaps."
 tradeWrongItemMsg "Ich bleibe hier, um denen zu helfen, die Usharas Geheimnisse suchen. Ich verkaufe nur, was das Handwerk verlangt, nicht mehr. Ach, jede Münze, die ich erhalte, fließt in die Suche nach meiner geliebten Schwester.", "I remain here to aid those who seek Ushara?s secrets. I only sell what the craft requires, nothing more. Alas, any coin I may receive goes toward finding my beloved sister."
 
-"sell", "buy", "wares", "price", "trade", "purchase" -> "I don't offer common trade, but will ensure you have everything you need to explore Ushara's secrets at a fair price."
-"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich biete keinen gewöhnlichen Handel an, aber ich sorge dafür, dass du alles hast, was du brauchst, um Usharas Geheimnisse zu ergründen - zu einem ehrlichen Preis."
+"sell", "buy", "wares", "price", "trade", "purchase" -> trade, "I don't offer common trade, but will ensure you have everything you need to explore Ushara's secrets at a fair price."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> trade, "Ich biete keinen gewöhnlichen Handel an, aber ich sorge dafür, dass du alles hast, was du brauchst, um Usharas Geheimnisse zu ergründen - zu einem ehrlichen Preis."
 -------------------------------------------------------------------------------
 -- INITIAL QUESTING: THE OLD PATH / DRUID MAGIC / NATURE MAGIC
 -------------------------------------------------------------------------------
