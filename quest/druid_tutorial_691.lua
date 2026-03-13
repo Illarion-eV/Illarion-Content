@@ -36,9 +36,9 @@ Description[GERMAN] = {}
 Description[ENGLISH] = {}
 
 
-Description[GERMAN][1] =  "DETRANSLATE"
+Description[GERMAN][1] =  "Indem du mit Fianna gesprochen hast, hast du deinen ersten Schritt in die Welt der Naturmagie gemacht. Um fortzufahren, frage Fianna mehr über die Alten Geflechte."
 Description[ENGLISH][1] = "By talking to Fianna you have taken your first step into the world of nature magic. To continue, ask Fianna more about the Old Weaves."
-Description[GERMAN][2] =  "DETRANSLATE"
+Description[GERMAN][2] =  "Du bist dabei, von Fianna zu lernen, wie man ein Druide wird. Sprich mit ihr über den alten Pfad der Naturmagie, um mehr zu erfahren."
 Description[ENGLISH][2] = "You're in the process of learning from Fianna how to become a druid. Talk to her about the old path of nature magic to learn more."
 Description[GERMAN][3] =  "Suche einen von Fiannas Kontakten auf, um weitere Hinweise zu erhalten, wie du ein Druide werden kannst, und kehre anschließend zu ihr zurück, sobald du einer geworden bist. Du findest Joseph Quatrilla in Cadomyr, Grator Bottlebreak in Galmair oder Vallaria Medrota in Runewick."
 Description[ENGLISH][3] = "Seek out one of Fianna's contacts for more hints on how to become a druid, then return to her once you have become one. You can find Joseph Quatrilla in Cadomyr, Grator Bottlebreak in Galmair, or Vallaria Medrota in Runewick."
@@ -55,7 +55,7 @@ local QuestTarget = {}
 
 
 -- Insert the quest status which is reached at the end of the quest
-local FINAL_QUEST_STATUS = 4
+local FINAL_QUEST_STATUS = 5
 
 function M.QuestTitle(user)
     return common.GetNLS(user, Title[GERMAN], Title[ENGLISH])
@@ -75,13 +75,14 @@ end
 function M.QuestTargets(user, status)
 
     if (user:increaseAttrib("perception",0) + user:increaseAttrib("essence",0) + user:increaseAttrib("intelligence",0) ) < 30 then
-        for i = 1, 3 do
+        for i = 1, 4 do
             QuestTarget[i] = {}
         end
     else
         QuestTarget[1] = {position(661, 301, 0)}
         QuestTarget[2] = {position(661, 301, 0)}
         QuestTarget[3] = {position(661, 301, 0)}
+        QuestTarget[4] = {position(661, 301, 0)}
     end
 
     return QuestTarget[status]
