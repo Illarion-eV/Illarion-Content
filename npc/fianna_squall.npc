@@ -165,10 +165,13 @@ queststatus(691) = 5, queststatus(692) = 0, "naturmagie", "druide", "gewebe", "a
 -- POST DRUID NATURE MAGIC INTRODUCTION & INITIATION
 -------------------------------------------------------------------------------
 -- Repeating instructions of where to go
-queststatus(691) = 5, queststatus(692) = 1, english, "nature magic", "druid path", "weave", "learn nature", "old path" -> "Give yourself more time to listen on Twin Eyes Islands. Remember, the deeper you go, the more likely you are to hear. Return to me only once you feel the land has spoken clearly to you."
--- TODO NM1 set QuestID (692) queststatus to 2 when player meditates on Twin Eyes Islands and give inform to ask Fianna about Cor Valis
+queststatus(691) = 5, queststatus(692) = 1, "nature magic", "druid path", "weave", "learn nature", "old path" -> "Give yourself more time to listen on Twin Eyes Islands. Remember, the deeper you go, the more likely you are to hear. Return to me only once you feel the land has spoken clearly to you."
+queststatus(691) = 5, queststatus(692) = 1, "naturmagie", "druide", "gewebe", "alter Pfad" -> "Gib dir mehr Zeit, um auf den Zwillingsaugen-Inseln zu lauschen. Denk daran: Je tiefer du gehst, desto eher wirst du etwas hören. Kehre erst zu mir zurück, wenn du das Gefühl hast, dass das Land klar zu dir gesprochen hat."
+
 -- Telling player to craft a sigil
 queststatus(692) = 2, english, "Cor Valis" -> queststatus(692) = 3, "The wood's silence wraps around you, ancient and deep. I see by your eyes, Cor Valis calls to you, as so many have since the dawn of time. Now claim or craft a plain wooden sigil. When you have one, say: 'I have my sigil.'", inform("[Hint] Find or craft a blank wooden sigil (carpentry or Fianna's shop). You need this to start your ritual journey.")
+queststatus(692) = 2, english, "Cor Valis" -> queststatus(692) = 3, "Die Stille des Holzes umhüllt dich, uralt und tief. Ich sehe es in deinen Augen ? Cor Valis ruft dich, wie schon so viele seit Anbeginn der Zeit. Nun beschaffe oder fertige ein schlichtes hölzernes Sigil an. Wenn du eines hast, sage: 'Ich habe mein Sigil.'", inform("[Hinweis] Finde oder fertige ein leeres hölzernes Sigil (Schreinerei oder Fiannas Laden). Du benötigst es, um deine rituelle Reise zu beginnen.")
+
 -- Repeating sigil information
 queststatus(692) = 3, english, "Cor Valis" -> "You must first find or craft a plain wooden sigil, unmarked and simple. When you have it, return and say: 'I have my sigil.'", inform("[Hint] Seek out a blank wooden sigil (carpentry or Fianna's shop) to begin your ritual journey.")
 -- TODO NM2 Need logic for Fianna to check player's inventory for a blank wooden sigil

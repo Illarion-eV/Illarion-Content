@@ -123,7 +123,7 @@ function M.FillIntoBottle(user, sourceItem, cauldron)
 
     local filledWith = cauldron:getData("filledWith")
 
-    if filledWith == "stock" or filledWith == "essenceBrew" and sourceItem.id ~= Item.emptyPotion then
+    if (filledWith == "stock" or filledWith == "essenceBrew") and sourceItem.id ~= Item.emptyPotion then
         local commonItem =  world:getItemStatsFromId(Item.emptyPotion)
         result.wrongBottle = {english = commonItem.English, german = commonItem.German}
         return result
