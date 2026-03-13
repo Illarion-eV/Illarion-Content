@@ -897,7 +897,7 @@ local function CallBrewFunctionAndDeleteItem(user,deleteItem, deleteId,cauldron)
 end
 
 local function StartBrewing(user,recipeTable,ltstate,checkVar)
-    log("1")
+
     local cauldron = alchemy.GetCauldronInfront(user)
     local tool = alchemy.getAlchemyTool(user)
 
@@ -909,7 +909,7 @@ local function StartBrewing(user,recipeTable,ltstate,checkVar)
     if not cauldron then -- security check
         return
     end
-    log("2")
+
     if licence.licence(user) then --checks if user is citizen or has a licence
         return -- avoids crafting if user is neither citizen nor has a licence
     end
@@ -918,31 +918,28 @@ local function StartBrewing(user,recipeTable,ltstate,checkVar)
         user:inform("Du brichst deine Arbeit vor dem "..USER_POSITION_LIST[user.id]..". Arbeitsschritt ab.", "You abort your work before the "..USER_POSITION_LIST[user.id].." work step.")
         return
     end
-log("3")
+
     if not checkVar and ltstate==Action.none then
         local callback = function(dialog)
             local success = dialog:getSuccess()
             if success then
                 local selected = dialog:getSelectedIndex()+1
                 USER_POSITION_LIST[user.id] = selected
-                log("7")
                 StartBrewing(user, recipeTable,ltstate,true)
             end
         end
 
         local dialog = SelectionDialog(common.GetNLS(user,"Rezept","Recipe"), common.GetNLS(user,"Wähle die Zutat aus, ab welcher das Rezept abgearbeitet werden soll.","Select the ingredient which you want to start to brew from."), callback)
-log("4")
+
         dialog:setCloseOnMove()
 
         local counter = 0
 
         for _, ingredient in ipairs(recipeTable) do
             counter = counter + 1
-            log("5")
             if ingredient.key == "bottling" then
                 dialog:addOption(ingredient.value, common.GetNLS(user,counter..". Abfüllen", counter..". Bottling"))
             elseif ingredient.key == "stock" then
-                log("6")
                 dialog:addOption(331, common.GetNLS(user,counter..". Sud", counter..". Stock"))
             elseif ingredient.key == "essenceBrew" then
                 local _, essenceBrewGraphic = alchemy.getEssenceBrewGraphics(ingredient.value)

@@ -866,8 +866,6 @@ function M.SetQuality(user, cauldron)
 end
 
 function M.GemDustBottleCauldron(id, emptyBottle)
-    log("id: "..tostring(id))
-    log("emptyBottle: "..tostring(emptyBottle))
     for _, selected in pairs(cauldronsAndBottles) do
         if selected.powder == id or selected.gem == id or selected.cauldron == id or selected.bottle == id then
             if emptyBottle and selected.bombSalve and selected.bombSalve.empty == emptyBottle then
