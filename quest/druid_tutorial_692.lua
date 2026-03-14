@@ -41,13 +41,11 @@ Description[ENGLISH][1] =  "Fianna has set you on the task to find the Twin Isla
 Description[GERMAN][2] =  "Du hast die Zwillingsinseln gefunden und meditiert, wobei du die Worte \"Cor Valis\" von der umgebenden Natur zu dir rufen gehört hast. Du solltest zu Fianna zurückkehren und sie danach fragen."
 Description[ENGLISH][2] =  "You found the Twin Islands and you meditated, hearing the phrase \"Cor Valis\" called out to you by the surrounding nature. You should return to Fianna to ask her about it."
 Description[GERMAN][3] =  "Du hast die Aufgabe erhalten, ein leeres hölzernes Sigil zu beschaffen, das für den nächsten Teil deiner Reise in die Naturmagie benötigt wird. Du kannst eines als Zimmermann herstellen, eines von Fianna kaufen oder es von anderen Spielern erhalten."
-Description[ENGLISH][3] =  "You've been tasked with obtaining a blank wooden sigil, required for the next part of your journey into nature magic. You can craft one as a carpenter, buy one from Fianna or obtain one from other players."Description[GERMAN][1] =  "GERMAN"
-Description[GERMAN][4] =  "GERMAN"
-Description[ENGLISH][4] =  "ENGLISH"
-Description[GERMAN][5] =  "GERMAN"
-Description[ENGLISH][5] =  "ENGLISH"
-Description[GERMAN][6] =  "GERMAN"
-Description[ENGLISH][6] =  "ENGLISH"
+Description[ENGLISH][3] =  "You've been tasked with obtaining a blank wooden sigil, required for the next part of your journey into nature magic. You can craft one as a carpenter, buy one from Fianna or obtain one from other players."
+Description[GERMAN][4] =  "Nachdem du ein leeres hölzernes Siegel erhalten hast, ist Fianna bereit, dir mehr über die verschiedenen Geflechte zu erzählen. Frage nach den Geflechten Welken, Blühen, Wildnis, Stein und Tiefe. Wenn du über jedes von ihnen gelernt hast, sage: \"Cor Valis Sindeim.\", um fortzufahren."
+Description[ENGLISH][4] =  "Having obtained a blank wooden sigil, Fianna is ready to tell you more about the different weaves. Ask about the Wither, Bloom, Wild, Stone, and Deep Weaves. When you have learned about each, say: \"Cor Valis Sindeim.\" to continue."
+Description[GERMAN][5] =  "Du hast über jedes Geflecht gelernt und hast dein Siegel zur Hand. Nun ist die Zeit gekommen zu wählen, in welches Geflecht du tiefer eintauchen möchtest, und Fianna danach zu fragen."
+Description[ENGLISH][5] =  "You've learned about each weave and have you sigil at hand. Now is the time to choose which weave you wish to delve deeper into and ask Fianna about it."
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
 local Start = {661, 301, 0}
@@ -57,7 +55,7 @@ local QuestTarget = {}
 
 
 -- Insert the quest status which is reached at the end of the quest
-local FINAL_QUEST_STATUS = 6
+local FINAL_QUEST_STATUS = 5
 
 function M.QuestTitle(user)
     return common.GetNLS(user, Title[GERMAN], Title[ENGLISH])
@@ -84,7 +82,6 @@ function M.QuestTargets(user, status)
         QuestTarget[3] = {position(661, 301, 0)}
         QuestTarget[4] = {position(661, 301, 0)}
         QuestTarget[5] = {position(661, 301, 0)}
-        QuestTarget[6] = {position(661, 301, 0)}
     end
 
     return QuestTarget[status]

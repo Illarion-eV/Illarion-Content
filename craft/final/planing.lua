@@ -249,6 +249,10 @@ product = planing:addProduct(catId, 1045, 1)
 product:addIngredient(545, 2) -- cherry wood boards
 product:addIngredient(2530, 1) -- dagger handle
 
+catId = planing:addCategory("Other", "Sonstiges")
+product = planing:addProduct(catId, Item.blankSigil, 1)
+product:addIngredient(Item.naldorWoodBoards, 1)
+
 -- Repair Kits
 catId = planing:addCategory("Wood Waxing Kits", "Holzpolituren")
 
