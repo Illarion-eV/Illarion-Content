@@ -1415,6 +1415,9 @@ table.insert(M.tiles, {displayId = 4115 , tileId = 4, typeOf = "Estate", categor
 table.insert(M.tiles, {displayId = Item.redcarpet , tileId = 76, typeOf = "Estate", category = "Carpets", skill = "tailoring", level = 40, ingredient1 = 174, ingredient1Amount = 25})
 table.insert(M.tiles, {displayId = Item.patternedredcarpet , tileId = 77, typeOf = "Estate", category = "Carpets", skill = "tailoring", level = 40, ingredient1 = 174, ingredient1Amount = 25})
 
+for paintingId = 5338, 5383 do
+    table.insert(M.items, {itemId = paintingId, typeOf = "House", category = "Paintings", skill = "carpentry", level = 0, ingredient1 = 2745, ingredient1Amount = 10, ingredient2 = 2716, ingredient2Amount = 5, ingredient3 = 2738, ingredient3Amount = 1, ingredient4 = 1118, ingredient4Amount = 1})
+end
 
 M.categories = {}
 table.insert(M.categories, {categoryEn = "Logs", categoryDe = "Baumstämme", Estate = true})
