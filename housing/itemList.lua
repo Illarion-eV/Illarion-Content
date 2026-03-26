@@ -1356,8 +1356,20 @@ table.insert(M.items, {itemId = 5237, typeOf = "House", category = "Decorations"
 table.insert(M.items, {itemId = 5240, typeOf = "House", category = "Decorations", skill = "carpentry", level = 30, ingredient1 = Item.appleWoodBoards, ingredient1Amount = 20, ingredient2 = Item.pins, ingredient2Amount = 10, ingredient3 = Item.pan, ingredient3Amount = 3, ingredient4 = nil, ingredient4Amount = nil})
 table.insert(M.items, {itemId = 5241, typeOf = "House", category = "Decorations", skill = "carpentry", level = 30, ingredient1 = Item.appleWoodBoards, ingredient1Amount = 20, ingredient2 = Item.pins, ingredient2Amount = 10, ingredient3 = Item.pan, ingredient3Amount = 3, ingredient4 = nil, ingredient4Amount = nil})
 
+local excludedPaintings = {5338, 5339, 5342, 5343, 5350, 5351, 5356, 5357, 5366, 5367, 5374, 5375, 5380, 5381}
+-- A list of larger paintings that are for now reserved for government/stately buildings and not part of player
+-- housing as per suggestion made by provider of said painting graphics
+
 for paintingId = 5338, 5387 do
-    table.insert(M.items, {itemId = paintingId, typeOf = "House", category = "Paintings", skill = "carpentry", level = 0, ingredient1 = 2745, ingredient1Amount = 10, ingredient2 = 2716, ingredient2Amount = 5, ingredient3 = 2738, ingredient3Amount = 1, ingredient4 = 1118, ingredient4Amount = 1})
+    local includePainting = true
+    for _, excludedPainting in pairs(excludedPaintings) do
+        if excludedPainting == paintingId then
+            includePainting = false
+        end
+    end
+    if includePainting then
+        table.insert(M.items, {itemId = paintingId, typeOf = "House", category = "Paintings", skill = "carpentry", level = 0, ingredient1 = 2745, ingredient1Amount = 10, ingredient2 = 2716, ingredient2Amount = 5, ingredient3 = 2738, ingredient3Amount = 1, ingredient4 = 1118, ingredient4Amount = 1})
+    end
 end
 
 M.tiles = {}
