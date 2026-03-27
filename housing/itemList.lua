@@ -1360,7 +1360,7 @@ local excludedPaintings = {5338, 5339, 5342, 5343, 5350, 5351, 5356, 5357, 5366,
 -- A list of larger paintings that are for now reserved for government/stately buildings and not part of player
 -- housing as per suggestion made by provider of said painting graphics
 
-for paintingId = 5338, 5387 do
+for paintingId = 5338, 5397 do
     local includePainting = true
     for _, excludedPainting in pairs(excludedPaintings) do
         if excludedPainting == paintingId then
