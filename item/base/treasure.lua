@@ -101,7 +101,7 @@ end
     one time each time we change the list of locations.
 ]]
 
-local version = 3 --Update this to one number higher each time something is added to the list.
+local version = 4 --Update this to one number higher each time something is added to the list.
 
 local bannedLocations = {
     {x = {from = 213, to = 300}, y = {from = 756, to = 830}, z = 0}, --Mount letma, inaccessible
@@ -109,7 +109,18 @@ local bannedLocations = {
     {x = {from = 641, to = 661}, y = {from = 312, to = 332}, z = 0}, --Troll's Haven.
     {x = {from = 685, to = 739}, y = {from = 276, to = 330}, z = 0}, --Troll's Haven.
     {x = {from = 656, to = 700}, y = {from = 302, to = 336}, z = 0}, --Troll's Haven.
-    {x = {from = 398, to = 459}, y = {from = 602, to = 666}, z = 0} -- shadowlands south
+    {x = {from = 398, to = 459}, y = {from = 602, to = 666}, z = 0}, -- shadowlands south
+    {x = {from = 397, to = 427}, y = {from = 379, to = 443}, z = 0}, -- shadowlands north
+    {x = {from = 326, to = 350}, y = {from = 483, to = 512}, z = 0}, -- mount zotmore
+    {x = {from = 883, to = 1002}, y = {from = 159, to = 257}, z = 0}, -- island to the northeast, inaccessible(pirate island?)
+    {x = {from = 516, to = 526}, y = {from = 257, to = 271}, z = 0}, -- gap in mountain
+    {x = {from = 459, to = 496}, y = {from = 421, to = 480}, z = 0}, -- inaccessible mountainside
+    {x = {from = 747, to = 769}, y = {from = 262, to = 282}, z = 0}, -- obstructed by bridge
+    {x = {from = 915, to = 1000}, y = {from = 0, to = 146}, z = 0}, -- past the insurmountable limes
+    {x = {from = 845, to = 915}, y = {from = 0, to = 49}, z = 0}, -- past the insurmountable limes
+    {x = {from = 825, to = 845}, y = {from = 0, to = 37}, z = 0}, -- past the insurmountable limes
+    {x = {from = 666, to = 825}, y = {from = 0, to = 20}, z = 0}, -- past the insurmountable limes
+    {x = {from = 597, to = 611}, y = {from = 141, to = 183}, z = 0}, -- blocked by canal
 }
 
 function M.fetchPropertyName(user, pos)
