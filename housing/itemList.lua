@@ -1355,12 +1355,15 @@ table.insert(M.items, {itemId = 5236, typeOf = "House", category = "Decorations"
 table.insert(M.items, {itemId = 5237, typeOf = "House", category = "Decorations", skill = "tailoring", level = 20, ingredient1 = Item.greyCloth, ingredient1Amount = 20, ingredient2 = Item.grain, ingredient2Amount = 40, ingredient3 = nil, ingredient3Amount = nil, ingredient4 = nil, ingredient4Amount = nil})
 table.insert(M.items, {itemId = 5240, typeOf = "House", category = "Decorations", skill = "carpentry", level = 30, ingredient1 = Item.appleWoodBoards, ingredient1Amount = 20, ingredient2 = Item.pins, ingredient2Amount = 10, ingredient3 = Item.pan, ingredient3Amount = 3, ingredient4 = nil, ingredient4Amount = nil})
 table.insert(M.items, {itemId = 5241, typeOf = "House", category = "Decorations", skill = "carpentry", level = 30, ingredient1 = Item.appleWoodBoards, ingredient1Amount = 20, ingredient2 = Item.pins, ingredient2Amount = 10, ingredient3 = Item.pan, ingredient3Amount = 3, ingredient4 = nil, ingredient4Amount = nil})
+table.insert(M.items, {itemId = Item.mapStandEast, typeOf = "House", category = "Decorations", skill = "carpentry", level = 70, ingredient1 = Item.appleWoodBoards, ingredient1Amount = 30, ingredient2 = Item.pins, ingredient2Amount = 30, ingredient3 = Item.parchment, ingredient3Amount = 10, ingredient4 = nil, ingredient4Amount = nil})
+table.insert(M.items, {itemId = Item.mapStandNorth, typeOf = "House", category = "Decorations", skill = "carpentry", level = 70, ingredient1 = Item.appleWoodBoards, ingredient1Amount = 30, ingredient2 = Item.pins, ingredient2Amount = 30, ingredient3 = Item.parchment, ingredient3Amount = 10, ingredient4 = nil, ingredient4Amount = nil})
+
 
 local excludedPaintings = {5338, 5339, 5342, 5343, 5350, 5351, 5356, 5357, 5366, 5367, 5374, 5375, 5380, 5381}
 -- A list of larger paintings that are for now reserved for government/stately buildings and not part of player
 -- housing as per suggestion made by provider of said painting graphics
 
-for paintingId = 5338, 5397 do
+for paintingId = 5338, 5401 do
     local includePainting = true
     for _, excludedPainting in pairs(excludedPaintings) do
         if excludedPainting == paintingId then
