@@ -87,7 +87,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "May the roots beneath keep 
 -- TRADE
 -------------------------------------------------------------------------------
 sellItem = id(2598), de("Die Schritte der Alchemie"), en("The Steps of Alchemy"), price(20000), stack(1), quality(999), data("book" = "the_steps_of_alchemy")
-sellItems = 2622, 197, 5319, 46, 450, 447, 164, 126, 58, 133
+sellItems = 2622, 197, 5319, 5330, 5331, 46, 450, 447, 164, 126, 58, 133
 -- amethyst, ruby, amethyst powder, ruby powder, empty potion, sickle, mortar, sun herb
 tradeNotEnoughMoneyMsg "Es scheint, der Preis liegt derzeit außerhalb deiner Reichweite? vorerst. Ich habe nur selten einen Alchemisten kennengelernt, dem lange das Geld fehlte.", "It seems the price is beyond you? for now. I have rarely known an alchemist to lack coin for long."
 tradeFinishedMsg "Ein Vergnügen. Nutze, was ich dir gegeben habe, weise - Usharas Wege sind nur selten sanft.", "A pleasure. Use what I?ve given wisely, Ushara?s paths are rarely gentle."
@@ -238,85 +238,119 @@ queststatus(692) = 4, english, "Cor Valis Sindeim" -> "You still have more to le
 queststatus(692) = 4, "Cor Valis Sindeim" -> "Du hast noch mehr zu lernen. Stelle sicher, dass du nach jedem Cor-Geflecht fragst: Welken, Blühen, Wildnis, Stein und Tiefe. Erst wenn du über alle etwas gelernt hast, kannst du den nächsten Schritt gehen.", inform("[Hinweis] Frage nach jedem Cor-Geflecht: Welken, Blühen, Wildnis, Stein und Tiefe, bevor du fortfährst.")
 
 -- NATURE MAGIC CONTINUED: Player ready to select a Cor Weave location and learn their next step
-queststatus(692) = 5, english, "Cor Valis Contendiem" -> "You are ready, aspirant. Choose a place where the weave speaks loudest. Listen closely, for Wither: seek Dewy Swamp, Bloom: north of Runewick, Wild: roam Nargun's Plain, Stoneweave: go into the Malachite Mine. As for the Deep, now is not the time...", inform("[Hint] Try: asking about Dewy Swamp, North of Runewick, Nargun's Plain, Malachite Mine, or 'why is it not the time'.")
-queststatus(692) = 5, "Cor Valis Contendiem" -> "Du bist bereit, Aspirant. Wähle einen Ort, an dem das Geflecht am lautesten spricht. Lausche genau: Für Welken suche den Tauigen Sumpf, für Blühen gehe nördlich von Runewick, für Wildnis streife über Narguns Ebene, für das Steingeflecht betrete die Malachitmine. Was die Tiefe betrifft ? jetzt ist nicht die Zeit...", inform("[Hinweis] Versuche zu fragen nach: Tauiger Sumpf, Nördlich von Runewick, Narguns Ebene, Malachitmine oder 'warum ist es nicht die Zeit'.")
+queststatus(692) > 4, english, "Cor Valis Contendiem" -> "You are ready, aspirant. Choose a place where the weave speaks loudest. Listen closely, for Wither: seek Dewy Swamp, Bloom: north of Runewick, Wild: roam Nargun's Plain, Stoneweave: go into the Malachite Mine. As for the Deep, now is not the time...", inform("[Hint] Try: asking about Dewy Swamp, North of Runewick, Nargun's Plain, Malachite Mine, or 'why is it not the time'.")
+queststatus(692) > 4, "Cor Valis Contendiem" -> "Du bist bereit, Aspirant. Wähle einen Ort, an dem das Geflecht am lautesten spricht. Lausche genau: Für Welken suche den Tauigen Sumpf, für Blühen gehe nördlich von Runewick, für Wildnis streife über Narguns Ebene, für das Steingeflecht betrete die Malachitmine. Was die Tiefe betrifft ? jetzt ist nicht die Zeit...", inform("[Hinweis] Versuche zu fragen nach: Tauiger Sumpf, Nördlich von Runewick, Narguns Ebene, Malachitmine oder 'warum ist es nicht die Zeit'.")
 
 -- COR WEAVE ADVANCEMENT II
 -------------------------------------------------------------------------------
 -- WITHERWEAVE ADVANCEMENT II
-queststatus(692) = 5, queststatus(694) = 2, english, "Witherweave", "Wither", "Dewy Swamp" -> queststatus(694) = 2, "To walk the path of endings, go to Dewy Swamp. Find where shadowed mushrooms cluster near a stale stream and sit quietly among them. Listen for the lesson of Witherweave.", inform("[Hint] Go to Dewy Swamp and sit near the glowing mushrooms.")
----------
--- TODO: 
--- NMW1 questID (694) queststatus to 3 when the player sits around the mushroom cluster itemID 421 & 422 and is told which reagents to collect.
--- NMW2 Add logic for Fianna to check for Night Angels Blossom, a Bulbsponge mushroom, and a blank sigil in player inventory when player returns
----------
-queststatus(694) = 3, english, "Witherweave Sigil", "wither sigil" -> queststatus(694) = 4, "You've listened well aspirant. Now cross the bridge into Deadmarsh. There you will find an old Weaver's Stump suitable for weaving those reagents into a Cor Wither Sigil.", inform("[Hint] Bring a Night Angels Blossom, a Bulbsponge mushroom, and a blank sigil to the Weaver's Stump in Deadmarsh.")
----------
--- TODO: 
--- NMW3 Add itemID 1182 to Deadmarsh as the Weaver's Stump, just across the bridge with a lookat
--- NMW4 Make stump clickable with a lore-based inform to help player use the stump. As if sensing what to do.
--- NMW5 A helpful inform to have the player return to Fianna when the sigil is made
--- NMW6 Set questID (694) queststatus to 5 once the item is created and give inform to tell Fianna to 'continue Witherweave path'.
----------
-queststatus(694) = 5, english, "continue Witherweave path",  "continue wither path"-> queststatus(694) = 6, "Your understanding of endings and decay deepens, well done aspirant. From here on out, you may use this Seer's Cauldron to scry for new Wither weaves.", inform("[Hint] Ask about the 'seer's cauldron' to learn more.")
--- TODO: 
--- NMW7 Need to make sure the Seer's Cauldron only allows you to look for new weaves once you learn the appropriate Cor Weave (eg Wither, Bloom, etc...)
+queststatus(692) > 4, queststatus(694) = 2, "wither", "dewy", "swamp" -> queststatus(694) = 3, "To walk the path of endings, go to Dewy Swamp. Find where shadowed mushrooms cluster near a stale stream and sit quietly among them. Listen for the lesson of Witherweave.", inform("[Hint] Go to Dewy Swamp and sit near the glowing mushrooms.")
+queststatus(692) > 4, queststatus(694) = 2, "Welken", "Morgentau", "sümpfe" -> queststatus(694) = 3, "Um den Pfad der Enden zu beschreiten, gehe zum Morgentausümpfe. Finde den Ort, an dem sich schattige Pilze nahe einem abgestandenen Bach sammeln, und setze dich still zwischen sie. Lausche der Lehre des Witherweave.", inform("[Hinweis] Gehe zum Morgentausümpfe und setze dich in die Nähe der leuchtenden Pilze.")
+-- Repeated instructions
+queststatus(694) = 3, "wither", "dewy", "swamp" -> "To walk the path of endings, go to Dewy Swamp. Find where shadowed mushrooms cluster near a stale stream and sit quietly among them. Listen for the lesson of Witherweave.", inform("[Hint] Go to Dewy Swamp and sit near the glowing mushrooms.")
+queststatus(694) = 3, "Welken", "Morgentau", "sümpfe" -> "Um den Pfad der Enden zu beschreiten, gehe zum Morgentausümpfe. Finde den Ort, an dem sich schattige Pilze nahe einem abgestandenen Bach sammeln, und setze dich still zwischen sie. Lausche der Lehre des Witherweave.", inform("[Hinweis] Gehe zum Morgentausümpfe und setze dich in die Nähe der leuchtenden Pilze.")
+-- The player heads off to meditate and gather the marsh flowers before returning
+queststatus(694) = 4, item(5319, all) > 0, item(763, all) > 9, "wither" -> queststatus(694) = 5, "You've listened well aspirant. Now cross the bridge into Deadmarsh. There you will find an old Weaver's Stump suitable for weaving those reagents into a Cor Wither Sigil. You must also bring your Cor Staff, you can buy one from me if you have lost yours.", inform("[Hint] Bring the marsh flowers and a blank sigil to the Weaver's Stump in Deadmarsh.")
+queststatus(694) = 4, item(5319, all) > 0, item(763, all) > 9, "Welken" -> queststatus(694) = 5, "Du hast gut zugehört, Anwärter. Überquere nun die Brücke nach Totenmoor. Dort wirst du einen alten Weberstumpf finden, der sich eignet, um diese Reagenzien zu einem Cor-Welk-Siegel zu verweben. Du musst außerdem deinen Cor-Stab mitbringen - falls du ihn verloren hast, kannst du bei mir einen neuen kaufen.", inform("[Hinweis] Bringe die Sumpfblumen und ein leeres Siegel zum Weberstumpf im Totenmoor.")
+-- The player does not have enough marsh flowers or a blank sigil
+queststatus(694) = 4, "wither" -> "NOT ENOUGH BLANK SIGIL/MARSH FLOWER PLACEHOLDER" --TODO
+-- When the player goes and crafts the sigil, their quest status will update from 5 to 6 allowing them to continue to the step below.
+-- If this is your first weave, we also activate the continuation of the general tutorial for weave pouch/cor staff/casting/ seekers cauldron.
+queststatus(694) = 6, queststatus(692) = 5, "wither"-> queststatus(694) = 7, queststatus(692) = 6, "Your understanding of endings and decay deepens, well done aspirant. From here on out, you may use this Seer's Cauldron to scry for new Wither weaves.", inform("[Hint] Ask about the 'seer's cauldron' to learn more.")
+queststatus(694) = 6, queststatus(692) = 5, "Welken"-> queststatus(694) = 7, queststatus(692) = 6, "Dein Verständnis von Enden und Verfall vertieft sich gut gemacht, Anwärter. Von nun an kannst du diesen Seherkessel nutzen, um nach neuen Welk-Geflechten zu spähen.", inform("[Hinweis] Frage nach dem ?Seherkessel?, um mehr zu erfahren.")
+-- Otherwise we just update the quest status to allow you to see new spells in the seer cauldron for this weave
+queststatus(694) = 6, "wither"-> queststatus(694) = 7, "Your understanding of endings and decay deepens, well done aspirant. From here on out, you may use this Seer's Cauldron to scry for new Wither weaves.", inform("[Hint] Ask about the 'seer's cauldron' to learn more.")
+queststatus(694) = 6, "Welken"-> queststatus(694) = 7, "Dein Verständnis von Enden und Verfall vertieft sich gut gemacht, Anwärter. Von nun an kannst du diesen Seherkessel nutzen, um nach neuen Welk-Geflechten zu spähen.", inform("[Hinweis] Frage nach dem Seherkessel, um mehr zu erfahren.")
+
 -- BLOOMWEAVE ADVANCEMENT II
-queststatus(692) = 5, queststatus(693) = 2, english, "Bloomweave", "Bloom", "north of Runewick" -> queststatus(693) = 2, "Go north of Runewick, into the deep woods in search a tree with golden blooms. Sit quietly beneath the Gilded Mevrannon Tree and let yourself listen for the lesson of renewal.", inform("[Hint] Sit beneath the golden-blossomed tree and listen to the woods north of Runewick.")
--- TODO: 
--- NMB1 questID (693) queststatus to 3 when the player sits under the Gilded Mevrannon Tree itemID 961 with a lookat.
--- NMB2 Add logic for Fianna to check for Daydream, a Donf Blade, and a blank sigil in player inventory when player returns
-queststatus(693) = 3, english, "Bloomweave Sigil", "bloom sigil" -> "Your spirit rests in the promise of new growth. For the Bloomweave, you must take your Daydream, a Donf Blade, and a blank sigil to the ancient Weaver's Stump nestled in quiet woods of Yewdale and let the blossoms guide your hands.", inform("[Hint] Bring a Daydream, a Donf Blade, and a blank sigil to the Weaver's Stump somewhere in Yewdale's forest.")
--- TODO: 
--- NMB3 Add itemID 1182 for the altar/Weaver site, make it interactive.
--- NMB4 Add lookat and make it sense the ritual action.
--- NMB5 Inform player to return to Fianna with the finished Cor Bloom Sigil after crafting.
--- NMB6 Advance queststatus(693) = 5 once sigil is created, inform to proceed.
-queststatus(693) = 5, english, "continue Bloomweave path", "continue bloom path" -> queststatus(693) = 6, "Your understanding of gentle growth blossoms. With this sigil, you may scry for new Bloomweave paths using the Seer's Cauldron.", inform("[Hint] Ask about the 'seer's cauldron' if you would learn more of this ritual.")
--- TODO: Make sure Seer's Cauldron only shows players weaves from Cor Weave sigils they have created.
+queststatus(692) > 4, queststatus(693) = 2, "bloom", "fields" -> queststatus(693) = 3, "Go north of the Runewick fields, into the deep woods in search of a tree with golden blooms. Sit quietly beneath the Gilded Mevrannon Tree's southern branches and let yourself listen for the lesson of renewal.", inform("[Hint] In the woods north of the Runewick fields, go sit south of the Golden Mevrannon Tree and listen.")
+queststatus(692) > 4, queststatus(693) = 2, "Blühen", "Felde" -> queststatus(693) = 3, "Gehe nördlich der Felder von Runewick in die tiefen Wälder, auf der Suche nach einem Baum mit goldenen Blüten. Setze dich ruhig unter die südlichen Äste des vergoldeten Mevrannon-Baums und lausche der Lehre der Erneuerung.", inform("[Hinweis] In den Wäldern nördlich der Felder von Runewick gehst du nach Süden des Goldenen Mevrannon-Baums, setzt dich hin und hörst zu.")
+-- Repeated instructions
+queststatus(693) = 3, "bloom", "fields" -> "Go north of the Runewick fields, into the deep woods in search of a tree with golden blooms. Sit quietly beneath the Gilded Mevrannon Tree's southern branches and let yourself listen for the lesson of renewal.", inform("[Hint] In the woods north of the Runewick fields, go sit south of the Golden Mevrannon Tree and listen.")
+queststatus(693) = 3, "Blühen", "Felde" -> "Gehe nördlich der Felder von Runewick in die tiefen Wälder, auf der Suche nach einem Baum mit goldenen Blüten. Setze dich ruhig unter die südlichen Äste des vergoldeten Mevrannon-Baums und lausche der Lehre der Erneuerung.", inform("[Hinweis] In den Wäldern nördlich der Felder von Runewick gehst du nach Süden des Goldenen Mevrannon-Baums, setzt dich hin und hörst zu.")
+-- The player heads off to meditate and gather the fourleaved oneberries before returning
+queststatus(693) = 4, item(5319, all) > 0, item(134, all) > 9, "bloom" -> queststatus(693) = 5, "Your spirit rests in the promise of new growth. For the Bloomweave, you must take your fourleaved oneberries and a blank sigil to the ancient Weaver's Stump nestled in quiet woods of Yewdale and let the blossoms guide your hands. You must also bring your Cor Staff, you can buy one from me if you have lost yours.", inform("[Hint] Bring ten fourleaved oneberries, your Cor Staff and a blank sigil to the Weaver's Stump somewhere in Yewdale's forest.")
+queststatus(693) = 4, item(5319, all) > 0, item(134, all) > 9, "Blühen" -> queststatus(693) = 5, "Dein Geist ruht im Versprechen neuen Wachstums. Für das Bloomweave musst du deine vierblättrigen Einbeeren und ein leeres Siegel zum uralten Weberstumpf bringen, der in den stillen Wäldern von Yewdale liegt, und die Blüten deine Hände führen lassen. Du musst außerdem deinen Cor-Stab mitbringen ? falls du deinen verloren hast, kannst du einen bei mir kaufen.", inform("[Hinweis] Bringe zehn vierblättrige Einbeeren, deinen Cor-Stab und ein leeres Siegel zu dem Weberstumpf irgendwo im Wald von Yewdale.")
+-- The player does not have enough fourleaved oneberries or a blank sigil
+queststatus(693) = 4, "bloom" -> "NOT ENOUGH BLANK SIGIL/FOURLEAVED ONEBERRY PLACEHOLDER" --TODO
+-- When the player goes and crafts the sigil, their quest status will update from 5 to 6 allowing them to continue to the step below.
+-- If this is your first weave, we also activate the continuation of the general tutorial for weave pouch/cor staff/casting/ seekers cauldron.
+queststatus(693) = 6, queststatus(692) = 5, "bloom"-> queststatus(693) = 7, queststatus(692) = 6, "Your understanding of gentle growth blossoms. With this sigil, you may scry for new Bloomweave paths using the Seer's Cauldron.", inform("[Hint] Ask about the 'seer's cauldron' if you would learn more of this ritual.")
+queststatus(693) = 6, queststatus(692) = 5, "Blühen"-> queststatus(693) = 7, queststatus(692) = 6, "Dein Verständnis für sanftes Wachstum erblüht. Mit diesem Siegel kannst du mithilfe des Seer's Cauldron nach neuen Bloomweave-Pfaden wahrsagen.", inform("[Hinweis] Frage nach dem 'Seer's Cauldron', wenn du mehr über dieses Ritual erfahren möchtest.")
+-- Otherwise we just update the quest status to allow you to see new spells in the seer cauldron for this weave
+queststatus(693) = 6, "bloom"-> queststatus(693) = 7, "Your understanding of gentle growth blossoms. With this sigil, you may scry for new Bloomweave paths using the Seer's Cauldron.", inform("[Hint] Ask about the 'seer's cauldron' if you would learn more of this ritual.")
+queststatus(693) = 6, "Blühen"-> queststatus(693) = 7, "Dein Verständnis für sanftes Wachstum erblüht. Mit diesem Siegel kannst du mithilfe des Seer's Cauldron nach neuen Bloomweave-Pfaden wahrsagen.", inform("[Hinweis] Frage nach dem 'Seer's Cauldron', wenn du mehr über dieses Ritual erfahren möchtest.")
+
+-- TODO: Incorporate continuation of bloomweave tutorial to include the tree network in a future update
+
 -- WILDWEAVE ADVANCEMENT II
-queststatus(692) = 5, queststatus(696) = 2, english, "Wildweave", "Wild", "Nargun's Plain" -> queststatus(696) = 2, "Journey to Nargun's Plain, where the hounds dig and the wild runs free. Find the hollow marked by claw and bone, and sit quietly to listen for Wildweave's call.", inform("[Hint] Sit among the hounds' hollow and listen to the wild at Nargun's Plain.")
--- TODO: 
---  NMW1 questID (696) queststatus to 3 when the player sits at the hounds' hollow (object/area, like itemID 498) and is told which reagents to collect.
---  NMW2 Add logic for Fianna to check for Wolverine Fern, Flamegoblet Blossom, and a blank sigil when player returns.
-queststatus(696) = 3, english, "Wildweave Sigil", "wild sigil" -> queststatus(696) = 4, "You've listened well, aspirant, and felt the untamed heart of the wild. Carry Wolverine Fern and Flamegoblet Blossom, with your blank sigil, across the bridge to Galmair and look for a worn Weaver's Stump where hogs run wild. There, let your hands shape the Cor Wild Sigil.", inform("[Hint] Bring Wolverine Fern, Flamegoblet Blossom, and a blank sigil where hogs run wild between Trolls Haven and Galmair, in search of the Weaver's Stump.")
--- TODO: 
---  NMW3 Add itemID 1182 near the pigs between Trolls Haven and Galmair, make it interactive with a lookat. 
---  NMW4 Make the stone circle usable for creating the sigil, with lore-based inform.
---  NMW5 After the sigil is made (object/interaction), set questID (696) queststatus to 5 and prompt player to return to Fianna.
-queststatus(696) = 5, english, "continue Wildweave path", "continue wild path" -> queststatus(696) = 6, "The wild's rhythm beats in your step. Now you may use the Seer's Cauldron to seek new Wildweave patterns when ready.", inform("[Hint] The 'seer's cauldron' will help you uncover more Wild weaves now.")
+queststatus(692) > 4, queststatus(696) = 2, english, "Wild", "Nargun's Plain" -> queststatus(696) = 3, "Journey to Nargun's Plain, where the cattle graze and the wild runs free. Find the stone by the Eldan Oak, and sit quietly to listen for Wildweave's call.", inform("[Hint] Sit on a rock next to an Eldan Oak and a creek in the forest, and listen to the wild at Nargun's Plain.")
+queststatus(692) > 4, queststatus(696) = 2, "Wild", "Narguns Ebene" -> queststatus(696) = 3, "Reise nach Narguns Ebene, wo das Vieh grast und die Wildnis frei lebt. Finde den Stein bei der Eldan-Eiche und setze dich ruhig hin, um dem Ruf des Wildweavings zu lauschen.", inform("[Hinweis] Setze dich auf einen Stein neben einer Eldan-Eiche und einem Bach im Wald und lausche der Wildnis in Narguns Ebene.")
+-- Repeated instructions
+queststatus(696) = 3, english, "Wild", "Nargun's Plain" -> "Journey to Nargun's Plain, where the cattle graze and the wild runs free. Find the stone by the Eldan Oak, and sit quietly to listen for Wildweave's call.", inform("[Hint] Sit on a rock next to an Eldan Oak and a creek in the forest, and listen to the wild at Nargun's Plain.")
+queststatus(696) = 3, "Wild", "Narguns Ebene" -> "Reise nach Narguns Ebene, wo das Vieh grast und die Wildnis frei lebt. Finde den Stein bei der Eldan-Eiche und setze dich ruhig hin, um dem Ruf des Wildweavings zu lauschen.", inform("[Hinweis] Setze dich auf einen Stein neben einer Eldan-Eiche und einem Bach im Wald und lausche der Wildnis in Narguns Ebene.")
+-- The player heads off to meditate and gather the fir tree sprouts before returning
+queststatus(696) = 4, item(5319, all) > 0, item(149, all) > 9, english, "Wild" -> queststatus(696) = 5, "You've listened well, aspirant, and felt the untamed heart of the wild. Carry ten Fir Tree Sprouts with your blank sigil, across the bridge to Galmair and look for a worn Weaver's Stump where hogs run wild. There, let your hands shape the Cor Wild Sigil.", inform("[Hint] Bring ten fir tree sprouts and a blank sigil where hogs run wild between Trolls Haven and Galmair, in search of the Weaver's Stump.")
+queststatus(696) = 4, item(5319, all) > 0, item(149, all) > 9, "Wild" -> queststatus(696) = 5, "Du hast gut gelauscht, Anwärter, und das ungezähmte Herz der Wildnis gespürt. Trage zehn Tannensetzlinge zusammen mit deinem leeren Siegel über die Brücke nach Galmair und suche nach einem verwitterten Weberstumpf, wo Schweine frei umherstreifen. Dort lasse deine Hände das Cor-Wild-Siegel formen.", inform("[Hinweis] Bringe zehn Tannensetzlinge und ein leeres Siegel dorthin, wo Schweine zwischen Trolls Haven und Galmair frei umherlaufen, und suche den Weberstumpf.")
+-- The player does not have enough fir tree sprouts or a blank sigil
+queststatus(696) = 4, "Wild" -> "NOT ENOUGH BLANK SIGIL/FIR TREE SPROUT PLACEHOLDER" --TODO
+-- When the player goes and crafts the sigil, their quest status will update from 5 to 6 allowing them to continue to the step below.
+-- If this is your first weave, we also activate the continuation of the general tutorial for weave pouch/cor staff/casting/ seekers cauldron.
+queststatus(696) = 6, queststatus(692) = 5, english, "Wild"-> queststatus(696) = 7, queststatus(692) = 6, "The wild's rhythm beats in your step. Now you may use the Seer's Cauldron to seek new Wildweave patterns when ready.", inform("[Hint] The 'seer's cauldron' will help you uncover more Wild weaves now.")
+queststatus(696) = 6, queststatus(692) = 5, "Wild"-> queststatus(696) = 7, queststatus(692) = 6, "Der Rhythmus der Wildnis schlägt in deinem Schritt. Nun kannst du den Seer's Cauldron nutzen, um neue Wildweave-Muster zu suchen, wenn du bereit bist.", inform("[Hinweis] Der 'Seer's Cauldron' wird dir nun helfen, weitere Wild-Weaves zu entdecken.")
+-- Otherwise we just update the quest status to allow you to see new spells in the seer cauldron for this weave
+queststatus(696) = 6, english, "Wild"-> queststatus(696) = 7, "The wild's rhythm beats in your step. Now you may use the Seer's Cauldron to seek new Wildweave patterns when ready.", inform("[Hint] The 'seer's cauldron' will help you uncover more Wild weaves now.")
+queststatus(696) = 6, "Wild"-> queststatus(696) = 7, "Der Rhythmus der Wildnis schlägt in deinem Schritt. Nun kannst du den Seer's Cauldron nutzen, um neue Wildweave-Muster zu suchen, wenn du bereit bist.", inform("[Hinweis] Der 'Seer's Cauldron' wird dir nun helfen, weitere Wild-Weaves zu entdecken.")
+
 -- STONEWEAVE ADVANCEMENT II
-queststatus(692) = 5, queststatus(697) = 2, english, "Stoneweave", "Stone", "Malachite Mine" -> queststatus(697) = 2, "Descend into the Malachite Mine, where the stones remember every hand. Find a silent place in the mine and sit among the ancient rocks to listen for Stoneweave's echoes.", inform("[Hint] Find a calm place in the Malachite Mine and listen by sitting among the stones.")
--- TODO: 
---  NMS1 questID (697) queststatus to 3 when the player sits in the correct mining spot and is told which reagents to collect.
---  NMS2 Add logic for Fianna to check for Gold Crack Herb, Steppe Fern, and a blank sigil when player returns.
-queststatus(697) = 3, english, "Stoneweave Sigil", "stone sigil" -> queststatus(697) = 4, "I see stone has whispered to you. Carry the Gold Crack Herb and Steppe Fern, along with your blank sigil, into the coldest, most distant caves beneath the earth. There, amongst the listless, seek the Icewold Weaver's stone to craft your Cor Stone Sigil.", inform("[Hint] Bring Gold Crack Herb, Steppe Fern, and a blank sigil to the frozen depths below, among the harmless undead and find the Icewold Weaver's Stone to craft your Cor Stone Sigil.")
--- TODO:
---  NMS3 Add itemID 914, 1218, 1245, or 1278 for the Icewold Weaver's Stonel, make it interactive, add lore-based inform/text at anvil.
---  NMS4 After sigil creation, set questID (697) queststatus = 5; prompt player to return to Fianna to complete the path.
-queststatus(697) = 5, english, "continue Stoneweave path", "continue stone path" -> queststatus(697) = 6, "Stone's memory and patience are now your strength. Look to the Seer's Cauldron when you seek further wisdom in Stoneweave.", inform("[Hint] Ask about the 'seer's cauldron' to discover further Stoneweave.")
+queststatus(692) > 4, queststatus(697) = 2, "Stone" -> queststatus(697) = 3, "Enter the Liberty Quarry, where the stones remember every hand. Find a silent place in the mine and sit among the ancient rocks to listen for Stoneweave's echoes.", inform("[Hint] Find a calm place in the Liberty Quarry and listen by sitting among the stones.")
+queststatus(692) > 4, queststatus(697) = 2, "Stein" -> queststatus(697) = 3, "Betritt den Steinbruch der Freiheit, wo die Steine sich an jede Hand erinnern. Finde einen stillen Ort in der Mine und setze dich zwischen die uralten Felsen, um den Echos des Stoneweaves zu lauschen.", inform("[Hinweis] Finde einen ruhigen Ort im Steinbruch der Freiheit und lausche, indem du dich zwischen die Steine setzt.")
+-- Repeated instructions
+queststatus(697) = 3, "Stone" -> "Enter the Liberty Quarry, where the stones remember every hand. Find a silent place in the mine and sit among the ancient rocks to listen for Stoneweave's echoes.", inform("[Hint] Find a calm place in the Liberty Quarry and listen by sitting among the stones.")
+queststatus(697) = 3, "Stein" -> "Betritt den Steinbruch der Freiheit, wo die Steine sich an jede Hand erinnern. Finde einen stillen Ort in der Mine und setze dich zwischen die uralten Felsen, um den Echos des Stoneweaves zu lauschen.", inform("[Hinweis] Finde einen ruhigen Ort im Steinbruch der Freiheit und lausche, indem du dich zwischen die Steine setzt.")
+-- The player heads off to meditate and gather the rotten tree bark before returning
+queststatus(697) = 4, item(5319, all) > 0, item(157, all) > 9, "stone" -> queststatus(697) = 5, "I see stone has whispered to you. Carry the rotten tree bark, along with your blank sigil, to the southeast of the Cornerstone of Candour. There among rocks and scorching sun, search the stoneweaver's stump to craft your Stone Sigil.", inform("[Hint] Bring ten rotten tree bark and a blank sigil to the southeast of the Cornerstone of Candour, where you will find a stoneweaver's stump to craft a Basic Stoneweaver's Sigil.")
+queststatus(697) = 4, item(5319, all) > 0, item(157, all) > 9, "Stein" -> queststatus(697) = 5, "Ich sehe, der Stein hat zu dir gesprochen. Trage die faulige Baumrinde zusammen mit deinem leeren Siegel südöstlich des Ecksteins der Aufrichtigkeit. Dort, zwischen Felsen und sengender Sonne, suche den Steinweber-Stumpf auf, um dein Steinsiegel zu fertigen.", inform("[Hinweis] Bringe zehn faulige Baumrinde und ein leeres Siegel südöstlich des Ecksteins der Aufrichtigkeit, wo du einen Steinweber-Stumpf findest, um ein einfaches Steinwebersiegel herzustellen.")
+-- The player does not have enough rotten tree bark or a blank sigil
+queststatus(697) = 4, "stone" -> "NOT ENOUGH BLANK SIGIL/ROTTEN TREE BARK PLACEHOLDER" --TODO
+-- When the player goes and crafts the sigil, their quest status will update from 5 to 6 allowing them to continue to the step below.
+-- If this is your first weave, we also activate the continuation of the general tutorial for weave pouch/cor staff/casting/ seekers cauldron.
+queststatus(697) = 6, queststatus(692) = 5, "stone"-> queststatus(697) = 7, queststatus(692) = 6, "Stone's memory and patience are now your strength. Look to the Seer's Cauldron when you seek further wisdom in Stoneweave.", inform("[Hint] Ask about the 'seer's cauldron' to discover further Stoneweave.")
+queststatus(697) = 6, queststatus(692) = 5, "Stein"-> queststatus(697) = 7, queststatus(692) = 6, "Das Gedächtnis und die Geduld des Steins sind nun deine Stärke. Wende dich dem Seer's Cauldron zu, wenn du nach weiterem Wissen im Stoneweave suchst.", inform("[Hinweis] Frage nach dem 'Seer's Cauldron', um weiteres Stoneweave zu entdecken.")
+-- Otherwise we just update the quest status to allow you to see new spells in the seer cauldron for this weave
+queststatus(697) = 6, "stone"-> queststatus(697) = 7, "Stone's memory and patience are now your strength. Look to the Seer's Cauldron when you seek further wisdom in Stoneweave.", inform("[Hint] Ask about the 'seer's cauldron' to discover further Stoneweave.")
+queststatus(697) = 6, "Stein"-> queststatus(697) = 7, "Das Gedächtnis und die Geduld des Steins sind nun deine Stärke. Wende dich dem Seer's Cauldron zu, wenn du nach weiterem Wissen im Stoneweave suchst.", inform("[Hinweis] Frage nach dem 'Seer's Cauldron', um weiteres Stoneweave zu entdecken.")
+
 -------------------------------------------------------------------------------
--- DEEPWEAVE ADVANCEMENT II (GATED/PENDING DEV)
+-- DEEPWEAVE ADVANCEMENT II
 -------------------------------------------------------------------------------
-queststatus(692) = 5, queststatus(695) = 2, english, "Deepweave", "Deep", "Ushara's Paradise" -> "You sense the Deepweave stirring, but its path is not yet ready. Establish yourself in Wither, Bloom, Wild, and Stone before seeking the deep mystery.", inform("[Hint] Advance your understanding in the other Cor Weaves before you walk the Deep.")
--------------------------------------------------------------------------------
--- [GATED: REMOVE THESE COMMENTS AND XXX WHEN READY TO IMPLEMENT DEEPWEAVE ADVANCEMENT]
--------------------------------------------------------------------------------
--- queststatus(692) = 5, queststatus(694) = XX, queststatus(693) = XX, queststatus(696) = XX, queststatus(697) = XX, queststatus(695) = XX, english, "Deepweave", "Deep" -> queststatus(695) = XX, "Descend into Ushara's paradise, where roots knot in living darkness. Sit within those silent groves and listen for the oldest song.", inform("[Hint] Find Ushara's hidden underground grove and listen to the earth's deepest root.")
--- TODO:
--- NMD1 questID (695) queststatus to XX when the player sits in the correct location and is told which reagents to collect. Determine where the player needs to sit.
--- NMD2 Add logic for Fianna to check for Heart Blood, Mandrake, and a blank sigil when player returns.
--- queststatus(695) = XX, english, "Deepweave Sigil", "deep sigil" -> queststatus(695) = XX, "I see the Deep spoke to you. Now, take your Heart Blood, Mandrake, and a blank sigil to the Forgotten Weaver's Stump. Search north of Elstree, look for an abandoned underground shaft. There you will find solace and the relic to craft your Cor Deep Sigil.", inform("[Hint] Bring Heart Blood, Toadstool, and a blank sigil to the secluded underground you'll find north of the Elstree Forest.")
--- NMD3 Add appropriate itemID 1182 for Forgotten Weaver's Stump, make it interactive, add lookat text.
--- NMD4 On sigil creation, set questID (695) queststatus = XX; tell player to return to Fianna.
--- queststatus(695) = XX, english, "continue Deepweave path", "continue deep path" -> queststatus(695) = XX, "You walk with the shadow beneath roots. In time, the Seer's Cauldron may reveal more secrets of Deepweave, now you are trusted with its mysteries.", inform("[Hint] Ask about the 'seer's cauldron' to seek the Deep's further wisdom.")
+-- Deepweave is in the lore a more dangerous weave, and the location of its stump and meditation spot is too. As such gated behind the other weaves.
+-- If all other four weave tutorials are taken to completion we start the deepweave tutorial
+queststatus(692) > 4, queststatus(695) = 2, queststatus(693) > 6, queststatus(694) > 6, queststatus(696) > 6, queststatus(697) > 6, "Deep" -> queststatus(695) = 3, "Descend into Ushara's paradise, where roots knot in living darkness. Sit within those silent groves and listen for the oldest song.", inform("[Hint] Find Ushara's hidden underground grove and listen to the earth's deepest root.")
+queststatus(692) > 4, queststatus(695) = 2, queststatus(693) > 6, queststatus(694) > 6, queststatus(696) > 6, queststatus(697) > 6, "Tief" -> queststatus(695) = 3, "Steige hinab in Usharas Paradies, wo sich Wurzeln in lebendiger Dunkelheit winden. Setze dich in diese stillen Haine und lausche dem ältesten Lied.", inform("[Hinweis] Finde Usharas verborgenen unterirdischen Hain und lausche der tiefsten Wurzel der Erde.")
+-- Guidance to learn more about the other four weaves first if you havent gone through their tutorials yet
+queststatus(692) > 4, queststatus(695) = 2, "Deep" -> "You sense the Deepweave stirring, but its path is not yet ready. Establish yourself in Wither, Bloom, Wild, and Stone before seeking the deep mystery.", inform("[Hint] Advance your understanding in the other Cor Weaves before you walk the Deep.")
+queststatus(692) > 4, queststatus(695) = 2, "Tief" -> "Du spürst das Erwachen des Deepweave, doch sein Pfad ist noch nicht bereit. Festige dich in Wither, Bloom, Wild und Stone, bevor du das tiefe Mysterium suchst.", inform("[Hinweis] Vertiefe dein Verständnis der anderen Cor Weaves, bevor du den Deep beschreitest.")
+-- Repeated instructions
+queststatus(695) = 3, "Deep" -> "Descend into Ushara's paradise, where roots knot in living darkness. Sit within those silent groves and listen for the oldest song.", inform("[Hint] Find Ushara's hidden underground grove and listen to the earth's deepest root.")
+queststatus(695) = 3, "Tief" -> "Steige hinab in Usharas Paradies, wo sich Wurzeln in lebendiger Dunkelheit winden. Setze dich in diese stillen Haine und lausche dem ältesten Lied.", inform("[Hinweis] Finde Usharas verborgenen unterirdischen Hain und lausche der tiefsten Wurzel der Erde.")
+-- The player heads off to meditate and gather the bulbsponge mushroom before returning
+queststatus(695) = 4, item(5319, all) > 0, item(158, all) > 9, "Deep" -> queststatus(695) = 5, "I see the Deep spoke to you. Now, take your bulsponge mushrooms and a blank sigil to the Forgotten Weaver's Stump. Search north of Elstree, look for an abandoned underground shaft where fox cubs reside. There you will find solace and the relic to craft your Basic Deepweave Sigil.", inform("[Hint] Bring ten bulbsponge mushrooms and a blank sigil to the secluded underground with foxes you'll find north of the Elstree Forest.")
+queststatus(695) = 4, item(5319, all) > 0, item(158, all) > 9, "Tief" -> queststatus(695) = 5, "Ich sehe, der Deep hat zu dir gesprochen. Nun nimm deine Knollenschwammpilze und ein leeres Siegel und bringe sie zum Vergessenen Weberstumpf. Suche nördlich von Elstree nach einem verlassenen unterirdischen Schacht, in dem Fuchswelpen leben. Dort findest du Ruhe und das Relikt, um dein einfaches Deepweave-Siegel zu fertigen.", inform("[Hinweis] Bringe zehn Knollenschwammpilze und ein leeres Siegel in die abgelegene unterirdische Höhle mit Füchsen, die du nördlich des Elstree-Waldes findest.")
+-- The player does not have enough bulbsponge mushroom or a blank sigil
+queststatus(695) = 4, "deep" -> "NOT ENOUGH BLANK SIGIL/BULBSPONGE MUSHROOM PLACEHOLDER" --TODO
+-- Deepweave cant be your first weave so we just update the quest status to allow you to see new spells in the seer cauldron for this weave
+queststatus(695) = 6, "deep"-> queststatus(695) = 7, "You walk with the shadow beneath roots. In time, the Seer's Cauldron may reveal more secrets of Deepweave, now you are trusted with its mysteries.", inform("[Hint] Ask about the 'seer's cauldron' to seek the Deep's further wisdom.")
+queststatus(695) = 6, "deep"-> queststatus(695) = 7, "Du gehst mit dem Schatten unter den Wurzeln. Mit der Zeit könnte der Seer's Cauldron weitere Geheimnisse des Deepweave offenbaren, nun bist du seinen Mysterien anvertraut.", inform("[Hinweis] Frage nach dem 'Seer's Cauldron', um weitere Weisheit des Deep zu suchen.")
 -------------------------------------------------------------------------------
 -- COR WEAVE ADVANCEMENT III / WIP
 -------------------------------------------------------------------------------
 -- TODO
--- Options to progress Cor Weave Quests in order to learn Deepweave and use the Seer's Cauldron. Need to work on what options Fianna or the Cauldron has to monitor progress
--- A Once player learns 2-3 weaves from each Cor Weave?
--- B Once player reach a certain skill level?
+-- Weavers Pouch, Seer's Cauldron and general casting tutorial (continuation of nature magic tutorial)
+queststatus(692) = 6, "seer", "cauldron" -> "The tutorial at this point is still in development. It will guide you on how to use the Weaver's Pouch to store sigils, how to learn your first weave using the Seer's Cauldron and how to cast said weave using your Cor staff"
+-- TODO: Add Seer's Cauldron functionality to learn the first ten weaves; How to approach it?
+-- TODO: Add functionality for the first ten weaves when casting them
+
 -------------------------------------------------------------------------------
 -- POST DRUID ALCHEMY PATH (699)
 -------------------------------------------------------------------------------

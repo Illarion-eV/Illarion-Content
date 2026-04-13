@@ -65,6 +65,7 @@ local dendron = require("magic.arcane.enchanting.effects.dendron")
 local dwyfol = require("magic.arcane.enchanting.effects.dwyfol")
 local magicTargeting = require("magic.arcane.targeting")
 local testing = require("base.testing")
+local druidcast = require("magic.nature.cast")
 
 local M = {}
 
@@ -365,9 +366,14 @@ function M.onAttack(Attacker, Defender)
             magicTargeting.playerTargets[Attacker.Char.id] = Defender.Char
         end
 
+        if fightingutil.isDruid(Attacker.Char) then -- Druids can invoke weaves
+            druidcast.playerTargets[Attacker.Char.id] = Defender.Char
+        end
+
         return false -- No need to go further since wands do not use this script beyond setting a target
     else
         magicTargeting.playerTargets[Attacker.Char.id] = nil
+        druidcast.playerTargets[Attacker.Char.id] = nil
         --[[ If you change to another weapon, it didn't update the target so if you then cast a spell
             while targeting someone else, it would recognise you as in combat targeting someone but cast
             on your previous target with unfortunate consequences.

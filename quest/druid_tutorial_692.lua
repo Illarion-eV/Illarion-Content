@@ -46,6 +46,10 @@ Description[GERMAN][4] =  "Nachdem du ein leeres hölzernes Siegel erhalten hast,
 Description[ENGLISH][4] =  "Having obtained a blank wooden sigil, Fianna is ready to tell you more about the different weaves. Ask about the Wither, Bloom, Wild, Stone, and Deep Weaves. When you have learned about each, say: \"Cor Valis Sindeim.\" to continue."
 Description[GERMAN][5] =  "Du hast über jedes Geflecht gelernt und hast dein Siegel zur Hand. Nun ist die Zeit gekommen zu wählen, in welches Geflecht du tiefer eintauchen möchtest, und Fianna danach zu fragen."
 Description[ENGLISH][5] =  "You've learned about each weave and have you sigil at hand. Now is the time to choose which weave you wish to delve deeper into and ask Fianna about it."
+Description[GERMAN][6] =  "Du bist weit genug auf dem Pfad eines Geflechts vorangeschritten, um den Punkt zu erreichen, an dem sich die Wege wieder vereinen. Sprich mit Fianna über den Seherkessel vor ihr, um fortzufahren."
+Description[ENGLISH][6] =  "You've embarked far enough on the path of a weave to reach where the paths once more convene. Ask Fianna about the Seer's Cauldron she has in front of her to continue."
+
+
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
 local Start = {661, 301, 0}
@@ -55,7 +59,7 @@ local QuestTarget = {}
 
 
 -- Insert the quest status which is reached at the end of the quest
-local FINAL_QUEST_STATUS = 5
+local FINAL_QUEST_STATUS = 9
 
 function M.QuestTitle(user)
     return common.GetNLS(user, Title[GERMAN], Title[ENGLISH])

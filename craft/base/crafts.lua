@@ -99,7 +99,7 @@ local function checkRequiredMana(user, craftingTime, isPortalBookCrafting) -- Po
     if magic.hasSufficientMana(user, manaConsumption) then
         return true, manaConsumption
     else
-        user:inform("Du hast nicht genug Mana, um das Buch mit der erforderlichen Raum-Magie zu durchdringen.", "You do not have enough mana to imbue the book with the required spatial magic.")
+        user:inform("Du hast nicht genug Mana.", "You do not have enough mana.")
         return false, 0
     end
 
@@ -244,6 +244,19 @@ function Craft:addExtraProduct(user, categoryId, itemId, quantity, data, difficu
     return nil
 end
 
+local function isMagicCraft(leadSkill)
+
+    local magicCrafts = {Character.spatialMagic, Character.bloomweave, Character.deepweave, Character.stoneweave, Character.deepweave, Character.witherweave}
+
+    for _, magicCraft in pairs(magicCrafts) do
+        if magicCraft == leadSkill then
+            return true
+        end
+    end
+
+    return false
+end
+
 function Craft:showDialog(user, source)
 
     local allowCraft, checkForFallbackCraft = self:allowCrafting(user, source)
@@ -266,7 +279,7 @@ function Craft:showDialog(user, source)
             end
 
             local foodOK = self:checkRequiredFood(user, product:getCraftingTime(self:getSkill(user)))
-            local manaOk = checkRequiredMana(user, product:getCraftingTime(self:getSkill(user)), self.leadSkill == Character.spatialMagic)
+            local manaOk = checkRequiredMana(user, product:getCraftingTime(self:getSkill(user)), isMagicCraft(self.leadSkill))
             local canWork = self:allowCrafting(user, source) and self:checkMaterial(user, productId) and foodOK and manaOk
 
             return canWork
@@ -329,14 +342,20 @@ function Craft:allowUserCrafting(user, source)
         end
 
         if not self:isHandToolEquipped(user) then
-            local germanTool = world:getItemName(self.handTool, Player.german)
-            germanTool = germanTool:gsub("^%l", string.upper) --Upper case
-            local englishTool = world:getItemName(self.handTool, Player.english)
-            englishTool = englishTool:gsub("^%l", string.upper) --Upper case
+            if type(self.handTool) ~= "table" then
+                local germanTool = world:getItemName(self.handTool, Player.german)
+                germanTool = germanTool:gsub("^%l", string.upper) --Upper case
+                local englishTool = world:getItemName(self.handTool, Player.english)
+                englishTool = englishTool:gsub("^%l", string.upper) --Upper case
 
-            common.HighInformNLS(user,
-            "Dir fehlt ein intaktes Werkzeug in deiner Hand um hier zu arbeiten: " .. germanTool,
-            "To work here you have to hold an intact tool in your hand: " .. englishTool)
+                common.HighInformNLS(user,
+                "Dir fehlt ein intaktes Werkzeug in deiner Hand um hier zu arbeiten: " .. germanTool,
+                "To work here you have to hold an intact tool in your hand: " .. englishTool)
+            else
+                common.HighInformNLS(user,
+                "Du musst ein intaktes Werkzeug in die Hand nehmen um damit zu arbeiten.",
+                "You must have an intact tool in your hand to work with.")
+            end
             return false, false
         end
     else
@@ -367,6 +386,20 @@ function Craft:isHandToolEquipped(user)
 
     local leftTool = user:getItemAt(Character.left_tool)
     local rightTool = user:getItemAt(Character.right_tool)
+
+    if type(self.handTool) == "table" then
+        local continue = false
+        for _, handTool in pairs(self.handTool) do
+            if (leftTool.id == handTool and not common.isBroken(leftTool)) or (rightTool.id == handTool and not common.isBroken(rightTool)) then
+                self.handTool = handTool
+                continue = true
+            end
+        end
+
+        if not continue then
+            return false
+        end
+    end
 
     if leftTool.id == self.handTool and common.isBroken(leftTool) == false then
         return true
@@ -988,10 +1021,14 @@ function Craft:generateQuality(user, product, toolItem, rareIngredientBonus)
     local gemBonus = tonumber(self:getCurrentGemBonus(user))
     local skill = self.leadSkill
     local leadAttribNames = common.GetLeadAttributeName(skill)
-    local leadAttribValue1 = user:increaseAttrib(leadAttribNames.first, 0) * 0.6 -- 60% of the impact dex had on its own in the past
-    local leadAttribValue2 = user:increaseAttrib(leadAttribNames.second, 0) * 0.4 -- 40% of the impact dex had on its own in the past
-    local leadAttribValue = leadAttribValue1 + leadAttribValue2
-
+    local leadAttribValue
+    if type(leadAttribNames) == "table" then
+        local leadAttribValue1 = user:increaseAttrib(leadAttribNames.first, 0) * 0.6 -- 60% of the impact dex had on its own in the past
+        local leadAttribValue2 = user:increaseAttrib(leadAttribNames.second, 0) * 0.4 -- 40% of the impact dex had on its own in the past
+        leadAttribValue = leadAttribValue1 + leadAttribValue2
+    else
+        leadAttribValue = user:increaseAttrib(leadAttribNames, 0)
+    end
 
     local meanQuality = 5
     meanQuality = meanQuality*(1+common.GetAttributeBonusHigh(leadAttribValue)+common.GetQualityBonusStandard(toolItem))+gemBonus/100 --Apply boni of dexterity, tool quality and gems.
@@ -1112,7 +1149,7 @@ function Craft:craftItem(user, productId)
 
     local foodOK, neededFood = self:checkRequiredFood(user, product:getCraftingTime(skill))
 
-    local manaOk, neededMana = checkRequiredMana(user, product:getCraftingTime(skill), self.leadSkill == Character.spatialMagic)
+    local manaOk, neededMana = checkRequiredMana(user, product:getCraftingTime(skill), isMagicCraft(self.leadSkill))
 
     if not self.npcCraft then
         if not foodOK or not manaOk then

@@ -175,6 +175,8 @@ local function interrupted(player)
     return false
 end
 
+M.interrupted = interrupted
+
 local function overWriteSlot(user, savedTargets, index, newTarget, slotLimit)
 
     local callback = function(dialog)

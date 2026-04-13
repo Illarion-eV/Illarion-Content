@@ -19,6 +19,8 @@ local oralCasting = require("magic.arcane.oralCasting")
 local wands = require("item.wands")
 local magicSphere = require("item.magicSphere")
 local factions = require("base.factions")
+local cast = require("magic.nature.cast")
+local druidSpells = require("magic.nature.spells")
 
 local M = {}
 
@@ -161,6 +163,15 @@ function M.talk(player, talkType, text, actionState)
             Shouting incantation could be allowed if deemed better, but whispering should never be allowed.
         ]]
         oralCasting.checkForMagicIncantations(player, actionState, text)
+
+        local isDruid = player:getMagicType() == 3
+
+        if isDruid then
+            local weave = druidSpells.checkForDruidWeave(player, text)
+            if weave then
+                cast.castSpell(player, weave, actionState, true)
+            end
+        end
     end
 
     return text

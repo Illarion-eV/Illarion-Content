@@ -445,6 +445,47 @@ product = carving:addProduct(catId, 312, 1)
 product:addIngredient(2543, 1) -- conifer wood boards
 product:addIngredient(2528, 1) -- small handle
 
+catId = carving:addCategory("Cor Staffs", "Cor-Stäbe")
+
+product = carving:addProduct(catId, Item.noviceCorStaff, 1)
+product:addIngredient(Item.naldorWoodBoards, 2)
+product:addIngredient(Item.largeOrnamentedHandle, 1)
+
+product = carving:addProduct(catId, Item.corStaff, 1)
+product:addIngredient(Item.naldorWoodBoards, 7)
+product:addIngredient(Item.largeOrnamentedHandle, 1)
+product:addIngredient(Item.heartwood, 2)
+
+product = carving:addProduct(catId, Item.wildCorStaff, 1)
+product:addIngredient(Item.naldorWoodBoards, 9)
+product:addIngredient(Item.largeOrnamentedHandle, 1)
+product:addIngredient(Item.heartwood, 2)
+product:addIngredient(Item.pureFire, 1)
+
+product = carving:addProduct(catId, Item.deepCorStaff, 1)
+product:addIngredient(Item.naldorWoodBoards, 9)
+product:addIngredient(Item.largeOrnamentedHandle, 1)
+product:addIngredient(Item.heartwood, 2)
+product:addIngredient(Item.pureSpirit, 1)
+
+product = carving:addProduct(catId, Item.bloomCorStaff, 1)
+product:addIngredient(Item.naldorWoodBoards, 9)
+product:addIngredient(Item.largeOrnamentedHandle, 1)
+product:addIngredient(Item.heartwood, 2)
+product:addIngredient(Item.pureAir, 1)
+
+product = carving:addProduct(catId, Item.witherCorStaff, 1)
+product:addIngredient(Item.naldorWoodBoards, 9)
+product:addIngredient(Item.largeOrnamentedHandle, 1)
+product:addIngredient(Item.heartwood, 2)
+product:addIngredient(Item.pureWater, 1)
+
+product = carving:addProduct(catId, Item.stoneCorStaff, 1)
+product:addIngredient(Item.naldorWoodBoards, 9)
+product:addIngredient(Item.largeOrnamentedHandle, 1)
+product:addIngredient(Item.heartwood, 2)
+product:addIngredient(Item.pureEarth, 1)
+
 catId = carving:addCategory("Wands", "Zauberstäbe")
 
 -- novice wand

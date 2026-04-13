@@ -636,6 +636,10 @@ product:addIngredient(2551, 1) -- pure air
 
 catId = tailoring:addCategory("Other", "Sonstiges")
 
+product = tailoring:addProduct(catId, Item.weaversPouch, 1)
+product:addIngredient(Item.thread, 3)
+product:addIngredient(Item.leather, 2)
+
 -- sling
 product = tailoring:addProduct(catId, 89, 1)
 product:addIngredient(50, 4) -- thread

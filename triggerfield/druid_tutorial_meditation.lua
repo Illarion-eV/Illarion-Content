@@ -15,22 +15,32 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
+local meditation = require("lte.druid_tutorial_meditation")
+
 local M = {}
 
 function M.MoveToField(user)
 
-    if user:getQuestProgress(692) == 1 then
-        local foundEffect = user.effects:find(332)
+    local foundEffect = user.effects:find(332)
 
-        if foundEffect then
-            return -- Already in progress
-        end
+    if foundEffect then
+        return -- Already in progress
+    end
+
+    if (user:getQuestProgress(692) == 1 and meditation.isOnIsle(user))
+    or (user:getQuestProgress(694) == 3 and meditation.isInMushroomCluster(user))
+    or (user:getQuestProgress(693) == 3 and meditation.isUnderMevrannonTree(user))
+    or (user:getQuestProgress(696) == 3 and meditation.onTheEldanOakStone(user))
+    or (user:getQuestProgress(695) == 3 and meditation.inUsharasGarden(user))
+    or (user:getQuestProgress(697) == 3 and meditation.inLibertyQuarry(user)) then
 
         local myEffect = LongTimeEffect(332, 600)
 
         user.effects:addEffect(myEffect)
 
     end
+
+
 end
 
 return M

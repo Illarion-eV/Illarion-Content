@@ -156,6 +156,14 @@ function M.isMagicUser(Attacker)
     return false
 end
 
+function M.isDruid(Attacker)
+    if Attacker:getMagicType() == 3 then
+        return true
+    end
+
+    return false
+end
+
 
 local selectedEnemies = {}
 
