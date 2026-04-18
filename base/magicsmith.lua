@@ -69,7 +69,7 @@ local function isSocketable(itemId, unsocketing)
     local toolList = {Item.fishingRod, Item.hatchet, Item.peel , Item.dyeingRod, Item.rasp, Item.finesmithingHammer,
     Item.glassBlowPipe, Item.mould, Item.hammer, Item.armourersHammer, Item.cookingSpoon, Item.chisel,
     Item.needle, Item.pan, Item.saw, Item.shovel, Item.scissors, Item.scythe, Item.sickle, Item.pickaxe,
-    Item.cruciblePincers, Item.tongs, Item.carvingTools, Item.plane, Item.mortar}
+    Item.cruciblePincers, Item.tongs, Item.carvingTools, Item.plane, Item.mortar, Item.razorBlade}
     -- tools can also be socketed
     for i in pairs(toolList) do
         if itemId == toolList[i] then
