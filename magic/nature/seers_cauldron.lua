@@ -184,7 +184,7 @@ end
 
 local function showCriteriaAndHint(user, chosenSpell, weaveName)
 
-    local baseText = {german = "Um diesen Webzauber zu erlernen, benötigst du", english = "To learn this weave spell, you need"}
+    local baseText = common.GetNLS(user,"Um diesen Webzauber zu erlernen, benötigst du", "To learn this weave spell, you need")
 
     local criteria = {}
 
