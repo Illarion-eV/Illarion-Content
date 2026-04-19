@@ -24,6 +24,70 @@ M.limit = 100 -- You can not store more than 100 charges of a sigil in a pouch a
 
 M.charges = 20 -- Each sigil provides 20 charges
 
+local sigils = {
+    {id = 1, name = { english = "Basic Witherweave Sigil", german = "Einfache Welkweb-Siegel"}, hint = {german = "Als du in die Tiefen des Kessels blickst, siehst du eine Vision von dir selbst, wie du von Fianna geführt wirst. Vielleicht solltest du mit ihr sprechen, um Anleitung zum Welkweben zu erhalten.", english = "As you peer into the depths of the cauldron, you see a vision of yourself being guided by Fianna. Perhaps you should speak to her for guidance on Witherweave."}},
+    {id = 2, name = { english = "Basic Bloomweave Sigil", german = "Einfache Blütenweb-Siegel"}, hint = {german = "Als du in die Tiefen des Kessels blickst, siehst du eine Vision von dir selbst, wie du von Fianna geführt wirst. Vielleicht solltest du mit ihr sprechen, um Anleitung zum Blütenweben zu erhalten.", english = "As you peer into the depths of the cauldron, you see a vision of yourself being guided by Fianna. Perhaps you should speak to her for guidance on Bloomweave."}},
+    {id = 3, name = { english = "Basic Wildweave Sigil", german = "Einfache Wildeweb-Siegel"}, hint = {german = "Als du in die Tiefen des Kessels blickst, siehst du eine Vision von dir selbst, wie du von Fianna geführt wirst. Vielleicht solltest du mit ihr sprechen, um Anleitung zum Wildweben zu erhalten.", english = "As you peer into the depths of the cauldron, you see a vision of yourself being guided by Fianna. Perhaps you should speak to her for guidance on Wildweave."}},
+    {id = 4, name = { english = "Basic Stoneweave Sigil", german = "Einfache Steinweb-Siegel"}, hint = {german = "Als du in die Tiefen des Kessels blickst, siehst du eine Vision von dir selbst, wie du von Fianna geführt wirst. Vielleicht solltest du mit ihr sprechen, um Anleitung zum Steinweben zu erhalten.", english = "As you peer into the depths of the cauldron, you see a vision of yourself being guided by Fianna. Perhaps you should speak to her for guidance on Stoneweave."}},
+    {id = 5, name = { english = "Basic Deepweave Sigil", german = "Einfache Tiefenweb-Siegel"}, hint = {german = "Als du in die Tiefen des Kessels blickst, siehst du eine Vision von dir selbst, wie du von Fianna geführt wirst. Vielleicht solltest du mit ihr sprechen, um Anleitung zum Tiefenweben zu erhalten.", english = "As you peer into the depths of the cauldron, you see a vision of yourself being guided by Fianna. Perhaps you should speak to her for guidance on Deepweave."}},
+}
+
+function M.getSigilHint(sigilName)
+    for _, sigil in pairs(sigils) do
+        if sigilName == sigil.name.english then
+            return sigil.hint
+        end
+    end
+end
+
+local function getSigilIdFromName(sigilName)
+    for _, sigil in pairs(sigils) do
+        if sigilName == sigil.name.english then
+            return sigil.id
+        end
+    end
+
+    return false
+end
+
+function M.getGermanSigilTranslation(sigilName)
+    for _, sigil in pairs(sigils) do
+        if sigilName == sigil.name.english then
+            return sigil.name.german
+        end
+    end
+end
+
+local learningId = 943 --Starts at 943, goes up to 945
+
+function M.checkIfCraftedSigil(user, sigilName)
+
+    local id = getSigilIdFromName(sigilName)
+
+    local learned = common.readBitwise(user, id, learningId)
+
+    return learned
+
+end
+
+function M.learnSigil(user, sigilName)
+
+    if common.IsNilOrEmpty(sigilName) then
+        return
+    end
+
+    local id = getSigilIdFromName(sigilName)
+
+    if id == false then
+        return
+    end
+
+    if not M.checkIfCraftedSigil(user, sigilName) then
+
+        common.writeBitwise(user, id, learningId)
+    end
+end
+
 local function checkForWeaverspouch(user)
 
 

@@ -43,6 +43,19 @@ local spells = {
 
 M.spells = spells
 
+function M.getUnlearnedSpells(user)
+
+    local retTable = {}
+
+    for _, spell in pairs(spells) do
+        if spell.active and not M.checkIfLearnedSpell(user, spell.name) then
+            table.insert(retTable, spell)
+        end
+    end
+
+    return retTable
+end
+
 function M.getSpellValuesFromName(spellName)
     for _, spell in pairs(spells) do
         if spellName == spell.name then

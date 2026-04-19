@@ -494,6 +494,8 @@ ID,Title,NPCs,Status,Responsible Author,Description
 870-900, Alchemy Player Inventions,,,,
 901-930, crafting blueprints,,,Brightrim, Used to tell if a person knows a blueprint of not
 931-940, druid spells learning,,,Brightrim, Used to tell if a player has learned a druid spell or not
+941-942, druid magic learning cooldowns,,,Brightrim, used to timegate learning of druid spells
+943-945, druid magic sigil ids,,,Brightrim, used in learning of sigils
 999,An ursurper to the Throne (Cadomyr),,,Mr.Cromwell/Faladron,"Baron Hastings & his henchman Victor Tolenor try to harm Cadomyr and its ""unrightful"" Queen"
 1000-1999,Recipes learning (alchemy),,,merung,used to remember if a char has learned a certain recipe
 2000,factionpoints,,,envi,used to distribute faction points

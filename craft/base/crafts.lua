@@ -34,6 +34,7 @@ local moreUtility = require("housing.moreUtility")
 local blueprints = require("item.blueprints")
 local foodScript = require("item.food")
 local cookingRecipeCreation = require("craft.cookingRecipeCreation")
+local sigil = require("magic.nature.sigil")
 
 local M = {}
 
@@ -1293,6 +1294,8 @@ function Craft:createItem(user, productId, toolItem)
         product.data.rareness = rarity
         product.data.craftedRare = "true"
     end
+
+    sigil.learnSigil(user, product.data.nameEn)
 
     common.CreateItem(user, product.item, product.quantity, quality, product.data)
 
