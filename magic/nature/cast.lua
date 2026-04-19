@@ -337,6 +337,14 @@ local function applySpellEffect(user, target, spellName, thePosition)
     --Applies the effect and reduces the sigil charges
     spellEffects[spellName].effect(user, thePosition, target)
 
+    --Tutorial flag
+    local questProgress = user:getQuestProgress(692)
+
+    if questProgress == 11 then
+        user:setQuestProgress(692, 12)
+    end
+    -- Tutorial flag done
+
 end
 
 function M.castSpell(user, spellName, actionState, oralCast)

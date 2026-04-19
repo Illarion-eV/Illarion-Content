@@ -347,9 +347,21 @@ queststatus(695) = 6, "deep"-> queststatus(695) = 7, "Du gehst mit dem Schatten 
 -------------------------------------------------------------------------------
 -- TODO
 -- Weavers Pouch, Seer's Cauldron and general casting tutorial (continuation of nature magic tutorial)
-queststatus(692) = 6, "seer", "cauldron" -> "The tutorial at this point is still in development. It will guide you on how to use the Weaver's Pouch to store sigils, how to learn your first weave using the Seer's Cauldron and how to cast said weave using your Cor staff"
--- TODO: Add Seer's Cauldron functionality to learn the first ten weaves; How to approach it?
--- TODO: Add functionality for the first ten weaves when casting them
+queststatus(692) = 6, "seer", "cauldron" -> queststatus(692) = 7, "[WIP]This step introduces the seer cauldron and tells you to peer into it to learn the mystery of the weaves, now that you have learned how to craft a sigil.", inform("[WIP][Hint] This hints on how to select your desired weave branch then weave spell you want to learn")  --TODO
+-- Repeat instructions
+queststatus(692) = 7, "seer", "cauldron" -> "[WIP]Here she repeats instructions about using the seer cauldron.", inform("[WIP][Hint] This hints on how to select your desired weave branch then weave spell you want to learn")  --TODO
+-- When you use the seer cauldron to learn a weave, quest status gets updated to 8
+queststatus(692) = 8, "weave" -> queststatus(692) = 9, "[WIP] You now know how to cast your first druid spell/weave, but to cast one you need to harness the power of a sigil. While you can carry a sigil on your belt, a weavers pouch is superior.", inform("[WIP][Hint] You can double click a sigil while a weaver's pouch is in your hands to transfer the power of the weaves into the pouch.")  --TODO
+-- Repeat instructions
+queststatus(692) = 9, "weave" -> "[WIP] Repeated instructions on how to get a weavers pouch and use it.", inform("[WIP][Hint] You can double click a sigil while a weaver's pouch is in your hands to transfer the power of the weaves into the pouch.")  --TODO
+-- When you transfer a sigils power into a weavers pouch, you progress to status 10
+queststatus(692) = 10, "weave" -> queststatus(692) = 11, "[WIP] Instructions on how you need your weavers pouch or sigil on your belt to cast, then hold your Cor Staff in your hands and speak the incantation of the weave you learned to cast it.", inform("[WIP][Hint] Casting instructions hint goes here")  --TODO
+-- Repeat instructions
+queststatus(692) = 11, "weave" -> "[WIP] Repeated instructions on how to cast", inform("[WIP][Hint] Casting instructions hint goes here")  --TODO
+-- Once succcessfully in casting, your status is updated to 12
+queststatus(692) = 12, "weave" -> queststatus(692) = 13, "[WIP] Congratulate the player on finishing the weaves tutorial. Refer them to transmutation/alchemy tutorials.", inform("[WIP][Hint] Hint that while the tutorial is over, you can continue to use the seer cauldron in the future to learn more spells/weaves and revisit the quest log finished quests for a summary of tutorial stuff")  --TODO
+-- Repeat last message
+queststatus(692) = 13, "weave" -> "[WIP] Inform again that there is no more she can teach of the weaves, but can teach alchemy/transmutation if interested.", inform("[WIP][Hint] Hint that while the tutorial is over, you can continue to use the seer cauldron in the future to learn more spells/weaves and revisit the quest log finished quests for a summary of tutorial stuff")  --TODO
 
 -------------------------------------------------------------------------------
 -- POST DRUID ALCHEMY PATH (699)

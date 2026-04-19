@@ -167,6 +167,15 @@ local function learnConfirmation(user, chosenSpell)
         if index == 1 then
             setLearningCooldown(user)
             spells.learnSpell(user, chosenSpell.name)
+
+            --Tutorial flag
+            local questProgress = user:getQuestProgress(692)
+
+            if questProgress == 7 then
+                user:setQuestProgress(692, 8)
+            end
+            -- Tutorial flag done
+
         else
             return
         end

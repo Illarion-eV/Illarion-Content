@@ -48,8 +48,23 @@ Description[GERMAN][5] =  "Du hast über jedes Geflecht gelernt und hast dein Sie
 Description[ENGLISH][5] =  "You've learned about each weave and have you sigil at hand. Now is the time to choose which weave you wish to delve deeper into and ask Fianna about it."
 Description[GERMAN][6] =  "Du bist weit genug auf dem Pfad eines Geflechts vorangeschritten, um den Punkt zu erreichen, an dem sich die Wege wieder vereinen. Sprich mit Fianna über den Seherkessel vor ihr, um fortzufahren."
 Description[ENGLISH][6] =  "You've embarked far enough on the path of a weave to reach where the paths once more convene. Ask Fianna about the Seer's Cauldron she has in front of her to continue."
+Description[GERMAN][7] =  "PLACEHOLDER"
+Description[ENGLISH][7] =  "PLACEHOLDER"
+Description[GERMAN][8] =  "PLACEHOLDER"
+Description[ENGLISH][8] =  "PLACEHOLDER"
+Description[GERMAN][9] =  "PLACEHOLDER"
+Description[ENGLISH][9] =  "PLACEHOLDER"
+Description[GERMAN][10] =  "PLACEHOLDER"
+Description[ENGLISH][10] =  "PLACEHOLDER"
+Description[GERMAN][11] =  "PLACEHOLDER"
+Description[ENGLISH][11] =  "PLACEHOLDER"
+Description[GERMAN][12] =  "PLACEHOLDER"
+Description[ENGLISH][12] =  "PLACEHOLDER"
+Description[GERMAN][13] =  "PLACEHOLDER"
+Description[ENGLISH][13] =  "PLACEHOLDER"
 
 
+--TODO: Add quest log texts for 7-13 once the tutorial TODO texts have been filled in in the fianna_squall.npc script
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
 local Start = {661, 301, 0}
@@ -59,7 +74,7 @@ local QuestTarget = {}
 
 
 -- Insert the quest status which is reached at the end of the quest
-local FINAL_QUEST_STATUS = 9
+local FINAL_QUEST_STATUS = 13
 
 function M.QuestTitle(user)
     return common.GetNLS(user, Title[GERMAN], Title[ENGLISH])
@@ -82,10 +97,9 @@ function M.QuestTargets(user, status)
         return {}
     else
         QuestTarget[1] = {position(914, 933, 0)}
-        QuestTarget[2] = {position(661, 301, 0)}
-        QuestTarget[3] = {position(661, 301, 0)}
-        QuestTarget[4] = {position(661, 301, 0)}
-        QuestTarget[5] = {position(661, 301, 0)}
+        for i = 2, 13 do
+            QuestTarget[i] = {position(661, 301, 0)}
+        end
     end
 
     return QuestTarget[status]

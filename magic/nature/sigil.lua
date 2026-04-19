@@ -151,6 +151,14 @@ function M.UseItem(user, sourceItem, actionState)
         weaversPouch:setData(dataKey, tostring(newTotal))
 
         world:changeItem(weaversPouch)
+
+         --Tutorial flag
+        local questProgress = user:getQuestProgress(692)
+
+        if questProgress == 9 then
+            user:setQuestProgress(692, 10)
+        end
+        -- Tutorial flag done
     end
 
 end
