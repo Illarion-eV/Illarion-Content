@@ -201,7 +201,7 @@ local function showCriteriaAndHint(user, chosenSpell, weaveName)
     end
 
     if not sigil.checkIfCraftedSigil(user, chosenSpell.sigil) then
-        table.insert(criteria, {german = " dass du "..sigil.getGermanSigilTranslation(chosenSpell.sigil).." zum ersten Mal hergestellt hast", english = " to have crafted a "..chosenSpell.sigil.." for the first time."})
+        table.insert(criteria, {german = " dass du "..sigil.getGermanSigilTranslation(chosenSpell.sigil).." zum ersten Mal hergestellt hast", english = " to have crafted a "..chosenSpell.sigil.." for the first time"})
     end
 
     for i, text in pairs(criteria) do
