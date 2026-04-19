@@ -327,9 +327,83 @@ local function increaseExperience(user, spellName, castDuration, target)
 
 end
 
+local function getWeaverspouches(user)
+
+    local weaversPouches = {}
+
+    for i = 12, 17 do -- belt slots
+        local potentialPouch = user:getItemAt(i)
+        if potentialPouch.id == Item.weaversPouch then
+            table.insert(weaversPouches, potentialPouch)
+        end
+    end
+
+    if #weaversPouches == 0 then
+        return false
+    end
+
+    return weaversPouches
+
+end
+
+local function hasEnoughCharges(user, spellName)
+
+    local weaversPouches = getWeaverspouches(user)
+
+    if not weaversPouches then
+        return false
+    end
+
+    local spellValues = spells.getSpellValuesFromName(spellName)
+
+    local charges = spellValues.charges
+
+    local sigilName = spellValues.sigil
+
+    local dataKey = sigilName:gsub("%s+", "")
+
+    for _, weaversPouch in pairs (weaversPouches) do
+
+        local existingCharges = tonumber(weaversPouch:getData(dataKey))
+
+        if existingCharges and existingCharges > charges then
+            return true, weaversPouch
+        end
+    end
+
+    return false
+
+end
+
+local function consumeCharges(user, spellName)
+
+    local hasCharges, weaversPouch = hasEnoughCharges(user, spellName)
+
+    if not hasCharges or not weaversPouch then
+        return false
+    end
+
+    local spellValues = spells.getSpellValuesFromName(spellName)
+
+    local charges = spellValues.charges
+
+    local sigilName = spellValues.sigil
+
+    local dataKey = sigilName:gsub("%s+", "")
+
+    local existingCharges = tonumber(weaversPouch:getData(dataKey))
+
+    local newCharge = existingCharges-charges
+
+    weaversPouch:setData(dataKey, tostring(newCharge))
+
+    world:changeItem(weaversPouch)
+
+end
+
 local function spellSpecificChecks(user, target, thePosition, spellName)
     --Checks such as whether there is free space if the spell spawns an object, or that you have enough sigil charges
-    return spellEffects[spellName].checksToPass(user, thePosition, target)
+    return spellEffects[spellName].checksToPass(user, thePosition, target) and hasEnoughCharges(user, spellName)
 
 end
 
@@ -455,6 +529,8 @@ function M.castSpell(user, spellName, actionState, oralCast)
 
         M.tan[user.id] = false
 
+        consumeCharges(user, spellName)
+
         applySpellEffect(user, target, spellName, M[user.id].thePosition)
 
 
@@ -464,7 +540,7 @@ function M.castSpell(user, spellName, actionState, oralCast)
             durability.toolBreaks(user, corStaff, castDuration)
         end
 
-        if user.attackmode and isAutocast(corStaff) and checksPassed then
+        if user.attackmode and isAutocast(corStaff) and checksPassed(user, spellName, M[user.id].thePosition) and spellSpecificChecks(user, target, M[user.id].thePosition, spellName) then
 
             if _G.stopAutoCast and _G.stopAutoCast[user.id] then
                 _G.stopAutoCast[user.id] = false
