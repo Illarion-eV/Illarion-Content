@@ -164,7 +164,7 @@ local function learnConfirmation(user, chosenSpell)
 
         local index = dialog:getSelectedIndex()+1
 
-        if index == 1 then
+        if index == 1 and not spells.checkIfLearnedSpell(user, chosenSpell.name) then
             setLearningCooldown(user)
             spells.learnSpell(user, chosenSpell.name)
             user:inform("Du spürst die sanften Kräfte der Natur durch dich strömen. Du weißt nun, wie man den Zauber "..chosenSpell.name, "You feel the gentle forces of nature course through you. You now know how to weave the spell "..chosenSpell.name)
