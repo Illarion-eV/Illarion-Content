@@ -167,6 +167,7 @@ local function learnConfirmation(user, chosenSpell)
         if index == 1 then
             setLearningCooldown(user)
             spells.learnSpell(user, chosenSpell.name)
+            user:inform("Du spürst die sanften Kräfte der Natur durch dich strömen. Du weißt nun, wie man den Zauber "..chosenSpell.name, "You feel the gentle forces of nature course through you. You now know how to weave the spell "..chosenSpell.name)
 
             --Tutorial flag
             local questProgress = user:getQuestProgress(692)

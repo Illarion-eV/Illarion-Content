@@ -261,14 +261,14 @@ function M.UseItem(user, sourceItem, ltstate)
         end
     end
 
-    local dialogText = common.GetNLS(Character,"Hier kannst du auswählen, ob du sehen möchtest, wie viele Aufladungen dein Beutel hat, deinen Cor-Stab auf einen Zauber einstimmen, eine Reichweite für deinen Cor-Stab festlegen oder einstellen, ob er Zauber automatisch wirken soll.", "Here you can select whether to view how many charges your pouch has, attune your Cor Staff to a spell, set a range for your Cor Staff or toggle whether it should autocast spells.")
-    local dialogTitle = common.GetNLS(Character,"Gewebetasche", "Weaver's Pouch")
+    local dialogText = common.GetNLS(user,"Hier kannst du auswählen, ob du sehen möchtest, wie viele Aufladungen dein Beutel hat, deinen Cor-Stab auf einen Zauber einstimmen, eine Reichweite für deinen Cor-Stab festlegen oder einstellen, ob er Zauber automatisch wirken soll.", "Here you can select whether to view how many charges your pouch has, attune your Cor Staff to a spell, set a range for your Cor Staff or toggle whether it should autocast spells.")
+    local dialogTitle = common.GetNLS(user,"Gewebetasche", "Weaver's Pouch")
     local dialog = SelectionDialog(dialogTitle, dialogText, callback)
-    dialog:addOption(Item.blankSigil,common.GetNLS(Character,"Sichtbare Siegelgebühren","View sigil charges"))
-    dialog:addOption(Item.corStaff,common.GetNLS(Character,"Zauber einstimmen","Attune spell"))
-    dialog:addOption(Item.corStaff,common.GetNLS(Character,"Reichweite einstellen","Set range"))
-    dialog:addOption(Item.corStaff,common.GetNLS(Character,"Automatisches Wirken umschalten","Toggle autocast"))
-    Character:requestSelectionDialog(dialog)
+    dialog:addOption(Item.blankSigil,common.GetNLS(user,"Sichtbare Siegelgebühren","View sigil charges"))
+    dialog:addOption(Item.corStaff,common.GetNLS(user,"Zauber einstimmen","Attune spell"))
+    dialog:addOption(Item.corStaff,common.GetNLS(user,"Reichweite einstellen","Set range"))
+    dialog:addOption(Item.corStaff,common.GetNLS(user,"Automatisches Wirken umschalten","Toggle autocast"))
+    user:requestSelectionDialog(dialog)
 end
 
 return M
