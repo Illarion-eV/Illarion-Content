@@ -15,17 +15,17 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
---Template for druid weave spells
+local seegwynt = require("magic.nature.effects.seegwynt")
 
 local M = {}
 
 function M.effect(user, location, target)
-    -- Spell effect goes here
-    user:talk(Character.say, "#me wirke einen Zauber.", "#me casts a spell.")
+    world:gfx(52, location)
+    world:makeSound(13, location)
+    seegwynt.spawnStaticObject(user, "Whisgwynt", location, Item.druidicWhisper)
 end
 
 function M.checksToPass(user, location, target)
-    -- If it needs to pass a check before casting, put it here. Return false if it does not pass.
     return true
 end
 
