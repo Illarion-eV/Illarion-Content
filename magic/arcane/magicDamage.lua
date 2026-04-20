@@ -282,7 +282,7 @@ function M.getMagicDamage(user, spell, element, target, DoT, ORL, earthTrap, cas
     local playerOrMonster = target:getType()
 
     if playerOrMonster ~= Character.npc and not illusion then
-        magicResist = MR.getMagicResistance(target, spell)
+        magicResist = MR.getMagicResistance(target)
         finalDamage = M.resistanceAndPenetrationImpact(magicResist, magicPen, damage, spell)
     end
 

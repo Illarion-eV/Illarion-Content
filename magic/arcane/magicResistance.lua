@@ -39,7 +39,7 @@ local function willImpact(user)
 
 end
 
-function M.getMagicResistance(target, spell) --Returns a percentage of how much magic damage to reduce
+function M.getMagicResistance(target) --Returns a percentage of how much magic damage to reduce
 
 
     local magicResistance

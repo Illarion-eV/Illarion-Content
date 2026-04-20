@@ -36,7 +36,7 @@ local MRtexts = M.MRtexts
         local player = target.type == "player"
         local creature = target.type == "creature"
         if player or creature then
-            local MR = magicResistance.getMagicResistance(target.target, spell)
+            local MR = magicResistance.getMagicResistance(target.target)
             local germanText
             local englishText
             if MR then
