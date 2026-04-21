@@ -43,6 +43,57 @@ local spells = {
 
 M.spells = spells
 
+function M.chooseSpellToTeach(user, target)
+
+    local callback = function (dialog)
+        if (not dialog:getSuccess()) then
+            return
+        end
+
+        local index = dialog:getSelectedIndex() + 1
+
+        local skippedspells = 0
+
+        for _, spell in ipairs(spells) do
+            if M.checkIfLearnedSpell(target, spell.name) then
+                skippedspells = skippedspells + 1
+            elseif index == spell.id - skippedspells then
+                M.learnSpell(user, spell.name)
+                user:inform("You taught "..spell.name.." to "..target.name)
+                user:logAdmin(user.name.." has taught the druid weave "..spell.name.." to "..target.name)
+            end
+        end
+    end
+    local dialog = SelectionDialog("Druid weaves", "Select a druid weave to teach", callback)
+
+    local unknownspells = 0
+
+    for _, spell in ipairs(spells) do
+        if M.checkIfLearnedSpell(target, spell.name) then
+            dialog:addOption(0, spell.name)
+            unknownspells = unknownspells + 1
+        end
+    end
+
+    if unknownspells > 0 then
+        user:requestSelectionDialog(dialog)
+    else
+        user:inform(target.name.." already knows all druid weaves.")
+    end
+
+end
+
+function M.teachAllSpells(user, target)
+
+    for _, spell in ipairs(spells) do
+        M.learnSpell(user, spell.name)
+    end
+
+    user:inform(target.name.." now knows all druid weaves.")
+    user:logAdmin(user.name.." has taught all druid weaves to "..target.name)
+
+end
+
 function M.getUnlearnedSpells(user)
 
     local retTable = {}
@@ -155,7 +206,7 @@ function M.skillCriteriaMet(user, spellName)
         return true
     end
 
-    return false, skillLevel, skillName
+    return false, skillLevel, skillName, values.level
 end
 
 function M.checkForDruidWeave(user, spokenWords)

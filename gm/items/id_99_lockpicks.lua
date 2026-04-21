@@ -34,6 +34,7 @@ local persistenceTracker = require("gm.persistenceTracker")
 local activityTracker = require("lte.activity_tracker")
 local housing = require("housing.propertyList")
 local check = require("gm.items.distanceCheckAndLog")
+local spells = require("magic.nature.spells")
 
 local M = {}
 
@@ -1535,14 +1536,50 @@ local function removePortalsRunes(user, target, questID)
 
     if questID == 51 then
         name = "runes"
-    else
+    elseif questID == 216 then
         name = "portals"
+    elseif questID == 931 then
+        name = "druid weaves"
     end
 
     user:inform("Knowledge of "..name.." has been removed from "..target.name)
 
     user:logAdmin(user.name.." has removed knowledge of "..name.." from "..target.name)
 
+end
+
+local function settingsForDruid(user, target)
+    local callback = function (dialog)
+
+        if (not dialog:getSuccess()) then
+            return
+        end
+
+        local index = dialog:getSelectedIndex() + 1
+
+        if index == 1 then
+            spells.chooseSpellToTeach(user, target)
+        elseif index == 2 then
+            spells.teachAllSpells(user, target)
+        elseif index == 3 then
+             removePortalsRunes(user, target, 931)
+        elseif index == 4 then
+
+            target:setQuestProgress(941, 0)
+            target:setQuestProgress(942, 0)
+
+            user:inform("You reset the bi-weekly druid weave learning cooldown for "..target.name)
+            user:logAdmin(user.name.." has reset the bi-weekly druid weave learning cooldown for "..target.name)
+        end
+    end
+    local dialog = SelectionDialog( "Magic", "Select what you want to do", callback)
+
+    dialog:addOption(0, "Teach the character a druid weave")
+    dialog:addOption(0, "Teach the character all druid weaves")
+    dialog:addOption(0, "Remove knowledge of all druid weaves")
+    dialog:addOption(0, "Reset druid weave learning cooldown for the character")
+
+    user:requestSelectionDialog(dialog)
 end
 
 local function settingsForMagic(user, target)
@@ -2100,6 +2137,8 @@ local function magicOptions(user, chosenPlayer)
             settingsForCharReligion(user, chosenPlayer)
         elseif index == 3 then
             settingsForMagic(user, chosenPlayer)
+        elseif index == 4 then
+            settingsForDruid(user, chosenPlayer)
         end
     end
 
@@ -2114,6 +2153,8 @@ local function magicOptions(user, chosenPlayer)
     dialog:addOption(1060, "Religion")
 
     dialog:addOption(323, "Arcane")
+
+    dialog:addOption(Item.corStaff, "Druid")
 
     user:requestSelectionDialog(dialog)
 end
