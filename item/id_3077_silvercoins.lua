@@ -19,6 +19,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local lookat = require("base.lookat")
+local character = require("base.character")
 local goldenGoblet = require("item.id_224_goldengoblet")
 
 local M = {}
@@ -60,7 +61,7 @@ function M.UseItem(User, SourceItem)
                 world:erase(SourceItem, 1)
                 world:gfx(13,User.pos)
                 world:makeSound(31,User.pos)
-                User:increaseAttrib("hitpoints",-1000)
+                character.ChangeHP(User, -1000)
                 world:createItemFromId(606, 1,position(371,477,1), true, 333, nil) --bridge
                 world:createItemFromId(603, 1,position(372,477,1), true, 333, nil) --bridge
                 world:createItemFromId(603, 1,position(373,477,1), true, 333, nil) --bridge
@@ -77,7 +78,7 @@ function M.UseItem(User, SourceItem)
                 world:erase(SourceItem, 1)
                 world:gfx(13,User.pos)
                 world:makeSound(31,User.pos)
-                User:increaseAttrib("hitpoints",-1000)
+                character.ChangeHP(User, -1000)
                 world:createItemFromId(606, 1,position(371,477,1), true, 333, nil) --bridge
                 world:createItemFromId(603, 1,position(372,477,1), true, 333, nil) --bridge
                 world:createItemFromId(603, 1,position(373,477,1), true, 333, nil) --bridge
@@ -88,7 +89,7 @@ function M.UseItem(User, SourceItem)
                 world:erase(SourceItem, 1)
                 world:gfx(13,User.pos)
                 world:makeSound(31,User.pos)
-                User:increaseAttrib("hitpoints",-1000)
+                character.ChangeHP(User, -1000)
             end
         elseif frontItem.id == 2805 and frontItem.pos == position(375, 479, 1) then--if frontItem is quest pillar for entrance to Dragorog Dungeon
             if (world:getItemOnField(position(373, 477, 1)).id ~= 603) then
@@ -96,7 +97,7 @@ function M.UseItem(User, SourceItem)
                 world:erase(SourceItem, 1)
                 world:gfx(13,User.pos)
                 world:makeSound(31,User.pos)
-                User:increaseAttrib("hitpoints",-1000)
+                character.ChangeHP(User, -1000)
                 world:createItemFromId(606, 1,position(371,477,1), true, 333, nil) --bridge
                 world:createItemFromId(603, 1,position(372,477,1), true, 333, nil) --bridge
                 world:createItemFromId(603, 1,position(373,477,1), true, 333, nil) --bridge
@@ -107,7 +108,7 @@ function M.UseItem(User, SourceItem)
                 world:erase(SourceItem, 1)
                 world:gfx(13,User.pos)
                 world:makeSound(31,User.pos)
-                User:increaseAttrib("hitpoints",-1000)
+                character.ChangeHP(User, -1000)
             end
         return;
     end

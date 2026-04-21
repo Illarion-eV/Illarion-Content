@@ -80,7 +80,7 @@ function M.dealMagicDamage(target, damage, usedMovepoints, level, monster)
             chr_reg.stallRegeneration(target, 60 / timeFactor)
         end
     else
-        target:increaseAttrib("hitpoints", -damage)
+        character.ChangeHP(target, -damage)
         if testing.active then
             target:talk(Character.say,"#me takes "..damage.." damage.", "#me takes "..damage.." damage.")
         end
@@ -93,7 +93,7 @@ function M.isValidTarget(char)
         return false
     end
 
-    local hitPoints = char:increaseAttrib("hitpoints", 0)
+    local hitPoints = character.GetHP(char)
     return hitPoints > 0
 end
 

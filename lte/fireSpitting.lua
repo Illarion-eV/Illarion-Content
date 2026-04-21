@@ -15,7 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- fireSpitting, id 60
-
+local character = require("base.character")
 local common = require("base.common")
 local M = {}
 
@@ -47,7 +47,8 @@ function M.callEffect(Effect, User)
                 damage = damage - Stiffness
                 damage = damage - (char:increaseAttrib("constitution",0)*2)
                 common.Limit(damage, 100, 900)
-                char:increaseAttrib("hitpoints",-damage)
+                character.ChangeHP(char, -damage)
+
             end
             world:gfx(9,posi)
             world:gfx(36,posi)

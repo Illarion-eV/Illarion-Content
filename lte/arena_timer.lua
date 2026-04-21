@@ -21,7 +21,7 @@ lte ID = 18
 
 author: Lillian
 ]]
-
+local character = require("base.character")
 local common = require("base.common")
 local arena = require("base.arena")
 local ranklist = require("base.ranklist")
@@ -44,7 +44,7 @@ function M.addEffect(arenaEffect, User)
 end
 
 function M.callEffect(arenaEffect, User)
-    if (User:increaseAttrib("hitpoints",0) == 0) then
+    if character.GetHP(User) == 0 then
         common.InformNLS( User,
         "Ihr habt den Kampf verloren. Ihr bekommt keine Punkte.",
         "You lost the fight. You gained no points.");

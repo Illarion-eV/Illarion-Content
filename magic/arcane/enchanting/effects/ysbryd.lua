@@ -17,12 +17,13 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local shared = require("magic.arcane.enchanting.core.shared")
 local globalvar = require("base.globalvar")
+local character = require("base.character")
 
 local M = {}
 
 function M.liferegen(defender, damage)
 
-    local currentHP = defender:increaseAttrib("hitpoints", 0)
+    local currentHP = character.GetHP(defender)
 
     if currentHP == 10000 then
         return false    -- Already at full HP, lets not waste glyph charges
@@ -34,7 +35,7 @@ function M.liferegen(defender, damage)
 
     if success then
         local increase = damage/5 -- 20% lifesteal on proc, procs at most one out of 4 attacks on average, meaning 5% average lifesteal per attack
-        defender:increaseAttrib("hitpoints", increase)
+        character.ChangeHP(defender, increase)
         world:gfx( globalvar.gfxGreenSplash, defender.pos)
     end
 end

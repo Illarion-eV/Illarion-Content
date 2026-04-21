@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-
+local character = require("base.character")
 local common = require("base.common")
 local shared = require("craft.base.shared")
 local gathering = require("craft.base.gathering")
@@ -35,9 +35,8 @@ local function preventGathering(user, theNest)
             "Als du versuchst, seine Eier zu stehlen, dreht sich Ssigus um und schlägt mit einer Klaue nach dir.",
             "As you attempt to steal his eggs, Ssigus turns and swipes at you with a claw.")
 
-        user:increaseAttrib("hitpoints",-2000)
+        character.ChangeHP(user, -2000)
     end
-
 end
 
 M.skill = "husbandry"

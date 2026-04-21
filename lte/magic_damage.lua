@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local testing = require("base.testing")
-
+local character = require("base.character")
 local M = {}
 -- Long time effect script for damage
 -- this can't kill but hold the player at 1 HP
@@ -37,7 +37,7 @@ function M.callEffect( effect, target )
     end
 
     if damageReductionLeft > 0 then
-        currentHp = target:increaseAttrib("hitpoints", 0)
+        currentHp = character.GetHP(target)
         if currentHp < 1 then -- char is dead
             effect:addValue("damageReduction", 0)
             effect:addValue("damagePerCycle", 0)
@@ -49,7 +49,7 @@ function M.callEffect( effect, target )
             if damageReductionLeft == 0 then
                 effect:addValue("damagePerCycle", 0)
             end
-            target:increaseAttrib("hitpoints", - currentDamage)
+            character.ChangeHP(target, -currentDamage)
             if testing.active then
                 target:talk(Character.say,"#me takes "..currentDamage.." damage.", "#me takes "..currentDamage.." damage.")
             end

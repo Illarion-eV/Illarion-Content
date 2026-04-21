@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
 local customPotion = require("alchemy.base.customPotion")
-
+local character = require("base.character")
 local M = {}
 
 -- UPDATE items SET itm_script='item.id_1165_potionbottle' WHERE itm_id IN (1165);
@@ -38,7 +38,7 @@ function M.UseItem(user, SourceItem)
         user:inform(
             "Die Mischung dieser Tränke verursacht eine Explosion. Du fühlst, wie sich deine Gesundheit verschlechtert.",
             "The combination of these potions causes an explosion. You feel your health declining.")
-        user:increaseAttrib("hitpoints", -1000) -- player loses health
+        character.ChangeHP(user, -1000) -- player loses health
         user:setQuestProgress(533, 0)
     elseif SourceItem.pos == position(610, 183, -3) and (user:getQuestProgress(534) == 1) and (user:getQuestProgress(540) == 1) then -- player adding dark blue potion to the yellow  and has already got the special potion
         user:inform(
@@ -57,7 +57,7 @@ function M.UseItem(user, SourceItem)
         user:inform(
             "Die Mischung dieser Tränke erzeugt eine giftige Wolke die um dein Gesicht wabert und dir ein kränkliches Gefühl gibt. Du spürst, wie deine Gesundheit sich verschlechtert.",
             "The combination of these potions makes a poisonous cloud that wafts over your face, making you feel ill. You feel your health declining.")
-        user:increaseAttrib("hitpoints", -1000) -- player loses health
+        character.ChangeHP(user, -1000) -- player loses health
         user:setQuestProgress(535, 0)
     elseif SourceItem.pos == position(610, 183, -3) and (user:getQuestProgress(536) == 1) then -- player adding dark blue potion to the green
         world:gfx(44, user.pos) -- explosion gfx
@@ -65,7 +65,7 @@ function M.UseItem(user, SourceItem)
         user:inform(
             "Die Mischung dieser Tränke verursacht eine Explosion. Du fühlst, wie sich deine Gesundheit verschlechtert.",
             "The combination of these potions causes an explosion. You feel your health declining.")
-        user:increaseAttrib("hitpoints", -1000) -- player loses health
+        character.ChangeHP(user, -1000) -- player loses health
         user:setQuestProgress(536, 0)
     elseif SourceItem.pos == position(610, 183, -3) and (user:getQuestProgress(537) == 1) then -- player trying to combine two dark blue potions
         user:inform(
@@ -81,7 +81,7 @@ function M.UseItem(user, SourceItem)
         user:inform(
             "Die Mischung dieser Tränke sorgt dafür, dass du dich wunderbar fühlst. Du spürst, wie deine Gesundheit sich verbessert.",
             "The combination of these potions makes you feel wonderful. You feel your health increasing.")
-        user:increaseAttrib("hitpoints", 1000) -- player gains health
+        character.ChangeHP(user, 1000) -- player loses health
         user:setQuestProgress(534, 0)
         user:setQuestProgress(541, 60) -- setting and lte cool down for the healing buff to prevent player abuse, buff only receivable every 5 hours
     end

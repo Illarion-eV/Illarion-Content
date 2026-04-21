@@ -15,7 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
-
+local character = require("base.character")
 -- UPDATE items SET itm_script='item.skull' WHERE itm_id = 2038;
 -- UPDATE items SET itm_script='item.skull' WHERE itm_id = 2039;
 
@@ -193,7 +193,7 @@ function M.UseItem(User, SourceItem)
     elseif SourceItem.pos == position(482, 837, -9) then
         User:inform("Du hast schlecht gewählt und ein Schlag trifft deine Hand. Du fühlst dich schrecklich und wird auf magischem Weg aus dem Dungeon katapultiert.",
                     "You have chosen poorly and feel a jolt hit your hand, making you feel poorly and sending you magically outside the dungeon.")
-        User:increaseAttrib("hitpoints", -(User:increaseAttrib("hitpoints", 0) / 3)) -- lose 1/3 HP
+        character.ChangeHP(User, -(M.GetHP(User) / 3)) -- lose 1/3 HP
         world:gfx(41, User.pos)
         User:warp(position(454, 770, 0)) -- throw character out
         world:gfx(41, User.pos)
@@ -210,7 +210,7 @@ function M.UseItem(User, SourceItem)
         User:inform("Du hast schlecht gewählt und ein Paar Dolche schiessen plötzlich aus den Augenhöhlen des Schädels und landen schmerzhaft in deiner Brust.",
                     "You have chosen poorly and a pair of daggers is suddenly launched from the eye sockets of the skull, landing painfully in your chest.")
         world:gfx(20, SourceItem.pos) -- dagger gfx
-        User:increaseAttrib("hitpoints", -1000) -- tbd: start an lte to deal out two hits instead
+        character.ChangeHP(User, -1000) -- tbd: start an lte to deal out two hits instead
 
     elseif SourceItem.pos == position(479, 834, -9) then
         User:inform("Du hast schlecht gewählt und als die Kiefer auf und zuklappen kannst du gerade noch ausweichen, bevor giftige Pfeile herausschießen. Sie landen harmlos auf den Boden.",
@@ -239,7 +239,7 @@ function M.UseItem(User, SourceItem)
                 if world:isCharacterOnField(position(xx, yy, -9)) then
                     local char = world:getCharacterOnField(position(xx, yy, -9));
                     if char:getType() == Character.player then
-                        char:increaseAttrib("hitpoints", -1000)
+                        character.ChangeHP(char, -1000)
                         char:inform("Du wirst von Knochensplittern getroffen",
                                     "You are hit by bone splinters.")
                     end

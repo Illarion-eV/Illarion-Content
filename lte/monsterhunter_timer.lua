@@ -18,7 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- lte ID = 120
 
 local common = require("base.common")
-
+local character = require("base.character")
 
 local M = {}
 
@@ -33,7 +33,7 @@ function M.addEffect(theEffect, User)
 end
 
 function M.callEffect(theEffect, User)
-    if (User:increaseAttrib("hitpoints",0) == 0) then
+    if character.GetHP(User) == 0 then
         common.InformNLS( User,
         "Ihr habt den Kampf verloren. Das Monster ist entwischt.",
         "You lost the fight. The Monster escaped.")
@@ -54,8 +54,8 @@ function M.callEffect(theEffect, User)
         "Ihr habt zulange gebraucht, um das Monster zu finden, es ist entwischt.",
         "It took you too long to find the monster, it escaped.")
         if isValidChar(huntMonster[User.id]) then
-            if huntMonster[User.id]:increaseAttrib("hitpoints",0) > 0 then
-                huntMonster[User.id]:increaseAttrib("hitpoints",-10000);
+            if character.GetHP(huntMonster[User.id]) > 0 then
+                character.ChangeHP(huntMonster[User.id], -10000)
             end
         end
         huntMonster[User.id] = nil

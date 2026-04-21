@@ -21,6 +21,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local lookat = require("base.lookat")
 local scheduledFunction = require("scheduled.scheduledFunction")
+local character = require("base.character")
 
 local M = {}
 
@@ -42,7 +43,7 @@ function M.fillingFromCauldron(user, ltstate)
         egon:talk(Character.say, "#me kreischt laut auf und wirft in einer sehr schnellen Bewegungen einen schweren Stein in Richtung Kessel.", "#me cries out very loudly and throws a heavy stone into the direction of the cauldron.")
         user:talk(Character.say, "#me wird von einem Stein am Kopf getroffen.", "#me's head is hit by a stone.")
         world:gfx(13, user.pos)
-        user:increaseAttrib("hitpoints", -3000)
+        character.ChangeHP(user, -3000)
     end
 end
 

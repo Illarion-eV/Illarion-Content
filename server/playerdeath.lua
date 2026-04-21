@@ -19,7 +19,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local resurrected = require("lte.resurrected")
-
+local character = require("base.character")
 local M = {}
 
 local function showDeathDialog(deadPlayer)
@@ -39,14 +39,14 @@ function M.playerDeath(deadPlayer)
 
     -- Admins do not die.
     if deadPlayer:isAdmin() then
-        deadPlayer:increaseAttrib("hitpoints", 10000) -- Respawn
+        character.ChangeHP(deadPlayer, 10000) -- Respawn
         common.HighInformNLS(deadPlayer, "[Wiederbelebung] Admins sterben nicht.", "[Respawn] Admins don't die.")
         return --bailing out!
     end
 
     -- Death in the prison mine; no kill taxi!
     if common.isInPrison(deadPlayer.pos) then
-        deadPlayer:increaseAttrib("hitpoints", 10000) -- Respawn
+        character.ChangeHP(deadPlayer, 10000) -- Respawn
         world:gfx(53, deadPlayer.pos)
         common.HighInformNLS(deadPlayer, "[Wiederbelebung] In der Gefängnismine bist du 'unsterblich'. Weiterarbeiten!", "[Respawn] In the prison mine, you are 'immortal'. Work on!")
         return --bailing out!

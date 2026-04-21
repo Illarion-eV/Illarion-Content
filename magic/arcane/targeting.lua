@@ -19,7 +19,7 @@ local runes = require("magic.arcane.runes")
 local range = require("magic.arcane.castingRange")
 local magic = require("base.magic")
 local effectScaling = require("magic.arcane.effectScaling")
-
+local character = require("base.character")
 local M = {}
 
 M.playerTargets = {}
@@ -501,9 +501,9 @@ end
 
 local function isWeaker(finalTarget, target)
 
-    local targetHealth = target:increaseAttrib("hitpoints", 0)
+    local targetHealth = character.GetHP(target)
 
-    local finalTargetHealth = finalTarget:increaseAttrib("hitpoints", 0)
+    local finalTargetHealth = character.GetHP(finalTarget)
 
     if targetHealth < finalTargetHealth then
         return true

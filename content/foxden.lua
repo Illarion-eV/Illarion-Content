@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local scheduledFunction = require("scheduled.scheduledFunction")
+local character = require("base.character")
 
 local M = {}
 
@@ -240,7 +241,7 @@ function M.foxAbortRoute(fox)
         fox:talk(Character.say, "#me versteckt sich wieder.",
             "#me hides again.")
         fox:warp(position(1,1,0)) -- hack to hide loot drop
-        fox:increaseAttrib("hitpoints", -10000)
+        character.ChangeHP(fox, -10000)
         feededFoxes = feededFoxes - 1
     end
 end

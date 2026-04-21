@@ -21,7 +21,7 @@ local treasure = require("item.base.treasure")
 local arena = require("base.arena")
 local mugWithLid = require("item.id_310_mug_with_lid")
 local magicPuzzle = require("item.magicSphere")
-
+local character = require("base.character")
 local M = {}
 
 local killers = {}
@@ -74,10 +74,10 @@ local function performRandomTalk(monster, msgs)
 end
 
 local function performRegeneration(monster)
-    if (math.random() < 0.3) and (monster:increaseAttrib("hitpoints", 0) < 10000) then
+    if (math.random() < 0.3) and character.GetHP(monster) < 10000 then
         local con = monster:increaseAttrib("constitution", 0)
         local healAmount = 2 * con
-        monster:increaseAttrib("hitpoints", healAmount)
+        character.ChangeHP(monster, healAmount)
     end
 end
 

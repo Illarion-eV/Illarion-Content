@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local common = require("base.common")
-
+local character = require("base.character")
 local M = {}
 
 local function HitVictims(Posi,Hitpoints,CenterPos)
@@ -92,7 +92,8 @@ local function HitVictims(Posi,Hitpoints,CenterPos)
         common.InformNLS(explosionVictim,
             "Getroffen von der Detonation wirst du davon geschleudert.",
             "Hit by the detonation, you get thrown away.")
-        explosionVictim:increaseAttrib("hitpoints",-Hitpoints)
+        character.ChangeHP(explosionVictim, -Hitpoints)
+
     end
 end
 

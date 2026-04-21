@@ -30,7 +30,7 @@ local magic = require("base.magic")
 local testing = require("base.testing")
 local shared = require("craft.base.shared")
 local effectScaling = require("magic.arcane.effectScaling")
-
+local character = require("base.character")
 local M = {}
 
 local function statReqMet(user, spell)
@@ -144,7 +144,7 @@ local function checksPassed(user, spell, element, thePosition, startedInAttackMo
 end
 
 local function interrupted(player)
-    local health = player:increaseAttrib("hitpoints", 0)
+    local health = character.GetHP(player)
     local max_chance = 25 --max percentage chance of interrupting a cast
     local healthRoof = 7500 -- chance to interrupt begin at 7500 health
     local healthFloor = 2500 -- chance to interrupt reaches max_chance at 2500 health

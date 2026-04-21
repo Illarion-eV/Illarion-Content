@@ -17,12 +17,12 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local shared = require("magic.arcane.enchanting.core.shared")
 local globalvar = require("base.globalvar")
-
+local character = require("base.character")
 local M = {}
 
 function M.lifesteal(user, damage)
 
-    local currentHP = user:increaseAttrib("hitpoints", 0)
+    local currentHP = character.GetHP(user)
 
     if currentHP == 10000 then
         return false    -- Already at full HP, lets not waste glyph charges
@@ -34,7 +34,7 @@ function M.lifesteal(user, damage)
 
     if success then
         local increase = damage/5 -- 20% lifesteal on proc, procs at most one out of 4 attacks on average, meaning 5% average lifesteal per attack
-        user:increaseAttrib("hitpoints", increase) -- The increase is not very noticable when evenly matched, but in the end you will have 5% more health than an evenly matched opponent when using this, and when combined with the defensive one it is 10%
+        character.ChangeHP(user, increase) -- The increase is not very noticable when evenly matched, but in the end you will have 5% more health than an evenly matched opponent when using this, and when combined with the defensive one it is 10%
         world:gfx(globalvar.gfxGreenSplash, user.pos)
     end
 end

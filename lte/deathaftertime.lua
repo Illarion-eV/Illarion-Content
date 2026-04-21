@@ -17,16 +17,16 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- DeathAfterTime, id 36
 -- to kill a monster (or a char) after some time
 -- see base.character.DeathAfterTime(Character,deathAfter,deathGfx,deathSound)
-
+local character = require("base.character")
 local transformation_dog = require("alchemy.teaching.transformation_dog")
 local M = {}
 
-function M.addEffect(Effect, Character)
+function M.addEffect(Effect, target)
 
 end
 
-function M.callEffect(Effect, Character)
-  local posOfVic = Character.pos
+function M.callEffect(Effect, target)
+  local posOfVic = target.pos
 
   local findDeathGfx, deathGfx = Effect:findValue("deathGfx")
   if findDeathGfx then -- in case we defined a Gfx shown on his death
@@ -58,11 +58,11 @@ function M.callEffect(Effect, Character)
     -- Dog Transformation Quest check
     local find, value = Effect:findValue("transfomationDog")
     if find and value then
-        transformation_dog.dropDonfblade(Character)
+        transformation_dog.dropDonfblade(target)
     end
     -- Dog Transformation Quest check end
 
-   Character:increaseAttrib("hitpoints",-10000) -- die!
+   character.ChangeHP(target, -10000) -- die!
    return false
 -- callEffect is only needed once, no return true necessary
 end

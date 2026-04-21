@@ -18,7 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE items SET itm_script='item.id_12_campfire' where itm_id=12;
 
 local common = require("base.common")
-
+local character = require("base.character")
 local roasting = require("craft.final.roasting")
 
 local M = {}
@@ -38,8 +38,8 @@ function M.CharacterOnField(User)
       "Du fühlst die aufsteigende Hitze des Feuers.",
       "You feel the heat of the fire." );
 
-    if not (User:getQuestProgress(2) > 0) and not (User:increaseAttrib("hitpoints",0) < 2000) then
-        User:increaseAttrib("hitpoints",-math.random(200,400));
+    if not (User:getQuestProgress(2) > 0) and not (character.GetHP(User) < 2000) then
+        character.ChangeHP(User, -math.random(200,400))
     end
 end
 

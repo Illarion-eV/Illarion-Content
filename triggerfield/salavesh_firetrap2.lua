@@ -15,7 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
-
+local character = require("base.character")
 local M = {}
 
 --This script shoots a fireball down the hall in the "Errant Crusade" quest map
@@ -35,10 +35,10 @@ function M.MoveToField(User)
         if world:isCharacterOnField(position(i, ycord, -3)) then --there is someone!
             local target = world:getCharacterOnField(position(i, ycord, -3)) --and who is it?
 
-            if (target:increaseAttrib("hitpoints", 0) > 0) then --ghosts do not get hit
+            if (character.GetHP(target) > 0) then --ghosts do not get hit
                 world:gfx(9, position(i, ycord, -3)) --Fireball!
                 world:makeSound(5, position(i, ycord, -3)) --BOOM!
-                target:increaseAttrib("hitpoints", math.random(-1000, -500)) --damaging the target
+                character.ChangeHP(target, math.random(-1000, -500)) --damaging the target
                 return --got one, bailing out.
             else --it's a ghost
                 world:gfx(10, position(i, ycord, -3)) --Smokecloud!

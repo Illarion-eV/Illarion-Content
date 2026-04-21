@@ -66,7 +66,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (884,594,0,'triggerfield.wonderland_612');
 -- INSERT INTO triggerfields VALUES (884,593,0,'triggerfield.wonderland_612');
 -- INSERT INTO triggerfields VALUES (885,593,0,'triggerfield.wonderland_612');
-
+local character = require("base.character")
 local M = {}
 
 function M.MoveToField(char)
@@ -207,8 +207,8 @@ function M.MoveToField(char)
             char:inform("Du hörst ein Lachen und eine krächzende Stimme sagen: \"HAHA! Du entkommst mir nicht!\" Eine andere Stimme ruft dir erneut aus dem Nordwesten zu: \"Gib nicht auf! Du kannst es schaffen, aber geh weg von mir.\"",
                         "You hear laughter and a croaking voice, saying: \"HAHA! You cannot escape!\"Another voice replies again from the northwest: \"Do not give in! You can make it but get away from me.\"")
 
-            if (char:increaseAttrib("hitpoints", 0) > 2000) then --punishment for wrong turn
-                char:increaseAttrib("hitpoints", -math.random(100, 500))
+            if (character.GetHP(char) > 2000) then --punishment for wrong turn
+                character.ChangeHP(char, -math.random(100, 500))
                 world:makeSound(3, char.pos)
             end
         end

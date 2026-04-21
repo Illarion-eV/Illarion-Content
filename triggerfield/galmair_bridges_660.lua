@@ -96,7 +96,7 @@ function M.triggerAmbush(char, monsterPositions)
     if (char:getSkill(Character.punctureWeapons)>=40) or (char:getSkill(Character.distanceWeapons)>=40) or (char:getSkill(Character.slashingWeapons)>=40) or (char:getSkill(Character.concussionWeapons)>=40) or (char:getSkill(Character.wrestling)>=40) then --check if we have a fighter
         fighter = true
     end
-    if math.random(1,100)< chance  and char:increaseAttrib("hitpoints",0)>8000 then --Chance of 1% and Hitpoints above 8000
+    if math.random(1,100)< chance  and character.GetHP(char)>8000 then --Chance of 1% and Hitpoints above 8000
         if factions.getMembership(char) ~= 3 and (char:getSkill(Character.parry)<=30) or  factions.getMembership(char) ~= 3 and not fighter  then --Newbie and non-fighter protection for non-Galmairian
             return false
         end

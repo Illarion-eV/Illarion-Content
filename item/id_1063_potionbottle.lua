@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local M = {}
+local character = require("base.character")
 local customPotion = require("alchemy.base.customPotion")
 -- UPDATE items SET itm_script='item.id_1063_potionbottle' WHERE itm_id IN (1063);
 
@@ -40,7 +41,7 @@ function M.UseItem(user, SourceItem)
         user:inform(
             "Die Mischung dieser Tränke verursacht eine Explosion. Du fühlst, wie sich deine Gesundheit verschlechtert.",
             "The combination of these potions causes an explosion. You feel your health declining.")
-        user:increaseAttrib("hitpoints", -1000) -- player loses health
+        character.ChangeHP(user, -1000) -- player loses health
         user:setQuestProgress(534, 0)
     elseif SourceItem.pos == position(611, 185, -3) and (user:getQuestProgress(535) == 1) then -- player adding light green potion to the violet
         user:inform(
@@ -52,7 +53,7 @@ function M.UseItem(user, SourceItem)
         user:inform(
             "Die Mischung dieser Tränke erzeugt eine giftige Wolke die um dein Gesicht wabert und dir ein kränkliches Gefühl gibt. Du spürst, wie deine Gesundheit sich verschlechtert.",
             "The combination of these potions makes a poisonous cloud that wafts over your face, making you feel ill. You feel your health declining.")
-        user:increaseAttrib("hitpoints", -1000) -- player loses health
+        character.ChangeHP(user, -1000) -- player loses health
         user:setQuestProgress(536, 0)
      elseif SourceItem.pos == position(611, 185, -3) and (user:getQuestProgress(537) == 1) and (user:getQuestProgress(541) > 0) then -- player adding lt green potion to the dark blue but already has a heath buff
         user:inform(
@@ -64,7 +65,7 @@ function M.UseItem(user, SourceItem)
         user:inform(
             "Die Mischung dieser Tränke sorgt dafür, dass du dich wunderbar fühlst. Du spürst, wie deine Gesundheit sich verbessert.",
             "The combination of these potions makes you feel wonderful. You feel your health increasing.")
-        user:increaseAttrib("hitpoints", 1000) -- player gains health
+        character.ChangeHP(user, 1000) -- player gains health
         user:setQuestProgress(537, 0)
         user:setQuestProgress(541, 60) -- setting and lte cool down for the healing buff to prevent player abuse, buff only receivable every 5 hours
     elseif SourceItem.pos == position(611, 185, -3) and (user:getQuestProgress(538) == 1) then -- player trying to combine two light green potions

@@ -129,7 +129,11 @@ local function causeDamage(User, Item, DamagedArea, DamagedAttrib, ShieldAttribs
             end
 
             -- deal damage
-            Person:increaseAttrib( DamagedAttrib, -Schaden );
+            if DamagedAttrib == "hitpoints" then
+                character.ChangeHP(Person, -Schaden)
+            else
+                Person:increaseAttrib( DamagedAttrib, -Schaden );
+            end
         end
         if ( gfxid ~= 0 ) then
             world:gfx( gfxid, posi );
@@ -417,8 +421,8 @@ function M.weakenRedSkeletons(user, item)
 
                     local theField = world:getField(hitPosition)
                     local originalItemAmountOnField = theField:countItems()
-                    local oldHP = char:increaseAttrib("hitpoints", 0)
-                    char:increaseAttrib("hitpoints", -10000)
+                    local oldHP = character.GetHP(char)
+                    character.ChangeHP(char, -10000)
                     local newItemAmountOnField = theField:countItems()
                     local numberOfItemsToDelete = newItemAmountOnField - originalItemAmountOnField
 
@@ -430,7 +434,7 @@ function M.weakenRedSkeletons(user, item)
                     end
 
                     local transformedSkeleton = world:createMonster(TRANSFORMATION_MAPPING[originalMonsterId], hitPosition, 0)
-                    transformedSkeleton:setAttrib("hitpoints", oldHP)
+                    character.ChangeHP(transformedSkeleton, oldHP)
                     hooks.setNoDrop(transformedSkeleton)
                     hooks.registerOnDeath(transformedSkeleton, function(monster)
                                                         for _, deletedItem in pairs(deletedItems) do

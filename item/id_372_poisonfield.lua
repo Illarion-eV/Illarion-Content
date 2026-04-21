@@ -93,7 +93,7 @@ function M.CharacterOnField(user)
     end
 
     -- dont harm dead chars anymore
-    if (user:increaseAttrib("hitpoints", 0) == 0) then
+    if character.GetHP(user) == 0 then
         return
     end
 

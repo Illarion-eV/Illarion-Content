@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- Long Time Effect Script - Character Regeneration
 -- by Nitram
-
+local character = require("base.character")
 local common = require("base.common")
 local factions = require("base.factions")
 local M = {}
@@ -53,7 +53,7 @@ function M.callEffect( Effect, Char ) -- Effect called
 if Char:idleTime() < 300 then -- Absolutely no regeneration effect if the player is afk for more than five minutes
 
     -----------------------READ VALUES------------------------------------
-    local Hitpoints   = Char:increaseAttrib("hitpoints",0)   -- Hitpoints einlesen    ( 0 - 10000 )
+    local Hitpoints   = character.GetHP(Char)   -- Hitpoints einlesen    ( 0 - 10000 )
     local Manapoints  = Char:increaseAttrib("mana",0)        -- Manapoints einlesen   ( 0 - 10000 )
     local Foodvalue   = Char:increaseAttrib("foodlevel",0)   -- Foodvalue einlesen    ( 0 - 60000 )
     local Poisonvalue = Char:getPoisonValue()                -- Poisonvalue einlesen  ( 0 - 10000 )
@@ -286,8 +286,9 @@ if Char:idleTime() < 300 then -- Absolutely no regeneration effect if the player
     --------------ÄNDERUNGEN PRÜFEN UND DURCHFÜHREN ANFANG--------------------
     if ( getWounds( Char, Effect ) == 0 ) then
 
-        ChangeAttrib( Char, "hitpoints", Hitpoints )
-
+        if ( character.GetHP(Char) ~= Hitpoints ) then
+            character.ChangeHP(Char, -(character.GetHP(Char)-Hitpoints))
+        end
     end
 
     ChangeAttrib( Char, "mana", Manapoints )

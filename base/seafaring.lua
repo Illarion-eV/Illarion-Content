@@ -252,7 +252,7 @@ local function killAllPirates()
     for _, monster in ipairs(monsters) do
         monsterHooks.setForcedDeath(monster)
         monsterHooks.setNoDrop(monster)
-        monster:increaseAttrib("hitpoints", -10000)
+        character.ChangeHP(monster, -10000)
         monsterHooks.cleanHooks(monster)
     end
 end

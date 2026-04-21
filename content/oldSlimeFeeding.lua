@@ -19,6 +19,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local scheduledFunction = require("scheduled.scheduledFunction")
 local lookat = require("base.lookat")
+local character = require("base.character")
 
 local M = {}
 
@@ -210,7 +211,7 @@ function M.oldSlimeAbortRoute(oldSlime)
 
     elseif oldSlime.pos == caveEntrance then
         oldSlime:talk(Character.say, "#me fließt in die Höhlennische zurück.", "#me flows back into the small hole.")
-        oldSlime:increaseAttrib("hitpoints", -10000)
+        character.ChangeHP(oldSlime, -10000)
         feedingInProgress = false
     end
 

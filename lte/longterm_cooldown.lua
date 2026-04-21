@@ -17,7 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Longterm Cooldown
 -- by Estralis
 -- EffectID = 33
-
+local character = require("base.character")
 local common = require("base.common")
 
 local M = {}
@@ -471,7 +471,7 @@ function M.callEffect( Effect, Char ) -- Effect is called
         common.InformNLS(Char,"[Quest Status] Du hast darin versagt, das Schwert an dich zu nehmen und dem Zzarn'K'Ska Zelphias beizutreten. Du bezahlst mit deinem Leben.","[Quest status] You failed to take the sword and join the Zzarn'K'Ska of Zelphia, you pay with your life.") -- Feedback!
         world:gfx(2,Char.pos)
         world:makeSound(5,Char.pos)
-        Char:increaseAttrib("hitpoints",-10000)
+        character.ChangeHP(Char, -10000)
         Char:setQuestProgress(503,3)
 
     end

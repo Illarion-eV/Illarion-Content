@@ -20,7 +20,7 @@ local testing = require("base.testing")
 local magic = require("base.magic")
 local runes = require("magic.arcane.runes")
 local magicDamage = require("magic.arcane.magicDamage")
-
+local character = require("base.character")
 -- Long time effect (111)
 local M = {}
 
@@ -108,14 +108,12 @@ function M.causeDamage(user, quality, penetration, wandGemBonus, effect, fieldIt
             damageDealt = 10000
         end
 
-        user:increaseAttrib("hitpoints", -damageDealt)
+        character.ChangeHP(user, -damageDealt)
         if testing.active then
             user:talk(Character.say,"#me takes "..damageDealt.." damage.", "#me takes "..damageDealt.." damage.")
         end
     end
 end
-
-
 
 function M.addEffect(theEffect, User)
 

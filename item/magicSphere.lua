@@ -24,6 +24,7 @@ local monsterHooks = require("monster.base.hooks")
 local characterLoad = require("triggerfield.zelphiasStream")
 local hints = require("magic.arcane.runeHintsBook")
 local bottles = require("item.bottles")
+local character = require("base.character")
 
 local runeHints = hints.runeHintsBookTexts
 
@@ -596,7 +597,7 @@ local function savPuzzleSolved()
     for _, monster in pairs(monsters) do
         if monster.name == "Small Spider" then
             monsterHooks.setForcedDeath(monster)
-            monster:increaseAttrib("hitpoints", -10000)
+            character.ChangeHP(monster, -10000)
             monsterHooks.cleanHooks(monster)
             return true
         end

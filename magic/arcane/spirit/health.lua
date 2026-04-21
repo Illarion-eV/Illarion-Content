@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local runes = require("magic.arcane.runes")
-
+local character = require("base.character")
 local M = {}
 
 M.healthTexts = {
@@ -39,7 +39,7 @@ function M.getHealthText(information, spell)
         local player = target.type == "player"
         local creature = target.type == "creature"
         if player or creature then
-            local health = target.target:increaseAttrib("hitpoints", 0)
+            local health = character.GetHP(target.target)
             local englishText
             local germanText
             for _, heal in ipairs(M.healthTexts) do

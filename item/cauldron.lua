@@ -18,7 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE items SET itm_script='item.cauldron' WHERE itm_id IN (1008,1009,1010,1011,1012,1013,1014,1015,1016,1017,1018);
 
 local common = require("base.common")
-
+local character = require("base.character")
 local playerInventedPotions = require("alchemy.teaching.playerInventedPotions")
 
 local M = {}
@@ -71,7 +71,7 @@ function M.UseItem(user, SourceItem)
             "When the contents of the cauldron hit your bottle the potion bubbles then causes an explosion. Glass shards fly causing you harm.")
         world:gfx(44, user.pos) -- explosion gfx
         world:makeSound(5, user.pos) --a loud boom
-        user:increaseAttrib("hitpoints", -1000) -- player loses health
+        character.ChangeHP(user, -1000)
         return
     elseif (user:getQuestProgress(539) == 3) and (user:getQuestProgress(542) >= 0) and SourceItem.pos == position(598, 175, -3) then -- player has a bottle
         user:inform(

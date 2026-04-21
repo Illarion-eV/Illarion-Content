@@ -18,7 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- by Falk
 -- complete new version by Merung
 local common = require("base.common")
-
+local character = require("base.character")
 local M = {}
 
 -- INSERT INTO longtimeeffects VALUES (166, 'alchemy_secattribs', 'alchemy.lte.id_166_secattribs');
@@ -40,55 +40,55 @@ function M.callEffect(Effect,User)
     local findFoodlevelDe,foodlevelDecrease = Effect:findValue("foodlevelDecrease")
     local findPoisonvalueDe,poisonvalueDecrease = Effect:findValue("poisonvalueDecrease")
 
-    if User:increaseAttrib("hitpoints",0) == 0 then
+    if character.GetHP(User) == 0 then
         return false
     end
 
     if findCounter then
-       if counterPink > 0 then
+        if counterPink > 0 then
 
-           if findHitpointsIn then
-              User:increaseAttrib("hitpoints",hitpointsIncrease)
-           end
-           if findManaIn then
-              User:increaseAttrib("mana",manaIncrease)
-           end
-           if findFoodlevelIn then
-              User:increaseAttrib("foodlevel",foodlevelIncrease)
-           end
-           if findPoisonvalueIn then
-              poisonvalueIncrease = common.Limit( (User:getPoisonValue() - poisonvalueIncrease) , 0, 10000 )
-              User:setPoisonValue( poisonvalueIncrease )
-           end
+            if findHitpointsIn then
+                character.ChangeHP(User, hitpointsIncrease)
+            end
+            if findManaIn then
+                User:increaseAttrib("mana",manaIncrease)
+            end
+            if findFoodlevelIn then
+                User:increaseAttrib("foodlevel",foodlevelIncrease)
+            end
+            if findPoisonvalueIn then
+                poisonvalueIncrease = common.Limit( (User:getPoisonValue() - poisonvalueIncrease) , 0, 10000 )
+                User:setPoisonValue( poisonvalueIncrease )
+            end
 
-           if findHitpointsDe then
-              User:increaseAttrib("hitpoints",-hitpointsDecrease)
-           end
-           if findManaDe then
-              User:increaseAttrib("mana",-manaDecrease)
-           end
-           if findFoodlevelDe then
-              User:increaseAttrib("foodlevel",-foodlevelDecrease)
-           end
-           if findPoisonvalueDe then
-              poisonvalueDecrease = common.Limit( (User:getPoisonValue() + poisonvalueDecrease) , 0, 10000 )
-              User:setPoisonValue( poisonvalueDecrease )
-           end
+            if findHitpointsDe then
+                character.ChangeHP(User, -hitpointsDecrease)
+            end
+            if findManaDe then
+                User:increaseAttrib("mana",-manaDecrease)
+            end
+            if findFoodlevelDe then
+                User:increaseAttrib("foodlevel",-foodlevelDecrease)
+            end
+            if findPoisonvalueDe then
+                poisonvalueDecrease = common.Limit( (User:getPoisonValue() + poisonvalueDecrease) , 0, 10000 )
+                User:setPoisonValue( poisonvalueDecrease )
+            end
 
-           if findCounter then
-              counterPink = counterPink - 1
-              Effect:addValue("counterPink",counterPink)
-           end
+            if findCounter then
+                counterPink = counterPink - 1
+                Effect:addValue("counterPink",counterPink)
+            end
 
-           if counterPink <= 0 then
+            if counterPink <= 0 then
                 world:gfx(45,User.pos)
                 common.InformNLS(User,"Die Wirkungsphase des Heiltranks endet.","The effect phase of the healing potion ends.")
                 return false
-           end
-       end
-   end
-  Effect.nextCalled = 70
-  return true
+            end
+        end
+    end
+    Effect.nextCalled = 70
+    return true
 end
 
 function M.loadEffect(Effect, User)

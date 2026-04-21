@@ -15,7 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
-
+local character = require("base.character")
 local M = {}
 
 --This script handles scripted events on "Errant Crusade" quest map
@@ -65,7 +65,7 @@ function M.MoveToField(User)
             --The actual event
             world:gfx(9,User.pos) --Fireball!
             world:makeSound(5,User.pos) --BOOM!
-            User:increaseAttrib("hitpoints",math.random(-4999,-2499)) --damaging the User
+            character.ChangeHP(User, math.random(-4999,-2499)) --damaging the User
             world:createItemFromId(359,1,User.pos,true,599,nil) --a flame
             world:createItemFromId(359,1,position(User.pos.x+1,User.pos.y,User.pos.z),true,599,nil) --another flame
             world:createItemFromId(359,1,position(User.pos.x-1,User.pos.y,User.pos.z),true,599,nil) --yet another
@@ -112,7 +112,7 @@ function M.MoveToField(User)
 
             world:gfx(3,User.pos) --Iceball!
             world:makeSound(5,User.pos) --BOOM!
-            User:increaseAttrib("hitpoints",math.random(-2499,-1249)) --damaging the User
+            character.ChangeHP(User, math.random(-2499,-1249)) --damaging the User
             User.movepoints=User.movepoints-50 --Paralysing the user
 
             world:gfx(41,position(756,391,-3))

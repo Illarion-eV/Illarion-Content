@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO triggerfields VALUES (451,543,0,'triggerfield.bjolmur');
 -- INSERT INTO triggerfields VALUES (451,544,1,'triggerfield.bjolmur');
-
+local character = require("base.character")
 local common = require("base.common")
 
 local M = {}
@@ -80,8 +80,8 @@ local function PayGemsToMeetHer(char)
                 WrapPlayerUp(char,requiredGems)
             else
                 char:inform("Du hörst etwas flüstern: 'Willst du mich provozieren? Bringe, was ich fordere oder es wird dein Ende sein!'", "You hear a whisper: 'Do you want to provoke me? Bring what I demand or it will be your end!'")
-                if (char:increaseAttrib("hitpoints",0)>5000) then
-                    char:increaseAttrib("hitpoints", -5000)
+                if (character.GetHP(char)>5000) then
+                    character.ChangeHP(char, -5000)
                     world:makeSound(3,char.pos);
                 end
             end

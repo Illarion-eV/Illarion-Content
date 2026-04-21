@@ -18,7 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local M = {}
 local hooks = require("monster.base.hooks")
-
+local character = require("base.character")
 function M.addEffect(theEffect, weakendLich)
 
 end
@@ -26,7 +26,7 @@ end
 function M.callEffect(theEffect, weakendLich)
 
     hooks.setNoDrop(weakendLich)
-    weakendLich:increaseAttrib("hitpoints",-10000)
+    character.ChangeHP(weakendLich, -10000)
     local strongLich = world:createMonster(205,weakendLich.pos,-20)
     world:gfx(51,strongLich.pos)
     strongLich:talk(Character.say,"#me wird von einer unheiligen Flamme umhüllt und seine Knochen beginnen rot zu leuchten. 'Ich bin wieder da, närrische Sterbliche!', schreit er.","#me is enwrapped by an unholy flame and his bones start to glow red.'I am back, foolish mortals!', he cries.")

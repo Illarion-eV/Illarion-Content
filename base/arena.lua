@@ -29,7 +29,7 @@ author: Lillian
 ]]
 local money = require("base.money")
 local common = require("base.common")
-
+local character = require("base.character")
 local M = {}
 
 --[[
@@ -167,7 +167,7 @@ function M.checkMonster(User)
 
     for i,monster in pairs(arenaMonster[User.id]) do
         if isValidChar(monster) then
-            if monster:increaseAttrib("hitpoints",0) > 0 then
+            if character.GetHP(monster) > 0 then
                 return false
             end
         end
@@ -183,8 +183,8 @@ function M.killMonster(User)
 
     for i,monster in pairs(arenaMonster[User.id]) do
         if isValidChar(monster) then
-            if monster:increaseAttrib("hitpoints",0) > 0 then
-                monster:increaseAttrib("hitpoints",-10000)
+            if character.GetHP(monster) > 0 then
+                character.ChangeHP(monster, -10000)
             end
         end
     end

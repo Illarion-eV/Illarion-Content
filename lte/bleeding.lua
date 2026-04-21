@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local M = {}
 -- Bleeding Mainscript
-
+local character = require("base.character")
 local lowerAttribs = {"agility","stength","constitution","perception","dexterity" }
 
 local function dropTheBlood( posi )
@@ -103,11 +103,12 @@ function M.callEffect( BleedingEffect, Victim )
             end
             return true
         else
-            local HP = Victim:increaseAttrib("hitpoints",0)
+
+            local HP = character.GetHP(Victim)
             local changeHP = -math.floor((0.0000086372*HP*HP-0.177*HP+1158.1836))
             Victim:inform("HP werden geändert um: "..changeHP )
             if( HP+changeHP < 0 ) then
-                Victim:increaseAttrib("hitpoints",-HP)
+                character.ChangeHP(Victim, -HP)
                 BleedingEffect:addValue( "wounds", 0 )
                 dropTheBlood( Victim.pos )
                 dropTheBlood( position(Victim.pos.x-1,Victim.pos.y-1,Victim.pos.z) )
@@ -120,7 +121,7 @@ function M.callEffect( BleedingEffect, Victim )
                 dropTheBlood( position(Victim.pos.x+1,Victim.pos.y+1,Victim.pos.z) )
                 return false
             else
-                Victim:increaseAttrib("hitpoints", changeHP )
+                character.ChangeHP(Victim, changeHP)
                 return true
             end
         end

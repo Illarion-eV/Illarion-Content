@@ -37,6 +37,7 @@ local common = require("base.common")
 local hair = require("base.hair")
 local money = require("base.money")
 local globalvar = require("base.globalvar")
+local character = require("base.character")
 
 local DYESHORT = 1
 local DYELONG = 0
@@ -247,8 +248,9 @@ local function payToLate(user,npc)
         user:setHairColour(colour(30, 100, 170))
         user:setQuestProgress(31,colorQuestDataFromRgb(30, 100, 170))
         user:setQuestProgress(226,currentTime + timeWashOutShort)
-        local currentHealth = user:increaseAttrib("hitpoints", 0) - 1
-        user:increaseAttrib("hitpoints", - currentHealth)
+        local currentHealth = character.GetHP(user) - 1
+        character.ChangeHP(user, -currentHealth)
+
         user:forceWarp(position(716,314,0))
         common.TalkNLS(npc,Character.say, "#me färbt und schneidet deine Haare bevor sie mit dem Rasiermesser deine Gurgel durchschneidet. 'Man betrügt mich nicht!'",
                                           "#me dyes and cuts your hair before she cuts your throat with her razor. 'I don't like a cheat!'")

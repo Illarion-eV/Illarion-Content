@@ -20,7 +20,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local areas = require("content.areas")
 local tutorial = require("content.tutorial")
-
+local character = require("base.character")
 local M = {}
 
 function M.addEffect(inlineTutorial, Character)
@@ -34,7 +34,7 @@ function M.callEffect(inlineTutorial,Character)
 
     if Character:getQuestProgress(325) == 1 then --Accepted tutorial
         --Low on health
-        if Character:increaseAttrib("hitpoints",0) < 2000 and Character:getQuestProgress(326) == 0 then
+        if character.GetHP(Character) < 2000 and Character:getQuestProgress(326) == 0 then
             Character:inform(tutorial.getTutorialInformDE("hitpoints"),tutorial.getTutorialInformEN("hitpoints"))
             Character:setQuestProgress(326,1)
         end

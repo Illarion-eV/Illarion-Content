@@ -20,7 +20,7 @@ local gems = require("base.gems")
 local pyr = require("magic.arcane.enchanting.effects.pyr")
 local ilyn = require("magic.arcane.enchanting.effects.ilyn")
 local magic = require("base.magic")
-
+local character = require("base.character")
 local M = {}
 
 local alchemyTool = Item.mortar
@@ -804,7 +804,7 @@ function M.CauldronDestruction(User,cauldron,effectId)
         )
         local myVictims = world:getPlayersInRangeOf(cauldron.pos,1) -- we hurt everyone around the cauldron!
         for i=1,#myVictims do
-            myVictims[i]:increaseAttrib("hitpoints",-3000)
+            character.ChangeHP(myVictims[i], -3000)
             common.HighInformNLS(myVictims[i], "Du wirst von einer Explosion getroffen.", "You are hit by an explosion.")
         end
     end

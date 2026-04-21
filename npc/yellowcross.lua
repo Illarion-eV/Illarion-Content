@@ -15,7 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- Basiscript für die Kreuze
-
+local character = require("base.character")
 local common = require("base.common")
 local M = {}
 
@@ -109,8 +109,8 @@ function M.nextCycle(thisNPC)
 
     if (#players>0) then -- Spieler gefunden
         for i, player in pairs(players) do
-            if (player:increaseAttrib("hitpoints",0) == 0) then -- Der Char ist tot, beleben wir ihn
-                player:increaseAttrib("hitpoints",1); -- Da lebt er wieder
+            if (character.GetHP(player) == 0) then -- Der Char ist tot, beleben wir ihn
+                character.ChangeHP(player, 1) -- Da lebt er wieder
                 if (player:increaseAttrib("foodlevel",0) < 10000) then
                     player:increaseAttrib("foodlevel",-(player:increaseAttrib("foodlevel",0)-10000))
                 end

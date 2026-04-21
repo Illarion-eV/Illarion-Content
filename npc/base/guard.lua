@@ -23,6 +23,7 @@ local baseNPC = require("npc.base.basic")
 local common = require("base.common")
 local factions = require("base.factions")
 local messages = require("base.messages")
+local character = require("base.character")
 
 local _processMonsters
 local _processPlayers
@@ -140,7 +141,7 @@ function _processPlayers(self, npcChar, radius)
         if _isPointInGuardArea(self, npcChar, player.pos) then
             local relation = factions.getPlayerRelation(player, self._parent._affiliation)
             if (relation == factions.RELATION_AGGRESSIVE) then
-                player:increaseAttrib("hitpoints", -1000)
+                character.ChangeHP(player, -1000)
                 hitPlayers = true
                 warpedPlayers = true
                 _warpHostile(self, npcChar, player)

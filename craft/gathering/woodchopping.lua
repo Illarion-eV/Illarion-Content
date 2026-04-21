@@ -18,7 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- trees
 
 -- additional tool: axe ( 74 )
-
+local character = require("base.character")
 local common = require("base.common")
 local shared = require("craft.base.shared")
 local gathering = require("craft.base.gathering")
@@ -96,14 +96,14 @@ local function preventCutting(User, theAxe, theTree)
         world:gfx(2,User.pos)
         world:makeSound(13,User.pos)
         User:inform("Aus heiterem Himmel wirst du von einem Blitz getroffen!", "Out of the blue, you are struck by lightning!")
-        User:increaseAttrib("hitpoints",-3000)
+        character.ChangeHP(User, -3000)
     elseif effectType == "axeSlippingOff" then
         User:inform("Als du zum Fällen ausholst, rutscht dir das Beil fast aus der Hand. Du kannst es gerade noch so festhalten.", "As you strike out, you nearly drop the hatchet. You barely keep hold of it.")
     elseif effectType == "slimyAcid" then
         world:gfx(8,User.pos)
         world:gfx(11,User.pos)
         world:makeSound(9,User.pos)
-        User:increaseAttrib("hitpoints",-1000)
+        character.ChangeHP(User, -1000)
         User:talk(Character.say, "#me wird, bevor die Axt den berühren kann, von einem dicken Batzen Schleim getroffen, der aus der Baumkrone heraustropfte.", "#me is, before the hatchet touches the tree, hit by a big blob of slime which dropped down from the treetrop.")
         User:inform("Der Schleim verursacht ein überaus schmerzhaftes Brennen auf deiner Haut.", "The slime causes very painful burning to your skin.")
     elseif effectType == "protected" then

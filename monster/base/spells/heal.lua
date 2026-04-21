@@ -14,6 +14,9 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
+
+local character = require("base.character")
+
 local function _isNumber(value)
     return type(value) == "number"
 end
@@ -113,7 +116,7 @@ return function(params)
             -- Scan Monsters and select wounded
             local woundedMonsters = {}
             for _, checkMonster in pairs(otherMonsters) do
-                if (checkMonster:increaseAttrib("hitpoints", 0) < 10000) then
+                if (character.GetHP(checkMonster) < 10000) then
                     table.insert(woundedMonsters, checkMonster)
                 end
             end
@@ -126,7 +129,7 @@ return function(params)
                 local selectedMonsterIndex = math.random(1, #woundedMonsters)
                 local selectedMonster = woundedMonsters[selectedMonsterIndex]
                 table.remove(woundedMonsters, selectedMonsterIndex)
-                selectedMonster:increaseAttrib("hitpoints", math.random(healRange[1], healRange[2]))
+                character.ChangeHP(selectedMonster, math.random(healRange[1], healRange[2]))
 
                 if gfxId > 0 then world:gfx(gfxId, selectedMonster.pos) end
                 if sfxId > 0 then world:makeSound(sfxId, selectedMonster.pos) end

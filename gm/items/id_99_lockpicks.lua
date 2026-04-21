@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- GM tool to delete items, to teleport and to conduct character changes
 
 -- UPDATE common SET com_script='gm.items.id_99_lockpicks' WHERE com_itemid=99;
+local character = require("base.character")
 local lookat = require("base.lookat")
 local common = require("base.common")
 local globalvar = require("base.globalvar")
@@ -612,7 +613,7 @@ end
 
 local function charInfo(chosenPlayer)
 
-    local output = "Health Points: "..tostring(chosenPlayer:increaseAttrib("hitpoints", 0)).."\nMana Points: "..tostring(chosenPlayer:increaseAttrib("mana", 0))..
+    local output = "Health Points: "..tostring(character.GetHP(chosenPlayer)).."\nMana Points: "..tostring(chosenPlayer:increaseAttrib("mana", 0))..
     "\nFood Points: "..tostring(chosenPlayer:increaseAttrib("foodlevel", 0)).."\nAge: " ..tostring(chosenPlayer:increaseAttrib("age", 0)) ..
             "\nIdle time: "..tostring(chosenPlayer:idleTime()) .." seconds"
     local specialInfo = ""
@@ -872,7 +873,7 @@ local function resetDeathPenalty(target)
     local foundRes, resEffect = target.effects:find(400);
     if foundRes then
         resurrected.removeEffect( resEffect, target )
-        target:increaseAttrib("hitpoints", 10000)
+        character.ChangeHP(target, 10000)
         for _,attrib in pairs(attribs) do
             local foundChange= resEffect:findValue( attrib );
             if foundChange then
@@ -901,7 +902,7 @@ local function godMode(user, SourceItem, ltstate)
             local monsters = world:getMonstersInRangeOf(user.pos, 3)
             for _, monster in ipairs(monsters) do
                 monsterHooks.setForcedDeath(monster)
-                monster:increaseAttrib("hitpoints", -10000)
+                character.ChangeHP(monster, -10000)
                 monsterHooks.cleanHooks(monster)
             end
             user:logAdmin("instant kills " .. #monsters .. " monsters at " .. tostring(user.pos))
@@ -913,10 +914,10 @@ local function godMode(user, SourceItem, ltstate)
                 end
                 local subindex = subdialog:getSelectedIndex()
                 if subindex == 0 then --let's kill it
-                    chosenPlayer:increaseAttrib("hitpoints", -10000)
+                    character.ChangeHP(chosenPlayer, -10000)
                     user:logAdmin("instant kills character " .. chosenPlayer.name)
                 elseif subindex == 1 then --let's revive it
-                    chosenPlayer:increaseAttrib("hitpoints", 10000)
+                    character.ChangeHP(chosenPlayer, 10000)
                     user:logAdmin("instant revives character " .. chosenPlayer.name)
                 elseif subindex == 2 then --reset the death penalty
                     resetDeathPenalty(chosenPlayer)
@@ -966,10 +967,10 @@ end
 
 local function actionOnCharSingleChar(targetChar, gfxValue, changeHP, changeMP, changeFL,textToPlayer)
 -- Free configurable without sound
-    local currentHP = targetChar:increaseAttrib("hitpoints", 0)
+    local currentHP = character.GetHP(targetChar)
     local currentMP = targetChar:increaseAttrib("mana", 0)
     local currentFL = targetChar:increaseAttrib("foodlevel", 0)
-    targetChar:increaseAttrib("hitpoints", currentHP*numberIsPercent(changeHP))
+    character.ChangeHP(targetChar, currentHP*numberIsPercent(changeHP))
     targetChar:increaseAttrib("mana", currentMP*numberIsPercent(changeMP))
     targetChar:increaseAttrib("foodlevel", currentFL*numberIsPercent(changeFL))
     if gfxsfxVerification(gfxValue) ~= 0 then
@@ -1111,7 +1112,7 @@ local function actionOnCharDivineFeed(user, targetChar)
 -- Full Mana and food, + 10% health, fairy shower
     targetChar:increaseAttrib("mana", 10000)
     targetChar:increaseAttrib("foodlevel", 100000)
-    targetChar:increaseAttrib("hitpoints", 1000)
+    character.ChangeHP(targetChar, 1000)
     world:gfx(globalvar.gfxSCOTTY,targetChar.pos)
     common.InformNLS(targetChar, "Du fühlst dich frisch und satt.", "You feel fresh and well-feed.")
     user:logAdmin("Performed DivineFeed on " ..  targetChar.name)
@@ -1129,7 +1130,7 @@ local function actionOnCharDivineFury(user, targetChar)
 -- Take 25% Mana and food, - 10% health, lightning, thunder
     targetChar:increaseAttrib("mana", -2500)
     targetChar:increaseAttrib("foodlevel", -25000)
-    targetChar:increaseAttrib("hitpoints", -1000)
+    character.ChangeHP(targetChar, -1000)
     world:gfx(globalvar.gfxBLITZ,targetChar.pos)
     world:makeSound(globalvar.sfxTHUNDER,targetChar.pos)
     common.InformNLS(targetChar, "Bilder zorniger Götter laufen vor deinen Augen ab.", "Visions of angry Gods fill your head.")
@@ -2536,7 +2537,7 @@ function M.UseItem(user, SourceItem, ltstate)
     end
 
     --if injured, heal!
-    user:increaseAttrib("hitpoints", 10000)
+    character.ChangeHP(user, 10000)
     user:increaseAttrib("mana", 10000)
     user:increaseAttrib("foodlevel", 100000)
 

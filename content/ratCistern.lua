@@ -19,7 +19,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 local common = require("base.common")
-
+local character = require("base.character")
 local dataCadomyr = "RatQuestCadomyr"
 local dataGalmair = "RatQuestGalmair"
 local dataRunewick = "RatQuestRunewick"
@@ -62,13 +62,13 @@ function M.checkCarrot(user,sourceItem)
     local questTaken = false
 
     local inHand = user:getItemAt(4)
-    local hitPoints = tonumber(user:increaseAttrib("hitpoints", 0))
+    local hitPoints = tonumber(character.GetHP(user))
     if inHand.id == 0 and  hitPoints > 750 then --bare hands
         if not common.IsNilOrEmpty(sourceItem:getData(dataCadomyr)) or not common.IsNilOrEmpty(sourceItem:getData(dataGalmair)) or  not common.IsNilOrEmpty(sourceItem:getData(dataRunewick)) then
             common.InformNLS(user,
                 "Dir wird etwas schlecht und du bemerkst schnell, dass die Möhre voller Gift ist. Du wischst dir die ungeschützten Hände ab.",
                 "Immediately you feel ill and see the carrot is full of poison. You clean your bare hands.")
-            user:increaseAttrib("hitpoints", -250)
+            character.ChangeHP(user, -250)
             return true
         end
     end

@@ -23,7 +23,7 @@ local customPotion = require("alchemy.base.customPotion")
 local scheduledFunction = require("scheduled.scheduledFunction")
 local missile = require("alchemy.base.missile")
 local testing = require("base.testing")
-
+local character = require("base.character")
 local M = {}
 
 M.attribList   ={"strength","intelligence","dexterity"       ,"perception"  ,"constitution","essence","agility"      ,"willpower"}
@@ -391,7 +391,12 @@ local function amethystPotion(user, SourceItem)
                 if testing.active then
                     user:inform("Increased "..attribList[i].." by "..tostring(Val))
                 end
-                user:increaseAttrib(attribList[i],Val);
+
+                if attribList[i] == "hitpoints" then
+                    character.ChangeHP(user, Val)
+                else
+                    user:increaseAttrib(attribList[i],Val)
+                end
             elseif attribList[i] == "mana" then --not mage or druid but its mana
                 if Val < 0 then -- its a decrease
                     user:setQuestProgress(690, math.min(300,user:getQuestProgress(690)+10))
