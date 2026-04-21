@@ -2323,7 +2323,7 @@ leadAttribTable[Character.woodcutting]= {first = "agility", second = "constituti
 leadAttribTable[Character.tanningAndWeaving]= {first = "willpower", second = "constitution"}
 leadAttribTable[Character.husbandry]= {first = "essence", second = "constitution"}
 leadAttribTable[Character.digging]= {first = "strength", second = "constitution"}
-leadAttribTable[Character.natureResistance]= {first = "constitution", second = "willpower"}
+leadAttribTable[Character.natureResistance]= {first = "willpower", second = "constitution"}
 
 --Agility: Defensive fighting skills
 leadAttribTable[Character.parry]="agility"

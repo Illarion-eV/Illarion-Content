@@ -17,11 +17,26 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 --Template for druid weave spells
 
+local shared = require("magic.nature.shared")
+local character = require("base.character")
+
 local M = {}
 
+local function getDamage(user, spellName, target)
+
+    local damage = 500
+    damage = shared.scaleEffect(user, spellName, damage, target)
+
+    return math.floor(damage)
+
+end
+
 function M.effect(user, location, target)
-    -- Spell effect goes here
-    user:talk(Character.say, "#me wirke einen Zauber.", "#me casts a spell.")
+
+    world:gfx(59, location)
+    world:makeSound(13, location)
+    local damage = getDamage(user, "Rebugwynt", target)
+    character.ChangeHP(target, -damage)
 end
 
 function M.checksToPass(user, location, target)

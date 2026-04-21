@@ -63,6 +63,20 @@ end
 
 M.tan = {}
 
+local function learnNatureResistance(target, castTime, level)
+
+    if not target or not isValidChar(target) then
+        return
+    end
+
+    if not level then
+        level = 0 --just defaults to max 20 learning if no level is specified
+    end
+
+    target:learn(Character.natureResistance, castTime, math.min(100, level + 20))
+
+end
+
 local function castingSpeedBySize(size) -- In deciseconds
     if size == "Short" then
         return 30
@@ -533,6 +547,11 @@ function M.castSpell(user, spellName, actionState)
 
         applySpellEffect(user, target, spellName, M[user.id].thePosition)
 
+        local spellValues = spells.getSpellValuesFromName(spellName)
+
+        local weaveLevel = user:getSkill(spellValues.skill)
+
+        learnNatureResistance(target, castDuration, weaveLevel)
 
         local corStaff = checkForCorStaff(user)
 

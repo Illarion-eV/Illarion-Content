@@ -36,7 +36,7 @@ local spells = {
     {id = 5, name = "Akingwynt", skill = Character.wildweave, level = 0, sigil = "Basic Wildweave Sigil", mana = "Small", time = "Short", charges = 1, statReq = 30, active = true}, -- Commune with beast
     {id = 6, name = "Incigwynt", skill = Character.wildweave, level = 10, sigil = "Basic Wildweave Sigil", mana = "Small", time = "Short", charges = 1, statReq = 30, active = true}, -- Weapon DoT in style of communed beast
     {id = 7, name = "Echogwynt", skill = Character.stoneweave, level = 0, sigil = "Basic Stoneweave Sigil", mana = "Small", time = "Short", charges = 1, statReq = 30, active = true}, -- Place rune stones
-    {id = 8, name = "Rebugwynt", skill = Character.stoneweave, level = 10, sigil = "Basic Stoneweave Sigil", mana = "Small", time = "Short", charges = 1, statReq = 30, active = true}, -- non-poison DoT
+    {id = 8, name = "Rebugwynt", skill = Character.stoneweave, level = 10, sigil = "Basic Stoneweave Sigil", mana = "Small", time = "Short", charges = 1, statReq = 30, active = true}, -- flat damage
     {id = 9, name = "Whisgwynt", skill = Character.deepweave, level = 0, sigil = "Basic Deepweave Sigil", mana = "Small", time = "Short", charges = 1, statReq = 30, active = true}, -- Plant a whisper
     {id = 10, name = "Pulsegwynt", skill = Character.deepweave, level = 10, sigil = "Basic Deepweave Sigil", mana = "Medium", time = "Long", charges = 5, statReq = 30, active = true}, -- Bond with a target, sharing damage taken
 }
