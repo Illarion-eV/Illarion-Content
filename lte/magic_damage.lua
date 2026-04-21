@@ -15,7 +15,6 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
-local testing = require("base.testing")
 local character = require("base.character")
 local M = {}
 -- Long time effect script for damage
@@ -50,9 +49,6 @@ function M.callEffect( effect, target )
                 effect:addValue("damagePerCycle", 0)
             end
             character.ChangeHP(target, -currentDamage)
-            if testing.active then
-                target:talk(Character.say,"#me takes "..currentDamage.." damage.", "#me takes "..currentDamage.." damage.")
-            end
         end
         effect.nextCalled = 5
         return true

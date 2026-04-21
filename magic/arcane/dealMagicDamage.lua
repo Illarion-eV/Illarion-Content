@@ -198,9 +198,6 @@ function M.dealMagicDamage(user, target, spell, damage, level, DoT, castTime, us
         end
     else
         character.ChangeHP(target, -damage)
-        if testing.active then
-            target:talk(Character.say,"#me takes "..damage.." damage.", "#me takes "..damage.." damage.")
-        end
     end
 
     if not dwyfolTriggered and user then

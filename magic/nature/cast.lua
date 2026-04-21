@@ -260,10 +260,10 @@ local function checksPassed(user, spellName, thePosition)
         return false
     end
 
-    local skillCriteriaMet, skillLevel, skillName = spells.skillCriteriaMet(user, spellName)
+    local skillCriteriaMet, skillLevel, skillName, reqLevel = spells.skillCriteriaMet(user, spellName)
 
     if not skillCriteriaMet then
-        user:inform("Deine Fähigkeit in "..skillName.." ist nicht hoch genug, um diesen Zauber zu wirken. Du musst Stufe "..skillLevel.." sein.","Your skill in "..skillName.." is not high enough to cast that spell. You need to be level "..skillLevel..".")
+        user:inform("Deine Fähigkeit in "..skillName.." ist nicht hoch genug, um diesen Zauber zu wirken. Du musst Stufe "..skillLevel.." sein.","Your skill in "..skillName.." is not high enough to cast that spell. You need to be level "..reqLevel..".")
         return false
     end
 

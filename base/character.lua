@@ -17,6 +17,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Collection of helper functions for the handling of characters
 
 local common = require("base.common")
+local pulsegwynt = require("magic.nature.effects.pulsegwynt")
+local testing = require("base.testing")
 
 local M = {}
 
@@ -33,8 +35,32 @@ end
 -- @param User The characters that receives the hitpoints change.
 -- @param Value The value the hitpoints are changed by.
 -- @return true in case the character is alive after the change of the hitpoints
-function M.ChangeHP(User, Value)
-    return User:increaseAttrib(HITPOINTS, Value) > 0;
+function M.ChangeHP(defender, valueChange)
+
+    local partner, partnerDamage
+
+    if valueChange < 0 and valueChange ~= -10000 then -- The character is taking damage, not being healed and it isnt an instakill
+
+        valueChange, partner, partnerDamage = pulsegwynt.impactOnDamageTaken(defender, valueChange)
+        -- If bonded with someone via nature magics deepweave spell Pulsegwynt, they take part of the damage for you
+        if partner then
+            partner:increaseAttrib(HITPOINTS, partnerDamage)
+        end
+    end
+
+    -- A bond is broken if you or your partners health is reduced to 20% or lower
+    if partner and (M.GetHP(partner) < pulsegwynt.healthLimit or M.GetHP(defender)-valueChange < pulsegwynt.healthLimit) then
+        pulsegwynt.breakBond(defender, partner)
+    end
+
+    if testing.active and valueChange < 0 and valueChange ~= -10000 then
+        defender:talk(Character.say,"#me takes "..-valueChange.." damage.", "#me takes "..-valueChange.." damage.")
+        if partner then
+            partner:talk(Character.say,"#me takes "..-partnerDamage.." damage.", "#me takes "..-partnerDamage.." damage.")
+        end
+    end
+
+    return defender:increaseAttrib(HITPOINTS, valueChange) > 0
 end;
 
 --- Check if a character would surive if a amount of hitpoints get reduced

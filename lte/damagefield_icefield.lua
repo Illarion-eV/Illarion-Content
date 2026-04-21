@@ -16,7 +16,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
 local magicResistance = require("magic.arcane.magicResistance")
-local testing = require("base.testing")
 local magic = require("base.magic")
 local runes = require("magic.arcane.runes")
 local magicDamage = require("magic.arcane.magicDamage")
@@ -109,9 +108,6 @@ function M.causeDamage(user, quality, penetration, wandGemBonus, effect, fieldIt
         end
 
         character.ChangeHP(user, -damageDealt)
-        if testing.active then
-            user:talk(Character.say,"#me takes "..damageDealt.." damage.", "#me takes "..damageDealt.." damage.")
-        end
     end
 end
 
