@@ -51,8 +51,8 @@ Description[ENGLISH][4] =  "You've successfully meditated and seem to have found
 Description[GERMAN][5] =  "Du hast nun die notwendigen Reagenzien, um fortzufahren. Bringe die Sumpfblumen, deinen Cor-Stab und ein leeres Siegel zum Weberstumpf in Totensumpf, gleich hinter der Brücke. Du solltest Schutz mitbringen, da das Gebiet tödlich sein kann."
 Description[ENGLISH][5] =  "You now have the necessary reagents to proceed. Bring the marsh flowers, your Cor Staff and a blank sigil to the Weaver's Stump in Deadmarsh, just past the bridge. You may want to bring protection, as the area can prove lethal."
 
-Description[GERMAN][6] =  "Du hast ein Novizensiegel für Verfallweben hergestellt. Kehre zu Fianna zurück, um weitere Anweisungen zu erhalten, was als Nächstes zu tun ist."
-Description[ENGLISH][6] =  "You've crafted a novice sigil for witherweaving. Return to Fianna to continue receiving guidance on what to do next."
+Description[GERMAN][6] =  "Du hast ein einfaches Sigil für Verfallweben hergestellt. Kehre zu Fianna zurück, um weitere Anweisungen zu erhalten, was als Nächstes zu tun ist."
+Description[ENGLISH][6] =  "You've crafted a basic sigil for witherweaving. Return to Fianna to continue receiving guidance on what to do next."
 
 Description[GERMAN][7] =  "Durch Fiannas Anleitung hast du die Grundlagen gelernt, um den Pfad des Verfallwebens zu betreten, einschließlich des Standorts des Weberstumpfs für Verfallweben in Totensumpf, gleich hinter der Brücke südlich von Troll's Haven."
 Description[ENGLISH][7] =  "Through Fianna's guidance you've learned the basics necessary to set you onto the path of witherweaving, including the location of the witherweave Weaver's Stump in Deadmarsh just past the bridge south of Troll's Haven."
@@ -65,7 +65,7 @@ local QuestTarget = {}
 
 
 -- Insert the quest status which is reached at the end of the quest
-local FINAL_QUEST_STATUS = 5
+local FINAL_QUEST_STATUS = 7
 
 function M.QuestTitle(user)
     return common.GetNLS(user, Title[GERMAN], Title[ENGLISH])

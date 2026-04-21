@@ -142,6 +142,10 @@ function M.effect(user, location, target)
     world:gfx(58, location)
     world:makeSound(13, location)
 
+    if not target then --Cast on empty field
+        return
+    end
+
     local ticks = 120
 
     local getSpeed = M.getSpeed(user, target, "Entangwynt")

@@ -145,7 +145,13 @@ M.skillNames = {
     Character.windMagic,
     Character.spiritMagic,
     Character.waterMagic,
-    Character.spatialMagic
+    Character.spatialMagic,
+    Character.transmutation,
+    Character.deepweave,
+    Character.bloomweave,
+    Character.wildweave,
+    Character.stoneweave,
+    Character.witherweave
 }
 local attributeNames={
     "agility",

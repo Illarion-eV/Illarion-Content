@@ -47,7 +47,7 @@ local function viewSigilCharges(user, weaversPouch)
 
             if not common.IsNilOrEmpty(data) and tonumber(data) > 0 then --It exists and has charges
                 message = message.."\n"..common.GetNLS(user, tier.german, tier.english)
-                message = message.." "..common.GetNLS(user, weave.german, weave.english).." - "..data.."("..sigil.Limit..")"
+                message = message.." "..common.GetNLS(user, weave.german, weave.english).." - "..data.."("..sigil.limit..")"
             end
         end
     end
@@ -58,7 +58,7 @@ local function viewSigilCharges(user, weaversPouch)
 
     local callback = function(dialog) end
 
-    local dialog = MessageDialog(common.GetNLS(Character,"Gewebetasche", "Weaver's Pouch"), message, callback)
+    local dialog = MessageDialog(common.GetNLS(user,"Gewebetasche", "Weaver's Pouch"), message, callback)
 
     user:requestMessageDialog(dialog)
 
@@ -92,7 +92,7 @@ local function selectSpell(user, category)
                 if not corStaff then
                     return
                 end
-                corStaff:setdata("attunedSpell", category.spellsKnown[i])
+                corStaff:setData("attunedSpell", category.spellsKnown[i])
                 world:changeItem(corStaff)
                 user:inform("Du stimmst den Cor-Stab auf den Zauber "..category.spellsKnown[i].." ein.", "You attune the Cor Staff to the spell "..category.spellsKnown[i]..".")
             end
@@ -139,7 +139,7 @@ local function attuneSpell(user, sourceItem)
 
     for _, category in pairs(categories) do
         if #category.spellsKnown > 0 then
-            table.insert(category)
+            table.insert(knownCategories, category)
         end
     end
 
@@ -187,10 +187,10 @@ local function toggleAutocast(user) --"autoCast" to true/false
     local autoCast = corStaff:getData("autoCast")
     if autoCast == "true" then
         corStaff:setData("autoCast", "false")
-        user:inform("Automatisches Wirken aktiviert.", "Autocast enabled.")
+        user:inform("Automatisches Wirken deaktiviert.", "Autocast disabled.")
     else
         corStaff:setData("autoCast", "true")
-        user:inform("Automatisches Wirken deaktiviert.", "Autocast disabled.")
+        user:inform("Automatisches Wirken aktiviert.", "Autocast enabled.")
     end
 
     world:changeItem(corStaff)

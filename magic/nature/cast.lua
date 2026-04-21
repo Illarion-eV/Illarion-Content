@@ -65,11 +65,11 @@ M.tan = {}
 
 local function castingSpeedBySize(size) -- In deciseconds
     if size == "Short" then
-        return 10
-    elseif size == "Medium" then
-        return 20
-    elseif size == "Long" then
         return 30
+    elseif size == "Medium" then
+        return 60
+    elseif size == "Long" then
+        return 90
     end
 end
 
@@ -94,7 +94,7 @@ local function getCastTime(user, spellName, skipTan) -- Should return total cast
 
     local spellValues = spells.getSpellValuesFromName(spellName)
 
-    local castSpeed = castingSpeedBySize(spellValues.size)
+    local castSpeed = castingSpeedBySize(spellValues.time)
 
     if not skipTan and (not M.tan or not M.tan[user.id] or not M.tan[user.id].checked) then
         local activated = tan.reduceCastTime(user)
@@ -366,7 +366,7 @@ local function hasEnoughCharges(user, spellName)
 
         local existingCharges = tonumber(weaversPouch:getData(dataKey))
 
-        if existingCharges and existingCharges > charges then
+        if existingCharges and existingCharges >= charges then
             return true, weaversPouch
         end
     end
@@ -403,7 +403,12 @@ end
 
 local function spellSpecificChecks(user, target, thePosition, spellName)
     --Checks such as whether there is free space if the spell spawns an object, or that you have enough sigil charges
-    return spellEffects[spellName].checksToPass(user, thePosition, target) and hasEnoughCharges(user, spellName)
+    if not hasEnoughCharges(user, spellName) then
+        user:inform("Du hast nicht genügend Sigil-Ladungen, um diesen Zauber zu wirken.", "You do not have enough sigil charges to cast that spell.")
+        return false
+    end
+
+    return spellEffects[spellName].checksToPass(user, thePosition, target)
 
 end
 
@@ -421,12 +426,7 @@ local function applySpellEffect(user, target, spellName, thePosition)
 
 end
 
-function M.castSpell(user, spellName, actionState, oralCast)
-
-    if not oralCast then
-        user:talk(Character.say, spellName)
-        return
-    end
+function M.castSpell(user, spellName, actionState)
 
     if castArcaneSpell.interrupted(user) then
         return
@@ -517,7 +517,7 @@ function M.castSpell(user, spellName, actionState, oralCast)
             target = false
         end
 
-        if not checksPassed(user, spellName, M[user.id].thePosition) or not isInRange(user, spellName, target.pos) then --Target gets checked in addition to the regular checks, in case they moved
+        if not checksPassed(user, spellName, M[user.id].thePosition) or not isInRange(user, spellName, M[user.id].thePosition) then --Target gets checked in addition to the regular checks, in case they moved
             return
         end
 

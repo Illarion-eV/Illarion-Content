@@ -45,7 +45,8 @@ local function selectSpell(user, ltstate, category)
 
         for i = 1, #category.spellsKnown do
             if index == i then
-                cast.castSpell(user, category.spellsKnown[i], ltstate)
+                user:talk(Character.say, category.spellsKnown[i])
+                M.savedSpellName[user.id] = category.spellsKnown[i]
             end
         end
     end
@@ -61,14 +62,17 @@ local function selectSpell(user, ltstate, category)
     user:requestSelectionDialog(dialog)
 end
 
-function M.UseItem(user, sourceItem, ltstate)
+M.savedSpellName = {}
 
+local function useTheStaff(user, sourceItem, ltstate)
     local frontItem = common.GetFrontItem(user)
 
-    for _, weave in pairs(stump.stumps) do --If you are in front of a stump, then we use the cor staff as the crafting tool there
-        if weave.stump == frontItem.id then
-            stump.UseItem(user, sourceItem, ltstate)
-            return
+    if frontItem then
+        for _, weave in pairs(stump.stumps) do --If you are in front of a stump, then we use the cor staff as the crafting tool there
+            if weave.stump == frontItem.id then
+                stump.UseItem(user, sourceItem, ltstate)
+                return
+            end
         end
     end
 
@@ -105,7 +109,7 @@ function M.UseItem(user, sourceItem, ltstate)
 
     for _, category in pairs(categories) do
         if #category.spellsKnown > 0 then
-            table.insert(category)
+            table.insert(knownCategories, category)
         end
     end
 
@@ -113,14 +117,15 @@ function M.UseItem(user, sourceItem, ltstate)
         return
     end
 
-    if #knownCategories == 1 then
-        selectSpell(user, ltstate, knownCategories[1])
-        return
-    end
-
     if attunedSpell then
-        cast.castSpell(user, attunedSpell, ltstate)
+        user:talk(Character.say, attunedSpell)
+        M.savedSpellName[user.id] = attunedSpell
     else -- Select one from list of known spells
+
+        if #knownCategories == 1 then
+            selectSpell(user, ltstate, knownCategories[1])
+            return
+        end
 
         local callback = function(dialog)
 
@@ -148,6 +153,16 @@ function M.UseItem(user, sourceItem, ltstate)
 
         user:requestSelectionDialog(dialog)
     end
+end
+
+function M.UseItem(user, sourceItem, ltstate)
+
+    if ltstate == Action.none then
+        useTheStaff(user, sourceItem, ltstate)
+    else
+        cast.castSpell(user, M.savedSpellName[user.id], ltstate)
+    end
+
 end
 
 return M

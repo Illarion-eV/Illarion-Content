@@ -116,11 +116,6 @@ function M.callEffect( myEffect, user)
 
     end
 
-    if user:getQuestProgress(692) ~= 1 then
-        --Should not happen, but just in case.
-        return false
-    end
-
     if not isOnIsle(user) and not isInMushroomCluster(user) and not isUnderMevrannonTree(user) and not inUsharasGarden(user) and not inLibertyQuarry(user) then
         user:inform("Du hast den Meditationsplatz zu früh verlassen. Du musst zurückkehren und von vorne beginnen, wenn du mit dem Tutorial fortfahren möchtest.", "You left the meditation spot too soon. You must return and start again if you wish to proceed with the tutorial.")
         return false
@@ -138,7 +133,7 @@ function M.callEffect( myEffect, user)
 
     if isUnderMevrannonTree(user) then
         user:setQuestProgress(693, 4)
-        user:inform("Vom Wind getragen und durch die goldenen Blätter über dir geweht, erreichen dich Worte einer längst verlorenen Sprache. Du stellst fest, dass du die Worte nicht wiederholen kannst, doch ihre Bedeutung ist dir irgendwie klar, und du weißt, was du als Nächstes tun musst. Bevor du zu Fianna zurückkehrst, solltest du einige einblättrige Vierbeeren sammeln - gibt es in Yewdale im Westen nicht welche?", "Carried by the wind and blown through the golden leaves above, words of a language long lost make their way to your ears. You find yourself unable to repeat the words, yet their meaning are somehow clear to you and you know what you must do next. Before returning to Fianna, you should gather some oneleaved fourberries- Doesn't Yewdale to the west have some? ")
+        user:inform("Vom Wind getragen und durch die goldenen Blätter über dir geweht, erreichen dich Worte einer längst verlorenen Sprache. Du stellst fest, dass du die Worte nicht wiederholen kannst, doch ihre Bedeutung ist dir irgendwie klar, und du weißt, was du als Nächstes tun musst. Bevor du zu Fianna zurückkehrst, solltest du einige vierblättrige Einbeere sammeln - gibt es in Yewdale im Westen nicht welche?", "Carried by the wind and blown through the golden leaves above, words of a language long lost make their way to your ears. You find yourself unable to repeat the words, yet their meaning are somehow clear to you and you know what you must do next. Before returning to Fianna, you should gather some fourleafed oneberries- Doesn't Yewdale to the west have some? ")
     end
 
     if inUsharasGarden(user) then

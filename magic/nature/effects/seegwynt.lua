@@ -136,7 +136,7 @@ end
 
 local function isSoil(location) -- A seedling needs suitable soil to be able to grow
 
-    local suitableSoilList = {3, 4, 8, 9, 10, 11, 12, 14, 16, 74, 76}
+    local suitableSoilList = {3, 4, 8, 9, 10, 11, 12, 14, 16, 74, 75}
 
     local theField = world:getField(location)
 

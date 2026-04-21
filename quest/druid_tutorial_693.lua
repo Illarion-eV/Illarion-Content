@@ -51,8 +51,8 @@ Description[ENGLISH][4] =  "You've successfully meditated and seem to have found
 Description[GERMAN][5] =  "Du hast nun die notwendigen Zutaten, um fortzufahren. Bringe die vierblättrigen Einbeeren, deinen Cor-Stab und ein leeres Siegel zum Weberstumpf in den Wäldern nördlich von Yewdale. Du solltest eventuell Schutz mitbringen, da bekannt ist, dass in der Gegend Wölfe umherstreifen."
 Description[ENGLISH][5] =  "You now have the necessary reagents to proceed. Bring the fourleafed oneberries, your Cor Staff and a blank sigil to the Weaver's Stump in the woods just north of Yewdale. You may want to bring protection, as the area is known to have wolves roaming nearby."
 
-Description[GERMAN][6] =  "Du hast ein Novizensiegel für Blühweben hergestellt. Kehre zu Fianna zurück, um weitere Anweisungen zu erhalten, was als Nächstes zu tun ist."
-Description[ENGLISH][6] =  "You've crafted a novice sigil for bloomweaving. Return to Fianna to continue receiving guidance on what to do next."
+Description[GERMAN][6] =  "Du hast ein einfaches Sigil für Blühweben hergestellt. Kehre zu Fianna zurück, um weitere Anweisungen zu erhalten, was als Nächstes zu tun ist."
+Description[ENGLISH][6] =  "You've crafted a basic sigil for bloomweaving. Return to Fianna to continue receiving guidance on what to do next."
 
 Description[GERMAN][7] =  "Durch Fiannas Anleitung hast du die Grundlagen gelernt, um den Pfad des Blühwebens zu betreten, einschließlich des Standorts des Weberstumpfs für Blühweben in den Wäldern nördlich von Yewdale."
 Description[ENGLISH][7] =  "Through Fianna's guidance you've learned the basics necessary to set you onto the path of bloomweaving, including the location of the bloomweave Weaver's Stump in the woods just north of Yewdale."
@@ -65,7 +65,7 @@ local QuestTarget = {}
 
 
 -- Insert the quest status which is reached at the end of the quest
-local FINAL_QUEST_STATUS = 5
+local FINAL_QUEST_STATUS = 7
 
 function M.QuestTitle(user)
     return common.GetNLS(user, Title[GERMAN], Title[ENGLISH])

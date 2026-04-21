@@ -144,7 +144,7 @@ function M.UseItem(user, sourceItem, actionState)
             newTotal = existingCharges
         end
 
-        newTotal = math.max(M.limit, newTotal + M.charges)
+        newTotal = math.min(M.limit, newTotal + M.charges)
 
         world:erase(sourceItem, 1)
 
