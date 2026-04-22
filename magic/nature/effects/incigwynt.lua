@@ -140,7 +140,11 @@ local function scaleDamage(damage, weaponType, target)
     end
 
     if not armour then
-        return damage*2 --Twice the damage if unarmoured
+        if character.IsPlayer(target) then
+            return damage*2 --Twice the damage if unarmoured
+        else
+            return damage -- Regular damage if a mob that has no armour
+        end
     end
 
     --WeaponType can be one of: "slashing", "stabbing", "blunt"
@@ -152,7 +156,9 @@ local function scaleDamage(damage, weaponType, target)
         blunt = {1,0.5,1,1.5}
     }
 
-    return damage*scaling[weaponType][armour.type]
+    local scalingFactor = scaling[weaponType][armour.type]
+
+    return damage*scalingFactor
 
 end
 
@@ -180,8 +186,10 @@ function M.effect(user, location, target)
 
     local beast = akingwynt.getCommunedBeast(user) -- What beast you are communed with determines the type of damage
 
-    if not beast and notOnCooldown(user) then
-        user:inform("Der Zauber verblasst ins Nichts; du musst dich zuerst mit dem Geist eines Tieres verbinden, wenn du es befehligen willst.", "The spell fades away into nothing, you need to commune with the spirit of a beast first if you want to command it.")
+    if not beast then
+        if notOnCooldown(user) then
+            user:inform("Der Zauber verblasst ins Nichts; du musst dich zuerst mit dem Geist eines Tieres verbinden, wenn du es befehligen willst.", "The spell fades away into nothing, you need to commune with the spirit of a beast first if you want to command it.")
+        end
         return
     end
 
