@@ -72,7 +72,7 @@ function M.callEffect(Effect,User)
                 User:increaseAttrib("foodlevel",-foodlevelDecrease)
             end
             if findPoisonvalueDe then
-                poison.applyPoison(poisonvalueDecrease)
+                poison.applyPoison(User, poisonvalueDecrease)
             end
 
             if findCounter then

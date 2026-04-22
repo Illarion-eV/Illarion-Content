@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local character = require("base.character")
+local dealDamage = require("magic.nature.dealDamage")
 
 local M = {}
 
@@ -23,7 +24,7 @@ local poisonEffectId = 39
 
 local poisonDuration = 10 -- 10 seconds
 
-function M.applyPoison(target, damage)
+function M.applyPoison(target, damage, antidote, user)
 
     damage = math.floor(damage) -- ensure whole integer
 
@@ -41,12 +42,18 @@ function M.applyPoison(target, damage)
 
         myEffect:addValue("poisonAmount", newAmount) -- Add poison value to existing poison
         myEffect:addValue("ticks", poisonDuration) --Reset duration with the added poison value
+        if not antidote and user then
+            myEffect:addValue("userId", user.id)
+        end
     else
         if damage > 0 then --Otherwise it is an antidote that has no effect when not poisoned
             myEffect = LongTimeEffect(poisonEffectId,10)
 
             myEffect:addValue("poisonAmount", damage)
             myEffect:addValue("ticks", poisonDuration)
+            if not antidote and user then
+                myEffect:addValue("userId", user.id)
+            end
 
             target.effects:addEffect(myEffect)
         end
@@ -54,7 +61,7 @@ function M.applyPoison(target, damage)
 end
 
 function M.applyAntidote(target, amount)
-    M.applyPoison(target, -amount)
+    M.applyPoison(target, -amount, true)
 end
 
 function M.addEffect(effect, user)
@@ -71,6 +78,12 @@ function M.callEffect(effect, user)
 
     local foundTicks, remainingTicks = effect:findValue("ticks")
 
+    local foundUserId, userId = effect:findValue("userId")
+
+    if not foundUserId then
+        userId = false
+    end
+
     if not foundAmount or not foundTicks then
         return false
     end
@@ -82,7 +95,7 @@ function M.callEffect(effect, user)
         return false
     end
 
-    character.ChangeHP(user, -damage)
+    dealDamage.dealDamage(user, damage, false, userId)
 
     if remainingTicks-1 == 0 then
         M.removeEffect(effect, user)

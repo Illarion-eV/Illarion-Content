@@ -388,9 +388,9 @@ local function amethystPotion(user, SourceItem)
                    foodlevelOT = (Val * 1.25) / 5;
             elseif ( attribList[i] == "poisonvalue" ) then
                 if Val < 0 then
-                    poison.applyPoison(-Val)
+                    poison.applyPoison(user, -Val)
                 else
-                    poison.applyAntidote(Val)
+                    poison.applyAntidote(user, Val)
                 end
             elseif not (attribList[i] == "mana" ) or (isMage or isDruid) then
                 if testing.active then

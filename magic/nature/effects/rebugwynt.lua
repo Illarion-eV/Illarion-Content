@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local shared = require("magic.nature.shared")
-local character = require("base.character")
+local dealDamage = require("magic.nature.dealDamage")
 
 local M = {}
 
@@ -34,7 +34,8 @@ function M.effect(user, location, target)
     world:gfx(59, location)
     world:makeSound(13, location)
     local damage = getDamage(user, "Rebugwynt", target)
-    character.ChangeHP(target, -damage)
+    dealDamage.dealDamage(target, damage, user)
+
 end
 
 function M.checksToPass(user, location, target)
