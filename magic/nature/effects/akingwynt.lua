@@ -118,7 +118,7 @@ local function communeWithBeast(user, target, spellName)
 
     local myEffect = LongTimeEffect(communionLTE, duration)
 
-    myEffect:addValue("beast", race)
+    myEffect:addValue("race", race)
 
     user.effects:addEffect(myEffect)
 

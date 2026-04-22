@@ -156,6 +156,21 @@ local function scaleDamage(damage, weaponType, target)
 
 end
 
+M.timestamps = {}
+
+local function notOnCooldown(user) -- a cooldown to the inform to avoid spam
+    local timeStamp = world:getTime("unix")
+    local existingStamp = M.timestamps[user.id]
+    local cooldown = 300 -- 5 min
+
+    if not existingStamp  or existingStamp < timeStamp-cooldown then
+        M.timestamps[user.id] = timeStamp
+        return true
+    end
+
+    return false
+end
+
 function M.effect(user, location, target)
 
     world:gfx(59, location)
@@ -165,7 +180,7 @@ function M.effect(user, location, target)
 
     local beast = akingwynt.getCommunedBeast(user) -- What beast you are communed with determines the type of damage
 
-    if not beast then
+    if not beast and notOnCooldown(user) then
         user:inform("Der Zauber verblasst ins Nichts; du musst dich zuerst mit dem Geist eines Tieres verbinden, wenn du es befehligen willst.", "The spell fades away into nothing, you need to commune with the spirit of a beast first if you want to command it.")
         return
     end
