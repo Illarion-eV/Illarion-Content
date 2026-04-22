@@ -25,7 +25,7 @@ local function getDamage(user, spellName, target)
     local damage = 750 --Same mana and cast time as Rebugwynt but 50% stronger due to being DoT instead of instant
     damage = shared.scaleEffect(user, spellName, damage, target)
 
-    return math.floor(damage)
+    return math.max(1, math.floor(damage))
 
 end
 

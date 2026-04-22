@@ -531,6 +531,8 @@ function M.castSpell(user, spellName, actionState)
 
         if target and not isValidChar(target) then
             target = false
+        else
+            M[user.id].thePosition = target.pos
         end
 
         if not checksPassed(user, spellName, M[user.id].thePosition) or not isInRange(user, spellName, M[user.id].thePosition) then --Target gets checked in addition to the regular checks, in case they moved

@@ -25,7 +25,7 @@ local function getDamage(user, spellName, target)
     local damage = 500
     damage = shared.scaleEffect(user, spellName, damage, target)
 
-    return math.floor(damage)
+    return math.max(1, math.floor(damage))
 
 end
 

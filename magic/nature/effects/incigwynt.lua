@@ -125,7 +125,7 @@ local function getDamage(user, spellName, target)
     local damage = 600
     damage = shared.scaleEffect(user, spellName, damage, target)
 
-    return math.floor(damage)
+    return math.max(1, math.floor(damage))
 
 end
 
@@ -133,30 +133,26 @@ local function scaleDamage(damage, weaponType, target)
 
     local hitArea = fighting.GetHitArea(target:getRace())
     local hitItem = target:getItemAt(hitArea)
-    local _, armour
+    local isArmour, armour
 
     if hitItem and hitItem.id ~= 0 then
-        _, armour = world:getArmorStruct(hitItem.id)
+        isArmour, armour = world:getArmorStruct(hitItem.id)
     end
 
-    if not armour then
-        if character.IsPlayer(target) then
-            return damage*2 --Twice the damage if unarmoured
-        else
-            return damage -- Regular damage if a mob that has no armour
-        end
+    if not isArmour or not armour or not armour.Type then
+        return damage*2 --Twice the damage if no armour found
     end
 
     --WeaponType can be one of: "slashing", "stabbing", "blunt"
     --Based on the rock paper scissor approach we get an increase/decrease of 50% or it justs stays the same
 
-    local scaling = { --The scaling for general, light, medium and heavy armour
-        slashing = {1,1.5,0.5,1},
-        stabbing = {1,1,1.5,0.5},
-        blunt = {1,0.5,1,1.5}
+    local scaling = { --The scaling for cloth, general, light, medium and heavy armour
+        slashing = {2,1,1.5,0.5,1},
+        stabbing = {2,1,1,1.5,0.5},
+        blunt = {2,1,0.5,1,1.5}
     }
 
-    local scalingFactor = scaling[weaponType][armour.type]
+    local scalingFactor = scaling[weaponType][armour.Type+1]
 
     return damage*scalingFactor
 
