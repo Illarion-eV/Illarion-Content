@@ -15,17 +15,29 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
---Template for druid weave spells
+local shared = require("magic.nature.shared")
+local poison = require("magic.nature.poison")
 
 local M = {}
 
+local function getAntidoteAmount(user, spellName)
+
+    local amount = 500 --Lower than the toxgwynt amount but without the target resisting it
+    amount = shared.scaleEffect(user, spellName, amount)
+
+    return math.floor(amount)
+
+end
+
 function M.effect(user, location, target)
-    -- Spell effect goes here
-    user:talk(Character.say, "#me wirke einen Zauber.", "#me casts a spell.")
+
+    world:gfx(58, location)
+    world:makeSound(13, location)
+    local amount = getAntidoteAmount(user, "Sergwynt")
+    poison.applyAntidote(target, amount)
 end
 
 function M.checksToPass(user, location, target)
-    -- If it needs to pass a check before casting, put it here. Return false if it does not pass.
     return true
 end
 

@@ -33,5 +33,7 @@ return function(params)
     if params.itemId == nil then params.itemId = 372 end
     if params.itemProbability == nil then params.itemProbability = 0.8 end
 
+    params.poison = true
+
     return spellRing(params)
 end

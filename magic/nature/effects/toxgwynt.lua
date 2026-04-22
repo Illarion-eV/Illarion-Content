@@ -15,17 +15,29 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
---Template for druid weave spells
+local shared = require("magic.nature.shared")
+local poison = require("magic.nature.poison")
 
 local M = {}
 
+local function getDamage(user, spellName, target)
+
+    local damage = 750 --Same mana and cast time as Rebugwynt but 50% stronger due to being DoT instead of instant
+    damage = shared.scaleEffect(user, spellName, damage, target)
+
+    return math.floor(damage)
+
+end
+
 function M.effect(user, location, target)
-    -- Spell effect goes here
-    user:talk(Character.say, "#me wirke einen Zauber.", "#me casts a spell.")
+
+    world:gfx(8, location)
+    world:makeSound(13, location)
+    local damage = getDamage(user, "Toxgwynt", target)
+    poison.applyPoison(target, damage)
 end
 
 function M.checksToPass(user, location, target)
-    -- If it needs to pass a check before casting, put it here. Return false if it does not pass.
     return true
 end
 

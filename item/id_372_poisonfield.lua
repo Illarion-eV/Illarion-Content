@@ -18,8 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local character = require("base.character")
-local traps = require("magic.arcane.traps")
-local magicResistance = require("magic.arcane.magicResistance")
+local shared = require("magic.nature.shared")
 
 local M = {}
 
@@ -87,11 +86,6 @@ function M.CharacterOnField(user)
         end
     end
 
-    if fieldItem:getData("spell") ~= "" then --It is an earth spell trap from arcane magic and not a poison cloud
-        traps.triggerEarthTrap(fieldItem, user)
-        return
-    end
-
     -- dont harm dead chars anymore
     if character.GetHP(user) == 0 then
         return
@@ -112,36 +106,24 @@ function M.CharacterOnField(user)
 
     if (fieldItem.quality > 100) and user.pos.z ~= 100 and user.pos.z ~= 101 and user.pos.z ~= 40 then --no harmful flames on noobia or the working camp
 
-        local resist = magicResistance.getMagicResistance(user)
-        if resist < 1.9 then -- high rolled level 80 mobs and 90+ mobs delete flames. Players would need a very high willpower to reach this value if at all.
+        local resistance = shared.getNatureResistance(user)
+
+        local naturePen = fieldItem:getData("naturePenetration")
+
+        if common.IsNilOrEmpty(naturePen) then
+            naturePen = 0
+        end
+
+        if resistance-naturePen < 1 then -- If someone has a 100% reduction in damage taken from resistance _after_ penetration is deducted, the flame gets deleted.
             local foundEffect = user.effects:find(112) -- poisoncloud lte
             if not foundEffect then
                 local myEffect = LongTimeEffect(112, 50) --5sec
-                local scaling = fieldItem:getData("scaling")
 
-                if common.IsNilOrEmpty(scaling) then
-                    scaling = math.floor(fieldItem.quality/100)+1
-                end
+                local quality = math.floor(fieldItem.quality/100)+1
 
-                myEffect:addValue("quality", tonumber(scaling))
-
-                local magicPen = fieldItem:getData("magicPenetration")
-                if not common.IsNilOrEmpty(magicPen) then
-                    magicPen = math.floor(tonumber(magicPen)*100)
-                    myEffect:addValue("magicPenetration", magicPen)
-                end
-
-                local spell = fieldItem:getData("spell")
-                if not common.IsNilOrEmpty(spell) then
-                    spell = tonumber(spell)
-                    myEffect:addValue("spell", spell)
-                end
-
-                local wandGemBonus = fieldItem:getData("wandGemBonus")
-
-                if not common.IsNilOrEmpty(wandGemBonus) then
-                    myEffect:addValue("wandGemBonus", tonumber(wandGemBonus))
-                end
+                myEffect:addValue("quality", tonumber(quality))
+                naturePen = math.floor(tonumber(naturePen)*100)
+                myEffect:addValue("naturePenetration", naturePen)
 
                 user.effects:addEffect(myEffect)
             end

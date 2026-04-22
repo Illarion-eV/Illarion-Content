@@ -106,6 +106,8 @@ local function getNatureResistance(target)
 
 end
 
+M.getNatureResistance = getNatureResistance
+
 local function attributeImpactPenetration(user)
 
     local intelligence = user:increaseAttrib("intelligence", 0)
@@ -137,6 +139,8 @@ local function getNaturePenetration(user, spellName)
 
 end
 
+M.getNaturePenetration = getNaturePenetration
+
 local function attributeImpactPerception(user) --Perception influences the base value of a spell in druid magic as its primary attribute
 
     local perception = user:increaseAttrib("perception", 0)
@@ -147,22 +151,25 @@ end
 
 
 function M.scaleEffect(user, spellName, value, target)
-    local corStaff, staffBonus, qualityBonus = getStaffBonus(user, spellName)
+    local corStaff, staffBonus, qualityBonus = false, 0, 0
+    if spellName then
+       corStaff, staffBonus, qualityBonus = getStaffBonus(user, spellName)
+    end
     local naturePenetration = getNaturePenetration(user, spellName)
     local corStaffGemBonus = 0
     if corStaff then
         corStaffGemBonus = gems.getGemBonus(corStaff)/100
     end
     local cloakGemBonus = 0
-    local magicResistance = 0
+    local natureResistance = 0
     local perceptionImpact = attributeImpactPerception(user)
 
     if target and isValidChar(target) then
-        magicResistance = getNatureResistance(target)
+        natureResistance = getNatureResistance(target)
         cloakGemBonus = magic.getGemBonusCloak(target)/100
     end
 
-    value = value*(1+perceptionImpact+ staffBonus + qualityBonus - magicResistance + naturePenetration + corStaffGemBonus-cloakGemBonus)
+    value = value*(1+perceptionImpact+ staffBonus + qualityBonus - natureResistance + naturePenetration + corStaffGemBonus-cloakGemBonus)
 
     return math.max(0, value) --No negative values
 end

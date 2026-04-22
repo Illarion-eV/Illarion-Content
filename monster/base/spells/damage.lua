@@ -18,6 +18,7 @@ local base = require("monster.base.spells.base")
 local common = require("base.common")
 local standardfighting = require("server.standardfighting")
 local magicPenetration = require("magic.arcane.magicPenetration")
+local shared = require("magic.nature.shared")
 
 local function _isNumber(value)
     return type(value) == "number"
@@ -179,7 +180,8 @@ return function(params)
             local qual = math.random(itemQualityRange[1], itemQualityRange[2]) * 100 +
                     math.random(itemDurabilityRange[1], itemDurabilityRange[2])
             local magicPen = magicPenetration.getMagicPenetration(monster)
-            local item = world:createItemFromId(itemId, 1, enemy.pos, true, qual,  {["magicPenetration"] = magicPen})
+            local naturePen = shared.getNaturePenetration(monster)
+            local item = world:createItemFromId(itemId, 1, enemy.pos, true, qual,  {["magicPenetration"] = magicPen, ["naturePenetration"] = naturePen})
             item.wear = 2
             world:changeItem(item)
         end

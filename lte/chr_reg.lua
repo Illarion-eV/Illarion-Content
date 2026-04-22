@@ -56,9 +56,7 @@ if Char:idleTime() < 300 then -- Absolutely no regeneration effect if the player
     local Hitpoints   = character.GetHP(Char)   -- Hitpoints einlesen    ( 0 - 10000 )
     local Manapoints  = Char:increaseAttrib("mana",0)        -- Manapoints einlesen   ( 0 - 10000 )
     local Foodvalue   = Char:increaseAttrib("foodlevel",0)   -- Foodvalue einlesen    ( 0 - 60000 )
-    local Poisonvalue = Char:getPoisonValue()                -- Poisonvalue einlesen  ( 0 - 10000 )
 
-    local Const        = Char:increaseAttrib("constitution",0) -- Konstitution einlesen ( 0 - 20 )
     local Essence      = Char:increaseAttrib("essence",0)      -- Essenze einlesen      ( 0 - 20 )
     local Race         = Char:getRace()                       -- Rasse einlesen
     -----------------------VALUES DONE------------------------------------
@@ -93,7 +91,7 @@ if Char:idleTime() < 300 then -- Absolutely no regeneration effect if the player
     end
 
     -----------------------HITPOINTS BEGIN-----------------------------------
-    if ( Hitpoints < maxHitpoints and Poisonvalue == 0 ) then -- HP not at maximum and not poisoned -> Regeneration
+    if ( Hitpoints < maxHitpoints) then -- HP not at maximum -> Regeneration
 
         if ( Foodvalue >= maxFoodvalue/12 ) and Char:getType()==Character.player then -- Quick regeneration, using foodpoints
 
@@ -135,49 +133,6 @@ if Char:idleTime() < 300 then -- Absolutely no regeneration effect if the player
 
     end
 
-    if ( Poisonvalue > 0 ) then -- Poisoned
-
-        Poisonvalue = math.max( 0,Poisonvalue - 15 * TimeFactor ) -- 10000 poison takes around 11 minutes to vanish
-
-        if ( Poisonvalue == 0 ) then -- Poison is gone
-
-            common.TempInformNLS(Char,
-                "Du fühlst wie das Gift in deinem Körper seine Wirkung verliert",
-                "You feel the poison in your body losing its effect.")
-
-        else
-
-            Hitpoints = math.max( 0,Hitpoints - ( ( Poisonvalue * 0.07 ) * ( ( 30 - Const ) / 20 ) * TimeFactor ) ) --Magic numbers, might need a rework
-
-            if ( Hitpoints > 0 ) then -- Poisoned, but still alive
-
-                if ( math.random(1,40/TimeFactor) == 2 or not Effect:findValue("poison") ) then -- Send the message once each 40 seconds
-
-                    common.TempInformNLS(Char,
-                        "Du fühlst wie dein Körper von innen heraus geschwächt wird.",
-                        "You feel your body becoming weaker.")
-
-                    Effect:addValue("poison",1)
-
-                end
-
-            else -- Death by poison
-
-                Poisonvalue = 0 -- Remove the poison, mission accomplished
-
-                common.TempInformNLS(Char,
-                    "Du fühlst ein Brennen in deinem Körper und wie sich der Speicheln in deinem Mund zusammen zieht, ehe die Welt um dich herum dunkel wird.",
-                    "You feel a burning sensation in your body and your mouth watering before everything goes dark.")
-
-            end
-
-        end
-
-    elseif Effect:findValue("poison") then
-
-        Effect:removeValue("poison")
-
-    end
     -----------------------HITPOINTS DONE-----------------------------------
 
     -----------------------MANA BEGIN----------------------------------
@@ -279,7 +234,6 @@ if Char:idleTime() < 300 then -- Absolutely no regeneration effect if the player
     -----------------------OVERLOAD BEGIN-----------------------------
     Hitpoints   = common.Limit( Hitpoints,   0, maxHitpoints  ) -- Lebenspunkte
     Manapoints  = common.Limit( Manapoints,  0, maxManapoints ) -- Manapunkte
-    Poisonvalue = common.Limit( Poisonvalue, 0, 10000         ) -- Giftpunkte
     Foodvalue   = common.Limit( Foodvalue,   0, maxFoodvalue  ) -- Nahrungspunkte
     -----------------------OVERLOAD DONE-----------------------------
 
@@ -292,12 +246,6 @@ if Char:idleTime() < 300 then -- Absolutely no regeneration effect if the player
     end
 
     ChangeAttrib( Char, "mana", Manapoints )
-
-    if ( Char:getPoisonValue() ~= Poisonvalue ) then
-
-        Char:setPoisonValue( Poisonvalue )
-
-    end
 
     ChangeAttrib( Char, "foodlevel", Foodvalue )
 
@@ -331,11 +279,6 @@ function M.removeEffect( Effect, Character )
     found, value = Effect:findValue( "maxMP" )
     if found then
         newEffect:addValue( "maxMP", value )
-    end
-
-    found, value = Effect:findValue( "poison" )
-    if found then
-        newEffect:addValue( "poison", value )
     end
 
     Character.effects:addEffect( newEffect )

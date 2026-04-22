@@ -32,5 +32,7 @@ return function(params)
     if params.sfxId == nil then params.sfxId = 5 end
     if params.itemId == nil then params.itemId = 372 end
 
+    params.poison = true
+
     return spellCone(params)
 end

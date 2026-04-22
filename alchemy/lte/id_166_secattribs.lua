@@ -19,6 +19,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- complete new version by Merung
 local common = require("base.common")
 local character = require("base.character")
+local poison = require("magic.nature.poison")
+
 local M = {}
 
 -- INSERT INTO longtimeeffects VALUES (166, 'alchemy_secattribs', 'alchemy.lte.id_166_secattribs');
@@ -57,8 +59,7 @@ function M.callEffect(Effect,User)
                 User:increaseAttrib("foodlevel",foodlevelIncrease)
             end
             if findPoisonvalueIn then
-                poisonvalueIncrease = common.Limit( (User:getPoisonValue() - poisonvalueIncrease) , 0, 10000 )
-                User:setPoisonValue( poisonvalueIncrease )
+                poison.applyAntidote(poisonvalueIncrease)
             end
 
             if findHitpointsDe then
@@ -71,8 +72,7 @@ function M.callEffect(Effect,User)
                 User:increaseAttrib("foodlevel",-foodlevelDecrease)
             end
             if findPoisonvalueDe then
-                poisonvalueDecrease = common.Limit( (User:getPoisonValue() + poisonvalueDecrease) , 0, 10000 )
-                User:setPoisonValue( poisonvalueDecrease )
+                poison.applyPoison(poisonvalueDecrease)
             end
 
             if findCounter then

@@ -23,8 +23,30 @@ local magicPenetration = require("magic.arcane.magicPenetration")
 local magicDamage = require("magic.arcane.magicDamage")
 local magic = require("base.magic")
 local dwyfol = require("magic.arcane.enchanting.effects.dwyfol")
+local druidMagic = require("magic.nature.shared")
+local druidCasting = require("magic.nature.cast")
+local poison = require("magic.nature.poison")
 
 local M = {}
+
+function M.dealPoisonDamage(target, damage, usedMovepoints, level, monster)
+
+    damage = druidMagic.scaleEffect(monster, false, damage, target)
+
+    if damage < 100 then
+        damage = 100 --At least deal some symbolic damage even if the player fully resists the attack
+    elseif damage > 4999 then -- Monsters should at least follow the same damage cap as they do in physical fighting
+        damage = 4999
+    end
+
+    if dwyfol.deflectAttackAsLightning(target, monster) then -- This glyph if activated deflects the attack, dealing the same amount they would have taken as magic damage to the attacker instead in the form of a lightning strike
+        target = monster --The monster becomes the new target as the spell damage is deflected
+        damage = math.min(damage, 1000) -- It shouldn't be possible to luck into killing off a max skill chara with a no skill character!
+    elseif character.IsPlayer(target) then
+        druidCasting.learnNatureResistance(target, usedMovepoints, level)
+    end
+    poison.applyPoison(target, damage)
+end
 
 function M.dealMagicDamage(target, damage, usedMovepoints, level, monster)
 

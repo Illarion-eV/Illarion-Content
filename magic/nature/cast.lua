@@ -77,6 +77,8 @@ local function learnNatureResistance(target, castTime, level)
 
 end
 
+M.learnNatureResistance = learnNatureResistance
+
 local function castingSpeedBySize(size) -- In deciseconds
     if size == "Short" then
         return 30

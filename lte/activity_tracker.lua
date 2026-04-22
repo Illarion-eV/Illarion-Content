@@ -304,7 +304,7 @@ function M.callEffect(effect, user)
         user:setQuestProgress(690, math.max(user:getQuestProgress(690)-1, user:getQuestProgress(690)-potionToxinReduction))
 
         if testing.active then
-            user:inform("Poison toxins reduced from "..oldValue.." to "..user:getQuestProgress(690))
+            user:inform("Potion toxins reduced from "..oldValue.." to "..user:getQuestProgress(690))
         end
     end
 

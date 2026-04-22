@@ -24,6 +24,8 @@ local scheduledFunction = require("scheduled.scheduledFunction")
 local missile = require("alchemy.base.missile")
 local testing = require("base.testing")
 local character = require("base.character")
+local poison = require("magic.nature.poison")
+
 local M = {}
 
 M.attribList   ={"strength","intelligence","dexterity"       ,"perception"  ,"constitution","essence","agility"      ,"willpower"}
@@ -298,7 +300,7 @@ local function rubyPotion(user,SourceItem)
     end
 end
 
-local topBorder = {7000       ,7000  ,50000      ,10000        ,7000         ,7000    ,50000        ,10000}
+local topBorder = {7000       ,7000  ,50000      ,7000        ,7000         ,7000    ,50000        ,7000}
 local attribList ={"hitpoints","mana","foodlevel","poisonvalue","hitpointsOT","manaOT","foodlevelOT","poisonvalueOT"}
 
 local function amethystGenerateEffectMessage(user,dataZList)
@@ -385,8 +387,11 @@ local function amethystPotion(user, SourceItem)
             elseif ( attribList[i] == "foodlevelOT" ) then
                    foodlevelOT = (Val * 1.25) / 5;
             elseif ( attribList[i] == "poisonvalue" ) then
-                Val = common.Limit( (user:getPoisonValue() - Val) , 0, 10000 );
-                user:setPoisonValue( Val );
+                if Val < 0 then
+                    poison.applyPoison(-Val)
+                else
+                    poison.applyAntidote(Val)
+                end
             elseif not (attribList[i] == "mana" ) or (isMage or isDruid) then
                 if testing.active then
                     user:inform("Increased "..attribList[i].." by "..tostring(Val))

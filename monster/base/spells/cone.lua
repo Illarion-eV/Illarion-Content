@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local base = require("monster.base.spells.base")
 local common = require("base.common")
 local magicPenetration = require("magic.arcane.magicPenetration")
+local shared = require("magic.nature.shared")
 
 local function _isNumber(value)
     return type(value) == "number"
@@ -65,8 +66,14 @@ return function(params)
     local usedMovepoints = 20
     local level = 0
     local attacker = nil
+    local poison = false
 
     if _isTable(params) then
+
+        if params.poison then
+            poison = true
+        end
+
         if params.probability ~= nil then
             if _isNumber(params.probability) then
                 probability = tonumber(params.probability)
@@ -210,7 +217,8 @@ return function(params)
             local qual = math.random(itemQualityRange[1], itemQualityRange[2]) * 100 +
                     math.random(itemDurabilityRange[1], itemDurabilityRange[2])
             local magicPen = magicPenetration.getMagicPenetration(monster)
-            local item = world:createItemFromId(itemId, 1, pos, true, qual,  {["magicPenetration"] = magicPen})
+            local naturePen = shared.getNaturePenetration(monster)
+            local item = world:createItemFromId(itemId, 1, pos, true, qual,  {["magicPenetration"] = magicPen, ["naturePenetration"] = naturePen})
             item.wear = 2
             world:changeItem(item)
         end
@@ -220,8 +228,11 @@ return function(params)
             if victim:getType() ~= Character.npc then
 
                 local damage = math.random(damageRange[1], damageRange[2])
-
-                base.dealMagicDamage(victim, damage, usedMovepoints, level, attacker)
+                if not poison then
+                    base.dealMagicDamage(victim, damage, usedMovepoints, level, attacker)
+                else
+                    base.dealPoisonDamage(victim, damage, usedMovepoints, level, attacker)
+                end
             end
         end
     end

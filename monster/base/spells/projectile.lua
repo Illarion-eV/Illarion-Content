@@ -19,6 +19,7 @@ local character = require("base.character")
 local common = require("base.common")
 local standardfighting = require("server.standardfighting")
 local magicPenetration = require("magic.arcane.magicPenetration")
+local shared = require("magic.nature.shared")
 
 local function _isNumber(value)
     return type(value) == "number"
@@ -43,8 +44,14 @@ return function(params)
     local usedMovepoints = 20
     local level = 0
     local attacker = false
+    local poison = false
 
     if _isTable(params) then
+
+        if params.poison then
+            poison = true
+        end
+
         if params.probability ~= nil then
             if _isNumber(params.probability) then
                 probability = tonumber(params.probability)
@@ -210,7 +217,11 @@ return function(params)
 
         if hitCharacter ~= nil then
             local damage = math.random(damageRange[1], damageRange[2])
-            base.dealMagicDamage(hitCharacter, damage, usedMovepoints, level, attacker)
+            if not poison then
+                base.dealMagicDamage(hitCharacter, damage, usedMovepoints, level, attacker)
+            else
+                base.dealPoisonDamage(hitCharacter, damage, usedMovepoints, level, attacker)
+            end
         end
 
         if gfxId > 0 then world:gfx(gfxId, hitPosition) end
@@ -219,7 +230,8 @@ return function(params)
             local qual = math.random(itemQualityRange[1], itemQualityRange[2]) * 100 +
                     math.random(itemDurabilityRange[1], itemDurabilityRange[2])
             local magicPen = magicPenetration.getMagicPenetration(monster)
-            local item = world:createItemFromId(itemId, 1, hitPosition, true, qual,  {["magicPenetration"] = magicPen})
+            local naturePen = shared.getNaturePenetration(monster)
+            local item = world:createItemFromId(itemId, 1, hitPosition, true, qual,  {["magicPenetration"] = magicPen, ["naturePenetration"] = naturePen})
             item.wear = 2
             world:changeItem(item)
         end

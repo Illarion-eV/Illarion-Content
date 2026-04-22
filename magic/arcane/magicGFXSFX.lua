@@ -53,10 +53,7 @@ local sfxNumber = 13
         end
     end
     if runes.checkSpellForRuneByName("SOLH", spell) then
-        gfxNumber = 8
-        if runes.checkSpellForRuneByName("QWAN", spell) then
-            gfxNumber = 5
-        end
+        gfxNumber = 5
     end
     if runes.checkSpellForRuneByName("JUS", spell) then
         gfxNumber = 7

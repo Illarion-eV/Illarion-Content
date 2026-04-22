@@ -32,5 +32,7 @@ return function(params)
     if params.sfxId == nil then params.sfxId = 5 end
     if params.trailGfxId == nil then params.trailGfxId = 1 end
 
+    params.poison = true
+
     return spellProjectile(params)
 end

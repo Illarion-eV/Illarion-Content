@@ -24,7 +24,7 @@ function M.dispel(spell, targets)
     local dispels = {
         {primary = runes.checkSpellForRuneByName("RA", spell), object = 360}, -- fire melts ice flames
         {primary = runes.checkSpellForRuneByName("CUN", spell), object = 359}, -- water douses flames
-        {primary = runes.checkSpellForRuneByName("JUS", spell), object = 372} -- wind blows away poisoned clouds
+        {primary = runes.checkSpellForRuneByName("JUS", spell), object = 372} -- wind blows away earth trap clouds and poison clouds
     }
 
     for _, item in pairs(targets.items) do

@@ -14,91 +14,94 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-local common = require("base.common")
-local icefield = require("lte.damagefield_icefield")
 
--- Long time effect (112)
+local common = require("base.common")
+local magic = require("base.magic")
+local shared = require("magic.nature.shared")
+local poison = require("magic.nature.poison")
+
 local M = {}
 
-function M.addEffect(theEffect, User)
-    if User:getQuestProgress(300) == 0 then
-        User:inform("Du fühlst wie dein Körper schwächer wird.",
-                    "You feel your body becoming weaker.")
-        local _, quality = theEffect:findValue("quality")
+function M.addPoison(user, quality, penetration)
 
-        local foundpenetration, penetration = theEffect:findValue("magicPenetration")
 
-        local foundwandGemBonus, wandGemBonus = theEffect:findValue("wandGemBonus")
+    local cloakGemBonus = magic.getGemBonusCloak(user)/100
+    local resistance = shared.getNatureResistance(user)
 
-        if not foundpenetration then
-            penetration = 0
-        else
-            penetration = penetration/100
-        end
+    local damageLow = 100 + 40 * (quality) --Anywhere between 140 and 500
+    local damageHigh = 100 + 80 * (quality) -- between 180 and 900
+    local damageDealt = math.random(math.min(damageLow, damageHigh), math.max(damageLow, damageHigh))
 
-        if not foundwandGemBonus then
-            wandGemBonus = 0
-        end
+    damageDealt = damageDealt * (1 - resistance + penetration)
 
-        icefield.causeDamage(User, quality, penetration, wandGemBonus, theEffect)
+    damageDealt = damageDealt * (1 - cloakGemBonus)
+
+    damageDealt = math.max(damageDealt, 100)
+
+    poison.applyPoison(user, damageDealt)
+end
+
+function M.addEffect(theEffect, user)
+
+    if user:getQuestProgress(300) ~= 0 then
+        return
+    end
+
+    user:inform("Du fühlst wie dein Körper schwächer wird.",
+                "You feel your body becoming weaker.")
+
+    local foundQuality, quality = theEffect:findValue("quality")
+
+    local foundpenetration, penetration = theEffect:findValue("naturePenetration")
+
+    if not foundpenetration then
+        penetration = 0
+    end
+
+    if foundQuality then
+        M.addPoison(user, quality, penetration)
     end
 end
 
-function M.callEffect(theEffect, User)
+function M.callEffect(theEffect, user)
 
     -- check if still on a damaging field
-    local Items = common.GetItemsOnField(User.pos)
-    local FieldItem
+    local items = common.GetItemsOnField(user.pos)
+    local fieldItem
 
-    for _, item in pairs(Items) do
-        if(item.id == 372) then
-            FieldItem = item
+    for _, theItem in pairs(items) do
+        if theItem.id == 372 then
+            fieldItem = theItem
             break
         end
     end
 
     -- not on damaging field enymore
-    if FieldItem == nil then
+    if not fieldItem then
         return false
     end
 
-    if User:getQuestProgress(300) == 0 then
-        local foundpenetration, penetration = theEffect:findValue("magicPenetration")
-        local foundwandGemBonus, wandGemBonus = theEffect:findValue("wandGemBonus")
-
-        if not foundpenetration then
-            penetration = 0
-        else
-            penetration = penetration/100
-        end
-
-        if not foundwandGemBonus then
-            wandGemBonus = 0
-        end
-
-        local scaling = FieldItem:getData("scaling")
-
-        if common.IsNilOrEmpty(scaling) then
-            scaling = math.floor(FieldItem.quality/100)+1
-        end
-
-        icefield.causeDamage(User, tonumber(scaling), penetration, wandGemBonus, nil, FieldItem)
+    if user:getQuestProgress(300) ~= 0 then
+        return
     end
+
+    local foundpenetration, penetration = theEffect:findValue("naturePenetration")
+
+    if not foundpenetration then
+        penetration = 0
+    end
+
+    M.addPoison(user, math.floor(fieldItem.quality/100)+1, penetration)
+
     -- repeat in 5sec
     theEffect.nextCalled = 50
     return true
 end
 
 function M.loadEffect(theEffect, User)
-    -- we dont care
 end
 
 function M.removeEffect (theEffect, User)
-
-    if User:getQuestProgress(300) == 0 then
-        User:inform("Du fühlst wie das Gift in deinem Körper nachlässt.",
-                    "You feel the poison fade.")
-    end
 end
 
 return M

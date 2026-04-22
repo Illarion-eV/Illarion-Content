@@ -15,8 +15,6 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
---Template for druid weave spells
-
 local shared = require("magic.nature.shared")
 local character = require("base.character")
 
@@ -40,7 +38,6 @@ function M.effect(user, location, target)
 end
 
 function M.checksToPass(user, location, target)
-    -- If it needs to pass a check before casting, put it here. Return false if it does not pass.
     return true
 end
 
