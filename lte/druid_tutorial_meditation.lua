@@ -43,13 +43,13 @@ local function onTheEldanOakStone(user) --Narguns plain forest, on rock next to 
 end
 
 local function inUsharasGarden(user) -- In the underground garden of Ushara
-    if user.pos.x > 742 and user.pos.y > 266 and user.pos.x < 808 and user.pos.y < 313 and user.poz.z == -3 then
+    if user.pos.x > 742 and user.pos.y > 266 and user.pos.x < 808 and user.pos.y < 313 and user.pos.z == -3 then
         return true
     end
 end
 
 local function inLibertyQuarry(user) -- in the iron mine of Cadomyr
-    if user.pos.x > 150 and user.pos.y > 584 and user.pos.x < 180 and user.pos.y < 617 and user.poz.z == 0 then
+    if user.pos.x > 150 and user.pos.y > 584 and user.pos.x < 180 and user.pos.y < 617 and user.pos.z == 0 then
         return true
     end
 end
