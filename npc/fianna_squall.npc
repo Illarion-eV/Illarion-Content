@@ -165,8 +165,8 @@ queststatus(691) = 5, queststatus(692) = 0, "naturmagie", "druide", "gewebe", "a
 -- POST DRUID NATURE MAGIC INTRODUCTION & INITIATION
 -------------------------------------------------------------------------------
 -- Repeating instructions of where to go
-queststatus(691) = 5, queststatus(692) = 1, "nature magic", "druid path", "weave", "learn nature", "old path" -> "Give yourself more time to listen on Twin Eyes Islands. Remember, the deeper you go, the more likely you are to hear. Return to me only once you feel the land has spoken clearly to you."
-queststatus(691) = 5, queststatus(692) = 1, "naturmagie", "druide", "gewebe", "alter Pfad" -> "Gib dir mehr Zeit, um auf den Zwillingsaugen-Inseln zu lauschen. Denk daran: Je tiefer du gehst, desto eher wirst du etwas hören. Kehre erst zu mir zurück, wenn du das Gefühl hast, dass das Land klar zu dir gesprochen hat."
+queststatus(691) = 5, queststatus(692) = 1, "nature magic", "druid path", "weave", "learn nature", "old path" -> "Give yourself more time to listen on Twin Eyes Islands, south of Runewick. Remember, the deeper you go, the more likely you are to hear. Return to me only once you feel the land has spoken clearly to you."
+queststatus(691) = 5, queststatus(692) = 1, "naturmagie", "druide", "gewebe", "alter Pfad" -> "Gib dir mehr Zeit, um auf den Zwillingsaugen-Inseln zu lauschen südlich von Runewick auf. Denk daran: Je tiefer du gehst, desto eher wirst du etwas hören. Kehre erst zu mir zurück, wenn du das Gefühl hast, dass das Land klar zu dir gesprochen hat."
 
 -- Telling player to craft a sigil
 queststatus(692) = 2, english, "Cor Valis" -> queststatus(692) = 3, "The wood's silence wraps around you, ancient and deep. I see by your eyes, Cor Valis calls to you, as so many have since the dawn of time. Now claim or craft a plain wooden sigil. When you have one, say: 'I have my sigil.'", inform("[Hint] Find or craft a blank wooden sigil (carpentry or Fianna's shop). You need this to start your ritual journey.")
@@ -238,8 +238,8 @@ queststatus(692) = 4, english, "Cor Valis Sindeim" -> "You still have more to le
 queststatus(692) = 4, "Cor Valis Sindeim" -> "Du hast noch mehr zu lernen. Stelle sicher, dass du nach jedem Cor-Geflecht fragst: Welken, Blühen, Wildnis, Stein und Tiefe. Erst wenn du über alle etwas gelernt hast, kannst du den nächsten Schritt gehen.", inform("[Hinweis] Frage nach jedem Cor-Geflecht: Welken, Blühen, Wildnis, Stein und Tiefe, bevor du fortfährst.")
 
 -- NATURE MAGIC CONTINUED: Player ready to select a Cor Weave location and learn their next step
-queststatus(692) > 4, english, "Cor Valis Contendiem" -> "You are ready, aspirant. Choose a place where the weave speaks loudest. Listen closely, for Wither: seek Dewy Swamp, Bloom: north of Runewick, Wild: roam Nargun's Plain, Stoneweave: go into the Malachite Mine. As for the Deep, now is not the time...", inform("[Hint] Try asking more about one of the weaves to continue..")
-queststatus(692) > 4, "Cor Valis Contendiem" -> "Du bist bereit, Aspirant. Wähle einen Ort, an dem das Geflecht am lautesten spricht. Lausche genau: Für Welken suche den Tauigen Sumpf, für Blühen gehe nördlich von Runewick, für Wildnis streife über Narguns Ebene, für das Steingeflecht betrete die Malachitmine. Was die Tiefe betrifft ? jetzt ist nicht die Zeit...", inform("[Hinweis] Versuche, mehr über eines der Gewebe zu fragen, um fortzufahren.")
+queststatus(692) > 4, english, "Cor Valis Contendiem" -> "You are ready, aspirant. Choose a place where the weave speaks loudest. Listen closely, for Wither: seek Dewy Swamp, Bloom: north of Runewick, Wild: roam Nargun's Plain, Stoneweave: go into the Liberty Quarry. As for the Deep, now is not the time...", inform("[Hint] Try asking more about one of the weaves to continue..")
+queststatus(692) > 4, "Cor Valis Contendiem" -> "Du bist bereit, Aspirant. Wähle einen Ort, an dem das Geflecht am lautesten spricht. Lausche genau: Für Welken suche den Tauigen Sumpf, für Blühen gehe nördlich von Runewick, für Wildnis streife über Narguns Ebene, für das Steingeflecht betrete den Steinbruch der Freiheit. Was die Tiefe betrifft ? jetzt ist nicht die Zeit...", inform("[Hinweis] Versuche, mehr über eines der Gewebe zu fragen, um fortzufahren.")
 
 -- COR WEAVE ADVANCEMENT II
 -------------------------------------------------------------------------------
