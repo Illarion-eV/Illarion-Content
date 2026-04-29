@@ -119,7 +119,7 @@ local function EssenceBrewAnalysis(User, gem, brew)
     local reGem, reGemdust = alchemy.GemDustBottleCauldron(brew.id)
     local analysisResultDE
     local analysisResultEN
-    if gem.id ~= reGem then -- the gem used does not match the substance
+    if gem.id ~= reGem and gem.id ~= Item.prismaticLens then -- the gem used does not match the substance
         analysisResultDE = "Die Analyse führt zu keinen schlüssigen Ergebnissen."
         analysisResultEN = "The analysis does not provide any decent results."
     else
