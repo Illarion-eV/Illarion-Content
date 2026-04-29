@@ -529,9 +529,9 @@ function M.castSpell(user, spellName, actionState)
 
         local target = M[user.id].target
 
-        if target and not isValidChar(target) then
+        if not target or not isValidChar(target) then
             target = false
-        else
+        elseif target and target.pos then
             M[user.id].thePosition = target.pos
         end
 
