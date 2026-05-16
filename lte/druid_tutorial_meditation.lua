@@ -75,6 +75,8 @@ function M.addEffect( myEffect, user)
         user:inform("Wenn du Usharas Garten betrittst, ist das Gefühl von Lebenskraft zunächst fast überwältigend. Doch schon bald lässt es dich fühlen, als wärst du zu Hause, im Einklang mit der Natur. Du solltest einen Platz finden, dich hinsetzen und über diese Empfindung in den Tiefen der Erde meditieren.", "As you enter Ushara's garden, the sense of vitality is almost overwhelming at first. Yet soon enough, it makes you feel like you're at home, attuned with nature. You should find a place to sit down and meditate on this sensation in the depths of the earth.")
     elseif inLibertyQuarry(user) then
         user:inform("Der Staub, das Klirren von Spitzhacken, Steinschutt. Wie soll man hier überhaupt meditieren? Dennoch musst du dich arrangieren und einen Ort finden, um dich zu konzentrieren, wenn du weiterkommen willst.", "The dust, the clinking of pickaxes, stone debris. How is one even supposed to meditate in here? Still, you must make do and find a place to concentrate if you want to proceed further.")
+    elseif onTheEldanOakStone(user) then
+        user:inform("Als du dich auf den Felsen setzt, hörst du die Geräusche von Tieren in deiner Nähe und in der Ferne, die dich umgeben. Vermischt mit dem Rauschen des Windes in den Blättern und dem Fließen des Wassers im Fluss könntest du spüren, wie eine gewisse Verbindung zur Natur in dir zu wachsen beginnt.", "As you sit down on the rock, you hear the sound of animals near and far surrounding you near and far. Mixed in with the noise of wind rustling through the leaves and water flowing through the river, you may feel at certain connection to nature begin to grow.")
     end
 end
 
@@ -112,11 +114,15 @@ function M.callEffect( myEffect, user)
             user:inform("Du kannst spüren, dass es nicht mehr lange dauern sollte. Das Klirren hallt überall um dich herum wider, die Vibration des Bodens unter dir - alles beginnt auf seltsame Weise zu? resonieren.", "You can feel it shouldn't be much longer now. The clinking sounds echoing all around you, the vibration of the ground beneath you, it's all beginning to strangely.. resonate.")
             myEffect.nextCalled = 600
             return true
+        elseif onTheEldanOakStone(user) then
+            user:inform("Während du den Rindern beim Grasen zusiehst und das Blöken der Schafe hörst, fühlt es sich fast so an, als würden sie zu dir sprechen. Nur noch einen Augenblick länger, vielleicht wirst du etwas begreifen.", "Watching the cattle graze, hearing the sheep bleat. It almost feels like they are speaking to you. Just a moment longer now, maybe you'll grasp something.")
+            myEffect.nextCalled = 600
+            return true
         end
 
     end
 
-    if not isOnIsle(user) and not isInMushroomCluster(user) and not isUnderMevrannonTree(user) and not inUsharasGarden(user) and not inLibertyQuarry(user) then
+    if not isOnIsle(user) and not isInMushroomCluster(user) and not isUnderMevrannonTree(user) and not inUsharasGarden(user) and not inLibertyQuarry(user) and not onTheEldanOakStone(user) then
         user:inform("Du hast den Meditationsplatz zu früh verlassen. Du musst zurückkehren und von vorne beginnen, wenn du mit dem Tutorial fortfahren möchtest.", "You left the meditation spot too soon. You must return and start again if you wish to proceed with the tutorial.")
         return false
     end
@@ -145,6 +151,12 @@ function M.callEffect( myEffect, user)
         user:setQuestProgress(697, 4)
         user:inform("Die Echos des Klangs prallen von Wand zu Wand, Vibrationen umgeben dich. Natur ist nicht nur Pflanzenwelt, sondern auch Stein, Sand und Erde, und diese Wahrheit wird dir klar, während du lernst, die Weaves des Steins zu nutzen. Du brauchst faulige Baumrinde, bevor du zu Fianna zurückkehrst.", "The echoes of sound bounce wall to wall, vibrations all around you. Nature is not only plantlife but also stone, sand, and earth, and that truth becomes clear as you learn to harness the weaves of stone. You will need some rotten tree bark before returning to Fianna.")
     end
+
+    if onTheEldanOakStone(user) then
+        user:setQuestProgress(696, 4)
+        user:inform("Du spürst, wie eine neue Kraft der Natur durch dich strömt ? wie seltsam. Das Blöken ringsum, die Schritte der Hufe und das ferne Heulen der Wölfe ? spricht das alles tatsächlich zu dir, oder bist du dem Wahnsinn verfallen? Wie dem auch sei, irgendwie weißt du, dass du mit 10 Tannensetzlingen nach Fianna zurückkehren musst.", "You feel a new force of nature coursing through you, how peculiar. The bleating all around, the steps of hooves and distant howl of wolves - is it all truly speaking to you or have you gone mad? In either case, you somehow know you must return to Fianna with 10 fir tree sprouts.")
+    end
+
     return false
 end
 
