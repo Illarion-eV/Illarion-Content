@@ -25,27 +25,49 @@ local M = {}
 M.playerTargets = {}
 
 local function circlePoints(px, py, radius)
+
+    if not radius or type(radius) ~= "number" then
+        debug("Unexpected result for radius: "..tostring(radius))
+        return {}
+    end
+
+    if not px or type(px) ~= "number" then
+        debug("Unexpected result for px: "..tostring(px))
+        return {}
+    end
+
+    if not py or type(py) ~= "number" then
+        debug("Unexpected result for py: "..tostring(py))
+        return {}
+    end
+
+    radius = math.floor(radius)
+
+    if radius <= 0 or radius > 50 then
+        debug("Out of bounds use of DUN with radius of "..tostring(radius))
+        return {}
+    end
+
+    logPlayer("DUN circle points got through checks with values: radius "..tostring(radius).." py "..tostring(py).." px "..tostring(px))
+
     local points = {}
     local x = radius
     local y = 0
     local err = 0
 
-    for _ = 1, radius do
-        if x < y then
-            break
-        end
-
-        table.insert(points, {px + x, py + y})
-        table.insert(points, {px + y, py + x})
-        table.insert(points, {px - y, py + x})
-        table.insert(points, {px - x, py + y})
-        table.insert(points, {px - x, py - y})
-        table.insert(points, {px - y, py - x})
-        table.insert(points, {px + y, py - x})
-        table.insert(points, {px + x, py - y})
+    while x >= y do
+        -- to try and keep the script as lag free as possible, I'm using points[#points + 1] instead of table.insert as it is supposed to be faster
+        points[#points + 1] = {px + x, py + y}
+        points[#points + 1] = {px + y, py + x}
+        points[#points + 1] = {px - y, py + x}
+        points[#points + 1] = {px - x, py + y}
+        points[#points + 1] = {px - x, py - y}
+        points[#points + 1] = {px - y, py - x}
+        points[#points + 1] = {px + y, py - x}
+        points[#points + 1] = {px + x, py - y}
 
         y = y + 1
-        if err <= 0 then
+        if err < 0 then
             err = err + 2 * y + 1
         else
             x = x - 1
@@ -185,32 +207,38 @@ local function getDunPositions(player, targetPosition, spell, startedInAttackMod
     local LEV = runes.checkSpellForRuneByName("LEV", spell)
 
     if distance < 3 or player.attackmode or (PEN and LEV) or startedInAttackMode then
-        logPlayer("DUN spell getting cluster positions")
         return getDunClusterPositions(player, targetPosition)
     end
 
-    logPlayer("DUN spell getting circle positions")
+    if type(distance) ~= "number" then
+        return positions
+    end
 
     local radius = math.floor(distance + 0.5)
 
+    if radius <= 0 then
+        return positions
+    end
+
     local circle = circlePoints(px, py, radius)
+    logPlayer("DUN circle points finished")
     for _, c in ipairs(circle) do
         local gx, gy = c[1], c[2]
         if not (gx == px and gy == py) then
             local key = gx .. "," .. gy
             if not seen[key] then
                 seen[key] = true
-                table.insert(positions, position(gx, gy, pz))
+                -- to try and keep the script as lag free as possible, I'm using positions[#positions + 1] instead of table.insert as it is supposed to be faster
+                positions[#positions + 1] = position(gx, gy, pz)
             end
         end
     end
+    logPlayer("DUN circle points turned into positions")
 
     return positions
 end
 
 local function addDunTargets(user, targetsPositions, spell, startedInAttackMode)
-
-    logPlayer("DUN spell adding targets")
 
     local RA = runes.checkSpellForRuneByName("RA", spell)
     local CUN = runes.checkSpellForRuneByName("CUN", spell)
@@ -230,16 +258,10 @@ local function addDunTargets(user, targetsPositions, spell, startedInAttackMode)
 
     local possiblePositions =  getDunPositions(user, targetPosition, spell, startedInAttackMode)
 
-    logPlayer("DUN spell finished getting possiblePositions")
-
-
     for _, possiblePosition in pairs(possiblePositions) do
-
-        logPlayer("DUN spell checking position: "..tostring(possiblePosition))
 
         local field = world:getField(possiblePosition)
         if field then
-            logPlayer("DUN spell found field at position: "..tostring(possiblePosition))
             local foundChar = world:isCharacterOnField(possiblePosition)
 
             if (RA or CUN) and SUL then
@@ -247,10 +269,8 @@ local function addDunTargets(user, targetsPositions, spell, startedInAttackMode)
             end
 
             if foundChar then
-                logPlayer("DUN spell found char at position: "..tostring(possiblePosition))
                 local char =  world:getCharacterOnField(possiblePosition)
                 if isValidChar(char) and char:getType() ~= Character.npc then --foundChar remains true because we dont want spells cast under npcs
-                    logPlayer("DUN spell found valid char "..char.name.." at position: "..tostring(possiblePosition))
                     table.insert(targetsPositions.targets, char)
                 end
             end
@@ -259,7 +279,6 @@ local function addDunTargets(user, targetsPositions, spell, startedInAttackMode)
 
             if world:isItemOnField(possiblePosition) then
                 local item = world:getItemOnField(possiblePosition)
-                logPlayer("DUN spell found item "..item.id.." at position: "..tostring(possiblePosition))
                 if item.id ~= 0 and item.id ~= 3518 then
                     foundItem = true
                     table.insert(targetsPositions.items, item)
@@ -267,7 +286,6 @@ local function addDunTargets(user, targetsPositions, spell, startedInAttackMode)
             end
 
             if not foundItem and not foundChar then
-                logPlayer("DUN spell found no item or char at position: "..tostring(possiblePosition))
                 table.insert(targetsPositions.positions, possiblePosition)
             end
         end
@@ -278,7 +296,6 @@ local function addDunTargets(user, targetsPositions, spell, startedInAttackMode)
         M[user.id.."LevDunPos"] = false
     end
 
-    logPlayer("DUN spell succeess")
     return targetsPositions
 end
 
