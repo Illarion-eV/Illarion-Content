@@ -19,6 +19,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local character = require("base.character")
 local shared = require("magic.nature.shared")
+local traps = require("magic.arcane.traps")
 
 local M = {}
 
@@ -84,6 +85,11 @@ function M.CharacterOnField(user)
             fieldItem = theItem
             break
         end
+    end
+
+    if fieldItem:getData("spell") ~= "" then --It is an earth spell trap from arcane magic and not a poison cloud
+        traps.triggerEarthTrap(fieldItem, user)
+        return
     end
 
     -- dont harm dead chars anymore

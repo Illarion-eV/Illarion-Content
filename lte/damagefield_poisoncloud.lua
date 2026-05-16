@@ -24,10 +24,10 @@ local M = {}
 
 function M.addPoison(user, quality, penetration)
 
+    penetration = penetration/100 -- We deal with it in decimals but to store it as a value before it had to be a whole integer
 
     local cloakGemBonus = magic.getGemBonusCloak(user)/100
     local resistance = shared.getNatureResistance(user)
-
     local damageLow = 100 + 40 * (quality) --Anywhere between 140 and 500
     local damageHigh = 100 + 80 * (quality) -- between 180 and 900
     local damageDealt = math.random(math.min(damageLow, damageHigh), math.max(damageLow, damageHigh))

@@ -153,7 +153,8 @@ M.skillNames = {
     Character.bloomweave,
     Character.wildweave,
     Character.stoneweave,
-    Character.witherweave
+    Character.witherweave,
+    Character.natureResistance
 }
 local attributeNames={
     "agility",
