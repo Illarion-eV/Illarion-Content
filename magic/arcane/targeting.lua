@@ -194,6 +194,10 @@ end
 
 local function getDunPositions(player, targetPosition, spell, startedInAttackMode)
 
+    if not player then
+        return {}
+    end
+
     local positions = {}
     local px, py, pz = player.pos.x, player.pos.y, player.pos.z
     local tx, ty = targetPosition.x, targetPosition.y
