@@ -33,8 +33,10 @@ function M.effect(user, location, target)
 
     world:gfx(8, location)
     world:makeSound(13, location)
-    local damage = getDamage(user, "Toxgwynt", target)
-    poison.applyPoison(target, damage, false, user)
+    if target and isValidChar(target) then
+        local damage = getDamage(user, "Toxgwynt", target)
+        poison.applyPoison(target, damage, false, user)
+    end
 end
 
 function M.checksToPass(user, location, target)
