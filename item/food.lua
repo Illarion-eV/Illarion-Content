@@ -802,6 +802,7 @@ end
 
 function M.LookAtItem(user, food)
 
+    local craftedRare = food:getData("craftedRare")
 
     if M.cookedFood[food.id] and common.IsNilOrEmpty(food:getData("remainingValue")) and not M.cookedFood[food.id].intermediate then
         local dishInfo
@@ -824,7 +825,7 @@ function M.LookAtItem(user, food)
 
     local rarity = tonumber(food:getData("rareness"))
 
-    if common.IsNilOrEmpty(rarity) then
+    if common.IsNilOrEmpty(rarity) or common.IsNilOrEmpty(craftedRare) then -- either no rarity at all or it is not a rarity that resulted from crafting
         rarity = 1
     end
 
