@@ -506,6 +506,9 @@ function M.ShowRecipe(user, ingredientList, writingRecipe)
 
             dialog:addOption(essenceBrewGraphic, common.GetNLS(user,counter..". Essenzgebräu",counter..". Essence brew"))
         else
+            if not ingredient.value then
+                debug("Invalid ingredient.value: "..tostring(ingredient.value))
+            end
             dialog:addOption(ingredient.value, common.GetNLS(user,counter..". "..world:getItemName(ingredient.value, Player.german),counter..". "..world:getItemName(ingredient.value,Player.english)))
         end
     end

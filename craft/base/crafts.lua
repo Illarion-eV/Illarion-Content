@@ -82,7 +82,9 @@ local itemsWithRemnants = {
     }
 
 for _, bottle in pairs(bottles.bottles) do -- Since bottles conveniently already have the remnants listed, we just add that to the list using the existing one
-    table.insert(itemsWithRemnants, {id = bottle.full[1], remnant = bottle.empty[1]}) -- The bottle is always listed first, the rest are serving jugs and such that are not used in crafting
+    for i = 1,  #bottle.full do --Normally the first bottle would've sufficed as the rest are serving jugs, but due to fringe cases like milk we list them all
+        table.insert(itemsWithRemnants, {id = bottle.full[i], remnant = bottle.empty[i]})
+    end
 end
 
 M.itemsWithRemnants = itemsWithRemnants -- for use in construction
