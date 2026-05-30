@@ -98,7 +98,7 @@ local cycleText = {
 {"Haare schneiden fast im Vorbeigehen.", "Hair one moment. Gone the next!"},
 {"Einige Krieger kommen und wollen 'Aim the for the flat-top'. Was immer das sein soll.", "Some warrior once told me, 'Aim the for the flat-top!' Whatever that means."},
 {"Zeit Euch zu rasieren!?", "Time for a shave yes?"},
-{"Oh Götter, da ist eine tote Ratte auf Eurem Kopf.", "Oh my gods! There's a dead rat on your head!."},
+{"Oh Götter, da ist eine tote Ratte auf Eurem Kopf.", "Oh my gods! There's a dead rat on your head!"},
 {"Ich schneid dem Nächsten die Kehle durch, der mir mit .. Oh Hallo, braucht Ihr eine Rasur?", "I'll kill the next fella that.. Oh hello there, care for a shave?"}
 }
 
