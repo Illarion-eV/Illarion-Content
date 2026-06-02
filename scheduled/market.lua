@@ -58,7 +58,7 @@ function M.market()
     --Announce the market day one ingame hour before it takes place
     if (hour == 11) and not announced then
 
-        world:broadcast("In etwa zwanzig Minuten wird auf dem Gelände des Gasthofs zur Hanfschlinge der Markt des Monats "..monthString.." veranstaltet. Macht eure Waren bereit!","In around twenty minutes, the market of the month "..monthString.." will be held on the premises of the Hemp Necktie Inn. Get your goods ready!");
+        world:broadcast("In etwa zwanzig Minuten wird auf dem Gelände von Trolls Haven der Markt des Monats beginnen "..monthString.." veranstaltet. Macht eure Waren bereit!","In around twenty minutes, the market of the month "..monthString.." will be held on the premises of the Troll's Haven Inn. Get your goods ready!");
         announced=true;
         started=false;
         over=false;
@@ -67,7 +67,7 @@ function M.market()
     --Invites the players
     elseif (hour == 12) and not started then
 
-        world:broadcast("Der Markt des Monats "..monthString.." hat soeben auf dem Gelände des Gasthofs zur Hanfschlinge begonnen!","The market of the month "..monthString.." has started on the premises of the Hemp Necktie Inn!");
+        world:broadcast("Der Markt des Monats "..monthString.." hat soeben auf dem Gelände von Trolls Haven begonnen!","The market of the month "..monthString.." has started on the premises of the Troll's Haven Inn!");
         announced=false;
         started=true;
         over=false;
