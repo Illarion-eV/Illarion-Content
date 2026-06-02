@@ -65,8 +65,8 @@ Description[GERMAN][15] = "Besorge zwanzig Naldorholzbretter und bringe sie Bero
 Description[ENGLISH][15] = "Produce twenty naldor wood boards and bring them to Beror. You can buy them from a merchant or saw naldor wood into boards by using a workbench as you stand in front of it, with the saw in your hand. You can find workbenches in Runewick or Galmair."
 Description[GERMAN][16] = "Geh zu Beror Oakaxe, der sich in der Stube des Wachtmeisters von Cadomyr aufhält. Er hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][16] = "Go back to Beror Oakaxe in the Sergeant Store of Cadomyr, he will certainly have another task for you."
-Description[GERMAN][17] = "Besorge ein Eisvogelamulett, einen Erzmagierring und eine Vase und bringe sie Beror. Du kannst sie als Goldschmied bzw. Glasbläser herstellen. Dazu nimmst du den Feinschmiedhammer in die Hand und benutzt ihn, während du vor einem Amboss stehst und das Glasblasrohr, während du vor einem Glasschmelzofen stehst."
-Description[ENGLISH][17] = "Produce a charm of the icebird and a vase and bring them to Beror. You can produce them as goldsmith and glass blower respectively. Therefor use the finesmithing hammer in your hand, while standing in front of an anvil or use the glass blow pipe in your hand, while standing in front of an glass melting oven."
+Description[GERMAN][17] = "Stelle ein Eisvogelamulett und eine Vase her und bringe sie zu Beror. Du kannst sie als Goldschmied und Töpfer herstellen. Verwende dazu den Feinschmiedehammer in deiner Hand, während du vor einem Amboss stehst, oder die Zange in deiner Hand, während du vor einem Brennofen stehst."
+Description[ENGLISH][17] = "Produce a charm of the icebird and a vase and bring them to Beror. You can produce them as goldsmith and potter respectively. Therefore use the finesmithing hammer in your hand, while standing in front of an anvil or use the tongs in your hand, while standing in front of an kiln."
 Description[GERMAN][18] = "Du hast alle Aufgaben von Beror Oakaxe erfüllt."
 Description[ENGLISH][18] = "You have fulfilled all the tasks for Beror Oakaxe."
 
