@@ -4286,7 +4286,7 @@ queststatus(213) = 245, item(3916, all) < 40, town = Runewick, "quest", "mission
 queststatus(213) = 245, item(3916, all) < 40, town = Runewick, "task", "adventure", "order" -> "Will I ever see my spouse again? Earning money as seafarer became so difficult. And without your forty smoked salmon, I cannot set sail."
 queststatus(213) = 245, item(3916, all) < 40, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Werde ich jemals meine Gattin wiedersehen? Das Leben als Seefahrer ist nicht allzu einträglich. Und ohne eure vierzig Räucherlachse steche ich nicht in See."
 
--- Outlaw exception: If 'quest' is not triggered until here, the speaker is an outlaw or an error occured. Condition town=none does not work!
+-- Outlaw exception: If 'quest' is not triggered until here, the speaker is an outlaw or an error occurred. Condition town=none does not work!
 english, "quest", "mission" -> "I am so sorry that I cannot offer you an order. But my customers require goods of certified Runewick origin. I cannot state compliance to that requirement if I take the goods from you."
 "quest", "mission" -> "Es tut mir leid, aber ich kann euch keinen Auftrag anbieten. Meine Kunden verlangen nur nach Waren mit zertifizierter Herkunft aus Runewick. Dieser Anforderung kann ich nicht genüge tun, wenn ich eure Waren akzeptiere."
 "task", "adventure", "order", "order" -> "I am so sorry that I cannot offer you an order. But my customers require goods of certified Runewick origin. I cannot state compliance to that requirement if I take the goods from you."

@@ -38,7 +38,7 @@ function M.UseItem(user, sourceItem)
 
 end
 
--- This function is called from the coin scripts. It stores the coins in teh goblet.
+-- This function is called from the coin scripts. It stores the coins in the goblet.
 function M.putCoinsInGoblet(user, sourceItem)
     if common.isSpecialItem(sourceItem) then
         return false

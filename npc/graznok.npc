@@ -109,9 +109,9 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Go wid dat Moshi, and when 
 -- 1st quest: Provide a torch.
 
 -- Give out quest 1
-queststatus(3) = 0, english, "quest", "mission" -> inform("[New quest] The Craven Orc I"), queststatus(3) = 1, "Yoos gottur help mes. Mes want teh explore dat cave over dere, but nub hab torch fer light. Gimme torch so mes can find place fer clan fer dwellin'."
+queststatus(3) = 0, english, "quest", "mission" -> inform("[New quest] The Craven Orc I"), queststatus(3) = 1, "Yoos gottur help mes. Mes want the explore dat cave over dere, but nub hab torch fer light. Gimme torch so mes can find place fer clan fer dwellin'."
 queststatus(3) = 0, "quest", "mission" -> inform("[Neues Quest] Der feige Ork I"), queststatus(3) = 1, "Du mirr hilfst. Mirr wolle erkunden Höhle drüben dort. Aber nix hab Fackl für Licht. Gibst mirr Fackl. Mir findet Platz fürr Klan. Beißn Knochn."
-queststatus(3) = 0, "task", "adventure" -> inform("[New quest] The Craven Orc I"), queststatus(3) = 1, "Yoos gottur help mes. Mes want teh explore dat cave over dere, but nub hab torch fer light. Gimme torch so mes can find place fer clan fer dwellin'."
+queststatus(3) = 0, "task", "adventure" -> inform("[New quest] The Craven Orc I"), queststatus(3) = 1, "Yoos gottur help mes. Mes want the explore dat cave over dere, but nub hab torch fer light. Gimme torch so mes can find place fer clan fer dwellin'."
 queststatus(3) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Der feige Ork I"), queststatus(3) = 1, "Du mirr hilfst. Mirr wolle erkunden Höhle drüben dort. Aber nix hab Fackl für Licht. Gibst mirr Fackl. Mir findet Platz fürr Klan. Beißn Knochn."
 
 -- Quest 1 taken but not solved, repeat the instructions
@@ -147,9 +147,9 @@ queststatus(3) = 8, ".+" -> inform("[Quest gelöst] Du erhältst ein Steak, ein St
 -- 3rd quest: Kill 10 skeletons
 
 -- Give out quest 3
-queststatus(3) = 9, english, "quest", "mission" -> inform("[New quest] The Craven Orc III"), queststatus(3) = 10, "Cave be much more cozy widout ragmen, but dere sum bonemen, deep in cave. Nub want teh dwell in same cave as bonemen. Smash as many as yoos can count wid yoos hands!"
+queststatus(3) = 9, english, "quest", "mission" -> inform("[New quest] The Craven Orc III"), queststatus(3) = 10, "Cave be much more cozy widout ragmen, but dere sum bonemen, deep in cave. Nub want the dwell in same cave as bonemen. Smash as many as yoos can count wid yoos hands!"
 queststatus(3) = 9, "quest", "mission" -> inform("[Neues Quest] Der feige Ork III"), queststatus(3) = 10, "Höhle viel mehr gemütlich, ohne Lumpenmanns. Aber dort Knochenmanns sind. Tief in Höhle. Mir nix nagn Knochen in selbe Höhle wie Knochnman. Du zerhaust Knochenmans, so viel zu abzählst auf dein Hände."
-queststatus(3) = 9, "task", "adventure" -> inform("[New quest] The Craven Orc III"), queststatus(3) = 10, "Cave be much more cozy widout ragmen, but dere sum bonemen, deep in cave. Nub want teh dwell in same cave as bonemen. Smash as many as yoos can count wid yoos hands!"
+queststatus(3) = 9, "task", "adventure" -> inform("[New quest] The Craven Orc III"), queststatus(3) = 10, "Cave be much more cozy widout ragmen, but dere sum bonemen, deep in cave. Nub want the dwell in same cave as bonemen. Smash as many as yoos can count wid yoos hands!"
 queststatus(3) = 9, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Der feige Ork III"), queststatus(3) = 10, "Höhle viel mehr gemütlich, ohne Lumpenmanns. Aber dort Knochenmanns sind. Tief in Höhle. Mir nix nagn Knochen in selbe Höhle wie Knochnman. Du zerhaust Knochenmans, so viel zu abzählst auf dein Hände."
 
 -- Quest 3 taken but not solved, repeat the instructions

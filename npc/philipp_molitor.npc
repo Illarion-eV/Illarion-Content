@@ -3436,7 +3436,7 @@ queststatus(127) = 195, item(1437, all) < 5, town = Cadomyr, "quest", "mission" 
 queststatus(127) = 195, item(1437, all) < 5, town = Cadomyr, "task", "adventure", "order" -> "Your order is to get five assassin's armours of darkness. Please hurry. The caravan cannot wait forever."
 queststatus(127) = 195, item(1437, all) < 5, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Euer Auftrag ist es, fünf Attentäterrüstungen der Dunkelheit zu besorgen. Beeilt euch bitte, die Karawane kann nicht ewig warten."
 
--- Outlaw exception: If 'quest' is not triggered until here, the speaker is an outlaw or an error occured. Condition town=none does not work!
+-- Outlaw exception: If 'quest' is not triggered until here, the speaker is an outlaw or an error occurred. Condition town=none does not work!
 english, "quest", "mission" -> "Get lost, outlaw!"
 "quest", "mission" -> "Haut ab, Gesetzloser!"
 "task", "adventure", "order", "order" -> "Get lost, outlaw!"

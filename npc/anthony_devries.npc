@@ -5170,7 +5170,7 @@ queststatus(210) = 297, item(2626, all) < 5, town = Galmair, "quest", "mission" 
 queststatus(210) = 297, item(2626, all) < 5, town = Galmair, "task", "adventure", "order" -> "My client requires five magical waraxes. Shall I give the contract to someone else or will you deliver on time?"
 queststatus(210) = 297, item(2626, all) < 5, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Mein Auftraggeber benötigt fünf magische Kriegsäxte. Wirst du pünktlich liefern oder muss ich den Vertrag anderweitig vergeben?"
 
--- Outlaw exception: If 'quest' is not triggered until here, the speaker is an outlaw or an error occured. Condition town=none does not work!
+-- Outlaw exception: If 'quest' is not triggered until here, the speaker is an outlaw or an error occurred. Condition town=none does not work!
 english, "quest", "mission" -> "Get lost, bum!"
 "quest", "mission" -> "Hau ab du Penner!"
 "task", "adventure", "order", "order" -> "Get lost, bum!"

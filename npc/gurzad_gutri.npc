@@ -456,7 +456,7 @@ queststatus(152) = 20, item(234, all) < 1, town = Galmair, "quest", "mission" ->
 queststatus(152) = 20, item(234, all) < 1, town = Galmair, "task", "adventure", "order" -> "Have you brought it? No!? Well don't return until you have one gold nugget for me!"
 queststatus(152) = 20, item(234, all) < 1, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Bringt Ihr mir das Nugget? Nein?! Kommt nicht wieder, bevor Ihr nicht ein Goldnugget für mich habt!"
 
--- Outlaw exception: If 'quest' is not triggered until here, the speaker is an outlaw or an error occured. Condition town=none does not work!
+-- Outlaw exception: If 'quest' is not triggered until here, the speaker is an outlaw or an error occurred. Condition town=none does not work!
 english, "quest", "mission" -> "We don't need no help from anyone from that stinkin' Necktie Inn. Don't let me see you in here again."
 "quest", "mission" -> "Wir brauchen keine Hilfe von jemandem aus diesem stinkenden Gasthof zur Hanfschlinge! Lasst Euch hier nicht wieder blicken."
 "task", "adventure", "order" -> "We don't need no help from anyone from that stinkin' Necktie Inn. Don't let me see you in here again."

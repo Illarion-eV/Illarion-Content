@@ -127,7 +127,7 @@ queststatus(151) = 3, town = Cadomyr, "quest", "mission" -> "Wenn ihr weitere Ta
 queststatus(151) = 3, town = Cadomyr, "task", "adventure", "order" -> "If you want to do further deeds in the name of Cadomyr, ask Chancellor Anthar Vilicon."
 queststatus(151) = 3, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wenn ihr weitere Taten im Namen Cadomyrs vollbringen wollt, fragt Kanzler Anthar Vilicon."
 
--- Outlaw exception: If 'quest' is not triggered until here, the speaker is an outlaw or an error occured. Condition town=none does not work!
+-- Outlaw exception: If 'quest' is not triggered until here, the speaker is an outlaw or an error occurred. Condition town=none does not work!
 english, "quest", "mission" -> "You have no business here, outcast."
 "quest", "mission" -> "Für Ausgestoßene gibt es hier nichts zu holen."
 "task", "adventure", "order", "order" -> "You have no business here, outcast."
