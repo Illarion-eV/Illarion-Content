@@ -452,7 +452,7 @@ local function getBrewingDuration(user, id)
             if herb.id == id then
                 local commonHerb = world:getItemStatsFromId(herb.id)
                 local diff = alchemyLevel - commonHerb.Level
-                local max = 100 - commonHerb.Level
+                local max = math.max(1, 100 - commonHerb.Level)
                 local maxReduction = 15
                 local reductionPerLevel = maxReduction / max
                 local reduction = reductionPerLevel*diff
