@@ -271,6 +271,8 @@ function M.getListOfBottles()
 
     table.insert(retVal, Item.emptyPotion)
     table.insert(retVal, Item.emptySalveJar)
+    table.insert(retVal, Item.emptyAlchemyBomb)
+    table.insert(retVal, Item.unlitAlchemyBomb)
 
     for _, cauldronsAndBottle in pairs(cauldronsAndBottles) do
         table.insert(retVal, cauldronsAndBottle.bottle)
