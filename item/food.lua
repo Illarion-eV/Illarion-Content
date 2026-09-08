@@ -480,6 +480,10 @@ local function buffsAdding(user, sourceItem)
         dishInfo = cookingRecipeCreation.getDishInfo(sourceItem)
         buffs = dishInfo.attributes
     else --It is an old or spawned in item
+        if common.IsNilOrEmpty(M.cookedFood[sourceItem.id].buffs) then
+            return
+        end
+
         local ingredients = M.cookedFood[sourceItem.id].ingredients
         dishInfo = cookingRecipeCreation.getDishInfo(nil, ingredients)
         buffs = {}
