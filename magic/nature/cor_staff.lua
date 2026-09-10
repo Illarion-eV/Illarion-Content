@@ -22,8 +22,6 @@ local cast = require("magic.nature.cast")
 local spells = require("magic.nature.spells")
 local wood = require("item.general.wood")
 
-
-
 local M = {}
 
 M.LookAtItem = wood.LookAtItem
