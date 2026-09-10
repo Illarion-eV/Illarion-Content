@@ -20,8 +20,13 @@ local stump = require("magic.nature.weavers_stump")
 local shared = require("magic.nature.shared")
 local cast = require("magic.nature.cast")
 local spells = require("magic.nature.spells")
+local wood = require("item.general.wood")
+
+
 
 local M = {}
+
+M.LookAtItem = wood.LookAtItem
 
 local function getAttunedSpell(sourceItem)
 
