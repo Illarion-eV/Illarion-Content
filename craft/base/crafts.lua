@@ -868,14 +868,22 @@ function Craft:checkMaterial(user, productId)
     local lackText = ""
     local enoughText = ""
 
+    local recipeAmounts = {}
+
     for i = 1, #product.ingredients do
         local ingredient = product.ingredients[i]
         local available = user:countItemAt("all", ingredient.item, ingredient.data)
         local rareFoodIngredients = checkForRareIngredient(user, ingredient)
+        
+        if recipeAmounts[ingredient.item] then
+            recipeAmounts[ingredient.item] = recipeAmounts[ingredient.item]+ingredient.quantity
+        else
+            recipeAmounts[ingredient.item] = ingredient.quantity
+        end
 
         available = available + rareFoodIngredients
 
-        if available < ingredient.quantity then
+        if available < recipeAmounts[ingredient.item] then
             materialsAvailable = false
             local ingredientName = self:getLookAt(user, ingredient).name
 
