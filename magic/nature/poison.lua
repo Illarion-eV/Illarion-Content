@@ -26,6 +26,10 @@ local poisonDuration = 10 -- 10 seconds
 
 function M.applyPoison(target, damage, antidote, user)
 
+    if not target or not isValidChar(target) then
+        return
+    end
+
     damage = math.floor(damage) -- ensure whole integer
 
     local foundEffect, myEffect = target.effects:find(poisonEffectId)

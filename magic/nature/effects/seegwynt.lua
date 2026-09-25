@@ -72,6 +72,11 @@ local function clearSpace(user, objectLimit, objectId)
         local theField = world:getField(thePosition)
         local itemFound = false
 
+        if not theField then
+            table.remove(positionsToCheck, index)
+            return
+        end
+
         for i = 1, theField:countItems() do
             local checkItem = theField:getStackItem(theField:countItems() - i )
             if objectId == checkItem.id then
@@ -139,6 +144,10 @@ local function isSoil(location) -- A seedling needs suitable soil to be able to 
     local suitableSoilList = {3, 4, 8, 9, 10, 11, 12, 14, 16, 74, 75}
 
     local theField = world:getField(location)
+
+    if not theField then
+        return false
+    end
 
     local myFieldId = theField:tile()
 
