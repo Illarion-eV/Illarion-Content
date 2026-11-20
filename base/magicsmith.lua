@@ -113,7 +113,7 @@ local function getUnsocketablePositions(user)
     return socketableTable
 end
 
-function IsGemInBackpack(user, gem)
+local function IsGemInBackpack(user, gem)
     local backpack = user:getBackPack()
     if backpack then
         if gem.inside and gem.itempos > 0 then
