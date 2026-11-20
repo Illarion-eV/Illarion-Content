@@ -124,7 +124,6 @@ local function IsGemInBackpack(user, gem)
         else
             return user:getItemAt(gem.itempos)
         end
-                    
     end
     return nil
 end
