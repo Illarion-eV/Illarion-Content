@@ -113,6 +113,22 @@ local function getUnsocketablePositions(user)
     return socketableTable
 end
 
+local function IsGemInBackpack(user, gem)
+    local backpack = user:getBackPack()
+    if backpack then
+        if gem.inside and gem.itempos > 0 then
+            local found, item = backpack:viewItemNr(gem.itempos)
+            if found then
+                return item
+            end
+        else
+            return user:getItemAt(gem.itempos)
+        end
+                    
+    end
+    return nil
+end
+
 function M.handleSocketing(user, gem)
 
     if not common.CheckItem(user, gem) then
@@ -139,7 +155,7 @@ function M.handleSocketing(user, gem)
                 local key = gems.getDataKey(gem.id)
                 local level = item:getData(key)
                 local gemOwner = gem:getData("owner")
-                local itemAtPosition = user:getItemAt(gem.itempos)
+                local itemAtPosition = IsGemInBackpack(user, gem)
                 if level == "" and gems.getGemLevel(gem) == gems.getGemLevel(itemAtPosition) then
                     local newLevel = tonumber(gem:getData(gems.levelDataKey)) or 1 --If the gem has no level set, it's 1 by default.
                     item:setData(key, newLevel)
