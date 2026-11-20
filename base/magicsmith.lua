@@ -156,7 +156,6 @@ function M.handleSocketing(user, gem)
                 local level = item:getData(key)
                 local gemOwner = gem:getData("owner")
                 local itemAtPosition = IsGemInBackpack(user, gem)
-
                 if level == "" and gems.getGemLevel(gem) == gems.getGemLevel(itemAtPosition) then
                     local newLevel = tonumber(gem:getData(gems.levelDataKey)) or 1 --If the gem has no level set, it's 1 by default.
                     item:setData(key, newLevel)
