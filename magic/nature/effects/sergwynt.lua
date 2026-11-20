@@ -33,6 +33,10 @@ function M.effect(user, location, target)
 
     world:gfx(58, location)
     world:makeSound(13, location)
+    if not target or not isValidChar(target) then
+        return
+    end
+
     local amount = getAntidoteAmount(user, "Sergwynt")
     poison.applyAntidote(target, amount)
 end
