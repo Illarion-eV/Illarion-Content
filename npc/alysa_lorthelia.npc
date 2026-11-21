@@ -109,7 +109,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Will I ever see you again? 
 "How are you", "How feel", "How do you do" -> "I don't feel great today. My stomach hurts but it's not because of my food! Please don't think my food is bad!", "My head is all dizzy.", "I think I ate too much. I shouldn't eat for another few days."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich fühle mich heute nicht gut. Ich habe Magenschmerzen. Aber das liegt nicht an meinem Essen. Bitte denkt nicht, es läge an meinem Essen!", "Mir ist schwindelig.", "Ich habe zuviel gegessen. Ich sollte die nächsten zwei Tage nichts Essen."
 "your name", "who are you", "who art thou" -> "I'm the daughter of the sword crafter Aysha Lorthelia.", "I'm the oldest Lorthelia daughter, but no: I can't craft ornate weapons like my mother. Instead I bake.", "I am Alysa Lorthelia, the baker... at least for now."
-"Ihr name", "dein name", "wer bist du", "wer seid Ihr", "wie heißt", "wie heisst" -> "Ich bin die Tochter der Waffenschmiedin Aysha Lorthelia.", "Ich bin die älteste Tochter der Lorthelia, aber ich kann keine verzierten Waffen herstellen. Daher backe ich.", "Ich bin Alysa Lorthelia, die Bäckerin, zumndest zur Zeit noch."
+"Ihr name", "dein name", "wer bist du", "wer seid Ihr", "wie heiï¿½t", "wie heisst" -> "Ich bin die Tochter der Waffenschmiedin Aysha Lorthelia.", "Ich bin die ï¿½lteste Tochter der Lorthelia, aber ich kann keine verzierten Waffen herstellen. Daher backe ich.", "Ich bin Alysa Lorthelia, die Bï¿½ckerin, zumindest zur Zeit noch."
 
 -- Mandatory: Catching quest triggers. Modify if the NPC does quests
 english, "quest", "mission" -> "I don't have any tasks for you."

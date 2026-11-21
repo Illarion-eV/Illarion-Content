@@ -177,13 +177,13 @@ queststatus(515) = 22, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Hast du d
 
 -- Dark paladin dead, reward Bow (2685) and magic gem
 queststatus(515) = 23, english, ".+" -> inform("[Quest Solved] You have been awarded an elven shortbow and a magic ruby"), queststatus(515)=24, item(3521, 1, 333, "gemLevel" = "1"), item(2685, 1, 666), "It is done? There was a dark paladin inside and you have killed him? Thank the Five, Milly will not have died in vain! Please, take my bow. I have no need for it anymore. And this magical ruby. Thank you for everything."
-queststatus(515) = 23, ".+" -> inform("[Quest gelöst] Du erhältst ein Elfen-Kurzbogen und einer magischen Rubin."), queststatus(515)=24, item(3521, 1, 333, "gemLevel" = "1"), item(2685, 1, 666), "Es ist vollbracht? Da war ein dunker Paladin und du hast ihn getötet? Den Fünf sei Dank, Milly wird nicht umsonst gestorben sein! Bitte, nimm meinen Bogen. Ich brauche ihn nicht mehr. Und dieser magischen Rubin. Vielen Dank für alles."
+queststatus(515) = 23, ".+" -> inform("[Quest gelï¿½st] Du erhï¿½ltst ein Elfen-Kurzbogen und einen magischen Rubin."), queststatus(515)=24, item(3521, 1, 333, "gemLevel" = "1"), item(2685, 1, 666), "Es ist vollbracht? Da war ein dunkler Paladin und du hast ihn getï¿½tet? Den Fï¿½nf sei Dank, Milly wird nicht umsonst gestorben sein! Bitte, nimm meinen Bogen. Ich brauche ihn nicht mehr. Und diesen magischen Rubin. Vielen Dank fï¿½r alles."
 
 -- Quests compelete
 queststatus(515) = 24, english, "quest", "mission" -> "No, I don't require anything else from you. Thank you. I am going to go find a monastery to live out the rest of my life without Milly."
-queststatus(515) = 24, "quest", "mission" -> "Nein. Ich brauche nichts  von dir. Vielen Dank. Ich werde ein Kloster finden, indem ich den Rest meines Lebens ohne Milly leben kann."
+queststatus(515) = 24, "quest", "mission" -> "Nein. Ich brauche nichts von dir. Vielen Dank. Ich werde ein Kloster finden, indem ich den Rest meines Lebens ohne Milly leben kann."
 queststatus(515) = 24, english, "task", "adventure", "order" -> "No, I don't require anything else from you. Thank you. I am going to go find a monastery to live out the rest of my life without Milly."
-queststatus(515) = 24, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nein. Ich brauche nichts  von dir. Vielen Dank. Ich werde ein Kloster finden, indem ich den Rest meines Lebens ohne Milly leben kann."
+queststatus(515) = 24, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nein. Ich brauche nichts von dir. Vielen Dank. Ich werde ein Kloster finden, indem ich den Rest meines Lebens ohne Milly leben kann."
 
 -- OPTIONAL TRIGGERS
 

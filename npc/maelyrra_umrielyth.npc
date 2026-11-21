@@ -265,7 +265,7 @@ queststatus(184) = 0, chance(7.692307692), town = Runewick, "Auftrag", "Aufgabe"
 
 -- Research 69 solved, reward: nine sp, 6 rankpoints, delay: 5h
 queststatus(184) = 81, english, town = Runewick, ".*" -> inform("[Research collected] You are awarded nine silver coins."), "Thank you so much! Here, have some coins. I have to get back to work!", money + 900, queststatus(184) = 0, queststatus(185) = 0, queststatus(186) = 60
-queststatus(184) = 81, town = Runewick, ".*" -> inform("[Forschungsaufgabe abgeschlossen] Du erhältst neun Silberstücke."), "So was aber auch. Dass kann jetzt alles bedeuten. Nehmt erst mal euer Geld, vielleicht wissen wir morgen mehr.", money + 900, queststatus(184) = 0, queststatus(185) = 0, queststatus(186) = 60
+queststatus(184) = 81, town = Runewick, ".*" -> inform("[Forschungsaufgabe abgeschlossen] Du erhï¿½ltst neun Silberstï¿½cke."), "So was aber auch. Das kann jetzt alles bedeuten. Nehmt erst mal euer Geld, vielleicht wissen wir morgen mehr.", money + 900, queststatus(184) = 0, queststatus(185) = 0, queststatus(186) = 60
 
 -- Research 69 taken but not solved, repeat the instructions
 queststatus(184) ~= 0, queststatus(184) < 81, english, town = Runewick, "quest", "mission" -> "Please kill twelve wolves and see if they are foaming at the mouth."

@@ -95,7 +95,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell.", "Goodbye."
 "How are you", "How feel", "How do you do" -> "I'm fine, thanks... and how are ya?", "Good, good."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir jeht ett wunderbar und wie jeht et Euch?", "Jut, jut."
 "your name", "who are you", "who art thou" -> "Me? I'm the goldsmith of Galmair, the hard working Antonius."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ick? Ick bin der Goldchmied von Galmair, der fleißge Antonius."
+"dein name", "wer bist du", "wer seid ihr", "wie heiï¿½t", "wie heisst" -> "Ick? Ick bin der Goldschmied von Galmair, der fleiï¿½ge Antonius."
 
 -- Catching quest triggers. Modify if the NPC does quests.
 english, "quest", "mission" -> "At the moment I have nothing for ya to do. Sorry."

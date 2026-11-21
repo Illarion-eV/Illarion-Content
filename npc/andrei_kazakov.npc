@@ -89,7 +89,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Good riddance. Be glad I di
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am a priest of Moshran. I spread his teachings across Illarion. Those who do not bow down to his will, will soon meet him in the afterlife."
 english, "job" -> "I am a priest of Moshran. I spread his teachings across Illarion. Those who do not bow down to his will, will soon meet him in the afterlife."
-"job", "beruf" -> "Ich bin Priester von Moshran. Ich verbreite seine Lehren in Illarion und  wer sich nicht seinem Willen beugt wird ihn bald im Jenseits kennenlernen."
+"job", "beruf" -> "Ich bin Priester von Moshran. Ich verbreite seine Lehren in Illarion und wer sich nicht seinem Willen beugt, wird ihn bald im Jenseits kennenlernen."
 
 -- Gods
 "God" -> "There is only one god that matters. Moshran."
