@@ -67,7 +67,7 @@ itemShoes = 53
 -- queststatus(305) Overview "spionage bei den Piraten"
 -- QuestID=305
 -- 1: Quest started. 'spy the pirates' - Player is sended into Pirate Bay. To search Tobis vunu.
--- 2: Player is ordered to dress like a pirate and burn the tobacco field with a toarch.
+-- 2: Player is ordered to dress like a pirate and burn the tobacco field with a torch.
 -- 3: Player burned the tabaco field
 -- 4: Tobis vunu hands you 3 silver
 -- 5: Secret Message told.

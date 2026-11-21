@@ -120,7 +120,7 @@ english, "job" -> "I am a magical blacksmith. How one becomes a magical blacksmi
 "erzähl was", "erzähl etwas" -> "Es jibt Dinge die willste gar nich' wissen. Klar?"
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
-"how do", "how does", "magical Blacksmith" -> "That's none of your business!", "That is a professional secret.", "There are thing ya dont wish to kown. Got it?"
+"how do", "how does", "magical Blacksmith" -> "That's none of your business!", "That is a professional secret.", "There are things ya don't wish to know. Got it?"
 "wie machst", "wie macht", "Magical Blacksmith" -> "Datt jeht dich 'ne feuchten Dreck an!", "Datt is nen Berufsjeheimnis!", "Es jibt Dinge die willste gar nich' wissen. Klar?"
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights

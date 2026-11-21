@@ -73,7 +73,7 @@ buySecondaryItems = 2, 3
 -- Style of triggers: Keywords are preferred. Avoid usage of phrases such as "tell me more"
 -- Valid races: human, elf, dwarf, lizardman, orc, halfling
 -- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
--- Appearance: If you don't change anything your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Appearance: If you don't change anything your NPC will wear a blue shirt, black trousers, leather gloves and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
 -- A helpful list of colours can be found here: http://www.wackerart.de/rgbfarben.html
 -- Equipment: You can find a graphical item list here: https://illarion.org/~devserver/items/items.html
 -- After uploading, your NPC needs to be submitted to the database and a developer has to perform a full reload (!fr) of the server
@@ -117,7 +117,7 @@ english, "job" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "tell something" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
--- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
+-- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his environment
 "YOURTRIGGER1" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "YOURTRIGGER2" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "YOURTRIGGER3" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."

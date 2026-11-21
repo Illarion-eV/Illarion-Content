@@ -257,7 +257,7 @@ english, "Ushara" -> "Us dwarves honour Ushara. Maybe not every day and with hig
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "I do not sell or buy anything, but I could use ya help.", "Do I really look like a trader?", "I'm no trader, I'm a miner!"
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich kaufe und verkaufe nichts, aber ich könnte Hilfe gebrauchen.", "Seh' ich wirklich wie 'n Händler aus?", "Ich bin kein Händler, sondern 'n Bergarbeiter."
-"tell something" -> "If you want to hear a story, ya in da wrong place.", "I'm here to work, not to tell stories.", "My Gold Nugget is my most precious posession."
+"tell something" -> "If you want to hear a story, ya in da wrong place.", "I'm here to work, not to tell stories.", "My Gold Nugget is my most precious possession."
 "erzähl was", "erzähl etwas" -> "Wenn du 'ne Geschichte hören wollt, biste am falschen Ort.", "Ich bin nicht zum Geschichtenerzählen hier, sondern zum Arbeiten.", "Mein Goldnugget ist mein wertvollster Besitz."
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
 "kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
